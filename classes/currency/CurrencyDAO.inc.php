@@ -52,9 +52,9 @@ class CurrencyDAO extends DAO {
 			$notes[] = array('debug.notes.currencyListLoad', array('filename' => $filename));
 
 			// Reload locale registry file
-			$xmlDao = &new XMLDAO();
+			$xmlDao =& new XMLDAO();
 			$data = $xmlDao->parseStruct($filename, array('currency'));
-	
+
 			// Build array with ($charKey => array(stuff))
 			if (isset($data['currency'])) {
 				foreach ($data['currency'] as $currencyData) {
@@ -109,11 +109,11 @@ class CurrencyDAO extends DAO {
 	 * @return Currency
 	 */
 	function &_returnCurrencyFromRow($codeAlpha, &$entry) {
-		$currency = &new Currency();
+		$currency =& new Currency();
 		$currency->setCodeAlpha($codeAlpha);
 		$currency->setName($entry[0]);
 		$currency->setCodeNumeric($entry[1]);
-		
+
 		HookRegistry::call('CurrencyDAO::_returnCurrencyFromRow', array(&$currency, &$codeAlpha, &$entry));
 
 		return $currency;

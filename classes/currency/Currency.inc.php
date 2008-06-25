@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package currency 
+ * @package currency
  * @class Currency
  *
  * Currency class.
@@ -21,11 +21,11 @@ class Currency extends DataObject {
 	function Currency() {
 		parent::DataObject();
 	}
-	
+
 	//
 	// Get/set methods
 	//
-	
+
 	/**
 	 * Get the name of the currency.
 	 * @return string
@@ -33,7 +33,7 @@ class Currency extends DataObject {
 	function getName() {
 		return $this->getData('name');
 	}
-	
+
 	/**
 	 * Set the name of the currency.
 	 * @param $name string
@@ -44,12 +44,12 @@ class Currency extends DataObject {
 
 	/**
 	 * Get currency alpha code.
-	 * @return string 
+	 * @return string
 	 */
 	function getCodeAlpha() {
 		return $this->getData('codeAlpha');
 	}
-	
+
 	/**
 	 * Set currency alpha code.
 	 * @param $alphaCode string
@@ -60,12 +60,12 @@ class Currency extends DataObject {
 
 	/**
 	 * Get currency numeric code.
-	 * @return int 
+	 * @return int
 	 */
 	function getCodeNumeric() {
 		return $this->getData('codeNumeric');
 	}
-	
+
 	/**
 	 * Set currency numeric code.
 	 * @param $codeNumeric string

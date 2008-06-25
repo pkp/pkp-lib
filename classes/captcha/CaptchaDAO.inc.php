@@ -26,10 +26,10 @@ class CaptchaDAO extends DAO {
 	function &getCaptchasBySessionId($sessionId) {
 		$captchas = array();
 
-		$result = &$this->retrieve('SELECT * FROM captchas WHERE session_id = ?', $sessionId);
+		$result =& $this->retrieve('SELECT * FROM captchas WHERE session_id = ?', $sessionId);
 
 		while (!$result->EOF) {
-			$captchas[] = &$this->_returnCaptchaFromRow($result->GetRowAssoc(false));
+			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
 			$result->moveNext();
 		}
 
@@ -48,10 +48,10 @@ class CaptchaDAO extends DAO {
 		$captchas = array();
 		$threshold = time() - $lifespan;
 
-		$result = &$this->retrieve('SELECT c.* FROM captchas c LEFT JOIN sessions s ON (s.session_id = c.session_id) WHERE s.session_id IS NULL OR c.date_created <= ' . $this->datetimeToDB($threshold));
+		$result =& $this->retrieve('SELECT c.* FROM captchas c LEFT JOIN sessions s ON (s.session_id = c.session_id) WHERE s.session_id IS NULL OR c.date_created <= ' . $this->datetimeToDB($threshold));
 
 		while (!$result->EOF) {
-			$captchas[] = &$this->_returnCaptchaFromRow($result->GetRowAssoc(false));
+			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
 			$result->moveNext();
 		}
 
@@ -67,20 +67,20 @@ class CaptchaDAO extends DAO {
 	 * @return Captcha object
 	 */
 	function &getCaptcha($captchaId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM captchas WHERE captcha_id = ?', $captchaId
 		);
 
 		$captcha = null;
 		if ($result->RecordCount() != 0) {
-			$captcha = &$this->_returnCaptchaFromRow($result->GetRowAssoc(false));
+			$captcha =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
 		unset($result);
 
 		return $captcha;
-	}	
+	}
 
 	/**
 	 * Creates and returns a captcha object from a row
@@ -88,7 +88,7 @@ class CaptchaDAO extends DAO {
 	 * @return Captcha object
 	 */
 	function &_returnCaptchaFromRow($row) {
-		$captcha = &new Captcha();
+		$captcha =& new Captcha();
 		$captcha->setCaptchaId($row['captcha_id']);
 		$captcha->setSessionId($row['session_id']);
 		$captcha->setValue($row['value']);
@@ -128,7 +128,7 @@ class CaptchaDAO extends DAO {
 	 */
 	function getInsertCaptchaId() {
 		return $this->getInsertId('captchas', 'captcha_id');
-	}	
+	}
 
 	/**
 	 * removes a captcha from captchas table

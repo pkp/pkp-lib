@@ -423,7 +423,6 @@ class Mail extends DataObject {
 			'',
 			$displayName
 		) . '"');
-
 	}
 }
 

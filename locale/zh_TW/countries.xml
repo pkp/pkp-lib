@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-	
+
 <!--
   * countries.xml
   *
@@ -18,7 +18,7 @@
 			code CDATA #REQUIRED
 			name CDATA #REQUIRED>
 ]>
-	
+
 <countries>
 	<country name="奧蘭群島" code="AX"/>
 	<country name="阿爾巴尼亞" code="AL"/>

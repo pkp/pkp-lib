@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
 <!--
   * countries.xml
   *
-  * Copyright (c) 2003-2008 John Willinsky
+  * Copyright (c) 2000-2008 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
@@ -18,7 +18,7 @@
 			code CDATA #REQUIRED
 			name CDATA #REQUIRED>
 ]>
-	
+
 <countries>
 	<country name="アイスランド" code="IS"/>
 	<country name="アイルランド" code="IE"/>

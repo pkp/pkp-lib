@@ -1,18 +1,20 @@
 <?php
 
 /**
- * @file String.inc.php
+ * @file classes/core/String.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package core
  * @class String
+ * @ingroup core
  *
- * String manipulation wrapper class.
+ * @brief String manipulation wrapper class.
  *
- * $Id$
  */
+
+// $Id$
+
 
 class String {
 	/**

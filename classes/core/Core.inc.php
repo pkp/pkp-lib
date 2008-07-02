@@ -1,18 +1,24 @@
 <?php
 
 /**
- * @file Core.inc.php
+ * @defgroup core
+ */
+
+/**
+ * @file classes/core/Core.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package core
  * @class Core
+ * @ingroup core
  *
- * Class containing system-wide functions.
+ * @brief Class containing system-wide functions.
  *
- * $Id$
  */
+
+// $Id$
+
 
 class Core {
 	/**

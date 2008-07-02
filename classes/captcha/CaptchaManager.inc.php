@@ -1,18 +1,20 @@
 <?php
 
 /**
- * @file CaptchaManager.inc.php
+ * @file classes/captcha/CaptchaManager.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package file
  * @class CaptchaManager
+ * @ingroup file
+ * @see CaptchaDAO, Captcha
  *
- * Class defining operations for CAPTCHA test management.
- *
- * $Id$
+ * @brief Class defining operations for temporary file management.
  */
+
+// $Id$
+
 
 import('file.FileManager');
 

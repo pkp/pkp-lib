@@ -1,18 +1,20 @@
 <?php
 
 /**
- * @file CountryDAO.inc.php
+ * @file classes/i18n/CountryDAO.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package user
  * @class CountryDAO
+ * @package i18n
  *
- * Provides methods for loading localized country name data.
+ * @brief Provides methods for loading localized country name data.
  *
- * $Id$
  */
+
+// $Id$
+
 
 class CountryDAO extends DAO {
 	var $cache;

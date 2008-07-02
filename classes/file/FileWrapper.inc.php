@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup file_wrapper
+ */
+
+/**
  * @file classes/file/FileWrapper.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky

@@ -1,19 +1,21 @@
 <?php
 
 /**
- * @file HTTPSFileWrapper.inc.php
+ * @file classes/file/wrappers/HTTPSFileWrapper.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package file.wrappers
  * @class HTTPSFileWrapper
+ * @ingroup file_wrappers
  *
- * Class abstracting operations for reading remote files using various protocols.
+ * @brief Class abstracting operations for reading remote files using various protocols.
  * (for when allow_url_fopen is disabled).
  *
- * $Id$
  */
+
+// $Id$
+
 
 import('file.wrappers.HTTPFileWrapper');
 

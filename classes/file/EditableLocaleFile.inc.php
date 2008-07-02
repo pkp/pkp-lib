@@ -1,18 +1,20 @@
 <?php
 
 /**
- * @file EditableLocaleFile.inc.php
+ * @file classes/file/EditableLocaleFile.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package file
  * @class EditableLocaleFile
+ * @ingroup file
  *
- * This extension of LocaleFile.inc.php supports updating.
+ * @brief This extension of LocaleFile.inc.php supports updating.
  *
- * $Id$
  */
+
+// $Id$
+
 
 import('file.EditableFile');
 

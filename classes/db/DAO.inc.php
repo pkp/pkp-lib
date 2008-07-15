@@ -20,6 +20,10 @@
 // $Id$
 
 
+import('db.DBConnection');
+import('db.DAOResultFactory');
+import('core.DataObject');
+
 class DAO {
 	/** The database connection object */
 	var $_dataSource;

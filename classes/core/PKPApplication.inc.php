@@ -94,6 +94,15 @@ class PKPApplication {
 	}
 
 	/**
+	 * Get the URL to the XML descriptor for the current version of this
+	 * application.
+	 * @return string
+	 */
+	function getVersionDescriptorUrl() {
+		fatalError('Abstract method');
+	}
+
+	/**
 	 * Determine whether or not this request is cacheable
 	 * @return boolean
 	 */

@@ -75,6 +75,14 @@ class PKPApplication {
 	}
 
 	/**
+	 * Get the locale key for the name of this application.
+	 * @return string
+	 */
+	function getNameKey() {
+		fatalError('Abstract method');
+	}
+
+	/**
 	 * Get the "context depth" of this application, i.e. the number of
 	 * parts of the URL after index.php that represent the context of
 	 * the current request (e.g. Journal [1], or Conference and
@@ -138,7 +146,6 @@ class PKPApplication {
 		echo $contents;
 		return true;
 	}
-
 }
 
 ?>

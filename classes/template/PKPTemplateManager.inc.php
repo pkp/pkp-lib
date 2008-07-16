@@ -82,6 +82,9 @@ class PKPTemplateManager extends Smarty {
 		// If there's a locale-specific stylesheet, add it.
 		if (($localeStyleSheet = Locale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet(Request::getBaseUrl() . '/' . $localeStyleSheet);
 
+		$application =& PKPApplication::getApplication();
+		$this->assign('pageTitle', $application->getNameKey());
+
 		// Register custom functions
 		$this->register_modifier('translate', array('Locale', 'translate'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
@@ -107,6 +110,22 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 
 		$this->register_function('url', array(&$this, 'smartyUrl'));
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+			/**
+			 * Kludge to make sure no code that tries to connect to
+			 * the database is executed (e.g., when loading
+			 * installer pages).
+			 */
+			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
+
+			$versionDAO = &DAORegistry::getDAO('VersionDAO');
+			$currentVersion = $versionDAO->getCurrentVersion();
+			$this->assign('currentVersionString', $currentVersion->getVersionString());
+
+			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
+			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
+		}
 
 		$this->initialized = false;
 	}

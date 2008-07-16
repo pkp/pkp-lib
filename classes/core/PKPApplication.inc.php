@@ -155,6 +155,26 @@ class PKPApplication {
 		echo $contents;
 		return true;
 	}
+
+	/**
+	 * Get the map of DAOName => full.class.Path for this application.
+	 * @return array
+	 */
+	function getDAOMap() {
+		return array();
+	}
+
+	/**
+	 * Return the fully-qualified (e.g. page.name.ClassNameDAO) name of the
+	 * given DAO.
+	 * @param $name string
+	 * @return string
+	 */
+	function getQualifiedDAOName($name) {
+		$map =& Registry::get('daoMap', true, $this->getDAOMap());
+		if (isset($map[$name])) return $map[$name];
+		return null;
+	}
 }
 
 ?>

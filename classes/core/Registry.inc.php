@@ -30,13 +30,19 @@ class Registry {
 	/**
 	 * Get the value of an item in the registry.
 	 * @param $key string
+	 * @param $createIfEmpty boolean Whether or not to create the entry if none exists
+	 * @param $createWithDefault mixed If $createIfEmpty, this value will be used as a default
 	 * @return mixed
 	 */
-	function &get($key) {
+	function &get($key, $createIfEmpty = false, $createWithDefault = null) {
 		$registry =& Registry::getRegistry();
 
 		$result = null;
 		if (isset($registry[$key])) $result =& $registry[$key];
+		elseif ($createIfEmpty) {
+			$result = $createWithDefault;
+			Registry::set($key, $result);
+		}
 		return $result;
 	}
 

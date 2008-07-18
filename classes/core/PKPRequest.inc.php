@@ -373,7 +373,7 @@ class PKPRequest {
 
 		if (!isset($page)) {
 			if (Request::isPathInfoEnabled()) {
-				$application = PKPApplication::getApplication();if (!$application) fatalError("HERE");
+				$application = PKPApplication::getApplication();
 				$contextDepth = $application->getContextDepth();
 				$page = '';
 				if (isset($_SERVER['PATH_INFO'])) {

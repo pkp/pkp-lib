@@ -36,20 +36,20 @@ class PKPRequest {
 	 * Redirect to the current URL, forcing the HTTPS protocol to be used.
 	 */
 	function redirectSSL() {
-		$url = 'https://' . Request::getServerHost() . Request::getRequestPath();
-		$queryString = Request::getQueryString();
+		$url = 'https://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
+		$queryString = PKPRequest::getQueryString();
 		if (!empty($queryString)) $url .= "?$queryString";
-		Request::redirectUrl($url);
+		PKPRequest::redirectUrl($url);
 	}
 
 	/**
 	 * Redirect to the current URL, forcing the HTTP protocol to be used.
 	 */
 	function redirectNonSSL() {
-		$url = 'http://' . Request::getServerHost() . Request::getRequestPath();
-		$queryString = Request::getQueryString();
+		$url = 'http://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
+		$queryString = PKPRequest::getQueryString();
 		if (!empty($queryString)) $url .= "?$queryString";
-		Request::redirectUrl($url);
+		PKPRequest::redirectUrl($url);
 	}	
 
 	/**
@@ -60,10 +60,10 @@ class PKPRequest {
 		static $baseUrl;
 
 		if (!isset($baseUrl)) {
-			$serverHost = Request::getServerHost(null);
+			$serverHost = PKPRequest::getServerHost(null);
 			if ($serverHost !== null) {
 				// Auto-detection worked.
-				$baseUrl = Request::getProtocol() . '://' . Request::getServerHost() . Request::getBasePath();
+				$baseUrl = PKPRequest::getProtocol() . '://' . PKPRequest::getServerHost() . PKPRequest::getBasePath();
 			} else {
 				// Auto-detection didn't work (e.g. this is a command-line call); use configuration param
 				$baseUrl = Config::getVar('general', 'base_url');
@@ -100,7 +100,7 @@ class PKPRequest {
 		static $indexUrl;
 
 		if (!isset($indexUrl)) {
-			$indexUrl = Request::getBaseUrl() . '/' . INDEX_SCRIPTNAME;
+			$indexUrl = PKPRequest::getBaseUrl() . '/' . INDEX_SCRIPTNAME;
 			HookRegistry::call('Request::getIndexUrl', array(&$indexUrl));
 		}
 
@@ -115,8 +115,8 @@ class PKPRequest {
 		static $completeUrl;
 
 		if (!isset($completeUrl)) {
-			$completeUrl = Request::getRequestUrl();
-			$queryString = Request::getQueryString();
+			$completeUrl = PKPRequest::getRequestUrl();
+			$queryString = PKPRequest::getQueryString();
 			if (!empty($queryString)) $completeUrl .= "?$queryString";
 			HookRegistry::call('Request::getCompleteUrl', array(&$completeUrl));
 		}
@@ -132,7 +132,7 @@ class PKPRequest {
 		static $requestUrl;
 
 		if (!isset($requestUrl)) {
-			$requestUrl = Request::getProtocol() . '://' . Request::getServerHost() . Request::getRequestPath();
+			$requestUrl = PKPRequest::getProtocol() . '://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
 			HookRegistry::call('Request::getRequestUrl', array(&$requestUrl));
 		}
 
@@ -162,7 +162,7 @@ class PKPRequest {
 		static $requestPath;
 		if (!isset($requestPath)) {
 			$requestPath = $_SERVER['SCRIPT_NAME'];
-			if (Request::isPathInfoEnabled()) {
+			if (PKPRequest::isPathInfoEnabled()) {
 				$requestPath .= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
 			}
 			HookRegistry::call('Request::getRequestPath', array(&$requestPath));
@@ -212,7 +212,7 @@ class PKPRequest {
 	 * @return boolean
 	 */
 	function isPost() {
-		return (Request::getRequestMethod() == 'POST');
+		return (PKPRequest::getRequestMethod() == 'POST');
 	}
 
 	/**
@@ -220,7 +220,7 @@ class PKPRequest {
 	 * @return boolean
 	 */
 	function isGet() {
-		return (Request::getRequestMethod() == 'GET');
+		return (PKPRequest::getRequestMethod() == 'GET');
 	}
 
 	/**
@@ -259,7 +259,7 @@ class PKPRequest {
 		static $remoteDomain;
 		if (!isset($remoteDomain)) {
 			$remoteDomain = null;
-			$remoteDomain = @getHostByAddr(Request::getRemoteAddr());
+			$remoteDomain = @getHostByAddr(PKPRequest::getRemoteAddr());
 			HookRegistry::call('Request::getRemoteDomain', array(&$remoteDomain));
 		}
 		return $remoteDomain;
@@ -293,7 +293,7 @@ class PKPRequest {
 	function isBot() {
 		static $isBot;
 		if (!isset($isBot)) {
-			$userAgent = Request::getUserAgent();
+			$userAgent = PKPRequest::getUserAgent();
 			$isBot = false;
 			$userAgentsFile = Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'botAgents.txt';
 			$regexps = array_filter(file($userAgentsFile), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
@@ -372,7 +372,7 @@ class PKPRequest {
 		static $page;
 
 		if (!isset($page)) {
-			if (Request::isPathInfoEnabled()) {
+			if (PKPRequest::isPathInfoEnabled()) {
 				$application = PKPApplication::getApplication();
 				$contextDepth = $application->getContextDepth();
 				$page = '';
@@ -383,7 +383,7 @@ class PKPRequest {
 					}
 				}
 			} else {
-				$page = Request::getUserVar('page');
+				$page = PKPRequest::getUserVar('page');
 			}
 		}
 
@@ -398,7 +398,7 @@ class PKPRequest {
 		static $op;
 
 		if (!isset($op)) {
-			if (Request::isPathInfoEnabled()) {
+			if (PKPRequest::isPathInfoEnabled()) {
 				$application = PKPApplication::getApplication();
 				$contextDepth = $application->getContextDepth();
 				$op = '';
@@ -409,7 +409,7 @@ class PKPRequest {
 					}
 				}
 			} else {
-				return Request::getUserVar('op');
+				return PKPRequest::getUserVar('op');
 			}
 			$op = empty($op) ? 'index' : $op;
 		}
@@ -422,7 +422,7 @@ class PKPRequest {
 	 * @return array
 	 */
 	function getRequestedArgs() {
-		if (Request::isPathInfoEnabled()) {
+		if (PKPRequest::isPathInfoEnabled()) {
 			$args = array();
 			if (isset($_SERVER['PATH_INFO'])) {
 				$application = PKPApplication::getApplication();
@@ -436,7 +436,7 @@ class PKPRequest {
 				}
 			}
 		} else {
-			$args = Request::getUserVar('path');
+			$args = PKPRequest::getUserVar('path');
 			if (empty($args)) $args = array();
 			elseif (!is_array($args)) $args = array($args);
 		}
@@ -456,7 +456,7 @@ class PKPRequest {
 
 		if (isset($vars[$key])) {
 			// FIXME Do not clean vars again if function is called more than once?
-			Request::cleanUserVar($vars[$key]);
+			PKPRequest::cleanUserVar($vars[$key]);
 			return $vars[$key];
 		} else {
 			return null;
@@ -476,14 +476,14 @@ class PKPRequest {
 	 * @return Date
 	 */
 	function getUserDateVar($prefix, $defaultDay = null, $defaultMonth = null, $defaultYear = null, $defaultHour = 0, $defaultMinute = 0, $defaultSecond = 0) {
-		$monthPart = Request::getUserVar($prefix . 'Month');
-		$dayPart = Request::getUserVar($prefix . 'Day');
-		$yearPart = Request::getUserVar($prefix . 'Year');
-		$hourPart = Request::getUserVar($prefix . 'Hour');
-		$minutePart = Request::getUserVar($prefix . 'Minute');
-		$secondPart = Request::getUserVar($prefix . 'Second');
+		$monthPart = PKPRequest::getUserVar($prefix . 'Month');
+		$dayPart = PKPRequest::getUserVar($prefix . 'Day');
+		$yearPart = PKPRequest::getUserVar($prefix . 'Year');
+		$hourPart = PKPRequest::getUserVar($prefix . 'Hour');
+		$minutePart = PKPRequest::getUserVar($prefix . 'Minute');
+		$secondPart = PKPRequest::getUserVar($prefix . 'Second');
 
-		switch (Request::getUserVar($prefix . 'Meridian')) {
+		switch (PKPRequest::getUserVar($prefix . 'Meridian')) {
 			case 'pm':
 				if (is_numeric($hourPart) && $hourPart != 12) $hourPart += 12;
 				break;
@@ -512,7 +512,7 @@ class PKPRequest {
 	function cleanUserVar(&$var, $stripHtml = false) {
 		if (isset($var) && is_array($var)) {
 			foreach ($var as $key => $value) {
-				Request::cleanUserVar($var[$key], $stripHtml);
+				PKPRequest::cleanUserVar($var[$key], $stripHtml);
 			}
 		} else if (isset($var)) {
 			$var = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($var) : $var);
@@ -529,7 +529,7 @@ class PKPRequest {
 	function getCookieVar($key) {
 		if (isset($_COOKIE[$key])) {
 			$value = $_COOKIE[$key];
-			Request::cleanUserVar($value);
+			PKPRequest::cleanUserVar($value);
 			return $value;
 		} else {
 			return null;
@@ -542,7 +542,7 @@ class PKPRequest {
 	 * @param $value mixed
 	 */
 	function setCookieVar($key, $value) {
-		setcookie($key, $value, 0, Request::getBasePath());
+		setcookie($key, $value, 0, PKPRequest::getBasePath());
 		$_COOKIE[$key] = $value;
 	}
 
@@ -557,14 +557,14 @@ class PKPRequest {
 	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
 	 */
 /*	function url($journalPath = null, $page = null, $op = null, $path = null, $params = null, $anchor = null, $escape = false) {
-		$pathInfoDisabled = !Request::isPathInfoEnabled();
+		$pathInfoDisabled = !PKPRequest::isPathInfoEnabled();
 
 		$amp = $escape?'&amp;':'&';
 		$prefix = $pathInfoDisabled?$amp:'?';
 
 		// Establish defaults for page and op
-		$defaultPage = Request::getRequestedPage();
-		$defaultOp = Request::getRequestedOp();
+		$defaultPage = PKPRequest::getRequestedPage();
+		$defaultOp = PKPRequest::getRequestedOp();
 
 		// If a journal has been specified, don't supply default
 		// page or op.
@@ -573,7 +573,7 @@ class PKPRequest {
 			$defaultPage = null;
 			$defaultOp = null;
 		} else {
-			$journal =& Request::getJournal();
+			$journal =& PKPRequest::getJournal();
 			if ($journal) $journalPath = $journal->getPath();
 			else $journalPath = 'index';
 		}
@@ -642,7 +642,7 @@ class PKPRequest {
 			}
 		}
 
-		return ((empty($overriddenBaseUrl)?Request::getIndexUrl():$overriddenBaseUrl) . $baseParams . $pathString . $additionalParams . $anchor);
+		return ((empty($overriddenBaseUrl)?PKPRequest::getIndexUrl():$overriddenBaseUrl) . $baseParams . $pathString . $additionalParams . $anchor);
 	}*/
 
 /*	function isCacheable() {
@@ -650,7 +650,7 @@ class PKPRequest {
 		if (!Config::getVar('general', 'installed')) return false;
 		if (!empty($_POST) || Validation::isLoggedIn()) return false;
 		if (!Config::getVar('cache', 'web_cache')) return false;
-		if (!Request::isPathInfoEnabled()) {
+		if (!PKPRequest::isPathInfoEnabled()) {
 			$ok = array('journal', 'page', 'op', 'path');
 			if (!empty($_GET) && count(array_diff(array_keys($_GET), $ok)) != 0) {
 				return false;
@@ -659,7 +659,7 @@ class PKPRequest {
 			if (!empty($_GET)) return false;
 		}
 
-		if (in_array(Request::getRequestedPage(), array(
+		if (in_array(PKPRequest::getRequestedPage(), array(
 			'about', 'announcement', 'help', 'index', 'information', 'rt', 'issue', ''
 		))) return true;
 
@@ -669,11 +669,11 @@ class PKPRequest {
 	function getCacheFilename() {
 		static $cacheFilename;
 		if (!isset($cacheFilename)) {
-			if (Request::isPathInfoEnabled()) {
+			if (PKPRequest::isPathInfoEnabled()) {
 				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
 				$id .= '-' . Locale::getLocale();
 			} else {
-				$id = Request::getUserVar('journal') . '-' . Request::getUserVar('page') . '-' . Request::getUserVar('op') . '-' . Request::getUserVar('path') . '-' . Locale::getLocale();
+				$id = PKPRequest::getUserVar('journal') . '-' . PKPRequest::getUserVar('page') . '-' . PKPRequest::getUserVar('op') . '-' . PKPRequest::getUserVar('path') . '-' . Locale::getLocale();
 			}
 			$path = dirname(dirname(dirname(__FILE__)));
 			$cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
@@ -682,7 +682,7 @@ class PKPRequest {
 	}
 
 	function cacheContent($contents) {
-		$filename = Request::getCacheFilename();
+		$filename = PKPRequest::getCacheFilename();
 		$fp = fopen($filename, 'w');
 		if ($fp) {
 			fwrite($fp, mktime() . ':' . $contents);
@@ -692,7 +692,7 @@ class PKPRequest {
 	}
 
 	function displayCached() {
-		$filename = Request::getCacheFilename();
+		$filename = PKPRequest::getCacheFilename();
 		if (!file_exists($filename)) return false;
 
 		$fp = fopen($filename, 'r');

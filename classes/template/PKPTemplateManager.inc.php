@@ -453,6 +453,7 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign('debugExecutionTime', Core::microtime() - Registry::get('system.debug.startTime'));
 			$dbconn = &DBConnection::getInstance();
 			$smarty->assign('debugNumDatabaseQueries', $dbconn->getNumQueries());
+			$smarty->assign('debugMemoryUsage', memory_get_usage());
 			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));
 		}
 

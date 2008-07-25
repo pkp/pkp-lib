@@ -38,7 +38,7 @@ class SessionManager {
 		ini_set('session.use_cookies', 1);
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
-		ini_set('session.cookie_path', Request::getBasePath() . '/');
+		ini_set('session.cookie_path', PKPRequest::getBasePath() . '/');
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
@@ -57,8 +57,8 @@ class SessionManager {
 		session_start();
 		$sessionId = session_id();
 
-		$ip = Request::getRemoteAddr();
-		$userAgent = Request::getUserAgent();
+		$ip = PKPRequest::getRemoteAddr();
+		$userAgent = PKPRequest::getUserAgent();
 		$now = time();
 
 		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != $userAgent) {

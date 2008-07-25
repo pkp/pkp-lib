@@ -35,7 +35,7 @@ class PKPApplication {
 		mt_srand(((double) microtime()) * 1000000);
 
 		import('core.Core');
-		import('core.Request');
+		import('core.PKPRequest');
 		import('core.String');
 		import('core.Registry');
 
@@ -43,8 +43,6 @@ class PKPApplication {
 
 		import('db.DAORegistry');
 		import('db.XMLDAO');
-
-		import('i18n.Locale');
 
 		import('security.Validation');
 		import('session.SessionManager');

@@ -17,7 +17,6 @@
 
 // Database installation files
 define('INSTALLER_DATA_DIR', 'dbscripts/xml');
-define('INSTALLER_DOCS_DIR', 'docs');
 
 // Installer error codes
 define('INSTALLER_ERROR_GENERAL', 1);
@@ -343,7 +342,7 @@ class Installer {
 
 		} else {
 			$newFileName = str_replace('{$locale}', $this->locale, $fileName);
-			if (!file_exists(INSTALLER_DATA_DIR . '/'. $newFileName)) {
+			if (!file_exists($newFileName)) {
 				// Use version from default locale if data file is not available in the selected locale
 				$newFileName = str_replace('{$locale}', INSTALLER_DEFAULT_LOCALE, $fileName);
 			}
@@ -365,7 +364,7 @@ class Installer {
 	function executeAction($action) {
 		switch ($action['type']) {
 			case 'schema':
-				$fileName = INSTALLER_DATA_DIR . '/'. $action['file'];
+				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
 				require_once('adodb-xmlschema.inc.php');
@@ -381,7 +380,7 @@ class Installer {
 				}
 				break;
 			case 'data':
-				$fileName = INSTALLER_DATA_DIR . '/'. $action['file'];
+				$fileName = $action['file'];
 				$this->log(sprintf('data: %s', $action['file']));
 				$sql = $this->dataXMLParser->parseData($fileName);
 				if ($sql) {
@@ -405,7 +404,7 @@ class Installer {
 				break;
 			case 'note':
 				$this->log(sprintf('note: %s', $action['file']));
-				$this->notes[] = join('', file(INSTALLER_DOCS_DIR . '/' . $action['file']));
+				$this->notes[] = join('', file($action['file']));
 				break;
 		}
 

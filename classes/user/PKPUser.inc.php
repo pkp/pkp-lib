@@ -63,6 +63,22 @@ class PKPUser extends DataObject {
 	}
 
 	/**
+	 * Get implicit auth ID string.
+	 * @return String
+	 */
+	function getAuthStr() {
+		return $this->getData('authStr');
+	}
+
+	/**
+	 * Set Shib ID string for this user.
+	 * @param $authStr string
+	 */
+	function setAuthStr($authStr) {
+		return $this->setData('authStr', $authStr);
+	}
+
+	/**
 	 * Get localized user signature.
 	 */
 	function getUserSignature() {

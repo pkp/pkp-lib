@@ -30,20 +30,11 @@ class SiteDAO extends DAO {
 		);
 
 		if ($result->RecordCount() != 0) {
-			$site = $this->_returnSiteFromRowWithData($result->GetRowAssoc(false));
+			$site = $this->_returnSiteFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
 		unset($result);
-
-		return $site;
-	}
-
-	function &_returnSiteFromRowWithData(&$row) {
-		$site =& $this->_returnSiteFromRow($row, false);
-		$this->getDataObjectSettings('site_settings', null, null, $site);
-
-		HookRegistry::call('UserDAO::_returnSiteFromRowWithData', array(&$site, &$row));
 
 		return $site;
 	}
@@ -87,16 +78,7 @@ class SiteDAO extends DAO {
 				$site->getOriginalStyleFilename()
 			)
 		);
-		$this->updateLocaleFields($site);
 		return $returner;
-	}
-
-	function getLocaleFieldNames() {
-		return array('pageHeaderTitleType', 'title', 'intro', 'about', 'contactName', 'contactEmail', 'pageHeaderTitleImage');
-	}
-
-	function updateLocaleFields(&$site) {
-		$this->updateDataObjectSettings('site_settings', $site, array());
 	}
 
 	/**
@@ -104,7 +86,6 @@ class SiteDAO extends DAO {
 	 * @param $site Site
 	 */
 	function updateSite(&$site) {
-		$this->updateLocaleFields($site);
 		return $this->update(
 			'UPDATE site
 				SET

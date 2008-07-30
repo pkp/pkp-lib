@@ -22,12 +22,15 @@ define('SITE_MIN_PASSWORD_LENGTH', 4);
 import('form.Form');
 
 class PKPSiteSettingsForm extends Form {
+	/** @var $siteSettingsDao object Site settings DAO */
+	var $siteSettingsDao;
 
 	/**
 	 * Constructor.
 	 */
 	function PKPSiteSettingsForm() {
 		parent::Form('admin/settings.tpl');
+		$this->siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'admin.settings.form.titleRequired'));
@@ -35,11 +38,6 @@ class PKPSiteSettingsForm extends Form {
 		$this->addCheck(new FormValidatorLocaleEmail($this, 'contactEmail', 'required', 'admin.settings.form.contactEmailRequired'));
 		$this->addCheck(new FormValidatorCustom($this, 'minPasswordLength', 'required', 'admin.settings.form.minPasswordLengthRequired', create_function('$l', sprintf('return $l >= %d;', SITE_MIN_PASSWORD_LENGTH))));
 		$this->addCheck(new FormValidatorPost($this));
-	}
-
-	function getLocaleFieldNames() {
-		$siteDao =& DAORegistry::getDAO('SiteDAO');
-		return $siteDao->getLocaleFieldNames();
 	}
 
 	/**
@@ -68,15 +66,19 @@ class PKPSiteSettingsForm extends Form {
 		$site =& $siteDao->getSite();
 
 		$this->_data = array(
-			'title' => $site->getTitle(null), // Localized
-			'intro' => $site->getIntro(null), // Localized
+			'title' => $site->getSetting('title'), // Localized
+			'intro' => $site->getSetting('intro'), // Localized
 			'redirect' => $site->getRedirect(),
-			'about' => $site->getAbout(null), // Localized
-			'contactName' => $site->getContactName(null), // Localized
-			'contactEmail' => $site->getContactEmail(null), // Localized
+			'about' => $site->getSetting('about'), // Localized
+			'contactName' => $site->getSetting('contactName'), // Localized
+			'contactEmail' => $site->getSetting('contactEmail'), // Localized
 			'minPasswordLength' => $site->getMinPasswordLength(),
-			'pageHeaderTitleType' => $site->getPageHeaderTitleType(null) // Localized
+			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType') // Localized
 		);
+	}
+
+	function getLocaleFieldNames() {
+		return array('title', 'pageHeaderTitleType', 'intro', 'about', 'contactName', 'contactEmail');
 	}
 
 	/**
@@ -95,16 +97,15 @@ class PKPSiteSettingsForm extends Form {
 		$siteDao =& DAORegistry::getDAO('SiteDAO');
 		$site =& $siteDao->getSite();
 
-		$site->setTitle($this->getData('title'), null); // Localized
-		$site->setIntro($this->getData('intro'), null); // Localized
-		$site->setAbout($this->getData('about'), null); // Localized
 		$site->setRedirect($this->getData('redirect'));
-		$site->setContactName($this->getData('contactName'), null); // Localized
-		$site->setContactEmail($this->getData('contactEmail'), null); // Localized
 		$site->setMinPasswordLength($this->getData('minPasswordLength'));
-		$site->setPageHeaderTitleType($this->getData('pageHeaderTitleType'), null); // Localized
 
-		$setting = $site->getData('pageHeaderTitleImage');
+		$siteSettingsDao =& $this->siteSettingsDao;
+		foreach ($this->getLocaleFieldNames() as $setting) {
+			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
+		}
+
+		$setting = $site->getSetting('pageHeaderTitleImage');
 		if (!empty($setting)) {
 			$imageAltText = $this->getData('pageHeaderTitleImageAltText');
 			$locale = $this->getFormLocale();

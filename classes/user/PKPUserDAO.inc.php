@@ -3,7 +3,7 @@
 /**
  * @file classes/user/PKPUserDAO.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUserDAO
@@ -35,13 +35,13 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &getUser($userId, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'), $userId
 		);
 
 		$user = null;
 		if ($result->RecordCount() != 0) {
-			$user = &$this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$user =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		unset($result);
@@ -55,13 +55,13 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &getUserByUsername($username, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM users WHERE username = ?' . ($allowDisabled?'':' AND disabled = 0'), $username
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = &$this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		unset($result);
@@ -75,13 +75,13 @@ class PKPUserDAO extends DAO {
 	 * @return object User
 	 */
 	function &getUserByAuthStr($authstr, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM users WHERE auth_str = ?' . ($allowDisabled?'':' AND disabled = 0'), $authstr
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = &$this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		unset($result);
@@ -95,13 +95,13 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &getUserByEmail($email, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM users WHERE email = ?' . ($allowDisabled?'':' AND disabled = 0'), $email
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = &$this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		unset($result);
@@ -116,13 +116,13 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &getUserByCredentials($username, $password, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM users WHERE username = ? AND password = ?' . ($allowDisabled?'':' AND disabled = 0'), array($username, $password)
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = &$this->_returnUserFromRowWithData($result->GetRowAssoc(false));
+			$returner =& $this->_returnUserFromRowWithData($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		unset($result);
@@ -145,7 +145,7 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &_returnUserFromRow(&$row, $callHook = true) {
-		$user = &new User();
+		$user =& new User();
 		$user->setUserId($row['user_id']);
 		$user->setUsername($row['username']);
 		$user->setPassword($row['password']);
@@ -271,7 +271,7 @@ class PKPUserDAO extends DAO {
 					must_change_password = ?,
 					disabled = ?,
 					disabled_reason = ?,
-					auth_id = ?, 
+					auth_id = ?,
 					auth_str = ?
 				WHERE user_id = ?',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
@@ -326,7 +326,7 @@ class PKPUserDAO extends DAO {
 	 * @return string
 	 */
 	function getUserFullName($userId, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT first_name, middle_name, last_name FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			$userId
 		);
@@ -350,7 +350,7 @@ class PKPUserDAO extends DAO {
 	 * @return string
 	 */
 	function getUserEmail($userId, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT email FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			$userId
 		);
@@ -416,10 +416,10 @@ class PKPUserDAO extends DAO {
 
 		$orderSql = ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
-		if ($field != USER_FIELD_NONE) $result = &$this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, $var, $dbResultRange);
-		else $result = &$this->retrieveRange($sql . ($allowDisabled?'':' WHERE u.disabled = 0') . $orderSql, false, $dbResultRange);
+		if ($field != USER_FIELD_NONE) $result =& $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, $var, $dbResultRange);
+		else $result =& $this->retrieveRange($sql . ($allowDisabled?'':' WHERE u.disabled = 0') . $orderSql, false, $dbResultRange);
 
-		$returner = &new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+		$returner =& new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 		return $returner;
 	}
 
@@ -430,7 +430,7 @@ class PKPUserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsById($userId, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT COUNT(*) FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'), $userId
 		);
 		$returner = isset($result->fields[0]) && $result->fields[0] != 0 ? true : false;
@@ -449,7 +449,7 @@ class PKPUserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByUsername($username, $userId = null, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT COUNT(*) FROM users WHERE username = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
 			isset($userId) ? array($username, $userId) : $username
 		);
@@ -469,7 +469,7 @@ class PKPUserDAO extends DAO {
 	 * @return boolean
 	 */
 	function userExistsByEmail($email, $userId = null, $allowDisabled = true) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT COUNT(*) FROM users WHERE email = ?' . (isset($userId) ? ' AND user_id != ?' : '') . ($allowDisabled?'':' AND disabled = 0'),
 			isset($userId) ? array($email, $userId) : $email
 		);

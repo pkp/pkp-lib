@@ -3,7 +3,7 @@
 /**
  * @defgroup db
  */
- 
+
 /**
  * @file classes/db/DAO.inc.php
  *

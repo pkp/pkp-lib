@@ -3,7 +3,7 @@
 /**
  * @file classes/site/VersionCheck.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionCheck
@@ -29,7 +29,7 @@ class VersionCheck {
 	 */
 	function &getLatestVersion() {
 		$application =& PKPApplication::getApplication();
-		$returner = &VersionCheck::parseVersionXML(
+		$returner =& VersionCheck::parseVersionXML(
 			$application->getVersionDescriptorUrl()
 		);
 		return $returner;
@@ -40,8 +40,8 @@ class VersionCheck {
 	 * @return Version
 	 */
 	function &getCurrentDBVersion() {
-		$versionDao = &DAORegistry::getDAO('VersionDAO');
-		$dbVersion = &$versionDao->getCurrentVersion();
+		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$dbVersion =& $versionDao->getCurrentVersion();
 		return $dbVersion;
 	}
 
@@ -64,7 +64,7 @@ class VersionCheck {
 	 * @return array
 	 */
 	function &parseVersionXML($url) {
-		$xmlDao = &new XMLDAO();
+		$xmlDao =& new XMLDAO();
 		$data = $xmlDao->parseStruct($url, array());
 		if (!$data) {
 			$result = false;
@@ -98,7 +98,7 @@ class VersionCheck {
 	 */
 	function getPatch(&$versionInfo, $codeVersion = null) {
 		if (!isset($codeVersion)) {
-			$codeVersion = &VersionCheck::getCurrentCodeVersion();
+			$codeVersion =& VersionCheck::getCurrentCodeVersion();
 		}
 		if (isset($versionInfo['patch'][$codeVersion->getVersionString()])) {
 			return $versionInfo['patch'][$codeVersion->getVersionString()];

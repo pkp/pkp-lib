@@ -3,13 +3,13 @@
 /**
  * @defgroup document
  */
- 
+
 /**
  * @file classes/document/Document.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @class Document
  * @ingroup document
  *
@@ -52,7 +52,7 @@ class Document extends DataObject {
 	 * @return User
 	 */
 	function getUser() {
-		$userDao = &DAORegistry::getDAO('UserDAO');
+		$userDao =& DAORegistry::getDAO('UserDAO');
 		return $userDao->getUser($this->getUserId(), true);
 	}
 
@@ -552,11 +552,11 @@ class Document extends DataObject {
 	 */
 	function setPages($pages) {
 		return $this->setData('pages',$pages);
-	}		
+	}
 
 	/**
 	 * Return article RT comments status.
-	 * @return int 
+	 * @return int
 	 */
 	function getCommentsStatus() {
 		return $this->getData('commentsStatus');

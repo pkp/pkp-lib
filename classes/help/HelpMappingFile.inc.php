@@ -8,7 +8,7 @@
  *
  * @class HelpMappingFile
  * @ingroup help
- * 
+ *
  * @brief Abstracts a Help mapping XML file.
  */
 

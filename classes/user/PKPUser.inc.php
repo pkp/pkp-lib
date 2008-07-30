@@ -3,7 +3,7 @@
 /**
  * @defgroup user
  */
- 
+
 /**
  * @file classes/user/PKPUser.inc.php
  *

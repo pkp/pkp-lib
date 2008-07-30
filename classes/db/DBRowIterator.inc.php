@@ -9,7 +9,7 @@
  * @class DBRowIterator
  * @ingroup db
  *
- * @brief Wrapper around ADORecordSet providing "factory" features for generating 
+ * @brief Wrapper around ADORecordSet providing "factory" features for generating
  * objects from DAOs.
  */
 

@@ -3,7 +3,7 @@
 /**
  * @defgroup site
  */
- 
+
 /**
  * @file classes/site/Site.inc.php
  *
@@ -38,7 +38,7 @@ class Site extends DataObject {
 
 		if (!isset($supportedLocales)) {
 			$supportedLocales = array();
-			$localeNames = &Locale::getAllLocales();
+			$localeNames =& Locale::getAllLocales();
 
 			$locales = $this->getSupportedLocales();
 			foreach ($locales as $localeKey) {
@@ -340,8 +340,8 @@ class Site extends DataObject {
 	 * @return mixed
 	 */
 	function &getSetting($name, $locale = null) {
-		$siteSettingsDao = &DAORegistry::getDAO('SiteSettingsDAO');
-		$setting = &$siteSettingsDao->getSetting($name, $locale);
+		$siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
+		$setting =& $siteSettingsDao->getSetting($name, $locale);
 		return $setting;
 	}
 

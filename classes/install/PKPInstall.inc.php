@@ -3,7 +3,7 @@
 /**
  * @defgroup install
  */
- 
+
 /**
  * @file classes/install/PKPInstall.inc.php
  *
@@ -64,18 +64,18 @@ class PKPInstall extends Installer {
 		if ($this->getParam('manualInstall')) {
 			// Do not perform database installation for manual install
 			// Create connection object with the appropriate database driver for adodb-xmlschema
-			$conn = &new DBConnection(
+			$conn =& new DBConnection(
 				$this->getParam('databaseDriver'),
 				null,
 				null,
 				null,
 				null
 			);
-			$this->dbconn = &$conn->getDBConn();
+			$this->dbconn =& $conn->getDBConn();
 
 		} else {
 			// Connect to database
-			$conn = &new DBConnection(
+			$conn =& new DBConnection(
 				$this->getParam('databaseDriver'),
 				$this->getParam('databaseHost'),
 				$this->getParam('databaseUsername'),
@@ -85,7 +85,7 @@ class PKPInstall extends Installer {
 				$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
 			);
 
-			$this->dbconn = &$conn->getDBConn();
+			$this->dbconn =& $conn->getDBConn();
 
 			if (!$conn->isConnected()) {
 				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
@@ -175,7 +175,7 @@ class PKPInstall extends Installer {
 		}
 
 		// Get database creation sql
-		$dbdict = &NewDataDictionary($this->dbconn);
+		$dbdict =& NewDataDictionary($this->dbconn);
 
 		if ($this->getParam('databaseCharset')) {
 				$dbdict->SetCharSet($this->getParam('databaseCharset'));
@@ -192,7 +192,7 @@ class PKPInstall extends Installer {
 			// Re-connect to the created database
 			$this->dbconn->disconnect();
 
-			$conn = &new DBConnection(
+			$conn =& new DBConnection(
 				$this->getParam('databaseDriver'),
 				$this->getParam('databaseHost'),
 				$this->getParam('databaseUsername'),
@@ -204,7 +204,7 @@ class PKPInstall extends Installer {
 
 			DBConnection::getInstance($conn);
 
-			$this->dbconn = &$conn->getDBConn();
+			$this->dbconn =& $conn->getDBConn();
 
 			if (!$conn->isConnected()) {
 				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());

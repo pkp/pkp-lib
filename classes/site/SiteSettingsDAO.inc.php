@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @package site 
+ * @package site
  * @class SiteSettingsDAO
  *
  * Class for Site Settings DAO.
@@ -66,7 +66,7 @@ class SiteSettingsDAO extends DAO {
 	function &getSiteSettings() {
 		$siteSettings = array();
 
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT setting_name, setting_value, setting_type, locale FROM site_settings'
 		);
 
@@ -77,7 +77,7 @@ class SiteSettingsDAO extends DAO {
 
 		} else {
 			while (!$result->EOF) {
-				$row = &$result->getRowAssoc(false);
+				$row =& $result->getRowAssoc(false);
 				$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 				if ($row['locale'] == '') $siteSettings[$row['setting_name']] = $value;
 				else $siteSettings[$row['setting_name']][$row['locale']] = $value;
@@ -105,7 +105,7 @@ class SiteSettingsDAO extends DAO {
 		$cache->setCache($name, $value);
 
 		$keyFields = array('setting_name', 'locale');
-		
+
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
 			$this->replace('site_settings',

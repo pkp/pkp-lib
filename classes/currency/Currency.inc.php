@@ -3,7 +3,7 @@
 /**
  * @defgroup currency
  */
- 
+
 /**
  * @file classes/currency/Currency.inc.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Currency
- * @ingroup currency 
+ * @ingroup currency
  * @see CurrencyDAO
  *
  * @brief Basic class describing a currency.
@@ -25,11 +25,11 @@ class Currency extends DataObject {
 	function Currency() {
 		parent::DataObject();
 	}
-	
+
 	//
 	// Get/set methods
 	//
-	
+
 	/**
 	 * Get the name of the currency.
 	 * @return string

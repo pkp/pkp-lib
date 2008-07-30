@@ -8,7 +8,7 @@
  *
  * @class PluginHelpMappingFile
  * @ingroup help
- * 
+ *
  * @brief Abstracts the plugin's help mapping XML files.
  */
 

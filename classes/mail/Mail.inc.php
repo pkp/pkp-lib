@@ -3,7 +3,7 @@
 /**
  * @defgroup mail
  */
- 
+
 /**
  * @file classes/mail/Mail.inc.php
  *

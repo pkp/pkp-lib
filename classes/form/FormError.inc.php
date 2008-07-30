@@ -3,7 +3,7 @@
 /**
  * @defgroup form
  */
- 
+
 /**
  * @file classes/form/FormError.inc.php
  *

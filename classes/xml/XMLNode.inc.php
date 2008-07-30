@@ -12,7 +12,7 @@
  * @brief Default handler for XMLParser returning a simple DOM-style object.
  * This handler parses an XML document into a tree structure of XMLNode objects.
  */
- 
+
 // $Id$
 
 class XMLNode {

@@ -3,7 +3,6 @@
 /**
  * @defgroup scheduledTask
  */
- 
 
 /**
  * @file classes/scheduledTask/ScheduledTaskDAO.inc.php

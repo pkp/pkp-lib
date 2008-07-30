@@ -9,7 +9,7 @@
  * @class TimeZone
  * @ingroup i18n
  *
- * @brief Time zone management class. 
+ * @brief Time zone management class.
  * Provides methods for determining local times and dates
  */
 
@@ -45,7 +45,7 @@ class TimeZone {
 
 		// Default to user time zone if possible
 		if(!isset($timeZone)) {
-			$user = &Request::getUser();
+			$user =& Request::getUser();
 			if($user)
 				$timeZone = $user->getTimeZone();
 		}
@@ -56,7 +56,7 @@ class TimeZone {
 
 		if(function_exists('date_default_timezone_set')) {
 
-			// Use PHP5 functions if they exist		
+			// Use PHP5 functions if they exist
 			$oldTimeZone = date_default_timezone_get();
 			date_default_timezone_set($timeZone);
 			$date = date($format, $gmtStamp);
@@ -124,7 +124,7 @@ class TimeZone {
 			$tzFlat = array();
 
 			// Load registry file
-			$xmlDao = &new XMLDAO();
+			$xmlDao =& new XMLDAO();
 			$tzRaw = $xmlDao->parseStruct(TZ_REGISTRY_FILE, array("entry"));
 
 			// Build tzTree and tzFlat by breaking tzRaw into path components.

@@ -49,7 +49,7 @@ class PKPSiteSettingsForm extends Form {
 		$site =& Request::getSite();
 		$publicFileManager =& new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('originalStyleFilename', $site->getOriginalStyleFilename());
 		$templateMgr->assign('pageHeaderTitleImage', $site->getData('pageHeaderTitleImage'));
 		$templateMgr->assign('styleFilename', $site->getSiteStyleFilename());
@@ -64,8 +64,8 @@ class PKPSiteSettingsForm extends Form {
 	 * Initialize form data from current settings.
 	 */
 	function initData() {
-		$siteDao = &DAORegistry::getDAO('SiteDAO');
-		$site = &$siteDao->getSite();
+		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$site =& $siteDao->getSite();
 
 		$this->_data = array(
 			'title' => $site->getTitle(null), // Localized
@@ -92,8 +92,8 @@ class PKPSiteSettingsForm extends Form {
 	 * Save site settings.
 	 */
 	function execute() {
-		$siteDao = &DAORegistry::getDAO('SiteDAO');
-		$site = &$siteDao->getSite();
+		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$site =& $siteDao->getSite();
 
 		$site->setTitle($this->getData('title'), null); // Localized
 		$site->setIntro($this->getData('intro'), null); // Localized
@@ -120,7 +120,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadSiteStyleSheet() {
 		import('file.PublicFileManager');
-		$fileManager = &new PublicFileManager();
+		$fileManager =& new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('siteStyleSheet')) {
 			$type = $fileManager->getUploadedFileType('siteStyleSheet');
@@ -144,7 +144,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadPageHeaderTitleImage($locale) {
 		import('file.PublicFileManager');
-		$fileManager = &new PublicFileManager();
+		$fileManager =& new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('pageHeaderTitleImage')) {
 			$type = $fileManager->getUploadedFileType('pageHeaderTitleImage');

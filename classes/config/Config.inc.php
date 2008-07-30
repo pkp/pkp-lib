@@ -3,7 +3,7 @@
 /**
  * @defgroup config
  */
- 
+
 /**
  * @file classes/config/Config.inc.php
  *

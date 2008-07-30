@@ -3,7 +3,7 @@
 /**
  * @defgroup xml
  */
- 
+
 /**
  * @file classes/xml/XMLParser.inc.php
  *

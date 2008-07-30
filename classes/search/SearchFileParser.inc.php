@@ -3,7 +3,6 @@
 /**
  * @defgroup search
  */
- 
 
 /**
  * @file classes/search/SearchFileParser.inc.php

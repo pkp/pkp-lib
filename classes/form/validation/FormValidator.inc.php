@@ -3,7 +3,7 @@
 /**
  * @defgroup form_validation
  */
- 
+
 /**
  * @file classes/form/validation/FormValidator.inc.php
  *

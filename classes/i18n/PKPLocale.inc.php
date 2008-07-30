@@ -3,11 +3,11 @@
 /**
  * @defgroup i18n
  */
- 
+
 /**
  * @file classes/i18n/PKPLocale.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Locale
@@ -186,7 +186,7 @@ class PKPLocale {
 	 * @return array
 	 */
 	function &loadLocaleList($filename) {
-		$xmlDao = &new XMLDAO();
+		$xmlDao =& new XMLDAO();
 		$data = $xmlDao->parseStruct($filename, array('locale'));
 		$allLocales = array();
 
@@ -262,7 +262,7 @@ class PKPLocale {
 
 		$filesToInstall = Locale::getFilesToInstall($locale);
 
-		$dataXMLParser = &new DBDataXMLParser();
+		$dataXMLParser =& new DBDataXMLParser();
 		foreach ($filesToInstall as $fileName) {
 			if (file_exists($fileName)) {
 				$sql = $dataXMLParser->parseData($fileName);
@@ -278,7 +278,7 @@ class PKPLocale {
 	 */
 	function uninstallLocale($locale) {
 		// Delete locale-specific data
-		$emailTemplateDao = &DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->deleteEmailTemplatesByLocale($locale);
 		$emailTemplateDao->deleteDefaultEmailTemplatesByLocale($locale);
 	}
@@ -343,7 +343,7 @@ class PKPLocale {
 
 		// Pass 1: For all translated emails, check that they match
 		// against reference translations.
-		for ($emailIndex = 0; ($email =& $emailsTable->getChildByName('row', $emailIndex)) !== null; $emailIndex++) { 
+		for ($emailIndex = 0; ($email =& $emailsTable->getChildByName('row', $emailIndex)) !== null; $emailIndex++) {
 			// Extract the fields from the email to be tested.
 			$fields = Locale::extractFields($email);
 

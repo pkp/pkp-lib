@@ -21,7 +21,7 @@ define('INDEX_SCRIPTNAME', 'index.php');
 class PKPRequest {
 	/**
 	 * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
-	 * @param $url string (exclude protocol for local redirects) 
+	 * @param $url string (exclude protocol for local redirects)
 	 */
 	function redirectUrl($url) {
 		if (HookRegistry::call('Request::redirect', array(&$url))) {
@@ -50,7 +50,7 @@ class PKPRequest {
 		$queryString = PKPRequest::getQueryString();
 		if (!empty($queryString)) $url .= "?$queryString";
 		PKPRequest::redirectUrl($url);
-	}	
+	}
 
 	/**
 	 * Get the base URL of the request (excluding script).
@@ -326,7 +326,7 @@ class PKPRequest {
 		static $site;
 
 		if (!isset($site)) {
-			$siteDao = &DAORegistry::getDAO('SiteDAO');
+			$siteDao =& DAORegistry::getDAO('SiteDAO');
 			$site = $siteDao->getSite();
 		}
 
@@ -341,7 +341,7 @@ class PKPRequest {
 		static $session;
 
 		if (!isset($session)) {
-			$sessionManager = &SessionManager::getManager();
+			$sessionManager =& SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
 		}
 
@@ -356,8 +356,8 @@ class PKPRequest {
 		static $user;
 
 		if (!isset($user)) {
-			$sessionManager = &SessionManager::getManager();
-			$session = &$sessionManager->getUserSession();
+			$sessionManager =& SessionManager::getManager();
+			$session =& $sessionManager->getUserSession();
 			$user = $session->getUser();
 		}
 
@@ -440,7 +440,7 @@ class PKPRequest {
 			if (empty($args)) $args = array();
 			elseif (!is_array($args)) $args = array($args);
 		}
-		return $args;	
+		return $args;
 	}
 
 	/**
@@ -488,7 +488,7 @@ class PKPRequest {
 				if (is_numeric($hourPart) && $hourPart != 12) $hourPart += 12;
 				break;
 			case 'am':
-			default:	
+			default:
 				// Do nothing.
 				break;
 		}

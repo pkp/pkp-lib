@@ -3,7 +3,7 @@
 /**
  * @defgroup oai_format
  */
- 
+
 /**
  * @file classes/oai/format/OAIMetadataFormat_DC.inc.php
  *

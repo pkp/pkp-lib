@@ -3,11 +3,11 @@
 /**
  * @defgroup plugins
  */
- 
+
 /**
  * @file classes/plugins/PKPPlugin.inc.php
  *
- * Copyright (c) 2000-2008 John Willinsky and Alec Smecher
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPlugin
@@ -219,7 +219,7 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$schemaXMLParser = &new adoSchema($installer->dbconn, $installer->dbconn->charSet);
+		$schemaXMLParser =& new adoSchema($installer->dbconn, $installer->dbconn->charSet);
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
 		if ($sql) {
 			$result = $installer->executeSQL($sql);

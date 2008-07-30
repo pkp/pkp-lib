@@ -3,11 +3,11 @@
 /**
  * @defgroup template
  */
- 
+
 /**
  * @file classes/template/PKPTemplateManager.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
@@ -119,7 +119,7 @@ class PKPTemplateManager extends Smarty {
 			 */
 			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
 
-			$versionDAO = &DAORegistry::getDAO('VersionDAO');
+			$versionDAO =& DAORegistry::getDAO('VersionDAO');
 			$currentVersion = $versionDAO->getCurrentVersion();
 			$this->assign('currentVersionString', $currentVersion->getVersionString());
 
@@ -191,7 +191,7 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Display templates from Smarty and allow hook overrides
-	 * 
+	 *
 	 * Smarty usage: {display_template template="name.tpl" hookname="My::Hook::Name"}
 	 */
 	function smartyDisplayTemplate($params, &$smarty) {
@@ -255,7 +255,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {assign_mailto var="varName" address="email@address.com" ...]} 
+	 * Smarty usage: {assign_mailto var="varName" address="email@address.com" ...]}
 	 *
 	 * Generates a hex-encoded mailto address and assigns it to the variable name specified..
 	 */
@@ -287,7 +287,7 @@ class PKPTemplateManager extends Smarty {
 	 * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.options.php
 	 *
 	 * Identical to Smarty's "html_options" function except option values are translated from i18n keys.
-	 * @params $params array 
+	 * @params $params array
 	 * @params $smarty Smarty
 	 */
 	function smartyHtmlOptionsTranslate($params, &$smarty) {
@@ -326,7 +326,7 @@ class PKPTemplateManager extends Smarty {
 	 *  - key: (optional) Name of variable to receive index of current item
 	 */
 	function smartyIterate($params, $content, &$smarty, &$repeat) {
-		$iterator = &$smarty->get_template_vars($params['from']);
+		$iterator =& $smarty->get_template_vars($params['from']);
 
 		if (isset($params['key'])) {
 			if (empty($content)) $smarty->assign($params['key'], 1);
@@ -366,7 +366,7 @@ class PKPTemplateManager extends Smarty {
 				// build image tag with standarized size of 16x16
 				$disabled = (isset($params['disabled']) && !empty($params['disabled']));
 				if (!isset($params['path'])) $params['path'] = 'templates/images/icons/';
-				$iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];			
+				$iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];
 				$iconHtml .= $params['name'] . ($disabled ? '_disabled' : '') . '.gif" width="16" height="14" alt="';
 
 				// if alt parameter specified use it, otherwise use localization version
@@ -451,7 +451,7 @@ class PKPTemplateManager extends Smarty {
 		if (Config::getVar('debug', 'show_stats')) {
 			$smarty->assign('enableDebugStats', true);
 			$smarty->assign('debugExecutionTime', Core::microtime() - Registry::get('system.debug.startTime'));
-			$dbconn = &DBConnection::getInstance();
+			$dbconn =& DBConnection::getInstance();
 			$smarty->assign('debugNumDatabaseQueries', $dbconn->getNumQueries());
 			$smarty->assign('debugMemoryUsage', memory_get_usage());
 			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));

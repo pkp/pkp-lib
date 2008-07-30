@@ -329,7 +329,7 @@
 	These are insufficiently descriptive, and are disabled in favour
 	of city-based time zones. In the off chance a server uses a more
 	stringently defined timezone, it should be GMT anyways.
-	    
+
 	<entry key="CET" name=""/>
 	<entry key="CST6CDT" name=""/>
 	<entry key="EET" name=""/>

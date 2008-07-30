@@ -4,7 +4,7 @@
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Site-wide common JavaScript functions. 
+ * Site-wide common JavaScript functions.
  *
  * $Id$
  */
@@ -76,12 +76,12 @@ function getBrowserObject(objectId, style) {
 	} else {
 		// do nothing
 	}
-	
+
 	// check if style is needed
 	if (style && !isNE4) {
 		currObject = currObject.style;
 	}
-	
+
 	return currObject;
 }
 
@@ -89,7 +89,7 @@ function getBrowserObject(objectId, style) {
  * Load a URL.
  */
 function loadUrl(url) {
-	document.location.href=url;	
+	document.location.href=url;
 }
 
 function createCookie(name,value,days) {
@@ -132,7 +132,7 @@ function sendAsyncRequest(req, url, data, method) {
 /**
  * Change the form action
  * @param formName string
- * @param action string 
+ * @param action string
  */
 function changeFormAction(formName, action) {
 	document.forms[formName].action = action;

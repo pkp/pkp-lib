@@ -3,7 +3,7 @@
 /**
  * @defgroup session
  */
- 
+
 /**
  * @file classes/session/Session.inc.php
  *

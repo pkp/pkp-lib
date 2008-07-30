@@ -3,7 +3,7 @@
 /**
  * @defgroup file
  */
- 
+
 /**
  * @file classes/file/FileManager.inc.php
  *

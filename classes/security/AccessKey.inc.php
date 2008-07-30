@@ -3,7 +3,6 @@
 /**
  * @defgroup security
  */
- 
 
 /**
  * @file classes/security/AccessKey.inc.php

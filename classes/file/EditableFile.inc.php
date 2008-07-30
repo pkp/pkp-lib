@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditableFile
- * @ingroup file 
+ * @ingroup file
  *
  * @brief Hack-and-slash class to help with editing XML files without losing
  * formatting and comments (i.e. unparsed editing).

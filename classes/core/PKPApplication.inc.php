@@ -173,6 +173,14 @@ class PKPApplication {
 		if (isset($map[$name])) return $map[$name];
 		return null;
 	}
+
+	/**
+	 * Instantiate the help object for this application.
+	 * @return object
+	 */
+	function &instantiateHelp() {
+		fatalError('Abstract class');
+	}
 }
 
 ?>

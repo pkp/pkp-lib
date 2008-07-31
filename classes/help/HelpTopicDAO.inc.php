@@ -17,14 +17,15 @@
 
 
 import('help.HelpTopic');
+import('help.PKPHelp');
 
 class HelpTopicDAO extends XMLDAO {
 	function &_getCache($topicId) {
 		static $cache;
-		$locale = Help::getLocale();
+		$locale = PKPHelp::getLocale();
 		if (!isset($cache[$locale][$topicId])) {
 			import('cache.CacheManager');
-			$help =& Help::getHelp();
+			$help =& PKPHelp::getHelp();
 			$cacheManager =& CacheManager::getManager();
 			$cache[$locale][$topicId] = $cacheManager->getFileCache('help-topic-' . $locale, $topicId, array($this, '_cacheMiss'));
 
@@ -39,7 +40,7 @@ class HelpTopicDAO extends XMLDAO {
 	}
 
 	function &getMappingFile($topicId) {
-		$help =& Help::getHelp();
+		$help =& PKPHelp::getHelp();
 		$mappingFiles =& $help->getMappingFiles();
 
 		for ($i = 0; $i < count($mappingFiles); $i++) {
@@ -124,7 +125,7 @@ class HelpTopicDAO extends XMLDAO {
 	function &getTopicsByKeyword($keyword) {
 		$keyword = String::strtolower($keyword);
 		$matchingTopics = array();
-		$help =& Help::getHelp();
+		$help =& PKPHelp::getHelp();
 		foreach ($help->getSearchPaths() as $searchPath => $mappingFile) {
 			$dir = opendir($searchPath);
 			while (($file = readdir($dir)) !== false) {

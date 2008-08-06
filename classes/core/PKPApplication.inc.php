@@ -159,7 +159,22 @@ class PKPApplication {
 	 * @return array
 	 */
 	function getDAOMap() {
-		return array();
+		return array(
+			'AccessKeyDAO' => 'security.AccessKeyDAO',
+			'AuthSourceDAO' => 'security.AuthSourceDAO',
+			'CaptchaDAO' => 'captcha.CaptchaDAO',
+			'CountryDAO' => 'i18n.CountryDAO',
+			'CurrencyDAO' => 'currency.CurrencyDAO',
+			'HelpTocDAO' => 'help.HelpTocDAO',
+			'HelpTopicDAO' => 'help.HelpTopicDAO',
+			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',
+			'SessionDAO' => 'session.SessionDAO',
+			'SiteDAO' => 'site.SiteDAO',
+			'SiteSettingsDAO' => 'site.SiteSettingsDAO',
+			'TemporaryFileDAO' => 'file.TemporaryFileDAO',
+			'VersionDAO' => 'site.VersionDAO',
+			'XMLDAO' => 'db.XMLDAO'
+		);
 	}
 
 	/**

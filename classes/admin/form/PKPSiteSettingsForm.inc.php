@@ -114,6 +114,7 @@ class PKPSiteSettingsForm extends Form {
 		}
 
 		$siteDao->updateSite($site);
+		return true;
 	}
 
 	/**

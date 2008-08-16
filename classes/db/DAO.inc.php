@@ -401,6 +401,15 @@ class DAO {
 		$result->Close();
 		unset($result);
 	}
+
+	/**
+	 * Get the driver for this connection.
+	 * @return string
+	 */
+	function getDriver() {
+		$conn =& DBConnection::getInstance();
+		return $conn->getDriver();
+	}
 }
 
 ?>

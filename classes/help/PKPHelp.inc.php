@@ -3,16 +3,16 @@
 /**
  * @defgroup help
  */
- 
+
 /**
  * @file classes/help/PKPHelp.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPHelp
  * @ingroup help
- * 
+ *
  * @brief Provides methods for translating help topic keys to their respected topic
  * help ids.
  */
@@ -173,7 +173,7 @@ class PKPHelp {
 	 * @param $helpToc array
 	 * @param $section array
 	 * @param $num numbering of topic
-	 */	
+	 */
 	function buildTocHelper(&$toc, $section, $prefix) {
 		if (isset($section)) {
 			$prefix = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$prefix";
@@ -209,7 +209,7 @@ class PKPHelp {
 				$currId = $currTopic->getId();
 				$currTitle = $currTopic->getTitle();
 				if ($currId != $topicId) {
-					$section[$currId] = array('title' => $currTitle, 'section' => $this->buildTopicSection($currId, $tocId)); 
+					$section[$currId] = array('title' => $currTitle, 'section' => $this->buildTopicSection($currId, $tocId));
 				}
 			}
 		}

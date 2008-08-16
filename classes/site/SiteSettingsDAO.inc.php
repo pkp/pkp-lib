@@ -99,8 +99,10 @@ class SiteSettingsDAO extends DAO {
 	 * @param $value mixed
 	 * @param $type string data type of the setting. If omitted, type will be guessed
 	 * @param $isLocalized boolean
+	 * @return boolean
 	 */
 	function updateSetting($name, $value, $type = null, $isLocalized = false) {
+		$returner = null;
 		$cache =& $this->_getCache();
 		$cache->setCache($name, $value);
 
@@ -117,12 +119,13 @@ class SiteSettingsDAO extends DAO {
 				),
 				$keyFields
 			);
+			$returner = true;
 		} else {
 			if (is_array($value)) foreach ($value as $locale => $localeValue) {
 				$this->update('DELETE FROM site_settings WHERE setting_name = ? AND locale = ?', array($name, $locale));
 				if (empty($localeValue)) continue;
 				$type = null;
-				$this->update('INSERT INTO site_settings
+				$returner = $this->update('INSERT INTO site_settings
 					(setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?)',
 					array(
@@ -131,6 +134,7 @@ class SiteSettingsDAO extends DAO {
 				);
 			}
 		}
+		return $returner;
 	}
 
 	/**

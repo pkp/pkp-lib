@@ -3,11 +3,11 @@
 /**
  * @defgroup oai
  */
- 
+
 /**
  * @file classes/oai/OAI.inc.php
  *
- * Copyright (c) 2003-2008 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAI
@@ -54,7 +54,7 @@ class OAI {
 			$this->parseStr($GLOBALS['HTTP_RAW_POST_DATA'], $this->params);
 
 		} else if (!empty($_SERVER['QUERY_STRING'])) {
-			$this->parseStr($_SERVER['QUERY_STRING'], $this->params);		
+			$this->parseStr($_SERVER['QUERY_STRING'], $this->params);
 
 		} else {
 			$this->params = array_merge($_GET, $_POST);
@@ -250,7 +250,7 @@ class OAI {
 		}
 
 		// Get metadata for requested identifier
-		if (($record = &$this->record($identifier)) === false) {
+		if (($record =& $this->record($identifier)) === false) {
 			$this->error('idDoesNotExist', 'No matching identifier in this repository');
 			return;
 		}
@@ -293,7 +293,7 @@ class OAI {
 			return;
 		}
 
-		$info = &$this->repositoryInfo();
+		$info =& $this->repositoryInfo();
 
 		// Format body of response
 		$response = "\t<Identify>\n" .
@@ -334,14 +334,14 @@ class OAI {
 		$offset = 0;
 
 		// Check for resumption token
-		if ($this->paramExists('resumptionToken')) {		
+		if ($this->paramExists('resumptionToken')) {
 			// Validate parameters
 			if (!$this->checkParams(array('resumptionToken'))) {
 				return;
 			}
 
 			// Get parameters from resumption token
-			if (($token = &$this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -380,7 +380,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching identifiers
-		$records = &$this->identifiers($metadataPrefix, $from, $until, $set, $offset, $this->config->maxIdentifiers, $total);
+		$records =& $this->identifiers($metadataPrefix, $from, $until, $set, $offset, $this->config->maxIdentifiers, $total);
 		if (empty($records)) {
 			$this->error('noRecordsMatch', 'No matching records in this repository');
 			return;
@@ -405,7 +405,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, save resumption token
-			$token = &$this->saveResumptionToken($offset, $this->getParams());
+			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .= "\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
 				"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -438,11 +438,11 @@ class OAI {
 				return;
 
 			} else {
-				$formats = &$this->metadataFormats(false, $this->getParam('identifier'));
+				$formats =& $this->metadataFormats(false, $this->getParam('identifier'));
 			}
 
 		} else {
-			$formats = &$this->metadataFormats();
+			$formats =& $this->metadataFormats();
 		}
 
 		if (empty($formats) || !is_array($formats)) {
@@ -475,14 +475,14 @@ class OAI {
 		$offset = 0;
 
 		// Check for resumption token
-		if ($this->paramExists('resumptionToken')) {		
+		if ($this->paramExists('resumptionToken')) {
 			// Validate parameters
 			if (!$this->checkParams(array('resumptionToken'))) {
 				return;
 			}
 
 			// get parameters from resumption token
-			if (($token = &$this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -522,7 +522,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching records
-		$records = &$this->records($metadataPrefix, $from, $until, $set, $offset, $this->config->maxRecords, $total);
+		$records =& $this->records($metadataPrefix, $from, $until, $set, $offset, $this->config->maxRecords, $total);
 		if (empty($records)) {
 			$this->error('noRecordsMatch', 'No matching records in this repository');
 			return;
@@ -553,7 +553,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, save resumption token
-			$token = &$this->saveResumptionToken($offset, $this->getParams());
+			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .=	"\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -577,14 +577,14 @@ class OAI {
 		$offset = 0;
 
 		// Check for resumption token
-		if ($this->paramExists('resumptionToken')) {		
+		if ($this->paramExists('resumptionToken')) {
 			// Validate parameters
 			if (!$this->checkParams(array('resumptionToken'))) {
 				return;
 			}
 
 			// Get parameters from resumption token
-			if (($token = &$this->resumptionToken($this->getParam('resumptionToken'))) === false) {
+			if (($token =& $this->resumptionToken($this->getParam('resumptionToken'))) === false) {
 				$this->error('badResumptionToken', 'The requested resumptionToken is invalid or has expired');
 				return;
 			}
@@ -604,7 +604,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching sets
-		$sets = &$this->sets($offset, $total);
+		$sets =& $this->sets($offset, $total);
 		if (empty($sets)) {
 			$this->error('noSetHierarchy', 'This repository does not support sets');
 			return;
@@ -638,7 +638,7 @@ class OAI {
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, set resumption token
-			$token = &$this->saveResumptionToken($offset, $this->getParams());
+			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
 			$response .=	"\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
@@ -796,7 +796,7 @@ class OAI {
 	 * @return string
 	 */
 	function &formatMetadata($format, $record) {
-		$formats = &$this->metadataFormats();		
+		$formats =& $this->metadataFormats();
 		$metadata = $formats[$format]->toXML($record);
 		return $metadata;
 	}
@@ -900,7 +900,7 @@ class OAI {
 			}
 
 			if (strlen($params['until']) == 10) {
-				// Until date is inclusive 
+				// Until date is inclusive
 				$until += 86399;
 			}
 		}

@@ -30,8 +30,11 @@ class XMLParser {
 	/** @var int original magic_quotes_runtime setting */
 	var $magicQuotes;
 
-	/** @var object instance of XMLParserHandler */
+	/** @var $handler object instance of XMLParserHandler */
 	var $handler;
+
+	/** @var $errors array List of error strings */
+	var $errors;
 
 	/**
 	 * Constructor.
@@ -41,6 +44,35 @@ class XMLParser {
 		// magic_quotes_runtime must be disabled for XML parsing
 		$this->magicQuotes = get_magic_quotes_runtime();
 		set_magic_quotes_runtime(0);
+		$this->errors = array();
+	}
+
+	function &parseText($text) {
+		$parser =& $this->createParser();
+
+		if (!isset($this->handler)) {
+			// Use default handler for parsing
+			$handler =& new XMLParserDOMHandler();
+			$this->setHandler($handler);
+		}
+
+		xml_set_object($parser, $this->handler);
+		xml_set_element_handler($parser, "startElement", "endElement");
+		xml_set_character_data_handler($parser, "characterData");
+
+		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
+		if ($useIconv) $text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
+
+		if (!xml_parse($parser, $text, true)) {
+			$this->addError(xml_error_string(xml_get_error_code($parser)));
+			$this->destroyParser($parser);
+			$result = false;
+			return $result;
+		}
+
+		$result =& $this->handler->getResult();
+		$this->destroyParser($parser);
+		return $result;
 	}
 
 	/**
@@ -65,10 +97,22 @@ class XMLParser {
 		import('file.FileWrapper');
 		$wrapper =& FileWrapper::wrapper($file);
 
-		while (is_object($newWrapper = $wrapper->open())) if (is_object($newWrapper)) { // Handle redirects
-			unset($wrapper);
-			$wrapper =& $newWrapper;
-			unset ($newWrapper);
+		// Handle responses of various types
+		while (true) {
+			$newWrapper = $wrapper->open();
+			if (is_object($newWrapper)) {
+				// Follow a redirect
+				unset($wrapper);
+				$wrapper =& $newWrapper;
+				unset ($newWrapper);
+			} elseif (!$newWrapper) {
+				// Could not open resource -- error
+				$returner = false;
+				return $returner;
+			} else {
+				// OK, we've found the end result
+				break;
+			}
 		}
 
 		if (!$wrapper) {
@@ -76,9 +120,11 @@ class XMLParser {
 			return $result;
 		}
 
-		while ($data = $wrapper->read()) {
+		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
+		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
+			if ($wrapper->eof()) $data = iconv('UTF-8', 'UTF-8//IGNORE', $data);
 			if (!xml_parse($parser, $data, $wrapper->eof())) {
-				echo xml_error_string(xml_get_error_code($parser));
+				$this->addError(xml_error_string(xml_get_error_code($parser)));
 				$this->destroyParser($parser);
 				$result = false;
 				$wrapper->close();
@@ -87,10 +133,33 @@ class XMLParser {
 		}
 
 		$wrapper->close();
-		$this->destroyParser($parser);
-
 		$result =& $this->handler->getResult();
+		$this->destroyParser($parser);
 		return $result;
+	}
+
+	/**
+	 * Add an error to the current error list
+	 * @param $error string
+	 */
+	function addError($error) {
+		array_push($this->errors, $error);
+	}
+
+	/**
+	 * Get the current list of errors
+	 */
+	function getErrors() {
+		return $this->errors;
+	}
+
+	/**
+	 * Determine whether or not the parser encountered an error (false)
+	 * or completed successfully (true)
+	 * @return boolean
+	 */
+	function getStatus() {
+		return empty($this->errors);
 	}
 
 	/**

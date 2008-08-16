@@ -232,6 +232,14 @@ class DBConnection {
 		$conn =& DBConnection::getInstance();
 		return $conn->getDBConn();
 	}
+
+	/**
+	 * Return the name of the driver used for this connection.
+	 * @return string
+	 */
+	function getDriver() {
+		return $this->driver;
+	}
 }
 
 ?>

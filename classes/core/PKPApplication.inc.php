@@ -55,8 +55,17 @@ class PKPApplication {
 		String::init();
 
 		if ($this->isCacheable()) {
-			if ($this->displayCached()) exit(); // Success
-			ob_start(array(&$this, 'cacheContent'));
+			// Can we serve a cached response?
+			if (Config::getVar('cache', 'web_cache')) {
+				if ($this->displayCached()) exit(); // Success
+				ob_start(array(&$this, 'cacheContent'));
+			}
+		} else {
+			if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {
+				header('HTTP/1.0 403 Forbidden');
+				echo '403: Forbidden<br><br>Pre-fetching not allowed.';
+				exit;
+			}
 		}
 
 		Locale::initialize();

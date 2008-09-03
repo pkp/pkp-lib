@@ -55,6 +55,20 @@ class ArrayItemIterator extends ItemIterator {
 	}
 
 	/**
+	 * Static method: Generate an iterator from an array and rangeInfo object.
+	 * @param $theArray array
+	 * @param $theRange object
+	 */
+	function &fromRangeInfo(&$theArray, &$theRange) {
+		if ($theRange && $theRange->isValid()) {
+			$theIterator =& new ArrayItemIterator($theArray, $theRange->getPage(), $theRange->getCount());
+		} else {
+			$theIterator =& new ArrayItemIterator($theArray);
+		}
+		return $theIterator;
+	}
+
+	/**
 	 * Return the next item in the iterator.
 	 * @return object
 	 */

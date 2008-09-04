@@ -62,12 +62,8 @@ class XMLParser {
 
 		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
 		if ($useIconv) $text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
-
 		if (!xml_parse($parser, $text, true)) {
 			$this->addError(xml_error_string(xml_get_error_code($parser)));
-			$this->destroyParser($parser);
-			$result = false;
-			return $result;
 		}
 
 		$result =& $this->handler->getResult();
@@ -121,14 +117,21 @@ class XMLParser {
 		}
 
 		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
-		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-			if ($wrapper->eof()) $data = iconv('UTF-8', 'UTF-8//IGNORE', $data);
-			if (!xml_parse($parser, $data, $wrapper->eof())) {
+
+		if ($useIconv) {
+			$text = '';
+			while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
+				$text .= $data;
+			}
+			$text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
+			if (!xml_parse($parser, $text, true)) {
 				$this->addError(xml_error_string(xml_get_error_code($parser)));
-				$this->destroyParser($parser);
-				$result = false;
-				$wrapper->close();
-				return $result;
+			}
+		} else { // !$useIconv
+			while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
+				if (!xml_parse($parser, $data, $wrapper->eof())) {
+					$this->addError(xml_error_string(xml_get_error_code($parser)));
+				}
 			}
 		}
 

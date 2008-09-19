@@ -21,12 +21,7 @@
 
 
 import('oai.OAIStruct');
-
-// Default supported OAI metadata formats
-import('oai.format.OAIMetadataFormat_DC');
-import('oai.format.OAIMetadataFormat_MARC');
-import('oai.format.OAIMetadataFormat_MARC21');
-import('oai.format.OAIMetadataFormat_RFC1807');
+import('oai.OAIUtils');
 
 class OAI {
 	/** @var $config OAIConfig configuration parameters */
@@ -51,17 +46,17 @@ class OAI {
 		$this->params = array();
 
 		if (isset($GLOBALS['HTTP_RAW_POST_DATA']) && !empty($GLOBALS['HTTP_RAW_POST_DATA'])) {
-			$this->parseStr($GLOBALS['HTTP_RAW_POST_DATA'], $this->params);
+			OAIUtils::parseStr($GLOBALS['HTTP_RAW_POST_DATA'], $this->params);
 
 		} else if (!empty($_SERVER['QUERY_STRING'])) {
-			$this->parseStr($_SERVER['QUERY_STRING'], $this->params);
+			OAIUtils::parseStr($_SERVER['QUERY_STRING'], $this->params);
 
 		} else {
 			$this->params = array_merge($_GET, $_POST);
 		}
 
 		// Clean input variables
-		$this->prepInput($this->params);
+		OAIUtils::prepInput($this->params);
 
 		// Encode data with gzip, deflate, or none, depending on browser support
 		ob_start('ob_gzhandler');
@@ -204,27 +199,14 @@ class OAI {
 	 * @return array
 	 */
 	function &metadataFormats($namesOnly = false, $identifier = null) {
-		if ($namesOnly) {
-			$formats = array('oai_dc', 'oai_marc', 'marcxml', 'rfc1807');
 
-		} else {
-			$formats = array(
-				// Dublin Core
-				'oai_dc' => new OAIMetadataFormat_DC($this, 'oai_dc', 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd', 'http://www.openarchives.org/OAI/2.0/oai_dc/'),
+		$plugins = PluginRegistry::loadCategory('oaiMetadataFormats', true);
 
-				// MARC
-				'oai_marc' => new OAIMetadataFormat_MARC($this, 'oai_marc', "http://www.openarchives.org/OAI/1.1/oai_marc.xsd", "http://www.openarchives.org/OAI/1.1/oai_marc"),
+		$formats = array();
+		HookRegistry::call('OAI::metadataFormats', array($namesOnly, $identifier, &$formats));
 
-				// MARC21
-				'marcxml' => new OAIMetadataFormat_MARC21($this, 'marcxml', "http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd", "http://www.loc.gov/MARC21/slim"),
-
-				// RFC 1807
-				'rfc1807' => new OAIMetadataFormat_RFC1807($this, 'rfc1807', "http://www.openarchives.org/OAI/1.1/rfc1807.xsd", "http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1807.txt")
-			);
-		}
 		return $formats;
 	}
-
 
 	//
 	// Protocol request handlers
@@ -297,11 +279,11 @@ class OAI {
 
 		// Format body of response
 		$response = "\t<Identify>\n" .
-			"\t\t<repositoryName>" . $this->prepOutput($info->repositoryName) . "</repositoryName>\n" .
+			"\t\t<repositoryName>" . OAIUtils::prepOutput($info->repositoryName) . "</repositoryName>\n" .
 			"\t\t<baseURL>" . $this->config->baseUrl . "</baseURL>\n" .
 			"\t\t<protocolVersion>" . $this->protocolVersion . "</protocolVersion>\n" .
 			"\t\t<adminEmail>" . $info->adminEmail . "</adminEmail>\n" .
-			"\t\t<earliestDatestamp>" . $this->UTCDate($info->earliestDatestamp) . "</earliestDatestamp>\n" .
+			"\t\t<earliestDatestamp>" . OAIUtils::UTCDate($info->earliestDatestamp) . "</earliestDatestamp>\n" .
 			"\t\t<deletedRecord>no</deletedRecord>\n" . // FIXME Support deleted records?
 			"\t\t<granularity>" . $this->config->granularity . "</granularity>\n";
 		if (extension_loaded('zlib')) {
@@ -397,7 +379,7 @@ class OAI {
 				"\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
 			// Output set memberships
 			foreach ($record->sets as $setSpec) {
-				$response .= "\t\t\t<setSpec>" . $this->prepOutput($setSpec) . "</setSpec>\n";
+				$response .= "\t\t\t<setSpec>" . OAIUtils::prepOutput($setSpec) . "</setSpec>\n";
 			}
 			$response .= "\t\t</header>\n";
 		}
@@ -407,7 +389,7 @@ class OAI {
 			// Partial result, save resumption token
 			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
-			$response .= "\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
+			$response .= "\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 				"\t\t\tcompleteListSize=\"$total\"\n" .
 				"\t\t\tcursor=\"$cursor\">" . $token->id . "</resumptionToken>\n";
 
@@ -540,7 +522,7 @@ class OAI {
 				"\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
 			// Output set memberships
 			foreach ($record->sets as $setSpec) {
-				$response .= "\t\t\t\t<setSpec>" . $this->prepOutput($setSpec) . "</setSpec>\n";
+				$response .= "\t\t\t\t<setSpec>" . OAIUtils::prepOutput($setSpec) . "</setSpec>\n";
 			}
 			$response .=	"\t\t\t</header>\n" .
 					"\t\t\t<metadata>\n";
@@ -555,7 +537,7 @@ class OAI {
 			// Partial result, save resumption token
 			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
-			$response .=	"\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
+			$response .=	"\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
 					"\t\t\tcursor=\"$cursor\">" . $token->id . "</resumptionToken>\n";
 
@@ -617,8 +599,8 @@ class OAI {
 		for ($i = 0, $num = count($sets); $i < $num; $i++) {
 			$set = $sets[$i];
 			$response .=	"\t\t<set>\n" .
-					"\t\t\t<setSpec>" . $this->prepOutput($set->spec) . "</setSpec>\n" .
-					"\t\t\t<setName>" . $this->prepOutput($set->name) . "</setName>\n";
+					"\t\t\t<setSpec>" . OAIUtils::prepOutput($set->spec) . "</setSpec>\n" .
+					"\t\t\t<setName>" . OAIUtils::prepOutput($set->name) . "</setName>\n";
 			// output set description, if applicable
 			if (isset($set->description)) {
 				$response .=	"\t\t\t<setDescription>\n" .
@@ -628,7 +610,7 @@ class OAI {
 						"\t\t\t\t\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" .
 						"\t\t\t\t\txsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc/\n" .
 						"\t\t\t\t\t\thttp://www.openarchives.org/OAI/2.0/oai_dc.xsd\">\n" .
-						"\t\t\t\t\t<dc:description>" . $this->prepOutput($set->description) . "</dc:description>\n" .
+						"\t\t\t\t\t<dc:description>" . OAIUtils::prepOutput($set->description) . "</dc:description>\n" .
 						"\t\t\t\t</oai_dc:dc>\n" .
 						"\t\t\t</setDescription>\n";
 
@@ -640,7 +622,7 @@ class OAI {
 			// Partial result, set resumption token
 			$token =& $this->saveResumptionToken($offset, $this->getParams());
 
-			$response .=	"\t\t<resumptionToken expirationDate=\"" . $this->UTCDate($token->expire) . "\"\n" .
+			$response .=	"\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
 					"\t\t\tcompleteListSize=\"$total\"\n" .
 					"\t\t\tcursor=\"$cursor\">" . $token->id . "</resumptionToken>\n";
 
@@ -679,20 +661,20 @@ class OAI {
 	 * @param $printParams boolean display request parameters
 	 */
 	function response($response, $printParams = true) {
-		header("Content-Type: text/xml");
+		header('Content-Type: text/xml');
 
 		echo	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
 			"<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n" .
 			"\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" .
 			"\txsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n" .
 			"\t\thttp://www.openarchives.org/OAI/2.0/OAI-PMH.xsd\">\n" .
-			"\t<responseDate>" . $this->UTCDate() . "</responseDate>\n" .
+			"\t<responseDate>" . OAIUtils::UTCDate() . "</responseDate>\n" .
 			"\t<request";
 
 		// print request params, if applicable
 		if($printParams) {
 			foreach($this->params as $k => $v) {
-				echo " $k=\"" . $this->prepOutput($v) . "\"";
+				echo " $k=\"" . OAIUtils::prepOutput($v) . "\"";
 			}
 		}
 
@@ -802,58 +784,6 @@ class OAI {
 	}
 
 	/**
-	 * Return a UTC-formatted datestamp from the specified UNIX timestamp.
-	 * @param $timestamp int *nix timestamp (if not used, the current time is used)
-	 * @param $includeTime boolean include both the time and date
-	 * @return string UTC datestamp
-	 */
-	function UTCDate($timestamp = 0, $includeTime = true) {
-		$format = "Y-m-d";
-		if($includeTime) {
-			$format .= "\TH:i:s\Z";
-		}
-
-		if($timestamp == 0) {
-			return gmdate($format);
-
-		} else {
-			return gmdate($format, $timestamp);
-		}
-	}
-
-	/**
-	 * Returns a UNIX timestamp from a UTC-formatted datestamp.
-	 * Returns the string "invalid" if datestamp is invalid,
-	 * or "invalid_granularity" if unsupported granularity.
-	 * @param $date string UTC datestamp
-	 * @param $checkGranularity boolean verify that granularity is correct
-	 * @return int timestamp
-	 */
-	function UTCtoTimestamp($date, $checkGranularity = true) {
-		// FIXME Has limited range (see http://php.net/strtotime)
-		if (preg_match("/^\d\d\d\d\-\d\d\-\d\d$/", $date)) {
-			// Match date
-			$time = strtotime("$date UTC");
-			return ($time != -1) ? $time : 'invalid';
-
-		} else if (preg_match("/^(\d\d\d\d\-\d\d\-\d\d)T(\d\d:\d\d:\d\d)Z$/", $date, $matches)) {
-			// Match datetime
-			// FIXME
-			$date = "$matches[1] $matches[2]";
-			if ($checkGranularity && $this->config->granularity != 'YYYY-MM-DDThh:mm:ssZ') {
-				return 'invalid_granularity';
-
-			} else {
-				$time = strtotime("$date UTC");
-				return ($time != -1) ? $time : 'invalid';
-			}
-
-		} else {
-			return 'invalid';
-		}
-	}
-
-	/**
 	 * Checks if from and until parameters have been passed.
 	 * If passed, validate and convert to UNIX timestamps.
 	 * @param $params array request parameters
@@ -863,7 +793,7 @@ class OAI {
 	 */
 	function extractDateParams($params, &$from, &$until) {
 		if (isset($params['from'])) {
-			$from = $this->UTCtoTimestamp($params['from']);
+			$from = OAIUtils::UTCtoTimestamp($params['from']);
 
 			if ($from == 'invalid') {
 				$this->error('badArgument', 'Illegal from parameter');
@@ -876,7 +806,7 @@ class OAI {
 		}
 
 		if(isset($params['until'])) {
-			$until = $this->UTCtoTimestamp($params['until']);
+			$until = OAIUtils::UTCtoTimestamp($params['until']);
 
 			if($until == 'invalid') {
 				$this->error('badArgument', 'Illegal until parameter');
@@ -907,76 +837,6 @@ class OAI {
 
 		return true;
 	}
-
-	/**
-	 * Clean input variables.
-	 * @param $data mixed request parameter(s)
-	 * @return mixed cleaned request parameter(s)
-	 */
-	function prepInput(&$data) {
-		if (!is_array($data)) {
-			$data = urldecode($data);
-
-		} else {
-			foreach ($data as $k => $v) {
-				if (is_array($data[$k])) {
-					$this->prepInput($data[$k]);
-				} else {
-					$data[$k] = urldecode($v);
 				}
-			}
-		}
-		return $data;
-	}
-
-	/**
-	 * Prepare variables for output.
-	 * Data is assumed to be UTF-8 encoded (FIXME?)
-	 * @param $data mixed output parameter(s)
-	 * @return mixed cleaned output parameter(s)
-	 */
-	function prepOutput(&$data) {
-		if (!is_array($data)) {
-			$data = htmlspecialchars($data);
-
-		} else {
-			foreach ($data as $k => $v) {
-				if (is_array($data[$k])) {
-					$this->prepOutput($data[$k]);
-				} else {
-					// FIXME FIXME FIXME
-					$data[$k] = htmlspecialchars($v);
-				}
-			}
-		}
-		return $data;
-	}
-
-	/**
-	 * Parses string $string into an associate array $array.
-	 * Acts like parse_str($string, $array) except duplicate
-	 * variable names in $string are converted to an array.
-	 * @param $duplicate string input data string
-	 * @param $array array of parsed parameters
-	 */
-	function parseStr($string, &$array) {
-		$pairs = explode('&', $string);
-		foreach ($pairs as $p) {
-			$vars = explode('=', $p);
-			if (!empty($vars[0]) && isset($vars[1])) {
-				$key = $vars[0];
-				$value = join('=', array_splice($vars, 1));
-
-				if (!isset($array[$key])) {
-					$array[$key] = $value;
-				} else if (is_array($array[$key])) {
-					array_push($array[$key], $value);
-				} else {
-					$array[$key] = array($array[$key], $value);
-				}
-			}
-		}
-	}
-}
 
 ?>

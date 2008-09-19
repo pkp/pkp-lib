@@ -57,8 +57,7 @@ class DAOResultFactory extends ItemIterator {
 			$this->isLast = true;
 			$this->count = 0;
 			$this->pageCount = 1;
-		}
-		else {
+		} else {
 			$this->records =& $records;
 			$this->wasEmpty = false;
 			$this->page = $records->AbsolutePage();
@@ -76,7 +75,7 @@ class DAOResultFactory extends ItemIterator {
 	function &next() {
 		if ($this->records == null) return $this->records;
 		if (!$this->records->EOF) {
-			$functionName =& $this->functionName;
+			$functionName = $this->functionName;
 			$dao =& $this->dao;
 			$row =& $this->records->getRowAssoc(false);
 			$result =& $dao->$functionName($row);

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/de_DE/reader.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="comments.anonymous">Anonymer Kommentar</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
+	<message key="comments.body">Text der Mitteilung</message>
+	<message key="comments.confirmDeleteChildren">Mit diesem Kommentar löschen Sie auch alle Antworten. Wollen Sie wirklich löschen?</message>
+	<message key="comments.delete">Diesen Kommentar löschen</message>
+	<message key="comments.email">Email anzeigen</message>
+	<message key="comments.emailReply">Antworten Sie per Email</message>
+	<message key="comments.enterComment">Kommentar eingeben</message>
+	<message key="comments.inResponseTo">Antwort zu<![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.name">Name anzeigen</message>
+	<message key="comments.noComments">Kein Leserkommentar angezeigt</message>
+	<message key="comments.nReplies">({$num} Antworten)</message>
+	<message key="comments.oneReply">(1 Antwort)</message>
+	<message key="comments.postAnonymously">Diesen Kommentar anonym anzeigen</message>
+	<message key="comments.postReply">Antwort anzeigen</message>
+	<message key="comments.readerComments">Leser kommentiert</message>
+	<message key="comments.readMore">Zusatz</message>
+	<message key="comments.replies">Antworten</message>
+	<message key="comments.title">Titel</message>
+	<message key="comments.viewAllComments">Alle Kommentare anzeigen</message>
+	<message key="reader.fullText">Vollständiger Text :</message>
+	<message key="rt.addComment">Kommentar hinzufügen </message>
+	<message key="rt.admin.configuration">Konfiguration</message>
+	<message key="rt.admin.contexts.confirmDelete">Sind Sie sicher, dass Sie dies Umfeld und alle mit ihm verbundene Suchen löschen möchten?</message>
+	<message key="rt.admin.contexts.createContext">Umfeld erstellen</message>
+	<message key="rt.admin.contexts.edit.editContext">Umfeld ändern</message>
+	<message key="rt.admin.contexts.metadata">Metadaten</message>
+	<message key="rt.admin.contexts.options.authorTerms">Verfassernamen als Standardsuchbegriff verwenden und Benutzern die Möglichkeit geben, weitere Arbeiten der Verfasser zu diesem Thema zu finden (z.B. mit dem Umfeld "weitere Arbeiten")</message>
+	<message key="rt.admin.contexts.options.citedBy">Verfassernamen als Standardsuchbegriff verwenden und Umfeld als Suche nach Zitationenbeschreiben.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Hervorhebung des Lesers als Standardsuchbegriff verwenden oder freilassen, falls keine Hervorhebung existiert. (z.B. mit dem Umfeld "Begriffsdefinitionen"). Die Option "Begriffsdefinitionen muss in <a href="{$requestPageUrl}/settings">Lesersuchinstrumente Parameter</a> aktiviert werden, dies Umfeld kann dann durch Doppelklicken auf ein Wort aufgerufen werden.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">Geographische Kennzeichnung als Standardsuchbegriff verwenden.</message>
+	<message key="rt.admin.contexts.options">Optionen</message>
+	<message key="rt.admin.management">Verwaltung</message>
+	<message key="rt.admin.readingToolsEnabled">Leserwerkzeuge</message>
+	<message key="rt.admin.searches.confirmDelete">Sind Sie sicher, dass Sie diese Suche löschen wollen?</message>
+	<message key="rt.admin.searches.createSearch">Suche erstellen</message>
+	<message key="rt.admin.searches.edit.editSearch">Suche ändern</message>
+	<message key="rt.admin.selectedVersion">Verwandte Themen</message>
+	<message key="rt.admin.settings.abstract">Kurzfassung (Kurzfassung der Veröffentlichung).</message>
+	<message key="rt.admin.settings.authorBio">Biographie des Verfassers anzeigen (Zeigt die Angaben des Verfassers zu seiner Biographie)</message>
+	<message key="rt.admin.settings.captureCite">Zitat aufzeichnen (Zeigt das Zitat eines Artikels im Standardformat, unterstützt folgende Zitationsprogramme: EndNote, Reference Manager, ProCite)</message>
+	<message key="rt.admin.settings.defineTerms">Wortsuche (Der Leser kann auf ein Wort im Artikel doppelklicken und dies Wort an ein Wörterbuch schicken)</message>
+	<message key="rt.admin.settings.disableRelatedItems">Umfeldwerkzeuge deaktivieren</message>
+	<message key="rt.admin.settings.emailAuthor">Email an Verfasser senden (Öffnet dem Leser ein Emailformular mit der Adresse des Verfassers)</message>
+	<message key="rt.admin.settings.emailOthers">Beitrag an Kollegen senden(Öffnet dem Leser ein Emailformular mit dem Titel des Beitrags als Betreff)</message>
+	<message key="rt.admin.settings.supplementaryFiles">Zusätzliche Dateien ansehen (Zeigt eine Liste aller Zusatzdateien, die der Verfasser einem Artikel mitgegeben)</message>
+	<message key="rt.admin.settings.viewMetadata">Die Metadaten des Artikels anzeigen (Zeigt Informationen zur Indexierung des Artikels durch Verfasser und System)</message>
+	<message key="rt.admin.status">Status</message>
+	<message key="rt.admin.validateUrls.complete">Bestätigung beendet.</message>
+	<message key="rt.admin.validateUrls.ok">OK</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} ist ungültig.</message>
+	<message key="rt.admin.validateUrls">URL bestätigen</message>
+	<message key="rt.admin.validateUrls.validate">Bestätigen</message>
+	<message key="rt.admin.versions.confirmDelete">Sind Sie sicher, dass Sie diese Version mit allen Umfeldtexten und Suchen löschen wollen?</message>
+	<message key="rt.admin.versions.confirmRestore">Sind Sie sicher, dass Sie alle Versionen unwiederbringlich auf den Standard zurücksetzen wollen? Sie müssen dann auf der Parameterseite eine aktive Version auswählen.</message>
+	<message key="rt.admin.versions.createVersion">Version erstellen</message>
+	<message key="rt.admin.versions.edit.editVersion">Version verändern</message>
+	<message key="rt.admin.versions.export">Version exportieren</message>
+	<message key="rt.admin.versions.importVersion">Version importieren</message>
+	<message key="rt.admin.versions.metadata">Metadaten</message>
+	<message key="rt.admin.versions.restoreVersions">Versionen auf Standard zurücksetzen</message>
+	<message key="rt.authorBio">Zum Verfasser</message>
+	<message key="rt.captureCite">Bibliographische Info</message>
+	<message key="rt.captureCite.online">Per Internet</message>
+	<message key="rt.colleague">Kollege benachrichtigen</message>
+	<message key="rt.context.abbrev">Abkürzung.</message>
+	<message key="rt.context.and">UND</message>
+	<message key="rt.context.citesContextDescription">Falls der Beitrag bei Google Scholar verzeichnet ist, kann er mit einer "Zitiert durch X" Adresse versehen werden, die zu einer Liste aller ihn zitierenden Arbeiten führt. Auch listet Google Scholar alle Arbeiten, die Titel und Autor(en) zitieren. Für den Zugang zu Internetressourcen, die nur über Ihre Forschungsbibliothek zugänglich sind, können Sie zu Präferenzen in Google Scholar gehen und die Bibliotheksadresse Ihres Instituts aktivieren.</message>
+	<message key="rt.context">Umfeld</message>
+	<message key="rt.context.defineTermsDescription">Auf ein beliebiges Wort im Text doppelklicken, es erscheint im Feld Zu definierendes Wort. Sie können auch ein Wort eintippen oder hineinkopieren. Klicken Sie auf das Infosymbol für nähere Angaben zum Suchlink. Die Suchlinks wurden nach Trefferqualität und wegen des teilweise oder ganz freien (kostenlosen) Zugangs ausgesucht.</message>
+	<message key="rt.context.description">Beschreibung</message>
+	<message key="rt.context.order">Ordnen</message>
+	<message key="rt.contexts">Umfelder</message>
+	<message key="rt.context.searchDescription">Die Suchbegriffe wurden vom (von den) Verfasser(n) bestimmt und können vom Leser geändert werden. Klicken Sie auf das Infosymbol für nähere Angaben zum Suchlink. Die Suchlinks wurden nach Trefferqualität und wegen des teilweise oder ganz freien (kostenlosen) Zugangs ausgesucht.</message>
+	<message key="rt.context.searchTerms">Suchbegriffe</message>
+	<message key="rt.context.termToDefine">Zu definierendes Wort</message>
+	<message key="rt.context.title">Titel</message>
+	<message key="rt.emailAuthor">Email an Verfasser senden</message>
+	<message key="rt.email.needLogin"><![CDATA[* Registrierung <a target="_parent" href="{$pageUrl}/user/register">erforderlich</a>]]></message>
+	<message key="rt.email.sent">Ihre Mitteilung wurde abgeschickt.</message>
+	<message key="rt.lookUp">Wortsuche</message>
+	<message key="rt.metadata.dublinCore.contributor">Mitarbeiter</message>
+	<message key="rt.metadata.dublinCore.coverage">Bereich</message>
+	<message key="rt.metadata.dublinCore.date">Datum</message>
+	<message key="rt.metadata.dublinCore.description">Beschreibung</message>
+	<message key="rt.metadata.dublinCore">Dublin Core</message>
+	<message key="rt.metadata.dublinCore.format">Format</message>
+	<message key="rt.metadata.dublinCore.identifier">Kennzeichnung</message>
+	<message key="rt.metadata.dublinCore.language">Sprache</message>
+	<message key="rt.metadata.dublinCore.publisher">Redakteur</message>
+	<message key="rt.metadata.dublinCore.relation">Bezug</message>
+	<message key="rt.metadata.dublinCore.rights">Rechte</message>
+	<message key="rt.metadata.dublinCore.source">Quelle</message>
+	<message key="rt.metadata.dublinCore.subject">Gegenstand</message>
+	<message key="rt.metadata.dublinCore.title">Titel</message>
+	<message key="rt.metadata.dublinCore.type">Typ</message>
+	<message key="rt.metadata.forThisDocument">Metadaten für dies Dokument</message>
+	<message key="rt.metadata.pkp.abstract">Kurzfassung</message>
+	<message key="rt.metadata.pkp.copyright">Copyright und Berechtigungen</message>
+	<message key="rt.metadata.pkp.coverage">Geographisch-räumliche Zuordnung, chronologischer Zeitraum, Probensammlung (Geschlecht, Alter, etc.)</message>
+	<message key="rt.metadata.pkp.date">(JJJJ-MM-TT)</message>
+	<message key="rt.metadata.pkp.discipline">Fachgebiet(e)</message>
+	<message key="rt.metadata.pkp.format">Dateiformat</message>
+	<message key="rt.metadata.pkp.genre">Status &amp; Genre</message>
+	<message key="rt.metadata.pkpItem">PKP Metadaten </message>
+	<message key="rt.metadata.pkp.language">Englisch=en</message>
+	<message key="rt.metadata.pkp.publisher">Herausgeber, Ort</message>
+	<message key="rt.metadata.pkp.source">Zeitschrift/Vortrag, Titel; Bd., Nr. (Jahr)</message>
+	<message key="rt.metadata.pkp.sponsors">Sponsoren</message>
+	<message key="rt.metadata.pkp.subjectClass">Klassifizierung des Themas</message>
+	<message key="rt.metadata.pkp.subject">Gegenstand(e)</message>
+	<message key="rt.metadata.pkp.suppFiles">Zusatzdateien</message>
+	<message key="rt.metadata.pkp.title">Titel des Dokuments</message>
+	<message key="rt.metadata.pkp.type">Typ</message>
+	<message key="rt.metadata.pkp.uri">Universal Resource Indikator (URI) </message>
+	<message key="rt.printVersion">Druckfassung </message>
+	<message key="rt.readingTools">Leserwerkzeuge</message>
+	<message key="rt.relatedItems">Verwandte Beiträge finden unter</message>
+	<message key="rt.reviewPolicy">Gutachterverfahren</message>
+	<message key="rt.search.description">Beschreibung</message>
+	<message key="rt.searches">Suchen</message>
+	<message key="rt.search.order">Ordnen</message>
+	<message key="rt.search">Suche</message>
+	<message key="rt.search.searchPost">Daten abschicken</message>
+	<message key="rt.search.searchUrl">URL Suche</message>
+	<message key="rt.search.suggest">Quelle vorschlagen</message>
+	<message key="rt.search.title">Titel</message>
+	<message key="rt.search.url">URL</message>
+	<message key="rt.suppFiles.download">Zusatzdateien herunterladen</message>
+	<message key="rt.suppFiles">Zusatzdateien</message>
+	<message key="rt.suppFiles.viewMetadata">Metadaten anzeigen</message>
+	<message key="rt.version.description">Beschreibung</message>
+	<message key="rt.version.key">Schlüssel</message>
+	<message key="rt.version.locale">Regionaleinstellung</message>
+	<message key="rt.versions">Versionen</message>
+	<message key="rt.version.title">Titel</message>
+	<message key="rt.version">Version</message>
+	<message key="rt.viewMetadata">Metadaten indizieren</message>
+	<message key="rt.admin.settings.printerFriendly">Print version (Leads to a printer-friendly version of an item).</message>
+</locale>

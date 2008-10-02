@@ -216,9 +216,9 @@ class PKPTemplateManager extends Smarty {
 	 * @return TemplateManager the template manager object
 	 */
 	function &getManager() {
-		static $instance;
+		$instance =& Registry::get('templateManager', true, null);
 
-		if (!isset($instance)) {
+		if ($instance === null) {
 			$instance = new TemplateManager();
 		}
 		return $instance;
@@ -456,7 +456,6 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign('debugMemoryUsage', memory_get_usage());
 			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));
 		}
-
 	}
 
 	function setProgressFunction($progressFunction) {

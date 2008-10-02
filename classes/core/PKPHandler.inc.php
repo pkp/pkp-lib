@@ -47,6 +47,13 @@ class PKPHandler {
 			Request::getRequestedArgs()
 		);
 	}
+
+	function setupTemplate() {
+		Locale::requireComponents(array(
+			 LOCALE_COMPONENT_PKP_COMMON,
+			 LOCALE_COMPONENT_PKP_USER
+		));
+	}
 }
 
 ?>

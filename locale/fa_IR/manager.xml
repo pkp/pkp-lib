@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/fa_IR/manager.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the fa_IR (Persian) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="fa_IR" full_name = "Persian">
+	<message key="manager.announcements">اطلاعیه ها</message>
+	<message key="manager.announcements.confirmDelete">آیا میخواهید برای همیشه این اطلاعیه را حذف کنید؟</message>
+	<message key="manager.announcements.create">ایجاد اطلاعیه جدید</message>
+	<message key="manager.announcements.createTitle">ایجاد</message>
+	<message key="manager.announcements.dateExpire">انقضا</message>
+	<message key="manager.announcements.edit">ویرایش اطلاعیه</message>
+	<message key="manager.announcements.editTitle">ویرایش</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">لطفا علاوه بر روز ، ماه یا سال انقضا را نیز انتخاب کنید</message>
+	<message key="manager.announcements.form.dateExpire">تاریخ انقضا</message>
+	<message key="manager.announcements.form.dateExpireInstructions">اطلاعیه تا این تاریخ در معرض دید خواهد بود. اگرمیخواهید برای همیشه اطلاعیه نمایض داده شود این قسمت را خالی بگذارید</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">لطفا علاوه بر ماه ، روز یا سال  را انقضا نیز انتخاب کنید</message>
+	<message key="manager.announcements.form.dateExpireValid">لطفا تاریخ صحیحی برای انقضای اطلاعیه وارد کنید</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">لطفا علاوه بر سال ، ماه یا روز انقضا را نیز انتخاب کنید</message>
+	<message key="manager.announcements.form.description">توصیف</message>
+	<message key="manager.announcements.form.descriptionInstructions">متن کامل اطلاعیه</message>
+	<message key="manager.announcements.form.descriptionRequired">یک توصیف برای اطلاعیه لازم است</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">یک توصیف مختصر که همرا با عنوان اطلاعیه ظاهر شود.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">یک توصیف مختصر برای اطلاعیه لازم است</message>
+	<message key="manager.announcements.form.descriptionShort">توصیف مختصر</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">ذخیره و ایجاد مورد</message>
+	<message key="manager.announcements.form.titleRequired">عنوان اطلاعیه لازم است</message>
+	<message key="manager.announcements.form.title">عنوان</message>
+	<message key="manager.announcements.form.typeId">نوع</message>
+	<message key="manager.announcements.form.typeIdValid">لطفا نوع صحیحی برای اطلاعیه انتخاب کنید</message>
+	<message key="manager.announcements.noneCreated">هیچ اطلاعیه ای ایجاد نشده است</message>
+	<message key="manager.announcements.title">عنوان</message>
+	<message key="manager.announcements.type">نوع</message>
+	<message key="manager.announcementTypes">انواع اطلاعیه ها</message>
+	<message key="manager.announcementTypes.confirmDelete">اخظار! تمام اطلاعیه های از این نوع از بین خواهد رفت. آیا مطمئن هستید که میهواهید این نوع اطلاعیه را حذف کنید؟</message>
+	<message key="manager.announcementTypes.create">ایجاد نوع اطلاعیه</message>
+	<message key="manager.announcementTypes.createTitle">ایجاد</message>
+	<message key="manager.announcementTypes.edit">ویرایش نوع اطلاعیه</message>
+	<message key="manager.announcementTypes.editTitle">ویرایش</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">ذخیره وایجاد یک مورد دیگر</message>
+	<message key="manager.announcementTypes.form.typeNameExists">نام اطلاعیه مزبور هم اکنون وجود دارد</message>
+	<message key="manager.announcementTypes.form.typeName">نام</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">نامی برای نوع اطلاعیه لازم است</message>
+	<message key="manager.announcementTypes.noneCreated">هیچ نوع اطلاعیه ای ایجاد نشده است</message>
+	<message key="manager.announcementTypes.typeName">نوع اطلاعیه</message>
+	<message key="manager.emails.confirmDelete">ایا میخواهید این قالب ایمیل را حذف کنید؟</message>
+	<message key="manager.emails.confirmReset">آیا میخواهید این قالب ایمیل را به حالت نخست برگردانید؟</message>
+	<message key="manager.emails.createEmail">ایجاد ایمیل</message>
+	<message key="manager.emails.disable">غیر فعال ساختن</message>
+	<message key="manager.emails.editEmail">ویرایش ایمیل</message>
+	<message key="manager.emails.editTestExample">ویرایش ایمیل آزمایشی</message>
+	<message key="manager.emails.emailKey">کلید ایمیل</message>
+	<message key="manager.emails.emailKeyExists">ایمیلی با این کلید در حال حاضر موجود است. کلید ایمیل میبایست منحصر به فرد باشد.</message>
+	<message key="manager.emails.emailTemplate">قالب ایمیل</message>
+	<message key="manager.emails.emailTemplates">قالبهای ایمیل</message>
+	<message key="manager.emails.enabled">فعال ساختن این قالب ایمیل</message>
+	<message key="manager.emails.enable">فعال ساختن</message>
+	<message key="manager.emails.form.bodyRequired">متن اصلی برای این ایمیل لازم است</message>
+	<message key="manager.emails.form.subjectRequired">یک موضوع برای این ایمیل لازم است.</message>
+	<message key="manager.emails">ایمیل های از پیش آماده شده</message>
+	<message key="manager.emails.resetAll">برگرداندن تمام قالب ها به حالت نخست</message>
+	<message key="manager.emails.reset">برگشت به حالت اول</message>
+	<message key="manager.emails.resetToDefault">برگرداندن به حالت نخست</message>
+	<message key="manager.filesBrowser">مرورگر فایلها</message>
+	<message key="manager.files.confirmDelete">آیا این فایل یا پوشه را حذف کنم ؟ دقت داشته باشید که یک پوشه باید قبل از حذف شدن خالی شده باشد</message>
+	<message key="manager.files.createDir">ایجاد پوشه</message>
+	<message key="manager.files.emptyDir">.هیچ فایلی در این دایرکتوری پیدا نشد</message>
+	<message key="manager.files.indexOfDir">{$dir} اقلام موجود در</message>
+	<message key="manager.files.parentDir">دایرکتوری مادر</message>
+	<message key="manager.files.uploadedFiles">فایل های آپلود شده</message>
+	<message key="manager.files.uploadFile">آپلود کردن فایل</message>
+	<message key="manager.groups.confirmDelete">آیا میخواهید این گروه را حذف کنید؟</message>
+	<message key="manager.groups.createTitle">ایجاد عنوان</message>
+	<message key="manager.groups.editTitle">ویرایش عنوان</message>
+	<message key="manager.groups.form.groupTitleRequired">عنوان گروه لازم است</message>
+	<message key="manager.groups.membership.addMember">افزودن عضو</message>
+	<message key="manager.groups.membership.confirmDelete">آیا میخواهید عضویت این کروه را لغو کنید؟</message>
+	<message key="manager.groups.membership">عضویت</message>
+	<message key="manager.groups.membership.noneCreated">این گروه عضوی ندارد</message>
+	<message key="manager.groups.membership.noUsers">کاربری یافت نشد</message>
+	<message key="manager.groups.title">عنوان</message>
+	<message key="manager.importExport">واردات / صادرات داده ها</message>
+	<message key="manager.languages.alternateLocaleInstructions">در این سیستم میتوان اطلاعات مهم خاصی را به حداثر دو زبان وارد کرد. برای استفاده از این گزینه یک یا دو زبان فرعی را انتخاب کرده و از لیست گزینه های زیر موارد دلخواه خود را انتخاب کنید.</message>
+	<message key="manager.languages.supportedLocalesInstructions">تمام زبان هائی را که میخواهید در سایت موجود باشد و کار بر بتواند از منوی انتخاب زبان آنرا انتخاب کند را تعیین کنید. منوی انتخاب زبان فقط موقعی ظاهر میشود که بیش از یک زبان انتخاب کرده باشید.</message>
+	<message key="manager.payment.timestamp">Timestamp</message>
+	<message key="manager.people.authSource">منبع تایید هویت</message>
+	<message key="manager.people.confirmUnenroll">عزل نقش این کاربر</message>
+	<message key="manager.people.createUser">ایجاد کاربر جدید</message>
+	<message key="manager.people.createUserGeneratePassword">تولید یک رمز عبور تصادفی</message>
+	<message key="manager.people.createUserSendNotify">ارسال ایمیل خوش آمد به کلربر و ارسال نام کاربری و رمز عبور با آن</message>
+	<message key="manager.people.disable">غیر فعال کردن</message>
+	<message key="manager.people.doNotEnroll">بدون نقش</message>
+	<message key="manager.people.editProfile">ویرایش پرونده</message>
+	<message key="manager.people.editUser">ویرایش کاربر</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">ارسال ایمیل به کاربران انتخاب شده</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">ارسال ایمیل به کاربران اعطای نقش شده</message>
+	<message key="manager.people.emailUsers">ارسال ایمیل به کاربران</message>
+	<message key="manager.people.emailUsers.selectLocale">اتخاب یک زبان</message>
+	<message key="manager.people.emailUsers.selectUsers">با چک زدن کاربران مورد نظرتان آنها را برای ارسال ایمیل انتخاب کنید</message>
+	<message key="manager.people.enable">فعال کردن</message>
+	<message key="manager.people.enroll">اعطای نقش به کاربر</message>
+	<message key="manager.people.enrollment">اعطای نقش</message>
+	<message key="manager.people.enrollSelected">اعطای نقش به کاربران انتخاب شده</message>
+	<message key="manager.people.enrollSyncRole">نقش هماهنگ</message>
+	<message key="manager.people.enrollSync">اعطای نقش هماهنگ</message>
+	<message key="manager.people.enrollUserAsDescription">اگر هیچ نقشی انتخاب نشود کاربر ایجاد میشود ولی هیچ نقشی در مجله ندارد. اعطای نقش و یا عزل نقش بعدا در هر زمانی نیز مقدور است.</message>
+	<message key="manager.people.enrollUserAs">بده به کاربر نقش</message>
+	<message key="manager.people.invalidUser">متاسفانه کاربر درخواست شده موجود نیست</message>
+	<message key="manager.people.mergeUser">ادغام کاربر</message>
+	<message key="manager.people.mergeUsers.confirm">آیا میخواهید حساب کاربر  &quot;{$oldUsername}&quot;  را با حساب کاربر &quot;{$newUsername}&quot; در هم ادغام کنید? این عمل موجب میشود که حساب کاربر &quot;{$oldUsername}&quot; دیگر وجود نداشته باشد. این اقدام غیر قابل بازگشت است.</message>
+	<message key="manager.people.mergeUsers">ادغام کاربران</message>
+	<message key="manager.people.mustChooseRole">لطفا قبل از کلیک بر روی اعطای نقش , نقش مورد نظر را از لیست بالای صفحه انتخاب کنید.</message>
+	<message key="manager.people.mustProvideName">لطفا نام خانوادگی کاربر را وارد کنید</message>
+	<message key="manager.people.noMatchingUsers">کاربری با این مشخصات یافت نشد.</message>
+	<message key="manager.people.noneEnrolled">هیچ کاربری ایفای نقش نمی کند</message>
+	<message key="manager.people">کاربران</message>
+	<message key="manager.people.remove">حذف</message>
+	<message key="manager.people.saveAndCreateAnotherUser">دخیره  و ایجاد کاربر دیگر</message>
+	<message key="manager.people.signInAs">ورود به عنوان</message>
+	<message key="manager.people.signInAsUser">ورود به سیستم به عنوان این کاربر</message>
+	<message key="manager.people.syncUsers">هماهنگی اعطای نقش به کاربر</message>
+	<message key="manager.people.unenroll">عزل نقش</message>
+	<message key="manager.people.userCreatedSuccessfully">کاربر با موفقیت ایجاد شد</message>
+	<message key="manager.people.userMustChangePassword">لازم است که کاربر در نوبت ورود بعدی به سیستم رمز عبور خود را عوض کند.</message>
+	<message key="manager.plugins.action">اقدام:</message>
+	<message key="manager.plugins.disable">غیر فعال سازی</message>
+	<message key="manager.plugins.enable">فعال سازی</message>
+	<message key="manager.plugins.pluginManagement">مدیریت پلاگین ها</message>
+	<message key="manager.plugins.sitePlugin">این یک پلاگ این مربوط به کل سایت است. فقط مدیر سایت میتواند آنرا تغییر دهد</message>
+	<message key="manager.plugins">پلاگین های سیستم</message>
+	<message key="manager.readingTools">ابزارهای خواندن</message>
+	<message key="manager.roles">نقش ها</message>
+	<message key="manager.setup.homeHeaderImageInvalid">فرمات تصویر لوگوی هدر صفحه خانگی نامناسب است. فرمات های مناسب عبارت است از .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homepageImageInvalid">فرمات تصویر صفحه خانگی نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">فرمات تصویر عنوان هدر صفحه خانکی نامناسب است. فرمات های قابل قبول عبارت است از gif, .jpg, or .png.</message>
+	<message key="manager.setup.layout.leftSidebar">نوار حاشیه چپ</message>
+	<message key="manager.setup.layout.rightSidebar">نوار حاشیه راست</message>
+	<message key="manager.setup.layout.unselected">انتخاب نشده</message>
+	<message key="manager.setup.loggingAndAuditing">ورود و ممیزی</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">فرمات تصویر لوگوی هدر صفحات نامناسب است.  فرمات های قابل قبول عبارت است از .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">فرمات تصویر عنوان هدر صفحات نامناسب است. فزمات های قابل قبول عبارت است .gif, .jpg, or .png.</message>
+	<message key="manager.setup.selectOne">یکی را انتخاب کنید</message>
+	<message key="manager.statistics">آمار و گزارشات</message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} جدید)</message>
+	<message key="manager.users">کاربرها</message>
+	<message key="plugins.categories.auth">پلاگین های تایید هویت</message>
+	<message key="plugins.categories.blocks">پلاگین های بلوکی</message>
+	<message key="plugins.categories.blocks.description">پلاگین های بلوکی اجزای گرافیکی قابل اتصال به سیستم هستند مانند ابزارهای مختلف موجود در میله های کناری</message>
+	<message key="plugins.categories.citationFormats">پلاگین های الگوی مرجع نویسی</message>
+	<message key="plugins.categories.gateways.description">پلاگین های دروازه داده های موثر را بر سیستمهای خارجی فراهم می کند</message>
+	<message key="plugins.categories.gateways">پلاگین های گذرگاه</message>
+	<message key="plugins.categories.generic">پلاگین های عمومی</message>
+	<message key="plugins.categories.importexport.description">واردات / صادرات پلاگین ها می تواند برای انتقال محتوا از و به سیستمهای دیگر مورد استفاده قرار گیرد</message>
+	<message key="plugins.categories.importexport">پلاگین های واردات / صادرات</message>
+	<message key="plugins.categories.paymethod.description">پلاگین های روشهای پرداخت حمایت از روشهای مختلف پردازش پرداختهای آنلاین را پیاده سازی می کنند</message>
+	<message key="plugins.categories.paymethod">پلاگین های روشهای پرداخت</message>
+	<message key="plugins.categories.reports.description">پلاگین های گزارش برای تولید انواع مختلف گزارشات و استخراج داده بکار میرود</message>
+	<message key="plugins.categories.reports">پلاگین های گزارش</message>
+	<message key="plugins.categories.themes.description">پلاگین های چهره می توانند برای تغییر ظاهر سیستم استفاده شوند</message>
+	<message key="plugins.categories.themes">پلاگین های چهره</message>
+</locale>

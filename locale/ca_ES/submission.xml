@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/ca_ES/submission.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Català (Espanya)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Català (Espanya)">
+	<message key="submission.abstractViews">opinions sobre el resum</message>
+	<message key="submission.accepted">Acceptat</message>
+	<message key="submission.acknowledge">Acusa rebut</message>
+	<message key="submission.addSuppFile">Afegeix arxius suplementaris</message>
+	<message key="submission.ask">Pregunta</message>
+	<message key="submission.backToSubmissionEditing">Torna a l'edició de la tramesa</message>
+	<message key="submission.comments.addComment">Afegeix comentari</message>
+	<message key="submission.comments.comments">Comentaris</message>
+	<message key="submission.comments.confirmDelete">Està segur de voler esborrar aquest comentari?</message>
+	<message key="submission.comments.corrections">Correccions</message>
+	<message key="submission.comments.editComment">Edita Comentari</message>
+	<message key="submission.comments.importPeerReviews">Importa les revisions</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisor {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">Sense comentaris</message>
+	<message key="submission.comments.noReviews">No hi ha revisions</message>
+	<message key="submission.comments.review">Revisió</message>
+	<message key="submission.comments.sendDecisionToReviewers">Envia als revisors la decisió editorial</message>
+	<message key="submission.comments.subject">Assumpte</message>
+	<message key="submission.complete">Completa</message>
+	<message key="submission.done">Fet</message>
+	<message key="submission.dueDate">Data prevista</message>
+	<message key="submission.due">Previst</message>
+	<message key="submission.editing">Edició</message>
+	<message key="submission.editMetadata">Edita metadades</message>
+	<message key="submission.email.backToEmailLog">Torna al registre de correu electrònic</message>
+	<message key="submission.email.confirmClearLog">Està segur que vol netejar el registre de correu electrònic d'aquest esdeveniment?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Està segur que vol esborrar el registre de correu electrònic d'entrada d'aquest esdeveniment?</message>
+	<message key="submission.email.deleteLogEntry">Esborra el registre d'entrada</message>
+	<message key="submission.emailLog">Històric de missatges</message>
+	<message key="submission.event.backToEventLog">Torna al registre de l'esdeveniment</message>
+	<message key="submission.event.confirmClearLog">Està segur que vol netejar el registre de l'esdeveniment d'aquest enviament?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Està segur que vol esborrar aquest registre d'entrada a l'esdeveniment?</message>
+	<message key="submission.event.deleteLogEntry">Esborra registre d'entrada</message>
+	<message key="submission.event.general.metadataUpdated">Tramesa de metadades modificades</message>
+	<message key="submission.event.general.suppFileUpdated">Tramesa d'arxiu modificada</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">S'accepta la revisió en nom del revisor</message>
+	<message key="submission.event.reviewer.reviewAccepted">El revisor accepta la revisió</message>
+	<message key="submission.event.reviewer.reviewCancelled">S'ha anul·lat el revisor assignat</message>
+	<message key="submission.event.reviewer.reviewDeclined">No s'accepta fer la revisió del treball</message>
+	<message key="submission.event.reviewer.reviewDueDate">Data de revisió modificada</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Revisor assignat a la tramesa</message>
+	<message key="submission.event.reviewer.reviewerRated">S'ha enviat la valoració del revisor</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">No s'ha assignat revisor des de la tramesa</message>
+	<message key="submission.event.reviewer.reviewFile">S'ha actualitzat l'arxiu de la revisió</message>
+	<message key="submission.event.reviewer.reviewInitiated">S'ha iniciat la designació de revisor</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Arxiu amb recomanacions de revisió</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Es reinicia l'assignació de revisor</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Revisió retramesa</message>
+	<message key="submission.event.reviewer.reviewRevision">L'arxiu amb els comentaris del revisor s'ha actualitzat</message>
+	<message key="submission.files">Arxius</message>
+	<message key="submission.galley">Galeria</message>
+	<message key="submission.history.clearLog">Neteja registres</message>
+	<message key="submission.history">Història</message>
+	<message key="submission.history.noLogEntries">No hi ha registres d'entrades.</message>
+	<message key="submission.history.recentLogEntries">Entrades recents</message>
+	<message key="submission.history.submissionEmailLog">Registre del correu electrònic</message>
+	<message key="submission.history.submissionEventLog">Registre</message>
+	<message key="submission.history.submissionNotes">Notes de la tramesa</message>
+	<message key="submission.history.viewLog">Visualitza registres</message>
+	<message key="submission.indexing">Indexació</message>
+	<message key="submission.initiated">Iniciat</message>
+	<message key="submission.lastModified">Última modificació</message>
+	<message key="submission.layout.addGalley">Afegeix el format de galerada</message>
+	<message key="submission.layout.confirmDeleteGalley">Està segur que vol esborrar permanentment aquesta galerada?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Està segur que vol eliminar aquesta imatge de la galerada?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Està segur que vol esborrar permanentment aquest arxiu addicional?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Esborra aquest full d'estil.</message>
+	<message key="submission.layout.editGalley">Edita el format de galerada</message>
+	<message key="submission.layout.galleyFileData">Informació sobre l'arxiu de galerada</message>
+	<message key="submission.layout.galleyFormat">Format de la galerada</message>
+	<message key="submission.layout.galleyHTMLData">Arxius HTML de la galerada</message>
+	<message key="submission.layout.galleyImages">Imatgens</message>
+	<message key="submission.layout.galleyLabelInstructions">L'etiqueta de galerada s'usa per a identificar el format de l'arxiu de l'article (p.ex. HTML, PDF, etc.).</message>
+	<message key="submission.layout.galleyLabel">Etiqueta</message>
+	<message key="submission.layout.galleyLabelRequired">Es necessita una etiqueta de galerada.</message>
+	<message key="submission.layout.galleyNoImages">No s'han afegit imatges a aquesta galerada.</message>
+	<message key="submission.layout.galleys">Galerades</message>
+	<message key="submission.layout.galleyStylesheet">Arxiu del full d'estil</message>
+	<message key="submission.layout.galleyStyle">Estil</message>
+	<message key="submission.layout.initialGalleyCreation">Creació de la primera galerada</message>
+	<message key="submission.layout.layoutFile">Arxiu de format</message>
+	<message key="submission.layout">Format</message>
+	<message key="submission.layout.layoutVersion">Versió maquetada</message>
+	<message key="submission.layout.newGalley">Crea nova galerada</message>
+	<message key="submission.layout.newSupplementaryFile">Diposita nou arxiu addicional</message>
+	<message key="submission.layout.noStyleFile">No s'ha afegit el full d'estil a aquesta galerada.</message>
+	<message key="submission.layout.supplementaryFiles">Revisió dels arxius addicionals</message>
+	<message key="submission.layout.viewingGalley">Veure la galerada tramesa</message>
+	<message key="submission.layout.viewProof">Veure la prova d'impremta</message>
+	<message key="submission.metadata">Adjunta les metadades</message>
+	<message key="submission.noReviewAssignments">No s'ha assignat la revisió</message>
+	<message key="submission.notes.addNewNote">Afegir nova nota</message>
+	<message key="submission.notes.attachedFile">Arxiu adjunt</message>
+	<message key="submission.notes.backToSubmissionNotes">Torna a les notes enviades</message>
+	<message key="submission.notes.breadcrumb">Notes</message>
+	<message key="submission.notes.clearAllNotes">Esborra totes les notes</message>
+	<message key="submission.notes.collapseNotes">Elimina les notes</message>
+	<message key="submission.notes.confirmDeleteAll">Elimina totes les notes?</message>
+	<message key="submission.notes.confirmDelete">Elimina aquesta nota?</message>
+	<message key="submission.notes.createNewNote">Crea nova nota</message>
+	<message key="submission.notes.deleteNote">Esborra nota</message>
+	<message key="submission.notes.editNote">Edita nota</message>
+	<message key="submission.notes.expandNotes">Expandeix notes</message>
+	<message key="submission.notes.noSubmissionNotes">No hi ha enviament de notes</message>
+	<message key="submission.notes.removeUploadedFile">Esborra arxius actualitzatos</message>
+	<message key="submission.notes">Enviament de notes</message>
+	<message key="submission.notes.updateNote">Modifica nota</message>
+	<message key="submission.notes.viewNotes">Veure notes</message>
+	<message key="submission.originalFile">Arxiu original</message>
+	<message key="submission.page.editing">#{$id} Edició</message>
+	<message key="submission.page.history">#{$id} Historial</message>
+	<message key="submission.page.review">#{$id} revisió</message>
+	<message key="submission.page.summary">#{$id} Resum</message>
+	<message key="submission.peerReview">Revisa i controla</message>
+	<message key="submission.recommendation">Recomanació</message>
+	<message key="submission.rejected">Rebutjat</message>
+	<message key="submission.request">Demana</message>
+	<message key="submission.response">Resposta</message>
+	<message key="submission.restrictions">Restriccions</message>
+	<message key="submission.reviewMetadata">Revisa Metadades</message>
+	<message key="submission.review">Revisió</message>
+	<message key="submission.reviewVersion">Versió de la revisió</message>
+	<message key="submissions.active">Actiu</message>
+	<message key="submissions.archived">Arxivat</message>
+	<message key="submission.saveMetadata">Desa Metadades</message>
+	<message key="submissions.completed">Completat</message>
+	<message key="submissions.declined">Rebutjat</message>
+	<message key="submissions.incomplete">Incompleta</message>
+	<message key="submissions.noSubmissions">No hi ha trameses</message>
+	<message key="submissions.queuedEditing">A la cua d'edició</message>
+	<message key="submissions.queued">A la cua</message>
+	<message key="submissions.queuedUnassigned">A l'espera d'assignació</message>
+	<message key="submissions.ruling">Normes</message>
+	<message key="submissions.submit">Envia</message>
+	<message key="submissions.submitted">Enviat</message>
+	<message key="submission.start">Inicia</message>
+	<message key="submission.submissionHistory">Tramesa de la història</message>
+	<message key="submission.submissionManuscript">Tramesa del manuscrit</message>
+	<message key="submission.submissionReview">Tramesa de la revisió</message>
+	<message key="submission.submitter">Remitent</message>
+	<message key="submission.summary">Resum</message>
+	<message key="submission.supplementaryFiles">Arxius suplementaris</message>
+	<message key="submission.supportingAgencies">Entitats organitzadores</message>
+	<message key="submission.titleAndAbstract">Títol i Resum</message>
+	<message key="submission.underway">En marxa</message>
+	<message key="submission.uploadFileTo">Diposita l'arxiu a</message>
+	<message key="submission.viewMetadata">Visualitza metadades</message>
+	<message key="submission.views">Opinions</message>
+</locale>

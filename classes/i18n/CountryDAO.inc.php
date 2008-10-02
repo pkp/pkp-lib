@@ -35,13 +35,9 @@ class CountryDAO extends DAO {
 	}
 
 	function &_getCountryCache($locale = null) {
-		static $caches;
+		$caches =& Registry::get('allCountries', true, array());
 
 		if (!isset($locale)) $locale = Locale::getLocale();
-
-		if (!isset($caches)) {
-			$caches = array();
-		}
 
 		if (!isset($caches[$locale])) {
 			import('cache.CacheManager');
@@ -61,10 +57,7 @@ class CountryDAO extends DAO {
 	}
 
 	function _countryCacheMiss(&$cache, $id) {
-		static $countries;
-		if (!isset($countries)) {
-			$countries = array();
-		}
+		$countries =& Registry::get('allCountriesData', true, array());
 
 		if (!isset($countries[$id])) {
 			// Reload country registry file

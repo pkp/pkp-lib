@@ -410,8 +410,8 @@ class Mail extends DataObject {
 		}
 
 		if (Config::getVar('email', 'smtp')) {
-			static $smtp = null;
-			if (!isset($smtp)) {
+			$smtp =& Registry::get('smtpMailer', true, null);
+			if ($smtp === null) {
 				import('mail.SMTPMailer');
 				$smtp = new SMTPMailer();
 			}

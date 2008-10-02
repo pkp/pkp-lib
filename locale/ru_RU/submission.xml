@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/ru_RU/submission.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Russian) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ru_RU" full_name = "Russian">
+	<message key="submission.abstractViews">Просм. аннотации</message>
+	<message key="submission.accepted">Принята</message>
+	<message key="submission.acknowledge">Утверждена</message>
+	<message key="submission.addSuppFile">Добавить файл</message>
+	<message key="submission.ask">Спросить</message>
+	<message key="submission.backToSubmissionEditing">Обратно к редакции статьи</message>
+	<message key="submission.comments.addComment">Добавить комментарий</message>
+	<message key="submission.comments.comments">Комментарии</message>
+	<message key="submission.comments.confirmDelete">Убрать этот комментарий?</message>
+	<message key="submission.comments.corrections">Исправления</message>
+	<message key="submission.comments.editComment">Править комментарий</message>
+	<message key="submission.comments.importPeerReviews">Импортировать спецрецензии</message>
+	<message key="submission.comments.noComments">Нет комментариев</message>
+	<message key="submission.comments.noReviews">Нет рецензий</message>
+	<message key="submission.comments.review">Рецензия</message>
+	<message key="submission.comments.sendDecisionToReviewers">Послать рецензентам решение редактора</message>
+	<message key="submission.comments.subject">О чем</message>
+	<message key="submission.complete">Закончена</message>
+	<message key="submission.done">Готово</message>
+	<message key="submission.dueDate">Срок</message>
+	<message key="submission.due">Кон. срок</message>
+	<message key="submission.editing">Редакция</message>
+	<message key="submission.editMetadata">Редакция метаданных</message>
+	<message key="submission.email.backToEmailLog">Обратно к почтовому дневнику</message>
+	<message key="submission.email.confirmClearLog">Очистить почтовые записи?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Убрать эту почтовую запись?</message>
+	<message key="submission.email.deleteLogEntry">Стереть запись</message>
+	<message key="submission.emailLog">Послать логфайл</message>
+	<message key="submission.event.backToEventLog">Обратно к дневнику</message>
+	<message key="submission.event.confirmClearLog">Убрать все записи?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Убрать эту запись?</message>
+	<message key="submission.event.deleteLogEntry">Стереть запись</message>
+	<message key="submission.event.general.metadataUpdated">Метаданные обновлены</message>
+	<message key="submission.event.general.suppFileUpdated">Дополн. файл обновлен</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Рецензент принял назначение заочно</message>
+	<message key="submission.event.reviewer.reviewAccepted">Рецензент принял назначение</message>
+	<message key="submission.event.reviewer.reviewCancelled">Рецензирование отменено</message>
+	<message key="submission.event.reviewer.reviewDeclined">Рецензент отказался от назначения</message>
+	<message key="submission.event.reviewer.reviewDueDate">Срок подачи рецензии изменен</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Назначен рецензент</message>
+	<message key="submission.event.reviewer.reviewerRated">Дана оценка работе рецензента</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Рецензент отозван</message>
+	<message key="submission.event.reviewer.reviewFile">Рецензия обновлена</message>
+	<message key="submission.event.reviewer.reviewInitiated">Дано начало процессу рецензирования</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Рекоммендации рецензента</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Повторное назначение рецензента</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Рецензия получена</message>
+	<message key="submission.event.reviewer.reviewRevision">Поправки рецензента обновлены</message>
+	<message key="submission.files">Файлы</message>
+	<message key="submission.galley">Формат</message>
+	<message key="submission.history.clearLog">Очистить дневник</message>
+	<message key="submission.history">История</message>
+	<message key="submission.history.noLogEntries">Нет записей.</message>
+	<message key="submission.history.recentLogEntries">Недавние записи</message>
+	<message key="submission.history.submissionEmailLog">Почтовый дневник</message>
+	<message key="submission.history.submissionEventLog">Дневник действий</message>
+	<message key="submission.history.submissionNotes">Примечания к присланной статье</message>
+	<message key="submission.history.viewLog">Посмотреть дневник</message>
+	<message key="submission.indexing">Индексация</message>
+	<message key="submission.initiated">В процессе</message>
+	<message key="submission.lastModified">Изменена</message>
+	<message key="submission.layout.addGalley">Добавить формат</message>
+	<message key="submission.layout.confirmDeleteGalley">Убрать навсегда этот формат?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Удалить картинку из этого формата?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Убрать навсегда этот дополн. файл?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Стереть этот стиль.</message>
+	<message key="submission.layout.editGalley">Редакция формата</message>
+	<message key="submission.layout.galleyFileData">Информация о форматах</message>
+	<message key="submission.layout.galleyFormat">Формат</message>
+	<message key="submission.layout.galleyHTMLData">HTML форматы</message>
+	<message key="submission.layout.galleyImages">Картинки</message>
+	<message key="submission.layout.galleyLabelInstructions">Этикетка обычно содержит тип используемого формата (напр. HTML, PDF, DOC, PostScript).</message>
+	<message key="submission.layout.galleyLabel">Этикетка</message>
+	<message key="submission.layout.galleyLabelRequired">Нужна этикетка для формата.</message>
+	<message key="submission.layout.galleyNoImages">Нет картинок</message>
+	<message key="submission.layout.galleys">Форматы</message>
+	<message key="submission.layout.galleyStylesheet">Стилевые файлы</message>
+	<message key="submission.layout.galleyStyle">Стиль</message>
+	<message key="submission.layout.initialGalleyCreation">Нач. создание формата</message>
+	<message key="submission.layout.layoutFile">Файл</message>
+	<message key="submission.layout">Вид</message>
+	<message key="submission.layout.layoutVersion">Шаблон</message>
+	<message key="submission.layout.newGalley">Создать новый формат</message>
+	<message key="submission.layout.newSupplementaryFile">Загрузить новый дополн. файл</message>
+	<message key="submission.layout.noStyleFile">Нет стиля для этого формата.</message>
+	<message key="submission.layout.supplementaryFiles">Отзыв о дополн. файлах</message>
+	<message key="submission.layout.viewingGalley">Формат приема</message>
+	<message key="submission.layout.viewProof">Посмотреть правку</message>
+	<message key="submission.metadata">Метаданные статьи</message>
+	<message key="submission.noReviewAssignments">Нет назначенных рецензентов</message>
+	<message key="submission.notes.addNewNote">Добавить примечание</message>
+	<message key="submission.notes.attachedFile">Приложение</message>
+	<message key="submission.notes.backToSubmissionNotes">Обратно к примечаниям</message>
+	<message key="submission.notes.breadcrumb">Примечания</message>
+	<message key="submission.notes.clearAllNotes">Удалить примечания</message>
+	<message key="submission.notes.collapseNotes">Спрятать примечания</message>
+	<message key="submission.notes.confirmDeleteAll">Удалить примечания?</message>
+	<message key="submission.notes.confirmDelete">Удалить примечания?</message>
+	<message key="submission.notes.createNewNote">Написать примечание</message>
+	<message key="submission.notes.deleteNote">Стереть примечание</message>
+	<message key="submission.notes.editNote">Редактировать примечание</message>
+	<message key="submission.notes.expandNotes">Полный текст</message>
+	<message key="submission.notes.noSubmissionNotes">Нет примечаний</message>
+	<message key="submission.notes.removeUploadedFile">Удалить загруж. файлы</message>
+	<message key="submission.notes">Примечания к публикации</message>
+	<message key="submission.notes.updateNote">Обновить примечание</message>
+	<message key="submission.notes.viewNotes">Помотреть примечания</message>
+	<message key="submission.originalFile">Ориг. файл</message>
+	<message key="submission.page.editing">#{$id} Редакция</message>
+	<message key="submission.page.history">#{$id} История</message>
+	<message key="submission.page.review">#{$id} Рецензии</message>
+	<message key="submission.page.summary">#{$id} Резюме</message>
+	<message key="submission.peerReview">Спецрецензия</message>
+	<message key="submission.recommendation">Рекомендации</message>
+	<message key="submission.rejected">Отказ</message>
+	<message key="submission.request">Запросы</message>
+	<message key="submission.response">Ответ</message>
+	<message key="submission.restrictions">Ограничения</message>
+	<message key="submission.reviewMetadata">Посмотреть метаданные</message>
+	<message key="submission.review">Рецензии</message>
+	<message key="submission.reviewVersion">Версия рецензии</message>
+	<message key="submissions.active">В подготовке</message>
+	<message key="submissions.archived">В архиве</message>
+	<message key="submission.saveMetadata">Сохранить метаданные</message>
+	<message key="submissions.completed">Готово</message>
+	<message key="submissions.declined">Отклонена</message>
+	<message key="submissions.incomplete">Незаконченная</message>
+	<message key="submissions.noSubmissions">Нет статей</message>
+	<message key="submissions.queuedEditing">В очереди для редактора</message>
+	<message key="submissions.queued">В очереди</message>
+	<message key="submissions.queuedUnassigned">Ожидают редактора</message>
+	<message key="submissions.ruling">Правила</message>
+	<message key="submissions.submit">Послать</message>
+	<message key="submissions.submitted">Поставлена</message>
+	<message key="submission.start">Начало</message>
+	<message key="submission.submissionHistory">История статьи</message>
+	<message key="submission.submissionManuscript">Рукопись статьи</message>
+	<message key="submission.submissionReview">Рецензия статьи</message>
+	<message key="submission.submitter">Прислал</message>
+	<message key="submission.summary">Резюме</message>
+	<message key="submission.supplementaryFiles">Дополн. файлы</message>
+	<message key="submission.supportingAgencies">Исследование поддерживается кем</message>
+	<message key="submission.titleAndAbstract">Название и аннотация</message>
+	<message key="submission.underway">На подходе</message>
+	<message key="submission.uploadFileTo">Закачать файл как</message>
+	<message key="submission.viewMetadata">Метаданные</message>
+	<message key="submission.views">Просмотры</message>
+</locale>

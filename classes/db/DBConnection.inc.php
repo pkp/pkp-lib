@@ -213,11 +213,11 @@ class DBConnection {
 	 * @return DBConnection
 	 */
 	function &getInstance($setInstance = null) {
-		static $instance;
+		$instance =& Registry::get('dbInstance', true, null);
 
 		if (isset($setInstance)) {
 			$instance = $setInstance;
-		} else if (!isset($instance)) {
+		} else if ($instance === null) {
 			$instance = new DBConnection();
 		}
 

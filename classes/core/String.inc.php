@@ -275,8 +275,8 @@ class String {
 		if (function_exists('mime_content_type')) {
 			return mime_content_type($filename);
 		} elseif (function_exists('finfo_open')) {
-			static $fi;
-			if (!isset($fi)) {
+			$localeFiles =& Registry::get('fileInfo', true, null);
+			if ($fi === null) {
 				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
 			}
 			if ($fi !== false) {

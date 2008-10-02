@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/ca_ES/user.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Català (Espanya)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Català (Espanya)">
+	<message key="user.affiliation">Afiliació</message>
+	<message key="user.affiliations">Afiliacions</message>
+	<message key="user.biography">Breu descripció del currículum</message>
+	<message key="user.biography.description">(p. ex. departament i grau)</message>
+	<message key="user.changeMyPassword">Canvia la meva contrasenya</message>
+	<message key="user.changePassword">Canvia contrasenya</message>
+	<message key="user.dateLastLogin">Últim accés</message>
+	<message key="user.dateRegistered">Data de creació</message>
+	<message key="user.editMyProfile">Edita el meu perfil</message>
+	<message key="user.email">Adreça electrònica</message>
+	<message key="user.fax">Fax</message>
+	<message key="user.firstName">Primer nom</message>
+	<message key="user.initialsExample">Pep Garrigola i Prats= PGP</message>
+	<message key="user.initials">Inicials</message>
+	<message key="user.interests">Temes d'interès</message>
+	<message key="user.lastName">Cognoms</message>
+	<message key="user.login.accountDisabledWithReason">El seu compte s'ha desactivat pel següent motiu: {$reason}</message>
+	<message key="user.login.accountDisabled">El seu compte està desactivat. Per favor, contacti amb l'administrador per a més informació.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Ha de triar una nova contrasenya abans d'accedir al sistema.<br /><br />Per favor, introdueixi el seu nom d'usuari, la contrasenya actual i la nova per a canviar la clau del seu compte.]]></message>
+	<message key="user.login.forgotPassword">Ha oblidat la seva contrasenya?</message>
+	<message key="user.login.loginError">Nom d'usuari o contrasenya incorrectes. Per favor, provi de nou.</message>
+	<message key="user.login">Accedeix</message>
+	<message key="user.logIn">Accedeix</message>
+	<message key="user.login.lostPassword.confirmationSent">S'ha enviat un missatge de confirmació a la seva adreça de correu. Per favor segueixi les instruccions en aquest correu per a canviar la seva contrasenya.</message>
+	<message key="user.login.lostPassword.invalidHash">Ho sentim, l'enllaç ha expirat o no és vàlid. Per favor intenti de nou un canvi contrasenya.</message>
+	<message key="user.login.lostPassword.invalidUser">No existeix un usuari amb aquesta adreça electrònica.</message>
+	<message key="user.login.lostPassword.passwordSent">S'ha enviat una nova contrasenya a la seva adreça de correu. Per a accedir al sistema ha d'utilitzar la nova contrasenya.</message>
+	<message key="user.login.registeredEmail">Adreça electrònica registrada</message>
+	<message key="user.login.rememberUsernameAndPassword">Recordar el nom d'usuari i contrasenya</message>
+	<message key="user.login.resetPassword">Canvia la contrasenya</message>
+	<message key="user.logOut">Surt</message>
+	<message key="user.mailingAddress">Adreça de correu electrònic</message>
+	<message key="user.middleName">Segon nom</message>
+	<message key="user.myAccount">El meu compte</message>
+	<message key="user.name">Nom</message>
+	<message key="user.password">Contrasenya</message>
+	<message key="user.phone">Telèfon</message>
+	<message key="user.profile.changePasswordInstructions">Per a canviar la contrasenya del seu compte, introdueixi abaix l'actual contrasenya i la nova .</message>
+	<message key="user.profile.editProfile">Edita Perfil</message>
+	<message key="user.profile.form.emailRequired">Introdueixi una adreça de correu electrònic vàlida.</message>
+	<message key="user.profile.form.firstNameRequired">Introdueixi el nom.</message>
+	<message key="user.profile.form.lastNameRequired">Introdueixi el cognom.</message>
+	<message key="user.profile.form.newPasswordRequired">Cal introduir una nova contrasenya.</message>
+	<message key="user.profile.form.oldPasswordInvalid">La contrasenya actual que ha introduït és incorrecta.</message>
+	<message key="user.profile.form.openAccessNotifications">Notificació per correu electrònic per a l'accés obert</message>
+	<message key="user.profile.form.passwordRequired">Introdueixi una contrasenya.</message>
+	<message key="user.profile.form.publishedNotifications">Notificació per correu electrònic quan hi hagi nous continguts</message>
+	<message key="user.profile.form.usernameRequired">Introdueixi un nom d'usuari.</message>
+	<message key="user.profile.leavePasswordBlank">Deixi en blanc els camps de la contrasenya per a mantenir l'actual contrasenya.</message>
+	<message key="user.profile.newPassword">Nova contrasenya</message>
+	<message key="user.profile.oldPassword">Contrasenya actual</message>
+	<message key="user.profile">Perfil</message>
+	<message key="user.profile.repeatNewPassword">Repeteixi la nova contrasenya</message>
+	<message key="user.role.reader">Lector</message>
+	<message key="user.role.readers">Lectors</message>
+	<message key="user.role.reviewer">Revisor</message>
+	<message key="user.role.reviewers">Revisors</message>
+	<message key="user.role.siteAdmin">Administrador web</message>
+	<message key="user.role.siteAdmins">Administradors web</message>
+	<message key="user.roles">Rols</message>
+	<message key="user.sendPassword">Confirmació</message>
+	<message key="user.sendPassword.description">Envieu-me un correu de confirmació que inclogui nom d'usuari i contrasenya</message>
+	<message key="user.signature">Signatura</message>
+	<message key="user.title">Títulació</message>
+	<message key="user.url">URL</message>
+	<message key="user.userHome">Inici Usuari</message>
+	<message key="user.username">Nom d'usuari</message>
+	<message key="user.workingLanguages">Idiomes de treball</message>
+</locale>

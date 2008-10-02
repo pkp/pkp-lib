@@ -67,6 +67,13 @@ class Registry {
 			unset($registry[$key]);
 		}
 	}
+
+	function clear() {
+		$registry =& Registry::getRegistry();
+		foreach (array_keys($registry) as $key) {
+			unset($registry[$key]);
+		}
+	}
 }
 
 ?>

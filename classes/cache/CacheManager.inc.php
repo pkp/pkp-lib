@@ -22,8 +22,8 @@ class CacheManager {
 	 * @return object CacheManager
 	 */
 	function &getManager() {
-		static $manager;
-		if (!isset($manager)) {
+		$manager =& Registry::get('cacheManager', true, null);
+		if ($manager === null) {
 			$manager =& new CacheManager();
 		}
 		return $manager;

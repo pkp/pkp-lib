@@ -20,7 +20,7 @@ class HookRegistry {
 	 * Get the current set of hook registrations.
 	 */
 	function &getHooks() {
-		static $hooks = array();
+		$hooks =& Registry::get('hooks', true, array());
 		return $hooks;
 	}
 

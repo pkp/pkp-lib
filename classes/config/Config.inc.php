@@ -42,9 +42,9 @@ class Config {
 	 * @return array the configuration data
 	 */
 	function &getData() {
-		static $configData;
+		$configData =& Registry::get('configData', true, null);
 
-		if (!isset($configData)) {
+		if ($configData === null) {
 			// Load configuration data only once per request
 			$configData = Config::reloadData();
 		}

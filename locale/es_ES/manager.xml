@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/es_ES/manager.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the es_ES (Español (España)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="es_ES" full_name = "Español (España)">
+	<message key="manager.announcements">Anuncios</message>
+	<message key="manager.announcements.confirmDelete">¿Seguro que quiere borrar este anuncio permanentemente?</message>
+	<message key="manager.announcements.create">Crear nuevo anuncio</message>
+	<message key="manager.announcements.createTitle">Crear</message>
+	<message key="manager.announcements.dateExpire">Caducidadº</message>
+	<message key="manager.announcements.edit">Editar anuncio</message>
+	<message key="manager.announcements.editTitle">Editar</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Aparte del día de caducidad, por favor elija un mes y/o un año.</message>
+	<message key="manager.announcements.form.dateExpire">Fecha de caducidad</message>
+	<message key="manager.announcements.form.dateExpireInstructions">El anunció aparecerá hasta esta fecha. Deje la fecha en blanco si quiere que el anuncio aparezca indefinitivamente.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Aparte del mes de caducidad, por favor elija un día y/o un año.</message>
+	<message key="manager.announcements.form.dateExpireValid">Por favor elija una fecha de caducidad valida.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Aparte del año de caducidad, por favor elija un mes y/o un día.</message>
+	<message key="manager.announcements.form.description">Descripción</message>
+	<message key="manager.announcements.form.descriptionInstructions">Texto completo del anuncio.</message>
+	<message key="manager.announcements.form.descriptionRequired">Se necesita una descripción del anuncio.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Descripción breve que aparezca con el título del anuncio.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Se necesita una descripción corta del anuncio.</message>
+	<message key="manager.announcements.form.descriptionShort">Descripción corta</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Guardar y crear otro</message>
+	<message key="manager.announcements.form.titleRequired">Se necesita un título para el anuncio.</message>
+	<message key="manager.announcements.form.title">Título</message>
+	<message key="manager.announcements.form.typeId">Tipo</message>
+	<message key="manager.announcements.form.typeIdValid">Seleccione un tipo de anuncio valido.</message>
+	<message key="manager.announcements.noneCreated">No se ha creado ningún anuncio.</message>
+	<message key="manager.announcements.title">Título</message>
+	<message key="manager.announcements.type">Tipo</message>
+	<message key="manager.announcementTypes">Tipo de Anuncios</message>
+	<message key="manager.announcementTypes.confirmDelete">¡Atención! Todos los anuncios de este tipo también serán borrados.  ¿Está seguro que quiere continuar a borrar este tipo de anuncio?</message>
+	<message key="manager.announcementTypes.create">Crear Tipo de Anuncio</message>
+	<message key="manager.announcementTypes.createTitle">Crear</message>
+	<message key="manager.announcementTypes.edit">Editar Tipo de Anuncio</message>
+	<message key="manager.announcementTypes.editTitle">Editar</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Guardar y Crear Otro</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Un anuncio con este nombre y de este tipo ya existe.</message>
+	<message key="manager.announcementTypes.form.typeName">Nombre</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Se necesita un tipo de anuncio.</message>
+	<message key="manager.announcementTypes.noneCreated">Ningún tipo de anuncio se ha creado.</message>
+	<message key="manager.announcementTypes.typeName">Tipo de Anuncio</message>
+	<message key="manager.emails.confirmDelete">¿Seguro que quiere borrar esta plantilla de correo-e?</message>
+	<message key="manager.emails.confirmReset">¿Seguro que quiere restaurar esta plantilla de correo-e a sus valores por defecto?</message>
+	<message key="manager.emails.createEmail">Crear correo-e</message>
+	<message key="manager.emails.disable">Desactivar</message>
+	<message key="manager.emails.editEmail">Editar correo-e</message>
+	<message key="manager.emails.editTestExample">Editar ejemplo de correo-e de prueba</message>
+	<message key="manager.emails.emailKey">Clave correo-e</message>
+	<message key="manager.emails.emailKeyExists">Ya existe una dirección de correo-e con la clave proporcionada. Las claves de correo-e deben ser únicas.</message>
+	<message key="manager.emails.emailTemplate">Plantilla correo-e</message>
+	<message key="manager.emails.emailTemplates">Plantillas correo-e</message>
+	<message key="manager.emails.enabled">Activar esta plantilla de correo-e</message>
+	<message key="manager.emails.enable">Activar</message>
+	<message key="manager.emails.form.bodyRequired">Es necesario el cuerpo del correo-e.</message>
+	<message key="manager.emails.form.subjectRequired">Es necesario el asunto del correo-e.</message>
+	<message key="manager.emails">Plantillas de correos-e</message>
+	<message key="manager.emails.resetAll">Restaurar todas las plantillas</message>
+	<message key="manager.emails.reset">Restaurar</message>
+	<message key="manager.emails.resetToDefault">Restaurar valores por defecto</message>
+	<message key="manager.filesBrowser">Navegación de ficheros</message>
+	<message key="manager.files.confirmDelete">¿Borrar este fichero o directorio? Tenga en cuenta que un directorio debe estar vacío antes de ser borrado.</message>
+	<message key="manager.files.createDir">Crear directorio</message>
+	<message key="manager.files.emptyDir">No se han encontrado ficheros en este directorio.</message>
+	<message key="manager.files.indexOfDir">Índice de {$dir}</message>
+	<message key="manager.files.parentDir">Directorio padre</message>
+	<message key="manager.files.uploadedFiles">Ficheros subidos</message>
+	<message key="manager.files.uploadFile">Subir fichero</message>
+	<message key="manager.groups.confirmDelete">¿Seguro que quiere eliminar este grupo?</message>
+	<message key="manager.groups.createTitle">Crear título</message>
+	<message key="manager.groups.editTitle">Editar título</message>
+	<message key="manager.groups.form.groupTitleRequired">Se necesita un título de grupo.</message>
+	<message key="manager.groups.membership.addMember">Añadir miembro</message>
+	<message key="manager.groups.membership.confirmDelete">¿Seguro que quiere borrar los miembros de este grupo?</message>
+	<message key="manager.groups.membership">Miembros</message>
+	<message key="manager.groups.membership.noneCreated">Este grupo no tiene miembros.</message>
+	<message key="manager.groups.membership.noUsers">No se han encontrado usuarios/as.</message>
+	<message key="manager.groups.title">Título</message>
+	<message key="manager.importExport">Importar/exportar información</message>
+	<message key="manager.languages.alternateLocaleInstructions">El sistema permite que cierta infromación crítica se introduzca en varios idiomas. Para usar esta característica, selecciones varios idiomas y elija entre las opciones mostradas a continuación.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Seleccione todos los locales a soportar en el sitio a través de un menú de selección de idioma que aparecerá en cada página. El menú sólo aparecerá si se selecciona más de un locale.</message>
+	<message key="manager.payment.timestamp">Fecha operación</message>
+	<message key="manager.people.authSource">Fuente de autentificación</message>
+	<message key="manager.people.confirmUnenroll">¿Desuscribir a esta/e usuaria/o?</message>
+	<message key="manager.people.createUser">Crear nueva/o usuaria/o</message>
+	<message key="manager.people.createUserGeneratePassword">Generar una contraseña aleatoria.</message>
+	<message key="manager.people.createUserSendNotify">Enviar un correo de bienvenida con su nombre de usuaria/o y contraseña.</message>
+	<message key="manager.people.disable">Desactivar</message>
+	<message key="manager.people.doNotEnroll">Sin rol asignado</message>
+	<message key="manager.people.editProfile">Editar perfil</message>
+	<message key="manager.people.editUser">Editar usuario/a</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Enviar correo-e a las personas seleccionadas</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Enviar correo-e a las personas inscritas como</message>
+	<message key="manager.people.emailUsers">Enviar correo-e</message>
+	<message key="manager.people.emailUsers.selectLocale">Seleccione un locale</message>
+	<message key="manager.people.emailUsers.selectUsers">Seleccione las/usuarias/os a los que quiere enviar un correo-e marcando las casillas junto a su nombre</message>
+	<message key="manager.people.enable">Activar</message>
+	<message key="manager.people.enroll">Inscribir usuaria/o</message>
+	<message key="manager.people.enrollment">Inscripción</message>
+	<message key="manager.people.enrollSelected">Suscribir usuarias/os seleccionados</message>
+	<message key="manager.people.enrollSyncRole">Sincronizar papel</message>
+	<message key="manager.people.enrollSync">Sincronizar el alta</message>
+	<message key="manager.people.enrollUserAsDescription">Una persona puede ser asignada o eliminada de un rol concreto en cualquier momento.</message>
+	<message key="manager.people.enrollUserAs">Inscribir usuaria/o como</message>
+	<message key="manager.people.invalidUser">Lo sentimos, la/el usuaria/o solicitada/o no existe.</message>
+	<message key="manager.people.mergeUser">Unir usuario/a</message>
+	<message key="manager.people.mergeUsers.confirm">¿Seguro que quiere unir la cuenta "{$oldUsername}" con la cuenta "{$newUsername}"? La cuenta "{$oldUsername}" se eliminará.  Esta acción no es reversible.</message>
+	<message key="manager.people.mergeUsers">Unir usuarios/as</message>
+	<message key="manager.people.mustChooseRole">Seleccione un rol en la parte superior de la página antes de pulsar "Asociar Usuario/a".</message>
+	<message key="manager.people.mustProvideName">Por favor, indique al menos un apellido.</message>
+	<message key="manager.people.noMatchingUsers">No se han encontrado usuarias/os.</message>
+	<message key="manager.people.noneEnrolled">No se ha inscrito nadie.</message>
+	<message key="manager.people">Personas</message>
+	<message key="manager.people.remove">Eliminar</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Guardar y crear otra/o</message>
+	<message key="manager.people.signInAs">Identifíquese como</message>
+	<message key="manager.people.signInAsUser">Identifíquese como usuaria/o</message>
+	<message key="manager.people.syncUsers">Sincronizar el alta de usuarias/os</message>
+	<message key="manager.people.unenroll">Desuscripción</message>
+	<message key="manager.people.userCreatedSuccessfully">Usuaria/o creado.</message>
+	<message key="manager.people.userMustChangePassword">Solicitarle que cambie su contraseña la próxima vez que se identifique en el sistema.</message>
+	<message key="manager.plugins.action">Acción:</message>
+	<message key="manager.plugins.disable">Desactivar</message>
+	<message key="manager.plugins.enable">Activar</message>
+	<message key="manager.plugins.pluginManagement">Gestión de plugins</message>
+	<message key="manager.plugins.sitePlugin">Este es un sitio que emplea plugins. Sólo el/la gestor/a del sitio puede gestionar este plugin.</message>
+	<message key="manager.plugins">System Plugins</message>
+	<message key="manager.readingTools">Herramientas de lectura</message>
+	<message key="manager.roles">Roles</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagen de logo de título de encabezado no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Formato de imagen no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Formato de imagen de título de encabezado no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Barra Izquierda</message>
+	<message key="manager.setup.layout.rightSidebar">Barra Derecha</message>
+	<message key="manager.setup.layout.unselected">Sin seleccionar</message>
+	<message key="manager.setup.loggingAndAuditing">Registro y Auditoría</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagen no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagen no válido. Los formatos aceptados son .gif, .jpg, o .png.</message>
+	<message key="manager.setup.selectOne">Seleccione una</message>
+	<message key="manager.statistics">Estadísticas e informes</message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuevos)</message>
+	<message key="manager.users">Usuarios/as</message>
+	<message key="plugins.categories.auth">Plugins de autorización</message>
+	<message key="plugins.categories.blocks">Complementos de Bloques</message>
+	<message key="plugins.categories.blocks.description">Los Complementos de Bloques son componentes de la interfaz de usuario, como las barras laterales de herramientas.</message>
+	<message key="plugins.categories.citationFormats">Complementos de Formato de Referencias</message>
+	<message key="plugins.categories.gateways.description">Los plugins de pasarela proporcionan datos en directo a sistemas externos.</message>
+	<message key="plugins.categories.gateways">Plugins de pasarela</message>
+	<message key="plugins.categories.generic">Plugins genéricos</message>
+	<message key="plugins.categories.importexport.description">Los plugins de importación/exportación se pueden usar para transferir contenido entre sistemas.</message>
+	<message key="plugins.categories.importexport">Plugins de importación/exportación</message>
+	<message key="plugins.categories.paymethod.description">Los Complementos de Pago implementan varias formas de procesar los pagos on-line.</message>
+	<message key="plugins.categories.paymethod">Complementos de Pago</message>
+	<message key="plugins.categories.reports.description">Los "Plugins" de Reportes son usados para implementar varios tipos de reportes y extractos de datos para los Administradores de Conferencias</message>
+	<message key="plugins.categories.reports">"Plugins" de Reportes</message>
+	<message key="plugins.categories.themes.description">Los Complementos de Aspecto se pueden usar para cambiar la apariencia del sistema.</message>
+	<message key="plugins.categories.themes">Complementos de Aspecto</message>
+</locale>

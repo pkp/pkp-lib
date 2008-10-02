@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp/locale/de_DE/installer.xml
+  *
+  * Copyright (c) 2000-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
+	<message key="installer.administratorAccount">Konto des Webverwalters </message>
+	<message key="installer.administratorAccountInstructions">Dieses Benutzerkonto wird zu dem des Websiteverwalters und erlaubt uneingeschränkten Zugang zum System. Weitere Benutzerkonten können nach der Einrichtung erstellt werden.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">NEIN</span>]]></message>
+	<message key="installer.checkYes">Ja</message>
+	<message key="installer.clientCharset">Schriftsatz für den Benutzer</message>
+	<message key="installer.clientCharsetInstructions">Schriftsatz für Daten von und zum Browser.</message>
+	<message key="installer.configFileError"><![CDATA[Die Konfigurationsdatei<tt>config.inc.php</tt> existiert nicht oder kann nicht gelesen werden.]]></message>
+	<message key="installer.connectionCharset">Schriftsatz für die Verbindung</message>
+	<message key="installer.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
+	<message key="installer.createDatabase">Neue Datenbank erstellen</message>
+	<message key="installer.createDatabaseInstructions">Option nur möglich, falls Ihr Datenbanksystem die Erstellung einer Datenbank über das Netz unterstützt und Ihr Benutzerkonto über die entsprechende Zulassung verfügt. Falls die Einrichtung fehlschlägt, erstellen Sie die Datenbank per Hand auf Ihrem Server und rufen Sie den Installer mit desaktivierter Option erneut auf.</message>
+	<message key="installer.databaseCharset">Schriftsatz der Datenbank</message>
+	<message key="installer.databaseDriver">Datenbanktreiber</message>
+	<message key="installer.databaseDriverInstructions">Alle oben angegebenen Datenbanktreiber werden aus rein akademischen Gründen angeführt und funktionieren wahrscheinlich nicht.</message>
+	<message key="installer.databaseHost">Lokaler Server</message>
+	<message key="installer.databaseHostInstructions">Verbindung über Domain socket statt über TCP/IP: Feld für Servernamen freilassen. Nicht erforderlich für MySQL, weil bei Eingabe von "localhost" automatisch sockets verwendet werden. Erforderlich für andere Datenbankserver wie PostgreSQL.</message>
+	<message key="installer.databaseName">Name der Datenbank</message>
+	<message key="installer.databasePassword">Passwort</message>
+	<message key="installer.databaseSettings">Datenbankparameter</message>
+	<message key="installer.databaseUsername">Benutzername</message>
+	<message key="installer.encryptionInstructions">SHA1 wird empfohlen, falls von Ihrem System unterstützt (PHP >= 4.3.0 erforderlich).</message>
+	<message key="installer.encryption">Verschlüssellungsalgorythmus für Passwörter</message>
+	<message key="installer.filesDir">Verzeichnis für hochgeladene Dateien</message>
+	<message key="installer.fileSettings">Dateiparameter</message>
+	<message key="installer.form.clientCharsetRequired">Ein Benutzerschriftsatz muß ausgewählt werden.</message>
+	<message key="installer.form.databaseDriverRequired">Ein Datenbanktreiber muss ausgewählt werden.</message>
+	<message key="installer.form.databaseNameRequired">Der Datenbankname ist erforderlich.</message>
+	<message key="installer.form.emailRequired">Eine gültige Emailadresse für das Verwalterkonto ist erforderlich.</message>
+	<message key="installer.form.encryptionRequired">Ein Algorithmus zur Verschlüsselung der Passwörter muss ausgewählt werden.</message>
+	<message key="installer.form.filesDirRequired">Ein Verzeichnis für hochgeladene Dateien ist erforderlich.</message>
+	<message key="installer.form.localeRequired">Eine Regionaleinstellung muß ausgewählt werden.</message>
+	<message key="installer.form.passwordRequired">Ein Passwort für das Konto des Websiteverwalters ist erforderlich.</message>
+	<message key="installer.form.passwordsDoNotMatch">Die Verwalterpasswörter stimmen nicht überein.</message>
+	<message key="installer.form.separateMultiple">Mehrfachwerte durch Komma trennen</message>
+	<message key="installer.form.usernameAlphaNumeric">Der Benutzername des Verwalters darf nur alphanumerische Zeichen, Unter- und Trennungsstriche enthalten und muß mit einem alphanumerischen zeichen beginnen und enden.</message>
+	<message key="installer.form.usernameRequired">Ein Benutzername für das Konto des Websiteverwalters ist erforderlich.</message>
+	<message key="installer.installErrorsOccurred">Bei der Installation sind Fehler aufgetreten</message>
+	<message key="installer.installerSQLStatements">SQL-Befehle zur Datenbankinstallation</message>
+	<message key="installer.installFileError"><![CDATA[Die Installationsdatei <tt>dbscripts/xml/install.xml</tt> existiert nicht oder kann nicht gelesen werden.]]></message>
+	<message key="installer.installFilesDirError">Verzeichnis für hochgeladene Dateien existiert nicht oder verbietet den Schreibzugang.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Fehlerhafte Installationsdatei der Datenbank<tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Regionaleinstellungen</message>
+	<message key="installer.localeSettings">Regionalisierungsparameter</message>
+	<message key="installer.manualInstall">Einrichtung von Hand </message>
+	<message key="installer.manualUpgrade">Manuelle Aktualisierung</message>
+	<message key="installer.miscSettings">Diverse Parameter</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eindeutige Kennzeichnung der auf diesem Website dem Protokolls des <a href="http://www.openarchives.org/" target="_blank">Projet Open Archives</a> entsprechend verzeichneten Metadatendateien.]]></message>
+	<message key="installer.oaiRepositoryId">Kennzeichnung OAI Repository </message>
+	<message key="installer.publicFilesDirError">Verzeichnis der öffentlichen Dateien existiert nicht oder verbietet den Schreibzugang.</message>
+	<message key="installer.releaseNotes">Zur Beachtung</message>
+	<message key="installer.securitySettings">Sicherheitsparameter</message>
+	<message key="installer.skipFilesDir">Legen Sie keine Unterverzeichnisse an </message>
+	<message key="installer.connectionCharsetInstructions">The encoding to use for data sent to and received from the database. This should be the same as the client character set. Note that this capability is only supported with MySQL &gt;= 4.1.1 or PostgreSQL &gt;= 7.1. Select &quot;Not available&quot; if your database server does not meet these requirements.</message>
+	<message key="installer.databaseCharsetInstructions">The encoding to use for data stored in the database. Note that this capability is only supported with MySQL &gt;= 4.1.1 or PostgreSQL &gt;= 7.1. Select &quot;Not available&quot; if your database server does not meet these requirements.</message>
+</locale>

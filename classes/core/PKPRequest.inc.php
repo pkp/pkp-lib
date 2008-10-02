@@ -323,9 +323,8 @@ class PKPRequest {
 	 * @return Site
 	 */
 	function &getSite() {
-		static $site;
-
-		if (!isset($site)) {
+		$site =& Registry::get('site', true, null);
+		if ($site === null) {
 			$siteDao =& DAORegistry::getDAO('SiteDAO');
 			$site = $siteDao->getSite();
 		}
@@ -338,9 +337,9 @@ class PKPRequest {
 	 * @return Session
 	 */
 	function &getSession() {
-		static $session;
+		$session =& Registry::get('session', true, null);
 
-		if (!isset($session)) {
+		if ($session === null) {
 			$sessionManager =& SessionManager::getManager();
 			$session = $sessionManager->getUserSession();
 		}
@@ -353,12 +352,11 @@ class PKPRequest {
 	 * @return User
 	 */
 	function &getUser() {
-		static $user;
-
-		if (!isset($user)) {
+		$user =& Registry::get('user', true, null);
+		if ($user === null) {
 			$sessionManager =& SessionManager::getManager();
 			$session =& $sessionManager->getUserSession();
-			$user = $session->getUser();
+			$user =& $session->getUser();
 		}
 
 		return $user;
@@ -545,171 +543,6 @@ class PKPRequest {
 		setcookie($key, $value, 0, PKPRequest::getBasePath());
 		$_COOKIE[$key] = $value;
 	}
-
-	/**
-	 * Build a URL into OJS.
-	 * @param $journalPath string Optional path for journal to use
-	 * @param $page string Optional name of page to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path mixed Optional string or array of args to pass to handler
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
-	 */
-/*	function url($journalPath = null, $page = null, $op = null, $path = null, $params = null, $anchor = null, $escape = false) {
-		$pathInfoDisabled = !PKPRequest::isPathInfoEnabled();
-
-		$amp = $escape?'&amp;':'&';
-		$prefix = $pathInfoDisabled?$amp:'?';
-
-		// Establish defaults for page and op
-		$defaultPage = PKPRequest::getRequestedPage();
-		$defaultOp = PKPRequest::getRequestedOp();
-
-		// If a journal has been specified, don't supply default
-		// page or op.
-		if ($journalPath) {
-			$journalPath = rawurlencode($journalPath);
-			$defaultPage = null;
-			$defaultOp = null;
-		} else {
-			$journal =& PKPRequest::getJournal();
-			if ($journal) $journalPath = $journal->getPath();
-			else $journalPath = 'index';
-		}
-
-		// Get overridden base URLs (if available).
-		$overriddenBaseUrl = Config::getVar('general', "base_url[$journalPath]");
-
-		// If a page has been specified, don't supply a default op.
-		if ($page) {
-			$page = rawurlencode($page);
-			$defaultOp = null;
-		} else {
-			$page = $defaultPage;
-		}
-
-		// Encode the op.
-		if ($op) $op = rawurlencode($op);
-		else $op = $defaultOp;
-
-		// Process additional parameters
-		$additionalParams = '';
-		if (!empty($params)) foreach ($params as $key => $value) {
-			if (is_array($value)) foreach($value as $element) {
-				$additionalParams .= $prefix . $key . '%5B%5D=' . rawurlencode($element);
-				$prefix = $amp;
-			} else {
-				$additionalParams .= $prefix . $key . '=' . rawurlencode($value);
-				$prefix = $amp;
-			}
-		}
-
-		// Process anchor
-		if (!empty($anchor)) $anchor = '#' . rawurlencode($anchor);
-		else $anchor = '';
-
-		if (!empty($path)) {
-			if (is_array($path)) $path = array_map('rawurlencode', $path);
-			else $path = array(rawurlencode($path));
-			if (!$page) $page = 'index';
-			if (!$op) $op = 'index';
-		}
-
-		$pathString = '';
-		if ($pathInfoDisabled) {
-			$joiner = $amp . 'path%5B%5D=';
-			if (!empty($path)) $pathString = $joiner . implode($joiner, $path);
-			if (empty($overriddenBaseUrl)) $baseParams = "?journal=$journalPath";
-			else $baseParams = '';
-
-			if (!empty($page) || !empty($overriddenBaseUrl)) {
-				$baseParams .= empty($baseParams)?'?':$amp . "page=$page";
-				if (!empty($op)) {
-					$baseParams .= $amp . "op=$op";
-				}
-			}
-		} else {
-			if (!empty($path)) $pathString = '/' . implode('/', $path);
-			if (empty($overriddenBaseUrl)) $baseParams = "/$journalPath";
-			else $baseParams = '';
-
-			if (!empty($page)) {
-				$baseParams .= "/$page";
-				if (!empty($op)) {
-					$baseParams .= "/$op";
-				}
-			}
-		}
-
-		return ((empty($overriddenBaseUrl)?PKPRequest::getIndexUrl():$overriddenBaseUrl) . $baseParams . $pathString . $additionalParams . $anchor);
-	}*/
-
-/*	function isCacheable() {
-		if (defined('SESSION_DISABLE_INIT')) return false;
-		if (!Config::getVar('general', 'installed')) return false;
-		if (!empty($_POST) || Validation::isLoggedIn()) return false;
-		if (!Config::getVar('cache', 'web_cache')) return false;
-		if (!PKPRequest::isPathInfoEnabled()) {
-			$ok = array('journal', 'page', 'op', 'path');
-			if (!empty($_GET) && count(array_diff(array_keys($_GET), $ok)) != 0) {
-				return false;
-			}
-		} else {
-			if (!empty($_GET)) return false;
-		}
-
-		if (in_array(PKPRequest::getRequestedPage(), array(
-			'about', 'announcement', 'help', 'index', 'information', 'rt', 'issue', ''
-		))) return true;
-
-		return false;
-	}
-
-	function getCacheFilename() {
-		static $cacheFilename;
-		if (!isset($cacheFilename)) {
-			if (PKPRequest::isPathInfoEnabled()) {
-				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
-				$id .= '-' . Locale::getLocale();
-			} else {
-				$id = PKPRequest::getUserVar('journal') . '-' . PKPRequest::getUserVar('page') . '-' . PKPRequest::getUserVar('op') . '-' . PKPRequest::getUserVar('path') . '-' . Locale::getLocale();
-			}
-			$path = dirname(dirname(dirname(__FILE__)));
-			$cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
-		}
-		return $cacheFilename;
-	}
-
-	function cacheContent($contents) {
-		$filename = PKPRequest::getCacheFilename();
-		$fp = fopen($filename, 'w');
-		if ($fp) {
-			fwrite($fp, mktime() . ':' . $contents);
-			fclose($fp);
-		}
-		return $contents;
-	}
-
-	function displayCached() {
-		$filename = PKPRequest::getCacheFilename();
-		if (!file_exists($filename)) return false;
-
-		$fp = fopen($filename, 'r');
-		$data = fread($fp, filesize($filename));
-		fclose($fp);
-
-		$i = strpos($data, ':');
-		$time = substr($data, 0, $i);
-		$contents = substr($data, $i+1);
-
-		if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) return false;
-
-		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
-
-		echo $contents;
-		return true;
-	}*/
 }
 
 ?>

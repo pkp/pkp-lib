@@ -40,6 +40,15 @@ define('EMAIL_ERROR_MISSING_EMAIL',		'EMAIL_ERROR_MISSING_EMAIL');
 define('EMAIL_ERROR_EXTRA_EMAIL',		'EMAIL_ERROR_EXTRA_EMAIL');
 define('EMAIL_ERROR_DIFFERING_PARAMS',		'EMAIL_ERROR_DIFFERING_PARAMS');
 
+// Locale components
+define('LOCALE_COMPONENT_PKP_COMMON',		0x00000001);
+define('LOCALE_COMPONENT_PKP_ADMIN',		0x00000002);
+define('LOCALE_COMPONENT_PKP_INSTALLER',	0x00000003);
+define('LOCALE_COMPONENT_PKP_MANAGER',		0x00000004);
+define('LOCALE_COMPONENT_PKP_READER',		0x00000005);
+define('LOCALE_COMPONENT_PKP_SUBMISSION',	0x00000006);
+define('LOCALE_COMPONENT_PKP_USER',		0x00000007);
+
 class PKPLocale {
 	/**
 	 * Get a list of locale files currently registered, either in all
@@ -47,11 +56,7 @@ class PKPLocale {
 	 * @param $locale string Locale identifier (optional)
 	 */
 	function &getLocaleFiles($locale = null) {
-		static $localeFiles;
-		if (!isset($localeFiles)) {
-			$localeFiles = array();
-		}
-
+		$localeFiles =& Registry::get('localeFiles', true, array());
 		if ($locale !== null) {
 			if (!isset($localeFiles[$locale])) $localeFiles[$locale] = array();
 			return $localeFiles[$locale];
@@ -88,19 +93,11 @@ class PKPLocale {
 	}
 
 	/**
-	 * Get the filename for the locale file given a locale name.
-	 */
-	function getMainLocaleFilename($locale) {
-		return "locale/$locale/locale.xml";
-	}
-
-	/**
 	 * Initialize the locale system.
 	 */
 	function initialize() {
 		// Use defaults if locale info unspecified.
 		$locale = Locale::getLocale();
-		$localeFile = Locale::getMainLocaleFilename($locale);
 
 		$sysLocale = $locale . '.' . LOCALE_ENCODING;
 		if (!@setlocale(LC_ALL, $sysLocale, $locale)) {
@@ -110,7 +107,45 @@ class PKPLocale {
 			}
 		}
 
-		Locale::registerLocaleFile($locale, $localeFile);
+		Locale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+	}
+
+	function makeComponentMap($locale) {
+		$baseDir = "lib/pkp/locale/$locale/";
+		
+		return array(
+			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xml',
+			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xml',
+			LOCALE_COMPONENT_PKP_INSTALLER => $baseDir . 'installer.xml',
+			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xml',
+			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xml',
+			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xml',
+			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml'
+		);
+	}
+
+	function getFilenameComponentMap($locale) {
+		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array());
+		if (!isset($filenameComponentMap[$locale])) {
+			$filenameComponentMap[$locale] = Locale::makeComponentMap($locale);
+		}
+		return $filenameComponentMap[$locale];
+	}
+
+	function requireComponents($components, $locale = null) {
+		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array());
+		if ($locale === null) $locale = Locale::getLocale();
+		$filenameComponentMap =& Locale::getFilenameComponentMap($locale);
+		foreach ($components as $component) {
+			// Don't load components twice
+			if (isset($loadedComponents[$locale][$component])) continue;
+
+			if (!isset($filenameComponentMap[$component])) fatalError('Unknown locale component ' . $component);
+			$filename = $filenameComponentMap[$component];
+
+			Locale::registerLocaleFile($locale, $filename);
+			$loadedComponents[$locale][$component] = true;
+		}
 	}
 
 	/**
@@ -154,7 +189,7 @@ class PKPLocale {
 	function isLocaleValid($locale) {
 		if (empty($locale)) return false;
 		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z]$/', $locale)) return false;
-		if (file_exists(Locale::getMainLocaleFilename($locale))) return true;
+		if (file_exists('lib/pkp/' . $locale)) return true;
 		return false;
 	}
 
@@ -162,8 +197,8 @@ class PKPLocale {
 	 * Get the cache object for the current list of all locales.
 	 */
 	function &_getAllLocalesCache() {
-		static $cache;
-		if (!isset($cache)) {
+		$cache =& Registry::get('allLocalesCache', true, null);
+		if ($cache === null) {
 			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
@@ -201,8 +236,8 @@ class PKPLocale {
 	}
 
 	function _allLocalesCacheMiss(&$cache, $id) {
-		static $allLocales;
-		if (!isset($allLocales)) {
+		$allLocales =& Registry::get('allLocales', true, null);
+		if ($allLocales === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
 			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));

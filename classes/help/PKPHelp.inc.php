@@ -92,9 +92,9 @@ class PKPHelp {
 	}
 
 	function &_getTocCache() {
-		static $cache;
+		$cache =& Registry::get('pkpHelpTocCache', true, null);
 
-		if (!isset($cache)) {
+		if ($cache === null) {
 			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
@@ -115,12 +115,12 @@ class PKPHelp {
 	function _mappingCacheMiss(&$cache, $id) {
 		// Keep a secondary cache of the mappings so that a few
 		// cache misses won't destroy the server
-		static $mappings;
+		$mappings =& Registry::get('pkpHelpMappings', true, null);
 
 		$result = null;
 		if (HookRegistry::call('Help::_mappingCacheMiss', array(&$cache, &$id, &$mappings, &$result))) return $result;
 
-		if (!isset($mappings)) {
+		if ($mappings === null) {
 			$mappings =& $this->loadHelpMappings();
 			$cache->setEntireCache($mappings);
 		}
@@ -130,8 +130,8 @@ class PKPHelp {
 	function _tocCacheMiss(&$cache, $id) {
 		// Keep a secondary cache of the TOC so that a few
 		// cache misses won't destroy the server
-		static $toc;
-		if (!isset($toc)) {
+		$toc =& Registry::get('pkpHelpTocData', true, null);
+		if ($toc === null) {
 			$helpToc = array();
 			$topicId = 'index/topic/000000';
 			$help =& Help::getHelp();

@@ -100,9 +100,9 @@ class SessionManager {
 	 * @return SessionManager
 	 */
 	function &getManager() {
-		static $instance;
+		$instance =& Registry::get('sessionManager', true, null);
 
-		if (!isset($instance)) {
+		if ($instance === null) {
 			$instance = new SessionManager(DAORegistry::getDAO('SessionDAO'));
 		}
 		return $instance;

@@ -20,7 +20,7 @@ import('help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
 	function &_getCache($tocId) {
-		static $cache;
+		$cache =& Registry::get('helpTocCache', true, null);
 		$locale = Help::getLocale();
 
 		if (!isset($cache[$locale][$tocId])) {
@@ -40,9 +40,9 @@ class HelpTocDAO extends XMLDAO {
 	}
 
 	function _cacheMiss(&$cache, $id) {
-		static $data;
+		$data =& Registry::get('helpTocData', true, null);
 
-		if (!isset($data)) {
+		if ($data === null) {
 			$helpFile = $this->getFilename($cache->getCacheId());
 			$data =& $this->parseStruct($helpFile);
 

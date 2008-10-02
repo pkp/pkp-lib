@@ -75,7 +75,7 @@ class TimeZone {
 	}
 
 	function isValidTimeZone($timeZone) {
-		list($tzFlat, $tzTree) = TimeZone::_getTZData();
+		$tzFlat = TimeZone::_getTZData();
 		if(!isset($tzFlat[$timeZone])) {
 			// A nonsensical (or unknown) server time zone was provided.
 			return false;
@@ -85,7 +85,7 @@ class TimeZone {
 	}
 
 	function getTimeZones() {
-		list($tzFlat, $tzTree) = TimeZone::_getTZData();
+		$tzFlat = TimeZone::_getTZData();
 		return $tzFlat;
 	}
 
@@ -116,18 +116,16 @@ class TimeZone {
 	}
 
 	function _getTZData() {
-		static $tzFlat;
-		static $tzTree;
+		$tzFlat =& Registry::get('tzFlat', true, null);
 
-		if (!isset($tzFlat)) {
-			//$tzTree = array();
+		if ($tzFlat === null) {
 			$tzFlat = array();
 
 			// Load registry file
 			$xmlDao =& new XMLDAO();
 			$tzRaw = $xmlDao->parseStruct(TZ_REGISTRY_FILE, array("entry"));
 
-			// Build tzTree and tzFlat by breaking tzRaw into path components.
+			// Build tzFlat by breaking tzRaw into path components.
 
 			// FIXME: this only happens once, and eases parsing of locale files,
 			// but perhaps is best done when the XML is generated.
@@ -140,7 +138,7 @@ class TimeZone {
 				$tzFlat[$key] = $key;
 			}
 		}
-		return array($tzFlat, $tzTree);
+		return $tzFlat;
 	}
 }
 

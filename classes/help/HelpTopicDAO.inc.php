@@ -21,7 +21,7 @@ import('help.PKPHelp');
 
 class HelpTopicDAO extends XMLDAO {
 	function &_getCache($topicId) {
-		static $cache;
+		$cache =& Registry::get('helpTopicCache', true, null);
 		$locale = PKPHelp::getLocale();
 		if (!isset($cache[$locale][$topicId])) {
 			import('cache.CacheManager');
@@ -59,8 +59,8 @@ class HelpTopicDAO extends XMLDAO {
 	}
 
 	function _cacheMiss(&$cache, $id) {
-		static $data;
-		if (!isset($data)) {
+		$data =& Registry::get('helpTopicData', true, null);
+		if ($data === null) {
 			$helpFile = $this->getFilename($cache->getCacheId());
 			$data =& $this->parseStruct($helpFile);
 

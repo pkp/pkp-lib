@@ -179,6 +179,8 @@ class FileManager {
 				if (empty($type)) $type = 'application/octet-stream';
 			}
 
+			Registry::clear(); // Free some memory
+
 			header("Content-Type: $type");
 			header("Content-Length: ".filesize($filePath));
 			header("Content-Disposition: " . ($inline ? 'inline' : 'attachment') . "; filename=\"" .basename($filePath)."\"");
@@ -386,7 +388,7 @@ class FileManager {
 	 * @return string
 	 */
 	function getNiceFileSize($size) {
-		static $niceFileSizeUnits = array('B', 'KB', 'MB', 'GB');
+		$niceFileSizeUnits = array('B', 'KB', 'MB', 'GB');
 		for($i = 0; $i < 4 && $size > 1024; $i++) {
 			$size >>= 10;
 		}

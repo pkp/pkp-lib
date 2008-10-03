@@ -189,7 +189,7 @@ class PKPLocale {
 	function isLocaleValid($locale) {
 		if (empty($locale)) return false;
 		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z]$/', $locale)) return false;
-		if (file_exists('lib/pkp/' . $locale)) return true;
+		if (file_exists('locale/' . $locale)) return true;
 		return false;
 	}
 

@@ -42,14 +42,9 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
+		<field name="product_type" type="C2" size="30"/>
+		<field name="product" type="C2" size="30"/>
 		<descr>Installation and upgrade version history.</descr>
-		<index name="versions_pkey">
-			<col>major</col>
-			<col>minor</col>
-			<col>revision</col>
-			<col>build</col>
-			<UNIQUE />
-		</index>
 	</table>
 
 	<!--

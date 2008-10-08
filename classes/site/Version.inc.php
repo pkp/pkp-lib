@@ -44,10 +44,18 @@ class Version extends DataObject {
 	/**
 	 * Static method to return a new version from a version string of the form "W.X.Y.Z".
 	 * @param $versionString string
+	 * @param $product string
+	 * @param $productType string
 	 * @return Version
 	 */
-	function &fromString($versionString) {
+	function &fromString($versionString, $product = null, $productType = null) {
 		$version =& new Version();
+		
+		if(!$product && !$productType) {
+			$application = PKPApplication::getApplication();
+			$product = $application->getName();
+			$productType = 'core';
+		}
 
 		$versionArray = explode('.', $versionString);
 		$version->setMajor(isset($versionArray[0]) ? (int) $versionArray[0] : 0);
@@ -55,6 +63,8 @@ class Version extends DataObject {
 		$version->setRevision(isset($versionArray[2]) ? (int) $versionArray[2] : 0);
 		$version->setBuild(isset($versionArray[3]) ? (int) $versionArray[3] : 0);
 		$version->setDateInstalled(null);
+		$version->setProduct($product);
+		$version->setProductType($productType);
 
 		return $version;
 	}
@@ -145,7 +155,7 @@ class Version extends DataObject {
 
 	/**
 	 * Check if current version.
-	 * @return boolean
+	 * @return int
 	 */
 	function getCurrent() {
 		return $this->getData('current');
@@ -153,10 +163,42 @@ class Version extends DataObject {
 
 	/**
 	 * Set if current version.
-	 * @param $current boolean
+	 * @param $current int
 	 */
-	function setcurrent($current) {
+	function setCurrent($current) {
 		return $this->setData('current', $current);
+	}
+	
+	/**
+	 * Get product name.
+	 * @return string
+	 */
+	function getProduct() {
+		return $this->getData('product');
+	}
+	
+	/**
+	 * Set product name.
+	 * @param $product string
+	 */
+	function setProduct($product) {
+		return $this->setData('product', $product);
+	}
+	
+	/**
+	 * Get product type.
+	 * @return string
+	 */
+	function getProductType() {
+		return $this->getData('productType');
+	}
+	
+	/**
+	 * Set product type.
+	 * @param $product string
+	 */
+	function setProductType($productType) {
+		return $this->setData('productType', $productType);
 	}
 
 	/**

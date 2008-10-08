@@ -32,10 +32,12 @@ class PKPInstall extends Installer {
 	/**
 	 * Constructor.
 	 * @see install.form.InstallForm for the expected parameters
-	 * @param $params array installation parameters
+	 * @param $xmlDescriptor string descriptor path
+	 * @param $params array installer parameters
+	 * @param $isPlugin boolean true iff a plugin is being installed
 	 */
-	function PKPInstall($xmlDescriptor, $params) {
-		parent::Installer($xmlDescriptor, $params);
+	function PKPInstall($xmlDescriptor, $params, $isPlugin) {
+		parent::Installer($xmlDescriptor, $params, $isPlugin);
 	}
 
 	/**

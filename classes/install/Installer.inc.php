@@ -36,6 +36,9 @@ class Installer {
 
 	/** @var string descriptor path (relative to INSTALLER_DATA_DIR) */
 	var $descriptor;
+	
+	/** @var boolean indicates if a plugin is being installed (thus modifying the descriptor path) */
+	var $isPlugin;
 
 	/** @var array installation parameters */
 	var $params;
@@ -87,11 +90,13 @@ class Installer {
 	 * Constructor.
 	 * @param $descriptor string descriptor path
 	 * @param $params array installer parameters
+	 * @param $isPlugin boolean true iff a plugin is being installed
 	 */
-	function Installer($descriptor, $params = array()) {
+	function Installer($descriptor, $params = array(), $isPlugin = false) {
 		// Load all plugins. If any of them use installer hooks,
 		// they'll need to be loaded here.
 		PluginRegistry::loadAllPlugins();
+		$this->isPlugin = $isPlugin;
 
 		// Give the HookRegistry the opportunity to override this
 		// method or alter its parameters.
@@ -142,7 +147,7 @@ class Installer {
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao =& DAORegistry::getDAO('VersionDAO');
-			$this->currentVersion =& $versionDao->getCurrentVersion();
+			$this->currentVersion =& $versionDao->getCurrentVersion(null, $this->isUpgrade());
 		}
 
 		if (!isset($this->locale)) {
@@ -227,7 +232,8 @@ class Installer {
 		// Read installation descriptor file
 		$this->log(sprintf('load: %s', $this->descriptor));
 		$xmlParser =& new XMLParser();
-		$installTree = $xmlParser->parse(INSTALLER_DATA_DIR . '/' . $this->descriptor);
+		$installPath = $this->isPlugin ? $this->descriptor : INSTALLER_DATA_DIR . DIRECTORY_SEPARATOR . $this->descriptor;
+		$installTree = $xmlParser->parse($installPath);
 		if (!$installTree) {
 			// Error reading installation file
 			$xmlParser->destroy();
@@ -279,7 +285,7 @@ class Installer {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
 			if ($this->getParam('manualInstall')) {
 				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current) VALUES (%d, %d, %d, %d, NOW(), 1)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild()));
+				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product) VALUES (%d, %d, %d, %d, NOW(), 1, %d, %d)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->newVersion->getProductType(), $this->newVersion->getProduct()));
 			} else {
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
 				if (!$versionDao->insertVersion($this->newVersion)) {

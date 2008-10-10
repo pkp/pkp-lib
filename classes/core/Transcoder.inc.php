@@ -47,49 +47,48 @@ class Transcoder {
 		$mbstring = function_exists('mb_convert_encoding');
 		$iconv = function_exists('iconv');
 
-		// ===	special cases for HTML entities to handle various PHP platforms
+		// don't do work unless we have to
+		if (strtolower($this->fromEncoding) == strtolower($this->toEncoding)) {
+			return $string;
+		}
+
 		// 'HTML-ENTITIES' is not a valid encoding for iconv, so transcode manually
-
 		if ($this->toEncoding == 'HTML-ENTITIES' && !$mbstring) {
-
-			if ( strtoupper($this->fromEncoding) == 'UTF-8' ) {
-				return String::utf2html($string);		// NB: this will return all numeric entities
+			// NB: old PHP versions may have issues with htmlentities()
+			if (phpversion() >= '5.2.3') {
+				// don't double encode added in PHP 5.2.3
+				return htmlentities($string, ENT_COMPAT, $this->fromEncoding, false);
 			} else {
-				// NB: old PHP versions may have issues with htmlentities()
-				if ($string == html_entity_decode($string, ENT_COMPAT, $this->fromEncoding)) {
-					return htmlentities($string, ENT_COMPAT, $this->fromEncoding);
-				} else {
-					return $string;
-				}
+				return htmlentities($string, ENT_COMPAT, $this->fromEncoding);
 			}
 
 		} elseif ($this->fromEncoding == 'HTML-ENTITIES' && !$mbstring) {
-
-			if ( strtoupper($this->toEncoding) == 'UTF-8' ) {
-				// use built-in transcoding to UTF8
-				return String::html2utf($string);
-
-			} else {
-				// NB: old PHP versions may have issues with html_entity_decode()
+			// NB: old PHP versions may have issues with html_entity_decode()
+			if (phpversion() >= '4.3.0') {
+				// multibyte character handling added in PHP 5.0.0
 				return html_entity_decode($string, ENT_COMPAT, $this->toEncoding);
+			} else {
+				// use built-in transcoding to UTF8
+				$string = String::html2utf($string);
+
+				// make another pass to target encoding
+				$this->fromEncoding = 'UTF-8';
+				return $this->trans($string);
 			}
 
-		// === end special cases for HTML entities
-
-		} elseif ($this->translit == true && $iconv) {
+		// Special cases for transliteration ("down-sampling")
+		} elseif ($this->translit && $iconv) {
 			// use the iconv library to transliterate
 			return iconv($this->fromEncoding, $this->toEncoding . '//TRANSLIT', $string);
 
-		} elseif ($this->translit == true && $this->fromEncoding == "UTF-8" && $this->toEncoding == "ASCII") {
-			// transliterate using built-in mapping
-			return String::html2utf(String::html2ascii(String::utf2html($string)));
-
-		// === end special cases for transliteration
+		} elseif ($this->translit && $this->fromEncoding == "UTF-8" && $this->toEncoding == "ASCII") {
+			// use the utf2ascii library
+			require_once 'utf8_to_ascii.php';
+			return utf8_to_ascii($string);
 
 		} elseif ($mbstring) {
-			// use the multibyte library to transcode (no transliteration)
-			// this call semantic uses backwards-compatible by-reference for better reliability
-			return call_user_func_array('mb_convert_encoding', array(&$string, $this->toEncoding, $this->fromEncoding));
+			// use the mbstring library to transcode
+			return mb_convert_encoding($string, $this->toEncoding, $this->fromEncoding);
 
 		} elseif ($iconv) {
 			// use the iconv library to transcode

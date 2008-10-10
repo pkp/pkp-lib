@@ -44,17 +44,26 @@ class Core {
 	 */
 	function cleanVar($var) {
 		// only process strings that are not UTF-8 already
-		if ( !String::isUTF8($var) && Config::getVar('i18n', 'charset_normalization') == 'On' ) {
-			import('core.Transcoder');
-			$var = strtr($var, array("&amp;" => "&", "&quot" => '"', "&lt;" => "<", "&gt;" => ">"));
+		if ( !String::utf8_is_valid($var) && Config::getVar('i18n', 'charset_normalization') == 'On' ) {
 
-			// convert string to HTML entities (numeric and named)
-			$trans =& new Transcoder('CP1252', 'HTML-ENTITIES');
-			$var = $trans->trans($var);
+			$var = String::utf8_normalize($var);
 
-			// convert UTF-8 entities back to UTF-8 characters
-			$trans =& new Transcoder('HTML-ENTITIES', 'UTF-8');
-			$var = $trans->trans($var);
+			// convert HTML entities into valid UTF-8 characters (do not transcode)
+			if (phpversion() >= '5.0.0') {
+				$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
+			} else {
+				$var = String::html2utf($var);
+			}
+
+			// strip any invalid UTF-8 sequences
+			$var = String::utf8_bad_strip($var);
+
+			// re-encode special HTML characters
+			if (phpversion() >= '5.2.3') {
+				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
+			} else {
+				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8');
+			}
 		}
 
 		return trim($var);

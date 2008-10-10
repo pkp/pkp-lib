@@ -15,47 +15,48 @@
 
 // $Id$
 
-
 class String {
 	/**
-	 * Perform initialization required for the string wrapper library.
-	 */
+	* Perform initialization required for the string wrapper library.
+	*/
 	function init() {
 		$clientCharset = strtolower(Config::getVar('i18n', 'client_charset'));
 
-		// FIXME Should non-UTF-8 encodings be supported with mbstring?
-		$PCRE_UTF8 = '';
-		if ($clientCharset == 'utf-8' && String::hasPCREUTF8()) {
-			$PCRE_UTF8 = 'u';
-		}
-
-		// Check if mbstring is installed
-		// NOTE: Requires PHP >= 4.3.0
+		// Check if mbstring is installed (requires PHP >= 4.3.0)
 		if (String::hasMBString()) {
 			// mbstring routines are available
-			define('ENABLE_MBSTRING', 1);
+			define('ENABLE_MBSTRING', true);
 
 			// Set up required ini settings for mbstring
-			ini_set('mbstring.internal_encoding', $clientCharset);
-			if ($clientCharset == 'utf-8') {
-				ini_set('mbstring.substitute_character', '12307');
-			}
-
 			// FIXME Do any other mbstring settings need to be set?
+			mb_internal_encoding($clientCharset);
+			mb_substitute_character('63');		// question mark 
 		}
 
 		// Define modifier to be used in regexp_* routines
-		define('PCRE_UTF8', $PCRE_UTF8);
+		// FIXME Should non-UTF-8 encodings be supported with mbstring?
+		if ($clientCharset == 'utf-8' && String::hasPCREUTF8()) {
+			define('PCRE_UTF8', 'u');
+		} else {
+			define('PCRE_UTF8', '');
+		}
 	}
 
 	/**
-	 * Check if server has the mbstring library.
-	 * Currently requires PHP >= 4.3.0 (for mb_strtolower, mb_strtoupper,
-	 * and mb_substr_count)
-	 * @return boolean
-	 */
+	* Check if server has the mbstring library.
+	* Currently requires PHP >= 4.3.0 (for mb_strtolower, mb_strtoupper,
+	* and mb_substr_count)
+	* @return boolean
+	*/
 	function hasMBString() {
-		return (
+		// If string overloading is active, it will break many of the
+		// native implementations. mbstring.func_overload must be set
+		// to 0, 1 or 4 in php.ini (string overloading disabled).
+		if (ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING) {
+			return false;
+		} else {
+			return (
+			extension_loaded('mbstring') &&
 			function_exists('mb_strlen') &&
 			function_exists('mb_strpos') &&
 			function_exists('mb_strrpos') &&
@@ -64,13 +65,14 @@ class String {
 			function_exists('mb_strtoupper') &&
 			function_exists('mb_substr_count') &&
 			function_exists('mb_send_mail')
-		);
+			);
+		}
 	}
 
 	/**
-	 * Check if server supports the PCRE_UTF8 modifier.
-	 * @return boolean
-	 */
+	* Check if server supports the PCRE_UTF8 modifier.
+	* @return boolean
+	*/
 	function hasPCREUTF8() {
 		// The PCRE_UTF8 modifier is only supported on PHP >= 4.1.0 (*nix) or PHP >= 4.2.3 (win32)
 		// Evil check to see if PCRE_UTF8 is supported
@@ -83,83 +85,90 @@ class String {
 
 	//
 	// Wrappers for basic string manipulation routines.
-	// See the php.net documentation for usage.
+	// See the phputf8 documentation for usage.
 	//
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strlen.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strlen.php
+	*/
 	function strlen($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			return mb_strlen($string);
+			require_once 'mbstring/core.php';
 		} else {
-			return strlen($string);
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
+		return utf8_strlen($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strpos.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strpos.php
+	*/
 	function strpos($haystack, $needle, $offset = 0) {
 		if (defined('ENABLE_MBSTRING')) {
-			return mb_strpos($haystack, $needle, $offset);
+			require_once 'mbstring/core.php';
 		} else {
-			return strpos($haystack, $needle, $offset);
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
+		return utf8_strpos($haystack, $needle, $offset);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strrpos.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strrpos.php
+	*/
 	function strrpos($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
-			return mb_strrpos($haystack, $needle);
+			require_once 'mbstring/core.php';
 		} else {
-			return strrpos($haystack, $needle);
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
+		return utf8_strrpos($haystack, $needle, $offset);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.substr.php
-	 */
+	* @see http://ca.php.net/manual/en/function.substr.php
+	*/
 	function substr($string, $start, $length = null) {
 		if (defined('ENABLE_MBSTRING')) {
-			$substr = 'mb_substr';
+			require_once 'mbstring/core.php';
 		} else {
-			$substr = 'substr';
+			require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
-		if (isset($length)) {
-			return $substr($string, $start, $length);
-		} else {
-			return $substr($string, $start);
-		}
+		return utf8_substr($string, $start, $length);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strtolower.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strtolower.php
+	*/
 	function strtolower($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			return mb_strtolower($string); // Requires PHP >= 4.3.0
+			require_once 'mbstring/core.php';
 		} else {
-			return strtolower($string);
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
+		return utf8_strtolower($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strtoupper.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strtoupper.php
+	*/
 	function strtoupper($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			return mb_strtoupper($string); // Requires PHP >= 4.3.0
+			require_once 'mbstring/core.php';
 		} else {
-			return strtolower($string);
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
+		return utf8_strtoupper($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.substr_count.php
-	 */
+	* @see http://ca.php.net/manual/en/function.substr_count.php
+	*/
 	function substr_count($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_substr_count($haystack, $needle); // Requires PHP >= 4.3.0
@@ -169,8 +178,8 @@ class String {
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.encode_mime_header.php
-	 */
+	* @see http://ca.php.net/manual/en/function.encode_mime_header.php
+	*/
 	function encode_mime_header($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_encode_mimeheader($string, ini_get('mbstring.internal_encoding'), 'B', MAIL_EOL);
@@ -180,8 +189,8 @@ class String {
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.mail.php
-	 */
+	* @see http://ca.php.net/manual/en/function.mail.php
+	*/
 	function mail($to, $subject, $message, $additional_headers = '', $additional_parameters = '') {
 		// Cannot use mb_send_mail as it base64 encodes the whole body of the email,
 		// making it useless for multipart emails
@@ -198,79 +207,72 @@ class String {
 	//
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_quote.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_quote.php
+	*/
 	function regexp_quote($string, $delimiter = '/') {
 		return preg_quote($string, $delimiter);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_grep.php
+	*/
 	function regexp_grep($pattern, $input) {
-		$pattern .= PCRE_UTF8;
-		$input = String::utf8Clean($input);
-		return preg_grep($pattern, $input);
+		$input = String::utf8_bad_strip($input);
+		return preg_grep($pattern . PCRE_UTF8, $input);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match.php
+	*/
 	function regexp_match($pattern, $subject) {
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_match($pattern, $subject);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_match($pattern . PCRE_UTF8, $subject);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match_get.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match_get.php
+	*/
 	function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_match($pattern, $subject, $matches);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_match($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match_all.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match_all.php
+	*/
 	function regexp_match_all($pattern, $subject, &$matches) {
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_match_all($pattern, $subject, $matches);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_replace.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_replace.php
+	*/
 	function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_replace($pattern, $replacement, $subject, $limit);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
+	*/
 	function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_replace_callback($pattern, $callback, $subject, $limit);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_split.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_split.php
+	*/
 	function regexp_split($pattern, $subject, $limit = -1) {
-		$pattern .= PCRE_UTF8;
-		$subject = String::utf8Clean($subject);
-		return preg_split($pattern, $subject, $limit);
+		$subject = String::utf8_bad_strip($subject);
+		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
-	 */
+	* @see http://ca.php.net/manual/en/function.mime_content_type.php
+	*/
 	function mime_content_type($filename) {
 		if (function_exists('mime_content_type')) {
 			return mime_content_type($filename);
@@ -296,11 +298,11 @@ class String {
 
 
 	/**
-	 * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
-	 * onclick(...) attributes, javascript: urls, and special characters.
-	 * @param $input string input string
-	 * @return string
-	 */
+	* Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
+	* onclick(...) attributes, javascript: urls, and special characters.
+	* @param $input string input string
+	* @return string
+	*/
 	function stripUnsafeHtml($input) {
 		// Parts of this implementation were taken from Horde:
 		// see http://cvs.horde.org/co.php/framework/MIME/MIME/Viewer/html.php.
@@ -322,8 +324,8 @@ class String {
 		$html = preg_replace('/&#x?0*[0-9A-F]{6,};?/i', '&nbsp;', $html);
 
 		/* Get all attribute="javascript:foo()" tags. This is
-		 * essentially the regex /(=|url\()("?)[^>]* script:/ but
-		 * expanded to catch camouflage with spaces and entities. */
+		* essentially the regex /(=|url\()("?)[^>]* script:/ but
+		* expanded to catch camouflage with spaces and entities. */
 		$preg 	= '/((&#0*61;?|&#x0*3D;?|=)|'
 			. '((u|&#0*85;?|&#x0*55;?|&#0*117;?|&#x0*75;?)\s*'
 			. '(r|&#0*82;?|&#x0*52;?|&#0*114;?|&#x0*72;?)\s*'
@@ -357,63 +359,87 @@ class String {
 		return $html;
 	}
 
+	//
+	// Wrappers for UTF-8 validation routines
+	// See the phputf8 documentation for usage.
+	//
+
 	/**
-	 * Detect whether a string contains non-ascii multibyte sequences in the UTF-8 range
-	 * Does not require any multibyte PHP libraries
-	 * @param $input string input string
-	 * @return boolean
-	 */
-	function isUTF8 ($str) {
-		// From http://w3.org/International/questions/qa-forms-utf-8.html
-		return preg_match('%(?:
-				[\xC2-\xDF][\x80-\xBF]								# non-overlong 2-byte
-				|\xE0[\xA0-\xBF][\x80-\xBF]					# excluding overlongs
-				|[\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}		# straight 3-byte
-				|\xED[\x80-\x9F][\x80-\xBF]					# excluding surrogates
-				|\xF0[\x90-\xBF][\x80-\xBF]{2}				# planes 1-3
-				|[\xF1-\xF3][\x80-\xBF]{3}						# planes 4-15
-				|\xF4[\x80-\x8F][\x80-\xBF]{2}				# plane 16
-				)+%xs', $str);
+	* Detect whether a string contains non-ascii multibyte sequences in the UTF-8 range
+	* @param $input string input string
+	* @return boolean
+	*/
+	function utf8_is_valid($str) {
+		require_once 'utils/validation.php';
+		return utf8_is_valid($str);
 	}
 
 	/**
 	* Strips out any bad bytes from a UTF-8 string and returns the rest
-	 * Does not require any multibyte PHP libraries
-	 * @param $input string input string
-	 * @return string
-	 */
-	function utf8Clean($str) {
-		// From the phputf8 project:  http://phputf8.sourceforge.net/
-		$UTF8_BAD =
-		'([\x00-\x7F]'.				# ASCII (including control chars)
-		'|[\xC2-\xDF][\x80-\xBF]'.		# non-overlong 2-byte
-		'|\xE0[\xA0-\xBF][\x80-\xBF]'.		# excluding overlongs
-		'|[\xE1-\xEC\xEE\xEF][\x80-\xBF]{2}'.	# straight 3-byte
-		'|\xED[\x80-\x9F][\x80-\xBF]'.		# excluding surrogates
-		'|\xF0[\x90-\xBF][\x80-\xBF]{2}'.	# planes 1-3
-		'|[\xF1-\xF3][\x80-\xBF]{3}'.		# planes 4-15
-		'|\xF4[\x80-\x8F][\x80-\xBF]{2}'.	# plane 16
-		'|(.{1}))';				# invalid byte
-
-		ob_start();
-		while (preg_match('/'.$UTF8_BAD.'/S', $str, $matches)) {
-			if ( !isset($matches[2])) {
-				echo $matches[0];
-			}
-			$str = substr($str,strlen($matches[0]));
-		}
-		$result = ob_get_contents();
-		ob_end_clean();
-		return $result;
+	* @param $input string input string
+	* @return string
+	*/
+	function utf8_bad_strip($str) {
+		require_once 'utils/bad.php';
+		return utf8_bad_strip($str);
 	}
 
 	/**
-	 * Returns the UTF-8 string corresponding to the unicode value
-	 * Does not require any multibyte PHP libraries
-	 * (from php.net, courtesy - romans@void.lv)
-	 * @param $num int
-	 * @return string
-	 */
+	* Replace bad bytes with an alternative character - ASCII character
+	* @param $input string input string
+	* @return string
+	*/
+	function utf8_bad_replace($str, $replace = '?') {
+		require_once 'utils/bad.php';
+		return utf8_bad_replace($str, $replace);
+	}
+
+	/**
+	* Normalize a string in an unknown (non-UTF8) encoding into a valid UTF-8 sequence
+	* @param $input string input string
+	* @return string
+	*/
+	function utf8_normalize($str) {
+		import('core.Transcoder');
+
+		if (String::hasMBString()) {
+			// NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
+			$mb_encoding_order = 'UTF-8, UTF-7, ASCII, EUC-JP, SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP, ISO-8859-1';
+
+			if (phpversion() < '4.3.8') {
+				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order);
+			} else {
+				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order, FALSE);
+			}
+
+		} elseif ($iconv && strlen(iconv('CP1252', 'UTF-8', $str)) != strlen(iconv('ISO-8859-1', 'UTF-8', $str))) {
+			// use iconv to detect CP-1252, assuming default ISO-8859-1
+			$detected_encoding = 'CP1252';
+		} else {
+			// assume ISO-8859-1, PHP default
+			$detected_encoding = 'ISO-8859-1';
+		}
+
+		// transcode CP-1252/ISO-8859-1 into HTML entities; this works because CP-1252 is mapped onto ISO-8859-1
+		if ('ISO-8859-1' == $detected_encoding || 'CP1252' == $detected_encoding) {
+			$trans =& new Transcoder('CP1252', 'HTML-ENTITIES');
+			$str = $trans->trans($str);
+		}
+
+		// transcode from detected encoding to to UTF-8
+		$trans =& new Transcoder($detected_encoding, 'UTF-8');
+		$str = $trans->trans($str);
+
+		return $str;
+	}
+
+	/**
+	* Returns the UTF-8 string corresponding to the unicode value
+	* Does not require any multibyte PHP libraries
+	* (from php.net, courtesy - romans@void.lv)
+	* @param $num int
+	* @return string
+	*/
 	function code2utf ($num) {
 		if ($num < 128) return chr($num);
 		if ($num < 2048) return chr(($num >> 6) + 192) . chr(($num & 63) + 128);
@@ -423,11 +449,11 @@ class String {
 	}
 
 	/**
-	 * Convert UTF-8 encoded characters in a string to escaped HTML entities
-	 * This is a helper function for transcoding into HTML
-	 * @param $input string input string
-	 * @return string
-	 */
+	* Convert UTF-8 encoded characters in a string to escaped HTML entities
+	* This is a helper function for transcoding into HTML or XML for output
+	* @param $input string input string
+	* @return string
+	*/
 	function utf2html ($str) {
 		$ret = "";
 		$max = strlen($str);
@@ -467,11 +493,11 @@ class String {
 	}
 
 	/**
-	 * Convert numeric HTML entities in a string to UTF-8 encoded characters
-	 * This is a native alternative to the buggy html_entity_decode() using UTF8
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Convert numeric HTML entities in a string to UTF-8 encoded characters
+	* This is a native alternative to the buggy html_entity_decode() using UTF8
+	* @param $str string input string
+	* @return string
+	*/
 	function html2utf($str) {
 		// convert named entities to numeric entities
 		$str = strtr($str, String::getHTMLEntities());
@@ -484,144 +510,11 @@ class String {
 	}
 
 	/**
-	 * Convert UTF-8 numeric entities in a string to ASCII values
-	 * This is a helper function for transcoding into HTML/XML
-	 * @param $str string input string
-	 * @return string
-	 */
-	function html2ascii ($str) {
-		// define the conversion table
-		$entities = array(
-			"&#126;" => "~",	"&#160;" => " ",	"&#161;" => "!",
-			"&#166;" => "|",	"&#177;" => "+/-",	"&#178;" => "2",
-			"&#179;" => "3",	"&#180;" => "'",	"&#185;" => "1",
-			"&#188;" => "1/4",	"&#189;" => "1/2",	"&#190;" => "3/4",
-			"&#191;" => "?",	"&#192;" => "A",	"&#193;" => "A",
-			"&#194;" => "A",	"&#195;" => "A",	"&#196;" => "A",
-			"&#197;" => "A",	"&#198;" => "AE",	"&#199;" => "C",
-			"&#200;" => "E",	"&#201;" => "E",	"&#202;" => "E",
-			"&#203;" => "E",	"&#204;" => "I",	"&#205;" => "I",
-			"&#206;" => "I",	"&#207;" => "I",	"&#208;" => "D",
-			"&#209;" => "N",	"&#210;" => "O",	"&#211;" => "O",
-			"&#212;" => "O",	"&#213;" => "O",	"&#214;" => "O",
-			"&#215;" => "x",	"&#216;" => "O",	"&#217;" => "U",
-			"&#218;" => "U",	"&#220;" => "U",	"&#221;" => "Y",
-			"&#224;" => "a",	"&#225;" => "a",	"&#226;" => "a",
-			"&#227;" => "a",	"&#228;" => "a",	"&#229;" => "a",
-			"&#230;" => "ae",	"&#231;" => "c",	"&#232;" => "e",
-			"&#233;" => "e",	"&#234;" => "e",	"&#235;" => "e",
-			"&#236;" => "i",	"&#237;" => "i",	"&#238;" => "i",
-			"&#239;" => "i",	"&#240;" => "o",	"&#241;" => "n",
-			"&#242;" => "o",	"&#243;" => "o",	"&#244;" => "o",
-			"&#245;" => "o",	"&#246;" => "o",	"&#248;" => "o",
-			"&#249;" => "u",	"&#250;" => "u",	"&#252;" => "u",
-			"&#253;" => "y",	"&#255;" => "y",
-			"&#256;" => "A",	"&#257;" => "a",	"&#258;" => "A",
-			"&#259;" => "a",	"&#260;" => "A",	"&#261;" => "a",
-			"&#262;" => "C",	"&#263;" => "c",	"&#264;" => "C",
-			"&#265;" => "c",	"&#266;" => "C",	"&#267;" => "c",
-			"&#268;" => "C",	"&#269;" => "c",	"&#270;" => "D",
-			"&#271;" => "d",	"&#272;" => "D",	"&#273;" => "d",
-			"&#274;" => "E",	"&#275;" => "e",	"&#276;" => "E",
-			"&#277;" => "e",	"&#278;" => "E",	"&#279;" => "e",
-			"&#280;" => "E",	"&#281;" => "e",	"&#282;" => "E",
-			"&#283;" => "e",	"&#284;" => "G",	"&#285;" => "g",
-			"&#286;" => "G",	"&#287;" => "g",	"&#288;" => "G",
-			"&#289;" => "g",	"&#290;" => "G",	"&#291;" => "g",
-			"&#292;" => "H",	"&#293;" => "h",	"&#294;" => "H",
-			"&#295;" => "h",	"&#296;" => "I",	"&#297;" => "i",
-			"&#298;" => "I",	"&#299;" => "i",	"&#300;" => "I",
-			"&#301;" => "i",	"&#302;" => "I",	"&#303;" => "i",
-			"&#304;" => "I",	"&#305;" => "i",	"&#306;" => "IJ",
-			"&#307;" => "ij",	"&#308;" => "J",	"&#309;" => "j",
-			"&#310;" => "K",	"&#311;" => "k",	"&#312;" => "K",
-			"&#313;" => "L",	"&#314;" => "l",	"&#315;" => "L",
-			"&#316;" => "l",	"&#317;" => "L",	"&#318;" => "l",
-			"&#319;" => "L",	"&#320;" => "L",	"&#321;" => "L",
-			"&#322;" => "l",	"&#323;" => "N",	"&#324;" => "n",
-			"&#325;" => "N",	"&#326;" => "n",	"&#327;" => "N",
-			"&#328;" => "n",	"&#329;" => "n",	"&#330;" => "N",
-			"&#331;" => "n",	"&#332;" => "O",	"&#333;" => "o",
-			"&#334;" => "O",	"&#335;" => "o",	"&#336;" => "O",
-			"&#337;" => "o",	"&#338;" => "OE",	"&#339;" => "oe",
-			"&#340;" => "R",	"&#341;" => "r",	"&#342;" => "R",
-			"&#343;" => "r",	"&#344;" => "R",	"&#345;" => "r",
-			"&#346;" => "S",	"&#347;" => "s",	"&#348;" => "S",
-			"&#349;" => "s",	"&#350;" => "S",	"&#351;" => "s",
-			"&#352;" => "S",	"&#353;" => "s",	"&#354;" => "T",
-			"&#355;" => "t",	"&#356;" => "T",	"&#357;" => "t",
-			"&#358;" => "T",	"&#359;" => "t",	"&#360;" => "U",
-			"&#361;" => "u",	"&#362;" => "U",	"&#363;" => "u",
-			"&#364;" => "U",	"&#365;" => "u",	"&#366;" => "U",
-			"&#367;" => "u",	"&#368;" => "U",	"&#369;" => "u",
-			"&#370;" => "U",	"&#371;" => "u",	"&#372;" => "W",
-			"&#373;" => "w",	"&#374;" => "Y",	"&#375;" => "y",
-			"&#376;" => "Y",	"&#377;" => "Z",	"&#378;" => "z",
-			"&#379;" => "Z",	"&#380;" => "z",	"&#381;" => "Z",
-			"&#382;" => "z",	"&#39;" => "'",		"&#402;" => "f",
-			"&#45;" => "-",		"&#710;" => "^",	"&#732;" => "~",
-			"&#8194;" => " ",	"&#8195;" => " ",	"&#8201;" => " ",
-			"&#8211;" => "-",	"&#8212;" => "--",	"&#8216;" => "'",
-			"&#8217;" => "'",	"&#8218;" => ",",	"&#8220;" => '"',
-			"&#8221;" => '"',	"&#8222;" => ",,",	"&#8226;" => "*",
-			"&#8230;" => "...",	"&#8240;" => "%o",	"&#8242;" => "'",
-			"&#8243;" => "''",	"&#8482;" => "TM",	"&#8722;" => "-",
-			"&#8727;" => "*",	"&#8743;" => "/\\",	"&#8744;" => "\/",
-			"&#8764;" => "~",	"&#8901;" => "*",	"&#913;" => "A",
-			"&#914;" => "B",	"&#917;" => "E",	"&#918;" => "Z",
-			"&#919;" => "H",	"&#921;" => "|",	"&#922;" => "K",
-			"&#924;" => "M",	"&#925;" => "N",	"&#927;" => "O",
-			"&#929;" => "P",	"&#932;" => "T",	"&#933;" => "Y",
-			"&#935;" => "X",	"&#94;" => "^",		"&#959;" => "o",
-			"&#961;" => "p",	"&#962;" => "?",	"&#977;" => "?",
-			"&#982;" => "?"
-		);
-
-		return strtr($str, $entities);
-	}
-
-	/**
-	 * Convert Windows CP-1252 numeric entities in a string to named HTML entities
-	 * This is a helper function for transcoding into HTML/XML
-	 * @param $input string input string
-	 * @return string
-	 */
-	function cp1252ToEntities ($str) {
-		// define the conversion table;  from: http://www.noqta.it/tc.html
-		$cp1252 = array(
-			"&#128;" => "",		"&#129;" => "",
-			"&#130;" => "&lsquor;",	"&#131;" => "&fnof;",
-			"&#132;" => "&ldquor;",	"&#133;" => "&hellip;",
-			"&#134;" => "&dagger;",	"&#135;" => "&Dagger;",
-			"&#136;" => "",		"&#137;" => "&permil;",
-			"&#138;" => "&Scaron;",	"&#139;" => "&lsaquo;",
-			"&#140;" => "&OElig;",	"&#141;" => "",
-			"&#142;" => "",		"&#143;" => "",
-			"&#144;" => "",		"&#145;" => "&lsquo;",
-			"&#146;" => "&rsquo;",	"&#147;" => "&ldquo;",
-			"&#148;" => "&rdquo;",	"&#149;" => "&bull;",
-			"&#150;" => "&ndash;",	"&#151;" => "&mdash;",
-			"&#152;" => "&tilde;",	"&#153;" => "&trade;",
-			"&#154;" => "&scaron;",	"&#155;" => "&rsaquo;",
-			"&#156;" => "&oelig;",	"&#157;" => "",
-			"&#158;" => "",		"&#159;" => "&Yuml;"
-		);
-
-		// corrections to map to valid ISO entities
-		$cp1252["&#130;"] = "&lsquo;";
-		$cp1252["&#132;"] = "&ldquo;";
-		$cp1252["&#146;"] = "&rsquo;";
-		$cp1252["&#148;"] = "&rdquo;";
-
-		return strtr($str, $cp1252);
-	}
-
-	/**
-	 * Return an associative array of named->numeric HTML entities
-	 * Required to support HTML functions without objects in PHP4/PHP5
-	 * From php.net: function.get-html-translation-table.php
-	 * @return string
-	 */
+	* Return an associative array of named->numeric HTML entities
+	* Required to support HTML functions without objects in PHP4/PHP5
+	* From php.net: function.get-html-translation-table.php
+	* @return string
+	*/
 	function getHTMLEntities () {
 		// define the conversion table
 		$html_entities = array(
@@ -716,9 +609,9 @@ class String {
 	}
 
 	/**
-	 * Wrapper around fputcsv for systems that may or may not support it
-	 * (i.e. PHP < 5.1.0); see PHP documentation for fputcsv.
-	 */
+	* Wrapper around fputcsv for systems that may or may not support it
+	* (i.e. PHP < 5.1.0); see PHP documentation for fputcsv.
+	*/
 	function fputcsv(&$handle, $fields = array(), $delimiter = ',', $enclosure = '"') {
 		// From PHP website, thanks to boefje at hotmail dot com
 		if (function_exists('fputcsv')) {

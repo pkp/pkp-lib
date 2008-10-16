@@ -55,10 +55,17 @@ class PKPTemplateManager extends Smarty {
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();
 		$cachePath = CacheManager::getFileCachePath();
-		$this->template_dir = $baseDir . DIRECTORY_SEPARATOR . 'templates';
+
+		// Set the default template dir (app's template dir)
+		$this->app_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'templates';
+		// Set fallback template dir (core's template dir)
+		$this->core_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates';
+
+		$this->template_dir = array($this->app_template_dir, $this->core_template_dir);									
 		$this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
+
 
 		// Assign common variables
 		$this->styleSheets = array();
@@ -108,6 +115,12 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('get_debug_info', array(&$this, 'smartyGetDebugInfo'));
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
+	
+		// register the resource name "core"
+		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
+											array(&$this, 'smartyResourceCoreGetTimestamp'),
+											array(&$this, 'smartyResourceCoreGetSecure'),
+											array(&$this, 'smartyResourceCoreGetTrusted')));
 
 		$this->register_function('url', array(&$this, 'smartyUrl'));
 
@@ -223,6 +236,30 @@ class PKPTemplateManager extends Smarty {
 		}
 		return $instance;
 	}
+
+	// 
+	// Custom Template Resource "Core"
+	// The Core Template Resource is points to the fallback template_dir in the core
+	//
+	
+	function smartyResourceCoreGetTemplate($template, &$templateSource, &$smarty) {
+		$templateSource = file_get_contents($this->core_template_dir . DIRECTORY_SEPARATOR . $template);
+		return true;
+	}
+
+	function smartyResourceCoreGetTimestamp($template, &$templateTimestamp, &$smarty) {
+		$templateSource = $this->core_template_dir . DIRECTORY_SEPARATOR . $template;
+		if (!file_exists($templateSource)) return false;
+		$templateTimestamp = filemtime($templateSource);
+		return true;
+	}
+	
+	function smartyResourceCoreGetTecure($template, &$smarty) {
+		return true;
+	}
+	
+	function smartyResourceCoreGetTrusted($template, &$smarty) {}
+
 
 	//
 	// Custom template functions, modifiers, etc.
@@ -456,6 +493,28 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign('debugMemoryUsage', memory_get_usage());
 			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));
 		}
+
+	}
+
+	/**
+	 * Generate a URL into a PKPApp. (This is a wrapper around Request::url to make it available to Smarty templates.)
+	 */
+	function smartyUrl($params, &$smarty) {
+		// Extract the variables named in $paramList, and remove them
+		// from the params array. Variables remaining in params will be
+		// passed along to Request::url as extra parameters.
+
+		$paramList = array('context', 'page', 'op', 'path', 'anchor', 'escape');
+		foreach ($paramList as $param) {
+			if (isset($params[$param])) {
+				$$param = $params[$param];
+				unset($params[$param]);
+			} else {
+				$$param = null;
+			}
+		}
+
+		return PKPRequest::url($context, $page, $op, $path, $params, $anchor, !isset($escape) || $escape);
 	}
 
 	function setProgressFunction($progressFunction) {

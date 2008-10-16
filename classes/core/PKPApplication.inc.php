@@ -99,6 +99,16 @@ class PKPApplication {
 	function getContextDepth() {
 		fatalError('Abstract method');
 	}
+	
+	/**
+	 * Get the list of the contexts available for this application
+	 * i.e. the various parameters that are needed to represent the 
+	 * (e.g. array('journal') or array('conference', 'schedConf'))
+	 * @return Array
+	 */
+	function getContextList() {
+		fatalError('Abstract method');
+	}
 
 	/**
 	 * Get the URL to the XML descriptor for the current version of this

@@ -361,7 +361,27 @@ class PKPRequest {
 
 		return $user;
 	}
+	
+	/**
+	 * A Generic call to a context defining object (e.g. a Journal, a Conference, or a SchedConf)
+	 * This class must be implemented by all PKPApplications
+	 */
+	function &getContext() {
+		// Child classes will override this method.
+		$returner = null;
+		return $returner;
+	}
 
+	/**
+	 * A Generic call to a context-defined path (e.g. a Journal or a Conference's path) 
+	 * @param $contextLevel int (optional) the number of levels of context to return in the path
+	 * @return array of String (each element the path to one context element)
+	 */
+	function getRequestedContextPath($contextLevel = null) {
+		// Child classes will override this method.
+		return array();
+	}
+	
 	/**
 	 * Get the page requested in the URL.
 	 * @return String the page path (under the "pages" directory)
@@ -542,6 +562,155 @@ class PKPRequest {
 	function setCookieVar($key, $value) {
 		setcookie($key, $value, 0, PKPRequest::getBasePath());
 		$_COOKIE[$key] = $value;
+	}
+	
+	/**
+	 * Redirect to the specified page within a PKP Application. Shorthand for a common call to Request::redirect(Request::url(...)).
+	 * @param $context Array The optional contextual paths
+	 * @param $page string The name of the op to redirect to.
+	 * @param $op string optional The name of the op to redirect to.
+	 * @param $path mixed string or array containing path info for redirect.
+	 * @param $params array Map of name => value pairs for additional parameters
+	 * @param $anchor string Name of desired anchor on the target page
+	 */
+	function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
+		PKPRequest::redirectUrl(PKPRequest::url($context, $page, $op, $path, $params, $anchor));
+	}	
+
+	/**
+	 * Build a URL into PKPApplication.
+	 * @param $context Array Optional contextual paths
+	 * @param $page string Optional name of page to invoke
+	 * @param $op string Optional name of operation to invoke
+	 * @param $path mixed Optional string or array of args to pass to handler
+	 * @param $params array Optional set of name => value pairs to pass as user parameters
+	 * @param $anchor string Optional name of anchor to add to URL
+	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+	 */
+	function url($context = null, $page = null, $op = null, $path = null, 
+				$params = null, $anchor = null, $escape = false) {
+
+		$application =& PKPApplication::getApplication();
+		$contextList = $application->getContextList();
+		$contextDepth = $application->getContextDepth();
+		
+		// set an empty array in case that $context was null
+		if ( !isset($context) ) {
+			$context = array();
+			for ($i = 0; $i < $contextDepth; $i++) {
+				$context[] = null;
+			}
+		}
+				
+		$pathInfoDisabled = !PKPRequest::isPathInfoEnabled();
+
+		$amp = $escape?'&amp;':'&';
+		$prefix = $pathInfoDisabled?$amp:'?';
+
+		// Establish defaults for page and op
+		$defaultPage = PKPRequest::getRequestedPage();
+		$defaultOp = PKPRequest::getRequestedOp();
+
+		// Declare some empty variables
+		$contextPathProvided = false;
+		$contextPath = array();
+				
+		foreach ($contextList as $contextName) {
+			$contextValue = array_shift($context);			
+			if (isset($contextValue)) {
+				$contextPath[] = rawurlencode($contextValue);
+				$contextPathProvided = true;
+			} else {
+				$contextObject =& Request::getContextByName($contextName);
+				if ($contextObject) $contextPath[] = $contextObject->getPath();
+				else $contextPath[] = 'index';
+			}
+		}
+		
+		// If a context has been specified, don't supply default page or op.
+		if($contextPathProvided) {
+			$defaultPage = null;
+			$defaultOp = null;
+		}
+		
+		// Get overridden base URLs (if available).
+		if ( isset($contextPath[0])) { 
+			$overriddenBaseUrl = Config::getVar('general', "base_url[$contextPath[0]]");
+		}
+
+		// If a page has been specified, don't supply a default op.
+		if ($page) {
+			$page = rawurlencode($page);
+			$defaultOp = null;
+		} else {
+			$page = $defaultPage;
+		}
+
+		// Encode the op.
+		if ($op) $op = rawurlencode($op);
+		else $op = $defaultOp;
+
+		// Process additional parameters
+		$additionalParams = '';
+		if (!empty($params)) foreach ($params as $key => $value) {
+			if (is_array($value)) foreach($value as $element) {
+				$additionalParams .= $prefix . $key . '%5B%5D=' . rawurlencode($element);
+				$prefix = $amp;
+			} else {
+				$additionalParams .= $prefix . $key . '=' . rawurlencode($value);
+				$prefix = $amp;
+			}
+		}
+
+		// Process anchor
+		if (!empty($anchor)) $anchor = '#' . rawurlencode($anchor);
+		else $anchor = '';
+
+		if (!empty($path)) {
+			if (is_array($path)) $path = array_map('rawurlencode', $path);
+			else $path = array(rawurlencode($path));
+			if (!$page) $page = 'index';
+			if (!$op) $op = 'index';
+		}
+
+		$pathString = '';
+		if ($pathInfoDisabled) {
+			$joiner = $amp . 'path%5B%5D=';
+			if (!empty($path)) $pathString = $joiner . implode($joiner, $path);
+			if (empty($overriddenBaseUrl) && count($contextPath)) {
+				$baseParams = '?';
+				foreach ($contextList as $contextName) {
+					$contextValue = array_shift($contextPath);
+					if (!empty($contextValue)) {
+						$baseParams .= $contextName.'='.$contextValue;
+						$baseParams .= count($contextPath)?$amp:'';
+					}
+				}
+				
+			}
+			else $baseParams = '';
+
+			if (!empty($page) || !empty($overriddenBaseUrl)) {
+				$baseParams .= empty($baseParams)?'?':$amp;
+				$baseParams .= "page=$page";
+				if (!empty($op)) {
+					$baseParams .= $amp . "op=$op";
+				}
+			}
+		} else {
+			if (!empty($path)) $pathString = '/' . implode('/', $path);
+			if (empty($overriddenBaseUrl) && count($contextPath)) $baseParams = "/". implode("/", $contextPath);
+			else $baseParams = '';
+
+			if (!empty($page)) {
+				$baseParams .= "/$page";
+				if (!empty($op)) {
+					$baseParams .= "/$op";
+				}
+			}
+		}
+
+		return ((empty($overriddenBaseUrl)?PKPRequest::getIndexUrl():$overriddenBaseUrl) . $baseParams . $pathString . $additionalParams . $anchor);
 	}
 }
 

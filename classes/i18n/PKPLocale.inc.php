@@ -335,12 +335,17 @@ class PKPLocale {
 	 * @return array
 	 */
 	function testLocale($locale, $referenceLocale) {
-		$localeFile =& new LocaleFile($locale, Locale::getMainLocaleFilename($locale));
-		$referenceLocaleFile =& new LocaleFile($referenceLocale, Locale::getMainLocaleFilename($referenceLocale));
+		$localeFileNames = Locale::getFilenameComponentMap($locale);
 
-		$errors = $localeFile->testLocale($referenceLocaleFile);
-		unset($localeFile);
-		unset($referenceLocaleFile);
+		$errors = array();
+		foreach ($localeFileNames as $localeFileName) {
+			$referenceLocaleFileName = str_replace($locale, $referenceLocale, $localeFileName);
+			$localeFile =& new LocaleFile($locale, $localeFileName);
+			$referenceLocaleFile =& new LocaleFile($referenceLocale, $referenceLocaleFileName);
+			$errors = array_merge_recursive($errors, $localeFile->testLocale($referenceLocaleFile));
+			unset($localeFile);
+			unset($referenceLocaleFile);
+		}
 
 		$plugins =& PluginRegistry::loadAllPlugins();
 		foreach (array_keys($plugins) as $key) {

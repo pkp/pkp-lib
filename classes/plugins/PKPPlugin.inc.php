@@ -112,6 +112,7 @@ class PKPPlugin {
 	 */
 	function addHelpData($locale = null) {
 		if ($locale == '') $locale = Locale::getLocale();
+		import('help.Help');
 		$help =& Help::getHelp();
 		import('help.PluginHelpMappingFile');
 		$pluginHelpMapping =& new PluginHelpMappingFile($this);

@@ -264,4 +264,8 @@
 	<message key="search.titleIndex">مرور اندکس عناوین</message>
 	<message key="search.title">عنوان</message>
 	<message key="search.typeMethodApproach">نوع ، روش یا راهکار</message>
+	<message key="common.copy">کپی</message>
+	<message key="common.preview">نگاه اجمالی</message>
+	<message key="common.activate">فعال کن</message>
+	<message key="common.deactivate">غیر فعال کن</message>
 </locale>

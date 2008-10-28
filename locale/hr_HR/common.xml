@@ -254,4 +254,8 @@
 	<message key="search.titleIndex">Kazalo naslova</message>
 	<message key="search.title">Naslov</message>
 	<message key="search.typeMethodApproach">Tip (metoda/pristup)</message>
+	<message key="common.copy">Kopiraj</message>
+	<message key="common.preview">Prethodni pregled</message>
+	<message key="common.activate">Aktiviraj</message>
+	<message key="common.deactivate">Deaktiviraj</message>
 </locale>

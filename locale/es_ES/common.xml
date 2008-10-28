@@ -264,4 +264,8 @@
 	<message key="search.titleIndex">Consultar índice de títulos</message>
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/enfoque)</message>
+	<message key="common.copy">Copiar</message>
+	<message key="common.preview">Previsualizar</message>
+	<message key="common.activate">Activar</message>
+	<message key="common.deactivate">Desactivar</message>
 </locale>

@@ -264,4 +264,8 @@
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/foco)</message>
 	<message key="common.uploadedFile">Arquivo enviado</message>
+	<message key="common.copy">Copiar</message>
+	<message key="common.preview">Visualizar</message>
+	<message key="common.activate">Ativar</message>
+	<message key="common.deactivate">Desativar</message>
 </locale>

@@ -260,4 +260,8 @@
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Typ (Methode/Herangehensweise)</message>
 	<message key="help.searchResultsFor">Ergebnisse f&#252;r</message>
+	<message key="common.copy">Kopie</message>
+	<message key="common.preview">Voransicht</message>
+	<message key="common.activate">Aktivieren</message>
+	<message key="common.deactivate">Deaktivieren</message>
 </locale>

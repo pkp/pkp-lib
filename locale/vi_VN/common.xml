@@ -264,4 +264,8 @@
 	<message key="search.titleIndex">Duyệt Chỉ mục Tiêu đề</message>
 	<message key="search.title">Tiêu đề</message>
 	<message key="search.typeMethodApproach">Loại hình (phương pháp/cách tiếp cận)</message>
+	<message key="common.copy">Copy</message>
+	<message key="common.preview">Xem trước</message>
+	<message key="common.activate">Kích hoạt</message>
+	<message key="common.deactivate">Bỏ kích hoạt</message>
 </locale>

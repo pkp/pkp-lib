@@ -265,4 +265,8 @@
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
+	<message key="common.copy">Copy</message>
+	<message key="common.preview">Preview</message>
+	<message key="common.activate">Activate</message>
+	<message key="common.deactivate">Deactivate</message>
 </locale>

@@ -97,20 +97,19 @@ class PKPHandler {
 	function &getRangeInfo($rangeName, $contextData = null) {
 		//FIXME: is there any way to get around calling a Request (instead of a PKPRequest) here?
 		$context =& Request::getContext();
-		
 		$pageNum = PKPRequest::getUserVar($rangeName . 'Page');
 		if (empty($pageNum)) {
 			$session =& PKPRequest::getSession();
 			$pageNum = 1; // Default to page 1
 			if ($session && $contextData !== null) {
 				// See if we can get a page number from a prior request
-				$context = PKPHandler::hashPageContext($contextData);
+				$contextHash = PKPHandler::hashPageContext($contextData);
 
 				if (PKPRequest::getUserVar('clearPageContext')) {
 					// Explicitly clear the old page context
-					$session->unsetSessionVar("page-$context");
+					$session->unsetSessionVar("page-$contextHash");
 				} else {
-					$oldPage = $session->getSessionVar("page-$context");
+					$oldPage = $session->getSessionVar("page-$contextHash");
 					if (is_numeric($oldPage)) $pageNum = $oldPage;
 				}
 			}
@@ -118,8 +117,8 @@ class PKPHandler {
 			$session =& PKPRequest::getSession();
 			if ($session && $contextData !== null) {
 				// Store the page number
-				$context = PKPHandler::hashPageContext($contextData);
-				$session->setSessionVar("page-$context", $pageNum);
+				$contextHash = PKPHandler::hashPageContext($contextData);
+				$session->setSessionVar("page-$contextHash", $pageNum);
 			}
 		}
 

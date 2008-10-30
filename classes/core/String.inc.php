@@ -412,7 +412,7 @@ class String {
 				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order, FALSE);
 			}
 
-		} elseif ($iconv && strlen(iconv('CP1252', 'UTF-8', $str)) != strlen(iconv('ISO-8859-1', 'UTF-8', $str))) {
+		} elseif (function_exists('iconv') && strlen(iconv('CP1252', 'UTF-8', $str)) != strlen(iconv('ISO-8859-1', 'UTF-8', $str))) {
 			// use iconv to detect CP-1252, assuming default ISO-8859-1
 			$detected_encoding = 'CP1252';
 		} else {

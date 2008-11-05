@@ -44,7 +44,7 @@ class Core {
 	 */
 	function cleanVar($var) {
 		// only normalize strings that are not UTF-8 already, and when the journal is using UTF-8
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && $clientCharset == 'utf-8' && !String::utf8_is_valid($var) ) {
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !String::utf8_is_valid($var) ) {
 
 			$var = String::utf8_normalize($var);
 

@@ -71,7 +71,7 @@ class ScheduledTaskTool extends CommandLineTool {
 	 * @param $file string
 	 */
 	function parseTasks($file) {
-		$xmlParser =& new XMLParser();
+		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($file);
 
 		if (!$tree) {
@@ -115,7 +115,7 @@ class ScheduledTaskTool extends CommandLineTool {
 
 		// Load and execute the task
 		import($className);
-		$task =& new $baseClassName($args);
+		$task = new $baseClassName($args);
 		$task->execute();
 		$this->taskDao->updateLastRunTime($className);
 	}

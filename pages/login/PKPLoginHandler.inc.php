@@ -186,7 +186,7 @@ class PKPLoginHandler extends PKPHandler {
 
 			// Send email confirming password reset
 			import('mail.MailTemplate');
-			$mail =& new MailTemplate('PASSWORD_RESET_CONFIRM');
+			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
 			$mail->assignParams(array(
 				'url' => Request::url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
@@ -250,7 +250,7 @@ class PKPLoginHandler extends PKPHandler {
 			// Send email with new password
 			$site = &Request::getSite();
 			import('mail.MailTemplate');
-			$mail = &new MailTemplate('PASSWORD_RESET');
+			$mail = new MailTemplate('PASSWORD_RESET');
 			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
 			$mail->assignParams(array(
 				'username' => $user->getUsername(),
@@ -277,7 +277,7 @@ class PKPLoginHandler extends PKPHandler {
 
 		import('user.form.LoginChangePasswordForm');
 
-		$passwordForm =& new LoginChangePasswordForm();
+		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->initData();
 		if (isset($args[0])) {
 			$passwordForm->setData('username', $args[0]);
@@ -294,7 +294,7 @@ class PKPLoginHandler extends PKPHandler {
 
 		import('user.form.LoginChangePasswordForm');
 
-		$passwordForm =& new LoginChangePasswordForm();
+		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->readInputData();
 
 		if ($passwordForm->validate()) {

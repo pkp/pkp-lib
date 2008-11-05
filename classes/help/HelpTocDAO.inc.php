@@ -90,7 +90,7 @@ class HelpTocDAO extends XMLDAO {
 			return $returner;
 		}
 
-		$toc =& new HelpToc();
+		$toc = new HelpToc();
 
 		$toc->setId($data['toc'][0]['attributes']['id']);
 		$toc->setTitle($data['toc'][0]['attributes']['title']);
@@ -100,7 +100,7 @@ class HelpTocDAO extends XMLDAO {
 
 		if (isset($data['topic'])) {
 			foreach ($data['topic'] as $topicData) {
-				$topic =& new HelpTopic();
+				$topic = new HelpTopic();
 				$topic->setId($topicData['attributes']['id']);
 				$topic->setTitle($topicData['attributes']['title']);
 				$toc->addTopic($topic);

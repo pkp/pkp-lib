@@ -111,25 +111,25 @@ class FileWrapper {
 	function &wrapper($url) {
 		$info = parse_url($url);
 		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen')) {
-			$wrapper =& new FileWrapper($url, $info);
+			$wrapper = new FileWrapper($url, $info);
 		} else {
 			switch (@$info['scheme']) {
 				case 'http':
 					import('file.wrappers.HTTPFileWrapper');
-					$wrapper =& new HTTPFileWrapper($url, $info);
+					$wrapper = new HTTPFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'https':
 					import('file.wrappers.HTTPSFileWrapper');
-					$wrapper =& new HTTPSFileWrapper($url, $info);
+					$wrapper = new HTTPSFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'ftp':
 					import('file.wrappers.FTPFileWrapper');
-					$wrapper =& new FTPFileWrapper($url, $info);
+					$wrapper = new FTPFileWrapper($url, $info);
 					break;
 				default:
-					$wrapper =& new FileWrapper($url, $info);
+					$wrapper = new FileWrapper($url, $info);
 			}
 		}
 

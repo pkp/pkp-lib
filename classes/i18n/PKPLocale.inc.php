@@ -55,7 +55,7 @@ class PKPLocale {
 	 * locales (in an array for each locale), or for a specific locale.
 	 * @param $locale string Locale identifier (optional)
 	 */
-	function &getLocaleFiles($locale = null) {
+	static function &getLocaleFiles($locale = null) {
 		$localeFiles =& Registry::get('localeFiles', true, array());
 		if ($locale !== null) {
 			if (!isset($localeFiles[$locale])) $localeFiles[$locale] = array();
@@ -73,7 +73,7 @@ class PKPLocale {
 	 * @params $locale string the locale to use
 	 * @return string
 	 */
-	function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null) {
 		if (!isset($locale)) $locale = Locale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
@@ -157,7 +157,7 @@ class PKPLocale {
 	 */
 	function &registerLocaleFile ($locale, $filename, $addToTop = false) {
 		$localeFiles =& Locale::getLocaleFiles($locale);
-		$localeFile =& new LocaleFile($locale, $filename);
+		$localeFile = new LocaleFile($locale, $filename);
 		if (!$localeFile->isValid()) {
 			$localeFile = null;
 			return $localeFile;
@@ -196,7 +196,7 @@ class PKPLocale {
 	/**
 	 * Get the cache object for the current list of all locales.
 	 */
-	function &_getAllLocalesCache() {
+	static function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
 			import('cache.CacheManager');
@@ -221,7 +221,7 @@ class PKPLocale {
 	 * @return array
 	 */
 	function &loadLocaleList($filename) {
-		$xmlDao =& new XMLDAO();
+		$xmlDao = new XMLDAO();
 		$data = $xmlDao->parseStruct($filename, array('locale'));
 		$allLocales = array();
 
@@ -254,7 +254,7 @@ class PKPLocale {
 	 * Return a list of all available locales.
 	 * @return array
 	 */
-	function &getAllLocales() {
+	static function &getAllLocales() {
 		$cache =& Locale::_getAllLocalesCache();
 		$rawContents = $cache->getContents();
 		$allLocales = array();
@@ -297,7 +297,7 @@ class PKPLocale {
 
 		$filesToInstall = Locale::getFilesToInstall($locale);
 
-		$dataXMLParser =& new DBDataXMLParser();
+		$dataXMLParser = new DBDataXMLParser();
 		foreach ($filesToInstall as $fileName) {
 			if (file_exists($fileName)) {
 				$sql = $dataXMLParser->parseData($fileName);
@@ -340,8 +340,8 @@ class PKPLocale {
 		$errors = array();
 		foreach ($localeFileNames as $localeFileName) {
 			$referenceLocaleFileName = str_replace($locale, $referenceLocale, $localeFileName);
-			$localeFile =& new LocaleFile($locale, $localeFileName);
-			$referenceLocaleFile =& new LocaleFile($referenceLocale, $referenceLocaleFileName);
+			$localeFile = new LocaleFile($locale, $localeFileName);
+			$referenceLocaleFile = new LocaleFile($referenceLocale, $referenceLocaleFileName);
 			$errors = array_merge_recursive($errors, $localeFile->testLocale($referenceLocaleFile));
 			unset($localeFile);
 			unset($referenceLocaleFile);
@@ -352,8 +352,8 @@ class PKPLocale {
 			$plugin =& $plugins[$key];
 			$referenceLocaleFilename = $plugin->getLocaleFilename($referenceLocale);
 			if ($referenceLocaleFilename) {
-				$localeFile =& new LocaleFile($locale, $plugin->getLocaleFilename($locale));
-				$referenceLocaleFile =& new LocaleFile($referenceLocale, $referenceLocaleFilename);
+				$localeFile = new LocaleFile($locale, $plugin->getLocaleFilename($locale));
+				$referenceLocaleFile = new LocaleFile($referenceLocale, $referenceLocaleFilename);
 				$errors = array_merge_recursive($errors, $localeFile->testLocale($referenceLocaleFile));
 				unset($localeFile);
 				unset($referenceLocaleFile);
@@ -374,7 +374,7 @@ class PKPLocale {
 		$errors = array(
 		);
 
-		$xmlParser =& new XMLParser();
+		$xmlParser = new XMLParser();
 		$referenceEmails =& $xmlParser->parse(Locale::getEmailTemplateFilename($referenceLocale));
 		$emails =& $xmlParser->parse(Locale::getEmailTemplateFilename($locale));
 		$emailsTable =& $emails->getChildByName('table');

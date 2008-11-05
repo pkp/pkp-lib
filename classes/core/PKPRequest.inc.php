@@ -96,7 +96,7 @@ class PKPRequest {
 	 * Get the URL to the index script.
 	 * @return string
 	 */
-	function getIndexUrl() {
+	static function getIndexUrl() {
 		static $indexUrl;
 
 		if (!isset($indexUrl)) {
@@ -310,7 +310,7 @@ class PKPRequest {
 	/**
 	 * Return true iff PATH_INFO is enabled.
 	 */
-	function isPathInfoEnabled() {
+	static function isPathInfoEnabled() {
 		static $isPathInfoEnabled;
 		if (!isset($isPathInfoEnabled)) {
 			$isPathInfoEnabled = Config::getVar('general', 'disable_path_info')?false:true;
@@ -386,7 +386,7 @@ class PKPRequest {
 	 * Get the page requested in the URL.
 	 * @return String the page path (under the "pages" directory)
 	 */
-	function getRequestedPage() {
+	static function getRequestedPage() {
 		static $page;
 
 		if (!isset($page)) {
@@ -412,7 +412,7 @@ class PKPRequest {
 	 * Get the operation requested in the URL (assumed to exist in the requested page handler).
 	 * @return string
 	 */
-	function getRequestedOp() {
+	static function getRequestedOp() {
 		static $op;
 
 		if (!isset($op)) {
@@ -587,7 +587,7 @@ class PKPRequest {
 	 * @param $anchor string Optional name of anchor to add to URL
 	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
 	 */
-	function url($context = null, $page = null, $op = null, $path = null, 
+	static function url($context = null, $page = null, $op = null, $path = null, 
 				$params = null, $anchor = null, $escape = false) {
 
 		$application =& PKPApplication::getApplication();

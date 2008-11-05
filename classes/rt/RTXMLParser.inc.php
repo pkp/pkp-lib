@@ -29,7 +29,7 @@ class RTXMLParser {
 	 * Constructor.
 	 */
 	function RTXMLParser() {
-		$this->parser =& new XMLParser();
+		$this->parser = new XMLParser();
 	}
 
 	/**
@@ -83,7 +83,7 @@ class RTXMLParser {
 	 * @return RTVersion
 	 */
 	function &parseVersion(&$version) {
-		$newVersion =& new RTVersion();
+		$newVersion = new RTVersion();
 		$numContexts = 0;
 
 		$newVersion->key = $version->getAttribute('id');
@@ -114,7 +114,7 @@ class RTXMLParser {
 	 * @return RTContext
 	 */
 	function &parseContext(&$context) {
-		$newContext =& new RTContext();
+		$newContext = new RTContext();
 		$numSearches = 0;
 
 		foreach ($context->getChildren() as $attrib) {
@@ -157,7 +157,7 @@ class RTXMLParser {
 	 * @return RTSearch
 	 */
 	function &parseSearch(&$search) {
-		$newSearch =& new RTSearch();
+		$newSearch = new RTSearch();
 
 		foreach ($search->getChildren() as $attrib) {
 			switch ($attrib->getName()) {

@@ -61,7 +61,7 @@ class CountryDAO extends DAO {
 
 		if (!isset($countries[$id])) {
 			// Reload country registry file
-			$xmlDao =& new XMLDAO();
+			$xmlDao = new XMLDAO();
 			$data = $xmlDao->parseStruct($this->getFilename(), array('countries', 'country'));
 
 			if (isset($data['countries'])) {

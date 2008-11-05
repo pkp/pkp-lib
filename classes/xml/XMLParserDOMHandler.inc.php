@@ -44,7 +44,7 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	 */
 	function startElement(&$parser, $tag, $attributes) {
 		$this->currentData = null;
-		$node =& new XMLNode($tag);
+		$node = new XMLNode($tag);
 		$node->setAttributes($attributes);
 
 		if ($this->currentNode != null) {

@@ -45,7 +45,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function display() {
 		$site =& Request::getSite();
-		$publicFileManager =& new PublicFileManager();
+		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('originalStyleFilename', $site->getOriginalStyleFilename());
@@ -122,7 +122,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadSiteStyleSheet() {
 		import('file.PublicFileManager');
-		$fileManager =& new PublicFileManager();
+		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('siteStyleSheet')) {
 			$type = $fileManager->getUploadedFileType('siteStyleSheet');
@@ -146,7 +146,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadPageHeaderTitleImage($locale) {
 		import('file.PublicFileManager');
-		$fileManager =& new PublicFileManager();
+		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('pageHeaderTitleImage')) {
 			$type = $fileManager->getUploadedFileType('pageHeaderTitleImage');

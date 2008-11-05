@@ -89,7 +89,7 @@ class HelpTopicDAO extends XMLDAO {
 			return $returner;
 		}
 
-		$topic =& new HelpTopic();
+		$topic = new HelpTopic();
 
 		$topic->setId($data['topic'][0]['attributes']['id']);
 		$topic->setTitle($data['topic'][0]['attributes']['title']);
@@ -100,7 +100,7 @@ class HelpTopicDAO extends XMLDAO {
 
 		if (isset($data['section'])) {
 			foreach ($data['section'] as $sectionData) {
-				$section =& new HelpTopicSection();
+				$section = new HelpTopicSection();
 				$section->setTitle(isset($sectionData['attributes']['title']) ? $sectionData['attributes']['title'] : null);
 				$section->setContent($sectionData['value']);
 				$topic->addSection($section);

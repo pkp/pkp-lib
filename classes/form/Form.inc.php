@@ -226,7 +226,7 @@ class Form {
 	 * @param $field string the name of the field where the error occurred
 	 */
 	function addError($field, $message) {
-		$this->_errors[] =& new FormError($field, $message);
+		$this->_errors[] = new FormError($field, $message);
 	}
 
 	/**

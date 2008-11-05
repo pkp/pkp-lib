@@ -122,7 +122,7 @@ class TimeZone {
 			$tzFlat = array();
 
 			// Load registry file
-			$xmlDao =& new XMLDAO();
+			$xmlDao = new XMLDAO();
 			$tzRaw = $xmlDao->parseStruct(TZ_REGISTRY_FILE, array("entry"));
 
 			// Build tzFlat by breaking tzRaw into path components.

@@ -159,7 +159,7 @@ class Installer {
 		}
 
 		if (!isset($this->dataXMLParser)) {
-			$this->dataXMLParser =& new DBDataXMLParser();
+			$this->dataXMLParser = new DBDataXMLParser();
 			$this->dataXMLParser->setDBConn($this->dbconn);
 		}
 
@@ -231,7 +231,7 @@ class Installer {
 	function parseInstaller() {
 		// Read installation descriptor file
 		$this->log(sprintf('load: %s', $this->descriptor));
-		$xmlParser =& new XMLParser();
+		$xmlParser = new XMLParser();
 		$installPath = $this->isPlugin ? $this->descriptor : INSTALLER_DATA_DIR . DIRECTORY_SEPARATOR . $this->descriptor;
 		$installTree = $xmlParser->parse($installPath);
 		if (!$installTree) {
@@ -374,7 +374,7 @@ class Installer {
 				$this->log(sprintf('schema: %s', $action['file']));
 
 				require_once('adodb-xmlschema.inc.php');
-				$schemaXMLParser =& new adoSchema($this->dbconn, $this->dbconn->charSet);
+				$schemaXMLParser = new adoSchema($this->dbconn, $this->dbconn->charSet);
 				$sql = $schemaXMLParser->parseSchema($fileName);
 				$schemaXMLParser->destroy();
 
@@ -452,7 +452,7 @@ class Installer {
 	 */
 	function updateConfig($configParams) {
 		// Update config file
-		$configParser =& new ConfigParser();
+		$configParser = new ConfigParser();
 		if (!$configParser->updateConfig(Config::getConfigFileName(), $configParams)) {
 			// Error reading config file
 			$this->setError(INSTALLER_ERROR_GENERAL, 'installer.configFileError');

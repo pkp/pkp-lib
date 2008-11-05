@@ -93,7 +93,7 @@ class XmlToSqlTool extends CommandLineTool {
 
 		if (in_array($this->command, array('print', 'save'))) {
 			// Don't connect to actual database (so parser won't build upgrade XML)
-			$conn = &new DBConnection(
+			$conn = new DBConnection(
 				Config::getVar('database', 'driver'),
 				null,
 				null,
@@ -109,7 +109,7 @@ class XmlToSqlTool extends CommandLineTool {
 			$dbconn = &DBConnection::getConn();
 		}
 
-		$schema = &new adoSchema($dbconn, Config::getVar('i18n', 'database_charset'));
+		$schema = new adoSchema($dbconn, Config::getVar('i18n', 'database_charset'));
 
 		if ($this->type == 'schema') {
 			// Parse XML schema files
@@ -132,7 +132,7 @@ class XmlToSqlTool extends CommandLineTool {
 
 		} else if ($this->type == 'data') {
 			// Parse XML data files
-			$dataXMLParser = &new DBDataXMLParser();
+			$dataXMLParser = new DBDataXMLParser();
 			$dataXMLParser->setDBConn($dbconn);
 			$sql = $dataXMLParser->parseData($this->inputFile);
 

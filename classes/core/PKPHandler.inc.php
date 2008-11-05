@@ -127,8 +127,8 @@ class PKPHandler {
 
 		import('db.DBResultRange');
 
-		if (isset($count)) $returner = &new DBResultRange($count, $pageNum);
-		else $returner = &new DBResultRange(-1, -1);
+		if (isset($count)) $returner = new DBResultRange($count, $pageNum);
+		else $returner = new DBResultRange(-1, -1);
 
 		return $returner;
 	}

@@ -109,7 +109,7 @@ class AuthSourceDAO extends DAO {
 	 * @return AuthSource
 	 */
 	function &_returnAuthSourceFromRow(&$row) {
-		$auth =& new AuthSource();
+		$auth = new AuthSource();
 		$auth->setAuthId($row['auth_id']);
 		$auth->setTitle($row['title']);
 		$auth->setPlugin($row['plugin']);
@@ -193,7 +193,7 @@ class AuthSourceDAO extends DAO {
 			false, $rangeInfo
 		);
 
-		$returner =& new DAOResultFactory($result, $this, '_returnAuthSourceFromRow');
+		$returner = new DAOResultFactory($result, $this, '_returnAuthSourceFromRow');
 		return $returner;
 	}
 }

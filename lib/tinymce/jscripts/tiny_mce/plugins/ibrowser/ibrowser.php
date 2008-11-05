@@ -708,7 +708,7 @@
 					<?php  
 						if ($cfg['captcha'] ){
 							import('captcha.CaptchaManager');
-							$captchaManager =& new CaptchaManager();
+							$captchaManager = new CaptchaManager();
 							if ($captchaManager->isEnabled()) { 
 								$captcha = $captchaManager->createCaptcha();
 								

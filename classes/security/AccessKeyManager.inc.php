@@ -59,7 +59,7 @@ class AccessKeyManager {
 	 * @return accessKey string The generated passkey
 	 */
 	function createKey($context, $userId, $assocId, $expiryDays) {
-		$accessKey =& new AccessKey();
+		$accessKey = new AccessKey();
 		$accessKey->setContext($context);
 		$accessKey->setUserId($userId);
 		$accessKey->setAssocId($assocId);

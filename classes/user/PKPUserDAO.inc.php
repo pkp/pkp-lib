@@ -145,7 +145,7 @@ class PKPUserDAO extends DAO {
 	 * @return User
 	 */
 	function &_returnUserFromRow(&$row, $callHook = true) {
-		$user =& new User();
+		$user = new User();
 		$user->setUserId($row['user_id']);
 		$user->setUsername($row['username']);
 		$user->setPassword($row['password']);
@@ -419,7 +419,7 @@ class PKPUserDAO extends DAO {
 		if ($field != USER_FIELD_NONE) $result =& $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, $var, $dbResultRange);
 		else $result =& $this->retrieveRange($sql . ($allowDisabled?'':' WHERE u.disabled = 0') . $orderSql, false, $dbResultRange);
 
-		$returner =& new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+		$returner = new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
 		return $returner;
 	}
 

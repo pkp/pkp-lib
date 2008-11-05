@@ -49,7 +49,7 @@ class Version extends DataObject {
 	 * @return Version
 	 */
 	function &fromString($versionString, $product = null, $productType = null) {
-		$version =& new Version();
+		$version = new Version();
 		
 		if(!$product && !$productType) {
 			$application = PKPApplication::getApplication();

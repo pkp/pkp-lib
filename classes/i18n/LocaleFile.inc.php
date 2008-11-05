@@ -128,7 +128,7 @@ class LocaleFile {
 		$localeData = array();
 
 		// Reload localization XML file
-		$xmlDao =& new XMLDAO();
+		$xmlDao = new XMLDAO();
 		$data = $xmlDao->parseStruct($filename, array('message'));
 
 		// Build array with ($key => $string)

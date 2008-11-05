@@ -46,7 +46,7 @@ class SiteDAO extends DAO {
 	 * @return Site
 	 */
 	function &_returnSiteFromRow(&$row, $callHook = true) {
-		$site =& new Site();
+		$site = new Site();
 		$site->setRedirect($row['redirect']);
 		$site->setMinPasswordLength($row['min_password_length']);
 		$site->setPrimaryLocale($row['primary_locale']);

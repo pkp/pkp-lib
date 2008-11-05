@@ -66,7 +66,7 @@ class PKPInstall extends Installer {
 		if ($this->getParam('manualInstall')) {
 			// Do not perform database installation for manual install
 			// Create connection object with the appropriate database driver for adodb-xmlschema
-			$conn =& new DBConnection(
+			$conn = new DBConnection(
 				$this->getParam('databaseDriver'),
 				null,
 				null,
@@ -77,7 +77,7 @@ class PKPInstall extends Installer {
 
 		} else {
 			// Connect to database
-			$conn =& new DBConnection(
+			$conn = new DBConnection(
 				$this->getParam('databaseDriver'),
 				$this->getParam('databaseHost'),
 				$this->getParam('databaseUsername'),
@@ -194,7 +194,7 @@ class PKPInstall extends Installer {
 			// Re-connect to the created database
 			$this->dbconn->disconnect();
 
-			$conn =& new DBConnection(
+			$conn = new DBConnection(
 				$this->getParam('databaseDriver'),
 				$this->getParam('databaseHost'),
 				$this->getParam('databaseUsername'),

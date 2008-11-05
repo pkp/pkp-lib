@@ -115,7 +115,7 @@ class PKPPlugin {
 		import('help.Help');
 		$help =& Help::getHelp();
 		import('help.PluginHelpMappingFile');
-		$pluginHelpMapping =& new PluginHelpMappingFile($this);
+		$pluginHelpMapping = new PluginHelpMappingFile($this);
 		$help->addMappingFile($pluginHelpMapping);
 		return true;
 	}
@@ -220,7 +220,7 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$schemaXMLParser =& new adoSchema($installer->dbconn, $installer->dbconn->charSet);
+		$schemaXMLParser = new adoSchema($installer->dbconn, $installer->dbconn->charSet);
 		$sql = $schemaXMLParser->parseSchema($this->getInstallSchemaFile());
 		if ($sql) {
 			$result = $installer->executeSQL($sql);

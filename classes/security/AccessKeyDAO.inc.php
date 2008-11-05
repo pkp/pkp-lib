@@ -75,7 +75,7 @@ class AccessKeyDAO extends DAO {
 	 * @return AccessKey
 	 */
 	function &_returnAccessKeyFromRow(&$row) {
-		$accessKey =& new AccessKey();
+		$accessKey = new AccessKey();
 		$accessKey->setAccessKeyId($row['access_key_id']);
 		$accessKey->setKeyHash($row['key_hash']);
 		$accessKey->setExpiryDate($this->datetimeFromDB($row['expiry_date']));

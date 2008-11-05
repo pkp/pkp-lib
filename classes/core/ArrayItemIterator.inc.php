@@ -61,9 +61,9 @@ class ArrayItemIterator extends ItemIterator {
 	 */
 	function &fromRangeInfo(&$theArray, &$theRange) {
 		if ($theRange && $theRange->isValid()) {
-			$theIterator =& new ArrayItemIterator($theArray, $theRange->getPage(), $theRange->getCount());
+			$theIterator = new ArrayItemIterator($theArray, $theRange->getPage(), $theRange->getCount());
 		} else {
-			$theIterator =& new ArrayItemIterator($theArray);
+			$theIterator = new ArrayItemIterator($theArray);
 		}
 		return $theIterator;
 	}
@@ -172,7 +172,7 @@ class ArrayItemIterator extends ItemIterator {
 	 */
 	function &getLastPageRangeInfo() {
 		import('db.DBResultRange');
-		$returner =& new DBResultRange(
+		$returner = new DBResultRange(
 			$this->itemsPerPage,
 			$this->getPageCount()
 		);

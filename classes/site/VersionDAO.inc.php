@@ -86,7 +86,7 @@ class VersionDAO extends DAO {
 	 * @return Version
 	 */
 	function &_returnVersionFromRow(&$row) {
-		$version =& new Version();
+		$version = new Version();
 		$version->setMajor($row['major']);
 		$version->setMinor($row['minor']);
 		$version->setRevision($row['revision']);
@@ -144,7 +144,7 @@ class VersionDAO extends DAO {
 			'ORDER BY product', $productType ? $productType . '%' : ''
 		);
 
-		$returner = &new DAOResultFactory($result, $this, '_returnVersionFromRow');
+		$returner = new DAOResultFactory($result, $this, '_returnVersionFromRow');
 		return $returner;
 	}
 	

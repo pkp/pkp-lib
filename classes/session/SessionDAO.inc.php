@@ -33,7 +33,7 @@ class SessionDAO extends DAO {
 		if ($result->RecordCount() != 0) {
 			$row =& $result->GetRowAssoc(false);
 
-			$session =& new Session();
+			$session = new Session();
 			$session->setId($row['session_id']);
 			$session->setUserId($row['user_id']);
 			$session->setIpAddress($row['ip_address']);

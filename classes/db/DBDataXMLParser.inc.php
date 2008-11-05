@@ -33,7 +33,7 @@ class DBDataXMLParser {
 	 * Constructor.
 	 */
 	function DBDataXMLParser() {
-		$this->parser =& new XMLParser();
+		$this->parser = new XMLParser();
 		$this->sql = array();
 	}
 

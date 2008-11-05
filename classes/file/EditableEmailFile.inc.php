@@ -24,7 +24,7 @@ class EditableEmailFile {
 
 	function EditableEmailFile($locale, $filename) {
 		$this->locale = $locale;
-		$this->editableFile =& new EditableFile($filename);
+		$this->editableFile = new EditableFile($filename);
 	}
 
 	function write() {

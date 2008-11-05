@@ -26,7 +26,7 @@ class DAORegistry {
 	 * store all DAOs currently instantiated by the system.
 	 * @return array
 	 */
-	function &getDAOs() {
+	static function &getDAOs() {
 		$daos =& Registry::get('daos', true, array());
 		return $daos;
 	}
@@ -55,7 +55,7 @@ class DAORegistry {
 	 * @param $dbconn ADONewConnection optional
 	 * @return DAO
 	 */
-	function &getDAO($name, $dbconn = null) {
+	static function &getDAO($name, $dbconn = null) {
 		$daos =& DAORegistry::getDAOs();
 
 		if (!isset($daos[$name])) {
@@ -69,7 +69,7 @@ class DAORegistry {
 			import($className);
 
 			// Only instantiate each class of DAO a single time
-			$daos[$name] =& new $name();
+			$daos[$name] = new $name();
 			if ($dbconn != null) {
 				// FIXME Needed by installer but shouldn't access member variable directly
 				$daos[$name]->_dataSource = $dbconn;

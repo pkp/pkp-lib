@@ -89,7 +89,7 @@ class CaptchaDAO extends DAO {
 	 * @return Captcha object
 	 */
 	function &_returnCaptchaFromRow($row) {
-		$captcha =& new Captcha();
+		$captcha = new Captcha();
 		$captcha->setCaptchaId($row['captcha_id']);
 		$captcha->setSessionId($row['session_id']);
 		$captcha->setValue($row['value']);

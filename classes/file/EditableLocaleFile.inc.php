@@ -23,7 +23,7 @@ class EditableLocaleFile extends LocaleFile {
 
 	function EditableLocaleFile($locale, $filename) {
 		parent::LocaleFile($locale, $filename);
-		$this->editableFile =& new EditableFile($this->filename);
+		$this->editableFile = new EditableFile($this->filename);
 	}
 
 	function write() {

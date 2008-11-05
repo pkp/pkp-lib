@@ -54,7 +54,7 @@ class InstallTool extends CommandLineTool {
 	 * Perform installation.
 	 */
 	function install() {
-		$installer = &new Install($this->params);
+		$installer = new Install($this->params);
 		$installer->setLogger($this);
 
 		if ($installer->execute()) {
@@ -98,7 +98,7 @@ class InstallTool extends CommandLineTool {
 	 * FIXME: Use readline if available?
 	 */
 	function readParams() {
-		$installForm = &new InstallForm();
+		$installForm = new InstallForm();
 
 		// Locale Settings
 		$this->printTitle('installer.localeSettings');

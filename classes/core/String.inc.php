@@ -422,12 +422,12 @@ class String {
 
 		// transcode CP-1252/ISO-8859-1 into HTML entities; this works because CP-1252 is mapped onto ISO-8859-1
 		if ('ISO-8859-1' == $detected_encoding || 'CP1252' == $detected_encoding) {
-			$trans =& new Transcoder('CP1252', 'HTML-ENTITIES');
+			$trans = new Transcoder('CP1252', 'HTML-ENTITIES');
 			$str = $trans->trans($str);
 		}
 
 		// transcode from detected encoding to to UTF-8
-		$trans =& new Transcoder($detected_encoding, 'UTF-8');
+		$trans = new Transcoder($detected_encoding, 'UTF-8');
 		$str = $trans->trans($str);
 
 		return $str;

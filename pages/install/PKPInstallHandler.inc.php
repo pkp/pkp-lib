@@ -37,7 +37,7 @@ class PKPInstallHandler extends PKPHandler {
 			Request::setCookieVar('currentLocale', $setLocale);
 		}
 
-		$installForm = &new InstallForm();
+		$installForm = new InstallForm();
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -58,7 +58,7 @@ class PKPInstallHandler extends PKPHandler {
 		PKPInstallHandler::validate();
 		PKPInstallHandler::setupTemplate();
 
-		$installForm = &new InstallForm();
+		$installForm = new InstallForm();
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {
@@ -80,7 +80,7 @@ class PKPInstallHandler extends PKPHandler {
 			PKPRequest::setCookieVar('currentLocale', $setLocale);
 		}
 
-		$installForm = &new UpgradeForm();
+		$installForm = new UpgradeForm();
 		$installForm->initData();
 		$installForm->display();
 	}
@@ -91,7 +91,7 @@ class PKPInstallHandler extends PKPHandler {
 	function installUpgrade() {
 		PKPInstallHandler::validate();
 
-		$installForm = &new UpgradeForm();
+		$installForm = new UpgradeForm();
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {

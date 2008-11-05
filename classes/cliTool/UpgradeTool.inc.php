@@ -83,7 +83,7 @@ class UpgradeTool extends CommandLineTool {
 	 */
 	function upgrade() {
 		$pretend = false; // isset($this->argv[1]) && $this->argv[1] == 'pretend';
-		$installer =& new Upgrade(array('manualInstall' => $pretend));
+		$installer = new Upgrade(array('manualInstall' => $pretend));
 		$installer->setLogger($this);
 
 		if ($installer->execute()) {

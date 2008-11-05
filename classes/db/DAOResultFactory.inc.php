@@ -209,7 +209,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function &getLastPageRangeInfo() {
 		import('db.DBResultRange');
-		$returner =& new DBResultRange($this->count, $this->pageCount);
+		$returner = new DBResultRange($this->count, $this->pageCount);
 		return $returner;
 	}
 }

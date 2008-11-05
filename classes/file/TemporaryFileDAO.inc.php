@@ -49,7 +49,7 @@ class TemporaryFileDAO extends DAO {
 	 * @return TemporaryFile
 	 */
 	function &_returnTemporaryFileFromRow(&$row) {
-		$temporaryFile =& new TemporaryFile();
+		$temporaryFile = new TemporaryFile();
 		$temporaryFile->setFileId($row['file_id']);
 		$temporaryFile->setFileName($row['file_name']);
 		$temporaryFile->setFileType($row['file_type']);

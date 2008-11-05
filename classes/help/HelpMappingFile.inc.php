@@ -54,7 +54,7 @@ class HelpMappingFile {
 		$notes[] = array('debug.notes.helpMappingLoad', array('id' => $id, 'filename' => $this->filename));
 
 		// Reload help XML file
-		$xmlDao =& new XMLDAO();
+		$xmlDao = new XMLDAO();
 		$data = $xmlDao->parseStruct($this->filename, array('topic'));
 		// Build associative array of page keys and ids
 		if (isset($data['topic'])) {

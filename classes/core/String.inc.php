@@ -130,7 +130,7 @@ class String {
 	/**
 	* @see http://ca.php.net/manual/en/function.substr.php
 	*/
-	function substr($string, $start, $length = null) {
+	function substr($string, $start, $length = false) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once 'mbstring/core.php';
 		} else {

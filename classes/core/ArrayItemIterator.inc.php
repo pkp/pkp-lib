@@ -78,7 +78,7 @@ class ArrayItemIterator extends ItemIterator {
 			return $value;
 		}
 		$value = current($this->theArray);
-		if (next($this->theArray)==null) {
+		if (next($this->theArray)===false) {
 			$this->theArray = null;
 		}
 		return $value;

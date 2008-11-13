@@ -1,30 +1,38 @@
 <?php
 
 /**
- * @defgroup document
+ * @defgroup submission
  */
 
 /**
- * @file classes/document/Document.inc.php
+ * @file classes/submission/Submission.inc.php
  *
  * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Document
- * @ingroup document
+ * @class Submission
+ * @ingroup submission
  *
- * @brief Document class.
+ * @brief Submission class.
  */
 
 // $Id$
 
 
-class Document extends DataObject {
+class Submission extends DataObject {
+	/** @var array Authors of this article */
+	var $authors;
+
+	/** @var array IDs of Authors removed from this article */
+	var $removedAuthors;
+
 	/**
 	 * Constructor.
 	 */
-	function Document() {
+	function Submission() {
 		parent::DataObject();
+		$this->authors = array();
+		$this->removedAuthors = array();
 	}
 
 	//
@@ -32,7 +40,129 @@ class Document extends DataObject {
 	//
 
 	/**
-	 * Get user ID of the document submitter.
+	 * Add an author.
+	 * @param $author Author
+	 */
+	function addAuthor($author) {
+		if ($author->getSequence() == null) {
+			$author->setSequence(count($this->authors) + 1);
+		}
+		array_push($this->authors, $author);
+	}
+
+	/**
+	 * Remove an author.
+	 * @param $authorId ID of the author to remove
+	 * @return boolean author was removed
+	 */
+	function removeAuthor($authorId) {
+		$found = false;
+
+		if ($authorId != 0) {
+			// FIXME maintain a hash of ID to author for quicker get/remove
+			$authors = array();
+			for ($i=0, $count=count($this->authors); $i < $count; $i++) {
+				if ($this->authors[$i]->getAuthorId() == $authorId) {
+					array_push($this->removedAuthors, $authorId);
+					$found = true;
+				} else {
+					array_push($authors, $this->authors[$i]);
+				}
+			}
+			$this->authors = $authors;
+		}
+		return $found;
+	}
+
+	/**
+	 * Return string of author names, separated by the specified token
+	 * @param $lastOnly boolean return list of lastnames only (default false)
+	 * @param $separator string separator for names (default comma+space)
+	 * @return string
+	 */
+	function getAuthorString($lastOnly = false, $separator = ', ') {
+		$str = '';
+		foreach ($this->authors as $a) {
+			if (!empty($str)) {
+				$str .= $separator;
+			}
+			$str .= $lastOnly ? $a->getLastName() : $a->getFullName();
+		}
+		return $str;
+	}
+
+	/**
+	 * Return a list of author email addresses.
+	 * @return array
+	 */
+	function getAuthorEmails() {
+		import('mail.Mail');
+		$returner = array();
+		foreach ($this->authors as $a) {
+			$returner[] = Mail::encodeDisplayName($a->getFullName()) . ' <' . $a->getEmail() . '>';
+		}
+		return $returner;
+	}
+
+	/**
+	 * Return first author
+	 * @param $lastOnly boolean return lastname only (default false)
+	 * @return string
+	 */
+	function getFirstAuthor($lastOnly = false) {
+		$author = $this->authors[0];
+		return $lastOnly ? $author->getLastName() : $author->getFullName();
+	}
+
+
+	//
+	// Get/set methods
+	//
+
+	/**
+	 * Get all authors of this article.
+	 * @return array Authors
+	 */
+	function &getAuthors() {
+		return $this->authors;
+	}
+
+	/**
+	 * Get a specific author of this article.
+	 * @param $authorId int
+	 * @return array Authors
+	 */
+	function &getAuthor($authorId) {
+		$author = null;
+
+		if ($authorId != 0) {
+			for ($i=0, $count=count($this->authors); $i < $count && $author == null; $i++) {
+				if ($this->authors[$i]->getAuthorId() == $authorId) {
+					$author = &$this->authors[$i];
+				}
+			}
+		}
+		return $author;
+	}
+
+	/**
+	 * Get the IDs of all authors removed from this article.
+	 * @return array int
+	 */
+	function &getRemovedAuthors() {
+		return $this->removedAuthors;
+	}
+
+	/**
+	 * Set authors of this article.
+	 * @param $authors array Authors
+	 */
+	function setAuthors($authors) {
+		return $this->authors = $authors;
+	}
+
+	/**
+	 * Get user ID of te submitter.
 	 * @return int
 	 */
 	function getUserId() {
@@ -40,7 +170,7 @@ class Document extends DataObject {
 	}
 
 	/**
-	 * Set user ID of the document submitter.
+	 * Set user ID of the submitter.
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
@@ -48,7 +178,7 @@ class Document extends DataObject {
 	}
 
 	/**
-	 * Return the user of the document submitter.
+	 * Return the user of the submitter.
 	 * @return User
 	 */
 	function getUser() {

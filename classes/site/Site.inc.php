@@ -34,7 +34,7 @@ class Site extends DataObject {
 	 * @return array
 	 */
 	function &getSupportedLocaleNames() {
-		$supportedLocales =& Registry::get('siteSupportedLocales', true, array());
+		$supportedLocales =& Registry::get('siteSupportedLocales', true, null);
 
 		if ($supportedLocales === null) {
 			$supportedLocales = array();

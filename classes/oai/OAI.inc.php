@@ -837,6 +837,6 @@ class OAI {
 
 		return true;
 	}
-				}
+}
 
 ?>

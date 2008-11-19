@@ -145,6 +145,13 @@ class OAIMetadataFormat {
 	function toXML($record) {
 		return '';
 	}
+
+	function stripAssocArray($values) {
+		foreach (array_keys($values) as $key) {
+			$values[$key] = strip_tags($values[$key]);
+		}
+		return $values;
+	}
 }
 
 
@@ -179,7 +186,6 @@ class OAISet {
  * OAI identifier.
  */
 class OAIIdentifier {
-
 	/** @var $identifier string unique OAI record identifier */
 	var $identifier;
 
@@ -188,6 +194,9 @@ class OAIIdentifier {
 
 	/** @var $sets array sets this record belongs to */
 	var $sets;
+
+	function OAIIdentifier() {
+	}
 }
 
 
@@ -196,29 +205,23 @@ class OAIIdentifier {
  * Describes metadata for a single record in the repository.
  */
 class OAIRecord extends OAIIdentifier {
+	var $data;
 
-	//
-	// Metadata fields
-	//
+	function OAIRecord() {
+		parent::OAIIdentifier();
+		$this->data = array();
+	}
 
-	var $url;
-	var $titles;
-	var $creator;
-	var $subjects;
-	var $descriptions;
-	var $publishers;
-	var $contributors;
-	var $date;
-	var $types;
-	var $format;
-	var $sources;
-	var $language;
-	var $relation;
-	var $coverage;
-	var $rights;
-	var $pages;
+	function setData($name, &$value) {
+		$this->data[$name] =& $value;
+	}
 
-	var $primaryLocale;
+	function &getData($name) {
+		if (isset($this->data[$name])) $returner =& $this->data[$name];
+		else $returner = null;
+
+		return $returner;
+	}
 }
 
 ?>

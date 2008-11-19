@@ -94,6 +94,7 @@ class PKPTemplateManager extends Smarty {
 
 		// Register custom functions
 		$this->register_modifier('translate', array('Locale', 'translate'));
+		$this->register_modifier('get_value', array(&$this, 'smartyGetValue'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
 		$this->register_modifier('to_array', array(&$this, 'smartyToArray'));
@@ -141,6 +142,17 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$this->initialized = false;
+	}
+
+	/**
+	 * Override the Smarty {include ...} function to allow hooks to be
+	 * called.
+	 */
+	function _smarty_include($params) {
+		if (!HookRegistry::call('TemplateManager::include', array(&$this, &$params))) {
+			return parent::_smarty_include($params);
+		}
+		return false;
 	}
 
 	/**
@@ -627,6 +639,14 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyStrtotime($string) {
 		return strtotime($string);
+	}
+
+	/**
+	 * Get the value of a template variable.
+	 */
+	function smartyGetValue($name) {
+		$templateMgr =& TemplateManager::getManager();
+		return $templateMgr->get_template_vars($name);
 	}
 
 	/**

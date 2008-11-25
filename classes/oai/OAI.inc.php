@@ -199,9 +199,6 @@ class OAI {
 	 * @return array
 	 */
 	function &metadataFormats($namesOnly = false, $identifier = null) {
-
-		$plugins = PluginRegistry::loadCategory('oaiMetadataFormats', true);
-
 		$formats = array();
 		HookRegistry::call('OAI::metadataFormats', array($namesOnly, $identifier, &$formats));
 
@@ -779,7 +776,7 @@ class OAI {
 	 */
 	function &formatMetadata($format, $record) {
 		$formats =& $this->metadataFormats();
-		$metadata = $formats[$format]->toXML($record);
+		$metadata = $formats[$format]->toXml($record);
 		return $metadata;
 	}
 

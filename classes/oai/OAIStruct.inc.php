@@ -140,9 +140,10 @@ class OAIMetadataFormat {
 	/**
 	 * Retrieve XML-formatted metadata for the specified record.
 	 * @param $record OAIRecord
+	 * @param $format string OAI metadata prefix
 	 * @return string
 	 */
-	function toXML($record) {
+	function toXml($record, $format = null) {
 		return '';
 	}
 

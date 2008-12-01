@@ -186,7 +186,7 @@ class DBDataXMLParser {
 	 * @return string
 	 */
 	function quoteString($str) {
-		return '\'' . str_replace('\'', '\\\'', str_replace('\\', '\\\\', $str)) . '\'';
+		return $this->dbconn->qstr($str);
 	}
 
 	/**

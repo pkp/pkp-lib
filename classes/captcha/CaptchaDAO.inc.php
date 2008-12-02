@@ -27,7 +27,10 @@ class CaptchaDAO extends DAO {
 	function &getCaptchasBySessionId($sessionId) {
 		$captchas = array();
 
-		$result =& $this->retrieve('SELECT * FROM captchas WHERE session_id = ?', $sessionId);
+		$result =& $this->retrieve(
+			'SELECT * FROM captchas WHERE session_id = ?',
+			array((int) $sessionId)
+		);
 
 		while (!$result->EOF) {
 			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
@@ -49,7 +52,13 @@ class CaptchaDAO extends DAO {
 		$captchas = array();
 		$threshold = time() - $lifespan;
 
-		$result =& $this->retrieve('SELECT c.* FROM captchas c LEFT JOIN sessions s ON (s.session_id = c.session_id) WHERE s.session_id IS NULL OR c.date_created <= ' . $this->datetimeToDB($threshold));
+		$result =& $this->retrieve(
+			'SELECT	c.*
+			FROM	captchas c
+				LEFT JOIN sessions s ON (s.session_id = c.session_id)
+			WHERE	s.session_id IS NULL OR
+				c.date_created <= ' . $this->datetimeToDB($threshold)
+		);
 
 		while (!$result->EOF) {
 			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
@@ -69,7 +78,8 @@ class CaptchaDAO extends DAO {
 	 */
 	function &getCaptcha($captchaId) {
 		$result =& $this->retrieve(
-			'SELECT * FROM captchas WHERE captcha_id = ?', $captchaId
+			'SELECT * FROM captchas WHERE captcha_id = ?',
+			array((int) $captchaId)
 		);
 
 		$captcha = null;
@@ -114,7 +124,7 @@ class CaptchaDAO extends DAO {
 				(?, ?, %s)',
 				$this->datetimeToDB($captcha->getDateCreated())),
 			array(
-				$captcha->getSessionId(),
+				(int) $captcha->getSessionId(),
 				$captcha->getValue()
 			)
 		);
@@ -136,7 +146,10 @@ class CaptchaDAO extends DAO {
 	 * @param Captcha object
 	 */
 	function deleteCaptcha(&$captcha) {
-		$result = $this->update('DELETE FROM captchas WHERE captcha_id = ?', $captcha->getCaptchaId());
+		$result = $this->update(
+			'DELETE FROM captchas WHERE captcha_id = ?',
+			array((int) $captcha->getCaptchaId())
+		);
 	}
 
 	/**
@@ -153,9 +166,9 @@ class CaptchaDAO extends DAO {
 				WHERE captcha_id = ?',
 				$this->datetimeToDB($captcha->getDateCreated())),
 			array(
-				$captcha->getSessionId(),
+				(int) $captcha->getSessionId(),
 				$captcha->getValue(),
-				$captcha->getCaptchaId()
+				(int) $captcha->getCaptchaId()
 			)
 		);
 	}

@@ -69,7 +69,8 @@ class AuthSourceDAO extends DAO {
 	 */
 	function &getSource($authId) {
 		$result =& $this->retrieve(
-			'SELECT * FROM auth_sources WHERE auth_id = ?', $authId
+			'SELECT * FROM auth_sources WHERE auth_id = ?',
+			array((int) $authId)
 		);
 
 		$returner = null;
@@ -151,11 +152,11 @@ class AuthSourceDAO extends DAO {
 			'UPDATE auth_sources SET
 				title = ?,
 				settings = ?
-			WHERE auth_id = ?',
+			WHERE	auth_id = ?',
 			array(
 				$auth->getTitle(),
 				serialize($auth->getSettings() ? $auth->getSettings() : array()),
-				$auth->getAuthId()
+				(int) $auth->getAuthId()
 			)
 		);
 	}
@@ -179,7 +180,8 @@ class AuthSourceDAO extends DAO {
 			'UPDATE auth_sources SET auth_default = 0'
 		);
 		$this->update(
-			'UPDATE auth_sources SET auth_default = 1 WHERE auth_id = ?', $authId
+			'UPDATE auth_sources SET auth_default = 1 WHERE auth_id = ?',
+			array((int) $authId)
 		);
 	}
 
@@ -190,7 +192,8 @@ class AuthSourceDAO extends DAO {
 	function &getSources($rangeInfo = null) {
 		$result =& $this->retrieveRange(
 			'SELECT * FROM auth_sources ORDER BY auth_id',
-			false, $rangeInfo
+			false,
+			$rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnAuthSourceFromRow');

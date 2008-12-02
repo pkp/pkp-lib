@@ -25,7 +25,7 @@ class SiteDAO extends DAO {
 	 */
 	function &getSite() {
 		$site = null;
-		$result = $this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM site'
 		);
 
@@ -71,7 +71,7 @@ class SiteDAO extends DAO {
 				(?, ?, ?, ?, ?, ?)',
 			array(
 				$site->getRedirect(),
-				$site->getMinPasswordLength(),
+				(int) $site->getMinPasswordLength(),
 				$site->getPrimaryLocale(),
 				join(':', $site->getInstalledLocales()),
 				join(':', $site->getSupportedLocales()),
@@ -97,7 +97,7 @@ class SiteDAO extends DAO {
 					original_style_file_name = ?',
 			array(
 				$site->getRedirect(),
-				$site->getMinPasswordLength(),
+				(int) $site->getMinPasswordLength(),
 				$site->getPrimaryLocale(),
 				join(':', $site->getInstalledLocales()),
 				join(':', $site->getSupportedLocales()),

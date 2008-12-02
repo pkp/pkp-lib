@@ -31,7 +31,7 @@ class ScheduledTaskDAO extends DAO {
 	function getLastRunTime($className) {
 		$result =& $this->retrieve(
 			'SELECT last_run FROM scheduled_tasks WHERE class_name = ?',
-			$className
+			array($className)
 		);
 
 		if ($result->RecordCount() == 0) {
@@ -54,7 +54,7 @@ class ScheduledTaskDAO extends DAO {
 	function updateLastRunTime($className, $timestamp = null) {
 		$result =& $this->retrieve(
 			'SELECT COUNT(*) FROM scheduled_tasks WHERE class_name = ?',
-			$className
+			array($className)
 		);
 
 		if (isset($result->fields[0]) && $result->fields[0] != 0) {
@@ -64,7 +64,10 @@ class ScheduledTaskDAO extends DAO {
 					array($className)
 				);
 			} else {
-				$returner = $this->update('UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?', array($className));
+				$returner = $this->update(
+					'UPDATE scheduled_tasks SET last_run = NOW() WHERE class_name = ?',
+					array($className)
+				);
 			}
 
 		} else {
@@ -78,7 +81,7 @@ class ScheduledTaskDAO extends DAO {
 				$returner = $this->update(
 					'INSERT INTO scheduled_tasks (class_name, last_run)
 					VALUES (?, NOW())',
-					$className
+					array($className)
 				);
 			}
 		}

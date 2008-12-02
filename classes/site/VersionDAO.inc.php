@@ -33,7 +33,8 @@ class VersionDAO extends DAO {
 		
 		if (!$isUpgrade) { 
 			$result =& $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1 AND product = ?', $product 
+				'SELECT * FROM versions WHERE current = 1 AND product = ?',
+				array($product)
 			);
 		} else {
 			$result =& $this->retrieve(
@@ -66,7 +67,8 @@ class VersionDAO extends DAO {
 		}
 
 		$result =& $this->retrieve(
-			'SELECT * FROM versions WHERE product = ? ORDER BY date_installed DESC', $product
+			'SELECT * FROM versions WHERE product = ? ORDER BY date_installed DESC',
+			array($product)
 		);
 
 		while (!$result->EOF) {
@@ -121,11 +123,11 @@ class VersionDAO extends DAO {
 				(?, ?, ?, ?, %s, ?, ?, ?)',
 				$this->datetimeToDB($version->getDateInstalled())),
 			array(
-				$version->getMajor(),
-				$version->getMinor(),
-				$version->getRevision(),
-				$version->getBuild(),
-				$version->getCurrent(),
+				(int) $version->getMajor(),
+				(int) $version->getMinor(),
+				(int) $version->getRevision(),
+				(int) $version->getBuild(),
+				(int) $version->getCurrent(),
 				$version->getProductType(),
 				$version->getProduct()
 			)
@@ -159,12 +161,11 @@ class VersionDAO extends DAO {
 			);
 		} else { 
 			$this->update(
-				'UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $product
+				'UPDATE versions SET current = 0 WHERE current = 1 AND product = ?',
+				array($product)
 			);
 		}
 	}
-	
-	
 }
 
 ?>

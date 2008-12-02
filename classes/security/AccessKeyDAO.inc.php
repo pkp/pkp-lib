@@ -30,7 +30,7 @@ class AccessKeyDAO extends DAO {
 				'SELECT * FROM access_keys WHERE access_key_id = ? AND expiry_date > %s',
 				$this->datetimeToDB(Core::getCurrentDate())
 			),
-			$accessKeyId
+			array((int) $accessKeyId)
 		);
 
 		$accessKey = null;
@@ -44,14 +44,15 @@ class AccessKeyDAO extends DAO {
 
 	/**
 	 * Retrieve a accessKey object by key.
+	 * @param $context string
 	 * @param $userId int
 	 * @param $keyHash string
 	 * @param $assocId int
 	 * @return AccessKey
 	 */
 	function &getAccessKeyByKeyHash($context, $userId, $keyHash, $assocId = null) {
-		$paramArray = array($context, $keyHash, $userId);
-		if (isset($assocId)) $paramArray[] = $assocId;
+		$paramArray = array($context, $keyHash, (int) $userId);
+		if (isset($assocId)) $paramArray[] = (int) $assocId;
 		$result =& $this->retrieve(
 			sprintf(
 				'SELECT * FROM access_keys WHERE context = ? AND key_hash = ? AND user_id = ? AND expiry_date > %s' . (isset($assocId)?' AND assoc_id = ?':''),
@@ -102,8 +103,8 @@ class AccessKeyDAO extends DAO {
 			array(
 				$accessKey->getKeyHash(),
 				$accessKey->getContext(),
-				$accessKey->getAssocId(),
-				$accessKey->getUserId()
+				$accessKey->getAssocId()==''?null:(int) $accessKey->getAssocId(),
+				(int) $accessKey->getUserId()
 			)
 		);
 
@@ -129,9 +130,9 @@ class AccessKeyDAO extends DAO {
 			array(
 				$accessKey->getKeyHash(),
 				$accessKey->getContext(),
-				$accessKey->getAssocId(),
-				$accessKey->getUserId(),
-				$accessKey->getAccessKeyId()
+				$accessKey->getAssocId()==''?null:(int) $accessKey->getAssocId(),
+				(int) $accessKey->getUserId(),
+				(int) $accessKey->getAccessKeyId()
 			)
 		);
 	}
@@ -150,7 +151,8 @@ class AccessKeyDAO extends DAO {
 	 */
 	function deleteAccessKeyById($accessKeyId) {
 		return $this->update(
-			'DELETE FROM access_keys WHERE access_key_id = ?', $accessKeyId
+			'DELETE FROM access_keys WHERE access_key_id = ?',
+			array((int) $accessKeyId)
 		);
 	}
 
@@ -162,7 +164,7 @@ class AccessKeyDAO extends DAO {
 	function transferAccessKeys($oldUserId, $newUserId) {
 		return $this->update(
 			'UPDATE access_keys SET user_id = ? WHERE user_id = ?',
-			array($newUserId, $oldUserId)
+			array((int) $newUserId, (int) $oldUserId)
 		);
 	}
 

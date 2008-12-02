@@ -76,10 +76,10 @@ class TemporaryFileDAO extends DAO {
 				(?, ?, ?, ?, ?, %s)',
 				$this->datetimeToDB($temporaryFile->getDateUploaded())),
 			array(
-				$temporaryFile->getUserId(),
+				(int) $temporaryFile->getUserId(),
 				$temporaryFile->getFileName(),
 				$temporaryFile->getFileType(),
-				$temporaryFile->getFileSize(),
+				(int) $temporaryFile->getFileSize(),
 				$temporaryFile->getOriginalFileName()
 			)
 		);
@@ -107,10 +107,10 @@ class TemporaryFileDAO extends DAO {
 			array(
 				$temporaryFile->getFileName(),
 				$temporaryFile->getFileType(),
-				$temporaryFile->getFileSize(),
-				$temporaryFile->getUserId(),
+				(int) $temporaryFile->getFileSize(),
+				(int) $temporaryFile->getUserId(),
 				$temporaryFile->getOriginalFileName(),
-				$temporaryFile->getFileId()
+				(int) $temporaryFile->getFileId()
 			)
 		);
 
@@ -125,7 +125,8 @@ class TemporaryFileDAO extends DAO {
 	 */
 	function deleteTemporaryFileById($fileId, $userId) {
 		return $this->update(
-			'DELETE FROM temporary_files WHERE file_id = ? AND user_id = ?', array($fileId, $userId)
+			'DELETE FROM temporary_files WHERE file_id = ? AND user_id = ?',
+			array((int) $fileId, (int) $userId)
 		);
 	}
 
@@ -135,7 +136,8 @@ class TemporaryFileDAO extends DAO {
 	 */
 	function deleteTemporaryFilesByUserId($userId) {
 		return $this->update(
-			'DELETE FROM temporary_files WHERE user_id = ?', $userId
+			'DELETE FROM temporary_files WHERE user_id = ?',
+			array((int) $userId)
 		);
 	}
 

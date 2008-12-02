@@ -55,7 +55,7 @@ class PKPLocale {
 	 * locales (in an array for each locale), or for a specific locale.
 	 * @param $locale string Locale identifier (optional)
 	 */
-	static function &getLocaleFiles($locale = null) {
+	function &getLocaleFiles($locale = null) {
 		$localeFiles =& Registry::get('localeFiles', true, array());
 		if ($locale !== null) {
 			if (!isset($localeFiles[$locale])) $localeFiles[$locale] = array();
@@ -73,7 +73,7 @@ class PKPLocale {
 	 * @params $locale string the locale to use
 	 * @return string
 	 */
-	static function translate($key, $params = array(), $locale = null) {
+	function translate($key, $params = array(), $locale = null) {
 		if (!isset($locale)) $locale = Locale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
@@ -135,7 +135,7 @@ class PKPLocale {
 	function requireComponents($components, $locale = null) {
 		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array());
 		if ($locale === null) $locale = Locale::getLocale();
-		$filenameComponentMap =& Locale::getFilenameComponentMap($locale);
+		$filenameComponentMap = Locale::getFilenameComponentMap($locale);
 		foreach ($components as $component) {
 			// Don't load components twice
 			if (isset($loadedComponents[$locale][$component])) continue;
@@ -196,7 +196,7 @@ class PKPLocale {
 	/**
 	 * Get the cache object for the current list of all locales.
 	 */
-	static function &_getAllLocalesCache() {
+	function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
 			import('cache.CacheManager');
@@ -254,7 +254,7 @@ class PKPLocale {
 	 * Return a list of all available locales.
 	 * @return array
 	 */
-	static function &getAllLocales() {
+	function &getAllLocales() {
 		$cache =& Locale::_getAllLocalesCache();
 		$rawContents = $cache->getContents();
 		$allLocales = array();

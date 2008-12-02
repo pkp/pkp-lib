@@ -32,7 +32,7 @@ class Config {
 	 * @param $key string
 	 * @return string
 	 */
-	static function getVar($section, $key) {
+	function getVar($section, $key) {
 		$configData =& Config::getData();
 		return isset($configData[$section][$key]) ? $configData[$section][$key] : null;
 	}
@@ -41,7 +41,7 @@ class Config {
 	 * Get the current configuration data.
 	 * @return array the configuration data
 	 */
-	static function &getData() {
+	function &getData() {
 		$configData =& Registry::get('configData', true, null);
 
 		if ($configData === null) {

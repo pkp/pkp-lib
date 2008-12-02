@@ -26,7 +26,7 @@ class DAORegistry {
 	 * store all DAOs currently instantiated by the system.
 	 * @return array
 	 */
-	static function &getDAOs() {
+	function &getDAOs() {
 		$daos =& Registry::get('daos', true, array());
 		return $daos;
 	}
@@ -55,7 +55,7 @@ class DAORegistry {
 	 * @param $dbconn ADONewConnection optional
 	 * @return DAO
 	 */
-	static function &getDAO($name, $dbconn = null) {
+	function &getDAO($name, $dbconn = null) {
 		$daos =& DAORegistry::getDAOs();
 
 		if (!isset($daos[$name])) {

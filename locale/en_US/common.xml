@@ -104,6 +104,7 @@
 	<message key="common.noneAssigned">None assigned</message>
 	<message key="common.none">None</message>
 	<message key="common.no">No</message>
+	<message key="common.noComments">No Comments</message>
 	<message key="common.notApplicable">Not applicable</message>
 	<message key="common.notApplicableShort">N/A</message>
 	<message key="common.notAvailable">Not available</message>

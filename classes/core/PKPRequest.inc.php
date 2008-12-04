@@ -171,7 +171,8 @@ class PKPRequest {
 	}
 
 	/**
-	 * Get the server hostname in the request.
+	 * Get the server hostname in the request. May optionally include the
+	 * port number if non-standard.
 	 * @return string
 	 */
 	function getServerHost($default = 'localhost') {

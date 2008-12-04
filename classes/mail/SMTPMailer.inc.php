@@ -71,7 +71,8 @@ class SMTPMailer {
 			return $this->disconnect('Did not receive expected 220');
 
 		// Send HELO/EHLO command
-		if (!$this->send($this->auth ? 'EHLO' : 'HELO', Request::getServerHost()))
+		$serverHost = preg_replace("/:\d*$/", '', Request::getServerHost()); 
+		if (!$this->send($this->auth ? 'EHLO' : 'HELO', $serverHost))
 			return $this->disconnect('Could not send HELO/HELO');
 
 		if (!$this->receive('250'))
@@ -90,7 +91,7 @@ class SMTPMailer {
 			if (isset($from['email']) && !empty($from['email']))
 				$sender = $from['email'];
 			else
-				$sender = get_current_user() . '@' . Request::getServerHost();
+				$sender = get_current_user() . '@' . $serverHost;
 		}
 
 		if (!$this->send('MAIL', 'FROM:<' . $sender . '>'))

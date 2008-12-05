@@ -189,11 +189,12 @@
 	<message key="email.skip">Skip Email</message>
 	<message key="email.subject">Subject</message>
 	<message key="email.to">To</message>
-	<message key="form.contains">contains</message>
 	<message key="form.errorsOccurred">Errors occurred processing this form</message>
 	<message key="form.formLanguage.description">To enter the information below in additional languages, first select the language.</message>
 	<message key="form.formLanguage">Form Language</message>
+	<message key="form.contains">contains</message>
 	<message key="form.is">is</message>
+	<message key="form.startsWith">starts with</message>
 	<message key="form.postRequired">The form was not submitted properly.</message>
 	<message key="form.required">(* Required)</message>
 	<message key="form.resubmit">Resubmit</message>

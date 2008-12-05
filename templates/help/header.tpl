@@ -39,4 +39,4 @@ if (self.blur) { self.focus(); }
 
 <div id="container">
 <div id="body">
-<a name="top"></a>
+<div id="top"></div>

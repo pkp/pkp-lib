@@ -10,12 +10,12 @@
 {if $isError}
 <p>
 	<div id="formErrors">
-		<span class="formError">{translate key="form.errorsOccurred"}:</span>
-		<ul class="formErrorList">
-		{foreach key=field item=message from=$errors}
-			<li>{$message}</li>
-		{/foreach}
-		</ul>
+	<span class="formError">{translate key="form.errorsOccurred"}:</span>
+	<ul class="formErrorList">
+	{foreach key=field item=message from=$errors}
+		<li>{$message}</li>
+	{/foreach}
+	</ul>
 	</div>
 </p>
 <script type="text/javascript">

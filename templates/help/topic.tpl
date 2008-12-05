@@ -9,12 +9,12 @@
  *}
 {foreach name=sections from=$topic->getSections() item=section}
 	<div id="section{math equation="counter - 1" counter=$smarty.foreach.sections.iteration}">
-		{if $section->getTitle()}<h4>{$section->getTitle()}</h4>{/if}
-		<div>{eval var=$section->getContent()}</div>
-		{if $smarty.foreach.sections.total > 1}
-			{if !$smarty.foreach.sections.first}<div style="text-align:right;"><a href="#top" class="action">{translate key="common.top"}</a></div>{/if}
-			{if !$smarty.foreach.sections.last}<div class="separator"></div>{/if}
-		{/if}
+	{if $section->getTitle()}<h4>{$section->getTitle()}</h4>{/if}
+	<div>{eval var=$section->getContent()}</div>
+	{if $smarty.foreach.sections.total > 1}
+		{if !$smarty.foreach.sections.first}<div style="text-align:right;"><a href="#top" class="action">{translate key="common.top"}</a></div>{/if}
+		{if !$smarty.foreach.sections.last}<div class="separator"></div>{/if}
+	{/if}
 	</div>
 {/foreach}
 

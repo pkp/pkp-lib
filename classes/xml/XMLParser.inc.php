@@ -124,6 +124,7 @@ class XMLParser {
 				$text .= $data;
 			}
 			$text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
+
 			if (!xml_parse($parser, $text, true)) {
 				$this->addError(xml_error_string(xml_get_error_code($parser)));
 			}
@@ -174,22 +175,15 @@ class XMLParser {
 	}
 
 	/**
-	 * Parse an XML file using xml_parse_into_struct and return data in an array.
+	 * Parse XML data using xml_parse_into_struct and return data in an array.
 	 * This is best suited for XML documents with fairly simple structure.
-	 * @param $file string full path to the XML file
+	 * @param $text string XML data
 	 * @param $tagsToMatch array optional, if set tags not in the array will be skipped
 	 * @return array a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
-	function &parseStruct($file, $tagsToMatch = array()) {
+	function &parseTextStruct(&$text, $tagsToMatch = array()) {
 		$parser =& $this->createParser();
-		import('file.FileWrapper');
-		$wrapper =& FileWrapper::wrapper($file);
-		$fileContents = $wrapper->contents();
-		if (!$fileContents) {
-			$result = false;
-			return $result;
-		}
-		xml_parse_into_struct($parser, $fileContents, $values, $tags);
+		xml_parse_into_struct($parser, $text, $values, $tags);
 		$this->destroyParser($parser);
 
 		// Clean up data struct, removing undesired tags if necessary
@@ -213,6 +207,25 @@ class XMLParser {
 		}
 
 		return $data;
+	}
+
+	/**
+	 * Parse an XML file using xml_parse_into_struct and return data in an array.
+	 * This is best suited for XML documents with fairly simple structure.
+	 * @param $file string full path to the XML file
+	 * @param $tagsToMatch array optional, if set tags not in the array will be skipped
+	 * @return array a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
+	 */
+	function &parseStruct($file, $tagsToMatch = array()) {
+		import('file.FileWrapper');
+		$wrapper =& FileWrapper::wrapper($file);
+		$fileContents = $wrapper->contents();
+		if (!$fileContents) {
+			$result = false;
+			return $result;
+		}
+		$returner =& $this->parseTextStruct($fileContents, $tagsToMatch);
+		return $returner;
 	}
 
 	/**

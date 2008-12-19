@@ -45,10 +45,15 @@ class XMLNode {
 	}
 
 	/**
+	 * @param $includeNamespace boolean
 	 * @return string
 	 */
-	function getName() {
-		return $this->name;
+	function getName($includeNamespace = true) {
+		if (
+			$includeNamespace ||
+			($i = strpos($this->name, ':')) === false
+		) return $this->name;
+		return substr($this->name, $i+1);
 	}
 
 	/**
@@ -129,8 +134,9 @@ class XMLNode {
 	 * @return XMLNode the ($index+1)th child matching the specified name
 	 */
 	function &getChildByName($name, $index = 0) {
+		if (!is_array($name)) $name = array($name);
 		foreach ($this->children as $child) {
-			if ($child->getName() == $name) {
+			if (in_array($child->getName(), $name)) {
 				if ($index == 0) {
 					return $child;
 				} else {

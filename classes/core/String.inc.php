@@ -49,13 +49,16 @@ class String {
 	* @return boolean
 	*/
 	function hasMBString() {
+		static $hasMBString;
+		if (isset($hasMBString)) return $hasMBString;
+
 		// If string overloading is active, it will break many of the
 		// native implementations. mbstring.func_overload must be set
 		// to 0, 1 or 4 in php.ini (string overloading disabled).
 		if (ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING) {
-			return false;
+			$hasMBString = false;
 		} else {
-			return (
+			$hasMBString = (
 			extension_loaded('mbstring') &&
 			function_exists('mb_strlen') &&
 			function_exists('mb_strpos') &&
@@ -67,6 +70,7 @@ class String {
 			function_exists('mb_send_mail')
 			);
 		}
+		return $hasMBString;
 	}
 
 	/**

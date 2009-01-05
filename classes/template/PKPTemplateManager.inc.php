@@ -116,6 +116,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('get_debug_info', array(&$this, 'smartyGetDebugInfo'));
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
+		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
 	
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -666,6 +667,28 @@ class PKPTemplateManager extends Smarty {
 				return str_replace('&#039;', '\\\'', $value);
 			default:
 				return smarty_modifier_escape($string, $esc_type, $char_set);
+		}
+	}
+
+	/**
+	 * Override the built-in smarty truncate modifier to support mbstring
+	 * text properly, if possible.
+	 */
+	function smartyTruncate($string, $length = 80, $etc = '...', $break_words = false, $middle = false) {
+		// Re-implement Smarty version, with multibyte-capable calls.
+		if ($length == 0) return '';
+		if (String::strlen($string) > $length) {
+			$length -= min($length, String::strlen($etc));
+			if (!$break_words && !$middle) {
+				$string = String::regexp_replace('/\s+?(\S+)?$/', '', substr($string, 0, $length+1));
+			}
+			if(!$middle) {
+				return String::substr($string, 0, $length) . $etc;
+			} else {
+				return String::substr($string, 0, $length/2) . $etc . String::substr($string, -$length/2);
+			}
+		} else {
+			return $string;
 		}
 	}
 

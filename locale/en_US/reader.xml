@@ -16,6 +16,7 @@
 	<message key="comments.anonymous">Anonymous User</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Body</message>
+	<message key="comments.titleRequired">A comment title is required.</message>
 	<message key="comments.confirmDeleteChildren">Deleting this comment will also delete any replies to it. Are you sure you wish to do this?</message>
 	<message key="comments.delete">Delete this comment</message>
 	<message key="comments.email">Poster Email</message>

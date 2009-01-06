@@ -390,12 +390,23 @@ class String {
 
 	/**
 	* Replace bad bytes with an alternative character - ASCII character
-	* @param $input string input string
+	* @param $str string input string
+	* @param $replace string optional
 	* @return string
 	*/
 	function utf8_bad_replace($str, $replace = '?') {
 		require_once 'utils/bad.php';
 		return utf8_bad_replace($str, $replace);
+	}
+
+	/**
+	* Replace bad bytes with an alternative character - ASCII character
+	* @param $input string input string
+	* @return string
+	*/
+	function utf8_strip_ascii_ctrl($str) {
+		require_once 'utils/ascii.php';
+		return utf8_strip_ascii_ctrl($str);
 	}
 
 	/**
@@ -408,7 +419,7 @@ class String {
 
 		if (String::hasMBString()) {
 			// NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
-			$mb_encoding_order = 'UTF-8, UTF-7, ASCII, EUC-JP, SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP, ISO-8859-1';
+			$mb_encoding_order = 'UTF-8, UTF-7, ASCII, ISO-8859-1, EUC-JP, SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP';
 
 			if (phpversion() < '4.3.8') {
 				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order);
@@ -614,7 +625,7 @@ class String {
 
 	/**
 	* Wrapper around fputcsv for systems that may or may not support it
-	* (i.e. PHP < 5.1.0); see PHP documentation for fputcsv.
+	* (i.e. PHP before 5.1.0); see PHP documentation for fputcsv.
 	*/
 	function fputcsv(&$handle, $fields = array(), $delimiter = ',', $enclosure = '"') {
 		// From PHP website, thanks to boefje at hotmail dot com

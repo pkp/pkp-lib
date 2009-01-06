@@ -116,23 +116,33 @@ class XMLParser {
 			return $result;
 		}
 
-		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
+		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
 
-		if ($useIconv) {
-			$text = '';
-			while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-				$text .= $data;
-			}
-			$text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
+			// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
+			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_is_valid($data) ) {
 
-			if (!xml_parse($parser, $text, true)) {
-				$this->addError(xml_error_string(xml_get_error_code($parser)));
-			}
-		} else { // !$useIconv
-			while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
-				if (!xml_parse($parser, $data, $wrapper->eof())) {
-					$this->addError(xml_error_string(xml_get_error_code($parser)));
+				$data = String::utf8_normalize($data);
+
+				// strip any invalid UTF-8 sequences
+				$data = String::utf8_bad_strip($data);
+
+				// convert named entities to numeric entities
+				$data = strtr($data, String::getHTMLEntities());
+			} else {
+
+				// if there are "bad" UTF-8 characters in the string, maybe it's truncated
+				while (!$wrapper->eof() && String::utf8_bad_strip($data) != $data) {
+
+					// read bytes in until we hit a character boundary
+					$data .= $wrapper->read(1);
 				}
+			}
+
+			// strip any invalid ASCII control characters
+			$data = String::utf8_strip_ascii_ctrl($data);
+
+			if (!xml_parse($parser, $data, $wrapper->eof())) {
+				$this->addError(xml_error_string(xml_get_error_code($parser)));
 			}
 		}
 

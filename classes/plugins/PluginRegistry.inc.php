@@ -148,18 +148,8 @@ class PluginRegistry {
 	 * Get a list of the various plugin categories available.
 	 */
 	function getCategories() {
-		$categories = array(
-			'auth',
-			'blocks',
-			'citationFormats',
-			'gateways',
-			'generic',
-			'implicitAuth',
-			'importexport',
-			'paymethod',
-			'reports',
-			'themes'
-		);
+		$application =& PKPApplication::getApplication();
+		$categories =& $application->getPluginCategories();
 		HookRegistry::call('PluginRegistry::getCategories', array(&$categories));
 		return $categories;
 	}

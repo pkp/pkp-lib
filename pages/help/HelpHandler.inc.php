@@ -37,7 +37,8 @@ class HelpHandler extends PKPHandler {
 		parent::validate();
 		HelpHandler::setupTemplate();
 
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
+		import('help.Help');
 		$help =& Help::getHelp();
 		$templateMgr->assign_by_ref('helpToc', $help->getTableOfContents());
 		$templateMgr->display('help/helpToc.tpl');

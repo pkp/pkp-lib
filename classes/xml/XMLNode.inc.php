@@ -204,6 +204,16 @@ class XMLNode {
 	function xmlentities($string, $quote_style=ENT_QUOTES) {
 		return htmlspecialchars($string, $quote_style, 'UTF-8');
 	}
+
+	function destroy() {
+		$this->value = $this->attributes = $this->parent = $this->name = null;
+		unset($this->value, $this->attributes, $this->parent, $this->name);
+		foreach ($this->children as $child) {
+			$child->destroy();
+		}
+		$this->children = null;
+		unset($this->children);
+	}
 }
 
 ?>

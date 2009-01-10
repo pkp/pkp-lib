@@ -68,6 +68,10 @@ class XMLParser {
 
 		$result =& $this->handler->getResult();
 		$this->destroyParser($parser);
+		if (isset($handler)) {
+			$handler->destroy();
+			unset($handler);
+		}
 		return $result;
 	}
 
@@ -149,6 +153,10 @@ class XMLParser {
 		$wrapper->close();
 		$result =& $this->handler->getResult();
 		$this->destroyParser($parser);
+		if (isset($handler)) {
+			$handler->destroy();
+			unset($handler);
+		}
 		return $result;
 	}
 

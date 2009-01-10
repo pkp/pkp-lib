@@ -39,6 +39,10 @@ class XMLParserDOMHandler extends XMLParserHandler {
 		$this->currentNode = null;
 	}
 
+	function destroy() {
+		unset($this->currentNode, $this->currentData, $this->rootNode);
+	}
+
 	/**
 	 * Callback function to act as the start element handler.
 	 */

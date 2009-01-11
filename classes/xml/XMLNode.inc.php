@@ -135,7 +135,8 @@ class XMLNode {
 	 */
 	function &getChildByName($name, $index = 0) {
 		if (!is_array($name)) $name = array($name);
-		foreach ($this->children as $child) {
+		foreach ($this->children as $key => $junk) {
+			$child =& $this->children[$key];
 			if (in_array($child->getName(), $name)) {
 				if ($index == 0) {
 					return $child;
@@ -143,6 +144,7 @@ class XMLNode {
 					$index--;
 				}
 			}
+			unset($child);
 		}
 		$child = null;
 		return $child;
@@ -206,12 +208,10 @@ class XMLNode {
 	}
 
 	function destroy() {
-		$this->value = $this->attributes = $this->parent = $this->name = null;
 		unset($this->value, $this->attributes, $this->parent, $this->name);
 		foreach ($this->children as $child) {
 			$child->destroy();
 		}
-		$this->children = null;
 		unset($this->children);
 	}
 }

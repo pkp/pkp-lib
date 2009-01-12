@@ -462,9 +462,12 @@ class PKPTemplateManager extends Smarty {
 
 		if ($pageCount<1) return '';
 
+		$from = (($page - 1) * $itemsPerPage) + 1;
+		$to = min($itemTotal, $page * $itemsPerPage);
+
 		return Locale::translate('navigation.items', array(
-			'from' => (($page - 1) * $itemsPerPage) + 1,
-			'to' => min($itemTotal, $page * $itemsPerPage),
+			'from' => ($to===0?0:$from),
+			'to' => $to,
 			'total' => $itemTotal
 		));
 	}

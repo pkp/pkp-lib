@@ -26,24 +26,20 @@ class RTXMLParser {
 
 
 	/**
-	 * Constructor.
-	 */
-	function RTXMLParser() {
-		$this->parser = new XMLParser();
-	}
-
-	/**
 	 * Parse an RT version XML file.
 	 * @param $file string path to the XML file
 	 * @return RTVersion
 	 */
 	function &parse($file) {
-		$tree = $this->parser->parse($file);
+		$parser = new XMLParser();
+		$tree = $parser->parse($file);
+		$parser->destroy();
 		$version = false;
 
 		if ($tree !== false) {
 			$version =& $this->parseVersion($tree);
 		}
+		$tree->destroy();
 
 		return $version;
 	}

@@ -60,8 +60,21 @@ class XMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		$useIconv = function_exists('iconv') && Config::getVar('i18n', 'charset_normalization');
-		if ($useIconv) $text = iconv('UTF-8', 'UTF-8//IGNORE', $text);
+		// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_is_valid($text) ) {
+
+			$text = String::utf8_normalize($text);
+
+			// strip any invalid UTF-8 sequences
+			$text = String::utf8_bad_strip($text);
+
+			// convert named entities to numeric entities
+			$text = strtr($text, String::getHTMLEntities());
+		}
+
+		// strip any invalid ASCII control characters
+		$text = String::utf8_strip_ascii_ctrl($text);
+
 		if (!xml_parse($parser, $text, true)) {
 			$this->addError(xml_error_string(xml_get_error_code($parser)));
 		}

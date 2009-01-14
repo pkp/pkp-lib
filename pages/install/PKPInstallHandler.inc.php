@@ -13,9 +13,6 @@
  */
 
 
-/* FIXME Prevent classes from trying to initialize the session manager (and thus the database connection) */
-define('SESSION_DISABLE_INIT', 1);
-
 import('install.form.InstallForm');
 import('install.form.UpgradeForm');
 import('core.PKPHandler');

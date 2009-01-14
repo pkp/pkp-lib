@@ -43,7 +43,6 @@ function doSubmit() {
 
 <div class="separator"></div>
 
-
 <form method="post" name="install" action="{url op="install"}">
 <input type="hidden" name="installing" value="0" />
 {include file="common/formErrors.tpl"}
@@ -56,7 +55,6 @@ function doSubmit() {
 	</ul>
 </p>
 {/if}
-
 
 <h3>{translate key="installer.localeSettings"}</h3>
 
@@ -114,7 +112,6 @@ function doSubmit() {
 	</tr>
 </table>
 
-
 <div class="separator"></div>
 
 {if !$skipFilesDirSection}
@@ -134,13 +131,11 @@ function doSubmit() {
 			<td class="value"><input type="checkbox" name="skipFilesDir" id="skipFilesDir" value="1"{if $skipFilesDir} checked="checked"{/if} /> <label for="skipFilesDir">{translate key="installer.skipFilesDir"}</label></td>
 		</tr>
 	</table>
-{/if}
 
-<div class="separator"></div>
-
+	<div class="separator"></div>
+{/if}{* !$skipFilesDirSection *}
 
 <h3>{translate key="installer.securitySettings"}</h3>
-
 
 <table width="100%" class="data">
 	<tr valign="top">
@@ -155,9 +150,7 @@ function doSubmit() {
 	</tr>
 </table>
 
-
 <div class="separator"></div>
-
 
 <h3>{translate key="installer.administratorAccount"}</h3>
 
@@ -182,9 +175,7 @@ function doSubmit() {
 	</tr>
 </table>
 
-
 <div class="separator"></div>
-
 
 <h3>{translate key="installer.databaseSettings"}</h3>
 
@@ -231,7 +222,6 @@ function doSubmit() {
 	</tr>
 </table>
 
-
 <div class="separator"></div>
 
 {if !$skipMiscSettings}
@@ -247,11 +237,9 @@ function doSubmit() {
 			</td>
 		</tr>
 	</table>
-{/if}
 
-
-<div class="separator"></div>
-
+	<div class="separator"></div>
+{/if}{* !$skipMiscSettings *}
 
 <p><input name="install" type="button" id="install" value="{translate key="installer.installApplication"}" class="button defaultButton" onclick="doSubmit()" /> <input type="submit" name="manualInstall" value="{translate key="installer.manualInstall"}" class="button" /></p>
 

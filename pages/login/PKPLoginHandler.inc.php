@@ -189,14 +189,14 @@ class PKPLoginHandler extends PKPHandler {
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
 			$mail->assignParams(array(
-				'url' => Request::url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
+				'url' => PKPRequest::url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
 				'siteTitle' => $site->getSiteTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
 			$templateMgr->assign('pageTitle',  'user.login.resetPassword');
 			$templateMgr->assign('message', 'user.login.lostPassword.confirmationSent');
-			$templateMgr->assign('backLink', Request::url(null, Request::getRequestedPage()));
+			$templateMgr->assign('backLink', PKPRequest::url(null, Request::getRequestedPage()));
 			$templateMgr->assign('backLinkLabel',  'user.login');
 			$templateMgr->display('common/message.tpl');
 		}
@@ -224,7 +224,7 @@ class PKPLoginHandler extends PKPHandler {
 		$hash = Validation::generatePasswordResetHash($user->getUserId());
 		if ($hash == false || $confirmHash != $hash) {
 			$templateMgr->assign('errorMsg', 'user.login.lostPassword.invalidHash');
-			$templateMgr->assign('backLink', Request::url(null, null, 'lostPassword'));
+			$templateMgr->assign('backLink', PKPRequest::url(null, null, 'lostPassword'));
 			$templateMgr->assign('backLinkLabel',  'user.login.resetPassword');
 			$templateMgr->display('common/error.tpl');
 
@@ -261,7 +261,7 @@ class PKPLoginHandler extends PKPHandler {
 			$mail->send();
 			$templateMgr->assign('pageTitle',  'user.login.resetPassword');
 			$templateMgr->assign('message', 'user.login.lostPassword.passwordSent');
-			$templateMgr->assign('backLink', Request::url(null, Request::getRequestedPage()));
+			$templateMgr->assign('backLink', PKPRequest::url(null, Request::getRequestedPage()));
 			$templateMgr->assign('backLinkLabel',  'user.login');
 			$templateMgr->display('common/message.tpl');
 		}

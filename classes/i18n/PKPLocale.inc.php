@@ -298,6 +298,8 @@ class PKPLocale {
 		$filesToInstall = Locale::getFilesToInstall($locale);
 
 		$dataXMLParser = new DBDataXMLParser();
+		$conn =& DBConnection::getInstance();
+		$dataXMLParser->setDBConn($conn->getDBConn());
 		foreach ($filesToInstall as $fileName) {
 			if (file_exists($fileName)) {
 				$sql = $dataXMLParser->parseData($fileName);

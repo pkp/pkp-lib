@@ -100,7 +100,11 @@ class PKPRequest {
 		static $indexUrl;
 
 		if (!isset($indexUrl)) {
-			$indexUrl = PKPRequest::getBaseUrl() . '/' . INDEX_SCRIPTNAME;
+			if (PKPRequest::isRestfulUrlsEnabled()) {
+				$indexUrl = PKPRequest::getBaseUrl();
+			} else {
+				$indexUrl = PKPRequest::getBaseUrl() . '/' . INDEX_SCRIPTNAME;
+			}
 			HookRegistry::call('Request::getIndexUrl', array(&$indexUrl));
 		}
 
@@ -161,7 +165,12 @@ class PKPRequest {
 	function getRequestPath() {
 		static $requestPath;
 		if (!isset($requestPath)) {
-			$requestPath = $_SERVER['SCRIPT_NAME'];
+			if (PKPRequest::isRestfulUrlsEnabled()) {
+				$requestPath = PKPRequest::getBasePath();
+			} else {
+				$requestPath = $_SERVER['SCRIPT_NAME'];
+			}
+
 			if (PKPRequest::isPathInfoEnabled()) {
 				$requestPath .= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
 			}
@@ -309,7 +318,7 @@ class PKPRequest {
 	}
 
 	/**
-	 * Return true iff PATH_INFO is enabled.
+	 * Return true if PATH_INFO is enabled.
 	 */
 	function isPathInfoEnabled() {
 		static $isPathInfoEnabled;
@@ -317,6 +326,17 @@ class PKPRequest {
 			$isPathInfoEnabled = Config::getVar('general', 'disable_path_info')?false:true;
 		}
 		return $isPathInfoEnabled;
+	}
+
+	/**
+	 * Return true if RESTFUL_URLS is enabled.
+	 */
+	function isRestfulUrlsEnabled() {
+		static $isRestfulUrlsEnabled;
+		if (!isset($isRestfulUrlsEnabled)) {
+			$isRestfulUrlsEnabled = Config::getVar('general', 'restful_urls')?true:false;
+		}
+		return $isRestfulUrlsEnabled;
 	}
 
 	/**
@@ -362,7 +382,7 @@ class PKPRequest {
 
 		return $user;
 	}
-	
+
 	/**
 	 * A Generic call to a context defining object (e.g. a Journal, a Conference, or a SchedConf)
 	 * This class must be implemented by all PKPApplications
@@ -374,7 +394,7 @@ class PKPRequest {
 	}
 
 	/**
-	 * A Generic call to a context-defined path (e.g. a Journal or a Conference's path) 
+	 * A Generic call to a context-defined path (e.g. a Journal or a Conference's path)
 	 * @param $contextLevel int (optional) the number of levels of context to return in the path
 	 * @return array of String (each element the path to one context element)
 	 */
@@ -382,7 +402,7 @@ class PKPRequest {
 		// Child classes will override this method.
 		return array();
 	}
-	
+
 	/**
 	 * Get the page requested in the URL.
 	 * @return String the page path (under the "pages" directory)
@@ -564,7 +584,7 @@ class PKPRequest {
 		setcookie($key, $value, 0, PKPRequest::getBasePath());
 		$_COOKIE[$key] = $value;
 	}
-	
+
 	/**
 	 * Redirect to the specified page within a PKP Application. Shorthand for a common call to Request::redirect(Request::url(...)).
 	 * @param $context Array The optional contextual paths
@@ -576,7 +596,7 @@ class PKPRequest {
 	 */
 	function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
 		PKPRequest::redirectUrl(PKPRequest::url($context, $page, $op, $path, $params, $anchor));
-	}	
+	}
 
 	/**
 	 * Build a URL into PKPApplication.
@@ -588,13 +608,13 @@ class PKPRequest {
 	 * @param $anchor string Optional name of anchor to add to URL
 	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
 	 */
-	function url($context = null, $page = null, $op = null, $path = null, 
+	function url($context = null, $page = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
 
 		$application =& PKPApplication::getApplication();
 		$contextList = $application->getContextList();
 		$contextDepth = $application->getContextDepth();
-		
+
 		// set an empty array in case that $context was null
 		if ( !isset($context) ) {
 			$context = array();
@@ -602,7 +622,7 @@ class PKPRequest {
 				$context[] = null;
 			}
 		}
-				
+
 		$pathInfoDisabled = !PKPRequest::isPathInfoEnabled();
 
 		$amp = $escape?'&amp;':'&';
@@ -615,9 +635,9 @@ class PKPRequest {
 		// Declare some empty variables
 		$contextPathProvided = false;
 		$contextPath = array();
-				
+
 		foreach ($contextList as $contextName) {
-			$contextValue = array_shift($context);			
+			$contextValue = array_shift($context);
 			if (isset($contextValue)) {
 				$contextPath[] = rawurlencode($contextValue);
 				$contextPathProvided = true;
@@ -627,15 +647,15 @@ class PKPRequest {
 				else $contextPath[] = 'index';
 			}
 		}
-		
+
 		// If a context has been specified, don't supply default page or op.
 		if($contextPathProvided) {
 			$defaultPage = null;
 			$defaultOp = null;
 		}
-		
+
 		// Get overridden base URLs (if available).
-		if ( isset($contextPath[0])) { 
+		if ( isset($contextPath[0])) {
 			$overriddenBaseUrl = Config::getVar('general', "base_url[$contextPath[0]]");
 		}
 
@@ -687,7 +707,7 @@ class PKPRequest {
 						$baseParams .= count($contextPath)?$amp:'';
 					}
 				}
-				
+
 			}
 			else $baseParams = '';
 

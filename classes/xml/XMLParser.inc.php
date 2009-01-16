@@ -146,12 +146,14 @@ class XMLParser {
 				// convert named entities to numeric entities
 				$data = strtr($data, String::getHTMLEntities());
 			} else {
+				$utf8_last = String::substr($data, String::strlen($data) - 1);
 
-				// if there are "bad" UTF-8 characters in the string, maybe it's truncated
-				while (!$wrapper->eof() && String::utf8_bad_strip($data) != $data) {
+				// if the string ends in a "bad" UTF-8 character, maybe it's truncated
+				while (!$wrapper->eof() && String::utf8_bad_find($utf8_last) === 0) {
+					// read another chunk of data
+					$data .= $wrapper->read();
 
-					// read bytes in until we hit a character boundary
-					$data .= $wrapper->read(1);
+					$utf8_last = String::substr($data, String::strlen($data) - 1);
 				}
 			}
 

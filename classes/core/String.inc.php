@@ -30,7 +30,7 @@ class String {
 			// Set up required ini settings for mbstring
 			// FIXME Do any other mbstring settings need to be set?
 			mb_internal_encoding($clientCharset);
-			mb_substitute_character('63');		// question mark 
+			mb_substitute_character('63');		// question mark
 		}
 
 		// Define modifier to be used in regexp_* routines
@@ -376,6 +376,16 @@ class String {
 	function utf8_is_valid($str) {
 		require_once 'utils/validation.php';
 		return utf8_is_valid($str);
+	}
+
+	/**
+	* Locates the first bad byte in a UTF-8 string returning it's byte index in the string
+	* @param $input string input string
+	* @return string
+	*/
+	function utf8_bad_find($str) {
+		require_once 'utils/bad.php';
+		return utf8_bad_find($str);
 	}
 
 	/**

@@ -379,6 +379,17 @@ class String {
 	}
 
 	/**
+	* Tests whether a string complies as UTF-8; faster and less strict than utf8_is_valid
+	* see lib/phputf8/utils/validation.php for more details
+	* @param $input string input string
+	* @return boolean
+	*/
+	function utf8_compliant($str) {
+		require_once 'utils/validation.php';
+		return utf8_compliant($str);
+	}
+
+	/**
 	* Locates the first bad byte in a UTF-8 string returning it's byte index in the string
 	* @param $input string input string
 	* @return string

@@ -61,7 +61,7 @@ class XMLParser {
 		xml_set_character_data_handler($parser, "characterData");
 
 		// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_is_valid($text) ) {
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($text) ) {
 
 			$text = String::utf8_normalize($text);
 
@@ -136,7 +136,7 @@ class XMLParser {
 		while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
 
 			// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_is_valid($data) ) {
+			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($data) ) {
 
 				$data = String::utf8_normalize($data);
 

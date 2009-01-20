@@ -581,6 +581,19 @@ class Installer {
 	function setLogger(&$logger) {
 		$this->logger = $logger;
 	}
+
+	/**
+	 * Clear the data cache files (needed because of direct tinkering
+	 * with settings tables)
+	 * @return boolean
+	 */
+	function clearDataCache() {
+		import('cache.CacheManager');
+		$cacheManager =& CacheManager::getManager();
+		$cacheManager->flush();
+		return true;
+	}
+
 }
 
 ?>

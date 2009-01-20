@@ -30,7 +30,7 @@ class SiteDAO extends DAO {
 		);
 
 		if ($result->RecordCount() != 0) {
-			$site = $this->_returnSiteFromRow($result->GetRowAssoc(false));
+			$site =& $this->_returnSiteFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();

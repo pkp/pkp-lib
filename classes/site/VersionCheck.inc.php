@@ -95,7 +95,7 @@ class VersionCheck {
 			}
 		}
 		if(isset($data['version'][0]['value'])) 
-			$versionInfo['version'] = Version::fromString($data['release'][0]['value'], $data['application'][0]['value'], $data['type'][0]['value']);
+			$versionInfo['version'] = Version::fromString($data['release'][0]['value'], $data['application'][0]['value'], isset($data['type'][0]['value']) ? $data['type'][0]['value'] : null);
 		
 		return $versionInfo;
 	}

@@ -31,21 +31,25 @@ class VersionDAO extends DAO {
 			$product = $application->getName();
 		}
 		
+		$result =& $this->retrieve(
+			'SELECT * FROM versions WHERE current = 1'
+		);
+		if ($result->RecordCount() != 0) {
+			$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
+		}
+		if ($oldVersion->compare('2.3.0') < 0) $isUpgrade = true;	
+		
 		if (!$isUpgrade) { 
 			$result =& $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1 AND product = ?',
 				array($product)
 			);
+			if ($result->RecordCount() != 0) {
+				$returner =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
+			}
 		} else {
-			$result =& $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1'
-			);
-		}
-		
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
-		}
+			$returner =& $oldVersion;
+		}		
 
 		$result->Close();
 		unset($result);

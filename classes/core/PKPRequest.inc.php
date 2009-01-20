@@ -347,7 +347,7 @@ class PKPRequest {
 		$site =& Registry::get('site', true, null);
 		if ($site === null) {
 			$siteDao =& DAORegistry::getDAO('SiteDAO');
-			$site = $siteDao->getSite();
+			$site =& $siteDao->getSite();
 		}
 
 		return $site;

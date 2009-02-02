@@ -721,7 +721,10 @@ class PKPRequest {
 		} else {
 			if (!empty($path)) $pathString = '/' . implode('/', $path);
 			if (empty($overriddenBaseUrl) && count($contextPath)) $baseParams = "/". implode("/", $contextPath);
-			else $baseParams = '';
+			else {
+				array_shift($contextPath); // Throw away first
+				$baseParams = '/' . implode('/', $contextPath);
+			}
 
 			if (!empty($page)) {
 				$baseParams .= "/$page";

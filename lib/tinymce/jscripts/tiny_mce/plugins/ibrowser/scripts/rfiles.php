@@ -408,12 +408,16 @@ html, body {
 			if ($size > 0) {			
 				// get file extension and check for validity 				
 				$ext = pathinfo($_FILES['nfile']['name'][$key]);
+				$mimeType = String::mime_content_type($_FILES['nfile']['tmp_name'][0]);
 				$ext = strtolower($ext['extension']);				
-				if (!in_array($ext, $cfg['valid'])) { 						// invalid image			
-					echo $l->m('er_029');			
+				/* if (!in_array($ext, $cfg['valid'])) { 						// invalid image (only checks extension)			
+					echo $l->m('er_029');
+					return false;
+				} */
+				if (!in_array($mimeType, $validMimeTypes)) { 						// invalid image			
+					echo $l->m('er_029');
 					return false;
 				}
-				
 				$path  = str_replace('//', '/', $cfg['root_dir'] . $clib); 	// remove double slash in path	
 				$nfile = fixFileName($_FILES['nfile']['name'][$key]); 		// remove invalid characters in filename		
 				

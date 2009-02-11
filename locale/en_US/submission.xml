@@ -145,7 +145,7 @@
 	<message key="submissions.declined">Declined</message>
 	<message key="submissions.incomplete">Incomplete</message>
 	<message key="submissions.noSubmissions">No Submissions</message>
-	<message key="submissions.queuedEditing">Queued for editing</message>
+	<message key="submissions.queuedEditing">In Editing</message>
 	<message key="submissions.queued">Queued</message>
 	<message key="submissions.queuedUnassigned">Awaiting assignment</message>
 	<message key="submissions.ruling">Ruling</message>

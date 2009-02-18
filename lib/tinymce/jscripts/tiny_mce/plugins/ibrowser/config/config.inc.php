@@ -25,6 +25,10 @@
 	//-------------------------------------------------------------------------	
 	$cfg['lang']   		= $init['lang'];											// default language; e.g. 'en'		
 	$cfg['valid']  		= array('gif', 'jpg', 'jpeg', 'png');						// valid extentions for image files	
+	$cfg['mimeTypes']	= array('image/gif',										// valid mime types for image files
+								'image/jpg',
+								'image/jpeg',
+								'image/png');							
 	$cfg['upload'] 		= true; 													// allow uploading of image: 'true' or 'false'
 	$cfg['umax'] 		= 1;														// max. number of image files to be uploaded; default: 1; value > 1
 	$cfg['create'] 		= false; 													// allow to create directory: 'true' or 'false'

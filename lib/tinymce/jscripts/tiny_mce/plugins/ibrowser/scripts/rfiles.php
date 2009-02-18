@@ -410,11 +410,11 @@ html, body {
 				$ext = pathinfo($_FILES['nfile']['name'][$key]);
 				$mimeType = String::mime_content_type($_FILES['nfile']['tmp_name'][0]);
 				$ext = strtolower($ext['extension']);				
-				/* if (!in_array($ext, $cfg['valid'])) { 						// invalid image (only checks extension)			
+				if (!in_array($ext, $cfg['valid'])) { 						// invalid image (only checks extension)			
 					echo $l->m('er_029');
 					return false;
-				} */
-				if (!in_array($mimeType, $validMimeTypes)) { 						// invalid image			
+				} 
+				if (!in_array($mimeType, $cfg['mimeTypes'])) { 						// invalid image (checks mime type)
 					echo $l->m('er_029');
 					return false;
 				}

@@ -118,7 +118,7 @@ class PKPLoginHandler extends PKPHandler {
 				if (isset($source) && !empty($source)) {
 					PKPRequest::redirectUrl(Request::getProtocol() . '://' . Request::getServerHost() . $source, false);
 				} else {
-					PKPRequest::redirect(null, 'user');
+					Request::redirectHome();
 				}
 			}
 

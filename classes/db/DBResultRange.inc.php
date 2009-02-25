@@ -15,8 +15,7 @@
 // $Id$
 
 
-import('core.ItemIterator');
-class DBResultRange extends ItemIterator {
+class DBResultRange {
 	/** The number of items to display */
 	var $count;
 

@@ -182,6 +182,8 @@ class PKPApplication {
 			'AccessKeyDAO' => 'security.AccessKeyDAO',
 			'AuthSourceDAO' => 'security.AuthSourceDAO',
 			'CaptchaDAO' => 'captcha.CaptchaDAO',
+			'ControlledVocabDAO' => 'controlledVocab.ControlledVocabDAO',
+			'ControlledVocabEntryDAO' => 'controlledVocab.ControlledVocabEntryDAO',
 			'CountryDAO' => 'i18n.CountryDAO',
 			'CurrencyDAO' => 'currency.CurrencyDAO',
 			'HelpTocDAO' => 'help.HelpTocDAO',

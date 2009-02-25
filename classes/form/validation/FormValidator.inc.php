@@ -24,6 +24,7 @@ import('form.validation.FormValidatorEmail');
 import('form.validation.FormValidatorUrl');
 import('form.validation.FormValidatorAlphaNum');
 import('form.validation.FormValidatorInSet');
+import('form.validation.FormValidatorControlledVocab');
 import('form.validation.FormValidatorArray');
 import('form.validation.FormValidatorArrayCustom');
 import('form.validation.FormValidatorLocale');

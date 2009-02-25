@@ -78,6 +78,22 @@ class DataObject {
 			$this->_data[$key] = $value;
 		}
 	}
+
+	/**
+	 * Get ID of object.
+	 * @return int
+	 */
+	function getId() {
+		return $this->getData('id');
+	}
+
+	/**
+	 * Set ID of object.
+	 * @param $id int
+	 */
+	function setId($id) {
+		return $this->setData('id', $id);
+	}
 }
 
 ?>

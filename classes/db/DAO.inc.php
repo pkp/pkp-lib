@@ -357,6 +357,10 @@ class DAO {
 		return $value;
 	}
 
+	function getAdditionalFieldNames() {
+		return array();
+	}
+
 	function getLocaleFieldNames() {
 		return array();
 	}
@@ -379,6 +383,15 @@ class DAO {
 				$this->replace($tableName, $idArray, $idFields);
 			}
 		}
+		foreach ($this->getAdditionalFieldNames() as $field) {
+			$value = $dataObject->getData($field);
+			$idArray['setting_type'] = null;
+			$idArray['locale'] = '';
+			$idArray['setting_name'] = $field;
+			$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
+ 
+			$this->replace($tableName, $idArray, $idFields);
+		}
 	}
 
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, &$dataObject) {
@@ -393,7 +406,14 @@ class DAO {
 
 		while (!$result->EOF) {
 			$row =& $result->getRowAssoc(false);
-			$dataObject->setData($row['setting_name'], $this->convertFromDB($row['setting_value'], $row['setting_type']), $row['locale']);
+			$dataObject->setData(
+				$row['setting_name'],
+				$this->convertFromDB(
+					$row['setting_value'],
+					$row['setting_type']
+				),
+				empty($row['locale'])?null:$row['locale']
+			);
 			unset($row);
 			$result->MoveNext();
 		}

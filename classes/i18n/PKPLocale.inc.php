@@ -169,6 +169,7 @@ class PKPLocale {
 		} else {
 			$localeFiles[] =& $localeFile;
 		}
+		HookRegistry::call('PKPLocale::registerLocaleFile', array(&$locale, &$filename, &$addToTop));
 		return $localeFile;
 	}
 

@@ -186,6 +186,8 @@ class PKPApplication {
 			'ControlledVocabEntryDAO' => 'controlledVocab.ControlledVocabEntryDAO',
 			'CountryDAO' => 'i18n.CountryDAO',
 			'CurrencyDAO' => 'currency.CurrencyDAO',
+			'GroupDAO' => 'group.GroupDAO',
+			'GroupMembershipDAO' => 'group.GroupMembershipDAO',
 			'HelpTocDAO' => 'help.HelpTocDAO',
 			'HelpTopicDAO' => 'help.HelpTopicDAO',
 			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',

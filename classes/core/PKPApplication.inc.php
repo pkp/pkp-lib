@@ -192,6 +192,7 @@ class PKPApplication {
 			'HelpTopicDAO' => 'help.HelpTopicDAO',
 			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'session.SessionDAO',
+			'SignoffDAO' => 'signoff.SignoffDAO',
 			'SiteDAO' => 'site.SiteDAO',
 			'SiteSettingsDAO' => 'site.SiteSettingsDAO',
 			'TemporaryFileDAO' => 'file.TemporaryFileDAO',

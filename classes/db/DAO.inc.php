@@ -357,6 +357,10 @@ class DAO {
 		return $value;
 	}
 
+	function nullOrInt($value) {
+		return (empty($value)?null:(int) $value);
+	}
+
 	function getAdditionalFieldNames() {
 		return array();
 	}

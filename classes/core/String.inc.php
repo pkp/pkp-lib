@@ -55,7 +55,7 @@ class String {
 		// If string overloading is active, it will break many of the
 		// native implementations. mbstring.func_overload must be set
 		// to 0, 1 or 4 in php.ini (string overloading disabled).
-		if (ini_get('mbstring.func_overload') & MB_OVERLOAD_STRING) {
+		if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')) {
 			$hasMBString = false;
 		} else {
 			$hasMBString = (

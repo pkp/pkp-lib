@@ -111,7 +111,7 @@ class Group extends DataObject {
 
 	/**
 	 * Set assoc ID for this group.
-	 * @param $journalId int
+	 * @param $assocId int
 	 */
 	function setAssocId($assocId) {
 		return $this->setData('assocId', $assocId);

@@ -179,7 +179,7 @@ class GroupDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function deleteGroupsByAssocId($assocType, $assocId) {
-		$groups =& $this->getGroups($journalId);
+		$groups =& $this->getGroups($assocType, $assocId);
 		while ($group =& $groups->next()) {
 			$this->deleteGroup($group);
 			unset($group);

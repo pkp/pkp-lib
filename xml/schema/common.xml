@@ -282,6 +282,68 @@
 			<col>context</col>
 		</index>
 	</table>
+	
+	<!--
+	  *
+	  * TABLE notifications
+	  *
+	  -->
+	<table name="notifications">
+		<field name="notification_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="user_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="date_created" type="T">
+			<NOTNULL/>
+		</field>
+		<field name="date_read" type="T" />
+		<field name="contents" type="C2" size="255" >
+			<NOTNULL/>
+		</field>
+		<field name="param" type="C2" size="255" />
+		<field name="location" type="C2" size="255" />
+		<field name="is_localized" type="I1" >
+			<NOTNULL/>
+			<DEFAULT VALUE="1"/>
+		</field>
+		<field name="product" type="C2" size="20" />
+		<field name="context" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="assoc_type" type="I8">
+			<NOTNULL/>
+		</field>
+		<descr>Stores notifications for users as created by the system after certain operations.</descr>
+	</table>
+	
+	<!--
+	  *
+	  * TABLE notification_settings
+	  *
+	  -->
+	<table name="notification_settings">
+		<field name="setting_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT />
+		</field>
+		<field name="setting_name" type="C2" size="64">
+			<NOTNULL/>
+		</field>
+		<field name="setting_value" type="X">
+			<NOTNULL/>
+		</field>
+		<field name="user_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="product" type="C2" size="20" />
+		<field name="context" type="I8">
+			<NOTNULL/>
+		</field>
+		<descr>Lists all notifications types for each user that they do NOT want to be informed of, and also contains a list of RSS feed tokens for each user.</descr>
+	</table>
 
 	<!-- OAI Tables -->
 	

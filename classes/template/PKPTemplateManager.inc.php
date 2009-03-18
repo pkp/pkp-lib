@@ -415,7 +415,7 @@ class PKPTemplateManager extends Smarty {
 			if (isset($params['name'])) {
 				// build image tag with standarized size of 16x16
 				$disabled = (isset($params['disabled']) && !empty($params['disabled']));
-				if (!isset($params['path'])) $params['path'] = 'templates/images/icons/';
+				if (!isset($params['path'])) $params['path'] = 'lib/pkp/templates/images/icons/';
 				$iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];
 				$iconHtml .= $params['name'] . ($disabled ? '_disabled' : '') . '.gif" width="16" height="14" alt="';
 

@@ -41,6 +41,30 @@ class AccessKeyDAO extends DAO {
 		unset($result);
 		return $accessKey;
 	}
+	
+	/**
+	 * Retrieve a accessKey object user ID.
+	 * @param $context string
+	 * @param $userId int
+	 * @return AccessKey
+	 */
+	function &getAccessKeyByUserId($context, $userId) {
+		$result =& $this->retrieve(
+			sprintf(
+				'SELECT * FROM access_keys WHERE context = ? AND user_id = ? AND expiry_date > %s',
+				$this->datetimeToDB(Core::getCurrentDate())
+			),
+			array($context, $userId)
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner =& $this->_returnAccessKeyFromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		unset($result);
+		return $returner;
+	}
 
 	/**
 	 * Retrieve a accessKey object by key.
@@ -118,7 +142,7 @@ class AccessKeyDAO extends DAO {
 	 */
 	function updateAccessKey(&$accessKey) {
 		return $this->update(
-			sprintf('UPDATE accessKeys
+			sprintf('UPDATE access_keys
 				SET
 					key_hash = ?,
 					expiry_date = %s,

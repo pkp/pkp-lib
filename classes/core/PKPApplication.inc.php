@@ -190,6 +190,8 @@ class PKPApplication {
 			'GroupMembershipDAO' => 'group.GroupMembershipDAO',
 			'HelpTocDAO' => 'help.HelpTocDAO',
 			'HelpTopicDAO' => 'help.HelpTopicDAO',
+			'NotificationDAO' => 'notification.NotificationDAO',
+			'NotificationSettingsDAO' => 'notification.NotificationSettingsDAO',
 			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'session.SessionDAO',
 			'SignoffDAO' => 'signoff.SignoffDAO',

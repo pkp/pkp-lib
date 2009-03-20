@@ -63,7 +63,7 @@ class FormValidatorArrayCustom extends FormValidator {
 			return true;
 		}
 
-		$ret = true;
+		$valid = true;
 		$data = $this->form->getData($this->field);
 		if (!is_array($data)) return false;
 		foreach ($data as $key => $value) {
@@ -75,6 +75,7 @@ class FormValidatorArrayCustom extends FormValidator {
 				}
 				$ret = $this->complementReturn ? !$ret : $ret;
 				if (!$ret) {
+					$valid = false;
 					if ($this->isLocaleField) {
 						array_push($this->errorFields, array($key => "{$this->field}[{$key}]"));
 					} else {
@@ -90,6 +91,7 @@ class FormValidatorArrayCustom extends FormValidator {
 					}
 					$ret = $this->complementReturn ? !$ret : $ret;
 					if (!$ret) {
+						$valid = false;
 						if ($this->isLocaleField) {
 							array_push($this->errorFields, array($key => "{$this->field}[{$key}][{$field}]"));
 						} else {
@@ -99,7 +101,7 @@ class FormValidatorArrayCustom extends FormValidator {
 				}
 			}
 		}
-		return $ret;
+		return $valid;
 	}
 
 	/**

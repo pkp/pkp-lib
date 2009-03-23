@@ -415,10 +415,22 @@ class Mail extends DataObject {
 				import('mail.SMTPMailer');
 				$smtp = new SMTPMailer();
 			}
-			return $smtp->mail($this, $recipients, $subject, $mailBody, $headers);
+			$sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);
 		} else {
-			return String::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
+			$sent = String::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
 		}
+		
+		if (!$sent) {
+			if (Config::getVar('email', 'display_errors')) {
+				if (Config::getVar('email', 'smtp')) {
+					fatalError("There was an error sending this email.  Please check your PHP error log for more information.");
+					return false;
+				} else {
+					fatalError("There was an error sending this email.  Please check your mail log (/var/log/maillog).");
+					return false;
+				}
+			} else return false;
+		} else return true;
 	}
 
 	function encodeDisplayName($displayName) {

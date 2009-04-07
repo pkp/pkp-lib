@@ -383,6 +383,22 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get citations.
+	 * @return string
+	 */
+	function getCitations() {
+		return $this->getData('citations');
+	}
+
+	/**
+	 * Set citations.
+	 * @param $citations string
+	 */
+	function setCitations($citations) {
+		return $this->setData('citations', $citations);
+	}
+
+	/**
 	 * get file name
 	 * @param $locale string
 	 * @return string

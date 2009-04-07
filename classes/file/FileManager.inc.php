@@ -23,6 +23,11 @@ define('FILE_MODE_MASK', 0666);
 define('DIRECTORY_MODE_MASK', 0777);
 
 class FileManager {
+	/**
+	 * Constructor
+	 */
+	function FileManager() {
+	}
 
 	/**
 	 * Return true if an uploaded file exists.

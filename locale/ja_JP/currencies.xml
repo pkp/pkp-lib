@@ -188,7 +188,7 @@
 	<currency name="CFAフラン" code_alpha="CHW" code_numeric="948" />
 	<currency name="ウォン" code_alpha="KRW" code_numeric="410" />
 	<currency name="イエメン・リアル" code_alpha="YER" code_numeric="886" />
-	<currency name="円" code_alpha="JPY" code_numeric="392" />
+	<currency name="円" code_alpha="円" code_numeric="392" />
 	<currency name="人民元" code_alpha="CNY" code_numeric="156" />
 	<currency name="ジンバブエ・ドル" code_alpha="ZWD" code_numeric="716" />
 </currencies>

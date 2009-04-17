@@ -12,10 +12,10 @@
  * @brief Handle requests for viewing notifications. 
  */
 
-import('core.PKPHandler');
+import('handler.Handler');
 import('notification.Notification');
 
-class NotificationHandler extends PKPHandler {
+class NotificationHandler extends Handler {
 
 	/**
 	 * Display help table of contents.
@@ -35,7 +35,7 @@ class NotificationHandler extends PKPHandler {
 			$templateMgr->assign('isUserLoggedIn', false);
 		}
 
-		$rangeInfo =& PKPHandler::getRangeInfo('notifications');
+		$rangeInfo =& Handler::getRangeInfo('notifications');
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notifications = $notificationDao->getNotificationsByUserId($userId, $rangeInfo);
 		

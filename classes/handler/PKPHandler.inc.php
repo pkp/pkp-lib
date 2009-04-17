@@ -11,10 +11,23 @@
  *
  * Base request handler abstract class.
  *
- * $Id$
  */
+ 
+import('handler.validation.HandlerValidator');
+import('handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {
+	/** Validation checks for this page*/
+	var $_checks;	
+	
+	function PKPHandler() {
+		$this->_checks = array();
+
+		// enforce SSL sitewide
+		$this->addCheck(new HandlerValidatorCustom(&$this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
+		 		 
+	}		
+		
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
@@ -24,51 +37,27 @@ class PKPHandler {
 	}
 
 	/**
+	 * Add a validation check to the handler.
+	 * @param $handlerValidator HandlerValidator
+	 */
+	function addCheck($handlerValidator) {
+		$this->_checks[] =& $handlerValidator;
+	}
+		
+	/**
 	 * Perform request access validation based on security settings.
 	 * @param $requiredContexts array
 	 */
 	function validate($requiredContexts = null) {
-		if (Config::getVar('security', 'force_ssl') && Request::getProtocol() != 'https') {
-			// Force SSL connections site-wide
-			Request::redirectSSL();
-		}
-
-		$application =& PKPApplication::getApplication();
-		$contextDepth = $application->getContextDepth();
-
-		$returner = array();
-		for ($i = 1; $i <= $contextDepth; $i++ ) {  
-			$context =& Request::getContext($i);
-			if ( isset($requiredContexts[$i-1]) && $requiredContexts[$i-1] && !isset($context)) {
-				PKPRequest::redirect(null, 'about');
-			} else {
-				$returner[] =& $context;
+		foreach ($this->_checks as $check) {
+			// check should redirect on fail and continue on pass
+			// default action is to redirect to the index page on fail
+			if ( !$check->isValid() ) {
+				PKPRequest::redirect(null, 'index');
 			} 
 		}
 
-		if (isset($returner[0])) { 
-			$mainContext =& $returner[0];
-		} else { 
-			$mainContext = null;
-		}
-
- 		// FIXME: need a generic way of adding this extra check
-		// Extraneous checks, just to make sure we aren't being fooled
-//		if ($conference && $schedConf) {
-//			if($schedConf->getConferenceId() != $conference->getConferenceId())
-//				Request::redirect(null, null, 'about');
-//		}
-
-		$page = PKPRequest::getRequestedPage();
-		if ( $mainContext != null &&
-			!Validation::isLoggedIn() &&
-			!in_array($page, PKPHandler::getLoginExemptions()) &&
-			$mainContext->getSetting('restrictSiteAccess')
-		) {
-			PKPRequest::redirect(null, 'login');
-		}
-
-		return $returner;
+		return true;
 	}
 	
 	/**

@@ -49,7 +49,7 @@ class Core {
 			$var = String::utf8_normalize($var);
 
 			// convert HTML entities into valid UTF-8 characters (do not transcode)
-			if (phpversion() >= '5.0.0') {
+			if (checkPhpVersion('5.0.0')) {
 				$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
 			} else {
 				$var = String::html2utf($var);
@@ -59,7 +59,7 @@ class Core {
 			$var = String::utf8_bad_strip($var);
 
 			// re-encode special HTML characters
-			if (phpversion() >= '5.2.3') {
+			if (checkPhpVersion('5.2.3')) {
 				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
 			} else {
 				$var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8');

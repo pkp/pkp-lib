@@ -55,7 +55,7 @@ class Transcoder {
 		// 'HTML-ENTITIES' is not a valid encoding for iconv, so transcode manually
 		if ($this->toEncoding == 'HTML-ENTITIES' && !$mbstring) {
 			// NB: old PHP versions may have issues with htmlentities()
-			if (phpversion() >= '5.2.3') {
+			if (checkPhpVersion('5.2.3')) {
 				// don't double encode added in PHP 5.2.3
 				return htmlentities($string, ENT_COMPAT, $this->fromEncoding, false);
 			} else {
@@ -64,7 +64,7 @@ class Transcoder {
 
 		} elseif ($this->fromEncoding == 'HTML-ENTITIES' && !$mbstring) {
 			// NB: old PHP versions may have issues with html_entity_decode()
-			if (phpversion() >= '4.3.0') {
+			if (checkPhpVersion('4.3.0')) {
 				// multibyte character handling added in PHP 5.0.0
 				return html_entity_decode($string, ENT_COMPAT, $this->toEncoding);
 			} else {

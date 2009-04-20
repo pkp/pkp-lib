@@ -442,10 +442,10 @@ class String {
 			// NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
 			$mb_encoding_order = 'UTF-8, UTF-7, ASCII, ISO-8859-1, EUC-JP, SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP';
 
-			if (phpversion() < '4.3.8') {
-				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order);
-			} else {
+			if (checkPhpVersion('4.3.8')) {
 				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order, FALSE);
+			} else {
+				$detected_encoding = mb_detect_encoding($str, $mb_encoding_order);
 			}
 
 		} elseif (function_exists('iconv') && strlen(iconv('CP1252', 'UTF-8', $str)) != strlen(iconv('ISO-8859-1', 'UTF-8', $str))) {

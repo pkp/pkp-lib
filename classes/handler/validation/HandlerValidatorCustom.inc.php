@@ -14,10 +14,6 @@
 import('handler.validation.HandlerValidator');
 
 class HandlerValidatorCustom extends HandlerValidator{
-
-	/** The Handler associated with the check */
-	var $handler;
-
 	/** additionalArguments to apss to the user function **/
 	var $userFunctionArgs;
 	

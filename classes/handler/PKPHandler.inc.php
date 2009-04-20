@@ -24,7 +24,7 @@ class PKPHandler {
 		$this->_checks = array();
 
 		// enforce SSL sitewide
-		$this->addCheck(new HandlerValidatorCustom(&$this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
+		$this->addCheck(new HandlerValidatorCustom($this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
 		 		 
 	}		
 		

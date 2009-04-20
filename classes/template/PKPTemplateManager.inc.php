@@ -61,7 +61,7 @@ class PKPTemplateManager extends Smarty {
 		// Set fallback template dir (core's template dir)
 		$this->core_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates';
 
-		$this->template_dir = array($this->app_template_dir, $this->core_template_dir);									
+		$this->template_dir = array($this->app_template_dir, $this->core_template_dir);
 		$this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
 		$this->config_dir = $cachePath . DIRECTORY_SEPARATOR . 't_config';
 		$this->cache_dir = $cachePath . DIRECTORY_SEPARATOR . 't_cache';
@@ -117,7 +117,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
-	
+
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
 											array(&$this, 'smartyResourceCoreGetTimestamp'),
@@ -250,11 +250,11 @@ class PKPTemplateManager extends Smarty {
 		return $instance;
 	}
 
-	// 
+	//
 	// Custom Template Resource "Core"
 	// The Core Template Resource is points to the fallback template_dir in the core
 	//
-	
+
 	function smartyResourceCoreGetTemplate($template, &$templateSource, &$smarty) {
 		$templateSource = file_get_contents($this->core_template_dir . DIRECTORY_SEPARATOR . $template);
 		return true;
@@ -266,11 +266,11 @@ class PKPTemplateManager extends Smarty {
 		$templateTimestamp = filemtime($templateSource);
 		return true;
 	}
-	
+
 	function smartyResourceCoreGetTecure($template, &$smarty) {
 		return true;
 	}
-	
+
 	function smartyResourceCoreGetTrusted($template, &$smarty) {}
 
 
@@ -506,7 +506,7 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign('debugExecutionTime', Core::microtime() - Registry::get('system.debug.startTime'));
 			$dbconn =& DBConnection::getInstance();
 			$smarty->assign('debugNumDatabaseQueries', $dbconn->getNumQueries());
-			$smarty->assign('debugMemoryUsage', memory_get_usage());
+			if (function_exists('memory_get_usage')) $smarty->assign('debugMemoryUsage', memory_get_usage());
 			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));
 		}
 

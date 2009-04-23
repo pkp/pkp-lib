@@ -110,8 +110,7 @@ class PKPAnnouncementForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array('typeId', 'title', 'descriptionShort', 'description', 'dateExpireYear', 'dateExpireMonth', 'dateExpireDay'));
-		$this->_data['dateExpire'] = $this->_data['dateExpireYear'] . '-' . $this->_data['dateExpireMonth'] . '-' . $this->_data['dateExpireDay'];
-
+		$this->_data['dateExpire'] = Request::getUserDateVar('dateExpire');
 	}
 
 	/**
@@ -142,7 +141,7 @@ class PKPAnnouncementForm extends Form {
 		}
 
 		if ($this->getData('dateExpireYear') != null) {
-			$announcement->setDateExpire($this->getData('dateExpireYear') . '-' . $this->getData('dateExpireMonth') . '-' . $this->getData('dateExpireDay'));
+			$announcement->setDateExpire($this->getData('dateExpire'));
 		} else {
 			$announcement->setDateExpire(null);
 		}

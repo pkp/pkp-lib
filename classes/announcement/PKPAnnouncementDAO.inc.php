@@ -108,7 +108,7 @@ class PKPAnnouncementDAO extends DAO {
 				(assoc_type, assoc_id, type_id, date_expire, date_posted)
 				VALUES
 				(?, ?, ?, %s, %s)',
-				$this->dateToDB($announcement->getDateExpire()), $this->dateToDB($announcement->getDatetimePosted())),
+				$this->datetimeToDB($announcement->getDateExpire()), $this->datetimeToDB($announcement->getDatetimePosted())),
 			array(
 				$announcement->getAssocType(),
 				$announcement->getAssocId(),
@@ -134,7 +134,7 @@ class PKPAnnouncementDAO extends DAO {
 					type_id = ?,
 					date_expire = %s
 				WHERE announcement_id = ?',
-				$this->dateToDB($announcement->getDateExpire())),
+				$this->datetimeToDB($announcement->getDateExpire())),
 			array(
 				$announcement->getAssocType(),
 				$announcement->getAssocId(),

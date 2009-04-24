@@ -210,9 +210,9 @@
 									Key Used: <b>{$query.explain.key}</b> &middot; 
 									Type: <b>{$query.explain.type}</b> &middot; 
 									Rows: <b>{$query.explain.rows}</b> &middot; 
-									Speed: <b>{$query.time}</b>
 								</em>
 								{/if}
+								<em>Speed: <b>{$query.time}</b></em>
 							</td>
 						</tr>
 				{/foreach}

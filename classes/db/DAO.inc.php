@@ -68,7 +68,9 @@ class DAO {
 			}
 		}
 
+		$start = Core::microtime();
 		$result =& $this->_dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
+		DBConnection::logQuery($sql, $start, $params);
 		if ($this->_dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
@@ -96,7 +98,9 @@ class DAO {
 
 		$this->setCacheDir();
 
+		$start = Core::microtime();
 		$result =& $this->_dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
+		DBConnection::logQuery($sql, $start, $params);
 		if ($this->_dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
@@ -124,7 +128,9 @@ class DAO {
 			}
 		}
 
+		$start = Core::microtime();
 		$result =& $this->_dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
+		DBConnection::logQuery($sql, $start, $params);
 		if ($this->_dataSource->errorNo()) {
 			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
 		}
@@ -150,7 +156,9 @@ class DAO {
 		}
 
 		if (isset($dbResultRange) && $dbResultRange->isValid()) {
+			$start = Core::microtime();
 			$result =& $this->_dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
+			DBConnection::logQuery($sql, $start, $params);
 			if ($this->_dataSource->errorNo()) {
 				fatalError('DB Error: ' . $this->_dataSource->errorMsg());
 			}
@@ -181,7 +189,9 @@ class DAO {
 			}
 		}
 
+		$start = Core::microtime();
 		$this->_dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
+		DBConnection::logQuery($sql, $start, $params);
 		if ($dieOnError && $this->_dataSource->errorNo()) {
 			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
 		}
@@ -393,7 +403,7 @@ class DAO {
 			$idArray['locale'] = '';
 			$idArray['setting_name'] = $field;
 			$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
- 
+
 			$this->replace($tableName, $idArray, $idFields);
 		}
 	}
@@ -406,7 +416,9 @@ class DAO {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;
 		}
+		$start = Core::microtime();
 		$result =& $this->retrieve($sql, $params);
+		DBConnection::logQuery($sql, $start, $params);
 
 		while (!$result->EOF) {
 			$row =& $result->getRowAssoc(false);

@@ -28,6 +28,9 @@ class PKPApplication {
 	}
 
 	function PKPApplication() {
+		// Begin debug logging
+		Console::logMemory('', 'Begin logging data');
+
 		// Inititalize the application.
 		error_reporting(E_ALL);
 
@@ -99,10 +102,10 @@ class PKPApplication {
 	function getContextDepth() {
 		fatalError('Abstract method');
 	}
-	
+
 	/**
 	 * Get the list of the contexts available for this application
-	 * i.e. the various parameters that are needed to represent the 
+	 * i.e. the various parameters that are needed to represent the
 	 * (e.g. array('journal') or array('conference', 'schedConf'))
 	 * @return Array
 	 */

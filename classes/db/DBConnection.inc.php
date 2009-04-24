@@ -240,6 +240,31 @@ class DBConnection {
 	function getDriver() {
 		return $this->driver;
 	}
+
+	/**
+	 * Log a SQL query and execution time in the PKPProfiler debug log
+	 * @param $sql string SQL statement being run
+	 * @param $start string a float representing the unix microtime the query started
+	 */
+	function logQuery($sql, $start, $params = array()) {
+		if (!Config::getVar('debug', 'show_stats')) return;
+
+		$queries =& Registry::get('queries', true, array());
+
+		// re-combine the SQL into a prepared statement
+		$preparedSql = '';
+		foreach(explode('?',$sql) as $key => $val) {
+			if (isset($params[$key])) {
+				$preparedSql .= $val.$params[$key];
+			}
+		}
+
+		$query = array(
+				'sql' => $preparedSql,
+				'time' => (Core::microtime() - $start)*1000
+			);
+		array_push($queries, $query);
+	}
 }
 
 ?>

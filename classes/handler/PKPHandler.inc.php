@@ -53,7 +53,11 @@ class PKPHandler {
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {
-				PKPRequest::redirect(null, 'index');
+				if ( $check->redirectToLogin ) {
+					Validation::redirectLogin();
+				} else {
+					PKPRequest::redirect(null, 'index');
+				}
 			} 
 		}
 

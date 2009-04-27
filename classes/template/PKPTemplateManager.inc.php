@@ -503,13 +503,15 @@ class PKPTemplateManager extends Smarty {
 	function smartyGetDebugInfo($params, &$smarty) {
 		if (Config::getVar('debug', 'show_stats')) {
 			$smarty->assign('enableDebugStats', true);
-			$smarty->assign('debugExecutionTime', Core::microtime() - Registry::get('system.debug.startTime'));
-			$dbconn =& DBConnection::getInstance();
-			$smarty->assign('debugNumDatabaseQueries', $dbconn->getNumQueries());
-			if (function_exists('memory_get_usage')) $smarty->assign('debugMemoryUsage', memory_get_usage());
-			$smarty->assign_by_ref('debugNotes', Registry::get('system.debug.notes'));
-		}
 
+			// provide information from the PKPProfiler class
+			global $pkpProfiler;
+			foreach ($pkpProfiler->getData() as $output => $value) {
+				$smarty->assign($output, $value);
+			}
+			$smarty->assign('pqpCss', Request::getBaseUrl() . '/' . 'lib/pkp/lib/pqp/css/pQp.css');
+			$smarty->assign('pqpTemplate', $_SERVER['DOCUMENT_ROOT'].'pkp/lib/pqp/pqp.tpl');
+		}
 	}
 
 	/**

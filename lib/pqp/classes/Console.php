@@ -25,7 +25,9 @@ class Console {
 			"type" => 'log'
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		$GLOBALS['debugger_logs']['logCount'] += 1;
+		if (isset($GLOBALS['debugger_logs']['logCount'])) {
+			$GLOBALS['debugger_logs']['logCount'] += 1;
+		}
 	}
 
 	/*---------------------------------------------------
@@ -44,7 +46,9 @@ class Console {
 				"dataType" => gettype($object)
 			);
 			$GLOBALS['debugger_logs']['console'][] = $logItem;
-			$GLOBALS['debugger_logs']['memoryCount'] += 1;
+			if (isset($GLOBALS['debugger_logs']['memoryCount'])) {
+				$GLOBALS['debugger_logs']['memoryCount'] += 1;
+			}
 		}
 	}
 
@@ -60,7 +64,9 @@ class Console {
 			"line" => $exception->getLine()
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		$GLOBALS['debugger_logs']['errorCount'] += 1;
+		if (isset($GLOBALS['debugger_logs']['errorCount'])) {
+			$GLOBALS['debugger_logs']['errorCount'] += 1;
+		}
 	}
 
 	/*------------------------------------
@@ -74,7 +80,9 @@ class Console {
 			"name" => $name
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		$GLOBALS['debugger_logs']['speedCount'] += 1;
+		if (isset($GLOBALS['debugger_logs']['speedCount'])) {
+			$GLOBALS['debugger_logs']['speedCount'] += 1;
+		}
 	}
 
 	/*-----------------------------------

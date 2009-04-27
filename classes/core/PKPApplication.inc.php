@@ -29,7 +29,8 @@ class PKPApplication {
 
 	function PKPApplication() {
 		// Begin debug logging
-		Console::logMemory('', 'Begin logging data');
+		Console::logMemory('', 'PKPApplication::construct');
+		Console::logSpeed('PKPApplication::construct');
 
 		// Inititalize the application.
 		error_reporting(E_ALL);

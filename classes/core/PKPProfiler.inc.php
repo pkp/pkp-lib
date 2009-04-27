@@ -14,9 +14,8 @@
 
 // $Id$
 
-ini_set('include_path', BASE_SYS_DIR . '/lib/pkp/lib/pqp' . ENV_SEPARATOR . ini_get('include_path'));
-require_once('lib/pkp/lib/pqp/classes/PhpQuickProfiler.php');
-require_once('lib/pkp/lib/pqp/classes/MySqlDatabase.php');
+ini_set('include_path', BASE_SYS_DIR . '/lib/pkp/lib/pqp/classes/' . ENV_SEPARATOR . ini_get('include_path'));
+require_once('PhpQuickProfiler.php');
 
 class PKPProfiler {
 
@@ -26,16 +25,16 @@ class PKPProfiler {
 	/**
 	 * Constructor.
 	 */
-	public function PKPProfiler() {
-		$this->profiler = new PhpQuickProfiler(PhpQuickProfiler::getMicroTime(), 'pkp/lib/pqp/');
+	function PKPProfiler() {
+		$this->profiler = new PhpQuickProfiler(PhpQuickProfiler::getMicroTime());
 	}
 
 	/**
 	 * Gather information to be used to display profiling
 	 * @return array of stored profiling information
 	 */
-	public function getData() {
-		$profiler = $this->profiler;
+	function getData() {
+		$profiler =& $this->profiler;
 		$profiler->db = new PKPDBProfiler();
 
 		$profiler->gatherConsoleData();
@@ -56,7 +55,7 @@ class PKPDBProfiler {
 	/**
 	 * Constructor.
 	 */
-	public function PKPDBProfiler() {
+	function PKPDBProfiler() {
 		$dbconn =& DBConnection::getInstance();
 
 		$this->queryCount = $dbconn->getNumQueries();

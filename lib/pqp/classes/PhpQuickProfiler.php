@@ -17,20 +17,18 @@
 
 class PhpQuickProfiler {
 
-	public $output = array();
-	public $config = '';
+	var $output = array();
 
-	public function __construct($startTime, $config = '/pqp/') {
+	function PhpQuickProfiler($startTime) {
 		$this->startTime = $startTime;
-		$this->config = $config;
-		require_once($_SERVER['DOCUMENT_ROOT'].$config.'classes/Console.php');
+		require_once('Console.php');
 	}
 
 	/*-------------------------------------------
 	     FORMAT THE DIFFERENT TYPES OF LOGS
 	-------------------------------------------*/
 
-	public function gatherConsoleData() {
+	function gatherConsoleData() {
 		$logs = Console::getLogs();
 		if($logs['console']) {
 			foreach($logs['console'] as $key => $log) {
@@ -52,7 +50,7 @@ class PhpQuickProfiler {
 	    AGGREGATE DATA ON THE FILES INCLUDED
 	-------------------------------------------*/
 
-	public function gatherFileData() {
+	function gatherFileData() {
 		$files = get_included_files();
 		$fileList = array();
 		$fileTotals = array(
@@ -81,9 +79,11 @@ class PhpQuickProfiler {
 	     MEMORY USAGE AND MEMORY AVAILABLE
 	-------------------------------------------*/
 
-	public function gatherMemoryData() {
+	function gatherMemoryData() {
 		$memoryTotals = array();
-		$memoryTotals['used'] = $this->getReadableFileSize(memory_get_peak_usage());
+		if (function_exists('memory_get_peak_usage')) {
+			$memoryTotals['used'] = $this->getReadableFileSize(memory_get_peak_usage());
+		}
 		$memoryTotals['total'] = ini_get("memory_limit");
 		$this->output['memoryTotals'] = $memoryTotals;
 	}
@@ -92,7 +92,7 @@ class PhpQuickProfiler {
 	     QUERY DATA -- DATABASE OBJECT WITH LOGGING REQUIRED
 	----------------------------------------------------------*/
 
-	public function gatherQueryData() {
+	function gatherQueryData() {
 		$queryTotals = array();
 		$queryTotals['count'] = 0;
 		$queryTotals['time'] = 0;
@@ -101,8 +101,6 @@ class PhpQuickProfiler {
 		if($this->db != '') {
 			$queryTotals['count'] += $this->db->queryCount;
 			foreach($this->db->queries as $key => $query) {
-// FIXME: this is MySQL-specific, not applicable for ADO
-//				$query = $this->attemptToExplainQuery($query);
 				$queryTotals['time'] += $query['time'];
 				$query['time'] = $this->getReadableTime($query['time']);
 				$queries[] = $query;
@@ -114,28 +112,11 @@ class PhpQuickProfiler {
 		$this->output['queryTotals'] = $queryTotals;
 	}
 
-	/*--------------------------------------------------------
-	     CALL SQL EXPLAIN ON THE QUERY TO FIND MORE INFO
-	----------------------------------------------------------*/
-
-	function attemptToExplainQuery($query) {
-		try {
-			$sql = 'EXPLAIN '.$query['sql'];
-			$rs = $this->db->query($sql);
-		}
-		catch(Exception $e) {}
-		if($rs) {
-			$row = mysql_fetch_array($rs, MYSQL_ASSOC);
-			$query['explain'] = $row;
-		}
-		return $query;
-	}
-
 	/*-------------------------------------------
 	     SPEED DATA FOR ENTIRE PAGE LOAD
 	-------------------------------------------*/
 
-	public function gatherSpeedData() {
+	function gatherSpeedData() {
 		$speedTotals = array();
 		$speedTotals['total'] = $this->getReadableTime(($this->getMicroTime() - $this->startTime)*1000);
 		$speedTotals['allowed'] = ini_get("max_execution_time");
@@ -152,7 +133,7 @@ class PhpQuickProfiler {
 		return $time[1] + $time[0];
 	}
 
-	public function getReadableFileSize($size, $retstring = null) {
+	function getReadableFileSize($size, $retstring = null) {
         	// adapted from code at http://aidanlister.com/repos/v/function.size_readable.php
 	       $sizes = array('bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
 
@@ -168,7 +149,7 @@ class PhpQuickProfiler {
 	       return sprintf($retstring, $size, $sizestring);
 	}
 
-	public function getReadableTime($time) {
+	function getReadableTime($time) {
 		$ret = $time;
 		$formatter = 0;
 		$formats = array('ms', 's', 'm');
@@ -188,7 +169,7 @@ class PhpQuickProfiler {
 	     DISPLAY TO THE SCREEN -- CALL WHEN CODE TERMINATING
 	-----------------------------------------------------------*/
 
-	public function display($db = '', $master_db = '') {
+	function display($db = '', $master_db = '') {
 		$this->db = $db;
 		$this->master_db = $master_db;
 		$this->gatherConsoleData();

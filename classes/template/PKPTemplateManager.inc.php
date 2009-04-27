@@ -509,8 +509,8 @@ class PKPTemplateManager extends Smarty {
 			foreach ($pkpProfiler->getData() as $output => $value) {
 				$smarty->assign($output, $value);
 			}
-			$smarty->assign('pqpCss', Request::getBaseUrl() . '/' . 'lib/pkp/lib/pqp/css/pQp.css');
-			$smarty->assign('pqpTemplate', $_SERVER['DOCUMENT_ROOT'].'pkp/lib/pqp/pqp.tpl');
+			$smarty->assign('pqpCss', Request::getBaseUrl() . '/lib/pkp/lib/pqp/css/pQp.css');
+			$smarty->assign('pqpTemplate', BASE_SYS_DIR . '/lib/pkp/lib/pqp/pqp.tpl');
 		}
 	}
 

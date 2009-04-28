@@ -149,7 +149,7 @@ class PluginRegistry {
 	 */
 	function getCategories() {
 		$application =& PKPApplication::getApplication();
-		$categories =& $application->getPluginCategories();
+		$categories = $application->getPluginCategories();
 		HookRegistry::call('PluginRegistry::getCategories', array(&$categories));
 		return $categories;
 	}

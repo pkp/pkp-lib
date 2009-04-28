@@ -46,7 +46,7 @@ class SignoffDAO extends DAO {
 	 */
 	function build($symbolic, $assocType, $assocId) {
 		// If one exists, fetch and return.
-		$signoff =& $this->getBySymbolic($symbolic, $assocType, $assocId);
+		$signoff = $this->getBySymbolic($symbolic, $assocType, $assocId);
 		if ($signoff) return $signoff;
 
 		// Otherwise, build one.

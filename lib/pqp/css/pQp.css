@@ -113,6 +113,10 @@
 	visibility:hidden;
 }
 
+.hideMetrics {
+	display:none;
+}
+
 /* ----- Metrics ----- */
 
 #pqp-metrics td{

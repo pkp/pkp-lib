@@ -24,6 +24,7 @@ echo <<<JAVASCRIPT
 <script type="text/javascript">
 	var PQP_DETAILS = true;
 	var PQP_HEIGHT = "short";
+	var PQP_METRICS = true;
 	
 	addEvent(window, 'load', loadCSS);
 
@@ -42,6 +43,18 @@ echo <<<JAVASCRIPT
 		removeClassName(pQp, 'files');
 	}
 	
+	function toggleMetrics(){
+		var container = document.getElementById('pqp-metrics');
+		
+		if(PQP_METRICS){
+			addClassName(container, 'hideMetrics', true);
+			PQP_METRICS = false;
+		}
+		else{
+			removeClassName(container, 'hideMetrics');
+			PQP_METRICS = true;
+		}
+	}
 	function toggleDetails(){
 		var container = document.getElementById('pqp-container');
 		
@@ -336,6 +349,7 @@ echo <<<FOOTER
 				<b class="green">Q</b><b class="blue">u</b><b class="purple">i</b><b class="orange">c</b><b class="red">k</b>
 				Profiler</a></td>
 			<td class="actions">
+				<a href="#" onclick="toggleMetrics();return false">Metrics</a>
 				<a href="#" onclick="toggleDetails();return false">Details</a>
 				<a class="heightToggle" href="#" onclick="toggleHeight();return false">Height</a>
 			</td>

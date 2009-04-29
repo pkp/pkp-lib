@@ -22,6 +22,7 @@ class PhpQuickProfiler {
 	function PhpQuickProfiler($startTime) {
 		$this->startTime = $startTime;
 		require_once('Console.php');
+		Console::init();
 	}
 
 	/*-------------------------------------------

@@ -15,6 +15,14 @@
 
 class Console {
 
+	// constructor to initialize log counts
+	function Console() {
+		$GLOBALS['debugger_logs']['logCount'] = 0;
+		$GLOBALS['debugger_logs']['memoryCount'] = 0;
+		$GLOBALS['debugger_logs']['errorCount'] = 0;
+		$GLOBALS['debugger_logs']['speedCount'] = 0;
+	}
+
 	/*-----------------------------------
 	     LOG A VARIABLE TO CONSOLE
 	------------------------------------*/
@@ -25,9 +33,7 @@ class Console {
 			"type" => 'log'
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		if (isset($GLOBALS['debugger_logs']['logCount'])) {
-			$GLOBALS['debugger_logs']['logCount'] += 1;
-		}
+		$GLOBALS['debugger_logs']['logCount'] += 1;
 	}
 
 	/*---------------------------------------------------
@@ -46,9 +52,7 @@ class Console {
 				"dataType" => gettype($object)
 			);
 			$GLOBALS['debugger_logs']['console'][] = $logItem;
-			if (isset($GLOBALS['debugger_logs']['memoryCount'])) {
-				$GLOBALS['debugger_logs']['memoryCount'] += 1;
-			}
+			$GLOBALS['debugger_logs']['memoryCount'] += 1;
 		}
 	}
 
@@ -64,9 +68,7 @@ class Console {
 			"line" => $exception->getLine()
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		if (isset($GLOBALS['debugger_logs']['errorCount'])) {
-			$GLOBALS['debugger_logs']['errorCount'] += 1;
-		}
+		$GLOBALS['debugger_logs']['errorCount'] += 1;
 	}
 
 	/*------------------------------------
@@ -80,9 +82,7 @@ class Console {
 			"name" => $name
 		);
 		$GLOBALS['debugger_logs']['console'][] = $logItem;
-		if (isset($GLOBALS['debugger_logs']['speedCount'])) {
-			$GLOBALS['debugger_logs']['speedCount'] += 1;
-		}
+		$GLOBALS['debugger_logs']['speedCount'] += 1;
 	}
 
 	/*-----------------------------------

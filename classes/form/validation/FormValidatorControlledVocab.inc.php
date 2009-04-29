@@ -30,7 +30,7 @@ class FormValidatorControlledVocab extends FormValidator {
 	function FormValidatorControlledVocab(&$form, $field, $type, $message, $symbolic, $assocType, $assocId) {
 		parent::FormValidator($form, $field, $type, $message);
 		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
-		$controlledVocab =& $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
+		$controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
 		if ($controlledVocab) $this->acceptedValues = array_keys($controlledVocab->enumerate());
 		else $this->acceptedValues = null;
 	}

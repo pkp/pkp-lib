@@ -66,6 +66,9 @@ class Core {
 			}
 		}
 
+		// strip any invalid ASCII control characters
+		$var = String::utf8_strip_ascii_ctrl($var);
+
 		return trim($var);
 	}
 

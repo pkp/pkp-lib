@@ -46,7 +46,7 @@
 	<td width="80%" class="value"><select name="typeId" id="typeId" class="selectMenu" />
 		<option value=""></option>
 		{iterate from=announcementTypes item=announcementType}
-		<option value="{$announcementType->getTypeId()}"{if $typeId == $announcementType->getTypeId()} selected="selected"{/if}>{$announcementType->getAnnouncementTypeName()|escape}</option>
+		<option value="{$announcementType->getTypeId()}"{if $typeId == $announcementType->getTypeId()} selected="selected"{/if}>{$announcementType->getLocalizedTypeName()|escape}</option>
 		{/iterate} 
 	</select></td>
 </tr>

@@ -15,7 +15,7 @@
 
 <table width="100%">
 	<tr>
-		<td>{$announcement->getAnnouncementDescription()|nl2br}</td>
+		<td>{$announcement->getLocalizedDescription()|nl2br}</td>
 	</tr>
 </table>
 

@@ -102,15 +102,20 @@ class PKPAnnouncement extends DataObject {
 	 * Get localized announcement title
 	 * @return string
 	 */
-	function getAnnouncementTitle() {
+	function getLocalizedTitle() {
 		return $this->getLocalizedData('title');
+	}
+
+	function getAnnouncementTitle() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedTitle();
 	}
 
 	/**
 	 * Get full localized announcement title including type name
 	 * @return string
 	 */
-	function getAnnouncementTitleFull() {
+	function getLocalizedTitleFull() {
 		$typeName = $this->getAnnouncementTypeName();
 		$title = $this->getAnnouncementTitle();
 
@@ -119,6 +124,11 @@ class PKPAnnouncement extends DataObject {
 		} else {
 			return $title;
 		}
+	}
+
+	function getAnnouncementTitleFull() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedTitleFull();
 	}
 
 	/**
@@ -143,8 +153,13 @@ class PKPAnnouncement extends DataObject {
 	 * Get localized short description
 	 * @return string
 	 */
-	function getAnnouncementDescriptionShort() {
+	function getLocalizedDescriptionShort() {
 		return $this->getLocalizedData('descriptionShort');
+	}
+
+	function getAnnouncementDescriptionShort() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedDescriptionShort();
 	}
 
 	/**
@@ -169,8 +184,13 @@ class PKPAnnouncement extends DataObject {
 	 * Get localized full description
 	 * @return string
 	 */
-	function getAnnouncementDescription() {
+	function getLocalizedDescription() {
 		return $this->getLocalizedData('description');
+	}
+
+	function getAnnouncementDescription() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedDescription();
 	}
 
 	/**

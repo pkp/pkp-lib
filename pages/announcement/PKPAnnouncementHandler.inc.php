@@ -58,9 +58,9 @@ class PKPAnnouncementHandler extends Handler {
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->assign('announcement', $announcement);
 				if ($announcement->getTypeId() == null) {
-					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTitle());
+					$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitle());
 				} else {
-					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTypeName() . ": " . $announcement->getAnnouncementTitle());
+					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTypeName() . ": " . $announcement->getLocalizedTitle());
 				}
 				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'announcement'), 'announcement.announcements'));
 				$templateMgr->display('announcement/view.tpl');

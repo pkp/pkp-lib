@@ -81,8 +81,13 @@ class PKPUser extends DataObject {
 	/**
 	 * Get localized user signature.
 	 */
-	function getUserSignature() {
+	function getLocalizedSignature() {
 		return $this->getLocalizedData('signature');
+	}
+
+	function getUserSignature() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedSignature();
 	}
 
 	/**
@@ -331,8 +336,13 @@ class PKPUser extends DataObject {
 	/**
 	 * Get localized user biography.
 	 */
-	function getUserBiography() {
+	function getLocalizedBiography() {
 		return $this->getLocalizedData('biography');
+	}
+
+	function getUserBiography() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedBiography();
 	}
 
 	/**
@@ -356,8 +366,13 @@ class PKPUser extends DataObject {
 	/**
 	 * Get localized user interests.
 	 */
-	function getUserInterests() {
+	function getLocalizedInterests() {
 		return $this->getLocalizedData('interests');
+	}
+
+	function getUserInterests() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedInterests();
 	}
 
 	/**

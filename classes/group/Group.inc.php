@@ -27,8 +27,13 @@ class Group extends DataObject {
 	/**
 	 * Get localized title of journal group.
 	 */
-	function getGroupTitle() {
+	function getLocalizedTitle() {
 		return $this->getLocalizedData('title');
+	}
+
+	function getGroupTitle() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedTitle();
 	}
 
 	//

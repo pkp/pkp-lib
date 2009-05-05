@@ -23,14 +23,14 @@
 {iterate from=announcements item=announcement}
 	<tr class="title">
 	{if $announcement->getTypeId() != null}
-		<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getAnnouncementTitle()|escape}</h4></td>
+		<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4></td>
 	{else}
-		<td class="title"><h4>{$announcement->getAnnouncementTitle()|escape}</h4></td>
+		<td class="title"><h4>{$announcement->getLocalizedTitle()|escape}</h4></td>
 	{/if}
 		<td class="more">&nbsp;</td>
 	</tr>
 	<tr class="description">
-		<td class="description">{$announcement->getAnnouncementDescriptionShort()|nl2br}</td>
+		<td class="description">{$announcement->getLocalizedDescriptionShort()|nl2br}</td>
 		<td class="more">&nbsp;</td>
 	</tr>
 	<tr class="details">

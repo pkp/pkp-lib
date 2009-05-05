@@ -35,7 +35,7 @@
 	</tr>
 {iterate from=announcementTypes item=announcementType}
 	<tr valign="top">
-		<td>{$announcementType->getAnnouncementTypeName()|escape}</td>
+		<td>{$announcementType->getLocalizedTypeName()|escape}</td>
 		<td><a href="{url op="editAnnouncementType" path=$announcementType->getTypeId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteAnnouncementType" path=$announcementType->getTypeId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.announcementTypes.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
 	</tr>
 	<tr>

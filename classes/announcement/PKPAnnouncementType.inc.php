@@ -70,8 +70,13 @@ class PKPAnnouncementType extends DataObject {
 	 * Get the type of the announcement type.
 	 * @return string
 	 */
-	function getAnnouncementTypeName() {
+	function getLocalizedTypeName() {
 		return $this->getLocalizedData('name');
+	}
+
+	function getAnnouncementTypeName() {
+		trigger_error('Deprecated function');
+		return $this->getLocalizedTypeName();
 	}
 
 	/**

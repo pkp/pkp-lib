@@ -141,7 +141,7 @@ class NotificationHandler extends Handler {
 		$appName = $application->getNameKey();
 		
 		$site =& Request::getSite();
-		$siteTitle = $site->getSiteTitle();
+		$siteTitle = $site->getLocalizedTitle();
 	
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');

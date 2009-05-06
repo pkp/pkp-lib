@@ -277,11 +277,11 @@ class NotificationDAO extends DAO {
 		import('mail.MailTemplate');
 		$site =& Request::getSite();
 		$mail = new MailTemplate('NOTIFICATION');
-		$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
+		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(
 			'notificationContents' => $notificationContents,
 			'url' => $notification->getLocation(),
-			'siteTitle' => $site->getSiteTitle()
+			'siteTitle' => $site->getLocalizedTitle()
 		));
 		$mail->addRecipient($user->getEmail(), $user->getFullName());
 		$mail->send();
@@ -308,7 +308,7 @@ class NotificationDAO extends DAO {
 			$site =& Request::getSite();
 			
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
+			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'notificationContents' => $notificationContents,
 				'url' => $notification->getLocation(),

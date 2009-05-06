@@ -58,15 +58,20 @@ class Site extends DataObject {
 	/**
 	 * Get localized site title.
 	 */
-	function getSiteTitle() {
+	function getLocalizedTitle() {
 		return $this->getLocalizedSetting('title');
+	}
+
+	function getSiteTitle() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedTitle();
 	}
 
 	/**
 	 * Get "localized" site page title (if applicable).
 	 * @return string
 	 */
-	function getSitePageHeaderTitle() {
+	function getLocalizedPageHeaderTitle() {
 		$typeArray = $this->getData('pageHeaderTitleType');
 		$imageArray = $this->getData('pageHeaderTitleImage');
 		$titleArray = $this->getData('title');
@@ -83,12 +88,22 @@ class Site extends DataObject {
 		return null;
 	}
 
+	function getSitePageHeaderTitle() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedPageHeaderTitle();
+	}
+
 	/**
 	 * Get localized site logo type.
 	 * @return boolean
 	 */
-	function getSitePageHeaderTitleType() {
+	function getLocalizedPageHeaderTitleType() {
 		return $this->getLocalizedData('pageHeaderTitleType');
+	}
+
+	function getSitePageHeaderTitleType() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedPageHeaderTitleType();
 	}
 
 	/**
@@ -110,8 +125,13 @@ class Site extends DataObject {
 	/**
 	 * Get localized site intro.
 	 */
-	function getSiteIntro() {
+	function getLocalizedIntro() {
 		return $this->getLocalizedSetting('intro');
+	}
+
+	function getSiteIntro() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedIntro();
 	}
 
 	/**
@@ -133,22 +153,37 @@ class Site extends DataObject {
 	/**
 	 * Get localized site about statement.
 	 */
-	function getSiteAbout() {
+	function getLocalizedAbout() {
 		return $this->getLocalizedSetting('about');
+	}
+
+	function getSiteAbout() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedAbout();
 	}
 
 	/**
 	 * Get localized site contact name.
 	 */
-	function getSiteContactName() {
+	function getLocalizedContactName() {
 		return $this->getLocalizedSetting('contactName');
+	}
+
+	function getSiteContactName() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedContactName();
 	}
 
 	/**
 	 * Get localized site contact email.
 	 */
-	function getSiteContactEmail() {
+	function getLocalizedContactEmail() {
 		return $this->getLocalizedSetting('contactEmail');
+	}
+
+	function getSiteContactEmail() {
+		trigger_error('Deprecated function.');
+		return $this->getLocalizedContactEmail();
 	}
 
 	/**

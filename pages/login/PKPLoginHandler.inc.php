@@ -187,10 +187,10 @@ class PKPLoginHandler extends Handler {
 			// Send email confirming password reset
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
+			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'url' => PKPRequest::url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
-				'siteTitle' => $site->getSiteTitle()
+				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();
@@ -251,11 +251,11 @@ class PKPLoginHandler extends Handler {
 			$site = &Request::getSite();
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
-			$mail->setFrom($site->getSiteContactEmail(), $site->getSiteContactName());
+			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
 				'username' => $user->getUsername(),
 				'password' => $newPassword,
-				'siteTitle' => $site->getSiteTitle()
+				'siteTitle' => $site->getLocalizedTitle()
 			));
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
 			$mail->send();

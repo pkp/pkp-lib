@@ -20,10 +20,10 @@
 
 
 class Submission extends DataObject {
-	/** @var array Authors of this article */
+	/** @var array Authors of this submission */
 	var $authors;
 
-	/** @var array IDs of Authors removed from this article */
+	/** @var array IDs of Authors removed from this submission */
 	var $removedAuthors;
 
 	/**
@@ -120,7 +120,7 @@ class Submission extends DataObject {
 	//
 
 	/**
-	 * Get all authors of this article.
+	 * Get all authors of this submission.
 	 * @return array Authors
 	 */
 	function &getAuthors() {
@@ -128,7 +128,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get a specific author of this article.
+	 * Get a specific author of this submission.
 	 * @param $authorId int
 	 * @return array Authors
 	 */
@@ -146,7 +146,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get the IDs of all authors removed from this article.
+	 * Get the IDs of all authors removed from this submission.
 	 * @return array int
 	 */
 	function &getRemovedAuthors() {
@@ -154,7 +154,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Set authors of this article.
+	 * Set authors of this submission.
 	 * @param $authors array Authors
 	 */
 	function setAuthors($authors) {
@@ -187,6 +187,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get "localized" submission title (if applicable).
+	 * @return string
+	 */
+	function getLocalizedTitle() {
+		return $this->getLocalizedData('title');
+	}
+
+	/**
 	 * Get title.
 	 * @param $locale
 	 * @return string
@@ -202,6 +210,14 @@ class Submission extends DataObject {
 	 */
 	function setTitle($title, $locale) {
 		return $this->setData('title', $title, $locale);
+	}
+
+	/**
+	 * Get "localized" submission abstract (if applicable).
+	 * @return string
+	 */
+	function getLocalizedAbstract() {
+		return $this->getLocalizedData('abstract');
 	}
 
 	/**
@@ -223,6 +239,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized discipline
+	 * @return string
+	 */
+	function getLocalizedDiscipline() {
+		return $this->getLocalizedData('discipline');
+	}
+
+	/**
 	 * Get discipline
 	 * @param $locale
 	 * @return string
@@ -238,6 +262,14 @@ class Submission extends DataObject {
 	 */
 	function setDiscipline($discipline, $locale) {
 		return $this->setData('discipline', $discipline, $locale);
+	}
+
+	/**
+	 * Return the localized subject classification
+	 * @return string
+	 */
+	function getLocalizedSubjectClass() {
+		return $this->getLocalizedData('subjectClass');
 	}
 
 	/**
@@ -259,6 +291,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized subject
+	 * @return string
+	 */
+	function getLocalizedSubject() {
+		return $this->getLocalizedData('subject');
+	}
+
+	/**
 	 * Get subject.
 	 * @param $locale
 	 * @return string
@@ -274,6 +314,14 @@ class Submission extends DataObject {
 	 */
 	function setSubject($subject, $locale) {
 		return $this->setData('subject', $subject, $locale);
+	}
+
+	/**
+	 * Return the localized geographical coverage
+	 * @return string
+	 */
+	function getLocalizedCoverageGeo() {
+		return $this->getLocalizedData('coverageGeo');
 	}
 
 	/**
@@ -295,6 +343,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized chronological coverage
+	 * @return string
+	 */
+	function getLocalizedCoverageChron() {
+		return $this->getLocalizedData('coverageChron');
+	}
+
+	/**
 	 * Get chronological coverage.
 	 * @param $locale
 	 * @return string
@@ -313,6 +369,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized sample coverage
+	 * @return string
+	 */
+	function getLocalizedCoverageSample() {
+		return $this->getLocalizedData('coverageSample');
+	}
+
+	/**
 	 * Get research sample coverage.
 	 * @param $locale
 	 * @return string
@@ -328,6 +392,14 @@ class Submission extends DataObject {
 	 */
 	function setCoverageSample($coverageSample, $locale) {
 		return $this->setData('coverageSample', $coverageSample, $locale);
+	}
+
+	/**
+	 * Return the localized type (method/approach)
+	 * @return string
+	 */
+	function getLocalizedType() {
+		return $this->getLocalizedData('type');
 	}
 
 	/**
@@ -365,6 +437,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Return the localized sponsor
+	 * @return string
+	 */
+	function getLocalizedSponsor() {
+		return $this->getLocalizedData('sponsor');
+	}
+
+	/**
 	 * Get sponsor.
 	 * @param $locale
 	 * @return string
@@ -399,6 +479,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the localized cover filename
+	 * @return string
+	 */
+	function getLocalizedFileName() {
+		return $this->getLocalizedData('fileName');
+	}
+
+	/**
 	 * get file name
 	 * @param $locale string
 	 * @return string
@@ -414,6 +502,14 @@ class Submission extends DataObject {
 	 */
 	function setFileName($fileName, $locale) {
 		return $this->setData('fileName', $fileName, $locale);
+	}
+
+	/**
+	 * Get the localized submission cover width
+	 * @return string
+	 */
+	function getLocalizedWidth() {
+		return $this->getLocalizedData('width');
 	}
 
 	/**
@@ -435,6 +531,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the localized submission cover height
+	 * @return string
+	 */
+	function getLocalizedHeight() {
+		return $this->getLocalizedData('height');
+	}
+
+	/**
 	 * get height of cover page image
 	 * @param $locale string
 	 * @return string
@@ -450,6 +554,14 @@ class Submission extends DataObject {
 	 */
 	function setHeight($height, $locale) {
 		return $this->setData('height', $height, $locale);
+	}
+
+	/**
+	 * Get the localized cover filename on the uploader's computer
+	 * @return string
+	 */
+	function getLocalizedOriginalFileName() {
+		return $this->getLocalizedData('originalFileName');
 	}
 
 	/**
@@ -471,6 +583,14 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the localized cover alternate text
+	 * @return string
+	 */
+	function getLocalizedCoverPageAltText() {
+		return $this->getLocalizedData('coverPageAltText');
+	}
+
+	/**
 	 * get cover page alternate text
 	 * @param $locale string
 	 * @return string
@@ -486,6 +606,15 @@ class Submission extends DataObject {
 	 */
 	function setCoverPageAltText($coverPageAltText, $locale) {
 		return $this->setData('coverPageAltText', $coverPageAltText, $locale);
+	}
+
+	/**
+	 * Get the flag indicating whether or not to show
+	 * a cover page.
+	 * @return string
+	 */
+	function getLocalizedShowCoverPage() {
+		return $this->getLocalizedData('showCoverPage');
 	}
 
 	/**
@@ -605,7 +734,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get article status.
+	 * Get submission status.
 	 * @return int
 	 */
 	function getStatus() {
@@ -613,7 +742,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Set article status.
+	 * Set submission status.
 	 * @param $status int
 	 */
 	function setStatus($status) {
@@ -731,7 +860,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Return article RT comments status.
+	 * Return submission RT comments status.
 	 * @return int
 	 */
 	function getCommentsStatus() {
@@ -739,7 +868,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Set article RT comments status.
+	 * Set submission RT comments status.
 	 * @param $commentsStatus boolean
 	 */
 	function setCommentsStatus($commentsStatus) {

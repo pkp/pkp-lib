@@ -428,6 +428,23 @@ class PKPUserDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve an array of users with no role defined.
+	 * @param $allowDisabled boolean
+	 * @param $dbResultRange object The desired range of results to return
+	 * @return array matching Users
+	 */
+	function &getUsersWithNoRole($allowDisabled = true, $dbResultRange = null) {
+		$sql = 'SELECT u.* FROM users u LEFT JOIN roles r ON u.user_id=r.user_id WHERE r.role_id IS NULL';
+
+		$orderSql = ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+
+		$result =& $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, false, $dbResultRange);
+
+		$returner = new DAOResultFactory($result, $this, '_returnUserFromRowWithData');
+		return $returner;
+	}
+
+	/**
 	 * Check if a user exists with the specified user ID.
 	 * @param $userId int
 	 * @param $allowDisabled boolean

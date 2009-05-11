@@ -138,7 +138,7 @@ class Submission extends DataObject {
 		if ($authorId != 0) {
 			for ($i=0, $count=count($this->authors); $i < $count && $author == null; $i++) {
 				if ($this->authors[$i]->getAuthorId() == $authorId) {
-					$author = &$this->authors[$i];
+					$author =& $this->authors[$i];
 				}
 			}
 		}

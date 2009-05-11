@@ -67,15 +67,15 @@ class PKPAnnouncementForm extends Form {
 	 * Display the form.
 	 */
 	function display() {
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
 
 		$templateMgr->assign('announcementId', $this->announcementId);
 		$templateMgr->assign('yearOffsetFuture', ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE);
 		$templateMgr->assign('helpTopicId', 'conference.generalManagement.announcements');
 
-		$announcementTypeDao = &DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
-		$announcementTypes = &$announcementTypeDao->getAnnouncementTypesByAssocId($assocType, $assocId);
+		$announcementTypes =& $announcementTypeDao->getAnnouncementTypesByAssocId($assocType, $assocId);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
 
 		parent::display();
@@ -86,8 +86,8 @@ class PKPAnnouncementForm extends Form {
 	 */
 	function initData() {
 		if (isset($this->announcementId)) {
-			$announcementDao = &DAORegistry::getDAO('AnnouncementDAO');
-			$announcement = &$announcementDao->getAnnouncement($this->announcementId);
+			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+			$announcement =& $announcementDao->getAnnouncement($this->announcementId);
 			
 			if ($announcement != null) {
 				$this->_data = array(
@@ -117,10 +117,10 @@ class PKPAnnouncementForm extends Form {
 	 * Save announcement. 
 	 */
 	function execute() {
-		$announcementDao = &DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 		if (isset($this->announcementId)) {
-			$announcement = &$announcementDao->getAnnouncement($this->announcementId);
+			$announcement =& $announcementDao->getAnnouncement($this->announcementId);
 		}
 
 		if (!isset($announcement)) {

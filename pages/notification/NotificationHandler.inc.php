@@ -184,7 +184,7 @@ class NotificationHandler extends Handler {
 	 */
 	function subscribeMailList() {
 		parent::setupTemplate();
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('new', true);
 
 		$user = Request::getUser();

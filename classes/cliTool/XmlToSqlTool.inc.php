@@ -106,7 +106,7 @@ class XmlToSqlTool extends CommandLineTool {
 
 		} else {
 			// Create or upgrade existing database
-			$dbconn = &DBConnection::getConn();
+			$dbconn =& DBConnection::getConn();
 		}
 
 		$schema = new adoSchema($dbconn, Config::getVar('i18n', 'database_charset'));

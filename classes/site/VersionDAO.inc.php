@@ -144,7 +144,7 @@ class VersionDAO extends DAO {
 	 * @return DAOResultFactory containing matching versions
 	 */
 	function &getVersions($productType = null) {
-		$result = &$this->retrieveRange(
+		$result =& $this->retrieveRange(
 			'SELECT * FROM versions WHERE current = 1 ' .  
 			($productType ? 'AND product_type LIKE ? ' : '') .
 			'ORDER BY product', $productType ? $productType . '%' : ''

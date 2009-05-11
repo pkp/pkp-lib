@@ -35,10 +35,10 @@ class PKPLoginHandler extends Handler {
 			PKPRequest::redirectSSL();
 		}
 
-		$sessionManager = &SessionManager::getManager();
-		$session = &$sessionManager->getUserSession();
+		$sessionManager =& SessionManager::getManager();
+		$session =& $sessionManager->getUserSession();
 
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
 
 		// If the user wasn't expecting a login page, i.e. if they're new to the
 		// site and want to submit a paper, it helps to explain why they need to
@@ -123,10 +123,10 @@ class PKPLoginHandler extends Handler {
 			}
 
 		} else {
-			$sessionManager = &SessionManager::getManager();
-			$session = &$sessionManager->getUserSession();
+			$sessionManager =& SessionManager::getManager();
+			$session =& $sessionManager->getUserSession();
 
-			$templateMgr = &TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->assign('username', Request::getUserVar('username'));
 			$templateMgr->assign('remember', Request::getUserVar('remember'));
 			$templateMgr->assign('source', Request::getUserVar('source'));
@@ -214,12 +214,12 @@ class PKPLoginHandler extends Handler {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$confirmHash = Request::getUserVar('confirm');
 
-		if ($username == null || ($user = &$userDao->getUserByUsername($username)) == null) {
+		if ($username == null || ($user =& $userDao->getUserByUsername($username)) == null) {
 			PKPRequest::redirect(null, null, 'lostPassword');
 			return;
 		}
 
-		$templateMgr = &TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager();
 
 		$hash = Validation::generatePasswordResetHash($user->getUserId());
 		if ($hash == false || $confirmHash != $hash) {
@@ -233,8 +233,8 @@ class PKPLoginHandler extends Handler {
 			$newPassword = Validation::generatePassword();
 
 			if ($user->getAuthId()) {
-				$authDao = &DAORegistry::getDAO('AuthSourceDAO');
-				$auth = &$authDao->getPlugin($user->getAuthId());
+				$authDao =& DAORegistry::getDAO('AuthSourceDAO');
+				$auth =& $authDao->getPlugin($user->getAuthId());
 			}
 
 			if (isset($auth)) {
@@ -248,7 +248,7 @@ class PKPLoginHandler extends Handler {
 			$userDao->updateUser($user);
 
 			// Send email with new password
-			$site = &Request::getSite();
+			$site =& Request::getSite();
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());

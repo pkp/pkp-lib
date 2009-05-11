@@ -24,13 +24,13 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return AnnouncementType
 	 */
 	function &getAnnouncementType($typeId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT * FROM announcement_types WHERE type_id = ?', $typeId
 		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
-			$returner = &$this->_returnAnnouncementTypeFromRow($result->GetRowAssoc(false));
+			$returner =& $this->_returnAnnouncementTypeFromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
 		return $returner;
@@ -42,7 +42,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return int
 	 */
 	function getAnnouncementTypeAssocId($typeId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT assoc_id FROM announcement_types WHERE type_id = ?', $typeId
 		);
 
@@ -55,7 +55,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return string
 	 */
 	function getAnnouncementTypeName($typeId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings l LEFT JOIN announcement_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?', 
 			array(
 				$typeId, 'name', Locale::getLocale(),
@@ -79,7 +79,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return boolean
 	 */
 	function announcementTypeExistsByTypeId($typeId, $assocType, $assocId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT COUNT(*)
 				FROM announcement_types
 				WHERE type_id = ?
@@ -110,7 +110,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return int
 	 */
 	function getAnnouncementTypeByTypeName($typeName, $assocType) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT type_id
 				FROM announcement_types
 				WHERE type_name = ?
@@ -219,7 +219,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 
 		// Delete all announcements with this announcement type
 		if ($ret) {
-			$announcementDao = &DAORegistry::getDAO('AnnouncementDAO');
+			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 			return $announcementDao->deleteAnnouncementByTypeId($typeId);
 		} else {
 			return $ret;
@@ -244,7 +244,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return object DAOResultFactory containing matching AnnouncementTypes
 	 */
 	function &getAnnouncementTypesByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result = &$this->retrieveRange(
+		$result =& $this->retrieveRange(
 			'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id', array($assocType, $assocId), $rangeInfo
 		);
 

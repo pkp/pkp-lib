@@ -166,7 +166,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * Sequentially renumber entries in their sequence order.
 	 */
 	function resequence($controlledVocabId) {
-		$result = &$this->retrieve(
+		$result =& $this->retrieve(
 			'SELECT controlled_vocab_entry_id FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq',
 			array((int) $controlledVocabId)
 		);

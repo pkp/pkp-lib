@@ -94,7 +94,7 @@ class PKPAnnouncement extends DataObject {
 	 * @return string
 	 */
 	function getAnnouncementTypeName() {
-		$announcementTypeDao = &DAORegistry::getDAO('AnnouncementTypeDAO');
+		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 		return $announcementTypeDao->getAnnouncementTypeName($this->getData('typeId'));
 	}
 

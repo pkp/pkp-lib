@@ -30,7 +30,8 @@ class PKPAnnouncement extends DataObject {
 	 * @return int
 	 */
 	function getAnnouncementId() {
-		return $this->getData('announcementId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -38,7 +39,8 @@ class PKPAnnouncement extends DataObject {
 	 * @param $announcementId int
 	 */
 	function setAnnouncementId($announcementId) {
-		return $this->setData('announcementId', $announcementId);
+		trigger_error('Deprecated function.');
+		return $this->setId($announcementId);
 	}
 
 	/**

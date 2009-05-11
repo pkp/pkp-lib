@@ -100,7 +100,7 @@ class PKPAnnouncementTypeForm extends Form {
 		$announcementType->setName($this->getData('name'), null); // Localized
 
 		// Update or insert announcement type
-		if ($announcementType->getTypeId() != null) {
+		if ($announcementType->getId() != null) {
 			$announcementTypeDao->updateAnnouncementType($announcementType);
 		} else {
 			$announcementTypeDao->insertAnnouncementType($announcementType);

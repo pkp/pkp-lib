@@ -91,19 +91,21 @@ class Group extends DataObject {
 	}
 
 	/**
-	 * Get ID of group.
+	 * Get ID of group. Deprecated in favour of getId.
 	 * @return int
 	 */
 	function getGroupId() {
-		return $this->getData('groupId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
-	 * Set ID of group.
+	 * Set ID of group. DEPRECATED in favour of setId.
 	 * @param $groupId int
 	 */
 	function setGroupId($groupId) {
-		return $this->setData('groupId', $groupId);
+		trigger_error('Deprecated function.');
+		return $this->setId($groupId);
 	}
 
 	/**

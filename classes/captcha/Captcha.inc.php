@@ -34,7 +34,8 @@ class Captcha extends DataObject {
 	 * @return int
 	 */
 	function getCaptchaId() {
-		return $this->getData('captchaId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -42,7 +43,8 @@ class Captcha extends DataObject {
 	 * @param $captchaId int
 	 */
 	function setCaptchaId($captchaId) {
-		return $this->setData('captchaId', $captchaId);
+		trigger_error('Deprecated function.');
+		return $this->setId($captchaId);
 	}
 
 	/**

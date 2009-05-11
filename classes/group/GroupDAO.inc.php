@@ -81,7 +81,7 @@ class GroupDAO extends DAO {
 	 */
 	function &_returnGroupFromRow(&$row) {
 		$group = new Group();
-		$group->setGroupId($row['group_id']);
+		$group->setId($row['group_id']);
 		$group->setAboutDisplayed($row['about_displayed']);
 		$group->setSequence($row['seq']);
 		$group->setContext($row['context']);
@@ -100,7 +100,7 @@ class GroupDAO extends DAO {
 	 */
 	function updateLocaleFields(&$group) {
 		$this->updateDataObjectSettings('group_settings', $group, array(
-			'group_id' => $group->getGroupId()
+			'group_id' => $group->getId()
 		));
 	}
 
@@ -123,9 +123,9 @@ class GroupDAO extends DAO {
 			)
 		);
 
-		$group->setGroupId($this->getInsertGroupId());
+		$group->setId($this->getInsertGroupId());
 		$this->updateLocaleFields($group);
-		return $group->getGroupId();
+		return $group->getId();
 	}
 
 	/**
@@ -147,7 +147,7 @@ class GroupDAO extends DAO {
 				(int) $group->getAssocId(),
 				(int) $group->getAboutDisplayed(),
 				(int) $group->getContext(),
-				(int) $group->getGroupId()
+				(int) $group->getId()
 			)
 		);
 		$this->updateLocaleFields($group);
@@ -159,7 +159,7 @@ class GroupDAO extends DAO {
 	 * @param $group Group
 	 */
 	function deleteGroup(&$group) {
-		return $this->deleteGroupById($group->getGroupId());
+		return $this->deleteGroupById($group->getId());
 	}
 
 	/**

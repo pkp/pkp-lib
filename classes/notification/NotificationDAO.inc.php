@@ -90,7 +90,7 @@ class NotificationDAO extends DAO {
 	 */
 	function &_returnNotificationFromRow($row) {
 		$notification = new Notification();
-		$notification->setNotificationId($row['notification_id']);
+		$notification->setId($row['notification_id']);
 		$notification->setUserId($row['user_id']);
 		$notification->setDateCreated($row['date_created']);
 		$notification->setDateRead($row['date_read']);
@@ -146,8 +146,8 @@ class NotificationDAO extends DAO {
 				)
 			);
 		
-			$notification->setNotificationId($this->getInsertNotificationId());
-			return $notification->getNotificationId();
+			$notification->setId($this->getInsertNotificationId());
+			return $notification->getId();
 		} else return 0;
 	}
 	

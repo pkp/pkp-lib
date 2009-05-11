@@ -100,7 +100,7 @@ class CaptchaDAO extends DAO {
 	 */
 	function &_returnCaptchaFromRow($row) {
 		$captcha = new Captcha();
-		$captcha->setCaptchaId($row['captcha_id']);
+		$captcha->setId($row['captcha_id']);
 		$captcha->setSessionId($row['session_id']);
 		$captcha->setValue($row['value']);
 		$captcha->setDateCreated($this->datetimeFromDB($row['date_created']));
@@ -129,8 +129,8 @@ class CaptchaDAO extends DAO {
 			)
 		);
 
-		$captcha->setCaptchaId($this->getInsertCaptchaId());
-		return $captcha->getCaptchaId();
+		$captcha->setId($this->getInsertCaptchaId());
+		return $captcha->getId();
 	}
 
 	/**
@@ -148,7 +148,7 @@ class CaptchaDAO extends DAO {
 	function deleteCaptcha(&$captcha) {
 		$result = $this->update(
 			'DELETE FROM captchas WHERE captcha_id = ?',
-			array((int) $captcha->getCaptchaId())
+			array((int) $captcha->getId())
 		);
 	}
 
@@ -168,7 +168,7 @@ class CaptchaDAO extends DAO {
 			array(
 				(int) $captcha->getSessionId(),
 				$captcha->getValue(),
-				(int) $captcha->getCaptchaId()
+				(int) $captcha->getId()
 			)
 		);
 	}

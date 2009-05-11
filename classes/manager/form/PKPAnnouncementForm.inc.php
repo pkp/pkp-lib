@@ -147,7 +147,7 @@ class PKPAnnouncementForm extends Form {
 		}
 
 		// Update or insert announcement
-		if ($announcement->getAnnouncementId() != null) {
+		if ($announcement->getId() != null) {
 			$announcementDao->updateAnnouncement($announcement);
 		} else {
 			$announcement->setDatetimePosted(Core::getCurrentDate());

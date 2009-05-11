@@ -50,7 +50,7 @@ class TemporaryFileDAO extends DAO {
 	 */
 	function &_returnTemporaryFileFromRow(&$row) {
 		$temporaryFile = new TemporaryFile();
-		$temporaryFile->setFileId($row['file_id']);
+		$temporaryFile->setId($row['file_id']);
 		$temporaryFile->setFileName($row['file_name']);
 		$temporaryFile->setFileType($row['file_type']);
 		$temporaryFile->setFileSize($row['file_size']);
@@ -84,8 +84,8 @@ class TemporaryFileDAO extends DAO {
 			)
 		);
 
-		$temporaryFile->setFileId($this->getInsertTemporaryFileId());
-		return $temporaryFile->getFileId();
+		$temporaryFile->setId($this->getInsertTemporaryFileId());
+		return $temporaryFile->getId();
 	}
 
 	/**
@@ -110,11 +110,11 @@ class TemporaryFileDAO extends DAO {
 				(int) $temporaryFile->getFileSize(),
 				(int) $temporaryFile->getUserId(),
 				$temporaryFile->getOriginalFileName(),
-				(int) $temporaryFile->getFileId()
+				(int) $temporaryFile->getId()
 			)
 		);
 
-		return $temporaryFile->getFileId();
+		return $temporaryFile->getId();
 
 	}
 

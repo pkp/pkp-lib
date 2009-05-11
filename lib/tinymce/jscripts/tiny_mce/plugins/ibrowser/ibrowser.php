@@ -715,7 +715,7 @@
 							?>
 							<div class="rowDiv">
 							<label for="captchaPic"> <span class="pad20"> Captcha </span> </label>
-									<img src="<?php echo $init['captchaPath'] . $captcha->getCaptchaId(); ?>"/><br />
+									<img src="<?php echo $init['captchaPath'] . $captcha->getId(); ?>"/><br />
 							</div><br />
 							<div class="rowDiv">
 							<label for="captchaInput"> <span class="pad20"> <?php echo $l->m('im_101'); ?> </span> </label>

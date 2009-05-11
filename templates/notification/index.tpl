@@ -44,7 +44,7 @@
 				<td id="notificationLink" class="notificationFunction"></td>
 			{/if}
 			{if $isUserLoggedIn}
-				<td id="notificationDelete" class="notificationFunction"><a id="notificationDeleteLink" href="{url op="delete" path=$notification->getNotificationId()}">{translate key="common.delete"}</a></td>
+				<td id="notificationDelete" class="notificationFunction"><a id="notificationDeleteLink" href="{url op="delete" path=$notification->getId()}">{translate key="common.delete"}</a></td>
 			{/if}
 		</tr>
 		<tr>

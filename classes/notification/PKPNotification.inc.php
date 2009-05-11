@@ -61,7 +61,8 @@ class PKPNotification extends DataObject {
 	 * @return int
 	 */
 	function getNotificationId() {
-		return $this->getData('notificationId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -69,7 +70,8 @@ class PKPNotification extends DataObject {
 	 * @param $commentId int
 	 */
 	function setNotificationId($notificationId) {
-		return $this->setData('notificationId', $notificationId);
+		trigger_error('Deprecated function.');
+		return $this->setId($notificationId);
 	}
 	
 	/**
@@ -121,7 +123,7 @@ class PKPNotification extends DataObject {
 		if(!isset($dateRead)) {
 			$this->setIsUnread(true);
 			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->setDateRead($this->getNotificationId());
+			$notificationDao->setDateRead($this->getId());
 		} else {
 			$this->setIsUnread(false);
 			return $this->setData('dateRead', $dateRead);	

@@ -136,7 +136,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 */
 	function &_returnAnnouncementTypeFromRow(&$row) {
 		$announcementType = new AnnouncementType();
-		$announcementType->setTypeId($row['type_id']);
+		$announcementType->setId($row['type_id']);
 		$announcementType->setAssocType($row['assoc_type']);
 		$announcementType->setAssocId($row['assoc_id']);
 		$this->getDataObjectSettings('announcement_type_settings', 'type_id', $row['type_id'], $announcementType);
@@ -150,7 +150,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 */
 	function updateLocaleFields(&$announcementType) {
 		$this->updateDataObjectSettings('announcement_type_settings', $announcementType, array(
-			'type_id' => $announcementType->getTypeId()
+			'type_id' => $announcementType->getId()
 		));
 	}
 
@@ -170,9 +170,9 @@ class PKPAnnouncementTypeDAO extends DAO {
 				$announcementType->getAssocId()
 			)
 		);
-		$announcementType->setTypeId($this->getInsertTypeId());
+		$announcementType->setId($this->getInsertTypeId());
 		$this->updateLocaleFields($announcementType);
-		return $announcementType->getTypeId();
+		return $announcementType->getId();
 	}
 
 	/**
@@ -189,7 +189,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 			array(
 				$announcementType->getAssocType(),
 				$announcementType->getAssocId(),
-				$announcementType->getTypeId()
+				$announcementType->getId()
 				)
 				);
 				
@@ -204,7 +204,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteAnnouncementType($announcementType) {
-		return $this->deleteAnnouncementTypeById($announcementType->getTypeId());
+		return $this->deleteAnnouncementTypeById($announcementType->getId());
 	}
 
 	/**

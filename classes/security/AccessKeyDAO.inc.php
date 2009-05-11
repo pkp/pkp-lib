@@ -101,7 +101,7 @@ class AccessKeyDAO extends DAO {
 	 */
 	function &_returnAccessKeyFromRow(&$row) {
 		$accessKey = new AccessKey();
-		$accessKey->setAccessKeyId($row['access_key_id']);
+		$accessKey->setId($row['access_key_id']);
 		$accessKey->setKeyHash($row['key_hash']);
 		$accessKey->setExpiryDate($this->datetimeFromDB($row['expiry_date']));
 		$accessKey->setContext($row['context']);
@@ -132,8 +132,8 @@ class AccessKeyDAO extends DAO {
 			)
 		);
 
-		$accessKey->setAccessKeyId($this->getInsertAccessKeyId());
-		return $accessKey->getAccessKeyId();
+		$accessKey->setId($this->getInsertAccessKeyId());
+		return $accessKey->getId();
 	}
 
 	/**
@@ -156,7 +156,7 @@ class AccessKeyDAO extends DAO {
 				$accessKey->getContext(),
 				$accessKey->getAssocId()==''?null:(int) $accessKey->getAssocId(),
 				(int) $accessKey->getUserId(),
-				(int) $accessKey->getAccessKeyId()
+				(int) $accessKey->getId()
 			)
 		);
 	}
@@ -166,7 +166,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $accessKey AccessKey
 	 */
 	function deleteAccessKey(&$accessKey) {
-		return $this->deleteAccessKeyById($accessKey->getAccessKeyId());
+		return $this->deleteAccessKeyById($accessKey->getId());
 	}
 
 	/**

@@ -41,7 +41,8 @@ class TemporaryFile extends DataObject {
 	 * @return int
 	 */
 	function getFileId() {
-		return $this->getData('fileId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -49,7 +50,8 @@ class TemporaryFile extends DataObject {
 	 * @param $fileId int
 	 */
 	function setFileId($fileId) {
-		return $this->setData('fileId', $fileId);
+		trigger_error('Deprecated function.');
+		return $this->setId($fileId);
 	}
 
 	/**

@@ -20,7 +20,7 @@
 // $Id$
 
 
-class Session extends DataObject  {
+class Session extends DataObject {
 
 	/** The User object associated with this session */
 	var $user;
@@ -69,22 +69,6 @@ class Session extends DataObject  {
 	//
 	// Get/set methods
 	//
-
-	/**
-	 * Get session ID.
-	 * @return string
-	 */
-	function getId() {
-		return $this->getData('id');
-	}
-
-	/**
-	 * Set session ID.
-	 * @param $id string
-	 */
-	function setId($id) {
-		return $this->setData('id', $id);
-	}
 
 	/**
 	 * Get user ID (0 if anonymous user).

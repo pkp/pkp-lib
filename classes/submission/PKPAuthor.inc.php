@@ -43,7 +43,8 @@ class PKPAuthor extends DataObject {
 	 * @return int
 	 */
 	function getAuthorId() {
-		return $this->getData('authorId');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -51,7 +52,8 @@ class PKPAuthor extends DataObject {
 	 * @param $authorId int
 	 */
 	function setAuthorId($authorId) {
-		return $this->setData('authorId', $authorId);
+		trigger_error('Deprecated function.');
+		return $this->setId($authorId);
 	}
 
 	/**

@@ -306,11 +306,11 @@ class PKPMailTemplate extends Mail {
 		if (Request::getUserVar('persistAttachments') != null) foreach (Request::getUserVar('persistAttachments') as $fileId) {
 			$temporaryFile = $temporaryFileManager->getFile($fileId, $userId);
 			if (!empty($temporaryFile)) {
-				if ($deleteAttachment != $temporaryFile->getFileId()) {
+				if ($deleteAttachment != $temporaryFile->getId()) {
 					$this->persistAttachments[] = $temporaryFile;
 				} else {
 					// This file is being deleted.
-					$temporaryFileManager->deleteFile($temporaryFile->getFileId(), $userId);
+					$temporaryFileManager->deleteFile($temporaryFile->getId(), $userId);
 				}
 			}
 		}
@@ -340,7 +340,7 @@ class PKPMailTemplate extends Mail {
 		if (is_array($persistAttachments)) foreach ($persistAttachments as $fileId) {
 			$temporaryFile = $temporaryFileManager->getFile($fileId, $userId);
 			if (!empty($temporaryFile)) {
-				$temporaryFileManager->deleteFile($temporaryFile->getFileId(), $userId);
+				$temporaryFileManager->deleteFile($temporaryFile->getId(), $userId);
 			}
 		}
 	}

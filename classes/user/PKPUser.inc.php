@@ -35,7 +35,8 @@ class PKPUser extends DataObject {
 	 * @return int
 	 */
 	function getUserId() {
-		return $this->getData('userId');
+		// FIXME: Deprecate this function in favour of getId!
+		return $this->getData('id');
 	}
 
 	/**
@@ -43,7 +44,8 @@ class PKPUser extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		return $this->setData('userId', $userId);
+		// FIXME: Deprecate this function in favour of setId!
+		return $this->setData('id', $userId);
 	}
 
 	/**

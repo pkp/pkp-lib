@@ -40,7 +40,7 @@
 		<td>{$announcement->getDateExpire()|date_format:$dateFormatShort}</td>
 		<td>{$announcement->getAnnouncementTypeName()}</td>
 		<td>{$announcement->getLocalizedTitle()|escape}</td>
-		<td><a href="{url op="editAnnouncement" path=$announcement->getAnnouncementId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteAnnouncement" path=$announcement->getAnnouncementId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.announcements.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
+		<td><a href="{url op="editAnnouncement" path=$announcement->getId()}" class="action">{translate key="common.edit"}</a>&nbsp;|&nbsp;<a href="{url op="deleteAnnouncement" path=$announcement->getId()}" onclick="return confirm('{translate|escape:"jsparam" key="manager.announcements.confirmDelete"}')" class="action">{translate key="common.delete"}</a></td>
 	</tr>
 	<tr>
 		<td colspan="4" class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>

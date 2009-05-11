@@ -75,7 +75,7 @@ class PKPAnnouncementDAO extends DAO {
 	 */
 	function &_returnAnnouncementFromRow(&$row) {
 		$announcement = new Announcement();
-		$announcement->setAnnouncementId($row['announcement_id']);
+		$announcement->setId($row['announcement_id']);
 		$announcement->setAssocType($row['assoc_type']);
 		$announcement->setAssocId($row['assoc_id']);
 		$announcement->setTypeId($row['type_id']);
@@ -93,7 +93,7 @@ class PKPAnnouncementDAO extends DAO {
 	 */
 	function updateLocaleFields(&$announcement) {
 		$this->updateDataObjectSettings('announcement_settings', $announcement, array(
-			'announcement_id' => $announcement->getAnnouncementId()
+			'announcement_id' => $announcement->getId()
 		));
 	}
 
@@ -115,9 +115,9 @@ class PKPAnnouncementDAO extends DAO {
 				$announcement->getTypeId()
 			)
 		);
-		$announcement->setAnnouncementId($this->getInsertAnnouncementId());
+		$announcement->setId($this->getInsertAnnouncementId());
 		$this->updateLocaleFields($announcement);
-		return $announcement->getAnnouncementId();
+		return $announcement->getId();
 	}
 
 	/**
@@ -139,7 +139,7 @@ class PKPAnnouncementDAO extends DAO {
 				$announcement->getAssocType(),
 				$announcement->getAssocId(),
 				$announcement->getTypeId(),
-				$announcement->getAnnouncementId()
+				$announcement->getId()
 			)
 		);
 		$this->updateLocaleFields($announcement);
@@ -152,7 +152,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteAnnouncement($announcement) {
-		return $this->deleteAnnouncementById($announcement->getAnnouncementId());
+		return $this->deleteAnnouncementById($announcement->getId());
 	}
 
 	/**
@@ -186,7 +186,7 @@ class PKPAnnouncementDAO extends DAO {
 	 function deleteAnnouncementsByAssocId($assocType, $assocId) {
 		$announcements =& $this->getAnnouncementsByAssocId($assocType, $assocId);
 		while (($announcement =& $announcements->next())) {
-			$this->deleteAnnouncementById($announcement->getAnnouncementId());
+			$this->deleteAnnouncementById($announcement->getId());
 			unset($announcement);
 		}
 		return true;	 	

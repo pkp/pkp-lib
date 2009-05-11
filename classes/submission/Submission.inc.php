@@ -62,7 +62,7 @@ class Submission extends DataObject {
 			// FIXME maintain a hash of ID to author for quicker get/remove
 			$authors = array();
 			for ($i=0, $count=count($this->authors); $i < $count; $i++) {
-				if ($this->authors[$i]->getAuthorId() == $authorId) {
+				if ($this->authors[$i]->getId() == $authorId) {
 					array_push($this->removedAuthors, $authorId);
 					$found = true;
 				} else {
@@ -137,7 +137,7 @@ class Submission extends DataObject {
 
 		if ($authorId != 0) {
 			for ($i=0, $count=count($this->authors); $i < $count && $author == null; $i++) {
-				if ($this->authors[$i]->getAuthorId() == $authorId) {
+				if ($this->authors[$i]->getId() == $authorId) {
 					$author =& $this->authors[$i];
 				}
 			}

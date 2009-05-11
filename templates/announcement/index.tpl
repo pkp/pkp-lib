@@ -35,7 +35,7 @@
 	</tr>
 	<tr class="details">
 		<td class="posted">{translate key="announcement.posted"}: {$announcement->getDatePosted()}</td>
-		<td class="more"><a href="{url op="view" path=$announcement->getAnnouncementId()}">{translate key="announcement.viewLink"}</a></td>
+		<td class="more"><a href="{url op="view" path=$announcement->getId()}">{translate key="announcement.viewLink"}</a></td>
 	</tr>
 	<tr>
 		<td colspan="2" class="{if $announcements->eof()}end{/if}separator">&nbsp;</td>

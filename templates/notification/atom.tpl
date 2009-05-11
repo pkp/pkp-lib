@@ -19,7 +19,7 @@
 
 {foreach from=$notifications item=notification}
 	<entry>
-		<id>$notification->getNotificationId()</id>
+		<id>{$notification->getId()}</id>
 		<title>{translate key="notification.notification"} : {$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</title>
 		{if $notification->getLocation() != null}
 			<link rel="alternate" href="{$notification->getLocation()}" />					

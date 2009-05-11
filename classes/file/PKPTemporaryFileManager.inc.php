@@ -158,7 +158,7 @@ class PKPTemporaryFileManager extends FileManager {
 			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
 			$expiredFiles = $temporaryFileDao->getExpiredFiles();
 			foreach ($expiredFiles as $expiredFile) {
-				$this->deleteFile($expiredFile->getFileId(), $expiredFile->getUserId());
+				$this->deleteFile($expiredFile->getId(), $expiredFile->getUserId());
 			}
 		}
 	}

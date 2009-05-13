@@ -78,7 +78,7 @@ class SessionDAO extends DAO {
 	 * Update an existing session.
 	 * @param $session Session
 	 */
-	function updateSession(&$session) {
+	function updateObject(&$session) {
 		return $this->update(
 			'UPDATE sessions
 				SET
@@ -103,12 +103,22 @@ class SessionDAO extends DAO {
 		);
 	}
 
+	function updateSession(&$session) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($session);
+	}
+
 	/**
 	 * Delete a session.
 	 * @param $session Session
 	 */
-	function deleteSession(&$session) {
+	function deleteObject(&$session) {
 		return $this->deleteSessionById($session->getId());
+	}
+
+	function deleteSession(&$session) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($session);
 	}
 
 	/**

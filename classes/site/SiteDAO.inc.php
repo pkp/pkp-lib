@@ -85,7 +85,7 @@ class SiteDAO extends DAO {
 	 * Update existing site information.
 	 * @param $site Site
 	 */
-	function updateSite(&$site) {
+	function updateObject(&$site) {
 		return $this->update(
 			'UPDATE site
 				SET
@@ -104,6 +104,11 @@ class SiteDAO extends DAO {
 				$site->getOriginalStyleFilename()
 			)
 		);
+	}
+
+	function updateSite(&$site) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($site);
 	}
 }
 

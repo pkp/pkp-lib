@@ -91,7 +91,7 @@ class SessionManager {
 
 			// Update existing session's timestamp
 			$this->userSession->setSecondsLastUsed($now);
-			$this->sessionDao->updateSession($this->userSession);
+			$this->sessionDao->updateObject($this->userSession);
 		}
 	}
 
@@ -158,7 +158,7 @@ class SessionManager {
 	function write($sessionId, $data) {
 		if (isset($this->userSession)) {
 			$this->userSession->setSessionData($data);
-			return $this->sessionDao->updateSession($this->userSession);
+			return $this->sessionDao->updateObject($this->userSession);
 
 		} else {
 			return true;

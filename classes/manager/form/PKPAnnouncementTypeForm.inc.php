@@ -101,7 +101,7 @@ class PKPAnnouncementTypeForm extends Form {
 
 		// Update or insert announcement type
 		if ($announcementType->getId() != null) {
-			$announcementTypeDao->updateAnnouncementType($announcementType);
+			$announcementTypeDao->updateObject($announcementType);
 		} else {
 			$announcementTypeDao->insertAnnouncementType($announcementType);
 		}

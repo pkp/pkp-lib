@@ -244,7 +244,7 @@ class PKPUserDAO extends DAO {
 	 * Update an existing user.
 	 * @param $user User
 	 */
-	function updateUser(&$user) {
+	function updateObject(&$user) {
 		if ($user->getDateLastLogin() == null) {
 			$user->setDateLastLogin(Core::getCurrentDate());
 		}
@@ -306,12 +306,22 @@ class PKPUserDAO extends DAO {
 		);
 	}
 
+	function updateUser(&$user) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($user);
+	}
+
 	/**
 	 * Delete a user.
 	 * @param $user User
 	 */
-	function deleteUser(&$user) {
+	function deleteObject(&$user) {
 		return $this->deleteUserById($user->getId());
+	}
+
+	function deleteUser(&$user) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($user);
 	}
 
 	/**

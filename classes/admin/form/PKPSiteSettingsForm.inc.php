@@ -113,7 +113,7 @@ class PKPSiteSettingsForm extends Form {
 			$site->setData('pageHeaderTitleImage', $setting);
 		}
 
-		$siteDao->updateSite($site);
+		$siteDao->updateObject($site);
 		return true;
 	}
 
@@ -134,7 +134,7 @@ class PKPSiteSettingsForm extends Form {
 			if($fileManager->uploadSiteFile('siteStyleSheet', $uploadName)) {
 				$siteDao =& DAORegistry::getDAO('SiteDAO');
 				$site->setOriginalStyleFilename($fileManager->getUploadedFileName('siteStyleSheet'));
-				$siteDao->updateSite($site);
+				$siteDao->updateObject($site);
 			}
 		}
 
@@ -167,7 +167,7 @@ class PKPSiteSettingsForm extends Form {
 				);
 				$siteDao =& DAORegistry::getDAO('SiteDAO');
 				$site->setData('pageHeaderTitleImage', $setting);
-				$siteDao->updateSite($site);
+				$siteDao->updateObject($site);
 			}
 		}
 

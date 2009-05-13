@@ -125,7 +125,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $announcement Announcement
 	 * @return boolean
 	 */
-	function updateAnnouncement(&$announcement) {
+	function updateObject(&$announcement) {
 		$returner = $this->update(
 			sprintf('UPDATE announcements
 				SET
@@ -146,13 +146,23 @@ class PKPAnnouncementDAO extends DAO {
 		return $returner;
 	}
 
+	function updateAnnouncement(&$announcement) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($announcement);
+	}
+
 	/**
 	 * Delete an announcement.
 	 * @param $announcement Announcement
 	 * @return boolean
 	 */
-	function deleteAnnouncement($announcement) {
+	function deleteObject($announcement) {
 		return $this->deleteAnnouncementById($announcement->getId());
+	}
+
+	function deleteAnnouncement($announcement) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($announcement);
 	}
 
 	/**
@@ -173,7 +183,7 @@ class PKPAnnouncementDAO extends DAO {
 	function deleteAnnouncementByTypeId($typeId) {
 		$announcements =& $this->getAnnouncementsByTypeId($typeId);
 		while (($announcement =& $announcements->next())) {
-			$this->deleteAnnouncement($announcement);
+			$this->deleteObject($announcement);
 			unset($announcement);
 		}
 	}

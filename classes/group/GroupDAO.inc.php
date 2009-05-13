@@ -132,7 +132,7 @@ class GroupDAO extends DAO {
 	 * Update an existing board group.
 	 * @param $group Group
 	 */
-	function updateGroup(&$group) {
+	function updateObject(&$group) {
 		$returner = $this->update(
 			'UPDATE groups
 				SET	seq = ?,
@@ -154,12 +154,22 @@ class GroupDAO extends DAO {
 		return $returner;
 	}
 
+	function updateGroup(&$group) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($group);
+	}
+
 	/**
 	 * Delete a board group, including membership info
 	 * @param $group Group
 	 */
-	function deleteGroup(&$group) {
+	function deleteObject(&$group) {
 		return $this->deleteGroupById($group->getId());
+	}
+
+	function deleteGroup(&$group) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($group);
 	}
 
 	/**
@@ -181,7 +191,7 @@ class GroupDAO extends DAO {
 	function deleteGroupsByAssocId($assocType, $assocId) {
 		$groups =& $this->getGroups($assocType, $assocId);
 		while ($group =& $groups->next()) {
-			$this->deleteGroup($group);
+			$this->deleteObject($group);
 			unset($group);
 		}
 	}

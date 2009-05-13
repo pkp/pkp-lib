@@ -92,7 +92,7 @@ class TemporaryFileDAO extends DAO {
 	 * Update an existing temporary file.
 	 * @param $temporary TemporaryFile
 	 */
-	function updateTemporaryFile(&$temporaryFile) {
+	function updateObject(&$temporaryFile) {
 		$this->update(
 			sprintf('UPDATE temporary_files
 				SET
@@ -115,7 +115,11 @@ class TemporaryFileDAO extends DAO {
 		);
 
 		return $temporaryFile->getId();
+	}
 
+	function updateTemporaryFile(&$temporaryFile) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($temporaryFile);
 	}
 
 	/**

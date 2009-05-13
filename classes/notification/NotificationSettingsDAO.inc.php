@@ -324,7 +324,7 @@ class NotificationSettingsDAO extends DAO {
 				)
 			);
 			$accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
-			$accessKeyDao->deleteAccessKey($accessKey);
+			$accessKeyDao->deleteObject($accessKey);
 			return true;
 		} else return false;
 	}
@@ -433,7 +433,7 @@ class NotificationSettingsDAO extends DAO {
 			$accessKey->setKeyHash(md5($key));
 
 			$accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
-			$accessKeyDao->updateAccessKey($accessKey);
+			$accessKeyDao->updateObject($accessKey);
 			return $key;
 		} else return false;
 	}

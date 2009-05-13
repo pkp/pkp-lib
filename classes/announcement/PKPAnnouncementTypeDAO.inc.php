@@ -180,7 +180,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $announcement AnnouncementType
 	 * @return boolean
 	 */
-	function updateAnnouncementType(&$announcementType) {
+	function updateObject(&$announcementType) {
 		$returner = $this->update(
 			'UPDATE	announcement_types
 			SET	assoc_type = ?,
@@ -197,14 +197,24 @@ class PKPAnnouncementTypeDAO extends DAO {
 		return $returner;
 	}
 
+	function updateAnnouncementType(&$announcementType) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($announcementType);
+	}
+
 	/**
 	 * Delete an announcement type. Note that all announcements with this type are also
 	 * deleted.
 	 * @param $announcementType AnnouncementType
 	 * @return boolean
 	 */
-	function deleteAnnouncementType($announcementType) {
+	function deleteObject($announcementType) {
 		return $this->deleteAnnouncementTypeById($announcementType->getId());
+	}
+
+	function deleteAnnouncementType($announcementType) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($announcementType);
 	}
 
 	/**
@@ -233,7 +243,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	function deleteAnnouncementTypesByAssocId($assocType, $assocId) {
 		$types =& $this->getAnnouncementTypesByAssocId($assocType, $assocId);
 		while (($type =& $types->next())) {
-			$this->deleteAnnouncementType($type);
+			$this->deleteObject($type);
 			unset($type);
 		}
 	}

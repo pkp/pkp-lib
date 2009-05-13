@@ -182,7 +182,7 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_updateSession"
+			// in hook calls named e.g. "SessionDAO::_updateObject"
 			$value = null;
 			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$value))) {
 				return $value;

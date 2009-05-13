@@ -117,7 +117,7 @@ class GroupMembershipDAO extends DAO {
 	 * Update an existing group membership.
 	 * @param $membership GroupMembership
 	 */
-	function updateMembership(&$membership) {
+	function updateObject(&$membership) {
 		return $this->update(
 			'UPDATE group_memberships
 				SET
@@ -135,12 +135,22 @@ class GroupMembershipDAO extends DAO {
 		);
 	}
 
+	function updateMembership(&$membership) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($membership);
+	}
+
 	/**
 	 * Delete a membership
 	 * @param $journal GroupMembership
 	 */
-	function deleteMembership(&$membership) {
+	function deleteObject(&$membership) {
 		return $this->deleteMembershipById($membership->getGroupId(), $membership->getUserId());
+	}
+
+	function deleteMembership(&$membership) {
+		trigger_error('Deprecated functin.');
+		return $this->deleteObject($membership);
 	}
 
 	/**

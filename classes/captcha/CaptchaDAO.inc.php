@@ -145,18 +145,23 @@ class CaptchaDAO extends DAO {
 	 * removes a captcha from captchas table
 	 * @param Captcha object
 	 */
-	function deleteCaptcha(&$captcha) {
+	function deleteObject(&$captcha) {
 		$result = $this->update(
 			'DELETE FROM captchas WHERE captcha_id = ?',
 			array((int) $captcha->getId())
 		);
 	}
 
+	function deleteCaptcha(&$captcha) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($captcha);
+	}
+
 	/**
 	 * updates a captcha
 	 * @param Captcha object
 	 */
-	function updateCaptcha(&$captcha) {
+	function updateObject(&$captcha) {
 		$this->update(
 			sprintf('UPDATE captchas
 				SET
@@ -171,6 +176,11 @@ class CaptchaDAO extends DAO {
 				(int) $captcha->getId()
 			)
 		);
+	}
+
+	function updateCaptcha(&$captcha) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($captcha);
 	}
 }
 

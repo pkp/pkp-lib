@@ -40,7 +40,7 @@ class FormValidatorCaptcha extends FormValidator {
 		$captchaValue = $this->form->getData($this->field);
 		$captcha =& $captchaDao->getCaptcha($captchaId);
 		if ($captcha && $captcha->getValue() === $captchaValue) {
-			$captchaDao->deleteCaptcha($captcha);
+			$captchaDao->deleteObject($captcha);
 			return true;
 		}
 		return false;

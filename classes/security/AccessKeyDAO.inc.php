@@ -140,7 +140,7 @@ class AccessKeyDAO extends DAO {
 	 * Update an existing accessKey.
 	 * @param $accessKey AccessKey
 	 */
-	function updateAccessKey(&$accessKey) {
+	function updateObject(&$accessKey) {
 		return $this->update(
 			sprintf('UPDATE access_keys
 				SET
@@ -161,12 +161,22 @@ class AccessKeyDAO extends DAO {
 		);
 	}
 
+	function updateAccessKey(&$accessKey) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($accessKey);
+	}
+
 	/**
 	 * Delete an accessKey.
 	 * @param $accessKey AccessKey
 	 */
-	function deleteAccessKey(&$accessKey) {
+	function deleteObject(&$accessKey) {
 		return $this->deleteAccessKeyById($accessKey->getId());
+	}
+
+	function deleteAccessKey(&$accessKey) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($accessKey);
 	}
 
 	/**

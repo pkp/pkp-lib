@@ -419,7 +419,7 @@ class Mail extends DataObject {
 		} else {
 			$sent = String::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
 		}
-		
+
 		if (!$sent) {
 			if (Config::getVar('email', 'display_errors')) {
 				if (Config::getVar('email', 'smtp')) {

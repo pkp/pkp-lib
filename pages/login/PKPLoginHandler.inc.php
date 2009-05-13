@@ -9,7 +9,7 @@
  * @class PKPLoginHandler
  * @ingroup pages_login
  *
- * @brief Handle login/logout requests. 
+ * @brief Handle login/logout requests.
  */
 
 // $Id$
@@ -52,22 +52,22 @@ class PKPLoginHandler extends Handler {
 		$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
 		$templateMgr->display('user/login.tpl');
 	}
-	
+
 	/**
 	 * Handle login when implicitAuth is enabled.
 	 * If the user came in on a non-ssl url - then redirect back to the ssl url
 	 */
-	function implicitAuthLogin() {	
-		if (Request::getProtocol() != 'https') 
+	function implicitAuthLogin() {
+		if (Request::getProtocol() != 'https')
 			PKPRequest::redirectSSL();
 
 		$wayf_url = Config::getVar("security", "implicit_auth_wayf_url");
-		
+
 		if ($wayf_url == "")
 			die("Error in implicit authentication. WAYF URL not set in config file.");
-			
+
 		$url = $wayf_url . "?target=https://" . Request::getServerHost() . Request::getBasePath() . '/index.php/index/login/implicitAuthReturn';
-		
+
 		PKPRequest::redirectUrl($url);
 	}
 
@@ -79,12 +79,12 @@ class PKPLoginHandler extends Handler {
 
 		if (Validation::isLoggedIn()) {
 			PKPRequest::redirect(null, 'user');
-		}		
+		}
 
 		// Login - set remember to false
-		$user = Validation::login(Request::getUserVar('username'), Request::getUserVar('password'), $reason, false);		
+		$user = Validation::login(Request::getUserVar('username'), Request::getUserVar('password'), $reason, false);
 
-		PKPRequest::redirect(null, 'user');		
+		PKPRequest::redirect(null, 'user');
 	}
 
 	/**
@@ -177,7 +177,7 @@ class PKPLoginHandler extends Handler {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user =& $userDao->getUserByEmail($email);
 
-		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getUserId())) == false) {
+		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
 			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
 			$templateMgr->display('user/lostPassword.tpl');
 
@@ -221,7 +221,7 @@ class PKPLoginHandler extends Handler {
 
 		$templateMgr =& TemplateManager::getManager();
 
-		$hash = Validation::generatePasswordResetHash($user->getUserId());
+		$hash = Validation::generatePasswordResetHash($user->getId());
 		if ($hash == false || $confirmHash != $hash) {
 			$templateMgr->assign('errorMsg', 'user.login.lostPassword.invalidHash');
 			$templateMgr->assign('backLink', PKPRequest::url(null, null, 'lostPassword'));
@@ -239,7 +239,7 @@ class PKPLoginHandler extends Handler {
 
 			if (isset($auth)) {
 				$auth->doSetUserPassword($user->getUsername(), $newPassword);
-				$user->setPassword(Validation::encryptCredentials($user->getUserId(), Validation::generatePassword())); // Used for PW reset hash only
+				$user->setPassword(Validation::encryptCredentials($user->getId(), Validation::generatePassword())); // Used for PW reset hash only
 			} else {
 				$user->setPassword(Validation::encryptCredentials($user->getUsername(), $newPassword));
 			}

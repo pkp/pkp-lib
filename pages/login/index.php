@@ -3,7 +3,7 @@
 /**
  * @defgroup pages_login
  */
- 
+
 /**
  * @file pages/login/index.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_login
- * @brief PKPHandle login/logout requests. 
+ * @brief PKPHandle login/logout requests.
  *
  */
 

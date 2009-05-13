@@ -9,7 +9,7 @@
  * @class AnnouncementHandler
  * @ingroup pages_manager
  *
- * @brief Handle requests for announcement management functions. 
+ * @brief Handle requests for announcement management functions.
  */
 
 //$Id$
@@ -41,10 +41,10 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$templateMgr->assign_by_ref('announcements', $announcements);
 		$templateMgr->display('manager/announcement/announcements.tpl');
 	}
-	
+
 	function &_getAnnouncements() {
 		fatalError('Abstract Method');
-	}	
+	}
 
 	/**
 	 * Delete an announcement.
@@ -88,7 +88,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			if ($announcementId == null) {
 				$templateMgr->assign('announcementTitle', 'manager.announcements.createTitle');
 			} else {
-				$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');	
+				$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');
 			}
 
 			// FIXME: Need construction by reference or validation always fails on PHP 4.x
@@ -147,7 +147,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				if ($announcementId == null) {
 					$templateMgr->assign('announcementTitle', 'manager.announcements.createTitle');
 				} else {
-					$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');	
+					$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');
 				}
 
 				$announcementForm->display();
@@ -155,8 +155,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		} else {
 				PKPRequest::redirect(null, null, 'announcements');
-		}	
-	}	
+		}
+	}
 
 	/**
 	 * Display a list of announcement types for the current conference.
@@ -185,7 +185,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 */
 	function deleteAnnouncementType($args) {
 		$this->validate();
-		
+
 		if (isset($args) && !empty($args)) {
 			$typeId = (int) $args[0];
 
@@ -221,7 +221,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			if ($typeId == null) {
 				$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.createTitle');
 			} else {
-				$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.editTitle');	
+				$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.editTitle');
 			}
 
 			// FIXME: Need construction by reference or validation always fails on PHP 4.x
@@ -280,7 +280,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				if ($typeId == null) {
 					$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.createTitle');
 				} else {
-					$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.editTitle');	
+					$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.editTitle');
 				}
 
 				$announcementTypeForm->display();
@@ -288,8 +288,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		} else {
 				PKPRequest::redirect(null, null, 'announcementTypes');
-		}	
-	}	
+		}
+	}
 
 	function setupTemplate($subclass = false) {
 		parent::setupTemplate(true);
@@ -298,14 +298,14 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
 		}
 	}
-	
+
 	function _announcementIsValid($announcementId = null) {
 		fatalError('Abstract Method');
 	}
-	
+
 	function _announcementTypeIsValid($typeId = null) {
 		fatalError('Abstract Method');
-	}	
+	}
 }
 
 ?>

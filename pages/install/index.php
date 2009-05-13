@@ -3,7 +3,7 @@
 /**
  * @defgroup pages_install
  */
- 
+
 /**
  * @file pages/install/index.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_install
- * @brief Handle installation requests. 
+ * @brief Handle installation requests.
  *
  */
 

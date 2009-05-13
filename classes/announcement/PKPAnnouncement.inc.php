@@ -3,7 +3,7 @@
 /**
  * @defgroup announcement
  */
- 
+
 /**
  * @file PKPAnnouncement.inc.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncement
- * @ingroup announcement 
+ * @ingroup announcement
  * @see AnnouncementDAO, PKPAnnouncementDAO
  *
  * @brief Basic class describing a announcement.

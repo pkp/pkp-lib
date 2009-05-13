@@ -112,7 +112,7 @@ class PKPLocale {
 
 	function makeComponentMap($locale) {
 		$baseDir = "lib/pkp/locale/$locale/";
-		
+
 		return array(
 			LOCALE_COMPONENT_PKP_COMMON => $baseDir . 'common.xml',
 			LOCALE_COMPONENT_PKP_ADMIN => $baseDir . 'admin.xml',

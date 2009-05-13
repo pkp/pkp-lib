@@ -88,7 +88,7 @@ class ControlledVocabEntryDAO extends DAO {
 	/**
 	 * Insert a new ControlledVocabEntry.
 	 * @param $controlledVocabEntry ControlledVocabEntry
-	 * @return int 
+	 * @return int
 	 */
 	function insertObject(&$controlledVocabEntry) {
 		$this->update(

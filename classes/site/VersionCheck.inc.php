@@ -73,20 +73,20 @@ class VersionCheck {
 
 		// FIXME validate parsed data?
 		$versionInfo = array();
-		
-		if(isset($data['application'][0]['value'])) 
+
+		if(isset($data['application'][0]['value']))
 			$versionInfo['application'] = $data['application'][0]['value'];
-		if(isset($data['type'][0]['value'])) 
+		if(isset($data['type'][0]['value']))
 			$versionInfo['type'] = $data['type'][0]['value'];
-		if(isset($data['release'][0]['value'])) 
+		if(isset($data['release'][0]['value']))
 			$versionInfo['release'] = $data['release'][0]['value'];
-		if(isset($data['tag'][0]['value'])) 
+		if(isset($data['tag'][0]['value']))
 			$versionInfo['tag'] = $data['tag'][0]['value'];
-		if(isset($data['date'][0]['value'])) 
+		if(isset($data['date'][0]['value']))
 			$versionInfo['date'] = $data['date'][0]['value'];
-		if(isset($data['info'][0]['value'])) 
+		if(isset($data['info'][0]['value']))
 			$versionInfo['info'] = $data['info'][0]['value'];
-		if(isset($data['package'][0]['value'])) 
+		if(isset($data['package'][0]['value']))
 			$versionInfo['package'] = $data['package'][0]['value'];
 		if(isset($data['patch'][0]['value'])) {
 			$versionInfo['patch'] = array();
@@ -94,9 +94,9 @@ class VersionCheck {
 				$versionInfo['patch'][$patch['attributes']['from']] = $patch['value'];
 			}
 		}
-		if(isset($data['version'][0]['value'])) 
+		if(isset($data['version'][0]['value']))
 			$versionInfo['version'] = Version::fromString($data['release'][0]['value'], $data['application'][0]['value'], isset($data['type'][0]['value']) ? $data['type'][0]['value'] : null);
-		
+
 		return $versionInfo;
 	}
 

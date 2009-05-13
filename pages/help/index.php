@@ -3,7 +3,7 @@
 /**
  * @defgroup pages_help
  */
- 
+
 /**
  * @file pages/help/index.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_help
- * @brief Handle requests for viewing help pages. 
+ * @brief Handle requests for viewing help pages.
  *
  */
 

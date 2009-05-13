@@ -107,7 +107,7 @@ class GroupDAO extends DAO {
 	/**
 	 * Insert a new board group.
 	 * @param $group Group
-	 */	
+	 */
 	function insertGroup(&$group) {
 		$this->update(
 			'INSERT INTO groups

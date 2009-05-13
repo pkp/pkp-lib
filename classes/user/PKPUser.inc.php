@@ -31,21 +31,21 @@ class PKPUser extends DataObject {
 	//
 
 	/**
-	 * Get the ID of the user.
+	 * Get the ID of the user. DEPRECATED in favour of getId.
 	 * @return int
 	 */
 	function getUserId() {
-		// FIXME: Deprecate this function in favour of getId!
-		return $this->getData('id');
+		trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
-	 * Set the ID of the user.
+	 * Set the ID of the user. DEPRECATED in favour of setId.
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		// FIXME: Deprecate this function in favour of setId!
-		return $this->setData('id', $userId);
+		trigger_error('Deprecated function.');
+		return $this->setId($userId);
 	}
 
 	/**

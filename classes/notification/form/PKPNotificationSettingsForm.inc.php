@@ -26,7 +26,7 @@ class PKPNotificationSettingsForm extends Form {
 	 */
 	function PKPNotificationSettingsForm() {
 		parent::Form('notification/settings.tpl');
-		
+
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));
 	}
@@ -36,7 +36,7 @@ class PKPNotificationSettingsForm extends Form {
 	 */
 	function display() {
 		$user = Request::getUser();
-		$userId = $user->getUserId();
+		$userId = $user->getId();
 
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
 		$notificationSettings = $notificationSettingsDao->getNotificationSettings($userId);

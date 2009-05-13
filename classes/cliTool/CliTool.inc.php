@@ -3,7 +3,7 @@
 /**
  * @defgroup tools
  */
- 
+
 /**
  * @file classes/cliTool/CliTool.inc.php
  *

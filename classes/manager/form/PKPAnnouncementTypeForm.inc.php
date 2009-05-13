@@ -83,7 +83,7 @@ class PKPAnnouncementTypeForm extends Form {
 	}
 
 	/**
-	 * Save announcement type. 
+	 * Save announcement type.
 	 */
 	function execute() {
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');

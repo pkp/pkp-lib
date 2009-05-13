@@ -12,22 +12,22 @@
  * Base request handler abstract class.
  *
  */
- 
+
 import('handler.validation.HandlerValidator');
 import('handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {
 	/** Validation checks for this page*/
-	var $_checks;	
-	
+	var $_checks;
+
 	function PKPHandler() {
 		$this->_checks = array();
 
 		// enforce SSL sitewide
 		$this->addCheck(new HandlerValidatorCustom($this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
-		 		 
-	}		
-		
+
+	}
+
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
@@ -43,7 +43,7 @@ class PKPHandler {
 	function addCheck($handlerValidator) {
 		$this->_checks[] =& $handlerValidator;
 	}
-		
+
 	/**
 	 * Perform request access validation based on security settings.
 	 * @param $requiredContexts array
@@ -58,12 +58,12 @@ class PKPHandler {
 				} else {
 					PKPRequest::redirect(null, 'index');
 				}
-			} 
+			}
 		}
 
 		return true;
 	}
-	
+
 	/**
 	 * Delegate request handling to another handler class
 	 */
@@ -135,7 +135,7 @@ class PKPHandler {
 			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 		}
 	}
-	
+
 	/**
 	 * Generate a unique-ish hash of the page's identity, including all
 	 * context that differentiates it from other similar pages (e.g. all
@@ -150,8 +150,8 @@ class PKPHandler {
 			Request::getRequestedOp() . ',' .
 			serialize($contextData)
 		);
-	}	
-	
+	}
+
 	/**
 	 * Get a list of pages that don't require login, even if the journal
 	 * does.
@@ -159,7 +159,7 @@ class PKPHandler {
 	 */
 	function getLoginExemptions() {
 		return array('user', 'login', 'help');
-	}	
+	}
 }
 
 ?>

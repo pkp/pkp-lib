@@ -36,7 +36,7 @@ class Installer {
 
 	/** @var string descriptor path (relative to INSTALLER_DATA_DIR) */
 	var $descriptor;
-	
+
 	/** @var boolean indicates if a plugin is being installed (thus modifying the descriptor path) */
 	var $isPlugin;
 

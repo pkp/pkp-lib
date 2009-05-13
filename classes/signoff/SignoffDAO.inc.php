@@ -93,7 +93,7 @@ class SignoffDAO extends DAO {
 	/**
 	 * Insert a new Signoff.
 	 * @param $signoff Signoff
-	 * @return int 
+	 * @return int
 	 */
 	function insertObject(&$signoff) {
 		$this->update(
@@ -160,7 +160,7 @@ class SignoffDAO extends DAO {
 
 	/**
 	 * Delete a signoff.
-	 * @param $signoff Signoff 
+	 * @param $signoff Signoff
 	 * @return boolean
 	 */
 	function deleteObject($signoff) {

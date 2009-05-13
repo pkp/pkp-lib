@@ -50,7 +50,7 @@ class Version extends DataObject {
 	 */
 	function &fromString($versionString, $product = null, $productType = null) {
 		$version = new Version();
-		
+
 		if(!$product && !$productType) {
 			$application = PKPApplication::getApplication();
 			$product = $application->getName();
@@ -168,7 +168,7 @@ class Version extends DataObject {
 	function setCurrent($current) {
 		return $this->setData('current', $current);
 	}
-	
+
 	/**
 	 * Get product name.
 	 * @return string
@@ -176,7 +176,7 @@ class Version extends DataObject {
 	function getProduct() {
 		return $this->getData('product');
 	}
-	
+
 	/**
 	 * Set product name.
 	 * @param $product string
@@ -184,7 +184,7 @@ class Version extends DataObject {
 	function setProduct($product) {
 		return $this->setData('product', $product);
 	}
-	
+
 	/**
 	 * Get product type.
 	 * @return string
@@ -192,7 +192,7 @@ class Version extends DataObject {
 	function getProductType() {
 		return $this->getData('productType');
 	}
-	
+
 	/**
 	 * Set product type.
 	 * @param $product string

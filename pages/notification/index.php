@@ -3,7 +3,7 @@
 /**
  * @defgroup pages_notification
  */
- 
+
 /**
  * @file pages/notification/index.php
  *
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_notification
- * @brief Handle requests for viewing notifications. 
+ * @brief Handle requests for viewing notifications.
  *
  */
 

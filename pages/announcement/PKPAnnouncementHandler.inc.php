@@ -9,7 +9,7 @@
  * @class PKPAnnouncementHandler
  * @ingroup pages_announcement
  *
- * @brief Handle requests for public announcement functions. 
+ * @brief Handle requests for public announcement functions.
  */
 
 import('handler.Handler');
@@ -42,7 +42,7 @@ class PKPAnnouncementHandler extends Handler {
 
 	/**
 	 * View announcement details.
-	 * @param $args array optional, first parameter is the ID of the announcement to display 
+	 * @param $args array optional, first parameter is the ID of the announcement to display
 	 */
 	function view($args = array()) {
 		$this->validate();
@@ -83,19 +83,19 @@ class PKPAnnouncementHandler extends Handler {
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 		$templateMgr->assign('pageHierachy', array(array(Request::url(null, null, 'announcements'), 'announcement.announcements')));
 	}
-	
+
 	function _getAnnouncementsEnabled() {
 		fatalError('Abstract Method');
 	}
-	
+
 	function &_getAnnouncements($rangeInfo = null) {
 		fatalError('Abstract Method');
 	}
-	
+
 	function _getAnnouncementsIntroduction() {
 		fatalError('Abstract Method');
-	}	
-	
+	}
+
 	function _announcementIsValid($announcementId) {
 		fatalError('Abstract Method');
 	}

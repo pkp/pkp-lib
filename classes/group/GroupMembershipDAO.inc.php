@@ -97,7 +97,7 @@ class GroupMembershipDAO extends DAO {
 	/**
 	 * Insert a new group membership.
 	 * @param $membership GroupMembership
-	 */	
+	 */
 	function insertMembership(&$membership) {
 		$this->update(
 			'INSERT INTO group_memberships

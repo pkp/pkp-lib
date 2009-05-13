@@ -9,7 +9,7 @@
  * @class HelpHandler
  * @ingroup pages_help
  *
- * @brief Handle requests for viewing help pages. 
+ * @brief Handle requests for viewing help pages.
  */
 
 
@@ -117,7 +117,7 @@ class HelpHandler extends Handler {
 
 			$tocDao =& DAORegistry::getDAO('HelpTocDAO');
 			foreach ($topics as $topic) {
-				$searchResults[] = array('topic' => $topic, 'toc' => $tocDao->getToc($topic->getTocId()));		
+				$searchResults[] = array('topic' => $topic, 'toc' => $tocDao->getToc($topic->getTocId()));
 			}
 		}
 

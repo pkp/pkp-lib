@@ -88,7 +88,7 @@ class PKPAnnouncementForm extends Form {
 		if (isset($this->announcementId)) {
 			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 			$announcement =& $announcementDao->getAnnouncement($this->announcementId);
-			
+
 			if ($announcement != null) {
 				$this->_data = array(
 					'typeId' => $announcement->getTypeId(),
@@ -114,7 +114,7 @@ class PKPAnnouncementForm extends Form {
 	}
 
 	/**
-	 * Save announcement. 
+	 * Save announcement.
 	 */
 	function execute() {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
@@ -126,10 +126,10 @@ class PKPAnnouncementForm extends Form {
 		if (!isset($announcement)) {
 			$announcement = new Announcement();
 		}
-		
+
 		// give the parent class a chance to set the assocType/assocId
 		$this->_setAnnouncementAssocId($announcement);
-		
+
 		$announcement->setTitle($this->getData('title'), null); // Localized
 		$announcement->setDescriptionShort($this->getData('descriptionShort'), null); // Localized
 		$announcement->setDescription($this->getData('description'), null); // Localized
@@ -154,11 +154,10 @@ class PKPAnnouncementForm extends Form {
 			$announcementDao->insertAnnouncement($announcement);
 		}
 	}
-	
+
 	function _getAnnouncementTypesAssocId() {
 		fatalError('Abstract Method');
 	}
-	
 }
 
 ?>

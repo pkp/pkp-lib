@@ -24,7 +24,7 @@ class PKPNotification extends DataObject {
 	function PKPNotification() {
 		parent::DataObject();
 	}
-	
+
 	/**
 	 * Create a new notification with the specified arguments and insert into DB
 	 * This is a static method
@@ -49,10 +49,10 @@ class PKPNotification extends DataObject {
 		$notification->setIsLocalized($isLocalized);
 		$notification->setAssocType($assocType);
 		$notification->setContext($contextId);
-		
+
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->insertNotification($notification);
-		
+
 		return $notification;
 	}
 
@@ -73,7 +73,7 @@ class PKPNotification extends DataObject {
 		trigger_error('Deprecated function.');
 		return $this->setId($notificationId);
 	}
-	
+
 	/**
 	 * get user id associated with this notification
 	 * @return int
@@ -81,7 +81,7 @@ class PKPNotification extends DataObject {
 	function getUserId() {
 		return $this->getData('userId');
 	}
-	
+
 	/**
 	 * set user id associated with this notification
 	 * @param $userId int
@@ -89,7 +89,7 @@ class PKPNotification extends DataObject {
 	function setUserId($userId) {
 		return $this->setData('userId', $userId);
 	}
-	
+
 	/**
 	 * get date notification was created
 	 * @return date (YYYY-MM-DD HH:MM:SS)
@@ -97,7 +97,7 @@ class PKPNotification extends DataObject {
 	function getDateCreated() {
 		return $this->getData('dateCreated');
 	}
-	
+
 	/**
 	 * set date notification was created
 	 * @param $dateCreated date (YYYY-MM-DD HH:MM:SS)
@@ -105,7 +105,7 @@ class PKPNotification extends DataObject {
 	function setDateCreated($dateCreated) {
 		return $this->setData('dateCreated', $dateCreated);
 	}
-	
+
 	/**
 	 * get date notification is read by user
 	 * @return date (YYYY-MM-DD HH:MM:SS)
@@ -113,7 +113,7 @@ class PKPNotification extends DataObject {
 	function getDateRead() {
 		return $this->getData('dateRead');
 	}
-	
+
 	/**
 	 * set date notification is read by user
 	 * Also sets setisUnread() if $dateRead is null
@@ -126,10 +126,10 @@ class PKPNotification extends DataObject {
 			$notificationDao->setDateRead($this->getId());
 		} else {
 			$this->setIsUnread(false);
-			return $this->setData('dateRead', $dateRead);	
+			return $this->setData('dateRead', $dateRead);
 		}
 	}
-	
+
 	/**
 	 * return true if reading for the first time
 	 * @return bool
@@ -137,7 +137,7 @@ class PKPNotification extends DataObject {
 	function getIsUnread() {
 		return $this->getData('isUnread');
 	}
-	
+
 	/**
 	 * set to true if notification has not been read
 	 * @param $isUnread bool
@@ -145,7 +145,7 @@ class PKPNotification extends DataObject {
 	function setIsUnread($isUnread) {
 		return $this->setData('isUnread', $isUnread);
 	}
-	
+
 	/**
 	 * get notification contents
 	 * @return string
@@ -153,7 +153,7 @@ class PKPNotification extends DataObject {
 	function getContents() {
 		return $this->getData('contents');
 	}
-	
+
 	/**
 	 * set notification contents
 	 * @param $contents int
@@ -161,7 +161,7 @@ class PKPNotification extends DataObject {
 	function setContents($contents) {
 		return $this->setData('contents', $contents);
 	}
-	
+
 	/**
 	 * get optional parameter (e.g. article title)
 	 * @return string
@@ -169,7 +169,7 @@ class PKPNotification extends DataObject {
 	function getParam() {
 		return $this->getData('param');
 	}
-	
+
 	/**
 	 * set optional parameter
 	 * @param $param int
@@ -177,7 +177,7 @@ class PKPNotification extends DataObject {
 	function setParam($param) {
 		return $this->setData('param', $param);
 	}
-	
+
 	/**
 	 * get URL that notification refers to
 	 * @return int
@@ -185,7 +185,7 @@ class PKPNotification extends DataObject {
 	function getLocation() {
 		return $this->getData('location');
 	}
-	
+
 	/**
 	 * set URL that notification refers to
 	 * @param $location int
@@ -193,7 +193,7 @@ class PKPNotification extends DataObject {
 	function setLocation($location) {
 		return $this->setData('location', $location);
 	}
-	
+
 	/**
 	 * return true if message is localized (i.e. a system message)
 	 * @return int
@@ -201,7 +201,7 @@ class PKPNotification extends DataObject {
 	function getIsLocalized() {
 		return $this->getData('isLocalized');
 	}
-	
+
 	/**
 	 * set to true if message is localized (i.e. is a system message)
 	 * @param $isLocalized int
@@ -225,7 +225,7 @@ class PKPNotification extends DataObject {
 	function setAssocType($assocType) {
 		return $this->setData('assocType', $assocType);
 	}
-	
+
 	/**
 	 * get context id
 	 * @return int
@@ -233,14 +233,15 @@ class PKPNotification extends DataObject {
 	function getContext() {
 		return $this->getData('context');
 	}
+
 	/**
 	 * set context id
 	 * @param $context int
 	 */
 	function setContext($context) {
 		return $this->setData('context', $context);
-	}	
-	
+	}
+
 	/**
 	 * return the path to the icon for this type
 	 * @return string

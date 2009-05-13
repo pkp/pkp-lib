@@ -22,7 +22,7 @@ class NotificationSettingsDAO extends DAO {
 	function NotificationSettingsDAO() {
 		parent::DAO();
 	}
-	
+
 	/**
 	 * Retrieve Notifications settings by user id
 	 * Returns an array of notification types that the user
@@ -35,14 +35,14 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		$notificationSettings = array();
-	
+
 		$result =& $this->retrieve(
 			'SELECT setting_value FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
 				array((int) $userId, $productName, 'notify', (int) $contextId)
 		);
-	
+
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$notificationSettings[] = (int) $row['setting_value'];
@@ -51,10 +51,10 @@ class NotificationSettingsDAO extends DAO {
 
 		$result->Close();
 		unset($result);
-		
+
 		return $notificationSettings;
 	}
-	
+
 	/**
 	 * Retrieve Notifications email settings by user id
 	 * Returns an array of notification types that the user
@@ -67,14 +67,14 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		$emailSettings = array();
-	
+
 		$result =& $this->retrieve(
 			'SELECT setting_value FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
 				array((int) $userId, $productName, 'email', (int) $contextId)
 		);
-	
+
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$emailSettings[] = (int) $row['setting_value'];
@@ -83,10 +83,10 @@ class NotificationSettingsDAO extends DAO {
 
 		$result->Close();
 		unset($result);
-		
+
 		return $emailSettings;
 	}
-	
+
 	/**
 	 * Update a user's notification settings
 	 * @param $notificationSettings array
@@ -96,12 +96,12 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();		
-		
+		$contextId = $context->getId();
+
 		// Delete old settings first, then insert new settings
 		$this->update('DELETE FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
 			array((int) $userId, $productName, 'notify', (int) $contextId));
-	
+
 		for ($i=0; $i<count($notificationSettings); $i++) {
 			$this->update(
 				'INSERT INTO notification_settings
@@ -118,7 +118,7 @@ class NotificationSettingsDAO extends DAO {
 			);
 		}
 	}
-	
+
 	/**
 	 * Update a user's notification email settings
 	 * @param $notificationEmailSettings array
@@ -129,11 +129,11 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		// Delete old settings first, then insert new settings
 		$this->update('DELETE FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
 			array($userId, $productName, 'email', $contextId));
-	
+
 		for ($i=0; $i<count($emailSettings); $i++) {
 			$this->update(
 				'INSERT INTO notification_settings
@@ -150,7 +150,7 @@ class NotificationSettingsDAO extends DAO {
 			);
 		}
 	}
-	
+
 	/**
 	 * Gets a user id by an RSS token value
 	 * @param $token int
@@ -161,7 +161,7 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-	
+
 		$result =& $this->retrieve(
 			'SELECT user_id FROM notification_settings WHERE setting_value = ? AND setting_name = ? AND product = ? AND context = ?',
 				array($token, 'token', $productName, (int) $contextId)
@@ -172,7 +172,7 @@ class NotificationSettingsDAO extends DAO {
 
 		$result->Close();
 		unset($result);
-		
+
 		return $userId;
 	}
 
@@ -186,7 +186,7 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-	
+
 		$result =& $this->retrieve(
 			'SELECT setting_value FROM notification_settings WHERE user_id = ? AND setting_name = ? AND product = ? AND context = ?',
 				array((int) $userId, 'token', $productName, (int) $contextId)
@@ -197,7 +197,7 @@ class NotificationSettingsDAO extends DAO {
 
 		$result->Close();
 		unset($result);
-		
+
 		return $userId;
 	}
 
@@ -211,9 +211,9 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		$token = uniqid(rand());
-	
+
 		$this->update(
 			'INSERT INTO notification_settings
 				(setting_name, setting_value, user_id, product, context)
@@ -230,7 +230,7 @@ class NotificationSettingsDAO extends DAO {
 
 		return $token;
 	}
-	
+
 	/**
 	 * Generates an access key for the guest user and adds them to the settings table
 	 * @param $userId int
@@ -255,7 +255,7 @@ class NotificationSettingsDAO extends DAO {
 
 		if ($result->RecordCount() != 0) {
 			return false;
-		} else {		
+		} else {
 			$this->update(
 				'INSERT INTO notification_settings
 					(setting_name, setting_value, user_id, product, context)
@@ -269,7 +269,7 @@ class NotificationSettingsDAO extends DAO {
 					(int) $contextId
 				)
 			);
-		}	
+		}
 
 		// Get assoc_id into notification_settings table, also used as user_id for access key
 		$assocId = $this->getInsertNotificationSettingId();
@@ -280,9 +280,7 @@ class NotificationSettingsDAO extends DAO {
 		$password = $accessKeyManager->createKey('MailListContext', $assocId, $assocId, 10000);
 		return $password;
 	}
-	
-	
-	
+
 	/**
 	 * Removes an email address and associated access key from email notifications
 	 * @param $email string
@@ -294,7 +292,7 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND product = ? AND context = ?',
 			array(
@@ -328,9 +326,9 @@ class NotificationSettingsDAO extends DAO {
 			$accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
 			$accessKeyDao->deleteAccessKey($accessKey);
 			return true;
-		} else return false;	
+		} else return false;
 	}
-	
+
 	/**
 	 * Gets the setting id for a maillist member (to access the accompanying access key)
 	 * @return array
@@ -339,8 +337,8 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();	
-		
+		$contextId = $context->getId();
+
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND setting_value = ? AND product = ? AND context = ?',
 			array(
@@ -350,13 +348,13 @@ class NotificationSettingsDAO extends DAO {
 				(int) $contextId
 			)
 		);
-		
+
 		$row = $result->GetRowAssoc(false);
 		$settingId = (int) $row['setting_id'];
-		
+
 		return $settingId;
 	}
-	
+
 	/**
 	 * Update the notification settings table to confirm the mailing list subscription
 	 * @return boolean
@@ -378,7 +376,7 @@ class NotificationSettingsDAO extends DAO {
 		$context =& Request::getContext();
 		$contextId = $context->getId();
 		$mailList = array();
-		
+
 		$result =& $this->retrieve(
 			'SELECT setting_value FROM notification_settings WHERE setting_name = ? AND product = ? AND context = ?',
 			array(
@@ -396,7 +394,7 @@ class NotificationSettingsDAO extends DAO {
 
 		$result->Close();
 		unset($result);
-		
+
 		return $mailList;
 	}
 
@@ -410,7 +408,7 @@ class NotificationSettingsDAO extends DAO {
 		$productName = $application->getName();
 		$context =& Request::getContext();
 		$contextId = $context->getId();
-		
+
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND setting_value = ? AND product = ? AND context = ?',
 			array(
@@ -433,7 +431,7 @@ class NotificationSettingsDAO extends DAO {
 		if ($accessKey) {
 			$key = Validation::generatePassword();
 			$accessKey->setKeyHash(md5($key));
-			
+
 			$accessKeyDao =& DAORegistry::getDAO('AccessKeyDAO');
 			$accessKeyDao->updateAccessKey($accessKey);
 			return $key;

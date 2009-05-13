@@ -17,13 +17,13 @@ class HandlerValidator {
 
 	/** The Handler associated with the check */
 	var $handler;
-	
+
 	/** bool flag for redirecting **/
-	var $redirectToLogin; 
-	
+	var $redirectToLogin;
+
 	/** message for login screen **/
 	var $message;
-	
+
 	/** additional Args to pass in the URL **/
 	var $additionalArgs;
 

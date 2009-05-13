@@ -151,7 +151,7 @@ class PKPUserDAO extends DAO {
 	 */
 	function &_returnUserFromRow(&$row, $callHook = true) {
 		$user = new User();
-		$user->setUserId($row['user_id']);
+		$user->setId($row['user_id']);
 		$user->setUsername($row['username']);
 		$user->setPassword($row['password']);
 		$user->setSalutation($row['salutation']);
@@ -225,9 +225,9 @@ class PKPUserDAO extends DAO {
 			)
 		);
 
-		$user->setUserId($this->getInsertUserId());
+		$user->setId($this->getInsertUserId());
 		$this->updateLocaleFields($user);
-		return $user->getUserId();
+		return $user->getId();
 	}
 
 	function getLocaleFieldNames() {
@@ -236,7 +236,7 @@ class PKPUserDAO extends DAO {
 
 	function updateLocaleFields(&$user) {
 		$this->updateDataObjectSettings('user_settings', $user, array(
-			'user_id' => (int) $user->getUserId()
+			'user_id' => (int) $user->getId()
 		));
 	}
 
@@ -301,7 +301,7 @@ class PKPUserDAO extends DAO {
 				$user->getDisabledReason(),
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
-				(int) $user->getUserId(),
+				(int) $user->getId(),
 			)
 		);
 	}
@@ -311,7 +311,7 @@ class PKPUserDAO extends DAO {
 	 * @param $user User
 	 */
 	function deleteUser(&$user) {
-		return $this->deleteUserById($user->getUserId());
+		return $this->deleteUserById($user->getId());
 	}
 
 	/**

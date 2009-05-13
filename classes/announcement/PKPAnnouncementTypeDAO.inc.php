@@ -46,7 +46,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 			'SELECT assoc_id FROM announcement_types WHERE type_id = ?', $typeId
 		);
 
-		return isset($result->fields[0]) ? $result->fields[0] : 0;	
+		return isset($result->fields[0]) ? $result->fields[0] : 0;
 	}
 
 	/**
@@ -56,7 +56,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 */
 	function getAnnouncementTypeName($typeId) {
 		$result =& $this->retrieve(
-			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings l LEFT JOIN announcement_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?', 
+			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings l LEFT JOIN announcement_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?',
 			array(
 				$typeId, 'name', Locale::getLocale(),
 				$typeId, 'name', Locale::getPrimaryLocale()
@@ -157,7 +157,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	/**
 	 * Insert a new AnnouncementType.
 	 * @param $announcementType AnnouncementType
-	 * @return int 
+	 * @return int
 	 */
 	function insertAnnouncementType(&$announcementType) {
 		$this->update(
@@ -166,7 +166,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 				VALUES
 				(?, ?)'),
 			array(
-				$announcementType->getAssocType(), 
+				$announcementType->getAssocType(),
 				$announcementType->getAssocId()
 			)
 		);
@@ -181,18 +181,18 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return boolean
 	 */
 	function updateAnnouncementType(&$announcementType) {
-		$returner = $this->update('UPDATE announcement_types
-				SET
-					assoc_type = ?,
-					assoc_id = ?
-				WHERE type_id = ?',
+		$returner = $this->update(
+			'UPDATE	announcement_types
+			SET	assoc_type = ?,
+				assoc_id = ?
+			WHERE	type_id = ?',
 			array(
 				$announcementType->getAssocType(),
 				$announcementType->getAssocId(),
 				$announcementType->getId()
-				)
-				);
-				
+			)
+		);
+
 		$this->updateLocaleFields($announcementType);
 		return $returner;
 	}
@@ -200,7 +200,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	/**
 	 * Delete an announcement type. Note that all announcements with this type are also
 	 * deleted.
-	 * @param $announcementType AnnouncementType 
+	 * @param $announcementType AnnouncementType
 	 * @return boolean
 	 */
 	function deleteAnnouncementType($announcementType) {

@@ -21,7 +21,7 @@ import('site.Version');
 class VersionDAO extends DAO {
 	/**
 	 * Retrieve the current version.
-	 * @param $product string	
+	 * @param $product string
 	 * @param $isUpgrade boolean
 	 * @return Version
 	 */
@@ -30,16 +30,16 @@ class VersionDAO extends DAO {
 			$application = PKPApplication::getApplication();
 			$product = $application->getName();
 		}
-		
+
 		$result =& $this->retrieve(
 			'SELECT * FROM versions WHERE current = 1'
 		);
 		if ($result->RecordCount() != 0) {
 			$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
 		}
-		if ($oldVersion->compare('2.3.0') < 0) $isUpgrade = true;	
-		
-		if (!$isUpgrade) { 
+		if ($oldVersion->compare('2.3.0') < 0) $isUpgrade = true;
+
+		if (!$isUpgrade) {
 			$result =& $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1 AND product = ?',
 				array($product)
@@ -49,7 +49,7 @@ class VersionDAO extends DAO {
 			}
 		} else {
 			$returner =& $oldVersion;
-		}		
+		}
 
 		$result->Close();
 		unset($result);
@@ -59,12 +59,12 @@ class VersionDAO extends DAO {
 
 	/**
 	 * Retrieve the complete version history, ordered by date (most recent first).
-	 * @param $product string	 
+	 * @param $product string
 	 * @return array Versions
 	 */
 	function &getVersionHistory($product = null) {
 		$versions = array();
-		
+
 		if(!$product) {
 			$application = PKPApplication::getApplication();
 			$product = $application->getName();
@@ -137,7 +137,7 @@ class VersionDAO extends DAO {
 			)
 		);
 	}
-	
+
 	/**
 	 * Retrieve all products.
 	 * @param $productType string filter by product type (e.g. plugins, core)
@@ -145,7 +145,7 @@ class VersionDAO extends DAO {
 	 */
 	function &getVersions($productType = null) {
 		$result =& $this->retrieveRange(
-			'SELECT * FROM versions WHERE current = 1 ' .  
+			'SELECT * FROM versions WHERE current = 1 ' .
 			($productType ? 'AND product_type LIKE ? ' : '') .
 			'ORDER BY product', $productType ? $productType . '%' : ''
 		);
@@ -153,7 +153,7 @@ class VersionDAO extends DAO {
 		$returner = new DAOResultFactory($result, $this, '_returnVersionFromRow');
 		return $returner;
 	}
-	
+
 	/**
 	 * Disable a product by setting its 'current' column to 0
 	 * @param $product string
@@ -163,7 +163,7 @@ class VersionDAO extends DAO {
 			$this->update(
 				'UPDATE versions SET current = 0 WHERE current = 1 AND product IS NULL'
 			);
-		} else { 
+		} else {
 			$this->update(
 				'UPDATE versions SET current = 0 WHERE current = 1 AND product = ?',
 				array($product)

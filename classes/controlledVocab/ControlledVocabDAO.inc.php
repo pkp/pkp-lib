@@ -85,7 +85,7 @@ class ControlledVocabDAO extends DAO {
 	/**
 	 * Insert a new ControlledVocab.
 	 * @param $controlledVocab ControlledVocab
-	 * @return int 
+	 * @return int
 	 */
 	function insertObject(&$controlledVocab) {
 		$this->update(
@@ -127,7 +127,7 @@ class ControlledVocabDAO extends DAO {
 
 	/**
 	 * Delete a controlled vocab.
-	 * @param $controlledVocab ControlledVocab 
+	 * @param $controlledVocab ControlledVocab
 	 * @return boolean
 	 */
 	function deleteObject($controlledVocab) {

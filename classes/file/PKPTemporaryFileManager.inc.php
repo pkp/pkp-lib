@@ -119,7 +119,7 @@ class PKPTemporaryFileManager extends FileManager {
 	 */
 	function handleUpload($fileName, $userId) {
 		// Get the file extension, then rename the file.
-		$fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName));			
+		$fileExtension = $this->parseFileExtension($this->getUploadedFileName($fileName));
 
 		if (!$this->fileExists($this->filesDir, 'dir')) {
 			// Try to create destination directory

@@ -41,7 +41,7 @@ class AccessKeyDAO extends DAO {
 		unset($result);
 		return $accessKey;
 	}
-	
+
 	/**
 	 * Retrieve a accessKey object user ID.
 	 * @param $context string

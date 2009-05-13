@@ -44,7 +44,7 @@ class PKPAnnouncementDAO extends DAO {
 			'SELECT assoc_id FROM announcements WHERE announcement_id = ?', $announcementId
 		);
 
-		return isset($result->fields[0]) ? $result->fields[0] : 0;	
+		return isset($result->fields[0]) ? $result->fields[0] : 0;
 	}
 
 	/**
@@ -57,9 +57,9 @@ class PKPAnnouncementDAO extends DAO {
 			'SELECT assoc_type FROM announcements WHERE announcement_id = ?', $announcementId
 		);
 
-		return isset($result->fields[0]) ? $result->fields[0] : 0;	
+		return isset($result->fields[0]) ? $result->fields[0] : 0;
 	}
-	
+
 	/**
 	 * Get the list of localized field names for this table
 	 * @return array
@@ -100,7 +100,7 @@ class PKPAnnouncementDAO extends DAO {
 	/**
 	 * Insert a new Announcement.
 	 * @param $announcement Announcement
-	 * @return int 
+	 * @return int
 	 */
 	function insertAnnouncement(&$announcement) {
 		$this->update(
@@ -148,7 +148,7 @@ class PKPAnnouncementDAO extends DAO {
 
 	/**
 	 * Delete an announcement.
-	 * @param $announcement Announcement 
+	 * @param $announcement Announcement
 	 * @return boolean
 	 */
 	function deleteAnnouncement($announcement) {
@@ -189,7 +189,7 @@ class PKPAnnouncementDAO extends DAO {
 			$this->deleteAnnouncementById($announcement->getId());
 			unset($announcement);
 		}
-		return true;	 	
+		return true;
 	 }
 
 	/**
@@ -235,7 +235,7 @@ class PKPAnnouncementDAO extends DAO {
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
-				AND assoc_id = ? 
+				AND assoc_id = ?
 			ORDER BY announcement_id DESC LIMIT ?',
 			array($assocType, $assocId, $numAnnouncements),
 			$rangeInfo

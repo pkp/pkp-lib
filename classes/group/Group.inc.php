@@ -3,7 +3,7 @@
 /**
  * @defgroup group
  */
- 
+
 /**
  * @file classes/group/Group.inc.php
  *

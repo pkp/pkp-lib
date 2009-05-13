@@ -107,12 +107,12 @@ class UpgradeTool extends CommandLineTool {
 			} else {
 			//get current version's name, check if its null, otherwise disable that version
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
-				$currentVersion =& $installer->getCurrentVersion();	
-				if ($product = $currentVersion->getProduct() == '') { 
+				$currentVersion =& $installer->getCurrentVersion();
+				if ($product = $currentVersion->getProduct() == '') {
 					$product = 'NULL';
 				}
 				$versionDao->disableVersion($product);
-				
+
 				$newVersion =& $installer->getNewVersion();
 				printf("Successfully upgraded to version %s\n", $newVersion->getVersionString());
 			}

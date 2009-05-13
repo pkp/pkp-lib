@@ -9,7 +9,7 @@
  * @class PKPInstallHandler
  * @ingroup pages_install
  *
- * @brief Handle installation requests. 
+ * @brief Handle installation requests.
  */
 
 
@@ -33,7 +33,7 @@ class PKPInstallHandler extends Handler {
 		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
 			Request::setCookieVar('currentLocale', $setLocale);
 		}
-		
+
 		// FIXME: Need construction by reference or validation always fails on PHP 4.x
 		$installForm =& new InstallForm();
 		$installForm->initData();
@@ -45,7 +45,7 @@ class PKPInstallHandler extends Handler {
 	 */
 	function validate() {
 		if (Config::getVar('general', 'installed')) {
-			PKPRequest::redirect(null, 'index');	
+			PKPRequest::redirect(null, 'index');
 		}
 	}
 
@@ -78,7 +78,7 @@ class PKPInstallHandler extends Handler {
 		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
 			PKPRequest::setCookieVar('currentLocale', $setLocale);
 		}
-		
+
 		// FIXME: Need construction by reference or validation always fails on PHP 4.x
 		$installForm =& new UpgradeForm();
 		$installForm->initData();

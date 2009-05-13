@@ -38,7 +38,7 @@ class ControlledVocab extends DataObject {
 	 */
 	function setAssocId($assocId) {
 		return $this->setData('assocId', $assocId);
-	}	
+	}
 
 	/**
 	 * Get associated type.

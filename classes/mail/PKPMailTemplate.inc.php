@@ -74,7 +74,7 @@ class PKPMailTemplate extends Mail {
 
 		$user =& Request::getUser();
 		if ($enableAttachments && $user) {
-			$this->_handleAttachments($user->getUserId());
+			$this->_handleAttachments($user->getId());
 		} else {
 			$this->attachmentsEnabled = false;
 		}
@@ -238,7 +238,7 @@ class PKPMailTemplate extends Mail {
 		}
 
 		if ($clearAttachments && $this->attachmentsEnabled) {
-			$this->_clearAttachments($user->getUserId());
+			$this->_clearAttachments($user->getId());
 		}
 
 		return $result;
@@ -318,7 +318,7 @@ class PKPMailTemplate extends Mail {
 		if (Request::getUserVar('addAttachment') && $temporaryFileManager->uploadedFileExists('newAttachment')) {
 			$user =& Request::getUser();
 
-			$this->persistAttachments[] = $temporaryFileManager->handleUpload('newAttachment', $user->getUserId());
+			$this->persistAttachments[] = $temporaryFileManager->handleUpload('newAttachment', $user->getId());
 		}
 	}
 

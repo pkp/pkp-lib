@@ -60,7 +60,7 @@ class PKPAnnouncementType extends DataObject {
 	function getAssocType() {
 		return $this->getData('assocType');
 	}
-	
+
 	/**
 	 * Set assoc Type for this annoucement.
 	 * @param $assocType int
@@ -68,7 +68,7 @@ class PKPAnnouncementType extends DataObject {
 	function setAssocType($assocType) {
 		return $this->setData('assocType', $assocType);
 	}
-	
+
 	/**
 	 * Get the type of the announcement type.
 	 * @return string

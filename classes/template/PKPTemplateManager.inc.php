@@ -113,6 +113,8 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('get_help_id', array(&$this, 'smartyGetHelpId'));
 		$this->register_function('icon', array(&$this, 'smartyIcon'));
 		$this->register_function('help_topic', array(&$this, 'smartyHelpTopic'));
+		$this->register_function('sort_heading', array(&$this, 'smartySortHeading'));
+		$this->register_function('sort_search', array(&$this, 'smartySortSearch'));
 		$this->register_function('get_debug_info', array(&$this, 'smartyGetDebugInfo'));
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
@@ -716,6 +718,71 @@ class PKPTemplateManager extends Smarty {
 			$templateMgr->assign($varName, $value);
 		}
 		if ($passThru) return $value;
+	}
+	
+	/**
+	 * Smarty usage: {sort_heading key="localization.key.name" heading="foo"}
+	 *
+	 * Custom Smarty function for creating heading links to sort tables by
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string heading link to sort table by
+	 */
+	function smartySortHeading($params, &$smarty) {
+		if (isset($params) && !empty($params)) {
+			$sortParams = array();
+			isset($params['heading'])? ($sortParams['heading'] = $params['heading']) : null;
+			$sortDirection = $smarty->get_template_vars('sortDirection');
+			$sort = $smarty->get_template_vars('sort');
+			
+			// Invert sort direction
+			if($params['heading'] == $sort) {
+				if ($sortDirection == 'ASC') {
+					$sortParams['sortDirection'] = 'DESC';
+				} else {
+					$sortParams['sortDirection'] = 'ASC';
+				}
+			} else {
+				$sortParams['sortDirection'] = 'ASC';
+			}
+			
+			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams);
+			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
+			$style = (isset($sort) && isset($params['heading']) && ($sort == $params['heading'])) ? ' style="font-weight:bold"' : '';
+
+			return "<a href=\"$link\"$style>$text</a>";
+		}
+	}
+	
+	/**
+	 * Smarty usage: {sort_search key="localization.key.name" heading="foo"}
+	 *
+	 * Custom Smarty function for creating heading links to sort search-generated tables
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string heading link to sort table by
+	 */
+	function smartySortSearch($params, &$smarty) {
+		if (isset($params) && !empty($params)) {
+			$sort = $smarty->get_template_vars('sort');
+			$sortDirection = $smarty->get_template_vars('sortDirection');
+			
+			// Invert sort direction
+			if($params['heading'] == $sort) {
+				if ($sortDirection == 'ASC') {
+					$direction = 'DESC';
+				} else {
+					$direction = 'ASC';
+				}
+			} else {
+				$direction = 'ASC';
+			}
+			
+			$heading = isset($params['heading']) ? $params['heading'] : $sort;
+			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
+			$style = (isset($sort) && isset($params['heading']) && ($sort == $params['heading'])) ? ' style="font-weight:bold"' : '';
+			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
+		}
 	}
 }
 

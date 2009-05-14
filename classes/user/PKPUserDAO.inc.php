@@ -391,7 +391,7 @@ class PKPUserDAO extends DAO {
 	 * @return array matching Users
 	 */
 
-	function &getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null) {
+	function &getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null, $sortBy = null, $sortDirection = 'ASC') {
 		$sql = 'SELECT * FROM users u';
 		switch ($field) {
 			case USER_FIELD_USERID:
@@ -428,7 +428,7 @@ class PKPUserDAO extends DAO {
 				break;
 		}
 
-		$orderSql = ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$orderSql = ($sortBy?(' ORDER BY ' . $sortBy . ' ' . $sortDirection) : '');
 
 		if ($field != USER_FIELD_NONE) $result =& $this->retrieveRange($sql . ($allowDisabled?'':' AND u.disabled = 0') . $orderSql, $var, $dbResultRange);
 		else $result =& $this->retrieveRange($sql . ($allowDisabled?'':' WHERE u.disabled = 0') . $orderSql, false, $dbResultRange);

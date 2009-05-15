@@ -3,7 +3,7 @@
 <script type="text/javascript">
 	var PQP_DETAILS = false;
 	var PQP_HEIGHT = "short";
-	var PQP_METRICS = true;
+	var PQP_METRICS = false;
 	
 	addEvent(window, 'load', loadCSS);
 
@@ -121,7 +121,7 @@
 
 <div id="pqp-container" class="pQp hideDetails" style="display:none">
 <div id="pQp" class="console">
-	<table id="pqp-metrics" cellspacing="0">
+	<table id="pqp-metrics" class="hideMetrics" cellspacing="0">
 		<tr>
 			<td class="green" onclick="changeTab('console');">
 				<var>{$logs.console|@count}</var>

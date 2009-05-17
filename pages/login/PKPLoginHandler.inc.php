@@ -183,11 +183,11 @@ class PKPLoginHandler extends Handler {
 
 		} else {
 			$site =& Request::getSite();
-
+			
 			// Send email confirming password reset
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
 				'url' => PKPRequest::url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
 				'siteTitle' => $site->getLocalizedTitle()
@@ -251,7 +251,7 @@ class PKPLoginHandler extends Handler {
 			$site =& Request::getSite();
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
-			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
 				'username' => $user->getUsername(),
 				'password' => $newPassword,
@@ -308,6 +308,17 @@ class PKPLoginHandler extends Handler {
 		} else {
 			$passwordForm->display();
 		}
+	}
+	
+	/**
+	 * Helper function - set mail From
+	 * can be overriden by child classes 
+	 * @param MailTemplate $mail 
+	 */
+	function _setMailFrom(&$mail) {
+		$site =& Request::getSite();
+		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
+		return true;
 	}
 }
 

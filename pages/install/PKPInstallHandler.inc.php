@@ -27,8 +27,8 @@ class PKPInstallHandler extends Handler {
 		// Make sure errors are displayed to the browser during install.
 		@ini_set('display_errors', E_ALL);
 
-		PKPInstallHandler::validate();
-		PKPInstallHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
 			Request::setCookieVar('currentLocale', $setLocale);
@@ -53,8 +53,8 @@ class PKPInstallHandler extends Handler {
 	 * Execute installer.
 	 */
 	function install() {
-		PKPInstallHandler::validate();
-		PKPInstallHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		// FIXME: Need construction by reference or validation always fails on PHP 4.x
 		$installForm =& new InstallForm();
@@ -72,8 +72,8 @@ class PKPInstallHandler extends Handler {
 	 * Display upgrade form.
 	 */
 	function upgrade() {
-		PKPInstallHandler::validate();
-		PKPInstallHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
 			PKPRequest::setCookieVar('currentLocale', $setLocale);
@@ -89,7 +89,7 @@ class PKPInstallHandler extends Handler {
 	 * Execute upgrade.
 	 */
 	function installUpgrade() {
-		PKPInstallHandler::validate();
+		$this->validate();
 
 		$installForm =& new UpgradeForm();
 		$installForm->readInputData();
@@ -98,7 +98,7 @@ class PKPInstallHandler extends Handler {
 			$installForm->execute();
 
 		} else {
-			PKPInstallHandler::setupTemplate();
+			$this->setupTemplate();
 			$installForm->display();
 		}
 	}

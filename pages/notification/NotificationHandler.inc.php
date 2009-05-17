@@ -21,8 +21,8 @@ class NotificationHandler extends Handler {
 	 * Display help table of contents.
 	 */
 	function index() {
-		parent::validate();
-		parent::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
 
 		$user = Request::getUser();
@@ -50,7 +50,7 @@ class NotificationHandler extends Handler {
 	 * Delete a notification
 	 */
 	function delete($args) {
-		parent::validate();
+		$this->validate();
 
 		$notificationId = array_shift($args);
 		if (array_shift($args) == 'ajax') {
@@ -71,8 +71,8 @@ class NotificationHandler extends Handler {
 	 * View and modify notification settings
 	 */
 	function settings() {
-		parent::validate();
-		parent::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 
 		$user = Request::getUser();
@@ -87,7 +87,7 @@ class NotificationHandler extends Handler {
 	 * Save user notification settings
 	 */
 	function saveSettings() {
-		parent::validate();
+		$this->validate();
 
 		import('notification.form.NotificationSettingsForm');
 
@@ -98,7 +98,7 @@ class NotificationHandler extends Handler {
 			$notificationSettingsForm->execute();
 			PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification', 'settings');
 		} else {
-			parent::setupTemplate(true);
+			$this->setupTemplate(true);
 			$notificationSettingsForm->display();
 		}
 	}
@@ -134,7 +134,7 @@ class NotificationHandler extends Handler {
 			$token = $args[1];
 		} else return false;
 
-		parent::setupTemplate(true);
+		$this->setupTemplate(true);
 
 		$application = PKPApplication::getApplication();
 		$appName = $application->getNameKey();
@@ -182,7 +182,7 @@ class NotificationHandler extends Handler {
 	 * Display the public notification email subscription form
 	 */
 	function subscribeMailList() {
-		parent::setupTemplate();
+		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('new', true);
 
@@ -213,7 +213,7 @@ class NotificationHandler extends Handler {
 	 * Display the public notification email subscription form
 	 */
 	function confirmMailListSubscription($args) {
-		parent::setupTemplate();
+		$this->setupTemplate();
 		$keyHash = array_shift($args);
 		$email = array_shift($args);
 
@@ -240,7 +240,7 @@ class NotificationHandler extends Handler {
 	 * Display the public notification email subscription form
 	 */
 	function unsubscribeMailList() {
-		parent::setupTemplate();
+		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('remove', true);
 

@@ -24,8 +24,8 @@ class PKPLoginHandler extends Handler {
 	 * Redirect to user index page if user is already validated.
 	 */
 	function index() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		if (Validation::isLoggedIn()) {
 			PKPRequest::redirect(null, 'user');
 		}
@@ -75,7 +75,7 @@ class PKPLoginHandler extends Handler {
 	 * This is the function that Shibboleth redirects to - after the user has authenticated.
 	 */
 	function implicitAuthReturn() {
-		parent::validate();
+		$this->validate();
 
 		if (Validation::isLoggedIn()) {
 			PKPRequest::redirect(null, 'user');
@@ -91,8 +91,8 @@ class PKPLoginHandler extends Handler {
 	 * Validate a user's credentials and log the user in.
 	 */
 	function signIn() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		if (Validation::isLoggedIn()) {
 			PKPRequest::redirect(null, 'user');
 		}
@@ -141,8 +141,8 @@ class PKPLoginHandler extends Handler {
 	 * Log a user out.
 	 */
 	function signOut() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		if (Validation::isLoggedIn()) {
 			Validation::logout();
 		}
@@ -159,8 +159,8 @@ class PKPLoginHandler extends Handler {
 	 * Display form to reset a user's password.
 	 */
 	function lostPassword() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->display('user/lostPassword.tpl');
 	}
@@ -169,8 +169,8 @@ class PKPLoginHandler extends Handler {
 	 * Send a request to reset a user's password
 	 */
 	function requestResetPassword() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
 
 		$email = Request::getUserVar('email');
@@ -207,8 +207,8 @@ class PKPLoginHandler extends Handler {
 	 * @param $args array first param contains the username of the user whose password is to be reset
 	 */
 	function resetPassword($args) {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		$username = isset($args[0]) ? $args[0] : null;
 		$userDao =& DAORegistry::getDAO('UserDAO');
@@ -272,8 +272,8 @@ class PKPLoginHandler extends Handler {
 	 * @param $args array first argument may contain user's username
 	 */
 	function changePassword($args = array()) {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		import('user.form.LoginChangePasswordForm');
 
@@ -290,8 +290,8 @@ class PKPLoginHandler extends Handler {
 	 * Save user's new password.
 	 */
 	function savePassword() {
-		parent::validate();
-		PKPLoginHandler::setupTemplate();
+		$this->validate();
+		$this->setupTemplate();
 
 		import('user.form.LoginChangePasswordForm');
 

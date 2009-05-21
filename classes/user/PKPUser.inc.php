@@ -547,11 +547,14 @@ class PKPUser extends DataObject {
 	 * @return string
 	 */
 	function getFullName($lastFirst = false) {
+		$salutation = $this->getData('salutation');
+		$firstName = $this->getData('firstName');
+		$middleName = $this->getData('middleName');
+		$lastName = $this->getData('lastName');
 		if ($lastFirst) {
-			return $this->getData('lastName') . ', ' . $this->getData('firstName') . ($this->getData('middleName') != '' ? ' ' . $this->getData('middleName') : '');
-
+			return "$lastName, " . ($salutation != ''?"$salutation ":'') . "$firstName" . ($middleName != ''?" $middleName":'');
 		} else {
-			return $this->getData('firstName') . ' ' . ($this->getData('middleName') != '' ? $this->getData('middleName') . ' ' : '') . $this->getData('lastName');
+			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName;
 		}
 	}
 

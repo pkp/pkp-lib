@@ -446,6 +446,22 @@ class DAO {
 		$conn =& DBConnection::getInstance();
 		return $conn->getDriver();
 	}
+	
+	/**
+	 * Get the driver for this connection.
+	 * @param $direction int
+	 * @return string
+	 */
+	function getDirectionMapping($direction) {
+		switch ($direction) {
+			case SORT_DIRECTION_ASC:
+				return 'ASC';
+			case SORT_DIRECTION_DESC:
+				return 'DESC';
+			default:
+				return 'ASC';
+		}
+	}
 }
 
 ?>

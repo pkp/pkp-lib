@@ -31,6 +31,8 @@ define('CACHEABILITY_NO_STORE',		'no-store');
 define('CACHEABILITY_PUBLIC',		'public');
 define('CACHEABILITY_MUST_REVALIDATE',	'must-revalidate');
 define('CACHEABILITY_PROXY_REVALIDATE',	'proxy-revalidate');
+define('SORT_DIRECTION_ASC', 0x00001);
+define('SORT_DIRECTION_DESC', 0x00002);
 
 class PKPTemplateManager extends Smarty {
 	/** @var $styleSheets array of URLs to stylesheets */
@@ -737,13 +739,13 @@ class PKPTemplateManager extends Smarty {
 			
 			// Invert sort direction
 			if($params['heading'] == $sort) {
-				if ($sortDirection == 'ASC') {
-					$sortParams['sortDirection'] = 'DESC';
+				if ($sortDirection == SORT_DIRECTION_ASC) {
+					$sortParams['sortDirection'] = SORT_DIRECTION_DESC;
 				} else {
-					$sortParams['sortDirection'] = 'ASC';
+					$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
 				}
 			} else {
-				$sortParams['sortDirection'] = 'ASC';
+				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
 			}
 			
 			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams);
@@ -769,13 +771,13 @@ class PKPTemplateManager extends Smarty {
 			
 			// Invert sort direction
 			if($params['heading'] == $sort) {
-				if ($sortDirection == 'ASC') {
-					$direction = 'DESC';
+				if ($sortDirection == SORT_DIRECTION_ASC) {
+					$direction = SORT_DIRECTION_DESC;
 				} else {
-					$direction = 'ASC';
+					$direction = SORT_DIRECTION_ASC;
 				}
 			} else {
-				$direction = 'ASC';
+				$direction = SORT_DIRECTION_ASC;
 			}
 			
 			$heading = isset($params['heading']) ? $params['heading'] : $sort;

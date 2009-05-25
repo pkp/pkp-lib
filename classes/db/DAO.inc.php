@@ -24,6 +24,9 @@ import('db.DBConnection');
 import('db.DAOResultFactory');
 import('core.DataObject');
 
+define('SORT_DIRECTION_ASC', 0x00001);
+define('SORT_DIRECTION_DESC', 0x00002);
+
 class DAO {
 	/** The database connection object */
 	var $_dataSource;

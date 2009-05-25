@@ -31,8 +31,6 @@ define('CACHEABILITY_NO_STORE',		'no-store');
 define('CACHEABILITY_PUBLIC',		'public');
 define('CACHEABILITY_MUST_REVALIDATE',	'must-revalidate');
 define('CACHEABILITY_PROXY_REVALIDATE',	'proxy-revalidate');
-define('SORT_DIRECTION_ASC', 0x00001);
-define('SORT_DIRECTION_DESC', 0x00002);
 
 class PKPTemplateManager extends Smarty {
 	/** @var $styleSheets array of URLs to stylesheets */

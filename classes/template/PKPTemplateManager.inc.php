@@ -729,8 +729,8 @@ class PKPTemplateManager extends Smarty {
 	 * @return string heading link to sort table by
 	 */
 	function smartySortHeading($params, &$smarty) {
-		if (isset($params) && !empty($params)) {
-			$sortParams = array();
+		if (isset($params) && !empty($params)) {	
+			$sortParams = Request::getQueryArray();
 			isset($params['heading'])? ($sortParams['heading'] = $params['heading']) : null;
 			$sortDirection = $smarty->get_template_vars('sortDirection');
 			$sort = $smarty->get_template_vars('sort');

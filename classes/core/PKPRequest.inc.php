@@ -159,6 +159,21 @@ class PKPRequest {
 	}
 
 	/**
+	 * Get the complete set of URL parameters to the current request as an associative array.
+	 * @return array
+	 */
+	function getQueryArray() {
+		$queryString = PKPRequest::getQueryString();
+		$queryArray = array();
+
+		if (isset($queryString)) {
+			parse_str($queryString, $queryArray);
+		}
+
+		return $queryArray;
+	}
+
+	/**
 	 * Get the completed path of the request.
 	 * @return string
 	 */

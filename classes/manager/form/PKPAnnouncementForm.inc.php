@@ -36,7 +36,7 @@ class PKPAnnouncementForm extends Form {
 		$this->addCheck(new FormValidatorLocale($this, 'descriptionShort', 'required', 'manager.announcements.form.descriptionShortRequired'));
 
 		// Description is provided
-		$this->addCheck(new FormValidatorLocale($this, 'description', 'required', 'manager.announcements.form.descriptionRequired'));
+		$this->addCheck(new FormValidatorLocale($this, 'description', 'optional', 'manager.announcements.form.descriptionRequired'));
 
 		// If provided, expiry date is valid
 		$this->addCheck(new FormValidatorCustom($this, 'dateExpireYear', 'optional', 'manager.announcements.form.dateExpireValid', create_function('$dateExpireYear', '$minYear = date(\'Y\'); $maxYear = date(\'Y\') + ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE; return ($dateExpireYear >= $minYear && $dateExpireYear <= $maxYear) ? true : false;')));

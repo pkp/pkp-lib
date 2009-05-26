@@ -23,7 +23,7 @@
 	<p><span class="formError">{translate key="$error"}</span></p>
 {/if}
 
-<table class="data" width="100%">
+<table id="lostPasswordTable" class="data" width="100%">
 <tr valign="top">
 	<td class="label" width="25%">{translate key="user.login.registeredEmail"}</td>
 	<td class="value" width="75%"><input type="text" name="email" value="{$username|escape}" size="30" maxlength="90" class="textField" /></td>

@@ -13,7 +13,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<table width="100%">
+<table id="announcementDescription" width="100%">
 	<tr>
 		<td>{$announcement->getLocalizedDescription()|nl2br}</td>
 	</tr>

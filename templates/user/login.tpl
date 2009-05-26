@@ -33,15 +33,15 @@
 {/if}
 
 {if $implicitAuth}
-	<a href="{url page="login" op="implicitAuthLogin"}">Login</a>	
+	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>	
 {else}
-	<form name="login" method="post" action="{url page="login" op="signIn"}">
+	<form id="signinForm" name="login" method="post" action="{url page="login" op="signIn"}">
 {/if}
 
 <input type="hidden" name="source" value="{$source|escape}" />
 
 {if ! $implicitAuth}
-	<table class="data">
+	<table id="signinTable" class="data">
 	<tr>
 		<td class="label"><label for="loginUsername">{translate key="user.username"}</label></td>
 		<td class="value"><input type="text" id="loginUsername" name="username" value="{$username|escape}" size="20" maxlength="32" class="textField" /></td>

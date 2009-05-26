@@ -19,12 +19,14 @@
 {/foreach}
 
 {if $relatedTopics}
+<div id="relatedTopics">
 <h5>{translate key="help.relatedTopics"}</h5>
 <ul>
 	{foreach from=$relatedTopics item=relatedTopic}
 	<li><a href="{url op="view" path=$relatedTopic.id|explode:"/"}">{$relatedTopic.title}</a></li>
 	{/foreach}
 </ul>
+</div>
 {/if}
 
 <br />

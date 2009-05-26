@@ -20,7 +20,7 @@
 {/strip}
 
 <br/>
-
+<div id="announcementForm">
 <form name="announcementForm" method="post" action="{url op="updateAnnouncement"}">
 {if $announcementId}
 <input type="hidden" name="announcementId" value="{$announcementId|escape}" />
@@ -88,6 +88,7 @@
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" /> {if not $announcementId}<input type="submit" name="createAnother" value="{translate key="manager.announcements.form.saveAndCreateAnother"}" class="button" /> {/if}<input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{url op="announcements" escape=false}'" /></p>
 
 </form>
+</div>
 
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 

@@ -24,7 +24,7 @@
 
 <p><span class="instruct">{translate key="user.login.changePasswordInstructions"}</span></p>
 
-<table class="data" width="100%">
+<table id="changePasswordTable" class="data" width="100%">
 <tr valign="top">
 	<td class="label">{fieldLabel name="username" required="true" key="user.username"}</td>
 	<td class="value"><input type="text" name="username" value="{$username|escape}" id="username" size="20" maxlength="32" class="textField" /></td>

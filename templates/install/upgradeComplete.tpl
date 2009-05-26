@@ -16,13 +16,16 @@
 {translate key="installer.upgradeComplete" version=$newVersion->getVersionString()}
 
 {if !empty($notes)}
+<div id="releaseNotes">
 <h4>{translate key="installer.releaseNotes"}</h4>
 {foreach from=$notes item=note}
 <p><pre style="font-size: 125%">{$note|escape}</pre></p>
 {/foreach}
+</div>
 {/if}
 
 {if $writeConfigFailed}
+<div id="writeConfigFailed">
 {translate key="installer.overwriteConfigFileInstructions"}
 
 <form action="#">
@@ -31,9 +34,11 @@
 <textarea name="config" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{$configFileContents|escape}</textarea>
 </p>
 </form>
+</div>
 {/if}
 
 {if $manualInstall}
+<div id="manualSQLInstructions">
 {translate key="installer.manualSQLInstructions"}
 
 <form action="#">
@@ -45,6 +50,7 @@
 {/foreach}</textarea>
 </p>
 </form>
+</div>
 {/if}
 
 {include file="common/footer.tpl"}

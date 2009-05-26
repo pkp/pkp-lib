@@ -38,7 +38,7 @@
 	<h2>{$topic->getTitle()}</h2>
 	
 	<div id="content">
-		<div>{include file="help/topic.tpl"}</div>
+		<div id="helpTopic">{include file="help/topic.tpl"}</div>
 	</div>
 
 </div>

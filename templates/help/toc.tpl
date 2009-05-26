@@ -26,11 +26,13 @@
 <br />
 
 {if $toc->getParentTopicId() && $toc->getParentTopicId() != $topic->getId()}
+<div id="helpContents">
 {translate key="help.contents"}&nbsp;<a href="{url op="view" path=$toc->getParentTopicId()|explode:"/"}">{translate key="help.upALevel"}</a>
+</div>
 <br />
 {/if}
 
-<div class="block">
+<div id="helpToc" class="block">
 	<span class="blockTitle">{$toc->getTitle()}</span>
 	<ul>
 		{foreach from=$toc->getTopics() item=currTopic}

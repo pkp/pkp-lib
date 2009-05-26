@@ -22,12 +22,14 @@
 {include file="common/formErrors.tpl"}
 
 {if $isInstallError}
+<div id="installError">
 <p>
 	<span class="formError">{translate key="installer.installErrorsOccurred"}:</span>
 	<ul class="formErrorList">
 		<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
 	</ul>
 </p>
+</div>
 {/if}
 
 

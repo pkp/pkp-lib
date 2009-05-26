@@ -17,6 +17,7 @@
 {translate key="installer.installationComplete" loginUrl=$loginUrl}
 
 {if $writeConfigFailed}
+<div id="writeConfigFailed">
 {translate key="installer.overwriteConfigFileInstructions"}
 
 <form action="#">
@@ -25,11 +26,13 @@
 <textarea name="config" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{$configFileContents|escape}</textarea>
 </p>
 </form>
+</div>
 {/if}
 
 {if $manualInstall}
-{translate key="installer.manualSQLInstructions"}
 
+{translate key="installer.manualSQLInstructions"}
+<div id="manualSQLInstructions">
 <form action="#">
 <p>
 {translate key="installer.installerSQLStatements"}:<br />
@@ -39,6 +42,7 @@
 {/foreach}</textarea>
 </p>
 </form>
+</div>
 {/if}
 
 {include file="common/footer.tpl"}

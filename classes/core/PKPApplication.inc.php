@@ -57,6 +57,7 @@ class PKPApplication {
 
 		$this->initialize($this);
 		String::init();
+		set_error_handler(array($this, 'errorHandler'));
 
 		if ($this->isCacheable()) {
 			// Can we serve a cached response?
@@ -225,6 +226,138 @@ class PKPApplication {
 	 */
 	function &instantiateHelp() {
 		fatalError('Abstract class');
+	}
+	
+	/**
+	 * Custom error handler
+	 * @param $errorno string
+	 * @param $errstr string
+	 * @param $errfile string
+	 * @param $errline string
+	 */
+	function errorHandler($errorno, $errstr, $errfile, $errline) {
+		if(error_reporting() != 0) {
+			if ($errorno ==  E_ERROR) {
+				echo 'An error has occurred.  Please check your PHP log file.';
+			} else if(Config::getVar('debug', 'display_errors')) {
+				echo $this->buildErrorMessage($errorno, $errstr, $errfile, $errline);
+			}
+
+			error_log($this->buildErrorMessage($errorno, $errstr, $errfile, $errline), 0);
+		}
+	}
+	
+	/**
+	 * Auxiliary function to errorHandler that returns a formatted error message.
+	 * Error type formatting code adapted from ash, http://ca3.php.net/manual/en/function.set-error-handler.php
+	 * @param $errorno string
+	 * @param $errstr string
+	 * @param $errfile string
+	 * @param $errline string
+ 	 * @return $message string
+	 */
+	function buildErrorMessage($errorno, $errstr, $errfile, $errline) {
+		$message = array();
+		$errorType = array (
+		   E_ERROR            => 'ERROR',
+		   E_WARNING        => 'WARNING',
+		   E_PARSE          => 'PARSING ERROR',
+		   E_NOTICE         => 'NOTICE',
+		   E_CORE_ERROR     => 'CORE ERROR',
+		   E_CORE_WARNING   => 'CORE WARNING',
+		   E_COMPILE_ERROR  => 'COMPILE ERROR',
+		   E_COMPILE_WARNING => 'COMPILE WARNING',
+		   E_USER_ERROR     => 'USER ERROR',
+		   E_USER_WARNING   => 'USER WARNING',
+		   E_USER_NOTICE    => 'USER NOTICE',
+		   E_STRICT         => 'STRICT NOTICE',
+		   E_RECOVERABLE_ERROR  => 'RECOVERABLE ERROR'
+	   );
+	   
+		if (array_key_exists($errorno, $errorType)) {
+			$type = $errorType[$errorno];
+		} else {
+			$type = 'CAUGHT EXCEPTION';
+		}
+
+		// Return abridged message if strict error or notice (since they are more common)
+		if ($errorno == E_STRICT || $errorno == E_NOTICE) {
+			return $type . ': ' . $errstr . ' (' . $errfile . ':' . $errline . ')';
+		}
+	
+
+		$message[] = $this->getName() . ' has produced an error';
+		$message[] = '  Message: ' . $type . ': ' . $errstr;
+		$message[] = '  In file: ' . $errfile;
+		$message[] = '  At line: ' . $errline;
+		$message[] = '  Stacktrace: ';
+		
+		if(Config::getVar('debug', 'show_stacktrace')) {
+			$trace = debug_backtrace();
+			// Remove the call to fatalError from the call trace.
+			array_shift($trace);
+	
+			// Back-trace pretty-printer adapted from the following URL:
+			// http://ca3.php.net/manual/en/function.debug-backtrace.php
+			// Thanks to diz at ysagoon dot com
+
+			foreach ($trace as $bt) {
+				$args = '';
+				if (isset($bt['args'])) foreach ($bt['args'] as $a) {
+					if (!empty($args)) {
+						$args .= ', ';
+					}
+					switch (gettype($a)) {
+						case 'integer':
+						case 'double':
+							$args .= $a;
+							break;
+						case 'string':
+							$a = htmlspecialchars(substr($a, 0, 64)).((strlen($a) > 64) ? '...' : '');
+							$args .= "\"$a\"";
+							break;
+						case 'array':
+							$args .= 'Array('.count($a).')';
+							break;
+						case 'object':
+							$args .= 'Object('.get_class($a).')';
+							break;
+						case 'resource':
+							$args .= 'Resource('.strstr($a, '#').')';
+							break;
+						case 'boolean':
+							$args .= $a ? 'True' : 'False';
+							break;
+						case 'NULL':
+							$args .= 'Null';
+							break;
+						default:
+							$args .= 'Unknown';
+					}
+				}
+				$class = isset($bt['class'])?$bt['class']:'';
+				$type = isset($bt['type'])?$bt['type']:'';
+				$function = isset($bt['function'])?$bt['function']:'';
+				$file = isset($bt['file'])?$bt['file']:'(unknown)';
+				$line = isset($bt['line'])?$bt['line']:'(unknown)';
+	
+				$message[] =  "   File: {$file} line {$line}";
+				$message[] =  "     Function: {$class}{$type}{$function}($args)";
+			}
+		}
+		
+		$dbconn = &DBConnection::getConn();
+		$dbServerInfo = $dbconn->ServerInfo();
+		
+		$message[] =  "  Server info:";
+		$message[] =  "   OS: " . Core::serverPHPOS();
+		$message[] =  "   PHP Version: " . Core::serverPHPVersion();
+		$message[] =  "   Apache Version: " . (function_exists('apache_get_version') ? apache_get_version() : 'N/A');
+		$message[] =  "   DB Driver: " . Config::getVar('database', 'driver');
+		$message[] =  "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
+		
+	
+		return implode("\n", $message); 		
 	}
 }
 

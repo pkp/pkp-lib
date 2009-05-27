@@ -25,7 +25,7 @@
 	<meta name="keywords" content="{$metaSearchKeywords|escape}" />
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	{$metaCustomHeaders}
-
+	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}">{/if}
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}

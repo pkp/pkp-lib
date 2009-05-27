@@ -337,7 +337,11 @@ class FileManager {
 				return'.jpg';
 			case 'image/png':
 			case 'image/x-png':
-				return '.jpg';
+				return '.png';
+			case 'image/vnd.microsoft.icon':
+			case 'image/x-icon':
+			case 'image/ico':
+				return '.ico';
 			case 'application/x-shockwave-flash':
 				return '.swf';
 			case 'video/x-flv':

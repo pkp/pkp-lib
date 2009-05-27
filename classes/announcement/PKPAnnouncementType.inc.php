@@ -25,7 +25,6 @@ class PKPAnnouncementType extends DataObject {
 	function getTypeId() {
 		trigger_error('Deprecated function.');
 		return $this->getId();
-		return $this->getData('typeId');
 	}
 
 	/**

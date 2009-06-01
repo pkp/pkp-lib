@@ -270,8 +270,6 @@ class PKPApplication {
 		   E_USER_ERROR     => 'USER ERROR',
 		   E_USER_WARNING   => 'USER WARNING',
 		   E_USER_NOTICE    => 'USER NOTICE',
-		   E_STRICT         => 'STRICT NOTICE',
-		   E_RECOVERABLE_ERROR  => 'RECOVERABLE ERROR'
 	   );
 	   
 		if (array_key_exists($errorno, $errorType)) {
@@ -281,7 +279,7 @@ class PKPApplication {
 		}
 
 		// Return abridged message if strict error or notice (since they are more common)
-		if ($errorno == E_STRICT || $errorno == E_NOTICE) {
+		if ($errorno == E_NOTICE) {
 			return $type . ': ' . $errstr . ' (' . $errfile . ':' . $errline . ')';
 		}
 	

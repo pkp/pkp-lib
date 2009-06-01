@@ -178,6 +178,7 @@ class FileManager {
 	 * @return boolean
 	 */
 	function downloadFile($filePath, $type = null, $inline = false) {
+		$result = null;
 		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$type, &$inline, &$result))) return $result;
 		if (is_readable($filePath)) {
 			if ($type == null) {

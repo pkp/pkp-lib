@@ -236,7 +236,8 @@ class PKPApplication {
 	 * @param $errline string
 	 */
 	function errorHandler($errorno, $errstr, $errfile, $errline) {
-		if(error_reporting() != 0) {
+		// FIXME: Error logging needs to be suppressed for strict errors as long as we support PHP4
+		if(error_reporting() != 0 && $errorno != E_STRICT) {
 			if ($errorno ==  E_ERROR) {
 				echo 'An error has occurred.  Please check your PHP log file.';
 			} else if(Config::getVar('debug', 'display_errors')) {

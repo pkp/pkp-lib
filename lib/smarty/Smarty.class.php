@@ -1109,18 +1109,6 @@ class Smarty
     }
     
     /**
-     * compiles a template without executing it
-     *
-     * @param string $resource_name
-     * @param string $cache_id
-     * @param string $compile_id
-     */
-    function compile($resource_name, $cache_id = null, $compile_id = null)
-    {
-        $this->fetch($resource_name, $cache_id, $compile_id, false, false);
-    }
-
-    /**
      * executes & returns or displays the template results
      *
      * @param string $resource_name
@@ -1128,7 +1116,7 @@ class Smarty
      * @param string $compile_id
      * @param boolean $display
      */
-    function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false, $execute = true)
+    function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false)
     {
         static $_cache_info = array();
         
@@ -1274,7 +1262,7 @@ class Smarty
             if ($this->_is_compiled($resource_name, $_smarty_compile_path)
                     || $this->_compile_resource($resource_name, $_smarty_compile_path))
             {
-            	if ($execute) { include($_smarty_compile_path); }
+            	include($_smarty_compile_path);
             }
             $_smarty_results = ob_get_contents();
             ob_end_clean();

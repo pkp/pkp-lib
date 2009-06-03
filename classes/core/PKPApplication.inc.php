@@ -202,6 +202,7 @@ class PKPApplication {
 			'SignoffDAO' => 'signoff.SignoffDAO',
 			'SiteDAO' => 'site.SiteDAO',
 			'SiteSettingsDAO' => 'site.SiteSettingsDAO',
+			'TimeZoneDAO' => 'i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'file.TemporaryFileDAO',
 			'VersionDAO' => 'site.VersionDAO',
 			'XMLDAO' => 'db.XMLDAO'

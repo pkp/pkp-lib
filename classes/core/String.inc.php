@@ -221,7 +221,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_grep.php
 	*/
 	function regexp_grep($pattern, $input) {
-		if (!String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
+		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
 		return preg_grep($pattern . PCRE_UTF8, $input);
 	}
 
@@ -229,7 +229,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_match.php
 	*/
 	function regexp_match($pattern, $subject) {
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject);
 	}
 
@@ -238,7 +238,7 @@ class String {
 	*/
 	function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
@@ -246,7 +246,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_match_all.php
 	*/
 	function regexp_match_all($pattern, $subject, &$matches) {
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
@@ -254,7 +254,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_replace.php
 	*/
 	function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
 	}
 
@@ -262,7 +262,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
 	*/
 	function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
 	}
 
@@ -270,7 +270,7 @@ class String {
 	* @see http://ca.php.net/manual/en/function.regexp_split.php
 	*/
 	function regexp_split($pattern, $subject, $limit = -1) {
-		if (!String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
+		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
 	}
 

@@ -147,7 +147,7 @@ class AuthSourceDAO extends DAO {
 	 * Update a source.
 	 * @param $auth AuthSource
 	 */
-	function updateSource(&$auth) {
+	function updateObject(&$auth) {
 		return $this->update(
 			'UPDATE auth_sources SET
 				title = ?,
@@ -161,14 +161,24 @@ class AuthSourceDAO extends DAO {
 		);
 	}
 
+	function updateSource(&$auth) {
+		trigger_error('Deprecated function.');
+		return $this->updateObject($auth);
+	}
+
 	/**
 	 * Delete a source.
 	 * @param $authId int
 	 */
-	function deleteSource($authId) {
+	function deleteObject($authId) {
 		return $this->update(
 			'DELETE FROM auth_sources WHERE auth_id = ?', $authId
 		);
+	}
+
+	function deleteSource(&$auth) {
+		trigger_error('Deprecated function.');
+		return $this->deleteObject($auth);
 	}
 
 	/**

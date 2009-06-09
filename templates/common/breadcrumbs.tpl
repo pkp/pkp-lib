@@ -12,5 +12,5 @@
 	{foreach from=$pageHierarchy item=hierarchyLink}
 		<a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a> &gt;
 	{/foreach}
-	<a href="{$currentUrl|escape}" class="current">{$pageCrumbTitleTranslated}</a>
+	{if !PKPRequest::isPost()}<a href="{$currentUrl|escape}" class="current">{else}<span class="current">{/if}{$pageCrumbTitleTranslated}{if !PKPRequest::isPost()}</a>{else}</span>{/if}
 </div>

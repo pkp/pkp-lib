@@ -247,6 +247,7 @@ class Installer {
 			$this->newVersion->setCurrent(1);
 		} else {
 			$this->newVersion = $this->currentVersion;
+			$this->newVersion->setCurrent(1);
 		}
 
 		// Parse descriptor

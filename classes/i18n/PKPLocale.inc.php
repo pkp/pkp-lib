@@ -183,6 +183,20 @@ class PKPLocale {
 	}
 
 	/**
+	 * Determine whether or not a locale is marked incomplete.
+	 * @param $locale xx_XX symbolic name of locale to check
+	 * @return boolean
+	 */
+	function isLocaleComplete($locale) {
+		$allLocales =& Locale::_getAllLocalesCache();
+		$contents = $allLocales->getContents();
+		if (isset($contents[$locale]['complete']) && $contents[$locale]['complete'] == 'false') {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * Check if the supplied locale is currently installable.
 	 * @param $locale string
 	 * @return boolean

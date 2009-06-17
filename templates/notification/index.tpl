@@ -34,17 +34,17 @@
 {iterate from=notifications item=notification}
 	<table width="100%" class="notifications">
 		<tr>
-			<td width="25"><img src="{$notification->getIconLocation()}" alt="&#187"/></td>
+			<td width="25"><img src="{$notification->getIconLocation()}" alt="&#187;"/></td>
 			<td class="notificationContent" colspan="2" width="80%">
 				{$notification->getDateCreated()}
 			</td>
 			{if $notification->getLocation() != null}
-				<td id="notificationLink" class="notificationFunction" style="min-width:60px"><a href="{$notification->getLocation()}">{translate key="notification.location"}</a></td>
+				<td class="notificationFunction" style="min-width:60px"><a href="{$notification->getLocation()}">{translate key="notification.location"}</a></td>
 			{else}
-				<td id="notificationLink" class="notificationFunction"></td>
+				<td class="notificationFunction"></td>
 			{/if}
 			{if $isUserLoggedIn}
-				<td id="notificationDelete" class="notificationFunction"><a id="notificationDeleteLink" href="{url op="delete" path=$notification->getId()}">{translate key="common.delete"}</a></td>
+				<td class="notificationFunction"><a href="{url op="delete" path=$notification->getId()}">{translate key="common.delete"}</a></td>
 			{/if}
 		</tr>
 		<tr>

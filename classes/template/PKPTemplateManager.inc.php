@@ -746,7 +746,7 @@ class PKPTemplateManager extends Smarty {
 				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
 			}
 			
-			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams);
+			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams, null, true);
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
 			$style = (isset($sort) && isset($params['heading']) && ($sort == $params['heading'])) ? ' style="font-weight:bold"' : '';
 

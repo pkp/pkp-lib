@@ -13,7 +13,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<div id="announcements">
+<div id="announcementList">
 <table class="announcements">
 {if $announcementsIntroduction != null}
 	<tr class="intro">

@@ -21,7 +21,7 @@
 
 <br />
 
-<div id="announcements">
+<div id="announcementList">
 <table width="100%" class="listing">
 	<tr>
 		<td colspan="4" class="headseparator">&nbsp;</td>

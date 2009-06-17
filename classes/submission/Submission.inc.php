@@ -209,7 +209,19 @@ class Submission extends DataObject {
 	 * @param $locale
 	 */
 	function setTitle($title, $locale) {
+		$this->setCleanTitle($title, $locale);
 		return $this->setData('title', $title, $locale);
+	}
+	
+	/**
+	 * Set 'clean' title (with punctuation removed).
+	 * @param $cleanTitle string
+	 * @param $locale
+	 */
+	function setCleanTitle($cleanTitle, $locale) {
+		$punctuation = array ("\"", "\'", ",", ".", "!", "?", "-", "$", "(", ")");
+		$cleanTitle = str_replace($punctuation, "", $cleanTitle);
+		return $this->setData('cleanTitle', $cleanTitle, $locale);
 	}
 
 	/**

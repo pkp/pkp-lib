@@ -90,15 +90,14 @@ class PKPInstallHandler extends Handler {
 	 */
 	function installUpgrade() {
 		$this->validate();
+		$this->setupTemplate();
 
 		$installForm =& new UpgradeForm();
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {
 			$installForm->execute();
-
 		} else {
-			$this->setupTemplate();
 			$installForm->display();
 		}
 	}

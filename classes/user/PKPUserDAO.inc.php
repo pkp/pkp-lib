@@ -521,6 +521,19 @@ class PKPUserDAO extends DAO {
 	function getInsertUserId() {
 		return $this->getInsertId('users', 'user_id');
 	}
+	
+	/**
+	 * Return a list of gender names for use in the user profile.
+	 * @return array
+	 */
+	function getGenderOptions() {
+		return array(
+			'' => '',
+			'M' => 'user.masculine',
+			'F' => 'user.feminine',
+			'O' => 'user.other',
+		);
+	}
 }
 
 ?>

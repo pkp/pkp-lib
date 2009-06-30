@@ -604,8 +604,10 @@ function _adodb_getupdatesql(&$zthis,&$rs, $arrFields,$forceUpdate=false,$magicq
 		if ($fieldUpdatedCount > 0 || $forceUpdate) {
 					// Get the table name from the existing query.
 			if (!empty($rs->tableName)) $tableName = $rs->tableName;
-			else preg_match("/FROM\s+".ADODB_TABLE_REGEX."/is", $rs->sql, $tableName);
-	
+			else {
+				preg_match("/FROM\s+".ADODB_TABLE_REGEX."/is", $rs->sql, $tableName);
+				$tableName = $tableName[1];
+			}
 			// Get the full where clause excluding the word "WHERE" from
 			// the existing query.
 			preg_match('/\sWHERE\s(.*)/is', $rs->sql, $whereClause);

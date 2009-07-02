@@ -153,8 +153,7 @@ class PKPHandler {
 	}
 
 	/**
-	 * Get a list of pages that don't require login, even if the journal
-	 * does.
+	 * Get a list of pages that don't require login, even if the system does
 	 * @return array
 	 */
 	function getLoginExemptions() {

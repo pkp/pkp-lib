@@ -758,7 +758,7 @@ class OAI {
 		// Check for illegal parameters
 		foreach ($this->params as $k => $v) {
 			if (!in_array($k, $validParams)) {
-				// Ignore the "path" and "journal" parameters if path_info is disabled.
+				// Ignore the "path" and "context" parameters if path_info is disabled.
 				if (Request::isPathInfoEnabled() || !in_array($k, $this->getNonPathInfoParams())) {
 					$this->error('badArgument', "$k is an illegal parameter");
 					return false;

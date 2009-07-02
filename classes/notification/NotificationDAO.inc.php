@@ -304,7 +304,7 @@ class NotificationDAO extends DAO {
 			}
 
 			import('mail.MailTemplate');
-			$journal =& Request::getJournal();
+			$context =& Request::getContext();
 			$site =& Request::getSite();
 
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
@@ -312,7 +312,7 @@ class NotificationDAO extends DAO {
 			$mail->assignParams(array(
 				'notificationContents' => $notificationContents,
 				'url' => $notification->getLocation(),
-				'siteTitle' => $journal->getJournalTitle(),
+				'siteTitle' => $context->getLocalizedTitle(),
 				'unsubscribeLink' => Request::url(null, 'notification', 'unsubscribeMailList')
 			));
 			$mail->addRecipient($email);

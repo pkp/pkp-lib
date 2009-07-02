@@ -22,7 +22,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	}
 
 	/**
-	 * Display a list of announcements for the current conference.
+	 * Display a list of announcements for the current context.
 	 */
 	function announcements() {
 		$this->validate();
@@ -58,7 +58,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
-			// Ensure announcement is for this conference
+			// Ensure announcement is for this context
 			if ($this->_announcementIsValid($announcementId)) {
 				$announcementDao->deleteAnnouncementById($announcementId);
 			}
@@ -78,7 +78,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$announcementId = !isset($args) || empty($args) ? null : (int) $args[0];
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
-		// Ensure announcement is valid and for this conference
+		// Ensure announcement is valid and for this context
 		if ($this->_announcementIsValid($announcementId)) {
 			import('manager.form.AnnouncementForm');
 
@@ -159,7 +159,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	}
 
 	/**
-	 * Display a list of announcement types for the current conference.
+	 * Display a list of announcement types for the current context.
 	 */
 	function announcementTypes() {
 		$this->validate();
@@ -175,7 +175,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('announcementTypes', $announcementTypes);
-		$templateMgr->assign('helpTopicId', 'conference.generalManagement.announcements');
 		$templateMgr->display('manager/announcement/announcementTypes.tpl');
 	}
 
@@ -191,7 +190,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 			$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
-			// Ensure announcement is for this conference
+			// Ensure announcement is for this context
 			if ($this->_announcementTypeIsValid($typeId)) {
 				$announcementTypeDao->deleteAnnouncementTypeById($typeId);
 			}
@@ -211,7 +210,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$typeId = !isset($args) || empty($args) ? null : (int) $args[0];
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
-		// Ensure announcement type is valid and for this conference
+		// Ensure announcement type is valid and for this context
 		if ($this->_announcementTypeIsValid($typeId)) {
 			import('manager.form.AnnouncementTypeForm');
 

@@ -10,7 +10,7 @@
  * @ingroup group
  * @see GroupMembershipDAO, Group
  *
- * @brief Describes memberships for journal board positions.
+ * @brief Describes memberships for editorial board positions.
  */
 
 // $Id$

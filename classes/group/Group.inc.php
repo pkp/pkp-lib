@@ -25,7 +25,7 @@ define('GROUP_CONTEXT_PEOPLE',		0x000002);
 
 class Group extends DataObject {
 	/**
-	 * Get localized title of journal group.
+	 * Get localized title of group.
 	 */
 	function getLocalizedTitle() {
 		return $this->getLocalizedData('title');

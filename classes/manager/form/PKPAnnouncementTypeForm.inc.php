@@ -10,7 +10,7 @@
  * @ingroup manager_form
  * @see AnnouncementType
  *
- * @brief Form for conference manager to create/edit announcement types.
+ * @brief Form for manager to create/edit announcement types.
  */
 
 //$Id$

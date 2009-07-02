@@ -46,7 +46,7 @@ class GroupDAO extends DAO {
 	}
 
 	/**
-	 * Get all groups for a journal.
+	 * Get all groups for a given context.
 	 * @param $assocType int
 	 * @param $assocId int
 	 * @param $context int (optional)

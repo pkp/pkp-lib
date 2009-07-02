@@ -142,7 +142,7 @@ class GroupMembershipDAO extends DAO {
 
 	/**
 	 * Delete a membership
-	 * @param $journal GroupMembership
+	 * @param $membership GroupMembership
 	 */
 	function deleteObject(&$membership) {
 		return $this->deleteMembershipById($membership->getGroupId(), $membership->getUserId());

@@ -252,7 +252,6 @@
 	<message key="notification.email">Send me an email for these types of notifications.</message>
 	<message key="notification.location">Go To URL</message>
 	<message key="notification.mailList">Notification mailing list</message>
-	<message key="notification.mailListDescription">Enter your email address to receive immediate notifications of important new content added to the journal.</message>
 	<message key="notification.mailList.privacyProtection">Privacy protection policy</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> to protected content.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> an article]]></message>
@@ -263,7 +262,6 @@
 	<message key="notification.notifications">Notifications</message>	
 	<message key="notification.notificationsNew">({$numNew} new)</message>
 	<message key="notification.notificationsDescription">You have {$unreadCount} unread notifications and {$readCount} read notifications.<![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
-	<message key="notification.notificationsPublicDescription">This page shows important updates associated with this journal such as new issues or announcements.  You may subscribe to these notifications through RSS feeds (by clicking on the images to the right), or <![CDATA[  <a href="{$emailUrl}">through email.</a>]]></message>
 	<message key="notification.settings">Notification Settings</message>
 	<message key="notification.settingsDescription">Select the system events that you wish to be notified about.  Unchecking an item will prevent notifications of the event from showing up in your notification feed.</message>
 	<message key="notification.subscribe">Subscribe</message>	

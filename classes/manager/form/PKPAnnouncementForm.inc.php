@@ -9,7 +9,7 @@
  * @class AnnouncementForm
  * @ingroup manager_form
  *
- * @brief Form for conference managers to create/edit announcements.
+ * @brief Form for managers to create/edit announcements.
  */
 
 // $Id$
@@ -71,7 +71,6 @@ class PKPAnnouncementForm extends Form {
 
 		$templateMgr->assign('announcementId', $this->announcementId);
 		$templateMgr->assign('yearOffsetFuture', ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE);
-		$templateMgr->assign('helpTopicId', 'conference.generalManagement.announcements');
 
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();

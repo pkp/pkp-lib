@@ -20,8 +20,8 @@ import('handler.Handler');
 class PKPInstallHandler extends Handler {
 
 	/**
-	 * If no journal is selected, display list of journals.
-	 * Otherwise, display the index page for the selected journal.
+	 * If no context is selected, list all.
+	 * Otherwise, display the index page for the selected context.
 	 */
 	function index() {
 		// Make sure errors are displayed to the browser during install.

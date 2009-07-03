@@ -73,7 +73,7 @@ class Form {
 		$templateMgr->assign('isError', !$this->isValid());
 		$templateMgr->assign('errors', $this->getErrorsArray());
 
-		$templateMgr->assign('formLocales', Locale::getSupportedLocales());
+		$templateMgr->assign('formLocales', Locale::getSupportedFormLocales());
 
 		// Determine the current locale to display fields with
 		$formLocale = Request::getUserVar('formLocale');

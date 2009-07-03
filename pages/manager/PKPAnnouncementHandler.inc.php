@@ -83,7 +83,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			import('manager.form.AnnouncementForm');
 
 			$templateMgr =& TemplateManager::getManager();
-			$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
+			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcements'), 'manager.announcements'));
 
 			if ($announcementId == null) {
 				$templateMgr->assign('announcementTitle', 'manager.announcements.createTitle');
@@ -215,7 +215,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			import('manager.form.AnnouncementTypeForm');
 
 			$templateMgr =& TemplateManager::getManager();
-			$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
+			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
 
 			if ($typeId == null) {
 				$templateMgr->assign('announcementTypeTitle', 'manager.announcementTypes.createTitle');
@@ -294,7 +294,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		parent::setupTemplate(true);
 		if ($subclass) {
 			$templateMgr =& TemplateManager::getManager();
-			$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
+			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcements'), 'manager.announcements'));
 		}
 	}
 

@@ -47,6 +47,24 @@
 	<message key="rt.admin.contexts.options.geoTerms">Use geographical indexing data as default search terms.</message>
 	<message key="rt.admin.contexts.options">Options</message>
 	<message key="rt.admin.management">Management</message>
+	
+	<message key="rt.admin.sharing">Sharing</message>
+	<message key="rt.admin.sharing.enabled">Sharing Enabled</message>
+	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share journal articles, sign up for an account with <a href="http://addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
+
+	<message key="rt.admin.sharing.basic">Basic Settings</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Button style</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Use drop-down menu</message>
+	<message key="rt.admin.sharing.advanced">Advanced Settings (optional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[See the <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> for reference.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Brand</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down options <br /> (comma separated list)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Language</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Logo background</message>
+	<message key="rt.admin.sharing.logoColorLabel">Logo color</message>
+
 	<message key="rt.admin.readingToolsEnabled">Reading tools</message>
 	<message key="rt.admin.searches.confirmDelete">Are you sure you wish to delete this Search?</message>
 	<message key="rt.admin.searches.createSearch">Create Search</message>
@@ -64,6 +82,7 @@
 	<message key="rt.admin.settings.supplementaryFiles">Supplementary files (displays list of files author included with submission).</message>
 	<message key="rt.admin.settings.viewMetadata">Indexing metadata (displays item's indexing metadata provided by author and system).</message>
 	<message key="rt.admin.status">Status</message>
+	<message key="rt.admin.configureSharing">Configure AddThis</message>
 	<message key="rt.admin.validateUrls.complete">Validation complete.</message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} is not valid.</message>

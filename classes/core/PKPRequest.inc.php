@@ -15,9 +15,6 @@
 // $Id$
 
 
-// The base script through which all requests are routed
-define('INDEX_SCRIPTNAME', 'index.php');
-
 class PKPRequest {
 	/**
 	 * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
@@ -103,7 +100,7 @@ class PKPRequest {
 			if (PKPRequest::isRestfulUrlsEnabled()) {
 				$indexUrl = PKPRequest::getBaseUrl();
 			} else {
-				$indexUrl = PKPRequest::getBaseUrl() . '/' . INDEX_SCRIPTNAME;
+				$indexUrl = PKPRequest::getBaseUrl() . '/' . basename($_SERVER['SCRIPT_NAME']);
 			}
 			HookRegistry::call('Request::getIndexUrl', array(&$indexUrl));
 		}

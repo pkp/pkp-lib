@@ -32,8 +32,7 @@ class PKPHandler {
 	 * Fallback method in case request handler does not implement index method.
 	 */
 	function index() {
-		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
+		PKPRequest::handle404();
 	}
 
 	/**

@@ -50,6 +50,14 @@ class PKPRequest {
 	}
 
 	/**
+	 * Handle a 404 error (page not found).
+	 */
+	function handle404() {
+		header('HTTP/1.0 404 Not Found');
+		fatalError('404 Not Found');
+	}
+
+	/**
 	 * Get the base URL of the request (excluding script).
 	 * @return string
 	 */

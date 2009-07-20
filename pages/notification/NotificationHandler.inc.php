@@ -183,34 +183,55 @@ class NotificationHandler extends Handler {
 	 */
 	function subscribeMailList() {
 		$this->setupTemplate();
-		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('new', true);
 
 		$user = Request::getUser();
 
 		if(!isset($user)) {
-			// $templateMgr->assign('subscriptionEnabled', $subscriptionEnabled);
-
-			if($userEmail = Request::getUserVar('email')) {
-				$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-				if($password = $notificationSettingsDao->subscribeGuest($userEmail)) {
-					Notification::sendMailingListEmail($userEmail, $password, 'NOTIFICATION_MAILLIST_WELCOME');
-					$templateMgr->assign('success', "notification.subscribeSuccess");
-					$templateMgr->display('notification/maillist.tpl');
-				} else {
-					$templateMgr->assign('error', "notification.subscribeError");
-					$templateMgr->display('notification/maillist.tpl');
-
-				}
-			} else {
-				$templateMgr->assign('settings', Notification::getSubscriptionSettings());
-				$templateMgr->display('notification/maillist.tpl');
-			}
+			import('notification.form.NotificationMailingListForm');
+			$notificationMailingListForm =& new NotificationMailingListForm();
+			$notificationMailingListForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
+	}
+	
+	/**
+	 * Save the public notification email subscription form
+	 */
+	function saveSubscribeMailList() {
+		$this->validate();
+
+		import('notification.form.NotificationMailingListForm');
+
+		$notificationMailingListForm =& new NotificationMailingListForm();
+		$notificationMailingListForm->readInputData();
+
+		if ($notificationMailingListForm->validate()) {
+			$notificationMailingListForm->execute();
+			PKPRequest::redirect(null, 'notification', 'mailListSubscribed', array('success'));
+		} else {
+			$this->setupTemplate(true);
+			$notificationMailingListForm->display();
+		}
+	}
+	
+	/**
+	 * Display a success or error message if the user was subscribed
+	 */
+	function mailListSubscribed($args) {
+		$this->setupTemplate();
+		$status = array_shift($args);
+		$templateMgr =& TemplateManager::getManager();
+
+		if ($status = 'success') {
+			$templateMgr->assign('status', 'subscribeSuccess');
+		} else {
+			$templateMgr->assign('status', 'subscribeError');
+		}
+
+		$templateMgr->display('notification/maillistSubscribed.tpl');
 	}
 
 	/**
-	 * Display the public notification email subscription form
+	 * Confirm the subscription (accessed via emailed link)
 	 */
 	function confirmMailListSubscription($args) {
 		$this->setupTemplate();
@@ -228,51 +249,47 @@ class NotificationHandler extends Handler {
 
 		if($accessKey) {
 			$notificationSettingsDao->confirmMailListSubscription($settingId);
-			$templateMgr->assign('success', "notification.confirmSuccess");
-			$templateMgr->display('notification/maillist.tpl');
+			$templateMgr->assign('status', 'confirmSuccess');
 		} else {
-			$templateMgr->assign('error', "notification.confirmError");
-			$templateMgr->display('notification/maillist.tpl');
+			$templateMgr->assign('status', 'confirmError');
 		}
+
+		$templateMgr->display('notification/maillistSubscribed.tpl');	
 	}
 
 	/**
-	 * Display the public notification email subscription form
+	 * Save the maillist unsubscribe form
 	 */
 	function unsubscribeMailList() {
 		$this->setupTemplate();
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('remove', true);
 
-		$user = Request::getUser();
-		if(!isset($user)) {
-			$userEmail = Request::getUserVar('email');
-			$userPassword = Request::getUserVar('password');
+		$userEmail = Request::getUserVar('email');
+		$userPassword = Request::getUserVar('password');
 
-			if($userEmail != '' && $userPassword != '') {
-				$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-				if($notificationSettingsDao->unsubscribeGuest($userEmail, $userPassword)) {
-					$templateMgr->assign('success', "notification.unsubscribeSuccess");
-					$templateMgr->display('notification/maillist.tpl');
-				} else {
-					$templateMgr->assign('error', "notification.unsubscribeError");
-					$templateMgr->display('notification/maillist.tpl');
-				}
-			} else if($userEmail != '' && $userPassword == '') {
-				$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-				if($newPassword = $notificationSettingsDao->resetPassword($userEmail)) {
-					Notification::sendMailingListEmail($userEmail, $newPassword, 'NOTIFICATION_MAILLIST_PASSWORD');
-					$templateMgr->assign('success', "notification.reminderSent");
-					$templateMgr->display('notification/maillist.tpl');
-				} else {
-					$templateMgr->assign('error', "notification.reminderError");
-					$templateMgr->display('notification/maillist.tpl');
-				}
+		if($userEmail != '' && $userPassword != '') {
+			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
+			if($notificationSettingsDao->unsubscribeGuest($userEmail, $userPassword)) {
+				$templateMgr->assign('success', "notification.unsubscribeSuccess");
+				$templateMgr->display('notification/maillistSettings.tpl');
 			} else {
-				$templateMgr->assign('remove', true);
-				$templateMgr->display('notification/maillist.tpl');
+				$templateMgr->assign('error', "notification.unsubscribeError");
+				$templateMgr->display('notification/maillistSettings.tpl');
 			}
-		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
+		} else if($userEmail != '' && $userPassword == '') {
+			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
+			if($newPassword = $notificationSettingsDao->resetPassword($userEmail)) {
+				Notification::sendMailingListEmail($userEmail, $newPassword, 'NOTIFICATION_MAILLIST_PASSWORD');
+				$templateMgr->assign('success', "notification.reminderSent");
+				$templateMgr->display('notification/maillistSettings.tpl');
+			} else {
+				$templateMgr->assign('error', "notification.reminderError");
+				$templateMgr->display('notification/maillistSettings.tpl');
+			}
+		} else {
+			$templateMgr->assign('remove', true);
+			$templateMgr->display('notification/maillistSettings.tpl');
+		}
 	}
 
 	/**

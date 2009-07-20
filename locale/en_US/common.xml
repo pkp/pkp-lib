@@ -252,6 +252,7 @@
 	<message key="notification.email">Send me an email for these types of notifications.</message>
 	<message key="notification.location">Go To URL</message>
 	<message key="notification.mailList">Notification mailing list</message>
+	<message key="notification.mailList.emailInvalid">Please enter a valid email address.</message>	
 	<message key="notification.mailList.privacyProtection">Privacy protection policy</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> to protected content.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> an article]]></message>

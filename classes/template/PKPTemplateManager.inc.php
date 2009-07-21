@@ -721,7 +721,7 @@ class PKPTemplateManager extends Smarty {
 	}
 	
 	/**
-	 * Smarty usage: {sort_heading key="localization.key.name" heading="foo"}
+	 * Smarty usage: {sort_heading key="localization.key.name" sort="foo"}
 	 *
 	 * Custom Smarty function for creating heading links to sort tables by
 	 * @params $params array associative array
@@ -731,12 +731,12 @@ class PKPTemplateManager extends Smarty {
 	function smartySortHeading($params, &$smarty) {
 		if (isset($params) && !empty($params)) {	
 			$sortParams = Request::getQueryArray();
-			isset($params['heading'])? ($sortParams['heading'] = $params['heading']) : null;
+			isset($params['sort'])? ($sortParams['sort'] = $params['sort']) : null;
 			$sortDirection = $smarty->get_template_vars('sortDirection');
 			$sort = $smarty->get_template_vars('sort');
 			
 			// Invert sort direction
-			if($params['heading'] == $sort) {
+			if($params['sort'] == $sort) {
 				if ($sortDirection == SORT_DIRECTION_ASC) {
 					$sortParams['sortDirection'] = SORT_DIRECTION_DESC;
 				} else {
@@ -748,14 +748,14 @@ class PKPTemplateManager extends Smarty {
 			
 			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams, null, true);
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
-			$style = (isset($sort) && isset($params['heading']) && ($sort == $params['heading'])) ? ' style="font-weight:bold"' : '';
+			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
 
 			return "<a href=\"$link\"$style>$text</a>";
 		}
 	}
 	
 	/**
-	 * Smarty usage: {sort_search key="localization.key.name" heading="foo"}
+	 * Smarty usage: {sort_search key="localization.key.name" sort="foo"}
 	 *
 	 * Custom Smarty function for creating heading links to sort search-generated tables
 	 * @params $params array associative array
@@ -768,7 +768,7 @@ class PKPTemplateManager extends Smarty {
 			$sortDirection = $smarty->get_template_vars('sortDirection');
 			
 			// Invert sort direction
-			if($params['heading'] == $sort) {
+			if($params['sort'] == $sort) {
 				if ($sortDirection == SORT_DIRECTION_ASC) {
 					$direction = SORT_DIRECTION_DESC;
 				} else {
@@ -778,9 +778,9 @@ class PKPTemplateManager extends Smarty {
 				$direction = SORT_DIRECTION_ASC;
 			}
 			
-			$heading = isset($params['heading']) ? $params['heading'] : $sort;
+			$heading = isset($params['sort']) ? $params['sort'] : $sort;
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
-			$style = (isset($sort) && isset($params['heading']) && ($sort == $params['heading'])) ? ' style="font-weight:bold"' : '';
+			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
 			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
 		}
 	}

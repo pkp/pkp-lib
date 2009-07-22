@@ -32,7 +32,7 @@ class VersionDAO extends DAO {
 		}
 
 		$result =& $this->retrieve(
-			'SELECT * FROM versions WHERE current = 1'
+			'SELECT * FROM versions WHERE current = 1 AND product = ?', array($product)
 		);
 		if ($result->RecordCount() != 0) {
 			$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));

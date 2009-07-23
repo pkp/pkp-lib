@@ -62,7 +62,7 @@ class PKPAnnouncementHandler extends Handler {
 				} else {
 					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTypeName() . ": " . $announcement->getLocalizedTitle());
 				}
-				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'announcement'), 'announcement.announcements'));
+				$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'announcement'), 'announcement.announcements'));
 				$templateMgr->display('announcement/view.tpl');
 			} else {
 				Request::redirect(null, null, null, 'announcement');

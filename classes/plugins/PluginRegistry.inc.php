@@ -16,8 +16,6 @@
 // $Id$
 
 
-import('plugins.Plugin');
-
 define('PLUGINS_PREFIX', 'plugins/');
 
 class PluginRegistry {

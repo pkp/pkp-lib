@@ -23,20 +23,24 @@ class VersionDAO extends DAO {
 	 * Retrieve the current version.
 	 * @param $product string
 	 * @param $isUpgrade boolean
+	 * @param $isPlugin boolean
 	 * @return Version
 	 */
-	function &getCurrentVersion($product = null, $isUpgrade = false) {
+	function &getCurrentVersion($product = null, $isUpgrade = false, $isPlugin = false) {
 		if(!$product) {
 			$application = PKPApplication::getApplication();
 			$product = $application->getName();
 		}
 
-		$result =& $this->retrieve(
-			'SELECT * FROM versions WHERE current = 1 AND product = ?', array($product)
-		);
-		if ($result->RecordCount() != 0) {
-			$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
-			if (isset($oldVersion) && $oldVersion->compare('2.3.0') < 0) $isUpgrade = true;
+		if (!$isPlugin) {
+			$result =& $this->retrieve(
+				'SELECT * FROM versions WHERE current = 1'
+			);
+			if ($result->RecordCount() != 0) {
+				$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
+				$oldVersionType = $oldVersion->getProductType();
+				if (isset($oldVersion) &&  $oldVersion->compare('2.3.0') < 0) $isUpgrade = true;
+			}
 		}
 
 		if (!$isUpgrade) {

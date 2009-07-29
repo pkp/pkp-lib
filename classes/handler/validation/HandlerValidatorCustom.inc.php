@@ -13,7 +13,7 @@
 
 import('handler.validation.HandlerValidator');
 
-class HandlerValidatorCustom extends HandlerValidator{
+class HandlerValidatorCustom extends HandlerValidator {
 	/** additionalArguments to apss to the user function **/
 	var $userFunctionArgs;
 

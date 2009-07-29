@@ -68,7 +68,7 @@ class FormValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		return $this->type == 'optional' || trim($this->form->getData($this->field)) != '';
+		return $this->type == 'optional' || trim($this->form->getData($this->field)) !== '';
 	}
 
 	/**

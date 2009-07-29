@@ -20,6 +20,10 @@ class EditableFile {
 	var $contents;
 	var $filename;
 
+	function exists() {
+		return file_exists($this->filename);
+	}
+
 	function EditableFile($filename) {
 		import('file.FileWrapper');
 		$this->filename = $filename;

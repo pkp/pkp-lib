@@ -287,22 +287,6 @@ class PKPLocale {
 	}
 
 	/**
-	 * Get the path and filename for the email templates data for the
-	 * given locale
-	 * @param $locale string
-	 * @return string
-	 */
-	function getEmailTemplateFilename($locale) {
-		return 'dbscripts/xml/data/locale/' . $locale . '/email_templates_data.xml';
-	}
-
-	function getFilesToInstall($locale) {
-		return array(
-			Locale::getEmailTemplateFilename($locale)
-		);
-	}
-
-	/**
 	 * Uninstall support for an existing locale.
 	 * @param $locale string
 	 */
@@ -310,18 +294,15 @@ class PKPLocale {
 		// Install default locale-specific data
 		import('db.DBDataXMLParser');
 
-		$filesToInstall = Locale::getFilesToInstall($locale);
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
 
-		$dataXMLParser = new DBDataXMLParser();
-		$conn =& DBConnection::getInstance();
-		$dataXMLParser->setDBConn($conn->getDBConn());
-		foreach ($filesToInstall as $fileName) {
-			if (file_exists($fileName)) {
-				$sql = $dataXMLParser->parseData($fileName);
-				$dataXMLParser->executeData();
-			}
+		// Load all plugins so they can add locale data if needed
+		$categories = PluginRegistry::getCategories();
+		foreach ($categories as $category) {
+			PluginRegistry::loadCategory($category, true);
 		}
-		$dataXMLParser->destroy();
+		HookRegistry::call('PKPLocale::installLocale', array(&$locale));
 	}
 
 	/**
@@ -345,135 +326,16 @@ class PKPLocale {
 	}
 
 	/**
-	 * Test all locale files for the supplied locale against the supplied
-	 * reference locale, returning an array of errors.
-	 * @param $locale string Name of locale to test
-	 * @param $referenceLocale string Name of locale to test against
+	 * Given a locale string, get the list of parameter references of the
+	 * form {$myParameterName}.
+	 * @param $source string
 	 * @return array
 	 */
-	function testLocale($locale, $referenceLocale) {
-		$localeFileNames = Locale::getFilenameComponentMap($locale);
-
-		$errors = array();
-		foreach ($localeFileNames as $localeFileName) {
-			$referenceLocaleFileName = str_replace($locale, $referenceLocale, $localeFileName);
-			$localeFile = new LocaleFile($locale, $localeFileName);
-			$referenceLocaleFile = new LocaleFile($referenceLocale, $referenceLocaleFileName);
-			$errors = array_merge_recursive($errors, $localeFile->testLocale($referenceLocaleFile));
-			unset($localeFile);
-			unset($referenceLocaleFile);
-		}
-
-		$plugins =& PluginRegistry::loadAllPlugins();
-		foreach (array_keys($plugins) as $key) {
-			$plugin =& $plugins[$key];
-			$referenceLocaleFilename = $plugin->getLocaleFilename($referenceLocale);
-			if ($referenceLocaleFilename) {
-				$localeFile = new LocaleFile($locale, $plugin->getLocaleFilename($locale));
-				$referenceLocaleFile = new LocaleFile($referenceLocale, $referenceLocaleFilename);
-				$errors = array_merge_recursive($errors, $localeFile->testLocale($referenceLocaleFile));
-				unset($localeFile);
-				unset($referenceLocaleFile);
-			}
-			unset($plugin);
-		}
-		return $errors;
-	}
-
-	/**
-	 * Test the emails in the supplied locale against those in the supplied
-	 * reference locale.
-	 * @param $locale string
-	 * @param $referenceLocale string
-	 * @return array List of errors
-	 */
-	function testEmails($locale, $referenceLocale) {
-		$errors = array(
-		);
-
-		$xmlParser = new XMLParser();
-		$referenceEmails =& $xmlParser->parse(Locale::getEmailTemplateFilename($referenceLocale));
-		$emails =& $xmlParser->parse(Locale::getEmailTemplateFilename($locale));
-		$emailsTable =& $emails->getChildByName('table');
-		$referenceEmailsTable =& $referenceEmails->getChildByName('table');
-		$matchedReferenceEmails = array();
-
-		// Pass 1: For all translated emails, check that they match
-		// against reference translations.
-		for ($emailIndex = 0; ($email =& $emailsTable->getChildByName('row', $emailIndex)) !== null; $emailIndex++) {
-			// Extract the fields from the email to be tested.
-			$fields = Locale::extractFields($email);
-
-			// Locate the reference email and extract its fields.
-			for ($referenceEmailIndex = 0; ($referenceEmail =& $referenceEmailsTable->getChildByName('row', $referenceEmailIndex)) !== null; $referenceEmailIndex++) {
-				$referenceFields = Locale::extractFields($referenceEmail);
-				if ($referenceFields['email_key'] == $fields['email_key']) break;
-			}
-
-			// Check if a matching reference email was found.
-			if (!isset($referenceEmail) || $referenceEmail === null) {
-				$errors[EMAIL_ERROR_EXTRA_EMAIL][] = array(
-					'key' => $fields['email_key']
-				);
-				continue;
-			}
-
-			// We've successfully found a matching reference email.
-			// Compare it against the translation.
-			$bodyParams = Locale::getParameterNames($fields['body']);
-			$referenceBodyParams = Locale::getParameterNames($referenceFields['body']);
-			$diff = array_diff($bodyParams, $referenceBodyParams);
-			if (!empty($diff)) {
-				$errors[EMAIL_ERROR_DIFFERING_PARAMS][] = array(
-					'key' => $fields['email_key'],
-					'mismatch' => $diff
-				);
-			}
-
-			$subjectParams = Locale::getParameterNames($fields['subject']);
-			$referenceSubjectParams = Locale::getParameterNames($referenceFields['subject']);
-
-			$diff = array_diff($subjectParams, $referenceSubjectParams);
-			if (!empty($diff)) {
-				$errors[EMAIL_ERROR_DIFFERING_PARAMS][] = array(
-					'key' => $fields['email_key'],
-					'mismatch' => $diff
-				);
-			}
-
-			$matchedReferenceEmails[] = $fields['email_key'];
-
-			unset($email);
-			unset($referenceEmail);
-		}
-
-		// Pass 2: Make sure that there are no missing translations.
-		for ($referenceEmailIndex = 0; ($referenceEmail =& $referenceEmailsTable->getChildByName('row', $referenceEmailIndex)) !== null; $referenceEmailIndex++) {
-			// Extract the fields from the email to be tested.
-			$referenceFields = Locale::extractFields($referenceEmail);
-			if (!in_array($referenceFields['email_key'], $matchedReferenceEmails)) {
-				$errors[EMAIL_ERROR_MISSING_EMAIL][] = array(
-					'key' => $referenceFields['email_key']
-				);
-			}
-		}
-
-		return $errors;
-	}
-
-	/**
-	 * Given a parent XML node, extract child nodes of the following form:
-	 * <field name="something">some_value</field>
-	 * ... into an associate array $array['something'] = 'some_value';
-	 * @param $node object
-	 * @return array
-	 */
-	function extractFields(&$node) {
-		$returner = array();
-		foreach ($node->getChildren() as $field) if ($field->getName() === 'field') {
-			$returner[$field->getAttribute('name')] = $field->getValue();
-		}
-		return $returner;
+	function getParameterNames($source) {
+		$matches = null;
+		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
+		array_shift($matches); // Knock the top element off the array
+		return $matches;
 	}
 
 	/**
@@ -490,19 +352,6 @@ class PKPLocale {
 		if ($referenceLength == 0) return ($length == 0);
 		if ($lengthDifference / $referenceLength > 1 && $lengthDifference > 10) return false;
 		return true;
-	}
-
-	/**
-	 * Given a locale string, get the list of parameter references of the
-	 * form {$myParameterName}.
-	 * @param $source string
-	 * @return array
-	 */
-	function getParameterNames($source) {
-		$matches = null;
-		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
-		array_shift($matches); // Knock the top element off the array
-		return $matches;
 	}
 }
 

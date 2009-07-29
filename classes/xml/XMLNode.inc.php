@@ -151,6 +151,21 @@ class XMLNode {
 	}
 
 	/**
+	 * Get the value of a child node.
+	 * @param $name String name of node
+	 * @param $index Optional integer index of child node to find
+	 */
+	function &getChildValue($name, $index = 0) {
+		$node =& $this->getChildByName($name);
+		if ($node) {
+			$returner =& $node->getValue();
+		} else {
+			$returner = null;
+		}
+		return $returner;
+	}
+
+	/**
 	 * @param $node XMLNode the child node to add
 	 */
 	function addChild(&$node) {

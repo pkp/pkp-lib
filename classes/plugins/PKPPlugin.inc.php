@@ -75,6 +75,13 @@ class PKPPlugin {
 		if ($this->getInstallSitePluginSettingsFile()) {
 			HookRegistry::register ('Installer::postInstall', array(&$this, 'installSiteSettings'));
 		}
+		if ($this->getInstallEmailTemplatesFile()) {
+			HookRegistry::register ('Installer::postInstall', array(&$this, 'installEmailTemplates'));
+		}
+		if ($this->getInstallEmailTemplateDataFile()) {
+			HookRegistry::register ('Installer::postInstall', array(&$this, 'installEmailTemplateData'));
+			HookRegistry::register ('PKPLocale::installLocale', array(&$this, 'installLocale'));
+		}
 		if ($this->getInstallDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array(&$this, 'installData'));
 		}
@@ -242,12 +249,90 @@ class PKPPlugin {
 	}
 
 	/**
+	 * Get the filename of the email templates for this plugin.
+	 * Subclasses using email templates should override this.
+	 * @return string
+	 */
+	function getInstallEmailTemplatesFile() {
+		return null;
+	}
+
+	/**
+	 * Get the filename of the email template data for this plugin.
+	 * Subclasses using email templates should override this.
+	 * @return string
+	 */
+	function getInstallEmailTemplateDataFile() {
+		return null;
+	}
+
+	/**
 	 * Get the filename of the install data for this plugin.
 	 * Subclasses using SQL tables should override this.
 	 * @return string
 	 */
 	function getInstallDataFile() {
 		return null;
+	}
+
+	/**
+	 * Callback used to install email templates.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installEmailTemplates($hookName, $args) {
+		$installer =& $args[0];
+		$result =& $args[1];
+
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true);
+		if ($sql) {
+			$result = $installer->executeSQL($sql);
+		} else {
+			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
+			$result = false;
+		}
+		return false;
+	}
+
+	/**
+	 * Callback used to install email template data.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installEmailTemplateData($hookName, $args) {
+		$installer =& $args[0];
+		$result =& $args[1];
+
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		foreach ($installer->installedLocales as $locale) {
+			$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
+			if (!file_exists($filename)) continue;
+			$sql = $emailTemplateDao->installEmailTemplateData($filename, true);
+			if ($sql) {
+				$result = $installer->executeSQL($sql);
+			} else {
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
+				$result = false;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Callback used to install email template data on locale install.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installLocale($hookName, $args) {
+		$locale =& $args[0];
+		$filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao->installEmailTemplateData($filename);
+		return false;
 	}
 
 	/**

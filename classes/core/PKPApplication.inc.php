@@ -346,7 +346,7 @@ class PKPApplication {
 			}
 		}
 		
-		$dbconn = &DBConnection::getConn();
+		$dbconn =& DBConnection::getConn();
 		$dbServerInfo = $dbconn->ServerInfo();
 		
 		$message[] =  "  Server info:";

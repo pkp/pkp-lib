@@ -37,20 +37,4 @@
 </div>
 {/if}
 
-{if $manualInstall}
-<div id="manualSQLInstructions">
-{translate key="installer.manualSQLInstructions"}
-
-<form action="#">
-<p>
-{translate key="installer.installerSQLStatements"}:<br />
-<textarea name="sql" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{foreach from=$installSql item=sqlStmt}{$sqlStmt|escape};
-
-
-{/foreach}</textarea>
-</p>
-</form>
-</div>
-{/if}
-
 {include file="common/footer.tpl"}

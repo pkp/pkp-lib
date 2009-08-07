@@ -33,7 +33,7 @@
 {/if}
 
 
-<p><input type="submit" value="{translate key="installer.upgradeApplication"}" class="button defaultButton" /> <input type="submit" name="manualInstall" value="{translate key="installer.manualUpgrade"}" class="button" /></p>
+<p><input type="submit" value="{translate key="installer.upgradeApplication"}" class="button defaultButton" /></p>
 
 </form>
 

@@ -266,6 +266,7 @@ class NotificationDAO extends DAO {
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getUser($userId);
+		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 
 		if ($notification->getIsLocalized()) {
 			$params = array('param' => $notification->getParam());
@@ -294,6 +295,7 @@ class NotificationDAO extends DAO {
 	function sendToMailingList($notification) {
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
 		$mailList = $notificationSettingsDao->getMailList();
+		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 
 		foreach ($mailList as $email) {
 			if ($notification->getIsLocalized()) {

@@ -138,6 +138,15 @@ class XMLParser {
 			// if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
 			if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($data) ) {
 
+				$utf8_last = String::substr($data, String::strlen($data) - 1);
+
+				// if the string ends in a "bad" UTF-8 character, maybe it's truncated
+				while (!$wrapper->eof() && String::utf8_bad_find($utf8_last) === 0) {
+					// read another chunk of data
+					$data .= $wrapper->read();
+					$utf8_last = String::substr($data, String::strlen($data) - 1);
+				}
+
 				$data = String::utf8_normalize($data);
 
 				// strip any invalid UTF-8 sequences
@@ -145,16 +154,6 @@ class XMLParser {
 
 				// convert named entities to numeric entities
 				$data = strtr($data, String::getHTMLEntities());
-			} else {
-				$utf8_last = String::substr($data, String::strlen($data) - 1);
-
-				// if the string ends in a "bad" UTF-8 character, maybe it's truncated
-				while (!$wrapper->eof() && String::utf8_bad_find($utf8_last) === 0) {
-					// read another chunk of data
-					$data .= $wrapper->read();
-
-					$utf8_last = String::substr($data, String::strlen($data) - 1);
-				}
 			}
 
 			// strip any invalid ASCII control characters

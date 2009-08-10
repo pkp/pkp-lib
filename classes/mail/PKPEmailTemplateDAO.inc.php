@@ -701,6 +701,9 @@ class PKPEmailTemplateDAO extends DAO {
 		$locale = $data->getAttribute('locale');
 
 		foreach ($data->getChildren() as $emailNode) {
+			$this->update('DELETE FROM email_templates_default_data WHERE email_key = ? AND locale = ?', 
+				array($emailNode->getAttribute('key'), $locale));
+
 			$sql .=	'INSERT INTO email_templates_default_data
 				(email_key, locale, subject, body, description)
 				VALUES

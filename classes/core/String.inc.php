@@ -15,6 +15,23 @@
 
 // $Id$
 
+/*
+ * Perl-compatibile regular expression (PCRE) constants:
+ * These are defined application-wide for consistency
+ */
+
+// common URL syntax
+define('PCRE_URL', '(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?(\/.)?');
+
+// RFC-2822 email addresses
+define('PCRE_EMAIL_ADDRESS',
+	'[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+' . // One or more atom characters.
+	'(\.' . '[-a-z0-9!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]' . '+)*'. // Followed by zero or more dot separated sets of one or more atom characters.
+	'@'. // Followed by an "at" character.
+	'(' . '([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{1,63}\.)+'. // Followed by one or max 63 domain characters (dot separated).
+	'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}' // Must be followed by one set consisting a period of two or max 63 domain characters.
+	);
+
 class String {
 	/**
 	* Perform initialization required for the string wrapper library.

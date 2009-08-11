@@ -20,7 +20,7 @@ import('form.validation.FormValidatorRegExp');
 
 class FormValidatorUrl extends FormValidatorRegExp {
 	function getRegexp() {
-		return '/^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?(\/.)?/i';
+		return '/^' . PCRE_URL . '/i';
 	}
 
 	/**

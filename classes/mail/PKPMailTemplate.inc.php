@@ -148,11 +148,13 @@ class PKPMailTemplate extends Mail {
 		foreach ($newAddresses as $newAddress) {
 			$regs = array();
 			// Match the form "My Name <my_email@my.domain.com>"
-			if (ereg('^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<([-A-Za-z0-9]+([-_\+\.][A-Za-z0-9]+)*@[A-Za-z0-9]+([-_\.][A-Za-z0-9]+)*\.[A-Za-z]{2,})>$', $newAddress, $regs)) {
-				$currentList[] = array('name' => $regs[1], 'email' => $regs[2]);
-			} elseif (ereg('^[A-Za-z0-9]+([-_\+\.][A-Za-z0-9]+)*@[A-Za-z0-9]+([-_\.][A-Za-z0-9]+)*\.[A-Za-z]{2,}$', $newAddress)) {
-				$currentList[] = array('name' => '', 'email' => $newAddress);
-			} else if ($newAddress != '') {
+			if (String::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
+				$currentList[] = array('name' => $regs[1], 'email' => $regs['email']);
+
+			} elseif (String::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
+				$currentList[] = array('name' => '', 'email' => $regs['email']);
+
+			} elseif ($newAddress != '') {
 				$this->errorMessages[] = array('type' => MAIL_ERROR_INVALID_EMAIL, 'address' => $newAddress);
 			}
 		}

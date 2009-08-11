@@ -39,7 +39,7 @@ class VersionDAO extends DAO {
 			if ($result->RecordCount() != 0) {
 				$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
 				$oldVersionType = $oldVersion->getProductType();
-				if (isset($oldVersion) &&  $oldVersion->compare('2.3.0') < 0) $isUpgrade = true;
+				if (isset($oldVersion) &&  $oldVersion->compare('2.3.0') < 0 && $oldVersion->compare('2.0.0') > 0) $isUpgrade = true;
 			}
 		}
 

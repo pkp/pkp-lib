@@ -239,7 +239,7 @@ class PKPApplication {
 	function errorHandler($errorno, $errstr, $errfile, $errline) {
 		// FIXME: Error logging needs to be suppressed for strict errors as long as we support PHP4
 		if(error_reporting() != 0 && $errorno != 2048) {
-			if ($errorno ==  E_ERROR) {
+			if ($errorno == E_ERROR) {
 				echo 'An error has occurred.  Please check your PHP log file.';
 			} else if(Config::getVar('debug', 'display_errors')) {
 				echo $this->buildErrorMessage($errorno, $errstr, $errfile, $errline);
@@ -261,19 +261,19 @@ class PKPApplication {
 	function buildErrorMessage($errorno, $errstr, $errfile, $errline) {
 		$message = array();
 		$errorType = array (
-		   E_ERROR            => 'ERROR',
-		   E_WARNING        => 'WARNING',
-		   E_PARSE          => 'PARSING ERROR',
-		   E_NOTICE         => 'NOTICE',
-		   E_CORE_ERROR     => 'CORE ERROR',
-		   E_CORE_WARNING   => 'CORE WARNING',
-		   E_COMPILE_ERROR  => 'COMPILE ERROR',
-		   E_COMPILE_WARNING => 'COMPILE WARNING',
-		   E_USER_ERROR     => 'USER ERROR',
-		   E_USER_WARNING   => 'USER WARNING',
-		   E_USER_NOTICE    => 'USER NOTICE',
-	   );
-	   
+			E_ERROR			=> 'ERROR',
+			E_WARNING		=> 'WARNING',
+			E_PARSE			=> 'PARSING ERROR',
+			E_NOTICE		=> 'NOTICE',
+			E_CORE_ERROR		=> 'CORE ERROR',
+			E_CORE_WARNING		=> 'CORE WARNING',
+			E_COMPILE_ERROR		=> 'COMPILE ERROR',
+			E_COMPILE_WARNING	=> 'COMPILE WARNING',
+			E_USER_ERROR		=> 'USER ERROR',
+			E_USER_WARNING		=> 'USER WARNING',
+			E_USER_NOTICE		=> 'USER NOTICE',
+		);
+
 		if (array_key_exists($errorno, $errorType)) {
 			$type = $errorType[$errorno];
 		} else {
@@ -341,20 +341,20 @@ class PKPApplication {
 				$file = isset($bt['file'])?$bt['file']:'(unknown)';
 				$line = isset($bt['line'])?$bt['line']:'(unknown)';
 	
-				$message[] =  "   File: {$file} line {$line}";
-				$message[] =  "     Function: {$class}{$type}{$function}($args)";
+				$message[] = "   File: {$file} line {$line}";
+				$message[] = "     Function: {$class}{$type}{$function}($args)";
 			}
 		}
 		
 		$dbconn =& DBConnection::getConn();
 		$dbServerInfo = $dbconn->ServerInfo();
 		
-		$message[] =  "  Server info:";
-		$message[] =  "   OS: " . Core::serverPHPOS();
-		$message[] =  "   PHP Version: " . Core::serverPHPVersion();
-		$message[] =  "   Apache Version: " . (function_exists('apache_get_version') ? apache_get_version() : 'N/A');
-		$message[] =  "   DB Driver: " . Config::getVar('database', 'driver');
-		$message[] =  "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
+		$message[] = "  Server info:";
+		$message[] = "   OS: " . Core::serverPHPOS();
+		$message[] = "   PHP Version: " . Core::serverPHPVersion();
+		$message[] = "   Apache Version: " . (function_exists('apache_get_version') ? apache_get_version() : 'N/A');
+		$message[] = "   DB Driver: " . Config::getVar('database', 'driver');
+		$message[] = "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
 		
 	
 		return implode("\n", $message); 		

@@ -642,7 +642,7 @@ class PKPTemplateManager extends Smarty {
 		return func_get_args();
 	}
 
-        /**
+	/**
 	 * Convert a string to a numeric time.
 	 */
 	function smartyStrtotime($string) {

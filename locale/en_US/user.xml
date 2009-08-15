@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * pkp/locale/en_US/user.xml
+  * locale/en_US/user.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -101,4 +101,5 @@
 	<message key="user.userHome">User Home</message>
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working languages</message>
+	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
 </locale>

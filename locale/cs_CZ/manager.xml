@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/cs_CZ/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the cs_CZ (Czech) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="cs_CZ" full_name = "Czech">
+	<message key="manager.announcements">Oznámení</message>
+	<message key="manager.announcements.confirmDelete">Jste si jistý, že chcete trvale odstranit toto oznámení?</message>
+	<message key="manager.announcements.create">Vytvořit nové oznámení</message>
+	<message key="manager.announcements.createTitle">Vytvořit</message>
+	<message key="manager.announcements.dateExpire">Vypršení</message>
+	<message key="manager.announcements.edit">Editovat oznámení</message>
+	<message key="manager.announcements.editTitle">Editovat</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Zvolte prosím rok a/nebo měsíc ke zvolenému dni vypršení.</message>
+	<message key="manager.announcements.form.dateExpire">Datum vypršení</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Oznámení bude zobrazeno čtenářům do tohoto data. Ponechte prázdné, pokud má být oznámení zobrazeno neurčitě dlouho.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Zvolte prosím rok a/nebo den ke zvolenému měsíci vypršení.</message>
+	<message key="manager.announcements.form.dateExpireValid">Zvolte prosím platné datum vypršení.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Zvolte prosím měsíc a/nebo den ke zvolenému roku vypršení.</message>
+	<message key="manager.announcements.form.description">Popis</message>
+	<message key="manager.announcements.form.descriptionInstructions">Celý text oznámení.</message>
+	<message key="manager.announcements.form.descriptionRequired">Je vyžadován popis oznámení.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Stručný popis, který se zobrazí spolu s názvem oznámení.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Je vyžadován krátký popis oznámení.</message>
+	<message key="manager.announcements.form.descriptionShort">Krátký popis</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Uložit a vytvořit další</message>
+	<message key="manager.announcements.form.titleRequired">Je vyžadován název oznámení.</message>
+	<message key="manager.announcements.form.title">Název</message>
+	<message key="manager.announcements.form.typeId">Typ</message>
+	<message key="manager.announcements.form.typeIdValid">Zvolte prosím platný typ oznámení.</message>
+	<message key="manager.announcements.noneCreated">Žádná oznámení nebyla vytvořena.</message>
+	<message key="manager.announcements.title">Název</message>
+	<message key="manager.announcements.type">Typ</message>
+	<message key="manager.announcementTypes">Typy oznámení</message>
+	<message key="manager.announcementTypes.confirmDelete">Varování! Všechna oznámení s tímto typem oznámení budou také smazána. Jste si jistý, že chcete pokračovat a smazat tento typ oznámení?</message>
+	<message key="manager.announcementTypes.create">Vytvořit typ oznámení</message>
+	<message key="manager.announcementTypes.createTitle">Vytvořit</message>
+	<message key="manager.announcementTypes.edit">Editovat typ oznámení</message>
+	<message key="manager.announcementTypes.editTitle">Editovat</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Uložit a vytvořit další</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Typ oznámení s tímto názvem již existuje.</message>
+	<message key="manager.announcementTypes.form.typeName">Název</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Je vyžadován název typu oznámení.</message>
+	<message key="manager.announcementTypes.noneCreated">Nebyly vytvořeny žádné typy oznámení.</message>
+	<message key="manager.announcementTypes.typeName">Typ oznámení</message>
+	<message key="manager.emails.confirmDelete">Jste si jistý, že chcete smazat tuto šablonu emailu?</message>
+	<message key="manager.emails.confirmReset">Jste si jistý, že chcete resetovat tuto šablonu emailu na její výchozí hodnoty?</message>
+	<message key="manager.emails.createEmail">Vytvořit email</message>
+	<message key="manager.emails.disable">Zakázat</message>
+	<message key="manager.emails.editEmail">Editovat email</message>
+	<message key="manager.emails.editTestExample">Editovat testovací příklad emailu</message>
+	<message key="manager.emails.emailKey">Klíč emailu</message>
+	<message key="manager.emails.emailKeyExists">Email s daným klíčem již existuje. Klíče emailu musí být jedinečné.</message>
+	<message key="manager.emails.emailTemplate">Šablona emailu</message>
+	<message key="manager.emails.emailTemplates">Šablony emailů</message>
+	<message key="manager.emails.enabled">Povolit tuto šablonu emailu</message>
+	<message key="manager.emails.enable">Povolit</message>
+	<message key="manager.emails.form.bodyRequired">Je vyžadován text zprávy emailu.</message>
+	<message key="manager.emails.form.subjectRequired">Je vyžadován předmět emailu.</message>
+	<message key="manager.emails">Připravené e-maily</message>
+	<message key="manager.emails.resetAll">Resetovat všechny šablony</message>
+	<message key="manager.emails.reset">Resetovat</message>
+	<message key="manager.emails.resetToDefault">Resetovat na výchozí</message>
+	<message key="manager.filesBrowser">Prohlížeč souborů</message>
+	<message key="manager.files.confirmDelete">Vymazat tento soubor nebo adresář? Adresář musí být prázný, aby mohl být smazán.</message>
+	<message key="manager.files.createDir">Vytvořit adresář</message>
+	<message key="manager.files.emptyDir">V tomto adresáři nebyly nalezeny žádné soubory.</message>
+	<message key="manager.files.indexOfDir">Index adresáře {$dir}</message>
+	<message key="manager.files.parentDir">Nadřazený adresář</message>
+	<message key="manager.files.uploadedFiles">Nahrané soubory</message>
+	<message key="manager.files.uploadFile">Nahrát soubor</message>
+	<message key="manager.groups.confirmDelete">Jste si jistý, že chcete smazat tuto skupinu?</message>
+	<message key="manager.groups.createTitle">Vytvořit název</message>
+	<message key="manager.groups.editTitle">Editovat název</message>
+	<message key="manager.groups.form.groupTitleRequired">Je vyžadován název skupiny.</message>
+	<message key="manager.groups.membership.addMember">Přidat člena</message>
+	<message key="manager.groups.membership.confirmDelete">Jste si jistý, že chcete smazat toto skupinové člesntví?</message>
+	<message key="manager.groups.membership">Členství</message>
+	<message key="manager.groups.membership.noneCreated">Tato skupina nemá žádné členy.</message>
+	<message key="manager.groups.membership.noUsers">Nebyli nalezeni žádní uživatelé.</message>
+	<message key="manager.groups.title">Název</message>
+	<message key="manager.importExport">Importovat/Exportovat data</message>
+	<message key="manager.languages.alternateLocaleInstructions">Tento systém voliteně umožňuje, aby byly určité zásadní informace vkládány v několika dalších jazycích. Pro využití této funkce zvolte alternativní lokalizace a vyberte z níže uvedených možností.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Vyberte všechny jazykové lokalizace, které mají být podporovány a dostupné na všech stránkách prostřednictvím menu pro výběr jazyka. Menu se zobrazí pouze v případě, že je zvolena více než jedna jazyková lokalizace.</message>
+	<message key="manager.payment.timestamp">časové razítko</message>
+	<message key="manager.people.authSource">Zdroj ověření</message>
+	<message key="manager.people.confirmUnenroll">Odzapsat tohoto uživatele?</message>
+	<message key="manager.people.createUser">Vytvořit nového uživatele</message>
+	<message key="manager.people.createUserGeneratePassword">Vygenerovat náhodné heslo.</message>
+	<message key="manager.people.createUserSendNotify">Poslat uživateli uvítací email obsahující jeho uživatelské jméno a heslo.</message>
+	<message key="manager.people.disable">Zablokovat</message>
+	<message key="manager.people.doNotEnroll">Bez role</message>
+	<message key="manager.people.editProfile">Editovat Profil</message>
+	<message key="manager.people.editUser">Editovat uživatele</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Napsat vybraným uživatelům email</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Napsat email uživatelům zapsaným jako</message>
+	<message key="manager.people.emailUsers">Napsat uživateli email</message>
+	<message key="manager.people.emailUsers.selectLocale">Vyberte jazykovou lokalizaci</message>
+	<message key="manager.people.emailUsers.selectUsers">Vyberte uživatele, kterým byste chtěl napsat email tím, že zaškrtnete políčka vedle jejich jmen</message>
+	<message key="manager.people.enable">Povolit</message>
+	<message key="manager.people.enroll">Zapsat uživatele</message>
+	<message key="manager.people.enrollment">Zapsání</message>
+	<message key="manager.people.enrollSelected">Zapsat vybrané uživatele</message>
+	<message key="manager.people.enrollSyncRole">Synchronizovat roli</message>
+	<message key="manager.people.enrollSync">Synchronizovat zapsání</message>
+	<message key="manager.people.enrollUserAsDescription">Uživatelé mohou být kdykoliv zapsáni do nějaké role nebo z ní odzapsáni.</message>
+	<message key="manager.people.enrollUserAs">Zapsat uživatele jako</message>
+	<message key="manager.people.invalidUser">Promiňte, požadovaný uživatel neexistuje.</message>
+	<message key="manager.people.mergeUser">Sloučit uživatele</message>
+	<message key="manager.people.mergeUsers.confirm">Jste si jistý, že chcete sloučit účet s uživatelským jménem "{$oldUsername}" do účtu s uživatelský jménem "{$newUsername}"? Účet s uživatelským jménem "{$oldUsername}" poté přestane existovat. Tato akce je nevratná.</message>
+	<message key="manager.people.mergeUsers">Sloučit více uživatelů</message>
+	<message key="manager.people.mustChooseRole">Zvolte prosím roli v horní části stránky předtím, než kliknete na "Zapsat uživatele".</message>
+	<message key="manager.people.mustProvideName">Prosím, uveďte nejprve alespoň příjmení uživatele.</message>
+	<message key="manager.people.noMatchingUsers">Žádní odpovídající uživatelé.</message>
+	<message key="manager.people.noneEnrolled">Žádní zapsaní uživatelé.</message>
+	<message key="manager.people">Lidé</message>
+	<message key="manager.people.remove">Odstranit</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Uložit a vytvořit dalšího</message>
+	<message key="manager.people.signInAs">Přihlásit se jako</message>
+	<message key="manager.people.signInAsUser">Přihlásit se jako uživatel</message>
+	<message key="manager.people.syncUsers">Synchronizovat zapsání uživatelů</message>
+	<message key="manager.people.unenroll">Odzapsání</message>
+	<message key="manager.people.userCreatedSuccessfully">Uživatel byl úspěšně vytvořen.</message>
+	<message key="manager.people.userMustChangePassword">Vyžadovat od uživatele, aby si při příštím přihlášení změnil své heslo.</message>
+	<message key="manager.plugins.action">Akce:</message>
+	<message key="manager.plugins.disable">Zakázat</message>
+	<message key="manager.plugins.enable">Povolit</message>
+	<message key="manager.plugins.pluginManagement">Zpráva plug-inů</message>
+	<message key="manager.plugins.sitePlugin">Tento plug-in je aplikován na celou stránku. Pouze administrátor stránky může spravovat tento plug-in.</message>
+	<message key="manager.plugins">Plug-iny systému</message>
+	<message key="manager.readingTools">Čtenářské nástroje</message>
+	<message key="manager.roles">Role</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Neplatný formát obrázku loga pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Neplatný formát obrázku pro domácí stránku. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Levý postranní panel</message>
+	<message key="manager.setup.layout.rightSidebar">Pravý postranní panel</message>
+	<message key="manager.setup.layout.unselected">Nevybráno</message>
+	<message key="manager.setup.loggingAndAuditing">Zaznamenávání údajů a kontrola</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Neplatný formát obrázku loga pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
+	<message key="manager.setup.selectOne">Zvolte jeden</message>
+	<message key="manager.statistics"><![CDATA[Statistiky &amp; Reporty]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nových)</message>
+	<message key="manager.users">Uživatelé</message>
+	<message key="plugins.categories.auth">Autorizační plug-iny</message>
+	<message key="plugins.categories.blocks">Blokové plug-iny</message>
+	<message key="plugins.categories.blocks.description">Blokové plug-iny jsou připojitelné UI součásti, jako například různé postranní lišty s nástroji.</message>
+	<message key="plugins.categories.citationFormats">Plug-iny pro citační styly</message>
+	<message key="plugins.categories.gateways.description">Plug-iny přenosové brány poskytují živá data externím systémům.</message>
+	<message key="plugins.categories.gateways">Plug-iny přenosové brány</message>
+	<message key="plugins.categories.generic">Všeobecné plug-iny</message>
+	<message key="plugins.categories.importexport.description">Plug-iny pro import/export mohou být využity k přenesení obsahu z jiných systému nebo na ně.</message>
+	<message key="plugins.categories.importexport">Plug-iny pro import/export</message>
+	<message key="plugins.categories.paymethod.description">Plug-iny platebních metod zavádějí podporu různých způsobů zpracování online plateb.</message>
+	<message key="plugins.categories.paymethod">Platební plug-iny</message>
+	<message key="plugins.categories.reports.description">Pluginy reportů jsou používány pro zavedení různých typů reportů a výňatků dat pro manažery.</message>
+	<message key="plugins.categories.reports">Pluginy reportů</message>
+	<message key="plugins.categories.themes.description">Tématické plug-iny mohou být využity ke změně vzhledu systému.</message>
+	<message key="plugins.categories.themes">Tématické plug-iny</message>
+</locale>

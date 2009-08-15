@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/it_IT/admin.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the it_IT (Italiano) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="it_IT" full_name = "Italiano">
+	<message key="admin.adminFunctions">Funzioni di Amministrazione</message>
+	<message key="admin.auth.confirmDelete">Sei sicuro di voler cancellare permanentemente questa fonte di autenticazione?</message>
+	<message key="admin.auth.create">Crea una fonte di autenticazione</message>
+	<message key="admin.auth.noneCreated">Non sono state definite fonti di autenticazione.</message>
+	<message key="admin.authSources">Metodi di autenticazione</message>
+	<message key="admin.clearDataCache">Pulisci i dati nelle Caches</message>
+	<message key="admin.clearTemplateCache">Svuota la cache dei template</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Il file di configurazione &#x00E8; stato modificato con successo. Da notare che se il sito non dovesse pi&#x00F9; funzionare correttamente dopo queste modifiche sar&#x00E0; necessario sistemare manualmente il file di configurazione <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Sei sicuro di voler svuotare la chache dei template compilati?</message>
+	<message key="admin.confirmExpireSessions">Sei sicuro di voler chiudere tutte le sessioni utente? Tutti gli utenti attualmente collegati al sistema saranno costretti ad effettuare di nuovo il log in (te compreso).</message>
+	<message key="admin.contentsOfConfigFile">Contenuti del file di configurazione</message>
+	<message key="admin.currentVersion">Versione attuale</message>
+	<message key="admin.dateInstalled">Data d'installazione</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Il contenuto del file di configurazione aggiornato e visualizzato qui di seguito. Per applicare queste modifiche dovete aprire il file <tt>config.inc.php</tt> con un editor di testo e sostituirne il contenuto con il testo della form sottostante.]]></message>
+	<message key="admin.displayNewSystemConfig">Visualizza la nuova configurazione</message>
+	<message key="admin.expireSessions">Chiudi la sessione utente</message>
+	<message key="admin.languages.confirmReload">Sei sicuro di voler aggiornare questa lingua aggiuntiva? Questo canceller&#x00E0; le impostazioni gi&#x00E0; esistenti, come ad esempio i modelli per le email.</message>
+	<message key="admin.languages.installedLocales">Lingue aggiuntive installate</message>
+	<message key="admin.languages.installLanguages">Amministra le lingue</message>
+	<message key="admin.languages.installLocales">Installazione</message>
+	<message key="admin.languages.installNewLocales">Installa nuove lingue aggiuntive</message>
+	<message key="admin.languages.languageSettings">Impostazioni di lingua</message>
+	<message key="admin.languages.noLocalesAvailable">Non &#x00E8; disponibile per l'installazione nessuna lingua aggiuntiva.</message>
+	<message key="admin.languages.reload">Aggiorna la lingua aggiuntiva</message>
+	<message key="admin.languages.uninstall">Disinstalla la lingua aggiuntiva</message>
+	<message key="admin.phpInfo">Informazioni dettagliate di PHP</message>
+	<message key="admin.saveSystemConfig">Salva la configurazione</message>
+	<message key="admin.server.apacheVersion">Versione di Apache</message>
+	<message key="admin.server.dbDriver">Driver del database</message>
+	<message key="admin.server.dbVersion">Versione del server di database</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Sistema operativo e versioni dei software utilizzati. Fai click su <span class="highlight">Informazioni dettagliate di PHP</span> per visualizzare i dettagli di configurazione di questo server.]]></message>
+	<message key="admin.serverInformation">Informazioni del Server</message>
+	<message key="admin.server.phpVersion">Versione di PHP</message>
+	<message key="admin.server.platform">Piattaforma OS</message>
+	<message key="admin.settings.aboutDescription">Descrizione</message>
+	<message key="admin.settings.contactEmail">Email del contatto principale</message>
+	<message key="admin.settings.contactName">Nome del contatto principale</message>
+	<message key="admin.settings.form.contactEmailRequired">&#x00C8; richiesto l'indirizzo e-mail del contatto principale.</message>
+	<message key="admin.settings.form.contactNameRequired">&#x00C8; richiesto il nome del contatto principale.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Dovete inserire una password composta almeno da 4 caratteri.</message>
+	<message key="admin.settings.form.titleRequired">&#x00C8; obbligatorio inserire un titolo.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logo del sito</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Formato dell'immagine del logo del sito non valido. I formati accettati sono .gif, .jpg, o .png.</message>
+	<message key="admin.settings.introduction">Introduzione</message>
+	<message key="admin.settings.minPasswordLength">Lunghezza minima delle password</message>
+	<message key="admin.settings.oaiRegistration">Registra il sito per l'indicizzazione (Harvest dei metadati)</message>
+	<message key="admin.settings.passwordCharacters">Caratteri</message>
+	<message key="admin.settings.siteLanguage">Lingua del sito</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Formato del foglio di stile del sito non valido. Il formato accettato è .css.</message>
+	<message key="admin.settings.siteStyleSheet">Foglio di stile del sito</message>
+	<message key="admin.settings.siteTitle">Titolo del sito</message>
+	<message key="admin.siteAdmin">Amministrazione del sito</message>
+	<message key="admin.siteManagement">Amministrazione del sito</message>
+	<message key="admin.siteSettings">Impostazioni del sito</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; leggibile.]]></message>
+	<message key="admin.systemInformation">Informazioni del sistema</message>
+	<message key="admin.versionBuild">Costruzione</message>
+	<message key="admin.version.checkForUpdates">Cerca gli aggiornamenti</message>
+	<message key="admin.version.downloadPackage">Scarica</message>
+	<message key="admin.version.downloadPatch">Scarica la Patch</message>
+	<message key="admin.versionHistory">Versioni precedenti</message>
+	<message key="admin.version.latest">Ultima versione</message>
+	<message key="admin.versionMajor">Maggiore</message>
+	<message key="admin.versionMinor">Minore</message>
+	<message key="admin.version.moreInfo">Altre informazioni</message>
+	<message key="admin.versionRevision">Revisione</message>
+	<message key="admin.version.updateAvailable">&#x00E8; disponibile una versione aggiornata</message>
+	<message key="admin.version.upToDate">Il tuo sistema &#x00E8; aggiornato</message>
+	<message key="admin.version">Versione</message>
+</locale>

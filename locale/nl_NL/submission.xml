@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/nl_NL/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the nl_NL (Nederlands) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="nl_NL" full_name = "Nederlands">
+	<message key="submission.abstractViews">Samenvatting bekeken</message>
+	<message key="submission.accepted">Geaccepteerd</message>
+	<message key="submission.acknowledge">Erkenning</message>
+	<message key="submission.addSuppFile">Voeg een aanvullend bestand toe</message>
+	<message key="submission.ask">Vraag</message>
+	<message key="submission.backToSubmissionEditing">Terug naar bewerken inzending</message>
+	<message key="submission.changeComments">Verander in</message>
+	<message key="submission.comments.addComment">Commentaar toevoegen</message>
+	<message key="submission.comments.comments">Commentaren</message>
+	<message key="submission.comments.confirmDelete">Weet u zeker dat u dit commentaar wilt verwerken?</message>
+	<message key="submission.comments.corrections">Correcties</message>
+	<message key="submission.comments.editComment">Commentaar bewerken</message>
+	<message key="submission.comments.importPeerReviews">Importeer peer reviews</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Reviewer {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">Geen commentaren</message>
+	<message key="submission.comments.noReviews">Geen reviews</message>
+	<message key="submission.comments.review">Review</message>
+	<message key="submission.comments.sendDecisionToReviewers">Stuur de redactionele beslissing naar de reviewers</message>
+	<message key="submission.comments.subject">Onderwerp</message>
+	<message key="submission.complete">Gereed</message>
+	<message key="submission.done">Gedaan</message>
+	<message key="submission.dueDate">Uiterste datum</message>
+	<message key="submission.due">Vervaldatum</message>
+	<message key="submission.editing">Bewerken</message>
+	<message key="submission.editMetadata">Bewerk metadata</message>
+	<message key="submission.email.backToEmailLog">Terug naar e-mail logboek</message>
+	<message key="submission.email.confirmClearLog">Weet u zeker dat u de e-mail log voor deze inzending wilt wissen?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Weet u zeker dat deze e-mail uit het logboek wilt verwijderen?</message>
+	<message key="submission.email.deleteLogEntry">Verwijder uit logboek</message>
+	<message key="submission.emailLog">E-mail logboek</message>
+	<message key="submission.event.backToEventLog">Terug naar logboek</message>
+	<message key="submission.event.confirmClearLog">Weet u zeker dat u het logboek van deze inzending wilt wissen?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Weet u zeker dat u deze gebeurtenis uit het logboek wilt verwijderen?</message>
+	<message key="submission.event.deleteLogEntry">Verwijder uit logboek</message>
+	<message key="submission.event.general.metadataUpdated">Metadata van de inzending veranderd</message>
+	<message key="submission.event.general.suppFileUpdated">Ingezonden bestand veranderd</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Reviewtaak geaccepteerd door vertegenwoordiger</message>
+	<message key="submission.event.reviewer.reviewAccepted">Reviewtaak geaccepteerd</message>
+	<message key="submission.event.reviewer.reviewCancelled">Review gestopt</message>
+	<message key="submission.event.reviewer.reviewDeclined">Reviewtaak geweigerd</message>
+	<message key="submission.event.reviewer.reviewDueDate">Vervaldatum review gewijzigd</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Reviewer toegekend aan de inzending</message>
+	<message key="submission.event.reviewer.reviewerRated">Beoordeling reviewer ingezonden</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Toekenning reviewer ingetrokken</message>
+	<message key="submission.event.reviewer.reviewFile">Bestand review bijgewerkt</message>
+	<message key="submission.event.reviewer.reviewInitiated">Review gestart</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Bestand met aanbevelingen review</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Review opniew gestart</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Review opnieuw ingezonden</message>
+	<message key="submission.event.reviewer.reviewRevision">Bestand met revisies reviewer bijgewerkt</message>
+	<message key="submission.files">Bestanden</message>
+	<message key="submission.galley">Proefdruk</message>
+	<message key="submission.history.clearLog">Wis logboek</message>
+	<message key="submission.history">Historie</message>
+	<message key="submission.history.noLogEntries">Logboek is leeg.</message>
+	<message key="submission.history.recentLogEntries">Recente toevoegingen</message>
+	<message key="submission.history.submissionEmailLog">Logboek e-mail</message>
+	<message key="submission.history.submissionEventLog">Logboek gebeurtenissen</message>
+	<message key="submission.history.submissionNotes">Aantekeningen inzending</message>
+	<message key="submission.history.viewLog">Bekijk logboek</message>
+	<message key="submission.indexing">Indexeren</message>
+	<message key="submission.initiated">Geïnitieerd</message>
+	<message key="submission.lastModified">Laatst gewijzigd</message>
+	<message key="submission.layout.addGalley">Voeg een opmaak proefdruk toe</message>
+	<message key="submission.layout.confirmDeleteGalley">Weet u zeker dat u deze proefdruk wilt verwijderen?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Weet u zeker dat u deze afbeelding wilt verwijderen uit de proeven?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Weet u zeker dat u dit aanvullend bestand wilt verwijderen?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Verwijder deze stylesheet.</message>
+	<message key="submission.layout.editGalley">Bewerken opmaakproefdruk</message>
+	<message key="submission.layout.galleyFileData">Proefdrukbestand informatie</message>
+	<message key="submission.layout.galleyFormat">Proef-formaat</message>
+	<message key="submission.layout.galleyHTMLData">HTML proefdruk bestanden</message>
+	<message key="submission.layout.galleyImages">Afbeeldingen</message>
+	<message key="submission.layout.galleyLabelInstructions">Het proefdruk label wordt gebruik om het item te identificeren (bv. HTML, PDF, enz.).</message>
+	<message key="submission.layout.galleyLabel">Label</message>
+	<message key="submission.layout.galleyLabelRequired">Een proefdruk label is verplicht.</message>
+	<message key="submission.layout.galleyLanguageRequired">Een proefdruk taal is verplicht.</message>
+	<message key="submission.layout.galleyLocaleRequired">Een proefdruk taal is verplicht.</message>
+	<message key="submission.layout.galleyNoImages">No images have been added to this galley.</message>
+	<message key="submission.layout.galleys">Proefdrukken</message>
+	<message key="submission.layout.galleyStylesheet">Stylesheet bestand</message>
+	<message key="submission.layout.galleyStyle">Stijl</message>
+	<message key="submission.layout.initialGalleyCreation">Aanmaak eerste proefdruk</message>
+	<message key="submission.layout.layoutFile">Opmaakbestand</message>
+	<message key="submission.layout">Layout</message>
+	<message key="submission.layout.layoutVersion">Opmaakversie</message>
+	<message key="submission.layout.newGalley">Nieuwe proefdruk maken</message>
+	<message key="submission.layout.newSupplementaryFile">Nieuw aanvullend bestand laden</message>
+	<message key="submission.layout.noStyleFile">Er is geen stylesheet bestand aan deze proefdruk gekoppeld.</message>
+	<message key="submission.layout.supplementaryFiles">Beoordeling aanvullende bestanden</message>
+	<message key="submission.layout.viewingGalley">Inzendingsproeven bekijken</message>
+	<message key="submission.layout.viewProof">Bekijk proef</message>
+	<message key="submission.metadata">Metadata inzending</message>
+	<message key="submission.noReviewAssignments">Geen review taken</message>
+	<message key="submission.notes.addNewNote">Notitie toevoegen</message>
+	<message key="submission.notes.attachedFile">Bestandsbijlage</message>
+	<message key="submission.notes.backToSubmissionNotes">Terug naar notities</message>
+	<message key="submission.notes.breadcrumb">Notities</message>
+	<message key="submission.notes.clearAllNotes">Wis alle notities</message>
+	<message key="submission.notes.collapseNotes">Notities inklappen</message>
+	<message key="submission.notes.confirmDeleteAll">Alle notities van deze inzending verwijderen?</message>
+	<message key="submission.notes.confirmDelete">Deze notitie verwijderen?</message>
+	<message key="submission.notes.createNewNote">Nieuwe notitie</message>
+	<message key="submission.notes.deleteNote">Verwijder notitie</message>
+	<message key="submission.notes.editNote">Notitie bewerken</message>
+	<message key="submission.notes.expandNotes">Notities uitklappen</message>
+	<message key="submission.notes.noSubmissionNotes">Geen notities bij de inzending</message>
+	<message key="submission.notes.removeUploadedFile">Verwijder geladen bestand</message>
+	<message key="submission.notes">Notities bij de inzending</message>
+	<message key="submission.notes.updateNote">Verander notitie</message>
+	<message key="submission.notes.viewNotes">Bekijk notities</message>
+	<message key="submission.originalFile">Origineel bestand</message>
+	<message key="submission.page.editing">#{$id} Bewerken</message>
+	<message key="submission.page.history">#{$id} Historie</message>
+	<message key="submission.page.review">#{$id} Review</message>
+	<message key="submission.page.summary">#{$id} Samenvatting</message>
+	<message key="submission.peerReview">Peer review</message>
+	<message key="submission.recommendation">Aanbeveling</message>
+	<message key="submission.rejected">Afgewezen</message>
+	<message key="submission.request">Aanvraag</message>
+	<message key="submission.response">Reactie</message>
+	<message key="submission.restrictions">Berperkingen</message>
+	<message key="submission.reviewMetadata">Beoordeel Metadata</message>
+	<message key="submission.review">Review</message>
+	<message key="submission.reviewVersion">Review versie</message>
+	<message key="submissions.active">Actief</message>
+	<message key="submissions.archived">Gearchiveerd</message>
+	<message key="submission.saveMetadata">Bewaar metadata</message>
+	<message key="submissions.completed">Gereed</message>
+	<message key="submissions.declined">Afgewezen</message>
+	<message key="submissions.incomplete">Onvolledig</message>
+	<message key="submissions.noSubmissions">Geen inzendingen</message>
+	<message key="submissions.queuedEditing">Wacht op bewerking</message>
+	<message key="submissions.queued">In de wachtrij</message>
+	<message key="submissions.queuedUnassigned">Wacht op toekenning</message>
+	<message key="submissions.ruling">Oordeel</message>
+	<message key="submissions.submit">Zend in</message>
+	<message key="submissions.submitted">Ingezonden</message>
+	<message key="submission.start">Start</message>
+	<message key="submission.submissionHistory">Historie inzending</message>
+	<message key="submission.submissionManuscript">Manuscript inzending</message>
+	<message key="submission.submissionReview">Review inzending</message>
+	<message key="submission.submitter">Inzender</message>
+	<message key="submission.summary">Samenvatting</message>
+	<message key="submission.supplementaryFiles">Aanvullende bestanden</message>
+	<message key="submission.supportingAgencies">Ondersteunende instanties</message>
+	<message key="submission.titleAndAbstract">Titel en samenvatting</message>
+	<message key="submission.underway">Onderweg</message>
+	<message key="submission.uploadFileTo">Bestand laden in</message>
+	<message key="submission.viewMetadata">Bekijk metadata</message>
+	<message key="submission.views">Bekeken</message>
+</locale>

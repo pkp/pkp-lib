@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/da_DK/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the da_DK (Danish) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="da_DK" full_name = "Danish">
+	<message key="manager.announcements">Meddelelser</message>
+	<message key="manager.announcements.confirmDelete">Er du sikker på, at du vil slette denne meddelelse permanent?</message>
+	<message key="manager.announcements.create">Opret ny meddelelse</message>
+	<message key="manager.announcements.createTitle">Opret</message>
+	<message key="manager.announcements.dateExpire">Udløb</message>
+	<message key="manager.announcements.edit">Rediger meddelelse</message>
+	<message key="manager.announcements.editTitle">Rediger</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Vælg også et år og/eller en måned ud over udløbsdagen.</message>
+	<message key="manager.announcements.form.dateExpire">Udløbsdato</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Meddelelsen vises til læsere indtil denne dato. Undlad at udfylde feltet, hvis meddelelsen skal vises på ubestemt tid.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Vælg også et år og/eller en dag ud over udløbsmåneden.</message>
+	<message key="manager.announcements.form.dateExpireValid">Vælg en gyldig udløbsdato for meddelelsen.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Vælg også en måned og/eller dag ud over udløbsåret.</message>
+	<message key="manager.announcements.form.description">Beskrivelse</message>
+	<message key="manager.announcements.form.descriptionInstructions">Meddelelsens fulde tekst.</message>
+	<message key="manager.announcements.form.descriptionRequired">En meddelelsesbeskrivelse er påkrævet.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Vis en kort beskrivelse sammen med meddelelsestitlen.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">En kort meddelelsesbeskrivelse er påkrævet.</message>
+	<message key="manager.announcements.form.descriptionShort">Kort beskrivelse</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Gem og opret en ny</message>
+	<message key="manager.announcements.form.titleRequired">En meddelelsestitel er påkrævet.</message>
+	<message key="manager.announcements.form.title">Titel</message>
+	<message key="manager.announcements.form.typeId">Type</message>
+	<message key="manager.announcements.form.typeIdValid">Vælg en gyldig meddelelsestype.</message>
+	<message key="manager.announcements.noneCreated">Der er ikke oprettet nogen meddelelser.</message>
+	<message key="manager.announcements.title">Titel</message>
+	<message key="manager.announcements.type">Type</message>
+	<message key="manager.announcementTypes">Meddelelsestyper</message>
+	<message key="manager.announcementTypes.confirmDelete">Advarsel! Alle meddelelser med denne meddelelsestype vil også blive slettet. Er du sikker på, at du vil fortsætte og slette denne meddelelsestype?</message>
+	<message key="manager.announcementTypes.create">Opret meddelelsestype</message>
+	<message key="manager.announcementTypes.createTitle">Opret</message>
+	<message key="manager.announcementTypes.edit">Rediger meddelelsestype</message>
+	<message key="manager.announcementTypes.editTitle">Rediger</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Gem og opret en ny</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Der findes allerede en meddelelsestype med dette navn.</message>
+	<message key="manager.announcementTypes.form.typeName">Navn</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Navnet på meddelelsestypen er påkrævet.</message>
+	<message key="manager.announcementTypes.noneCreated">Der er ikke oprettet nogen meddelelsestyper.</message>
+	<message key="manager.announcementTypes.typeName">Meddelelsestype</message>
+	<message key="manager.emails.confirmDelete">Er du sikker på, at du vil slette denne e-mail-skabelon?</message>
+	<message key="manager.emails.confirmReset">Er du sikker på, at du vil nulstille denne e-mail-skabelon til dens standardværdier?</message>
+	<message key="manager.emails.createEmail">Opret e-mail</message>
+	<message key="manager.emails.disable">Deaktiver</message>
+	<message key="manager.emails.editEmail">Rediger e-mail</message>
+	<message key="manager.emails.editTestExample">Rediger eksempel på e-mail-test</message>
+	<message key="manager.emails.emailKey">E-mail-nøgle</message>
+	<message key="manager.emails.emailKeyExists">Der findes allerede en e-mail med den angivne nøgle. E-mail-nøgler skal være entydige.</message>
+	<message key="manager.emails.emailTemplate">E-mail-skabelon</message>
+	<message key="manager.emails.emailTemplates">E-mail-skabeloner</message>
+	<message key="manager.emails.enabled">Aktiver denne e-mail-skabelon</message>
+	<message key="manager.emails.enable">Aktiver</message>
+	<message key="manager.emails.form.bodyRequired">En brødtekst er påkrævet for denne e-mail.</message>
+	<message key="manager.emails.form.subjectRequired">Et emne er påkrævet for denne e-mail.</message>
+	<message key="manager.emails">Forberedte e-mails</message>
+	<message key="manager.emails.resetAll">Nulstil alle skabeloner</message>
+	<message key="manager.emails.reset">Nulstil</message>
+	<message key="manager.emails.resetToDefault">Nulstil til standard</message>
+	<message key="manager.filesBrowser">Filbrowser</message>
+	<message key="manager.files.confirmDelete">Vil du slette denne fil eller mappe? Vær opmærksom på, at en mappe skal være tom, før den kan slettes.</message>
+	<message key="manager.files.createDir">Opret mappe</message>
+	<message key="manager.files.emptyDir">Der blev ikke fundet nogen filer i denne mappe.</message>
+	<message key="manager.files.indexOfDir">Indeks over {$dir}</message>
+	<message key="manager.files.parentDir">Overordnet mappe</message>
+	<message key="manager.files.uploadedFiles">Overførte filer</message>
+	<message key="manager.files.uploadFile">Overfør fil</message>
+	<message key="manager.groups.confirmDelete">Er du sikker på, at du vil slette denne gruppe?</message>
+	<message key="manager.groups.createTitle">Opret titel</message>
+	<message key="manager.groups.editTitle">Rediger titel</message>
+	<message key="manager.groups.form.groupTitleRequired">En gruppetitel er påkrævet.</message>
+	<message key="manager.groups.membership.addMember">Tilføj medlem</message>
+	<message key="manager.groups.membership.confirmDelete">Er du sikker på, at du vil slette dette gruppemedlemskab?</message>
+	<message key="manager.groups.membership">Medlemskab</message>
+	<message key="manager.groups.membership.noneCreated">Denne gruppe har ingen medlemmer.</message>
+	<message key="manager.groups.membership.noUsers">Der blev ikke fundet nogen brugere.</message>
+	<message key="manager.groups.title">Titel</message>
+	<message key="manager.importExport">Importer/eksporter data</message>
+	<message key="manager.languages.alternateLocaleInstructions">Du kan vælge, at det skal være tilladt at angive bestemte vigtige oplysninger på flere forskellige sprog. Hvis du vil benytte denne funktion, skal du markere alternative landestandarder og vælge blandt de indstillinger, der er angivet nedenfor.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Vælg de landestandarder, webstedet skal understøtte, via en sprogvalgsmenu på hver side. Menuen vises kun, hvis der vælges mere end én landestandard.</message>
+	<message key="manager.payment.timestamp">Tidsstempel</message>
+	<message key="manager.people.authSource">Godkendelseskilde</message>
+	<message key="manager.people.confirmUnenroll">Vil du annullere tilmeldingen af denne bruger?</message>
+	<message key="manager.people.createUser">Opret ny bruger</message>
+	<message key="manager.people.createUserGeneratePassword">Opret en tilfældig adgangskode.</message>
+	<message key="manager.people.createUserSendNotify">Send brugeren en velkomst-e-mail med brugernavn og adgangskode.</message>
+	<message key="manager.people.disable">Deaktiver</message>
+	<message key="manager.people.doNotEnroll">Uden rolle</message>
+	<message key="manager.people.editProfile">Rediger profil</message>
+	<message key="manager.people.editUser">Rediger bruger</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Send e-mail til valgte brugere</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Send e-mail til brugere, der er tilmeldt som</message>
+	<message key="manager.people.emailUsers">Send e-mail til brugere</message>
+	<message key="manager.people.emailUsers.selectLocale">Vælg en landestandard</message>
+	<message key="manager.people.emailUsers.selectUsers">Vælg de brugere, du vil sende en e-mail til, ved at markere afkrydsningsfelterne ud for deres navne</message>
+	<message key="manager.people.enable">Aktiver</message>
+	<message key="manager.people.enroll">Tilmeld bruger</message>
+	<message key="manager.people.enrollment">Tilmelding</message>
+	<message key="manager.people.enrollSelected">Tilmeld de valgte brugere</message>
+	<message key="manager.people.enrollSyncRole">Synkroniser roller</message>
+	<message key="manager.people.enrollSync">Synkroniser tilmelding</message>
+	<message key="manager.people.enrollUserAsDescription">Brugere kan til enhver tid tildeles til eller fjernes fra en rolle.</message>
+	<message key="manager.people.enrollUserAs">Tilmeld bruger som</message>
+	<message key="manager.people.invalidUser">Den angivne bruger eksisterer ikke.</message>
+	<message key="manager.people.mergeUser">Flet bruger</message>
+	<message key="manager.people.mergeUsers.confirm">Er du sikker på, at du vil flette kontoen med brugernavnet &quot;{$oldUsername}&quot; til kontoen med brugernavnet &quot;{$newUsername}&quot;? Kontoen med brugernavnet &quot;{$oldUsername}&quot; vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</message>
+	<message key="manager.people.mergeUsers">Flet brugere</message>
+	<message key="manager.people.mustChooseRole">Vælg en rolle øverst på siden, inden du klikker på &quot;Tilmeld bruger&quot;.</message>
+	<message key="manager.people.mustProvideName">Angiv som minimum først brugerens efternavn.</message>
+	<message key="manager.people.noMatchingUsers">Der blev ikke fundet nogen tilsvarende brugere.</message>
+	<message key="manager.people.noneEnrolled">Ingen tilmeldte brugere.</message>
+	<message key="manager.people">Personer</message>
+	<message key="manager.people.remove">Fjern</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Gem og opret en ny</message>
+	<message key="manager.people.signInAs">Log på som</message>
+	<message key="manager.people.signInAsUser">Log på som bruger</message>
+	<message key="manager.people.syncUsers">Synkroniser brugertilmelding</message>
+	<message key="manager.people.unenroll">Annuller tilmelding</message>
+	<message key="manager.people.userCreatedSuccessfully">Brugeren er blevet oprettet.</message>
+	<message key="manager.people.userMustChangePassword">Bed brugeren om at ændre sin adgangskode, næste gang vedkommende logger på.</message>
+	<message key="manager.plugins.action">Handling:</message>
+	<message key="manager.plugins.disable">Deaktiver</message>
+	<message key="manager.plugins.enable">Aktiver</message>
+	<message key="manager.plugins.pluginManagement">Administration af plug-ins</message>
+	<message key="manager.plugins.sitePlugin">Dette er en plug-in for hele webstedet. Denne plug-in må kun administreres af webstedsadministratoren.</message>
+	<message key="manager.plugins">System-plug-ins</message>
+	<message key="manager.readingTools">Læseværktøjer</message>
+	<message key="manager.roles">Roller</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Ugyldigt billedformat til logoet i sidehovedet på hjemmeside. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Ugyldigt billedformat til hjemmeside. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Ugyldigt billedformat til titlen i sidehovedet på hjemmeside. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Venstre margentekst</message>
+	<message key="manager.setup.layout.rightSidebar">Højre margentekst</message>
+	<message key="manager.setup.layout.unselected">Ikke markeret</message>
+	<message key="manager.setup.loggingAndAuditing">Logføring og kontrol</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Ugyldigt billedformat til logoet i sidehovedet på side. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Ugyldigt billedformat til titlen i sidehovedet på side. De accepterede formater er .gif, .jpg eller .png.</message>
+	<message key="manager.setup.selectOne">Vælg én</message>
+	<message key="manager.statistics"><![CDATA[Statistikker og rapporter]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} ny)</message>
+	<message key="manager.users">Brugere</message>
+	<message key="plugins.categories.auth">Plug-ins til autorisationer</message>
+	<message key="plugins.categories.blocks">Plug-ins til blokke</message>
+	<message key="plugins.categories.blocks.description">Plug-ins til blokke er tilslutningsbare brugergrænsefladekomponenter, f.eks. de forskellige margentekstværktøjer.</message>
+	<message key="plugins.categories.citationFormats">Plug-ins til citatformater</message>
+	<message key="plugins.categories.gateways.description">Plug-ins til gateways leverer live-data til eksterne systemer.</message>
+	<message key="plugins.categories.gateways">Plug-ins til gateways</message>
+	<message key="plugins.categories.generic">Generiske plug-ins</message>
+	<message key="plugins.categories.importexport.description">Plug-ins til import/eksport kan bruges til at overføre indhold til og fra andre systemer.</message>
+	<message key="plugins.categories.importexport">Plug-ins til import/eksport</message>
+	<message key="plugins.categories.paymethod.description">Plug-ins til betalingsmåder implementerer understøttelse af forskellige måder til håndtering af onlinebetalinger.</message>
+	<message key="plugins.categories.paymethod">Plug-ins til betalinger</message>
+	<message key="plugins.categories.reports.description">Rapport plugins bruges til at implementere forskellige typer af rapporter og dataudtræk til konferencemanagers.</message>
+	<message key="plugins.categories.reports">Rapport plugins</message>
+	<message key="plugins.categories.themes.description">Plug-ins til temaer kan bruges til at ændre systemets udseende.</message>
+	<message key="plugins.categories.themes">Plug-ins til temaer</message>
+</locale>

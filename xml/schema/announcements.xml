@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE schema SYSTEM "../dtd/xmlSchema.dtd">
+<!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
 
 <!--
   * groups.xml
   *
-  * Copyright (c) 2000-2008 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Groups schema in XML.

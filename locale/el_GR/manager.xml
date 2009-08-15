@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/el_GR/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the el_GR (Greek) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="el_GR" full_name = "Greek">
+	<message key="manager.announcements">Ανακοινώσεις</message>
+	<message key="manager.announcements.confirmDelete">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε οριστικά τη συγκεκριμένη ανακοίνωση;</message>
+	<message key="manager.announcements.create">Δημιουργία νέας ανακοίνωσης</message>
+	<message key="manager.announcements.createTitle">Δημιουργία </message>
+	<message key="manager.announcements.dateExpire">Ημερομηνία λήξης</message>
+	<message key="manager.announcements.edit">Διαμόρφωση ανακοίνωσης</message>
+	<message key="manager.announcements.editTitle">Διαμόρφωση </message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Επιλέξτε έτος ή/και μήνα εκτός από την ημέρα της ημερομηνίας λήξης.</message>
+	<message key="manager.announcements.form.dateExpire">Ημερομηνία λήξης</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Η ανακοίνωση θα προβάλλεται στους αναγνώστες μέχρι τη συγκεκριμένη ημερομηνία. Αφήστε κενό σε περίπτωση όπου πρέπει να εμφανίζεται επ’αόριστον.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Επιλέξτε έτος ή/και ημέρα εκτός από τον μήνα της ημερομηνίας λήξης.</message>
+	<message key="manager.announcements.form.dateExpireValid">Επιλέξτε έγκυρη ημερομηνία λήξης της ανακοίνωσης.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Επιλέξτε μήνα ή/και ημέρα εκτός από το έτος της ημερομηνίας λήξης.</message>
+	<message key="manager.announcements.form.description">Περιγραφή</message>
+	<message key="manager.announcements.form.descriptionInstructions">Πλήρες κείμενο της ανακοίνωσης.</message>
+	<message key="manager.announcements.form.descriptionRequired">Απαιτείται περιγραφή της ανακοίνωσης.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Σύντομη περιγραφή που εμφανίζεται μαζί με τον τίτλο της ανακοίνωσης.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Απαιτείται σύντομη περιγραφή της ανακοίνωσης.</message>
+	<message key="manager.announcements.form.descriptionShort">Σύντομη περιγραφή</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Αποθήκευση και δημιουργία νέου</message>
+	<message key="manager.announcements.form.titleRequired">Απαιτείται τίτλος ανακοίνωσης.</message>
+	<message key="manager.announcements.form.title">Τίτλος</message>
+	<message key="manager.announcements.form.typeId">Τύπος</message>
+	<message key="manager.announcements.form.typeIdValid">Επιλέξτε έγκυρο τύπο ανακοίνωσης.</message>
+	<message key="manager.announcements.noneCreated">Δεν έχουν δημιουργηθεί ανακοινώσεις.</message>
+	<message key="manager.announcements.title">Τίτλος</message>
+	<message key="manager.announcements.type">Τύπος</message>
+	<message key="manager.announcementTypes">Τύποι Ανακοινώσεων</message>
+	<message key="manager.announcementTypes.confirmDelete">Προσοχή! Όλες οι ανακοινώσεις με τον συγκεκριμένο τύπο ανακοίνωσης θα διαγραφούν επίσης. Είστε βέβαιοι ότι επιθυμείτε να συνεχίσετε και να διαγράψετε τον συγκεκριμένο τύπο ανακοίνωσης;</message>
+	<message key="manager.announcementTypes.create">Δημιουργία τύπου ανακοινώσεων</message>
+	<message key="manager.announcementTypes.createTitle">Δημιουργία </message>
+	<message key="manager.announcementTypes.edit">Διαμόρφωση τύπου ανακοινώσεων</message>
+	<message key="manager.announcementTypes.editTitle">Διαμόρφωση</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother"> Αποθήκευση και δημιουργία νέου </message>
+	<message key="manager.announcementTypes.form.typeNameExists">Ένας τύπος ανακοίνωσης με το συγκεκριμένο όνομα υπάρχει ήδη.</message>
+	<message key="manager.announcementTypes.form.typeName">Όνομα</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Απαιτείται όνομα τύπου ανακοίνωσης.</message>
+	<message key="manager.announcementTypes.noneCreated">Δεν έχουν δημιουργηθεί τύποι ανακοινώσεων.</message>
+	<message key="manager.announcementTypes.typeName">Τύπος ανακοίνωσης</message>
+	<message key="manager.emails.confirmDelete">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο πρότυπο μηνύματος?</message>
+	<message key="manager.emails.confirmReset"> Είστε βέβαιοι ότι επιθυμείτε να επαναφέρετε το συγκεκριμένο πρότυπο μηνύματος στις προεπιλεγμένες τιμές του?</message>
+	<message key="manager.emails.createEmail">Δημιουργία μηνύματος</message>
+	<message key="manager.emails.disable">Απενεργοποίηση</message>
+	<message key="manager.emails.editEmail">Επεξεργασία μηνύματος</message>
+	<message key="manager.emails.editTestExample">Επεξεργασία παραδείγματος δοκιμής ηλεκτρονικού ταχυδρομείου</message>
+	<message key="manager.emails.emailKey">Κλειδί ηλεκτρονικού ταχυδρομείου</message>
+	<message key="manager.emails.emailKeyExists">Διεύθυνση ηλεκτρονικού ταχυδρομείου με το συγκεκριμένο κλειδί υπάρχει ήδη. Τα κλειδιά του ηλεκτρονικού ταχυδρομείου πρέπει να είναι μοναδικά.</message>
+	<message key="manager.emails.emailTemplate">Πρότυπο e-mail μήνυμα ηλεκτρονικού ταχυδρομείου</message>
+	<message key="manager.emails.emailTemplates">Πρότυπα e-mail μηνύματα </message>
+	<message key="manager.emails.enabled">Ενεργοποίηση του συγκεκριμένου προτύπου μηνύματος</message>
+	<message key="manager.emails.enable">Ενεργοποίηση</message>
+	<message key="manager.emails.form.bodyRequired"> Απαιτείται η συμπλήρωση του κυρίου σώματος για το μήνυμα.</message>
+	<message key="manager.emails.form.subjectRequired">Απαιτείται ο ορισμός θέματος για το μήνυμα.</message>
+	<message key="manager.emails">Έτοιμα Emails</message>
+	<message key="manager.emails.resetAll">Επαναφορά όλων των προτύπων</message>
+	<message key="manager.emails.reset">Επαναφορά</message>
+	<message key="manager.emails.resetToDefault">Επαναφορά των προεπιλογών</message>
+	<message key="manager.filesBrowser">Ευρετήριο Αρχείων</message>
+	<message key="manager.files.confirmDelete">Διαγραφή του συγκεκριμένου αρχείου ή καταλόγου; Λάβετε υπόψη ότι ο κατάλογος δεν πρέπει να περιέχει δεδομένα πριν από τη διαγραφή του.</message>
+	<message key="manager.files.createDir">Δημιουργία καταλόγου</message>
+	<message key="manager.files.emptyDir">Δεν εντοπίστηκαν αρχεία στον κατάλογο αυτό.</message>
+	<message key="manager.files.indexOfDir">Ευρετήρια για {$dir}</message>
+	<message key="manager.files.parentDir">Γονικός κατάλογος</message>
+	<message key="manager.files.uploadedFiles">Αρχεία που έχουν φορτωθεί</message>
+	<message key="manager.files.uploadFile">Φόρτωση αρχείου</message>
+	<message key="manager.groups.confirmDelete">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε τη συγκεκριμένη ομάδα;</message>
+	<message key="manager.groups.createTitle">Δημιουργία τίτλου</message>
+	<message key="manager.groups.editTitle">Επεξεργασία τίτλου</message>
+	<message key="manager.groups.form.groupTitleRequired">Απαιτείται τίτλος ομάδας.</message>
+	<message key="manager.groups.membership.addMember">Προσθήκη μελών</message>
+	<message key="manager.groups.membership.confirmDelete">Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε την εγγεγραμμένη ομάδα;</message>
+	<message key="manager.groups.membership">Εγγεγραμμένα μέλη</message>
+	<message key="manager.groups.membership.noneCreated">Η ομάδα αυτή δεν έχει μέλη.</message>
+	<message key="manager.groups.membership.noUsers">Δεν ήταν δυνατός ο εντοπισμός χρηστών.</message>
+	<message key="manager.groups.title">Τίτλος</message>
+	<message key="manager.importExport">Εισαγωγή/Εξαγωγή δεδομένων</message>
+	<message key="manager.languages.alternateLocaleInstructions">Το σύστημα επιτρέπει εναλλακτικά την καταχώριση ορισμένων σημαντικών πληροφοριών και σε δύο πρόσθετες γλώσσες. Για να χρησιμοποιήσετε τη λειτουργία αυτή, επιλέξτε μία ή δυο από τις εναλλακτικές τοπικές ρυθμίσεις και επιλέξτε από τις επιλογές που θα εμφανιστούν παρακάτω.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Επιλέξτε όλες τις τοπικές ρυθμίσεις που θα υποστηρίζονται στον ιστότοπο μέσω του μενού επιλογής γλώσσας να εμφανίζονται σε κάθε σελίδα. Το μενού εμφανίζεται μόνο, εάν έχει επιλεχθεί κάποια από τις τοπικές ρυθμίσεις.</message>
+	<message key="manager.payment.timestamp">Σφραγίδα Ημερομηνίας</message>
+	<message key="manager.people.authSource">Πηγή πιστοποίησης</message>
+	<message key="manager.people.confirmUnenroll">Απαλλάσετε  τον συγκεκριμένο χρήστη από τον ρόλο του;</message>
+	<message key="manager.people.createUser">Δημιουργία νέου χρήστη</message>
+	<message key="manager.people.createUserGeneratePassword">Δημιουργία τυχαίου κωδικού πρόσβασης.</message>
+	<message key="manager.people.createUserSendNotify">Αποστολή μηνύματος ηλεκτρονικού ταχυδρομείου για το καλωσόρισμα του χρήστη μαζί με το όνομα χρήστη και τον κωδικό πρόσβασης.</message>
+	<message key="manager.people.disable">Απενεργοποίηση</message>
+	<message key="manager.people.doNotEnroll">Χωρίς ρόλο</message>
+	<message key="manager.people.editProfile">Επεξεργασία προφίλ  χρήστη</message>
+	<message key="manager.people.editUser">Επεξεργασία χρήστη</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Αποστολή μηνύματος στους επιλεγμένους χρήστες</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Χρήστες ηλεκτρονικού ταχυδρομείου εγγεγραμμένοι ως</message>
+	<message key="manager.people.emailUsers">Αποστολή μηνύματος σε χρήστες</message>
+	<message key="manager.people.emailUsers.selectLocale">Επιλέξτε τοπική ρύθμιση</message>
+	<message key="manager.people.emailUsers.selectUsers">Επιλέξτε τους χρήστες στους οποίους επιθυμείτε να αποστείλετε μήνυμα ηλεκτρονικού ταχυδρομείου μέσω επιλογής των πλαισίων που βρίσκονται δίπλα από τα ονόματά τους</message>
+	<message key="manager.people.enable">Ενεργοποίηση</message>
+	<message key="manager.people.enroll"> Ανάθεση ρόλου</message>
+	<message key="manager.people.enrollment">Ανάθεση ρόλων</message>
+	<message key="manager.people.enrollSelected">Ανάθεση ρόλου στους επιλεγμένους χρήστες</message>
+	<message key="manager.people.enrollSyncRole">Συγχρονισμός Ρόλου </message>
+	<message key="manager.people.enrollSync">Συγχρονισμένη ανάθεση ρόλων</message>
+	<message key="manager.people.enrollUserAsDescription">Εάν δεν έχουν επιλεγεί ρόλοι, ο χρήστης θα δημιουργηθεί στο σύστημα αλλά δεν θα είναι εγγεγραμμένος σε κάποιον ρόλο στα πλαίσια του συγκεκριμένου περιοδικού. Κατόπιν της δημιουργίας του χρήστη, η ανάθεση ή μη ρόλων μπορεί να πραγματοποιηθεί ανά πάσα στιγμή.</message>
+	<message key="manager.people.enrollUserAs">Ανάθεση ρόλου </message>
+	<message key="manager.people.invalidUser">Ο χρήστης δεν υπάρχει.</message>
+	<message key="manager.people.mergeUser">Συγχώνευση χρήστη</message>
+	<message key="manager.people.mergeUsers.confirm">Είστε βέβαιοι ότι επιθυμείτε να συγχωνεύσετε τον λογαριασμό με το όνομα χρήστη "{$oldUsername}" σε λογαριασμό με το όνομα χρήστη  "{$newUsername}"; Ο λογαριασμός με το όνομα χρήστη "{$oldUsername}" θα διαγραφεί οριστικά. Η ενέργεια αυτή είναι μη αναστρέψιμη.</message>
+	<message key="manager.people.mergeUsers">Συγχώνευση χρηστών</message>
+	<message key="manager.people.mustChooseRole">Σας παρακαλούμε επιλέξτε έναν ρόλο στην κορυφή της σελίδας πριν πατήσετε "Ανάθεση Ρόλου".</message>
+	<message key="manager.people.mustProvideName">Σας παρακαλούμε θα πρέπει πρώτα να συμπληρώσετε τουλάχιστον το επώνυμο του χρήστη.</message>
+	<message key="manager.people.noMatchingUsers">Δεν υπάρχει αντιστοίχηση μεταξύ των χρηστών.</message>
+	<message key="manager.people.noneEnrolled">Δεν υπάρχουν χρήστες με τέτοιο ρόλο.</message>
+	<message key="manager.people">Ανθρώπινοι πόροι</message>
+	<message key="manager.people.remove">Κατάργηση</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Αποθήκευση και δημιουργία νέου</message>
+	<message key="manager.people.signInAs">Σύνδεση ως</message>
+	<message key="manager.people.signInAsUser">Σύνδεση ως χρήστης</message>
+	<message key="manager.people.syncUsers">Συγχρονισμός ανάθεσης ρόλων</message>
+	<message key="manager.people.unenroll">Απαλλαγή </message>
+	<message key="manager.people.userCreatedSuccessfully">Ο χρήστης δημιουργήθηκε επιτυχώς.</message>
+	<message key="manager.people.userMustChangePassword">Ο χρήστης πρέπει να αλλάξει τον κωδικό πρόσβασης στην επόμενη σύνδεσή του.</message>
+	<message key="manager.plugins.action">Ενέργεια:</message>
+	<message key="manager.plugins.disable">Απενεργοποίηση</message>
+	<message key="manager.plugins.enable">Ενεργοποίηση</message>
+	<message key="manager.plugins.pluginManagement">Διαχείριση Plugin</message>
+	<message key="manager.plugins.sitePlugin">Πρόκειται για plugin σχετικά με ολόκληρο τον ιστότοπο. Η διαχείριση του συγκεκριμένου plugin μπορεί να γίνει αποκλειστικά από τον Διαχειριστή Ιστοτόπου.</message>
+	<message key="manager.plugins">Plugins συστήματος</message>
+	<message key="manager.readingTools">Εργαλεία Ανάγνωσης</message>
+	<message key="manager.roles">Ρόλοι</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας λογοτύπου της κεφαλίδας της αρχικής σελίδας του περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας αρχικής σελίδας του περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας τίτλου της κεφαλίδας της αρχικής σελίδας του περιοδικού. Έγκυρες μορφές αρχείων είναι .gif, .jpg, ή .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Αριστερή Πλαϊνή Μπάρα</message>
+	<message key="manager.setup.layout.rightSidebar">Δεξιά Πλαϊνή Μπάρα</message>
+	<message key="manager.setup.layout.unselected">Μη επιλεγμένο</message>
+	<message key="manager.setup.loggingAndAuditing">Σύνδεση και έλεγχος</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid"> Μη έγκυρη μορφή εικόνας λογοτύπου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid"> Μη έγκυρη μορφή εικόνας τίτλου της κεφαλίδας της σελίδας. Έγκυρες μορφές είναι .gif, .jpg, ή .png.</message>
+	<message key="manager.setup.selectOne">Επιλέξτε ένα</message>
+	<message key="manager.statistics"><![CDATA[Στατιστικά &amp; Αναφορές]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count}  ({$percentage}F)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew}  new)</message>
+	<message key="manager.users">Χρήστες</message>
+	<message key="plugins.categories.auth">Plugin πιστοποίηση</message>
+	<message key="plugins.categories.blocks">Block Plugins</message>
+	<message key="plugins.categories.blocks.description">Τα Block Plugins είναι προσαρμόσιμα UI συστατικά, όπως τα διάφορα sidebar εργαλεία.</message>
+	<message key="plugins.categories.citationFormats">Plugins Μορφής Βιβλιογραφικής Αναφοράς (citation)</message>
+	<message key="plugins.categories.gateways.description">Τα Plugins πύλης (gateway) επιτρεπούν τη ζωντανή παροχή δεδομένων σε εξωτερικά συστήματα.</message>
+	<message key="plugins.categories.gateways">Plugins πύλης (gateway)</message>
+	<message key="plugins.categories.generic">Γενικά Plugins</message>
+	<message key="plugins.categories.importexport.description">Η εισαγωγή/εξαγωγή των Plugins μπορεί να χρησιμοποιηθεί για τη μεταφορά περιεχομένου από και προς άλλα συστήματα.</message>
+	<message key="plugins.categories.importexport">Εισαγωγή/Εξαγωγή Plugins</message>
+	<message key="plugins.categories.paymethod.description">Τα Plugins Πληρωμών μπορούν να υποστηρίξουν διάφορες μεθόδους Online Πληρωμών.</message>
+	<message key="plugins.categories.paymethod">Plugins Πληρωμών</message>
+	<message key="plugins.categories.reports.description">Τα Plugins Αναφορών χρησιμοποιούνται για την δημιουργία διαφόρων τύπων αναφορών και εξαγωγής δεδομένων.</message>
+	<message key="plugins.categories.reports">Plugins Αναφορών</message>
+	<message key="plugins.categories.themes.description">Τα Theme Plugins μπορούν να χρησιμοποιηθούν για να αλλάξει η εμφάνιση του συστήματος.</message>
+	<message key="plugins.categories.themes">Θεματικά (Theme) Plugins</message>
+</locale>

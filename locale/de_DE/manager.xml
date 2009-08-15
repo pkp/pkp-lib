@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/de_DE/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="manager.announcements">Mitteilungen</message>
+	<message key="manager.announcements.confirmDelete">Sind Sie sicher dass Sie diese Mitteilung endgültig löschen möchten?</message>
+	<message key="manager.announcements.create">Neue Mitteilung erstellen</message>
+	<message key="manager.announcements.createTitle">Erstellen</message>
+	<message key="manager.announcements.dateExpire">Ablaufdatum</message>
+	<message key="manager.announcements.edit">Mitteilung bearbeiten</message>
+	<message key="manager.announcements.editTitle">Bearbeiten</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Bitte wählen Sie ein Jahr und/oder einen Monat zum Auslauftag.</message>
+	<message key="manager.announcements.form.dateExpire">Ablaufdatum</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Die Mitteilung wird Leser/innen bis zu diesem Datum angezeigt. Lassen Sie die Datumsangabe frei, wenn die Mitteilung ohne zeitliche Begrenzung erscheinen soll.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Bitte wählen Sie ein Jahr und/oder einen Tag zum Auslaufmonat.</message>
+	<message key="manager.announcements.form.dateExpireValid">Bitte wählen Sie einen gültiges Auslaufdatum für die Mitteilung.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Bitte wählen Sie einen Monat und/oder einen Tag zum Auslaufjahr.</message>
+	<message key="manager.announcements.form.description">Beschreibung</message>
+	<message key="manager.announcements.form.descriptionInstructions">Vollständiger Text der Mitteilung</message>
+	<message key="manager.announcements.form.descriptionRequired">Eine Beschreibung der Mitteilung ist erforderlich.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Eine kurze Beschreibung, die zusammen mit dem Mitteilungstitel erscheint</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Eine kurze Beschreibung der Mitteilung ist erforderlich.</message>
+	<message key="manager.announcements.form.descriptionShort">Kurze Beschreibung</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Speichern und eine weitere Mitteilung erstellen</message>
+	<message key="manager.announcements.form.titleRequired">Ein Mitteilungstitel ist erforderlich.</message>
+	<message key="manager.announcements.form.title">Titel</message>
+	<message key="manager.announcements.form.typeId">Typ</message>
+	<message key="manager.announcements.form.typeIdValid">Bitte einen gültigen Mitteilungstyp wählen</message>
+	<message key="manager.announcements.noneCreated">Keine Mitteilungen erstellt</message>
+	<message key="manager.announcements.title">Titel</message>
+	<message key="manager.announcements.type">Typ</message>
+	<message key="manager.announcementTypes">Mitteilungsarten</message>
+	<message key="manager.announcementTypes.confirmDelete">Warnung! Sind Sie sicher, dass Sie diesen Mitteilungstyp entfernen wollen? Alle Mitteilungen dieses Typs werden dadurch ebenfalls gelöscht. </message>
+	<message key="manager.announcementTypes.create">Neuen Mitteilungstyp erstellen</message>
+	<message key="manager.announcementTypes.createTitle">Erstellen</message>
+	<message key="manager.announcementTypes.edit">Mitteilungstyp bearbeiten</message>
+	<message key="manager.announcementTypes.editTitle">Bearbeiten</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Speichern und einen weiteren Typ erstellen</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Es existiert bereits ein Mitteilungstyp dieses Namens.</message>
+	<message key="manager.announcementTypes.form.typeName">Name</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Ein Name für den Mitteilungstyp ist erforderlich.</message>
+	<message key="manager.announcementTypes.noneCreated">Es wurde kein Mitteilungstyp erstellt.</message>
+	<message key="manager.announcementTypes.typeName">Mitteilungstyp</message>
+	<message key="manager.emails.confirmDelete">Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?</message>
+	<message key="manager.emails.confirmReset">Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?</message>
+	<message key="manager.emails.createEmail">E-Mail erstellen</message>
+	<message key="manager.emails.disable">Deaktivieren</message>
+	<message key="manager.emails.editEmail">E-Mail bearbeiten</message>
+	<message key="manager.emails.editTestExample">Das E-Mail-Testbeispiel bearbeiten</message>
+	<message key="manager.emails.emailKey">E-Mail-Kennung</message>
+	<message key="manager.emails.emailKeyExists">Eine E-Mail dieser Kennung existiert bereits. Die E-Mail-Kennungen müssen eindeutig sein.</message>
+	<message key="manager.emails.emailTemplate">E-Mail-Vorlage</message>
+	<message key="manager.emails.emailTemplates">E-Mail-Vorlagen</message>
+	<message key="manager.emails.enabled">Diese E-Mail-Vorlage aktivieren</message>
+	<message key="manager.emails.enable">Aktivieren</message>
+	<message key="manager.emails.form.bodyRequired">Die E-Mail muss einen Text enthalten.</message>
+	<message key="manager.emails.form.subjectRequired">Ein Betreff ist erforderlich.</message>
+	<message key="manager.emails">E-Mail-Vorlagen</message>
+	<message key="manager.emails.resetAll">Alle Vorlagen zurücksetzen</message>
+	<message key="manager.emails.reset">Wiederherstellen</message>
+	<message key="manager.emails.resetToDefault">Auf Standard zurücksetzen </message>
+	<message key="manager.filesBrowser">Dateinavigator</message>
+	<message key="manager.files.confirmDelete">Datei oder Verzeichnis löschen? Beachten Sie, dass nur ein leeres Verzeichnis gelöscht werden kann.</message>
+	<message key="manager.files.createDir">Verzeichnis anlegen</message>
+	<message key="manager.files.emptyDir">Keine Dateien in diesem Verzeichnis.</message>
+	<message key="manager.files.indexOfDir">Verzeichnis {$dir}</message>
+	<message key="manager.files.parentDir">Übergeordnetes Verzeichnis</message>
+	<message key="manager.files.uploadedFiles">Hochgeladene Dateien</message>
+	<message key="manager.files.uploadFile">Datei hochladen </message>
+	<message key="manager.groups.confirmDelete">Sind Sie sicher, dass Sie diese Position entfernen wollen?</message>
+	<message key="manager.groups.createTitle">Position erstellen</message>
+	<message key="manager.groups.editTitle">Position bearbeiten</message>
+	<message key="manager.groups.form.groupTitleRequired">Ein Name der Position ist erforderlich.</message>
+	<message key="manager.groups.membership.addMember">Mitglied hinzufügen</message>
+	<message key="manager.groups.membership.confirmDelete">Sind Sie sicher, dass Sie diese Gruppenmitgliedschaft löschen wollen?</message>
+	<message key="manager.groups.membership">Mitgliedschaft</message>
+	<message key="manager.groups.membership.noneCreated">Diese Gruppe hat keine Mitglieder.</message>
+	<message key="manager.groups.membership.noUsers">Es wurden keine Benutzer/innen gefunden.</message>
+	<message key="manager.groups.title">Name der Position</message>
+	<message key="manager.importExport">Daten importieren/exportieren</message>
+	<message key="manager.languages.alternateLocaleInstructions">Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird.</message>
+	<message key="manager.payment.timestamp">Zeitpunkt</message>
+	<message key="manager.people.authSource">Authentifizierungsquelle</message>
+	<message key="manager.people.confirmUnenroll">Diese/n Benutzer/in austragen?</message>
+	<message key="manager.people.createUser">Neue/n Benutzer/in erstellen</message>
+	<message key="manager.people.createUserGeneratePassword">Ein Zufallspasswort erstellen.</message>
+	<message key="manager.people.createUserSendNotify">Schicken Sie der Benutzerin/dem Benutzer eine Begrüßungs-E-Mail mit Benutzer/innen-Namen und Passwort.</message>
+	<message key="manager.people.disable">Deaktivieren</message>
+	<message key="manager.people.doNotEnroll">Ohne Funktion</message>
+	<message key="manager.people.editProfile">Das Profil bearbeiten</message>
+	<message key="manager.people.editUser">Benutzer/in bearbeiten</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">E-Mail an ausgewählte Benutzer/innen senden</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">E-Mail an alle Benutzer/innen senden, die eingetragen sind als</message>
+	<message key="manager.people.emailUsers">E-Mail an die Benutzer/innen senden</message>
+	<message key="manager.people.emailUsers.selectLocale">Eine Regionaleinstellung auswählen</message>
+	<message key="manager.people.emailUsers.selectUsers">Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, dadurch aus, dass Sie die Kästchen neben ihren Namen anklicken.</message>
+	<message key="manager.people.enable">Aktivieren</message>
+	<message key="manager.people.enroll">Benutzer/in eintragen</message>
+	<message key="manager.people.enrollment">Eintragen</message>
+	<message key="manager.people.enrollSelected">Die ausgewählten Benutzer/innen eintragen</message>
+	<message key="manager.people.enrollSyncRole">Funktion synchronisieren</message>
+	<message key="manager.people.enrollSync">Synchronisiere Einträge</message>
+	<message key="manager.people.enrollUserAsDescription">Benutzer/innen können jederzeit eine Funktion zugewiesen bekommen, auch kann die Zuweisung jederzeit rückgängig gemacht werden.</message>
+	<message key="manager.people.enrollUserAs">Benutzer/in eintragen als</message>
+	<message key="manager.people.invalidUser">Leider existiert die Benutzerin/der Benutzer, nach der/dem Sie gesucht haben, nicht.</message>
+	<message key="manager.people.mergeUser">Benutzer/in zusammenführen</message>
+	<message key="manager.people.mergeUsers.confirm">Sind Sie sicher, dass Sie das Konto mit dem Benutzer/innen-Namen "{$oldUsername}" in dem Konto mit dem Benutzer/innen-Namen"{$newUsername}" aufgehen lassen wollen? Das Konto mit dem Benutzer/innen-Namen "{$oldUsername}" besteht dann nicht mehr. Der Vorgang kann nicht rückgängig gemacht werden.</message>
+	<message key="manager.people.mergeUsers">Benutzer/innen zusammenführen</message>
+	<message key="manager.people.mustChooseRole">Wählen Sie am Seitenanfang bitte eine Funktion aus, bevor Sie "Benutzer/in eintragen" anklicken.</message>
+	<message key="manager.people.mustProvideName">Bitte stellen Sie zunächst zumindest einen Nachnamen für die Benutzerin/den Benutzer zur Verfügung.</message>
+	<message key="manager.people.noMatchingUsers">Keine passenden Benutzer/innen.</message>
+	<message key="manager.people.noneEnrolled">Keine eingetragenen Benutzer/innen.</message>
+	<message key="manager.people">Personen</message>
+	<message key="manager.people.remove">Entfernen</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Speichern und eine/n weitere/n Benutzer/in erstellen</message>
+	<message key="manager.people.signInAs">Einloggen als</message>
+	<message key="manager.people.signInAsUser">Als Benutzer/in einloggen</message>
+	<message key="manager.people.syncUsers">Benutzer/innen-Einträge synchronisieren</message>
+	<message key="manager.people.unenroll">Eintragung aufheben</message>
+	<message key="manager.people.userCreatedSuccessfully">Benutzer/in wurde erfolgreich erstellt.</message>
+	<message key="manager.people.userMustChangePassword">Fordern Sie die Benutzerin/den Benutzer auf, beim nächsten Einloggen das Passwort zu ändern.</message>
+	<message key="manager.plugins.action">Aktion:</message>
+	<message key="manager.plugins.disable">Ausschalten</message>
+	<message key="manager.plugins.enable">Einschalten</message>
+	<message key="manager.plugins.pluginManagement">Verwaltung der Plug-Ins</message>
+	<message key="manager.plugins.sitePlugin">Dies ist ein Plug-In für diese Website. Nur die/der Website-Administrator/in kann dieses Plug-In verwalten.</message>
+	<message key="manager.plugins">Plug-Ins</message>
+	<message key="manager.readingTools">Lesewerkzeuge</message>
+	<message key="manager.roles">Funktionen</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Das Format des Logos in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Das Format des Bildes auf der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Das Format des Titelbildes in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Linke Seitenleiste</message>
+	<message key="manager.setup.layout.rightSidebar">Rechte Seitenleiste</message>
+	<message key="manager.setup.layout.unselected">Nicht ausgewählt</message>
+	<message key="manager.setup.loggingAndAuditing">Protokollieren und prüfen</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Das Format des Logos in der Kopfzeile der Zeitschriftenseiten ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Das Format des Titelbildes in der Kopfzeile der Zeitschriftenseiten ist ungültig. Gültige Formate sind .gif, .jpg und .png.</message>
+	<message key="manager.setup.selectOne">Auswählen</message>
+	<message key="manager.statistics"><![CDATA[Statistiken &amp; Berichte]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} Neue)</message>
+	<message key="manager.users">Benutzer/innen</message>
+	<message key="plugins.categories.auth">Plug-Ins für Zugangsberechtigungen</message>
+	<message key="plugins.categories.blocks">Block-Plug-Ins</message>
+	<message key="plugins.categories.blocks.description">Block-Plug-Ins sind ein- und ausschaltbare Designelemente, z.B. die verschiedenen Instrumente für die Seitenleiste.</message>
+	<message key="plugins.categories.citationFormats">Plug-Ins für Zitatformate</message>
+	<message key="plugins.categories.gateways.description">Gateways stellen externen Systemen Daten zur Verfügung.</message>
+	<message key="plugins.categories.gateways">Gateways</message>
+	<message key="plugins.categories.generic">Generische Plug-Ins</message>
+	<message key="plugins.categories.importexport.description">Mit Import-/Export-Plug-Ins lassen sich Inhalte zu bzw. von anderen Systemen transferieren.</message>
+	<message key="plugins.categories.importexport">Import-/Export-Plug-Ins</message>
+	<message key="plugins.categories.paymethod.description">Plug-Ins für Zahlungsweisen bieten Unterstützung für unterschiedliche Formen des Online-Zahlungsverkehrs.</message>
+	<message key="plugins.categories.paymethod">Plug-Ins für Zahlungsweisen</message>
+	<message key="plugins.categories.reports.description">Bericht-Plug-Ins stellen verschiedene Arten von Berichten und Datenauszügen für Konferenzveranstalter/innen bereit.</message>
+	<message key="plugins.categories.reports">Bericht-Plug-Ins</message>
+	<message key="plugins.categories.themes.description">Designvorlagen-Plug-Ins können verwendet werden, um das Aussehen des Systems zu verändern.</message>
+	<message key="plugins.categories.themes">Designvorlagen-Plug-Ins</message>
+</locale>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_BR (Português (Brasil)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="pt_BR" full_name = "Português (Brasil)">
+	<message key="manager.announcements">Avisos</message>
+	<message key="manager.announcements.confirmDelete">Deseja realmente excluir permanentemente esta notícia?</message>
+	<message key="manager.announcements.create">Criar Nova Notícia</message>
+	<message key="manager.announcements.createTitle">Criar</message>
+	<message key="manager.announcements.dateExpire">Expiração</message>
+	<message key="manager.announcements.edit">Editar Notícia</message>
+	<message key="manager.announcements.editTitle">Editar</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Escolha o ano e/ou mês além do mês de expiração.</message>
+	<message key="manager.announcements.form.dateExpire">Data de Expiração</message>
+	<message key="manager.announcements.form.dateExpireInstructions">A notícia será exibida aos leitores até esta data. Deixe em branco caso deseje exibir a notícia permanentemente.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Escolha o ano e/ou dia além do mês de expiração.</message>
+	<message key="manager.announcements.form.dateExpireValid">Escolha uma data de expiração válida.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Escolha o mês e/ou dia além do ano de expiração.</message>
+	<message key="manager.announcements.form.description">Corpo da Notícia</message>
+	<message key="manager.announcements.form.descriptionInstructions">O texto completo da notícia.</message>
+	<message key="manager.announcements.form.descriptionRequired">Corpo da notícia obrigatória.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Um texto introdutório a ser exibido com o título da notícia.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Introdução da notícia obrigatória.</message>
+	<message key="manager.announcements.form.descriptionShort">Introdução</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Salvar e Criar Outra</message>
+	<message key="manager.announcements.form.titleRequired">Título da notícia obrigatório.</message>
+	<message key="manager.announcements.form.title">Título</message>
+	<message key="manager.announcements.form.typeId">Tipo</message>
+	<message key="manager.announcements.form.typeIdValid">Escolha um tipo válido de notícia.</message>
+	<message key="manager.announcements.noneCreated">Não há notícias.</message>
+	<message key="manager.announcements.title">Título</message>
+	<message key="manager.announcements.type">Tipo</message>
+	<message key="manager.announcementTypes">Tipos de Aviso</message>
+	<message key="manager.announcementTypes.confirmDelete">Aviso! Todas notícias deste tipo serão excluídas. Deseja realmente continuar e excluir este tipo de notícia?</message>
+	<message key="manager.announcementTypes.create">Criar Tipo de Notícia</message>
+	<message key="manager.announcementTypes.createTitle">Criar</message>
+	<message key="manager.announcementTypes.edit">Editar Tipo de Notícia</message>
+	<message key="manager.announcementTypes.editTitle">Editar</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Salvar e Criar Outro</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Já existe um tipo de notícia com esse nome.</message>
+	<message key="manager.announcementTypes.form.typeName">Nome</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Nome do tipo de notícia obrigatório.</message>
+	<message key="manager.announcementTypes.noneCreated">Não há tipos de notícia.</message>
+	<message key="manager.announcementTypes.typeName">Tipo de Notícia</message>
+	<message key="manager.emails.confirmDelete">Deseja realmente excluir esta mensagem padrão?</message>
+	<message key="manager.emails.confirmReset">Deseja realmente restaurar este e-mail para o padrão original?</message>
+	<message key="manager.emails.createEmail">Criar E-mail</message>
+	<message key="manager.emails.disable">Desabilitar</message>
+	<message key="manager.emails.editEmail">Editar E-mail</message>
+	<message key="manager.emails.editTestExample">Editar E-mail de Exemplo</message>
+	<message key="manager.emails.emailKey">Chave de E-mail</message>
+	<message key="manager.emails.emailKeyExists">Um e-mail coma chave informada já existe. As chaves de e-mail devem ser únicas.</message>
+	<message key="manager.emails.emailTemplate">E-mail Padrão</message>
+	<message key="manager.emails.emailTemplates">E-mails Padrão</message>
+	<message key="manager.emails.enabled">Habilitar este e-mail padrão</message>
+	<message key="manager.emails.enable">Habilitar</message>
+	<message key="manager.emails.form.bodyRequired">Corpo da mensagem obrigatório.</message>
+	<message key="manager.emails.form.subjectRequired">Assunto da mensagem obrigatório.</message>
+	<message key="manager.emails">E-mails</message>
+	<message key="manager.emails.resetAll">Restaurar todos os E-mails</message>
+	<message key="manager.emails.reset">Restaurar</message>
+	<message key="manager.emails.resetToDefault">Restaurar para Original</message>
+	<message key="manager.filesBrowser">Navegador de Documentos</message>
+	<message key="manager.files.confirmDelete">Excluir este documento ou diretório? Um diretório deve estar vazio antes de ser excluído.</message>
+	<message key="manager.files.createDir">Criar Diretório</message>
+	<message key="manager.files.emptyDir">Nenhum documento encontrado neste diretório.</message>
+	<message key="manager.files.indexOfDir">Índice de {$dir}</message>
+	<message key="manager.files.parentDir">Diretório Superior</message>
+	<message key="manager.files.uploadedFiles">Documentos Transferidos</message>
+	<message key="manager.files.uploadFile">Transferir Arquivo</message>
+	<message key="manager.groups.confirmDelete">Deseja realmente excluir este grupo?</message>
+	<message key="manager.groups.createTitle">Criar Título</message>
+	<message key="manager.groups.editTitle">Editar Título</message>
+	<message key="manager.groups.form.groupTitleRequired">Título do grupo é obrigatório!</message>
+	<message key="manager.groups.membership.addMember">Incluir Membro</message>
+	<message key="manager.groups.membership.confirmDelete">Deseja realmente excluir este grupo de membros?</message>
+	<message key="manager.groups.membership">Membros</message>
+	<message key="manager.groups.membership.noneCreated">Não há membros neste grupo!</message>
+	<message key="manager.groups.membership.noUsers">Nenhum usuário encontrado</message>
+	<message key="manager.groups.title">Título</message>
+	<message key="manager.importExport">Importar/Exportar Dados</message>
+	<message key="manager.languages.alternateLocaleInstructions">O sistema permite opcionalmente informar conteúdo crítico em vários idiomas adicionais. Para utilizar esta ferramenta, habilite idiomas alternativos e escolha uma das opções a seguir.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Escolha todos os idiomas que serão suportados através da lista de idiomas disponível em todas as páginas. A lista aparecerá caso sejam escolhidos mais de um idioma.</message>
+	<message key="manager.payment.timestamp">Data de emissão</message>
+	<message key="manager.people.authSource">Fonte de Autenticação</message>
+	<message key="manager.people.confirmUnenroll">Remover o usuário deste Papel?</message>
+	<message key="manager.people.createUser">Incluir Novo Usuário</message>
+	<message key="manager.people.createUserGeneratePassword">Gerar senha aleatória.</message>
+	<message key="manager.people.createUserSendNotify">Enviar login e senha via e-mail.</message>
+	<message key="manager.people.disable">Bloquear</message>
+	<message key="manager.people.doNotEnroll">Não cadastrar</message>
+	<message key="manager.people.editProfile">Editar Perfil</message>
+	<message key="manager.people.editUser">Editar Usuário</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Enviar E-mail a Usuários selecionados</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Enviar E-mail a usuários cadastrados como</message>
+	<message key="manager.people.emailUsers">Enviar E-mail aos Usuários</message>
+	<message key="manager.people.emailUsers.selectLocale">Selecionar Idioma</message>
+	<message key="manager.people.emailUsers.selectUsers">Escolha os usuários para quem deseja enviar e-mail clicando na caixa de opção ao lado do nome</message>
+	<message key="manager.people.enable">Habilitar</message>
+	<message key="manager.people.enroll">Cadastrar Usuário</message>
+	<message key="manager.people.enrollment">Cadastrar</message>
+	<message key="manager.people.enrollSelected">Cadastrar Usuários Selecionados</message>
+	<message key="manager.people.enrollSyncRole">Sincronizar Papéis</message>
+	<message key="manager.people.enrollSync">Sincronizar Cadastro</message>
+	<message key="manager.people.enrollUserAsDescription">O sistema permite o cadastro de usuários e os papéis editoriais podem ser designados ou removidos a qualquer momento após a criação do cadastro.</message>
+	<message key="manager.people.enrollUserAs">Cadastrar usuário como</message>
+	<message key="manager.people.invalidUser">Usuário não existe.</message>
+	<message key="manager.people.mergeUser">Mesclar Cadastro</message>
+	<message key="manager.people.mergeUsers.confirm">Deseja realmente mesclar o cadastro do usuário "{$oldUsername}" no cadastro do usuário "{$newUsername}"? O cadastro de "{$oldUsername}" será excluído permanentemente. Esta ação não é reversível!</message>
+	<message key="manager.people.mergeUsers">Mesclar Cadastros</message>
+	<message key="manager.people.mustChooseRole">Escolha um papel editorial antes de confirmar</message>
+	<message key="manager.people.mustProvideName">Informe pelo menos o nome do usuário primeiro.</message>
+	<message key="manager.people.noMatchingUsers">Nenhum usuário encontrado.</message>
+	<message key="manager.people.noneEnrolled">Nenhum usuário cadastrado.</message>
+	<message key="manager.people">Pessoal</message>
+	<message key="manager.people.remove">Remover</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Salvar e Incluir Outro</message>
+	<message key="manager.people.signInAs">Entrar no sistema como</message>
+	<message key="manager.people.signInAsUser">Entrar como Usuário</message>
+	<message key="manager.people.syncUsers">Sincronizar cadastro de usuários</message>
+	<message key="manager.people.unenroll">Remover Papel</message>
+	<message key="manager.people.userCreatedSuccessfully">Usuário incluído com sucesso.</message>
+	<message key="manager.people.userMustChangePassword">Solicitar alteração de senha no próximo acesso ao sistema.</message>
+	<message key="manager.plugins.action">Ação:</message>
+	<message key="manager.plugins.disable">Desabilitar</message>
+	<message key="manager.plugins.enable">Habilitar</message>
+	<message key="manager.plugins.pluginManagement">Administração de Plugins</message>
+	<message key="manager.plugins.sitePlugin">Este é um plugin de uso geral. Somente o Administrador do Portal possui permissões de administração.</message>
+	<message key="manager.plugins">Plugins do Sistema</message>
+	<message key="manager.readingTools">Ferramentas para Leitura</message>
+	<message key="manager.roles">Papéis</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Barra Esquerda</message>
+	<message key="manager.setup.layout.rightSidebar">Barra Direita</message>
+	<message key="manager.setup.layout.unselected">Não marcados</message>
+	<message key="manager.setup.loggingAndAuditing">Controle e Auditoria</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="manager.setup.selectOne">Escolha uma opção</message>
+	<message key="manager.statistics"><![CDATA[Estatísticas &amp; Relatórios]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nova(s))</message>
+	<message key="manager.users">Usuários</message>
+	<message key="plugins.categories.auth">Plugins de Autenticação</message>
+	<message key="plugins.categories.blocks">Plugins de Bloco</message>
+	<message key="plugins.categories.blocks.description">Plugins de Bloco oferecem controle de posicionamento de ferramentas da Interface, como as barras laterais.</message>
+	<message key="plugins.categories.citationFormats">Plugins de Formato de Citação</message>
+	<message key="plugins.categories.gateways.description">Plugins de Gateway alimentam sistemas externos com conteúdo do sistema.</message>
+	<message key="plugins.categories.gateways">Plugins de Gateway</message>
+	<message key="plugins.categories.generic">Plugins Genéricos</message>
+	<message key="plugins.categories.importexport.description">Plugins de Importação/Exportação podem ser utilizados para transferir conteúdo de um sistema a outro e vice-versa.</message>
+	<message key="plugins.categories.importexport">Plugins de Importação/Exportação</message>
+	<message key="plugins.categories.paymethod.description">Plugins de Métodos de Pagamento implementam suporte a várias formas de processamento de pagamento online.</message>
+	<message key="plugins.categories.paymethod">Plugins de Métodos de Pagamento</message>
+	<message key="plugins.categories.reports.description">Plugins de Relatório são utilizados para implementar vários tipos de relatórios e extração de dados por parte dos Editores Gerentes</message>
+	<message key="plugins.categories.reports">Plugins de Relatório</message>
+	<message key="plugins.categories.themes.description">Plugins de Visual podem ser utilizados para alterar o visual do sistema.</message>
+	<message key="plugins.categories.themes">Plugins de Visual</message>
+</locale>

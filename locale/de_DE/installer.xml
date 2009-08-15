@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/de_DE/installer.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
+	<message key="installer.administratorAccount">Administrator/innen-Konto</message>
+	<message key="installer.administratorAccountInstructions">Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">NEIN</span>]]></message>
+	<message key="installer.checkYes">Ja</message>
+	<message key="installer.clientCharset">Client-Zeichensatz</message>
+	<message key="installer.clientCharsetInstructions">Codierung für Daten, die vom oder zum Browser geschickt werden.</message>
+	<message key="installer.configFileError"><![CDATA[Die Konfigurationsdatei <tt>config.inc.php</tt> existiert nicht oder ist nicht lesbar.]]></message>
+	<message key="installer.connectionCharset">Zeichensatz für Verbindungen</message>
+	<message key="installer.connectionCharsetInstructions">Codierung für Daten, die von der oder zu der Datenbank geschickt werden. Diese sollte dieselbe sein wie der Client-Zeichensatz. Bitte beachten Sie, dass diese Möglichkeit nur mit MySQL>=4.1.1 oder PostgresSQL>=7.1 unterstützt wird. Wählen Sie "Nicht zutreffend" aus, wenn Ihr Datenbankserver diese Voraussetzungen nicht erfüllt.</message>
+	<message key="installer.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
+	<message key="installer.createDatabase">Datenbank anlegen</message>
+	<message key="installer.createDatabaseInstructions">Zur Benutzung dieser Option muss Ihr Datenbanksystem das Anlegen von Datenbanken aus der Entfernung unterstützten und muss Ihr Benutzer/innen-Name die Rechte haben, Datenbanken anzulegen. Wenn die Installation unter Verwendung dieser Option scheitert, legen Sie die Datenbank manuell auf dem Server an und führen dann den Installer ohne diese Option aus.</message>
+	<message key="installer.databaseCharset">Zeichensatz für Datenbanken</message>
+	<message key="installer.databaseCharsetInstructions">Die Codierung, die für die in der Datenbank gespeicherten Daten verwendet werden soll. Beachten Sie, dass diese Möglichkeit nur mit MySQL>=4.1.1 oder PostgresSQL>=7.1 unterstützt wird. Wählen Sie "Nicht zutreffend" aus, wenn Ihr Datenbankserver diese Voraussetzungen nicht erfüllt.</message>
+	<message key="installer.databaseDriver">Datenbank-Treiber</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Zu den Datenbank-Treibern in Klammern scheinen nicht die nötigen PHP-Erweiterungen installiert zu sein, so dass die Installation vermutlich scheitern wird.</strong><br />Alle nicht unterstützten Datenbank-Treiber, die oben aufgeführt sind, sind ausschließlich aus Vollständigkeitsgründen erfasst und werden voraussichtlich nicht funktionieren.]]></message>
+	<message key="installer.databaseHost">Server</message>
+	<message key="installer.databaseHostInstructions">Bitte lassen Sie das Feld Server frei, wenn Sie die Verbindung über domain sockets statt per TCP/IP vornehmen wollen. Dies ist bei MySQL nicht notwendig, das automatisch Sockets verwendet, wenn "localhost" eingegeben wird. Andere Datenbanken wie PostgreSQL erfordern aber eine solche Einstellung.</message>
+	<message key="installer.databaseName">Name der Datenbank</message>
+	<message key="installer.databasePassword">Passwort</message>
+	<message key="installer.databaseSettings">Datenbank-Einstellungen</message>
+	<message key="installer.databaseUsername">Benutzer/innen-Name</message>
+	<message key="installer.encryptionInstructions">SHA1 ist empfohlen, wenn Ihr System dies unterstützt (erfordert PHP >= 4.3.0).</message>
+	<message key="installer.encryption">Verschlüsselungsalgorithmus für Passwörter</message>
+	<message key="installer.filesDir">Verzeichnis für hochgeladene Dateien</message>
+	<message key="installer.fileSettings">Dateieinstellungen</message>
+	<message key="installer.form.clientCharsetRequired">Bitte wählen Sie einen Zeichensatz aus.</message>
+	<message key="installer.form.databaseDriverRequired">Bitte wählen Sie einen Datenbanktreiber aus.</message>
+	<message key="installer.form.databaseNameRequired">Bitte geben Sie einen Namen für die Datenbank an.</message>
+	<message key="installer.form.emailRequired">Bitte geben Sie eine gültige E-Mail-Adresse für das Administrations-Konto an.</message>
+	<message key="installer.form.encryptionRequired">Bitte wählen Sie einen Algorithmus zur Verschlüsselung der Passwörter aus.</message>
+	<message key="installer.form.filesDirRequired">Bitte geben Sie ein Verzeichnis an, in dem hochgeladene Dateien gespeichert werden sollen.</message>
+	<message key="installer.form.localeRequired">Bitte wählen Sie eine Regionaleinstellung aus.</message>
+	<message key="installer.form.passwordRequired">Bitte geben Sie ein Passwort für das Administrations-Konto an.</message>
+	<message key="installer.form.passwordsDoNotMatch">Die Passwörter für das Administrations-Konto stimmen nicht überein.</message>
+	<message key="installer.form.separateMultiple">Bitte trennen Sie mehrere Werte durch Kommata.</message>
+	<message key="installer.form.usernameAlphaNumeric">Der Benutzer/innen-Name für das Administrations-Konto darf nur Buchstaben, Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
+	<message key="installer.form.usernameRequired">Bitte geben Sie einen Benutzer/innen-Namen für das Administrations-Konto an.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNUNG: Ihre aktuelle PHP-Version erfüllt nicht die Minimalanforderungen für die Installation. Wir empfehlen ein Upgrade zu einer neueren Version von PHP.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">Während der Installation sind Fehler aufgetreten.</message>
+	<message key="installer.installerSQLStatements">SQL-Anweisungen für die Installation</message>
+	<message key="installer.installFileError"><![CDATA[Die Installationsdatei <tt>dbscripts/xml/install.xml</tt> existiert nicht oder ist nicht lesbar.]]></message>
+	<message key="installer.installFilesDirError">Das Verzeichnis, das als Ort für hochgeladene Dateien angegeben worden ist, existiert nicht oder erlaubt keine Schreibzugriffe.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Regionaleinstellungen</message>
+	<message key="installer.localeSettings">Regionaleinstellungen</message>
+	<message key="installer.manualInstall">Manuelle Installation</message>
+	<message key="installer.manualUpgrade">Manuelle Aktualisierung</message>
+	<message key="installer.miscSettings">Verschiedene Einstellungen</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
+	<message key="installer.oaiRepositoryId">Kennung für das OAI-Repository</message>
+	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
+	<message key="installer.releaseNotes">Versionsinformationen</message>
+	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
+	<message key="installer.skipFilesDir">Überspringe das Anlegen der benötigten Unterverzeichnisse (nur in einer manuellen Installation sinnvoll).</message>
+</locale>

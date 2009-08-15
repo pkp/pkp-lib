@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * pkp/locale/en_US/installer.xml
+  * locale/en_US/installer.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -70,4 +70,5 @@
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Security Settings</message>
 	<message key="installer.skipFilesDir">Do not create required subdirectories (only useful for a manual installation)</message>
+	<message key="installer.manualUpgrade">Manual Upgrade</message>
 </locale>

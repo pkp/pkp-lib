@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/tr_TR/reader.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the tr_TR (Türkiye Türkçesi) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+	<message key="comments.anonymous">Anonim Okuyucu</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
+	<message key="comments.body">Yorumunuz</message>
+	<message key="comments.confirmDeleteChildren">Bu yorum ile birlikte, varsa yoruma yanıtlar da silinecek. Emin misiniz?</message>
+	<message key="comments.delete">Bu yorumu sil</message>
+	<message key="comments.email">Gönderenin e-posta adresi</message>
+	<message key="comments.emailReply">E-posta ile yanıt</message>
+	<message key="comments.enterComment">Yorum Gir</message>
+	<message key="comments.inResponseTo"> <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]> yanıt olarak </message>
+	<message key="comments.name">Gönderenin adı</message>
+	<message key="comments.noComments">Hiç okuyucu yorumu kaydedilmemiş.</message>
+	<message key="comments.nReplies">({$num} yanıt)</message>
+	<message key="comments.oneReply">(1 yanıt)</message>
+	<message key="comments.postAnonymously">Bu yorumu isimsiz gönder</message>
+	<message key="comments.postReply">Yanıtı gönder</message>
+	<message key="comments.readerComments">Okuyucu Yorumları</message>
+	<message key="comments.readMore">Kalanı oku</message>
+	<message key="comments.replies">Yanıtlar</message>
+	<message key="comments.title">Başlık</message>
+	<message key="comments.viewAllComments">Tüm yorumları gör</message>
+	<message key="reader.fullText">Tam Metin:</message>
+	<message key="rt.admin.configuration">Yapılandırma</message>
+	<message key="rt.admin.contexts.confirmDelete">Bu yapıyı ve tüm ilişkili aramaları silmek istediğinizden emin misiniz?</message>
+	<message key="rt.admin.contexts.createContext">Yapı oluştur</message>
+	<message key="rt.admin.contexts.edit.editContext">Yapıyı Düzenle</message>
+	<message key="rt.admin.contexts.metadata">Meta veri</message>
+	<message key="rt.admin.contexts.options.authorTerms">Okuyucuların diğer makalelerine ulaşabilmesi için yazar adını arama terimi olarak kullan (örneğin "Diğer Çalışmaları" gibi bir yapı olarak)</message>
+	<message key="rt.admin.contexts.options.citedBy">Yazar adını arama terimi olarak kullan ve yapıyı makale kaynaklarına arama bağlantısı olarak ekle.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Okuyucu tarafından seçilen yazı bölümünü arama terimi olarak kullan veya seçim yok ise boş bırak (örneğin "Terimlerin Tanımı" yapısı için). Terimlerin Tanımı <a href="{$settingsUrl}">RST Ayarları</a> sayfasından etkinleştirilmelidir.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">Coğrafi dizin verisini ana arama terimi olarak kullan.</message>
+	<message key="rt.admin.contexts.options">Seçanekler</message>
+	<message key="rt.admin.management">Yönetim</message>
+	<message key="rt.admin.readingToolsEnabled">Okuma Araçları</message>
+	<message key="rt.admin.selectedVersion">İlişkili Seçenekler</message>
+	<message key="rt.admin.settings.abstract">Özet (Yazının özetini gösterir).</message>
+	<message key="rt.admin.settings.authorBio">Yazar hakkında (Yazar tarafından girilen akademik bilgileri gösterir).</message>
+	<message key="rt.admin.settings.captureCite">Makaleyi nasıl kaynak gösteririm (yazının kütüphanecilik açısından detaylarını verir).</message>
+	<message key="rt.admin.settings.defineTerms">Terimlere bak (Okuyucu için yazıdaki her hangi bir sözcüğü çift tıklatarak, bir elektronik sözcükte arayabilmesini sağlar).</message>
+	<message key="rt.admin.settings.disableRelatedItems">İlişkili seçenekleri iptal et</message>
+	<message key="rt.admin.settings.emailAuthor">Yazara e-posta gönder (Okuyucuların yazarın e-posta adresini içeren bir ön tanımlı e-posta formu ile yazara e-posta göndermelerini sağlar).</message>
+	<message key="rt.admin.settings.emailOthers">Meslekdaşına bildir (Okuyucuya yazıya bağlantı veren ön tanımlı bir e-posta oluşturarak bir meslekdaşına haber verme olanağı sağlar).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Ek dosyalar (Yazı ekinde yazarca gönderilen ek dosyaların listesini görüntüler).</message>
+	<message key="rt.admin.settings.viewMetadata">Dizinleme bilgisi (Yazar ve sistem tarafından oluşturulan dizinleme bilgisini gösterir).</message>
+	<message key="rt.admin.status">Durum</message>
+	<message key="rt.admin.versions.confirmDelete">Bu sürümü silmek istediğinizden emin misiniz? Sürümün silinmesi ilişkili tüm yapı ve aramaları silecektir.</message>
+	<message key="rt.admin.versions.confirmRestore">Tüm seçenekleri ön tanımlı biçime döndürmek istediğinizden emin misiniz? Eğer eminseniz düzenleme sayfasindan bir etkin sürüm seçmeniz gerekiyor.</message>
+	<message key="rt.admin.versions.createVersion">Yeni bir sürüm oluştur</message>
+	<message key="rt.admin.versions.edit.editVersion">Sürümü Düzenle</message>
+	<message key="rt.admin.versions.export">Bilgi verilmesi</message>
+	<message key="rt.admin.versions.importVersion">Eklenen sürüm</message>
+	<message key="rt.admin.versions.metadata">Meta veri</message>
+	<message key="rt.admin.versions.restoreVersions">Seçenekleri ön tanımlı biçimine geri döndür</message>
+	<message key="rt.readingTools">Okuma Araçları</message>
+	<message key="rt.reviewPolicy">Değerlendirme politikası</message>
+</locale>

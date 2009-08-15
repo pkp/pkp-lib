@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/it_IT/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the it_IT (Italiano) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="it_IT" full_name = "Italiano">
+	<message key="submission.abstractViews">Viste dell'Abstract</message>
+	<message key="submission.accepted">Accetta</message>
+	<message key="submission.acknowledge">Ringraziamenti</message>
+	<message key="submission.addSuppFile">Aggiungi un file supplementare</message>
+	<message key="submission.ask">Chiedi</message>
+	<message key="submission.backToSubmissionEditing">Torna alla schermata di submission dell'editor</message>
+	<message key="submission.changeComments">Cambia con</message>
+	<message key="submission.comments.addComment">Aggiungi commento</message>
+	<message key="submission.comments.comments">Commenti</message>
+	<message key="submission.comments.confirmDelete">Sei sicuro di voler cancellare questo commento?</message>
+	<message key="submission.comments.corrections">Correzioni</message>
+	<message key="submission.comments.editComment">Modifica commento</message>
+	<message key="submission.comments.importPeerReviews">Importa Peer Reviews</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisore {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">Nessun commento</message>
+	<message key="submission.comments.noReviews">Nessuna revisione</message>
+	<message key="submission.comments.review">Revisione</message>
+	<message key="submission.comments.sendDecisionToReviewers">Invia ai revisori la decisione editoriale</message>
+	<message key="submission.comments.subject">Soggetto</message>
+	<message key="submission.complete">Completata</message>
+	<message key="submission.done">Fatto</message>
+	<message key="submission.dueDate">Scadenza</message>
+	<message key="submission.due">Scadenza</message>
+	<message key="submission.editing">Lavorazione</message>
+	<message key="submission.editMetadata">Modifica i Metadata</message>
+	<message key="submission.email.backToEmailLog">Torna al Log delle Email</message>
+	<message key="submission.email.confirmClearLog">Sei sicuro di voler pulire il log delle email per questa submission?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Sei sicuro di voler cancellare  questa log entry delle email?</message>
+	<message key="submission.email.deleteLogEntry">Cancella la  Log Entry</message>
+	<message key="submission.emailLog">Log di email</message>
+	<message key="submission.event.backToEventLog">Torna al Log degli eventi</message>
+	<message key="submission.event.confirmClearLog">Sei sicuro di voler cancellare il log degli eventi per questa submission?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Sei sicuro di voler cancellare questa log entry degli eventi?</message>
+	<message key="submission.event.deleteLogEntry">Cancella la  log entry</message>
+	<message key="submission.event.general.metadataUpdated">Aggiornati i metadata della Submission</message>
+	<message key="submission.event.general.suppFileUpdated">Aggiornato il file della Submission</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Incarico di revisione accettato per procura</message>
+	<message key="submission.event.reviewer.reviewAccepted">Accettato l'incarico di revisione</message>
+	<message key="submission.event.reviewer.reviewCancelled">Cancellato l'incarico di revisione</message>
+	<message key="submission.event.reviewer.reviewDeclined">Incarico di review rifiutato</message>
+	<message key="submission.event.reviewer.reviewDueDate">Modificata la data di consegna della revisione</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Reviewer assegnato alla submission</message>
+	<message key="submission.event.reviewer.reviewerRated">Valutazione del revisore inviata</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Reviewer tolto dalla submission</message>
+	<message key="submission.event.reviewer.reviewFile">Aggiornato il file di revisione</message>
+	<message key="submission.event.reviewer.reviewInitiated">Avviato l'incarico di revisione</message>
+	<message key="submission.event.reviewer.reviewRecommendation">File di segnalazioni della revisione</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Riavviato l'incarico di revisione</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Review rinviata</message>
+	<message key="submission.event.reviewer.reviewRevision">Aggiornato il file di revisioni del revisore</message>
+	<message key="submission.files">Files</message>
+	<message key="submission.galley">Bozze</message>
+	<message key="submission.history.clearLog">Pulisci il log</message>
+	<message key="submission.history">Storico</message>
+	<message key="submission.history.noLogEntries">Nessun log delle entrate.</message>
+	<message key="submission.history.recentLogEntries">Entrate recenti</message>
+	<message key="submission.history.submissionEmailLog">Log delle Email</message>
+	<message key="submission.history.submissionEventLog">Log degli eventi</message>
+	<message key="submission.history.submissionNotes">Note della submission</message>
+	<message key="submission.history.viewLog">Vedi il log</message>
+	<message key="submission.indexing">Indicizzazione</message>
+	<message key="submission.initiated">Iniziato</message>
+	<message key="submission.lastModified">Ultima modifica</message>
+	<message key="submission.layout.addGalley">Aggiungi una bozza di layout</message>
+	<message key="submission.layout.confirmDeleteGalley">Siete sicuri di voler cancellare definitivamente questa bozza?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Siete sicuri di voler rimuovere questa immagine dalla bozza?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Siete sicuri di voler cancellare definitivamente questo file aggiuntivo?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Cancella questo foglio di stile.</message>
+	<message key="submission.layout.editGalley">Modifica una bozza di layout</message>
+	<message key="submission.layout.galleyFileData">Informazioni del file della bozza</message>
+	<message key="submission.layout.galleyFormat">Formato della bozza</message>
+	<message key="submission.layout.galleyHTMLData">File HTML delle bozze</message>
+	<message key="submission.layout.galleyImages">Immagini</message>
+	<message key="submission.layout.galleyLabelInstructions">L'etichetta per le bozze viene usata per identificare formato del file dell'item (e.g. HTML, PDF, etc.).</message>
+	<message key="submission.layout.galleyLabel">Definizione</message>
+	<message key="submission.layout.galleyLabelRequired">&#x00C8; necessaria una definizione per la bozza.</message>
+	<message key="submission.layout.galleyLanguageRequired">E' neccessaria una lingua della bozza.</message>
+	<message key="submission.layout.galleyLocaleRequired">E' necessaria una lingua della bozza.</message>
+	<message key="submission.layout.galleyNoImages">Nessun immagine</message>
+	<message key="submission.layout.galleys">Bozze</message>
+	<message key="submission.layout.galleyStylesheet">File del foglio di stile</message>
+	<message key="submission.layout.galleyStyle">Stile</message>
+	<message key="submission.layout.initialGalleyCreation">Creazione della bozza iniziale</message>
+	<message key="submission.layout.layoutFile">File di layout</message>
+	<message key="submission.layout">Layout</message>
+	<message key="submission.layout.layoutVersion">Versione di Layout</message>
+	<message key="submission.layout.newGalley">Crea una nuova bozza</message>
+	<message key="submission.layout.newSupplementaryFile">Invia un nuovo file aggiuntivo</message>
+	<message key="submission.layout.noStyleFile">Nessun foglio di stile &#x00E8; stato aggiunto a questa bozza.</message>
+	<message key="submission.layout.supplementaryFiles">Review dei file aggiuntivi</message>
+	<message key="submission.layout.viewingGalley">Vedi la galleria delle submission</message>
+	<message key="submission.layout.viewProof">Vedi la bozza</message>
+	<message key="submission.metadata">Invio dei Metadata</message>
+	<message key="submission.noReviewAssignments">Nessun revisore assegnato</message>
+	<message key="submission.notes.addNewNote">Aggiungi una nuova nota</message>
+	<message key="submission.notes.attachedFile">File allegato</message>
+	<message key="submission.notes.backToSubmissionNotes">Ritorna alle note di submission</message>
+	<message key="submission.notes.breadcrumb">Note</message>
+	<message key="submission.notes.clearAllNotes">Cancella tutte le note</message>
+	<message key="submission.notes.collapseNotes">Chiudi le note</message>
+	<message key="submission.notes.confirmDeleteAll">Rimuovere tutte le note di submission?</message>
+	<message key="submission.notes.confirmDelete">Rimuovere la nota di submission?</message>
+	<message key="submission.notes.createNewNote">Crea una nuova nota</message>
+	<message key="submission.notes.deleteNote">Cancella la nota</message>
+	<message key="submission.notes.editNote">Modifica la nota</message>
+	<message key="submission.notes.expandNotes">Espandi le note</message>
+	<message key="submission.notes.noSubmissionNotes">Nessuna nota di submission</message>
+	<message key="submission.notes.removeUploadedFile">Rimuove il file inviato</message>
+	<message key="submission.notes">Note per la submission</message>
+	<message key="submission.notes.updateNote">Aggiorna la nota</message>
+	<message key="submission.notes.viewNotes">Vedi le note</message>
+	<message key="submission.originalFile">File originale</message>
+	<message key="submission.page.editing">#{$id} Modifica</message>
+	<message key="submission.page.history">#{$id} Storico</message>
+	<message key="submission.page.review">#{$id} Revisione</message>
+	<message key="submission.page.summary">#{$id} Riassunto</message>
+	<message key="submission.peerReview"><![CDATA[Osservazione&nbsp;revisione]]></message>
+	<message key="submission.recommendation">Raccomandazione</message>
+	<message key="submission.rejected">Rifiuta</message>
+	<message key="submission.request">Richiesta</message>
+	<message key="submission.response">Rispondi</message>
+	<message key="submission.restrictions">Restrizioni</message>
+	<message key="submission.reviewMetadata">Metadata del revisore</message>
+	<message key="submission.review">Revisione</message>
+	<message key="submission.reviewVersion">Versione revisionata</message>
+	<message key="submissions.active">Attivo</message>
+	<message key="submissions.archived">Archiviato</message>
+	<message key="submission.saveMetadata">Salva i Metadata</message>
+	<message key="submissions.completed">Completato</message>
+	<message key="submissions.declined">Rifiutata</message>
+	<message key="submissions.incomplete">Incompleta</message>
+	<message key="submissions.noSubmissions">Nessuna submission</message>
+	<message key="submissions.queuedEditing">In carico all'editor</message>
+	<message key="submissions.queued">Accodato</message>
+	<message key="submissions.queuedUnassigned">In attesa di assegnazione</message>
+	<message key="submissions.ruling">Opinione</message>
+	<message key="submissions.submit">Invia</message>
+	<message key="submissions.submitted">Sottomesso</message>
+	<message key="submission.start">Inizia</message>
+	<message key="submission.submissionHistory">Storia della submission</message>
+	<message key="submission.submissionManuscript">Manoscritto della submission</message>
+	<message key="submission.submissionReview">Revisione della submission</message>
+	<message key="submission.submitter">Utente che sottomette</message>
+	<message key="submission.summary">Riassunto</message>
+	<message key="submission.supplementaryFiles">Files accessori</message>
+	<message key="submission.supportingAgencies">Enti/organizzazione sponsors</message>
+	<message key="submission.titleAndAbstract">Titolo ed abstract</message>
+	<message key="submission.underway">Intervento</message>
+	<message key="submission.uploadFileTo">Invia il file</message>
+	<message key="submission.viewMetadata">Vedi i Metadata</message>
+	<message key="submission.views">Viste</message>
+</locale>

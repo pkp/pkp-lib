@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/ja_JP/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ja_JP (日本語) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ja_JP" full_name = "日本語">
+	<message key="submission.abstractViews">要旨を読む</message>
+	<message key="submission.accepted">採用</message>
+	<message key="submission.acknowledge">お礼</message>
+	<message key="submission.addSuppFile">補足ファイルの追加</message>
+	<message key="submission.ask">依頼</message>
+	<message key="submission.backToSubmissionEditing">投稿物の編集に戻る</message>
+	<message key="submission.changeComments">コメント機能の変更</message>
+	<message key="submission.comments.addComment">コメントの追加</message>
+	<message key="submission.comments.comments">コメント</message>
+	<message key="submission.comments.confirmDelete">このコメントを削除してもよいですか。</message>
+	<message key="submission.comments.corrections">修正</message>
+	<message key="submission.comments.editComment">コメントの編集</message>
+	<message key="submission.comments.importPeerReviews">査読のインポート</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">査読者 {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">コメントなし</message>
+	<message key="submission.comments.noReviews">査読なし</message>
+	<message key="submission.comments.review">査読</message>
+	<message key="submission.comments.sendDecisionToReviewers">査読者判断の送信</message>
+	<message key="submission.comments.subject">件名</message>
+	<message key="submission.complete">完了</message>
+	<message key="submission.done">完了</message>
+	<message key="submission.dueDate">期限日</message>
+	<message key="submission.due">期限</message>
+	<message key="submission.editing">編集</message>
+	<message key="submission.editMetadata">メタデータの編集</message>
+	<message key="submission.email.backToEmailLog">メールログに戻る</message>
+	<message key="submission.email.confirmClearLog">この投稿物のメールログをクリアしてもよいですか。</message>
+	<message key="submission.email.confirmDeleteLogEntry">このメールログエントリを削除してもよいですか。</message>
+	<message key="submission.email.deleteLogEntry">ログエントリの削除</message>
+	<message key="submission.emailLog">メールログ</message>
+	<message key="submission.event.backToEventLog">イベントログに戻る</message>
+	<message key="submission.event.confirmClearLog">この投稿物のイベントログをクリアしてもよいですか。</message>
+	<message key="submission.event.confirmDeleteLogEntry">このイベントログエントリを削除してもよいですか。</message>
+	<message key="submission.event.deleteLogEntry">ログエントリの削除</message>
+	<message key="submission.event.general.metadataUpdated">投稿物メタデータが更新された</message>
+	<message key="submission.event.general.suppFileUpdated">投稿物ファイルが更新された</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">査読依頼が代理人により受諾された</message>
+	<message key="submission.event.reviewer.reviewAccepted">査読依頼が受諾された</message>
+	<message key="submission.event.reviewer.reviewCancelled">査読依頼が取り消された</message>
+	<message key="submission.event.reviewer.reviewDeclined">査読依頼が謝絶された</message>
+	<message key="submission.event.reviewer.reviewDueDate">査読期限日が変更された</message>
+	<message key="submission.event.reviewer.reviewerAssigned">投稿物に査読者が任命された</message>
+	<message key="submission.event.reviewer.reviewerRated">査読者の評価が提示された</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">投稿物の査読者が解除された</message>
+	<message key="submission.event.reviewer.reviewFile">査読ファイルが更新された</message>
+	<message key="submission.event.reviewer.reviewInitiated">査読依頼が開始された</message>
+	<message key="submission.event.reviewer.reviewRecommendation">査読審査結果ファイル</message>
+	<message key="submission.event.reviewer.reviewReinitiated">査読依頼が再開された</message>
+	<message key="submission.event.reviewer.reviewResubmitted">査読結果が再提示された</message>
+	<message key="submission.event.reviewer.reviewRevision">査読者改訂ファイルが更新された</message>
+	<message key="submission.files">ファイル</message>
+	<message key="submission.galley">ゲラ版</message>
+	<message key="submission.history.clearLog">ログのクリア</message>
+	<message key="submission.history">履歴</message>
+	<message key="submission.history.noLogEntries">ログはありません。</message>
+	<message key="submission.history.recentLogEntries">最新のエントリ</message>
+	<message key="submission.history.submissionEmailLog">メールログ</message>
+	<message key="submission.history.submissionEventLog">イベントログ</message>
+	<message key="submission.history.submissionNotes">投稿注記</message>
+	<message key="submission.history.viewLog">ログの閲覧</message>
+	<message key="submission.indexing">インデックス</message>
+	<message key="submission.initiated">処理開始日</message>
+	<message key="submission.lastModified">最新更新日</message>
+	<message key="submission.layout.addGalley">レイアウト済ゲラ版の追加</message>
+	<message key="submission.layout.confirmDeleteGalley">このゲラ版を完全に削除してもよいですか。</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">ゲラ版からこの画像を除去もしてもよいですか。</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">この補足ファイルを完全に削除してもよいですか。</message>
+	<message key="submission.layout.deleteGalleyStylesheet">このスタイルシートを削除する。</message>
+	<message key="submission.layout.editGalley">レイアウト済ゲラ版の編集</message>
+	<message key="submission.layout.galleyFileData">ゲラ版ファイル情報</message>
+	<message key="submission.layout.galleyFormat">ゲラ版のフォーマット</message>
+	<message key="submission.layout.galleyHTMLData">HTMLゲラ版ファイル</message>
+	<message key="submission.layout.galleyImages">画像</message>
+	<message key="submission.layout.galleyLabelInstructions">ゲラ版のラベルはアイテムのファイルフォーマット（例えば、HTMLやPDFなど）の識別に使用されます。</message>
+	<message key="submission.layout.galleyLabel">ラベル</message>
+	<message key="submission.layout.galleyLabelRequired">ゲラ版のラベルは必須です。</message>
+	<message key="submission.layout.galleyLanguageRequired">ゲラの言語は必須です。</message>
+	<message key="submission.layout.galleyLocaleRequired">ゲラの言語は必須です。</message>
+	<message key="submission.layout.galleyNoImages">画像なし</message>
+	<message key="submission.layout.galleys">レイアウト済（ゲラ）版</message>
+	<message key="submission.layout.galleyStylesheet">スタイルシートファイル</message>
+	<message key="submission.layout.galleyStyle">スタイル</message>
+	<message key="submission.layout.initialGalleyCreation">初校ゲラ版の作成</message>
+	<message key="submission.layout.layoutFile">レイアウトファイル</message>
+	<message key="submission.layout">レイアウト</message>
+	<message key="submission.layout.layoutVersion">レイアウト対象版</message>
+	<message key="submission.layout.newGalley">新規ゲラ版の作成</message>
+	<message key="submission.layout.newSupplementaryFile">新規補足ファイルのアップロード</message>
+	<message key="submission.layout.noStyleFile">このゲラ版にはスタイルシートが追加されていません。</message>
+	<message key="submission.layout.supplementaryFiles">補足ファイルのチェック</message>
+	<message key="submission.layout.viewingGalley">投稿物のゲラ版の閲覧</message>
+	<message key="submission.layout.viewProof">校正版の閲覧</message>
+	<message key="submission.metadata">投稿物のメタデータ</message>
+	<message key="submission.noReviewAssignments">査読が指定されていない</message>
+	<message key="submission.notes.addNewNote">新規注記の作成</message>
+	<message key="submission.notes.attachedFile">ファイル添付</message>
+	<message key="submission.notes.backToSubmissionNotes">投稿注記に戻る</message>
+	<message key="submission.notes.breadcrumb">注記</message>
+	<message key="submission.notes.clearAllNotes">全注記のクリア</message>
+	<message key="submission.notes.collapseNotes">注記行を閉じる</message>
+	<message key="submission.notes.confirmDeleteAll">全投稿注記を削除しますか。</message>
+	<message key="submission.notes.confirmDelete">この投稿注記を削除しますか。</message>
+	<message key="submission.notes.createNewNote">新規注記の作成</message>
+	<message key="submission.notes.deleteNote">注記の削除</message>
+	<message key="submission.notes.editNote">注記の編集</message>
+	<message key="submission.notes.expandNotes">注記行を開く</message>
+	<message key="submission.notes.noSubmissionNotes">投稿注記はありません</message>
+	<message key="submission.notes.removeUploadedFile">アップロードファイルの削除</message>
+	<message key="submission.notes">投稿注記</message>
+	<message key="submission.notes.updateNote">注記の更新</message>
+	<message key="submission.notes.viewNotes">注記の閲覧</message>
+	<message key="submission.originalFile">オリジナルファイル</message>
+	<message key="submission.page.editing">#{$id} 編集</message>
+	<message key="submission.page.history">#{$id} 履歴</message>
+	<message key="submission.page.review">#{$id} 査読</message>
+	<message key="submission.page.summary">#{$id} 概要</message>
+	<message key="submission.peerReview">査読</message>
+	<message key="submission.recommendation">審査結果</message>
+	<message key="submission.rejected">不採用</message>
+	<message key="submission.request">依頼</message>
+	<message key="submission.response">回答</message>
+	<message key="submission.restrictions">制限</message>
+	<message key="submission.reviewMetadata">メタデータの点検</message>
+	<message key="submission.review">査読</message>
+	<message key="submission.reviewVersion">査読する版</message>
+	<message key="submissions.active">処理対象</message>
+	<message key="submissions.archived">アーカイブ済</message>
+	<message key="submission.saveMetadata">メタデータの保存</message>
+	<message key="submissions.completed">完了</message>
+	<message key="submissions.declined">辞退</message>
+	<message key="submissions.incomplete">投稿未了</message>
+	<message key="submissions.noSubmissions">投稿物はありません</message>
+	<message key="submissions.queuedEditing">編集作業待ち</message>
+	<message key="submissions.queued">待ち行列に追加</message>
+	<message key="submissions.queuedUnassigned">指定待ち</message>
+	<message key="submissions.ruling">判定</message>
+	<message key="submissions.submit">投稿日</message>
+	<message key="submissions.submitted">投稿日</message>
+	<message key="submission.start">開始</message>
+	<message key="submission.submissionHistory">投稿物の履歴</message>
+	<message key="submission.submissionManuscript">投稿物の原稿</message>
+	<message key="submission.submissionReview">投稿物の査読</message>
+	<message key="submission.submitter">投稿者</message>
+	<message key="submission.summary">概要</message>
+	<message key="submission.supplementaryFiles">補足ファイル</message>
+	<message key="submission.supportingAgencies">支援機関</message>
+	<message key="submission.titleAndAbstract">タイトルと要旨</message>
+	<message key="submission.underway">作業中</message>
+	<message key="submission.uploadFileTo">ファイルのアップロード</message>
+	<message key="submission.viewMetadata">メタデータの閲覧</message>
+	<message key="submission.views">閲覧</message>
+</locale>

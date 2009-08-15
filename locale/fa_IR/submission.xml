@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/fa_IR/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the fa_IR (Persian) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="fa_IR" full_name = "Persian">
+	<message key="submission.abstractViews">مشاهده چکیده</message>
+	<message key="submission.accepted">پذیرش</message>
+	<message key="submission.acknowledge">تشکر</message>
+	<message key="submission.addSuppFile">اضافه کردن فایل مکمل</message>
+	<message key="submission.ask">درخواست</message>
+	<message key="submission.backToSubmissionEditing">بازگشت به صفحه ویرایش سابمیشن</message>
+	<message key="submission.changeComments">تغییر بده به</message>
+	<message key="submission.comments.addComment">اضافه کردن نقطه نظر</message>
+	<message key="submission.comments.comments">نظرات</message>
+	<message key="submission.comments.confirmDelete">آیا میخواهید این نظر را حذف کنید؟</message>
+	<message key="submission.comments.corrections">اصلاحات</message>
+	<message key="submission.comments.editComment">ویرایش نقطه نظر</message>
+	<message key="submission.comments.importPeerReviews">درج نظرات کارشناسان</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">کارشناس {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">هیچ اظهار نظری نیست</message>
+	<message key="submission.comments.noReviews">هیچ کارشناسی موجود نیست</message>
+	<message key="submission.comments.review">کارشناسی</message>
+	<message key="submission.comments.sendDecisionToReviewers">ارسال تصمیم دبیری برای کارشناسان</message>
+	<message key="submission.comments.subject">موضوع</message>
+	<message key="submission.comments.viewableDescription"><![CDATA[این نقطه نظرات میتواند در دسترس نویسنده قرار کیرد. <br />پس از ذخیره کرده نظرات دیگری نیز میتوان اضافه کرد.]]></message>
+	<message key="submission.complete">کامل</message>
+	<message key="submission.done">انجام شد</message>
+	<message key="submission.dueDate">مهلت</message>
+	<message key="submission.due">مهلت</message>
+	<message key="submission.editing">ویرایش</message>
+	<message key="submission.editMetadata">ویرایش فراداده</message>
+	<message key="submission.email.backToEmailLog">بازگشت به سوابق ایمیل</message>
+	<message key="submission.email.confirmClearLog">آیا میخواهید سوابق ایمیل این ساب میشن را حذف کنید؟</message>
+	<message key="submission.email.confirmDeleteLogEntry">آیا میخواهید این سابقه ایمیل را حذف کنید؟</message>
+	<message key="submission.email.deleteLogEntry">حذف سابقه</message>
+	<message key="submission.emailLog">سوابق ایمیل های مقاله</message>
+	<message key="submission.event.backToEventLog">بازگشت به سابقه رویدادها</message>
+	<message key="submission.event.confirmClearLog">آیا میخواهید سوابق رویدادهای این ساب میشن را حذف کنید.</message>
+	<message key="submission.event.confirmDeleteLogEntry">آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟</message>
+	<message key="submission.event.deleteLogEntry">حذف سابقه</message>
+	<message key="submission.event.general.metadataUpdated">فراداده ساب میشن به روز رسانی شد.</message>
+	<message key="submission.event.general.suppFileUpdated">فایل ساب میشن به روز رسانی شد.</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">بررسی به وسیله پروکسی مورد قبول واقع شد</message>
+	<message key="submission.event.reviewer.reviewAccepted">انجام کارشناسی مورد قبول واقع شد</message>
+	<message key="submission.event.reviewer.reviewCancelled">کارشناسی لغو شد</message>
+	<message key="submission.event.reviewer.reviewDeclined">از انجام کارشناسی خود داری شد.</message>
+	<message key="submission.event.reviewer.reviewDueDate">مهلت کارشناسی تعیین شد</message>
+	<message key="submission.event.reviewer.reviewerAssigned">کارشناس تعیین شد</message>
+	<message key="submission.event.reviewer.reviewerRated">تخصیص امتیاز به کارشناس</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">کارشناس تعیین شده لغو شد</message>
+	<message key="submission.event.reviewer.reviewFile">نسخه کارشناسی به روز رسانی شد</message>
+	<message key="submission.event.reviewer.reviewInitiated">کارشناسی آغاز شد</message>
+	<message key="submission.event.reviewer.reviewRecommendation">نظرات کارشناسی</message>
+	<message key="submission.event.reviewer.reviewReinitiated">کارشناسی دوباره از سرگرفته شد</message>
+	<message key="submission.event.reviewer.reviewResubmitted">بررسی دوباره اغاز شد</message>
+	<message key="submission.event.reviewer.reviewRevision">نسخه کارشناسی</message>
+	<message key="submission.files">فایل ها</message>
+	<message key="submission.galley">کلیشه چاپی</message>
+	<message key="submission.history.clearLog">پاک کردن سوابق</message>
+	<message key="submission.history">سوابق</message>
+	<message key="submission.history.noLogEntries">هیج سابقه ای وجود ندارد</message>
+	<message key="submission.history.recentLogEntries">سوابق اخیر</message>
+	<message key="submission.history.submissionEmailLog">سوابق ایمیل ها</message>
+	<message key="submission.history.submissionEventLog">سوابق رویدادها</message>
+	<message key="submission.history.submissionNotes">یاداشت های ساب میشنSubmission Notes</message>
+	<message key="submission.history.viewLog">مشاهده سوابق</message>
+	<message key="submission.indexing">نمایه</message>
+	<message key="submission.initiated">آغاز پردازش</message>
+	<message key="submission.lastModified">تاریخ آخرین تغییر در وضعیت</message>
+	<message key="submission.layout.addGalley">افزودن گالی</message>
+	<message key="submission.layout.confirmDeleteGalley">آیا میخواهید رای همیشه این گالی را حذف کنید؟</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">آیا میخواهید این تصویر را از این گالی حذف کنید؟</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">آیا میخواهید رای همیشه این فایل الحاقی را حذف کنید؟</message>
+	<message key="submission.layout.deleteGalleyStylesheet">حذف این استایل شیت</message>
+	<message key="submission.layout.editGalley">ویرایش گالی</message>
+	<message key="submission.layout.galleyFileData">اطلاعات فایل گالی</message>
+	<message key="submission.layout.galleyFormat">فرمات گالی</message>
+	<message key="submission.layout.galleyHTMLData">فایل های گالی HTML</message>
+	<message key="submission.layout.galleyImages">تصاویر</message>
+	<message key="submission.layout.galleyLabelInstructions">برچسب گالی برای شناسائی فرمات فایل میباشد. مانند  HTML, PDF</message>
+	<message key="submission.layout.galleyLabel">برچسب</message>
+	<message key="submission.layout.galleyLabelRequired">برچسبی برای این گالی لازم است</message>
+	<message key="submission.layout.galleyLanguageRequired">زبان تمام متن میبایست مشخص شود</message>
+	<message key="submission.layout.galleyLocaleRequired">زبان تمام متن میبایست مشخص شود</message>
+	<message key="submission.layout.galleyNoImages">هیچ تصویری برای این گالی تعیین نشده است</message>
+	<message key="submission.layout.galleys">Galleys</message>
+	<message key="submission.layout.galleyStylesheet">فایل استایل شیت</message>
+	<message key="submission.layout.galleyStyle">استایل</message>
+	<message key="submission.layout.initialGalleyCreation">ایجاد گالی اولیه</message>
+	<message key="submission.layout.layoutFile">فایل صفحه آرا</message>
+	<message key="submission.layout"> صفحه آرایی</message>
+	<message key="submission.layout.layoutVersion">نسخه صفحه آرا</message>
+	<message key="submission.layout.newGalley">ایجاد گالی جدید</message>
+	<message key="submission.layout.newSupplementaryFile">آپلود فایل الحاقی جدید</message>
+	<message key="submission.layout.noStyleFile">هیچ فایل استایل شیتی برای این گالی تعیین نشده است</message>
+	<message key="submission.layout.supplementaryFiles">بررسی فایل های الحاقی</message>
+	<message key="submission.layout.viewingGalley">مشاهده گالی ساب میشن</message>
+	<message key="submission.layout.viewProof">مشاهده پروف</message>
+	<message key="submission.metadata">فراداده سابمیشن</message>
+	<message key="submission.noReviewAssignments">موردی منتسب نشده است</message>
+	<message key="submission.notes.addNewNote">اضافه کردن یادداشت جدید</message>
+	<message key="submission.notes.attachedFile">فایل پیوست</message>
+	<message key="submission.notes.backToSubmissionNotes">بازگشت به یادداشتهای ساب میشن</message>
+	<message key="submission.notes.breadcrumb">یادداشت ها</message>
+	<message key="submission.notes.clearAllNotes">پاک کردن تمام یادداشت</message>
+	<message key="submission.notes.collapseNotes">جمع کردن یادداشتها</message>
+	<message key="submission.notes.confirmDeleteAll">آیا تمام یادداشتها ی ساب میشن پاک شود؟</message>
+	<message key="submission.notes.confirmDelete">آیا این یادداشت ساب میشن پاک شود؟</message>
+	<message key="submission.notes.createNewNote">ایجاد یادداشت جدید</message>
+	<message key="submission.notes.deleteNote">پاک کردن یادداشت</message>
+	<message key="submission.notes.editNote">ویرایش یادداشت</message>
+	<message key="submission.notes.expandNotes">بسط یادداشتها</message>
+	<message key="submission.notes.noSubmissionNotes">خالی</message>
+	<message key="submission.notes.removeUploadedFile">حذف فایل آپلود شده</message>
+	<message key="submission.notes">یادداشتهای ساب میشن</message>
+	<message key="submission.notes.updateNote">به روز کردن یادداشت</message>
+	<message key="submission.notes.viewNotes">مشاهده یادداشتها</message>
+	<message key="submission.originalFile">فایل اصلی</message>
+	<message key="submission.page.editing">#{$id} ویرایش</message>
+	<message key="submission.page.history">#{$id} سوابق</message>
+	<message key="submission.page.review">#{$id} کارشناسی</message>
+	<message key="submission.page.summary">#{$id} خلاصه</message>
+	<message key="submission.peerReview">کارشناسی</message>
+	<message key="submission.recommendation">توصیه و نظرات</message>
+	<message key="submission.rejected">رد</message>
+	<message key="submission.request">درخواست</message>
+	<message key="submission.response">پاسخ</message>
+	<message key="submission.restrictions">محدودیت ها</message>
+	<message key="submission.reviewMetadata">بررسی فراداده</message>
+	<message key="submission.review">کارشناسی</message>
+	<message key="submission.reviewVersion">نسخه کارشناسی</message>
+	<message key="submissions.active">جاری</message>
+	<message key="submissions.archived">بایگانی</message>
+	<message key="submission.saveMetadata">ذخیره کردن فراداده</message>
+	<message key="submissions.completed">تکمیل شده</message>
+	<message key="submissions.declined">رد</message>
+	<message key="submissions.incomplete">ناتمام</message>
+	<message key="submissions.noSubmissions">خالی</message>
+	<message key="submissions.queuedEditing">در نوبت ویرایش</message>
+	<message key="submissions.queued">در نوبت</message>
+	<message key="submissions.queuedUnassigned">منتظر انتساب</message>
+	<message key="submissions.ruling">اتخاذ تصمیم</message>
+	<message key="submissions.submit">سابمیت</message>
+	<message key="submissions.submitted">سابمیت شده</message>
+	<message key="submission.start">شروع</message>
+	<message key="submission.submissionHistory">سوابق ساب میشن</message>
+	<message key="submission.submissionManuscript">فایل سابمیشن</message>
+	<message key="submission.submissionReview">کارشناسی ساب میشن</message>
+	<message key="submission.submitter">سابمیت کننده</message>
+	<message key="submission.summary">خلاصه</message>
+	<message key="submission.supplementaryFiles">فایل های مکمل</message>
+	<message key="submission.supportingAgencies">سازمانهای حمایت کننده</message>
+	<message key="submission.titleAndAbstract">عنوان و چکیده</message>
+	<message key="submission.underway">شروع</message>
+	<message key="submission.uploadFileTo">آپلود کردن فایل در</message>
+	<message key="submission.viewMetadata">مشاهده فراداده</message>
+	<message key="submission.views">دیده شده</message>
+</locale>

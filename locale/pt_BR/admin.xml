@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/admin.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_BR (Português (Brasil)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="pt_BR" full_name = "Português (Brasil)">
+	<message key="admin.adminFunctions">Funções Administrativas</message>
+	<message key="admin.auth.confirmDelete">Deseja realmente excluir esta fonte de autenticação?</message>
+	<message key="admin.auth.create">Criar fonte de autenticação</message>
+	<message key="admin.auth.noneCreated">Nenhuma fonte de autenticação definida.</message>
+	<message key="admin.authSources">Fontes de Autenticação</message>
+	<message key="admin.clearDataCache">Limpar Cache de Dados</message>
+	<message key="admin.clearTemplateCache">Limpar Cache de Template</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[O documento de configuração foi atualizado com sucesso. Caso as alterações incorram em erros no sistema será necessário atualizar  manualmente o arquivo <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Deseja realmente limpar o Cache das templates compiladas?</message>
+	<message key="admin.confirmExpireSessions">Deseja realmente expirar todas as sessões de todos os usuários? Todos os usuário conectados serão forçados a acessar novamente (incluindo o usuário corrente).</message>
+	<message key="admin.contentsOfConfigFile">Conteúdo do documento de configuração</message>
+	<message key="admin.currentVersion">Versão Atual</message>
+	<message key="admin.dateInstalled">Data de instalação</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[O conteúdo do documento atualizado vem a seguir. Para aplicar as alterações é necessário editar o documento <tt>config.inc.php</tt> manualmente em algum editor de texto, substituindo-o com o conteúdo do campo a seguir.]]></message>
+	<message key="admin.displayNewSystemConfig">Exibir Configuração Atual</message>
+	<message key="admin.expireSessions">Expirar Sessões de Usuários</message>
+	<message key="admin.languages.confirmReload">Deseja realmente recarregar este idioma? A execução irá apagar qualquer informação de idioma específico como customização de e-mails.</message>
+	<message key="admin.languages.installedLocales">Idiomas Instalados</message>
+	<message key="admin.languages.installLanguages">Administrar Idiomas</message>
+	<message key="admin.languages.installLocales">Instalar</message>
+	<message key="admin.languages.installNewLocales">Instalar Idiomas</message>
+	<message key="admin.languages.languageSettings">Configurações de Idioma</message>
+	<message key="admin.languages.noLocalesAvailable">Nenhum idioma adicional disponível para instalação.</message>
+	<message key="admin.languages.reload">Recarregar Idioma</message>
+	<message key="admin.languages.uninstall">Desinstalar Idioma</message>
+	<message key="admin.phpInfo">Informações Completas do PHP</message>
+	<message key="admin.saveSystemConfig">Salvar Configuração</message>
+	<message key="admin.server.apacheVersion">Versão do Apache</message>
+	<message key="admin.server.dbDriver">Driver da Base de Dados</message>
+	<message key="admin.server.dbVersion">Versão do Servidor de Base de Dados</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Versão de software do Sistema Operacional Base e Servidor. Clique em <span class="highlight">Informações Completas do PHP</span> para ver detalhes das configurações do PHP deste servidor.]]></message>
+	<message key="admin.serverInformation">Informações do Servidor</message>
+	<message key="admin.server.phpVersion">Versão do PHP</message>
+	<message key="admin.server.platform">Sistema Operacional</message>
+	<message key="admin.settings.aboutDescription">Descrição sobre o Portal</message>
+	<message key="admin.settings.contactEmail">E-mail do Contato Prinicipal</message>
+	<message key="admin.settings.contactName">Nome do Contato Prinicipal</message>
+	<message key="admin.settings.form.contactEmailRequired">E-mail do contato principal é obrigatório</message>
+	<message key="admin.settings.form.contactNameRequired">Nome do contato principal é obrigatório</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">A senha deve possuir no mínimo 4 caracteres.</message>
+	<message key="admin.settings.form.titleRequired">Título obrigatório.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logo do portal</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg, ou .png.</message>
+	<message key="admin.settings.introduction">Introdução</message>
+	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
+	<message key="admin.settings.oaiRegistration">Cadastrar Portal para Indexação (Coleta de Metadados)</message>
+	<message key="admin.settings.passwordCharacters">caracteres</message>
+	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css.</message>
+	<message key="admin.settings.siteStyleSheet">Folha de Estilos do Portal (CSS)</message>
+	<message key="admin.settings.siteTitle">Título do Portal</message>
+	<message key="admin.siteAdmin">Administração do Portal</message>
+	<message key="admin.siteManagement">Administração da Revista</message>
+	<message key="admin.siteSettings">Configurações do Portal</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe ou está corrompido.]]></message>
+	<message key="admin.systemInformation">Informações sobre o Sistema</message>
+	<message key="admin.versionBuild">Construção</message>
+	<message key="admin.version.checkForUpdates">Buscar atualizações</message>
+	<message key="admin.version.downloadPackage">Baixar</message>
+	<message key="admin.version.downloadPatch">Baixar Correção</message>
+	<message key="admin.versionHistory">Histórico de Versões</message>
+	<message key="admin.version.latest">Última versão</message>
+	<message key="admin.versionMajor">Maior</message>
+	<message key="admin.versionMinor">Menor</message>
+	<message key="admin.version.moreInfo">Detalhar</message>
+	<message key="admin.versionRevision">Revisão</message>
+	<message key="admin.version.updateAvailable">Atualização disponível</message>
+	<message key="admin.version.upToDate">Sistema está atualizado</message>
+	<message key="admin.version">Versão</message>
+</locale>

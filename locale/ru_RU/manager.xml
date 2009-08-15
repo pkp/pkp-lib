@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/ru_RU/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ru_RU (Russian) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ru_RU" full_name = "Russian">
+	<message key="manager.emails.confirmDelete">Are you sure you want to delete this email template?</message>
+	<message key="manager.emails.confirmReset">Are you sure you want to reset this email template to its default values?</message>
+	<message key="manager.emails.createEmail">Create Email</message>
+	<message key="manager.emails.disable">Disable</message>
+	<message key="manager.emails.editEmail">Edit Email</message>
+	<message key="manager.emails.editTestExample">Edit Email Test Example</message>
+	<message key="manager.emails.emailKey">Email Key</message>
+	<message key="manager.emails.emailKeyExists">An email with the given key already exists. Email keys must be unique.</message>
+	<message key="manager.emails.emailTemplate">Email Template</message>
+	<message key="manager.emails.emailTemplates">Email Templates</message>
+	<message key="manager.emails.enabled">Enable this email template</message>
+	<message key="manager.emails.enable">Enable</message>
+	<message key="manager.emails.form.bodyRequired">A body is required for the email.</message>
+	<message key="manager.emails.form.subjectRequired">A subject is required for the email.</message>
+	<message key="manager.emails">Мейлы</message>
+	<message key="manager.emails.resetAll">Reset All Templates</message>
+	<message key="manager.emails.reset">Reset</message>
+	<message key="manager.emails.resetToDefault">Reset To Default</message>
+	<message key="manager.filesBrowser">Броузер файлов</message>
+	<message key="manager.files.confirmDelete">Стереть этот файл? Директория должна быть пустой, чтобы можно было ее стереть.</message>
+	<message key="manager.files.createDir">Создать директорию</message>
+	<message key="manager.files.emptyDir">Нет файлов в этой директории.</message>
+	<message key="manager.files.indexOfDir">Индекс {$dir}</message>
+	<message key="manager.files.parentDir">Родительская директория</message>
+	<message key="manager.files.uploadedFiles">Загруженные файлы</message>
+	<message key="manager.files.uploadFile">Загрузить файл</message>
+	<message key="manager.importExport">Import/Export Data</message>
+	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
+	<message key="manager.people.confirmUnenroll">Удалить этого пользователя?</message>
+	<message key="manager.people.createUser">Создать нового пользователя</message>
+	<message key="manager.people.createUserGeneratePassword">Создать случайный пароль.</message>
+	<message key="manager.people.createUserSendNotify">Send the user a welcome email containing their username and password.</message>
+	<message key="manager.people.disable">Деактивировать</message>
+	<message key="manager.people.doNotEnroll">Не назначать</message>
+	<message key="manager.people.editProfile">Редакция профиля</message>
+	<message key="manager.people.editUser">Править пользователя</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Послать письма выбранным пользователям</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Послать письма пользователям, назначенным на должности</message>
+	<message key="manager.people.emailUsers">Послать письма пользователям</message>
+	<message key="manager.people.emailUsers.selectLocale">Выбрать язык</message>
+	<message key="manager.people.emailUsers.selectUsers">Выбрать пользователей</message>
+	<message key="manager.people.enable">Активировать</message>
+	<message key="manager.people.enroll">Привлечь пользователя</message>
+	<message key="manager.people.enrollment">Назначение</message>
+	<message key="manager.people.enrollSelected">Назначить выбранных пользователей</message>
+	<message key="manager.people.enrollSyncRole">Синхронизировать роль</message>
+	<message key="manager.people.enrollSync">Синхронизировать</message>
+	<message key="manager.people.enrollUserAs">Назначить пользователя на должность</message>
+	<message key="manager.people.invalidUser">Данный пользователь не существует.</message>
+	<message key="manager.people.noMatchingUsers">Нет соответствий.</message>
+	<message key="manager.people.noneEnrolled">Нет назначенных пользователей.</message>
+	<message key="manager.people">Люди</message>
+	<message key="manager.people.remove">Удалить</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Сохранить и создать другой</message>
+	<message key="manager.people.signInAs">Войти как</message>
+	<message key="manager.people.signInAsUser">Войни как пользователя</message>
+	<message key="manager.people.syncUsers">Синхронизировать назначения пользователя</message>
+	<message key="manager.people.unenroll">Уволить</message>
+	<message key="manager.people.userCreatedSuccessfully">Пользователь создан успешно.</message>
+	<message key="manager.people.userMustChangePassword">Require the user to change their password the next time they sign in.</message>
+	<message key="manager.readingTools">Инструменты</message>
+	<message key="manager.roles">Роли</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.loggingAndAuditing">Дневник событий</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.selectOne">Выбрать</message>
+	<message key="manager.statistics">Статистика</message>
+	<message key="manager.users">Пользователи</message>
+</locale>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/fr_CA/installer.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the fr_CA (Français (Canada)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="fr_CA" full_name = "Français (Canada)">
+	<message key="installer.additionalLocales">Paramètres de lieu supplémentaires</message>
+	<message key="installer.administratorAccount">Compte de l'administrateur</message>
+	<message key="installer.administratorAccountInstructions">Ce compte usager deviendra le webmaster et aura le plein accès à tout le système. D'autres comptes usagers peuvent être créés après l'installation.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">NON</span>]]></message>
+	<message key="installer.checkYes">Oui</message>
+	<message key="installer.clientCharset">Jeu de caractères du client</message>
+	<message key="installer.clientCharsetInstructions">Le codage à utiliser pour les données envoyées et reçues des navigateurs.</message>
+	<message key="installer.configFileError"><![CDATA[Le fichier de configuration <tt>config.inc.php</tt> n'existe pas ou n'est pas lisible.]]></message>
+	<message key="installer.connectionCharset">Jeu de caractères pour la connexion</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[Le codage à utiliser pour les données envoyées et reçues de la base de données. Cela devrait être le même que le jeu de caractères du client. Veuillez noter que cette capacité est seulement soutenue par MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Sélectionnez « Sans objet » si votre serveur de base de données ne répond pas à ces exigences.]]></message>
+	<message key="installer.contentsOfConfigFile">Contenu du fichier de configuration</message>
+	<message key="installer.createDatabase">Créer une nouvelle base de données</message>
+	<message key="installer.createDatabaseInstructions">Pour utiliser cette option, votre système de base de données doit soutenir la création d'une base de données distante et votre compte usager doit être muni des permissions appropriées pour créer de nouvelles bases de données. Si l'installation ne réussit pas avec cette option sélectionnée, créer manuellement la base de données dans votre serveur et passer l'installateur encore une fois avec cette option désactivée.</message>
+	<message key="installer.databaseCharset">Jeu de caractères de la base de données</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Le codage à utiliser pour la mémorisation dans la base de données. Veuillez noter que cette capacité est seulement soutenue par MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Sélectionnez « Sans objet » si votre serveur de base de données ne répond pas à ces exigences.]]></message>
+	<message key="installer.databaseDriver">Pilote de base de données</message>
+	<message key="installer.databaseDriverInstructions">Tout gestionnaire de bases de données soutenues indiquées ci-dessus sert uniquement à des fins académiques et ne travaillera probablement jamais.</message>
+	<message key="installer.databaseHost">Serveur local</message>
+	<message key="installer.databaseHostInstructions">Laisser le nom du serveur local en blanc pour se connecter à l'aide de connecteurs logiciels de domaine au lieu de le faire par TCP/IP. Cela n'est pas nécessaire avec MySQL, qui utilise automatiquement des connecteurs logiciels si l'on entre dans le " serveur local ", mais il est obligatoire avec d'autres serveurs de bases de données comme PostgreSQL.</message>
+	<message key="installer.databaseName">Nom de la base de données</message>
+	<message key="installer.databasePassword">Mot de passe</message>
+	<message key="installer.databaseSettings">Paramètres de la base de données</message>
+	<message key="installer.databaseUsername">Nom d'usager</message>
+	<message key="installer.encryptionInstructions">SHA1 est recommandé si votre système le soutient (exige PHP >= 4.3.0).</message>
+	<message key="installer.encryption">Algorithme de cryptage des mots de passe</message>
+	<message key="installer.filesDir">Répertoire à télécharger</message>
+	<message key="installer.fileSettings">Paramètres des fichiers</message>
+	<message key="installer.form.clientCharsetRequired">Un jeu de caractères client doit être sélectionné.</message>
+	<message key="installer.form.databaseDriverRequired">Un gestionnaire de base de données doit être sélectionné.</message>
+	<message key="installer.form.databaseNameRequired">Le nom de la base de données est obligatoire.</message>
+	<message key="installer.form.emailRequired">Une adresse électronique valide pour le compte de l'administrateur est obligatoire.</message>
+	<message key="installer.form.encryptionRequired">L'algorithme à utiliser pour l'encryptage des mots de passe des usagers doit être sélectionné.</message>
+	<message key="installer.form.filesDirRequired">Le répertoire à utiliser pour stocker des fichiers téléchargés est obligatoire.</message>
+	<message key="installer.form.localeRequired">Des paramètres de lieu doivent être sélectionnés.</message>
+	<message key="installer.form.passwordRequired">Un mot de passe pour le compte de l'administrateur est obligatoire.</message>
+	<message key="installer.form.passwordsDoNotMatch">Les mots de passe de l'administrateur ne correspondent pas.</message>
+	<message key="installer.form.separateMultiple">Séparer les valeurs multiple par une virgule</message>
+	<message key="installer.form.usernameAlphaNumeric">Le nom d'usager de l'administrateur ne peut contenir que des caractères alphanumériques, traits de soulignement, et traits d'union, et doit commencer et se terminer par un caractère alphanumérique.</message>
+	<message key="installer.form.usernameRequired">Un nom d'usager pour le compte de l'administrateur est obligatoire.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>AVERTISSEMENT : Votre version actuelle de PHP ne satisfait pas aux exigences minimales d'installation. Nous vous recommandons d'actualiser à une version plus récente de PHP.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">Des erreurs se sont produites pendant l'installation</message>
+	<message key="installer.installerSQLStatements">énoncés SQL pour l'installation</message>
+	<message key="installer.installFileError"><![CDATA[Le fichier d'installation <tt>dbscripts/xml/install.xml</tt> n'existe pas ou n'est pas lisible.]]></message>
+	<message key="installer.installFilesDirError">Le répertoire précisé pour les fichiers téléchargés n'existe pas ou n'est pas programmable.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Erreur d'analyse du fichier d'installation de la base de données <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Langue</message>
+	<message key="installer.localeSettings">Paramètres de langue</message>
+	<message key="installer.manualInstall">Installation manuelle</message>
+	<message key="installer.manualUpgrade">Mise à jour manuelle</message>
+	<message key="installer.miscSettings">Paramètres divers</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificateur  unique utilisé pour identifier les fichiers de métadonnées indexées à partir de ce site à l'aide du protocole<a href="http://www.openarchives.org/" target="_blank">Projet Open Archives</a> pour la collecte de métadonnées.]]></message>
+	<message key="installer.oaiRepositoryId">Identificateur de logithèque OAI</message>
+	<message key="installer.publicFilesDirError">Le répertoire des fichiers publics n'existe pas ou n'est pas programmable.</message>
+	<message key="installer.releaseNotes">Instructions d'utilisation</message>
+	<message key="installer.securitySettings">Paramètres de sécurité</message>
+	<message key="installer.skipFilesDir">Ne pas créer de sous-répertoires</message>
+</locale>

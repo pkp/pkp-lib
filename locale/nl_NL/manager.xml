@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/nl_NL/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the nl_NL (Nederlands) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="nl_NL" full_name = "Nederlands">
+	<message key="manager.announcements">Aankondigingen</message>
+	<message key="manager.announcements.confirmDelete">Weet u zeker dat u deze aankondiging wilt verwijderen?</message>
+	<message key="manager.announcements.create">Nieuwe aankondiging maken</message>
+	<message key="manager.announcements.createTitle">Aanmaken</message>
+	<message key="manager.announcements.dateExpire">Verloopt</message>
+	<message key="manager.announcements.edit">Edit Announcement</message>
+	<message key="manager.announcements.editTitle">Bewerken</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Kies een jaar en/of maand naast de dag van de afloopdatum.</message>
+	<message key="manager.announcements.form.dateExpire">Afloopdatum</message>
+	<message key="manager.announcements.form.dateExpireInstructions">De aankondiging wordt tot de afloopdatum getoond aan de lezers. Leeg laten als de aankondiging blijvend getoond moet worden.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Kies een jaar en/of dag naast de maand van de afloopdatum.</message>
+	<message key="manager.announcements.form.dateExpireValid">Kies een geldige afloopdatum voor de aankondiging.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Kies een maand en/of dag naast het jaar van de afloopdatum.</message>
+	<message key="manager.announcements.form.description">Beschrijving</message>
+	<message key="manager.announcements.form.descriptionInstructions">De complete tekst van de aankondiging.</message>
+	<message key="manager.announcements.form.descriptionRequired">Een beschrijving is verplicht.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Een korte beschrijving die bij de titel van de aankondiging getoond wordt.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Een korte beschrijving is verplicht.</message>
+	<message key="manager.announcements.form.descriptionShort">Korte beschrijving</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Bewaar en maak er nog een aan</message>
+	<message key="manager.announcements.form.titleRequired">Een titel voor de aankondiging is verplicht.</message>
+	<message key="manager.announcements.form.title">Titel</message>
+	<message key="manager.announcements.form.typeId">Type</message>
+	<message key="manager.announcements.form.typeIdValid">Kies een geldig aankondigingstype.</message>
+	<message key="manager.announcements.noneCreated">Er zijn geen aankondigingen aangemaakt.</message>
+	<message key="manager.announcements.title">Titel</message>
+	<message key="manager.announcements.type">Type</message>
+	<message key="manager.announcementTypes">Type aankondigingen</message>
+	<message key="manager.announcementTypes.confirmDelete">Waarschuwing! Alle aankondigingen van dit type worden ook verwijderd.Weet u zeker dat u door wilt gaan en dit aankondigingstype wilt verwijderen?</message>
+	<message key="manager.announcementTypes.create">Aankondigingstype aanmaken</message>
+	<message key="manager.announcementTypes.createTitle">Aanmaken</message>
+	<message key="manager.announcementTypes.edit">Bewerk aankondigingstype</message>
+	<message key="manager.announcementTypes.editTitle">Bewerken</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Bewaar en maak er nog een aan</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Er bestaat al een aankondigingstype met deze naam.</message>
+	<message key="manager.announcementTypes.form.typeName">Naam</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Een naam voor het aankondigingstype is verplicht.</message>
+	<message key="manager.announcementTypes.noneCreated">Er zijn geen aankondigingstypes aangemaakt.</message>
+	<message key="manager.announcementTypes.typeName">Aankondigingstype</message>
+	<message key="manager.emails.confirmDelete">Weet u zeker dat u dit e-mail sjabloon wilt verwijderen?</message>
+	<message key="manager.emails.confirmReset">Weet u zeker da u dit e-mail sjabloon wilt terugzetten naar de standaardwaarde?</message>
+	<message key="manager.emails.createEmail">E-mail aanmaken</message>
+	<message key="manager.emails.disable">Schakel uit</message>
+	<message key="manager.emails.editEmail">E-mail bewerken</message>
+	<message key="manager.emails.editTestExample">Bewerk testvoorbeeld e-mail</message>
+	<message key="manager.emails.emailKey">E-mail sleutel</message>
+	<message key="manager.emails.emailKeyExists">Een e-mail met de opgegeven sleutel bestaat al. E-mail sleutels moeten uniek zijn.</message>
+	<message key="manager.emails.emailTemplate">E-mail sjabloon</message>
+	<message key="manager.emails.emailTemplates">E-mail sjablonen</message>
+	<message key="manager.emails.enabled">Schakel dit e-mail sjabloon in</message>
+	<message key="manager.emails.enable">Schakel in</message>
+	<message key="manager.emails.form.bodyRequired">De e-mail moet tekst bevatten.</message>
+	<message key="manager.emails.form.subjectRequired">De e-mail moet een onderwerp hebben.</message>
+	<message key="manager.emails">Voorbereide e-mails</message>
+	<message key="manager.emails.resetAll">Alle sjablonen terugzetten</message>
+	<message key="manager.emails.reset">Herstel</message>
+	<message key="manager.emails.resetToDefault">Standaard terugzetten</message>
+	<message key="manager.filesBrowser">Bestanden bekijken</message>
+	<message key="manager.files.confirmDelete">Dit bestand of deze map verwijderen? Merk op dat een map leeg moet zijn voor deze verwijderd kan worden.</message>
+	<message key="manager.files.createDir">Creëer map</message>
+	<message key="manager.files.emptyDir">Geen bestanden in deze map.</message>
+	<message key="manager.files.indexOfDir">Index van {$dir}</message>
+	<message key="manager.files.parentDir">Bovenliggende map</message>
+	<message key="manager.files.uploadedFiles">Geladen bestanden</message>
+	<message key="manager.files.uploadFile">Bestand laden</message>
+	<message key="manager.groups.confirmDelete">Weet u zeker dat u deze groep wilt verwijderen?</message>
+	<message key="manager.groups.createTitle">Titel aanmaken</message>
+	<message key="manager.groups.editTitle">Bewerk titel</message>
+	<message key="manager.groups.form.groupTitleRequired">Een groeptitel is verplicht.</message>
+	<message key="manager.groups.membership.addMember">Lid toevoegen</message>
+	<message key="manager.groups.membership.confirmDelete">Weet u zeker dat u het lidmaatschap van deze groep wilt verwijderen?</message>
+	<message key="manager.groups.membership">Lidmaatschap</message>
+	<message key="manager.groups.membership.noneCreated">Deze groep heeft geen leden.</message>
+	<message key="manager.groups.membership.noUsers">Geen gebruikers gevonden.</message>
+	<message key="manager.groups.title">Titel</message>
+	<message key="manager.importExport">Importeer/Exporteer gegevens</message>
+	<message key="manager.languages.alternateLocaleInstructions">Dit systeem biedt de mogelijkheid om bepaalde kritische informatie in een aantal andere talen in te voeren. Kies daarvoor additionele  talen en maak een keuze uit de opties hieronder.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Kies alle gewenste talen voor de site. Gebruikers kunnen een taal kiezen door een keuzemenu dat op iedere pagina getoond wordt. Dit menu wordt alleen getoond als meer dan één taal gekozen wordt.</message>
+	<message key="manager.payment.timestamp">Datum en tijd</message>
+	<message key="manager.people.authSource">Authenticatiebron</message>
+	<message key="manager.people.confirmUnenroll">Deze gebruiker uitschrijven?</message>
+	<message key="manager.people.createUser">Maak een nieuwe gebruiker aan</message>
+	<message key="manager.people.createUserGeneratePassword">Genereer een willekeurig wachtwoord.</message>
+	<message key="manager.people.createUserSendNotify">Suur de gebruiker een e-mail met hun gebruikersnaam en wachtwoord.</message>
+	<message key="manager.people.disable">Blokkeer</message>
+	<message key="manager.people.doNotEnroll">Zonder rol</message>
+	<message key="manager.people.editProfile">Bewerk profiel</message>
+	<message key="manager.people.editUser">Bewerk gebruiker</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">E-mail geselecteerde gebruikers</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">E-mail gebruikers ingeschreven als</message>
+	<message key="manager.people.emailUsers">E-mail gebruikers</message>
+	<message key="manager.people.emailUsers.selectLocale">Kies een taal</message>
+	<message key="manager.people.emailUsers.selectUsers">Kies de gebruikers die u wilt e-mailen door de vakjes naast hun naam aan  te vinken</message>
+	<message key="manager.people.enable">Toelaten</message>
+	<message key="manager.people.enroll">Gebruiker inschrijven</message>
+	<message key="manager.people.enrollment">Inschrijving</message>
+	<message key="manager.people.enrollSelected">Schijf de geselecteerde gebruikers in</message>
+	<message key="manager.people.enrollSyncRole">Synchroniseer rollen</message>
+	<message key="manager.people.enrollSync">Synchroniseer inschrijving</message>
+	<message key="manager.people.enrollUserAsDescription">Gebruikers kunnen op ieder moment een rol krijgen of daarvan ontheven worden.</message>
+	<message key="manager.people.enrollUserAs">Schijf gebruiker in als</message>
+	<message key="manager.people.invalidUser">Sorry, de gevraagde gebruiker bestaat niet.</message>
+	<message key="manager.people.mergeUser">Gebruiker samenvoegen</message>
+	<message key="manager.people.mergeUsers.confirm">Weer u zeker dat u gebruiker  "{$oldUsername}" wilt samenvoegen met "{$newUsername}"? Gebruiker "{$oldUsername}" zal achteraf niet meer bestaan. Deze actie is onomkeerbaar.</message>
+	<message key="manager.people.mergeUsers">Gebruikers samenvoegen</message>
+	<message key="manager.people.mustChooseRole">Kies een van de rollen bovenaan de pagina voor op "Gebruiker inschrijven" te klikken.</message>
+	<message key="manager.people.mustProvideName">Svp eerst minimaal een achternaam voor de gebruiker opgeven.</message>
+	<message key="manager.people.noMatchingUsers">Geen passende gebruikers.</message>
+	<message key="manager.people.noneEnrolled">Geen gebruikers ingeschreven.</message>
+	<message key="manager.people">Mensen</message>
+	<message key="manager.people.remove">Verwijder</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Bewaren en een volgende aanmaken</message>
+	<message key="manager.people.signInAs">Log in als</message>
+	<message key="manager.people.signInAsUser">Log in als gebruiker</message>
+	<message key="manager.people.syncUsers">Synchroniseer ingeschreven gebruikers</message>
+	<message key="manager.people.unenroll">Uitschrijven</message>
+	<message key="manager.people.userCreatedSuccessfully">Gebruiker met succes aangemaakt.</message>
+	<message key="manager.people.userMustChangePassword">Verplicht de gebruiker om een nieuw wachtwoord te kiezen bij de eerstvolgende inlog.</message>
+	<message key="manager.plugins.action">Actie:</message>
+	<message key="manager.plugins.disable">Uitschakelen</message>
+	<message key="manager.plugins.enable">Inschakelen</message>
+	<message key="manager.plugins.pluginManagement">Plugin beheer</message>
+	<message key="manager.plugins.sitePlugin">Dit is een site-plugin. Alleen de sitebeheerder kan deze plugin beheren.</message>
+	<message key="manager.plugins">Systeemplugins</message>
+	<message key="manager.readingTools">Hulpmiddelen</message>
+	<message key="manager.roles">Rollen</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Onbruikbaar bestandsformaat voor het home-pagina koptekst-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Onbruikbaar bestandsformaat voor de home-pagina afbeelding. Bruikbaar zijn .gif, .jpg of .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Onbruikbaar bestandsformaat voor de home-pagina koptitel. Bruikbaar zijn .gif, .jpg of .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Linker sidebar</message>
+	<message key="manager.setup.layout.rightSidebar">Rechter sidebar</message>
+	<message key="manager.setup.layout.unselected">Niet geselecteerd</message>
+	<message key="manager.setup.loggingAndAuditing">Logboek en controle</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Onbruikbaar bestandsformaat voor het paginakop-logo. Bruikbaar zijn .gif, .jpg of .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Onbruikbaar bestandsformaat voor de pagina-koptitel. Bruikbaar zijn .gif, .jpg of .png.</message>
+	<message key="manager.setup.selectOne">Kies er een</message>
+	<message key="manager.statistics"><![CDATA[Statistieken & rapporten]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nieuw)</message>
+	<message key="manager.users">Gebruikers</message>
+	<message key="plugins.categories.auth">Authenticatie plugins</message>
+	<message key="plugins.categories.blocks">Block plugins</message>
+	<message key="plugins.categories.blocks.description">Block plugins zijn inschakelbare gebruikersinterface componenten zoals de gereedschappen in de sidebar.</message>
+	<message key="plugins.categories.citationFormats">Citatieformaat plugins</message>
+	<message key="plugins.categories.gateways.description">Gateway Plugins leveren actuele gegevens aan externe systemen.</message>
+	<message key="plugins.categories.gateways">Gateway plugins</message>
+	<message key="plugins.categories.generic">Generieke plugins</message>
+	<message key="plugins.categories.importexport.description">Import/Export plugins kunnen gebruikt worden om gegevens van en naar andere systemen te verplaatsen.</message>
+	<message key="plugins.categories.importexport">Import/Export plugins</message>
+	<message key="plugins.categories.paymethod.description">Betalingsmethode plugins implementeren de ondersteuning voor verschillende manieren om online te betalen.</message>
+	<message key="plugins.categories.paymethod">Betalingsmethode plugins</message>
+	<message key="plugins.categories.reports.description">Rapportage plugins worden gebruikt voor het implementeren van verschillende soorten rapporten en data-extracties voor conferentiebeheerders</message>
+	<message key="plugins.categories.reports">Rapportage plugins</message>
+	<message key="plugins.categories.themes.description">Thema plugins kunnen gebruikt worden om het uiterlijk van het systeem te veranderen.</message>
+	<message key="plugins.categories.themes">Thema plugins</message>
+</locale>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/da_DK/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the da_DK (Danish) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="da_DK" full_name = "Danish">
+	<message key="submission.abstractViews">Visninger af resuméer</message>
+	<message key="submission.accepted">Accepteret</message>
+	<message key="submission.acknowledge">Bekræft</message>
+	<message key="submission.addSuppFile">Tilføj en supplerende fil</message>
+	<message key="submission.ask">Spørg</message>
+	<message key="submission.backToSubmissionEditing">Tilbage til Redigering af manuskript</message>
+	<message key="submission.changeComments">Skift til</message>
+	<message key="submission.comments.addComment">Tilføj kommentar</message>
+	<message key="submission.comments.comments">Kommentarer</message>
+	<message key="submission.comments.confirmDelete">Er du sikker på, at du vil slette denne kommentar?</message>
+	<message key="submission.comments.corrections">Rettelser</message>
+	<message key="submission.comments.editComment">Rediger kommentar</message>
+	<message key="submission.comments.importPeerReviews">Importer peer reviews</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Bedømmer {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">Ingen kommentarer</message>
+	<message key="submission.comments.noReviews">Ingen bedømmelser</message>
+	<message key="submission.comments.review">Bedømmelse</message>
+	<message key="submission.comments.sendDecisionToReviewers">Send redaktionel beslutning til bedømmere</message>
+	<message key="submission.comments.subject">Emne</message>
+	<message key="submission.complete">Udfør</message>
+	<message key="submission.done">Udført</message>
+	<message key="submission.dueDate">Forfaldsdato</message>
+	<message key="submission.due">Forfalden</message>
+	<message key="submission.editing">Redigering</message>
+	<message key="submission.editMetadata">Rediger metadata</message>
+	<message key="submission.email.backToEmailLog">Tilbage til e-mail-log</message>
+	<message key="submission.email.confirmClearLog">Er du sikker på, at du vil rydde e-mail-loggen for dette manuskript?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Er du sikker på, at du vil slette denne post i e-mail-loggen?</message>
+	<message key="submission.email.deleteLogEntry">Slet logpost</message>
+	<message key="submission.emailLog">E-mail-log</message>
+	<message key="submission.event.backToEventLog">Tilbage til hændelseslog</message>
+	<message key="submission.event.confirmClearLog">Er du sikker på, at du vil rydde dette manuskript i hændelsesloggen?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Er du sikker på, at du vil slette denne post i hændelsesloggen?</message>
+	<message key="submission.event.deleteLogEntry">Slet logpost</message>
+	<message key="submission.event.general.metadataUpdated">Manuskriptmetadataene er opdateret</message>
+	<message key="submission.event.general.suppFileUpdated">Manuskriptfilen er opdateret</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Bedømmelsesopgaven er accepteret af proxy</message>
+	<message key="submission.event.reviewer.reviewAccepted">Bedømmelsesopgaven er accepteret</message>
+	<message key="submission.event.reviewer.reviewCancelled">Bedømmelsesopgaven er annulleret</message>
+	<message key="submission.event.reviewer.reviewDeclined">Bedømmelsesopgaven er afvist</message>
+	<message key="submission.event.reviewer.reviewDueDate">Forfaldsdatoen for bedømmelsen er ændret</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Bedømmeren er tildelt manuskriptet</message>
+	<message key="submission.event.reviewer.reviewerRated">Bedømmerklassificeringen er fremsendt</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Tildelingen af bedømmer til manuskriptet er fjernet</message>
+	<message key="submission.event.reviewer.reviewFile">Bedømmelsesfilen er opdateret</message>
+	<message key="submission.event.reviewer.reviewInitiated">Bedømmelsesopgaven er startet</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Fil med bedømmelsesanbefaling</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Bedømmelsesopgaven er startet igen</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Bedømmelsen er fremsendt igen</message>
+	<message key="submission.event.reviewer.reviewRevision">Bedømmers revideringsfil er opdateret</message>
+	<message key="submission.files">filer</message>
+	<message key="submission.galley">Satsskib</message>
+	<message key="submission.history.clearLog">Ryd log</message>
+	<message key="submission.history">Oversigt</message>
+	<message key="submission.history.noLogEntries">Ingen logposter.</message>
+	<message key="submission.history.recentLogEntries">Seneste poster</message>
+	<message key="submission.history.submissionEmailLog">E-mail-log</message>
+	<message key="submission.history.submissionEventLog">Hændelseslog</message>
+	<message key="submission.history.submissionNotes">Manuskriptnoter</message>
+	<message key="submission.history.viewLog">Vis log</message>
+	<message key="submission.indexing">Indeksering</message>
+	<message key="submission.initiated">Startet</message>
+	<message key="submission.lastModified">Senest ændret</message>
+	<message key="submission.layout.addGalley">Tilføj et layoutsatsskib</message>
+	<message key="submission.layout.confirmDeleteGalley">Er du sikker på, at du vil slette dette satsskib permanent?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Er du sikker på, at du vil fjerne dette billede fra satsskibet?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Er du sikker på, at du vil slette denne supplerende fil permanent?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Slet dette typografiark.</message>
+	<message key="submission.layout.editGalley">Rediger et layoutsatsskib</message>
+	<message key="submission.layout.galleyFileData">Oplysninger om satsskibsfil</message>
+	<message key="submission.layout.galleyFormat">Satsskibsformat</message>
+	<message key="submission.layout.galleyHTMLData">HTML-satsskibsfiler</message>
+	<message key="submission.layout.galleyImages">Billeder</message>
+	<message key="submission.layout.galleyLabelInstructions">Satsskibsetiketten bruges til at identificere elementets filformat (f.eks. HTML, PDF osv.).</message>
+	<message key="submission.layout.galleyLabel">Etiket</message>
+	<message key="submission.layout.galleyLabelRequired">En satsskibsetiket er påkrævet.</message>
+	<message key="submission.layout.galleyLanguageRequired">Et satsskibssprog er påkrævet.</message>
+	<message key="submission.layout.galleyLocaleRequired">En satsskibslandestandard er påkrævet.</message>
+	<message key="submission.layout.galleyNoImages">Ingen billeder</message>
+	<message key="submission.layout.galleys">Satsskibe</message>
+	<message key="submission.layout.galleyStylesheet">Typografiarksfil</message>
+	<message key="submission.layout.galleyStyle">Typografi</message>
+	<message key="submission.layout.initialGalleyCreation">Oprettelse af første satsskib</message>
+	<message key="submission.layout.layoutFile">Layoutfil</message>
+	<message key="submission.layout">Layout</message>
+	<message key="submission.layout.layoutVersion">Layoutversion</message>
+	<message key="submission.layout.newGalley">Opret nyt satsskib</message>
+	<message key="submission.layout.newSupplementaryFile">Overfør ny supplerende fil</message>
+	<message key="submission.layout.noStyleFile">Der er ikke føjet en typografiarksfil til dette satsskib.</message>
+	<message key="submission.layout.supplementaryFiles">Bedømmelse af supplerende fil</message>
+	<message key="submission.layout.viewingGalley">Visning af manuskriptsatsskib</message>
+	<message key="submission.layout.viewProof">Vis korrektur</message>
+	<message key="submission.metadata">Manuskriptmetadata</message>
+	<message key="submission.noReviewAssignments">Ingen bedømmelsesopgaver</message>
+	<message key="submission.notes.addNewNote">Tilføj ny note</message>
+	<message key="submission.notes.attachedFile">Vedhæftet fil</message>
+	<message key="submission.notes.backToSubmissionNotes">Tilbage til Manuskriptnoter</message>
+	<message key="submission.notes.breadcrumb">Noter</message>
+	<message key="submission.notes.clearAllNotes">Ryd alle noter</message>
+	<message key="submission.notes.collapseNotes">Skjul noter</message>
+	<message key="submission.notes.confirmDeleteAll">Vil du fjerne alle manuskriptnoter?</message>
+	<message key="submission.notes.confirmDelete">Vil du fjerne denne manuskriptnote?</message>
+	<message key="submission.notes.createNewNote">Opret ny note</message>
+	<message key="submission.notes.deleteNote">Slet note</message>
+	<message key="submission.notes.editNote">Rediger note</message>
+	<message key="submission.notes.expandNotes">Udvid noter</message>
+	<message key="submission.notes.noSubmissionNotes">Ingen manuskriptnoter</message>
+	<message key="submission.notes.removeUploadedFile">Fjern overført fil</message>
+	<message key="submission.notes">Manuskriptnoter</message>
+	<message key="submission.notes.updateNote">Opdater note</message>
+	<message key="submission.notes.viewNotes">Vis noter</message>
+	<message key="submission.originalFile">Oprindelig fil</message>
+	<message key="submission.page.editing">#{$id} Redigering</message>
+	<message key="submission.page.history">#{$id} Oversigt</message>
+	<message key="submission.page.review">#{$id} Bedømmelse</message>
+	<message key="submission.page.summary">#{$id} Resumé</message>
+	<message key="submission.peerReview">Peer review</message>
+	<message key="submission.recommendation">Anbefaling</message>
+	<message key="submission.rejected">Afvist</message>
+	<message key="submission.request">Forespørgsel</message>
+	<message key="submission.response">Svar</message>
+	<message key="submission.restrictions">Restriktioner</message>
+	<message key="submission.reviewMetadata">Bedøm metadata</message>
+	<message key="submission.review">Bedømmelse</message>
+	<message key="submission.reviewVersion">Bedømmelsesversion</message>
+	<message key="submissions.active">Aktiv</message>
+	<message key="submissions.archived">Arkiveret</message>
+	<message key="submission.saveMetadata">Gem metadata</message>
+	<message key="submissions.completed">Fuldført</message>
+	<message key="submissions.declined">Afvist</message>
+	<message key="submissions.incomplete">Ikke fuldført</message>
+	<message key="submissions.noSubmissions">Ingen manuskripter</message>
+	<message key="submissions.queuedEditing">I kø til redigering</message>
+	<message key="submissions.queued">I kø</message>
+	<message key="submissions.queuedUnassigned">Afventer tildeling</message>
+	<message key="submissions.ruling">Afgørelse</message>
+	<message key="submissions.submit">Fremsend</message>
+	<message key="submissions.submitted">Fremsendt</message>
+	<message key="submission.start">Start</message>
+	<message key="submission.submissionHistory">Oversigt over manuskript</message>
+	<message key="submission.submissionManuscript">Manuskript</message>
+	<message key="submission.submissionReview">Bedømmelse af manuskript</message>
+	<message key="submission.submitter">Indsender</message>
+	<message key="submission.summary">Resumé</message>
+	<message key="submission.supplementaryFiles">Supplerende filer</message>
+	<message key="submission.supportingAgencies">Støtteinstanser</message>
+	<message key="submission.titleAndAbstract">Titel og resumé</message>
+	<message key="submission.underway">Forestående</message>
+	<message key="submission.uploadFileTo">Overfør fil til</message>
+	<message key="submission.viewMetadata">Vis metadata</message>
+	<message key="submission.views">Visninger</message>
+</locale>

@@ -22,7 +22,7 @@
 			name CDATA #REQUIRED>
 ]>
 
-<currencies locale="en_US">
+<currencies locale="de_DE">
 	<currency name="Afghani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Algerian Dinar" code_alpha="DZD" code_numeric="12" />
 	<currency name="Argentine Peso" code_alpha="ARS" code_numeric="32" />

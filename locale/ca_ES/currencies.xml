@@ -22,7 +22,7 @@
 			name CDATA #REQUIRED>
 ]>
 
-<currencies locale="en_US">
+<currencies locale="ca_ES">
 	<currency name="Dirhem de la Unió dels Emirats Àrabs" code_alpha="AED" code_numeric="784" />
 	<currency name="Afgani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Lek" code_alpha="ALL" code_numeric="008" />

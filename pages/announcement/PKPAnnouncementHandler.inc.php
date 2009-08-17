@@ -65,10 +65,10 @@ class PKPAnnouncementHandler extends Handler {
 				$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'announcement'), 'announcement.announcements'));
 				$templateMgr->display('announcement/view.tpl');
 			} else {
-				Request::redirect(null, null, null, 'announcement');
+				Request::redirect(null, null, 'announcement');
 			}
 		} else {
-				Request::redirect(null, null, null, 'announcement');
+				Request::redirect(null, null, 'announcement');
 		}
 	}
 

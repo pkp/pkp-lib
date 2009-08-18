@@ -22,9 +22,9 @@
 		<id>{$notification->getId()}</id>
 		<title>{translate key="notification.notification"} : {$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</title>
 		{if $notification->getLocation() != null}
-			<link rel="alternate" href="{$notification->getLocation()}" />					
+			<link rel="alternate" href="{$notification->getLocation()}" />
 		{else}
-			<link rel="alternate" href="{url page="notification"}" />					
+			<link rel="alternate" href="{url page="notification"}" />
 		{/if}
 
 		<summary type="html" xml:base="{if $notification->getLocation() != null}{$notification->getLocation()}{else}{url page="notification"}{/if}">

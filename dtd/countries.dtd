@@ -1,0 +1,15 @@
+<!--
+  * countries.dtd
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD for country lists.
+  *
+  * $Id$
+  -->
+<!ELEMENT countries (country+)>
+<!ELEMENT country EMPTY>
+	<!ATTLIST country
+		code CDATA #REQUIRED
+		name CDATA #REQUIRED>

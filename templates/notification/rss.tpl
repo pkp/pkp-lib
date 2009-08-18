@@ -14,7 +14,7 @@
 	xmlns="http://purl.org/rss/1.0/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/">
-    
+
 	<channel rdf:about="{$baseUrl}">
 		<title>{$siteTitle} {translate key="notification.notifications"}</title>
 		<link>{$selfUrl}</link>
@@ -44,7 +44,7 @@
 			{else}
 				{$notification->getContents()}
 			{/if}
-		</description>	
+		</description>
 		<dc:creator>{$siteTitle|strip|escape:"html"}</dc:creator>
 		<dc:date>{$notification->getDateCreated()|date_format:"%Y-%m-%d"}</dc:date>
 	</item>

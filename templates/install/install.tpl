@@ -127,7 +127,7 @@ function doSubmit() {
 {if !$skipFilesDirSection}
 <div id="fileSettings">
 	<h3>{translate key="installer.fileSettings"}</h3>
-	
+
 	<table width="100%" class="data">
 		<tr valign="top">
 			<td width="20%" class="label">{fieldLabel name="filesDir" key="installer.filesDir"}</td>
@@ -172,7 +172,7 @@ function doSubmit() {
 <p>{translate key="installer.administratorAccountInstructions"}</p>
 
 <table width="100%" class="data">
-	<tr valign="top">	
+	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="adminUsername" key="user.username"}</td>
 		<td width="80%" class="value"><input type="text" name="adminUsername" id="adminUsername" value="{$adminUsername|escape}" size="20" maxlength="32" class="textField" /></td>
 	</tr>
@@ -184,7 +184,7 @@ function doSubmit() {
 		<td class="label">{fieldLabel name="adminPassword2" key="user.register.repeatPassword"}</td>
 		<td class="value"><input type="password" name="adminPassword2" id="adminPassword2" value="{$adminPassword2|escape}" size="20" maxlength="32" class="textField" /></td>
 	</tr>
-	<tr valign="top">	
+	<tr valign="top">
 		<td width="20%" class="label">{fieldLabel name="adminEmail" key="user.email"}</td>
 		<td width="80%" class="value"><input type="text" name="adminEmail" id="adminEmail" value="{$adminEmail|escape}" size="30" maxlength="90" class="textField" /></td>
 	</tr>

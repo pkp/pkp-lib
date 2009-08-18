@@ -12,7 +12,7 @@
   * $Id$
   -->
 
-<locale name="el_GR" full_name = "Greek">
+<locale name="el_GR" full_name="Greek">
 	<message key="submission.abstractViews">Προβολές Περίληψης</message>
 	<message key="submission.accepted">Δεκτό</message>
 	<message key="submission.acknowledge">Ελήφθη</message>

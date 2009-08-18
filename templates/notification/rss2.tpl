@@ -16,7 +16,7 @@
 		<link>{$selfUrl}</link>
 
 		{* optional elements *}
-	    <language>{$locale|replace:'_':'-'|strip|escape:"html"}</language>
+		<language>{$locale|replace:'_':'-'|strip|escape:"html"}</language>
 		<generator>{translate key=$appName} {$version|escape}</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<ttl>60</ttl>
@@ -37,7 +37,7 @@
 					{else}
 						{$notification->getContents()}
 					{/if}
-				</description>		
+				</description>
 				<pubDate>{$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</pubDate>
 			</item>
 		{/foreach}

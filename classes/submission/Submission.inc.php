@@ -212,7 +212,7 @@ class Submission extends DataObject {
 		$this->setCleanTitle($title, $locale);
 		return $this->setData('title', $title, $locale);
 	}
-	
+
 	/**
 	 * Set 'clean' title (with punctuation removed).
 	 * @param $cleanTitle string

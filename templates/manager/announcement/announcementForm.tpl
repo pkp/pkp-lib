@@ -47,7 +47,7 @@
 		<option value=""></option>
 		{iterate from=announcementTypes item=announcementType}
 		<option value="{$announcementType->getId()}"{if $typeId == $announcementType->getId()} selected="selected"{/if}>{$announcementType->getLocalizedTypeName()|escape}</option>
-		{/iterate} 
+		{/iterate}
 	</select></td>
 </tr>
 <tr valign="top">

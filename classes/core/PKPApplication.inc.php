@@ -228,7 +228,7 @@ class PKPApplication {
 	function &instantiateHelp() {
 		fatalError('Abstract class');
 	}
-	
+
 	/**
 	 * Custom error handler
 	 * @param $errorno string
@@ -248,7 +248,7 @@ class PKPApplication {
 			error_log($this->buildErrorMessage($errorno, $errstr, $errfile, $errline), 0);
 		}
 	}
-	
+
 	/**
 	 * Auxiliary function to errorHandler that returns a formatted error message.
 	 * Error type formatting code adapted from ash, http://ca3.php.net/manual/en/function.set-error-handler.php
@@ -284,19 +284,18 @@ class PKPApplication {
 		if ($errorno == E_NOTICE) {
 			return $type . ': ' . $errstr . ' (' . $errfile . ':' . $errline . ')';
 		}
-	
 
 		$message[] = $this->getName() . ' has produced an error';
 		$message[] = '  Message: ' . $type . ': ' . $errstr;
 		$message[] = '  In file: ' . $errfile;
 		$message[] = '  At line: ' . $errline;
 		$message[] = '  Stacktrace: ';
-		
+
 		if(Config::getVar('debug', 'show_stacktrace')) {
 			$trace = debug_backtrace();
 			// Remove the call to fatalError from the call trace.
 			array_shift($trace);
-	
+
 			// Back-trace pretty-printer adapted from the following URL:
 			// http://ca3.php.net/manual/en/function.debug-backtrace.php
 			// Thanks to diz at ysagoon dot com
@@ -340,24 +339,23 @@ class PKPApplication {
 				$function = isset($bt['function'])?$bt['function']:'';
 				$file = isset($bt['file'])?$bt['file']:'(unknown)';
 				$line = isset($bt['line'])?$bt['line']:'(unknown)';
-	
+
 				$message[] = "   File: {$file} line {$line}";
 				$message[] = "     Function: {$class}{$type}{$function}($args)";
 			}
 		}
-		
+
 		$dbconn =& DBConnection::getConn();
 		$dbServerInfo = $dbconn->ServerInfo();
-		
+
 		$message[] = "  Server info:";
 		$message[] = "   OS: " . Core::serverPHPOS();
 		$message[] = "   PHP Version: " . Core::serverPHPVersion();
 		$message[] = "   Apache Version: " . (function_exists('apache_get_version') ? apache_get_version() : 'N/A');
 		$message[] = "   DB Driver: " . Config::getVar('database', 'driver');
 		$message[] = "   DB server version: " . (empty($dbServerInfo['description']) ? $dbServerInfo['version'] : $dbServerInfo['description']);
-		
-	
-		return implode("\n", $message); 		
+
+		return implode("\n", $message);
 	}
 }
 

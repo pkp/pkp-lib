@@ -47,7 +47,7 @@
 	<message key="rt.admin.contexts.options.geoTerms">Use geographical indexing data as default search terms.</message>
 	<message key="rt.admin.contexts.options">Options</message>
 	<message key="rt.admin.management">Management</message>
-	
+
 	<message key="rt.admin.sharing">Sharing</message>
 	<message key="rt.admin.sharing.enabled">Sharing Enabled</message>
 	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share journal articles, sign up for an account with <a href="http://addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>

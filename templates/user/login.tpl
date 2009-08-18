@@ -33,7 +33,7 @@
 {/if}
 
 {if $implicitAuth}
-	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>	
+	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
 	<form id="signinForm" name="login" method="post" action="{url page="login" op="signIn"}">
 {/if}

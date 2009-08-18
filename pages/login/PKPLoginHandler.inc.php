@@ -183,7 +183,7 @@ class PKPLoginHandler extends Handler {
 
 		} else {
 			$site =& Request::getSite();
-			
+
 			// Send email confirming password reset
 			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
@@ -309,11 +309,11 @@ class PKPLoginHandler extends Handler {
 			$passwordForm->display();
 		}
 	}
-	
+
 	/**
 	 * Helper function - set mail From
-	 * can be overriden by child classes 
-	 * @param MailTemplate $mail 
+	 * can be overriden by child classes
+	 * @param MailTemplate $mail
 	 */
 	function _setMailFrom(&$mail) {
 		$site =& Request::getSite();

@@ -13,7 +13,7 @@
   -->
 
 <schema version="0.2">
-	<!-- 
+	<!--
 	  *
 	  * TABLE groups
 	  *
@@ -44,7 +44,7 @@
 		</index>
 	</table>
 
-	<!-- 
+	<!--
 	  *
 	  * TABLE group_settings
 	  *
@@ -75,8 +75,8 @@
 			<UNIQUE />
 		</index>
 	</table>
-	
-	<!-- 
+
+	<!--
 	  *
 	  * TABLE group_memberships
 	  *

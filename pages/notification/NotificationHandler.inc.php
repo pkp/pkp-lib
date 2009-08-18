@@ -192,7 +192,7 @@ class NotificationHandler extends Handler {
 			$notificationMailingListForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
 	}
-	
+
 	/**
 	 * Save the public notification email subscription form
 	 */
@@ -212,7 +212,7 @@ class NotificationHandler extends Handler {
 			$notificationMailingListForm->display();
 		}
 	}
-	
+
 	/**
 	 * Display a success or error message if the user was subscribed
 	 */
@@ -254,7 +254,7 @@ class NotificationHandler extends Handler {
 			$templateMgr->assign('status', 'confirmError');
 		}
 
-		$templateMgr->display('notification/maillistSubscribed.tpl');	
+		$templateMgr->display('notification/maillistSubscribed.tpl');
 	}
 
 	/**

@@ -86,7 +86,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @param $userId int
 	 * @param $assocType int
 	 * @param $assocId int
-	 * @return array 
+	 * @return array
 	 */
 	function &getSettingsByAssoc($userId, $assocType = null, $assocId = null) {
 		$userSettings = array();

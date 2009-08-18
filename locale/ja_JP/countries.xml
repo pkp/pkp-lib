@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 <!--
-  * countries.xml
+  * locale/ja_JP/countries.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -10,15 +10,6 @@
   *
   * $Id$
   -->
-
-<!DOCTYPE countries [
-	<!ELEMENT countries (country+)>
-	<!ELEMENT country EMPTY>
-		<!ATTLIST country
-			code CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
-
 <countries>
 	<country name="アイスランド" code="IS"/>
 	<country name="アイルランド" code="IE"/>

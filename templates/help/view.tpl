@@ -18,9 +18,9 @@
 <div id="main">
 
 	<h4>{$applicationHelpTranslated}</h4>
-	
+
 	<div class="thickSeparator"></div>
-	
+
 	<div id="breadcrumb">
 		{if $topic->getId() == "index/topic/000000"}
 			<a href="{get_help_id key="index.index" url="true"}" class="current">{translate key="navigation.home"}</a>
@@ -30,13 +30,13 @@
 				{if $breadcrumb != $topic->getId()}
 				 &gt; <a href="{url op="view" path=$breadcrumb|explode:"/"}">{$key|escape}</a>
 				{/if}
-			{/foreach}		
+			{/foreach}
 			&gt; <a href="{url op="view" path=$topic->getId()|explode:"/"}" class="current">{$topic->getTitle()}</a>
 		{/if}
 	</div>
-	
+
 	<h2>{$topic->getTitle()}</h2>
-	
+
 	<div id="content">
 		<div id="helpTopic">{include file="help/topic.tpl"}</div>
 	</div>

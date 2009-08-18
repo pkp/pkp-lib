@@ -719,7 +719,7 @@ class PKPTemplateManager extends Smarty {
 		}
 		if ($passThru) return $value;
 	}
-	
+
 	/**
 	 * Smarty usage: {sort_heading key="localization.key.name" sort="foo"}
 	 *
@@ -729,12 +729,12 @@ class PKPTemplateManager extends Smarty {
 	 * @return string heading link to sort table by
 	 */
 	function smartySortHeading($params, &$smarty) {
-		if (isset($params) && !empty($params)) {	
+		if (isset($params) && !empty($params)) {
 			$sortParams = Request::getQueryArray();
 			isset($params['sort'])? ($sortParams['sort'] = $params['sort']) : null;
 			$sortDirection = $smarty->get_template_vars('sortDirection');
 			$sort = $smarty->get_template_vars('sort');
-			
+
 			// Invert sort direction
 			if($params['sort'] == $sort) {
 				if ($sortDirection == SORT_DIRECTION_ASC) {
@@ -745,7 +745,7 @@ class PKPTemplateManager extends Smarty {
 			} else {
 				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
 			}
-			
+
 			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams, null, true);
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
@@ -753,7 +753,7 @@ class PKPTemplateManager extends Smarty {
 			return "<a href=\"$link\"$style>$text</a>";
 		}
 	}
-	
+
 	/**
 	 * Smarty usage: {sort_search key="localization.key.name" sort="foo"}
 	 *
@@ -766,7 +766,7 @@ class PKPTemplateManager extends Smarty {
 		if (isset($params) && !empty($params)) {
 			$sort = $smarty->get_template_vars('sort');
 			$sortDirection = $smarty->get_template_vars('sortDirection');
-			
+
 			// Invert sort direction
 			if($params['sort'] == $sort) {
 				if ($sortDirection == SORT_DIRECTION_ASC) {
@@ -777,7 +777,7 @@ class PKPTemplateManager extends Smarty {
 			} else {
 				$direction = SORT_DIRECTION_ASC;
 			}
-			
+
 			$heading = isset($params['sort']) ? $params['sort'] : $sort;
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';

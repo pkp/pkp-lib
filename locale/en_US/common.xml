@@ -268,28 +268,28 @@
 	<message key="notification.email">Send me an email for these types of notifications.</message>
 	<message key="notification.location">Go To URL</message>
 	<message key="notification.mailList">Notification mailing list</message>
-	<message key="notification.mailList.emailInvalid">Please enter a valid email address.</message>	
+	<message key="notification.mailList.emailInvalid">Please enter a valid email address.</message>
 	<message key="notification.mailList.privacyProtection">Privacy protection policy</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> to protected content.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> an article]]></message>
 	<message key="notification.mailList.register">You can register with this site to...</message>
 	<message key="notification.mailList.review"><![CDATA[Participate in the <a href="{$reviewUrl}">peer review</a> process]]></message>
 	<message key="notification.noneExist">You have no notifications at this time.</message>
-	<message key="notification.notification">Notification</message>	
-	<message key="notification.notifications">Notifications</message>	
+	<message key="notification.notification">Notification</message>
+	<message key="notification.notifications">Notifications</message>
 	<message key="notification.notificationsNew">({$numNew} new)</message>
 	<message key="notification.notificationsDescription">You have {$unreadCount} unread notifications and {$readCount} read notifications.<![CDATA[  <a href="{$settingsUrl}">Click here</a> to change your notification settings.]]></message>
 	<message key="notification.settings">Notification Settings</message>
 	<message key="notification.settingsDescription">Select the system events that you wish to be notified about.  Unchecking an item will prevent notifications of the event from showing up in your notification feed.</message>
-	<message key="notification.subscribe">Subscribe</message>	
+	<message key="notification.subscribe">Subscribe</message>
 	<message key="notification.subscribeError">Your email address is already subscribed to notifications.</message>
 	<message key="notification.subscribeSuccess">An email has been sent to the address you specified.  Please click on the confirmation link in the email to add yourself to the mailing list.</message>
 	<message key="notification.reminderError">There was an error sending your password, please ensure you've entered your email address correctly.</message>
 	<message key="notification.reminderSent">Your new password has been sent to the email address provided.</message>
-	<message key="notification.unsubscribe">Unsubscribe</message>	
-	<message key="notification.unsubscribeDescription">Enter your email address and password below to unsubscribe from email notifications.  If you do not remember your password, leave the password field blank and a new one will be emailed to you at the given email address.</message>	
+	<message key="notification.unsubscribe">Unsubscribe</message>
+	<message key="notification.unsubscribeDescription">Enter your email address and password below to unsubscribe from email notifications.  If you do not remember your password, leave the password field blank and a new one will be emailed to you at the given email address.</message>
 	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure your email address and password are correct.</message>
-	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>	
+	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.allFields">All</message>
 	<message key="search.coverage">Coverage</message>

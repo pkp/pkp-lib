@@ -4,7 +4,7 @@
  * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Display list of notifications. 
+ * Display list of notifications.
  *
  *}
 {strip}
@@ -55,7 +55,7 @@
 					{else}<p style="font-weight: bold">{$notification->getContents()}{/if}
 				{else}
 					{if $notification->getIsLocalized()}<p>{translate key=$notification->getContents() param=$notification->getParam()}</p>
-					{else}<p>{$notification->getContents()}</p>{/if}	
+					{else}<p>{$notification->getContents()}</p>{/if}
 				{/if}
 			</td>
 		</tr>

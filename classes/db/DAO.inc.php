@@ -449,7 +449,7 @@ class DAO {
 		$conn =& DBConnection::getInstance();
 		return $conn->getDriver();
 	}
-	
+
 	/**
 	 * Get the driver for this connection.
 	 * @param $direction int

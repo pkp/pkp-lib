@@ -1,6 +1,7 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 <!--
-  * countries.xml
+  * locale/fa_IR/countries.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * تحت مجوزGNU GPL v2 منتشرشد. برای دیدن متن کامل فایل docs/COPYING را ببینید.
@@ -9,15 +10,6 @@
   *
   * $Id$
   -->
-
-<!DOCTYPE countries [
-	<!ELEMENT countries (country+)>
-	<!ELEMENT country EMPTY>
-		<!ATTLIST country
-			code CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
-	
 <countries>
 	<country code="AX" name="جزایر آلند" />
 	<country code="AF" name="افغانستان" />

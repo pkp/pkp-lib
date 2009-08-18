@@ -81,10 +81,10 @@ class PKPAnnouncementTypeDAO extends DAO {
 	function announcementTypeExistsByTypeId($typeId, $assocType, $assocId) {
 		$result =& $this->retrieve(
 			'SELECT COUNT(*)
-				FROM announcement_types
-				WHERE type_id = ?
-				AND   assoc_type = ?
-				AND assoc_id = ?',
+			FROM	announcement_types
+			WHERE	type_id = ? AND
+				assoc_type = ? AND
+				assoc_id = ?',
 			array(
 				$typeId,
 				$assocType,

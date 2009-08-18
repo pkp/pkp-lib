@@ -324,7 +324,7 @@
 			<col>context</col>
 		</index>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE notifications
@@ -360,7 +360,7 @@
 		</field>
 		<descr>Stores notifications for users as created by the system after certain operations.</descr>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE notification_settings
@@ -418,7 +418,7 @@
 			<col>email_key</col>
 		</index>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE email_templates_default_data
@@ -484,7 +484,7 @@
 			<col>assoc_id</col>
 		</index>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE email_templates_data
@@ -520,9 +520,9 @@
 			<UNIQUE/>
 		</index>
 	</table>
-	
+
 	<!-- OAI Tables -->
-	
+
 	<!--
 	 *
 	 * TABLE oai_resumption_tokens

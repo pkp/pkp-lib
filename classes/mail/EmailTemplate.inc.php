@@ -315,7 +315,7 @@ class EmailTemplate extends BaseEmailTemplate {
 
 	/**
 	 * Determine whether or not this is a custom email template
-	 * (ie one that was created by the journal/conference/... manager and 
+	 * (ie one that was created by the journal/conference/... manager and
 	 * is not part of the system upon installation)
 	 */
 	function isCustomTemplate() {

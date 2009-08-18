@@ -15,7 +15,7 @@
 
 // $Id$
 
-
+define('PKP_PLUGINS_PREFIX', 'lib/pkp/plugins/');
 define('PLUGINS_PREFIX', 'plugins/');
 
 class PluginRegistry {
@@ -87,29 +87,52 @@ class PluginRegistry {
 	 */
 	function &loadCategory ($category, $forceLoad = false) {
 		$plugins = array();
-		$categoryDir = PLUGINS_PREFIX . $category;
-		if (!is_dir($categoryDir)) return $plugins;
 
-		$handle = opendir($categoryDir);
-		while (($file = readdir($handle)) !== false) {
-			if ($file == '.' || $file == '..') continue;
-			$pluginPath = "$categoryDir/$file";
-			$pluginWrapper = "$pluginPath/index.php";
+		// load WAL-wide plugins for this category
+		$categoryDir = PKP_PLUGINS_PREFIX . $category;
+		if (is_dir($categoryDir)) {
+			$handle = opendir($categoryDir);
+			while (($file = readdir($handle)) !== false) {
+				if ($file == '.' || $file == '..') continue;
+				$pluginPath = "$categoryDir/$file";
+				$pluginWrapper = "$pluginPath/index.php";
 
-			if (!file_exists($pluginWrapper)) continue;
-			$plugin = include($pluginWrapper);
-			if ($plugin && is_object($plugin)) {
-				$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
-				unset($plugin);
+				if (!file_exists($pluginWrapper)) continue;
+				$plugin = include($pluginWrapper);
+				if ($plugin && is_object($plugin)) {
+					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					unset($plugin);
+				}
 			}
+			closedir($handle);
 		}
-		closedir($handle);
+
+		// load application-specific plugins for this category
+		$categoryDir = PLUGINS_PREFIX . $category;
+		if (is_dir($categoryDir)) {
+			$handle = opendir($categoryDir);
+			while (($file = readdir($handle)) !== false) {
+				if ($file == '.' || $file == '..') continue;
+				$pluginPath = "$categoryDir/$file";
+				$pluginWrapper = "$pluginPath/index.php";
+
+				if (!file_exists($pluginWrapper)) continue;
+				$plugin = include($pluginWrapper);
+				if ($plugin && is_object($plugin)) {
+					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					unset($plugin);
+				}
+			}
+			closedir($handle);
+		}
+
+		// if we haven't loaded anything, return an empty array
+		if (empty($plugins)) return $plugins;
 
 		// If anyone else wants to jump category, here is the chance.
 		HookRegistry::call('PluginRegistry::loadCategory', array(&$category, &$plugins));
 
 		// Register the plugins in sequence.
-		ksort($plugins);
 		foreach ($plugins as $seq => $junk1) {
 			foreach ($plugins[$seq] as $pluginPath => $junk2) {
 				PluginRegistry::register($category, $plugins[$seq][$pluginPath], $pluginPath);
@@ -119,6 +142,7 @@ class PluginRegistry {
 
 		// Return the list of successfully-registered plugins.
 		$plugins =& PluginRegistry::getPlugins($category);
+		ksort($plugins);
 		return $plugins;
 	}
 

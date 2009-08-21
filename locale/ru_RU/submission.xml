@@ -15,21 +15,23 @@
 <locale name="ru_RU" full_name = "Russian">
 	<message key="submission.abstractViews">Просм. аннотации</message>
 	<message key="submission.accepted">Принята</message>
-	<message key="submission.acknowledge">Утверждена</message>
-	<message key="submission.addSuppFile">Добавить файл</message>
+	<message key="submission.acknowledge">Получена</message>
+	<message key="submission.addSuppFile">Добавить сопровождающий файл</message>
 	<message key="submission.ask">Спросить</message>
 	<message key="submission.backToSubmissionEditing">Обратно к редакции статьи</message>
+	<message key="submission.changeComments">Заменить на</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Убрать этот комментарий?</message>
 	<message key="submission.comments.corrections">Исправления</message>
 	<message key="submission.comments.editComment">Править комментарий</message>
-	<message key="submission.comments.importPeerReviews">Импортировать спецрецензии</message>
+	<message key="submission.comments.importPeerReviews">Импортировать рецензии</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Рецензент {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">Нет комментариев</message>
 	<message key="submission.comments.noReviews">Нет рецензий</message>
 	<message key="submission.comments.review">Рецензия</message>
 	<message key="submission.comments.sendDecisionToReviewers">Послать рецензентам решение редактора</message>
-	<message key="submission.comments.subject">О чем</message>
+	<message key="submission.comments.subject">Тема</message>
 	<message key="submission.complete">Закончена</message>
 	<message key="submission.done">Готово</message>
 	<message key="submission.dueDate">Срок</message>
@@ -87,6 +89,8 @@
 	<message key="submission.layout.galleyLabelInstructions">Этикетка обычно содержит тип используемого формата (напр. HTML, PDF, DOC, PostScript).</message>
 	<message key="submission.layout.galleyLabel">Этикетка</message>
 	<message key="submission.layout.galleyLabelRequired">Нужна этикетка для формата.</message>
+	<message key="submission.layout.galleyLanguageRequired">Требуется указать язык формата.</message>
+	<message key="submission.layout.galleyLocaleRequired">Требуется указать язык формата.</message>
 	<message key="submission.layout.galleyNoImages">Нет картинок</message>
 	<message key="submission.layout.galleys">Форматы</message>
 	<message key="submission.layout.galleyStylesheet">Стилевые файлы</message>
@@ -125,7 +129,7 @@
 	<message key="submission.page.history">#{$id} История</message>
 	<message key="submission.page.review">#{$id} Рецензии</message>
 	<message key="submission.page.summary">#{$id} Резюме</message>
-	<message key="submission.peerReview">Спецрецензия</message>
+	<message key="submission.peerReview">Рецензия</message>
 	<message key="submission.recommendation">Рекомендации</message>
 	<message key="submission.rejected">Отказ</message>
 	<message key="submission.request">Запросы</message>

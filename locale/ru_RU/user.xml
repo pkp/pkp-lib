@@ -14,6 +14,7 @@
 
 <locale name="ru_RU" full_name = "Russian">
 	<message key="user.affiliation">Учреждение</message>
+	<message key="user.affiliation">Учреждения</message>
 	<message key="user.biography">Коротко о себе</message>
 	<message key="user.biography.description">(напр. кафедра и должность)</message>
 	<message key="user.changeMyPassword">Поменять пароль</message>
@@ -21,15 +22,21 @@
 	<message key="user.dateLastLogin">Посл. вход</message>
 	<message key="user.dateRegistered">Дата регистрации</message>
 	<message key="user.editMyProfile">Изменить профиль</message>
-	<message key="user.email">Мейл</message>
+	<message key="user.email">E-mail адрес</message>
 	<message key="user.fax">Факс</message>
+	<message key="user.feminine">Ж</message>
 	<message key="user.firstName">Имя</message>
-	<message key="user.initialsExample">Алексей Алексеевич Бородин = АAB</message>
+	<message key="user.gender">Пол</message>
+	<message key="user.initialsExample">Алексей Алексеевич Бородин = ААБ</message>
 	<message key="user.initials">Инициалы</message>
-	<message key="user.interests">Специалист по</message>
+	<message key="user.interests">Специализация</message>
 	<message key="user.lastName">Фамилия</message>
-	<message key="user.login.accountDisabledWithReason">Ваш акаунт деактивирован по следующим причинам: {$reason}</message>
-	<message key="user.login.accountDisabled">Ваш акаунт недействителен. Просьма связаться с администратором.</message>
+	<message key="user.profile.form.profileImageInvalid">Неверный формат графического файла либо он слишком большой. Поддерживаются файлы в форматах .gif, .jpg, или .png, размером не более 150x150 точек.</message>
+	<message key="user.login.accountDisabledWithReason">Ваша учетная запись деактивирована по следующим причинам: {$reason}</message>
+	<message key="user.login.accountDisabled">Ваша учетная запись недействительна. Просьба связаться с администратором.</message>
+	<message key="user.login.accountNotValidated">Ваш электронный адрес еще не был проверен. Пожалуйста проверьте свою почту и следуйте инструкциям в отправленном нами письме. Если Вы не получили письма, возможно Вам сможет помочь администратор сайта.</message>
+	<message key="user.login.activate">Активировать учетную запись</message>
+	<message key="user.login.activated">Спасибо за активацию Вашей учетной записи. Теперь Вы можете войти в систему, используя имя пользователя и пароль, заданные Вами при создании учетной записи.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Выберите новый пароль, прежде чем войти в Ваш акаунт.<br /><br />Пожалуйста, введите имя и Ваш старый пароль, чтобы поменять пароль.]]></message>
 	<message key="user.login.forgotPassword">Забыли Ваш пароль?</message>
 	<message key="user.login.loginError">Неправильный логин.</message>
@@ -39,29 +46,35 @@
 	<message key="user.login.lostPassword.invalidHash">Недействительный линк. Пожалуйста, затребуйте снова Ваш пароль.</message>
 	<message key="user.login.lostPassword.invalidUser">Нет пользователя с таким адресом.</message>
 	<message key="user.login.lostPassword.passwordSent">На Ваш адрес послан новый пароль. Вы можете использовать его для входа на сайт.</message>
-	<message key="user.login.registeredEmail">Мейл зарегистрирован другим пользователем</message>
+	<message key="user.login.registeredEmail">Адрес электронной почты зарегистрирован другим пользователем</message>
 	<message key="user.login.rememberUsernameAndPassword">Запомнить мой логин</message>
 	<message key="user.login.resetPassword">Послать пароль</message>
 	<message key="user.logOut">Выйти</message>
 	<message key="user.mailingAddress">Почтовый адрес</message>
+	<message key="user.masculine">М</message>
 	<message key="user.middleName">Отчество</message>
 	<message key="user.myAccount">Мой профиль</message>
 	<message key="user.name">Фамилия</message>
+	<message key="user.other">Иное</message>
 	<message key="user.password">Пароль</message>
 	<message key="user.phone">Телефон</message>
 	<message key="user.profile.changePasswordInstructions">Введите Ваш старый и новый пароли.</message>
-	<message key="user.profile.editProfile">Править профиль</message>
+	<message key="user.profile.editProfile">Профиль</message>
 	<message key="user.profile.form.emailRequired">Действительный адрес обязателен.</message>
 	<message key="user.profile.form.firstNameRequired">Имя обязательно.</message>
 	<message key="user.profile.form.lastNameRequired">Фамилия обязательна.</message>
 	<message key="user.profile.form.newPasswordRequired">Введите новый пароль.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Старый пароль неправилен.</message>
 	<message key="user.profile.form.passwordRequired">Пароль обязателен.</message>
+	<message key="user.profile.form.profileImage">Фото или аватар</message>
+	<message key="user.profile.form.publishedNotifications">Оповещение по E-mail о выходе новых выпусков</message>
+	<message key="user.profile.form.urlInvalid">Указанная ссылка неверна. Пожалуйста проверьте ее еще раз и попробуйте снова (подсказка: может быть в ее начало нужно добавить http://).</message>
 	<message key="user.profile.form.usernameRequired">Имя пользователя обязательно.</message>
 	<message key="user.profile.leavePasswordBlank">Не заполняйте поле, если хотите сохранить старый пароль.</message>
 	<message key="user.profile.newPassword">Новый пароль</message>
 	<message key="user.profile.oldPassword">Старый пароль</message>
 	<message key="user.profile">Профиль</message>
+	<message key="user.profile.publicProfile">Профиль пользователя</message>
 	<message key="user.profile.repeatNewPassword">Повторить новый пароль</message>
 	<message key="user.register.completeForm">Заполните эту форму, чтобы получить доступ к этому журналу.</message>
 	<message key="user.register.form.emailExists">Выбранный мейл используется другим членом сайта.</message>
@@ -79,8 +92,14 @@
 	<message key="user.role.siteAdmin">Администратор</message>
 	<message key="user.role.siteAdmins">Админ</message>
 	<message key="user.roles">Роли</message>
+	<message key="user.salutation">Приветствие</message>
+	<message key="user.sendPassword">Подтверждение</message>
+	<message key="user.sendPassword.description">Отправить подтверждение по электронной почте, содержащее имя пользователя и пароль.</message>
+	<message key="user.signature">Подпись</message>
 	<message key="user.title">Титул</message>
+	<message key="user.url">URL</message>
 	<message key="user.userHome">Моя страница</message>
-	<message key="user.username">Имя</message>
+	<message key="user.username">Имя пользователя</message>
 	<message key="user.workingLanguages">Рабочие языки</message>
+	<message key="user.register.completeForm">Заполните, пожалуйста, форму регистрации в этом журнале.</message>
 </locale>

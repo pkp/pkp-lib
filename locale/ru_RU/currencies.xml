@@ -83,7 +83,7 @@
 	<currency name="Песо Гвинея-Бисау" code_alpha="GWP" code_numeric="624" />
 	<currency name="Доллар Гайаны" code_alpha="GYD" code_numeric="328" />
 	<currency name="Гонконгский доллар" code_alpha="HKD" code_numeric="344" />
-	<currency name="Hryvnia" code_alpha="UAH" code_numeric="980" />
+	<currency name="Украинская гривня code_alpha="UAH" code_numeric="980" />
 	<currency name="Исландская крона" code_alpha="ISK" code_numeric="352" />
 	<currency name="Индийская рупия" code_alpha="INR" code_numeric="356" />
 	<currency name="Иранский риал" code_alpha="IRR" code_numeric="364" />
@@ -151,7 +151,7 @@
 	<currency name="Riel" code_alpha="KHR" code_numeric="116" />
 	<currency name="Rufiyaa" code_alpha="MVR" code_numeric="462" />
 	<currency name="Rupiah" code_alpha="IDR" code_numeric="360" />
-	<currency name="Russian Ruble" code_alpha="RUB" code_numeric="643" />
+	<currency name="Российский рубль" code_alpha="RUB" code_numeric="643" />
 	<currency name="Руандский франк" code_alpha="RWF" code_numeric="646" />
 	<currency name="Фунт Острова Святой Елены" code_alpha="SHP" code_numeric="654" />
 	<currency name="Саудовский риял" code_alpha="SAR" code_numeric="682" />

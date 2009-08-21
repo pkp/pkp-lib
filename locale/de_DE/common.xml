@@ -57,7 +57,7 @@
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
 	<message key="common.captchaField">Überprüfung</message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
-	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
+	<message key="common.chooseOne">Bitte wählen Sie aus</message>
 	<message key="common.close">Schließen</message>
 	<message key="common.closeWindow">Fenster schließen</message>
 	<message key="common.complete">Beenden</message>
@@ -130,7 +130,7 @@
 	<message key="common.removeSelection">Auswahl entfernen</message>
 	<message key="common.replaced">Ersetzt</message>
 	<message key="common.replaceFile">Datei ersetzen</message>
-	<message key="common.requiredField">Mit * gekennzeichnete Eingabefelder sind Pflichtfelder.</message>
+	<message key="common.requiredField">Mit * gekennzeichnete Eingabefelder sind Pflichtfelder</message>
 	<message key="common.required">Erforderlich</message>
 	<message key="common.saveAndContinue">Speichern und fortfahren</message>
 	<message key="common.saveAndEmail">Speichern und versenden</message>
@@ -269,4 +269,35 @@
 	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
+	<message key="common.re">Re:</message>
+	<message key="common.noComments">Keine Kommentare</message>
+	<message key="form.startsWith">beginnt mit</message>
+	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
+	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
+	<message key="notification.location">Gehe zu URL</message>
+	<message key="notification.mailList.emailInvalid">Bitte geben Sie eine gültige E-Mail-Adresse ein.</message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Beitrag einreichen</a>]]></message>
+	<message key="notification.notificationsNew">({$numNew} neu)</message>
+	<message key="notification.subscribe">Registrieren</message>
+	<message key="notification.subscribeSuccess">An die angegebene E.Mail-Adresse wurde eine Mail geschickt. Klicken Sie bitte auf den Bestätigungs-Link, damit Ihre Adresse zur Mailingliste hinzugefügt wird.</message>
+	<message key="notification.reminderSent">Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt</message>
+	<message key="notification.allow">Diese Arten von Benachrichtigungen dürfen in meinem Benachrichtigungs-Feed erscheinen.</message>
+	<message key="notification.email">Bitte eine E-Mail über diese Arten von Benachrichtigungen zuschicken.</message>
+	<message key="notification.mailList">Benachrichtigungs-Mailingliste</message>
+	<message key="notification.mailList.privacyProtection">Verfahren zum Schutz persönlicher Daten</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[Geschützten Inhalt <a href="{$subscribeUrl}">abonnieren</a>.]]></message>
+	<message key="notification.mailList.register">Sie können sich hier registrieren für ...</message>
+	<message key="notification.mailList.review"><![CDATA[Nehmen Sie am <a href="{$reviewUrl}">Begutachtungsprozess</a> teil]]></message>
+	<message key="notification.noneExist">Sie haben zurzeit keine Benachrichtungen.</message>
+	<message key="notification.notification">Benachrichtung</message>
+	<message key="notification.notifications">Benachrichtungen</message>
+	<message key="notification.notificationsDescription"><![CDATA[Sie haben {$unreadCount} ungelesene und {$readCount} gelesene Benachrichtungen.  <a href="{$settingsUrl}">Klicken Sie hier</a>, um Ihre Benachrichtungseinstellungen zu verändern.]]></message>
+	<message key="notification.settings">Benachrichtungseinstellungen</message>
+	<message key="notification.settingsDescription">Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Items führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden.</message>
+	<message key="notification.subscribeError">Ihre Mailadresse ist für die Benachrichtigungen bereits registriert.</message>
+	<message key="notification.reminderError">Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben.</message>
+	<message key="notification.unsubscribe">Austragen</message>
+	<message key="notification.unsubscribeDescription">Geben Sie bitte Ihre E-Mail-Adresse und Ihr Passwort ein, um keine weiteren Mail-Benachrichtigungen zu erhalten. Wenn Sie sich nicht an Ihr Passwort erinnern, lassen Sie das Feld bitte frei; es wird dann ein neues Passwort an die angegebene Mail-Adresse geschickt.</message>
+	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass sie die richtige E-Mail-Adresse und das richtige Passwort verwenden.</message>
+	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
 </locale>

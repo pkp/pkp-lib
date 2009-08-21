@@ -100,4 +100,5 @@
 	<message key="user.userHome">Persönliche Startseite</message>
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
+	<message key="user.other">Andere</message>
 </locale>

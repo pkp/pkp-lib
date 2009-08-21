@@ -41,7 +41,7 @@
 	<message key="common.addSelf">مرا اضافه کن</message>
 	<message key="common.all">همه</message>
 	<message key="common.alphaList">آ ب پ ت ث ج چ ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی</message>
-	<message key="common.alreadyAssigned">در حال حاضر منتسب شده</message>
+	<message key="common.alreadyAssigned">منتسب شده</message>
 	<message key="common.altText">متن جایگزین</message>
 	<message key="common.altTextInstructions">لطفا متن جایگزین این تصویر را وارد کنید تا برای کاربرانی که مرورگر متنی بکار میبرند نیز قابل رویت باشد</message>
 	<message key="common.and">و</message>
@@ -172,7 +172,7 @@
 	<message key="email.addCcRecipient">رونوشت</message>
 	<message key="email.addToRecipient">اضافه کردن گیرنده</message>
 	<message key="email.attachments">پیوست ها</message>
-	<message key="email.bcc">رونوشت محرمانه</message>
+	<message key="email.bcc">BCC</message>
 	<message key="email.bccSender">یک رونوشت از این پیام به آدرس من ({$address}) نیز ارسال کن.</message>
 	<message key="email.body">بدنه</message>
 	<message key="email.cc">رونوشت</message>
@@ -268,4 +268,60 @@
 	<message key="search.titleIndex">مرور اندکس عناوین</message>
 	<message key="search.title">عنوان</message>
 	<message key="search.typeMethodApproach">نوع ، روش یا راهکار</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+کار حاضر تحت لیسانس 
+		<a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">
+		Creative Commons Attribution 3.0
+		</a>
+		میباشد.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+کار حاضر تحت لیسانس 
+		<a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">
+		Creative Commons Attribution 3.0
+		</a>
+		میباشد.]]></message>
+	<message key="common.error.framesRequired"><![CDATA[این صفحه نیاز به فریم دارد. برای نسخه بدون فریم
+<a href="{$url}">
+اینجا
+</a>
+را کلیک کنید.]]></message>
+	<message key="common.re">پاسخ:</message>
+	<message key="common.manage">اداره</message>
+	<message key="common.noComments">بدون نظر</message>
+	<message key="form.startsWith">شروع با</message>
+	<message key="notification.allow">اجازه بده این انواع باخبر سازی در فید باخبر سازی من ظاهر شود.</message>
+	<message key="notification.confirmError">بروز خطا هنگام تایید اشتراک شما</message>
+	<message key="notification.confirmSuccess">شما مشترک شدید</message>
+	<message key="notification.email">جهت این گونه اطلاع رسانی برایم ایمیل بفرست</message>
+	<message key="notification.location">برو به آدرس</message>
+	<message key="notification.mailList">لیست های ایمیلی اطلاع رسانی</message>
+	<message key="notification.mailList.emailInvalid">لطفا یک ایمیل معتبر وارد کنید</message>
+	<message key="notification.mailList.privacyProtection">سیاست حفظ محرمانگی</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">مشترک شدن</a> برای محتوای محافظت شده.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">ارسال</a> مقاله]]></message>
+	<message key="notification.mailList.register">میتوانید در این سایت ثبت نام کنید تا...</message>
+	<message key="notification.mailList.review"><![CDATA[مشارکت در روند <a href="{$reviewUrl}">کارشناسی مقاله</a>]]></message>
+	<message key="notification.noneExist">در این هنگام هیچ موردی از اطلاع رسانی برایتان وجود ندارد</message>
+	<message key="notification.notification">اطلاع رسانی</message>
+	<message key="notification.notifications">اطلاع رسانی ها</message>
+	<message key="notification.notificationsNew">({$numNew} جدید)</message>
+	<message key="notification.notificationsDescription"><![CDATA[شما {$unreadCount} مورد اطلاع رسانی ناخوانده دارید و {$readCount} مورد خوانده شده.  <a href="{$settingsUrl}">اینجا را کلیک کنید</a> تا تنظیمات اطلاع رسانی خود را تغییر دهید..]]></message>
+	<message key="notification.settings">تنظیمات اطلاع رسانی</message>
+	<message key="notification.settingsDescription">لطفا ٰویدادی از سیستم را که مایلید در مورد آن اطلاع رسانی پیدا کنید انتخاب نمائید. عدم انتخاب یک رویداد سبب میگردد که اطاع رسانی آن در فید اطلاع رسانی شما ظاهر نشود.</message>
+	<message key="notification.subscribe">مشترک شدن</message>
+	<message key="notification.subscribeError">ایمیل شما قبلا برای اطلاع رسانی مشترک شده بود.</message>
+	<message key="notification.subscribeSuccess">ایمیلی به آدرس مشخص شده ارسال شد. لطفا در آن ایمیل بر روی لینک تایید کلیک کنید تا خود را به لیست ایمیلی اضافه کنید.</message>
+	<message key="notification.reminderError">بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده اید.</message>
+	<message key="notification.reminderSent">رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد.</message>
+	<message key="notification.unsubscribe">لغو اشتراک</message>
+	<message key="notification.unsubscribeDescription">آدرس ایمیل و رمز عبور خود را در پائین وارد کنید تا اشتراک خود را برای اطلاع رسانی از طریق ایمیل لغو کرده باشید. اگر رمز عبور خود را بیاد نمی آورید، رمز عبور را خالی بگذارید تا بدین رسیله رمز جدیدی برایتان ارسال شود.</message>
+	<message key="notification.unsubscribeError">بروز خطا هنگام لغو اشتراک شما. لطفا مطمئن شوید که آدرس ایمیل و رمز عبور را صحیح وارد کرده اید.</message>
+	<message key="notification.unsubscribeSuccess">لغو اشتراک با موفقیت انجام شد.</message>
 </locale>

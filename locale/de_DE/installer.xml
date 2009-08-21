@@ -69,4 +69,5 @@
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
 	<message key="installer.skipFilesDir">Überspringe das Anlegen der benötigten Unterverzeichnisse (nur in einer manuellen Installation sinnvoll).</message>
+	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
 </locale>

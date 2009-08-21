@@ -100,4 +100,6 @@
 	<message key="user.userHome">Uživatel</message>
 	<message key="user.username">Uživatelské jméno</message>
 	<message key="user.workingLanguages">Pracovní jazyky</message>
+	<message key="user.other">Jiný</message>
+	<message key="user.profile.form.profileImageInvalid">Neplatný formát obrázku profilu nebo příliš velký obrázek. Akceptované formáty jsou .gif, .jpg nebo .png a obrázek nesmí překročit 150x150 pixelů.</message>
 </locale>

@@ -68,7 +68,7 @@
 	<message key="manager.emails.form.subjectRequired">یک موضوع برای این ایمیل لازم است.</message>
 	<message key="manager.emails">ایمیل های از پیش آماده شده</message>
 	<message key="manager.emails.resetAll">برگرداندن تمام قالب ها به حالت نخست</message>
-	<message key="manager.emails.reset">برگشت به حالت اول</message>
+	<message key="manager.emails.reset">ری ست</message>
 	<message key="manager.emails.resetToDefault">برگرداندن به حالت نخست</message>
 	<message key="manager.filesBrowser">مرورگر فایلها</message>
 	<message key="manager.files.confirmDelete">آیا این فایل یا پوشه را حذف کنم ؟ دقت داشته باشید که یک پوشه باید قبل از حذف شدن خالی شده باشد</message>
@@ -126,7 +126,7 @@
 	<message key="manager.people.remove">حذف</message>
 	<message key="manager.people.saveAndCreateAnotherUser">دخیره  و ایجاد کاربر دیگر</message>
 	<message key="manager.people.signInAs">ورود به عنوان</message>
-	<message key="manager.people.signInAsUser">ورود به سیستم به عنوان این کاربر</message>
+	<message key="manager.people.signInAsUser">ورود به عنوان</message>
 	<message key="manager.people.syncUsers">هماهنگی اعطای نقش به کاربر</message>
 	<message key="manager.people.unenroll">عزل نقش</message>
 	<message key="manager.people.userCreatedSuccessfully">کاربر با موفقیت ایجاد شد</message>

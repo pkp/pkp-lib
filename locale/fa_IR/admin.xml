@@ -77,4 +77,9 @@
 	<message key="admin.version.updateAvailable">یک نسخه به جدید موجود است</message>
 	<message key="admin.version.upToDate">سیستم شما به روز است</message>
 	<message key="admin.version">نسخه</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[فایل پیکربندی شما با موفقیت بروزرسانی گردید. لطفا بیاد داشتهباشید که در صورت عدم کارکرد صحیح سایت ممکن است لازم شود که بطور دستی فایل <tt>config.inc.php</tt> را ویرایش کنید.]]></message>
+	<message key="admin.confirmExpireSessions">مطمئن هستید که میخواهید جلسه همه کاربران را منقضی کنید؟ در این صورت تمام کارانی که هم اکنون در سیستم هستند منجمله خودتان، خروج اجباری از سیستم پیدا میکنید.</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[محتوای فایل بروزرسانی شده پیکربندی شما در زیر نشان داده شده است. برای اعمال تغییرات باید فایل <tt>config.inc.php</tt> را در یک ویرایشگر متن مناسب باز کنید و محتوای آنرا با محتوای زیر عوض کنید.]]></message>
+	<message key="admin.settings.homeHeaderImageInvalid">فرمات نامناسب تصویر لوگوی سایت. فرمات های قابل قبول عبارتند از .gif, .jpg, or .png.</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[فایل پیکربندی <tt>config.inc.php</tt> وجود ندارد، قابل خواندن نیست و یا بی اعتبار است.]]></message>
 </locale>

@@ -59,7 +59,7 @@
 	<message key="submission.event.reviewer.reviewerUnassigned">Gutachter/in nicht länger für den Beitrag zuständig</message>
 	<message key="submission.event.reviewer.reviewFile">Begutachtungsdatei aktualisiert</message>
 	<message key="submission.event.reviewer.reviewInitiated">Begutachtung für Beitrag veranlasst</message>
-	<message key="submission.event.reviewer.reviewRecommendation">Datei mit Empfehlungen der Gutachterin/des Gutachters eingegangen</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Empfehlungen der Gutachterin/des Gutachters</message>
 	<message key="submission.event.reviewer.reviewReinitiated">Begutachtung für Beitrag erneut veranlasst</message>
 	<message key="submission.event.reviewer.reviewResubmitted">Begutachtung erneut vorgelegt</message>
 	<message key="submission.event.reviewer.reviewRevision">Bearbeitungsdatei der Gutachterin/des Gutachter aktualisiert</message>
@@ -104,7 +104,7 @@
 	<message key="submission.layout.noStyleFile">Dieser Fahne wurde keine Formatvorlage hinzugefügt.</message>
 	<message key="submission.layout.supplementaryFiles">Begutachtung der Zusatzdatei</message>
 	<message key="submission.layout.viewingGalley">Fahne anzeigen </message>
-	<message key="submission.layout.viewProof">Korrekturfahnen ansehen</message>
+	<message key="submission.layout.viewProof">Korrekturfahne ansehen</message>
 	<message key="submission.metadata">Metadaten des Beitrags</message>
 	<message key="submission.noReviewAssignments">Keine Begutachtungen</message>
 	<message key="submission.notes.addNewNote">Neue Anmerkung hinzufügen</message>
@@ -145,7 +145,7 @@
 	<message key="submissions.declined">Abgelehnt</message>
 	<message key="submissions.incomplete">Unvollständig</message>
 	<message key="submissions.noSubmissions">Keine Beiträge</message>
-	<message key="submissions.queuedEditing">Zur redaktionellen Bearbeitung anstehend</message>
+	<message key="submissions.queuedEditing">In redaktioneller Bearbeitung</message>
 	<message key="submissions.queued">Anstehend</message>
 	<message key="submissions.queuedUnassigned">Noch nicht zugewiesen</message>
 	<message key="submissions.ruling">Beschluss</message>

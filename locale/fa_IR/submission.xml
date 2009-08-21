@@ -28,11 +28,10 @@
 	<message key="submission.comments.importPeerReviews">درج نظرات کارشناسان</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">کارشناس {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">هیچ اظهار نظری نیست</message>
-	<message key="submission.comments.noReviews">هیچ کارشناسی موجود نیست</message>
+	<message key="submission.comments.noReviews">فاقد کارشناسی</message>
 	<message key="submission.comments.review">کارشناسی</message>
 	<message key="submission.comments.sendDecisionToReviewers">ارسال تصمیم دبیری برای کارشناسان</message>
 	<message key="submission.comments.subject">موضوع</message>
-	<message key="submission.comments.viewableDescription"><![CDATA[این نقطه نظرات میتواند در دسترس نویسنده قرار کیرد. <br />پس از ذخیره کرده نظرات دیگری نیز میتوان اضافه کرد.]]></message>
 	<message key="submission.complete">کامل</message>
 	<message key="submission.done">انجام شد</message>
 	<message key="submission.dueDate">مهلت</message>
@@ -43,7 +42,7 @@
 	<message key="submission.email.confirmClearLog">آیا میخواهید سوابق ایمیل این ساب میشن را حذف کنید؟</message>
 	<message key="submission.email.confirmDeleteLogEntry">آیا میخواهید این سابقه ایمیل را حذف کنید؟</message>
 	<message key="submission.email.deleteLogEntry">حذف سابقه</message>
-	<message key="submission.emailLog">سوابق ایمیل های مقاله</message>
+	<message key="submission.emailLog">سوابق ایمیل</message>
 	<message key="submission.event.backToEventLog">بازگشت به سابقه رویدادها</message>
 	<message key="submission.event.confirmClearLog">آیا میخواهید سوابق رویدادهای این ساب میشن را حذف کنید.</message>
 	<message key="submission.event.confirmDeleteLogEntry">آیا میخواهید این سابقه رویداد را از لیست حذف کنید؟</message>
@@ -72,7 +71,7 @@
 	<message key="submission.history.recentLogEntries">سوابق اخیر</message>
 	<message key="submission.history.submissionEmailLog">سوابق ایمیل ها</message>
 	<message key="submission.history.submissionEventLog">سوابق رویدادها</message>
-	<message key="submission.history.submissionNotes">یاداشت های ساب میشنSubmission Notes</message>
+	<message key="submission.history.submissionNotes">یاداشتهای ساب میشن</message>
 	<message key="submission.history.viewLog">مشاهده سوابق</message>
 	<message key="submission.indexing">نمایه</message>
 	<message key="submission.initiated">آغاز پردازش</message>
@@ -92,7 +91,7 @@
 	<message key="submission.layout.galleyLabelRequired">برچسبی برای این گالی لازم است</message>
 	<message key="submission.layout.galleyLanguageRequired">زبان تمام متن میبایست مشخص شود</message>
 	<message key="submission.layout.galleyLocaleRequired">زبان تمام متن میبایست مشخص شود</message>
-	<message key="submission.layout.galleyNoImages">هیچ تصویری برای این گالی تعیین نشده است</message>
+	<message key="submission.layout.galleyNoImages">فاقد تصویر</message>
 	<message key="submission.layout.galleys">Galleys</message>
 	<message key="submission.layout.galleyStylesheet">فایل استایل شیت</message>
 	<message key="submission.layout.galleyStyle">استایل</message>

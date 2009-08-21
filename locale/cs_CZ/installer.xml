@@ -69,4 +69,6 @@
 	<message key="installer.releaseNotes">Poznámky k vydání</message>
 	<message key="installer.securitySettings">Bezpečnostní nastavení</message>
 	<message key="installer.skipFilesDir">Nevytvářet požadované podadresáře (užitečné pouze při ruční instalaci)</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Chyba při rozebírání souboru šablony emailu <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">Označené soubory lokalizace mohou být nekompletní.</message>
 </locale>

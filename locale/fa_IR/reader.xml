@@ -56,14 +56,13 @@
 	<message key="rt.admin.settings.defineTerms">تعریف واژه ها. خوانندگان میتوانند با کلیک دوبل بر وری لغتها تعریف آنها را در دیکشنری هی آن لاین ببینند.</message>
 	<message key="rt.admin.settings.disableRelatedItems">غیر فعال شاختن موارد مربوطه</message>
 	<message key="rt.admin.settings.emailAuthor">ارسال ایمیل برای نویسنده. صفحه ارسال ایمیل باز میشود و ادرس نویسنده م موضوع ایمیل اتوماتیک وارد میشود.</message>
-	<message key="rt.admin.settings.emailOthers">اطلاع به همکار در مورد این مقاله. صفحه ایمیل باز میشود و متن از قبل آمادهشده ای نشان داده میشود. همچنین لینک مقاله نیز در آن درج میشود.</message>
+	<message key="rt.admin.settings.emailOthers">اطلاع به همکار. ایمیل باز میشود و متنی نشان داده میشود همراه با لینک مقاله.</message>
 	<message key="rt.admin.settings.findingReferences">یافتن مراجع</message>
 	<message key="rt.admin.settings.printerFriendly">نسخه چاپی. یک نسخه مناسب چاپ را نشان میدهد.</message>
 	<message key="rt.admin.settings.supplementaryFiles">فایل های الحاقی. لیست فایل های الخاقی تامین شده توسط نویسنده هنگاک ساب میشن را نشان میدهد.</message>
 	<message key="rt.admin.settings.viewMetadata">اندکس کردن متاداده. اندکس متاداده تامین شده توسط نویسنده یا سیستم را نشان میدهد.</message>
 	<message key="rt.admin.status">وصعیت</message>
 	<message key="rt.admin.validateUrls.complete">تعیین اعتبار کامل شد.</message>
-	<message key="rt.admin.validateUrls.description"><![CDATA[URLs احتمالا اشتباه برای سایت های جستجو در زیر نشان داده شده است.<br/>هرکدام را که به عنوان غلط مشخص شده است ولی مطمئن هستید که درست است مشخص کنید چرا که این تست ممکن است کاملا درست نباشد.<br/>تعیین اعتبار در مورد URLs که  نیاز به ارسال داده به صورت فرم دارد ممکن است بدرستی عمل نکند.]]></message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} معتبر نیست.</message>
 	<message key="rt.admin.validateUrls">تعیین اعتبار URLs برای ابزار های خواندن</message>
@@ -157,4 +156,22 @@
 	<message key="rt.version.title">عنوان</message>
 	<message key="rt.version">نسخه</message>
 	<message key="rt.viewMetadata">اندکس متاداده</message>
+	<message key="comments.titleRequired">عنوان برای نظر دهی لازم است.</message>
+	<message key="comments.confirmDeleteChildren">با حذف این نظر دهی تمام پاسخ های آن نیز حذف میشود. آیا مطمئن هستید؟</message>
+	<message key="rt.admin.sharing">شراکت</message>
+	<message key="rt.admin.sharing.enabled">فعال شازی شراکت</message>
+	<message key="rt.admin.sharing.description"><![CDATA[برای اینکه خوانندکان بتوانند مقالاتی به شراکت بگذارند یک حساب کاربری از <a href="http://addthis.com">addthis.com</a> و بگیرید . کد دکمه شراکت را در زیر کپی کنید.]]></message>
+	<message key="rt.admin.sharing.basic">تنظیمات پایه</message>
+	<message key="rt.admin.sharing.userNameLabel">نام کاربری AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">سبک دکمه</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">استفاده از منوی کشوئی پائین کشیدنی</message>
+	<message key="rt.admin.sharing.advanced">تنظیمات پیشرفته. اختیاری</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[به عوان مرجع نگاه کنید به <a href="http://www.addthis.com/help/customize/custom-button/">دستورالعمل های سایت AddThis.com </a>.]]></message>
+	<message key="rt.admin.sharing.brandLabel">مارک</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[گزینه های منوی پائین گشیدنی <br /> به صورت لیستی از کلمات جدا شده با کوما]]></message>
+	<message key="rt.admin.sharing.languageLabel">زبان</message>
+	<message key="rt.admin.sharing.logolabel">لوگو</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">زمینه لوگو</message>
+	<message key="rt.admin.sharing.logoColorLabel">رنگ لوگو</message>
+	<message key="rt.admin.configureSharing">پیکربندی AddThis</message>
 </locale>

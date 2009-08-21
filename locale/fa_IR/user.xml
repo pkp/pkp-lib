@@ -28,7 +28,7 @@
 	<message key="user.firstName">نام</message>
 	<message key="user.gender">جنس</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
-	<message key="user.initials">حروف اول نام و نام خانوادگی</message>
+	<message key="user.initials">اختصار</message>
 	<message key="user.interests">زمینه های کارشناسی</message>
 	<message key="user.lastName">نام خانوادگی</message>
 	<message key="user.login.accountDisabledWithReason">حساب شما به دلیل زیر غیر فعال شده است: {$reason}</message>
@@ -99,4 +99,7 @@
 	<message key="user.userHome">آغازه کاربر</message>
 	<message key="user.username">نام کاربری</message>
 	<message key="user.workingLanguages">زبانهای کاربردی</message>
+	<message key="user.profile.form.profileImageInvalid">فرمات نامناسب تصویر پروفایل و یا تصویر بسیار بزرگ. فرماتهای قابل قبول عبارتند از .gif, .jpg, or .png و اندازه تصویر نباید از ۱۵۰ × ۱۵۰ پیکسل بیشتر باشد.</message>
+	<message key="user.other">غیره</message>
+	<message key="user.profile.form.urlInvalid">آدرس وارد شده بی اعتبار است. پس از بررسی دوباره امتحان کنید. نکته: http:// را به ابتدای آدرس بیافزائید.</message>
 </locale>

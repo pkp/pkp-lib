@@ -91,7 +91,7 @@
 	<message key="submission.layout.galleyLabelRequired">Απαιτείται ετικέτα Τυπογραφικού Δοκιμίου .</message>
 	<message key="submission.layout.galleyLanguageRequired">Απαιτείται ο ορισμός μιας γλώσσας για το Τυπογραφικό Δοκίμιο.</message>
 	<message key="submission.layout.galleyLocaleRequired">Απαιτείται μια τοπική ρύθμιση (locale) για το Τυπογραφικό Δοκίμιο.</message>
-	<message key="submission.layout.galleyNoImages"> Καμία εικόνα δεν έχει προστεθεί σε αυτό το  Τυπογραφικό Δοκίμιο.</message>
+	<message key="submission.layout.galleyNoImages">Καμία εικόνα δεν έχει προστεθεί σε αυτό το  Τυπογραφικό Δοκίμιο.</message>
 	<message key="submission.layout.galleys">Τυπογραφικά Δοκίμια</message>
 	<message key="submission.layout.galleyStylesheet">Αρχείο StyleSheet</message>
 	<message key="submission.layout.galleyStyle">Στυλ</message>

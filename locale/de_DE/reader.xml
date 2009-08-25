@@ -164,4 +164,14 @@
 	<message key="rt.admin.sharing.advanced">Erweiterte Einstellungen (optional)</message>
 	<message key="rt.admin.sharing.customizationLink"><![CDATA[Siehe die <a href="http://www.addthis.com/help/customize/custom-button/">Dokumentation zur AddThis.coma-Anpassung</a> für Hinweise.]]></message>
 	<message key="rt.admin.configureSharing">AddThis konfigurieren</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-Hintergrund</message>
+	<message key="rt.admin.sharing.logoColorLabel">Logo-Farbe</message>
+	<message key="rt.admin.sharing">Gemeinsamer Dateizugriff</message>
+	<message key="rt.admin.sharing.enabled">Gemeinsamer Dateizugriff aktiviert</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen den gemeinsamen Dateizugriff auf Zeitschriftenartikel zu ermöglichen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für gemeinsamen Dateizugriff kopieren/einfügen.]]></message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Art des Buttons</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Drop-down-Menü verwenden</message>
+	<message key="rt.admin.sharing.brandLabel">Marke</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Komma trennen)]]></message>
 </locale>

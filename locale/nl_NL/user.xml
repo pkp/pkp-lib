@@ -100,4 +100,6 @@
 	<message key="user.userHome">Gebruiker home</message>
 	<message key="user.username">Gebruikersnaam</message>
 	<message key="user.workingLanguages">Talen</message>
+	<message key="user.other">Ander</message>
+	<message key="user.profile.form.profileImageInvalid">Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels.</message>
 </locale>

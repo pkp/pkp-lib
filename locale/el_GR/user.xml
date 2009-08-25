@@ -100,4 +100,6 @@
 	<message key="user.userHome">Αρχική Σελίδα Χρήστη</message>
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Γλώσσες εργασίας</message>
+	<message key="user.profile.form.profileImageInvalid">Μη έγκυρη μορφή αρχείου εικόνας ή πολύ μεγάλη εικόνα. Επιτρεπτές μορφές αρχείων είναι .gif, .jpg, .png, και το μέγεθος της εικόνας να μην υπερβαίνει τα 150x150 pixels.</message>
+	<message key="user.other">Άλλα</message>
 </locale>

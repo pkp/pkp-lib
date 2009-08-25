@@ -70,4 +70,5 @@
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
 	<message key="installer.skipFilesDir">Überspringe das Anlegen der benötigten Unterverzeichnisse (nur in einer manuellen Installation sinnvoll).</message>
 	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Parsing-Fehler bei der E-Mail-Vorlagen-Datei <tt>{$file}</tt>.]]></message>
 </locale>

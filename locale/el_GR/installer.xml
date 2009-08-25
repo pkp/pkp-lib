@@ -69,4 +69,6 @@
 	<message key="installer.releaseNotes">Σημιεώσεις έκδοσης</message>
 	<message key="installer.securitySettings">Ρυθμίσεις ασφαλείας</message>
 	<message key="installer.skipFilesDir">Μη δημιουργείτε τους απαιτούμενος φακέλους (directories) (είναι χρήσιμο μόνο για μη αυτόματη εγκατάσταση)</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">Οι επιλεγμένες τοπικές ρυθμίσεις μπορεί να μην είναι ολοκλήρωμένες</message>
 </locale>

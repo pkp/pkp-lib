@@ -269,4 +269,48 @@
 	<message key="search.titleIndex">Blader door de titelindex</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Type (methode/benadering)</message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Beheer</message>
+	<message key="common.noComments">Geen commentaren</message>
+	<message key="form.startsWith">begint met</message>
+	<message key="notification.allow">Toon deze soorten attenderingen in uw attenderingenlijst</message>
+	<message key="notification.confirmError">Er is een fout opgetreden bij het bevestigen van uw abonnement.</message>
+	<message key="notification.confirmSuccess">U bent met succes geabonneerd</message>
+	<message key="notification.email">Stuur me een e-mail voor deze soorten attenderingen.</message>
+	<message key="notification.location">Ga naar URL</message>
+	<message key="notification.mailList">Attenderingsverzendlijst</message>
+	<message key="notification.mailList.emailInvalid">Voer een geldig e-mail adres in.</message>
+	<message key="notification.mailList.privacyProtection">Beleid voor privacybescherming</message>
+	<message key="notification.mailList.register">U kunt bij deze site registreren om...</message>
+	<message key="notification.noneExist">U heeft momenteel geen attenderingen</message>
+	<message key="notification.notification">Attendering</message>
+	<message key="notification.notifications">Attenderingen</message>
+	<message key="notification.settings">Attenderingsinstellingen</message>
+	<message key="notification.subscribe">Abonneer</message>
+	<message key="notification.subscribeError">Uw e-mail adres heeft al abonnementen op attenderingen</message>
+	<message key="notification.reminderError">Er is een fout opgetreden bij het verzenden van uw wachtwoord. Controleer het e-mail adres dat u hebt opgegeven.</message>
+	<message key="notification.reminderSent">Uw nieuwe wachtwoord is verstuurd naar het opgegeven e-mail adres.</message>
+	<message key="notification.unsubscribe">Abonnement opzeggen.</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		 Dit werk heeft een <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  licentie</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Dit werk heeft een <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 licentie</a>.
+	</div>]]></message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonneer</a> op beschermd materiaal.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Stuur</a> een artikel in.]]></message>
+	<message key="notification.mailList.review"><![CDATA[Neem deel aan het <a href="{$reviewUrl}">peer review</a> proces]]></message>
+	<message key="notification.notificationsNew">({$numNew} nieuw)</message>
+	<message key="notification.notificationsDescription"><![CDATA[U heeft {$unreadCount} ongelezen attenderingen en {$readCount} gelezen attenderingen.  <a href="{$settingsUrl}">Klik hier</a> om uw addenderingsinstellingen te veranderen.]]></message>
+	<message key="notification.settingsDescription">Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken van een onderdeel voorkomt attenderingen daarop.</message>
+	<message key="notification.subscribeSuccess">Er is een e-mail verstuurd naar het opgegeven adres. Klik op de bevestigings-link in de e-mail om uzelf aan de maillijst toe te voegen.</message>
+	<message key="notification.unsubscribeDescription">Geef uw e-mail adres en wachtwoord hieronder om u af te melden voor e-mail attenderingen. Als u uw wachtword niet meer weet, laat dan het wachtwoordveld leeg. Er wordt dan een nieuw wachtwoord verstuurd naar het opgegeven e-mail adres.</message>
+	<message key="notification.unsubscribeError">Er is iets misgegaan bij het afmelden. Vergewis u ervan dat uw e-mail adres en wachtwoord correct zijn</message>
+	<message key="notification.unsubscribeSuccess">U bent met succes afgemeld</message>
 </locale>

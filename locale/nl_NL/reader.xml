@@ -157,4 +157,20 @@
 	<message key="rt.version.title">Titel</message>
 	<message key="rt.version">Versie</message>
 	<message key="rt.viewMetadata">Indexeren van metadata</message>
+	<message key="rt.admin.sharing.advanced">Geavanceerde instellingen (optioneel)</message>
+	<message key="rt.admin.sharing.brandLabel">Merk</message>
+	<message key="rt.admin.sharing.languageLabel">Taal</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-achtergrond</message>
+	<message key="rt.admin.sharing.logoColorLabel">Logo kleur</message>
+	<message key="comments.titleRequired">Een titel is verplicht</message>
+	<message key="rt.admin.sharing">Delen</message>
+	<message key="rt.admin.sharing.enabled">Delen ingeschakeld</message>
+	<message key="rt.admin.sharing.basic">Basisinstellingen</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Knop-stijl</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Gebruik drop-down menu</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down opties <br /> (lijst met komma's als scheider)]]></message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com gebruikersnaam</message>
+	<message key="rt.admin.configureSharing">Configureer AddThis</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[SZie de <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> voor naslag.]]></message>
 </locale>

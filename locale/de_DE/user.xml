@@ -101,4 +101,5 @@
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
 	<message key="user.other">Andere</message>
+	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild sollte eine Größe von 150x150 Pixel nicht überschreiten.</message>
 </locale>

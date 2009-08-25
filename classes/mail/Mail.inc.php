@@ -122,6 +122,22 @@ class Mail extends DataObject {
 	}
 
 	/**
+	 * If no recipients for this message, promote CC'd accounts to
+	 * recipients. If recipients exist, no effect.
+	 * @return boolean true iff CCs were promoted
+	 */
+	function promoteCcsIfNoRecipients() {
+		$ccs = $this->getCcs();
+		$recipients = $this->getRecipients();
+		if (empty($recipients)) {
+			$this->setRecipients($ccs);
+			$this->setCcs(array());
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Clear all recipients for this message (To, CC, and BCC).
 	 */
 	function clearAllRecipients() {

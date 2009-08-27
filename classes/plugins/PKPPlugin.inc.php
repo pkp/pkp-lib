@@ -137,6 +137,15 @@ class PKPPlugin {
 	}
 
 	/**
+	 * Determine whether or not this plugin should be hidden from the
+	 * management interface. Useful in the case of derivative plugins,
+	 * i.e. when a generic plugin registers a feed plugin.
+	 */
+	function getHideManagement() {
+		return false;
+	}
+
+	/**
 	 * Get the name of this plugin. The name must be unique within
 	 * its category, and should be suitable for part of a filename
 	 * (ie short, no spaces, and no dependencies on cases being unique).

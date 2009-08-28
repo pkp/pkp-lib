@@ -78,4 +78,7 @@
 	<message key="admin.version.updateAvailable">新バージョンが利用できます</message>
 	<message key="admin.version.upToDate">このシステムは最新版です</message>
 	<message key="admin.version">バージョン</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[設定ファイル <tt>config.inc.php</tt> が存在しないか，読み込めない，あるいは無効です。]]></message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[アップデートされる設定内容は下記のとおりです。設定の変更を適用するために <tt>config.inc.php</tt> をテキストエディタで開き，下記のテキストフィールドの記述と置き換えてください。]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[基本となるOSとサーバソフトウェアのバージョン。このサーバの詳細なPHP環境設定を見るには, <span class="highlight">PHP環境設定情報</span>をクリックしてください。]]></message>
 </locale>

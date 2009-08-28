@@ -269,4 +269,46 @@
 	<message key="search.titleIndex">タイトルインデックスをブラウズ</message>
 	<message key="search.title">タイトル</message>
 	<message key="search.typeMethodApproach">種別（方法/アプローチ）</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		この資料のライセンスは <a rel=""license"" href=""http://creativecommons.org/licenses/by/3.0/"" target=""_new"">Creative Commons Attribution 3.0 License</a> です。]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		この資料のライセンスは <a rel=""license"" href=""http://creativecommons.org/licenses/by/3.0/"" target=""_new"">Creative Commons Attribution 3.0 License</a> です。
+	</div>]]></message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">管理</message>
+	<message key="notification.settings">通知設定</message>
+	<message key="notification.settingsDescription">通知を必要とするシステムイベントを選択してください。チェックをしていない項目は通知フィードにはあらわれません。</message>
+	<message key="notification.subscribeError">あなたのメールアドレスはすでに通知登録がされています。</message>
+	<message key="notification.subscribeSuccess">あたなが指定したメールアドレスにメールが送られます。メールに記載されている確認のためのリンクをクリックして自分でメーリングリストに追加してください。</message>
+	<message key="notification.reminderError">入力されたパスワードに誤りがあります。正確にメールアドレスを入力してください。</message>
+	<message key="notification.reminderSent">新しいパスワードが登録されているメールアドレス宛てに送信されました。</message>
+	<message key="notification.unsubscribe">配信停止</message>
+	<message key="notification.unsubscribeDescription">下記にあなたのメールアドレスとパスワードを入力すると通知メールを停止します。もしパスワードを忘れてしまった場合は，パスワードの欄を空白にしておくと新しいパスワードが登録されているメールアドレスに届きます。</message>
+	<message key="notification.unsubscribeError">配信停止手続きでエラーが発生しました。あなたのメールアドレスとパスワードが正しいかどうか確認してください。</message>
+	<message key="notification.unsubscribeSuccess">正常に配信停止手続きが完了しました。</message>
+	<message key="notification.allow">これらの通知を通知フィードに表示させる。</message>
+	<message key="notification.confirmError">登録確認でエラーが発生しました。</message>
+	<message key="notification.confirmSuccess">正常に登録されました。</message>
+	<message key="notification.email">これらの通知をメールで通知する。</message>
+	<message key="notification.mailList">通知メーリングリスト</message>
+	<message key="notification.mailList.emailInvalid">有効なメールアドレスを入力してください。</message>
+	<message key="notification.mailList.privacyProtection">プライバシー保護ポリシー</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[制限コンテンツを<a href="{$subscribeUrl}">購読</a>する。]]></message>
+	<message key="notification.mailList.submit"><![CDATA[論文を <a href="{$submitUrl}">投稿</a>する。]]></message>
+	<message key="notification.mailList.review"><![CDATA[<a href="{$reviewUrl}">査読</a> プロセスに参加する。]]></message>
+	<message key="notification.noneExist">現在は通知がありません。</message>
+	<message key="notification.notification">通知</message>
+	<message key="notification.notifications">通知</message>
+	<message key="notification.notificationsDescription"><![CDATA[未読通知が {$unreadCount} 件，既読通知が {$readCount} あります。ここをクリックすれば</a>通知設定が変更できます。<a href="{$settingsUrl}">]]></message>
+	<message key="notification.subscribe">登録</message>
+	<message key="notification.location">URL 参照</message>
+	<message key="form.startsWith">で始まる</message>
+	<message key="notification.notificationsNew">(新規 {$numNew})</message>
 </locale>

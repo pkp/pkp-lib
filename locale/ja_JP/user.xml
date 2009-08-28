@@ -99,4 +99,7 @@
 	<message key="user.userHome">ユーザホーム</message>
 	<message key="user.username">ユーザ名</message>
 	<message key="user.workingLanguages">使用言語</message>
+	<message key="user.profile.form.profileImageInvalid">無効な画像フォーマットか画像サイズが大きすぎます。[gif], [jpg], [png]フォーマットで 150x150 pixel を越えない画像でなければなりません。</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[このサイトにログインする前に新しいパスワードを選んでください。<br /><br />あたらしいユーザ名と現在のパスワードと新しいパスワードを入力してアカウントのパスワードを変更してください。]]></message>
+	<message key="user.other">その他</message>
 </locale>

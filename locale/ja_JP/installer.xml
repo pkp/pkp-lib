@@ -69,4 +69,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[データベースインストールファイル <tt>{$file}</tt> のパースエラー。]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[メールテンプレートファイル <tt>{$file}</tt> のパースエラー。]]></message>
 	<message key="installer.installFileError"><![CDATA[インストールファイル<tt>dbscripts/xml/install.xml</tt> が存在しない，または読み込めません。]]></message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[識別子は <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting (OAI-PMH) を使用してサイトからメタデータをインデクスする際に識別するために使用されます。]]></message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>括弧中に挙げたデータベースドライバは必要となるPHP拡張を持っていないようなので，それらを選択した場合にはインストールが失敗するだろう．</strong><br />これら未サポートのデータベースドライバは単に理論的な目的で紹介されているだけにすぎず，動作はしないだろう．]]></message>
 </locale>

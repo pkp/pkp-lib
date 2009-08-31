@@ -23,7 +23,7 @@
 ]>
 
 <currencies locale="ja_JP">
-	<currency name="アフガニ" code_alpha="AFN" code_numeric="971" />
+	<currency name="アフガニスタン" code_alpha="AFN" code_numeric="971" />
 	<currency name="アルジェリア・ディナール" code_alpha="DZD" code_numeric="12" />
 	<currency name="アルゼンチン・ペソ" code_alpha="ARS" code_numeric="32" />
 	<currency name="アルメニア・ドラム" code_alpha="AMD" code_numeric="51" />

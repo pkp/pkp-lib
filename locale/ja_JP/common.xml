@@ -27,7 +27,7 @@
 	<message key="announcement.announcements">お知らせ</message>
 	<message key="announcement.announcementsHome">お知らせ</message>
 	<message key="announcement.moreAnnouncements">その他のお知らせ...</message>
-	<message key="announcement.noneExist">お知らせはありません。.</message>
+	<message key="announcement.noneExist">お知らせはありません。</message>
 	<message key="announcement.posted">投稿済</message>
 	<message key="announcement.viewLink">その他...</message>
 	<message key="announcement.view">お知らせを閲覧</message>
@@ -164,9 +164,9 @@
 	<message key="debug.databaseQueries">データベースクエリーの数</message>
 	<message key="debug.executionTime">以下で生成されたページ</message>
 	<message key="debug.memoryUsage">メモリ使用量</message>
-	<message key="debug.notes.localeListLoad">XMLからロードされた言語リスト &quot;{$localeList}&quot;</message>
-	<message key="debug.notes.localeLoad">XMLからロードされた言語ファイル &quot;{$localeFile}&quot;</message>
-	<message key="debug.notes.missingLocaleKey">不明な言語キー &quot;{$key}&quot;。</message>
+	<message key="debug.notes.localeListLoad">XMLからロードされた言語リスト "{$localeList}"</message>
+	<message key="debug.notes.localeLoad">XMLからロードされた言語ファイル "{$localeFile}"</message>
+	<message key="debug.notes.missingLocaleKey">不明な言語キー "{$key}"。</message>
 	<message key="debug.notes">注:</message>
 	<message key="email.addAttachment">添付ファイルを追加</message>
 	<message key="email.addBccRecipient">BCCを追加</message>
@@ -306,9 +306,11 @@
 	<message key="notification.noneExist">現在は通知がありません。</message>
 	<message key="notification.notification">通知</message>
 	<message key="notification.notifications">通知</message>
-	<message key="notification.notificationsDescription"><![CDATA[未読通知が {$unreadCount} 件，既読通知が {$readCount} あります。ここをクリックすれば</a>通知設定が変更できます。<a href="{$settingsUrl}">]]></message>
+	<message key="notification.notificationsDescription"><![CDATA[未読通知が {$unreadCount} 件，既読通知が {$readCount} あります。<a href="{$settingsUrl}">ここ</a>をクリックすれば通知設定が変更できます。]]></message>
 	<message key="notification.subscribe">登録</message>
 	<message key="notification.location">URL 参照</message>
 	<message key="form.startsWith">で始まる</message>
 	<message key="notification.notificationsNew">(新規 {$numNew})</message>
+	<message key="common.noComments">コメントなし</message>
+	<message key="notification.mailList.register">このサイトで次の登録ができます。</message>
 </locale>

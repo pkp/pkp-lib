@@ -64,7 +64,6 @@
 	<message key="rt.admin.settings.viewMetadata">Indexer les métadonnées (affiche les métadonnées d'indexation fournies par l'auteur et le système pour un article)</message>
 	<message key="rt.admin.status">État</message>
 	<message key="rt.admin.validateUrls.complete">Validation terminée.</message>
-	<message key="rt.admin.validateUrls.description"><![CDATA[Des URLs peut-être non valides pour des sites de recherche sont affichés ci-dessous.<br/> Vous devez manuellement vérifier toute adresse URL désignée non valide, car cette conclusion pourrait être erronée.<br/> La validation peut échouer dans le cas d'adresses URL dont les données de formulaire doivent être affichées.]]></message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} n'est pas valide.</message>
 	<message key="rt.admin.validateUrls">Valider les adresses URL pour les outils de lecture</message>

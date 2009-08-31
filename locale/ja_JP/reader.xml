@@ -165,4 +165,13 @@
 	<message key="comments.titleRequired">コメントタイトルが必要です。</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com のユーザ名</message>
 	<message key="rt.admin.sharing.customizationLink"><![CDATA[<a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> を参照してください。]]></message>
+	<message key="rt.admin.sharing">共有</message>
+	<message key="rt.admin.sharing.enabled">共有を有効にする</message>
+	<message key="rt.admin.sharing.description"><![CDATA[読者による雑誌論文の共有を可能にするために，<a href="http://addthis.com">addthis.com</a> でアカウントを作成して，下記の共有ボタンコードをコピーおよび貼り付けてください。]]></message>
+	<message key="rt.admin.sharing.brandLabel">ブランド</message>
+	<message key="rt.admin.sharing.dropDownLabel">ドロップダウン</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">ロゴの背景</message>
+	<message key="rt.admin.configureSharing">AddThis 設定</message>
+	<message key="comments.inResponseTo"><![CDATA[<a href="{$url}">{$title}</a> への反応]]></message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[ユーザが選択した単語をデフォルトの検索語として使い，もしユーザが何も選択してない場合には[このコンテキストが表示されるスペース]ブランクにしておく．（例えば，「語の定義」コンテキストのために．）単語をダブルクリックしたときに「語の定義」コンテキストが表示されるようにするには，「<a href="{$settingsUrl}">読書ツールオプション</a>」で有効にしておかないといけない．]]></message>
 </locale>

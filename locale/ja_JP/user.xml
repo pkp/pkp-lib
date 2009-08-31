@@ -80,7 +80,7 @@
 	<message key="user.register.form.usernameAlphaNumeric">ユーザ名に使用できる文字は、英数字とアンダーバー "_"、ハイフン "-" だけです。また、最初と最後の文字は英数字でなければなりません。</message>
 	<message key="user.register.form.usernameExists">指定されたユーザ名は既に使用されています。</message>
 	<message key="user.register.passwordLengthRestriction">パスワードは少なくとも{$length} 文字以上必要です。</message>
-	<message key="user.register.registerAs">役割</message>
+	<message key="user.register.registerAs">登録ユーザの役割</message>
 	<message key="user.register">登録</message>
 	<message key="user.register.usernameRestriction">ユーザ名に使えるのは、英小文字と数字、ハイフンとアンダーバーだけです。</message>
 	<message key="user.role.reader">読者</message>

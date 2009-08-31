@@ -19,7 +19,7 @@
 	<message key="comments.confirmDeleteChildren">Mit diesem Kommentar löschen Sie auch alle Antworten. Sind Sie sicher, dass Sie ihn löschen wollen?</message>
 	<message key="comments.delete">Diesen Kommentar löschen</message>
 	<message key="comments.email">E-Mail-Adresse</message>
-	<message key="comments.emailReply">Antworten Sie per E-Mail</message>
+	<message key="comments.emailReply">Antworten Sie per E-Mail.</message>
 	<message key="comments.enterComment">Kommentar eingeben</message>
 	<message key="comments.inResponseTo">Antwort auf <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
 	<message key="comments.name">Name</message>

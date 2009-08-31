@@ -57,7 +57,7 @@
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
 	<message key="common.captchaField">Überprüfung</message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
-	<message key="common.chooseOne">Bitte wählen Sie aus</message>
+	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
 	<message key="common.close">Schließen</message>
 	<message key="common.closeWindow">Fenster schließen</message>
 	<message key="common.complete">Beenden</message>
@@ -130,7 +130,7 @@
 	<message key="common.removeSelection">Auswahl entfernen</message>
 	<message key="common.replaced">Ersetzt</message>
 	<message key="common.replaceFile">Datei ersetzen</message>
-	<message key="common.requiredField">Mit * gekennzeichnete Eingabefelder sind Pflichtfelder</message>
+	<message key="common.requiredField">Mit * gekennzeichnete Eingabefelder sind Pflichtfelder.</message>
 	<message key="common.required">Erforderlich</message>
 	<message key="common.saveAndContinue">Speichern und fortfahren</message>
 	<message key="common.saveAndEmail">Speichern und versenden</message>

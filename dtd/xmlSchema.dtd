@@ -27,6 +27,7 @@
 	  *   C - varchar
 	  *  C2 - Multibyte varchar
 	  *   X - CLOB (character large object) or largest varchar size if CLOB is not supported
+	  *  XL - For Oracle, returns CLOB, otherwise the largest varchar size.
 	  *  X2 - Multibyte CLOB
 	  *   B - BLOB (binary large object)
 	  *   D - Date (some databases do not support this, and we return a datetime type)

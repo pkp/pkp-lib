@@ -1,6 +1,6 @@
 <?php
 /* 
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
+v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -35,6 +35,7 @@ class  ADODB_ado_mssql extends ADODB_ado {
 	var $ansiOuter = true; // for mssql7 or later
 	var $substr = "substring";
 	var $length = 'len';
+	var $_dropSeqSQL = "drop table %s";
 	
 	//var $_inTransaction = 1; // always open recordsets, so no transaction problems.
 	
@@ -45,7 +46,7 @@ class  ADODB_ado_mssql extends ADODB_ado {
 	
 	function _insertid()
 	{
-	        return $this->GetOne('select @@identity');
+	        return $this->GetOne('select SCOPE_IDENTITY()');
 	}
 	
 	function _affectedrows()
@@ -62,6 +63,12 @@ class  ADODB_ado_mssql extends ADODB_ado {
 		}
 		if (!stristr($transaction_mode,'isolation')) $transaction_mode = 'ISOLATION LEVEL '.$transaction_mode;
 		$this->Execute("SET TRANSACTION ".$transaction_mode);
+	}
+	
+	function qstr($s,$magic_quotes=false)
+	{
+		$s = ADOConnection::qstr($s, $magic_quotes);
+		return str_replace("\0", "\\\\000", $s);
 	}
 	
 	function MetaColumns($table)

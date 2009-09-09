@@ -1,6 +1,6 @@
 <?php
 /* 
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
+v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. See License.txt. 
@@ -18,6 +18,9 @@ V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights rese
 
 if (!defined('ADODB_DIR')) include_once(dirname(__FILE__).'/adodb.inc.php');
 include_once(ADODB_DIR.'/tohtml.inc.php');
+
+global $ADODB_PERF_MIN;
+$ADODB_PERF_MIN = 0.05; // log only if >= minimum number of secs to run
 
 define( 'ADODB_OPT_HIGH', 2);
 define( 'ADODB_OPT_LOW', 1);
@@ -62,16 +65,28 @@ function adodb_microtime()
 }
 
 /* sql code timing */
-function& adodb_log_sql(&$conn,$sql,$inputarr)
+function& adodb_log_sql(&$connx,$sql,$inputarr)
 {
-	
     $perf_table = adodb_perf::table();
-	$conn->fnExecute = false;
+	$connx->fnExecute = false;
 	$t0 = microtime();
-	$rs =& $conn->Execute($sql,$inputarr);
+	$rs =& $connx->Execute($sql,$inputarr);
 	$t1 = microtime();
 
-	if (!empty($conn->_logsql)) {
+	if (!empty($connx->_logsql) && (empty($connx->_logsqlErrors) || !$rs)) {
+	global $ADODB_LOG_CONN;
+	
+		if (!empty($ADODB_LOG_CONN)) {
+			$conn = &$ADODB_LOG_CONN;
+			if ($conn->databaseType != $connx->databaseType)
+				$prefix = '/*dbx='.$connx->databaseType .'*/ ';
+			else
+				$prefix = '';
+		} else {
+			$conn =& $connx;
+			$prefix = '';
+		}
+		
 		$conn->_logsql = false; // disable logsql error simulation
 		$dbT = $conn->databaseType;
 		
@@ -84,8 +99,8 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 		$time = $a1 - $a0;
 	
 		if (!$rs) {
-			$errM = $conn->ErrorMsg();
-			$errN = $conn->ErrorNo();
+			$errM = $connx->ErrorMsg();
+			$errN = $connx->ErrorNo();
 			$conn->lastInsID = 0;
 			$tracer = substr('ERROR: '.htmlspecialchars($errM),0,250);
 		} else {
@@ -101,9 +116,9 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 		}
 		if (isset($_SERVER['HTTP_HOST'])) {
 			$tracer .= '<br>'.$_SERVER['HTTP_HOST'];
-			if (isset($_SERVER['PHP_SELF'])) $tracer .= $_SERVER['PHP_SELF'];
+			if (isset($_SERVER['PHP_SELF'])) $tracer .= htmlspecialchars($_SERVER['PHP_SELF']);
 		} else 
-			if (isset($_SERVER['PHP_SELF'])) $tracer .= '<br>'.$_SERVER['PHP_SELF'];
+			if (isset($_SERVER['PHP_SELF'])) $tracer .= '<br>'.htmlspecialchars($_SERVER['PHP_SELF']);
 		//$tracer .= (string) adodb_backtrace(false);
 		
 		$tracer = (string) substr($tracer,0,500);
@@ -126,6 +141,7 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 		}
 		
 		if (is_array($sql)) $sql = $sql[0];
+		if ($prefix) $sql = $prefix.$sql;
 		$arr = array('b'=>strlen($sql).'.'.crc32($sql),
 					'c'=>substr($sql,0,3900), 'd'=>$params,'e'=>$tracer,'f'=>adodb_round($time,6));
 		//var_dump($arr);
@@ -136,7 +152,7 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 		if (empty($d)) $d = date("'Y-m-d H:i:s'");
 		if ($conn->dataProvider == 'oci8' && $dbT != 'oci8po') {
 			$isql = "insert into $perf_table values($d,:b,:c,:d,:e,:f)";
-		} else if ($dbT == 'odbc_mssql' || $dbT == 'informix' || $dbT == 'odbtp') {
+		} else if ($dbT == 'odbc_mssql' || $dbT == 'informix' || strncmp($dbT,'odbtp',4)==0) {
 			$timer = $arr['f'];
 			if ($dbT == 'informix') $sql2 = substr($sql2,0,230);
 
@@ -149,10 +165,15 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 			if ($dbT == 'informix') $isql = str_replace(chr(10),' ',$isql);
 			$arr = false;
 		} else {
+			if ($dbT == 'db2') $arr['f'] = (float) $arr['f'];
 			$isql = "insert into $perf_table (created,sql0,sql1,params,tracer,timer) values( $d,?,?,?,?,?)";
 		}
-
-		$ok = $conn->Execute($isql,$arr);
+		global $ADODB_PERF_MIN;
+		if ($errN != 0 || $time >= $ADODB_PERF_MIN) {
+			$ok = $conn->Execute($isql,$arr);
+		} else {
+			$ok = true;
+		}
 		$conn->debug = $saved;
 		
 		if ($ok) {
@@ -177,10 +198,10 @@ function& adodb_log_sql(&$conn,$sql,$inputarr)
 				$conn->_logsql = false;
 			}
 		}
-		$conn->_errorMsg = $errM;
-		$conn->_errorCode = $errN;
+		$connx->_errorMsg = $errM;
+		$connx->_errorCode = $errN;
 	} 
-	$conn->fnExecute = 'adodb_log_sql';
+	$connx->fnExecute = 'adodb_log_sql';
 	return $rs;
 }
 
@@ -627,13 +648,20 @@ Committed_AS:   348732 kB
 		else return '';
 	}
 	
+	function clearsql()
+	{
+		$perf_table = adodb_perf::table();
+		$this->conn->Execute("delete from $perf_table where created<".$this->conn->sysTimeStamp);
+	}
+	
 	/***********************************************************************************************/
 	//                                    HIGH LEVEL UI FUNCTIONS
 	/***********************************************************************************************/
-
+	
 	
 	function UI($pollsecs=5)
 	{
+	global $ADODB_LOG_CONN;
 	
     $perf_table = adodb_perf::table();
 	$conn = $this->conn;
@@ -646,7 +674,7 @@ Committed_AS:   348732 kB
 	$savelog = $this->conn->LogSQL(false);	
 	$info = $conn->ServerInfo();
 	if (isset($_GET['clearsql'])) {
-		$this->conn->Execute("delete from $perf_table");
+		$this->clearsql();
 	}
 	$this->conn->LogSQL($savelog);
 	
@@ -675,6 +703,8 @@ Committed_AS:   348732 kB
 	else $form = "<td>&nbsp;</td>";
 	
 	$allowsql = !defined('ADODB_PERF_NO_RUN_SQL');
+	global $ADODB_PERF_MIN;
+	$app .= " (Min sql timing \$ADODB_PERF_MIN=$ADODB_PERF_MIN secs)";
 	
 	if  (empty($_GET['hidem']))
 	echo "<table border=1 width=100% bgcolor=lightyellow><tr><td colspan=2>
@@ -689,13 +719,18 @@ Committed_AS:   348732 kB
 	 	switch ($do) {
 		default:
 		case 'stats':
+		
+			if (empty($ADODB_LOG_CONN))
+				echo "<p>&nbsp; <a href=\"?do=viewsql&clearsql=1\">Clear SQL Log</a><br>";
 			echo $this->HealthCheck();
 			//$this->conn->debug=1;
 			echo $this->CheckMemory();
+			global $ADODB_LOG_CONN;
 			break;
 		case 'poll':
+			$self = htmlspecialchars($_SERVER['PHP_SELF']);
 			echo "<iframe width=720 height=80% 
-				src=\"{$_SERVER['PHP_SELF']}?do=poll2&hidem=1\"></iframe>";
+				src=\"{$self}?do=poll2&hidem=1\"></iframe>";
 			break;
 		case 'poll2':
 			echo "<pre>";
@@ -862,7 +897,6 @@ Committed_AS:   348732 kB
 		
 		$table = $this->table();
 		$sql = str_replace('adodb_logsql',$table,$this->createTableSQL);
-		
 		$savelog = $this->conn->LogSQL(false);
 		$ok = $this->conn->Execute($sql);
 		$this->conn->LogSQL($savelog);
@@ -871,9 +905,7 @@ Committed_AS:   348732 kB
 	
 	function DoSQLForm()
 	{
-	
-		
-		$PHP_SELF = $_SERVER['PHP_SELF'];
+		$PHP_SELF = htmlspecialchars($_SERVER['PHP_SELF']);
 		$sql = isset($_REQUEST['sql']) ? $_REQUEST['sql'] : '';
 
 		if (isset($_SESSION['phplens_sqlrows'])) $rows = $_SESSION['phplens_sqlrows'];

@@ -1,6 +1,6 @@
 <?php
 /*
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
+v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -150,7 +150,7 @@ class ADODB_oracle extends ADOConnection {
 			if ($argDatabasename) $argUsername .= "@$argDatabasename";
 
 		//if ($argHostname) print "<p>Connect: 1st argument should be left blank for $this->databaseType</p>";
-			if ($mode = 1)
+			if ($mode == 1)
 				$this->_connectionID = ora_plogon($argUsername,$argPassword);
 			else
 				$this->_connectionID = ora_logon($argUsername,$argPassword);

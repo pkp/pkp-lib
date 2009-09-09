@@ -1,6 +1,6 @@
 <?php
 /* 
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
+v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. 
@@ -64,41 +64,6 @@ function adodb_pdo_type($t)
 
 
 
-class ADODB_pdo_base extends ADODB_pdo {
-
-	var $sysDate = "'?'";
-	var $sysTimeStamp = "'?'";
-	
-
-	function _init($parentDriver)
-	{
-		$parentDriver->_bindInputArray = true;
-		#$parentDriver->_connectionID->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY,true);
-	}
-	
-	function ServerInfo()
-	{
-		return ADOConnection::ServerInfo();
-	}
-	
-	function SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs2cache=0)
-	{
-		$ret = ADOConnection::SelectLimit($sql,$nrows,$offset,$inputarr,$secs2cache);
-		return $ret;
-	}
-	
-	function MetaTables()
-	{
-		return false;
-	}
-	
-	function MetaColumns()
-	{
-		return false;
-	}
-}
-
-
 class ADODB_pdo extends ADOConnection {
 	var $databaseType = "pdo";	
 	var $dataProvider = "pdo";
@@ -133,7 +98,12 @@ class ADODB_pdo extends ADOConnection {
 		$this->random = $d->random;
 		$this->concat_operator = $d->concat_operator;
 		$this->nameQuote = $d->nameQuote;
-		
+				
+		$this->hasGenID = $d->hasGenID;
+		$this->_genIDSQL = $d->_genIDSQL;
+		$this->_genSeqSQL = $d->_genSeqSQL;
+		$this->_dropSeqSQL = $d->_dropSeqSQL;
+
 		$d->_init($this);
 	}
 	
@@ -325,7 +295,8 @@ class ADODB_pdo extends ADOConnection {
 		$obj = new ADOPDOStatement($stmt,$this);
 		return $obj;
 	}
-
+	
+	
 	/* returns queryID or false */
 	function _query($sql,$inputarr=false) 
 	{
@@ -334,7 +305,8 @@ class ADODB_pdo extends ADOConnection {
 		} else {
 			$stmt = $this->_connectionID->prepare($sql);
 		}
-		
+		#adodb_backtrace();
+		#var_dump($this->_bindInputArray);
 		if ($stmt) {
 			$this->_driver->debug = $this->debug;
 			if ($inputarr) $ok = $stmt->execute($inputarr);
@@ -382,6 +354,43 @@ class ADODB_pdo extends ADOConnection {
 		return ($this->_connectionID) ? $this->_connectionID->lastInsertId() : 0;
 	}
 }
+
+
+
+class ADODB_pdo_base extends ADODB_pdo {
+
+	var $sysDate = "'?'";
+	var $sysTimeStamp = "'?'";
+	
+
+	function _init($parentDriver)
+	{
+		$parentDriver->_bindInputArray = true;
+		#$parentDriver->_connectionID->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY,true);
+	}
+	
+	function ServerInfo()
+	{
+		return ADOConnection::ServerInfo();
+	}
+	
+	function SelectLimit($sql,$nrows=-1,$offset=-1,$inputarr=false,$secs2cache=0)
+	{
+		$ret = ADOConnection::SelectLimit($sql,$nrows,$offset,$inputarr,$secs2cache);
+		return $ret;
+	}
+	
+	function MetaTables()
+	{
+		return false;
+	}
+	
+	function MetaColumns()
+	{
+		return false;
+	}
+}
+
 
 class ADOPDOStatement {
 
@@ -515,7 +524,7 @@ class ADORecordSet_pdo extends ADORecordSet {
 		}
 		//adodb_pr($arr);
 		$o->name = $arr['name'];
-		if (isset($arr['native_type'])) $o->type = $arr['native_type'];
+		if (isset($arr['native_type']) && $arr['native_type'] <> "null") $o->type = $arr['native_type'];
 		else $o->type = adodb_pdo_type($arr['pdo_type']);
 		$o->max_length = $arr['len'];
 		$o->precision = $arr['precision'];

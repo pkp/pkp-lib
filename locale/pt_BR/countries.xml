@@ -14,7 +14,7 @@
 	<country name="Afganistão" code="AF"/>
 	<country name="Åland, Ilhas" code="AX"/>
 	<country name="Albania" code="AL"/>
-	<country name="Algeria" code="DZ"/>
+	<country name="Argélia" code="DZ"/>
 	<country name="Samoa Americana" code="AS"/>
 	<country name="Andorra" code="AD"/>
 	<country name="Angola" code="AO"/>
@@ -38,7 +38,7 @@
 	<country name="Bermuda" code="BM"/>
 	<country name="Butão" code="BT"/>
 	<country name="Bolívia" code="BO"/>
-	<country name="Bosnia and Herzegovina" code="BA"/>
+	<country name="Bosnia e Herzegovina" code="BA"/>
 	<country name="Botswana" code="BW"/>
 	<country name="Bouvet, Ilhas" code="BV"/>
 	<country name="Brasil" code="BR"/>
@@ -49,9 +49,9 @@
 	<country name="Burundi" code="BI"/>
 	<country name="Camboja" code="KH"/>
 	<country name="Camarões" code="CM"/>
-	<country name="Canada" code="CA"/>
+	<country name="Canadá" code="CA"/>
 	<country name="Cabo Verde" code="CV"/>
-	<country name="Cayman, Ilhas" code="KY"/>
+	<country name="Caimã, Ilhas" code="KY"/>
 	<country name="Central Africana, República" code="CF"/>
 	<country name="Chade" code="TD"/>
 	<country name="Chile" code="CL"/>
@@ -95,7 +95,7 @@
 	<country name="Gana" code="GH"/>
 	<country name="Gibraltar" code="GI"/>
 	<country name="Grécia" code="GR"/>
-	<country name="Groelândia" code="GL"/>
+	<country name="Groenlândia" code="GL"/>
 	<country name="Granada" code="GD"/>
 	<country name="Guadalupe" code="GP"/>
 	<country name="Guam" code="GU"/>
@@ -155,7 +155,7 @@
 	<country name="Mônaco" code="MC"/>
 	<country name="Mongólia" code="MN"/>
 	<country name="Montserrat" code="MS"/>
-	<country name="Morocos" code="MA"/>
+	<country name="Marrocos" code="MA"/>
 	<country name="Moçambique" code="MZ"/>
 	<country name="Mianmar" code="MM"/>
 	<country name="Namíbia" code="NA"/>
@@ -218,7 +218,7 @@
 	<country name="Suazilândia" code="SZ"/>
 	<country name="Suécia" code="SE"/>
 	<country name="Suiça" code="CH"/>
-	<country name="Siria, República Árabe" code="SY"/>
+	<country name="Síria, República Árabe" code="SY"/>
 	<country name="Taiwan" code="TW"/>
 	<country name="Tajiquistão" code="TJ"/>
 	<country name="Tanzânia, República da" code="TZ"/>
@@ -230,7 +230,7 @@
 	<country name="Trinidad e Tobago" code="TT"/>
 	<country name="Tunísia" code="TN"/>
 	<country name="Turquia" code="TR"/>
-	<country name="Turquemenistão" code="TM"/>
+	<country name="Turcomenistão" code="TM"/>
 	<country name="Turcas e Caicos, Ilhas" code="TC"/>
 	<country name="Tuvalu" code="TV"/>
 	<country name="Uganda" code="UG"/>
@@ -250,5 +250,5 @@
 	<country name="Sahara Ocidental" code="EH"/>
 	<country name="Iêmen" code="YE"/>
 	<country name="Zâmbia" code="ZM"/>
-	<country name="Zimbabwe" code="ZW"/>
+	<country name="Zimbábue" code="ZW"/>
 </countries>

@@ -19,7 +19,7 @@
 	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Telefone</message>
 	<message key="about.contact.principalContact">Contato Principal</message>
-	<message key="about.contact.supportContact">Contato de Suporte</message>
+	<message key="about.contact.supportContact">Contato para Suporte Técnico</message>
 	<message key="about.other">Outro</message>
 	<message key="about.people">Pessoas</message>
 	<message key="about.policies">Políticas</message>
@@ -53,10 +53,10 @@
 	<message key="common.cancel">Cancelar</message>
 	<message key="common.cancelled">Cancelado</message>
 	<message key="common.captchaField.altText">Imagem de verificação</message>
-	<message key="common.captchaField.badCaptcha">Código informado incorreto. Verifique os caracteres e tente novamente.</message>
+	<message key="common.captchaField.badCaptcha">Código informado está incorreto. Verifique os caracteres e tente novamente.</message>
 	<message key="common.captchaField.description">Informe o código como aparece na imagem.</message>
 	<message key="common.captchaField">Validação</message>
-	<message key="common.changesSaved">As alterações foram salvas.</message>
+	<message key="common.changesSaved">Alterações salvas com sucesso.</message>
 	<message key="common.chooseOne">Escolha uma opção</message>
 	<message key="common.close">Fechar</message>
 	<message key="common.closeWindow">Fechar Janela</message>
@@ -121,10 +121,10 @@
 	<message key="common.originalFileName">Nome original do Documento</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Outro</message>
-	<message key="common.pageHeaderLogo.altText">Logo da página de cabeçalho</message>
+	<message key="common.pageHeaderLogo.altText">Logo do cabeçalho da página</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Editora</message>
-	<message key="common.record">Registro</message>
+	<message key="common.record">Registrar</message>
 	<message key="common.related">Relacionado</message>
 	<message key="common.remove">Remover</message>
 	<message key="common.removeSelection">Remover/Retirar Seleção</message>
@@ -148,7 +148,7 @@
 	<message key="common.title">Título</message>
 	<message key="common.top">Topo</message>
 	<message key="common.type">Tipo</message>
-	<message key="common.uninitiated">Não inciado</message>
+	<message key="common.uninitiated">Não iniciado</message>
 	<message key="common.untitled">Sem título</message>
 	<message key="common.updated">Atualizado</message>
 	<message key="common.upload">Transferir</message>
@@ -160,7 +160,7 @@
 	<message key="common.width">Largura</message>
 	<message key="common.year">Ano</message>
 	<message key="common.yes">Sim</message>
-	<message key="debug.databaseQueries">Número de requisições ao bancos de dados</message>
+	<message key="debug.databaseQueries">Número de requisições à base de dados</message>
 	<message key="debug.executionTime">Página gerada em</message>
 	<message key="debug.memoryUsage">Uso de Memória:</message>
 	<message key="debug.notes.localeListLoad">Lista de traduções "{$localeList}" carregada do XML</message>
@@ -236,9 +236,9 @@
 	<message key="navigation.infoForReaders.long">Informação para Leitores</message>
 	<message key="navigation.items">{$from} a {$to} de {$total} Itens</message>
 	<message key="navigation.login">Acesso</message>
-	<message key="navigation.nextPage"><![CDATA[>>]]></message>
+	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Avançar</message>
-	<message key="navigation.previousPage"><![CDATA[<<]]></message>
+	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Voltar</message>
 	<message key="navigation.register">Cadastro</message>
 	<message key="navigation.search">Pesquisa</message>
@@ -255,17 +255,61 @@
 	<message key="search.fullText">Texto Completo</message>
 	<message key="search.indexTerms">Termos Indexados</message>
 	<message key="search.matchAll">Encontrar em todas as categorias</message>
-	<message key="search.noKeywordError">Pelo menos um termo de busca obrigatório.</message>
+	<message key="search.noKeywordError">Informe pelo menos um termo para pesquisa.</message>
 	<message key="search.noResults">Nenhum resultado encontrado</message>
 	<message key="search.operator.and">E</message>
 	<message key="search.operator.not">NÃO</message>
 	<message key="search.operator.or">OU</message>
 	<message key="search.reviseSearch">Alterar Parâmetros</message>
 	<message key="search.searchAllCategories">Pesquisar termo</message>
-	<message key="search.searchCategories">Categorias de Pesquisa</message>
+	<message key="search.searchCategories">Pesquisar categorias</message>
 	<message key="search.searchResults">Resultado da Pesquisa</message>
 	<message key="search.subject">Assunto</message>
 	<message key="search.titleIndex">Índice de Títulos</message>
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/foco)</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>Este trabalho está licenciado sob uma <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Licença Creative Commons Attribution 3.0 </a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Licença Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Este trabalho está licenciado sob uma <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Licença Creative Commons Attribution 3.0</a>.
+	</div>]]></message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Gerenciar</message>
+	<message key="common.noComments">Sem comentários</message>
+	<message key="common.uploadedFile">Arquivo enviado</message>
+	<message key="form.startsWith">iniciar por</message>
+	<message key="notification.allow">Exibir estas notificações no meu canal de notificações</message>
+	<message key="notification.confirmError">Ocorreu um erro ao confirmar sua assinatura.</message>
+	<message key="notification.confirmSuccess">Assinatura realizada com sucesso.</message>
+	<message key="notification.email">Enviar e-mail para estes tipos de notificações.</message>
+	<message key="notification.location">Ir para a URL</message>
+	<message key="notification.mailList">Lista de correio de notificações</message>
+	<message key="notification.mailList.emailInvalid">Informe um endereço de e-mail válido.</message>
+	<message key="notification.mailList.privacyProtection">Política de proteção de privacidade</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Assinar</a> conteúdo restrito.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submeter</a> um artigo]]></message>
+	<message key="notification.mailList.register">Cadastre-se no site para...</message>
+	<message key="notification.mailList.review"><![CDATA[Participar no processo de <a href="{$reviewUrl}">avaliação pelos pares</a>]]></message>
+	<message key="notification.noneExist">Não há notificações no momento.</message>
+	<message key="notification.notification">Notificação</message>
+	<message key="notification.notifications">Notificações</message>
+	<message key="notification.notificationsNew">({$numNew} nova(s))</message>
+	<message key="notification.notificationsDescription"><![CDATA[Você possui {$unreadCount} notificações não lidas e {$readCount} notificações lidas.  <a href="{$settingsUrl}">Clique aqui</a> para alterar as configurações de notificações.]]></message>
+	<message key="notification.settings">Configuração de Notificações</message>
+	<message key="notification.settingsDescription">Escolha os eventos do sistema sobre os quais deseja ser notificado.  Desmarcar um item evitará a exibição de notificações do evento no canal de notificações.</message>
+	<message key="notification.subscribe">Assinar</message>
+	<message key="notification.subscribeError">Endereço de e-mail já cadastrado para receber notificações.</message>
+	<message key="notification.subscribeSuccess">Um e-mail foi enviado ao endereço informado. Clique no link de confirmação na mensagem recebida para incluir-se na lista de correio.</message>
+	<message key="notification.reminderError">Ocorreu um erro ao enviar a senha. Verifique se o endereço de e-mail informado está correto.</message>
+	<message key="notification.reminderSent">Uma nova senha foi enviada ao endereço de e-mail informado.</message>
+	<message key="notification.unsubscribe">Cancelar assinatura de notificações</message>
+	<message key="notification.unsubscribeDescription">Informe seu endereço de e-mail e senha a seguir para cancelar o recebimento de notificações via e-mail. Caso não se lembre da senha, deixe o campo em branco para que uma nova senha senha enviada.</message>
+	<message key="notification.unsubscribeError">Ocorreu um erro ao tentar cancelar a assinatura. Verifique se o endereço de e-mail e senha estão corretos.</message>
+	<message key="notification.unsubscribeSuccess">Cancelamento de assinatura de notificações realizado com sucesso.</message>
 </locale>

@@ -100,4 +100,6 @@
 	<message key="user.userHome">Página do Usuário</message>
 	<message key="user.username">Login</message>
 	<message key="user.workingLanguages">Idiomas Conhecidos</message>
+	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
+	<message key="user.other">Outro</message>
 </locale>

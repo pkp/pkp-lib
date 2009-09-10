@@ -250,23 +250,67 @@
 	<message key="search.allFields">Tous</message>
 	<message key="search.coverage">Couverture</message>
 	<message key="search.date">Date</message>
-	<message key="search.dateFrom">de</message>
-	<message key="search.dateTo">à</message>
+	<message key="search.dateFrom">De</message>
+	<message key="search.dateTo">Jusqu'à</message>
 	<message key="search.discipline">Discipline(s)</message>
 	<message key="search.fullText">Texte intégral</message>
-	<message key="search.indexTerms">Mots clés</message>
-	<message key="search.matchAll">Dans toutes les rubriques</message>
-	<message key="search.noKeywordError">Vous devez entrer au moins un mot clé de recherche.</message>
+	<message key="search.indexTerms">Termes d'indexation</message>
+	<message key="search.matchAll">Dans toutes les catégories</message>
+	<message key="search.noKeywordError">Vous devez entrer au moins un mot-clé de recherche.</message>
 	<message key="search.noResults">Aucun résultat</message>
 	<message key="search.operator.and">et</message>
 	<message key="search.operator.not">sauf</message>
 	<message key="search.operator.or">ou</message>
-	<message key="search.reviseSearch">Réviser la recherche</message>
-	<message key="search.searchAllCategories">Chercher dans toutes les catégories pour</message>
+	<message key="search.reviseSearch">Modifier la recherche</message>
+	<message key="search.searchAllCategories">Rechercher dans toutes les catégories pour</message>
 	<message key="search.searchCategories">Catégories de recherche</message>
-	<message key="search.searchResults">Résultats de la recherche</message>
-	<message key="search.subject">Objet(s)</message>
+	<message key="search.searchResults">Résultats de recherche</message>
+	<message key="search.subject">Mot(s)-clé(s)</message>
 	<message key="search.titleIndex">Explorer l'index des titres</message>
 	<message key="search.title">Titre</message>
-	<message key="search.typeMethodApproach">Type (méthode/voie)</message>
+	<message key="search.typeMethodApproach">Type (méthode/approche)</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Ce travail est autorisé sous licence avec la <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Licence de paternité Creative Commons 3.0</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Ce travail est autorisé sous licence avec la <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Licence de paternité Creative Commons 3.0</a>.
+	</div>]]></message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Gérer</message>
+	<message key="common.noComments">Aucun commentaire</message>
+	<message key="form.startsWith">commence par</message>
+	<message key="notification.allow">Permettre à ces types d'avis d'apparaître dans mon flux d'avis.</message>
+	<message key="notification.confirmError">Il s'est produit une erreur lors de la confirmation de votre abonnement.</message>
+	<message key="notification.confirmSuccess">Vous vous êtes abonné avec succès.</message>
+	<message key="notification.email">M'envoyer un courriel pour ces types d'avis.</message>
+	<message key="notification.location">Aller à l'URL</message>
+	<message key="notification.mailList">Liste de diffusion d'avis</message>
+	<message key="notification.mailList.emailInvalid">Veuillez entrer une adresse de courriel valide.</message>
+	<message key="notification.mailList.privacyProtection">Politique de protection de la vie privée</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">S'abonner</a> à du contenu protégé.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Soumettre</a> un article]]></message>
+	<message key="notification.mailList.register">Vous pouvez vous inscrire à ce site à...</message>
+	<message key="notification.mailList.review"><![CDATA[Participer au processus d'<a href="{$reviewUrl}">évaluation par les pairs</a>]]></message>
+	<message key="notification.noneExist">Vous n'avez aucun avis en ce moment.</message>
+	<message key="notification.notification">Avis</message>
+	<message key="notification.notifications">Avis</message>
+	<message key="notification.notificationsNew">({$numNew} nouveau(x))</message>
+	<message key="notification.notificationsDescription"><![CDATA[Vous avez {$unreadCount} avis non lu(s) et {$readCount} avis lu(s).  <a href="{$settingsUrl}">Cliquer ici</a> pour changer vos paramètres d'avis.]]></message>
+	<message key="notification.settings">Paramètres d'avis</message>
+	<message key="notification.settingsDescription">Choisir les événements système dont vous voulez être informé par l'intermédiaire d'avis. Désélectionner un élément empêchera les avis reliés à cet événement d'apparaître dans votre flux d'avis.</message>
+	<message key="notification.subscribe">S'abonner</message>
+	<message key="notification.subscribeError">Votre adresse de courriel est déjà abonnée aux avis.</message>
+	<message key="notification.subscribeSuccess">Un courriel a été envoyé à l'adresse spécifiée. Veuillez cliquer sur le lien de confirmation dans le courriel pour vous ajouter à la liste de diffusion.</message>
+	<message key="notification.reminderError">Il s'est produit une erreur lors de l'envoi de votre mot de passe. Veuillez vous assurer que vous avez saisi votre adresse de courriel correctement.</message>
+	<message key="notification.reminderSent">Votre nouveau mot de passe a été envoyé à l'adresse de courriel indiquée.</message>
+	<message key="notification.unsubscribe">Se désabonner</message>
+	<message key="notification.unsubscribeDescription">Saisir votre adresse de courriel et mot de passe ci-dessous pour vous désabonner des avis par courriel. Si vous ne souvenez pas de votre mot de passe, laisser le champ vide et un nouveau mot de passe vous sera envoyé par courriel à l'adresse de courriel indiquée.</message>
+	<message key="notification.unsubscribeError">Il s'est produit une erreur lors de votre désabonnement. Veuillez vous assurer que votre adresse de courriel et votre mot de passe sont corrects.</message>
+	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 </locale>

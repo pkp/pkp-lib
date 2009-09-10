@@ -21,7 +21,7 @@
 	<message key="comments.email">E-Mail-Adresse</message>
 	<message key="comments.emailReply">Antworten Sie per E-Mail.</message>
 	<message key="comments.enterComment">Kommentar eingeben</message>
-	<message key="comments.inResponseTo">Antwort auf <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.inResponseTo"><![CDATA[Antwort auf <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">Name</message>
 	<message key="comments.noComments">Es wurden bisher keine Leser/innenkommentare abgegeben.</message>
 	<message key="comments.nReplies">({$num} Antworten)</message>
@@ -34,7 +34,7 @@
 	<message key="comments.title">Überschrift</message>
 	<message key="comments.viewAllComments">Alle Kommentare anzeigen</message>
 	<message key="reader.fullText">Volltext:</message>
-	<message key="rt.addComment">Kommentar hinzufügen </message>
+	<message key="rt.addComment">Kommentar hinzufügen</message>
 	<message key="rt.admin.configuration">Konfiguration</message>
 	<message key="rt.admin.contexts.confirmDelete">Sind Sie sicher, dass Sie diesen Kontext und alle mit ihm verbundenen Suchmöglichkeiten löschen möchten?</message>
 	<message key="rt.admin.contexts.createContext">Kontext erstellen</message>
@@ -147,7 +147,7 @@
 	<message key="rt.search.suggest">Quelle vorschlagen</message>
 	<message key="rt.search.title">Titel</message>
 	<message key="rt.search.url">URL</message>
-	<message key="rt.suppFiles.download">Herunterladen </message>
+	<message key="rt.suppFiles.download">Herunterladen</message>
 	<message key="rt.suppFiles">Zusatzdateien</message>
 	<message key="rt.suppFiles.viewMetadata">Metadaten</message>
 	<message key="rt.version.description">Beschreibung</message>
@@ -162,16 +162,16 @@
 	<message key="rt.admin.sharing.basic">Grundeinstellungen</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com-Benutzer/innenname</message>
 	<message key="rt.admin.sharing.advanced">Erweiterte Einstellungen (optional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Siehe die <a href="http://www.addthis.com/help/customize/custom-button/">Dokumentation zur AddThis.coma-Anpassung</a> für Hinweise.]]></message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Siehe die <a href="http://www.addthis.com/help/customize/custom-button/">Dokumentation zur AddThis-Anpassung</a> für Hinweise.]]></message>
 	<message key="rt.admin.configureSharing">AddThis konfigurieren</message>
 	<message key="rt.admin.sharing.logolabel">Logo</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-Hintergrund</message>
 	<message key="rt.admin.sharing.logoColorLabel">Logo-Farbe</message>
-	<message key="rt.admin.sharing">Gemeinsamer Dateizugriff</message>
-	<message key="rt.admin.sharing.enabled">Gemeinsamer Dateizugriff aktiviert</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen den gemeinsamen Dateizugriff auf Zeitschriftenartikel zu ermöglichen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für gemeinsamen Dateizugriff kopieren/einfügen.]]></message>
+	<message key="rt.admin.sharing">Mit anderen teilen</message>
+	<message key="rt.admin.sharing.enabled">Teilen aktiviert</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen zu ermöglichen, Zeitschriftenbeiträge mit anderen zu teilen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für den Teilen-Knopf  kopieren und einfügen.]]></message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Art des Buttons</message>
 	<message key="rt.admin.sharing.dropDownMenuLabel">Drop-down-Menü verwenden</message>
 	<message key="rt.admin.sharing.brandLabel">Marke</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Komma trennen)]]></message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Kommata trennen)]]></message>
 </locale>

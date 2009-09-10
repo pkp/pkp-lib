@@ -25,7 +25,7 @@
 	<message key="admin.confirmExpireSessions">Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich dann neu einloggen.</message>
 	<message key="admin.contentsOfConfigFile">Inhalt der Konfigurationsdatei</message>
 	<message key="admin.currentVersion">Aktuelle Version</message>
-	<message key="admin.dateInstalled">Installtiert am</message>
+	<message key="admin.dateInstalled">Installiert am</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld.]]></message>
 	<message key="admin.displayNewSystemConfig">Neue Konfiguration anzeigen</message>
 	<message key="admin.expireSessions">Benutzer/innensitzungen schließen</message>

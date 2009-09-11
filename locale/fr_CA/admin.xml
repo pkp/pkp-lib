@@ -14,14 +14,14 @@
 
 <locale name="fr_CA" full_name = "Français (Canada)">
 	<message key="admin.adminFunctions">Fonctions administratives</message>
-	<message key="admin.auth.confirmDelete">Êtes-vous certain de vouloir supprimer en permanence cette source d'authentification?</message>
-	<message key="admin.auth.create">Créer la source d'authentification</message>
+	<message key="admin.auth.confirmDelete">Êtes-vous certain de vouloir supprimer définitivement cette source d'authentification?</message>
+	<message key="admin.auth.create">Créer une source d'authentification</message>
 	<message key="admin.auth.noneCreated">Aucune source d'authentification définie.</message>
 	<message key="admin.authSources">Sources d'authentification</message>
 	<message key="admin.clearDataCache">Vider les caches de données</message>
-	<message key="admin.clearTemplateCache">Vider le cache de gabarit</message>
+	<message key="admin.clearTemplateCache">Vider le cache de modèles</message>
 	<message key="admin.configFileUpdatedInstructions"><![CDATA[Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en éditant directement le <tt>config.inc.php</tt>.]]></message>
-	<message key="admin.confirmClearTemplateCache">Êtes-vous sûr de vouloir effacer le cache des gabarits compilés?</message>
+	<message key="admin.confirmClearTemplateCache">Êtes-vous sûr de vouloir effacer le cache des modèles compilés?</message>
 	<message key="admin.confirmExpireSessions">Êtes-vous sûr de vouloir fermer toutes les sessions utilisateurs? Tous les utilisateurs actuellement connectés devront se reconnecter (vous y compris).</message>
 	<message key="admin.contentsOfConfigFile">Contenu du fichier de configuration</message>
 	<message key="admin.currentVersion">Version actuelle</message>
@@ -31,7 +31,7 @@
 	<message key="admin.expireSessions">Fermer les sessions utilisateurs</message>
 	<message key="admin.languages.confirmReload">Êtes-vous sûr de vouloir recharger cette langue? Ceci effacera toute donnée spécifique à cette langue ainsi que tout modèle de courriel personnalisé.</message>
 	<message key="admin.languages.installedLocales">Langues installées</message>
-	<message key="admin.languages.installLanguages">Gérer les paramètres de lieu</message>
+	<message key="admin.languages.installLanguages">Gérer les langues</message>
 	<message key="admin.languages.installLocales">Installer</message>
 	<message key="admin.languages.installNewLocales">Installer de nouvelles langues</message>
 	<message key="admin.languages.languageSettings">Paramètres de langue</message>
@@ -48,10 +48,10 @@
 	<message key="admin.server.phpVersion">Version PHP</message>
 	<message key="admin.server.platform">Système d'exploitation</message>
 	<message key="admin.settings.aboutDescription">Description "À propos du site"</message>
-	<message key="admin.settings.contactEmail">Courriel de la personne-ressource principale</message>
-	<message key="admin.settings.contactName">Nom de la personne-ressource principale</message>
+	<message key="admin.settings.contactEmail">Courriel du contact principal</message>
+	<message key="admin.settings.contactName">Nom du contact principal</message>
 	<message key="admin.settings.form.contactEmailRequired">Le courriel de la personne-ressource principale est obligatoire.</message>
-	<message key="admin.settings.form.contactNameRequired">Le nom de la personne-ressource principale est obligatoire.</message>
+	<message key="admin.settings.form.contactNameRequired">Le nom du contact principal est obligatoire.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Vous devez entrer un mot de passe d'au moins 4 caractères.</message>
 	<message key="admin.settings.form.titleRequired">Le titre est obligatoire.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo du site</message>
@@ -59,7 +59,7 @@
 	<message key="admin.settings.introduction">Introduction</message>
 	<message key="admin.settings.minPasswordLength">Longueur minimum du mot de passe</message>
 	<message key="admin.settings.oaiRegistration">Enregistrer le site pour l'indexation (collecte de métadonnées)</message>
-	<message key="admin.settings.passwordCharacters">Caractères</message>
+	<message key="admin.settings.passwordCharacters">caractères</message>
 	<message key="admin.settings.siteLanguage">Langue du site</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Format de la feuille de style du site invalide. Le format accepté est .css.</message>
 	<message key="admin.settings.siteStyleSheet">Feuille de style du site</message>

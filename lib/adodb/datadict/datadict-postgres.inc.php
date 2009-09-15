@@ -221,7 +221,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 	            // this does not error out if the column is already not null
 	            $sql[] = 'ALTER TABLE '.$tabname.' ALTER COLUMN '.$colname.' SET NOT NULL';
 	         }
-	         if ($set_null) {
+	         if (isset($set_null) && $set_null) {
 	            // this does not error out if the column is already null
 	            $sql[] = 'ALTER TABLE '.$tabname.' ALTER COLUMN '.$colname.' DROP NOT NULL';
 	         }

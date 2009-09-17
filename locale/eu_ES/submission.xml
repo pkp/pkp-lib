@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/eu_ES/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the eu_ES (Basque (Euskara)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="eu_ES" full_name = "Basque (Euskara)">
+	<message key="submission.abstractViews">Laburpenen ikuspegiak</message>
+	<message key="submission.accepted">Onartua</message>
+	<message key="submission.acknowledge">Hartu-agiria</message>
+	<message key="submission.addSuppFile">Gehitu Fitxategi osagarria</message>
+	<message key="submission.ask">Galdetu</message>
+	<message key="submission.backToSubmissionEditing">Itzuli Bidalketaren ediziora</message>
+	<message key="submission.changeComments">Aldatu hona:</message>
+	<message key="submission.comments.addComment">Gehitu oharra</message>
+	<message key="submission.comments.comments">Oharrak</message>
+	<message key="submission.comments.confirmDelete">Ziur zaude ohar hau ezabatu nahi duzula?</message>
+	<message key="submission.comments.corrections">Zuzenketak</message>
+	<message key="submission.comments.editComment">Editatu oharra</message>
+	<message key="submission.comments.importPeerReviews">Inportatu adituen ebaluazioa</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">{$reviewerLetter} Ebaluatzailea:</message>
+	<message key="submission.comments.noComments">Oharrik ez</message>
+	<message key="submission.comments.noReviews">Ebaluaziorik ez</message>
+	<message key="submission.comments.review">Ebaluazioa</message>
+	<message key="submission.comments.sendDecisionToReviewers">Bidali editorearen erabakia Ebaluatzaileei </message>
+	<message key="submission.comments.subject">Gaia</message>
+	<message key="submission.complete">Bukatuta</message>
+	<message key="submission.done">Eginda</message>
+	<message key="submission.dueDate">Epea</message>
+	<message key="submission.due">Epea</message>
+	<message key="submission.editing">Edizioa</message>
+	<message key="submission.editMetadata">Editatu metadatuak</message>
+	<message key="submission.email.backToEmailLog">Itzuli Mezu elektronikoen logera</message>
+	<message key="submission.email.confirmClearLog">Ziur zaude bidalketa honen mezu elektronikoen loga garbitu nahi duzula?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Ziur zaude mezu elektronikoen logeko sarrera hau ezabatu nahi duzula?</message>
+	<message key="submission.email.deleteLogEntry">Ezabatu logeko sarrera</message>
+	<message key="submission.emailLog">Mezu elektronikoen loga</message>
+	<message key="submission.event.backToEventLog">Itzuli Gertaeren logera</message>
+	<message key="submission.event.confirmClearLog">Ziur zaude bidalketa honen gertaeren loga garbitu nahi duzula?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Ziur zaude gertaeren logeko sarrera hau ezabatu nahi duzula?</message>
+	<message key="submission.event.deleteLogEntry">Ezabatu logeko sarrera</message>
+	<message key="submission.event.general.metadataUpdated">Bidalketaren metadatuak eguneratu</message>
+	<message key="submission.event.general.suppFileUpdated">Bidalketa-fitxategia eguneratu</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Ebaluazioa egitea ordezkari bidez onartu</message>
+	<message key="submission.event.reviewer.reviewAccepted">Ebaluazioa egitea onartu</message>
+	<message key="submission.event.reviewer.reviewCancelled">Ebaluazioa bertan behera utzi</message>
+	<message key="submission.event.reviewer.reviewDeclined">Ebaluazioa egitea ez da onartu</message>
+	<message key="submission.event.reviewer.reviewDueDate">Ebaluazioaren mugaeguna aldatu</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Ebaluatzailea izendatu</message>
+	<message key="submission.event.reviewer.reviewerRated">Ebaluatzailearen kalifikazioa bidali</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Ebaluatzailea kendu</message>
+	<message key="submission.event.reviewer.reviewFile">Ebaluazio-fitxategia eguneratu</message>
+	<message key="submission.event.reviewer.reviewInitiated">Ebaluazioa hasi</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Ebaluazioko gomendioen fitxategia</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Ebaluazioa berriro hasi</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Ebaluazioa berriro bidali</message>
+	<message key="submission.event.reviewer.reviewRevision">Ebaluatzailearen aldaketen fitxategia eguneratu</message>
+	<message key="submission.files">Fitxategiak</message>
+	<message key="submission.galley">Galerada</message>
+	<message key="submission.history.clearLog">Garbitu loga</message>
+	<message key="submission.history">Historia</message>
+	<message key="submission.history.noLogEntries">Ez dago sarrerarik logean.</message>
+	<message key="submission.history.recentLogEntries">Azken sarrerak</message>
+	<message key="submission.history.submissionEmailLog">Mezu elektronikoen loga</message>
+	<message key="submission.history.submissionEventLog">Gertaeren loga</message>
+	<message key="submission.history.submissionNotes">Bidalketaren oharrak</message>
+	<message key="submission.history.viewLog">Ikusi loga</message>
+	<message key="submission.indexing">Indexatzea</message>
+	<message key="submission.initiated">Hasita</message>
+	<message key="submission.lastModified">Azken aldaketa</message>
+	<message key="submission.layout.addGalley">Gehitu Maketazio-galerada bat</message>
+	<message key="submission.layout.confirmDeleteGalley">Ziur zaude galerada hau betiko ezabatu nahi duzula?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Ziur zaude irudi hau kendu nahi duzula galeradatik?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Ziur zaude fitxategi osagarri hau betiko ezabatu nahi duzula?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Ezabatu estilo-orri hau.</message>
+	<message key="submission.layout.editGalley">Editatu Maketazio-galerada bat</message>
+	<message key="submission.layout.galleyFileData">Galerada-fitxategiaren informazioa</message>
+	<message key="submission.layout.galleyFormat">Galerada-formatua</message>
+	<message key="submission.layout.galleyHTMLData">HTML galerada-fitxategiak</message>
+	<message key="submission.layout.galleyImages">Irudiak</message>
+	<message key="submission.layout.galleyLabelInstructions">Fitxategi-formatua (HTML, PDF, etab.) identifikatzeko erabiltzen da galeradaren etiketa.</message>
+	<message key="submission.layout.galleyLabel">Etiketa</message>
+	<message key="submission.layout.galleyLabelRequired">Galerada-etiketa eman behar da.</message>
+	<message key="submission.layout.galleyLanguageRequired">Galeradaren hizkuntza zehaztu behar da.</message>
+	<message key="submission.layout.galleyLocaleRequired">Galeradaren locale hizkuntza-paketea zehaztu behar da.</message>
+	<message key="submission.layout.galleyNoImages">irudirik ez</message>
+	<message key="submission.layout.galleys">Galeradak</message>
+	<message key="submission.layout.galleyStylesheet">Estilo-orriaren fitxategia</message>
+	<message key="submission.layout.galleyStyle">Estiloa</message>
+	<message key="submission.layout.initialGalleyCreation">Lehenengo galerada-sortzea</message>
+	<message key="submission.layout.layoutFile">Maketazio-fitxategia</message>
+	<message key="submission.layout">Maketazioa</message>
+	<message key="submission.layout.layoutVersion">Maketazio-bertsioa</message>
+	<message key="submission.layout.newGalley">Sortu galerada berria</message>
+	<message key="submission.layout.newSupplementaryFile">Kargatu Fitxategi osagarri berria</message>
+	<message key="submission.layout.noStyleFile">Galerada honi ez zaio estilo-orriaren fitxategirik gehitu.</message>
+	<message key="submission.layout.supplementaryFiles">Fitxategi osagarriaren berrikustea</message>
+	<message key="submission.layout.viewingGalley">Bidalketaren galerada ikusi</message>
+	<message key="submission.layout.viewProof">Ikusi Proba</message>
+	<message key="submission.metadata">Bidalketaren metadatuak</message>
+	<message key="submission.noReviewAssignments">Ebaluaziorik gabe</message>
+	<message key="submission.notes.addNewNote">Gehitu ohar berria</message>
+	<message key="submission.notes.attachedFile">Fitxategi erantsia</message>
+	<message key="submission.notes.backToSubmissionNotes">Itzuli Bidalketaren oharretara</message>
+	<message key="submission.notes.breadcrumb">Oharrak</message>
+	<message key="submission.notes.clearAllNotes">Garbitu ohar guztiak</message>
+	<message key="submission.notes.collapseNotes">Tolestu oharrak</message>
+	<message key="submission.notes.confirmDeleteAll">Bidalketaren ohar guztiak kendu?</message>
+	<message key="submission.notes.confirmDelete">Bidalketaren ohar hau kendu?</message>
+	<message key="submission.notes.createNewNote">Sortu ohar berria</message>
+	<message key="submission.notes.deleteNote">Ezabatu oharra</message>
+	<message key="submission.notes.editNote">Editatu oharra</message>
+	<message key="submission.notes.expandNotes">Zabaldu oharrak</message>
+	<message key="submission.notes.noSubmissionNotes">Bidalketaren oharrik ez</message>
+	<message key="submission.notes.removeUploadedFile">Kendu kargatutako fitxategia</message>
+	<message key="submission.notes">Bidalketaren oharrak</message>
+	<message key="submission.notes.updateNote">Eguneratu oharra</message>
+	<message key="submission.notes.viewNotes">Ikusi oharrak</message>
+	<message key="submission.originalFile">Jatorrizko fitxategia</message>
+	<message key="submission.page.editing">{$id} Edizioa</message>
+	<message key="submission.page.history">{$id} Historia</message>
+	<message key="submission.page.review">{$id} Ebaluazioa</message>
+	<message key="submission.page.summary">{$id} Sumarioa</message>
+	<message key="submission.peerReview">Adituen ebaluazioa</message>
+	<message key="submission.recommendation">Gomendioa</message>
+	<message key="submission.rejected">Ezetsia</message>
+	<message key="submission.request">Eskatu</message>
+	<message key="submission.response">Erantzuna</message>
+	<message key="submission.restrictions">Murrizketak</message>
+	<message key="submission.reviewMetadata">Berrikusi metadatuak</message>
+	<message key="submission.review">Ebaluazioa</message>
+	<message key="submission.reviewVersion">Ebaluazio-bertsioa</message>
+	<message key="submissions.active">Aktibo</message>
+	<message key="submissions.archived">Artxibatuta</message>
+	<message key="submission.saveMetadata">Gorde metadatuak</message>
+	<message key="submissions.completed">Bukatuta</message>
+	<message key="submissions.declined">Ez da onartu</message>
+	<message key="submissions.incomplete">Osatu gabe</message>
+	<message key="submissions.noSubmissions">Bidalketarik ez</message>
+	<message key="submissions.queuedEditing">Editatzen</message>
+	<message key="submissions.queued">Ilaran</message>
+	<message key="submissions.queuedUnassigned">Esleitzeko zain</message>
+	<message key="submissions.ruling">Ebazpena</message>
+	<message key="submissions.submit">Bidali</message>
+	<message key="submissions.submitted">Bidalita</message>
+	<message key="submission.start">Hasi</message>
+	<message key="submission.submissionHistory">Bidalketaren historia</message>
+	<message key="submission.submissionManuscript">Bidalketaren eskuizkribua</message>
+	<message key="submission.submissionReview">Bidalketaren ebaluazioa</message>
+	<message key="submission.submitter">Bidaltzailea</message>
+	<message key="submission.summary">Sumarioa</message>
+	<message key="submission.supplementaryFiles">Fitxategi osagarriak</message>
+	<message key="submission.supportingAgencies">Agentzia laguntzaileak</message>
+	<message key="submission.titleAndAbstract">Titulua eta laburpena</message>
+	<message key="submission.underway">Lanean</message>
+	<message key="submission.uploadFileTo">Kargatu fitxategia:</message>
+	<message key="submission.viewMetadata">Ikusi metadatuak</message>
+	<message key="submission.views">Ikuspegiak</message>
+</locale>

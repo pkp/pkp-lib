@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/eu_ES/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the eu_ES (Basque (Euskara)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="eu_ES" full_name = "Basque (Euskara)">
+	<message key="manager.announcements">Anuntzioak</message>
+	<message key="manager.announcements.confirmDelete">Ziur zaude betiko ezabatu nahi duzula anuntzio hau?</message>
+	<message key="manager.announcements.create">Sortu Anuntzio berria</message>
+	<message key="manager.announcements.createTitle">Sortu</message>
+	<message key="manager.announcements.dateExpire">Iraungitze-data</message>
+	<message key="manager.announcements.edit">Editatu anuntzioa</message>
+	<message key="manager.announcements.editTitle">Editatu</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Iraungitze-egunaz gain, urtea eta hila hautatu behar dira.</message>
+	<message key="manager.announcements.form.dateExpire">Iraungitze-data</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Egun horretara arte bistaratuko da anuntzioa. Utzi hutsik anuntzioak denbora-mugarik ez badu.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Iraungitze-hilaz gain, urtea eta eguna hautatu behar dira.</message>
+	<message key="manager.announcements.form.dateExpireValid">Hautatu baliozko iraungitze-data bat</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Iraungitze-urteaz gain, hila eta eguna hautatu behar dira.</message>
+	<message key="manager.announcements.form.description">Azalpena</message>
+	<message key="manager.announcements.form.descriptionInstructions">Anuntzioaren testu osoa.</message>
+	<message key="manager.announcements.form.descriptionRequired">Anuntzioaren azalpena eman behar da.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Anuntzioaren tituluarekin batera erakusteko azalpen laburra.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Anuntzioaren azalpen laburra eman behar da.</message>
+	<message key="manager.announcements.form.descriptionShort">Azalpen laburra</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Gorde eta sortu beste bat</message>
+	<message key="manager.announcements.form.titleRequired">Anuntzioaren titulua eman behar da.</message>
+	<message key="manager.announcements.form.title">Titulua</message>
+	<message key="manager.announcements.form.typeId">Mota</message>
+	<message key="manager.announcements.form.typeIdValid">Hautatu baliozko anuntzio mota bat</message>
+	<message key="manager.announcements.noneCreated">Ez da anuntziorik sortu.</message>
+	<message key="manager.announcements.title">Titulua</message>
+	<message key="manager.announcements.type">Mota</message>
+	<message key="manager.announcementTypes">Anuntzio motak</message>
+	<message key="manager.announcementTypes.confirmDelete">Kontuz! Mota honetako anuntzio guztiak ezabatu egingo dira. Ziur zaude anuntzio mota hau ezabatu nahi duzula?</message>
+	<message key="manager.announcementTypes.create">Sortu anuntzio mota</message>
+	<message key="manager.announcementTypes.createTitle">Sortu</message>
+	<message key="manager.announcementTypes.edit">Editatu anuntzio mota</message>
+	<message key="manager.announcementTypes.editTitle">Editatu</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Gorde eta sortu beste bat</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Izen hori beste anuntzio mota batena da.</message>
+	<message key="manager.announcementTypes.form.typeName">Izena</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Anuntzio motaren izena eman behar da.</message>
+	<message key="manager.announcementTypes.noneCreated">Ez da anuntzio motarik sortu.</message>
+	<message key="manager.announcementTypes.typeName">Anuntzio mota</message>
+	<message key="manager.emails.confirmDelete">Ziur zaude mezu-txantiloi hau ezabatu nahi duzula?</message>
+	<message key="manager.emails.confirmReset">Ziur zaude mezu-txantiloi hau berrezarri nahi duzula balio lehenetsiekin?</message>
+	<message key="manager.emails.createEmail">Sortu mezu elektronikoa</message>
+	<message key="manager.emails.disable">Desgaitu</message>
+	<message key="manager.emails.editEmail">Editatu mezu elektronikoa</message>
+	<message key="manager.emails.editTestExample">Editatu mezua probatzeko adibidea</message>
+	<message key="manager.emails.emailKey">Posta elektronikoko gakoa</message>
+	<message key="manager.emails.emailKeyExists">Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan behar du.</message>
+	<message key="manager.emails.emailTemplate">Mezu elektronikoen txantiloia</message>
+	<message key="manager.emails.emailTemplates">Mezu elektronikoen txantiloiak</message>
+	<message key="manager.emails.enabled">Gaitu mezu-txantiloi hau</message>
+	<message key="manager.emails.enable">Gaitu</message>
+	<message key="manager.emails.form.bodyRequired">Mezuak gorputza eduki behar du.</message>
+	<message key="manager.emails.form.subjectRequired">Mezuak gaia eduki behar du.</message>
+	<message key="manager.emails">Prestatutako mezu elektronikoak</message>
+	<message key="manager.emails.resetAll">Berrezarri txantiloi guztiak</message>
+	<message key="manager.emails.reset">Berrezarri</message>
+	<message key="manager.emails.resetToDefault">Berrezarri lehenetsia</message>
+	<message key="manager.filesBrowser">Fitxategi-arakatzailea</message>
+	<message key="manager.files.confirmDelete">Fitxategi edo direktorio hau ezabatu nahi duzu? Kontuan izan, direktorio bat ezabatu ahal izateko, hutsik egon behar dela.</message>
+	<message key="manager.files.createDir">Sortu direktorioa</message>
+	<message key="manager.files.emptyDir">Ez da fitxategirik aurkitu direktorio honetan.</message>
+	<message key="manager.files.indexOfDir">{$dir} direktorioaren indizea</message>
+	<message key="manager.files.parentDir">Direktorio gurasoa</message>
+	<message key="manager.files.uploadedFiles">Kargatutako fitxategiak</message>
+	<message key="manager.files.uploadFile">Kargatu fitxategia</message>
+	<message key="manager.groups.confirmDelete">Ziur zaude talde hau ezabatu nahi duzula?</message>
+	<message key="manager.groups.createTitle">Sortu kargua</message>
+	<message key="manager.groups.editTitle">Editatu kargua</message>
+	<message key="manager.groups.form.groupTitleRequired">Taldearen titulua eman behar da.</message>
+	<message key="manager.groups.membership.addMember">Gehitu kidea</message>
+	<message key="manager.groups.membership.confirmDelete">Ziur zaude talde honetako kidetza ezabatu nahi duzula?</message>
+	<message key="manager.groups.membership">Kideak</message>
+	<message key="manager.groups.membership.noneCreated">Talde honek ez dauka kiderik.</message>
+	<message key="manager.groups.membership.noUsers">Ez da erabiltzailerik aurkitu.</message>
+	<message key="manager.groups.title">Kargua</message>
+	<message key="manager.importExport">Inportatu/Esportatu datuak</message>
+	<message key="manager.languages.alternateLocaleInstructions">Sistemak aukera ematen du, gainera, informazio garrantzitsua hainbat hizkuntzatan sartzeko. Eginbide hori erabiltzeko, hautatu localeak eta aukeratu beheko aukeren artean.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo diren locale hizkuntza-paketeak. Hizkuntza bat  baino gehiago hautatzen bada bakarrik agertuko da hizkuntzen menua.</message>
+	<message key="manager.payment.timestamp">Data</message>
+	<message key="manager.people.authSource">Autentifikazio-iturburua</message>
+	<message key="manager.people.confirmUnenroll">Erabiltzaile hau desinskribatu?</message>
+	<message key="manager.people.createUser">Sortu erabiltzaile berria</message>
+	<message key="manager.people.createUserGeneratePassword">Sortu ausazko pasahitz bat.</message>
+	<message key="manager.people.createUserSendNotify">Bidali ongietorri-mezu bat erabiltzaile-izenarekin eta pasahitzarekin.</message>
+	<message key="manager.people.disable">Desgaitu</message>
+	<message key="manager.people.doNotEnroll">Funtziorik gabe</message>
+	<message key="manager.people.editProfile">Editatu profila</message>
+	<message key="manager.people.editUser">Editatu erabiltzailea</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Bidali mezua hautatutako erabiltzaileei</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Bidali mezua honela inskribatutako erabiltzaileei:</message>
+	<message key="manager.people.emailUsers">Bidali mezu elektronikoa erabiltzaileei</message>
+	<message key="manager.people.emailUsers.selectLocale">Hautatu locale hizkuntza-pakete bat</message>
+	<message key="manager.people.emailUsers.selectUsers">Mezua bidali nahi diezun erabiltzaileak hautatzeko, markatu izenaren ondoko laukia</message>
+	<message key="manager.people.enable">Gaitu</message>
+	<message key="manager.people.enroll">Inskribatu erabiltzailea</message>
+	<message key="manager.people.enrollment">Inskripzioa</message>
+	<message key="manager.people.enrollSelected">Inskribatu hautatutako erabiltzaileak</message>
+	<message key="manager.people.enrollSyncRole">Sinkronizatu funtzio hau</message>
+	<message key="manager.people.enrollSync">Sinkronizatu inskripzioa</message>
+	<message key="manager.people.enrollUserAsDescription">Edozein unetan eslei (edo ken) dakioke funtzio bat erabiltzaile bati.</message>
+	<message key="manager.people.enrollUserAs">Inskribatu erabiltzailea honela:</message>
+	<message key="manager.people.invalidUser">Eskatutako erabiltzailea ez dago.</message>
+	<message key="manager.people.mergeUser">Batu erabiltzailea</message>
+	<message key="manager.people.mergeUsers.confirm">Ziur zaude "{$oldUsername}" erabiltzaile-izena duen kontua ezabatu eta "{$newUsername}" erabiltzaile-izena duen kontuarekin batu nahi duzula? "{$oldUsername}" kontua galdu egingo da. Ekintza hau ezingo da desegin.</message>
+	<message key="manager.people.mergeUsers">Batu erabiltzaileak</message>
+	<message key="manager.people.mustProvideName">Lehenengo, erabiltzailearen abizen bat eman behar duzu.</message>
+	<message key="manager.people.noMatchingUsers">Ez dago bat datorren erabiltzailerik.</message>
+	<message key="manager.people.noneEnrolled">Inskribatutako erabiltzailerik ez.</message>
+	<message key="manager.people">Jendea</message>
+	<message key="manager.people.remove">Kendu</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Gorde eta sortu beste bat</message>
+	<message key="manager.people.signInAs">Hasi erabiltzaile-saioa</message>
+	<message key="manager.people.signInAsUser">Hasi saioa erabiltzaile gisa</message>
+	<message key="manager.people.syncUsers">Sinkronizatu erabiltzaile-inskripzioa</message>
+	<message key="manager.people.unenroll">Desinskribatu</message>
+	<message key="manager.people.userCreatedSuccessfully">Erabiltzailea ondo sortu da.</message>
+	<message key="manager.people.userMustChangePassword">Esan erabiltzaileari pasahitza aldatu behar duela hurrengo sartzen den aldian.</message>
+	<message key="manager.plugins.action">Ekintza:</message>
+	<message key="manager.plugins.disable">Desgaitu</message>
+	<message key="manager.plugins.enable">Gaitu</message>
+	<message key="manager.plugins.pluginManagement">Pluginen kudeaketa</message>
+	<message key="manager.plugins.sitePlugin">Plugin hau gune osorako da. Gune-administratzaileak bakarrik kudea dezake.</message>
+	<message key="manager.plugins">Sistemaren pluginak</message>
+	<message key="manager.readingTools">Irakurtzeko tresnak</message>
+	<message key="manager.roles">Funtzioak</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Hasierako orriaren goiburuko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
+	<message key="manager.setup.homepageImageInvalid">Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
+	<message key="manager.setup.layout.leftSidebar">Ezkerreko barra</message>
+	<message key="manager.setup.layout.rightSidebar">Eskuineko barra</message>
+	<message key="manager.setup.layout.unselected">Hautatu gabe</message>
+	<message key="manager.setup.loggingAndAuditing">Log-erregistroa eta kontrola</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Orri-buruko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira.</message>
+	<message key="manager.setup.selectOne">Hautatu bat</message>
+	<message key="manager.statistics"><![CDATA[Estatistikak eta txostenak]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} (% {$percentage})</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} berri)</message>
+	<message key="manager.users">Erabiltzaileak</message>
+	<message key="plugins.categories.auth">Baimena emateko pluginak</message>
+	<message key="plugins.categories.blocks">Blokeko pluginak</message>
+	<message key="plugins.categories.blocks.description">Blokeko pluginak, erabiltzaile-interfazearen osagai gehigarriak dira, esate baterako, alboko barrako tresnak.</message>
+	<message key="plugins.categories.citationFormats">Aipamen-formatuen pluginak</message>
+	<message key="plugins.categories.gateways.description">Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara</message>
+	<message key="plugins.categories.gateways">Atebide-pluginak</message>
+	<message key="plugins.categories.generic">Plugin generikoak</message>
+	<message key="plugins.categories.importexport.description">Inportatu eta Esportatzeko pluginak edukia beste sistema batzuetatik eta batzuetara transferitzeko erabiltzen dira.</message>
+	<message key="plugins.categories.importexport">Inportatu eta Esportatzeko pluginak</message>
+	<message key="plugins.categories.paymethod.description">Ordaintzeko moduen pluginekin, lineako ordainketak hainbat modutan prozesatu ahal izango dira.</message>
+	<message key="plugins.categories.paymethod">Ordainketen pluginak</message>
+	<message key="plugins.categories.reports.description">Txostenen pluginak Konferentzia-kudeatzaileentzako txostenak eta datu-aterakinak prestatzeko erabiltzen dira.</message>
+	<message key="plugins.categories.reports">Txostenen pluginak</message>
+	<message key="plugins.categories.themes.description">Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak.</message>
+	<message key="plugins.categories.themes">Temen pluginak</message>
+</locale>

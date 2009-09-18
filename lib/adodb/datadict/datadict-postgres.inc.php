@@ -1,7 +1,7 @@
 <?php
 
 /**
-  v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
+  V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -154,12 +154,6 @@ class ADODB2_postgres extends ADODB_DataDict {
 			}
 		}
 		return $sql;
-	}
-	
-
-	function DropIndexSQL ($idxname, $tabname = NULL)
-	{
-	   return array(sprintf($this->dropIndex, $this->TableName($idxname), $this->TableName($tabname)));
 	}
 	
 	/**
@@ -463,20 +457,6 @@ class ADODB2_postgres extends ADODB_DataDict {
 			return False;
 		}
 		return "DROP SEQUENCE ".$seq;
-	}
-	
-	function RenameTableSQL($tabname,$newname)
-	{
-		if (!empty($this->schema)) {
-			$rename_from = $this->TableName($tabname);
-			$schema_save = $this->schema;
-			$this->schema = false;
-			$rename_to = $this->TableName($newname);
-			$this->schema = $schema_save;
-			return array (sprintf($this->renameTable, $rename_from, $rename_to));
-		}
-
-		return array (sprintf($this->renameTable, $this->TableName($tabname),$this->TableName($newname)));
 	}
 	
 	/*

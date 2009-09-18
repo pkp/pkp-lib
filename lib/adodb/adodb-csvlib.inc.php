@@ -8,7 +8,7 @@ $ADODB_INCLUDED_CSV = 1;
 
 /* 
 
-  v4.991 16 Oct 2008  (c) 2000-2008 John Lim (jlim#natsoft.com). All rights reserved.
+  V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence. See License.txt. 
@@ -261,10 +261,9 @@ $ADODB_INCLUDED_CSV = 1;
 
 	/**
 	* Save a file $filename and its $contents (normally for caching) with file locking
-	* Returns true if ok, false if fopen/fwrite error, 0 if rename error (eg. file is locked)
 	*/
 	function adodb_write_file($filename, $contents,$debug=false)
-	{
+	{ 
 	# http://www.php.net/bugs.php?id=9203 Bug that flock fails on Windows
 	# So to simulate locking, we assume that rename is an atomic operation.
 	# First we delete $filename, then we create a $tempfile write to it and 
@@ -281,31 +280,27 @@ $ADODB_INCLUDED_CSV = 1;
 			$mtime = substr(str_replace(' ','_',microtime()),2); 
 			// getmypid() actually returns 0 on Win98 - never mind!
 			$tmpname = $filename.uniqid($mtime).getmypid();
-			if (!($fd = @fopen($tmpname,'w'))) return false;
-			if (fwrite($fd,$contents)) $ok = true;
-			else $ok = false;
+			if (!($fd = @fopen($tmpname,'a'))) return false;
+			$ok = ftruncate($fd,0);			
+			if (!fwrite($fd,$contents)) $ok = false;
 			fclose($fd);
-
-			if ($ok) {
-				@chmod($tmpname,0644);
-				// the tricky moment
-				@unlink($filename);
-				if (!@rename($tmpname,$filename)) {
-					unlink($tmpname);
-					$ok = 0;
-				}
-				if (!$ok) {
-					if ($debug) ADOConnection::outp( " Rename $tmpname ".($ok? 'ok' : 'failed'));
-				}
+			chmod($tmpname,0644);
+			// the tricky moment
+			@unlink($filename);
+			if (!@rename($tmpname,$filename)) {
+				unlink($tmpname);
+				$ok = false;
+			}
+			if (!$ok) {
+				if ($debug) ADOConnection::outp( " Rename $tmpname ".($ok? 'ok' : 'failed'));
 			}
 			return $ok;
 		}
 		if (!($fd = @fopen($filename, 'a'))) return false;
 		if (flock($fd, LOCK_EX) && ftruncate($fd, 0)) {
-			if (fwrite( $fd, $contents )) $ok = true;
-			else $ok = false;
+			$ok = fwrite( $fd, $contents );
 			fclose($fd);
-			@chmod($filename,0644);
+			chmod($filename,0644);
 		}else {
 			fclose($fd);
 			if ($debug)ADOConnection::outp( " Failed acquiring lock for $filename<br>\n");

@@ -422,7 +422,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/odbc/htm/od
 		}
 		if (empty($qid)) return $false;
 		
-		$rs =& new ADORecordSet_odbc($qid);
+		$rs = new ADORecordSet_odbc($qid);
 		$ADODB_FETCH_MODE = $savem;
 		
 		if (!$rs) return $false;

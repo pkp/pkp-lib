@@ -465,7 +465,7 @@ See http://msdn.microsoft.com/library/default.asp?url=/library/en-us/db2/htm/db2
 	        $qid = db2_columns($this->_connectionID, "", $schema, $table, $colname);
 		if (empty($qid)) return $false;
 		
-		$rs =& new ADORecordSet_db2($qid);
+		$rs = new ADORecordSet_db2($qid);
 		$ADODB_FETCH_MODE = $savem;
 		
 		if (!$rs) return $false;

@@ -437,7 +437,7 @@ class Mail extends DataObject {
 		}
 
 		if (!$sent) {
-			if (Config::getVar('email', 'display_errors')) {
+			if (Config::getVar('debug', 'display_errors')) {
 				if (Config::getVar('email', 'smtp')) {
 					fatalError("There was an error sending this email.  Please check your PHP error log for more information.");
 					return false;

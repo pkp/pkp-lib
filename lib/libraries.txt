@@ -6,8 +6,8 @@ ADOdb Database Library
  * License: LGPL (see lib/adodb/license.txt)
 
 Smarty Template Engine
- * URL: <http://smarty.php.net/>
- * Version: 2.6.18 (March 7, 2007)
+ * URL: <http://www.smarty.net/>
+ * Version: 2.6.26
  * License: LGPL (see lib/smarty/COPYING.lib)
 
 TinyMCE WYSIWYG JS HTML Editor

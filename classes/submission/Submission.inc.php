@@ -769,14 +769,14 @@ class Submission extends DataObject {
 		static $statusMap;
 		if (!isset($statusMap)) {
 			$statusMap = array(
-				SUBMISSION_STATUS_ARCHIVED => 'submissions.archived',
-				SUBMISSION_STATUS_QUEUED => 'submissions.queued',
-				SUBMISSION_STATUS_PUBLISHED => 'submissions.published',
-				SUBMISSION_STATUS_DECLINED => 'submissions.declined',
-				SUBMISSION_STATUS_QUEUED_UNASSIGNED => 'submissions.queuedUnassigned',
-				SUBMISSION_STATUS_QUEUED_REVIEW => 'submissions.queuedReview',
-				SUBMISSION_STATUS_QUEUED_EDITING => 'submissions.queuedEditing',
-				SUBMISSION_STATUS_INCOMPLETE => 'submissions.incomplete'
+				STATUS_ARCHIVED => 'submissions.archived',
+				STATUS_QUEUED => 'submissions.queued',
+				STATUS_PUBLISHED => 'submissions.published',
+				STATUS_DECLINED => 'submissions.declined',
+				STATUS_QUEUED_UNASSIGNED => 'submissions.queuedUnassigned',
+				STATUS_QUEUED_REVIEW => 'submissions.queuedReview',
+				STATUS_QUEUED_EDITING => 'submissions.queuedEditing',
+				STATUS_INCOMPLETE => 'submissions.incomplete'
 			);
 		}
 		return $statusMap;

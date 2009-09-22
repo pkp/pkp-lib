@@ -345,8 +345,11 @@ class PKPApplication {
 			}
 		}
 
-		$dbconn =& DBConnection::getConn();
-		$dbServerInfo = $dbconn->ServerInfo();
+		static $dbServerInfo;
+		if (!isset($dbServerInfo)) {
+			$dbconn =& DBConnection::getConn();
+			$dbServerInfo = $dbconn->ServerInfo();
+		}
 
 		$message[] = "  Server info:";
 		$message[] = "   OS: " . Core::serverPHPOS();

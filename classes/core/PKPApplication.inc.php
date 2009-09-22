@@ -237,7 +237,10 @@ class PKPApplication {
 	 * @param $errline string
 	 */
 	function errorHandler($errorno, $errstr, $errfile, $errline) {
-		// FIXME: Error logging needs to be suppressed for strict errors as long as we support PHP4
+		// FIXME: Error logging needs to be suppressed for strict
+		// errors as long as we support PHP4 (2048 == E_STRICT). This
+		// is primarily for static method warnings. (These cannot be
+		// declared in PHP4.)
 		if(error_reporting() != 0 && $errorno != 2048) {
 			if ($errorno == E_ERROR) {
 				echo 'An error has occurred.  Please check your PHP log file.';

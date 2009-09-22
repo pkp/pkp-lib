@@ -92,6 +92,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
+		// FIXME: Need construction by reference or validation always fails on PHP 4.x
 		$installForm =& new UpgradeForm();
 		$installForm->readInputData();
 

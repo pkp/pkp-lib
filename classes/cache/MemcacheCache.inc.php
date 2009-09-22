@@ -49,7 +49,7 @@ class MemcacheCache extends GenericCache {
 	 */
 	function MemcacheCache($context, $cacheId, $fallback, $hostname, $port) {
 		parent::GenericCache($context, $cacheId, $fallback);
-		$this->connection =& new Memcache;
+		$this->connection = new Memcache;
 
 		if (!$this->connection->connect($hostname, $port)) {
 			$this->connection = null;

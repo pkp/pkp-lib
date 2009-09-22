@@ -24,7 +24,7 @@ class CacheManager {
 	function &getManager() {
 		$manager =& Registry::get('cacheManager', true, null);
 		if ($manager === null) {
-			$manager =& new CacheManager();
+			$manager = new CacheManager();
 		}
 		return $manager;
 	}
@@ -38,7 +38,7 @@ class CacheManager {
 	 */
 	function &getFileCache($context, $cacheId, $fallback) {
 		import('cache.FileCache');
-		$returner =& new FileCache(
+		$returner = new FileCache(
 			$context, $cacheId, $fallback,
 			$this->getFileCachePath()
 		);
@@ -57,7 +57,7 @@ class CacheManager {
 		switch ($cacheType) {
 			case 'memcache':
 				import('cache.MemcacheCache');
-				$cache =& new MemcacheCache(
+				$cache = new MemcacheCache(
 					$context, $cacheId, $fallback,
 					Config::getVar('cache','memcache_hostname'),
 					Config::getVar('cache','memcache_port')
@@ -69,7 +69,7 @@ class CacheManager {
 				break;
 			case 'none':
 				import('cache.GenericCache');
-				$cache =& new GenericCache(
+				$cache = new GenericCache(
 					$context, $cacheId, $fallback
 				);
 				break;

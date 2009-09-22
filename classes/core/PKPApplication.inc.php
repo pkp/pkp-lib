@@ -242,7 +242,7 @@ class PKPApplication {
 			if ($errorno == E_ERROR) {
 				echo 'An error has occurred.  Please check your PHP log file.';
 			} elseif (Config::getVar('debug', 'display_errors')) {
-				echo $this->buildErrorMessage($errorno, $errstr, $errfile, $errline);
+				echo $this->buildErrorMessage($errorno, $errstr, $errfile, $errline) . "<br/>\n";
 			}
 
 			error_log($this->buildErrorMessage($errorno, $errstr, $errfile, $errline), 0);

@@ -47,6 +47,15 @@ class HandlerValidator {
 	function isValid() {
 		return true;
 	}
+
+	/**
+	 * Set the handler associated with this check. Used only for PHP4
+	 * compatibility when instantiating without =& (which is deprecated).
+	 * SHOULD NOT BE USED otherwise.
+	 */
+	function _setHandler(&$handler) {
+		$this->handler =& $handler;
+	}
 }
 
 ?>

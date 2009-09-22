@@ -78,8 +78,7 @@ class NotificationHandler extends Handler {
 		$user = Request::getUser();
 		if(isset($user)) {
 			import('notification.form.NotificationSettingsForm');
-			// FIXME: Need construction by reference or validation always fails on PHP 4.x
-			$notificationSettingsForm =& new NotificationSettingsForm();
+			$notificationSettingsForm = new NotificationSettingsForm();
 			$notificationSettingsForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
 	}
@@ -92,8 +91,7 @@ class NotificationHandler extends Handler {
 
 		import('notification.form.NotificationSettingsForm');
 
-		// FIXME: Need construction by reference or validation always fails on PHP 4.x
-		$notificationSettingsForm =& new NotificationSettingsForm();
+		$notificationSettingsForm = new NotificationSettingsForm();
 		$notificationSettingsForm->readInputData();
 
 		if ($notificationSettingsForm->validate()) {
@@ -190,8 +188,7 @@ class NotificationHandler extends Handler {
 
 		if(!isset($user)) {
 			import('notification.form.NotificationMailingListForm');
-			// FIXME: Need construction by reference or validation always fails on PHP 4.x
-			$notificationMailingListForm =& new NotificationMailingListForm();
+			$notificationMailingListForm = new NotificationMailingListForm();
 			$notificationMailingListForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
 	}
@@ -204,8 +201,7 @@ class NotificationHandler extends Handler {
 
 		import('notification.form.NotificationMailingListForm');
 
-		// FIXME: Need construction by reference or validation always fails on PHP 4.x
-		$notificationMailingListForm =& new NotificationMailingListForm();
+		$notificationMailingListForm = new NotificationMailingListForm();
 		$notificationMailingListForm->readInputData();
 
 		if ($notificationMailingListForm->validate()) {

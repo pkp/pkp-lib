@@ -49,6 +49,11 @@ class PKPHandler {
 	 */
 	function validate($requiredContexts = null) {
 		foreach ($this->_checks as $check) {
+			// WARNING: This line is for PHP4 compatibility when
+			// instantiating handlers without reference. Should not
+			// be removed or otherwise used.
+			$check->_setHandler($this);
+
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {

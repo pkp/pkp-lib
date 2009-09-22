@@ -127,6 +127,11 @@ class Form {
 		}
 
 		foreach ($this->_checks as $check) {
+			// WARNING: This line is for PHP4 compatibility when
+			// instantiating forms without reference. Should not
+			// be removed or otherwise used.
+			$check->_setForm($this);
+
 			if (!isset($this->errorsArray[$check->getField()]) && !$check->isValid()) {
 				if (method_exists($check, 'getErrorFields') && method_exists($check, 'isArray') && call_user_func(array(&$check, 'isArray'))) {
 					$errorFields = call_user_func(array(&$check, 'getErrorFields'));
@@ -298,6 +303,7 @@ class Form {
 			echo '" value="' . $value . "\" />\n";
 		}
 	}
+
 	/**
 	 * Add hidden form parameters for the localized fields for this form
 	 * and display the language chooser field

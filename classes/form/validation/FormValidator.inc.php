@@ -94,6 +94,15 @@ class FormValidator {
 	function getMessage() {
 		return Locale::translate($this->message);
 	}
+
+	/**
+	 * Set the form associated with this check. Used only for PHP4
+	 * compatibility when instantiating without =& (which is deprecated).
+	 * SHOULD NOT BE USED otherwise.
+	 */
+	function _setForm(&$form) {
+		$this->form =& $form;
+	}
 }
 
 ?>

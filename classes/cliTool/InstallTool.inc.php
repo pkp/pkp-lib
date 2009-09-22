@@ -98,8 +98,7 @@ class InstallTool extends CommandLineTool {
 	 * FIXME: Use readline if available?
 	 */
 	function readParams() {
-		// FIXME: Need construction by reference or validation always fails on PHP 4.x
-		$installForm =& new InstallForm();
+		$installForm = new InstallForm();
 
 		// Locale Settings
 		$this->printTitle('installer.localeSettings');

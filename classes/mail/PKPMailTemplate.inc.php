@@ -169,8 +169,7 @@ class PKPMailTemplate extends Mail {
 	 */
 	function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = array()) {
 		import('form.Form');
-		// FIXME: Need construction by reference or validation always fails on PHP 4.x
-		$form =& new Form($alternateTemplate!=null?$alternateTemplate:'email/email.tpl');
+		$form = new Form($alternateTemplate!=null?$alternateTemplate:'email/email.tpl');
 
 		$form->setData('formActionUrl', $formActionUrl);
 		$form->setData('subject', $this->getSubject());

@@ -249,7 +249,6 @@ class PKPNotification extends DataObject {
 	function getIconLocation() {
 		die ('ABSTRACT CLASS');
 	}
-
- }
+}
 
 ?>

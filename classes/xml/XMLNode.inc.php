@@ -96,8 +96,8 @@ class XMLNode {
 	 * @param $name string attribute name
 	 * @param value string attribute value
 	 */
-	function setAttribute($name, &$value) {
-		$this->attributes[$name] =& $value;
+	function setAttribute($name, $value) {
+		$this->attributes[$name] = $value;
 	}
 
 	/**

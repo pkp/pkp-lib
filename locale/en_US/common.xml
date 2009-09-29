@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.14 2009/09/29 23:39:13 asmecher Exp $
   -->
 
 <locale name="en_US" full_name = "English">
@@ -168,6 +168,7 @@
 	<message key="common.updated">Updated</message>
 	<message key="common.uploadedFile">Uploaded file</message>
 	<message key="common.upload">Upload</message>
+	<message key="common.uploadFailed">The file could not be uploaded. Please try again or contact the administrator if the problem persists.</message>
 	<message key="common.up">Up</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">User</message>

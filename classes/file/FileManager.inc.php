@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id$
+// $Id: FileManager.inc.php,v 1.10 2009/09/29 23:39:13 asmecher Exp $
 
 
 define('FILE_MODE_MASK', 0666);
@@ -39,6 +39,15 @@ class FileManager {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * Return true iff an error occurred when trying to upload a file.
+	 * @param $fileName string the name of the file used in the POST form
+	 * @return boolean
+	 */
+	function uploadError($fileName) {
+		return (isset($_FILES[$fileName]) && $_FILES[$fileName]['error'] != 0);
 	}
 
 	/**

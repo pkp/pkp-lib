@@ -12,7 +12,7 @@
  * @brief CLI tool for installing a PKP app.
  */
 
-// $Id$
+// $Id: InstallTool.inc.php,v 1.9 2009/10/06 20:56:13 asmecher Exp $
 
 
 import('install.Install');
@@ -98,7 +98,11 @@ class InstallTool extends CommandLineTool {
 	 * FIXME: Use readline if available?
 	 */
 	function readParams() {
-		$installForm = new InstallForm();
+		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
+			$installForm = new InstallForm();
+		} else {
+			$installForm =& new InstallForm();
+		}
 
 		// Locale Settings
 		$this->printTitle('installer.localeSettings');

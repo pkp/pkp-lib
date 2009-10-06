@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/ru_RU/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of currencies.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.5 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="ru_RU">
+	<currency name="Американский доллар" code_alpha="USD" code_numeric="840" />
+	<currency name="Евро" code_alpha="EUR" code_numeric="978" />
+	<currency name="Канадский доллар" code_alpha="CAD" code_numeric="124" />
 	<currency name="Афганистанский Афгани" code_alpha="AFN" code_numeric="971" />
 	<currency name="Алжирский динар" code_alpha="DZD" code_numeric="12" />
 	<currency name="Аргентинское песо" code_alpha="ARS" code_numeric="32" />
@@ -46,7 +49,6 @@
 	<currency name="Бурундийский франк" code_alpha="BIF" code_numeric="108" />
 	<currency name="CFA франк BCEAO" code_alpha="XOF" code_numeric="952" />
 	<currency name="CFP франк" code_alpha="XAF" code_numeric="953" />
-	<currency name="Канадский доллар" code_alpha="CAD" code_numeric="124" />
 	<currency name="Эскудо Кабо-Верде" code_alpha="CVE" code_numeric="132" />
 	<currency name="Доллар Каймановых Островов" code_alpha="KYD" code_numeric="136" />
 	<currency name="Cedi" code_alpha="GHC" code_numeric="288" />
@@ -71,7 +73,6 @@
 	<currency name="Египетский фунт" code_alpha="EGP" code_numeric="818" />
 	<currency name="Сальвадорский колон" code_alpha="SVC" code_numeric="222" />
 	<currency name="Эфиопский быр" code_alpha="ETB" code_numeric="230" />
-	<currency name="Евро" code_alpha="EUR" code_numeric="978" />
 	<currency name="Фунт фальклендских островов" code_alpha="FKP" code_numeric="238" />
 	<currency name="Фуджийский доллар" code_alpha="FJD" code_numeric="242" />
 	<currency name="Forint" code_alpha="HUF" code_numeric="348" />
@@ -178,7 +179,6 @@
 	<currency name="Tugrik" code_alpha="MNT" code_numeric="496" />
 	<currency name="Тунисский динар" code_alpha="TND" code_numeric="788" />
 	<currency name="Дирхам Объединенных Арабских Эмиратов" code_alpha="AED" code_numeric="784" />
-	<currency name="Американский доллар" code_alpha="USD" code_numeric="840" />
 	<currency name="Uganda Shilling" code_alpha="UGX" code_numeric="800" />
 	<currency name="Unidad De Valor Real" code_alpha="COU" code_numeric="970" />
 	<currency name="Unidades De Formento" code_alpha="CLF" code_numeric="990" />

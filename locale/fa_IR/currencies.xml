@@ -1,13 +1,14 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!--
-  * currencies.xml
+  * locale/fa_IR/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * تحت مجوزGNU GPL v2 منتشرشد. برای دیدن متن کامل فایل docs/COPYING را ببینید.
   *
   * داده های XML واحدهای پول بر اساس ISO 4217.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.4 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -22,6 +23,9 @@
 ]>
 
 <currencies locale="fa_IR" >
+	<currency name="دلار امریکا" code_numeric="840" code_alpha="USD" />
+	<currency name="یورو" code_numeric="978" code_alpha="EUR" />
+	<currency name="دلار کانادا" code_numeric="124" code_alpha="CAD" />
 	<currency name="افغانی" code_numeric="971" code_alpha="AFN" />
 	<currency name="دینار الجزیره" code_numeric="12" code_alpha="DZD" />
 	<currency name="پسکو آرژانتین" code_numeric="32" code_alpha="ARS" />
@@ -43,7 +47,6 @@
 	<currency name="دلار برونی" code_numeric="96" code_alpha="BND" />
 	<currency name="لو بلغارستان" code_numeric="975" code_alpha="BGN" />
 	<currency name="فرانک برندی" code_numeric="108" code_alpha="BIF" />
-	<currency name="دلار کانادا" code_numeric="124" code_alpha="CAD" />
 	<currency name="کیپ ورده اسکدو" code_numeric="132" code_alpha="CVE" />
 	<currency name="دلار جزایر کایمن" code_numeric="136" code_alpha="KYD" />
 	<currency name="سدی" code_numeric="288" code_alpha="GHC" />
@@ -71,7 +74,6 @@
 	<currency name="پند اگیبت" code_numeric="818" code_alpha="EGP" />
 	<currency name="کلن السالوادور" code_numeric="222" code_alpha="SVC" />
 	<currency name="بیر اتیوپی" code_numeric="230" code_alpha="ETB" />
-	<currency name="یورو" code_numeric="978" code_alpha="EUR" />
 	<currency name="پند جزایر فالکلند" code_numeric="238" code_alpha="FKP" />
 	<currency name="دلار فیجی" code_numeric="242" code_alpha="FJD" />
 	<currency name="فورینت" code_numeric="348" code_alpha="HUF" />
@@ -181,7 +183,6 @@
 	<currency name="شیلینگ یوگاندا" code_numeric="800" code_alpha="UGX" />
 	<currency name="رئال یونیدد د والور" code_numeric="970" code_alpha="COU" />
 	<currency name="یونیدیدز د فور لانکو" code_numeric="990" code_alpha="CLF" />
-	<currency name="دلار امریکا" code_numeric="840" code_alpha="USD" />
 	<currency name="سام ازبکستان" code_numeric="860" code_alpha="UZS" />
 	<currency name="واتو" code_numeric="548" code_alpha="VUV" />
 	<currency name="یورو ویر" code_numeric="947" code_alpha="CHE" />

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/ja_JP/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of currencies.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.6 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="ja_JP">
+	<currency name="米ドル" code_alpha="USD" code_numeric="840" />
+	<currency name="ユーロ" code_alpha="EUR" code_numeric="978" />
+	<currency name="カナダ・ドル" code_alpha="CAD" code_numeric="124" />
 	<currency name="アフガニスタン" code_alpha="AFN" code_numeric="971" />
 	<currency name="アルジェリア・ディナール" code_alpha="DZD" code_numeric="12" />
 	<currency name="アルゼンチン・ペソ" code_alpha="ARS" code_numeric="32" />
@@ -46,7 +49,6 @@
 	<currency name="ブルンジ・フラン" code_alpha="BIF" code_numeric="108" />
 	<currency name="CFAフランBCEAO" code_alpha="XOF" code_numeric="952" />
 	<currency name="CFAフラン" code_alpha="XAF" code_numeric="953" />
-	<currency name="カナダ・ドル" code_alpha="CAD" code_numeric="124" />
 	<currency name="カーボベルデ・エスクード" code_alpha="CVE" code_numeric="132" />
 	<currency name="ケイマン諸島ドル" code_alpha="KYD" code_numeric="136" />
 	<currency name="セディ" code_alpha="GHC" code_numeric="288" />
@@ -71,7 +73,6 @@
 	<currency name="エジプト・ポンド" code_alpha="EGP" code_numeric="818" />
 	<currency name="エルサルバドル・コロン" code_alpha="SVC" code_numeric="222" />
 	<currency name="エチオピア・ブル" code_alpha="ETB" code_numeric="230" />
-	<currency name="ユーロ" code_alpha="EUR" code_numeric="978" />
 	<currency name="フォークランド島ポンド" code_alpha="FKP" code_numeric="238" />
 	<currency name="フィジー・ドル" code_alpha="FJD" code_numeric="242" />
 	<currency name="フォリント" code_alpha="HUF" code_numeric="348" />
@@ -178,7 +179,6 @@
 	<currency name="トゥグルグ" code_alpha="MNT" code_numeric="496" />
 	<currency name="チュニジア・ディナール" code_alpha="TND" code_numeric="788" />
 	<currency name="アラブ首長国連邦ディルハム" code_alpha="AED" code_numeric="784" />
-	<currency name="米ドル" code_alpha="USD" code_numeric="840" />
 	<currency name="ウガンダ･シリング" code_alpha="UGX" code_numeric="800" />
 	<currency name="実価融資単位" code_alpha="COU" code_numeric="970" />
 	<currency name="投資単位" code_alpha="CLF" code_numeric="990" />

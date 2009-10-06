@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/el_GR/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.5 2009/10/06 23:13:31 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="el_GR">
+	<currency name="Δολλάριο ΗΠΑ" code_alpha="USD" code_numeric="840" />
+	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
+	<currency name="Καναδικό δολλάριο" code_alpha="CAD" code_numeric="124" />
 	<currency name="Dirham Ην. Αραβ. Εμιράτων" code_alpha="AED" code_numeric="784" />
 	<currency name="Afghani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Λέκ Αλβανίας" code_alpha="ALL" code_numeric="008" />
@@ -49,7 +52,6 @@
 	<currency name="Pula" code_alpha="BWP" code_numeric="072" />
 	<currency name="Belarussian ruble" code_alpha="BYR" code_numeric="974" />
 	<currency name="Δολλάριο Μπελίζ" code_alpha="BZD" code_numeric="084" />
-	<currency name="Καναδικό δολλάριο" code_alpha="CAD" code_numeric="124" />
 	<currency name="Franc Congolais" code_alpha="CDF" code_numeric="976" />
 	<currency name="Ελβετικό φράγκο" code_alpha="CHF" code_numeric="756" />
 	<currency name="Πέσος Χιλής" code_alpha="CLP" code_numeric="152" />
@@ -68,7 +70,6 @@
 	<currency name="Λίρα Αιγύπτου" code_alpha="EGP" code_numeric="818" />
 	<currency name="Nakfa" code_alpha="ERN" code_numeric="232" />
 	<currency name="Ethiopian birr" code_alpha="ETB" code_numeric="230" />
-	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Δολλάριο Φίτζι" code_alpha="FJD" code_numeric="242" />
 	<currency name="Λίρα Νήσων Φώκλαντ" code_alpha="FKP" code_numeric="238" />
 	<currency name="Στερλίνες Ην. Βασιλείου" code_alpha="GBP" code_numeric="826" />
@@ -168,7 +169,6 @@
 	<currency name="Σελίνι Τανζανίας" code_alpha="TZS" code_numeric="834" />
 	<currency name="Hryvnia" code_alpha="UAH" code_numeric="980" />
 	<currency name="Σελίνι Ουγκάντας" code_alpha="UGX" code_numeric="800" />
-	<currency name="Δολλάριο ΗΠΑ" code_alpha="USD" code_numeric="840" />
 	<currency name="Peso Uruguayo" code_alpha="UYU" code_numeric="858" />
 	<currency name="Uzbekistan som" code_alpha="UZS" code_numeric="860" />
 	<currency name="Venezuelan bolívar fuerte" code_alpha="VEF" code_numeric="937" />

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/zh_TW/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217. (Awaiting translation.)
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.3 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="zh_TW">
+	<currency name="US dollar" code_alpha="USD" code_numeric="840" />
+	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
+	<currency name="Canadian dollar" code_alpha="CAD" code_numeric="124" />
 	<currency name="United Arab Emirates dirham" code_alpha="AED" code_numeric="784" />
 	<currency name="Afghani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Lek" code_alpha="ALL" code_numeric="008" />
@@ -49,7 +52,6 @@
 	<currency name="Pula" code_alpha="BWP" code_numeric="072" />
 	<currency name="Belarussian ruble" code_alpha="BYR" code_numeric="974" />
 	<currency name="Belize dollar" code_alpha="BZD" code_numeric="084" />
-	<currency name="Canadian dollar" code_alpha="CAD" code_numeric="124" />
 	<currency name="Franc Congolais" code_alpha="CDF" code_numeric="976" />
 	<currency name="Swiss franc" code_alpha="CHF" code_numeric="756" />
 	<currency name="Chilean peso" code_alpha="CLP" code_numeric="152" />
@@ -68,7 +70,6 @@
 	<currency name="Egyptian pound" code_alpha="EGP" code_numeric="818" />
 	<currency name="Nakfa" code_alpha="ERN" code_numeric="232" />
 	<currency name="Ethiopian birr" code_alpha="ETB" code_numeric="230" />
-	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Fiji dollar" code_alpha="FJD" code_numeric="242" />
 	<currency name="Falkland Islands pound" code_alpha="FKP" code_numeric="238" />
 	<currency name="Pound sterling" code_alpha="GBP" code_numeric="826" />
@@ -168,7 +169,6 @@
 	<currency name="Tanzanian shilling" code_alpha="TZS" code_numeric="834" />
 	<currency name="Hryvnia" code_alpha="UAH" code_numeric="980" />
 	<currency name="Uganda shilling" code_alpha="UGX" code_numeric="800" />
-	<currency name="US dollar" code_alpha="USD" code_numeric="840" />
 	<currency name="Peso Uruguayo" code_alpha="UYU" code_numeric="858" />
 	<currency name="Uzbekistan som" code_alpha="UZS" code_numeric="860" />
 	<currency name="Venezuelan bolívar fuerte" code_alpha="VEF" code_numeric="937" />

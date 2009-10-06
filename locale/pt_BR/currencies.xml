@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/pt_BR/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.5 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="pt_BR">
+	<currency name="Dolar Americano" code_alpha="USD" code_numeric="840" />
+	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
+	<currency name="Dolar Canadense" code_alpha="CAD" code_numeric="124" />
 	<currency name="Diran dos Emirados Árabes unidos" code_alpha="AED" code_numeric="784" />
 	<currency name="Afegani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Lek da Albânia" code_alpha="ALL" code_numeric="008" />
@@ -49,7 +52,6 @@
 	<currency name="Pula de Botswana" code_alpha="BWP" code_numeric="072" />
 	<currency name="Rubro Bielo-russo" code_alpha="BYR" code_numeric="974" />
 	<currency name="Dolar de Belize" code_alpha="BZD" code_numeric="084" />
-	<currency name="Dolar Canadense" code_alpha="CAD" code_numeric="124" />
 	<currency name="Franco do Congo" code_alpha="CDF" code_numeric="976" />
 	<currency name="Euro WIR" code_alpha="CHE" code_numeric="947" />
 	<currency name="Franco Suiço" code_alpha="CHF" code_numeric="756" />
@@ -73,7 +75,6 @@
 	<currency name="Libra Egípcia" code_alpha="EGP" code_numeric="818" />
 	<currency name="Nakfa da Eritréia" code_alpha="ERN" code_numeric="232" />
 	<currency name="Birr Etíope" code_alpha="ETB" code_numeric="230" />
-	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Dolar de Fiji" code_alpha="FJD" code_numeric="242" />
 	<currency name="Libra das ilhas Falkland" code_alpha="FKP" code_numeric="238" />
 	<currency name="Libra Esterlina" code_alpha="GBP" code_numeric="826" />
@@ -183,7 +184,6 @@
 	<currency name="Xelim da Tanzânia" code_alpha="TZS" code_numeric="834" />
 	<currency name="Hryvnia da Ucrânia" code_alpha="UAH" code_numeric="980" />
 	<currency name="Xelim Ugandense" code_alpha="UGX" code_numeric="800" />
-	<currency name="Dolar Americano" code_alpha="USD" code_numeric="840" />
 	<currency name="Peso Uruguaio" code_alpha="UYU" code_numeric="858" />
 	<currency name="Sum Ubezque" code_alpha="UZS" code_numeric="860" />
 	<currency name="Bolivar Venezuelano" code_alpha="VEB" code_numeric="862" />

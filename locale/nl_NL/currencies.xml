@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/nl_NL/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -11,7 +11,7 @@
   * Translated by Martin van Luijt, m.van.luijt 'at' hccnet.nl
   *
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.3 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -26,6 +26,9 @@
 ]>
 
 <currencies locale="nl_NL">
+	<currency name="US-dollar" code_alpha="USD" code_numeric="840" />
+	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
+	<currency name="Canadese Dollar" code_alpha="CAD" code_numeric="124" />
 	<currency name="Afghani" code_alpha="AFN" code_numeric="971" />
 	<currency name="Algerijnse Dinar" code_alpha="DZD" code_numeric="12" />
 	<currency name="Argentijnse Peso" code_alpha="ARS" code_numeric="32" />
@@ -47,7 +50,6 @@
 	<currency name="Bruneise Dollar" code_alpha="BND" code_numeric="96" />
 	<currency name="Lev" code_alpha="BGN" code_numeric="975" />
 	<currency name="Burundese Frank" code_alpha="BIF" code_numeric="108" />
-	<currency name="Canadese Dollar" code_alpha="CAD" code_numeric="124" />
 	<currency name="Kaapverdische Escudo" code_alpha="CVE" code_numeric="132" />
 	<currency name="Caymaneilandse Dollar" code_alpha="KYD" code_numeric="136" />
 	<currency name="Cedi" code_alpha="GHC" code_numeric="288" />
@@ -75,7 +77,6 @@
 	<currency name="Egyptisch Pond" code_alpha="EGP" code_numeric="818" />
 	<currency name="Salvadoraanse Cólon" code_alpha="SVC" code_numeric="222" />
 	<currency name="Ethiopische Birr" code_alpha="ETB" code_numeric="230" />
-	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Falklandeilands Pond" code_alpha="FKP" code_numeric="238" />
 	<currency name="Fiji-Dollar" code_alpha="FJD" code_numeric="242" />
 	<currency name="Forint" code_alpha="HUF" code_numeric="348" />
@@ -185,7 +186,6 @@
 	<currency name="Ugandese Shilling" code_alpha="UGX" code_numeric="800" />
 	<currency name="Unidad de Valor Real" code_alpha="COU" code_numeric="970" />
 	<currency name="Unidad de Formentos" code_alpha="CLF" code_numeric="990" />
-	<currency name="US-dollar" code_alpha="USD" code_numeric="840" />
 	<currency name="Sum" code_alpha="UZS" code_numeric="860" />
 	<currency name="Vatu" code_alpha="VUV" code_numeric="548" />
 	<currency name="WIR Euro" code_alpha="CHE" code_numeric="947" />

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  * currencies.xml
+  * locale/vi_VN/currencies.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of currencies.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.4 2009/10/06 23:13:32 asmecher Exp $
   -->
 
 <!DOCTYPE currencies [
@@ -23,6 +23,9 @@
 ]>
 
 <currencies locale="vi_VN">
+	<currency name="Đô-la Mỹ" code_alpha="USD" code_numeric="840" />
+	<currency name="Đồng Eu-rô" code_alpha="EUR" code_numeric="978" />
+	<currency name="Đô-la Ca-na-đa" code_alpha="CAD" code_numeric="124" />
 	<currency name="Đồng Ap-ga-ni" code_alpha="AFN" code_numeric="971" />
 	<currency name="Đồng Đi-nă An-giê-ri" code_alpha="DZD" code_numeric="12" />
 	<currency name="Đồng Pê-xô Á-căn-đình" code_alpha="ARS" code_numeric="32" />
@@ -46,7 +49,6 @@
 	<currency name="Đồng frăng Bu-run-đi" code_alpha="BIF" code_numeric="108" />
 	<currency name="Đồng Frăng CFA BCEAO" code_alpha="XOF" code_numeric="952" />
 	<currency name="Đồng Frăng CFP" code_alpha="XAF" code_numeric="953" />
-	<currency name="Đô-la Ca-na-đa" code_alpha="CAD" code_numeric="124" />
 	<currency name="Đồng Ex-cu-đô Cáp Vea-đợ" code_alpha="CVE" code_numeric="132" />
 	<currency name="Đô-la Quần Đảo Cay-manh" code_alpha="KYD" code_numeric="136" />
 	<currency name="Cedi" code_alpha="GHC" code_numeric="288" />
@@ -71,7 +73,6 @@
 	<currency name="Đồng bảng Ai Cập" code_alpha="EGP" code_numeric="818" />
 	<currency name="Đồng Co-lon En Xan-va-đoa" code_alpha="SVC" code_numeric="222" />
 	<currency name="Đông Bi-rợ Ê-ti-ô-pi" code_alpha="ETB" code_numeric="230" />
-	<currency name="Đồng Eu-rô" code_alpha="EUR" code_numeric="978" />
 	<currency name="Đồng bảng Đảo Phoa-kh-lận-đh" code_alpha="FKP" code_numeric="238" />
 	<currency name="Đô-la Phi-gi" code_alpha="FJD" code_numeric="242" />
 	<currency name="Forint" code_alpha="HUF" code_numeric="348" />
@@ -178,7 +179,6 @@
 	<currency name="Tugrik" code_alpha="MNT" code_numeric="496" />
 	<currency name="Đồng Đi-nă Tu-ni-xi-a" code_alpha="TND" code_numeric="788" />
 	<currency name="Đồng đơ-âm UAE" code_alpha="AED" code_numeric="784" />
-	<currency name="Đô-la Mỹ" code_alpha="USD" code_numeric="840" />
 	<currency name="Uganda Shilling" code_alpha="UGX" code_numeric="800" />
 	<currency name="Unidad De Valor Real" code_alpha="COU" code_numeric="970" />
 	<currency name="Unidades De Formento" code_alpha="CLF" code_numeric="990" />

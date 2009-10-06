@@ -12,7 +12,7 @@
  * @brief Handle requests for announcement management functions.
  */
 
-//$Id$
+//$Id: PKPAnnouncementHandler.inc.php,v 1.6 2009/10/06 21:22:28 asmecher Exp $
 import('manager.ManagerHandler');
 
 class PKPAnnouncementHandler extends ManagerHandler {
@@ -91,7 +91,11 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');
 			}
 
-			$announcementForm = new AnnouncementForm($announcementId);
+			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
+				$announcementForm = new AnnouncementForm($announcementId);
+			} else {
+				$announcementForm =& new AnnouncementForm($announcementId);
+			}
 			if ($announcementForm->isLocaleResubmit()) {
 				$announcementForm->readInputData();
 			} else {
@@ -124,7 +128,11 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		if ($this->_announcementIsValid($announcementId)) {
 
-			$announcementForm = new AnnouncementForm($announcementId);
+			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
+				$announcementForm = new AnnouncementForm($announcementId);
+			} else {
+				$announcementForm =& new AnnouncementForm($announcementId);
+			}
 			$announcementForm->readInputData();
 
 			if ($announcementForm->validate()) {

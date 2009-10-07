@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
   * locale/de_DE/currencies.xml
@@ -8,19 +9,8 @@
   *
   * Currencies data XML file. Based on ISO 4217.
   *
-  * $Id: currencies.xml,v 1.5 2009/10/06 23:13:31 asmecher Exp $
+  * $Id: currencies.xml,v 1.6 2009/10/07 21:13:19 asmecher Exp $
   -->
-
-<!DOCTYPE currencies [
-	<!ELEMENT currencies (currency+)>
-		<!ATTLIST currencies
-			locale CDATA #REQUIRED>
-	<!ELEMENT currency EMPTY>
-		<!ATTLIST currency
-			code_alpha CDATA #REQUIRED
-			code_numeric CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
 
 <currencies locale="de_DE">
 	<currency name="US Dollar" code_alpha="USD" code_numeric="840" />

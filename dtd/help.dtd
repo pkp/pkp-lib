@@ -4,9 +4,9 @@
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * DTD for localization string definitions.
+  * DTD for help localization definitions.
   *
-  * $Id$
+  * $Id: help.dtd,v 1.4 2009/10/07 21:13:19 asmecher Exp $
   -->
 
 <!--

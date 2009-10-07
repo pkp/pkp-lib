@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * pkp//locale/eu_ES/installer.xml
+  * locale/eu_ES/installer.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">

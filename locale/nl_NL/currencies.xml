@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
   * locale/nl_NL/currencies.xml
@@ -11,19 +12,8 @@
   * Translated by Martin van Luijt, m.van.luijt 'at' hccnet.nl
   *
   *
-  * $Id: currencies.xml,v 1.3 2009/10/06 23:13:32 asmecher Exp $
+  * $Id: currencies.xml,v 1.4 2009/10/07 21:13:20 asmecher Exp $
   -->
-
-<!DOCTYPE currencies [
-	<!ELEMENT currencies (currency+)>
-		<!ATTLIST currencies
-			locale CDATA #REQUIRED>
-	<!ELEMENT currency EMPTY>
-		<!ATTLIST currency
-			code_alpha CDATA #REQUIRED
-			code_numeric CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
 
 <currencies locale="nl_NL">
 	<currency name="US-dollar" code_alpha="USD" code_numeric="840" />

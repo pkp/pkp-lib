@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
   * locale/ru_RU/currencies.xml
@@ -8,19 +9,8 @@
   *
   * Localized list of currencies.
   *
-  * $Id: currencies.xml,v 1.5 2009/10/06 23:13:32 asmecher Exp $
+  * $Id: currencies.xml,v 1.6 2009/10/07 21:13:20 asmecher Exp $
   -->
-
-<!DOCTYPE currencies [
-	<!ELEMENT currencies (currency+)>
-		<!ATTLIST currencies
-			locale CDATA #REQUIRED>
-	<!ELEMENT currency EMPTY>
-		<!ATTLIST currency
-			code_alpha CDATA #REQUIRED
-			code_numeric CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
 
 <currencies locale="ru_RU">
 	<currency name="Американский доллар" code_alpha="USD" code_numeric="840" />
@@ -84,7 +74,7 @@
 	<currency name="Песо Гвинея-Бисау" code_alpha="GWP" code_numeric="624" />
 	<currency name="Доллар Гайаны" code_alpha="GYD" code_numeric="328" />
 	<currency name="Гонконгский доллар" code_alpha="HKD" code_numeric="344" />
-	<currency name="Украинская гривня code_alpha="UAH" code_numeric="980" />
+	<currency name="Украинская гривня" code_alpha="UAH" code_numeric="980" />
 	<currency name="Исландская крона" code_alpha="ISK" code_numeric="352" />
 	<currency name="Индийская рупия" code_alpha="INR" code_numeric="356" />
 	<currency name="Иранский риал" code_alpha="IRR" code_numeric="364" />

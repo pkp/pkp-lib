@@ -9,7 +9,7 @@
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.5 2009/10/07 23:29:31 asmecher Exp $
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -269,4 +269,48 @@
 	<message key="search.titleIndex">Consultar índice de títulos</message>
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/enfoque)</message>
+	<message key="notification.settings">Configuración de notificaciones</message>
+	<message key="notification.settingsDescription">Selecciona los eventos del sistema sobre los que quieres ser notificado. Des-chequear un ítem evita que aparezcan las notificaciones en el área de notificaciones.</message>
+	<message key="notification.subscribe">Suscribirse</message>
+	<message key="notification.subscribeError">Tu dirección de correo electrónico ya está suscrita a las notificaciones.</message>
+	<message key="notification.subscribeSuccess">Un email ha sido enviado a la dirección que has especificado. Por favor, haz clic en el enlace de confirmación que aparece en el email para añadirte a tí mismo a la lista de correo.</message>
+	<message key="notification.reminderError">Ha habido un error enviando tu contraseña, por favor comprueba que has puesto bien tu dirección de correo electrónico.</message>
+	<message key="notification.reminderSent">Tu nueva contraseña ha sido mandada a la dirección de correo electrónico proporcionada.</message>
+	<message key="notification.unsubscribe">Des-suscribirse</message>
+	<message key="notification.unsubscribeDescription">Introduce tu dirección de correo electrónico y tu contraseña abajo para des-suscribirte de las notificaciones vía correo electrónico. Si no recuerdas tu contraseña, deja el campo de la contraseña vacío y te llegará una nueva contraseña a tu dirección de correo electrónico.</message>
+	<message key="notification.unsubscribeError">Ha habido un error al des-suscribirte. Comprueba que tu dirección de correo electrónico y tu contraseña son correctas.</message>
+	<message key="notification.unsubscribeSuccess">Has sido correctamente des-suscrito.</message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Administrar</message>
+	<message key="common.noComments">Sin comentarios</message>
+	<message key="form.startsWith">comienza con</message>
+	<message key="notification.allow">Permitir que este tipo de notificaciones aparezcan en mi área de notificaciones</message>
+	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
+	<message key="notification.confirmSuccess">Has sido correctamente suscrito.</message>
+	<message key="notification.email">Mándame un email para ese tipo de notificaciones.</message>
+	<message key="notification.location">Ir a la web</message>
+	<message key="notification.mailList">Lista de correo de notificaciones</message>
+	<message key="notification.mailList.emailInvalid">Introduce una dirección de correo válida.</message>
+	<message key="notification.mailList.privacyProtection">Política de protección de privacidad</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Suscribir</a> a contenido protegido.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Enviar</a> un artículo]]></message>
+	<message key="notification.mailList.register">Te puedes registrar con este sitio para...</message>
+	<message key="notification.mailList.review"><![CDATA[Participar en el proceso de <a href="{$reviewUrl}">revisión por pares</a>]]></message>
+	<message key="notification.noneExist">No tiene notificaciones en este momento.</message>
+	<message key="notification.notification">Notificación</message>
+	<message key="notification.notifications">Notificaciones</message>
+	<message key="notification.notificationsNew">({$numNew} nuevo)</message>
+	<message key="notification.notificationsDescription"><![CDATA[Tienes {$unreadCount} notificaciones sin leer y {$readCount} leídas.  <a href="{$settingsUrl}">Haz clic aquí</a> para cambiar la configuración de tus notificaciones.]]></message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Este trabajo está licenciado bajo la licencia <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 </a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Este trabajo está licenciado bajo la licencia <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
+	</div>]]></message>
 </locale>

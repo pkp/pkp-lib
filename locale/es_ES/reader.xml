@@ -9,7 +9,7 @@
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.4 2009/10/07 23:29:31 asmecher Exp $
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -157,4 +157,21 @@
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versión</message>
 	<message key="rt.viewMetadata">Información de indexación</message>
+	<message key="comments.titleRequired">Se requiere un título para el comentario.</message>
+	<message key="rt.admin.sharing">Compartición</message>
+	<message key="rt.admin.sharing.enabled">Habilitar compartición</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para habilitar a tus lectores a compartir artículos de la revista, registra una cuenta con <a href="http://addthis.com">addthis.com</a>, y copia/pega el código que hay bajo el botón de Compartición.]]></message>
+	<message key="rt.admin.sharing.basic">Configuraciones básicas</message>
+	<message key="rt.admin.sharing.userNameLabel">Usuario de AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Estilo de botón</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Usar el menú desplegable</message>
+	<message key="rt.admin.sharing.advanced">Configuraciones avanzadas (opcional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Mira la <a href="http://www.addthis.com/help/customize/custom-button/">documentación de personalización de AddThis.com</a> para más información.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Marca</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opciones del desplegable <br /> (lista separada por comas)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Idioma</message>
+	<message key="rt.admin.sharing.logolabel">Logotipo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Fondo de logotipo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Color de logotipo</message>
+	<message key="rt.admin.configureSharing">Configurar AddThis</message>
 </locale>

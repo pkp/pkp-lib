@@ -9,7 +9,7 @@
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.4 2009/10/07 23:29:31 asmecher Exp $
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -100,4 +100,6 @@
 	<message key="user.userHome">Inicio</message>
 	<message key="user.username">Nombre usuario/a</message>
 	<message key="user.workingLanguages">Idiomas que conoce</message>
+	<message key="user.profile.form.profileImageInvalid">Formato de imagen de perfil inválido o imagen demasiado grande. Los formatos aceptados son .gif, .jpg, or .png, y la imagen no puede exceder de 150x150 pixels.</message>
+	<message key="user.other">Otro</message>
 </locale>

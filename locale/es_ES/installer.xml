@@ -9,7 +9,7 @@
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.4 2009/10/07 23:29:31 asmecher Exp $
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -69,4 +69,6 @@
 	<message key="installer.releaseNotes">Notas de lanzamiento</message>
 	<message key="installer.securitySettings">Configuración de seguridad</message>
 	<message key="installer.skipFilesDir">No crear subdirectorios (sólo tiene utilidad en la instalación manual)</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Ha habido un error analizándo el fichero de plantilla de correo <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">Las traducciones marcadas pueden estar incompletas.</message>
 </locale>

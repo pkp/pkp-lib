@@ -9,7 +9,7 @@
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.7 2009/10/07 17:05:27 jmacgreg Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -92,7 +92,7 @@
 	<message key="common.fileSize">Taille de fichier</message>
 	<message key="common.fileType">Type de fichier</message>
 	<message key="common.height">Hauteur</message>
-	<message key="common.homePageHeaderLogo.altText">Logo de l'entête de la page d'accueil</message>
+	<message key="common.homePageHeaderLogo.altText">Logo de l'en-tête de la page d'accueil</message>
 	<message key="common.hour">Heure</message>
 	<message key="common.id">ID</message>
 	<message key="common.import">Importer</message>
@@ -121,7 +121,7 @@
 	<message key="common.originalFileName">Nom original du fichier</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Autre</message>
-	<message key="common.pageHeaderLogo.altText">Logo de l'entête de la page</message>
+	<message key="common.pageHeaderLogo.altText">Logo de l'en-tête de la page</message>
 	<message key="common.plugin">Plugiciel</message>
 	<message key="common.publisher">Éditeur</message>
 	<message key="common.record">Enregistrer</message>
@@ -228,7 +228,7 @@
 	<message key="icon.unchecked.alt">Décoché</message>
 	<message key="icon.view.alt">Afficher</message>
 	<message key="locale.primary">Langue par défaut</message>
-	<message key="locale.supported">Langues supportées</message>
+	<message key="locale.supported">Langues prises en charge</message>
 	<message key="navigation.about">À propos</message>
 	<message key="navigation.browse">Explorer</message>
 	<message key="navigation.browseByTitle">Par titre</message>

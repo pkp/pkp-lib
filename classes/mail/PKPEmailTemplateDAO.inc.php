@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-// $Id$
+// $Id: PKPEmailTemplateDAO.inc.php,v 1.4 2009/10/07 22:01:22 asmecher Exp $
 
 
 class PKPEmailTemplateDAO extends DAO {
@@ -673,7 +673,7 @@ class PKPEmailTemplateDAO extends DAO {
 				($attrs['can_disable']?1:0) . ', ' .
 				($attrs['can_edit']?1:0) . ', ' .
 				(isset($attrs['from_role_id'])?((int) $attrs['from_role_id']):'null') . ', ' .
-				(isset($attrs['to_role_id'])?((int) $attrs['from_role_id']):'null') .
+				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') .
 				")\n";
 			if (!$returnSql) {
 				$this->update($sql);

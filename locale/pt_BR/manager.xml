@@ -9,7 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.5 2009/10/13 21:38:04 jerico.dev Exp $
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">Plugins de Relatório</message>
 	<message key="plugins.categories.themes.description">Plugins de Visual podem ser utilizados para alterar o visual do sistema.</message>
 	<message key="plugins.categories.themes">Plugins de Visual</message>
+	<message key="manager.emails.form.emailKeyRequired">É necessária uma chave de email única para o email.</message>
 </locale>

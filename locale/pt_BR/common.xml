@@ -9,7 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.6 2009/10/13 21:38:04 jerico.dev Exp $
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -312,4 +312,5 @@
 	<message key="notification.unsubscribeDescription">Informe seu endereço de e-mail e senha a seguir para cancelar o recebimento de notificações via e-mail. Caso não se lembre da senha, deixe o campo em branco para que uma nova senha senha enviada.</message>
 	<message key="notification.unsubscribeError">Ocorreu um erro ao tentar cancelar a assinatura. Verifique se o endereço de e-mail e senha estão corretos.</message>
 	<message key="notification.unsubscribeSuccess">Cancelamento de assinatura de notificações realizado com sucesso.</message>
+	<message key="common.uploadFailed">O arquivo não pôde ser enviado. Por favor, tente novamente ou entre em contato com o administrador se o problema persistir.</message>
 </locale>

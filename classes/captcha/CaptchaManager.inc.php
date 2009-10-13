@@ -7,13 +7,13 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CaptchaManager
- * @ingroup file
+ * @ingroup captcha
  * @see CaptchaDAO, Captcha
  *
- * @brief Class defining operations for temporary file management.
+ * @brief Class providing captcha services.
  */
 
-// $Id$
+// $Id: CaptchaManager.inc.php,v 1.6 2009/10/13 21:29:27 jerico.dev Exp $
 
 
 import('file.FileManager');

@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id: FileManager.inc.php,v 1.10 2009/09/29 23:39:13 asmecher Exp $
+// $Id: FileManager.inc.php,v 1.11 2009/10/14 22:03:05 mcrider Exp $
 
 
 define('FILE_MODE_MASK', 0666);
@@ -145,6 +145,42 @@ class FileManager {
 			return FileManager::setMode($dest, FILE_MODE_MASK);
 		return false;
 	}
+	
+	/**
+	 * Copy a directory.
+	 * Taken from php.net under 'copy'
+	 * @param $source string the path to the source directory
+	 * @param $dest string the path where the directory is to be saved
+	 * @return boolean returns true if successful
+	 */
+	function copyDir($source, $dest) {
+		if (is_dir($source)) {
+			FileManager::mkdir($dest);
+			$destDir = dir($source);
+
+			while (($entry = $destDir->read()) !== false) {
+				if ($entry == '.' || $entry == '..') {
+					continue;
+				}
+
+				$Entry = $source . DIRECTORY_SEPARATOR . $entry;           
+				if (is_dir($Entry) ) {
+					FileManager::copyDir($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
+					continue;
+				}
+				FileManager::copyFile($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
+			}
+
+			$destDir->close();
+		} else {
+			FileManager::copyFile($source, $target);
+		}
+
+		if (FileManager::fileExists($dest, 'dir')) {
+			return true;
+		} else return false;
+	}
+
 
 	/**
 	 * Read a file's contents.

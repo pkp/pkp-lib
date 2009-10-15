@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id: FileManager.inc.php,v 1.11 2009/10/14 22:03:05 mcrider Exp $
+// $Id: FileManager.inc.php,v 1.12 2009/10/15 20:49:33 mcrider Exp $
 
 
 define('FILE_MODE_MASK', 0666);
@@ -148,7 +148,7 @@ class FileManager {
 	
 	/**
 	 * Copy a directory.
-	 * Taken from php.net under 'copy'
+	 * Adapted from code by gimmicklessgpt at gmail dot com, at http://php.net/manual/en/function.copy.php
 	 * @param $source string the path to the source directory
 	 * @param $dest string the path where the directory is to be saved
 	 * @return boolean returns true if successful

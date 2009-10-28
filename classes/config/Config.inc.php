@@ -16,7 +16,7 @@
  * @brief Config class for accessing configuration parameters.
  */
 
-// $Id: Config.inc.php,v 1.8 2009/10/27 21:58:09 jerico.dev Exp $
+// $Id: Config.inc.php,v 1.9 2009/10/28 21:40:54 jerico.dev Exp $
 
 
 /** The path to the default configuration file */
@@ -25,8 +25,6 @@ define('CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php
 import('config.ConfigParser');
 
 class Config {
-	static $_configFile = CONFIG_FILE;
-
 	/**
 	 * Retrieve a specified configuration variable.
 	 * @param $section string
@@ -71,9 +69,12 @@ class Config {
 	 * @param $configFile string
 	 */
 	function setConfigFileName($configFile) {
-		Config::$_configFile = $configFile;
+		// Reset the config data
 		$configData = null;
 		Registry::set('configData', $configData);
+		
+		// Set the config file
+		Registry::set('configFile', $configFile);
 	}
 
 	/**
@@ -81,7 +82,7 @@ class Config {
 	 * @return string
 	 */
 	function getConfigFileName() {
-		return Config::$_configFile;
+		return Registry::get('configFile', true, CONFIG_FILE);
 	}
 }
 

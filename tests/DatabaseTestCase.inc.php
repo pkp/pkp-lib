@@ -15,7 +15,7 @@
  *        be used to clean up after each test case.
  */
 
-// $Id: DatabaseTestCase.inc.php,v 1.1 2009/10/27 21:58:08 jerico.dev Exp $
+// $Id: DatabaseTestCase.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
 
 import('tests.PKPTestCase');
 
@@ -56,9 +56,9 @@ abstract class DatabaseTestCase extends PKPTestCase {
 			if (is_null($this->_testSchema)) {
 				import('classes.db.compat.AdodbXmlschemaCompat');
 				$this->_testSchema = &new AdodbXmlschemaCompat(
-    				DBConnection::getConn(),
-    				Config::getVar('i18n', 'database_charset')
-    			);
+					DBConnection::getConn(),
+					Config::getVar('i18n', 'database_charset')
+				);
 			}
 			$this->_testSchema->ParseSchema($this->getTestSchemaFile($testPhase));
 			$this->_testSchema->ExecuteSchema();
@@ -73,15 +73,15 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	 */
 	private function getTestSchemaFile($testPhase) {
 		if (is_null($this->_testSchemaFile)) {
-    		$testName = get_class($this);
-    		$loadedFiles = get_included_files();
-    		foreach ($loadedFiles as $loadedFile) {
-    			if (strpos($loadedFile, $testName) !== FALSE) {
-    				$testFile = $loadedFile;
-    				break;
-    			}
-    		}
-    		$this->_testSchemaFile = substr($testFile, 0, -4);
+			$testName = get_class($this);
+			$loadedFiles = get_included_files();
+			foreach ($loadedFiles as $loadedFile) {
+				if (strpos($loadedFile, $testName) !== FALSE) {
+					$testFile = $loadedFile;
+					break;
+				}
+			}
+			$this->_testSchemaFile = substr($testFile, 0, -4);
 		}
 
 		switch($testPhase) {

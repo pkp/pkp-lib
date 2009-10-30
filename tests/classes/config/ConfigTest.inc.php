@@ -13,7 +13,7 @@
  * @brief Tests for the Config class.
  */
 
-// $Id: ConfigTest.inc.php,v 1.1 2009/10/27 21:58:09 jerico.dev Exp $
+// $Id: ConfigTest.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
 
 import('tests.PKPTestCase');
 
@@ -52,26 +52,26 @@ class ConfigTest extends PKPTestCase {
 		Config::setConfigFileName('lib/pkp/tests/config/config.mysql.inc.php');
 		$result = Config::reloadData();
 		$expectedResult = array(
-    		'installed' => true,
-    		'base_url' => 'http://pkp.sfu.ca/ojs',
-    		'registry_dir' => 'registry',
-    		'session_cookie_name' => 'OJSSID',
-    		'session_lifetime' => 30,
-    		'scheduled_tasks' => false,
-    		'date_format_trunc' => '%m-%d',
-    		'date_format_short' => '%Y-%m-%d',
-    		'date_format_long' => '%B %e, %Y',
-    		'datetime_format_short' => '%Y-%m-%d %I:%M %p',
-    		'datetime_format_long' => '%B %e, %Y - %I:%M %p',
-    		'disable_path_info' => false,
-    	);
+			'installed' => true,
+			'base_url' => 'http://pkp.sfu.ca/ojs',
+			'registry_dir' => 'registry',
+			'session_cookie_name' => 'OJSSID',
+			'session_lifetime' => 30,
+			'scheduled_tasks' => false,
+			'date_format_trunc' => '%m-%d',
+			'date_format_short' => '%Y-%m-%d',
+			'date_format_long' => '%B %e, %Y',
+			'datetime_format_short' => '%Y-%m-%d %I:%M %p',
+			'datetime_format_long' => '%B %e, %Y - %I:%M %p',
+			'disable_path_info' => false,
+		);
 
-    	// We'll only check part of the configuration data to
-    	// keep the test less verbose.
-    	self::assertEquals($expectedResult, $result['general']);
+		// We'll only check part of the configuration data to
+		// keep the test less verbose.
+		self::assertEquals($expectedResult, $result['general']);
 
-    	$result = &Config::getData();
-    	self::assertEquals($expectedResult, $result['general']);
+		$result = &Config::getData();
+		self::assertEquals($expectedResult, $result['general']);
 	}
 
 	/**
@@ -95,4 +95,5 @@ class ConfigTest extends PKPTestCase {
 		self::assertEquals('pgsql', Config::getVar('database', 'driver'));
 	}
 }
+
 ?>

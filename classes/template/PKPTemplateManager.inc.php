@@ -17,7 +17,7 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
-// $Id$
+// $Id: PKPTemplateManager.inc.php,v 1.23 2009/10/30 16:43:43 asmecher Exp $
 
 
 /* This definition is required by Smarty */
@@ -119,6 +119,9 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
+		// UI overhaul 
+		$this->register_function('grid', array(&$this, 'smartyGrid'));
+		$this->register_function('modal', array(&$this, 'smartyModal'));
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -378,7 +381,13 @@ class PKPTemplateManager extends Smarty {
 	 *  - key: (optional) Name of variable to receive index of current item
 	 */
 	function smartyIterate($params, $content, &$smarty, &$repeat) {
+		// Allow for the 'from' parameter to pass in the Iterator itself OR a template_var to the iterator
+		if ( is_a($params['from'], 'DAOResultFactory') 
+			|| is_subclass_of($params['from'], 'DAOResultFactory') ) {
+			$iterator =& $params['from'];
+		} else {
 		$iterator =& $smarty->get_template_vars($params['from']);
+		}
 
 		if (isset($params['key'])) {
 			if (empty($content)) $smarty->assign($params['key'], 1);
@@ -784,6 +793,60 @@ class PKPTemplateManager extends Smarty {
 			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
 		}
 	}
+	
+    function smartyGrid($params, &$smarty) {
+        // required params
+        if ( !isset($params['id'])) {
+        	$smarty->trigger_error("id parameter is missing from grid");
+        } elseif ( !isset($params['from']) || is_null($smarty->get_template_vars($params['from']))) {
+        	$smarty->trigger_error("from parameter is missing from grid or from varible is not set");
+        } elseif ( !isset($params['title'])) { 
+            $smarty->trigger_error("title parameter is missing from grid");
+        }
+
+        // proceed
+		$grid =& $smarty->get_template_vars($params['from']);
+		
+        //override the default title with the one specified in the template
+       	$gridId = $params['id'];
+		$grid->setId($gridId);
+		$grid->setTitle($params['title']);
+
+       	if ( isset($params['partialWidth']) ) $grid->setPartialWidth($params['partialWidth']);
+       	
+       	// set the grid for use in the grid template (grid.tpl)
+       	$smarty->assign_by_ref('grid', $grid);
+       	
+		return $smarty->fetch('uiElements/grid/grid.tpl');
+    }   	
+    
+    /**
+	 * Smarty usage: {modal dialog="#dialog" url=$formUrl form="#formName" grid="#gridName"}
+	 *
+	 * Custom Smarty function for creating jQuery-based modals
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string Call to modal function with specified parameters
+	 */
+    function smartyModal($params, &$smarty) {
+    	$dialog = $params['dialog'];
+    	$url = $params['url'];
+    	$form = $params['form'];
+    	$appendTo = $params['appendTo'];
+    	$button = $params['button'];
+		//TODO: add error checking to make sure we have all parameters
+
+		//FIXME: this should append it to the head's javascript instead of putting it inline
+
+    	return "<script type='text/javascript'>\n" .
+    	"modal('$dialog', '$url', '$form', '$appendTo');\n" .
+    	"$(document).ready(function() {\n" .
+		"	$('$button').click(function(){\n" .
+		"		$('$dialog').dialog('open');\n" .
+		"		return false;\n" .
+		"	});\n" .
+		"});\n</script>\n";
+    }
 }
 
 ?>

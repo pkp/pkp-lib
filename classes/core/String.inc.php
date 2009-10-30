@@ -13,7 +13,7 @@
  *
  */
 
-// $Id$
+// $Id: String.inc.php,v 1.19 2009/10/30 16:43:42 asmecher Exp $
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:
@@ -698,6 +698,67 @@ class String {
 		$str = substr($str, 0, -1);
 		$str .= "\n";
 		return fwrite($handle, $str);
+	}
+
+	/**
+	* Construct a JSON string to use for AJAX communication
+	* @param $status string The status of an event (e.g. false if form validation fails)
+	* @param $content string The message to be delivered back to the calling script
+	* @return string
+	*/	
+	function buildJSON($status = 'true', $content) {
+		return "{'status': $status, 'content': " . String::json_encode($content) . "}";
+	}
+	
+	
+	/**
+	 * encode a string for use with JSON
+	 * Thanks to: http://usphp.com/manual/en/function.json-encode.php#82904
+	 */
+	function json_encode($a = false) {
+		if (function_exists('json_encode')) {
+			return json_encode($a);
+		} else {
+		    if (is_null($a)) return 'null';
+		    if ($a === false) return 'false';
+		    if ($a === true) return 'true';
+		    if (is_scalar($a))
+		    {
+		      if (is_float($a))
+		      {
+		        // Always use "." for floats.
+		        return floatval(str_replace(",", ".", strval($a)));
+		      }
+
+		      if (is_string($a))
+		      {
+		        static $jsonReplaces = array(array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
+		        return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
+		      }
+		      else
+		        return $a;
+		    }
+		    $isList = true;
+		    for ($i = 0, reset($a); $i < count($a); $i++, next($a))
+		    {
+		      if (key($a) !== $i)
+		      {
+		        $isList = false;
+		        break;
+		      }
+		    }
+		    $result = array();
+		    if ($isList)
+		    {
+		      foreach ($a as $v) $result[] = json_encode($v);
+		      return '[' . join(',', $result) . ']';
+		    }
+		    else
+		    {
+		      foreach ($a as $k => $v) $result[] = json_encode($k).':'.json_encode($v);
+		      return '{' . join(',', $result) . '}';
+		    }
+		}
 	}
 }
 

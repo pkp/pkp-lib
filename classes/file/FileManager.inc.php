@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id: FileManager.inc.php,v 1.12 2009/10/15 20:49:33 mcrider Exp $
+// $Id: FileManager.inc.php,v 1.13 2009/10/30 16:43:42 asmecher Exp $
 
 
 define('FILE_MODE_MASK', 0666);
@@ -163,7 +163,7 @@ class FileManager {
 					continue;
 				}
 
-				$Entry = $source . DIRECTORY_SEPARATOR . $entry;           
+				$Entry = $source . DIRECTORY_SEPARATOR . $entry;
 				if (is_dir($Entry) ) {
 					FileManager::copyDir($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
 					continue;

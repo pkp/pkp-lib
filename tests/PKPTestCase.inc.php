@@ -13,11 +13,11 @@
  * @ingroup tests
  *
  * @brief Class that implements functionality common to all PKP unit test cases.
- * 
+ *
  * NB: PHPUnit 3.x requires PHP 5.2 or later so we can use PHP5 constructs.
  */
 
-// $Id: PKPTestCase.inc.php,v 1.1 2009/10/27 21:58:08 jerico.dev Exp $
+// $Id: PKPTestCase.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
 
 // Include PHPUnit
 require_once('PHPUnit/Extensions/OutputTestCase.php');
@@ -31,18 +31,18 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 		// Get the configuration file belonging to
 		// this test configuration.
 		$configFile = $this->getConfigFile($config);
-		
+
 		// Avoid unnecessary configuration switches.
 		if (Config::getConfigFileName() != $configFile) {
 			// Switch the configuration file
-    		Config::setConfigFileName($configFile);
+			Config::setConfigFileName($configFile);
 
-    		// Re-open the database connection with the
-    		// new configuration.
-    		DBConnection::getInstance(new DBConnection());
+			// Re-open the database connection with the
+			// new configuration.
+			DBConnection::getInstance(new DBConnection());
 		}
 	}
-	
+
 	/**
 	 * Resolves the configuration id to a configuration
 	 * file

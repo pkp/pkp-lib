@@ -16,7 +16,7 @@
  * @brief Provides methods for loading locale data and translating strings identified by unique keys
  */
 
-// $Id: PKPLocale.inc.php,v 1.14 2009/10/30 16:43:43 asmecher Exp $
+// $Id: PKPLocale.inc.php,v 1.15 2009/10/30 16:47:33 asmecher Exp $
 
 
 import('i18n.LocaleFile');
@@ -48,7 +48,6 @@ define('LOCALE_COMPONENT_PKP_MANAGER',		0x00000004);
 define('LOCALE_COMPONENT_PKP_READER',		0x00000005);
 define('LOCALE_COMPONENT_PKP_SUBMISSION',	0x00000006);
 define('LOCALE_COMPONENT_PKP_USER',		0x00000007);
-define('LOCALE_COMPONENT_PKP_GRID', 	0x00000008);
 
 class PKPLocale {
 	/**
@@ -121,8 +120,7 @@ class PKPLocale {
 			LOCALE_COMPONENT_PKP_MANAGER => $baseDir . 'manager.xml',
 			LOCALE_COMPONENT_PKP_READER => $baseDir . 'reader.xml',
 			LOCALE_COMPONENT_PKP_SUBMISSION => $baseDir . 'submission.xml',
-			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml',
-			LOCALE_COMPONENT_PKP_GRID => $baseDir . 'grid.xml'
+			LOCALE_COMPONENT_PKP_USER => $baseDir . 'user.xml'
 		);
 	}
 
@@ -144,6 +142,7 @@ class PKPLocale {
 
 			if (!isset($filenameComponentMap[$component])) fatalError('Unknown locale component ' . $component);
 			$filename = $filenameComponentMap[$component];
+
 			Locale::registerLocaleFile($locale, $filename);
 			$loadedComponents[$locale][$component] = true;
 		}

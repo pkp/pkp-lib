@@ -12,7 +12,7 @@
  * @brief Class defining basic operations for handling HTML forms.
  */
 
-// $Id: Form.inc.php,v 1.7 2009/10/30 16:43:42 asmecher Exp $
+// $Id: Form.inc.php,v 1.8 2009/10/30 16:47:32 asmecher Exp $
 
 
 import('form.FormError');
@@ -68,8 +68,6 @@ class Form {
 		$templateMgr->setCacheability(CACHEABILITY_NO_STORE);
 		$templateMgr->register_function('fieldLabel', array(&$this, 'smartyFieldLabel'));
 		$templateMgr->register_function('form_language_chooser', array(&$this, 'smartyFormLanguageChooser'));
-		$templateMgr->register_function('modal_language_chooser', array(&$this, 'smartyModalLanguageChooser'));
-		$templateMgr->register_block('form_locale_iterator', array(&$this, 'formLocaleIterator'));
 
 		$templateMgr->assign($this->_data);
 		$templateMgr->assign('isError', !$this->isValid());
@@ -331,46 +329,6 @@ class Form {
 			echo '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
 		echo '</select></div>';
-	}
-	
-	
-    /**
-	 * Add hidden form parameters for the localized fields for modal dialogs
-	 * and display the language chooser field
-	 * @params $params array associative array
-	 * @params $smarty Smarty
-	 * @return string Call to modal function with specified parameters
-	 */
-    function smartyModalLanguageChooser($params, &$smarty) {
-		// Display the language selector widget.
-		$formLocale = $smarty->get_template_vars('formLocale');
-		echo "<input type='hidden' id='currentLocale' value=$formLocale>";
-		echo '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onChange="changeModalFormLocale()" class="selectMenu">';
-		foreach (Locale::getSupportedLocales() as $locale => $name) {
-			echo '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
-		}
-		echo '</select></div>';
-    }
- 
-	
-	/**
-	 * Iterator function for locales (prints a form field once for each locale).
-	 */
-	function formLocaleIterator($params, $content, &$smarty, &$repeat) {
-		$elementType = $params['type'];
-		$currentLocale = Locale::getPrimaryLocale();
-		
-		if(!$repeat) {
-			foreach (Locale::getSupportedLocales() as $locale => $name) {
-				$currentContent = $content;
-				if ($locale != $currentLocale) {
-					$currentContent = str_replace($currentLocale, $locale, $currentContent);
-					$currentContent = preg_replace('/rule_required/', '', $currentContent);
-					$style = 'display:none;';
-				} 
-				echo "<div class='$locale' style='$style'>$currentContent</div>";
-			}
-		}
 	}
 }
 

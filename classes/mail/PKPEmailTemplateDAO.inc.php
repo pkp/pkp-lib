@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-// $Id: PKPEmailTemplateDAO.inc.php,v 1.5 2009/10/26 16:49:51 asmecher Exp $
+// $Id: PKPEmailTemplateDAO.inc.php,v 1.6 2009/10/30 16:50:54 asmecher Exp $
 
 
 class PKPEmailTemplateDAO extends DAO {
@@ -702,7 +702,9 @@ class PKPEmailTemplateDAO extends DAO {
 
 		foreach ($data->getChildren() as $emailNode) {
 			$sql .= 'DELETE FROM email_templates_default_data WHERE email_key = ' . $this->_dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $this->_dataSource->qstr($locale);
-			if (!$returnSql) {
+			if ($returnSql) {
+				$sql .= ";\n";
+			} else {
 				$this->update($sql);
 				$sql = '';
 			}
@@ -716,8 +718,10 @@ class PKPEmailTemplateDAO extends DAO {
 				$this->_dataSource->qstr($emailNode->getChildValue('subject')) . ', ' .
 				$this->_dataSource->qstr($emailNode->getChildValue('body')) . ', ' .
 				$this->_dataSource->qstr($emailNode->getChildValue('description')) .
-				")\n";
-			if (!$returnSql) {
+				")";
+			if ($returnSql) {
+				$sql .= ";\n";
+			} else {
 				$this->update($sql);
 				$sql = '';
 			}

@@ -15,7 +15,7 @@
  * @brief Form to edit site settings.
  */
 
-// $Id$
+// $Id: PKPSiteSettingsForm.inc.php,v 1.8 2009/10/30 23:09:35 asmecher Exp $
 
 
 define('SITE_MIN_PASSWORD_LENGTH', 4);
@@ -49,7 +49,7 @@ class PKPSiteSettingsForm extends Form {
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('originalStyleFilename', $site->getOriginalStyleFilename());
-		$templateMgr->assign('pageHeaderTitleImage', $site->getData('pageHeaderTitleImage'));
+		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting('pageHeaderTitleImage'));
 		$templateMgr->assign('styleFilename', $site->getSiteStyleFilename());
 		$templateMgr->assign('publicFilesDir', Request::getBasePath() . '/' . $publicFileManager->getSiteFilesPath());
 		$templateMgr->assign('dateStyleFileUploaded', file_exists($siteStyleFilename)?filemtime($siteStyleFilename):null);
@@ -156,7 +156,7 @@ class PKPSiteSettingsForm extends Form {
 			$uploadName = 'pageHeaderTitleImage_' . $locale . $extension;
 			if($fileManager->uploadSiteFile('pageHeaderTitleImage', $uploadName)) {
 				$siteDao =& DAORegistry::getDAO('SiteDAO');
-				$setting = $site->getData('pageHeaderTitleImage');
+				$setting = $site->getSetting('pageHeaderTitleImage');
 				list($width, $height) = getimagesize($fileManager->getSiteFilesPath() . '/' . $uploadName);
 				$setting[$locale] = array(
 					'originalFilename' => $fileManager->getUploadedFileName('pageHeaderTitleImage'),
@@ -165,9 +165,7 @@ class PKPSiteSettingsForm extends Form {
 					'uploadName' => $uploadName,
 					'dateUploaded' => Core::getCurrentDate()
 				);
-				$siteDao =& DAORegistry::getDAO('SiteDAO');
-				$site->setData('pageHeaderTitleImage', $setting);
-				$siteDao->updateObject($site);
+				$site->updateSetting('pageHeaderTitleImage', $setting, 'object', true);
 			}
 		}
 

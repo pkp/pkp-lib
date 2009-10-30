@@ -17,7 +17,7 @@
  * @brief Describes system-wide site properties.
  */
 
-// $Id$
+// $Id: Site.inc.php,v 1.8 2009/10/30 23:09:35 asmecher Exp $
 
 
 class Site extends DataObject {
@@ -72,9 +72,9 @@ class Site extends DataObject {
 	 * @return string
 	 */
 	function getLocalizedPageHeaderTitle() {
-		$typeArray = $this->getData('pageHeaderTitleType');
-		$imageArray = $this->getData('pageHeaderTitleImage');
-		$titleArray = $this->getData('title');
+		$typeArray = $this->getSetting('pageHeaderTitleType');
+		$imageArray = $this->getSetting('pageHeaderTitleImage');
+		$titleArray = $this->getSetting('title');
 
 		$title = null;
 

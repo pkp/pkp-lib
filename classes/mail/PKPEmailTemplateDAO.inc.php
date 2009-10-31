@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-// $Id: PKPEmailTemplateDAO.inc.php,v 1.6 2009/10/30 16:50:54 asmecher Exp $
+// $Id: PKPEmailTemplateDAO.inc.php,v 1.7 2009/10/31 00:09:27 asmecher Exp $
 
 
 class PKPEmailTemplateDAO extends DAO {
@@ -656,16 +656,16 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $templatesFile string Filename to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
-	 * @return boolean
+	 * @return array
 	 */
 	function installEmailTemplates($templatesFile, $returnSql = false) {
 		$xmlDao = new XMLDAO();
-		$sql = '';
+		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
 		if (!isset($data['email'])) return false;
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
-			$sql .=	'INSERT INTO email_templates_default
+			$sql[] = 'INSERT INTO email_templates_default
 				(email_key, can_disable, can_edit, from_role_id, to_role_id)
 				VALUES
 				(' .
@@ -674,10 +674,9 @@ class PKPEmailTemplateDAO extends DAO {
 				($attrs['can_edit']?1:0) . ', ' .
 				(isset($attrs['from_role_id'])?((int) $attrs['from_role_id']):'null') . ', ' .
 				(isset($attrs['to_role_id'])?((int) $attrs['to_role_id']):'null') .
-				")\n";
+				")";
 			if (!$returnSql) {
-				$this->update($sql);
-				$sql = '';
+				$this->update(array_shift($sql));
 			}
 		}
 		if ($returnSql) return $sql;
@@ -691,25 +690,22 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $templateDataFile string Filename to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
-	 * @return boolean
+	 * @return array
 	 */
 	function installEmailTemplateData($templateDataFile, $returnSql = false) {
 		$xmlDao = new XMLDAO();
-		$sql = '';
+		$sql = array();
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
 		if (!$data) return false;
 		$locale = $data->getAttribute('locale');
 
 		foreach ($data->getChildren() as $emailNode) {
-			$sql .= 'DELETE FROM email_templates_default_data WHERE email_key = ' . $this->_dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $this->_dataSource->qstr($locale);
-			if ($returnSql) {
-				$sql .= ";\n";
-			} else {
-				$this->update($sql);
-				$sql = '';
+			$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $this->_dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $this->_dataSource->qstr($locale);
+			if (!$returnSql) {
+				$this->update(array_shift($sql));
 			}
 
-			$sql .=	'INSERT INTO email_templates_default_data
+			$sql[] = 'INSERT INTO email_templates_default_data
 				(email_key, locale, subject, body, description)
 				VALUES
 				(' .
@@ -719,11 +715,8 @@ class PKPEmailTemplateDAO extends DAO {
 				$this->_dataSource->qstr($emailNode->getChildValue('body')) . ', ' .
 				$this->_dataSource->qstr($emailNode->getChildValue('description')) .
 				")";
-			if ($returnSql) {
-				$sql .= ";\n";
-			} else {
-				$this->update($sql);
-				$sql = '';
+			if (!$returnSql) {
+				$this->update(array_shift($sql));
 			}
 		}
 		if ($returnSql) return $sql;

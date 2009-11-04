@@ -12,7 +12,7 @@
  * @brief Base class for install and upgrade scripts.
  */
 
-// $Id$
+// $Id: Installer.inc.php,v 1.11 2009/11/04 23:20:28 mcrider Exp $
 
 
 // Database installation files
@@ -286,7 +286,7 @@ class Installer {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
 			if ($this->getParam('manualInstall')) {
 				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product) VALUES (%d, %d, %d, %d, NOW(), 1, %d, %d)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->newVersion->getProductType(), $this->newVersion->getProduct()));
+				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product) VALUES (%d, %d, %d, %d, NOW(), 1, "%s", "%s")', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->newVersion->getProductType(), $this->newVersion->getProduct()));
 			} else {
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
 				if (!$versionDao->insertVersion($this->newVersion)) {

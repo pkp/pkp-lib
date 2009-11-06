@@ -13,7 +13,7 @@
  *
  */
 
-// $Id$
+// $Id: PKPApplication.inc.php,v 1.29 2009/11/06 01:37:58 jerico.dev Exp $
 
 
 define('REALLY_BIG_NUMBER', 10000);
@@ -33,7 +33,15 @@ class PKPApplication {
 		Console::logSpeed('PKPApplication::construct');
 
 		// Inititalize the application.
-		error_reporting(E_ALL);
+		if (defined(E_STRICT)) { // PHP5
+			// FIXME: Error logging needs to be suppressed for strict
+			// errors in PHP5 as long as we support PHP4. This
+			// is primarily for static method warnings. Static class
+			// members cannot be declared in PHP4.
+			error_reporting(E_ALL & ~E_STRICT);
+		} else { // PHP4
+			error_reporting(E_ALL);
+		}
 
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
@@ -231,17 +239,21 @@ class PKPApplication {
 
 	/**
 	 * Custom error handler
+	 * 
+	 * NB: Custom error handlers are called for all error levels
+	 * independent of the error_reporting parameter.
 	 * @param $errorno string
 	 * @param $errstr string
 	 * @param $errfile string
 	 * @param $errline string
 	 */
 	function errorHandler($errorno, $errstr, $errfile, $errline) {
-		// FIXME: Error logging needs to be suppressed for strict
-		// errors as long as we support PHP4 (2048 == E_STRICT). This
-		// is primarily for static method warnings. (These cannot be
-		// declared in PHP4.)
-		if(error_reporting() != 0 && $errorno != 2048) {
+		// We only report/log errors if their corresponding
+		// error level bit is set in error_reporting.
+		// We have to check error_reporting() each time as
+		// some application parts change the setting (e.g.
+		// smarty, adodb, certain plugins).
+		if(error_reporting() & $errorno) {
 			if ($errorno == E_ERROR) {
 				echo 'An error has occurred.  Please check your PHP log file.';
 			} elseif (Config::getVar('debug', 'display_errors')) {

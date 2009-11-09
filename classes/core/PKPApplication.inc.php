@@ -13,7 +13,7 @@
  *
  */
 
-// $Id: PKPApplication.inc.php,v 1.29 2009/11/06 01:37:58 jerico.dev Exp $
+// $Id: PKPApplication.inc.php,v 1.30 2009/11/09 21:44:11 mcrider Exp $
 
 
 define('REALLY_BIG_NUMBER', 10000);
@@ -33,7 +33,7 @@ class PKPApplication {
 		Console::logSpeed('PKPApplication::construct');
 
 		// Inititalize the application.
-		if (defined(E_STRICT)) { // PHP5
+		if (defined('E_STRICT')) { // PHP5
 			// FIXME: Error logging needs to be suppressed for strict
 			// errors in PHP5 as long as we support PHP4. This
 			// is primarily for static method warnings. Static class

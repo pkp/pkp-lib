@@ -13,7 +13,7 @@
  * @brief Data structures associated with the OAI request handler.
  */
 
-// $Id$
+// $Id: OAIStruct.inc.php,v 1.7 2009/11/19 14:51:44 asmecher Exp $
 
 
 /**
@@ -37,7 +37,7 @@ class OAIConfig {
 	var $maxIdentifiers = 500;
 
 	/** @var $maxRecords int maximum records returned per request */
-	var $maxRecords = 200;
+	var $maxRecords;
 
 	/** @var $maxSets int maximum sets returned per request */
 	// Must be set to zero if sets not supported by repository
@@ -50,6 +50,9 @@ class OAIConfig {
 	function OAIConfig($baseUrl, $repositoryId) {
 		$this->baseUrl = $baseUrl;
 		$this->repositoryId = $repositoryId;
+
+		$this->maxRecords = Config::getVar('oai', 'oai_max_records');
+		if (!$this->maxRecords) $this->maxRecords = 100;
 	}
 }
 

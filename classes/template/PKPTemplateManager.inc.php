@@ -17,7 +17,7 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
-// $Id: PKPTemplateManager.inc.php,v 1.24 2009/10/30 16:47:33 asmecher Exp $
+// $Id$
 
 
 /* This definition is required by Smarty */
@@ -82,6 +82,9 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('datetimeFormatShort', Config::getVar('general', 'datetime_format_short'));
 		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
+		if (Request::getUserVar('display') == "liquid")	{
+			$this->assign('liquid', " liquid");
+		}
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);

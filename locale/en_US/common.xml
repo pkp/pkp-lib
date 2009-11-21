@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id: common.xml,v 1.14 2009/09/29 23:39:13 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="en_US" full_name = "English">
@@ -249,6 +249,7 @@
 	<message key="navigation.about">About</message>
 	<message key="navigation.browse">Browse</message>
 	<message key="navigation.browseByTitle">By Title</message>
+	<message key="navigation.dashboard">Dashboard</message>
 	<message key="navigation.home">Home</message>
 	<message key="navigation.infoForReaders">For Readers</message>
 	<message key="navigation.infoForReaders.long">Information For Readers</message>

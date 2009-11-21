@@ -1,0 +1,104 @@
+/* @group General Structure */
+
+body {
+	_text-align: center;
+}
+
+.body {
+	overflow: hidden;
+	_overflow: visible;
+	_zoom: 1;
+	clear: both;
+}
+
+/* Standard page width */
+
+.page {
+	margin: 0 auto;
+	width: 950px;
+}
+
+/* Liquid width (full browser width) */
+
+.liquid {
+	width: auto;
+	margin: 0;
+}
+
+/* 800 x 600 for older computers */
+
+.oldSchool {
+	width: 750px;
+}
+
+.head {
+	height: 175px;
+}
+
+.super_navigation {
+	padding: 0px 10px 0 10px;
+	height: 30px;
+}
+
+.masthead {
+	padding: 0 10px 0 10px;
+	height: 110px;
+}
+
+.navigation {
+	height: 35px;
+}
+
+.breadcrumbs
+{
+	clear: both;
+}
+
+.foot {
+	margin-top: 30px;
+	padding: 20px 10px 0 10px;
+	height: 120px;
+}
+
+/* Columns */
+
+.main {
+	overflow: hidden;
+	_overflow: visible;
+	_zoom: 1;
+}
+
+.leftCol {
+	float: left;
+	width: 300px;
+	_margin-right: -3px;
+}
+
+.rightCol {
+	float: right;
+	width: 300px;
+	_margin-left: -3px;
+}
+
+/* Column extensions */
+
+.toolbox {
+	width: 200px;
+	margin: 0 10px 0 10px;
+}
+
+
+/* @end */
+
+/* @group Internal Page Overrides */
+
+.internal .head {
+	height: 130px;
+}
+
+.internal .masthead {
+	height: 65px;
+}
+
+
+/* @end */

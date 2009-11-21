@@ -1,0 +1,110 @@
+/* @group Imports */
+
+/*
+@font-face {
+  font-family: 'Museo Sans';
+  src: url(MuseoSans_500.eot);
+  src: local('Museo Sans 500'), local('Museo Sans'), 
+         url(MuseoSans_500.otf) format('opentype');
+}
+*/
+
+@import url("superfish.css");
+
+@import url("wufoo.css");
+
+/* @end */
+
+/* @group Structure Overrides */
+
+.head {
+	background-color: #efefef;
+}
+
+.super_navigation {
+	background-color: #666;
+}
+
+.masthead {
+	background-color: #ccc;
+}
+
+.navigation {
+	background-color: #999;
+}
+
+.foot {
+	background-color: #efefef;
+	color: #999;
+}
+
+.main {
+}
+
+.toolbox {
+}
+
+/* @end */
+
+/* @group Content Overrides */
+
+h1, .h1
+{
+	color: #333;
+}
+
+h2, .h2
+{
+	color: #666;
+}
+
+.installation_navigation a, .user_navigation a
+{
+	color: #fff;
+}
+
+.footer_navigation a{
+	color: #666;
+}
+
+/* @group Grid */
+
+div.grid div.wrapper {
+	border: 1px solid #b6c9d5;
+	background-color: #efefef;
+}
+
+div.grid table {
+	background-color: #fff;
+	border: 1px solid #b6c9d5;
+}
+
+div.grid tr.alternate_row {
+	background-color: #f5f5f5;
+}
+
+div.grid th {
+	color: #20538d;
+	background-color: #ced7e1;
+}
+
+div.grid .my_role {
+	border: 2px solid #ccc;
+}
+
+div.grid tr.category td {
+	background-color: #e3ecea;
+	color: #627b81;
+}
+
+a.task:hover
+{
+	background-color: #efefef;
+}
+
+/* @end */
+
+/* @end */
+
+
+

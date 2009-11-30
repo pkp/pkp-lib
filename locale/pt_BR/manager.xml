@@ -9,7 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
-  * $Id: manager.xml,v 1.5 2009/10/13 21:38:04 jerico.dev Exp $
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -112,7 +112,7 @@
 	<message key="manager.people.enrollSelected">Cadastrar Usuários Selecionados</message>
 	<message key="manager.people.enrollSyncRole">Sincronizar papéis</message>
 	<message key="manager.people.enrollSync">Sincronizar cadastro</message>
-	<message key="manager.people.enrollUserAsDescription">O sistema permite o cadastro de usuários, cujos papéis editoriais podem ser designados ou removidos a qualquer momento após a criação do cadastro.</message>
+	<message key="manager.people.enrollUserAsDescription">O sistema permite o cadastro de usuários, cujos papéis podem ser designados ou removidos a qualquer momento após a criação do cadastro.</message>
 	<message key="manager.people.enrollUserAs">Cadastrar usuário como</message>
 	<message key="manager.people.invalidUser">Usuário não existe.</message>
 	<message key="manager.people.mergeUser">Mesclar Cadastro</message>

@@ -69,4 +69,6 @@
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Impostazioni di sicurezza</message>
 	<message key="installer.skipFilesDir">Non create sottodirectory</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">I file contrassegnati potrebbero essere incompleti.</message>
 </locale>

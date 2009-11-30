@@ -9,7 +9,7 @@
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id: common.xml,v 1.5 2009/10/07 23:29:31 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -163,9 +163,9 @@
 	<message key="common.yes">Sí</message>
 	<message key="debug.databaseQueries">Número de consultas a la base de datos</message>
 	<message key="debug.executionTime">Página generada en</message>
-	<message key="debug.memoryUsage">Empleo de Memoria:</message>
+	<message key="debug.memoryUsage">Uso de Memoria:</message>
 	<message key="debug.notes.localeListLoad">Lista de locales "{$localeList}" cargada desde XML</message>
-	<message key="debug.notes.localeLoad">Fichero de locales "{$localeFile}" cargado desde XML</message>
+	<message key="debug.notes.localeLoad">Fichero de traducciones "{$localeFile}" cargado desde XML</message>
 	<message key="debug.notes.missingLocaleKey">No se encuentra la clave de locales "{$key}".</message>
 	<message key="debug.notes">Notas:</message>
 	<message key="email.addAttachment">Añadir adjunto</message>
@@ -192,7 +192,7 @@
 	<message key="email.subject">Asunto</message>
 	<message key="email.to">Para</message>
 	<message key="form.contains">contiene</message>
-	<message key="form.errorsOccurred">Error. El formulario no se ha procesado.</message>
+	<message key="form.errorsOccurred">Han ocurrido errores al procesar este formulario</message>
 	<message key="form.formLanguage.description">Para introducir la información siguiente en otros idiomas adicionales, seleccione primero el idioma.</message>
 	<message key="form.formLanguage">Idioma del formulario</message>
 	<message key="form.is">es</message>
@@ -236,7 +236,7 @@
 	<message key="navigation.infoForReaders">Para lectoras/es</message>
 	<message key="navigation.infoForReaders.long">Información para lectoras/es</message>
 	<message key="navigation.items">{$from} - {$to} de {$total} elementos</message>
-	<message key="navigation.login">Login</message>
+	<message key="navigation.login">Ingresar</message>
 	<message key="navigation.nextPage"><![CDATA[>>]]></message>
 	<message key="navigation.nextStep">Siguiente paso</message>
 	<message key="navigation.previousPage"><![CDATA[<<]]></message>
@@ -256,11 +256,11 @@
 	<message key="search.fullText">Texto completo</message>
 	<message key="search.indexTerms">Términos de indexación</message>
 	<message key="search.matchAll">Coincidencia en todas las categorías</message>
-	<message key="search.noKeywordError">Es necesario que introduzca al menos un término de búsqueda.</message>
+	<message key="search.noKeywordError">Debe introducir al menos un término de búsqueda.</message>
 	<message key="search.noResults">No hay resultados</message>
-	<message key="search.operator.and">and</message>
-	<message key="search.operator.not">not</message>
-	<message key="search.operator.or">or</message>
+	<message key="search.operator.and">y</message>
+	<message key="search.operator.not">no</message>
+	<message key="search.operator.or">o</message>
 	<message key="search.reviseSearch">Revisar búsqueda</message>
 	<message key="search.searchAllCategories">Buscar en todas las categorías</message>
 	<message key="search.searchCategories">Buscar categorías</message>
@@ -270,24 +270,24 @@
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/enfoque)</message>
 	<message key="notification.settings">Configuración de notificaciones</message>
-	<message key="notification.settingsDescription">Selecciona los eventos del sistema sobre los que quieres ser notificado. Des-chequear un ítem evita que aparezcan las notificaciones en el área de notificaciones.</message>
+	<message key="notification.settingsDescription">Selecciona los eventos del sistema sobre los que quieres ser notificado. Des-seleccionar un ítem evita que aparezcan las notificaciones en el área de notificaciones.</message>
 	<message key="notification.subscribe">Suscribirse</message>
 	<message key="notification.subscribeError">Tu dirección de correo electrónico ya está suscrita a las notificaciones.</message>
 	<message key="notification.subscribeSuccess">Un email ha sido enviado a la dirección que has especificado. Por favor, haz clic en el enlace de confirmación que aparece en el email para añadirte a tí mismo a la lista de correo.</message>
 	<message key="notification.reminderError">Ha habido un error enviando tu contraseña, por favor comprueba que has puesto bien tu dirección de correo electrónico.</message>
-	<message key="notification.reminderSent">Tu nueva contraseña ha sido mandada a la dirección de correo electrónico proporcionada.</message>
+	<message key="notification.reminderSent">Tu nueva contraseña ha sido enviada a la dirección de correo electrónico proporcionada.</message>
 	<message key="notification.unsubscribe">Des-suscribirse</message>
-	<message key="notification.unsubscribeDescription">Introduce tu dirección de correo electrónico y tu contraseña abajo para des-suscribirte de las notificaciones vía correo electrónico. Si no recuerdas tu contraseña, deja el campo de la contraseña vacío y te llegará una nueva contraseña a tu dirección de correo electrónico.</message>
-	<message key="notification.unsubscribeError">Ha habido un error al des-suscribirte. Comprueba que tu dirección de correo electrónico y tu contraseña son correctas.</message>
-	<message key="notification.unsubscribeSuccess">Has sido correctamente des-suscrito.</message>
+	<message key="notification.unsubscribeDescription">Introduzca su dirección de correo electrónico y su contraseña  para des-suscribirte de las notificaciones vía correo electrónico. Si no recuerda su contraseña, deje el campo de la contraseña vacío y se le enviará una nueva contraseña a su dirección de correo electrónico.</message>
+	<message key="notification.unsubscribeError">Ha habido un error al des-suscribirte. Comprueea que su dirección de correo electrónico y su contraseña son correctas.</message>
+	<message key="notification.unsubscribeSuccess">Ha sido correctamente des-suscrito.</message>
 	<message key="common.re">Re:</message>
 	<message key="common.manage">Administrar</message>
 	<message key="common.noComments">Sin comentarios</message>
 	<message key="form.startsWith">comienza con</message>
 	<message key="notification.allow">Permitir que este tipo de notificaciones aparezcan en mi área de notificaciones</message>
 	<message key="notification.confirmError">Ha habido un error confirmándo tu suscripción.</message>
-	<message key="notification.confirmSuccess">Has sido correctamente suscrito.</message>
-	<message key="notification.email">Mándame un email para ese tipo de notificaciones.</message>
+	<message key="notification.confirmSuccess">Ha sido correctamente suscrito.</message>
+	<message key="notification.email">Enviarme un email para ese tipo de notificaciones.</message>
 	<message key="notification.location">Ir a la web</message>
 	<message key="notification.mailList">Lista de correo de notificaciones</message>
 	<message key="notification.mailList.emailInvalid">Introduce una dirección de correo válida.</message>
@@ -300,7 +300,7 @@
 	<message key="notification.notification">Notificación</message>
 	<message key="notification.notifications">Notificaciones</message>
 	<message key="notification.notificationsNew">({$numNew} nuevo)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Tienes {$unreadCount} notificaciones sin leer y {$readCount} leídas.  <a href="{$settingsUrl}">Haz clic aquí</a> para cambiar la configuración de tus notificaciones.]]></message>
+	<message key="notification.notificationsDescription"><![CDATA[Usted tiene {$unreadCount} notificaciones sin leer y {$readCount} leídas.  <a href="{$settingsUrl}">Haga clic aquí</a> para cambiar la configuración de sus notificaciones.]]></message>
 	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
@@ -313,4 +313,5 @@
 		<br />
 		Este trabajo está licenciado bajo la licencia <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
 	</div>]]></message>
+	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtalo de nuevo o ponte en contacto con el administrador si el problema persiste.</message>
 </locale>

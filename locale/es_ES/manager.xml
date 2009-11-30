@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">"Plugins" de Reportes</message>
 	<message key="plugins.categories.themes.description">Los Complementos de Aspecto se pueden usar para cambiar la apariencia del sistema.</message>
 	<message key="plugins.categories.themes">Complementos de Aspecto</message>
+	<message key="manager.emails.form.emailKeyRequired">El fichero no pudo ser subido. Por favor intente nuevamente o contacte al administrador si el problema persiste</message>
 </locale>

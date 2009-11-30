@@ -69,7 +69,7 @@
 	<message key="manager.emails">Email</message>
 	<message key="manager.emails.resetAll">Ripristina tutti i modelli</message>
 	<message key="manager.emails.reset">Ripristina</message>
-	<message key="manager.emails.resetToDefault">Ripristina l'impostazione di default</message>
+	<message key="manager.emails.resetToDefault">Ripristina il default</message>
 	<message key="manager.filesBrowser">File Browser</message>
 	<message key="manager.files.confirmDelete">Cancellare questo file o directory? Una directory per essere cancellata deve essere vuota.</message>
 	<message key="manager.files.createDir">Crea directory</message>
@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">Report plugin</message>
 	<message key="plugins.categories.themes.description">I plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Plugin del tema</message>
+	<message key="manager.emails.form.emailKeyRequired">Una chiave univoca è richiesta per l'email</message>
 </locale>

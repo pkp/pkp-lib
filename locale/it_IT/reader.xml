@@ -157,4 +157,21 @@
 	<message key="rt.version.title">Titolo</message>
 	<message key="rt.version">Versione</message>
 	<message key="rt.viewMetadata">Informazioni per l'indicizzazione</message>
+	<message key="rt.admin.sharing">Condivisione</message>
+	<message key="rt.admin.sharing.enabled">Condivisione abilitata</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Per abilitare i tuoi lettori a condividere gli articoli, iscriviti a <a href="http://addthis.com">addthis.com</a>, e copia/incolla il codice qui sotto.]]></message>
+	<message key="rt.admin.sharing.basic">Impostazioni di base</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Stile dei bottoni</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Usa un menu a tendina</message>
+	<message key="rt.admin.sharing.advanced">Impostazioni avanzate (facoltative)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vedi <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a>.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Marchio</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opzioni della tendina <br /> (elementi separati da virgola)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Lingua</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Sfondo del logo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Colore del logo</message>
+	<message key="rt.admin.configureSharing">Configura AddThis</message>
+	<message key="comments.titleRequired">E' necessario inserire un titolo.</message>
 </locale>

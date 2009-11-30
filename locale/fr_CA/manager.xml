@@ -9,7 +9,7 @@
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id: manager.xml,v 1.4 2009/10/07 17:05:27 jmacgreg Exp $
+  * $Id$
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">Plugiciels de rapport</message>
 	<message key="plugins.categories.themes.description">Les plugiciels de thème sont utilisés pour modifier l'apparence du système.</message>
 	<message key="plugins.categories.themes">Plugiciels de thème</message>
+	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
 </locale>

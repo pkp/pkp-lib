@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id: FileManager.inc.php,v 1.13 2009/10/30 16:43:42 asmecher Exp $
+// $Id$
 
 
 define('FILE_MODE_MASK', 0666);
@@ -380,7 +380,7 @@ class FileManager {
 				return '.gif';
 			case 'image/jpeg':
 			case 'image/pjpeg':
-				return'.jpg';
+				return '.jpg';
 			case 'image/png':
 			case 'image/x-png':
 				return '.png';

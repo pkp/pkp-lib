@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * ../pkp//locale/pt_PT/installer.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the pt_PT (Português (Portugal)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="pt_PT" full_name = "Português (Portugal)">
+	<message key="installer.additionalLocales">Idiomas adicionais</message>
+	<message key="installer.administratorAccount">Registo do Administrador do Sistema</message>
+	<message key="installer.administratorAccountInstructions">Este utilizador será o Administrador do Sistema e terá acesso completo ao sistema. Registos adicionais podem ser criadas após a instalação.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">NÃO</span>]]></message>
+	<message key="installer.checkYes">Sim</message>
+	<message key="installer.clientCharset">Conjunto de Caracteres do Cliente</message>
+	<message key="installer.clientCharsetInstructions">A codificação utilizada para dados enviados e recebidos pelos navegadores.</message>
+	<message key="installer.configFileError"><![CDATA[O documento de configuração <tt>config.inc.php</tt> não existe ou não possui permissão de leitura.]]></message>
+	<message key="installer.connectionCharset">Conjunto de Caracteres da Conexão</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[A codificação utilizada para dados enviados e recebidos pela base de dados. Deve ser o mesmo do Cliente. Note que esta opção é suportada somente em bases MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Seleccione "Indisponível" caso a base de dados não atenda aos requisitos.]]></message>
+	<message key="installer.contentsOfConfigFile">Conteúdo para documento de configuração</message>
+	<message key="installer.createDatabase">Criar nova base de dados</message>
+	<message key="installer.createDatabaseInstructions">Para utilizar esta opção o servidor de bases de dados deve permitir criação de bases remotamente e o nome de utilizador e senha deve possuir as permissões necessárias para criação de bases e tabelas. Caso ocorra um erro durante a instalação, crie manualmente o base de dados no servidor e execute novamente a instalação desactivando esta opção.</message>
+	<message key="installer.databaseCharset">Conjunto de Caracteres da Base de Dados</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Conjunto de Caracteres para armazenamento de dados na base. Note que esta funcionalidade é suportada somente em MySQL >= 4.1.1 ou PostgreSQL >= 7.1. Seleccione "Indisponível" caso o servidor de bases de dados não atenda aos requisitos.]]></message>
+	<message key="installer.databaseDriver">Driver da Base de Dados</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Drivers da bases de dados listados com chaves ([]) parecem não ter carregadado a extensão PHP necessária e a instalação não deve funcionar caso escolhida.</strong><br />Qualquer driver não suportado listado acima aparece por motivos académicos e não devem funcionar.]]></message>
+	<message key="installer.databaseHost">Servidor</message>
+	<message key="installer.databaseHostInstructions">Deixe o nome do servidor em branco para conectar através de socket de domínio em vez de TCP/IP. Não é necessário para o MySQL, que automaticamente utiliza sockets caso "localhost" seja digitado, porém é obrigatório para outras bases como o PostgreSQL.</message>
+	<message key="installer.databaseName">Nome da Base de Dados</message>
+	<message key="installer.databasePassword">Senha</message>
+	<message key="installer.databaseSettings">Configurações de Bases de Dados</message>
+	<message key="installer.databaseUsername">Nome de utilizador</message>
+	<message key="installer.encryptionInstructions"><![CDATA[SHA1 é recomendado caso o sistema suporte (requer PHP >= 4.3.0).]]></message>
+	<message key="installer.encryption">Algoritmo de Critografia de Senha</message>
+	<message key="installer.filesDir">Directório para submissões</message>
+	<message key="installer.fileSettings">Configuração de Arquivos</message>
+	<message key="installer.form.clientCharsetRequired">Um conjunto de caracteres do cliente deve ser definido.</message>
+	<message key="installer.form.databaseDriverRequired">Driver de base de dados obrigatório.</message>
+	<message key="installer.form.databaseNameRequired">Nome da base de dados obrigatório.</message>
+	<message key="installer.form.emailRequired">Endereço de e-mail válido obrigatório.</message>
+	<message key="installer.form.encryptionRequired">Algoritmo de criptografia de senha obrigatório.</message>
+	<message key="installer.form.filesDirRequired">Directório para submissão de documentos obrigatório.</message>
+	<message key="installer.form.localeRequired">Um idioma deve ser definido.</message>
+	<message key="installer.form.passwordRequired">Senha do administrador do sistema obrigatória.</message>
+	<message key="installer.form.passwordsDoNotMatch">Senhas fornecidas devem ser idênticas.</message>
+	<message key="installer.form.separateMultiple">Separe valores múltiplos com vírgulas</message>
+	<message key="installer.form.usernameAlphaNumeric">O login do administrador do sistema pode conter apenas caracteres alfanuméricos, sublinhados "_" e hífens "-", devendo começar e terminar por um caractere alfanumérico.</message>
+	<message key="installer.form.usernameRequired">Login do administrador do sistema obrigatório.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ADVERTÊNCIA: a sua versão do PHP não está de acordo com os requisitos mínimos para instalação do sistema. É altamente recomendado actualizar para uma versão mais recente do PHP.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">Ocorreram erros durante a instalação</message>
+	<message key="installer.installerSQLStatements">Comandos SQL para instalação</message>
+	<message key="installer.installFileError"><![CDATA[O documento de instalação <tt>dbscripts/xml/install.xml</tt> não existe ou não possui permissão de leitura.]]></message>
+	<message key="installer.installFilesDirError">O directório indicado não existe ou não possui permissão de escrita.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Idioma</message>
+	<message key="installer.localeSettings">Configurações de Idioma</message>
+	<message key="installer.manualInstall">Instalação Manual</message>
+	<message key="installer.manualUpgrade">Actualização Manual</message>
+	<message key="installer.miscSettings">Configurações Gerais</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>
+	<message key="installer.publicFilesDirError">O directório de documentos públicos não existe ou não possui permissão de escrita.</message>
+	<message key="installer.releaseNotes">Notas de Lançamento</message>
+	<message key="installer.securitySettings">Configurações de Segurança</message>
+	<message key="installer.skipFilesDir">Não criar sub-directórios (útil apenas para instalação manual)</message>
+</locale>

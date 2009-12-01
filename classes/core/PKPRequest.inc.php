@@ -438,12 +438,13 @@ class PKPRequest {
 				if (isset($_SERVER['PATH_INFO'])) {
 					$vars = explode('/', $_SERVER['PATH_INFO']);
 					if (count($vars) > $contextDepth+1) {
-						$page = Core::cleanFileVar($vars[$contextDepth+1]);
+						$page = $vars[$contextDepth+1];
 					}
 				}
 			} else {
 				$page = PKPRequest::getUserVar('page');
 			}
+			$page = Core::cleanFileVar($page);
 		}
 
 		return $page;
@@ -464,13 +465,13 @@ class PKPRequest {
 				if (isset($_SERVER['PATH_INFO'])) {
 					$vars = explode('/', $_SERVER['PATH_INFO']);
 					if (count($vars) > $contextDepth+2) {
-						$op = Core::cleanFileVar($vars[$contextDepth+2]);
+						$op = $vars[$contextDepth+2];
 					}
 				}
 			} else {
-				return PKPRequest::getUserVar('op');
+				$op = PKPRequest::getUserVar('op');
 			}
-			$op = empty($op) ? 'index' : $op;
+			$op = Core::cleanFileVar(empty($op) ? 'index' : $op);
 		}
 
 		return $op;

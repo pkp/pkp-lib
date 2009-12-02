@@ -30,7 +30,7 @@ if (!defined('DIRECTORY_SEPARATOR')) {
 	// Older versions of PHP do not define this
 	define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
 }
-define('BASE_SYS_DIR', dirname(dirname(dirname(dirname(__FILE__)))));
+define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
 ini_set('include_path', '.'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/classes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/pages'

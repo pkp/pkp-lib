@@ -90,6 +90,22 @@ class PKPAuthor extends DataObject {
 	}
 
 	/**
+	 * Get initials.
+	 * @return string
+	 */
+	function getInitials() {
+		return $this->getData('initials');
+	}
+
+	/**
+	 * Set initials.
+	 * @param $initials string
+	 */
+	function setInitials($initials) {
+		return $this->setData('initials', $initials);
+	}
+
+	/**
 	 * Get last name.
 	 * @return string
 	 */
@@ -103,6 +119,22 @@ class PKPAuthor extends DataObject {
 	 */
 	function setLastName($lastName) {
 		return $this->setData('lastName', $lastName);
+	}
+
+	/**
+	 * Get user salutation.
+	 * @return string
+	 */
+	function getSalutation() {
+		return $this->getData('salutation');
+	}
+
+	/**
+	 * Set user salutation.
+	 * @param $salutation string
+	 */
+	function setSalutation($salutation) {
+		return $this->setData('salutation', $salutation);
 	}
 
 	/**

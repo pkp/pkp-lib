@@ -29,7 +29,7 @@ class Core {
 		static $baseDir;
 
 		if (!isset($baseDir)) {
-			// Need to change if this file moves from lib/pkp/classes/core
+			// Need to change if the index file moves
 			$baseDir = dirname(INDEX_FILE_LOCATION);
 		}
 

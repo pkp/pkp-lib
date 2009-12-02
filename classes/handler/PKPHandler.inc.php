@@ -20,6 +20,31 @@ class PKPHandler {
 	/** Validation checks for this page*/
 	var $_checks;
 
+	/** @var Dispatcher, mainly needed for cross-router url construction */
+	var $_dispatcher;
+
+	/**
+	 * Get the dispatcher
+	 *
+	 * NB: The dispatcher will only be set after
+	 * handler instantiation. Calling getDispatcher()
+	 * in the constructor will fail.
+	 *
+	 * @return PKPDispatcher
+	 */
+	function &getDispatcher() {
+		assert(!is_null($this->_dispatcher));
+		return $this->_dispatcher;
+	}
+
+	/**
+	 * Set the dispatcher
+	 * @param $dispatcher PKPDispatcher
+	 */
+	function setDispatcher(&$dispatcher) {
+		$this->_dispatcher =& $dispatcher;
+	}
+
 	function PKPHandler() {
 		$this->_checks = array();
 

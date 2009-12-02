@@ -41,7 +41,7 @@ class TemporaryFile extends DataObject {
 	 * @return int
 	 */
 	function getFileId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -50,7 +50,7 @@ class TemporaryFile extends DataObject {
 	 * @param $fileId int
 	 */
 	function setFileId($fileId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($fileId);
 	}
 

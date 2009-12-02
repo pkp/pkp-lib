@@ -34,7 +34,7 @@ class Captcha extends DataObject {
 	 * @return int
 	 */
 	function getCaptchaId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -43,7 +43,7 @@ class Captcha extends DataObject {
 	 * @param $captchaId int
 	 */
 	function setCaptchaId($captchaId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($captchaId);
 	}
 

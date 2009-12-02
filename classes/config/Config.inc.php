@@ -16,7 +16,7 @@
  * @brief Config class for accessing configuration parameters.
  */
 
-// $Id: Config.inc.php,v 1.9 2009/10/28 21:40:54 jerico.dev Exp $
+// $Id$
 
 
 /** The path to the default configuration file */
@@ -44,7 +44,8 @@ class Config {
 		$configData =& Registry::get('configData', true, null);
 
 		if ($configData === null) {
-			// Load configuration data only once per request
+			// Load configuration data only once per request, implicitly
+			// sets config data by ref in the registry.
 			$configData = Config::reloadData();
 		}
 
@@ -72,7 +73,7 @@ class Config {
 		// Reset the config data
 		$configData = null;
 		Registry::set('configData', $configData);
-		
+
 		// Set the config file
 		Registry::set('configFile', $configFile);
 	}

@@ -17,7 +17,7 @@
  * @brief Describes user groups.
  */
 
-// $Id: Group.inc.php,v 1.9 2009/10/30 16:47:33 asmecher Exp $
+// $Id$
 
 
 define('GROUP_CONTEXT_EDITORIAL_TEAM',	0x000001);
@@ -32,7 +32,7 @@ class Group extends DataObject {
 	}
 
 	function getGroupTitle() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedTitle();
 	}
 
@@ -95,7 +95,7 @@ class Group extends DataObject {
 	 * @return int
 	 */
 	function getGroupId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -104,7 +104,7 @@ class Group extends DataObject {
 	 * @param $groupId int
 	 */
 	function setGroupId($groupId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($groupId);
 	}
 

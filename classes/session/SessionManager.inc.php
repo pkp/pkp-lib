@@ -17,18 +17,20 @@
 
 class SessionManager {
 
-	/** The DAO for accessing Session objects */
+	/** @var object The DAO for accessing Session objects */
 	var $sessionDao;
 
-	/** The Session associated with the current request */
+	/** @var object The Session associated with the current request */
 	var $userSession;
 
 	/**
 	 * Constructor.
 	 * Initialize session configuration and set PHP session handlers.
 	 * Attempts to rejoin a user's session if it exists, or create a new session otherwise.
+	 * @param $sessionDao SessionDAO
+	 * @param $request PKPRequest
 	 */
-	function SessionManager(&$sessionDao) {
+	function SessionManager(&$sessionDao, &$request) {
 		$this->sessionDao =& $sessionDao;
 
 		// Configure PHP session parameters
@@ -38,7 +40,7 @@ class SessionManager {
 		ini_set('session.use_cookies', 1);
 		ini_set('session.name', Config::getVar('general', 'session_cookie_name')); // Cookie name
 		ini_set('session.cookie_lifetime', 0);
-		ini_set('session.cookie_path', PKPRequest::getBasePath() . '/');
+		ini_set('session.cookie_path', $request->getBasePath() . '/');
 		ini_set('session.gc_probability', 1);
 		ini_set('session.gc_maxlifetime', 60 * 60);
 		ini_set('session.auto_start', 1);
@@ -53,12 +55,13 @@ class SessionManager {
 			array(&$this, 'gc')
 		);
 
-		// Initialize the session
+		// Initialize the session. This calls SessionManager::read() and
+		// sets $this->userSession if a session is present.
 		session_start();
 		$sessionId = session_id();
 
-		$ip = PKPRequest::getRemoteAddr();
-		$userAgent = PKPRequest::getUserAgent();
+		$ip = $request->getRemoteAddr();
+		$userAgent = $request->getUserAgent();
 		$now = time();
 
 		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != $userAgent) {
@@ -102,9 +105,16 @@ class SessionManager {
 	function &getManager() {
 		$instance =& Registry::get('sessionManager', true, null);
 
-		if ($instance === null) {
-			$instance = new SessionManager(DAORegistry::getDAO('SessionDAO'));
+		if (is_null($instance)) {
+			$application =& Registry::get('application');
+			assert(!is_null($application));
+			$request =& $application->getRequest();
+			assert(!is_null($request));
+
+			// Implicitly set session manager by ref in the registry
+			$instance = new SessionManager(DAORegistry::getDAO('SessionDAO'), $request);
 		}
+
 		return $instance;
 	}
 

@@ -13,7 +13,7 @@
  *
  */
 
-// $Id: PKPApplication.inc.php,v 1.30 2009/11/09 21:44:11 mcrider Exp $
+// $Id$
 
 
 define('REALLY_BIG_NUMBER', 10000);
@@ -28,11 +28,7 @@ class PKPApplication {
 	}
 
 	function PKPApplication() {
-		// Begin debug logging
-		Console::logMemory('', 'PKPApplication::construct');
-		Console::logSpeed('PKPApplication::construct');
-
-		// Inititalize the application.
+		// Configure error reporting
 		if (defined('E_STRICT')) { // PHP5
 			// FIXME: Error logging needs to be suppressed for strict
 			// errors in PHP5 as long as we support PHP4. This
@@ -43,11 +39,18 @@ class PKPApplication {
 			error_reporting(E_ALL);
 		}
 
+		// Instantiate the profiler
+		import('core.PKPProfiler');
+		$pkpProfiler = new PKPProfiler();
+
+		// Begin debug logging
+		Console::logMemory('', 'PKPApplication::construct');
+		Console::logSpeed('PKPApplication::construct');
+
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
 		import('core.Core');
-		import('core.PKPRequest');
 		import('core.String');
 		import('core.Registry');
 
@@ -67,22 +70,27 @@ class PKPApplication {
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));
 
-		if ($this->isCacheable()) {
-			// Can we serve a cached response?
-			if (Config::getVar('cache', 'web_cache')) {
-				if ($this->displayCached()) exit(); // Success
-				ob_start(array(&$this, 'cacheContent'));
-			}
-		} else {
-			if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {
-				header('HTTP/1.0 403 Forbidden');
-				echo '403: Forbidden<br><br>Pre-fetching not allowed.';
-				exit;
+		$microTime = Core::microtime();
+		Registry::set('system.debug.startTime', $microTime);
+
+		$notes = array();
+		Registry::set('system.debug.notes', $notes);
+
+		Registry::set('system.debug.profiler', $pkpProfiler);
+
+		if (Config::getVar('general', 'installed')) {
+			// Initialize database connection
+			$conn =& DBConnection::getInstance();
+
+			if (!$conn->isConnected()) {
+				if (Config::getVar('database', 'debug')) {
+					$dbconn =& $conn->getDBConn();
+					fatalError('Database connection failed: ' . $dbconn->errorMsg());
+				} else {
+					fatalError('Database connection failed!');
+				}
 			}
 		}
-
-		Locale::initialize();
-		PluginRegistry::loadCategory('generic');
 	}
 
 	/**
@@ -92,6 +100,56 @@ class PKPApplication {
 	function &getApplication() {
 		$application =& Registry::get('application');
 		return $application;
+	}
+
+	/**
+	 * Get the request implementation singleton
+	 * @return Request
+	 */
+	function &getRequest() {
+		$request =& Registry::get('request', true, null);
+
+		if (is_null($request)) {
+			import('core.Request');
+
+			// Implicitly set request by ref in the registry
+			$request = new Request();
+		}
+
+		return $request;
+	}
+
+	/**
+	 * Get the dispatcher implementation singleton
+	 * @return Dispatcher
+	 */
+	function &getDispatcher() {
+		$dispatcher =& Registry::get('dispatcher', true, null);
+
+		if (is_null($dispatcher)) {
+			import('core.Dispatcher');
+
+			// Implicitly set dispatcher by ref in the registry
+			$dispatcher = new Dispatcher();
+
+			// Inject dependency
+			$dispatcher->setApplication($this->getApplication());
+
+			// Inject generic component router configuration
+			$dispatcher->addRouterName('core.PKPComponentRouter', 'component');
+		}
+
+		return $dispatcher;
+	}
+
+	/**
+	 * This executes the application by delegating the
+	 * request to the dispatcher.
+	 */
+	function execute() {
+		// Dispatch the request to the correct handler
+		$dispatcher =& $this->getDispatcher();
+		$dispatcher->dispatch($this->getRequest());
 	}
 
 	/**
@@ -130,60 +188,6 @@ class PKPApplication {
 	 */
 	function getVersionDescriptorUrl() {
 		fatalError('Abstract method');
-	}
-
-	/**
-	 * Determine whether or not this request is cacheable
-	 * @return boolean
-	 */
-	function isCacheable() {
-		return false;
-	}
-
-	/**
-	 * Determine the filename to use for a local cache file.
-	 * @return string
-	 */
-	function getCacheFilename() {
-		fatalError('Abstract method');
-	}
-
-	/**
-	 * Cache content as a local file.
-	 * @param $contents string
-	 * @return string
-	 */
-	function cacheContent($contents) {
-		$filename = $this->getCacheFilename();
-		$fp = fopen($filename, 'w');
-		if ($fp) {
-			fwrite($fp, mktime() . ':' . $contents);
-			fclose($fp);
-		}
-		return $contents;
-	}
-
-	/**
-	 * Display the request contents from cache.
-	 */
-	function displayCached() {
-		$filename = $this->getCacheFilename();
-		if (!file_exists($filename)) return false;
-
-		$fp = fopen($filename, 'r');
-		$data = fread($fp, filesize($filename));
-		fclose($fp);
-
-		$i = strpos($data, ':');
-		$time = substr($data, 0, $i);
-		$contents = substr($data, $i+1);
-
-		if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) return false;
-
-		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
-
-		echo $contents;
-		return true;
 	}
 
 	/**
@@ -239,7 +243,7 @@ class PKPApplication {
 
 	/**
 	 * Custom error handler
-	 * 
+	 *
 	 * NB: Custom error handlers are called for all error levels
 	 * independent of the error_reporting parameter.
 	 * @param $errorno string

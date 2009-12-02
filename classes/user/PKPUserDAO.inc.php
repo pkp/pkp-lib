@@ -307,7 +307,7 @@ class PKPUserDAO extends DAO {
 	}
 
 	function updateUser(&$user) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($user);
 	}
 
@@ -320,7 +320,7 @@ class PKPUserDAO extends DAO {
 	}
 
 	function deleteUser(&$user) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($user);
 	}
 

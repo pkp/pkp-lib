@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/db/DBConnectionTest.inc.php
+ * @file tests/classes/db/DBConnectionTest.inc.php
  *
  * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -13,7 +13,7 @@
  * @brief Tests for the DBConnectionTest class.
  */
 
-// $Id: DBConnectionTest.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
+// $Id$
 
 import('tests.DatabaseTestCase');
 import('classes.db.DBConnection');

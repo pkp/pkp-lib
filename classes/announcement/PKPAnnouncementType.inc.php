@@ -23,7 +23,7 @@ class PKPAnnouncementType extends DataObject {
 	 * @return int
 	 */
 	function getTypeId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -32,7 +32,7 @@ class PKPAnnouncementType extends DataObject {
 	 * @param $typeId int
 	 */
 	function setTypeId($typeId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($typeId);
 	}
 
@@ -77,7 +77,7 @@ class PKPAnnouncementType extends DataObject {
 	}
 
 	function getAnnouncementTypeName() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedTypeName();
 	}
 

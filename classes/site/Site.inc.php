@@ -17,7 +17,7 @@
  * @brief Describes system-wide site properties.
  */
 
-// $Id: Site.inc.php,v 1.8 2009/10/30 23:09:35 asmecher Exp $
+// $Id$
 
 
 class Site extends DataObject {
@@ -63,7 +63,7 @@ class Site extends DataObject {
 	}
 
 	function getSiteTitle() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedTitle();
 	}
 
@@ -89,7 +89,7 @@ class Site extends DataObject {
 	}
 
 	function getSitePageHeaderTitle() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedPageHeaderTitle();
 	}
 
@@ -102,7 +102,7 @@ class Site extends DataObject {
 	}
 
 	function getSitePageHeaderTitleType() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedPageHeaderTitleType();
 	}
 
@@ -130,7 +130,7 @@ class Site extends DataObject {
 	}
 
 	function getSiteIntro() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedIntro();
 	}
 
@@ -158,7 +158,7 @@ class Site extends DataObject {
 	}
 
 	function getSiteAbout() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedAbout();
 	}
 
@@ -170,7 +170,7 @@ class Site extends DataObject {
 	}
 
 	function getSiteContactName() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedContactName();
 	}
 
@@ -182,7 +182,7 @@ class Site extends DataObject {
 	}
 
 	function getSiteContactEmail() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedContactEmail();
 	}
 

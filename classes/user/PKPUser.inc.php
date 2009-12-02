@@ -35,7 +35,7 @@ class PKPUser extends DataObject {
 	 * @return int
 	 */
 	function getUserId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -44,7 +44,7 @@ class PKPUser extends DataObject {
 	 * @param $userId int
 	 */
 	function setUserId($userId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($userId);
 	}
 
@@ -88,7 +88,7 @@ class PKPUser extends DataObject {
 	}
 
 	function getUserSignature() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedSignature();
 	}
 
@@ -343,7 +343,7 @@ class PKPUser extends DataObject {
 	}
 
 	function getUserBiography() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedBiography();
 	}
 
@@ -373,7 +373,7 @@ class PKPUser extends DataObject {
 	}
 
 	function getUserInterests() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedInterests();
 	}
 

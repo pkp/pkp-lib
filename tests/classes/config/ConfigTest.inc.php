@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/config/ConfigTest.inc.php
+ * @file tests/classes/config/ConfigTest.inc.php
  *
  * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -13,7 +13,7 @@
  * @brief Tests for the Config class.
  */
 
-// $Id: ConfigTest.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
+// $Id$
 
 import('tests.PKPTestCase');
 

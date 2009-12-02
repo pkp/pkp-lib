@@ -16,11 +16,55 @@
 
 
 class PKPRequest {
+	//
+	// Internal state - please do not reference directly
+	//
+	/** @var PKPRouter router instance used to route this request */
+	var $_router = null;
+	/** @var array the request variables cache (GET/POST) */
+	var $_requestVars = null;
+	/** @var string request base path */
+	var $_basePath;
+	/** @var string request path */
+	var $_requestPath;
+	/** @var boolean true if restful URLs are enabled in the config */
+	var $_isRestfulUrlsEnabled;
+	/** @var boolean true if path info is enabled for this server */
+	var $_isPathInfoEnabled;
+	/** @var string server host */
+	var $_serverHost;
+	/** @var string base url */
+	var $_baseUrl;
+	/** @var string request protocol */
+	var $_protocol;
+	/** @var boolean true, if deprecation warning is switched on */
+	var $_deprecationWarning = null;
+
+
+
+	/**
+	 * get the router instance
+	 * @return PKPRouter
+	 */
+	function &getRouter() {
+		return $this->_router;
+	}
+
+	/**
+	 * set the router instance
+	 * @param $router instance PKPRouter
+	 */
+	function setRouter(&$router) {
+		$this->_router =& $router;
+	}
+
 	/**
 	 * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
 	 * @param $url string (exclude protocol for local redirects)
 	 */
 	function redirectUrl($url) {
+		PKPRequest::_checkThis();
+
 		if (HookRegistry::call('Request::redirect', array(&$url))) {
 			return;
 		}
@@ -33,26 +77,32 @@ class PKPRequest {
 	 * Redirect to the current URL, forcing the HTTPS protocol to be used.
 	 */
 	function redirectSSL() {
-		$url = 'https://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
-		$queryString = PKPRequest::getQueryString();
+		$_this =& PKPRequest::_checkThis();
+
+		$url = 'https://' . $_this->getServerHost() . $_this->getRequestPath();
+		$queryString = $_this->getQueryString();
 		if (!empty($queryString)) $url .= "?$queryString";
-		PKPRequest::redirectUrl($url);
+		$_this->redirectUrl($url);
 	}
 
 	/**
 	 * Redirect to the current URL, forcing the HTTP protocol to be used.
 	 */
 	function redirectNonSSL() {
-		$url = 'http://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
-		$queryString = PKPRequest::getQueryString();
+		$_this =& PKPRequest::_checkThis();
+
+		$url = 'http://' . $_this->getServerHost() . $_this->getRequestPath();
+		$queryString = $_this->getQueryString();
 		if (!empty($queryString)) $url .= "?$queryString";
-		PKPRequest::redirectUrl($url);
+		$_this->redirectUrl($url);
 	}
 
 	/**
 	 * Handle a 404 error (page not found).
 	 */
 	function handle404() {
+		PKPRequest::_checkThis();
+
 		header('HTTP/1.0 404 Not Found');
 		fatalError('404 Not Found');
 	}
@@ -62,21 +112,21 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getBaseUrl() {
-		static $baseUrl;
+		$_this =& PKPRequest::_checkThis();
 
-		if (!isset($baseUrl)) {
-			$serverHost = PKPRequest::getServerHost(null);
+		if (!isset($_this->_baseUrl)) {
+			$serverHost = $_this->getServerHost(null);
 			if ($serverHost !== null) {
 				// Auto-detection worked.
-				$baseUrl = PKPRequest::getProtocol() . '://' . PKPRequest::getServerHost() . PKPRequest::getBasePath();
+				$_this->_baseUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getBasePath();
 			} else {
 				// Auto-detection didn't work (e.g. this is a command-line call); use configuration param
-				$baseUrl = Config::getVar('general', 'base_url');
+				$_this->_baseUrl = Config::getVar('general', 'base_url');
 			}
-			HookRegistry::call('Request::getBaseUrl', array(&$baseUrl));
+			HookRegistry::call('Request::getBaseUrl', array(&$_this->_baseUrl));
 		}
 
-		return $baseUrl;
+		return $_this->_baseUrl;
 	}
 
 	/**
@@ -84,32 +134,31 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getBasePath() {
-		static $basePath;
+		$_this =& PKPRequest::_checkThis();
 
-		if (!isset($basePath)) {
-			$basePath = dirname($_SERVER['SCRIPT_NAME']);
-			if ($basePath == '/' || $basePath == '\\') {
-				$basePath = '';
+		if (!isset($_this->_basePath)) {
+			$_this->_basePath = dirname($_SERVER['SCRIPT_NAME']);
+			if ($_this->_basePath == '/' || $_this->_basePath == '\\') {
+				$_this->_basePath = '';
 			}
-			HookRegistry::call('Request::getBasePath', array(&$basePath));
+			HookRegistry::call('Request::getBasePath', array(&$_this->_basePath));
 		}
 
-		return $basePath;
+		return $_this->_basePath;
 	}
 
 	/**
-	 * Get the URL to the index script.
-	 * @return string
+	 * Deprecated
+	 * @see PKPPageRouter::getIndexUrl()
 	 */
 	function getIndexUrl() {
 		static $indexUrl;
 
+		$_this =& PKPRequest::_checkThis();
 		if (!isset($indexUrl)) {
-			if (PKPRequest::isRestfulUrlsEnabled()) {
-				$indexUrl = PKPRequest::getBaseUrl();
-			} else {
-				$indexUrl = PKPRequest::getBaseUrl() . '/' . basename($_SERVER['SCRIPT_NAME']);
-			}
+			$indexUrl = $_this->_delegateToRouter('getIndexUrl');
+
+			// Call legacy hook
 			HookRegistry::call('Request::getIndexUrl', array(&$indexUrl));
 		}
 
@@ -121,11 +170,13 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getCompleteUrl() {
+		$_this =& PKPRequest::_checkThis();
+
 		static $completeUrl;
 
 		if (!isset($completeUrl)) {
-			$completeUrl = PKPRequest::getRequestUrl();
-			$queryString = PKPRequest::getQueryString();
+			$completeUrl = $_this->getRequestUrl();
+			$queryString = $_this->getQueryString();
 			if (!empty($queryString)) $completeUrl .= "?$queryString";
 			HookRegistry::call('Request::getCompleteUrl', array(&$completeUrl));
 		}
@@ -138,10 +189,12 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getRequestUrl() {
+		$_this =& PKPRequest::_checkThis();
+
 		static $requestUrl;
 
 		if (!isset($requestUrl)) {
-			$requestUrl = PKPRequest::getProtocol() . '://' . PKPRequest::getServerHost() . PKPRequest::getRequestPath();
+			$requestUrl = $_this->getProtocol() . '://' . $_this->getServerHost() . $_this->getRequestPath();
 			HookRegistry::call('Request::getRequestUrl', array(&$requestUrl));
 		}
 
@@ -153,6 +206,8 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getQueryString() {
+		PKPRequest::_checkThis();
+
 		static $queryString;
 
 		if (!isset($queryString)) {
@@ -168,7 +223,9 @@ class PKPRequest {
 	 * @return array
 	 */
 	function getQueryArray() {
-		$queryString = PKPRequest::getQueryString();
+		$_this =& PKPRequest::_checkThis();
+
+		$queryString = $_this->getQueryString();
 		$queryArray = array();
 
 		if (isset($queryString)) {
@@ -183,20 +240,21 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getRequestPath() {
-		static $requestPath;
-		if (!isset($requestPath)) {
-			if (PKPRequest::isRestfulUrlsEnabled()) {
-				$requestPath = PKPRequest::getBasePath();
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_requestPath)) {
+			if ($_this->isRestfulUrlsEnabled()) {
+				$_this->_requestPath = $_this->getBasePath();
 			} else {
-				$requestPath = $_SERVER['SCRIPT_NAME'];
+				$_this->_requestPath = $_SERVER['SCRIPT_NAME'];
 			}
 
-			if (PKPRequest::isPathInfoEnabled()) {
-				$requestPath .= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
+			if ($_this->isPathInfoEnabled()) {
+				$_this->_requestPath .= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
 			}
-			HookRegistry::call('Request::getRequestPath', array(&$requestPath));
+			HookRegistry::call('Request::getRequestPath', array(&$_this->_requestPath));
 		}
-		return $requestPath;
+		return $_this->_requestPath;
 	}
 
 	/**
@@ -205,15 +263,16 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getServerHost($default = 'localhost') {
-		static $serverHost;
-		if (!isset($serverHost)) {
-			$serverHost = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST']
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_serverHost)) {
+			$_this->_serverHost = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST']
 				: (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST']
 				: (isset($_SERVER['HOSTNAME']) ? $_SERVER['HOSTNAME']
 				: $default));
-			HookRegistry::call('Request::getServerHost', array(&$serverHost));
+			HookRegistry::call('Request::getServerHost', array(&$_this->_serverHost));
 		}
-		return $serverHost;
+		return $_this->_serverHost;
 	}
 
 	/**
@@ -221,12 +280,13 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getProtocol() {
-		static $protocol;
-		if (!isset($protocol)) {
-			$protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
-			HookRegistry::call('Request::getProtocol', array(&$protocol));
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_protocol)) {
+			$_this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
+			HookRegistry::call('Request::getProtocol', array(&$_this->_protocol));
 		}
-		return $protocol;
+		return $_this->_protocol;
 	}
 
 	/**
@@ -234,6 +294,8 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getRequestMethod() {
+		PKPRequest::_checkThis();
+
 		return $_SERVER['REQUEST_METHOD'];
 	}
 
@@ -242,7 +304,9 @@ class PKPRequest {
 	 * @return boolean
 	 */
 	function isPost() {
-		return (PKPRequest::getRequestMethod() == 'POST');
+		$_this =& PKPRequest::_checkThis();
+
+		return ($_this->getRequestMethod() == 'POST');
 	}
 
 	/**
@@ -250,7 +314,9 @@ class PKPRequest {
 	 * @return boolean
 	 */
 	function isGet() {
-		return (PKPRequest::getRequestMethod() == 'GET');
+		$_this =& PKPRequest::_checkThis();
+
+		return ($_this->getRequestMethod() == 'GET');
 	}
 
 	/**
@@ -258,6 +324,8 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getRemoteAddr() {
+		PKPRequest::_checkThis();
+
 		static $ipaddr;
 		if (!isset($ipaddr)) {
 			if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -286,10 +354,12 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getRemoteDomain() {
+		$_this =& PKPRequest::_checkThis();
+
 		static $remoteDomain;
 		if (!isset($remoteDomain)) {
 			$remoteDomain = null;
-			$remoteDomain = @getHostByAddr(PKPRequest::getRemoteAddr());
+			$remoteDomain = @getHostByAddr($_this->getRemoteAddr());
 			HookRegistry::call('Request::getRemoteDomain', array(&$remoteDomain));
 		}
 		return $remoteDomain;
@@ -300,6 +370,8 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getUserAgent() {
+		PKPRequest::_checkThis();
+
 		static $userAgent;
 		if (!isset($userAgent)) {
 			if (isset($_SERVER['HTTP_USER_AGENT'])) {
@@ -321,9 +393,11 @@ class PKPRequest {
 	 * list of regular expressions.
 	 */
 	function isBot() {
+		$_this =& PKPRequest::_checkThis();
+
 		static $isBot;
 		if (!isset($isBot)) {
-			$userAgent = PKPRequest::getUserAgent();
+			$userAgent = $_this->getUserAgent();
 			$isBot = false;
 			$userAgentsFile = Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'botAgents.txt';
 			$regexps = array_filter(file($userAgentsFile), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
@@ -341,22 +415,24 @@ class PKPRequest {
 	 * Return true if PATH_INFO is enabled.
 	 */
 	function isPathInfoEnabled() {
-		static $isPathInfoEnabled;
-		if (!isset($isPathInfoEnabled)) {
-			$isPathInfoEnabled = Config::getVar('general', 'disable_path_info')?false:true;
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_isPathInfoEnabled)) {
+			$_this->_isPathInfoEnabled = Config::getVar('general', 'disable_path_info')?false:true;
 		}
-		return $isPathInfoEnabled;
+		return $_this->_isPathInfoEnabled;
 	}
 
 	/**
 	 * Return true if RESTFUL_URLS is enabled.
 	 */
 	function isRestfulUrlsEnabled() {
-		static $isRestfulUrlsEnabled;
-		if (!isset($isRestfulUrlsEnabled)) {
-			$isRestfulUrlsEnabled = Config::getVar('general', 'restful_urls')?true:false;
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_isRestfulUrlsEnabled)) {
+			$_this->_isRestfulUrlsEnabled = Config::getVar('general', 'restful_urls')?true:false;
 		}
-		return $isRestfulUrlsEnabled;
+		return $_this->_isRestfulUrlsEnabled;
 	}
 
 	/**
@@ -364,6 +440,8 @@ class PKPRequest {
 	 * @return Site
 	 */
 	function &getSite() {
+		PKPRequest::_checkThis();
+
 		$site =& Registry::get('site', true, null);
 		if ($site === null) {
 			$siteDao =& DAORegistry::getDAO('SiteDAO');
@@ -378,6 +456,8 @@ class PKPRequest {
 	 * @return Session
 	 */
 	function &getSession() {
+		PKPRequest::_checkThis();
+
 		$session =& Registry::get('session', true, null);
 
 		if ($session === null) {
@@ -393,6 +473,8 @@ class PKPRequest {
 	 * @return User
 	 */
 	function &getUser() {
+		PKPRequest::_checkThis();
+
 		$user =& Registry::get('user', true, null);
 		if ($user === null) {
 			$sessionManager =& SessionManager::getManager();
@@ -404,123 +486,35 @@ class PKPRequest {
 	}
 
 	/**
-	 * A Generic call to a context defining object (e.g. a Journal, a Conference, or a SchedConf)
-	 * This class must be implemented by all PKPApplications
-	 */
-	function &getContext() {
-		// Child classes will override this method.
-		$returner = null;
-		return $returner;
-	}
-
-	/**
-	 * A Generic call to a context-defined path (e.g. a Journal or a Conference's path)
-	 * @param $contextLevel int (optional) the number of levels of context to return in the path
-	 * @return array of String (each element the path to one context element)
-	 */
-	function getRequestedContextPath($contextLevel = null) {
-		// Child classes will override this method.
-		return array();
-	}
-
-	/**
-	 * Get the page requested in the URL.
-	 * @return String the page path (under the "pages" directory)
-	 */
-	function getRequestedPage() {
-		static $page;
-
-		if (!isset($page)) {
-			if (PKPRequest::isPathInfoEnabled()) {
-				$application = PKPApplication::getApplication();
-				$contextDepth = $application->getContextDepth();
-				$page = '';
-				if (isset($_SERVER['PATH_INFO'])) {
-					$vars = explode('/', $_SERVER['PATH_INFO']);
-					if (count($vars) > $contextDepth+1) {
-						$page = $vars[$contextDepth+1];
-					}
-				}
-			} else {
-				$page = PKPRequest::getUserVar('page');
-			}
-			$page = Core::cleanFileVar($page);
-		}
-
-		return $page;
-	}
-
-	/**
-	 * Get the operation requested in the URL (assumed to exist in the requested page handler).
-	 * @return string
-	 */
-	function getRequestedOp() {
-		static $op;
-
-		if (!isset($op)) {
-			if (PKPRequest::isPathInfoEnabled()) {
-				$application = PKPApplication::getApplication();
-				$contextDepth = $application->getContextDepth();
-				$op = '';
-				if (isset($_SERVER['PATH_INFO'])) {
-					$vars = explode('/', $_SERVER['PATH_INFO']);
-					if (count($vars) > $contextDepth+2) {
-						$op = $vars[$contextDepth+2];
-					}
-				}
-			} else {
-				$op = PKPRequest::getUserVar('op');
-			}
-			$op = Core::cleanFileVar(empty($op) ? 'index' : $op);
-		}
-
-		return $op;
-	}
-
-	/**
-	 * Get the arguments requested in the URL (not GET/POST arguments, only arguments appended to the URL separated by "/").
-	 * @return array
-	 */
-	function getRequestedArgs() {
-		if (PKPRequest::isPathInfoEnabled()) {
-			$args = array();
-			if (isset($_SERVER['PATH_INFO'])) {
-				$application = PKPApplication::getApplication();
-				$contextDepth = $application->getContextDepth();
-				$vars = explode('/', $_SERVER['PATH_INFO']);
-				if (count($vars) > $contextDepth+3) {
-					$args = array_slice($vars, $contextDepth+3);
-					for ($i=0, $count=count($args); $i<$count; $i++) {
-						$args[$i] = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($args[$i]) : $args[$i]);
-					}
-				}
-			}
-		} else {
-			$args = PKPRequest::getUserVar('path');
-			if (empty($args)) $args = array();
-			elseif (!is_array($args)) $args = array($args);
-		}
-		return $args;
-	}
-
-	/**
 	 * Get the value of a GET/POST variable.
 	 * @return mixed
 	 */
 	function getUserVar($key) {
-		static $vars;
+		$_this =& PKPRequest::_checkThis();
 
-		if (!isset($vars)) {
-			$vars = array_merge($_GET, $_POST);
-		}
+		// Get all vars (already cleaned)
+		$vars =& $_this->getUserVars();
 
 		if (isset($vars[$key])) {
-			// FIXME Do not clean vars again if function is called more than once?
-			PKPRequest::cleanUserVar($vars[$key]);
 			return $vars[$key];
 		} else {
 			return null;
 		}
+	}
+
+	/**
+	 * Get all GET/POST variables as an array
+	 * @return array
+	 */
+	function &getUserVars() {
+		$_this =& PKPRequest::_checkThis();
+
+		if (!isset($_this->_requestVars)) {
+			$_this->_requestVars = array_merge($_GET, $_POST);
+			$_this->cleanUserVar($_this->_requestVars);
+		}
+
+		return $_this->_requestVars;
 	}
 
 	/**
@@ -536,14 +530,16 @@ class PKPRequest {
 	 * @return Date
 	 */
 	function getUserDateVar($prefix, $defaultDay = null, $defaultMonth = null, $defaultYear = null, $defaultHour = 0, $defaultMinute = 0, $defaultSecond = 0) {
-		$monthPart = PKPRequest::getUserVar($prefix . 'Month');
-		$dayPart = PKPRequest::getUserVar($prefix . 'Day');
-		$yearPart = PKPRequest::getUserVar($prefix . 'Year');
-		$hourPart = PKPRequest::getUserVar($prefix . 'Hour');
-		$minutePart = PKPRequest::getUserVar($prefix . 'Minute');
-		$secondPart = PKPRequest::getUserVar($prefix . 'Second');
+		$_this =& PKPRequest::_checkThis();
 
-		switch (PKPRequest::getUserVar($prefix . 'Meridian')) {
+		$monthPart = $_this->getUserVar($prefix . 'Month');
+		$dayPart = $_this->getUserVar($prefix . 'Day');
+		$yearPart = $_this->getUserVar($prefix . 'Year');
+		$hourPart = $_this->getUserVar($prefix . 'Hour');
+		$minutePart = $_this->getUserVar($prefix . 'Minute');
+		$secondPart = $_this->getUserVar($prefix . 'Second');
+
+		switch ($_this->getUserVar($prefix . 'Meridian')) {
 			case 'pm':
 				if (is_numeric($hourPart) && $hourPart != 12) $hourPart += 12;
 				break;
@@ -570,9 +566,11 @@ class PKPRequest {
 	 * @param $var mixed
 	 */
 	function cleanUserVar(&$var, $stripHtml = false) {
+		$_this =& PKPRequest::_checkThis();
+
 		if (isset($var) && is_array($var)) {
 			foreach ($var as $key => $value) {
-				PKPRequest::cleanUserVar($var[$key], $stripHtml);
+				$_this->cleanUserVar($var[$key], $stripHtml);
 			}
 		} else if (isset($var)) {
 			$var = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($var) : $var);
@@ -587,9 +585,11 @@ class PKPRequest {
 	 * @return mixed
 	 */
 	function getCookieVar($key) {
+		$_this =& PKPRequest::_checkThis();
+
 		if (isset($_COOKIE[$key])) {
 			$value = $_COOKIE[$key];
-			PKPRequest::cleanUserVar($value);
+			$_this->cleanUserVar($value);
 			return $value;
 		} else {
 			return null;
@@ -602,12 +602,15 @@ class PKPRequest {
 	 * @param $value mixed
 	 */
 	function setCookieVar($key, $value) {
-		setcookie($key, $value, 0, PKPRequest::getBasePath());
+		$_this =& PKPRequest::_checkThis();
+
+		setcookie($key, $value, 0, $_this->getBasePath());
 		$_COOKIE[$key] = $value;
 	}
 
 	/**
-	 * Redirect to the specified page within a PKP Application. Shorthand for a common call to Request::redirect(Request::url(...)).
+	 * Redirect to the specified page within a PKP Application.
+	 * Shorthand for a common call to $request->redirect($router->url(...)).
 	 * @param $context Array The optional contextual paths
 	 * @param $page string The name of the op to redirect to.
 	 * @param $op string optional The name of the op to redirect to.
@@ -616,146 +619,138 @@ class PKPRequest {
 	 * @param $anchor string Name of desired anchor on the target page
 	 */
 	function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
-		PKPRequest::redirectUrl(PKPRequest::url($context, $page, $op, $path, $params, $anchor));
+		$_this =& PKPRequest::_checkThis();
+
+		$router =& $_this->getRouter();
+		$_this->redirectUrl($router->url($_this, $context, $page, $op, $path, $params, $anchor));
 	}
 
 	/**
-	 * Build a URL into PKPApplication.
-	 * @param $context Array Optional contextual paths
-	 * @param $page string Optional name of page to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path mixed Optional string or array of args to pass to handler
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+	 * Deprecated
+	 * @see PKPPageRouter::getContext()
+	 */
+	function &getContext() {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('getContext');
+	}
+
+	/**
+	 * Deprecated
+	 * @see PKPPageRouter::getRequestedContextPath()
+	 */
+	function getRequestedContextPath($contextLevel = null) {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('getRequestedContextPath', $contextLevel);
+	}
+
+	/**
+	 * Deprecated
+	 * @see PKPPageRouter::getRequestedPage()
+	 */
+	function getRequestedPage() {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('getRequestedPage');
+	}
+
+	/**
+	 * Deprecated
+	 * @see PKPPageRouter::getRequestedOp()
+	 */
+	function getRequestedOp() {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('getRequestedOp');
+	}
+
+	/**
+	 * Deprecated
+	 * @see PKPPageRouter::getRequestedArgs()
+	 */
+	function getRequestedArgs() {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('getRequestedArgs');
+	}
+
+	/**
+	 * Deprecated
+	 * @see PKPPageRouter::url()
 	 */
 	function url($context = null, $page = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
+		$_this =& PKPRequest::_checkThis();
+		return $_this->_delegateToRouter('url', $context, $page, $op, $path,
+				$params, $anchor, $escape);
+	}
 
-		$application =& PKPApplication::getApplication();
-		$contextList = $application->getContextList();
-		$contextDepth = $application->getContextDepth();
-
-		// set an empty array in case that $context was null
-		if ( !isset($context) ) {
-			$context = array();
-			for ($i = 0; $i < $contextDepth; $i++) {
-				$context[] = null;
-			}
-		}
-
-		$pathInfoDisabled = !PKPRequest::isPathInfoEnabled();
-
-		$amp = $escape?'&amp;':'&';
-		$prefix = $pathInfoDisabled?$amp:'?';
-
-		// Establish defaults for page and op
-		$defaultPage = PKPRequest::getRequestedPage();
-		$defaultOp = PKPRequest::getRequestedOp();
-
-		// Declare some empty variables
-		$contextPathProvided = false;
-		$contextPath = array();
-
-		foreach ($contextList as $contextName) {
-			$contextValue = array_shift($context);
-			if (isset($contextValue)) {
-				$contextPath[] = rawurlencode($contextValue);
-				$contextPathProvided = true;
-			} else {
-				$contextObject =& Request::getContextByName($contextName);
-				if ($contextObject) $contextPath[] = $contextObject->getPath();
-				else $contextPath[] = 'index';
-			}
-		}
-
-		// If a context has been specified, don't supply default page or op.
-		if($contextPathProvided) {
-			$defaultPage = null;
-			$defaultOp = null;
-		}
-
-		// Get overridden base URLs (if available).
-		if ( isset($contextPath[0])) {
-			$overriddenBaseUrl = Config::getVar('general', "base_url[$contextPath[0]]");
-		}
-
-		// If a page has been specified, don't supply a default op.
-		if ($page) {
-			$page = rawurlencode($page);
-			$defaultOp = null;
+	/**
+	 * This method exists to maintain backwards compatibility
+	 * with static calls to PKPRequest.
+	 *
+	 * If it is called non-statically then it will simply
+	 * return $this. Otherwise it will issue a deprecation
+	 * warning and expect a global singleton instance in the
+	 * registry that will be returned instead.
+	 *
+	 * NB: This method is protected and may not be used by
+	 * external classes. It should also only be used in legacy
+	 * methods.
+	 *
+	 * @return PKPRequest
+	 */
+	function &_checkThis() {
+		if (isset($this) && is_a($this, 'PKPRequest')) {
+			return $this;
 		} else {
-			$page = $defaultPage;
+			// We have to use a static variable here as
+			// this deprecated call is static itself.
+			static $deprecationWarning = null;
+			if (is_null($deprecationWarning)) {
+				$deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
+				if (is_null($deprecationWarning)) $deprecationWarning = false;
+			}
+			if ($deprecationWarning) trigger_error('Deprecated static function call');
+
+			$instance =& Registry::get('request');
+			assert(!is_null($instance));
+			return $instance;
 		}
+	}
 
-		// Encode the op.
-		if ($op) $op = rawurlencode($op);
-		else $op = $defaultOp;
-
-		// Process additional parameters
-		$additionalParams = '';
-		if (!empty($params)) foreach ($params as $key => $value) {
-			if (is_array($value)) foreach($value as $element) {
-				$additionalParams .= $prefix . $key . '%5B%5D=' . rawurlencode($element);
-				$prefix = $amp;
-			} else {
-				$additionalParams .= $prefix . $key . '=' . rawurlencode($value);
-				$prefix = $amp;
-			}
+	/**
+	 * This method exists to maintain backwards compatibility
+	 * with calls to methods that have been factored into the
+	 * Router implementations.
+	 *
+	 * It delegates the call to the router and returns the result.
+	 *
+	 * NB: This method is protected and may not be used by
+	 * external classes. It should also only be used in legacy
+	 * methods.
+	 *
+	 * @return mixed depends on the called method
+	 */
+	function &_delegateToRouter($method) {
+		$_this =& PKPRequest::_checkThis();
+		if (is_null($_this->_deprecationWarning)) {
+			$_this->_deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
+			if (is_null($_this->_deprecationWarning)) $_this->_deprecationWarning = false;
 		}
+		if ($_this->_deprecationWarning) trigger_error('Deprecated function');
 
-		// Process anchor
-		if (!empty($anchor)) $anchor = '#' . rawurlencode($anchor);
-		else $anchor = '';
+		$router =& $_this->getRouter();
 
-		if (!empty($path)) {
-			if (is_array($path)) $path = array_map('rawurlencode', $path);
-			else $path = array(rawurlencode($path));
-			if (!$page) $page = 'index';
-			if (!$op) $op = 'index';
-		}
+		// Construct the method call
+		$callable = array($router, $method);
 
-		$pathString = '';
-		if ($pathInfoDisabled) {
-			$joiner = $amp . 'path%5B%5D=';
-			if (!empty($path)) $pathString = $joiner . implode($joiner, $path);
-			if (empty($overriddenBaseUrl) && count($contextPath)) {
-				$baseParams = '?';
-				foreach ($contextList as $contextName) {
-					$contextValue = array_shift($contextPath);
-					if (!empty($contextValue)) {
-						$baseParams .= $contextName.'='.$contextValue;
-						$baseParams .= count($contextPath)?$amp:'';
-					}
-				}
+		// Get additional parameters but replace
+		// the first parameter (currently the
+		// method to be called) with the request
+		// as all router methods required the request
+		// as their first parameter.
+		$parameters = func_get_args();
+		$parameters[0] =& $_this;
 
-			}
-			else $baseParams = '';
-
-			if (!empty($page) || !empty($overriddenBaseUrl)) {
-				$baseParams .= empty($baseParams)?'?':$amp;
-				$baseParams .= "page=$page";
-				if (!empty($op)) {
-					$baseParams .= $amp . "op=$op";
-				}
-			}
-		} else {
-			if (!empty($path)) $pathString = '/' . implode('/', $path);
-			if (empty($overriddenBaseUrl) && count($contextPath)) $baseParams = "/". implode("/", $contextPath);
-			else {
-				array_shift($contextPath); // Throw away first
-				$baseParams = implode('/', $contextPath);
-			}
-
-			if (!empty($page)) {
-				$baseParams .= "/$page";
-				if (!empty($op)) {
-					$baseParams .= "/$op";
-				}
-			}
-		}
-
-		return ((empty($overriddenBaseUrl)?PKPRequest::getIndexUrl():$overriddenBaseUrl) . $baseParams . $pathString . $additionalParams . $anchor);
+		$returner =& call_user_func_array($callable, $parameters);
+		return $returner;
 	}
 }
 

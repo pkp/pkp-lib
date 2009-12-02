@@ -20,13 +20,14 @@
 
 
 /** Initialization code */
+define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/index.php');
 define('PWD', getcwd());
 chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
 	define('STDIN', fopen('php://stdin','r'));
 }
 define('SESSION_DISABLE_INIT', 1);
-require('includes/driver.inc.php');
+require('lib/pkp/includes/driver.inc.php');
 
 if (!isset($argc)) {
 	// In PHP < 4.3.0 $argc/$argv are not automatically registered

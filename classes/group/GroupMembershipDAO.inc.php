@@ -136,7 +136,7 @@ class GroupMembershipDAO extends DAO {
 	}
 
 	function updateMembership(&$membership) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($membership);
 	}
 
@@ -149,7 +149,7 @@ class GroupMembershipDAO extends DAO {
 	}
 
 	function deleteMembership(&$membership) {
-		trigger_error('Deprecated functin.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($membership);
 	}
 

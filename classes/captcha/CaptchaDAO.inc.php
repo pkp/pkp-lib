@@ -153,7 +153,7 @@ class CaptchaDAO extends DAO {
 	}
 
 	function deleteCaptcha(&$captcha) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($captcha);
 	}
 
@@ -179,7 +179,7 @@ class CaptchaDAO extends DAO {
 	}
 
 	function updateCaptcha(&$captcha) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($captcha);
 	}
 }

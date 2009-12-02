@@ -147,7 +147,7 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	function updateAnnouncement(&$announcement) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($announcement);
 	}
 
@@ -161,7 +161,7 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	function deleteAnnouncement($announcement) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($announcement);
 	}
 

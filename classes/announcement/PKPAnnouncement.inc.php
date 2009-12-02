@@ -30,7 +30,7 @@ class PKPAnnouncement extends DataObject {
 	 * @return int
 	 */
 	function getAnnouncementId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -39,7 +39,7 @@ class PKPAnnouncement extends DataObject {
 	 * @param $announcementId int
 	 */
 	function setAnnouncementId($announcementId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($announcementId);
 	}
 
@@ -109,7 +109,7 @@ class PKPAnnouncement extends DataObject {
 	}
 
 	function getAnnouncementTitle() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedTitle();
 	}
 
@@ -129,7 +129,7 @@ class PKPAnnouncement extends DataObject {
 	}
 
 	function getAnnouncementTitleFull() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedTitleFull();
 	}
 
@@ -160,7 +160,7 @@ class PKPAnnouncement extends DataObject {
 	}
 
 	function getAnnouncementDescriptionShort() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedDescriptionShort();
 	}
 
@@ -191,7 +191,7 @@ class PKPAnnouncement extends DataObject {
 	}
 
 	function getAnnouncementDescription() {
-		trigger_error('Deprecated function');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getLocalizedDescription();
 	}
 

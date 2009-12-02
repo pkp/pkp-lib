@@ -107,7 +107,7 @@ class SiteDAO extends DAO {
 	}
 
 	function updateSite(&$site) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($site);
 	}
 }

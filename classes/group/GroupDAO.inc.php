@@ -155,7 +155,7 @@ class GroupDAO extends DAO {
 	}
 
 	function updateGroup(&$group) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($group);
 	}
 
@@ -168,7 +168,7 @@ class GroupDAO extends DAO {
 	}
 
 	function deleteGroup(&$group) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($group);
 	}
 

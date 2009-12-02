@@ -162,7 +162,7 @@ class AuthSourceDAO extends DAO {
 	}
 
 	function updateSource(&$auth) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($auth);
 	}
 
@@ -177,7 +177,7 @@ class AuthSourceDAO extends DAO {
 	}
 
 	function deleteSource(&$auth) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($auth);
 	}
 

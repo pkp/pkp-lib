@@ -118,7 +118,7 @@ class TemporaryFileDAO extends DAO {
 	}
 
 	function updateTemporaryFile(&$temporaryFile) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($temporaryFile);
 	}
 

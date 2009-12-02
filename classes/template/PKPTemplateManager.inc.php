@@ -82,9 +82,6 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('datetimeFormatShort', Config::getVar('general', 'datetime_format_short'));
 		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
-		if (Request::getUserVar('display') == "liquid")	{
-			$this->assign('liquid', " liquid");
-		}
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);
@@ -510,7 +507,7 @@ class PKPTemplateManager extends Smarty {
 			$smarty->assign('enableDebugStats', true);
 
 			// provide information from the PKPProfiler class
-			global $pkpProfiler;
+			$pkpProfiler =& Registry::get('system.debug.profiler');
 			foreach ($pkpProfiler->getData() as $output => $value) {
 				$smarty->assign($output, $value);
 			}

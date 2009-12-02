@@ -1,7 +1,7 @@
 <?php
 /**
  * A wrapper around $PHPRC/phpunit
- * 
+ *
  * It integrates PHPUnit with the PKP application environment
  * and enables running/debugging tests from within Eclipse or
  * other CASE tools.
@@ -9,6 +9,7 @@
 // Configure the index file location, assume that pkp-lib is
 // included within a PKP application.
 define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))).'/index.php');
+chdir(dirname(INDEX_FILE_LOCATION));
 
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
@@ -19,7 +20,7 @@ ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIREC
 // The phpunit cli tool's last parameter is the test class, file or directory
 if (is_array($argv) and count($argv)>1) {
 	$testDir = dirname(end($argv));
-	
+
 	// test whether this is a valid directory
 	if (is_dir($testDir)) {
 		define('TEST_BASE_DIRECTORY', $testDir);
@@ -45,13 +46,18 @@ if (TEST_BASE_DIRECTORY) {
 	}
 }
 
-// Set up PKP application environment
-require_once('includes/driver.inc.php');
+// Set up minimal PKP application environment
+require_once('lib/pkp/includes/driver.inc.php');
+import('core.Core');
+import('core.Registry');
+import('config.Config');
+import('core.String');
+String::init();
 
 // Remove the PKP error handler so that PHPUnit
 // can set it's own error handler and catch errors for us.
 restore_error_handler();
-		
+
 // Show errors on the GUI
 ini_set('display_errors', 'on');
 

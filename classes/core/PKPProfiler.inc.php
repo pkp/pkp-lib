@@ -14,7 +14,6 @@
 
 // $Id$
 
-ini_set('include_path', BASE_SYS_DIR . '/lib/pkp/lib/pqp/classes/' . ENV_SEPARATOR . ini_get('include_path'));
 require_once('PhpQuickProfiler.php');
 
 class PKPProfiler {

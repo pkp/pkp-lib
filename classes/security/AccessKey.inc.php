@@ -35,7 +35,7 @@ class AccessKey extends DataObject {
 	 * @return int
 	 */
 	function getAccessKeyId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -44,7 +44,7 @@ class AccessKey extends DataObject {
 	 * @param $accessKeyId int
 	 */
 	function setAccessKeyId($accessKeyId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($accessKeyId);
 	}
 

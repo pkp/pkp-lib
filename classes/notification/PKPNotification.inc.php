@@ -61,7 +61,7 @@ class PKPNotification extends DataObject {
 	 * @return int
 	 */
 	function getNotificationId() {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getId();
 	}
 
@@ -70,7 +70,7 @@ class PKPNotification extends DataObject {
 	 * @param $commentId int
 	 */
 	function setNotificationId($notificationId) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->setId($notificationId);
 	}
 

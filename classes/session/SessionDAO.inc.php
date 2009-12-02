@@ -104,7 +104,7 @@ class SessionDAO extends DAO {
 	}
 
 	function updateSession(&$session) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->updateObject($session);
 	}
 
@@ -117,7 +117,7 @@ class SessionDAO extends DAO {
 	}
 
 	function deleteSession(&$session) {
-		trigger_error('Deprecated function.');
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->deleteObject($session);
 	}
 

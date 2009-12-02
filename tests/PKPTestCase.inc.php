@@ -17,7 +17,7 @@
  * NB: PHPUnit 3.x requires PHP 5.2 or later so we can use PHP5 constructs.
  */
 
-// $Id: PKPTestCase.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
+// $Id$
 
 // Include PHPUnit
 require_once('PHPUnit/Extensions/OutputTestCase.php');
@@ -26,11 +26,13 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 	/**
 	 * Set a non-default test configuration
 	 * @param $config string the id of the configuration to use
+	 * @param $configPath string (optional) where to find the config file, default: 'config'
+	 * @param $dbConnect (optional) whether to try to re-connect the data base, default: true
 	 */
-	protected function setTestConfiguration($config) {
+	protected function setTestConfiguration($config, $configPath = 'config', $dbConnect = true) {
 		// Get the configuration file belonging to
 		// this test configuration.
-		$configFile = $this->getConfigFile($config);
+		$configFile = $this->getConfigFile($config, $configPath);
 
 		// Avoid unnecessary configuration switches.
 		if (Config::getConfigFileName() != $configFile) {
@@ -39,7 +41,7 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 
 			// Re-open the database connection with the
 			// new configuration.
-			DBConnection::getInstance(new DBConnection());
+			if ($dbConnect && class_exists('DBConnection')) DBConnection::getInstance(new DBConnection());
 		}
 	}
 
@@ -49,12 +51,12 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 	 * @param $config string
 	 * @return string the resolved configuration file name
 	 */
-	private function getConfigFile($config) {
+	private function getConfigFile($config, $configPath = 'config') {
 		// FIXME: How should we resolve config files?
 		// We could implement something like a configurable
 		// configuration resolver strategy that we plug
 		// in here.
-		return 'lib/pkp/tests/config/config.'.$config.'.inc.php';
+		return 'lib/pkp/tests/'.$configPath.'/config.'.$config.'.inc.php';
 	}
 }
 ?>

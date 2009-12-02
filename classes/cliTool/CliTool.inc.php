@@ -20,7 +20,6 @@
 
 
 /** Initialization code */
-define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/index.php');
 define('PWD', getcwd());
 chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {

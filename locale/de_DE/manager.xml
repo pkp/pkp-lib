@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">Bericht-Plug-Ins</message>
 	<message key="plugins.categories.themes.description">Designvorlagen-Plug-Ins können verwendet werden, um das Aussehen des Systems zu verändern.</message>
 	<message key="plugins.categories.themes">Designvorlagen-Plug-Ins</message>
+	<message key="manager.emails.form.emailKeyRequired">Eine eindeutige E-Mail-Adresse wird für die E-Mail benötigt.</message>
 </locale>

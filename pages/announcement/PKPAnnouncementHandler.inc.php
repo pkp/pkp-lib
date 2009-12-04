@@ -85,19 +85,23 @@ class PKPAnnouncementHandler extends Handler {
 	}
 
 	function _getAnnouncementsEnabled() {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	function &_getAnnouncements($rangeInfo = null) {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	function _getAnnouncementsIntroduction() {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	function _announcementIsValid($announcementId) {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 }
 

@@ -103,7 +103,8 @@ class PKPRouter {
 	 * @return string
 	 */
 	function getCacheFilename(&$request) {
-		fatalError('Abstract method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**

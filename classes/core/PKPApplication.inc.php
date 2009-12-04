@@ -157,7 +157,8 @@ class PKPApplication {
 	 * @return string
 	 */
 	function getNameKey() {
-		fatalError('Abstract method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**
@@ -168,7 +169,8 @@ class PKPApplication {
 	 * @return int
 	 */
 	function getContextDepth() {
-		fatalError('Abstract method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**
@@ -178,7 +180,8 @@ class PKPApplication {
 	 * @return Array
 	 */
 	function getContextList() {
-		fatalError('Abstract method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**
@@ -187,7 +190,8 @@ class PKPApplication {
 	 * @return string
 	 */
 	function getVersionDescriptorUrl() {
-		fatalError('Abstract method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**
@@ -238,7 +242,8 @@ class PKPApplication {
 	 * @return object
 	 */
 	function &instantiateHelp() {
-		fatalError('Abstract class');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**

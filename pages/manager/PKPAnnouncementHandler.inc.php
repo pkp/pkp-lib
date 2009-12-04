@@ -12,7 +12,7 @@
  * @brief Handle requests for announcement management functions.
  */
 
-//$Id: PKPAnnouncementHandler.inc.php,v 1.6 2009/10/06 21:22:28 asmecher Exp $
+//$Id$
 import('manager.ManagerHandler');
 
 class PKPAnnouncementHandler extends ManagerHandler {
@@ -43,7 +43,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	}
 
 	function &_getAnnouncements() {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	/**
@@ -303,11 +304,13 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	}
 
 	function _announcementIsValid($announcementId = null) {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 
 	function _announcementTypeIsValid($typeId = null) {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 }
 

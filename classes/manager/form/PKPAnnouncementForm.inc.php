@@ -155,7 +155,8 @@ class PKPAnnouncementForm extends Form {
 	}
 
 	function _getAnnouncementTypesAssocId() {
-		fatalError('Abstract Method');
+		// must be implemented by sub-classes
+		assert(false);
 	}
 }
 

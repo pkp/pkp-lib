@@ -9,7 +9,7 @@
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id: reader.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
@@ -156,4 +156,5 @@
 	<message key="rt.version.title">Titulua</message>
 	<message key="rt.version">Bertsioa</message>
 	<message key="rt.viewMetadata">Indexatzeko metadatuak</message>
+	<message key="rt.admin.settings.printerFriendly">Inprimatzeko bertsioa (lana inprimatzeko moduko bertsioan ematen du).</message>
 </locale>

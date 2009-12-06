@@ -215,7 +215,7 @@
 	<message key="form.postRequired">Форма не отправлена надлежащим образом.</message>
 	<message key="form.required">(* Обязат.)</message>
 	<message key="form.resubmit">Отправить снова</message>
-	<message key="form.saveToUpload">Нажать Сохранить для закачки файла.</message>
+	<message key="form.saveToUpload">Выберите файл для закачки.</message>
 	<message key="form.send">Послать</message>
 	<message key="form.submit">Отправить</message>
 	<message key="help.contents">Содержание</message>
@@ -240,7 +240,7 @@
 	<message key="icon.font_small.alt">Мелкий</message>
 	<message key="icon.info.alt">Информация</message>
 	<message key="icon.letter.alt">Письмо</message>
-	<message key="icon.mail.alt">Электронная почта</message>
+	<message key="icon.mail.alt">E-mail</message>
 	<message key="icon.unchecked.alt">Не выбрано</message>
 	<message key="icon.view.alt">Посмотреть</message>
 	<message key="locale.primary">Основной язык</message>

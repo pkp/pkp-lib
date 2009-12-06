@@ -117,7 +117,7 @@
 	<message key="submission.notes.confirmDelete">Удалить примечания?</message>
 	<message key="submission.notes.createNewNote">Написать примечание</message>
 	<message key="submission.notes.deleteNote">Стереть примечание</message>
-	<message key="submission.notes.editNote">Редактировать примечание</message>
+	<message key="submission.notes.editNote">Редактировать</message>
 	<message key="submission.notes.expandNotes">Полный текст</message>
 	<message key="submission.notes.noSubmissionNotes">Нет примечаний</message>
 	<message key="submission.notes.removeUploadedFile">Удалить загруж. файлы</message>
@@ -145,12 +145,12 @@
 	<message key="submissions.declined">Отклонена</message>
 	<message key="submissions.incomplete">Незаконченная</message>
 	<message key="submissions.noSubmissions">Нет статей</message>
-	<message key="submissions.queuedEditing">В очереди для редактора</message>
+	<message key="submissions.queuedEditing">В редакции</message>
 	<message key="submissions.queued">В очереди</message>
 	<message key="submissions.queuedUnassigned">Ожидают редактора</message>
 	<message key="submissions.ruling">Правила</message>
 	<message key="submissions.submit">Послать</message>
-	<message key="submissions.submitted">Поставлена</message>
+	<message key="submissions.submitted">Представлена</message>
 	<message key="submission.start">Начало</message>
 	<message key="submission.submissionHistory">История статьи</message>
 	<message key="submission.submissionManuscript">Рукопись статьи</message>

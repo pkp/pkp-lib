@@ -46,7 +46,7 @@
 	<message key="user.login.lostPassword.invalidHash">Недействительный линк. Пожалуйста, затребуйте снова Ваш пароль.</message>
 	<message key="user.login.lostPassword.invalidUser">Нет пользователя с таким адресом.</message>
 	<message key="user.login.lostPassword.passwordSent">На Ваш адрес послан новый пароль. Вы можете использовать его для входа на сайт.</message>
-	<message key="user.login.registeredEmail">Адрес электронной почты зарегистрирован другим пользователем</message>
+	<message key="user.login.registeredEmail">Адрес электронной почты пользователя</message>
 	<message key="user.login.rememberUsernameAndPassword">Запомнить мой логин</message>
 	<message key="user.login.resetPassword">Послать пароль</message>
 	<message key="user.logOut">Выйти</message>
@@ -102,4 +102,6 @@
 	<message key="user.username">Имя пользователя</message>
 	<message key="user.workingLanguages">Рабочие языки</message>
 	<message key="user.register.completeForm">Заполните, пожалуйста, форму регистрации в этом журнале.</message>
+	<message key="user.affiliations">Организации</message>
+	<message key="user.profile.form.openAccessNotifications">Уведомлять по электронной почте об открытии доступа</message>
 </locale>

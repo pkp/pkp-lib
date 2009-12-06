@@ -64,7 +64,7 @@
 	<message key="admin.settings.siteStyleSheetInvalid">Неверный формат стилевого файла. Допустим только формат .css.</message>
 	<message key="admin.settings.siteStyleSheet">Стилевой файл сайта</message>
 	<message key="admin.settings.siteTitle">Название сайта</message>
-	<message key="admin.siteAdmin">Администрация сайта</message>
+	<message key="admin.siteAdmin">Администрирование сайта</message>
 	<message key="admin.siteManagement">Управление сайтом</message>
 	<message key="admin.siteSettings">Настройки сайта</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Конфигурационный файл <tt>config.inc.php</tt> не существует или невалиден.]]></message>

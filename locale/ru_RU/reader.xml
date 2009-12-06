@@ -129,10 +129,10 @@
 	<message key="rt.metadata.dublinCore.identifier">Идентификатор</message>
 	<message key="rt.metadata.dublinCore.language">Язык</message>
 	<message key="rt.metadata.dublinCore.publisher">Издатель</message>
-	<message key="rt.metadata.dublinCore.relation">Связанные материалы</message>
+	<message key="rt.metadata.dublinCore.relation">Связь</message>
 	<message key="rt.metadata.dublinCore.rights">Права</message>
 	<message key="rt.metadata.dublinCore.source">Источник</message>
-	<message key="rt.metadata.dublinCore.subject">Предметная область</message>
+	<message key="rt.metadata.dublinCore.subject">Предмет</message>
 	<message key="rt.metadata.dublinCore.title">Название</message>
 	<message key="rt.metadata.dublinCore.type">Тип</message>
 	<message key="rt.metadata.forThisDocument">Метаданные этого документа</message>
@@ -144,7 +144,7 @@
 	<message key="rt.metadata.pkp.format">Формат файла</message>
 	<message key="rt.metadata.pkp.genre">Тип исследования или жанр</message>
 	<message key="rt.metadata.pkpItem">PKP метаданные</message>
-	<message key="rt.metadata.pkp.language">Russian=ru, English=en, Bulgarian=bg</message>
+	<message key="rt.metadata.pkp.language">Russian=ru, English=en</message>
 	<message key="rt.metadata.pkp.publisher">Организатор, город</message>
 	<message key="rt.metadata.pkp.source">Журнал/конференция, том., №. (год)</message>
 	<message key="rt.metadata.pkp.sponsors">Спонсоры</message>

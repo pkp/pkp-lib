@@ -1,101 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * ../pkp//locale/pt_PT/reader.xml
+  * locale/pt_PT/reader.xml
   *
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the pt_PT (Português (Portugal)) locale.
+  * Localization strings for the pt_PT (Português) locale.
   *
   * $Id$
   -->
 
-<locale name="pt_PT" full_name = "Português (Portugal)">
-	<message key="comments.anonymous">Utilizador anónimo</message>
+<locale name="pt_PT" full_name = "Português">
+	<message key="comments.anonymous">Utilizador Anónimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Corpo</message>
-	<message key="comments.confirmDeleteChildren">A eliminação deste comentário implica a eliminação de todas as respostas. Deseja realmente eliminar o comentário?</message>
-	<message key="comments.delete">Eliminar comentário</message>
-	<message key="comments.email">E-mail</message>
-	<message key="comments.emailReply">Resposta ao e-mail</message>
-	<message key="comments.enterComment">Inserir Comentário</message>
-	<message key="comments.inResponseTo">Em resposta a <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
-	<message key="comments.name">Nome</message>
+	<message key="comments.confirmDeleteChildren">Eliminar este comentário também eliminará todas as respostas. Deseja realmente eliominar o comentário?</message>
+	<message key="comments.delete">Eliminar este comentário</message>
+	<message key="comments.email">E-mail do comentador</message>
+	<message key="comments.emailReply">Responder e-mail</message>
+	<message key="comments.enterComment">Inserir comentário</message>
+	<message key="comments.inResponseTo"><![CDATA[Em resposta a <a href="{$url}">{$title}</a>]]></message>
+	<message key="comments.name">Nome do comentador</message>
 	<message key="comments.noComments">Nenhum comentário publicado.</message>
 	<message key="comments.nReplies">({$num} Respostas)</message>
 	<message key="comments.oneReply">(1 Resposta)</message>
-	<message key="comments.postAnonymously">Publicar comentário anónimo</message>
-	<message key="comments.postReply">Publicar resposta</message>
-	<message key="comments.readerComments">Comentários dos Leitores</message>
-	<message key="comments.readMore">Saiba mais</message>
+	<message key="comments.postAnonymously">Publicar este comentário anonimamente</message>
+	<message key="comments.postReply">Publicar Resposta</message>
+	<message key="comments.readerComments">Comentários do Leitor</message>
+	<message key="comments.readMore">Ler mais</message>
 	<message key="comments.replies">Respostas</message>
 	<message key="comments.title">Título</message>
 	<message key="comments.viewAllComments">Visualizar todos os comentários</message>
-	<message key="reader.fullText">Texto completo:</message>
+	<message key="reader.fullText">Texto Completo:</message>
 	<message key="rt.addComment">Adicionar comentário</message>
 	<message key="rt.admin.configuration">Configuração</message>
 	<message key="rt.admin.contexts.confirmDelete">Deseja realmente eliminar este Contexto e todas as Pesquisas associadas?</message>
 	<message key="rt.admin.contexts.createContext">Criar Contexto</message>
 	<message key="rt.admin.contexts.edit.editContext">Editar Contexto</message>
 	<message key="rt.admin.contexts.metadata">Metadados</message>
-	<message key="rt.admin.contexts.options.authorTerms">Nome do autor como termo de pesquisa padrão permite aos leitores encontrar outros trabalhos pelo autor do documento(Ex.: para um contexto de "Outros Trabalhos")</message>
-	<message key="rt.admin.contexts.options.citedBy">Nome do autor como termos de pesquisa padrão e descrição do contexto como pesquisa por citações ao trabalho.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Palavra marcada pelo leitor como termo padrão de pesquisa ou deixar em branco caso não houver marcação (Ex.: para contextos de "Definir Palavra"). A opção "Definir Palavra" deve estar activada nas <a href="{$settingsUrl}">Configuração da Ferramenta de Leitura</a> para permitir clique duplo em para abrir este contexto.]]></message>
-	<message key="rt.admin.contexts.options.geoTerms">Utilizar dados de indexação geográfica como termos de pesquisa padrão.</message>
+	<message key="rt.admin.contexts.options.authorTerms">Nome do autor como termo de pesquisa padrão permite aos leitores encontrar outros trabalhos do autor(Ex.: para um contexto de "Outros Trabalhos")</message>
+	<message key="rt.admin.contexts.options.citedBy">Use os nomes do autor como termos de pesquisa padrão e descreva o contexto como busca de citações para o artigo.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilizar a palavra seleccionada pelo leitor como termo padrão de pesquisa ou deixar em branco caso não houver seleção (Ex.: para contextos "Definição da Palavra"). A opção "Definição da Palavra" deve estar habilitada nas <a href="{$settingsUrl}">Configurações da Ferramenta de Leitura</a> para permitir clique duplo em palavras do texto exibido para abrir este contexto.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">Usar dados de indexação geográfica como termos de pesquisa padrão.</message>
 	<message key="rt.admin.contexts.options">Opções</message>
 	<message key="rt.admin.management">Administração</message>
-	<message key="rt.admin.readingToolsEnabled">Ferramentas de Leitura</message>
+	<message key="rt.admin.readingToolsEnabled">Ferramenta  de Leitura</message>
 	<message key="rt.admin.searches.confirmDelete">Deseja realmente eliminar esta Pesquisa?</message>
 	<message key="rt.admin.searches.createSearch">Criar Pesquisa</message>
 	<message key="rt.admin.searches.edit.editSearch">Editar Pesquisa</message>
 	<message key="rt.admin.selectedVersion">Itens Relacionados</message>
-	<message key="rt.admin.settings.abstract">Resumo (apresenta o resumo do artigo).</message>
-	<message key="rt.admin.settings.captureCite">Como citar este documento (Exibe a citação de um artigo no formato padrão, com suporte para os seguintes programas de administração de citações: EndNote, Reference Manager, e ProCite)</message>
-	<message key="rt.admin.settings.defineTerms">Definir palavra (Permite leitores clicar duas vezes numa palavra para pesquisa em dicionários)</message>
-	<message key="rt.admin.settings.disableRelatedItems">Desactivar Temas Relacionados</message>
-	<message key="rt.admin.settings.emailOthers">Enviar para outros (Abre uma opção para enviar o documento para outros leitores, com o título do documento no assunto da mensagem)</message>
-	<message key="rt.admin.settings.findingReferences">Encontrar Referências</message>
-	<message key="rt.admin.settings.printerFriendly">Versão para impressão (Apresenta ao leitor uma versão para impressão)</message>
-	<message key="rt.admin.settings.supplementaryFiles">Exibir documentos suplementares (Exibe lista de todos os documentos suplementares incluídos pelo autor)</message>
+	<message key="rt.admin.settings.abstract">Resumo (apresenta o resumo do item).</message>
+	<message key="rt.admin.settings.authorBio">Biografia do Autor (Exibe a biografia do autor alimentada no sistema)</message>
+	<message key="rt.admin.settings.captureCite">Como citar este documento (Exibe detalhes bibliográficos do documento).</message>
+	<message key="rt.admin.settings.defineTerms">Definição de palavra (Permite leitores clicar duas vezes em um palavra para pesquisa em dicionários)</message>
+	<message key="rt.admin.settings.disableRelatedItems">Desactivar Itens Relacionados</message>
+	<message key="rt.admin.settings.emailAuthor">E-mail ao autor (abre um formulário para comunicação directa com o autor)</message>
+	<message key="rt.admin.settings.emailOthers">Enviar para outros (abre um formulário para enviar o documento a outros leitores, com o título do documento no assunto da mensagem).</message>
+	<message key="rt.admin.settings.findingReferences">Pesquisar Referências</message>
+	<message key="rt.admin.settings.printerFriendly">Versão para impressão (apresenta ao leitor uma versão para impressão).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Exibir documentos suplementares (exibe a lista de todos os documentos suplementares incluídos pelo autor).</message>
 	<message key="rt.admin.settings.viewMetadata">Exibir metadados (Exibe a informação de indexação incluída pelo autor e pelo sistema)</message>
-	<message key="rt.admin.status">Status</message>
+	<message key="rt.admin.status">Situação</message>
 	<message key="rt.admin.validateUrls.complete">Validação concluída.</message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
-	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} inválida.</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} é inválida.</message>
 	<message key="rt.admin.validateUrls">Validar URLs</message>
 	<message key="rt.admin.validateUrls.validate">Validar</message>
 	<message key="rt.admin.versions.confirmDelete">Deseja realmente eliminar esta Versão e todos os Contextos e Pesquisas associados?</message>
-	<message key="rt.admin.versions.confirmRestore">Deseja realmente restaurar para as versões padrão (ato irreversível)? Em caso positivo, seleccione uma Versão activa em Configuração.</message>
+	<message key="rt.admin.versions.confirmRestore">Deseja realmente restaurar as versões padrão (acção irreversível)? Em caso positivo, escolha uma Versão activa em Configurações.</message>
 	<message key="rt.admin.versions.createVersion">Criar Versão</message>
 	<message key="rt.admin.versions.edit.editVersion">Editar Versão</message>
 	<message key="rt.admin.versions.export">Exportar</message>
 	<message key="rt.admin.versions.importVersion">Importar Versão</message>
 	<message key="rt.admin.versions.metadata">Metadados</message>
-	<message key="rt.admin.versions.restoreVersions">Restaurar para Versões Padrão</message>
+	<message key="rt.admin.versions.restoreVersions">Restaurar Versões para o Padrão</message>
+	<message key="rt.authorBio">Exibir biografia do autor</message>
 	<message key="rt.captureCite.format">Formato de Citação</message>
-	<message key="rt.captureCite">Citação do documento</message>
+	<message key="rt.captureCite">Como citar este documento</message>
 	<message key="rt.captureCite.online">Online</message>
 	<message key="rt.colleague">Enviar para outros</message>
 	<message key="rt.context.abbrev">Abreviatura</message>
 	<message key="rt.context.and">E</message>
-	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Académico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem a sua citação. O Google Académico também listará todos os artigos que citam o título e o autor. Para aceder a recursos disponíveis apenas através da sua biblioteca, pode-se alterar as Preferências Académicas no Google Académico e activar os Links da Biblioteca da sua instituição.</message>
+	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Académico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem a sua citação. O Google Académico também listará todos os itens que citam o título e o autor. Para aceder a recursos on-line disponíveis somente na sua biblioteca, podem ser activados Links de Biblioteca para a sua instituição nas Preferências do Google Académico.</message>
 	<message key="rt.context">Contexto</message>
-	<message key="rt.context.defineTermsDescription">Caso o formato do documento seja HTML (em vez de PDF), Clique duas vezes sobre qualquer palavra para que apareça na janela de definição de termos. É possível digitar ou colar uma palavra no campo. Utilize a função de pesquisa para procurar uma definição para o termo. Para saber mais sobre o recurso pesquisado, clique no símbolo de informação. Estes recursos foram escolhidos em função da sua relevância e acessibilidade aberta (gratuita) para todo ou parte do conteúdo.</message>
+	<message key="rt.context.defineTermsDescription">Clique duas vezes sobre qualquer palavra, de um documento em HTML (ao contrário do PDF), para que apareça na janela de definição de termos. É possível inserir ou colar uma palavra no campo. Utilize a função de pesquisa para procurar uma definição para o termo. Para saber mais sobre o recurso pesquisado, clique no símbolo de informação. Estes recursos foram escolhidos devido à sua relevância e acessibilidade aberta (gratuita) para todo ou parte do conteúdo.</message>
 	<message key="rt.context.description">Descrição</message>
 	<message key="rt.context.order">Ordem</message>
 	<message key="rt.contexts">Contextos</message>
-	<message key="rt.context.searchDescription">Os termos de pesquisa definidos pelo(s) autor(es) podem ser alterados pelo leitor, por dois ou mais termos específicos ou frase curta que produza o melhor resultado de pesquisa boleana (E/AND). Para saber mais sobre o recurso pesquisado, clique em SOBRE. Estes recursos foram escolhidos em funçao da sua relevância e acesso livre (gratuito) para todo ou parte do conteúdo.</message>
-	<message key="rt.context.searchTerms">Termos para pesquisa</message>
-	<message key="rt.context.termToDefine">Definir termos</message>
+	<message key="rt.context.searchDescription">Os termos de pesquisa definidos pelo(s) autor(es) podem ser alterados pelo leitor. Para saber mais sobre o recurso pesquisado, clique no símbolo de informação. Estes recursos foram escolhidos devido à sua relevância e acessibilidade aberta (gratuita) para todo ou parte do conteúdo.</message>
+	<message key="rt.context.searchTerms">Pesquisar termos</message>
+	<message key="rt.context.termToDefine">Definir palavra</message>
 	<message key="rt.context.title">Título</message>
+	<message key="rt.emailAuthor">E-mail ao autor</message>
 	<message key="rt.email.needLogin"><![CDATA[* Requer <a target="_parent" href="{$loginUrl}">registo</a>]]></message>
 	<message key="rt.email.sent">Mensagem enviada.</message>
-	<message key="rt.findingReferences">Encontrando Referências</message>
+	<message key="rt.findingReferences">Pesquisando Referências</message>
 	<message key="rt.findingReferences.googleScholar">Google Académico</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Académico</message>
-	<message key="rt.lookUp">Pesquisar Palavra</message>
+	<message key="rt.lookUp">Pesquisar palavra</message>
 	<message key="rt.metadata.dublinCore.contributor">Contribuidor</message>
 	<message key="rt.metadata.dublinCore.coverage">Cobertura</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
@@ -104,8 +108,8 @@
 	<message key="rt.metadata.dublinCore.format">Formato</message>
 	<message key="rt.metadata.dublinCore.identifier">Identificador</message>
 	<message key="rt.metadata.dublinCore.language">Idioma</message>
-	<message key="rt.metadata.dublinCore.publisher">Editor/Publicador</message>
-	<message key="rt.metadata.dublinCore.relation">Relação</message>
+	<message key="rt.metadata.dublinCore.publisher">Editora</message>
+	<message key="rt.metadata.dublinCore.relation">Itens Relacionados</message>
 	<message key="rt.metadata.dublinCore.rights">Direitos</message>
 	<message key="rt.metadata.dublinCore.source">Fonte</message>
 	<message key="rt.metadata.dublinCore.subject">Assunto</message>
@@ -113,44 +117,61 @@
 	<message key="rt.metadata.dublinCore.type">Tipo</message>
 	<message key="rt.metadata.forThisDocument">Metadados deste Documento</message>
 	<message key="rt.metadata.pkp.abstract">Resumo</message>
-	<message key="rt.metadata.pkp.copyright">Direito Autoral e Permissões</message>
+	<message key="rt.metadata.pkp.copyright">Direitos de Autor e Permissões</message>
 	<message key="rt.metadata.pkp.coverage">Localização geográfica, cronológica, amostra (género, idade, etc.)</message>
 	<message key="rt.metadata.pkp.date">(YYYY-MM-DD)</message>
 	<message key="rt.metadata.pkp.discipline">Área(s) do Conhecimento</message>
-	<message key="rt.metadata.pkp.format">Formato de arquivo</message>
-	<message key="rt.metadata.pkp.genre"><![CDATA[Status &amp; gênero]]></message>
-	<message key="rt.metadata.pkpItem">Itens de Metadados do PKP</message>
+	<message key="rt.metadata.pkp.format">Formato do Documento</message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[Situação & gênero]]></message>
+	<message key="rt.metadata.pkpItem">Metadados para o PKP</message>
 	<message key="rt.metadata.pkp.language">Português=pt</message>
-	<message key="rt.metadata.pkp.publisher">Editora/Publicadora, localização</message>
-	<message key="rt.metadata.pkp.source">Título da Conferência/Revista; v., no. (ano)</message>
-	<message key="rt.metadata.pkp.sponsors">Patrocinadores</message>
+	<message key="rt.metadata.pkp.publisher">Editora, localização</message>
+	<message key="rt.metadata.pkp.source">Título da Revista/conferência; V., No. (ano)</message>
+	<message key="rt.metadata.pkp.sponsors">Patrocínio</message>
 	<message key="rt.metadata.pkp.subjectClass">Classificação de Assunto</message>
-	<message key="rt.metadata.pkp.subject">Palavras-chave</message>
+	<message key="rt.metadata.pkp.subject">Palavras-chave(s)</message>
 	<message key="rt.metadata.pkp.suppFiles">Docs. Sups.</message>
 	<message key="rt.metadata.pkp.title">Título do documento</message>
 	<message key="rt.metadata.pkp.type">Tipo</message>
 	<message key="rt.metadata.pkp.uri">Identificador Universal Único (URI)</message>
-	<message key="rt.printVersion">Versão para impressão</message>
+	<message key="rt.printVersion">Versão de Impressão</message>
 	<message key="rt.readingTools">Ferramentas de Leitura</message>
-	<message key="rt.relatedItems">Itens Relacionados</message>
-	<message key="rt.reviewPolicy">Política de Avaliação</message>
+	<message key="rt.relatedItems">Itens relacionados</message>
+	<message key="rt.reviewPolicy">Política de Revisão</message>
 	<message key="rt.search.description">Descrição</message>
 	<message key="rt.searches">Pesquisas</message>
 	<message key="rt.search.order">Ordem</message>
 	<message key="rt.search">Pesquisa</message>
-	<message key="rt.search.searchPost">Dados via POST</message>
-	<message key="rt.search.searchUrl">URL de pesquisa</message>
-	<message key="rt.search.suggest">Sugerir Fonte</message>
+	<message key="rt.search.searchPost">Dados via Post</message>
+	<message key="rt.search.searchUrl">Pesquisar URL</message>
+	<message key="rt.search.suggest">Sugerir fonte</message>
 	<message key="rt.search.title">Título</message>
 	<message key="rt.search.url">URL</message>
-	<message key="rt.suppFiles.download">Transferir documento</message>
+	<message key="rt.suppFiles.download">Transferir</message>
 	<message key="rt.suppFiles">Documentos Suplementares</message>
 	<message key="rt.suppFiles.viewMetadata">Metadados</message>
 	<message key="rt.version.description">Descrição</message>
 	<message key="rt.version.key">Chave</message>
 	<message key="rt.version.locale">Idioma</message>
-	<message key="rt.versions">Versões</message>
+	<message key="rt.versions">Conjuntos de Itens Relacionados</message>
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versão</message>
-	<message key="rt.viewMetadata">Exibir Metadados</message>
+	<message key="rt.viewMetadata">Exibir metadados</message>
+	<message key="comments.titleRequired">O título do comentário é obrigatório.</message>
+	<message key="rt.admin.sharing">Partilha</message>
+	<message key="rt.admin.sharing.enabled">Partilha activada</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para permitir aos leitores partilhar artigos, registe-se no <a href="http://addthis.com">AddThis.com</a>, e copie/cole o código de Partilhar a seguir.]]></message>
+	<message key="rt.admin.sharing.basic">Configurações Básicas</message>
+	<message key="rt.admin.sharing.userNameLabel">Utilizador AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Estilo do botão</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Usar menu drop-down</message>
+	<message key="rt.admin.sharing.advanced">Configurações Avançadas (opcional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Leia a <a href="http://www.addthis.com/help/customize/custom-button/">Documentação de customização do AddThis.com</a> para referência.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Marca</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opções do menu drop-down <br /> (lista separada por vírgula)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Idioma</message>
+	<message key="rt.admin.sharing.logolabel">Logótipo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Fundo do logótipo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Cor do logótipo</message>
+	<message key="rt.admin.configureSharing">Configurar AddThis</message>
 </locale>

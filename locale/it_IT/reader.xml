@@ -53,11 +53,11 @@
 	<message key="rt.admin.selectedVersion">Versione selezionata</message>
 	<message key="rt.admin.settings.abstract">Abstract (mostra l'abstract dell'item).</message>
 	<message key="rt.admin.settings.authorBio">Informazioni sull'autore (Mostra le informazioni bibliografiche inserite dall'autore)</message>
-	<message key="rt.admin.settings.captureCite">Informazione bibliografica (mostra la citazione dell'articolo in formato standard, con supporto per i seguenti software di amministrazione delle citazioni: EndNote, Reference Manager, e ProCite)</message>
+	<message key="rt.admin.settings.captureCite">Come citare l'articolo</message>
 	<message key="rt.admin.settings.defineTerms">Definizioni dei termini (Facendo doppio-click su una parola di un documento, questa verr&#x00E0; inviata ad un dizionario)</message>
 	<message key="rt.admin.settings.disableRelatedItems">Disabilita gli strumenti di lettura</message>
 	<message key="rt.admin.settings.emailAuthor">Scrivi all'autore (Porta il lettore a un modulo per l'invio d'email con l'indirizzo dell'autore)</message>
-	<message key="rt.admin.settings.emailOthers">Invia il documento ai tuoi colleghi (Porta il lettore a un modulo per l'invio di email con il titolo del documento impostato come soggetto del messaggio)</message>
+	<message key="rt.admin.settings.emailOthers">plugins.importexport.erudit.export.error.galleyNotFound: Nessuna bozza corrisponde all'etichetta specificata "{$galleyLabel}".</message>
 	<message key="rt.admin.settings.findingReferences">Trova riferimenti</message>
 	<message key="rt.admin.settings.printerFriendly">Stampa la versione (fornisce una versione facile da stampare di un articolo).</message>
 	<message key="rt.admin.settings.supplementaryFiles">Vedi i file ulteriori (Mostra un elenco degli eventuali altri file che l'autore ha inserito nel documento)</message>
@@ -85,7 +85,7 @@
 	<message key="rt.context.and">AND</message>
 	<message key="rt.context.citesContextDescription">se l'articolo &#x00E8; indicizzato in Google Scholar, potrebbe essere accompagnato da un link "Cittato da X", che porta ad un elenco di tutti i lavori in cui viene citato. Inoltre, Google Scholar elenca tutti gli item che citano titolo e autori. Per accedere a risorse online che sono disponibili solo attraverso la tua biblioteca di ricerca, potresti avere la possibilit&#x00E0; di andare in Scholar Preferences in Google Scholar e attivare Library Links per il tuo istituto.</message>
 	<message key="rt.context">Contesto</message>
-	<message key="rt.context.defineTermsDescription">Se la risorsa &#x00E8; un file HTML (piuttosto che un PDF), facendo doppio click su ogni parola nel testo questa appare nella casella parole da definire. Puoi anche digitare o incollare una parola nella casella. Quindi usare la funzione di ricerca per trovare la definizione per quella parola. Per saperne ancora sulle risorse cercate, clica sul simbolo di informazione. Queste risorse sono state selezionate per la loro rilevanza e il loro libero accesso a tutto o a una parte dei loro contenuti.</message>
+	<message key="rt.context.defineTermsDescription">Se la risorsa &#x00E8; un file HTML (piuttosto che un PDF), facendo doppio click su ogni parola nel testo questa appare nella casella parole da definire. Puoi anche digitare o incollare una parola nella casella. Quindi usare la funzione di ricerca per trovare la definizione per quella parola. Per saperne ancora sulle risorse cercate, clicca sul simbolo di informazione. Queste risorse sono state selezionate per la loro rilevanza e il loro libero accesso a tutto o a una parte dei loro contenuti.</message>
 	<message key="rt.context.description">Descrizione</message>
 	<message key="rt.context.order">Ordine</message>
 	<message key="rt.contexts">Contesti</message>
@@ -157,21 +157,4 @@
 	<message key="rt.version.title">Titolo</message>
 	<message key="rt.version">Versione</message>
 	<message key="rt.viewMetadata">Informazioni per l'indicizzazione</message>
-	<message key="rt.admin.sharing">Condivisione</message>
-	<message key="rt.admin.sharing.enabled">Condivisione abilitata</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Per abilitare i tuoi lettori a condividere gli articoli, iscriviti a <a href="http://addthis.com">addthis.com</a>, e copia/incolla il codice qui sotto.]]></message>
-	<message key="rt.admin.sharing.basic">Impostazioni di base</message>
-	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
-	<message key="rt.admin.sharing.buttonStyleLabel">Stile dei bottoni</message>
-	<message key="rt.admin.sharing.dropDownMenuLabel">Usa un menu a tendina</message>
-	<message key="rt.admin.sharing.advanced">Impostazioni avanzate (facoltative)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vedi <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a>.]]></message>
-	<message key="rt.admin.sharing.brandLabel">Marchio</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opzioni della tendina <br /> (elementi separati da virgola)]]></message>
-	<message key="rt.admin.sharing.languageLabel">Lingua</message>
-	<message key="rt.admin.sharing.logolabel">Logo</message>
-	<message key="rt.admin.sharing.logoBackgroundLabel">Sfondo del logo</message>
-	<message key="rt.admin.sharing.logoColorLabel">Colore del logo</message>
-	<message key="rt.admin.configureSharing">Configura AddThis</message>
-	<message key="comments.titleRequired">E' necessario inserire un titolo.</message>
 </locale>

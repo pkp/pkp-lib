@@ -13,7 +13,7 @@
   -->
 
 <locale name="it_IT" full_name = "Italiano">
-	<message key="manager.announcements">Annunci</message>
+	<message key="manager.announcements">Avvisi</message>
 	<message key="manager.announcements.confirmDelete">Sei sicuro di voler cancellare in maniera permanente questo annuncio?</message>
 	<message key="manager.announcements.create">Crea un nuovo annuncio</message>
 	<message key="manager.announcements.createTitle">Crea</message>
@@ -40,7 +40,7 @@
 	<message key="manager.announcements.noneCreated">Non &#x00E8; stato creato alcun annuncio.</message>
 	<message key="manager.announcements.title">Titolo</message>
 	<message key="manager.announcements.type">Tipo</message>
-	<message key="manager.announcementTypes">Tipi di annunci</message>
+	<message key="manager.announcementTypes">Tipi di avviso</message>
 	<message key="manager.announcementTypes.confirmDelete">Attenzione! saranno cancellati tutti gli annunci in questa tipologia. Sei sicuro di voler continuare e cancellare questa tipologia di annuncio?</message>
 	<message key="manager.announcementTypes.create">Crea tipo annunci</message>
 	<message key="manager.announcementTypes.createTitle">Crea</message>
@@ -69,7 +69,7 @@
 	<message key="manager.emails">Email</message>
 	<message key="manager.emails.resetAll">Ripristina tutti i modelli</message>
 	<message key="manager.emails.reset">Ripristina</message>
-	<message key="manager.emails.resetToDefault">Ripristina il default</message>
+	<message key="manager.emails.resetToDefault">Ripristina impostazioni di default</message>
 	<message key="manager.filesBrowser">File Browser</message>
 	<message key="manager.files.confirmDelete">Cancellare questo file o directory? Una directory per essere cancellata deve essere vuota.</message>
 	<message key="manager.files.createDir">Crea directory</message>
@@ -118,7 +118,7 @@
 	<message key="manager.people.mergeUser">Fondi utente</message>
 	<message key="manager.people.mergeUsers.confirm">Sei sicuro di voler fondere l'account con la username "{$oldUsername}" nell'account con la username "{$newUsername}"? L'account con la username "{$oldUsername}" non esister&#x00E0; pi&#x00F9; in seguito. Questa azione non &#x00E8; reversibile.</message>
 	<message key="manager.people.mergeUsers">Fondi utenti</message>
-	<message key="manager.people.mustChooseRole">Per favore seleziona un ruolo in alto alla pagina prima di clicare "Iscrivi un utente"</message>
+	<message key="manager.people.mustChooseRole">Per favore seleziona un ruolo in alto alla pagina prima di cliccare "Iscrivi un utente"</message>
 	<message key="manager.people.mustProvideName">Per favore fornisci almeno un cognome per l'utente prima.</message>
 	<message key="manager.people.noMatchingUsers">Nessun utente corrispondente.</message>
 	<message key="manager.people.noneEnrolled">Nessun utente iscritto.</message>
@@ -135,14 +135,14 @@
 	<message key="manager.plugins.disable">Disabilita</message>
 	<message key="manager.plugins.enable">Abilita</message>
 	<message key="manager.plugins.pluginManagement">Gestione Plugin</message>
-	<message key="manager.plugins.sitePlugin">Questo &#x00E8; site-wide plugin. Solo il Manager del sito pu&#x00F2; gestire questi plugin.</message>
-	<message key="manager.plugins">Plugins</message>
+	<message key="manager.plugins.sitePlugin">Questo &#x00E8; plugin si applica all'intero sito. Solo il Manager del sito pu&#x00F2; gestire questi plugin.</message>
+	<message key="manager.plugins">Plugin</message>
 	<message key="manager.readingTools">Strumenti di lettura</message>
 	<message key="manager.roles">Ruoli</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Formato dell'immagine per l'header con il logo dell'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato dell'immagine per l'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Formato dell'immagine per l'header con il titolo dell'home page non valido. I formati accettati sono .gif, .jpg, o .png.</message>
-	<message key="manager.setup.layout.leftSidebar">Menu laterale di sinistra</message>
+	<message key="manager.setup.layout.leftSidebar">Menu laterale sinistro</message>
 	<message key="manager.setup.layout.rightSidebar">Menu laterale di destra</message>
 	<message key="manager.setup.layout.unselected">Non selezionato</message>
 	<message key="manager.setup.loggingAndAuditing">Registrazione e certificazione</message>
@@ -159,14 +159,13 @@
 	<message key="plugins.categories.citationFormats">Plugin di formato della citazione</message>
 	<message key="plugins.categories.gateways.description">I Gateway Plugins forniscono dati attivi su sistemi esterni.</message>
 	<message key="plugins.categories.gateways">Plugins per il gateway</message>
-	<message key="plugins.categories.generic">Plugins generici</message>
+	<message key="plugins.categories.generic">Plugin generici</message>
 	<message key="plugins.categories.importexport.description">Importa/Esporta Plugins pu&#x00F2; essere usato per trasferire contenuti da e verso un altro sistema.</message>
-	<message key="plugins.categories.importexport">Importa/Esporta Plugins</message>
+	<message key="plugins.categories.importexport">Plugin per importazione/esportazione</message>
 	<message key="plugins.categories.paymethod.description">I plugin del metodo di pagamento implementano i supporti per vari modi di effettuare pagamenti online.</message>
 	<message key="plugins.categories.paymethod">Plugin di pagamento</message>
 	<message key="plugins.categories.reports.description">I reposrt plugin sono utilizzati per creare vari tipi di record per il  Conference manager</message>
 	<message key="plugins.categories.reports">Report plugin</message>
-	<message key="plugins.categories.themes.description">I plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
+	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Plugin del tema</message>
-	<message key="manager.emails.form.emailKeyRequired">Una chiave univoca è richiesta per l'email</message>
 </locale>

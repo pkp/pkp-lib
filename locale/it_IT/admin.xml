@@ -13,7 +13,7 @@
   -->
 
 <locale name="it_IT" full_name = "Italiano">
-	<message key="admin.adminFunctions">Funzioni di Amministrazione</message>
+	<message key="admin.adminFunctions">Funzioni di amministrazione</message>
 	<message key="admin.auth.confirmDelete">Sei sicuro di voler cancellare permanentemente questa fonte di autenticazione?</message>
 	<message key="admin.auth.create">Crea una fonte di autenticazione</message>
 	<message key="admin.auth.noneCreated">Non sono state definite fonti di autenticazione.</message>
@@ -24,18 +24,18 @@
 	<message key="admin.confirmClearTemplateCache">Sei sicuro di voler svuotare la chache dei template compilati?</message>
 	<message key="admin.confirmExpireSessions">Sei sicuro di voler chiudere tutte le sessioni utente? Tutti gli utenti attualmente collegati al sistema saranno costretti ad effettuare di nuovo il log in (te compreso).</message>
 	<message key="admin.contentsOfConfigFile">Contenuti del file di configurazione</message>
-	<message key="admin.currentVersion">Versione attuale</message>
+	<message key="admin.currentVersion">Versione corrente</message>
 	<message key="admin.dateInstalled">Data d'installazione</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Il contenuto del file di configurazione aggiornato e visualizzato qui di seguito. Per applicare queste modifiche dovete aprire il file <tt>config.inc.php</tt> con un editor di testo e sostituirne il contenuto con il testo della form sottostante.]]></message>
 	<message key="admin.displayNewSystemConfig">Visualizza la nuova configurazione</message>
 	<message key="admin.expireSessions">Chiudi la sessione utente</message>
-	<message key="admin.languages.confirmReload">Sei sicuro di voler aggiornare questa lingua aggiuntiva? Questo canceller&#x00E0; le impostazioni gi&#x00E0; esistenti, come ad esempio i modelli per le email.</message>
+	<message key="admin.languages.confirmReload">Sei sicuro di voler aggiornare questa lingua aggiuntiva? Questo cancellerà le impostazioni già esistenti, come ad esempio i modelli per le email.</message>
 	<message key="admin.languages.installedLocales">Lingue aggiuntive installate</message>
 	<message key="admin.languages.installLanguages">Amministra le lingue</message>
 	<message key="admin.languages.installLocales">Installazione</message>
 	<message key="admin.languages.installNewLocales">Installa nuove lingue aggiuntive</message>
-	<message key="admin.languages.languageSettings">Impostazioni di lingua</message>
-	<message key="admin.languages.noLocalesAvailable">Non &#x00E8; disponibile per l'installazione nessuna lingua aggiuntiva.</message>
+	<message key="admin.languages.languageSettings">Impostazioni per le lingue</message>
+	<message key="admin.languages.noLocalesAvailable">Non è disponibile per l'installazione nessuna lingua aggiuntiva.</message>
 	<message key="admin.languages.reload">Aggiorna la lingua aggiuntiva</message>
 	<message key="admin.languages.uninstall">Disinstalla la lingua aggiuntiva</message>
 	<message key="admin.phpInfo">Informazioni dettagliate di PHP</message>
@@ -44,7 +44,7 @@
 	<message key="admin.server.dbDriver">Driver del database</message>
 	<message key="admin.server.dbVersion">Versione del server di database</message>
 	<message key="admin.serverInformationDescription"><![CDATA[Sistema operativo e versioni dei software utilizzati. Fai click su <span class="highlight">Informazioni dettagliate di PHP</span> per visualizzare i dettagli di configurazione di questo server.]]></message>
-	<message key="admin.serverInformation">Informazioni del Server</message>
+	<message key="admin.serverInformation">Informazioni sul Server</message>
 	<message key="admin.server.phpVersion">Versione di PHP</message>
 	<message key="admin.server.platform">Piattaforma OS</message>
 	<message key="admin.settings.aboutDescription">Descrizione</message>
@@ -69,7 +69,7 @@
 	<message key="admin.siteSettings">Impostazioni del sito</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; leggibile.]]></message>
 	<message key="admin.systemInformation">Informazioni del sistema</message>
-	<message key="admin.versionBuild">Costruzione</message>
+	<message key="admin.versionBuild">Compilazione</message>
 	<message key="admin.version.checkForUpdates">Cerca gli aggiornamenti</message>
 	<message key="admin.version.downloadPackage">Scarica</message>
 	<message key="admin.version.downloadPatch">Scarica la Patch</message>

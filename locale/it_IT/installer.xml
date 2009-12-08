@@ -21,7 +21,7 @@
 	<message key="installer.clientCharset">Set di caratteri del client</message>
 	<message key="installer.clientCharsetInstructions">La codifica da utilizzare per l'invio e ricezione dei dati dai browser.</message>
 	<message key="installer.configFileError"><![CDATA[Il file di configurazione <tt>config.inc.php</tt> non esiste o non &#x00E8; dotato di permessi di lettura.]]></message>
-	<message key="installer.connectionCharset">Set di caratteri per la connessione con il database</message>
+	<message key="installer.connectionCharset">Set di caratteri per la connessione</message>
 	<message key="installer.connectionCharsetInstructions"><![CDATA[La codifica da usare per i dati inviati a e ricevuti dalla banca dati. Questa dovrebbe essere la stessa del set di caratteri del client. Nota che questa funzionalità è supportata solo da MySQL >= 4.1.1 o PostgreSQL >= 7.1. Seleziona "Non  applicabile" se il server della tua banca dati non riscontra questi requisiti.]]></message>
 	<message key="installer.contentsOfConfigFile">Contenuti del file di configurazione</message>
 	<message key="installer.createDatabase">Crea il nuovo database</message>
@@ -69,6 +69,4 @@
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Impostazioni di sicurezza</message>
 	<message key="installer.skipFilesDir">Non create sottodirectory</message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
-	<message key="installer.locale.maybeIncomplete">I file contrassegnati potrebbero essere incompleti.</message>
 </locale>

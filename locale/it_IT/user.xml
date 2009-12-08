@@ -13,7 +13,7 @@
   -->
 
 <locale name="it_IT" full_name = "Italiano">
-	<message key="user.affiliation">Istituto/Organizzazione</message>
+	<message key="user.affiliation">Affiliazione</message>
 	<message key="user.affiliations">Istituti/Organizzazioni</message>
 	<message key="user.biography">Note biografiche</message>
 	<message key="user.biography.description">(es., dipartimento ed incarico)</message>
@@ -73,7 +73,7 @@
 	<message key="user.profile.newPassword">Nuova password</message>
 	<message key="user.profile.oldPassword">Password corrente</message>
 	<message key="user.profile">Profilo</message>
-	<message key="user.profile.publicProfile">Profilo dell'utente</message>
+	<message key="user.profile.publicProfile">Profilo utente</message>
 	<message key="user.profile.repeatNewPassword">Ripeti la nuova password</message>
 	<message key="user.register.completeForm">Riempi questa form per registrarti a questa rivista.</message>
 	<message key="user.register.form.emailExists">L'indirizzo email selezionato &#x00E8;  gi&#x00E0; in uso da un altro utente.</message>
@@ -88,7 +88,7 @@
 	<message key="user.role.readers">Lettori</message>
 	<message key="user.role.reviewer">Revisore</message>
 	<message key="user.role.reviewers">Revisori</message>
-	<message key="user.role.siteAdmin">Amministratore</message>
+	<message key="user.role.siteAdmin">Site Admin</message>
 	<message key="user.role.siteAdmins">Amministratori di sistema</message>
 	<message key="user.roles">Ruoli</message>
 	<message key="user.salutation">Saluti</message>
@@ -100,6 +100,4 @@
 	<message key="user.userHome">Home utente</message>
 	<message key="user.username">Nome utente</message>
 	<message key="user.workingLanguages">Lingue conosciute</message>
-	<message key="user.profile.form.profileImageInvalid">File immagine non valido o troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini non devono essere più grandi di 150x150 pixels.</message>
-	<message key="user.other">Altro</message>
 </locale>

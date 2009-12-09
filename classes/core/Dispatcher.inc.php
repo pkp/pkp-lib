@@ -113,7 +113,7 @@ class Dispatcher {
 		// Can we serve a cached response?
 		if ($router->isCacheable($request)) {
 			if (Config::getVar('cache', 'web_cache')) {
-				if ($this->displayCached($router)) exit(); // Success
+				if ($this->_displayCached($router, $request)) exit(); // Success
 				ob_start(array(&$this, '_cacheContent'));
 			}
 		} else {
@@ -191,8 +191,8 @@ class Dispatcher {
 	 * Display the request contents from cache.
 	 * @param $router PKPRouter
 	 */
-	function _displayCached(&$router) {
-		$filename = $router->getCacheFilename();
+	function _displayCached(&$router, &$request) {
+		$filename = $router->getCacheFilename($request);
 		if (!file_exists($filename)) return false;
 
 		$fp = fopen($filename, 'r');

@@ -13,7 +13,7 @@
  *
  */
 
-// $Id: String.inc.php,v 1.20 2009/10/30 16:47:32 asmecher Exp $
+// $Id$
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:
@@ -296,7 +296,13 @@ class String {
 	*/
 	function mime_content_type($filename) {
 		if (function_exists('mime_content_type')) {
-			return mime_content_type($filename);
+			$result = mime_content_type($filename);
+			// mime_content_type appears to return a charset
+			// (erroneously?) in recent versions of PHP5
+			if (($i = strpos($result, ';')) !== false) {
+				$result = trim(substr($result, 0, $i));
+			}
+			return $result;
 		} elseif (function_exists('finfo_open')) {
 			$localeFiles =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {

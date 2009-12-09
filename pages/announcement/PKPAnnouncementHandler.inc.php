@@ -15,6 +15,9 @@
 import('handler.Handler');
 
 class PKPAnnouncementHandler extends Handler {
+	function PKPAnnouncementHandler() {
+		parent::Handler();
+	}
 
 	/**
 	 * Display announcement index page.

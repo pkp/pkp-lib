@@ -14,6 +14,9 @@
  * @ingroup tools
  *
  * @brief Initialization code for command-line scripts.
+ *
+ * FIXME: Write a PKPCliRequest and PKPCliRouter class and use the dispatcher
+ *  to bootstrap and route tool requests.
  */
 
 // $Id$
@@ -47,6 +50,20 @@ class CommandLineTool {
 	var $argv;
 
 	function CommandLineTool($argv = array()) {
+		// Initialize the a request object with a page router
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
+
+		// FIXME: Write and use a PKPCLIRouter here (see classdoc)
+		import('core.PKPPageRouter');
+		$router =& new PKPPageRouter();
+		$router->setApplication($application);
+		$request->setRouter($router);
+
+		// Initialize the locale and load generic plugins.
+		Locale::initialize();
+		PluginRegistry::loadCategory('generic');
+
 		$this->argv = isset($argv) && is_array($argv) ? $argv : array();
 
 		if (isset($_SERVER['SERVER_NAME'])) {

@@ -138,9 +138,10 @@ class PKPRouter {
 	 * A Generic call to a context-defined path (e.g. a Press or a Conference's path)
 	 * @param $request PKPRequest the request to be routed
 	 * @param $requestedContextLevel int (optional) the number of levels of context to return in the path
+	 * @param $asArray boolean false to return a scalar for the given context level
 	 * @return array of String (each element the path to one context element)
 	 */
-	function getRequestedContextPath(&$request, $requestedContextLevel = null) {
+	function getRequestedContextPath(&$request, $requestedContextLevel = null, $asArray = true) {
 		assert(isset($this->_contextDepth) && isset($this->_contextList));
 
 		// Validate the context level
@@ -181,7 +182,11 @@ class PKPRouter {
 		if (is_null($requestedContextLevel)) {
 			return $this->_contextPaths;
 		} else {
-			return array($this->_contextPaths[$requestedContextLevel - 1]);
+			if ($asArray) {
+				return array($this->_contextPaths[$requestedContextLevel - 1]);
+			} else {
+				return $this->_contextPaths[$requestedContextLevel - 1];
+			}
 		}
 	}
 

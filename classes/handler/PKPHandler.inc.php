@@ -94,21 +94,6 @@ class PKPHandler {
 	}
 
 	/**
-	 * Delegate request handling to another handler class
-	 */
-	function delegate($fullClassName) {
-		import($fullClassName);
-
-		call_user_func(
-			array(
-				array_pop(explode('.', $fullClassName)),
-				Request::getRequestedOp()
-			),
-			Request::getRequestedArgs()
-		);
-	}
-
-	/**
 	 * Return the DBResultRange structure and misc. variables describing the current page of a set of pages.
 	 * @param $rangeName string Symbolic name of range of pages; must match the Smarty {page_list ...} name.
 	 * @param $contextData array If set, this should contain a set of data that are required to

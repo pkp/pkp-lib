@@ -15,8 +15,17 @@
  *
  */
 
-define('HANDLER_CLASS', 'PKPInstallHandler');
+// $Id$
 
-import('pages.install.PKPInstallHandler');
+
+switch ($op) {
+	case 'index':
+	case 'install':
+	case 'upgrade':
+	case 'installUpgrade':
+		define('HANDLER_CLASS', 'PKPInstallHandler');
+		import('pages.install.PKPInstallHandler');
+		break;
+}
 
 ?>

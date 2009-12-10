@@ -15,9 +15,23 @@
  *
  */
 
+// $Id$
 
-define('HANDLER_CLASS', 'NotificationHandler');
-
-import('pages.notification.NotificationHandler');
+switch ($op) {
+	case 'index':
+	case 'delete':
+	case 'settings':
+	case 'saveSettings':
+	case 'getNotificationFeedUrl':
+	case 'notificationFeed':
+	case 'subscribeMailList':
+	case 'saveSubscribeMailList':
+	case 'mailListSubscribed':
+	case 'confirmMailListSubscription':
+	case 'unsubscribeMailList':
+		define('HANDLER_CLASS', 'NotificationHandler');
+		import('pages.notification.NotificationHandler');
+		break;
+}
 
 ?>

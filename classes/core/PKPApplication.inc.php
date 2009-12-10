@@ -18,6 +18,9 @@
 
 define('REALLY_BIG_NUMBER', 10000);
 
+define('ROUTE_COMPONENT', 'component');
+define('ROUTE_PAGE', 'page');
+
 class PKPApplication {
 	/**
 	 * Initialize the application with a given application object
@@ -136,7 +139,7 @@ class PKPApplication {
 			$dispatcher->setApplication($this->getApplication());
 
 			// Inject generic component router configuration
-			$dispatcher->addRouterName('core.PKPComponentRouter', 'component');
+			$dispatcher->addRouterName('core.PKPComponentRouter', ROUTE_COMPONENT);
 		}
 
 		return $dispatcher;

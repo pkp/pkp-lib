@@ -1,15 +1,15 @@
 <?php
 /**
- * @file tests/classes/core/MockSponsorRowHandler.inc.php
+ * @file tests/classes/core/MockCitationRowHandler.inc.php
  *
  * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SponsorRowHandler
+ * @class CitationRowHandler
  * @ingroup tests
  * @see PKPComponentRouterTest
  *
- * @brief Mock implementation of the SponsorRowHandler class for the PKPComponentRouterTest
+ * @brief Mock implementation of the CitationRowHandler class for the PKPComponentRouterTest
  */
 
 // $Id$
@@ -22,7 +22,7 @@ import('classes.handler.PKPHandler');
  * we can test whether the router rejects handlers that
  * do not extend PKPHandler.
  */
-class SponsorRowHandler {
+class CitationRowHandler {
 	function fetch() {
 		// This mock method does nothing
 	}

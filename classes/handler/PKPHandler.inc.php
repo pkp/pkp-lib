@@ -173,6 +173,17 @@ class PKPHandler {
 	function getLoginExemptions() {
 		return array('user', 'login', 'help');
 	}
+
+	/**
+	 * This method returns all operation names that can be called from remote.
+	 * FIXME: Currently only used for component handlers. Use this for page
+	 *  handlers as well and remove the page-specific index.php whitelist.
+	 */
+	function getRemoteOperations() {
+		// Whitelist approach: by default we don't
+		// allow any remote access at all.
+		return array();
+	}
 }
 
 ?>

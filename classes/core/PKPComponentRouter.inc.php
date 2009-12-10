@@ -108,7 +108,8 @@ class PKPComponentRouter extends PKPRouter {
 		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
 
 		// Call the service endpoint.
-		call_user_func($rpcServiceEndpoint, $args, $request);
+		$result = call_user_func($rpcServiceEndpoint, $args, $request);
+		echo $result;
 	}
 
 	/**
@@ -215,9 +216,10 @@ class PKPComponentRouter extends PKPRouter {
 			$op = $this->getRequestedOp($request);
 			assert(!empty($op));
 
-			// Check that the requested operation exists for the handler
-			$methods = get_class_methods($componentClassName);
-			if (!in_array($op, $methods)) return $nullVar;
+			// Check that the requested operation exists for the handler:
+			// Lowercase comparison for PHP4 compatibility.
+			$methods = array_map('strtolower', get_class_methods($componentClassName));
+			if (!in_array(strtolower($op), $methods)) return $nullVar;
 
 			//
 			// Callable service endpoint
@@ -227,6 +229,10 @@ class PKPComponentRouter extends PKPRouter {
 
 			// Check that the component instance really is a handler
 			if (!is_a($componentInstance, 'PKPHandler')) return $nullVar;
+
+			// Check that the requested operation is on the
+			// remote operation whitelist.
+			if (!in_array($op, $componentInstance->getRemoteOperations())) return $nullVar;
 
 			// Construct the callable array
 			$this->_rpcServiceEndpoint = array($componentInstance, $op);

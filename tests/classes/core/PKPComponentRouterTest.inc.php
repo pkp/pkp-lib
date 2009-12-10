@@ -38,7 +38,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/sponsor/sponsor-cell/fetch'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/fetch'
 		);
 		self::assertTrue($this->router->supports($this->request));
 	}
@@ -109,12 +109,36 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/sponsor/sponsor-cell/inexistent-operation'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/inexistent-operation'
 		);
-		self::assertEquals('grid.sponsor.SponsorCellHandler', $this->router->getRequestedComponent($this->request));
+		self::assertEquals('grid.citation.CitationGridHandler', $this->router->getRequestedComponent($this->request));
 		self::assertEquals('inexistentOperation', $this->router->getRequestedOp($this->request));
 		self::assertFalse($this->router->supports($this->request));
-		self::assertTrue(class_exists('SponsorCellHandler'));
+		self::assertTrue(class_exists('CitationGridHandler'));
+	}
+
+
+	/**
+	 * @covers PKPComponentRouter::supports
+	 * @covers PKPComponentRouter::getRpcServiceEndpoint
+	 * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
+	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
+	 * @covers PKPComponentRouter::_validateServiceEndpointParts
+	 * @covers PKPComponentRouter::_camelize
+	 */
+	public function testSupportsWithPathinfoUnsuccessfulOperationIsNotRemoteAccessible() {
+		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+
+		$_SERVER = array(
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/private-method'
+		);
+		self::assertEquals('grid.citation.CitationGridHandler', $this->router->getRequestedComponent($this->request));
+		self::assertEquals('privateMethod', $this->router->getRequestedOp($this->request));
+		self::assertFalse($this->router->supports($this->request));
+		self::assertTrue(class_exists('CitationGridHandler'));
+		$testInstance = new CitationGridHandler();
+		self::assertTrue(in_array('privateMethod', get_class_methods('CitationGridHandler')));
+		self::assertFalse(in_array('privateMethod', $testInstance->getRemoteOperations()));
 	}
 
 	/**
@@ -129,14 +153,14 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/sponsor/sponsor-row/fetch'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-row/fetch'
 		);
-		self::assertEquals('grid.sponsor.SponsorRowHandler', $this->router->getRequestedComponent($this->request));
+		self::assertEquals('grid.citation.CitationRowHandler', $this->router->getRequestedComponent($this->request));
 		self::assertEquals('fetch', $this->router->getRequestedOp($this->request));
 		self::assertFalse($this->router->supports($this->request));
-		self::assertTrue(class_exists('SponsorRowHandler'));
-		$testInstance = new SponsorRowHandler();
-		self::assertTrue(in_array('fetch', get_class_methods('SponsorRowHandler')));
+		self::assertTrue(class_exists('CitationRowHandler'));
+		$testInstance = new CitationRowHandler();
+		self::assertTrue(in_array('fetch', get_class_methods('CitationRowHandler')));
 		self::assertFalse(is_a($testInstance, 'PKPHandler'));
 	}
 
@@ -266,19 +290,19 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
-			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/sponsor/sponsor-cell/fetch'
+			'PATH_INFO' => '/context1/context2/$$$call$$$/grid/citation/citation-grid/fetch'
 		);
 		$_GET = array(
 			'arg1' => 'val1',
 			'arg2' => 'val2'
 		);
 
-		// Route the request. This should call SponsorCellHandler::fetch()
+		// Route the request. This should call CitationGridHandler::fetch()
 		// with a reference to the request object as the first argument.
 		$this->router->route($this->request);
 
 		self::assertNotNull($serviceEndpoint =& $this->router->getRpcServiceEndpoint($this->request));
-		self::assertType('SponsorCellHandler', $handler =& $serviceEndpoint[0]);
+		self::assertType('CitationGridHandler', $handler =& $serviceEndpoint[0]);
 		$fetchArgs =& $handler->getFetchArgs();
 		$expectedArgs = array(
 			array('arg1' => 'val1', 'arg2' => 'val2'),

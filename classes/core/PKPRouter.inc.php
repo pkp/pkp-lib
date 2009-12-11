@@ -144,6 +144,12 @@ class PKPRouter {
 	function getRequestedContextPath(&$request, $requestedContextLevel = null, $asArray = true) {
 		assert(isset($this->_contextDepth) && isset($this->_contextList));
 
+		// Handle context depth 0
+		if (!$this->_contextDepth) {
+			if ($asArray) return array();
+			else return null;
+		}
+
 		// Validate the context level
 		assert(is_null($requestedContextLevel) ||
 				($requestedContextLevel > 0 && $requestedContextLevel <= $this->_contextDepth));
@@ -197,6 +203,12 @@ class PKPRouter {
 	 * @return object
 	 */
 	function &getContext(&$request, $requestedContextLevel = 1) {
+		// Handle context depth 0
+		if (!$this->_contextDepth) {
+			$nullVar = null;
+			return $nullVar;
+		}
+
 		if (!isset($this->_contexts[$requestedContextLevel])) {
 			// Retrieve the requested context path (this validates the context level and the path)
 			$pathArray = $this->getRequestedContextPath($request, $requestedContextLevel);
@@ -231,6 +243,12 @@ class PKPRouter {
 	 * @return object
 	 */
 	function &getContextByName(&$request, $requestedContextName) {
+		// Handle context depth 0
+		if (!$this->_contextDepth) {
+			$nullVar = null;
+			return $nullVar;
+		}
+
 		// Convert the context name to a context level (this validates the context name)
 		$requestedContextLevel = $this->_contextNameToContextLevel($requestedContextName);
 

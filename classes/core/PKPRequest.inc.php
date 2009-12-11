@@ -640,7 +640,14 @@ class PKPRequest {
 	 */
 	function getRequestedContextPath($contextLevel = null) {
 		$_this =& PKPRequest::_checkThis();
-		return $_this->_delegateToRouter('getRequestedContextPath', $contextLevel);
+
+		// Emulate the old behavior of getRequestedContextPath for
+		// backwards compatibility.
+		if (is_null($contextLevel)) {
+			return $_this->_delegateToRouter('getRequestedContextPaths');
+		} else {
+			return array($_this->_delegateToRouter('getRequestedContextPath', $contextLevel));
+		}
 	}
 
 	/**

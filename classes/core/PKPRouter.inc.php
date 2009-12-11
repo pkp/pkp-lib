@@ -135,24 +135,17 @@ class PKPRouter {
 	}
 
 	/**
-	 * A Generic call to a context-defined path (e.g. a Press or a Conference's path)
+	 * A generic method to return an array of context paths (e.g. a Press or a Conference/SchedConf paths)
 	 * @param $request PKPRequest the request to be routed
-	 * @param $requestedContextLevel int (optional) the number of levels of context to return in the path
-	 * @param $asArray boolean false to return a scalar for the given context level
-	 * @return array of String (each element the path to one context element)
+	 * @param $requestedContextLevel int (optional) the context level to return in the path
+	 * @return array of string (each element the path to one context element)
 	 */
-	function getRequestedContextPath(&$request, $requestedContextLevel = null, $asArray = true) {
-		assert(isset($this->_contextDepth) && isset($this->_contextList));
-
+	function getRequestedContextPaths(&$request) {
 		// Handle context depth 0
-		if (!$this->_contextDepth) {
-			if ($asArray) return array();
-			else return null;
-		}
+		if (!$this->_contextDepth) return array();
 
-		// Validate the context level
-		assert(is_null($requestedContextLevel) ||
-				($requestedContextLevel > 0 && $requestedContextLevel <= $this->_contextDepth));
+		// Validate context parameters
+		assert(isset($this->_contextDepth) && isset($this->_contextList));
 
 		// Determine the context path
 		if (empty($this->_contextPaths)) {
@@ -182,18 +175,30 @@ class PKPRouter {
 				$this->_contextPaths[$key] = Core::cleanFileVar($this->_contextPaths[$key]);
 			}
 
-			HookRegistry::call('Router::getRequestedContextPath', array(&$this->_contextPaths));
+			HookRegistry::call('Router::getRequestedContextPaths', array(&$this->_contextPaths));
 		}
 
-		if (is_null($requestedContextLevel)) {
-			return $this->_contextPaths;
-		} else {
-			if ($asArray) {
-				return array($this->_contextPaths[$requestedContextLevel - 1]);
-			} else {
-				return $this->_contextPaths[$requestedContextLevel - 1];
-			}
-		}
+		return $this->_contextPaths;
+	}
+
+	/**
+	 * A generic method to return a single context path (e.g. a Press or a SchedConf path)
+	 * @param $request PKPRequest the request to be routed
+	 * @param $requestedContextLevel int (optional) the context level to return
+	 * @return string
+	 */
+	function getRequestedContextPath(&$request, $requestedContextLevel = 1) {
+		// Handle context depth 0
+		if (!$this->_contextDepth) return null;
+
+		// Validate the context level
+		assert(isset($this->_contextDepth) && isset($this->_contextList));
+		assert($requestedContextLevel > 0 && $requestedContextLevel <= $this->_contextDepth);
+
+		// Return the full context, then retrieve the requested context path
+		$contextPaths = $this->getRequestedContextPaths($request);
+		assert(isset($this->_contextPaths[$requestedContextLevel - 1]));
+		return $this->_contextPaths[$requestedContextLevel - 1];
 	}
 
 	/**

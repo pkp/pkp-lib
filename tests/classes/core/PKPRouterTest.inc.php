@@ -79,6 +79,7 @@ class PKPRouterTest extends PKPTestCase {
 
 	/**
 	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 * @expectedException PHPUnit_Framework_Error
 	 */
 	public function testGetRequestedContextPathWithInvalidLevel() {
@@ -88,16 +89,17 @@ class PKPRouterTest extends PKPTestCase {
 	}
 
 	/**
-	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithEmptyPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = null;
 		self::assertEquals(array('index', 'index'),
-				$this->router->getRequestedContextPath($this->request));
+				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**
+	 * @covers PKPRouter::getRequestedContextPaths
 	 * @covers PKPRouter::getRequestedContextPath
 	 */
 	public function testGetRequestedContextPathWithFullPathInfo() {
@@ -105,54 +107,51 @@ class PKPRouterTest extends PKPTestCase {
 		HookRegistry::resetCalledHooks();
 		$_SERVER['PATH_INFO'] = '/context1/context2/other/path/vars';
 		self::assertEquals(array('context1', 'context2'),
-				$this->router->getRequestedContextPath($this->request));
-		self::assertEquals(array('context1'),
-				$this->router->getRequestedContextPath($this->request, 1));
-		self::assertEquals(array('context2'),
-				$this->router->getRequestedContextPath($this->request, 2));
+				$this->router->getRequestedContextPaths($this->request));
 		self::assertEquals('context1',
-				$this->router->getRequestedContextPath($this->request, 1, false));
+				$this->router->getRequestedContextPath($this->request, 1));
 		self::assertEquals('context2',
-				$this->router->getRequestedContextPath($this->request, 2, false));
+				$this->router->getRequestedContextPath($this->request, 2));
 		self::assertEquals(
-			array(array('Router::getRequestedContextPath', array(array('context1', 'context2')))),
+			array(array('Router::getRequestedContextPaths', array(array('context1', 'context2')))),
 			HookRegistry::getCalledHooks()
 		);
 	}
 
 	/**
-	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithPartialPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = '/context';
 		self::assertEquals(array('context', 'index'),
-				$this->router->getRequestedContextPath($this->request));
+				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**
-	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithInvalidPathInfo() {
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER['PATH_INFO'] = '/context:?#/';
 		self::assertEquals(array('context', 'index'),
-				$this->router->getRequestedContextPath($this->request));
+				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**
-	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithEmptyContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_GET['firstContext'] = null;
 		$_GET['secondContext'] = null;
 		self::assertEquals(array('index', 'index'),
-				$this->router->getRequestedContextPath($this->request));
+				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**
 	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithFullContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
@@ -160,10 +159,10 @@ class PKPRouterTest extends PKPTestCase {
 		$_GET['firstContext'] = 'context1';
 		$_GET['secondContext'] = 'context2';
 		self::assertEquals(array('context1', 'context2'),
-				$this->router->getRequestedContextPath($this->request));
-		self::assertEquals(array('context1'),
+				$this->router->getRequestedContextPaths($this->request));
+		self::assertEquals('context1',
 				$this->router->getRequestedContextPath($this->request, 1));
-		self::assertEquals(array('context2'),
+		self::assertEquals('context2',
 				$this->router->getRequestedContextPath($this->request, 2));
 		self::assertEquals(
 			array(array('Router::getRequestedContextPath', array(array('context1', 'context2')))),
@@ -172,13 +171,13 @@ class PKPRouterTest extends PKPTestCase {
 	}
 
 	/**
-	 * @covers PKPRouter::getRequestedContextPath
+	 * @covers PKPRouter::getRequestedContextPaths
 	 */
 	public function testGetRequestedContextPathWithPartialContextParameters() {
 		$this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_GET['firstContext'] = 'context';
 		self::assertEquals(array('context', 'index'),
-				$this->router->getRequestedContextPath($this->request));
+				$this->router->getRequestedContextPaths($this->request));
 	}
 
 	/**

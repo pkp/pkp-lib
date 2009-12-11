@@ -15,7 +15,7 @@
  * @brief Form to edit site settings.
  */
 
-// $Id: PKPSiteSettingsForm.inc.php,v 1.8 2009/10/30 23:09:35 asmecher Exp $
+// $Id$
 
 
 define('SITE_MIN_PASSWORD_LENGTH', 4);
@@ -110,7 +110,7 @@ class PKPSiteSettingsForm extends Form {
 			$imageAltText = $this->getData('pageHeaderTitleImageAltText');
 			$locale = $this->getFormLocale();
 			$setting[$locale]['altText'] = $imageAltText[$locale];
-			$site->setData('pageHeaderTitleImage', $setting);
+			$site->updateSetting('pageHeaderTitleImage', $setting, 'object', true);
 		}
 
 		$siteDao->updateObject($site);

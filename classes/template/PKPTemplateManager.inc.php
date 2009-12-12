@@ -46,8 +46,20 @@ class PKPTemplateManager extends Smarty {
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
+	 * @param $request PKPRequest FIXME: is optional for backwards compatibility only - make mandatory
 	 */
-	function PKPTemplateManager() {
+	function PKPTemplateManager(&$request = null) {
+		// FIXME: for backwards compatibility only - remove
+		if (!isset($request)) {
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function call.');
+			$request =& Registry::get('request');
+		}
+		assert(is_a($request, 'PKPRequest'));
+
+		// Retrieve the router
+		$router =& $request->getRouter();
+		assert(is_a($router, 'PKPRouter'));
+
 		parent::Smarty();
 
 		import('cache.CacheManager');
@@ -73,9 +85,9 @@ class PKPTemplateManager extends Smarty {
 		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
-		$this->assign('baseUrl', Request::getBaseUrl());
-		$this->assign('requestedPage', Request::getRequestedPage());
-		$this->assign('currentUrl', Request::getCompleteUrl());
+		$this->assign('baseUrl', $request->getBaseUrl());
+		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($request));
+		$this->assign('currentUrl', $request->getCompleteUrl());
 		$this->assign('dateFormatTrunc', Config::getVar('general', 'date_format_trunc'));
 		$this->assign('dateFormatShort', Config::getVar('general', 'date_format_short'));
 		$this->assign('dateFormatLong', Config::getVar('general', 'date_format_long'));
@@ -87,7 +99,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('currentLocale', $locale);
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = Locale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet(Request::getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = Locale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($request->getBaseUrl() . '/' . $localeStyleSheet);
 
 		$application =& PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
@@ -119,6 +131,9 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
+		// UI overhaul
+		$this->register_function('modal', array(&$this, 'smartyModal'));
+		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -241,13 +256,14 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Return an instance of the template manager.
+	 * @param $request PKPRequest FIXME: is optional for backwards compatibility only - make mandatory
 	 * @return TemplateManager the template manager object
 	 */
-	function &getManager() {
+	function &getManager(&$request = null) {
 		$instance =& Registry::get('templateManager', true, null);
 
 		if ($instance === null) {
-			$instance = new TemplateManager();
+			$instance = new TemplateManager($request);
 		}
 		return $instance;
 	}
@@ -783,6 +799,94 @@ class PKPTemplateManager extends Smarty {
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
 			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
 		}
+	}
+
+	/**
+	 * Smarty usage: {modal	 url=$dialogUrl actOnId="#gridName" button="#dialogButton"}
+	 *
+	 * Custom Smarty function for creating jQuery-based modals
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string Call to modal function with specified parameters
+	 */
+	function smartyModal($params, &$smarty) {
+		// Required Params
+		if (!isset($params['url'])) {
+			$smarty->trigger_error("URL parameter is missing from modal");
+		} elseif (!isset($params['actOnId'])) {
+			$smarty->trigger_error("actOnId parameter is missing from modal");
+		} elseif (!isset($params['button'])) {
+			$smarty->trigger_error("Button parameter is missing from modal");
+		} else {
+			$url = $params['url'];
+			$actOnType = isset($params['actOnType'])?$params['actOnType']:'';
+			$actOnId = $params['actOnId'];
+			$button = $params['button'];
+		}
+
+		// Translate modal submit/cancel buttons
+		$submitButton = Locale::translate('common.ok');
+		$cancelButton = Locale::translate('common.cancel');
+
+		// Add the modal javascript to the header
+		$modalCode = "<script type='text/javascript'>
+		var localizedButtons = ['$submitButton', '$cancelButton'];
+		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button');
+		</script>\n";
+
+		echo $modalCode;
+	}
+
+
+	/**
+	 * Smarty usage: {confirm url=$dialogUrl dialogText="example.locale.key" button="#dialogButton"}
+	 * Custom Smarty function for creating simple yes/no dialogs (or to just send an AJAX post)
+	 * NB:  -Leave out 'url' parameter to just display a message
+	 *		-Leave out 'dialogText' parameter to immediately submit an AJAX request
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string Call to modal function with specified parameters
+	 */
+	function smartyConfirm($params, &$smarty) {
+		// Required params
+		if (!isset($params['button'])) {
+			$smarty->trigger_error("Button parameter is missing from confirm");
+		} else {
+			$button = $params['button'];
+		}
+
+		// Non-required params
+		$url = isset($params['url']) ? $params['url'] : null;
+		$actOnType = isset($params['actOnType']) ? $params['actOnType'] : '';
+		$actOnId = isset($params['actOnId'])?$params['actOnId']:'';
+
+		if (isset($params['dialogText']))  {
+			$showDialog = true;
+			$dialogText = Locale::translate($params['dialogText']);
+		} else {
+			$showDialog = false;
+		}
+
+		if (!$showDialog && !$url) {
+			$smarty->trigger_error("Both URL and dialogText parameters are missing from confirm");
+		}
+
+		// Translate modal submit/cancel buttons
+		$submitButton = Locale::translate('common.ok');
+		$cancelButton = Locale::translate('common.cancel');
+
+		if ($showDialog) {
+			$confirmCode = "<script type='text/javascript'>
+			var localizedButtons = ['$submitButton', '$cancelButton'];
+			confirm('$url', '$actOnType', '$actOnId', '$dialogText', localizedButtons, '$button');
+			</script>\n";
+		} else {
+			$confirmCode = "<script type='text/javascript'>
+			buttonPost('$url', '$button');
+			</script>";
+		}
+
+		echo $confirmCode;
 	}
 }
 

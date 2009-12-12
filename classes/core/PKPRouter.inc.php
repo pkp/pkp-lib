@@ -216,8 +216,7 @@ class PKPRouter {
 
 		if (!isset($this->_contexts[$requestedContextLevel])) {
 			// Retrieve the requested context path (this validates the context level and the path)
-			$pathArray = $this->getRequestedContextPath($request, $requestedContextLevel);
-			$path = $pathArray[0];
+			$path = $this->getRequestedContextPath($request, $requestedContextLevel);
 
 			// Resolve the path to the context
 			if ($path == 'index') {

@@ -165,7 +165,7 @@ class PKPRouterTest extends PKPTestCase {
 		self::assertEquals('context2',
 				$this->router->getRequestedContextPath($this->request, 2));
 		self::assertEquals(
-			array(array('Router::getRequestedContextPath', array(array('context1', 'context2')))),
+			array(array('Router::getRequestedContextPaths', array(array('context1', 'context2')))),
 			HookRegistry::getCalledHooks()
 		);
 	}

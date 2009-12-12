@@ -175,7 +175,7 @@ class Dispatcher {
 
 			// Instantiate the router
 			import($routerName);
-			$router =& new $routerClass();
+			$router = new $routerClass();
 			assert(is_a($router, 'PKPRouter'));
 			$router->setApplication($this->_application);
 			$router->setDispatcher($this);

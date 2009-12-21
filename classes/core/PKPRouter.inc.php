@@ -257,7 +257,8 @@ class PKPRouter {
 		$requestedContextLevel = $this->_contextNameToContextLevel($requestedContextName);
 
 		// Retrieve the requested context by level
-		return $this->getContext($request, $requestedContextLevel);
+		$returner = $this->getContext($request, $requestedContextLevel);
+		return $returner;
 	}
 
 	/**

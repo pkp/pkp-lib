@@ -756,7 +756,7 @@ class PKPRequest {
 		$parameters = func_get_args();
 		$parameters[0] =& $_this;
 
-		$returner =& call_user_func_array($callable, $parameters);
+		$returner = call_user_func_array($callable, $parameters);
 		return $returner;
 	}
 }

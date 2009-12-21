@@ -43,7 +43,7 @@ class XMLParser {
 	function XMLParser() {
 		// magic_quotes_runtime must be disabled for XML parsing
 		$this->magicQuotes = get_magic_quotes_runtime();
-		set_magic_quotes_runtime(0);
+		if ($this->magicQuotes) set_magic_quotes_runtime(0);
 		$this->errors = array();
 	}
 
@@ -285,7 +285,7 @@ class XMLParser {
 	 */
 	function destroy() {
 		// Set magic_quotes_runtime back to original setting
-		set_magic_quotes_runtime($this->magicQuotes);
+		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
 		unset($this);
 	}
 

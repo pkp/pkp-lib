@@ -56,7 +56,7 @@ class CommandLineTool {
 
 		// FIXME: Write and use a PKPCLIRouter here (see classdoc)
 		import('core.PKPPageRouter');
-		$router =& new PKPPageRouter();
+		$router = new PKPPageRouter();
 		$router->setApplication($application);
 		$request->setRouter($router);
 

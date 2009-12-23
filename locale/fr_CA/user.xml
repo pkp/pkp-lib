@@ -9,7 +9,7 @@
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id: user.xml,v 1.5 2009/10/07 17:05:27 jmacgreg Exp $
+  * $Id$
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -26,7 +26,7 @@
 	<message key="user.fax">Télécopieur</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Prénom</message>
-	<message key="user.gender">Sexe</message>
+	<message key="user.gender">Genre</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initiales</message>
 	<message key="user.interests">Intérêts pour les évaluations</message>
@@ -56,14 +56,14 @@
 	<message key="user.name">Nom</message>
 	<message key="user.password">Mot de passe</message>
 	<message key="user.phone">Téléphone</message>
-	<message key="user.profile.changePasswordInstructions">Entrer votre mot de passe actuel et votre nouveau mot de passe ci-dessous pour modifier le mot de passe de votre compte.</message>
+	<message key="user.profile.changePasswordInstructions">Saisir votre mot de passe actuel et votre nouveau mot de passe ci-dessous pour modifier le mot de passe de votre compte.</message>
 	<message key="user.profile.editProfile">Modifier le profil</message>
 	<message key="user.profile.form.emailRequired">Une adresse de courriel valide est obligatoire.</message>
 	<message key="user.profile.form.firstNameRequired">Le prénom est obligatoire.</message>
 	<message key="user.profile.form.lastNameRequired">Le nom de famille est obligatoire.</message>
 	<message key="user.profile.form.newPasswordRequired">Vous devez saisir votre nouveau mot de passe.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Le mot de passe actuel saisi est incorrect.</message>
-	<message key="user.profile.form.openAccessNotifications">Avis par courriel d'un nouveau numéro à accès libre</message>
+	<message key="user.profile.form.openAccessNotifications">Avis par courriel d'un nouveau numéro en accès libre</message>
 	<message key="user.profile.form.passwordRequired">Le mot de passe est obligatoire.</message>
 	<message key="user.profile.form.profileImage">Image du profil</message>
 	<message key="user.profile.form.publishedNotifications">Courriel avisant de la parution d'un nouveau numéro</message>

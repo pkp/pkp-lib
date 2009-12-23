@@ -9,7 +9,7 @@
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id: submission.xml,v 1.4 2009/10/07 17:05:27 jmacgreg Exp $
+  * $Id$
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -90,7 +90,7 @@
 	<message key="submission.layout.galleyLabel">Étiquette</message>
 	<message key="submission.layout.galleyLabelRequired">Létiquette de l'épreuve est obligatoire.</message>
 	<message key="submission.layout.galleyLanguageRequired">La langue de l'épreuve est obligatoire.</message>
-	<message key="submission.layout.galleyLocaleRequired">La langue (avec paramètre régional) de l'épreuve est obligatoire.</message>
+	<message key="submission.layout.galleyLocaleRequired">La langue de l'épreuve est obligatoire.</message>
 	<message key="submission.layout.galleyNoImages">Aucune image</message>
 	<message key="submission.layout.galleys">Épreuves</message>
 	<message key="submission.layout.galleyStylesheet">Fichier de la feuille de style</message>

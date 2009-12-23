@@ -20,7 +20,7 @@
 	<message key="admin.authSources">Sources d'authentification</message>
 	<message key="admin.clearDataCache">Vider les caches de données</message>
 	<message key="admin.clearTemplateCache">Vider le cache de modèles</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en éditant directement le <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le <tt>config.inc.php</tt>.]]></message>
 	<message key="admin.confirmClearTemplateCache">Êtes-vous sûr de vouloir effacer le cache des modèles compilés?</message>
 	<message key="admin.confirmExpireSessions">Êtes-vous sûr de vouloir fermer toutes les sessions utilisateurs? Tous les utilisateurs actuellement connectés devront se reconnecter (vous y compris).</message>
 	<message key="admin.contentsOfConfigFile">Contenu du fichier de configuration</message>
@@ -29,7 +29,7 @@
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous.]]></message>
 	<message key="admin.displayNewSystemConfig">Afficher la nouvelle configuration</message>
 	<message key="admin.expireSessions">Fermer les sessions utilisateurs</message>
-	<message key="admin.languages.confirmReload">Êtes-vous sûr de vouloir recharger cette langue? Ceci effacera toute donnée spécifique à cette langue ainsi que tout modèle de courriel personnalisé.</message>
+	<message key="admin.languages.confirmReload">Êtes-vous sûr de vouloir réinitialiser cette langue? Ceci effacera toute donnée spécifique à cette langue tels que les modèles de courriel personnalisés.</message>
 	<message key="admin.languages.installedLocales">Langues installées</message>
 	<message key="admin.languages.installLanguages">Gérer les langues</message>
 	<message key="admin.languages.installLocales">Installer</message>

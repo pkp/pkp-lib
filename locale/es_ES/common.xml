@@ -314,4 +314,5 @@
 		Este trabajo está licenciado bajo la licencia <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
 	</div>]]></message>
 	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtalo de nuevo o ponte en contacto con el administrador si el problema persiste.</message>
+	<message key="navigation.dashboard">Panel de control</message>
 </locale>

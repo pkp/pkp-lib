@@ -162,4 +162,6 @@
 	<message key="submission.uploadFileTo">Subir el archivo en</message>
 	<message key="submission.viewMetadata">Ver metadatos</message>
 	<message key="submission.views">Opiniones</message>
+	<message key="submission.layout.galleyLanguageRequired">Un lenguaje de galera es requerido.</message>
+	<message key="submission.layout.galleyLocaleRequired">Una configuración regional para la galerada es requerida</message>
 </locale>

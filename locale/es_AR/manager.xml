@@ -111,7 +111,7 @@
 	<message key="manager.people.enrollSelected">Asignar un rol los usuarios seleccionados</message>
 	<message key="manager.people.enrollSyncRole">Sincronizar rol</message>
 	<message key="manager.people.enrollSync">Sincronizar roles</message>
-	<message key="manager.people.enrollUserAsDescription">Si no se seleccionan roles, se creará el usuario pero no tendrá asignado un papel dentro del sistema en esta Conferencia. Los roles pueden asignarse o quitarse en cualquier momento después de que se haya creado el usuario.</message>
+	<message key="manager.people.enrollUserAsDescription">Los roles pueden asignarse o quitarse en cualquier momento después de que se haya creado el usuario.</message>
 	<message key="manager.people.enrollUserAs">Vincular al usuario como</message>
 	<message key="manager.people.invalidUser">Disculpe, el usuario solicitado no existe.</message>
 	<message key="manager.people.mergeUser">Fusionar Usuario</message>
@@ -134,7 +134,7 @@
 	<message key="manager.plugins.pluginManagement">Gestión de Plugins</message>
 	<message key="manager.plugins.sitePlugin">Este sitio usa plugins. Sólo el administrador de la web puede modificar este plugin.</message>
 	<message key="manager.plugins">Plugins del sistema</message>
-	<message key="manager.readingTools">Herramientas para la lectura</message>
+	<message key="manager.readingTools">Herramientas de lectura</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Formato de imagen no válido para el logo de la cabecera de página de inicio. Los formatos permitidos son .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Formato de la imagen la página principal no válido.Los formatos permitidos son .gif, .jpg, or .png.</message>
@@ -165,4 +165,8 @@
 	<message key="plugins.categories.reports">Plugins de Reporte</message>
 	<message key="plugins.categories.themes.description">Los plugins de tema/estilo pueden ser usados para cambiar la apatiencia del sistema.</message>
 	<message key="plugins.categories.themes">Plugins de tema/estilo</message>
+	<message key="manager.emails.form.emailKeyRequired">Una clave de email única es requerida para el email</message>
+	<message key="manager.payment.timestamp">Marca de tiempo (timestamp)</message>
+	<message key="manager.people.mustChooseRole">Por favor seleccione un rol en la parte superior de la página antes de hacer clic en "Enrolar Usuario"</message>
+	<message key="manager.people.mustProvideName">Por favor provea al menos un Apellido para el primer usuario.</message>
 </locale>

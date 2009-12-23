@@ -9,7 +9,7 @@
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id: installer.xml,v 1.5 2009/10/07 17:05:27 jmacgreg Exp $
+  * $Id$
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -36,7 +36,7 @@
 	<message key="installer.databasePassword">Mot de passe</message>
 	<message key="installer.databaseSettings">Paramètres de la base de données</message>
 	<message key="installer.databaseUsername">Nom d'utilisateur</message>
-	<message key="installer.encryptionInstructions">SHA1 est recommandé si votre système le prend en charge (nécessite PHP >= 4.3.0).</message>
+	<message key="installer.encryptionInstructions"><![CDATA[SHA1 est recommandé si votre système le prend en charge (nécessite PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Algorithme d'encryptage des mots de passe</message>
 	<message key="installer.filesDir">Répertoire pour les téléchargements</message>
 	<message key="installer.fileSettings">Paramètres des fichiers</message>

@@ -254,4 +254,65 @@
 	<message key="search.titleIndex">Listar por títulos</message>
 	<message key="search.title">Título</message>
 	<message key="search.typeMethodApproach">Tipo (método/aproximación)</message>
+	<message key="announcement.posted">Enviado</message>
+	<message key="common.add">Agregar</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Licencia Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Este trabajo está licenciado badjo una<a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Licencia de Atribución Creative Commons 3.0</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Licencia Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Este trabajo está licenciado bajo una <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Licencia de Atribución Creative Commons 3.0</a>.
+	</div>]]></message>
+	<message key="common.discipline">Disciplina</message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Gestionar</message>
+	<message key="common.noComments">Sin comentarios</message>
+	<message key="common.uploadFailed">El archivo no pudo ser subido. Por favor intente nuevamente o contacte al administrador si el problema persiste</message>
+	<message key="debug.memoryUsage">Uso de la memoria</message>
+	<message key="email.compose.tooManyRecipients">El mensaje que usted está intentando enviar tiene demasiados destinatarios</message>
+	<message key="email.compose.tooSoon">Usted está intentando enviar un mensaje muy reciente desde el último mensaje enviado. Por favor espere antes de enviar otro mensaje</message>
+	<message key="form.startsWith">comienza con</message>
+	<message key="form.postRequired">El formulario no fue enviado apropiadamente.</message>
+	<message key="icon.font_large.alt">Grande</message>
+	<message key="icon.font_medium.alt">Mediana</message>
+	<message key="icon.font_small.alt">Pequeña</message>
+	<message key="navigation.dashboard">Panel de Control</message>
+	<message key="navigation.register">Registrarse</message>
+	<message key="notification.allow">Permitir que estos tipos de notificaciones aparezcan en mi canal de notificaciones.</message>
+	<message key="notification.confirmError">Hubo un error al confirmar su suscripción</message>
+	<message key="notification.confirmSuccess">Usted se ha suscripto satisfactoriamente.</message>
+	<message key="notification.email">Envíenme un email para estos tipos de notificaciones</message>
+	<message key="notification.location">Ir a la URL</message>
+	<message key="notification.mailList">Lista de correo de notificaciones</message>
+	<message key="notification.mailList.emailInvalid">Por favor ingrese una dirección de email válida.</message>
+	<message key="notification.mailList.privacyProtection">Política de protección de privacidad</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Suscribirse</a> a contenido protegido.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Enviar</a> un artículo]]></message>
+	<message key="notification.mailList.register">Usted puede registrarse con este sitio en...</message>
+	<message key="notification.mailList.review"><![CDATA[Participe en el proceso de <a href="{$reviewUrl}">revisión por pares</a>]]></message>
+	<message key="notification.noneExist">No posee notificaciones en este momento</message>
+	<message key="notification.notification">Notificación</message>
+	<message key="notification.notifications">Notificaciones</message>
+	<message key="notification.notificationsNew">({$numNew} nuevas)</message>
+	<message key="notification.notificationsDescription"><![CDATA[Usted posee {$unreadCount} notificaciones si leer y {$readCount} notificaciones leídas.  <a href="{$settingsUrl}">Haga clic aquí</a> para cambiar la configuración de sus notificaciones.]]></message>
+	<message key="notification.settings">Configuración de Notificaciones</message>
+	<message key="notification.settingsDescription">Seleccione los eventos del sistema de los que desea recibir notifiaciones. Al destildar un item usted evitará que se muestren notifiaciones del evento en su canal de notificaciones</message>
+	<message key="notification.subscribe">Suscribirse</message>
+	<message key="notification.subscribeError">Su dirección de email ya está suscripta a notificaciones</message>
+	<message key="notification.subscribeSuccess">Un correo ha sido enviado a la dirección que especificó. Por favor haga clic en el enlace de confirmación del correo para agregarse a la lista de correos</message>
+	<message key="notification.reminderError">Hubo un error al enviar su contraseña. Por favor asegúrese que ha ingresado su dirección de correo correctamente</message>
+	<message key="notification.reminderSent">Su nueva clave ha sido enviada a la dirección de correo provista</message>
+	<message key="notification.unsubscribe">Dessuscribirse</message>
+	<message key="notification.unsubscribeDescription">Ingrese su dirección de email y contraseña debajo para dessuscribirse de las notificaciones por email. Si usted no recuerda su contraseña, deje el campo Contraseña en blanco y una nueva contraseña se le enviará a la dirección de email.</message>
+	<message key="notification.unsubscribeError">Hubo un error al desssuscribirlo. Por favor asegúrese que su dirección de email y contraseña son correctas</message>
+	<message key="notification.unsubscribeSuccess">Usted su dessuscripto satisfactoriamente</message>
+	<message key="common.copy">Copiar</message>
+	<message key="common.preview">Previsualizar</message>
+	<message key="common.activate">Activar</message>
+	<message key="common.deactivate">Desactivar</message>
 </locale>

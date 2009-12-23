@@ -149,4 +149,29 @@
 	<message key="rt.version.title">Título</message>
 	<message key="rt.version">Versión</message>
 	<message key="rt.viewMetadata">Metadatos indizados</message>
+	<message key="comments.titleRequired">Se requiere un título para el comentario</message>
+	<message key="rt.admin.sharing">Compartir</message>
+	<message key="rt.admin.sharing.enabled">Compartición habilitada</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Para permitr a sus lectores compartir artículos de revistas, regístre una cuenta en el sitio <a href="http://addthis.com">addthis.com</a>, y copie/pegue el código del botón de Compartición debajo.]]></message>
+	<message key="rt.admin.sharing.basic">Configuración básica</message>
+	<message key="rt.admin.sharing.userNameLabel">Usuario de AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Estilo del botón</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Utilizar menú desplegable</message>
+	<message key="rt.admin.sharing.advanced">Opciones avanzadas (opcional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ve la <a href="http://www.addthis.com/help/customize/custom-button/">documentación de personalización de AddThis.com</a> para mayor referencia.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Marca</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opciones desplegables <br /> (lista separada por comas)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Lenguaje</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Fondo del logo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Color del logo</message>
+	<message key="rt.admin.settings.authorBio">Acerca del autor (muestra las sentencias bibliográficas ingresadas por el autor)</message>
+	<message key="rt.admin.settings.emailAuthor">Enviar email al autor (lleva a una plantilla de correo con el email del autor)</message>
+	<message key="rt.admin.configureSharing">Configurar AddThis</message>
+	<message key="rt.authorBio">Acerca del autor</message>
+	<message key="rt.captureCite.format">Formato de citas</message>
+	<message key="rt.emailAuthor">Email al autor</message>
+	<message key="rt.findingReferences">Encontrar Referencias</message>
+	<message key="rt.findingReferences.googleScholar">Google Scholar</message>
+	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
 </locale>

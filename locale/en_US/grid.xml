@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2003-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<!-- Common -->
+	<message key="grid.noItems">No Items</message>
+
+	<message key="grid.action.sort">Sort</message>
+	<message key="grid.action.addItem">Add Item</message>
+	<message key="grid.action.delete">Delete</message>
+	<message key="grid.action.edit">Edit</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Actions</message>
+	<message key="grid.columns.institution">Institution</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponsors</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Groups</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Contributor</message>
+</locale>

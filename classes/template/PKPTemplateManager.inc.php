@@ -142,6 +142,8 @@ class PKPTemplateManager extends Smarty {
 											array(&$this, 'smartyResourceCoreGetTrusted')));
 
 		$this->register_function('url', array(&$this, 'smartyUrl'));
+		// ajax load into a div
+		$this->register_function('load_url_in_div', array(&$this, 'smartyLoadUrlInDiv'));
 
 		if (!defined('SESSION_DISABLE_INIT')) {
 			/**
@@ -799,6 +801,33 @@ class PKPTemplateManager extends Smarty {
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
 			return "<a href=\"javascript:sortSearch('$heading','$direction')\"$style>$text</a>";
 		}
+	}
+
+	/**
+	 * Smarty usage: {load_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
+	 *
+	 * Custom Smarty function for loading a URL via AJAX into a DIV
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string of HTML/Javascript
+	 */
+	function smartyLoadUrlInDiv($params, &$smarty) {
+		// Required Params
+		if (!isset($params['url'])) {
+			$smarty->trigger_error("URL parameter is missing from load_div");
+		}
+		if (!isset($params['id'])) {
+			$smarty->trigger_error("id parameter is missing from load_div");
+		}
+		$url = $params['url'];
+		$id = $params['id'];
+
+		echo "<div id=\"$id\"></div>
+		<script type='text/javascript'>
+		$(document).ready(function(){
+		  $(\"#$id\").load(\"$url\");
+		});
+		</script>";
 	}
 
 	/**

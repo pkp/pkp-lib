@@ -195,7 +195,7 @@ class PKPComponentRouter extends PKPRouter {
 			if (empty($component)) return $nullVar;
 
 			// Construct the component handler file name and test its existence.
-			$component = 'components.'.$component;
+			$component = 'controllers.'.$component;
 			$componentFileName = str_replace('.', '/', $component).'.inc.php';
 			if (!file_exists($componentFileName) && !file_exists('lib/pkp/'.$componentFileName)) {
 				// Request to non-existent handler

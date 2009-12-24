@@ -131,6 +131,7 @@
 	<message key="common.notify">Notify</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
+	<message key="common.ok">OK</message>
 	<message key="common.options">Options</message>
 	<message key="common.order">Order</message>
 	<message key="common.originalFileName">Original file name</message>

@@ -1,0 +1,14 @@
+{**
+ * gridRow.tpl
+ *
+ * Copyright (c) 2009 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * a regular grid row
+ *}
+{assign var=rowId value="`$row->getGridId()`-row-`$row->getId()`"}
+<tr id="{$rowId}">
+	{foreach from=$cells item=cell}
+		{$cell}
+	{/foreach}
+</tr>

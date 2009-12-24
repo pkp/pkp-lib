@@ -1,0 +1,12 @@
+{**
+ * gridCellInSpan.tpl
+ *
+ * Copyright (c) 2009 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * a grid cell that uses a <span> tag instead of a <td> ( to be used as a type of sub-cell)
+ *}
+{assign var=cellId value="cell-`$id`"}
+<span id="{$cellId}">
+	{$label}
+</span>

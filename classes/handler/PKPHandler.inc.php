@@ -71,8 +71,15 @@ class PKPHandler {
 	/**
 	 * Perform request access validation based on security settings.
 	 * @param $requiredContexts array
+	 * @param $request Request
 	 */
-	function validate($requiredContexts = null) {
+	function validate($requiredContexts = null, $request = null) {
+		// FIXME: for backwards compatibility only - remove when request/router refactoring complete
+		if (!isset($request)) {
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function call.');
+			$request =& Registry::get('request');
+		}
+
 		foreach ($this->_checks as $check) {
 			// WARNING: This line is for PHP4 compatibility when
 			// instantiating handlers without reference. Should not
@@ -85,7 +92,7 @@ class PKPHandler {
 				if ( $check->redirectToLogin ) {
 					Validation::redirectLogin();
 				} else {
-					PKPRequest::redirect(null, 'index');
+					$request->redirect(null, 'index');
 				}
 			}
 		}

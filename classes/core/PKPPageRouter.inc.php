@@ -162,7 +162,7 @@ class PKPPageRouter extends PKPRouter {
 
 		// Instantiate the handler class
 		$HandlerClass = HANDLER_CLASS;
-		$handler = new $HandlerClass;
+		$handler = new $HandlerClass($request);
 
 		// Pass the dispatcher to the handler (if supported by the handler).
 		if (in_array('setdispatcher', $methods)) $handler->setDispatcher($this->getDispatcher());

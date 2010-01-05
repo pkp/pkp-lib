@@ -132,6 +132,8 @@ class Form {
 			// WARNING: This line is for PHP4 compatibility when
 			// instantiating forms without reference. Should not
 			// be removed or otherwise used.
+			// See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructur
+			// For an explanation why we have to replace the reference to $this here.
 			$check->_setForm($this);
 
 			if (!isset($this->errorsArray[$check->getField()]) && !$check->isValid()) {

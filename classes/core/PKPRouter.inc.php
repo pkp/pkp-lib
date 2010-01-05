@@ -395,6 +395,7 @@ class PKPRouter {
 	 *  if no parameters were given.
 	 */
 	function _urlGetAdditionalParameters(&$request, $params = null) {
+		assert(is_array($params));
 		$additionalParameters = array();
 		if (!empty($params)) {
 			foreach ($params as $key => $value) {

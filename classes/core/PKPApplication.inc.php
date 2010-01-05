@@ -32,15 +32,15 @@ class PKPApplication {
 
 	function PKPApplication() {
 		// Configure error reporting
-		if (defined('E_STRICT')) { // PHP5
-			// FIXME: Error logging needs to be suppressed for strict
-			// errors in PHP5 as long as we support PHP4. This
-			// is primarily for static method warnings. Static class
-			// members cannot be declared in PHP4.
-			error_reporting(E_ALL & ~E_STRICT);
-		} else { // PHP4
-			error_reporting(E_ALL);
-		}
+		// FIXME: Error logging needs to be suppressed for strict
+		// and deprecation errors in PHP5 as long as we support PHP 4.
+		// This is primarily for static method warnings and warnings
+		// about use of ... =& new ... Static class members cannot be
+		// declared in PHP4 and ... =& new ... is deprecated since PHP 5.
+		$errorReportingLevel = E_ALL;
+		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
+		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
+		error_reporting($errorReportingLevel);
 
 		// Instantiate the profiler
 		import('core.PKPProfiler');
@@ -58,6 +58,17 @@ class PKPApplication {
 		import('core.Registry');
 
 		import('config.Config');
+
+		if (Config::getVar('debug', 'deprecation_warnings')) {
+			// Switch deprecation warnings back on. This can only be done
+			// after declaring the Config class as we need access to the
+			// configuration and we cannot declare the Config class before
+			// we've switched of deprecation warnings as its declaration
+			// causes warnings itself.
+			if (defined('E_STRICT')) $errorReportingLevel |= E_STRICT;
+			if (defined('E_DEPRECATED')) $errorReportingLevel |= E_DEPRECATED;
+			error_reporting($errorReportingLevel);
+		}
 
 		import('db.DAORegistry');
 		import('db.XMLDAO');

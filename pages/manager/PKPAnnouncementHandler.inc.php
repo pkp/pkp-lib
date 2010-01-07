@@ -124,6 +124,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 */
 	function updateAnnouncement() {
 		$this->validate();
+		$this->setupTemplate();
 
 		import('manager.form.AnnouncementForm');
 
@@ -149,8 +150,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				}
 
 			} else {
-				$this->setupTemplate();
-
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
 
@@ -162,9 +161,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 				$announcementForm->display();
 			}
-
 		} else {
-				PKPRequest::redirect(null, null, 'announcements');
+			PKPRequest::redirect(null, null, 'announcements');
 		}
 	}
 
@@ -258,6 +256,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 */
 	function updateAnnouncementType() {
 		$this->validate();
+		$this->setupTemplate(true);
 
 		import('manager.form.AnnouncementTypeForm');
 
@@ -265,7 +264,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
 		if ($this->_announcementTypeIsValid($typeId)) {
-
 			$announcementTypeForm = new AnnouncementTypeForm($typeId);
 			$announcementTypeForm->readInputData();
 
@@ -277,10 +275,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				} else {
 					PKPRequest::redirect(null, null, 'announcementTypes');
 				}
-
 			} else {
-				$this->setupTemplate(true);
-
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
 
@@ -292,9 +287,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 				$announcementTypeForm->display();
 			}
-
 		} else {
-				PKPRequest::redirect(null, null, 'announcementTypes');
+			PKPRequest::redirect(null, null, 'announcementTypes');
 		}
 	}
 

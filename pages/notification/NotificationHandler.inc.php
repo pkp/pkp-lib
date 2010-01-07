@@ -88,6 +88,7 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSettings() {
 		$this->validate();
+		$this->setupTemplate(true);
 
 		import('notification.form.NotificationSettingsForm');
 
@@ -98,7 +99,6 @@ class NotificationHandler extends Handler {
 			$notificationSettingsForm->execute();
 			PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification', 'settings');
 		} else {
-			$this->setupTemplate(true);
 			$notificationSettingsForm->display();
 		}
 	}
@@ -198,6 +198,7 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSubscribeMailList() {
 		$this->validate();
+		$this->setupTemplate(true);
 
 		import('notification.form.NotificationMailingListForm');
 
@@ -208,7 +209,6 @@ class NotificationHandler extends Handler {
 			$notificationMailingListForm->execute();
 			PKPRequest::redirect(null, 'notification', 'mailListSubscribed', array('success'));
 		} else {
-			$this->setupTemplate(true);
 			$notificationMailingListForm->display();
 		}
 	}

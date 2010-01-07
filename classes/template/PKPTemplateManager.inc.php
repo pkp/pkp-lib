@@ -558,7 +558,7 @@ class PKPTemplateManager extends Smarty {
 		// Extract the variables named in $paramList, and remove them
 		// from the params array. Variables remaining in params will be
 		// passed along to Request::url as extra parameters.
-		$paramList = array('context', 'page', 'op', 'path', 'anchor', 'escape');
+		$paramList = array('router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape');
 		foreach ($paramList as $param) {
 			if (isset($params[$param])) {
 				$$param = $params[$param];
@@ -568,7 +568,32 @@ class PKPTemplateManager extends Smarty {
 			}
 		}
 
-		return PKPRequest::url($context, $page, $op, $path, $params, $anchor, !isset($escape) || $escape);
+		// Set the default router
+		if (is_null($router)) $router = ROUTE_PAGE;
+
+		// Check the router
+		$dispatcher =& PKPApplication::getDispatcher();
+		$routerShortcuts = array_keys($dispatcher->getRouterNames());
+		assert(in_array($router, $routerShortcuts));
+
+		// Identify the handler
+		switch($router) {
+			case ROUTE_PAGE:
+				$handler = $page;
+				break;
+
+			case ROUTE_COMPONENT:
+				$handler = $component;
+				break;
+
+			default:
+				// Unknown router type
+				assert(false);
+		}
+
+		// Let the dispatcher create the url
+		$request =& PKPApplication::getRequest();
+		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, !isset($escape) || $escape);
 	}
 
 	function setProgressFunction($progressFunction) {

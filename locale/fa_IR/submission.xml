@@ -20,6 +20,7 @@
 	<message key="submission.ask">درخواست</message>
 	<message key="submission.backToSubmissionEditing">بازگشت به صفحه ویرایش سابمیشن</message>
 	<message key="submission.changeComments">تغییر بده به</message>
+	<message key="submission.citations">مراجع</message>
 	<message key="submission.comments.addComment">اضافه کردن نقطه نظر</message>
 	<message key="submission.comments.comments">نظرات</message>
 	<message key="submission.comments.confirmDelete">آیا میخواهید این نظر را حذف کنید؟</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">آپلود کردن فایل در</message>
 	<message key="submission.viewMetadata">مشاهده فراداده</message>
 	<message key="submission.views">دیده شده</message>
+	
+	<!-- Author Submission --> 
+	<message key="author.submit.submissionCitations">لیست مرتب شده ای از مراجع بکار رفته در این ساب میشن را وارد کنید.</message>	
 </locale>

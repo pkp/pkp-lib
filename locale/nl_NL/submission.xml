@@ -20,6 +20,7 @@
 	<message key="submission.ask">Vraag</message>
 	<message key="submission.backToSubmissionEditing">Terug naar bewerken inzending</message>
 	<message key="submission.changeComments">Verander in</message>
+	<message key="submission.citations">Referenties</message>	
 	<message key="submission.comments.addComment">Commentaar toevoegen</message>
 	<message key="submission.comments.comments">Commentaren</message>
 	<message key="submission.comments.confirmDelete">Weet u zeker dat u dit commentaar wilt verwerken?</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">Bestand laden in</message>
 	<message key="submission.viewMetadata">Bekijk metadata</message>
 	<message key="submission.views">Bekeken</message>
+	
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Geef een geformatteerde lijst met referenties van de werken die geciteerd worden in deze inzending.</message>	
 </locale>

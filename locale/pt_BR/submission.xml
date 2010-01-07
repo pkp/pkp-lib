@@ -20,6 +20,7 @@
 	<message key="submission.ask">Solicitada em</message>
 	<message key="submission.backToSubmissionEditing">Retornar à Edição da Submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
+	<message key="submission.citations">Referências</message>
 	<message key="submission.comments.addComment">Incluir Comentário</message>
 	<message key="submission.comments.comments">Comentários</message>
 	<message key="submission.comments.confirmDelete">Deseja realmente excluir o comentário?</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">Transferir documento</message>
 	<message key="submission.viewMetadata">Ver Metadados</message>
 	<message key="submission.views">Acessos</message>
+	
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>
 </locale>

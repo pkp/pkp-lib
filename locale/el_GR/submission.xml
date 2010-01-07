@@ -20,6 +20,7 @@
 	<message key="submission.ask">Ερώτημα</message>
 	<message key="submission.backToSubmissionEditing">Πίσω στην επιμέλεια υποβολής</message>
 	<message key="submission.changeComments">Αλλαγή σε</message>
+	<message key="submission.citations">Αναφορές</message>	
 	<message key="submission.comments.addComment"> Προσθήκη σχολίου</message>
 	<message key="submission.comments.comments">Σχόλια</message>
 	<message key="submission.comments.confirmDelete"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο σχόλιο;</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">Ανεβάστε στο αρχείο στο</message>
 	<message key="submission.viewMetadata">Προβολή μεταδεδομένων </message>
 	<message key="submission.views">Προβολές</message>
+	
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Παροχή μια λίστας αναφορών για εργασίες που αναφέρονται (cited) σε αυτή την υποβολή.</message>
 </locale>

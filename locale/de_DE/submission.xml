@@ -20,6 +20,7 @@
 	<message key="submission.ask">Fragen</message>
 	<message key="submission.backToSubmissionEditing">Zurück zur Beitragsbearbeitung</message>
 	<message key="submission.changeComments">Ändern in</message>
+	<message key="submission.citations">Literaturhinweise</message>	
 	<message key="submission.comments.addComment">Kommentar hinzufügen</message>
 	<message key="submission.comments.comments">Kommentare</message>
 	<message key="submission.comments.confirmDelete">Sind Sie sicher, dass Sie diesen Kommentar löschen wollen?</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">Datei hochladen nach/zu</message>
 	<message key="submission.viewMetadata">Metadaten ansehen</message>
 	<message key="submission.views">Ansichten</message>
+	
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Arbeiten zur Verfügung, die Sie in Ihrem Beitrag zitiert haben.</message>
 </locale>

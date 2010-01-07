@@ -20,6 +20,7 @@
 	<message key="submission.ask">Vyžádáno</message>
 	<message key="submission.backToSubmissionEditing">Zpět na editaci příspěvku</message>
 	<message key="submission.changeComments">Změnit na</message>
+	<message key="submission.citations">Reference</message>
 	<message key="submission.comments.addComment">Přidat komentář</message>
 	<message key="submission.comments.comments">Komentáře</message>
 	<message key="submission.comments.confirmDelete">Jste si jistý, že chcete smazat tento komentář?</message>
@@ -164,4 +165,8 @@
 	<message key="submission.uploadFileTo">Nahrát soubor k</message>
 	<message key="submission.viewMetadata">Zobrazit metadata</message>
 	<message key="submission.views">Zobrazení</message>
+	
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku.</message>
+	
 </locale>

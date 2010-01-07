@@ -20,6 +20,7 @@
 	<message key="submission.ask">Спросить</message>
 	<message key="submission.backToSubmissionEditing">Обратно к редакции статьи</message>
 	<message key="submission.changeComments">Заменить на</message>
+	<message key="submission.citations">Литература</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Убрать этот комментарий?</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">Закачать файл как</message>
 	<message key="submission.viewMetadata">Метаданные</message>
 	<message key="submission.views">Просмотры</message>
+	
+	<!-- Author Submission --> 
+	<message key="author.submit.submissionCitations">Дайте форматированный список ссылок на работы, использованные в данной рукописи.</message>	
 </locale>

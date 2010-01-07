@@ -20,6 +20,7 @@
 	<message key="submission.ask">依頼</message>
 	<message key="submission.backToSubmissionEditing">投稿物の編集に戻る</message>
 	<message key="submission.changeComments">コメント機能の変更</message>
+	<message key="submission.citations">参考文献</message>	
 	<message key="submission.comments.addComment">コメントの追加</message>
 	<message key="submission.comments.comments">コメント</message>
 	<message key="submission.comments.confirmDelete">このコメントを削除してもよいですか。</message>
@@ -164,4 +165,7 @@
 	<message key="submission.uploadFileTo">ファイルのアップロード</message>
 	<message key="submission.viewMetadata">メタデータの閲覧</message>
 	<message key="submission.views">閲覧</message>
+	
+	<!-- Author Submission --> 
+	<message key="author.submit.submissionCitations">この投稿で引用している文献について整形した参考文献リストを提供してください。</message>
 </locale>

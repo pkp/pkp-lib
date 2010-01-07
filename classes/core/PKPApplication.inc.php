@@ -22,14 +22,6 @@ define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
 class PKPApplication {
-	/**
-	 * Initialize the application with a given application object
-	 * @param $application object Subclass of PKPApplication class to use
-	 */
-	function initialize(&$application) {
-		Registry::set('application', $application);
-	}
-
 	function PKPApplication() {
 		// Configure error reporting
 		// FIXME: Error logging needs to be suppressed for strict
@@ -70,6 +62,8 @@ class PKPApplication {
 			error_reporting($errorReportingLevel);
 		}
 
+		Registry::set('application', $this);
+
 		import('db.DAORegistry');
 		import('db.XMLDAO');
 
@@ -80,7 +74,8 @@ class PKPApplication {
 		import('plugins.PluginRegistry');
 		import('plugins.HookRegistry');
 
-		$this->initialize($this);
+		import('i18n.Locale');
+
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));
 
@@ -149,8 +144,9 @@ class PKPApplication {
 			// Inject dependency
 			$dispatcher->setApplication($this->getApplication());
 
-			// Inject generic component router configuration
+			// Inject router configuration
 			$dispatcher->addRouterName('core.PKPComponentRouter', ROUTE_COMPONENT);
+			$dispatcher->addRouterName('core.PageRouter', ROUTE_PAGE);
 		}
 
 		return $dispatcher;
@@ -164,6 +160,14 @@ class PKPApplication {
 		// Dispatch the request to the correct handler
 		$dispatcher =& $this->getDispatcher();
 		$dispatcher->dispatch($this->getRequest());
+	}
+
+	/**
+	 * Get the symbolic name of this application
+	 * @return string
+	 */
+	function getName() {
+		return 'pkp-lib';
 	}
 
 	/**

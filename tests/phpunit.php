@@ -48,12 +48,7 @@ if (TEST_BASE_DIRECTORY) {
 }
 
 // Set up minimal PKP application environment
-require_once('lib/pkp/includes/driver.inc.php');
-import('core.Core');
-import('core.Registry');
-import('config.Config');
-import('core.String');
-String::init();
+require_once('lib/pkp/includes/bootstrap.inc.php');
 
 // Remove the PKP error handler so that PHPUnit
 // can set it's own error handler and catch errors for us.
@@ -62,6 +57,6 @@ restore_error_handler();
 // Show errors on the GUI
 ini_set('display_errors', 'on');
 
-// The server variable PHPRC points to the PHP base directory
-include $_SERVER['PHPRC'] . '/phpunit';
+// The server variable PHP_PEAR_BIN_DIR points to the PEAR base directory
+include $_SERVER['PHP_PEAR_BIN_DIR'] . '/phpunit';
 ?>

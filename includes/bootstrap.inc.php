@@ -5,7 +5,7 @@
  */
 
 /**
- * @file driver.inc.php
+ * @file bootstrap.inc.php
  *
  * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -48,4 +48,10 @@ ini_set('include_path', '.'
 // System-wide functions
 require('functions.inc.php');
 
+// Initialize the application environment
+import('core.Application');
+// FIXME: As long as we support PHP4 we cannot use the return
+// value from the new statement directly. See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
+// We rather retrieve the application instance by-ref from the registry.
+new Application();
 ?>

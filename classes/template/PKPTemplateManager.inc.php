@@ -535,13 +535,29 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Generate a URL into a PKPApp. (This is a wrapper around Request::url to make it available to Smarty templates.)
+	 * Generate a URL into a PKPApp. (This is a wrapper around Dispatcher::url() to make it available to Smarty templates.)
 	 */
 	function smartyUrl($params, &$smarty) {
+		if ( !isset($params['context']) ) {
+			// Extract the variables named in $paramList, and remove them
+			// from the params array. Variables remaining in params will be
+			// passed along to Request::url as extra parameters.
+			$context = array();
+			$contextList = Application::getContextList();
+			foreach ($contextList as $contextName) {
+				if (isset($params[$contextName])) {
+					$context[$contextName] = $params[$contextName];
+					unset($params[$contextName]);
+				} else {
+					$context[$contextName] = null;
+				}
+			}
+			$params['context'] = $context;
+		}
+
 		// Extract the variables named in $paramList, and remove them
 		// from the params array. Variables remaining in params will be
 		// passed along to Request::url as extra parameters.
-
 		$paramList = array('context', 'page', 'op', 'path', 'anchor', 'escape');
 		foreach ($paramList as $param) {
 			if (isset($params[$param])) {

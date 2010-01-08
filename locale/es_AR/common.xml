@@ -7,12 +7,12 @@
   * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_AR (España Argentino) locale.
+  * Localization strings for the es_AR (Español (Argentina)) locale.
   *
   * $Id$
   -->
 
-<locale name="es_AR" full_name = "España Argentino">
+<locale name="es_AR" full_name = "Español (Argentina)">
 	<message key="about.aboutSite">Acerca del sitio</message>
 	<message key="about.contact">Contacto</message>
 	<message key="about.contact.email">Email</message>

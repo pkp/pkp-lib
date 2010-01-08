@@ -101,6 +101,10 @@ class GridHandler extends PKPHandler {
 	 * @return mixed
 	 */
 	function &getData() {
+		if ( is_null($this->_data) ) {
+			// initialize to emptry
+			$this->_data = new ItemIterator();
+		}
 		return $this->_data;
 	}
 

@@ -11,8 +11,16 @@ define('INDEX_FILE_LOCATION', $baseDir . '/index.php');
 
 // Load and execute initialization code
 chdir($baseDir);
-require($baseDir . '/includes/driver.inc.php');
-initSystem();
+require($baseDir . '/lib/pkp/includes/bootstrap.inc.php');
+
+// Manually set up a context router to get access
+// to the application context (required by Locale).
+$application =& PKPApplication::getApplication();
+$request =& $application->getRequest();
+import('core.PKPRouter');
+$router = new PKPRouter();
+$router->setApplication($application);
+$request->setRouter($router);
 Locale::initialize();
 
 // Load user variables

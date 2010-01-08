@@ -21,6 +21,7 @@
 
 import('form.validation.FormValidatorRegExp');
 import('form.validation.FormValidatorEmail');
+import('form.validation.FormValidatorUri');
 import('form.validation.FormValidatorUrl');
 import('form.validation.FormValidatorAlphaNum');
 import('form.validation.FormValidatorInSet');

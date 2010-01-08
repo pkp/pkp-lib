@@ -27,7 +27,7 @@ class FormValidatorLocaleEmail extends FormValidatorEmail {
 		if ($this->isEmptyAndOptional()) return true;
 		$value = $this->form->getData($this->field);
 		$primaryLocale = Locale::getPrimaryLocale();
-		return is_array($value) && !empty($value[$primaryLocale]) && String::regexp_match($this->regExp, $value[$primaryLocale]);
+		return is_array($value) && !empty($value[$primaryLocale]) && String::regexp_match($this->getRegexp(), $value[$primaryLocale]);
 	}
 
 	function getMessage() {

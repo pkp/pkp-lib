@@ -19,8 +19,11 @@ import ('form.validation.FormValidator');
 
 class FormValidatorRegExp extends FormValidator {
 
-	/** The regular expression to match against the field value */
-	var $regExp;
+	/** @var The regular expression to match against the field value */
+	var $_regExp;
+
+	/** @var The matches for further (optional) processing by subclasses */
+	var $_matches;
 
 	/**
 	 * Constructor.
@@ -29,7 +32,7 @@ class FormValidatorRegExp extends FormValidator {
 	 */
 	function FormValidatorRegExp(&$form, $field, $type, $message, $regExp) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->regExp = $regExp;
+		$this->_regExp = $regExp;
 	}
 
 	/**
@@ -38,7 +41,17 @@ class FormValidatorRegExp extends FormValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		return $this->isEmptyAndOptional() || String::regexp_match($this->regExp, $this->form->getData($this->field));
+		return $this->isEmptyAndOptional() || String::regexp_match_get($this->_regExp, $this->form->getData($this->field), $this->_matches);
+	}
+
+	//
+	// Protected methods for use by sub-classes
+	//
+	/**
+	 * Returns the reg-ex matches (if any) after isValid() was called.
+	 */
+	function getMatches() {
+		return $this->_matches;
 	}
 }
 

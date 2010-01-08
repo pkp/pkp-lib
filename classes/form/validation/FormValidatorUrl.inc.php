@@ -16,19 +16,19 @@
 // $Id$
 
 
-import('form.validation.FormValidatorRegExp');
+import('form.validation.FormValidatorUri');
 
-class FormValidatorUrl extends FormValidatorRegExp {
+class FormValidatorUrl extends FormValidatorUri {
 	function getRegexp() {
-		return '/^' . PCRE_URL . '/i';
+		return parent::getRegexp(array('http', 'https', 'ftp'));
 	}
 
 	/**
 	 * Constructor.
-	 * @see FormValidatorRegExp::FormValidatorRegExp()
+	 * @see FormValidatorUri::FormValidatorUri()
 	 */
 	function FormValidatorUrl(&$form, $field, $type, $message) {
-		parent::FormValidatorRegExp($form, $field, $type, $message, FormValidatorUrl::getRegexp());
+		parent::FormValidatorUri($form, $field, $type, $message, array('http', 'https', 'ftp'));
 	}
 }
 

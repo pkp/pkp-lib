@@ -20,8 +20,24 @@
  * These are defined application-wide for consistency
  */
 
-// common URL syntax
-define('PCRE_URL', '(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?(\/.)?');
+/*
+ * RFC-2396 URIs
+ *
+ * Thanks to the PEAR Validation package (Tomas V.V.Cox <cox@idecnet.com>,
+ * Pierre-Alain Joye <pajoye@php.net>, Amir Mohammad Saied <amir@php.net>)
+ *
+ * Originally published under the "New BSD License"
+ * http://www.opensource.org/licenses/bsd-license.php
+ */
+define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .                                         // Scheme
+                   '(?://' .
+                   '(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?' .              // User
+                   '(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)' . // Hostname
+                   '|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))' .                                 // IP Address
+                   '(?::([0-9]*))?)' .                                                   // Port
+                   '((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?' .          // Path
+                   '(?:\?([^#]*))?' .                                                    // Query String
+                   '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');          // Fragment
 
 // RFC-2822 email addresses
 define('PCRE_EMAIL_ADDRESS',

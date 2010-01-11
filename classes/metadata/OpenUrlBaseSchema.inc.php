@@ -30,9 +30,9 @@ class OpenUrlBaseSchema extends MetadataSchema {
 		$this->addProperty(new MetadataProperty('auinit1'));  // First author's first initial
 		$this->addProperty(new MetadataProperty('auinitm'));  // First author's middle initial
 		$this->addProperty(new MetadataProperty('ausuffix')); // e.g.: "Jr", "III", etc.
-		$this->addProperty(new MetadataProperty('au', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
+		$this->addProperty(new MetadataProperty('au', array(), METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
 		$this->addProperty(new MetadataProperty('title'));    // Deprecated in book/journal 1.0, prefer jtitle/btitle, ok for dissertation
-		$this->addProperty(new MetadataProperty('date', METADATA_PROPERTY_TYPE_DATE)); // Publication date
+		$this->addProperty(new MetadataProperty('date', array(), METADATA_PROPERTY_TYPE_DATE)); // Publication date
 		$this->addProperty(new MetadataProperty('isbn'));
 	}
 }

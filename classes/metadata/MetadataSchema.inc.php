@@ -13,6 +13,11 @@
  *
  * @brief Class that represents a meta-data schema (e.g. NLM element-citation,
  *  OpenURL, dc(terms), etc.
+ *
+ *  NB: We currently provide meta-data schemas as classes for better performance
+ *  and code readability. It might, however, be necessary to maintain meta-data
+ *  schemas in the database for higher flexibility and easier run-time configuration/
+ *  installation of new schemas.
  */
 
 // $Id$

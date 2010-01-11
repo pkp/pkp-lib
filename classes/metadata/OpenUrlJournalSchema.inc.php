@@ -23,6 +23,8 @@ class OpenUrlJournalSchema extends OpenUrlJournalBookBaseSchema {
 	 * Constructor
 	 */
 	function OpenUrlJournalSchema() {
+		$this->setName('openurl-1.0-journal');
+
 		// Add meta-data properties that only appear in the OpenURL journal standard
 		$this->addProperty(new MetadataProperty('jtitle'));
 		$this->addProperty(new MetadataProperty('stitle')); // Short title

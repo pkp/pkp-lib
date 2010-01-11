@@ -37,7 +37,8 @@ if (TEST_BASE_DIRECTORY) {
 	function import($class) {
 		// Test whether we have a mock implementation of
 		// the requested class.
-		$mockClassFile = TEST_BASE_DIRECTORY.'/Mock'.array_pop(explode('.', $class)).'.inc.php';
+		$classParts = explode('.', $class);
+		$mockClassFile = TEST_BASE_DIRECTORY.'/Mock'.array_pop($classParts).'.inc.php';
 		if (file_exists($mockClassFile)) {
 			require_once($mockClassFile);
 		} else {

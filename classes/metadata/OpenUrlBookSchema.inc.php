@@ -23,6 +23,8 @@ class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
 	 * Constructor
 	 */
 	function OpenUrlBookSchema() {
+		$this->setName('openurl-1.0-book');
+
 		// Add meta-data properties that only appear in the OpenURL book standard
 		$this->addProperty(new MetadataProperty('btitle'));
 		$this->addProperty(new MetadataProperty('place')); // Place of publication

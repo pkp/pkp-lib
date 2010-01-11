@@ -18,6 +18,14 @@
  *
  *  In the DCMI abstract model, this class specifies a property together with its
  *  allowed range and cardinality.
+ *
+ *  We also define the resource types (application entities, association types)
+ *  that can be described with the property. This allows us to check that only
+ *  valid resource associations are made. It also allows us to prepare property
+ *  entry forms or displays for a given resource type and integrate these in the
+ *  work-flow of the resource. By dynamically adding or removing assoc types,
+ *  end users will be able to configure the meta-data fields that they wish to
+ *  make available, persist or enter in their application.
  */
 
 // $Id$
@@ -46,6 +54,9 @@ class MetadataProperty {
 	/** @var string property name */
 	var $_name;
 
+	/** @var int the resource types that can be described with this property */
+	var $_assocTypes;
+
 	/** @var integer property type */
 	var $_type;
 
@@ -58,18 +69,26 @@ class MetadataProperty {
 	/**
 	 * Constructor
 	 * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
+	 * @param $assocTypes array an array of integers that define the application entities that can
+	 *  be described with this property.
 	 * @param $type integer must be one of the supported types, default: METADATA_PROPERTY_TYPE_STRING
 	 * @param $translated boolean whether the property may have various language versions, default: false
 	 * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
 	 */
-	function MetadataProperty($name, $type = METADATA_PROPERTY_TYPE_STRING,
+	function MetadataProperty($name, $assocTypes = array(), $type = METADATA_PROPERTY_TYPE_STRING,
 			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE) {
 
+		// Validate input data
+		assert(is_array($assocTypes));
+		assert(in_array($type, MetadataProperty::_getSupportedTypes()));
+		assert(in_array($cardinality, MetadataProperty::_getSupportedCardinalities()));
+
 		// Initialize the class
-		$this->setName($name);
-		$this->setType($type);
-		$this->setTranslated($translated);
-		$this->setCardinality($cardinality);
+		$this->_name = (string)$name;
+		$this->_assocTypes =& $assocTypes;
+		$this->_type = (integer)$type;
+		$this->_translated = (boolean)$translated;
+		$this->_cardinality = (integer)$cardinality;
 	}
 
 	/**
@@ -81,11 +100,14 @@ class MetadataProperty {
 	}
 
 	/**
-	 * Set the name
-	 * @param $name string
+	 * Get the allowed association types
+	 * (resources that can be described
+	 * with this property)
+	 * @return array a list of integers representing
+	 *  association types.
 	 */
-	function setName($name) {
-		$this->_name = (string)$name;
+	function &getAssocTypes() {
+		return $this->_assocTypes;
 	}
 
 	/**
@@ -97,15 +119,6 @@ class MetadataProperty {
 	}
 
 	/**
-	 * Set the type
-	 * @param $type integer
-	 */
-	function setType($type) {
-		assert(in_array($type, MetadataProperty::_getSupportedTypes()));
-		$this->_type = (integer)$type;
-	}
-
-	/**
 	 * Is this property translated?
 	 * @return boolean
 	 */
@@ -114,28 +127,11 @@ class MetadataProperty {
 	}
 
 	/**
-	 * Define whether this property is translated
-	 * @param $translated boolean
-	 */
-	function setTranslated($translated) {
-		$this->_translated = (boolean)$translated;
-	}
-
-	/**
 	 * Get the cardinality
 	 * @return integer
 	 */
 	function getCardinality() {
 		return $this->_cardinality;
-	}
-
-	/**
-	 * Set the cardinality
-	 * @param $cardinality integer
-	 */
-	function setCardinality($cardinality) {
-		assert(in_array($cardinality, MetadataProperty::_getSupportedCardinalities()));
-		$this->_cardinality = (integer)$cardinality;
 	}
 
 	/**

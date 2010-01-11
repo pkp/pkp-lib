@@ -26,9 +26,9 @@ class OpenUrlJournalBookBaseSchema extends OpenUrlBaseSchema {
 		// Add meta-data properties common to the OpenURL book/journal standard
 		$this->addProperty(new MetadataProperty('aucorp'));   // Organization or corporation that is the author or creator
 		$this->addProperty(new MetadataProperty('atitle'));
-		$this->addProperty(new MetadataProperty('spage', METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('epage', METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('pages', METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('spage', array(), METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('epage', array(), METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('pages', array(), METADATA_PROPERTY_TYPE_INTEGER));
 		$this->addProperty(new MetadataProperty('issn'));
 		$this->addProperty(new MetadataProperty('genre'));
 		// FIXME: implement genre as controlled vocabulary.

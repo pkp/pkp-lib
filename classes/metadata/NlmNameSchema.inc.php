@@ -25,10 +25,13 @@ class NlmNameSchema extends MetadataSchema {
 	 * Constructor
 	 */
 	function NlmNameSchema() {
-		$this->addProperty(new MetadataProperty('surname'));
-		$this->addProperty(new MetadataProperty('given-names', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
-		$this->addProperty(new MetadataProperty('prefix'));
-		$this->addProperty(new MetadataProperty('suffix'));
+		$this->setName('nlm-3.0-name');
+
+		$citation = array(ASSOC_TYPE_CITATION);
+		$this->addProperty(new MetadataProperty('surname', $citation));
+		$this->addProperty(new MetadataProperty('given-names', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
+		$this->addProperty(new MetadataProperty('prefix', $citation));
+		$this->addProperty(new MetadataProperty('suffix', $citation));
 	}
 }
 ?>

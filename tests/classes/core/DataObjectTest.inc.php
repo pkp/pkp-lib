@@ -88,13 +88,12 @@ class DataObjectTest extends PKPTestCase {
 
 		// Should be returned by-ref:
 		$testVal1 =& $this->dataObject->getData('testVar1');
-		// Two-dimensional string key fields cannot be returned by-ref:
 		$testVal2 =& $this->dataObject->getData('testVar2', 'en_US');
 		$testVal1 = $testVal2 = 'something else';
 		$expectedResult = array(
 			'testVar1' => 'something else',
 			'testVar2' => array(
-				'en_US' => 'testVal2'
+				'en_US' => 'something else'
 			)
 		);
 		$result =& $this->dataObject->getAllData();

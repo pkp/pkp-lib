@@ -25,6 +25,12 @@ class DAOResultFactory extends ItemIterator {
 	/** The name of the DAO's factory function (to be called with an associative array of values) */
 	var $functionName;
 
+	/**
+	 * @var array an array of primary key field names that uniquely
+	 *   identify a result row in the record set.
+	 */
+	var $idFields;
+
 	/** The ADORecordSet to be wrapped around */
 	var $records;
 
@@ -43,10 +49,13 @@ class DAOResultFactory extends ItemIterator {
 	 * @param $records object ADO record set
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
+	 * @param $idFields array an array of primary key field names that uniquely
+	 *  identify a result row in the record set.
 	 */
-	function DAOResultFactory(&$records, &$dao, $functionName) {
+	function DAOResultFactory(&$records, &$dao, $functionName, $idFields = array()) {
 		$this->functionName = $functionName;
 		$this->dao =& $dao;
+		$this->idFields = $idFields;
 
 		if (!$records || $records->EOF) {
 			if ($records) $records->Close();
@@ -93,9 +102,20 @@ class DAOResultFactory extends ItemIterator {
 	 * @return array ($key, $value)
 	 */
 	function &nextWithKey() {
-		// We don't have keys with rows. (Row numbers might become
-		// valuable at some point.)
-		return array(null, $this->next());
+		$result =& $this->next();
+		if (empty($this->idFields)) {
+			$key = null;
+		} else {
+			assert(is_a($result, 'DataObject'));
+			$key = '';
+			foreach($this->idFields as $idField) {
+				assert(!is_null($result->getData($idField)));
+				if (!empty($key)) $key .= '-';
+				$key .= (string)$result->getData($idField);
+			}
+		}
+		$returner = array($key, &$result);
+		return $returner;
 	}
 
 	/**
@@ -185,11 +205,11 @@ class DAOResultFactory extends ItemIterator {
 	 * Convert this iterator to an associative array by database ID.
 	 * @return array
 	 */
-	function &toAssociativeArray($keyName) {
+	function &toAssociativeArray($idField) {
 		$returner = array();
 		while (!$this->eof()) {
 			$result =& $this->next();
-			$returner[$result->getData($keyName)] =& $result;
+			$returner[$result->getData($idField)] =& $result;
 			unset($result);
 		}
 		return $returner;

@@ -131,7 +131,12 @@ class DBDataXMLParser {
 								$flds = '';
 								if (isset($columns[$colId])) {
 									$col = $columns[$colId];
-									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $col->max_length);
+									if ($col->max_length == "-1") {
+										$max_length = '';
+									} else {
+										$max_length = $col->max_length;
+									} 
+									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
 									if ($col->primary_key) $fld['KEY'] = 'KEY';
 									if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
 									if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';

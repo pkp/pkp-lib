@@ -106,7 +106,7 @@ class DAOResultFactory extends ItemIterator {
 		if (empty($this->idFields)) {
 			$key = null;
 		} else {
-			assert(is_a($result, 'DataObject'));
+			assert(is_a($result, 'DataObject') && is_array($this->idFields));
 			$key = '';
 			foreach($this->idFields as $idField) {
 				assert(!is_null($result->getData($idField)));

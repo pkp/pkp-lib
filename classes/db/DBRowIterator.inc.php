@@ -22,6 +22,12 @@ class DBRowIterator extends ItemIterator {
 	/** The ADORecordSet to be wrapped around */
 	var $records;
 
+	/**
+	 * @var array an array of primary key field names that uniquely
+	 *   identify a result row in the records array.
+	 */
+	var $idFields;
+
 	/** True iff the resultset was always empty */
 	var $wasEmpty;
 
@@ -38,7 +44,9 @@ class DBRowIterator extends ItemIterator {
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 */
-	function DBRowIterator(&$records) {
+	function DBRowIterator(&$records, $idFields = array()) {
+		$this->idFields = $idFields;
+
 		if (!$records || $records->EOF) {
 			if ($records) $records->Close();
 			$this->records = null;
@@ -82,9 +90,20 @@ class DBRowIterator extends ItemIterator {
 	 * @return array ($key, $value)
 	 */
 	function &nextWithKey() {
-		// We don't have keys with rows. (Row numbers might become
-		// valuable at some point.)
-		return array(null, $this->next());
+		$result =& $this->next();
+		if (empty($this->idFields)) {
+			$key = null;
+		} else {
+			assert(is_array($result) && is_array($this->idFields));
+			$key = '';
+			foreach($this->idFields as $idField) {
+				assert(isset($result[$idField]));
+				if (!empty($key)) $key .= '-';
+				$key .= (string)$result[$idField];
+			}
+		}
+		$returner = array($key, &$result);
+		return $returner;
 	}
 
 	/**

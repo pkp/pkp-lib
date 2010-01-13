@@ -13,6 +13,7 @@
   -->
 
 <locale name="fa_IR" full_name = "Persian">
+	<message key="submission.agencies">آژانسها</message>
 	<message key="submission.abstractViews">مشاهده چکیده</message>
 	<message key="submission.accepted">پذیرش</message>
 	<message key="submission.acknowledge">تشکر</message>

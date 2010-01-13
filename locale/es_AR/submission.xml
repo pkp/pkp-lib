@@ -13,6 +13,7 @@
   -->
 
 <locale name="es_AR" full_name = "Español (Argentina)">
+	<message key="submission.agencies">Agencies</message>
 	<message key="submission.abstractViews">opiniones sobre el resumen</message>
 	<message key="submission.accepted">Aceptado</message>
 	<message key="submission.acknowledge">Acusar recibo</message>

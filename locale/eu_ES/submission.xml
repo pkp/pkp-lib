@@ -9,10 +9,11 @@
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id: submission.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
+	<message key="submission.agencies">Agentziak</message>
 	<message key="submission.abstractViews">Laburpenen ikuspegiak</message>
 	<message key="submission.accepted">Onartua</message>
 	<message key="submission.acknowledge">Hartu-agiria</message>

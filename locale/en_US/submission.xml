@@ -13,6 +13,7 @@
   -->
 
 <locale name="en_US" full_name = "English">
+	<message key="submission.agencies">Agencies</message>
 	<message key="submission.abstractViews">Abstract Views</message>
 	<message key="submission.accepted">Accepted</message>
 	<message key="submission.acknowledge">Acknowledge</message>

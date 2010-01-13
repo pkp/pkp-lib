@@ -13,6 +13,7 @@
   -->
 
 <locale name="ru_RU" full_name = "Russian">
+	<message key="submission.agencies">Организации</message>
 	<message key="submission.abstractViews">Просм. аннотации</message>
 	<message key="submission.accepted">Принята</message>
 	<message key="submission.acknowledge">Получена</message>

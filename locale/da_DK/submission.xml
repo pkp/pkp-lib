@@ -13,6 +13,7 @@
   -->
 
 <locale name="da_DK" full_name = "Danish">
+	<message key="submission.agencies">Instanser</message>
 	<message key="submission.abstractViews">Visninger af resuméer</message>
 	<message key="submission.accepted">Accepteret</message>
 	<message key="submission.acknowledge">Bekræft</message>

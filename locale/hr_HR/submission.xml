@@ -13,6 +13,7 @@
   -->
 
 <locale name="hr_HR" full_name = "Hrvatski">
+	<message key="submission.agencies">Ustanove</message>
 	<message key="submission.abstractViews">Pristupa sažetku</message>
 	<message key="submission.accepted">Prihvaćena</message>
 	<message key="submission.acknowledge">Potvrđeno</message>

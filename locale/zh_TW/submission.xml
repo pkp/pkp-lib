@@ -13,6 +13,7 @@
   -->
 
 <locale name="zh_TW" full_name = "繁體中文">
+	<message key="submission.agencies">機構</message>
 	<message key="submission.abstractViews">檢視摘要</message>
 	<message key="submission.accepted">接受</message>
 	<message key="submission.acknowledge">謝辭</message>

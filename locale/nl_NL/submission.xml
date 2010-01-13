@@ -13,6 +13,7 @@
   -->
 
 <locale name="nl_NL" full_name = "Nederlands">
+	<message key="submission.agencies">Organisaties</message>
 	<message key="submission.abstractViews">Samenvatting bekeken</message>
 	<message key="submission.accepted">Geaccepteerd</message>
 	<message key="submission.acknowledge">Erkenning</message>

@@ -59,11 +59,7 @@ class DataObject {
 		} else {
 			// see http://bugs.php.net/bug.php?id=29848
 			if (isset($this->_data[$key]) && is_array($this->_data[$key]) && isset($this->_data[$key][$locale])) {
-				// We cannot retrieve by reference here otherwise
-				// we get "Cannot create references to/from string offsets"
-				// in PHP 5.
-				$value = $this->_data[$key][$locale];
-				return $value;
+				return $this->_data[$key][$locale];
 			}
 		}
 		$nullVar = null;

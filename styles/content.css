@@ -207,6 +207,68 @@ ul.flat_list li, ol.flat_list li {
 
 /* @end */
 
+/* @group Response */
+
+/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
+
+.response
+{
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.response_block
+{
+	background-position: 15px 50% !important;
+	background-repeat: no-repeat !important;
+	padding: 5px 20px 5px 60px;
+}
+
+.response .success
+{
+	background: #daf0da url(../templates/images/structure/response_success.png);
+	border-top: 1px solid #5abd5a;
+	border-bottom: 1px solid #5abd5a;
+}
+
+.response .warning
+{
+	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
+	border-top: 1px solid #ffd324;
+	border-bottom: 1px solid #ffd324;
+}
+
+.response .error
+{
+	background: #f8dada url(../templates/images/structure/response_error.png);
+	border-top: 1px solid #e68080;
+	border-bottom: 1px solid #e68080;
+}
+
+.response .forbidden
+{
+	background: #f8dada url(../templates/images/structure/response_forbidden.png);
+	border-top: 1px solid #e68080;
+	border-bottom: 1px solid #e68080;
+}
+
+.response .information
+{
+	background: #c9e3f8 url(../templates/images/structure/response_info.png);
+	border-top: 1px solid #6aa6d6;
+	border-bottom: 1px solid #6aa6d6;
+}
+
+.response .help
+{
+	background: #c9e3f8 url(../templates/images/structure/response_help.png);
+	border-top: 1px solid #6aa6d6;
+	border-bottom: 1px solid #6aa6d6;
+}
+
+
+/* @end */
+
 /* @group Grid */
 
 div.grid div.wrapper {
@@ -231,6 +293,7 @@ div.grid th {
 
 div.grid td {
 	text-align: center;
+	min-height: 40px;
 	height: 40px;
 	font-size: 85%;
 	vertical-align: middle;
@@ -240,6 +303,16 @@ div.grid td {
 div.grid th:first-child, div.grid td:first-child, div.grid col.first_column {
 	text-align: left !important;
 }
+
+td.first_column {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+td.first_column a {
+	background-repeat: no-repeat;
+}
+
 
 div.grid .my_role {
 	border: 2px solid #ccc;
@@ -267,135 +340,158 @@ div.grid tr.category td {
 }
 
 .options a.add {
-	background: url(../images/structure/grid_new_file.png) no-repeat left;
+	background: url(../templates/images/structure/grid_new_file.png) no-repeat left;
 }
 
 .options a.sort {
-	background: url(../images/structure/grid_sort.png) no-repeat left;
+	background: url(../templates/images/structure/grid_sort.png) no-repeat left;
 }
 
-.row_controls {
-	position: relative;
-	float: left;
-	width: 20px;
-	height: 35px;
-}
-
-.row_controls a {
-	width: 24px;
-	height: 12px;
-	display: block;
-	text-indent: -1500px;
+.hidetext {
+	visibility: hidden;
 	overflow: hidden;
-	background-repeat: no-repeat;
-	background-position: 0 0;
 }
 
-
-.row_controls a:hover {
-	background-position: 0 bottom;
+.row_actions, .row_controls {
+	background-color: #e8f0f8;
 }
 
-.grid td div {
+.row_actions, .row_file
+{
 	float: left;
-	line-height: 35px;
+	height: 40px;
+	line-height: 40px;
 	vertical-align: middle;
 }
 
-.grid td div a {
-	background-position: 0px 50%;
-	background-repeat: no-repeat;
-	display: inline;
-	padding: 5px 0px 5px 20px;
+.row_actions
+{
+	width: 25px;
+}
+
+.row_actions a
+{
+	margin-left: 5px;
+}
+
+.row_file
+{
 	margin-left: 15px;
 }
 
-.information_controls {
-	float: left;
-	line-height: 35px;
-	margin-left: 20px;
-	vertical-align: middle;
-}
-
-a.information {
-	width: 28px;
-	height: 21px;
-	display: block;
-	margin-top: 5px;
-	text-indent: -1500px;
-	overflow: hidden;
-	background: url(../images/structure/grid_notes.png);
-}
-
-a.information:hover {
-	background-position: bottom;
-}
-
-.hasnotes
+.row_file a
 {
+	padding: 2px 20px;
+}
+
+.row_controls {
+	clear: left;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.row_controls a {
+	text-decoration: none;
+	color: #777;
+	font-size: 90%;
+	padding: 2px 30px 1px 20px;
+}
+
+.row_controls a:hover {
+	text-decoration: underline;
+}
+
+a.sprite {
+	background-position: 0 top;
+	text-decoration: none;
+	padding: 1px 0px;
+}
+
+a.sprite:hover {
+	background-position: 0 bottom;
+}
+
+a.focus {
+	background-position: 0 bottom;
+}
+
+a.notes {
+	background: url(../templates/images/structure/grid_note.png);
+}
+
+.hasnotes {
 	background-position: bottom !important;
 }
 
+a.settings {
+	background-image: url(../templates/images/structure/grid_settings.png);
+}
 
 a.promote {
-	position: absolute;
-	top: 0;
-	background-image: url(../images/structure/grid_promote.png);
+	background-image: url(../templates/images/structure/grid_promote.png);
+	margin-left: 40px;
 }
 
 a.delete {
-	position: absolute;
-	bottom: 0;
-	background-image: url(../images/structure/grid_delete.png);
+	background-image: url(../templates/images/structure/grid_delete.png);
+}
+
+a.edit {
+	background-image: url(../templates/images/structure/grid_edit.png);
+}
+
+a.more_info {
+	background-image: url(../templates/images/structure/grid_information.png);
 }
 
 a.word {
-	background-image: url(../images/structure/page_white_word.png);
+	background-image: url(../templates/images/structure/page_white_word.png);
 }
 
 a.excel {
-	background-image: url(../images/structure/page_white_excel.png);
+	background-image: url(../templates/images/structure/page_white_excel.png);
 }
 
 a.pdf {
-	background-image: url(../images/structure/page_white_acrobat.png);
+	background-image: url(../templates/images/structure/page_white_acrobat.png);
 }
 
 a.picture {
-	background-image: url(../images/structure/page_white_picture.png);
+	background-image: url(../templates/images/structure/page_white_picture.png);
 }
 
 a.html {
-	background-image: url(../images/structure/page_white_world.png);
+	background-image: url(../templates/images/structure/page_white_world.png);
 }
 
-.category td:first-child
-{
+.category td:first-child {
 	top: 0;
 }
-.group1 td:first-child
-{
-	background: url(../images/structure/grid_group_1.png) no-repeat;
-}
-.group2 td:first-child
-{
-	background: url(../images/structure/grid_group_2.png) no-repeat;
-}
-.group3 td:first-child
-{
-	background: url(../images/structure/grid_group_3.png) no-repeat;
-}
-.group4 td:first-child
-{
-	background: url(../images/structure/grid_group_4.png) no-repeat;
-}
-.group5 td:first-child
-{
-	background: url(../images/structure/grid_group_5.png) no-repeat;
+
+.group1 td:first-child {
+	background: url(../templates/images/structure/grid_group_1.png) no-repeat;
 }
 
-a.task
-{
+.group2 td:first-child {
+	background: url(../templates/images/structure/grid_group_2.png) no-repeat;
+}
+
+.group3 td:first-child {
+	background: url(../templates/images/structure/grid_group_3.png) no-repeat;
+}
+
+.group4 td:first-child {
+	background: url(../templates/images/structure/grid_group_4.png) no-repeat;
+}
+
+.group5 td:first-child {
+	background: url(../templates/images/structure/grid_group_5.png) no-repeat;
+}
+
+a.task {
 	width: 100%;
 	height: 100%;
 	text-indent: -1500px;
@@ -405,35 +501,28 @@ a.task
 	background-repeat: no-repeat;
 }
 
-a.new
-{
-	background-image: url(../images/structure/grid_task.png);
+a.new {
+	background-image: url(../templates/images/structure/grid_task.png);
 }
 
-a.accepted
-{
-	background-image: url(../images/structure/grid_task_accepted.png);
+a.accepted {
+	background-image: url(../templates/images/structure/grid_task_accepted.png);
 }
 
-a.completed
-{
-	background-image: url(../images/structure/grid_task_complete.png);
+a.completed {
+	background-image: url(../templates/images/structure/grid_task_complete.png);
 }
 
-a.overdue
-{
-	background-image: url(../images/structure/grid_email_overdue.png);
+a.overdue {
+	background-image: url(../templates/images/structure/grid_email_overdue.png);
 }
 
-a.notify
-{
-	background-image: url(../images/structure/grid_email.png);
+a.notify {
+	background-image: url(../templates/images/structure/grid_email.png);
 }
 
-a.uploaded
-{
-	background-image: url(../images/structure/grid_folder.png);
+a.uploaded {
+	background-image: url(../templates/images/structure/grid_folder.png);
 }
-
 
 /* @end */

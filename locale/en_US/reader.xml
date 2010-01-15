@@ -100,6 +100,7 @@
 	<message key="rt.captureCite.format">Citation Format</message>
 	<message key="rt.captureCite">How to cite item</message>
 	<message key="rt.captureCite.online">Online</message>
+	<message key="rt.captureCite.web">Web</message>	
 	<message key="rt.colleague">Notify colleague</message>
 	<message key="rt.context.abbrev">Abbrev</message>
 	<message key="rt.context.and">AND</message>

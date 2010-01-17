@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/ca_ES/admin.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Catalan) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Catalan">
+	<message key="admin.adminFunctions">Funcions administratives</message>
+	<message key="admin.auth.confirmDelete">Esteu segur/a que voleu suprimir aquesta font d’autenticació de manera permanent?</message>
+	<message key="admin.auth.create">Crea una font d’autenticació</message>
+	<message key="admin.auth.noneCreated">No s’ha definit cap font d’autenticació.</message>
+	<message key="admin.authSources">Fonts d’autenticació</message>
+	<message key="admin.clearDataCache">Esborra la memòria cau de dades</message>
+	<message key="admin.clearTemplateCache">Esborra la memòria cau de plantilles</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[El fitxer de configuració s’ha actualitzat amb èxit. Si el lloc web deixa de funcionar correctament haureu de modificar la configuració de manera manual editant el fitxer <tt>config.inc.php</tt>.]]></message>
+	<message key="admin.confirmClearTemplateCache">Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?</message>
+	<message key="admin.confirmExpireSessions">Esteu segur/a que voleu fer vèncer totes les sessions d’usuari/usuària? Si ho feu, tots els usuaris/usuàries que hagin iniciat sessió en el sistema, entre els quals us incloeu, hauran de tornar a iniciar la sessió.</message>
+	<message key="admin.contentsOfConfigFile">Contingut del fitxer de configuració</message>
+	<message key="admin.currentVersion">Versió actual</message>
+	<message key="admin.dateInstalled">Data d’instal·lació</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[A continuació es mostra el contingut de la configuració actualitzada. Per a aplicar els canvis a la configuració heu d’obrir el fitxer <tt>config.inc.php</tt> en un editor de textos adequat i reemplaçar-ne el contingut amb el contingut del camp de text que es mostra a continuació.]]></message>
+	<message key="admin.displayNewSystemConfig">Visualitza la nova configuració</message>
+	<message key="admin.expireSessions">Fes vèncer les sessions d’usuari/usuària</message>
+	<message key="admin.languages.confirmReload">Esteu segur/a que voleu actualitzar aquesta configuració regional? Si ho feu, s’esborraran totes les dades específiques d’aquesta configuració, com ara les plantilles de correu electrònic personalitzades.</message>
+	<message key="admin.languages.installedLocales">Configuracions regionals instal·lades</message>
+	<message key="admin.languages.installLanguages">Gestiona les configuracions regionals</message>
+	<message key="admin.languages.installLocales">Instal·la</message>
+	<message key="admin.languages.installNewLocales">Instal·la configuracions regionals noves</message>
+	<message key="admin.languages.languageSettings">Configuració de llengua</message>
+	<message key="admin.languages.noLocalesAvailable">No hi ha cap altra configuració regional disponible per instal·lar.</message>
+	<message key="admin.languages.reload">Actualitza la configuració regional</message>
+	<message key="admin.languages.uninstall">Desinstal·la la configuració regional</message>
+	<message key="admin.phpInfo">Informació de PHP ampliada</message>
+	<message key="admin.saveSystemConfig">Desa la configuració</message>
+	<message key="admin.server.apacheVersion">Versió d’Apache</message>
+	<message key="admin.server.dbDriver">Controlador de la base de dades</message>
+	<message key="admin.server.dbVersion">Versió del servidor de la base de dades</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Versions del programari del servidor i del sistema operatiu. Feu clic a <span class="highlight">Informació de PHP ampliada</span> per a visualitzar informació detallada sobre la configuració PHP d’aquest servidor.]]></message>
+	<message key="admin.serverInformation">Informació del servidor</message>
+	<message key="admin.server.phpVersion">Versió de PHP</message>
+	<message key="admin.server.platform">Plataforma del SO</message>
+	<message key="admin.settings.aboutDescription">Quant a la descripció del lloc</message>
+	<message key="admin.settings.contactEmail">Adreça electrònica del contacte principal</message>
+	<message key="admin.settings.contactName">Nom del contacte principal</message>
+	<message key="admin.settings.form.contactEmailRequired">Heu d’introduir l’adreça electrònica del contacte principal.</message>
+	<message key="admin.settings.form.contactNameRequired">Heu d’introduir el nom del contacte principal.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Heu d’introduir una contrasenya de quatre caràcters com a mínim.</message>
+	<message key="admin.settings.form.titleRequired">Cal que introduïu un títol.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logotip del lloc</message>
+	<message key="admin.settings.homeHeaderImageInvalid">El format de la imatge per al logotip de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="admin.settings.introduction">Introducció</message>
+	<message key="admin.settings.minPasswordLength">Longitud mínima de la contrasenya</message>
+	<message key="admin.settings.oaiRegistration">Registra el lloc per a la indexació (recopilació de dades)</message>
+	<message key="admin.settings.passwordCharacters">caràcters</message>
+	<message key="admin.settings.siteLanguage">Llengua del lloc</message>
+	<message key="admin.settings.siteStyleSheetInvalid">El format del full d’estil del lloc no és vàlid. El format admès és .css.</message>
+	<message key="admin.settings.siteStyleSheet">Full d’estil del lloc</message>
+	<message key="admin.settings.siteTitle">Títol del lloc</message>
+	<message key="admin.siteAdmin">Administració del lloc</message>
+	<message key="admin.siteManagement">Administració del lloc web</message>
+	<message key="admin.siteSettings">Configuració del lloc</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[El fitxer de configuració <tt>config.inc.php</tt> no existeix, no es pot llegir o no és vàlid.]]></message>
+	<message key="admin.systemInformation">Informació del sistema</message>
+	<message key="admin.versionBuild">Muntatge</message>
+	<message key="admin.version.checkForUpdates">Cerca actualitzacions</message>
+	<message key="admin.version.downloadPackage">Baixa</message>
+	<message key="admin.version.downloadPatch">Baixa el pedaç</message>
+	<message key="admin.versionHistory">Historial de versions</message>
+	<message key="admin.version.latest">Versió més recent</message>
+	<message key="admin.versionMajor">Principal</message>
+	<message key="admin.versionMinor">Secundària</message>
+	<message key="admin.version.moreInfo">Més informació</message>
+	<message key="admin.versionRevision">Revisió</message>
+	<message key="admin.version.updateAvailable">Hi ha una versió actualitzada disponible.</message>
+	<message key="admin.version.upToDate">El sistema està actualitzat.</message>
+	<message key="admin.version">Versió</message>
+</locale>

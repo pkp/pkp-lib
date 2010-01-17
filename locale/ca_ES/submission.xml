@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/ca_ES/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Catalan) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Catalan">
+	<message key="submission.abstractViews">Visualitzacions dels resums</message>
+	<message key="submission.accepted">Acceptada</message>
+	<message key="submission.acknowledge">Rebuda</message>
+	<message key="submission.addSuppFile">Afegeix un fitxer addicional</message>
+	<message key="submission.agencies">Entitats</message>	
+	<message key="submission.ask">Sol·licita</message>
+	<message key="submission.backToSubmissionEditing">Torna a l’edició de la tramesa</message>
+	<message key="submission.changeComments">Canvia a</message>
+	<message key="submission.comments.addComment">Vull afegir un comentari</message>
+	<message key="submission.comments.comments">Comentaris</message>
+	<message key="submission.comments.confirmDelete">Esteu segur/a que voleu suprimir aquest comentari?</message>
+	<message key="submission.comments.corrections">Correccions</message>
+	<message key="submission.comments.editComment">Edita el comentari</message>
+	<message key="submission.comments.importPeerReviews">Importa les revisions de persones expertes</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Revisor/a {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">No hi ha cap comentari.</message>
+	<message key="submission.comments.noReviews">No hi ha cap revisió.</message>
+	<message key="submission.comments.review">Revisió</message>
+	<message key="submission.comments.sendDecisionToReviewers">Envia la decisió de l’editor/a als revisors/es</message>
+	<message key="submission.comments.subject">Matèria</message>
+	<message key="submission.complete">Completa</message>
+	<message key="submission.done">Acabada</message>
+	<message key="submission.dueDate">Data de venciment</message>
+	<message key="submission.due">Venciment</message>
+	<message key="submission.editing">Edició</message>
+	<message key="submission.editMetadata">Edita les metadades</message>
+	<message key="submission.email.backToEmailLog">Torna al registre del correu electrònic</message>
+	<message key="submission.email.confirmClearLog">Esteu segur/a que voleu esborrar el registre del correu electrònic per a aquesta tramesa?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre del correu electrònic?</message>
+	<message key="submission.email.deleteLogEntry">Suprimeix l’entrada del registre</message>
+	<message key="submission.emailLog">Registre del correu electrònic</message>
+	<message key="submission.event.backToEventLog">Torna al registre d’esdeveniments</message>
+	<message key="submission.event.confirmClearLog">Esteu segur/a que voleu esborrar el registre d’esdeveniments per a aquesta tramesa?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Esteu segur/a que voleu suprimir aquesta entrada del registre d’esdeveniments?</message>
+	<message key="submission.event.deleteLogEntry">Suprimeix l’entrada del registre</message>
+	<message key="submission.event.general.metadataUpdated">Metadades de tramesa actualitzades</message>
+	<message key="submission.event.general.suppFileUpdated">Fitxer de tramesa actualitzat</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Assignació de la revisió acceptada per poders</message>
+	<message key="submission.event.reviewer.reviewAccepted">Assignació de la revisió acceptada</message>
+	<message key="submission.event.reviewer.reviewCancelled">Assignació de la revisió cancel·lada</message>
+	<message key="submission.event.reviewer.reviewDeclined">Assignació de la revisió rebutjada</message>
+	<message key="submission.event.reviewer.reviewDueDate">Data de venciment de la revisió modificada</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Revisor/a assignat a la tramesa</message>
+	<message key="submission.event.reviewer.reviewerRated">Valoració de la revisió tramesa</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Revisor/a desassignat de la tramesa</message>
+	<message key="submission.event.reviewer.reviewFile">Fitxer de revisió actualitzat</message>
+	<message key="submission.event.reviewer.reviewInitiated">Assignació de la revisió iniciada</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Fitxer de recomanacions per a la revisió</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Assignació de la revisió reiniciada</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Revisió tornada a trametre</message>
+	<message key="submission.event.reviewer.reviewRevision">Fitxer de revisions del revisor/a actualitzat</message>
+	<message key="submission.files">Fitxers</message>
+	<message key="submission.galley">Galerades</message>
+	<message key="submission.history.clearLog">Esborra el registre</message>
+	<message key="submission.history">Historial</message>
+	<message key="submission.history.noLogEntries">No hi ha cap entrada al registre.</message>
+	<message key="submission.history.recentLogEntries">Entrades recents</message>
+	<message key="submission.history.submissionEmailLog">Registre del correu electrònic</message>
+	<message key="submission.history.submissionEventLog">Registre d’esdeveniments</message>
+	<message key="submission.history.submissionNotes">Notes de la tramesa</message>
+	<message key="submission.history.viewLog">Visualitza el registre</message>
+	<message key="submission.indexing">Indexació</message>
+	<message key="submission.initiated">Iniciada</message>
+	<message key="submission.lastModified">Modificada per darrera vegada</message>
+	<message key="submission.layout.addGalley">Afegeix galerades de maquetació</message>
+	<message key="submission.layout.confirmDeleteGalley">Esteu segur/a que voleu suprimir aquestes galerades de manera permanent?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Esteu segur/a que voleu suprimir aquesta imatge de les galerades?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Esteu segur/a que voleu suprimir aquest fitxer addicional de manera permanent?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Suprimeix aquestes galerades.</message>
+	<message key="submission.layout.editGalley">Edita les galerades de maquetació</message>
+	<message key="submission.layout.galleyFileData">Informació del fitxer de galerades</message>
+	<message key="submission.layout.galleyFormat">Format de les galerades</message>
+	<message key="submission.layout.galleyHTMLData">Fitxers HTML de les galerades</message>
+	<message key="submission.layout.galleyImages">Imatges</message>
+	<message key="submission.layout.galleyLabelInstructions">L’etiqueta de les galerades s’utilitza per a identificar el format de fitxer de l’element (p. ex. HTML, PDF, etc.).</message>
+	<message key="submission.layout.galleyLabel">Etiqueta</message>
+	<message key="submission.layout.galleyLabelRequired">Heu d’introduir una etiqueta per a les galerades.</message>
+	<message key="submission.layout.galleyLanguageRequired">Heu d’introduir una llengua per a les galerades.</message>
+	<message key="submission.layout.galleyLocaleRequired">Heu d’introduir una configuració regional per a les galerades.</message>
+	<message key="submission.layout.galleyNoImages">No s’ha afegit cap imatge a aquesta galerada.</message>
+	<message key="submission.layout.galleys">Galerades</message>
+	<message key="submission.layout.galleyStylesheet">Fitxer del full d’estil</message>
+	<message key="submission.layout.galleyStyle">Estil</message>
+	<message key="submission.layout.initialGalleyCreation">Creació de les galerades inicials</message>
+	<message key="submission.layout.layoutFile">Fitxer de maquetació</message>
+	<message key="submission.layout">Maquetació</message>
+	<message key="submission.layout.layoutVersion">Versió maquetada</message>
+	<message key="submission.layout.newGalley">Crea galerades noves</message>
+	<message key="submission.layout.newSupplementaryFile">Penja un fitxer addicional nou</message>
+	<message key="submission.layout.noStyleFile">No s’ha afegit cap fitxer de full d’estil a aquestes galerades.</message>
+	<message key="submission.layout.supplementaryFiles">Revisió del fitxer addicional</message>
+	<message key="submission.layout.viewingGalley">Visualitza les galerades de la tramesa</message>
+	<message key="submission.layout.viewProof">Visualitza la prova</message>
+	<message key="submission.metadata">Metadades de la tramesa</message>
+	<message key="submission.noReviewAssignments">No hi ha cap assignació de revisió</message>
+	<message key="submission.notes.addNewNote">Afegeix una nota nova</message>
+	<message key="submission.notes.attachedFile">Fitxer adjunt</message>
+	<message key="submission.notes.backToSubmissionNotes">Torna a les notes de tramesa</message>
+	<message key="submission.notes.breadcrumb">Notes</message>
+	<message key="submission.notes.clearAllNotes">Esborra totes les notes</message>
+	<message key="submission.notes.collapseNotes">Redueix les notes</message>
+	<message key="submission.notes.confirmDeleteAll">Voleu suprimir totes les notes de tramesa?</message>
+	<message key="submission.notes.confirmDelete">Voleu suprimir aquesta nota de tramesa?</message>
+	<message key="submission.notes.createNewNote">Crea una nota nova</message>
+	<message key="submission.notes.deleteNote">Suprimeix la nota</message>
+	<message key="submission.notes.editNote">Edita la nota</message>
+	<message key="submission.notes.expandNotes">Amplia les notes</message>
+	<message key="submission.notes.noSubmissionNotes">No hi ha cap nota de tramesa</message>
+	<message key="submission.notes.removeUploadedFile">Suprimeix el fitxer penjat</message>
+	<message key="submission.notes">Notes de la tramesa</message>
+	<message key="submission.notes.updateNote">Actualitza la nota</message>
+	<message key="submission.notes.viewNotes">Visualitza les notes</message>
+	<message key="submission.originalFile">Fitxer original</message>
+	<message key="submission.page.editing">#{$id} edició</message>
+	<message key="submission.page.history">#{$id} historial</message>
+	<message key="submission.page.review">#{$id} revisió</message>
+	<message key="submission.page.summary">#{$id} resum</message>
+	<message key="submission.peerReview">Revisió de persones expertes</message>
+	<message key="submission.recommendation">Recomanació</message>
+	<message key="submission.rejected">Rebutjada</message>
+	<message key="submission.request">Sol·licitud</message>
+	<message key="submission.response">Resposta</message>
+	<message key="submission.restrictions">Restriccions</message>
+	<message key="submission.reviewMetadata">Revisa les metadades</message>
+	<message key="submission.review">Revisió</message>
+	<message key="submission.reviewVersion">Versió de revisió</message>
+	<message key="submissions.active">Activa</message>
+	<message key="submissions.archived">Arxivada</message>
+	<message key="submission.saveMetadata">Desa les metadades</message>
+	<message key="submissions.completed">Completada</message>
+	<message key="submissions.declined">Rebutjada</message>
+	<message key="submissions.incomplete">Incompleta</message>
+	<message key="submissions.noSubmissions">No hi ha cap tramesa</message>
+	<message key="submissions.queuedEditing">Enviada a la cua per a l’edició</message>
+	<message key="submissions.queued">Enviada a la cua</message>
+	<message key="submissions.queuedUnassigned">Esperant l’assignació</message>
+	<message key="submissions.ruling">Decisió</message>
+	<message key="submissions.submit">Tramet</message>
+	<message key="submissions.submitted">Tramesa</message>
+	<message key="submission.start">Inicia</message>
+	<message key="submission.submissionHistory">Historial de la tramesa</message>
+	<message key="submission.submissionManuscript">Manuscrit de la tramesa</message>
+	<message key="submission.submissionReview">Revisió de la tramesa</message>
+	<message key="submission.submitter">Remitent</message>
+	<message key="submission.summary">Resum</message>
+	<message key="submission.supplementaryFiles">Fitxers addicionals</message>
+	<message key="submission.supportingAgencies">Agències de suport</message>
+	<message key="submission.titleAndAbstract">Títol i resum</message>
+	<message key="submission.underway">En procés</message>
+	<message key="submission.uploadFileTo">Puja el fitxer a</message>
+	<message key="submission.viewMetadata">Visualitza les metadades</message>
+	<message key="submission.views">Visualitzacions</message>
+</locale>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/ca_ES/installer.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Catalan) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Catalan">
+	<message key="installer.additionalLocales">Configuracions regionals addicionals</message>
+	<message key="installer.administratorAccount">Compte de l’administrador/a</message>
+	<message key="installer.administratorAccountInstructions">Aquest compte d’usuari esdevindrà l’administrador del lloc i tindrà accés complet al sistema. Una vegada finalitzada la instal·lació serà possible crear comptes d’usuari addicionals.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">No</span>]]></message>
+	<message key="installer.checkYes">Sí</message>
+	<message key="installer.clientCharset">Joc de caràcters del client</message>
+	<message key="installer.clientCharsetInstructions">Codificació que s’utilitzarà per a les dades que s’enviïn als navegadors i es rebin des d’aquests.</message>
+	<message key="installer.configFileError"><![CDATA[El fitxer de configuració <tt>config.inc.php</tt> no existeix o no té permís de lectura.]]></message>
+	<message key="installer.connectionCharset">Joc de caràcters de la connexió</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[Codificació que s’utilitzarà per a les dades que s’enviïn a la base de dades i que es rebin d’aquesta. Ha de ser la mateixa que la del joc de caràcters del client. Noteu que només MySQL >= 4.1.1 i PostgreSQL >= 7.1 admeten aquesta característica. Seleccioneu &#171;No aplicable&#187; si el vostre servidor de bases de dades no compleix aquests requisits.]]></message>
+	<message key="installer.contentsOfConfigFile">Continguts del fitxer de configuració</message>
+	<message key="installer.createDatabase">Crea una base de dades nova</message>
+	<message key="installer.createDatabaseInstructions">Per a utilitzar aquesta opció el vostre sistema de bases de dades ha d’admetre la creació remota de bases de dades i el vostre compte d’usuari ha de tenir els permisos adequats per a crear noves bases de dades. Si heu seleccionat aquesta opció i la instal·lació falla, creeu la base de dades manualment al servidor i torneu a executar l’instal·lador amb l’opció desactivada.</message>
+	<message key="installer.databaseCharset">Joc de caràcters de la base de dades</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Codificació per a les dades emmagatzemades a la base de dades. Noteu que només MySQL >= 4.1.1 i PostgreSQL >= 7.1 admeten aquesta característica Seleccioneu &#171;No aplicable&#187; si el vostre servidor de bases de dades no compleix aquests requisits.]]></message>
+	<message key="installer.databaseDriver">Controlador de la base de dades</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Els connectors de bases de dades llistats entre parèntesis no sembla que tinguin carregada l’extensió PHP requerida, per la qual cosa si els seleccioneu és probable que la instal·lació falli. </strong><br /> Els connectors de bases de dades no admesos només es llisten per a finalitats acadèmiques, i és poc probable que funcionin.]]></message>
+	<message key="installer.databaseHost">Amfitrió</message>
+	<message key="installer.databaseHostInstructions"><![CDATA[Deixeu en blanc el nom de l’amfitrió si voleu connectar utilitzant sòcols de domini, en lloc de fer-ho a través de TCP/IP. Aquesta acció no serà necessària si treballeu amb MySQL, ja que aquest sistema utilitza sòcols automàticament si s’introdueix &#171;localhost&#187;, però en canvi sí que l’haureu de fer amb altres servidors de bases de dades, com ara PostgreSQL.]]></message>
+	<message key="installer.databaseName">Nom de la base de dades</message>
+	<message key="installer.databasePassword">Contrasenya</message>
+	<message key="installer.databaseSettings">Configuració de la base de dades</message>
+	<message key="installer.databaseUsername">Nom d’usuari</message>
+	<message key="installer.encryptionInstructions"><![CDATA[Es recomana utilitzar SHA1 si el sistema l’admet (requereix PHP >= 4.3.0).]]></message>
+	<message key="installer.encryption">Algorisme de xifratge de contrasenyes</message>
+	<message key="installer.filesDir">Directori per a penjar fitxers</message>
+	<message key="installer.fileSettings">Configuració dels fitxers</message>
+	<message key="installer.form.clientCharsetRequired">Heu de seleccionar un joc de caràcters del client.</message>
+	<message key="installer.form.databaseDriverRequired">Heu de seleccionar un controlador de la base de dades.</message>
+	<message key="installer.form.databaseNameRequired">Heu d’introduir el nom de la base de dades.</message>
+	<message key="installer.form.emailRequired">Heu d’introduir una adreça electrònica vàlida per al compte d’administrador/a.</message>
+	<message key="installer.form.encryptionRequired">Heu de seleccionar l’algorisme que s’utilitzarà per a xifrar les contrasenyes d’usuari/usuària.</message>
+	<message key="installer.form.filesDirRequired">Heu d’introduir el directori que s’utilitzarà per a emmagatzemar els fitxers penjats.</message>
+	<message key="installer.form.localeRequired">Heu de seleccionar una configuració regional.</message>
+	<message key="installer.form.passwordRequired">Heu d’introduir una contrasenya per al compte d’administrador/a.</message>
+	<message key="installer.form.passwordsDoNotMatch">Les contrasenyes d’administrador/a no coincideixen.</message>
+	<message key="installer.form.separateMultiple">Separeu els valors múltiples amb comes.</message>
+	<message key="installer.form.usernameAlphaNumeric">El nom d’usuari de l’administrador/a només pot contenir caràcters alfanumèrics, ratlles baixes i guionets, i ha de començar i acabar amb un caràcter alfanumèric.</message>
+	<message key="installer.form.usernameRequired">Heu d’introduir un nom d’usuari per al compte d’administrador/a.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>Avís: la versió actual de PHP no compleix els requisits mínims per a la instal·lació. Us recomanem que instal·leu una versió de PHP més recent.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">S’han produït errors durant la instal·lació.</message>
+	<message key="installer.installerSQLStatements">Expressions SQL per a la instal·lació</message>
+	<message key="installer.installFileError"><![CDATA[El fitxer d’instal·lació <tt>dbscripts/xml/install.xml</tt> no existeix o no té permís de lectura.]]></message>
+	<message key="installer.installFilesDirError">El directori especificat per als fitxers penjats no existeix o no té permís d’escriptura.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[S’ha produït un error en analitzar el fitxer d’instal·lació de la base de dades <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">Configuració regional</message>
+	<message key="installer.localeSettingsInstructions">Si necessiteu compatibilitat completa amb Unicode (UTF-8), seleccioneu UTF-8 per a tots els paràmetres relatius als jocs de caràcters. Noteu que per a poder dispo</message>
+	<message key="installer.localeSettings">Paràmetres de configuració regional</message>
+	<message key="installer.manualInstall">Instal·lació manual</message>
+	<message key="installer.manualUpgrade">Actualització manual</message>
+	<message key="installer.miscSettings">Paràmetres diversos</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per a identificar els registres de metadades indexats des d’aquest lloc mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de l’<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
+	<message key="installer.oaiRepositoryId">Identificador del dipòsit OAI</message>
+	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
+	<message key="installer.releaseNotes">Notes de la versió</message>
+	<message key="installer.securitySettings">Configuració de seguretat</message>
+	<message key="installer.skipFilesDir">No creïs els subdirectoris requerits (només és útil per a la instal·lació manual).</message>
+</locale>

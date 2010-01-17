@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/ca_ES/user.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Catalan) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Catalan">
+	<message key="user.affiliation">Institució/Empresa</message>
+	<message key="user.affiliations">Filiacions</message>
+	<message key="user.biography">Resum biogràfic</message>
+	<message key="user.biography.description">(p. ex. departament i càrrec)</message>
+	<message key="user.changeMyPassword">Canvia la meva contrasenya</message>
+	<message key="user.changePassword">Canvia la contrasenya</message>
+	<message key="user.dateLastLogin">Darrer inici de sessió</message>
+	<message key="user.dateRegistered">Data de registre</message>
+	<message key="user.editMyProfile">Edita el meu perfil</message>
+	<message key="user.email">Adreça electrònica</message>
+	<message key="user.fax">Fax</message>
+	<message key="user.feminine">Dona</message>
+	<message key="user.firstName">Nom</message>
+	<message key="user.gender">Sexe</message>
+	<message key="user.initialsExample">Pere Martí Valls = PMV</message>
+	<message key="user.initials">Inicials</message>
+	<message key="user.interests">Interessos de revisió</message>
+	<message key="user.lastName">Cognoms</message>
+	<message key="user.login.accountDisabledWithReason">El vostre compte ha estat desactivat pel motiu següent: {$reason}</message>
+	<message key="user.login.accountDisabled">El vostre compte ha estat desactivat. Per a més informació, poseu-vos en contacte amb l’administrador/a.</message>
+	<message key="user.login.accountNotValidated">La vostra adreça electrònica no ha estat validada. Comproveu-la i seguiu les instruccions. En cas que no hàgiu rebut un missatge de correu electrònic, poseu-vos en contacte amb l’administrador/a del lloc web.</message>
+	<message key="user.login.activate">Activa el compte</message>
+	<message key="user.login.activated">Gràcies per activar el vostre compte. Ara ja podeu iniciar la sessió amb les dades que heu indicat en crear el compte.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Heu de triar una contrasenya nova per a poder iniciar la sessió.<br /><br />Introduïu a continuació el vostre nom d’usuari, la vostra contrasenya actual i la contrasenya nova.]]></message>
+	<message key="user.login.forgotPassword">Heu oblidat la contrasenya?</message>
+	<message key="user.login.loginError">El nom d’usuari o la contrasenya no són vàlids. Torneu-ho a intentar.</message>
+	<message key="user.login">Inici de la sessió</message>
+	<message key="user.logIn">Inicia la sessió</message>
+	<message key="user.login.lostPassword.confirmationSent">S’ha enviat una confirmació a la vostra adreça electrònica. Seguiu les instruccions incloses en el missatge enviat per a reinicialitzar la vostra contrasenya.</message>
+	<message key="user.login.lostPassword.invalidHash">Ho sentim, l’enllaç al qual heu fet clic ha vençut o no és vàlid. Intenteu reinicialitzar la contrasenya una altra vegada.</message>
+	<message key="user.login.lostPassword.invalidUser">No existeix cap usuari/usuària amb l’adreça electrònica especificada.</message>
+	<message key="user.login.lostPassword.passwordSent">S’ha enviat una contrasenya nova a la vostra adreça electrònica. Ara ja podeu iniciar la sessió amb aquesta contrasenya.</message>
+	<message key="user.login.registeredEmail">Adreça electrònica de l’usuari/usuària registrat</message>
+	<message key="user.login.rememberUsernameAndPassword">Recorda el meu nom d’usuari i la contrasenya</message>
+	<message key="user.login.resetPassword">Reinicieu la contrasenya</message>
+	<message key="user.logOut">Surt de la sessió</message>
+	<message key="user.mailingAddress">Adreça postal</message>
+	<message key="user.masculine">Home</message>
+	<message key="user.middleName">Segon nom</message>
+	<message key="user.myAccount">El meu compte</message>
+	<message key="user.name">Nom</message>
+	<message key="user.password">Contrasenya</message>
+	<message key="user.phone">Telèfon</message>
+	<message key="user.profile.changePasswordInstructions">Introduïu la contrasenya actual i la contrasenya nova per a canviar la contrasenya del vostre compte.</message>
+	<message key="user.profile.editProfile">Edita el perfil</message>
+	<message key="user.profile.form.emailRequired">Heu d’introduir una adreça electrònica vàlida.</message>
+	<message key="user.profile.form.firstNameRequired">Heu d’introduir un nom.</message>
+	<message key="user.profile.form.lastNameRequired">Heu d’introduir un cognom.</message>
+	<message key="user.profile.form.newPasswordRequired">Heu d’introduir la contrasenya nova.</message>
+	<message key="user.profile.form.oldPasswordInvalid">La contrasenya actual que heu introduït és incorrecta.</message>
+	<message key="user.profile.form.openAccessNotifications">Notificacions per correu electrònic de l’accés lliure per a un número</message>
+	<message key="user.profile.form.passwordRequired">Heu d’introduir una contrasenya.</message>
+	<message key="user.profile.form.profileImage">Imatge del perfil</message>
+	<message key="user.profile.form.publishedNotifications">Notificacions per correu electrònic de la publicació d’un número nou</message>
+	<message key="user.profile.form.urlInvalid">L’URL indicat no és vàlid. Comproveu l’URL i torneu-ho a intentar. (Consell: proveu d’afegir "http://" al principi de l’URL.)</message>
+	<message key="user.profile.form.usernameRequired">Heu d’introduir un nom d’usuari.</message>
+	<message key="user.profile.leavePasswordBlank">No empleneu els camps de contrasenya si voleu mantenir la contrasenya actual.</message>
+	<message key="user.profile.newPassword">Contrasenya nova</message>
+	<message key="user.profile.oldPassword">Contrasenya actual</message>
+	<message key="user.profile">Perfil</message>
+	<message key="user.profile.publicProfile">Perfil d’usuari</message>
+	<message key="user.profile.repeatNewPassword">Repetiu la contrasenya nova</message>
+	<message key="user.register.completeForm">Empleneu aquest formulari per a registrar-vos en aquesta revista.</message>
+	<message key="user.register.form.emailExists">Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica seleccionada.</message>
+	<message key="user.register.form.passwordsDoNotMatch">Les contrasenyes no coincideixen.</message>
+	<message key="user.register.form.usernameAlphaNumeric">El nom d’usuari només pot contenir caràcters alfanumèrics, ratlles baixes i guionets, i ha de començar i acabar amb un caràcter alfanumèric.</message>
+	<message key="user.register.form.usernameExists">Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat.</message>
+	<message key="user.register.passwordLengthRestriction">La contrasenya ha de tenir {$length} caràcters com a mínim.</message>
+	<message key="user.register.registerAs">Registra’m com a</message>
+	<message key="user.register">Registre</message>
+	<message key="user.register.usernameRestriction">El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes.</message>
+	<message key="user.role.reader">Lector/a</message>
+	<message key="user.role.readers">Lectors/es</message>
+	<message key="user.role.reviewer">Revisor/a</message>
+	<message key="user.role.reviewers">Revisors/es</message>
+	<message key="user.role.siteAdmin">Administrador/a del lloc web</message>
+	<message key="user.role.siteAdmins">Administradors/es de llocs web</message>
+	<message key="user.roles">Rols</message>
+	<message key="user.salutation">Tractament</message>
+	<message key="user.sendPassword">Confirmació</message>
+	<message key="user.sendPassword.description">Envia’m una confirmació per correu electrònic amb el nom d’usuari i la contrasenya.</message>
+	<message key="user.signature">Signatura</message>
+	<message key="user.title">Tractament</message>
+	<message key="user.url">URL</message>
+	<message key="user.userHome">Pàgina inicial de l’usuari/usuària</message>
+	<message key="user.username">Nom d’usuari</message>
+	<message key="user.workingLanguages">Llengües de treball</message>
+</locale>

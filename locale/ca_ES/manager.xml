@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * pkp//locale/ca_ES/manager.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ca_ES (Catalan) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ca_ES" full_name = "Catalan">
+	<message key="manager.announcements">Avisos</message>
+	<message key="manager.announcements.confirmDelete">Esteu segur/a que voleu suprimir aquest avís de manera permanent?</message>
+	<message key="manager.announcements.create">Crea un avís nou</message>
+	<message key="manager.announcements.createTitle">Crea</message>
+	<message key="manager.announcements.dateExpire">Venciment</message>
+	<message key="manager.announcements.edit">Edita l’avís</message>
+	<message key="manager.announcements.editTitle">Edita</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Seleccioneu un any i/o un mes a més del dia per a la data de venciment.</message>
+	<message key="manager.announcements.form.dateExpire">Data de venciment</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Es mostrarà l’avís als lectors/es fins a aquesta data. Deixeu aquest camp en blanc si voleu que l’avís es mostri indefinidament.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Seleccioneu un any i/o un dia a més del mes per a la data de venciment.</message>
+	<message key="manager.announcements.form.dateExpireValid">Seleccioneu una data vàlida per al venciment de l’avís.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Seleccioneu un mes i/o un dia a més de l’any per a la data de venciment.</message>
+	<message key="manager.announcements.form.description">Descripció</message>
+	<message key="manager.announcements.form.descriptionInstructions">Text complet de l’avís.</message>
+	<message key="manager.announcements.form.descriptionRequired">Heu d’introduir una descripció per a l’avís.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Descripció breu que es mostrarà juntament amb el títol de l’avís.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Heu d’introduir una descripció breu per a l’avís.</message>
+	<message key="manager.announcements.form.descriptionShort">Descripció breu</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Desa’l i crea’n un altre</message>
+	<message key="manager.announcements.form.titleRequired">Heu d’introduir un títol per a l’avís.</message>
+	<message key="manager.announcements.form.title">Títol</message>
+	<message key="manager.announcements.form.typeId">Tipus</message>
+	<message key="manager.announcements.form.typeIdValid">Seleccioneu un tipus d’avís vàlid.</message>
+	<message key="manager.announcements.noneCreated">No s’ha creat cap avís.</message>
+	<message key="manager.announcements.title">Títol</message>
+	<message key="manager.announcements.type">Tipus</message>
+	<message key="manager.announcementTypes">Tipus d’avís</message>
+	<message key="manager.announcementTypes.confirmDelete">També se suprimiran tots els avisos pertanyents a aquest tipus d’avís. Esteu segur/a que voleu continuar i suprimir aquest tipus d’avís?</message>
+	<message key="manager.announcementTypes.create">Crea un tipus d’avís</message>
+	<message key="manager.announcementTypes.createTitle">Crea</message>
+	<message key="manager.announcementTypes.edit">Edita el tipus d’avís</message>
+	<message key="manager.announcementTypes.editTitle">Edita</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Desa’l i crea’n un altre</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Ja existeix un tipus d’avís amb aquest nom.</message>
+	<message key="manager.announcementTypes.form.typeName">Nom</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Cal que introduïu un nom per al tipus d’avís.</message>
+	<message key="manager.announcementTypes.noneCreated">No s’ha creat cap tipus d’avís.</message>
+	<message key="manager.announcementTypes.typeName">Tipus d’avís</message>
+	<message key="manager.emails.confirmDelete">Esteu segur/a que voleu suprimir aquesta plantilla de missatge de correu electrònic?</message>
+	<message key="manager.emails.confirmReset">Esteu segur/a que voleu reiniciar aquesta plantilla de missatge de correu electrònic als seus valors predeterminats?</message>
+	<message key="manager.emails.createEmail">Crea un missatge de correu electrònic</message>
+	<message key="manager.emails.disable">Inhabilita</message>
+	<message key="manager.emails.editEmail">Edita el missatge de correu electrònic</message>
+	<message key="manager.emails.editTestExample">Edita l’exemple de missatge de correu electrònic de prova</message>
+	<message key="manager.emails.emailKey">Clau per al missatge de correu electrònic</message>
+	<message key="manager.emails.emailKeyExists">Ja existeix un missatge de correu electrònic amb la clau indicada. Les claus han de ser úniques.</message>
+	<message key="manager.emails.emailTemplate">Plantilla de missatge de correu electrònic</message>
+	<message key="manager.emails.emailTemplates">Plantilles de missatges de correu electrònic</message>
+	<message key="manager.emails.enabled">Habilita aquesta plantilla de missatge de correu electrònic</message>
+	<message key="manager.emails.enable">Habilita</message>
+	<message key="manager.emails.form.bodyRequired">Heu d’introduir un cos per al missatge de correu electrònic.</message>
+	<message key="manager.emails.form.subjectRequired">Heu d’introduir un assumpte per al missatge de correu electrònic.</message>
+	<message key="manager.emails">Plantilles de missatges de correu electrònic</message>
+	<message key="manager.emails.resetAll">Reinicia totes les plantilles</message>
+	<message key="manager.emails.reset">Reinicia</message>
+	<message key="manager.emails.resetToDefault">Reinicia als valors predeterminats</message>
+	<message key="manager.filesBrowser">Navegador de fitxers</message>
+	<message key="manager.files.confirmDelete">Voleu suprimir aquest fitxer o directori? Per a poder suprimir un directori cal que estigui buit.</message>
+	<message key="manager.files.createDir">Crea un directori</message>
+	<message key="manager.files.emptyDir">No s’ha trobat cap fitxer en aquest directori.</message>
+	<message key="manager.files.indexOfDir">Índex de {$dir}</message>
+	<message key="manager.files.parentDir">Directori principal</message>
+	<message key="manager.files.uploadedFiles">Fitxers penjats</message>
+	<message key="manager.files.uploadFile">Puja un fitxer</message>
+	<message key="manager.groups.confirmDelete">Esteu segur/a que voleu suprimir aquest grup?</message>
+	<message key="manager.groups.createTitle">Crea un títol</message>
+	<message key="manager.groups.editTitle">Edita el títol</message>
+	<message key="manager.groups.form.groupTitleRequired">Heu d’introduir un títol de grup.</message>
+	<message key="manager.groups.membership.addMember">Afegeix un membre</message>
+	<message key="manager.groups.membership.confirmDelete">Esteu segur/a que voleu suprimir aquest membre del grup?</message>
+	<message key="manager.groups.membership">Membres</message>
+	<message key="manager.groups.membership.noneCreated">Aquest grup no té cap membre.</message>
+	<message key="manager.groups.membership.noUsers">No s’ha trobat cap usuari/usuària.</message>
+	<message key="manager.groups.title">Títol</message>
+	<message key="manager.importExport">Importació i exportació de dades</message>
+	<message key="manager.languages.alternateLocaleInstructions">Aquest sistema admet l’opció d’introduir determinades informacions crítiques en diverses llengües addicionals. Per a utilitzar aquesta característica, seleccioneu que voleu alternar les configuracions regionals i trieu alguna de les opcions que es mostren a continuació.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Seleccioneu totes les configuracions regionals que oferirà el lloc mitjançant un menú de selecció de llengua que apareixerà a totes les pàgines. Aquest menú només es mostrarà si s’ha seleccionat més d’una configuració regional.</message>
+	<message key="manager.payment.timestamp">Timestamp</message>
+	<message key="manager.people.authSource">Font d’autenticació</message>
+	<message key="manager.people.confirmUnenroll">Voleu donar de baixa aquest usuari/usuària?</message>
+	<message key="manager.people.createUser">Crea un usuari/usuària nou</message>
+	<message key="manager.people.createUserGeneratePassword">Genera una contrasenya aleatòria.</message>
+	<message key="manager.people.createUserSendNotify">Envia a l’usuari/usuària un missatge de correu electrònic de benvinguda amb el seu nom d’usuari i la seva contrasenya.</message>
+	<message key="manager.people.disable">Desactiva</message>
+	<message key="manager.people.doNotEnroll">Sense cap rol</message>
+	<message key="manager.people.editProfile">Edició del perfil</message>
+	<message key="manager.people.editUser">Edita l’usuari/usuària</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Envia un missatge de correu electrònic als usuaris/usuàries seleccionats</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Envia un missatge de correu electrònic als usuaris/usuàries donats d’alta com a</message>
+	<message key="manager.people.emailUsers">Envia un missatge de correu electrònic als usuaris/usuàries</message>
+	<message key="manager.people.emailUsers.selectLocale">Selecciona una configuració regional</message>
+	<message key="manager.people.emailUsers.selectUsers">Seleccioneu els usuaris/usuàries als quals voleu enviar un missatge de correu electrònic activant les caselles de selecció que hi ha al costat dels seus noms.</message>
+	<message key="manager.people.enable">Activa</message>
+	<message key="manager.people.enroll">Dóna d’alta l’usuari/usuària</message>
+	<message key="manager.people.enrollment">Altes</message>
+	<message key="manager.people.enrollSelected">Dóna d’alta els usuaris/usuàries seleccionats</message>
+	<message key="manager.people.enrollSyncRole">Sincronitza el rol</message>
+	<message key="manager.people.enrollSync">Sincronització d’altes</message>
+	<message key="manager.people.enrollUserAsDescription">Podeu assignar i desassignar rols als usuaris/usuàries en qualsevol moment.</message>
+	<message key="manager.people.enrollUserAs">Dóna d’alta l’usuari/usuària com a</message>
+	<message key="manager.people.invalidUser">L’usuari/usuària sol·licitat no existeix.</message>
+	<message key="manager.people.mergeUser">Fusiona l’usuari/usuària</message>
+	<message key="manager.people.mergeUsers.confirm"><![CDATA[Esteu segur/a que voleu fusionar el compte amb nom d’usuari &#171;{$oldUsername}&#187; amb el compte amb nom d’usuari &#171;{$newUsername}&#187;? Si ho feu, el compte amb nom d’usuari &#171;{$oldUsername}&#187; deixarà d’existir. Aquesta acció és irreversible.]]></message>
+	<message key="manager.people.mergeUsers">Fusió d’usuaris/usuàries</message>
+	<message key="manager.people.mustChooseRole"><![CDATA[Seleccioneu un rol a la part superior de la pàgina abans de fer clic a &#171;Dóna d’alta l’usuari/usuària&#187;.]]></message>
+	<message key="manager.people.mustProvideName">Indiqueu un cognom per a l’usuari/usuària com a mínim.</message>
+	<message key="manager.people.noMatchingUsers">No s’han trobat usuaris/usuàries.</message>
+	<message key="manager.people.noneEnrolled">No hi ha cap usuari/usuària donat d’alta.</message>
+	<message key="manager.people">Persones</message>
+	<message key="manager.people.remove">Suprimeix</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Desa’l i crea’n un altre</message>
+	<message key="manager.people.signInAs">Inicia la sessió com a</message>
+	<message key="manager.people.signInAsUser">Inicia la sessió com a usuari/usuària</message>
+	<message key="manager.people.syncUsers">Sincronització de les altes d’usuari/usuària</message>
+	<message key="manager.people.unenroll">Dóna de baixa</message>
+	<message key="manager.people.userCreatedSuccessfully">L’usuari/usuària s’ha creat amb èxit.</message>
+	<message key="manager.people.userMustChangePassword">Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió.</message>
+	<message key="manager.plugins.action">Acció:</message>
+	<message key="manager.plugins.disable">Inhabilita</message>
+	<message key="manager.plugins.enable">Habilita</message>
+	<message key="manager.plugins.pluginManagement">Administració dels connectors</message>
+	<message key="manager.plugins.sitePlugin">Aquest connector s’utilitza a tot el lloc web, i només el pot gestionar l’administrador/a del lloc.</message>
+	<message key="manager.plugins">Connectors del sistema</message>
+	<message key="manager.readingTools">Eines de lectura</message>
+	<message key="manager.roles">Rols</message>
+	<message key="manager.setup.homeHeaderImageInvalid">El format de la imatge utilitzada com a logotip per a la capçalera de la pàgina inicial no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="manager.setup.homepageImageInvalid">El format de la imatge per a la pàgina inicial no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">El format de la imatge utilitzada com a títol per a la capçalera de la pàgina inicial no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Barra lateral esquerra</message>
+	<message key="manager.setup.layout.rightSidebar">Barra lateral dreta</message>
+	<message key="manager.setup.layout.unselected">No seleccionada</message>
+	<message key="manager.setup.loggingAndAuditing">Registre i control</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">El format de la imatge utilitzada com a logotip per a la capçalera de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">El format de la imatge utilitzada com a títol per a la capçalera de la pàgina no és vàlid. Els formats admesos són .gif, .jpg i .png.</message>
+	<message key="manager.setup.selectOne">Seleccioneu una de les opcions següents:</message>
+	<message key="manager.statistics">Estadístiques i informes</message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nous)</message>
+	<message key="manager.users">Usuaris/usuàries</message>
+	<message key="plugins.categories.auth">Connectors d’autorització</message>
+	<message key="plugins.categories.blocks">Connectors de bloc</message>
+	<message key="plugins.categories.blocks.description">Els connectors de bloc són components connectables de la interfície d’usuari/usuària, com ara les eines de les barres laterals.</message>
+	<message key="plugins.categories.citationFormats">Connectors de format de citació</message>
+	<message key="plugins.categories.gateways.description">Els connectors de passarel·la proporcionen dades actives als sistemes externs.</message>
+	<message key="plugins.categories.gateways">Connectors de passarel·la</message>
+	<message key="plugins.categories.generic">Connectors genèrics</message>
+	<message key="plugins.categories.importexport.description">Podeu utilitzar els connectors d’importació i exportació per a transferir continguts a altres sistemes i des d’altres sistemes.</message>
+	<message key="plugins.categories.importexport">Connectors d’importació i exportació</message>
+	<message key="plugins.categories.paymethod.description">Els connectors de mètode de pagament us proporcionen diversos sistemes per a processar els pagaments en línia.</message>
+	<message key="plugins.categories.paymethod">Connectors de pagament</message>
+	<message key="plugins.categories.reports.description">Els connectors per a informes implementen diversos tipus d’informes i extractes de dades per a administradors/es de conferències.</message>
+	<message key="plugins.categories.reports">Connectors per a informes</message>
+	<message key="plugins.categories.themes.description">Podeu utilitzar els connectors de tema per a canviar l’aparença del sistema.</message>
+	<message key="plugins.categories.themes">Connectors de tema</message>
+</locale>

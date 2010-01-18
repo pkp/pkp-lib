@@ -88,7 +88,7 @@ class ArrayItemIterator extends ItemIterator {
 	 * Return the next item in the iterator, with key.
 	 * @return array (key, value)
 	 */
-	function &nextWithKey() {
+	function nextWithKey() {
 		$key = key($this->theArray);
 		$value = $this->next();
 		return array($key, $value);

@@ -62,7 +62,7 @@ class GroupDAO extends DAO {
 			$params, $rangeInfo
 		);
 
-		$returner = new DAOResultFactory($result, $this, '_returnGroupFromRow');
+		$returner = new DAOResultFactory($result, $this, '_returnGroupFromRow', array('id'));
 		return $returner;
 	}
 

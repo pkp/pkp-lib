@@ -39,5 +39,9 @@
 	
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Files</message>	
-	<message key="grid.libraryFiles.submission.title">Submission Library Files</message>
+	<message key="grid.libraryFiles.submission.title">Submission Library</message>
+	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>	
+	<message key="grid.libraryFiles.review.title">Review Library</message>
+	<message key="grid.libraryFiles.production.title">Production Library</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>			
 </locale>

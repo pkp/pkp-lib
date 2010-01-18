@@ -134,6 +134,7 @@ class PKPTemplateManager extends Smarty {
 		// UI overhaul
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
+		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -957,6 +958,23 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		echo $confirmCode;
+	}
+	
+	function smartyAjaxUpload($params, &$smarty) {
+		// Required params
+		if (!isset($params['form'])) {
+			$smarty->trigger_error("Form parameter is missing from ajax upload");
+		} else {
+			$form = $params['form'];
+		}
+
+		// Required params
+		if (!isset($params['url'])) {
+			$smarty->trigger_error("URL parameter is missing from ajax upload");
+		} else {
+			$url = $params['url'];
+		}				
+		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
 }
 

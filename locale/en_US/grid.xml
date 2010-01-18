@@ -15,6 +15,7 @@
 <locale name="en_US" full_name = "English">
 	<!-- Common -->
 	<message key="grid.noItems">No Items</message>
+	<message key="grid.settings">Settings</message>
 
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>
@@ -30,8 +31,13 @@
 	<message key="grid.sponsor.title">Sponsors</message>
 
 	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Groups</message>
+	<message key="grid.masthead.title">Masthead</message>
+	<message key="grid.masthead.column.groups">Groups</message>
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
+	
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Files</message>	
+	<message key="grid.libraryFiles.submission.title">Submission Library Files</message>
 </locale>

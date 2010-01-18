@@ -12,4 +12,8 @@
 	{confirm url=$action->getUrl() dialogText=$action->getTitle() actOnType=$action->getType() actOnId=$actOnId button="#`$buttonId`"}
 
 {/if}
-<button type="button" id="{$buttonId}">{translate key=$action->getTitle()}</button>
+{if $action->getImage()}
+	<a  href="" id="{$buttonId}" class="{$action->getImage()}">{translate key=$action->getTitle()}</a>
+{else}
+	<button type="button" id="{$buttonId}">{translate key=$action->getTitle()}</button>
+{/if}

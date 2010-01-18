@@ -398,12 +398,21 @@ div.grid tr.category td {
 	color: #777;
 	font-size: 90%;
 	padding: 2px 30px 1px 20px;
+<<<<<<< HEAD
 }
 
 .row_controls a:hover {
 	text-decoration: underline;
 }
 
+=======
+}
+
+.row_controls a:hover {
+	text-decoration: underline;
+}
+
+>>>>>>> gridFix
 a.sprite {
 	background-position: 0 top;
 	text-decoration: none;

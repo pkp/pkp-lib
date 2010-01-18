@@ -144,7 +144,7 @@ class GridMainHandler extends GridHandler {
 
 		$rowHandler =& $this->getRowHandler();
 		// initialize to create the columns
-		$rowHandler->initialize();
+		$rowHandler->initialize($request);
 		$columns =& $rowHandler->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign('numColumns', count($columns));

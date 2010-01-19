@@ -137,7 +137,13 @@ class PKPComponentRouter extends PKPRouter {
 
 			// Construct the fully qualified component class name from the rest of it.
 			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_CLASS).'Handler';
-			$handlerPackage = implode('.', $rpcServiceEndpointParts);
+
+			// camlize remaining endpoint parts
+			$camelizedRpcServiceEndpointParts = array();
+			foreach ( $rpcServiceEndpointParts as $part) {
+				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part);
+			}
+			$handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 
 			$this->_component = $handlerPackage.'.'.$handlerClassName;
 		}
@@ -283,7 +289,13 @@ class PKPComponentRouter extends PKPRouter {
 		$componentName = array_pop($componentParts);
 		assert(substr($componentName, -7) == 'Handler');
 		$componentName = $this->_uncamelize(substr($componentName, 0, -7));
-		array_push($componentParts, $componentName);
+
+		// uncamelize the component parts
+		$uncamelizedComponentParts = array();
+		foreach ($componentParts as $part) {
+			$uncamelizedComponentParts[] = $this->_uncamelize($part);
+		}
+		array_push($uncamelizedComponentParts, $componentName);
 		$opName = $this->_uncamelize($op);
 
 		//
@@ -306,7 +318,7 @@ class PKPComponentRouter extends PKPRouter {
 			$pathInfoArray = array_merge(
 				$context,
 				array(COMPONENT_ROUTER_PATHINFO_MARKER),
-				$componentParts,
+				$uncamelizedComponentParts,
 				array($opName)
 			);
 
@@ -322,7 +334,7 @@ class PKPComponentRouter extends PKPRouter {
 			$queryParametersArray = array_merge(
 				$context,
 				array(
-					COMPONENT_ROUTER_PARAMETER_MARKER.'='.implode('.', $componentParts),
+					COMPONENT_ROUTER_PARAMETER_MARKER.'='.implode('.', $uncamelizedComponentParts),
 					"op=$opName"
 				),
 				$additionalParameters

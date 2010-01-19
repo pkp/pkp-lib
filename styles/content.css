@@ -211,60 +211,182 @@ ul.flat_list li, ol.flat_list li {
 
 /* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
 
-.response
-{
+.response {
 	margin-bottom: 10px;
 	text-align: left;
 }
 
-.response_block
-{
+.response_block {
 	background-position: 15px 50% !important;
 	background-repeat: no-repeat !important;
 	padding: 5px 20px 5px 60px;
 }
 
-.response .success
-{
+.response .success {
 	background: #daf0da url(../templates/images/structure/response_success.png);
 	border-top: 1px solid #5abd5a;
 	border-bottom: 1px solid #5abd5a;
 }
 
-.response .warning
-{
+.response .warning {
 	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
 	border-top: 1px solid #ffd324;
 	border-bottom: 1px solid #ffd324;
 }
 
-.response .error
-{
+.response .error {
 	background: #f8dada url(../templates/images/structure/response_error.png);
 	border-top: 1px solid #e68080;
 	border-bottom: 1px solid #e68080;
 }
 
-.response .forbidden
-{
+.response .forbidden {
 	background: #f8dada url(../templates/images/structure/response_forbidden.png);
 	border-top: 1px solid #e68080;
 	border-bottom: 1px solid #e68080;
 }
 
-.response .information
-{
+.response .information {
 	background: #c9e3f8 url(../templates/images/structure/response_info.png);
 	border-top: 1px solid #6aa6d6;
 	border-bottom: 1px solid #6aa6d6;
 }
 
-.response .help
-{
+.response .help {
 	background: #c9e3f8 url(../templates/images/structure/response_help.png);
 	border-top: 1px solid #6aa6d6;
 	border-bottom: 1px solid #6aa6d6;
 }
+
+/* @end */
+
+/* @group List Builder */
+
+.listbuilder {
+	border: 1px solid #B6C9D5;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.listbuilder div.wrapper {
+	margin: 10px;
+	padding: 10px;
+}
+
+.listbuilder_controls {
+	text-align: center;
+	margin-top: 24px;
+	line-height: 20px;
+}
+
+.listbuilder_controls a {
+	text-decoration: none;
+	display: inline;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	padding: 5px 10px 5px 10px;
+}
+
+a.add_item {
+	background-image: url(../templates/images/structure/lb_add.png);
+}
+
+a.remove_item {
+	background-image: url(../templates/images/structure/lb_delete.png);
+}
+
+.listbuilder_results {
+	height: 140px;
+	overflow: hidden;
+}
+
+div.list .refresh {
+	float: right;
+	margin-top: 5px;
+	margin-right: 15px;
+}
+
+.listbuilderGrid {
+	border: 1px solid #B6C9D5;
+	height: 100px;
+	overflow: auto;
+	background-color: white;
+}
+
+.listbuilderGrid table {
+	width: 100%;
+}
+
+.listbuilderGrid td {
+	text-align: left;
+	height: 20px;
+	font-size: 85%;
+	vertical-align: middle;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.selected {
+	background-color: #CED7E1;
+}
+
+/* AutoSuggest CSS; See http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/ */
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	
+
+/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	
+
+/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	
+
+/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
 
 
 /* @end */
@@ -313,7 +435,6 @@ td.first_column a {
 	background-repeat: no-repeat;
 }
 
-
 div.grid .my_role {
 	border: 2px solid #ccc;
 }
@@ -356,31 +477,26 @@ div.grid tr.category td {
 	background-color: #e8f0f8;
 }
 
-.row_actions, .row_file
-{
+.row_actions, .row_file {
 	float: left;
 	height: 40px;
 	line-height: 40px;
 	vertical-align: middle;
 }
 
-.row_actions
-{
+.row_actions {
 	width: 25px;
 }
 
-.row_actions a
-{
+.row_actions a {
 	margin-left: 5px;
 }
 
-.row_file
-{
+.row_file {
 	margin-left: 15px;
 }
 
-.row_file a
-{
+.row_file a {
 	padding: 2px 20px;
 }
 
@@ -398,21 +514,16 @@ div.grid tr.category td {
 	color: #777;
 	font-size: 90%;
 	padding: 2px 30px 1px 20px;
-<<<<<<< HEAD
 }
 
 .row_controls a:hover {
 	text-decoration: underline;
 }
 
-=======
-}
-
 .row_controls a:hover {
 	text-decoration: underline;
 }
 
->>>>>>> gridFix
 a.sprite {
 	background-position: 0 top;
 	text-decoration: none;

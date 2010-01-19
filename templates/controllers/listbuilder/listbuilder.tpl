@@ -8,45 +8,67 @@
  *}
 {assign var="listbuilderId" value=$listbuilder->getId()}
 
-<div id="{$listbuilderId}" class="listbuilder">
-	<span class="title"><h5>{translate key=$listbuilder->getTitle()}</h5></span>
-	
-	<div class="wrapper">
-		<div class="source" id="source-{$listbuilderId}">
-		<label for="sourceTitle">{translate key=$listbuilder->getSourceTitle()}</label> <br />
-		{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
-			<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" /> <br />
-			{foreach name="attributes" from=$listbuilder->getAttributeNames() item=attributeName}
-				{assign var="iteration" value=$smarty.foreach.attributes.iteration}
-				<label for="attribute-{$iteration}-{$listbuilderId}">{translate key=$attributeName}</label> <br />
-				<input type="text" class="textField" size="30" name="attribute-{$iteration}-{$listbuilderId}" id="attribute-{$iteration}-{$listbuilderId}" value="" /> <br />
-			{/foreach}
-		{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
-			<select name="selectList-{$listbuilderId}" id="selectList-{$listbuilderId}" class="selectList">
-				{foreach from=$listbuilder->getPossibleItemList() item=item}{$item}{/foreach}
-			</select>
-			<br />
-		{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-			<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" /> <br />
-			<input type="hidden" id="sourceId-{$listbuilderId}" name="sourceId-{$listbuilderId}">
-		{/if}
-		</div>
 
-		<div class="actions">
-			<input id="add-{$listbuilderId}" onclick="return false;" type="image" src="{$baseUrl}/lib/pkp/templates/images/icons/action_forward.gif" alt={translate key="grid.action.addItem"}> <br />
-			<input id="delete-{$listbuilderId}" onclick="return false;" type="image" src="{$baseUrl}/lib/pkp/templates/images/icons/delete.gif" alt={translate key="grid.action.delete"}> <br />
+<div id="{$listbuilderId}" class="listbuilder">
+	<div class="wrapper">
+		<div class="unit size2of5" id="source-{$listbuilderId}">
+ 			<ul>
+		        <li>
+		            <label class="desc">
+		            	{translate key=$listbuilder->getTitle()}
+					</label>
+				  	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
+						<span>
+							<input type="text" class="field text" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" />
+							<label for="sourceTitle-{$listbuilderId}">
+		                    	{translate key=$listbuilder->getSourceTitle()}
+								<span class="req">*</span>
+		                	</label>
+						</span>
+						{foreach name="attributes" from=$listbuilder->getAttributeNames() item=attributeName}
+							{assign var="iteration" value=$smarty.foreach.attributes.iteration}
+							<span>
+								<input type="text" class="field text" name="attribute-{$iteration}-{$listbuilderId}" id="attribute-{$iteration}-{$listbuilderId}" value="" />
+								<label for="attribute-{$iteration}-{$listbuilderId}">
+									{translate key=$attributeName}
+								</label>
+							</span>
+						{/foreach}
+					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
+						<span>
+						<select name="selectList-{$listbuilderId}" id="selectList-{$listbuilderId}" class="field select">
+							{foreach from=$listbuilder->getPossibleItemList() item=item}{$item}{/foreach}
+						</select>
+							<label for="selectList-{$listbuilderId}">
+		                    	{translate key=$listbuilder->getSourceTitle()}
+								<span class="req">*</span>
+		                	</label>
+						</span>
+					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
+						<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" /> <br />
+						<input type="hidden" id="sourceId-{$listbuilderId}" name="sourceId-{$listbuilderId}">
+					{/if}
+				</li>
+			</ul>
 		</div>
-		
-	
-		<div class="list">
-			{include file="controllers/listbuilder/listbuilderGrid.tpl"}
+		<div class="unit size1of10 listbuilder_controls">
+			<a href="#" id="add-{$listbuilderId}" onclick="return false;" class="add_item">
+				<span class="hidetext">Add</span></a>
+			<br />
+			<a href="#" id="delete-{$listbuilderId}" onclick="return false;" class="remove_item">
+				<span class="hidetext">Delete</span></a>
+		</div>
+		<div class="unit size1of2 lastUnit listbuilder_results">
+		    <ul>
+		        <li>
+		            <label class="desc">
+		                {$listbuilder->getTitle()|translate}
+		            </label>
+					{include file="controllers/listbuilder/listbuilderGrid.tpl"}
+				</li>	
+			</ul>
 		</div>
 	</div>
-	<br style="clear:left"/>
-	<br />
-	
-	
-	
 	<script type='text/javascript'>
 	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
 		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId}{literal}");{/literal}

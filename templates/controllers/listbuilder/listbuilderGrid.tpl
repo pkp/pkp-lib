@@ -7,7 +7,6 @@
  * Displays a ListBuilder object
  *}
 
-<span class="subTitle">{$listbuilder->getTitle()|translate}</span>
 <div class="listbuilderGrid">
 <table id="listGrid-{$listbuilderId}">
     <tbody>

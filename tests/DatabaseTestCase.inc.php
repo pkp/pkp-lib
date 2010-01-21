@@ -15,7 +15,7 @@
  *        be used to clean up after each test case.
  */
 
-// $Id: DatabaseTestCase.inc.php,v 1.2 2009/10/30 16:43:43 asmecher Exp $
+// $Id$
 
 import('tests.PKPTestCase');
 
@@ -34,7 +34,7 @@ abstract class DatabaseTestCase extends PKPTestCase {
 		$_testSchema = null;
 
 
-	public function setUp() {
+	protected function setUp() {
 		// By default we use the MySQL test configuration
 		$this->setTestConfiguration(self::CONFIG_MYSQL);
 
@@ -42,7 +42,7 @@ abstract class DatabaseTestCase extends PKPTestCase {
 		$this->installTestSchema(self::TEST_SET_UP);
 	}
 
-	public function tearDown() {
+	protected function tearDown() {
 		// Clean up database
 		$this->installTestSchema(self::TEST_TEAR_DOWN);
 	}

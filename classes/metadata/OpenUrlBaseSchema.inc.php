@@ -23,6 +23,8 @@ class OpenUrlBaseSchema extends MetadataSchema {
 	 * Constructor
 	 */
 	function OpenUrlBaseSchema() {
+		$this->setNamespace('openurl10');
+
 		// Add meta-data properties common to all OpenURL standards
 		$this->addProperty(new MetadataProperty('aulast'));
 		$this->addProperty(new MetadataProperty('aufirst'));

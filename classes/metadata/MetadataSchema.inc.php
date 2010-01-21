@@ -29,6 +29,9 @@ class MetadataSchema {
 	/** @var string */
 	var $_name;
 
+	/** @var string */
+	var $_namespace;
+
 	/**
 	 * @var array meta-data properties (predicates)
 	 *  supported for this meta-data schema.
@@ -54,6 +57,21 @@ class MetadataSchema {
 		$this->_name = $name;
 	}
 
+	/**
+	 * Get the internal namespace qualifier of the schema
+	 * @return string
+	 */
+	function getNamespace() {
+		return $this->_namespace;
+	}
+
+	/**
+	 * Set the internal namespace qualifier of the schema
+	 * @param $namespace string
+	 */
+	function setNamespace($namespace) {
+		$this->_namespace = $namespace;
+	}
 
 	/**
 	 * Get the properties of the meta-data schema.
@@ -113,6 +131,24 @@ class MetadataSchema {
 	 */
 	function getPropertyNames() {
 		return array_keys($this->_properties);
+	}
+
+	/**
+	 * Get the names of properties with a given data type.
+	 * @param $propertyType string
+	 * @return array an array of string values representing valid property names
+	 */
+	function getPropertyNamesByType($propertyType) {
+		assert(in_array($propertyType, MetadataProperty::getSupportedTypes()));
+
+		$propertyNames = array();
+		foreach($this->_properties as $property) {
+			if ($property->getType() == $propertyType) {
+				$propertyNames[] = $property->getName();
+			}
+		}
+
+		return $propertyNames;
 	}
 
 	/**

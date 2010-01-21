@@ -101,7 +101,7 @@ class Filter {
 	 * @return mixed non-validated filter output or null if processing
 	 *  was not successful.
 	 */
-	function process(&$input) {
+	function &process(&$input) {
 		assert(false);
 	}
 

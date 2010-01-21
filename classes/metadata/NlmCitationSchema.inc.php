@@ -33,11 +33,12 @@ class NlmCitationSchema extends MetadataSchema {
 	 * Constructor
 	 */
 	function NlmCitationSchema() {
-		$this->setName('nlm-3.0-citation-element');
+		$this->setName('nlm-3.0-element-citation');
+		$this->setNamespace('nlm30');
 
 		$citation = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('person-group[@person-group-type="author"]', $citation, METADATA_PROPERTY_TYPE_COMPOSITE));
-		$this->addProperty(new MetadataProperty('person-group[@person-group-type="editor"]', $citation, METADATA_PROPERTY_TYPE_COMPOSITE));
+		$this->addProperty(new MetadataProperty('person-group[@person-group-type="author"]', $citation, METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY, ASSOC_TYPE_AUTHOR));
+		$this->addProperty(new MetadataProperty('person-group[@person-group-type="editor"]', $citation, METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY, ASSOC_TYPE_EDITOR));
 		$this->addProperty(new MetadataProperty('article-title', $citation, METADATA_PROPERTY_TYPE_STRING, true));
 		$this->addProperty(new MetadataProperty('source', $citation, METADATA_PROPERTY_TYPE_STRING, true));
 		$this->addProperty(new MetadataProperty('date', $citation, METADATA_PROPERTY_TYPE_DATE));

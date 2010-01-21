@@ -41,7 +41,7 @@ class CitationParserService extends CitationService {
 		}
 		
 		// Trim punctuation
-		$metadataElements = $citation->getNonEmptyElementsAsArray(METADATA_ELEMENT_TYPE_STRING);
+		$metadataElements = $citation->getNonEmptyElementsAsArray(METADATA_PROPERTY_TYPE_STRING);
 		foreach($metadataElements as $elementName => $elementValue) {
 			if (is_array($elementValue)) {
 				foreach($elementValue as $key => $elementInstanceValue) {

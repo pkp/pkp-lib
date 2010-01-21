@@ -25,12 +25,13 @@ define('CITATION_EDITED', 0x02);
 define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 
-import('metadata.MetadataDescription');
+import('core.DataObject');
 import('metadata.NlmCitationSchema');
+import('metadata.NlmCitationSchemaCitationAdapter');
 
-class Citation extends MetadataDescription {
+class Citation extends DataObject {
 	/** @var int citation state (raw, edited, parsed, looked-up) */
-	var $_citationState;
+	var $_citationState = CITATION_RAW;
 
 	/** @var string */
 	var $_rawCitation;
@@ -54,8 +55,11 @@ class Citation extends MetadataDescription {
 	 */
 	function Citation($rawCitation = null) {
 		// Instantiate the underlying meta-data schema
-		$nlmCitationSchema =& new NlmCitationSchema();
-		parent::MetadataDescription($nlmCitationSchema, ASSOC_TYPE_CITATION);
+		// FIXME: This should be done via plugin/user-configurable settings
+		$metadataSchema = new NlmCitationSchema();
+		$metadataAdapter = new NlmCitationSchemaCitationAdapter();
+		$this->addSupportedMetadataSchema($metadataSchema, $metadataAdapter);
+
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
 	}
 
@@ -185,6 +189,7 @@ class Citation extends MetadataDescription {
 	function setLookupScore($lookupScore) {
 		$this->_lookupScore = $lookupScore;
 	}
+
 
 	//
 	// Private methods

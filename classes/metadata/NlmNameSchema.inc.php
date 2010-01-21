@@ -26,12 +26,14 @@ class NlmNameSchema extends MetadataSchema {
 	 */
 	function NlmNameSchema() {
 		$this->setName('nlm-3.0-name');
+		$this->setNamespace('nlm30');
 
-		$citation = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('surname', $citation));
-		$this->addProperty(new MetadataProperty('given-names', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
-		$this->addProperty(new MetadataProperty('prefix', $citation));
-		$this->addProperty(new MetadataProperty('suffix', $citation));
+		// This schema is used for persons (authors, editors, ...)
+		$types = array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR);
+		$this->addProperty(new MetadataProperty('surname', $types));
+		$this->addProperty(new MetadataProperty('given-names', $types, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
+		$this->addProperty(new MetadataProperty('prefix', $types));
+		$this->addProperty(new MetadataProperty('suffix', $types));
 	}
 }
 ?>

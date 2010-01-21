@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTest
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see DataObject
  *
  * @brief Tests for the DataObject class.

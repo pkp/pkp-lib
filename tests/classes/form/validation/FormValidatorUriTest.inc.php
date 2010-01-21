@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorUriTest
- * @ingroup tests
+ * @ingroup tests_classes_validation
  * @see FormValidatorUri
  *
  * @brief Test class for FormValidatorUri.

@@ -8,7 +8,6 @@
  *
  * @class EliminatingCrosswalkFilter
  * @ingroup metadata
- * @see MetadataRecord
  *
  * @brief Class that provides methods to convert one type of
  *  meta-data record into another. This is an abstract template
@@ -29,9 +28,9 @@ class EliminatingCrosswalkFilter extends CrosswalkFilter {
 	 * @param $input MetadataRecord
 	 * @return MetadataRecord
 	 */
-	function process(&$input) {
+	function &process(&$input) {
 		// Create the target record
-		$output =& new MetadataRecord($this->_toSchema);
+		$output = new MetadataRecord($this->_toSchema);
 
 		// Compare the property names of the incoming record with
 		// the property names allowed in the target schema.

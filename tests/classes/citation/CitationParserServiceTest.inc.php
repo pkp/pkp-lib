@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationParserServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation
  * @see CitationParserService
  *
  * @brief Tests for the CitationParserService class.
@@ -21,11 +21,11 @@ import('citation.Citation');
 
 class CitationParserServiceTest extends PKPTestCase {
 	private $_citationParserService;
-	
+
 	public function setUp() {
 		$this->_citationParserService = new CitationParserService();
 	}
-	
+
 	/**
 	 * @covers CitationParserService::parse
 	 */
@@ -35,26 +35,26 @@ class CitationParserServiceTest extends PKPTestCase {
 		// to test whether parse() cleans this up.
 		$citation->setArticleTitle('Article Title with Punctuation.');
 		$citation->addComment('Comment with Punctuation.');
-		
+
 		// Mock CitationParserService->parseInternal() which will usually
 		// be implemented by sub-classes.
 		$mockCPService =&
 				$this->getMock('CitationParserService', array('parseInternal'));
-		
+
 		// Set up the parseInternal() method
 		$mockCPService->expects($this->once())
 		              ->method('parseInternal')
 		              ->with($this->equalTo($mockCPService->getCitationString($citation)))
 		              ->will($this->returnValue($citation));
-		
+
 		// Call the SUT
 		$citation = $mockCPService->parse($citation);
-		
+
 		// Test whether the citation has been cleaned up.
 		self::assertEquals('Article Title with Punctuation', $citation->getArticleTitle());
 		self::assertEquals(array('Comment with Punctuation'), $citation->getComments());
 	}
-	
+
 	/**
 	 * @covers CitationParserService::getCitationString
 	 */

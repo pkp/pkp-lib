@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Validation
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see PKPPageRouterTest
  *
  * @brief Mock implementation of the Validation class for the PKPPageRouterTest

@@ -24,7 +24,7 @@ class CitationService {
 	 * Return a mapping of text genres as returned from
 	 * XSL transformations to our own genre constants.
 	 * NB: PHP4 work-around for a private static class member
-	 * @return array supported meta-data genres 
+	 * @return array supported meta-data genres
 	 */
 	function _getGenreTranslationMapping() {
 		static $genreTranslationMapping = array(
@@ -33,13 +33,13 @@ class CitationService {
 			'proceeding' => METADATA_GENRE_CONFERENCEPROCEEDING,
 			'dissertation' => METADATA_GENRE_DISSERTATION
 		);
-		
+
 		return $genreTranslationMapping;
 	}
 
 	//
 	// Protected methods for use by sub-classes
-	// 
+	//
 	/**
 	 * Call a web services
 	 * @param unknown_type $url
@@ -63,38 +63,38 @@ class CitationService {
 			// POST to the web service
 			for ($retries = 0; $retries < CITATION_SERVICE_WEBSERVICE_RETRIES; $retries++) {
 				if ($result = @curl_exec($ch)) break;
-				
+
 				// Wait for a short interval before trying again
 				usleep(CITATION_SERVICE_WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
 			}
-			
+
 			curl_close($ch);
 		} else {
 			$oldSocketTimeout = ini_set('default_socket_timeout', 120);
-			
+
 			// GET from the web service
 			for ($retries = 0; $retries < CITATION_SERVICE_WEBSERVICE_RETRIES; $retries++) {
 				if ($result = @file_get_contents($url)) break;
-				
+
 				// Wait for a short interval before trying again
 				usleep(CITATION_SERVICE_WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
 			}
-			
+
 			if ($oldSocketTimeout !== false) ini_set('default_socket_timeout', $oldSocketTimeout);
 		}
 
 		// Catch web service errors
 		if (!$result) return null;
-			
+
 		// Clean the result
 		$result = stripslashes($result);
 		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($result) ) {
 			$result = String::utf8_normalize($result);
 		}
-		
+
 		return $result;
 	}
-	
+
 	/**
 	 * Takes the raw xml result of a web service and
 	 * transforms it using an XSL file. Then it converts
@@ -107,10 +107,10 @@ class CitationService {
 		// FIXME: DOM is PHP5 only, use DOM XML for PHP4.
 		//        Can only do/test this when we have a GUI.
 		//        PHPUnit is PHP5 only.
-		
+
 		// Create a temporary DOM document to hold the XML response
 		$temporaryDOM = new DOMDocument();
-		
+
 		// Try to handle non-well-formed responses
 		$temporaryDOM->recover = true;
 		$temporaryDOM->loadXML($xmlResult);
@@ -126,55 +126,55 @@ class CitationService {
 		$outDOM = $xsltProcessor->transformToDoc($temporaryDOM);
 
 		$metadata = $this->xmlToArray($outDOM->documentElement);
-		
+
 		// Translate the genre
 		if (isset($metadata['genre'])) {
 			$genreTranslationMapping = CitationService::_getGenreTranslationMapping();
 			assert(isset($genreTranslationMapping[$metadata['genre']]));
 			$metadata['genre'] = $genreTranslationMapping[$metadata['genre']];
 		}
-		
+
 		// Parse author strings
 		if (isset($metadata['author'])) {
 			// Get the author strings from the result
 			$authorStrings = $metadata['author'];
 			unset($metadata['author']);
-			
+
 			// If we only have one author then we'll have to
-			// convert the author strings to an array first. 
+			// convert the author strings to an array first.
 			if (!is_array($authorStrings)) $authorStrings = array($authorStrings);
-			
+
 			$authors = array();
 			foreach ($authorStrings as $authorString) {
 				$authors[] =& $this->parseAuthorString($authorString);
 			}
 			$metadata['authors'] = $authors;
 		}
-		
+
 		// Transform comments
 		if (isset($metadata['comment'])) {
 			// Get comments from the result
 			$comments = $metadata['comment'];
 			unset($metadata['comment']);
-			
+
 			// If we only have one comment then we'll have to
-			// convert the it to an array. 
+			// convert the it to an array.
 			if (!is_array($comments)) $comments = array($comments);
-			
+
 			$metadata['comments'] = $comments;
 		}
-		
+
 		// Parse date string
 		if (isset($metadata['issuedDate']))
 				$metadata['issuedDate'] = $this->normalizeDateString($metadata['issuedDate']);
 
 		return $metadata;
 	}
-	
+
 	/**
 	 * Take an XML node and generate a nested array.
 	 * @param $xmlNode
-	 * @param $keepEmpty whether to keep empty elements, default: false 
+	 * @param $keepEmpty whether to keep empty elements, default: false
 	 * @return multitype:
 	 */
 	function &xmlToArray(&$xmlNode, $keepEmpty = false) {
@@ -190,9 +190,9 @@ class CitationService {
 						if (!is_array($resultArray[$childNode->nodeName])) {
 							// We got a second value with the same key,
 							// let's convert this element into an array.
-							$resultArray[$childNode->nodeName] = array($resultArray[$childNode->nodeName]); 
+							$resultArray[$childNode->nodeName] = array($resultArray[$childNode->nodeName]);
 						}
-						
+
 						// Add the child node to the result array
 						$resultArray[$childNode->nodeName][] = $childNode->nodeValue;
 					} else {
@@ -203,7 +203,7 @@ class CitationService {
 				}
 			}
 		}
-	
+
 		return $resultArray;
 	}
 
@@ -231,7 +231,7 @@ class CitationService {
 		$newTitle = implode(' ', $words);
 		return $newTitle;
 	}
-	
+
 	/**
 	 * Trim punctuation from a string
 	 * @param $string string input string
@@ -240,11 +240,11 @@ class CitationService {
 	function trimPunctuation($string) {
 		return trim($string, ' ,.;:!?()[]\\/');
 	}
-	
+
 	/**
 	 * Converts a string with multiple authors
 	 * to an array of author objects.
-	 * 
+	 *
 	 * @param $authorsString string
 	 * @param $title true to parse for title
 	 * @param $degrees true to parse for degrees
@@ -254,7 +254,7 @@ class CitationService {
 	function &parseAuthorsString($authorsString, $title = false, $degrees = false) {
 		// Remove "et al"
 		$authorsString = String::regexp_replace('/et ?al$/', '', $authorsString);
-		
+
 		// Translate author separators to colon.
 		if (strstr($authorsString, ':') === false) {
 			// We search for author separators by priority. As soon as we find one kind of
@@ -270,26 +270,26 @@ class CitationService {
 
 		// Split author string into separate authors
 		$authorStrings = explode(':', $this->trimPunctuation($authorsString));
-				
+
 		// Parse authors
 		$authors = array();
 		foreach ($authorStrings as $authorString) {
 			$authors[] =& $this->parseAuthorString($authorString, $degrees, $title);
 		}
-			
+
 		return $authors;
 	}
 
 	/**
 	 * Converts a string with a single author
 	 * to an author object.
-	 * 
+	 *
 	 * TODO: create an "AuthorParser" class so that we can
 	 *       implement different parsers (e.g. i18nized ones)
 	 *       as plugins.
 	 * TODO: add initials from all given names to initials
 	 *       element
-	 * 
+	 *
 	 * @param $authorString string
 	 * @param $title true to parse for title
 	 * @param $degrees true to parse for degrees
@@ -307,17 +307,17 @@ class CitationService {
 			'givenName' => '(?:[^ \t\n\r\f\v,.]{2,}|[^ \t\n\r\f\v,.;]{2,}\-[^ \t\n\r\f\v,.;]{2,})'
 		);
 		$authorRegexLastName = "(?:".$authorRegex['prefix'].")?(?:".$authorRegex['givenName'].")";
-		
+
 		// Create the target author object
 		import('submission.PKPAuthor');
-		$author =& new PKPAuthor();
-		
+		$author = new PKPAuthor();
+
 		// Clean the author string
 		$authorString = trim($authorString);
-		
+
 		// 1. Extract the salutation from the author string
 		$salutationString = '';
-		
+
 		$results = array();
 		if ($title && String::regexp_match_get('/^('.$authorRegex['title'].')/i', $authorString, $results)) {
 			$salutationString = trim($results[1], ',:; ');
@@ -332,14 +332,14 @@ class CitationService {
 			$salutationString .= ' - '.implode('; ', $degreesArray);
 			$authorString = String::regexp_replace('/('.$authorRegex['degrees'].')$/i', '', $authorString);
 		}
-		
+
 		if (!empty($salutationString)) $author->setSalutation($salutationString);
 
 		// Space initials when followed by a given name or last name.
 		$authorString = String::regexp_replace('/([A-Z])\.([A-Z][a-z])/', '\1. \2', $authorString);
-		
+
 		// 2. Extract names and initials from the author string
-		
+
 		// The parser expressions are ordered by specificity. The most specific expressions
 		// come first. Only if these specific expressions don't work will we turn to less
 		// specific ones. This avoids parsing errors. It also explains why we don't use the
@@ -366,7 +366,7 @@ class CitationService {
 				if (strtoupper($results['lastName']) == $results['lastName']) {
 					$results['lastName'] = ucwords(strtolower($results['lastName']));
 				}
-				
+
 				// Transfer data to the author object
 				if (isset($results['givenName'])) {
 					// Split given names into firstname and middlename(s)
@@ -378,14 +378,14 @@ class CitationService {
 				}
 				if (isset($results['initials'])) $author->setInitials($results['initials']);
 				if (isset($results['lastName'])) $author->setLastName($results['lastName']);
-	
+
 				break;
 			}
 		}
-		
+
 		return $author;
 	}
-	
+
 	/**
 	 * Normalizes a date string to canonical date
 	 * representation (i.e. YYYY-MM-DD)
@@ -399,12 +399,12 @@ class CitationService {
 			'Jan' => '01', 'Feb' => '02', 'Mar' => '03', 'Apr' => '04', 'May' => '05', 'Jun' => '06',
 			'Jul' => '07', 'Aug' => '08', 'Sep' => '09', 'Oct' => '10', 'Nov' => '11', 'Dec' => '12'
 		);
-		
+
 		$normalizedDate = null;
 		if (String::regexp_match_get("/(?P<year>\d{4})\s*(?P<month>[a-z]\w+)?\s*(?P<day>\d+)?/i", $dateString, $parsedDate) ){
 			if (isset($parsedDate['year'])) {
 				$normalizedDate = $parsedDate['year'];
-				
+
 				if (isset($parsedDate['month'])
 						&& isset($monthNames[substr($parsedDate['month'], 0, 3)])) {
 					// Convert the month name to a two digit numeric month representation
@@ -415,10 +415,10 @@ class CitationService {
 				}
 			}
 		}
-		
+
 		return $normalizedDate;
 	}
-	
+
 	/**
 	 * Take a meta-data array and fix place/publisher entries:
 	 * - If there is a place string in there but no publisher string
@@ -435,7 +435,7 @@ class CitationService {
 			if (empty($metadata['publisher'])) {
 				$metadata['publisher'] = String::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['place']);
 			}
-			
+
 			// Remove publisher from place
 			$metadata['place'] = String::regexp_replace('/^(.+):.*/', '\1', $metadata['place']);
 
@@ -443,7 +443,7 @@ class CitationService {
 			// TODO: not well-tested
 			if (!empty($metadata['publisher']) && $metadata['publisher'] == $metadata['place']) unset($metadata['publisher']);
 		}
-		
+
 		// Convert the institution element to our internal meta-data format
 		if (isset($metadata['institution'])) {
 			if (empty($metadata['publisher'])) {

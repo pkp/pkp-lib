@@ -60,6 +60,9 @@ class MetadataProperty {
 	/** @var integer property type */
 	var $_type;
 
+	/** @var integer association type of a composite type */
+	var $_compositeType;
+
 	/** @var boolean flag that defines whether the property can be translated */
 	var $_translated;
 
@@ -74,19 +77,27 @@ class MetadataProperty {
 	 * @param $type integer must be one of the supported types, default: METADATA_PROPERTY_TYPE_STRING
 	 * @param $translated boolean whether the property may have various language versions, default: false
 	 * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
+	 * @param $compositeType integer an association type, mandatory if $type is METADATA_PROPERTY_TYPE_COMPOSITE
 	 */
 	function MetadataProperty($name, $assocTypes = array(), $type = METADATA_PROPERTY_TYPE_STRING,
-			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE) {
+			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $compositeType = null) {
 
 		// Validate input data
 		assert(is_array($assocTypes));
-		assert(in_array($type, MetadataProperty::_getSupportedTypes()));
-		assert(in_array($cardinality, MetadataProperty::_getSupportedCardinalities()));
+		assert(in_array($type, MetadataProperty::getSupportedTypes()));
+		assert(in_array($cardinality, MetadataProperty::getSupportedCardinalities()));
+		if ($type == METADATA_PROPERTY_TYPE_COMPOSITE) {
+			assert(!$translated);
+			assert(isset($compositeType) && is_integer($compositeType));
+		} else {
+			assert(is_null($compositeType));
+		}
 
 		// Initialize the class
 		$this->_name = (string)$name;
 		$this->_assocTypes =& $assocTypes;
 		$this->_type = (integer)$type;
+		$this->_compositeType = $compositeType;
 		$this->_translated = (boolean)$translated;
 		$this->_cardinality = (integer)$cardinality;
 	}
@@ -116,6 +127,15 @@ class MetadataProperty {
 	 */
 	function getType() {
 		return $this->_type;
+	}
+
+	/**
+	 * Get the composite type (for composite
+	 * properties only)
+	 * @return integer
+	 */
+	function getCompositeType() {
+		return $this->_compositeType;
 	}
 
 	/**
@@ -204,7 +224,28 @@ class MetadataProperty {
 				break;
 
 			case METADATA_PROPERTY_TYPE_COMPOSITE:
-				if (!is_object($value) || !is_a($value, 'MetadataRecord')) return false;
+				// Composites can either be represented by a meta-data description
+				// or by a string of the form AssocType:AssocId if the composite
+				// has already been persisted in the database.
+				switch(true) {
+					case is_a($value, 'MetadataDescription'):
+						$assocType = $value->getAssocType();
+						break;
+
+					case is_string($value):
+						$valueParts = explode(':', $value);
+						if (count($valueParts) != 2) return false;
+						list($assocType, $assocId) = $valueParts;
+						if (!is_numeric($assocId)) return false;
+						break;
+
+					default:
+						// None of the allowed types
+						return false;
+				}
+
+				// Check that the association type matches
+				if ($assocType != $this->_compositeType) return false;
 				break;
 
 			default:
@@ -221,10 +262,10 @@ class MetadataProperty {
 	//
 	/**
 	 * Return supported meta-data property types
-	 * NB: PHP4 work-around for a private static class member
+	 * NB: PHP4 work-around for a public static class member
 	 * @return array supported meta-data property types
 	 */
-	function _getSupportedTypes() {
+	function getSupportedTypes() {
 		static $_supportedTypes = array(
 			METADATA_PROPERTY_TYPE_STRING,
 			METADATA_PROPERTY_TYPE_DATE,
@@ -238,10 +279,10 @@ class MetadataProperty {
 
 	/**
 	 * Return supported cardinalities
-	 * NB: PHP4 work-around for a private static class member
+	 * NB: PHP4 work-around for a public static class member
 	 * @return array supported cardinalities
 	 */
-	function _getSupportedCardinalities() {
+	function getSupportedCardinalities() {
 		static $_supportedCardinalities = array(
 			METADATA_PROPERTY_CARDINALITY_ONE,
 			METADATA_PROPERTY_CARDINALITY_MANY

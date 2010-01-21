@@ -20,6 +20,12 @@ class DataObject {
 	/** Array of object data */
 	var $_data;
 
+	/** @var array an array of MetadataSchema instances */
+	var $_supportedMetadataSchemas = array();
+
+	/** @var array an array of MetadataAdapter instances (one per supported schema) */
+	var $_metadataAdapters = array();
+
 	/**
 	 * Constructor.
 	 */
@@ -27,6 +33,9 @@ class DataObject {
 		$this->_data = array();
 	}
 
+	//
+	// Getters/Setters
+	//
 	function &getLocalizedData($key) {
 		$localePrecedence = Locale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
@@ -141,6 +150,124 @@ class DataObject {
 	function setId($id) {
 		return $this->setData('id', $id);
 	}
-}
 
+	//
+	// MetadataProvider interface implementation
+	//
+	/**
+	 * Add a meta-data schema that will be supported
+	 * by this application entity.
+	 * @param $metadataSchema MetadataSchema
+	 * @param $metadataAdapter MetadataAdapter
+	 */
+	function addSupportedMetadataSchema(&$metadataSchema, &$metadataAdapter) {
+		$metadataSchemaName = $metadataSchema->getName();
+
+		// Make sure that the meta-data schema is unique.
+		assert(!empty($metadataSchemaName) &&
+				!isset($this->_supportedMetadataSchemas[$metadataSchemaName]));
+
+		// Make sure that the adapter converts from/to the correct formats
+		$adapterMetadataSchema =& $metadataAdapter->getMetadataSchema();
+		assert($metadataAdapter->supports($this));
+		assert($metadataSchemaName == $adapterMetadataSchema->getName());
+
+		// Save adapter and schema
+		$this->_supportedMetadataSchemas[$metadataSchemaName] =& $metadataSchema;
+		$this->_metadataAdapters[$metadataSchemaName] =& $metadataAdapter;
+	}
+
+	/**
+	 * Retrieve the names of meta-data
+	 * properties that need to be persisted.
+	 * @param $translated boolean if true, return localized field
+	 *  names, otherwise return additional field names.
+	 * @return array an array of field names
+	 */
+	function getMetadataFieldNames($translated = true) {
+		// Create a list of all possible meta-data field names
+		$metadataFieldNameCandidates = array();
+		foreach($this->_supportedMetadataSchemas as $metadataSchemaName => $metadataSchema) {
+			// Add the field names from the current adapter
+			$metadataAdapter =& $this->_metadataAdapters[$metadataSchemaName];
+			$metadataFieldNameCandidates = array_merge($metadataFieldNameCandidates,
+					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
+		}
+		$metadataFieldNameCandidates = array_unique($metadataFieldNameCandidates);
+
+		// Only retain those fields that have data
+		$metadataFieldNames = array();
+		foreach($metadataFieldNameCandidates as $metadataFieldNameCandidate) {
+			if($this->hasData($metadataFieldNameCandidate)) {
+				$metadataFieldNames[] = $metadataFieldNameCandidate;
+			}
+		}
+		return $metadataFieldNames;
+	}
+
+	/**
+	 * Retrieve the names of translated meta-data
+	 * properties that need to be persisted.
+	 * @return array an array of field names
+	 */
+	function getLocaleMetadataFieldNames() {
+		return $this->getMetadataFieldNames(true);
+	}
+
+	/**
+	 * Retrieve the names of additional meta-data
+	 * properties that need to be persisted.
+	 * @return array an array of field names
+	 */
+	function getAdditionalMetadataFieldNames() {
+		return $this->getMetadataFieldNames(false);
+	}
+
+	/**
+	 * Inject a meta-data description into this
+	 * data object.
+	 * @param $metadataDescription MetadataDescription
+	 * @return boolean true on success, otherwise false
+	 */
+	function injectMetadata(&$metadataDescription) {
+		$dataObject = null;
+		foreach($this->_metadataAdapters as $metadataAdapter) {
+			// The first adapter that supports the given description
+			// will be used to inject the meta-data into this data object.
+			if ($metadataAdapter->supports($metadataDescription)) {
+				// Use adapter filter to convert from a meta-data
+				// description to a data object.
+				// NB: we pass in a reference to the data object which
+				// the filter will use to update the current instance
+				// of the data object.
+				$input = array(&$metadataDescription, &$this);
+				$dataObject =& $metadataAdapter->filter($input);
+				break;
+			}
+		}
+		return $dataObject;
+	}
+
+	/**
+	 * Inject a meta-data description into this
+	 * data object.
+	 * @param $metadataSchema MetadataSchema
+	 * @return $metadataDescription MetadataDescription
+	 */
+	function &extractMetadata(&$metadataSchema) {
+		$metadataDescription = null;
+		foreach($this->_metadataAdapters as $metadataAdapter) {
+			// The first adapter that supports the given meta-data schema
+			// will be used to extract meta-data from this data object.
+			$supportedMetadataSchema =& $metadataAdapter->getMetadataSchema();
+			if ($metadataSchema->getName() == $supportedMetadataSchema->getName()) {
+				// Use adapter filter to convert from a data object
+				// to a meta-data description.
+				$metadataDescription =& $metadataAdapter->filter($this);
+				break;
+			}
+		}
+		return $metadataDescription;
+	}
+}
 ?>

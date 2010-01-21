@@ -387,7 +387,8 @@ class DAO {
 		$idFields[] = 'locale';
 		$idFields[] = 'setting_name';
 
-		foreach ($this->getLocaleFieldNames() as $field) {
+		$localeFieldNames = array_merge($this->getLocaleFieldNames(), $dataObject->getLocaleMetadataFieldNames());
+		foreach ($localeFieldNames as $field) {
 			$values = $dataObject->getData($field);
 			if (!is_array($values)) continue;
 
@@ -400,7 +401,8 @@ class DAO {
 				$this->replace($tableName, $idArray, $idFields);
 			}
 		}
-		foreach ($this->getAdditionalFieldNames() as $field) {
+		$additionalFieldNames = array_merge($this->getAdditionalFieldNames(), $dataObject->getAdditionalMetadataFieldNames());
+		foreach ($additionalFieldNames as $field) {
 			$value = $dataObject->getData($field);
 			$idArray['setting_type'] = null;
 			$idArray['locale'] = '';

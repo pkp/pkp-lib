@@ -10,7 +10,7 @@
  * @ingroup citation
  *
  * @brief Class providing citation lookup and parsing services.
- * 
+ *
  * TODO: Parsing and lookup usually involve a web service request or launching
  *       an external tool. This can be very slow. Therefore it might be useful
  *       to cache all parsing and lookup results to the user session or even to
@@ -26,11 +26,11 @@
 class CitationManager {
 	/** @var list of configured citation parser services identified by name */
 	var $_citationParserServices = array();
-		
+
 	/** @var list of configured citation lookup services identified by Name */
 	var $_citationLookupServices = array();
-	
-		
+
+
 	/**
 	 * Take in a Citation in state CITATION_RAW or CITATION_EDITED, pass through parser
 	 * services, and return the same object in state CITATION_PARSED.
@@ -44,14 +44,14 @@ class CitationManager {
 		// This is a two-dimensional array that with the score as key and
 		// the scored citations as values.
 		$scoredCitations = array();
-		
+
 		// Let each configured parser service generate citation meta-data according
 		// to its specific implementation.
 		foreach ($this->_citationParserServices as $citationParserService) {
 			// Make a copy of the citation so that the parsers don't interfere
 			// with each other.
-			$parsedCitation =& $this->_cloneObject($citation);
-			
+			$parsedCitation =& cloneObject($citation);
+
 			// Get the parsed citation from the the current parser service.
 			$parsedCitation =& $citationParserService->parse($parsedCitation);
 
@@ -61,7 +61,7 @@ class CitationManager {
 			//       and parser service so that we can fix the service.
 			// Ignore the parser if it caused an error
 			if (is_null($parsedCitation)) continue;
-			
+
 			// If the genre is not set, take a guess
 			if ($parsedCitation->getGenre() == METADATA_GENRE_UNKNOWN) {
 				$genre = $this->_guessGenre($parsedCitation);
@@ -87,10 +87,10 @@ class CitationManager {
 		// and set them in the citation.
 		$this->_guessValues($citation, $scoredCitations);
 		$citation->setState(CITATION_PARSED);
-		
+
 		return $citation;
 	}
-	
+
 	/**
 	 * Take in a parsed citation, pass through configured lookup
 	 * services, and return a revised Citation in state CITATION_LOOKED_UP.
@@ -104,7 +104,7 @@ class CitationManager {
 		// This is a two-dimensional array that with the score as key and
 		// the scored citations as values.
 		$scoredCitations = array();
-		
+
 		// Let each configured parser service generate citation meta-data according
 		// to its specific implementation.
 		$originalElements = $mergedElements = $citation->getNonEmptyElementsAsArray();
@@ -114,8 +114,8 @@ class CitationManager {
 			if ($citationLookupService->supports($citation)) {
 				// Make a copy of the citation so that the lookup services don't interfere
 				// with each other.
-				$lookedUpCitation =& $this->_cloneObject($citation);
-				
+				$lookedUpCitation =& cloneObject($citation);
+
 				// Get an array of looked up citations from the the current lookup service.
 				$lookedUpCitation =& $citationLookupService->lookup($lookedUpCitation);
 				$lookedUpElements = $lookedUpCitation->getNonEmptyElementsAsArray();
@@ -146,14 +146,14 @@ class CitationManager {
 		// and set them in the citation.
 		$this->_guessValues($citation, $scoredCitations);
 		$citation->setState(CITATION_LOOKED_UP);
-		
+
 		return $citation;
 	}
 
 	//
 	// Get/set methods
 	//
-	
+
 	/**
 	 * add citation parser service
 	 * @param $citationParserService CitationParserService
@@ -165,7 +165,7 @@ class CitationManager {
 		$this->_citationParserServices[$citationParserServiceName] =& $citationParserService;
 		return true;
 	}
-	
+
 	/**
 	 * remove citation parser service
 	 * @param $citationParserServiceName Name of the citation parser service to remove
@@ -178,10 +178,10 @@ class CitationManager {
 			unset($this->_citationParserServices[$citationParserServiceName]);
 			return true;
 		}
-	
+
 		return false;
 	}
-	
+
 	/**
 	 * get all citation parser services
 	 * @return array citation parser services
@@ -189,7 +189,7 @@ class CitationManager {
 	function &getCitationParserServices() {
 		return $this->_citationParserServices;
 	}
-	
+
 	/**
 	 * get a specific citation parser service
 	 * @param $citationParserServiceName string
@@ -197,15 +197,15 @@ class CitationManager {
 	 */
 	function &getCitationParserService($citationParserServiceName) {
 		$citationParserService = null;
-	
+
 		if (isset($citationParserServiceName) && isset($this->_citationParserServices[$citationParserServiceName])) {
 			assert($this->_citationParserServices[$citationParserServiceName]->getName() == $citationParserServiceName);
 			$citationParserService =& $this->_citationParserServices[$citationParserServiceName];
 		}
-	
+
 		return $citationParserService;
 	}
-	
+
 	/**
 	 * set citation parser services
 	 * @param $citationParserServices array citation parser services
@@ -231,7 +231,7 @@ class CitationManager {
 		$this->_citationLookupServices[$citationLookupServiceName] =& $citationLookupService;
 		return true;
 	}
-	
+
 	/**
 	 * remove citation lookup service
 	 * @param $citationLookupServiceName Name of the citation lookup service to remove
@@ -244,10 +244,10 @@ class CitationManager {
 			unset($this->_citationLookupServices[$citationLookupServiceName]);
 			return true;
 		}
-	
+
 		return false;
 	}
-	
+
 	/**
 	 * get all citation lookup services
 	 * @return array citation lookup services
@@ -255,7 +255,7 @@ class CitationManager {
 	function &getCitationLookupServices() {
 		return $this->_citationLookupServices;
 	}
-	
+
 	/**
 	 * get a specific citation lookup service
 	 * @param $citationLookupServiceName string
@@ -263,15 +263,15 @@ class CitationManager {
 	 */
 	function &getCitationLookupService($citationLookupServiceName) {
 		$citationLookupService = null;
-	
+
 		if (isset($citationLookupServiceName) && isset($this->_citationLookupServices[$citationLookupServiceName])) {
 			assert($this->_citationLookupServices[$citationLookupServiceName]->getName() == $citationLookupServiceName);
 			$citationLookupService =& $this->_citationLookupServices[$citationLookupServiceName];
 		}
-	
+
 		return $citationLookupService;
 	}
-	
+
 	/**
 	 * set citation lookup services
 	 * @param $citationLookupServices array citation lookup services
@@ -285,7 +285,7 @@ class CitationManager {
 		}
 		return true;
 	}
-	
+
 	//
 	// Private methods
 	//
@@ -299,13 +299,13 @@ class CitationManager {
 		if (isset($currentGenre) && $currentGenre != METADATA_GENRE_UNKNOWN) {
 			return $currentGenre;
 		}
-		
+
 		if (!empty($citation->getVolume()) && !empty($citation->getIssue())
 				&& !empty($citation->getArticleTitle()) && !empty($citation->getAuthors())
 				&& !empty($citation->getIssuedDate())) {
 			return METADATA_GENRE_JOURNALARTICLE;
 		}
-		
+
 		if (!empty($citation->getPublisher()) && !empty($citation->getPlace())
 				&& !empty($citation->getBookTitle()) && !empty($citation->getIssuedDate())
 				&& (!empty($citation->getAuthors())) || !empty($citation->getEditor())) {
@@ -364,19 +364,19 @@ class CitationManager {
 	/**
 	 * Take an array of citation parse/lookup results and derive a citation with
 	 * one "best" set of values.
-	 * 
+	 *
 	 * We determine the best values within the citations that have a score above
 	 * the given threshold. Citations with a score below the threshold will not be
 	 * considered at all.
-	 * 
+	 *
 	 * For these citations we count the frequency of values per meta-data element.
 	 * The most frequent value will be chosen as "best" value.
-	 * 
+	 *
 	 * If two values have the same frequency then decide based on the score. If
 	 * this is still ambivalent then return the first of the remaining values.
 	 *
 	 * This method will also set the overall parsing score in the target citation.
-	 * 
+	 *
 	 * @param $targetCitation the citation where the "best" values should be set
 	 * @param $scoredCitations
 	 * @param $scoreThreshold integer a number between 0 (=no threshold) and 100,
@@ -385,14 +385,14 @@ class CitationManager {
 	 */
 	function &_guessValues(&$targetCitation, &$scoredCitations, $scoreThreshold = 0) {
 		assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
-		
+
 		// Step 1: List all values and max scores that have been identified for a given element
 		//         but only include values from results above a given scoring threshold
-		
+
 		// Initialize variables for the first step.
 		$valuesByElementName = array();
 		$maxScoresByElementNameAndValue = array();
-		
+
 		// Sort the scored citations by score with the highest score first.
 		krsort($scoredCitations);
 		foreach ($scoredCitations as $currentScore => $citationsForCurrentScore) {
@@ -403,10 +403,10 @@ class CitationManager {
 			if ($currentScore < $scoreThreshold) {
 				break;
 			}
-			
+
 			foreach($citationsForCurrentScore as $citationForCurrentScore) {
 				$setElements = $citationForCurrentScore->getNonEmptyElementsAsArray();
-				
+
 				// Add the element values and scores of this citation
 				// to the overall element lists
 				foreach($setElements as $elementName => $elementValue) {
@@ -417,11 +417,11 @@ class CitationManager {
 					if (!isset($maxScoresByElementNameAndValue[$elementName])) {
 						$maxScoresByElementNameAndValue[$elementName] = array();
 					}
-					
+
 					// Add the value for the given element, as we want to count
 					// value frequencies later, we explicitly allow duplicates.
 					$valuesByElementName[$elementName][] = $elementValue;
-					
+
 					// As we have ordered our citations descending by score, the
 					// first score found for a value is also the maximum score.
 					if (!isset($maxScoresByElementNameAndValue[$elementName][$elementValue])) {
@@ -430,17 +430,17 @@ class CitationManager {
 				}
 			}
 		}
-		
+
 		// Step 2: Find out the values that were occur most frequently for each element
 		//         and order these by score.
-		
+
 		foreach($valuesByElementName as $elementName => $elementValues) {
 			// Count the occurrences of each value within the given element
 			$elementValueFrequencies = array_count_values($elementValues);
 
 			// Order the most frequent values to the beginning of the array
 			arsort($elementValueFrequencies);
-			
+
 			// Get the most frequent values (may be several if there are more than one
 			// with the same frequency).
 			$scoresOfMostFrequentValues = array();
@@ -450,20 +450,20 @@ class CitationManager {
 				// loop when less frequent values start.
 				if ($previousElementValueFrequency > $elementValueFrequency) break;
 				$previousElementValueFrequency = $elementValueFrequency;
-				
+
 				$scoresOfMostFrequentValues[$elementValue] =
 						$maxScoresByElementNameAndValue[$elementName][$elementValue];
 			}
-			
+
 			// Now we can order the most frequent values by score, starting
 			// with the highest score.
 			arsort($scoresOfMostFrequentValues);
-			
+
 			// Now get the first key which respresents the value with the
 			// highest frequency and the highest score.
 			reset($scoresOfMostFrequentValues);
 			$bestValue = key($scoresOfMostFrequentValues);
-			
+
 			// Set the found "best" element value in the result citation.
 			$citationElementSetter = 'set'.ucfirst($elementName);
 			$targetCitation->$citationElementSetter($bestValue);
@@ -478,36 +478,17 @@ class CitationManager {
 			$overallScoreCount += $countCitationsForCurrentScore;
 		}
 		$averageScore = $overallScoreSum / $overallScoreCount;
-		
+
 		// Get the max score (= the first key from scoredCitations
 		// as these are sorted by score).
 		reset($scoredCitations);
 		$maxScore = key($scoredCitations);
-		
+
 		// Calculate the overall parse score as by weighing
 		// the max score and the average score 50% each.
 		// TODO: This algorithm seems quite arbitrary.
 		$parseScore = ($maxScore + $averageScore) / 2;
 		$targetCitation->setParseScore($parseScore);
-	}
-	
-	/**
-	 * FIXME: Move this somewhere in the library
-	 * Create a PHP4/5 compatible shallow
-	 * copy of the given object.
-	 * @param $object object
-	 * @return object the cloned object
-	 */
-	function &_cloneObject(&$object) {
-		if (checkPhpVersion('5.0.0')) {
-			// We use the PHP5 clone() syntax so that PHP4 doesn't
-			// raise a parse error.
-			$clonedObject = clone($object);
-		} else {
-			// PHP4 always clones objects on assignment
-			$clonedObject = $object;
-		}
-		return $clonedObject;
 	}
 }
 ?>

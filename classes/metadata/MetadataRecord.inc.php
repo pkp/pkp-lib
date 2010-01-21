@@ -10,44 +10,21 @@
  * @ingroup metadata
  * @see MetadataProperty
  * @see MetadataDescription
- * @see MetadataSchema
  *
  * @brief Class modeling a meta-data record (DCMI abstract model: an instance
  *  of a description set, RDF: a graph of several subject nodes with associated
  *  object nodes).
- *
- *  NB: This implementation is for one meta-data schema only. We might want to
- *  implement a multi-schema record in the future.
  */
 
 // $Id$
 
 class MetadataRecord {
-	/** @var MetadataSchema the schema this record complies to */
-	var $_metadataSchema;
-
 	/** @var array the MetadataDescriptions in this record */
 	var $_descriptions = array();
-
-	/**
-	 * Constructor
-	 * @param $metadataSchema MetadataSchema
-	 */
-	function MetadataRecord(&$metadataSchema) {
-		$this->_metadataSchema =& $metadataSchema;
-	}
 
 	//
 	// Get/set methods
 	//
-	/**
-	 * Get the metadata schema
-	 * @return MetadataSchema
-	 */
-	function &getMetadataSchema() {
-		return $this->_metadataSchema;
-	}
-
 	/**
 	 * Add a meta-data description.
 	 * @param $metadataDescription MetadataDescription
@@ -132,20 +109,6 @@ class MetadataRecord {
 			}
 		}
 		return true;
-	}
-
-	/**
-	 * Construct a meta-data application entity id (hash) from
-	 * a meta-data description object.
-	 * @param $metadataDescription MetadataDescription
-	 * @return string
-	 */
-	function getApplicationEntityIdFromMetadataDescription(&$metadataDescription) {
-		$assocType = $metadataDescription->getAssocType();
-		$assocId = $metadataDescription->getAssocId();
-		assert(isset($assocType) && isset($assocId));
-		$applicationEntityId = $assocType.':'.$assocId;
-		return $applicationEntityId;
 	}
 }
 ?>

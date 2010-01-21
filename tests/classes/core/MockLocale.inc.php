@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Locale
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see SubmissionTest
  *
  * @brief Mock implementation of the Locale class for the SubmissionTest

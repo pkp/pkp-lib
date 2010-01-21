@@ -95,14 +95,6 @@
  *    to convert our object oriented data encoding to a fully standard
  *    compliant encoding and back without any data loss.
  *
- *  TODO: Let all meta-data providers implement a common MetadataProvider
- *  interface once we drop PHP4 compatibility.
- *
- *  TODO: Let PKPAuthor inherit from a "Person" class that we can use generically
- *  for authors and editors.
- *
- *  TODO: Let Editor return an array of Persons rather than a string.
- *
  *  TODO: Develop an object representation for NLM's "collab", "anonymous" and "etal".
  *
  *  TODO: Move Harvester's Schema and Record to the new Metadata object model.
@@ -167,17 +159,30 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
+	 * Construct a meta-data application entity id
+	 * (described resource id / subject id) for
+	 * this meta-data description object.
+	 * @return string
+	 */
+	function getAssoc() {
+		$assocType = $this->getAssocType();
+		$assocId = $this->getAssocId();
+		assert(isset($assocType) && isset($assocId));
+		return $assocType.':'.$assocId;
+	}
+
+	/**
 	 * Add a meta-data statement. Statements can only be added
 	 * for properties that are part of the meta-data schema. This
 	 * method will also check the validity of the value for the
 	 * given property before adding the statement.
 	 * @param $propertyName string The name of the property
 	 * @param $value mixed The value to be assigned to the property
-	 * @param $replace boolean whether to replace an existing statement
 	 * @param $locale string
+	 * @param $replace boolean whether to replace an existing statement
 	 * @return boolean true if a valid statement was added, otherwise false
 	 */
-	function addStatement($propertyName, &$value, $replace = true, $locale = null) {
+	function addStatement($propertyName, &$value, $locale = null, $replace = false) {
 		// Check the property
 		$property =& $this->getProperty($propertyName);
 		if (is_null($property)) return false;
@@ -281,6 +286,18 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
+	 * Returns all translations of a translated property
+	 * @param $propertyName string
+	 * @return array all translations of a given property; if the
+	 *  property has cardinality "many" then this returns a two-dimensional
+	 *  array whereby the first key represents the locale and the second.
+	 */
+	function &getStatementTranslations($propertyName) {
+		assert($this->isTranslatedProperty($propertyName));
+		return $this->getData($propertyName);
+	}
+
+	/**
 	 * Replace all existing statements at once. If one of the statements
 	 * is invalid then the meta-data description will be empty after this
 	 * operation.
@@ -299,17 +316,34 @@ class MetadataDescription extends DataObject {
 		$this->setAllData($emptyArray);
 
 		// Add statements one by one to detect invalid values.
-		foreach($statements as $propertyName => $value) {
-			// Transform scalars to arrays so that we can handle
-			// properties with different cardinalities in the same way.
-			if (is_scalar($value)) $value = array(&$value);
-
-			foreach($value as $scalarValue) {
-				if (!($this->addStatement($propertyName, $scalarValue, false))) {
-					$this->setAllData($emptyArray);
-					return false;
-				}
+		foreach($statements as $propertyName => $content) {
+			// Transform scalars or translated fields to arrays so that
+			// we can handle properties with different cardinalities in
+			// the same way.
+			if (is_scalar($content) || is_string(key($content))) {
+				$values = array(&$content);
+			} else {
+				$values =& $content;
 			}
+
+			foreach($values as $value) {
+				// Is this a translated property?
+				if (is_array($value)) {
+					foreach($value as $locale => $translation) {
+						if (!($this->addStatement($propertyName, $translation, $locale))) {
+							$this->setAllData($emptyArray);
+							return false;
+						}
+					}
+				} else {
+					if (!($this->addStatement($propertyName, $value))) {
+						$this->setAllData($emptyArray);
+						return false;
+					}
+				}
+				unset($value);
+			}
+			unset($values);
 		}
 		return true;
 	}
@@ -345,6 +379,17 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
+	 * Convenience method that returns the names of properties with a
+	 * given data type of the underlying meta-data schema.
+	 * @param $propertyType string
+	 * @return array an array of string values representing valid property names
+	 */
+	function getPropertyNamesByType($propertyType) {
+		$metadataSchema =& $this->getMetadataSchema();
+		return $metadataSchema->getPropertyNamesByType($propertyType);
+	}
+
+	/**
 	 * Returns an array of property names for
 	 * which statements exist.
 	 * @return array an array of string values representing valid property names
@@ -362,6 +407,28 @@ class MetadataDescription extends DataObject {
 	function hasProperty($propertyName) {
 		$metadataSchema =& $this->getMetadataSchema();
 		return $metadataSchema->hasProperty($propertyName);
+	}
+
+	/**
+	 * Check the existence of a statement for the given property.
+	 * @param $propertyName string
+	 * @return boolean
+	 */
+	function hasSetProperty($propertyName) {
+		$setPropertyNames = $this->getSetPropertyNames();
+		return (in_array($propertyName, $setPropertyNames));
+	}
+
+	/**
+	 * Convenience method that checks whether a given property
+	 * is translated.
+	 * @param $propertyName string
+	 * @return boolean
+	 */
+	function isTranslatedProperty($propertyName) {
+		$property = $this->getProperty($propertyName);
+		assert(is_a($property, 'MetadataProperty'));
+		return $property->getTranslated();
 	}
 }
 ?>

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HookRegistry
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see PKPRequestTest
  *
  * @brief Mock implementation of the HookRegistry class for the PKPRequestTest

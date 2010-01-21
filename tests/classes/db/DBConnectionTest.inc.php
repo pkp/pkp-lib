@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DBConnectionTest
- * @ingroup tests
+ * @ingroup tests_classes_db
  * @see DBConnection
  *
  * @brief Tests for the DBConnectionTest class.

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationServiceTestCase
- * @ingroup tests
+ * @ingroup tests_classes_citation
  * @see CitationParserServiceTestCase
  * @see CitationLookupServiceTestCase
  *

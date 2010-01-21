@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ParaciteCitationParserServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation_parser
  * @see ParaciteCitationParserService
  *
  * @brief Tests for the ParaciteCitationParserService class.
@@ -22,7 +22,7 @@ class ParaciteCitationParserServiceTest extends CitationParserServiceTestCase {
 	public function setUp() {
 		$this->setCitationServiceName('ParaciteCitationParserService');
 	}
-	
+
 	/**
 	 * @covers ParaciteCitationParserService::parseInternal
 	 */
@@ -107,10 +107,10 @@ class ParaciteCitationParserServiceTest extends CitationParserServiceTestCase {
 				)
 			)
 		);
-		
+
 		foreach (ParaciteCitationParserService::getSupportedCitationModules() as $citationModule) {
 			assert(isset($testCitations[$citationModule]));
-			
+
 			$parameters = array('citationModule' => $citationModule);
 			$this->assertCitationService($testCitations[$citationModule], $parameters);
 		}

@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationRowHandler
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see PKPComponentRouterTest
  *
  * @brief Mock implementation of the CitationRowHandler class for the PKPComponentRouterTest

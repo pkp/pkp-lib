@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouterTest
- * @ingroup tests
+ * @ingroup tests_classes_core
  * @see PKPComponentRouter
  *
  * @brief Tests for the PKPComponentRouter class.

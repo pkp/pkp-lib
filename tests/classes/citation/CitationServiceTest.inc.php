@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationParserServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation
  * @see CitationParserService
  *
  * @brief Tests for the RegexCitationParserService class.
@@ -20,11 +20,11 @@ import('citation.CitationService');
 
 class CitationServiceTest extends PKPTestCase {
 	private $_citationService;
-	
+
 	public function setUp() {
 		$this->_citationService = new CitationService();
 	}
-	
+
 //	/**
 //	 * @todo Implement testCallWebService().
 //	 */
@@ -53,7 +53,7 @@ class CitationServiceTest extends PKPTestCase {
 			' ', ',', '.', ';', ':', '!', '?',
 			'(', ')', '[', ']', '\\', '/'
 		);
-		
+
 		foreach($trimmedChars as $trimmedChar) {
 			self::assertEquals('trim.med',
 					$this->_citationService->trimPunctuation($trimmedChar.'trim.med'.$trimmedChar));
@@ -106,13 +106,13 @@ class CitationServiceTest extends PKPTestCase {
 			array(null, 'Hans', 'Peter', null, 'Sperling'),
 			array(null, null, null, null, '# # # Greenberg # # #'),
 		);
-		
+
 		foreach($authorArgumentArray as $testNumber => $authorArguments) {
 			$author =& $this->_citationService->parseAuthorString($authorArguments[0], $authorArguments[1], $authorArguments[2]);
 			$this->assertAuthor($expectedResults[$testNumber], $author, $testNumber);
 		}
 	}
-	
+
 	/**
 	 * @covers CitationService::parseAuthorsString
 	 * @depends testParseAuthorString
@@ -126,7 +126,7 @@ class CitationServiceTest extends PKPTestCase {
 			array(null, null, null, 'QK', 'Yu'),
 			array(null, 'Hans', 'Peter', 'B.', 'Sperling'),
 		);
-		
+
 		$authors =& $this->_citationService->parseAuthorsString($authorsString, false, false);
 		foreach($authors as $testNumber => $author) {
 			$this->assertAuthor($expectedResults[$testNumber], $author, $testNumber);
@@ -141,7 +141,7 @@ class CitationServiceTest extends PKPTestCase {
 			array(null, null, null, 'QK', 'Yu'),
 			array(null, 'Hans', 'Peter', 'B.', 'Sperling'),
 		);
-		
+
 		$authors =& $this->_citationService->parseAuthorsString($authorsString, true, true);
 		foreach($authors as $testNumber => $author) {
 			$this->assertAuthor($expectedResults[$testNumber], $author, $testNumber);

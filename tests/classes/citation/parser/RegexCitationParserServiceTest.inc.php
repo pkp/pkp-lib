@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegexCitationParserServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation_parser
  * @see RegexCitationParserService
  *
  * @brief Tests for the RegexCitationParserService class.
@@ -22,7 +22,7 @@ class RegexCitationParserServiceTest extends CitationParserServiceTestCase {
 	public function setUp() {
 		$this->setCitationServiceName('RegexCitationParserService');
 	}
-	
+
 	/**
 	 * @covers RegexCitationParserService::parseInternal
 	 */
@@ -134,7 +134,7 @@ class RegexCitationParserServiceTest extends CitationParserServiceTestCase {
 				)
 			)
 		);
-		
+
 		$this->assertCitationService($testCitations);
 	}
 }

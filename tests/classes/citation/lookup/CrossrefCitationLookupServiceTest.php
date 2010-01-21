@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefCitationLookupServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation_lookup
  * @see CrossrefCitationLookupService
  *
  * @brief Tests for the CrossrefCitationLookupService class.
@@ -21,11 +21,11 @@ import('citation.lookup.CrossrefCitationLookupService');
 class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 	const
 		ACCESS_EMAIL = 'pkp-support@sfu.ca';
-		
+
 	public function setUp() {
 		$this->setCitationServiceName('CrossrefCitationLookupService');
 	}
-	
+
 	/**
 	 * Test CrossRef lookup with DOI
 	 * @covers CrossrefCitationLookupService::lookup
@@ -48,7 +48,7 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 			'issue' => '1',
 			'volume' => '5'
 		);
-		
+
 		// Conference Proceeding
 		$proceedingCitation = new Citation(METADATA_GENRE_UNKNOWN);
 		$proceedingCitation->setDOI('10.1145/311625.311726');
@@ -67,13 +67,13 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 			'place' => 'New York, New York, USA',
 			'journalTitle' => 'ACM SIGGRAPH 99 Conference abstracts and applications on   - SIGGRAPH \'99'
 		);
-		
+
 		// Book
 		$bookCitation = new Citation(METADATA_GENRE_UNKNOWN);
 		$bookCitation->setDOI('10.1093/ref:odnb/31418');
 		$expectedBookElements = array (
 			'genre' => METADATA_GENRE_BOOK,
-			'authors' => 
+			'authors' =>
 			array (
 				array ('lastName' => 'Matthew, H. C. G.'),
 				array ('initials' => 'B.', 'lastName' => 'Harrison')
@@ -84,7 +84,7 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 			'publisher' => 'Oxford University Press',
 			'place' => 'Oxford'
 		);
-		
+
 		// Build the test citations array
 		$testCitations = array(
 			array(
@@ -100,7 +100,7 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 				'expectedResult' => $expectedBookElements
 			)
 		);
-		
+
 		// Execute the test
 		$this->assertCitationService($testCitations, array('email' => self::ACCESS_EMAIL));
 	}
@@ -113,14 +113,14 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 		$author = new PKPAuthor();
 		$author->setFirstName('Hao');
 		$author->setLastName('Chen');
-		
+
 		$citation = new Citation(METADATA_GENRE_UNKNOWN);
 		$citation->setJournalTitle('BMC Bioinformatics');
 		$citation->setIssue('1');
 		$citation->setVolume('5');
 		$citation->setFirstPage('147');
 		$citation->addAuthor($author);
-		
+
 		// Build the test citations array
 		$testCitations = array(
 			array(
@@ -141,11 +141,11 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 				)
 			)
 		);
-		
+
 		// Execute the test
 		$this->assertCitationService($testCitations, array('email' => self::ACCESS_EMAIL));
 	}
-		
+
 	/**
 	 * @covers CrossrefCitationLookupService::openUrlKevEncode
 	 */
@@ -153,7 +153,7 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 		$author = new PKPAuthor();
 		$author->setFirstName('firsname');
 		$author->setLastName('lastname');
-		
+
 		$citation = new Citation();
 		$citationElements = array(
 			'authors' => array($author),
@@ -166,7 +166,7 @@ class CrossrefCitationLookupServiceTest extends CitationServiceTestCase {
 			'firstPage' => '64',
 			'lastPage' => '128'
 		);
-		
+
 		self::assertTrue($citation->setElementsFromArray($citationElements));
 		$lookupService = $this->getCitationServiceInstance();
 		$kevString = $lookupService->openUrlKevEncode($citation);

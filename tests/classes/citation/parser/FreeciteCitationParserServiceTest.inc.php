@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FreeciteCitationParserServiceTest
- * @ingroup tests
+ * @ingroup tests_classes_citation_parser
  * @see FreeciteCitationParserService
  *
  * @brief Tests for the FreeciteCitationParserService class.
@@ -22,7 +22,7 @@ class FreeciteCitationParserServiceTest extends CitationParserServiceTestCase {
 	public function setUp() {
 		$this->setCitationServiceName('FreeciteCitationParserService');
 	}
-	
+
 	/**
 	 * @covers FreeciteCitationParserService::parseInternal
 	 */
@@ -73,10 +73,10 @@ class FreeciteCitationParserServiceTest extends CitationParserServiceTestCase {
 				)
 			)
 		);
-		
+
 		$this->assertCitationService($testCitations);
 	}
-	
+
 	/**
 	 * @covers FreeciteCitationParserService::parseInternal
 	 */

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConfigTest
- * @ingroup tests
+ * @ingroup tests_classes_config
  * @see Config
  *
  * @brief Tests for the Config class.

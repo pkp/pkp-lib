@@ -9,7 +9,7 @@
 {assign var=rowId value="`$row->getGridId()`-row-`$row->getId()`"}
 {capture name=rowActions}
 	{if $row->getActions()}
-		<div class="row_controls">	
+		<div class="row_controls">
 			{foreach name=actions from=$row->getActions() item=action}
 				{include file="controllers/grid/gridAction.tpl" action=$action id=$rowId}
 			{/foreach}
@@ -19,14 +19,14 @@
 <tr id="{$rowId}">
 	{foreach name=cellForEach from=$cells item=cell}
 		{if $smarty.foreach.cellForEach.first}
-		<td class="first_column">
-			<div class="row_actions">
-				<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
-			</div>
-			<div class="row_file">
-				{$cell}
-				{**if notes <a href="#" class="notes sprite"><span class="hidetext">Notes</span></a> **}
-			</div>
+			<td class="first_column">
+				<div class="row_actions">
+					<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
+				</div>
+				<div class="row_file">
+					{$cell}
+					{**if notes <a href="#" class="notes sprite"><span class="hidetext">Notes</span></a> **}
+				</div>
 				{$smarty.capture.rowActions}
 			</td>
 		{else}

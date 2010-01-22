@@ -102,7 +102,7 @@ class GridHandler extends PKPHandler {
 	 */
 	function &getData() {
 		if ( is_null($this->_data) ) {
-			// initialize to emptry
+			// initialize to an empty iterator
 			$this->_data = new ItemIterator();
 		}
 		return $this->_data;

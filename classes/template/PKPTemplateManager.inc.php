@@ -86,6 +86,7 @@ class PKPTemplateManager extends Smarty {
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
 		$this->assign('baseUrl', $request->getBaseUrl());
+		$this->assign('requiresFormRequest', $request->isPost());
 		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($request));
 		$this->assign('currentUrl', $request->getCompleteUrl());
 		$this->assign('dateFormatTrunc', Config::getVar('general', 'date_format_trunc'));
@@ -959,7 +960,7 @@ class PKPTemplateManager extends Smarty {
 
 		echo $confirmCode;
 	}
-	
+
 	function smartyAjaxUpload($params, &$smarty) {
 		// Required params
 		if (!isset($params['form'])) {
@@ -973,7 +974,7 @@ class PKPTemplateManager extends Smarty {
 			$smarty->trigger_error("URL parameter is missing from ajax upload");
 		} else {
 			$url = $params['url'];
-		}				
+		}
 		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
 }

@@ -4,12 +4,12 @@
 <!--
   * locale/es_ES/reader.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id: reader.xml,v 1.4 2009/10/07 23:29:31 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="es_ES" full_name = "Español (España)">

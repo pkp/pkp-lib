@@ -4,12 +4,12 @@
 <!--
   * locale/zh_TW/currencies.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217. (Awaiting translation.)
   *
-  * $Id: currencies.xml,v 1.4 2009/10/07 21:13:20 asmecher Exp $
+  * $Id$
   -->
 
 <currencies locale="zh_TW">

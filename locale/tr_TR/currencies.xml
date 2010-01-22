@@ -4,12 +4,12 @@
 <!--
   * locale/tr_TR/currencies.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of currencies.
   *
-  * $Id: currencies.xml,v 1.5 2009/10/07 21:13:20 asmecher Exp $
+  * $Id$
   -->
 
 <currencies locale="tr_TR">

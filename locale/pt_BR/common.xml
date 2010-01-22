@@ -4,12 +4,12 @@
 <!--
   * locale/pt_BR/common.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
-  * $Id: common.xml,v 1.6 2009/10/13 21:38:04 jerico.dev Exp $
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">

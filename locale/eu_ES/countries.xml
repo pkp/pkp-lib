@@ -3,12 +3,12 @@
 <!--
   * locale/eu_ES/countries.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
   *
-  * $Id: countries.xml,v 1.1 2009/10/07 23:29:31 asmecher Exp $
+  * $Id$
   -->
 
 <countries>

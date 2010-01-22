@@ -4,14 +4,14 @@
 <!--
   * locale/da_DK/currencies.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217.
   *
   * Translated by Niels Erik Frederiksen, nef@statsbiblioteket.dk
   *
-  * $Id: currencies.xml,v 1.4 2009/10/07 21:13:19 asmecher Exp $
+  * $Id$
   -->
 
 <currencies locale="da_DK">

@@ -40,7 +40,8 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * @var array actions of the grid controller, the first key represents
-	 *  the position of the action in the controller
+	 *  the position of the action in the controller, the second key
+	 *  represents the action id.
 	 */
 	var $_actions = array(GRID_ACTION_POSITION_DEFAULT => array());
 
@@ -101,10 +102,6 @@ class GridHandler extends PKPHandler {
 	 * @return mixed
 	 */
 	function &getData() {
-		if ( is_null($this->_data) ) {
-			// initialize to an empty iterator
-			$this->_data = new ItemIterator();
-		}
 		return $this->_data;
 	}
 

@@ -94,6 +94,10 @@ class GridMainHandler extends GridHandler {
 		if (is_array($data)) {
 			import('core.ArrayItemIterator');
 			$elementIterator = new ArrayItemIterator($data);
+		} elseif(is_null($data)) {
+			// initialize data to an empty iterator
+			import('core.ItemIterator');
+			$elementIterator = new ItemIterator();
 		} else {
 			$elementIterator =& $data;
 		}

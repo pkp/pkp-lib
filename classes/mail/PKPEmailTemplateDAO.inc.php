@@ -3,7 +3,7 @@
 /**
  * @file classes/mail/PKPEmailTemplateDAO.inc.php
  *
- * Copyright (c) 2000-2009 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateDAO
@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-// $Id: PKPEmailTemplateDAO.inc.php,v 1.7 2009/10/31 00:09:27 asmecher Exp $
+// $Id$
 
 
 class PKPEmailTemplateDAO extends DAO {

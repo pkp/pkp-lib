@@ -3,7 +3,7 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2000-2009 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Installer
@@ -12,7 +12,7 @@
  * @brief Base class for install and upgrade scripts.
  */
 
-// $Id: Installer.inc.php,v 1.12 2009/11/06 18:45:30 mcrider Exp $
+// $Id$
 
 
 // Database installation files

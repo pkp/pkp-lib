@@ -4,12 +4,12 @@
 <!--
   * locale/eu_ES/user.xml
   *
-  * Copyright (c) 2000-2009 John Willinsky
+  * Copyright (c) 2000-2010 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id: user.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
+  * $Id$
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">

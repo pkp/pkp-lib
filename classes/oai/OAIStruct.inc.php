@@ -3,7 +3,7 @@
 /**
  * @file classes/oai/OAIStruct.inc.php
  *
- * Copyright (c) 2000-2009 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIConfig
@@ -13,7 +13,7 @@
  * @brief Data structures associated with the OAI request handler.
  */
 
-// $Id: OAIStruct.inc.php,v 1.7 2009/11/19 14:51:44 asmecher Exp $
+// $Id$
 
 
 /**

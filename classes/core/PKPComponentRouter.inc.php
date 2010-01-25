@@ -138,10 +138,10 @@ class PKPComponentRouter extends PKPRouter {
 			// Construct the fully qualified component class name from the rest of it.
 			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_CLASS).'Handler';
 
-			// camlize remaining endpoint parts
+			// camelize remaining endpoint parts
 			$camelizedRpcServiceEndpointParts = array();
 			foreach ( $rpcServiceEndpointParts as $part) {
-				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part);
+				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part, COMPONENT_ROUTER_METHOD);
 			}
 			$handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 

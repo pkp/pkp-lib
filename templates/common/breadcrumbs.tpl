@@ -12,5 +12,6 @@
 	{foreach from=$pageHierarchy item=hierarchyLink}
 		<a href="{$hierarchyLink[0]|escape}" class="hierarchyLink">{if not $hierarchyLink[2]}{translate key=$hierarchyLink[1]}{else}{$hierarchyLink[1]|escape}{/if}</a> &gt;
 	{/foreach}
-	{if !PKPRequest::isPost()}<a href="{$currentUrl|escape}" class="current">{else}<span class="current">{/if}{$pageCrumbTitleTranslated}{if !PKPRequest::isPost()}</a>{else}</span>{/if}
+	{* Disable linking to the current page if the request is a post (form) request. Otherwise following the link will lead to a form submission error. *}
+	{if $requiresFormRequest}<span class="current">{else}<a href="{$currentUrl|escape}" class="current">{/if}{$pageCrumbTitleTranslated}{if $requiresFormRequest}</span>{else}</a>{/if}
 </div>

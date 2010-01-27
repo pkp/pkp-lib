@@ -30,6 +30,12 @@ import('metadata.NlmCitationSchema');
 import('metadata.NlmCitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
+	/** @var integer */
+	var $_assocType;
+
+	/** @var integer */
+	var $_assocId;
+
 	/** @var int citation state (raw, edited, parsed, looked-up) */
 	var $_citationState = CITATION_RAW;
 
@@ -47,25 +53,55 @@ class Citation extends DataObject {
 
 	/**
 	 * Constructor.
-	 * NB: Currently we use the NLM citation-element as
-	 * underlying meta-data schema for a citation. This can
-	 * be made configurable by adding a meta-data schema
-	 * parameter to this constructor.
 	 * @param $rawCitation string an unparsed citation string
 	 */
 	function Citation($rawCitation = null) {
-		// Instantiate the underlying meta-data schema
-		// FIXME: This should be done via plugin/user-configurable settings
-		$metadataSchema = new NlmCitationSchema();
+		parent::DataObject();
+
+		// Add NLM meta-data adapter.
+		// FIXME: This will later be done via plugin/user-configurable settings,
+		// see comment in DataObject::DataObject().
 		$metadataAdapter = new NlmCitationSchemaCitationAdapter();
-		$this->addSupportedMetadataSchema($metadataSchema, $metadataAdapter);
+		$this->addSupportedMetadataAdapter($metadataAdapter);
 
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
 	}
 
 	//
-	// Get/set methods
+	// Getters and Setters
 	//
+	/**
+	 * Get the association type
+	 * @return integer
+	 */
+	function getAssocType() {
+		return $this->_assocType;
+	}
+
+	/**
+	 * Set the association type
+	 * @param $assocType integer
+	 */
+	function setAssocType($assocType) {
+		$this->_assocType = $assocType;
+	}
+
+	/**
+	 * Get the association id
+	 * @return integer
+	 */
+	function getAssocId() {
+		return $this->_assocId;
+	}
+
+	/**
+	 * Set the association id
+	 * @param $assocId integer
+	 */
+	function setAssocId($assocId) {
+		$this->_assocId = $assocId;
+	}
+
 	/**
 	 * Get the citationState
 	 * @return integer
@@ -79,30 +115,7 @@ class Citation extends DataObject {
 	 * @param $citationState integer
 	 */
 	function setCitationState($citationState) {
-		$previousCitationState = $this->_citationState;
-
-		assert(in_array($previousCitationState, Citation::_getSupportedCitationStates()));
 		assert(in_array($citationState, Citation::_getSupportedCitationStates()));
-
-		// Clean up the class when the state is reset
-		if ($previousCitationState > $citationState) {
-			switch($citationState) {
-				case CITATION_RAW:
-					$this->_editedCitation = $this->_rawCitation;
-				case CITATION_EDITED:
-					$this->_parseScore = null;
-					$statements = array();
-					$this->setStatements($statements);
-				case CITATION_PARSED:
-					$this->_lookupScore = null;
-					break;
-
-				default:
-					// unsupported citation state
-					assert(false);
-			}
-		}
-
 		$this->_citationState = $citationState;
 	}
 
@@ -116,9 +129,6 @@ class Citation extends DataObject {
 
 	/**
 	 * Set the rawCitation
-	 * NB: This will reset the state of the citation to CITATION_RAW and
-	 * the corresponding edited citation will be implicitly set to the same
-	 * string.
 	 * @param $rawCitation string
 	 */
 	function setRawCitation($rawCitation) {
@@ -131,11 +141,6 @@ class Citation extends DataObject {
 		$rawCitation = trim(stripslashes($rawCitation));
 
 		$this->_rawCitation = $rawCitation;
-
-		// Setting a new raw citation string will reset the
-		// state of the citation to "raw" and implicitly reset
-		// the edited citation string to the same raw string.
-		$this->setCitationState(CITATION_RAW);
 	}
 
 	/**
@@ -148,14 +153,10 @@ class Citation extends DataObject {
 
 	/**
 	 * Set the editedCitation
-	 * NB: This will reset the state of the citation to CITATION_EDITED.
 	 * @param $editedCitation string
 	 */
 	function setEditedCitation($editedCitation) {
-		// Setting a new edited citation string will reset the
-		// state of the citation to "edited"
 		$this->_editedCitation = $editedCitation;
-		$this->setCitationState(CITATION_EDITED);
 	}
 
 	/**

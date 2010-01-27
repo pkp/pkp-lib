@@ -23,6 +23,14 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
+		<field name="assoc_type" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="assoc_id" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<field name="citation_state" type="I8">
 			<NOTNULL/>
 		</field>
@@ -33,6 +41,10 @@
 		<field name="parse_score" type="I8"/>
 		<field name="lookup_score" type="I8"/>
 		<descr>Citations</descr>
+		<index name="citations_assoc">
+			<col>assoc_type</col>
+			<col>assoc_id</col>
+		</index>
 	</table>
 
 	<!--

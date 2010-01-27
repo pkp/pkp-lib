@@ -95,6 +95,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('datetimeFormatShort', Config::getVar('general', 'datetime_format_short'));
 		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
+		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);

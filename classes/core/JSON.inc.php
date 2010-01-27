@@ -36,7 +36,7 @@ class JSON {
 	* @param $status string The status of an event (e.g. false if form validation fails)
 	* @param $content string The message to be delivered back to the calling script
 	*/
-	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes) {
+	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes = null)) {
 		$this->status = $status;
 		$this->content = $this->json_encode($content);
 		$this->isScript = $isScript;

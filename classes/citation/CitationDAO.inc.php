@@ -26,10 +26,12 @@ class CitationDAO extends DAO {
 	function insertCitation(&$citation) {
 		$this->update(
 			sprintf('INSERT INTO citations
-				(citation_state, raw_citation, edited_citation, parse_score, lookup_score)
+				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, parse_score, lookup_score)
 				VALUES
-				(?, ?, ?, ?, ?)'),
+				(?, ?, ?, ?, ?, ?, ?)'),
 			array(
+				(integer)$citation->getAssocType(),
+				(integer)$citation->getAssocId(),
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
@@ -65,19 +67,44 @@ class CitationDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve an array of citations matching a particular association id.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $dbResultRange DBResultRange the desired range
+	 * @return DAOResultFactory containing matching Citations
+	 */
+	function &getCitationsByAssocId($assocType, $assocId, $rangeInfo = null) {
+		$result =& $this->retrieveRange(
+			'SELECT *
+			FROM citations
+			WHERE assoc_type = ? AND assoc_id = ?
+			ORDER BY citation_id DESC',
+			array($assocType, $assocId),
+			$rangeInfo
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
+	}
+
+	/**
 	 * Update an existing Citation.
 	 * @param $citation Citation
 	 */
 	function updateCitation(&$citation) {
 		$returner = $this->update(
 			'UPDATE	citations
-			SET	citation_state = ?,
+			SET	assoc_type = ?,
+				assoc_id = ?,
+				citation_state = ?,
 				raw_citation = ?,
 				edited_citation = ?,
 				parse_score = ?
 				lookup_score = ?
 			WHERE	citation_id = ?',
 			array(
+				(integer)$citation->getAssocType(),
+				(integer)$citation->getAssocId(),
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
@@ -128,7 +155,7 @@ class CitationDAO extends DAO {
 	 * Construct a new Citation object.
 	 * @return Citation
 	 */
-	function &_newDataObject($metadataSchemaName, $assocType) {
+	function &_newDataObject() {
 		$citation = new Citation();
 		return $citation;
 	}
@@ -140,8 +167,10 @@ class CitationDAO extends DAO {
 	 * @return Citation
 	 */
 	function &_fromRow(&$row) {
-		$citation =& $this->newDataObject();
+		$citation =& $this->_newDataObject();
 		$citation->setId($row['citation_id']);
+		$citation->setAssocType($row['assoc_type']);
+		$citation->setAssocId($row['assoc_id']);
 		$citation->setCitationState($row['citation_state']);
 		$citation->setRawCitation($row['raw_citation']);
 		$citation->setEditedCitation($row['edited_citation']);

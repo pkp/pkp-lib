@@ -20,9 +20,6 @@ class DataObject {
 	/** Array of object data */
 	var $_data;
 
-	/** @var array an array of MetadataSchema instances */
-	var $_supportedMetadataSchemas = array();
-
 	/** @var array an array of MetadataAdapter instances (one per supported schema) */
 	var $_metadataAdapters = array();
 
@@ -30,6 +27,9 @@ class DataObject {
 	 * Constructor.
 	 */
 	function DataObject($callHooks = true) {
+		// FIXME: Add meta-data schema plug-in support here to
+		// dynamically add supported meta-data schemas.
+
 		$this->_data = array();
 	}
 
@@ -155,25 +155,23 @@ class DataObject {
 	// MetadataProvider interface implementation
 	//
 	/**
-	 * Add a meta-data schema that will be supported
-	 * by this application entity.
-	 * @param $metadataSchema MetadataSchema
+	 * Add a meta-data adapter that will be supported
+	 * by this application entity. Only one adapter per schema
+	 * can be added.
 	 * @param $metadataAdapter MetadataAdapter
 	 */
-	function addSupportedMetadataSchema(&$metadataSchema, &$metadataAdapter) {
+	function addSupportedMetadataAdapter(&$metadataAdapter) {
+		$metadataSchema =& $metadataAdapter->getMetadataSchema();
 		$metadataSchemaName = $metadataSchema->getName();
 
 		// Make sure that the meta-data schema is unique.
 		assert(!empty($metadataSchemaName) &&
-				!isset($this->_supportedMetadataSchemas[$metadataSchemaName]));
+				!isset($this->_metadataAdapters[$metadataSchemaName]));
 
-		// Make sure that the adapter converts from/to the correct formats
-		$adapterMetadataSchema =& $metadataAdapter->getMetadataSchema();
+		// Make sure that the adapter converts from/to this application entity
 		assert($metadataAdapter->supports($this));
-		assert($metadataSchemaName == $adapterMetadataSchema->getName());
 
 		// Save adapter and schema
-		$this->_supportedMetadataSchemas[$metadataSchemaName] =& $metadataSchema;
 		$this->_metadataAdapters[$metadataSchemaName] =& $metadataAdapter;
 	}
 
@@ -187,9 +185,8 @@ class DataObject {
 	function getMetadataFieldNames($translated = true) {
 		// Create a list of all possible meta-data field names
 		$metadataFieldNameCandidates = array();
-		foreach($this->_supportedMetadataSchemas as $metadataSchemaName => $metadataSchema) {
+		foreach($this->_metadataAdapters as $metadataSchemaName => $metadataAdapter) {
 			// Add the field names from the current adapter
-			$metadataAdapter =& $this->_metadataAdapters[$metadataSchemaName];
 			$metadataFieldNameCandidates = array_merge($metadataFieldNameCandidates,
 					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
 		}

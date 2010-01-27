@@ -46,12 +46,14 @@ class CitationDAOTest extends DatabaseTestCase {
 		$citationDescription->addStatement('uri', $value = 'http://phpunit.org/nutshell');
 
 		$citation = new Citation('raw citation');
+		$citation->setAssocType(ASSOC_TYPE_ARTICLE);
+		$citation->setAssocId(5);
 		$citation->setEditedCitation('edited citation');
 		$citation->setParseScore(50);
 		$citation->injectMetadata($citationDescription);
 
 		$citationId = $this->citationDAO->insertCitation($citation);
-		self::assertTrue(is_integer($citationId));
+		self::assertTrue(is_numeric($citationId));
 		self::assertTrue($citationId > 0);
 	}
 }

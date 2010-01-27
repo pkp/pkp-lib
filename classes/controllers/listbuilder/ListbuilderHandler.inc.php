@@ -19,19 +19,19 @@ define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
 define('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
 
-class ListbuilderHandler extends GridMainHandler {	
+class ListbuilderHandler extends GridMainHandler {
 	/** The title of the overall list builder.  **/
 	var $title;
 
 	/** Internal identifier for the Listbuilder. To be used as a programmatic reference. */
 	var $id;
-	
+
 	/** The label associated with the primary source to be added to the list **/
 	var $sourceTitle;
-	
+
 	/** Definition of the type of source **/
 	var $sourceType;
-	
+
 	/** The current collection of items in the list **/
 	var $items;
 
@@ -40,17 +40,17 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/** Array of optional attributes **/
 	var $attributeNames;
-	
+
 	/* Array of strings containing possible items that are stored in the source list */
-	var $possibleItems;	
+	var $possibleItems;
 
 	/**
 	 * Constructor.
 	 */
-	function ListbuilderHandler() {	
+	function ListbuilderHandler() {
 		parent::GridMainHandler();
 	}
-	
+
 	function getRemoteOperations() {
 		return array('fetch', 'additem', 'deleteitems', 'getlist', 'getautocompletesource');
 	}
@@ -62,7 +62,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function setSourceTitle($sourceTitle) {
 		$this->sourceTitle = $sourceTitle;
 	}
-	
+
 	/**
 	 * Get the title for the source (left side of the listbuilder)
 	 * @return string
@@ -78,7 +78,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function setSourceType($sourceType) {
 		$this->sourceType = $sourceType;
 	}
-	
+
 	/**
 	 * Get the type of source (Free text input, select from list, autocomplete)
 	 * @return int
@@ -94,7 +94,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function setItems($items) {
 		$this->items = $items;
 	}
-	
+
 	/**
 	 * Return all ListbuilderItems
 	 * @return array
@@ -102,7 +102,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function getItems() {
 		return $this->items;
 	}
-	
+
 	/**
 	 * Return a ListbuilderItem by ID
 	 * @return ListbuilderItem
@@ -110,7 +110,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function getItem($itemId) {
 		return $this->items[$itemId];
 	}
-	
+
 	/**
 	 * Remove a ListbuilderItem by ID
 	 * @param itemId mixed
@@ -118,7 +118,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function removeItem($itemId) {
 		unset($items[$itemId]);
 	}
-	
+
 	/**
 	 * Set the localized label for the list (right side of the listbuilder)
 	 * @param listTitle string
@@ -126,7 +126,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function setListTitle($listTitle) {
 		$this->listTitle = $listTitle;
 	}
-	
+
 	/**
 	 * Get the localized label for the list (right side of the listbuilder)
 	 * @return string
@@ -136,21 +136,21 @@ class ListbuilderHandler extends GridMainHandler {
 	}
 
 	/**
-	 * Set the localized labels for each attribute 
+	 * Set the localized labels for each attribute
 	 * @param attributeNames array
 	 */
 	function setAttributeNames($attributeNames) {
 		$this->attributeNames = $attributeNames;
 	}
-	
+
 	/**
-	 * Get the localized labels for each attribute 
+	 * Get the localized labels for each attribute
 	 * @return array
 	 */
 	function getAttributeNames() {
 		return $this->attributeNames;
-	}	
-	
+	}
+
 	/**
  	 * Build a list of <option>'s based on the input (can be array or one list item)
 	 * @param itemName string
@@ -160,31 +160,33 @@ class ListbuilderHandler extends GridMainHandler {
 		if (isset($attributeNames)) {
 			if (is_array($attributeNames)) $attributeNames = implode(', ', $attributeNames);
 			return "<option value='$itemId'>$itemName ($attributeNames)</option>";
-		} 
-		
+		}
+
 		return "<option value='$itemId'>$itemName</option>";
 	}
-	
-	
+
+
 	/**
 	 * Display the Listbuilder
 	 */
 	function fetch(&$args, &$request) {
 		// FIXME: User validation
-		
+
 		$templateMgr =& TemplateManager::getManager();
 		$this->setupTemplate();
 		$router =& $request->getRouter();
 
 		// Let the subclass configure the listbuilder
 		$this->initialize($request);
-		
-
 
 		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'additem'));
 		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteitems'));
-		$templateMgr->assign('refreshUrl', $router->url($request, array(), null, 'getlist'));
 		$templateMgr->assign('autocompleteUrl', $router->url($request, array(), null, 'getautocompletesource'));
+
+		// Translate modal submit/cancel buttons
+		$okButton = Locale::translate('common.ok');
+		$warning = Locale::translate('common.warning');
+		$templateMgr->assign('localizedButtons', "$okButton, $warning");
 
 		$rowHandler =& $this->getRowHandler();
 		// initialize to create the columns
@@ -192,7 +194,7 @@ class ListbuilderHandler extends GridMainHandler {
 		$columns =& $rowHandler->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign('numColumns', count($columns));
-				
+
 		// Render the rows
 		$rows = $this->_renderRowsInternally($request);
 		$templateMgr->assign_by_ref('rows', $rows);
@@ -204,7 +206,7 @@ class ListbuilderHandler extends GridMainHandler {
 	function setupTemplate() {
 		parent::setupTemplate();
 
-		Locale::requireComponents(array(LOCALE_COMPONENT_OMP_MANAGER));
+		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
 	}
 }
 

@@ -867,9 +867,7 @@ class PKPTemplateManager extends Smarty {
 
 		echo "<div id=\"$id\"></div>
 		<script type='text/javascript'>
-		$(document).ready(function(){
 		  $(\"#$id\").load(\"$url\");
-		});
 		</script>";
 	}
 

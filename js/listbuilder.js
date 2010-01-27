@@ -15,26 +15,41 @@
  * @param $handler URL handle the routine
  * @param $listbuilderId DOM id to the listbuilder being used
  */
-function addItem(handler, listbuilderId) {
+function addItem(handler, listbuilderId, localizedButtons) {
 	$(document).ready(function() {
 		var form = '#source-' + listbuilderId;
-		
+
 		$('#add-' + listbuilderId).click(function() {
 			newItem = $('#source-' + listbuilderId + ' *').serialize();
 			$.post(
-				handler, 
-				newItem, 
+				handler,
+				newItem,
 				function(returnString) {
 					if (returnString.status) {
 						$(returnString.content).hide().prependTo('#listGrid-' + listbuilderId).fadeIn("slow");
 						$('#listGrid-' + listbuilderId + ' tr.empty').hide();
+
+						// Remove the item from the source
+						$("#source-" + listbuilderId + " .text").val(""); //If source is text input
+						$("#source-" + listbuilderId + " option:selected").remove(); //If source is list
+
+						// If applicable, add the result to source lists elsewhere on the page
+						if(returnString.addToSources) {
+							var sourceIdString = returnString.sourceIds;
+							var sourceIds = new Array();
+							sourceIds = sourceIdString.split(',');
+
+							$.each(sourceIds, function(key, value) {
+								$("#"+value).append(returnString.sourceHtml);
+							});
+						}
 					} else {
 						// Alert that the action failed
-						alert('ADDING ITEM FAILED');	// FIXME: Need to translate.  Make this a modal?  
+						modalAlert(returnString.content, localizedButtons);
 					}
 				}, 'json'
 			);
-		});	
+		});
 	});
 }
 
@@ -53,22 +68,39 @@ function deleteItems(handler, listbuilderId) {
 			});
 
 			$.post(
-				handler, 
-				selectedItems.join('&'), 
+				handler,
+				selectedItems.join('&'),
 				function(returnString) {
 					if (returnString.status) {
 						// Remove the select items from the list
 						$('#listGrid-' + listbuilderId + ' .selected').each(function(i, selected){
 							$(selected).remove();
 						});
+
+						// If applicable, remove the result from source lists elsewhere on the page
+						if(returnString.removeFromSources) {
+							var sourceIdString = returnString.sourceIds;
+							var sourceIds = new Array();
+							sourceIds = sourceIdString.split(',');
+
+							var itemIdString = returnString.itemIds;
+							var itemIds = new Array();
+							itemIds = itemIdString.split(',');
+
+							$.each(sourceIds, function(sourceKey, sourceValue) {
+								$.each(itemIds, function(itemKey, itemValue) {
+									$("#" + sourceValue+" option[value='" + itemValue + "']").remove();
+								})
+							});
+						}
 					} else {
 						// Alert that the action failed
-						alert('DELETING ITEM FAILED');	// FIXME:  Need to translate.  Make this a modal?  
+						alert('DELETING ITEM FAILED');	// FIXME:  Need to translate.  Make this a modal?
 					}
 				}, 'json'
 			);
-		});	
-	});	
+		});
+	});
 }
 
 /**
@@ -76,10 +108,10 @@ function deleteItems(handler, listbuilderId) {
  * Select a row in a listbuilder grid
  */
 function selectRow(listbuilderGridId) {
-	$('#'+listbuilderGridId)
+	$('#results-'+listbuilderGridId)
 		.css("cursor","pointer")
-		.click(function(e) {  
-			var clicked = $(e.target);  
+		.click(function(e) {
+			var clicked = $(e.target);
 			clicked.parent().toggleClass('selected');
 			return false;
 		});
@@ -95,7 +127,7 @@ function getAutocompleteSource(handler, id) {
 	$(document).ready(function(){
 		var data = null;
 		$.getJSON(
-			handler, 
+			handler,
 			function(returnString) {
 				if (returnString.elementId == 'local') {
 					// Set the data source to an array (for smaller data sets only)

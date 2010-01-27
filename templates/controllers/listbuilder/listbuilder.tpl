@@ -15,7 +15,7 @@
  			<ul>
 		        <li>
 		            <label class="desc">
-		            	{translate key=$listbuilder->getTitle()}
+		            	{translate key=$listbuilder->getSourceTitle()}
 					</label>
 				  	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 						<span>
@@ -31,12 +31,14 @@
 								<input type="text" class="field text" name="attribute-{$iteration}-{$listbuilderId}" id="attribute-{$iteration}-{$listbuilderId}" value="" />
 								<label for="attribute-{$iteration}-{$listbuilderId}">
 									{translate key=$attributeName}
+									<span class="req">*</span>
 								</label>
 							</span>
 						{/foreach}
 					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
 						<span>
 						<select name="selectList-{$listbuilderId}" id="selectList-{$listbuilderId}" class="field select">
+							<option>{translate key='manager.setup.selectOne'}</option>
 							{foreach from=$listbuilder->getPossibleItemList() item=item}{$item}{/foreach}
 						</select>
 							<label for="selectList-{$listbuilderId}">
@@ -58,14 +60,14 @@
 			<a href="#" id="delete-{$listbuilderId}" onclick="return false;" class="remove_item">
 				<span class="hidetext">Delete</span></a>
 		</div>
-		<div class="unit size1of2 lastUnit listbuilder_results">
+		<div id="results-{$listbuilderId}" class="unit size1of2 lastUnit listbuilder_results">
 		    <ul>
 		        <li>
 		            <label class="desc">
-		                {$listbuilder->getTitle()|translate}
+		                {$listbuilder->getListTitle()|translate}
 		            </label>
 					{include file="controllers/listbuilder/listbuilderGrid.tpl"}
-				</li>	
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -74,10 +76,10 @@
 		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId}{literal}");{/literal}
 	{/if}
 	{literal}
-		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId}{literal}");
+		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId}{literal}", "{/literal}{$localizedButtons}{literal}");
 		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId}{literal}");
 		selectRow("{/literal}{$listbuilderId}{literal}");
-	{/literal}	
+	{/literal}
 	</script>
 </div>
 

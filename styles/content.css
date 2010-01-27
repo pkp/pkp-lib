@@ -66,6 +66,24 @@ hr {
 	padding: 2px;
 }
 
+#toolbox .block {
+	padding-left: 7px;
+	margin-bottom: 10px;
+}
+
+#toolbox .blockTitle {
+	font-size: 95%;
+	font-weight: bold;
+}
+
+#toolbox .block ul {
+	padding-top: 2px;
+}
+
+#toolbox .block label {
+	font-size: 85%;
+}
+
 /* @end */
 
 /* @group Default Spacing */
@@ -645,6 +663,47 @@ a.notify {
 
 a.uploaded {
 	background-image: url(../templates/images/structure/grid_folder.png);
+}
+
+/* @end */
+
+/* @group Font Sizer */
+.smallFont {
+	outline: none; /*for making it look nice in FF */
+	background: url(../templates/images/icons/font-down.png);
+	text-indent: -9999px;
+	display: block;
+	float: left;
+	width: 20px;
+	height: 23px;
+}
+
+.defaultFont {
+	/*if you want to hide the default font button, use display:none */
+	background: url(../templates/images/icons/font-default.png);
+	text-indent: -9999px;
+	outline: none;
+	display: block;
+	float: left;
+	width: 20px;
+	height: 23px;
+}
+
+.largeFont {
+	background: url(../templates/images/icons/font-up.png);
+	outline: none;
+	text-indent: -9999px;
+	display: block;
+	float: left;
+	width: 20px;
+	height: 23px;
+}
+
+.ldisabled,.sdisabled { /*Styles for disabled buttons*/
+	opacity: 0.3;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	/*This is for IE8 */
+	filter: alpha(opacity = 30);
 }
 
 /* @end */

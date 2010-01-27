@@ -22,7 +22,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 	$(document).ready(function() {
 		var validator = null;
 		var title = $(callingButton).text() // Assign title to calling button's text
-		var okButton = localizedButtons[0]
+		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var UID = new Date().getTime();
 		var form = '#' + UID + ' > form';
@@ -75,10 +75,11 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		});
 
 		// Tell the calling button to open this modal on click
-		$(callingButton).click(function() {
+		$(callingButton).live("click", (function() {
 			$dialog.dialog('open')
 			return false;
-		});
+		}));
+
 	});
 }
 
@@ -138,6 +139,41 @@ function confirm(url, actType, actOnId, dialogText, localizedButtons, callingBut
 			return false;
 		});
 	});
+}
+/**
+ * alert - Display a simple alert dialog
+ * @param $dialogText Text to display in the dialog
+ * @param $localizedButtons Array of translated 'Cancel/submit' strings
+ */
+function modalAlert(dialogText, localizedButtons) {
+		var localizedText = new Array();
+		localizedText = localizedButtons.split(',');
+		var okButton = localizedText[0];
+		if (localizedText[1]) {
+			var title = localizedText[1];
+		} else {
+			var title = "Alert";
+		}
+		var UID = new Date().getTime();
+
+		// Construct action to perform when OK button is clicked
+		var dialogOptions = {};
+		dialogOptions[okButton] = function() {
+			$(this).dialog("close");
+		};
+
+		// Construct dialog
+		var $dialog = $('<div id=' + UID + '>'+dialogText+'</div>').dialog({
+			title: title,
+			autoOpen: false,
+			modal: true,
+			draggable: false,
+			buttons: dialogOptions,
+		});
+
+		$dialog.dialog('open');
+		return false;
+
 }
 
 function changeModalFormLocale() {

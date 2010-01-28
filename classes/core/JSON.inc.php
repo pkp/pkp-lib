@@ -130,10 +130,10 @@ class JSON {
 	* @return string
 	*/
 	function getString() {
-		$jsonString = "{'status': $this->status, 'content': $this->content, 'isScript': $this->isScript, 'elementId': $this->elementId";
+		jsonString = "{\"status\": $this->status, \"content\": $this->content, \"isScript\": $this->isScript, \"elementId\": $this->elementId";
 			if(isset($this->additionalAttributes)) {
 				foreach($this->additionalAttributes as $key => $value) {
-					$jsonString .= ", '$key': " . $this->json_encode($value);
+					$jsonString .= ", \"$key\": " . $this->json_encode($value);
 				}
 			}
 		$jsonString .= "}";

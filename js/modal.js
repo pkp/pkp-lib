@@ -92,7 +92,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
  * @param $localizedButtons Array of translated 'Cancel/submit' strings
  * @param $callingButton Selector of the button that opens the modal
  */
-function confirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
+function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
 	$(document).ready(function() {
 		var title = $(callingButton).text() // Assign title to calling button's text
 		var okButton = localizedButtons[0]

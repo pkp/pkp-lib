@@ -949,7 +949,7 @@ class PKPTemplateManager extends Smarty {
 		if ($showDialog) {
 			$confirmCode = "<script type='text/javascript'>
 			var localizedButtons = ['$submitButton', '$cancelButton'];
-			confirm('$url', '$actOnType', '$actOnId', '$dialogText', localizedButtons, '$button');
+			modalConfirm('$url', '$actOnType', '$actOnId', '$dialogText', localizedButtons, '$button');
 			</script>\n";
 		} else {
 			$confirmCode = "<script type='text/javascript'>

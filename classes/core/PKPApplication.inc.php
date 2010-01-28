@@ -32,7 +32,7 @@ class PKPApplication {
 		$errorReportingLevel = E_ALL;
 		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
 		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
-		error_reporting($errorReportingLevel);
+		@error_reporting($errorReportingLevel);
 
 		// Instantiate the profiler
 		import('core.PKPProfiler');
@@ -51,6 +51,12 @@ class PKPApplication {
 
 		import('config.Config');
 
+		if (Config::getVar('debug', 'display_errors')) {
+			// Try to switch off normal error display when error display
+			// is being managed by OJS.
+			@ini_set('display_errors', false);
+		}
+
 		if (Config::getVar('debug', 'deprecation_warnings')) {
 			// Switch deprecation warnings back on. This can only be done
 			// after declaring the Config class as we need access to the
@@ -59,7 +65,7 @@ class PKPApplication {
 			// causes warnings itself.
 			if (defined('E_STRICT')) $errorReportingLevel |= E_STRICT;
 			if (defined('E_DEPRECATED')) $errorReportingLevel |= E_DEPRECATED;
-			error_reporting($errorReportingLevel);
+			@error_reporting($errorReportingLevel);
 		}
 
 		Registry::set('application', $this);
@@ -323,7 +329,12 @@ class PKPApplication {
 		}
 
 		// Return abridged message if strict error or notice (since they are more common)
-		if ($errorno == E_NOTICE) {
+		// This also avoids infinite loops when E_STRICT (=deprecation level) error
+		// reporting is switched on.
+		$shortErrors = E_NOTICE;
+		if (defined('E_STRICT')) $shortErrors |= E_STRICT;
+		if (defined('E_DEPRECATED')) $shortErrors |= E_DEPRECATED;
+		if ($errorno & $shortErrors) {
 			return $type . ': ' . $errstr . ' (' . $errfile . ':' . $errline . ')';
 		}
 

@@ -25,7 +25,7 @@ class PKPInstallHandler extends Handler {
 	 */
 	function index() {
 		// Make sure errors are displayed to the browser during install.
-		@ini_set('display_errors', E_ALL);
+		@ini_set('display_errors', true);
 
 		$this->validate();
 		$this->setupTemplate();

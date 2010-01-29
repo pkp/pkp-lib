@@ -18,6 +18,11 @@
  *  different ways to form complex and easy-to-customize data processing
  *  networks or pipelines.
  *
+ *  NB: This also means that filters only make sense if they accept and
+ *  return standardized formats that are understood by other filters. Otherwise
+ *  the extra implementation effort for a filter won't result in improved code
+ *  re-use.
+ *
  *  Objects from different applications (e.g. Papers and Articles) can first be
  *  transformed by an application specific filter into a common format and then
  *  be processed by application agnostic import/export filters or vice versa.
@@ -70,14 +75,14 @@
 
 
 class Filter {
-	//
-	// Abstract template methods
-	//
+	/** @var array an array of strings that represents the supported transformations */
+	var $_transformationIdentifiers = array();
+
 	/**
 	 * Returns true if the given input is supported
 	 * by this filter. Otherwise it must return false.
 	 * NB: sub-classes must implement this method.
-	 * @param $input
+	 * @param $input mixed
 	 * @return boolean
 	 */
 	function supports(&$input) {
@@ -88,7 +93,8 @@ class Filter {
 	 * Returns true if the given value is a valid
 	 * output value for this filter.
 	 * NB: sub-classes must implement this method.
-	 * @param $output
+	 * @param $output mixed
+	 * @return boolean
 	 */
 	function isValid(&$output) {
 		assert(false);

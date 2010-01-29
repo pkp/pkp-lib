@@ -34,7 +34,7 @@ class MetadataDataObjectAdapter extends Filter {
 	/** @var integer */
 	var $_assocType;
 
-	/** @var string */
+	/** @var integer */
 	var $_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED;
 
 	/** @var array */
@@ -42,7 +42,9 @@ class MetadataDataObjectAdapter extends Filter {
 
 	/**
 	 * Constructor
-	 * @param $dataObject DataObject
+	 * @param $metadataSchema MetadataSchema
+	 * @param $dataObjectName string
+	 * @param $assocType integer
 	 */
 	function MetadataDataObjectAdapter(&$metadataSchema, $dataObjectName, $assocType) {
 		assert(is_a($metadataSchema, 'MetadataSchema') && is_string($dataObjectName)
@@ -63,6 +65,16 @@ class MetadataDataObjectAdapter extends Filter {
 	 */
 	function &getMetadataSchema() {
 		return $this->_metadataSchema;
+	}
+
+	/**
+	 * Convenience method that returns the
+	 * meta-data name space.
+	 * @return string
+	 */
+	function getMetadataNamespace() {
+		$metadataSchema =& $this->getMetadataSchema();
+		return $metadataSchema->getNamespace();
 	}
 
 	/**
@@ -143,12 +155,12 @@ class MetadataDataObjectAdapter extends Filter {
 				if (!is_a($dataObject, $this->_dataObjectName)) return false;
 
 				// Check the the meta-data description compliance
-				return $this->complies($metadataDescription);
+				return $this->_complies($metadataDescription);
 
 			// Inject meta-data into a new data object
 			case is_a($input, 'MetadataDescription'):
 				// We just need to check the meta-data description compliance.
-				return $this->complies($input);
+				return $this->_complies($input);
 
 			// Create a new meta-data description from a data object
 			case is_a($input, $this->_dataObjectName):
@@ -209,7 +221,7 @@ class MetadataDataObjectAdapter extends Filter {
 
 				// Check whether the the output
 				// complies with the supported schema
-				return $this->complies($output);
+				return $this->_complies($output);
 
 			default:
 				// The adapter mode must always be defined
@@ -281,7 +293,7 @@ class MetadataDataObjectAdapter extends Filter {
 	}
 
 	//
-	// Private methods
+	// Private helper methods
 	//
 	/**
 	 * Check whether a given meta-data description complies with
@@ -289,7 +301,7 @@ class MetadataDataObjectAdapter extends Filter {
 	 * @param $metadataDescription MetadataDescription
 	 * @return boolean true if the given description complies, otherwise false
 	 */
-	function complies($metadataDescription) {
+	function _complies($metadataDescription) {
 		// Check that the description describes the correct resource
 		if ($metadataDescription->getAssocType() != $this->_assocType) return false;
 

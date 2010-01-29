@@ -65,6 +65,20 @@ class XSLTransformer {
 		$this->errors = array();
 	}
 
+	//
+	// Getters and Setters
+	//
+	/**
+	 * Get the processor type
+	 * @return string
+	 */
+	function getProcessor() {
+		return $this->processor;
+	}
+
+	//
+	// Public methods
+	//
 	/**
 	 * Apply an XSLT transform to a given XML and XSL source files
 	 * @param $xmlFile absolute pathname to the XML source file
@@ -105,6 +119,38 @@ class XSLTransformer {
 		return false;
 	}
 
+	/**
+	 * Apply an XSLT transform to a given XML and XSL DOM (PHP5 only)
+	 * @param $xmlDom DOMDocument
+	 * @param $xslDom DOMDocument
+	 * @return DOMDocument
+	 */
+	function &transformDoms(&$xmlDom, &$xslDom) {
+		if($this->processor != 'PHP5') return false;
+
+		$processor = new XSLTProcessor();
+
+		// NB: this can open potential security issues; see FAQ/README
+		if ($this->registerPHPFunctions) {
+			$processor->registerPHPFunctions($this->registerPHPFunctions);
+		}
+
+		if (!empty($this->parameters) && is_array($this->parameters)) {
+			foreach ($this->parameters as $param => $value) {
+				$processor->setParameter(null, $param, $value);
+			}
+		}
+
+		// Import and process the stylesheet
+		$processor->importStylesheet($xslDOM);
+		$resultDOM =& $processor->transformToDoc($xmlDOM);
+
+		return $resultDOM;
+	}
+
+	//
+	// Private helper methods
+	//
 	function _transformExternal($xmlFile, $xslFile) {
 		// check the external command to check for %xsl and %xml parameter substitution
 		if ( strpos($this->externalCommand, '%xsl') === false ) return false;

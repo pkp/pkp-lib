@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NlmCitationSchema
- * @ingroup metadata
+ * @ingroup metadata_nlm
  * @see MetadataSchema
  *
  * @brief Class that provides meta-data properties compliant with
@@ -54,6 +54,7 @@ class NlmCitationSchema extends MetadataSchema {
 		$this->addProperty(new MetadataProperty('conf-loc', $citation));
 		$this->addProperty(new MetadataProperty('conf-name', $citation));
 		$this->addProperty(new MetadataProperty('conf-sponsor', $citation));
+		$this->addProperty(new MetadataProperty('institution', $citation));
 		$this->addProperty(new MetadataProperty('fpage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
 		$this->addProperty(new MetadataProperty('lpage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
 		$this->addProperty(new MetadataProperty('size', $citation, METADATA_PROPERTY_TYPE_INTEGER));
@@ -71,6 +72,10 @@ class NlmCitationSchema extends MetadataSchema {
 		$this->addProperty(new MetadataProperty('comment', $citation));
 		$this->addProperty(new MetadataProperty('annotation', $citation));
 		$this->addProperty(new MetadataProperty('[@publication-type]', $citation));
+
+		// NB: NLM citation does not have very good thesis support. We might
+		// encode the degree in the publication type and the advisor as 'contrib'
+		// with role 'advisor' in the future.
 	}
 }
 ?>

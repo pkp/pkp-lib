@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NlmCitationSchemaCitationAdapter
- * @ingroup metadata
+ * @ingroup metadata_nlm
  * @see Citation
  * @see NlmCitationSchema
  *
@@ -17,17 +17,38 @@
 
 // $Id$
 
-import('metadata.MetadataDataObjectAdapter');
+import('citation.MetadataCitationAdapter');
 import('metadata.NlmCitationSchema');
 
-class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
-	//
-	// Constructor
-	//
+class NlmCitationSchemaCitationAdapter extends MetadataCitationAdapter {
+	/**
+	 * Constructor
+	 */
 	function NlmCitationSchemaCitationAdapter() {
 		// Configure the adapter
 		$metadataSchema = new NlmCitationSchema();
-		parent::MetadataDataObjectAdapter($metadataSchema, 'Citation', ASSOC_TYPE_CITATION);
+		parent::MetadataCitationAdapter($metadataSchema);
+	}
+
+	//
+	// Implement template methods from MetadataCitationAdapter
+	//
+	/**
+	 * Get authors as a string representation
+	 * @param $citationDescription MetadataDescription
+	 * @return string authors in the format "Bohr, Niels; van der Waals, J. D.; Planck, Max"
+	 */
+	function getAuthorsString(&$citation) {
+		$authors = $citationDescription->getData($this->getMetadataNamespace().':person-group[@person-group-type="author"]');
+		if (!is_array($authors)) return null;
+
+		$authorsString = '';
+		foreach ($authors as $author) {
+			assert(is_a($author, 'MetadataDescription'));
+			$authorsString .= $author->getLastName().', '.$author->getFirstName().' '.$author->getMiddleName().';';
+		}
+		// Remove the final semicolon
+		return substr($authorsString, 0, -1);
 	}
 
 	//
@@ -52,8 +73,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 		// Add new meta-data statements to the citation. Add the schema
 		// name space to each property name so that it becomes unique
 		// across schemas.
-		$metadataSchema =& $this->getMetadataSchema();
-		$metadataSchemaNamespace = $metadataSchema->getNamespace();
+		$metadataSchemaNamespace = $this->getMetadataNamespace();
 
 		foreach($statements as $propertyName => $value) {
 			if (in_array($propertyName, array('person-group[@person-group-type="author"]', 'person-group[@person-group-type="editor"]'))) {
@@ -79,8 +99,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 		$metadataDescription =& $this->instantiateMetadataDescription();
 
 		// Identify the length of the name space prefix
-		$metadataSchema =& $this->getMetadataSchema();
-		$namespacePrefixLength = strlen($metadataSchema->getNamespace())+1;
+		$namespacePrefixLength = strlen($this->getMetadataNamespace())+1;
 
 		// Get all meta-data field names
 		$fieldNames = array_merge($this->getDataObjectMetadataFieldNames(false),

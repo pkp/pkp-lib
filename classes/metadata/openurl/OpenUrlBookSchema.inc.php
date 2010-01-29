@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenUrlBookSchema
- * @ingroup metadata
+ * @ingroup metadata_openurl
  * @see OpenUrlJournalBookBaseSchema
  *
  * @brief Class that provides meta-data properties of the
@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.OpenUrlJournalBookBaseSchema');
+import('metadata.openurl.OpenUrlJournalBookBaseSchema');
 
 class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
 	/**

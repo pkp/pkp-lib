@@ -8,10 +8,10 @@
  *
  * @class CrosswalkFilter
  * @ingroup metadata
- * @see MetadataRecord
+ * @see MetadataDescription
  *
  * @brief Class that provides methods to convert one type of
- *  meta-data record into another. This is an abstract template
+ *  meta-data description into another. This is an abstract template
  *  class that should be sub-classed by specific cross-walk
  *  implementations.
  */
@@ -21,47 +21,40 @@
 import('filter.Filter');
 
 class CrosswalkFilter extends Filter {
-	/** @var MetadataSchema */
+	/** @var string */
 	var $_fromSchema;
 
-	/** @var MetadataSchema */
+	/** @var string */
 	var $_toSchema;
+
+	/**
+	 * Constructor
+	 * @param $fromSchema string
+	 * @param $toSchema string
+	 */
+	function CrosswalkFilter($fromSchema, $toSchema) {
+		assert(class_exists($fromSchema) && class_exists($toSchema));
+		$this->_fromSchema = $fromSchema;
+		$this->_toSchema = $toSchema;
+	}
 
 	//
 	// Getters and setters
 	//
 	/**
-	 * Get the source meta-data schema
-	 * @return MetadataSchema
+	 * Get the source meta-data schema class name
+	 * @return string
 	 */
-	function &getFromSchema() {
+	function getFromSchema() {
 		return $this->_fromSchema;
 	}
 
 	/**
-	 * Set the source meta-data schema
-	 * @param $fromSchema MetadataSchema
-	 */
-	function setFromSchema(&$fromSchema) {
-		assert(is_a($fromSchema, 'MetadataSchema'));
-		$this->_fromSchema =& $fromSchema;
-	}
-
-	/**
-	 * Get the target meta-data schema
+	 * Get the target meta-data schema class name
 	 * @return MetadataSchema
 	 */
-	function &getToSchema() {
+	function getToSchema() {
 		return $this->_toSchema;
-	}
-
-	/**
-	 * Set the target meta-data schema
-	 * @param $toSchema MetadataSchema
-	 */
-	function setToSchema(&$toSchema) {
-		assert(is_a($toSchema, 'MetadataSchema'));
-		$this->_toSchema =& $toSchema;
 	}
 
 	//
@@ -69,24 +62,35 @@ class CrosswalkFilter extends Filter {
 	//
 	/**
 	 * @see Filter::supports()
-	 * @param $input MetadataRecord
+	 * @param $input MetadataDescription
 	 */
 	function supports(&$input) {
-		if (!is_a($input, 'MetadataRecord')) return false;
-		$allowedSchema =& $this->_fromSchema;
-		$inputSchema =& $input->getMetadataSchema();
-		return ($inputSchema->getName() == $allowedSchema->getName());
+		return $this->_complies($input, $this->getFromSchema());
 	}
 
 	/**
 	 * @see Filter::isValid()
-	 * @param $output MetadataRecord
+	 * @param $output MetadataDescription
 	 */
 	function isValid(&$output) {
-		if (!is_a($input, 'MetadataRecord')) return false;
-		$allowedSchema =& $this->_toSchema;
-		$outputSchema =& $output->getMetadataSchema();
-		return ($outputSchema->getName() == $allowedSchema->getName());
+		if (is_null($output)) return true;
+		return $this->_complies($output, $this->getToSchema());
+	}
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * Checks whether a given description complies
+	 * with a given meta-data schema class name.
+	 * @param $metadataDescription MetadataDescription
+	 * @param $schemaClassName string
+	 * @return boolean
+	 */
+	function _complies(&$metadataDescription, $schemaClassName) {
+		if (!is_a($metadataDescription, 'MetadataDescription')) return false;
+		$descriptionSchema =& $metadataDescription->getMetadataSchema();
+		return (is_a($descriptionSchema, $schemaClassName));
 	}
 }
 ?>

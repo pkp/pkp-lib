@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenUrlBaseSchema
- * @ingroup metadata
+ * @ingroup metadata_openurl
  * @see MetadataSchema
  *
  * @brief Class that provides meta-data properties common to all

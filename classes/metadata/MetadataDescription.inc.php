@@ -414,9 +414,9 @@ class MetadataDescription extends DataObject {
 	 * @param $propertyName string
 	 * @return boolean
 	 */
-	function hasSetProperty($propertyName) {
-		$setPropertyNames = $this->getSetPropertyNames();
-		return (in_array($propertyName, $setPropertyNames));
+	function hasStatement($propertyName) {
+		$statements =& $this->getStatements();
+		return (isset($statements[$propertyName]));
 	}
 
 	/**

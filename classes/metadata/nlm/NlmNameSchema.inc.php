@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NlmNameSchema
- * @ingroup metadata
+ * @ingroup metadata_nlm
  * @see MetadataSchema
  *
  * @brief Class that provides meta-data properties compliant with

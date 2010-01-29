@@ -17,38 +17,17 @@
 
 // $Id$
 
-import('citation.MetadataCitationAdapter');
+import('metadata.MetadataDataObjectAdapter');
 import('metadata.NlmCitationSchema');
 
-class NlmCitationSchemaCitationAdapter extends MetadataCitationAdapter {
+class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
 	 */
 	function NlmCitationSchemaCitationAdapter() {
 		// Configure the adapter
 		$metadataSchema = new NlmCitationSchema();
-		parent::MetadataCitationAdapter($metadataSchema);
-	}
-
-	//
-	// Implement template methods from MetadataCitationAdapter
-	//
-	/**
-	 * Get authors as a string representation
-	 * @param $citationDescription MetadataDescription
-	 * @return string authors in the format "Bohr, Niels; van der Waals, J. D.; Planck, Max"
-	 */
-	function getAuthorsString(&$citation) {
-		$authors = $citationDescription->getData($this->getMetadataNamespace().':person-group[@person-group-type="author"]');
-		if (!is_array($authors)) return null;
-
-		$authorsString = '';
-		foreach ($authors as $author) {
-			assert(is_a($author, 'MetadataDescription'));
-			$authorsString .= $author->getLastName().', '.$author->getFirstName().' '.$author->getMiddleName().';';
-		}
-		// Remove the final semicolon
-		return substr($authorsString, 0, -1);
+		parent::MetadataDataObjectAdapter($metadataSchema, 'Citation', ASSOC_TYPE_CITATION);
 	}
 
 	//

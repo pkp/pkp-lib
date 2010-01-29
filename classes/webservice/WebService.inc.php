@@ -17,7 +17,7 @@
 define('WEBSERVICE_RETRIES', 3);
 define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 
-import('filter.webservice.WebServiceRequest');
+import('webservice.WebServiceRequest');
 
 class WebService {
 	/**
@@ -28,13 +28,13 @@ class WebService {
 	function &call(&$webServiceRequest) {
 		assert(is_a($webServiceRequest, 'WebServiceRequest'));
 
-		switch($input->getMethod()) {
+		switch($webServiceRequest->getMethod()) {
 			case 'POST':
-				$result = $this->_callPostWebService($input);
+				$result = $this->_callPostWebService($webServiceRequest);
 				break;
 
 			case 'GET':
-				$result = $this->_callGetWebService($input);
+				$result = $this->_callGetWebService($webServiceRequest);
 				break;
 
 			default:
@@ -94,15 +94,19 @@ class WebService {
 	 * @param $webServiceRequest WebServiceRequest
 	 * @return string the web service result or null on failure
 	 */
-	function _callPostWebService(&$webServiceRequest) {
+	function _callGetWebService(&$webServiceRequest) {
 		// Prepare the request URL
 		$url = $webServiceRequest->getUrl();
 		$queryString = '';
 		foreach($webServiceRequest->getParams() as $key => $value) {
-			if (!empty($queryString)) $queryString .= '&';
-			$queryString .= $key.'='.$value;
+			if (!empty($queryString)) {
+				$queryString .= '&';
+			} else {
+				$queryString = '?';
+			}
+			$queryString .= urlencode($key).'='.urlencode($value);
 		}
-		$url = urlencode(rtrim($url, '/').'/'.$queryString);
+		$url = $url.$queryString;
 
 		$oldSocketTimeout = ini_set('default_socket_timeout', 120);
 

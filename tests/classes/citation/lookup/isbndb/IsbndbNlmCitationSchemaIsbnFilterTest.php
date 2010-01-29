@@ -27,7 +27,7 @@ class IsbndbNlmCitationSchemaIsbnFilterTest extends PKPTestCase {
 	/**
 	 * @covers IsbndbNlmCitationSchemaIsbnFilter
 	 */
-	public function testExecuteFilter() {
+	public function testExecute() {
 		$nameSchema = new NlmNameSchema();
 		$nameDescription = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('surname', $surname = 'Willinsky');

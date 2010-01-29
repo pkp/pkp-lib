@@ -123,7 +123,7 @@ class Filter {
 	 * @param mixed an input value that is supported by this filter
 	 * @return mixed a valid return value or null if an error occurred during processing
 	 */
-	function &filter(&$input) {
+	function &execute(&$input) {
 		// Validate the filter input
 		if (!$this->supports($input)) {
 			$output = null;

@@ -119,7 +119,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 			$authorLastName = (string)$authors[0]->getStatement('surname');
 
 			// Convert authors' name descriptions to strings
-			$authorsStrings = array_map(array($personStringFilter, 'filter'), $authors);
+			$authorsStrings = array_map(array($personStringFilter, 'execute'), $authors);
 			$authorsString = implode('; ', $authorsStrings);
 			$firstAuthor = $authorsStrings[0];
 		} else {
@@ -130,8 +130,8 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 		$title = $citationDescription->getStatement('source');
 
 		// Extract the year from the publication date
-		$year = $citationDescription->getStatement('date');
-		$year = (strlen($year) > 4 ? substr($year, 0, 4) : $year);
+		$year = (string)$citationDescription->getStatement('date');
+		$year = (String::strlen($year) > 4 ? String::substr($year, 0, 4) : $year);
 
 		// Construct the search strings
 		$searchStrings = array(

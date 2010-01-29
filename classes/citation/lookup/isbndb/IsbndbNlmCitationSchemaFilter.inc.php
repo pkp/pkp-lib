@@ -14,7 +14,7 @@
 
 // $Id$
 
-define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml?');
+define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 
 import('metadata.nlm.NlmCitationSchemaFilter');
 import('webservice.XmlWebService');
@@ -52,8 +52,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return boolean
 	 */
 	function isValidIsbn($isbn) {
-		// TODO: Validate the ISBN here
-		return is_null($isbn) || is_string($output);
+		return is_string($isbn) && is_numeric($isbn) && String::strlen($isbn) == 13;
 	}
 }
 ?>

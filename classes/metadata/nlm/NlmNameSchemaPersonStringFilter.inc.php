@@ -58,7 +58,7 @@ class NlmNameSchemaPersonStringFilter extends Filter {
 	function &process(&$input) {
 		$surname = (string)$input->getStatement('surname');
 
-		$givenNames = (string)$input->getStatement('given-names');
+		$givenNames = $input->getStatement('given-names');
 		$firstName = $initials = '';
 		if(is_array($givenNames) && count($givenNames)) {
 			$firstName = array_shift($givenNames);

@@ -56,7 +56,6 @@
 		<div class="unit size1of10 listbuilder_controls">
 			<a href="#" id="add-{$listbuilderId}" onclick="return false;" class="add_item">
 				<span class="hidetext">Add</span></a>
-			<br />
 			<a href="#" id="delete-{$listbuilderId}" onclick="return false;" class="remove_item">
 				<span class="hidetext">Delete</span></a>
 		</div>

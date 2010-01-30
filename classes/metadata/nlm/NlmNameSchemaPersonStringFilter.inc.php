@@ -8,10 +8,7 @@
  *
  * @class NlmNameSchemaPersonStringFilter
  * @ingroup metadata_nlm
- * @see NlmCitationSchema
- * @see OpenUrlBookSchema
- * @see OpenUrlJournalSchema
- * @see OpenUrlDissertationSchema
+ * @see NlmNameSchema
  *
  * @brief Filter that converts from NLM name to
  *  a string.
@@ -53,7 +50,7 @@ class NlmNameSchemaPersonStringFilter extends Filter {
 	 * which is relatively easy to parse back.
 	 * @see Filter::process()
 	 * @param $input MetadataDescription
-	 * @return MetadataDescription
+	 * @return string
 	 */
 	function &process(&$input) {
 		$surname = (string)$input->getStatement('surname');

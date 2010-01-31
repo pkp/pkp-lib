@@ -93,6 +93,7 @@ class Form {
 		$templateMgr->register_function('fbvTextarea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
 		$templateMgr->register_function('fbvElement', array(&$this, 'smartyFBVElement'));
+		$templateMgr->register_function('fbvElementMultilingual', array(&$this, 'smartyFBVElementMultilingual'));
 		$templateMgr->register_function('fbvCheckbox', array(&$this, 'smartyFBVCheckbox'));
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
 
@@ -369,52 +370,11 @@ class Form {
 		return $returner;
 	}
 
-
-	/**
-	 * Add hidden form parameters for the localized fields for modal dialogs
-	 * and display the language chooser field
-	 * @params $params array associative array
-	 * @params $smarty Smarty
-	 * @return string Call to modal function with specified parameters
-	 */
-	function smartyModalLanguageChooser($params, &$smarty) {
-		// Display the language selector widget.
-		$formLocale = $smarty->get_template_vars('formLocale');
-		$returner = "<input type='hidden' id='currentLocale' value=$formLocale>";
-		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onChange="changeModalFormLocale()" class="selectMenu">';
-		foreach (Locale::getSupportedLocales() as $locale => $name) {
-			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
-		}
-		$returner .= '</select></div>';
-		return $returner;
-	}
-
-	/**
-	 * Iterator function for locales (prints a form field once for each locale).
-	 */
-	function formLocaleIterator($params, $content, &$smarty, &$repeat) {
-		$elementType = $params['type'];
-		$currentLocale = Locale::getPrimaryLocale();
-
-		if(!$repeat) {
-			foreach (Locale::getSupportedLocales() as $locale => $name) {
-				$style = '';
-				$currentContent = $content;
-				if ($locale != $currentLocale) {
-					$currentContent = str_replace($currentLocale, $locale, $currentContent);
-//					$currentContent = preg_replace(array('/rule_required/', '/rule_email/', '/rule_url/', '/rule_date/'), '', $currentContent);
-					$style = 'display:none;';
-				}
-				echo "<div class='$locale' style='$style'>$currentContent</div>";
-			}
-		}
-	}
-
 	/** form builder vocabulary - FBV */
 
 	/**
 	 * Retrieve style info associated with style constants.
-	 * @param $category string 
+	 * @param $category string
 	 * @param $value string
 	 */
 	function getStyleInfoByIdentifier($category, $value) {
@@ -450,15 +410,14 @@ class Form {
 		}
 
 		if (!$returner) {
-			trigger_error('FBV: invalid style value ['.$category.', '.$value.']');
-			return '';
+			$this->trigger_error('FBV: invalid style value ['.$category.', '.$value.']');
 		}
 
 		return $returner;
 	}
 
 	/**
-	 * A form area that contains form sections. 
+	 * A form area that contains form sections.
 	 * parameters: id
 	 * @param $params array
 	 * @param $content string
@@ -467,8 +426,7 @@ class Form {
 	 */
 	function smartyFBVFormArea($params, $content, &$smarty, &$repeat) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: form area \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: form area \'id\' not set.');
 		}
 
  		if (!$repeat) {
@@ -497,7 +455,7 @@ class Form {
 			$smarty->assign('FBV_title', $params['title']);
 			$smarty->assign('FBV_content', $content);
 
-		    
+
 			$floatInfo = '';
 			$float = isset($params['float']) ? $params['float'] : null;
 			if ($float) {
@@ -530,6 +488,34 @@ class Form {
 		return '';
 	}
 
+	function smartyFBVElementMultilingual($params, &$smarty, $content = null) {
+		if ( !isset($params['value']) || !is_array($params['value'])) {
+			$this->trigger_error('FBV: value parameter must be an array for multilingual elements');
+		}
+		if ( !isset($params['name']) ) {
+			$this->trigger_error('FBV: parameter must be set');
+		}
+
+		$required = isset($params['required'])?$params['required']:false;
+
+		$returner = '';
+		$values = $params['value'];
+		$name = $params['name'];
+
+		foreach (Locale::getSupportedLocales() as $locale => $localeName) {
+			// if the field is required, only set the main locale as required and others optional
+			if ( $locale == Locale::getPrimaryLocale() ) {
+				$params['required'] = $required;
+			} else {
+				$params['required'] = false;
+			}
+			$params['name'] = $name . "[$locale]";
+			$params['value'] = $values[$locale];
+			$returner .= $localeName . ' ' . $this->smartyFBVElement($params, $smarty, $content) . '<br />';
+		}
+		return $returner;
+	}
+
 	/**
 	 * Form element.
 	 * parameters: type, id, label (optional), required (optional), measure, any other attributes specific to 'type'
@@ -539,17 +525,17 @@ class Form {
 	function smartyFBVElement($params, &$smarty, $content = null) {
 		if (isset($params['type'])) {
 			switch (strtolower($params['type'])) {
-				case 'text': 
+				case 'text':
 					$content = $this->smartyFBVTextInput($params, $smarty);
 					break;
 				case 'textarea':
 					$content = $this->smartyFBVTextArea($params, $smarty);
 					break;
-				case 'checkbox': 
+				case 'checkbox':
 					$content = $this->smartyFBVCheckbox($params, $smarty);
 					unset($params['label']);
 					break;
-				case 'radio': 
+				case 'radio':
 					$content = $this->smartyFBVRadioButton($params, $smarty);
 					unset($params['label']);
 					break;
@@ -614,7 +600,7 @@ class Form {
 	 */
 	function smartyFBVButton($params, &$smarty) {
 		$buttonParams = '';
-      
+
 		// accept 'value' param, but the 'label' param is preferred
 		if (isset($params['value'])) {
 			$value = $params['value'];
@@ -639,7 +625,7 @@ class Form {
 		$smarty->assign('FBV_buttonParams', $buttonParams);
 
 		return $smarty->fetch('form/button.tpl');
-	}    
+	}
 
 	/**
 	 * Form text input.
@@ -649,8 +635,7 @@ class Form {
 	 */
 	function smartyFBVTextInput($params, &$smarty) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: text input form element \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: text input form element \'id\' not set.');
 		}
 
 		$textInputParams = '';
@@ -692,8 +677,7 @@ class Form {
 	 */
 	function smartyFBVTextArea($params, &$smarty) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: text area form element \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: text area form element \'id\' not set.');
 		}
 
 		$textAreaParams = '';
@@ -715,6 +699,9 @@ class Form {
 				case 'label': break;
 				case 'type': break;
 				case 'class': break; //ignore class attributes
+				case 'required':
+					$textAreaParams .= ($value)?"required='1' ":'';
+					break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
@@ -727,15 +714,14 @@ class Form {
 
 	/**
 	 * Form select control.
-	 * parameters: from [array], selected [array index], defaultLabel (optional), defaultValue (optional), disabled (optional), 
+	 * parameters: from [array], selected [array index], defaultLabel (optional), defaultValue (optional), disabled (optional),
 	 * 	translate (optional), name (optional - value of 'id' by default), all other attributes associated with this control (except class)
 	 * @param $params array
 	 * @param $smarty object
 	 */
 	function smartyFBVSelect($params, &$smarty) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: select form element \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: select form element \'id\' not set.');
 		}
 
 		$selectParams = '';
@@ -776,8 +762,7 @@ class Form {
 	 */
 	function smartyFBVCheckbox($params, &$smarty) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: checkbox form element \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: checkbox form element \'id\' not set.');
 		}
 
 		$checkboxParams = '';
@@ -812,8 +797,7 @@ class Form {
 	 */
 	function smartyFBVRadioButton($params, &$smarty) {
 		if (!isset($params['id'])) {
-			trigger_error('FBV: radio input form element \'id\' not set.');
-			return '';
+			$this->trigger_error('FBV: radio input form element \'id\' not set.');
 		}
 
 		$radioParams = '';

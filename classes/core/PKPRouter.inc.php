@@ -343,31 +343,30 @@ class PKPRouter {
 		$context = array();
 		foreach ($contextList as $contextKey => $contextName) {
 			if ($pathInfoEnabled) {
-				$currentContextParameter = '';
+				$contextParameter = '';
 			} else {
-				$currentContextParameter = $contextName.'=';
+				$contextParameter = $contextName.'=';
 			}
 
 			$newContextValue = array_shift($newContext);
 			if (isset($newContextValue)) {
 				// A new context has been set so use it.
-				$currentContextParameter .= rawurlencode($newContextValue);
+				$contextValue = rawurlencode($newContextValue);
 			} else {
 				// No new context has been set so determine
 				// the current request's context
 				$contextObject =& $this->getContextByName($request, $contextName);
-				if ($contextObject) $currentContext = $contextObject->getPath();
-				else $currentContext = 'index';
+				if ($contextObject) $contextValue = $contextObject->getPath();
+				else $contextValue = 'index';
 
-				// Get overridden base URL (if available).
-				if ($contextKey == 0) {
-					$overriddenBaseUrl = Config::getVar('general', "base_url[$currentContext]");
-				}
-
-				$currentContextParameter .= $currentContext;
 			}
 
-			$context[] = $currentContextParameter;
+			// Check whether the base URL is overridden.
+			if ($contextKey == 0) {
+				$overriddenBaseUrl = Config::getVar('general', "base_url[$contextValue]");
+			}
+
+			$context[] = $contextParameter.$contextValue;;
 		}
 
 		// Generate the base url

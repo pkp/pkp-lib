@@ -302,18 +302,37 @@ class PKPPageRouterTest extends PKPRouterTest {
 	 */
 	public function testUrlWithPathinfoAndOverriddenBaseUrl() {
 		$this->setTestConfiguration('request1', 'classes/core/config', false); // contains overridden context
+
+		// Set up a request with an overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/index.php',
 			'PATH_INFO' => '/overridden-context/current-context2/current-page/current-op'
 		);
-
-		// Simulate context DAOs
 		$this->_setUpMockDAOs('overridden-context');
-
 		$result = $this->router->url($this->request);
 		self::assertEquals('http://some-domain/xyz-context/current-context2/current-page/current-op', $result);
+	}
+
+	/**
+	 * @covers PKPPageRouter::url
+	 */
+	public function testUrlWithPathinfoAndOverriddenNewContext() {
+		$this->setTestConfiguration('request1', 'classes/core/config', false); // contains overridden context
+
+		// Same set-up as in testUrlWithPathinfoAndOverriddenBaseUrl()
+		// but this time use a request with non-overridden context and
+		// 'overridden-context' as new context. (Reproduces #5118)
+		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+		$_SERVER = array(
+			'HOSTNAME' => 'mydomain.org',
+			'SCRIPT_NAME' => '/index.php',
+			'PATH_INFO' => '/current-context1/current-context2/current-page/current-op'
+		);
+		$this->_setUpMockDAOs('current-context1', 'current-context2', true);
+		$result = $this->router->url($this->request, 'overridden-context', 'new-page');
+		self::assertEquals('http://some-domain/xyz-context/current-context2/new-page', $result);
 	}
 
 	/**

@@ -34,7 +34,7 @@ class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilte
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
 		$citationDescription->addStatement('source', $source = 'After literacy');
 
-		$filter = new IsbndbNlmCitationSchemaIsbnFilter(ISBNDB_TEST_APIKEY);
+		$filter = new IsbndbNlmCitationSchemaIsbnFilter(self::ISBNDB_TEST_APIKEY);
 		self::assertEquals('9780820452425', $filter->execute($citationDescription));
 	}
 }

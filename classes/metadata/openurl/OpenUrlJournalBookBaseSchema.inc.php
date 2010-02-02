@@ -23,14 +23,17 @@ class OpenUrlJournalBookBaseSchema extends OpenUrlBaseSchema {
 	 * Constructor
 	 */
 	function OpenUrlJournalBookBaseSchema() {
+		parent::OpenUrlBaseSchema();
+
 		// Add meta-data properties common to the OpenURL book/journal standard
-		$this->addProperty(new MetadataProperty('aucorp'));   // Organization or corporation that is the author or creator
-		$this->addProperty(new MetadataProperty('atitle'));
-		$this->addProperty(new MetadataProperty('spage', array(), METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('epage', array(), METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('pages', array(), METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('issn'));
-		$this->addProperty(new MetadataProperty('genre'));
+		$citation = array(ASSOC_TYPE_CITATION);
+		$this->addProperty(new MetadataProperty('aucorp', $citation));   // Organization or corporation that is the author or creator
+		$this->addProperty(new MetadataProperty('atitle', $citation));
+		$this->addProperty(new MetadataProperty('spage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('epage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('pages', $citation, METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('issn', $citation));
+		$this->addProperty(new MetadataProperty('genre', $citation));
 		// FIXME: implement genre as controlled vocabulary.
 		// Allowed values in the journal schema: "journal", "issue", "article", "proceeding", "conference", "preprint", "unknown"
 		// Allowed values in the book schema: "book", "bookitem", "conference", "proceeding", "report", "document", "unknown"

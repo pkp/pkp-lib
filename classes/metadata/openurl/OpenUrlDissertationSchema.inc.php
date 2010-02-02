@@ -25,13 +25,16 @@ class OpenUrlDissertationSchema extends OpenUrlBaseSchema {
 	function OpenUrlDissertationSchema() {
 		$this->setName('openurl-1.0-dissertation');
 
+		parent::OpenUrlBaseSchema();
+
 		// Add meta-data properties that only appear in the OpenURL dissertation standard
-		$this->addProperty(new MetadataProperty('co')); // Country of publication (plain text)
-		$this->addProperty(new MetadataProperty('cc')); // Country of publication (ISO 2-character code)
-		$this->addProperty(new MetadataProperty('inst')); // Institution that issued the dissertation
-		$this->addProperty(new MetadataProperty('advisor'));
-		$this->addProperty(new MetadataProperty('tpages', array(), METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('degree'));
+		$citation = array(ASSOC_TYPE_CITATION);
+		$this->addProperty(new MetadataProperty('co', $citation)); // Country of publication (plain text)
+		$this->addProperty(new MetadataProperty('cc', $citation)); // Country of publication (ISO 2-character code)
+		$this->addProperty(new MetadataProperty('inst', $citation)); // Institution that issued the dissertation
+		$this->addProperty(new MetadataProperty('advisor', $citation));
+		$this->addProperty(new MetadataProperty('tpages', $citation, METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('degree', $citation));
 	}
 }
 ?>

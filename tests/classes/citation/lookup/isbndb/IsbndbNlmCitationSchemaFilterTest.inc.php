@@ -19,8 +19,7 @@ import('metadata.nlm.NlmNameSchema');
 import('metadata.nlm.NlmCitationSchema');
 import('metadata.MetadataDescription');
 
-define('ISBNDB_TEST_APIKEY', '4B5GQSQ4');
-
 class IsbndbNlmCitationSchemaFilterTest extends PKPTestCase {
+	const ISBNDB_TEST_APIKEY = '4B5GQSQ4';
 }
 ?>

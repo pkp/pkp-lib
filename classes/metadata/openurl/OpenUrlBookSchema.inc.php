@@ -25,14 +25,17 @@ class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
 	function OpenUrlBookSchema() {
 		$this->setName('openurl-1.0-book');
 
+		parent::OpenUrlJournalBookBaseSchema();
+
 		// Add meta-data properties that only appear in the OpenURL book standard
-		$this->addProperty(new MetadataProperty('btitle'));
-		$this->addProperty(new MetadataProperty('place')); // Place of publication
-		$this->addProperty(new MetadataProperty('pub'));   // Publisher
-		$this->addProperty(new MetadataProperty('edition'));
-		$this->addProperty(new MetadataProperty('tpages'));
-		$this->addProperty(new MetadataProperty('series')); // The title of a series in which the book or document was issued.
-		$this->addProperty(new MetadataProperty('bici'));
+		$citation = array(ASSOC_TYPE_CITATION);
+		$this->addProperty(new MetadataProperty('btitle', $citation));
+		$this->addProperty(new MetadataProperty('place', $citation)); // Place of publication
+		$this->addProperty(new MetadataProperty('pub', $citation));   // Publisher
+		$this->addProperty(new MetadataProperty('edition', $citation));
+		$this->addProperty(new MetadataProperty('tpages', $citation));
+		$this->addProperty(new MetadataProperty('series', $citation)); // The title of a series in which the book or document was issued.
+		$this->addProperty(new MetadataProperty('bici', $citation));
 	}
 }
 ?>

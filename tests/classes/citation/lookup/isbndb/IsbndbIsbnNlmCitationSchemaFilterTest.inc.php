@@ -50,7 +50,7 @@ class IsbndbIsbnNlmCitationSchemaFilterTest extends IsbndbNlmCitationSchemaFilte
 		$expectedCitationDescription->setStatements($expectedCitationData);
 
 		// Execute the filter
-		$filter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEST_APIKEY);
+		$filter = new IsbndbIsbnNlmCitationSchemaFilter(self::ISBNDB_TEST_APIKEY);
 		$isbn = '9780820452425';
 		self::assertEquals($expectedCitationDescription, $filter->execute($isbn));
 	}

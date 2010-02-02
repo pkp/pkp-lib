@@ -20,6 +20,8 @@
 // $Id$
 
 import('metadata.CrosswalkFilter');
+import('metadata.nlm.NlmCitationSchema');
+import('metadata.openurl.OpenUrlBaseSchema');
 
 class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 	/**
@@ -76,36 +78,44 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 		$personStringFilter = new NlmNameSchemaPersonStringFilter();
 		$authors =& $input->getStatement('person-group[@person-group-type="author"]');
 		if (is_array($authors) && count($authors)) {
-			$aulast = ($author[0]->hasStatement('prefix') ? $author[0]->getStatement('prefix').' ' : '');
-			$aulast .= $author[0]->getStatement('surname');
-			$output->addStatement('aulast', $aulast);
+			$aulast = ($authors[0]->hasStatement('prefix') ? $authors[0]->getStatement('prefix').' ' : '');
+			$aulast .= $authors[0]->getStatement('surname');
+			$success = $output->addStatement('aulast', $aulast);
+			assert($success);
 
-			$givenNames = $author[0]->getStatement('given-names');
+			$givenNames = $authors[0]->getStatement('given-names');
 			if(is_array($givenNames) && count($givenNames)) {
 				$aufirst = implode(' ', $givenNames);
-				$output->addStatement('aufirst', $aufirst);
+				$success = $output->addStatement('aufirst', $aufirst);
+				assert($success);
 
 				$initials = array();
 				foreach($givenNames as $givenName) {
-					$initials[] = substr($givenNames, 0, 1);
+					$initials[] = substr($givenName, 0, 1);
 				}
 
 				$auinit1 = array_shift($initials);
-				$output->addStatement('auinit1', $auini1);
+				$success = $output->addStatement('auinit1', $auinit1);
+				assert($success);
 
-				$auinitm = array_shift($initials);
-				$output->addStatement('auinitm', $auinitm);
+				$auinitm = implode('', $initials);
+				$success = $output->addStatement('auinitm', $auinitm);
+				assert($success);
 
 				$auinit = $auinit1.$auinitm;
-				$output->addStatement('auinit', $auinit);
+				$success = $output->addStatement('auinit', $auinit);
+				assert($success);
 			}
 
-			$ausuffix = $author[0]->getStatement('suffix');
-			$output->addStatement('ausuffix', $ausuffix);
+			$ausuffix = $authors[0]->getStatement('suffix');
+			$success = $output->addStatement('ausuffix', $ausuffix);
+			assert($success);
 
 			foreach ($authors as $author) {
-				$au = $personStringFilter->filter($author);
-				$output->addStatement('au', $au);
+				$au = $personStringFilter->execute($author);
+				$success = $output->addStatement('au', $au);
+				assert($success);
+				unset($au);
 			}
 		}
 
@@ -163,7 +173,8 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 					break;
 			}
 			assert(!empty($genre));
-			$output->addStatement('genre', $genre);
+			$success = $output->addStatement('genre', $genre);
+			assert($success);
 
 			// Some properties can be mapped one-to-one
 			$propertyMap += array(
@@ -184,8 +195,8 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 				'volume' => 'volume',
 				'supplement' => 'part',
 				'issue' => 'issue',
-				'pub-id[@pub-id-type="publisher-id"]' => 'artnum',
 				'issn[@pub-type="epub"]' => 'eissn',
+				'pub-id[@pub-id-type="publisher-id"]' => 'artnum',
 				'pub-id[@pub-id-type="coden"]' => 'coden',
 				'pub-id[@pub-id-type="sici"]' => 'sici'
 			);
@@ -214,10 +225,11 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 			);
 		}
 
-		// Transfer mapped properties
+		// Transfer mapped properties with default locale
 		foreach ($propertyMap as $nlmProperty => $openUrlProperty) {
 			if ($input->hasStatement($nlmProperty)) {
-				$output->addStatement($openUrlProperty, $input->getStatement($nlmProperty));
+				$success = $output->addStatement($openUrlProperty, $input->getStatement($nlmProperty));
+				assert($success);
 			}
 		}
 

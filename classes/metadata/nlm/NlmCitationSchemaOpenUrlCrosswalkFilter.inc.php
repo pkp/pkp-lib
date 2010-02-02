@@ -199,8 +199,7 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 				'publisher-name' => 'pub',
 				'edition' => 'edition',
 				'size' => 'tpages',
-				'series' => 'series',
-				'bici'
+				'series' => 'series'
 			);
 		}
 

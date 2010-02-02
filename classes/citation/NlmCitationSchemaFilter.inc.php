@@ -121,6 +121,9 @@ class NlmCitationSchemaFilter extends Filter {
 	 * transforms it via XSL to a (preliminary) XML similar
 	 * to NLM which is then re-encoded into an array. Finally
 	 * some typical post-processing is performed.
+	 * FIXME: Rewrite parser/lookup filter XSL to produce real NLM
+	 * element-citation XML and factor this code into an NLM XML to
+	 * NLM description filter.
 	 * @param $xmlResult string or DOMDocument
 	 * @param $xslFileName string
 	 * @return array a metadata array
@@ -137,41 +140,66 @@ class NlmCitationSchemaFilter extends Filter {
 		$xmlHelper = new XMLHelper();
 		$preliminaryNlmArray = $xmlHelper->xmlToArray($preliminaryNlmDOM->documentElement);
 
-		// Parse (=filter) author strings into NLM name descriptions
-		if (isset($preliminaryNlmArray['author'])) {
-			// Get the author strings from the result
-			$authorStrings = $preliminaryNlmArray['author'];
-			unset($preliminaryNlmArray['author']);
+		// Parse (=filter) author/editor strings into NLM name descriptions
+		foreach(array('author', 'editor') as $personType) {
+			if (isset($preliminaryNlmArray[$personType])) {
+				// Get the author strings from the result
+				$personStrings = $preliminaryNlmArray[$personType];
+				unset($preliminaryNlmArray[$personType]);
 
-			// If we only have one author then we'll have to
-			// convert the author strings to an array first.
-			if (!is_array($authorStrings)) $authorStrings = array($authorStrings);
+				// If we only have one author then we'll have to
+				// convert the author strings to an array first.
+				if (!is_array($personStrings)) $personStrings = array($personStrings);
 
-			$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
-			$authors = array();
-			foreach ($authorStrings as $authorString) {
-				$authors[] =& $personStringFilter->execute($authorString);
+				$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
+				$persons = array();
+				foreach ($personStrings as $personString) {
+					$persons[] =& $personStringFilter->execute($personString);
+				}
+				$preliminaryNlmArray['person-group[@person-group-type="'.$personType.'"]'] = $persons;
+				unset($persons);
 			}
-			$preliminaryNlmArray['person-group[@person-group-type="author"]'] = $authors;
 		}
 
-		// Transform comments
-		if (isset($preliminaryNlmArray['comment'])) {
-			// Get comments from the result
-			$comments = $preliminaryNlmArray['comment'];
-			unset($preliminaryNlmArray['comment']);
-
-			// If we only have one comment then we'll have to
-			// convert the it to an array.
-			if (!is_array($comments)) $comments = array($comments);
-
-			$preliminaryNlmArray['comments'] = $comments;
+		// Join comments
+		if (isset($preliminaryNlmArray['comment']) && is_array($preliminaryNlmArray['comment'])) {
+			// Implode comments from the result into a single string
+			// as required by the NLM citation schema.
+			$preliminaryNlmArray['comment'] = implode("\n", $preliminaryNlmArray['comment']);
 		}
 
-		// Parse date string
-		if (isset($preliminaryNlmArray['date'])) {
-			$dateFilter = new DateStringNormalizerFilter();
-			$preliminaryNlmArray['date'] = $dateFilter->execute($preliminaryNlmArray['date']);
+		// Normalize date strings
+		foreach(array('date', 'conf-date') as $dateProperty) {
+			if (isset($preliminaryNlmArray[$dateProperty])) {
+				$dateFilter = new DateStringNormalizerFilter();
+				$preliminaryNlmArray[$dateProperty] = $dateFilter->execute($preliminaryNlmArray[$dateProperty]);
+			}
+		}
+
+		// Cast strings to integers where necessary
+		foreach(array('fpage', 'lpage', 'size') as $integerProperty) {
+			if (isset($preliminaryNlmArray[$integerProperty]) && is_numeric($preliminaryNlmArray[$integerProperty])) {
+				$preliminaryNlmArray[$integerProperty] = (integer)$preliminaryNlmArray[$integerProperty];
+			}
+		}
+
+		// Rename elements that are stored in attributes in NLM citation
+		$elementToAttributeMap = array(
+			'access-date' => 'date-in-citation[@content-type="access-date"]',
+			'issn-ppub' => 'issn[@pub-type="ppub"]',
+			'issn-epub' => 'issn[@pub-type="epub"]',
+			'pub-id-doi' => 'pub-id[@pub-id-type="doi"]',
+			'pub-id-publisher-id' => 'pub-id[@pub-id-type="publisher-id"]',
+			'pub-id-coden' => 'pub-id[@pub-id-type="coden"]',
+			'pub-id-sici' => 'pub-id[@pub-id-type="sici"]',
+			'pub-id-pmid' => 'pub-id[@pub-id-type="pmid"]',
+			'publication-type' => '[@publication-type]'
+		);
+		foreach($elementToAttributeMap as $elementName => $nlmPropertyName) {
+			if (isset($preliminaryNlmArray[$elementName])) {
+				$preliminaryNlmArray[$nlmPropertyName] = $preliminaryNlmArray[$elementName];
+				unset($preliminaryNlmArray[$elementName]);
+			}
 		}
 
 		return $preliminaryNlmArray;

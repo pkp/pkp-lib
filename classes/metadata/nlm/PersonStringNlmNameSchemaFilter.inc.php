@@ -16,19 +16,11 @@
 
 // $Id$
 
-import('filter.Filter');
-import('metadata.MetadataDescription');
-import('metadata.nlm.NlmNameSchema');
+import('metadata.nlm.NlmPersonStringFilter');
 
-define('PERSON_STRING_FILTER_EXPECT_MULTIPLE', 0x01);
-define('PERSON_STRING_FILTER_EXPECT_SINGLE', 0x02);
-
-class PersonStringNlmNameSchemaFilter extends Filter {
+class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	/** @var integer */
 	var $_assocType;
-
-	/** @var integer */
-	var $_filterMode;
 
 	/** @var boolean */
 	var $_filterTitle;
@@ -39,12 +31,12 @@ class PersonStringNlmNameSchemaFilter extends Filter {
 	/**
 	 * Constructor
 	 */
-	function PersonStringNlmNameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_EXPECT_SINGLE, $filterTitle = false, $filterDegrees = false) {
+	function PersonStringNlmNameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
 		assert(in_array($assocType, array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
 		$this->_assocType = $assocType;
-		$this->_filterMode = $filterMode;
 		$this->_filterTitle = $filterTitle;
 		$this->_filterDegrees = $filterDegrees;
+		parent::NlmPersonStringFilter($filterMode);
 	}
 
 	//
@@ -56,22 +48,6 @@ class PersonStringNlmNameSchemaFilter extends Filter {
 	 */
 	function &getAssocType() {
 		return $this->_assocType;
-	}
-
-	/**
-	 * Get the filter mode
-	 * @return integer
-	 */
-	function getFilterMode() {
-		return $this->_filterMode;
-	}
-
-	/**
-	 * Set the filter mode
-	 * @param $filterMode integer
-	 */
-	function setFilterMode($filterMode) {
-		$this->_filterMode = $filterMode;
 	}
 
 	/**
@@ -125,24 +101,7 @@ class PersonStringNlmNameSchemaFilter extends Filter {
 	 * @return boolean
 	 */
 	function isValid(&$output) {
-		// Check the filter mode
-		if (is_array($output)) {
-			if (!$this->_filterMode == PERSON_STRING_FILTER_EXPECT_MULTIPLE) return false;
-			$validationArray = &$output;
-		} else {
-			if (!$this->_filterMode == PERSON_STRING_FILTER_EXPECT_SINGLE) return false;
-			$validationArray = array(&$output);
-		}
-
-		// Validate all descriptions
-		foreach($validationArray as $nameDescription) {
-			if (!is_a($nameDescription, 'MetadataDescription')) return false;
-			$metadataSchema =& $nameDescription->getMetadataSchema();
-			if ($metadataSchema->getName() != 'nlm-3.0-name') return false;
-			unset($metadataSchema);
-		}
-
-		return true;
+		return $this->isValidPersonDescription($output);
 	}
 
 	/**
@@ -152,11 +111,11 @@ class PersonStringNlmNameSchemaFilter extends Filter {
 	 * @return mixed Either a MetadataDescription or an array of MetadataDescriptions
 	 */
 	function &process(&$input) {
-		switch ($this->_filterMode) {
-			case PERSON_STRING_FILTER_EXPECT_MULTIPLE:
+		switch ($this->getFilterMode()) {
+			case PERSON_STRING_FILTER_MULTIPLE:
 				return $this->_parsePersonsString($input, $this->_filterTitle, $this->_filterDegrees);
 
-			case PERSON_STRING_FILTER_EXPECT_SINGLE:
+			case PERSON_STRING_FILTER_SINGLE:
 				return $this->_parsePersonString($input, $this->_filterTitle, $this->_filterDegrees);
 
 			default:

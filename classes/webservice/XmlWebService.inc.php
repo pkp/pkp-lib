@@ -17,6 +17,41 @@
 import('webservice.WebService');
 
 class XmlWebService extends WebService {
+	/** @var integer */
+	var $_returnType;
+
+	/**
+	 * Constructor
+	 */
+	function XmlWebService() {
+		if (checkPhpVersion('5.0.0') && extension_loaded('dom')) {
+			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_DOM;
+		} else {
+			$this->_returnType = XSL_TRANSFORMER_DOCTYPE_STRING;
+		}
+	}
+
+	/**
+	 * Get the return type
+	 * @return integer
+	 */
+	function getReturnType() {
+		return $this->_returnType;
+	}
+
+	/**
+	 * Set the return type
+	 * @param $returnType integer
+	 */
+	function setReturnType($returnType) {
+		if ($returnType == XSL_TRANSFORMER_DOCTYPE_DOM) {
+			assert(checkPhpVersion('5.0.0') && extension_loaded('dom'));
+		}
+
+		$this->_returnType = $returnType;
+	}
+
+
 	/**
 	 * @see WebService::call()
 	 * @param $webServiceRequest WebServiceRequest
@@ -26,23 +61,24 @@ class XmlWebService extends WebService {
 		// Call the web service
 		$xmlResult = parent::call($webServiceRequest);
 
-		// Create DOM document
-		if (checkPhpVersion('5.0.0') && extension_loaded('dom')) {
-			// In PHP5 we return a DOM
-			$resultDOM = new DOMDocument('1.0', Config::getVar('i18n', 'client_charset'));
-			// Try to handle non-well-formed responses
-			$resultDOM->recover = true;
-			$resultDOM->loadXML($xmlResult);
-			$result =& $resultDOM;
-		} elseif(checkPhpVersion('4.1.0')) {
-			// In PHP4 we return the xml string itself
-			$result =& $xmlResult;
-		} else {
-			// Unsupported PHP configuration
-			assert(null);
-		}
+		// Catch web service errors
+		if (is_null($xmlResult)) return $xmlResult;
 
-		return $result;
+		switch ($this->_returnType) {
+			case XSL_TRANSFORMER_DOCTYPE_DOM:
+				// Create DOM document
+				$resultDOM = new DOMDocument('1.0', Config::getVar('i18n', 'client_charset'));
+				// Try to handle non-well-formed responses
+				$resultDOM->recover = true;
+				$resultDOM->loadXML($xmlResult);
+				return $resultDOM;
+
+			case XSL_TRANSFORMER_DOCTYPE_STRING:
+				return $xmlResult;
+
+			default:
+				assert(false);
+		}
 	}
 }
 ?>

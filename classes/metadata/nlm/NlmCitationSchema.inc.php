@@ -71,7 +71,7 @@ class NlmCitationSchema extends MetadataSchema {
 		$this->addProperty(new MetadataProperty('uri', $citation, METADATA_PROPERTY_TYPE_URI));
 		$this->addProperty(new MetadataProperty('comment', $citation));
 		$this->addProperty(new MetadataProperty('annotation', $citation));
-		$this->addProperty(new MetadataProperty('[@publication-type]', $citation));
+		$this->addProperty(new MetadataProperty('[@publication-type]', $citation)); // FIXME: implement as controlled vocabulary
 
 		// NB: NLM citation does not have very good thesis support. We might
 		// encode the degree in the publication type and the advisor as 'contrib'

@@ -298,9 +298,9 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
-	 * Replace all existing statements at once. If one of the statements
-	 * is invalid then the meta-data description will be empty after this
-	 * operation.
+	 * Add several statements at once. If one of the statements
+	 * is invalid then the meta-data description will remain in its
+	 * initial state.
 	 * * Properties with a cardinality of 'many' must be passed in as
 	 *   sub-arrays.
 	 * * Translated properties with a cardinality of 'one' must be
@@ -308,12 +308,19 @@ class MetadataDescription extends DataObject {
 	 * * Translated properties with a cardinality of 'many' must be
 	 *   passed in as sub-sub-arrays with the locale as the second key.
 	 * @param $statements array statements
+	 * @param $replace boolean if set to true then all existing statements
+	 *  will be overridden.
 	 * @return boolean true if all statements could be added, false otherwise
 	 */
-	function setStatements(&$statements) {
-		// Delete existing statements
-		$emptyArray = array();
-		$this->setAllData($emptyArray);
+	function setStatements(&$statements, $replace = false) {
+		// Make a backup copy of all existing statements.
+		$statementsBackup = $this->getAllData();
+
+		if ($replace) {
+			// Delete existing statements
+			$emptyArray = array();
+			$this->setAllData($emptyArray);
+		}
 
 		// Add statements one by one to detect invalid values.
 		foreach($statements as $propertyName => $content) {
@@ -330,14 +337,16 @@ class MetadataDescription extends DataObject {
 				// Is this a translated property?
 				if (is_array($value)) {
 					foreach($value as $locale => $translation) {
-						if (!($this->addStatement($propertyName, $translation, $locale))) {
-							$this->setAllData($emptyArray);
+						// Add a statement (replace existing statement if any)
+						if (!($this->addStatement($propertyName, $translation, $locale, true))) {
+							$this->setAllData($statementsBackup);
 							return false;
 						}
 					}
 				} else {
-					if (!($this->addStatement($propertyName, $value))) {
-						$this->setAllData($emptyArray);
+					// Add a statement (replace existing statement if any)
+					if (!($this->addStatement($propertyName, $value, null, true))) {
+						$this->setAllData($statementsBackup);
 						return false;
 					}
 				}

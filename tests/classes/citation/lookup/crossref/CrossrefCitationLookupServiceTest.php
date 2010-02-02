@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefCitationLookupServiceTest
- * @ingroup tests_classes_citation_lookup
+ * @ingroup tests_classes_citation_lookup_crossref
  * @see CrossrefCitationLookupService
  *
  * @brief Tests for the CrossrefCitationLookupService class.

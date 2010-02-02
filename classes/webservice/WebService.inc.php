@@ -43,7 +43,8 @@ class WebService {
 		}
 
 		// Catch web service errors
-		if (!$result) return null;
+		$nullVar = null;
+		if (!$result) return $nullVar;
 
 		// Clean the result
 		$result = stripslashes($result);

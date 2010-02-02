@@ -73,7 +73,6 @@ class CrosswalkFilter extends Filter {
 	 * @param $output MetadataDescription
 	 */
 	function isValid(&$output) {
-		if (is_null($output)) return true;
 		return $this->_complies($output, $this->getToSchema());
 	}
 

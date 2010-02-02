@@ -10,10 +10,7 @@
  * @ingroup citation_lookup_isbndb
  *
  * @brief Filter that uses the ISBNdb web
- *  service to search for book citation metadata.
- *
- * Input: NLM citation meta-data description
- * Output: matching ISBN number
+ *  service to identify an ISBN for a given citation.
  */
 
 // $Id$
@@ -32,18 +29,6 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @return boolean
-	 */
-	function supports(&$input) {
-		// This filter requires PHP5's DOMDocument
-		if (!checkPhpVersion('5.0.0')) return false;
-
-		return parent::supports($input);
-	}
-
-	/**
 	 * @see Filter::isValid()
 	 * @param $output mixed
 	 * @return boolean
@@ -58,28 +43,20 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @return string an ISBN or null
 	 */
 	function &process(&$citationDescription) {
-		$nullVar = null;
-
 		// Get the search strings
 		$searchStrings = $this->_constructSearchStrings($citationDescription);
 
 		// Run the searches, in order, until we have a result
-		$xmlWebService = new XmlWebService();
 		$searchParams = array(
-			'access_key' => $this->_apiKey,
+			'access_key' => $this->getApiKey(),
 			'index1' => 'combined'
 		);
 		foreach ($searchStrings as $searchString) {
 			$searchParams['value1'] = $searchString;
-			$webServiceRequest = new WebServiceRequest(ISBNDB_WEBSERVICE_URL, $searchParams);
-			$resultDOM = $xmlWebService->call($webServiceRequest);
+			$resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $searchParams);
 
 			// If the web service fails then abort
-			if (is_null($resultDOM)) return $nullVar;
-
-			// We need a PHP5 DOMDocument to have access
-			// to the getElementsByTagName method
-			assert(is_a($resultDOM, 'DOMDocument'));
+			if (is_null($resultDOM)) return $resultDOM;
 
 			// Did we get a search hit?
 			$numResults = $resultDOM->getElementsByTagName('BookList')->item(0)->getAttribute('total_results');
@@ -90,6 +67,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 		$bookData =& $resultDOM->getElementsByTagName('BookData')->item(0);
 
 		// If no book data present, then abort (this includes no search result at all)
+		$nullVar = null;
 		if (empty($bookData)) return $nullVar;
 
 		$isbn = $bookData->getAttribute('isbn13');

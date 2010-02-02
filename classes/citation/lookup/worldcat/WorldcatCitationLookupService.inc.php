@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WorldcatCitationLookupService
- * @ingroup citation
+ * @ingroup citation_lookup_worldcat
  * @see CitationMangager
  *
  * @brief Citation lookup service that uses the OCLC Worldcat Search API

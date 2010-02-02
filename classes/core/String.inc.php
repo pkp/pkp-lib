@@ -721,6 +721,15 @@ class String {
 		$str .= "\n";
 		return fwrite($handle, $str);
 	}
+
+	/**
+	 * Trim punctuation from a string
+	 * @param $string string input string
+	 * @return string the trimmed string
+	 */
+	function trimPunctuation($string) {
+		return trim($string, ' ,.;:!?()[]\\/');
+	}
 }
 
 ?>

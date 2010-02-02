@@ -21,6 +21,7 @@ import('metadata.MetadataDescription');
 import('metadata.nlm.NlmCitationSchema');
 import('metadata.nlm.NlmNameSchema');
 import('metadata.nlm.PersonStringNlmNameSchemaFilter');
+import('metadata.DateStringNormalizerFilter');
 
 import('webservice.XmlWebService');
 
@@ -168,8 +169,10 @@ class NlmCitationSchemaFilter extends Filter {
 		}
 
 		// Parse date string
-		if (isset($preliminaryNlmArray['date']))
-			$preliminaryNlmArray['date'] = $this->_normalizeDateString($preliminaryNlmArray['date']);
+		if (isset($preliminaryNlmArray['date'])) {
+			$dateFilter = new DateStringNormalizerFilter();
+			$preliminaryNlmArray['date'] = $dateFilter->execute($preliminaryNlmArray['date']);
+		}
 
 		return $preliminaryNlmArray;
 	}
@@ -220,39 +223,6 @@ class NlmCitationSchemaFilter extends Filter {
 			// will be ignored.
 		}
 		return $metadataArray;
-	}
-
-	/**
-	 * Normalizes a date string to canonical date
-	 * representation (i.e. YYYY-MM-DD)
-	 * @param $dateString string
-	 * @return string the normalized date string or null
-	 *  if the string could not be normalized
-	 */
-	function _normalizeDateString($dateString) {
-		// TODO: We have to i18nize this when expanding citation parsing to other languages
-		static $monthNames = array(
-			'Jan' => '01', 'Feb' => '02', 'Mar' => '03', 'Apr' => '04', 'May' => '05', 'Jun' => '06',
-			'Jul' => '07', 'Aug' => '08', 'Sep' => '09', 'Oct' => '10', 'Nov' => '11', 'Dec' => '12'
-		);
-
-		$normalizedDate = null;
-		if (String::regexp_match_get("/(?P<year>\d{4})\s*(?P<month>[a-z]\w+)?\s*(?P<day>\d+)?/i", $dateString, $parsedDate) ){
-			if (isset($parsedDate['year'])) {
-				$normalizedDate = $parsedDate['year'];
-
-				if (isset($parsedDate['month'])
-						&& isset($monthNames[substr($parsedDate['month'], 0, 3)])) {
-					// Convert the month name to a two digit numeric month representation
-					// before adding it to the normalized date string.
-					$normalizedDate .= '-'.$monthNames[substr($parsedDate['month'], 0, 3)];
-
-					if (isset($parsedDate['day'])) $normalizedDate .= '-'.str_pad($parsedDate['day'], 2, '0', STR_PAD_LEFT);
-				}
-			}
-		}
-
-		return $normalizedDate;
 	}
 
 	/**

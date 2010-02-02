@@ -16,8 +16,7 @@
 
 define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 
-import('metadata.nlm.NlmCitationSchemaFilter');
-import('webservice.XmlWebService');
+import('citation.NlmCitationSchemaFilter');
 
 class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/** @var string ISBNdb API key */
@@ -29,6 +28,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	function IsbndbNlmCitationSchemaFilter($apiKey) {
 		assert(!empty($apiKey));
 		$this->_apiKey = $apiKey;
+		parent::NlmCitationSchemaFilter(array('book'));
 	}
 
 	//
@@ -46,8 +46,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Protected helper methods
 	//
 	/**
-	 * Checks whether the given string is an ISBN
-	 * or null.
+	 * Checks whether the given string is an ISBN.
 	 * @param $isbn
 	 * @return boolean
 	 */

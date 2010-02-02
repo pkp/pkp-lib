@@ -14,18 +14,14 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
 import('citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.MetadataDescription');
+import('tests.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilterTest');
 
-define('ISBNDB_TEST_APIKEY', '4B5GQSQ4');
-
-class IsbndbNlmCitationSchemaIsbnFilterTest extends PKPTestCase {
+class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilterTest {
 
 	/**
 	 * @covers IsbndbNlmCitationSchemaIsbnFilter
+	 * @covers IsbndbNlmCitationSchemaFilter
 	 */
 	public function testExecute() {
 		$nameSchema = new NlmNameSchema();

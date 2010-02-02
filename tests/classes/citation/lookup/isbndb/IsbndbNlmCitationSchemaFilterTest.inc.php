@@ -14,12 +14,9 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.MetadataDescription');
+import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
-class IsbndbNlmCitationSchemaFilterTest extends PKPTestCase {
+class IsbndbNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	const ISBNDB_TEST_APIKEY = '4B5GQSQ4';
 }
 ?>

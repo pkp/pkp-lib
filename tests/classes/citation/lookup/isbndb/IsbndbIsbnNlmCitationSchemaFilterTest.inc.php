@@ -24,35 +24,32 @@ class IsbndbIsbnNlmCitationSchemaFilterTest extends IsbndbNlmCitationSchemaFilte
 	 * @covers IsbndbNlmCitationSchemaFilter
 	 */
 	public function testExecute() {
-		// Create the expected result data
-		// 1) Author
-		$nlmNameSchema = new NlmNameSchema();
-		$expectedAuthorDescription = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
-		$expectedAuthorData = array(
-			'given-names' => array('John'),
-			'surname' => 'Willinsky'
+		// Test data
+		$isbnLookupTest = array(
+			'testInput' => '9780820452425', // ISBN
+			'testOutput' => array(
+				'source' => array(
+					'en_US' => 'After literacy: essays'
+				),
+				'date' => '2001',
+				'person-group[@person-group-type="author"]' => array(
+					0 => array('given-names' => array('John'), 'surname' => 'Willinsky')
+				),
+				'publisher-loc' => 'New York',
+				'publisher-name' => 'P. Lang',
+				'isbn' => '9780820452425',
+				'[@publication-type]' => 'book'
+			)
 		);
-		$expectedAuthorDescription->setStatements($expectedAuthorData);
-		// 2) Citation
-		$nlmCitationSchema = new NlmCitationSchema();
-		$expectedCitationDescription = new MetadataDescription($nlmCitationSchema, ASSOC_TYPE_CITATION);
-		$expectedCitationData = array(
-			'source' => array(
-				'en_US' => 'After literacy: essays'
-			),
-			'date' => '2001',
-			'person-group[@person-group-type="author"]' => array($expectedAuthorDescription),
-			'publisher-loc' => 'New York',
-			'publisher-name' => 'P. Lang',
-			'isbn' => '9780820452425',
-			'[@publication-type]' => 'book'
-		);
-		$expectedCitationDescription->setStatements($expectedCitationData);
 
-		// Execute the filter
+		// Build the test array
+		$citationFilterTests = array(
+			$isbnLookupTest
+		);
+
+		// Test the filter
 		$filter = new IsbndbIsbnNlmCitationSchemaFilter(self::ISBNDB_TEST_APIKEY);
-		$isbn = '9780820452425';
-		self::assertEquals($expectedCitationDescription, $filter->execute($isbn));
+		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
 	}
 }
 ?>

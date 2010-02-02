@@ -24,18 +24,27 @@ class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilte
 	 * @covers IsbndbNlmCitationSchemaFilter
 	 */
 	public function testExecute() {
-		$nameSchema = new NlmNameSchema();
-		$nameDescription = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
-		$nameDescription->addStatement('surname', $surname = 'Willinsky');
-		$nameDescription->addStatement('given-names', $givenName = 'John');
+		// Test data
+		$isbnSearchTest = array(
+			'testInput' => array(
+				'person-group[@person-group-type="author"]' => array(
+					0 => array('given-names' => array('John'), 'surname' => 'Willinsky')
+				),
+				'source' => array(
+					'en_US' => 'After literacy'
+				)
+			),
+			'testOutput' => '9780820452425' // ISBN
+		);
 
-		$citationSchema = new NlmCitationSchema();
-		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
-		$citationDescription->addStatement('source', $source = 'After literacy');
+		// Build the test array
+		$citationFilterTests = array(
+			$isbnSearchTest
+		);
 
+		// Test the filter
 		$filter = new IsbndbNlmCitationSchemaIsbnFilter(self::ISBNDB_TEST_APIKEY);
-		self::assertEquals('9780820452425', $filter->execute($citationDescription));
+		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
 	}
 }
 ?>

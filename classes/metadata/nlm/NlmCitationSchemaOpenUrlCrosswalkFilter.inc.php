@@ -80,14 +80,18 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 		if (is_array($authors) && count($authors)) {
 			$aulast = ($authors[0]->hasStatement('prefix') ? $authors[0]->getStatement('prefix').' ' : '');
 			$aulast .= $authors[0]->getStatement('surname');
-			$success = $output->addStatement('aulast', $aulast);
-			assert($success);
+			if (!empty($aulast)) {
+				$success = $output->addStatement('aulast', $aulast);
+				assert($success);
+			}
 
 			$givenNames = $authors[0]->getStatement('given-names');
 			if(is_array($givenNames) && count($givenNames)) {
 				$aufirst = implode(' ', $givenNames);
-				$success = $output->addStatement('aufirst', $aufirst);
-				assert($success);
+				if (!empty($aufirst)) {
+					$success = $output->addStatement('aufirst', $aufirst);
+					assert($success);
+				}
 
 				$initials = array();
 				foreach($givenNames as $givenName) {
@@ -95,21 +99,29 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 				}
 
 				$auinit1 = array_shift($initials);
-				$success = $output->addStatement('auinit1', $auinit1);
-				assert($success);
+				if (!empty($auinit1)) {
+					$success = $output->addStatement('auinit1', $auinit1);
+					assert($success);
+				}
 
 				$auinitm = implode('', $initials);
-				$success = $output->addStatement('auinitm', $auinitm);
-				assert($success);
+				if (!empty($auinitm)) {
+					$success = $output->addStatement('auinitm', $auinitm);
+					assert($success);
+				}
 
 				$auinit = $auinit1.$auinitm;
-				$success = $output->addStatement('auinit', $auinit);
-				assert($success);
+				if (!empty($auinit)) {
+					$success = $output->addStatement('auinit', $auinit);
+					assert($success);
+				}
 			}
 
 			$ausuffix = $authors[0]->getStatement('suffix');
-			$success = $output->addStatement('ausuffix', $ausuffix);
-			assert($success);
+			if (!empty($ausuffix)) {
+				$success = $output->addStatement('ausuffix', $ausuffix);
+				assert($success);
+			}
 
 			foreach ($authors as $author) {
 				$au = $personStringFilter->execute($author);

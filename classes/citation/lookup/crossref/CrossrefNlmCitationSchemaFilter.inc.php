@@ -65,7 +65,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$doi = $citationDescription->getStatement('pub-id[@pub-id-type="doi"]');
 		if (!empty($doi)) {
 			// Directly look up the DOI
-			$searchParams['id'] = 'doi:'.urlencode($doi);
+			$searchParams['id'] = 'doi:'.$doi;
 		} else {
 			// Use OpenURL meta-data to search for the entry
 			$searchParams += $this->_prepareOpenUrlSearch($citationDescription);
@@ -100,7 +100,9 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		import('metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
 		$nlmOpenUrlFilter = new NlmCitationSchemaOpenUrlCrosswalkFilter();
 		$openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription);
-		$openUrlCitationSchema =& $openUrlCitation->getMetadataSchema();
+
+		// Error handling
+		if (is_null($openUrlCitation)) return $openUrlCitation;
 
 		// Prepare the search
 		$searchParams = array(
@@ -108,6 +110,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		);
 
 		// Configure the meta-data schema
+		$openUrlCitationSchema =& $openUrlCitation->getMetadataSchema();
 		switch(true) {
 			case is_a($openUrlCitationSchema, 'OpenUrlJournalSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:journal';
@@ -127,11 +130,14 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Add all OpenURL meta-data to the search parameters
 		// FIXME: Implement a looping search like for other lookup services.
-		$openUrlStatements =& $openUrlCitation->getStatements();
-		foreach ($openUrlStatements as $property => $value) {
-			// The author has cardinality many in OpenURL. We only use the first author.
-			if ($property == 'au') $value = $value[0];
-			$searchParams[$property] = $value;
+		$searchProperties = array(
+			'aufirst', 'aulast', 'btitle', 'jtitle', 'atitle', 'issn',
+			'artnum', 'date', 'volume', 'issue', 'spage', 'epage'
+		);
+		foreach ($searchProperties as $property) {
+			if ($openUrlCitation->hasStatement($property)) {
+				$searchParams['rft.'.$property] = $openUrlCitation->getStatement($property);
+			}
 		}
 
 		return $searchParams;

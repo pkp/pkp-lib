@@ -104,6 +104,10 @@
 
 import('core.DataObject');
 
+define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
+define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);
+define('METADATA_DESCRIPTION_REPLACE_NOTHING', 0x03);
+
 class MetadataDescription extends DataObject {
 	/** @var MetadataSchema the schema this description complies to */
 	var $_metadataSchema;
@@ -308,15 +312,16 @@ class MetadataDescription extends DataObject {
 	 * * Translated properties with a cardinality of 'many' must be
 	 *   passed in as sub-sub-arrays with the locale as the second key.
 	 * @param $statements array statements
-	 * @param $replace boolean if set to true then all existing statements
-	 *  will be overridden.
+	 * @param $replace integer one of the allowed replace levels.
 	 * @return boolean true if all statements could be added, false otherwise
 	 */
-	function setStatements(&$statements, $replace = false) {
+	function setStatements(&$statements, $replace = METADATA_DESCRIPTION_REPLACE_PROPERTIES) {
+		assert(in_array($replace, $this->_allowedReplaceLevels()));
+
 		// Make a backup copy of all existing statements.
 		$statementsBackup = $this->getAllData();
 
-		if ($replace) {
+		if ($replace == METADATA_DESCRIPTION_REPLACE_ALL) {
 			// Delete existing statements
 			$emptyArray = array();
 			$this->setAllData($emptyArray);
@@ -333,24 +338,35 @@ class MetadataDescription extends DataObject {
 				$values =& $content;
 			}
 
+			if ($replace == METADATA_DESCRIPTION_REPLACE_PROPERTIES) {
+				$replaceProperty = true;
+			} else {
+				$replaceProperty = false;
+			}
+
 			foreach($values as $value) {
 				// Is this a translated property?
 				if (is_array($value)) {
 					foreach($value as $locale => $translation) {
 						// Add a statement (replace existing statement if any)
-						if (!($this->addStatement($propertyName, $translation, $locale, true))) {
+						if (!($this->addStatement($propertyName, $translation, $locale, $replaceProperty))) {
 							$this->setAllData($statementsBackup);
 							return false;
 						}
 					}
+					unset($translation);
 				} else {
 					// Add a statement (replace existing statement if any)
-					if (!($this->addStatement($propertyName, $value, null, true))) {
+					if (!($this->addStatement($propertyName, $value, null, $replaceProperty))) {
 						$this->setAllData($statementsBackup);
 						return false;
 					}
 				}
 				unset($value);
+
+				// Reset the $replaceProperty flag to avoid that subsequent
+				// value entries will overwrite previous value entries.
+				$replaceProperty = false;
 			}
 			unset($values);
 		}
@@ -438,6 +454,24 @@ class MetadataDescription extends DataObject {
 		$property = $this->getProperty($propertyName);
 		assert(is_a($property, 'MetadataProperty'));
 		return $property->getTranslated();
+	}
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * The allowed replace levels for the
+	 * setStatements() method.
+	 * NB: Workaround for PHP4 which doesn't allow
+	 * static class members.
+	 */
+	function _allowedReplaceLevels() {
+		static $allowedReplaceLevels = array(
+			METADATA_DESCRIPTION_REPLACE_ALL,
+			METADATA_DESCRIPTION_REPLACE_PROPERTIES,
+			METADATA_DESCRIPTION_REPLACE_NOTHING
+		);
+		return $allowedReplaceLevels;
 	}
 }
 ?>

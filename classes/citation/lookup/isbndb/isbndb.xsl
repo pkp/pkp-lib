@@ -22,9 +22,9 @@
 	START TRANSFORMATION AT THE ROOT NODE
 ==============================================-->
 <xsl:template match="/">
-	<citation>
+	<element-citation>
 		<xsl:apply-templates select="ISBNdb/BookList/BookData/*"/>
-	</citation>
+	</element-citation>
 </xsl:template>
 
 <!-- Book title -->

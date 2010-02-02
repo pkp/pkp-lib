@@ -22,9 +22,9 @@
 	START TRANSFORMATION AT THE ROOT NODE
 ==============================================-->
 <xsl:template match="/">
-	<citation>
+	<element-citation>
 		<xsl:apply-templates select="doi_records/doi_record/crossref/*"/>
-	</citation>
+	</element-citation>
 </xsl:template>
 
 <!--============================================
@@ -32,12 +32,12 @@
 ==============================================-->
 
 <xsl:template match="journal">
-	<!-- Genre -->
-	<genre>article</genre>
+	<!-- Publication Type -->
+	<publication-type>journal</publication-type>
 	
 	<!-- Journal title -->
 	<xsl:if test="journal_metadata/full_title">
-		<journalTitle>
+		<source>
 			<xsl:choose>
 				<xsl:when test="journal_metadata/abbrev_title != ''">
 					<xsl:value-of select="journal_metadata/abbrev_title"/>
@@ -46,7 +46,7 @@
 					<xsl:value-of select="journal_metadata/full_title"/>
 				</xsl:otherwise>
 			</xsl:choose>
-		</journalTitle>
+		</source>
 	</xsl:if>
 	
 	<!-- Issue -->
@@ -61,13 +61,13 @@
 	
 	<!-- Article Title -->
 	<xsl:if test="journal_article/titles/title">
-		<articleTitle><xsl:value-of select="journal_article/titles/title"/></articleTitle>
+		<article-title><xsl:value-of select="journal_article/titles/title"/></article-title>
 	</xsl:if>
 
 	<!-- Authors -->	
 	<xsl:apply-templates select="journal_article/contributors/person_name"/>
 	
-	<!-- Issued Date -->
+	<!-- Publication Date -->
 	<xsl:apply-templates select="journal_article/publication_date"/>
 	
 	<!-- Pages -->
@@ -75,10 +75,6 @@
 
 	<!-- Identifiers -->
 	<xsl:apply-templates select="journal_article/doi_data"/>
-	
-	<!-- 
-	More identifier info: ISSN, publisher eg SICI
-	 -->
 </xsl:template>
 
 
@@ -87,18 +83,18 @@
 ==============================================-->
 
 <xsl:template match="book">
-	<!-- Genre -->
-	<genre>book</genre>
+	<!-- Publication Type -->
+	<publication-type>book</publication-type>
 	
 	<!-- Book Title -->
 	<xsl:if test="book_metadata/titles/title">
-		<bookTitle><xsl:value-of select="book_metadata/titles/title"/></bookTitle>
+		<source><xsl:value-of select="book_metadata/titles/title"/></source>
 	</xsl:if>
 
 	<!-- Authors -->	
 	<xsl:apply-templates select="book_metadata/contributors/person_name"/>
 	
-	<!-- Issued Date -->
+	<!-- Publication Date -->
 	<xsl:apply-templates select="book_metadata/publication_date"/>
 	
 	<!-- Edition -->
@@ -123,14 +119,14 @@
 ==============================================-->
 
 <xsl:template match="conference">
-	<!-- Genre -->
-	<genre>proceeding</genre>
+	<!-- Publication Type -->
+	<publication-type>conf-proc</publication-type>
 	
 	<!-- Conference title -->
 	<xsl:if test="proceedings_metadata/proceedings_title">
-		<journalTitle>
+		<conf-name>
 			<xsl:value-of select="proceedings_metadata/proceedings_title"/>
-		</journalTitle>
+		</conf-name>
 	</xsl:if>
 	
 	<!-- ISBN -->
@@ -143,13 +139,13 @@
 	
 	<!-- Article Title -->
 	<xsl:if test="conference_paper/titles/title">
-		<articleTitle><xsl:value-of select="conference_paper/titles/title"/></articleTitle>
+		<article-title><xsl:value-of select="conference_paper/titles/title"/></article-title>
 	</xsl:if>
 
 	<!-- Authors -->	
 	<xsl:apply-templates select="conference_paper/contributors/person_name"/>
 	
-	<!-- Issued Date -->
+	<!-- Publication Date -->
 	<xsl:apply-templates select="conference_paper/publication_date"/>
 	
 	<!-- Pages -->
@@ -172,23 +168,23 @@
 	</author>
 </xsl:template>
 	
-<!-- Issued Date -->
+<!-- Publication Date -->
 <xsl:template match="publication_date">
-	<issuedDate>
+	<date>
 		<xsl:if test="year"><xsl:value-of select="year"/><xsl:if test="month">-<xsl:value-of select="month"/><xsl:if test="day">-<xsl:value-of select="day"/></xsl:if></xsl:if></xsl:if>
-	</issuedDate>
+	</date>
 </xsl:template>
 
 <!-- Pages -->
 <xsl:template match="pages">
 	<!-- First Page -->
 	<xsl:if test="first_page">
-		<firstPage><xsl:value-of select="first_page"/></firstPage>
+		<fpage><xsl:value-of select="first_page"/></fpage>
 	</xsl:if>
 	
 	<!-- Last Page -->
 	<xsl:if test="last_page">
-		<lastPage><xsl:value-of select="last_page"/></lastPage>
+		<lpage><xsl:value-of select="last_page"/></lpage>
 	</xsl:if>
 </xsl:template>
 
@@ -196,24 +192,28 @@
 <xsl:template match="doi_data">
 	<!-- DOI -->
 	<xsl:if test="doi">
-		<doi><xsl:value-of select="doi"/></doi>
+		<pub-id-doi><xsl:value-of select="doi"/></pub-id-doi>
 	</xsl:if>
 	
-	<!-- URL; NB: may not be Open Access / full text -->
+	<!-- URI; NB: may not be Open Access / full text -->
 	<xsl:if test="resource">
-		<url><xsl:value-of select="resource"/></url>
+		<uri><xsl:value-of select="resource"/></uri>
 	</xsl:if>
+	
+	<!-- 
+	TODO: More identifier info: ISSN, SICI, ...
+	 -->
 </xsl:template>
 
 <!-- Publisher -->
 <xsl:template match="publisher">
 	<xsl:if test="publisher_name">
-		<publisher><xsl:value-of select="publisher_name"/></publisher>
+		<publisher-name><xsl:value-of select="publisher_name"/></publisher-name>
 	</xsl:if>
 	
 	<!-- Publisher Location -->
 	<xsl:if test="publisher_place">
-		<place><xsl:value-of select="publisher_place"/></place>
+		<publisher-loc><xsl:value-of select="publisher_place"/></publisher-loc>
 	</xsl:if>
 </xsl:template>
 	

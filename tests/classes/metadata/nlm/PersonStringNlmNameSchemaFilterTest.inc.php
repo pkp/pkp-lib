@@ -27,7 +27,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 
 	/**
 	 * @covers PersonStringNlmNameSchemaFilter::supports
-	 * @covers PersonStringNlmNameSchemaFilter::execute
+	 * @covers PersonStringNlmNameSchemaFilter::process
 	 * @covers PersonStringNlmNameSchemaFilter::isValid
 	 * @covers PersonStringNlmNameSchemaFilter::_parsePersonString
 	 */
@@ -85,12 +85,12 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 
 	/**
 	 * @covers PersonStringNlmNameSchemaFilter::supports
-	 * @covers PersonStringNlmNameSchemaFilter::execute
+	 * @covers PersonStringNlmNameSchemaFilter::process
 	 * @covers PersonStringNlmNameSchemaFilter::isValid
 	 * @covers PersonStringNlmNameSchemaFilter::_parsePersonsString
 	 * @depends testExecuteWithSinglePersonString
 	 */
-	public function testExecuteWithMultiplePersonsString() {
+	public function testExecuteWithMultiplePersonsStrings() {
 		$personsString = 'MULLER:IFC Peterberg:Peters HC:Yu QK:Hans Peter B. Sperling:et al';
 		$expectedResults = array(
 			array(null, null, null, 'Muller'),
@@ -100,7 +100,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, array('Hans', 'Peter', 'B'), null, 'Sperling'),
 		);
 
-		$this->_personStringNlmNameSchemaFilter->setFilterMode(PERSON_STRING_FILTER_EXPECT_MULTIPLE);
+		$this->_personStringNlmNameSchemaFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
 		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
 		foreach($personDescriptions as $testNumber => $personDescription) {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);

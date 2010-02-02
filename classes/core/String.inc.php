@@ -730,6 +730,31 @@ class String {
 	function trimPunctuation($string) {
 		return trim($string, ' ,.;:!?()[]\\/');
 	}
+
+	/**
+	 * Convert a string to proper title case
+	 * @param $title string
+	 * @return string
+	 */
+	function titleCase($title) {
+		$smallWords = array(
+			'of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then',
+			'else', 'when', 'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out',
+			'over', 'to', 'into', 'with'
+		);
+
+		$words = explode(' ', $title);
+		foreach ($words as $key => $word) {
+			if ($key == 0 or !in_array(strtolower($word), $smallWords)) {
+				$words[$key] = ucfirst(strtolower($word));
+			} else {
+				$words[$key] = strtolower($word);
+			}
+		}
+
+		$newTitle = implode(' ', $words);
+		return $newTitle;
+	}
 }
 
 ?>

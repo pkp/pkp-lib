@@ -69,6 +69,8 @@ class NlmCitationSchemaFilter extends Filter {
 		if (!$this->isNlmCitationDescription($input)) return false;
 
 		// Check that the given publication type is supported by this filter
+		// If no publication type is given then we'll support the description
+		// by default.
 		$publicationType = $input->getStatement('[@publication-type]');
 		if (!empty($publicationType) && !in_array($publicationType, $this->getSupportedPublicationTypes())) return false;
 
@@ -97,6 +99,63 @@ class NlmCitationSchemaFilter extends Filter {
 		$metadataSchema =& $metadataDescription->getMetadataSchema();
 		if ($metadataSchema->getName() != 'nlm-3.0-element-citation') return false;
 		return true;
+	}
+
+	/**
+	 * Construct an array of search strings from a citation
+	 * description and an array of search templates.
+	 * The templates may contain the placeholders
+	 *  %aulast%: the first author's surname
+	 *  %au%:     the first author full name
+	 *  %title%:  the article-title (if it exists),
+	 *            otherwise the source
+	 *  %date%:   the publication year
+	 *  %isbn%:   ISBN
+	 * @param $searchTemplates an array of templates
+	 * @param $citationDescription MetadataDescription
+	 * @return array
+	 */
+	function constructSearchStrings(&$searchTemplates, &$citationDescription) {
+		// Retrieve the authors
+		$firstAuthorSurname = $firstAuthor = '';
+		$authors = $citationDescription->getStatement('person-group[@person-group-type="author"]');
+		if (is_array($authors) && count($authors)) {
+			$firstAuthorSurname = (string)$authors[0]->getStatement('surname');
+
+			// Convert first authors' name description to a string
+			import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+			$personStringFilter = new NlmNameSchemaPersonStringFilter();
+			$firstAuthor = $personStringFilter->execute($authors[0]);
+		}
+
+		// Retrieve (default language) title
+		$title = (string)($citationDescription->hasStatement('article-title') ?
+				$citationDescription->getStatement('article-title') :
+				$citationDescription->getStatement('source'));
+
+		// Extract the year from the publication date
+		$year = (string)$citationDescription->getStatement('date');
+		$year = (String::strlen($year) > 4 ? String::substr($year, 0, 4) : $year);
+
+		// Retrieve ISBN
+		$isbn = (string)$citationDescription->getStatement('isbn');
+
+		// Replace the placeholders in the templates
+		$searchStrings = array();
+		foreach($searchTemplates as $searchTemplate) {
+			$searchStrings[] = str_replace(
+					array('%aulast%', '%au%', '%title%', '%date%', '%isbn%'),
+					array($firstAuthorSurname, $firstAuthor, $title, $year, $isbn),
+					$searchTemplate
+				);
+		}
+
+		// Remove empty or duplicate searches
+		$searchStrings = array_map(array('String', 'trimPunctuation'), $searchStrings);
+		$searchStrings = array_unique($searchStrings);
+		$searchStrings = array_clean($searchStrings);
+
+		return $searchStrings;
 	}
 
 	/**
@@ -143,19 +202,18 @@ class NlmCitationSchemaFilter extends Filter {
 		// Parse (=filter) author/editor strings into NLM name descriptions
 		foreach(array('author', 'editor') as $personType) {
 			if (isset($preliminaryNlmArray[$personType])) {
-				// Get the author strings from the result
+				// Get the author/editor strings from the result
 				$personStrings = $preliminaryNlmArray[$personType];
 				unset($preliminaryNlmArray[$personType]);
 
-				// If we only have one author then we'll have to
-				// convert the author strings to an array first.
+				// If we only have one author/editor then we'll have to
+				// convert the string to an array first.
 				if (!is_array($personStrings)) $personStrings = array($personStrings);
 
+				// Parse the author/editor strings into NLM name descriptions
 				$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
-				$persons = array();
-				foreach ($personStrings as $personString) {
-					$persons[] =& $personStringFilter->execute($personString);
-				}
+				$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
+
 				$preliminaryNlmArray['person-group[@person-group-type="'.$personType.'"]'] = $persons;
 				unset($persons);
 			}
@@ -206,18 +264,23 @@ class NlmCitationSchemaFilter extends Filter {
 	}
 
 	/**
-	 * Sets the data of an array of property/value pairs
-	 * as statements in an NLM citation description.
+	 * Adds the data of an array of property/value pairs
+	 * as statements to an NLM citation description.
+	 * If no citation description is given, a new one will
+	 * be instantiated.
 	 * @param $metadataArray array
+	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &createNlmCitationDescriptionFromArray(&$metadataArray) {
+	function &addMetadataArrayToNlmCitationDescription(&$metadataArray, $citationDescription = null) {
 		// Trim punctuation
 		$metadataArray =& $this->_recursivelyTrimPunctuation($metadataArray);
 
-		// Create the citation description
-		$metadataSchema = new NlmCitationSchema();
-		$citationDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+		// Create a new citation description if no one was given
+		if (is_null($citationDescription)) {
+			$metadataSchema = new NlmCitationSchema();
+			$citationDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+		}
 
 		// Add the meta-data to the description
 		if (!$citationDescription->setStatements($metadataArray)) {
@@ -226,6 +289,41 @@ class NlmCitationSchemaFilter extends Filter {
 		}
 
 		return $citationDescription;
+	}
+
+	/**
+	 * Take an NLM preliminary meta-data array and fix publisher-loc
+	 * and publisher-name entries:
+	 * - If there is a location but no name then try to extract a
+	 *   publisher name from the location string.
+	 * - Make sure that location and name are not the same.
+	 * - Copy institution to publisher if no publisher is set,
+	 *   otherwise leave the institution.
+	 * @param $metadata array
+	 * @return array
+	 */
+	function &fixPublisherNameAndLocation(&$metadata) {
+		if (isset($metadata['publisher-loc'])) {
+			// Extract publisher-name from publisher-loc if we don't have a
+			// publisher-name in the parsing result.
+			if (empty($metadata['publisher-name'])) {
+				$metadata['publisher-name'] = String::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['publisher-loc']);
+			}
+
+			// Remove publisher-name from publisher-loc
+			$metadata['publisher-loc'] = String::regexp_replace('/^(.+):.*/', '\1', $metadata['publisher-loc']);
+
+			// Check that publisher-name and location are not the same
+			if (!empty($metadata['publisher-name']) && $metadata['publisher-name'] == $metadata['publisher-loc']) unset($metadata['publisher-name']);
+		}
+
+		// Copy the institution property (if any) as the publisher-name
+		if (isset($metadata['institution']) &&
+				(!isset($metadata['publisher-name']) || empty($metadata['publisher-name']))) {
+			$metadata['publisher-name'] = $metadata['institution'];
+		}
+
+		return $metadata;
 	}
 
 	//

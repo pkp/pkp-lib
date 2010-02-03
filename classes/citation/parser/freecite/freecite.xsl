@@ -19,7 +19,7 @@
 <xsl:strip-space elements="*"/>
 
 <xsl:template match="/citations">
-	<citation>
+	<element-citation>
 
 		<xsl:choose>
 			<!-- get elements from contextobject if it exists -->
@@ -35,10 +35,10 @@
 		</xsl:choose>
 
 		<xsl:if test="ctx:context-objects/ctx:context-object/ctx:referent/ctx:metadata-by-val/ctx:metadata/dissertation">
-			<genre>dissertation</genre>
+			<publication-type>thesis</publication-type>
 		</xsl:if>
 
-	</citation>
+	</element-citation>
 </xsl:template>
 
 <!-- Authors -->
@@ -48,44 +48,44 @@
 
 <!-- Book title -->
 <xsl:template match="*[local-name() = 'btitle']">
-	<bookTitle><xsl:value-of select="."/></bookTitle>		
+	<source><xsl:value-of select="."/></source>		
 </xsl:template>
 
 <!-- Journal/conference title -->
 <xsl:template match="*[local-name() = 'stitle'] | *[local-name() = 'jtitle']">
-	<journalTitle><xsl:value-of select="."/></journalTitle>		
+	<source><xsl:value-of select="."/></source>		
 </xsl:template>
 
 <!-- Article title -->
 <xsl:template match="*[local-name() = 'title'] | *[local-name() = 'atitle']">
-	<articleTitle><xsl:value-of select="."/></articleTitle>		
+	<article-title><xsl:value-of select="."/></article-title>		
 </xsl:template>
 
 <!-- Article title -->
 <xsl:template match="*[local-name() = 'year'] | *[local-name() = 'date']">
-	<issuedDate><xsl:value-of select="."/></issuedDate>		
+	<date><xsl:value-of select="."/></date>		
 </xsl:template>
 
 <!-- Location -->
 <xsl:template match="*[local-name() = 'place'] | *[local-name() = 'location']">
-	<place><xsl:value-of select="."/></place>
+	<publisher-loc><xsl:value-of select="."/></publisher-loc>
 </xsl:template>
 
 <!-- Publisher -->
 <xsl:template match="*[local-name() = 'pub'] | *[local-name() = 'inst']">
-	<publisher><xsl:value-of select="."/></publisher>
+	<publisher-name><xsl:value-of select="."/></publisher-name>
 </xsl:template>
 
 <!-- Pages -->
 <xsl:template match="*[local-name() = 'pages']">
-	<firstPage><xsl:value-of select="substring-before(., '--')"/></firstPage>
-	<lastPage><xsl:value-of select="substring-after(., '--')"/></lastPage>
+	<fpage><xsl:value-of select="substring-before(., '--')"/></fpage>
+	<lpage><xsl:value-of select="substring-after(., '--')"/></lpage>
 </xsl:template>
 <xsl:template match="*[local-name() = 'spage']">
-	<firstPage><xsl:value-of select="."/></firstPage>		
+	<fpage><xsl:value-of select="."/></fpage>		
 </xsl:template>
 <xsl:template match="*[local-name() = 'epage']">
-	<lastPage><xsl:value-of select="."/></lastPage>		
+	<lpage><xsl:value-of select="."/></lpage>		
 </xsl:template>
 
 <!-- Issue: We cannot interpret number or quarter, so let's save them as issue -->

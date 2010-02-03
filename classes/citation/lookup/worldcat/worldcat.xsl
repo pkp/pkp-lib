@@ -26,9 +26,9 @@
 	START TRANSFORMATION AT THE ROOT NODE
 ==============================================-->
 <xsl:template match="/marc:record">
-	<citation>
+	<element-citation>
 		<xsl:apply-templates/>
-	</citation>
+	</element-citation>
 </xsl:template>
 
 <!-- Authors/Contributors -->
@@ -43,7 +43,7 @@
 
 <!-- Book title -->
 <xsl:template match="marc:datafield[@tag='245'][1]">
-	<bookTitle><xsl:value-of select="marc:subfield[@code='a']"/><xsl:text> </xsl:text><xsl:value-of select="marc:subfield[@code='b']"/></bookTitle>
+	<source><xsl:value-of select="marc:subfield[@code='a']"/><xsl:text> </xsl:text><xsl:value-of select="marc:subfield[@code='b']"/></source>
 </xsl:template>
 
 <!-- Edition -->
@@ -53,9 +53,9 @@
 
 <!-- Publisher & Location -->
 <xsl:template match="marc:datafield[@tag='260'][1]">
-	<place><xsl:value-of select="marc:subfield[@code='a']"/></place>
-	<publisher><xsl:value-of select="marc:subfield[@code='b']"/></publisher>
-	<issuedDate><xsl:value-of select="marc:subfield[@code='c']"/></issuedDate>
+	<publisher-loc><xsl:value-of select="marc:subfield[@code='a']"/></publisher-loc>
+	<publisher-name><xsl:value-of select="marc:subfield[@code='b']"/></publisher-name>
+	<date><xsl:value-of select="marc:subfield[@code='c']"/></date>
 </xsl:template>
 
 <!-- ISBN not reliable, use xISBN service-->

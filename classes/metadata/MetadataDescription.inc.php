@@ -122,6 +122,7 @@ class MetadataDescription extends DataObject {
 	 * Constructor
 	 */
 	function MetadataDescription(&$metadataSchema, $assocType) {
+		assert(is_a($metadataSchema, 'MetadataSchema') && is_integer($assocType));
 		parent::DataObject();
 		$this->_metadataSchema =& $metadataSchema;
 		$this->_assocType = $assocType;
@@ -234,16 +235,18 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
-	 * Remove statement. If the property has cardinality 'many' or
-	 * if it has several translations then all statements for the
-	 * property will be removed at once.
+	 * Remove statement. If the property has cardinality 'many'
+	 * then all statements for the property will be removed at once.
+	 * If the property is translated and the locale is null then
+	 * the statements for all locales will be removed.
 	 * @param $propertyName string
+	 * @param $locale string
 	 * @return boolean true if the statement was found and removed, otherwise false
 	 */
-	function removeStatement($propertyName) {
+	function removeStatement($propertyName, $locale = null) {
 		// Remove the statement if it exists
-		if (isset($propertyName) && $this->hasData($propertyName)) {
-			$this->setData($propertyName, null);
+		if (isset($propertyName) && $this->hasData($propertyName, $locale)) {
+			$this->setData($propertyName, null, $locale);
 			return true;
 		}
 
@@ -329,6 +332,8 @@ class MetadataDescription extends DataObject {
 
 		// Add statements one by one to detect invalid values.
 		foreach($statements as $propertyName => $content) {
+			assert(!empty($content));
+
 			// Transform scalars or translated fields to arrays so that
 			// we can handle properties with different cardinalities in
 			// the same way.

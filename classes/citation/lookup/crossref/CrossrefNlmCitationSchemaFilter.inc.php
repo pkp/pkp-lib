@@ -26,6 +26,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 	/*
 	 * Constructor
+	 * @param $email string
 	 */
 	function CrossrefNlmCitationSchemaFilter($email) {
 		assert(!empty($email));
@@ -52,7 +53,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/**
 	 * @see Filter::process()
 	 * @param $citationDescription MetadataDescription
-	 * @return string a DOI or null
+	 * @return MetadataDescription
 	 */
 	function &process(&$citationDescription) {
 		$nullVar = null;
@@ -73,8 +74,6 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Call the CrossRef web service
 		$resultXml =& $this->callWebService(CROSSREF_WEBSERVICE_URL, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING);
-
-		// Handle web service errors
 		if (is_null($resultXml)) return $resultXml;
 
 		// Remove default name spaces from XML as CrossRef doesn't
@@ -83,7 +82,9 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Transform and process the web service result
 		$metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl');
-		return $this->createNlmCitationDescriptionFromArray($metadata);
+		if (is_null($metadata)) return $metadata;
+
+		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
 	}
 
 

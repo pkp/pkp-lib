@@ -24,6 +24,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 	/*
 	 * Constructor
+	 * @param $apiKey string
 	 */
 	function IsbndbNlmCitationSchemaFilter($apiKey) {
 		assert(!empty($apiKey));
@@ -35,7 +36,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Getters and Setters
 	//
 	/**
-	 * get the apiKey
+	 * Get the apiKey
 	 * @return string
 	 */
 	function getApiKey() {

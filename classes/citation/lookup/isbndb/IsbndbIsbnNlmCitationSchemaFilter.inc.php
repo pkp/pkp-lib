@@ -20,6 +20,7 @@ import('citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
 class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	/*
 	 * Constructor
+	 * @param $apiKey string
 	 */
 	function IsbndbIsbnNlmCitationSchemaFilter($apiKey) {
 		parent::IsbndbNlmCitationSchemaFilter($apiKey);
@@ -54,14 +55,10 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 
 		// Call the web service
 		$resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $lookupParams);
-
-		// Handle web service errors
 		if (is_null($resultDOM)) return $resultDOM;
 
 		// Transform and pre-process the web service result
 		$metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'isbndb.xsl');
-
-		// Handle transformation errors
 		if (is_null($metadata)) return $metadata;
 
 		// Extract place and publisher from the combined entry.
@@ -78,7 +75,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		// Set the publicationType
 		$metadata['[@publication-type]'] = 'book';
 
-		return $this->createNlmCitationDescriptionFromArray($metadata);
+		return $this->addMetadataArrayToNlmCitationDescription($metadata);
 	}
 }
 ?>

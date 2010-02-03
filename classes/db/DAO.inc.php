@@ -40,8 +40,8 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_Constructor"
-			if (HookRegistry::call($trace[1]['class'] . '::_Constructor', array(&$this, &$dataSource))) {
+			// in hook calls named e.g. "sessiondao::_Constructor"
+			if (HookRegistry::call(strtolower($trace[1]['class']) . '::_Constructor', array(&$this, &$dataSource))) {
 				return;
 			}
 		}
@@ -64,9 +64,10 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_getSession"
+			// in hook calls named e.g. "sessiondao::_getsession"
+			// (always lower case).
 			$value = null;
-			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -93,8 +94,9 @@ class DAO {
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
 			// in hook calls named e.g. "SessionDAO::_getSession"
+			// (all lowercase).
 			$value = null;
-			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$secsToCache, &$value))) {
+			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
 				return $value;
 			}
 		}
@@ -124,9 +126,10 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_getSession"
+			// in hook calls named e.g. "sessiondao::_getsession"
+			// (all lowercase).
 			$value = null;
-			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$numRows, &$offset, &$value))) {
+			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
 				return $value;
 			}
 		}
@@ -151,9 +154,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_getSession"
+			// in hook calls named e.g. "sessiondao::_getsession"
 			$value = null;
-			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$dbResultRange, &$value))) {
+			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$dbResultRange, &$value))) {
 				return $value;
 			}
 		}
@@ -185,9 +188,10 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_updateObject"
+			// in hook calls named e.g. "sessiondao::_updateobject"
+			// (all lowercase)
 			$value = null;
-			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -375,11 +379,29 @@ class DAO {
 	}
 
 	function getAdditionalFieldNames() {
-		return array();
+		$returner = array();
+		if (checkPhpVersion('4.3.0')) {
+			$trace = debug_backtrace();
+			// Call hooks based on the calling entity, assuming
+			// this method is only called by a subclass. Results
+			// in hook calls named e.g. "sessiondao::getadditionalfieldnames"
+			// (class names lowercase)
+			HookRegistry::call(strtolower($trace[2]['class']) . '::getAdditionalFieldNames', array(&$this, &$returner));
+		}
+		return $returner;
 	}
 
 	function getLocaleFieldNames() {
-		return array();
+		$returner = array();
+		if (checkPhpVersion('4.3.0')) {
+			$trace = debug_backtrace();
+			// Call hooks based on the calling entity, assuming
+			// this method is only called by a subclass. Results
+			// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
+			// (class names lowercase)
+			HookRegistry::call(strtolower($trace[2]['class']) . '::getLocaleFieldNames', array(&$this, &$returner));
+		}
+		return $returner;
 	}
 
 	function updateDataObjectSettings($tableName, &$dataObject, $idArray) {

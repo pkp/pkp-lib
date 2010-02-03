@@ -77,5 +77,13 @@ class FreeciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 	public function testExecuteWithWebServiceError() {
 		$this->assertWebServiceError('FreeciteRawCitationNlmCitationSchemaFilter');
 	}
+
+	/**
+	 * @see NlmCitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
+	 */
+	public function testAllCitationsWithThisParser() {
+		$filter = new FreeciteRawCitationNlmCitationSchemaFilter();
+		parent::testAllCitationsWithThisParser(&$filter);
+	}
 }
 ?>

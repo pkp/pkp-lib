@@ -157,4 +157,14 @@ function &cloneObject(&$object) {
 	}
 	return $clonedObject;
 }
+
+/**
+ * Remove empty elements from an array
+ * @param $array array
+ * @return array
+ */
+function array_clean(&$array) {
+	if (!is_array($array)) return null;
+	return array_filter($array, create_function('$o', 'return !empty($o);'));
+}
 ?>

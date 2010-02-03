@@ -183,11 +183,10 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		);
 
 		// Call the eSearch web service and get an XML result
-		$resultDOM = $this->callWebService(PUBMED_WEBSERVICE_ESEARCH, $searchParams);
-
-		// Handle web service errors
-		$emptyArray = array();
-		if (is_null($resultDOM)) return $emptyArray;
+		if (is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_ESEARCH, $searchParams))) {
+			$emptyArray = array();
+			return $emptyArray;
+		}
 
 		// Loop through any results we have and add them to a PMID array
 		$pmidArray = array();
@@ -206,6 +205,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return MetadataDescription
 	 */
 	function &_lookup($pmid, &$citationDescription) {
+		$nullVar = null;
 
 		// Use eFetch to get XML metadata for the given PMID
 		$lookupParams = array(
@@ -215,9 +215,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		);
 
 		// Call the eFetch URL and get an XML result
-		$resultDOM = $this->callWebService(PUBMED_WEBSERVICE_EFETCH, $lookupParams);
-
-		if (is_null($resultDOM)) return $resultDOM;
+		if (is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_EFETCH, $lookupParams))) return $nullVar;
 
 		$citationDescription->addStatement('pub-id[@pub-id-type="pmid"', $pmid, null, true);
 

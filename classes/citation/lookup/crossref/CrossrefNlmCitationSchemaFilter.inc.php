@@ -73,16 +73,14 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		}
 
 		// Call the CrossRef web service
-		$resultXml =& $this->callWebService(CROSSREF_WEBSERVICE_URL, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING);
-		if (is_null($resultXml)) return $resultXml;
+		if (is_null($resultXml =& $this->callWebService(CROSSREF_WEBSERVICE_URL, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
 
 		// Remove default name spaces from XML as CrossRef doesn't
 		// set them reliably and element names are unique anyway.
 		$resultXml = String::regexp_replace('/ xmlns="[^"]+"/', '', $resultXml);
 
 		// Transform and process the web service result
-		$metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl');
-		if (is_null($metadata)) return $metadata;
+		if (is_null($metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl'))) return $nullVar;
 
 		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
 	}
@@ -97,13 +95,12 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
  	 * @return array an array of search parameters
 	 */
 	function &_prepareOpenUrlSearch(&$citationDescription) {
+		$nullVar = null;
+
 		// Crosswalk to OpenURL
 		import('metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
 		$nlmOpenUrlFilter = new NlmCitationSchemaOpenUrlCrosswalkFilter();
-		$openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription);
-
-		// Error handling
-		if (is_null($openUrlCitation)) return $openUrlCitation;
+		if (is_null($openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription))) return $nullVar;
 
 		// Prepare the search
 		$searchParams = array(

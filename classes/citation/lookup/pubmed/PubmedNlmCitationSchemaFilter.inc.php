@@ -28,6 +28,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 	/**
 	 * Constructor
+	 * @param $email string
 	 */
 	function PubmedNlmCitationSchemaFilter($email) {
 		assert(!empty($email));
@@ -53,7 +54,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/**
 	 * @see Filter::process()
 	 * @param $citationDescription MetadataDescription
-	 * @return string a DOI or null
+	 * @return MetadataDescription
 	 */
 	function &process(&$citationDescription) {
 		$pmid = $citationDescription->getStatement('pub-id[@pub-id-type="pmid"]');
@@ -156,7 +157,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// If we have a PMID, get a metadata array for it
 		if (!empty($pmid)) {
-			$citationDescription =& $this->_extract($pmid, $citationDescription);
+			$citationDescription =& $this->_lookup($pmid, $citationDescription);
 			return $citationDescription;
 		}
 
@@ -204,7 +205,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &_extract($pmid, &$citationDescription) {
+	function &_lookup($pmid, &$citationDescription) {
 
 		// Use eFetch to get XML metadata for the given PMID
 		$lookupParams = array(

@@ -745,10 +745,10 @@ class String {
 
 		$words = explode(' ', $title);
 		foreach ($words as $key => $word) {
-			if ($key == 0 or !in_array(strtolower($word), $smallWords)) {
-				$words[$key] = ucfirst(strtolower($word));
+			if ($key == 0 or !in_array(self::strtolower($word), $smallWords)) {
+				$words[$key] = ucfirst(self::strtolower($word));
 			} else {
-				$words[$key] = strtolower($word);
+				$words[$key] = self::strtolower($word);
 			}
 		}
 

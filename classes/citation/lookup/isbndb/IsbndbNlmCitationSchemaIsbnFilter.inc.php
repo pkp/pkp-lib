@@ -20,6 +20,7 @@ import('citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
 class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	/*
 	 * Constructor
+	 * @param $apiKey string
 	 */
 	function IsbndbNlmCitationSchemaIsbnFilter($apiKey) {
 		parent::IsbndbNlmCitationSchemaFilter($apiKey);
@@ -44,7 +45,8 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 */
 	function &process(&$citationDescription) {
 		// Get the search strings
-		$searchStrings = $this->_constructSearchStrings($citationDescription);
+		$searchTemplates =& $this->_getSearchTemplates();
+		$searchStrings = $this->constructSearchStrings($searchTemplates, $citationDescription);
 
 		// Run the searches, in order, until we have a result
 		$searchParams = array(
@@ -82,56 +84,25 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	// Private methods
 	//
 	/**
-	 * Construct an array of search strings from a citation
-	 * description.
-	 * @param $citationDescription MetadataDescription
+	 * Return an array of search templates.
 	 * @return array
 	 */
-	function _constructSearchStrings(&$citationDescription) {
-		import('metadata.nlm.NlmNameSchemaPersonStringFilter');
-		$personStringFilter = new NlmNameSchemaPersonStringFilter();
-
-		// Retrieve the authors
-		$authors = $citationDescription->getStatement('person-group[@person-group-type="author"]');
-		if (is_array($authors) && count($authors)) {
-			$authorLastName = (string)$authors[0]->getStatement('surname');
-
-			// Convert authors' name descriptions to strings
-			$authorsStrings = array_map(array($personStringFilter, 'execute'), $authors);
-			$authorsString = implode('; ', $authorsStrings);
-			$firstAuthor = $authorsStrings[0];
-		} else {
-			$authorsString = '';
-		}
-
-		// Retrieve (default language) title
-		$title = $citationDescription->getStatement('source');
-
-		// Extract the year from the publication date
-		$year = (string)$citationDescription->getStatement('date');
-		$year = (String::strlen($year) > 4 ? String::substr($year, 0, 4) : $year);
-
-		// Construct the search strings
-		$searchStrings = array(
-			// TODO: requires searching index1=isbn
-			$authorsString.' '.$title.' '.$year,
-			$authorLastName.' '.$title.' '.$year,
-			$authorsString.' '.$title.' c'.$year,
-			$authorLastName.' '.$title.' c'.$year,
-			$authorsString.' '.$title,
-			$authorLastName.' '.$title,
-			$title.' '.$year,
-			$title.' c'.$year,
-			$authorsString.' '.$year,
-			$authorLastName.' '.$year,
-			$authorsString.' c'.$year,
-			$authorLastName.' c'.$year
+	function &_getSearchTemplates() {
+		$searchTemplates = array(
+			'%au% %title% %date%',
+			'%aulast% %title% %date%',
+			'%au% %title% c%date%',
+			'%aulast% %title% c%date%',
+			'%au% %title%',
+			'%aulast% %title%',
+			'%title% %date%',
+			'%title% c%date%',
+			'%au% %date%',
+			'%aulast% %date%',
+			'%au% c%date%',
+			'%aulast% c%date%''
 		);
-
-		// Remove duplicate searches
-		$searchStrings = array_unique($searchStrings);
-
-		return $searchStrings;
+		return $searchTemplates;
 	}
 }
 ?>

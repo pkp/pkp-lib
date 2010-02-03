@@ -44,6 +44,8 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @return string an ISBN or null
 	 */
 	function &process(&$citationDescription) {
+		$nullVar = null;
+
 		// Get the search strings
 		$searchTemplates =& $this->_getSearchTemplates();
 		$searchStrings = $this->constructSearchStrings($searchTemplates, $citationDescription);
@@ -55,10 +57,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 		);
 		foreach ($searchStrings as $searchString) {
 			$searchParams['value1'] = $searchString;
-			$resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $searchParams);
-
-			// If the web service fails then abort
-			if (is_null($resultDOM)) return $resultDOM;
+			if (is_null($resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $searchParams))) return $nullVar;
 
 			// Did we get a search hit?
 			$numResults = $resultDOM->getElementsByTagName('BookList')->item(0)->getAttribute('total_results');
@@ -69,7 +68,6 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 		$bookData =& $resultDOM->getElementsByTagName('BookData')->item(0);
 
 		// If no book data present, then abort (this includes no search result at all)
-		$nullVar = null;
 		if (empty($bookData)) return $nullVar;
 
 		$isbn = $bookData->getAttribute('isbn13');

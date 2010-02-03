@@ -71,8 +71,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		foreach ($searchStrings as $searchString) {
 			$searchParams['q'] = $searchString;
 			// Worldcat Web search; results are (mal-formed) XHTML
-			$result = $this->callWebService(WORLDCAT_WEBSERVICE_SEARCH, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING);
-			if (is_null($result)) continue;
+			if (is_null($result = $this->callWebService(WORLDCAT_WEBSERVICE_SEARCH, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
 
 			// parse the OCLC numbers from search results
 			String::regexp_match_all('/id="itemid_(\d+)"/', $result, $matches);
@@ -87,8 +86,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		if (!empty($this->getApiKey())) {
 			// Worldcat lookup only works with an API key
-			$citationDescription =& $this->_lookupWorldcat($matches[1][0], $citationDescription);
-			if (is_null($citationDescription)) return $citationDescription;
+			if (is_null($citationDescription =& $this->_lookupWorldcat($matches[1][0], $citationDescription))) return $nullVar;
 
 			// Prefer ISBN from xISBN if possible
 			if (!empty($isbns[0])) $citationDescription->addStatement('ibsn', $isbns[0], null, true);
@@ -112,13 +110,13 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return array an array of ISBNs or an empty array if none found
 	 */
 	function _oclcToIsbns($oclcId) {
+		$nullVar = null;
 		$lookupParams = array(
 			'method' => 'getMetadata',
 			'format' => 'xml',
 			'fl' => '*'
 		);
-		$resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_OCLC.urlencode($oclcId), $lookupParams);
-		if (is_null($resultDOM)) return array();
+		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_OCLC.urlencode($oclcId), $lookupParams))) return $nullVar;
 
 		// Extract ISBN from response
 		$oclcNode = $resultDOM->getElementsByTagName('oclcnum')->item(0);
@@ -138,12 +136,11 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return MetadataDescription
 	 */
 	function &_lookupWorldcat($oclcId, &$citationDescription) {
+		$nullVar = null;
 		$lookupParams = array('wskey' => $this->getApiKey());
-		$resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_EXTRACT.urlencode($oclcId), $lookupParams);
-		if (is_null($resultDOM)) return $resultDOM;
+		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_EXTRACT.urlencode($oclcId), $lookupParams))) return $nullVar;
 
-		$metadata = $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'worldcat.xsl');
-		if (is_null($metadata)) return $metadata;
+		if (is_null($metadata = $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'worldcat.xsl'))) return $nullVar;
 		// FIXME: Use MARC parsed author field in XSL rather than full name
 
 		// Clean non-numerics from ISBN
@@ -167,17 +164,16 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return Citation
 	 */
 	function &_lookupXIsbn($isbn, &$citationDescription) {
+		$nullVar = null;
 		$lookupParams = array(
 			'method' => 'getMetadata',
 			'format' => 'xml',
 			'fl' => '*'
 		);
-		$resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn));
-		if (is_null($resultDOM)) return $resultDOM;
+		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn)))) return $nullVar;
 
 		// Extract metadata from response
-		$recordNode = $resultDOM->getElementsByTagName('isbn')->item(0);
-		if (is_null($recordNode)) return $recordNode;
+		if (is_null($recordNode = $resultDOM->getElementsByTagName('isbn')->item(0))) return $nullVar;
 
 		$metadata['isbn'] = $isbn;
 		$metadata['date'] = $recordNode->getAttribute('year');

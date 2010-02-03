@@ -45,6 +45,8 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	 *  or null if the filter fails
 	 */
 	function &process($isbn) {
+		$nullVar = null;
+
 		// Instantiate the web service request
 		$lookupParams = array(
 			'access_key' => $this->getApiKey(),
@@ -54,12 +56,10 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		);
 
 		// Call the web service
-		$resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $lookupParams);
-		if (is_null($resultDOM)) return $resultDOM;
+		if (is_null($resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $lookupParams))) return $nullVar;
 
 		// Transform and pre-process the web service result
-		$metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'isbndb.xsl');
-		if (is_null($metadata)) return $metadata;
+		if (is_null($metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'isbndb.xsl'))) return $nullVar;
 
 		// Extract place and publisher from the combined entry.
 		$metadata['publisher-loc'] = String::regexp_replace('/^(.+):.*/', '\1', $metadata['place-publisher']);

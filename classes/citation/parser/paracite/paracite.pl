@@ -35,7 +35,7 @@ use lib './Biblio-Citation-Parser-1.10/lib';
 	$metadata = $parser->parse($ref);
 
 	# create a root node
-	print "<citation>\n";
+	print "<element-citation>\n";
 
 	# loop through all keys in the array and generate XML
 	foreach my $key (keys %$metadata) {
@@ -59,5 +59,5 @@ use lib './Biblio-Citation-Parser-1.10/lib';
    	}
 
    	# close the root node
-	print "</citation>\n";
+	print "</element-citation>\n";
    	

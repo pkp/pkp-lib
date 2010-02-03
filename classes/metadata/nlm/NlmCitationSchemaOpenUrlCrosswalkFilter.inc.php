@@ -19,17 +19,15 @@
 
 // $Id$
 
-import('metadata.CrosswalkFilter');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.openurl.OpenUrlBaseSchema');
+import('metadata.nlm.OpenUrlCrosswalkFilter');
 
-class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
+class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	/**
 	 * Constructor
 	 */
 	function NlmCitationSchemaOpenUrlCrosswalkFilter() {
 		// We transform NLM citation to all types of OpenURL schema
-		parent::CrosswalkFilter('NlmCitationSchema', 'OpenUrlBaseSchema');
+		parent::OpenUrlCrosswalkFilter('NlmCitationSchema', 'OpenUrlBaseSchema');
 	}
 
 	//
@@ -131,46 +129,8 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 			}
 		}
 
-		// Map properties (NLM => OpenURL)
-		$propertyMap = array();
-
-		// Map titles and date
-		switch($publicationType) {
-			case 'journal':
-				$propertyMap['source'] = 'jtitle';
-				$propertyMap['article-title'] = 'atitle';
-				break;
-
-			case 'conf-proc':
-				$propertyMap['conf-name'] = 'jtitle';
-				$propertyMap['article-title'] = 'atitle';
-				if ($input->hasStatement('conf-date')) {
-					$propertyMap['conf-date'] = 'date';
-				}
-				break;
-
-			case 'book':
-				$propertyMap['source'] = 'btitle';
-				$propertyMap['chapter-title'] = 'atitle';
-				break;
-
-			case 'thesis':
-				$propertyMap['article-title'] = 'title';
-				break;
-		}
-
-		// Map the date (if it's not already mapped).
-		if (!isset($propertyMap['conf-date'])) {
-			$propertyMap['date'] = 'date';
-		}
-
-		// ISBN is common to all OpenURL schemas and
-		// can be mapped one-to-one.
-		$propertyMap['isbn'] = 'isbn';
-
-		// Properties common to OpenURL book and journal
-		if (is_a($output->getMetadataSchema(), 'OpenUrlJournalBookBaseSchema')) {
-			// Genre: Guesswork
+		// Genre: Guesswork
+		if (is_a($outputSchema, 'OpenUrlJournalBookBaseSchema')) {
 			switch($publicationType) {
 				case 'journal':
 					$genre = ($input->hasProperty('article-title') ? 'article' : 'journal');
@@ -187,55 +147,10 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends CrosswalkFilter {
 			assert(!empty($genre));
 			$success = $output->addStatement('genre', $genre);
 			assert($success);
-
-			// Some properties can be mapped one-to-one
-			$propertyMap += array(
-				'issn[@pub-type="ppub"]' => 'issn',
-				'fpage' => 'spage',
-				'lpage' => 'epage'
-			);
-
-			// FIXME: Map 'aucorp' for OpenURL journal/book when we
-			// have 'collab' statements in NLM citation.
 		}
 
-		// OpenURL journal properties
-		// The properties 'chron' and 'quarter' remain unmatched.
-		if (is_a($output->getMetadataSchema(), 'OpenUrlJournalSchema')) {
-			$propertyMap += array(
-				'season' => 'ssn',
-				'volume' => 'volume',
-				'supplement' => 'part',
-				'issue' => 'issue',
-				'issn[@pub-type="epub"]' => 'eissn',
-				'pub-id[@pub-id-type="publisher-id"]' => 'artnum',
-				'pub-id[@pub-id-type="coden"]' => 'coden',
-				'pub-id[@pub-id-type="sici"]' => 'sici'
-			);
-		}
-
-		// OpenURL book properties
-		// The 'bici' property remains unmatched.
-		if (is_a($output->getMetadataSchema(), 'OpenUrlBookSchema')) {
-			$propertyMap += array(
-				'publisher-loc' => 'place',
-				'publisher-name' => 'pub',
-				'edition' => 'edition',
-				'size' => 'tpages',
-				'series' => 'series'
-			);
-		}
-
-		// OpenURL dissertation properties
-		// The properties 'cc', 'advisor' and 'degree' remain unmatched
-		// as NLM does not have good dissertation support.
-		if (is_a($output->getMetadataSchema(), 'OpenUrlDisertationSchema')) {
-			$propertyMap += array(
-				'size' => 'tpages',
-				'publisher-loc' => 'co',
-				'institution' => 'inst'
-			);
-		}
+		// Map remaining properties (NLM => OpenURL)
+		$propertyMap =& $this->nlmOpenUrlMapping($publicationType, $outputSchema);
 
 		// Transfer mapped properties with default locale
 		foreach ($propertyMap as $nlmProperty => $openUrlProperty) {

@@ -186,10 +186,14 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 			'title' => '(?:His (?:Excellency|Honou?r)\s+|Her (?:Excellency|Honou?r)\s+|The Right Honou?rable\s+|The Honou?rable\s+|Right Honou?rable\s+|The Rt\.? Hon\.?\s+|The Hon\.?\s+|Rt\.? Hon\.?\s+|Mr\.?\s+|Ms\.?\s+|M\/s\.?\s+|Mrs\.?\s+|Miss\.?\s+|Dr\.?\s+|Sir\s+|Dame\s+|Prof\.?\s+|Professor\s+|Doctor\s+|Mister\s+|Mme\.?\s+|Mast(?:\.|er)?\s+|Lord\s+|Lady\s+|Madam(?:e)?\s+|Priv\.-Doz\.\s+)+',
 			'degrees' => '(,\s+(?:[A-Z\.]+))+',
 			'initials' => '(?:(?:[A-Z]\.){1,4})|(?:(?:[A-Z]\.\s){1,3}[A-Z])|(?:[A-Z]{1,4})|(?:(?:[A-Z]\.-?){1,4})|(?:(?:[A-Z]\.-?){1,3}[A-Z])|(?:(?:[A-Z]-){1,3}[A-Z])|(?:(?:[A-Z]\s){1,3}[A-Z])|(?:(?:[A-Z] ){1,3}[A-Z]\.)|(?:[A-Z]-(?:[A-Z]\.){1,3})',
-			'prefix' => 'Dell(?:[a|e])?\s|Dalle\s|D[a|e]ll\'\s|Dela\s|Del\s|[Dd]e (?:La |Los )?\s|[Dd]e\s|[Dd][a|i|u]\s|L[a|e|o]\s|[D|L|O]\'|St\.?\s|San\s|[Dd]en\s|[Vv]on\s(?:[Dd]er\s)?|(?:[Ll][ea] )?[Vv]an\s(?:[Dd]e(?:n|r)?\s)?',
-			'givenName' => '(?:[^ \t\n\r\f\v,.]{2,}|[^ \t\n\r\f\v,.;]{2,}\-[^ \t\n\r\f\v,.;]{2,})'
+			'prefix' => 'Dell(?:[a|e])?(?:\s|$)|Dalle(?:\s|$)|D[a|e]ll\'(?:\s|$)|Dela(?:\s|$)|Del(?:\s|$)|[Dd]e(?:\s|$)(?:La(?:\s|$)|Los(?:\s|$))?|[Dd]e(?:\s|$)|[Dd][a|i|u](?:\s|$)|L[a|e|o](?:\s|$)|[D|L|O]\'|St\.?(?:\s|$)|San(?:\s|$)|[Dd]en(?:\s|$)|[Vv]on(?:\s|$)(?:[Dd]er(?:\s|$))?|(?:[Ll][ea](?:\s|$))?[Vv]an(?:\s|$)(?:[Dd]e(?:n|r)?(?:\s|$))?',
+			'givenName' => '(?:[^ \t\n\r\f\v,.;()]{2,}|[^ \t\n\r\f\v,.;()]{2,}\-[^ \t\n\r\f\v,.;()]{2,})'
 		);
-		$personRegexSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['givenName'].")";
+		// The expressions for given name, suffix and surname are the same
+		$personRegex['surname'] = $personRegex['suffix'] = $personRegex['givenName'];
+
+		// Shortcut for prefixed surname
+		$personRegexPrefixedSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['surname'].")";
 
 		// Instantiate the target person description
 		$metadataSchema = new NlmNameSchema();
@@ -226,18 +230,27 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		// The parser expressions are ordered by specificity. The most specific expressions
 		// come first. Only if these specific expressions don't work will we turn to less
 		// specific ones. This avoids parsing errors. It also explains why we don't use the
-		// ?-quantifier for optional elements like initials or middle name.
+		// ?-quantifier for optional elements like initials or middle name where they could
+		// be misinterpreted.
 		$personExpressions = array(
-			'/^'.$personRegexSurname.'$/i',
-			'/^(?P<initials>'.$personRegex['initials'].')\s'.$personRegexSurname.'$/',
-			'/^'.$personRegexSurname.',?\s(?P<initials>'.$personRegex['initials'].')$/',
-			'/^'.$personRegexSurname.',\s(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')$/',
-			'/^(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')\s'.$personRegexSurname.'$/',
-			'/^'.$personRegexSurname.',\s(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')$/',
-			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')\s'.$personRegexSurname.'$/',
-			'/^'.$personRegexSurname.',(?P<givenName>(?:\s'.$personRegex['givenName'].')+)$/',
-			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)'.$personRegexSurname.'$/',
-			'/^(?P<surname>.*)$/' // catch-all expression
+			// All upper surname
+			'/^'.$personRegexPrefixedSurname.'$/i',
+
+			// Several permutations of name elements, ordered by specificity
+			'/^(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
+			'/^'.$personRegexPrefixedSurname.',?\s(?P<initials>'.$personRegex['initials'].')$/',
+			'/^'.$personRegexPrefixedSurname.',\s(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')$/',
+			'/^(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
+			'/^'.$personRegexPrefixedSurname.',\s(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')$/',
+			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
+			'/^'.$personRegexPrefixedSurname.',(?P<givenName>(?:\s'.$personRegex['givenName'].')+)$/',
+			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)'.$personRegexPrefixedSurname.'$/',
+
+			// DRIVER guidelines 2.0 name syntax
+			'/^\s*(?P<surname>'.$personRegex['surname'].')(?P<suffix>(?:\s+'.$personRegex['suffix'].')?)\s*,\s*(?P<initials>(?:'.$personRegex['initials'].')?)\s*\((?P<givenName>(?:\s*'.$personRegex['givenName'].')+)\s*\)\s*(?P<prefix>(?:'.$personRegex['prefix'].')?)$/',
+
+			// Catch-all expression
+			'/^(?P<surname>.*)$/'
 		);
 
 		$results = array();
@@ -265,6 +278,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 
 				// Surname
 				if (!empty($results['surname'])) {
+					// Correct all-upper surname
 					if (strtoupper($results['surname']) == $results['surname']) {
 						$results['surname'] = ucwords(strtolower($results['surname']));
 					}
@@ -272,10 +286,12 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 					$personDescription->addStatement('surname', $results['surname']);
 				}
 
-				// Prefix
-				if (!empty($results['prefix'])) {
-					$results['prefix'] = trim($results['prefix']);
-					$personDescription->addStatement('prefix', $results['prefix']);
+				// Prefix/Suffix
+				foreach(array('prefix', 'suffix') as $propertyName) {
+					if (!empty($results[$propertyName])) {
+						$results[$propertyName] = trim($results[$propertyName]);
+						$personDescription->addStatement($propertyName, $results[$propertyName]);
+					}
 				}
 
 				break;

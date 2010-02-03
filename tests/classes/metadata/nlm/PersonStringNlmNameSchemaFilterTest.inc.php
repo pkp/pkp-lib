@@ -33,25 +33,27 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 	 */
 	public function testExecuteWithSinglePersonString() {
 		$personArgumentArray = array(
-			array('MULLER', false, false),                         // surname
-			array('His Excellency B.C. Van de Haan', true, false), // initials prefix surname + title
-			array('Mrs. P.-B. von Redfield-Brownfox', true, false),// initials prefix double-surname + title
-			array('Professor K-G. Brown, MA, MSc.', true, true),   // initials surname + title + degree
-			array('IFC Peterberg', false, false),                  // initials surname
-			array('Peters, HC', false, false),                     // surname, initials
-			array('Peters HC', false, false),                      // surname initials
-			array('Yu, QK', false, false),                         // short surname, initials
-			array('Yu QK', false, false),                          // short surname initials
-			array('Sperling, Hans P.', false, false),              // surname, firstname initials
-			array('Hans P. Sperling', false, false),               // firstname initials surname
-			array('Sperling, Hans Peter B.', false, false),        // surname, firstname middlename initials
-			array('Hans Peter B. Sperling', false, false),         // firstname middlename initials surname
-			array('Peters, Herbert', false, false),                // surname, firstname
-			array('Prof. Dr. Bernd Rutherford', true, false),      // firstname surname + title
-			array('Her Honour Ruth-Martha Rheinfels', true, false),// double-firstname surname + title
-			array('Sperling, Hans Peter', false, false),           // surname, firstname middlename
-			array('Hans Peter Sperling', false, false),            // firstname middlename surname
-			array('# # # Greenberg # # #', false, false),          // catch-all
+			array('MULLER', false, false),                           // surname
+			array('His Excellency B.C. Van de Haan', true, false),   // initials prefix surname + title
+			array('Mrs. P.-B. von Redfield-Brownfox', true, false),  // initials prefix double-surname + title
+			array('Professor K-G. Brown, MA, MSc.', true, true),     // initials surname + title + degree
+			array('IFC Peterberg', false, false),                    // initials surname
+			array('Peters, HC', false, false),                       // surname, initials
+			array('Peters HC', false, false),                        // surname initials
+			array('Yu, QK', false, false),                           // short surname, initials
+			array('Yu QK', false, false),                            // short surname initials
+			array('Sperling, Hans P.', false, false),                // surname, firstname initials
+			array('Hans P. Sperling', false, false),                 // firstname initials surname
+			array('Sperling, Hans Peter B.', false, false),          // surname, firstname middlename initials
+			array('Hans Peter B. Sperling', false, false),           // firstname middlename initials surname
+			array('Peters, Herbert', false, false),                  // surname, firstname
+			array('Prof. Dr. Bernd Rutherford', true, false),        // firstname surname + title
+			array('Her Honour Ruth-Martha Rheinfels', true, false),  // double-firstname surname + title
+			array('Sperling, Hans Peter', false, false),             // surname, firstname middlename
+			array('Hans Peter Sperling', false, false),              // firstname middlename surname
+			array('Adelshausen III, H. (Gustav) von', false, false), // surname suffix, initials (firstname) prefix
+			array('Adelshausen, (Gustav)', false, false),            // ibid.
+			array('# # # Greenberg # # #', false, false),            // catch-all
 		);
 		$expectedResults = array(
 			array(null, null, null, 'Muller'),
@@ -72,6 +74,8 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array('Her Honour', array('Ruth-Martha'), null, 'Rheinfels'),
 			array(null, array('Hans', 'Peter'), null, 'Sperling'),
 			array(null, array('Hans', 'Peter'), null, 'Sperling'),
+			array('III', array('Gustav', 'H'), 'von', 'Adelshausen'),
+			array(null, array('Gustav'), null, 'Adelshausen'),
 			array(null, null, null, '# # # Greenberg # # #'),
 		);
 

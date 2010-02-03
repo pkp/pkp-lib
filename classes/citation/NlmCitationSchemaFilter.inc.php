@@ -35,7 +35,7 @@ class NlmCitationSchemaFilter extends Filter {
 	/**
 	 * Constructor
 	 */
-	function NlmCitationSchemaFilter($supportedPublicationTypes) {
+	function NlmCitationSchemaFilter($supportedPublicationTypes = array()) {
 		assert(is_array($supportedPublicationTypes));
 		foreach ($supportedPublicationTypes as $supportedPublicationType) {
 			assert(in_array($supportedPublicationType, $this->_allowedPublicationTypes()));
@@ -199,6 +199,23 @@ class NlmCitationSchemaFilter extends Filter {
 		$xmlHelper = new XMLHelper();
 		$preliminaryNlmArray = $xmlHelper->xmlToArray($preliminaryNlmDOM->documentElement);
 
+		$preliminaryNlmArray =& $this->postProcessMetadataArray($preliminaryNlmArray);
+
+		return $preliminaryNlmArray;
+	}
+
+	/**
+	 * Post processes an NLM meta-data array
+	 * @param $preliminaryNlmArray array
+	 * @return array
+	 */
+	function &postProcessMetadataArray(&$preliminaryNlmArray) {
+		// Clean array
+		$preliminaryNlmArray =& array_clean($preliminaryNlmArray);
+
+		// Trim punctuation
+		$preliminaryNlmArray =& $this->_recursivelyTrimPunctuation($preliminaryNlmArray);
+
 		// Parse (=filter) author/editor strings into NLM name descriptions
 		foreach(array('author', 'editor') as $personType) {
 			if (isset($preliminaryNlmArray[$personType])) {
@@ -206,13 +223,15 @@ class NlmCitationSchemaFilter extends Filter {
 				$personStrings = $preliminaryNlmArray[$personType];
 				unset($preliminaryNlmArray[$personType]);
 
-				// If we only have one author/editor then we'll have to
-				// convert the string to an array first.
-				if (!is_array($personStrings)) $personStrings = array($personStrings);
-
 				// Parse the author/editor strings into NLM name descriptions
 				$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
-				$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
+				// Interpret a scalar as a textual authors list
+				if (is_scalar($personStrings)) {
+					$personStringFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
+					$persons =& $personStringFilter->execute($personStrings);
+				} else {
+					$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
+				}
 
 				$preliminaryNlmArray['person-group[@person-group-type="'.$personType.'"]'] = $persons;
 				unset($persons);
@@ -227,7 +246,7 @@ class NlmCitationSchemaFilter extends Filter {
 		}
 
 		// Normalize date strings
-		foreach(array('date', 'conf-date') as $dateProperty) {
+		foreach(array('date', 'conf-date', 'access-date') as $dateProperty) {
 			if (isset($preliminaryNlmArray[$dateProperty])) {
 				$dateFilter = new DateStringNormalizerFilter();
 				$preliminaryNlmArray[$dateProperty] = $dateFilter->execute($preliminaryNlmArray[$dateProperty]);
@@ -273,9 +292,6 @@ class NlmCitationSchemaFilter extends Filter {
 	 * @return MetadataDescription
 	 */
 	function &addMetadataArrayToNlmCitationDescription(&$metadataArray, $citationDescription = null) {
-		// Trim punctuation
-		$metadataArray =& $this->_recursivelyTrimPunctuation($metadataArray);
-
 		// Create a new citation description if no one was given
 		if (is_null($citationDescription)) {
 			$metadataSchema = new NlmCitationSchema();

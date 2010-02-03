@@ -20,8 +20,6 @@ import('metadata.nlm.NlmCitationSchema');
 import('metadata.MetadataDescription');
 
 abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
-	const TEST_ALL_CITATIONS = false;
-
 	//
 	// Protected helper methods
 	//
@@ -66,18 +64,10 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	 * Simulate a web service error
 	 * @param $paramenters array parameters for the citation service
 	 */
-	protected function assertWebServiceError($parameters = array()) {
-		// Mock ParscitCitationParserService->callWebService()
-		$mockCPService =&
-				$this->getMock($this->getCitationServiceName(), array('callWebService'));
-
-		// If we have parameters for the parser than configure it now
-		if (!empty($parameters)) {
-			foreach($parameters as $parameterName => $parameterValue) {
-				$setter = 'set'.ucfirst($parameterName);
-				$mockCPService->$setter($parameterValue);
-			}
-		}
+	protected function assertWebServiceError($citationFilterName, $constructorArguments = array()) {
+		// Mock NlmCitationSchemaFilter->callWebService()
+		$mockCPFilter =&
+				$this->getMock($citationFilterName, array('callWebService'), $constructorArguments);
 
 		// Set up the callWebService() method
 		// to simulate an error condition (=return null)
@@ -86,9 +76,8 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 		              ->will($this->returnValue(null));
 
 		// Call the SUT
-		$citation = new Citation(METADATA_GENRE_JOURNALARTICLE, 'rawCitation');
-		$mockCPService->parseInternal('rawCitation', $citation);
-		self::assertNull($citation);
+		$citationDescription =& $mockCPFilter->execute('rawCitation');
+		self::assertNull($citationDescription);
 	}
 
 	//

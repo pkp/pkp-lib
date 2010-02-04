@@ -98,7 +98,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 	 */
 	protected function getTestOpenUrlDescription() {
 		$citationData = array(
-			'aulast' => 'pre Surname1',
+			'aulast' => 'von Surname1',
 			'aufirst' => 'Given1 P',
 			'auinit1' => 'G',
 			'auinitm' => 'P',

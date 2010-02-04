@@ -100,9 +100,13 @@ class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	function _getOpenUrlGenreTranslationMapping() {
 		static $openUrlGenreTranslationMapping = array(
 			'article' => 'journal',
-			'proceeding' => 'conf-proc',
+			'issue' => 'journal',
 			'conference' => 'conf-proc',
+			'proceeding' => 'conf-proc',
+			'preprint' => 'journal',
 			'bookitem' => 'book',
+			'report' => 'book',
+			'document' => 'book',
 			'dissertation' => 'thesis'
 		);
 

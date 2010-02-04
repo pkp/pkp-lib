@@ -18,20 +18,22 @@
 
 import('citation.NlmCitationSchemaFilter');
 
-define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed');
-define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&mode=xml');
-define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&cmd=llinks');
+define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
+define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
+define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
 
 class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var unknown_type */
+	/** @var string */
 	var $_email;
 
 	/**
 	 * Constructor
-	 * @param $email string
+	 * @param $email string FIXME: This could be PKP's technical
+	 *  contact email as it is only used to report technical problems
+	 *  with the query.
 	 */
-	function PubmedNlmCitationSchemaFilter($email) {
-		assert(!empty($email));
+	function PubmedNlmCitationSchemaFilter($email = null) {
+		assert(is_null($email) || is_string($email));
 		$this->_email = $email;
 
 		parent::NlmCitationSchemaFilter(array('journal', 'conf-proc'));
@@ -62,51 +64,61 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		// If the citation does not have a PMID, try to get one from eSearch
 		// otherwise skip directly to eFetch.
 		if (empty($pmid)) {
+			// Initialize search result arrays.
+			$pmidArrayFromAuthorsSearch = $pmidArrayFromTitleSearch = $pmidArrayFromStrictSearch = array();
 
 			// 1) Try a "loose" search based on the author list.
 			//    (This works surprisingly well for pubmed.)
 			$authors =& $citationDescription->getStatement('person-group[@person-group-type="author"]');
-			$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
+			import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+			$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
 			$authorsString = (string)$personNameFilter->execute($authors);
 			if (!empty($authorsString)) {
-				$pmidArrayFromAuthorsSearch =& $this->_doSearch($authorsString);
+				$pmidArrayFromAuthorsSearch =& $this->_search($authorsString);
 			}
 
 			// 2) Try a "loose" search based on the article title
 			$articleTitle = (string)$citationDescription->getStatement('article-title');
 			if (!empty($articleTitle)) {
-				$pmidArrayFromTitleSearch =& $this->_doSearch($articleTitle);
+				$pmidArrayFromTitleSearch =& $this->_search($articleTitle);
 			}
 
-			// 3) try a "strict" search based on as much information as possible
-			$searchTerms = $articleTitle;
+			// 3) Try a "strict" search based on as much information as possible
+			$searchProperties = array(
+				'article-title' => '',
+				'person-group[@person-group-type="author"]' => '[Auth]',
+				'source' => '[Jour]',
+				'date' => '[DP]',
+				'volume' => '[VI]',
+				'issue' => '[IP]',
+				'fpage' => '[PG]'
+			);
+			$searchTerms = '';
+			$statements = $citationDescription->getStatements();
+			foreach($searchProperties as $nlmProperty => $pubmedProperty) {
+				if (isset($statements[$nlmProperty])) {
+					if (!empty($searchTerms)) $searchTerms .= ' AND ';
 
-			$firstAuthorSurname = $firstAuthorGivenName = '';
-			if (is_array($authors)) {
-				$firstAuthorSurname = $authors[0]->getStatement('surname');
-				$givenNames = $authors[0]->getStatement('given-names');
-				if (is_array($givenNames)) {
-					$firstAuthorGivenName = $givenNames[0];
+					// Special treatment for authors
+					if ($nlmProperty == 'person-group[@person-group-type="author"]') {
+						assert(isset($statements['person-group[@person-group-type="author"]'][0]));
+						$firstAuthor =& $statements['person-group[@person-group-type="author"]'][0];
+
+						// Add surname
+						$searchTerms .= (string)$firstAuthor->getStatement('surname');
+
+						// Add initial of the first given name
+						$givenNames = $firstAuthor->getStatement('given-names');
+						if (is_array($givenNames)) $searchTerms .= ' '.String::substr($givenNames[0], 0, 1);
+					} else {
+						$searchTerms .= $citationDescription->getStatement($nlmProperty);
+					}
+
+					$searchTerms .= $pubmedProperty;
 				}
 			}
-			if (!empty($firstAuthorSurname)) {
-				$searchTerms .= '+AND+'.$firstAuthorSurname;
-				if (!empty($firstAuthorGivenName))
-					$searchTerms .= '+'.substr($firstAuthorGivenName, 0, 1).'[Auth]';
-			}
 
-			if (!empty($citationDescription->getStatement('source')))
-				$searchTerms .= '+AND+'.$citationDescription->getStatement('source').'[Jour]';
-			if (!empty($citationDescription->getStatement('date')))
-				$searchTerms .= '+AND+'.$citationDescription->getStatement('date').'[DP]';
-			if (!empty($citationDescription->getStatement('volume')))
-				$searchTerms .= '+AND+'.$citationDescription->getStatement('volume').'[VI]';
-			if (!empty($citationDescription->getStatement('issue')))
-				$searchTerms .= '+AND+'.$citationDescription->getStatement('issue').'[IP]';
-			if (!empty($citationDescription->getStatement('fpage')))
-				$searchTerms .= '+AND+'.$citationDescription->getStatement('fpage').'[PG]';
-
-			$pmidArrayFromStrictSearch =& $this->_doSearch($searchTerms);
+			$pmidArrayFromStrictSearch =& $this->_search($searchTerms);
 
 			// TODO: add another search like strict, but without article title
 			// e.g.  ...term=Baumgart+Dc[Auth]+AND+Lancet[Jour]+AND+2005[DP]+AND+366[VI]+AND+9492[IP]+AND+1210[PG]
@@ -126,17 +138,17 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 				// 2-way union: title / strict
 				case (count($pmid_2way1 = array_intersect($pmidArrayFromTitleSearch, $pmidArrayFromStrictSearch)) == 1):
-					$pmid = current($intersect);
+					$pmid = current($pmid_2way1);
 					break;
 
 				// 2-way union: authors / strict
 				case (count($pmid_2way2 = array_intersect($pmidArrayFromAuthorsSearch, $pmidArrayFromStrictSearch)) == 1):
-					$pmid = current($intersect);
+					$pmid = current($pmid_2way2);
 					break;
 
 				// 2-way union: authors / title
 				case (count($pmid_2way3 = array_intersect($pmidArrayFromAuthorsSearch, $pmidArrayFromTitleSearch)) == 1):
-					$pmid = current($intersect);
+					$pmid = current($pmid_2way3);
 					break;
 
 				// we only have one result for title
@@ -175,12 +187,13 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @param $searchTerms
 	 * @return array an array with PMIDs
 	 */
-	function &_doSearch($searchTerms) {
+	function &_search($searchTerms) {
 		$searchParams = array(
-			'tool' => 'PKP-WAL',
-			'email' => $this->getEmail(),
+			'db' => 'pubmed',
+			'tool' => 'pkp-wal',
 			'term' => $searchTerms
 		);
+		if (!is_null($this->getEmail())) $searchParams['email'] = $this->getEmail();
 
 		// Call the eSearch web service and get an XML result
 		if (is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_ESEARCH, $searchParams))) {
@@ -209,92 +222,130 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Use eFetch to get XML metadata for the given PMID
 		$lookupParams = array(
-			'tool' => 'PKP-WAL',
-			'email' => $this->getEmail(),
+			'db' => 'pubmed',
+			'mode' => 'xml',
+			'tool' => 'pkp-wal',
 			'id' => $pmid
 		);
+		if (!is_null($this->getEmail())) $lookupParams['email'] = $this->getEmail();
 
 		// Call the eFetch URL and get an XML result
 		if (is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_EFETCH, $lookupParams))) return $nullVar;
 
-		$citationDescription->addStatement('pub-id[@pub-id-type="pmid"', $pmid, null, true);
+		$metadata = array(
+			'pub-id[@pub-id-type="pmid"]' => $pmid,
+			'article-title' => $resultDOM->getElementsByTagName("ArticleTitle")->item(0)->textContent,
+			'source' => $resultDOM->getElementsByTagName("MedlineTA")->item(0)->textContent,
+		);
 
-		$citationDescription->addStatement('article-title',
-				$resultDOM->getElementsByTagName("ArticleTitle")->item(0)->textContent, null, true);
-		$citationDescription->addStatement('source',
-				$resultDOM->getElementsByTagName("MedlineTA")->item(0)->textContent, null, true);
-		if ($resultDOM->getElementsByTagName("Volume")->length > 0) {
-			$citationDescription->addStatement('volume',
-					$resultDOM->getElementsByTagName("Volume")->item(0)->textContent, null, true);
-		}
-		if ($resultDOM->getElementsByTagName("Issue")->length > 0) {
-			$citationDescription->addStatement('issue',
-					$resultDOM->getElementsByTagName("Issue")->item(0)->textContent, null, true);
-		}
+		if ($resultDOM->getElementsByTagName("Volume")->length > 0)
+			$metadata['volume'] = $resultDOM->getElementsByTagName("Volume")->item(0)->textContent;
+		if ($resultDOM->getElementsByTagName("Issue")->length > 0)
+			$metadata['issue'] = $resultDOM->getElementsByTagName("Issue")->item(0)->textContent;
 
 		// get list of author full names
-		$authorDescriptions = array();
 		$nlmNameSchema = new NlmNameSchema();
 		foreach ($resultDOM->getElementsByTagName("Author") as $authorNode) {
+			if (!isset($metadata['person-group[@person-group-type="author"]']))
+				$metadata['person-group[@person-group-type="author"]'] = array();
+
+			// Instantiate an NLM name description
 			$authorDescription = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+
+			// Surname
 			$authorDescription->addStatement('surname', $authorNode->getElementsByTagName("LastName")->item(0)->textContent);
 
+			// Given names
+			$givenNamesString = '';
 			if ($authorNode->getElementsByTagName("FirstName")->length > 0) {
-				$authorDescription->addStatement('given-names', $authorNode->getElementsByTagName("FirstName")->item(0)->textContent);
+				$givenNamesString = $authorNode->getElementsByTagName("FirstName")->item(0)->textContent;
 			} elseif ($authorNode->getElementsByTagName("ForeName")->length > 0) {
-				$authorDescription->addStatement('given-names', $authorNode->getElementsByTagName("ForeName")->item(0)->textContent);
+				$givenNamesString = $authorNode->getElementsByTagName("ForeName")->item(0)->textContent;
 			}
+			if (!empty($givenNamesString)) {
+				foreach(explode(' ', $givenNamesString) as $givenName) $authorDescription->addStatement('given-names', String::trimPunctuation($givenName));
+			}
+
+			// Suffix
+			if ($authorNode->getElementsByTagName("Suffix")->length > 0)
+				$authorDescription->addStatement('suffix', $authorNode->getElementsByTagName("Suffix")->item(0)->textContent);
 
 			// Include collective names
 			/*if ($resultDOM->getElementsByTagName("CollectiveName")->length > 0 && $authorNode->getElementsByTagName("CollectiveName")->item(0)->textContent != '') {
 				// FIXME: This corresponds to an NLM-citation <collab> tag and should be part of the Metadata implementation
 			}*/
 
-			$authorDescriptions[] = $authorDescription;
+			$metadata['person-group[@person-group-type="author"]'][] =& $authorDescription;
 			unset($authorDescription);
 		}
-		$citationDescription->addStatement('person-group[@person-group-type="author"]', $authorDescriptions);
 
 		// Extract pagination
-		if (String::regexp_match_get("/^[:p\.\s]*(?P<p1>[Ee]?\d+)(-(?P<p2>\d+))?/", $resultDOM->getElementsByTagName("MedlinePgn")->item(0)->textContent, $pages)) {
-			$citationDescription->addStatement('fpage', $pages[1]);
-			if (isset($pages[3])) $citationDescription->addStatement('lpage', $pages[3]);
+		if (String::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $resultDOM->getElementsByTagName("MedlinePgn")->item(0)->textContent, $pages)) {
+			$fPage = (integer)$pages['fpage'];
+			$metadata['fpage'] = $fPage;
+			if (!empty($pages['lpage'])) {
+				$lPage = (integer)$pages['lpage'];
+
+				// Deal with shortcuts like '382-7'
+				if ($lPage < $fPage) {
+					$lPage = (integer)(String::substr($pages['fpage'], 0, -String::strlen($pages['lpage'])).$pages['lpage']);
+				}
+
+				$metadata['lpage'] = $lPage;
+			}
 		}
 
 		// Get publication date
-		// TODO: This could be in multiple places
+		// TODO: The publication date could be in multiple places
 		if ($resultDOM->getElementsByTagName("ArticleDate")->length > 0) {
 			$publicationDate = $resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Year")->item(0)->textContent.
 			                   '-'.$resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Month")->item(0)->textContent.
 			                   '-'.$resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Day")->item(0)->textContent;
-			$citationDescription->addStatement('date', $publicationDate);
+			$metadata['date'] = $publicationDate;
+		}
+
+		// Get publication type
+		if ($resultDOM->getElementsByTagName("PublicationType")->length > 0) {
+			foreach($resultDOM->getElementsByTagName("PublicationType") as $publicationType) {
+				// The vast majority of items on PubMed are articles so catch these...
+				if (String::strpos(String::strtolower($publicationType->textContent), 'article') !== false) {
+					$metadata['[@publication-type]'] = 'journal';
+					break;
+				}
+			}
 		}
 
 		// Get DOI if it exists
 		foreach ($resultDOM->getElementsByTagName("ArticleId") as $idNode) {
 			if ($idNode->getAttribute('IdType') == 'doi')
-				$citationDescription->addStatement('pub-id[@pub-id-type="doi"]', $idNode->textContent);
+				$metadata['pub-id[@pub-id-type="doi"]'] = $idNode->textContent;
 		}
 
 		// Use eLink utility to find fulltext links
-		$resultDOM = $this->callWebService(PUBMED_WEBSERVICE_ELINK, $lookupParams);
+		$lookupParams = array(
+			'dbfrom' => 'pubmed',
+			'cmd' => 'llinks',
+			'tool' => 'pkp-wal',
+			'id' => $pmid
+		);
+		if(!is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_ELINK, $lookupParams))) {
+			// Get a list of possible links
+			foreach ($resultDOM->getElementsByTagName("ObjUrl") as $linkOut) {
+				$attributes = '';
+				foreach ($linkOut->getElementsByTagName("Attribute") as $attribute) $attributes .= String::strtolower($attribute->textContent).' / ';
 
-		// Get a list of possible links
-		foreach ($resultDOM->getElementsByTagName("ObjUrl") as $linkOut) {
-			$attributes = '';
-			foreach ($linkOut->getElementsByTagName("Attribute") as $attribute) $attributes .= String::strtolower($attribute->textContent).' / ';
+				// Only add links to open access resources
+				if (String::strpos($attributes, "subscription") === false && String::strpos($attributes, "membership") === false &&
+						String::strpos($attributes, "fee") === false && $attributes != "") {
+					$links[] = $linkOut->getElementsByTagName("Url")->item(0)->textContent;
+				}
+			}
 
-			// NB: only add links to open access resources
-			if (String::strpos($attributes, "subscription") === false && String::strpos($attributes, "membership") === false &&
-				 String::strpos($attributes, "fee") === false && $attributes != "") {
-				$links[] = $linkOut->getElementsByTagName("Url")->item(0)->textContent;
-			 }
+			// Take the first link if we have any left (presumably pubmed returns them in preferential order)
+			if (isset($links[0])) $metadata['uri'] = $links[0];
 		}
 
-		// Take the first link if we have any left (presumably pubmed returns them in preferential order)
-		if (isset($links[0])) $citationDescription->addStatement('uri', $links[0]);
-
-		return $citationDescription;
+		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
 	}
 }
 ?>

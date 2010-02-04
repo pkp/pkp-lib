@@ -339,6 +339,13 @@ class NlmCitationSchemaFilter extends Filter {
 			$metadata['publisher-name'] = $metadata['institution'];
 		}
 
+		// Clean the result
+		foreach(array('publisher-name', 'publisher-loc') as $publisherProperty) {
+			if (isset($metadata[$publisherProperty])) {
+				$metadata[$publisherProperty] = String::trimPunctuation($metadata[$publisherProperty]);
+			}
+		}
+
 		return $metadata;
 	}
 

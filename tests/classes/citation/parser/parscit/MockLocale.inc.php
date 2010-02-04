@@ -8,7 +8,6 @@
  *
  * @class Locale
  * @ingroup tests_classes_citation_parser_parscit
- * @see SubmissionTest
  *
  * @brief Mock implementation of the Locale class
  */

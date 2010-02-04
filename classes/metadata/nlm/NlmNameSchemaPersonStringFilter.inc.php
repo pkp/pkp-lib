@@ -19,15 +19,62 @@
 import('metadata.nlm.NlmPersonStringFilter');
 
 class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
-	/** @var integer */
-	var $_filterMode;
+	/** @var string */
+	var $_template;
+
+	/** @var string */
+	var $_delimiter;
 
 	/**
 	 * Constructor
+	 * @param $filterMode integer
+	 * @param $template string default: DRIVER guidelines 2.0 name template
+	 *  Possible template variables are %surname%, %suffix%, %prefix%, %initials%, %firstname%
 	 */
-	function PersonStringNlmNameSchemaFilter($filterMode = PERSON_STRING_FILTER_SINGLE) {
+	function NlmNameSchemaPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
+		assert(!empty($template) && is_string($template));
+		$this->_template = $template;
+		assert(is_string($delimiter));
+		$this->_delimiter = $delimiter;
+
 		parent::NlmPersonStringFilter($filterMode);
 	}
+
+	//
+	// Getters and Setters
+	//
+	/**
+	 * Get the output template
+	 * @return string
+	 */
+	function getTemplate() {
+		return $this->_template;
+	}
+
+	/**
+	 * Set the output template
+	 * @param $template string
+	 */
+	function setTemplate($template) {
+		$this->_template = $template;
+	}
+
+	/**
+	 * Get the author delimiter (for multiple mode)
+	 * @return string
+	 */
+	function getDelimiter() {
+		return $this->_delimiter;
+	}
+
+	/**
+	 * Set the author delimiter (for multiple mode)
+	 * @param $delimiter string
+	 */
+	function setDelimiter($delimiter) {
+		$this->_delimiter = $delimiter;
+	}
+
 
 	//
 	// Implement template methods from Filter
@@ -84,7 +131,7 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	function _flattenPersonDescriptions(&$personDescriptions) {
 		assert(is_array($personDescriptions));
 		$personDescriptionStrings = array_map(array($this, '_flattenPersonDescription'), $personDescriptions);
-		$personString = implode('; ', $personDescriptionStrings);
+		$personString = implode($this->getDelimiter(), $personDescriptionStrings);
 		return $personString;
 	}
 
@@ -96,25 +143,24 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	 * @return string
 	 */
 	function _flattenPersonDescription(&$personDescription) {
-		$surname = (string)$personDescription->getStatement('surname');
+		$nameVars['%surname%'] = (string)$personDescription->getStatement('surname');
 
 		$givenNames = $personDescription->getStatement('given-names');
-		$firstName = $initials = '';
+		$nameVars['%firstname%'] = $nameVars['%initials%'] = '';
 		if(is_array($givenNames) && count($givenNames)) {
-			$firstName = array_shift($givenNames);
+			$nameVars['%firstname%'] = array_shift($givenNames);
 			foreach($givenNames as $givenName) {
-				$initials .= String::substr($givenName, 0, 1).'.';
+				$nameVars['%initials%'] .= String::substr($givenName, 0, 1).'.';
 			}
 		}
-		if (!empty($initials)) $initials = ' '.$initials;
-		if (!empty($firstName)) $firstName = ' ('.$firstName.')';
+		if (!empty($nameVars['%initials%'])) $nameVars['%initials%'] = ' '.$nameVars['%initials%'];
 
-		$prefix = (string)$personDescription->getStatement('prefix');
-		if (!empty($prefix)) $prefix = ' '.$prefix;
-		$suffix = (string)$personDescription->getStatement('suffix');
-		if (!empty($suffix)) $suffix = ' '.$suffix;
+		$nameVars['%prefix%'] = (string)$personDescription->getStatement('prefix');
+		if (!empty($nameVars['%prefix%'])) $nameVars['%prefix%'] = ' '.$nameVars['%prefix%'];
+		$nameVars['%suffix%'] = (string)$personDescription->getStatement('suffix');
+		if (!empty($nameVars['%suffix%'])) $nameVars['%suffix%'] = ' '.$nameVars['%suffix%'];
 
-		$personString = $surname.$suffix.','.$initials.$firstName.$prefix;
+		$personString = str_replace(array_keys($nameVars), array_values($nameVars), $this->getTemplate());
 		return $personString;
 	}
 }

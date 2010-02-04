@@ -59,6 +59,11 @@ class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 		$personDescriptions = array($personDescription1, $personDescription2);
 		$this->_nlmNameSchemaPersonStringFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
 		self::assertEquals('Assis Jr, (Machado) de; Elis, A. (Bernardo)', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
+
+		// Test template and delimiter
+		$this->_nlmNameSchemaPersonStringFilter->setDelimiter(':');
+		$this->_nlmNameSchemaPersonStringFilter->setTemplate('%firstname%%initials%%prefix% %surname%%suffix%');
+		self::assertEquals('Machado de Assis Jr:Bernardo A. Elis', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
 	}
 }
 ?>

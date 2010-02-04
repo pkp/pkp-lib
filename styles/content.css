@@ -291,7 +291,7 @@ ul.flat_list li, ol.flat_list li {
 .listbuilder {
 	border: 1px solid #B6C9D5;
 	overflow: hidden;
-	margin-bottom: 15px;
+	margin: 5px 10px 15px 10px;
 }
 
 .listbuilder div.wrapper {

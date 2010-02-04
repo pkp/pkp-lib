@@ -15,7 +15,7 @@
  			<ul>
 		        <li>
 		            <label class="desc">
-		            	{translate key=$listbuilder->getSourceTitle()}
+		            	{translate key=$listbuilder->getTitle()}
 					</label>
 				  	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 						<span>

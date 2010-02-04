@@ -18,21 +18,21 @@
 <xsl:strip-space elements="*"/>
 
 <xsl:template match="/citationList">
-	<citation>
+	<element-citation>
 		<xsl:apply-templates select="citation/*"/>
-	</citation>
+	</element-citation>
 </xsl:template>
 
 <!-- Genre -->
 <xsl:template match="*[local-name() = 'genre']">
-	<genre>
+	<publication-type>
 		<xsl:choose>
 			<!-- map to interal options -->
 			<xsl:when test=". = 'article'">journal</xsl:when>
-			<xsl:when test=". = 'proceeding'">proceedings</xsl:when>
-			<xsl:otherwise>other</xsl:otherwise>
+			<xsl:when test=". = 'proceeding'">conf-proc</xsl:when>
+			<xsl:otherwise>unknown</xsl:otherwise>
 		</xsl:choose>
-	</genre>		
+	</publication-type>		
 </xsl:template>
 
 <!-- Authors -->
@@ -42,33 +42,33 @@
 
 <!-- Article title -->
 <xsl:template match="title">
-	<articleTitle><xsl:value-of select="."/></articleTitle>
+	<article-title><xsl:value-of select="."/></article-title>
 </xsl:template>
 
 <!-- Book title -->
 <xsl:template match="booktitle">
-	<bookTitle><xsl:value-of select="."/></bookTitle>		
+	<source><xsl:value-of select="."/></source>		
 </xsl:template>
 
 <!-- Journal title -->
 <xsl:template match="journal">
-	<journalTitle><xsl:value-of select="."/></journalTitle>		
+	<source><xsl:value-of select="."/></source>		
 </xsl:template>
 
 <!-- Date -->
 <xsl:template match="date">
-	<issuedDate><xsl:value-of select="."/></issuedDate>
+	<date><xsl:value-of select="."/></date>
 </xsl:template>
 
 <!-- Location -->
 <xsl:template match="location">
-	<place><xsl:value-of select="."/></place>
+	<publisher-loc><xsl:value-of select="."/></publisher-loc>
 </xsl:template>
 
 <!-- Pages -->
 <xsl:template match="*[local-name() = 'pages']">
-	<firstPage><xsl:value-of select="substring-before(., '--')"/></firstPage>
-	<lastPage><xsl:value-of select="substring-after(., '--')"/></lastPage>
+	<fpage><xsl:value-of select="substring-before(., '--')"/></fpage>
+	<lpage><xsl:value-of select="substring-after(., '--')"/></lpage>
 </xsl:template>
 
 <!-- Comments -->

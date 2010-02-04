@@ -17,7 +17,7 @@
 
 import('citation.NlmCitationSchemaFilter');
 
-define('CITATION_PARSER_PARSCIT_BASEURL', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi?textlines=');
+define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
 
 class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/*
@@ -45,28 +45,24 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 	 * @return MetadataDescription
 	 */
 	function &process($citationString) {
+		$nullVar = null;
+		$queryParams = array(
+			'textlines' => $citationString
+		);
 		// Parscit web form - the result is (mal-formed) HTML
-		if (is_null($result = $this->callWebService(CITATION_PARSER_PARSCIT_BASEURL.urlencode($citationString)))) {
-			// Catch web service error condition
-			$citation = null;
-			return;
-		}
+		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
 
 		// Screen-scrape the tagged portion and turn it into XML
 		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));
 		$xmlResult = String::regexp_replace('/&/', '&amp;', $xmlResult);
 
 		// Transform the result into an array of meta-data
-		$metadata = $this->transformWebServiceResults($xmlResult, 'parser'.DIRECTORY_SEPARATOR.'parscit.xsl');
+		if (is_null($metadata = $this->transformWebServiceResults($xmlResult, dirname(__FILE__).DIRECTORY_SEPARATOR.'parscit.xsl'))) return $nullVar;
 
 		// Extract a publisher from the place string if possible
-		$this->fixPlaceAndPublisher($metadata);
+		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
-		if (!$citation->setElementsFromArray($metadata)) {
-			// Catch invalid metadata error condition
-			$citation = null;
-			return;
-		}
+		return $this->addMetadataArrayToNlmCitationDescription($metadata);
 	}
 }
 ?>

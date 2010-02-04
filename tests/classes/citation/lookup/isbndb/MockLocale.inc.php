@@ -8,7 +8,6 @@
  *
  * @class Locale
  * @ingroup tests_classes_citation_lookup_isbndb
- * @see SubmissionTest
  *
  * @brief Mock implementation of the Locale class
  */

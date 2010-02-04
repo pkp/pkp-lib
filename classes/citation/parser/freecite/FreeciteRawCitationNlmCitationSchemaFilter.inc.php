@@ -52,7 +52,7 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		if (is_null($resultDOM = $this->callWebService(FREECITE_WEBSERVICE, $postData, XSL_TRANSFORMER_DOCTYPE_DOM, 'POST'))) return $nullVar;
 
 		// Transform the result into an array of meta-data
-		$metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'freecite.xsl');
+		if (is_null($metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'freecite.xsl'))) return $nullVar;
 
 		// Extract a publisher from the place string if possible
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);

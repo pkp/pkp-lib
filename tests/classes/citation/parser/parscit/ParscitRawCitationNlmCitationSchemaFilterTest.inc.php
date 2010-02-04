@@ -57,6 +57,14 @@ class ParscitRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPar
 	}
 
 	/**
+	 * @covers ParaciteRawCitationNlmCitationSchemaFilter
+	 */
+	public function testAllCitationsWithThisParser() {
+		$filter = new ParscitRawCitationNlmCitationSchemaFilter();
+		parent::testAllCitationsWithThisParser(&$filter);
+	}
+
+	/**
 	 * @covers ParscitRawCitationNlmCitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {

@@ -31,7 +31,7 @@ class OpenUrlJournalBookBaseSchema extends OpenUrlBaseSchema {
 		$this->addProperty(new MetadataProperty('atitle', $citation));
 		$this->addProperty(new MetadataProperty('spage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
 		$this->addProperty(new MetadataProperty('epage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('pages', $citation, METADATA_PROPERTY_TYPE_INTEGER));
+		$this->addProperty(new MetadataProperty('pages', $citation));
 		$this->addProperty(new MetadataProperty('issn', $citation));
 		$this->addProperty(new MetadataProperty('genre', $citation));
 		// FIXME: implement genre as controlled vocabulary.

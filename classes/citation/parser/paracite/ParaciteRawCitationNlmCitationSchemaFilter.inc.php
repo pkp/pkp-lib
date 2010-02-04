@@ -27,6 +27,7 @@
 // $Id$
 
 import('citation.NlmCitationSchemaFilter');
+import('metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
@@ -103,94 +104,152 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		$xmlHelper = new XMLHelper();
 		$metadata = $xmlHelper->xmlToArray($resultDOM->documentElement);
 
-		// Translate genre to publication type
-		if (isset($metadata['genre'])) {
-			$genreTranslationMapping = CitationService::_getGenreTranslationMapping();
-			assert(isset($genreTranslationMapping[$metadata['genre']]));
-			$metadata['publication-type'] = $genreTranslationMapping[$metadata['genre']];
-			unset($metadata['genre']);
+		// We have to merge subtitle and title as neither OpenURL
+		// nor NLM can handle subtitles.
+		if (isset($metadata['subtitle'])) {
+			$metadata['title'] .= '. '.$metadata['subtitle'];
+			unset($metadata['subtitle']);
 		}
 
-		// Correct title capitalization
-		if (isset($metadata['title'])) {
-			$metadata['title'] = $this->titleCase($metadata['title']);
+		// Break up the authors field
+		if (isset($metadata['authors'])) {
+			$metadata['authors'] = String::trimPunctuation($metadata['authors']);
+			$metadata['authors'] = String::iterativeExplode(array(':', ';', ','), $metadata['authors']);
 		}
 
-		// Set meta-data elements that need special handling
-		if (isset($metadata['publication'])) {
-			if (isset($metadata['genre'])) {
-				switch($metadata['genre']) {
-					case METADATA_GENRE_BOOK:
-						$citation->setBookTitle($metadata['publication']);
-						break;
-
-					default:
-						// Should not be reachable
-						assert(false);
-				}
-			} else {
-				$citation->setJournalTitle($metadata['publication']);
-			}
+		// Convert pages to integers
+		foreach(array('spage', 'epage') as $pageProperty) {
+			if (isset($metadata[$pageProperty])) $metadata[$pageProperty] = (integer)$metadata[$pageProperty];
 		}
-		if (isset($metadata['date'])) {
-			$citation->setIssuedDate($this->normalizeDateString($metadata['date']));
-		} elseif (isset($metadata['year'])) {
-			$citation->setIssuedDate($this->normalizeDateString($metadata['year']));
-		}
-		if (isset($metadata['authors'])) $citation->setAuthors($this->parseAuthorsString($metadata['authors']));
-		unset($metadata['publication'], $metadata['date'], $metadata['year'], $metadata['authors']);
 
-		// Map elements from paracite to our internal format
+		// Convert titles to title case
+		foreach(array('title', 'chapter', 'publication') as $titleProperty) {
+			if (isset($metadata[$titleProperty])) $metadata[$titleProperty] = String::titleCase($metadata[$titleProperty]);
+		}
+
+		// Map ParaCite results to OpenURL - null means
+		// throw the value away.
 		$metadataMapping = array(
+			'genre' => 'genre',
 			'_class' => null,
 			'any' => null,
-			'aufirst' => null,
+			'authors' => 'au',
+			'aufirst' => 'aufirst',
 			'aufull' => null,
-			'auinit' => null,
-			'aulast' => null,
-			'atitle' => 'articleTitle',
+			'auinit' => 'auinit',
+			'aulast' => 'aulast',
+			'atitle' => 'atitle',
 			'cappublication' => null,
 			'captitle' => null,
-			'chapter' => null,
-			'epage' => 'lastPage',
+			'date' => 'date',
+			'epage' => 'epage',
 			'featureID' => null,
 			'id' => null,
+			'issue' => 'issue',
 			'jnl_epos' => null,
 			'jnl_spos' => null,
 			'match' => null,
 			'marked' => null,
 			'num_of_fig' => null,
-			'pages' => null,
+			'pages' => 'pages',
+			'publisher' => 'pub',
 			'publoc' => 'place',
 			'ref' => null,
-			'rest_text' => 'comment',
-			'spage' => 'firstPage',
-			'subtitle' => null,
+			'rest_text' => null,
+			'spage' => 'spage',
 			'targetURL' => 'url',
 			'text' => null,
-			'title' => 'articleTitle',
 			'ucpublication' => null,
 			'uctitle' => null,
+			'volume' => 'volume',
+			'year' => 'date'
 		);
-		foreach ($metadataMapping as $paraciteElementName => $elementName) {
-			if (isset($metadata[$paraciteElementName]) && !empty($metadata[$paraciteElementName])) {
-				if (!is_null($elementName)) {
-					if ($elementName == 'comment') {
-						if (!isset($metadata['comments'])) $metadata['comments'] = array();
-						$metadata['comments'][] = $metadata[$paraciteElementName];
-					} else {
-						$metadata[$elementName] = $metadata[$paraciteElementName];
+
+		// Ignore 'year' if 'date' is set
+		if (isset($metadata['date'])) {
+			$metadataMapping['year'] = null;
+		}
+
+		// Set default genre
+		if (empty($metadata['genre'])) $metadata['genre'] = 'article';
+
+		// Handle title, chapter and publication depending on
+		// the (inferred) genre. Also instantiate the target schema.
+		switch($metadata['genre']) {
+			case 'book':
+			case 'bookitem':
+			case 'report':
+			case 'document':
+				$metadataMapping += array(
+					'publication' => 'btitle',
+					'chapter' => 'atitle'
+				);
+				if (isset($metadata['title'])) {
+					if (!isset($metadata['publication'])) {
+						$metadata['publication'] = $metadata['title'];
+						unset($metadata['title']);
+					} elseif (!isset($metadata['chapter'])) {
+						$metadata['chapter'] = $metadata['title'];
+						unset($metadata['title']);
 					}
 				}
-				unset($metadata[$paraciteElementName]);
+				import('metadata.openurl.OpenUrlBookSchema');
+				$openUrlSchema = new OpenUrlBookSchema();
+				break;
+
+			case 'article':
+			case 'journal':
+			case 'issue':
+			case 'conference':
+			case 'proceeding':
+			case 'preprint':
+			default:
+				$metadataMapping += array(
+					'publication' => 'jtitle',
+					'title' => 'atitle'
+				);
+				import('metadata.openurl.OpenUrlJournalSchema');
+				$openUrlSchema = new OpenUrlJournalSchema();
+				break;
+		}
+
+		// Instantiate an OpenURL description
+		$openUrlDescription = new MetadataDescription($openUrlSchema, ASSOC_TYPE_CITATION);
+
+		// Map the ParaCite result to OpenURL
+		foreach ($metadata as $paraciteElementName => $paraciteValue) {
+			if (!empty($paraciteValue)) {
+				// Trim punctuation
+				if (is_string($paraciteValue)) $paraciteValue = String::trimPunctuation($paraciteValue);
+
+				// Transfer the value to the OpenURL result array
+				assert(array_key_exists($paraciteElementName, $metadataMapping));
+				$openUrlPropertyName = $metadataMapping[$paraciteElementName];
+				if (!is_null($openUrlPropertyName) && $openUrlSchema->hasProperty($openUrlPropertyName)) {
+					if (is_array($paraciteValue)) {
+						foreach($paraciteValue as $singleValue) {
+							$success = $openUrlDescription->addStatement($openUrlPropertyName, $singleValue);
+							assert($success);
+						}
+					} else {
+						$success = $openUrlDescription->addStatement($openUrlPropertyName, $paraciteValue);
+						assert($success);
+					}
+				}
 			}
 		}
 
-		if (!$citation->setElementsFromArray($metadata)) {
-			// Catch invalid metadata error condition
-			$citation = null;
-			return;
+		// Crosswalk to NLM
+		$crosswalkFilter = new OpenUrlNlmCitationSchemaCrosswalkFilter();
+		$nlmDescription =& $crosswalkFilter->execute($openUrlDescription);
+		assert(is_a($nlmDescription, 'MetadataDescription'));
+
+		// Add 'rest_text' as NLM comment (if given)
+		if (isset($metadata['rest_text'])) {
+			$nlmDescription->addStatement('comment', String::trimPunctuation($metadata['rest_text']));
 		}
+
+		return $nlmDescription;
 	}
 
 

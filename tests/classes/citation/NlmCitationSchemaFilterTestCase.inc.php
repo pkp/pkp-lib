@@ -71,12 +71,12 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 
 		// Set up the callWebService() method
 		// to simulate an error condition (=return null)
-		$mockCPService->expects($this->once())
-		              ->method('callWebService')
-		              ->will($this->returnValue(null));
+		$mockCPFilter->expects($this->once())
+		             ->method('callWebService')
+		             ->will($this->returnValue(null));
 
 		// Call the SUT
-		$citationDescription =& $mockCPFilter->execute('rawCitation');
+		$citationDescription =& $mockCPFilter->execute($citationString = 'rawCitation');
 		self::assertNull($citationDescription);
 	}
 

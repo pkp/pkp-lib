@@ -29,7 +29,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 					'testInput' => 'Sheril, R. D. (1956). The terrifying future: Contemplating color television. San Diego: Halstead.',
 					'testOutput' => array(
 						'[@publication-type]' => 'book',
-						'article-title' => 'The terrifying future: Contemplating color television',
+						'chapter-title' => 'The terrifying future: Contemplating color television',
 						'person-group[@person-group-type="author"]' => array(
 							array('given-names' => array('R'), 'surname' => 'Sheril')
 						),
@@ -41,6 +41,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 				array(
 					'testInput' => 'Crackton, P. (1987). The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34-37.',
 					'testOutput' => array(
+						'[@publication-type]' => 'journal',
 						'article-title' => 'The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34-37',
 						'person-group[@person-group-type="author"]' => array(
 							array('given-names' => array('P'), 'surname' => 'Crackton')
@@ -53,6 +54,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 				array(
 					'testInput' => 'Sheril, R. D. (1956). The terrifying future: Contemplating color television. San Diego: Halstead.',
 					'testOutput' => array(
+						'[@publication-type]' => 'journal',
 						'person-group[@person-group-type="author"]' => array(
 							array('given-names' => array('R', 'D'), 'surname' => 'Sheril')
 						),
@@ -63,6 +65,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 				array(
 					'testInput' => 'Crackton, P. (1987). The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34-37.',
 					'testOutput' => array(
+						'[@publication-type]' => 'journal',
 						'article-title' => 'Canadian Chan',
 						'person-group[@person-group-type="author"]' => array(
 							array('given-names' => array('P'), 'surname' => 'Crackton')
@@ -79,12 +82,14 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 				array(
 					'testInput' => 'Sheril, R. D. (1956). The terrifying future: Contemplating color television. San Diego: Halstead.',
 					'testOutput' => array(
+						'[@publication-type]' => 'journal',
 						'date' => '1956'
 					)
 				),
 				array(
 					'testInput' => 'Crackton, P. (1987). The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34–37.',
 					'testOutput' => array(
+						'[@publication-type]' => 'journal',
 						'article-title' => 'Canadian Chan',
 						'fpage' => 34,
 						'date' => '1987',

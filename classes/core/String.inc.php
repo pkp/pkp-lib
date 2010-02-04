@@ -765,6 +765,28 @@ class String {
 		$newTitle = implode(' ', $words);
 		return $newTitle;
 	}
+
+	/**
+	 * Iterate over an array of delimiters and see whether
+	 * it exists in the given input string. If so, then use
+	 * it to explode the string into an array.
+	 * @param $delimiters array
+	 * @param $input string
+	 * @return array
+	 */
+	function iterativeExplode($delimiters, $input) {
+		// Run through the delimiters and try them out
+		// one by one.
+		foreach($delimiters as $delimiter) {
+			if (strstr($input, $delimiter) !== false) {
+				return explode($delimiter, $input);
+			}
+		}
+
+		// If none of the delimiters works then return
+		// the original string as an array.
+		return (array($input));
+	}
 }
 
 ?>

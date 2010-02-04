@@ -141,26 +141,16 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		// Remove "et al"
 		$personsString = String::regexp_replace('/et ?al$/', '', $personsString);
 
-		// Translate person separators to colon.
-		if (strstr($personsString, ':') === false) {
-			// We search for person separators by priority. As soon as we find one kind of
-			// separator we'll replace it and stop there.
-			$separators = array(';', ',');
-			foreach($separators as $separator) {
-				if (strstr($personsString, $separator) !== false) {
-					$personsString = strtr($personsString, $separator, ':');
-					break;
-				}
-			}
-		}
+		// Remove punctuation
+		$personsString = String::trimPunctuation($personsString);
 
-		// Split person string into separate persons
-		$personStrings = explode(':', String::trimPunctuation($personsString));
+		// Cut the authors string into pieces
+		$personStrings = String::iterativeExplode(array(':', ';', ','), $personsString);
 
 		// Parse persons
 		$persons = array();
 		foreach ($personStrings as $personString) {
-			$persons[] =& $this->_parsePersonString($personString, $degrees, $title);
+			$persons[] =& $this->_parsePersonString($personString, $title, $degrees);
 		}
 
 		return $persons;

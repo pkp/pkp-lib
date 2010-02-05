@@ -148,6 +148,10 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Subclasses should override this method to configure the
 	 * grid controller (i.e. add columns, set the title, id, etc.)
+	 * NB: This is only called once during the lifecycle of
+	 * the handler object. If you need to re-configure an object
+	 * during its lifecycle then please override the configure*()
+	 * methods of sub-classes.
 	 * @param $request PKPRequest
 	 */
 	function initialize(&$request) {

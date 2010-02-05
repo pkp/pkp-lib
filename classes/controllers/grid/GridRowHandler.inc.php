@@ -120,7 +120,7 @@ class GridRowHandler extends GridHandler {
 		//FIXME: add validation here:
 
 		// Render the row
-		$this->_configureRow($request, $args);
+		$this->configureRow($request, $args);
 		return $this->renderRowInternally($request);
 	}
 
@@ -132,7 +132,7 @@ class GridRowHandler extends GridHandler {
 		//FIXME: add validation here?
 
 		// Configure the row
-		$this->_configureRow($request, $args);
+		$this->configureRow($request, $args);
 
 		// Check the column
 		if(!isset($args['columnId']) || !$this->hasColumn($args['columnId'])) fatalError('Invalid or missing column id.');
@@ -152,7 +152,7 @@ class GridRowHandler extends GridHandler {
 	function renderRowInternally(&$request) {
 		// Let the subclass configure the grid row instance
 		$this->initialize($request);
-		$this->_configureRow($request);
+		$this->configureRow($request);
 
 		// get an array of the cells
 		$cells = array();
@@ -168,6 +168,31 @@ class GridRowHandler extends GridHandler {
 		return $templateMgr->fetch($this->getTemplate());
 	}
 
+	/**
+	 * Configure a row.
+	 * Subclasses can override this method to implement configuration
+	 * that must change between role rendering invocations.
+	 * NB: This is called once per row rendering. It can be called
+	 * several times during the lifecycle of a row object. Compare
+	 * this with the initialize() method which is only called once
+	 * during the row object's lifecycle.
+	 * If $args is present, retrieve row and grid id from the request arguments
+	 * @param $request Request
+	 * @param $args array
+	 */
+	function configureRow($request, $args = null) {
+		// if the $args is present, then it must include at least rowId and gridId
+		if ( is_array($args) && count($args) ) {
+			$gridId =  isset($args['gridId']) ? $args['gridId'] : null;
+			$rowId =  isset($args['rowId']) ? $args['rowId'] : null;
+
+			// Set the grid id
+			$this->setGridId($gridId);
+			// Set the row id
+			$this->setId($rowId);
+		}
+	}
+
 	//
 	// Private helper methods
 	//
@@ -180,30 +205,11 @@ class GridRowHandler extends GridHandler {
 	function _renderCellInternally(&$request, &$column) {
 		// Let the subclass configure the grid row instance
 		$this->initialize($request);
-		$this->_configureRow($request);
+		$this->configureRow($request);
 
 		// Get the cell content
 		$cellProvider =& $column->getCellProvider();
 		return $cellProvider->render($this, $column);
-	}
-
-	/**
-	 * Configure a row
-	 * if $args is present, retrieve row and grid id from the request arguments
-	 * @param $request Request
-	 * @param $args array
-	 */
-	function _configureRow($request, $args = null) {
-		// if the $args is present, then it must include at least rowId and gridId
-		if ( is_array($args) && count($args) ) {
-			$gridId =  isset($args['gridId']) ? $args['gridId'] : null;
-			$rowId =  isset($args['rowId']) ? $args['rowId'] : null;
-
-			// Set the grid id
-			$this->setGridId($gridId);
-			// Set the row id
-			$this->setId($rowId);
-		}
 	}
 }
 

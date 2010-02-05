@@ -19,3 +19,8 @@ PHPUTF8 UTF-8 Character Handling Library
  * URL: <http://phputf8.sourceforge.net/>
  * Version: 0.5 (Aug 12, 2007)
  * License: LGPL
+
+SWORD PHP API Library
+ * URL: <http://php.swordapp.org>
+ * Version: 0.9 (Oct 5, 2009)
+ * License: Modified BSD

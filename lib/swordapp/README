@@ -1,0 +1,149 @@
+Welcome to the SWORDAPP PHP client library!
+-------------------------------------------
+Version: 0.9
+
+The SWORDAPP PHP client library is a PHP library designed to assist with the
+creation of SWORD deposit tools. The client library allows PHP code to easily
+make use of the two SWORD functions:
+
+ - GETting a Service Document
+ - POSTing a file into a repository
+
+The library was originally written by Stuart Lewis (stuart@stuartlewis.com) as
+part of the JISC funded SWORD2 project. Limited support for the library is
+availble via the sword-app-tech email list:
+
+ - https://lists.sourceforge.net/lists/listinfo/sword-app-tech
+
+
+Licence
+-------
+The library is licenced with a BSD licence. See the file LICENCE in the
+distribution directory.
+
+
+SWORD Compatibility
+-------------------
+This version of the library is compatable with SWORD version 1.3
+
+
+Prerequisites
+-------------
+This library requires:
+
+ - PHP version 5
+    + CURL extension
+    + SimpleXML extension
+    + ZIP extension (for the packager only)
+
+To test the library run the following from the command line to request a 
+service document and deposit a package:
+
+ - php test-swordappclient.php
+
+ In order to use this test script you will need a username and password for a
+ SWORD repository. If you don't have one, you can sign up for one at
+ http://dspace.swordapp.org/jspui/register Once you have done so, enter your
+ email address and password in to the test-swordappclient.php script.
+
+ The library also comes with a packager to convert a file and metadata into
+ a package (zip file) containing the metadata encoded in METS and SWAP along
+ with the file.
+
+You can create a test deposit package by running:
+
+ - php test-packager-mets_swap.php
+
+
+How to use the library
+----------------------
+The easiest way to understand the library is to look at the 
+test-swordappclient.php file which exercises all the functions and variables of
+the library. 
+
+The two main methods of use are from swordappclient.php:
+
+ - function servicedocument(url, username, password, on-behalf-of-user)
+ - function deposit(url, username, password, on-behalf-of-user, filename,
+                   [format_namespace, package_type, noop, verbose]) 
+
+The functions return a SWORDAPPServiceDocument, a SWORDAPPEntry or a 
+SWORDAPPErrorDocument object as appropriate. These classes can then be 
+interogated (e.g. $servicedocument->sac_workspaces).
+
+
+Examples
+--------
+Example SWORD applications are included in the examples directory:
+
+ - examples/imap-email/ An example client that reads emails from an IMAP
+   mail folder, and deposits them using SWORD.
+
+
+Changes
+-------
+0.9 (5th October 2009)
+ - Fixed typos in test-packager-mets_swap.php that meant it didn't create a
+   proper package
+ - Added some validation to the SWAP/METS packager to allow it to cope with
+   filenames containing ampersands
+ - Changed swordappservicedocument to build the servcedocument from the xml
+   response rather than having the swordappclient do the work. This allows
+   the service document to be parsed at a later time.
+ - Changed the swordappclient deposit method to stream the file being
+   deposited straight from disk rather than via memory to avoid using
+   excessive memory and potentially exceeding the PHP memory limit.
+
+0.8 (28th July 2009)
+ - Added example IMAP email application (/examples/imap-email/imap-email.php)
+
+0.7 (23rd June 2009)
+ - Added X-No-Op and X-Verbose facility to deposits in deposit method
+ - Added 'Content-Disposition: filename=' in the deposit method
+
+0.6 (29th April 2009)
+ - Corrected typo in deposit entry document http status response text
+ - Entry documents now do not require src and type attributes in the content
+ - Extended the METS/SWAP packager to contain more than one file
+ - Fixed swordappentry bug with undefined constants
+ - Fixed variable name typo in SWAP/METS packager in the the exception
+   thrown by the create method
+ - Client now accepts responses in the 2xx range, rather than just 201
+
+0.5 (12th December 2008)
+ - Upgraded support to SWORD version 1.3. Support for version 1.2 deprecated
+    - Changed sword:level to sword:version
+    - Added user-agent header to all transactions
+    - Added support for nested service documents into collection.php
+    - Added support for maxUplaodSize in service documents
+    - Added support for acceptPackaging in service documents
+    - Deposit process now sets X-Packaging header
+    - atom:generator now ready from entry, not from entry/source
+    - Error documents created when deposits fail
+ - Renamed swordappdeposit.php to swordappentry.php
+ - Added new class swordapperrordocument.php to handle error documents
+
+0.4 (30th November 2008)
+ - Fixes bug where atom documents using atom as a default namespace are not
+   parsed correctly
+ - Corrected typo in format namespace variable name
+ - Changed README and test-swordappclient.php to make user sign up for their
+   own SWORD user on a repository
+
+0.3 (3rd November 2008)
+ - Classes SWORDAPPServiceDocument and SWORDAPPDeposit now store the
+   raw XML returned for debudding ($sac_xml)
+ - The deposit function now accepts optional parameters for format-namespace 
+   and content-disposition
+ - MD5 checksums are now created for deposited files and the Content-MD5 header 
+   set
+ - Added copyrightHolder and bibliographicCitation elements to mets/swap
+   packager
+
+0.2 (28th October 2008)
+ - Added exception handling to swordappclient.php
+ - Created packager-mets_swap.php
+ - Renamed test files
+
+0.1 (20th September 2008)
+  - First release

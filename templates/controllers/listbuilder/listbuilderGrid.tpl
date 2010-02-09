@@ -8,7 +8,7 @@
  *}
 
 <div class="listbuilderGrid">
-<table id="listGrid-{$listbuilderId}">
+<table id="listGrid-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
     <tbody>
 		{foreach from=$rows item=row}
 			{$row}

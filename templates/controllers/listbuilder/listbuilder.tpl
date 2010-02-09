@@ -11,7 +11,7 @@
 
 <div id="{$listbuilderId}" class="listbuilder">
 	<div class="wrapper">
-		<div class="unit size2of5" id="source-{$listbuilderId}">
+		<div class="unit size2of5" id="source-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
  			<ul>
 		        <li>
 		            <label class="desc">
@@ -47,19 +47,19 @@
 		                	</label>
 						</span>
 					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-						<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" /> <br />
-						<input type="hidden" id="sourceId-{$listbuilderId}" name="sourceId-{$listbuilderId}">
+						<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" value="" /> <br />
+						<input type="hidden" id="sourceId-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceId-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
 					{/if}
 				</li>
 			</ul>
 		</div>
 		<div class="unit size1of10 listbuilder_controls">
-			<a href="#" id="add-{$listbuilderId}" onclick="return false;" class="add_item">
+			<a href="#" id="add-{$listbuilderId}{if $itemId}-{$itemId}{/if}" onclick="return false;" class="add_item">
 				<span class="hidetext">Add</span></a>
-			<a href="#" id="delete-{$listbuilderId}" onclick="return false;" class="remove_item">
+			<a href="#" id="delete-{$listbuilderId}{if $itemId}-{$itemId}{/if}" onclick="return false;" class="remove_item">
 				<span class="hidetext">Delete</span></a>
 		</div>
-		<div id="results-{$listbuilderId}" class="unit size1of2 lastUnit listbuilder_results">
+		<div id="results-{$listbuilderId}{if $itemId}-{$itemId}{/if}" class="unit size1of2 lastUnit listbuilder_results">
 		    <ul>
 		        <li>
 		            <label class="desc">
@@ -72,12 +72,12 @@
 	</div>
 	<script type='text/javascript'>
 	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId}{literal}");{/literal}
+		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");{/literal}
 	{/if}
 	{literal}
-		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId}{literal}", "{/literal}{$localizedButtons}{literal}");
-		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId}{literal}");
-		selectRow("{/literal}{$listbuilderId}{literal}");
+		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}", "{/literal}{$localizedButtons}{literal}");
+		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");
+		selectRow("{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");
 	{/literal}
 	</script>
 </div>

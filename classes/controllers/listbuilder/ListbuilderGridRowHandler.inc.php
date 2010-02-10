@@ -1,57 +1,38 @@
 <?php
 
 /**
- * @file controllers/grid/sponsor/ListbuilderGridRowHandler.inc.php
+ * @file classes/controllers/listbuilder/ListbuilderGridRow.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ListbuilderGridRowHandler
+ * @class ListbuilderGridRow
  * @ingroup controllers_listbuilder
  *
- * @brief Handle sponsor grid row requests.
+ * @brief Handle list builder row requests.
  */
 
-import('controllers.grid.GridRowHandler');
+import('controllers.grid.GridRow');
 
-class ListbuilderGridRowHandler extends GridRowHandler {
-	/** @var boolean internal state variable, true if cell handler has been instantiated */
-	var $_cellHandlerInstantiated = false;
-
+class ListbuilderGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function ListbuilderGridRowHandler() {
-		parent::GridRowHandler();
+	function ListbuilderGridRow() {
+		parent::GridRow();
 	}
 
 	//
 	// Overridden template methods
 	//
-	/*
-	 * Configure the grid row
+	/**
+	 * @see GridRow::initialize()
 	 * @param PKPRequest $request
 	 */
 	function initialize(&$request) {
-		// Only initialize once
-		if ($this->getInitialized()) return;
-
-		// add Grid Row Actions
-		$this->setTemplate('controllers/listbuilder/listbuilderGridRow.tpl');		
-
 		parent::initialize($request);
-	}
 
-	/**
-	 * Get the row template - override base
-	 * implementation to provide a sensible default.
-	 * @return string
-	 */
-	function getTemplate() {
-		if (is_null(parent::getTemplate())) {
-			$this->setTemplate('controllers/listbuilder/listbuilderGridRow.tpl');
-		}
-
-		return parent::getTemplate();
+		// add list builder row template
+		$this->setTemplate('controllers/listbuilder/listbuilderGridRow.tpl');
 	}
 }

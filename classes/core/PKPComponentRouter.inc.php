@@ -37,6 +37,10 @@
  *
  *  NB: Component and operation names may only contain a-z, 0-9 and hyphens. Numbers
  *  are not allowed at the beginning of a name or after a hyphen.
+ *
+ *  NB: Component handlers must implement an initialize() method that will be called
+ *  before the request is routed. The initialization method must enforce authorization
+ *  and request validation.
  */
 
 // $Id$
@@ -106,6 +110,18 @@ class PKPComponentRouter extends PKPRouter {
 
 		// Remove the caller-parameter (if present)
 		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
+
+		// Authorize and validate the request
+		if (!$rpcServiceEndpoint[0]->validate(null, $request)) {
+			// Components must always validate otherwise this is
+			// either a programming error or somebody trying to
+			// directly call a component. In both cases a fatal
+			// error is the approprate response.
+			fatalError('Permission denied!');
+		}
+
+		// Initialize the handler
+		$rpcServiceEndpoint[0]->initialize($request);
 
 		// Call the service endpoint.
 		$result = call_user_func($rpcServiceEndpoint, $args, $request);
@@ -223,9 +239,12 @@ class PKPComponentRouter extends PKPRouter {
 			assert(!empty($op));
 
 			// Check that the requested operation exists for the handler:
-			// Lowercase comparison for PHP4 compatibility.
+			// Lowercase comparison for PHP4 compatibility. Also check the required
+			// validate() and initialize() methods.
 			$methods = array_map('strtolower', get_class_methods($componentClassName));
-			if (!in_array(strtolower($op), $methods)) return $nullVar;
+			foreach(array(strtolower($op), 'validate', 'initialize') as $requiredMethod) {
+				if (!in_array($requiredMethod, $methods)) return $nullVar;
+			}
 
 			//
 			// Callable service endpoint

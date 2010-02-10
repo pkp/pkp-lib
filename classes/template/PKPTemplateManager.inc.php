@@ -572,7 +572,14 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Set the default router
-		if (is_null($router)) $router = ROUTE_PAGE;
+		$request =& PKPApplication::getRequest();
+		if (is_null($router)) {
+			if (is_a($request->getRouter(), 'PKPComponentRouter')) {
+				$router = ROUTE_COMPONENT;
+			} else {
+				$router = ROUTE_PAGE;
+			}
+		}
 
 		// Check the router
 		$dispatcher =& PKPApplication::getDispatcher();
@@ -595,7 +602,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		$request =& PKPApplication::getRequest();
 		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, !isset($escape) || $escape);
 	}
 

@@ -17,11 +17,47 @@ import('handler.validation.HandlerValidator');
 import('handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {
-	/** Validation checks for this page*/
-	var $_checks;
+	/**
+	 * @var string identifier of the controller instance - must be unique
+	 *  among all instances of a given controller type.
+	 */
+	var $_id;
 
 	/** @var Dispatcher, mainly needed for cross-router url construction */
 	var $_dispatcher;
+
+	/** @var array validation checks for this page*/
+	var $_checks;
+
+	/**
+	 * Constructor
+	 */
+	function PKPHandler() {
+		$this->_checks = array();
+
+		// enforce SSL sitewide
+		$this->addCheck(new HandlerValidatorCustom($this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
+
+	}
+
+	//
+	// Setters and Getters
+	//
+	/**
+	 * Set the controller id
+	 * @param $id string
+	 */
+	function setId($id) {
+		$this->_id = $id;
+	}
+
+	/**
+	 * Get the controller id
+	 * @return string
+	 */
+	function getId() {
+		return $this->_id;
+	}
 
 	/**
 	 * Get the dispatcher
@@ -45,14 +81,6 @@ class PKPHandler {
 		$this->_dispatcher =& $dispatcher;
 	}
 
-	function PKPHandler() {
-		$this->_checks = array();
-
-		// enforce SSL sitewide
-		$this->addCheck(new HandlerValidatorCustom($this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
-
-	}
-
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
@@ -70,6 +98,13 @@ class PKPHandler {
 
 	/**
 	 * Perform request access validation based on security settings.
+	 *
+	 * This method will be called once for every request only.
+	 *
+	 * NB (non-page controllers only): The component router will call
+	 * this method automatically thereby enforcing validation. This
+	 * method will be call directly before the initialize() method.
+	 *
 	 * @param $requiredContexts array
 	 * @param $request Request
 	 */
@@ -84,20 +119,68 @@ class PKPHandler {
 			// WARNING: This line is for PHP4 compatibility when
 			// instantiating handlers without reference. Should not
 			// be removed or otherwise used.
+			// See <http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor>
+			// for a similar proplem.
 			$check->_setHandler($this);
 
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {
-				if ( $check->redirectToLogin ) {
-					Validation::redirectLogin();
+				$router =& $request->getRouter();
+				if (is_a($router, 'PKPPageRouter')) {
+					if ( $check->redirectToLogin ) {
+						Validation::redirectLogin();
+					} else {
+						// An unauthorized page request will be re-routed
+						// to the index page.
+						$request->redirect(null, 'index');
+					}
 				} else {
-					$request->redirect(null, 'index');
+					// Sub-controller requests should always be sufficiently
+					// authorized and valid when being called from a
+					// page. Otherwise we either hit a development error
+					// or somebody is trying to fake component calls.
+					// In both cases raising a fatal error is appropriate.
+					// NB: The check's redirection flag will be ignored
+					// for sub-controller requests.
+					if (!empty($check->message)) {
+						fatalError($check->message);
+					} else {
+						fatalError('Unauthorized access!');
+					}
 				}
 			}
 		}
 
 		return true;
+	}
+
+	/**
+	 * Subclasses can override this method to configure the
+	 * handler.
+	 *
+	 * NB: This method will be called after validation and
+	 * authorization.
+	 *
+	 * @param $request PKPRequest
+	 */
+	function initialize(&$request) {
+		// Set the controller id to the requested
+		// page (page routing) or component name
+		// (component routing) by default.
+		$router =& $request->getRouter();
+		if (is_a($router, 'PKPComponentRouter')) {
+			$componentId = $router->getRequestedComponent($request);
+			// Create a somewhat compressed but still globally unique
+			// and human readable component id.
+			// Example: "grid.citation.CitationGridHandler"
+			// becomes "grid-citation-citationgrid"
+			$componentId = str_replace('.', '-', String::strtolower(String::substr($componentId, 0, -7)));
+			$this->setId($componentId);
+		} else {
+			assert(is_a($router, 'PKPPageRouter'));
+			$this->setId($router->getRequestedPage($request));
+		}
 	}
 
 	/**

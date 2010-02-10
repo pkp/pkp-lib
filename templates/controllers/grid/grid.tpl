@@ -10,7 +10,7 @@
  *  configuring an actual pixel width in the controller.
  *}
 
-{assign var=gridId value="grid-`$grid->getId()`"}
+{assign var=gridId value="component-`$grid->getId()`"}
 {assign var=gridTableId value="`$gridId`-table"}
 <div id="{$gridId}" class="grid">
 	<div class="wrapper">

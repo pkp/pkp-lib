@@ -6,7 +6,7 @@
  *
  * a grid row with Actions
  *}
-{assign var=rowId value="`$row->getGridId()`-row-`$row->getId()`"}
+{assign var=rowId value="component-`$row->getGridId()`-row-`$row->getId()`"}
 {capture name=rowActions}
 	{if $row->getActions()}
 		<div class="row_controls">

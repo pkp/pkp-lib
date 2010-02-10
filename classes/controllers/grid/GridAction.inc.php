@@ -23,6 +23,8 @@ define('GRID_ACTION_TYPE_APPEND', 'append');
 define('GRID_ACTION_TYPE_REPLACE', 'replace');
 define('GRID_ACTION_TYPE_REMOVE', 'remove');
 
+define('GRID_ACTION_POSITION_DEFAULT', 'default');
+
 class GridAction {
 	/** @var string the id of the action */
 	var $_id;

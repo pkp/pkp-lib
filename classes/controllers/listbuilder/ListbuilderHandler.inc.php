@@ -7,57 +7,63 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Listbuilder
- * @ingroup controllers\_listbuilder
+ * @ingroup controllers_listbuilder
  *
  * @brief Class defining basic operations for handling Listbuilder UI elements
  */
 
-import('controllers.grid.GridMainHandler');
-import('core.JSON');
+import('controllers.grid.GridHandler');
 
 define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
 define('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
 
-class ListbuilderHandler extends GridMainHandler {
-	/** The title of the overall list builder.  **/
-	var $title;
-
-	/** Internal identifier for the Listbuilder. To be used as a programmatic reference. */
-	var $id;
-
-	/** The label associated with the primary source to be added to the list **/
+// FIXME: Rather than inheriting from grid handler, common base
+// functionality might better be factored into a common base handler
+// class and then both, GridHandler and ListbuilderHandler should
+// inherit from the common base class. The shared concept of grids
+// and list builders is that both seem to work with element lists. Maybe
+// ElementListHandler would be a good name then for a common base
+// class? I'm not a 100% sure about this but it'll become obvious
+// once you try. If there's considerable amounts of code in both
+// the base class and the re-factored grid handler then you know
+// you're on the right track.
+class ListbuilderHandler extends GridHandler {
+	/** @var string The label associated with the primary source to be added to the list **/
 	var $sourceTitle;
 
-	/** Definition of the type of source **/
+	/** @var integer Definition of the type of source **/
 	var $sourceType;
 
-	/** The current collection of items in the list **/
+	/** @var array The current collection of items in the list **/
 	var $items;
 
-	/** The title of the item collection **/
+	/** @var string The title of the item collection **/
 	var $listTitle;
 
-	/** Array of optional attributes **/
+	/** @var array Array of optional attributes **/
 	var $attributeNames;
 
-	/* Array of strings containing possible items that are stored in the source list */
+	/** @var array Array of strings containing possible items that are stored in the source list */
 	var $possibleItems;
 
 	/**
 	 * Constructor.
 	 */
 	function ListbuilderHandler() {
-		parent::GridMainHandler();
+		parent::GridHandler();
 	}
 
 	function getRemoteOperations() {
-		return array('fetch', 'additem', 'deleteitems');
+		return array('fetch', 'addItem', 'deleteItems');
 	}
 
 	/**
 	 * Set the title for the source (left side of the listbuilder)
-	 * @param sourceTitle string
+	 * FIXME: AFAIK doxygen needs the $ to correctly parse variable names
+	 *  I've corrected this throughout the code but leave this as a marker
+	 *  for you.
+	 * @param $sourceTitle string
 	 */
 	function setSourceTitle($sourceTitle) {
 		$this->sourceTitle = $sourceTitle;
@@ -73,7 +79,7 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
 	 * Set the type of source (Free text input, select from list, autocomplete)
-	 * @param sourceType int
+	 * @param $sourceType int
 	 */
 	function setSourceType($sourceType) {
 		$this->sourceType = $sourceType;
@@ -89,7 +95,7 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
 	 * Set the ListbuilderItem associated with this class
-	 * @param items array
+	 * @param $items array
 	 */
 	function setItems($items) {
 		$this->items = $items;
@@ -113,7 +119,7 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
 	 * Remove a ListbuilderItem by ID
-	 * @param itemId mixed
+	 * @param $itemId mixed
 	 */
 	function removeItem($itemId) {
 		unset($items[$itemId]);
@@ -121,7 +127,7 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
 	 * Set the localized label for the list (right side of the listbuilder)
-	 * @param listTitle string
+	 * @param $listTitle string
 	 */
 	function setListTitle($listTitle) {
 		$this->listTitle = $listTitle;
@@ -137,7 +143,7 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
 	 * Set the localized labels for each attribute
-	 * @param attributeNames array
+	 * @param $attributeNames array
 	 */
 	function setAttributeNames($attributeNames) {
 		$this->attributeNames = $attributeNames;
@@ -153,9 +159,11 @@ class ListbuilderHandler extends GridMainHandler {
 
 	/**
  	 * Build a list of <option>'s based on the input (can be array or one list item)
-	 * @param itemName string
-	 * @param attributeNames string
+	 * @param $itemName string
+	 * @param $attributeNames string
 	 */
+	// FIXME: HTML is to be kept in the view layer. Please implement as
+	// a template.
 	function buildListItemHTML($itemId, $itemName, $attributeNames) {
 		if (isset($attributeNames)) {
 			if (is_array($attributeNames)) $attributeNames = implode(', ', $attributeNames);
@@ -176,22 +184,20 @@ class ListbuilderHandler extends GridMainHandler {
 		$this->setupTemplate();
 		$router =& $request->getRouter();
 
-		// Let the subclass configure the listbuilder
-		$this->initialize($request);
-
-		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'additem'));
-		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteitems'));
-		$templateMgr->assign('autocompleteUrl', $router->url($request, array(), null, 'getautocompletesource'));
+		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
+		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
+		// FIXME: The autocomplete url action doesn't seem to be defined in this handler.
+		// If it's implemented in sub-classes then either insert an abstract method here
+		// or move the assignment to the subclass as well.
+		$templateMgr->assign('autocompleteUrl', $router->url($request, array(), null, 'getAutocompleteSource'));
 
 		// Translate modal submit/cancel buttons
 		$okButton = Locale::translate('common.ok');
 		$warning = Locale::translate('common.warning');
 		$templateMgr->assign('localizedButtons', "$okButton, $warning");
 
-		$rowHandler =& $this->getRowHandler();
 		// initialize to create the columns
-		$rowHandler->initialize($request);
-		$columns =& $rowHandler->getColumns();
+		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign('numColumns', count($columns));
 
@@ -200,15 +206,17 @@ class ListbuilderHandler extends GridMainHandler {
 		$templateMgr->assign_by_ref('rows', $rows);
 
 		$templateMgr->assign('listbuilder', $this);
+		// FIXME: Templates should always be configurable. I propse you
+		// override the initialize method for this.
 		echo $templateMgr->fetch('controllers/listbuilder/listbuilder.tpl');
     }
-    
+
 
 	/**
 	 * Handle adding an item to the list
 	 * NB: sub-classes must implement this method.
 	 */
-	function additem(&$args, &$request) {
+	function addItem(&$args, &$request) {
 		assert(false);
 	}
 
@@ -216,10 +224,13 @@ class ListbuilderHandler extends GridMainHandler {
 	 * Handle deleting items from the list
 	 * NB: sub-classes must implement this method.
 	 */
-	function deleteitems(&$args, &$request) {
+	function deleteItems(&$args, &$request) {
 		assert(false);
 	}
 
+	/**
+	 * @see PKPHandler::setupTemplate()
+	 */
 	function setupTemplate() {
 		parent::setupTemplate();
 

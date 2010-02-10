@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/controllers/grid/column/GridColumn.inc.php
+ * @file classes/controllers/grid/GridColumn.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridColumn
- * @ingroup controllers_grid_column
+ * @ingroup controllers_grid
  *
  * @brief Represents a column within a grid. It is used to configure the way
  *  cells within a column are displayed (cell provider) and can also be used
@@ -135,8 +135,8 @@ class GridColumn {
 	function &getCellProvider() {
 		if (is_null($this->_cellProvider)) {
 			// provide a sensible default cell provider
-			import('controllers.grid.GridCellProvider');
-			$cellProvider =& new GridCellProvider();
+			import('controllers.grid.ArrayGridCellProvider');
+			$cellProvider =& new ArrayGridCellProvider();
 			$this->setCellProvider($cellProvider);
 		}
 		return $this->_cellProvider;

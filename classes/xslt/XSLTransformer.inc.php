@@ -44,7 +44,7 @@ class XSLTransformer {
 	 * @return boolean returns false if no XSLT processor could be created
 	 */
 	function XSLTransformer() {
-		$this->externalCommand = Config::getVar('general', 'xslt_command');
+		$this->externalCommand = Config::getVar('cli', 'xslt_command');
 
 		// Determine the appropriate XSLT processor for the system
 		if ($this->externalCommand) {

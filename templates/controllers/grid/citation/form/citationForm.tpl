@@ -1,44 +1,38 @@
 
 {**
- * sponsors.tpl
+ * citationForm.tpl
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Sponsors grid form
+ * Citation grid form
  *
  * $Id$
  *}
-{**FIXME: fix URL action to use new Request URL method **}
-<form name="editSponsorForm" id="editSponsorForm" method="post" action="{$baseUrl}/index.php/dev/$$$call$$$/grid/sponsor/sponsor-row/update-sponsor"}
-{include file="common/formErrors.tpl"}
+<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
+	{include file="common/formErrors.tpl"}
 
-<h3>1.5 {translate key="manager.setup.sponsors"}</h3>
+	<h3>{translate key="submission.citations.form.title"}</h3>
 
-<p>{translate key="manager.setup.sponsorsDescription"}</p>
+	<p>{translate key="submission.citations.form.description"}</p>
 
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="institution" key="manager.setup.institution"}</td>
-		<td width="80%" class="value"><input type="text" name="institution" id="institution" size="40" maxlength="90" class="textField rule_required" value="{$institution|escape}" /></td>
-	</tr>
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="url" key="common.url"}</td>
-		<td width="80%" class="value"><input type="text" name="url" id="url" size="40" maxlength="255" class="textField rule_required rule_url" value="{$url|escape}" /></td>
-	</tr>
-</table>
+	<table width="100%" class="data">
+		<tr valign="top">
+			<td width="30%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
+			<td width="70%" class="value"><textarea name="editedCitation" id="editedCitation" cols="40" rows="3" class="textField">{$editedCitation}</textarea></td>
+		</tr>
+		{foreach from=$citationVars key=fieldName item=field}
+			<tr valign="top">
+				<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
+				<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="90" class="textField" value="{$field.value|escape}" /></td>
+			</tr>
+		{/foreach}
+	</table>
 
-{if $gridId}
-	<input type="hidden" name="gridId" value="{$gridId|escape}" />	
-{/if}
-{if $rowId}
-	<input type="hidden" name="rowId" value={$rowId|escape} />
-{/if}
-{if $sponsorId}
-	<input type="hidden" name="sponsorId" value="{$sponsorId|escape}" />
-{/if}
+	<input type="hidden" name="articleId" value="{$articleId|escape}" />
+	{if $citationId}
+		<input type="hidden" name="citationId" value="{$citationId|escape}" />
+	{/if}
 
-	
-
-<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+	<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 </form>

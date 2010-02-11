@@ -66,7 +66,7 @@ class PKPHandler {
 	 * handler instantiation. Calling getDispatcher()
 	 * in the constructor will fail.
 	 *
-	 * @return PKPDispatcher
+	 * @return Dispatcher
 	 */
 	function &getDispatcher() {
 		assert(!is_null($this->_dispatcher));

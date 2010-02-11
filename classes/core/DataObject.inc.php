@@ -176,6 +176,14 @@ class DataObject {
 	}
 
 	/**
+	 * Returns all supported meta-data adapters
+	 * @return array
+	 */
+	function &getSupportedMetadataAdapters() {
+		return $this->_metadataAdapters;
+	}
+
+	/**
 	 * Retrieve the names of meta-data
 	 * properties that need to be persisted.
 	 * @param $translated boolean if true, return localized field
@@ -238,7 +246,7 @@ class DataObject {
 				// the filter will use to update the current instance
 				// of the data object.
 				$input = array(&$metadataDescription, &$this);
-				$dataObject =& $metadataAdapter->filter($input);
+				$dataObject =& $metadataAdapter->execute($input);
 				break;
 			}
 		}
@@ -260,7 +268,7 @@ class DataObject {
 			if ($metadataSchema->getName() == $supportedMetadataSchema->getName()) {
 				// Use adapter filter to convert from a data object
 				// to a meta-data description.
-				$metadataDescription =& $metadataAdapter->filter($this);
+				$metadataDescription =& $metadataAdapter->execute($this);
 				break;
 			}
 		}

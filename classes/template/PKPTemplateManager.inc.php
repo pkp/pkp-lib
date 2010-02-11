@@ -133,7 +133,8 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
-		// UI overhaul
+		// JS UI components
+		$this->register_function('load_div', array(&$this, 'smartyLoadUrlInDiv'));
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
@@ -871,8 +872,15 @@ class PKPTemplateManager extends Smarty {
 		}
 		$url = $params['url'];
 		$id = $params['id'];
+		if (isset($params['loadMessageId'])) {
+			$loadMessageId = $params['loadMessageId'];
+			unset($params['url'], $params['id'], $params['loadMessageId']);
+			$translatedLoadMessage = Locale::translate($loadMessageId, $params);
+		} else {
+			$translatedLoadMessage = '';
+		}
 
-		echo "<div id=\"$id\"></div>
+		echo "<div id=\"$id\">$translatedLoadMessage</div>
 		<script type='text/javascript'>
 		  $(\"#$id\").load(\"$url\");
 		</script>";

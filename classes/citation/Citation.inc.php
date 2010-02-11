@@ -26,30 +26,12 @@ define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 
 import('core.DataObject');
-import('metadata.NlmCitationSchema');
-import('metadata.NlmCitationSchemaCitationAdapter');
+import('metadata.nlm.NlmCitationSchema');
+import('metadata.nlm.NlmCitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
-	/** @var integer */
-	var $_assocType;
-
-	/** @var integer */
-	var $_assocId;
-
 	/** @var int citation state (raw, edited, parsed, looked-up) */
 	var $_citationState = CITATION_RAW;
-
-	/** @var string */
-	var $_rawCitation;
-
-	/** @var string */
-	var $_editedCitation;
-
-	/** @var float */
-	var $_parseScore;
-
-	/** @var float */
-	var $_lookupScore;
 
 	/**
 	 * Constructor.
@@ -71,38 +53,6 @@ class Citation extends DataObject {
 	// Getters and Setters
 	//
 	/**
-	 * Get the association type
-	 * @return integer
-	 */
-	function getAssocType() {
-		return $this->_assocType;
-	}
-
-	/**
-	 * Set the association type
-	 * @param $assocType integer
-	 */
-	function setAssocType($assocType) {
-		$this->_assocType = $assocType;
-	}
-
-	/**
-	 * Get the association id
-	 * @return integer
-	 */
-	function getAssocId() {
-		return $this->_assocId;
-	}
-
-	/**
-	 * Set the association id
-	 * @param $assocId integer
-	 */
-	function setAssocId($assocId) {
-		$this->_assocId = $assocId;
-	}
-
-	/**
 	 * Get the citationState
 	 * @return integer
 	 */
@@ -120,11 +70,43 @@ class Citation extends DataObject {
 	}
 
 	/**
+	 * Get the association type
+	 * @return integer
+	 */
+	function getAssocType() {
+		return $this->getData('assocType');
+	}
+
+	/**
+	 * Set the association type
+	 * @param $assocType integer
+	 */
+	function setAssocType($assocType) {
+		$this->setData('assocType', $assocType);
+	}
+
+	/**
+	 * Get the association id
+	 * @return integer
+	 */
+	function getAssocId() {
+		return $this->getData('assocId');
+	}
+
+	/**
+	 * Set the association id
+	 * @param $assocId integer
+	 */
+	function setAssocId($assocId) {
+		$this->setData('assocId', $assocId);
+	}
+
+	/**
 	 * Get the rawCitation
 	 * @return string
 	 */
 	function getRawCitation() {
-		return $this->_rawCitation;
+		return $this->getData('rawCitation');
 	}
 
 	/**
@@ -140,7 +122,7 @@ class Citation extends DataObject {
 		// 2) Strip slashes and whitespace
 		$rawCitation = trim(stripslashes($rawCitation));
 
-		$this->_rawCitation = $rawCitation;
+		$this->setData('rawCitation', $rawCitation);
 	}
 
 	/**
@@ -148,7 +130,7 @@ class Citation extends DataObject {
 	 * @return string
 	 */
 	function getEditedCitation() {
-		return $this->_editedCitation;
+		return $this->getData('editedCitation');
 	}
 
 	/**
@@ -156,7 +138,7 @@ class Citation extends DataObject {
 	 * @param $editedCitation string
 	 */
 	function setEditedCitation($editedCitation) {
-		$this->_editedCitation = $editedCitation;
+		$this->setData('editedCitation', $editedCitation);
 	}
 
 	/**
@@ -164,7 +146,7 @@ class Citation extends DataObject {
 	 * @return integer
 	 */
 	function getParseScore() {
-		return $this->_parseScore;
+		return $this->getData('parseScore');
 	}
 
 	/**
@@ -172,7 +154,7 @@ class Citation extends DataObject {
 	 * @param $parseScore integer
 	 */
 	function setParseScore($parseScore) {
-		$this->_parseScore = $parseScore;
+		$this->setData('parseScore', $parseScore);
 	}
 
 	/**
@@ -180,7 +162,7 @@ class Citation extends DataObject {
 	 * @return integer
 	 */
 	function getLookupScore() {
-		return $this->_lookupScore;
+		return $this->getData('lookupScore');
 	}
 
 	/**
@@ -188,7 +170,23 @@ class Citation extends DataObject {
 	 * @param $lookupScore integer
 	 */
 	function setLookupScore($lookupScore) {
-		$this->_lookupScore = $lookupScore;
+		$this->setData('lookupScore', $lookupScore);
+	}
+
+	/**
+	 * Returns all properties of this citation. The returned
+	 * array contains the name spaces as key and the property
+	 * list as values.
+	 * @return array
+	 */
+	function &getNamespacedMetadataProperties() {
+		$metadataAdapters =& $this->getSupportedMetadataAdapters();
+		$metadataProperties = array();
+		foreach($metadataAdapters as $metadataAdapter) {
+			$metadataSchema =& $metadataAdapter->getMetadataSchema();
+			$metadataProperties[$metadataSchema->getNamespace()] = $metadataSchema->getProperties();
+		}
+		return $metadataProperties;
 	}
 
 

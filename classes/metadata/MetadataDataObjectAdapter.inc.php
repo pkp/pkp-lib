@@ -19,6 +19,7 @@
 // $Id$
 
 import('filter.Filter');
+import('metadata.MetadataDescription');
 
 define('METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED', 0x01);
 define('METADATA_DATAOBJECT_ADAPTER_MODE_REC_TO_APP', 0x01);
@@ -236,10 +237,10 @@ class MetadataDataObjectAdapter extends Filter {
 	//
 	/**
 	 * Override the base method to re-set the adapter mode.
-	 * @see Filter::filter()
+	 * @see Filter::execute()
 	 */
-	function &filter(&$input) {
-		$output =& parent::filter($input);
+	function &execute(&$input) {
+		$output =& parent::execute($input);
 
 		// Re-set the adapter mode before leaving the filter.
 		$this->_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED;

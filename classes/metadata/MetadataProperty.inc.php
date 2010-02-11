@@ -54,6 +54,9 @@ class MetadataProperty {
 	/** @var string property name */
 	var $_name;
 
+	/** @var string a translation id */
+	var $_displayName;
+
 	/** @var int the resource types that can be described with this property */
 	var $_assocTypes;
 
@@ -80,7 +83,7 @@ class MetadataProperty {
 	 * @param $compositeType integer an association type, mandatory if $type is METADATA_PROPERTY_TYPE_COMPOSITE
 	 */
 	function MetadataProperty($name, $assocTypes = array(), $type = METADATA_PROPERTY_TYPE_STRING,
-			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $compositeType = null) {
+			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $compositeType = null, $displayName = null) {
 
 		// Validate input data
 		assert(is_array($assocTypes));
@@ -100,6 +103,10 @@ class MetadataProperty {
 		$this->_compositeType = $compositeType;
 		$this->_translated = (boolean)$translated;
 		$this->_cardinality = (integer)$cardinality;
+
+		// Default display name
+		if (is_null($displayName)) $displayName = 'metadata.property.displayName.'.$this->_name;
+		$this->_displayName = (string)$displayName;
 	}
 
 	/**
@@ -108,6 +115,15 @@ class MetadataProperty {
 	 */
 	function getName() {
 		return $this->_name;
+	}
+
+	/**
+	 * Get the translation id representing
+	 * the display name of the property.
+	 * @return string
+	 */
+	function getDisplayName() {
+		return $this->_displayName;
 	}
 
 	/**

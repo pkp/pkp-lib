@@ -75,8 +75,9 @@ class Form {
 
 	/**
 	 * Display the form.
+	 * @param $request PKPRequest
 	 */
-	function display() {
+	function display($request = null) {
 		if (checkPhpVersion('4.3.0')) {
 			$returner = null;
 			$trace = debug_backtrace();
@@ -89,7 +90,7 @@ class Form {
 			}
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_NO_STORE);
 		$templateMgr->register_function('fieldLabel', array(&$this, 'smartyFieldLabel'));
 		$templateMgr->register_function('form_language_chooser', array(&$this, 'smartyFormLanguageChooser'));

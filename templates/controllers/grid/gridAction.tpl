@@ -1,5 +1,5 @@
 {** if the actOnId has not been specified, assume the id plays the role *}
-{if !$actOnId} 
+{if !$actOnId}
 	{assign var=actOnId value=$id}
 {/if}
 
@@ -10,6 +10,15 @@
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_CONFIRM}
 	{confirm url=$action->getUrl() dialogText=$action->getTitle() actOnType=$action->getType() actOnId=$actOnId button="#`$buttonId`"}
+
+{elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
+	<script type='text/javascript'>
+		$(document).ready(function() {ldelim}
+			$('#{$buttonId}').bind('click', function() {ldelim}
+				$('#{$actOnId}').load('{$action->getUrl()}');
+			{rdelim});
+		{rdelim});
+	</script>
 
 {/if}
 {if $action->getImage()}

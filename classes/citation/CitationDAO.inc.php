@@ -99,7 +99,7 @@ class CitationDAO extends DAO {
 				citation_state = ?,
 				raw_citation = ?,
 				edited_citation = ?,
-				parse_score = ?
+				parse_score = ?,
 				lookup_score = ?
 			WHERE	citation_id = ?',
 			array(
@@ -109,7 +109,8 @@ class CitationDAO extends DAO {
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
 				$citation->getParseScore(),
-				$citation->getLookupScore()
+				$citation->getLookupScore(),
+				(integer)$citation->getId()
 			)
 		);
 		$this->_updateCitationMetadata($citation);
@@ -121,7 +122,7 @@ class CitationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteCitation(&$citation) {
-		return $this->deleteObjectById($citation->getId());
+		return $this->deleteCitationById($citation->getId());
 	}
 
 	/**
@@ -133,6 +134,21 @@ class CitationDAO extends DAO {
 		$params = array((int)$citationId);
 		$this->update('DELETE FROM citation_settings WHERE citation_id = ?', $params);
 		return $this->update('DELETE FROM citations WHERE citation_id = ?', $params);
+	}
+
+	/**
+	 * Delete all citations matching a particular association id.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return boolean
+	 */
+	function &deleteCitationsByAssocId($assocType, $assocId) {
+		$citations =& $this->getCitationsByAssocId($assocType, $assocId);
+		while (($citation =& $citations->next())) {
+			$this->deleteCitationById($citation->getId());
+			unset($citation);
+		}
+		return true;
 	}
 
 

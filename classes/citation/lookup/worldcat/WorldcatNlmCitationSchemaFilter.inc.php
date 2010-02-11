@@ -24,6 +24,7 @@ define('WORLDCAT_WEBSERVICE_OCLC', 'http://xisbn.worldcat.org/webservices/xid/oc
 // Lookup in MARCXML which has better granularity than Dublin Core
 define('WORLDCAT_WEBSERVICE_EXTRACT', 'http://www.worldcat.org/webservices/catalog/content/');
 define('WORLDCAT_WEBSERVICE_XISBN', 'http://xisbn.worldcat.org/webservices/xid/isbn/');
+// TODO: Should we use OCLC basic API as fallback (see <http://www.worldcat.org/devnet/wiki/BasicAPIDetails>)?
 
 class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/** @var string Worldcat API key */

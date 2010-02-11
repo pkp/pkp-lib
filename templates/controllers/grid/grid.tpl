@@ -16,7 +16,11 @@
 	<div class="wrapper">
 		<span class="options">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
+				{if $action->getType() eq $smarty.const.GRID_ACTION_TYPE_NOTHING}
+					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId}
+				{else}
+					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
+				{/if}
 			{/foreach}
 		</span>
 		<h3>{$grid->getTitle()|translate}</h3>

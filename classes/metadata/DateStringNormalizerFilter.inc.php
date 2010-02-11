@@ -53,19 +53,38 @@ class DateStringNormalizerFilter extends Filter {
 			'Jul' => '07', 'Aug' => '08', 'Sep' => '09', 'Oct' => '10', 'Nov' => '11', 'Dec' => '12'
 		);
 
+		$dateExpressions = array(
+			'/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/',
+			'/(?P<year>\d{4})\s*(?P<monthName>[a-z]\w+)?\s*(?P<day>\d+)?/i'
+		);
 		$normalizedDate = null;
-		if (String::regexp_match_get("/(?P<year>\d{4})\s*(?P<month>[a-z]\w+)?\s*(?P<day>\d+)?/i", $input, $parsedDate) ){
-			if (isset($parsedDate['year'])) {
-				$normalizedDate = $parsedDate['year'];
+		foreach($dateExpressions as $dateExpression) {
+			if (String::regexp_match_get($dateExpression, $input, $parsedDate) ){
+				if (isset($parsedDate['year'])) {
+					$normalizedDate = $parsedDate['year'];
 
-				if (isset($parsedDate['month'])
-						&& isset($monthNames[substr($parsedDate['month'], 0, 3)])) {
-					// Convert the month name to a two digit numeric month representation
-					// before adding it to the normalized date string.
-					$normalizedDate .= '-'.$monthNames[substr($parsedDate['month'], 0, 3)];
+					$month = '';
+					if (isset($parsedDate['monthName'])) {
+						$monthName = substr($parsedDate['monthName'], 0, 3);
+						if (isset($monthNames[$monthName])) {
+							// Convert the month name to a two digit numeric month representation
+							// before adding it to the normalized date string.
+							$month = $monthNames[$monthName];
+						}
+					}
 
-					if (isset($parsedDate['day'])) $normalizedDate .= '-'.str_pad($parsedDate['day'], 2, '0', STR_PAD_LEFT);
+					if (isset($parsedDate['month'])) {
+						$monthInt = (integer)$parsedDate['month'];
+						if ($monthInt >=1 && $monthInt <= 12)
+							$month = str_pad((string)$monthInt, 2, '0', STR_PAD_LEFT);
+					}
+
+					if (!empty($month)) {
+						$normalizedDate .= '-'.$month;
+						if (isset($parsedDate['day'])) $normalizedDate .= '-'.str_pad($parsedDate['day'], 2, '0', STR_PAD_LEFT);
+					}
 				}
+				if (!empty($normalizedDate)) break;
 			}
 		}
 

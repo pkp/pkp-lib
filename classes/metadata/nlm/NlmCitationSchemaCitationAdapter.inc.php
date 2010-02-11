@@ -18,7 +18,8 @@
 // $Id$
 
 import('metadata.MetadataDataObjectAdapter');
-import('metadata.NlmCitationSchema');
+import('metadata.nlm.NlmCitationSchema');
+import('metadata.nlm.NlmNameSchema');
 
 class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	/**
@@ -107,6 +108,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 						$nameDescription = new MetadataDescription($nameSchema, $assocType);
 						$nameDescription->setStatements($name);
 						$names[$key] =& $nameDescription;
+						unset($nameDescription);
 					}
 					$statements[$propertyName] =& $names;
 				} else {

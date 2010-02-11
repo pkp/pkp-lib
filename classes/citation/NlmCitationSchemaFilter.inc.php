@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NlmCitationSchemaFilter
- * @ingroup metadata_nlm
+ * @ingroup classes_citation
  *
  * @brief Abstract base class for all filters that transform
  *  NLM citation metadata descriptions.

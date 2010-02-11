@@ -22,6 +22,54 @@
 	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.citations">References</message>
+	<message key="submission.citations.jQueryRequired"><![CDATA[
+		Citation editing requires jQuery to be enabled. Please go to the <a target="_new" href="{$genericPluginsUrl}">generic plug-ins' page</a> and enable the jQuery plug-in there.
+	]]></message>
+	<message key="submission.citations.grid.title">Edit Citations</message>
+	<message key="submission.citations.grid.importCitations">Import Citations</message>
+	<message key="submission.citations.grid.editedCitation">Citation Text</message>
+	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
+	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>
+	<message key="submission.citations.form.title">Edit Citation</message>
+	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
+	<message key="submission.citations.form.description">Please manually improve the citation then try re-validating it.</message>
+	<!-- FIXME: move to meta-data plug-in -->
+	<message key="metadata.property.displayName.author">Authors</message>
+	<message key="metadata.property.displayName.editor">Editors</message>
+	<message key="metadata.property.displayName.article-title">Article Title</message>
+	<message key="metadata.property.displayName.source">Journal/Book Title</message>
+	<message key="metadata.property.displayName.date">Publication Date</message>
+	<message key="metadata.property.displayName.access-date">Access Date</message>
+	<message key="metadata.property.displayName.issue">Issue</message>
+	<message key="metadata.property.displayName.volume">Volume</message>
+	<message key="metadata.property.displayName.season">Season</message>
+	<message key="metadata.property.displayName.chapter-title">Chaper Title</message>
+	<message key="metadata.property.displayName.edition">Edition</message>
+	<message key="metadata.property.displayName.series">Series</message>
+	<message key="metadata.property.displayName.supplement">Supplement</message>
+	<message key="metadata.property.displayName.conf-date">Conference Date</message>
+	<message key="metadata.property.displayName.conf-loc">Conference Location</message>
+	<message key="metadata.property.displayName.conf-name">Conference Name</message>
+	<message key="metadata.property.displayName.conf-sponsor">Conference Sponsor</message>
+	<message key="metadata.property.displayName.institution">Institution</message>
+	<message key="metadata.property.displayName.fpage">First Page</message>
+	<message key="metadata.property.displayName.lpage">Last Page</message>
+	<message key="metadata.property.displayName.size">Number of Pages</message>
+	<message key="metadata.property.displayName.publisher-loc">Publisher Location</message>
+	<message key="metadata.property.displayName.publisher-name">Publisher Name</message>
+	<message key="metadata.property.displayName.isbn">ISBN</message>
+	<message key="metadata.property.displayName.issn">Print ISSN</message>
+	<message key="metadata.property.displayName.eissn">eISSN</message>
+	<message key="metadata.property.displayName.doi">DOI</message>
+	<message key="metadata.property.displayName.publisher-id">Custom Publication ID</message>
+	<message key="metadata.property.displayName.coden">CODEN</message>
+	<message key="metadata.property.displayName.sici">SICI</message>
+	<message key="metadata.property.displayName.pmid">PMID</message>
+	<message key="metadata.property.displayName.uri">Link to the Publication</message>
+	<message key="metadata.property.displayName.comment">Comment</message>
+	<message key="metadata.property.displayName.annotation">Annotation</message>
+	<message key="metadata.property.displayName.publication-type">Publication Type</message>
+	<!-- FIXME: end -->
 	<message key="submission.comments.addComment">Add Comment</message>
 	<message key="submission.comments.comments">Comments</message>
 	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>
@@ -131,6 +179,7 @@
 	<message key="submission.page.history">#{$id} History</message>
 	<message key="submission.page.review">#{$id} Review</message>
 	<message key="submission.page.summary">#{$id} Summary</message>
+	<message key="submission.page.citations">#{$id} Citations</message>
 	<message key="submission.peerReview">Peer&amp;nbsp;Review</message>
 	<message key="submission.recommendation">Recommendation</message>
 	<message key="submission.rejected">Rejected</message>

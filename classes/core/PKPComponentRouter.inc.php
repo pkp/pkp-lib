@@ -58,8 +58,8 @@ define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
 // Two different types of camel case: one for class names and one for method names
-define ('COMPONENT_ROUTER_CLASS', 0x01);
-define ('COMPONENT_ROUTER_METHOD', 0x02);
+define ('CAMEL_CASE_HEAD_UP', 0x01);
+define ('CAMEL_CASE_HEAD_DOWN', 0x02);
 
 import('core.PKPRouter');
 import('core.Request');
@@ -136,12 +136,12 @@ class PKPComponentRouter extends PKPRouter {
 			array_pop($rpcServiceEndpointParts);
 
 			// Construct the fully qualified component class name from the rest of it.
-			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_CLASS).'Handler';
+			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
 
 			// camelize remaining endpoint parts
 			$camelizedRpcServiceEndpointParts = array();
 			foreach ( $rpcServiceEndpointParts as $part) {
-				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part, COMPONENT_ROUTER_METHOD);
+				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part, CAMEL_CASE_HEAD_DOWN);
 			}
 			$handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 
@@ -172,7 +172,7 @@ class PKPComponentRouter extends PKPRouter {
 			}
 
 			// Pop off the operation part
-			$this->_op = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_METHOD);
+			$this->_op = $this->_camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
 		}
 
 		return $this->_op;
@@ -474,17 +474,17 @@ class PKPComponentRouter extends PKPRouter {
 	 * Transform "handler-class" to "HandlerClass"
 	 * and "my-op" to "myOp".
 	 * @param $string input string
-	 * @param $type class or method nomenclature?
+	 * @param $type which kind of camel case?
 	 * @return string the string in camel case
 	 */
-	function _camelize($string, $type = COMPONENT_ROUTER_CLASS) {
-		assert($type == COMPONENT_ROUTER_CLASS || $type == COMPONENT_ROUTER_METHOD);
+	function _camelize($string, $type = CAMEL_CASE_HEAD_UP) {
+		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
 
 		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
 		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
 
 		// Transform "MyOp" to "myOp"
-		if ($type == COMPONENT_ROUTER_METHOD) {
+		if ($type == CAMEL_CASE_HEAD_DOWN) {
 			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
 			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
 		}

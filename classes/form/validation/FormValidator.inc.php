@@ -61,6 +61,11 @@ class FormValidator {
 		$this->field = $field;
 		$this->type = $type;
 		$this->message = $message;
+		$form->cssValidation[$field] = array();
+		
+		if ($type == 'required') {
+			array_push($form->cssValidation[$field], 'required');
+		}
 	}
 
 	/**

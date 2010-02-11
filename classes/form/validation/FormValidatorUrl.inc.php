@@ -29,6 +29,7 @@ class FormValidatorUrl extends FormValidatorUri {
 	 */
 	function FormValidatorUrl(&$form, $field, $type, $message) {
 		parent::FormValidatorUri($form, $field, $type, $message, array('http', 'https', 'ftp'));
+		array_push($form->cssValidation[$field], 'url');
 	}
 }
 

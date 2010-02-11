@@ -29,6 +29,7 @@ class FormValidatorEmail extends FormValidatorRegExp {
 	 */
 	function FormValidatorEmail(&$form, $field, $type, $message) {
 		parent::FormValidatorRegExp($form, $field, $type, $message, FormValidatorEmail::getRegexp());
+		array_push($form->cssValidation[$field], 'email');
 	}
 }
 

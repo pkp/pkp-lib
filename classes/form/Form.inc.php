@@ -43,6 +43,10 @@ class Form {
 
 	/** Styles organized by parameter name */
 	var $fbvStyles;
+		
+	/** Client-side validation rules **/
+	var $cssValidation;
+	
 
 	/**
 	 * Constructor.
@@ -701,12 +705,13 @@ class Form {
 		if (!isset($params['id'])) {
 			$this->trigger_error('FBV: text input form element \'id\' not set.');
 		}
-
+		
 		$textInputParams = '';
 
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
-
+		$params = $this->addClientSideValidation($params);
+		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
 		// prepare the control's size info
@@ -723,11 +728,12 @@ class Form {
 				case 'class': break; //ignore class attributes
 				case 'label': break;
 				case 'type': break;
+				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
+				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
-
 		$smarty->assign('FBV_textInputParams', $textInputParams);
 
 		return $smarty->fetch('form/textInput.tpl');
@@ -743,11 +749,14 @@ class Form {
 		if (!isset($params['id'])) {
 			$this->trigger_error('FBV: text area form element \'id\' not set.');
 		}
-
+		
+		$params = $this->addClientSideValidation($params);
+		
 		$textAreaParams = '';
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
-
+		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
+		
 		// prepare the control's size info
 		if (isset($params['size'])) {
 			$sizeInfo = $this->getStyleInfoByIdentifier('size', $params['size']);
@@ -763,9 +772,7 @@ class Form {
 				case 'label': break;
 				case 'type': break;
 				case 'class': break; //ignore class attributes
-				case 'required':
-					$textAreaParams .= ($value)?"required='1' ":'';
-					break;
+				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
@@ -886,6 +893,21 @@ class Form {
 		$smarty->assign('FBV_radioParams', $radioParams);
 
 		return $smarty->fetch('form/radioButton.tpl');
+	}
+	
+	/**
+	 * Assign the appropriate class name to the element for client-side validation
+	 * @param $params array
+	 * return array
+	 */	
+	function addClientSideValidation($params) {
+		// Assign the appropriate class name to the element for client-side validation
+		$fieldId = $params['id'];
+		if (isset($this->cssValidation[$fieldId])) {
+			$params['validation'] = implode(' ', $this->cssValidation[$fieldId]);
+		}
+
+		return $params;
 	}
 }
 

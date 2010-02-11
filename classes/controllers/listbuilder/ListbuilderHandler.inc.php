@@ -52,7 +52,7 @@ class ListbuilderHandler extends GridMainHandler {
 	}
 
 	function getRemoteOperations() {
-		return array('fetch', 'additem', 'deleteitems', 'getlist', 'getautocompletesource');
+		return array('fetch', 'additem', 'deleteitems');
 	}
 
 	/**
@@ -202,6 +202,23 @@ class ListbuilderHandler extends GridMainHandler {
 		$templateMgr->assign('listbuilder', $this);
 		echo $templateMgr->fetch('controllers/listbuilder/listbuilder.tpl');
     }
+    
+
+	/**
+	 * Handle adding an item to the list
+	 * NB: sub-classes must implement this method.
+	 */
+	function additem(&$args, &$request) {
+		assert(false);
+	}
+
+	/**
+	 * Handle deleting items from the list
+	 * NB: sub-classes must implement this method.
+	 */
+	function deleteitems(&$args, &$request) {
+		assert(false);
+	}
 
 	function setupTemplate() {
 		parent::setupTemplate();

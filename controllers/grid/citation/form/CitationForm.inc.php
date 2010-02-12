@@ -117,6 +117,21 @@ class CitationForm extends Form {
 		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('namespacedMetadataProperties', $namespacedMetadataProperties);
 
+		// Add an action for parsing
+		$actionArgs = array(
+			'articleId' => $this->getData('articleId'),
+			'citationId' => $this->getData('citationId')
+		);
+		$router = $request->getRouter();
+		$parseAction = new GridAction(
+			'parseCitation',
+			GRID_ACTION_MODE_AJAX,
+			GRID_ACTION_TYPE_NOTHING,
+			$router->url($request, null, null, 'parseCitation', null, $actionArgs),
+			'submission.citations.grid.parseCitation'
+		);
+		$templateMgr->assign_by_ref('parseAction', $parseAction);
+
 		parent::display($request);
 	}
 

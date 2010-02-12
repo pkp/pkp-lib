@@ -114,13 +114,7 @@ class Citation extends DataObject {
 	 * @param $rawCitation string
 	 */
 	function setRawCitation($rawCitation) {
-		// Clean the raw citation
-		// 1) If the string contains non-UTF8 characters, convert it to UTF-8
-		if (Config::getVar('i18n', 'charset_normalization') && !String::utf8_compliant($rawCitation)) {
-			$rawCitation = String::utf8_normalize($rawCitation);
-		}
-		// 2) Strip slashes and whitespace
-		$rawCitation = trim(stripslashes($rawCitation));
+		$rawCitation = $this->_cleanCitationString($rawCitation);
 
 		$this->setData('rawCitation', $rawCitation);
 	}
@@ -138,6 +132,8 @@ class Citation extends DataObject {
 	 * @param $editedCitation string
 	 */
 	function setEditedCitation($editedCitation) {
+		$editedCitation = $this->_cleanCitationString($editedCitation);
+
 		$this->setData('editedCitation', $editedCitation);
 	}
 
@@ -206,6 +202,25 @@ class Citation extends DataObject {
 			CITATION_LOOKED_UP
 		);
 		return $_supportedCitationStates;
+	}
+
+	/**
+	 * Take a citation string and clean/normalize it
+	 * @param $citationString string
+	 * @return string
+	 */
+	function _cleanCitationString($citationString) {
+		// 1) If the string contains non-UTF8 characters, convert it to UTF-8
+		if (Config::getVar('i18n', 'charset_normalization') && !String::utf8_compliant($citationString)) {
+			$citationString = String::utf8_normalize($citationString);
+		}
+		// 2) Strip slashes and whitespace
+		$citationString = trim(stripslashes($citationString));
+
+		// 3) Normalize whitespace
+		$citationString = String::regexp_replace('/[\s]+/', ' ', $citationString);
+
+		return $citationString;
 	}
 }
 ?>

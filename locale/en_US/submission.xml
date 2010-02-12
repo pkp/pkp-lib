@@ -27,6 +27,7 @@
 	]]></message>
 	<message key="submission.citations.grid.title">Edit Citations</message>
 	<message key="submission.citations.grid.importCitations">Import Citations</message>
+	<message key="submission.citations.grid.parseCitation">Parse</message>
 	<message key="submission.citations.grid.editedCitation">Citation Text</message>
 	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>

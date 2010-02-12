@@ -184,6 +184,19 @@ class DataObject {
 	}
 
 	/**
+	 * Convenience method that returns an array
+	 * with all meta-data schemas that have corresponding
+	 * meta-data adapters.
+	 */
+	function &getSupportedMetadataSchemas() {
+		$supportedMetadataSchemas = array();
+		foreach($this->getSupportedMetadataAdapters() as $metadataAdapter) {
+			$supportedMetadataSchemas[] = $metadataAdapter->getMetadataSchema();
+		}
+		return $supportedMetadataSchemas;
+	}
+
+	/**
 	 * Retrieve the names of meta-data
 	 * properties that need to be persisted.
 	 * @param $translated boolean if true, return localized field

@@ -38,10 +38,10 @@ class CitationGridHandler extends GridHandler {
 	// Getters/Setters
 	//
 	/**
-	 * @see lib/pkp/classes/handler/PKPHandler#getRemoteOperations()
+	 * @see PKPHandler::getRemoteOperations()
 	 */
 	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'editCitation', 'updateCitation', 'deleteCitation'));
+		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'editCitation', 'parseCitation', 'updateCitation', 'deleteCitation'));
 	}
 
 	/**
@@ -150,12 +150,13 @@ class CitationGridHandler extends GridHandler {
 
 		// Grid actions
 		$router =& $request->getRouter();
+		$actionArgs = array('articleId' => $articleId);
 		$this->addAction(
 			new GridAction(
 				'importCitations',
 				GRID_ACTION_MODE_AJAX,
 				GRID_ACTION_TYPE_NOTHING,
-				$router->url($request, null, null, 'importCitations', null, array('articleId' => $articleId)),
+				$router->url($request, null, null, 'importCitations', null, $actionArgs),
 				'submission.citations.grid.importCitations'
 			)
 		);
@@ -164,7 +165,7 @@ class CitationGridHandler extends GridHandler {
 				'addCitation',
 				GRID_ACTION_MODE_MODAL,
 				GRID_ACTION_TYPE_APPEND,
-				$router->url($request, null, null, 'addCitation'),
+				$router->url($request, null, null, 'addCitation', null, $actionArgs),
 				'grid.action.addItem'
 			)
 		);
@@ -280,6 +281,80 @@ class CitationGridHandler extends GridHandler {
 		} else {
 			$citationForm->initData();
 		}
+		$citationForm->display($request);
+
+		// The form has already been displayed.
+		return '';
+	}
+
+	/**
+	 * Parse a citation
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function parseCitation(&$args, &$request) {
+		// Identify the citation to be parsed
+		$citation =& $this->_getCitationFromArgs($args);
+
+		// Make sure that the citation implements the
+		// meta-data schema. (We currently only support
+		// NLM citation.)
+		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
+		assert(count($supportedMetadataSchemas) == 1);
+		$metadataSchema =& $supportedMetadataSchemas[0];
+		assert(is_a($metadataSchema, 'NlmCitationSchema'));
+
+		// Extract the edited citation string from the citation
+		$citationString = $citation->getEditedCitation();
+
+		// Instantiate the supported parsers
+		//import('citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
+		//$freeciteFilter = new FreeciteRawCitationNlmCitationSchemaFilter();
+		import('citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
+		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
+		import('citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
+		$parscitFilter = new ParscitRawCitationNlmCitationSchemaFilter();
+		import('citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
+		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
+
+		// Instantiate the citation parser multiplexer filter
+		import('filter.GenericMultiplexerFilter');
+		$citationParserMultiplexer = new GenericMultiplexerFilter();
+		//$citationParserMultiplexer->addFilter($freeciteFilter);
+		$citationParserMultiplexer->addFilter($paraciteFilter);
+		$citationParserMultiplexer->addFilter($parscitFilter);
+		$citationParserMultiplexer->addFilter($regexFilter);
+
+		// Instantiate the citation de-multiplexer filter
+		import('citation.NlmCitationParserDemultiplexerFilter');
+		$citationParserDemultiplexer = new NlmCitationParserDemultiplexerFilter();
+
+		// Sequence filters to form the final citation parser filter
+		import('filter.GenericSequencerFilter');
+		$citationParser = new GenericSequencerFilter();
+		$citationParser->addFilter($citationParserMultiplexer, $citationString);
+		$sampleMetadataDescription =& $citation->extractMetadata($metadataSchema);
+		$demuxSampleData = array(&$sampleMetadataDescription, &$sampleMetadataDescription, &$sampleMetadataDescription);
+		$citationParser->addFilter($citationParserDemultiplexer, $demuxSampleData);
+
+		// Parse the citation string
+		$parsedCitation =& $citationParser->execute($citationString);
+		if (is_null($parsedCitation)) fatalError('Parsing error!');
+
+		// Persist the parsed citation
+		$parsedCitation->setId($citation->getId());
+		$article =& $this->_article;
+		$parsedCitation->setAssocId($article->getId());
+		$parsedCitation->setAssocType(ASSOC_TYPE_ARTICLE);
+		$parsedCitation->setRawCitation($citation->getRawCitation());
+		$parsedCitation->setEditedCitation($citationString);
+		$citationDAO =& DAORegistry::getDAO('CitationDAO');
+		$citationDAO->updateCitation($parsedCitation);
+
+		// Re-display the form
+		import('controllers.grid.citation.form.CitationForm');
+		$citationForm = new CitationForm($parsedCitation);
+		$citationForm->initData();
 		$citationForm->display($request);
 
 		// The form has already been displayed.

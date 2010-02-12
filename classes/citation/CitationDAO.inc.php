@@ -142,7 +142,7 @@ class CitationDAO extends DAO {
 	 * @param $assocId int
 	 * @return boolean
 	 */
-	function &deleteCitationsByAssocId($assocType, $assocId) {
+	function deleteCitationsByAssocId($assocType, $assocId) {
 		$citations =& $this->getCitationsByAssocId($assocType, $assocId);
 		while (($citation =& $citations->next())) {
 			$this->deleteCitationById($citation->getId());

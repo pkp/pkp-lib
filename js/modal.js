@@ -25,15 +25,14 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var UID = new Date().getTime();
-		var form = '#' + UID + ' > form';
+		var form = '#' + UID;
 
 		// Construct action to perform when OK and Cancels buttons are clicked
 		var dialogOptions = {};
 		dialogOptions[okButton] = function() {
-			validator = $(form).validate();
-
+			validator = $(form).find('form').validate();
 			// Post to server and construct callback
-			if ($(form).valid()) {
+			if ($(form).find('form').valid()) {
 				$.post(
 					$(form).attr("action"),
 					$(form).serialize(),

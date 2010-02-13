@@ -30,12 +30,13 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::isValid()
+	 * @see Filter::supports()
+	 * @param $input mixed
 	 * @param $output mixed
 	 * @return boolean
 	 */
-	function isValid(&$output) {
-		return $this->isValidIsbn($output);
+	function supports(&$input, &$output) {
+		return parent::supports($input, $output, false, true);
 	}
 
 	/**

@@ -169,7 +169,7 @@ class DataObject {
 				!isset($this->_metadataAdapters[$metadataSchemaName]));
 
 		// Make sure that the adapter converts from/to this application entity
-		assert($metadataAdapter->supports($this));
+		assert($metadataAdapter->supportsAsInput($this));
 
 		// Save adapter and schema
 		$this->_metadataAdapters[$metadataSchemaName] =& $metadataAdapter;
@@ -239,7 +239,7 @@ class DataObject {
 		foreach($this->_metadataAdapters as $metadataAdapter) {
 			// The first adapter that supports the given description
 			// will be used to inject the meta-data into this data object.
-			if ($metadataAdapter->supports($metadataDescription)) {
+			if ($metadataAdapter->supportsAsInput($metadataDescription)) {
 				// Use adapter filter to convert from a meta-data
 				// description to a data object.
 				// NB: we pass in a reference to the data object which

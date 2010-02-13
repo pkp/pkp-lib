@@ -60,30 +60,36 @@ class NlmCitationSchemaFilter extends Filter {
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
-	 * @return boolean
-	 */
-	function supports(&$input) {
-		// This filter requires PHP5's DOMDocument
-		if (!checkPhpVersion('5.0.0')) return false;
-
-		if (!$this->isNlmCitationDescription($input)) return false;
-
-		// Check that the given publication type is supported by this filter
-		// If no publication type is given then we'll support the description
-		// by default.
-		$publicationType = $input->getStatement('[@publication-type]');
-		if (!empty($publicationType) && !in_array($publicationType, $this->getSupportedPublicationTypes())) return false;
-
-		return true;
-	}
-
-	/**
-	 * @see Filter::isValid()
 	 * @param $output mixed
+	 * @param $fromString boolean true if the filter accepts a string as input.
+	 * @param $toString boolean true if the filter produces a string as output.
 	 * @return boolean
 	 */
-	function isValid(&$output) {
-		return $this->isNlmCitationDescription($output);
+	function supports(&$input, &$output, $fromString = false, $toString = false) {
+		// Make sure that the filter registry has correctly
+		// checked the environment.
+		assert(checkPhpVersion('5.0.0'));
+
+		// Check the input
+		if ($fromString) {
+			if (!is_string($input)) return false;
+		} else {
+			if (!$this->isNlmCitationDescription($input)) return false;
+
+			// Check that the given publication type is supported by this filter
+			// If no publication type is given then we'll support the description
+			// by default.
+			$publicationType = $input->getStatement('[@publication-type]');
+			if (!empty($publicationType) && !in_array($publicationType, $this->getSupportedPublicationTypes())) return false;
+		}
+
+		// Check the output
+		if (is_null($output)) return true;
+		if ($toString) {
+			return is_string($output);
+		} else {
+			return $this->isNlmCitationDescription($output);
+		}
 	}
 
 	//

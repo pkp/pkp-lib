@@ -75,28 +75,50 @@
 
 
 class Filter {
-	/** @var array an array of strings that represents the supported transformations */
-	var $_transformationIdentifiers = array();
+	/** @var string */
+	var $_displayName;
 
+	//
+	// Setters and Getters
+	//
 	/**
-	 * Returns true if the given input is supported
-	 * by this filter. Otherwise it must return false.
-	 * NB: sub-classes must implement this method.
-	 * @param $input mixed
-	 * @return boolean
+	 * Set the display name
+	 * @param $displayName string
 	 */
-	function supports(&$input) {
-		assert(false);
+	function setDisplayName($displayName) {
+		$this->_displayName = $displayName;
 	}
 
 	/**
-	 * Returns true if the given value is a valid
-	 * output value for this filter.
-	 * NB: sub-classes must implement this method.
+	 * Get the display name
+	 * @return string
+	 */
+	function getDisplayName() {
+		return $this->_displayName;
+	}
+
+	//
+	// Abstract template methods to be implemented by subclasses
+	//
+	/**
+	 * Returns true if the given input and output
+	 * objects represent a valid transformation
+	 * for this filter.
+	 *
+	 * This check must be type based. It can
+	 * optionally include an additional stateful
+	 * inspection of the given object instances.
+	 *
+	 * If the output type is null then only
+	 * check whether the given input type is
+	 * one of the input types accepted by this
+	 * filter.
+	 *
+	 * @param $input mixed
 	 * @param $output mixed
 	 * @return boolean
 	 */
-	function isValid(&$output) {
+	function supports(&$input, &$output) {
 		assert(false);
 	}
 
@@ -104,28 +126,49 @@ class Filter {
 	 * This method performs the actual data processing.
 	 * NB: sub-classes must implement this method.
 	 * @param $input mixed validated filter input data
-	 * @return mixed non-validated filter output or null if processing
-	 *  was not successful.
+	 * @return mixed non-validated filter output or null
+	 *  if processing was not successful.
 	 */
 	function &process(&$input) {
 		assert(false);
 	}
 
 	//
-	// Class methods
+	// Public methods
 	//
 	/**
+	 * Returns true if the given input is supported
+	 * by this filter. Otherwise returns false.
+	 *
+	 * NB: sub-classes will not normally override
+	 * this method.
+	 *
+	 * @param $input mixed
+	 * @return boolean
+	 */
+	function supportsAsInput(&$input) {
+		$nullVar = null;
+		return($this->supports($input, $nullVar));
+	}
+
+	/**
 	 * Filters the given input.
+	 *
 	 * Input and output of this method will
 	 * be tested for compliance with the filter
 	 * definition.
-	 * NB: sub-classes will not normally override this method.
-	 * @param mixed an input value that is supported by this filter
-	 * @return mixed a valid return value or null if an error occurred during processing
+	 *
+	 * NB: sub-classes will not normally override
+	 * this method.
+	 *
+	 * @param mixed an input value that is supported
+	 *  by this filter
+	 * @return mixed a valid return value or null
+	 *  if an error occurred during processing
 	 */
 	function &execute(&$input) {
 		// Validate the filter input
-		if (!$this->supports($input)) {
+		if (!$this->supportsAsInput($input)) {
 			$output = null;
 			return $output;
 		}
@@ -134,7 +177,7 @@ class Filter {
 		$output =& $this->process($input);
 
 		// Validate the filter output
-		if (is_null($output) || !$this->isValid($output)) $output = null;
+		if (is_null($output) || !$this->supports($output, $input)) $output = null;
 
 		// Return processed data
 		return $output;

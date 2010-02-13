@@ -32,10 +32,11 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
+	 * @param $output mixed
 	 * @return boolean
 	 */
 	function supports(&$input) {
-		return $this->isValidIsbn($input);
+		return parent::supports($input, $output, true);
 	}
 
 	/**

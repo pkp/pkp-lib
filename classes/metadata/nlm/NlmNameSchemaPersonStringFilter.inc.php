@@ -82,18 +82,15 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
-	 * @return boolean
-	 */
-	function supports(&$input) {
-		return $this->isValidPersonDescription($input);
-	}
-
-	/**
-	 * @see Filter::isValid()
 	 * @param $output mixed
 	 * @return boolean
 	 */
-	function isValid(&$output) {
+	function supports(&$input, &$output) {
+		// Check input type
+		if (!$this->isValidPersonDescription($input)) return false;
+
+		// Check output type
+		if (is_null($output)) return true;
 		return is_string($output);
 	}
 

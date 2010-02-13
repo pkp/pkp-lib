@@ -65,10 +65,11 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
+	 * @param $output mixed
 	 * @return boolean
 	 */
-	function supports(&$input) {
-		return is_string($input);
+	function supports(&$input, &$output) {
+		return parent::supports($input, $output, true);
 	}
 
 	/**

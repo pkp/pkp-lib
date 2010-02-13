@@ -82,7 +82,7 @@ class CitationForm extends Form {
 						assert(in_array($property->getCompositeType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
 						import('metadata.nlm.NlmNameSchemaPersonStringFilter');
 						$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
-						assert($personStringFilter->supports($value));
+						assert($personStringFilter->supportsAsInput($value));
 						$fieldValue = $personStringFilter->execute($value);
 					} else {
 						// We currently don't support repeated values
@@ -171,7 +171,7 @@ class CitationForm extends Form {
 							assert(in_array($property->getCompositeType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
 							import('metadata.nlm.PersonStringNlmNameSchemaFilter');
 							$personStringFilter = new PersonStringNlmNameSchemaFilter($property->getCompositeType(), PERSON_STRING_FILTER_MULTIPLE);
-							assert($personStringFilter->supports($fieldValue));
+							assert($personStringFilter->supportsAsInput($fieldValue));
 							$fieldValue =& $personStringFilter->execute($fieldValue);
 							break;
 
@@ -182,7 +182,7 @@ class CitationForm extends Form {
 						case METADATA_PROPERTY_TYPE_DATE:
 							import('metadata.DateStringNormalizerFilter');
 							$dateStringFilter = new DateStringNormalizerFilter();
-							assert($dateStringFilter->supports($fieldValue));
+							assert($dateStringFilter->supportsAsInput($fieldValue));
 							$fieldValue = array($dateStringFilter->execute($fieldValue));
 							break;
 

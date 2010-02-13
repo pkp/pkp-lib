@@ -62,17 +62,15 @@ class CrosswalkFilter extends Filter {
 	//
 	/**
 	 * @see Filter::supports()
-	 * @param $input MetadataDescription
+	 * @param $input mixed
+	 * @param $output mixed
 	 */
-	function supports(&$input) {
-		return $this->_complies($input, $this->getFromSchema());
-	}
+	function supports(&$input, &$output) {
+		// Validate input
+		if (!$this->_complies($input, $this->getFromSchema())) return false;
 
-	/**
-	 * @see Filter::isValid()
-	 * @param $output MetadataDescription
-	 */
-	function isValid(&$output) {
+		// Validate output
+		if (is_null($output)) return true;
 		return $this->_complies($output, $this->getToSchema());
 	}
 

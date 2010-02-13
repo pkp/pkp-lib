@@ -21,10 +21,6 @@
 import('filter.Filter');
 import('metadata.MetadataDescription');
 
-define('METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED', 0x01);
-define('METADATA_DATAOBJECT_ADAPTER_MODE_REC_TO_APP', 0x01);
-define('METADATA_DATAOBJECT_ADAPTER_MODE_APP_TO_REC', 0x02);
-
 class MetadataDataObjectAdapter extends Filter {
 	/** @var MetadataSchema */
 	var $_metadataSchema;
@@ -34,9 +30,6 @@ class MetadataDataObjectAdapter extends Filter {
 
 	/** @var integer */
 	var $_assocType;
-
-	/** @var integer */
-	var $_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED;
 
 	/** @var array */
 	var $_metadataFieldNames;
@@ -142,11 +135,15 @@ class MetadataDataObjectAdapter extends Filter {
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
+	 * @param $output mixed
+	 * @return boolean
 	 */
-	function supports(&$input) {
+	function supports(&$input, &$output) {
+		// Check input tpye
 		switch(true) {
 			// Inject meta-data into an existing data object
 			case is_array($input):
+				// Check input type
 				// We expect two array entries: a MetadataDescription and a target data object.
 				if (count($input) != 2) return false;
 				$metadataDescription =& $input[0];
@@ -156,20 +153,43 @@ class MetadataDataObjectAdapter extends Filter {
 				if (!is_a($dataObject, $this->_dataObjectName)) return false;
 
 				// Check the the meta-data description compliance
-				return $this->_complies($metadataDescription);
+				if (!$this->_complies($metadataDescription)) return false;
+				break;
 
 			// Inject meta-data into a new data object
 			case is_a($input, 'MetadataDescription'):
 				// We just need to check the meta-data description compliance.
-				return $this->_complies($input);
+				if (!$this->_complies($input)) return false;
+				break;
 
 			// Create a new meta-data description from a data object
 			case is_a($input, $this->_dataObjectName):
-				return true;
+				break;
 
 			default:
 				// A non-supported data-type
 				return false;
+		}
+
+		// Check output type
+		if (is_null($output)) return true;
+		switch(true) {
+			case is_array($input):
+			case is_a($input, 'MetadataDescription'):
+				// We expect an application object (DataObject)
+				return is_a($output, $this->_dataObjectName);
+
+			case is_a($input, $this->_dataObjectName):
+				if (!is_a($output, 'MetadataDescription')) return false;
+
+				// Check whether the the output
+				// complies with the supported schema
+				return $this->_complies($output);
+
+			default:
+				// The adapter mode must always be defined
+				// when calling supports().
+				assert(false);
 		}
 	}
 
@@ -184,18 +204,15 @@ class MetadataDataObjectAdapter extends Filter {
 		// Set the adapter mode and convert the input.
 		switch (true) {
 			case is_array($input):
-				$this->_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_REC_TO_APP;
 				$output =& $this->injectMetadataIntoDataObject($input[0], $input[1]);
 				break;
 
 			case is_a($input, 'MetadataDescription'):
-				$this->_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_REC_TO_APP;
 				$nullVar = null;
 				$output =& $this->injectMetadataIntoDataObject($input, $nullVar);
 				break;
 
 			case is_a($input, $this->_dataObjectName):
-				$this->_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_APP_TO_REC;
 				$output =& $this->extractMetadataFromDataObject($input);
 				break;
 
@@ -207,45 +224,6 @@ class MetadataDataObjectAdapter extends Filter {
 		return $output;
 	}
 
-	/**
-	 * @see Filter::isValid()
-	 * @param $output MetadataDescription
-	 */
-	function isValid(&$output) {
-		switch($this->_currentAdapterMode) {
-			case METADATA_DATAOBJECT_ADAPTER_MODE_REC_TO_APP:
-				// We expect an application object (DataObject)
-				return is_a($output, $this->_dataObjectName);
-
-			case METADATA_DATAOBJECT_ADAPTER_MODE_APP_TO_REC:
-				if (!is_a($output, 'MetadataDescription')) return false;
-
-				// Check whether the the output
-				// complies with the supported schema
-				return $this->_complies($output);
-
-			default:
-				// The adapter mode must always be defined
-				// when calling isValid().
-				assert(false);
-		}
-	}
-
-
-	//
-	// Overridden methods
-	//
-	/**
-	 * Override the base method to re-set the adapter mode.
-	 * @see Filter::execute()
-	 */
-	function &execute(&$input) {
-		$output =& parent::execute($input);
-
-		// Re-set the adapter mode before leaving the filter.
-		$this->_currentAdapterMode = METADATA_DATAOBJECT_ADAPTER_MODE_UNDEFINED;
-		return $output;
-	}
 
 	//
 	// Protected helper methods

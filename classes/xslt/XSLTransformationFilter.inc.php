@@ -92,19 +92,17 @@ class XSLTransformationFilter extends Filter {
 	//
 	/**
 	 * We support either an XML string or a DOMDocument
+	 * as input and / or output.
 	 * @see Filter::supports()
 	 * @param $input mixed
-	 */
-	function supports(&$input) {
-		return $this->_isValidXML($input);
-	}
-
-	/**
-	 * We support either an XML string or a DOMDocument
-	 * @see Filter::isValid()
 	 * @param $output mixed
 	 */
-	function isValid(&$output) {
+	function supports(&$input, &$output) {
+		// Check input type
+		if (!$this->_isValidXML($input)) return false;
+
+		// Check output type
+		if (is_null($output)) return true;
 		return $this->_isValidXML($output);
 	}
 

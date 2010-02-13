@@ -24,18 +24,15 @@ class CitationListTokenizerFilter extends Filter {
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
-	 * @return boolean
-	 */
-	function supports(&$input) {
-		return is_string($input);
-	}
-
-	/**
-	 * @see Filter::isValid()
 	 * @param $output mixed
 	 * @return boolean
 	 */
-	function isValid(&$output) {
+	function supports(&$input, &$output) {
+		// Input validation
+		if (!is_string($input)) return false;
+
+		// Output validation
+		if (is_null($output)) return true;
 		if (!is_array($output)) return false;
 		foreach($output as $citationString) {
 			if (!is_string($citationString)) return false;

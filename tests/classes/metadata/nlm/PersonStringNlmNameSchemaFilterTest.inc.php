@@ -126,6 +126,26 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 		foreach($personDescriptions as $testNumber => $personDescription) {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}
+
+		// Test whether comma separation works correctly
+		$personsString = 'Peterberg IFC, Peters HC';
+		$expectedResults = array(
+			array(null, array('I', 'F', 'C'), null, 'Peterberg'),
+			array(null, array('H', 'C'), null, 'Peters'),
+		);
+		$this->_personStringNlmNameSchemaFilter->setFilterTitle(false);
+		$this->_personStringNlmNameSchemaFilter->setFilterDegrees(false);
+		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
+		foreach($personDescriptions as $testNumber => $personDescription) {
+			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
+		}
+
+		// Single name strings should not be cut when separated by comma.
+		$personsString = 'Willinsky, John';
+		$expectedResult = array(null, array('John'), null, 'Willinsky');
+		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
+		$this->assertEquals(1, count($personDescriptions));
+		$this->assertPerson($expectedResult, $personDescriptions[0], $testNumber);
 	}
 
 	/**

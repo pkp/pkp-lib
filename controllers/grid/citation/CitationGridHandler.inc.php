@@ -23,6 +23,11 @@ import('controllers.grid.citation.CitationGridRow');
 import('handler.validation.HandlerValidatorJournal');
 import('handler.validation.HandlerValidatorRoles');
 
+// filter option constants
+// FIXME: Make filter options configurable.
+define('CROSSREF_TEMP_ACCESS_EMAIL', 'pkp-support@sfu.ca');
+define('ISBNDB_TEMP_APIKEY', '4B5GQSQ4');
+
 class CitationGridHandler extends GridHandler {
 	/** @var Article */
 	var $_article;
@@ -39,9 +44,10 @@ class CitationGridHandler extends GridHandler {
 	//
 	/**
 	 * @see PKPHandler::getRemoteOperations()
+	 * @return array
 	 */
 	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'editCitation', 'parseCitation', 'updateCitation', 'deleteCitation'));
+		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'editCitation', 'parseCitation', 'lookupCitation', 'updateCitation', 'deleteCitation'));
 	}
 
 	/**
@@ -62,6 +68,7 @@ class CitationGridHandler extends GridHandler {
 	 * fatal error if validation fails.
 	 * @param $requiredContexts array
 	 * @param $request PKPRequest
+	 * @return boolean
 	 */
 	function validate($requiredContexts, $request) {
 		// Retrieve the request context
@@ -206,6 +213,7 @@ class CitationGridHandler extends GridHandler {
 	 * Import citations from the article
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string
 	 */
 	function importCitations(&$args, &$request) {
 		$article =& $this->getArticle();
@@ -263,15 +271,8 @@ class CitationGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function editCitation(&$args, &$request) {
-		// Instantiate the citation to be edited
-		if (!isset($args['citationId'])) {
-			// It seems that a new citation is being edited
-			import('citation.Citation');
-			$citation = new Citation();
-		} else {
-			// Edit an existing citation
-			$citation =& $this->_getCitationFromArgs($args);
-		}
+		// Identify the citation to be updated
+		$citation =& $this->_getCitationFromArgs($args, true);
 
 		// Form handling
 		import('controllers.grid.citation.form.CitationForm');
@@ -293,72 +294,20 @@ class CitationGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function parseCitation(&$args, &$request) {
-		// Identify the citation to be parsed
-		$citation =& $this->_getCitationFromArgs($args);
+		// Parse the requested citation
+		$filterCallback = array($this, '_instantiateParserFilters');
+		return $this->_filterCitation($request, $args, $filterCallback, CITATION_PARSED);
+	}
 
-		// Make sure that the citation implements the
-		// meta-data schema. (We currently only support
-		// NLM citation.)
-		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
-		assert(count($supportedMetadataSchemas) == 1);
-		$metadataSchema =& $supportedMetadataSchemas[0];
-		assert(is_a($metadataSchema, 'NlmCitationSchema'));
-
-		// Extract the edited citation string from the citation
-		$citationString = $citation->getEditedCitation();
-
-		// Instantiate the supported parsers
-		//import('citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
-		//$freeciteFilter = new FreeciteRawCitationNlmCitationSchemaFilter();
-		import('citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
-		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
-		import('citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
-		$parscitFilter = new ParscitRawCitationNlmCitationSchemaFilter();
-		import('citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
-		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
-
-		// Instantiate the citation parser multiplexer filter
-		import('filter.GenericMultiplexerFilter');
-		$citationParserMultiplexer = new GenericMultiplexerFilter();
-		//$citationParserMultiplexer->addFilter($freeciteFilter);
-		$citationParserMultiplexer->addFilter($paraciteFilter);
-		$citationParserMultiplexer->addFilter($parscitFilter);
-		$citationParserMultiplexer->addFilter($regexFilter);
-
-		// Instantiate the citation de-multiplexer filter
-		import('citation.NlmCitationParserDemultiplexerFilter');
-		$citationParserDemultiplexer = new NlmCitationParserDemultiplexerFilter();
-
-		// Sequence filters to form the final citation parser filter
-		import('filter.GenericSequencerFilter');
-		$citationParser = new GenericSequencerFilter();
-		$citationParser->addFilter($citationParserMultiplexer, $citationString);
-		$sampleMetadataDescription =& $citation->extractMetadata($metadataSchema);
-		$demuxSampleData = array(&$sampleMetadataDescription, &$sampleMetadataDescription, &$sampleMetadataDescription);
-		$citationParser->addFilter($citationParserDemultiplexer, $demuxSampleData);
-
-		// Parse the citation string
-		$parsedCitation =& $citationParser->execute($citationString);
-		if (is_null($parsedCitation)) fatalError('Parsing error!');
-
-		// Persist the parsed citation
-		$parsedCitation->setId($citation->getId());
-		$article =& $this->_article;
-		$parsedCitation->setAssocId($article->getId());
-		$parsedCitation->setAssocType(ASSOC_TYPE_ARTICLE);
-		$parsedCitation->setRawCitation($citation->getRawCitation());
-		$parsedCitation->setEditedCitation($citationString);
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->updateCitation($parsedCitation);
-
-		// Re-display the form
-		import('controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($parsedCitation);
-		$citationForm->initData();
-		$citationForm->display($request);
-
-		// The form has already been displayed.
-		return '';
+	/**
+	 * Citation lookup
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function lookupCitation(&$args, &$request) {
+		// Validate the requested citation
+		$filterCallback = array($this, '_instantiateLookupFilters');
+		return $this->_filterCitation($request, $args, $filterCallback, CITATION_LOOKED_UP);
 	}
 
 	/**
@@ -369,7 +318,7 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function updateCitation(&$args, &$request) {
 		// Identify the citation to be updated
-		$citation =& $this->_getCitationFromArgs($args);
+		$citation =& $this->_getCitationFromArgs($args, true);
 
 		// Form initialization
 		import('controllers.grid.citation.form.CitationForm');
@@ -415,7 +364,7 @@ class CitationGridHandler extends GridHandler {
 		} else {
 			$json = new JSON('false', Locale::translate('submission.citations.grid.errorDeletingCitation'));
 		}
-		echo $json->getString();
+		return $json->getString();
 	}
 
 	//
@@ -427,14 +376,180 @@ class CitationGridHandler extends GridHandler {
 	 * If no citation can be found then this will raise
 	 * a fatal error.
 	 * @param $args array
+	 * @param $createIfMissing boolean If this is set to true
+	 *  then a citation object will be instantiated if no
+	 *  citation id is in the request.
 	 * @return Citation
 	 */
-	function &_getCitationFromArgs(&$args) {
+	function &_getCitationFromArgs(&$args, $createIfMissing = false) {
 		// Identify the citation id and retrieve the
 		// corresponding element from the grid's data source.
-		if (!isset($args['citationId'])) fatalError('Missing citation id!');
-		$citation =& $this->getRowDataElement($args['citationId']);
-		if (is_null($citation)) fatalError('Invalid citation id!');
+		if (!isset($args['citationId'])) {
+			if ($createIfMissing) {
+				// It seems that a new citation is being edited/updated
+				import('citation.Citation');
+				$citation = new Citation();
+				$citation->setAssocType(ASSOC_TYPE_ARTICLE);
+				$article =& $this->getArticle();
+				$citation->setAssocId($article->getId());
+			} else {
+				fatalError('Missing citation id!');
+			}
+		} else {
+			$citation =& $this->getRowDataElement($args['citationId']);
+			if (is_null($citation)) fatalError('Invalid citation id!');
+		}
 		return $citation;
+	}
+
+	/**
+	 * Instantiates filters that can parse a citation.
+	 * FIXME: Make the filter selection configurable and retrieve
+	 * filter candidates from the filter registry.
+	 * @param $citation Citation
+	 * @param $metadataDescription MetadataDescription
+	 * @return array a list of filters and the filter input data
+	 *  as the last entry in the array.
+	 */
+	function &_instantiateParserFilters(&$citation, &$metadataDescription) {
+		// Extract the edited citation string from the citation
+		$citationString = $citation->getEditedCitation();
+
+		// Instantiate the supported parsers
+		import('citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
+		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
+		import('citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
+		$parscitFilter = new ParscitRawCitationNlmCitationSchemaFilter();
+		import('citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
+		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
+
+		$parserFilters = array(&$paraciteFilter, &$parscitFilter, &$regexFilter, $citationString);
+		return $parserFilters;
+	}
+
+	/**
+	 * Instantiates filters that can validate and amend citations
+	 * with information from external data sources.
+	 * FIXME: Make the filter selection configurable and retrieve
+	 * filter candidates from the filter registry.
+	 * @param $citation Citation
+	 * @param $metadataDescription MetadataDescription
+	 * @return array a list of filters and the filter input data
+	 *  as the last entry in the array.
+	 */
+	function &_instantiateLookupFilters(&$citation, &$metadataDescription) {
+		// Instantiate CrossRef filter
+		import('citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
+		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
+
+		// Instantiate and sequence ISBNdb filters
+		import('citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
+		import('citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
+		$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter(ISBNDB_TEMP_APIKEY);
+		$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
+		import('filter.GenericSequencerFilter');
+		$isbndbFilter = new GenericSequencerFilter();
+		$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
+		$isbnSampleData = '1234567890123';
+		$isbndbFilter->addFilter($isbnToNlmFilter, $isbnSampleData);
+
+		// Instantiate the pubmed filter
+		import('citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
+		$pubmedFilter = new PubmedNlmCitationSchemaFilter();
+
+		$lookupFilters = array(&$crossrefFilter, &$isbndbFilter, &$pubmedFilter, $metadataDescription);
+		return $lookupFilters;
+	}
+
+	/**
+	 * Identify the requested citation, call the given callback to filter
+	 * it, persist it and re-display it in the citation form.
+	 * @param $request PKPRequest
+	 * @param $args array
+	 * @param $filterCallback callable
+	 * @param $citationStateAfterFiltering integer the state the citation will
+	 *  be set to after the filter was executed.
+	 * @return string
+	 */
+	function &_filterCitation(&$request, $args, &$filterCallback, $citationStateAfterFiltering) {
+		// Identify the citation to be filtered
+		$citation =& $this->_getCitationFromArgs($args);
+
+		// Make sure that the citation implements the
+		// meta-data schema. (We currently only support
+		// NLM citation.)
+		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
+		assert(count($supportedMetadataSchemas) == 1);
+		$metadataSchema =& $supportedMetadataSchemas[0];
+		assert(is_a($metadataSchema, 'NlmCitationSchema'));
+
+		// Extract the meta-data description from the citation
+		$metadataDescription =& $citation->extractMetadata($metadataSchema);
+
+		// Let the callback build the filter network
+		$filterList = call_user_func($filterCallback, $citation, $metadataDescription);
+
+		// The last entry in the filter list is the
+		// input data for the returned filters.
+		$muxInputData =& array_pop($filterList);
+
+		// Initialize the sample demux input data array.
+		$sampleDemuxInputData = array();
+
+		// Instantiate the citation multiplexer filter
+		import('filter.GenericMultiplexerFilter');
+		$citationMultiplexer = new GenericMultiplexerFilter();
+		$nullVar = null;
+		foreach($filterList as $citationFilter) {
+			if ($citationFilter->supports($muxInputData, $nullVar)) {
+				$citationMultiplexer->addFilter($citationFilter);
+				unset($citationFilter);
+
+				// We expect one citation description per filter
+				// in the multiplexer result.
+				$sampleDemuxInputData[] = &$metadataDescription;
+			}
+		}
+
+		// Instantiate the citation de-multiplexer filter
+		import('citation.NlmCitationDemultiplexerFilter');
+		$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
+		$citationDemultiplexer->setOriginalCitation($citation);
+
+		// Combine multiplexer and de-multiplexer to form the
+		// final citation filter network.
+		import('filter.GenericSequencerFilter');
+		$citationFilterNet = new GenericSequencerFilter();
+		$citationFilterNet->addFilter($citationMultiplexer, $muxInputData);
+		$citationFilterNet->addFilter($citationDemultiplexer, $sampleDemuxInputData);
+
+		// Send the input through the citation filter network.
+		$filteredCitation =& $citationFilterNet->execute($muxInputData);
+		if (is_null($filteredCitation)) fatalError('Citation filter error!');
+
+		// Copy unfiltered data from the original citation to the filtered citation
+		$article =& $this->getArticle();
+		$filteredCitation->setId($citation->getId());
+		$filteredCitation->setAssocId($article->getId());
+		$filteredCitation->setAssocType(ASSOC_TYPE_ARTICLE);
+		$filteredCitation->setRawCitation($citation->getRawCitation());
+		$filteredCitation->setEditedCitation($citation->getEditedCitation());
+
+		// Set the citation state
+		$filteredCitation->setCitationState($citationStateAfterFiltering);
+
+		// Persist the filtered citation
+		$citationDAO =& DAORegistry::getDAO('CitationDAO');
+		$citationDAO->updateCitation($filteredCitation);
+
+		// Re-display the form
+		import('controllers.grid.citation.form.CitationForm');
+		$citationForm = new CitationForm($filteredCitation);
+		$citationForm->initData();
+		$citationForm->display($request);
+
+		// The form has already been displayed.
+		$emptyString = '';
+		return $emptyString;
 	}
 }

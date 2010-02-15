@@ -49,17 +49,14 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		switch($publicationType) {
 			case NLM_PUBLICATION_TYPE_JOURNAL:
 			case NLM_PUBLICATION_TYPE_CONFPROC:
-				import('metadata.openurl.OpenUrlJournalSchema');
 				$outputSchema = new OpenUrlJournalSchema();
 				break;
 
 			case NLM_PUBLICATION_TYPE_BOOK:
-				import('metadata.openurl.OpenUrlBookSchema');
 				$outputSchema = new OpenUrlBookSchema();
 				break;
 
 			case NLM_PUBLICATION_TYPE_THESIS:
-				import('metadata.openurl.OpenUrlDissertationSchema');
 				$outputSchema = new OpenUrlDissertationSchema();
 				break;
 

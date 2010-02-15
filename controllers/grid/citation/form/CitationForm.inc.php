@@ -55,10 +55,6 @@ class CitationForm extends Form {
 	function initData() {
 		$citation =& $this->getCitation();
 
-		// The article and citation id
-		$this->setData('articleId', $citation->getAssocId());
-		$this->setData('citationId', $citation->getId());
-
 		// The unparsed citation text
 		$this->setData('editedCitation', $citation->getEditedCitation());
 
@@ -117,10 +113,13 @@ class CitationForm extends Form {
 		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('namespacedMetadataProperties', $namespacedMetadataProperties);
 
-		// Add an action for parsing
+		// Add the citation to the template
+		$templateMgr->assign_by_ref('citation', $citation);
+
+		// Add actions for parsing and lookup
 		$actionArgs = array(
-			'articleId' => $this->getData('articleId'),
-			'citationId' => $this->getData('citationId')
+			'articleId' => $citation->getAssocId(),
+			'citationId' => $citation->getId()
 		);
 		$router = $request->getRouter();
 		$parseAction = new GridAction(
@@ -131,6 +130,14 @@ class CitationForm extends Form {
 			'submission.citations.grid.parseCitation'
 		);
 		$templateMgr->assign_by_ref('parseAction', $parseAction);
+		$lookupAction = new GridAction(
+			'lookupCitation',
+			GRID_ACTION_MODE_AJAX,
+			GRID_ACTION_TYPE_NOTHING,
+			$router->url($request, null, null, 'lookupCitation', null, $actionArgs),
+			'submission.citations.grid.lookupCitation'
+		);
+		$templateMgr->assign_by_ref('lookupAction', $lookupAction);
 
 		parent::display($request);
 	}

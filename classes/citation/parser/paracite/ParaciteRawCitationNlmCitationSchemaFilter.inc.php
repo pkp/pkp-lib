@@ -117,7 +117,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		// Break up the authors field
 		if (isset($metadata['authors'])) {
 			$metadata['authors'] = String::trimPunctuation($metadata['authors']);
-			$metadata['authors'] = String::iterativeExplode(array(':', ';', ','), $metadata['authors']);
+			$metadata['authors'] = String::iterativeExplode(array(':', ';'), $metadata['authors']);
 		}
 
 		// Convert pages to integers

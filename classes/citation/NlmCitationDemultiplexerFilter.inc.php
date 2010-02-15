@@ -1,32 +1,102 @@
 <?php
 /**
- * @file classes/citation/NlmCitationParserDemultiplexerFilter.inc.php
+ * @file classes/citation/NlmCitationDemultiplexerFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationParserDemultiplexerFilter
+ * @class NlmCitationDemultiplexerFilter
  * @ingroup citation
  *
- * @brief A filter takes a number of citation descriptions and
- *  creates a single citation from them guessing "best" values.
+ * @brief Filter that takes a list of NLM citation descriptions and joins
+ *  them into a single "best" citation.
  */
 
 // $Id$
 
 import('filter.Filter');
 
-class NlmCitationParserDemultiplexerFilter extends Filter {
+class NlmCitationDemultiplexerFilter extends Filter {
+	/**
+	 * @var Citation The original unfiltered citation required
+	 *  to calculate the filter result confidence score.
+	 */
+	var $_originalCitation;
+
 	/**
 	 * Constructor
 	 */
-	function NlmCitationParserDemultiplexerFilter() {
+	function NlmCitationDemultiplexerFilter() {
 		parent::Filter();
 	}
 
 	//
+	// Setters and Getters
+	//
+	/**
+	 * Set the original citation description
+	 * @param $originalCitation Citation
+	 */
+	function setOriginalCitation(&$originalCitation) {
+		$this->_originalCitation =& $originalCitation;
+	}
+
+	/**
+	 * Get the original citation description
+	 * @return Citation
+	 */
+	function &getOriginalCitation() {
+		return $this->_originalCitation;
+	}
+
+
+	//
 	// Implementing abstract template methods from Filter
 	//
+	/**
+	 * @see Filter::process()
+	 * @param $input array incoming MetadataDescriptions
+	 * @return Citation
+	 */
+	function &process(&$input) {
+		// Initialize the array that will contain citations by confidence score.
+		// This is a two-dimensional array that with the score as key and
+		// the scored citations as values.
+		$scoredCitations = array();
+
+		// Iterate over the incoming NLM citation descriptions
+		foreach ($input as $citationIndex => $filteredCitation) {
+			if (is_null($filteredCitation)) continue;
+			// FIXME: We should provide feedback to the end-user
+			// about filters that caused an error.
+
+			// If the publication type is not set, take a guess
+			if (!$filteredCitation->hasStatement('[@publication-type]')) {
+				$guessedPublicationType = $this->_guessPublicationType($filteredCitation);
+				if (!is_null($guessedPublicationType)) {
+					$filteredCitation->addStatement('[@publication-type]', $guessedPublicationType);
+				}
+			}
+
+			// Calculate the score for this filtered citation
+			$confidenceScore = $this->_filterConfidenceScore($filteredCitation, $this->_originalCitation);
+
+			// Save the filtered result hashed by its confidence score.
+			// We save them as a sub-array in case several citations
+			// receive the same confidence score.
+			if (!isset($scoredCitations[$confidenceScore])) {
+				$scoredCitations[$confidenceScore] = array();
+			}
+			$scoredCitations[$confidenceScore][] =& $filteredCitation;
+			unset ($filteredCitation);
+		}
+
+		// Get a single set of "best" values for the citation description
+		// and set them in a new citation object.
+		$citation =& $this->_guessValues($scoredCitations);
+		return $citation;
+	}
+
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
@@ -54,60 +124,12 @@ class NlmCitationParserDemultiplexerFilter extends Filter {
 
 		// Check output type
 		if (is_null($output)) return true;
-		if (!is_a($output, 'Citation')) return false;
-		return ($output->getCitationState() == CITATION_PARSED);
-	}
-
-	/**
-	 * @see Filter::process()
-	 * @param $input array incoming MetadataDescriptions
-	 * @return Citation
-	 */
-	function &process(&$input) {
-		// Initialize the array that will contain parsed citations by score.
-		// This is a two-dimensional array that with the score as key and
-		// the scored citations as values.
-		$scoredCitations = array();
-
-		// Let each configured parser service generate citation meta-data according
-		// to its specific implementation.
-		foreach ($input as $citationIndex => $parsedCitation) {
-			if (is_null($parsedCitation)) continue;
-			// FIXME: We should somehow provide feedback to the user
-			// about parsers that caused an error.
-
-			// If the publication type is not set, take a guess
-			if (!$parsedCitation->hasStatement('[@publication-type]')) {
-				$publicationType = $this->_guessPublicationType($parsedCitation);
-				if (!is_null($publicationType)) {
-					$parsedCitation->addStatement('[@publication-type]', $publicationType);
-				}
-			}
-
-			// Calculate the score for this parsed citation
-			$parseScore = $this->_parseScore($parsedCitation);
-
-			// Save the parsed citation hashed by its parse score.
-			// We save them as a sub-array in case several citations
-			// receive the same parse score.
-			if (!isset($scoredCitations[$parseScore])) {
-				$scoredCitations[$parseScore] = array();
-			}
-			$scoredCitations[$parseScore][] =& $parsedCitation;
-			unset ($parsedCitation);
-		}
-
-		// Get a single set of "best" values for the citation description
-		// and set them in a new citation object.
-		$citation =& $this->_guessValues($scoredCitations);
-		$citation->setCitationState(CITATION_PARSED);
-
-		return $citation;
+		return is_a($output, 'Citation');
 	}
 
 
 	//
-	// Private methods
+	// Private helper methods
 	//
 	/**
 	 * Try to guess a citation's publication type based on detected elements
@@ -178,17 +200,26 @@ class NlmCitationParserDemultiplexerFilter extends Filter {
 	/**
 	 * Derive a confidence score calculated as the number of statements for a group
 	 * of expected properties.
-	 * @param MetadataDescription $metadataDescription
-	 * @return integer parse score
+	 * @param $metadataDescription MetadataDescription
+	 * @param $originalCitation Citation
+	 * @return integer filter confidence score
 	 */
-	function _parseScore(&$metadataDescription) {
+	function _filterConfidenceScore(&$metadataDescription, &$originalCitation) {
+		// FIXME: Amend this algorithm by calculating the similarity between the edited
+		// citation string and the citation description:
+		// 1) For expected fields: See whether a similar text exists in the original
+		//    citation.
+		// 2) Add up the number of characters that are similar and compare them to the
+		//    number of characters in the original text.
+
+		// Find out how many of the expected properties were identified by the filter.
 		$expectedProperties = array(
 			'person-group[@person-group-type="author"]', 'article-title', 'source',
 			'date', 'fpage', '[@publication-type]'
 		);
 		$setProperties = array_intersect($expectedProperties, $metadataDescription->getSetPropertyNames());
-		$parseScore = min(((count($setProperties) / count($expectedProperties))*100), 100);
-		return $parseScore;
+		$filterConfidenceScore = min(((count($setProperties) / count($expectedProperties))*100), 100);
+		return $filterConfidenceScore;
 	}
 
 	/**

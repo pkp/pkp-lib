@@ -36,6 +36,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @return boolean
 	 */
 	function supports(&$input, &$output) {
+		if (!(is_null($output) || $this->isValidIsbn($output))) return false;
 		return parent::supports($input, $output, false, true);
 	}
 
@@ -99,7 +100,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 			'%au% %date%',
 			'%aulast% %date%',
 			'%au% c%date%',
-			'%aulast% c%date%''
+			'%aulast% c%date%'
 		);
 		return $searchTemplates;
 	}

@@ -14,7 +14,7 @@
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 	<script type='text/javascript'>
 		$(document).ready(function() {ldelim}
-			$('#{$buttonId}').live('click', function() {ldelim}
+			$('#{$buttonId}').bind('click', function() {ldelim}
 				$('#{$actOnId}').load('{$action->getUrl()}');
 			{rdelim});
 		{rdelim});

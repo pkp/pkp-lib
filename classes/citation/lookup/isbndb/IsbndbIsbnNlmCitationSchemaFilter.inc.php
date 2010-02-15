@@ -35,7 +35,8 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @param $output mixed
 	 * @return boolean
 	 */
-	function supports(&$input) {
+	function supports(&$input, &$output) {
+		if (!$this->isValidIsbn($input)) return false;
 		return parent::supports($input, $output, true);
 	}
 
@@ -63,8 +64,8 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		if (is_null($metadata =& $this->transformWebServiceResults($resultDOM, dirname(__FILE__).DIRECTORY_SEPARATOR.'isbndb.xsl'))) return $nullVar;
 
 		// Extract place and publisher from the combined entry.
-		$metadata['publisher-loc'] = String::regexp_replace('/^(.+):.*/', '\1', $metadata['place-publisher']);
-		$metadata['publisher-name'] = String::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['place-publisher']);
+		$metadata['publisher-loc'] = String::trimPunctuation(String::regexp_replace('/^(.+):.*/', '\1', $metadata['place-publisher']));
+		$metadata['publisher-name'] = String::trimPunctuation(String::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['place-publisher']));
 		unset($metadata['place-publisher']);
 
 		// Reformat the publication date

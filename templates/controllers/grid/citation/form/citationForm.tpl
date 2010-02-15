@@ -17,6 +17,7 @@
 
 		<span class="options">
 			{include file="controllers/grid/gridAction.tpl" action=$parseAction id="editCitationFormContainer-`$citationId`"}
+			{include file="controllers/grid/gridAction.tpl" action=$lookupAction id="editCitationFormContainer-`$citationId`"}
 		</span>
 
 		{include file="common/formErrors.tpl"}
@@ -34,9 +35,9 @@
 			{/foreach}
 		</table>
 
-		<input type="hidden" name="articleId" value="{$articleId|escape}" />
-		{if $citationId}
-			<input type="hidden" name="citationId" value="{$citationId|escape}" />
+		<input type="hidden" name="articleId" value="{$citation->getAssocId()|escape}" />
+		{if $citation->getId()}
+			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
 		{/if}
 
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

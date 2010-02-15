@@ -21,7 +21,9 @@
 
 import('metadata.CrosswalkFilter');
 import('metadata.nlm.NlmCitationSchema');
-import('metadata.openurl.OpenUrlBaseSchema');
+import('metadata.openurl.OpenUrlJournalSchema');
+import('metadata.openurl.OpenUrlBookSchema');
+import('metadata.openurl.OpenUrlDissertationSchema');
 
 class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 	/**

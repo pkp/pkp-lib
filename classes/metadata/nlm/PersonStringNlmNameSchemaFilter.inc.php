@@ -143,7 +143,16 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$personsString = String::trimPunctuation($personsString);
 
 		// Cut the authors string into pieces
-		$personStrings = String::iterativeExplode(array(':', ';', ','), $personsString);
+		$personStrings = String::iterativeExplode(array(':', ';'), $personsString);
+
+		// Only try to cut by comma if the pieces contain more
+		// than one word to avoid splitting between last name and
+		// first name.
+		if (count($personStrings) == 1) {
+			if (String::regexp_match('/^((\w+\s+)+\w+\s*,)+\s*((\w+\s+)+\w+)$/i', $personStrings[0])) {
+				$personStrings = explode(',', $personStrings[0]);
+			}
+		}
 
 		// Parse persons
 		$persons = array();

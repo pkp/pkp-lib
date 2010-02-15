@@ -25,17 +25,18 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var UID = new Date().getTime();
-		var form = '#' + UID;
+		var formContainer = '#' + UID;
 
 		// Construct action to perform when OK and Cancels buttons are clicked
 		var dialogOptions = {};
 		dialogOptions[okButton] = function() {
-			validator = $(form).find('form').validate();
+			$form =  $(formContainer).find('form');
+			validator = $form.validate();
 			// Post to server and construct callback
-			if ($(form).find('form').valid()) {
+			if ($form.valid()) {
 				$.post(
-					$(form).attr("action"),
-					$(form).serialize(),
+					$form.attr("action"),
+					$form.serialize(),
 					function(returnString) {
 						if (returnString.status == true) {
 							updateItem(actType, actOnId, returnString.content);
@@ -47,6 +48,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 					},
 					"json"
 				);
+				validator = null;
 			}
 		};
 		dialogOptions[cancelButton] = function() {
@@ -77,7 +79,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 				if (validator != null) {
 					validator.resetForm();
 				}
-				clearFormFields(form);
+				clearFormFields($(formContainer).find('form'));
 			}
 		});
 

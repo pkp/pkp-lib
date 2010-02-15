@@ -334,6 +334,7 @@ class CitationGridHandler extends GridHandler {
 			$row->setGridId($this->getId());
 			$row->setId($citation->getId());
 			$row->setData($citation);
+			$row->initialize($request);
 
 			// Render the row into a JSON response
 			$json = new JSON('true', $this->_renderRowInternally($request, $row));

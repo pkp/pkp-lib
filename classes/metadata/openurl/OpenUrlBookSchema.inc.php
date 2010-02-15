@@ -18,6 +18,11 @@
 
 import('metadata.openurl.OpenUrlJournalBookBaseSchema');
 
+define('OPENURL_GENRE_BOOK', 'book');
+define('OPENURL_GENRE_BOOKITEM', 'bookitem');
+define('OPENURL_GENRE_REPORT', 'report');
+define('OPENURL_GENRE_DOCUMENT', 'document');
+
 class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
 	/**
 	 * Constructor

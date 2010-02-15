@@ -99,15 +99,16 @@ class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	 */
 	function _getOpenUrlGenreTranslationMapping() {
 		static $openUrlGenreTranslationMapping = array(
-			'article' => 'journal',
-			'issue' => 'journal',
-			'conference' => 'conf-proc',
-			'proceeding' => 'conf-proc',
-			'preprint' => 'journal',
-			'bookitem' => 'book',
-			'report' => 'book',
-			'document' => 'book',
-			'dissertation' => 'thesis'
+			OPENURL_GENRE_ARTICLE => NLM_PUBLICATION_TYPE_JOURNAL,
+			OPENURL_GENRE_ISSUE => NLM_PUBLICATION_TYPE_JOURNAL,
+			OPENURL_GENRE_CONFERENCE => NLM_PUBLICATION_TYPE_CONFPROC,
+			OPENURL_GENRE_PROCEEDING => NLM_PUBLICATION_TYPE_CONFPROC,
+			OPENURL_GENRE_PREPRINT => NLM_PUBLICATION_TYPE_JOURNAL,
+			OPENURL_GENRE_BOOKITEM => NLM_PUBLICATION_TYPE_BOOK,
+			OPENURL_GENRE_BOOK => NLM_PUBLICATION_TYPE_BOOK,
+			OPENURL_GENRE_REPORT => NLM_PUBLICATION_TYPE_BOOK,
+			OPENURL_GENRE_DOCUMENT => NLM_PUBLICATION_TYPE_BOOK,
+			OPENURL_PSEUDOGENRE_DISSERTATION => NLM_PUBLICATION_TYPE_THESIS
 		);
 
 		return $openUrlGenreTranslationMapping;

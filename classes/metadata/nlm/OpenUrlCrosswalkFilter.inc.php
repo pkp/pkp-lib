@@ -46,12 +46,12 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 
 		// Map titles and date
 		switch($publicationType) {
-			case 'journal':
+			case NLM_PUBLICATION_TYPE_JOURNAL:
 				$propertyMap['source'] = 'jtitle';
 				$propertyMap['article-title'] = 'atitle';
 				break;
 
-			case 'conf-proc':
+			case NLM_PUBLICATION_TYPE_CONFPROC:
 				$propertyMap['conf-name'] = 'jtitle';
 				$propertyMap['article-title'] = 'atitle';
 				if ($input->hasStatement('conf-date')) {
@@ -59,12 +59,12 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 				}
 				break;
 
-			case 'book':
+			case NLM_PUBLICATION_TYPE_BOOK:
 				$propertyMap['source'] = 'btitle';
 				$propertyMap['chapter-title'] = 'atitle';
 				break;
 
-			case 'thesis':
+			case NLM_PUBLICATION_TYPE_THESIS:
 				$propertyMap['article-title'] = 'title';
 				break;
 		}

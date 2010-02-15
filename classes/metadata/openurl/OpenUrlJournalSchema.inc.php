@@ -18,6 +18,11 @@
 
 import('metadata.openurl.OpenUrlJournalBookBaseSchema');
 
+define('OPENURL_GENRE_JOURNAL', 'journal');
+define('OPENURL_GENRE_ISSUE', 'issue');
+define('OPENURL_GENRE_ARTICLE', 'article');
+define('OPENURL_GENRE_PREPRINT', 'preprint');
+
 class OpenUrlJournalSchema extends OpenUrlJournalBookBaseSchema {
 	/**
 	 * Constructor

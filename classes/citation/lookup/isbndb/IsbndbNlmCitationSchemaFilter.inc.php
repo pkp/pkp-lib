@@ -29,7 +29,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	function IsbndbNlmCitationSchemaFilter($apiKey) {
 		assert(!empty($apiKey));
 		$this->_apiKey = $apiKey;
-		parent::NlmCitationSchemaFilter(array('book'));
+		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

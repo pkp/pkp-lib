@@ -32,7 +32,14 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		assert(!empty($email));
 		$this->_email = $email;
 
-		parent::NlmCitationSchemaFilter(array('journal', 'conf-proc', 'book', 'thesis'));
+		parent::NlmCitationSchemaFilter(
+			array(
+				NLM_PUBLICATION_TYPE_JOURNAL,
+				NLM_PUBLICATION_TYPE_CONFPROC,
+				NLM_PUBLICATION_TYPE_BOOK,
+				NLM_PUBLICATION_TYPE_THESIS
+			)
+		);
 	}
 
 	//

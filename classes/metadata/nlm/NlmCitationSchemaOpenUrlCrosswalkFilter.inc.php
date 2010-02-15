@@ -47,18 +47,18 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		// instantiate the target description.
 		$publicationType = $input->getStatement('[@publication-type]');
 		switch($publicationType) {
-			case 'journal':
-			case 'conf-proc':
+			case NLM_PUBLICATION_TYPE_JOURNAL:
+			case NLM_PUBLICATION_TYPE_CONFPROC:
 				import('metadata.openurl.OpenUrlJournalSchema');
 				$outputSchema = new OpenUrlJournalSchema();
 				break;
 
-			case 'book':
+			case NLM_PUBLICATION_TYPE_BOOK:
 				import('metadata.openurl.OpenUrlBookSchema');
 				$outputSchema = new OpenUrlBookSchema();
 				break;
 
-			case 'thesis':
+			case NLM_PUBLICATION_TYPE_THESIS:
 				import('metadata.openurl.OpenUrlDissertationSchema');
 				$outputSchema = new OpenUrlDissertationSchema();
 				break;
@@ -132,16 +132,16 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		// Genre: Guesswork
 		if (is_a($outputSchema, 'OpenUrlJournalBookBaseSchema')) {
 			switch($publicationType) {
-				case 'journal':
-					$genre = ($input->hasProperty('article-title') ? 'article' : 'journal');
+				case NLM_PUBLICATION_TYPE_JOURNAL:
+					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_ARTICLE : OPENURL_GENRE_JOURNAL);
 					break;
 
-				case 'conf-proc':
-					$genre = ($input->hasProperty('article-title') ? 'proceeding' : 'conference');
+				case NLM_PUBLICATION_TYPE_CONFPROC:
+					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_PROCEEDING : OPENURL_GENRE_CONFERENCE);
 					break;
 
-				case 'book':
-					$genre = ($input->hasProperty('article-title') ? 'bookitem' : 'book');
+				case NLM_PUBLICATION_TYPE_BOOK:
+					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_BOOKITEM : OPENURL_GENRE_BOOK);
 					break;
 			}
 			assert(!empty($genre));

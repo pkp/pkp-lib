@@ -28,6 +28,8 @@
 
 import('citation.NlmCitationSchemaFilter');
 import('metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
+import('metadata.openurl.OpenUrlBookSchema');
+import('metadata.openurl.OpenUrlJournalSchema');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
@@ -176,10 +178,10 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		// Handle title, chapter and publication depending on
 		// the (inferred) genre. Also instantiate the target schema.
 		switch($metadata['genre']) {
-			case 'book':
-			case 'bookitem':
-			case 'report':
-			case 'document':
+			case OPENURL_GENRE_BOOK:
+			case OPENURL_GENRE_BOOKITEM:
+			case OPENURL_GENRE_REPORT:
+			case OPENURL_GENRE_DOCUMENT:
 				$metadataMapping += array(
 					'publication' => 'btitle',
 					'chapter' => 'atitle'
@@ -193,22 +195,20 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 						unset($metadata['title']);
 					}
 				}
-				import('metadata.openurl.OpenUrlBookSchema');
 				$openUrlSchema = new OpenUrlBookSchema();
 				break;
 
-			case 'article':
-			case 'journal':
-			case 'issue':
-			case 'conference':
-			case 'proceeding':
-			case 'preprint':
+			case OPENURL_GENRE_ARTICLE:
+			case OPENURL_GENRE_JOURNAL:
+			case OPENURL_GENRE_ISSUE:
+			case OPENURL_GENRE_CONFERENCE:
+			case OPENURL_GENRE_PROCEEDING:
+			case OPENURL_GENRE_PREPRINT:
 			default:
 				$metadataMapping += array(
 					'publication' => 'jtitle',
 					'title' => 'atitle'
 				);
-				import('metadata.openurl.OpenUrlJournalSchema');
 				$openUrlSchema = new OpenUrlJournalSchema();
 				break;
 		}

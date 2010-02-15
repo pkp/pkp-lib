@@ -73,7 +73,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		$metadata['isbn'] = String::regexp_replace('/[^\dX]*/', '', $isbn);
 
 		// Set the publicationType
-		$metadata['[@publication-type]'] = 'book';
+		$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_BOOK;
 
 		return $this->addMetadataArrayToNlmCitationDescription($metadata);
 	}

@@ -58,7 +58,7 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
 		// Convert article title to source for dissertations
-		if (isset($metadata['[@publication-type]']) && $metadata['[@publication-type]'] == 'thesis' && isset($metadata['article-title'])) {
+		if (isset($metadata['[@publication-type]']) && $metadata['[@publication-type]'] == NLM_PUBLICATION_TYPE_THESIS && isset($metadata['article-title'])) {
 			$metadata['source'] = $metadata['article-title'];
 			unset($metadata['article-title']);
 		}

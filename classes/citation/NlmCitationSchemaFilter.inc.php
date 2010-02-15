@@ -381,7 +381,10 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function _allowedPublicationTypes() {
 		static $allowedPublicationTypes = array(
-			'journal', 'conf-proc', 'book', 'thesis'
+			NLM_PUBLICATION_TYPE_JOURNAL,
+			NLM_PUBLICATION_TYPE_CONFPROC,
+			NLM_PUBLICATION_TYPE_BOOK,
+			NLM_PUBLICATION_TYPE_THESIS
 		);
 		return $allowedPublicationTypes;
 	}

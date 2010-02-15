@@ -28,6 +28,12 @@
 
 import('metadata.MetadataSchema');
 
+// Define the vocabulary for the NLM publication type
+define('NLM_PUBLICATION_TYPE_JOURNAL', 'journal');
+define('NLM_PUBLICATION_TYPE_CONFPROC', 'conf-proc');
+define('NLM_PUBLICATION_TYPE_BOOK', 'book');
+define('NLM_PUBLICATION_TYPE_THESIS', 'thesis');
+
 class NlmCitationSchema extends MetadataSchema {
 	/**
 	 * Constructor

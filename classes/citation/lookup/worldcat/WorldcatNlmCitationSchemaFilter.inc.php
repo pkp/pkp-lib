@@ -18,7 +18,7 @@
 
 import('citation.NlmCitationSchemaFilter');
 
-// TODO: Might wish to change this if the publication type is 'book', etc. for advanced search
+// TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
 define('WORLDCAT_WEBSERVICE_SEARCH', 'http://www.worldcat.org/search');
 define('WORLDCAT_WEBSERVICE_OCLC', 'http://xisbn.worldcat.org/webservices/xid/oclcnum/');
 // Lookup in MARCXML which has better granularity than Dublin Core
@@ -38,7 +38,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		assert(!empty($apiKey));
 		$this->_apiKey = $apiKey;
 
-		parent::NlmCitationSchemaFilter(array('book'));
+		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

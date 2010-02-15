@@ -18,6 +18,10 @@
 
 import('metadata.openurl.OpenUrlBaseSchema');
 
+define('OPENURL_GENRE_CONFERENCE', 'conference');
+define('OPENURL_GENRE_PROCEEDING', 'proceeding');
+define('OPENURL_GENRE_UNKNOWN', 'unknown');
+
 class OpenUrlJournalBookBaseSchema extends OpenUrlBaseSchema {
 	/**
 	 * Constructor

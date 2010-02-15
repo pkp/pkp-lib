@@ -18,6 +18,9 @@
 
 import('metadata.openurl.OpenUrlBaseSchema');
 
+// "dissertation" is not defined as genre in the standard. We only use it internally.
+define('OPENURL_PSEUDOGENRE_DISSERTATION', 'dissertation');
+
 class OpenUrlDissertationSchema extends OpenUrlBaseSchema {
 	/**
 	 * Constructor

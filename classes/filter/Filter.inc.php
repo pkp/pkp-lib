@@ -78,6 +78,12 @@ class Filter {
 	/** @var string */
 	var $_displayName;
 
+	/**
+	 * Constructor
+	 */
+	function Filter() {
+	}
+
 	//
 	// Setters and Getters
 	//
@@ -177,7 +183,7 @@ class Filter {
 		$output =& $this->process($input);
 
 		// Validate the filter output
-		if (is_null($output) || !$this->supports($output, $input)) $output = null;
+		if (is_null($output) || !$this->supports($input, $output)) $output = null;
 
 		// Return processed data
 		return $output;

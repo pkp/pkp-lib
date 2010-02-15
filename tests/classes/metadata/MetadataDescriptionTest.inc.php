@@ -73,6 +73,10 @@ class MetadataDescriptionTest extends PKPTestCase {
 	}
 
 	public function testSetStatements() {
+		$testStatements = self::$testStatementsData;
+		$this->metadataDescription->setStatements($testStatements);
+		self::assertEquals($testStatements, $this->metadataDescription->getAllData());
+
 		$testStatements = array (
 			'not-translated-one' => 'nto-new',
 			'not-translated-many' => array (
@@ -84,10 +88,8 @@ class MetadataDescriptionTest extends PKPTestCase {
   		// Trying to replace a property with METADATA_DESCRIPTION_REPLACE_NOTHING
   		// should provoke an error.
   		$previousData = self::$testStatementsData;
-  		$previousDataCopy = $previousData;
-		$this->metadataDescription->setAllData($previousData);
 		self::assertFalse($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_NOTHING));
-  		self::assertEquals($previousDataCopy, $this->metadataDescription->getAllData());
+  		self::assertEquals($previousData, $this->metadataDescription->getAllData());
 
 		// Unset the offending property and try again - this should work
   		$previousData = self::$testStatementsData;

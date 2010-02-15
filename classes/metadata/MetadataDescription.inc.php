@@ -313,7 +313,7 @@ class MetadataDescription extends DataObject {
 	 * * Translated properties with a cardinality of 'one' must be
 	 *   passed in as sub-arrays with the locale as a key.
 	 * * Translated properties with a cardinality of 'many' must be
-	 *   passed in as sub-sub-arrays with the locale as the second key.
+	 *   passed in as sub-sub-arrays with the locale as the first key.
 	 * @param $statements array statements
 	 * @param $replace integer one of the allowed replace levels.
 	 * @return boolean true if all statements could be added, false otherwise
@@ -353,11 +353,25 @@ class MetadataDescription extends DataObject {
 				// Is this a translated property?
 				if (is_array($value)) {
 					foreach($value as $locale => $translation) {
-						// Add a statement (replace existing statement if any)
-						if (!($this->addStatement($propertyName, $translation, $locale, $replaceProperty))) {
-							$this->setAllData($statementsBackup);
-							return false;
+						// Handle cardinality many and one in the same way
+						if (is_scalar($translation)) {
+							$translationValues = array(&$translation);
+						} else {
+							$translationValues =& $translation;
 						}
+						foreach($translationValues as $translationValue) {
+							// Add a statement (replace existing statement if any)
+							if (!($this->addStatement($propertyName, $translationValue, $locale, $replaceProperty))) {
+								$this->setAllData($statementsBackup);
+								return false;
+							}
+							// Reset the $replaceProperty flag to avoid that subsequent
+							// value entries will overwrite previous value entries.
+							$replaceProperty = false;
+
+							unset($translationValue);
+						}
+						unset($translationValues);
 					}
 					unset($translation);
 				} else {
@@ -366,12 +380,12 @@ class MetadataDescription extends DataObject {
 						$this->setAllData($statementsBackup);
 						return false;
 					}
+
+					// Reset the $replaceProperty flag to avoid that subsequent
+					// value entries will overwrite previous value entries.
+					$replaceProperty = false;
 				}
 				unset($value);
-
-				// Reset the $replaceProperty flag to avoid that subsequent
-				// value entries will overwrite previous value entries.
-				$replaceProperty = false;
 			}
 			unset($values);
 		}

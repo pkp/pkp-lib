@@ -204,6 +204,21 @@ class String {
 	}
 
 	/**
+	 * @see http://ca.php.net/manual/en/function.ucfirst.php
+	 */
+	function ucfirst($string) {
+		if (defined('ENABLE_MBSTRING')) {
+			require_once 'mbstring/core.php';
+			require_once 'ucfirst.php';
+		} else {
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
+			require_once 'ucfirst.php';
+		}
+		return utf8_ucfirst($string);
+	}
+
+	/**
 	 * @see http://ca.php.net/manual/en/function.substr_count.php
 	 */
 	function substr_count($haystack, $needle) {

@@ -21,7 +21,7 @@
 function modal(url, actType, actOnId, localizedButtons, callingButton) {
 	$(document).ready(function() {
 		var validator = null;
-		var title = $(callingButton).text() // Assign title to calling button's text
+		var title = $(callingButton).text(); // Assign title to calling button's text
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var UID = new Date().getTime();
@@ -29,31 +29,42 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 
 		// Construct action to perform when OK and Cancels buttons are clicked
 		var dialogOptions = {};
-		dialogOptions[okButton] = function() {
-			$form =  $(formContainer).find('form');
-			validator = $form.validate();
-			// Post to server and construct callback
-			if ($form.valid()) {
-				$.post(
-					$form.attr("action"),
-					$form.serialize(),
-					function(returnString) {
-						if (returnString.status == true) {
-							updateItem(actType, actOnId, returnString.content);
-							$('#' + UID).dialog("close");
-						} else {
-							// Display errors in error list
-							$('#formErrors .formErrorList').html(returnString.content);
-						}
-					},
-					"json"
-				);
-				validator = null;
-			}
-		};
-		dialogOptions[cancelButton] = function() {
-			$(this).dialog("close");
-		};
+		if (actType == 'nothing') {
+			// If the action type is 'nothing' then simply close the
+			// dialog when the OK button is pressed. No cancel button
+			// is needed.
+			dialogOptions[okButton] = function() {
+				$(this).dialog("close");
+			};
+		} else {
+			// All other action types will assume that there is a
+			// form to be posted and post it.
+			dialogOptions[okButton] = function() {
+				$form =  $(formContainer).find('form');
+				validator = $form.validate();
+				// Post to server and construct callback
+				if ($form.valid()) {
+					$.post(
+						$form.attr("action"),
+						$form.serialize(),
+						function(returnString) {
+							if (returnString.status == true) {
+								updateItem(actType, actOnId, returnString.content);
+								$('#' + UID).dialog("close");
+							} else {
+								// Display errors in error list
+								$('#formErrors .formErrorList').html(returnString.content);
+							}
+						},
+						"json"
+					);
+					validator = null;
+				}
+			};
+			dialogOptions[cancelButton] = function() {
+				$(this).dialog("close");
+			};
+		}
 
 		// Construct dialog
 		var $dialog = $('<div id=' + UID + '></div>').dialog({
@@ -63,18 +74,18 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 			modal: true,
 			draggable: false,
 			buttons: dialogOptions,
-			open:function(event,ui) {
+			open: function(event, ui) {
 				$(this).load(url, null, function() {
 					$('#loading').throbber("disable");
 				});
 				$(this).html("<div id='loading' class='throbber'></div>");
 				$('#loading').throbber({
 					bgcolor: "#CED7E1",
-					speed: 1,
+					speed: 1
 				});
 				$('#loading').throbber("enable");
 			},
-			close:function() {
+			close: function() {
 				// Reset form validation errors and inputs on close
 				if (validator != null) {
 					validator.resetForm();
@@ -85,7 +96,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 
 		// Tell the calling button to open this modal on click
 		$(callingButton).live("click", (function() {
-			$dialog.dialog('open')
+			$dialog.dialog('open');
 			return false;
 		}));
 
@@ -103,8 +114,8 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
  */
 function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
 	$(document).ready(function() {
-		var title = $(callingButton).text() // Assign title to calling button's text
-		var okButton = localizedButtons[0]
+		var title = $(callingButton).text(); // Assign title to calling button's text
+		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var UID = new Date().getTime();
 
@@ -139,12 +150,12 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 			autoOpen: false,
 			modal: true,
 			draggable: false,
-			buttons: dialogOptions,
+			buttons: dialogOptions
 		});
 
 		// Tell the calling button to open this modal on click
 		$(callingButton).click(function() {
-			$dialog.dialog('open')
+			$dialog.dialog('open');
 			return false;
 		});
 	});
@@ -177,7 +188,7 @@ function modalAlert(dialogText, localizedButtons) {
 			autoOpen: false,
 			modal: true,
 			draggable: false,
-			buttons: dialogOptions,
+			buttons: dialogOptions
 		});
 
 		$dialog.dialog('open');
@@ -257,7 +268,7 @@ function updateItem(actType, actOnId, content) {
 				deleteElementById(actOnId);
 			}
 			break;
-	};
+	}
 }
 
 function deleteElementById(elementId, showEmpty) {

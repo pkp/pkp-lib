@@ -413,6 +413,17 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
+	 * Convenience method that returns a property id
+	 * the underlying meta-data schema.
+	 * @param $propertyName string
+	 * @return string
+	 */
+	function getNamespacedPropertyId($propertyName) {
+		$metadataSchema =& $this->getMetadataSchema();
+		return $metadataSchema->getNamespacedPropertyId($propertyName);
+	}
+
+	/**
 	 * Convenience method that returns the valid
 	 * property names of the underlying meta-data schema.
 	 * @return array an array of string values representing valid property names

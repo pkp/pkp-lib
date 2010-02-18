@@ -48,6 +48,10 @@ define('PCRE_EMAIL_ADDRESS',
 	'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}' // Must be followed by one set consisting a period of two or max 63 domain characters.
 	);
 
+// Two different types of camel case: one for class names and one for method names
+define ('CAMEL_CASE_HEAD_UP', 0x01);
+define ('CAMEL_CASE_HEAD_DOWN', 0x02);
+
 class String {
 	/**
 	 * Perform initialization required for the string wrapper library.
@@ -801,6 +805,48 @@ class String {
 		// If none of the delimiters works then return
 		// the original string as an array.
 		return (array($input));
+	}
+
+
+
+	/**
+	 * Transform "handler-class" to "HandlerClass"
+	 * and "my-op" to "myOp".
+	 * @param $string input string
+	 * @param $type which kind of camel case?
+	 * @return string the string in camel case
+	 */
+	function camelize($string, $type = CAMEL_CASE_HEAD_UP) {
+		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
+
+		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
+		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+
+		// Transform "MyOp" to "myOp"
+		if ($type == CAMEL_CASE_HEAD_DOWN) {
+			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
+			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
+		}
+
+		return $string;
+	}
+
+	/**
+	 * Transform "HandlerClass" to "handler-class"
+	 * and "myOp" to "my-op".
+	 * @param $string
+	 */
+	function uncamelize($string) {
+		assert(!empty($string));
+
+		// Transform "myOp" to "MyOp"
+		$string = ucfirst($string);
+
+		// Insert hyphens between words and return the string in lowercase
+		$words = array();
+		String::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
+		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
+		return strtolower(implode('-', $words[0]));
 	}
 }
 

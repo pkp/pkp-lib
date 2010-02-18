@@ -118,6 +118,26 @@ class MetadataProperty {
 	}
 
 	/**
+	 * Returns a canonical form of the property
+	 * name ready to be used as a property id in an
+	 * external context (e.g. Forms or Templates).
+	 * @return string
+	 */
+	function getId() {
+		// Replace special characters in XPath-like names
+		// as 'person-group[@person-group-type="author"]'.
+		$from = array(
+			'[', ']', '@', '"', '='
+		);
+		$to = array(
+			'-', '', '', '', '-'
+		);
+		$propertyId = trim(str_replace($from, $to, $this->getName()), '-');
+		$propertyId = String::camelize($propertyId);
+		return $propertyId;
+	}
+
+	/**
 	 * Get the translation id representing
 	 * the display name of the property.
 	 * @return string

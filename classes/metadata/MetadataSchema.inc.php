@@ -97,6 +97,18 @@ class MetadataSchema {
 	}
 
 	/**
+	 * Returns the property id with prefixed name space
+	 * for use in an external context (e.g. Forms, Templates).
+	 * @param $propertyName string
+	 * @return string
+	 */
+	function getNamespacedPropertyId($propertyName) {
+		$property =& $this->getProperty($propertyName);
+		assert(is_a($property, 'MetadataProperty'));
+		return $this->getNamespace().ucfirst($property->getId());
+	}
+
+	/**
 	 * (Re-)set all properties of this meta-data schema.
 	 * @param $properties array an array of MetadataProperties
 	 */

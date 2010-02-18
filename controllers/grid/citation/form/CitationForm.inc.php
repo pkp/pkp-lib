@@ -91,7 +91,7 @@ class CitationForm extends Form {
 				} else {
 					$fieldValue = '';
 				}
-				$fieldName = $metadataSchemaNamespace.'-'.$this->_encodeMetadataPropertyName($property);
+				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$citationVars[$fieldName] = array(
 					'translationKey' => $property->getDisplayName(),
 					'value' => $fieldValue
@@ -155,11 +155,11 @@ class CitationForm extends Form {
 			$metadataSchema =& $metadataAdapter->getMetadataSchema();
 			$metadataSchemaNamespace = $metadataSchema->getNamespace();
 
-			// Loop over the properties in the schema and add string
+			// Loop over the property names in the schema and add string
 			// values for all form fields.
-			$properties =& $metadataSchema->getProperties();
-			foreach($properties as $property) {
-				$citationVars[] = $metadataSchemaNamespace.'-'.$this->_encodeMetadataPropertyName($property);
+			$propertyNames =& $metadataSchema->getPropertyNames();
+			foreach($propertyNames as $propertyName) {
+				$citationVars[] = $metadataSchema->getNamespacedPropertyId($propertyName);
 			}
 		}
 		$this->readUserVars($citationVars);
@@ -182,8 +182,8 @@ class CitationForm extends Form {
 
 			// Set the meta-data statements
 			$metadataSchemaNamespace = $metadataSchema->getNamespace();
-			foreach($metadataSchema->getProperties() as $property) {
-				$fieldName = $metadataSchemaNamespace.'-'.$this->_encodeMetadataPropertyName($property);
+			foreach($metadataSchema->getProperties() as $propertyName => $property) {
+				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));
 				if (!empty($fieldValue)) {
 					// Some property types need to be converted first
@@ -231,27 +231,6 @@ class CitationForm extends Form {
 		}
 
 		return true;
-	}
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Encodes the name of a property to be
-	 * used in HTML context
-	 * @param $namespace string
-	 * @return string
-	 */
-	function _encodeMetadataPropertyName(&$property) {
-		// Replace special characters from XPath-like names
-		// as 'person-group[@person-group-type="author"]'
-		$from = array(
-			'[', ']', '@', '"', '='
-		);
-		$to = array(
-			'_', '', '', '', '-'
-		);
-		return str_replace($from, $to, $property->getName());
 	}
 }
 

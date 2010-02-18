@@ -61,10 +61,6 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-// Two different types of camel case: one for class names and one for method names
-define ('CAMEL_CASE_HEAD_UP', 0x01);
-define ('CAMEL_CASE_HEAD_DOWN', 0x02);
-
 import('core.PKPRouter');
 import('core.Request');
 
@@ -152,12 +148,12 @@ class PKPComponentRouter extends PKPRouter {
 			array_pop($rpcServiceEndpointParts);
 
 			// Construct the fully qualified component class name from the rest of it.
-			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
+			$handlerClassName = String::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
 
 			// camelize remaining endpoint parts
 			$camelizedRpcServiceEndpointParts = array();
 			foreach ( $rpcServiceEndpointParts as $part) {
-				$camelizedRpcServiceEndpointParts[] = $this->_camelize($part, CAMEL_CASE_HEAD_DOWN);
+				$camelizedRpcServiceEndpointParts[] = String::camelize($part, CAMEL_CASE_HEAD_DOWN);
 			}
 			$handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 
@@ -188,7 +184,7 @@ class PKPComponentRouter extends PKPRouter {
 			}
 
 			// Pop off the operation part
-			$this->_op = $this->_camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
+			$this->_op = String::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
 		}
 
 		return $this->_op;
@@ -307,15 +303,15 @@ class PKPComponentRouter extends PKPRouter {
 		$componentParts = explode('.', $component);
 		$componentName = array_pop($componentParts);
 		assert(substr($componentName, -7) == 'Handler');
-		$componentName = $this->_uncamelize(substr($componentName, 0, -7));
+		$componentName = String::uncamelize(substr($componentName, 0, -7));
 
 		// uncamelize the component parts
 		$uncamelizedComponentParts = array();
 		foreach ($componentParts as $part) {
-			$uncamelizedComponentParts[] = $this->_uncamelize($part);
+			$uncamelizedComponentParts[] = String::uncamelize($part);
 		}
 		array_push($uncamelizedComponentParts, $componentName);
-		$opName = $this->_uncamelize($op);
+		$opName = String::uncamelize($op);
 
 		//
 		// Additional query parameters
@@ -486,47 +482,6 @@ class PKPComponentRouter extends PKPRouter {
 		}
 
 		return $rpcServiceEndpointParts;
-	}
-
-
-	/**
-	 * Transform "handler-class" to "HandlerClass"
-	 * and "my-op" to "myOp".
-	 * @param $string input string
-	 * @param $type which kind of camel case?
-	 * @return string the string in camel case
-	 */
-	function _camelize($string, $type = CAMEL_CASE_HEAD_UP) {
-		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
-
-		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
-		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
-
-		// Transform "MyOp" to "myOp"
-		if ($type == CAMEL_CASE_HEAD_DOWN) {
-			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
-			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
-		}
-
-		return $string;
-	}
-
-	/**
-	 * Transform "HandlerClass" to "handler-class"
-	 * and "myOp" to "my-op".
-	 * @param $string
-	 */
-	function _uncamelize($string) {
-		assert(!empty($string));
-
-		// Transform "myOp" to "MyOp"
-		$string = ucfirst($string);
-
-		// Insert hyphens between words and return the string in lowercase
-		$words = array();
-		String::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
-		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
-		return strtolower(implode('-', $words[0]));
 	}
 }
 ?>

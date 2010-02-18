@@ -15,6 +15,9 @@ chdir(dirname(INDEX_FILE_LOCATION));
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
 
+// Don't support sessions
+define('SESSION_DISABLE_INIT', true);
+
 // Log errors to test specific error log
 ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIRECTORY_SEPARATOR . 'error.log');
 

@@ -50,8 +50,7 @@ class GenericSequencerFilter extends Filter {
 
 		// The sample must be supported as input by the added
 		// filter
-		$nullVar = null;
-		assert($filter->supports($inputSample, $nullVar));
+		assert($filter->supportsAsInput($inputSample));
 
 		// The sample must be supported as output by the
 		// previously added filter (if there is any).

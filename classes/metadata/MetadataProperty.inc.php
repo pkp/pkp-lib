@@ -190,6 +190,9 @@ class MetadataProperty {
 		return $this->_cardinality;
 	}
 
+	//
+	// Public methods
+	//
 	/**
 	 * Validate a given input against the property specification
 	 *
@@ -294,7 +297,7 @@ class MetadataProperty {
 	}
 
 	//
-	// Private methods
+	// Public static methods
 	//
 	/**
 	 * Return supported meta-data property types

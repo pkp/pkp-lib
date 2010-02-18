@@ -405,6 +405,7 @@ class MetadataDescription extends DataObject {
 	/**
 	 * Convenience method that returns a property from
 	 * the underlying meta-data schema.
+	 * @param $propertyName string
 	 * @return MetadataProperty
 	 */
 	function &getProperty($propertyName) {

@@ -363,7 +363,7 @@ class ReviewFormDAO extends DAO {
 					rai.date_notified IS NOT NULL AND
 					rai.date_confirmed IS NULL
 				)
-			WHERE	rf.assoc_type = ? AND rf.assoc_id
+			WHERE	rf.assoc_type = ? AND rf.assoc_id = ?
 			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			HAVING COUNT(rac.review_id) = 0 AND COUNT(rai.review_id) = 0
 			ORDER BY rf.seq',
@@ -427,7 +427,7 @@ class ReviewFormDAO extends DAO {
 					rai.date_notified IS NOT NULL AND
 					rai.date_confirmed IS NULL
 				)
-			WHERE	rf.review_form_id = ?' . ($assocType !== null ? ' AND rf.assoc_type = ? AND rf.assoc_id':'') . '
+			WHERE	rf.review_form_id = ?' . ($assocType !== null ? ' AND rf.assoc_type = ? AND rf.assoc_id = ?':'') . '
 			GROUP BY rf.review_form_id
 			HAVING COUNT(rac.review_id) = 0 AND COUNT(rai.review_id) = 0',
 			$params

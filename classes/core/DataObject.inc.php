@@ -198,20 +198,33 @@ class DataObject {
 
 	/**
 	 * Retrieve the names of meta-data
-	 * properties that need to be persisted.
+	 * properties of this data object.
+	 * @param $translated boolean if true, return localized field
+	 *  names, otherwise return additional field names.
+	 */
+	function getMetadataFieldNames($translated = true) {
+		// Create a list of all possible meta-data field names
+		$metadataFieldNames = array();
+		foreach($this->_metadataAdapters as $metadataSchemaName => $metadataAdapter) {
+			// Add the field names from the current adapter
+			$metadataFieldNames = array_merge($metadataFieldNames,
+					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
+		}
+		$metadataFieldNames = array_unique($metadataFieldNames);
+		return $metadataFieldNames;
+	}
+
+	/**
+	 * Retrieve the names of meta-data
+	 * properties that need to be persisted
+	 * (i.e. that have data).
 	 * @param $translated boolean if true, return localized field
 	 *  names, otherwise return additional field names.
 	 * @return array an array of field names
 	 */
-	function getMetadataFieldNames($translated = true) {
-		// Create a list of all possible meta-data field names
-		$metadataFieldNameCandidates = array();
-		foreach($this->_metadataAdapters as $metadataSchemaName => $metadataAdapter) {
-			// Add the field names from the current adapter
-			$metadataFieldNameCandidates = array_merge($metadataFieldNameCandidates,
-					$metadataAdapter->getDataObjectMetadataFieldNames($translated));
-		}
-		$metadataFieldNameCandidates = array_unique($metadataFieldNameCandidates);
+	function getSetMetadataFieldNames($translated = true) {
+		// Retrieve a list of all possible meta-data field names
+		$metadataFieldNameCandidates = $this->getMetadataFieldNames($translated);
 
 		// Only retain those fields that have data
 		$metadataFieldNames = array();
@@ -245,9 +258,10 @@ class DataObject {
 	 * Inject a meta-data description into this
 	 * data object.
 	 * @param $metadataDescription MetadataDescription
+	 * @param $replace boolean whether to delete existing meta-data
 	 * @return boolean true on success, otherwise false
 	 */
-	function injectMetadata(&$metadataDescription) {
+	function injectMetadata(&$metadataDescription, $replace = false) {
 		$dataObject = null;
 		foreach($this->_metadataAdapters as $metadataAdapter) {
 			// The first adapter that supports the given description
@@ -258,7 +272,7 @@ class DataObject {
 				// NB: we pass in a reference to the data object which
 				// the filter will use to update the current instance
 				// of the data object.
-				$input = array(&$metadataDescription, &$this);
+				$input = array(&$metadataDescription, &$this, $replace);
 				$dataObject =& $metadataAdapter->execute($input);
 				break;
 			}

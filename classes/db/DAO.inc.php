@@ -404,35 +404,64 @@ class DAO {
 		return $returner;
 	}
 
+	/**
+	 * Update the settings table of a data object.
+	 * @param $tableName string
+	 * @param $dataObject DataObject
+	 * @param $idArray array
+	 */
 	function updateDataObjectSettings($tableName, &$dataObject, $idArray) {
 		$idFields = array_keys($idArray);
 		$idFields[] = 'locale';
 		$idFields[] = 'setting_name';
 
+		$updateArray = $idArray;
+		$removedSettings = array();
 		$localeFieldNames = array_merge($this->getLocaleFieldNames(), $dataObject->getLocaleMetadataFieldNames());
 		foreach ($localeFieldNames as $field) {
-			$values = $dataObject->getData($field);
-			if (!is_array($values)) continue;
+			if ($dataObject->hasData($field)) {
+				$values = $dataObject->getData($field);
+				if (!is_array($values)) continue;
 
-			foreach ($values as $locale => $value) {
-				$idArray['setting_type'] = null;
-				$idArray['locale'] = $locale;
-				$idArray['setting_name'] = $field;
-				$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
+				foreach ($values as $locale => $value) {
+					$updateArray['setting_type'] = null;
+					$updateArray['locale'] = $locale;
+					$updateArray['setting_name'] = $field;
+					$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
 
-				$this->replace($tableName, $idArray, $idFields);
+					$this->replace($tableName, $updateArray, $idFields);
+				}
+			} else {
+				$removedSettings[] = $field;
 			}
 		}
 		$additionalFieldNames = array_merge($this->getAdditionalFieldNames(), $dataObject->getAdditionalMetadataFieldNames());
 		foreach ($additionalFieldNames as $field) {
-			$value = $dataObject->getData($field);
-			$idArray['setting_type'] = null;
-			$idArray['locale'] = '';
-			$idArray['setting_name'] = $field;
-			$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
+			if ($dataObject->hasData($field)) {
+				$value = $dataObject->getData($field);
+				$updateArray['setting_type'] = null;
+				$updateArray['locale'] = '';
+				$updateArray['setting_name'] = $field;
+				$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
 
-			$this->replace($tableName, $idArray, $idFields);
+				$this->replace($tableName, $updateArray, $idFields);
+			} else {
+				$removedSettings[] = $field;
+			}
 		}
+
+		// Remove stale settings
+		$removeWhere = '';
+		$removeParams = array();
+		foreach ($idArray as $idField => $idValue) {
+			if (!empty($removeWhere)) $removeWhere .= ' AND ';
+			$removeWhere .= $idField.' = ?';
+			$removeParams[] = $idValue;
+		}
+		$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($removedSettings)), ',').')';
+		$removeParams = array_merge($removeParams, $removedSettings);
+		$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
+		$this->update($removeSql, $removeParams);
 	}
 
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, &$dataObject) {

@@ -38,33 +38,42 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
 	 * @param $metadataDescription MetadataDescription
 	 * @param $dataObject Citation
+	 * @param $replace boolean whether existing meta-data should be replaced
 	 * @return DataObject
 	 */
-	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject) {
+	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject, $replace) {
 		// Did we get an existing citation object or should we create a new one?
 		if (is_null($dataObject)) {
 			import('citation.Citation');
 			$dataObject = new Citation();
 		}
 
-		// Retrieve the new statements
-		$statements =& $metadataDescription->getStatements();
-
 		// Add new meta-data statements to the citation. Add the schema
 		// name space to each property name so that it becomes unique
 		// across schemas.
 		$metadataSchemaNamespace = $this->getMetadataNamespace();
 
-		foreach($statements as $propertyName => $value) {
-			if (in_array($propertyName, array('person-group[@person-group-type="author"]', 'person-group[@person-group-type="editor"]'))) {
-				// Convert MetadataDescription objects to simple key/value arrays.
-				assert(is_array($value));
-				foreach($value as $key => $nameComposite) {
-					assert(is_a($nameComposite, 'MetadataDescription'));
-					$value[$key] =& $nameComposite->getAllData();
+		$nullVar = null;
+		foreach($metadataDescription->getPropertyNames() as $propertyName) {
+			$dataObjectKey = $metadataSchemaNamespace.':'.$propertyName;
+			if ($metadataDescription->hasStatement($propertyName)) {
+				// Directly retrieve the internal data so that we don't
+				// have to care about cardinality and translation.
+				$value =& $metadataDescription->getData($propertyName);
+				if (in_array($propertyName, array('person-group[@person-group-type="author"]', 'person-group[@person-group-type="editor"]'))) {
+					// Convert MetadataDescription objects to simple key/value arrays.
+					assert(is_array($value));
+					foreach($value as $key => $nameComposite) {
+						assert(is_a($nameComposite, 'MetadataDescription'));
+						$value[$key] =& $nameComposite->getAllData();
+					}
 				}
+				$dataObject->setData($dataObjectKey, $value);
+				unset($value);
+			} elseif ($replace && $dataObject->hasData($dataObjectKey)) {
+				// Delete existing property data
+				$dataObject->setData($dataObjectKey, $nullVar);
 			}
-			$dataObject->setData($metadataSchemaNamespace.':'.$propertyName, $value);
 		}
 
 		return $dataObject;

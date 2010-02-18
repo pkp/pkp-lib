@@ -95,9 +95,10 @@ class MetadataDataObjectAdapter extends Filter {
 	 * Inject a MetadataDescription into a DataObject
 	 * @param $metadataDescription MetadataDescription
 	 * @param $dataObject DataObject
+	 * @param $replace boolean whether to delete existing meta-data
 	 * @return DataObject
 	 */
-	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject) {
+	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject, $replace) {
 		// Must be implemented by sub-classes
 		assert(false);
 	}
@@ -145,12 +146,15 @@ class MetadataDataObjectAdapter extends Filter {
 			case is_array($input):
 				// Check input type
 				// We expect two array entries: a MetadataDescription and a target data object.
-				if (count($input) != 2) return false;
+				if (count($input) != 3) return false;
 				$metadataDescription =& $input[0];
 				if (!is_a($metadataDescription, 'MetadataDescription')) return false;
 
 				$dataObject =& $input[1];
 				if (!is_a($dataObject, $this->_dataObjectName)) return false;
+
+				$replace = $input[2];
+				if (!is_bool($replace)) return false;
 
 				// Check the the meta-data description compliance
 				if (!$this->_complies($metadataDescription)) return false;
@@ -204,12 +208,12 @@ class MetadataDataObjectAdapter extends Filter {
 		// Set the adapter mode and convert the input.
 		switch (true) {
 			case is_array($input):
-				$output =& $this->injectMetadataIntoDataObject($input[0], $input[1]);
+				$output =& $this->injectMetadataIntoDataObject($input[0], $input[1], $input[2]);
 				break;
 
 			case is_a($input, 'MetadataDescription'):
 				$nullVar = null;
-				$output =& $this->injectMetadataIntoDataObject($input, $nullVar);
+				$output =& $this->injectMetadataIntoDataObject($input, $nullVar, false);
 				break;
 
 			case is_a($input, $this->_dataObjectName):

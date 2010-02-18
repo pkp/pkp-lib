@@ -185,7 +185,9 @@ class CitationForm extends Form {
 			foreach($metadataSchema->getProperties() as $propertyName => $property) {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));
-				if (!empty($fieldValue)) {
+				if (empty($fieldValue)) {
+					$metadataDescription->removeStatement($propertyName);
+				} else {
 					// Some property types need to be converted first
 					switch($property->getType()) {
 						case METADATA_PROPERTY_TYPE_COMPOSITE:
@@ -212,14 +214,14 @@ class CitationForm extends Form {
 							$fieldValue = array($fieldValue);
 					}
 					foreach($fieldValue as $fieldValueStatement) {
-						$metadataDescription->addStatement($property->getName(), $fieldValueStatement);
+						$metadataDescription->addStatement($propertyName, $fieldValueStatement);
 						unset($fieldValueStatement);
 					}
 				}
 			}
 
 			// Inject the meta-data into the citation
-			$citation->injectMetadata($metadataDescription);
+			$citation->injectMetadata($metadataDescription, true);
 		}
 
 		// Persist citation

@@ -145,7 +145,9 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 		$givenNames = $personDescription->getStatement('given-names');
 		$nameVars['%firstname%'] = $nameVars['%initials%'] = '';
 		if(is_array($givenNames) && count($givenNames)) {
-			$nameVars['%firstname%'] = array_shift($givenNames);
+			if (String::strlen($givenNames[0]) > 1) {
+				$nameVars['%firstname%'] = array_shift($givenNames);
+			}
 			foreach($givenNames as $givenName) {
 				$nameVars['%initials%'] .= String::substr($givenName, 0, 1).'.';
 			}
@@ -157,7 +159,12 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 		$nameVars['%suffix%'] = (string)$personDescription->getStatement('suffix');
 		if (!empty($nameVars['%suffix%'])) $nameVars['%suffix%'] = ' '.$nameVars['%suffix%'];
 
+		// Fill placeholders in person template.
 		$personString = str_replace(array_keys($nameVars), array_values($nameVars), $this->getTemplate());
+
+		// Remove empty brackets and trailing/leading whitespace
+		$personString = trim(str_replace('()', '', $personString));
+
 		return $personString;
 	}
 }

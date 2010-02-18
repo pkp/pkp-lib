@@ -140,7 +140,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$personsString = String::regexp_replace('/et ?al$/', '', $personsString);
 
 		// Remove punctuation
-		$personsString = String::trimPunctuation($personsString);
+		$personsString = trim($personsString, ':;,');
 
 		// Cut the authors string into pieces
 		$personStrings = String::iterativeExplode(array(':', ';'), $personsString);

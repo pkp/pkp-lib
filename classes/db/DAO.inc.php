@@ -93,7 +93,7 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "SessionDAO::_getSession"
+			// in hook calls named e.g. "sessiondao::_getsession"
 			// (all lowercase).
 			$value = null;
 			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
@@ -384,7 +384,7 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getadditionalfieldnames"
+			// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
 			// (class names lowercase)
 			HookRegistry::call(strtolower($trace[2]['class']) . '::getAdditionalFieldNames', array(&$this, &$returner));
 		}
@@ -397,7 +397,7 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
+			// in hook calls named e.g. "sessiondao::getLocaleFieldNames"
 			// (class names lowercase)
 			HookRegistry::call(strtolower($trace[2]['class']) . '::getLocaleFieldNames', array(&$this, &$returner));
 		}

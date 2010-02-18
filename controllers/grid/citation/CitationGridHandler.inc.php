@@ -47,7 +47,7 @@ class CitationGridHandler extends GridHandler {
 	 * @return array
 	 */
 	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'editCitation', 'parseCitation', 'lookupCitation', 'updateCitation', 'deleteCitation'));
+		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'exportCitations', 'editCitation', 'parseCitation', 'lookupCitation', 'updateCitation', 'deleteCitation'));
 	}
 
 	/**
@@ -176,6 +176,15 @@ class CitationGridHandler extends GridHandler {
 				'grid.action.addItem'
 			)
 		);
+		$this->addAction(
+			new GridAction(
+				'exportCitations',
+				GRID_ACTION_MODE_MODAL,
+				GRID_ACTION_TYPE_NOTHING,
+				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
+				'submission.citations.grid.exportCitations'
+			)
+		);
 
 		// Columns
 		$emptyColumnActions = array();
@@ -217,7 +226,6 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function importCitations(&$args, &$request) {
 		$article =& $this->getArticle();
-		assert(is_a($article, 'Article'));
 
 		// Delete existing citations
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
@@ -252,6 +260,42 @@ class CitationGridHandler extends GridHandler {
 
 		// Re-display the grid
 		return $this->fetchGrid($args,$request);
+	}
+
+	/**
+	 * Export a list of formatted citations
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string
+	 */
+	function exportCitations(&$args, &$request) {
+		// We currently only support the NLM citation schema.
+		import('metadata.nlm.NlmCitationSchema');
+		$nlmCitationSchema = new NlmCitationSchema();
+
+		// We currently only support the ABNT citation output schema
+		import('citation.output.abnt.NlmCitationSchemaAbntFilter');
+		$citationOutputFilter = new NlmCitationSchemaAbntFilter($request);
+
+		$formattedCitations = array();
+		$citations =& $this->_getSortedElements();
+		while (!$citations->eof()) {
+			// Retrieve NLM citation meta-data
+			$citation =& $citations->next();
+			$metadataDescription =& $citation->extractMetadata($nlmCitationSchema);
+			assert(!is_null($metadataDescription));
+
+			// Apply the citation output format filter
+			$formattedCitations[] = $citationOutputFilter->execute($metadataDescription);
+
+			unset($citation, $metadataDescription);
+		}
+
+		// Render the citation list
+		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign_by_ref('formattedCitations', $formattedCitations);
+		$citationList = $templateMgr->fetch('controllers/grid/citation/citationExport.tpl');
+		return $citationList;
 	}
 
 	/**

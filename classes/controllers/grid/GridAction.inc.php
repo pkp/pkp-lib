@@ -18,7 +18,7 @@ define('GRID_ACTION_MODE_LINK', 2);
 define('GRID_ACTION_MODE_AJAX', 3);
 define('GRID_ACTION_MODE_CONFIRM', 4);
 
-define('GRID_ACTION_TYPE_NOTHING', '');
+define('GRID_ACTION_TYPE_NOTHING', 'nothing');
 define('GRID_ACTION_TYPE_APPEND', 'append');
 define('GRID_ACTION_TYPE_REPLACE', 'replace');
 define('GRID_ACTION_TYPE_REMOVE', 'remove');

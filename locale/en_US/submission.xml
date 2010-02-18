@@ -27,6 +27,7 @@
 	]]></message>
 	<message key="submission.citations.grid.title">Edit Citations</message>
 	<message key="submission.citations.grid.importCitations">Import Citations</message>
+	<message key="submission.citations.grid.exportCitations">Export Citations</message>
 	<message key="submission.citations.grid.parseCitation">Parse</message>
 	<message key="submission.citations.grid.lookupCitation">Lookup</message>
 	<message key="submission.citations.grid.editedCitation">Citation Text</message>
@@ -35,6 +36,8 @@
 	<message key="submission.citations.form.title">Edit Citation</message>
 	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
 	<message key="submission.citations.form.description">Please manually improve the citation then try re-validating it.</message>
+	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type.</message>
+	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
 	<!-- FIXME: move to meta-data plug-in -->
 	<message key="metadata.property.displayName.author">Authors</message>
 	<message key="metadata.property.displayName.editor">Editors</message>

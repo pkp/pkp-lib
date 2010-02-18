@@ -296,7 +296,8 @@ class PKPRequest {
 	function getRequestMethod() {
 		PKPRequest::_checkThis();
 
-		return $_SERVER['REQUEST_METHOD'];
+		$requestMethod = (isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : '');
+		return $requestMethod;
 	}
 
 	/**

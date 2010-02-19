@@ -79,7 +79,7 @@ div.grid table {
 	border: 1px solid #b6c9d5;
 }
 
-div.grid tr.alternate_row {
+div.grid tr.alternate_row, div.grid tr.alternate_row .row_file {
 	background-color: #f5f5f5;
 }
 

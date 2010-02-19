@@ -20,12 +20,14 @@
 	{foreach name=cellForEach from=$cells item=cell}
 		{if $smarty.foreach.cellForEach.first}
 			<td class="first_column">
-				<div class="row_actions">
-					<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
-				</div>
-				<div class="row_file">
-					{$cell}
-					{**if notes <a href="#" class="notes sprite"><span class="hidetext">Notes</span></a> **}
+    			<div class="row_container">
+					<div class="row_file">
+						{$cell}
+						{**if notes <a href="#" class="notes sprite"><span class="hidetext">Notes</span></a> **}
+					</div>
+					<div class="row_actions">
+						<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
+					</div>
 				</div>
 				{$smarty.capture.rowActions}
 			</td>

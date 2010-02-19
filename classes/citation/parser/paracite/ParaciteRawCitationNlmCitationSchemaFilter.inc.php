@@ -19,9 +19,9 @@
  *  configuration and chain all instances.
  *
  *  NB: This filter requires perl and CPAN's Biblio::Citation::Parser
- *  package to be installed on the server. It also requires the PHP
- *  shell_exec() function to be available which is often disabled in
- *  shared hosting environments.
+ *  and Text::Unidecode packages to be installed on the server. It also
+ *  requires the PHP shell_exec() function to be available which is often
+ *  disabled in shared hosting environments.
  */
 
 // $Id$

@@ -28,14 +28,13 @@ define('WORLDCAT_WEBSERVICE_XISBN', 'http://xisbn.worldcat.org/webservices/xid/i
 
 class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/** @var string Worldcat API key */
-	var $_apiKey = '';
+	var $_apiKey;
 
 	/**
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function WorldcatNlmCitationSchemaFilter($apiKey) {
-		assert(!empty($apiKey));
+	function WorldcatNlmCitationSchemaFilter($apiKey = '') {
 		$this->_apiKey = $apiKey;
 
 		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
@@ -85,16 +84,17 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		// use xISBN because it's free
 		$isbns = $this->_oclcToIsbns($matches[1][0]);
 
-		if (!empty($this->getApiKey())) {
+		$apiKey = $this->getApiKey();
+		if (empty($apiKey)) {
+			// Use the first ISBN if we have multiple
+			$citationDescription =& $this->_lookupXIsbn($isbns[0], $citationDescription);
+			return $citationDescription;
+		} elseif (!empty($isbns[0])) {
 			// Worldcat lookup only works with an API key
 			if (is_null($citationDescription =& $this->_lookupWorldcat($matches[1][0], $citationDescription))) return $nullVar;
 
 			// Prefer ISBN from xISBN if possible
 			if (!empty($isbns[0])) $citationDescription->addStatement('ibsn', $isbns[0], null, true);
-			return $citationDescription;
-		} elseif (!empty($isbns[0])) {
-			// Use the first ISBN if we have multiple
-			$citationDescription =& $this->_lookupXIsbn($isbns[0], $citationDescription);
 			return $citationDescription;
 		}
 
@@ -171,7 +171,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			'format' => 'xml',
 			'fl' => '*'
 		);
-		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn)))) return $nullVar;
+		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn), $lookupParams))) return $nullVar;
 
 		// Extract metadata from response
 		if (is_null($recordNode = $resultDOM->getElementsByTagName('isbn')->item(0))) return $nullVar;
@@ -182,12 +182,11 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$metadata['source'] = $recordNode->getAttribute('title');
 		$metadata['publisher-name'] = $recordNode->getAttribute('publisher');
 		$metadata['publisher-loc'] = $recordNode->getAttribute('city');
-
 		// Authors are of low quality in xISBN compared to Worldcat's MARC records
-		$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
-		$authorDescription =& $personStringFilter->execute($personString);
-		$metadata['person-group[@person-group-type="author"]'] = array(&$authorDescription);
+		$metadata['author'] = $recordNode->getAttribute('author');
 
+		// Clean and process the meta-data
+		$metadata =& $this->postProcessMetadataArray($metadata);
 		$citationDescription =& $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
 		return $citationDescription;
 	}

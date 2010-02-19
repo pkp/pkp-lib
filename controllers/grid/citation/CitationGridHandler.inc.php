@@ -505,7 +505,11 @@ class CitationGridHandler extends GridHandler {
 		import('citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
 		$pubmedFilter = new PubmedNlmCitationSchemaFilter();
 
-		$lookupFilters = array(&$crossrefFilter, &$isbndbFilter, &$pubmedFilter, $metadataDescription);
+		// Instantiate the WorldCat filter without API key for public usage
+		import('citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
+		$worldcatFilter = new WorldcatNlmCitationSchemaFilter();
+
+		$lookupFilters = array(&$crossrefFilter, &$isbndbFilter, &$pubmedFilter, &$worldcatFilter, $metadataDescription);
 		return $lookupFilters;
 	}
 

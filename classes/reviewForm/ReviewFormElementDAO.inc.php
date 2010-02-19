@@ -136,7 +136,7 @@ class ReviewFormElementDAO extends DAO {
 	 * Delete a review form element.
 	 * @param $reviewFormElement reviewFormElement
 	 */
-	function deleteReviewFormElement(&$reviewFormElement) {
+	function deleteObject(&$reviewFormElement) {
 		return $this->deleteById($reviewFormElement->getId());
 	}
 

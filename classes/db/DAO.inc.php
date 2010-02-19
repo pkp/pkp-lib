@@ -411,57 +411,89 @@ class DAO {
 	 * @param $idArray array
 	 */
 	function updateDataObjectSettings($tableName, &$dataObject, $idArray) {
+		// Initialize variables
 		$idFields = array_keys($idArray);
 		$idFields[] = 'locale';
 		$idFields[] = 'setting_name';
 
+		// Build a data structure that we can process efficiently.
+		$translated = $metadata = 1;
+		$settings = !$metadata;
+		$settingFields = array(
+			// Translated data
+			$translated => array(
+				$settings => $this->getLocaleFieldNames(),
+				$metadata => $dataObject->getLocaleMetadataFieldNames()
+			),
+			// Shared data
+			!$translated => array(
+				$settings => $this->getAdditionalFieldNames(),
+				$metadata => $dataObject->getAdditionalMetadataFieldNames()
+			)
+		);
+
+		// Loop over all fields and update them in the settings table
 		$updateArray = $idArray;
-		$removedSettings = array();
-		$localeFieldNames = array_merge($this->getLocaleFieldNames(), $dataObject->getLocaleMetadataFieldNames());
-		foreach ($localeFieldNames as $field) {
-			if ($dataObject->hasData($field)) {
-				$values = $dataObject->getData($field);
-				if (!is_array($values)) continue;
+		$noLocale = 0;
+		$staleMetadataSettings = array();
+		foreach ($settingFields as $isTranslated => $fieldTypes) {
+			foreach ($fieldTypes as $isMetadata => $fieldNames) {
+				foreach ($fieldNames as $fieldName) {
+					// Now we have the following control data:
+					// - $isTranslated: true for translated data, false data shared between locales
+					// - $isMetadata: true for metadata fields, false for normal settings
+					// - $fieldName: the field in the data object to be updated
+					if ($dataObject->hasData($fieldName)) {
+						if ($isTranslated) {
+							// Translated data comes in as an array
+							// with the locale as the key.
+							$values = $dataObject->getData($fieldName);
+							if (!is_array($values)) {
+								// Inconsistent data: should have been an array
+								assert(false);
+								continue;
+							}
+						} else {
+							// Transform shared data into an array so that
+							// we can handle them the same way as translated data.
+							$values = array(
+								$noLocale => $dataObject->getData($fieldName)
+							);
+						}
 
-				foreach ($values as $locale => $value) {
-					$updateArray['setting_type'] = null;
-					$updateArray['locale'] = $locale;
-					$updateArray['setting_name'] = $field;
-					$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
-
-					$this->replace($tableName, $updateArray, $idFields);
+						// Loop over the values and update them in the database
+						foreach ($values as $locale => $value) {
+							$updateArray['locale'] = ($locale === $noLocale ? '' : $locale);
+							$updateArray['setting_name'] = $fieldName;
+							$updateArray['setting_type'] = null;
+							// Convert the data value and implicitly set the setting type.
+							$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
+							$this->replace($tableName, $updateArray, $idFields);
+						}
+					} else {
+						// Meta-data fields are maintained "sparsly". Only set fields will be
+						// recorded in the settings table. Fields that are not explicity set
+						// in the data object will be deleted.
+						if ($isMetadata) $staleMetadataSettings[] = $fieldName;
+					}
 				}
-			} else {
-				$removedSettings[] = $field;
-			}
-		}
-		$additionalFieldNames = array_merge($this->getAdditionalFieldNames(), $dataObject->getAdditionalMetadataFieldNames());
-		foreach ($additionalFieldNames as $field) {
-			if ($dataObject->hasData($field)) {
-				$value = $dataObject->getData($field);
-				$updateArray['setting_type'] = null;
-				$updateArray['locale'] = '';
-				$updateArray['setting_name'] = $field;
-				$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
-
-				$this->replace($tableName, $updateArray, $idFields);
-			} else {
-				$removedSettings[] = $field;
 			}
 		}
 
-		// Remove stale settings
-		$removeWhere = '';
-		$removeParams = array();
-		foreach ($idArray as $idField => $idValue) {
-			if (!empty($removeWhere)) $removeWhere .= ' AND ';
-			$removeWhere .= $idField.' = ?';
-			$removeParams[] = $idValue;
+		// Remove stale meta-data
+		if (count($staleMetadataSettings)) {
+			$removeWhere = '';
+			$removeParams = array();
+			foreach ($idArray as $idField => $idValue) {
+				if (!empty($removeWhere)) $removeWhere .= ' AND ';
+				$removeWhere .= $idField.' = ?';
+				$removeParams[] = $idValue;
+			}
+			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($staleMetadataSettings)), ',').')';
+			$removeParams = array_merge($removeParams, $staleMetadataSettings);
+			$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
+			$this->update($removeSql, $removeParams);
 		}
-		$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($removedSettings)), ',').')';
-		$removeParams = array_merge($removeParams, $removedSettings);
-		$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
-		$this->update($removeSql, $removeParams);
 	}
 
 	function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, &$dataObject) {

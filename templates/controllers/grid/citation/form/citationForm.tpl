@@ -9,18 +9,18 @@
  *
  * $Id$
  *}
-<div id="editCitationFormContainer-{$citationId}">
+<div id="editCitationFormContainer-{$citation->getId()}">
 	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 		<h3>{translate key="submission.citations.form.title"}</h3>
 
 		<p>{translate key="submission.citations.form.description"}</p>
 
-		<span class="options">
-			{include file="controllers/grid/gridAction.tpl" action=$parseAction id="editCitationFormContainer-`$citationId`"}
-			{include file="controllers/grid/gridAction.tpl" action=$lookupAction id="editCitationFormContainer-`$citationId`"}
-		</span>
-
 		{include file="common/formErrors.tpl"}
+
+		<span class="options">
+			{include file="controllers/grid/gridAction.tpl" action=$parseAction id="editCitationFormContainer-`$citation->getId()`"}
+			{include file="controllers/grid/gridAction.tpl" action=$lookupAction id="editCitationFormContainer-`$citation->getId()`"}
+		</span>
 
 		<table width="100%" class="data">
 			<tr valign="top">

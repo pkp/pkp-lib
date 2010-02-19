@@ -36,6 +36,7 @@
 	<message key="submission.citations.form.title">Edit Citation</message>
 	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
 	<message key="submission.citations.form.description">Please manually improve the citation then try re-validating it.</message>
+	<message key="submission.citations.form.filterError">The parse or lookup operation did not return any results. Maybe you can try to edit the citation text manually to improve results?</message>
 	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type.</message>
 	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
 	<!-- FIXME: move to meta-data plug-in -->

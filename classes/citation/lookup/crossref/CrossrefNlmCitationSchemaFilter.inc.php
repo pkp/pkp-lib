@@ -76,7 +76,8 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			$searchParams['id'] = 'doi:'.$doi;
 		} else {
 			// Use OpenURL meta-data to search for the entry
-			$searchParams += $this->_prepareOpenUrlSearch($citationDescription);
+			if (is_null($openUrlMetadata = $this->_prepareOpenUrlSearch($citationDescription))) return $nullVar;
+			$searchParams += $openUrlMetadata;
 		}
 
 		// Call the CrossRef web service

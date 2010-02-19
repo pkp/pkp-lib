@@ -31,6 +31,7 @@ class CitationForm extends Form {
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
 		$this->addCheck(new FormValidatorPost($this));
+
 		// FIXME: Write and add meta-data description validator
 	}
 

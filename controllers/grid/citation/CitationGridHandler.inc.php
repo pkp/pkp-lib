@@ -76,6 +76,9 @@ class CitationGridHandler extends GridHandler {
 		$journal =& $router->getContext($request);
 
 		// Authorization and validation checks
+		// NB: Error messages are in plain English as they directly go to fatal errors.
+		// (Validation errors in components are either programming errors or somebody
+		// trying to call components directly which is no legal use case anyway.)
 		// 1) restricted site access
 		if ( isset($journal) && $journal->getSetting('restrictSiteAccess')) {
 			import('handler.validation.HandlerValidatorCustom');
@@ -253,7 +256,7 @@ class CitationGridHandler extends GridHandler {
 
 			$citationDAO->insertCitation($citation);
 			// FIXME: Database error handling.
-			$citations[] = $citation;
+			$citations[$citation->getId()] = $citation;
 			unset($citation);
 		}
 		$this->setData($citations);
@@ -569,27 +572,35 @@ class CitationGridHandler extends GridHandler {
 		$citationFilterNet->addFilter($citationDemultiplexer, $sampleDemuxInputData);
 
 		// Send the input through the citation filter network.
+		$filterErrors = array();
 		$filteredCitation =& $citationFilterNet->execute($muxInputData);
-		if (is_null($filteredCitation)) fatalError('Citation filter error!');
+		if (is_null($filteredCitation)) {
+			// Re-display the current citation unchanged with an error message
+			$filterErrors = array('editedCitation' => Locale::translate('submission.citations.form.filterError'));
+			$filteredCitation =& $citation;
+		} else {
+			// Copy unfiltered data from the original citation to the filtered citation
+			$article =& $this->getArticle();
+			$filteredCitation->setId($citation->getId());
+			$filteredCitation->setAssocId($article->getId());
+			$filteredCitation->setAssocType(ASSOC_TYPE_ARTICLE);
+			$filteredCitation->setRawCitation($citation->getRawCitation());
+			$filteredCitation->setEditedCitation($citation->getEditedCitation());
 
-		// Copy unfiltered data from the original citation to the filtered citation
-		$article =& $this->getArticle();
-		$filteredCitation->setId($citation->getId());
-		$filteredCitation->setAssocId($article->getId());
-		$filteredCitation->setAssocType(ASSOC_TYPE_ARTICLE);
-		$filteredCitation->setRawCitation($citation->getRawCitation());
-		$filteredCitation->setEditedCitation($citation->getEditedCitation());
+			// Set the citation state
+			$filteredCitation->setCitationState($citationStateAfterFiltering);
 
-		// Set the citation state
-		$filteredCitation->setCitationState($citationStateAfterFiltering);
-
-		// Persist the filtered citation
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->updateCitation($filteredCitation);
+			// Persist the filtered citation
+			$citationDAO =& DAORegistry::getDAO('CitationDAO');
+			$citationDAO->updateCitation($filteredCitation);
+		}
 
 		// Re-display the form
 		import('controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($filteredCitation);
+		foreach($filterErrors as $field => $message) {
+			$citationForm->addError($field, $message);
+		}
 		$citationForm->initData();
 		$citationForm->display($request);
 

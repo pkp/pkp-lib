@@ -190,11 +190,10 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 				if (isset($metadata['title'])) {
 					if (!isset($metadata['publication'])) {
 						$metadata['publication'] = $metadata['title'];
-						unset($metadata['title']);
 					} elseif (!isset($metadata['chapter'])) {
 						$metadata['chapter'] = $metadata['title'];
-						unset($metadata['title']);
 					}
+					unset($metadata['title']);
 				}
 				$openUrlSchema = new OpenUrlBookSchema();
 				break;
@@ -206,10 +205,15 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 			case OPENURL_GENRE_PROCEEDING:
 			case OPENURL_GENRE_PREPRINT:
 			default:
-				$metadataMapping += array(
-					'publication' => 'jtitle',
-					'title' => 'atitle'
-				);
+				$metadataMapping += array('publication' => 'jtitle');
+				if (isset($metadata['title'])) {
+					if (!isset($metadata['publication'])) {
+						$metadata['publication'] = $metadata['title'];
+					} elseif (!isset($metadata['atitle'])) {
+						$metadata['atitle'] = $metadata['title'];
+					}
+					unset($metadata['title']);
+				}
 				$openUrlSchema = new OpenUrlJournalSchema();
 				break;
 		}

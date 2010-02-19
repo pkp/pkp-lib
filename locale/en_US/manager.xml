@@ -117,7 +117,7 @@
 	<message key="manager.people.enrollUserAs">Enroll user as</message>
 	<message key="manager.people.invalidUser">Sorry, the requested user does not exist.</message>
 	<message key="manager.people.mergeUser">Merge User</message>
-	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</message>
+	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</message>
 	<message key="manager.people.mergeUsers">Merge Users</message>
 	<message key="manager.people.mustChooseRole">Please select a role at the top of the page before clicking "Enroll User".</message>
 	<message key="manager.people.mustProvideName">Please provide at least a last name for the user first.</message>

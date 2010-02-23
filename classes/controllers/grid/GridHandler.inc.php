@@ -378,13 +378,14 @@ class GridHandler extends PKPHandler {
 		// cells for the given row.
 		$renderedCells = array();
 		$columns = $this->getColumns();
-		foreach ($this->getColumns() as $column) {
+		foreach ($columns as $column) {
 			assert(is_a($column, 'GridColumn'));
 			$renderedCells[] = $this->_renderCellInternally($request, $row, $column);
 		}
 
 		// Pass control to the view to render the row
 		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign_by_ref('cells', $renderedCells);
 		$templateMgr->assign_by_ref('row', $row);
 		return $templateMgr->fetch($row->getTemplate());

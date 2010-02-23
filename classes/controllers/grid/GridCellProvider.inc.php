@@ -49,6 +49,7 @@ class GridCellProvider {
 		$templateMgr->assign('label', $label);
 		$templateMgr->assign_by_ref('column', $column);
 		$templateMgr->assign_by_ref('actions', $column->getActions());
+		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
 		$template = $column->getTemplate();
 		assert(!empty($template));

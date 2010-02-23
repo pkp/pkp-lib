@@ -30,6 +30,12 @@ class GridColumn {
 	 */
 	var $_actions;
 
+	/**
+	 * @var array flags that can be set by the handler to trigger layout
+	 *  options in the template.
+	 */
+	var $_flags;
+
 	/** @var string the controller template for the cells in this column */
 	var $_template;
 
@@ -40,12 +46,13 @@ class GridColumn {
 	 * Constructor
 	 */
 	function GridColumn($id = '', $title = '', $actions = array(),
-			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null) {
+			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
 		$this->_id = $id;
 		$this->_title = $title;
 		$this->_actions = array(GRID_ACTION_POSITION_DEFAULT => &$actions);
 		$this->_template = $template;
 		$this->_cellProvider =& $cellProvider;
+		$this->_flags = $flags;
 	}
 
 	//
@@ -110,6 +117,43 @@ class GridColumn {
 	function addAction($action, $position = GRID_ACTION_POSITION_DEFAULT) {
 		if (!isset($this->_actions[$position])) $this->_actions[$position] = array();
 		$this->_actions[$position][] = $action;
+	}
+
+	/**
+	 * Get all layout flags
+	 * @return array
+	 */
+	function getFlags() {
+		return $this->_flags;
+	}
+
+	/**
+	 * Get a single layout flags
+	 * @param $flag string
+	 * @return mixed
+	 */
+	function getFlag($flag) {
+		assert(isset($this->flags[$flag]));
+		return $this->_flags[$flag];
+	}
+
+	/**
+	 * Check whether a flag is set to true
+	 * @param $flag string
+	 * @return boolean
+	 */
+	function hasFlag($flag) {
+		if (!isset($this->_flags[$flag])) return false;
+		return (boolean)$this->_flags[$flag];
+	}
+
+	/**
+	 * Add a flag
+	 * @param $flag string
+	 * @param $value mixed
+	 */
+	function addFlag($flag, $value) {
+		$this->_flags[$flag] = $value;
 	}
 
 	/**

@@ -17,13 +17,12 @@
 	{/if}
 {/capture}
 <tr id="{$rowId}">
-	{foreach name=cellForEach from=$cells item=cell}
-		{if $smarty.foreach.cellForEach.first}
+	{foreach name=columnLoop from=$columns item=column}
+		{if $smarty.foreach.columnLoop.first}
 			<td class="first_column">
     			<div class="row_container">
-					<div class="row_file">
-						{$cell}
-						{**if notes <a href="#" class="notes sprite"><span class="hidetext">Notes</span></a> **}
+					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
+						{$cells[$smarty.foreach.columnLoop.index]}
 					</div>
 					<div class="row_actions">
 						<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
@@ -32,7 +31,7 @@
 				{$smarty.capture.rowActions}
 			</td>
 		{else}
-			{$cell}
+			{$cells[$smarty.foreach.columnLoop.index]}
 		{/if}
 	{/foreach}
 </tr>

@@ -198,7 +198,8 @@ class CitationGridHandler extends GridHandler {
 				'submission.citations.grid.editedCitation',
 				$emptyColumnActions,
 				'controllers/grid/gridCellInSpan.tpl',
-				$cellProvider
+				$cellProvider,
+				array('multiline' => true)
 			)
 		);
 	}

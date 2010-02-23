@@ -201,10 +201,6 @@ class ListbuilderHandler extends GridHandler {
 
 		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
 		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
-		// FIXME: The autocomplete url action doesn't seem to be defined in this handler.
-		// If it's implemented in sub-classes then either insert an abstract method here
-		// or move the assignment to the subclass as well.
-		$templateMgr->assign('autocompleteUrl', $router->url($request, array(), null, 'getAutocompleteSource'));
 
 		// Translate modal submit/cancel buttons
 		$okButton = Locale::translate('common.ok');

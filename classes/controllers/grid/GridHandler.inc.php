@@ -377,6 +377,7 @@ class GridHandler extends PKPHandler {
 		// Iterate through the columns and render the
 		// cells for the given row.
 		$renderedCells = array();
+		$columns = $this->getColumns();
 		foreach ($this->getColumns() as $column) {
 			assert(is_a($column, 'GridColumn'));
 			$renderedCells[] = $this->_renderCellInternally($request, $row, $column);

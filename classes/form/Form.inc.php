@@ -837,11 +837,14 @@ class Form {
 			$smarty->trigger_error('FBV: checkbox form element \'id\' not set.');
 		}
 
+		$params = $this->addClientSideValidation($params);
+		
 		$checkboxParams = '';
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 
 		foreach ($params as $key => $value) {
 			switch ($key) {
@@ -849,6 +852,7 @@ class Form {
 				case 'type': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
+				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'checked': $smarty->assign('FBV_checked', $params['checked']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;

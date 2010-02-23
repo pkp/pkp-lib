@@ -26,7 +26,7 @@ function addItem(handler, listbuilderId, localizedButtons) {
 				newItem,
 				function(returnString) {
 					if (returnString.status) {
-						$(returnString.content).hide().prependTo('#listGrid-' + listbuilderId).fadeIn("slow");
+						$(returnString.content).hide().prependTo('#listGrid-' + listbuilderId).fadeIn('slow').css("display","");
 						$('#listGrid-' + listbuilderId + ' tr.empty').hide();
 
 						// Remove the item from the source

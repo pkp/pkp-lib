@@ -40,7 +40,8 @@ class GridCellProvider {
 
 		// Construct a default cell id
 		$rowId = $row->getId();
-		assert(!empty($rowId));
+
+		assert(isset($rowId));
 		$cellId = $rowId.'-'.$columnId;
 
 		// Pass control to the view to render the cell

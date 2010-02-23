@@ -160,7 +160,6 @@ class LocaleFile {
 		$errors = array(
 			LOCALE_ERROR_MISSING_KEY => array(),
 			LOCALE_ERROR_EXTRA_KEY => array(),
-			LOCALE_ERROR_SUSPICIOUS_LENGTH => array(),
 			LOCALE_ERROR_DIFFERING_PARAMS => array(),
 			LOCALE_ERROR_MISSING_FILE => array()
 		);
@@ -187,18 +186,6 @@ class LocaleFile {
 				continue;
 			}
 			$value = $localeContents[$key];
-
-			// Watch for suspicious lengths.
-			if (!Locale::checkLengths($referenceValue, $value)) {
-				$errors[LOCALE_ERROR_SUSPICIOUS_LENGTH][] = array(
-					'key' => $key,
-					'locale' => $this->locale,
-					'referenceLocale' => $referenceLocaleFile->locale,
-					'reference' => $referenceValue,
-					'value' => $value,
-					'filename' => $this->filename
-				);
-			}
 
 			$referenceParams = Locale::getParameterNames($referenceValue);
 			$params = Locale::getParameterNames($value);

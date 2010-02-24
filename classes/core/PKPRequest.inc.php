@@ -98,13 +98,12 @@ class PKPRequest {
 	}
 
 	/**
-	 * Handle a 404 error (page not found).
+	 * Get the IF_MODIFIED_SINCE date (as a numerical timestamp) if available
+	 * @return int
 	 */
-	function handle404() {
-		PKPRequest::_checkThis();
-
-		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
+	function getIfModifiedSince() {
+		if (!isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) return null;
+		return strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
 	}
 
 	/**

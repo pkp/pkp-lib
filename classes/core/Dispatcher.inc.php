@@ -195,6 +195,13 @@ class Dispatcher {
 		$filename = $router->getCacheFilename($request);
 		if (!file_exists($filename)) return false;
 
+		// Allow a caching proxy to work its magic if possible
+		$ifModifiedSince = $request->getIfModifiedSince();
+		if ($ifModifiedSince !== null && $ifModifiedSince >= filemtime($filename)) {
+			header('HTTP/1.1 304 Not Modified');
+			exit();
+		}
+
 		$fp = fopen($filename, 'r');
 		$data = fread($fp, filesize($filename));
 		fclose($fp);
@@ -225,6 +232,16 @@ class Dispatcher {
 			fclose($fp);
 		}
 		return $contents;
+	}
+
+	/**
+	 * Handle a 404 error (page not found).
+	 */
+	function handle404() {
+		PKPRequest::_checkThis();
+
+		header('HTTP/1.0 404 Not Found');
+		fatalError('404 Not Found');
 	}
 }
 

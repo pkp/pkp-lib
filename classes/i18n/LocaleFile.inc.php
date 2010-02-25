@@ -40,7 +40,6 @@ class LocaleFile {
 	 */
 	function &_getCache($locale) {
 		if (!isset($this->cache)) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$this->cache = $cacheManager->getCache(
 				'locale', md5($this->filename),

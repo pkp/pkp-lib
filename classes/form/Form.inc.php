@@ -43,10 +43,10 @@ class Form {
 
 	/** Styles organized by parameter name */
 	var $fbvStyles;
-		
+
 	/** Client-side validation rules **/
 	var $cssValidation;
-	
+
 
 	/**
 	 * Constructor.
@@ -478,7 +478,8 @@ class Form {
 		}
 
 		if (!$returner) {
-			$this->trigger_error('FBV: invalid style value ['.$category.', '.$value.']');
+			$templateMgr =& TemplateManager::getManager();
+			$templateMgr->trigger_error('FBV: invalid style value ['.$category.', '.$value.']');
 		}
 
 		return $returner;
@@ -494,7 +495,7 @@ class Form {
 	 */
 	function smartyFBVFormArea($params, $content, &$smarty, &$repeat) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: form area \'id\' not set.');
+			$smarty->trigger_error('FBV: form area \'id\' not set.');
 		}
 
  		if (!$repeat) {
@@ -558,10 +559,10 @@ class Form {
 
 	function smartyFBVElementMultilingual($params, &$smarty, $content = null) {
 		if ( !isset($params['value']) || !is_array($params['value'])) {
-			$this->trigger_error('FBV: value parameter must be an array for multilingual elements');
+			$smarty->trigger_error('FBV: value parameter must be an array for multilingual elements');
 		}
 		if ( !isset($params['name']) ) {
-			$this->trigger_error('FBV: parameter must be set');
+			$smarty->trigger_error('FBV: parameter must be set');
 		}
 
 		$required = isset($params['required'])?$params['required']:false;
@@ -703,9 +704,9 @@ class Form {
 	 */
 	function smartyFBVTextInput($params, &$smarty) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: text input form element \'id\' not set.');
+			$smarty->trigger_error('FBV: text input form element \'id\' not set.');
 		}
-		
+
 		$textInputParams = '';
 
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
@@ -747,16 +748,16 @@ class Form {
 	 */
 	function smartyFBVTextArea($params, &$smarty) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: text area form element \'id\' not set.');
+			$smarty->trigger_error('FBV: text area form element \'id\' not set.');
 		}
-		
+
 		$params = $this->addClientSideValidation($params);
-		
+
 		$textAreaParams = '';
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
-		
+
 		// prepare the control's size info
 		if (isset($params['size'])) {
 			$sizeInfo = $this->getStyleInfoByIdentifier('size', $params['size']);
@@ -792,7 +793,7 @@ class Form {
 	 */
 	function smartyFBVSelect($params, &$smarty) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: select form element \'id\' not set.');
+			$smarty->trigger_error('FBV: select form element \'id\' not set.');
 		}
 
 		$selectParams = '';
@@ -833,7 +834,7 @@ class Form {
 	 */
 	function smartyFBVCheckbox($params, &$smarty) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: checkbox form element \'id\' not set.');
+			$smarty->trigger_error('FBV: checkbox form element \'id\' not set.');
 		}
 
 		$params = $this->addClientSideValidation($params);
@@ -852,6 +853,7 @@ class Form {
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
+				case 'required': $smarty->assign('FBV_required', $params['required']); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'checked': $smarty->assign('FBV_checked', $params['checked']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
@@ -872,7 +874,7 @@ class Form {
 	 */
 	function smartyFBVRadioButton($params, &$smarty) {
 		if (!isset($params['id'])) {
-			$this->trigger_error('FBV: radio input form element \'id\' not set.');
+			$smarty->trigger_error('FBV: radio input form element \'id\' not set.');
 		}
 
 		$radioParams = '';
@@ -903,7 +905,7 @@ class Form {
 	 * Assign the appropriate class name to the element for client-side validation
 	 * @param $params array
 	 * return array
-	 */	
+	 */
 	function addClientSideValidation($params) {
 		// Assign the appropriate class name to the element for client-side validation
 		$fieldId = $params['id'];

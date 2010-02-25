@@ -214,7 +214,6 @@ class PKPLocale {
 	function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',

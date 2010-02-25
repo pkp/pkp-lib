@@ -62,8 +62,6 @@ class PKPTemplateManager extends Smarty {
 
 		parent::Smarty();
 
-		import('cache.CacheManager');
-
 		// Set up Smarty configuration
 		$baseDir = Core::getBaseDir();
 		$cachePath = CacheManager::getFileCachePath();

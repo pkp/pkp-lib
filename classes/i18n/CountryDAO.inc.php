@@ -40,7 +40,6 @@ class CountryDAO extends DAO {
 		if (!isset($locale)) $locale = Locale::getLocale();
 
 		if (!isset($caches[$locale])) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$caches[$locale] = $cacheManager->getFileCache(
 				'country', $locale,

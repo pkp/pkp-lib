@@ -55,4 +55,10 @@
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Submission Checklist</message>
 	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.submit.contributor.name">Name</message>
+	<message key="author.submit.contributor.email">E-mail</message>
+	<message key="author.submit.contributor.role">Role</message>
+	<message key="author.submit.contributor.principalContact">Primary Contact</message>
 </locale>

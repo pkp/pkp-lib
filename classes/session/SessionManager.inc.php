@@ -92,9 +92,8 @@ class SessionManager {
 				}
 			}
 
-			// Update existing session's timestamp
+			// Update existing session's timestamp; will be saved when write is called
 			$this->userSession->setSecondsLastUsed($now);
-			$this->sessionDao->updateObject($this->userSession);
 		}
 	}
 

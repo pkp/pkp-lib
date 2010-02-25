@@ -505,7 +505,6 @@ class DAO {
 		}
 		$start = Core::microtime();
 		$result =& $this->retrieve($sql, $params);
-		DBConnection::logQuery($sql, $start, $params);
 
 		while (!$result->EOF) {
 			$row =& $result->getRowAssoc(false);

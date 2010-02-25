@@ -446,6 +446,8 @@ class PKPRequest {
 		if ($site === null) {
 			$siteDao =& DAORegistry::getDAO('SiteDAO');
 			$site =& $siteDao->getSite();
+			// PHP bug? This is needed for some reason or extra queries results.
+			Registry::set('site', $site);
 		}
 
 		return $site;

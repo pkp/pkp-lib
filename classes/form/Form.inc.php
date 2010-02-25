@@ -853,6 +853,7 @@ class Form {
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
+				case 'required': $smarty->assign('FBV_required', $params['required']); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'checked': $smarty->assign('FBV_checked', $params['checked']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;

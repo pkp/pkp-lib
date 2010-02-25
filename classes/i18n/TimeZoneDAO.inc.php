@@ -35,7 +35,6 @@ class TimeZoneDAO extends DAO {
 	function &_getTimeZoneCache() {
 		$cache =& Registry::get('allTimeZones', true, null);
 		if ($cache === null) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'timeZone', 'list',

@@ -29,7 +29,6 @@ class CurrencyDAO extends DAO {
 		$locale = Locale::getLocale();
 		$cache =& Registry::get('currencyCache', true, null);
 		if ($cache === null) {
-			import('cache.CacheManager');
 			$cacheManager = CacheManager::getManager();
 			$cache =& $cacheManager->getFileCache(
 				'currencies', $locale,

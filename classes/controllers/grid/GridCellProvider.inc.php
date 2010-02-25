@@ -24,10 +24,10 @@ class GridCellProvider {
 	// Public methods
 	//
 	/**
-	 * To be used by a GridRowHandler to generate a rendered representation of
+	 * To be used by a GridRow to generate a rendered representation of
 	 * the element for the given column.
 	 *
-	 * @param $row GridRowHandler
+	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @return string the rendered representation of the element for the given column
 	 */
@@ -40,7 +40,8 @@ class GridCellProvider {
 
 		// Construct a default cell id
 		$rowId = $row->getId();
-		assert(!empty($rowId));
+
+		assert(isset($rowId));
 		$cellId = $rowId.'-'.$columnId;
 
 		// Pass control to the view to render the cell
@@ -49,6 +50,7 @@ class GridCellProvider {
 		$templateMgr->assign('label', $label);
 		$templateMgr->assign_by_ref('column', $column);
 		$templateMgr->assign_by_ref('actions', $column->getActions());
+		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
 		$template = $column->getTemplate();
 		assert(!empty($template));

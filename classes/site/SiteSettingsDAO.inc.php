@@ -19,7 +19,6 @@ class SiteSettingsDAO extends DAO {
 	function &_getCache() {
 		$settingCache =& Registry::get('siteSettingCache', true, null);
 		if ($settingCache === null) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$settingCache = $cacheManager->getCache(
 				'siteSettings', 'site',

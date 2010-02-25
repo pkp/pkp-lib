@@ -143,7 +143,10 @@ class PKPPageRouter extends PKPRouter {
 		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
 			if (file_exists($sourceFile) || file_exists('lib/pkp/'.$sourceFile)) require($sourceFile);
 			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
-			else $request->handle404();
+			else {
+				$dispatcher =& $this->getDispatcher();
+				$dispatcher->handle404();
+			}
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
@@ -158,7 +161,10 @@ class PKPPageRouter extends PKPRouter {
 		// Redirect to 404 if the operation doesn't exist
 		// for the handler.
 		$methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
-		if (!in_array(strtolower($op), $methods)) $request->handle404();
+		if (!in_array(strtolower($op), $methods)) {
+			$dispatcher =& $this->getDispatcher();
+			$dispatcher->handle404();
+		}
 
 		// Instantiate the handler class
 		$HandlerClass = HANDLER_CLASS;

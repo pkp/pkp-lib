@@ -236,7 +236,6 @@ class DAO {
 		if (!isset($cacheDir)) {
 			global $ADODB_CACHE_DIR;
 
-			import('cache.CacheManager');
 			$cacheDir = CacheManager::getFileCachePath() . '/_db';
 
 			$ADODB_CACHE_DIR = $cacheDir;
@@ -506,7 +505,6 @@ class DAO {
 		}
 		$start = Core::microtime();
 		$result =& $this->retrieve($sql, $params);
-		DBConnection::logQuery($sql, $start, $params);
 
 		while (!$result->EOF) {
 			$row =& $result->getRowAssoc(false);

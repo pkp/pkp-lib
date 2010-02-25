@@ -16,6 +16,8 @@
 // $Id$
 
 
+import('cache.FileCache');
+
 class CacheManager {
 	/**
 	 * Get the static instance of the cache manager.
@@ -37,7 +39,6 @@ class CacheManager {
 	 * @return object FileCache
 	 */
 	function &getFileCache($context, $cacheId, $fallback) {
-		import('cache.FileCache');
 		$returner = new FileCache(
 			$context, $cacheId, $fallback,
 			$this->getFileCachePath()

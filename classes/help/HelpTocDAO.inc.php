@@ -24,7 +24,6 @@ class HelpTocDAO extends XMLDAO {
 		$locale = Help::getLocale();
 
 		if (!isset($cache[$locale][$tocId])) {
-			import('cache.CacheManager');
 			$help =& Help::getHelp();
 			$cacheManager =& CacheManager::getManager();
 			$cache[$locale][$tocId] = $cacheManager->getFileCache('help-toc-' . $help->getLocale(), $tocId, array($this, '_cacheMiss'));

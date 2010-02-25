@@ -73,6 +73,8 @@ class PKPApplication {
 		import('db.DAORegistry');
 		import('db.XMLDAO');
 
+		import('cache.CacheManager');
+
 		import('security.Validation');
 		import('session.SessionManager');
 		import('template.TemplateManager');

@@ -32,7 +32,6 @@ define('MASTER_LOCALE', 'en_US');
 // array_merge_recursive doesn't treat numeric keys nicely.
 define('LOCALE_ERROR_MISSING_KEY',		'LOCALE_ERROR_MISSING_KEY');
 define('LOCALE_ERROR_EXTRA_KEY',		'LOCALE_ERROR_EXTRA_KEY');
-define('LOCALE_ERROR_SUSPICIOUS_LENGTH',	'LOCALE_ERROR_SUSPICIOUS_LENGTH');
 define('LOCALE_ERROR_DIFFERING_PARAMS',		'LOCALE_ERROR_DIFFERING_PARAMS');
 define('LOCALE_ERROR_MISSING_FILE',		'LOCALE_ERROR_MISSING_FILE');
 
@@ -215,7 +214,6 @@ class PKPLocale {
 	function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',
@@ -337,22 +335,6 @@ class PKPLocale {
 		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
 		return $matches;
-	}
-
-	/**
-	 * Determine whether or not the lengths of the two supplied values are
-	 * "similar".
-	 * @param $reference string
-	 * @param $value string
-	 * @return boolean True if the lengths match very roughly.
-	 */
-	function checkLengths($reference, $value) {
-		$referenceLength = String::strlen($reference);
-		$length = String::strlen($value);
-		$lengthDifference = abs($referenceLength - $length);
-		if ($referenceLength == 0) return ($length == 0);
-		if ($lengthDifference / $referenceLength > 1 && $lengthDifference > 10) return false;
-		return true;
 	}
 }
 

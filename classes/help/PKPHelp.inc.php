@@ -95,7 +95,6 @@ class PKPHelp {
 		$cache =& Registry::get('pkpHelpTocCache', true, null);
 
 		if ($cache === null) {
-			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'help', 'toc',

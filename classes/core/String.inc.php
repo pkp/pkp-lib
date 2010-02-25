@@ -339,7 +339,7 @@ class String {
 			}
 			return $result;
 		} elseif (function_exists('finfo_open')) {
-			$localeFiles =& Registry::get('fileInfo', true, null);
+			$fi =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {
 				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
 			}

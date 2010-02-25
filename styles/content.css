@@ -66,32 +66,6 @@ hr {
 	padding: 2px;
 }
 
-#toolbox .block {
-	padding-left: 7px;
-	margin-bottom: 10px;
-}
-
-#toolbox .blockTitle {
-	font-size: 95%;
-	font-weight: bold;
-}
-
-#toolbox .block ul {
-	padding-top: 2px;
-}
-
-#toolbox .block label {
-	font-size: 85%;
-}
-
-.throbber {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    left: 50%;
-    top: 25%;'
-}
-
 /* @end */
 
 /* @group Default Spacing */
@@ -501,19 +475,30 @@ div.grid tr.category td {
 	overflow: hidden;
 }
 
-.row_actions, .row_controls {
+.row_container
+{
+	padding-left: 25px;
+	padding-right: 30px;
+	overflow: hidden;
+}
+
+.row_container, .row_controls {
 	background-color: #e8f0f8;
 }
 
 .row_actions, .row_file {
+	position: relative;
 	float: left;
-	height: 40px;
+	min-height: 40px;
 	line-height: 40px;
 	vertical-align: middle;
 }
 
 .row_actions {
 	width: 25px;
+	right: 55px;
+	padding-top: 5px;
+	margin-left: -100%;
 }
 
 .row_actions a {
@@ -521,11 +506,18 @@ div.grid tr.category td {
 }
 
 .row_file {
-	margin-left: 15px;
+	width: 100%;
+	padding: 5px 15px;
+	background-color: #fff;
 }
 
 .row_file a {
 	padding: 2px 20px;
+}
+
+.multiline
+{
+	line-height: inherit;
 }
 
 .row_controls {
@@ -677,6 +669,7 @@ a.uploaded {
 /* @end */
 
 /* @group Font Sizer */
+
 .smallFont {
 	outline: none; /*for making it look nice in FF */
 	background: url(../templates/images/icons/font-down.png);
@@ -713,6 +706,36 @@ a.uploaded {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 	/*This is for IE8 */
 	filter: alpha(opacity = 30);
+}
+
+/* @end */
+
+/* @group Other Stuff */
+
+#toolbox .block {
+	padding-left: 7px;
+	margin-bottom: 10px;
+}
+
+#toolbox .blockTitle {
+	font-size: 95%;
+	font-weight: bold;
+}
+
+#toolbox .block ul {
+	padding-top: 2px;
+}
+
+#toolbox .block label {
+	font-size: 85%;
+}
+
+.throbber {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 25%;
 }
 
 /* @end */

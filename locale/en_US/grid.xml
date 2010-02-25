@@ -21,6 +21,7 @@
 	<message key="grid.action.addItem">Add Item</message>
 	<message key="grid.action.delete">Delete</message>
 	<message key="grid.action.edit">Edit</message>
+	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>
@@ -37,6 +38,12 @@
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
 
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Review Forms</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
+
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Files</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>
@@ -48,4 +55,10 @@
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Submission Checklist</message>
 	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.submit.contributor.name">Name</message>
+	<message key="author.submit.contributor.email">E-mail</message>
+	<message key="author.submit.contributor.role">Role</message>
+	<message key="author.submit.contributor.principalContact">Primary Contact</message>
 </locale>

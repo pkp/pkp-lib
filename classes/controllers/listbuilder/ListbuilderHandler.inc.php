@@ -13,6 +13,7 @@
  */
 
 import('controllers.grid.GridHandler');
+import('controllers.listbuilder.ListbuilderGridRow');
 
 define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
@@ -30,22 +31,22 @@ define('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
 // you're on the right track.
 class ListbuilderHandler extends GridHandler {
 	/** @var string The label associated with the primary source to be added to the list **/
-	var $sourceTitle;
+	var $_sourceTitle;
 
 	/** @var integer Definition of the type of source **/
-	var $sourceType;
+	var $_sourceType;
 
 	/** @var array The current collection of items in the list **/
-	var $items;
+	var $_items;
 
 	/** @var string The title of the item collection **/
-	var $listTitle;
+	var $_listTitle;
 
 	/** @var array Array of optional attributes **/
-	var $attributeNames;
+	var $_attributeNames;
 
 	/** @var array Array of strings containing possible items that are stored in the source list */
-	var $possibleItems;
+	var $_possibleItems;
 
 	/**
 	 * Constructor.
@@ -59,6 +60,18 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the listbuilder template
+	 * @return string
+	 */
+	function getTemplate() {
+		if (is_null($this->_template)) {
+			$this->setTemplate('controllers/listbuilder/listbuilder.tpl');
+		}
+
+		return $this->_template;
+	}
+	
+	/**
 	 * Set the title for the source (left side of the listbuilder)
 	 * FIXME: AFAIK doxygen needs the $ to correctly parse variable names
 	 *  I've corrected this throughout the code but leave this as a marker
@@ -66,7 +79,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $sourceTitle string
 	 */
 	function setSourceTitle($sourceTitle) {
-		$this->sourceTitle = $sourceTitle;
+		$this->_sourceTitle = $sourceTitle;
 	}
 
 	/**
@@ -74,7 +87,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return string
 	 */
 	function getSourceTitle() {
-		return $this->sourceTitle;
+		return $this->_sourceTitle;
 	}
 
 	/**
@@ -82,7 +95,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $sourceType int
 	 */
 	function setSourceType($sourceType) {
-		$this->sourceType = $sourceType;
+		$this->_sourceType = $sourceType;
 	}
 
 	/**
@@ -90,7 +103,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return int
 	 */
 	function getSourceType() {
-		return $this->sourceType;
+		return $this->_sourceType;
 	}
 
 	/**
@@ -98,7 +111,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $items array
 	 */
 	function setItems($items) {
-		$this->items = $items;
+		$this->_items = $items;
 	}
 
 	/**
@@ -106,7 +119,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return array
 	 */
 	function getItems() {
-		return $this->items;
+		return $this->_items;
 	}
 
 	/**
@@ -114,7 +127,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return ListbuilderItem
 	 */
 	function getItem($itemId) {
-		return $this->items[$itemId];
+		return $this->_items[$itemId];
 	}
 
 	/**
@@ -122,7 +135,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $itemId mixed
 	 */
 	function removeItem($itemId) {
-		unset($items[$itemId]);
+		unset($this->_items[$itemId]);
 	}
 
 	/**
@@ -130,7 +143,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $listTitle string
 	 */
 	function setListTitle($listTitle) {
-		$this->listTitle = $listTitle;
+		$this->_listTitle = $listTitle;
 	}
 
 	/**
@@ -138,7 +151,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return string
 	 */
 	function getListTitle() {
-		return $this->listTitle;
+		return $this->_listTitle;
 	}
 
 	/**
@@ -146,7 +159,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $attributeNames array
 	 */
 	function setAttributeNames($attributeNames) {
-		$this->attributeNames = $attributeNames;
+		$this->_attributeNames = $attributeNames;
 	}
 
 	/**
@@ -154,7 +167,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return array
 	 */
 	function getAttributeNames() {
-		return $this->attributeNames;
+		return $this->_attributeNames;
 	}
 
 	/**
@@ -162,15 +175,17 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $itemName string
 	 * @param $attributeNames string
 	 */
-	// FIXME: HTML is to be kept in the view layer. Please implement as
-	// a template.
-	function buildListItemHTML($itemId, $itemName, $attributeNames) {
+	function _buildListItemHTML($itemId = null, $itemName = null, $attributeNames = null) {
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign('itemId', $itemId);
+		$templateMgr->assign('itemName', $itemName);
+
 		if (isset($attributeNames)) {
 			if (is_array($attributeNames)) $attributeNames = implode(', ', $attributeNames);
-			return "<option value='$itemId'>$itemName ($attributeNames)</option>";
+			$templateMgr->assign('attributeNames', $attributeNames);
 		}
 
-		return "<option value='$itemId'>$itemName</option>";
+		return $templateMgr->fetch('controllers/listbuilder/listbuilderItem.tpl');
 	}
 
 
@@ -186,10 +201,6 @@ class ListbuilderHandler extends GridHandler {
 
 		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
 		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
-		// FIXME: The autocomplete url action doesn't seem to be defined in this handler.
-		// If it's implemented in sub-classes then either insert an abstract method here
-		// or move the assignment to the subclass as well.
-		$templateMgr->assign('autocompleteUrl', $router->url($request, array(), null, 'getAutocompleteSource'));
 
 		// Translate modal submit/cancel buttons
 		$okButton = Locale::translate('common.ok');
@@ -206,11 +217,22 @@ class ListbuilderHandler extends GridHandler {
 		$templateMgr->assign_by_ref('rows', $rows);
 
 		$templateMgr->assign('listbuilder', $this);
-		// FIXME: Templates should always be configurable. I propse you
-		// override the initialize method for this.
-		echo $templateMgr->fetch('controllers/listbuilder/listbuilder.tpl');
+
+		echo $templateMgr->fetch($this->getTemplate());
     }
 
+	//
+	// Overridden methods from GridHandler
+	//
+	/**
+	 * @see GridHandler::getRowInstance()
+	 * @return CitationGridRow
+	 */
+	function &getRowInstance() {
+		// Return a citation row
+		$row = new ListbuilderGridRow();
+		return $row;
+	}
 
 	/**
 	 * Handle adding an item to the list

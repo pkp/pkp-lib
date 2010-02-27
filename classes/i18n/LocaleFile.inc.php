@@ -41,7 +41,7 @@ class LocaleFile {
 	function &_getCache($locale) {
 		if (!isset($this->cache)) {
 			$cacheManager =& CacheManager::getManager();
-			$this->cache = $cacheManager->getCache(
+			$this->cache = $cacheManager->getFileCache(
 				'locale', md5($this->filename),
 				array(&$this, '_cacheMiss')
 			);
@@ -63,14 +63,7 @@ class LocaleFile {
 	 * Register a cache miss.
 	 */
 	function _cacheMiss(&$cache, $id) {
-		$cacheType = Config::getVar('cache','cache');
-
-		if ($cacheType == 'none') {
-			$localeData = $this->load($this->filename);
-			return $localeData[$id];	// return the key directly from the parsed XML file (*slow*)
-		} else {
-			return null; // It's not in this locale file.
-		}
+		return null; // It's not in this locale file.
 	}
 
 	/**

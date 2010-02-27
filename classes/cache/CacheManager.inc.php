@@ -18,6 +18,9 @@
 
 import('cache.FileCache');
 
+define('CACHE_TYPE_FILE', 1);
+define('CACHE_TYPE_OBJECT', 2);
+
 class CacheManager {
 	/**
 	 * Get the static instance of the cache manager.
@@ -46,16 +49,38 @@ class CacheManager {
 		return $returner;
 	}
 
+	function &getObjectCache($context, $cacheId, $fallback) {
+		$returner =& $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
+		return $returner;
+	}
+
+	function getCacheImplementation($type) {
+		switch ($type) {
+			case CACHE_TYPE_FILE: return 'file';
+			case CACHE_TYPE_OBJECT: return Config::getVar('cache', 'object_cache');
+			default: return null;
+		}
+	}
+
 	/**
 	 * Get a cache.
 	 * @param $context string
 	 * @param $cacheId string
 	 * @param $fallback callback
+	 * @param $type string Type of cache: CACHE_TYPE_...
 	 * @return object Cache
 	 */
-	function &getCache($context, $cacheId, $fallback) {
-		$cacheType = Config::getVar('cache','cache');
-		switch ($cacheType) {
+	function &getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
+		switch ($this->getCacheImplementation($type)) {
+			case 'xcache':
+				import('cache.XCacheCache');
+				// Use INDEX_FILE_LOCATION to disambiguate
+				// between multiple installs sharing the same
+				// cache.
+				$cache = new XCacheCache(
+					$context, $cacheId, $fallback
+				);
+				break;
 			case 'memcache':
 				import('cache.MemcacheCache');
 				$cache = new MemcacheCache(
@@ -93,13 +118,20 @@ class CacheManager {
 	 * Flush an entire context, if specified, or
 	 * the whole cache.
 	 * @param $context string The context to flush, if only one is to be flushed
+	 * @param $type string The type of cache to flush
 	 */
-	function flush($context = null) {
-		$cacheType = Config::getVar('cache','cache');
-		switch ($cacheType) {
+	function flush($context = null, $type = CACHE_TYPE_FILE) {
+		$cacheImplementation = $this->getCacheImplementation($type);
+		switch ($cacheImplementation) {
+			case 'xcache':
+				// There is no(t yet) selective flushing in
+				// xcache; invalidate the whole thing.
+				$junkCache =& $this->getCache(null, null, null, null);
+				$junkCache->flush();
+				break;
 			case 'memcache':
-				// There is no(t yet) selective flushing in memcache;
-				// invalidate the whole thing.
+				// There is no(t yet) selective flushing in
+				// memcache; invalidate the whole thing.
 				$junkCache =& $this->getCache(null, null, null);
 				$junkCache->flush();
 				break;

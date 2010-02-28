@@ -74,10 +74,13 @@ class CacheManager {
 		switch ($this->getCacheImplementation($type)) {
 			case 'xcache':
 				import('cache.XCacheCache');
-				// Use INDEX_FILE_LOCATION to disambiguate
-				// between multiple installs sharing the same
-				// cache.
 				$cache = new XCacheCache(
+					$context, $cacheId, $fallback
+				);
+				break;
+			case 'apc':
+				import('cache.APCCache');
+				$cache = new APCCache(
 					$context, $cacheId, $fallback
 				);
 				break;
@@ -124,15 +127,9 @@ class CacheManager {
 		$cacheImplementation = $this->getCacheImplementation($type);
 		switch ($cacheImplementation) {
 			case 'xcache':
-				// There is no(t yet) selective flushing in
-				// xcache; invalidate the whole thing.
-				$junkCache =& $this->getCache(null, null, null, null);
-				$junkCache->flush();
-				break;
+			case 'apc':
 			case 'memcache':
-				// There is no(t yet) selective flushing in
-				// memcache; invalidate the whole thing.
-				$junkCache =& $this->getCache(null, null, null);
+				$junkCache =& $this->getCache($context, null, null);
 				$junkCache->flush();
 				break;
 			case 'file':

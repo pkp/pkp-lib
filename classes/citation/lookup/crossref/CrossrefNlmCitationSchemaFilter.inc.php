@@ -70,13 +70,13 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$nullVar = null;
 		$searchParams = array(
 			'pid' => $this->getEmail(),
-			'redirect' => 'false',
+			'noredirect' => 'true',
 			'format' => 'unixref'
 		);
 
 		$doi = $citationDescription->getStatement('pub-id[@pub-id-type="doi"]');
 		if (!empty($doi)) {
-			// Directly look up the DOI
+			// Directly look up the DOI with OpenURL 0.1
 			$searchParams['id'] = 'doi:'.$doi;
 		} else {
 			// Use OpenURL meta-data to search for the entry

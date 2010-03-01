@@ -58,9 +58,17 @@ require_once('lib/pkp/includes/bootstrap.inc.php');
 // can set it's own error handler and catch errors for us.
 restore_error_handler();
 
-// Show errors on the GUI
-ini_set('display_errors', 'on');
+// Show errors in the UI
+ini_set('display_errors', true);
+
+// Configure assertions for tests
+ini_set('assert.active', true);
+ini_set('assert.bail', false);
+ini_set('assert.warning', true);
+ini_set('assert.callback', null);
+ini_set('assert.quiet_eval', false);
 
 // The server variable PHP_PEAR_BIN_DIR points to the PEAR base directory
 include $_SERVER['PHP_PEAR_BIN_DIR'] . '/phpunit';
+
 ?>

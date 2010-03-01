@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_lookup_crossref
+ */
+
+/**
  * @file classes/citation/lookup/crossref/CrossrefNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

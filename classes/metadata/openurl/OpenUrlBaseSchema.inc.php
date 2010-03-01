@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup metadata_openurl
+ */
+
+/**
  * @file classes/metadata/OpenUrlBaseSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationParserServiceTest
- * @ingroup tests_classes_citation
+ * @ingroup tests_classes_metadata
  * @see DateStringNormalizerFilter
  *
  * @brief Tests for the RegexCitationParserService class.

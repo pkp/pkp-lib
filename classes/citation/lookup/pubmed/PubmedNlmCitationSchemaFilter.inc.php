@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_lookup_pubmed
+ */
+
+/**
  * @file classes/citation/lookup/pubmed/PubmedNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_parser_regex
+ */
+
+/**
  * @file classes/citation/parser/regex/RegexRawCitationNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

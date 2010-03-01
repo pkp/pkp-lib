@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup metadata
+ */
+
+/**
  * @file classes/metadata/MetadataSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

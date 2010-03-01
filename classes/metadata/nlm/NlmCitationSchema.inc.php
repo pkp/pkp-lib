@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup metadata_nlm
+ */
+
+/**
  * @file classes/metadata/NlmCitationSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

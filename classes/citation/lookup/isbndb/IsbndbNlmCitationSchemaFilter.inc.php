@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_lookup_isbndb
+ */
+
+/**
  * @file classes/citation/lookup/isbndb/IsbndbNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_parser_paracite
+ */
+
+/**
  * @file classes/citation/parser/paracite/ParaciteRawCitationNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

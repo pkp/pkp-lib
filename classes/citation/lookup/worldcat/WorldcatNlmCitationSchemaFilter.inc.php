@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_lookup_worldcat
+ */
+
+/**
  * @file classes/citation/lookup/worldcat/WorldcatNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

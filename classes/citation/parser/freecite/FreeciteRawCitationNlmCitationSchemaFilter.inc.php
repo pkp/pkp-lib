@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_parser_freecite
+ */
+
+/**
  * @file classes/citation/parser/freecite/FreeciteRawCitationNlmCitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

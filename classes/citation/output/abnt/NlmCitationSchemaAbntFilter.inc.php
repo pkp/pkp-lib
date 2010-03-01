@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup citation_output_abnt
+ */
+
+/**
  * @file citation/output/abnt/NlmCitationSchemaAbntFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

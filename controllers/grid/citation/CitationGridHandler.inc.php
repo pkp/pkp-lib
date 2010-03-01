@@ -487,6 +487,8 @@ class CitationGridHandler extends GridHandler {
 	 *  as the last entry in the array.
 	 */
 	function &_instantiateLookupFilters(&$citation, &$metadataDescription) {
+		$lookupFilters = array();
+
 		// Instantiate CrossRef filter
 		import('citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
 		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
@@ -495,12 +497,15 @@ class CitationGridHandler extends GridHandler {
 		import('citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
 		import('citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
 		$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter(ISBNDB_TEMP_APIKEY);
-		$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
-		import('filter.GenericSequencerFilter');
-		$isbndbFilter = new GenericSequencerFilter();
-		$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
-		$isbnSampleData = '1234567890123';
-		$isbndbFilter->addFilter($isbnToNlmFilter, $isbnSampleData);
+		if ($nlmToIsbnFilter->supportsAsInput($metadataDescription)) {
+			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
+			import('filter.GenericSequencerFilter');
+			$isbndbFilter = new GenericSequencerFilter();
+			$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
+			$isbnSampleData = '1234567890123';
+			$isbndbFilter->addFilter($isbnToNlmFilter, $isbnSampleData);
+			$lookupFilters[] =& $isbndbFilter;
+		}
 
 		// Instantiate the pubmed filter
 		import('citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
@@ -510,7 +515,7 @@ class CitationGridHandler extends GridHandler {
 		import('citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
 		$worldcatFilter = new WorldcatNlmCitationSchemaFilter();
 
-		$lookupFilters = array(&$crossrefFilter, &$isbndbFilter, &$pubmedFilter, &$worldcatFilter, $metadataDescription);
+		$lookupFilters = array_merge($lookupFilters, array(&$crossrefFilter, &$pubmedFilter, &$worldcatFilter, $metadataDescription));
 		return $lookupFilters;
 	}
 

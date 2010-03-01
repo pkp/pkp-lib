@@ -280,3 +280,18 @@ function deleteElementById(elementId, showEmpty) {
 		}
 	});
 }
+
+function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
+	$.post(url, null, function(returnString) {
+		if (returnString.status == true) {
+			updateItem(actOnType, actOnId, returnString.content);
+			$(tabContainer).parent().dialog('close');
+			if (reopen == true) {
+				$(tabContainer).parent().dialog('open');
+			}
+		} else {
+			// Display errors in error list
+			$('#formErrors .formErrorList').html(returnString.content);
+		}
+	}, "json");
+}

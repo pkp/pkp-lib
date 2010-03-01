@@ -221,7 +221,9 @@
 	<message key="submission.uploadFileTo">Upload file to</message>
 	<message key="submission.viewMetadata">View Metadata</message>
 	<message key="submission.views">Views</message>
-	
+	<message key="submission.uploadSuccessful">Your file has been uploaded.  Press continue to edit the file's metadata.</message>
+	<message key="submission.loadMessage">Please wait while your file is uploaded to the server.</message>
+
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
 </locale>

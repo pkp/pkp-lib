@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @defgroup form
+ */
+
+/**
  * @file classes/form/Form.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
@@ -12,11 +16,24 @@
  * @brief Class defining basic operations for handling HTML forms.
  */
 
-// $Id$
-
-
 import('form.FormError');
-import('form.validation.FormValidator');
+
+// Import all form validators for convenient use in sub-classes
+import('form.validation.FormValidatorAlphaNum');
+import('form.validation.FormValidatorArray');
+import('form.validation.FormValidatorArrayCustom');
+import('form.validation.FormValidatorControlledVocab');
+import('form.validation.FormValidatorCustom');
+import('form.validation.FormValidatorCaptcha');
+import('form.validation.FormValidatorEmail');
+import('form.validation.FormValidatorInSet');
+import('form.validation.FormValidatorLength');
+import('form.validation.FormValidatorLocale');
+import('form.validation.FormValidatorLocaleEmail');
+import('form.validation.FormValidatorPost');
+import('form.validation.FormValidatorRegExp');
+import('form.validation.FormValidatorUri');
+import('form.validation.FormValidatorUrl');
 
 class Form {
 
@@ -185,8 +202,8 @@ class Form {
 			// instantiating forms without reference. Should not
 			// be removed or otherwise used.
 			// See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
-			// For an explanation why we have to replace the reference to $this here.
-			$check->_setForm($this);
+			// for an explanation why we have to replace the reference to $this here.
+			$check->setForm($this);
 
 			if (!isset($this->errorsArray[$check->getField()]) && !$check->isValid()) {
 				if (method_exists($check, 'getErrorFields') && method_exists($check, 'isArray') && call_user_func(array(&$check, 'isArray'))) {
@@ -838,7 +855,7 @@ class Form {
 		}
 
 		$params = $this->addClientSideValidation($params);
-		
+
 		$checkboxParams = '';
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;

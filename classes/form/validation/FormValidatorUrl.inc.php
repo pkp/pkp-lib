@@ -13,22 +13,20 @@
  * @brief Form validation check for URLs.
  */
 
-// $Id$
+import('form.validation.FormValidator');
+import('validation.ValidatorUrl');
 
-
-import('form.validation.FormValidatorUri');
-
-class FormValidatorUrl extends FormValidatorUri {
-	function getRegexp() {
-		return parent::getRegexp(array('http', 'https', 'ftp'));
-	}
-
+class FormValidatorUrl extends FormValidator {
 	/**
 	 * Constructor.
-	 * @see FormValidatorUri::FormValidatorUri()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 */
 	function FormValidatorUrl(&$form, $field, $type, $message) {
-		parent::FormValidatorUri($form, $field, $type, $message, array('http', 'https', 'ftp'));
+		$validator = new ValidatorUrl();
+		parent::FormValidator($form, $field, $type, $message, $validator);
 		array_push($form->cssValidation[$field], 'url');
 	}
 }

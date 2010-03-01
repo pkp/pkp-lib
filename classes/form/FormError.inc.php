@@ -16,9 +16,6 @@
  * @brief Class to represent a form validation error.
  */
 
-// $Id$
-
-
 class FormError {
 
 	/** The name of the field */

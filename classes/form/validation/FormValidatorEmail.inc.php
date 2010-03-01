@@ -13,22 +13,20 @@
  * @brief Form validation check for email addresses.
  */
 
-// $Id$
-
-
 import('form.validation.FormValidatorRegExp');
+import('validation.ValidatorEmail');
 
-class FormValidatorEmail extends FormValidatorRegExp {
-	function getRegexp() {
-		return '/^' . PCRE_EMAIL_ADDRESS . '$/i';
-	}
-
+class FormValidatorEmail extends FormValidator {
 	/**
 	 * Constructor.
-	 * @see FormValidatorRegExp::FormValidatorRegExp()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 */
 	function FormValidatorEmail(&$form, $field, $type, $message) {
-		parent::FormValidatorRegExp($form, $field, $type, $message, FormValidatorEmail::getRegexp());
+		$validator = new ValidatorEmail();
+		parent::FormValidator($form, $field, $type, $message, $validator);
 		array_push($form->cssValidation[$field], 'email');
 	}
 }

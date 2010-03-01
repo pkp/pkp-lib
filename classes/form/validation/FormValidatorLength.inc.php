@@ -12,33 +12,37 @@
  * @brief Form validation check that checks if a field's length meets certain requirements.
  */
 
-// $Id$
-
-
 import ('form.validation.FormValidator');
 
 class FormValidatorLength extends FormValidator {
 
 	/** @var string comparator to use (== | != | < | > | <= | >= ) */
-	var $comparator;
+	var $_comparator;
 
 	/** @var int length to compare with */
-	var $length;
+	var $_length;
 
 	/**
 	 * Constructor.
-	 * @see FormValidator::FormValidator()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $comparator
 	 * @param $length
 	 */
 	function FormValidatorLength(&$form, $field, $type, $message, $comparator, $length) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->comparator = $comparator;
-		$this->length = $length;
+		$this->_comparator = $comparator;
+		$this->_length = $length;
 	}
 
+
+	//
+	// Public methods
+	//
 	/**
-	 * Check if field value is valid.
+	 * @see FormValidator::isValid()
 	 * Value is valid if it is empty and optional or meets the specified length requirements.
 	 * @return boolean
 	 */
@@ -47,20 +51,20 @@ class FormValidatorLength extends FormValidator {
 			return true;
 
 		} else {
-			$length = String::strlen(trim($this->form->getData($this->field)));
-			switch ($this->comparator) {
+			$length = String::strlen($this->getFieldValue());
+			switch ($this->_comparator) {
 				case '==':
-					return $length == $this->length;
+					return $length == $this->_length;
 				case '!=':
-					return $length != $this->length;
+					return $length != $this->_length;
 				case '<':
-					return $length < $this->length;
+					return $length < $this->_length;
 				case '>':
-					return $length > $this->length;
+					return $length > $this->_length;
 				case '<=':
-					return $length <= $this->length;
+					return $length <= $this->_length;
 				case '>=':
-					return $length >= $this->length;
+					return $length >= $this->_length;
 			}
 			return false;
 		}

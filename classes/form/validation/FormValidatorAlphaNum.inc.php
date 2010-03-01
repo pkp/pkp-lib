@@ -13,21 +13,20 @@
  * @brief Form validation check for alphanumeric (plus interior dash/underscore) characters only.
  */
 
-// $Id$
+import('form.validation.FormValidator');
 
-
-import('form.validation.FormValidatorRegExp');
-
-class FormValidatorAlphaNum extends FormValidatorRegExp {
-
+class FormValidatorAlphaNum extends FormValidator {
 	/**
 	 * Constructor.
-	 * @see FormValidatorRegExp::FormValidatorRegExp()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 */
 	function FormValidatorAlphaNum(&$form, $field, $type, $message) {
-		parent::FormValidatorRegExp($form, $field, $type, $message,
-			'/^[A-Z0-9]+([\-_][A-Z0-9]+)*$/i'
-		);
+		import('validation.ValidatorRegExp');
+		$validator = new ValidatorRegExp('/^[A-Z0-9]+([\-_][A-Z0-9]+)*$/i');
+		parent::FormValidator($form, $field, $type, $message, $validator);
 	}
 }
 

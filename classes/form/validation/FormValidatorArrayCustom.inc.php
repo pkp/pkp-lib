@@ -12,112 +12,59 @@
  * @brief Form validation check with a custom user function performing the validation check of an array of fields.
  */
 
-// $Id$
-
-
 import('form.validation.FormValidator');
 
 class FormValidatorArrayCustom extends FormValidator {
 
 	/** @var array Array of fields to check */
-	var $fields;
+	var $_fields;
 
 	/** @var array Array of field names where an error occurred */
-	var $errorFields;
+	var $_errorFields;
 
 	/** @var boolean is the field a multilingual-capable field */
-	var $isLocaleField;
+	var $_isLocaleField;
 
-	/** Custom validation function */
-	var $userFunction;
+	/** @var callable Custom validation function */
+	var $_userFunction;
 
-	/** Additional arguments to pass to $userFunction */
-	var $additionalArguments;
+	/** @var array Additional arguments to pass to $userFunction */
+	var $_additionalArguments;
 
-	/** If true, field is considered valid if user function returns false instead of true */
-	var $complementReturn;
+	/** @var boolean If true, field is considered valid if user function returns false instead of true */
+	var $_complementReturn;
 
 	/**
 	 * Constructor.
-	 * @see FormValidator::FormValidator()
-	 * @param $field string field name specifying an array of fields, i.e. name[]
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
+	 * @param $userFunction function the user function to use for validation
+	 * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
+	 * @param $complementReturn boolean optional, complement the value returned by $userFunction
 	 * @param $fields array all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
+	 * @param $isLocaleField boolean
 	 */
 	function FormValidatorArrayCustom(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false, $fields = array(), $isLocaleField = false) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->fields = $fields;
-		$this->errorFields = array();
-		$this->isLocaleField = $isLocaleField;
-		$this->userFunction = $userFunction;
-		$this->additionalArguments = $additionalArguments;
-		$this->complementReturn = $complementReturn;
+		$this->_fields = $fields;
+		$this->_errorFields = array();
+		$this->_isLocaleField = $isLocaleField;
+		$this->_userFunction = $userFunction;
+		$this->_additionalArguments = $additionalArguments;
+		$this->_complementReturn = $complementReturn;
 	}
 
-	/**
-	 * Check if field value is valid.
-	 * Value is valid if it is empty and optional or is in the set of accepted values.
-	 * @return boolean
-	 */
-	function isValid() {
-		if ($this->type == 'optional') {
-			return true;
-		}
-
-		$valid = true;
-		$data = $this->form->getData($this->field);
-		if (!is_array($data)) return false;
-		foreach ($data as $key => $value) {
-			if (count($this->fields) == 0) {
-				if ($this->isLocaleField) {
-					$ret = call_user_func_array($this->userFunction, array_merge(array($value), $key, $this->additionalArguments));
-				} else {
-					$ret = call_user_func_array($this->userFunction, array_merge(array($value), $this->additionalArguments));
-				}
-				$ret = $this->complementReturn ? !$ret : $ret;
-				if (!$ret) {
-					$valid = false;
-					if ($this->isLocaleField) {
-						array_push($this->errorFields, array($key => "{$this->field}[{$key}]"));
-					} else {
-						array_push($this->errorFields, "{$this->field}[{$key}]");
-					}
-				}
-			} else {
-				foreach ($this->fields as $field) {
-					if ($this->isLocaleField) {
-						$ret = call_user_func_array($this->userFunction, array_merge(array($value[$field]), $key, $this->additionalArguments));
-					} else {
-						$ret = call_user_func_array($this->userFunction, array_merge(array($value[$field]), $this->additionalArguments));
-					}
-					$ret = $this->complementReturn ? !$ret : $ret;
-					if (!$ret) {
-						$valid = false;
-						if ($this->isLocaleField) {
-							array_push($this->errorFields, array($key => "{$this->field}[{$key}][{$field}]"));
-						} else {
-							array_push($this->errorFields, "{$this->field}[{$key}][{$field}]");
-						}
-					}
-				}
-			}
-		}
-		return $valid;
-	}
-
+	//
+	// Setters and Getters
+	//
 	/**
 	 * Get array of fields where an error occurred.
 	 * @return array
 	 */
 	function getErrorFields() {
-		return $this->errorFields;
-	}
-
-	/**
-	 * Is the field an array.
-	 * @return boolean
-	 */
-	function isArray() {
-		return is_array($this->form->getData($this->field));
+		return $this->_errorFields;
 	}
 
 	/**
@@ -125,7 +72,92 @@ class FormValidatorArrayCustom extends FormValidator {
 	 * @return boolean
 	 */
 	function isLocaleField() {
-		return $this->isLocaleField;
+		return $this->_isLocaleField;
+	}
+
+
+	//
+	// Public methods
+	//
+	/**
+	 * @see FormValidator::isValid()
+	 * @return boolean
+	 */
+	function isValid() {
+		if ($this->isEmptyAndOptional()) return true;
+
+		$data = $this->getFieldValue();
+		if (!is_array($data)) return false;
+
+		$isValid = true;
+		foreach ($data as $key => $value) {
+			// Bypass check for empty sub-fields if validation type is "optional"
+			if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE && ($value == array() || $value == '')) continue;
+
+			if (count($this->_fields) == 0) {
+				if ($this->isLocaleField()) {
+					$ret = call_user_func_array($this->_userFunction, array_merge(array($value, $key), $this->_additionalArguments));
+				} else {
+					$ret = call_user_func_array($this->_userFunction, array_merge(array($value), $this->_additionalArguments));
+				}
+				$ret = $this->_complementReturn ? !$ret : $ret;
+				if (!$ret) {
+					$isValid = false;
+					if ($this->isLocaleField()) {
+						$this->_errorFields[$key] = "{$this->getField()}[{$key}]";
+					} else {
+						array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+					}
+				}
+			} else {
+				// In the two-dimensional case we always expect a value array.
+				if (!is_array($value)) {
+					$isValid = false;
+					if ($this->isLocaleField()) {
+						$this->_errorFields[$key] = "{$this->getField()}[{$key}]";
+					} else {
+						array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+					}
+					continue;
+				}
+
+				foreach ($this->_fields as $field) {
+					// Bypass check for empty sub-sub-fields if validation type is "optional"
+					if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE) {
+						if (!isset($value[$field]) || $value[$field] == array() or $value[$field] == '') continue;
+					} else {
+						// Make sure that we pass in 'null' to the user function
+						// if the expected field doesn't exist in the value array.
+						if (!array_key_exists($field, $value)) $value[$field] = null;
+					}
+
+					if ($this->isLocaleField()) {
+						$ret = call_user_func_array($this->_userFunction, array_merge(array($value[$field], $key), $this->_additionalArguments));
+					} else {
+						$ret = call_user_func_array($this->_userFunction, array_merge(array($value[$field]), $this->_additionalArguments));
+					}
+					$ret = $this->_complementReturn ? !$ret : $ret;
+					if (!$ret) {
+						$isValid = false;
+						if ($this->isLocaleField()) {
+							if (!isset($this->_errorFields[$key])) $this->_errorFields[$key] = array();
+							array_push($this->_errorFields[$key], "{$this->getField()}[{$key}][{$field}]");
+						} else {
+							array_push($this->_errorFields, "{$this->getField()}[{$key}][{$field}]");
+						}
+					}
+				}
+			}
+		}
+		return $isValid;
+	}
+
+	/**
+	 * Is the field an array.
+	 * @return boolean
+	 */
+	function isArray() {
+		return is_array($this->getFieldValue());
 	}
 }
 

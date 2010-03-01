@@ -12,24 +12,25 @@
  * @brief Form validation check to make sure the form is POSTed.
  */
 
-// $Id$
-
-
 import ('form.validation.FormValidator');
 
 class FormValidatorPost extends FormValidator {
 	/**
 	 * Constructor.
-	 * @see FormValidator::FormValidator()
-	 * @param message string the locale key to use (optional)
+	 * @param $form Form
+	 * @param $message string the locale key to use (optional)
 	 */
 	function FormValidatorPost(&$form, $message = 'form.postRequired') {
-		parent::FormValidator($form, 'dummy', 'required', $message);
+		parent::FormValidator($form, 'dummy', FORM_VALIDATOR_REQUIRED_VALUE, $message);
 	}
 
+
+	//
+	// Public methods
+	//
 	/**
-	 * Check if field value is valid.
-	 * Value is valid if it is empty and optional or matches regular expression.
+	 * Check if form was posted.
+	 * overrides FormValidator::isValid()
 	 * @return boolean
 	 */
 	function isValid() {

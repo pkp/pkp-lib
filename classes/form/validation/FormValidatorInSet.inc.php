@@ -12,33 +12,37 @@
  * @brief Form validation check that checks if value is within a certain set.
  */
 
-// $Id$
-
-
 import('form.validation.FormValidator');
 
 class FormValidatorInSet extends FormValidator {
 
-	/**  Array of all values accepted as valid */
-	var $acceptedValues;
+	/** @var array of all values accepted as valid */
+	var $_acceptedValues;
 
 	/**
 	 * Constructor.
-	 * @see FormValidator::FormValidator()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $acceptedValues array all possible accepted values
 	 */
 	function FormValidatorInSet(&$form, $field, $type, $message, $acceptedValues) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->acceptedValues = $acceptedValues;
+		$this->_acceptedValues = $acceptedValues;
 	}
 
+
+	//
+	// Public methods
+	//
 	/**
-	 * Check if field value is valid.
 	 * Value is valid if it is empty and optional or is in the set of accepted values.
+	 * @see FormValidator::isValid()
 	 * @return boolean
 	 */
 	function isValid() {
-		return $this->isEmptyAndOptional() || in_array($this->form->getData($this->field), $this->acceptedValues);
+		return $this->isEmptyAndOptional() || in_array($this->getFieldValue(), $this->_acceptedValues);
 	}
 }
 

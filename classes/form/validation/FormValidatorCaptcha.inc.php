@@ -12,11 +12,9 @@
  * @brief Form validation check captcha values.
  */
 
-// $Id$
-
-
 class FormValidatorCaptcha extends FormValidator {
-	var $captchaIdField;
+	/** @var string */
+	var $_captchaIdField;
 
 	/**
 	 * Constructor.
@@ -26,18 +24,24 @@ class FormValidatorCaptcha extends FormValidator {
 	 * @param $message string Key of message to display on mismatch
 	 */
 	function FormValidatorCaptcha(&$form, $field, $captchaIdField, $message) {
-		parent::FormValidator($form, $field, 'required', $message);
-		$this->captchaIdField = $captchaIdField;
+		parent::FormValidator($form, $field, FORM_VALIDATOR_REQUIRED_VALUE, $message);
+		$this->_captchaIdField = $captchaIdField;
 	}
 
+
+	//
+	// Public methods
+	//
 	/**
+	 * @see FormValidator::isValid()
 	 * Determine whether or not the form meets this Captcha constraint.
 	 * @return boolean
 	 */
 	function isValid() {
 		$captchaDao =& DAORegistry::getDAO('CaptchaDAO');
-		$captchaId = $this->form->getData($this->captchaIdField);
-		$captchaValue = $this->form->getData($this->field);
+		$form =& $this->getForm();
+		$captchaId = $form->getData($this->_captchaIdField);
+		$captchaValue = $this->getFieldValue();
 		$captcha =& $captchaDao->getCaptcha($captchaId);
 		if ($captcha && $captcha->getValue() === $captchaValue) {
 			$captchaDao->deleteObject($captcha);

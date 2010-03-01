@@ -12,49 +12,53 @@
  * @brief Form validation check with a custom user function performing the validation check.
  */
 
-// $Id$
-
-
 import('form.validation.FormValidator');
 
 class FormValidatorCustom extends FormValidator {
 
-	/** Custom validation function */
-	var $userFunction;
+	/** @var callable Custom validation function */
+	var $_userFunction;
 
-	/** Additional arguments to pass to $userFunction */
-	var $additionalArguments;
+	/** @var array Additional arguments to pass to $userFunction */
+	var $_additionalArguments;
 
-	/** If true, field is considered valid if user function returns false instead of true */
-	var $complementReturn;
+	/** @var boolean If true, field is considered valid if user function returns false instead of true */
+	var $_complementReturn;
 
 	/**
 	 * Constructor.
 	 * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
-	 * @see FormValidator::FormValidator()
-	 * @param $userFunction function the user function to use for validation
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
+	 * @param $userFunction callable function the user function to use for validation
 	 * @param $additionalArguments array optional, a list of additional arguments to pass to $userFunction
 	 * @param $complementReturn boolean optional, complement the value returned by $userFunction
 	 */
 	function FormValidatorCustom(&$form, $field, $type, $message, $userFunction, $additionalArguments = array(), $complementReturn = false) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->userFunction = $userFunction;
-		$this->additionalArguments = $additionalArguments;
-		$this->complementReturn = $complementReturn;
+		$this->_userFunction = $userFunction;
+		$this->_additionalArguments = $additionalArguments;
+		$this->_complementReturn = $complementReturn;
 	}
 
+
+	//
+	// Public methods
+	//
 	/**
-	 * Check if field value is valid.
+	 * @see FormValidator::isValid()
 	 * Value is valid if it is empty and optional or validated by user-supplied function.
 	 * @return boolean
 	 */
 	function isValid() {
-		if ($this->isEmptyAndOptional($this->form->getData($this->field))) {
+		if ($this->isEmptyAndOptional()) {
 			return true;
 
 		} else {
-			$ret = call_user_func_array($this->userFunction, array_merge(array($this->form->getData($this->field)), $this->additionalArguments));
-			return $this->complementReturn ? !$ret : $ret;
+			$ret = call_user_func_array($this->_userFunction, array_merge(array($this->getFieldValue()), $this->_additionalArguments));
+			return $this->_complementReturn ? !$ret : $ret;
 		}
 	}
 }

@@ -1,39 +1,32 @@
 <?php
 
 /**
- * @file classes/form/validation/FormValidatorEmail.inc.php
+ * @file classes/form/validation/FormValidatorLocaleEmail.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FormValidatorEmail
+ * @class FormValidatorLocaleEmail
  * @ingroup form_validation
- * @see FormValidator
+ * @see FormValidatorLocale
  *
  * @brief Form validation check for email addresses.
  */
 
-// $Id$
+import('form.validation.FormValidatorLocale');
+import('validation.ValidatorEmail');
 
-
-import('form.validation.FormValidatorRegExp');
-
-class FormValidatorLocaleEmail extends FormValidatorEmail {
+class FormValidatorLocaleEmail extends FormValidatorLocale {
 	/**
-	 * Validate against a localized email field.
-	 * @return boolean
+	 * Constructor.
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 */
-	function isValid() {
-		if ($this->isEmptyAndOptional()) return true;
-		$value = $this->form->getData($this->field);
-		$primaryLocale = Locale::getPrimaryLocale();
-		return is_array($value) && !empty($value[$primaryLocale]) && String::regexp_match($this->getRegexp(), $value[$primaryLocale]);
-	}
-
-	function getMessage() {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$allLocales = Locale::getAllLocales();
-		return parent::getMessage() . ' (' . $allLocales[$primaryLocale] . ')';
+	function FormValidatorLocaleEmail(&$form, $field, $type, $message) {
+		$validator = new ValidatorEmail();
+		parent::FormValidator($form, $field, $type, $message, $validator);
 	}
 }
 

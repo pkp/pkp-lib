@@ -16,38 +16,26 @@
  * @brief Class to represent a form validation check.
  */
 
-// $Id$
-
-
-import('form.validation.FormValidatorRegExp');
-import('form.validation.FormValidatorEmail');
-import('form.validation.FormValidatorUri');
-import('form.validation.FormValidatorUrl');
-import('form.validation.FormValidatorAlphaNum');
-import('form.validation.FormValidatorInSet');
-import('form.validation.FormValidatorControlledVocab');
-import('form.validation.FormValidatorArray');
-import('form.validation.FormValidatorArrayCustom');
-import('form.validation.FormValidatorLocale');
-import('form.validation.FormValidatorLocaleEmail');
-import('form.validation.FormValidatorLength');
-import('form.validation.FormValidatorCustom');
-import('form.validation.FormValidatorCaptcha');
-import('form.validation.FormValidatorPost');
+// The two allowed states for the type field
+define('FORM_VALIDATOR_OPTIONAL_VALUE', 'optional');
+define('FORM_VALIDATOR_REQUIRED_VALUE', 'required');
 
 class FormValidator {
 
-	/** The Form associated with the check */
-	var $form;
+	/** @var Form The Form associated with the check */
+	var $_form;
 
-	/** The name of the field */
-	var $field;
+	/** @var string The name of the field */
+	var $_field;
 
-	/** The type of check ("required" or "optional") */
-	var $type;
+	/** @var string The type of check ("required" or "optional") */
+	var $_type;
 
-	/** The error message associated with a validation failure */
-	var $message;
+	/** @var string The error message associated with a validation failure */
+	var $_message;
+
+	/** @var Validator The validator used to validate the field */
+	var $_validator;
 
 	/**
 	 * Constructor.
@@ -55,42 +43,31 @@ class FormValidator {
 	 * @param $field string the name of the associated field
 	 * @param $type string the type of check, either "required" or "optional"
 	 * @param $message string the error message for validation failures (i18n key)
+	 * @param $validator Validator the validator used to validate this form field (optional)
 	 */
-	function FormValidator(&$form, $field, $type, $message) {
-		$this->form =& $form;
-		$this->field = $field;
-		$this->type = $type;
-		$this->message = $message;
+	function FormValidator(&$form, $field, $type, $message, $validator = null) {
+		$this->_form =& $form;
+		$this->_field = $field;
+		$this->_type = $type;
+		$this->_message = $message;
+		$this->_validator =& $validator;
+
 		$form->cssValidation[$field] = array();
-		
-		if ($type == 'required') {
+		if ($type == FORM_VALIDATOR_REQUIRED_VALUE) {
 			array_push($form->cssValidation[$field], 'required');
 		}
 	}
 
-	/**
-	 * Check if field value is valid.
-	 * Default check is that field is either optional or not empty.
-	 * @return boolean
-	 */
-	function isValid() {
-		return $this->type == 'optional' || trim($this->form->getData($this->field)) !== '';
-	}
 
-	/**
-	 * Check if field value is empty and optional.
-	 * @return boolean
-	 */
-	function isEmptyAndOptional() {
-		return $this->type == 'optional' && trim($this->form->getData($this->field)) == '';
-	}
-
+	//
+	// Setters and Getters
+	//
 	/**
 	 * Get the field associated with the check.
 	 * @return string
 	 */
 	function getField() {
-		return $this->field;
+		return $this->_field;
 	}
 
 	/**
@@ -98,16 +75,98 @@ class FormValidator {
 	 * @return string
 	 */
 	function getMessage() {
-		return Locale::translate($this->message);
+		return Locale::translate($this->_message);
 	}
 
 	/**
 	 * Set the form associated with this check. Used only for PHP4
 	 * compatibility when instantiating without =& (which is deprecated).
 	 * SHOULD NOT BE USED otherwise.
+	 * See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
+	 * for a full explanation.
 	 */
-	function _setForm(&$form) {
-		$this->form =& $form;
+	function setForm(&$form) {
+		$this->_form =& $form;
+	}
+
+	/**
+	 * Get the form associated with the check
+	 * @return Form
+	 */
+	function &getForm() {
+		return $this->_form;
+	}
+
+	/**
+	 * Get the validator associated with the check
+	 * @return Validator
+	 */
+	function &getValidator() {
+		return $this->_validator;
+	}
+
+	/**
+	 * Get the type of the validated field ('optional' or 'required')
+	 * @return string
+	 */
+	function getType() {
+		return $this->_type;
+	}
+
+
+	//
+	// Public methods
+	//
+	/**
+	 * Check if field value is valid.
+	 * Default check is that field is either optional or not empty.
+	 * @return boolean
+	 */
+	function isValid() {
+		if ($this->isEmptyAndOptional()) return true;
+
+		$validator =& $this->getValidator();
+		if (is_null($validator)) {
+			// Default check: field must not be empty.
+			$fieldValue = $this->getFieldValue();
+			if (is_scalar($fieldValue)) {
+				return $fieldValue !== '';
+			} else {
+				return $fieldValue !== array();
+			}
+		} else {
+			// Delegate to the validator for the field value check.
+			return $validator->isValid($this->getFieldValue());
+		}
+	}
+
+	//
+	// Protected helper methods
+	//
+	/**
+	 * Get field value
+	 * @return mixed
+	 */
+	function getFieldValue() {
+		$form =& $this->getForm();
+		$fieldValue = $form->getData($this->getField());
+		if (is_null($fieldValue) || is_scalar($fieldValue)) $fieldValue = trim((string)$fieldValue);
+		return $fieldValue;
+	}
+
+	/**
+	 * Check if field value is empty and optional.
+	 * @return boolean
+	 */
+	function isEmptyAndOptional() {
+		if ($this->getType() != FORM_VALIDATOR_OPTIONAL_VALUE) return false;
+
+		$fieldValue = $this->getFieldValue();
+		if (is_scalar($fieldValue)) {
+			return $fieldValue == '';
+		} else {
+			return empty($fieldValue);
+		}
 	}
 }
 

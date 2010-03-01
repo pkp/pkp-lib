@@ -12,46 +12,21 @@
  * @brief Form validation check using a regular expression.
  */
 
-// $Id$
-
-
-import ('form.validation.FormValidator');
+import('form.validation.FormValidator');
 
 class FormValidatorRegExp extends FormValidator {
-
-	/** @var The regular expression to match against the field value */
-	var $_regExp;
-
-	/** @var The matches for further (optional) processing by subclasses */
-	var $_matches;
-
 	/**
 	 * Constructor.
-	 * @see FormValidator::FormValidator()
+	 * @param $form Form the associated form
+	 * @param $field string the name of the associated field
+	 * @param $type string the type of check, either "required" or "optional"
+	 * @param $message string the error message for validation failures (i18n key)
 	 * @param $regExp string the regular expression (PCRE form)
 	 */
 	function FormValidatorRegExp(&$form, $field, $type, $message, $regExp) {
-		parent::FormValidator($form, $field, $type, $message);
-		$this->_regExp = $regExp;
-	}
-
-	/**
-	 * Check if field value is valid.
-	 * Value is valid if it is empty and optional or matches regular expression.
-	 * @return boolean
-	 */
-	function isValid() {
-		return $this->isEmptyAndOptional() || String::regexp_match_get($this->_regExp, $this->form->getData($this->field), $this->_matches);
-	}
-
-	//
-	// Protected methods for use by sub-classes
-	//
-	/**
-	 * Returns the reg-ex matches (if any) after isValid() was called.
-	 */
-	function getMatches() {
-		return $this->_matches;
+		import('validation.ValidatorRegExp');
+		$validator = new ValidatorRegExp($regExp);
+		parent::FormValidator($form, $field, $type, $message, $validator);
 	}
 }
 

@@ -208,10 +208,6 @@ class MetadataProperty {
 		// We never accept null values or arrays.
 		if (is_null($value) || is_array($value)) return false;
 
-		// FIXME: see #5023
-		import('form.Form');
-		$form = new Form('');
-
 		// The value must validate against at least one type
 		$isValid = false;
 		foreach ($this->getTypes() as $type) {
@@ -234,21 +230,17 @@ class MetadataProperty {
 					assert(count($vocabNameParts) == 3);
 					list($symbolic, $assocType, $assocId) = $vocabNameParts;
 
-					// Re-use the controlled vocabulary form validator
-					// FIXME: see #5023
-					$form->setData('property', $value);
-					import('form.validation.FormValidatorControlledVocab');
-					$validator = new FormValidatorControlledVocab($form, 'property', 'required', '', $symbolic, $assocType, $assocId);
-					if ($validator->isValid()) $isValid = true;
+					// Validate with controlled vocabulary validator
+					import('validation.ValidatorControlledVocab');
+					$validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
+					if ($validator->isValid($value)) $isValid = true;
 					break;
 
 				case METADATA_PROPERTY_TYPE_URI:
-					// Re-use the URI form validator
-					// FIXME: see #5023
-					$form->setData('property', $value);
-					import('form.validation.FormValidatorUri');
-					$validator = new FormValidatorUri($form, 'property', 'required', '');
-					if ($validator->isValid()) $isValid = true;
+					// Validate with the URI validator
+					import('validation.ValidatorUri');
+					$validator = new ValidatorUri();
+					if ($validator->isValid($value)) $isValid = true;
 					break;
 
 				case METADATA_PROPERTY_TYPE_DATE:

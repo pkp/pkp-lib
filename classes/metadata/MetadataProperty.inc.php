@@ -60,11 +60,8 @@ class MetadataProperty {
 	/** @var int the resource types that can be described with this property */
 	var $_assocTypes;
 
-	/** @var integer property type */
-	var $_type;
-
-	/** @var integer association type of a composite type */
-	var $_compositeType;
+	/** @var array allowed property types */
+	var $_types;
 
 	/** @var boolean flag that defines whether the property can be translated */
 	var $_translated;
@@ -77,35 +74,52 @@ class MetadataProperty {
 	 * @param $name string the unique name of the property within a meta-data schema (can be a property URI)
 	 * @param $assocTypes array an array of integers that define the application entities that can
 	 *  be described with this property.
-	 * @param $type integer must be one of the supported types, default: METADATA_PROPERTY_TYPE_STRING
+	 * @param $types mixed must be a scalar or an array with the supported types, default: METADATA_PROPERTY_TYPE_STRING
 	 * @param $translated boolean whether the property may have various language versions, default: false
 	 * @param $cardinality integer must be on of the supported cardinalities, default: METADATA_PROPERTY_CARDINALITY_ONE
 	 * @param $compositeType integer an association type, mandatory if $type is METADATA_PROPERTY_TYPE_COMPOSITE
 	 */
-	function MetadataProperty($name, $assocTypes = array(), $type = METADATA_PROPERTY_TYPE_STRING,
-			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $compositeType = null, $displayName = null) {
+	function MetadataProperty($name, $assocTypes = array(), $types = METADATA_PROPERTY_TYPE_STRING,
+			$translated = false, $cardinality = METADATA_PROPERTY_CARDINALITY_ONE, $displayName = null) {
 
-		// Validate input data
+		// Validate name and assoc type array
+		assert(is_string($name));
 		assert(is_array($assocTypes));
-		assert(in_array($type, MetadataProperty::getSupportedTypes()));
-		assert(in_array($cardinality, MetadataProperty::getSupportedCardinalities()));
-		if ($type == METADATA_PROPERTY_TYPE_COMPOSITE) {
-			assert(!$translated);
-			assert(isset($compositeType) && is_integer($compositeType));
-		} else {
-			assert(is_null($compositeType));
+
+		// A single type (scalar or composite) will be
+		// transformed to an array of types so that we
+		// can treat them uniformly.
+		if (is_scalar($types) || count($types) == 1) {
+			$types = array($types);
 		}
+
+		// Validate types
+		foreach($types as $type) {
+			if (is_array($type)) {
+				// Validate composite types
+				assert(count($type) == 1 && isset($type[METADATA_PROPERTY_TYPE_COMPOSITE]) && is_integer($type[METADATA_PROPERTY_TYPE_COMPOSITE]));
+				// Properties that allow composite types cannot be translated
+				assert(!$translated);
+			} else {
+				// Validate all other types
+				assert($type != METADATA_PROPERTY_TYPE_COMPOSITE && in_array($type, MetadataProperty::getSupportedTypes()));
+			}
+		}
+
+		// Validate translation and cardinality
+		assert(is_bool($translated));
+		assert(in_array($cardinality, MetadataProperty::getSupportedCardinalities()));
+
+		// Default display name
+		if (is_null($displayName)) $displayName = 'metadata.property.displayName.'.$name;
+		assert(is_string($displayName));
 
 		// Initialize the class
 		$this->_name = (string)$name;
 		$this->_assocTypes =& $assocTypes;
-		$this->_type = (integer)$type;
-		$this->_compositeType = $compositeType;
+		$this->_types =& $types;
 		$this->_translated = (boolean)$translated;
 		$this->_cardinality = (integer)$cardinality;
-
-		// Default display name
-		if (is_null($displayName)) $displayName = 'metadata.property.displayName.'.$this->_name;
 		$this->_displayName = (string)$displayName;
 	}
 
@@ -158,20 +172,11 @@ class MetadataProperty {
 	}
 
 	/**
-	 * Get the type
+	 * Get the allowed type
 	 * @return integer
 	 */
-	function getType() {
-		return $this->_type;
-	}
-
-	/**
-	 * Get the composite type (for composite
-	 * properties only)
-	 * @return integer
-	 */
-	function getCompositeType() {
-		return $this->_compositeType;
+	function getTypes() {
+		return $this->_types;
 	}
 
 	/**
@@ -196,11 +201,6 @@ class MetadataProperty {
 	/**
 	 * Validate a given input against the property specification
 	 *
-	 * NB: We could invent some "MetaDataPropertyValidator" classes to
-	 * modularize type- or cardinality-specific validation. But we don't
-	 * as long as we have just a few types and simple validation
-	 * algorithms.
-	 *
 	 * @param $value mixed the input to be validated
 	 * @return boolean validation success
 	 */
@@ -212,88 +212,108 @@ class MetadataProperty {
 		import('form.Form');
 		$form = new Form('');
 
-		// Validate type
-		switch ($this->getType()) {
-			case METADATA_PROPERTY_TYPE_STRING:
-				if (!is_string($value)) return false;
-				break;
+		// The value must validate against at least one type
+		$isValid = false;
+		foreach ($this->getTypes() as $type) {
+			// Extract data from composite type
+			if (is_array($type)) {
+				assert(count($type) == 1 && key($type) == METADATA_PROPERTY_TYPE_COMPOSITE);
+				$compositeType = $type[METADATA_PROPERTY_TYPE_COMPOSITE];
+				$type = METADATA_PROPERTY_TYPE_COMPOSITE;
+			}
 
-			case METADATA_PROPERTY_TYPE_VOCABULARY:
-				// Interpret the name of this property as a controlled vocabulary triple
-				$vocabNameParts = explode(':', $this->getName());
-				assert(count($vocabNameParts) == 3);
-				list($symbolic, $assocType, $assocId) = $vocabNameParts;
+			// Type specific validation
+			switch ($type) {
+				case METADATA_PROPERTY_TYPE_STRING:
+					if (is_string($value)) $isValid = true;
+					break;
 
-				// Re-use the controlled vocabulary form validator
-				// FIXME: see #5023
-				$form->setData('property', $value);
-				import('form.validation.FormValidatorControlledVocab');
-				$validator = new FormValidatorControlledVocab($form, 'property', 'required', '', $symbolic, $assocType, $assocId);
-				if (!$validator->isValid()) return false;
-				break;
+				case METADATA_PROPERTY_TYPE_VOCABULARY:
+					// Interpret the name of this property as a controlled vocabulary triple
+					$vocabNameParts = explode(':', $this->getName());
+					assert(count($vocabNameParts) == 3);
+					list($symbolic, $assocType, $assocId) = $vocabNameParts;
 
-			case METADATA_PROPERTY_TYPE_URI:
-				// Re-use the URI form validator
-				// FIXME: see #5023
-				$form->setData('property', $value);
-				import('form.validation.FormValidatorUri');
-				$validator = new FormValidatorUri($form, 'property', 'required', '');
-				if (!$validator->isValid()) return false;
-				break;
+					// Re-use the controlled vocabulary form validator
+					// FIXME: see #5023
+					$form->setData('property', $value);
+					import('form.validation.FormValidatorControlledVocab');
+					$validator = new FormValidatorControlledVocab($form, 'property', 'required', '', $symbolic, $assocType, $assocId);
+					if ($validator->isValid()) $isValid = true;
+					break;
 
-			case METADATA_PROPERTY_TYPE_DATE:
-				// We allow the following patterns:
-				// YYYY-MM-DD, YYYY-MM and YYYY
-				$datePattern = '/^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$/';
-				if (!preg_match($datePattern, $value)) return false;
+				case METADATA_PROPERTY_TYPE_URI:
+					// Re-use the URI form validator
+					// FIXME: see #5023
+					$form->setData('property', $value);
+					import('form.validation.FormValidatorUri');
+					$validator = new FormValidatorUri($form, 'property', 'required', '');
+					if ($validator->isValid()) $isValid = true;
+					break;
 
-				// Check whether the given string is really a valid date
-				$dateParts = explode('-', $value);
-				// Set the day and/or month to 1 if not set
-				$dateParts = array_pad($dateParts, 3, 1);
-				// Extract the date parts
-				list($year, $month, $day) = $dateParts;
-				// Validate the date (only leap days will pass unnoticed ;-) )
-				// Who invented this argument order?
-				if (!checkdate($month, $day, $year)) return false;
-				break;
+				case METADATA_PROPERTY_TYPE_DATE:
+					// We allow the following patterns:
+					// YYYY-MM-DD, YYYY-MM and YYYY
+					$datePattern = '/^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$/';
+					if (!preg_match($datePattern, $value)) break;
 
-			case METADATA_PROPERTY_TYPE_INTEGER:
-				if (!is_integer($value)) return false;
-				break;
+					// Check whether the given string is really a valid date
+					$dateParts = explode('-', $value);
+					// Set the day and/or month to 1 if not set
+					$dateParts = array_pad($dateParts, 3, 1);
+					// Extract the date parts
+					list($year, $month, $day) = $dateParts;
+					// Validate the date (only leap days will pass unnoticed ;-) )
+					// Who invented this argument order?
+					if (checkdate($month, $day, $year)) $isValid = true;
+					break;
 
-			case METADATA_PROPERTY_TYPE_COMPOSITE:
-				// Composites can either be represented by a meta-data description
-				// or by a string of the form AssocType:AssocId if the composite
-				// has already been persisted in the database.
-				switch(true) {
-					case is_a($value, 'MetadataDescription'):
-						$assocType = $value->getAssocType();
-						break;
+				case METADATA_PROPERTY_TYPE_INTEGER:
+					if (is_integer($value)) $isValid = true;
+					break;
 
-					case is_string($value):
-						$valueParts = explode(':', $value);
-						if (count($valueParts) != 2) return false;
-						list($assocType, $assocId) = $valueParts;
-						if (!is_numeric($assocId)) return false;
-						break;
+				case METADATA_PROPERTY_TYPE_COMPOSITE:
+					// Composites can either be represented by a meta-data description
+					// or by a string of the form AssocType:AssocId if the composite
+					// has already been persisted in the database.
+					switch(true) {
+						// Test for MetadataDescription format
+						case is_a($value, 'MetadataDescription'):
+							$assocType = $value->getAssocType();
+							break;
 
-					default:
-						// None of the allowed types
-						return false;
-				}
+						// Test for AssocType:AssocId format
+						case is_string($value):
+							$valueParts = explode(':', $value);
+							if (count($valueParts) != 2) break 2; // break the outer switch
+							list($assocType, $assocId) = $valueParts;
+							if (!(is_numeric($assocType) && is_numeric($assocId))) break 2; // break the outer switch
+							$assocType = (integer)$assocType;
+							break;
 
-				// Check that the association type matches
-				if ($assocType != $this->_compositeType) return false;
-				break;
+						default:
+							// None of the allowed types
+							break;
+					}
 
-			default:
-				// As we validate type in the setter, this should be unreachable code
-				assert(false);
+					// Check that the association type matches
+					if (isset($assocType) && $assocType === $compositeType) $isValid = true;
+					break;
+
+				default:
+					// Unknown type. As we validate type in the setter, this
+					// should be unreachable code.
+					assert(false);
+			}
+
+			// The value only has to validate against one of the given
+			// types: No need to validate against subsequent allowed types.
+			if ($isValid) break;
 		}
 
-		// Successful validation
-		return true;
+		// Will return false if the value didn't validate against any
+		// of the types, otherwise true.
+		return $isValid;
 	}
 
 	//

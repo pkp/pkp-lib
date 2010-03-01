@@ -21,20 +21,23 @@ class MetadataPropertyTest extends PKPTestCase {
 	 * @covers MetadataProperty::MetadataProperty
 	 * @covers MetadataProperty::getName
 	 * @covers MetadataProperty::getAssocTypes
-	 * @covers MetadataProperty::getType
-	 * @covers MetadataProperty::getCompositeType
+	 * @covers MetadataProperty::getTypes
 	 * @covers MetadataProperty::getTranslated
 	 * @covers MetadataProperty::getCardinality
+	 * @covers MetadataProperty::getDisplayName
+	 * @covers MetadataProperty::getId
+	 * @covers MetadataProperty::getSupportedCardinalities
 	 */
 	public function testMetadataPropertyConstructor() {
 		// test instantiation with non-default values
-		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY, 0x002);
+		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_COMPOSITE => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY, 'non.default.displayName');
 		self::assertEquals('testElement', $metadataProperty->getName());
 		self::assertEquals(array(0x001), $metadataProperty->getAssocTypes());
-		self::assertEquals(METADATA_PROPERTY_TYPE_COMPOSITE, $metadataProperty->getType());
-		self::assertEquals(0x002, $metadataProperty->getCompositeType());
+		self::assertEquals(array(array(METADATA_PROPERTY_TYPE_COMPOSITE => 0x002)), $metadataProperty->getTypes());
 		self::assertFalse($metadataProperty->getTranslated());
 		self::assertEquals(METADATA_PROPERTY_CARDINALITY_MANY, $metadataProperty->getCardinality());
+		self::assertEquals('non.default.displayName', $metadataProperty->getDisplayName());
+		self::assertEquals('TestElement', $metadataProperty->getId());
 
 		// Test translation
 		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_STRING, true);
@@ -44,10 +47,11 @@ class MetadataPropertyTest extends PKPTestCase {
 		$metadataProperty = new MetadataProperty('testElement');
 		self::assertEquals('testElement', $metadataProperty->getName());
 		self::assertEquals(array(), $metadataProperty->getAssocTypes());
-		self::assertEquals(METADATA_PROPERTY_TYPE_STRING, $metadataProperty->getType());
-		self::assertNull($metadataProperty->getCompositeType());
+		self::assertEquals(array(METADATA_PROPERTY_TYPE_STRING), $metadataProperty->getTypes());
 		self::assertFalse($metadataProperty->getTranslated());
 		self::assertEquals(METADATA_PROPERTY_CARDINALITY_ONE, $metadataProperty->getCardinality());
+		self::assertEquals('metadata.property.displayName.testElement', $metadataProperty->getDisplayName());
+		self::assertEquals('TestElement', $metadataProperty->getId());
 	}
 
 	/**
@@ -65,7 +69,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	 * @expectedException PHPUnit_Framework_Error
 	 */
 	public function testCompositeWithWrongCompositeType() {
-		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_MANY, 'string');
+		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_COMPOSITE => 'string'), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
@@ -74,7 +78,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	 * @expectedException PHPUnit_Framework_Error
 	 */
 	public function testCompositeTypeWithoutComposite() {
-		$metadataProperty = new MetadataProperty('testElement', array(0x001), METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY, 0x002);
+		$metadataProperty = new MetadataProperty('testElement', array(0x001), array(METADATA_PROPERTY_TYPE_STRING => 0x002), false, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 
 	/**
@@ -157,7 +161,7 @@ class MetadataPropertyTest extends PKPTestCase {
 	 * @covers MetadataProperty::isValid
 	 */
 	public function testValidateComposite() {
-		$metadataProperty = new MetadataProperty('testElement', array(), METADATA_PROPERTY_TYPE_COMPOSITE, false, METADATA_PROPERTY_CARDINALITY_ONE, 0x002);
+		$metadataProperty = new MetadataProperty('testElement', array(), array(METADATA_PROPERTY_TYPE_COMPOSITE => 0x002), false, METADATA_PROPERTY_CARDINALITY_ONE);
 
 		import('metadata.MetadataSchema');
 		$metadataSchema = new MetadataSchema();
@@ -170,10 +174,22 @@ class MetadataPropertyTest extends PKPTestCase {
 		self::assertTrue($metadataProperty->isValid('2:5')); // assocType:assocId
 		self::assertFalse($metadataProperty->isValid('1:5'));
 		self::assertFalse($metadataProperty->isValid('2:xxx'));
+		self::assertFalse($metadataProperty->isValid('2'));
 		self::assertFalse($metadataProperty->isValid(null));
 		self::assertFalse($metadataProperty->isValid(5));
 		self::assertFalse($metadataProperty->isValid($stdObject));
 		self::assertFalse($metadataProperty->isValid(array($metadataDescription, $anotherMetadataDescription)));
+	}
+
+	/**
+	 * @covers MetadataProperty::isValid
+	 */
+	public function testValidateMultitype() {
+		$metadataProperty = new MetadataProperty('testElement', array(), array(METADATA_PROPERTY_TYPE_DATE, METADATA_PROPERTY_TYPE_INTEGER), false, METADATA_PROPERTY_CARDINALITY_ONE);
+		self::assertTrue($metadataProperty->isValid('2009-07-28'));
+		self::assertTrue($metadataProperty->isValid(5));
+		self::assertFalse($metadataProperty->isValid(null));
+		self::assertFalse($metadataProperty->isValid('string'));
 	}
 }
 ?>

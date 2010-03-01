@@ -151,7 +151,7 @@ class MetadataSchema {
 
 	/**
 	 * Get the names of properties with a given data type.
-	 * @param $propertyType string
+	 * @param $propertyType mixed a valid property type description
 	 * @return array an array of string values representing valid property names
 	 */
 	function getPropertyNamesByType($propertyType) {
@@ -159,7 +159,7 @@ class MetadataSchema {
 
 		$propertyNames = array();
 		foreach($this->_properties as $property) {
-			if ($property->getType() == $propertyType) {
+			if (in_array($propertyType, $property->getTypes())) {
 				$propertyNames[] = $property->getName();
 			}
 		}

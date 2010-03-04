@@ -4,12 +4,12 @@
 <!--
   * locale/it_IT/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.5 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <locale name="it_IT" full_name = "Italiano">
@@ -69,4 +69,6 @@
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Impostazioni di sicurezza</message>
 	<message key="installer.skipFilesDir">Non create sottodirectory</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errore nell'analisi del template email <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">I file marcati potrebbero essere incompleti.</message>
 </locale>

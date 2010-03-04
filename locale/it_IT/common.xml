@@ -4,12 +4,12 @@
 <!--
   * locale/it_IT/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.6 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <locale name="it_IT" full_name = "Italiano">
@@ -269,44 +269,51 @@
 	<message key="search.titleIndex">Scorri l'indice dei titoli</message>
 	<message key="search.title">Titoli</message>
 	<message key="search.typeMethodApproach">Tipo (metodo/sistema)</message>
+	<message key="common.re">Re:</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Questa rivista è pubblicata sotto una licenza
+ <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
+		Questa rivista è pubblicata sotto una licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0</a>.
 	</div>]]></message>
-	<message key="common.re">Re:</message>
-	<message key="common.manage">Gestisci</message>
-	<message key="common.noComments">Non ci sono commenti</message>
-	<message key="common.uploadFailed">Il file non può essere caricato. Riprova o contatta l'amministratore se il problema persiste.</message>
+	<message key="common.manage">Gestione</message>
+	<message key="common.noComments">Nessun commento</message>
 	<message key="form.startsWith">inizia con</message>
-	<message key="notification.allow">Fai comparire questi tipi di notifica nel mio feed:</message>
-	<message key="notification.confirmError">Si è verificato un errore nella conferma del tuo abbonamento</message>
-	<message key="notification.confirmSuccess">Il tuo abbonamento è confermato.</message>
-	<message key="notification.email">Inviami una email su questi tipi di notifiche.</message>
-	<message key="notification.location">Vai all'indirizzo</message>
-	<message key="notification.mailList">Notifica alle mailing list</message>
-	<message key="notification.mailList.emailInvalid">Inserisci un indirizzo email valido.</message>
-	<message key="notification.mailList.privacyProtection">Politiche di protezione della privacy</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Accedi</a> a un contenuto protetto.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Sottometti</a> un articolo]]></message>
-	<message key="notification.mailList.register">Puoi registrarti a</message>
-	<message key="notification.mailList.review"><![CDATA[Partecipa alla <a href="{$reviewUrl}">peer review</a>]]></message>
-	<message key="notification.noneExist">Nessuna notifica.</message>
+	<message key="navigation.dashboard">Bacheca</message>
+	<message key="common.uploadFailed">Il file non può essere caricato. Riprova o contatta l'amministratore se il problema persiste.</message>
+	<message key="notification.allow">Permetti a queste notifiche di comparire nel mio feed</message>
+	<message key="notification.confirmError">Errore nella conferma.</message>
+	<message key="notification.confirmSuccess">Sei stato iscritto con successo.</message>
+	<message key="notification.email">Inviami una email per questi tipi di notifiche</message>
+	<message key="notification.location">Vai all'URL</message>
+	<message key="notification.mailList">Mailing list per le notifiche</message>
+	<message key="notification.mailList.emailInvalid">Inserisci un indirizzo email valido</message>
+	<message key="notification.mailList.privacyProtection">Protezione della privacy</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Accedi</a> a contenuti protetti.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Proponi</a> un articolo]]></message>
+	<message key="notification.mailList.register">Puoi registrati a questo sito con</message>
 	<message key="notification.notification">Notifica</message>
 	<message key="notification.notifications">Notifiche</message>
-	<message key="notification.notificationsNew">({$numNew} nuove)</message>
-	<message key="notification.notificationsDescription"><![CDATA[Hai {$unreadCount} notifiche non lette e {$readCount} notifiche lette.  <a href="{$settingsUrl}">Clicca qui</a> per cambiare le impostazioni delle notifiche.]]></message>
-	<message key="notification.settings">Impostazioni delle notifiche</message>
-	<message key="notification.settingsDescription">Seleziona l'evento sul quale vuoi ricevere notifiche. Deselezionare un evento impedirà la notifica di notizie di quell'evento sul tuo feed.</message>
-	<message key="notification.subscribe">Sottoscrivi</message>
-	<message key="notification.subscribeError">Il tuo indirizzo email è già presente</message>
-	<message key="notification.subscribeSuccess">E' stata inviato un messaggio di conferma al tuo indirizzo email. Clicca sul link di conferma presente nel messaggio che hai ricevuto per confermare.</message>
-	<message key="notification.reminderError">Si è verificato un errore. Controlla di aver inserito l'indirizzo email corretto.</message>
-	<message key="notification.reminderSent">Una nuova password è stata inviata.</message>
-	<message key="notification.unsubscribe">Cancèllati</message>
-	<message key="notification.unsubscribeDescription">Inserisci indirizzo email e password per non ricevere più notifiche. Se hai dimenticato la password, lascia la casella vuota e ne riceverai una nuova per posta elettronica.</message>
-	<message key="notification.unsubscribeError">Si è verificato un errore. Controlla di aver inserito l'indirizzo email corretto.</message>
-	<message key="notification.unsubscribeSuccess">Sei stato cancellato con success.</message>
-	<message key="navigation.dashboard">Bacheca</message>
+	<message key="notification.notificationsNew">({$numNew} nuovi)</message>
+	<message key="notification.settings">Impostazioni di notifica</message>
+	<message key="notification.subscribe">Abbonati</message>
+	<message key="notification.subscribeError">Il tuo indirizzo email è già iscritto.</message>
+	<message key="notification.reminderSent">Abbiamo inviato una nuova password all'indirizzo indicato.</message>
+	<message key="notification.unsubscribe">Cancellati</message>
+	<message key="notification.mailList.review"><![CDATA[Participa alla <a href="{$reviewUrl}">peer review</a>]]></message>
+	<message key="notification.noneExist">Non hai notifiche per ora.</message>
+	<message key="notification.notificationsDescription"><![CDATA[Hai {$unreadCount} nuove notifiche e {$readCount} gi&#224; lette.  <a href="{$settingsUrl}">Clicca qui</a> per modificare le tue impostazioni di notifica.]]></message>
+	<message key="notification.settingsDescription"><![CDATA[Seleziona gli elementi per i quali vuoi ricevere notifiche. Deselezionare un elemento non ti far&#224; ricevere notifiche su quell'elemento specifico.]]></message>
+	<message key="notification.subscribeSuccess">Abbiamo inviato un messaggio all'indirizzo email specificato. Clicca sul link presente nel messaggio ricevuto per confermare la tua iscrizione alla mailing list.</message>
+	<message key="notification.reminderError">L'nvio della password non è andato a buon fine. Controlla di aver inserito l'indirizzo email correttamente.</message>
+	<message key="notification.unsubscribeDescription">Inserisci l'indirizzo email e la password per non ricevere più notifiche. Se hai dimenticato la password, lascia il campo vuoto e ne invieremo una nuova all'indirizzo postale che indichi.</message>
+	<message key="notification.unsubscribeError">La cancellazione non è avvenuta. Controlla di aver inserito il tuo indirizzo email correttamente</message>
+	<message key="notification.unsubscribeSuccess">Sei stato cancellato dalla lista.</message>
 </locale>

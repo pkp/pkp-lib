@@ -308,8 +308,8 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		// TODO: The publication date could be in multiple places
 		if ($resultDOM->getElementsByTagName("ArticleDate")->length > 0) {
 			$publicationDate = $resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Year")->item(0)->textContent.
-			                   '-'.$resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Month")->item(0)->textContent.
-			                   '-'.$resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Day")->item(0)->textContent;
+			                   '-'.str_pad($resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Month")->item(0)->textContent, 2, '0', STR_PAD_LEFT).
+			                   '-'.str_pad($resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Day")->item(0)->textContent, 2, '0', STR_PAD_LEFT);
 			$metadata['date'] = $publicationDate;
 		}
 

@@ -28,11 +28,11 @@
 		{if $nlm30Size} {$nlm30Size|escape} p.{/if}
 		{if $nlm30Series} ({$nlm30Series|escape}{if $nlm30Volume}, v.{$nlm30Volume|escape}{/if}){/if}
 	{elseif $nlm30PublicationType == 'journal'}
-		{$nlm30ArticleTitle}. <i><i>{$mainTitle}</i>{$subTitle}, {$nlm30PublisherLoc|escape},
+		{$nlm30ArticleTitle}. <i>{$mainTitle}</i>{$subTitle}, {if $nlm30PublisherLoc|escape}{$nlm30PublisherLoc|escape},{/if}
 		{if $nlm30Volume} v.{$nlm30Volume|escape},{/if}
 		{if $nlm30Issue} n.{$nlm30Issue|escape},{/if}
 		{if $nlm30Fpage} p.{$nlm30Fpage|escape}{if $nlm30Lpage}-{$nlm30Lpage|escape}{/if},{/if}
-		{$nlm30Date|date_format:' %b. %Y'|lower}.
+		{$nlm30Date|date_format:' %b %Y'|lower}.
 	{else}
 		{translate key="submission.citations.output.unsupportedPublicationType"}
 	{/if}	

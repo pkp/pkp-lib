@@ -757,7 +757,7 @@ class String {
 	 * @return string the trimmed string
 	 */
 	function trimPunctuation($string) {
-		return trim($string, ' ,.;:!?()[]\\/');
+		return trim($string, ' ,.;:!?&()[]\\/');
 	}
 
 	/**

@@ -44,6 +44,24 @@
 	<!-- Book File Types Grid -->
 	<message key="grid.bookFileType.form.sortable">Allow files of this type to be sorted by component (e.g. by chapter)</message>
 
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
+	<message key="grid.artworkFile.file">File</message>
+	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
+	<message key="grid.artworkFile.form.metadata">Artwork Metadata</message>
+	<message key="grid.artworkFile.caption">Caption</message>
+	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
+	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/press)</message>
+	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
+	<message key="grid.artworkFile.permissionForm">Permission Form</message>
+	<message key="grid.artworkFile.type">Type</message>
+	<message key="grid.artworkFile.type.table">Table</message>
+	<message key="grid.artworkFile.type.figure">Figure</message>
+	<message key="grid.artworkFile.placement">Placement in book</message>
+	<message key="grid.artworkFile.placementDetail">Table/Fig. No.</message>
+	<message key="grid.artworkFile.contactAuthor">Contact Author</message>
+
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Files</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>

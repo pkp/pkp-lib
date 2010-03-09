@@ -9,7 +9,7 @@
   *
   * Localization strings for the it_IT (Italiano) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.5 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <locale name="it_IT" full_name = "Italiano">
@@ -168,4 +168,5 @@
 	<message key="plugins.categories.reports">Report plugin</message>
 	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
 	<message key="plugins.categories.themes">Plugin del tema</message>
+	<message key="manager.emails.form.emailKeyRequired">L'indirizzo email deve essere unico.</message>
 </locale>

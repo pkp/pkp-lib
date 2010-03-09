@@ -9,7 +9,7 @@
   *
   * Localization strings for the it_IT (Italiano) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.5 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <locale name="it_IT" full_name = "Italiano">
@@ -100,4 +100,6 @@
 	<message key="user.userHome">Home utente</message>
 	<message key="user.username">Nome utente</message>
 	<message key="user.workingLanguages">Lingue conosciute</message>
+	<message key="user.other">Altro</message>
+	<message key="user.profile.form.profileImageInvalid">Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo.</message>
 </locale>

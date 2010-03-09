@@ -9,7 +9,7 @@
   *
   * Localization strings for the it_IT (Italiano) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.5 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <locale name="it_IT" full_name = "Italiano">
@@ -157,4 +157,21 @@
 	<message key="rt.version.title">Titolo</message>
 	<message key="rt.version">Versione</message>
 	<message key="rt.viewMetadata">Informazioni per l'indicizzazione</message>
+	<message key="rt.admin.sharing">Condivisione</message>
+	<message key="rt.admin.sharing.enabled">Condivisione attiva</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Utilizza un menu a tendina</message>
+	<message key="rt.admin.sharing.advanced">Impostazioni avanzate (opzionali)</message>
+	<message key="rt.admin.sharing.brandLabel">Marchio</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opzioni dell'elenco a tendina<br /> (separali da virgole)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Lingua</message>
+	<message key="rt.admin.sharing.logolabel">logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Sfondo del logo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Colore del Logo</message>
+	<message key="rt.admin.configureSharing">Configura AddThis</message>
+	<message key="comments.titleRequired">Inserisci un titolo per il commento</message>
+	<message key="rt.admin.sharing.description"><![CDATA[per abilitare i lettori a condividere gli articoli, iscriviti a <a href="http://addthis.com">addthis.com</a>, e copia/incolla il codice del pulsante Sharing qui sotto.]]></message>
+	<message key="rt.admin.sharing.basic">Impostazioni di base</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Stile del bottone</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vedi <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> per informazioni.]]></message>
 </locale>

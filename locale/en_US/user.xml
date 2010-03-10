@@ -63,6 +63,7 @@
 	<message key="user.profile.changePasswordInstructions">Enter your current and new passwords below to change the password for your account.</message>
 	<message key="user.profile.editProfile">Edit Profile</message>
 	<message key="user.profile.form.emailRequired">A valid email address is required.</message>
+	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
 	<message key="user.profile.form.firstNameRequired">A first name is required.</message>
 	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>

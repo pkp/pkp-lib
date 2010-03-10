@@ -14,6 +14,7 @@
 
 <locale name="en_US" full_name = "English">
 	<message key="user.affiliation">Affiliation</message>
+	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
 	<message key="user.affiliations">Affiliations</message>
 	<message key="user.biography">Bio statement</message>
 	<message key="user.biography.description">(E.g., department and rank)</message>
@@ -30,6 +31,7 @@
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
+	<message key="user.gossip">Private Notes</message>
 	<message key="user.lastName">Last name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>

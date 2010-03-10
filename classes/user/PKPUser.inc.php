@@ -396,6 +396,31 @@ class PKPUser extends DataObject {
 	}
 
 	/**
+	 * Get localized user gossip.
+	 */
+	function getLocalizedGossip() {
+		return $this->getLocalizedData('gossip');
+	}
+
+	/**
+	 * Get user gossip.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getGossip($locale) {
+		return $this->getData('gossip', $locale);
+	}
+
+	/**
+	 * Set user gossip.
+	 * @param $gossip string
+	 * @param $locale string
+	 */
+	function setGossip($gossip, $locale) {
+		return $this->setData('gossip', $gossip, $locale);
+	}
+
+	/**
 	 * Get user's working languages.
 	 * @return array
 	 */

@@ -45,9 +45,9 @@
 		<field name="date_acknowledged" type="T"/>
 		<descr>Signoffs</descr>
 		<index name="signoff_symbolic">
-			<col>symbolic</col>
 			<col>assoc_type</col>
 			<col>assoc_id</col>
+			<col>symbolic</col>
 			<UNIQUE />
 		</index>
 	</table>

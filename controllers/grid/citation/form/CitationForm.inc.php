@@ -74,19 +74,23 @@ class CitationForm extends Form {
 				if ($metadataDescription->hasStatement($propertyName)) {
 					$value = $metadataDescription->getStatement($propertyName);
 
-					if ($property->getType() == METADATA_PROPERTY_TYPE_COMPOSITE) {
-						// We currently only support composite name arrays
-						assert(in_array($property->getCompositeType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
-						import('metadata.nlm.NlmNameSchemaPersonStringFilter');
-						$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
-						assert($personStringFilter->supportsAsInput($value));
-						$fieldValue = $personStringFilter->execute($value);
-					} else {
-						// We currently don't support repeated values
-						if ($property->getCardinality() == METADATA_PROPERTY_CARDINALITY_MANY && !empty($value)) {
+					if ($property->getCardinality() == METADATA_PROPERTY_CARDINALITY_MANY && !empty($value)) {
+						// FIXME: The following is a work-around until we completely
+						// implement #5171 ("author: et.al"). Then we have to support
+						// true multi-type properties.
+						if (is_a($value[0], 'MetadataDescription')) {
+							// We currently only support composite name arrays
+							assert(in_array($value[0]->getAssocType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
+							import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+							$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
+							assert($personStringFilter->supportsAsInput($value));
+							$fieldValue = $personStringFilter->execute($value);
+						} else {
+							// We currently don't support repeated values
 							assert(is_array($value) && count($value) <= 1);
-							$value = $value[0];
+							$fieldValue = $value[0];
 						}
+					} else {
 						$fieldValue = (string)$value;
 					}
 				} else {
@@ -189,30 +193,44 @@ class CitationForm extends Form {
 				if (empty($fieldValue)) {
 					$metadataDescription->removeStatement($propertyName);
 				} else {
-					// Some property types need to be converted first
-					switch($property->getType()) {
-						case METADATA_PROPERTY_TYPE_COMPOSITE:
+					$foundValidType = false;
+					foreach($property->getTypes() as $type) {
+						// Some property types need to be converted first
+						switch($type) {
 							// We currently only support name composites
-							assert(in_array($property->getCompositeType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
-							import('metadata.nlm.PersonStringNlmNameSchemaFilter');
-							$personStringFilter = new PersonStringNlmNameSchemaFilter($property->getCompositeType(), PERSON_STRING_FILTER_MULTIPLE);
-							assert($personStringFilter->supportsAsInput($fieldValue));
-							$fieldValue =& $personStringFilter->execute($fieldValue);
-							break;
+							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_AUTHOR):
+							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_EDITOR):
+								import('metadata.nlm.PersonStringNlmNameSchemaFilter');
+								$personStringFilter = new PersonStringNlmNameSchemaFilter($type[METADATA_PROPERTY_TYPE_COMPOSITE], PERSON_STRING_FILTER_MULTIPLE);
+								assert($personStringFilter->supportsAsInput($fieldValue));
+								$fieldValue =& $personStringFilter->execute($fieldValue);
+								$foundValidType = true;
+								break;
 
-						case METADATA_PROPERTY_TYPE_INTEGER:
-							$fieldValue = array((integer)$fieldValue);
-							break;
+							case METADATA_PROPERTY_TYPE_INTEGER:
+								$fieldValue = array((integer)$fieldValue);
+								$foundValidType = true;
+								break;
 
-						case METADATA_PROPERTY_TYPE_DATE:
-							import('metadata.DateStringNormalizerFilter');
-							$dateStringFilter = new DateStringNormalizerFilter();
-							assert($dateStringFilter->supportsAsInput($fieldValue));
-							$fieldValue = array($dateStringFilter->execute($fieldValue));
-							break;
+							case METADATA_PROPERTY_TYPE_DATE:
+								import('metadata.DateStringNormalizerFilter');
+								$dateStringFilter = new DateStringNormalizerFilter();
+								assert($dateStringFilter->supportsAsInput($fieldValue));
+								$fieldValue = array($dateStringFilter->execute($fieldValue));
+								$foundValidType = true;
+								break;
 
-						default:
-							$fieldValue = array($fieldValue);
+							default:
+								if ($property->isValid($fieldValue)) {
+									$fieldValue = array($fieldValue);
+									$foundValidType = true;
+									break;
+								}
+						}
+
+						// Break the outer loop once we found a valid
+						// interpretation for our form field.
+						if ($foundValidType) break;
 					}
 					foreach($fieldValue as $fieldValueStatement) {
 						$metadataDescription->addStatement($propertyName, $fieldValueStatement);

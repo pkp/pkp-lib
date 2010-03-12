@@ -154,10 +154,10 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 		});
 
 		// Tell the calling button to open this modal on click
-		$(callingButton).click(function() {
+		$(callingButton).live("click", (function() {
 			$dialog.dialog('open');
 			return false;
-		});
+		}));
 	});
 }
 /**

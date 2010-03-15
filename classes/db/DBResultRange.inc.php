@@ -67,7 +67,7 @@ class DBResultRange {
 	 * Set the count of items in this range to display.
 	 * @param $count int
 	 */
-	function setCount() {
+	function setCount($count) {
 		$this->count = $count;
 	}
 }

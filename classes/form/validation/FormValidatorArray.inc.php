@@ -12,7 +12,7 @@
  * @brief Form validation check that checks an array of fields.
  */
 
-import('form.validation.FormValidatorArray');
+import('form.validation.FormValidator');
 
 class FormValidatorArray extends FormValidator {
 
@@ -69,13 +69,13 @@ class FormValidatorArray extends FormValidator {
 				// We expect all fields to contain values.
 				if (is_null($value) || trim((string)$value) == '') {
 					$isValid = false;
-					array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+					array_push($this->_errorFields, $this->getField()."[{$key}]");
 				}
 			} else {
 				// In the two-dimensional case we always expect a value array.
 				if (!is_array($value)) {
 					$isValid = false;
-					array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+					array_push($this->_errorFields, $this->getField()."[{$key}]");
 					continue;
 				}
 
@@ -83,7 +83,7 @@ class FormValidatorArray extends FormValidator {
 				foreach ($this->_fields as $field) {
 					if (!isset($value[$field]) || trim((string)$value[$field]) == '') {
 						$isValid = false;
-						array_push($this->_errorFields, "{$this->getField()}[{$key}][{$field}]");
+						array_push($this->_errorFields, $this->getField()."[{$key}][{$field}]");
 					}
 				}
 			}

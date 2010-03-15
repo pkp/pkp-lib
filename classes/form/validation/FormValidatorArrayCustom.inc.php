@@ -104,9 +104,9 @@ class FormValidatorArrayCustom extends FormValidator {
 				if (!$ret) {
 					$isValid = false;
 					if ($this->isLocaleField()) {
-						$this->_errorFields[$key] = "{$this->getField()}[{$key}]";
+						$this->_errorFields[$key] = $this->getField()."[{$key}]";
 					} else {
-						array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+						array_push($this->_errorFields, $this->getField()."[{$key}]");
 					}
 				}
 			} else {
@@ -114,9 +114,9 @@ class FormValidatorArrayCustom extends FormValidator {
 				if (!is_array($value)) {
 					$isValid = false;
 					if ($this->isLocaleField()) {
-						$this->_errorFields[$key] = "{$this->getField()}[{$key}]";
+						$this->_errorFields[$key] = $this->getField()."[{$key}]";
 					} else {
-						array_push($this->_errorFields, "{$this->getField()}[{$key}]");
+						array_push($this->_errorFields, $this->getField()."[{$key}]");
 					}
 					continue;
 				}
@@ -141,9 +141,9 @@ class FormValidatorArrayCustom extends FormValidator {
 						$isValid = false;
 						if ($this->isLocaleField()) {
 							if (!isset($this->_errorFields[$key])) $this->_errorFields[$key] = array();
-							array_push($this->_errorFields[$key], "{$this->getField()}[{$key}][{$field}]");
+							array_push($this->_errorFields[$key], $this->getField()."[{$key}][{$field}]");
 						} else {
-							array_push($this->_errorFields, "{$this->getField()}[{$key}][{$field}]");
+							array_push($this->_errorFields, $this->getField()."[{$key}][{$field}]");
 						}
 					}
 				}

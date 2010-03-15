@@ -861,6 +861,7 @@ class Form {
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['required'] = isset($params['required']) ? $params['required'] : false;
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 
 		foreach ($params as $key => $value) {

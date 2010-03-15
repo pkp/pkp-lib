@@ -84,6 +84,7 @@
 		<field name="seq" type="F" />
 		<field name="element_type" type="I8" />
 		<field name="required" type="I1" />
+		<field name="included" type="I1" />
 		<descr>Review form elements.</descr>
 		<index name="review_form_elements_review_form_id">
 			<col>review_form_id</col>

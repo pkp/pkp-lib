@@ -114,6 +114,22 @@ class ReviewFormElement extends DataObject {
 		return $this->setData('required', $required);
 	}
 
+ 	/**
+	 * get included
+	 * @return boolean
+	 */
+	function getIncluded() {
+		return $this->getData('included');
+	}
+
+	/**
+	 * set included
+	 * @param $included boolean
+	 */
+	function setIncluded($included) {
+		return $this->setData('included', $included);
+	}
+
 	/**
 	 * Get question.
 	 * @param $locale string

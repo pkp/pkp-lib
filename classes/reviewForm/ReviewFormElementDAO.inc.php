@@ -58,6 +58,7 @@ class ReviewFormElementDAO extends DAO {
 		$reviewFormElement->setSequence($row['seq']);
 		$reviewFormElement->setElementType($row['element_type']);
 		$reviewFormElement->setRequired($row['required']);
+		$reviewFormElement->setIncluded($row['included']);
 
 		$this->getDataObjectSettings('review_form_element_settings', 'review_form_element_id', $row['review_form_element_id'], $reviewFormElement);
 
@@ -91,14 +92,15 @@ class ReviewFormElementDAO extends DAO {
 	function insertObject(&$reviewFormElement) {
 		$this->update(
 			'INSERT INTO review_form_elements
-				(review_form_id, seq, element_type, required)
+				(review_form_id, seq, element_type, required, included)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				$reviewFormElement->getReviewFormId(),
 				$reviewFormElement->getSequence() == null ? 0 : $reviewFormElement->getSequence(),
 				$reviewFormElement->getElementType(),
-				$reviewFormElement->getRequired() ? 1 : 0
+				$reviewFormElement->getRequired() ? 1 : 0,
+				$reviewFormElement->getIncluded() ? 1 : 0
 			)
 		);
 
@@ -118,13 +120,15 @@ class ReviewFormElementDAO extends DAO {
 					review_form_id = ?,
 					seq = ?,
 					element_type = ?,
-					required = ?
-				WHERE review_form_element_id = ?',
+					required = ?,
+					included = ?
+				WHERE	review_form_element_id = ?',
 			array(
 				$reviewFormElement->getReviewFormId(),
 				$reviewFormElement->getSequence(),
 				$reviewFormElement->getElementType(),
 				$reviewFormElement->getRequired(),
+				$reviewFormElement->getIncluded(),
 				$reviewFormElement->getId()
 			)
 		);

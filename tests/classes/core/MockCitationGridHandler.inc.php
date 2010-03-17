@@ -12,15 +12,13 @@
  * @brief Mock implementation of the CitationGridHandler class for the PKPComponentRouterTest
  */
 
-// $Id$
-
-
 import('classes.handler.PKPHandler');
 
 class CitationGridHandler extends PKPHandler {
 	private $_fetchArgs;
 
 	function CitationGridHandler() {
+		$this->_checks = array();
 		// Make sure that the parent constructor
 		// will not be called.
 	}

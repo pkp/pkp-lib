@@ -63,7 +63,7 @@ class FormValidatorTest extends PKPTestCase {
 	 */
 	public function testGetMessage() {
 		$formValidator = new FormValidator($this->form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertSame('translated text', $formValidator->getMessage());
+		self::assertSame('translated string', $formValidator->getMessage());
 		self::assertSame('some.message.key', Locale::getTestedTranslationKey());
 	}
 

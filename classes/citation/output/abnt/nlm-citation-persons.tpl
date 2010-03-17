@@ -10,8 +10,12 @@
  *}
 {strip}
 	{foreach from=$persons item=person name=persons key=personIndex}
-		{if $person->getStatement('prefix')}{$person->getStatement('prefix')|escape|upper} {/if}{$person->getStatement('surname')|escape|upper}, {if $person->getStatement('suffix')}{$person->getStatement('suffix')|escape|upper} {/if}
-		{foreach from=$person->getStatement('given-names') item=givenName}{$givenName[0]|escape}.{/foreach}
-		{if $smarty.foreach.persons.last} {else}; {/if}
+		{if count($persons) <= 3 || $smarty.foreach.persons.first}
+			{if $person->getStatement('prefix')}{$person->getStatement('prefix')|escape|upper} {/if}{$person->getStatement('surname')|escape|upper}, {if $person->getStatement('suffix')}{$person->getStatement('suffix')|escape|upper} {/if}
+			{foreach from=$person->getStatement('given-names') item=givenName}{$givenName[0]|escape}.{/foreach}
+			{if $smarty.foreach.persons.last || count($persons) > 3} {else}; {/if}
+		{elseif $smarty.foreach.persons.last}
+			{literal}et al. {/literal}
+		{/if}
 	{/foreach}
 {/strip}

@@ -38,9 +38,18 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$this->_request->setRouter($router);
 	}
 
-	/**
-	 * @covers NlmCitationSchemaApaFilter
-	 */
+	public function testExecuteWithUnsupportedPublicationType() {
+		$nameSchema = new NlmNameSchema();
+		$citationSchema = new NlmCitationSchema();
+		// Create a description with an unsupported publication type
+		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_THESIS);
+		$citationOutputFilter = $this->getFilterInstance();
+		$result = $citationOutputFilter->execute($citationDescription);
+		self::assertEquals('translated string', $result); // This is the string returned from the mock locale for all translations
+		self::assertEquals(Locale::getTestedTranslationKey(), 'submission.citations.output.unsupportedPublicationType');
+	}
+
 	public function testExecuteWithBook() {
 		$nameSchema = new NlmNameSchema();
 		$citationSchema = new NlmCitationSchema();
@@ -56,7 +65,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 
 		// Check a book with minimal data
 		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = 'book');
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_BOOK);
 		$citationDescription->addStatement('source', $source = 'Mania de bater: a punição corporal doméstica de crianças e adolescentes no Brasil');
 		$citationDescription->addStatement('date', $date = '2001');
 		$citationDescription->addStatement('publisher-loc', $pubLoc = 'São Paulo');
@@ -102,9 +111,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		self::assertEquals($this->getBookChapterWithEditorsResult(), $result);
 	}
 
-	/**
-	 * @covers NlmCitationSchemaApaFilter
-	 */
 	public function testExecuteWithJournal() {
 		$nameSchema = new NlmNameSchema();
 		$citationSchema = new NlmCitationSchema();
@@ -121,7 +127,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 
 		// Check a journal article
 		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = 'journal');
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_JOURNAL);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person1Description);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person2Description);
 		$citationDescription->addStatement('article-title', $articleTitle = 'Etinobotânica Xucuru: espécies místicas');
@@ -132,7 +138,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('fpage', $fpage = 45);
 		$citationDescription->addStatement('lpage', $lpage = 57);
 		$citationDescription->addStatement('date', $date = '2000-06');
-
+		$citationDescription->addStatement('pub-id[@pub-id-type="doi"]', $doi = '10146:55793-493');
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
 		self::assertEquals($this->getJournalArticleResult(), $result);

@@ -47,11 +47,11 @@ class NlmCitationSchemaApaFilterTest extends NlmCitationSchemaCitationOutputForm
 	}
 
 	protected function getJournalArticleResult() {
-		return 'Silva, V. A., & dos Santos, P. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57.';
+		return 'Silva, V. A., & dos Santos, P. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. doi:10146:55793-493';
 	}
 
 	protected function getJournalArticleWithMoreThanSevenAuthorsResult() {
-		return 'Silva, V. A., dos Santos, P., Miller, F. H., Choi, M. J., Angeli, L. L., Harland, A. A., . . . Thomas, S. T. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57.';
+		return 'Silva, V. A., dos Santos, P., Miller, F. H., Choi, M. J., Angeli, L. L., Harland, A. A., . . . Thomas, S. T. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. doi:10146:55793-493';
 	}
 }
 ?>

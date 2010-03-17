@@ -278,8 +278,8 @@ class CitationGridHandler extends GridHandler {
 		$nlmCitationSchema = new NlmCitationSchema();
 
 		// We currently only support the ABNT citation output schema
-		import('citation.output.abnt.NlmCitationSchemaAbntFilter');
-		$citationOutputFilter = new NlmCitationSchemaAbntFilter($request);
+		import('citation.output.apa.NlmCitationSchemaApaFilter');
+		$citationOutputFilter = new NlmCitationSchemaApaFilter($request);
 
 		$formattedCitations = array();
 		$citations =& $this->_getSortedElements();

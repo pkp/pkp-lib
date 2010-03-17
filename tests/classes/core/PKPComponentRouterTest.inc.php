@@ -148,8 +148,10 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
 	 * @covers PKPComponentRouter::_camelize
+	 * FIXME: We only can re-activate this test when we have a second handler
+	 * in lib/pkp that we can mock for this.
 	 */
-	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
+	/*public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
@@ -162,7 +164,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$testInstance = new CitationRowHandler();
 		self::assertTrue(in_array('fetch', get_class_methods('CitationRowHandler')));
 		self::assertFalse(is_a($testInstance, 'PKPHandler'));
-	}
+	}*/
 
 	/**
 	 * @covers PKPComponentRouter::getRequestedComponent

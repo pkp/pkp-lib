@@ -44,6 +44,7 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 					array ('given-names' => array('Burt', 'M'), 'surname' => 'Sharp')
 				),
 				'pub-id[@pub-id-type="doi"]' => '10.1186/1471-2105-5-147',
+				'issn[@pub-type="ppub"]' => '14712105',
 				'[@publication-type]' => 'journal'
 			)
 		);
@@ -76,13 +77,14 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 				'pub-id[@pub-id-type="doi"]' => '10.1093/ref:odnb/31418'
 			),
 			'testOutput' => array(
+				'pub-id[@pub-id-type="doi"]' => '10.1093/ref:odnb/31418',
 				'source' => 'The Oxford Dictionary of National Biography',
-				'date' => '2004',
+				'date' => '2004-09-23',
 				'publisher-name' => 'Oxford University Press',
 				'publisher-loc' => 'Oxford',
 				'person-group[@person-group-type="author"]' =>
 				array (
-					array ('surname' => 'Matthew, H. C. G.'),
+					array ('given-names' => array('H', 'C', 'G'), 'surname' => 'Matthew'),
 					array ('given-names' => array('B'), 'surname' => 'Harrison')
 				),
 				'[@publication-type]' => 'book'
@@ -126,6 +128,7 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 					'date' => '2004',
 					'fpage' => 147,
 					'uri' => 'http://www.biomedcentral.com/1471-2105/5/147',
+					'issn[@pub-type="ppub"]' => '14712105',
 					'person-group[@person-group-type="author"]' => array (
 						array ('given-names' => array('Hao'), 'surname' => 'Chen'),
 						array ('given-names' => array('Burt', 'M'), 'surname' => 'Sharp')

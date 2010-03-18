@@ -48,6 +48,9 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 						$form.attr("action"),
 						$form.serialize(),
 						function(returnString) {
+							if(returnString.isScript == true) {
+								eval(returnString.script)
+							}
 							if (returnString.status == true) {
 								updateItem(actType, actOnId, returnString.content);
 								$('#' + UID).dialog("close");

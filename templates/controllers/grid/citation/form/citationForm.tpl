@@ -30,7 +30,7 @@
 			{foreach from=$citationVars key=fieldName item=field}
 				<tr valign="top">
 					<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
-					<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="90" class="textField" value="{$field.value|escape}" /></td>
+					<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
 				</tr>
 			{/foreach}
 		</table>

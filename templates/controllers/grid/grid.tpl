@@ -36,10 +36,10 @@
 					{/foreach}
 		        </tr>
 		    </thead>
+			{foreach from=$gridBodyParts item=bodyPart}
+				{$bodyPart}
+			{/foreach}
 		    <tbody>
-				{foreach from=$rows item=row}
-					{$row}
-				{/foreach}
 				{**
 					We need the last (=empty) line even if we have rows
 					so that we can restore it if the user deletes all rows.

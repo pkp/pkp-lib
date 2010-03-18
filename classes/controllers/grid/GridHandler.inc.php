@@ -47,6 +47,9 @@ class GridHandler extends PKPHandler {
 	/** @var string the grid template */
 	var $_template;
 
+	/** @var string name of grouping category **/
+	var $_category;
+
 	/**
 	 * Constructor.
 	 */
@@ -71,6 +74,22 @@ class GridHandler extends PKPHandler {
 	 */
 	function setTitle($title) {
 		$this->_title = $title;
+	}
+
+	/**
+	 * Get the category to group rows by
+	 * @return category
+	 */
+	function getCategory() {
+		return $this->_category;
+	}
+
+	/**
+	 * Set the category to group rows by
+	 * @param $category string
+	 */
+	function setCategory($category) {
+		$this->_category = $category;
 	}
 
 	/**
@@ -213,18 +232,19 @@ class GridHandler extends PKPHandler {
 	 * @return string the grid HTML
 	 */
 	function fetchGrid($args, &$request) {
-		// Render the rows
-		$rows = $this->_renderRowsInternally($request);
 
 		// Prepare the template to render the grid
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign_by_ref('rows', $rows);
 		$templateMgr->assign_by_ref('grid', $this);
 
 		// Add columns to the view
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign('numColumns', count($columns));
+
+		// Render the body elements (category groupings + rows inside a <tbody>)
+		$gridBodyParts = $this->_renderRowsInternally($request);
+		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
 		return $templateMgr->fetch($this->getTemplate());
@@ -345,9 +365,11 @@ class GridHandler extends PKPHandler {
 			// Instantiate a new row
 			$row =& $this->getRowInstance();
 			$row->setGridId($this->getId());
-
 			// Use the element key as the row id
 			list($key, $element) = $elementIterator->nextWithKey();
+
+			$categoryName = $this->getCategoryNameFromData($element);
+
 			$row->setId($key);
 			$row->setData($element);
 
@@ -355,13 +377,19 @@ class GridHandler extends PKPHandler {
 			$row->initialize($request);
 
 			// Render the row
-			$renderedRows[] = $this->_renderRowInternally($request, $row);
+			$renderedRows[$categoryName][] = $this->_renderRowInternally($request, $row);
 			unset($element);
 		}
 
-		return $renderedRows;
+		// now that everything is in its own category grouping
+		$gridBodyParts = '';
+		$categoryNum = 1;
+		foreach ($renderedRows as $categoryName => $rows) {
+			$gridBodyParts[] = $this->_renderGridBodyPart($rows, $categoryName, $categoryNum);
+			$categoryNum++;
+		}
+		return $gridBodyParts;
 	}
-
 
 	/**
 	 * Method that renders a single row.
@@ -392,6 +420,20 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Method that renders a tbody to go in the grid main body
+	 * @var $renderedRows array strings of the already rendered rows
+	 * @var $category string
+	 */
+	function _renderGridBodyPart(&$renderedRows, $categoryName = null, $categoryNum = 1) {
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign('categoryNum', $categoryNum);
+		$templateMgr->assign('categoryName', $categoryName);
+		$templateMgr->assign_by_ref('rows', $renderedRows);
+		return $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
+	}
+
+
+	/**
 	 * Method that renders a cell
 	 *
 	 * NB: You must have initialized the row
@@ -406,6 +448,10 @@ class GridHandler extends PKPHandler {
 		// Get the cell content
 		$cellProvider =& $column->getCellProvider();
 		return $cellProvider->render($row, $column);
+	}
+
+	function getCategoryNameFromData(&$data) {
+		return ($this->getCategory())?$data[$this->getCategory()]:null;
 	}
 
 	/**

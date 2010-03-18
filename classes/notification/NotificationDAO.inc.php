@@ -48,17 +48,17 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByUserId($userId, $rangeInfo = null) {
+	function &getNotificationsByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$notifications = array();
 
 		$result =& $this->retrieveRange(
-			'SELECT * FROM notifications WHERE user_id = ? AND product = ? AND context = ? ORDER BY date_created DESC',
-			array((int) $userId, $productName, (int) $contextId), $rangeInfo
+			'SELECT * FROM notifications WHERE user_id = ? AND product = ? AND context = ? AND level = ? ORDER BY date_created DESC',
+			array((int) $userId, $productName, (int) $contextId, (int) $level), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
@@ -92,6 +92,7 @@ class NotificationDAO extends DAO {
 		$notification = new Notification();
 		$notification->setId($row['notification_id']);
 		$notification->setUserId($row['user_id']);
+		$notification->setLevel($row['level']);
 		$notification->setDateCreated($row['date_created']);
 		$notification->setDateRead($row['date_read']);
 		$notification->setContents($row['contents']);
@@ -120,22 +121,25 @@ class NotificationDAO extends DAO {
 		}
 
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-		$notificationSettings = $notificationSettingsDao->getNotificationSettings($notification->getUserId());
-		$notificationEmailSettings = $notificationSettingsDao->getNotificationEmailSettings($notification->getUserId());
+		if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
+			$notificationSettings = $notificationSettingsDao->getNotificationSettings($notification->getUserId());
+			$notificationEmailSettings = $notificationSettingsDao->getNotificationEmailSettings($notification->getUserId());
 
-		if(in_array($notification->getAssocType(), $notificationEmailSettings)) {
-			$this->sendNotificationEmail($notification);
+			if(in_array($notification->getAssocType(), $notificationEmailSettings)) {
+				$this->sendNotificationEmail($notification);
+			}
 		}
 
-		if(!in_array($notification->getAssocType(), $notificationSettings)) {
+		if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL || !in_array($notification->getAssocType(), $notificationSettings)) {
 			$this->update(
 				sprintf('INSERT INTO notifications
-					(user_id, date_created, contents, param, location, is_localized, context, product, assoc_type)
+					(user_id, level, date_created, contents, param, location, is_localized, context, product, assoc_type)
 					VALUES
-					(?, %s, ?, ?, ?, ?, ?, ?, ?)',
+					(?, ?, %s, ?, ?, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB(date('Y-m-d H:i:s'))),
 				array(
 					(int) $notification->getUserId(),
+					(int) $notification->getLevel(),
 					$notification->getContents(),
 					$notification->getParam(),
 					$notification->getLocation(),
@@ -176,17 +180,18 @@ class NotificationDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
-			'SELECT date_created FROM notifications WHERE user_id = ? AND contents = ? AND param = ? AND product = ? AND assoc_type = ? AND context = ?',
+			'SELECT date_created FROM notifications WHERE user_id = ? AND contents = ? AND param = ? AND product = ? AND assoc_type = ? AND context = ? AND level = ?',
 			array(
 					(int) $notification->getUserId(),
 					$notification->getContents(),
 					$notification->getParam(),
 					$productName,
 					(int) $notification->getAssocType(),
-					(int) $contextId
+					(int) $contextId,
+					(int) $notification->getLevel()
 				)
 		);
 
@@ -215,15 +220,15 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return int
 	 */
-	function getUnreadNotificationCount($userId) {
+	function getUnreadNotificationCount($userId, $level = NOTIFICATION_LEVEL_NORMAL) {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NULL AND product = ? AND context = ?',
-			array((int) $userId, $productName, (int) $contextId)
+			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NULL AND product = ? AND context = ? AND level = ?',
+			array((int) $userId, $productName, (int) $contextId, (int) $level)
 		);
 
 		$returner = $result->fields[0];
@@ -239,15 +244,15 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return int
 	 */
-	function getReadNotificationCount($userId) {
+	function getReadNotificationCount($userId, $level = NOTIFICATION_LEVEL_NORMAL) {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NOT NULL AND product = ? AND context = ?',
-			array((int) $userId, $productName, (int) $contextId)
+			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NOT NULL AND product = ? AND context = ? AND level = ?',
+			array((int) $userId, $productName, (int) $contextId, (int) $level)
 		);
 
 		$returner = $result->fields[0];

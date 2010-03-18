@@ -338,6 +338,7 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="level" type="I8" />
 		<field name="date_created" type="T">
 			<NOTNULL/>
 		</field>
@@ -359,6 +360,12 @@
 			<NOTNULL/>
 		</field>
 		<descr>Stores notifications for users as created by the system after certain operations.</descr>
+		<index name="notifications_by_user">
+			<col>product</col>
+			<col>user_id</col>
+			<col>level</col>
+			<col>context</col>
+		</index>
 	</table>
 
 	<!--

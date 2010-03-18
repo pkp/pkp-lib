@@ -16,6 +16,9 @@
 
 import('notification.NotificationDAO');
 
+define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
+define('NOTIFICATION_LEVEL_NORMAL',				0x0000002);
+
 class PKPNotification extends DataObject {
 
 	/**
@@ -37,10 +40,10 @@ class PKPNotification extends DataObject {
 	 * @param $assocId int
 	 * @return Notification object
 	 */
-	function createNotification($userId, $contents, $param, $location, $isLocalized, $assocType) {
+	function createNotification($userId, $contents, $param, $location, $isLocalized, $assocType, $level = NOTIFICATION_LEVEL_NORMAL) {
 		$notification = new Notification();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$notification->setUserId($userId);
 		$notification->setContents($contents);
@@ -49,6 +52,38 @@ class PKPNotification extends DataObject {
 		$notification->setIsLocalized($isLocalized);
 		$notification->setAssocType($assocType);
 		$notification->setContext($contextId);
+		$notification->setLevel($level);
+
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->insertNotification($notification);
+
+		return $notification;
+	}
+
+	/**
+	 * Create a new notification with the specified arguments and insert into DB
+	 * This is a static method
+	 * @param $userId int
+	 * @param $contents string
+	 * @param $param string
+	 * @param $location string
+	 * @param $isLocalized bool
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return Notification object
+	 */
+	function createTrivialNotification($contents, $param = null) {
+		$notification = new Notification();
+		$context =& Request::getContext();
+		$contextId = $context?$context->getId():0;
+
+		$user =& Request::getUser();
+		$notification->setUserId($user->getId());
+		$notification->setContents($contents);
+		$notification->setParam($param);
+		$notification->setIsLocalized(1);
+		$notification->setContext($contextId);
+		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
 
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notificationDao->insertNotification($notification);
@@ -88,6 +123,22 @@ class PKPNotification extends DataObject {
 	 */
 	function setUserId($userId) {
 		return $this->setData('userId', $userId);
+	}
+
+	/**
+	 * Get the level (NOTIFICATION_LEVEL_...) for this notification
+	 * @return int
+	 */
+	function getLevel() {
+		return $this->getData('level');
+	}
+
+	/**
+	 * Set the level (NOTIFICATION_LEVEL_...) for this notification
+	 * @param $level int
+	 */
+	function setLevel($level) {
+		return $this->setData('level', $level);
 	}
 
 	/**

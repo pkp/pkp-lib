@@ -292,40 +292,6 @@ class NotificationDAO extends DAO {
 		$mail->addRecipient($user->getEmail(), $user->getFullName());
 		$mail->send();
 	}
-
-	/**
-	 * Send an update to all users on the mailing list
-	 * @param $notification object Notification
-	 */
-	function sendToMailingList($notification) {
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-		$mailList = $notificationSettingsDao->getMailList();
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
-
-		foreach ($mailList as $email) {
-			if ($notification->getIsLocalized()) {
-				$params = array('param' => $notification->getParam());
-				$notificationContents = Locale::translate($notification->getContents(), $params);
-			} else {
-				$notificationContents = $notification->getContents();
-			}
-
-			import('mail.MailTemplate');
-			$context =& Request::getContext();
-			$site =& Request::getSite();
-
-			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-			$mail->assignParams(array(
-				'notificationContents' => $notificationContents,
-				'url' => $notification->getLocation(),
-				'siteTitle' => $context->getLocalizedTitle(),
-				'unsubscribeLink' => Request::url(null, 'notification', 'unsubscribeMailList')
-			));
-			$mail->addRecipient($email);
-			$mail->send();
-		}
-	}
 }
 
 ?>

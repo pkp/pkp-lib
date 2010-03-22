@@ -29,69 +29,6 @@ class PKPNotification extends DataObject {
 	}
 
 	/**
-	 * Create a new notification with the specified arguments and insert into DB
-	 * This is a static method
-	 * @param $userId int
-	 * @param $contents string
-	 * @param $param string
-	 * @param $location string
-	 * @param $isLocalized bool
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @return Notification object
-	 */
-	function createNotification($userId, $contents, $param, $location, $isLocalized, $assocType, $level = NOTIFICATION_LEVEL_NORMAL) {
-		$notification = new Notification();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
-
-		$notification->setUserId($userId);
-		$notification->setContents($contents);
-		$notification->setParam($param);
-		$notification->setLocation($location);
-		$notification->setIsLocalized($isLocalized);
-		$notification->setAssocType($assocType);
-		$notification->setContext($contextId);
-		$notification->setLevel($level);
-
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notificationDao->insertNotification($notification);
-
-		return $notification;
-	}
-
-	/**
-	 * Create a new notification with the specified arguments and insert into DB
-	 * This is a static method
-	 * @param $userId int
-	 * @param $contents string
-	 * @param $param string
-	 * @param $location string
-	 * @param $isLocalized bool
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @return Notification object
-	 */
-	function createTrivialNotification($contents, $param = null) {
-		$notification = new Notification();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
-
-		$user =& Request::getUser();
-		$notification->setUserId($user->getId());
-		$notification->setContents($contents);
-		$notification->setParam($param);
-		$notification->setIsLocalized(1);
-		$notification->setContext($contextId);
-		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
-
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notificationDao->insertNotification($notification);
-
-		return $notification;
-	}
-
-	/**
 	 * get notification id
 	 * @return int
 	 */

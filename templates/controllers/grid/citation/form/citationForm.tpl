@@ -9,6 +9,8 @@
  *
  * $Id$
  *}
+
+
 <div id="editCitationFormContainer-{$citation->getId()}">
 	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 		<h3>{translate key="submission.citations.form.title"}</h3>
@@ -27,13 +29,38 @@
 				<td width="30%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
 				<td width="70%" class="value"><textarea name="editedCitation" id="editedCitation" cols="40" rows="3" class="textField">{$editedCitation}</textarea></td>
 			</tr>
-			{foreach from=$citationVars key=fieldName item=field}
-				<tr valign="top">
-					<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
-					<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
-				</tr>
-			{/foreach}
 		</table>
+
+		<script type='text/javascript'>
+			$(function() {ldelim}
+				$.ajaxSetup({ldelim}cache:false{rdelim});
+				$("#citationFormTabs-{$citation->getId()}").tabs({ldelim} cache: false {rdelim});
+			{rdelim});
+		</script>
+
+		<div id="citationFormTabs-{$citation->getId()}">
+			<ul>
+				{foreach from=$citationVarArrays key=arrayName item=varsArray}
+					<li><a href="#{$arrayName|regex_replace:"/\s*/":""}">{$arrayName|escape}</a></li>
+				{/foreach}
+			</ul>
+			{foreach from=$citationVarArrays key=arrayName item=varsArray}
+				<div id="{$arrayName|regex_replace:"/\s*/":""}">
+					<table>
+						<tr valign="top">
+							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
+							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
+						</tr>
+						{foreach from=$varsArray key=fieldName item=field}
+						<tr valign="top">
+							<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
+							<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
+						</tr>
+						{/foreach}
+					</table>
+				</div>
+			{/foreach}
+		</div>
 
 		<input type="hidden" name="articleId" value="{$citation->getAssocId()|escape}" />
 		{if $citation->getId()}

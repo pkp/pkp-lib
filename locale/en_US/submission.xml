@@ -25,6 +25,8 @@
 	<message key="submission.citations.jQueryRequired"><![CDATA[
 		Citation editing requires jQuery to be enabled. Please go to the <a target="_new" href="{$genericPluginsUrl}">generic plug-ins' page</a> and enable the jQuery plug-in there.
 	]]></message>
+	<message key="submission.citations.grid.fields">Field Name</message>
+	<message key="submission.citations.grid.values">Field Value</message>
 	<message key="submission.citations.grid.title">Edit Citations</message>
 	<message key="submission.citations.grid.importCitations">Import Citations</message>
 	<message key="submission.citations.grid.exportCitations">Export Citations</message>

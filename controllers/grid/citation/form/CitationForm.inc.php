@@ -68,6 +68,7 @@ class CitationForm extends Form {
 			// Loop over the properties in the schema and add string
 			// values for all form fields.
 			$citationVars = array();
+			$citationVarsEmpty = array();
 			$properties = $metadataSchema->getProperties();
 			$metadataDescription =& $citation->extractMetadata($metadataSchema);
 			foreach($properties as $propertyName => $property) {
@@ -97,13 +98,23 @@ class CitationForm extends Form {
 					$fieldValue = '';
 				}
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
-				$citationVars[$fieldName] = array(
-					'translationKey' => $property->getDisplayName(),
-					'value' => $fieldValue
-				);
+				if ($fieldValue != '') {
+					$citationVars[$fieldName] = array(
+						'translationKey' => $property->getDisplayName(),
+						'value' => $fieldValue
+					);
+				} else {
+					$citationVarsEmpty[$fieldName] = array(
+						'translationKey' => $property->getDisplayName(),
+						'value' => $fieldValue
+					);
+				}
 			}
 		}
-		$this->setData('citationVars', $citationVars);
+		// FIXME: at the moment, we just create two tabs -- one for filled elements, and one for empty ones.
+		// any number of elements can be added, and they will appear as new tabs on the modal window.
+		$citationVarArrays = array("Filled Elements" => $citationVars, "Empty Elements" => $citationVarsEmpty);
+		$this->setData('citationVarArrays', $citationVarArrays);
 	}
 
 	/**

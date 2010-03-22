@@ -40,7 +40,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 			// All other action types will assume that there is a
 			// form to be posted and post it.
 			dialogOptions[okButton] = function() {
-				$form =  $(formContainer).find('form');
+				$form = $(formContainer).find('form');
 				validator = $form.validate();
 				// Post to server and construct callback
 				if ($form.valid()) {
@@ -98,7 +98,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		});
 
 		// Tell the calling button to open this modal on click
-		$(callingButton).live("click", (function() {
+		$(callingButton).die("click").live("click", (function() {
 			$dialog.dialog('open');
 			return false;
 		}));
@@ -107,7 +107,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 }
 
 /**
- * confirm
+ * modalConfirm
  * @param $url URL to load into the modal
  * @param $actType Type to define if callback should do (nothing|append|replace|remove)
  * @param $actOnId The ID on which to perform the action on callback
@@ -228,22 +228,73 @@ function clearFormFields(form) {
 }
 
 /**
- * buttonPost
- * Call a simple POST request when clicking on a button
- * @param $url URL to POST to
- * @param $callingButton Selector of the button that opens the modal
+ * ajaxAction
+ * Implements an ajax action.
+ * @param $actType can be either 'get' or 'post', 'post' expects a form as
+ *  a child element of 'actOnId'.
+ * @param $callingButton Selector of the button that initiates the ajax call
+ * @param $url the url to be called, defaults to the form action in case of
+ *  action type 'post'.
+ * @param $data (post action type only) the data to be posted, defaults to
+ *  the form data.
  */
-function buttonPost(url, callingButton) {
+function ajaxAction(actType, actOnId, callingButton, url, data) {
+	if (actType == 'post') {
+		clickAction = function() {
+			$form = $('#' + actOnId).find('form');
+
+			// Default url and data
+			if (!url) {
+				postUrl = $form.attr("action");
+			} else {
+				postUrl = url;
+			}
+			if (!data) {
+				postData = $form.serialize();
+			} else {
+				postData = data;
+			}
+
+			// Validate
+			validator = $form.validate();
+
+			// Post to server and construct callback
+			if ($form.valid()) {
+				$.post(
+					postUrl,
+					postData,
+					function(returnString) {
+						if (returnString.status == true) {
+							$('#' + actOnId).replaceWith(returnString.content);
+						} else {
+							// Display server side errors in error list
+							$('#' + UID + ' #formErrors .formErrorList').html(returnString.content);
+						}
+					},
+					'json'
+				);
+				validator = null;
+			}
+		};
+	} else {
+		clickAction = function() {
+			$.get(
+				url,
+				function(returnString) {
+					if (returnString.status == true) {
+						$('#' + actOnId).replaceWith(returnString.content);
+					} else {
+						// Alert that the action failed
+						alert(returnString.content);
+					}
+				},
+				'json'
+			);
+		};
+	}
+
 	$(document).ready(function() {
-		$(callingButton).click(function(){
-			$.post(url, function(returnString) {
-				if (returnString.status == true) {
-					alert('success');
-				} else {
-					alert('failure');
-				}
-			}, 'json');
-		});
+		$(callingButton).unbind('click').bind('click', clickAction);
 	});
 }
 

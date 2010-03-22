@@ -97,8 +97,11 @@ class Form {
 	/**
 	 * Display the form.
 	 * @param $request PKPRequest
+	 * @param $fetch boolean if set to true will return the rendered
+	 *  form rather than sending the response to the user
+	 * @return string the rendered form if fetch is true, otherwise null
 	 */
-	function display($request = null) {
+	function display($request = null, $fetch = false) {
 		if (checkPhpVersion('4.3.0')) {
 			$returner = null;
 			$trace = debug_backtrace();
@@ -146,7 +149,12 @@ class Form {
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
-		$templateMgr->display($this->_template);
+		if ($fetch) {
+			return $templateMgr->fetch($this->_template);
+		} else {
+			$templateMgr->display($this->_template);
+			return null;
+		}
 	}
 
 	/**

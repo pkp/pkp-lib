@@ -46,13 +46,27 @@ class CitationGridRow extends GridRow {
 				'articleId' => $articleId,
 				'citationId' => $rowId
 			);
+
+			// Get the citation to decide whether it has already been
+			// checked.
+			$citation =& $this->getData();
+			assert(is_a($citation, 'Citation'));
+			if ($citation->getCitationState() < CITATION_LOOKED_UP) {
+				$editActionOp = 'checkCitation';
+				$editActionTitle = 'submission.citations.grid.editCheckCitation';
+			} else {
+				$editActionOp = 'editCitation';
+				$editActionTitle = 'grid.action.edit';
+			}
+
+			// Add row actions
 			$this->addAction(
 				new GridAction(
 					'editCitation',
 					GRID_ACTION_MODE_MODAL,
 					GRID_ACTION_TYPE_REPLACE,
-					$router->url($request, null, null, 'editCitation', null, $actionArgs),
-					'grid.action.edit',
+					$router->url($request, null, null, $editActionOp, null, $actionArgs),
+					$editActionTitle,
 					'edit'
 				)
 			);

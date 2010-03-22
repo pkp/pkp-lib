@@ -47,7 +47,7 @@ class CitationGridHandler extends GridHandler {
 	 * @return array
 	 */
 	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'exportCitations', 'editCitation', 'parseCitation', 'lookupCitation', 'updateCitation', 'deleteCitation'));
+		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'exportCitations', 'editCitation', 'checkCitation', 'updateCitation', 'deleteCitation'));
 	}
 
 	/**
@@ -165,7 +165,7 @@ class CitationGridHandler extends GridHandler {
 			new GridAction(
 				'importCitations',
 				GRID_ACTION_MODE_AJAX,
-				GRID_ACTION_TYPE_NOTHING,
+				GRID_ACTION_TYPE_GET,
 				$router->url($request, null, null, 'importCitations', null, $actionArgs),
 				'submission.citations.grid.importCitations'
 			)
@@ -263,7 +263,8 @@ class CitationGridHandler extends GridHandler {
 		$this->setData($citations);
 
 		// Re-display the grid
-		return $this->fetchGrid($args,$request);
+		$json = new JSON('true', $this->fetchGrid($args,$request));
+		return $json->getString();
 	}
 
 	/**
@@ -319,7 +320,7 @@ class CitationGridHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function editCitation(&$args, &$request) {
-		// Identify the citation to be updated
+		// Identify the citation to be edited
 		$citation =& $this->_getCitationFromArgs($args, true);
 
 		// Form handling
@@ -330,32 +331,77 @@ class CitationGridHandler extends GridHandler {
 		} else {
 			$citationForm->initData();
 		}
-		$citationForm->display($request);
-
-		// The form has already been displayed.
-		return '';
+		return $citationForm->fetch($request);
 	}
 
 	/**
-	 * Parse a citation
+	 * Check (parse and lookup) a citation
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function parseCitation(&$args, &$request) {
-		// Parse the requested citation
-		$filterCallback = array($this, '_instantiateParserFilters');
-		return $this->_filterCitation($request, $args, $filterCallback, CITATION_PARSED);
-	}
+	function checkCitation(&$args, &$request) {
+		if ($request->isPost()) {
+			// We update the citation with the user's manual settings
+			$filteredCitation =& $this->_saveCitation($args, $request);
 
-	/**
-	 * Citation lookup
-	 * @param $args array
-	 * @param $request PKPRequest
-	 */
-	function lookupCitation(&$args, &$request) {
-		// Validate the requested citation
-		$filterCallback = array($this, '_instantiateLookupFilters');
-		return $this->_filterCitation($request, $args, $filterCallback, CITATION_LOOKED_UP);
+			if (is_null($filteredCitation)) {
+				// Return an error
+				$json = new JSON('false', '');
+				return $json->getString();
+			}
+		} else {
+			// We retrieve the citation unchanged from the database.
+			$filteredCitation =& $this->_getCitationFromArgs($args, true);
+		}
+
+		// Only parse the citation if it's not been parsed before.
+		// Otherwise we risk to overwrite user changes.
+		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
+			// Parse the requested citation
+			$filterCallback = array($this, '_instantiateParserFilters');
+			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $citationForm);
+		}
+
+		// Always re-lookup the citation even if it's been looked-up
+		// before. The user asked us to re-check so there's probably
+		// additional manual information in the citation fields.
+		if (!is_null($filteredCitation)) {
+			// Lookup the requested citation
+			$filterCallback = array($this, '_instantiateLookupFilters');
+			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $citationForm);
+		}
+
+		$filterErrors = array();
+		if (is_null($filteredCitation)) {
+			// Re-display the original citation unchanged with an error message
+			$filterErrors[] = array('editedCitation' => Locale::translate('submission.citations.form.filterError'));
+			$filteredCitation =& $originalCitation;
+			$unsavedChanges = false;
+		} else {
+			$unsavedChanges = true;
+		}
+
+		// Display the citation editor with the new (but yet unsaved) citation data
+		import('controllers.grid.citation.form.CitationForm');
+		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
+
+		// Add errors (if any)
+		foreach($filterErrors as $errorField => $errorMessage) {
+			$citationForm->addError($errorField, $errorMessage);
+		}
+
+		// FIXME: modal() and ajaxAction() currently handle responses differently.
+		// modal() should expect JSON messages also.
+		$citationForm->initData();
+		$renderedForm = $citationForm->fetch($request);
+		if ($request->isPost()) {
+			// This is a request initiated by ajaxAction()
+			$json = new JSON('true', $renderedForm);
+			return $json->getString();
+		} else {
+			// This is a request initiated by modal()
+			return $renderedForm;
+		}
 	}
 
 	/**
@@ -365,30 +411,21 @@ class CitationGridHandler extends GridHandler {
 	 * @return string
 	 */
 	function updateCitation(&$args, &$request) {
-		// Identify the citation to be updated
-		$citation =& $this->_getCitationFromArgs($args, true);
-
-		// Form initialization
-		import('controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($citation);
-		$citationForm->readInputData();
-
-		// Form validation
-		if ($citationForm->validate()) {
-			$citationForm->execute();
-
-			// Prepare the grid row data
+		// Try to persist the data in the request.
+		$savedCitation =& $this->_saveCitation($args, $request);
+		if (is_null($savedCitation)) {
+			// Return an error
+			$json = new JSON('false', '');
+		} else {
+			// Update the citation's grid row.
 			$row =& $this->getRowInstance();
 			$row->setGridId($this->getId());
-			$row->setId($citation->getId());
-			$row->setData($citation);
+			$row->setId($savedCitation->getId());
+			$row->setData($savedCitation);
 			$row->initialize($request);
 
 			// Render the row into a JSON response
 			$json = new JSON('true', $this->_renderRowInternally($request, $row));
-		} else {
-			// Return an error
-			$json = new JSON('false');
 		}
 
 		// Return the serialized JSON response
@@ -449,6 +486,33 @@ class CitationGridHandler extends GridHandler {
 			if (is_null($citation)) fatalError('Invalid citation id!');
 		}
 		return $citation;
+	}
+
+	/**
+	 * Update citation with POST request data.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return Citation the saved Citation object, null on error
+	 */
+	function &_saveCitation(&$args, &$request) {
+		assert($request->isPost());
+
+		// Identify the citation to be updated
+		$citation =& $this->_getCitationFromArgs($args, true);
+
+		// Form initialization
+		import('controllers.grid.citation.form.CitationForm');
+		$citationForm = new CitationForm($citation);
+		$citationForm->readInputData();
+
+		// Form validation
+		if ($citationForm->validate()) {
+			$citationForm->execute();
+			return $citationForm->getCitation();
+		} else {
+			$nullVar = null;
+			return $nullVar;
+		}
 	}
 
 	/**
@@ -520,19 +584,16 @@ class CitationGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Identify the requested citation, call the given callback to filter
-	 * it, persist it and re-display it in the citation form.
-	 * @param $request PKPRequest
-	 * @param $args array
+	 * Call the callback to filter the citation. If errors occur
+	 * they'll be added to the citation form.
+	 * @param $citation Citation
 	 * @param $filterCallback callable
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
-	 * @return string
+	 * @param $citationForm CitationForm
+	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$request, $args, &$filterCallback, $citationStateAfterFiltering) {
-		// Identify the citation to be filtered
-		$citation =& $this->_getCitationFromArgs($args);
-
+	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$citationForm) {
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -584,11 +645,7 @@ class CitationGridHandler extends GridHandler {
 		// Send the input through the citation filter network.
 		$filterErrors = array();
 		$filteredCitation =& $citationFilterNet->execute($muxInputData);
-		if (is_null($filteredCitation)) {
-			// Re-display the current citation unchanged with an error message
-			$filterErrors = array('editedCitation' => Locale::translate('submission.citations.form.filterError'));
-			$filteredCitation =& $citation;
-		} else {
+		if (!is_null($filteredCitation)) {
 			// Copy unfiltered data from the original citation to the filtered citation
 			$article =& $this->getArticle();
 			$filteredCitation->setId($citation->getId());
@@ -599,23 +656,8 @@ class CitationGridHandler extends GridHandler {
 
 			// Set the citation state
 			$filteredCitation->setCitationState($citationStateAfterFiltering);
-
-			// Persist the filtered citation
-			$citationDAO =& DAORegistry::getDAO('CitationDAO');
-			$citationDAO->updateCitation($filteredCitation);
 		}
 
-		// Re-display the form
-		import('controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($filteredCitation);
-		foreach($filterErrors as $field => $message) {
-			$citationForm->addError($field, $message);
-		}
-		$citationForm->initData();
-		$citationForm->display($request);
-
-		// The form has already been displayed.
-		$emptyString = '';
-		return $emptyString;
+		return $filteredCitation;
 	}
 }

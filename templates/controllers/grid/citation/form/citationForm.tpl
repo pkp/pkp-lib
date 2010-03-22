@@ -1,4 +1,3 @@
-
 {**
  * citationForm.tpl
  *
@@ -16,12 +15,14 @@
 		<h3>{translate key="submission.citations.form.title"}</h3>
 
 		<p>{translate key="submission.citations.form.description"}</p>
+		{if $unsavedChanges}
+			<p><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
+		{/if}
 
 		{include file="common/formErrors.tpl"}
 
 		<span class="options">
-			{include file="controllers/grid/gridAction.tpl" action=$parseAction id="editCitationFormContainer-`$citation->getId()`"}
-			{include file="controllers/grid/gridAction.tpl" action=$lookupAction id="editCitationFormContainer-`$citation->getId()`"}
+			{include file="controllers/grid/gridAction.tpl" action=$checkAction id="editCitationFormContainer-`$citation->getId()`"}
 		</span>
 
 		<table width="100%" class="data">
@@ -52,10 +53,10 @@
 							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
 						</tr>
 						{foreach from=$varsArray key=fieldName item=field}
-						<tr valign="top">
-							<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
-							<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
-						</tr>
+							<tr valign="top">
+								<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
+								<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
+							</tr>
 						{/foreach}
 					</table>
 				</div>
@@ -65,6 +66,7 @@
 		<input type="hidden" name="articleId" value="{$citation->getAssocId()|escape}" />
 		{if $citation->getId()}
 			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
+			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
 		{/if}
 
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>

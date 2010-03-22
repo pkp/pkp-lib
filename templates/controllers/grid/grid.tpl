@@ -16,7 +16,7 @@
 	<div class="wrapper">
 		<span class="options">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-				{if $action->getType() eq $smarty.const.GRID_ACTION_TYPE_NOTHING}
+				{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId}
 				{else}
 					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}

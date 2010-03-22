@@ -16,23 +16,33 @@
 import('form.Form');
 
 class CitationForm extends Form {
-	/** Citation the citation being edited **/
+	/** Citation the citation being edited */
 	var $_citation;
+
+	/** boolean */
+	var $_unsavedChanges;
 
 	/**
 	 * Constructor.
+	 * @param $citation Citation
+	 * @param $unsavedChanges boolean should be set to true if the
+	 *  data displayed in the form has not yet been persisted.
 	 */
-	function CitationForm($citation) {
+	function CitationForm($citation, $unsavedChanges = false) {
 		parent::Form('controllers/grid/citation/form/citationForm.tpl');
 
 		assert(is_a($citation, 'Citation'));
 		$this->_citation =& $citation;
 
+		$this->_unsavedChanges = (boolean) $unsavedChanges;
+
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
+		$this->addCheck(new FormValidator($this, 'nlm30PublicationType', 'required', 'submission.citations.grid.publicationTypeRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 
 		// FIXME: Write and add meta-data description validator
+		// FIXME: Validate citation state
 	}
 
 	//
@@ -46,6 +56,15 @@ class CitationForm extends Form {
 		return $this->_citation;
 	}
 
+	/**
+	 * Returns true if the form contains unsaved changes,
+	 * otherwise false.
+	 * @return boolean
+	 */
+	function getUnsavedChanges() {
+		return $this->_unsavedChanges;
+	}
+
 	//
 	// Template methods from Form
 	//
@@ -56,7 +75,7 @@ class CitationForm extends Form {
 	function initData() {
 		$citation =& $this->getCitation();
 
-		// The unparsed citation text
+		// The unparsed citation text and the citation state
 		$this->setData('editedCitation', $citation->getEditedCitation());
 
 		// Citation meta-data
@@ -118,9 +137,11 @@ class CitationForm extends Form {
 	}
 
 	/**
-	 * Display the form.
+	 * Fetch the form.
+	 * @param $request Request
+	 * @return the rendered form
 	 */
-	function display($request) {
+	function fetch($request) {
 		$citation =& $this->getCitation();
 		assert(is_a($citation, 'Citation'));
 		$namespacedMetadataProperties = $citation->getNamespacedMetadataProperties();
@@ -132,37 +153,28 @@ class CitationForm extends Form {
 		// Add the citation to the template
 		$templateMgr->assign_by_ref('citation', $citation);
 
-		// Add actions for parsing and lookup
-		$actionArgs = array(
-			'articleId' => $citation->getAssocId(),
-			'citationId' => $citation->getId()
-		);
-		$router = $request->getRouter();
-		$parseAction = new GridAction(
-			'parseCitation',
-			GRID_ACTION_MODE_AJAX,
-			GRID_ACTION_TYPE_NOTHING,
-			$router->url($request, null, null, 'parseCitation', null, $actionArgs),
-			'submission.citations.grid.parseCitation'
-		);
-		$templateMgr->assign_by_ref('parseAction', $parseAction);
-		$lookupAction = new GridAction(
-			'lookupCitation',
-			GRID_ACTION_MODE_AJAX,
-			GRID_ACTION_TYPE_NOTHING,
-			$router->url($request, null, null, 'lookupCitation', null, $actionArgs),
-			'submission.citations.grid.lookupCitation'
-		);
-		$templateMgr->assign_by_ref('lookupAction', $lookupAction);
+		// Does the form contain unsaved changes?
+		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
 
-		parent::display($request);
+		// Add actions for parsing and lookup
+		$router = $request->getRouter();
+		$checkAction = new GridAction(
+			'checkCitation',
+			GRID_ACTION_MODE_AJAX,
+			GRID_ACTION_TYPE_POST,
+			$router->url($request, null, null, 'checkCitation'),
+			'submission.citations.grid.checkCitationAgain'
+		);
+		$templateMgr->assign_by_ref('checkAction', $checkAction);
+
+		return $this->display($request, true);
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('editedCitation'));
+		$this->readUserVars(array('editedCitation', 'citationState'));
 
 		$citation =& $this->getCitation();
 		$citationVars = array();
@@ -187,6 +199,7 @@ class CitationForm extends Form {
 	function execute() {
 		$citation =& $this->getCitation();
 		$citation->setEditedCitation($this->getData('editedCitation'));
+		$citation->setCitationState($this->getData('citationState'));
 
 		// Extract data from citation form fields and inject it into the citation
 		$metadataAdapters = $citation->getSupportedMetadataAdapters();

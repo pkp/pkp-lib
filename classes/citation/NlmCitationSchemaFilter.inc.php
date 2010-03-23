@@ -159,7 +159,7 @@ class NlmCitationSchemaFilter extends Filter {
 		// Remove empty or duplicate searches
 		$searchStrings = array_map(array('String', 'trimPunctuation'), $searchStrings);
 		$searchStrings = array_unique($searchStrings);
-		$searchStrings = array_clean($searchStrings);
+		$searchStrings = arrayClean($searchStrings);
 
 		return $searchStrings;
 	}
@@ -217,7 +217,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function &postProcessMetadataArray(&$preliminaryNlmArray) {
 		// Clean array
-		$preliminaryNlmArray =& array_clean($preliminaryNlmArray);
+		$preliminaryNlmArray =& arrayClean($preliminaryNlmArray);
 
 		// Trim punctuation
 		$preliminaryNlmArray =& $this->_recursivelyTrimPunctuation($preliminaryNlmArray);
@@ -305,6 +305,7 @@ class NlmCitationSchemaFilter extends Filter {
 		}
 
 		// Add the meta-data to the description
+		$metadataArray = arrayClean($metadataArray);
 		if (!$citationDescription->setStatements($metadataArray)) {
 			$nullVar = null;
 			return $nullVar;

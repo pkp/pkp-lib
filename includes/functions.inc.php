@@ -163,7 +163,7 @@ function &cloneObject(&$object) {
  * @param $array array
  * @return array
  */
-function array_clean(&$array) {
+function arrayClean(&$array) {
 	if (!is_array($array)) return null;
 	return array_filter($array, create_function('$o', 'return !empty($o);'));
 }

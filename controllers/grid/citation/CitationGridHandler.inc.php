@@ -606,7 +606,7 @@ class CitationGridHandler extends GridHandler {
 		$metadataDescription =& $citation->extractMetadata($metadataSchema);
 
 		// Let the callback build the filter network
-		$filterList = call_user_func($filterCallback, $citation, $metadataDescription);
+		$filterList = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription));
 
 		// The last entry in the filter list is the
 		// input data for the returned filters.

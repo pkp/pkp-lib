@@ -15,33 +15,16 @@
 
 #header h1 {
 	font-size: 1.2em;
-	padding: 0.25em 0em 0.25em 0em;
+	padding: 0.25em 1em 0.25em 0em;
 	text-align: right;
-	width: 490px;
 }
 
 #container {
-	min-width: 615px;
-}
-
-
-#body {
-	width: 615px;
-	margin: auto;
-}
-
-#footer {
-	padding: 0;
-	background-color: #ABA;
-	text-align: center;
-}
-
-#footerContent {
-	width: 615px;
+	min-width: 450px !important;
 }
 
 #main {
-	margin: 0 auto;
+	width: 95%;
 }
 
 #main h2 {
@@ -52,8 +35,4 @@
 
 #content h3 {
 	font-size: 1.5em;
-}
-
-#main h6 {
-	margin-bottom: -0.5em;
 }

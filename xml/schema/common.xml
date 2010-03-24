@@ -343,7 +343,8 @@
 			<NOTNULL/>
 		</field>
 		<field name="date_read" type="T" />
-		<field name="contents" type="C2" size="255" >
+		<field name="title" type="C2" size="255" />
+		<field name="contents" type="X" >
 			<NOTNULL/>
 		</field>
 		<field name="param" type="C2" size="255" />

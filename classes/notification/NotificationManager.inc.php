@@ -59,26 +59,24 @@ class NotificationManager {
 	/**
 	 * Create a new notification with the specified arguments and insert into DB
 	 * This is a static method
-	 * @param $userId int
+	 * @param $title string
 	 * @param $contents string
 	 * @param $param string
-	 * @param $location string
-	 * @param $isLocalized bool
-	 * @param $assocType int
-	 * @param $assocId int
 	 * @return Notification object
 	 */
-	function createTrivialNotification($contents, $param = null) {
+	function createTrivialNotification($title, $contents, $assocType = NOTIFICATION_TYPE_SUCCESS, $param = null) {
 		$notification = new Notification();
 		$context =& Request::getContext();
 		$contextId = $context?$context->getId():0;
 
 		$user =& Request::getUser();
 		$notification->setUserId($user->getId());
+		$notification->setTitle($title);
 		$notification->setContents($contents);
 		$notification->setParam($param);
 		$notification->setIsLocalized(1);
 		$notification->setContext($contextId);
+		$notification->setAssocType($assocType);
 		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
 
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');

@@ -95,6 +95,7 @@ class NotificationDAO extends DAO {
 		$notification->setLevel($row['level']);
 		$notification->setDateCreated($row['date_created']);
 		$notification->setDateRead($row['date_read']);
+		$notification->setTitle($row['title']);
 		$notification->setContents($row['contents']);
 		$notification->setParam($row['param']);
 		$notification->setLocation($row['location']);
@@ -133,13 +134,14 @@ class NotificationDAO extends DAO {
 		if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL || !in_array($notification->getAssocType(), $notificationSettings)) {
 			$this->update(
 				sprintf('INSERT INTO notifications
-					(user_id, level, date_created, contents, param, location, is_localized, context, product, assoc_type)
+					(user_id, level, date_created, title, contents, param, location, is_localized, context, product, assoc_type)
 					VALUES
-					(?, ?, %s, ?, ?, ?, ?, ?, ?, ?)',
+					(?, ?, %s, ?, ?, ?, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB(date('Y-m-d H:i:s'))),
 				array(
 					(int) $notification->getUserId(),
 					(int) $notification->getLevel(),
+					$notification->getTitle(),
 					$notification->getContents(),
 					$notification->getParam(),
 					$notification->getLocation(),
@@ -183,9 +185,10 @@ class NotificationDAO extends DAO {
 		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
-			'SELECT date_created FROM notifications WHERE user_id = ? AND contents = ? AND param = ? AND product = ? AND assoc_type = ? AND context = ? AND level = ?',
+			'SELECT date_created FROM notifications WHERE user_id = ? AND title = ? AND contents = ? AND param = ? AND product = ? AND assoc_type = ? AND context = ? AND level = ?',
 			array(
 					(int) $notification->getUserId(),
+					$notification->getTitle(),
 					$notification->getContents(),
 					$notification->getParam(),
 					$productName,
@@ -275,8 +278,10 @@ class NotificationDAO extends DAO {
 
 		if ($notification->getIsLocalized()) {
 			$params = array('param' => $notification->getParam());
+			$notificationTitle = Locale::translate($notification->getTitle(), $params);
 			$notificationContents = Locale::translate($notification->getContents(), $params);
 		} else {
+			$notificationTitle = $notification->getTitle();
 			$notificationContents = $notification->getContents();
 		}
 
@@ -285,6 +290,7 @@ class NotificationDAO extends DAO {
 		$mail = new MailTemplate('NOTIFICATION');
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(
+			'notificationTitle' => $notificationTitle,
 			'notificationContents' => $notificationContents,
 			'url' => $notification->getLocation(),
 			'siteTitle' => $site->getLocalizedTitle()

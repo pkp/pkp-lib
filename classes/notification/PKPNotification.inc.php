@@ -19,6 +19,14 @@ import('notification.NotificationDAO');
 define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
 define('NOTIFICATION_LEVEL_NORMAL',				0x0000002);
 
+/** Notification associative types. */
+define('NOTIFICATION_TYPE_SUCCESS', 				0x0000001);
+define('NOTIFICATION_TYPE_WARNING', 				0x0000002);
+define('NOTIFICATION_TYPE_ERROR', 				0x0000003);
+define('NOTIFICATION_TYPE_FORBIDDEN', 				0x0000004);
+define('NOTIFICATION_TYPE_INFORMATION',				0x0000005);
+define('NOTIFICATION_TYPE_HELP', 				0x0000006);
+
 class PKPNotification extends DataObject {
 
 	/**
@@ -135,6 +143,22 @@ class PKPNotification extends DataObject {
 	}
 
 	/**
+	 * get notification title
+	 * @return string
+	 */
+	function getTitle() {
+		return $this->getData('title');
+	}
+
+	/**
+	 * set notification title
+	 * @param $contents int
+	 */
+	function setTitle($title) {
+		return $this->setData('title', $title);
+	}
+
+	/**
 	 * get notification contents
 	 * @return string
 	 */
@@ -228,6 +252,17 @@ class PKPNotification extends DataObject {
 	 */
 	function setContext($context) {
 		return $this->setData('context', $context);
+	}
+
+	function getIconClass() {
+		switch ($this->getAssocType()) {
+			case NOTIFICATION_TYPE_SUCCESS: return 'success';
+			case NOTIFICATION_TYPE_WARNING: return 'warning';
+			case NOTIFICATION_TYPE_ERROR: return 'error';
+			case NOTIFICATION_TYPE_INFO: return 'info';
+			case NOTIFICATION_TYPE_FORBIDDEN: return 'forbidden';
+			case NOTIFICATION_TYPE_HELP: return 'help';
+		}
 	}
 
 	/**

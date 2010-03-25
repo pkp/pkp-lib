@@ -358,7 +358,7 @@ class CitationGridHandler extends GridHandler {
 		// Otherwise we risk to overwrite user changes.
 		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
-			$filterCallback = array($this, '_instantiateParserFilters');
+			$filterCallback = array(&$this, '_instantiateParserFilters');
 			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $citationForm);
 		}
 
@@ -367,7 +367,7 @@ class CitationGridHandler extends GridHandler {
 		// additional manual information in the citation fields.
 		if (!is_null($filteredCitation)) {
 			// Lookup the requested citation
-			$filterCallback = array($this, '_instantiateLookupFilters');
+			$filterCallback = array(&$this, '_instantiateLookupFilters');
 			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $citationForm);
 		}
 

@@ -6,7 +6,7 @@
  *
  * a grid cell that uses a <span> tag instead of a <td> ( to be used as a type of sub-cell)
  *}
-{assign var=cellId value="cell-`$id`"}
+{assign var=cellId value="cell-"|concat:$id}
 <span id="{$cellId}">
 	{$label}
 </span>

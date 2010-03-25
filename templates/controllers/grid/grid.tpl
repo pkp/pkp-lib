@@ -10,8 +10,8 @@
  *  configuring an actual pixel width in the controller.
  *}
 
-{assign var=gridId value="component-`$grid->getId()`"}
-{assign var=gridTableId value="`$gridId`-table"}
+{assign var=gridId value="component-"|concat:$grid->getId()}
+{assign var=gridTableId value=$gridId|concat:"-table"}
 <div id="{$gridId}" class="grid">
 	<div class="wrapper">
 		<span class="options">
@@ -19,7 +19,7 @@
 				{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId}
 				{else}
-					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
+					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:" > tbody"}
 				{/if}
 			{/foreach}
 		</span>
@@ -51,7 +51,7 @@
 		</table>
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
+				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:" > tbody"}
 			{/foreach}
 		</div>
 	</div>

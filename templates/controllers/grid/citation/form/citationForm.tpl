@@ -22,7 +22,7 @@
 		{include file="common/formErrors.tpl"}
 
 		<span class="options">
-			{include file="controllers/grid/gridAction.tpl" action=$checkAction id="editCitationFormContainer-`$citation->getId()`"}
+			{include file="controllers/grid/gridAction.tpl" action=$checkAction id="editCitationFormContainer-"|concat:$citation->getId()}
 		</span>
 
 		<table width="100%" class="data">

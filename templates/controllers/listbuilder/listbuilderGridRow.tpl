@@ -6,7 +6,7 @@
  *
  * a regular grid row
  *}
-{assign var=rowId value="`$row->getId()`"}
+{assign var=rowId value=$row->getId()}
 <tr id="{$rowId}">
 	{foreach from=$cells item=cell name=cell}
 		{$cell}

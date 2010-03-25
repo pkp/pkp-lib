@@ -6,7 +6,7 @@
  *
  * a url grid cell
  *}
-{assign var=cellId value="cell-`$id`"}
+{assign var=cellId value="cell-"|concat:$id}
 <td id="{$cellId}">
 	<a href="{$label}">{$label}</a>
 </td>

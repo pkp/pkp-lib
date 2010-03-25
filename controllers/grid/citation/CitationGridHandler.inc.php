@@ -311,7 +311,7 @@ class CitationGridHandler extends GridHandler {
 	function addCitation(&$args, &$request) {
 		// Calling editCitation() with an empty row id will add
 		// a new citation.
-		$this->editCitation($args, $request);
+		return $this->editCitation($args, $request);
 	}
 
 	/**

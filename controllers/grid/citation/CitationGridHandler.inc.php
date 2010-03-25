@@ -342,24 +342,25 @@ class CitationGridHandler extends GridHandler {
 	function checkCitation(&$args, &$request) {
 		if ($request->isPost()) {
 			// We update the citation with the user's manual settings
-			$filteredCitation =& $this->_saveCitation($args, $request);
+			$originalCitation =& $this->_saveCitation($args, $request);
 
-			if (is_null($filteredCitation)) {
+			if (is_null($originalCitation)) {
 				// Return an error
 				$json = new JSON('false', '');
 				return $json->getString();
 			}
 		} else {
 			// We retrieve the citation unchanged from the database.
-			$filteredCitation =& $this->_getCitationFromArgs($args, true);
+			$originalCitation =& $this->_getCitationFromArgs($args, true);
 		}
 
 		// Only parse the citation if it's not been parsed before.
 		// Otherwise we risk to overwrite user changes.
-		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
+		$filteredCitation =& $originalCitation;
+		if (!is_null($filteredCitation) && $filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $citationForm);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $citationForm);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
@@ -368,7 +369,7 @@ class CitationGridHandler extends GridHandler {
 		if (!is_null($filteredCitation)) {
 			// Lookup the requested citation
 			$filterCallback = array(&$this, '_instantiateLookupFilters');
-			$filteredCitation = $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $citationForm);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $citationForm);
 		}
 
 		$filterErrors = array();

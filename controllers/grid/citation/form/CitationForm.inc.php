@@ -49,9 +49,9 @@ class CitationForm extends Form {
 	// Getters and Setters
 	//
 	/**
-	 * Get the citation
-	 * @return Citation
-	 */
+	* Get the citation
+	* @return Citation
+	*/
 	function &getCitation() {
 		return $this->_citation;
 	}
@@ -69,9 +69,9 @@ class CitationForm extends Form {
 	// Template methods from Form
 	//
 	/**
-	 * Initialize form data from the associated citation.
-	 * @param $citation Citation
-	 */
+	* Initialize form data from the associated citation.
+	* @param $citation Citation
+	*/
 	function initData() {
 		$citation =& $this->getCitation();
 
@@ -160,14 +160,14 @@ class CitationForm extends Form {
 		$router = $request->getRouter();
 		$checkAction = new GridAction(
 			'checkCitation',
-			GRID_ACTION_MODE_AJAX,
-			GRID_ACTION_TYPE_POST,
-			$router->url($request, null, null, 'checkCitation'),
+		GRID_ACTION_MODE_AJAX,
+		GRID_ACTION_TYPE_POST,
+		$router->url($request, null, null, 'checkCitation'),
 			'submission.citations.grid.checkCitationAgain'
-		);
-		$templateMgr->assign_by_ref('checkAction', $checkAction);
+			);
+			$templateMgr->assign_by_ref('checkAction', $checkAction);
 
-		return $this->display($request, true);
+			return $this->display($request, true);
 	}
 
 	/**
@@ -199,7 +199,9 @@ class CitationForm extends Form {
 	function execute() {
 		$citation =& $this->getCitation();
 		$citation->setEditedCitation($this->getData('editedCitation'));
-		$citation->setCitationState($this->getData('citationState'));
+		if (in_array($this->getData('citationState'), Citation::_getSupportedCitationStates())) {
+			$citation->setCitationState($this->getData('citationState'));
+		}
 
 		// Extract data from citation form fields and inject it into the citation
 		$metadataAdapters = $citation->getSupportedMetadataAdapters();

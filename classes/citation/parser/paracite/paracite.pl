@@ -8,9 +8,9 @@
 #
 
 use HTML::Entities;
-use lib './Text-Unidecode-0.04/lib';
-use lib './URI-1.35/URI';
-use lib './Biblio-Citation-Parser-1.10/lib';
+use Text::Unidecode;
+use URI;
+use Biblio::Citation::Parser 1.10;
 
 	# first parameter is the parser to use
 	$parser_type = $ARGV[0];

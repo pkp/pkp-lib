@@ -15,7 +15,7 @@
 
 import('tests.PKPTestCase');
 import('form.Form');
-import('Request'); // This will import the mock request
+import('core.Request'); // This will import the mock request
 
 class FormValidatorPostTest extends PKPTestCase {
 	/**

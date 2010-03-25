@@ -61,8 +61,15 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 				// have to care about cardinality and translation.
 				$value =& $metadataDescription->getData($propertyName);
 				if (in_array($propertyName, array('person-group[@person-group-type="author"]', 'person-group[@person-group-type="editor"]'))) {
-					// Convert MetadataDescription objects to simple key/value arrays.
 					assert(is_array($value));
+
+					// Dereference the value to make sure that we don't destroy
+					// the original MetadataDescription.
+					$tmpValue = $value;
+					unset($value);
+					$value =& $tmpValue;
+
+					// Convert MetadataDescription objects to simple key/value arrays.
 					foreach($value as $key => $nameComposite) {
 						assert(is_a($nameComposite, 'MetadataDescription'));
 						$value[$key] =& $nameComposite->getAllData();

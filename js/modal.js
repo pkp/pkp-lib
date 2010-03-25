@@ -79,14 +79,10 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 			buttons: dialogOptions,
 			open: function(event, ui) {
 				$(this).load(url, null, function() {
-					$('#loading').throbber("disable");
+					$('#loading').hide();
 				});
 				$(this).html("<div id='loading' class='throbber'></div>");
-				$('#loading').throbber({
-					bgcolor: "#CED7E1",
-					speed: 1
-				});
-				$('#loading').throbber("enable");
+				$('#loading').show();
 			},
 			close: function() {
 				// Reset form validation errors and inputs on close

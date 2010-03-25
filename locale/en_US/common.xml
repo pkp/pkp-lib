@@ -31,6 +31,7 @@
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
+	<message key="common.refresh">Refresh</message>
 	<message key="common.action">Action</message>
 	<message key="common.active">Active</message>
 	<message key="common.add">Add</message>

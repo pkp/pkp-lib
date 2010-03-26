@@ -134,6 +134,7 @@ class CitationForm extends Form {
 		// any number of elements can be added, and they will appear as new tabs on the modal window.
 		$citationVarArrays = array("Filled Elements" => $citationVars, "Empty Elements" => $citationVarsEmpty);
 		$this->setData('citationVarArrays', $citationVarArrays);
+                $this->setData('ts', time());
 	}
 
 	/**

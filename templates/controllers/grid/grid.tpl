@@ -19,7 +19,7 @@
 				{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId}
 				{else}
-					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:" > tbody"}
+					{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId}
 				{/if}
 			{/foreach}
 		</span>
@@ -51,7 +51,7 @@
 		</table>
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:" > tbody"}
+				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId=$gridTableId"}
 			{/foreach}
 		</div>
 	</div>

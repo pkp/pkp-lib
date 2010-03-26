@@ -16,8 +16,8 @@
 import('tests.DatabaseTestCase');
 import('citation.CitationDAO');
 import('citation.Citation');
-import('metadata.NlmNameSchema');
-import('metadata.NlmCitationSchema');
+import('metadata.nlm.NlmNameSchema');
+import('metadata.nlm.NlmCitationSchema');
 import('metadata.MetadataDescription');
 
 class CitationDAOTest extends DatabaseTestCase {
@@ -47,14 +47,47 @@ class CitationDAOTest extends DatabaseTestCase {
 
 		$citation = new Citation('raw citation');
 		$citation->setAssocType(ASSOC_TYPE_ARTICLE);
-		$citation->setAssocId(5);
+		$citation->setAssocId(999999);
 		$citation->setEditedCitation('edited citation');
 		$citation->setParseScore(50);
 		$citation->injectMetadata($citationDescription);
 
+		// Create citation
 		$citationId = $this->citationDAO->insertCitation($citation);
 		self::assertTrue(is_numeric($citationId));
 		self::assertTrue($citationId > 0);
+
+		// Retrieve citation
+		$citationById = $this->citationDAO->getCitation($citationId);
+		$citationById->getMetadataFieldNames(); // Initializes internal state for comparison.
+		self::assertEquals($citation, $citationById);
+
+		$citationsByAssocIdDaoFactory = $this->citationDAO->getCitationsByAssocId(ASSOC_TYPE_ARTICLE, 999999);
+		$citationsByAssocId = $citationsByAssocIdDaoFactory->toArray();
+		self::assertEquals(1, count($citationsByAssocId));
+		$citationsByAssocId[0]->getMetadataFieldNames(); // Initializes internal state for comparison.
+		self::assertEquals($citation, $citationsByAssocId[0]);
+
+		// Update citation
+		$citationDescription->removeStatement('date');
+		$citationDescription->addStatement('article-title', $value = 'PHPUnit rápido', 'pt_BR');
+
+		$updatedCitation = new Citation('another raw citation');
+		$updatedCitation->setId($citationId);
+		$updatedCitation->setAssocType(ASSOC_TYPE_ARTICLE);
+		$updatedCitation->setAssocId(999998);
+		$updatedCitation->setEditedCitation('another edited citation');
+		$updatedCitation->setParseScore(50);
+		$updatedCitation->injectMetadata($citationDescription);
+
+		$this->citationDAO->updateCitation($updatedCitation);
+		$citationAfterUpdate = $this->citationDAO->getCitation($citationId);
+		$citationAfterUpdate->getMetadataFieldNames(); // Initializes internal state for comparison.
+		self::assertEquals($updatedCitation, $citationAfterUpdate);
+
+		// Delete citation
+		$this->citationDAO->deleteCitationsByAssocId(ASSOC_TYPE_ARTICLE, 999998);
+		self::assertNull($this->citationDAO->getCitation($citationId));
 	}
 }
 ?>

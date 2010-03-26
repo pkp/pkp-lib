@@ -35,11 +35,11 @@
 		<script type='text/javascript'>
 			$(function() {ldelim}
 				$.ajaxSetup({ldelim}cache:false{rdelim});
-				$("#citationFormTabs-{$citation->getId()}").tabs({ldelim} cache: false {rdelim});
+				$("#citationFormTabs-{$ts}").tabs({ldelim} cache: false {rdelim});
 			{rdelim});
 		</script>
 
-		<div id="citationFormTabs-{$citation->getId()}">
+		<div id="citationFormTabs-{$ts}">
 			<ul>
 				{foreach from=$citationVarArrays key=arrayName item=varsArray}
 					<li><a href="#{$arrayName|regex_replace:"/\s*/":""}">{$arrayName|escape}</a></li>

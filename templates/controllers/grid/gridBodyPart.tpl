@@ -1,10 +1,13 @@
+{**
+ * gridBodyPart.tpl
+ *
+ * Copyright (c) 2009 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * a set of grid rows within a tbody
+ *}
 <tbody>
-	{if $categoryName}
-		<tr class="category group{$categoryNum}">
-			<td colspan="{$numColumns}">{$categoryName}</td>
-		</tr>
-	{/if}
 	{foreach from=$rows item=row}
 		{$row}
-	{/foreach}
+	{/foreach}	
 </tbody>

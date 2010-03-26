@@ -44,7 +44,7 @@
 					We need the last (=empty) line even if we have rows
 					so that we can restore it if the user deletes all rows.
 				**}
-				<tr class="empty"{if $rows} style="display: none;"{/if}>
+				<tr class="empty"{if $gridBodyParts} style="display: none;"{/if}>
 					<td colspan="{$numColumns}">{translate key="grid.noItems"}</td>
 				</tr>
 		    </tbody>

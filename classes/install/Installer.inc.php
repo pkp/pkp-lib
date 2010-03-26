@@ -596,6 +596,14 @@ class Installer {
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 		return true;
 	}
+	
+	/**
+	 * Set the current version for this installer.
+	 * @var $version Version
+	 */
+	function setCurrentVersion(&$version) {
+		$this->currentVersion = $version;
+	}
 }
 
 ?>

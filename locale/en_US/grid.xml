@@ -79,4 +79,7 @@
 	<message key="author.submit.contributor.email">E-mail</message>
 	<message key="author.submit.contributor.role">Role</message>
 	<message key="author.submit.contributor.principalContact">Primary Contact</message>
+	
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Chapters</message>
 </locale>

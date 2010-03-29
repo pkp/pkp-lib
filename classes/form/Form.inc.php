@@ -144,8 +144,9 @@ class Form {
 
 		// Determine the current locale to display fields with
 		$formLocale = Request::getUserVar('formLocale');
-		if (empty($formLocale) || !in_array($formLocale, array_keys(Locale::getAllLocales()))) {
-			$formLocale = Locale::getLocale();
+		if (empty($formLocale)) $formLocale = Locale::getLocale();
+		if (!in_array($formLocale, array_keys(Locale::getSupportedFormLocales()))) {
+			$formLocale = Locale::getPrimaryLocale();
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 

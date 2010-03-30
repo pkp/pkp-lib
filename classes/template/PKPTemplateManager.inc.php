@@ -137,7 +137,8 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
-
+		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
+		
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
 											array(&$this, 'smartyResourceCoreGetTimestamp'),
@@ -1181,6 +1182,19 @@ class PKPTemplateManager extends Smarty {
 			$url = $params['url'];
 		}
 		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
+	}
+	
+	function smartyInitTabs($params, &$smarty) {
+		// Required params
+		if (!isset($params['id'])) {
+			$smarty->trigger_error("Selector missing for tab initialization");
+		} else {
+			$id = $params['id'];
+		}
+
+		echo "<script type='text/javascript'>$(function() {
+			$('#$id').tabs();
+		});</script>";
 	}
 }
 

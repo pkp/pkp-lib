@@ -253,13 +253,18 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 
 			// Validate
 			validator = $form.validate();
+			var rand = Math.ceil(1000*Math.random());
+			var $dialog = $('<div></div>').html('<div class="throbber" id="' + rand + '"></div>').dialog( {draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
+			$('#' + rand).show();
 
 			// Post to server and construct callback
 			if ($form.valid()) {
+			    $dialog.dialog('open');
 				$.post(
 					postUrl,
 					postData,
 					function(returnString) {
+						$dialog.dialog('close');
 						if (returnString.status == true) {
 							$('#' + actOnId).replaceWith(returnString.content);
 						} else {

@@ -80,6 +80,7 @@ class SWORDAPPClient {
 		if (!empty($sac_contenttype)) {
 			array_push($headers, "Content-Type: " . $sac_contenttype);
 	        }
+		array_push($headers, "Content-Length: " . filesize($sac_fname));
 		if ($sac_noop == true) {
 			array_push($headers, "X-No-Op: true");
 	        }
@@ -95,7 +96,6 @@ class SWORDAPPClient {
 	        }
 		array_push($headers, "Content-Disposition: filename=" . $sac_fname_trimmed);
 		curl_setopt($sac_curl, CURLOPT_READDATA, fopen($sac_fname, 'rb'));
-		array_push($headers, 'Transfer-Encoding: chunked');
 	        curl_setopt($sac_curl, CURLOPT_HTTPHEADER, $headers);
 		
 		$sac_resp = curl_exec($sac_curl);

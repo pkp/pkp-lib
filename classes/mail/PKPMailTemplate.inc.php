@@ -220,7 +220,7 @@ class PKPMailTemplate extends Mail {
 			foreach ($this->persistAttachments as $persistentAttachment) {
 				$this->addAttachment(
 					$persistentAttachment->getFilePath(),
-					$persistentAttachment->getFileName(),
+					$persistentAttachment->getOriginalFileName(),
 					$persistentAttachment->getFileType()
 				);
 			}

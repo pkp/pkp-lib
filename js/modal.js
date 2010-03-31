@@ -24,7 +24,8 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		var title = $(callingButton).text(); // Assign title to calling button's text
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
-		var UID = new Date().getTime();
+		var d = new Date();
+		var UID = Math.ceil(1000 * Math.random(d.getTime()));
 		var formContainer = '#' + UID;
 
 		// Construct action to perform when OK and Cancels buttons are clicked
@@ -116,8 +117,8 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 		var title = $(callingButton).text(); // Assign title to calling button's text
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
-		var UID = new Date().getTime();
-
+		var d = new Date();
+		var UID = Math.ceil(1000 * Math.random(d.getTime()));
 		// Construct action to perform when OK and Cancels buttons are clicked
 		var dialogOptions = {};
 		if(url == null) {
@@ -173,7 +174,8 @@ function modalAlert(dialogText, localizedButtons) {
 		} else {
 			var title = "Alert";
 		}
-		var UID = new Date().getTime();
+		var d = new Date();
+		var UID = Math.ceil(1000 * Math.random(d.getTime()));
 
 		// Construct action to perform when OK button is clicked
 		var dialogOptions = {};
@@ -253,9 +255,10 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 
 			// Validate
 			validator = $form.validate();
-			var rand = Math.ceil(1000*Math.random());
-			var $dialog = $('<div></div>').html('<div class="throbber" id="' + rand + '"></div>').dialog( {draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
-			$('#' + rand).show();
+			var d = new Date();
+			var UID = Math.ceil(1000 * Math.random(d.getTime()));
+			var $dialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {title: $(callingButton).text(), draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
+			$('#' + UID).show();
 
 			// Post to server and construct callback
 			if ($form.valid()) {

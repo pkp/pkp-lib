@@ -305,7 +305,8 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
-			$('#' + actOnId + ' > .empty').hide();
+			$empty = $('#' + actOnId).find('.empty');
+			$empty.hide();
 			$('#' + actOnId).append(content);
 			break;
 		case 'replace':

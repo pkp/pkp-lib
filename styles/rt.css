@@ -20,12 +20,11 @@
 }
 
 #container {
-	min-width: 180px;
+	min-width: 180px !important;
 }
 
 #main {
 	width: 95%;
-	font-size: 0.7em;
 }
 
 #main h2 {

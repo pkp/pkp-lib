@@ -62,9 +62,10 @@ class NotificationManager {
 	 * @param $title string
 	 * @param $contents string
 	 * @param $param string
+	 * @param $isLocalized boolean
 	 * @return Notification object
 	 */
-	function createTrivialNotification($title, $contents, $assocType = NOTIFICATION_TYPE_SUCCESS, $param = null) {
+	function createTrivialNotification($title, $contents, $assocType = NOTIFICATION_TYPE_SUCCESS, $param = null, $isLocalized = 1) {
 		$notification = new Notification();
 		$context =& Request::getContext();
 		$contextId = $context?$context->getId():0;
@@ -74,7 +75,7 @@ class NotificationManager {
 		$notification->setTitle($title);
 		$notification->setContents($contents);
 		$notification->setParam($param);
-		$notification->setIsLocalized(1);
+		$notification->setIsLocalized($isLocalized);
 		$notification->setContext($contextId);
 		$notification->setAssocType($assocType);
 		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);

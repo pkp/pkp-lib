@@ -6,16 +6,10 @@
  *
  * a set of grid rows with a category row at the beginning
  *}
-{assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
+{** category id must be set by the rendering of the catgory row **}
 <tbody id="{$categoryId}">
-	<tr class="category group{$gridCategoryNum}">
-		<td colspan="{$numColumns}">
-			{foreach name=actions from=$categoryRow->getActions() item=action}
-				{include file="controllers/grid/gridAction.tpl" action=$action id=$categoryId}
-				 | 
-			{/foreach}
-			{$categoryRow->getLabel()}
-		</td>
+	<tr class="category">
+		{$renderedCategoryRow}
 		{** the regular data rows **}
 		{foreach from=$rows item=row}
 			{$row}

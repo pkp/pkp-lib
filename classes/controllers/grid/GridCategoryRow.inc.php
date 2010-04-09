@@ -15,9 +15,6 @@
 import('controllers.grid.GridRow');
 
 class GridCategoryRow extends GridRow {
-	/** @var categoryName being grouped by**/
-	var $_categoryName;
-
 	/**
 	 * Constructor.
 	 */
@@ -43,29 +40,12 @@ class GridCategoryRow extends GridRow {
 	}
 
 	/**
-	 * Get the category name being grouped by
-	 */
-	function getCategoryName() {
-		return $this->_categoryName;
-	}
-
-	/**
-	 * Set the category name being grouped by
-	 * @param string $categoryName
-	 */
-
-	function setCategoryName($categoryName) {
-		$this->_categoryName = $categoryName;
-	}
-	/**
 	 * Category rows only have one cell and one label.  This is it.
 	 * @param string $categoryName
 	 * return string
 	 */
-	function getLabel() {
-		$data = $this->getData();
-		//TODO: test this.  Probably need to convert to associative array for this to work.
-		return $data[$this->_categoryName];
+	function getCategoryLabel() {
+		return '';
 	}
 }
 ?>

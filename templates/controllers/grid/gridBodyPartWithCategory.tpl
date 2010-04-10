@@ -8,11 +8,11 @@
  *}
 {** category id must be set by the rendering of the catgory row **}
 <tbody id="{$categoryId}">
-	<tr class="category">
+	<tr class="category{if $iterator} group{$iterator}{/if}">
 		{$renderedCategoryRow}
 		{** the regular data rows **}
 		{foreach from=$rows item=row}
 			{$row}
-		{/foreach}	
+		{/foreach}
 	</tr>
 </tbody>

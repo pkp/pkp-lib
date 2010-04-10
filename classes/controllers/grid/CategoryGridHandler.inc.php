@@ -187,7 +187,9 @@ class CategoryGridHandler extends GridHandler {
 		// to the row definition.
 		$elementIterator =& $this->_getSortedElements();
 		$renderedCategories = array();
+		$iterator = 1;
 		while (!$elementIterator->eof()) {
+
 			// Instantiate a new row
 			$categoryRow =& $this->getCategoryRowInstance();
 			$categoryRow->setGridId($this->getId());
@@ -201,8 +203,9 @@ class CategoryGridHandler extends GridHandler {
 			$categoryRow->initialize($request);
 
 			// Render the row
-			$renderedCategories[] = $this->_renderCategoryInternally($request, $categoryRow);
+			$renderedCategories[] = $this->_renderCategoryInternally($request, $categoryRow, $iterator);
 			unset($element);
+			$iterator = $iterator < 5 ? $iterator+1 : $iterator = 1;
 		}
 
 		return $renderedCategories;
@@ -214,7 +217,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param GridCategoryRow $categoryRow
 	 * @return String HTML for all the rows (including category)
 	 */
-	function _renderCategoryInternally(&$request, &$categoryRow) {
+	function _renderCategoryInternally(&$request, &$categoryRow, $iterator = null) {
 		$templateMgr =& TemplateManager::getManager();
 
 		$categoryDataElement =& $categoryRow->getData();
@@ -226,6 +229,7 @@ class CategoryGridHandler extends GridHandler {
 
 		$columns =& $this->getColumns();
 		$templateMgr->assign('numColumns', count($columns));
+		$templateMgr->assign('iterator', $iterator);
 		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
 

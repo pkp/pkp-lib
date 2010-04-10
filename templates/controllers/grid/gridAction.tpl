@@ -23,7 +23,7 @@
 
 {/if}
 {if $action->getImage()}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{$action->getImage()}">{translate key=$action->getTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{$action->getImage()}">{$action->getTitle()}</a>
 {else}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}">{translate key=$action->getTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}">{$action->getTitle()}</a>
 {/if}

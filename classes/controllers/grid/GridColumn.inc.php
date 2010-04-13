@@ -21,8 +21,11 @@ class GridColumn {
 	/** @var string the column id */
 	var $_id;
 
-	/** @var string the column title */
+	/** @var string the column title i18n key */
 	var $_title;
+
+	/** @var string the column title (translated) */
+	var $_titleLocalized;
 
 	/**
 	 * @var array actions of the grid column, the first key represents
@@ -45,10 +48,11 @@ class GridColumn {
 	/**
 	 * Constructor
 	 */
-	function GridColumn($id = '', $title = '', $actions = array(),
+	function GridColumn($id = '', $title = null, $titleLocalized = null, $actions = array(),
 			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
 		$this->_id = $id;
 		$this->_title = $title;
+		$this->_titleLocalized = $titleLocalized;
 		$this->_actions = array(GRID_ACTION_POSITION_DEFAULT => &$actions);
 		$this->_template = $template;
 		$this->_cellProvider =& $cellProvider;
@@ -84,7 +88,7 @@ class GridColumn {
 	}
 
 	/**
-	 * Set the column title
+	 * Set the column title (already translated)
 	 * @param $title string
 	 */
 	function setTitle($title) {
@@ -92,10 +96,19 @@ class GridColumn {
 	}
 
 	/**
+	 * Set the column title (already translated)
+	 * @param $title string
+	 */
+	function setTitleTranslated($titleLocalized) {
+		$this->_titleLocalized = $titleLocalized;
+	}
+
+	/**
 	 * Get the translated column title
 	 * @return string
 	 */
 	function getLocalizedTitle() {
+		if ( $this->_titleLocalized ) return $this->_titleLocalized;
 		return Locale::translate($this->_title);;
 	}
 

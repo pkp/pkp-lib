@@ -52,12 +52,12 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * This implementation assumes an element that is a
 	 * DataObject. It will retrieve an element in the
 	 * configured locale.
-	 * @see GridCellProvider::getLabel()
+	 * @see GridCellProvider::getTemplateVarsFromElement()
 	 * @param $element DataObject
 	 * @param $columnId string
 	 */
-	function getLabel(&$element, $columnId) {
+	function getTemplateVarsFromElement(&$element, $columnId) {
 		assert(is_a($element, 'DataObject') && !empty($columnId));
-		return $element->getData($columnId, $this->getLocale());
+		return array('label' => $element->getData($columnId, $this->getLocale()));
 	}
 }

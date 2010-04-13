@@ -32,7 +32,7 @@
 		    	<tr>
 		    		{** build the column headers **}
 		    		{foreach from=$columns item=column}
-		        		<th scope="col">{$column->getTitle()|translate}</th>
+		        		<th scope="col">{$column->getLocalizedTitle()}</th>
 					{/foreach}
 		        </tr>
 		    </thead>

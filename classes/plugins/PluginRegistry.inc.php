@@ -58,6 +58,10 @@ class PluginRegistry {
 		// If the plugin was already loaded, do not load it again.
 		if (isset($plugins[$category][$pluginName])) return false;
 
+		// Initialize the plug-in
+		// FIXME: Move this to the hook registry once caching is implemented
+		if (!$plugin->initialize($category, $path)) return false;
+
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path)) return false;
 

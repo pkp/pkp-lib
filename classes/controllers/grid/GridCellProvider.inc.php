@@ -36,8 +36,7 @@ class GridCellProvider {
 		assert(!empty($columnId));
 
 		$element =& $row->getData();
-		$label = $this->getLabel($element, $columnId);
-
+		$templateVars = $this->getTemplateVarsFromElement($element, $columnId);
 		// Construct a default cell id
 		$rowId = $row->getId();
 
@@ -47,11 +46,14 @@ class GridCellProvider {
 		// Pass control to the view to render the cell
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('id', $cellId);
-		$templateMgr->assign('label', $label);
 		$templateMgr->assign_by_ref('column', $column);
 		$templateMgr->assign_by_ref('actions', $column->getActions());
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
+		// assign all values from element (by ref, just in case they are objects)
+		foreach ($templateVars as $varName => $varValue) {
+			$templateMgr->assign($varName, $varValue);
+		}
 		$template = $column->getTemplate();
 		assert(!empty($template));
 		return $templateMgr->fetch($template);
@@ -61,12 +63,14 @@ class GridCellProvider {
 	// Protected template methods
 	//
 	/**
-	 * Subclasses have to implement this method to extract
-	 * a label for a given column from a data element.
+	 * Subclasses have to implement this method to extract variables
+	 * for a given column from a data element so that they may be assigned
+	 * to template before rendering.
 	 * @param $element mixed
 	 * @param $columnId string
+	 * @return array()
 	 */
-	function getLabel(&$element, $columnId) {
-		assert(false);
+	function getTemplateVarsFromElement(&$element, $columnId) {
+		return array();
 	}
 }

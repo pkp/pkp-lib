@@ -164,7 +164,7 @@ class CitationForm extends Form {
 		GRID_ACTION_MODE_AJAX,
 		GRID_ACTION_TYPE_POST,
 		$router->url($request, null, null, 'checkCitation'),
-			Locale::translate('submission.citations.grid.checkCitationAgain')
+			'submission.citations.grid.checkCitationAgain'
 			);
 			$templateMgr->assign_by_ref('checkAction', $checkAction);
 

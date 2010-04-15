@@ -47,15 +47,30 @@ class GridAction {
 	/** @var string optional, the title of the link, translated */
 	var $_title;
 
+	/** @var string optional, the title of the link, translated */
+	var $_titleLocalized;
+
 	/** @var string optional, the URL to the image to be linked to */
 	var $_image;
 
-	function GridAction($id, $mode, $type, $url, $title = null, $image = null) {
+	/**
+	 * Constructor
+	 * create a GridAction
+	 * @param string $id
+	 * @param string (enum) $mode
+	 * @param string (enum) $type
+	 * @param string $url
+	 * @param string (i18n) $title optional
+	 * @param string $titleLocalized optional
+	 * @param string $image optional
+	 */
+	function GridAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null) {
 		$this->_id = $id;
 		$this->_mode = $mode;
 		$this->_type = $type;
 		$this->_url = $url;
 		$this->_title = $title;
+		$this->_titleLocalized = $titleLocalized;
 		$this->_image = $image;
 	}
 
@@ -97,6 +112,23 @@ class GridAction {
 
 	function getTitle() {
 		return $this->_title;
+	}
+
+	/**
+	 * Set the column title (already translated)
+	 * @param $title string
+	 */
+	function setTitleTranslated($titleLocalized) {
+		$this->_titleLocalized = $titleLocalized;
+	}
+
+	/**
+	 * Get the translated column title
+	 * @return string
+	 */
+	function getLocalizedTitle() {
+		if ( $this->_titleLocalized ) return $this->_titleLocalized;
+		return Locale::translate($this->_title);;
 	}
 
 	function setImage($image) {

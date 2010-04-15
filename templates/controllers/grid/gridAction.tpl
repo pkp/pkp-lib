@@ -9,7 +9,7 @@
 	{modal url=$action->getUrl() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_CONFIRM}
-	{confirm url=$action->getUrl() dialogText=$action->getTitle() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
+	{confirm url=$action->getUrl() dialogText=$action->getLocalizedTitle() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 	<script type='text/javascript'>
@@ -23,7 +23,7 @@
 
 {/if}
 {if $action->getImage()}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{$action->getImage()}">{$action->getTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{$action->getImage()}">{$action->getLocalizedTitle()}</a>
 {else}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}">{$action->getTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}">{$action->getLocalizedTitle()}</a>
 {/if}

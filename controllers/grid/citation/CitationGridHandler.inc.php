@@ -25,7 +25,7 @@ import('handler.validation.HandlerValidatorRoles');
 
 // filter option constants
 // FIXME: Make filter options configurable.
-define('CROSSREF_TEMP_ACCESS_EMAIL', 'pkp-support@sfu.ca');
+define('CROSSREF_TEMP_ACCESS_EMAIL', 'pkp.contact@gmail.com');
 define('ISBNDB_TEMP_APIKEY', '4B5GQSQ4');
 
 class CitationGridHandler extends GridHandler {

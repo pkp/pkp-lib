@@ -15,6 +15,38 @@
  * @see PluginRegistry, PluginSettingsDAO
  *
  * @brief Abstract class for plugins
+ *
+ * For best performance, a plug-in should only be instantiated when
+ * it's functionality is actually required. This is the case if one
+ * of the following plug-in events occurs:
+ * - installation
+ * - upgrade
+ * - removal (uninstall)
+ * - configuration (enabling/disabling the plug-in,
+ *   changing plug-in settings)
+ * - adding/removing locales
+ * - registration (register hooks)
+ * - initialization (per-request initialization tasks required
+ *   by all hooks)
+ * - hook call-back event (including calls to standard API
+ *   methods of specialized plug-ins).
+ *
+ * Most importantly the plug-in should not be instantiated if it is
+ * disabled and none of it's hooks or standardized API methods are being
+ * called during a request.
+ *
+ * Newer plug-ins support settings and hook caching which enables the
+ * PKP library plug-in framework to lazy-load plug-ins only when they
+ * are enabled and their hooks are actually being called.
+ *
+ * For historic reasons we need to assume that older community plug-ins
+ * do not support lazy-load because their register() method has other
+ * side-effects than just hook registration. This means that we have to
+ * call the register() method on every request even if the hooks registered
+ * by the plug-in are not actually called. In these cases the register()
+ * function will be called when (and only when) the plug-in is enabled and
+ * the category the plug-in belongs to is being loaded. This was the
+ * default behavior before plug-in lazy load was introduced.
  */
 
 // $Id$
@@ -31,6 +63,11 @@ class PKPPlugin {
 	 * Constructor
 	 */
 	function PKPPlugin() {
+	}
+
+	function getTemplatePath() {
+		$basePath = dirname(dirname(dirname(__FILE__)));
+		return "file:$basePath/" . $this->getPluginPath() . '/';
 	}
 
 	/**
@@ -59,16 +96,64 @@ class PKPPlugin {
 	}
 
 	/**
-	 * Called as a plugin is registered to the registry. Subclasses over-
-	 * riding this method should call the parent method first.
+	 * Whether hook caching is enabled.
+	 *
+	 * NB: For backwards compatibility only. New plug-ins
+	 * should override this method and return true!
+	 *
+	 * You have to make sure that your register() method
+	 * has no other side effects but registering hooks.
+	 *
+	 * All other plug-in functionality must be implemented
+	 * via hooks.
+	 */
+	function getHookCachingEnabled() {
+		return false;
+	}
+
+	/**
+	 * Initialize plug-in
+	 *
+	 * Called just before the first plug-in hook or plug-in API call
+	 * is being executed. If none of this plug-in's hooks or API methods
+	 * are executed in a request then this method will not be called
+	 * at all.
+	 *
+	 * Only use this method to provide infrastructure to the plug-in
+	 * not to the application. Use application hooks to provide
+	 * application-wide infrastructure.
+	 *
+	 * If you override this method then call the parent method first.
+	 *
 	 * @param $category String Name of category plugin was registered to
 	 * @param $path String The path the plugin was found in
 	 * @return boolean True iff plugin initialized successfully; if false,
-	 * 	the plugin will not be registered.
+	 * 	the plugin will not be executed.
 	 */
-	function register($category, $path) {
+	function initialize($category, $path) {
 		$this->pluginPath = $path;
 		$this->pluginCategory = $category;
+		return true;
+	}
+
+	/**
+	 * Register plugin hooks.
+	 *
+	 * For backwards compatibility this method will be called once per request
+	 * when getHookCachingEnabled() returns false. Otherwise it will only be
+	 * called when the hook cache needs refreshing. New plug-ins should only register
+	 * hooks in the register() method and do all per-request initialization in
+	 * the initialize() method.
+	 *
+	 * Whenever plug-ins provide infrastructure that needs to be made available to
+	 * all requests then this should be done via hooks not in the register() method.
+	 *
+	 * @param $category String Name of category plugin was registered to
+	 * @param $path String The path the plugin was found in
+	 * @return boolean True iff plugin registered successfully; if false,
+	 * 	the plugin will not be executed.
+	 */
+	function register($category, $path) {
 		if ($this->getInstallSchemaFile()) {
 			HookRegistry::register ('Installer::postInstall', array(&$this, 'updateSchema'));
 		}
@@ -85,7 +170,89 @@ class PKPPlugin {
 		if ($this->getInstallDataFile()) {
 			HookRegistry::register ('Installer::postInstall', array(&$this, 'installData'));
 		}
+		if ($this->getContextSpecificPluginSettingsFile()) {
+			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array(&$this, 'installContextSpecificSettings'));
+		}
 		return true;
+	}
+
+	/**
+	 * The application specific context installation hook.
+	 * @return string
+	 */
+	function _getContextSpecificInstallationHook() {
+		$application =& PKPApplication::getApplication();
+
+		if ($application->getContextDepth() == 0) return null;
+
+		$contextList = $application->getContextList();
+		return ucfirst(array_shift($contextList)).'SiteSettingsForm::execute';
+	}
+
+	/**
+	 * Retrieve a plugin setting within the given context
+	 * @param $context array an array of context ids
+	 * @param $name the setting name
+	 */
+	function getSetting($context, $name) {
+		if (!Config::getVar('general', 'installed')) return null;
+
+		// Check that the context has the correct depth
+		$application =& PKPApplication::getApplication();
+		assert(is_array($context) && $application->getContextDepth() == count($context));
+
+		// Construct the argument list and call the plug-in settings DAO
+		$arguments = $context;
+		$arguments[] = $this->getName();
+		$arguments[] = $name;
+		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		return call_user_func_array(array(&$pluginSettingsDao, 'getSetting'), $arguments);
+	}
+
+	/**
+	 * Update a plugin setting within the given context.
+	 * @param $context array an array of context ids
+	 * @param $name the setting name
+	 * @param $value mixed
+	 * @param $type string optional
+	 */
+	function updateSetting($context, $name, $value, $type = null) {
+		// Check that the context has the correct depth
+		$application =& PKPApplication::getApplication();
+		assert(is_array($context) && $application->getContextDepth() == count($context));
+
+		// Construct the argument list and call the plug-in settings DAO
+		$arguments = $context;
+		$arguments[] = $this->getName();
+		$arguments[] = $name;
+		$arguments[] = $value;
+		$arguments[] = $type;
+		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		call_user_func_array(array(&$pluginSettingsDao, 'updateSetting'), $arguments);
+	}
+
+	/**
+	 * Callback used to install settings on system install.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installSiteSettings($hookName, $args) {
+		$installer =& $args[0];
+		$result =& $args[1];
+
+		// Settings are only installed during automated installs. FIXME!
+		if (!$installer->getParam('manualInstall')) {
+			// All contexts are set to zero for site-wide plug-in settings
+			$application =& PKPApplication::getApplication();
+			$arguments = array_fill(0, $application->getContextDepth(), 0);
+			$arguments[] = $this->getName();
+			$arguments[] = $this->getInstallSitePluginSettingsFile();
+			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+			call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
+		}
+
+		return false;
 	}
 
 	/**
@@ -251,6 +418,17 @@ class PKPPlugin {
 
 	/**
 	 * Get the filename of the settings data for this plugin to install
+	 * when a new application context (e.g. journal, conference or press)
+	 * is installed.
+	 * Subclasses using default settings should override this.
+	 * @return string
+	 */
+	function getContextSpecificPluginSettingsFile() {
+		return null;
+	}
+
+	/**
+	 * Get the filename of the settings data for this plugin to install
 	 * when the system is installed (i.e. site-level plugin settings).
 	 * Subclasses using default settings should override this.
 	 * @return string
@@ -284,6 +462,44 @@ class PKPPlugin {
 	 */
 	function getInstallDataFile() {
 		return null;
+	}
+
+	/**
+	 * Callback used to install settings on new context
+	 * (e.g. journal, conference or press) creation.
+	 * @param $hookName string
+	 * @param $args array
+	 * @return boolean
+	 */
+	function installContextSpecificSettings($hookName, $args) {
+		// Only applications that have at least one context can
+		// install context specific settings.
+		$application =& PKPApplication::getApplication();
+		$contextDepth = $application->getContextDepth();
+		if ($contextDepth > 0) {
+			$context =& $args[1];
+
+			// Make sure that this is really a new context
+			$isNewContext = isset($args[3]) ? $args[3] : true;
+			if (!$isNewContext) return false;
+
+			// Install context specific settings
+			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+			switch ($contextDepth) {
+				case 1:
+					$pluginSettingsDao->installSettings($context->getId(), $this->getName(), $this->getContextSpecificPluginSettingsFile());
+					break;
+
+				case 2:
+					$pluginSettingsDao->installSettings($context->getId(), 0, $this->getName(), $this->getContextSpecificPluginSettingsFile());
+					break;
+
+				default:
+					// No application can have a context depth > 2
+					assert(false);
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -364,6 +580,22 @@ class PKPPlugin {
 			$result = false;
 		}
 		return false;
+	}
+
+	/**
+	 * Get the current version of this plugin
+	 * @return object Version
+	 */
+	function getCurrentVersion() {
+		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		$product = basename($this->getPluginPath());
+		$installedPlugin = $versionDao->getCurrentVersion($product);
+
+		if ($installedPlugin) {
+			return $installedPlugin;
+		} else {
+			return false;
+		}
 	}
 }
 

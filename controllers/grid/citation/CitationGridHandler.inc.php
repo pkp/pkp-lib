@@ -167,7 +167,7 @@ class CitationGridHandler extends GridHandler {
 				GRID_ACTION_MODE_AJAX,
 				GRID_ACTION_TYPE_GET,
 				$router->url($request, null, null, 'importCitations', null, $actionArgs),
-				Locale::translate('submission.citations.grid.importCitations')
+				'submission.citations.grid.importCitations'
 			)
 		);
 		$this->addAction(
@@ -176,7 +176,7 @@ class CitationGridHandler extends GridHandler {
 				GRID_ACTION_MODE_MODAL,
 				GRID_ACTION_TYPE_APPEND,
 				$router->url($request, null, null, 'addCitation', null, $actionArgs),
-				Locale::translate('grid.action.addItem'_
+				'grid.action.addItem'
 			)
 		);
 		$this->addAction(
@@ -185,7 +185,7 @@ class CitationGridHandler extends GridHandler {
 				GRID_ACTION_MODE_MODAL,
 				GRID_ACTION_TYPE_NOTHING,
 				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
-				Locale::translate('submission.citations.grid.exportCitations')
+				'submission.citations.grid.exportCitations'
 			)
 		);
 
@@ -196,6 +196,7 @@ class CitationGridHandler extends GridHandler {
 			new GridColumn(
 				'editedCitation',
 				'submission.citations.grid.editedCitation',
+				null,
 				$emptyColumnActions,
 				'controllers/grid/gridCellInSpan.tpl',
 				$cellProvider,

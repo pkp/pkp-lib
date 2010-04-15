@@ -20,7 +20,7 @@ import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	const
-		ACCESS_EMAIL = 'pkp-support@sfu.ca';
+		ACCESS_EMAIL = 'pkp.contact@gmail.com';
 
 	/**
 	 * Test CrossRef lookup with DOI

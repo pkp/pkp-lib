@@ -8,5 +8,5 @@
  *}
 {assign var=cellId value="cell-"|concat:$id}
 <span id="{$cellId}">
-	{$label}
+	{$label|escape}
 </span>

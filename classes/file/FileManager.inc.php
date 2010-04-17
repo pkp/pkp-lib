@@ -22,6 +22,14 @@
 define('FILE_MODE_MASK', 0666);
 define('DIRECTORY_MODE_MASK', 0777);
 
+define('DOCUMENT_TYPE_DEFAULT', 'default');
+define('DOCUMENT_TYPE_EXCEL', 'excel');
+define('DOCUMENT_TYPE_HTML', 'html');
+define('DOCUMENT_TYPE_IMAGE', 'image');
+define('DOCUMENT_TYPE_PDF', 'pdf');
+define('DOCUMENT_TYPE_WORD', 'word');
+define('DOCUMENT_TYPE_ZIP', 'zip');
+
 class FileManager {
 	/**
 	 * Constructor
@@ -145,7 +153,7 @@ class FileManager {
 			return FileManager::setMode($dest, FILE_MODE_MASK);
 		return false;
 	}
-	
+
 	/**
 	 * Copy a directory.
 	 * Adapted from code by gimmicklessgpt at gmail dot com, at http://php.net/manual/en/function.copy.php
@@ -348,6 +356,38 @@ class FileManager {
 				return file_exists($filePath) && is_dir($filePath);
 			default:
 				return false;
+		}
+	}
+
+	/**
+	 * Returns a file type, based on generic categories defined above
+	 * @param $type String
+	 * @return string (Enuemrated DOCUMENT_TYPEs)
+	 */
+	function getDocumentType($type) {
+		if ( $this->getImageExtension($type) )
+			return DOCUMENT_TYPE_IMAGE;
+		switch ($type) {
+			case 'application/pdf':
+			case 'application/x-pdf':
+			case 'text/pdf':
+			case 'text/x-pdf':
+				return DOCUMENT_TYPE_PDF;
+			case 'application/word':
+				return DOCUMENT_TYPE_WORD;
+			case 'application/excel':
+				return DOCUMENT_TYPE_EXCEL;
+			case 'text/html':
+				return DOCUMENT_TYPE_HTML;
+			case 'application/zip':
+			case 'application/x-zip':
+			case 'application/x-zip-compressed':
+			case 'application/x-compress':
+			case 'application/x-compressed':
+			case 'multipart/x-zip':
+				return DOCUMENT_TYPE_ZIP;
+			default:
+				return DOCUMENT_TYPE_DEFAULT;
 		}
 	}
 

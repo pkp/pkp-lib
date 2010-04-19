@@ -8,16 +8,16 @@
  *
  *}
 {if $isError}
-<p>
-	<div id="formErrors">
+<div id="formErrors">
+	<p>
 	<span class="formError">{translate key="form.errorsOccurred"}:</span>
 	<ul class="formErrorList">
 	{foreach key=field item=message from=$errors}
 		<li><a href="#{$field|escape}">{$message}</a></li>
 	{/foreach}
 	</ul>
-	</div>
-</p>
+	</p>
+</div>
 <script type="text/javascript">
 {literal}
 <!--

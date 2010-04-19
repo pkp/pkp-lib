@@ -102,4 +102,7 @@
 	<message key="user.workingLanguages">Langues de travail</message>
 	<message key="user.profile.form.profileImageInvalid">Format d'image du profil invalide ou image trop grande. Les formats acceptés sont .gif, .jpg, or .png, et l'image ne doit pas dépasser 150x150 pixels.</message>
 	<message key="user.other">Autre</message>
+	<message key="user.profile.form.affiliationRequired">L'affiliation est obligatoire.</message>
+	<message key="user.affiliation.description">(Votre institution, par ex., "Université de Montréal")</message>
+	<message key="user.gossip">Notes privées</message>
 </locale>

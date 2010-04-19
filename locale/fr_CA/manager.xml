@@ -169,4 +169,5 @@
 	<message key="plugins.categories.themes.description">Les plugiciels de thème sont utilisés pour modifier l'apparence du système.</message>
 	<message key="plugins.categories.themes">Plugiciels de thème</message>
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
+	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
 </locale>

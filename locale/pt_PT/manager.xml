@@ -168,4 +168,6 @@
 	<message key="plugins.categories.reports">Plugins de Relatório</message>
 	<message key="plugins.categories.themes.description">Plugins de Visual podem ser utilizados para alterar o visual do sistema.</message>
 	<message key="plugins.categories.themes">Plugins de Visual</message>
+	<message key="manager.emails.form.emailKeyRequired">É requerida uma única chave para o email.</message>
+	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
 </locale>

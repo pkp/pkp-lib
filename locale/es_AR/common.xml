@@ -315,4 +315,7 @@
 	<message key="common.preview">Previsualizar</message>
 	<message key="common.activate">Activar</message>
 	<message key="common.deactivate">Desactivar</message>
+	<message key="common.false">Falso</message>
+	<message key="common.ok">OK</message>
+	<message key="common.true">Verdadero</message>
 </locale>

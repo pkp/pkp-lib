@@ -315,4 +315,7 @@
 	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="common.uploadFailed">Le fichier n'a pu être téléchargé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
+	<message key="common.false">Faux</message>
+	<message key="common.ok">OK</message>
+	<message key="common.true">Vrai</message>
 </locale>

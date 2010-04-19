@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">Fondo de logotipo</message>
 	<message key="rt.admin.sharing.logoColorLabel">Color de logotipo</message>
 	<message key="rt.admin.configureSharing">Configurar AddThis</message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

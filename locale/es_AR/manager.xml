@@ -169,4 +169,5 @@
 	<message key="manager.payment.timestamp">Marca de tiempo (timestamp)</message>
 	<message key="manager.people.mustChooseRole">Por favor seleccione un rol en la parte superior de la página antes de hacer clic en "Enrolar Usuario"</message>
 	<message key="manager.people.mustProvideName">Por favor provea al menos un Apellido para el primer usuario.</message>
+	<message key="manager.setup.errorDeletingItem">Hubo un error al eliminar este elemento</message>
 </locale>

@@ -139,6 +139,7 @@ class CacheManager {
 					unlink ($file);
 				}
 				break;
+			case '':
 			case 'none':
 				// Nothing necessary.
 				break;

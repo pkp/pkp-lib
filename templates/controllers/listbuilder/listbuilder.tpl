@@ -47,7 +47,7 @@
 		                	</label>
 						</span>
 					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-						<input type="text" class="textField" size="30" id="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" value="" /> <br />
+						<input type="text" class="textField" id="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" value="" /> <br />
 						<input type="hidden" id="sourceId-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceId-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
 					{/if}
 				</li>

@@ -168,4 +168,6 @@
 	<message key="plugins.categories.themes.description">Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak.</message>
 	<message key="plugins.categories.themes">Temen pluginak</message>
 	<message key="manager.people.mustChooseRole">Hautatu funtzio bat orriaren goialdean "Inskribatu erabiltzailea"n klik egin aurretik.</message>
+	<message key="manager.emails.form.emailKeyRequired">Posta elektronikoko gako bakarra behar da posta elektronikorako.</message>
+	<message key="manager.setup.errorDeletingItem">Errorea elementu hau ezabatzean.</message>
 </locale>

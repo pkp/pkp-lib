@@ -1,7 +1,7 @@
 {**
  * fbvTestFormWrapper.tpl
  *
- * Copyright (c) 2003-2010 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display the fbv-coded test form in the context of the application.

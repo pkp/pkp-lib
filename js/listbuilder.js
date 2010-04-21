@@ -1,7 +1,7 @@
 /**
  * listbuilder.js
  *
- * Copyright (c) 2003-2010 John Willinsky
+ * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Implementation of listbuilder interface elements for OMP.
@@ -132,36 +132,25 @@ function getAutocompleteSource(handler, id) {
 				if (returnString.elementId == 'local') {
 					// Set the data source to an array (for smaller data sets only)
 					data = eval("("+returnString.content+")");
-
-					$("#sourceTitle-" + id).autocomplete(data, {
-						minChars: 0,
-						formatItem: function(row, i, max) {
-							return row.content;
-						},
-						formatResult: function(row) {
-							return row.content;
-						}
-					}).result(function (evt, data, formatted) {
-					    $("#sourceId-" + id).val(data.elementId);
-					});
-
 				} else if (returnString.elementId == 'url') {
 					// Set the data to the url
 					data = returnString.content;
-					$("#sourceTitle-" + id).autocomplete(data, {
-						minChars: 0,
-						formatItem: function(row, i, max) {
-							return row.content;
-						},
-						formatResult: function(row) {
-							return row.content;
-						}
-					}).result(function (evt, data, formatted) {
-					    $("#sourceId-" + id).val(data.elementId);
-					});
 				}
-			}
-		);
+				
+				// Initialize the autocomplete field
+				$("#sourceTitle-" + id).autocomplete({
+					source: data,
+					minLength: 0,
+					focus: function(event, ui) {
+						$("#sourceTitle-" + id).val(ui.item.label);
+						return false;
+					},
+					select: function (event, ui) {
+						$("#sourceId-" + id).val(ui.item.value);
+						return false;
+					}
+				});
+			});
 	});
 }
 

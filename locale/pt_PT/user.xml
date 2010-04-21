@@ -102,4 +102,7 @@
 	<message key="user.workingLanguages">Idiomas Conhecidos</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
 	<message key="user.other">Outro</message>
+	<message key="user.affiliation.description">(A sua instituição, e.g. "Instituto Superior de Psicologia Aplicada - Instituto Universitário")</message>
+	<message key="user.gossip">Notas Privadas</message>
+	<message key="user.profile.form.affiliationRequired">É requerido uma afiliação.</message>
 </locale>

@@ -66,7 +66,7 @@ class PKPPlugin {
 	}
 
 	function getTemplatePath() {
-		$basePath = dirname(dirname(dirname(__FILE__)));
+		$basePath = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
 		return "file:$basePath/" . $this->getPluginPath() . '/';
 	}
 

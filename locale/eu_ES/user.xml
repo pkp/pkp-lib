@@ -100,4 +100,9 @@
 	<message key="user.userHome">Erabiltzailearen hasierako orria</message>
 	<message key="user.username">Erabiltzaile-izena</message>
 	<message key="user.workingLanguages">Laneko hizkuntzak</message>
+	<message key="user.affiliation.description">(Zure erakundea, adibidez, "Simon Fraser University")</message>
+	<message key="user.gossip">Ohar pribatuak</message>
+	<message key="user.profile.form.profileImageInvalid">Irudi-formatu profil baliogabea edo irudi handiegia. Formatu onartuak .gif, .jpg, eta .png dira, eta irudiak ezin du 150x150 pixeleko tamaina gainditu.</message>
+	<message key="user.other">Beste batzuk</message>
+	<message key="user.profile.form.affiliationRequired">Afiliatzea behar da.</message>
 </locale>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/es_ES/grid.xml
+  *
+  * Copyright (c) 2000-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the es_ES locale.
+  *
+  * $Id$
+  -->
+
+<locale name="es_ES" full_name = "Español (España)">
+	<!-- Common -->
+	<message key="grid.noItems">No hay artículos</message>
+	<message key="grid.settings">Preferéncias</message>
+
+	<message key="grid.action.sort">Orden</message>
+	<message key="grid.action.addItem">Agregar ítem</message>
+	<message key="grid.action.delete">Borrar</message>
+	<message key="grid.action.edit">Editar</message>
+	<message key="grid.action.restoreDefaults">Restaurar valores por defecto</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Acciones</message>
+	<message key="grid.columns.institution">Institución</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Patrocinadores</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Tope</message>
+	<message key="grid.masthead.column.groups">Grupos</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Ayudante</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Formularios de revisión</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Permitir que los archivos de este tipo sean ordenados por componente (por ejemplo, por capítulo)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Ilustraciones / Permisos</message>
+	<message key="grid.artworkFile.file">Fichero</message>
+	<message key="grid.artworkFile.form.title">Agregar Ilustraciones / Permisos</message>
+	<message key="grid.artworkFile.form.metadata">Metainformación de las Ilustraciones</message>
+	<message key="grid.artworkFile.caption">Título</message>
+	<message key="grid.artworkFile.credit">Crédito</message>
+	<message key="grid.artworkFile.copyrightOwner">Propietario del Copyright</message>
+	<message key="grid.artworkFile.copyrightContact">Información de contacto (si no hay autor/prensa)</message>
+	<message key="grid.artworkFile.permissionTerms">Términos de Licencia</message>
+	<message key="grid.artworkFile.permissionForm">Formulario de Licencia</message>
+	<message key="grid.artworkFile.type">Tipo</message>
+	<message key="grid.artworkFile.type.table">Tabla</message>
+	<message key="grid.artworkFile.type.figure">Figura</message>
+	<message key="grid.artworkFile.placement">Situación en el libro</message>
+	<message key="grid.artworkFile.placementDetail">Número de Tabla/Figura</message>
+	<message key="grid.artworkFile.contactAuthor">Contactar con el autor</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Ficheros</message>
+	<message key="grid.libraryFiles.submission.title">Envíos a la Biblioteca</message>
+	<message key="grid.libraryFiles.editorial.title">Editorial de la Biblioteca</message>
+	<message key="grid.libraryFiles.review.title">Revisión de la Biblioteca</message>
+	<message key="grid.libraryFiles.production.title">Producción de la Biblioteca</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Producción de plantillas de la Biblioteca</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Lista de comprobación de la presentación</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Item de la lista de comprobación</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.submit.contributor.name">Nombre</message>
+	<message key="author.submit.contributor.email">email</message>
+	<message key="author.submit.contributor.role">Rol</message>
+	<message key="author.submit.contributor.principalContact">Contacto principal</message>
+</locale>

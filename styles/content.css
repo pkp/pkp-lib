@@ -685,6 +685,59 @@ a.uploaded {
 
 /* @end */
 
+/* @group File upload field overrides */
+
+.fileInputContainer {
+	height: 30px; 
+	width: 350px;
+	position:relative;
+	float:left;
+}
+
+input.uploadField {
+	padding: 3px; 
+	margin: 0; 
+	height: 30px; 
+	width: 350px; 
+	position: relative; 
+	z-index: 2; 
+	text-align:right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+}
+
+.fakeFile {
+	left:0;
+	line-height:90%;
+	margin:0;
+	padding:0;
+	position:absolute;
+	top:0;
+	width:350px;
+	z-index:1;
+}
+
+input.fakeInput {
+	margin-bottom:5px;
+	margin-left:0;
+	height:15px;
+	padding-left:3px;
+	padding-top:1px;
+	width:241px;
+}
+
+input.fakeButton {
+	line-height: 90%;
+}
+
+input.uploadFile {
+	line-height: 90%;
+	height: 29px;
+}
+
+/* @end */
+
 /* @group Other Stuff */
 
 #toolbox .block {

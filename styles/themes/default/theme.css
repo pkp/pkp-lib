@@ -102,6 +102,10 @@ a.task:hover
 	background-color: #efefef;
 }
 
+.ui-widget {
+	font-size: .9em;
+}
+
 /* @end */
 
 /* @end */

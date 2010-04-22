@@ -133,6 +133,7 @@ class Form {
 		$templateMgr->register_function('fbvElementMultilingual', array(&$this, 'smartyFBVElementMultilingual'));
 		$templateMgr->register_function('fbvCheckbox', array(&$this, 'smartyFBVCheckbox'));
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
+		$templateMgr->register_function('fbvFileInput', array(&$this, 'smartyFBVFileInput'));
 
 		$templateMgr->assign('fbvStyles', $this->fbvStyles);
 
@@ -928,6 +929,42 @@ class Form {
 		return $smarty->fetch('form/radioButton.tpl');
 	}
 
+	/**
+	 * File upload input.
+	 * parameters: submit (optional - name of submit button to include), disabled (optional), name (optional - value of 'id' by default), all other attributes associated with this control (except class and type)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVFileInput($params, &$smarty) {
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: file input form element \'id\' not set.');
+		}
+
+		$radioParams = '';
+		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
+		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
+		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
+		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['submit'] = isset($params['submit']) ? $params['submit'] : false;
+
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'class': break; //ignore class attributes
+				case 'type': break;
+				case 'id': $smarty->assign('FBV_id', $params['id']); break;
+				case 'submit': $smarty->assign('FBV_submit', $params['submit']); break;
+				case 'name': $smarty->assign('FBV_name', $params['name']); break;
+				case 'label': $smarty->assign('FBV_label', $params['label']); break;
+				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				default: $radioParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+			}
+		}
+
+		$smarty->assign('FBV_radioParams', $radioParams);
+
+		return $smarty->fetch('form/fileInput.tpl');
+	}
+	
 	/**
 	 * Assign the appropriate class name to the element for client-side validation
 	 * @param $params array

@@ -20,12 +20,13 @@
  * 
  */
 
-function fontSize(container, target, minSize, defSize, maxSize) {
+function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	/*Editable settings*/
 	var minCaption = "Make font size smaller"; //title for smallFont button
 	var defCaption = "Make font size default"; //title for defaultFont button
 	var maxCaption = "Make font size larger"; //title for largefont button
 	
+	var cookie = 'font-size';
 	
 	//Now we'll add the font size changer interface in container
 	smallFontHtml = "<a href='javascript:void(0);' class='smallFont' title='" + minCaption +"'>" + minCaption + "</a> ";
@@ -35,7 +36,6 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 	
 	//Read cookie & sets the fontsize
 	if ($.cookie != undefined) {
-		var cookie = target.replace(/[#. ]/g,'');
 		var value = $.cookie(cookie);
 		if (value !=null) {
 			$(target).css('font-size', parseInt(value));
@@ -55,7 +55,7 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 		if (newSize < maxSize) {
 			$(container + " .largeFont").removeClass("ldisabled");
 		}
-		updatefontCookie(target, newSize); //sets the cookie 
+		updatefontCookie(newSize, baseUrl); //sets the cookie 
 		
 	});
 
@@ -64,7 +64,7 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 		$(target).css('font-size', defSize);
 		$(container + " .smallFont").removeClass("sdisabled");
 		$(container + " .largeFont").removeClass("ldisabled");
-		updatefontCookie(target, defSize);
+		updatefontCookie(defSize, baseUrl);
 	});
 
 	//on clicking large font size button, font size is incremented by 1 to the maximum limit
@@ -80,13 +80,13 @@ function fontSize(container, target, minSize, defSize, maxSize) {
 		if (newSize >= maxSize) {
 			$(container + " .largeFont").addClass("ldisabled");
 		}
-		updatefontCookie(target, newSize);
+		updatefontCookie(newSize, baseUrl);
 	});
 
-	function updatefontCookie(target, size) {
+	function updatefontCookie(size, baseUrl) {
 		if ($.cookie != undefined) { //If cookie plugin available, set a cookie
-			var cookie = target.replace(/[#. ]/g,'');
-			$.cookie(cookie, size);
+			var cookie = 'font-size';
+			$.cookie(cookie, size, { path: baseUrl });
 		} 
 	}
 }

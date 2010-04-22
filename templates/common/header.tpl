@@ -28,6 +28,17 @@
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" />{/if}
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
+	
+	<!-- Base Jquery -->
+	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
+	<script>
+		google.load("jquery", "1");
+		google.load("jqueryui", "1");
+	</script>
+	{else}
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+	{/if}
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}

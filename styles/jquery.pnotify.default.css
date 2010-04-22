@@ -40,11 +40,12 @@ html > body .ui-pnotify {
 }
 .ui-pnotify-title {
 	display: block;
-	font-size: 1.2em;
+	font-size: 1.0em;
 	font-weight: bold;
 	margin-bottom: 4px;
 }
 .ui-pnotify-text {
+	font-size: .8em;
 	display: block;
 }
 .ui-pnotify-icon, .ui-pnotify-icon span {

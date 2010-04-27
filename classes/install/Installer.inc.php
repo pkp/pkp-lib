@@ -406,9 +406,9 @@ class Installer {
 					require_once($action['file']);
 				}
 				if (isset($action['attr']['class'])) {
-					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this);
+					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this, $action['attr']);
 				} else {
-					return call_user_func(array(&$this, $action['attr']['function']));
+					return call_user_func(array(&$this, $action['attr']['function']), $this, $action['attr']);
 				}
 				break;
 			case 'note':

@@ -604,6 +604,22 @@ class Installer {
 	function setCurrentVersion(&$version) {
 		$this->currentVersion = $version;
 	}
+
+	/**
+	 * For upgrade: install email templates and data
+	 * @param $installer object
+	 * @param $attr array Attributes: array containing
+	 * 		'key' => 'EMAIL_KEY_HERE',
+	 * 		'locales' => 'en_US,fr_CA,...'
+	 */
+	function installEmailTemplate($installer, $attr) {
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
+		foreach (explode(',', $attr['locales']) as $locale) {
+			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
+		}
+		return true;
+	}
 }
 
 ?>

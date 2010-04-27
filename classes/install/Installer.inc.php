@@ -406,9 +406,9 @@ class Installer {
 					require_once($action['file']);
 				}
 				if (isset($action['attr']['class'])) {
-					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this);
+					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this, $action['attr']);
 				} else {
-					return call_user_func(array(&$this, $action['attr']['function']));
+					return call_user_func(array(&$this, $action['attr']['function']), $this, $action['attr']);
 				}
 				break;
 			case 'note':
@@ -603,6 +603,22 @@ class Installer {
 	 */
 	function setCurrentVersion(&$version) {
 		$this->currentVersion = $version;
+	}
+
+	/**
+	 * For upgrade: install email templates and data
+	 * @param $installer object
+	 * @param $attr array Attributes: array containing
+	 * 		'key' => 'EMAIL_KEY_HERE',
+	 * 		'locales' => 'en_US,fr_CA,...'
+	 */
+	function installEmailTemplate($installer, $attr) {
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
+		foreach (explode(',', $attr['locales']) as $locale) {
+			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
+		}
+		return true;
 	}
 }
 

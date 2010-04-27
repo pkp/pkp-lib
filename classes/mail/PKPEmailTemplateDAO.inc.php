@@ -656,15 +656,18 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $templatesFile string Filename to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
+	 * @param $emailKey string If specified, the key of the single template
+	 * to install (otherwise all are installed)
 	 * @return array
 	 */
-	function installEmailTemplates($templatesFile, $returnSql = false) {
+	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
 		if (!isset($data['email'])) return false;
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
+			if ($emailKey && $emailKey != $attrs['key']) continue;
 			$sql[] = 'INSERT INTO email_templates_default
 				(email_key, can_disable, can_edit, from_role_id, to_role_id)
 				VALUES
@@ -690,9 +693,11 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $templateDataFile string Filename to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
+	 * @param $emailKey string If specified, the key of the single template
+	 * to install (otherwise all are installed)
 	 * @return array
 	 */
-	function installEmailTemplateData($templateDataFile, $returnSql = false) {
+	function installEmailTemplateData($templateDataFile, $returnSql = false, $emailKey = null) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parse($templateDataFile, array('email_texts', 'email_text', 'subject', 'body', 'description'));
@@ -700,6 +705,7 @@ class PKPEmailTemplateDAO extends DAO {
 		$locale = $data->getAttribute('locale');
 
 		foreach ($data->getChildren() as $emailNode) {
+			if ($emailKey && $emailKey != $emailNode->getAttribute('key')) continue;
 			$sql[] = 'DELETE FROM email_templates_default_data WHERE email_key = ' . $this->_dataSource->qstr($emailNode->getAttribute('key')) . ' AND locale = ' . $this->_dataSource->qstr($locale);
 			if (!$returnSql) {
 				$this->update(array_shift($sql));

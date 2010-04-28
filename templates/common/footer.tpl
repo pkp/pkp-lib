@@ -23,5 +23,21 @@
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
 
 </div><!-- container -->
+{if !empty($systemNotifications)}
+	{translate|assign:"defaultTitleText" key="notification.notification"}
+	<script type="text/javascript">
+	<!--
+	{foreach from=$systemNotifications item=notification}
+		{literal}
+			$.pnotify({
+				pnotify_title: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js"|default:$defaultTitleText key=$notification->getTitle()}{else}{$notification->getTitle()|escape:"js"|default:$defaultTitleText}{/if}{literal}',
+				pnotify_text: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js" key=$notification->getContents() param=$notification->getParam()}{else}{$notification->getContents()|escape:"js"}{/if}{literal}',
+				pnotify_notice_icon: 'icon {/literal}{$notification->getIconClass()|escape:"js"}{literal}'
+			});
+		{/literal}
+	{/foreach}
+	// -->
+	</script>
+{/if}{* systemNotifications *}
 </body>
 </html>

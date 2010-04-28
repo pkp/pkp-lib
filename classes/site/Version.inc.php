@@ -21,8 +21,22 @@ class Version extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Version() {
+	function Version($major, $minor, $revision, $build, $dateInstalled, $current,
+			$productType, $product, $productClassName, $lazyLoad) {
+
 		parent::DataObject();
+
+		// Initialize object
+		$this->setMajor($major);
+		$this->setMinor($minor);
+		$this->setRevision($revision);
+		$this->setBuild($build);
+		$this->setDateInstalled($dateInstalled);
+		$this->setCurrent($current);
+		$this->setProductType($productType);
+		$this->setProduct($product);
+		$this->setProductClassName($productClassName);
+		$this->setLazyLoad($lazyLoad);
 	}
 
 	/**
@@ -44,27 +58,33 @@ class Version extends DataObject {
 	/**
 	 * Static method to return a new version from a version string of the form "W.X.Y.Z".
 	 * @param $versionString string
-	 * @param $product string
 	 * @param $productType string
+	 * @param $product string
+	 * @param $productClass string
+	 * @param $lazyLoad integer
 	 * @return Version
 	 */
-	function &fromString($versionString, $product = null, $productType = null) {
-		$version = new Version();
+	function &fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0) {
+		$versionArray = explode('.', $versionString);
 
 		if(!$product && !$productType) {
-			$application = PKPApplication::getApplication();
+			$application =& PKPApplication::getApplication();
 			$product = $application->getName();
 			$productType = 'core';
 		}
 
-		$versionArray = explode('.', $versionString);
-		$version->setMajor(isset($versionArray[0]) ? (int) $versionArray[0] : 0);
-		$version->setMinor(isset($versionArray[1]) ? (int) $versionArray[1] : 0);
-		$version->setRevision(isset($versionArray[2]) ? (int) $versionArray[2] : 0);
-		$version->setBuild(isset($versionArray[3]) ? (int) $versionArray[3] : 0);
-		$version->setDateInstalled(null);
-		$version->setProduct($product);
-		$version->setProductType($productType);
+		$version = new Version(
+			(isset($versionArray[0]) ? (int) $versionArray[0] : 0),
+			(isset($versionArray[1]) ? (int) $versionArray[1] : 0),
+			(isset($versionArray[2]) ? (int) $versionArray[2] : 0),
+			(isset($versionArray[3]) ? (int) $versionArray[3] : 0),
+			Core::getCurrentDate(),
+			1,
+			$productType,
+			$product,
+			$productClass,
+			$lazyLoad
+		);
 
 		return $version;
 	}
@@ -170,6 +190,22 @@ class Version extends DataObject {
 	}
 
 	/**
+	 * Get product type.
+	 * @return string
+	 */
+	function getProductType() {
+		return $this->getData('productType');
+	}
+
+	/**
+	 * Set product type.
+	 * @param $product string
+	 */
+	function setProductType($productType) {
+		return $this->setData('productType', $productType);
+	}
+
+	/**
 	 * Get product name.
 	 * @return string
 	 */
@@ -186,19 +222,35 @@ class Version extends DataObject {
 	}
 
 	/**
-	 * Get product type.
+	 * Get the product's class name
 	 * @return string
 	 */
-	function getProductType() {
-		return $this->getData('productType');
+	function getProductClassName() {
+		return $this->getData('productClassName');
 	}
 
 	/**
-	 * Set product type.
-	 * @param $product string
+	 * Set the product's class name
+	 * @param $productClassName string
 	 */
-	function setProductType($productType) {
-		return $this->setData('productType', $productType);
+	function setProductClassName($productClassName) {
+		$this->setData('productClassName', $productClassName);
+	}
+
+	/**
+	 * Get the lazy load flag for this product
+	 * @return boolean
+	 */
+	function getLazyLoad() {
+		return $this->getData('lazyLoad');
+	}
+
+	/**
+	 * Set the lazy load flag for this product
+	 * @param $lazyLoad boolean
+	 */
+	function setLazyLoad($lazyLoad) {
+		return $this->setData('lazyLoad', $lazyLoad);
 	}
 
 	/**

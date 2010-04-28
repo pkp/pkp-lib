@@ -44,6 +44,11 @@
 		</field>
 		<field name="product_type" type="C2" size="30"/>
 		<field name="product" type="C2" size="30"/>
+		<field name="product_class_name" type="C2" size="80"/>
+		<field name="lazy_load" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Installation and upgrade version history.</descr>
 	</table>
 

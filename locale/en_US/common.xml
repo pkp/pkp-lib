@@ -89,11 +89,13 @@
 	<message key="common.delete">Delete</message>
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.description">Description</message>
+	<message key="common.disable">Disable</message>
 	<message key="common.disabled">Disabled</message>
 	<message key="common.discipline">Discipline</message>
 	<message key="common.done">Done</message>
 	<message key="common.download">Download</message>
 	<message key="common.edit">Edit</message>
+	<message key="common.enable">Enable</message>
 	<message key="common.enabled">Enabled</message>
 	<message key="common.error.databaseError">A database error has occurred: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">An unknown database connection error has occurred.</message>
@@ -141,6 +143,8 @@
 	<message key="common.other">Other</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
 	<message key="common.plugin">Plugin</message>
+	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
+	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
 	<message key="common.publisher">Publisher</message>
 	<message key="common.record">Record</message>
 	<message key="common.related">Related</message>

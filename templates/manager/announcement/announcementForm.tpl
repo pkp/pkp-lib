@@ -41,6 +41,8 @@
 		</td>
 	</tr>
 {/if}
+
+{if $announcementTypes->getCount() != 0}
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="typeId" key="manager.announcements.form.typeId"}</td>
 	<td width="80%" class="value"><select name="typeId" id="typeId" class="selectMenu">
@@ -50,6 +52,8 @@
 		{/iterate}
 	</select></td>
 </tr>
+{/if}{* $announcementTypes->getCount() != 0 *}
+
 <tr valign="top">
 	<td class="label">{fieldLabel name="title" required="true" key="manager.announcements.form.title"}</td>
 	<td class="value"><input type="text" name="title[{$formLocale|escape}]" value="{$title[$formLocale]|escape}" size="40" id="title" maxlength="255" class="textField" /></td>

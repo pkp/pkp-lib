@@ -237,22 +237,9 @@ class PKPTemplateManager extends Smarty {
 
 		$charset = Config::getVar('i18n', 'client_charset');
 
+		// Add additional java script URLs
 		if (!empty($this->javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');
-
-			// Add basic java script URLs
-			if(Config::getVar('general', 'enable_cdn')) {
-				$javaScript = '<script src="http://www.google.com/jsapi"></script>
-				<script>
-					google.load("jquery", "1");
-					google.load("jqueryui", "1");
-				</script>';
-			} else {
-				$javaScript = '<script type="text/javascript" src="'.$baseUrl.'/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-				<script type="text/javascript" src="'.$baseUrl.'/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>';
-			}
-
-			// Add additional java script URLs
 			$scriptOpen = '	<script language="javascript" type="text/javascript" src="';
 			$scriptClose = '"></script>';
 			foreach ($this->javaScripts as $script) {

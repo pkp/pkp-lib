@@ -129,6 +129,44 @@ class VersionCheck {
 		}
 		return null;
 	}
+
+	/**
+	 * Checks whether the given version file exists and whether it
+	 * contains valid data. Returns a Version object if everything
+	 * is ok, otherwise null.
+	 *
+	 * @param $versionFile string
+	 * @param $templateMgr TemplateManager
+	 * @return Version or null if invalid or missing version file
+	 */
+	function &getValidPluginVersionInfo($versionFile, &$templateMgr) {
+		$nullVar = null;
+		if (FileManager::fileExists($versionFile)) {
+			$versionInfo =& VersionCheck::parseVersionXML($versionFile);
+		} else {
+			$templateMgr->assign('message', 'manager.plugins.versionFileNotFound');
+			return $nullVar;
+		}
+
+		$pluginVersion =& $versionInfo['version'];
+
+		// Validate plugin name and type to avoid abuse
+		$productType = explode(".", $versionInfo['type']);
+		if(count($productType) != 2 || $productType[0] != 'plugins') {
+			return $nullVar;
+			$templateMgr->assign('message', 'manager.plugins.versionFileInvalid');
+		}
+
+		$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
+		foreach($namesToValidate as $nameToValidate) {
+			if (!String::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+				return $nullVar;
+				$templateMgr->assign('message', 'manager.plugins.versionFileInvalid');
+			}
+		}
+
+		return $pluginVersion;
+	}
 }
 
 ?>

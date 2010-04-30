@@ -28,10 +28,13 @@ class PKPAuthor extends DataObject {
 	/**
 	 * Get the author's complete name.
 	 * Includes first name, middle name (if applicable), and last name.
+	 * @param $lastFirst boolean False / default: Firstname Middle Lastname
+	 * 	If true: Lastname, Firstname Middlename
 	 * @return string
 	 */
-	function getFullName() {
-		return $this->getData('firstName') . ' ' . ($this->getData('middleName') != '' ? $this->getData('middleName') . ' ' : '') . $this->getData('lastName');
+	function getFullName($lastFirst = false) {
+		if ($lastFirst) return $this->getData('lastName') . ', ' . $this->getData('firstName') . ($this->getData('middleName') != '' ? ' ' . $this->getData('middleName') : '');
+		else return $this->getData('firstName') . ' ' . ($this->getData('middleName') != '' ? $this->getData('middleName') . ' ' : '') . $this->getData('lastName');
 	}
 
 	//

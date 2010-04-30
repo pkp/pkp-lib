@@ -33,20 +33,19 @@ class NoteManager {
 	 * @return Note object
 	 */
 	function createNote($userId, $contents, $assocType, $assocId) {
-		$note = new Note();
+		$noteDao =& DAORegistry::getDAO('NoteDAO');
+		
+		$note = $noteDao->newDataObject();
 		$context =& Request::getContext();
 		$contextId = $context?$context->getId():0;
 
 		$note->setUserId($userId);
 		$note->setContents($contents);
 		$note->setAssocType($assocType);
-		$note->setAssocId($assocType);
+		$note->setAssocId($assocId);
 		$note->setContext($contextId);
 
-		$noteDao =& DAORegistry::getDAO('NoteDAO');
-		$noteDao->insertNote($note);
-
-		return $note;
+		return $noteDao->insertNote($note);
 	}
 
 }

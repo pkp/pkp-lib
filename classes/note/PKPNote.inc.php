@@ -40,6 +40,15 @@ class PKPNote extends DataObject {
 	function setUserId($userId) {
 		return $this->setData('userId', $userId);
 	}
+	
+	/**
+	 * Return the user of the note's author.
+	 * @return User
+	 */
+	function getUser() {
+		$userDao =& DAORegistry::getDAO('UserDAO');
+		return $userDao->getUser($this->getUserId(), true);
+	}
 
 	/**
 	 * get date note was created

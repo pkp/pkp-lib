@@ -50,7 +50,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 						$form.serialize(),
 						function(returnString) {
 							if(returnString.isScript == true) {
-								eval(returnString.script)
+								eval(returnString.script);
 							}
 							if (returnString.status == true) {
 								updateItem(actType, actOnId, returnString.content);
@@ -131,7 +131,11 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 				// Post to server and construct callback
 				$.post(url, '', function(returnString) {
 					if (returnString.status) {
-						updateItem(actType, actOnId, returnString.content);
+						if(returnString.isScript) {
+							eval(returnString.script);
+						} else {
+							updateItem(actType, actOnId, returnString.content);
+						}
 					} else {
 						// Alert that the action failed
 						confirm(null, null, null, returnString.content, localizedButtons, callingButton);

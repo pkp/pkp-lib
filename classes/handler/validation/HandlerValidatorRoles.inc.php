@@ -1,6 +1,6 @@
 <?php
 /**
- * @file classes/handler/HandlerValidatorPress.inc.php
+ * @file classes/handler/HandlerValidatorRoles.inc.php
  *
  * Copyright (c) 2003-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -36,8 +36,8 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		$press =& Request::getPress();
-		$pressId = ($press)?$press->getId():0;
+		$context =& Request::getContext();
+		$contextId = ($context)?$context->getId():0;
 
 		$user = Request::getUser();
 		if ( !$user ) return false;
@@ -46,9 +46,9 @@ class HandlerValidatorRoles extends HandlerValidator {
 		$returner = true;
 		foreach ( $this->roles as $roleId ) {
 			if ( $roleId == ROLE_ID_SITE_ADMIN ) {
-				$exists = $roleDao->userHasRole(0, $user->getId(), $roleId);
+				$exists = $roleDao->roleExists(0, $user->getId(), $roleId);
 			} else {
-				$exists = $roleDao->userHasRole($pressId, $user->getId(), $roleId);
+				$exists = $roleDao->roleExists($contextId, $user->getId(), $roleId);
 			}
 			if ( !$this->all && $exists) return true;
 			$returner = $returner && $exists;

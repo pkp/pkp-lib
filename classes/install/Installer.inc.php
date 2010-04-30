@@ -133,6 +133,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function preInstall() {
+		$this->log('pre-install');
 		if (!isset($this->dbconn)) {
 			// Connect to the database.
 			$conn =& DBConnection::getInstance();
@@ -147,7 +148,7 @@ class Installer {
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao =& DAORegistry::getDAO('VersionDAO');
-			$this->currentVersion =& $versionDao->getCurrentVersion(null, $this->isUpgrade());
+			$this->currentVersion =& $versionDao->getCurrentVersion();
 		}
 
 		if (!isset($this->locale)) {
@@ -203,6 +204,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function postInstall() {
+		$this->log('post-install');
 		$result = true;
 		HookRegistry::call('Installer::postInstall', array(&$this, &$result));
 		return $result;
@@ -244,10 +246,8 @@ class Installer {
 		$versionString = $installTree->getAttribute('version');
 		if (isset($versionString)) {
 			$this->newVersion =& Version::fromString($versionString);
-			$this->newVersion->setCurrent(1);
 		} else {
 			$this->newVersion = $this->currentVersion;
-			$this->newVersion->setCurrent(1);
 		}
 
 		// Parse descriptor
@@ -286,7 +286,7 @@ class Installer {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
 			if ($this->getParam('manualInstall')) {
 				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product) VALUES (%d, %d, %d, %d, NOW(), 1, %s,%s)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct())));
+				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load) VALUES (%d, %d, %d, %d, NOW(), 1, %s,%s)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct()), $this->dbconn->qstr($this->newVersion->getProductClassName()), $this->newVersion->getLazyLoad()));
 			} else {
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
 				if (!$versionDao->insertVersion($this->newVersion)) {
@@ -596,7 +596,7 @@ class Installer {
 		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
 		return true;
 	}
-	
+
 	/**
 	 * Set the current version for this installer.
 	 * @var $version Version

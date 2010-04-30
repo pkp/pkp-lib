@@ -14,6 +14,7 @@
  */
 
 import('handler.validation.HandlerValidator');
+import('handler.validation.HandlerValidatorRoles');
 import('handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {

@@ -82,8 +82,9 @@ class HTTPFileWrapper extends FileWrapper {
 			$additionalHeadersString .= "$name: $value\r\n";
 		}
 
+		$requestHost = preg_replace("!^.*://!", "", $realHost);
 		$request = 'GET ' . (empty($this->proxyHost)?$path:$this->url) . " HTTP/1.0\r\n" .
-			"Host: $realHost\r\n" .
+			"Host: $requestHost\r\n" .
 			$additionalHeadersString .
 			"Connection: Close\r\n\r\n";
 		fwrite($this->fp, $request);

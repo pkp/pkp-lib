@@ -36,6 +36,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var $styleSheets array of URLs to stylesheets */
 	var $styleSheets;
 
+	/** @var $javaScripts array of URLs to javascript files */
+	var $javaScripts;
+
 	/** @var $initialized Kludge because of reference problems with
 	    TemplateManager::getManager() invoked during constructor process */
 	var $initialized;
@@ -80,6 +83,9 @@ class PKPTemplateManager extends Smarty {
 		// Assign common variables
 		$this->styleSheets = array();
 		$this->assign_by_ref('stylesheets', $this->styleSheets);
+
+		$this->javaScripts = array();
+
 		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
@@ -94,6 +100,10 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
 		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
+
+		// Add jQuery stylesheets
+		$this->addStyleSheet($request->getBaseUrl() . '/lib/pkp/styles/jqueryUi.css');
+		$this->addStyleSheet($request->getBaseUrl() . '/lib/pkp/styles/jquery.pnotify.default.css');
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);
@@ -138,7 +148,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
-		
+
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
 											array(&$this, 'smartyResourceCoreGetTimestamp'),
@@ -163,6 +173,18 @@ class PKPTemplateManager extends Smarty {
 
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
+
+			$user =& $request->getUser();
+			if ($user) {
+				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+				$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+				$notificationsArray =& $notifications->toArray();
+				unset($notifications);
+				foreach ($notificationsArray as $notification) {
+					$notificationDao->deleteNotificationById($notification->getId());
+				}
+				$this->assign('systemNotifications', $notificationsArray);
+			}
 		}
 
 		$this->initialized = false;
@@ -201,6 +223,10 @@ class PKPTemplateManager extends Smarty {
 		array_push($this->styleSheets, $url);
 	}
 
+	function addJavaScript($url) {
+		array_push($this->javaScripts, $url);
+	}
+
 	/**
 	 * Display the template.
 	 */
@@ -210,6 +236,19 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$charset = Config::getVar('i18n', 'client_charset');
+
+		// Add additional java script URLs
+		if (!empty($this->javaScripts)) {
+			$baseUrl = $this->get_template_vars('baseUrl');
+			$scriptOpen = '	<script language="javascript" type="text/javascript" src="';
+			$scriptClose = '"></script>';
+			foreach ($this->javaScripts as $script) {
+				$javaScript .= $scriptOpen . $baseUrl . '/' . $script . $scriptClose . "\n";
+			}
+
+			$additionalHeadData = $this->get_template_vars('additionalHeadData');
+			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
+		}
 
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display
@@ -772,7 +811,7 @@ class PKPTemplateManager extends Smarty {
 				$string = $this->_removeTags($string, $tags, false, $length);
 			}
 			$length -= min($length, String::strlen($etc));
-			if (!$middle) {        	
+			if (!$middle) {
 				if(!$break_words) {
 					$string = String::regexp_replace('/\s+?(\S+)?$/', '', String::substr($string, 0, $length+1));
 				} else $string = String::substr($string, 0, $length+1);
@@ -801,7 +840,7 @@ class PKPTemplateManager extends Smarty {
 					if ($skip_tags) {
 						$firstHalf = $this->_reinsertTags($firstHalf, $tags);
 						$secondHalf = $this->reinsertTags($secondHalf, $tagsReverse, strlen($string));
-						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);  
+						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);
 					} else {
 						return $firstHalf . $etc . $secondHalf;
 					}
@@ -857,7 +896,7 @@ class PKPTemplateManager extends Smarty {
 	 * Removes tags from the back of the string and keeps a record of their position from the back
 	 * @author Matt Crider
 	 * @param string
-	 * @param int loc Keeps track of position from the back of original string 
+	 * @param int loc Keeps track of position from the back of original string
 	 * @param array
 	 * @param int
 	 * @return string
@@ -875,7 +914,7 @@ class PKPTemplateManager extends Smarty {
 				}
 				$tag = '<' . $tag;
 				$openBrack++;
-			
+
 				$tags[] = array($tag, $loc);
 				return $this->_removeTagsAuxReverse(String::substr($string, 0, -$openBrack), $loc+$openBrack, $tags, $length);
 			}
@@ -894,7 +933,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function _reinsertTags($string, &$tags, $reverse = false) {
 		if(empty($tags)) return $string;
-		
+
 		for($i = 0; $i < count($tags); $i++) {
 			$length = String::strlen($string);
 			if ($tags[$i][1] < String::strlen($string)) {
@@ -909,14 +948,14 @@ class PKPTemplateManager extends Smarty {
 				}
 			}
 		}
-	
+
 		return $string;
 	}
 
 	/**
 	 * Helper function: Closes all dangling XHTML tags in a string
 	 * Modified from http://milianw.de/code-snippets/close-html-tags
-	 *  by Milian Wolff <mail@milianw.de> 
+	 *  by Milian Wolff <mail@milianw.de>
 	 * @param string
 	 * @return string
 	 */
@@ -924,7 +963,7 @@ class PKPTemplateManager extends Smarty {
 		// Put all opened tags into an array
 		String::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
 		$openedtags = $result[1];
-		
+
 		// Put all closed tags into an array
 		String::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
 		$closedtags = $result[1];
@@ -1183,7 +1222,7 @@ class PKPTemplateManager extends Smarty {
 		}
 		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
-	
+
 	function smartyInitTabs($params, &$smarty) {
 		// Required params
 		if (!isset($params['id'])) {

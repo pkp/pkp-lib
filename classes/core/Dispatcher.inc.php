@@ -125,7 +125,7 @@ class Dispatcher {
 		}
 
 		Locale::initialize();
-		PluginRegistry::loadCategory('generic');
+		PluginRegistry::loadCategory('generic', true);
 
 		$router->route($request);
 	}

@@ -286,7 +286,7 @@ class PKPLocale {
 	}
 
 	/**
-	 * Uninstall support for an existing locale.
+	 * Install support for a new locale.
 	 * @param $locale string
 	 */
 	function installLocale($locale) {
@@ -299,13 +299,13 @@ class PKPLocale {
 		// Load all plugins so they can add locale data if needed
 		$categories = PluginRegistry::getCategories();
 		foreach ($categories as $category) {
-			PluginRegistry::loadCategory($category, true);
+			PluginRegistry::loadCategory($category);
 		}
 		HookRegistry::call('PKPLocale::installLocale', array(&$locale));
 	}
 
 	/**
-	 * Install support for a new locale.
+	 * Uninstall support for an existing locale.
 	 * @param $locale string
 	 */
 	function uninstallLocale($locale) {

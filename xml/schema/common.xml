@@ -50,6 +50,14 @@
 			<DEFAULT VALUE="0"/>
 		</field>
 		<descr>Installation and upgrade version history.</descr>
+		<index name="versions_pkey">
+			<col>product</col>
+			<col>major</col>
+			<col>minor</col>
+			<col>revision</col>
+			<col>build</col>
+			<UNIQUE />
+		</index>
 	</table>
 
 	<!--

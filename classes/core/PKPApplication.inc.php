@@ -22,6 +22,9 @@ define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
 class PKPApplication {
+	var $enabledProducts;
+	var $allProducts;
+
 	function PKPApplication() {
 		// Configure error reporting
 		// FIXME: Error logging needs to be suppressed for strict
@@ -218,6 +221,65 @@ class PKPApplication {
 	function getVersionDescriptorUrl() {
 		// must be implemented by sub-classes
 		assert(false);
+	}
+
+	/**
+	 * This function retrieves all enabled product versions once
+	 * from the database and caches the result for further
+	 * access.
+	 *
+	 * @param $category string
+	 * @return array
+	 */
+	function &getEnabledProducts($category = null) {
+		if (is_null($this->enabledProducts)) {
+			$contextDepth = $this->getContextDepth();
+
+			$settingContext = array();
+			if ($contextDepth > 0) {
+				$request =& $this->getRequest();
+				$router =& $request->getRouter();
+
+				// Try to identify the main context (e.g. journal, conference, press),
+				// will be null if none found.
+				$mainContext =& $router->getContext($request, 1);
+
+				// Create the context for the setting if found
+				if ($mainContext) $settingContext[] = $mainContext->getId();
+				$settingContext = array_pad($settingContext, $contextDepth, 0);
+				$settingContext = array_combine($this->getContextList(), $settingContext);
+			}
+
+			$versionDAO =& DAORegistry::getDAO('VersionDAO');
+			$this->enabledProducts =& $versionDAO->getCurrentProducts($settingContext);
+		}
+
+		if (is_null($category)) {
+			return $this->enabledProducts;
+		} elseif (isset($this->enabledProducts[$category])) {
+			return $this->enabledProducts[$category];
+		} else {
+			$returner = array();
+			return $returner;
+		}
+	}
+
+	/**
+	 * Get the list of plugin categories for this application.
+	 */
+	function getPluginCategories() {
+		// To be implemented by sub-classes
+		assert(false);
+	}
+
+	/**
+	 * Return the current version of the application.
+	 * @return Version
+	 */
+	function &getCurrentVersion() {
+		$currentVersion =& $this->getEnabledProducts('core');
+		assert(count($currentVersion)) == 1;
+		return $currentVersion[$this->getName()];
 	}
 
 	/**

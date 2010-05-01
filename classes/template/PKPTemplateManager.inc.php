@@ -167,8 +167,8 @@ class PKPTemplateManager extends Smarty {
 			 */
 			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
 
-			$versionDAO =& DAORegistry::getDAO('VersionDAO');
-			$currentVersion = $versionDAO->getCurrentVersion();
+			$application =& PKPApplication::getApplication();
+			$currentVersion =& $application->getCurrentVersion();
 			$this->assign('currentVersionString', $currentVersion->getVersionString());
 
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
@@ -213,8 +213,8 @@ class PKPTemplateManager extends Smarty {
 		// This code cannot be called in the constructor because of
 		// reference problems, i.e. callers that need getManager fail.
 
-		// Load the block plugins.
-		$plugins =& PluginRegistry::loadCategory('blocks');
+		// Load enabled block plugins.
+		$plugins =& PluginRegistry::loadCategory('blocks', true);
 
 		$this->initialized = true;
 	}

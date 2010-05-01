@@ -80,30 +80,52 @@ class PluginRegistry {
 
 	/**
 	 * Load all plugins for a given category.
-	 * @param $category String The name of the category to load
-	 * @param $forceLoad boolean Whether or not to force loading of the
-	 * category (since if e.g. a single plugin is already registered, the
-	 * current set will be returned rather than attempting to load others)
+	 * @param $category string The name of the category to load
+	 * @param $enabledOnly boolean if true load only enabled
+	 *  plug-ins (db-installation required), otherwise look on
+	 *  disk and load all available plug-ins (no db required).
 	 */
-	function &loadCategory ($category, $forceLoad = false) {
+	function &loadCategory ($category, $enabledOnly = false) {
 		$plugins = array();
 		$categoryDir = PLUGINS_PREFIX . $category;
 		if (!is_dir($categoryDir)) return $plugins;
 
-		$handle = opendir($categoryDir);
-		while (($file = readdir($handle)) !== false) {
-			if ($file == '.' || $file == '..') continue;
-			$pluginPath = "$categoryDir/$file";
-			$pluginWrapper = "$pluginPath/index.php";
-
-			if (!file_exists($pluginWrapper)) continue;
-			$plugin = include($pluginWrapper);
-			if ($plugin && is_object($plugin)) {
-				$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
-				unset($plugin);
+		if ($enabledOnly) {
+			// Get enabled plug-ins from the database.
+			$application =& PKPApplication::getApplication();
+			$products =& $application->getEnabledProducts('plugins.'.$category);
+			foreach ($products as $product) {
+				$file = $product->getProduct();
+				if(!preg_match('/[a-zA-Z0-9]+/', $file)) fatalError('Invalid product name "'.$file.'"!');
+				$pluginPath = "$categoryDir/$file";
+				$pluginWrapper = "$pluginPath/index.php";
+				$plugin = include($pluginWrapper);
+				$pluginClass = $product->getProductClassName();
+				if ($pluginClass) assert(is_a($plugin, $pluginClass));
+				if ($plugin && is_object($plugin)) {
+					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					unset($plugin);
+				}
 			}
+		} else {
+			// Get all plug-ins from disk. This does not require
+			// any database access and can therefore be used during
+			// first-time installation.
+			$handle = opendir($categoryDir);
+			while (($file = readdir($handle)) !== false) {
+				if ($file == '.' || $file == '..') continue;
+				$pluginPath = "$categoryDir/$file";
+				$pluginWrapper = "$pluginPath/index.php";
+				if (!file_exists($pluginWrapper)) continue;
+
+				$plugin = include($pluginWrapper);
+				if ($plugin && is_object($plugin)) {
+					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					unset($plugin);
+				}
+			}
+			closedir($handle);
 		}
-		closedir($handle);
 
 		// If anyone else wants to jump category, here is the chance.
 		HookRegistry::call('PluginRegistry::loadCategory', array(&$category, &$plugins));
@@ -154,10 +176,11 @@ class PluginRegistry {
 
 	/**
 	 * Load all plugins in the system and return them in a single array.
+	 * @param $enabledOnly boolean load only enabled plug-ins
 	 */
-	function &loadAllPlugins() {
+	function &loadAllPlugins($enabledOnly = false) {
 		foreach (PluginRegistry::getCategories() as $category) {
-			PluginRegistry::loadCategory($category);
+			PluginRegistry::loadCategory($category, $enabledOnly);
 		}
 		$allPlugins =& PluginRegistry::getAllPlugins();
 		return $allPlugins;

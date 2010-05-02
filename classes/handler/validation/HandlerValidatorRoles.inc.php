@@ -36,20 +36,46 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		$context =& Request::getContext();
-		$contextId = ($context)?$context->getId():0;
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
 
-		$user = Request::getUser();
+		$user = $request->getUser();
 		if ( !$user ) return false;
 
+		$roleContext = array();
+		$contextList = $application->getContextList();
+		$router =& $request->getRouter();
+		foreach($contextList as $contextName) {
+			$context =& $router->getContextByName($request, $contextName);
+			$roleContext[] = ($context)?$context->getId():0;
+			unset($context);
+		}
+		$roleContext[] = $user->getId();
+
+		$contextDepth = $application->getContextDepth();
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
+		$roleExistsCall = array($roleDao, 'roleExists');
+
 		$returner = true;
 		foreach ( $this->roles as $roleId ) {
-			if ( $roleId == ROLE_ID_SITE_ADMIN ) {
-				$exists = $roleDao->roleExists(0, $user->getId(), $roleId);
-			} else {
-				$exists = $roleDao->roleExists($contextId, $user->getId(), $roleId);
+			$roleExistsArguments = $roleContext;
+			$roleExistsArguments[] = $roleId;
+
+			if ($contextDepth > 0) {
+				// Correct context for site level or manager
+				// roles.
+				if ( $roleId == ROLE_ID_SITE_ADMIN ) {
+					// site level role
+					for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
+						$roleExistsArguments[$contextLevel-1] = 0;
+					}
+				} elseif ( $roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
+					// main context managerial role (i.e. conference-level)
+					$roleExistsArguments[1] = 0;
+				}
 			}
+
+			$exists = call_user_func_array($roleExistsCall, $roleExistsArguments);
 			if ( !$this->all && $exists) return true;
 			$returner = $returner && $exists;
 		}

@@ -25,6 +25,12 @@ import('help.HelpTopicSection');
 import('handler.Handler');
 
 class HelpHandler extends Handler {
+	/**
+	 * Constructor
+	 */
+	function HelpHandler() {
+		parent::Handler();
+	}
 
 	/**
 	 * Display help table of contents.

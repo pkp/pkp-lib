@@ -166,6 +166,7 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 
 			// Register the mock context DAO
 			DAORegistry::registerDAO($daoName, $mockContextDao);
+			unset($mockContextDao);
 		}
 
 		// Mock the request with a test user

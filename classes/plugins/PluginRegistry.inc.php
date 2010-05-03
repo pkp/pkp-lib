@@ -51,7 +51,9 @@ class PluginRegistry {
 	 * @return boolean True IFF the plugin was registered successfully
 	 */
 	function register($category, &$plugin, $path) {
-		$pluginName = $plugin->getName();
+		// Normalize plugin name to lower case for
+		// PHP4 compatibility in case we use class names here.
+		$pluginName = String::strtolower($plugin->getName());
 		$plugins =& PluginRegistry::getPlugins();
 		if (!$plugins) $plugins = array();
 
@@ -61,8 +63,8 @@ class PluginRegistry {
 		// Allow the plugin to register.
 		if (!$plugin->register($category, $path)) return false;
 
-		if (isset($plugins[$category])) $plugins[$category][$plugin->getName()] =& $plugin;
-		else $plugins[$category] = array($plugin->getName() => &$plugin);
+		if (isset($plugins[$category])) $plugins[$category][$pluginName] =& $plugin;
+		else $plugins[$category] = array($pluginName => &$plugin);
 		Registry::set('plugins', $plugins);
 		return true;
 	}
@@ -74,7 +76,7 @@ class PluginRegistry {
 	 */
 	function &getPlugin ($category, $name) {
 		$plugins =& PluginRegistry::getPlugins();
-		$plugin = @$plugins[$category][$name];
+		$plugin = @$plugins[$category][String::strtolower($name)];
 		return $plugin;
 	}
 

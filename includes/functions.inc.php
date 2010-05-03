@@ -46,6 +46,23 @@ if (!function_exists('file_get_contents')) {
 	}
 }
 
+if (!function_exists('array_combine')) {
+	// For PHP 4
+	function array_combine($keys, $values) {
+		if (count($keys) != count($values)) return false;
+		if (empty($keys)) return false;
+
+		$out = array();
+		while(count($keys)) {
+			$key = array_shift($keys);
+			$value = array_shift($values);
+			if (!is_integer($key) && !is_string($key)) $key = (string) $key;
+			$out[$key] = $value;
+		}
+		return $out;
+	}
+}
+
 /**
  * Wrapper around die() to pretty-print an error message with an optional stack trace.
  */

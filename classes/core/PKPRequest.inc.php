@@ -330,7 +330,7 @@ class PKPRequest {
 		if (!isset($ipaddr)) {
 			if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
 				preg_match_all('/([0-9.a-fA-F:]+)/', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
-			} else if (isset($_SERVER['REMOTE_ADDR']) && 
+			} else if (isset($_SERVER['REMOTE_ADDR']) &&
 				preg_match_all('/([0-9.a-fA-F:]+)/', $_SERVER['REMOTE_ADDR'], $matches)) {
 			} else if (preg_match_all('/([0-9.a-fA-F:]+)/', getenv('REMOTE_ADDR'), $matches)) {
 			} else {
@@ -706,15 +706,14 @@ class PKPRequest {
 		if (isset($this) && is_a($this, 'PKPRequest')) {
 			return $this;
 		} else {
-			// We have to use a static variable here as
-			// this deprecated call is static itself.
-			static $deprecationWarning = null;
-			if (is_null($deprecationWarning)) {
-				$deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
-				if (is_null($deprecationWarning)) $deprecationWarning = false;
-			}
-			if ($deprecationWarning) trigger_error('Deprecated static function call');
-
+			// This call is deprecated. We don't trigger a
+			// deprecation error, though, as there are so
+			// many instances of this error that it has a
+			// performance impact and renders the error
+			// log virtually useless when deprecation
+			// warnings are switched on.
+			// FIXME: Fix enough instances of this error so that
+			// we can put a deprecation warning in here.
 			$instance =& Registry::get('request');
 			assert(!is_null($instance));
 			return $instance;

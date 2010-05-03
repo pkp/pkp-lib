@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('note.Note');
+import('classes.note.Note');
 
 class NoteDAO extends DAO {
 	/**

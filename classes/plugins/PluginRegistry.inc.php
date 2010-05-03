@@ -90,7 +90,7 @@ class PluginRegistry {
 		$categoryDir = PLUGINS_PREFIX . $category;
 		if (!is_dir($categoryDir)) return $plugins;
 
-		if ($enabledOnly) {
+		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
 			$application =& PKPApplication::getApplication();
 			$products =& $application->getEnabledProducts('plugins.'.$category);

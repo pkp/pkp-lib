@@ -274,7 +274,7 @@ class NotificationSettingsDAO extends DAO {
 		// Get assoc_id into notification_settings table, also used as user_id for access key
 		$assocId = $this->getInsertNotificationSettingId();
 
-		import('security.AccessKeyManager');
+		import('lib.pkp.classes.security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
 
 		$password = $accessKeyManager->createKey('MailListContext', $assocId, $assocId, 10000);
@@ -308,7 +308,7 @@ class NotificationSettingsDAO extends DAO {
 		$result->Close();
 		unset($result);
 
-		import('security.AccessKeyManager');
+		import('lib.pkp.classes.security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
 		$accessKeyHash = AccessKeyManager::generateKeyHash($password);
 		$accessKey = $accessKeyManager->validateKey('MailListContext', $userId, $accessKeyHash);

@@ -13,9 +13,9 @@
  */
 
 
-import('install.form.InstallForm');
-import('install.form.UpgradeForm');
-import('handler.Handler');
+import('classes.install.form.InstallForm');
+import('classes.install.form.UpgradeForm');
+import('classes.handler.Handler');
 
 class PKPInstallHandler extends Handler {
 

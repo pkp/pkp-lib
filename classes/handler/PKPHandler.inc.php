@@ -13,9 +13,9 @@
  *
  */
 
-import('handler.validation.HandlerValidator');
-import('handler.validation.HandlerValidatorRoles');
-import('handler.validation.HandlerValidatorCustom');
+import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
 
 class PKPHandler {
 	/**
@@ -225,7 +225,7 @@ class PKPHandler {
 		if ($context) $count = $context->getSetting('itemsPerPage');
 		if (!isset($count)) $count = Config::getVar('interface', 'items_per_page');
 
-		import('db.DBResultRange');
+		import('lib.pkp.classes.db.DBResultRange');
 
 		if (isset($count)) $returner = new DBResultRange($count, $pageNum);
 		else $returner = new DBResultRange(-1, -1);

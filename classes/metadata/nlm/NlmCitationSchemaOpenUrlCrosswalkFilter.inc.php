@@ -19,7 +19,7 @@
 
 // $Id$
 
-import('metadata.nlm.OpenUrlCrosswalkFilter');
+import('lib.pkp.classes.metadata.nlm.OpenUrlCrosswalkFilter');
 
 class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	/**
@@ -69,7 +69,7 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		$output = new MetadataDescription($outputSchema, $input->getAssocType());
 
 		// Transform authors
-		import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+		import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 		$personStringFilter = new NlmNameSchemaPersonStringFilter();
 		$authors =& $input->getStatement('person-group[@person-group-type="author"]');
 		if (is_array($authors) && count($authors)) {

@@ -83,7 +83,7 @@ class Transcoder {
 
 		} elseif ($this->translit && $this->fromEncoding == "UTF-8" && $this->toEncoding == "ASCII") {
 			// use the utf2ascii library
-			require_once 'utf8_to_ascii.php';
+			require_once './lib/pkp/lib/phputf8/utf8_to_ascii.php';
 			return utf8_to_ascii($string);
 
 		} elseif ($mbstring) {

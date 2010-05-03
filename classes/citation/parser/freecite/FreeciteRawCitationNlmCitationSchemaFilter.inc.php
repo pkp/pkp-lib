@@ -19,7 +19,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('FREECITE_WEBSERVICE', 'http://freecite.library.brown.edu/citations/create');
 

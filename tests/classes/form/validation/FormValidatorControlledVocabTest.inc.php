@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorControlledVocab.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorControlledVocabTest extends PKPTestCase {
 	/**
@@ -26,7 +26,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase {
 		$form = new Form('some template');
 
 		// Mock a ControlledVocab object
-		import('controlledVocab.ControlledVocab');
+		import('lib.pkp.classes.controlledVocab.ControlledVocab');
 		$mockControlledVocab = $this->getMock('ControlledVocab', array('enumerate'));
 		$mockControlledVocab->setId(1);
 		$mockControlledVocab->setAssocType(ASSOC_TYPE_CITATION);

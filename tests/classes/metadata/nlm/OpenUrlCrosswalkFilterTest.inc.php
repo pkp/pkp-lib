@@ -15,11 +15,11 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.MetadataDescription');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.openurl.OpenUrlJournalSchema');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
 
 class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 	/**

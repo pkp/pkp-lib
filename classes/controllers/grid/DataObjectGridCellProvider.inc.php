@@ -12,7 +12,7 @@
  * @brief Base class for a cell provider that can retrieve labels from DataObjects
  */
 
-import('controllers.grid.GridCellProvider');
+import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class DataObjectGridCellProvider extends GridCellProvider {
 	/** @var string the locale to be retrieved. */

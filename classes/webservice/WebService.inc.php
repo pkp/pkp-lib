@@ -17,7 +17,7 @@
 define('WEBSERVICE_RETRIES', 3);
 define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 
-import('webservice.WebServiceRequest');
+import('lib.pkp.classes.webservice.WebServiceRequest');
 
 class WebService {
 	/**

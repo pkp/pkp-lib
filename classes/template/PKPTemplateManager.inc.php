@@ -23,8 +23,8 @@
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
 
-require_once('Smarty.class.php');
-require_once('plugins/modifier.escape.php'); // Seems to be needed?
+require_once('./lib/pkp/lib/smarty/Smarty.class.php');
+require_once('./lib/pkp/lib/smarty/plugins/modifier.escape.php'); // Seems to be needed?
 
 define('CACHEABILITY_NO_CACHE',		'no-cache');
 define('CACHEABILITY_NO_STORE',		'no-store');

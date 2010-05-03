@@ -17,7 +17,7 @@
 // $Id$
 
 
-import('mail.Mail');
+import('lib.pkp.classes.mail.Mail');
 
 class SMTPMailer {
 

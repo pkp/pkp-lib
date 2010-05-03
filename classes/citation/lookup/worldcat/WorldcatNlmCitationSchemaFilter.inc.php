@@ -20,7 +20,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
 define('WORLDCAT_WEBSERVICE_SEARCH', 'http://www.worldcat.org/search');

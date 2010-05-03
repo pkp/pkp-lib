@@ -18,8 +18,8 @@
 /** Default XML tasks file to parse if none is specified */
 define('TASKS_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml');
 
-import('scheduledTask.ScheduledTask');
-import('scheduledTask.ScheduledTaskDAO');
+import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');
 
 class ScheduledTaskTool extends CommandLineTool {
 	/** @var string the XML file listing the tasks to be executed */

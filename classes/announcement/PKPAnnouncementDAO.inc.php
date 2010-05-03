@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Announcement objects.
  */
 
-import('announcement.PKPAnnouncement');
+import('lib.pkp.classes.announcement.PKPAnnouncement');
 
 class PKPAnnouncementDAO extends DAO {
 	/**

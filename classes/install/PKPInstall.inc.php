@@ -25,7 +25,7 @@
 // $Id$
 
 
-import('install.Installer');
+import('lib.pkp.classes.install.Installer');
 
 class PKPInstall extends Installer {
 
@@ -136,7 +136,7 @@ class PKPInstall extends Installer {
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('file.FileManager');
+					import('lib.pkp.classes.file.FileManager');
 					if (!FileManager::mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFilesDirError');
 						return false;
@@ -157,7 +157,7 @@ class PKPInstall extends Installer {
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $publicFilesDir . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('file.FileManager');
+					import('lib.pkp.classes.file.FileManager');
 					if (!FileManager::mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.publicFilesDirError');
 						return false;

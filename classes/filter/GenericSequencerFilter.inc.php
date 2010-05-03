@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class GenericSequencerFilter extends Filter {
 	/** @var array An array of filters that we run in order */

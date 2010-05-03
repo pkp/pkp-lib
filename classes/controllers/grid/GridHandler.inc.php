@@ -13,15 +13,15 @@
  */
 
 // import the base Handler
-import('handler.PKPHandler');
+import('lib.pkp.classes.handler.PKPHandler');
 
 // import grid classes
-import('controllers.grid.GridAction');
-import('controllers.grid.GridColumn');
-import('controllers.grid.GridRow');
+import('lib.pkp.classes.controllers.grid.GridAction');
+import('lib.pkp.classes.controllers.grid.GridColumn');
+import('lib.pkp.classes.controllers.grid.GridRow');
 
 // import JSON class for use with all AJAX requests
-import('core.JSON');
+import('lib.pkp.classes.core.JSON');
 
 // grid specific action positions
 define('GRID_ACTION_POSITION_ABOVE', 'above');
@@ -136,7 +136,7 @@ class GridHandler extends PKPHandler {
 	function &getData() {
 		if (is_null($this->_data)) {
 			// initialize data to an empty iterator
-			import('core.ItemIterator');
+			import('lib.pkp.classes.core.ItemIterator');
 			$elementIterator = new ItemIterator();
 			$this->setData($elementIterator);
 		}
@@ -156,7 +156,7 @@ class GridHandler extends PKPHandler {
 		if (is_a($data, 'ItemIterator')) {
 			$this->_data =& $data;
 		} elseif(is_array($data)) {
-			import('core.ArrayItemIterator');
+			import('lib.pkp.classes.core.ArrayItemIterator');
 			$this->_data = new ArrayItemIterator($data);
 		} else {
 			assert(false);

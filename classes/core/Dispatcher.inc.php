@@ -166,12 +166,12 @@ class Dispatcher {
 		if (!isset($this->_routerInstances[$shortcut])) {
 			$routerParts = explode('.', $routerName);
 
-			// Routers must belong to the core package
+			// Routers must belong to the classes.core or lib.pkp.classes.core package
 			// NB: This prevents code inclusion attacks.
-			if (count($routerParts) != 2 || $routerParts[0] != 'core') {
+			if (!(String::substr($routerName, 0, 13) == 'classes.core.' || String::substr($routerName,  0, 21) == 'lib.pkp.classes.core.')) {
 				fatalError('Routers must belong to the core package.');
 			}
-			$routerClass = $routerParts[1];
+			$routerClass = array_pop($routerParts);
 
 			// Instantiate the router
 			import($routerName);

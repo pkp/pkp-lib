@@ -14,7 +14,7 @@
  */
 
 
-import('form.validation.FormValidator');
+import('lib.pkp.classes.form.validation.FormValidator');
 
 class FormValidatorUri extends FormValidator {
 	/**
@@ -26,7 +26,7 @@ class FormValidatorUri extends FormValidator {
 	 * @param $allowedSchemes array the allowed URI schemes
 	 */
 	function FormValidatorUri(&$form, $field, $type, $message, $allowedSchemes = null) {
-		import('validation.ValidatorUri');
+		import('lib.pkp.classes.validation.ValidatorUri');
 		$validator = new ValidatorUri($allowedSchemes);
 		parent::FormValidator($form, $field, $type, $message, $validator);
 	}

@@ -18,8 +18,8 @@
 
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 
-import('db.XMLDAO');
-import('site.Version');
+import('lib.pkp.classes.db.XMLDAO');
+import('lib.pkp.classes.site.Version');
 
 class VersionCheck {
 

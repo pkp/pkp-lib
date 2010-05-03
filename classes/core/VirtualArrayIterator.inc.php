@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('core.ItemIterator');
+import('lib.pkp.classes.core.ItemIterator');
 
 class VirtualArrayIterator extends ItemIterator {
 	/** @var $theArray array The array of contents of this iterator. */

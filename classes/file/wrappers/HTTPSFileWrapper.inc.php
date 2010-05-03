@@ -17,7 +17,7 @@
 // $Id$
 
 
-import('file.wrappers.HTTPFileWrapper');
+import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 
 class HTTPSFileWrapper extends HTTPFileWrapper {
 	function HTTPSFileWrapper($url, &$info) {

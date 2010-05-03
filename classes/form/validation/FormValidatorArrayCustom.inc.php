@@ -12,7 +12,7 @@
  * @brief Form validation check with a custom user function performing the validation check of an array of fields.
  */
 
-import('form.validation.FormValidator');
+import('lib.pkp.classes.form.validation.FormValidator');
 
 class FormValidatorArrayCustom extends FormValidator {
 

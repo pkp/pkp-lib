@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('security.AuthSource');
+import('lib.pkp.classes.security.AuthSource');
 
 class AuthSourceDAO extends DAO {
 	var $plugins;

@@ -13,7 +13,7 @@
  */
 
 //$Id$
-import('manager.ManagerHandler');
+import('pages.manager.ManagerHandler');
 
 class PKPAnnouncementHandler extends ManagerHandler {
 	function PKPAnnouncementHandler() {
@@ -84,7 +84,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		// Ensure announcement is valid and for this context
 		if ($this->_announcementIsValid($announcementId)) {
-			import('manager.form.AnnouncementForm');
+			import('classes.manager.form.AnnouncementForm');
 
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcements'), 'manager.announcements'));
@@ -126,7 +126,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$this->validate();
 		$this->setupTemplate();
 
-		import('manager.form.AnnouncementForm');
+		import('classes.manager.form.AnnouncementForm');
 
 		$announcementId = Request::getUserVar('announcementId') == null ? null : (int) Request::getUserVar('announcementId');
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
@@ -220,7 +220,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		// Ensure announcement type is valid and for this context
 		if ($this->_announcementTypeIsValid($typeId)) {
-			import('manager.form.AnnouncementTypeForm');
+			import('classes.manager.form.AnnouncementTypeForm');
 
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
@@ -258,7 +258,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$this->validate();
 		$this->setupTemplate(true);
 
-		import('manager.form.AnnouncementTypeForm');
+		import('classes.manager.form.AnnouncementTypeForm');
 
 		$typeId = Request::getUserVar('typeId') == null ? null : (int) Request::getUserVar('typeId');
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');

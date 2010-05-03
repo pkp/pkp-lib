@@ -13,7 +13,7 @@
  *  from the database.
  */
 
-import('validation.Validator');
+import('lib.pkp.classes.validation.Validator');
 
 class ValidatorControlledVocab extends Validator {
 	/** @var array */

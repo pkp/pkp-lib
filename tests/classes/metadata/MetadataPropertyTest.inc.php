@@ -13,8 +13,8 @@
  * @brief Test class for MetadataProperty.
  */
 
-import('tests.PKPTestCase');
-import('metadata.MetadataProperty');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.MetadataProperty');
 
 class MetadataPropertyTest extends PKPTestCase {
 	/**
@@ -163,9 +163,9 @@ class MetadataPropertyTest extends PKPTestCase {
 	public function testValidateComposite() {
 		$metadataProperty = new MetadataProperty('testElement', array(), array(METADATA_PROPERTY_TYPE_COMPOSITE => 0x002), false, METADATA_PROPERTY_CARDINALITY_ONE);
 
-		import('metadata.MetadataSchema');
+		import('lib.pkp.classes.metadata.MetadataSchema');
 		$metadataSchema = new MetadataSchema();
-		import('metadata.MetadataDescription');
+		import('lib.pkp.classes.metadata.MetadataDescription');
 		$metadataDescription = new MetadataDescription($metadataSchema, 0x002);
 		$anotherMetadataDescription = clone($metadataDescription);
 		$stdObject = new stdClass();

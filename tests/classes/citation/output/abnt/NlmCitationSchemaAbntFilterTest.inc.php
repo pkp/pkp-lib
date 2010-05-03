@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('citation.output.abnt.NlmCitationSchemaAbntFilter');
-import('tests.classes.citation.output.NlmCitationSchemaCitationOutputFormatFilterTest');
+import('lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter');
+import('lib.pkp.tests.classes.citation.output.NlmCitationSchemaCitationOutputFormatFilterTest');
 
 class NlmCitationSchemaAbntFilterTest extends NlmCitationSchemaCitationOutputFormatFilterTest {
 	/*

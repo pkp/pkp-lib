@@ -96,7 +96,7 @@ class Submission extends DataObject {
 	 * @return array
 	 */
 	function getAuthorEmails() {
-		import('mail.Mail');
+		import('lib.pkp.classes.mail.Mail');
 		$returner = array();
 		foreach ($this->authors as $a) {
 			$returner[] = Mail::encodeDisplayName($a->getFullName()) . ' <' . $a->getEmail() . '>';

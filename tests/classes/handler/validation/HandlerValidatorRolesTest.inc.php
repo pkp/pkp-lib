@@ -17,9 +17,9 @@ define('HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE', 0x01);
 define('HANDLER_VALIDATOR_ROLES_MANAGER_ROLE', 0x02);
 define('HANDLER_VALIDATOR_ROLES_SITE_ADMIN_ROLE', 0x03);
 
-import('tests.PKPTestCase');
-import('handler.validation.HandlerValidatorRoles');
-import('core.PKPRouter');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('lib.pkp.classes.core.PKPRouter');
 
 class HandlerValidatorRolesTest extends PKPTestCase {
 	private $roleExistsReturnValues;

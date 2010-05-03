@@ -12,8 +12,8 @@
  * @brief Class defining basic operations for handling Listbuilder UI elements
  */
 
-import('controllers.grid.GridHandler');
-import('controllers.listbuilder.ListbuilderGridRow');
+import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
 
 define('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define('LISTBUILDER_SOURCE_TYPE_SELECT', 1);

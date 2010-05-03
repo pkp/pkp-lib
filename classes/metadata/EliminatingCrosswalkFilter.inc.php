@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.CrosswalkFilter');
+import('lib.pkp.classes.metadata.CrosswalkFilter');
 
 class EliminatingCrosswalkFilter extends CrosswalkFilter {
 	/**

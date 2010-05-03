@@ -20,7 +20,7 @@
 // $Id$
 
 
-import('rt.RTStruct');
+import('lib.pkp.classes.rt.RTStruct');
 
 class RT {
 

@@ -14,7 +14,7 @@
  *
  */
 
-import('currency.Currency');
+import('lib.pkp.classes.currency.Currency');
 
 class CurrencyDAO extends DAO {
 

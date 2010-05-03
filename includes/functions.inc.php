@@ -18,11 +18,24 @@
 /**
  * Emulate a Java-style import statement.
  * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
- * @param $class string the complete name of the class to be imported (e.g. "core.Core")
+ * @param $class string the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
  */
 if (!function_exists('import')) {
 	function import($class) {
-		require_once(str_replace('.', '/', $class) . '.inc.php');
+		static $deprecationWarning = null;
+		require_once(str_replace('.', '/', $class) .  '.inc.php');
+		$filePath = str_replace('.', '/', $class) . '.inc.php';
+
+		// Try to bypass include path for best performance
+		if((include_once BASE_SYS_DIR.'/'.$filePath) === false) {
+			// Oups, we found a legacy include statement,
+			// let's try the include path then.
+			require_once($filePath);
+			if (is_null($deprecationWarning) && class_exists('Config')) {
+				$deprecationWarning = (boolean)Config::getVar('debug', 'deprecation_warnings');
+			}
+			if ($deprecationWarning) trigger_error('Deprecated import of a partially qualified class name.');
+		}
 	}
 }
 

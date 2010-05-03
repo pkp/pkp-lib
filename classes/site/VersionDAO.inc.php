@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('site.Version');
+import('lib.pkp.classes.site.Version');
 
 class VersionDAO extends DAO {
 	/**

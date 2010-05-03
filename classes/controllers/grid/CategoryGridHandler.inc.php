@@ -13,8 +13,8 @@
  */
 
 // import grid classes
-import('controllers.grid.GridHandler');
-import('controllers.grid.GridCategoryRow');
+import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 
 // empty category constant
 define('GRID_CATEGORY_NONE', 'NONE');

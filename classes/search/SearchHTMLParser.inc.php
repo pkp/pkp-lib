@@ -15,8 +15,8 @@
 // $Id$
 
 
-import('search.SearchFileParser');
-import('core.String');
+import('lib.pkp.classes.search.SearchFileParser');
+import('lib.pkp.classes.core.String');
 
 class SearchHTMLParser extends SearchFileParser {
 

@@ -17,9 +17,9 @@
 
 // $Id$
 
-import('metadata.MetadataDataObjectAdapter');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
 
 class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	/**
@@ -44,7 +44,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject, $replace) {
 		// Did we get an existing citation object or should we create a new one?
 		if (is_null($dataObject)) {
-			import('citation.Citation');
+			import('lib.pkp.classes.citation.Citation');
 			$dataObject = new Citation();
 		}
 

@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorRegExp.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorRegExpTest extends PKPTestCase {
 	/**

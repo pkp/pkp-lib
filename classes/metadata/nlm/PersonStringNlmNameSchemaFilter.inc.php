@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.nlm.NlmPersonStringFilter');
+import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
 
 class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	/** @var integer */

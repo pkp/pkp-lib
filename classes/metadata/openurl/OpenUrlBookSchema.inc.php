@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.openurl.OpenUrlJournalBookBaseSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlJournalBookBaseSchema');
 
 define('OPENURL_GENRE_BOOK', 'book');
 define('OPENURL_GENRE_BOOKITEM', 'bookitem');

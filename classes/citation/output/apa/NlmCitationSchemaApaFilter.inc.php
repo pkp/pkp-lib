@@ -19,7 +19,7 @@
 
 // $Id$
 
-import('metadata.nlm.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationOutputFormatFilter');
 
 class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFilter {
 	/**

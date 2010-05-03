@@ -22,7 +22,7 @@
 /** The path to the default configuration file */
 define('CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
 
-import('config.ConfigParser');
+import('lib.pkp.classes.config.ConfigParser');
 
 class Config {
 	/**

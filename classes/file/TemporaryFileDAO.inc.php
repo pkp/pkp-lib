@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('file.TemporaryFile');
+import('lib.pkp.classes.file.TemporaryFile');
 
 class TemporaryFileDAO extends DAO {
 	/**

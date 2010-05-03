@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.openurl.OpenUrlBaseSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlBaseSchema');
 
 define('OPENURL_GENRE_CONFERENCE', 'conference');
 define('OPENURL_GENRE_PROCEEDING', 'proceeding');

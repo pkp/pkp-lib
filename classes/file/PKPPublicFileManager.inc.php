@@ -15,7 +15,7 @@
 // $Id$
 
 
-import('file.FileManager');
+import('lib.pkp.classes.file.FileManager');
 
 class PKPPublicFileManager extends FileManager {
 

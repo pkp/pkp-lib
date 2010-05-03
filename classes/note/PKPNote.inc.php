@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('note.NoteDAO');
+import('lib.pkp.classes.note.NoteDAO');
 
 class PKPNote extends DataObject {
 

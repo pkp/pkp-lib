@@ -13,9 +13,9 @@
  * @brief Test class for ValidatorControlledVocab.
  */
 
-import('tests.PKPTestCase');
-import('validation.ValidatorControlledVocab');
-import('controlledVocab.ControlledVocab');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.validation.ValidatorControlledVocab');
+import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ValidatorControlledVocabTest extends PKPTestCase {
 	/**

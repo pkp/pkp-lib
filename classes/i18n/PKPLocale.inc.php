@@ -19,7 +19,7 @@
 // $Id$
 
 
-import('i18n.LocaleFile');
+import('lib.pkp.classes.i18n.LocaleFile');
 
 define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
 define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));
@@ -291,7 +291,7 @@ class PKPLocale {
 	 */
 	function installLocale($locale) {
 		// Install default locale-specific data
-		import('db.DBDataXMLParser');
+		import('lib.pkp.classes.db.DBDataXMLParser');
 
 		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));

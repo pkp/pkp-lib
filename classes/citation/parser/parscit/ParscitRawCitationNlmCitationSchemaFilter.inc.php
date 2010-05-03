@@ -19,7 +19,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
 

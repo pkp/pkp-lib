@@ -16,7 +16,7 @@
 //$Id$
 
 
-import('signoff.Signoff');
+import('lib.pkp.classes.signoff.Signoff');
 
 class SignoffDAO extends DAO {
 	/**

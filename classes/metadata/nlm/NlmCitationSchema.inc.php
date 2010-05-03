@@ -30,7 +30,7 @@
 
 // $Id$
 
-import('metadata.MetadataSchema');
+import('lib.pkp.classes.metadata.MetadataSchema');
 
 // Define the vocabulary for the NLM publication type
 define('NLM_PUBLICATION_TYPE_JOURNAL', 'journal');

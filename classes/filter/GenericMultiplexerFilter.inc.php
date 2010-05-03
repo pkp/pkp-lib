@@ -18,7 +18,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class GenericMultiplexerFilter extends Filter {
 	/** @var array An unordered array of filters that we run the input over */

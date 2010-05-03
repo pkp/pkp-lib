@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('plugins.AuthPlugin');
+import('classes.plugins.AuthPlugin');
 
 class AuthSource extends DataObject {
 

@@ -38,7 +38,7 @@ class PKPApplication {
 		@error_reporting($errorReportingLevel);
 
 		// Instantiate the profiler
-		import('core.PKPProfiler');
+		import('lib.pkp.classes.core.PKPProfiler');
 		$pkpProfiler = new PKPProfiler();
 
 		// Begin debug logging
@@ -48,11 +48,11 @@ class PKPApplication {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
-		import('core.Core');
-		import('core.String');
-		import('core.Registry');
+		import('lib.pkp.classes.core.Core');
+		import('lib.pkp.classes.core.String');
+		import('lib.pkp.classes.core.Registry');
 
-		import('config.Config');
+		import('lib.pkp.classes.config.Config');
 
 		if (Config::getVar('debug', 'display_errors')) {
 			// Try to switch off normal error display when error display
@@ -73,19 +73,19 @@ class PKPApplication {
 
 		Registry::set('application', $this);
 
-		import('db.DAORegistry');
-		import('db.XMLDAO');
+		import('lib.pkp.classes.db.DAORegistry');
+		import('lib.pkp.classes.db.XMLDAO');
 
-		import('cache.CacheManager');
+		import('lib.pkp.classes.cache.CacheManager');
 
-		import('security.Validation');
-		import('session.SessionManager');
-		import('template.TemplateManager');
+		import('classes.security.Validation');
+		import('lib.pkp.classes.session.SessionManager');
+		import('classes.template.TemplateManager');
 
-		import('plugins.PluginRegistry');
-		import('plugins.HookRegistry');
+		import('lib.pkp.classes.plugins.PluginRegistry');
+		import('lib.pkp.classes.plugins.HookRegistry');
 
-		import('i18n.Locale');
+		import('classes.i18n.Locale');
 
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));
@@ -130,7 +130,7 @@ class PKPApplication {
 		$request =& Registry::get('request', true, null);
 
 		if (is_null($request)) {
-			import('core.Request');
+			import('classes.core.Request');
 
 			// Implicitly set request by ref in the registry
 			$request = new Request();
@@ -147,7 +147,7 @@ class PKPApplication {
 		$dispatcher =& Registry::get('dispatcher', true, null);
 
 		if (is_null($dispatcher)) {
-			import('core.Dispatcher');
+			import('lib.pkp.classes.core.Dispatcher');
 
 			// Implicitly set dispatcher by ref in the registry
 			$dispatcher = new Dispatcher();
@@ -156,8 +156,8 @@ class PKPApplication {
 			$dispatcher->setApplication($this->getApplication());
 
 			// Inject router configuration
-			$dispatcher->addRouterName('core.PKPComponentRouter', ROUTE_COMPONENT);
-			$dispatcher->addRouterName('core.PageRouter', ROUTE_PAGE);
+			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
+			$dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
 		}
 
 		return $dispatcher;
@@ -288,29 +288,29 @@ class PKPApplication {
 	 */
 	function getDAOMap() {
 		return array(
-			'AccessKeyDAO' => 'security.AccessKeyDAO',
-			'AuthSourceDAO' => 'security.AuthSourceDAO',
-			'CaptchaDAO' => 'captcha.CaptchaDAO',
-			'ControlledVocabDAO' => 'controlledVocab.ControlledVocabDAO',
-			'ControlledVocabEntryDAO' => 'controlledVocab.ControlledVocabEntryDAO',
-			'CountryDAO' => 'i18n.CountryDAO',
-			'CurrencyDAO' => 'currency.CurrencyDAO',
-			'GroupDAO' => 'group.GroupDAO',
-			'GroupMembershipDAO' => 'group.GroupMembershipDAO',
-			'HelpTocDAO' => 'help.HelpTocDAO',
-			'HelpTopicDAO' => 'help.HelpTopicDAO',
-			'NoteDAO' => 'note.NoteDAO',
-			'NotificationDAO' => 'notification.NotificationDAO',
-			'NotificationSettingsDAO' => 'notification.NotificationSettingsDAO',
-			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',
-			'SessionDAO' => 'session.SessionDAO',
-			'SignoffDAO' => 'signoff.SignoffDAO',
-			'SiteDAO' => 'site.SiteDAO',
-			'SiteSettingsDAO' => 'site.SiteSettingsDAO',
-			'TimeZoneDAO' => 'i18n.TimeZoneDAO',
-			'TemporaryFileDAO' => 'file.TemporaryFileDAO',
-			'VersionDAO' => 'site.VersionDAO',
-			'XMLDAO' => 'db.XMLDAO'
+			'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
+			'AuthSourceDAO' => 'lib.pkp.classes.security.AuthSourceDAO',
+			'CaptchaDAO' => 'lib.pkp.classes.captcha.CaptchaDAO',
+			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
+			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
+			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
+			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
+			'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
+			'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
+			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
+			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
+			'NoteDAO' => 'lib.pkp.classes.note.NoteDAO',
+			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
+			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
+			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
+			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
+			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
+			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
+			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
+			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
+			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
+			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
+			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
 		);
 	}
 

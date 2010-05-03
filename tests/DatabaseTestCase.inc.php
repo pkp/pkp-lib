@@ -17,7 +17,7 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
+import('lib.pkp.tests.PKPTestCase');
 
 abstract class DatabaseTestCase extends PKPTestCase {
 	const
@@ -54,7 +54,7 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	private function installTestSchema($testPhase) {
 		if (is_readable($this->getTestSchemaFile($testPhase))) {
 			if (is_null($this->_testSchema)) {
-				import('classes.db.compat.AdodbXmlschemaCompat');
+				import('lib.pkp.classes.db.compat.AdodbXmlschemaCompat');
 				$this->_testSchema = &new AdodbXmlschemaCompat(
 					DBConnection::getConn(),
 					Config::getVar('i18n', 'database_charset')

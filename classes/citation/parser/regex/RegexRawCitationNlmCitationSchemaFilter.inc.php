@@ -23,7 +23,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/*

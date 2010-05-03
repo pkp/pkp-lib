@@ -231,14 +231,14 @@ class MetadataProperty {
 					list($symbolic, $assocType, $assocId) = $vocabNameParts;
 
 					// Validate with controlled vocabulary validator
-					import('validation.ValidatorControlledVocab');
+					import('lib.pkp.classes.validation.ValidatorControlledVocab');
 					$validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
 					if ($validator->isValid($value)) $isValid = true;
 					break;
 
 				case METADATA_PROPERTY_TYPE_URI:
 					// Validate with the URI validator
-					import('validation.ValidatorUri');
+					import('lib.pkp.classes.validation.ValidatorUri');
 					$validator = new ValidatorUri();
 					if ($validator->isValid($value)) $isValid = true;
 					break;

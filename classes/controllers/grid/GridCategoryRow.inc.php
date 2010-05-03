@@ -12,7 +12,7 @@
  * @brief Class defining basic operations for handling the category row in a grid
  *
  */
-import('controllers.grid.GridRow');
+import('lib.pkp.classes.controllers.grid.GridRow');
 
 class GridCategoryRow extends GridRow {
 	/**

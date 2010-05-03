@@ -14,8 +14,8 @@
 
 // $Id$
 
-import('filter.Filter');
-import('xslt.XSLTransformer');
+import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.xslt.XSLTransformer');
 
 class XSLTransformationFilter extends Filter {
 	/** @var DOMDocument|string either an XSL string or an XSL DOMDocument */

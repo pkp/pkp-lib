@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('notification.Notification');
+import('classes.notification.Notification');
 
 class NotificationManager {
 	/**
@@ -103,7 +103,7 @@ class NotificationManager {
 				$notificationContents = $notification->getContents();
 			}
 
-			import('mail.MailTemplate');
+			import('classes.mail.MailTemplate');
 			$context =& Request::getContext();
 			$site =& Request::getSite();
 

@@ -24,18 +24,22 @@
  * Basic initialization (pre-classloading).
  */
 
-// Update include path
 define('ENV_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? ';' : ':');
 if (!defined('DIRECTORY_SEPARATOR')) {
 	// Older versions of PHP do not define this
 	define('DIRECTORY_SEPARATOR', strtolower(substr(PHP_OS, 0, 3)) == 'win' ? '\\' : '/');
 }
 define('BASE_SYS_DIR', dirname(INDEX_FILE_LOCATION));
+chdir(BASE_SYS_DIR);
+
+// Update include path - for backwards compatibility only
+// Try to use absolute (/...) or relative (./...) filenames
+// wherever possible to bypass the costly file name normalization
+// process.
 ini_set('include_path', '.'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/classes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/pages'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp'
-	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/includes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/classes'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/pages'
 	. ENV_SEPARATOR . BASE_SYS_DIR . '/lib/pkp/lib/adodb'
@@ -46,10 +50,10 @@ ini_set('include_path', '.'
 );
 
 // System-wide functions
-require('functions.inc.php');
+require('./lib/pkp/includes/functions.inc.php');
 
 // Initialize the application environment
-import('core.Application');
+import('classes.core.Application');
 // FIXME: As long as we support PHP4 we cannot use the return
 // value from the new statement directly. See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
 // We rather retrieve the application instance by-ref from the registry.

@@ -30,10 +30,10 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
-import('metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
-import('metadata.openurl.OpenUrlBookSchema');
-import('metadata.openurl.OpenUrlJournalSchema');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
+import('lib.pkp.classes.metadata.openurl.OpenUrlBookSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');

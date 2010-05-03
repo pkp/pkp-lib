@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('db.DAO');
+import('lib.pkp.classes.db.DAO');
 
 class DAORegistry {
 

@@ -12,8 +12,8 @@
  * @brief Handle requests for viewing notifications.
  */
 
-import('handler.Handler');
-import('notification.Notification');
+import('classes.handler.Handler');
+import('classes.notification.Notification');
 
 class NotificationHandler extends Handler {
 
@@ -77,7 +77,7 @@ class NotificationHandler extends Handler {
 
 		$user = Request::getUser();
 		if(isset($user)) {
-			import('notification.form.NotificationSettingsForm');
+			import('classes.notification.form.NotificationSettingsForm');
 			$notificationSettingsForm = new NotificationSettingsForm();
 			$notificationSettingsForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
@@ -90,7 +90,7 @@ class NotificationHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate(true);
 
-		import('notification.form.NotificationSettingsForm');
+		import('classes.notification.form.NotificationSettingsForm');
 
 		$notificationSettingsForm = new NotificationSettingsForm();
 		$notificationSettingsForm->readInputData();
@@ -187,7 +187,7 @@ class NotificationHandler extends Handler {
 		$user = Request::getUser();
 
 		if(!isset($user)) {
-			import('notification.form.NotificationMailingListForm');
+			import('lib.pkp.classes.notification.form.NotificationMailingListForm');
 			$notificationMailingListForm = new NotificationMailingListForm();
 			$notificationMailingListForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
@@ -200,7 +200,7 @@ class NotificationHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate(true);
 
-		import('notification.form.NotificationMailingListForm');
+		import('lib.pkp.classes.notification.form.NotificationMailingListForm');
 
 		$notificationMailingListForm = new NotificationMailingListForm();
 		$notificationMailingListForm->readInputData();

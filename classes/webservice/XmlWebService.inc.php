@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('webservice.WebService');
+import('lib.pkp.classes.webservice.WebService');
 
 class XmlWebService extends WebService {
 	/** @var integer */

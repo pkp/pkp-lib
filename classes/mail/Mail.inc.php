@@ -428,7 +428,7 @@ class Mail extends DataObject {
 		if (Config::getVar('email', 'smtp')) {
 			$smtp =& Registry::get('smtpMailer', true, null);
 			if ($smtp === null) {
-				import('mail.SMTPMailer');
+				import('lib.pkp.classes.mail.SMTPMailer');
 				$smtp = new SMTPMailer();
 			}
 			$sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);

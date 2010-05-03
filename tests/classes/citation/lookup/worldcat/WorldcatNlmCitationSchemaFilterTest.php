@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
-import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 class WorldcatNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	const

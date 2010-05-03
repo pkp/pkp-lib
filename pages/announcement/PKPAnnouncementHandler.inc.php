@@ -12,7 +12,7 @@
  * @brief Handle requests for public announcement functions.
  */
 
-import('handler.Handler');
+import('classes.handler.Handler');
 
 class PKPAnnouncementHandler extends Handler {
 	function PKPAnnouncementHandler() {

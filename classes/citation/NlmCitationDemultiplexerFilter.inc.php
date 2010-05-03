@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class NlmCitationDemultiplexerFilter extends Filter {
 	/**

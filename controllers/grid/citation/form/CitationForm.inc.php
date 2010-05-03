@@ -13,7 +13,7 @@
  * stores/retrieves from an associative array
  */
 
-import('form.Form');
+import('lib.pkp.classes.form.Form');
 
 class CitationForm extends Form {
 	/** Citation the citation being edited */
@@ -101,7 +101,7 @@ class CitationForm extends Form {
 						if (is_a($value[0], 'MetadataDescription')) {
 							// We currently only support composite name arrays
 							assert(in_array($value[0]->getAssocType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
-							import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+							import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 							$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
 							assert($personStringFilter->supportsAsInput($value));
 							$fieldValue = $personStringFilter->execute($value);
@@ -209,7 +209,7 @@ class CitationForm extends Form {
 		foreach($metadataAdapters as $metadataAdapter) {
 			// Instantiate a meta-data description for the given schema
 			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			import('metadata.MetadataDescription');
+			import('lib.pkp.classes.metadata.MetadataDescription');
 			$metadataDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
 
 			// Set the meta-data statements
@@ -227,7 +227,7 @@ class CitationForm extends Form {
 							// We currently only support name composites
 							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_AUTHOR):
 							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_EDITOR):
-								import('metadata.nlm.PersonStringNlmNameSchemaFilter');
+								import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
 								$personStringFilter = new PersonStringNlmNameSchemaFilter($type[METADATA_PROPERTY_TYPE_COMPOSITE], PERSON_STRING_FILTER_MULTIPLE);
 								assert($personStringFilter->supportsAsInput($fieldValue));
 								$fieldValue =& $personStringFilter->execute($fieldValue);
@@ -240,7 +240,7 @@ class CitationForm extends Form {
 								break;
 
 							case METADATA_PROPERTY_TYPE_DATE:
-								import('metadata.DateStringNormalizerFilter');
+								import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
 								$dateStringFilter = new DateStringNormalizerFilter();
 								assert($dateStringFilter->supportsAsInput($fieldValue));
 								$fieldValue = array($dateStringFilter->execute($fieldValue));

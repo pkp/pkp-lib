@@ -12,7 +12,7 @@
  * @brief Validation check using a regular expression.
  */
 
-import ('validation.Validator');
+import ('lib.pkp.classes.validation.Validator');
 
 class ValidatorRegExp extends Validator {
 

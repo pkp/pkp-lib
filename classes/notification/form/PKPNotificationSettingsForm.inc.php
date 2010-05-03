@@ -18,7 +18,7 @@
 // $Id$
 
 
-import('form.Form');
+import('lib.pkp.classes.form.Form');
 
 class PKPNotificationSettingsForm extends Form {
 	/**

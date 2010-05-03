@@ -13,8 +13,8 @@
  * @brief Tests for the PKPComponentRouter class.
  */
 
-import('core.PKPComponentRouter');
-import('tests.classes.core.PKPRouterTest');
+import('lib.pkp.classes.core.PKPComponentRouter');
+import('lib.pkp.tests.classes.core.PKPRouterTest');
 
 class PKPComponentRouterTest extends PKPRouterTest {
 	protected function setUp() {

@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('site.Site');
+import('lib.pkp.classes.site.Site');
 
 class SiteDAO extends DAO {
 	/**

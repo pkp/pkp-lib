@@ -13,9 +13,9 @@
  * @brief Test class for MetadataDescription.
  */
 
-import('tests.PKPTestCase');
-import('metadata.MetadataDescription');
-import('tests.classes.metadata.TestSchema');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.pkp.tests.classes.metadata.TestSchema');
 
 class MetadataDescriptionTest extends PKPTestCase {
 	private $metadataDescription;

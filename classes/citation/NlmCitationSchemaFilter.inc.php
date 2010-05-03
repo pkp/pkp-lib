@@ -15,18 +15,18 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
-import('metadata.MetadataDescription');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.PersonStringNlmNameSchemaFilter');
-import('metadata.DateStringNormalizerFilter');
+import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
+import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
 
-import('webservice.XmlWebService');
+import('lib.pkp.classes.webservice.XmlWebService');
 
-import('xml.XMLHelper');
-import('xslt.XSLTransformationFilter');
+import('lib.pkp.classes.xml.XMLHelper');
+import('lib.pkp.classes.xslt.XSLTransformationFilter');
 
 class NlmCitationSchemaFilter extends Filter {
 	/** @var array */
@@ -129,7 +129,7 @@ class NlmCitationSchemaFilter extends Filter {
 			$firstAuthorSurname = (string)$authors[0]->getStatement('surname');
 
 			// Convert first authors' name description to a string
-			import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+			import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 			$personStringFilter = new NlmNameSchemaPersonStringFilter();
 			$firstAuthor = $personStringFilter->execute($authors[0]);
 		}

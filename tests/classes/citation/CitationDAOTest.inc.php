@@ -13,12 +13,12 @@
  * @brief Test class for CitationDAO.
  */
 
-import('tests.DatabaseTestCase');
-import('citation.CitationDAO');
-import('citation.Citation');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.MetadataDescription');
+import('lib.pkp.tests.DatabaseTestCase');
+import('lib.pkp.classes.citation.CitationDAO');
+import('lib.pkp.classes.citation.Citation');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.MetadataDescription');
 
 class CitationDAOTest extends DatabaseTestCase {
 	private $citationDAO;

@@ -15,7 +15,7 @@
 // $Id$
 
 
-import('plugins.LazyLoadPlugin');
+import('lib.pkp.classes.plugins.LazyLoadPlugin');
 
 class GenericPlugin extends LazyLoadPlugin {
 	/**

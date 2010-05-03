@@ -27,7 +27,7 @@
 // $Id$
 
 
-import('metadata.MetadataProperty');
+import('lib.pkp.classes.metadata.MetadataProperty');
 
 class MetadataSchema {
 	/** @var string */

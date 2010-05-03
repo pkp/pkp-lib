@@ -19,9 +19,9 @@
 
 define('RUNNING_UPGRADE', 1);
 
-import('install.Upgrade');
-import('site.Version');
-import('site.VersionCheck');
+import('classes.install.Upgrade');
+import('lib.pkp.classes.site.Version');
+import('lib.pkp.classes.site.VersionCheck');
 
 class UpgradeTool extends CommandLineTool {
 

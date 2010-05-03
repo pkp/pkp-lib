@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('security.AccessKey');
+import('lib.pkp.classes.security.AccessKey');
 
 class AccessKeyDAO extends DAO {
 	/**

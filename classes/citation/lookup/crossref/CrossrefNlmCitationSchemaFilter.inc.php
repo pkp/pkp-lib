@@ -20,7 +20,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
 
@@ -110,7 +110,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$nullVar = null;
 
 		// Crosswalk to OpenURL
-		import('metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
+		import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
 		$nlmOpenUrlFilter = new NlmCitationSchemaOpenUrlCrosswalkFilter();
 		if (is_null($openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription))) return $nullVar;
 

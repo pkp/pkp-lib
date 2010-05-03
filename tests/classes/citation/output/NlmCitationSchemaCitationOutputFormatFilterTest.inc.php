@@ -12,14 +12,14 @@
  * @brief Base tests class for citation output format filters.
  */
 
-import('tests.PKPTestCase');
+import('lib.pkp.tests.PKPTestCase');
 
-import('core.PKPRouter');
-import('core.PKPRequest');
+import('lib.pkp.classes.core.PKPRouter');
+import('lib.pkp.classes.core.PKPRequest');
 
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.MetadataDescription');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.MetadataDescription');
 
 class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	var $_request;

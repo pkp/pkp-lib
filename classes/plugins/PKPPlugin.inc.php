@@ -317,9 +317,9 @@ class PKPPlugin {
 	 */
 	function addHelpData($locale = null) {
 		if ($locale == '') $locale = Locale::getLocale();
-		import('help.Help');
+		import('classes.help.Help');
 		$help =& Help::getHelp();
-		import('help.PluginHelpMappingFile');
+		import('lib.pkp.classes.help.PluginHelpMappingFile');
 		$pluginHelpMapping = new PluginHelpMappingFile($this);
 		$help->addMappingFile($pluginHelpMapping);
 		return true;

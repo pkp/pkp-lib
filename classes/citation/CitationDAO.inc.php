@@ -15,7 +15,7 @@
 
 //$Id$
 
-import('citation.Citation');
+import('lib.pkp.classes.citation.Citation');
 
 class CitationDAO extends DAO {
 	/**

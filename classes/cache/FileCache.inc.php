@@ -19,7 +19,7 @@
 // $Id$
 
 
-import('cache.GenericCache');
+import('lib.pkp.classes.cache.GenericCache');
 
 class FileCache extends GenericCache {
 	/**

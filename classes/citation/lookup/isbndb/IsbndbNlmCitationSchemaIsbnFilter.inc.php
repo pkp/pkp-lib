@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
 
 class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	/*

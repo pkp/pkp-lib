@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 
 class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 	private $_nlmNameSchemaPersonStringFilter;

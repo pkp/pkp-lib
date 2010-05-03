@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('file.EditableFile');
+import('lib.pkp.classes.file.EditableFile');
 
 class EditableEmailFile {
 	var $locale;

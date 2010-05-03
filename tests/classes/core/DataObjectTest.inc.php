@@ -13,8 +13,8 @@
  * @brief Tests for the DataObject class.
  */
 
-import('tests.PKPTestCase');
-import('core.DataObject');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.core.DataObject');
 
 class DataObjectTest extends PKPTestCase {
 	/** @var DataObject */

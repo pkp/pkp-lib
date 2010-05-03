@@ -46,13 +46,13 @@ if (TEST_BASE_DIRECTORY) {
 			require_once($mockClassFile);
 		} else {
 			// No mock implementation found, do the normal import
-			require_once(str_replace('.', '/', $class) . '.inc.php');
+			require_once('./'.str_replace('.', '/', $class) . '.inc.php');
 		}
 	}
 }
 
 // Set up minimal PKP application environment
-require_once('lib/pkp/includes/bootstrap.inc.php');
+require_once('./lib/pkp/includes/bootstrap.inc.php');
 
 // Remove the PKP error handler so that PHPUnit
 // can set it's own error handler and catch errors for us.

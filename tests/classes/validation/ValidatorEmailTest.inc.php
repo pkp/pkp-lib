@@ -13,8 +13,8 @@
  * @brief Test class for ValidatorEmail.
  */
 
-import('tests.PKPTestCase');
-import('validation.ValidatorEmail');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.validation.ValidatorEmail');
 
 class ValidatorEmailTest extends PKPTestCase {
 	/**

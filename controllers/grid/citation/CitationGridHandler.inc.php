@@ -13,15 +13,15 @@
  */
 
 // import grid base classes
-import('controllers.grid.GridHandler');
-import('controllers.grid.DataObjectGridCellProvider');
+import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 // import citation grid specific classes
-import('controllers.grid.citation.CitationGridRow');
+import('lib.pkp.controllers.grid.citation.CitationGridRow');
 
 // import validation classes
-import('handler.validation.HandlerValidatorJournal');
-import('handler.validation.HandlerValidatorRoles');
+import('classes.handler.validation.HandlerValidatorJournal');
+import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
 
 // filter option constants
 // FIXME: Make filter options configurable.
@@ -81,7 +81,7 @@ class CitationGridHandler extends GridHandler {
 		// trying to call components directly which is no legal use case anyway.)
 		// 1) restricted site access
 		if ( isset($journal) && $journal->getSetting('restrictSiteAccess')) {
-			import('handler.validation.HandlerValidatorCustom');
+			import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
 			$this->addCheck(new HandlerValidatorCustom($this, false, 'Restricted site access!', null, create_function('', 'if (!Validation::isLoggedIn()) return false; else return true;')));
 		}
 
@@ -238,12 +238,12 @@ class CitationGridHandler extends GridHandler {
 
 		// (Re-)import raw citations from the article
 		$rawCitationList = $article->getCitations();
-		import('citation.CitationListTokenizerFilter');
+		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
 		$citationTokenizer = new CitationListTokenizerFilter();
 		$citationStrings = $citationTokenizer->execute($rawCitationList);
 
 		// Instantiate and persist citations
-		import('citation.Citation');
+		import('lib.pkp.classes.citation.Citation');
 		$citations = array();
 		foreach($citationStrings as $citationString) {
 			$citation = new Citation($citationString);
@@ -276,11 +276,11 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function exportCitations(&$args, &$request) {
 		// We currently only support the NLM citation schema.
-		import('metadata.nlm.NlmCitationSchema');
+		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 		$nlmCitationSchema = new NlmCitationSchema();
 
 		// We currently only support the ABNT citation output schema
-		import('citation.output.apa.NlmCitationSchemaApaFilter');
+		import('lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter');
 		$citationOutputFilter = new NlmCitationSchemaApaFilter($request);
 
 		$formattedCitations = array();
@@ -325,7 +325,7 @@ class CitationGridHandler extends GridHandler {
 		$citation =& $this->_getCitationFromArgs($args, true);
 
 		// Form handling
-		import('controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
@@ -384,7 +384,7 @@ class CitationGridHandler extends GridHandler {
 		}
 
 		// Display the citation editor with the new (but yet unsaved) citation data
-		import('controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
 
 		// Add errors (if any)
@@ -475,7 +475,7 @@ class CitationGridHandler extends GridHandler {
 		if (!isset($args['citationId'])) {
 			if ($createIfMissing) {
 				// It seems that a new citation is being edited/updated
-				import('citation.Citation');
+				import('lib.pkp.classes.citation.Citation');
 				$citation = new Citation();
 				$citation->setAssocType(ASSOC_TYPE_ARTICLE);
 				$article =& $this->getArticle();
@@ -503,7 +503,7 @@ class CitationGridHandler extends GridHandler {
 		$citation =& $this->_getCitationFromArgs($args, true);
 
 		// Form initialization
-		import('controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		$citationForm->readInputData();
 
@@ -531,11 +531,11 @@ class CitationGridHandler extends GridHandler {
 		$citationString = $citation->getEditedCitation();
 
 		// Instantiate the supported parsers
-		import('citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
 		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
-		import('citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
 		$parscitFilter = new ParscitRawCitationNlmCitationSchemaFilter();
-		import('citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
 		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
 
 		$parserFilters = array(&$paraciteFilter, &$parscitFilter, &$regexFilter, $citationString);
@@ -556,16 +556,16 @@ class CitationGridHandler extends GridHandler {
 		$lookupFilters = array();
 
 		// Instantiate CrossRef filter
-		import('citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
 		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
 
 		// Instantiate and sequence ISBNdb filters
-		import('citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-		import('citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
+		import('lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
 		$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter(ISBNDB_TEMP_APIKEY);
 		if ($nlmToIsbnFilter->supportsAsInput($metadataDescription)) {
 			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
-			import('filter.GenericSequencerFilter');
+			import('lib.pkp.classes.filter.GenericSequencerFilter');
 			$isbndbFilter = new GenericSequencerFilter();
 			$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
 			$isbnSampleData = '1234567890123';
@@ -574,11 +574,11 @@ class CitationGridHandler extends GridHandler {
 		}
 
 		// Instantiate the pubmed filter
-		import('citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
 		$pubmedFilter = new PubmedNlmCitationSchemaFilter();
 
 		// Instantiate the WorldCat filter without API key for public usage
-		import('citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
+		import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
 		$worldcatFilter = new WorldcatNlmCitationSchemaFilter();
 
 		$lookupFilters = array_merge($lookupFilters, array(&$crossrefFilter, &$pubmedFilter, &$worldcatFilter, $metadataDescription));
@@ -618,7 +618,7 @@ class CitationGridHandler extends GridHandler {
 		$sampleDemuxInputData = array();
 
 		// Instantiate the citation multiplexer filter
-		import('filter.GenericMultiplexerFilter');
+		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 		$citationMultiplexer = new GenericMultiplexerFilter();
 		$nullVar = null;
 		foreach($filterList as $citationFilter) {
@@ -633,13 +633,13 @@ class CitationGridHandler extends GridHandler {
 		}
 
 		// Instantiate the citation de-multiplexer filter
-		import('citation.NlmCitationDemultiplexerFilter');
+		import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
 		$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
 		$citationDemultiplexer->setOriginalCitation($citation);
 
 		// Combine multiplexer and de-multiplexer to form the
 		// final citation filter network.
-		import('filter.GenericSequencerFilter');
+		import('lib.pkp.classes.filter.GenericSequencerFilter');
 		$citationFilterNet = new GenericSequencerFilter();
 		$citationFilterNet->addFilter($citationMultiplexer, $muxInputData);
 		$citationFilterNet->addFilter($citationDemultiplexer, $sampleDemuxInputData);

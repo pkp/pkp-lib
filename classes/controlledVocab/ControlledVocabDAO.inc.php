@@ -16,7 +16,7 @@
 //$Id$
 
 
-import('controlledVocab.ControlledVocab');
+import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
 	/**

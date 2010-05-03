@@ -102,7 +102,7 @@
 
 // $Id$
 
-import('core.DataObject');
+import('lib.pkp.classes.core.DataObject');
 
 define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);

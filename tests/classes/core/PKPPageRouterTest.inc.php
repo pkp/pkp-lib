@@ -13,10 +13,10 @@
  * @brief Tests for the PKPPageRouter class.
  */
 
-import('core.PKPPageRouter');
-import('tests.classes.core.PKPRouterTest');
-import('security.Validation'); // This will import our mock validation class.
-import('i18n.Locale'); // This will import our mock locale.
+import('lib.pkp.classes.core.PKPPageRouter');
+import('lib.pkp.tests.classes.core.PKPRouterTest');
+import('classes.security.Validation'); // This will import our mock validation class.
+import('classes.i18n.Locale'); // This will import our mock locale.
 
 class PKPPageRouterTest extends PKPRouterTest {
 	protected function setUp() {

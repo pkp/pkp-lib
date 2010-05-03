@@ -13,7 +13,7 @@
  * support lazy load.
  */
 
-import('plugins.Plugin');
+import('classes.plugins.Plugin');
 
 class LazyLoadPlugin extends Plugin {
 	/**

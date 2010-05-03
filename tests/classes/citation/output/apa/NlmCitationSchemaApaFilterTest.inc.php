@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('citation.output.apa.NlmCitationSchemaApaFilter');
-import('tests.classes.citation.output.NlmCitationSchemaCitationOutputFormatFilterTest');
+import('lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter');
+import('lib.pkp.tests.classes.citation.output.NlmCitationSchemaCitationOutputFormatFilterTest');
 
 class NlmCitationSchemaApaFilterTest extends NlmCitationSchemaCitationOutputFormatFilterTest {
 	/*

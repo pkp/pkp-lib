@@ -29,7 +29,7 @@ if (!defined('STDIN')) {
 	define('STDIN', fopen('php://stdin','r'));
 }
 define('SESSION_DISABLE_INIT', 1);
-require('lib/pkp/includes/bootstrap.inc.php');
+require('./lib/pkp/includes/bootstrap.inc.php');
 
 if (!isset($argc)) {
 	// In PHP < 4.3.0 $argc/$argv are not automatically registered
@@ -55,7 +55,7 @@ class CommandLineTool {
 		$request =& $application->getRequest();
 
 		// FIXME: Write and use a CLIRouter here (see classdoc)
-		import('core.PageRouter');
+		import('classes.core.PageRouter');
 		$router = new PageRouter();
 		$router->setApplication($application);
 		$request->setRouter($router);

@@ -14,10 +14,10 @@
 
 // $Id$
 
-define('ROUTER_DEFAULT_PAGE', 'pages/index/index.php');
+define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('core.PKPRouter');
+import('lib.pkp.classes.core.PKPRouter');
 
 class PKPPageRouter extends PKPRouter {
 	/** @var array pages that don't need an installed system to be displayed */
@@ -141,7 +141,8 @@ class PKPPageRouter extends PKPRouter {
 		// If a hook has been registered to handle this page, give it the
 		// opportunity to load required resources and set HANDLER_CLASS.
 		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
-			if (file_exists($sourceFile) || file_exists('lib/pkp/'.$sourceFile)) require($sourceFile);
+			if (file_exists($sourceFile)) require('./'.$sourceFile);
+			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
 			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
 			else {
 				$dispatcher =& $this->getDispatcher();

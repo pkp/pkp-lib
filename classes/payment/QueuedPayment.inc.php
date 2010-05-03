@@ -14,7 +14,7 @@
  *
  */
 
-import('payment.Payment');
+import('lib.pkp.classes.payment.Payment');
 
 class QueuedPayment extends Payment {
 	function QueuedPayment($amount, $currencyCode, $userId = null, $assocId = null) {

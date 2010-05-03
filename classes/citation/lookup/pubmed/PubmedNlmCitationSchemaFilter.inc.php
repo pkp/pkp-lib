@@ -20,7 +20,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
 define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
@@ -79,7 +79,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			// 1) Try a "loose" search based on the author list.
 			//    (This works surprisingly well for pubmed.)
 			$authors =& $citationDescription->getStatement('person-group[@person-group-type="author"]');
-			import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+			import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 			$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
 			$authorsString = (string)$personNameFilter->execute($authors);
 			if (!empty($authorsString)) {

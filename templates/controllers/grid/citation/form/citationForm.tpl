@@ -35,27 +35,28 @@
 		<script type='text/javascript'>
 			$(function() {ldelim}
 				$.ajaxSetup({ldelim}cache:false{rdelim});
-				$("#citationFormTabs-{$ts}").tabs({ldelim} cache: false {rdelim});
+				$("#citationFormTab-{$tabUid}").tabs({ldelim} cache: false {rdelim});
 			{rdelim});
 		</script>
 
-		<div id="citationFormTabs-{$ts}">
+		<div id="citationFormTab-{$tabUid}">
 			<ul>
-				{foreach from=$citationVarArrays key=arrayName item=varsArray}
-					<li><a href="#{$arrayName|regex_replace:"/\s*/":""}">{$arrayName|escape}</a></li>
+				{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
+					<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}">{$citationFormTabName|escape}</a></li>
 				{/foreach}
 			</ul>
-			{foreach from=$citationVarArrays key=arrayName item=varsArray}
-				<div id="{$arrayName|regex_replace:"/\s*/":""}">
+			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
+				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}">
 					<table>
 						<tr valign="top">
 							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
 							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
 						</tr>
-						{foreach from=$varsArray key=fieldName item=field}
+						{foreach from=$varsArray key=fieldName item=fieldDisplayName}
 							<tr valign="top">
-								<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
-								<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
+								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
+								{capture assign=fieldValueVar}{ldelim}${$fieldName}|escape{rdelim}{/capture}
+								<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{eval var=$fieldValueVar}" /></td>
 							</tr>
 						{/foreach}
 					</table>

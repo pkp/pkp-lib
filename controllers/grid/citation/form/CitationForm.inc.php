@@ -16,11 +16,14 @@
 import('lib.pkp.classes.form.Form');
 
 class CitationForm extends Form {
-	/** Citation the citation being edited */
+	/** @var Citation the citation being edited */
 	var $_citation;
 
-	/** boolean */
+	/** @var boolean */
 	var $_unsavedChanges;
+
+	/** @var array all properties contained in the citation */
+	var $_citationProperties;
 
 	/**
 	 * Constructor.
@@ -35,6 +38,21 @@ class CitationForm extends Form {
 		$this->_citation =& $citation;
 
 		$this->_unsavedChanges = (boolean) $unsavedChanges;
+
+		// Identify all form field names for the citation
+		$this->_citationFormFieldNames = array();
+		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
+			// Retrieve the meta-data schema
+			$metadataSchema =& $metadataAdapter->getMetadataSchema();
+
+			// Loop over the properties names in the schema and save
+			// them in a flat list.
+			$properties = $metadataSchema->getProperties();
+			foreach($properties as $property) {
+				$this->_citationProperties[$metadataSchema->getNamespacedPropertyId($property->getName())] =& $property;
+				unset($property);
+			}
+		}
 
 		// Validation checks for this form
 		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
@@ -70,7 +88,6 @@ class CitationForm extends Form {
 	//
 	/**
 	* Initialize form data from the associated citation.
-	* @param $citation Citation
 	*/
 	function initData() {
 		$citation =& $this->getCitation();
@@ -82,7 +99,6 @@ class CitationForm extends Form {
 		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
 			// Retrieve the meta-data schema
 			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			$metadataSchemaNamespace = $metadataSchema->getNamespace();
 
 			// Loop over the properties in the schema and add string
 			// values for all form fields.
@@ -117,24 +133,17 @@ class CitationForm extends Form {
 					$fieldValue = '';
 				}
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
-				if ($fieldValue != '') {
-					$citationVars[$fieldName] = array(
-						'translationKey' => $property->getDisplayName(),
-						'value' => $fieldValue
-					);
-				} else {
-					$citationVarsEmpty[$fieldName] = array(
-						'translationKey' => $property->getDisplayName(),
-						'value' => $fieldValue
-					);
-				}
+				$this->setData($fieldName, $fieldValue);
 			}
 		}
-		// FIXME: at the moment, we just create two tabs -- one for filled elements, and one for empty ones.
-		// any number of elements can be added, and they will appear as new tabs on the modal window.
-		$citationVarArrays = array("Filled Elements" => $citationVars, "Empty Elements" => $citationVarsEmpty);
-		$this->setData('citationVarArrays', $citationVarArrays);
-                $this->setData('ts', time());
+	}
+
+	/**
+	 * Initialize form data from user submitted data.
+	 */
+	function readInputData() {
+		$this->readUserVars(array('editedCitation', 'citationState'));
+		$this->readUserVars(array_keys($this->_citationProperties));
 	}
 
 	/**
@@ -143,15 +152,22 @@ class CitationForm extends Form {
 	 * @return the rendered form
 	 */
 	function fetch($request) {
-		$citation =& $this->getCitation();
-		assert(is_a($citation, 'Citation'));
-		$namespacedMetadataProperties = $citation->getNamespacedMetadataProperties();
-
-		// Add properties to the template (required for property display names)
+		// Template
 		$templateMgr =& TemplateManager::getManager($request);
-		$templateMgr->assign_by_ref('namespacedMetadataProperties', $namespacedMetadataProperties);
+
+		// Form tabs
+		// FIXME: At the moment, we just create two tabs -- one for filled
+		// elements, and one for empty ones. Any number of elements can be
+		// added, and they will appear as new tabs on the modal window.
+		foreach($this->_citationProperties as $fieldName => $property) {
+			$tabName = ($this->getData($fieldName) == '' ? 'Empty Elements' : 'Filled Elements');
+			$citationFormTabs[$tabName][$fieldName] = $property->getDisplayName();
+		}
+		$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
+		$templateMgr->assign('tabUid', time());
 
 		// Add the citation to the template
+		$citation =& $this->getCitation();
 		$templateMgr->assign_by_ref('citation', $citation);
 
 		// Does the form contain unsaved changes?
@@ -161,37 +177,14 @@ class CitationForm extends Form {
 		$router = $request->getRouter();
 		$checkAction = new GridAction(
 			'checkCitation',
-		GRID_ACTION_MODE_AJAX,
-		GRID_ACTION_TYPE_POST,
-		$router->url($request, null, null, 'checkCitation'),
+			GRID_ACTION_MODE_AJAX,
+			GRID_ACTION_TYPE_POST,
+			$router->url($request, null, null, 'checkCitation'),
 			'submission.citations.grid.checkCitationAgain'
-			);
-			$templateMgr->assign_by_ref('checkAction', $checkAction);
+		);
+		$templateMgr->assign_by_ref('checkAction', $checkAction);
 
-			return $this->display($request, true);
-	}
-
-	/**
-	 * Assign form data to user-submitted data.
-	 */
-	function readInputData() {
-		$this->readUserVars(array('editedCitation', 'citationState'));
-
-		$citation =& $this->getCitation();
-		$citationVars = array();
-		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
-			// Retrieve the meta-data schema
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			$metadataSchemaNamespace = $metadataSchema->getNamespace();
-
-			// Loop over the property names in the schema and add string
-			// values for all form fields.
-			$propertyNames =& $metadataSchema->getPropertyNames();
-			foreach($propertyNames as $propertyName) {
-				$citationVars[] = $metadataSchema->getNamespacedPropertyId($propertyName);
-			}
-		}
-		$this->readUserVars($citationVars);
+		return $this->display($request, true);
 	}
 
 	/**
@@ -205,15 +198,14 @@ class CitationForm extends Form {
 		}
 
 		// Extract data from citation form fields and inject it into the citation
+		import('lib.pkp.classes.metadata.MetadataDescription');
 		$metadataAdapters = $citation->getSupportedMetadataAdapters();
 		foreach($metadataAdapters as $metadataAdapter) {
 			// Instantiate a meta-data description for the given schema
 			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			import('lib.pkp.classes.metadata.MetadataDescription');
 			$metadataDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
 
 			// Set the meta-data statements
-			$metadataSchemaNamespace = $metadataSchema->getNamespace();
 			foreach($metadataSchema->getProperties() as $propertyName => $property) {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));
@@ -268,6 +260,7 @@ class CitationForm extends Form {
 
 			// Inject the meta-data into the citation
 			$citation->injectMetadata($metadataDescription, true);
+			unset($metadataDescription);
 		}
 
 		// Persist citation

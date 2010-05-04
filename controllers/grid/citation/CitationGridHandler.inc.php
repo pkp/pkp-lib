@@ -300,8 +300,8 @@ class CitationGridHandler extends GridHandler {
 		// Render the citation list
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('formattedCitations', $formattedCitations);
-		$citationList = $templateMgr->fetch('controllers/grid/citation/citationExport.tpl');
-		return $citationList;
+		$json = new JSON('true', $templateMgr->fetch('controllers/grid/citation/citationExport.tpl'));
+		return $json->getString();
 	}
 
 	/**
@@ -332,7 +332,8 @@ class CitationGridHandler extends GridHandler {
 		} else {
 			$citationForm->initData();
 		}
-		return $citationForm->fetch($request);
+		$json = new JSON('true', $citationForm->fetch($request));
+		return $json->getString();
 	}
 
 	/**
@@ -343,15 +344,24 @@ class CitationGridHandler extends GridHandler {
 	function checkCitation(&$args, &$request) {
 		if ($request->isPost()) {
 			// We update the citation with the user's manual settings
-			$originalCitation =& $this->_saveCitation($args, $request);
+			$citationForm =& $this->_saveCitation($args, $request);
 
-			if (is_null($originalCitation)) {
-				// Return an error
-				$json = new JSON('false', '');
+			if (!$citationForm->isValid()) {
+				// The citation cannot be persisted, so we cannot
+				// process it.
+
+				// Re-display the form without processing so that the
+				// user can fix the errors that kept us from persisting
+				// the citation.
+				$json = new JSON('false', $citationForm->fetch($request));
 				return $json->getString();
 			}
+
+			// We retrieve the citation to be checked from the form.
+			$originalCitation =& $citationForm->getCitation();
+			unset($citationForm);
 		} else {
-			// We retrieve the citation unchanged from the database.
+			// We retrieve the citation to be checked from the database.
 			$originalCitation =& $this->_getCitationFromArgs($args, true);
 		}
 
@@ -392,18 +402,10 @@ class CitationGridHandler extends GridHandler {
 			$citationForm->addError($errorField, $errorMessage);
 		}
 
-		// FIXME: modal() and ajaxAction() currently handle responses differently.
-		// modal() should expect JSON messages also.
+		// Return the rendered form
 		$citationForm->initData();
-		$renderedForm = $citationForm->fetch($request);
-		if ($request->isPost()) {
-			// This is a request initiated by ajaxAction()
-			$json = new JSON('true', $renderedForm);
-			return $json->getString();
-		} else {
-			// This is a request initiated by modal()
-			return $renderedForm;
-		}
+		$json = new JSON('true', $citationForm->fetch($request));
+		return $json->getString();
 	}
 
 	/**
@@ -414,10 +416,11 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function updateCitation(&$args, &$request) {
 		// Try to persist the data in the request.
-		$savedCitation =& $this->_saveCitation($args, $request);
-		if (is_null($savedCitation)) {
-			// Return an error
-			$json = new JSON('false', '');
+		$citationForm =& $this->_saveCitation($args, $request);
+		if (!$citationForm->isValid()) {
+			// Re-display the citation form with error messages
+			// so that the user can fix it.
+			$json = new JSON('false', $citationForm->fetch($request));
 		} else {
 			// Update the citation's grid row.
 			$row =& $this->getRowInstance();
@@ -494,7 +497,7 @@ class CitationGridHandler extends GridHandler {
 	 * Update citation with POST request data.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return Citation the saved Citation object, null on error
+	 * @return CitationForm the citation form for further processing
 	 */
 	function &_saveCitation(&$args, &$request) {
 		assert($request->isPost());
@@ -509,12 +512,10 @@ class CitationGridHandler extends GridHandler {
 
 		// Form validation
 		if ($citationForm->validate()) {
+			// Persist the citation.
 			$citationForm->execute();
-			return $citationForm->getCitation();
-		} else {
-			$nullVar = null;
-			return $nullVar;
 		}
+		return $citationForm;
 	}
 
 	/**

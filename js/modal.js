@@ -48,16 +48,16 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 					$.post(
 						$form.attr("action"),
 						$form.serialize(),
-						function(returnString) {
-							if(returnString.isScript == true) {
-								eval(returnString.script);
+						function(jsonData) {
+							if(jsonData.isScript == true) {
+								eval(jsonData.script);
 							}
-							if (returnString.status == true) {
-								updateItem(actType, actOnId, returnString.content);
+							if (jsonData.status == true) {
+								updateItem(actType, actOnId, jsonData.content);
 								$('#' + UID).dialog("close");
 							} else {
-								// Display errors in error list
-								$('#formErrors .formErrorList').html(returnString.content);
+								// If an error occurs then redisplay the form
+								$('#' + UID).html(jsonData.content);
 							}
 						},
 						"json"
@@ -79,8 +79,14 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 			draggable: false,
 			buttons: dialogOptions,
 			open: function(event, ui) {
-				$(this).load(url, null, function() {
+				$.getJSON(url, function(jsonData) {
 					$('#loading').hide();
+					if (jsonData.status === true) {
+						$('#' + UID).html(jsonData.content);
+					} else {
+						// Alert that the modal failed
+						alert(jsonData.content);
+					}
 				});
 				$(this).html("<div id='loading' class='throbber'></div>");
 				$('#loading').show();
@@ -261,23 +267,21 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 			validator = $form.validate();
 			var d = new Date();
 			var UID = Math.ceil(1000 * Math.random(d.getTime()));
-			var $dialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {title: $(callingButton).text(), draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
+			var $throbberDialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {title: $(callingButton).text(), draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
 			$('#' + UID).show();
 
 			// Post to server and construct callback
 			if ($form.valid()) {
-			    $dialog.dialog('open');
+				$throbberDialog.dialog('open');
 				$.post(
 					postUrl,
 					postData,
-					function(returnString) {
-						$dialog.dialog('close');
-						if (returnString.status == true) {
-							$('#' + actOnId).replaceWith(returnString.content);
-						} else {
-							// Display server side errors in error list
-							$('#' + UID + ' #formErrors .formErrorList').html(returnString.content);
-						}
+					function(jsonData) {
+						$throbberDialog.dialog('close');
+						// An AJAX action will always return content that
+						// replaces the original content independent of whether
+						// an error occured or not.
+						$('#' + actOnId).replaceWith(jsonData.content);
 					},
 					'json'
 				);
@@ -288,12 +292,12 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 		clickAction = function() {
 			$.get(
 				url,
-				function(returnString) {
-					if (returnString.status == true) {
+				function(jsonData) {
+					if (jsonData.status === true) {
 						$('#' + actOnId).replaceWith(returnString.content);
 					} else {
 						// Alert that the action failed
-						alert(returnString.content);
+						alert(jsonData.content);
 					}
 				},
 				'json'

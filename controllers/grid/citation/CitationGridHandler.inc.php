@@ -423,6 +423,7 @@ class CitationGridHandler extends GridHandler {
 			$json = new JSON('false', $citationForm->fetch($request));
 		} else {
 			// Update the citation's grid row.
+			$savedCitation =& $citationForm->getCitation();
 			$row =& $this->getRowInstance();
 			$row->setGridId($this->getId());
 			$row->setId($savedCitation->getId());

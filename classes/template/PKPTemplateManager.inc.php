@@ -1113,7 +1113,7 @@ class PKPTemplateManager extends Smarty {
 			$translatedLoadMessage = '';
 		}
 
-		echo "<div id=\"$id\">$translatedLoadMessage</div>
+		return "<div id=\"$id\">$translatedLoadMessage</div>
 		<script type='text/javascript'>
 		  $(\"#$id\").load(\"$url\");
 		</script>";
@@ -1152,7 +1152,7 @@ class PKPTemplateManager extends Smarty {
 		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button');
 		</script>\n";
 
-		echo $modalCode;
+		return $modalCode;
 	}
 
 
@@ -1204,7 +1204,7 @@ class PKPTemplateManager extends Smarty {
 			</script>";
 		}
 
-		echo $confirmCode;
+		return $confirmCode;
 	}
 
 	function smartyAjaxUpload($params, &$smarty) {
@@ -1221,7 +1221,7 @@ class PKPTemplateManager extends Smarty {
 		} else {
 			$url = $params['url'];
 		}
-		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
+		return "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
 
 	function smartyInitTabs($params, &$smarty) {
@@ -1232,7 +1232,7 @@ class PKPTemplateManager extends Smarty {
 			$id = $params['id'];
 		}
 
-		echo "<script type='text/javascript'>$(function() {
+		return "<script type='text/javascript'>$(function() {
 			$('#$id').tabs();
 		});</script>";
 	}

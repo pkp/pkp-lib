@@ -475,7 +475,12 @@ class PKPPlugin {
 		if (!$installer->getParam('manualInstall')) {
 			// All contexts are set to zero for site-wide plug-in settings
 			$application =& PKPApplication::getApplication();
-			$arguments = array_fill(0, $application->getContextDepth(), 0);
+			$contextDepth = $application->getContextDepth();
+			if ($contextDepth >0) {
+				$arguments = array_fill(0, $contextDepth, 0);
+			} else {
+				$arguments = array();
+			}
 			$arguments[] = $this->getName();
 			$arguments[] = $this->getInstallSitePluginSettingsFile();
 			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');

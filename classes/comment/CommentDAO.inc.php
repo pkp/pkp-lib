@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('classes.comment.Comment');
+import('lib.pkp.classes.comment.Comment');
 
 define ('SUBMISSION_COMMENT_RECURSE_ALL', -1);
 

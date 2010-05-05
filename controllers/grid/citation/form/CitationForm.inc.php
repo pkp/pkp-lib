@@ -155,6 +155,9 @@ class CitationForm extends Form {
 		// Template
 		$templateMgr =& TemplateManager::getManager($request);
 
+		// Auto-add client-side validation
+		$templateMgr->assign('validateId', 'citationForm');
+
 		// Form tabs
 		// FIXME: At the moment, we just create two tabs -- one for filled
 		// elements, and one for empty ones. Any number of elements can be

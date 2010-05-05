@@ -28,7 +28,7 @@
 		<table width="100%" class="data">
 			<tr valign="top">
 				<td width="30%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
-				<td width="70%" class="value"><textarea name="editedCitation" id="editedCitation" cols="40" rows="3" class="textField">{$editedCitation}</textarea></td>
+				<td width="70%" class="value">{fbvElement type="textarea" name="editedCitation" id="editedCitation" size=$fbvStyles.size.LARGE value=$editedCitation}</td>
 			</tr>
 		</table>
 
@@ -56,7 +56,8 @@
 							<tr valign="top">
 								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
 								{capture assign=fieldValueVar}{ldelim}${$fieldName}|escape{rdelim}{/capture}
-								<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{eval var=$fieldValueVar}" /></td>
+								{eval|assign:"fieldValue" var=$fieldValueVar}
+								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.SMALL maxlength="250" value=$fieldValue"}</td>
 							</tr>
 						{/foreach}
 					</table>

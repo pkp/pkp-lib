@@ -60,6 +60,27 @@
 			fontSize("#sizer", "body", 9, 16, 32, "{/literal}{$baseUrl}{literal}"); // Initialize the font sizer
 		});
 	{/literal}</script>
+	
+	<script type="text/javascript">
+        // initialise plugins
+		{literal}
+        $(function(){
+        	{/literal}{if $validateId}{literal}
+			jqueryValidatorI18n("{/literal}{$baseUrl}{literal}", "{/literal}{$currentLocale}{literal}"); // include the appropriate validation localization
+			$("form[name={/literal}{$validateId}{literal}]").validate({
+				errorClass: "error",
+				highlight: function(element, errorClass) {
+					$(element).parent().parent().addClass(errorClass);
+				},
+				unhighlight: function(element, errorClass) {
+					$(element).parent().parent().removeClass(errorClass);
+				}
+			});
+			{/literal}{/if}{literal}
+		});
+		{/literal}
+    </script>
+	
 	{$additionalHeadData}
 </head>
 <body>

@@ -5,8 +5,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * ABNT citation output format template (NLM citation schema based)
- *
- * $Id$
  *}
 {strip}
 	{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/:.*$/':''}

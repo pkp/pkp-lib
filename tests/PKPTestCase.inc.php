@@ -52,11 +52,8 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 	 * @return string the resolved configuration file name
 	 */
 	private function getConfigFile($config, $configPath = 'config') {
-		// FIXME: How should we resolve config files?
-		// We could implement something like a configurable
-		// configuration resolver strategy that we plug
-		// in here.
-		return 'lib/pkp/tests/'.$configPath.'/config.'.$config.'.inc.php';
+		// Build the config file name.
+		return './lib/pkp/tests/'.$configPath.'/config.'.$config.'.inc.php';
 	}
 }
 ?>

@@ -127,25 +127,34 @@ class DBDataXMLParser {
 							$to = $query->getAttribute('to');
 							if ($column) {
 								$columns =& $this->dbconn->MetaColumns($table, true);
-								$colId = strtoupper($column);
-								$flds = '';
-								if (isset($columns[$colId])) {
-									$col = $columns[$colId];
-									if ($col->max_length == "-1") {
-										$max_length = '';
-									} else {
-										$max_length = $col->max_length;
-									} 
-									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
-									if ($col->primary_key) $fld['KEY'] = 'KEY';
-									if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
-									if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
-									if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
-									$flds = array($colId => $fld);
+								// Make sure the target column does not yet exist.
+								// This is to guarantee idempotence of upgrade scripts.
+								if (!isset($columns[strtoupper($to)])) {
+									$colId = strtoupper($column);
+									$flds = '';
+									if (isset($columns[$colId])) {
+										$col = $columns[$colId];
+										if ($col->max_length == "-1") {
+											$max_length = '';
+										} else {
+											$max_length = $col->max_length;
+										}
+										$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
+										if ($col->primary_key) $fld['KEY'] = 'KEY';
+										if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
+										if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
+										if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
+										$flds = array($colId => $fld);
+									}
+									$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
 								}
-								$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
 							} else {
-								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
+								$tables =& $this->dbconn->MetaTables();
+								// Make sure the target table does not yet exist.
+								// This is to guarantee idempotence of upgrade scripts.
+								if (!in_array($table, $to)) {
+									$this->sql[] = $dbdict->RenameTableSQL($table, $to);
+								}
 							}
 						} else {
 							$driver = $query->getAttribute('driver');

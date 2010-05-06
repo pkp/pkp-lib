@@ -392,11 +392,10 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('data: %s', $action['file']));
 				$sql = $this->dataXMLParser->parseData($fileName);
+				// We might get an empty SQL if the upgrade script has
+				// been executed before.
 				if ($sql) {
 					return $this->executeSQL($sql);
-				} else {
-					$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, Locale::translate('installer.installParseDBFileError')));
-					return false;
 				}
 				break;
 			case 'code':

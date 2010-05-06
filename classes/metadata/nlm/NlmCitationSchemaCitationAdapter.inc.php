@@ -70,9 +70,15 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 					$value =& $tmpValue;
 
 					// Convert MetadataDescription objects to simple key/value arrays.
-					foreach($value as $key => $nameComposite) {
-						assert(is_a($nameComposite, 'MetadataDescription'));
-						$value[$key] =& $nameComposite->getAllData();
+					foreach($value as $key => $name) {
+						if(is_a($name, 'MetadataDescription')) {
+							// A name can either be a full name description...
+							$value[$key] =& $name->getAllData();
+						} else {
+							// ...or an 'et-al' string.
+							assert($name == PERSON_STRING_FILTER_ETAL);
+							// No need to change the value encoding.
+						}
 					}
 				}
 				$dataObject->setData($dataObjectKey, $value);
@@ -112,19 +118,28 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 					// Convert key/value arrays to MetadataDescription objects.
 					$names =& $dataObject->getData($fieldName);
 					foreach($names as $key => $name) {
-						switch($propertyName) {
-							case 'person-group[@person-group-type="author"]':
-								$assocType = ASSOC_TYPE_AUTHOR;
-								break;
+						if (is_array($name)) {
+							// Construct a meta-data description from
+							// this name array.
+							switch($propertyName) {
+								case 'person-group[@person-group-type="author"]':
+									$assocType = ASSOC_TYPE_AUTHOR;
+									break;
 
-							case 'person-group[@person-group-type="editor"]':
-								$assocType = ASSOC_TYPE_EDITOR;
-								break;
+								case 'person-group[@person-group-type="editor"]':
+									$assocType = ASSOC_TYPE_EDITOR;
+									break;
+							}
+							$nameDescription = new MetadataDescription($nameSchema, $assocType);
+							$nameDescription->setStatements($name);
+							$names[$key] =& $nameDescription;
+							unset($nameDescription);
+						} else {
+							// The only non-structured data allowed here
+							// is the et-al string.
+							import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
+							assert($name == PERSON_STRING_FILTER_ETAL);
 						}
-						$nameDescription = new MetadataDescription($nameSchema, $assocType);
-						$nameDescription->setStatements($name);
-						$names[$key] =& $nameDescription;
-						unset($nameDescription);
 					}
 					$statements[$propertyName] =& $names;
 				} else {

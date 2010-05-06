@@ -106,6 +106,8 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 
 		$this->_personStringNlmNameSchemaFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
 		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
+		// The last description should be an 'et-al' string
+		self::assertEquals(PERSON_STRING_FILTER_ETAL, array_pop($personDescriptions));
 		foreach($personDescriptions as $testNumber => $personDescription) {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}
@@ -123,6 +125,8 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 		$this->_personStringNlmNameSchemaFilter->setFilterTitle(true);
 		$this->_personStringNlmNameSchemaFilter->setFilterDegrees(true);
 		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
+		// The last description should be an 'et-al' string
+		self::assertEquals(PERSON_STRING_FILTER_ETAL, array_pop($personDescriptions));
 		foreach($personDescriptions as $testNumber => $personDescription) {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}

@@ -159,7 +159,8 @@ class MetadataSchema {
 
 		$propertyNames = array();
 		foreach($this->_properties as $property) {
-			if (in_array($propertyType, $property->getTypes())) {
+			$allowedPropertyTypes = $property->getAllowedTypes();
+			if (isset($allowedPropertyTypes[$propertyType])) {
 				$propertyNames[] = $property->getName();
 			}
 		}

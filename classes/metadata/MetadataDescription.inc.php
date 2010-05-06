@@ -197,7 +197,7 @@ class MetadataDescription extends DataObject {
 		if (!in_array($this->_assocType, $property->getAssocTypes())) return false;
 
 		// Check that the value is compliant with the property specification
-		if (!$property->isValid($value)) return false;
+		if ($property->isValid($value) === false) return false;
 
 		// Handle translation
 		$translated = $property->getTranslated();

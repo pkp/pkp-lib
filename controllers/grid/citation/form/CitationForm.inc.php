@@ -54,12 +54,10 @@ class CitationForm extends Form {
 			}
 		}
 
-		// Validation checks for this form
+		// Validation checks for this form that are not checked within the default meta-data validation algorithm.
 		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
-		$this->addCheck(new FormValidator($this, 'nlm30PublicationType', 'required', 'submission.citations.grid.publicationTypeRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 
-		// FIXME: Write and add meta-data description validator
 		// FIXME: Validate citation state
 	}
 
@@ -111,18 +109,18 @@ class CitationForm extends Form {
 					$value = $metadataDescription->getStatement($propertyName);
 
 					if ($property->getCardinality() == METADATA_PROPERTY_CARDINALITY_MANY && !empty($value)) {
-						// FIXME: The following is a work-around until we completely
-						// implement #5171 ("author: et.al"). Then we have to support
-						// true multi-type properties.
-						if (is_a($value[0], 'MetadataDescription')) {
+						$allowedTypes = $property->getAllowedTypes();
+						if (isset($allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE])) {
 							// We currently only support composite name arrays
-							assert(in_array($value[0]->getAssocType(), array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
+							$allowedAssocTypes = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
+							assert(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocTypes) || in_array(ASSOC_TYPE_EDITOR, $allowedAssocTypes));
 							import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 							$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
 							assert($personStringFilter->supportsAsInput($value));
 							$fieldValue = $personStringFilter->execute($value);
 						} else {
-							// We currently don't support repeated values
+							// We currently don't support properties of
+							// cardinality "many" in the form.
 							assert(is_array($value) && count($value) <= 1);
 							$fieldValue = $value[0];
 						}
@@ -162,6 +160,7 @@ class CitationForm extends Form {
 		// FIXME: At the moment, we just create two tabs -- one for filled
 		// elements, and one for empty ones. Any number of elements can be
 		// added, and they will appear as new tabs on the modal window.
+		$citationFormTabs = array('Filled Elements' => array(), 'Empty Elements' => array());
 		foreach($this->_citationProperties as $fieldName => $property) {
 			$tabName = ($this->getData($fieldName) == '' ? 'Empty Elements' : 'Filled Elements');
 			$citationFormTabs[$tabName][$fieldName] = $property->getDisplayName();
@@ -191,9 +190,14 @@ class CitationForm extends Form {
 	}
 
 	/**
-	 * Save citation
+	 * Custom implementation of Form::validate() that validates
+	 * meta-data form data.
 	 */
-	function execute() {
+	function validate() {
+		parent::validate();
+
+		// Validate form data and inject it into
+		// the associated citation object.
 		$citation =& $this->getCitation();
 		$citation->setEditedCitation($this->getData('editedCitation'));
 		if (in_array($this->getData('citationState'), Citation::_getSupportedCitationStates())) {
@@ -213,51 +217,67 @@ class CitationForm extends Form {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));
 				if (empty($fieldValue)) {
+					// Delete empty statements so that previously set
+					// statements (if any) will be deleted.
 					$metadataDescription->removeStatement($propertyName);
+
+					if ($property->getMandatory()) {
+						// A mandatory field is missing - add a validation error.
+						$this->addError($fieldName, Locale::translate($property->getValidationMessage()));
+						$this->addErrorField($fieldName);
+					}
 				} else {
-					$foundValidType = false;
-					foreach($property->getTypes() as $type) {
-						// Some property types need to be converted first
-						switch($type) {
+					// Try to convert the field value to (a) strongly
+					// typed object(s) if applicable. Start with the most
+					// specific allowed type so that we always get the
+					// most strongly typed result possible.
+					$allowedTypes = $property->getAllowedTypes();
+					switch(true) {
+						case isset($allowedTypes[METADATA_PROPERTY_TYPE_VOCABULARY]) && is_numeric($fieldValue):
+						case isset($allowedTypes[METADATA_PROPERTY_TYPE_INTEGER]) && is_numeric($fieldValue):
+							$typedFieldValues = array((integer)$fieldValue);
+							break;
+
+						case isset($allowedTypes[METADATA_PROPERTY_TYPE_DATE]):
+							import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
+							$dateStringFilter = new DateStringNormalizerFilter();
+							assert($dateStringFilter->supportsAsInput($fieldValue));
+							$typedFieldValues = array($dateStringFilter->execute($fieldValue));
+							break;
+
+						case isset($allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE]):
 							// We currently only support name composites
-							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_AUTHOR):
-							case array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_EDITOR):
-								import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
-								$personStringFilter = new PersonStringNlmNameSchemaFilter($type[METADATA_PROPERTY_TYPE_COMPOSITE], PERSON_STRING_FILTER_MULTIPLE);
-								assert($personStringFilter->supportsAsInput($fieldValue));
-								$fieldValue =& $personStringFilter->execute($fieldValue);
-								$foundValidType = true;
-								break;
+							$allowedAssocIds = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
+							if(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocIds)) {
+								$assocType = ASSOC_TYPE_AUTHOR;
+							} elseif (in_array(ASSOC_TYPE_EDITOR, $allowedAssocIds)) {
+								$assocType = ASSOC_TYPE_EDITOR;
+							} else {
+								assert(false);
+							}
 
-							case METADATA_PROPERTY_TYPE_INTEGER:
-								$fieldValue = array((integer)$fieldValue);
-								$foundValidType = true;
-								break;
+							// Try to transform the field to a name composite.
+							import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
+							$personStringFilter = new PersonStringNlmNameSchemaFilter($assocType, PERSON_STRING_FILTER_MULTIPLE);
+							assert($personStringFilter->supportsAsInput($fieldValue));
+							$typedFieldValues =& $personStringFilter->execute($fieldValue);
+							break;
 
-							case METADATA_PROPERTY_TYPE_DATE:
-								import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
-								$dateStringFilter = new DateStringNormalizerFilter();
-								assert($dateStringFilter->supportsAsInput($fieldValue));
-								$fieldValue = array($dateStringFilter->execute($fieldValue));
-								$foundValidType = true;
-								break;
+						default:
+							$typedFieldValues = array($fieldValue);
+					}
 
-							default:
-								if ($property->isValid($fieldValue)) {
-									$fieldValue = array($fieldValue);
-									$foundValidType = true;
-									break;
-								}
+					// Inject data into the meta-data description and thereby
+					// implicitly validate the field value.
+					foreach($typedFieldValues as $typedFieldValue) {
+						if(!$metadataDescription->addStatement($propertyName, $typedFieldValue)) {
+							// Add form field error
+							$this->addError($fieldName, Locale::translate($property->getValidationMessage()));
+							$this->addErrorField($fieldName);
 						}
-
-						// Break the outer loop once we found a valid
-						// interpretation for our form field.
-						if ($foundValidType) break;
+						unset($typedFieldValue);
 					}
-					foreach($fieldValue as $fieldValueStatement) {
-						$metadataDescription->addStatement($propertyName, $fieldValueStatement);
-						unset($fieldValueStatement);
-					}
+					unset($typedFieldValues);
 				}
 			}
 
@@ -266,14 +286,21 @@ class CitationForm extends Form {
 			unset($metadataDescription);
 		}
 
+		return $this->isValid();
+	}
+
+	/**
+	 * Save citation
+	 */
+	function execute() {
 		// Persist citation
+		$citation =& $this->getCitation();
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
 		if (is_numeric($citation->getId())) {
 			$citationDAO->updateCitation($citation);
 		} else {
 			$citationDAO->insertCitation($citation);
 		}
-
 		return true;
 	}
 }

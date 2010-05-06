@@ -46,6 +46,7 @@ class OpenUrlJournalSchema extends OpenUrlJournalBookBaseSchema {
 		$this->addProperty(new MetadataProperty('eissn', $citation));
 		$this->addProperty(new MetadataProperty('coden', $citation));
 		$this->addProperty(new MetadataProperty('sici', $citation));
+		$this->addProperty(new MetadataProperty('genre', $citation, array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-journal-genres')));
 	}
 }
 ?>

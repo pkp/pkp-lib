@@ -178,7 +178,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		}
 
 		// Set default genre
-		if (empty($metadata['genre'])) $metadata['genre'] = 'article';
+		if (empty($metadata['genre'])) $metadata['genre'] = OPENURL_GENRE_ARTICLE;
 
 		// Handle title, chapter and publication depending on
 		// the (inferred) genre. Also instantiate the target schema.

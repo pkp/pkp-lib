@@ -43,6 +43,36 @@ class ControlledVocabEntryDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a controlled vocab entry by resolving one of its settings
+	 * to the corresponding entry id.
+	 * @param $settingValue string the setting value to be searched for
+	 * @param $symbolic string the vocabulary to be searched, identified by its symbolic name
+	 * @param $assocType integer
+	 * @param $assocId integer
+	 * @param $settingName string the setting to be searched
+	 * @param $locale string
+	 * @return ControlledVocabEntry
+	 */
+	function getBySetting($settingValue, $symbolic, $assocType, $assocId, $settingName = 'name', $locale = '') {
+		$result =& $this->retrieve(
+			'SELECT cve.*
+			 FROM controlled_vocabs cv
+			 INNER JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
+			 INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
+			 WHERE cves.setting_name = ? and cves.locale = ? AND cves.setting_value = ?
+			       AND cv.symbolic = ? AND cv.assoc_type = ? AND cv.assoc_id = ?',
+			array($settingName, $locale, $settingValue, $symbolic, $assocType, $assocId)
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_fromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
+	}
+
+	/**
 	 * Construct a new data object corresponding to this DAO.
 	 * @return ControlledVocabEntry
 	 */

@@ -37,10 +37,6 @@ class OpenUrlJournalBookBaseSchema extends OpenUrlBaseSchema {
 		$this->addProperty(new MetadataProperty('epage', $citation, METADATA_PROPERTY_TYPE_INTEGER));
 		$this->addProperty(new MetadataProperty('pages', $citation));
 		$this->addProperty(new MetadataProperty('issn', $citation));
-		$this->addProperty(new MetadataProperty('genre', $citation));
-		// FIXME: implement genre as controlled vocabulary.
-		// Allowed values in the journal schema: "journal", "issue", "article", "proceeding", "conference", "preprint", "unknown"
-		// Allowed values in the book schema: "book", "bookitem", "conference", "proceeding", "report", "document", "unknown"
 	}
 }
 ?>

@@ -1180,7 +1180,11 @@ class PKPTemplateManager extends Smarty {
 
 		if (isset($params['dialogText']))  {
 			$showDialog = true;
-			$dialogText = Locale::translate($params['dialogText']);
+			if(isset($params['translate']) && $params['translate'] == false) {
+				$dialogText = $params['dialogText'];
+			} else {
+				$dialogText = Locale::translate($params['dialogText']);
+			}
 		} else {
 			$showDialog = false;
 		}

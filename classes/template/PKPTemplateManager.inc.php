@@ -1244,8 +1244,19 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return "<script type='text/javascript'>$(function() {
-			$('#$id').tabs();
-		});</script>";
+		$('$id').tabs({
+		    ajaxOptions: {
+		        dataFilter: function(jsonData){
+		        	var data = $.parseJSON(jsonData);
+		        	if(data.status === true) {
+			            return data.content;
+		        	} else {
+		        		alert(data.content);
+		        	}
+		        }
+		    }});
+	    });
+	    </script>";
 	}
 }
 

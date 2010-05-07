@@ -24,6 +24,7 @@ define('CITATION_RAW', 0x01);
 define('CITATION_EDITED', 0x02);
 define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
+define('CITATION_APPROVED', 0x05);
 
 import('lib.pkp.classes.core.DataObject');
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
@@ -199,7 +200,8 @@ class Citation extends DataObject {
 			CITATION_RAW,
 			CITATION_EDITED,
 			CITATION_PARSED,
-			CITATION_LOOKED_UP
+			CITATION_LOOKED_UP,
+			CITATION_APPROVED
 		);
 		return $_supportedCitationStates;
 	}

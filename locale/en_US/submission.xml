@@ -33,6 +33,7 @@
 	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>
 	<message key="submission.citations.form.title">Edit Citation</message>
+	<message key="submission.citations.form.approveCitation">Approve Citation?</message>
 	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
 	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
 	<message key="submission.citations.form.unsavedChanges">The citation contains data from external databases that are yet unsaved. Please review and/or edit the data fields and then either click "Ok" to save them or "Cancel" to undo the changes.</message>

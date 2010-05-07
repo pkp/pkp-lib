@@ -72,5 +72,6 @@
 		{/if}
 
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+		<p>{translate key="submission.citations.form.approveCitation"}{fbvCheckbox id="citationApproved" name="citationApproved" value="citationApproved" checked=$citationApproved}</p>
 	</form>
 </div>

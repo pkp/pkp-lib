@@ -140,7 +140,7 @@ class CitationForm extends Form {
 	 * Initialize form data from user submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('editedCitation', 'citationState'));
+		$this->readUserVars(array('editedCitation', 'citationState', 'citationApproved'));
 		$this->readUserVars(array_keys($this->_citationProperties));
 	}
 
@@ -186,7 +186,10 @@ class CitationForm extends Form {
 		);
 		$templateMgr->assign_by_ref('checkAction', $checkAction);
 
-		return $this->display($request, true);
+		$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
+		$templateMgr->assign('citationApproved', $citationApproved);
+
+		return parent::fetch($request);
 	}
 
 	/**
@@ -200,7 +203,12 @@ class CitationForm extends Form {
 		// the associated citation object.
 		$citation =& $this->getCitation();
 		$citation->setEditedCitation($this->getData('editedCitation'));
-		if (in_array($this->getData('citationState'), Citation::_getSupportedCitationStates())) {
+		if ($this->getData('citationApproved') == 'citationApproved') {
+			// Editor's shortcut to the approved state, e.g. for manually edited citations.
+			$citation->setCitationState(CITATION_APPROVED);
+		} elseif (in_array($this->getData('citationState'), Citation::_getSupportedCitationStates())) {
+			// Reset citation state if necessary
+			if ($this->getData('citationState') == CITATION_APPROVED) $this->setData('citationState', CITATION_LOOKED_UP);
 			$citation->setCitationState($this->getData('citationState'));
 		}
 

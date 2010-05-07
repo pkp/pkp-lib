@@ -210,7 +210,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Render the entire grid controller and send
 	 * it to the client.
-	 * @return string the grid HTML
+	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request) {
 
@@ -234,19 +234,20 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Render a row and send it to the client.
-	 * @return string the row HTML
+	 * @return string the serialized row JSON message
 	 */
 	function fetchRow(&$args, &$request) {
 		// Instantiate the requested row
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the requested row
-		return $this->_renderRowInternally($request, $row);
+		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		return $json->getString();
 	}
 
 	/**
 	 * Render a cell and send it to the client
-	 * @return string the row HTML
+	 * @return string the serialized cell JSON message
 	 */
 	function fetchCell(&$args, &$request) {
 		// Check the requested column
@@ -258,7 +259,8 @@ class GridHandler extends PKPHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the cell
-		return $this->_renderCellInternally($request, $row, $column);
+		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
+		return $json->getString();
 	}
 
 	//

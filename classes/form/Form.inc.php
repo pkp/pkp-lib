@@ -160,6 +160,15 @@ class Form {
 	}
 
 	/**
+	 * Alias to $this->display($request, true) -- returns the form's rendered contents
+	 * @param $request PKPRequest
+	 * @return string the rendered form
+	 */
+	function fetch(&$request) {
+		return $this->display($request, true);
+	}
+	
+	/**
 	 * Get the value of a form field.
 	 * @param $key string
 	 * @return mixed

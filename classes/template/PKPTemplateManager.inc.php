@@ -1115,7 +1115,14 @@ class PKPTemplateManager extends Smarty {
 
 		return "<div id=\"$id\">$translatedLoadMessage</div>
 		<script type='text/javascript'>
-		  $(\"#$id\").load(\"$url\");
+			$.getJSON(\"$url\", function(jsonData) {
+				if (jsonData.status === true) {
+					$(\"#$id\").html(jsonData.content);
+				} else {
+					// Alert that the modal failed
+					alert(jsonData.content);
+				}
+			});
 		</script>";
 	}
 

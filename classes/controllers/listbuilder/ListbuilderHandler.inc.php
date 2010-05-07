@@ -192,16 +192,22 @@ class ListbuilderHandler extends GridHandler {
 	/**
 	 * Display the Listbuilder
 	 */
-	function fetch(&$args, &$request) {
+	function fetch(&$args, &$request, $additionalVars = null) {
 		// FIXME: User validation
 
 		$templateMgr =& TemplateManager::getManager();
 		$this->setupTemplate();
 		$router =& $request->getRouter();
 
-		$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
-		$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
-
+		if(isset($additionalVars)) {
+			foreach ($additionalVars as $key => $value) {
+				$templateMgr->assign($key, $value);
+			}
+		} else {
+			$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
+			$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
+		}
+		
 		// Translate modal submit/cancel buttons
 		$okButton = Locale::translate('common.ok');
 		$warning = Locale::translate('common.warning');
@@ -218,7 +224,8 @@ class ListbuilderHandler extends GridHandler {
 
 		$templateMgr->assign('listbuilder', $this);
 
-		echo $templateMgr->fetch($this->getTemplate());
+		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		return $json->getString();
     }
 
 	//

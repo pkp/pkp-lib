@@ -228,7 +228,8 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
-		return $templateMgr->fetch($this->getTemplate());
+		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		return $json->getString();
 	}
 
 	/**

@@ -54,6 +54,7 @@ class DBDataXMLParser {
 	function parseData($file) {
 		$this->sql = array();
 		$tree = $this->parser->parse($file);
+		$allTables =& $this->dbconn->MetaTables();
 		if ($tree !== false) {
 			foreach ($tree->getChildren() as $table) {
 				if ($table->getName() == 'table') {
@@ -126,10 +127,24 @@ class DBDataXMLParser {
 							$column = $query->getAttribute('column');
 							$to = $query->getAttribute('to');
 							if ($column) {
-								$columns =& $this->dbconn->MetaColumns($table, true);
 								// Make sure the target column does not yet exist.
 								// This is to guarantee idempotence of upgrade scripts.
-								if (!isset($columns[strtoupper($to)])) {
+								$run = false;
+								if (in_array($table, $allTables)) {
+									$columns =& $this->dbconn->MetaColumns($table, true);
+									if (!isset($columns[strtoupper($to)])) {
+										// Only run if the column has not yet been
+										// renamed.
+										$run = true;
+									}
+								} else {
+									// If the target table does not exist then
+									// we assume that another rename entry will still
+									// rename it and we should run after it.
+									$run = true;
+								}
+
+								if ($run) {
 									$colId = strtoupper($column);
 									$flds = '';
 									if (isset($columns[$colId])) {
@@ -149,10 +164,9 @@ class DBDataXMLParser {
 									$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
 								}
 							} else {
-								$tables =& $this->dbconn->MetaTables();
 								// Make sure the target table does not yet exist.
 								// This is to guarantee idempotence of upgrade scripts.
-								if (!in_array($to, $tables)) {
+								if (!in_array($to, $allTables)) {
 									$this->sql[] = $dbdict->RenameTableSQL($table, $to);
 								}
 							}

@@ -23,6 +23,7 @@ class GridCellProvider {
 	//
 	// Public methods
 	//
+
 	/**
 	 * To be used by a GridRow to generate a rendered representation of
 	 * the element for the given column.
@@ -50,7 +51,7 @@ class GridCellProvider {
 		$templateMgr->assign_by_ref('actions', $column->getActions());
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
-		// assign all values from element (by ref, just in case they are objects)
+		// assign all values from element (FIXME: by ref not working for some reason)
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
 		}

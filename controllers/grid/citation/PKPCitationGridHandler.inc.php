@@ -169,14 +169,12 @@ class PKPCitationGridHandler extends GridHandler {
 		);
 
 		// Columns
-		$emptyColumnActions = array();
 		$cellProvider = new DataObjectGridCellProvider();
 		$this->addColumn(
 			new GridColumn(
 				'editedCitation',
 				'submission.citations.grid.editedCitation',
 				null,
-				$emptyColumnActions,
 				'controllers/grid/gridCellInSpan.tpl',
 				$cellProvider,
 				array('multiline' => true)

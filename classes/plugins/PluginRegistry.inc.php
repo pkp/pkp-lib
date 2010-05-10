@@ -53,7 +53,7 @@ class PluginRegistry {
 	function register($category, &$plugin, $path) {
 		// Normalize plugin name to lower case for
 		// PHP4 compatibility in case we use class names here.
-		$pluginName = String::strtolower($plugin->getName());
+		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 		if (!$plugins) $plugins = array();
 
@@ -76,7 +76,7 @@ class PluginRegistry {
 	 */
 	function &getPlugin ($category, $name) {
 		$plugins =& PluginRegistry::getPlugins();
-		$plugin = @$plugins[$category][String::strtolower($name)];
+		$plugin = @$plugins[$category][$name];
 		return $plugin;
 	}
 

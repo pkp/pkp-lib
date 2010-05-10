@@ -52,7 +52,8 @@ class LazyLoadPlugin extends Plugin {
 		// Lazy load enabled plug-ins always use the plugin's class name
 		// as plug-in name. Legacy plug-ins will override this method so
 		// this implementation is backwards compatible.
-		return get_class($this);
+		// NB: strtolower is required for PHP4 compatibility.
+		return String::strtolower(get_class($this));
 	}
 
 	/*

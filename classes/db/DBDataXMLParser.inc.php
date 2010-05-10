@@ -152,7 +152,7 @@ class DBDataXMLParser {
 								$tables =& $this->dbconn->MetaTables();
 								// Make sure the target table does not yet exist.
 								// This is to guarantee idempotence of upgrade scripts.
-								if (!in_array($table, $to)) {
+								if (!in_array($tables, $to)) {
 									$this->sql[] = $dbdict->RenameTableSQL($table, $to);
 								}
 							}

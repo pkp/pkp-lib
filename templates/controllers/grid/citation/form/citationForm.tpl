@@ -5,8 +5,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Citation grid form
- *
- * $Id$
  *}
 
 
@@ -41,12 +39,20 @@
 
 		<div id="citationFormTab-{$tabUid}">
 			<ul>
+				{* Tabs that contain editable fields *}
 				{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-					<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}">{$citationFormTabName|escape}</a></li>
+					<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">{$citationFormTabName|escape}</a></li>
+				{/foreach}
+				
+				{* Tabs that contain source data *}
+				{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+					<li><a href="#{$citationSourceTabId}-{$tabUid}">{$citationSourceTab.displayName|escape}</a></li>
 				{/foreach}
 			</ul>
+			
+			{* Tab content for tabs that contain editable fields *}
 			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}">
+				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
 					<table>
 						<tr valign="top">
 							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
@@ -58,6 +64,20 @@
 								{capture assign=fieldValueVar}{ldelim}${$fieldName}|escape{rdelim}{/capture}
 								{eval|assign:"fieldValue" var=$fieldValueVar}
 								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.SMALL maxlength="250" value=$fieldValue"}</td>
+							</tr>
+						{/foreach}
+					</table>
+				</div>
+			{/foreach}
+			
+			{* Tab content for tabs that contain source data *}
+			{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+				<div id="{$citationSourceTabId}-{$tabUid}">
+					<table>
+						{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
+							<tr valign="top">
+								<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+								<td width="70%" class="value">{$sourceStatement.value|escape}</td>
 							</tr>
 						{/foreach}
 					</table>

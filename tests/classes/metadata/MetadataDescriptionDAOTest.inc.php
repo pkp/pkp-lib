@@ -41,6 +41,7 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 		$testDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
 		$testDescription->setAssocId(999999);
 		$testDescription->setDisplayName('test meta-data description');
+		$testDescription->setSeq(5);
 		$testDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
 		$testDescription->addStatement('article-title', $value = 'PHPUnit in a nutshell', 'en_US');
 		$testDescription->addStatement('article-title', $value = 'PHPUnit in Kürze', 'de_DE');

@@ -155,7 +155,7 @@ class CitationGridHandler extends GridHandler {
 
 		// Retrieve the citations associated with this article to be displayed in the grid
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$data =& $citationDao->getCitationsByAssocId(ASSOC_TYPE_ARTICLE, $articleId);
+		$data =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $articleId);
 		$this->setData($data);
 
 		// Grid actions
@@ -234,7 +234,7 @@ class CitationGridHandler extends GridHandler {
 
 		// Delete existing citations
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->deleteCitationsByAssocId(ASSOC_TYPE_ARTICLE, $article->getId());
+		$citationDAO->deleteObjectsByAssocId(ASSOC_TYPE_ARTICLE, $article->getId());
 
 		// (Re-)import raw citations from the article
 		$rawCitationList = $article->getCitations();
@@ -256,7 +256,7 @@ class CitationGridHandler extends GridHandler {
 			$citation->setAssocType(ASSOC_TYPE_ARTICLE);
 			$citation->setAssocId($article->getId());
 
-			$citationDAO->insertCitation($citation);
+			$citationDAO->insertObject($citation);
 			// FIXME: Database error handling.
 			$citations[$citation->getId()] = $citation;
 			unset($citation);
@@ -365,41 +365,39 @@ class CitationGridHandler extends GridHandler {
 			$originalCitation =& $this->_getCitationFromArgs($args, true);
 		}
 
+		// Initialize the filter errors array
+		$filterErrors = array();
+
 		// Only parse the citation if it's not been parsed before.
-		// Otherwise we risk to overwrite user changes.
+		// Otherwise we risk to overwrite manual user changes.
 		$filteredCitation =& $originalCitation;
 		if (!is_null($filteredCitation) && $filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $citationForm);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $filterErrors);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
 		// before. The user asked us to re-check so there's probably
 		// additional manual information in the citation fields.
-		if (!is_null($filteredCitation)) {
-			// Lookup the requested citation
-			$filterCallback = array(&$this, '_instantiateLookupFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $citationForm);
-		}
+		// Also make sure that we get the intermediate results of look-ups
+		// for the user to choose from.
+		$filterCallback = array(&$this, '_instantiateLookupFilters');
+		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterErrors, true);
 
-		$filterErrors = array();
 		if (is_null($filteredCitation)) {
-			// Re-display the original citation unchanged with an error message
-			$filterErrors[] = array('editedCitation' => Locale::translate('submission.citations.form.filterError'));
 			$filteredCitation =& $originalCitation;
 			$unsavedChanges = false;
 		} else {
 			$unsavedChanges = true;
 		}
 
-		// Display the citation editor with the new (but yet unsaved) citation data
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		// Crate a new form for the filtered (but yet unsaved) citation data
 		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
 
-		// Add errors (if any)
-		foreach($filterErrors as $errorField => $errorMessage) {
-			$citationForm->addError($errorField, $errorMessage);
+		// Add errors to form (if any)
+		foreach($filterErrors as $errorMessage) {
+			$citationForm->addError('editedCitation', $errorMessage);
 		}
 
 		// Return the rendered form
@@ -449,7 +447,7 @@ class CitationGridHandler extends GridHandler {
 		$citation =& $this->_getCitationFromArgs($args);
 
 		$citationDAO = DAORegistry::getDAO('CitationDAO');
-		$result = $citationDAO->deleteCitation($citation);
+		$result = $citationDAO->deleteObject($citation);
 
 		if ($result) {
 			$json = new JSON('true');
@@ -594,10 +592,11 @@ class CitationGridHandler extends GridHandler {
 	 * @param $filterCallback callable
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
-	 * @param $citationForm CitationForm
+	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
+	 * @param $saveIntermediateResults boolean
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$citationForm) {
+	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, $saveIntermediateResults = false) {
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -623,7 +622,13 @@ class CitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 		$citationMultiplexer = new GenericMultiplexerFilter();
 		$nullVar = null;
-		foreach($filterList as $citationFilter) {
+		foreach($filterList as $seq => $citationFilter) {
+			// Set a sequence id so that we can address the
+			// filter results with a unique id when persisting
+			// them. This will also determine the sort order
+			// on result display.
+			$citationFilter->setSeq($seq + 1);
+
 			if ($citationFilter->supports($muxInputData, $nullVar)) {
 				$citationMultiplexer->addFilter($citationFilter);
 				unset($citationFilter);
@@ -647,9 +652,17 @@ class CitationGridHandler extends GridHandler {
 		$citationFilterNet->addFilter($citationDemultiplexer, $sampleDemuxInputData);
 
 		// Send the input through the citation filter network.
-		$filterErrors = array();
 		$filteredCitation =& $citationFilterNet->execute($muxInputData);
-		if (!is_null($filteredCitation)) {
+
+		// Add filtering errors (if any) to error list
+		$filterErrors = array_merge($filterErrors, $citationFilterNet->getErrors());
+
+		// Return the original citation if the filters
+		// did not produce any results.
+		if (is_null($filteredCitation)) {
+			$filterErrors[] = Locale::translate('submission.citations.form.filterError');
+			$filteredCitation =& $citation;
+		} else {
 			// Copy unfiltered data from the original citation to the filtered citation
 			$article =& $this->getArticle();
 			$filteredCitation->setId($citation->getId());
@@ -660,6 +673,17 @@ class CitationGridHandler extends GridHandler {
 
 			// Set the citation state
 			$filteredCitation->setCitationState($citationStateAfterFiltering);
+		}
+
+		// Retrieve the results of intermediate filters for direct
+		// user inspection.
+		if ($saveIntermediateResults) {
+			$intermediateFilterResults =& $citationMultiplexer->getLastOutput();
+			$filteredCitation->setSourceDescriptions($intermediateFilterResults);
+
+			// Immediately persist the intermediate results
+			$citationDAO =& DAORegistry::getDAO('CitationDAO');
+			$citationDAO->updateCitationSourceDescriptions($filteredCitation);
 		}
 
 		return $filteredCitation;

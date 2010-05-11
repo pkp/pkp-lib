@@ -33,7 +33,6 @@ class CitationForm extends Form {
 	 */
 	function CitationForm($citation, $unsavedChanges = false) {
 		parent::Form('controllers/grid/citation/form/citationForm.tpl');
-
 		assert(is_a($citation, 'Citation'));
 		$this->_citation =& $citation;
 
@@ -57,8 +56,6 @@ class CitationForm extends Form {
 		// Validation checks for this form that are not checked within the default meta-data validation algorithm.
 		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
 		$this->addCheck(new FormValidatorPost($this));
-
-		// FIXME: Validate citation state
 	}
 
 	//
@@ -100,33 +97,12 @@ class CitationForm extends Form {
 
 			// Loop over the properties in the schema and add string
 			// values for all form fields.
-			$citationVars = array();
-			$citationVarsEmpty = array();
 			$properties = $metadataSchema->getProperties();
 			$metadataDescription =& $citation->extractMetadata($metadataSchema);
 			foreach($properties as $propertyName => $property) {
 				if ($metadataDescription->hasStatement($propertyName)) {
 					$value = $metadataDescription->getStatement($propertyName);
-
-					if ($property->getCardinality() == METADATA_PROPERTY_CARDINALITY_MANY && !empty($value)) {
-						$allowedTypes = $property->getAllowedTypes();
-						if (isset($allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE])) {
-							// We currently only support composite name arrays
-							$allowedAssocTypes = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
-							assert(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocTypes) || in_array(ASSOC_TYPE_EDITOR, $allowedAssocTypes));
-							import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
-							$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
-							assert($personStringFilter->supportsAsInput($value));
-							$fieldValue = $personStringFilter->execute($value);
-						} else {
-							// We currently don't support properties of
-							// cardinality "many" in the form.
-							assert(is_array($value) && count($value) <= 1);
-							$fieldValue = $value[0];
-						}
-					} else {
-						$fieldValue = (string)$value;
-					}
+					$fieldValue = $this->_getStringValueFromMetadataStatement($property, $value);
 				} else {
 					$fieldValue = '';
 				}
@@ -150,26 +126,51 @@ class CitationForm extends Form {
 	 * @return the rendered form
 	 */
 	function fetch($request) {
+		$citation =& $this->getCitation();
+
 		// Template
 		$templateMgr =& TemplateManager::getManager($request);
-
-		// Auto-add client-side validation
-		$templateMgr->assign('validateId', 'citationForm');
 
 		// Form tabs
 		// FIXME: At the moment, we just create two tabs -- one for filled
 		// elements, and one for empty ones. Any number of elements can be
 		// added, and they will appear as new tabs on the modal window.
-		$citationFormTabs = array('Filled Elements' => array(), 'Empty Elements' => array());
+		$citationFormTabs = array('Filled' => array(), 'Empty' => array());
 		foreach($this->_citationProperties as $fieldName => $property) {
-			$tabName = ($this->getData($fieldName) == '' ? 'Empty Elements' : 'Filled Elements');
+			$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
 			$citationFormTabs[$tabName][$fieldName] = $property->getDisplayName();
 		}
 		$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
+
+		// Citation source tabs
+		$sourceDescriptions =& $citation->getSourceDescriptions();
+		assert(is_array($sourceDescriptions));
+
+		$citationSourceTabs = array();
+		// Run through all source descriptions and extract statements
+		foreach($sourceDescriptions as $sourceDescription) {
+			$sourceDescriptionId = $sourceDescription->getId();
+			$metadataSchema =& $sourceDescription->getMetadataSchema();
+			// Use the display name of the description for the tab.
+			// We can safely use the 'displayName' key here as
+			// the keys representing statements will be namespaced.
+			$citationSourceTabs[$sourceDescriptionId]['displayName'] = $sourceDescription->getDisplayName();
+			foreach ($sourceDescription->getStatements() as $propertyName => $value) {
+				$property =& $metadataSchema->getProperty($propertyName);
+				$sourcePropertyId = $sourceDescriptionId.'-'.$metadataSchema->getNamespacedPropertyId($propertyName);
+				$sourcePropertyValue = $this->_getStringValueFromMetadataStatement($property, $value);
+				$citationSourceTabs[$sourceDescriptionId]['statements'][$sourcePropertyId] = array(
+					'displayName' => $property->getDisplayName(),
+					'value' => $sourcePropertyValue
+				);
+			}
+		}
+		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
+
+		// UID used to avoid tab caching problems
 		$templateMgr->assign('tabUid', time());
 
 		// Add the citation to the template
-		$citation =& $this->getCitation();
 		$templateMgr->assign_by_ref('citation', $citation);
 
 		// Does the form contain unsaved changes?
@@ -186,8 +187,12 @@ class CitationForm extends Form {
 		);
 		$templateMgr->assign_by_ref('checkAction', $checkAction);
 
+		// Citation approval
 		$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
 		$templateMgr->assign('citationApproved', $citationApproved);
+
+		// Auto-add client-side validation
+		$templateMgr->assign('validateId', 'citationForm');
 
 		return parent::fetch($request);
 	}
@@ -305,11 +310,47 @@ class CitationForm extends Form {
 		$citation =& $this->getCitation();
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
 		if (is_numeric($citation->getId())) {
-			$citationDAO->updateCitation($citation);
+			$citationDAO->updateObject($citation);
 		} else {
-			$citationDAO->insertCitation($citation);
+			$citationDAO->insertObject($citation);
 		}
 		return true;
+	}
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * Take a structured meta-data statement and transform it into a
+	 * plain text value that can be displayed to the end-user.
+	 *
+	 * @param $property MetadataProperty
+	 * @param $value mixed
+	 * @return string
+	 */
+	function _getStringValueFromMetadataStatement(&$property, &$value) {
+		if ($property->getCardinality() == METADATA_PROPERTY_CARDINALITY_MANY && !empty($value)) {
+			$allowedTypes = $property->getAllowedTypes();
+			if (isset($allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE])) {
+				// We currently only can transform composite
+				// name arrays to strings.
+				$allowedAssocTypes = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
+				assert(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocTypes) || in_array(ASSOC_TYPE_EDITOR, $allowedAssocTypes));
+				import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
+				$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
+				assert($personStringFilter->supportsAsInput($value));
+				$stringValue = $personStringFilter->execute($value);
+			} else {
+				// We currently can't transform properties of
+				// cardinality "many" to strings.
+				assert(is_array($value) && count($value) <= 1);
+				$stringValue = $value[0];
+			}
+		} else {
+			$stringValue = (string)$value;
+		}
+
+		return $stringValue;
 	}
 }
 

@@ -125,6 +125,12 @@ class MetadataDescription extends DataObject {
 	var $_displayName;
 
 	/**
+	 * @var integer sequence id used when saving several descriptions
+	 *  of the same subject.
+	 */
+	var $_seq;
+
+	/**
 	 * Constructor
 	 */
 	function MetadataDescription(&$metadataSchema, $assocType) {
@@ -196,6 +202,22 @@ class MetadataDescription extends DataObject {
 	 */
 	function getDisplayName() {
 		return $this->_displayName;
+	}
+
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->_seq = $seq;
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->_seq;
 	}
 
 	/**

@@ -27,14 +27,15 @@ class MetadataDescriptionDAO extends DAO {
 		$metadataSchema =& $metadataDescription->getMetadataSchema();
 		$this->update(
 			sprintf('INSERT INTO metadata_descriptions
-				(assoc_type, assoc_id, schema_namespace, schema_name, display_name)
-				VALUES (?, ?, ?, ?, ?)'),
+				(assoc_type, assoc_id, schema_namespace, schema_name, display_name, seq)
+				VALUES (?, ?, ?, ?, ?, ?)'),
 			array(
 				(integer)$metadataDescription->getAssocType(),
 				(integer)$metadataDescription->getAssocId(),
 				$metadataSchema->getNamespace(),
 				$metadataSchema->getName(),
-				$metadataDescription->getDisplayName()
+				$metadataDescription->getDisplayName(),
+				(integer)$metadataDescription->getSeq()
 			)
 		);
 		$metadataDescription->setId($this->getInsertId());
@@ -96,7 +97,8 @@ class MetadataDescriptionDAO extends DAO {
 				assoc_id = ?,
 				schema_name = ?,
 				schema_namespace = ?,
-				display_name = ?
+				display_name = ?,
+				seq = ?
 			WHERE metadata_description_id = ?',
 			array(
 				(integer)$metadataDescription->getAssocType(),
@@ -104,6 +106,7 @@ class MetadataDescriptionDAO extends DAO {
 				$metadataSchema->getName(),
 				$metadataSchema->getNamespace(),
 				$metadataDescription->getDisplayName(),
+				$metadataDescription->getSeq(),
 				$metadataDescription->getId()
 			)
 		);
@@ -218,6 +221,7 @@ class MetadataDescriptionDAO extends DAO {
 		$metadataDescription->setId($row['metadata_description_id']);
 		$metadataDescription->setAssocId($row['assoc_id']);
 		$metadataDescription->setDisplayName($row['display_name']);
+		$metadataDescription->setSeq($row['seq']);
 
 		$this->getDataObjectSettings('metadata_description_settings', 'metadata_description_id', $row['metadata_description_id'], $metadataDescription);
 

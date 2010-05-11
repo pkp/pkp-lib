@@ -75,14 +75,23 @@
 
 
 class Filter {
+	/** @var integer A globally unique identifier of this filter instance */
+	var $_transformationId;
+
 	/** @var string */
 	var $_displayName;
+
+	/** @var integer sequence id used when several transformations are grouped */
+	var $_seq;
 
 	/** @var mixed */
 	var $_input;
 
 	/** @var mixed */
 	var $_output;
+
+	/** @var array a list of errors occurred while filtering */
+	var $_errors = array();
 
 	/**
 	 * Constructor
@@ -94,6 +103,22 @@ class Filter {
 	// Setters and Getters
 	//
 	/**
+	 * Set the globally unique transformation id
+	 * @param $transformationId integer
+	 */
+	function setTransformationId(&$transformationId) {
+		$this->_transformationId =& $transformationId;
+	}
+
+	/**
+	 * Get the globally unique transformation id
+	 * @return integer
+	 */
+	function &getTransformationId() {
+		return $this->_transformationId;
+	}
+
+	/**
 	 * Set the display name
 	 * @param $displayName string
 	 */
@@ -103,10 +128,54 @@ class Filter {
 
 	/**
 	 * Get the display name
+	 *
+	 * NB: The standard implementation of this
+	 * method will initialize the display name
+	 * with the filter class name prefixed
+	 * by the sequence id. Subclasses can of
+	 * course override this behavior by explicitly
+	 * setting a display name.
+	 *
 	 * @return string
 	 */
 	function getDisplayName() {
+		if (empty($this->_displayName)) {
+			$this->_displayName = (int)$this->getSeq().' '.get_class($this);
+		}
+
 		return $this->_displayName;
+	}
+
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->_seq = $seq;
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->_seq;
+	}
+
+	/**
+	 * Add a filter error
+	 * @param $message string
+	 */
+	function addError($message) {
+		$this->_errors[] = $message;
+	}
+
+	/**
+	 * Get all filter errors
+	 * @return array
+	 */
+	function getErrors() {
+		return $this->_errors;
 	}
 
 	/**

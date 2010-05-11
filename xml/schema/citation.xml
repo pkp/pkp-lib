@@ -102,6 +102,10 @@
 			<NOTNULL />
 		</field>
 		<field name="display_name" type="C2" size="255" />
+		<field name="seq" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Metadata Descriptions</descr>
 		<index name="metadata_descriptions_assoc">
 			<col>assoc_type</col>

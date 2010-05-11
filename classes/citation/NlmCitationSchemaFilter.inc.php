@@ -311,6 +311,12 @@ class NlmCitationSchemaFilter extends Filter {
 			return $nullVar;
 		}
 
+		// Set display name and sequence id in the meta-data description
+		// to the corresponding values from the filter. This is important
+		// so that we later know which result came from which filter.
+		$citationDescription->setDisplayName($this->getDisplayName());
+		$citationDescription->setSeq($this->getSeq());
+
 		return $citationDescription;
 	}
 

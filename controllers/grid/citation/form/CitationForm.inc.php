@@ -147,6 +147,7 @@ class CitationForm extends Form {
 		assert(is_array($sourceDescriptions));
 
 		$citationSourceTabs = array();
+		$locale = Locale::getLocale();
 		// Run through all source descriptions and extract statements
 		foreach($sourceDescriptions as $sourceDescription) {
 			$sourceDescriptionId = $sourceDescription->getId();
@@ -157,6 +158,13 @@ class CitationForm extends Form {
 			$citationSourceTabs[$sourceDescriptionId]['displayName'] = $sourceDescription->getDisplayName();
 			foreach ($sourceDescription->getStatements() as $propertyName => $value) {
 				$property =& $metadataSchema->getProperty($propertyName);
+
+				// Handle translation
+				if ($property->getTranslated()) {
+					assert(isset($value[$locale]));
+					$value = $value[$locale];
+				}
+
 				$sourcePropertyId = $sourceDescriptionId.'-'.$metadataSchema->getNamespacedPropertyId($propertyName);
 				$sourcePropertyValue = $this->_getStringValueFromMetadataStatement($property, $value);
 				$citationSourceTabs[$sourceDescriptionId]['statements'][$sourcePropertyId] = array(

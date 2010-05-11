@@ -430,7 +430,7 @@ class PKPApplication {
 							$args .= $a;
 							break;
 						case 'string':
-							$a = htmlspecialchars(substr($a, 0, 64)).((strlen($a) > 64) ? '...' : '');
+							$a = htmlspecialchars($a);
 							$args .= "\"$a\"";
 							break;
 						case 'array':

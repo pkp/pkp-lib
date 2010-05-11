@@ -16,8 +16,6 @@
  *  into/from an application entity object (DataObject).
  */
 
-// $Id$
-
 import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.metadata.MetadataDescription');
 

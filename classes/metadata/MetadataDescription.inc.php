@@ -119,6 +119,12 @@ class MetadataDescription extends DataObject {
 	var $_assocId;
 
 	/**
+	 * @var string an (optional) display name that describes the contents
+	 *  of this meta-data description to the end user.
+	 */
+	var $_displayName;
+
+	/**
 	 * Constructor
 	 */
 	function MetadataDescription(&$metadataSchema, $assocType) {
@@ -174,6 +180,22 @@ class MetadataDescription extends DataObject {
 		$assocId = $this->getAssocId();
 		assert(isset($assocType) && isset($assocId));
 		return $assocType.':'.$assocId;
+	}
+
+	/**
+	 * Set the (optional) display name
+	 * @param $displayName string
+	 */
+	function setDisplayName($displayName) {
+		$this->_displayName = $displayName;
+	}
+
+	/**
+	 * Get the (optional) display name
+	 * @return string
+	 */
+	function getDisplayName() {
+		return $this->_displayName;
 	}
 
 	/**

@@ -34,6 +34,9 @@ class Citation extends DataObject {
 	/** @var int citation state (raw, edited, parsed, looked-up) */
 	var $_citationState = CITATION_RAW;
 
+	/** @var array an array of MetadataDescriptions */
+	var $_sourceDescriptions = array();
+
 	/**
 	 * Constructor.
 	 * @param $rawCitation string an unparsed citation string
@@ -53,6 +56,36 @@ class Citation extends DataObject {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * Set meta-data descriptions discovered for this
+	 * citation from external sources.
+	 *
+	 * @param $sourceDescriptions array MetadataDescriptions
+	 */
+	function setSourceDescriptions(&$sourceDescriptions) {
+		$this->_sourceDescriptions =& $sourceDescriptions;
+	}
+
+	/**
+	 * Add a meta-data description discovered for this
+	 * citation from an external source.
+	 *
+	 * @param $sourceDescription MetadataDescription
+	 */
+	function addSourceDescription(&$sourceDescription) {
+		$this->_sourceDescriptions[] =& $sourceDescription;
+	}
+
+	/**
+	 * Get all meta-data descriptions discovered for this
+	 * citation from external sources.
+	 *
+	 * @return array MetadataDescriptions
+	 */
+	function &getSourceDescriptions() {
+		return $this->_sourceDescriptions;
+	}
+
 	/**
 	 * Get the citationState
 	 * @return integer

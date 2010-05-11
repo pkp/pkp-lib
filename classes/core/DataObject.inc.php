@@ -13,8 +13,6 @@
  * @brief Any class with an associated DAO should extend this class.
  */
 
-// $Id$
-
 
 class DataObject {
 	/** Array of object data */
@@ -165,14 +163,31 @@ class DataObject {
 		$metadataSchemaName = $metadataSchema->getName();
 
 		// Make sure that the meta-data schema is unique.
-		assert(!empty($metadataSchemaName) &&
-				!isset($this->_metadataAdapters[$metadataSchemaName]));
+		assert(!empty($metadataSchemaName));
+		if (!isset($this->_metadataAdapters[$metadataSchemaName])) {
+			// Make sure that the adapter converts from/to this application entity
+			assert($metadataAdapter->supportsAsInput($this));
 
-		// Make sure that the adapter converts from/to this application entity
-		assert($metadataAdapter->supportsAsInput($this));
+			// Save adapter and schema
+			$this->_metadataAdapters[$metadataSchemaName] =& $metadataAdapter;
+		}
+	}
 
-		// Save adapter and schema
-		$this->_metadataAdapters[$metadataSchemaName] =& $metadataAdapter;
+	/**
+	 * Remove the adapter for the given meta-data schema
+	 * (if it exists).
+	 *
+	 * @param $metadataSchema MetadataSchema
+	 * @return boolean true if an adapter was removed, otherwise false.
+	 */
+	function removeSupportedMetadataAdapter(&$metadataSchema) {
+		$metadataSchemaName = $metadataSchema->getName();
+		if (isset($this->_metadataAdapters[$metadataSchemaName])) {
+			unset($this->_metadataAdapters[$metadataSchemaName]);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**

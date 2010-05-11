@@ -503,7 +503,6 @@ class DAO {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;
 		}
-		$start = Core::microtime();
 		$result =& $this->retrieve($sql, $params);
 
 		while (!$result->EOF) {

@@ -78,6 +78,12 @@ class Filter {
 	/** @var string */
 	var $_displayName;
 
+	/** @var mixed */
+	var $_input;
+
+	/** @var mixed */
+	var $_output;
+
 	/**
 	 * Constructor
 	 */
@@ -101,6 +107,46 @@ class Filter {
 	 */
 	function getDisplayName() {
 		return $this->_displayName;
+	}
+
+	/**
+	 * Get the last valid output produced by
+	 * this filter.
+	 *
+	 * This can be used for debugging internal
+	 * filter state or for access to intermediate
+	 * results when working with larger filter
+	 * grids.
+	 *
+	 * NB: The output will be set only after
+	 * output validation so that you can be
+	 * sure that you'll always find valid
+	 * data here.
+	 *
+	 * @return mixed
+	 */
+	function &getLastOutput() {
+		return $this->_output;
+	}
+
+	/**
+	 * Get the last valid input processed by
+	 * this filter.
+	 *
+	 * This can be used for debugging internal
+	 * filter state or for access to intermediate
+	 * results when working with larger filter
+	 * grids.
+	 *
+	 * NB: The input will be set only after
+	 * input validation so that you can be
+	 * sure that you'll always find valid
+	 * data here.
+	 *
+	 * @return mixed
+	 */
+	function &getLastInput() {
+		return $this->_input;
 	}
 
 	//
@@ -175,18 +221,28 @@ class Filter {
 	function &execute(&$input) {
 		// Validate the filter input
 		if (!$this->supportsAsInput($input)) {
-			$output = null;
-			return $output;
+			// We have no valid input so reset
+			// the internal input/output state to null.
+			$this->_input = null;
+			$this->_output = null;
+			return $this->_output;
 		}
 
+		// Save a reference to the last valid input
+		$this->_input =& $input;
+
 		// Process the filter
-		$output =& $this->process($input);
+		$preliminaryOutput =& $this->process($input);
 
 		// Validate the filter output
-		if (is_null($output) || !$this->supports($input, $output)) $output = null;
+		if (is_null($preliminaryOutput) || !$this->supports($input, $preliminaryOutput)) {
+			$this->_output = null;
+		} else {
+			$this->_output =& $preliminaryOutput;
+		}
 
 		// Return processed data
-		return $output;
+		return $this->_output;
 	}
 }
 ?>

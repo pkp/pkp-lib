@@ -18,8 +18,6 @@
  *  meta-data for a given NLM citation.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
@@ -85,7 +83,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		}
 
 		// Call the CrossRef web service
-		if (is_null($resultXml =& $this->callWebService(CROSSREF_WEBSERVICE_URL, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
+		if (is_null($resultXml =& $this->callWebService(CROSSREF_WEBSERVICE_URL, $searchParams, XSL_TRANSFORMER_DOCTYPE_STRING)) || String::substr(trim($resultXml), 0, 6) == '<html>') return $nullVar;
 
 		// Remove default name spaces from XML as CrossRef doesn't
 		// set them reliably and element names are unique anyway.
@@ -94,7 +92,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		// Transform and process the web service result
 		if (is_null($metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl'))) return $nullVar;
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 
 

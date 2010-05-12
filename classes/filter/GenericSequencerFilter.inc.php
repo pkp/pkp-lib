@@ -110,6 +110,9 @@ class GenericSequencerFilter extends Filter {
 			}
 			$output = $filter->execute($previousOutput);
 
+			// Propagate errors of sub-filters (if any)
+			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
+
 			// If one filter returns null then we'll abort
 			// execution of the filter chain.
 			if (is_null($output)) break;

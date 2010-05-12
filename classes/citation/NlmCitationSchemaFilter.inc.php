@@ -13,8 +13,6 @@
  *  NLM citation metadata descriptions.
  */
 
-// $Id$
-
 import('lib.pkp.classes.filter.Filter');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
@@ -178,6 +176,26 @@ class NlmCitationSchemaFilter extends Filter {
 		$xmlWebService->setReturnType($returnType);
 		$result =& $xmlWebService->call($webServiceRequest);
 
+		if (is_null($result)) {
+			// Construct a helpful error message including
+			// the offending webservice url for get requests.
+			$webserviceUrl = $url;
+			if ($method == 'GET') {
+				$keyValuePairs = array();
+				foreach ($params as $key => $value) {
+					$keyValuePairs[] = $key.'='.$value;
+				}
+				$webserviceUrl .= '?'.implode('&', $keyValuePairs);
+			}
+
+			$translationParams = array(
+				'filterName' => $this->getDisplayName(),
+				'webserviceUrl' => $webserviceUrl,
+				'httpMethod' => $method
+			);
+			$this->addError(Locale::translate('submission.citations.filter.webserviceError', $translationParams));
+		}
+
 		return $result;
 	}
 
@@ -199,7 +217,11 @@ class NlmCitationSchemaFilter extends Filter {
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
 		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
-		if (is_null($preliminaryNlmDOM)) return $preliminaryNlmDOM;
+		if (is_null($preliminaryNlmDOM)) {
+			$translationParams = array('filterName' => $this->getDisplayName());
+			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
+			return $preliminaryNlmDOM;
+		}
 
 		// Transform the result to an array.
 		$xmlHelper = new XMLHelper();
@@ -289,24 +311,21 @@ class NlmCitationSchemaFilter extends Filter {
 	}
 
 	/**
-	 * Adds the data of an array of property/value pairs
-	 * as statements to an NLM citation description.
-	 * If no citation description is given, a new one will
-	 * be instantiated.
+	 * Creates a new NLM citation description and adds the data
+	 * of an array of property/value pairs as statements.
 	 * @param $metadataArray array
-	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &addMetadataArrayToNlmCitationDescription(&$metadataArray, $citationDescription = null) {
-		// Create a new citation description if no one was given
-		if (is_null($citationDescription)) {
-			$metadataSchema = new NlmCitationSchema();
-			$citationDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
-		}
+	function &getNlmCitationDescriptionFromMetadataArray(&$metadataArray) {
+		// Create a new citation description
+		$metadataSchema = new NlmCitationSchema();
+		$citationDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
 
 		// Add the meta-data to the description
 		$metadataArray = arrayClean($metadataArray);
 		if (!$citationDescription->setStatements($metadataArray)) {
+			$translationParams = array('filterName' => $this->getDisplayName());
+			$this->addError(Locale::translate('submission.citations.filter.invalidMetadata', $translationParams));
 			$nullVar = null;
 			return $nullVar;
 		}

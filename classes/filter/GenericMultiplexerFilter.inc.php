@@ -91,7 +91,12 @@ class GenericMultiplexerFilter extends Filter {
 				$clonedInput = $input;
 			}
 
-			$output[] = $filter->execute($clonedInput);
+			// Execute the filter
+			$output[] =& $filter->execute($clonedInput);
+
+			// Propagate errors of sub-filters (if any)
+			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
+
 			unset ($clonedInput);
 		}
 		return $output;

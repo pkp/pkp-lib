@@ -679,6 +679,9 @@ class CitationGridHandler extends GridHandler {
 		// user inspection.
 		if ($saveIntermediateResults) {
 			$intermediateFilterResults =& $citationMultiplexer->getLastOutput();
+			// Remove empty results (e.g. if a lookup filter didn't find anything
+			// for a given citation).
+			$intermediateFilterResults =& arrayClean($intermediateFilterResults);
 			$filteredCitation->setSourceDescriptions($intermediateFilterResults);
 
 			// Immediately persist the intermediate results

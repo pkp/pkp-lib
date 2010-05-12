@@ -91,11 +91,11 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$apiKey = $this->getApiKey();
 		if (empty($apiKey)) {
 			// Use the first ISBN if we have multiple
-			$citationDescription =& $this->_lookupXIsbn($isbns[0], $citationDescription);
+			$citationDescription =& $this->_lookupXIsbn($isbns[0]);
 			return $citationDescription;
 		} elseif (!empty($isbns[0])) {
 			// Worldcat lookup only works with an API key
-			if (is_null($citationDescription =& $this->_lookupWorldcat($matches[1][0], $citationDescription))) return $nullVar;
+			if (is_null($citationDescription =& $this->_lookupWorldcat($matches[1][0]))) return $nullVar;
 
 			// Prefer ISBN from xISBN if possible
 			if (!empty($isbns[0])) $citationDescription->addStatement('ibsn', $isbns[0], null, true);
@@ -137,10 +137,9 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Fills the given citation description with
 	 * meta-data retrieved from Worldcat
 	 * @param $oclcId string
-	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &_lookupWorldcat($oclcId, &$citationDescription) {
+	function &_lookupWorldcat($oclcId) {
 		$nullVar = null;
 		$lookupParams = array('wskey' => $this->getApiKey());
 		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_EXTRACT.urlencode($oclcId), $lookupParams))) return $nullVar;
@@ -157,7 +156,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			$metadata['date'] = String::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
 		}
 
-		$citationDescription =& $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
+		$citationDescription =& $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 		return $citationDescription;
 	}
 
@@ -165,10 +164,9 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Fills the given citation object with
 	 * meta-data retrieved from xISBN
 	 * @param $isbn string
-	 * @param $citationDescription Citation
 	 * @return Citation
 	 */
-	function &_lookupXIsbn($isbn, &$citationDescription) {
+	function &_lookupXIsbn($isbn) {
 		$nullVar = null;
 		$lookupParams = array(
 			'method' => 'getMetadata',
@@ -191,7 +189,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Clean and process the meta-data
 		$metadata =& $this->postProcessMetadataArray($metadata);
-		$citationDescription =& $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
+		$citationDescription =& $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 		return $citationDescription;
 	}
 

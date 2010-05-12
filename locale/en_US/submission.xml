@@ -40,6 +40,9 @@
 	<message key="submission.citations.form.filterError">The parse or lookup operation did not return any results. Maybe you can try to edit the citation text manually to improve results?</message>
 	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (either 'book' or 'journal').</message>
 	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
+	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. Please try to {$httpMethod} the URL manually to see what the problem is and fix it. It may also be that the web service is temporarily unavailable.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
+	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
 	<!-- FIXME: move to meta-data plug-in -->
 	<message key="metadata.property.displayName.author">Authors</message>
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>

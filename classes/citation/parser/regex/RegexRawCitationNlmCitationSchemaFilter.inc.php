@@ -183,7 +183,7 @@ class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$metadata =& $this->postProcessMetadataArray($metadata);
 
 		// Create the NLM citation description
-		return $this->addMetadataArrayToNlmCitationDescription($metadata);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

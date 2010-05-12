@@ -178,7 +178,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// If we have a PMID, get a metadata array for it
 		if (!empty($pmid)) {
-			$citationDescription =& $this->_lookup($pmid, $citationDescription);
+			$citationDescription =& $this->_lookup($pmid);
 			return $citationDescription;
 		}
 
@@ -223,10 +223,9 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Fills the given citation object with
 	 * meta-data retrieved from PubMed.
 	 * @param $pmid string
-	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &_lookup($pmid, &$citationDescription) {
+	function &_lookup($pmid) {
 		$nullVar = null;
 
 		// Use eFetch to get XML metadata for the given PMID
@@ -354,7 +353,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			if (isset($links[0])) $metadata['uri'] = $links[0];
 		}
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

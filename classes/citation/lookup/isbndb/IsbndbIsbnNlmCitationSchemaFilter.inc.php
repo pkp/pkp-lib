@@ -77,7 +77,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		// Set the publicationType
 		$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_BOOK;
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

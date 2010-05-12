@@ -67,7 +67,7 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 		// Extract a publisher from the place string if possible
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

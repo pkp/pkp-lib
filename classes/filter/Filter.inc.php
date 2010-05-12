@@ -131,8 +131,7 @@ class Filter {
 	 *
 	 * NB: The standard implementation of this
 	 * method will initialize the display name
-	 * with the filter class name prefixed
-	 * by the sequence id. Subclasses can of
+	 * with the filter class name. Subclasses can of
 	 * course override this behavior by explicitly
 	 * setting a display name.
 	 *
@@ -140,7 +139,7 @@ class Filter {
 	 */
 	function getDisplayName() {
 		if (empty($this->_displayName)) {
-			$this->_displayName = (int)$this->getSeq().' '.get_class($this);
+			$this->_displayName = get_class($this);
 		}
 
 		return $this->_displayName;

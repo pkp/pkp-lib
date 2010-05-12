@@ -70,7 +70,7 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		unset($metadata['raw_string']);
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

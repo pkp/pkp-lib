@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file controllers/grid/citation/CitationGridRow.inc.php
+ * @file controllers/grid/citation/PKPCitationGridRow.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class CitationGridRow
+ * @class PKPCitationGridRow
  * @ingroup controllers_grid_citation
  *
- * @brief Citation grid row definition
+ * @brief The citation grid row definition
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class CitationGridRow extends GridRow {
+class PKPCitationGridRow extends GridRow {
 	/**
 	 * Constructor
 	 */
-	function CitationGridRow() {
+	function PKPCitationGridRow() {
 		parent::GridRow();
 	}
 
@@ -33,9 +33,9 @@ class CitationGridRow extends GridRow {
 		// Do the default initialization
 		parent::initialize($request);
 
-		// Retrieve the article id from the request
-		$articleId = $request->getUserVar('articleId');
-		assert(is_numeric($articleId));
+		// Retrieve the assoc id from the request
+		$assocId = $request->getUserVar('assocId');
+		assert(is_numeric($assocId));
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
@@ -43,7 +43,7 @@ class CitationGridRow extends GridRow {
 			// Only add row actions if this is an existing row
 			$router =& $request->getRouter();
 			$actionArgs = array(
-				'articleId' => $articleId,
+				'assocId' => $assocId,
 				'citationId' => $rowId
 			);
 

@@ -85,7 +85,7 @@
 			{/foreach}
 		</div>
 
-		<input type="hidden" name="articleId" value="{$citation->getAssocId()|escape}" />
+		<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
 		{if $citation->getId()}
 			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
 			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />

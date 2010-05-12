@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @file controllers/grid/citation/CitationGridHandler.inc.php
+ * @file controllers/grid/citation/PKPCitationGridHandler.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class CitationGridHandler
+ * @class PKPCitationGridHandler
  * @ingroup controllers_grid_citation
  *
- * @brief Handle citation grid requests.
+ * @brief Handle generic parts of citation grid requests.
  */
 
 // import grid base classes
@@ -17,30 +17,79 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 // import citation grid specific classes
-import('lib.pkp.controllers.grid.citation.CitationGridRow');
-
-// import validation classes
-import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('lib.pkp.controllers.grid.citation.PKPCitationGridRow');
 
 // filter option constants
 // FIXME: Make filter options configurable.
 define('CROSSREF_TEMP_ACCESS_EMAIL', 'pkp.contact@gmail.com');
 define('ISBNDB_TEMP_APIKEY', '4B5GQSQ4');
 
-class CitationGridHandler extends GridHandler {
-	/** @var Article */
-	var $_article;
+class PKPCitationGridHandler extends GridHandler {
+	/** @var DataObject */
+	var $_assocObject;
+
+	/** @var integer */
+	var $_assocType;
 
 	/**
 	 * Constructor
 	 */
-	function CitationGridHandler() {
+	function PKPCitationGridHandler() {
 		parent::GridHandler();
 	}
 
 	//
 	// Getters/Setters
+	//
+	/**
+	 * Set the object that citations are associated to
+	 * This object must implement the getId() and getCitations()
+	 * methods.
+	 *
+	 * @param $assocObject DataObject an object that implements
+	 *  getId() and getCitations(). The getCitations() method
+	 *  must return a plain text list of all citations associated
+	 *  with the object to be processed.
+	 *
+	 * FIXME: Use a dedicated interface rather than DataObject
+	 * once we drop PHP4 support.
+	 */
+	function setAssocObject(&$assocObject) {
+		$this->_assocObject =& $assocObject;
+	}
+
+	/**
+	 * Get the object that citations are associated to.
+	 *
+	 * @see PKPCitationGridHandler::setAssocObject() for more details.
+	 *
+	 * @return DataObject
+	 */
+	function &getAssocObject() {
+		return $this->_assocObject;
+	}
+
+	/**
+	 * Set the type of the object that citations are associated to.
+	 *
+	 * @param integer one of the ASSOC_TYPE_* constants
+	 */
+	function setAssocType($assocType) {
+		$this->_assocType = $assocType;
+	}
+
+	/**
+	 * Get the type of the object that citations are associated to.
+	 *
+	 * @return integer one of the ASSOC_TYPE_* constants
+	 */
+	function getAssocType() {
+		return $this->_assocType;
+	}
+
+
+	//
+	// Overridden methods from PKPHandler
 	//
 	/**
 	 * @see PKPHandler::getRemoteOperations()
@@ -51,93 +100,28 @@ class CitationGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Get the article associated with this citation grid.
-	 * @return Article
+	 * Application-independent validation checks.
+	 * @see PKPHandler::validate()
 	 */
-	function &getArticle() {
-		return $this->_article;
-	}
+	function validate($requiredContexts, &$request, &$context) {
+		// NB: Error messages are in plain English as they directly go to fatal errors
+		// which are not directed to end users. (Validation errors in components are
+		// either programming errors or somebody trying to call components directly
+		// which is no legal use case.)
 
-
-	//
-	// Overridden methods from PKPHandler
-	//
-	/**
-	 * Validate that the user is the assigned section editor for
-	 * the citation's article, or is a managing editor. Raises a
-	 * fatal error if validation fails.
-	 * @param $requiredContexts array
-	 * @param $request PKPRequest
-	 * @return boolean
-	 */
-	function validate($requiredContexts, $request) {
-		// Retrieve the request context
-		$router =& $request->getRouter();
-		$journal =& $router->getContext($request);
-
-		// Authorization and validation checks
-		// NB: Error messages are in plain English as they directly go to fatal errors.
-		// (Validation errors in components are either programming errors or somebody
-		// trying to call components directly which is no legal use case anyway.)
-		// 1) restricted site access
-		if ( isset($journal) && $journal->getSetting('restrictSiteAccess')) {
+		// Restricted site access
+		if ( isset($context) && $context->getSetting('restrictSiteAccess')) {
 			import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
 			$this->addCheck(new HandlerValidatorCustom($this, false, 'Restricted site access!', null, create_function('', 'if (!Validation::isLoggedIn()) return false; else return true;')));
 		}
 
-		// 2) we need a journal
-		$this->addCheck(new HandlerValidatorJournal($this, false, 'No journal in context!'));
-
-		// 3) only editors or section editors may access
-		$this->addCheck(new HandlerValidatorRoles($this, false, 'Insufficient privileges!', null, array(ROLE_ID_EDITOR, ROLE_ID_SECTION_EDITOR)));
-
 		// Execute standard checks
-		if (!parent::validate($requiredContexts, $request)) return false;
-
-		// Retrieve and validate the article id
-		$articleId =& $request->getUserVar('articleId');
-		if (!is_numeric($articleId)) return false;
-
-		// Retrieve the article associated with this citation grid
-		$articleDAO =& DAORegistry::getDAO('ArticleDAO');
-		$article =& $articleDAO->getArticle($articleId);
-
-		// Article and editor validation
-		if (!is_a($article, 'Article')) return false;
-		if ($article->getJournalId() != $journal->getId()) return false;
-
-		// Editors have access to all articles, section editors will be
-		// checked individually.
-		if (!Validation::isEditor()) {
-			// Retrieve the edit assignments
-			$editAssignmentDao =& DAORegistry::getDAO('EditAssignmentDAO');
-			$editAssignments =& $editAssignmentDao->getEditAssignmentsByArticleId($article->getId());
-			assert(is_a($editAssignments, 'DAOResultFactory'));
-			$editAssignmentsArray =& $editAssignments->toArray();
-
-			// Check whether the user is the article's editor,
-			// otherwise deny access.
-			$user =& $request->getUser();
-			$userId = $user->getId();
-			$wasFound = false;
-			foreach ($editAssignmentsArray as $editAssignment) {
-				if ($editAssignment->getEditorId() == $userId) {
-					if ($editAssignment->getCanEdit()) $wasFound = true;
-					break;
-				}
-			}
-
-			if (!$wasFound) return false;
-		}
-
-		// Validation successful
-		$this->_article =& $article;
-		return true;
+		return parent::validate($requiredContexts, $request);
 	}
 
-	/*
+	/**
 	 * Configure the grid
-	 * @param PKPRequest $request
+	 * @see PKPHandler::initialize()
 	 */
 	function initialize(&$request) {
 		parent::initialize($request);
@@ -148,19 +132,14 @@ class CitationGridHandler extends GridHandler {
 		// Basic grid configuration
 		$this->setTitle('submission.citations.grid.title');
 
-		// Get the article id
-		$article =& $this->getArticle();
-		assert(is_a($article, 'Article'));
-		$articleId = $article->getId();
-
-		// Retrieve the citations associated with this article to be displayed in the grid
+		// Retrieve the associated citations to be displayed in the grid
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$data =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $articleId);
+		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->_getAssocId());
 		$this->setData($data);
 
 		// Grid actions
 		$router =& $request->getRouter();
-		$actionArgs = array('articleId' => $articleId);
+		$actionArgs = array('assocId' => $this->_getAssocId());
 		$this->addAction(
 			new GridAction(
 				'importCitations',
@@ -211,11 +190,10 @@ class CitationGridHandler extends GridHandler {
 	//
 	/**
 	 * @see GridHandler::getRowInstance()
-	 * @return CitationGridRow
 	 */
 	function &getRowInstance() {
 		// Return a citation row
-		$row = new CitationGridRow();
+		$row = new PKPCitationGridRow();
 		return $row;
 	}
 
@@ -224,20 +202,17 @@ class CitationGridHandler extends GridHandler {
 	// Public Citation Grid Actions
 	//
 	/**
-	 * Import citations from the article
+	 * Import citations from an associated object
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string
 	 */
 	function importCitations(&$args, &$request) {
-		$article =& $this->getArticle();
-
 		// Delete existing citations
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->deleteObjectsByAssocId(ASSOC_TYPE_ARTICLE, $article->getId());
+		$citationDAO->deleteObjectsByAssocId($this->getAssocType(), $this->_getAssocId());
 
-		// (Re-)import raw citations from the article
-		$rawCitationList = $article->getCitations();
+		// Tokenize raw citations
 		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
 		$citationTokenizer = new CitationListTokenizerFilter();
 		$citationStrings = $citationTokenizer->execute($rawCitationList);
@@ -252,9 +227,9 @@ class CitationGridHandler extends GridHandler {
 			// citation string.
 			$citation->setEditedCitation($citationString);
 
-			// Set the article association
-			$citation->setAssocType(ASSOC_TYPE_ARTICLE);
-			$citation->setAssocId($article->getId());
+			// Set the object association
+			$citation->setAssocType($this->getAssocType());
+			$citation->setAssocId($this->_getAssocId());
 
 			$citationDAO->insertObject($citation);
 			// FIXME: Database error handling.
@@ -322,7 +297,7 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function editCitation(&$args, &$request) {
 		// Identify the citation to be edited
-		$citation =& $this->_getCitationFromArgs($args, true);
+		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form handling
 		import('lib.pkp.controllers.grid.citation.form.CitationForm');
@@ -362,7 +337,7 @@ class CitationGridHandler extends GridHandler {
 			unset($citationForm);
 		} else {
 			// We retrieve the citation to be checked from the database.
-			$originalCitation =& $this->_getCitationFromArgs($args, true);
+			$originalCitation =& $this->getCitationFromArgs($args, true);
 		}
 
 		// Initialize the filter errors array
@@ -444,7 +419,7 @@ class CitationGridHandler extends GridHandler {
 	 */
 	function deleteCitation(&$args, &$request) {
 		// Identify the citation to be deleted
-		$citation =& $this->_getCitationFromArgs($args);
+		$citation =& $this->getCitationFromArgs($args);
 
 		$citationDAO = DAORegistry::getDAO('CitationDAO');
 		$result = $citationDAO->deleteObject($citation);
@@ -458,7 +433,7 @@ class CitationGridHandler extends GridHandler {
 	}
 
 	//
-	// Private helper function
+	// Protected helper functions
 	//
 	/**
 	 * This will retrieve a citation object from the
@@ -471,7 +446,7 @@ class CitationGridHandler extends GridHandler {
 	 *  citation id is in the request.
 	 * @return Citation
 	 */
-	function &_getCitationFromArgs(&$args, $createIfMissing = false) {
+	function &getCitationFromArgs(&$args, $createIfMissing = false) {
 		// Identify the citation id and retrieve the
 		// corresponding element from the grid's data source.
 		if (!isset($args['citationId'])) {
@@ -479,9 +454,8 @@ class CitationGridHandler extends GridHandler {
 				// It seems that a new citation is being edited/updated
 				import('lib.pkp.classes.citation.Citation');
 				$citation = new Citation();
-				$citation->setAssocType(ASSOC_TYPE_ARTICLE);
-				$article =& $this->getArticle();
-				$citation->setAssocId($article->getId());
+				$citation->setAssocType($this->getAssocType());
+				$citation->setAssocId($this->_getAssocId());
 			} else {
 				fatalError('Missing citation id!');
 			}
@@ -490,6 +464,14 @@ class CitationGridHandler extends GridHandler {
 			if (is_null($citation)) fatalError('Invalid citation id!');
 		}
 		return $citation;
+	}
+
+	//
+	// Private helper functions
+	//
+	function _getAssocId() {
+		$assocObject =& $this->getAssocObject();
+		return $assocObject->getId();
 	}
 
 	/**
@@ -502,7 +484,7 @@ class CitationGridHandler extends GridHandler {
 		assert($request->isPost());
 
 		// Identify the citation to be updated
-		$citation =& $this->_getCitationFromArgs($args, true);
+		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form initialization
 		import('lib.pkp.controllers.grid.citation.form.CitationForm');
@@ -664,12 +646,14 @@ class CitationGridHandler extends GridHandler {
 			$filteredCitation =& $citation;
 		} else {
 			// Copy unfiltered data from the original citation to the filtered citation
-			$article =& $this->getArticle();
 			$filteredCitation->setId($citation->getId());
-			$filteredCitation->setAssocId($article->getId());
-			$filteredCitation->setAssocType(ASSOC_TYPE_ARTICLE);
 			$filteredCitation->setRawCitation($citation->getRawCitation());
 			$filteredCitation->setEditedCitation($citation->getEditedCitation());
+
+			// Associate the citation with the object associated
+			// to the citation editor.
+			$filteredCitation->setAssocId($this->_getAssocId());
+			$filteredCitation->setAssocType($this->getAssocType());
 
 			// Set the citation state
 			$filteredCitation->setCitationState($citationStateAfterFiltering);

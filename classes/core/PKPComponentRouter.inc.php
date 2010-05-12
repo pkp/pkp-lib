@@ -61,8 +61,8 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('core.PKPRouter');
-import('core.Request');
+import('lib.pkp.classes.core.PKPRouter');
+import('classes.core.Request');
 
 class PKPComponentRouter extends PKPRouter {
 	//
@@ -215,9 +215,17 @@ class PKPComponentRouter extends PKPRouter {
 			// Construct the component handler file name and test its existence.
 			$component = 'controllers.'.$component;
 			$componentFileName = str_replace('.', '/', $component).'.inc.php';
-			if (!file_exists($componentFileName) && !file_exists('lib/pkp/'.$componentFileName)) {
-				// Request to non-existent handler
-				return $nullVar;
+			switch (true) {
+				case file_exists($componentFileName):
+					break;
+
+				case file_exists('lib/pkp/'.$componentFileName):
+					$component = 'lib.pkp.'.$component;
+					break;
+
+				default:
+					// Request to non-existent handler
+					return $nullVar;
 			}
 
 			// Declare the component handler class.

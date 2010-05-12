@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class CitationListTokenizerFilter extends Filter {
 	//

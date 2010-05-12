@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 
 class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 	private $_nlmNameSchemaPersonStringFilter;
@@ -56,14 +56,14 @@ class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 		$personDescription2->addStatement('given-names', $givenNames2 = 'Antonio');
 		$personDescription2->addStatement('surname', $surname = 'Elis');
 
-		$personDescriptions = array($personDescription1, $personDescription2);
+		$personDescriptions = array($personDescription1, $personDescription2, PERSON_STRING_FILTER_ETAL);
 		$this->_nlmNameSchemaPersonStringFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
-		self::assertEquals('Assis Jr, (Machado) de; Elis, A. (Bernardo)', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
+		self::assertEquals('Assis Jr, (Machado) de; Elis, A. (Bernardo); et al', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
 
 		// Test template and delimiter
 		$this->_nlmNameSchemaPersonStringFilter->setDelimiter(':');
 		$this->_nlmNameSchemaPersonStringFilter->setTemplate('%firstname%%initials%%prefix% %surname%%suffix%');
-		self::assertEquals('Machado de Assis Jr:Bernardo A. Elis', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
+		self::assertEquals('Machado de Assis Jr:Bernardo A. Elis:et al', $this->_nlmNameSchemaPersonStringFilter->execute($personDescriptions));
 	}
 }
 ?>

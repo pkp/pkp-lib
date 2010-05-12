@@ -115,17 +115,17 @@ class FileWrapper {
 		} else {
 			switch (@$info['scheme']) {
 				case 'http':
-					import('file.wrappers.HTTPFileWrapper');
+					import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 					$wrapper = new HTTPFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'https':
-					import('file.wrappers.HTTPSFileWrapper');
+					import('lib.pkp.classes.file.wrappers.HTTPSFileWrapper');
 					$wrapper = new HTTPSFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'ftp':
-					import('file.wrappers.FTPFileWrapper');
+					import('lib.pkp.classes.file.wrappers.FTPFileWrapper');
 					$wrapper = new FTPFileWrapper($url, $info);
 					break;
 				default:

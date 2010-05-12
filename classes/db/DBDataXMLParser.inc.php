@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('xml.XMLParser');
+import('lib.pkp.classes.xml.XMLParser');
 
 class DBDataXMLParser {
 
@@ -54,6 +54,7 @@ class DBDataXMLParser {
 	function parseData($file) {
 		$this->sql = array();
 		$tree = $this->parser->parse($file);
+		$allTables =& $this->dbconn->MetaTables();
 		if ($tree !== false) {
 			foreach ($tree->getChildren() as $table) {
 				if ($table->getName() == 'table') {
@@ -126,26 +127,48 @@ class DBDataXMLParser {
 							$column = $query->getAttribute('column');
 							$to = $query->getAttribute('to');
 							if ($column) {
-								$columns =& $this->dbconn->MetaColumns($table, true);
-								$colId = strtoupper($column);
-								$flds = '';
-								if (isset($columns[$colId])) {
-									$col = $columns[$colId];
-									if ($col->max_length == "-1") {
-										$max_length = '';
-									} else {
-										$max_length = $col->max_length;
-									} 
-									$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
-									if ($col->primary_key) $fld['KEY'] = 'KEY';
-									if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
-									if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
-									if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
-									$flds = array($colId => $fld);
+								// Make sure the target column does not yet exist.
+								// This is to guarantee idempotence of upgrade scripts.
+								$run = false;
+								if (in_array($table, $allTables)) {
+									$columns =& $this->dbconn->MetaColumns($table, true);
+									if (!isset($columns[strtoupper($to)])) {
+										// Only run if the column has not yet been
+										// renamed.
+										$run = true;
+									}
+								} else {
+									// If the target table does not exist then
+									// we assume that another rename entry will still
+									// rename it and we should run after it.
+									$run = true;
 								}
-								$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
+
+								if ($run) {
+									$colId = strtoupper($column);
+									$flds = '';
+									if (isset($columns[$colId])) {
+										$col = $columns[$colId];
+										if ($col->max_length == "-1") {
+											$max_length = '';
+										} else {
+											$max_length = $col->max_length;
+										}
+										$fld = array('NAME' => $col->name, 'TYPE' => $dbdict->MetaType($col), 'SIZE' => $max_length);
+										if ($col->primary_key) $fld['KEY'] = 'KEY';
+										if ($col->auto_increment) $fld['AUTOINCREMENT'] = 'AUTOINCREMENT';
+										if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
+										if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
+										$flds = array($colId => $fld);
+									}
+									$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
+								}
 							} else {
-								$this->sql[] = $dbdict->RenameTableSQL($table, $to);
+								// Make sure the target table does not yet exist.
+								// This is to guarantee idempotence of upgrade scripts.
+								if (!in_array($to, $allTables)) {
+									$this->sql[] = $dbdict->RenameTableSQL($table, $to);
+								}
 							}
 						} else {
 							$driver = $query->getAttribute('driver');

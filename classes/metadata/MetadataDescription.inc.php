@@ -102,7 +102,7 @@
 
 // $Id$
 
-import('core.DataObject');
+import('lib.pkp.classes.core.DataObject');
 
 define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);
@@ -117,6 +117,18 @@ class MetadataDescription extends DataObject {
 
 	/** @var int association id (the identifier of the described resource) */
 	var $_assocId;
+
+	/**
+	 * @var string an (optional) display name that describes the contents
+	 *  of this meta-data description to the end user.
+	 */
+	var $_displayName;
+
+	/**
+	 * @var integer sequence id used when saving several descriptions
+	 *  of the same subject.
+	 */
+	var $_seq;
 
 	/**
 	 * Constructor
@@ -177,6 +189,38 @@ class MetadataDescription extends DataObject {
 	}
 
 	/**
+	 * Set the (optional) display name
+	 * @param $displayName string
+	 */
+	function setDisplayName($displayName) {
+		$this->_displayName = $displayName;
+	}
+
+	/**
+	 * Get the (optional) display name
+	 * @return string
+	 */
+	function getDisplayName() {
+		return $this->_displayName;
+	}
+
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->_seq = $seq;
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->_seq;
+	}
+
+	/**
 	 * Add a meta-data statement. Statements can only be added
 	 * for properties that are part of the meta-data schema. This
 	 * method will also check the validity of the value for the
@@ -197,7 +241,7 @@ class MetadataDescription extends DataObject {
 		if (!in_array($this->_assocType, $property->getAssocTypes())) return false;
 
 		// Check that the value is compliant with the property specification
-		if (!$property->isValid($value)) return false;
+		if ($property->isValid($value) === false) return false;
 
 		// Handle translation
 		$translated = $property->getTranslated();

@@ -13,7 +13,7 @@
  * @brief Validation check for URLs.
  */
 
-import('validation.ValidatorUri');
+import('lib.pkp.classes.validation.ValidatorUri');
 
 class ValidatorUrl extends ValidatorUri {
 	/**

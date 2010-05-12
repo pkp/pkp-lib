@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
-import('tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
+import('lib.pkp.tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
 
 class NlmCitationSchemaOpenUrlCrosswalkFilterTest extends OpenUrlCrosswalkFilterTest {
 	/**

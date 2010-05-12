@@ -14,7 +14,7 @@
 
 // $Id$
 
-require_once('PhpQuickProfiler.php');
+require_once('./lib/pkp/lib/pqp/classes/PhpQuickProfiler.php');
 
 class PKPProfiler {
 

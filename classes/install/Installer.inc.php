@@ -25,12 +25,12 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
-import('db.DBDataXMLParser');
-import('site.Version');
-import('site.VersionDAO');
-import('config.ConfigParser');
+import('lib.pkp.classes.db.DBDataXMLParser');
+import('lib.pkp.classes.site.Version');
+import('lib.pkp.classes.site.VersionDAO');
+import('lib.pkp.classes.config.ConfigParser');
 
-require_once('adodb-xmlschema.inc.php'); // FIXME?
+require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
 
 class Installer {
 
@@ -374,7 +374,7 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				require_once('adodb-xmlschema.inc.php');
+				require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
 				$schemaXMLParser = new adoSchema($this->dbconn);
 				$dict =& $schemaXMLParser->dict;
 				$dict->SetCharSet($this->dbconn->charSet);
@@ -392,11 +392,10 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('data: %s', $action['file']));
 				$sql = $this->dataXMLParser->parseData($fileName);
+				// We might get an empty SQL if the upgrade script has
+				// been executed before.
 				if ($sql) {
 					return $this->executeSQL($sql);
-				} else {
-					$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, Locale::translate('installer.installParseDBFileError')));
-					return false;
 				}
 				break;
 			case 'code':

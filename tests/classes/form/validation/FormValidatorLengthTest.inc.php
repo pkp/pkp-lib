@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorLength.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorLengthTest extends PKPTestCase {
 	/**

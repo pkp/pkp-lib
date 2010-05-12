@@ -19,7 +19,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
 
@@ -67,7 +67,7 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 		// Extract a publisher from the place string if possible
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

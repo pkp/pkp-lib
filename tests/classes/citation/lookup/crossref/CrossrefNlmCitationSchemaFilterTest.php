@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
-import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	const

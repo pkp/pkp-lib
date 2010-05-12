@@ -18,7 +18,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class CrosswalkFilter extends Filter {
 	/** @var string */

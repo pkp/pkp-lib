@@ -13,8 +13,8 @@
  * @brief Test class for FormValidator.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorTest extends PKPTestCase {
 	private
@@ -34,7 +34,7 @@ class FormValidatorTest extends PKPTestCase {
 	 */
 	public function testConstructor() {
 		// Instantiate a test validator
-		import('validation.ValidatorUrl');
+		import('lib.pkp.classes.validation.ValidatorUrl');
 		$validator = new ValidatorUrl();
 
 		// Test CSS validation flags

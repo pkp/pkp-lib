@@ -13,9 +13,9 @@
  * @brief Test class for FormValidatorPost.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
-import('core.Request'); // This will import the mock request
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
+import('classes.core.Request'); // This will import the mock request
 
 class FormValidatorPostTest extends PKPTestCase {
 	/**

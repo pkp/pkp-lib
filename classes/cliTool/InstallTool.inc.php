@@ -15,10 +15,10 @@
 // $Id$
 
 
-import('install.Install');
-import('install.form.InstallForm');
-import('site.Version');
-import('site.VersionCheck');
+import('classes.install.Install');
+import('classes.install.form.InstallForm');
+import('lib.pkp.classes.site.Version');
+import('lib.pkp.classes.site.VersionCheck');
 
 class InstallTool extends CommandLineTool {
 

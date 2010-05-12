@@ -16,10 +16,8 @@
  *  into/from an application entity object (DataObject).
  */
 
-// $Id$
-
-import('filter.Filter');
-import('metadata.MetadataDescription');
+import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.metadata.MetadataDescription');
 
 class MetadataDataObjectAdapter extends Filter {
 	/** @var MetadataSchema */

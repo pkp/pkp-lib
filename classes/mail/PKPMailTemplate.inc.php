@@ -15,7 +15,7 @@
 // $Id$
 
 
-import('mail.Mail');
+import('lib.pkp.classes.mail.Mail');
 
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
@@ -168,7 +168,7 @@ class PKPMailTemplate extends Mail {
 	 * @return void
 	 */
 	function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = array()) {
-		import('form.Form');
+		import('lib.pkp.classes.form.Form');
 		$form = new Form($alternateTemplate!=null?$alternateTemplate:'email/email.tpl');
 
 		$form->setData('formActionUrl', $formActionUrl);
@@ -296,7 +296,7 @@ class PKPMailTemplate extends Mail {
 	 * constructor when attachments are enabled.
 	 */
 	function _handleAttachments($userId) {
-		import('file.TemporaryFileManager');
+		import('classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$this->attachmentsEnabled = true;
@@ -334,7 +334,7 @@ class PKPMailTemplate extends Mail {
 	 * @param $userId int
 	 */
 	function _clearAttachments($userId) {
-		import('file.TemporaryFileManager');
+		import('classes.file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$persistAttachments = Request::getUserVar('persistAttachments');

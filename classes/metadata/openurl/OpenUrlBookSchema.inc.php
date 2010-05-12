@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.openurl.OpenUrlJournalBookBaseSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlJournalBookBaseSchema');
 
 define('OPENURL_GENRE_BOOK', 'book');
 define('OPENURL_GENRE_BOOKITEM', 'bookitem');
@@ -41,6 +41,7 @@ class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
 		$this->addProperty(new MetadataProperty('tpages', $citation));
 		$this->addProperty(new MetadataProperty('series', $citation)); // The title of a series in which the book or document was issued.
 		$this->addProperty(new MetadataProperty('bici', $citation));
+		$this->addProperty(new MetadataProperty('genre', $citation, array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-book-genres')));
 	}
 }
 ?>

@@ -16,8 +16,8 @@
 // $Id$
 
 
-import('help.HelpTopic');
-import('help.PKPHelp');
+import('lib.pkp.classes.help.HelpTopic');
+import('lib.pkp.classes.help.PKPHelp');
 
 class HelpTopicDAO extends XMLDAO {
 	function &_getCache($topicId) {

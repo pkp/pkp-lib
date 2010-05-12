@@ -23,8 +23,8 @@
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
 
-require_once('Smarty.class.php');
-require_once('plugins/modifier.escape.php'); // Seems to be needed?
+require_once('./lib/pkp/lib/smarty/Smarty.class.php');
+require_once('./lib/pkp/lib/smarty/plugins/modifier.escape.php'); // Seems to be needed?
 
 define('CACHEABILITY_NO_CACHE',		'no-cache');
 define('CACHEABILITY_NO_STORE',		'no-store');
@@ -167,8 +167,8 @@ class PKPTemplateManager extends Smarty {
 			 */
 			$this->assign('isUserLoggedIn', Validation::isLoggedIn());
 
-			$versionDAO =& DAORegistry::getDAO('VersionDAO');
-			$currentVersion = $versionDAO->getCurrentVersion();
+			$application =& PKPApplication::getApplication();
+			$currentVersion =& $application->getCurrentVersion();
 			$this->assign('currentVersionString', $currentVersion->getVersionString());
 
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
@@ -213,8 +213,8 @@ class PKPTemplateManager extends Smarty {
 		// This code cannot be called in the constructor because of
 		// reference problems, i.e. callers that need getManager fail.
 
-		// Load the block plugins.
-		$plugins =& PluginRegistry::loadCategory('blocks');
+		// Load enabled block plugins.
+		$plugins =& PluginRegistry::loadCategory('blocks', true);
 
 		$this->initialized = true;
 	}
@@ -242,6 +242,7 @@ class PKPTemplateManager extends Smarty {
 			$baseUrl = $this->get_template_vars('baseUrl');
 			$scriptOpen = '	<script language="javascript" type="text/javascript" src="';
 			$scriptClose = '"></script>';
+			$javaScript = '';
 			foreach ($this->javaScripts as $script) {
 				$javaScript .= $scriptOpen . $baseUrl . '/' . $script . $scriptClose . "\n";
 			}
@@ -1112,9 +1113,16 @@ class PKPTemplateManager extends Smarty {
 			$translatedLoadMessage = '';
 		}
 
-		echo "<div id=\"$id\">$translatedLoadMessage</div>
+		return "<div id=\"$id\">$translatedLoadMessage</div>
 		<script type='text/javascript'>
-		  $(\"#$id\").load(\"$url\");
+			$.getJSON(\"$url\", function(jsonData) {
+				if (jsonData.status === true) {
+					$(\"#$id\").html(jsonData.content);
+				} else {
+					// Alert that the modal failed
+					alert(jsonData.content);
+				}
+			});
 		</script>";
 	}
 
@@ -1151,7 +1159,7 @@ class PKPTemplateManager extends Smarty {
 		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button');
 		</script>\n";
 
-		echo $modalCode;
+		return $modalCode;
 	}
 
 
@@ -1179,7 +1187,11 @@ class PKPTemplateManager extends Smarty {
 
 		if (isset($params['dialogText']))  {
 			$showDialog = true;
-			$dialogText = Locale::translate($params['dialogText']);
+			if(isset($params['translate']) && $params['translate'] == false) {
+				$dialogText = $params['dialogText'];
+			} else {
+				$dialogText = Locale::translate($params['dialogText']);
+			}
 		} else {
 			$showDialog = false;
 		}
@@ -1203,7 +1215,7 @@ class PKPTemplateManager extends Smarty {
 			</script>";
 		}
 
-		echo $confirmCode;
+		return $confirmCode;
 	}
 
 	function smartyAjaxUpload($params, &$smarty) {
@@ -1220,7 +1232,7 @@ class PKPTemplateManager extends Smarty {
 		} else {
 			$url = $params['url'];
 		}
-		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
+		return "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
 
 	function smartyInitTabs($params, &$smarty) {
@@ -1231,9 +1243,20 @@ class PKPTemplateManager extends Smarty {
 			$id = $params['id'];
 		}
 
-		echo "<script type='text/javascript'>$(function() {
-			$('#$id').tabs();
-		});</script>";
+		return "<script type='text/javascript'>$(function() {
+		$('$id').tabs({
+		    ajaxOptions: {
+		        dataFilter: function(jsonData){
+		        	var data = $.parseJSON(jsonData);
+		        	if(data.status === true) {
+			            return data.content;
+		        	} else {
+		        		alert(data.content);
+		        	}
+		        }
+		    }});
+	    });
+	    </script>";
 	}
 }
 

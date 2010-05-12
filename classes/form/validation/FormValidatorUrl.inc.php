@@ -13,8 +13,8 @@
  * @brief Form validation check for URLs.
  */
 
-import('form.validation.FormValidator');
-import('validation.ValidatorUrl');
+import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.pkp.classes.validation.ValidatorUrl');
 
 class FormValidatorUrl extends FormValidator {
 	/**

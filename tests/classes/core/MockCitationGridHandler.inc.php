@@ -12,7 +12,7 @@
  * @brief Mock implementation of the CitationGridHandler class for the PKPComponentRouterTest
  */
 
-import('classes.handler.PKPHandler');
+import('lib.pkp.classes.handler.PKPHandler');
 
 class CitationGridHandler extends PKPHandler {
 	private $_fetchArgs;

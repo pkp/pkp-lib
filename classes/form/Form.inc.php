@@ -16,24 +16,24 @@
  * @brief Class defining basic operations for handling HTML forms.
  */
 
-import('form.FormError');
+import('lib.pkp.classes.form.FormError');
 
 // Import all form validators for convenient use in sub-classes
-import('form.validation.FormValidatorAlphaNum');
-import('form.validation.FormValidatorArray');
-import('form.validation.FormValidatorArrayCustom');
-import('form.validation.FormValidatorControlledVocab');
-import('form.validation.FormValidatorCustom');
-import('form.validation.FormValidatorCaptcha');
-import('form.validation.FormValidatorEmail');
-import('form.validation.FormValidatorInSet');
-import('form.validation.FormValidatorLength');
-import('form.validation.FormValidatorLocale');
-import('form.validation.FormValidatorLocaleEmail');
-import('form.validation.FormValidatorPost');
-import('form.validation.FormValidatorRegExp');
-import('form.validation.FormValidatorUri');
-import('form.validation.FormValidatorUrl');
+import('lib.pkp.classes.form.validation.FormValidatorAlphaNum');
+import('lib.pkp.classes.form.validation.FormValidatorArray');
+import('lib.pkp.classes.form.validation.FormValidatorArrayCustom');
+import('lib.pkp.classes.form.validation.FormValidatorControlledVocab');
+import('lib.pkp.classes.form.validation.FormValidatorCustom');
+import('lib.pkp.classes.form.validation.FormValidatorCaptcha');
+import('lib.pkp.classes.form.validation.FormValidatorEmail');
+import('lib.pkp.classes.form.validation.FormValidatorInSet');
+import('lib.pkp.classes.form.validation.FormValidatorLength');
+import('lib.pkp.classes.form.validation.FormValidatorLocale');
+import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
+import('lib.pkp.classes.form.validation.FormValidatorPost');
+import('lib.pkp.classes.form.validation.FormValidatorRegExp');
+import('lib.pkp.classes.form.validation.FormValidatorUri');
+import('lib.pkp.classes.form.validation.FormValidatorUrl');
 
 class Form {
 
@@ -159,6 +159,15 @@ class Form {
 		}
 	}
 
+	/**
+	 * Alias to $this->display($request, true) -- returns the form's rendered contents
+	 * @param $request PKPRequest
+	 * @return string the rendered form
+	 */
+	function fetch(&$request) {
+		return $this->display($request, true);
+	}
+	
 	/**
 	 * Get the value of a form field.
 	 * @param $key string

@@ -13,8 +13,8 @@
  * @brief Form validation check for email addresses.
  */
 
-import('form.validation.FormValidatorRegExp');
-import('validation.ValidatorEmail');
+import('lib.pkp.classes.form.validation.FormValidatorRegExp');
+import('lib.pkp.classes.validation.ValidatorEmail');
 
 class FormValidatorEmail extends FormValidator {
 	/**

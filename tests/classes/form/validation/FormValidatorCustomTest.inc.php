@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorCustom.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorCustomTest extends PKPTestCase {
 	private

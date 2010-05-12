@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
-import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 class PubmedNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	/**

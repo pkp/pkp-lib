@@ -12,7 +12,7 @@
  * @brief Form validation check that checks if value is within a certain set.
  */
 
-import('form.validation.FormValidator');
+import('lib.pkp.classes.form.validation.FormValidator');
 
 class FormValidatorInSet extends FormValidator {
 

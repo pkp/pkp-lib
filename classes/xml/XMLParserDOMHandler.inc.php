@@ -18,7 +18,7 @@
 //$Id$
 
 
-import('xml.XMLNode');
+import('lib.pkp.classes.xml.XMLNode');
 
 class XMLParserDOMHandler extends XMLParserHandler {
 

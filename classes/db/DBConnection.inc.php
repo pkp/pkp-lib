@@ -112,7 +112,7 @@ class DBConnection {
 	 * @return boolean
 	 */
 	function initConn() {
-		require_once('adodb.inc.php');
+		require_once('lib/pkp/lib/adodb/adodb.inc.php');
 
 		$this->dbconn =& ADONewConnection($this->driver);
 

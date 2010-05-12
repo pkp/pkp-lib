@@ -192,7 +192,7 @@ class GridColumn {
 	function &getCellProvider() {
 		if (is_null($this->_cellProvider)) {
 			// provide a sensible default cell provider
-			import('controllers.grid.ArrayGridCellProvider');
+			import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
 			$cellProvider =& new ArrayGridCellProvider();
 			$this->setCellProvider($cellProvider);
 		}

@@ -19,11 +19,11 @@
 
 // $Id$
 
-import('metadata.CrosswalkFilter');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.openurl.OpenUrlJournalSchema');
-import('metadata.openurl.OpenUrlBookSchema');
-import('metadata.openurl.OpenUrlDissertationSchema');
+import('lib.pkp.classes.metadata.CrosswalkFilter');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlBookSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlDissertationSchema');
 
 class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 	/**

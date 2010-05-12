@@ -20,7 +20,7 @@
 // $Id$
 
 
-import('scheduledTask.ScheduledTask');
+import('lib.pkp.classes.scheduledTask.ScheduledTask');
 
 class ScheduledTaskDAO extends DAO {
 	/**

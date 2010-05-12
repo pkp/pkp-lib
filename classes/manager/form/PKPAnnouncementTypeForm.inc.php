@@ -15,7 +15,7 @@
 
 //$Id$
 
-import('form.Form');
+import('lib.pkp.classes.form.Form');
 
 class PKPAnnouncementTypeForm extends Form {
 	/** @var typeId int the ID of the announcement type being edited */

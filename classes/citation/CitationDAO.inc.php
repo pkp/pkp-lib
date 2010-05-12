@@ -13,17 +13,15 @@
  * @brief Operations for retrieving and modifying Citation objects
  */
 
-//$Id$
-
-import('citation.Citation');
+import('lib.pkp.classes.citation.Citation');
 
 class CitationDAO extends DAO {
 	/**
-	 * Insert a new Citation.
+	 * Insert a new citation.
 	 * @param $citation Citation
 	 * @return integer the new citation id
 	 */
-	function insertCitation(&$citation) {
+	function insertObject(&$citation) {
 		$this->update(
 			sprintf('INSERT INTO citations
 				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, parse_score, lookup_score)
@@ -40,7 +38,8 @@ class CitationDAO extends DAO {
 			)
 		);
 		$citation->setId($this->getInsertId());
-		$this->_updateCitationMetadata($citation, false);
+		$this->_updateObjectMetadata($citation, false);
+		$this->updateCitationSourceDescriptions($citation);
 		return $citation->getId();
 	}
 
@@ -49,7 +48,7 @@ class CitationDAO extends DAO {
 	 * @param $citationId integer
 	 * @return Citation
 	 */
-	function &getCitation($citationId) {
+	function &getObjectById($citationId) {
 		$result =& $this->retrieve(
 			'SELECT * FROM citations WHERE citation_id = ?', $citationId
 		);
@@ -57,7 +56,6 @@ class CitationDAO extends DAO {
 		$citation = null;
 		if ($result->RecordCount() != 0) {
 			$citation =& $this->_fromRow($result->GetRowAssoc(false));
-			$this->getDataObjectSettings('citation_settings', 'citation_id', $citation->getId(), $citation);
 		}
 
 		$result->Close();
@@ -73,13 +71,13 @@ class CitationDAO extends DAO {
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching Citations
 	 */
-	function &getCitationsByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function &getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
 			'SELECT *
 			FROM citations
 			WHERE assoc_type = ? AND assoc_id = ?
 			ORDER BY citation_id DESC',
-			array($assocType, $assocId),
+			array((int)$assocType, (int)$assocId),
 			$rangeInfo
 		);
 
@@ -88,10 +86,10 @@ class CitationDAO extends DAO {
 	}
 
 	/**
-	 * Update an existing Citation.
+	 * Update an existing citation.
 	 * @param $citation Citation
 	 */
-	function updateCitation(&$citation) {
+	function updateObject(&$citation) {
 		$returner = $this->update(
 			'UPDATE	citations
 			SET	assoc_type = ?,
@@ -113,24 +111,32 @@ class CitationDAO extends DAO {
 				(integer)$citation->getId()
 			)
 		);
-		$this->_updateCitationMetadata($citation);
+		$this->_updateObjectMetadata($citation);
+		$this->updateCitationSourceDescriptions($citation);
 	}
 
 	/**
-	 * Delete a Citation.
+	 * Delete a citation.
 	 * @param $citation Citation
 	 * @return boolean
 	 */
-	function deleteCitation(&$citation) {
-		return $this->deleteCitationById($citation->getId());
+	function deleteObject(&$citation) {
+		return $this->deleteObjectById($citation->getId());
 	}
 
 	/**
-	 * Delete a Citation by ID.
+	 * Delete a citation by id.
 	 * @param $citationId int
 	 * @return boolean
 	 */
-	function deleteCitationById($citationId) {
+	function deleteObjectById($citationId) {
+		assert(!empty($citationId));
+
+		// Delete citation sources
+		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+		$metadataDescriptionDao->deleteObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
+
+		// Delete citation
 		$params = array((int)$citationId);
 		$this->update('DELETE FROM citation_settings WHERE citation_id = ?', $params);
 		return $this->update('DELETE FROM citations WHERE citation_id = ?', $params);
@@ -142,21 +148,43 @@ class CitationDAO extends DAO {
 	 * @param $assocId int
 	 * @return boolean
 	 */
-	function deleteCitationsByAssocId($assocType, $assocId) {
-		$citations =& $this->getCitationsByAssocId($assocType, $assocId);
+	function deleteObjectsByAssocId($assocType, $assocId) {
+		$citations =& $this->getObjectsByAssocId($assocType, $assocId);
 		while (($citation =& $citations->next())) {
-			$this->deleteCitationById($citation->getId());
+			$this->deleteObjectById($citation->getId());
 			unset($citation);
 		}
 		return true;
 	}
 
+	/**
+	 * Update the source descriptions of an existing citation.
+	 *
+	 * @param $citation Citation
+	 */
+	function updateCitationSourceDescriptions(&$citation) {
+		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+
+		// Clear all existing citation sources first
+		$citationId = $citation->getId();
+		assert(!empty($citationId));
+		$metadataDescriptionDao->deleteObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
+
+		// Now add the new citation sources
+		foreach ($citation->getSourceDescriptions() as $sourceDescription) {
+			// Make sure that this source description is correctly associated
+			// with the citation so that we can recover it later.
+			assert($sourceDescription->getAssocType() == ASSOC_TYPE_CITATION);
+			$sourceDescription->setAssocId($citationId);
+			$metadataDescriptionDao->insertObject($sourceDescription);
+		}
+	}
 
 	//
 	// Protected helper methods
 	//
 	/**
-	 * Get the ID of the last inserted Citation.
+	 * Get the id of the last inserted citation.
 	 * @return int
 	 */
 	function getInsertId() {
@@ -168,7 +196,7 @@ class CitationDAO extends DAO {
 	// Private helper methods
 	//
 	/**
-	 * Construct a new Citation object.
+	 * Construct a new citation object.
 	 * @return Citation
 	 */
 	function &_newDataObject() {
@@ -177,7 +205,7 @@ class CitationDAO extends DAO {
 	}
 
 	/**
-	 * Internal function to return a Citation object from a
+	 * Internal function to return a citation object from a
 	 * row.
 	 * @param $row array
 	 * @return Citation
@@ -195,6 +223,12 @@ class CitationDAO extends DAO {
 
 		$this->getDataObjectSettings('citation_settings', 'citation_id', $row['citation_id'], $citation);
 
+		// Add citation source descriptions
+		$sourceDescriptions = $this->_getCitationSourceDescriptions($citation->getId());
+		while ($sourceDescription =& $sourceDescriptions->next()) {
+			$citation->addSourceDescription($sourceDescription);
+		}
+
 		return $citation;
 	}
 
@@ -202,10 +236,22 @@ class CitationDAO extends DAO {
 	 * Update the citation meta-data
 	 * @param $citation Citation
 	 */
-	function _updateCitationMetadata(&$citation) {
+	function _updateObjectMetadata(&$citation) {
 		// Persist citation meta-data
 		$this->updateDataObjectSettings('citation_settings', $citation,
 				array('citation_id' => $citation->getId()));
+	}
+
+	/**
+	 * Get the source descriptions of an existing citation.
+	 *
+	 * @param $citationId integer
+	 * @return array an array of MetadataDescriptions
+	 */
+	function _getCitationSourceDescriptions($citationId) {
+		$metadataDescriptionDao =& DAORegistry::getDAO('MetadataDescriptionDAO');
+		$sourceDescriptions =& $metadataDescriptionDao->getObjectsByAssocId(ASSOC_TYPE_CITATION, $citationId);
+		return $sourceDescriptions;
 	}
 }
 

@@ -13,7 +13,7 @@
  * @brief Validation check for email addresses.
  */
 
-import('validation.ValidatorRegExp');
+import('lib.pkp.classes.validation.ValidatorRegExp');
 
 class ValidatorEmail extends ValidatorRegExp {
 	/**

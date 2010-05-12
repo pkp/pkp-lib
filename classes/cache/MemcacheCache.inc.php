@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('cache.GenericCache');
+import('lib.pkp.classes.cache.GenericCache');
 
 // FIXME This should use connection pooling
 // WARNING: This cache MUST be loaded in batch, or else many cache

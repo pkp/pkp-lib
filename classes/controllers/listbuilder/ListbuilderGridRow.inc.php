@@ -12,7 +12,7 @@
  * @brief Handle list builder row requests.
  */
 
-import('controllers.grid.GridRow');
+import('lib.pkp.classes.controllers.grid.GridRow');
 
 class ListbuilderGridRow extends GridRow {
 	/**

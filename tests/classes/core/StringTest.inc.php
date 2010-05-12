@@ -13,8 +13,8 @@
  * @brief Tests for the String class.
  */
 
-import('tests.PKPTestCase');
-import('core.String');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.core.String');
 
 class StringTest extends PKPTestCase {
 	/**

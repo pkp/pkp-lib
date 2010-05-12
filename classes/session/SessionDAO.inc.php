@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('session.Session');
+import('lib.pkp.classes.session.Session');
 
 class SessionDAO extends DAO {
 	/**

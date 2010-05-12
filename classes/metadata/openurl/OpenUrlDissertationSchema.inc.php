@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.openurl.OpenUrlBaseSchema');
+import('lib.pkp.classes.metadata.openurl.OpenUrlBaseSchema');
 
 // "dissertation" is not defined as genre in the standard. We only use it internally.
 define('OPENURL_PSEUDOGENRE_DISSERTATION', 'dissertation');

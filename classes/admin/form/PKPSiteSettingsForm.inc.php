@@ -19,7 +19,7 @@
 
 
 define('SITE_MIN_PASSWORD_LENGTH', 4);
-import('form.Form');
+import('lib.pkp.classes.form.Form');
 
 class PKPSiteSettingsForm extends Form {
 	/** @var $siteSettingsDao object Site settings DAO */
@@ -121,7 +121,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Uploads custom site stylesheet.
 	 */
 	function uploadSiteStyleSheet() {
-		import('file.PublicFileManager');
+		import('classes.file.PublicFileManager');
 		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('siteStyleSheet')) {
@@ -145,7 +145,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Uploads custom site logo.
 	 */
 	function uploadPageHeaderTitleImage($locale) {
-		import('file.PublicFileManager');
+		import('classes.file.PublicFileManager');
 		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('pageHeaderTitleImage')) {

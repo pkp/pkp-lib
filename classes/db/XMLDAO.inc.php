@@ -15,7 +15,7 @@
 // $Id$
 
 
-import('xml.XMLParser');
+import('lib.pkp.classes.xml.XMLParser');
 
 class XMLDAO {
 	/**

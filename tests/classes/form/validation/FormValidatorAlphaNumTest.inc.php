@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorAlphaNum.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorAlphaNumTest extends PKPTestCase {
 	/**

@@ -16,7 +16,7 @@
 // $Id$
 
 
-import ('group.Group');
+import ('lib.pkp.classes.group.Group');
 
 class GroupDAO extends DAO {
 	/**

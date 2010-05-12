@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('help.HelpToc');
+import('lib.pkp.classes.help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
 	function &_getCache($tocId) {

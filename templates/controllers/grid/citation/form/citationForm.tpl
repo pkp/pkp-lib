@@ -5,8 +5,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Citation grid form
- *
- * $Id$
  *}
 
 
@@ -28,34 +26,58 @@
 		<table width="100%" class="data">
 			<tr valign="top">
 				<td width="30%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
-				<td width="70%" class="value"><textarea name="editedCitation" id="editedCitation" cols="40" rows="3" class="textField">{$editedCitation}</textarea></td>
+				<td width="70%" class="value">{fbvElement type="textarea" name="editedCitation" id="editedCitation" size=$fbvStyles.size.LARGE value=$editedCitation}</td>
 			</tr>
 		</table>
 
 		<script type='text/javascript'>
 			$(function() {ldelim}
 				$.ajaxSetup({ldelim}cache:false{rdelim});
-				$("#citationFormTabs-{$ts}").tabs({ldelim} cache: false {rdelim});
+				$("#citationFormTab-{$tabUid}").tabs({ldelim} cache: false {rdelim});
 			{rdelim});
 		</script>
 
-		<div id="citationFormTabs-{$ts}">
+		<div id="citationFormTab-{$tabUid}">
 			<ul>
-				{foreach from=$citationVarArrays key=arrayName item=varsArray}
-					<li><a href="#{$arrayName|regex_replace:"/\s*/":""}">{$arrayName|escape}</a></li>
+				{* Tabs that contain editable fields *}
+				{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
+					<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">{$citationFormTabName|escape}</a></li>
+				{/foreach}
+				
+				{* Tabs that contain source data *}
+				{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+					<li><a href="#{$citationSourceTabId}-{$tabUid}">{$citationSourceTab.displayName|escape}</a></li>
 				{/foreach}
 			</ul>
-			{foreach from=$citationVarArrays key=arrayName item=varsArray}
-				<div id="{$arrayName|regex_replace:"/\s*/":""}">
+			
+			{* Tab content for tabs that contain editable fields *}
+			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
+				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
 					<table>
 						<tr valign="top">
 							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
 							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
 						</tr>
-						{foreach from=$varsArray key=fieldName item=field}
+						{foreach from=$varsArray key=fieldName item=fieldDisplayName}
 							<tr valign="top">
-								<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.translationKey}</td>
-								<td width="70%" class="value"><input type="text" name="{$fieldName}" id="{$fieldName}" size="40" maxlength="250" class="textField" value="{$field.value|escape}" /></td>
+								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
+								{capture assign=fieldValueVar}{ldelim}${$fieldName}|escape{rdelim}{/capture}
+								{eval|assign:"fieldValue" var=$fieldValueVar}
+								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.SMALL maxlength="250" value=$fieldValue"}</td>
+							</tr>
+						{/foreach}
+					</table>
+				</div>
+			{/foreach}
+			
+			{* Tab content for tabs that contain source data *}
+			{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+				<div id="{$citationSourceTabId}-{$tabUid}">
+					<table>
+						{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
+							<tr valign="top">
+								<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+								<td width="70%" class="value">{$sourceStatement.value|escape}</td>
 							</tr>
 						{/foreach}
 					</table>
@@ -70,5 +92,6 @@
 		{/if}
 
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+		<p>{translate key="submission.citations.form.approveCitation"}{fbvCheckbox id="citationApproved" name="citationApproved" value="citationApproved" checked=$citationApproved}</p>
 	</form>
 </div>

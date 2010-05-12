@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('cache.FileCache');
+import('lib.pkp.classes.cache.FileCache');
 
 define('CACHE_TYPE_FILE', 1);
 define('CACHE_TYPE_OBJECT', 2);
@@ -73,19 +73,19 @@ class CacheManager {
 	function &getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
 		switch ($this->getCacheImplementation($type)) {
 			case 'xcache':
-				import('cache.XCacheCache');
+				import('lib.pkp.classes.cache.XCacheCache');
 				$cache = new XCacheCache(
 					$context, $cacheId, $fallback
 				);
 				break;
 			case 'apc':
-				import('cache.APCCache');
+				import('lib.pkp.classes.cache.APCCache');
 				$cache = new APCCache(
 					$context, $cacheId, $fallback
 				);
 				break;
 			case 'memcache':
-				import('cache.MemcacheCache');
+				import('lib.pkp.classes.cache.MemcacheCache');
 				$cache = new MemcacheCache(
 					$context, $cacheId, $fallback,
 					Config::getVar('cache','memcache_hostname'),
@@ -97,7 +97,7 @@ class CacheManager {
 				$cache =& $this->getFileCache($context, $cacheId, $fallback);
 				break;
 			case 'none':
-				import('cache.GenericCache');
+				import('lib.pkp.classes.cache.GenericCache');
 				$cache = new GenericCache(
 					$context, $cacheId, $fallback
 				);

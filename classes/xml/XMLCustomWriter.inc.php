@@ -15,7 +15,7 @@
 // $Id$
 
 
-import ('xml.XMLNode');
+import ('lib.pkp.classes.xml.XMLNode');
 
 class XMLCustomWriter {
 	/**

@@ -13,8 +13,8 @@
  * @brief Test class for ValidatorUrl.
  */
 
-import('tests.PKPTestCase');
-import('validation.ValidatorUrl');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.validation.ValidatorUrl');
 
 class ValidatorUrlTest extends PKPTestCase {
 	/**

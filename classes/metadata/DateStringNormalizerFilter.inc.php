@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class DateStringNormalizerFilter extends Filter {
 	//

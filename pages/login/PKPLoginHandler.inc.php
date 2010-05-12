@@ -15,7 +15,7 @@
 // $Id$
 
 
-import('handler.Handler');
+import('classes.handler.Handler');
 
 class PKPLoginHandler extends Handler {
 
@@ -185,7 +185,7 @@ class PKPLoginHandler extends Handler {
 			$site =& Request::getSite();
 
 			// Send email confirming password reset
-			import('mail.MailTemplate');
+			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
@@ -249,7 +249,7 @@ class PKPLoginHandler extends Handler {
 
 			// Send email with new password
 			$site =& Request::getSite();
-			import('mail.MailTemplate');
+			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
@@ -275,7 +275,7 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		import('user.form.LoginChangePasswordForm');
+		import('classes.user.form.LoginChangePasswordForm');
 
 		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->initData();
@@ -292,7 +292,7 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		import('user.form.LoginChangePasswordForm');
+		import('classes.user.form.LoginChangePasswordForm');
 
 		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->readInputData();

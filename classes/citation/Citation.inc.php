@@ -24,14 +24,18 @@ define('CITATION_RAW', 0x01);
 define('CITATION_EDITED', 0x02);
 define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
+define('CITATION_APPROVED', 0x05);
 
-import('core.DataObject');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.nlm.NlmCitationSchemaCitationAdapter');
+import('lib.pkp.classes.core.DataObject');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
 	/** @var int citation state (raw, edited, parsed, looked-up) */
 	var $_citationState = CITATION_RAW;
+
+	/** @var array an array of MetadataDescriptions */
+	var $_sourceDescriptions = array();
 
 	/**
 	 * Constructor.
@@ -52,6 +56,36 @@ class Citation extends DataObject {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * Set meta-data descriptions discovered for this
+	 * citation from external sources.
+	 *
+	 * @param $sourceDescriptions array MetadataDescriptions
+	 */
+	function setSourceDescriptions(&$sourceDescriptions) {
+		$this->_sourceDescriptions =& $sourceDescriptions;
+	}
+
+	/**
+	 * Add a meta-data description discovered for this
+	 * citation from an external source.
+	 *
+	 * @param $sourceDescription MetadataDescription
+	 */
+	function addSourceDescription(&$sourceDescription) {
+		$this->_sourceDescriptions[] =& $sourceDescription;
+	}
+
+	/**
+	 * Get all meta-data descriptions discovered for this
+	 * citation from external sources.
+	 *
+	 * @return array MetadataDescriptions
+	 */
+	function &getSourceDescriptions() {
+		return $this->_sourceDescriptions;
+	}
+
 	/**
 	 * Get the citationState
 	 * @return integer
@@ -199,7 +233,8 @@ class Citation extends DataObject {
 			CITATION_RAW,
 			CITATION_EDITED,
 			CITATION_PARSED,
-			CITATION_LOOKED_UP
+			CITATION_LOOKED_UP,
+			CITATION_APPROVED
 		);
 		return $_supportedCitationStates;
 	}

@@ -12,7 +12,7 @@
  * @brief Base class for a cell provider that can retrieve labels from arrays
  */
 
-import('controllers.grid.GridCellProvider');
+import('lib.pkp.classes.controllers.grid.GridCellProvider');
 
 class ArrayGridCellProvider extends GridCellProvider {
 	/**

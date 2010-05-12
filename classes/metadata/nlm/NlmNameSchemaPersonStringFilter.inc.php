@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.nlm.NlmPersonStringFilter');
+import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
 
 class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	/** @var string */
@@ -136,10 +136,13 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	 * Transform a single NLM name description to a person string.
 	 * NB: We use the style: surname suffix, initials (first-name) prefix
 	 * which is relatively easy to parse back.
-	 * @param $personDescription MetadataDescription
+	 * @param $personDescription MetadataDescription|'et-al'
 	 * @return string
 	 */
 	function _flattenPersonDescription(&$personDescription) {
+		// Handle et-al
+		if (is_string($personDescription) && $personDescription == PERSON_STRING_FILTER_ETAL) return 'et al';
+
 		$nameVars['%surname%'] = (string)$personDescription->getStatement('surname');
 
 		$givenNames = $personDescription->getStatement('given-names');

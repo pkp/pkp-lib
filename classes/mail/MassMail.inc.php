@@ -15,7 +15,7 @@
 // $Id$
 
 
-import ('mail.MailTemplate');
+import ('classes.mail.MailTemplate');
 
 class MassMail extends MailTemplate {
 	var $callback;

@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class GenericSequencerFilter extends Filter {
 	/** @var array An array of filters that we run in order */
@@ -109,6 +109,9 @@ class GenericSequencerFilter extends Filter {
 				$previousOutput =& $input;
 			}
 			$output = $filter->execute($previousOutput);
+
+			// Propagate errors of sub-filters (if any)
+			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
 
 			// If one filter returns null then we'll abort
 			// execution of the filter chain.

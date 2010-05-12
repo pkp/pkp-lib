@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 class IsbndbNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
 	const ISBNDB_TEST_APIKEY = '4B5GQSQ4';

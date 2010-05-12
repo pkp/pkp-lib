@@ -16,12 +16,14 @@
 
 // $Id$
 
-import('filter.Filter');
-import('metadata.MetadataDescription');
-import('metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
 
 define('PERSON_STRING_FILTER_MULTIPLE', 0x01);
 define('PERSON_STRING_FILTER_SINGLE', 0x02);
+
+define('PERSON_STRING_FILTER_ETAL', 'et-al');
 
 class NlmPersonStringFilter extends Filter {
 	/** @var integer */
@@ -75,10 +77,13 @@ class NlmPersonStringFilter extends Filter {
 
 		// Validate all descriptions
 		foreach($validationArray as $nameDescription) {
-			if (!is_a($nameDescription, 'MetadataDescription')) return false;
-			$metadataSchema =& $nameDescription->getMetadataSchema();
-			if ($metadataSchema->getName() != 'nlm-3.0-name') return false;
-			unset($metadataSchema);
+			// The et-al string is considered a valid person description.
+			if (!(is_string($nameDescription) && $nameDescription == PERSON_STRING_FILTER_ETAL)) {
+				if (!is_a($nameDescription, 'MetadataDescription')) return false;
+				$metadataSchema =& $nameDescription->getMetadataSchema();
+				if ($metadataSchema->getName() != 'nlm-3.0-name') return false;
+				unset($metadataSchema);
+			}
 		}
 
 		return true;

@@ -30,7 +30,7 @@
 
 // $Id$
 
-import('metadata.MetadataSchema');
+import('lib.pkp.classes.metadata.MetadataSchema');
 
 // Define the vocabulary for the NLM publication type
 define('NLM_PUBLICATION_TYPE_JOURNAL', 'journal');
@@ -47,12 +47,12 @@ class NlmCitationSchema extends MetadataSchema {
 		$this->setNamespace('nlm30');
 
 		$citation = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('person-group[@person-group-type="author"]', $citation, array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_AUTHOR), false, METADATA_PROPERTY_CARDINALITY_MANY, 'metadata.property.displayName.author'));
-		$this->addProperty(new MetadataProperty('person-group[@person-group-type="editor"]', $citation, array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_EDITOR), false, METADATA_PROPERTY_CARDINALITY_MANY, 'metadata.property.displayName.editor'));
+		$this->addProperty(new MetadataProperty('person-group[@person-group-type="author"]', $citation, array(array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_AUTHOR), METADATA_PROPERTY_TYPE_STRING), false, METADATA_PROPERTY_CARDINALITY_MANY, 'metadata.property.displayName.author', 'metadata.property.validationMessage.author'));
+		$this->addProperty(new MetadataProperty('person-group[@person-group-type="editor"]', $citation, array(array(METADATA_PROPERTY_TYPE_COMPOSITE => ASSOC_TYPE_EDITOR), METADATA_PROPERTY_TYPE_STRING), false, METADATA_PROPERTY_CARDINALITY_MANY, 'metadata.property.displayName.editor', 'metadata.property.validationMessage.editor'));
 		$this->addProperty(new MetadataProperty('article-title', $citation, METADATA_PROPERTY_TYPE_STRING, true));
 		$this->addProperty(new MetadataProperty('source', $citation, METADATA_PROPERTY_TYPE_STRING, true));
 		$this->addProperty(new MetadataProperty('date', $citation, METADATA_PROPERTY_TYPE_DATE));
-		$this->addProperty(new MetadataProperty('date-in-citation[@content-type="access-date"]', $citation, METADATA_PROPERTY_TYPE_DATE, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.access-date'));
+		$this->addProperty(new MetadataProperty('date-in-citation[@content-type="access-date"]', $citation, METADATA_PROPERTY_TYPE_DATE, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.access-date', 'metadata.property.validationMessage.access-date'));
 		$this->addProperty(new MetadataProperty('issue', $citation));
 		$this->addProperty(new MetadataProperty('volume', $citation));
 		$this->addProperty(new MetadataProperty('season', $citation));
@@ -71,17 +71,17 @@ class NlmCitationSchema extends MetadataSchema {
 		$this->addProperty(new MetadataProperty('publisher-loc', $citation));
 		$this->addProperty(new MetadataProperty('publisher-name', $citation));
 		$this->addProperty(new MetadataProperty('isbn', $citation));
-		$this->addProperty(new MetadataProperty('issn[@pub-type="ppub"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.issn'));
-		$this->addProperty(new MetadataProperty('issn[@pub-type="epub"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.eissn'));
-		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="doi"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.doi'));
-		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="publisher-id"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.publisher-id'));
-		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="coden"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.coden'));
-		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="sici"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.sici'));
-		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="pmid"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.pmid'));
+		$this->addProperty(new MetadataProperty('issn[@pub-type="ppub"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.issn', 'metadata.property.validationMessage.issn'));
+		$this->addProperty(new MetadataProperty('issn[@pub-type="epub"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.eissn', 'metadata.property.validationMessage.eissn'));
+		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="doi"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.doi', 'metadata.property.validationMessage.doi'));
+		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="publisher-id"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.publisher-id', 'metadata.property.validationMessage.publisher-id'));
+		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="coden"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.coden', 'metadata.property.validationMessage.coden'));
+		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="sici"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.sici', 'metadata.property.validationMessage.sici'));
+		$this->addProperty(new MetadataProperty('pub-id[@pub-id-type="pmid"]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.pmid', 'metadata.property.validationMessage.pmid'));
 		$this->addProperty(new MetadataProperty('uri', $citation, METADATA_PROPERTY_TYPE_URI));
 		$this->addProperty(new MetadataProperty('comment', $citation));
 		$this->addProperty(new MetadataProperty('annotation', $citation));
-		$this->addProperty(new MetadataProperty('[@publication-type]', $citation, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.publication-type')); // FIXME: implement as controlled vocabulary
+		$this->addProperty(new MetadataProperty('[@publication-type]', $citation, array(METADATA_PROPERTY_TYPE_VOCABULARY => 'nlm30-publication-types'), false, METADATA_PROPERTY_CARDINALITY_ONE, 'metadata.property.displayName.publication-type', 'metadata.property.validationMessage.publication-type', true));
 
 		// NB: NLM citation does not have very good thesis support. We might
 		// encode the degree in the publication type and the advisor as 'contrib'

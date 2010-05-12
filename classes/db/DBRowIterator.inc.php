@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('core.ItemIterator');
+import('lib.pkp.classes.core.ItemIterator');
 
 class DBRowIterator extends ItemIterator {
 	/** The ADORecordSet to be wrapped around */

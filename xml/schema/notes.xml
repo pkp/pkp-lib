@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
+
+<!--
+  * notes.xml
+  *
+  * Copyright (c) 2000-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Notes schema in XML.
+  *
+  * $Id$
+  -->
+
+<schema version="0.2">
+	<!--
+	  *
+	  * TABLE groups
+	  *
+	  -->
+	<table name="notes">
+		<field name="note_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="assoc_type" type="I2">
+			<NOTNULL/>
+		</field>
+		<field name="assoc_id" type="I8">
+			<NOTNULL/>
+		</field>
+		<field name="user_id" type="I8">
+			<NOTNULL/>
+		</field>
+			<field name="date_created" type="T">
+			<NOTNULL/>
+		</field>
+		<field name="context" type="I8"/>
+		<field name="contents" type="X"/>
+		<index name="notes_assoc">
+			<col>assoc_type</col>
+			<col>assoc_id</col>
+		</index>
+	</table>
+</schema>

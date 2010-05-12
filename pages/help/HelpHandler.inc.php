@@ -17,14 +17,20 @@
 define('HELP_DEFAULT_TOPIC', 'index/topic/000000');
 define('HELP_DEFAULT_TOC', 'index/toc/000000');
 
-import('help.HelpToc');
-import('help.HelpTocDAO');
-import('help.HelpTopic');
-import('help.HelpTopicDAO');
-import('help.HelpTopicSection');
-import('handler.Handler');
+import('lib.pkp.classes.help.HelpToc');
+import('lib.pkp.classes.help.HelpTocDAO');
+import('lib.pkp.classes.help.HelpTopic');
+import('lib.pkp.classes.help.HelpTopicDAO');
+import('lib.pkp.classes.help.HelpTopicSection');
+import('classes.handler.Handler');
 
 class HelpHandler extends Handler {
+	/**
+	 * Constructor
+	 */
+	function HelpHandler() {
+		parent::Handler();
+	}
 
 	/**
 	 * Display help table of contents.
@@ -38,7 +44,7 @@ class HelpHandler extends Handler {
 		$this->setupTemplate();
 
 		$templateMgr =& TemplateManager::getManager();
-		import('help.Help');
+		import('classes.help.Help');
 		$help =& Help::getHelp();
 		$templateMgr->assign_by_ref('helpToc', $help->getTableOfContents());
 		$templateMgr->display('help/helpToc.tpl');

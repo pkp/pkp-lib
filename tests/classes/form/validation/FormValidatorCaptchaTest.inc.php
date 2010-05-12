@@ -13,8 +13,8 @@
  * @brief Test class for FormValidatorCaptcha.
  */
 
-import('tests.PKPTestCase');
-import('form.Form');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.form.Form');
 
 class FormValidatorCaptchaTest extends PKPTestCase {
 	/**
@@ -27,7 +27,7 @@ class FormValidatorCaptchaTest extends PKPTestCase {
 		$form->setData('testCaptchaId', 'test captcha id');
 
 		// Create a test Captcha
-		import('captcha.Captcha');
+		import('lib.pkp.classes.captcha.Captcha');
 		$captcha = new Captcha();
 		$captcha->setValue('expected captcha value');
 		$this->registerMockCaptchaDAO($captcha);

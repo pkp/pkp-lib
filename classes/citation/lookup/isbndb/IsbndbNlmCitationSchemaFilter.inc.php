@@ -20,7 +20,7 @@
 
 define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/** @var string ISBNdb API key */

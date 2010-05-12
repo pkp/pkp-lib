@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('captcha.Captcha');
+import('lib.pkp.classes.captcha.Captcha');
 
 class CaptchaDAO extends DAO {
 	/**

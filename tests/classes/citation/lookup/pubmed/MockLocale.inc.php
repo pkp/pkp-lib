@@ -9,5 +9,5 @@
  * Includes a mock locale.
  */
 
-import('tests.mock.MockLocale');
+import('lib.pkp.tests.mock.MockLocale');
 ?>

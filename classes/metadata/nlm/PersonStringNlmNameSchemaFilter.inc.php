@@ -16,7 +16,7 @@
 
 // $Id$
 
-import('metadata.nlm.NlmPersonStringFilter');
+import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
 
 class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	/** @var integer */
@@ -107,6 +107,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	 * @see Filter::process()
 	 * @param $input string
 	 * @return mixed Either a MetadataDescription or an array of MetadataDescriptions
+	 *  plus optionally a single 'et-al' string.
 	 */
 	function &process(&$input) {
 		switch ($this->getFilterMode()) {
@@ -133,14 +134,17 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	 * @param $title boolean true to parse for title
 	 * @param $degrees boolean true to parse for degrees
 	 * @return array an array of NLM name descriptions or null
-	 *  if the string could not be converted
+	 *  if the string could not be converted plus optionally a
+	 *  single 'et-al' string.
 	 */
 	function &_parsePersonsString($personsString, $title, $degrees) {
-		// Remove "et al"
+		// Check for 'et al'
+		$personsStringBeforeEtal = String::strlen($personsString);
 		$personsString = String::regexp_replace('/et ?al$/', '', $personsString);
+		$etAl = ($personsStringBeforeEtal == String::strlen($personsString) ? false : true);
 
 		// Remove punctuation
-		$personsString = trim($personsString, ':;,');
+		$personsString = trim($personsString, ':;, ');
 
 		// Cut the authors string into pieces
 		$personStrings = String::iterativeExplode(array(':', ';'), $personsString);
@@ -158,6 +162,11 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$persons = array();
 		foreach ($personStrings as $personString) {
 			$persons[] =& $this->_parsePersonString($personString, $title, $degrees);
+		}
+
+		// Add et-al string
+		if ($etAl) {
+			$persons[] = PERSON_STRING_FILTER_ETAL;
 		}
 
 		return $persons;

@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('notification.NotificationDAO');
+import('lib.pkp.classes.notification.NotificationDAO');
 
 define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
 define('NOTIFICATION_LEVEL_NORMAL',				0x0000002);

@@ -15,9 +15,9 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('core.PKPRequest');
-import('plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.core.PKPRequest');
+import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
 class PKPRequestTest extends PKPTestCase {
 	protected $request;

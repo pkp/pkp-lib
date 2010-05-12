@@ -14,7 +14,7 @@
 
 // $Id$
 
-import('tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
 abstract class NlmCitationSchemaParserFilterTestCase extends NlmCitationSchemaFilterTestCase {
 	const TEST_ALL_CITATIONS = false;

@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('tests.DatabaseTestCase');
-import('classes.db.DBConnection');
+import('lib.pkp.tests.DatabaseTestCase');
+import('lib.pkp.classes.db.DBConnection');
 
 class DBConnectionTest extends DatabaseTestCase {
 	/**

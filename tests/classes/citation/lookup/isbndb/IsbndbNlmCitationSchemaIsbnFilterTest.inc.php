@@ -14,8 +14,8 @@
 
 // $Id$
 
-import('citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-import('tests.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilterTest');
+import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
+import('lib.pkp.tests.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilterTest');
 
 class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilterTest {
 

@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.DateStringNormalizerFilter');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
 
 class DateStringNormalizerFilterTest extends PKPTestCase {
 	/**

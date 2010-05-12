@@ -16,7 +16,7 @@
 // $Id$
 
 
-import ('group.GroupMembership');
+import ('lib.pkp.classes.group.GroupMembership');
 
 class GroupMembershipDAO extends DAO {
 	var $userDao;

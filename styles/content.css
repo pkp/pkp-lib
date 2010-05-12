@@ -809,3 +809,26 @@ input.uploadFile {
 }
 
 /* @end */
+
+/* @group Information Center */
+
+span.fileTitle {
+	padding-left: 25px;
+	background-image: url(../templates/images/structure/page_white_word.png);
+	background-repeat: no-repeat;
+	color: #2A5685;
+	font-size: 1.4em;
+}
+
+span.fileLastEvent {
+	color: #888;
+	font-size: 0.8em;
+}
+
+#existingNotes {
+	max-height: 200px;
+	overflow: auto;	
+	padding-right: 5px;
+}
+
+/* @end */

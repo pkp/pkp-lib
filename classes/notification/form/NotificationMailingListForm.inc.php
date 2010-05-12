@@ -18,8 +18,8 @@
 // $Id$
 
 
-import('form.Form');
-import('notification.Notification');
+import('lib.pkp.classes.form.Form');
+import('classes.notification.Notification');
 
 class NotificationMailingListForm extends Form {
 	/**

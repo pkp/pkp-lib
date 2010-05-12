@@ -13,15 +13,15 @@
  */
 
 // import the base Handler
-import('handler.PKPHandler');
+import('lib.pkp.classes.handler.PKPHandler');
 
 // import grid classes
-import('controllers.grid.GridAction');
-import('controllers.grid.GridColumn');
-import('controllers.grid.GridRow');
+import('lib.pkp.classes.controllers.grid.GridAction');
+import('lib.pkp.classes.controllers.grid.GridColumn');
+import('lib.pkp.classes.controllers.grid.GridRow');
 
 // import JSON class for use with all AJAX requests
-import('core.JSON');
+import('lib.pkp.classes.core.JSON');
 
 // grid specific action positions
 define('GRID_ACTION_POSITION_ABOVE', 'above');
@@ -136,7 +136,7 @@ class GridHandler extends PKPHandler {
 	function &getData() {
 		if (is_null($this->_data)) {
 			// initialize data to an empty iterator
-			import('core.ItemIterator');
+			import('lib.pkp.classes.core.ItemIterator');
 			$elementIterator = new ItemIterator();
 			$this->setData($elementIterator);
 		}
@@ -156,7 +156,7 @@ class GridHandler extends PKPHandler {
 		if (is_a($data, 'ItemIterator')) {
 			$this->_data =& $data;
 		} elseif(is_array($data)) {
-			import('core.ArrayItemIterator');
+			import('lib.pkp.classes.core.ArrayItemIterator');
 			$this->_data = new ArrayItemIterator($data);
 		} else {
 			assert(false);
@@ -210,7 +210,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Render the entire grid controller and send
 	 * it to the client.
-	 * @return string the grid HTML
+	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request) {
 
@@ -228,24 +228,26 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
-		return $templateMgr->fetch($this->getTemplate());
+		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		return $json->getString();
 	}
 
 	/**
 	 * Render a row and send it to the client.
-	 * @return string the row HTML
+	 * @return string the serialized row JSON message
 	 */
 	function fetchRow(&$args, &$request) {
 		// Instantiate the requested row
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the requested row
-		return $this->_renderRowInternally($request, $row);
+		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		return $json->getString();
 	}
 
 	/**
 	 * Render a cell and send it to the client
-	 * @return string the row HTML
+	 * @return string the serialized cell JSON message
 	 */
 	function fetchCell(&$args, &$request) {
 		// Check the requested column
@@ -257,7 +259,8 @@ class GridHandler extends PKPHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the cell
-		return $this->_renderCellInternally($request, $row, $column);
+		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
+		return $json->getString();
 	}
 
 	//

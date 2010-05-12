@@ -20,7 +20,7 @@
 
 // $Id$
 
-import('citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
 define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
@@ -79,7 +79,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			// 1) Try a "loose" search based on the author list.
 			//    (This works surprisingly well for pubmed.)
 			$authors =& $citationDescription->getStatement('person-group[@person-group-type="author"]');
-			import('metadata.nlm.NlmNameSchemaPersonStringFilter');
+			import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 			$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
 			$authorsString = (string)$personNameFilter->execute($authors);
 			if (!empty($authorsString)) {
@@ -178,7 +178,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// If we have a PMID, get a metadata array for it
 		if (!empty($pmid)) {
-			$citationDescription =& $this->_lookup($pmid, $citationDescription);
+			$citationDescription =& $this->_lookup($pmid);
 			return $citationDescription;
 		}
 
@@ -223,10 +223,9 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Fills the given citation object with
 	 * meta-data retrieved from PubMed.
 	 * @param $pmid string
-	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &_lookup($pmid, &$citationDescription) {
+	function &_lookup($pmid) {
 		$nullVar = null;
 
 		// Use eFetch to get XML metadata for the given PMID
@@ -354,7 +353,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			if (isset($links[0])) $metadata['uri'] = $links[0];
 		}
 
-		return $this->addMetadataArrayToNlmCitationDescription($metadata, $citationDescription);
+		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

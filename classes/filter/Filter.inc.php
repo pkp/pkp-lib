@@ -75,8 +75,23 @@
 
 
 class Filter {
+	/** @var integer A globally unique identifier of this filter instance */
+	var $_transformationId;
+
 	/** @var string */
 	var $_displayName;
+
+	/** @var integer sequence id used when several transformations are grouped */
+	var $_seq;
+
+	/** @var mixed */
+	var $_input;
+
+	/** @var mixed */
+	var $_output;
+
+	/** @var array a list of errors occurred while filtering */
+	var $_errors = array();
 
 	/**
 	 * Constructor
@@ -88,6 +103,22 @@ class Filter {
 	// Setters and Getters
 	//
 	/**
+	 * Set the globally unique transformation id
+	 * @param $transformationId integer
+	 */
+	function setTransformationId(&$transformationId) {
+		$this->_transformationId =& $transformationId;
+	}
+
+	/**
+	 * Get the globally unique transformation id
+	 * @return integer
+	 */
+	function &getTransformationId() {
+		return $this->_transformationId;
+	}
+
+	/**
 	 * Set the display name
 	 * @param $displayName string
 	 */
@@ -97,10 +128,93 @@ class Filter {
 
 	/**
 	 * Get the display name
+	 *
+	 * NB: The standard implementation of this
+	 * method will initialize the display name
+	 * with the filter class name. Subclasses can of
+	 * course override this behavior by explicitly
+	 * setting a display name.
+	 *
 	 * @return string
 	 */
 	function getDisplayName() {
+		if (empty($this->_displayName)) {
+			$this->_displayName = get_class($this);
+		}
+
 		return $this->_displayName;
+	}
+
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->_seq = $seq;
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->_seq;
+	}
+
+	/**
+	 * Add a filter error
+	 * @param $message string
+	 */
+	function addError($message) {
+		$this->_errors[] = $message;
+	}
+
+	/**
+	 * Get all filter errors
+	 * @return array
+	 */
+	function getErrors() {
+		return $this->_errors;
+	}
+
+	/**
+	 * Get the last valid output produced by
+	 * this filter.
+	 *
+	 * This can be used for debugging internal
+	 * filter state or for access to intermediate
+	 * results when working with larger filter
+	 * grids.
+	 *
+	 * NB: The output will be set only after
+	 * output validation so that you can be
+	 * sure that you'll always find valid
+	 * data here.
+	 *
+	 * @return mixed
+	 */
+	function &getLastOutput() {
+		return $this->_output;
+	}
+
+	/**
+	 * Get the last valid input processed by
+	 * this filter.
+	 *
+	 * This can be used for debugging internal
+	 * filter state or for access to intermediate
+	 * results when working with larger filter
+	 * grids.
+	 *
+	 * NB: The input will be set only after
+	 * input validation so that you can be
+	 * sure that you'll always find valid
+	 * data here.
+	 *
+	 * @return mixed
+	 */
+	function &getLastInput() {
+		return $this->_input;
 	}
 
 	//
@@ -175,18 +289,28 @@ class Filter {
 	function &execute(&$input) {
 		// Validate the filter input
 		if (!$this->supportsAsInput($input)) {
-			$output = null;
-			return $output;
+			// We have no valid input so reset
+			// the internal input/output state to null.
+			$this->_input = null;
+			$this->_output = null;
+			return $this->_output;
 		}
 
+		// Save a reference to the last valid input
+		$this->_input =& $input;
+
 		// Process the filter
-		$output =& $this->process($input);
+		$preliminaryOutput =& $this->process($input);
 
 		// Validate the filter output
-		if (is_null($output) || !$this->supports($input, $output)) $output = null;
+		if (is_null($preliminaryOutput) || !$this->supports($input, $preliminaryOutput)) {
+			$this->_output = null;
+		} else {
+			$this->_output =& $preliminaryOutput;
+		}
 
 		// Return processed data
-		return $output;
+		return $this->_output;
 	}
 }
 ?>

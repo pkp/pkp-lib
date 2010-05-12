@@ -16,7 +16,7 @@
 // $Id$
 
 
-import('site.Version');
+import('lib.pkp.classes.site.Version');
 
 class VersionDAO extends DAO {
 	/**
@@ -196,19 +196,47 @@ class VersionDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve all products.
-	 * @param $productType string filter by product type (e.g. plugins, core)
-	 * @return DAOResultFactory containing matching versions
+	 * Retrieve all currently enabled products within the
+	 * given context as a two dimensional array with the
+	 * first key representing the product type, the second
+	 * key the product name and the value the product version.
+	 *
+	 * @param $context array the application context, only
+	 *  products enabled in that context will be returned.
+	 * @return array
 	 */
-	function &getVersions($productType = null) {
-		$result =& $this->retrieveRange(
-			'SELECT * FROM versions WHERE current = 1 ' .
-			($productType ? 'AND product_type LIKE ? ' : '') .
-			'ORDER BY product', $productType ? $productType . '%' : ''
-		);
+	function &getCurrentProducts($context) {
+		if (count($context)) {
+			// Construct the where clause for the plugin settings
+			// context.
+			$contextNames = array_keys($context);
+			foreach ($contextNames as $contextLevel => $contextName) {
+				// Transform from camel case to ..._...
+				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
+                		$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
+			}
+			$contextWhereClause = 'AND '.implode('_id = ? AND ', $contextNames).'_id = ?';
+		} else {
+			$contextWhereClause = '';
+		}
 
-		$returner = new DAOResultFactory($result, $this, '_returnVersionFromRow');
-		return $returner;
+		$result =& $this->retrieve(
+				'SELECT v.*
+				 FROM versions v LEFT JOIN plugin_settings ps ON
+				     v.product_class_name = ps.plugin_name
+				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
+				 WHERE current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
+
+		$productArray = array();
+		while(!$result->EOF) {
+			$row =& $result->getRowAssoc(false);
+			$productArray[$row['product_type']][$row['product']] =& $this->_returnVersionFromRow($row);
+			$result->MoveNext();
+		}
+		$result->_close();
+		unset($result);
+
+		return $productArray;
 	}
 
 	/**

@@ -20,8 +20,8 @@
 // $Id$
 
 
-import('oai.OAIStruct');
-import('oai.OAIUtils');
+import('lib.pkp.classes.oai.OAIStruct');
+import('lib.pkp.classes.oai.OAIUtils');
 
 class OAI {
 	/** @var $config OAIConfig configuration parameters */

@@ -13,12 +13,12 @@
  * @brief Tests for the Dispatcher class.
  */
 
-import('tests.PKPTestCase');
-import('core.Registry');
-import('core.PKPApplication');
-import('core.Dispatcher');
-import('core.PKPRequest');
-import('plugins.HookRegistry');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.core.Registry');
+import('lib.pkp.classes.core.PKPApplication');
+import('lib.pkp.classes.core.Dispatcher');
+import('lib.pkp.classes.core.PKPRequest');
+import('lib.pkp.classes.plugins.HookRegistry');
 
 class DispatcherTest extends PKPTestCase {
 	const
@@ -47,7 +47,7 @@ class DispatcherTest extends PKPTestCase {
 		                ->will($this->returnValue(array('firstContext', 'secondContext')));
 
 		$this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
-		$this->dispatcher->addRouterName('core.PKPPageRouter', 'page');
+		$this->dispatcher->addRouterName('lib.pkp.classes.core.PKPPageRouter', 'page');
 
 		$this->request = new PKPRequest();
 	}

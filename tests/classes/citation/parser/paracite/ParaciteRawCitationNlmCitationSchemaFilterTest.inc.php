@@ -15,8 +15,8 @@
 
 // $Id$
 
-import('tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
-import('citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
+import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
 
 class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParserFilterTestCase {
 	/**

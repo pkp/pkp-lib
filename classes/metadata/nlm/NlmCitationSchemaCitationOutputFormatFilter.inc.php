@@ -14,9 +14,7 @@
  *  via smarty template.
  */
 
-// $Id$
-
-import('filter.Filter');
+import('lib.pkp.classes.filter.Filter');
 
 class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	/** @var PKPRequest */

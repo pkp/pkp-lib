@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('notification.Notification');
+import('classes.notification.Notification');
 
 class NotificationDAO extends DAO {
 	/**
@@ -285,7 +285,7 @@ class NotificationDAO extends DAO {
 			$notificationContents = $notification->getContents();
 		}
 
-		import('mail.MailTemplate');
+		import('classes.mail.MailTemplate');
 		$site =& Request::getSite();
 		$mail = new MailTemplate('NOTIFICATION');
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());

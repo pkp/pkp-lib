@@ -14,10 +14,10 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
-import('metadata.nlm.NlmNameSchema');
-import('metadata.nlm.NlmCitationSchema');
-import('metadata.MetadataDescription');
+import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
+import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+import('lib.pkp.classes.metadata.MetadataDescription');
 
 abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	//

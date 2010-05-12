@@ -18,7 +18,7 @@
 
 // $Id$
 
-import('metadata.MetadataSchema');
+import('lib.pkp.classes.metadata.MetadataSchema');
 
 class NlmNameSchema extends MetadataSchema {
 	/**

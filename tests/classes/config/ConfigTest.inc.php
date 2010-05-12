@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('tests.PKPTestCase');
+import('lib.pkp.tests.PKPTestCase');
 
 class ConfigTest extends PKPTestCase {
 	/**

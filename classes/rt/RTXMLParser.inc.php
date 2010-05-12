@@ -16,8 +16,8 @@
 // $Id$
 
 
-import('xml.XMLParser');
-import('rt.RTStruct');
+import('lib.pkp.classes.xml.XMLParser');
+import('lib.pkp.classes.rt.RTStruct');
 
 class RTXMLParser {
 

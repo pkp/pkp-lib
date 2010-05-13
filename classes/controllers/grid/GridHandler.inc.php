@@ -427,7 +427,7 @@ class GridHandler extends PKPHandler {
 	function _renderCellInternally(&$request, &$row, &$column) {
 		// Get the cell content
 		$cellProvider =& $column->getCellProvider();
-		return $cellProvider->render($row, $column);
+		return $cellProvider->render($request, $row, $column);
 	}
 
 	/**

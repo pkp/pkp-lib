@@ -32,12 +32,11 @@ class GridCellProvider {
 	 * @param $column GridColumn
 	 * @return string the rendered representation of the element for the given column
 	 */
-	function render(&$row, &$column) {
+	function render(&$request, &$row, &$column) {
 		$columnId = $column->getId();
 		assert(!empty($columnId));
 
-		$element =& $row->getData();
-		$templateVars = $this->getTemplateVarsFromElement($element, $columnId);
+		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		// Construct a default cell id
 		$rowId = $row->getId();
 
@@ -48,7 +47,7 @@ class GridCellProvider {
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('id', $cellId);
 		$templateMgr->assign_by_ref('column', $column);
-		$templateMgr->assign_by_ref('actions', $column->getActions());
+		$templateMgr->assign_by_ref('actions', $this->getCellActions($request, $row, $column));
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
 		// assign all values from element (FIXME: by ref not working for some reason)
@@ -67,11 +66,29 @@ class GridCellProvider {
 	 * Subclasses have to implement this method to extract variables
 	 * for a given column from a data element so that they may be assigned
 	 * to template before rendering.
-	 * @param $element mixed
-	 * @param $columnId string
-	 * @return array()
+	 * @param $row GridRow
+	 * @param $column GridColumn
+	 * @return array
 	 */
-	function getTemplateVarsFromElement(&$element, $columnId) {
+	function getTemplateVarsFromRowColumn(&$row, $column) {
 		return array();
+	}
+
+	/**
+	 * Subclasses can override this template method to provide
+	 * cell specific actions.
+	 *
+	 * NB: The default implementation delegates to the grid row for
+	 * row specific actions. Another thinkable implementation would
+	 * be column-specific actions in which case action instantiation
+	 * should be delegated to the column.
+	 *
+	 * @param $row GridRow
+	 * @param $column GridColumn
+	 * @return array an array of GridAction instances
+	 */
+	function &getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		$actions =& $row->getCellActions($request, $column, $position);
+		return $actions;
 	}
 }

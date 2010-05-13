@@ -109,6 +109,24 @@ class GridRow {
 	}
 
 	/**
+	 * Get actions for a given cell in this row specified
+	 * by its column.
+	 *
+	 * NB: Subclasses have to override this method to
+	 * actually provide cell-specific actions based on row
+	 * and column information. The default implementation
+	 * returns an empty array.
+	 *
+	 * @param $column GridColumn
+	 * @return array the GridActions for the cell
+	 */
+	function getCellActions(&$request, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		// The default implementation returns an empty array
+		$actions = array();
+		return $actions;
+	}
+
+	/**
 	 * Add an action
 	 * @param $position string the position of the action
 	 * @param $action mixed a single action

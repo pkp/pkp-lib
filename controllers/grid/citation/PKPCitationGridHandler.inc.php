@@ -368,6 +368,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
+		import('lib.pkp.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
 
 		// Add errors to form (if any)

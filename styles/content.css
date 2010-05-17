@@ -812,7 +812,7 @@ input.uploadFile {
 
 /* @group Information Center */
 
-span.fileTitle {
+span.itemTitle {
 	padding-left: 25px;
 	background-image: url(../templates/images/structure/page_white_word.png);
 	background-repeat: no-repeat;
@@ -820,7 +820,7 @@ span.fileTitle {
 	font-size: 1.4em;
 }
 
-span.fileLastEvent {
+span.itemLastEvent {
 	color: #888;
 	font-size: 0.8em;
 }

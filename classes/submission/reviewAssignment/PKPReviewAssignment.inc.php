@@ -36,7 +36,7 @@ class PKPReviewAssignment extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function ReviewAssignment() {
+	function PKPReviewAssignment() {
 		parent::DataObject();
 	}
 
@@ -516,7 +516,7 @@ class PKPReviewAssignment extends DataObject {
 	 */
 	function setReviewRevision($reviewRevision) {
 		return $this->setData('reviewRevision', $reviewRevision);
-	}	
+	}
 
 	/**
 	 * Get review form id.
@@ -533,7 +533,7 @@ class PKPReviewAssignment extends DataObject {
 	function setReviewFormId($reviewFormId) {
 		return $this->setData('reviewFormId', $reviewFormId);
 	}
-	
+
 	//
 	// Files
 	//

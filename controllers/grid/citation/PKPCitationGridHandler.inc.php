@@ -175,7 +175,7 @@ class PKPCitationGridHandler extends GridHandler {
 				'editedCitation',
 				'submission.citations.grid.editedCitation',
 				null,
-				'controllers/grid/gridCellInSpan.tpl',
+				'controllers/grid/gridCell.tpl',
 				$cellProvider,
 				array('multiline' => true)
 			)

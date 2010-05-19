@@ -7,7 +7,7 @@
  * a regular grid cell (with or without actions)
  *}
 {assign var=cellId value="cell-"|concat:$id}
-<td id="{$cellId}">
+<span id="{$cellId}">
 	{foreach name=actions from=$actions item=action}
 		{include file="controllers/grid/gridAction.tpl" id=$cellId|concat:"-action-":$action->getId() action=$action objectId=$cellId}
 		{if $smarty.foreach.actions.last}
@@ -17,4 +17,4 @@
 		{/if}
 	{/foreach}
 	{$label}
-</td>
+</span>

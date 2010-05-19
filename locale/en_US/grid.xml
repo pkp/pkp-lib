@@ -20,6 +20,7 @@
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>
 	<message key="grid.action.delete">Delete</message>
+	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
 	<message key="grid.action.decline">Decline</message>

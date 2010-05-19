@@ -210,6 +210,11 @@ class PKPCitationGridHandler extends GridHandler {
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
 		$citationDAO->deleteObjectsByAssocId($this->getAssocType(), $this->_getAssocId());
 
+		// (Re-)import raw citations from the assoc object
+		// which must support the "getCitations()" method.
+		$assocObject =& $this->getAssocObject();
+		$rawCitationList = $assocObject->getCitations();
+
 		// Tokenize raw citations
 		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
 		$citationTokenizer = new CitationListTokenizerFilter();

@@ -41,29 +41,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 			// All other action types will assume that there is a
 			// form to be posted and post it.
 			dialogOptions[okButton] = function() {
-				$form = $(formContainer).find('form');
-				validator = $form.validate();
-				// Post to server and construct callback
-				if ($form.valid()) {
-					$.post(
-						$form.attr("action"),
-						$form.serialize(),
-						function(jsonData) {
-							if(jsonData.isScript == true) {
-								eval(jsonData.script);
-							}
-							if (jsonData.status == true) {
-								updateItem(actType, actOnId, jsonData.content);
-								$('#' + UID).dialog("close");
-							} else {
-								// If an error occurs then redisplay the form
-								$('#' + UID).html(jsonData.content);
-							}
-						},
-						"json"
-					);
-					validator = null;
-				}
+				submitModalForm(formContainer, actType, actOnId);
 			};
 			dialogOptions[cancelButton] = function() {
 				$(this).dialog("close");
@@ -108,6 +86,39 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 
 	});
 }
+
+/**
+ * modal
+ * @param $formContainer Container of form to be submitted, most likely a modal's ID (must include '#')
+ * @param $actType Type to define if callback should do (nothing|append|replace|remove)
+ * @param $actOnId The ID on which to perform the action on callback
+ */
+function submitModalForm(formContainer, actType, actOnId ) {
+	$form = $(formContainer).find('form');
+	validator = $form.validate();
+	// Post to server and construct callback
+	if ($form.valid()) {
+		$.post(
+			$form.attr("action"),
+			$form.serialize(),
+			function(jsonData) {
+				if(jsonData.isScript == true) {
+					eval(jsonData.script);
+				}
+				if (jsonData.status == true) {
+					updateItem(actType, actOnId, jsonData.content);
+					$(formContainer).dialog("close");
+				} else {
+					// If an error occurs then redisplay the form
+					$(formContainer).html(jsonData.content);
+				}
+			},
+			"json"
+		);
+		validator = null;
+	}
+}
+
 
 /**
  * modalConfirm

@@ -38,6 +38,7 @@
 		<field name="date_completed" type="T"/>
 		<field name="date_acknowledged" type="T"/>
 		<field name="date_due" type="T"/>
+		<field name="date_response_due" type="T"/>
 		<field name="last_modified" type="T"/>
 		<field name="reminder_was_automatic" type="I1">
 			<NOTNULL/>
@@ -60,6 +61,10 @@
 		<field name="date_reminded" type="T"/>
 		<field name="quality" type="I1"/>
 		<field name="review_type" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="1"/>
+		</field>
+		<field name="review_method" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>

@@ -43,7 +43,7 @@ class SessionDAO extends DAO {
 			$session->setSecondsLastUsed($row['last_used']);
 			$session->setRemember($row['remember']);
 			$session->setSessionData($row['data']);
-			$session->setActingAsUserGroupId($row['acting_as']);
+			$session->setActingAsUserGroupId((int)$row['acting_as']);
 		}
 
 		$result->Close();
@@ -70,7 +70,7 @@ class SessionDAO extends DAO {
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
-				$session->getActingAsUserGroupId()
+				(int)$session->getActingAsUserGroupId()
 			)
 		);
 	}
@@ -100,7 +100,7 @@ class SessionDAO extends DAO {
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
-				$session->getActingAsUserGroupId(),
+				(int)$session->getActingAsUserGroupId(),
 				$session->getId()
 			)
 		);

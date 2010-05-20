@@ -276,6 +276,10 @@
 			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>
+		<field name="acting_as" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Browser/user sessions and session data.</descr>
 		<index name="sessions_user_id">
 			<col>user_id</col>

@@ -43,7 +43,7 @@ class SessionDAO extends DAO {
 			$session->setSecondsLastUsed($row['last_used']);
 			$session->setRemember($row['remember']);
 			$session->setSessionData($row['data']);
-
+			$session->setActingAsUserGroupId($row['acting_as']);
 		}
 
 		$result->Close();
@@ -59,9 +59,9 @@ class SessionDAO extends DAO {
 	function insertSession(&$session) {
 		return $this->update(
 			'INSERT INTO sessions
-				(session_id, ip_address, user_agent, created, last_used, remember, data)
+				(session_id, ip_address, user_agent, created, last_used, remember, data, acting_as)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$session->getId(),
 				$session->getIpAddress(),
@@ -69,7 +69,8 @@ class SessionDAO extends DAO {
 				(int) $session->getSecondsCreated(),
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
-				$session->getSessionData()
+				$session->getSessionData(),
+				$session->getActingAsUserGroupId()
 			)
 		);
 	}
@@ -88,7 +89,8 @@ class SessionDAO extends DAO {
 					created = ?,
 					last_used = ?,
 					remember = ?,
-					data = ?
+					data = ?,
+					acting_as = ?
 				WHERE session_id = ?',
 			array(
 				$session->getUserId()==''?null:(int) $session->getUserId(),
@@ -98,6 +100,7 @@ class SessionDAO extends DAO {
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
+				$session->getActingAsUserGroupId(),
 				$session->getId()
 			)
 		);

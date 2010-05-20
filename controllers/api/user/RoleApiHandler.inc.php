@@ -60,7 +60,7 @@ class RoleApiHandler extends PKPHandler {
 			if ($application->getContextDepth() > 0) {
 				$router =& $request->getRouter();
 				$context =& $router->getContext($request);
-				if (context) {
+				if ($context) {
 					$userInGroup = $userGroupDao->userInGroup($context->getId(), $user->getId(), $changedActingAsUserGroupId);
 				} else {
 					$errorMessage = 'common.actingAsUserGroup.missingContext';

@@ -75,7 +75,9 @@ class CategoryGridHandler extends GridHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
-		return $templateMgr->fetch($this->getTemplate());
+		// Let the view render the grid
+		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		return $json->getString();
 	}
 
 	/**
@@ -87,7 +89,8 @@ class CategoryGridHandler extends GridHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the requested row
-		return $this->_renderRowInternally($request, $row);
+		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		return $json->getString();
 	}
 
 	/**
@@ -104,7 +107,8 @@ class CategoryGridHandler extends GridHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the cell
-		return $this->_renderCellInternally($request, $row, $column);
+		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
+		return $json->getString();
 	}
 
 	//

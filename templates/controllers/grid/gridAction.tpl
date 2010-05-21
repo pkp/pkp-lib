@@ -9,7 +9,13 @@
 	{modal url=$action->getUrl() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_CONFIRM}
-	{confirm url=$action->getUrl() dialogText=$action->getLocalizedTitle() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
+	{if $action->getLocalizedConfirmMessage()}
+		{assign var="dialogText" value=$action->getLocalizedConfirmMessage()}
+	{else}
+		{assign var="dialogText" value=$action->getLocalizedTitle()}
+	{/if}
+	
+	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 	<script type='text/javascript'>

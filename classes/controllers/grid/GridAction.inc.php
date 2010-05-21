@@ -52,6 +52,9 @@ class GridAction {
 
 	/** @var string optional, the URL to the image to be linked to */
 	var $_image;
+	
+	/** @var string optional, the locale key for a message to display in a confirm dialog */
+	var $_confirmMessageLocalized;
 
 	/**
 	 * Constructor
@@ -63,8 +66,9 @@ class GridAction {
 	 * @param string (i18n) $title optional
 	 * @param string $titleLocalized optional
 	 * @param string $image optional
+	 * @param string $confirmMessageLocalized optional
 	 */
-	function GridAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null) {
+	function GridAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null, $confirmMessageLocalized = null) {
 		$this->_id = $id;
 		$this->_mode = $mode;
 		$this->_type = $type;
@@ -72,6 +76,7 @@ class GridAction {
 		$this->_title = $title;
 		$this->_titleLocalized = $titleLocalized;
 		$this->_image = $image;
+		$this->_confirmMessageLocalized = $confirmMessageLocalized;
 	}
 
 	function setId($id) {
@@ -137,6 +142,22 @@ class GridAction {
 
 	function getImage() {
 		return $this->_image;
+	}
+	
+	/**
+	 * Set the locale key to display in the confirm dialog
+	 * @param $confirmMessageLocalized string
+	 */
+	function setLocalizedConfirmMessage($confirmMessageLocalized) {
+		$this->_confirmMessageLocalized = $confirmMessageLocalized;
+	}
+	
+	/**
+	 * Get the locale key to display in the confirm dialog
+	 * @return string
+	 */
+	function getLocalizedConfirmMessage() {
+		return $this->_confirmMessageLocalized;
 	}
 }
 

@@ -340,7 +340,7 @@ function updateItem(actType, actOnId, content) {
 			}
 			break;
 		case 'remove':
-			if ($('#' + actOnId).siblings().length == 1) {
+			if ($('#' + actOnId).siblings().length == 0) {
 				deleteElementById(actOnId, true);
 			} else {
 				deleteElementById(actOnId);
@@ -350,7 +350,7 @@ function updateItem(actType, actOnId, content) {
 }
 
 function deleteElementById(elementId, showEmpty) {
-	var $emptyRow = $('#' + elementId).siblings('.empty');
+	var $emptyRow = $('#' + elementId).parent().siblings('.empty');
 	$("#"+elementId).fadeOut(500, function() {
 		$(this).remove();
 		if (showEmpty) {

@@ -36,15 +36,17 @@
 					{/foreach}
 		        </tr>
 		    </thead>
+		    <tbody>
 			{foreach from=$gridBodyParts item=bodyPart}
 				{$bodyPart}
 			{/foreach}
-		    <tbody>
+			</tbody>
+		    <tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
 				{**
 					We need the last (=empty) line even if we have rows
 					so that we can restore it if the user deletes all rows.
 				**}
-				<tr class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
+				<tr>
 					<td colspan="{$numColumns}">{translate key="grid.noItems"}</td>
 				</tr>
 		    </tbody>

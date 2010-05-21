@@ -52,11 +52,14 @@ function modal(url, actType, actOnId, localizedButtons, callingButton) {
 		var $dialog = $('<div id=' + UID + '></div>').dialog({
 			title: title,
 			autoOpen: false,
-			width: 600,
+			width: 700,
 			modal: true,
 			draggable: false,
+			resizable: false,
+			position: ['center', 100],
 			buttons: dialogOptions,
 			open: function(event, ui) {
+		        $(this).css({'max-height': 600, 'overflow-y': 'auto'}); 
 				$.getJSON(url, function(jsonData) {
 					$('#loading').hide();
 					if (jsonData.status === true) {

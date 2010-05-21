@@ -9,6 +9,6 @@
 {assign var=rowId value=$row->getId()}
 <tr id="{$rowId}">
 	{foreach from=$cells item=cell name=cell}
-		{$cell}
+		<td>{$cell}</td>
 	{/foreach}
 </tr>

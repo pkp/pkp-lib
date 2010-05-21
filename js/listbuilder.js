@@ -110,11 +110,16 @@ function deleteItems(handler, listbuilderId) {
 function selectRow(listbuilderGridId) {
 	$('#results-'+listbuilderGridId)
 		.css("cursor","pointer")
-		.click(function(e) {
+		.live("click", (function(e) {
 			var clicked = $(e.target);
-			clicked.parent().toggleClass('selected');
+			if(clicked.parent().is('tr') && !clicked.parent().hasClass('empty')) {
+				clicked.parent().toggleClass('selected');
+			} 
+			if(clicked.parent().parent().is('tr') && !clicked.parent().parent().hasClass('empty')) {
+				clicked.parent().parent().toggleClass('selected');
+			}
 			return false;
-		});
+		}));
 }
 
 /**

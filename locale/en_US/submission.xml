@@ -48,8 +48,8 @@
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editors</message>
 	<message key="metadata.property.validationMessage.editor">For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.displayName.article-title">Article Title</message>
-	<message key="metadata.property.validationMessage.article-title">Please enter a valid article title.</message>
+	<message key="metadata.property.displayName.article-title">Article/Paper Title</message>
+	<message key="metadata.property.validationMessage.article-title">Please enter a valid article/paper title.</message>
 	<message key="metadata.property.displayName.source">Journal/Book Title</message>
 	<message key="metadata.property.validationMessage.source">Please enter a valid journal/book title.</message>
 	<message key="metadata.property.displayName.date">Publication Date</message>

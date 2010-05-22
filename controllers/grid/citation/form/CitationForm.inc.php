@@ -172,6 +172,9 @@ class CitationForm extends Form {
 					'value' => $sourcePropertyValue
 				);
 			}
+
+			// Remove source descriptions that don't have data.
+			if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
 		}
 		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
 

@@ -28,8 +28,6 @@
  *  <http://dtd.nlm.nih.gov/publishing/tag-library/3.0/n-fmz0.html>.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.MetadataSchema');
 
 // Define the vocabulary for the NLM publication type

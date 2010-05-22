@@ -258,6 +258,12 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 			$nlmDescription->addStatement('comment', String::trimPunctuation($metadata['rest_text']));
 		}
 
+		// Set display name and sequence id in the meta-data description
+		// to the corresponding values from the filter. This is important
+		// so that we later know which result came from which filter.
+		$nlmDescription->setDisplayName($this->getDisplayName());
+		$nlmDescription->setSeq($this->getSeq());
+
 		return $nlmDescription;
 	}
 

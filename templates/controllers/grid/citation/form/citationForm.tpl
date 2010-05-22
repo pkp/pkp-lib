@@ -61,7 +61,7 @@
 						{foreach from=$varsArray key=fieldName item=fieldDisplayName}
 							<tr valign="top">
 								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
-								{capture assign=fieldValueVar}{ldelim}${$fieldName}|escape{rdelim}{/capture}
+								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
 								{eval|assign:"fieldValue" var=$fieldValueVar}
 								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.SMALL maxlength="250" value=$fieldValue"}</td>
 							</tr>

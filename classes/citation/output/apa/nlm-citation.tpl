@@ -9,7 +9,7 @@
  * NB: We don't use translation here as the texts are defined in the standard.
  *}
 {strip}
-	{if $nlm30PublicationType != 'book' && $nlm30PublicationType != 'journal'}
+	{if $nlm30PublicationType != 'book' && $nlm30PublicationType != 'journal' && $nlm30PublicationType != 'conf-proc'}
 		{translate key="submission.citations.output.unsupportedPublicationType"}
 	{else}
 		{if $nlm30PersonGroupPersonGroupTypeAuthor}
@@ -38,9 +38,13 @@
 			{if $nlm30Issue}{if $nlm30Volume}({$nlm30Issue|escape}){else}{$nlm30Issue|escape}{/if}{/if}
 			{if $nlm30Volume || $nlm30Issue}, {/if}
 			{if $nlm30Fpage}{$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}.{/if}
+		{elseif $nlm30PublicationType == 'conf-proc'}
+			. <i>{$nlm30ArticleTitle|escape}. </i>
+			Paper presented at {$nlm30ConfName|escape}
+			{if $nlm30ConfLoc}, {$nlm30ConfLoc|escape}{/if}.
 		{/if}
-		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if}
 		{if $nlm30Uri} Retrieved from {$nlm30Uri|escape}{/if}
+		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if}
 		{if $authors} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+%22{$nlm30Source|escape:'url'}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[SCHOLAR LOOKUP]</a>{/if}
 		{if $nlm30Uri} <a href="{$nlm30Uri|escape}" target="_blank">[LOOKUP]</a>{/if}
 	{/if}	

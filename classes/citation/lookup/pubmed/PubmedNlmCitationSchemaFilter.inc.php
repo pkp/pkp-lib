@@ -63,6 +63,13 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'Pubmed';
+	}
+
+	/**
 	 * @see Filter::process()
 	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription

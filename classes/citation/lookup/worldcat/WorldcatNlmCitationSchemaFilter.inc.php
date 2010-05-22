@@ -59,6 +59,13 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'Wordcat';
+	}
+
+	/**
 	 * @see Filter::process()
 	 * @param $citationDescription MetadataDescription
 	 * @return string a DOI or null

@@ -35,6 +35,13 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'FreeCite';
+	}
+
+	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed

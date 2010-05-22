@@ -67,6 +67,13 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'ParaCite';
+	}
+
+	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed

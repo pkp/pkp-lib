@@ -30,6 +30,13 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'ISBNdb (from NLM)';
+	}
+
+	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed

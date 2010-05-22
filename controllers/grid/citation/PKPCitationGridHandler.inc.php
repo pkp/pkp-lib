@@ -345,6 +345,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Initialize the filter errors array
 		$filterErrors = array();
+		$intermediateFilterResults = array();
 
 		// Only parse the citation if it's not been parsed before.
 		// Otherwise we risk to overwrite manual user changes.
@@ -352,7 +353,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if (!is_null($filteredCitation) && $filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $filterErrors);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $filterErrors, $intermediateFilterResults);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
@@ -361,7 +362,16 @@ class PKPCitationGridHandler extends GridHandler {
 		// Also make sure that we get the intermediate results of look-ups
 		// for the user to choose from.
 		$filterCallback = array(&$this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterErrors, true);
+		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterErrors, $intermediateFilterResults);
+
+		// Remove empty results (e.g. if a lookup filter didn't find anything
+		// for a given citation).
+		$intermediateFilterResults =& arrayClean($intermediateFilterResults);
+		$filteredCitation->setSourceDescriptions($intermediateFilterResults);
+
+		// Immediately persist the intermediate results
+		$citationDAO =& DAORegistry::getDAO('CitationDAO');
+		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
 
 		if (is_null($filteredCitation)) {
 			$filteredCitation =& $originalCitation;
@@ -579,10 +589,10 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
 	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
-	 * @param $saveIntermediateResults boolean
+	 * @param $intermediateFilterResults array
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, $saveIntermediateResults = false) {
+	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, &$intermediateFilterResults) {
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -640,6 +650,10 @@ class PKPCitationGridHandler extends GridHandler {
 		// Send the input through the citation filter network.
 		$filteredCitation =& $citationFilterNet->execute($muxInputData);
 
+		// Retrieve the results of intermediate filters for direct
+		// user inspection.
+		$intermediateFilterResults = array_merge($intermediateFilterResults, $citationMultiplexer->getLastOutput());
+
 		// Add filtering errors (if any) to error list
 		$filterErrors = array_merge($filterErrors, $citationFilterNet->getErrors());
 
@@ -661,20 +675,6 @@ class PKPCitationGridHandler extends GridHandler {
 
 			// Set the citation state
 			$filteredCitation->setCitationState($citationStateAfterFiltering);
-		}
-
-		// Retrieve the results of intermediate filters for direct
-		// user inspection.
-		if ($saveIntermediateResults) {
-			$intermediateFilterResults =& $citationMultiplexer->getLastOutput();
-			// Remove empty results (e.g. if a lookup filter didn't find anything
-			// for a given citation).
-			$intermediateFilterResults =& arrayClean($intermediateFilterResults);
-			$filteredCitation->setSourceDescriptions($intermediateFilterResults);
-
-			// Immediately persist the intermediate results
-			$citationDAO =& DAORegistry::getDAO('CitationDAO');
-			$citationDAO->updateCitationSourceDescriptions($filteredCitation);
 		}
 
 		return $filteredCitation;

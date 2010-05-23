@@ -25,8 +25,8 @@
 
 		<table width="100%" class="data">
 			<tr valign="top">
-				<td width="30%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
-				<td width="70%" class="value">{fbvElement type="textarea" name="editedCitation" id="editedCitation" size=$fbvStyles.size.LARGE value=$editedCitation}</td>
+				<td width="15%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
+				<td width="85%" class="value">{fbvElement type="textarea" name="editedCitation" id="editedCitation" size=$fbvStyles.size.LARGE value=$editedCitation}</td>
 			</tr>
 		</table>
 
@@ -53,7 +53,7 @@
 			{* Tab content for tabs that contain editable fields *}
 			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
 				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
-					<table>
+					<table width="100%">
 						<tr valign="top">
 							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
 							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
@@ -63,7 +63,7 @@
 								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
 								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
 								{eval|assign:"fieldValue" var=$fieldValueVar}
-								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.SMALL maxlength="250" value=$fieldValue"}</td>
+								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.LARGE maxlength="250" value=$fieldValue"}</td>
 							</tr>
 						{/foreach}
 					</table>

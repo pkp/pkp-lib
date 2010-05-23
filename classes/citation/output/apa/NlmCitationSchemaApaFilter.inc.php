@@ -17,8 +17,6 @@
  *  APA citation output.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationOutputFormatFilter');
 
 class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFilter {

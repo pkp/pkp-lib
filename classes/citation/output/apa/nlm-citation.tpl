@@ -28,7 +28,7 @@
 				{literal}. {/literal}
 			{/if}
 			{if $nlm30PersonGroupPersonGroupTypeAuthor}<i>{$nlm30Source|escape}</i>{/if}
-			{if $nlm30ChapterTitle && $nlm30Fpage} (p{if $nlm30Lpage}p{/if}.{$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}){/if}
+			{if $nlm30ChapterTitle && $nlm30Fpage} (p{if $nlm30Lpage}p{/if}. {$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}){/if}
 			{if $nlm30PersonGroupPersonGroupTypeAuthor || ($nlm30ChapterTitle && $nlm30Fpage)}. {/if}
 			{if $nlm30PublisherLoc}{$nlm30PublisherLoc|escape}{/if}
 			{if $nlm30PublisherName}: {$nlm30PublisherName|escape}{/if}.
@@ -45,7 +45,7 @@
 		{/if}
 		{if $nlm30Uri} Retrieved from {$nlm30Uri|escape}{/if}
 		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if}
-		{if $authors} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+%22{$nlm30Source|escape:'url'}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[SCHOLAR LOOKUP]</a>{/if}
-		{if $nlm30Uri} <a href="{$nlm30Uri|escape}" target="_blank">[LOOKUP]</a>{/if}
+		{if $authors} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+%22{$nlm30Source|escape:'url'}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[Google Scholar]</a>{/if}
+		{if $nlm30Uri} <a href="{$nlm30Uri|escape}" target="_blank">[Link to Publication]</a>{/if}
 	{/if}	
 {/strip}

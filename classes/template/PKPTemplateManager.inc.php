@@ -1110,7 +1110,7 @@ class PKPTemplateManager extends Smarty {
 			unset($params['url'], $params['id'], $params['loadMessageId']);
 			$translatedLoadMessage = Locale::translate($loadMessageId, $params);
 		} else {
-			$translatedLoadMessage = '';
+			$translatedLoadMessage = Locale::translate('common.loading');
 		}
 
 		return "<div id=\"$id\">$translatedLoadMessage</div>

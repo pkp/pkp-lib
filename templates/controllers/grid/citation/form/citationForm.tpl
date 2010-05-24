@@ -81,7 +81,27 @@
 						{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
 							<tr valign="top">
 								<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-								<td width="70%" class="value">{$sourceStatement.value|escape}</td>
+								<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
+								<td width="5%">
+									<a id="{$sourcePropertyId}-use" href="">use</a>
+									{literal}<script type='text/javascript'>
+										$(function() {
+											$('#{/literal}{$sourcePropertyId}{literal}-use').click(function() {
+												// Create the source and target selector
+												tabId = '{/literal}{$tabUid}{literal}';
+												sourcePropertyId = '{/literal}{$sourcePropertyId}{literal}';
+												sourceTabId = sourcePropertyId.substring(0, sourcePropertyId.indexOf('-'));
+												sourceSelector = '#' + sourceTabId + '-' + tabId + ' #' + sourcePropertyId;
+												targetFieldId = sourcePropertyId.substring(sourcePropertyId.indexOf('-') + 1);
+												targetSelector = '#Filled-' + tabId + ' #' + targetFieldId + ', #Empty-' + tabId + ' #' + targetFieldId
+												
+												// Copy the content of the source to the target field
+												$(targetSelector).val($(sourceSelector).text());
+												return false;
+											});
+										});
+									</script>{/literal}
+								</td>
 							</tr>
 						{/foreach}
 					</table>

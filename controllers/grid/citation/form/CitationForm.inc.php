@@ -138,7 +138,10 @@ class CitationForm extends Form {
 		$citationFormTabs = array('Filled' => array(), 'Empty' => array());
 		foreach($this->_citationProperties as $fieldName => $property) {
 			$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
-			$citationFormTabs[$tabName][$fieldName] = $property->getDisplayName();
+			$citationFormTabs[$tabName][$fieldName] = array(
+				'displayName' => $property->getDisplayName(),
+				'required' => $property->getMandatory()
+			);
 		}
 		$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
 

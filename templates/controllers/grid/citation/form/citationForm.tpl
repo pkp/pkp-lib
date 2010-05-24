@@ -52,21 +52,24 @@
 			
 			{* Tab content for tabs that contain editable fields *}
 			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
+				{assign var=hasRequiredField value=false}
 				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
 					<table width="100%">
 						<tr valign="top">
 							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
 							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
 						</tr>
-						{foreach from=$varsArray key=fieldName item=fieldDisplayName}
+						{foreach from=$varsArray key=fieldName item=field}
+							{if $field.required}{assign var=hasRequiredField value=true}{/if}
 							<tr valign="top">
-								<td width="30%" class="label">{fieldLabel name=$fieldName key=$fieldDisplayName}</td>
+								<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.displayName required=$field.required}</td>
 								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
 								{eval|assign:"fieldValue" var=$fieldValueVar}
 								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.LARGE maxlength="250" value=$fieldValue"}</td>
 							</tr>
 						{/foreach}
 					</table>
+					{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 				</div>
 			{/foreach}
 			
@@ -91,7 +94,6 @@
 			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
 		{/if}
 
-		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 		<p>{translate key="submission.citations.form.approveCitation"}{fbvCheckbox id="citationApproved" name="citationApproved" value="citationApproved" checked=$citationApproved}</p>
 	</form>
 </div>

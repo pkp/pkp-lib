@@ -12,9 +12,11 @@
 	{if $nlm30PublicationType != 'book' && $nlm30PublicationType != 'journal' && $nlm30PublicationType != 'conf-proc'}
 		{translate key="submission.citations.output.unsupportedPublicationType"}
 	{else}
+		{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
+		{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
 		{if $nlm30PersonGroupPersonGroupTypeAuthor}
 			{capture assign=authors}{include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor reversed=true}{/capture}{$authors}
-		{else}{$nlm30Source|escape} {/if}
+		{else}{$mainTitle}{if $subTitle} {$subTitle}{/if} {/if}
 		({$nlm30Date|truncate:4:''})
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}
@@ -27,13 +29,13 @@
 			{else}
 				{literal}. {/literal}
 			{/if}
-			{if $nlm30PersonGroupPersonGroupTypeAuthor}<i>{$nlm30Source|escape}</i>{/if}
+			{if $nlm30PersonGroupPersonGroupTypeAuthor}<i>{$mainTitle}{if $subTitle} {$subTitle}{/if}</i>{/if}
 			{if $nlm30ChapterTitle && $nlm30Fpage} (p{if $nlm30Lpage}p{/if}. {$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}){/if}
 			{if $nlm30PersonGroupPersonGroupTypeAuthor || ($nlm30ChapterTitle && $nlm30Fpage)}. {/if}
 			{if $nlm30PublisherLoc}{$nlm30PublisherLoc|escape}{/if}
 			{if $nlm30PublisherName}: {$nlm30PublisherName|escape}{/if}.
 		{elseif $nlm30PublicationType == 'journal'}
-			. {$nlm30ArticleTitle|escape}. <i>{$nlm30Source|escape}, </i>
+			. {$nlm30ArticleTitle|escape}. <i>{$mainTitle}{if $subTitle} {$subTitle}{/if}, </i>
 			{if $nlm30Volume}{$nlm30Volume|escape}{/if}
 			{if $nlm30Issue}{if $nlm30Volume}({$nlm30Issue|escape}){else}{$nlm30Issue|escape}{/if}{/if}
 			{if $nlm30Volume || $nlm30Issue}, {/if}
@@ -44,8 +46,6 @@
 			{if $nlm30ConfLoc}, {$nlm30ConfLoc|escape}{/if}.
 		{/if}
 		{if $nlm30Uri} Retrieved from {$nlm30Uri|escape}{/if}
-		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if}
-		{if $authors} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+%22{$nlm30Source|escape:'url'}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[Google Scholar]</a>{/if}
-		{if $nlm30Uri} <a href="{$nlm30Uri|escape}" target="_blank">[Link to Publication]</a>{/if}
+		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $authors}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+{/if}%22{$nlm30Source|escape:'url'}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[Google Scholar]</a>
 	{/if}	
 {/strip}

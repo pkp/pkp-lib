@@ -72,7 +72,7 @@
 </xsl:template>
 
 <!-- Publisher -->
-<xsl:template match="*[local-name() = 'pub'] | *[local-name() = 'inst']">
+<xsl:template match="*[local-name() = 'publisher'] | *[local-name() = 'pub'] | *[local-name() = 'inst']">
 	<publisher-name><xsl:value-of select="."/></publisher-name>
 </xsl:template>
 

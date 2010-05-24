@@ -27,23 +27,23 @@ class NlmCitationSchemaAbntFilterTest extends NlmCitationSchemaCitationOutputFor
 	}
 
 	protected function getBookResultNoAuthor() {
-		return '<i>Mania de bater</i>: a punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return '<i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
 	}
 
 	protected function getBookResult() {
-		return 'AZEVEDO, M.A. <i>Mania de bater</i>: a punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return 'AZEVEDO, M.A. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
 	}
 
 	protected function getBookChapterResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: ________. <i>Mania de bater</i>: a punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: ________. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
 	}
 
 	protected function getBookChapterWithEditorResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L. (Ed.). <i>Mania de bater</i>: a punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
 	}
 
 	protected function getBookChapterWithEditorsResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L.; VELADO, JR. M. (Ed.). <i>Mania de bater</i>: a punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L.; VELADO, JR. M. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
 	}
 
 	protected function getJournalArticleResult() {

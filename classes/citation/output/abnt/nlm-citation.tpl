@@ -7,8 +7,8 @@
  * ABNT citation output format template (NLM citation schema based)
  *}
 {strip}
-	{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/:.*$/':''}
-	{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+/':''}
+	{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
+	{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
 	{include file="../abnt/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor}
 	{if $nlm30PublicationType == 'book'}
 		{if $nlm30ChapterTitle}
@@ -19,14 +19,14 @@
 				{literal}. In: ________. {/literal}
 			{/if}
 		{/if}
-		<i>{$mainTitle}</i>{$subTitle}.
+		<i>{$mainTitle}</i>{if $subTitle} {$subTitle}{/if}.
 		{if $nlm30PublisherLoc} {$nlm30PublisherLoc|escape}:{/if}
 		{if $nlm30PublisherName} {$nlm30PublisherName|escape},{/if}
 		{literal} {/literal}{$nlm30Date|truncate:4:''}.
 		{if $nlm30Size} {$nlm30Size} p.{/if}
 		{if $nlm30Series} ({$nlm30Series|escape}{if $nlm30Volume}, v.{$nlm30Volume|escape}{/if}){/if}
 	{elseif $nlm30PublicationType == 'journal'}
-		{$nlm30ArticleTitle}. <i>{$mainTitle}</i>{$subTitle}, {if $nlm30PublisherLoc|escape}{$nlm30PublisherLoc|escape},{/if}
+		{$nlm30ArticleTitle}. <i>{$mainTitle}</i>{if $subTitle} {$subTitle}{/if}, {if $nlm30PublisherLoc|escape}{$nlm30PublisherLoc|escape},{/if}
 		{if $nlm30Volume} v.{$nlm30Volume|escape},{/if}
 		{if $nlm30Issue} n.{$nlm30Issue|escape},{/if}
 		{if $nlm30Fpage} p.{$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if},{/if}

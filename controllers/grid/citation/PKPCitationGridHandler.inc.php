@@ -527,6 +527,8 @@ class PKPCitationGridHandler extends GridHandler {
 		$citationString = $citation->getEditedCitation();
 
 		// Instantiate the supported parsers
+		import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
+		$freeciteFilter = new FreeciteRawCitationNlmCitationSchemaFilter();
 		import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
 		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
 		import('lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
@@ -534,7 +536,7 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
 		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
 
-		$parserFilters = array(&$paraciteFilter, &$parscitFilter, &$regexFilter, $citationString);
+		$parserFilters = array(&$freeciteFilter, &$paraciteFilter, &$parscitFilter, &$regexFilter, $citationString);
 		return $parserFilters;
 	}
 

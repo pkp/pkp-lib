@@ -62,7 +62,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @see Filter::getDisplayName()
 	 */
 	function getDisplayName() {
-		return 'Wordcat';
+		return 'Worldcat';
 	}
 
 	/**

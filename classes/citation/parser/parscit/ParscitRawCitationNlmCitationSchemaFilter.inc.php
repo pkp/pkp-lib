@@ -59,10 +59,11 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 	function &process($citationString) {
 		$nullVar = null;
 		$queryParams = array(
+			'demo' => '3',
 			'textlines' => $citationString
 		);
 		// Parscit web form - the result is (mal-formed) HTML
-		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING))) return $nullVar;
+		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING, 'POST'))) return $nullVar;
 
 		// Screen-scrape the tagged portion and turn it into XML
 		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));

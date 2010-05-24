@@ -60,6 +60,11 @@
 	<date><xsl:value-of select="."/></date>
 </xsl:template>
 
+<!-- Publisher -->
+<xsl:template match="publisher">
+	<publisher-name><xsl:value-of select="."/></publisher-name>
+</xsl:template>
+
 <!-- Location -->
 <xsl:template match="location">
 	<publisher-loc><xsl:value-of select="."/></publisher-loc>

@@ -28,7 +28,8 @@
 	<message key="submission.citations.grid.importCitations">Import Citations</message>
 	<message key="submission.citations.grid.exportCitations">Export Citations</message>
 	<message key="submission.citations.grid.editCheckCitation">Edit/Check</message>
-	<message key="submission.citations.grid.checkCitationAgain">Check Again</message>
+	<message key="submission.citations.grid.checkCitationAgain">Check again in external databases</message>
+	<message key="submission.citations.grid.checkGoogleScholar">Check in Google Scholar</message>
 	<message key="submission.citations.grid.editedCitation">Citation Text</message>
 	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>

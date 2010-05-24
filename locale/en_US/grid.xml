@@ -23,6 +23,8 @@
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
+	<message key="grid.action.approveForReview">Submit to Review Stage</message>
+	<message key="grid.action.approveForPub">Approve for Publication</message>
 	<message key="grid.action.decline">Decline</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
@@ -41,6 +43,7 @@
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
+	<message key="grid.action.addAuthor">Add Author</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>
@@ -55,8 +58,9 @@
 	<message key="grid.artworkFile.form.metadata">Artwork Metadata</message>
 	<message key="grid.artworkFile.caption">Caption</message>
 	<message key="grid.artworkFile.credit">Credit</message>
+	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
 	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
-	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/press)</message>
+	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
 	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
 	<message key="grid.artworkFile.permissionForm">Permission Form</message>
 	<message key="grid.artworkFile.type">Type</message>
@@ -83,6 +87,10 @@
 	<message key="author.users.contributor.email">E-mail</message>
 	<message key="author.users.contributor.role">Role</message>
 	<message key="author.users.contributor.principalContact">Primary Contact</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
+	<message key="grid.reviewAttachments.add">Add Attachment to Review</message>
 
 	<!-- Chapters -->
 	<message key="grid.chapters.title">Chapters</message>

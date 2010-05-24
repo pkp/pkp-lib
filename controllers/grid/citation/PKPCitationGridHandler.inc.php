@@ -223,7 +223,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Instantiate and persist citations
 		import('lib.pkp.classes.citation.Citation');
 		$citations = array();
-		foreach($citationStrings as $citationString) {
+		foreach($citationStrings as $seq => $citationString) {
 			$citation = new Citation($citationString);
 
 			// Initialize the edited citation with the raw
@@ -233,6 +233,9 @@ class PKPCitationGridHandler extends GridHandler {
 			// Set the object association
 			$citation->setAssocType($this->getAssocType());
 			$citation->setAssocId($this->_getAssocId());
+
+			// Set the counter
+			$citation->setSeq($seq);
 
 			$citationDAO->insertObject($citation);
 			// FIXME: Database error handling.

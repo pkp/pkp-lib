@@ -24,17 +24,16 @@ class CitationDAO extends DAO {
 	function insertObject(&$citation) {
 		$this->update(
 			sprintf('INSERT INTO citations
-				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, parse_score, lookup_score)
+				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, seq)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?)'),
+				(?, ?, ?, ?, ?, ?)'),
 			array(
 				(integer)$citation->getAssocType(),
 				(integer)$citation->getAssocId(),
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
-				$citation->getParseScore(),
-				$citation->getLookupScore()
+				(integer)$citation->getSeq()
 			)
 		);
 		$citation->setId($this->getInsertId());
@@ -76,7 +75,7 @@ class CitationDAO extends DAO {
 			'SELECT *
 			FROM citations
 			WHERE assoc_type = ? AND assoc_id = ?
-			ORDER BY citation_id DESC',
+			ORDER BY seq, citation_id',
 			array((int)$assocType, (int)$assocId),
 			$rangeInfo
 		);
@@ -97,8 +96,7 @@ class CitationDAO extends DAO {
 				citation_state = ?,
 				raw_citation = ?,
 				edited_citation = ?,
-				parse_score = ?,
-				lookup_score = ?
+				seq = ?
 			WHERE	citation_id = ?',
 			array(
 				(integer)$citation->getAssocType(),
@@ -106,8 +104,7 @@ class CitationDAO extends DAO {
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
-				$citation->getParseScore(),
-				$citation->getLookupScore(),
+				(integer)$citation->getSeq(),
 				(integer)$citation->getId()
 			)
 		);
@@ -212,14 +209,13 @@ class CitationDAO extends DAO {
 	 */
 	function &_fromRow(&$row) {
 		$citation =& $this->_newDataObject();
-		$citation->setId($row['citation_id']);
-		$citation->setAssocType($row['assoc_type']);
-		$citation->setAssocId($row['assoc_id']);
+		$citation->setId((integer)$row['citation_id']);
+		$citation->setAssocType((integer)$row['assoc_type']);
+		$citation->setAssocId((integer)$row['assoc_id']);
 		$citation->setCitationState($row['citation_state']);
 		$citation->setRawCitation($row['raw_citation']);
 		$citation->setEditedCitation($row['edited_citation']);
-		$citation->setParseScore($row['parse_score']);
-		$citation->setLookupScore($row['lookup_score']);
+		$citation->setSeq((integer)$row['seq']);
 
 		$this->getDataObjectSettings('citation_settings', 'citation_id', $row['citation_id'], $citation);
 

@@ -172,35 +172,19 @@ class Citation extends DataObject {
 	}
 
 	/**
-	 * Get the confidence score the citation parser attributed to this citation
+	 * Get the sequence number
 	 * @return integer
 	 */
-	function getParseScore() {
-		return $this->getData('parseScore');
+	function getSeq() {
+		return $this->getData('seq');
 	}
 
 	/**
-	 * Set the confidence score of the citation parser
-	 * @param $parseScore integer
+	 * Set the sequence number
+	 * @param $seq integer
 	 */
-	function setParseScore($parseScore) {
-		$this->setData('parseScore', $parseScore);
-	}
-
-	/**
-	 * Get the lookup similarity score that the citation parser attributed to this citation
-	 * @return integer
-	 */
-	function getLookupScore() {
-		return $this->getData('lookupScore');
-	}
-
-	/**
-	 * Set the lookup similarity score
-	 * @param $lookupScore integer
-	 */
-	function setLookupScore($lookupScore) {
-		$this->setData('lookupScore', $lookupScore);
+	function setSeq($seq) {
+		$this->setData('seq', $seq);
 	}
 
 	/**

@@ -358,7 +358,6 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		// Instantiate the target citation
 		$targetCitation = new Citation();
 		$targetCitation->injectMetadata($targetDescription);
-		$targetCitation->setParseScore($parseScore);
 		return $targetCitation;
 	}
 }

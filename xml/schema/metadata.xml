@@ -36,12 +36,20 @@
 			<NOTNULL/>
 		</field>
 		<field name="edited_citation" type="X"/>
-		<field name="parse_score" type="I8"/>
-		<field name="lookup_score" type="I8"/>
+		<field name="seq" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<descr>Citations</descr>
 		<index name="citations_assoc">
 			<col>assoc_type</col>
 			<col>assoc_id</col>
+		</index>
+		<index name="citations_assoc_seq">
+			<col>assoc_type</col>
+			<col>assoc_id</col>
+			<col>seq</col>
+			<UNIQUE/>
 		</index>
 	</table>
 
@@ -76,7 +84,7 @@
 			<UNIQUE />
 		</index>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE metadata_descriptions
@@ -143,5 +151,58 @@
 			<col>setting_name</col>
 			<UNIQUE />
 		</index>
-	</table>	
+	</table>
+
+	<!--
+	  *
+	  * TABLE transformations
+	  *
+	  -->
+	<table name="transformations">
+		<field name="transformation_id" type="I8">
+			<KEY />
+			<AUTOINCREMENT/>
+		</field>
+		<field name="display_name" type="C2" size="255" />
+		<field name="seq" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="filter_class" type="C2" size="80"/>
+		<field name="input_type" type="C2" size="80" />
+		<field name="output_type" type="C2" size="80" />
+		<descr>Transformations (configured filter instances)</descr>
+	</table>
+
+	<!--
+	  *
+	  * TABLE transformation_settings
+	  *
+	  -->
+	<table name="transformation_settings">
+		<field name="transformation_id" type="I8">
+			<NOTNULL />
+		</field>
+		<field name="locale" type="C2" size="5">
+			<NOTNULL />
+			<DEFAULT VALUE=""/>
+		</field>
+		<field name="setting_name" type="C2" size="255">
+			<NOTNULL />
+		</field>
+		<field name="setting_value" type="X"/>
+		<field name="setting_type" type="C2" size="6">
+			<NOTNULL/>
+		</field>
+		<descr>Transformation Settings</descr>
+		<index name="transformation_settings_id">
+			<col>transformation_id</col>
+		</index>
+		<index name="transformation_settings_pkey">
+			<col>transformation_id</col>
+			<col>locale</col>
+			<col>setting_name</col>
+			<UNIQUE />
+		</index>
+	</table>
 </schema>

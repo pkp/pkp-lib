@@ -38,6 +38,9 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 							$this->instantiateNlmCitationDescription($citationFilterTest[$testDataType]);
 				}
 			}
+			// The expected display name of the description
+			// corresponds to the filter display name.
+			$citationFilterTest['testOutput']->setDisplayName($filter->getDisplayName());
 
 			// Execute the filter with the test description/raw citation
 			$testInput =& $citationFilterTest['testInput'];

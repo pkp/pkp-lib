@@ -29,6 +29,11 @@ define('SUBMISSION_REVIEWER_RATING_AVERAGE', 3);
 define('SUBMISSION_REVIEWER_RATING_POOR', 2);
 define('SUBMISSION_REVIEWER_RATING_VERY_POOR', 1);
 
+define('SUBMISSION_REVIEW_METHOD_BLIND', 1);
+define('SUBMISSION_REVIEW_METHOD_DOUBLEBLIND', 2);
+define('SUBMISSION_REVIEW_METHOD_OPEN', 3);
+
+
 class PKPReviewAssignment extends DataObject {
 	/** @var array The revisions of the reviewer file */
 	var $reviewerFileRevisions;
@@ -36,7 +41,7 @@ class PKPReviewAssignment extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function ReviewAssignment() {
+	function PKPReviewAssignment() {
 		parent::DataObject();
 	}
 
@@ -158,6 +163,22 @@ class PKPReviewAssignment extends DataObject {
 		return $this->setData('reviewType', $type);
 	}
 
+	/**
+	 * Get the method of the review (open, blind, or double-blind).
+	 * @return int
+	 */
+	function getReviewMethod() {
+		return $this->getData('reviewMethod');
+	}
+
+	/**
+	 * Set the type of review.
+	 * @param $method int
+	 */
+	function setReviewMethod($method) {
+		return $this->setData('reviewMethod', $method);
+	}
+	
 	/**
 	 * Get regret message.
 	 * @return string
@@ -342,6 +363,22 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
+	 * Get the reviewer's response due date.
+	 * @return string
+	 */
+	function getDateResponseDue() {
+		return $this->getData('dateResponseDue');
+	}
+
+	/**
+	 * Set the reviewer's response due date.
+	 * @param $dateResponseDue string
+	 */
+	function setDateResponseDue($dateResponseDue) {
+		return $this->setData('dateResponseDue', $dateResponseDue);
+	}
+	
+	/**
 	 * Get the declined value.
 	 * @return boolean
 	 */
@@ -516,7 +553,7 @@ class PKPReviewAssignment extends DataObject {
 	 */
 	function setReviewRevision($reviewRevision) {
 		return $this->setData('reviewRevision', $reviewRevision);
-	}	
+	}
 
 	/**
 	 * Get review form id.
@@ -533,7 +570,7 @@ class PKPReviewAssignment extends DataObject {
 	function setReviewFormId($reviewFormId) {
 		return $this->setData('reviewFormId', $reviewFormId);
 	}
-	
+
 	//
 	// Files
 	//

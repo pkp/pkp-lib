@@ -37,6 +37,13 @@ class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'RegEx';
+	}
+
+	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed

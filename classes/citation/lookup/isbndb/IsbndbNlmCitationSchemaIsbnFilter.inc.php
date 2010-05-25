@@ -13,8 +13,6 @@
  *  service to identify an ISBN for a given citation.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
 
 class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
@@ -29,6 +27,13 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	//
 	// Implement template methods from Filter
 	//
+	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'ISBNdb (from NLM)';
+	}
+
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed

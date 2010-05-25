@@ -13,8 +13,6 @@
  * @brief Tests for the FreeciteRawCitationNlmCitationSchemaFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
 import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
 

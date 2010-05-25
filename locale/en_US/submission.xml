@@ -28,7 +28,8 @@
 	<message key="submission.citations.grid.importCitations">Import Citations</message>
 	<message key="submission.citations.grid.exportCitations">Export Citations</message>
 	<message key="submission.citations.grid.editCheckCitation">Edit/Check</message>
-	<message key="submission.citations.grid.checkCitationAgain">Check Again</message>
+	<message key="submission.citations.grid.checkCitationAgain">Check again in external databases</message>
+	<message key="submission.citations.grid.checkGoogleScholar">Check in Google Scholar</message>
 	<message key="submission.citations.grid.editedCitation">Citation Text</message>
 	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>
@@ -38,7 +39,7 @@
 	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
 	<message key="submission.citations.form.unsavedChanges">The citation contains data from external databases that are yet unsaved. Please review and/or edit the data fields and then either click "Ok" to save them or "Cancel" to undo the changes.</message>
 	<message key="submission.citations.form.filterError">The parse or lookup operation did not return any results. Maybe you can try to edit the citation text manually to improve results?</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (either 'book' or 'journal').</message>
+	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
 	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. Please try to {$httpMethod} the URL manually to see what the problem is and fix it. It may also be that the web service is temporarily unavailable.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
@@ -48,8 +49,8 @@
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editors</message>
 	<message key="metadata.property.validationMessage.editor">For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
-	<message key="metadata.property.displayName.article-title">Article Title</message>
-	<message key="metadata.property.validationMessage.article-title">Please enter a valid article title.</message>
+	<message key="metadata.property.displayName.article-title">Article/Paper Title</message>
+	<message key="metadata.property.validationMessage.article-title">Please enter a valid article/paper title.</message>
 	<message key="metadata.property.displayName.source">Journal/Book Title</message>
 	<message key="metadata.property.validationMessage.source">Please enter a valid journal/book title.</message>
 	<message key="metadata.property.displayName.date">Publication Date</message>
@@ -265,6 +266,7 @@
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>
 	<message key="submission.uploadSuccessfulContinue">Your file has been uploaded.  Press continue to edit the file's metadata.</message>
 	<message key="submission.loadMessage">Please wait while your file is uploaded to the server.</message>
+	<message key="submission.artworkFileDetails">Artwork File Details</message>
 	<message key="submission.fileDetails">File Details</message>
 	<message key="submission.nameRequired">A name is required for this item.</message>
 

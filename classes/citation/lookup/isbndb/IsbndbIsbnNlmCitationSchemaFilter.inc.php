@@ -13,8 +13,6 @@
  *  an ISBN and create a NLM citation description from the result.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
 
 class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
@@ -29,6 +27,13 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	//
 	// Implement template methods from Filter
 	//
+	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'ISBNdb';
+	}
+
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed

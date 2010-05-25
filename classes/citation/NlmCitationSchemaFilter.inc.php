@@ -120,16 +120,24 @@ class NlmCitationSchemaFilter extends Filter {
 	 * @return array
 	 */
 	function constructSearchStrings(&$searchTemplates, &$citationDescription) {
+		// Convert first authors' name description to a string
+		import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
+		$personStringFilter = new NlmNameSchemaPersonStringFilter();
+
 		// Retrieve the authors
 		$firstAuthorSurname = $firstAuthor = '';
 		$authors = $citationDescription->getStatement('person-group[@person-group-type="author"]');
 		if (is_array($authors) && count($authors)) {
 			$firstAuthorSurname = (string)$authors[0]->getStatement('surname');
-
-			// Convert first authors' name description to a string
-			import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
-			$personStringFilter = new NlmNameSchemaPersonStringFilter();
 			$firstAuthor = $personStringFilter->execute($authors[0]);
+		}
+
+		// Retrieve the editors
+		$firstEditorSurname = $firstEditor = '';
+		$editors = $citationDescription->getStatement('person-group[@person-group-type="editor"]');
+		if (is_array($editors) && count($editors)) {
+			$firstEditorSurname = (string)$editors[0]->getStatement('surname');
+			$firstEditor = $personStringFilter->execute($editors[0]);
 		}
 
 		// Retrieve (default language) title
@@ -147,9 +155,15 @@ class NlmCitationSchemaFilter extends Filter {
 		// Replace the placeholders in the templates
 		$searchStrings = array();
 		foreach($searchTemplates as $searchTemplate) {
+			// Try editors and authors separately
 			$searchStrings[] = str_replace(
 					array('%aulast%', '%au%', '%title%', '%date%', '%isbn%'),
 					array($firstAuthorSurname, $firstAuthor, $title, $year, $isbn),
+					$searchTemplate
+				);
+			$searchStrings[] = str_replace(
+					array('%aulast%', '%au%', '%title%', '%date%', '%isbn%'),
+					array($firstEditorSurname, $firstEditor, $title, $year, $isbn),
 					$searchTemplate
 				);
 		}
@@ -245,14 +259,14 @@ class NlmCitationSchemaFilter extends Filter {
 		$preliminaryNlmArray =& $this->_recursivelyTrimPunctuation($preliminaryNlmArray);
 
 		// Parse (=filter) author/editor strings into NLM name descriptions
-		foreach(array('author', 'editor') as $personType) {
+		foreach(array('author' => ASSOC_TYPE_AUTHOR, 'editor' => ASSOC_TYPE_EDITOR) as $personType => $personAssocType) {
 			if (isset($preliminaryNlmArray[$personType])) {
 				// Get the author/editor strings from the result
 				$personStrings = $preliminaryNlmArray[$personType];
 				unset($preliminaryNlmArray[$personType]);
 
 				// Parse the author/editor strings into NLM name descriptions
-				$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
+				$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType);
 				// Interpret a scalar as a textual authors list
 				if (is_scalar($personStrings)) {
 					$personStringFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);

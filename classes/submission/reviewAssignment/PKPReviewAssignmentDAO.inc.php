@@ -360,26 +360,28 @@ class PKPReviewAssignmentDAO extends DAO {
 				submission_id,
 				reviewer_id,
 				review_type,
+				review_method,
 				regret_message,
 				round,
 				competing_interests,
 				recommendation,
 				declined, replaced, cancelled,
 				date_assigned, date_notified, date_confirmed,
-				date_completed, date_acknowledged, date_due,
+				date_completed, date_acknowledged, date_due, date_response_due,
 				reviewer_file_id,
 				quality, date_rated,
 				last_modified,
 				date_reminded, reminder_was_automatic,
 				review_form_id
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?
 				)',
-				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
+				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
 				(int) $reviewAssignment->getSubmissionId(),
 				(int) $reviewAssignment->getReviewerId(),
 				(int) $reviewAssignment->getReviewType(),
+				(int) $reviewAssignment->getReviewMethod(),
 				$reviewAssignment->getRegretMessage(),
 				max((int) $reviewAssignment->getRound(), 1),
 				$reviewAssignment->getCompetingInterests(),
@@ -408,6 +410,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				SET	submission_id = ?,
 					reviewer_id = ?,
 					review_type = ?,
+					review_method = ?,
 					regret_message = ?,
 					round = ?,
 					competing_interests = ?,
@@ -421,6 +424,7 @@ class PKPReviewAssignmentDAO extends DAO {
 					date_completed = %s,
 					date_acknowledged = %s,
 					date_due = %s,
+					date_response_due = %s,
 					reviewer_file_id = ?,
 					quality = ?,
 					date_rated = %s,
@@ -429,11 +433,12 @@ class PKPReviewAssignmentDAO extends DAO {
 					reminder_was_automatic = ?,
 					review_form_id = ?
 				WHERE review_id = ?',
-				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
+				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
 				(int) $reviewAssignment->getSubmissionId(),
 				(int) $reviewAssignment->getReviewerId(),
 				(int) $reviewAssignment->getReviewType(),
+				(int) $reviewAssignment->getReviewMethod(),
 				$reviewAssignment->getRegretMessage(),
 				(int) $reviewAssignment->getRound(),
 				$reviewAssignment->getCompetingInterests(),
@@ -471,6 +476,7 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setDateCompleted($this->datetimeFromDB($row['date_completed']));
 		$reviewAssignment->setDateAcknowledged($this->datetimeFromDB($row['date_acknowledged']));
 		$reviewAssignment->setDateDue($this->datetimeFromDB($row['date_due']));
+		$reviewAssignment->setDateResponseDue($this->datetimeFromDB($row['date_response_due']));
 		$reviewAssignment->setLastModified($this->datetimeFromDB($row['last_modified']));
 		$reviewAssignment->setDeclined($row['declined']);
 		$reviewAssignment->setReplaced($row['replaced']);

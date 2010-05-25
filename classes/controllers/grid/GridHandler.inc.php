@@ -201,7 +201,7 @@ class GridHandler extends PKPHandler {
 		parent::initialize($request);
 
 		// Load grid-specific translations
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID));
+		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON));
 	}
 
 	//
@@ -427,7 +427,7 @@ class GridHandler extends PKPHandler {
 	function _renderCellInternally(&$request, &$row, &$column) {
 		// Get the cell content
 		$cellProvider =& $column->getCellProvider();
-		return $cellProvider->render($row, $column);
+		return $cellProvider->render($request, $row, $column);
 	}
 
 	/**

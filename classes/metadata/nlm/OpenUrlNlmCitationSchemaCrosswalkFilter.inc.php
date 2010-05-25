@@ -17,8 +17,6 @@
  *  OpenURL schemas.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.nlm.OpenUrlCrosswalkFilter');
 
 class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {

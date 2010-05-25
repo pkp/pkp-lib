@@ -60,6 +60,13 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'CrossRef';
+	}
+
+	/**
 	 * @see Filter::process()
 	 * @param $citationDescription MetadataDescription
 	 * @return MetadataDescription

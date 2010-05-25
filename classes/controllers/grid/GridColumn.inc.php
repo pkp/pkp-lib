@@ -25,13 +25,7 @@ class GridColumn {
 	var $_title;
 
 	/** @var string the column title (translated) */
-	var $_titleLocalized;
-
-	/**
-	 * @var array actions of the grid column, the first key represents
-	 *  the position of the action in the controller
-	 */
-	var $_actions;
+	var $_titleTranslated;
 
 	/**
 	 * @var array flags that can be set by the handler to trigger layout
@@ -48,12 +42,11 @@ class GridColumn {
 	/**
 	 * Constructor
 	 */
-	function GridColumn($id = '', $title = null, $titleLocalized = null, $actions = array(),
-			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
+	function GridColumn($id = '', $title = null, $titleTranslated = null,
+		$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
 		$this->_id = $id;
 		$this->_title = $title;
-		$this->_titleLocalized = $titleLocalized;
-		$this->_actions = array(GRID_ACTION_POSITION_DEFAULT => &$actions);
+		$this->_titleTranslated = $titleTranslated;
 		$this->_template = $template;
 		$this->_cellProvider =& $cellProvider;
 		$this->_flags = $flags;
@@ -99,8 +92,8 @@ class GridColumn {
 	 * Set the column title (already translated)
 	 * @param $title string
 	 */
-	function setTitleTranslated($titleLocalized) {
-		$this->_titleLocalized = $titleLocalized;
+	function setTitleTranslated($titleTranslated) {
+		$this->_titleTranslated = $titleTranslated;
 	}
 
 	/**
@@ -108,28 +101,8 @@ class GridColumn {
 	 * @return string
 	 */
 	function getLocalizedTitle() {
-		if ( $this->_titleLocalized ) return $this->_titleLocalized;
+		if ( $this->_titleTranslated ) return $this->_titleTranslated;
 		return Locale::translate($this->_title);;
-	}
-
-	/**
-	 * Get all actions for a given position within the column
-	 * @param $position string the position of the actions
-	 * @return array the GridActions for the given position
-	 */
-	function getActions($position = GRID_ACTION_POSITION_DEFAULT) {
-		assert(isset($this->_actions[$position]));
-		return $this->_actions[$position];
-	}
-
-	/**
-	 * Add an action
-	 * @param $position string the position of the action
-	 * @param $action mixed a single action
-	 */
-	function addAction($action, $position = GRID_ACTION_POSITION_DEFAULT) {
-		if (!isset($this->_actions[$position])) $this->_actions[$position] = array();
-		$this->_actions[$position][] = $action;
 	}
 
 	/**

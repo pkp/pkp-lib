@@ -41,6 +41,10 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * @return string
 	 */
 	function getLocale() {
+		// provide a default to the current locale
+		if (is_null($this->_locale)) {
+			$this->setLocale(Locale::getLocale());
+		}
 		return $this->_locale;
 	}
 
@@ -52,11 +56,14 @@ class DataObjectGridCellProvider extends GridCellProvider {
 	 * This implementation assumes an element that is a
 	 * DataObject. It will retrieve an element in the
 	 * configured locale.
-	 * @see GridCellProvider::getTemplateVarsFromElement()
-	 * @param $element DataObject
-	 * @param $columnId string
+	 * @see GridCellProvider::getTemplateVarsFromRowColumn()
+	 * @param $row GridRow
+	 * @param $column GridColumn
+	 * @return array
 	 */
-	function getTemplateVarsFromElement(&$element, $columnId) {
+	function getTemplateVarsFromRowColumn(&$row, $column) {
+		$element =& $row->getData();
+		$columnId = $column->getId();
 		assert(is_a($element, 'DataObject') && !empty($columnId));
 		return array('label' => $element->getData($columnId, $this->getLocale()));
 	}

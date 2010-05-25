@@ -138,7 +138,10 @@ class CitationForm extends Form {
 		$citationFormTabs = array('Filled' => array(), 'Empty' => array());
 		foreach($this->_citationProperties as $fieldName => $property) {
 			$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
-			$citationFormTabs[$tabName][$fieldName] = $property->getDisplayName();
+			$citationFormTabs[$tabName][$fieldName] = array(
+				'displayName' => $property->getDisplayName(),
+				'required' => $property->getMandatory()
+			);
 		}
 		$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
 
@@ -172,6 +175,9 @@ class CitationForm extends Form {
 					'value' => $sourcePropertyValue
 				);
 			}
+
+			// Remove source descriptions that don't have data.
+			if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
 		}
 		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
 

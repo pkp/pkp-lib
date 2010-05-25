@@ -31,7 +31,7 @@
 				</div>
 			</td>
 		{else}
-			{$cells[$smarty.foreach.columnLoop.index]}
+			<td>{$cells[$smarty.foreach.columnLoop.index]}</td>
 		{/if}
 	{/foreach}
 </tr>

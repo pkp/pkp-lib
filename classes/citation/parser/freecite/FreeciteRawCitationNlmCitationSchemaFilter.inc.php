@@ -17,8 +17,6 @@
  *
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('FREECITE_WEBSERVICE', 'http://freecite.library.brown.edu/citations/create');
@@ -34,6 +32,13 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	//
 	// Implement template methods from Filter
 	//
+	/**
+	 * @see Filter::getDisplayName()
+	 */
+	function getDisplayName() {
+		return 'FreeCite';
+	}
+
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
@@ -61,6 +66,15 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		// Extract a publisher from the place string if possible
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
+
+		// Convert the genre
+		if (isset($metadata['genre'])) {
+			$genre = $metadata['genre'];
+			import('lib.pkp.classes.metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
+			$genreMap = OpenUrlNlmCitationSchemaCrosswalkFilter::_getOpenUrlGenreTranslationMapping();
+			$metadata['[@publication-type]'] = (isset($genreMap[$genre]) ? $genreMap[$genre] : $genre);
+			unset($metadata['genre']);
+		}
 
 		// Convert article title to source for dissertations
 		if (isset($metadata['[@publication-type]']) && $metadata['[@publication-type]'] == NLM_PUBLICATION_TYPE_THESIS && isset($metadata['article-title'])) {

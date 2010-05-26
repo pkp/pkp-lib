@@ -42,7 +42,7 @@
 			{if $nlm30Fpage}{$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}.{/if}
 		{elseif $nlm30PublicationType == 'conf-proc'}
 			. <i>{$nlm30ArticleTitle|escape}. </i>
-			Paper presented at {$nlm30ConfName|escape}
+			Paper presented at {$nlm30ConfName|escape}{if $nlm30ConfSponsor} of {$nlm30ConfSponsor|escape}{/if}
 			{if $nlm30ConfLoc}, {$nlm30ConfLoc|escape}{/if}.
 		{/if}
 		{if $nlm30Uri} Retrieved from {$nlm30Uri|escape}{/if}

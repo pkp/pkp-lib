@@ -22,9 +22,9 @@
 			{if $nlm30ChapterTitle}
 				{literal} {/literal}{$nlm30ChapterTitle|escape}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					. In: {include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
+					. In {include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
 				{else}
-					{literal}. In: {/literal}
+					{literal}. In {/literal}
 				{/if}
 			{else}
 				{literal}. {/literal}

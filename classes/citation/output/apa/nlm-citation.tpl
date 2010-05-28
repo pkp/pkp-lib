@@ -8,7 +8,7 @@
  *
  * NB: We don't use translation here as the texts are defined in the standard.
  *}
-{strip}
+<p style="text-indent:-2em;margin-left:2em">{strip}
 	{if $nlm30PublicationType != 'book' && $nlm30PublicationType != 'journal' && $nlm30PublicationType != 'conf-proc'}
 		{translate key="submission.citations.output.unsupportedPublicationType"}
 	{else}
@@ -22,9 +22,9 @@
 			{if $nlm30ChapterTitle}
 				{literal} {/literal}{$nlm30ChapterTitle|escape}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					. In: {include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
+					. In {include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
 				{else}
-					{literal}. In: {/literal}
+					{literal}. In {/literal}
 				{/if}
 			{else}
 				{literal}. {/literal}
@@ -48,4 +48,4 @@
 		{if $nlm30Uri} Retrieved from {$nlm30Uri|escape}{/if}
 		{if $nlm30PubIdPubIdTypeDoi} doi:{$nlm30PubIdPubIdTypeDoi|escape}{/if} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $authors}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[Google Scholar]</a>
 	{/if}	
-{/strip}
+{/strip}</p>

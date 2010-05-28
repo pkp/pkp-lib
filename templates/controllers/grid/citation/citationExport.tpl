@@ -14,9 +14,9 @@
 
 	<p>{translate key="submission.citations.output.exportDescription"}</p>
 
-	--<br/>
+	--<p/>
 	{foreach from=$formattedCitations key=citationIndex item=formattedCitation}
-		<a name="c{$citationIndex+1}_{$formattedCitation|strip_tags|truncate:50:'':false|regex_replace:'/[ ,.;:()]+/':'_'}" ></a>{$formattedCitation}<br/>
+		<a name="c{$citationIndex+1}_{$formattedCitation|strip_tags|truncate:50:'':false|regex_replace:'/[ ,.;:()]+/':'_'}" ></a>{$formattedCitation}
 	{/foreach}
 	--
 </div>

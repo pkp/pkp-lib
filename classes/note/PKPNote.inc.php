@@ -1,23 +1,21 @@
 <?php
 
 /**
- * @file classes/note/Note.inc.php
+ * @file classes/note/PKPNote.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Note
  * @ingroup note
- * @see NoteDAO
+ * @see PKPNoteDAO
  * @brief Class for Note.
  */
 
 // $Id$
 
-import('lib.pkp.classes.note.NoteDAO');
 
 class PKPNote extends DataObject {
-
 	/**
 	 * Constructor.
 	 */
@@ -40,7 +38,7 @@ class PKPNote extends DataObject {
 	function setUserId($userId) {
 		return $this->setData('userId', $userId);
 	}
-	
+
 	/**
 	 * Return the user of the note's author.
 	 * @return User
@@ -67,6 +65,22 @@ class PKPNote extends DataObject {
 	}
 
 	/**
+	 * get date note was modified
+	 * @return date (YYYY-MM-DD HH:MM:SS)
+	 */
+	function getDateModified() {
+		return $this->getData('dateModified');
+	}
+
+	/**
+	 * set date note was modified
+	 * @param $dateModified date (YYYY-MM-DD HH:MM:SS)
+	 */
+	function setDateModified($dateModified) {
+		return $this->setData('dateModified', $dateModified);
+	}
+
+	/**
 	 * get note contents
 	 * @return string
 	 */
@@ -76,10 +90,26 @@ class PKPNote extends DataObject {
 
 	/**
 	 * set note contents
-	 * @param $contents int
+	 * @param $contents string
 	 */
 	function setContents($contents) {
 		return $this->setData('contents', $contents);
+	}
+
+	/**
+	 * get note title
+	 * @return string
+	 */
+	function getTitle() {
+		return $this->getData('title');
+	}
+
+	/**
+	 * set note title
+	 * @param $title string
+	 */
+	function setTitle($title) {
+		return $this->setData('title', $title);
 	}
 
 	/**
@@ -117,18 +147,33 @@ class PKPNote extends DataObject {
 	 * get context id
 	 * @return int
 	 */
-	function getContext() {
-		return $this->getData('context');
+	function getContextId() {
+		return $this->getData('contextId');
 	}
 
 	/**
 	 * set context id
-	 * @param $context int
+	 * @param $contextId int
 	 */
-	function setContext($context) {
-		return $this->setData('context', $context);
+	function setContextId($contextId) {
+		return $this->setData('contextId', $contextId);
 	}
 
+	/**
+	 * get file id
+	 * @return int
+	 */
+	function getFileId() {
+		return $this->getData('fileId');
+	}
+
+	/**
+	 * set file id
+	 * @param $fileId int
+	 */
+	function setFileId($fileId) {
+		return $this->setData('fileId',$fileId);
+	}
 }
 
 ?>

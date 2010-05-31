@@ -299,7 +299,6 @@ class PKPApplication {
 			'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
 			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
 			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
-			'NoteDAO' => 'lib.pkp.classes.note.NoteDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',

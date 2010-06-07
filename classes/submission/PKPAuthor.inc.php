@@ -17,7 +17,6 @@
 
 
 class PKPAuthor extends DataObject {
-
 	/**
 	 * Constructor.
 	 */
@@ -60,6 +59,38 @@ class PKPAuthor extends DataObject {
 	}
 
 	/**
+	 * Get ID of submission.
+	 * @return int
+	 */
+	function getSubmissionId() {
+		return $this->getData('submissionId');
+	}
+
+	/**
+	 * Set ID of submission.
+	 * @param $submissionId int
+	 */
+	function setSubmissionId($submissionId) {
+		return $this->setData('submissionId', $submissionId);
+	}
+
+	/**
+	 * Set the user group id
+	 * @param $userGroupId int
+	 */
+	function setUserGroupId($userGroupId) {
+		$this->setData('userGroupId', $userGroupId);
+	}
+
+	/**
+	 * Get the user group id
+	 * @return int
+	 */
+	function getUserGroupId() {
+		return $this->getData('userGroupId');
+	}
+
+	/**
 	 * Get first name.
 	 * @return string
 	 */
@@ -71,8 +102,7 @@ class PKPAuthor extends DataObject {
 	 * Set first name.
 	 * @param $firstName string
 	 */
-	function setFirstName($firstName)
-	{
+	function setFirstName($firstName) {
 		return $this->setData('firstName', $firstName);
 	}
 
@@ -220,8 +250,13 @@ class PKPAuthor extends DataObject {
 	/**
 	 * Get the localized biography for this author
 	 */
-	function getAuthorBiography() {
+	function getLocalizedBiography() {
 		return $this->getLocalizedData('biography');
+	}
+
+	function getAuthorBiography() {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+		return $this->getLocalizedBiography();
 	}
 
 	/**

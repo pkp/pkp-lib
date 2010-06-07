@@ -49,30 +49,6 @@ class PKPAuthorDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve the IDs of all authors for a submission.
-	 * @param $submissionId int
-	 * @return array int ordered by sequence
-	 */
-	function &getAuthorIdsBySubmissionId($submissionId) {
-		$authors = array();
-
-		$result =& $this->retrieve(
-			'SELECT author_id FROM authors WHERE submission_id = ? ORDER BY seq',
-			(int) $submissionId
-		);
-
-		while (!$result->EOF) {
-			$authors[] = $result->fields[0];
-			$result->MoveNext();
-		}
-
-		$result->Close();
-		unset($result);
-
-		return $authors;
-	}
-
-	/**
 	 * Retrieve the number of authors assigned to a submission
 	 * @param $submissionId int
 	 * @return int

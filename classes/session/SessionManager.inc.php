@@ -64,7 +64,7 @@ class SessionManager {
 		$userAgent = $request->getUserAgent();
 		$now = time();
 
-		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != $userAgent) {
+		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || substr($this->userSession->getUserAgent(), 0, 255) != $userAgent) {
 			if (isset($this->userSession)) {
 				// Destroy old session
 				session_destroy();

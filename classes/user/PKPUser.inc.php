@@ -365,34 +365,29 @@ class PKPUser extends DataObject {
 		return $this->setData('biography', $biography, $locale);
 	}
 
-	/**
-	 * Get localized user interests.
-	 */
-	function getLocalizedInterests() {
-		return $this->getLocalizedData('interests');
-	}
-
 	function getUserInterests() {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedInterests();
+		return $this->getInterests();
 	}
-
+	
 	/**
 	 * Get user reviewing interests.
 	 * @param $locale string
 	 * @return string
 	 */
-	function getInterests($locale) {
-		return $this->getData('interests', $locale);
+	function getInterests() {
+		$interestDao =& DAORegistry::getDAO('InterestsDAO');
+		return implode(",", $interestDao->getInterests($this->getId()));
 	}
-
+	
 	/**
 	 * Set user reviewing interests.
 	 * @param $interests string
 	 * @param $locale string
 	 */
-	function setInterests($interests, $locale) {
-		return $this->setData('interests', $interests, $locale);
+	function setInterests($interests) {
+		$interestDao =& DAORegistry::getDAO('InterestsDAO');
+		$interestDao->insertInterests(explode(",", $interests), $this->getId(), true);
 	}
 
 	/**

@@ -1147,6 +1147,7 @@ class PKPTemplateManager extends Smarty {
 			$actOnType = isset($params['actOnType'])?$params['actOnType']:'';
 			$actOnId = $params['actOnId'];
 			$button = $params['button'];
+			$dialogTitle = isset($params['dialogTitle'])?$params['dialogTitle']: false;
 		}
 
 		// Translate modal submit/cancel buttons
@@ -1154,9 +1155,10 @@ class PKPTemplateManager extends Smarty {
 		$cancelButton = Locale::translate('common.cancel');
 
 		// Add the modal javascript to the header
+		$dialogTitle = isset($dialogTitle) ? ", '$dialogTitle'" : "";
 		$modalCode = "<script type='text/javascript'>
 		var localizedButtons = ['$submitButton', '$cancelButton'];
-		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button');
+		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button'$dialogTitle);
 		</script>\n";
 
 		return $modalCode;

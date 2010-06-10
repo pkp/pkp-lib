@@ -376,8 +376,8 @@ class PKPUser extends DataObject {
 	 * @return string
 	 */
 	function getInterests() {
-		$interestDao =& DAORegistry::getDAO('InterestsDAO');
-		return implode(",", $interestDao->getInterests($this->getId()));
+		$interestDao =& DAORegistry::getDAO('InterestDAO');
+		return implode(", ", $interestDao->getInterests($this->getId(), false));
 	}
 	
 	/**

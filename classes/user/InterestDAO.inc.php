@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/user/InterestsDAO.inc.php
+ * @file classes/user/InterestDAO.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -25,14 +25,18 @@ class InterestDAO extends ControlledVocabDAO {
 		return parent::build(CONTROLLED_VOCAB_INTEREST, ROLE_ID_REVIEWER, $userId);
 	}
 	
-	function getInterests($userId) {
+	function getInterests($userId, $withQuotes = true) {
 		$interests = $this->build($userId);
 		$interestEntryDao =& DAORegistry::getDAO('InterestEntryDAO');
 	 	$userInterests = $interestEntryDao->getByControlledVocabId($interests->getId());
 	 	
 	 	$returner = array();
 	 	while ($interest =& $userInterests->next()) {
-	 		$returner[] = "\"" . $interest->getInterest() . "\"";
+	 		if ($withQuotes) {
+		 		$returner[] = "\"" . $interest->getInterest() . "\"";
+		 	} else {
+				$returner[] = $interest->getInterest();
+		 	}
 	 		unset($interest);
 	 	}
 	 	

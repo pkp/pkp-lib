@@ -56,7 +56,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 */
 	function getAnnouncementTypeName($typeId) {
 		$result =& $this->retrieve(
-			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings l LEFT JOIN announcement_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?',
+			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings p LEFT JOIN announcement_type_settings l ON (l.type_id = ? AND l.setting_name = ? AND l.locale = ?) WHERE p.type_id = ? AND p.setting_name = ? AND p.locale = ?',
 			array(
 				$typeId, 'name', Locale::getLocale(),
 				$typeId, 'name', Locale::getPrimaryLocale()

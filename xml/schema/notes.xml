@@ -32,10 +32,13 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
-			<field name="date_created" type="T">
+		<field name="date_created" type="T">
 			<NOTNULL/>
 		</field>
-		<field name="context" type="I8"/>
+		<field name="date_modified" type="T" />
+		<field name="title" type="C2" size="255" />
+		<field name="file_id" type="I8" />
+		<field name="context_id" type="I8"/>
 		<field name="contents" type="X"/>
 		<index name="notes_assoc">
 			<col>assoc_type</col>

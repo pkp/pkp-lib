@@ -52,6 +52,7 @@
 	{/foreach}
 
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/tag-it.js"></script>
 	<!-- Add javascript required for font sizer -->
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>	
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/fontController.js" ></script>

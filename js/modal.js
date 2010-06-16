@@ -17,11 +17,12 @@
  * @param $apendTo Selector to append data to
  * @param $localizedButtons Array of translated 'Cancel/submit' strings
  * @param $callingButton Selector of the button that opens the modal
+ * @param $dialogTitle Set a custom title for the dialog
  */
-function modal(url, actType, actOnId, localizedButtons, callingButton) {
+function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTitle) {
 	$(document).ready(function() {
 		var validator = null;
-		var title = $(callingButton).text(); // Assign title to calling button's text
+		var title = dialogTitle ? dialogTitle : $(callingButton).text();
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var d = new Date();

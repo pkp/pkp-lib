@@ -885,6 +885,145 @@ class String {
 		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
 		return strtolower(implode('-', $words[0]));
 	}
+
+	/**
+	 * Calculate the differences between two strings and
+	 * produce an array with three types of entries: added
+	 * substrings, deleted substrings and unchanged substrings.
+	 *
+	 * The calculation is optimized to identify the common
+	 * largest substring.
+	 *
+	 * The return value is an array of the following format:
+	 *
+	 * array(
+	 *   array( diff-type => substring ),
+	 *   array(...)
+	 * )
+	 *
+	 * whereby diff-type can be one of:
+	 *   -1 = deletion
+	 *    0 = common substring
+	 *    1 = addition
+	 *
+	 * @param $string1 string
+	 * @param $string2 string
+	 * @return array
+	 */
+	function diff($originalString, $editedString) {
+		// Determine the length of the strings.
+		$originalStringLength = String::strlen($originalString);
+		$editedStringLength = String::strlen($editedString);
+
+		// Is there anything to compare?
+		if ($originalStringLength == 0 && $editedStringLength == 0) return array();
+
+		// Is the original string empty?
+		if ($originalStringLength == 0) {
+			// Return the edited string as addition.
+			return array(array(1 => $editedString));
+		}
+
+		// Is the edited string empty?
+		if ($editedStringLength == 0) {
+			// Return the original string as deletion.
+			return array(array(-1 => $originalString));
+		}
+
+		// Initialize the local indices:
+		// 1) Create a character index for the edited string.
+		$characterIndex = array();
+		for($characterPosition = 0; $characterPosition < $editedStringLength; $characterPosition++) {
+			$characterIndex[$editedString[$characterPosition]][] = $characterPosition;
+		}
+		// 2) Initialize the substring and the length index.
+		$substringIndex = $lengthIndex = array();
+
+		// Iterate over the original string to identify
+		// the largest common string.
+		for($originalPosition = 0; $originalPosition < $originalStringLength; $originalPosition++) {
+			// Find all occurrences of the original character
+			// in the target string.
+			$comparedCharacter = $originalString[$originalPosition];
+
+			// Do we have a commonality between the original string
+			// and the edited string?
+			if (isset($characterIndex[$comparedCharacter])) {
+				// Loop over all commonalities.
+				foreach($characterIndex[$comparedCharacter] as $editedPosition) {
+					// Calculate the current and the preceding position
+					// ids for indexation.
+					$currentPosition = $originalPosition . '-' . $editedPosition;
+					$previousPosition = ($originalPosition-1) . '-' . ($editedPosition-1);
+
+					// Does the occurrence in the target string continue
+					// an existing common substring or does it start
+					// a new one?
+					if (isset($substringIndex[$previousPosition])) {
+						// This is a continuation of an existing common
+						// substring...
+						$newSubstring = $substringIndex[$previousPosition].$comparedCharacter;
+						$newSubstringLength = String::strlen($newSubstring);
+
+						// Move the substring in the substring index.
+						$substringIndex[$currentPosition] = $newSubstring;
+						unset($substringIndex[$previousPosition]);
+
+						// Move the substring in the length index.
+						$lengthIndex[$newSubstringLength][$currentPosition] = $newSubstring;
+						unset($lengthIndex[$newSubstringLength - 1][$previousPosition]);
+					} else {
+						// Start a new common substring...
+						// Add the substring to the substring index.
+						$substringIndex[$currentPosition] = $comparedCharacter;
+
+						// Add the substring to the length index.
+						$lengthIndex[1][$currentPosition] = $comparedCharacter;
+					}
+				}
+			}
+		}
+
+		// If we have no commonalities at all then mark the original
+		// string as deleted and the edited string as added and
+		// return.
+		if (empty($lengthIndex)) {
+			return array(
+				array( -1 => $originalString ),
+				array( 1 => $editedString )
+			);
+		}
+
+		// Pop the largest common substrings from the length index.
+		end($lengthIndex);
+		$largestSubstringLength = key($lengthIndex);
+
+		// Take the first common substring if we have more than
+		// one substring with the same length.
+		// FIXME: Find a better heuristic for this decision.
+		reset($lengthIndex[$largestSubstringLength]);
+		$largestSubstringPosition = key($lengthIndex[$largestSubstringLength]);
+		list($largestSubstringEndOriginal, $largestSubstringEndEdited) = explode('-', $largestSubstringPosition);
+		$largestSubstring = $lengthIndex[$largestSubstringLength][$largestSubstringPosition];
+
+		// Add the largest common substring to the result set
+		$diffResult = array(array( 0 => $largestSubstring ));
+
+		// Prepend the diff of the substrings before the common substring
+		// to the result diff (by recursion).
+		$precedingSubstringOriginal = String::substr($originalString, 0, $largestSubstringEndOriginal-$largestSubstringLength+1);
+		$precedingSubstringEdited = String::substr($editedString, 0, $largestSubstringEndEdited-$largestSubstringLength+1);
+		$diffResult = array_merge(String::diff($precedingSubstringOriginal, $precedingSubstringEdited), $diffResult);
+
+		// Append the diff of the substrings after thr common substring
+		// to the result diff (by recursion).
+		$succeedingSubstringOriginal = String::substr($originalString, $largestSubstringEndOriginal+1);
+		$succeedingSubstringEdited = String::substr($editedString, $largestSubstringEndEdited+1);
+		$diffResult = array_merge($diffResult, String::diff($succeedingSubstringOriginal, $succeedingSubstringEdited));
+
+		// Return the array representing the diff.
+		return $diffResult;
+	}
 }
 
 ?>

@@ -40,6 +40,17 @@ abstract class DatabaseTestCase extends PKPTestCase {
 
 		// Database setup
 		$this->installTestSchema(self::TEST_SET_UP);
+
+		// Rather than using "include_once()", ADOdb uses
+		// a global variable to maintain the information
+		// whether its library has been included before (wtf!).
+		// This causes problems with PHPUnit as PHPUnit will
+		// delete all global state between two consecutive
+		// tests to isolate tests from each other.
+		if(function_exists('_array_change_key_case')) {
+			global $ADODB_INCLUDED_LIB;
+			$ADODB_INCLUDED_LIB = 1;
+		}
 	}
 
 	protected function tearDown() {

@@ -177,6 +177,9 @@ class String {
 		} else {
 			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
+			// The default length value for the native implementation
+			// differs
+			if ($length === false) $length = null;
 		}
 		return utf8_substr($string, $start, $length);
 	}

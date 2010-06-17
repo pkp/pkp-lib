@@ -43,6 +43,7 @@ class ValidatorRegExp extends Validator {
 		return (boolean)String::regexp_match_get($this->_regExp, $value, $this->_matches);
 	}
 
+
 	//
 	// Protected methods for use by sub-classes
 	//

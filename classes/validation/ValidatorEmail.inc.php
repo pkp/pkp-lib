@@ -28,7 +28,8 @@ class ValidatorEmail extends ValidatorRegExp {
 	// Public static methods
 	//
 	/**
-	 * @see ValidatorUri::getRegexp()
+	 * Return the regex for an email check. This can be called
+	 * statically.
 	 * @return string
 	 */
 	function getRegexp() {

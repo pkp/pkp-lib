@@ -1,0 +1,96 @@
+<?php
+/**
+ * @file classes/filter/TypeDescriptionFactory.inc.php
+ *
+ * Copyright (c) 2000-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class TypeDescriptionFactory
+ * @ingroup filter
+ *
+ * @brief A factory class that takes a plain text type descriptor
+ *  and instantiates the correct type description object based on
+ *  the descriptor's namespace.
+ */
+
+// Currently supported type descriptor namespaces
+define('TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE', 'primitive');
+define('TYPE_DESCRIPTION_NAMESPACE_CLASS', 'class');
+define('TYPE_DESCRIPTION_NAMESPACE_METADATA', 'metadata');
+define('TYPE_DESCRIPTION_NAMESPACE_XML', 'xml');
+define('TYPE_DESCRIPTION_NAMESPACE_VALIDATOR', 'validator');
+
+class TypeDescriptionFactory {
+	/**
+	 * Constructor
+	 **/
+	function TypeDescriptionFactory() {
+	}
+
+	//
+	// Public methods
+	//
+	/**
+	 * Takes a plain text type descriptor, identifies the namespace
+	 * and instantiates the corresponding type description object.
+	 *
+	 * @param $typeDescription string A plain text type description.
+	 *
+	 *  Type descriptions consist of two parts:
+	 *  * a type namespace
+	 *  * a type name (optionally including parameters like cardinality, etc.)
+	 *
+	 *  Example:
+	 *    primitive::string[5]
+	 *    -> namespace: primitive - type name: string[5]
+	 *
+	 *  Each namespace will be mapped to one subclass of the TypeDescription
+	 *  class which will then be responsible to parse the given type name.
+	 *
+	 * @return TypeDescription or null if the type description is invalid.
+	 */
+	function &instantiateTypeDescription($typeDescription) {
+		$nullVar = null;
+
+		// Identify the namespace
+		$typeDescriptionParts = explode('::', $typeDescription);
+		if (count($typeDescriptionParts) != 2) return $nullVar;
+
+		// Map the namespace to a type description class
+		$typeDescriptionClass = $this->_namespaceMap($typeDescriptionParts[0]);
+		if (is_null($typeDescriptionClass)) return $nullVar;
+
+		// Instantiate and return the type description object
+		import($typeDescriptionClass);
+		$typeDescriptionClassParts = explode('.', $typeDescriptionClass);
+		$typeDescriptionClassName = array_pop($typeDescriptionClassParts);
+		$typeDescriptionObject = new $typeDescriptionClassName($typeDescriptionParts[1]);
+		return $typeDescriptionObject;
+	}
+
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * Map a namespace to a fully qualified type descriptor
+	 * class name.
+	 *
+	 * FIXME: Move this map to the Application object.
+	 *
+	 * @param $namespace string
+	 * @return string
+	 */
+	function _namespaceMap($namespace) {
+		static $namespaceMap = array(
+			TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
+			TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
+			TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
+			TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
+			TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
+		);
+		if (!isset($namespaceMap[$namespace])) return null;
+		return $namespaceMap[$namespace];
+	}
+}
+?>

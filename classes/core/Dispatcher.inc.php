@@ -12,8 +12,6 @@
  * @brief Class dispatching HTTP requests to handlers.
  */
 
-// $Id$
-
 
 class Dispatcher {
 	/** @var PKPApplication */

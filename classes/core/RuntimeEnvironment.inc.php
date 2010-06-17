@@ -1,17 +1,15 @@
 <?php
 /**
- * @file classes/filter/RuntimeEnvironment.inc.php
+ * @file classes/core/RuntimeEnvironment.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RuntimeEnvironment
- * @ingroup filter
+ * @ingroup core
  *
  * @brief Class that describes a runtime environment.
  */
-
-// $Id$
 
 
 class RuntimeEnvironment {
@@ -27,13 +25,52 @@ class RuntimeEnvironment {
 	/** @var array */
 	var $_externalPrograms;
 
-	function RuntimeEnvironment($phpVersionMin, $phpVersionMax = null, $phpExtensions = array(), $externalPrograms = array()) {
-		$this->_phpVersionMin = PHP_REQUIRED_VERSION;
+	function RuntimeEnvironment($phpVersionMin = PHP_REQUIRED_VERSION, $phpVersionMax = null, $phpExtensions = array(), $externalPrograms = array()) {
+		$this->_phpVersionMin = $phpVersionMin;
 		$this->_phpVersionMax = $phpVersionMax;
 		$this->_phpExtensions = $phpExtensions;
 		$this->_externalPrograms = $externalPrograms;
 	}
 
+	//
+	// Setters and Getters
+	//
+	/**
+	 * Get the min required PHP version
+	 * @return string
+	 */
+	function getPhpVersionMin() {
+		return $this->_phpVersionMin;
+	}
+
+	/**
+	 * Get the max required PHP version
+	 * @return string
+	 */
+	function getPhpVersionMax() {
+		return $this->_phpVersionMax;
+	}
+
+	/**
+	 * Get the required PHP extensions
+	 * @return array
+	 */
+	function getPhpExtensions() {
+		return $this->_phpExtensions;
+	}
+
+	/**
+	 * Get the required external programs
+	 * @return array
+	 */
+	function getExternalPrograms() {
+		return $this->_externalPrograms;
+	}
+
+
+	//
+	// Public methods
+	//
 	/**
 	 * Checks whether the current runtime environment is
 	 * compatible with the specified parameters.
@@ -41,8 +78,8 @@ class RuntimeEnvironment {
 	 */
 	function isCompatible() {
 		// Check PHP version
-		if (!checkPhpVersion($this->_phpVersionMin)) return false;
-		if (version_compare(PHP_VERSION, $this->_phpVersionMax) === 1) return false;
+		if (!is_null($this->_phpVersionMin) && !checkPhpVersion($this->_phpVersionMin)) return false;
+		if (!is_null($this->_phpVersionMax) && version_compare(PHP_VERSION, $this->_phpVersionMax) === 1) return false;
 
 		// Check PHP extensions
 		foreach($this->_phpExtensions as $requiredExtension) {

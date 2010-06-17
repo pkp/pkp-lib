@@ -155,11 +155,11 @@
 
 	<!--
 	  *
-	  * TABLE transformations
+	  * TABLE filters
 	  *
 	  -->
-	<table name="transformations">
-		<field name="transformation_id" type="I8">
+	<table name="filters">
+		<field name="filter_id" type="I8">
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
@@ -168,19 +168,19 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="filter_class" type="C2" size="80"/>
+		<field name="class_name" type="C2" size="80"/>
 		<field name="input_type" type="C2" size="80" />
 		<field name="output_type" type="C2" size="80" />
-		<descr>Transformations (configured filter instances)</descr>
+		<descr>Configured filter instances (transformations)</descr>
 	</table>
 
 	<!--
 	  *
-	  * TABLE transformation_settings
+	  * TABLE filter_settings
 	  *
 	  -->
-	<table name="transformation_settings">
-		<field name="transformation_id" type="I8">
+	<table name="filter_settings">
+		<field name="filter_id" type="I8">
 			<NOTNULL />
 		</field>
 		<field name="locale" type="C2" size="5">
@@ -194,12 +194,12 @@
 		<field name="setting_type" type="C2" size="6">
 			<NOTNULL/>
 		</field>
-		<descr>Transformation Settings</descr>
-		<index name="transformation_settings_id">
-			<col>transformation_id</col>
+		<descr>Filter Settings</descr>
+		<index name="filter_settings_id">
+			<col>filter_id</col>
 		</index>
-		<index name="transformation_settings_pkey">
-			<col>transformation_id</col>
+		<index name="filter_settings_pkey">
+			<col>filter_id</col>
 			<col>locale</col>
 			<col>setting_name</col>
 			<UNIQUE />

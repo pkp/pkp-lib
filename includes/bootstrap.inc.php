@@ -17,8 +17,6 @@
  * Any system-wide imports or initialization code should be placed here.
  */
 
-// $Id$
-
 
 /**
  * Basic initialization (pre-classloading).

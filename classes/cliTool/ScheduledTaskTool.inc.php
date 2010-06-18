@@ -105,17 +105,10 @@ class ScheduledTaskTool extends CommandLineTool {
 	 * @param $args array the array of arguments to pass to the class constructors
 	 */
 	function executeTask($className, $args) {
-		// Strip off the package name(s) to get the base class name
-		$pos = strrpos($className, '.');
-		if ($pos === false) {
-			$baseClassName = $className;
-		} else {
-			$baseClassName = substr($className, $pos+1);
-		}
-
 		// Load and execute the task
-		import($className);
-		$task = new $baseClassName($args);
+		if (!is_object($task =& instantiate($className, null, null, 'execute', $args))) {
+			fatalError('Cannot instantiate task class.');
+		}
 		$task->execute();
 		$this->taskDao->updateLastRunTime($className);
 	}

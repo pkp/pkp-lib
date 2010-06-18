@@ -37,11 +37,9 @@ class DAO {
 	 */
 	function DAO($dataSource = null, $callHooks = true) {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
+			// Call hooks based on the object name. Results
 			// in hook calls named e.g. "sessiondao::_Constructor"
-			if (HookRegistry::call(strtolower($trace[1]['class']) . '::_Constructor', array(&$this, &$dataSource))) {
+			if (HookRegistry::call(strtolower(get_class($this)) . '::_Constructor', array(&$this, &$dataSource))) {
 				return;
 			}
 		}

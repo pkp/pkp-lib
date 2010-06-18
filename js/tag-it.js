@@ -92,7 +92,7 @@
 			el  = "<li class=\"tagit-choice\">\n";
 			el += value + "\n";
 			el += "<a class=\"close\">x</a>\n";
-			el += "<input type=\"hidden\" style=\"display:none;\" value=\""+value+"\" name=\"interests[]\">\n";
+			el += "<input type=\"hidden\" class=\"interestValue\" style=\"display:none;\" value=\""+value+"\" name=\"interests[]\">\n";
 			el += "</li>\n";
 			var li_search_tags = this.tag_input.parent();
 			$(el).insertBefore (li_search_tags);

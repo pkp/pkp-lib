@@ -897,3 +897,21 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 /* @end */
+
+/* @group Advanced reviewer selector */
+
+.sliderLabel {
+	margin-bottom: 10px;
+	font-size: .8em;	
+}
+	
+.sliderValue {
+	border: 0pt none;
+	font-weight: bold;
+	width: 50px;
+}
+
+.rangeSlider {
+	margin-left: 13px;	
+	width: 240px;
+}

@@ -27,6 +27,8 @@ class DataObject {
 	function DataObject($callHooks = true) {
 		// FIXME: Add meta-data schema plug-in support here to
 		// dynamically add supported meta-data schemas.
+		// Adapters should be added as class names and then
+		// lazy-loaded when required.
 
 		$this->_data = array();
 	}
@@ -159,8 +161,7 @@ class DataObject {
 	 * @param $metadataAdapter MetadataAdapter
 	 */
 	function addSupportedMetadataAdapter(&$metadataAdapter) {
-		$metadataSchema =& $metadataAdapter->getMetadataSchema();
-		$metadataSchemaName = $metadataSchema->getName();
+		$metadataSchemaName = $metadataAdapter->getMetadataSchemaName();
 
 		// Make sure that the meta-data schema is unique.
 		assert(!empty($metadataSchemaName));
@@ -177,11 +178,10 @@ class DataObject {
 	 * Remove the adapter for the given meta-data schema
 	 * (if it exists).
 	 *
-	 * @param $metadataSchema MetadataSchema
+	 * @param $metadataSchemaName string fully qualified class name
 	 * @return boolean true if an adapter was removed, otherwise false.
 	 */
-	function removeSupportedMetadataAdapter(&$metadataSchema) {
-		$metadataSchemaName = $metadataSchema->getName();
+	function removeSupportedMetadataAdapter($metadataSchemaName) {
 		if (isset($this->_metadataAdapters[$metadataSchemaName])) {
 			unset($this->_metadataAdapters[$metadataSchemaName]);
 			return true;

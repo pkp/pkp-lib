@@ -11,83 +11,33 @@
  * @see MetadataDescription
  *
  * @brief Class that provides methods to convert one type of
- *  meta-data description into another. This is an abstract template
- *  class that should be sub-classed by specific cross-walk
+ *  meta-data description into another. This is an abstract
+ *  class that must be sub-classed by specific cross-walk
  *  implementations.
  */
-
-// $Id$
 
 import('lib.pkp.classes.filter.Filter');
 
 class CrosswalkFilter extends Filter {
-	/** @var string */
-	var $_fromSchema;
-
-	/** @var string */
-	var $_toSchema;
-
 	/**
 	 * Constructor
-	 * @param $fromSchema string
-	 * @param $toSchema string
+	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
+	 * @param $toSchema string fully qualified class name of supported output meta-data schema
 	 */
-	function CrosswalkFilter($fromSchema, $toSchema) {
-		assert(class_exists($fromSchema) && class_exists($toSchema));
-		$this->_fromSchema = $fromSchema;
-		$this->_toSchema = $toSchema;
-	}
-
-	//
-	// Getters and setters
-	//
-	/**
-	 * Get the source meta-data schema class name
-	 * @return string
-	 */
-	function getFromSchema() {
-		return $this->_fromSchema;
-	}
-
-	/**
-	 * Get the target meta-data schema class name
-	 * @return MetadataSchema
-	 */
-	function getToSchema() {
-		return $this->_toSchema;
+	function CrosswalkFilter() {
+		parent::Filter();
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
+	 * @see Filter::getSupportedTransformation()
 	 */
-	function supports(&$input, &$output) {
-		// Validate input
-		if (!$this->_complies($input, $this->getFromSchema())) return false;
-
-		// Validate output
-		if (is_null($output)) return true;
-		return $this->_complies($output, $this->getToSchema());
-	}
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Checks whether a given description complies
-	 * with a given meta-data schema class name.
-	 * @param $metadataDescription MetadataDescription
-	 * @param $schemaClassName string
-	 * @return boolean
-	 */
-	function _complies(&$metadataDescription, $schemaClassName) {
-		if (!is_a($metadataDescription, 'MetadataDescription')) return false;
-		$descriptionSchema =& $metadataDescription->getMetadataSchema();
-		return (is_a($descriptionSchema, $schemaClassName));
+	function getSupportedTransformation($fromSchema, $toSchema) {
+		// We allow any type of described subject. See MetadataTypeDescription
+		// class doc for meta-data schema validation syntax used below.
+		return array('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
 	}
 }
 ?>

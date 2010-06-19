@@ -13,8 +13,6 @@
  * @brief Tests for the OpenUrlNlmCitationSchemaCrosswalkFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
 import('lib.pkp.tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
 

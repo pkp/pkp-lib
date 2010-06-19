@@ -12,12 +12,10 @@
  * @brief Class that transforms XML via XSL.
  */
 
-// $Id$
-
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.GenericFilter');
 import('lib.pkp.classes.xslt.XSLTransformer');
 
-class XSLTransformationFilter extends Filter {
+class XSLTransformationFilter extends GenericFilter {
 	/** @var DOMDocument|string either an XSL string or an XSL DOMDocument */
 	var $_xsl;
 
@@ -26,6 +24,36 @@ class XSLTransformationFilter extends Filter {
 
 	/** @var integer */
 	var $_resultType;
+
+	/**
+	 * Constructor
+	 *
+	 * @param $displayName string
+	 * @param $transformation array the supported transformation
+	 *
+	 * NB: The input side of the transformation must always
+	 * be an XML format. See the XMLTypeDescription class for
+	 * more details how to enable XML validation.
+	 */
+	function XSLTransformationFilter($displayName = 'XSL Transformation', $transformation = null) {
+		parent::GenericFilter($displayName, $transformation);
+	}
+
+
+	//
+	// Overridden methods from GenericFilter
+	//
+	/**
+	 * @see Filter::setTransformationType()
+	 * @see GenericFilter::setTransformationType()
+	 */
+	function setTransformationType($inputType, $outputType) {
+		// Intercept setTransformationType() to check that we
+		// only get xml input, the output type is arbitrary.
+		if (!substr($inputType, 0, 5) == 'xml::') fatalError('XSL filters need XML as input.');
+		parent::setTransformationType($inputType, $outputType);
+	}
+
 
 	//
 	// Getters and Setters
@@ -91,19 +119,10 @@ class XSLTransformationFilter extends Filter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * We support either an XML string or a DOMDocument
-	 * as input and / or output.
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
+	 * @see Filter::getClassName()
 	 */
-	function supports(&$input, &$output) {
-		// Check input type
-		if (!$this->_isValidXML($input)) return false;
-
-		// Check output type
-		if (is_null($output)) return true;
-		return $this->_isValidXML($output);
+	function getClassName() {
+		return 'lib.pkp.classes.xslt.XSLTransformationFilter';
 	}
 
 	/**
@@ -131,19 +150,6 @@ class XSLTransformationFilter extends Filter {
 		$xslTransformer = new XSLTransformer();
 		$result =& $xslTransformer->transform($xml, $xmlType, $this->_xsl, $this->_xslType, $this->_resultType);
 		return $result;
-	}
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Checks whether this is either a DOMDocument or a
-	 * string and whether the input combines with the XSL.
-	 * @param $input mixed
-	 * @return boolean
-	 */
-	function _isValidXML(&$xml) {
-		return (is_a($xml, 'DOMDocument') || is_string($xml));
 	}
 }
 ?>

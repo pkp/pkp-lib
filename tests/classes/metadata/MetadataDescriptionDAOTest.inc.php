@@ -15,8 +15,6 @@
 
 import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.metadata.MetadataDescriptionDAO');
-import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 class MetadataDescriptionDAOTest extends DatabaseTestCase {
@@ -30,15 +28,13 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 	public function testMetadataDescriptionCrud() {
 		$metadataDescriptionDAO = DAORegistry::getDAO('MetadataDescriptionDAO');
 
-		$nameSchema = new NlmNameSchema();
-		$nameDescription = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+		$nameDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
 		$nameDescription->addStatement('surname', $value = 'Bork');
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 
-		$citationSchema = new NlmCitationSchema();
-		$testDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
+		$testDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$testDescription->setAssocId(999999);
 		$testDescription->setDisplayName('test meta-data description');
 		$testDescription->setSeq(5);
@@ -56,12 +52,14 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 
 		// Retrieve meta-data description by id
 		$metadataDescriptionById = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
-		$testDescription->removeSupportedMetadataAdapter($citationSchema); // Required for comparison
+		$testDescription->removeSupportedMetadataAdapter('lib.pkp.classes.metadata.nlm.NlmCitationSchema'); // Required for comparison
+		$metadataDescriptionById->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionById);
 
 		$metadataDescriptionsByAssocIdDaoFactory = $metadataDescriptionDAO->getObjectsByAssocId(ASSOC_TYPE_CITATION, 999999);
 		$metadataDescriptionsByAssocId = $metadataDescriptionsByAssocIdDaoFactory->toArray();
 		self::assertEquals(1, count($metadataDescriptionsByAssocId));
+		$metadataDescriptionsByAssocId[0]->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionsByAssocId[0]);
 
 		// Update meta-data description
@@ -69,8 +67,9 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 		$testDescription->addStatement('article-title', $value = 'PHPUnit rápido', 'pt_BR');
 
 		$metadataDescriptionDAO->updateObject($testDescription);
-		$testDescription->removeSupportedMetadataAdapter($citationSchema); // Required for comparison
+		$testDescription->removeSupportedMetadataAdapter('lib.pkp.classes.metadata.nlm.NlmCitationSchema'); // Required for comparison
 		$metadataDescriptionAfterUpdate = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
+		$metadataDescriptionAfterUpdate->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionAfterUpdate);
 
 		// Delete meta-data description

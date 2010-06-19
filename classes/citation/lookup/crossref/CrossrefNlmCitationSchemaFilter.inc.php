@@ -23,18 +23,15 @@ import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
 
 class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string CrossRef registered access email */
-	var $_email = '';
-
 	/*
 	 * Constructor
 	 * @param $email string
 	 */
-	function CrossrefNlmCitationSchemaFilter($email) {
-		assert(!empty($email));
-		$this->_email = $email;
+	function CrossrefNlmCitationSchemaFilter() {
+		$this->setDisplayName('CrossRef');
 
 		parent::NlmCitationSchemaFilter(
+			NLM_CITATION_FILTER_LOOKUP,
 			array(
 				NLM_PUBLICATION_TYPE_JOURNAL,
 				NLM_PUBLICATION_TYPE_CONFPROC,
@@ -44,15 +41,24 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		);
 	}
 
+
 	//
 	// Getters and Setters
 	//
 	/**
-	 * Get the access email
+	 * Get the CrossRef registered access email
+	 * @param $email string
+	 */
+	function setEmail($email) {
+		$this->setData('email', $email);
+	}
+
+	/**
+	 * Get the CrossRef registered access email
 	 * @return string
 	 */
 	function getEmail() {
-		return $this->_email;
+		return $this->getData('email');
 	}
 
 
@@ -60,10 +66,17 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'CrossRef';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter';
+	}
+
+	/**
+	 * @see Filter::getSettingNames()
+	 */
+	function getSettingNames() {
+		return array('email');
 	}
 
 	/**
@@ -73,8 +86,11 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function &process(&$citationDescription) {
 		$nullVar = null;
+
+		$email = $this->getEmail();
+		assert(!empty($email));
 		$searchParams = array(
-			'pid' => $this->getEmail(),
+			'pid' => $email,
 			'noredirect' => 'true',
 			'format' => 'unixref'
 		);

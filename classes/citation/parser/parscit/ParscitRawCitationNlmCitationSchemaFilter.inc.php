@@ -28,17 +28,19 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 	 * Constructor
 	 */
 	function ParscitRawCitationNlmCitationSchemaFilter() {
-		parent::NlmCitationSchemaFilter();
+		$this->setDisplayName('ParsCit');
+
+		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'ParsCit';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter';
 	}
 
 	/**

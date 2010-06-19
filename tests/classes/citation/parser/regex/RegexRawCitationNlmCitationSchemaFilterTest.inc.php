@@ -13,8 +13,6 @@
  * @brief Tests for the RegexRawCitationNlmCitationSchemaFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
 import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
 
@@ -88,7 +86,8 @@ class RegexRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParse
 					'[@publication-type]' => 'book',
 					'person-group[@person-group-type="author"]' => array(
 						array('given-names' => array('P', 'R'), 'surname' => 'Murray'),
-						array('given-names' => array('K', 'S'), 'surname' => 'Rosenthal')
+						array('given-names' => array('K', 'S'), 'surname' => 'Rosenthal'),
+						'et-al'
 					),
 					'date' => '2002',
 					'source' => 'Medical microbiology. 4th ed',

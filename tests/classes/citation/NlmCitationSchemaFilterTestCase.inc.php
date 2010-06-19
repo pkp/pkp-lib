@@ -12,11 +12,7 @@
  * @brief Base class for all citation parser and lookup service implementation tests.
  */
 
-// $Id$
-
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
@@ -106,8 +102,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 		}
 
 		// Instantiate the NLM citation description
-		$nlmCitationSchema = new NlmCitationSchema();
-		$citationDescription = new MetadataDescription($nlmCitationSchema, ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($citationDescription->setStatements($citationArray));
 
 		return $citationDescription;
@@ -120,13 +115,16 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	 * @return MetadataDescription
 	 */
 	private function &instantiateNlmNameDescriptions(&$personArray, $assocType) {
-		$nlmNameSchema = new NlmNameSchema();
 		$personDescriptions = array();
 		foreach ($personArray as $key => $person) {
-			// Create a new NLM name description and fill it
-			// with the values from the test array.
-			$personDescription = new MetadataDescription($nlmNameSchema, $assocType);
-			self::assertTrue($personDescription->setStatements($person));
+			if ($person == PERSON_STRING_FILTER_ETAL) {
+				$personDescription = 'et-al';
+			} else {
+				// Create a new NLM name description and fill it
+				// with the values from the test array.
+				$personDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', $assocType);
+				self::assertTrue($personDescription->setStatements($person));
+			}
 
 			// Add the result to the descriptions list
 			$personDescriptions[$key] = $personDescription;

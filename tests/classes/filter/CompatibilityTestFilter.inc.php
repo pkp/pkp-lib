@@ -12,57 +12,27 @@
  * @brief Test class to be used to check FilterDAO's getCompatibleFilters method.
  */
 
-class CompatibilityTestFilter extends Filter {
+import('lib.pkp.classes.filter.GenericFilter');
+
+class CompatibilityTestFilter extends GenericFilter {
 	/**
 	 * Constructor
+	 *
+	 * @param $displayName string
+	 * @param $transformation array
 	 */
-	function CompatibilityTestFilter($displayName = null, $inputType = null, $outputType = null) {
-		$this->setDisplayName($displayName);
-		// Bypass the superclass' constructor
-		$this->_typeDescriptionFactory = new TypeDescriptionFactory();
-		if (!is_null($inputType)) $this->setData('configuredInputType', $inputType);
-		if (!is_null($outputType)) $this->setData('configuredOutputType', $outputType);
+	function CompatibilityTestFilter($displayName = null, $transformation = null) {
+		parent::GenericFilter($displayName, $transformation);
 	}
-
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getSettingNames()
-	 */
-	function getSettingNames() {
-		return array('configuredInputType', 'configuredOutputType');
-	}
-
-	/**
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.tests.classes.filter.CompatibilityTestFilter';
-	}
-
-
-	//
-	// Overridden methods from DataObject
-	//
-	/**
-	 * @see DataObject::setData()
-	 */
-	function setData($key, $value, $locale = null) {
-		// Intercept calls to setData() so that we can
-		// configure the input/output type even when
-		// instantiated from the database.
-		switch ($key) {
-			case 'configuredInputType':
-				$this->setInputType($value);
-				break;
-
-			case 'configuredOutputType':
-				$this->setOutputType($value);
-				break;
-		}
-		parent::setData($key, $value, $locale);
 	}
 }
 ?>

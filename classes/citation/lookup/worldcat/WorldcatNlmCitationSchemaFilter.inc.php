@@ -18,8 +18,6 @@
  *  and xISBN services to search for book citation metadata.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
@@ -31,17 +29,15 @@ define('WORLDCAT_WEBSERVICE_XISBN', 'http://xisbn.worldcat.org/webservices/xid/i
 // TODO: Should we use OCLC basic API as fallback (see <http://www.worldcat.org/devnet/wiki/BasicAPIDetails>)?
 
 class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string Worldcat API key */
-	var $_apiKey;
-
 	/**
 	 * Constructor
 	 * @param $apiKey string
 	 */
 	function WorldcatNlmCitationSchemaFilter($apiKey = '') {
-		$this->_apiKey = $apiKey;
+		$this->setData('apiKey', $apiKey);
+		$this->setDisplayName('Worldcat');
 
-		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
+		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//
@@ -52,17 +48,24 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return string
 	 */
 	function getApiKey() {
-		return $this->_apiKey;
+		return $this->getData('apiKey');
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'Worldcat';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter';
+	}
+
+	/**
+	 * @see Filter::getSettingNames()
+	 */
+	function getSettingNames() {
+		return array('apiKey');
 	}
 
 	/**

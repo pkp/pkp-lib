@@ -28,49 +28,51 @@
  *  disabled in shared hosting environments.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 import('lib.pkp.classes.metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter');
-import('lib.pkp.classes.metadata.openurl.OpenUrlBookSchema');
-import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
 define('CITATION_PARSER_PARACITE_JIAO', 'Jiao');
 
 class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string the paracite citation parser module to be used (default: 'Standard') */
-	var $_citationModule;
-
 	/*
 	 * Constructor
 	 */
 	function ParaciteRawCitationNlmCitationSchemaFilter($citationModule  = CITATION_PARSER_PARACITE_STANDARD) {
 		assert(in_array($citationModule, ParaciteRawCitationNlmCitationSchemaFilter::getSupportedCitationModules()));
-		$this->_citationModule = $citationModule;
-		parent::NlmCitationSchemaFilter();
+		$this->setData('citationModule', $citationModule);
+		$this->setDisplayName('ParaCite');
+
+		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
 	// Getters and Setters
 	//
 	/**
-	 * get the citationModule
+	 * get the citation module
 	 * @return string
 	 */
 	function getCitationModule() {
-		return $this->_citationModule;
+		return $this->getData('citationModule');
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'ParaCite';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter';
+	}
+
+	/**
+	 * @see Filter::getSettingNames()
+	 */
+	function getSettingNames() {
+		return array('citationModule');
 	}
 
 	/**
@@ -101,7 +103,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		// Call the paracite parser
 		$wrapperScript = dirname(__FILE__).DIRECTORY_SEPARATOR.'paracite.pl';
 		$paraciteCommand = $perlCommand.' '.escapeshellarg($wrapperScript).' '.
-		                   $this->_citationModule.' '.escapeshellarg($citationString);
+		                   $this->getCitationModule().' '.escapeshellarg($citationString);
 		$xmlResult = shell_exec($paraciteCommand);
 		if (empty($xmlResult)) return $nullVar;
 
@@ -206,7 +208,8 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchema = new OpenUrlBookSchema();
+				$openUrlSchemaName = 'lib.pkp.classes.metadata.openurl.OpenUrlBookSchema';
+				$openUrlSchemaClass = 'OpenUrlBookSchema';
 				break;
 
 			case OPENURL_GENRE_ARTICLE:
@@ -225,12 +228,14 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchema = new OpenUrlJournalSchema();
+				$openUrlSchemaName = 'lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema';
+				$openUrlSchemaClass = 'OpenUrlJournalSchema';
 				break;
 		}
 
 		// Instantiate an OpenURL description
-		$openUrlDescription = new MetadataDescription($openUrlSchema, ASSOC_TYPE_CITATION);
+		$openUrlDescription = new MetadataDescription($openUrlSchemaName, ASSOC_TYPE_CITATION);
+		$openUrlSchema = new $openUrlSchemaClass();
 
 		// Map the ParaCite result to OpenURL
 		foreach ($metadata as $paraciteElementName => $paraciteValue) {

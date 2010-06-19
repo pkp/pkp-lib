@@ -109,6 +109,9 @@ define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);
 define('METADATA_DESCRIPTION_REPLACE_NOTHING', 0x03);
 
 class MetadataDescription extends DataObject {
+	/** @var string fully qualified class name of the meta-data schema this description complies to */
+	var $_metadataSchemaName;
+
 	/** @var MetadataSchema the schema this description complies to */
 	var $_metadataSchema;
 
@@ -133,10 +136,10 @@ class MetadataDescription extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function MetadataDescription(&$metadataSchema, $assocType) {
-		assert(is_a($metadataSchema, 'MetadataSchema') && is_integer($assocType));
+	function MetadataDescription($metadataSchemaName, $assocType) {
+		assert(is_string($metadataSchemaName) && is_integer($assocType));
 		parent::DataObject();
-		$this->_metadataSchema =& $metadataSchema;
+		$this->_metadataSchemaName = $metadataSchemaName;
 		$this->_assocType = $assocType;
 	}
 
@@ -144,10 +147,24 @@ class MetadataDescription extends DataObject {
 	// Get/set methods
 	//
 	/**
+	 * Get the fully qualified class name of
+	 * the supported meta-data schema.
+	 */
+	function getMetadataSchemaName() {
+		return $this->_metadataSchemaName;
+	}
+
+	/**
 	 * Get the metadata schema
 	 * @return MetadataSchema
 	 */
 	function &getMetadataSchema() {
+		// Lazy-load the meta-data schema if this has
+		// not been done before.
+		if (is_null($this->_metadataSchema)) {
+			$this->_metadataSchema =& instantiate($this->getMetadataSchemaName(), 'MetadataSchema');
+			assert(is_object($this->_metadataSchema));
+		}
 		return $this->_metadataSchema;
 	}
 

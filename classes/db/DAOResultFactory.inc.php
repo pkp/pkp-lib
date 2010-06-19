@@ -13,8 +13,6 @@
  * objects from DAOs.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.core.ItemIterator');
 
@@ -50,7 +48,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 * @param $idFields array an array of primary key field names that uniquely
-	 *  identify a result row in the record set. 
+	 *  identify a result row in the record set.
 	 *  Should be data object _data array key, not database column name
 	 */
 	function DAOResultFactory(&$records, &$dao, $functionName, $idFields = array()) {
@@ -108,7 +106,7 @@ class DAOResultFactory extends ItemIterator {
 			$key = null;
 		} else {
 			assert(is_a($result, 'DataObject') && is_array($this->idFields));
-			$key = '';			
+			$key = '';
 			foreach($this->idFields as $idField) {
 				assert(!is_null($result->getData($idField)));
 				if (!empty($key)) $key .= '-';

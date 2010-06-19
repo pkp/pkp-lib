@@ -132,13 +132,5 @@ class XMLTypeDescription extends TypeDescription {
 
 		return true;
 	}
-
-	/**
-	 * @see TypeDescription::getScalarSampleObject()
-	 */
-	function &getScalarSampleObject() {
-		// FIXME: Currently not supported for this type description.
-		assert(false);
-	}
 }
 ?>

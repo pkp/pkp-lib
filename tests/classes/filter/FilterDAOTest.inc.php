@@ -40,6 +40,7 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Update filter instance
 		$testFilter->setData('apiKey', 'another api key');
+		$testFilter->setIsTemplate(true);
 
 		$filterDAO->updateObject($testFilter);
 		$filterAfterUpdate = $filterDAO->getObjectById($filterId);
@@ -59,14 +60,16 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Instantiate test filter objects
 		$testFilters = array(
-			new CompatibilityTestFilter('TestFilter1', 'primitive::string', 'primitive::string'),
-			new CompatibilityTestFilter('TestFilter2', 'primitive::string', 'validator::date('.DATE_FORMAT_ISO.')'),
-			new CompatibilityTestFilter('TestFilter3', 'metadata::lib.pkp.classes.metadata.NlmCitationSchema(CITATION)', 'primitive::string'),
-			new CompatibilityTestFilter('TestFilter4', 'validator::date('.DATE_FORMAT_ISO.')', 'primitive::string'),
-			new CompatibilityTestFilter('TestFilter5', 'primitive::string', 'primitive::integer')
+			new CompatibilityTestFilter('TestFilter1', array('primitive::string', 'primitive::string')),
+			new CompatibilityTestFilter('TestFilter2', array('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')')),
+			new CompatibilityTestFilter('TestFilter3', array('metadata::lib.pkp.classes.metadata.NlmCitationSchema(CITATION)', 'primitive::string')),
+			new CompatibilityTestFilter('TestFilter4', array('validator::date('.DATE_FORMAT_ISO.')', 'primitive::string')),
+			new CompatibilityTestFilter('TestFilter5', array('primitive::string', 'primitive::integer'))
 		);
 
-		// Introduce an impossible runtime condition in filter 4
+		// Introduce an impossible runtime condition in one filter
+		// that would otherwise be selected to test the runtime condition
+		// checking.
 		$testFilters[3]->setData('phpVersionMax', '2.0.0');
 
 		// Persist test filters

@@ -72,16 +72,6 @@ class ClassTypeDescription extends TypeDescription {
 		return true;
 	}
 
-	/**
-	 * @see TypeDescription::getScalarSampleObject()
-	 *
-	 * NB: We currently do not support any constructor arguments. If required
-	 * the type name syntax can be expanded to include constructor arguments.
-	 */
-	function &getScalarSampleObject() {
-		return ($this->instantiateClass($this->_packageName, $this->_className));
-	}
-
 
 	//
 	// Protected helper methods
@@ -116,9 +106,7 @@ class ClassTypeDescription extends TypeDescription {
 	 */
 	function &instantiateClass($packageName, $className) {
 		assert(!empty($packageName) && !empty($className));
-		import($packageName.'.'.$className);
-		assert(class_exists($className));
-		$object = new $className();
+		$object =& instantiate($packageName.'.'.$className, $className);
 		return $object;
 	}
 }

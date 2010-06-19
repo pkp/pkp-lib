@@ -21,8 +21,6 @@
  *  expressions.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
@@ -30,17 +28,19 @@ class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Constructor
 	 */
 	function RegexRawCitationNlmCitationSchemaFilter() {
-		parent::NlmCitationSchemaFilter();
+		$this->setDisplayName('RegEx');
+
+		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'RegEx';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter';
 	}
 
 	/**

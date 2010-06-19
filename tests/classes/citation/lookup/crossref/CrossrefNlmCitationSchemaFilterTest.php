@@ -13,8 +13,6 @@
  * @brief Tests for the CrossrefNlmCitationSchemaFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
 
@@ -77,7 +75,6 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 				'pub-id[@pub-id-type="doi"]' => '10.1093/ref:odnb/31418'
 			),
 			'testOutput' => array(
-				'pub-id[@pub-id-type="doi"]' => '10.1093/ref:odnb/31418',
 				'source' => 'The Oxford Dictionary of National Biography',
 				'date' => '2004-09-23',
 				'publisher-name' => 'Oxford University Press',
@@ -99,7 +96,8 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 		);
 
 		// Execute the tests
-		$filter = new CrossrefNlmCitationSchemaFilter(self::ACCESS_EMAIL);
+		$filter = new CrossrefNlmCitationSchemaFilter();
+		$filter->setEmail(self::ACCESS_EMAIL);
 		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
 	}
 
@@ -140,7 +138,8 @@ class CrossrefNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 		);
 
 		// Execute the test
-		$filter = new CrossrefNlmCitationSchemaFilter(self::ACCESS_EMAIL);
+		$filter = new CrossrefNlmCitationSchemaFilter();
+		$filter->setEmail(self::ACCESS_EMAIL);
 		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
 	}
 }

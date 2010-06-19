@@ -23,8 +23,29 @@ define('TYPE_DESCRIPTION_NAMESPACE_VALIDATOR', 'validator');
 class TypeDescriptionFactory {
 	/**
 	 * Constructor
+	 *
+	 * NB: Should not be called directly!
+	 * Always use getInstance().
 	 **/
 	function TypeDescriptionFactory() {
+	}
+
+	//
+	// Public static method
+	//
+	/**
+	 * Return an instance of the session manager.
+	 * @return SessionManager
+	 */
+	function &getInstance() {
+		$instance =& Registry::get('typeDescriptionFactory', true, null);
+
+		if (is_null($instance)) {
+			// Implicitly set type description factory by ref in the registry
+			$instance = new TypeDescriptionFactory();
+		}
+
+		return $instance;
 	}
 
 	//
@@ -61,10 +82,9 @@ class TypeDescriptionFactory {
 		if (is_null($typeDescriptionClass)) return $nullVar;
 
 		// Instantiate and return the type description object
-		import($typeDescriptionClass);
-		$typeDescriptionClassParts = explode('.', $typeDescriptionClass);
-		$typeDescriptionClassName = array_pop($typeDescriptionClassParts);
-		$typeDescriptionObject = new $typeDescriptionClassName($typeDescriptionParts[1]);
+		$typeDescriptionObject =& instantiate($typeDescriptionClass, 'TypeDescription', null, null, $typeDescriptionParts[1]);
+		if (!is_object($typeDescriptionObject)) return $nullVar;
+
 		return $typeDescriptionObject;
 	}
 

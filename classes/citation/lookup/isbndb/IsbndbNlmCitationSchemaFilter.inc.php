@@ -23,17 +23,13 @@ define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string ISBNdb API key */
-	var $_apiKey = '';
-
 	/*
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function IsbndbNlmCitationSchemaFilter($apiKey) {
-		assert(!empty($apiKey));
-		$this->_apiKey = $apiKey;
-		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
+	function IsbndbNlmCitationSchemaFilter($apiKey = null) {
+		$this->setData('apiKey', $apiKey);
+		parent::NlmCitationSchemaFilter(null, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//
@@ -44,7 +40,17 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return string
 	 */
 	function getApiKey() {
-		return $this->_apiKey;
+		return $this->getData('apiKey');
+	}
+
+	//
+	// Implement template methods from Filter
+	//
+	/**
+	 * @see Filter::getSettingNames()
+	 */
+	function getSettingNames() {
+		return array('apiKey');
 	}
 
 	//

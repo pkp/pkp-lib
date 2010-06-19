@@ -20,7 +20,9 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function IsbndbIsbnNlmCitationSchemaFilter($apiKey) {
+	function IsbndbIsbnNlmCitationSchemaFilter($apiKey = null) {
+		$this->setDisplayName('ISBNdb');
+
 		parent::IsbndbNlmCitationSchemaFilter($apiKey);
 	}
 
@@ -28,10 +30,20 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getSupportedTransformation()
 	 */
-	function getDisplayName() {
-		return 'ISBNdb';
+	function getSupportedTransformation() {
+		return array(
+			'primitive::string',
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+		);
+	}
+
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter';
 	}
 
 	/**

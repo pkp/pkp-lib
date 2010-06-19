@@ -13,8 +13,6 @@
  * @brief Tests for the NlmNameSchemaPersonStringFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
 
@@ -32,8 +30,7 @@ class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 	 * @covers NlmNameSchemaPersonStringFilter::_flattenPersonDescription
 	 */
 	public function &testExecuteWithSinglePersonDescription() {
-		$nlmNameSchema = new NlmNameSchema();
-		$personDescription = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+		$personDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		$personDescription->addStatement('given-names', $givenNames = 'Machado');
 		$personDescription->addStatement('prefix', $prefix = 'de');
 		$personDescription->addStatement('surname', $surname = 'Assis');
@@ -50,8 +47,7 @@ class NlmNameSchemaPersonStringFilterTest extends PKPTestCase {
 	 * @depends testExecuteWithSinglePersonDescription
 	 */
 	public function testExecuteWithMultiplePersonDescriptions($personDescription1) {
-		$nlmNameSchema = new NlmNameSchema();
-		$personDescription2 = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+		$personDescription2 = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		$personDescription2->addStatement('given-names', $givenNames1 = 'Bernardo');
 		$personDescription2->addStatement('given-names', $givenNames2 = 'Antonio');
 		$personDescription2->addStatement('surname', $surname = 'Elis');

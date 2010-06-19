@@ -38,22 +38,5 @@ class ClassTypeDescriptionTest extends PKPTestCase {
 		// An unknown type name will cause an error.
 		$typeDescription = new ClassTypeDescription('ClassWithoutPackage');
 	}
-
-	/**
-	 * @covers ClassTypeDescription
-	 */
-	public function testGetSampleObject() {
-		// Test scalar types
-		$typeDescription = new ClassTypeDescription('lib.pkp.tests.classes.filter.TestClass1');
-		self::assertType('TestClass1', $typeDescription->getSampleObject());
-
-		// Test an array type
-		$typeDescription = new ClassTypeDescription('lib.pkp.tests.classes.filter.TestClass1[2]');
-		$sampleObject = $typeDescription->getSampleObject();
-		self::assertEquals(2, count($sampleObject));
-		for ($i = 0; $i < 2; $i ++) {
-			self::assertType('TestClass1', $sampleObject[$i]);
-		}
-	}
 }
 ?>

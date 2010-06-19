@@ -16,19 +16,17 @@
  *  to a de-multiplexer filter.
  */
 
-// $Id$
+import('lib.pkp.classes.filter.GenericFilter');
 
-import('lib.pkp.classes.filter.Filter');
-
-class GenericMultiplexerFilter extends Filter {
+class GenericMultiplexerFilter extends GenericFilter {
 	/** @var array An unordered array of filters that we run the input over */
 	var $_filters = array();
 
 	/**
 	 * Constructor
 	 */
-	function GenericMultiplexerFilter() {
-		parent::Filter();
+	function GenericMultiplexerFilter($displayName = null, $transformation = null) {
+		parent::GenericFilter($displayName, $transformation);
 	}
 
 	//
@@ -47,30 +45,10 @@ class GenericMultiplexerFilter extends Filter {
 	// Implementing abstract template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getClassName()
 	 */
-	function supports(&$input, &$output) {
-		// Preliminary check: do we have filters at all?
-		if(!count($this->_filters)) return false;
-
-		if (!is_null($output)) {
-			// Pre-check the number of the output objects
-			if (!is_array($output) || count($output) != count($this->_filters)) return false;
-		}
-
-		// Iterate over the filters and check the
-		// corresponding inputs and outputs.
-		foreach($this->_filters as $outputNumber => $filter) {
-			$currentOutput = (is_null($output) ? null : $output[$outputNumber]);
-			if (!$filter->supports($input, $currentOutput)) return false;
-		}
-
-		// If all individual filter validations passed then this
-		// filter supports the given data
-		return true;
+	function getClassName() {
+		return 'lib.pkp.classes.filter.GenericMultiplexerFilter';
 	}
 
 	/**

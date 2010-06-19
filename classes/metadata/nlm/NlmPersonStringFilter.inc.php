@@ -34,6 +34,7 @@ class NlmPersonStringFilter extends Filter {
 	 */
 	function NlmPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE) {
 		$this->_filterMode = $filterMode;
+		parent::Filter();
 	}
 
 	//
@@ -53,6 +54,35 @@ class NlmPersonStringFilter extends Filter {
 	 */
 	function setFilterMode($filterMode) {
 		$this->_filterMode = $filterMode;
+
+		// A change in the filter mode also
+		// changes the transformation type.
+		$supportedTransformations = $this->getSupportedTransformations();
+		assert(count($supportedTransformations) == 1);
+		$this->setTransformationType($supportedTransformations[0][0], $supportedTransformations[0][1]);
+	}
+
+
+	//
+	// Implement template methods from Filter
+	//
+	/**
+	 * @see Filter::getSupportedTransformations()
+	 * @param $singleMode array the transformation in single mode
+	 * @param $multiMode array the transformation in multi mode
+	 * @return array the supported transformations depending on the filter mode
+	 */
+	function getSupportedTransformations($singleMode, $multiMode) {
+		switch($this->getFilterMode()) {
+			case PERSON_STRING_FILTER_SINGLE:
+				return array($singleMode);
+
+			case PERSON_STRING_FILTER_MULTIPLE:
+				return array($multiMode);
+
+			default:
+				return array($singleMode, $multiMode);
+		}
 	}
 
 
@@ -60,33 +90,26 @@ class NlmPersonStringFilter extends Filter {
 	// Private helper methods
 	//
 	/**
-	 * Check whether the given input is a valid (array of)
-	 * person description(s).
-	 * @param $personDescription mixed
-	 * @return boolean
+	 * Remove et-al entries from input/output which are valid but do not
+	 * conform to the canonical transformation type definition.
+	 * @param $personDescriptions mixed
+	 * @return array|boolean false if more than one et-al string was found
+	 *  otherwise the filtered person description list.
+	 *
+	 * NB: We cannot pass person descriptions by reference otherwise
+	 * we'd alter our data.
 	 */
-	function isValidPersonDescription(&$personDescription) {
-		// Check the filter mode
-		if (is_array($personDescription)) {
-			if (!$this->_filterMode == PERSON_STRING_FILTER_MULTIPLE) return false;
-			$validationArray = &$personDescription;
-		} else {
-			if (!$this->_filterMode == PERSON_STRING_FILTER_SINGLE) return false;
-			$validationArray = array(&$personDescription);
-		}
+	function &removeEtAlEntries($personDescriptions) {
+		// Et-al is only allowed in multi-mode
+		assert($this->getFilterMode() == PERSON_STRING_FILTER_MULTIPLE && is_array($personDescriptions));
 
-		// Validate all descriptions
-		foreach($validationArray as $nameDescription) {
-			// The et-al string is considered a valid person description.
-			if (!(is_string($nameDescription) && $nameDescription == PERSON_STRING_FILTER_ETAL)) {
-				if (!is_a($nameDescription, 'MetadataDescription')) return false;
-				$metadataSchema =& $nameDescription->getMetadataSchema();
-				if ($metadataSchema->getName() != 'nlm-3.0-name') return false;
-				unset($metadataSchema);
-			}
-		}
+		// Remove et-al strings
+		$resultArray = array_filter($personDescriptions, create_function('$pd', 'return $pd != "'.PERSON_STRING_FILTER_ETAL.'";'));
 
-		return true;
+		// There can be exactly one et-al string
+		if (count($resultArray) < count($personDescriptions)-1) return false;
+
+		return $resultArray;
 	}
 }
 ?>

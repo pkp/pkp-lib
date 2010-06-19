@@ -18,8 +18,6 @@
  *  meta-data for a given NLM citation.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
 define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
@@ -27,9 +25,6 @@ define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils
 define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
 
 class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string */
-	var $_email;
-
 	/**
 	 * Constructor
 	 * @param $email string FIXME: This could be PKP's technical
@@ -38,9 +33,11 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function PubmedNlmCitationSchemaFilter($email = null) {
 		assert(is_null($email) || is_string($email));
-		$this->_email = $email;
+		$this->setData('email', $email);
+		$this->setDisplayName('Pubmed');
 
 		parent::NlmCitationSchemaFilter(
+			NLM_CITATION_FILTER_LOOKUP,
 			array(
 				NLM_PUBLICATION_TYPE_JOURNAL,
 				NLM_PUBLICATION_TYPE_CONFPROC
@@ -56,17 +53,24 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return string
 	 */
 	function getEmail() {
-		return $this->_email;
+		return $this->getData('email');
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'Pubmed';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter';
+	}
+
+	/**
+	 * @see Filter::getSettingNames()
+	 */
+	function getSettingNames() {
+		return array('email');
 	}
 
 	/**
@@ -259,13 +263,12 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			$metadata['issue'] = $resultDOM->getElementsByTagName("Issue")->item(0)->textContent;
 
 		// get list of author full names
-		$nlmNameSchema = new NlmNameSchema();
 		foreach ($resultDOM->getElementsByTagName("Author") as $authorNode) {
 			if (!isset($metadata['person-group[@person-group-type="author"]']))
 				$metadata['person-group[@person-group-type="author"]'] = array();
 
 			// Instantiate an NLM name description
-			$authorDescription = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+			$authorDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 
 			// Surname
 			$authorDescription->addStatement('surname', $authorNode->getElementsByTagName("LastName")->item(0)->textContent);

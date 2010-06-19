@@ -109,23 +109,5 @@ class MetadataTypeDescription extends ClassTypeDescription {
 
 		return true;
 	}
-
-	/**
-	 * @see TypeDescription::getScalarSampleObject()
-	 *
-	 * NB: We currently do not support any constructor arguments. If required
-	 * the type name syntax can be expanded to include constructor arguments.
-	 */
-	function &getScalarSampleObject() {
-		// Instantiate the correct meta-data schema.
-		$metadataSchema =& $this->instantiateClass($this->_metadataSchemaPackageName, $this->_metadataSchemaClassName);
-		assert(is_a($metadataSchema, 'MetadataSchema'));
-
-		// Instantiate the meta-data description.
-		import('lib.pkp.classes.metadata.MetadataDescription');
-		$metadataDescription = new MetadataDescription($metadataSchema, $this->_assocType);
-
-		return $metadataDescription;
-	}
 }
 ?>

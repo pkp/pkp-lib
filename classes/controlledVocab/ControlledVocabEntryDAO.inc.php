@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying ControlledVocabEntry objects
  */
 
-//$Id$
-
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
 
 class ControlledVocabEntryDAO extends DAO {
@@ -133,7 +131,7 @@ class ControlledVocabEntryDAO extends DAO {
 		);
 		$controlledVocabEntry->setId($this->getInsertId());
 		$this->updateLocaleFields($controlledVocabEntry);
-		return $controlledVocabEntry->getId();
+		return (int)$controlledVocabEntry->getId();
 	}
 
 	/**

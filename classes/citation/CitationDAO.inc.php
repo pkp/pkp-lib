@@ -220,7 +220,7 @@ class CitationDAO extends DAO {
 		$this->getDataObjectSettings('citation_settings', 'citation_id', $row['citation_id'], $citation);
 
 		// Add citation source descriptions
-		$sourceDescriptions = $this->_getCitationSourceDescriptions($citation->getId());
+		$sourceDescriptions =& $this->_getCitationSourceDescriptions($citation->getId());
 		while ($sourceDescription =& $sourceDescriptions->next()) {
 			$citation->addSourceDescription($sourceDescription);
 		}

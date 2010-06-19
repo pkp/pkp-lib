@@ -13,29 +13,34 @@
  *  YYYY[-MM[-DD]].
  */
 
-// $Id$
-
 import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.validation.ValidatorDate');
 
 class DateStringNormalizerFilter extends Filter {
+	/**
+	 * Constructor
+	 */
+	function DateStringNormalizerFilter() {
+		$this->setDisplayName('Date String Normalizer');
+
+		parent::Filter();
+	}
+
 	//
-	// Implement template methods from Filter
+	// Implement abstract methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getSupportedTransformation()
 	 */
-	function supports(&$input, &$output) {
-		// Check input type
-		if(!is_string($input)) return false;
+	function getSupportedTransformation() {
+		return array('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
+	}
 
-		// Check output type
-		if(is_null($output)) return true;
-		if(!is_string($output)) return false;
-		// Check whether the output is correctly formatted
-		return (boolean)String::regexp_match("/\d{4}(-\d{2}(-\d{2})?)?/", $output);
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.metadata.DateStringNormalizerFilter';
 	}
 
 	/**
@@ -65,16 +70,14 @@ class DateStringNormalizerFilter extends Filter {
 					if (isset($parsedDate['monthName'])) {
 						$monthName = substr($parsedDate['monthName'], 0, 3);
 						if (isset($monthNames[$monthName])) {
-							// Convert the month name to a two digit numeric month representation
-							// before adding it to the normalized date string.
+							// Convert the month name to a two digit numeric month representation.
 							$month = $monthNames[$monthName];
 						}
 					}
 
 					if (isset($parsedDate['month'])) {
-						$monthInt = (integer)$parsedDate['month'];
-						if ($monthInt >=1 && $monthInt <= 12)
-							$month = str_pad((string)$monthInt, 2, '0', STR_PAD_LEFT);
+						// Convert month to a two digit representation.
+						$month = str_pad($parsedDate['month'], 2, '0', STR_PAD_LEFT);
 					}
 
 					if (!empty($month)) {

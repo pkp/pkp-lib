@@ -12,8 +12,6 @@
  * @brief Class mapping an HTTP request to a handler or context.
  */
 
-// $Id$
-
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 

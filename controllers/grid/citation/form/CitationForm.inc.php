@@ -236,10 +236,10 @@ class CitationForm extends Form {
 		$metadataAdapters = $citation->getSupportedMetadataAdapters();
 		foreach($metadataAdapters as $metadataAdapter) {
 			// Instantiate a meta-data description for the given schema
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			$metadataDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+			$metadataDescription = new MetadataDescription($metadataAdapter->getMetadataSchemaName(), ASSOC_TYPE_CITATION);
 
 			// Set the meta-data statements
+			$metadataSchema =& $metadataAdapter->getMetadataSchema();
 			foreach($metadataSchema->getProperties() as $propertyName => $property) {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));

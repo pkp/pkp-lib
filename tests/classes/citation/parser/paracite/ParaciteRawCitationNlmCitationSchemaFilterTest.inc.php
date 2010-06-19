@@ -13,8 +13,6 @@
  * @brief Tests for the ParaciteRawCitationNlmCitationSchemaFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
 import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
 
@@ -66,7 +64,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 					'testInput' => 'Crackton, P. (1987). The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34-37.',
 					'testOutput' => array(
 						'[@publication-type]' => 'journal',
-						'article-title' => 'Canadian Chan',
+						'source' => 'Canadian Chan',
 						'person-group[@person-group-type="author"]' => array(
 							array('given-names' => array('P'), 'surname' => 'Crackton')
 						),
@@ -90,7 +88,7 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 					'testInput' => 'Crackton, P. (1987). The Loonie: God\'s long-awaited gift to colourful pocket change? Canadian Change, 64(7), 34–37.',
 					'testOutput' => array(
 						'[@publication-type]' => 'journal',
-						'article-title' => 'Canadian Chan',
+						'source' => 'Canadian Chan',
 						'fpage' => 34,
 						'date' => '1987',
 						'issue' => '7',

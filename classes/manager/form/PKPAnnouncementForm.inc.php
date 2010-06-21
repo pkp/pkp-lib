@@ -152,6 +152,8 @@ class PKPAnnouncementForm extends Form {
 			$announcement->setDatetimePosted(Core::getCurrentDate());
 			$announcementDao->insertAnnouncement($announcement);
 		}
+
+		return $announcement;
 	}
 
 	function _getAnnouncementTypesAssocId() {

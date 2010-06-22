@@ -134,7 +134,8 @@ class Form {
 		$templateMgr->register_function('fbvCheckbox', array(&$this, 'smartyFBVCheckbox'));
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
 		$templateMgr->register_function('fbvFileInput', array(&$this, 'smartyFBVFileInput'));
-
+		$templateMgr->register_function('fbvKeywordInput', array(&$this, 'smartyFBVKeywordInput'));
+		
 		$templateMgr->assign('fbvStyles', $this->fbvStyles);
 
 		$templateMgr->assign($this->_data);
@@ -972,6 +973,34 @@ class Form {
 		$smarty->assign('FBV_radioParams', $radioParams);
 
 		return $smarty->fetch('form/fileInput.tpl');
+	}
+	
+	/**
+	 * Keyword input.
+	 * parameters: available - all available keywords (for autosuggest); current - user's current keywords
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVKeywordInput($params, &$smarty) {
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: file input form element \'id\' not set.');
+		}
+
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'class': break; //ignore class attributes
+				case 'type': break;
+				case 'id': $smarty->assign('FBV_id', $params['id']); break;
+				case 'label': $smarty->assign('FBV_label', $params['label']); break;
+				case 'available': $smarty->assign('FBV_availableKeywords', $params['available']); break;
+				case 'current': $smarty->assign('FBV_currentKeywords', $params['current']); break;
+				default: $keywordParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+			}
+		}
+
+		$smarty->assign('FBV_keywordParams', $keywordParams);
+
+		return $smarty->fetch('form/keywordInput.tpl');
 	}
 	
 	/**

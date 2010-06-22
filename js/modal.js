@@ -333,15 +333,7 @@ function updateItem(actType, actOnId, content) {
 			$('#' + actOnId).append(content);
 			break;
 		case 'replace':
-			var $p = $('#' + actOnId).prev();
-			if($p.size() == 0) {
-				$a = $('#' + actOnId).next();
-				$('#' + actOnId).remove();
-				$a.before(content);
-			} else {
-				$('#' + actOnId).remove();
-				$p.after(content);
-			}
+			$('#' + actOnId).replaceWith(content);
 			break;
 		case 'remove':
 			if ($('#' + actOnId).siblings().length == 0) {

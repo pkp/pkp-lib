@@ -16,11 +16,10 @@
  * @brief Abstract filter that wraps the ISBNdb web service.
  */
 
-// $Id$
-
 define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.filter.FilterSetting');
 
 class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/*
@@ -28,7 +27,14 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @param $apiKey string
 	 */
 	function IsbndbNlmCitationSchemaFilter($apiKey = null) {
-		$this->setData('apiKey', $apiKey);
+		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
+
+		// Instantiate the settings of this filter
+		$apiKeySetting = new FilterSetting('apiKey',
+				'metadata.filters.isbndb.settings.apiKey.displayName',
+				'metadata.filters.isbndb.settings.apiKey.validationMessage');
+		$this->addSetting($apiKeySetting);
+
 		parent::NlmCitationSchemaFilter(null, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
@@ -41,16 +47,6 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function getApiKey() {
 		return $this->getData('apiKey');
-	}
-
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::getSettingNames()
-	 */
-	function getSettingNames() {
-		return array('apiKey');
 	}
 
 	//

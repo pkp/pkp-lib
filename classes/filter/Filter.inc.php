@@ -90,6 +90,9 @@ class Filter extends DataObject {
 	/** @var mixed */
 	var $_output;
 
+	/** @var array a list of FilterSetting objects */
+	var $_settings = array();
+
 	/** @var array a list of errors occurred while filtering */
 	var $_errors = array();
 
@@ -311,6 +314,30 @@ class Filter extends DataObject {
 	}
 
 	/**
+	 * Add a filter setting
+	 * @param $setting FilterSetting
+	 */
+	function addSetting(&$setting) {
+		$this->_settings[] =& $setting;
+	}
+
+	/**
+	 * Get all filter settings
+	 * @return array a list of FilterSetting objects
+	 */
+	function &getSettings() {
+		return $this->_settings;
+	}
+
+	/**
+	 * Can this filter be parameterized?
+	 * @return boolean
+	 */
+	function hasSettings() {
+		return (is_array($this->_settings) && count($this->_settings));
+	}
+
+	/**
 	 * Set the required runtime environment
 	 * @param $runtimeEnvironment RuntimeEnvironment
 	 */
@@ -380,39 +407,6 @@ class Filter extends DataObject {
 	}
 
 	/**
-	 * Return an array with the names of filter settings.
-	 *
-	 * Subclasses must override this method if they
-	 * require configuration which must be persisted
-	 * to the database.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getSettingNames() {
-		return array();
-	}
-
-	/**
-	 * Return an array with the names of localized
-	 * filter settings.
-	 *
-	 * Subclasses must override this method if they
-	 * require configuration which must be persisted
-	 * to the database.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getLocalizedSettingNames() {
-		return array();
-	}
-
-	/**
 	 * Subclasses can override this method if they
 	 * support exactly one transformation.
 	 *
@@ -467,6 +461,43 @@ class Filter extends DataObject {
 	//
 	// Public methods
 	//
+	/**
+	 * Return an array with the names of filter settings.
+	 *
+	 * This will be used by the FilterDAO for filter
+	 * setting persistence.
+	 *
+	 * @return array
+	 */
+	function getSettingNames() {
+		$settingNames = array();
+		foreach($this->getSettings() as $setting) {
+			if (!$setting->getIsLocalized()) {
+				$settingNames[] = $setting->getName();
+			}
+		}
+		return $settingNames;
+	}
+
+	/**
+	 * Return an array with the names of localized
+	 * filter settings.
+	 *
+	 * This will be used by the FilterDAO for filter
+	 * setting persistence.
+	 *
+	 * @return array
+	 */
+	function getLocalizedSettingNames() {
+		$localizedSettingNames = array();
+		foreach($this->getSettings() as $setting) {
+			if ($setting->getIsLocalized()) {
+				$localizedSettingNames[] = $setting->getName();
+			}
+		}
+		return $localizedSettingNames;
+	}
+
 	/**
 	 * Checks whether the given input/output type combination
 	 * is supported by this filter.

@@ -19,6 +19,7 @@
  */
 
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.filter.FilterSetting');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
 define('WORLDCAT_WEBSERVICE_SEARCH', 'http://www.worldcat.org/search');
@@ -33,9 +34,16 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function WorldcatNlmCitationSchemaFilter($apiKey = '') {
-		$this->setData('apiKey', $apiKey);
+	function WorldcatNlmCitationSchemaFilter($apiKey = null) {
 		$this->setDisplayName('Worldcat');
+		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
+
+		// Instantiate the settings of this filter
+		$apiKeySetting = new FilterSetting('apiKey',
+				'metadata.filters.worldcat.settings.apiKey.displayName',
+				'metadata.filters.worldcat.settings.apiKey.validationMessage',
+				FORM_VALIDATOR_OPTIONAL_VALUE);
+		$this->addSetting($apiKeySetting);
 
 		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
@@ -59,13 +67,6 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter';
-	}
-
-	/**
-	 * @see Filter::getSettingNames()
-	 */
-	function getSettingNames() {
-		return array('apiKey');
 	}
 
 	/**

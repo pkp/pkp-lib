@@ -1,16 +1,15 @@
 <?php
 
 /**
- * @file controllers/grid/citation/form/CitationForm.inc.php
+ * @file classes/controllers/grid/citation/form/CitationForm.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationForm
- * @ingroup controllers_grid_citation_form
+ * @ingroup classes_controllers_grid_citation_form
  *
- * @brief Form for adding/editing a citation
- * stores/retrieves from an associative array
+ * @brief Form for adding/editing a citation.
  */
 
 import('lib.pkp.classes.form.Form');
@@ -180,9 +179,6 @@ class CitationForm extends Form {
 			if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
 		}
 		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
-
-		// UID used to avoid tab caching problems
-		$templateMgr->assign('tabUid', time());
 
 		// Add the citation to the template
 		$templateMgr->assign_by_ref('citation', $citation);

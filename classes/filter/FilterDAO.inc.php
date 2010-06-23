@@ -75,8 +75,7 @@ class FilterDAO extends DAO {
 	 */
 	function &getObjectById($filterId) {
 		$result =& $this->retrieve(
-			'SELECT * FROM filters WHERE filter_id = ?', $filterId
-		);
+				'SELECT * FROM filters WHERE filter_id = ?', $filterId);
 
 		$filter = null;
 		if ($result->RecordCount() != 0) {
@@ -87,6 +86,23 @@ class FilterDAO extends DAO {
 		unset($result);
 
 		return $filter;
+	}
+
+	/**
+	 * Retrieve a record set with all filter instances
+	 * (transformations) that are based on the given class.
+	 * @param $getTemplates boolean set true if you want filter templates
+	 *  rather than actual transformations
+	 * @param $className string
+	 * @return Filter
+	 */
+	function &getObjectsByClass($className, $getTemplates = false) {
+		$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE class_name = ?'
+				.'AND '.($getTemplates ? '' : 'NOT ').'is_template',
+				$className);
+
+		return $result;
 	}
 
 	/**
@@ -119,17 +135,17 @@ class FilterDAO extends DAO {
 
 		// 1) Hash all available transformations by input
 		//    and output type.
-		if (empty($filterHash) || $rehash) {
-			$result =& $this->retrieve('SELECT * FROM filters WHERE is_template = ?',
-					array($getTemplates?1:0));
+		if (!isset($filterHash[$getTemplates]) || $rehash) {
+			$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE '.($getTemplates ? '' : 'NOT ').'is_template');
 			foreach($result->GetAssoc() as $filterRow) {
-				$filterHash[$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
+				$filterHash[$getTemplates][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
 			}
 		}
 
 		// 2) Check the input sample against all input types.
 		$intermediateCandidates = array();
-		foreach($filterHash as $inputType => $outputHash) {
+		foreach($filterHash[$getTemplates] as $inputType => $outputHash) {
 			// Instantiate the type description if not yet done
 			// before.
 			if (!isset($typeDescriptionCache[$inputType])) {
@@ -183,7 +199,7 @@ class FilterDAO extends DAO {
 				unset($filterInstance);
 			}
 			if ($filterInstanceCache[$matchingFilterRow['filter_id']] !== $runTimeRequirementNotMet) {
-				$matchingFilters[] = $filterInstanceCache[$matchingFilterRow['filter_id']];
+				$matchingFilters[$matchingFilterRow['filter_id']] = $filterInstanceCache[$matchingFilterRow['filter_id']];
 			}
 		}
 

@@ -31,8 +31,8 @@
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
-	<message key="common.refresh">Refresh</message>
 	<message key="common.action">Action</message>
+	<message key="common.activate">Activate</message>
 	<message key="common.active">Active</message>
 	<message key="common.add">Add</message>
 	<message key="common.addSelf">Add Self</message>
@@ -76,6 +76,7 @@
 	<message key="common.complete">Complete</message>
 	<message key="common.completed">Completed</message>
 	<message key="common.continue">Continue</message>
+	<message key="common.copy">Copy</message>
 	<message key="common.country">Country</message>
 	<message key="common.create">Create</message>
 	<message key="common.dateCompleted">Date completed</message>
@@ -85,6 +86,7 @@
 	<message key="common.dateSubmitted">Date submitted</message>
 	<message key="common.dateUploaded">Date uploaded</message>
 	<message key="common.day">Day</message>
+	<message key="common.deactivate">Deactivate</message>
 	<message key="common.default">Default</message>
 	<message key="common.delete">Delete</message>
 	<message key="common.deleteSelection">Delete Selection</message>
@@ -145,8 +147,10 @@
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
+	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
 	<message key="common.record">Record</message>
+	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>
 	<message key="common.remove">Remove</message>
 	<message key="common.removeSelection">Remove Selection</message>
@@ -324,8 +328,4 @@
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
-	<message key="common.copy">Copy</message>
-	<message key="common.preview">Preview</message>
-	<message key="common.activate">Activate</message>
-	<message key="common.deactivate">Deactivate</message>
 </locale>

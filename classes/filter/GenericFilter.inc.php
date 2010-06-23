@@ -9,7 +9,7 @@
  * @class GenericFilter
  * @ingroup classes_filter
  *
- * @brief Abstract bBase class for filters that can transform any type of data.
+ * @brief Abstract base class for filters that can transform any type of data.
  */
 
 class GenericFilter extends Filter {

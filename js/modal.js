@@ -5,8 +5,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Implementation of jQuery modals for OMP.
- *
- * $Id:
  */
 
 /**
@@ -185,6 +183,7 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 		}));
 	});
 }
+
 /**
  * alert - Display a simple alert dialog
  * @param $dialogText Text to display in the dialog
@@ -219,7 +218,6 @@ function modalAlert(dialogText, localizedButtons) {
 
 		$dialog.dialog('open');
 		return false;
-
 }
 
 function changeModalFormLocale() {
@@ -235,8 +233,8 @@ function clearFormFields(form) {
 	$(':input', form).each(function() {
 		if(!$(this).is('.static')) {
 			switch(this.type) {
-			case 'password':
-			case 'select-multiple':
+				case 'password':
+				case 'select-multiple':
 				case 'select-one':
 				case 'text':
 				case 'textarea':
@@ -255,13 +253,14 @@ function clearFormFields(form) {
  * Implements an ajax action.
  * @param $actType can be either 'get' or 'post', 'post' expects a form as
  *  a child element of 'actOnId'.
- * @param $callingButton Selector of the button that initiates the ajax call
+ * @param $callingElement Selector of the element that triggers the ajax call
  * @param $url the url to be called, defaults to the form action in case of
  *  action type 'post'.
  * @param $data (post action type only) the data to be posted, defaults to
  *  the form data.
+ * @param $eventName the name of the event that triggers the action.
  */
-function ajaxAction(actType, actOnId, callingButton, url, data) {
+function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 	if (actType == 'post') {
 		clickAction = function() {
 			$form = $('#' + actOnId).find('form');
@@ -282,7 +281,7 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 			validator = $form.validate();
 			var d = new Date();
 			var UID = Math.ceil(1000 * Math.random(d.getTime()));
-			var $throbberDialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {title: $(callingButton).text(), draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
+			var $throbberDialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
 			$('#' + UID).show();
 
 			// Post to server and construct callback
@@ -320,8 +319,9 @@ function ajaxAction(actType, actOnId, callingButton, url, data) {
 		};
 	}
 
+	if (eventName === undefined) eventName = 'click';
 	$(document).ready(function() {
-		$(callingButton).unbind('click').bind('click', clickAction);
+		$(callingElement).unbind(eventName).bind(eventName, clickAction);
 	});
 }
 

@@ -19,6 +19,7 @@
  */
 
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.filter.EmailFilterSetting');
 
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
 
@@ -27,8 +28,15 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * Constructor
 	 * @param $email string
 	 */
-	function CrossrefNlmCitationSchemaFilter() {
+	function CrossrefNlmCitationSchemaFilter($email = null) {
 		$this->setDisplayName('CrossRef');
+		if (!is_null($email)) $this->setEmail($email);
+
+		// Instantiate the settings of this filter
+		$emailSetting = new EmailFilterSetting('email',
+				'metadata.filters.crossref.settings.email.displayName',
+				'metadata.filters.crossref.settings.email.validationMessage');
+		$this->addSetting($emailSetting);
 
 		parent::NlmCitationSchemaFilter(
 			NLM_CITATION_FILTER_LOOKUP,
@@ -70,13 +78,6 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter';
-	}
-
-	/**
-	 * @see Filter::getSettingNames()
-	 */
-	function getSettingNames() {
-		return array('email');
 	}
 
 	/**

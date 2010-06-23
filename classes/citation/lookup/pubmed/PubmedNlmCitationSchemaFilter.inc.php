@@ -19,6 +19,7 @@
  */
 
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.filter.EmailFilterSetting');
 
 define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
 define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
@@ -32,9 +33,15 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 *  with the query.
 	 */
 	function PubmedNlmCitationSchemaFilter($email = null) {
-		assert(is_null($email) || is_string($email));
-		$this->setData('email', $email);
 		$this->setDisplayName('Pubmed');
+		if (!is_null($email)) $this->setData('email', $email);
+
+		// Instantiate the settings of this filter
+		$emailSetting = new EmailFilterSetting('email',
+				'metadata.filters.pubmed.settings.email.displayName',
+				'metadata.filters.pubmed.settings.email.validationMessage',
+				FORM_VALIDATOR_OPTIONAL_VALUE);
+		$this->addSetting($emailSetting);
 
 		parent::NlmCitationSchemaFilter(
 			NLM_CITATION_FILTER_LOOKUP,
@@ -64,13 +71,6 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter';
-	}
-
-	/**
-	 * @see Filter::getSettingNames()
-	 */
-	function getSettingNames() {
-		return array('email');
 	}
 
 	/**

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
- * @ingroup controllers_grid
+ * @ingroup classes_controllers_grid
  *
  * @brief Class defining basic operations for handling HTML grids.
  */

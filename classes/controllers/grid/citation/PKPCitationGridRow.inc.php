@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/citation/PKPCitationGridRow.inc.php
+ * @file classes/controllers/grid/citation/PKPCitationGridRow.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPCitationGridRow
- * @ingroup controllers_grid_citation
+ * @ingroup classes_controllers_grid_citation
  *
  * @brief The citation grid row definition
  */

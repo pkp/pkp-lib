@@ -17,7 +17,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 // import citation grid specific classes
-import('lib.pkp.controllers.grid.citation.PKPCitationGridRow');
+import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
 
 // filter option constants
 // FIXME: Make filter options configurable.
@@ -306,7 +306,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form handling
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
@@ -384,7 +384,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
 
 		// Add errors to form (if any)
@@ -466,7 +466,10 @@ class PKPCitationGridHandler extends GridHandler {
 	function &getCitationFromArgs(&$args, $createIfMissing = false) {
 		// Identify the citation id and retrieve the
 		// corresponding element from the grid's data source.
-		if (!isset($args['citationId'])) {
+		if (isset($args['citationId'])) {
+			$citation =& $this->getRowDataElement($args['citationId']);
+			if (is_null($citation)) fatalError('Invalid citation id!');
+		} else {
 			if ($createIfMissing) {
 				// It seems that a new citation is being edited/updated
 				import('lib.pkp.classes.citation.Citation');
@@ -476,9 +479,6 @@ class PKPCitationGridHandler extends GridHandler {
 			} else {
 				fatalError('Missing citation id!');
 			}
-		} else {
-			$citation =& $this->getRowDataElement($args['citationId']);
-			if (is_null($citation)) fatalError('Invalid citation id!');
 		}
 		return $citation;
 	}
@@ -498,13 +498,13 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @return CitationForm the citation form for further processing
 	 */
 	function &_saveCitation(&$args, &$request) {
-		assert($request->isPost());
+		if(!$request->isPost()) fatalError('Cannot update citation via GET request!');
 
 		// Identify the citation to be updated
 		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form initialization
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		$citationForm->readInputData();
 

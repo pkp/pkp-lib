@@ -15,7 +15,7 @@
 		{assign var="dialogText" value=$action->getLocalizedTitle()}
 	{/if}
 	
-	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
+	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId  translate=false}
 
 {elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
 	<script type='text/javascript'>

@@ -21,11 +21,10 @@
 if (!function_exists('import')) {
 	function import($class) {
 		static $deprecationWarning = null;
-		require_once(str_replace('.', '/', $class) .  '.inc.php');
-		$filePath = str_replace('.', '/', $class) . '.inc.php';
 
 		// Try to bypass include path for best performance
-		if((include_once BASE_SYS_DIR.'/'.$filePath) === false) {
+		$filePath = str_replace('.', '/', $class) . '.inc.php';
+		if((@include_once BASE_SYS_DIR.'/'.$filePath) === false) {
 			// Oups, we found a legacy include statement,
 			// let's try the include path then.
 			require_once($filePath);

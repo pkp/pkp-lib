@@ -13,31 +13,31 @@
  *  and returns an array of raw citation strings.
  */
 
-// $Id$
-
 import('lib.pkp.classes.filter.Filter');
 
 class CitationListTokenizerFilter extends Filter {
+	/**
+	 * Constructor
+	 */
+	function CitationListTokenizerFilter() {
+		$this->setDisplayName('Citation Tokenizer');
+	}
+
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getSupportedTransformation()
 	 */
-	function supports(&$input, &$output) {
-		// Input validation
-		if (!is_string($input)) return false;
+	function getSupportedTransformation() {
+		return array('primitive::string', 'primitive::string[]');
+	}
 
-		// Output validation
-		if (is_null($output)) return true;
-		if (!is_array($output)) return false;
-		foreach($output as $citationString) {
-			if (!is_string($citationString)) return false;
-		}
-		return true;
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.citation.CitationListTokenizerFilter';
 	}
 
 	/**
@@ -48,11 +48,11 @@ class CitationListTokenizerFilter extends Filter {
 	function &process(&$input) {
 		// The default implementation assumes that raw citations are
 		// separated with line endings.
-		// 1) Remove empty lines
+		// 1) Remove empty lines and normalize line endings
 		$input = String::regexp_replace('/[\r\n]+/s', "\n", $input);
 		// 2) Break up at line endings
 		$output = explode("\n", $input);
-		// TODO: Implement more complex treatment, e.g. filtering of
+		// FIXME: Implement more complex treatment, e.g. filtering of
 		// number strings at the beginning of each string, etc.
 		return $output;
 	}

@@ -12,8 +12,6 @@
  * @brief Tests for IsbndbNlmCitationSchemaIsbnFilter
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilterTest');
 

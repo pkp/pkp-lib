@@ -13,8 +13,6 @@
  * @brief Tests for the PersonStringNlmNameSchemaFilter class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
 

@@ -27,9 +27,6 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 	 * @return MetadataDescription
 	 */
 	protected function getTestNlmDescription() {
-		$nlmNameSchema = new NlmNameSchema();
-		$nlmCitationSchema = new NlmCitationSchema();
-
 		// Create an NLM citation test description
 		// 1) Authors
 		$authorData1 = array(
@@ -38,21 +35,21 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'surname' => 'Surname1',
 			'suffix' => 'suff'
 		);
-		$authorDescription1 = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+		$authorDescription1 = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($authorDescription1->setStatements($authorData1));
 
 		$authorData2 = array(
 			'given-names' => array('Given2'),
 			'surname' => 'Surname2'
 		);
-		$authorDescription2 = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_AUTHOR);
+		$authorDescription2 = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($authorDescription2->setStatements($authorData2));
 
 		// 2) Editor
 		$editorData = array(
 			'surname' => 'The Editor'
 		);
-		$editorDescription = new MetadataDescription($nlmNameSchema, ASSOC_TYPE_EDITOR);
+		$editorDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_EDITOR);
 		self::assertTrue($editorDescription->setStatements($editorData));
 
 		// 3) The citation itself
@@ -86,7 +83,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'comment' => 'a comment',
 			'annotation' => 'an annotation',
 		);
-		$nlmDescription = new MetadataDescription($nlmCitationSchema, ASSOC_TYPE_CITATION);
+		$nlmDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($nlmDescription->setStatements($citationData));
 
 		return $nlmDescription;
@@ -122,8 +119,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'coden' => 'coden',
 			'sici' => 'sici'
 		);
-		$openUrlSchema = new OpenUrlJournalSchema();
-		$openUrlDescription = new MetadataDescription($openUrlSchema, ASSOC_TYPE_CITATION);
+		$openUrlDescription = new MetadataDescription('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($openUrlDescription->setStatements($citationData));
 
 		return $openUrlDescription;

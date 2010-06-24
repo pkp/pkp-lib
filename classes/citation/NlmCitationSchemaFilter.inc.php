@@ -13,6 +13,9 @@
  *  NLM citation metadata descriptions.
  */
 
+define('NLM_CITATION_FILTER_PARSE', 0x1);
+define('NLM_CITATION_FILTER_LOOKUP', 0x2);
+
 import('lib.pkp.classes.filter.Filter');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
@@ -30,15 +33,39 @@ class NlmCitationSchemaFilter extends Filter {
 	/** @var array */
 	var $_supportedPublicationTypes;
 
+	/** @var array */
+	var $_supportedTransformation;
+
 	/**
 	 * Constructor
+	 *
+	 * @param $filterType integer whether this is a parser
+	 *  or a lookup filter
+	 * @param $supportedPublicationTypes array
 	 */
-	function NlmCitationSchemaFilter($supportedPublicationTypes = array()) {
-		assert(is_array($supportedPublicationTypes));
-		foreach ($supportedPublicationTypes as $supportedPublicationType) {
-			assert(in_array($supportedPublicationType, $this->_allowedPublicationTypes()));
-		}
+	function NlmCitationSchemaFilter($filterType = null, $supportedPublicationTypes = array()) {
+		// All NLM citation filters require XSL functionality
+		// that is only present in PHP5.
+		$this->setData('phpVersionMin', '5.0.0');
+
 		$this->_supportedPublicationTypes = $supportedPublicationTypes;
+		switch($filterType) {
+			case NLM_CITATION_FILTER_PARSE:
+				$this->_supportedTransformation = array(
+					'primitive::string',
+					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+				);
+				break;
+
+			case NLM_CITATION_FILTER_LOOKUP:
+				$this->_supportedTransformation = array(
+					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+				);
+				break;
+		}
+
+		parent::Filter();
 	}
 
 	//
@@ -52,9 +79,17 @@ class NlmCitationSchemaFilter extends Filter {
 		return $this->_supportedPublicationTypes;
 	}
 
+
 	//
 	// Implement template methods from Filter
 	//
+	/**
+	 * @see Filter::getSupportedTransformation()
+	 */
+	function getSupportedTransformation() {
+		return $this->_supportedTransformation;
+	}
+
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
@@ -63,17 +98,13 @@ class NlmCitationSchemaFilter extends Filter {
 	 * @param $toString boolean true if the filter produces a string as output.
 	 * @return boolean
 	 */
-	function supports(&$input, &$output, $fromString = false, $toString = false) {
-		// Make sure that the filter registry has correctly
-		// checked the environment.
-		assert(checkPhpVersion('5.0.0'));
+	function supports(&$input, &$output) {
+		// Do the normal type check first.
+		if (!parent::supports($input, $output)) return false;
 
-		// Check the input
-		if ($fromString) {
-			if (!is_string($input)) return false;
-		} else {
-			if (!$this->isNlmCitationDescription($input)) return false;
-
+		// This is an additional check that cannot be
+		// done via type checks.
+		if (is_a($this->getInputType(), 'MetadataTypeDescription')) {
 			// Check that the given publication type is supported by this filter
 			// If no publication type is given then we'll support the description
 			// by default.
@@ -81,30 +112,12 @@ class NlmCitationSchemaFilter extends Filter {
 			if (!empty($publicationType) && !in_array($publicationType, $this->getSupportedPublicationTypes())) return false;
 		}
 
-		// Check the output
-		if (is_null($output)) return true;
-		if ($toString) {
-			return is_string($output);
-		} else {
-			return $this->isNlmCitationDescription($output);
-		}
+		return true;
 	}
 
 	//
 	// Protected helper methods
 	//
-	/**
-	 * Checks whether a given input is a nlm citation description
-	 * @param $metadataDescription mixed
-	 * @return boolean
-	 */
-	function isNlmCitationDescription(&$metadataDescription) {
-		if (!is_a($metadataDescription, 'MetadataDescription')) return false;
-		$metadataSchema =& $metadataDescription->getMetadataSchema();
-		if ($metadataSchema->getName() != 'nlm-3.0-element-citation') return false;
-		return true;
-	}
-
 	/**
 	 * Construct an array of search strings from a citation
 	 * description and an array of search templates.
@@ -227,7 +240,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function &transformWebServiceResults(&$xmlResult, $xslFileName) {
 		// Send the result through the XSL to generate a (preliminary) NLM XML.
-		$xslFilter = new XSLTransformationFilter();
+		$xslFilter = new XSLTransformationFilter('Web Service Transformation', array('xml::*', 'xml::*'));
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
 		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
@@ -332,8 +345,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function &getNlmCitationDescriptionFromMetadataArray(&$metadataArray) {
 		// Create a new citation description
-		$metadataSchema = new NlmCitationSchema();
-		$citationDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 
 		// Add the meta-data to the description
 		$metadataArray = arrayClean($metadataArray);

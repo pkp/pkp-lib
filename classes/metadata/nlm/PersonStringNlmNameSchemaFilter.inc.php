@@ -14,8 +14,6 @@
  *  to an (array of) NLM name description(s).
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
 
 class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
@@ -32,6 +30,8 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	 * Constructor
 	 */
 	function PersonStringNlmNameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
+		$this->setDisplayName('String to NLM Name Schema conversion');
+
 		assert(in_array($assocType, array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
 		$this->_assocType = $assocType;
 		$this->_filterTitle = $filterTitle;
@@ -87,20 +87,41 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getSupportedTransformations()
 	 */
-	function supports(&$input, &$output) {
-		// Check input type
-		if (!is_string($input)) return false;
+	function getSupportedTransformations() {
+		$inputType = 'primitive::string';
+		$outputType = 'metadata::lib.pkp.classes.metadata.nlm.NlmNameSchema(*)';
 
-		// Check output type
-		if (is_null($output)) return true;
-		return $this->isValidPersonDescription($output);
+		$singleMode = array($inputType, $outputType);
+		$multiMode = array($inputType, $outputType.'[]');
+
+		return parent::getSupportedTransformations($singleMode, $multiMode);
 	}
 
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter';
+	}
+
+	/**
+	 * @see Filter::supports()
+	 */
+	function supports(&$input, &$output) {
+		// We intercept the supports() method so that
+		// we can remove et-al entries which are valid but
+		// do not conform to the canonical type definition.
+		if ($this->getFilterMode() == PERSON_STRING_FILTER_MULTIPLE && !is_null($output)) {
+			$filteredOutput =& $this->removeEtAlEntries($output);
+			if ($filteredOutput === false) return false;
+		} else {
+			$filteredOutput =& $output;
+		}
+
+		return parent::supports($input, $filteredOutput);
+	}
 
 	/**
 	 * Transform a person string to an (array of) NLM name description(s).
@@ -202,8 +223,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$personRegexPrefixedSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['surname'].")";
 
 		// Instantiate the target person description
-		$metadataSchema = new NlmNameSchema();
-		$personDescription = new MetadataDescription($metadataSchema, $this->_assocType);
+		$personDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', $this->_assocType);
 
 		// Clean the person string
 		$personString = trim($personString);

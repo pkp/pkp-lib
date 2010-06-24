@@ -17,8 +17,6 @@
  *  OpenURL schemas.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.CrosswalkFilter');
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
@@ -29,8 +27,8 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 	/**
 	 * Constructor
 	 */
-	function OpenUrlCrosswalkFilter($fromSchema, $toSchema) {
-		parent::CrosswalkFilter($fromSchema, $toSchema);
+	function OpenUrlCrosswalkFilter() {
+		parent::CrosswalkFilter();
 	}
 
 	//

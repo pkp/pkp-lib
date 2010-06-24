@@ -14,8 +14,6 @@
  *  a string.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.nlm.NlmPersonStringFilter');
 
 class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
@@ -32,6 +30,8 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	 *  Possible template variables are %surname%, %suffix%, %prefix%, %initials%, %firstname%
 	 */
 	function NlmNameSchemaPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
+		$this->setDisplayName('NLM Name Schema to string conversion');
+
 		assert(!empty($template) && is_string($template));
 		$this->_template = $template;
 		assert(is_string($delimiter));
@@ -80,18 +80,40 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see Filter::getSupportedTransformations()
+	 */
+	function getSupportedTransformations() {
+		$inputType = 'metadata::lib.pkp.classes.metadata.nlm.NlmNameSchema(*)';
+		$outputType = 'primitive::string';
+
+		$singleMode = array($inputType, $outputType);
+		$multiMode = array($inputType.'[]', $outputType);
+
+		return parent::getSupportedTransformations($singleMode, $multiMode);
+	}
+
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter';
+	}
+
+	/**
 	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
 	 */
 	function supports(&$input, &$output) {
-		// Check input type
-		if (!$this->isValidPersonDescription($input)) return false;
+		// We intercept the supports() method so that
+		// we can remove et-al entries which are valid but
+		// do not conform to the canonical type definition.
+		if ($this->getFilterMode() == PERSON_STRING_FILTER_MULTIPLE) {
+			$filteredInput =& $this->removeEtAlEntries($input);
+			if ($filteredInput === false) return false;
+		} else {
+			$filteredInput =& $input;
+		}
 
-		// Check output type
-		if (is_null($output)) return true;
-		return is_string($output);
+		return parent::supports($filteredInput, $output);
 	}
 
 	/**

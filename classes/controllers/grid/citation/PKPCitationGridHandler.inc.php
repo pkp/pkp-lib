@@ -17,7 +17,7 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 // import citation grid specific classes
-import('lib.pkp.controllers.grid.citation.PKPCitationGridRow');
+import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
 
 // filter option constants
 // FIXME: Make filter options configurable.
@@ -306,7 +306,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form handling
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
@@ -384,7 +384,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
 
 		// Add errors to form (if any)
@@ -466,7 +466,10 @@ class PKPCitationGridHandler extends GridHandler {
 	function &getCitationFromArgs(&$args, $createIfMissing = false) {
 		// Identify the citation id and retrieve the
 		// corresponding element from the grid's data source.
-		if (!isset($args['citationId'])) {
+		if (isset($args['citationId'])) {
+			$citation =& $this->getRowDataElement($args['citationId']);
+			if (is_null($citation)) fatalError('Invalid citation id!');
+		} else {
 			if ($createIfMissing) {
 				// It seems that a new citation is being edited/updated
 				import('lib.pkp.classes.citation.Citation');
@@ -476,9 +479,6 @@ class PKPCitationGridHandler extends GridHandler {
 			} else {
 				fatalError('Missing citation id!');
 			}
-		} else {
-			$citation =& $this->getRowDataElement($args['citationId']);
-			if (is_null($citation)) fatalError('Invalid citation id!');
 		}
 		return $citation;
 	}
@@ -498,13 +498,13 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @return CitationForm the citation form for further processing
 	 */
 	function &_saveCitation(&$args, &$request) {
-		assert($request->isPost());
+		if(!$request->isPost()) fatalError('Cannot update citation via GET request!');
 
 		// Identify the citation to be updated
 		$citation =& $this->getCitationFromArgs($args, true);
 
 		// Form initialization
-		import('lib.pkp.controllers.grid.citation.form.CitationForm');
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationForm = new CitationForm($citation);
 		$citationForm->readInputData();
 
@@ -522,12 +522,24 @@ class PKPCitationGridHandler extends GridHandler {
 	 * filter candidates from the filter registry.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
-	 * @return array a list of filters and the filter input data
-	 *  as the last entry in the array.
+	 * @return array everything needed to define the transformation:
+	 *  - the display name of the transformation
+	 *  - the input/output type definition
+	 *  - input data
+	 *  - a filter list
 	 */
 	function &_instantiateParserFilters(&$citation, &$metadataDescription) {
+		$displayName = 'Citation Parser Filters';
+
+		// Parsing takes a raw citation and transforms it
+		// into a array of meta-data descriptions.
+		$transformation = array(
+			'primitive::string',
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
+		);
+
 		// Extract the edited citation string from the citation
-		$citationString = $citation->getEditedCitation();
+		$inputData = $citation->getEditedCitation();
 
 		// Instantiate the supported parsers
 		import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
@@ -539,8 +551,10 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
 		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
 
-		$parserFilters = array(&$freeciteFilter, &$paraciteFilter, &$parscitFilter, &$regexFilter, $citationString);
-		return $parserFilters;
+		$filterList = array(&$freeciteFilter, &$paraciteFilter, &$parscitFilter, &$regexFilter);
+
+		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
+		return $transformationDefinition;
 	}
 
 	/**
@@ -550,15 +564,28 @@ class PKPCitationGridHandler extends GridHandler {
 	 * filter candidates from the filter registry.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
-	 * @return array a list of filters and the filter input data
-	 *  as the last entry in the array.
+	 * @return array everything needed to define the transformation:
+	 *  - the display name of the transformation
+	 *  - the input/output type definition
+	 *  - input data
+	 *  - a filter list
 	 */
 	function &_instantiateLookupFilters(&$citation, &$metadataDescription) {
-		$lookupFilters = array();
+		$displayName = 'Citation Parser Filters';
 
-		// Instantiate CrossRef filter
-		import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
-		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
+		// Lookup takes a single meta-data description and
+		// checks it against several lookup-sources resulting
+		// in an array of meta-data descriptions.
+		$transformation = array(
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
+		);
+
+		// Define the input for this transformation.
+		$inputData =& $metadataDescription;
+
+		// Build the filter list.
+		$filterList = array();
 
 		// Instantiate and sequence ISBNdb filters
 		import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
@@ -567,12 +594,20 @@ class PKPCitationGridHandler extends GridHandler {
 		if ($nlmToIsbnFilter->supportsAsInput($metadataDescription)) {
 			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
 			import('lib.pkp.classes.filter.GenericSequencerFilter');
-			$isbndbFilter = new GenericSequencerFilter();
+			$isbndbTransformation = array(
+				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+			);
+			$isbndbFilter = new GenericSequencerFilter('ISBNdb lookup', $isbndbTransformation);
 			$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
 			$isbnSampleData = '1234567890123';
 			$isbndbFilter->addFilter($isbnToNlmFilter, $isbnSampleData);
-			$lookupFilters[] =& $isbndbFilter;
+			$filterList[] =& $isbndbFilter;
 		}
+
+		// Instantiate CrossRef filter
+		import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
+		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
 
 		// Instantiate the pubmed filter
 		import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
@@ -582,8 +617,10 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
 		$worldcatFilter = new WorldcatNlmCitationSchemaFilter();
 
-		$lookupFilters = array_merge($lookupFilters, array(&$crossrefFilter, &$pubmedFilter, &$worldcatFilter, $metadataDescription));
-		return $lookupFilters;
+		$filterList = array_merge($filterList, array(&$crossrefFilter, &$pubmedFilter, &$worldcatFilter));
+
+		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
+		return $transformationDefinition;
 	}
 
 	/**
@@ -596,6 +633,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
 	 * @param $intermediateFilterResults array
 	 * @return Citation the filtered citation or null if an error occurred
+	 * FIXME: Remove sample data
 	 */
 	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, &$intermediateFilterResults) {
 		// Make sure that the citation implements the
@@ -606,24 +644,22 @@ class PKPCitationGridHandler extends GridHandler {
 		$metadataSchema =& $supportedMetadataSchemas[0];
 		assert(is_a($metadataSchema, 'NlmCitationSchema'));
 
-		// Extract the meta-data description from the citation
+		// Extract the meta-data description from the citation.
 		$metadataDescription =& $citation->extractMetadata($metadataSchema);
 
-		// Let the callback build the filter network
-		$filterList = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription));
+		// Let the callback build the filter network.
+		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription));
 
-		// The last entry in the filter list is the
-		// input data for the returned filters.
-		$muxInputData =& array_pop($filterList);
-
-		// Initialize the sample demux input data array.
-		$sampleDemuxInputData = array();
+		// Get the input into the transformation.
+		$muxInputData =& $transformationDefinition['inputData'];
 
 		// Instantiate the citation multiplexer filter
 		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
-		$citationMultiplexer = new GenericMultiplexerFilter();
+		$citationMultiplexer = new GenericMultiplexerFilter(
+				$transformationDefinition['displayName'], $transformationDefinition['transformation']);
+
 		$nullVar = null;
-		foreach($filterList as $seq => $citationFilter) {
+		foreach($transformationDefinition['filterList'] as $seq => $citationFilter) {
 			// Set a sequence id so that we can address the
 			// filter results with a unique id when persisting
 			// them. This will also determine the sort order
@@ -633,10 +669,6 @@ class PKPCitationGridHandler extends GridHandler {
 			if ($citationFilter->supports($muxInputData, $nullVar)) {
 				$citationMultiplexer->addFilter($citationFilter);
 				unset($citationFilter);
-
-				// We expect one citation description per filter
-				// in the multiplexer result.
-				$sampleDemuxInputData[] = &$metadataDescription;
 			}
 		}
 
@@ -647,10 +679,14 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Combine multiplexer and de-multiplexer to form the
 		// final citation filter network.
+		$sequencerTransformation = array(
+			$transformationDefinition['transformation'][0], // The multiplexer input type
+			'class::lib.pkp.classes.citation.Citation'
+		);
 		import('lib.pkp.classes.filter.GenericSequencerFilter');
-		$citationFilterNet = new GenericSequencerFilter();
-		$citationFilterNet->addFilter($citationMultiplexer, $muxInputData);
-		$citationFilterNet->addFilter($citationDemultiplexer, $sampleDemuxInputData);
+		$citationFilterNet = new GenericSequencerFilter('Citation Filter Network', $sequencerTransformation);
+		$citationFilterNet->addFilter($citationMultiplexer);
+		$citationFilterNet->addFilter($citationDemultiplexer);
 
 		// Send the input through the citation filter network.
 		$filteredCitation =& $citationFilterNet->execute($muxInputData);

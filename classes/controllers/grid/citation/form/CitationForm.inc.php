@@ -1,16 +1,15 @@
 <?php
 
 /**
- * @file controllers/grid/citation/form/CitationForm.inc.php
+ * @file classes/controllers/grid/citation/form/CitationForm.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationForm
- * @ingroup controllers_grid_citation_form
+ * @ingroup classes_controllers_grid_citation_form
  *
- * @brief Form for adding/editing a citation
- * stores/retrieves from an associative array
+ * @brief Form for adding/editing a citation.
  */
 
 import('lib.pkp.classes.form.Form');
@@ -181,9 +180,6 @@ class CitationForm extends Form {
 		}
 		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
 
-		// UID used to avoid tab caching problems
-		$templateMgr->assign('tabUid', time());
-
 		// Add the citation to the template
 		$templateMgr->assign_by_ref('citation', $citation);
 
@@ -236,10 +232,10 @@ class CitationForm extends Form {
 		$metadataAdapters = $citation->getSupportedMetadataAdapters();
 		foreach($metadataAdapters as $metadataAdapter) {
 			// Instantiate a meta-data description for the given schema
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			$metadataDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+			$metadataDescription = new MetadataDescription($metadataAdapter->getMetadataSchemaName(), ASSOC_TYPE_CITATION);
 
 			// Set the meta-data statements
+			$metadataSchema =& $metadataAdapter->getMetadataSchema();
 			foreach($metadataSchema->getProperties() as $propertyName => $property) {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));

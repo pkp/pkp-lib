@@ -12,8 +12,6 @@
  * @brief Class mapping an HTTP request to a handler or context.
  */
 
-// $Id$
-
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
@@ -57,10 +55,12 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * Determine whether or not the request is cacheable.
 	 * @param $request PKPRequest
+	 * @param $testOnly boolean required for unit test to
+	 *  bypass session check.
 	 * @return boolean
 	 */
-	function isCacheable(&$request) {
-		if (defined('SESSION_DISABLE_INIT')) return false;
+	function isCacheable(&$request, $testOnly = false) {
+		if (defined('SESSION_DISABLE_INIT') && !$testOnly) return false;
 		if (!Config::getVar('general', 'installed')) return false;
 		if (!empty($_POST) || Validation::isLoggedIn()) return false;
 

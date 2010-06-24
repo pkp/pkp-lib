@@ -52,20 +52,13 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getSupportedTransformation()
 	 */
-	function supports(&$input, &$output) {
-		// Check the input type
-		if (!is_a($input, 'MetadataDescription')) return false;
-		$metadataSchema =& $input->getMetadataSchema();
-		if ($metadataSchema->getName() != 'nlm-3.0-element-citation') return false;
-
-		// Check the output type
-		if (is_null($output)) return true;
-		return is_string($output);
+	function getSupportedTransformation() {
+		return array(
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+			'primitive::string'
+		);
 	}
 
 	/**

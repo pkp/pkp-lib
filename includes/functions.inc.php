@@ -21,11 +21,10 @@
 if (!function_exists('import')) {
 	function import($class) {
 		static $deprecationWarning = null;
-		require_once(str_replace('.', '/', $class) .  '.inc.php');
-		$filePath = str_replace('.', '/', $class) . '.inc.php';
 
 		// Try to bypass include path for best performance
-		if((include_once BASE_SYS_DIR.'/'.$filePath) === false) {
+		$filePath = str_replace('.', '/', $class) . '.inc.php';
+		if((@include_once BASE_SYS_DIR.'/'.$filePath) === false) {
 			// Oups, we found a legacy include statement,
 			// let's try the include path then.
 			require_once($filePath);
@@ -184,6 +183,122 @@ function &cloneObject(&$object) {
 		$clonedObject = $object;
 	}
 	return $clonedObject;
+}
+
+/**
+ * Instantiates an object for a given fully qualified
+ * class name after executing several checks on the class.
+ *
+ * The checks prevent certain vulnerabilities when
+ * instantiating classes generically.
+ *
+ * NB: We currently only support one constructor
+ * argument. If we need arbitrary arguments later
+ * we can do that via func_get_args() which allows us
+ * to handle an arbitrary number of optional
+ * constructor arguments. The $constructorArg
+ * parameter needs to be last in the parameter list
+ * to be forward compatible with this potential use
+ * case.
+ *
+ * @param $fullyQualifiedClassName string
+ * @param $expectedTypes string|array the class
+ * 	must conform to at least one of the given types.
+ * @param $expectedPackages string|array the class
+ *  must be part of at least one of the given packages.
+ * @param $expectedMethods string|array names of methods
+ *  that must all be present for the requested class.
+ * @param $constructorArg mixed constructor argument
+ *
+ * @return object|boolean the instantiated object or false
+ *  if the class instantiation didn't result in the expected
+ *  type.
+ */
+function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, &$constructorArg = null) {
+	$errorFlag = false;
+
+	// Validate the class name
+	if (!String::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
+		return $errorFlag;
+	}
+
+	// Validate the class package
+	if (!is_null($expectedPackages)) {
+		if (is_scalar($expectedPackages)) $expectedPackages = array($expectedPackages);
+		$validPackage = false;
+		foreach ($expectedPackages as $expectedPackage) {
+			// No need to use String class here as class names are always US-ASCII
+			if (substr($fullyQualifiedClassName, 0, strlen($expectedPackage)+1) == $expectedPackage.'.') {
+				$validPackage = true;
+				break;
+			}
+		}
+
+		// Raise a fatal error if the class does not belong
+		// to any of the expected packages. This is to prevent
+		// certain types of code inclusion attacks.
+		if (!$validPackage) {
+			// Construct meaningful error message.
+			$expectedPackageCount = count($expectedPackages);
+			$separator = '';
+			foreach($expectedPackages as $expectedPackageIndex => $expectedPackage) {
+				if ($expectedPackageIndex > 0) {
+					$separator = ($expectedPackageIndex == $expectedPackageCount-1 ? ' or ' : ', ' );
+				}
+				$expectedPackageString .= $separator.'"'.$expectedPackage.'"';
+			}
+			fatalError('Trying to instantiate class "'.$fullyQualifiedClassName.'" which is not in any of the expected packages '.$expectedPackageString.'.');
+		}
+	}
+
+	// Import the requested class
+	import($fullyQualifiedClassName);
+
+	// Identify the class name
+	$fullyQualifiedClassNameParts = explode('.', $fullyQualifiedClassName);
+	$className = array_pop($fullyQualifiedClassNameParts);
+
+	// Type check I: The requested class should be declared by now.
+	if (!class_exists($className)) {
+		fatalError('Cannot instantiate class. Class "'.$className.'" is not declared in "'.$fullyQualifiedClassName.'".');
+	}
+
+	// Check that the expected operation exists for the class.
+	if (!is_null($expectedMethods)) {
+		if (is_scalar($expectedMethods)) $expectedMethods = array($expectedMethods);
+		// Lower case comparison for PHP4 compatibility.
+		// We don't need the String class here as method names are
+		// always US-ASCII.
+		$declaredMethods = array_map('strtolower', get_class_methods($className));
+		foreach($expectedMethods as $expectedMethod) {
+			$requiredMethod = strtolower($expectedMethod);
+			if (!in_array($requiredMethod, $declaredMethods)) {
+				return $errorFlag;
+			}
+		}
+	}
+
+	// Instantiate the requested class
+	if (is_null($constructorArg)) {
+		$classInstance = new $className();
+	} else {
+		$classInstance = new $className($constructorArg);
+	}
+
+	// Type check II: The object must conform to the given interface (if any).
+	if (!is_null($expectedTypes)) {
+		if (is_scalar($expectedTypes)) $expectedTypes = array($expectedTypes);
+		$validType = false;
+		foreach($expectedTypes as $expectedType) {
+			if (is_a($classInstance, $expectedType)) {
+				$validType = true;
+				break;
+			}
+		}
+		if (!$validType) return $errorFlag;
+	}
+
+	return $classInstance;
 }
 
 /**

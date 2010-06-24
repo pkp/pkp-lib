@@ -8,43 +8,23 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
-  *
-  * $Id$
   -->
 
 <locale name="en_US" full_name = "English">
-	<message key="submission.agencies">Agencies</message>
-	<message key="submission.abstractViews">Abstract Views</message>
-	<message key="submission.accepted">Accepted</message>
-	<message key="submission.acknowledge">Acknowledge</message>
-	<message key="submission.addSuppFile">Add a Supplementary File</message>
-	<message key="submission.ask">Ask</message>
-	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
-	<message key="submission.changeComments">Change to</message>
-	<message key="submission.citations">References</message>
-	<message key="submission.citations.grid.fields">Field Name</message>
-	<message key="submission.citations.grid.values">Field Value</message>
-	<message key="submission.citations.grid.title">Edit Citations</message>
-	<message key="submission.citations.grid.importCitations">Import Citations</message>
-	<message key="submission.citations.grid.exportCitations">Export Citations</message>
-	<message key="submission.citations.grid.editCheckCitation">Edit/Check</message>
-	<message key="submission.citations.grid.checkCitationAgain">Check again in external databases</message>
-	<message key="submission.citations.grid.checkGoogleScholar">Check in Google Scholar</message>
-	<message key="submission.citations.grid.editedCitation">Citation Text</message>
-	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.</message>
-	<message key="submission.citations.form.title">Edit Citation</message>
-	<message key="submission.citations.form.approveCitation">Approve Citation?</message>
-	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
-	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
-	<message key="submission.citations.form.unsavedChanges">The citation contains data from external databases that are yet unsaved. Please review and/or edit the data fields and then either click "Ok" to save them or "Cancel" to undo the changes.</message>
-	<message key="submission.citations.form.filterError">The parse or lookup operation did not return any results. Maybe you can try to edit the citation text manually to improve results?</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
-	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
-	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. Please try to {$httpMethod} the URL manually to see what the problem is and fix it. It may also be that the web service is temporarily unavailable.</message>
-	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<!-- FIXME: move to meta-data plug-in -->
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
+
+	<!-- FIXME: move to meta-data plug-ins -->
+	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef Registration Email</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Registration Email</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Please enter a valid PubMed registration email if you have one.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WordCat API Key</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Please enter a valid WorldCat API key if you have one.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citation Module</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Please select one of the given citation modules.</message>
 	<message key="metadata.property.displayName.author">Authors</message>
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editors</message>
@@ -116,6 +96,37 @@
 	<message key="metadata.property.displayName.publication-type">Publication Type</message>
 	<message key="metadata.property.validationMessage.publication-type">Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</message>
 	<!-- FIXME: end -->
+	<message key="submission.agencies">Agencies</message>
+	<message key="submission.abstractViews">Abstract Views</message>
+	<message key="submission.accepted">Accepted</message>
+	<message key="submission.acknowledge">Acknowledge</message>
+	<message key="submission.addSuppFile">Add a Supplementary File</message>
+	<message key="submission.ask">Ask</message>
+	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
+	<message key="submission.changeComments">Change to</message>
+	<message key="submission.citations">References</message>
+	<message key="submission.citations.grid.fields">Field Name</message>
+	<message key="submission.citations.grid.values">Field Value</message>
+	<message key="submission.citations.grid.title">Edit Citations</message>
+	<message key="submission.citations.grid.importCitations">Import Citations</message>
+	<message key="submission.citations.grid.exportCitations">Export Citations</message>
+	<message key="submission.citations.grid.editCheckCitation">Edit/Check</message>
+	<message key="submission.citations.grid.checkCitationAgain">Check again in external databases</message>
+	<message key="submission.citations.grid.checkGoogleScholar">Check in Google Scholar</message>
+	<message key="submission.citations.grid.editedCitation">Citation Text</message>
+	<message key="submission.citations.grid.editedCitationRequired">A citation text is required.</message>
+	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
+	<message key="submission.citations.form.title">Edit Citation</message>
+	<message key="submission.citations.form.approveCitation">Approve Citation?</message>
+	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
+	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
+	<message key="submission.citations.form.unsavedChanges">The citation contains data from external databases that are yet unsaved. Please review and/or edit the data fields and then either click "Ok" to save them or "Cancel" to undo the changes.</message>
+	<message key="submission.citations.form.filterError">The parse or lookup operation did not return any results. Maybe you can try to edit the citation text manually to improve results?</message>
+	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
+	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
+	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. Please try to {$httpMethod} the URL manually to see what the problem is and fix it. It may also be that the web service is temporarily unavailable.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
+	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
 	<message key="submission.comments.addComment">Add Comment</message>
 	<message key="submission.comments.comments">Comments</message>
 	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>
@@ -269,7 +280,4 @@
 	<message key="submission.artworkFileDetails">Artwork File Details</message>
 	<message key="submission.fileDetails">File Details</message>
 	<message key="submission.nameRequired">A name is required for this item.</message>
-
-	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
 </locale>

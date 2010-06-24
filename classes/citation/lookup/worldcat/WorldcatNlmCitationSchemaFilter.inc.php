@@ -18,9 +18,8 @@
  *  and xISBN services to search for book citation metadata.
  */
 
-// $Id$
-
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.filter.FilterSetting');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
 define('WORLDCAT_WEBSERVICE_SEARCH', 'http://www.worldcat.org/search');
@@ -31,17 +30,22 @@ define('WORLDCAT_WEBSERVICE_XISBN', 'http://xisbn.worldcat.org/webservices/xid/i
 // TODO: Should we use OCLC basic API as fallback (see <http://www.worldcat.org/devnet/wiki/BasicAPIDetails>)?
 
 class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/** @var string Worldcat API key */
-	var $_apiKey;
-
 	/**
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function WorldcatNlmCitationSchemaFilter($apiKey = '') {
-		$this->_apiKey = $apiKey;
+	function WorldcatNlmCitationSchemaFilter($apiKey = null) {
+		$this->setDisplayName('Worldcat');
+		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
 
-		parent::NlmCitationSchemaFilter(array(NLM_PUBLICATION_TYPE_BOOK));
+		// Instantiate the settings of this filter
+		$apiKeySetting = new FilterSetting('apiKey',
+				'metadata.filters.worldcat.settings.apiKey.displayName',
+				'metadata.filters.worldcat.settings.apiKey.validationMessage',
+				FORM_VALIDATOR_OPTIONAL_VALUE);
+		$this->addSetting($apiKeySetting);
+
+		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//
@@ -52,17 +56,17 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @return string
 	 */
 	function getApiKey() {
-		return $this->_apiKey;
+		return $this->getData('apiKey');
 	}
 
 	//
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see Filter::getDisplayName()
+	 * @see Filter::getClassName()
 	 */
-	function getDisplayName() {
-		return 'Worldcat';
+	function getClassName() {
+		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter';
 	}
 
 	/**

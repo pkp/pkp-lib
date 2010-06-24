@@ -67,33 +67,6 @@ class PrimitiveTypeDescription extends TypeDescription {
 		return true;
 	}
 
-	/**
-	 * @see TypeDescription::getScalarSampleObject()
-	 */
-	function &getScalarSampleObject() {
-		// We have to create a primitive type
-		switch ($this->_primitiveType) {
-			case 'string':
-				$sampleObject = 'sample string';
-				break;
-
-			case 'float':
-				$sampleObject = 1.5;
-				break;
-
-			case 'integer':
-				$sampleObject = 1;
-				break;
-
-			case 'boolean':
-				$sampleObject = true;
-				break;
-
-			default:
-				assert(false);
-		}
-		return $sampleObject;
-	}
 
 	//
 	// Private helper methods

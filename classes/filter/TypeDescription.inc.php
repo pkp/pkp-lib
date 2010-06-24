@@ -150,30 +150,6 @@ class TypeDescription {
 		return true;
 	}
 
-	/**
-	 * Get a(n array of) sample object(s) created based on the type
-	 * description.
-	 *
-	 * @return mixed any type of data supported as input to this filter
-	 */
-	function &getSampleObject() {
-		// Delegate to subclass to retrieve a scaler sample object.
-		$sampleObject = $this->getScalarSampleObject();
-
-		// Make sure that the returned object has the correct cardinality
-		if ($this->_cardinality == TYPE_DESCRIPTION_CARDINALITY_SCALAR) {
-			return $sampleObject;
-		} else {
-			if ($this->_cardinality == TYPE_DESCRIPTION_CARDINALITY_UNKNOWN) {
-				$sampleCardinality = 1;
-			} else {
-				$sampleCardinality = $this->_cardinality;
-			}
-			$sampleArray = array_fill(0, $sampleCardinality, $sampleObject);
-			return $sampleArray;
-		}
-	}
-
 
 	//
 	// Abstract template methods
@@ -196,16 +172,6 @@ class TypeDescription {
 	 * @return boolean
 	 */
 	function checkType(&$object) {
-		// Must be implemented by subclasses
-		assert(false);
-	}
-
-	/**
-	 * Get a sample object created based on the type description.
-	 *
-	 * @return mixed any type of data supported as input to this filter
-	 */
-	function &getScalarSampleObject() {
 		// Must be implemented by subclasses
 		assert(false);
 	}

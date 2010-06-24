@@ -71,18 +71,18 @@
  *    stem) to access the index
  */
 
-// $Id$
+import('lib.pkp.classes.core.DataObject');
+import('lib.pkp.classes.filter.TypeDescriptionFactory');
 
+class Filter extends DataObject {
+	/** @var TypeDescriptionFactory */
+	var $_typeDescriptionFactory;
 
-class Filter {
-	/** @var integer A globally unique identifier of this filter instance */
-	var $_transformationId;
+	/** @var TypeDescription */
+	var $_inputType;
 
-	/** @var string */
-	var $_displayName;
-
-	/** @var integer sequence id used when several transformations are grouped */
-	var $_seq;
+	/** @var TypeDescription */
+	var $_outputType;
 
 	/** @var mixed */
 	var $_input;
@@ -90,32 +90,80 @@ class Filter {
 	/** @var mixed */
 	var $_output;
 
+	/** @var array a list of FilterSetting objects */
+	var $_settings = array();
+
 	/** @var array a list of errors occurred while filtering */
 	var $_errors = array();
 
 	/**
+	 * @var RuntimeEnvironment the installation requirements required to
+	 * run this filter instance, false on initialization.
+	 */
+	var $_runtimeEnvironment = false;
+
+	/**
 	 * Constructor
+	 *
+	 * NB: Filters should always either have no constructor
+	 * arguments or only optional constructor arguments.
+	 * All optional constructor arguments must also be accessible
+	 * via setters. Filter parameters must be stored as data
+	 * in the underlying DataObject.
+	 *
+	 * This is necessary as the FilterDAO does not support
+	 * constructor configuration. Filter parameters will be
+	 * configured via DataObject::setData(). Only parameters
+	 * that are available in the DataObject will be persisted.
 	 */
 	function Filter() {
+		// If we only support one transformation then we can
+		// set it immediately. Otherwise this has to be done by
+		// the user.
+		$supportedTransformations = $this->getSupportedTransformations();
+		if (count($supportedTransformations) == 1) {
+			$supportedTransformation = $supportedTransformations[0];
+			$this->setTransformationType($supportedTransformation[0], $supportedTransformation[1]);
+		}
 	}
 
 	//
 	// Setters and Getters
 	//
 	/**
-	 * Set the globally unique transformation id
-	 * @param $transformationId integer
+	 * Set the input/output type of this filter instance.
+	 *
+	 * @param $inputType TypeDescription|string
+	 * @param $outputType TypeDescription|string
+	 *
+	 * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
+	 *
+	 * NB: the input/output type combination must be one of those
+	 * returned by getSupportedTransformations().
 	 */
-	function setTransformationId(&$transformationId) {
-		$this->_transformationId =& $transformationId;
-	}
+	function setTransformationType($inputType, $outputType) {
+		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
 
-	/**
-	 * Get the globally unique transformation id
-	 * @return integer
-	 */
-	function &getTransformationId() {
-		return $this->_transformationId;
+		// We need both, the input/output type as a string and
+		// as a TypeDescription
+		if (is_a($inputType, 'TypeDescription')) {
+			$inputTypeString = $inputType->getTypeName();
+		} else {
+			$inputTypeString = $inputType;
+			$inputType =& $typeDescriptionFactory->instantiateTypeDescription($inputType);
+		}
+		if (is_a($outputType, 'TypeDescription')) {
+			$outputTypeString = $outputType->getTypeName();
+		} else {
+			$outputTypeString = $outputType;
+			$outputType =& $typeDescriptionFactory->instantiateTypeDescription($outputType);
+		}
+
+		// Make sure that this transformation is valid
+		if (!$this->isValidTransformation($inputTypeString, $outputTypeString)) fatalError('Trying to set an invalid transformation type.');
+
+		$this->_inputType =& $inputType;
+		$this->_outputType =& $outputType;
 	}
 
 	/**
@@ -123,7 +171,7 @@ class Filter {
 	 * @param $displayName string
 	 */
 	function setDisplayName($displayName) {
-		$this->_displayName = $displayName;
+		$this->setData('displayName', $displayName);
 	}
 
 	/**
@@ -138,11 +186,11 @@ class Filter {
 	 * @return string
 	 */
 	function getDisplayName() {
-		if (empty($this->_displayName)) {
-			$this->_displayName = get_class($this);
+		if (!$this->hasData('displayName')) {
+			$this->setData('displayName', get_class($this));
 		}
 
-		return $this->_displayName;
+		return $this->getData('displayName');
 	}
 
 	/**
@@ -150,7 +198,7 @@ class Filter {
 	 * @param $seq integer
 	 */
 	function setSeq($seq) {
-		$this->_seq = $seq;
+		$this->setData('seq', $seq);
 	}
 
 	/**
@@ -158,23 +206,55 @@ class Filter {
 	 * @return integer
 	 */
 	function getSeq() {
-		return $this->_seq;
+		return $this->getData('seq');
 	}
 
 	/**
-	 * Add a filter error
-	 * @param $message string
+	 * Set whether this is a transformation template
+	 * rather than an actual transformation.
+	 *
+	 * Transformation templates are saved to the database
+	 * when the filter is first registered. They are
+	 * configured with default settings and will be used
+	 * to let users identify available transformation
+	 * types.
+	 *
+	 * There must be exactly one transformation template
+	 * for each supported transformation type.
+	 *
+	 * @param $isTemplate boolean
 	 */
-	function addError($message) {
-		$this->_errors[] = $message;
+	function setIsTemplate($isTemplate) {
+		$this->setData('isTemplate', (boolean)$isTemplate);
 	}
 
 	/**
-	 * Get all filter errors
-	 * @return array
+	 * Is this a transformation template rather than
+	 * an actual transformation?
+	 * @return boolean
 	 */
-	function getErrors() {
-		return $this->_errors;
+	function getIsTemplate() {
+		// Set the default
+		if (!$this->hasData('isTemplate')) {
+			$this->setData('isTemplate', false);
+		}
+		return $this->getData('isTemplate');
+	}
+
+	/**
+	 * Get the input type
+	 * @return TypeDescription
+	 */
+	function &getInputType() {
+		return $this->_inputType;
+	}
+
+	/**
+	 * Get the output type
+	 * @return TypeDescription
+	 */
+	function &getOutputType() {
+		return $this->_outputType;
 	}
 
 	/**
@@ -217,29 +297,154 @@ class Filter {
 		return $this->_input;
 	}
 
+	/**
+	 * Add a filter error
+	 * @param $message string
+	 */
+	function addError($message) {
+		$this->_errors[] = $message;
+	}
+
+	/**
+	 * Get all filter errors
+	 * @return array
+	 */
+	function getErrors() {
+		return $this->_errors;
+	}
+
+	/**
+	 * Add a filter setting
+	 * @param $setting FilterSetting
+	 */
+	function addSetting(&$setting) {
+		$this->_settings[] =& $setting;
+	}
+
+	/**
+	 * Get all filter settings
+	 * @return array a list of FilterSetting objects
+	 */
+	function &getSettings() {
+		return $this->_settings;
+	}
+
+	/**
+	 * Can this filter be parameterized?
+	 * @return boolean
+	 */
+	function hasSettings() {
+		return (is_array($this->_settings) && count($this->_settings));
+	}
+
+	/**
+	 * Set the required runtime environment
+	 * @param $runtimeEnvironment RuntimeEnvironment
+	 */
+	function setRuntimeEnvironment(&$runtimeEnvironment) {
+		assert(is_a($runtimeEnvironment, 'RuntimeEnvironment'));
+		$this->_runtimeEnvironment =& $runtimeEnvironment;
+
+		// Inject the runtime settings into the data object
+		// for persistence.
+		$runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
+		foreach($runtimeSettings as $runtimeSetting => $defaultValue) {
+			$methodName = 'get'.String::ucfirst($runtimeSetting);
+			$this->setData($runtimeSetting, $runtimeEnvironment->$methodName());
+		}
+	}
+
+	/**
+	 * Get the required runtime environment
+	 * @return RuntimeEnvironment
+	 */
+	function &getRuntimeEnvironment() {
+		if ($this->_runtimeEnvironment === false) {
+			// The runtime environment has never been
+			// queried before.
+			$runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
+
+			// Find out whether we have any runtime restrictions set.
+			$hasRuntimeSettings = false;
+			foreach($runtimeSettings as $runtimeSetting => $defaultValue) {
+				if ($this->hasData($runtimeSetting)) {
+					$$runtimeSetting = $this->getData($runtimeSetting);
+					$hasRuntimeSettings = true;
+				} else {
+					$$runtimeSetting = $defaultValue;
+				}
+			}
+
+			// If we found any runtime restrictions then construct a
+			// runtime environment from the settings.
+			if ($hasRuntimeSettings) {
+				import('lib.pkp.classes.core.RuntimeEnvironment');
+				$this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
+			} else {
+				// Set null so that we don't try to construct
+				// a runtime environment object again.
+				$this->_runtimeEnvironment = null;
+			}
+		}
+
+		return $this->_runtimeEnvironment;
+	}
+
+
 	//
 	// Abstract template methods to be implemented by subclasses
 	//
 	/**
-	 * Returns true if the given input and output
-	 * objects represent a valid transformation
-	 * for this filter.
+	 * Return the fully qualified class name of the filter class.
 	 *
-	 * This check must be type based. It can
-	 * optionally include an additional stateful
-	 * inspection of the given object instances.
-	 *
-	 * If the output type is null then only
-	 * check whether the given input type is
-	 * one of the input types accepted by this
-	 * filter.
-	 *
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * (This must be hard coded by sub-classes for PHP4 compatibility.
+	 * PHP4 always returns class names lowercase which we cannot
+	 * tolerate as we need this path to find the class on case sensitive
+	 * file systems.)
 	 */
-	function supports(&$input, &$output) {
+	function getClassName() {
 		assert(false);
+	}
+
+	/**
+	 * Subclasses can override this method if they
+	 * support exactly one transformation.
+	 *
+	 * The return value of this method must be of
+	 * the following format:
+	 *
+	 * array('input type', 'output type')
+	 */
+	function getSupportedTransformation() {
+		// Can be implemented by subclasses.
+		assert(false);
+	}
+
+	/**
+	 * Subclasses can override this method if they
+	 * support more than one transformation.
+	 *
+	 * The return value of this method must be of
+	 * the following format:
+	 *
+	 * array(
+	 *   array('input type', 'output type'),
+	 *   array(...),
+	 *   ...
+	 * )
+	 *
+	 * NB: Classes that override this method must not
+	 * at the same time implement getSupportedTransformation().
+	 *
+	 * @return array
+	 */
+	function getSupportedTransformations() {
+		// The default implementation assumes that there is only
+		// one supported transformation and returns it as an array.
+		// If your filter supports more than one transformation you
+		// can override this method to return an array with
+		// multiple entries.
+		return array($this->getSupportedTransformation());
 	}
 
 	/**
@@ -256,6 +461,102 @@ class Filter {
 	//
 	// Public methods
 	//
+	/**
+	 * Return an array with the names of filter settings.
+	 *
+	 * This will be used by the FilterDAO for filter
+	 * setting persistence.
+	 *
+	 * @return array
+	 */
+	function getSettingNames() {
+		$settingNames = array();
+		foreach($this->getSettings() as $setting) {
+			if (!$setting->getIsLocalized()) {
+				$settingNames[] = $setting->getName();
+			}
+		}
+		return $settingNames;
+	}
+
+	/**
+	 * Return an array with the names of localized
+	 * filter settings.
+	 *
+	 * This will be used by the FilterDAO for filter
+	 * setting persistence.
+	 *
+	 * @return array
+	 */
+	function getLocalizedSettingNames() {
+		$localizedSettingNames = array();
+		foreach($this->getSettings() as $setting) {
+			if ($setting->getIsLocalized()) {
+				$localizedSettingNames[] = $setting->getName();
+			}
+		}
+		return $localizedSettingNames;
+	}
+
+	/**
+	 * Checks whether the given input/output type combination
+	 * is supported by this filter.
+	 *
+	 * @param $inputTypeString string a text representation of the
+	 *  requested input type.
+	 * @param $outputTypeString string a text representation of the
+	 *  requested output type.
+	 */
+	function isValidTransformation($inputTypeString, $outputTypeString) {
+		// The default implementation retrieves a simple list of
+		// allowed input/output type combinations and checks whether the
+		// given combination is part of that list.
+		$validTransformations = $this->getSupportedTransformations();
+		foreach($validTransformations as $validTransformation) {
+			assert(count($validTransformation) == 2);
+			if ($validTransformation[0] == $inputTypeString && $validTransformation[1] == $outputTypeString) return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Returns true if the given input and output
+	 * objects represent a valid transformation
+	 * for this filter.
+	 *
+	 * This check must be type based. It can
+	 * optionally include an additional stateful
+	 * inspection of the given object instances.
+	 *
+	 * If the output type is null then only
+	 * check whether the given input type is
+	 * one of the input types accepted by this
+	 * filter.
+	 *
+	 * The standard implementation provides full
+	 * type based checking. Subclasses must
+	 * implement any required stateful inspection
+	 * of the provided objects.
+	 *
+	 * @param $input mixed
+	 * @param $output mixed
+	 * @return boolean
+	 */
+	function supports(&$input, &$output) {
+		// Validate input
+		$inputType =& $this->getInputType();
+		$validInput = $inputType->isCompatible($input);
+
+		// If output is null then we're done
+		if (is_null($output)) return $validInput;
+
+		// Validate output
+		$outputType =& $this->getOutputType();
+		$validOutput = $outputType->isCompatible($output);
+
+		return $validInput && $validOutput;
+	}
+
 	/**
 	 * Returns true if the given input is supported
 	 * by this filter. Otherwise returns false.
@@ -287,12 +588,24 @@ class Filter {
 	 *  if an error occurred during processing
 	 */
 	function &execute(&$input) {
+		// Make sure that we don't destroy referenced
+		// data somewhere out there.
+		unset($this->_input, $this->_output);
+
+		// Check the runtime environment
+		$runtimeEnvironment =& $this->getRuntimeEnvironment();
+		if (isset($runtimeEnvironment)) {
+			if (!$runtimeEnvironment->isCompatible()) {
+				// Missing installation requirements.
+				fatalError('Trying to run a transformation that is not supported in your installation environment.');
+			}
+		}
+
 		// Validate the filter input
 		if (!$this->supportsAsInput($input)) {
-			// We have no valid input so reset
-			// the internal input/output state to null.
-			$this->_input = null;
-			$this->_output = null;
+			// We have no valid input so return
+			// an empty output (see unset statement
+			// above).
 			return $this->_output;
 		}
 
@@ -303,14 +616,34 @@ class Filter {
 		$preliminaryOutput =& $this->process($input);
 
 		// Validate the filter output
-		if (is_null($preliminaryOutput) || !$this->supports($input, $preliminaryOutput)) {
-			$this->_output = null;
-		} else {
+		if (!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) {
 			$this->_output =& $preliminaryOutput;
 		}
 
 		// Return processed data
 		return $this->_output;
+	}
+
+	//
+	// Public helper methods
+	//
+	/**
+	 * Returns a static array with supported runtime
+	 * environment settings and their default values.
+	 *
+	 * PHP4 workaround for missing static class members.
+	 *
+	 * @return array
+	 */
+	function supportedRuntimeEnvironmentSettings() {
+		static $runtimeEnvironmentSettings = array(
+			'phpVersionMin' => PHP_REQUIRED_VERSION,
+			'phpVersionMax' => null,
+			'phpExtensions' => array(),
+			'externalPrograms' => array()
+		);
+
+		return $runtimeEnvironmentSettings;
 	}
 }
 ?>

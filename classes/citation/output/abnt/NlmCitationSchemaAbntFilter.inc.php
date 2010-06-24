@@ -27,8 +27,22 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	 * @param $request PKPRequest
 	 */
 	function NlmCitationSchemaAbntFilter(&$request) {
+		$this->setDisplayName('ABNT Citation Output');
+
 		parent::NlmCitationSchemaCitationOutputFormatFilter($request);
 	}
+
+
+	//
+	// Implement template methods from Filter
+	//
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter';
+	}
+
 
 	//
 	// Implement abstract template methods from NlmCitationSchemaCitationOutputFormatFilter

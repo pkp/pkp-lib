@@ -228,37 +228,29 @@ class PKPComponentRouter extends PKPRouter {
 					return $nullVar;
 			}
 
-			// Declare the component handler class.
-			import($component);
+			// We expect the handler to be part of one
+			// of the following packages:
+			$allowedPackages = array(
+				'controllers',
+				'lib.pkp.controllers'
+			);
 
-			// Check that the component class has really been declared
-			$componentClassName = substr($component, strrpos($component, '.') + 1);
-			assert(class_exists($componentClassName));
-
-			//
-			// Operation
-			//
 			// Retrieve requested component operation
 			$op = $this->getRequestedOp($request);
 			assert(!empty($op));
 
-			// Check that the requested operation exists for the handler:
-			// Lowercase comparison for PHP4 compatibility. Also check the required
-			// validate() and initialize() methods.
-			$methods = array_map('strtolower', get_class_methods($componentClassName));
-			foreach(array(strtolower($op), 'validate', 'initialize') as $requiredMethod) {
-				if (!in_array($requiredMethod, $methods)) return $nullVar;
-			}
+			// A handler at least needs to implement the
+			// following methods:
+			$requiredMethods = array(
+				$op, 'validate', 'initialize'
+			);
+
+			$componentInstance =& instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
+			if (!is_object($componentInstance)) return $nullVar;
 
 			//
 			// Callable service endpoint
 			//
-			// Instantiate the handler
-			$componentInstance = new $componentClassName();
-
-			// Check that the component instance really is a handler
-			if (!is_a($componentInstance, 'PKPHandler')) return $nullVar;
-
 			// Check that the requested operation is on the
 			// remote operation whitelist.
 			if (!in_array($op, $componentInstance->getRemoteOperations())) return $nullVar;

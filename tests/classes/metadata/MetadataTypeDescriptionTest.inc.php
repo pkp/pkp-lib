@@ -16,8 +16,6 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataTypeDescription');
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
 
 class MetadataTypeDescriptionTest extends PKPTestCase {
 	/**
@@ -27,11 +25,11 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 		// Test with specific assoc type
 		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)');
 
-		$rightSchema = new NlmCitationSchema();
-		$wrongSchema = new NlmNameSchema();
-		$compatibleMetadataDescription = new MetadataDescription($rightSchema, ASSOC_TYPE_CITATION);
-		$wrongMetadataDescription1 = new MetadataDescription($wrongSchema, ASSOC_TYPE_CITATION);
-		$wrongMetadataDescription2 = new MetadataDescription($rightSchema, ASSOC_TYPE_AUTHOR);
+		$rightSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
+		$wrongSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$compatibleMetadataDescription = new MetadataDescription($rightSchemaName, ASSOC_TYPE_CITATION);
+		$wrongMetadataDescription1 = new MetadataDescription($wrongSchemaName, ASSOC_TYPE_CITATION);
+		$wrongMetadataDescription2 = new MetadataDescription($rightSchemaName, ASSOC_TYPE_AUTHOR);
 		self::assertTrue($typeDescription->isCompatible($compatibleMetadataDescription));
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription1));
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription2));
@@ -68,18 +66,6 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// Wrong assoc type.
 		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(UNKNOWN)');
-	}
-
-	/**
-	 * @covers MetadataTypeDescription
-	 */
-	public function testGetSampleObject() {
-		// Test scalar types
-		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)');
-		$sampleObject = $typeDescription->getSampleObject();
-		self::assertType('MetadataDescription', $sampleObject);
-		self::assertType('NlmCitationSchema', $sampleObject->getMetadataSchema());
-		self::assertEquals(ASSOC_TYPE_CITATION, $sampleObject->getAssocType());
 	}
 }
 ?>

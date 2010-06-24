@@ -25,8 +25,21 @@ class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 * @param $request PKPRequest
 	 */
 	function NlmCitationSchemaApaFilter(&$request) {
+		$this->setDisplayName('APA Citation Output');
+
 		parent::NlmCitationSchemaCitationOutputFormatFilter($request);
 	}
+
+	//
+	// Implement template methods from Filter
+	//
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter';
+	}
+
 
 	//
 	// Implement abstract template methods from NlmCitationSchemaCitationOutputFormatFilter

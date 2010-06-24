@@ -20,11 +20,17 @@ import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 class MetadataDataObjectAdapter extends Filter {
+	/** @var string fully qualified name of a meta-data schema class */
+	var $_metadataSchemaName;
+
 	/** @var MetadataSchema */
 	var $_metadataSchema;
 
 	/** @var string */
 	var $_dataObjectName;
+
+	/** @var string */
+	var $_dataObjectClass;
 
 	/** @var integer */
 	var $_assocType;
@@ -32,18 +38,22 @@ class MetadataDataObjectAdapter extends Filter {
 	/** @var array */
 	var $_metadataFieldNames;
 
+	/** @var array */
+	var $_supportedTransformations;
+
 	/**
 	 * Constructor
-	 * @param $metadataSchema MetadataSchema
-	 * @param $dataObjectName string
+	 * @param $metadataSchemaName string a fully qualified class name
+	 * @param $dataObjectName string a fully qualified class name
 	 * @param $assocType integer
 	 */
-	function MetadataDataObjectAdapter(&$metadataSchema, $dataObjectName, $assocType) {
-		assert(is_a($metadataSchema, 'MetadataSchema') && is_string($dataObjectName)
+	function MetadataDataObjectAdapter($metadataSchemaName, $dataObjectName, $assocType) {
+		assert(is_string($metadataSchemaName) && is_string($dataObjectName)
 				&& is_integer($assocType));
 
 		// Initialize the adapter
-		$this->_metadataSchema =& $metadataSchema;
+		$this->setDisplayName('Inject/Extract Metadata into/from a '.$dataObjectName);
+		$this->_metadataSchemaName = $metadataSchemaName;
 		$this->_dataObjectName = $dataObjectName;
 		$this->_assocType = $assocType;
 	}
@@ -52,10 +62,24 @@ class MetadataDataObjectAdapter extends Filter {
 	// Getters and setters
 	//
 	/**
-	 * Get the supported meta-data schema
+	 * Get the fully qualified class name of
+	 * the supported meta-data schema.
+	 */
+	function getMetadataSchemaName() {
+		return $this->_metadataSchemaName;
+	}
+
+	/**
+	 * Get the supported meta-data schema (lazy load)
 	 * @return MetadataSchema
 	 */
 	function &getMetadataSchema() {
+		// Lazy-load the meta-data schema if this has
+		// not been done before.
+		if (is_null($this->_metadataSchema)) {
+			$this->_metadataSchema =& instantiate($this->getMetadataSchemaName(), 'MetadataSchema');
+			assert(is_object($this->_metadataSchema));
+		}
 		return $this->_metadataSchema;
 	}
 
@@ -75,6 +99,20 @@ class MetadataDataObjectAdapter extends Filter {
 	 */
 	function getDataObjectName() {
 		return $this->_dataObjectName;
+	}
+
+	/**
+	 * Return the data object class name
+	 * (without the package prefix)
+	 *
+	 * @return string
+	 */
+	function getDataObjectClass() {
+		if (is_null($this->_dataObjectClass)) {
+			$dataObjectNameParts = explode('.', $this->getDataObjectName());
+			$this->_dataObjectClass = array_pop($dataObjectNameParts);
+		}
+		return $this->_dataObjectClass;
 	}
 
 	/**
@@ -132,6 +170,34 @@ class MetadataDataObjectAdapter extends Filter {
 	// Implement template methods from Filter
 	//
 	/**
+	 * @see getSupportedTransformations()
+	 */
+	function getSupportedTransformations() {
+		if (is_null($this->_supportedTransformations)) {
+			// Find the ASSOC_TYPE_* constant with the correct value.
+			$definedConstants = array_keys(get_defined_constants());
+			$assocTypeConstants = array_filter($definedConstants,
+					create_function('$o', 'return (strpos($o, "ASSOC_TYPE_") === 0) && '
+					.'(constant($o) === '.(string)$this->getAssocType().');'));
+			assert(count($assocTypeConstants) == 1);
+
+			// Extract the assoc type name.
+			$assocTypeName = str_replace('ASSOC_TYPE_', '', array_pop($assocTypeConstants));
+
+			// Construct the supported type definitions
+			$metadataType = 'metadata::'.$this->getMetadataSchemaName().'('.$assocTypeName.')';
+			$dataObjectType = 'class::'.$this->getDataObjectName();
+
+			// Construct the supported transformations
+			$this->_supportedTransformations = array(
+				array($metadataType, $dataObjectType),
+				array($dataObjectType, $metadataType)
+			);
+		}
+		return $this->_supportedTransformations;
+	}
+
+	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed
@@ -149,7 +215,7 @@ class MetadataDataObjectAdapter extends Filter {
 				if (!is_a($metadataDescription, 'MetadataDescription')) return false;
 
 				$dataObject =& $input[1];
-				if (!is_a($dataObject, $this->_dataObjectName)) return false;
+				if (!is_a($dataObject, $this->getDataObjectClass())) return false;
 
 				$replace = $input[2];
 				if (!is_bool($replace)) return false;
@@ -165,7 +231,7 @@ class MetadataDataObjectAdapter extends Filter {
 				break;
 
 			// Create a new meta-data description from a data object
-			case is_a($input, $this->_dataObjectName):
+			case is_a($input, $this->getDataObjectClass()):
 				break;
 
 			default:
@@ -179,9 +245,9 @@ class MetadataDataObjectAdapter extends Filter {
 			case is_array($input):
 			case is_a($input, 'MetadataDescription'):
 				// We expect an application object (DataObject)
-				return is_a($output, $this->_dataObjectName);
+				return is_a($output, $this->getDataObjectClass());
 
-			case is_a($input, $this->_dataObjectName):
+			case is_a($input, $this->getDataObjectClass()):
 				if (!is_a($output, 'MetadataDescription')) return false;
 
 				// Check whether the the output
@@ -214,7 +280,7 @@ class MetadataDataObjectAdapter extends Filter {
 				$output =& $this->injectMetadataIntoDataObject($input, $nullVar, false);
 				break;
 
-			case is_a($input, $this->_dataObjectName):
+			case is_a($input, $this->getDataObjectClass()):
 				$output =& $this->extractMetadataFromDataObject($input);
 				break;
 
@@ -236,7 +302,7 @@ class MetadataDataObjectAdapter extends Filter {
 	 * @return MetadataDescription
 	 */
 	function &instantiateMetadataDescription() {
-		$metadataDescription = new MetadataDescription($this->getMetadataSchema(), $this->getAssocType());
+		$metadataDescription = new MetadataDescription($this->getMetadataSchemaName(), $this->getAssocType());
 		return $metadataDescription;
 	}
 
@@ -287,9 +353,9 @@ class MetadataDataObjectAdapter extends Filter {
 		if ($metadataDescription->getAssocType() != $this->_assocType) return false;
 
 		// Check that the description complies with the correct schema
-		$descriptionSchema =& $metadataDescription->getMetadataSchema();
-		$supportedSchema =& $this->_metadataSchema;
-		if ($descriptionSchema->getName() != $supportedSchema->getName()) return false;
+		$descriptionSchemaName =& $metadataDescription->getMetadataSchemaName();
+		$supportedSchemaName =& $this->getMetadataSchemaName();
+		if ($descriptionSchemaName != $supportedSchemaName) return false;
 
 		// Compliance was successfully checked
 		return true;

@@ -23,15 +23,28 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 	 * @covers MetadataDescriptionDummyAdapter
 	 */
 	public function testMetadataDescriptionDummyAdapter() {
+		$schema = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
+
 		// Instantiate a test description
-		$schema = new NlmCitationSchema();
 		$originalDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);
 		$originalDescription->addStatement('article-title', $originalTitle = 'original title');
 
 		// Test constructor
 		$adapter = new MetadataDescriptionDummyAdapter($originalDescription);
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
-		self::assertEquals($schema, $adapter->getMetadataSchema());
+		self::assertEquals($schema, $adapter->getMetadataSchemaName());
+		self::assertType('NlmCitationSchema', $adapter->getMetadataSchema());
+		$expectedTransformations = array(
+			array(
+				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+				'class::lib.pkp.classes.metadata.MetadataDescription'
+			),
+			array(
+				'class::lib.pkp.classes.metadata.MetadataDescription',
+				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+			)
+		);
+		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
 		// Test metadata injection (no replace)
 		$sourceDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);

@@ -14,22 +14,17 @@
  *  the result of the last filter in the chain to the caller.
  */
 
-// $Id$
+import('lib.pkp.classes.filter.GenericFilter');
 
-import('lib.pkp.classes.filter.Filter');
-
-class GenericSequencerFilter extends Filter {
+class GenericSequencerFilter extends GenericFilter {
 	/** @var array An array of filters that we run in order */
 	var $_filters = array();
-
-	/** @var array test objects required for filter chain validation */
-	var $_intermediateResultSamples = array();
 
 	/**
 	 * Constructor
 	 */
-	function GenericSequencerFilter() {
-		parent::Filter();
+	function GenericSequencerFilter($displayName = null, $transformation = null) {
+		parent::GenericFilter($displayName, $transformation);
 	}
 
 	//
@@ -39,30 +34,9 @@ class GenericSequencerFilter extends Filter {
 	 * Adds a filter to the end of the
 	 * filter list.
 	 * @param $filter Filter
-	 * @param $inputSample mixed a test object that validates as input against
-	 *  the supports() function of the added filter and also has to be supported
-	 *  as output of the previously added filter (if any). This will be used
-	 *  to validate the filter sequence.
 	 */
-	function addFilter(&$filter, &$inputSample) {
+	function addFilter(&$filter) {
 		assert(is_a($filter, 'Filter'));
-		assert(!is_null($inputSample));
-
-		// The sample must be supported as input by the added
-		// filter
-		assert($filter->supportsAsInput($inputSample));
-
-		// The sample must be supported as output by the
-		// previously added filter (if there is any).
-		$previouslyAddedFilterId = count($this->_filters)-1;
-		if ($previouslyAddedFilterId >= 0) {
-			$previousFilter =& $this->_filters[$previouslyAddedFilterId];
-			$previousInputSample =& $this->_intermediateResultSamples[$previouslyAddedFilterId];
-			assert($previousFilter->supports($previousInputSample, $inputSample));
-		}
-
-		// Store filter and sample data
-		$this->_intermediateResultSamples[] =& $inputSample;
 		$this->_filters[] =& $filter;
 	}
 
@@ -70,27 +44,10 @@ class GenericSequencerFilter extends Filter {
 	// Implementing abstract template methods from Filter
 	//
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
+	 * @see Filter::getClassName()
 	 */
-	function supports(&$input, &$output) {
-		// Preliminary check: do we have filters at all?
-		if(!count($this->_filters)) return false;
-		$nullVar = null;
-
-		// The input must be validated by the first filter
-		// in the sequence.
-		$firstFilter =& $this->_filters[0];
-		if (!$firstFilter->supports($input, $nullVar)) return false;
-
-		// The output must be validated by the last filter
-		// in the sequence.
-		$lastFilterId = count($this->_filters)-1;
-		$lastFilter =& $this->_filters[$lastFilterId];
-		$inputSample =& $this->_intermediateResultSamples[$lastFilterId];
-		return $lastFilter->supports($inputSample, $output);
+	function getClassName() {
+		return 'lib.pkp.classes.filter.GenericSequencerFilter';
 	}
 
 	/**

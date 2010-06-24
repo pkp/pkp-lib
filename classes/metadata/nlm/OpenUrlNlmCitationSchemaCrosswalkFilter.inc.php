@@ -24,13 +24,29 @@ class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	 * Constructor
 	 */
 	function OpenUrlNlmCitationSchemaCrosswalkFilter() {
-		// We transform all types of OpenURL schema to NLM citation
-		parent::OpenUrlCrosswalkFilter('OpenUrlBaseSchema', 'NlmCitationSchema');
+		$this->setDisplayName('Crosswalk from Open URL to NLM Citation');
+		parent::OpenUrlCrosswalkFilter();
 	}
 
 	//
 	// Implement template methods from Filter
 	//
+	/**
+	 * @see Filter::getSupportedTransformation()
+	 */
+	function getSupportedTransformation() {
+		// We transform all types of OpenURL schema to NLM citation
+		return parent::getSupportedTransformation('lib.pkp.classes.metadata.openurl.OpenUrlBaseSchema',
+				'lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+	}
+
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.metadata.nlm.OpenUrlNlmCitationSchemaCrosswalkFilter';
+	}
+
 	/**
 	 * Map OpenURL properties to NLM properties.
 	 * NB: OpenURL has no i18n so we use the default
@@ -43,8 +59,7 @@ class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		$nullVar = null;
 
 		// Instantiate the target description.
-		$outputSchema = new NlmCitationSchema();
-		$output = new MetadataDescription($outputSchema, $input->getAssocType());
+		$output = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', $input->getAssocType());
 
 		// Parse au statements into name descriptions
 		import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');

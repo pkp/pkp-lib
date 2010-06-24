@@ -114,7 +114,8 @@ class PKPHandler {
 	function validate($requiredContexts = null, $request = null) {
 		// FIXME: for backwards compatibility only - remove when request/router refactoring complete
 		if (!isset($request)) {
-			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function call.');
+			// FIXME: Trigger a deprecation warning when enough instances of this
+			// call have been fixed to not clutter the error log.
 			$request =& Registry::get('request');
 		}
 

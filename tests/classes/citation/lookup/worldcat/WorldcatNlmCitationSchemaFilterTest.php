@@ -11,9 +11,9 @@
  * @see WorldcatNlmCitationSchemaFilter
  *
  * @brief Tests for the WorldcatNlmCitationSchemaFilter class.
+ *
+ * NB: This test requires a WordCat API key to function properly!
  */
-
-// $Id$
 
 import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');

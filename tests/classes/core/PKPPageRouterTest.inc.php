@@ -73,10 +73,10 @@ class PKPPageRouterTest extends PKPRouterTest {
 			'PATH_INFO' => '/context1/context2/cacheable'
 		);
 
-		self::assertTrue($this->router->isCacheable($this->request));
+		self::assertTrue($this->router->isCacheable($this->request, true));
 
 		Validation::setIsLoggedIn(true);
-		self::assertFalse($this->router->isCacheable($this->request));
+		self::assertFalse($this->router->isCacheable($this->request, true));
 		Validation::setIsLoggedIn(false);
 	}
 
@@ -87,7 +87,7 @@ class PKPPageRouterTest extends PKPRouterTest {
 		$this->setTestConfiguration('request1', 'classes/core/config', false); // installed
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_GET = array('somevar' => 'someval');
-		self::assertFalse($this->router->isCacheable($this->request));
+		self::assertFalse($this->router->isCacheable($this->request, true));
 
 		$_GET = array(
 			'firstContext' => 'something',
@@ -96,7 +96,7 @@ class PKPPageRouterTest extends PKPRouterTest {
 			'op' => 'something',
 			'path' => 'something'
 		);
-		self::assertFalse($this->router->isCacheable($this->request));
+		self::assertFalse($this->router->isCacheable($this->request, true));
 	}
 
 	/**
@@ -109,7 +109,7 @@ class PKPPageRouterTest extends PKPRouterTest {
 		$_GET = array(
 			'page' => 'cacheable'
 		);
-		self::assertTrue($this->router->isCacheable($this->request));
+		self::assertTrue($this->router->isCacheable($this->request, true));
 	}
 
 	/**
@@ -127,7 +127,8 @@ class PKPPageRouterTest extends PKPRouterTest {
 		$_SERVER = array(
 			'PATH_INFO' => '/context1/context2/index'
 		);
-		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-dc9f95abc972ba1edf18d6f6cff29b61.html', $this->router->getCacheFilename($this->request));
+		$expectedId = '/context1/context2/index-en_US';
+		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
 	}
 
 	/**
@@ -140,7 +141,8 @@ class PKPPageRouterTest extends PKPRouterTest {
 			'secondContext' => 'something',
 			'page' => 'index'
 		);
-		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-79620526f0a12d50f46b1c5ea7677546.html', $this->router->getCacheFilename($this->request));
+		$expectedId = 'something-something-index---en_US';
+		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
 	}
 
 	/**

@@ -12,8 +12,6 @@
  *  them into a single "best" citation.
  */
 
-// $Id$
-
 import('lib.pkp.classes.filter.Filter');
 
 class NlmCitationDemultiplexerFilter extends Filter {
@@ -27,6 +25,8 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	 * Constructor
 	 */
 	function NlmCitationDemultiplexerFilter() {
+		$this->setDisplayName('Join several NLM Citation descriptions into a single citation');
+
 		parent::Filter();
 	}
 
@@ -53,6 +53,23 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	//
 	// Implementing abstract template methods from Filter
 	//
+	/**
+	 * @see Filter::getSupportedTransformation()
+	 */
+	function getSupportedTransformation() {
+		return array(
+			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]',
+			'class::lib.pkp.classes.citation.Citation'
+		);
+	}
+
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.citation.NlmCitationDemultiplexerFilter';
+	}
+
 	/**
 	 * @see Filter::process()
 	 * @param $input array incoming MetadataDescriptions
@@ -96,37 +113,6 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		$citation =& $this->_guessValues($scoredCitations);
 		return $citation;
 	}
-
-	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
-	 */
-	function supports(&$input, &$output) {
-		// Check input type
-		// Check the number of the input objects
-		if (!(is_array($input) && count($input))) return false;
-
-		// Iterate over the input objects and check their type.
-		$inputFound = false;
-		foreach($input as $metadataDescription) {
-			if (!is_null($metadataDescription)) {
-				// We need at least one non-null value
-				$inputFound = true;
-
-				if (!is_a($metadataDescription, 'MetadataDescription')) return false;
-				$metadataSchema = $metadataDescription->getMetadataSchema();
-				if (!is_a($metadataSchema, 'NlmCitationSchema')) return false;
-			}
-		}
-		if (!$inputFound) return false;
-
-		// Check output type
-		if (is_null($output)) return true;
-		return is_a($output, 'Citation');
-	}
-
 
 	//
 	// Private helper methods
@@ -248,8 +234,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
 		// Create the target citation description.
-		$metadataSchema = new NlmCitationSchema();
-		$targetDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+		$targetDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 
 		// Step 1: List all values and max scores that have been identified for a given element
 		//         but only include values from results above a given scoring threshold

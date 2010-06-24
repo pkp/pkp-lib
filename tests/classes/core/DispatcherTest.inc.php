@@ -52,6 +52,9 @@ class DispatcherTest extends PKPTestCase {
 		$this->request = new PKPRequest();
 	}
 
+	/**
+	 * @covers Dispatcher::testUrl
+	 */
 	public function testUrl() {
 		$baseUrl = $this->request->getBaseUrl();
 

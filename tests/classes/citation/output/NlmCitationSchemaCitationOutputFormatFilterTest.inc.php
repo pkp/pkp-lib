@@ -39,10 +39,10 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	}
 
 	public function testExecuteWithUnsupportedPublicationType() {
-		$nameSchema = new NlmNameSchema();
-		$citationSchema = new NlmCitationSchema();
+		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
 		// Create a description with an unsupported publication type
-		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_THESIS);
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
@@ -51,20 +51,20 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	}
 
 	public function testExecuteWithBook() {
-		$nameSchema = new NlmNameSchema();
-		$citationSchema = new NlmCitationSchema();
+		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
 
 		// Two representative authors
-		$person1Description = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+		$person1Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$person1Description->addStatement('surname', $surname = 'Azevedo');
 		$person1Description->addStatement('given-names', $givenName1 = 'Mario');
 		$person1Description->addStatement('given-names', $givenName2 = 'Antonio');
-		$person2Description = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+		$person2Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$person2Description->addStatement('surname', $surname2 = 'Guerra');
 		$person2Description->addStatement('given-names', $givenName3 = 'Vitor');
 
 		// Check a book with minimal data
-		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_BOOK);
 		$citationDescription->addStatement('source', $source = 'Mania de bater: a punição corporal doméstica de crianças e adolescentes no Brasil');
 		$citationDescription->addStatement('date', $date = '2001');
@@ -94,7 +94,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		self::assertEquals($this->getBookChapterResult(), $result);
 
 		// Add editor
-		$person3Description = new MetadataDescription($nameSchema, ASSOC_TYPE_EDITOR);
+		$person3Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_EDITOR);
 		$person3Description->addStatement('surname', $surname3 = 'Banks-Leite');
 		$person3Description->addStatement('given-names', $givenName4 = 'Lorena');
 		$citationDescription->addStatement('person-group[@person-group-type="editor"]', $person3Description);
@@ -102,7 +102,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		self::assertEquals($this->getBookChapterWithEditorResult(), $result);
 
 		// Add another editor
-		$person4Description = new MetadataDescription($nameSchema, ASSOC_TYPE_EDITOR);
+		$person4Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_EDITOR);
 		$person4Description->addStatement('surname', $surname3 = 'Velado');
 		$person4Description->addStatement('given-names', $givenName4 = 'Mariano');
 		$person4Description->addStatement('suffix', $givenName4 = 'Jr.');
@@ -112,21 +112,21 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	}
 
 	public function testExecuteWithJournal() {
-		$nameSchema = new NlmNameSchema();
-		$citationSchema = new NlmCitationSchema();
+		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
 
 		// Two representative authors
-		$person1Description = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+		$person1Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$person1Description->addStatement('surname', $surname = 'Silva');
 		$person1Description->addStatement('given-names', $givenName1 = 'Vitor');
 		$person1Description->addStatement('given-names', $givenName2 = 'Antonio');
-		$person2Description = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+		$person2Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$person2Description->addStatement('surname', $surname2 = 'Santos');
 		$person2Description->addStatement('prefix', $prefix1 = 'dos');
 		$person2Description->addStatement('given-names', $givenName3 = 'Pedro');
 
 		// Check a journal article
-		$citationDescription = new MetadataDescription($citationSchema, ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_JOURNAL);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person1Description);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person2Description);
@@ -153,7 +153,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 			array('Thomas', array('S', 'T'))
 		);
 		foreach ($authors as $author) {
-			$personDescription = new MetadataDescription($nameSchema, ASSOC_TYPE_AUTHOR);
+			$personDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 			$personDescription->addStatement('surname', $author[0]);
 			$personDescription->addStatement('given-names', $author[1][0]);
 			$personDescription->addStatement('given-names', $author[1][1]);

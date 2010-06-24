@@ -15,7 +15,6 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.tests.classes.metadata.TestSchema');
 
 class MetadataDescriptionTest extends PKPTestCase {
 	private $metadataDescription;
@@ -57,8 +56,7 @@ class MetadataDescriptionTest extends PKPTestCase {
   		);
 
 	protected function setUp() {
-		$metadataSchema = new TestSchema();
-		$this->metadataDescription = new MetadataDescription($metadataSchema, ASSOC_TYPE_CITATION);
+		$this->metadataDescription = new MetadataDescription('lib.pkp.tests.classes.metadata.TestSchema', ASSOC_TYPE_CITATION);
 	}
 
 	/**

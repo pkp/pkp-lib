@@ -170,11 +170,10 @@ class MetadataDescriptionDAO extends DAO {
 	 * FIXME: This information should come from a central
 	 * meta-data schema registry.
 	 *
-	 * @param $metadataSchemaNamespace string
-	 * @param $metadataSchemaName string
-	 * @return MetadataSchema
+	 * @param $metadataSchemaId string
+	 * @return string
 	 */
-	function &_resolveSchemaIdentifiersToMetadataSchema($metadataSchemaNamespace, $metadataSchemaName) {
+	function &_resolveSchemaIdentifierToMetadataSchemaName($metadataSchemaId) {
 		static $metadataSchemaMapping = array(
 			'nlm30:nlm-3.0-element-citation' => 'lib.pkp.classes.metadata.nlm.NlmCitationSchema',
 			'nlm30:nlm-3.0-name' => 'lib.pkp.classes.metadata.nlm.NlmNameSchema',
@@ -184,17 +183,9 @@ class MetadataDescriptionDAO extends DAO {
 		);
 
 		// Map the metadata schema identifier to a metadata schema class name.
-		$metadataSchemaId = $metadataSchemaNamespace.':'.$metadataSchemaName;
 		assert(isset($metadataSchemaMapping[$metadataSchemaId]));
-		$metadataSchemaImport = $metadataSchemaMapping[$metadataSchemaId];
-		$metadataSchemaImportParts = explode('.', $metadataSchemaImport);
-		$metadataSchemaClass = array_pop($metadataSchemaImportParts);
-
-		// Instantiate and return the correct meta-data schema.
-		import($metadataSchemaImport);
-		assert(class_exists($metadataSchemaClass));
-		$metadataSchema = new $metadataSchemaClass();
-		return $metadataSchema;
+		$metadataSchemaName = $metadataSchemaMapping[$metadataSchemaId];
+		return $metadataSchemaName;
 	}
 
 	/**
@@ -202,11 +193,12 @@ class MetadataDescriptionDAO extends DAO {
 	 * schema identifiers passed into this method.
 	 * @param $metadataSchemaNamespace string
 	 * @param $metadataSchemaName string
+	 * @param $assocType integer
 	 * @return MetadataDescription
 	 */
 	function &_newDataObject($metadataSchemaNamespace, $metadataSchemaName, $assocType) {
-		$metadataSchema =& $this->_resolveSchemaIdentifiersToMetadataSchema($metadataSchemaNamespace, $metadataSchemaName);
-		$metadataDescription = new MetadataDescription($metadataSchema, (int)$assocType);
+		$metadataSchemaName =& $this->_resolveSchemaIdentifierToMetadataSchemaName($metadataSchemaNamespace.':'.$metadataSchemaName);
+		$metadataDescription = new MetadataDescription($metadataSchemaName, $assocType);
 		return $metadataDescription;
 	}
 
@@ -217,11 +209,11 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return MetadataDescription
 	 */
 	function &_fromRow(&$row) {
-		$metadataDescription =& $this->_newDataObject($row['schema_namespace'], $row['schema_name'], $row['assoc_type']);
-		$metadataDescription->setId($row['metadata_description_id']);
-		$metadataDescription->setAssocId($row['assoc_id']);
+		$metadataDescription =& $this->_newDataObject($row['schema_namespace'], $row['schema_name'], (int)$row['assoc_type']);
+		$metadataDescription->setId((int)$row['metadata_description_id']);
+		$metadataDescription->setAssocId((int)$row['assoc_id']);
 		$metadataDescription->setDisplayName($row['display_name']);
-		$metadataDescription->setSeq($row['seq']);
+		$metadataDescription->setSeq((int)$row['seq']);
 
 		$this->getDataObjectSettings('metadata_description_settings', 'metadata_description_id', $row['metadata_description_id'], $metadataDescription);
 

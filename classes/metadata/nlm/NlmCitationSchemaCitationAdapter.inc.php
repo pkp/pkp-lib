@@ -15,10 +15,7 @@
  *  meta-data into/from a Citation object.
  */
 
-// $Id$
-
 import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
 
 class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
@@ -27,9 +24,19 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 */
 	function NlmCitationSchemaCitationAdapter() {
 		// Configure the adapter
-		$metadataSchema = new NlmCitationSchema();
-		parent::MetadataDataObjectAdapter($metadataSchema, 'Citation', ASSOC_TYPE_CITATION);
+		parent::MetadataDataObjectAdapter('lib.pkp.classes.metadata.nlm.NlmCitationSchema', 'lib.pkp.classes.citation.Citation', ASSOC_TYPE_CITATION);
 	}
+
+	//
+	// Implement template methods from Filter
+	//
+	/**
+	 * @see Filter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationAdapter';
+	}
+
 
 	//
 	// Implement template methods from MetadataDataObjectAdapter
@@ -109,7 +116,6 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 
 		// Retrieve the statements from the data object
 		$statements = array();
-		$nameSchema = new NlmNameSchema();
 		foreach($fieldNames as $fieldName) {
 			if ($dataObject->hasData($fieldName)) {
 				// Remove the name space prefix
@@ -130,7 +136,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 									$assocType = ASSOC_TYPE_EDITOR;
 									break;
 							}
-							$nameDescription = new MetadataDescription($nameSchema, $assocType);
+							$nameDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', $assocType);
 							$nameDescription->setStatements($name);
 							$names[$key] =& $nameDescription;
 							unset($nameDescription);

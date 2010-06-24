@@ -51,14 +51,15 @@ class FilterDAO extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO filters
-				(display_name, seq, class_name, input_type, output_type)
-				VALUES (?, ?, ?, ?, ?)'),
+				(display_name, seq, class_name, input_type, output_type, is_template)
+				VALUES (?, ?, ?, ?, ?, ?)'),
 			array(
 				$filter->getDisplayName(),
 				(integer)$filter->getSeq(),
 				$filter->getClassName(),
 				$inputType->getTypeDescription(),
-				$outputType->getTypeDescription()
+				$outputType->getTypeDescription(),
+				$filter->getIsTemplate()?1:0
 			)
 		);
 		$filter->setId($this->getInsertId());
@@ -74,8 +75,7 @@ class FilterDAO extends DAO {
 	 */
 	function &getObjectById($filterId) {
 		$result =& $this->retrieve(
-			'SELECT * FROM filters WHERE filter_id = ?', $filterId
-		);
+				'SELECT * FROM filters WHERE filter_id = ?', $filterId);
 
 		$filter = null;
 		if ($result->RecordCount() != 0) {
@@ -89,6 +89,23 @@ class FilterDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a record set with all filter instances
+	 * (transformations) that are based on the given class.
+	 * @param $getTemplates boolean set true if you want filter templates
+	 *  rather than actual transformations
+	 * @param $className string
+	 * @return Filter
+	 */
+	function &getObjectsByClass($className, $getTemplates = false) {
+		$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE class_name = ?'
+				.'AND '.($getTemplates ? '' : 'NOT ').'is_template',
+				$className);
+
+		return $result;
+	}
+
+	/**
 	 * Retrieve filter instances that support a given input and
 	 * output sample object.
 	 *
@@ -98,12 +115,14 @@ class FilterDAO extends DAO {
 	 *
 	 * @param $inputSample mixed
 	 * @param $outputSample mixed
+	 * @param $getTemplates boolean set true if you want filter templates
+	 *  rather than actual transformations
 	 * @param $rehash boolean if true then the (costly) filter
 	 *  hash operation will be repeated even if the filters have
 	 *  been hashed before.
 	 * @return array all compatible filter instances (transformations).
 	 */
-	function &getCompatibleObjects($inputSample, $outputSample, $rehash = false) {
+	function &getCompatibleObjects($inputSample, $outputSample, $getTemplates = false, $rehash = false) {
 		static $filterHash = array();
 		static $typeDescriptionFactory = null;
 		static $typeDescriptionCache = array();
@@ -111,21 +130,22 @@ class FilterDAO extends DAO {
 
 		// Instantiate the type description factory
 		if (is_null($typeDescriptionFactory)) {
-			$typeDescriptionFactory = new TypeDescriptionFactory();
+			$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
 		}
 
 		// 1) Hash all available transformations by input
 		//    and output type.
-		if (empty($filterHash) || $rehash) {
-			$result =& $this->retrieve('SELECT * FROM filters');
+		if (!isset($filterHash[$getTemplates]) || $rehash) {
+			$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE '.($getTemplates ? '' : 'NOT ').'is_template');
 			foreach($result->GetAssoc() as $filterRow) {
-				$filterHash[$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
+				$filterHash[$getTemplates][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
 			}
 		}
 
 		// 2) Check the input sample against all input types.
 		$intermediateCandidates = array();
-		foreach($filterHash as $inputType => $outputHash) {
+		foreach($filterHash[$getTemplates] as $inputType => $outputHash) {
 			// Instantiate the type description if not yet done
 			// before.
 			if (!isset($typeDescriptionCache[$inputType])) {
@@ -179,7 +199,7 @@ class FilterDAO extends DAO {
 				unset($filterInstance);
 			}
 			if ($filterInstanceCache[$matchingFilterRow['filter_id']] !== $runTimeRequirementNotMet) {
-				$matchingFilters[] = $filterInstanceCache[$matchingFilterRow['filter_id']];
+				$matchingFilters[$matchingFilterRow['filter_id']] = $filterInstanceCache[$matchingFilterRow['filter_id']];
 			}
 		}
 
@@ -200,7 +220,8 @@ class FilterDAO extends DAO {
 				seq = ?,
 				class_name = ?,
 				input_type = ?,
-				output_type = ?
+				output_type = ?,
+				is_template = ?
 			WHERE filter_id = ?',
 			array(
 				$filter->getDisplayName(),
@@ -208,7 +229,8 @@ class FilterDAO extends DAO {
 				$filter->getClassName(),
 				$inputType->getTypeDescription(),
 				$outputType->getTypeDescription(),
-				$filter->getId()
+				$filter->getIsTemplate()?1:0,
+				(integer)$filter->getId()
 			)
 		);
 		$this->updateDataObjectSettings('filter_settings', $filter,
@@ -297,21 +319,21 @@ class FilterDAO extends DAO {
 	//
 	/**
 	 * Construct a new configured filter instance (transformation).
-	 * @param $filterClass string a fully qualified class name
+	 * @param $filterClassName string a fully qualified class name
 	 * @param $inputType string
 	 * @param $outputType string
 	 * @return Filter
 	 */
-	function &_newDataObject($filterClass, $inputType, $outputType) {
-		$filterClassParts = explode('.', $filterClass);
-		$filterClassName = array_pop($filterClassParts);
-		assert(!empty($filterClass) && !empty($filterClassName) && count($filterClassParts) > 1);
+	function &_newDataObject($filterClassName, $inputType, $outputType) {
+		// Instantiate the filter
+		$filter =& instantiate($filterClassName, 'Filter');
+		if (!is_object($filter)) fatalError('Error while instantiating class "'.$filterClassName.'" as filter!');
 
-		// FIXME: validate filter class to avoid code inclusion vulnerabilities.
+		// Set input/output data types (transformation type).
+		// NB: This will raise a fatal error if the transformation is not
+		// supported by this filter.
+ 		$filter->setTransformationType($inputType, $outputType);
 
-		// Instantiate the filter with the given input/output data types
-		import($filterClass);
-		$filter = new $filterClassName($inputType, $outputType);
 		return $filter;
 	}
 
@@ -329,6 +351,7 @@ class FilterDAO extends DAO {
 		// Configure the filter instance
 		$filter->setDisplayName($row['display_name']);
 		$filter->setSeq((int)$row['seq']);
+		$filter->setIsTemplate((boolean)$row['is_template']);
 
 		$this->getDataObjectSettings('filter_settings', 'filter_id', $row['filter_id'], $filter);
 

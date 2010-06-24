@@ -3,6 +3,7 @@
 	$.fn.tagit = function(options) {
 
 		var el = this;
+		var id = el.attr('id');
 
 		const BACKSPACE		= 8;
 		const ENTER			= 13;
@@ -14,10 +15,11 @@
 		
 
 		// create the input field.
-		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" type=\"text\" /></li>\n";
+		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" id=\""+id+"KeywordInput\" type=\"text\" /></li>\n";
 		el.html (html_input_field);
 
-		tag_input		= el.children(".tagit-new").children(".tagit-input");
+		//tag_input		= el.children(".tagit-new").children(".tagit-input");
+		var tag_input = $("#"+id+"KeywordInput");
 
 		// Add the existing user interests
 		var currentTags = options.currentTags;
@@ -34,7 +36,7 @@
 			else {
 				// Sets the focus() to the input field, if the user clicks anywhere inside the UL.
 				// This is needed because the input field needs to be of a small size.
-				tag_input.focus();
+				//tag_input.focus();
 			}
 		});
 
@@ -79,7 +81,7 @@
 
 		function is_new (value){
 			var is_new = true;
-			this.tag_input.parents("ul").children(".tagit-choice").each(function(i){
+			tag_input.parents("ul").children(".tagit-choice").each(function(i){
 				n = $(this).children("input").val();
 				if (value == n) {
 					is_new = false;
@@ -92,11 +94,11 @@
 			el  = "<li class=\"tagit-choice\">\n";
 			el += value + "\n";
 			el += "<a class=\"close\">x</a>\n";
-			el += "<input type=\"hidden\" style=\"display:none;\" value=\""+value+"\" name=\"interests[]\">\n";
+			el += "<input type=\"hidden\" class=\"keywordValue\" style=\"display:none;\" value=\""+value+"\" name=\""+id+"Keywords[]\">\n";
 			el += "</li>\n";
-			var li_search_tags = this.tag_input.parent();
+			var li_search_tags = tag_input.parent();
 			$(el).insertBefore (li_search_tags);
-			this.tag_input.val("");
+			tag_input.val("");
 		}
 	};
 

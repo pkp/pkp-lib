@@ -98,13 +98,5 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription {
 
 		return true;
 	}
-
-	/**
-	 * @see TypeDescription::getScalarSampleObject()
-	 */
-	function &getScalarSampleObject() {
-		// We cannot provide sample types for validators.
-		assert(false);
-	}
 }
 ?>

@@ -12,8 +12,6 @@
  * @brief Class providing operations associated with HTTP requests.
  */
 
-// $Id$
-
 
 class PKPRequest {
 	//
@@ -37,9 +35,6 @@ class PKPRequest {
 	var $_baseUrl;
 	/** @var string request protocol */
 	var $_protocol;
-	/** @var boolean true, if deprecation warning is switched on */
-	var $_deprecationWarning = null;
-
 
 
 	/**
@@ -692,9 +687,8 @@ class PKPRequest {
 	 * with static calls to PKPRequest.
 	 *
 	 * If it is called non-statically then it will simply
-	 * return $this. Otherwise it will issue a deprecation
-	 * warning and expect a global singleton instance in the
-	 * registry that will be returned instead.
+	 * return $this. Otherwise a global singleton instance
+	 * from the registry will be returned instead.
 	 *
 	 * NB: This method is protected and may not be used by
 	 * external classes. It should also only be used in legacy
@@ -734,13 +728,15 @@ class PKPRequest {
 	 * @return mixed depends on the called method
 	 */
 	function &_delegateToRouter($method) {
+		// This call is deprecated. We don't trigger a
+		// deprecation error, though, as there are so
+		// many instances of this error that it has a
+		// performance impact and renders the error
+		// log virtually useless when deprecation
+		// warnings are switched on.
+		// FIXME: Fix enough instances of this error so that
+		// we can put a deprecation warning in here.
 		$_this =& PKPRequest::_checkThis();
-		if (is_null($_this->_deprecationWarning)) {
-			$_this->_deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
-			if (is_null($_this->_deprecationWarning)) $_this->_deprecationWarning = false;
-		}
-		if ($_this->_deprecationWarning) trigger_error('Deprecated function');
-
 		$router =& $_this->getRouter();
 
 		// Construct the method call

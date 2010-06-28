@@ -22,6 +22,7 @@ define('GRID_ACTION_MODE_CONFIRM', 4);
 define('GRID_ACTION_TYPE_NOTHING', 'nothing');
 define('GRID_ACTION_TYPE_APPEND', 'append');
 define('GRID_ACTION_TYPE_REPLACE', 'replace');
+define('GRID_ACTION_TYPE_REPLACE_ALL', 'replaceAll');
 define('GRID_ACTION_TYPE_REMOVE', 'remove');
 
 // Action types for ajax mode

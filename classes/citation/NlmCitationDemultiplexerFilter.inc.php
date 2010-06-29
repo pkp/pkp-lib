@@ -328,7 +328,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 			$overallScoreSum += $countCitationsForCurrentScore * $currentScore;
 			$overallScoreCount += $countCitationsForCurrentScore;
 		}
-		$averageScore = $overallScoreSum / $overallScoreCount;
+		$averageScore = ($overallScoreCount > 0 ? $overallScoreSum / $overallScoreCount : 0);
 
 		// Get the max score (= the first key from scoredCitations
 		// as these are sorted by score).

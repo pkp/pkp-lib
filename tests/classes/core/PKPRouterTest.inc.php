@@ -233,7 +233,7 @@ class PKPRouterTest extends PKPTestCase {
 	 */
 	public function testGetIndexUrl() {
 		$this->_setUpMockEnvironment();
-		$this->setTestConfiguration('request1', 'classes/core/config', false); // no restful URLs
+		$this->setTestConfiguration('request1', 'classes/core/config'); // no restful URLs
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'
@@ -269,7 +269,7 @@ class PKPRouterTest extends PKPTestCase {
 	 */
 	public function testGetIndexUrlRestful() {
 		$this->_setUpMockEnvironment();
-		$this->setTestConfiguration('request2', 'classes/core/config', false); // restful URLs
+		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'

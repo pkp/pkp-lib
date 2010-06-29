@@ -13,8 +13,6 @@
  * @brief Tests for the DBConnectionTest class.
  */
 
-// $Id$
-
 import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.db.DBConnection');
 

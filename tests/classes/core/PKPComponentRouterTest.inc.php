@@ -323,7 +323,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithPathinfo() {
-		$this->setTestConfiguration('request1', 'classes/core/config', false); // restful URLs
+		$this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -388,7 +388,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithPathinfoAndOverriddenBaseUrl() {
-		$this->setTestConfiguration('request1', 'classes/core/config', false); // contains overridden context
+		$this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -501,7 +501,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithoutPathinfoAndOverriddenBaseUrl() {
-		$this->setTestConfiguration('request2', 'classes/core/config', false); // contains overridden context
+		$this->setTestConfiguration('request2', 'classes/core/config'); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -532,7 +532,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithoutPathinfoAndSecondContextObjectIsNull() {
-		$this->setTestConfiguration('request2', 'classes/core/config', false); // restful URLs enabled
+		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',

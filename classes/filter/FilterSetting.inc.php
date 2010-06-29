@@ -118,15 +118,15 @@ class FilterSetting {
 	 * Set the localization flag
 	 * @param $isLocalized boolean
 	 */
-	function setIsLocalized(&$isLocalized) {
-		$this->_isLocalized =& $isLocalized;
+	function setIsLocalized($isLocalized) {
+		$this->_isLocalized = $isLocalized;
 	}
 
 	/**
 	 * Get the localization flag
 	 * @return boolean
 	 */
-	function &getIsLocalized() {
+	function getIsLocalized() {
 		return $this->_isLocalized;
 	}
 

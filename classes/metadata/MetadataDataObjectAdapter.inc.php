@@ -56,6 +56,7 @@ class MetadataDataObjectAdapter extends Filter {
 		$this->_metadataSchemaName = $metadataSchemaName;
 		$this->_dataObjectName = $dataObjectName;
 		$this->_assocType = $assocType;
+		parent::Filter();
 	}
 
 	//

@@ -33,7 +33,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 *  with the query.
 	 */
 	function PubmedNlmCitationSchemaFilter($email = null) {
-		$this->setDisplayName('Pubmed');
+		$this->setDisplayName('PubMed');
 		if (!is_null($email)) $this->setData('email', $email);
 
 		// Instantiate the settings of this filter

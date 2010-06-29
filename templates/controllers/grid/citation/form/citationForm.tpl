@@ -31,6 +31,7 @@
 			</tr>
 		</table>
 
+		{assign var=tabUid value="tab"|uniqid}
 		<script type='text/javascript'>
 			$(function() {ldelim}
 				$.ajaxSetup({ldelim}cache:false{rdelim});
@@ -38,7 +39,6 @@
 			{rdelim});
 		</script>
 
-		{assign var=tabUid value="tab"|uniqid}
 		<div id="citationFormTab-{$tabUid}">
 			<ul>
 				{* Tabs that contain editable fields *}

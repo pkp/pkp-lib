@@ -16,29 +16,14 @@
  *  to a de-multiplexer filter.
  */
 
-import('lib.pkp.classes.filter.GenericFilter');
+import('lib.pkp.classes.filter.CompositeFilter');
 
-class GenericMultiplexerFilter extends GenericFilter {
-	/** @var array An unordered array of filters that we run the input over */
-	var $_filters = array();
-
+class GenericMultiplexerFilter extends CompositeFilter {
 	/**
 	 * Constructor
 	 */
 	function GenericMultiplexerFilter($displayName = null, $transformation = null) {
-		parent::GenericFilter($displayName, $transformation);
-	}
-
-	//
-	// Public methods
-	//
-	/**
-	 * Adds a filter to the filter list.
-	 * @param $filter Filter
-	 */
-	function addFilter(&$filter) {
-		assert(is_a($filter, 'Filter'));
-		$this->_filters[] =& $filter;
+		parent::CompositeFilter($displayName, $transformation);
 	}
 
 	//
@@ -60,7 +45,7 @@ class GenericMultiplexerFilter extends GenericFilter {
 		// Iterate over all filters and return the results
 		// as an array.
 		$output = array();
-		foreach($this->_filters as $filter) {
+		foreach($this->getFilters() as $filter) {
 			// Make a copy of the input so that the filters don't interfere
 			// with each other.
 			if (is_object($input)) {

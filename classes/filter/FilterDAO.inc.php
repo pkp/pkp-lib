@@ -51,31 +51,48 @@ class FilterDAO extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO filters
-				(display_name, seq, class_name, input_type, output_type, is_template)
-				VALUES (?, ?, ?, ?, ?, ?)'),
+				(display_name, class_name, input_type, output_type, is_template, parent_filter_id, seq)
+				VALUES (?, ?, ?, ?, ?, ?, ?)'),
 			array(
 				$filter->getDisplayName(),
-				(integer)$filter->getSeq(),
 				$filter->getClassName(),
 				$inputType->getTypeDescription(),
 				$outputType->getTypeDescription(),
-				$filter->getIsTemplate()?1:0
+				$filter->getIsTemplate()?1:0,
+				(integer)$filter->getParentFilterId(),
+				(integer)$filter->getSeq()
 			)
 		);
-		$filter->setId($this->getInsertId());
+		$filter->setId((int)$this->getInsertId());
 		$this->updateDataObjectSettings('filter_settings', $filter,
 				array('filter_id' => $filter->getId()));
+
+		// Recursively insert sub-filters.
+		$this->_insertSubFilters($filter);
+
 		return $filter->getId();
+	}
+
+	/**
+	 * Retrieve a configured filter instance (transformation)
+	 * @param $filter Filter
+	 * @return Filter
+	 */
+	function &getObject(&$filter) {
+		return $this->getObjectById($filter->getId());
 	}
 
 	/**
 	 * Retrieve a configured filter instance (transformation) by id.
 	 * @param $filterId integer
+	 * @param $allowSubfilter boolean
 	 * @return Filter
 	 */
-	function &getObjectById($filterId) {
+	function &getObjectById($filterId, $allowSubfilter = false) {
 		$result =& $this->retrieve(
-				'SELECT * FROM filters WHERE filter_id = ?', $filterId);
+				'SELECT * FROM filters'.
+				' WHERE '.($allowSubfilter ? '' : 'parent_filter_id = 0 AND').
+				' filter_id = ?', $filterId);
 
 		$filter = null;
 		if ($result->RecordCount() != 0) {
@@ -89,20 +106,23 @@ class FilterDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a record set with all filter instances
+	 * Retrieve a result set with all filter instances
 	 * (transformations) that are based on the given class.
+	 * @param $className string
 	 * @param $getTemplates boolean set true if you want filter templates
 	 *  rather than actual transformations
-	 * @param $className string
-	 * @return Filter
+	 * @param $allowSubfilters boolean
+	 * @return DAOResultFactory
 	 */
-	function &getObjectsByClass($className, $getTemplates = false) {
+	function &getObjectsByClass($className, $getTemplates = false, $allowSubfilters = false) {
 		$result =& $this->retrieve(
-				'SELECT * FROM filters WHERE class_name = ?'
-				.'AND '.($getTemplates ? '' : 'NOT ').'is_template',
+				'SELECT * FROM filters WHERE class_name = ?'.
+				' '.($allowSubfilters ? '' : 'AND parent_filter_id = 0').
+				' AND '.($getTemplates ? '' : 'NOT ').'is_template',
 				$className);
 
-		return $result;
+		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
+		return $daoResultFactory;
 	}
 
 	/**
@@ -137,10 +157,15 @@ class FilterDAO extends DAO {
 		//    and output type.
 		if (!isset($filterHash[$getTemplates]) || $rehash) {
 			$result =& $this->retrieve(
-				'SELECT * FROM filters WHERE '.($getTemplates ? '' : 'NOT ').'is_template');
+				'SELECT * FROM filters'.
+				' WHERE '.($getTemplates ? '' : 'NOT ').'is_template'.
+				' AND parent_filter_id = 0');
 			foreach($result->GetAssoc() as $filterRow) {
 				$filterHash[$getTemplates][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
 			}
+
+			// Set an empty array if no filters were found at all.
+			if (!isset($filterHash[$getTemplates])) $filterHash[$getTemplates] = array();
 		}
 
 		// 2) Check the input sample against all input types.
@@ -190,11 +215,10 @@ class FilterDAO extends DAO {
 		foreach($matchingFilterRows as $matchingFilterRow) {
 			if (!isset($filterInstanceCache[$matchingFilterRow['filter_id']])) {
 				$filterInstance =& $this->_fromRow($matchingFilterRow);
-				$runtimeEnvironment = $filterInstance->getRuntimeEnvironment();
-				if (!is_null($runtimeEnvironment) && !$runtimeEnvironment->isCompatible()) {
-					$filterInstanceCache[$matchingFilterRow['filter_id']] = $runTimeRequirementNotMet;
-				} else {
+				if ($filterInstance->isCompatibleWithRuntimeEnvironment()) {
 					$filterInstanceCache[$matchingFilterRow['filter_id']] =& $filterInstance;
+				} else {
+					$filterInstanceCache[$matchingFilterRow['filter_id']] = $runTimeRequirementNotMet;
 				}
 				unset($filterInstance);
 			}
@@ -217,24 +241,35 @@ class FilterDAO extends DAO {
 		$returner = $this->update(
 			'UPDATE	filters
 			SET	display_name = ?,
-				seq = ?,
 				class_name = ?,
 				input_type = ?,
 				output_type = ?,
-				is_template = ?
+				is_template = ?,
+				parent_filter_id = ?,
+				seq = ?
 			WHERE filter_id = ?',
 			array(
 				$filter->getDisplayName(),
-				(integer)$filter->getSeq(),
 				$filter->getClassName(),
 				$inputType->getTypeDescription(),
 				$outputType->getTypeDescription(),
 				$filter->getIsTemplate()?1:0,
+				(integer)$filter->getParentFilterId(),
+				(integer)$filter->getSeq(),
 				(integer)$filter->getId()
 			)
 		);
 		$this->updateDataObjectSettings('filter_settings', $filter,
 				array('filter_id' => $filter->getId()));
+
+		// Do we update a composite filter?
+		if (is_a($filter, 'CompositeFilter')) {
+			// Delete all sub-filters
+			$this->_deleteSubFiltersByParentFilterId($filter->getId());
+
+			// Re-insert sub-filters
+			$this->_insertSubFilters($filter);
+		}
 	}
 
 	/**
@@ -252,9 +287,10 @@ class FilterDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObjectById($filterId) {
-		$params = array((int)$filterId);
-		$this->update('DELETE FROM filters WHERE filter_id = ?', $params);
-		return $this->update('DELETE FROM filter_settings WHERE filter_id = ?', $params);
+		$filterId = (int)$filterId;
+		$this->update('DELETE FROM filters WHERE filter_id = ?', $filterId);
+		$this->update('DELETE FROM filter_settings WHERE filter_id = ?', $filterId);
+		$this->_deleteSubFiltersByParentFilterId($filterId);
 	}
 
 
@@ -345,17 +381,166 @@ class FilterDAO extends DAO {
 	 * @return Filter
 	 */
 	function &_fromRow(&$row) {
+		static $lockedFilters = array();
+		$filterId = $row['filter_id'];
+
+		// Check the filter lock (to detect loops).
+		// NB: This is very important otherwise the request
+		// could eat up lots of memory if the PHP memory max was
+		// set too high.
+		if (isset($lockedFilters[$filterId])) fatalError('Detected a loop in the definition of the filter with id '.$filterId.'!');
+
+		// Lock the filter id.
+		$lockedFilters[$filterId] = true;
+
+		// Instantiate the filter.
 		$filter =& $this->_newDataObject($row['class_name'], $row['input_type'], $row['output_type']);
-		$filter->setId((int)$row['filter_id']);
 
 		// Configure the filter instance
+		$filter->setId((int)$row['filter_id']);
 		$filter->setDisplayName($row['display_name']);
-		$filter->setSeq((int)$row['seq']);
 		$filter->setIsTemplate((boolean)$row['is_template']);
-
+		$filter->setParentFilterId((int)$row['parent_filter_id']);
+		$filter->setSeq((int)$row['seq']);
 		$this->getDataObjectSettings('filter_settings', 'filter_id', $row['filter_id'], $filter);
 
+		// Recursively retrieve sub-filters of this filter.
+		$this->_populateSubFilters($filter);
+
+		// Release the lock on the filter id.
+		unset($lockedFilters[$filterId]);
+
 		return $filter;
+	}
+
+	/**
+	 * Populate the sub-filters (if any) for the
+	 * given parent filter.
+	 * @param $parentFilter Filter
+	 */
+	function _populateSubFilters(&$parentFilter) {
+		if (!is_a($parentFilter, 'CompositeFilter')) {
+			// Nothing to do. Only composite filters
+			// can have sub-filters.
+			return;
+		}
+
+		// Retrieve the sub-filters from the database.
+		$parentFilterId = $parentFilter->getId();
+		$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE parent_filter_id = ? ORDER BY seq', $parentFilterId);
+		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
+
+		// Build a reverse settings mapping: The orignal settings
+		// mapping points from the source to the target. Now
+		// we need to identify the targets per sub-filter so that
+		// we can configure the mappings when populating the filter
+		// with sub-filters.
+		$reverseSettingsMapping = array();
+		if ($parentFilter->hasData('settingsMapping')) {
+			$settingsMapping = $parentFilter->getData('settingsMapping');
+			assert(is_array($settingsMapping));
+			foreach ($settingsMapping as $compositeSourceSettingName => $compositeTargetSettingNames) {
+				// Identify the source filter sequence and setting name.
+				list($sourceFilterSeq, $sourceSettingName) = $this->_parseCompositeSettingName($compositeSourceSettingName);
+
+				// A source can be copied to several targets.
+				assert(is_array($compositeTargetSettingNames));
+				foreach($compositeTargetSettingNames as $compositeTargetSettingName) {
+					// Identify the target filter sequence and setting name.
+					list($targetFilterSeq, $targetSettingName) = $this->_parseCompositeSettingName($compositeTargetSettingName);
+
+					// Build the reverse settings mapping.
+					assert(!isset($reverseSettingsMapping[$targetFilterSeq][$targetSettingName]));
+					$reverseSettingsMapping[$targetFilterSeq][$targetSettingName] = array($sourceFilterSeq, $sourceSettingName);
+				}
+			}
+		}
+
+		// Add sub-filters.
+		while (!$daoResultFactory->eof()) {
+			// Retrieve the sub filter.
+			// NB: This recursively loads sub-filters
+			// of this filter via _fromRow().
+			$subFilter =& $daoResultFactory->next();
+
+			// Is there a settings mapping to be set?
+			if (isset($reverseSettingsMapping[$subFilter->getSeq()])) {
+				$settingsMapping = $reverseSettingsMapping[$subFilter->getSeq()];
+			} else {
+				$settingsMapping = array();
+			}
+
+			// Add the sub-filter to the filter list
+			// of its parent filter.
+			$parentFilter->addFilter($subFilter, $settingsMapping);
+
+			unset($subFilter);
+		}
+	}
+
+	/**
+	 * Recursively insert sub-filters of
+	 * the given parent filter.
+	 * @param $parentFilter Filter
+	 */
+	function _insertSubFilters(&$parentFilter) {
+		if (!is_a($parentFilter, 'CompositeFilter')) {
+			// Nothing to do. Only composite filters
+			// can have sub-filters.
+			return;
+		}
+
+		// Recursively insert sub-filters
+		foreach($parentFilter->getFilters() as $subFilter) {
+			$subFilter->setParentFilterId($parentFilter->getId());
+			$subfilterId = $this->insertObject($subFilter);
+			assert(is_numeric($subfilterId));
+		}
+	}
+
+	/**
+	 * Recursively delete all sub-filters for
+	 * the given parent filter.
+	 * @param $parentFilterId integer
+	 */
+	function _deleteSubFiltersByParentFilterId(&$parentFilterId) {
+		$parentFilterId = (int)$parentFilterId;
+
+		// Identify sub-filters.
+		$result =& $this->retrieve(
+				'SELECT * FROM filters WHERE parent_filter_id = ?', $parentFilterId);
+
+		$allSubFilterRows = $result->GetArray();
+		foreach($allSubFilterRows as $subFilterRow) {
+			// Delete sub-filters
+			// NB: We need to do this before we delete
+			// sub-sub-filters to avoid loops.
+			$subFilterId = $subFilterRow['filter_id'];
+			$this->deleteObjectById($subFilterId);;
+
+			// Recursively delete sub-sub-filters.
+			$this->_deleteSubFiltersByParentFilterId($subFilterId);
+		}
+	}
+
+	/**
+	 * Parse a composite setting name of the form
+	 * seqX_someName, whereby 'X' is a filter sequence
+	 * number and 'someName' a setting name.
+	 *
+	 * @param $compositeSettingName string
+	 * @return array the sequence number as first entry
+	 *  and the setting name as second.
+	 */
+	function _parseCompositeSettingName($compositeSettingName) {
+		$settingParts = explode('_', $compositeSettingName);
+		assert(count($settingParts) == 2);
+		list($filterSeq, $settingName) = $settingParts;
+		$filterSeq = str_replace('seq', '', $filterSeq);
+		assert(is_numeric($filterSeq));
+		$filterSeq = (int) $filterSeq;
+		return array($filterSeq, $settingName);
 	}
 }
 

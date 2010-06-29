@@ -35,7 +35,7 @@ class TypeDescriptionFactory {
 	//
 	/**
 	 * Return an instance of the session manager.
-	 * @return SessionManager
+	 * @return TypeDescriptionFactory
 	 */
 	function &getInstance() {
 		$instance =& Registry::get('typeDescriptionFactory', true, null);

@@ -10,7 +10,7 @@
 <span id="{$cellId}">
 	{if count($actions) gt 0}
 		{assign var=defaultCellAction value=$actions[0]}
-		{include file="controllers/grid/gridAction.tpl" id=$cellId|concat:"-action-":$defaultCellAction->getId() action=$defaultCellAction objectId=$cellId}
+		{include file="linkAction/linkAction.tpl" id=$cellId|concat:"-action-":$defaultCellAction->getId() action=$defaultCellAction objectId=$cellId}
 	{else}
 		{$label|escape}
 	{/if}

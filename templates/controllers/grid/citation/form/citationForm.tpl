@@ -20,7 +20,7 @@
 		{include file="common/formErrors.tpl"}
 
 		<span class="options">
-			{include file="controllers/grid/gridAction.tpl" action=$checkAction id=$containerId}
+			{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
 			<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
 		</span>
 

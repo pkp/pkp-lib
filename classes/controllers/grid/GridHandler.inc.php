@@ -15,8 +15,10 @@
 // import the base Handler
 import('lib.pkp.classes.handler.PKPHandler');
 
+// import action class
+import('linkAction.LinkAction');
+
 // import grid classes
-import('lib.pkp.classes.controllers.grid.GridAction');
 import('lib.pkp.classes.controllers.grid.GridColumn');
 import('lib.pkp.classes.controllers.grid.GridRow');
 
@@ -24,6 +26,7 @@ import('lib.pkp.classes.controllers.grid.GridRow');
 import('lib.pkp.classes.core.JSON');
 
 // grid specific action positions
+define('GRID_ACTION_POSITION_DEFAULT', 'default');
 define('GRID_ACTION_POSITION_ABOVE', 'above');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
@@ -76,7 +79,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Get all actions for a given position within the grid
 	 * @param $position string the position of the actions
-	 * @return array the GridActions for the given position
+	 * @return array the LinkActions for the given position
 	 */
 	function getActions($position = GRID_ACTION_POSITION_ABOVE) {
 		if(!isset($this->_actions[$position])) return array();

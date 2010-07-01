@@ -136,28 +136,28 @@ class PKPCitationGridHandler extends GridHandler {
 		$router =& $request->getRouter();
 		$actionArgs = array('assocId' => $this->_getAssocId());
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'importCitations',
-				GRID_ACTION_MODE_AJAX,
-				GRID_ACTION_TYPE_GET,
+				LINK_ACTION_MODE_AJAX,
+				LINK_ACTION_TYPE_GET,
 				$router->url($request, null, null, 'importCitations', null, $actionArgs),
 				'submission.citations.grid.importCitations'
 			)
 		);
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'addCitation',
-				GRID_ACTION_MODE_MODAL,
-				GRID_ACTION_TYPE_APPEND,
+				LINK_ACTION_MODE_MODAL,
+				LINK_ACTION_TYPE_APPEND,
 				$router->url($request, null, null, 'addCitation', null, $actionArgs),
 				'grid.action.addItem'
 			)
 		);
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'exportCitations',
-				GRID_ACTION_MODE_MODAL,
-				GRID_ACTION_TYPE_NOTHING,
+				LINK_ACTION_MODE_MODAL,
+				LINK_ACTION_TYPE_NOTHING,
 				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
 				'submission.citations.grid.exportCitations'
 			)

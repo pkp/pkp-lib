@@ -2,37 +2,35 @@
 
 
 /**
- * @file classes/controllers/grid/action/GridAction.inc.php
+ * @file classes/linkAction/LinkAction.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class GridAction
- * @ingroup controllers_grid_action
+ * @class LinkAction
+ * @ingroup linkAction
  *
  * @brief Base class defining an action that can be performed within a Grid
  */
 
-define('GRID_ACTION_MODE_MODAL', 1);
-define('GRID_ACTION_MODE_LINK', 2);
-define('GRID_ACTION_MODE_AJAX', 3);
-define('GRID_ACTION_MODE_CONFIRM', 4);
+define('LINK_ACTION_MODE_MODAL', 1);
+define('LINK_ACTION_MODE_LINK', 2);
+define('LINK_ACTION_MODE_AJAX', 3);
+define('LINK_ACTION_MODE_CONFIRM', 4);
 
 // Action types for modal mode
-define('GRID_ACTION_TYPE_NOTHING', 'nothing');
-define('GRID_ACTION_TYPE_APPEND', 'append');
-define('GRID_ACTION_TYPE_REPLACE', 'replace');
-define('GRID_ACTION_TYPE_REPLACE_ALL', 'replaceAll');
-define('GRID_ACTION_TYPE_REMOVE', 'remove');
+define('LINK_ACTION_TYPE_NOTHING', 'nothing');
+define('LINK_ACTION_TYPE_APPEND', 'append');
+define('LINK_ACTION_TYPE_REPLACE', 'replace');
+define('LINK_ACTION_TYPE_REPLACE_ALL', 'replaceAll');
+define('LINK_ACTION_TYPE_REMOVE', 'remove');
 
 // Action types for ajax mode
-define('GRID_ACTION_TYPE_GET', 'get');
-define('GRID_ACTION_TYPE_POST', 'post');
+define('LINK_ACTION_TYPE_GET', 'get');
+define('LINK_ACTION_TYPE_POST', 'post');
 
 
-define('GRID_ACTION_POSITION_DEFAULT', 'default');
-
-class GridAction {
+class LinkAction {
 	/** @var string the id of the action */
 	var $_id;
 
@@ -53,13 +51,13 @@ class GridAction {
 
 	/** @var string optional, the URL to the image to be linked to */
 	var $_image;
-	
+
 	/** @var string optional, the locale key for a message to display in a confirm dialog */
 	var $_confirmMessageLocalized;
 
 	/**
 	 * Constructor
-	 * create a GridAction
+	 * create a LinkAction
 	 * @param string $id
 	 * @param string (enum) $mode
 	 * @param string (enum) $type
@@ -69,7 +67,7 @@ class GridAction {
 	 * @param string $image optional
 	 * @param string $confirmMessageLocalized optional
 	 */
-	function GridAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null, $confirmMessageLocalized = null) {
+	function LinkAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null, $confirmMessageLocalized = null) {
 		$this->_id = $id;
 		$this->_mode = $mode;
 		$this->_type = $type;
@@ -144,7 +142,7 @@ class GridAction {
 	function getImage() {
 		return $this->_image;
 	}
-	
+
 	/**
 	 * Set the locale key to display in the confirm dialog
 	 * @param $confirmMessageLocalized string
@@ -152,7 +150,7 @@ class GridAction {
 	function setLocalizedConfirmMessage($confirmMessageLocalized) {
 		$this->_confirmMessageLocalized = $confirmMessageLocalized;
 	}
-	
+
 	/**
 	 * Get the locale key to display in the confirm dialog
 	 * @return string

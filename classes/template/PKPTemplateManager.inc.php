@@ -643,7 +643,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, !isset($escape) || $escape);
+		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, $escape);
 	}
 
 	function setProgressFunction($progressFunction) {

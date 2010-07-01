@@ -36,6 +36,13 @@ class DataObject {
 	//
 	// Getters/Setters
 	//
+
+	/**
+	 * Get a piece of data for this object, localized to the current
+	 * locale if possible.
+	 * @param $key string
+	 * @return mixed
+	 */
 	function &getLocalizedData($key) {
 		$localePrecedence = Locale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {

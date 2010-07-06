@@ -44,11 +44,11 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 			array($emptyContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), true, false, array_fill(0, $contextDepth, 0), true),
 			array($emptyContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), false, false, array_fill(0, $contextDepth, 0), false),
 			// Test with several roles ("all" switched off) - expected role context is null because we don't test expected context for multiple roles
-			array($fullContext, 7, array_fill(0, 2, HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), array(true, false), false, null, true),
-			array($fullContext, 7, array_fill(0, 2, HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), array(true, true), false, null, true),
+			array($fullContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE, HANDLER_VALIDATOR_ROLES_MANAGER_ROLE), array(true, false), false, null, true),
+			array($fullContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE, HANDLER_VALIDATOR_ROLES_MANAGER_ROLE), array(true, true), false, null, true),
 			// Test with several roles ("all" switched on) - expected role context is null because we don't test expected context for multiple roles
-			array($fullContext, 7, array_fill(0, 2, HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), array(true, false), true, null, false),
-			array($fullContext, 7, array_fill(0, 2, HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE), array(true, true), true, null, true)
+			array($fullContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE, HANDLER_VALIDATOR_ROLES_MANAGER_ROLE), array(true, false), true, null, false),
+			array($fullContext, 7, array(HANDLER_VALIDATOR_ROLES_FULL_CONTEXT_ROLE, HANDLER_VALIDATOR_ROLES_MANAGER_ROLE), array(true, true), true, null, true)
 		);
 		foreach($tests as $testNumber => $test) $this->executeHandlerValidatorRolesTest($test, $testNumber);
 	}

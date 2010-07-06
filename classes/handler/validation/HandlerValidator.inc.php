@@ -11,8 +11,6 @@
  * @brief Class to represent a page validation check.
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidator');
-
 class HandlerValidator {
 
 	/** The Handler associated with the check */
@@ -33,6 +31,11 @@ class HandlerValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 */
 	function HandlerValidator(&$handler, $redirectToLogin = false, $message = null, $additionalArgs = array()) {
+		// All handler validators are deprecated and
+		// only exist for backwards compatibility.
+		// FIXME: Switch warning message on when handler validator re-factoring is complete:
+		// if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+
 		$this->handler =& $handler;
 		$this->redirectToLogin = $redirectToLogin;
 		$this->message = $message;

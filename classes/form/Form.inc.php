@@ -89,7 +89,8 @@ class Form {
 		$this->fbvStyles = array(
 			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM', 'LARGE' => 'LARGE'),
 			'float' => array('RIGHT' => 'RIGHT', 'LEFT' => 'LEFT'),
-			'measure' => array('1OF2' => '1OF2', '3OF4' => '3OF4', '2OF3' => '2OF3'),
+			'measure' => array('1OF1' => '1OF1', '1OF2' => '1OF2', '1OF3' => '1OF3', '2OF3' => '2OF3', '1OF4' => '1OF4', '3OF4' => '3OF4', 
+							'1OF5' => '1OF5', '2OF5' => '2OF5', '3OF5' => '3OF5', '4OF5' => '4OF5', '1OF10' => '1OF10', '8OF10' => '8OF10'),
 			'layout' => array('THREE_COLUMNS' => 'THREE_COLUMNS', 'TWO_COLUMNS' => 'TWO_COLUMNS', 'ONE_COLUMN' => 'ONE_COLUMN')
 		);
 	}
@@ -507,9 +508,18 @@ class Form {
 				break;
 			case 'measure':
 				switch($value) {
+					case '1OF1': $returner = 'size1of1'; break;
 					case '1OF2': $returner = 'size1of2'; break;
+					case '1OF3': $returner = 'size1of3'; break;
 					case '2OF3': $returner = 'size2of3'; break;
+					case '1OF4': $returner = 'size1of4'; break;
 					case '3OF4': $returner = 'size3of4'; break;
+					case '1OF5': $returner = 'size3of5'; break;
+					case '2OF5': $returner = 'size2of5'; break;
+					case '3OF5': $returner = 'size3of5'; break;
+					case '4OF5': $returner = 'size4of5'; break;
+					case '1OF10': $returner = 'size1of10'; break;
+					case '8OF10': $returner = 'size8of10'; break;
 				}
 				break;
 		}

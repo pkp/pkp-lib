@@ -1294,6 +1294,7 @@ class PKPTemplateManager extends Smarty {
 
 		return "<script type='text/javascript'>$(function() {
 		$('$id').parent().prev('.ui-dialog-titlebar').remove();
+		$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); });
 		});</script>
 		<div class='modalTitleBar'>" .
 			$iconHtml .

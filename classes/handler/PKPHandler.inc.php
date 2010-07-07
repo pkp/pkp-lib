@@ -35,23 +35,6 @@ class PKPHandler {
 	 */
 	function PKPHandler() {
 		$this->_checks = array();
-
-		// Enforce restricted site access.
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		if ( $context && $context->getSetting('restrictSiteAccess')) {
-			if (is_a($router, 'PKPPageRouter')) {
-				$page = $router->getRequestedPage($request);
-			} else {
-				$page = null;
-			}
-			$this->addCheck(new HandlerValidatorCustom($this, true, null, null, create_function('$page', 'if (!Validation::isLoggedIn() && !in_array($page, PKPHandler::getLoginExemptions())) return false; else return true;'), array($page)));
-		}
-
-		// Enforce SSL sitewide.
-		$this->addCheck(new HandlerValidatorCustom($this, null, null, null, create_function('$forceSSL, $protocol', 'if ($forceSSL && $protocol != \'https\') Request::redirectSSL(); else return true;'), array(Config::getVar('security', 'force_ssl'), Request::getProtocol())));
 	}
 
 	//

@@ -169,25 +169,38 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 			unset($mockContextDao);
 		}
 
-		// Mock the request with a test user
-		$mockRequest = $this->getMock('Request', array('getRouter', 'getUser', 'isPathInfoEnabled'));
-		$router = new PKPRouter();
-		$router->setApplication($application);
-		$mockRequest->expects($this->any())
-		            ->method('getRouter')
-		            ->will($this->returnValue($router));
+		// Mock the UserDAO and the session with a test user
 		if (is_null($userId)) {
 			$user = null;
 		} else {
 			$user = new User();
 			$user->setId($userId);
 		}
-		$mockRequest->expects($this->any())
+		$mockUserDao = $this->getMock('UserDAO', array('getUser'));
+		$mockUserDao->expects($this->any())
 		            ->method('getUser')
 		            ->will($this->returnValue($user));
+		DAORegistry::registerDAO('UserDAO', $mockUserDao);
+		$sessionManager =& SessionManager::getManager();
+		$session =& $sessionManager->getUserSession();
+		$session->setUserId($userId);
+
+		// Mock the request
+		$mockRequest = $this->getMock('Request', array('getRouter', 'getBasePath', 'getRemoteAddr', 'getUserAgent'));
+		$router = new PKPRouter();
+		$router->setApplication($application);
 		$mockRequest->expects($this->any())
-		            ->method('isPathInfoEnabled')
-		            ->will($this->returnValue(true));
+		            ->method('getRouter')
+		            ->will($this->returnValue($router));
+		$mockRequest->expects($this->any())
+		            ->method('getBasePath')
+		            ->will($this->returnValue('/'));
+		$mockRequest->expects($this->any())
+		            ->method('getRemoteAddr')
+		            ->will($this->returnValue(''));
+		$mockRequest->expects($this->any())
+		            ->method('getUserAgent')
+		            ->will($this->returnValue(''));
 		Registry::set('request', $mockRequest);
 	}
 

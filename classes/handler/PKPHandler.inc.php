@@ -275,10 +275,12 @@ class PKPHandler {
 
 	/**
 	 * Get a list of pages that don't require login, even if the system does
+	 * FIXME: Delete this method when authorization re-factoring is complete.
 	 * @return array
 	 */
 	function getLoginExemptions() {
-		return array('user', 'login', 'help');
+		import('lib.pkp.classes.security.authorization.HandlerOperationRestrictSiteAccessPolicy');
+		return HandlerOperationRestrictSiteAccessPolicy::_getLoginExemptions();
 	}
 
 	/**

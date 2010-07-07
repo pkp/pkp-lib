@@ -10,16 +10,14 @@
  *
  * @brief Class to represent a page validation check.
  *
- * NB: This class is deprecated in favor of the HandlerOperationPolicy.
+ * NB: This class is deprecated in favor of the HandlerOperationRolesPolicy.
  */
 
 import('lib.pkp.classes.handler.validation.HandlerValidator');
-import('lib.pkp.classes.security.authorization.RoleAuthorizationContextHandler');
+import('lib.pkp.classes.security.authorization.HandlerOperationRolesPolicy');
 
 class HandlerValidatorRoles extends HandlerValidator {
-	var $_roles;
-
-	var $_all;
+	var $_policy;
 
 	/**
 	 * Constructor.
@@ -29,8 +27,10 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 */
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
 		parent::HandlerValidator($handler, $redirectLogin, $message, $additionalArgs);
-		$this->_roles = $roles;
-		$this->_all = $all;
+
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
+		$this->_policy = new HandlerOperationRolesPolicy($request, $roles, $message, array(), $all);
 	}
 
 	/**
@@ -39,22 +39,13 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		// Delegate to the new RoleAuthorizationContextHandler
-		$authorizationContextHandler =& new RoleAuthorizationContextHandler();
-		$isValid = false;
-		foreach($this->_roles as $role) {
-			$roleInContext = $authorizationContextHandler->checkAttribute($role);
-			if ($roleInContext) {
-				$isValid = true;
-				if (!$this->_all) break;
-			} else {
-				if ($this->_all) {
-					$isValid = false;
-					break;
-				}
-			}
+		// Delegate to the new HandlerOperationRolesPolicy
+		if (!$this->_policy->applies()) return false;
+		if ($this->_policy->effect() == AUTHORIZATION_DENY) {
+			return false;
+		} else {
+			return true;
 		}
-		return $isValid;
 	}
 }
 

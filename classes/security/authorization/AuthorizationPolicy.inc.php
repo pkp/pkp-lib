@@ -24,39 +24,15 @@
 define ('AUTHORIZATION_ALLOW', 0x01);
 define ('AUTHORIZATION_DENY', 0x02);
 
+define ('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
+define ('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
+
 class AuthorizationPolicy {
-	/** @var string a message to be displayed when access is denied */
-	var $_message;
+	/** @var array advice to be returned to the decision point */
+	var $_advice = array();
 
-	/**
-	 * @var array the target of the policy.
-	 *
-	 * The target is an array of attribute identifiers and
-	 * attribute values. All specified attribute values have
-	 * to be present in the authorization request context
-	 * for the policy to be applicable. If an attribute
-	 * contains an array of allowed values then only one
-	 * of these values must be present in the context.
-	 *
-	 * Attributes can be repeated, e.g. to express that
-	 * several roles must be in the context for the rule
-	 * to apply.
-	 *
-	 * Example:
-	 *  array(
-	 *    array( 'role' => ROLE_ID_EDITOR ),
-	 *    array( 'role' => ROLE_ID_SECTION_EDITOR ),
-	 *    array( 'operation' => array('addItem', 'deleteItem')
-	 *  )
-	 *
-	 * Such a target specification means that the user must
-	 * have both, the editor and the section editor roles, to
-	 * access /any of/ the operations 'addItem' or 'deleteItem'.
-	 */
-	var $_targetAttributes = array();
-
-	/** @var integer the effect of this policy */
-	var $_effect = AUTHORIZATION_ALLOW;
+	/** @var array a cache of previously retrieved values */
+	var $_effectCache = array();
 
 
 	/**
@@ -64,58 +40,89 @@ class AuthorizationPolicy {
 	 * @param $message string
 	 */
 	function AuthorizationPolicy($message = null) {
-		$this->_message = $message;
+		$this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
 	}
 
 	//
 	// Setters and Getters
 	//
 	/**
-	 * Add a target attribute, see explanation of the
-	 * $_targetAttributes variable above.
-	 *
-	 * @param $attributeName string
-	 * @param $attributeValues array
+	 * Set an advice
+	 * @param $adviceType integer
+	 * @param $adviceContent mixed
 	 */
-	function addTargetAttribute($attributeName, $attributeValues) {
-		assert(is_scalar($attributeName));
-		if (!is_array($attributeValues)) {
-			$attributeValues = array($attributeValues);
-		}
-		$this->_targetAttributes[] = array($attributeName => $attributeValues);
+	function setAdvice($adviceType, &$adviceContent) {
+		$this->_advice[$adviceType] =& $adviceContent;
 	}
 
 	/**
-	 * Return the list of configured
-	 * target attributes, see explanation of the
-	 * $_targetAttributes variable above.
-	 *
+	 * Whether this policy implements
+	 * the given advice type.
+	 * @param $adviceType integer
+	 * @return boolean
+	 */
+	function hasAdvice($adviceType) {
+		return isset($this->_advice[$adviceType]);
+	}
+
+	/**
+	 * Get all advice
 	 * @return array
 	 */
-	function &getTargetAttributes() {
-		return $this->_targetAttributes;
+	function &getAdvice() {
+		return $this->_advice;
+	}
+
+
+	//
+	// Protected template methods to be implemented by sub-classes
+	//
+	/**
+	 * Whether this policy applies.
+	 * @return boolean
+	 */
+	function applies() {
+		// Policies apply by default
+		return true;
 	}
 
 	/**
-	 * Set the effect of the policy.
-	 *
-	 * @param $effect one of AUTHORIZATION_ALLOW or
-	 *  AUTHORIZATION_DENY.
+	 * This method must return a value of either
+	 * AUTHORIZATION_DENY or AUTHORIZATION_ALLOW.
 	 */
-	function setEffect($effect) {
-		assert($effect == AUTHORIZATION_ALLOW || $effect == AUTHORIZATION_DENY);
-		$this->_effect = $effect;
+	function effect() {
+		// Deny by default.
+		return AUTHORIZATION_DENY;
+	}
+
+
+	//
+	// Protected helper methods
+	//
+	/**
+	 * Cache an effect for a given cache id
+	 *
+	 * @param $cacheId mixed any scalar that uniquely
+	 *  identified the cached effect.
+	 * @param $response boolean
+	 */
+	function cacheEffect($cacheId, $effect) {
+		assert(is_scalar($cacheId));
+		$this->_effectCache[$cacheId] = $effect;
 	}
 
 	/**
-	 * Return the effect of the policy.
+	 * Retrieve a cached effect for a given cache id
 	 *
-	 * @return integer one of AUTHORIZATION_ALLOW or
-	 *  AUTHORIZATION_DENY.
+	 * @param $cacheId mixed any scalar that uniquely
+	 *  identified the cached effect.
+	 * @return $response mixed or null if no cached
+	 *  effect present.
 	 */
-	function getEffect() {
-		// The default policy is: allow when matched.
-		return $this->_effect;
+	function retrieveCachedEffect($cacheId) {
+		assert(is_scalar($cacheId));
+		if (!isset($this->_effectCache[$cacheId])) return null;
+		return $this->_effectCache[$cacheId];
 	}
 }
 

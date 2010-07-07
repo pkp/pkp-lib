@@ -29,9 +29,9 @@ class AuthorizationDecisionManager {
 	var $_policies = array();
 
 	/**
-	 * @var array a list of AuthorizationContextHandler objects
+	 * @var array
 	 */
-	var $_authorizationContextHandlers = array();
+	var $_authorizationMessages = array();
 
 	/**
 	 * Constructor
@@ -52,6 +52,22 @@ class AuthorizationDecisionManager {
 		$this->_policies[] =& $policy;
 	}
 
+	/**
+	 * Add an authorization message
+	 * @param $message string
+	 */
+	function addAuthorizationMessage($message) {
+		$this->_authorizationMessages[] = $message;
+	}
+
+	/**
+	 * Return all authorization messages
+	 * @return array
+	 */
+	function getAuthorizationMessages() {
+		return $this->_authorizationMessages;
+	}
+
 
 	//
 	// Public methods
@@ -67,42 +83,24 @@ class AuthorizationDecisionManager {
 		$decision = AUTHORIZATION_DENY;
 
 		$allowedByPolicy = false;
+		$callOnDeny = null;
 		foreach($this->_policies as $policy) {
 			// Check whether the policy applies.
-			$policyApplies = true;
-			$targetAttributes =& $policy->getTargetAttributes();
-			foreach($targetAttributes as $targetAttribute) {
-				assert(is_array($targetAttribute) && count($targetAttribute) == 1);
-				$attributeName = key($targetAttribute);
-				$attributeValues = current($targetAttribute);
-				assert(is_array($attributeValues));
-
-				$attributePresent = false;
-				foreach($attributeValues as $attributeValue) {
-					if ($this->checkAttribute($attributeName, $attributeValue)) {
-						// Only one of the attribute values has to be
-						// present in the authorization context for the
-						// attribute to be considered available ("any of").
-						$attributePresent = true;
-						break;
-					}
-				}
-
-				// All attributes have to be present ("all of") for
-				// the policy to apply.
-				if (!$attributePresent) {
-					$policyApplies = false;
-					break;
-				}
-			}
-
-			// If the policy applies then retrieve its effect.
-			if ($policyApplies) {
-				if ($policy->getEffect() == AUTHORIZATION_ALLOW) {
+			if ($policy->applies()) {
+				// If the policy applies then retrieve its effect.
+				if ($policy->effect() == AUTHORIZATION_ALLOW) {
 					$allowedByPolicy = true;
 				} else {
 					// Only one deny effect overrides all allow effects.
 					$allowedByPolicy = false;
+
+					// Look for applicable advice.
+					if ($policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
+						$this->addAuthorizationMessage($policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
+					}
+					if ($policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
+						$callOnDeny =& $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
+					}
 					break;
 				}
 			}
@@ -112,70 +110,16 @@ class AuthorizationDecisionManager {
 		// policy allowed access and none denied access.
 		if ($allowedByPolicy) $decision = AUTHORIZATION_ALLOW;
 
-		return $decision;
-	}
-
-	/**
-	 * Delegate to an appropriate authorization context handler
-	 * and check whether the given attribute value is in the
-	 * authorization context.
-	 *
-	 * @param $attributeName string
-	 * @param $attributeValue mixed
-	 *
-	 * @return boolean
-	 */
-	function checkAttribute($attributeName, &$attributeValue) {
-		$authorizationContextHandler =& $this->_resolveAuthorizationContextHandler($attributeName);
-		return $authorizationContextHandler->checkAttribute($attributeValue);
-	}
-
-	/**
-	 * Delegate to an appropriate authorization context handler
-	 * and get the values for the given attribute currently
-	 * present in the authorization context.
-	 *
-	 * @param $attributeName string
-	 *
-	 * @return mixed either a single scalar attribute value or an
-	 *  array if the context contains several values for the attribute.
-	 */
-	function &getAttributeValues($attributeName) {
-		$authorizationContextHandler =& $this->_resolveAuthorizationContextHandler($attributeName);
-		$returner =& $authorizationContextHandler->getAttributeValues();
-		return $returner;
-	}
-
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Return an authorization context handler instance that
-	 * can handle the given attribute name.
-	 *
-	 * @param $attributeName string
-	 *
-	 * @return AuthorizationContextHandler
-	 */
-	function &_resolveAuthorizationContextHandler($attributeName) {
-		static $authorizationContextHandlerNames = array(
-			'role' => 'lib.pkp.classes.security.authorization.RoleAuthorizationContextHandler'
-		);
-
-		if (!isset($this->_authorizationContextHandlers[$attributeName])) {
-			// Instantiate a new authorization context handler.
-			assert(isset($authorizationContextHandlerNames[$attributeName]));
-			$authorizationContextHandlerName = $authorizationContextHandlerNames[$attributeName];
-			$authorizationContextHandler = new $authorizationContextHandlerName();
-			assert(is_a($authorizationContextHandler, 'AuthorizationContextHandler'));
-
-			// Cache the authorization context handler.
-			$this->_authorizationContextHandlers[$attributeName] =& $authorizationContextHandler;
-			unset($authorizationContextHandler);
+		// Call the "call on deny" advice
+		if ($decision == AUTHORIZATION_DENY && !is_null($callOnDeny)) {
+			assert(is_array($callOnDeny) && count($callOnDeny) == 3);
+			list($classOrObject, $method, $parameters) = $callOnDeny;
+			$methodCall = array($classOrObject, $method);
+			assert(is_callable($methodCall));
+			call_user_func_array($methodCall, $parameters);
 		}
 
-		return $this->_authorizationContextHandlers[$attributeName];
+		return $decision;
 	}
 }
 

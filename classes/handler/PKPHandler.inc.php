@@ -13,6 +13,7 @@
  *
  */
 
+// FIXME: remove these import statements - handler validators are deprecated.
 import('lib.pkp.classes.handler.validation.HandlerValidator');
 import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
 import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
@@ -27,14 +28,16 @@ class PKPHandler {
 	/** @var Dispatcher, mainly needed for cross-router url construction */
 	var $_dispatcher;
 
-	/** @var array validation checks for this page*/
-	var $_checks;
+	/** @var array validation checks for this page - deprecated! */
+	var $_checks = array();
+
+	/** @var AuthorizationDecisionManager authorization decision manager for this handler */
+	var $_authorizationDecisionManager;
 
 	/**
 	 * Constructor
 	 */
 	function PKPHandler() {
-		$this->_checks = array();
 	}
 
 	//
@@ -89,20 +92,98 @@ class PKPHandler {
 
 	/**
 	 * Add a validation check to the handler.
+	 *
+	 * NB: deprecated!
+	 *
 	 * @param $handlerValidator HandlerValidator
 	 */
-	function addCheck($handlerValidator) {
+	function addCheck(&$handlerValidator) {
+		// FIXME: Add a deprecation warning once we've refactored
+		// all HandlerValidator occurrences.
 		$this->_checks[] =& $handlerValidator;
 	}
 
 	/**
-	 * Perform request access validation based on security settings.
+	 * Add an authorization policy for this handler which will
+	 * be applied in the authorize() method.
+	 *
+	 * Policies must be added in the class constructor or in the
+	 * subclasses' authorize() method before the parent::authorize()
+	 * call so that PKPHandler::authorize() will be able to enforce
+	 * them.
+	 *
+	 * @param $authorizationPolicy
+	 */
+	function addPolicy(&$authorizationPolicy) {
+		if (is_null($this->_authorizationDecisionManager)) {
+			// Instantiate the authorization decision manager
+			import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
+			$this->_authorizationDecisionManager = new AuthorizationDecisionManager();
+		}
+
+		// Add authorization policies to the authorization decision manager.
+		$this->_authorizationDecisionManager->addPolicy($authorizationPolicy);
+	}
+
+	/**
+	 * Authorize this request.
+	 *
+	 * Routers will call this method automatically thereby enforcing
+	 * authorization. This method will be called before the
+	 * validate() method and before passing control on to the
+	 * handler operation.
+	 *
+	 * NB: This method will be called once for every request only.
+	 *
+	 * @param $request Request
+	 * @return boolean
+	 */
+	function authorize($request) {
+		// Enforce restricted site access.
+		import('lib.pkp.classes.security.authorization.HandlerOperationRestrictSiteAccessPolicy');
+		$this->addPolicy(new HandlerOperationRestrictSiteAccessPolicy($request));
+
+		// Enforce SSL site-wide.
+		import('lib.pkp.classes.security.authorization.HandlerOperationHttpsPolicy');
+		$this->addPolicy(new HandlerOperationHttpsPolicy($request));
+
+		// Make sure that we have a valid decision manager instance.
+		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+
+		$router =& $request->getRouter();
+		if (is_a($router, 'PKPPageRouter')) {
+			// We have to apply a blacklist approach for page
+			// controllers to maintain backwards compatibility:
+			// Requests are implicitly authorized if no policy
+			// explicitly denies access.
+			$this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_ALLOW);
+		} else {
+			// We implement a strict whitelist approach for
+			// all other components: Requests will only be
+			// authorized if at least one policy explicitly
+			// grants access and none denies access.
+			$this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_DENY);
+		}
+
+		// Let the authorization decision manager take a decision.
+		$decision = $this->_authorizationDecisionManager->decide();
+		if ($decision == AUTHORIZATION_ALLOW) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Perform data integrity checks.
 	 *
 	 * This method will be called once for every request only.
 	 *
-	 * NB (non-page controllers only): The component router will call
-	 * this method automatically thereby enforcing validation. This
-	 * method will be call directly before the initialize() method.
+	 * NB: Any kind of authorization check is now deprecated
+	 * within this method. This method is purely meant for data
+	 * integrity checks that do not lead to denial of access
+	 * to resources (e.g. via redirect) like handler operations
+	 * or data objects.
 	 *
 	 * @param $requiredContexts array
 	 * @param $request Request
@@ -116,6 +197,9 @@ class PKPHandler {
 		}
 
 		foreach ($this->_checks as $check) {
+			// Using authorization checks in the validate() method is deprecated
+			// FIXME: Trigger a deprecation warning.
+
 			// WARNING: This line is for PHP4 compatibility when
 			// instantiating handlers without reference. Should not
 			// be removed or otherwise used.
@@ -126,28 +210,12 @@ class PKPHandler {
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {
-				$router =& $request->getRouter();
-				if (is_a($router, 'PKPPageRouter')) {
-					if ( $check->redirectToLogin ) {
-						Validation::redirectLogin();
-					} else {
-						// An unauthorized page request will be re-routed
-						// to the index page.
-						$request->redirect(null, 'index');
-					}
+				if ( $check->redirectToLogin ) {
+					Validation::redirectLogin();
 				} else {
-					// Sub-controller requests should always be sufficiently
-					// authorized and valid when being called from a
-					// page. Otherwise we either hit a development error
-					// or somebody is trying to fake component calls.
-					// In both cases raising a fatal error is appropriate.
-					// NB: The check's redirection flag will be ignored
-					// for sub-controller requests.
-					if (!empty($check->message)) {
-						fatalError($check->message);
-					} else {
-						fatalError('Unauthorized access!');
-					}
+					// An unauthorized page request will be re-routed
+					// to the index page.
+					$request->redirect(null, 'index');
 				}
 			}
 		}

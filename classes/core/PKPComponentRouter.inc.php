@@ -107,14 +107,17 @@ class PKPComponentRouter extends PKPRouter {
 		// Remove the caller-parameter (if present)
 		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
 
-		// Authorize and validate the request
-		if (!$rpcServiceEndpoint[0]->validate(null, $request)) {
-			// Components must always validate otherwise this is
+		// Authorize the request
+		if (!$rpcServiceEndpoint[0]->authorize($request)) {
+			// Components must always authorize otherwise this is
 			// either a programming error or somebody trying to
 			// directly call a component. In both cases a fatal
-			// error is the approprate response.
+			// error is the appropriate response.
 			fatalError('Permission denied!');
 		}
+
+		// Execute class-wide data integrity checks
+		$rpcServiceEndpoint[0]->validate($request);
 
 		// Initialize the handler
 		$rpcServiceEndpoint[0]->initialize($request);

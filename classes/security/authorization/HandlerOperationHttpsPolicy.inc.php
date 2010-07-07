@@ -27,8 +27,6 @@ class HandlerOperationHttpsPolicy extends AuthorizationPolicy {
 		$this->_request =& $request;
 
 		// Add advice
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
 		$callOnDeny = array($request, 'redirectSSL', array());
 		$this->setAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDeny);
 	}

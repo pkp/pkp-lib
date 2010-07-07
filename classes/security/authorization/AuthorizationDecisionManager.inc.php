@@ -23,14 +23,13 @@
  */
 
 class AuthorizationDecisionManager {
-	/**
-	 * @var array a list of AuthorizationPolicy objects.
-	 */
+	/** @var integer the default decision if no policy applies */
+	var $_decisionIfNoPolicyApplies = AUTHORIZATION_DENY;
+
+	/** @var array a list of AuthorizationPolicy objects. */
 	var $_policies = array();
 
-	/**
-	 * @var array
-	 */
+	/** @var array */
 	var $_authorizationMessages = array();
 
 	/**
@@ -43,6 +42,24 @@ class AuthorizationDecisionManager {
 	//
 	// Setters and Getters
 	//
+	/**
+	 * Set the default decision if no policy applies
+	 * @param $decisionIfNoPolicyApplies integer
+	 */
+	function setDecisionIfNoPolicyApplies($decisionIfNoPolicyApplies) {
+		assert($decisionIfNoPolicyApplies == AUTHORIZATION_ALLOW ||
+				$decisionIfNoPolicyApplies == AUTHORIZATION_DENY);
+		$this->_decisionIfNoPolicyApplies = $decisionIfNoPolicyApplies;
+	}
+
+	/**
+	 * Get the default decision if no policy applies
+	 * @return integer
+	 */
+	function getDecisionIfNoPolicyApplies() {
+		return $this->_decisionIfNoPolicyApplies;
+	}
+
 	/**
 	 * Add an authorization policy.
 	 *
@@ -79,8 +96,8 @@ class AuthorizationDecisionManager {
 	 *  AUTHORIZATION_DENY.
 	 */
 	function decide() {
-		// Our default policy:
-		$decision = AUTHORIZATION_DENY;
+		// Set the default decision.
+		$decision = $this->getDecisionIfNoPolicyApplies();
 
 		$allowedByPolicy = false;
 		$callOnDeny = null;
@@ -93,6 +110,7 @@ class AuthorizationDecisionManager {
 				} else {
 					// Only one deny effect overrides all allow effects.
 					$allowedByPolicy = false;
+					$decision = AUTHORIZATION_DENY;
 
 					// Look for applicable advice.
 					if ($policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {

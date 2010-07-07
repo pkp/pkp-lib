@@ -61,12 +61,29 @@ class AuthorizationDecisionManager {
 	}
 
 	/**
-	 * Add an authorization policy.
+	 * Add an authorization policy or a policy set.
 	 *
-	 * @param $policy AuthorizationPolicy
+	 * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
 	 */
-	function addPolicy(&$policy) {
-		$this->_policies[] =& $policy;
+	function addPolicy(&$policyOrPolicySet) {
+		switch (true) {
+			case is_a($policyOrPolicySet, 'AuthorizationPolicy'):
+				$this->_policies[] =& $policyOrPolicySet;
+				break;
+
+			case is_a($policyOrPolicySet, 'PolicySet'):
+				foreach($policyOrPolicySet->getPolicies() as $subPolicy) {
+					// Recursively add the sub-policy as it can be
+					// another policy set.
+					$this->addPolicy($subPolicy);
+					unset($subPolicy);
+				}
+				break;
+
+			default:
+				// Unknown policy container.
+				assert(false);
+		}
 	}
 
 	/**
@@ -105,7 +122,9 @@ class AuthorizationDecisionManager {
 			// Check whether the policy applies.
 			if ($policy->applies()) {
 				// If the policy applies then retrieve its effect.
-				if ($policy->effect() == AUTHORIZATION_ALLOW) {
+				$effect = $policy->effect();
+				assert($effect === AUTHORIZATION_ALLOW || $effect === AUTHORIZATION_DENY);
+				if ($effect === AUTHORIZATION_ALLOW) {
 					$allowedByPolicy = true;
 				} else {
 					// Only one deny effect overrides all allow effects.
@@ -129,7 +148,7 @@ class AuthorizationDecisionManager {
 		if ($allowedByPolicy) $decision = AUTHORIZATION_ALLOW;
 
 		// Call the "call on deny" advice
-		if ($decision == AUTHORIZATION_DENY && !is_null($callOnDeny)) {
+		if ($decision === AUTHORIZATION_DENY && !is_null($callOnDeny)) {
 			assert(is_array($callOnDeny) && count($callOnDeny) == 3);
 			list($classOrObject, $method, $parameters) = $callOnDeny;
 			$methodCall = array($classOrObject, $method);

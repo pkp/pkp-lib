@@ -10,15 +10,13 @@
  *
  * @brief Class to represent a page validation check.
  *
- * NB: This class is deprecated in favor of the HandlerOperationRolesPolicy.
+ * NB: Deprecated - please use HandlerOperationRolesPolicy instead.
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('lib.pkp.classes.handler.validation.HandlerValidatorPolicy');
 import('lib.pkp.classes.security.authorization.HandlerOperationRolesPolicy');
 
-class HandlerValidatorRoles extends HandlerValidator {
-	var $_policy;
-
+class HandlerValidatorRoles extends HandlerValidatorPolicy {
 	/**
 	 * Constructor.
 	 * @param $handler Handler the associated form
@@ -26,26 +24,10 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 * @param $all bool flag for whether all roles must exist or just 1
 	 */
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
-		parent::HandlerValidator($handler, $redirectLogin, $message, $additionalArgs);
-
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
-		$this->_policy = new HandlerOperationRolesPolicy($request, $roles, $message, array(), $all);
-	}
-
-	/**
-	 * Check if field value is valid.
-	 * Value is valid if it is empty and optional or validated by user-supplied function.
-	 * @return boolean
-	 */
-	function isValid() {
-		// Delegate to the new HandlerOperationRolesPolicy
-		if (!$this->_policy->applies()) return false;
-		if ($this->_policy->effect() == AUTHORIZATION_DENY) {
-			return false;
-		} else {
-			return true;
-		}
+		$policy = new HandlerOperationRolesPolicy($request, $roles, $message, array(), $all);
+		parent::HandlerValidatorPolicy($policy, $handler, $redirectLogin, $message, $additionalArgs);
 	}
 }
 

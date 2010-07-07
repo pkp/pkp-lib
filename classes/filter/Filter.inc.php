@@ -125,6 +125,10 @@ class Filter extends DataObject {
 			$supportedTransformation = $supportedTransformations[0];
 			$this->setTransformationType($supportedTransformation[0], $supportedTransformation[1]);
 		}
+
+		// Initialize the parent filter id.
+		$this->setParentFilterId(0);
+		$this->setIsTemplate(false);
 	}
 
 	//
@@ -141,19 +145,19 @@ class Filter extends DataObject {
 	 * NB: the input/output type combination must be one of those
 	 * returned by getSupportedTransformations().
 	 */
-	function setTransformationType($inputType, $outputType) {
+	function setTransformationType(&$inputType, &$outputType) {
 		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
 
 		// We need both, the input/output type as a string and
 		// as a TypeDescription
 		if (is_a($inputType, 'TypeDescription')) {
-			$inputTypeString = $inputType->getTypeName();
+			$inputTypeString = $inputType->getTypeDescription();
 		} else {
 			$inputTypeString = $inputType;
 			$inputType =& $typeDescriptionFactory->instantiateTypeDescription($inputType);
 		}
 		if (is_a($outputType, 'TypeDescription')) {
-			$outputTypeString = $outputType->getTypeName();
+			$outputTypeString = $outputType->getTypeDescription();
 		} else {
 			$outputTypeString = $outputType;
 			$outputType =& $typeDescriptionFactory->instantiateTypeDescription($outputType);
@@ -194,19 +198,19 @@ class Filter extends DataObject {
 	}
 
 	/**
-	 * Set the sequence id
-	 * @param $seq integer
+	 * Get the input type
+	 * @return TypeDescription
 	 */
-	function setSeq($seq) {
-		$this->setData('seq', $seq);
+	function &getInputType() {
+		return $this->_inputType;
 	}
 
 	/**
-	 * Get the sequence id
-	 * @return integer
+	 * Get the output type
+	 * @return TypeDescription
 	 */
-	function getSeq() {
-		return $this->getData('seq');
+	function &getOutputType() {
+		return $this->_outputType;
 	}
 
 	/**
@@ -234,27 +238,39 @@ class Filter extends DataObject {
 	 * @return boolean
 	 */
 	function getIsTemplate() {
-		// Set the default
-		if (!$this->hasData('isTemplate')) {
-			$this->setData('isTemplate', false);
-		}
 		return $this->getData('isTemplate');
 	}
 
 	/**
-	 * Get the input type
-	 * @return TypeDescription
+	 * Set the parent filter id
+	 * @param $parentFilterId integer
 	 */
-	function &getInputType() {
-		return $this->_inputType;
+	function setParentFilterId($parentFilterId) {
+		$this->setData('parentFilterId', $parentFilterId);
 	}
 
 	/**
-	 * Get the output type
-	 * @return TypeDescription
+	 * Get the parent filter id
+	 * @return integer
 	 */
-	function &getOutputType() {
-		return $this->_outputType;
+	function getParentFilterId() {
+		return $this->getData('parentFilterId');
+	}
+
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->setData('seq', $seq);
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->getData('seq');
 	}
 
 	/**
@@ -318,6 +334,12 @@ class Filter extends DataObject {
 	 * @param $setting FilterSetting
 	 */
 	function addSetting(&$setting) {
+		assert(is_a($setting, 'FilterSetting'));
+
+		// Check that the setting name does not
+		// collide with one of the internal settings.
+		if (in_array($setting->getName(), $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
+
 		$this->_settings[] =& $setting;
 	}
 
@@ -353,43 +375,6 @@ class Filter extends DataObject {
 			$this->setData($runtimeSetting, $runtimeEnvironment->$methodName());
 		}
 	}
-
-	/**
-	 * Get the required runtime environment
-	 * @return RuntimeEnvironment
-	 */
-	function &getRuntimeEnvironment() {
-		if ($this->_runtimeEnvironment === false) {
-			// The runtime environment has never been
-			// queried before.
-			$runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
-
-			// Find out whether we have any runtime restrictions set.
-			$hasRuntimeSettings = false;
-			foreach($runtimeSettings as $runtimeSetting => $defaultValue) {
-				if ($this->hasData($runtimeSetting)) {
-					$$runtimeSetting = $this->getData($runtimeSetting);
-					$hasRuntimeSettings = true;
-				} else {
-					$$runtimeSetting = $defaultValue;
-				}
-			}
-
-			// If we found any runtime restrictions then construct a
-			// runtime environment from the settings.
-			if ($hasRuntimeSettings) {
-				import('lib.pkp.classes.core.RuntimeEnvironment');
-				$this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
-			} else {
-				// Set null so that we don't try to construct
-				// a runtime environment object again.
-				$this->_runtimeEnvironment = null;
-			}
-		}
-
-		return $this->_runtimeEnvironment;
-	}
-
 
 	//
 	// Abstract template methods to be implemented by subclasses
@@ -444,7 +429,12 @@ class Filter extends DataObject {
 		// If your filter supports more than one transformation you
 		// can override this method to return an array with
 		// multiple entries.
-		return array($this->getSupportedTransformation());
+		$supportedTransformation = $this->getSupportedTransformation();
+		if (is_array($supportedTransformation) && count($supportedTransformation) == 2) {
+			return array($supportedTransformation);
+		} else {
+			return array();
+		}
 	}
 
 	/**
@@ -573,6 +563,45 @@ class Filter extends DataObject {
 	}
 
 	/**
+	 * Check whether the filter is compatible with
+	 * the required runtime environment.
+	 * @return boolean
+	 */
+	function isCompatibleWithRuntimeEnvironment() {
+		if ($this->_runtimeEnvironment === false) {
+			// The runtime environment has never been
+			// queried before.
+			$runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
+
+			// Find out whether we have any runtime restrictions set.
+			$hasRuntimeSettings = false;
+			foreach($runtimeSettings as $runtimeSetting => $defaultValue) {
+				if ($this->hasData($runtimeSetting)) {
+					$$runtimeSetting = $this->getData($runtimeSetting);
+					$hasRuntimeSettings = true;
+				} else {
+					$$runtimeSetting = $defaultValue;
+				}
+			}
+
+			// If we found any runtime restrictions then construct a
+			// runtime environment from the settings.
+			if ($hasRuntimeSettings) {
+				import('lib.pkp.classes.core.RuntimeEnvironment');
+				$this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
+			} else {
+				// Set null so that we don't try to construct
+				// a runtime environment object again.
+				$this->_runtimeEnvironment = null;
+			}
+		}
+
+		if (is_null($this->_runtimeEnvironment) || $this->_runtimeEnvironment->isCompatible()) return true;
+
+		return false;
+	}
+
+	/**
 	 * Filters the given input.
 	 *
 	 * Input and output of this method will
@@ -593,12 +622,9 @@ class Filter extends DataObject {
 		unset($this->_input, $this->_output);
 
 		// Check the runtime environment
-		$runtimeEnvironment =& $this->getRuntimeEnvironment();
-		if (isset($runtimeEnvironment)) {
-			if (!$runtimeEnvironment->isCompatible()) {
-				// Missing installation requirements.
-				fatalError('Trying to run a transformation that is not supported in your installation environment.');
-			}
+		if (!$this->isCompatibleWithRuntimeEnvironment()) {
+			// Missing installation requirements.
+			fatalError('Trying to run a transformation that is not supported in your installation environment.');
 		}
 
 		// Validate the filter input
@@ -644,6 +670,19 @@ class Filter extends DataObject {
 		);
 
 		return $runtimeEnvironmentSettings;
+	}
+
+	//
+	// Protected helper methods
+	//
+	/**
+	 * Returns names of settings which are in use by the
+	 * filter class and therefore cannot be set as filter
+	 * settings
+	 * @return array
+	 */
+	function getInternalSettings() {
+		return array('id', 'displayName', 'isTemplate', 'parentFilterId', 'seq');
 	}
 }
 ?>

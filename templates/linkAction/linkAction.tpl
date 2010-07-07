@@ -5,10 +5,10 @@
 
 {assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
 
-{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_MODAL}
+{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_MODAL}
 	{modal url=$action->getUrl() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
 
-{elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_CONFIRM}
+{elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_CONFIRM}
 	{if $action->getLocalizedConfirmMessage()}
 		{assign var="dialogText" value=$action->getLocalizedConfirmMessage()}
 	{else}
@@ -17,7 +17,7 @@
 	
 	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId  translate=false}
 
-{elseif $action->getMode() eq $smarty.const.GRID_ACTION_MODE_AJAX}
+{elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 	<script type='text/javascript'>
 		ajaxAction(
 			'{$action->getType()}',
@@ -29,7 +29,7 @@
 
 {/if}
 {if $action->getImage()}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}">{$action->getLocalizedTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}">{$action->getLocalizedTitle()}</a>
 {else}
-	<a href="{if $action->getMode() eq $smarty.const.GRID_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if}>{$action->getLocalizedTitle()}</a>
+	<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if}>{$action->getLocalizedTitle()}</a>
 {/if}

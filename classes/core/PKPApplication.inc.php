@@ -64,10 +64,9 @@ class PKPApplication {
 			// configuration and we cannot declare the Config class before
 			// we've switched of deprecation warnings as its declaration
 			// causes warnings itself.
-			if (defined('E_DEPRECATED')) $errorReportingLevel |= E_DEPRECATED;
 			// FIXME: When we drop PHP4 support and can declare static methods
-			// as such then we can also include E_STRICT here as nearly all
-			// strict warnings concern calling non-static methods statically.
+			// as such then we can also include E_STRICT/E_DEPRECATED here as
+			// nearly all strict/deprecated warnings concern PHP4 support.
 			@error_reporting($errorReportingLevel);
 		}
 

@@ -14,7 +14,7 @@
 
 class GenericFilter extends Filter {
 	/** @var the supported transformation */
-	var $_transformationType;
+	var $_genericTransformationType;
 
 	/**
 	 * Constructor
@@ -24,7 +24,8 @@ class GenericFilter extends Filter {
 	 */
 	function GenericFilter($displayName = null, $transformation = null) {
 		$this->setDisplayName($displayName);
-		if (!is_null($transformation)) $this->setTransformationType($transformation[0], $transformation[1]);
+		if (!is_null($transformation)) $this->_genericTransformationType =& $transformation;
+		parent::Filter();
 	}
 
 	//
@@ -33,11 +34,26 @@ class GenericFilter extends Filter {
 	/**
 	 * @see Filter::setTransformationType()
 	 */
-	function setTransformationType($inputType, $outputType) {
+	function setTransformationType(&$inputType, &$outputType) {
 		// Intercept setTransformationType() to make sure that
-		// any transformation set here will automatically
-		// be the supported transformation.
-		$this->_supportedTransformation = array($inputType, $outputType);
+		// any transformation set here for the first time will
+		// automatically be the supported transformation.
+		if (!is_array($this->_genericTransformationType)) {
+			if (is_string($inputType)) {
+				$inputTypeString = $inputType;
+			} else {
+				assert(is_a($inputType, 'TypeDescription'));
+				$inputTypeString = $inputType->getTypeDescription();
+			}
+			if (is_string($outputType)) {
+				$outputTypeString = $outputType;
+			} else {
+				assert(is_a($outputType, 'TypeDescription'));
+				$outputTypeString = $outputType->getTypeDescription();
+			}
+			$this->_genericTransformationType = array($inputTypeString, $outputTypeString);
+		}
+
 		parent::setTransformationType($inputType, $outputType);
 	}
 
@@ -49,7 +65,7 @@ class GenericFilter extends Filter {
 	 * @see Filter::getSupportedTransformation()
 	 */
 	function getSupportedTransformation() {
-		return $this->_supportedTransformation;
+		return $this->_genericTransformationType;
 	}
 }
 ?>

@@ -335,6 +335,10 @@ function updateItem(actType, actOnId, content) {
 		case 'replace':
 			$('#' + actOnId).replaceWith(content);
 			break;
+		case 'replaceAll':
+			var $p = $('#' + actOnId + ' > .empty').prev();
+			$p.html(content);
+			break;
 		case 'remove':
 			if ($('#' + actOnId).siblings().length == 0) {
 				deleteElementById(actOnId, true);

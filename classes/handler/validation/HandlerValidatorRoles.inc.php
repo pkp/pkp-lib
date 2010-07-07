@@ -9,14 +9,15 @@
  * @ingroup security
  *
  * @brief Class to represent a page validation check.
+ *
+ * NB: This class is deprecated in favor of the HandlerOperationRolesPolicy.
  */
 
 import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('lib.pkp.classes.security.authorization.HandlerOperationRolesPolicy');
 
 class HandlerValidatorRoles extends HandlerValidator {
-	var $roles;
-
-	var $all;
+	var $_policy;
 
 	/**
 	 * Constructor.
@@ -26,8 +27,10 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 */
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
 		parent::HandlerValidator($handler, $redirectLogin, $message, $additionalArgs);
-		$this->roles = $roles;
-		$this->all = $all;
+
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
+		$this->_policy = new HandlerOperationRolesPolicy($request, $roles, $message, array(), $all);
 	}
 
 	/**
@@ -36,51 +39,13 @@ class HandlerValidatorRoles extends HandlerValidator {
 	 * @return boolean
 	 */
 	function isValid() {
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
-
-		$user = $request->getUser();
-		if ( !$user ) return false;
-
-		$roleContext = array();
-		$contextList = $application->getContextList();
-		$router =& $request->getRouter();
-		foreach($contextList as $contextName) {
-			$context =& $router->getContextByName($request, $contextName);
-			$roleContext[] = ($context)?$context->getId():0;
-			unset($context);
+		// Delegate to the new HandlerOperationRolesPolicy
+		if (!$this->_policy->applies()) return false;
+		if ($this->_policy->effect() == AUTHORIZATION_DENY) {
+			return false;
+		} else {
+			return true;
 		}
-		$roleContext[] = $user->getId();
-
-		$contextDepth = $application->getContextDepth();
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		$roleExistsCall = array($roleDao, 'roleExists');
-
-		$returner = true;
-		foreach ( $this->roles as $roleId ) {
-			$roleExistsArguments = $roleContext;
-			$roleExistsArguments[] = $roleId;
-
-			if ($contextDepth > 0) {
-				// Correct context for site level or manager
-				// roles.
-				if ( $roleId == ROLE_ID_SITE_ADMIN ) {
-					// site level role
-					for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-						$roleExistsArguments[$contextLevel-1] = 0;
-					}
-				} elseif ( $roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
-					// main context managerial role (i.e. conference-level)
-					$roleExistsArguments[1] = 0;
-				}
-			}
-
-			$exists = call_user_func_array($roleExistsCall, $roleExistsArguments);
-			if ( !$this->all && $exists) return true;
-			$returner = $returner && $exists;
-		}
-
-		return $returner;
 	}
 }
 

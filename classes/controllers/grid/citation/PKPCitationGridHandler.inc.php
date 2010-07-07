@@ -19,11 +19,6 @@ import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 // import citation grid specific classes
 import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
 
-// filter option constants
-// FIXME: Make filter options configurable.
-define('CROSSREF_TEMP_ACCESS_EMAIL', 'pkp.contact@gmail.com');
-define('ISBNDB_TEMP_APIKEY', '4B5GQSQ4');
-
 class PKPCitationGridHandler extends GridHandler {
 	/** @var DataObject */
 	var $_assocObject;
@@ -100,26 +95,6 @@ class PKPCitationGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Application-independent validation checks.
-	 * @see PKPHandler::validate()
-	 */
-	function validate($requiredContexts, &$request, &$context) {
-		// NB: Error messages are in plain English as they directly go to fatal errors
-		// which are not directed to end users. (Validation errors in components are
-		// either programming errors or somebody trying to call components directly
-		// which is no legal use case.)
-
-		// Restricted site access
-		if ( isset($context) && $context->getSetting('restrictSiteAccess')) {
-			import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
-			$this->addCheck(new HandlerValidatorCustom($this, false, 'Restricted site access!', null, create_function('', 'if (!Validation::isLoggedIn()) return false; else return true;')));
-		}
-
-		// Execute standard checks
-		return parent::validate($requiredContexts, $request);
-	}
-
-	/**
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */
@@ -141,28 +116,28 @@ class PKPCitationGridHandler extends GridHandler {
 		$router =& $request->getRouter();
 		$actionArgs = array('assocId' => $this->_getAssocId());
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'importCitations',
-				GRID_ACTION_MODE_AJAX,
-				GRID_ACTION_TYPE_GET,
+				LINK_ACTION_MODE_AJAX,
+				LINK_ACTION_TYPE_GET,
 				$router->url($request, null, null, 'importCitations', null, $actionArgs),
 				'submission.citations.grid.importCitations'
 			)
 		);
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'addCitation',
-				GRID_ACTION_MODE_MODAL,
-				GRID_ACTION_TYPE_APPEND,
+				LINK_ACTION_MODE_MODAL,
+				LINK_ACTION_TYPE_APPEND,
 				$router->url($request, null, null, 'addCitation', null, $actionArgs),
 				'grid.action.addItem'
 			)
 		);
 		$this->addAction(
-			new GridAction(
+			new LinkAction(
 				'exportCitations',
-				GRID_ACTION_MODE_MODAL,
-				GRID_ACTION_TYPE_NOTHING,
+				LINK_ACTION_MODE_MODAL,
+				LINK_ACTION_TYPE_NOTHING,
 				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
 				'submission.citations.grid.exportCitations'
 			)
@@ -541,17 +516,12 @@ class PKPCitationGridHandler extends GridHandler {
 		// Extract the edited citation string from the citation
 		$inputData = $citation->getEditedCitation();
 
-		// Instantiate the supported parsers
-		import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
-		$freeciteFilter = new FreeciteRawCitationNlmCitationSchemaFilter();
-		import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
-		$paraciteFilter = new ParaciteRawCitationNlmCitationSchemaFilter();
-		import('lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
-		$parscitFilter = new ParscitRawCitationNlmCitationSchemaFilter();
-		import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
-		$regexFilter = new RegexRawCitationNlmCitationSchemaFilter();
-
-		$filterList = array(&$freeciteFilter, &$paraciteFilter, &$parscitFilter, &$regexFilter);
+		// Instantiate all configured filters that take a string
+		// as input and produce an NLM-citation schema as output.
+		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		$inputSample = 'arbitrary strings';
+		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -584,40 +554,10 @@ class PKPCitationGridHandler extends GridHandler {
 		// Define the input for this transformation.
 		$inputData =& $metadataDescription;
 
-		// Build the filter list.
-		$filterList = array();
-
-		// Instantiate and sequence ISBNdb filters
-		import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-		import('lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
-		$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter(ISBNDB_TEMP_APIKEY);
-		if ($nlmToIsbnFilter->supportsAsInput($metadataDescription)) {
-			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(ISBNDB_TEMP_APIKEY);
-			import('lib.pkp.classes.filter.GenericSequencerFilter');
-			$isbndbTransformation = array(
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
-			);
-			$isbndbFilter = new GenericSequencerFilter('ISBNdb lookup', $isbndbTransformation);
-			$isbndbFilter->addFilter($nlmToIsbnFilter, $metadataDescription);
-			$isbnSampleData = '1234567890123';
-			$isbndbFilter->addFilter($isbnToNlmFilter, $isbnSampleData);
-			$filterList[] =& $isbndbFilter;
-		}
-
-		// Instantiate CrossRef filter
-		import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter');
-		$crossrefFilter = new CrossrefNlmCitationSchemaFilter(CROSSREF_TEMP_ACCESS_EMAIL);
-
-		// Instantiate the pubmed filter
-		import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
-		$pubmedFilter = new PubmedNlmCitationSchemaFilter();
-
-		// Instantiate the WorldCat filter without API key for public usage
-		import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
-		$worldcatFilter = new WorldcatNlmCitationSchemaFilter();
-
-		$filterList = array_merge($filterList, array(&$crossrefFilter, &$pubmedFilter, &$worldcatFilter));
+		// Instantiate all configured filters that transform NLM-citation schemas.
+		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		$inputSample = $outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -659,13 +599,7 @@ class PKPCitationGridHandler extends GridHandler {
 				$transformationDefinition['displayName'], $transformationDefinition['transformation']);
 
 		$nullVar = null;
-		foreach($transformationDefinition['filterList'] as $seq => $citationFilter) {
-			// Set a sequence id so that we can address the
-			// filter results with a unique id when persisting
-			// them. This will also determine the sort order
-			// on result display.
-			$citationFilter->setSeq($seq + 1);
-
+		foreach($transformationDefinition['filterList'] as $citationFilter) {
 			if ($citationFilter->supports($muxInputData, $nullVar)) {
 				$citationMultiplexer->addFilter($citationFilter);
 				unset($citationFilter);
@@ -693,7 +627,10 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Retrieve the results of intermediate filters for direct
 		// user inspection.
-		$intermediateFilterResults = array_merge($intermediateFilterResults, $citationMultiplexer->getLastOutput());
+		$lastOutput =& $citationMultiplexer->getLastOutput();
+		if (is_array($lastOutput)) {
+			$intermediateFilterResults = array_merge($intermediateFilterResults, $lastOutput);
+		}
 
 		// Add filtering errors (if any) to error list
 		$filterErrors = array_merge($filterErrors, $citationFilterNet->getErrors());

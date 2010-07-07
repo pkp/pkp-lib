@@ -101,7 +101,7 @@ class GridRow {
 	/**
 	 * Get all actions for a given position within the controller
 	 * @param $position string the position of the actions
-	 * @return array the GridActions for the given position
+	 * @return array the LinkActions for the given position
 	 */
 	function getActions($position = GRID_ACTION_POSITION_DEFAULT) {
 		if(!isset($this->_actions[$position])) return array();
@@ -118,7 +118,7 @@ class GridRow {
 	 * returns an empty array.
 	 *
 	 * @param $column GridColumn
-	 * @return array the GridActions for the cell
+	 * @return array the LinkActions for the cell
 	 */
 	function getCellActions(&$request, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The default implementation returns an empty array

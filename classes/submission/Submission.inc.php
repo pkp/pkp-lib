@@ -35,6 +35,30 @@ class Submission extends DataObject {
 		$this->removedAuthors = array();
 	}
 
+	/**
+	 * Get a piece of data for this object, localized to the current
+	 * locale if possible.
+	 * @param $key string
+	 * @return mixed
+	 */
+	function &getLocalizedData($key) {
+		$localePrecedence = array(Locale::getLocale(), $this->getLocale());
+		foreach ($localePrecedence as $locale) {
+			$value =& $this->getData($key, $locale);
+			if (!empty($value)) return $value;
+			unset($value);
+		}
+
+		// Fallback: Get the first available piece of data.
+		$data =& $this->getData($key, null);
+		if (!empty($data)) return $data[array_shift(array_keys($data))];
+
+		// No data available; return null.
+		unset($data);
+		$data = null;
+		return $data;
+	}
+
 	//
 	// Get/set methods
 	//
@@ -162,7 +186,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get user ID of te submitter.
+	 * Get user ID of the submitter.
 	 * @return int
 	 */
 	function getUserId() {
@@ -184,6 +208,22 @@ class Submission extends DataObject {
 	function getUser() {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		return $userDao->getUser($this->getUserId(), true);
+	}
+
+	/**
+	 * Get the locale of the submission.
+	 * @return string
+	 */
+	function getLocale() {
+		return $this->getData('locale');
+	}
+
+	/**
+	 * Set the locale of the submission.
+	 * @param $locale string
+	 */
+	function setLocale($locale) {
+		return $this->setData('locale', $locale);
 	}
 
 	/**

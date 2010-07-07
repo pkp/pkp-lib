@@ -164,14 +164,18 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="display_name" type="C2" size="255" />
-		<field name="seq" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
 		<field name="class_name" type="C2" size="255"/>
 		<field name="input_type" type="C2" size="255" />
 		<field name="output_type" type="C2" size="255" />
 		<field name="is_template" type="I1">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="parent_filter_id" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
+		<field name="seq" type="I8">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>

@@ -188,10 +188,10 @@ class CitationForm extends Form {
 
 		// Add actions for parsing and lookup
 		$router = $request->getRouter();
-		$checkAction = new GridAction(
+		$checkAction = new LinkAction(
 			'checkCitation',
-			GRID_ACTION_MODE_AJAX,
-			GRID_ACTION_TYPE_POST,
+			LINK_ACTION_MODE_AJAX,
+			LINK_ACTION_TYPE_POST,
 			$router->url($request, null, null, 'checkCitation'),
 			'submission.citations.grid.checkCitationAgain'
 		);

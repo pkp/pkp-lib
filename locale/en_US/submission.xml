@@ -21,7 +21,7 @@
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Please enter your ISBNdb API key. If you don't have a key yet you can request one for free from the ISBNdb project.</message>
 	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Registration Email</message>
 	<message key="metadata.filters.pubmed.settings.email.validationMessage">Please enter a valid PubMed registration email if you have one.</message>
-	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WordCat API Key</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Key</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Please enter a valid WorldCat API key if you have one.</message>
 	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citation Module</message>
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Please select one of the given citation modules.</message>

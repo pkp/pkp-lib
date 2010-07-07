@@ -14,30 +14,14 @@
  *  the result of the last filter in the chain to the caller.
  */
 
-import('lib.pkp.classes.filter.GenericFilter');
+import('lib.pkp.classes.filter.CompositeFilter');
 
-class GenericSequencerFilter extends GenericFilter {
-	/** @var array An array of filters that we run in order */
-	var $_filters = array();
-
+class GenericSequencerFilter extends CompositeFilter {
 	/**
 	 * Constructor
 	 */
 	function GenericSequencerFilter($displayName = null, $transformation = null) {
-		parent::GenericFilter($displayName, $transformation);
-	}
-
-	//
-	// Public methods
-	//
-	/**
-	 * Adds a filter to the end of the
-	 * filter list.
-	 * @param $filter Filter
-	 */
-	function addFilter(&$filter) {
-		assert(is_a($filter, 'Filter'));
-		$this->_filters[] =& $filter;
+		parent::CompositeFilter($displayName, $transformation);
 	}
 
 	//
@@ -60,7 +44,7 @@ class GenericSequencerFilter extends GenericFilter {
 		// output of one filter as input to the next
 		// filter.
 		$previousOutput = null;
-		foreach($this->_filters as $filter) {
+		foreach($this->getFilters() as $filter) {
 			if(is_null($previousOutput)) {
 				// First filter
 				$previousOutput =& $input;

@@ -21,6 +21,8 @@ class CitationListTokenizerFilter extends Filter {
 	 */
 	function CitationListTokenizerFilter() {
 		$this->setDisplayName('Citation Tokenizer');
+
+		parent::Filter();
 	}
 
 	//

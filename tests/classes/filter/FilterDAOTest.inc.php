@@ -15,6 +15,8 @@
 
 import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.filter.FilterDAO');
+import('lib.pkp.classes.filter.GenericSequencerFilter');
+import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
 import('lib.pkp.tests.classes.filter.CompatibilityTestFilter');
 
@@ -27,7 +29,7 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Instantiate a test filter object
 		$testFilter = new WorldcatNlmCitationSchemaFilter('some api key');
-		$testFilter->setSeq(3);
+		$testFilter->setSeq(9999);
 
 		// Insert filter instance
 		$filterId = $filterDAO->insertObject($testFilter);
@@ -43,7 +45,78 @@ class FilterDAOTest extends DatabaseTestCase {
 		$testFilter->setIsTemplate(true);
 
 		$filterDAO->updateObject($testFilter);
-		$filterAfterUpdate = $filterDAO->getObjectById($filterId);
+		$filterAfterUpdate = $filterDAO->getObject($testFilter);
+		self::assertEquals($testFilter, $filterAfterUpdate);
+
+		// Delete filter instance
+		$filterDAO->deleteObject($testFilter);
+		self::assertNull($filterDAO->getObjectById($filterId));
+	}
+
+	public function testCompositeFilterCrud() {
+		$filterDAO = DAORegistry::getDAO('FilterDAO');
+
+		// Instantiate a composite test filter object
+		$transformation = array(
+			'primitive::string',
+			'primitive::string'
+		);
+		$testFilter = new GenericSequencerFilter('composite filter', $transformation);
+		$testFilter->setSeq(9999);
+
+		// sub-filter 1
+		$subFilter1 = new CompatibilityTestFilter('1st sub-filter', $transformation);
+		$testFilter->addFilter($subFilter1);
+
+		// sub-filter 2
+		$subFilter2 = new GenericMultiplexerFilter('2nd sub-filter', $transformation);
+		$subSubFilter1 = new CompatibilityTestFilter('1st sub-sub-filter', $transformation);
+		$subFilter2->addFilter($subSubFilter1);
+		$subSubFilter2 = new CompatibilityTestFilter('2nd sub-sub-filter', $transformation);
+		$subFilter2->addFilter($subSubFilter2);
+		$testFilter->addFilter($subFilter2);
+
+		// Insert filter instance
+		$filterId = $filterDAO->insertObject($testFilter);
+		self::assertTrue(is_numeric($filterId));
+		self::assertTrue($filterId > 0);
+
+		// Check that sub-filters were correctly
+		// linked to the composite filter.
+		$subFilters =& $testFilter->getFilters();
+		self::assertEquals(2, count($subFilters));
+		foreach($subFilters as $subFilter) {
+			self::assertTrue($subFilter->getId() > 0);
+			self::assertEquals($filterId, $subFilter->getParentFilterId());
+		}
+		$subSubFilters =& $subFilters[2]->getFilters();
+		self::assertEquals(2, count($subSubFilters));
+		foreach($subSubFilters as $subSubFilter) {
+			self::assertTrue($subSubFilter->getId() > 0);
+			self::assertEquals($subFilters[2]->getId(), $subSubFilter->getParentFilterId());
+		}
+
+		// Retrieve filter instance by id
+		$filterById = $filterDAO->getObjectById($filterId);
+		self::assertEquals($testFilter, $filterById);
+
+		// Update filter instance
+		$testFilter = new GenericSequencerFilter('composite filter', $transformation);
+		$testFilter->setSeq(9999);
+		$testFilter->setId($filterId);
+		$testFilter->setIsTemplate(true);
+
+		// leave out (sub-)sub-filter 2 but add a new (sub-)sub-filter 3
+		// to test recursive update.
+		$testFilter->addFilter($subFilter1);
+		$subFilter3 = new GenericMultiplexerFilter('3rd sub-filter', $transformation);
+		$subFilter3->addFilter($subSubFilter1);
+		$subSubFilter3 = new CompatibilityTestFilter('3rd sub-sub-filter', $transformation);
+		$subFilter3->addFilter($subSubFilter3);
+		$testFilter->addFilter($subFilter3);
+
+		$filterDAO->updateObject($testFilter);
+		$filterAfterUpdate = $filterDAO->getObject($testFilter);
 		self::assertEquals($testFilter, $filterAfterUpdate);
 
 		// Delete filter instance

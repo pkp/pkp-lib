@@ -11,7 +11,7 @@
 	{if $row->getActions()}
 		<div class="row_controls">
 			{foreach name=actions from=$row->getActions() item=action}
-				{include file="controllers/grid/gridAction.tpl" action=$action id=$rowId}
+				{include file="linkAction/linkAction.tpl" action=$action id=$rowId}
 			{/foreach}
 		</div>
 	{/if}

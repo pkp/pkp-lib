@@ -67,7 +67,7 @@
 											from=$filterSetting->getLocalizedAcceptedValues() selected=$settingValue translate=false}
 								{else}
 									{fbvTextInput id=$filterSetting->getName() name=$filterSetting->getName()
-											size=$fbvStyles.size.LARGE maxlength="250" value=$settingValue"}
+											size=$fbvStyles.size.LARGE maxlength=250 value=$settingValue}
 								{/if}
 							</td>
 						</tr>

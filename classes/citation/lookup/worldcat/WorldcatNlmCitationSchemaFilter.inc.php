@@ -35,7 +35,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @param $apiKey string
 	 */
 	function WorldcatNlmCitationSchemaFilter($apiKey = null) {
-		$this->setDisplayName('Worldcat');
+		$this->setDisplayName('WorldCat');
 		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
 
 		// Instantiate the settings of this filter

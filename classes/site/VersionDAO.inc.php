@@ -213,7 +213,7 @@ class VersionDAO extends DAO {
 			foreach ($contextNames as $contextLevel => $contextName) {
 				// Transform from camel case to ..._...
 				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
-                		$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
+				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
 			}
 			$contextWhereClause = 'AND '.implode('_id = ? AND ', $contextNames).'_id = ?';
 		} else {
@@ -223,7 +223,7 @@ class VersionDAO extends DAO {
 		$result =& $this->retrieve(
 				'SELECT v.*
 				 FROM versions v LEFT JOIN plugin_settings ps ON
-				     v.product_class_name = ps.plugin_name
+				     lower(v.product_class_name) = ps.plugin_name
 				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
 				 WHERE current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
 

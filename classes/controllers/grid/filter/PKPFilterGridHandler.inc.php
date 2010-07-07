@@ -129,21 +129,6 @@ class PKPFilterGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Application-independent validation checks.
-	 * @see PKPHandler::validate()
-	 */
-	function validate($requiredContexts, &$request, &$context) {
-		// Restricted site access
-		if ( isset($context) && $context->getSetting('restrictSiteAccess')) {
-			import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
-			$this->addCheck(new HandlerValidatorCustom($this, false, 'Restricted site access!', null, create_function('', 'if (!Validation::isLoggedIn()) return false; else return true;')));
-		}
-
-		// Execute standard checks
-		return parent::validate($requiredContexts, $request);
-	}
-
-	/**
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */

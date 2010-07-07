@@ -148,6 +148,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
+		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -1259,6 +1260,46 @@ class PKPTemplateManager extends Smarty {
 		    }});
 	    });
 	    </script>";
+	}
+
+	function smartyModalTitle($params, &$smarty) {
+		// Required params
+		// Id must be child of div that is next-sibling of title div
+		if (!isset($params['id'])) {
+			$smarty->trigger_error("Selector missing for title bar initialization");
+		} else {
+			$id = $params['id'];
+		}
+
+		// Non-required params
+		$iconClass = isset($params['iconClass']) ? $params['iconClass'] : '';
+		if(isset($params['iconClass'])) {
+			$iconClass = $params['iconClass'];
+			$iconHtml = "<span class='icon $iconClass' />";
+
+		} else $iconHtml = "";
+
+		if(isset($params['key'])) {
+			$key = $params['key'];
+			$keyHtml = "<span  class='text'>" . Locale::translate($key) . "</span>";
+
+		} else $keyHtml = "";
+
+
+		if(isset($params['key'])) {
+			$canClose = $params['canClose'];
+			$canCloseHtml = "<a class='close ui-corner-all' href='#'><span class='ui-icon ui-icon-closethick'>close</span></a>";
+
+		} else $canCloseHtml = "";
+
+		return "<script type='text/javascript'>$(function() {
+		$('$id').parent().prev('.ui-dialog-titlebar').remove();
+		});</script>
+		<div class='modalTitleBar'>" .
+			$iconHtml .
+			$keyHtml .
+			$canCloseHtml .
+		"<span style='clear:both' /></div>";
 	}
 }
 

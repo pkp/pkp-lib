@@ -915,3 +915,39 @@ ul.tagit li:after, ul.tagit li div:after {
 	margin-left: 13px;	
 	width: 240px;
 }
+
+/* @end */
+
+/* @group Modal Title bar */
+
+.modalTitleBar {
+	height: 40px;
+	width: 100%;
+	margin-bottom: 15px;	
+}
+
+.modalTitleBar .icon {
+	float: left;
+}
+
+.modalTitleBar .text {
+	margin-left: 15px;
+	font-size: 1.4em;
+	color: #20538D;
+	vertical-align: middle;
+	float: left;	
+}
+
+.modalTitleBar .close {
+	vertical-align: middle;
+	float: right;
+}
+
+/* Title bar Icons: */
+.modalTitleBar .fileManagement {
+	background: #daf0da url(../templates/images/structure/response_warning.png) no-repeat;
+	width: 32px;
+	height: 32px;
+}
+
+/* @end */

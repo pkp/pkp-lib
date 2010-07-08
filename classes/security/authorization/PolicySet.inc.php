@@ -15,14 +15,21 @@
  *  NB: PolicySets can be nested.
  */
 
+define('COMBINING_DENY_OVERRIDES', 0x01);
+define('COMBINING_PERMIT_OVERRIDES', 0x02);
+
 class PolicySet {
 	/** @var array */
 	var $_policies;
 
+	/** @var integer */
+	var $_combiningAlgorithm;
+
 	/**
 	 * Constructor
 	 */
-	function PolicySet() {
+	function PolicySet($combiningAlgorithm = COMBINING_DENY_OVERRIDES) {
+		$this->_combiningAlgorithm = $combiningAlgorithm;
 	}
 
 	//
@@ -43,6 +50,14 @@ class PolicySet {
 	 */
 	function &getPolicies() {
 		return $this->_policies;
+	}
+
+	/**
+	 * Return the combining algorithm
+	 * @return integer
+	 */
+	function getCombiningAlgorithm() {
+		return $this->_combiningAlgorithm;
 	}
 }
 

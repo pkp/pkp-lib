@@ -36,7 +36,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 	function effect() {
 		$router =& $this->_request->getRouter();
 		if (is_object($router->getContext($this->_request))) {
-			return AUTHORIZATION_ALLOW;
+			return AUTHORIZATION_PERMIT;
 		} else {
 			return AUTHORIZATION_DENY;
 		}

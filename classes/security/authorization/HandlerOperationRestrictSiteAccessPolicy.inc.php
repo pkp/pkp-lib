@@ -50,7 +50,7 @@ class HandlerOperationRestrictSiteAccessPolicy extends AuthorizationPolicy {
 		}
 
 		if (Validation::isLoggedIn() || in_array($page, $this->_getLoginExemptions())) {
-			return AUTHORIZATION_ALLOW;
+			return AUTHORIZATION_PERMIT;
 		} else {
 			return AUTHORIZATION_DENY;
 		}

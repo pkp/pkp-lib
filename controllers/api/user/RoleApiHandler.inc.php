@@ -57,16 +57,19 @@ class RoleApiHandler extends PKPHandler {
 			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 			$application =& PKPApplication::getApplication();
 			$user =& $request->getUser();
-			if ($application->getContextDepth() > 0) {
-				$router =& $request->getRouter();
-				$context =& $router->getContext($request);
-				if ($context) {
-					$userInGroup = $userGroupDao->userInGroup($context->getId(), $user->getId(), $changedActingAsUserGroupId);
-				} else {
-					$errorMessage = 'common.actingAsUserGroup.missingContext';
-				}
+			$router =& $request->getRouter();
+			$context =& $router->getContext($request);
+			if ($context) {
+				// Handle context-specific user groups.
+				$userInGroup = $userGroupDao->userInGroup($context->getId(), $user->getId(), $changedActingAsUserGroupId);
 			} else {
-				$userInGroup = $userGroupDao->userInGroup($user->getId(), $changedActingAsUserGroupId);
+				if ($application->getContextDepth() > 0) {
+					// Handle site-wide user groups.
+					$userInGroup = $userGroupDao->userInGroup(0, $user->getId(), $changedActingAsUserGroupId);
+				} else{
+					// Handle apps that don't have a context.
+					$userInGroup = $userGroupDao->userInGroup($user->getId(), $changedActingAsUserGroupId);
+				}
 			}
 
 			if (!$userInGroup) {

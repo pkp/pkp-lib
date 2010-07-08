@@ -22,20 +22,29 @@
  *    applicable).
  */
 
+import('lib.pkp.classes.security.authorization.PolicySet');
+
+define('AUTHORIZATION_NOT_APPLICABLE', 0x03);
+
 class AuthorizationDecisionManager {
 	/** @var integer the default decision if no policy applies */
 	var $_decisionIfNoPolicyApplies = AUTHORIZATION_DENY;
 
-	/** @var array a list of AuthorizationPolicy objects. */
-	var $_policies = array();
+	/** @var PolicySet the root policy set */
+	var $_rootPolicySet;
 
 	/** @var array */
 	var $_authorizationMessages = array();
+
+	/** @var array authorized objects provided by authorization policies */
+	var $_authorizedContext = array();
 
 	/**
 	 * Constructor
 	 */
 	function AuthorizationDecisionManager() {
+		// Instantiate the main policy set we'll add root policies to.
+		$this->_rootPolicySet = new PolicySet(COMBINING_DENY_OVERRIDES);
 	}
 
 
@@ -47,7 +56,7 @@ class AuthorizationDecisionManager {
 	 * @param $decisionIfNoPolicyApplies integer
 	 */
 	function setDecisionIfNoPolicyApplies($decisionIfNoPolicyApplies) {
-		assert($decisionIfNoPolicyApplies == AUTHORIZATION_ALLOW ||
+		assert($decisionIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
 				$decisionIfNoPolicyApplies == AUTHORIZATION_DENY);
 		$this->_decisionIfNoPolicyApplies = $decisionIfNoPolicyApplies;
 	}
@@ -66,24 +75,7 @@ class AuthorizationDecisionManager {
 	 * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
 	 */
 	function addPolicy(&$policyOrPolicySet) {
-		switch (true) {
-			case is_a($policyOrPolicySet, 'AuthorizationPolicy'):
-				$this->_policies[] =& $policyOrPolicySet;
-				break;
-
-			case is_a($policyOrPolicySet, 'PolicySet'):
-				foreach($policyOrPolicySet->getPolicies() as $subPolicy) {
-					// Recursively add the sub-policy as it can be
-					// another policy set.
-					$this->addPolicy($subPolicy);
-					unset($subPolicy);
-				}
-				break;
-
-			default:
-				// Unknown policy container.
-				assert(false);
-		}
+		$this->_rootPolicySet->addPolicy($policyOrPolicySet);
 	}
 
 	/**
@@ -102,6 +94,21 @@ class AuthorizationDecisionManager {
 		return $this->_authorizationMessages;
 	}
 
+	/**
+	 * Retrieve an object from the authorized context
+	 * @param $assocType integer
+	 * @return mixed will return null if the context
+	 *  for the given assoc type does not exist.
+	 */
+	function &getAuthorizedContextObject($assocType) {
+		if (isset($this->_authorizedContext[$assocType])) {
+			return $this->_authorizedContext[$assocType];
+		} else {
+			$nullVar = null;
+			return $nullVar;
+		}
+	}
+
 
 	//
 	// Public methods
@@ -109,43 +116,17 @@ class AuthorizationDecisionManager {
 	/**
 	 * Take an authorization decision.
 	 *
-	 * @return integer one of AUTHORIZATION_ALLOW or
+	 * @return integer one of AUTHORIZATION_PERMIT or
 	 *  AUTHORIZATION_DENY.
 	 */
 	function decide() {
-		// Set the default decision.
-		$decision = $this->getDecisionIfNoPolicyApplies();
-
-		$allowedByPolicy = false;
+		// Decide the root policy set which will recursively decide
+		// all nested policy sets and return a single decision.
 		$callOnDeny = null;
-		foreach($this->_policies as $policy) {
-			// Check whether the policy applies.
-			if ($policy->applies()) {
-				// If the policy applies then retrieve its effect.
-				$effect = $policy->effect();
-				assert($effect === AUTHORIZATION_ALLOW || $effect === AUTHORIZATION_DENY);
-				if ($effect === AUTHORIZATION_ALLOW) {
-					$allowedByPolicy = true;
-				} else {
-					// Only one deny effect overrides all allow effects.
-					$allowedByPolicy = false;
-					$decision = AUTHORIZATION_DENY;
+		$decision = $this->_decidePolicySet($this->_rootPolicySet, $callOnDeny);
 
-					// Look for applicable advice.
-					if ($policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
-						$this->addAuthorizationMessage($policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
-					}
-					if ($policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
-						$callOnDeny =& $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
-					}
-					break;
-				}
-			}
-		}
-
-		// Only return an "allowed" decision if at least one
-		// policy allowed access and none denied access.
-		if ($allowedByPolicy) $decision = AUTHORIZATION_ALLOW;
+		// Set the default decision.
+		if ($decision === AUTHORIZATION_NOT_APPLICABLE) $decision = $this->getDecisionIfNoPolicyApplies();
 
 		// Call the "call on deny" advice
 		if ($decision === AUTHORIZATION_DENY && !is_null($callOnDeny)) {
@@ -156,6 +137,107 @@ class AuthorizationDecisionManager {
 			call_user_func_array($methodCall, $parameters);
 		}
 
+		return $decision;
+	}
+
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * Recursively decide the given policy set.
+	 * @param $policySet PolicySet
+	 * @param $callOnDeny A "call-on-deny" advice will be passed
+	 *  back by reference if found.
+	 * @return integer one of the AUTHORIZATION_* values.
+	 */
+	function _decidePolicySet(&$policySet, &$callOnDeny) {
+		// Configure the decision algorithm.
+		$combiningAlgorithm = $policySet->getCombiningAlgorithm();
+		switch($combiningAlgorithm) {
+			case COMBINING_DENY_OVERRIDES:
+				$dominantEffect = AUTHORIZATION_DENY;
+				$overriddenEffect = AUTHORIZATION_PERMIT;
+				break;
+
+			case COMBINING_PERMIT_OVERRIDES:
+				$dominantEffect = AUTHORIZATION_PERMIT;
+				$overriddenEffect = AUTHORIZATION_DENY;
+				break;
+
+			default:
+				assert(false);
+		}
+
+		// The following flag will record when the
+		// overridden decision state is returned by
+		// at least one policy.
+		$decidedByOverriddenEffect = false;
+
+		// Set the default decision.
+		$decision = AUTHORIZATION_NOT_APPLICABLE;
+
+		// Go through all policies within the policy set
+		// and combine them with the configured algorithm.
+		foreach($policySet->getPolicies() as $policy) {
+			// Treat policies and policy sets differently.
+			switch (true) {
+				case is_a($policy, 'AuthorizationPolicy'):
+					// Make sure that the policy can access the latest authorized context.
+					// NB: The authorized context is set by reference. This means that it
+					// will change globally if changed by the policy which is intended
+					// behavior so that policies can access authorized objects provided
+					// by policies called earlier in the authorization process.
+					$policy->setAuthorizedContext($this->_authorizedContext);
+
+					// Check whether the policy applies.
+					if ($policy->applies()) {
+						// If the policy applies then retrieve its effect.
+						$effect = $policy->effect();
+					} else {
+						$effect = AUTHORIZATION_NOT_APPLICABLE;
+					}
+					break;
+
+				case is_a($policy, 'PolicySet'):
+					// We found a nested policy set.
+					$effect = $this->_decidePolicySet($policy, $callOnDeny);
+					break;
+
+				default:
+					assert(false);
+			}
+
+			// Try the next policy if this policy didn't apply.
+			if ($effect === AUTHORIZATION_NOT_APPLICABLE) continue;
+
+			// "Deny" decision may cause a message to the end user.
+			if (is_a($policy, 'AuthorizationPolicy') && $effect == AUTHORIZATION_DENY
+					&& $policy->hasAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE)) {
+				$this->addAuthorizationMessage($policy->getAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE));
+			}
+
+			// Process the effect.
+			assert($effect === AUTHORIZATION_PERMIT || $effect === AUTHORIZATION_DENY);
+			if ($effect === $overriddenEffect) {
+				$decidedByOverriddenEffect = true;
+			} else {
+				// In case of a "deny overrides" we allow a "call-on-deny" advice.
+				if (is_a($policy, 'AuthorizationPolicy') && $dominantEffect == AUTHORIZATION_DENY
+						&& $policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
+					$callOnDeny =& $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
+				}
+
+				// Only one dominant effect overrides all other effects
+				// so we don't even have to evaluate other policies.
+				return $dominantEffect;
+			}
+		}
+
+		// Only return an overridden effect if at least one
+		// policy returned that effect and none returned the
+		// dominant effect.
+		if ($decidedByOverriddenEffect) $decision = $overriddenEffect;
 		return $decision;
 	}
 }

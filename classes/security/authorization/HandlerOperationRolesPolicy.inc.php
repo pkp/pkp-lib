@@ -32,6 +32,9 @@ class HandlerOperationRolesPolicy extends AuthorizationPolicy {
 	/** @var PKPUser */
 	var $_user;
 
+	/** @var string */
+	var $_requestedOperation;
+
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -72,9 +75,7 @@ class HandlerOperationRolesPolicy extends AuthorizationPolicy {
 		}
 
 		// Initialize internal state.
-		$sessionManager =& SessionManager::getManager();
-		$session =& $sessionManager->getUserSession();
-		$this->_user =& $session->getUser();
+		$this->_user =& $request->getUser();
 		if ($this->_user) {
 			$application =& PKPApplication::getApplication();
 			$router =& $request->getRouter();
@@ -89,6 +90,9 @@ class HandlerOperationRolesPolicy extends AuthorizationPolicy {
 				unset($context);
 			}
 			$this->_roleContext[] = $this->_user->getId();
+
+			$this->_requestedOperation = $router->getRequestedOp($request);
+			assert(!empty($this->_requestedOperation));
 		}
 	}
 
@@ -97,36 +101,35 @@ class HandlerOperationRolesPolicy extends AuthorizationPolicy {
 	// Implement template methods from AuthorizationPolicy
 	//
 	/**
-	 * @see AuthorizationPolicy::applies()
-	 */
-	function applies() {
-		// FIXME: implement check on operation
-		return true;
-	}
-
-	/**
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
 		// Deny if no user is present.
 		if (!$this->_user) return AUTHORIZATION_DENY;
 
+		// Try to find a matching role.
 		$foundMatchingRole = false;
 		foreach($this->_roles as $roleId) {
 			if ($this->_checkRole($roleId)) {
 				$foundMatchingRole = true;
 			} else {
 				if ($this->_allRoles) {
-					// We need all roles so one missing role is enough to fail.
+					// When the "all roles" flag is switched on then
+					// one missing role is enough to fail.
 					return AUTHORIZATION_DENY;
 				}
 			}
 		}
-		if ($foundMatchingRole) {
-			return AUTHORIZATION_ALLOW;
-		} else {
+
+		// Deny if no matching role can be found.
+		if (!$foundMatchingRole) {
 			return AUTHORIZATION_DENY;
 		}
+
+		// Only permit if the requested operation is whitelisted.
+		if (empty($this->_operations) || in_array($this->_requestedOperation, $this->_operations)) return AUTHORIZATION_PERMIT;
+
+		return AUTHORIZATION_DENY;
 	}
 
 

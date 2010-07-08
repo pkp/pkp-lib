@@ -126,6 +126,17 @@ class PKPHandler {
 	}
 
 	/**
+	 * Retrieve authorized context objects from the
+	 * decision manager.
+	 * @param $assocType integer
+	 * @return mixed
+	 */
+	function &getAuthorizedContext($assocType) {
+		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+		return $this->_authorizationDecisionManager->getAuthorizedContext($assocType);
+	}
+
+	/**
 	 * Authorize this request.
 	 *
 	 * Routers will call this method automatically thereby enforcing
@@ -156,7 +167,7 @@ class PKPHandler {
 			// controllers to maintain backwards compatibility:
 			// Requests are implicitly authorized if no policy
 			// explicitly denies access.
-			$this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_ALLOW);
+			$this->_authorizationDecisionManager->setDecisionIfNoPolicyApplies(AUTHORIZATION_PERMIT);
 		} else {
 			// We implement a strict whitelist approach for
 			// all other components: Requests will only be
@@ -167,7 +178,7 @@ class PKPHandler {
 
 		// Let the authorization decision manager take a decision.
 		$decision = $this->_authorizationDecisionManager->decide();
-		if ($decision == AUTHORIZATION_ALLOW) {
+		if ($decision == AUTHORIZATION_PERMIT) {
 			return true;
 		} else {
 			return false;

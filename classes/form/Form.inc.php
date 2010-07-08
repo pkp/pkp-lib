@@ -469,7 +469,7 @@ class Form {
 		// Display the language selector widget.
 		$formLocale = $smarty->get_template_vars('formLocale');
 		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
-		foreach (Locale::getSupportedLocales() as $locale => $name) {
+		foreach (Locale::getSupportedFormLocales() as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
 		$returner .= '</select></div>';

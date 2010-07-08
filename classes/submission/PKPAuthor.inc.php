@@ -172,18 +172,27 @@ class PKPAuthor extends DataObject {
 
 	/**
 	 * Get affiliation (position, institution, etc.).
+	 * @param $locale string
 	 * @return string
 	 */
-	function getAffiliation() {
-		return $this->getData('affiliation');
+	function getAffiliation($locale) {
+		return $this->getData('affiliation', $locale);
 	}
 
 	/**
 	 * Set affiliation.
 	 * @param $affiliation string
+	 * @param $locale string
 	 */
-	function setAffiliation($affiliation) {
-		return $this->setData('affiliation', $affiliation);
+	function setAffiliation($affiliation, $locale) {
+		return $this->setData('affiliation', $affiliation, $locale);
+	}
+
+	/**
+	 * Get the localized affiliation for this author
+	 */
+	function getLocalizedAffiliation() {
+		return $this->getLocalizedData('affiliation');
 	}
 
 	/**

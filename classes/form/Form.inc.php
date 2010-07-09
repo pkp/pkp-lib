@@ -89,7 +89,7 @@ class Form {
 		$this->fbvStyles = array(
 			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM', 'LARGE' => 'LARGE'),
 			'float' => array('RIGHT' => 'RIGHT', 'LEFT' => 'LEFT'),
-			'measure' => array('1OF1' => '1OF1', '1OF2' => '1OF2', '1OF3' => '1OF3', '2OF3' => '2OF3', '1OF4' => '1OF4', '3OF4' => '3OF4', 
+			'measure' => array('1OF1' => '1OF1', '1OF2' => '1OF2', '1OF3' => '1OF3', '2OF3' => '2OF3', '1OF4' => '1OF4', '3OF4' => '3OF4',
 							'1OF5' => '1OF5', '2OF5' => '2OF5', '3OF5' => '3OF5', '4OF5' => '4OF5', '1OF10' => '1OF10', '8OF10' => '8OF10'),
 			'layout' => array('THREE_COLUMNS' => 'THREE_COLUMNS', 'TWO_COLUMNS' => 'TWO_COLUMNS', 'ONE_COLUMN' => 'ONE_COLUMN')
 		);
@@ -98,11 +98,17 @@ class Form {
 	/**
 	 * Display the form.
 	 * @param $request PKPRequest
-	 * @param $fetch boolean if set to true will return the rendered
-	 *  form rather than sending the response to the user
-	 * @return string the rendered form if fetch is true, otherwise null
 	 */
-	function display($request = null, $fetch = false) {
+	function display($request = null) {
+		echo $this->fetch($request);
+	}
+
+	/**
+	 * Returns a string of the rendered form
+	 * @param $request PKPRequest
+	 * @return string the rendered form
+	 */
+	function fetch(&$request) {
 		if (checkPhpVersion('4.3.0')) {
 			$returner = null;
 			$trace = debug_backtrace();
@@ -136,7 +142,7 @@ class Form {
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
 		$templateMgr->register_function('fbvFileInput', array(&$this, 'smartyFBVFileInput'));
 		$templateMgr->register_function('fbvKeywordInput', array(&$this, 'smartyFBVKeywordInput'));
-		
+
 		$templateMgr->assign('fbvStyles', $this->fbvStyles);
 
 		$templateMgr->assign($this->_data);
@@ -153,23 +159,9 @@ class Form {
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
-		if ($fetch) {
-			return $templateMgr->fetch($this->_template);
-		} else {
-			$templateMgr->display($this->_template);
-			return null;
-		}
+		return $templateMgr->fetch($this->_template);
 	}
 
-	/**
-	 * Alias to $this->display($request, true) -- returns the form's rendered contents
-	 * @param $request PKPRequest
-	 * @return string the rendered form
-	 */
-	function fetch(&$request) {
-		return $this->display($request, true);
-	}
-	
 	/**
 	 * Get the value of a form field.
 	 * @param $key string
@@ -984,7 +976,7 @@ class Form {
 
 		return $smarty->fetch('form/fileInput.tpl');
 	}
-	
+
 	/**
 	 * Keyword input.
 	 * parameters: available - all available keywords (for autosuggest); current - user's current keywords
@@ -1012,7 +1004,7 @@ class Form {
 
 		return $smarty->fetch('form/keywordInput.tpl');
 	}
-	
+
 	/**
 	 * Assign the appropriate class name to the element for client-side validation
 	 * @param $params array

@@ -580,7 +580,18 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Generate a URL into a PKPApp. (This is a wrapper around Dispatcher::url() to make it available to Smarty templates.)
+	 * Generate a URL into a PKPApp.
+	 * @param $params array
+	 * @param $smarty object
+	 * Available parameters:
+	 * - router: which router to use
+	 * - context
+	 * - page
+	 * - component
+	 * - op
+	 * - path (array)
+	 * - anchor
+	 * - escape (default to true unless otherwise specified)
 	 */
 	function smartyUrl($params, &$smarty) {
 		if ( !isset($params['context']) ) {
@@ -644,7 +655,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, $escape);
+		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, !isset($escape) || $escape);
 	}
 
 	function setProgressFunction($progressFunction) {
@@ -1294,6 +1305,7 @@ class PKPTemplateManager extends Smarty {
 
 		return "<script type='text/javascript'>$(function() {
 		$('$id').parent().prev('.ui-dialog-titlebar').remove();
+		$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); });
 		});</script>
 		<div class='modalTitleBar'>" .
 			$iconHtml .

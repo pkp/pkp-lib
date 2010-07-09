@@ -160,7 +160,6 @@ class PKPUserDAO extends DAO {
 		$user->setInitials($row['initials']);
 		$user->setLastName($row['last_name']);
 		$user->setGender($row['gender']);
-		$user->setAffiliation($row['affiliation']);
 		$user->setEmail($row['email']);
 		$user->setUrl($row['url']);
 		$user->setPhone($row['phone']);
@@ -196,9 +195,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, gender, affiliation, email, url, phone, fax, mailing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
+				(username, password, salutation, first_name, middle_name, initials, last_name, gender, email, url, phone, fax, mailing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -209,7 +208,6 @@ class PKPUserDAO extends DAO {
 				$user->getInitials(),
 				$user->getLastName(),
 				$user->getGender(),
-				$user->getAffiliation(),
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),
@@ -231,7 +229,7 @@ class PKPUserDAO extends DAO {
 	}
 
 	function getLocaleFieldNames() {
-		return array('biography', 'signature', 'interests', 'gossip');
+		return array('biography', 'signature', 'interests', 'gossip', 'affiliation');
 	}
 
 	function updateLocaleFields(&$user) {
@@ -261,7 +259,6 @@ class PKPUserDAO extends DAO {
 					initials = ?,
 					last_name = ?,
 					gender = ?,
-					affiliation = ?,
 					email = ?,
 					url = ?,
 					phone = ?,
@@ -288,7 +285,6 @@ class PKPUserDAO extends DAO {
 				$user->getInitials(),
 				$user->getLastName(),
 				$user->getGender(),
-				$user->getAffiliation(),
 				$user->getEmail(),
 				$user->getUrl(),
 				$user->getPhone(),

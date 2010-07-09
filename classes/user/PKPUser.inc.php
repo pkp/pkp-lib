@@ -225,18 +225,27 @@ class PKPUser extends DataObject {
 
 	/**
 	 * Get affiliation (position, institution, etc.).
+	 * @param $locale string
 	 * @return string
 	 */
-	function getAffiliation() {
-		return $this->getData('affiliation');
+	function getAffiliation($locale) {
+		return $this->getData('affiliation', $locale);
 	}
 
 	/**
 	 * Set affiliation.
 	 * @param $affiliation string
+	 * @param $locale string
 	 */
-	function setAffiliation($affiliation) {
-		return $this->setData('affiliation', $affiliation);
+	function setAffiliation($affiliation, $locale) {
+		return $this->setData('affiliation', $affiliation, $locale);
+	}
+
+	/**
+	 * Get localized user affiliation.
+	 */
+	function getLocalizedAffiliation() {
+		return $this->getLocalizedData('affiliation');
 	}
 
 	/**
@@ -580,9 +589,9 @@ class PKPUser extends DataObject {
 
 	function getContactSignature() {
 		$signature = $this->getFullName();
-		if ($this->getAffiliation()) $signature .= "\n" . $this->getAffiliation();
-		if ($this->getPhone()) $signature .= "\n" . Locale::translate('user.phone') . ' ' . $this->getPhone();
-		if ($this->getFax()) $signature .= "\n" . Locale::translate('user.fax') . ' ' . $this->getFax();
+		if ($a = $this->getLocalizedAffiliation()) $signature .= "\n" . $a;
+		if ($p = $this->getPhone()) $signature .= "\n" . Locale::translate('user.phone') . ' ' . $p;
+		if ($f = $this->getFax()) $signature .= "\n" . Locale::translate('user.fax') . ' ' . $f;
 		$signature .= "\n" . $this->getEmail();
 		return $signature;
 	}

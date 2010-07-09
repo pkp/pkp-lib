@@ -103,7 +103,33 @@ class PKPAuthorDAO extends DAO {
 		$this->getDataObjectSettings('author_settings', 'author_id', $row['author_id'], $author);
 
 		HookRegistry::call('AuthorDAO::_returnAuthorFromRow', array(&$author, &$row));
+		return $author;
+	}
 
+	/**
+	 * Internal function to return an Author object from a row. Simplified
+	 * not to include object settings.
+	 * @param $row array
+	 * @return Author
+	 */
+	function &_returnSimpleAuthorFromRow(&$row) {
+		$author = $this->newDataObject();
+		$author->setId($row['author_id']);
+		$author->setSubmissionId($row['submission_id']);
+		$author->setFirstName($row['first_name']);
+		$author->setMiddleName($row['middle_name']);
+		$author->setLastName($row['last_name']);
+		$author->setCountry($row['country']);
+		$author->setEmail($row['email']);
+		$author->setUrl($row['url']);
+		$author->setUserGroupId($row['user_group_id']);
+		$author->setPrimaryContact($row['primary_contact']);
+		$author->setSequence($row['seq']);
+
+		$author->setAffiliation($row['affiliation_l'], $row['locale']);
+		$author->setAffiliation($row['affiliation_pl'], $row['primary_locale']);
+
+		HookRegistry::call('AuthorDAO::_returnSimpleAuthorFromRow', array(&$author, &$row));
 		return $author;
 	}
 

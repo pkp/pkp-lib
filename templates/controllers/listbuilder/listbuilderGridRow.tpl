@@ -8,6 +8,7 @@
  *}
 {assign var=rowId value=$row->getId()}
 <tr id="{$rowId}">
+	<input name="selected-{$row->getGridId()}[]" type="hidden" value="{$rowId}" />
 	{foreach from=$cells item=cell name=cell}
 		<td>{$cell}</td>
 	{/foreach}

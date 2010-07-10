@@ -31,6 +31,16 @@ class PKPHandler {
 	/** @var array validation checks for this page - deprecated! */
 	var $_checks = array();
 
+	/**
+	 * @var array
+	 *  The value of this variable should look like this:
+	 *  array(
+	 *    ROLE_ID_... => array(...allowed handler operations...),
+	 *    ...
+	 *  )
+	 */
+	var $_roleAssignments = array();
+
 	/** @var AuthorizationDecisionManager authorization decision manager for this handler */
 	var $_authorizationDecisionManager;
 
@@ -112,9 +122,11 @@ class PKPHandler {
 	 * call so that PKPHandler::authorize() will be able to enforce
 	 * them.
 	 *
-	 * @param $authorizationPolicy
+	 * @param $authorizationPolicy AuthorizationPolicy
+	 * @param $addToTop boolean whether to insert the new policy
+	 *  to the top of the list.
 	 */
-	function addPolicy(&$authorizationPolicy) {
+	function addPolicy(&$authorizationPolicy, $addToTop = false) {
 		if (is_null($this->_authorizationDecisionManager)) {
 			// Instantiate the authorization decision manager
 			import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
@@ -122,7 +134,7 @@ class PKPHandler {
 		}
 
 		// Add authorization policies to the authorization decision manager.
-		$this->_authorizationDecisionManager->addPolicy($authorizationPolicy);
+		$this->_authorizationDecisionManager->addPolicy($authorizationPolicy, $addToTop);
 	}
 
 	/**
@@ -137,6 +149,63 @@ class PKPHandler {
 	}
 
 	/**
+	 * Add role - operation assignments to the handler.
+	 *
+	 * @param $roleIds integer|array one or more of the ROLE_ID_*
+	 *  constants
+	 * @param $operations string|array a single method name or
+	 *  an array of method names to be assigned.
+	 */
+	function addRoleAssignment($roleIds, $operations) {
+		// Allow single operations to be passed in as scalars.
+		if (!is_array($operations)) $operations = array($operations);
+
+		// Allow single roles to be passed in as scalars.
+		if (!is_array($roleIds)) $roleIds = array($roleIds);
+
+		// Add the given operations to all roles.
+		foreach($roleIds as $roleId) {
+			// Create an empty assignment array if no operations
+			// have been assigned to the given role before.
+			if (!isset($this->_roleAssignments[$roleId])) {
+				$this->_roleAssignments[$roleId] = array();
+			}
+
+			// Merge the new operations with the already assigned
+			// ones for the given role.
+			$this->_roleAssignments[$roleId] = array_merge(
+				$this->_roleAssignments[$roleId],
+				$operations
+			);
+		}
+	}
+
+	/**
+	 * This method returns an assignment of operation names for the
+	 * given role.
+	 *
+	 * @return array assignment for the given role.
+	 */
+	function getRoleAssignment($roleId) {
+		if (!is_null($roleId)) {
+			if (isset($this->_roleAssignments[$roleId])) {
+				return $this->_roleAssignments[$roleId];
+			} else {
+				return null;
+			}
+		}
+	}
+
+	/**
+	 * This method returns an assignment of roles to operation names.
+	 *
+	 * @return array assignments for all roles.
+	 */
+	function getRoleAssignments() {
+		return $this->_roleAssignments;
+	}
+
+	/**
 	 * Authorize this request.
 	 *
 	 * Routers will call this method automatically thereby enforcing
@@ -147,16 +216,19 @@ class PKPHandler {
 	 * NB: This method will be called once for every request only.
 	 *
 	 * @param $request Request
+	 * @param $args array request arguments
+	 * @param $roleAssignment array the operation role assignment,
+	 *  see getRoleAssignment() for more details.
 	 * @return boolean
 	 */
-	function authorize($request) {
+	function authorize(&$request, &$args, $roleAssignments) {
 		// Enforce restricted site access.
-		import('lib.pkp.classes.security.authorization.HandlerOperationRestrictSiteAccessPolicy');
-		$this->addPolicy(new HandlerOperationRestrictSiteAccessPolicy($request));
+		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
+		$this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
 
 		// Enforce SSL site-wide.
-		import('lib.pkp.classes.security.authorization.HandlerOperationHttpsPolicy');
-		$this->addPolicy(new HandlerOperationHttpsPolicy($request));
+		import('lib.pkp.classes.security.authorization.HttpsPolicy');
+		$this->addPolicy(new HttpsPolicy($request), true);
 
 		// Make sure that we have a valid decision manager instance.
 		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
@@ -341,19 +413,8 @@ class PKPHandler {
 	 * @return array
 	 */
 	function getLoginExemptions() {
-		import('lib.pkp.classes.security.authorization.HandlerOperationRestrictSiteAccessPolicy');
-		return HandlerOperationRestrictSiteAccessPolicy::_getLoginExemptions();
-	}
-
-	/**
-	 * This method returns all operation names that can be called from remote.
-	 * FIXME: Currently only used for component handlers. Use this for page
-	 *  handlers as well and remove the page-specific index.php whitelist.
-	 */
-	function getRemoteOperations() {
-		// Whitelist approach: by default we don't
-		// allow any remote access at all.
-		return array();
+		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
+		return RestrictedSiteAccessPolicy::_getLoginExemptions();
 	}
 }
 

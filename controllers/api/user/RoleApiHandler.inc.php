@@ -28,14 +28,17 @@ class RoleApiHandler extends PKPHandler {
 
 
 	//
-	// Overridden methods from PKPHandler
+	// Implement template methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::getRemoteOperations()
+	 * @see PKPHandler::authorize()
 	 */
-	function getRemoteOperations() {
-		return array('changeActingAsUserGroup');
+	function authorize(&$request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PublicHandlerOperationPolicy');
+		$this->addPolicy(new PublicHandlerOperationPolicy($request, 'changeActingAsUserGroup'));
+		return parent::authorize($request, $args, $roleAssignments);
 	}
+
 
 	//
 	// Public handler methods

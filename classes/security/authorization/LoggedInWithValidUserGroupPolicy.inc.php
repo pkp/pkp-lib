@@ -1,11 +1,11 @@
 <?php
 /**
- * @file classes/security/authorization/HandlerOperationLoggedInPolicy.inc.php
+ * @file classes/security/authorization/LoggedInWithValidUserGroupPolicy.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class HandlerOperationLoggedInPolicy
+ * @class LoggedInWithValidUserGroupPolicy
  * @ingroup security_authorization
  *
  * @brief Class to that makes sure that a user is logged in with a valid
@@ -14,7 +14,7 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class HandlerOperationLoggedInPolicy extends AuthorizationPolicy {
+class LoggedInWithValidUserGroupPolicy extends AuthorizationPolicy {
 	/** @var PKPRequest */
 	var $_request;
 
@@ -23,7 +23,7 @@ class HandlerOperationLoggedInPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function HandlerOperationLoggedInPolicy(&$request) {
+	function LoggedInWithValidUserGroupPolicy(&$request) {
 		parent::AuthorizationPolicy();
 		$this->_request =& $request;
 	}

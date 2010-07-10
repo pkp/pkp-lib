@@ -27,9 +27,6 @@ import('lib.pkp.classes.security.authorization.PolicySet');
 define('AUTHORIZATION_NOT_APPLICABLE', 0x03);
 
 class AuthorizationDecisionManager {
-	/** @var integer the default decision if no policy applies */
-	var $_decisionIfNoPolicyApplies = AUTHORIZATION_DENY;
-
 	/** @var PolicySet the root policy set */
 	var $_rootPolicySet;
 
@@ -52,30 +49,23 @@ class AuthorizationDecisionManager {
 	// Setters and Getters
 	//
 	/**
-	 * Set the default decision if no policy applies
+	 * Set the default decision if none of the
+	 * policies in the root policy set applies.
 	 * @param $decisionIfNoPolicyApplies integer
 	 */
 	function setDecisionIfNoPolicyApplies($decisionIfNoPolicyApplies) {
-		assert($decisionIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
-				$decisionIfNoPolicyApplies == AUTHORIZATION_DENY);
-		$this->_decisionIfNoPolicyApplies = $decisionIfNoPolicyApplies;
-	}
-
-	/**
-	 * Get the default decision if no policy applies
-	 * @return integer
-	 */
-	function getDecisionIfNoPolicyApplies() {
-		return $this->_decisionIfNoPolicyApplies;
+		$this->_rootPolicySet->setEffectIfNoPolicyApplies($decisionIfNoPolicyApplies);
 	}
 
 	/**
 	 * Add an authorization policy or a policy set.
 	 *
 	 * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
+	 * @param $addToTop boolean whether to insert the new policy
+	 *  to the top of the list.
 	 */
-	function addPolicy(&$policyOrPolicySet) {
-		$this->_rootPolicySet->addPolicy($policyOrPolicySet);
+	function addPolicy(&$policyOrPolicySet, $addToTop = false) {
+		$this->_rootPolicySet->addPolicy($policyOrPolicySet, $addToTop);
 	}
 
 	/**
@@ -124,9 +114,7 @@ class AuthorizationDecisionManager {
 		// all nested policy sets and return a single decision.
 		$callOnDeny = null;
 		$decision = $this->_decidePolicySet($this->_rootPolicySet, $callOnDeny);
-
-		// Set the default decision.
-		if ($decision === AUTHORIZATION_NOT_APPLICABLE) $decision = $this->getDecisionIfNoPolicyApplies();
+		assert($decision !== AUTHORIZATION_NOT_APPLICABLE);
 
 		// Call the "call on deny" advice
 		if ($decision === AUTHORIZATION_DENY && !is_null($callOnDeny)) {
@@ -169,13 +157,13 @@ class AuthorizationDecisionManager {
 				assert(false);
 		}
 
+		// Set the default decision.
+		$decision = $policySet->getEffectIfNoPolicyApplies();
+
 		// The following flag will record when the
 		// overridden decision state is returned by
 		// at least one policy.
 		$decidedByOverriddenEffect = false;
-
-		// Set the default decision.
-		$decision = AUTHORIZATION_NOT_APPLICABLE;
 
 		// Go through all policies within the policy set
 		// and combine them with the configured algorithm.
@@ -210,6 +198,7 @@ class AuthorizationDecisionManager {
 
 			// Try the next policy if this policy didn't apply.
 			if ($effect === AUTHORIZATION_NOT_APPLICABLE) continue;
+			assert($effect === AUTHORIZATION_PERMIT || $effect === AUTHORIZATION_DENY);
 
 			// "Deny" decision may cause a message to the end user.
 			if (is_a($policy, 'AuthorizationPolicy') && $effect == AUTHORIZATION_DENY
@@ -218,7 +207,6 @@ class AuthorizationDecisionManager {
 			}
 
 			// Process the effect.
-			assert($effect === AUTHORIZATION_PERMIT || $effect === AUTHORIZATION_DENY);
 			if ($effect === $overriddenEffect) {
 				$decidedByOverriddenEffect = true;
 			} else {

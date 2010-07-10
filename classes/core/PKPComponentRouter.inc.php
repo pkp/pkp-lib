@@ -98,7 +98,6 @@ class PKPComponentRouter extends PKPRouter {
 	function route(&$request) {
 		// Determine the requested service endpoint.
 		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
-		assert(is_callable($rpcServiceEndpoint));
 
 		// Retrieve RPC arguments from the request.
 		$args =& $request->getUserVars();
@@ -107,24 +106,8 @@ class PKPComponentRouter extends PKPRouter {
 		// Remove the caller-parameter (if present)
 		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
 
-		// Authorize the request
-		if (!$rpcServiceEndpoint[0]->authorize($request)) {
-			// Components must always authorize otherwise this is
-			// either a programming error or somebody trying to
-			// directly call a component. In both cases a fatal
-			// error is the appropriate response.
-			fatalError('Permission denied!');
-		}
-
-		// Execute class-wide data integrity checks
-		$rpcServiceEndpoint[0]->validate($request);
-
-		// Initialize the handler
-		$rpcServiceEndpoint[0]->initialize($request);
-
-		// Call the service endpoint.
-		$result = call_user_func($rpcServiceEndpoint, $args, $request);
-		echo $result;
+		// Authorize, validate and initialize the request
+		$this->_authorizeInitializeAndCallRequest($rpcServiceEndpoint, $request, $args);
 	}
 
 	/**
@@ -254,10 +237,6 @@ class PKPComponentRouter extends PKPRouter {
 			//
 			// Callable service endpoint
 			//
-			// Check that the requested operation is on the
-			// remote operation whitelist.
-			if (!in_array($op, $componentInstance->getRemoteOperations())) return $nullVar;
-
 			// Construct the callable array
 			$this->_rpcServiceEndpoint = array($componentInstance, $op);
 		}

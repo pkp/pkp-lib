@@ -12,9 +12,46 @@
  * @ingroup core
  *
  * @brief Basic router class that has functionality common to all routers.
+ *
+ * NB: All handlers provide the common basic workflow. The router
+ * calls the following methods in the given order.
+ * 1) constructor:
+ *       Handlers should establish a mapping of remote
+ *       operations to roles that may access them. They do
+ *       so by calling PKPHandler::addRoleAssignment().
+ * 2) authorize():
+ *       Authorizes the request, among other things based
+ *       on the result of the role assignment created
+ *       during object instantiation. If authorization fails
+ *       then die with a fatal error or execute the "call-
+ *       on-deny" advice if one has been defined in the
+ *       authorization policy that denied access.
+ * 3) validate():
+ *       Let the handler execute non-fatal data integrity
+ *       checks (FIXME: currently only for component handlers).
+ *       Please make sure that data integrity checks that can
+ *       lead to denial of access are being executed in the
+ *       authorize() step via authorization policies and not
+ *       here.
+ * 4) initialize():
+ *       Let the handler initialize its internal state based
+ *       on authorized and valid data. Authorization and integrity
+ *       checks should be kept out of here to get a clear separation
+ *       of concerns.
+ * 5) execution:
+ *       Executes the requested handler operation. The mapping
+ *       of requests to operations depends on the router
+ *       implementation (see the class doc of specific router
+ *       implementations for more details).
+ * 6) client response:
+ *       Handlers should return a string value that will then be
+ *       returned to the client as a response. Handler operations
+ *       should not output the response directly to the client so
+ *       that we can run filter operations on the output if required.
+ *       Outputting text from handler operations to the client
+ *       is possible but deprecated.
  */
 
-// $Id$
 
 class PKPRouter {
 	//
@@ -280,8 +317,49 @@ class PKPRouter {
 	}
 
 	//
-	// Private class helper methods
+	// Private helper methods
 	//
+	/**
+	 * This is the method that implements the basic
+	 * life-cycle of a handler request:
+	 * 1) authorization
+	 * 2) validation
+	 * 3) initialization
+	 * 4) execution
+	 * 5) client response
+	 *
+	 * @param $serviceEndpoint callable the handler operation
+	 * @param $request PKPRequest
+	 * @param $args array
+	 * @param $validate boolean whether or not to execute the
+	 *  validation step.
+	 */
+	function _authorizeInitializeAndCallRequest(&$serviceEndpoint, &$request, &$args, $validate = true) {
+		assert(is_callable($serviceEndpoint));
+
+		// Authorize the request.
+		$roleAssignments = $serviceEndpoint[0]->getRoleAssignments();
+		assert(is_array($roleAssignments));
+		if (!$serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
+			// If the authorization method returns with false
+			// this either indicates a programming error or
+			// somebody trying to tamper with the system. So
+			// we can safely fail the request.
+			fatalError('Authorization denied!');
+		}
+
+		// Execute class-wide data integrity checks.
+		if ($validate) $serviceEndpoint[0]->validate($request);
+
+		// Let the handler initialize itself.
+		$serviceEndpoint[0]->initialize($request);
+
+		// Call the service endpoint.
+		$result = call_user_func($serviceEndpoint, $args, $request);
+
+		// Return the result of the operation to the client.
+		if (is_string($result)) echo $result;
+	}
 
 	/**
 	 * Canonicalizes the new context.

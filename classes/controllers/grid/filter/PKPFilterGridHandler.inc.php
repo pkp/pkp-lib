@@ -121,14 +121,6 @@ class PKPFilterGridHandler extends GridHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::getRemoteOperations()
-	 * @return array
-	 */
-	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addFilter', 'editFilter', 'updateFilter', 'deleteFilter'));
-	}
-
-	/**
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */

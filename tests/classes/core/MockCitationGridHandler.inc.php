@@ -21,6 +21,9 @@ class CitationGridHandler extends PKPHandler {
 		$this->_checks = array();
 		// Make sure that the parent constructor
 		// will not be called.
+
+		// Assign operations to roles.
+		$this->addRoleAssignment(ROLE_ID_AUTHOR, 'fetch');
 	}
 
 	function fetch() {
@@ -40,10 +43,6 @@ class CitationGridHandler extends PKPHandler {
 		// list and should therefore not be granted remote
 		// access.
 		assert(false);
-	}
-
-	function getRemoteOperations() {
-		return array('fetch');
 	}
 }
 ?>

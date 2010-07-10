@@ -27,22 +27,10 @@ class CategoryGridHandler extends GridHandler {
 		parent::GridHandler();
 	}
 
-	//
-	// Getters/Setters
-	//
-
-
 
 	//
 	// Overridden methods from PKPHandler
 	//
-	/**
-	 * @see PKPHandler::getRemoteOperations()
-	 */
-	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('fetchCategory'));
-	}
-
 	/**
 	 * @see PKPHandler::initialize()
 	 * @param $request PKPRequest
@@ -50,6 +38,7 @@ class CategoryGridHandler extends GridHandler {
 	function initialize(&$request) {
 		parent::initialize($request);
 	}
+
 
 	//
 	// Public handler methods
@@ -110,6 +99,7 @@ class CategoryGridHandler extends GridHandler {
 		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
 		return $json->getString();
 	}
+
 
 	//
 	// Protected methods to be overridden/used by subclasses
@@ -178,6 +168,7 @@ class CategoryGridHandler extends GridHandler {
 			return $dataArray[$rowId];
 		}
 	}
+
 
 	//
 	// Private helper methods

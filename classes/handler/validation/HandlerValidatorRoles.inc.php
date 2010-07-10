@@ -10,11 +10,11 @@
  *
  * @brief Class to represent a page validation check.
  *
- * NB: Deprecated - please use HandlerOperationRolesPolicy instead.
+ * NB: Deprecated - please use RoleBasedHandlerOperationPolicy instead.
  */
 
 import('lib.pkp.classes.handler.validation.HandlerValidatorPolicy');
-import('lib.pkp.classes.security.authorization.HandlerOperationRolesPolicy');
+import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
 class HandlerValidatorRoles extends HandlerValidatorPolicy {
 	/**
@@ -26,7 +26,7 @@ class HandlerValidatorRoles extends HandlerValidatorPolicy {
 	function HandlerValidatorRoles(&$handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles, $all = false) {
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
-		$policy = new HandlerOperationRolesPolicy($request, $roles, $message, array(), $all);
+		$policy = new RoleBasedHandlerOperationPolicy($request, $roles, array(), $message, $all, true);
 		parent::HandlerValidatorPolicy($policy, $handler, $redirectLogin, $message, $additionalArgs);
 	}
 }

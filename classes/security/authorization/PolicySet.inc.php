@@ -18,12 +18,20 @@
 define('COMBINING_DENY_OVERRIDES', 0x01);
 define('COMBINING_PERMIT_OVERRIDES', 0x02);
 
+// Include the authorization policy class which contains
+// definitions for the deny and permit effects.
+import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+
 class PolicySet {
 	/** @var array */
-	var $_policies;
+	var $_policies = array();
 
 	/** @var integer */
 	var $_combiningAlgorithm;
+
+	/** @var integer the default effect if none of the policies in the set applies */
+	var $_effectIfNoPolicyApplies = AUTHORIZATION_DENY;
+
 
 	/**
 	 * Constructor
@@ -38,10 +46,16 @@ class PolicySet {
 	/**
 	 * Add a policy or a nested policy set.
 	 * @param $policyOrPolicySet AuthorizationPolicy|PolicySet
+	 * @param $addToTop boolean whether to insert the new policy
+	 *  to the top of the list.
 	 */
-	function addPolicy(&$policyOrPolicySet) {
+	function addPolicy(&$policyOrPolicySet, $addToTop = false) {
 		assert(is_a($policyOrPolicySet, 'AuthorizationPolicy') || is_a($policyOrPolicySet, 'PolicySet'));
-		$this->_policies[] =& $policyOrPolicySet;
+		if ($addToTop) {
+			array_unshift($this->_policies, $policyOrPolicySet);
+		} else {
+			$this->_policies[] =& $policyOrPolicySet;
+		}
 	}
 
 	/**
@@ -58,6 +72,25 @@ class PolicySet {
 	 */
 	function getCombiningAlgorithm() {
 		return $this->_combiningAlgorithm;
+	}
+
+	/**
+	 * Set the default effect if none of the policies in the set applies
+	 * @param $effectIfNoPolicyApplies integer
+	 */
+	function setEffectIfNoPolicyApplies($effectIfNoPolicyApplies) {
+		assert($effectIfNoPolicyApplies == AUTHORIZATION_PERMIT ||
+				$effectIfNoPolicyApplies == AUTHORIZATION_DENY ||
+				$effectIfNoPolicyApplies == AUTHORIZATION_NOT_APPLICABLE);
+		$this->_effectIfNoPolicyApplies = $effectIfNoPolicyApplies;
+	}
+
+	/**
+	 * Get the default effect if none of the policies in the set applies
+	 * @return integer
+	 */
+	function getEffectIfNoPolicyApplies() {
+		return $this->_effectIfNoPolicyApplies;
 	}
 }
 

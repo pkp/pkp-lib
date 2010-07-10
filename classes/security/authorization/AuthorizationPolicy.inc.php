@@ -46,7 +46,7 @@ class AuthorizationPolicy {
 	 * @param $message string
 	 */
 	function AuthorizationPolicy($message = null) {
-		$this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
+		if (!is_null($message)) $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
 	}
 
 	//
@@ -85,9 +85,20 @@ class AuthorizationPolicy {
 	 * @param $authorizedObject mixed
 	 */
 	function addAuthorizedContextObject($assocType, &$authorizedObject) {
-		assert(!isset($this->_authorizedContext[$assocType]));
+		assert(!$this->hasAuthorizedContextObject($assocType));
 		$this->_authorizedContext[$assocType] =& $authorizedObject;
 	}
+
+	/**
+	 * Check whether an object already exists in the
+	 * authorized context.
+	 * @param $assocType integer
+	 * @return boolean
+	 */
+	function hasAuthorizedContextObject($assocType) {
+		return isset($this->_authorizedContext[$assocType]);
+	}
+
 
 	/**
 	 * Retrieve an object from the authorized context
@@ -96,7 +107,7 @@ class AuthorizationPolicy {
 	 *  for the given assoc type does not exist.
 	 */
 	function &getAuthorizedContextObject($assocType) {
-		if (isset($this->_authorizedContext[$assocType])) {
+		if ($this->hasAuthorizedContextObject($assocType)) {
 			return $this->_authorizedContext[$assocType];
 		} else {
 			$nullVar = null;
@@ -108,8 +119,8 @@ class AuthorizationPolicy {
 	 * Set the authorized context
 	 * @return array
 	 */
-	function &setAuthorizedContext($authorizedContext) {
-		return $this->_authorizedContext =& $authorizedContext;
+	function setAuthorizedContext(&$authorizedContext) {
+		$this->_authorizedContext =& $authorizedContext;
 	}
 
 	/**

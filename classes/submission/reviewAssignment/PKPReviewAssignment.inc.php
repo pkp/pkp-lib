@@ -157,7 +157,7 @@ class PKPReviewAssignment extends DataObject {
 
 	/**
 	 * Set the type of review.
-	 * @param $monographId int
+	 * @param $type int
 	 */
 	function setReviewType($type) {
 		return $this->setData('reviewType', $type);
@@ -178,7 +178,7 @@ class PKPReviewAssignment extends DataObject {
 	function setReviewMethod($method) {
 		return $this->setData('reviewMethod', $method);
 	}
-	
+
 	/**
 	 * Get regret message.
 	 * @return string
@@ -377,7 +377,7 @@ class PKPReviewAssignment extends DataObject {
 	function setDateResponseDue($dateResponseDue) {
 		return $this->setData('dateResponseDue', $dateResponseDue);
 	}
-	
+
 	/**
 	 * Get the declined value.
 	 * @return boolean

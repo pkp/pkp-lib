@@ -89,6 +89,7 @@ class Form {
 		$this->fbvStyles = array(
 			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM', 'LARGE' => 'LARGE'),
 			'float' => array('RIGHT' => 'RIGHT', 'LEFT' => 'LEFT'),
+			'align' => array('RIGHT' => 'RIGHT', 'LEFT' => 'LEFT'),
 			'measure' => array('1OF1' => '1OF1', '1OF2' => '1OF2', '1OF3' => '1OF3', '2OF3' => '2OF3', '1OF4' => '1OF4', '3OF4' => '3OF4',
 							'1OF5' => '1OF5', '2OF5' => '2OF5', '3OF5' => '3OF5', '4OF5' => '4OF5', '1OF10' => '1OF10', '8OF10' => '8OF10'),
 			'layout' => array('THREE_COLUMNS' => 'THREE_COLUMNS', 'TWO_COLUMNS' => 'TWO_COLUMNS', 'ONE_COLUMN' => 'ONE_COLUMN')
@@ -133,6 +134,7 @@ class Form {
 		$templateMgr->register_block('fbvCustomElement', array(&$this, 'smartyFBVCustomElement'));
 		$templateMgr->register_block('fbvFormArea', array(&$this, 'smartyFBVFormArea'));
 		$templateMgr->register_function('fbvButton', array(&$this, 'smartyFBVButton'));
+		$templateMgr->register_function('fbvLink', array(&$this, 'smartyFBVLink'));
 		$templateMgr->register_function('fbvTextInput', array(&$this, 'smartyFBVTextInput'));
 		$templateMgr->register_function('fbvTextarea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
@@ -471,6 +473,47 @@ class Form {
 	/** form builder vocabulary - FBV */
 
 	/**
+	 * Get the list of all classes to append to the element (including any custom class set directly in the element)
+	 * @param $params array
+	 * @return string
+	 */
+	function getAllStyles($params) {
+		$class = isset($params['class']) ? $params['class'] : '';
+
+		// Get size (height)
+		if ($size = $params['size']) {
+			$size = $params['size'];
+			$class .= ' ' . $this->getStyleInfoByIdentifier('size', $size);
+		}
+
+		// Get measure (width)
+		if ($measure = $params['measure']) {
+			$measure = $params['measure'];
+			$class .= ' ' . $this->getStyleInfoByIdentifier('measure', $measure);
+		}
+
+		// Get float information (for sections)
+		if ($float = $params['float']) {
+			$float = $params['float'];
+			$class .= ' ' . $this->getStyleInfoByIdentifier('float', $float);
+		}
+
+		// Get alignment information (for elements)
+		if ($align = $params['align']) {
+			$align = $params['align'];
+			$class .= ' ' . $this->getStyleInfoByIdentifier('align', $align);
+		}
+
+		// Get layout information (number of columns)
+		if ($layout = $params['layout']) {
+			$layout = $params['layout'];
+			$class .= ' ' . $this->getStyleInfoByIdentifier('layout', $float);
+		}
+
+		return $class;
+	}
+
+	/**
 	 * Retrieve style info associated with style constants.
 	 * @param $category string
 	 * @param $value string
@@ -489,6 +532,12 @@ class Form {
 				switch($value) {
 					case 'LEFT': $returner = 'full leftHalf'; break;
 					case 'RIGHT': $returner = 'full rightHalf'; break;
+				}
+				break;
+			case 'align':
+				switch($value) {
+					case 'LEFT': $returner = 'align_left'; break;
+					case 'RIGHT': $returner = 'align_right'; break;
 				}
 				break;
 			case 'layout':
@@ -563,20 +612,7 @@ class Form {
 			$smarty->assign('FBV_title', $params['title']);
 			$smarty->assign('FBV_content', $content);
 
-
-			$floatInfo = '';
-			$float = isset($params['float']) ? $params['float'] : null;
-			if ($float) {
-				$floatInfo = $this->getStyleInfoByIdentifier('float', $float);
-			}
-
-			$layoutInfo = '';
-			$layout = isset($params['layout']) ? $params['layout'] : null;
-			if ($layout) {
-				$layoutInfo = $this->getStyleInfoByIdentifier('layout', $layout);
-			}
-
-			$class = empty($layoutInfo) ? $floatInfo : $layoutInfo . ' ' . $floatInfo;
+			$class = $this->getAllStyles($params);
 
 			if (!empty($this->formSectionErrors)) {
 				$class = $class . (empty($class) ? '' : ' ') . 'error';
@@ -672,12 +708,12 @@ class Form {
 				}
 			}
 
+			$smarty->assign('FBV_class', $this->getAllStyles($params));
 			$smarty->assign('FBV_content', $content);
 			$smarty->assign('FBV_group', $group);
 			$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
 			$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
-			$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
 
 			return $smarty->fetch('form/element.tpl');
 		}
@@ -722,17 +758,58 @@ class Form {
 
 		foreach ($params as $key => $value) {
 			switch ($key) {
+				case 'class': break; //ignore class attributes
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'type': $smarty->assign('FBV_type', $value); break;
-				case 'class': break; //ignore class attributes
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
+		$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
 		$smarty->assign('FBV_buttonParams', $buttonParams);
 
 		return $smarty->fetch('form/button.tpl');
+	}
+
+	/**
+	 * Form button.
+	 * parameters: label (or value), disabled (optional), type (optional), all other attributes associated with this control (except class)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVLink($params, &$smarty) {
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: link form element \'id\' not set.');
+		}
+
+		// accept 'value' param, but the 'label' param is preferred
+		if (isset($params['value'])) {
+			$value = $params['value'];
+			$params['label'] = isset($params['label']) ? $params['label'] : $value;
+			unset($params['value']);
+		}
+
+		// the type of this button. the default value is 'button'
+		$params['type'] = isset($params['type']) ? strtolower($params['type']) : 'button';
+		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'class': break; //ignore class attributes
+				case 'label': $smarty->assign('FBV_label', $value); break;
+				case 'type': $smarty->assign('FBV_type', $value); break;
+				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+			}
+		}
+
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
+		$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
+		$smarty->assign('FBV_buttonParams', $buttonParams);
+
+		return $smarty->fetch('form/link.tpl');
 	}
 
 	/**
@@ -754,15 +831,6 @@ class Form {
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
-		// prepare the control's size info
-		if (isset($params['size'])) {
-			$sizeInfo = $this->getStyleInfoByIdentifier('size', $params['size']);
-			$smarty->assign('FBV_sizeInfo', $sizeInfo);
-			unset($params['size']);
-		} else {
-			$smarty->assign('FBV_sizeInfo', null);
-		}
-
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'class': break; //ignore class attributes
@@ -774,6 +842,8 @@ class Form {
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
+
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_textInputParams', $textInputParams);
 
 		return $smarty->fetch('form/textInput.tpl');
@@ -797,15 +867,6 @@ class Form {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 
-		// prepare the control's size info
-		if (isset($params['size'])) {
-			$sizeInfo = $this->getStyleInfoByIdentifier('size', $params['size']);
-			$smarty->assign('FBV_sizeInfo', $sizeInfo);
-			unset($params['size']);
-		} else {
-			$smarty->assign('FBV_sizeInfo', null);
-		}
-
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'value': $smarty->assign('FBV_value', $value); break;
@@ -818,6 +879,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_textAreaParams', $textAreaParams);
 
 		return $smarty->fetch('form/textarea.tpl');
@@ -860,6 +922,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_selectParams', $selectParams);
 
 		return $smarty->fetch('form/select.tpl');
@@ -901,6 +964,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_checkboxParams', $checkboxParams);
 
 		return $smarty->fetch('form/checkbox.tpl');
@@ -936,6 +1000,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_radioParams', $radioParams);
 
 		return $smarty->fetch('form/radioButton.tpl');
@@ -972,6 +1037,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_radioParams', $radioParams);
 
 		return $smarty->fetch('form/fileInput.tpl');
@@ -1000,6 +1066,7 @@ class Form {
 			}
 		}
 
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
 		$smarty->assign('FBV_keywordParams', $keywordParams);
 
 		return $smarty->fetch('form/keywordInput.tpl');

@@ -57,13 +57,15 @@ class LoggedInWithValidUserGroupPolicy extends AuthorizationPolicy {
 		// in the session.
 		$actingAsUserGroupId = $session->getActingAsUserGroupId();
 
+		// Get the context.
+		$router =& $this->_request->getRouter();
+		$context =& $router->getContext($this->_request);
+
 		// Check whether the user still is in the group we found in the session.
 		// This is necessary because the user might have switched contexts
 		// also. User group assignments are per context and we have to make sure
 		// that the user really has the role in the current context.
 		if (is_integer($actingAsUserGroupId) && $actingAsUserGroupId > 0) {
-			$router =& $this->_request->getRouter();
-			$context =& $router->getContext($this->_request);
 			if (is_null($context)) {
 				$application =& PKPApplication::getApplication();
 				if ($application->getContextDepth() > 0) {
@@ -97,7 +99,15 @@ class LoggedInWithValidUserGroupPolicy extends AuthorizationPolicy {
 		// Get the user's default group if no user group is set or
 		// if the previous user group was invalid.
 		if (!(is_integer($actingAsUserGroupId) && $actingAsUserGroupId > 0)) {
-			$userGroups =& $userGroupDao->getByUserId($user->getId());
+			// Retrieve the user's groups for the current context.
+			if (is_null($context)) {
+				// Handle apps that don't use context or site-wide groups.
+				$userGroups =& $userGroupDao->getByUserId($user->getId());
+			} else {
+				// Handle context-specific groups.
+				$userGroups =& $userGroupDao->getByUserId($user->getId(), $context->getId());
+			}
+
 			// We use the first user group as default user group.
 			$defaultUserGroup =& $userGroups->next();
 			$actingAsUserGroupId = $defaultUserGroup->getId();

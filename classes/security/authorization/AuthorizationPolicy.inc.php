@@ -21,7 +21,7 @@
  * This of course doesn't mean that we try to be XACML compliant in any way.
  */
 
-define ('AUTHORIZATION_ALLOW', 0x01);
+define ('AUTHORIZATION_PERMIT', 0x01);
 define ('AUTHORIZATION_DENY', 0x02);
 
 define ('AUTHORIZATION_ADVICE_DENY_MESSAGE', 0x01);
@@ -34,13 +34,19 @@ class AuthorizationPolicy {
 	/** @var array a cache of previously retrieved values */
 	var $_effectCache = array();
 
+	/**
+	 * @var array a list of authorized context objects that should be
+	 *  returned to the caller
+	 */
+	var $_authorizedContext = array();
+
 
 	/**
 	 * Constructor
 	 * @param $message string
 	 */
 	function AuthorizationPolicy($message = null) {
-		$this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
+		if (!is_null($message)) $this->setAdvice(AUTHORIZATION_ADVICE_DENY_MESSAGE, $message);
 	}
 
 	//
@@ -73,6 +79,57 @@ class AuthorizationPolicy {
 		return $this->_advice;
 	}
 
+	/**
+	 * Add an object to the authorized context
+	 * @param $assocType integer
+	 * @param $authorizedObject mixed
+	 */
+	function addAuthorizedContextObject($assocType, &$authorizedObject) {
+		assert(!$this->hasAuthorizedContextObject($assocType));
+		$this->_authorizedContext[$assocType] =& $authorizedObject;
+	}
+
+	/**
+	 * Check whether an object already exists in the
+	 * authorized context.
+	 * @param $assocType integer
+	 * @return boolean
+	 */
+	function hasAuthorizedContextObject($assocType) {
+		return isset($this->_authorizedContext[$assocType]);
+	}
+
+
+	/**
+	 * Retrieve an object from the authorized context
+	 * @param $assocType integer
+	 * @return mixed will return null if the context
+	 *  for the given assoc type does not exist.
+	 */
+	function &getAuthorizedContextObject($assocType) {
+		if ($this->hasAuthorizedContextObject($assocType)) {
+			return $this->_authorizedContext[$assocType];
+		} else {
+			$nullVar = null;
+			return $nullVar;
+		}
+	}
+
+	/**
+	 * Set the authorized context
+	 * @return array
+	 */
+	function setAuthorizedContext(&$authorizedContext) {
+		$this->_authorizedContext =& $authorizedContext;
+	}
+
+	/**
+	 * Get the authorized context
+	 * @return array
+	 */
+	function &getAuthorizedContext() {
+		return $this->_authorizedContext;
+	}
 
 	//
 	// Protected template methods to be implemented by sub-classes
@@ -88,7 +145,7 @@ class AuthorizationPolicy {
 
 	/**
 	 * This method must return a value of either
-	 * AUTHORIZATION_DENY or AUTHORIZATION_ALLOW.
+	 * AUTHORIZATION_DENY or AUTHORIZATION_PERMIT.
 	 */
 	function effect() {
 		// Deny by default.

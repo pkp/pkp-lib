@@ -174,8 +174,17 @@ class PKPPageRouter extends PKPRouter {
 		// Pass the dispatcher to the handler (if supported by the handler).
 		if (in_array('setdispatcher', $methods)) $handler->setDispatcher($this->getDispatcher());
 
-		// Route the request to the handler operation
-		$handler->$op($this->getRequestedArgs($request), $request);
+		// Authorize and initialize the request but don't call the
+		// validate() method on page handlers.
+		// FIXME: We should call the validate() method for page
+		// requests also (last param = true in the below method
+		// call) once we've made sure that all validate() calls can
+		// be removed from handler operations without damage (i.e.
+		// they don't depend on actions being performed before the
+		// call to validate().
+		$args =& $this->getRequestedArgs($request);
+		$serviceEndpoint = array($handler, $op);
+		$this->_authorizeInitializeAndCallRequest($serviceEndpoint, $request, $args, false);
 	}
 
 	/**

@@ -87,14 +87,6 @@ class PKPCitationGridHandler extends GridHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::getRemoteOperations()
-	 * @return array
-	 */
-	function getRemoteOperations() {
-		return array_merge(parent::getRemoteOperations(), array('addCitation', 'importCitations', 'exportCitations', 'editCitation', 'checkCitation', 'updateCitation', 'deleteCitation'));
-	}
-
-	/**
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */

@@ -12,12 +12,15 @@
  * @brief Handle requests for announcement management functions.
  */
 
-//$Id$
 import('pages.manager.ManagerHandler');
 
 class PKPAnnouncementHandler extends ManagerHandler {
 	function PKPAnnouncementHandler() {
 		parent::ManagerHandler();
+		$this->addRoleAssignment(ROLE_ID_PRESS_MANAGER,
+				array('announcements', 'announcementTypes', 'createAnnouncement', 'createAnnouncementType',
+				'deleteAnnouncement', 'deleteAnnouncementType', 'editAnnouncement', 'editAnnouncementType',
+				'index', 'updateAnnouncement', 'updateAnnouncementType'));
 	}
 
 	function index() {
@@ -28,7 +31,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display a list of announcements for the current context.
 	 */
 	function announcements() {
-		$this->validate();
 		$this->setupTemplate();
 
 		$rangeInfo =& Handler::getRangeInfo('announcements', array());
@@ -55,8 +57,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement to delete
 	 */
 	function deleteAnnouncement($args) {
-		$this->validate();
-
 		if (isset($args) && !empty($args)) {
 			$announcementId = (int) $args[0];
 
@@ -76,7 +76,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array optional, first parameter is the ID of the announcement to edit
 	 */
 	function editAnnouncement($args = array()) {
-		$this->validate();
 		$this->setupTemplate();
 
 		$announcementId = !isset($args) || empty($args) ? null : (int) $args[0];
@@ -123,7 +122,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Save changes to an announcement.
 	 */
 	function updateAnnouncement() {
-		$this->validate();
 		$this->setupTemplate();
 
 		import('classes.manager.form.AnnouncementForm');
@@ -170,7 +168,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display a list of announcement types for the current context.
 	 */
 	function announcementTypes() {
-		$this->validate();
 		AnnouncementHandler::setupTemplate(true);
 
 		$rangeInfo =& Handler::getRangeInfo('announcementTypes', array());
@@ -191,8 +188,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement type to delete
 	 */
 	function deleteAnnouncementType($args) {
-		$this->validate();
-
 		if (isset($args) && !empty($args)) {
 			$typeId = (int) $args[0];
 
@@ -212,7 +207,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array optional, first parameter is the ID of the announcement type to edit
 	 */
 	function editAnnouncementType($args = array()) {
-		$this->validate();
 		$this->setupTemplate(true);
 
 		$typeId = !isset($args) || empty($args) ? null : (int) $args[0];
@@ -255,7 +249,6 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Save changes to an announcement type.
 	 */
 	function updateAnnouncementType() {
-		$this->validate();
 		$this->setupTemplate(true);
 
 		import('classes.manager.form.AnnouncementTypeForm');

@@ -190,13 +190,6 @@ class GridHandler extends PKPHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
-	 * @see PKPHandler::getRemoteOperations()
-	 */
-	function getRemoteOperations() {
-		return array('fetchGrid', 'fetchRow', 'fetchCell');
-	}
-
-	/**
 	 * @see PKPHandler::initialize()
 	 * @param $request PKPRequest
 	 */

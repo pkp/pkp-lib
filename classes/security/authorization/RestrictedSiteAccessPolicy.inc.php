@@ -1,11 +1,11 @@
 <?php
 /**
- * @file classes/security/authorization/HandlerOperationRestrictSiteAccessPolicy.inc.php
+ * @file classes/security/authorization/RestrictedSiteAccessPolicy.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class HandlerOperationRestrictSiteAccessPolicy
+ * @class RestrictedSiteAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Policy enforcing restricted site access when the context
@@ -14,7 +14,7 @@
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
 
-class HandlerOperationRestrictSiteAccessPolicy extends AuthorizationPolicy {
+class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	/** @var PKPRouter */
 	var $_router;
 
@@ -23,7 +23,7 @@ class HandlerOperationRestrictSiteAccessPolicy extends AuthorizationPolicy {
 	 *
 	 * @param $request PKPRequest
 	 */
-	function HandlerOperationRestrictSiteAccessPolicy(&$request) {
+	function RestrictedSiteAccessPolicy(&$request) {
 		parent::AuthorizationPolicy();
 		$this->_router =& $request->getRouter();
 	}
@@ -50,7 +50,7 @@ class HandlerOperationRestrictSiteAccessPolicy extends AuthorizationPolicy {
 		}
 
 		if (Validation::isLoggedIn() || in_array($page, $this->_getLoginExemptions())) {
-			return AUTHORIZATION_ALLOW;
+			return AUTHORIZATION_PERMIT;
 		} else {
 			return AUTHORIZATION_DENY;
 		}

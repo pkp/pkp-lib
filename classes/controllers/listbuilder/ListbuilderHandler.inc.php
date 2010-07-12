@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Listbuilder
+ * @class ListbuilderHandler
  * @ingroup controllers_listbuilder
  *
  * @brief Class defining basic operations for handling Listbuilder UI elements
@@ -55,10 +55,6 @@ class ListbuilderHandler extends GridHandler {
 		parent::GridHandler();
 	}
 
-	function getRemoteOperations() {
-		return array('fetch', 'addItem', 'deleteItems');
-	}
-
 	/**
 	 * Get the listbuilder template
 	 * @return string
@@ -70,7 +66,7 @@ class ListbuilderHandler extends GridHandler {
 
 		return $this->_template;
 	}
-	
+
 	/**
 	 * Set the title for the source (left side of the listbuilder)
 	 * FIXME: AFAIK doxygen needs the $ to correctly parse variable names
@@ -207,7 +203,7 @@ class ListbuilderHandler extends GridHandler {
 			$templateMgr->assign('addUrl', $router->url($request, array(), null, 'addItem'));
 			$templateMgr->assign('deleteUrl', $router->url($request, array(), null, 'deleteItems'));
 		}
-		
+
 		// Translate modal submit/cancel buttons
 		$okButton = Locale::translate('common.ok');
 		$warning = Locale::translate('common.warning');

@@ -78,12 +78,16 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 
 		// Book without author
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getBookResultNoAuthor(), $result);
+		$expectedResult = $this->getBookResultNoAuthor();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getBookResultNoAuthorGoogleScholar().$expectedResult[1], $result);
 
 		// Add an author
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person1Description);
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getBookResult(), $result);
+		$expectedResult = $this->getBookResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add a chapter title and a second author
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person2Description);
@@ -91,7 +95,9 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('fpage', $fpage = 15);
 		$citationDescription->addStatement('lpage', $lpage = 25);
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getBookChapterResult(), $result);
+		$expectedResult = $this->getBookChapterResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add editor
 		$person3Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_EDITOR);
@@ -99,16 +105,21 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$person3Description->addStatement('given-names', $givenName4 = 'Lorena');
 		$citationDescription->addStatement('person-group[@person-group-type="editor"]', $person3Description);
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getBookChapterWithEditorResult(), $result);
+		$expectedResult = $this->getBookChapterWithEditorResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
-		// Add another editor
+		// Add another editor and an edition.
 		$person4Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_EDITOR);
 		$person4Description->addStatement('surname', $surname3 = 'Velado');
 		$person4Description->addStatement('given-names', $givenName4 = 'Mariano');
-		$person4Description->addStatement('suffix', $givenName4 = 'Jr.');
+		$person4Description->addStatement('suffix', $givenName4 = 'Jr');
 		self::assertTrue($citationDescription->addStatement('person-group[@person-group-type="editor"]', $person4Description));
+		self::assertTrue($citationDescription->addStatement('edition', $edition = '2nd ed'));
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getBookChapterWithEditorsResult(), $result);
+		$expectedResult = $this->getBookChapterWithEditorsResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 	}
 
 	public function testExecuteWithJournal() {
@@ -139,9 +150,12 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('lpage', $lpage = 57);
 		$citationDescription->addStatement('date', $date = '2000-06');
 		$citationDescription->addStatement('pub-id[@pub-id-type="doi"]', $doi = '10146:55793-493');
+		$citationDescription->addStatement('pub-id[@pub-id-type="pmid"]', $pmid = '12140307');
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getJournalArticleResult(), $result);
+		$expectedResult = $this->getJournalArticleResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getJournalArticleResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add 6 more authors
 		$authors = array(
@@ -161,7 +175,54 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 			unset($personDescription);
 		}
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals($this->getJournalArticleWithMoreThanSevenAuthorsResult(), $result);
+		$expectedResult = $this->getJournalArticleWithMoreThanSevenAuthorsResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getJournalArticleResultGoogleScholar().$expectedResult[1], $result);
+	}
+
+	public function testExecuteWithConferenceProceeding() {
+		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
+
+		// An author
+		$personDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
+		$personDescription->addStatement('surname', $surname = 'Liu');
+		$personDescription->addStatement('given-names', $givenName = 'Sen');
+
+		// A conference paper found on the web
+		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_CONFPROC);
+		$citationDescription->addStatement('person-group[@person-group-type="author"]', $personDescription);
+		$citationDescription->addStatement('article-title', $articleTitle = 'Defending against business crises with the help of intelligent agent based early warning solutions');
+		$citationDescription->addStatement('conf-name', $confName = 'The Seventh International Conference on Enterprise Information Systems');
+		$citationDescription->addStatement('conf-loc', $confLoc = 'Miami, FL');
+		$citationDescription->addStatement('date', $date = '2005-05');
+		$citationDescription->addStatement('date-in-citation[@content-type="access-date"]', $accessDate = '2006-08-12');
+		$citationDescription->addStatement('uri', $uri = 'http://www.iceis.org/iceis2005/abstracts_2005.htm');
+		$citationOutputFilter = $this->getFilterInstance();
+		$result = $citationOutputFilter->execute($citationDescription);
+		$expectedResult = $this->getConfProcResult();
+		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
+		self::assertEquals($expectedResult[0].$this->getConfProcResultGoogleScholar().$expectedResult[1], $result);
+	}
+
+	//
+	// Private methods providing the Google Scholar link for all citations
+	//
+	private function getBookResultNoAuthorGoogleScholar() {
+		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+	}
+
+	private function getBookResultGoogleScholar() {
+		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+	}
+
+	private function getJournalArticleResultGoogleScholar() {
+		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Silva%22+%22Biotemas%22+Etinobot%C3%A2nica%20Xucuru%3A%20esp%C3%A9cies%20m%C3%ADsticas+10146%3A55793-493" target="_blank">[Google Scholar]</a>';
+	}
+
+	private function getConfProcResultGoogleScholar() {
+		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Liu%22+%22The%20Seventh%20International%20Conference%20on%20Enterprise%20Information%20Systems%22+Defending%20against%20business%20crises%20with%20the%20help%20of%20intelligent%20agent%20based%20early%20warning%20solutions" target="_blank">[Google Scholar]</a>';
 	}
 
 	//

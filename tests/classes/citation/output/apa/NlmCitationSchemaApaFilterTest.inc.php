@@ -25,31 +25,35 @@ class NlmCitationSchemaApaFilterTest extends NlmCitationSchemaCitationOutputForm
 	}
 
 	protected function getBookResultNoAuthor() {
-		return '<p style="text-indent:-2em;margin-left:2em">Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil (2001). São Paulo: Iglu. <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil (2001). São Paulo: Iglu.', '</p>');
 	}
 
 	protected function getBookResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A. (2001). <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i>. São Paulo: Iglu. <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A. (2001). <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i>. São Paulo: Iglu.', '</p>');
 	}
 
 	protected function getBookChapterResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu. <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu.', '</p>');
 	}
 
 	protected function getBookChapterWithEditorResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In L. Banks-Leite (Ed.), <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu. <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In L. Banks-Leite (Ed.), <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu.', '</p>');
 	}
 
 	protected function getBookChapterWithEditorsResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In L. Banks-Leite & M. Velado, Jr. (Eds.), <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu. <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Azevedo, M. A., & Guerra, V. (2001) Psicologia genética e lógica. In L. Banks-Leite & M. Velado, Jr (Eds.), <i>Mania de bater: A punição corporal doméstica de crianças e adolescentes no Brasil</i> (pp. 15-25). São Paulo: Iglu.', '</p>');
 	}
 
 	protected function getJournalArticleResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Silva, V. A., & dos Santos, P. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. doi:10146:55793-493 <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Silva%22+%22Biotemas%22+Etinobot%C3%A2nica%20Xucuru%3A%20esp%C3%A9cies%20m%C3%ADsticas+10146%3A55793-493" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Silva, V. A., & dos Santos, P. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. pmid:12140307 doi:10146:55793-493', '</p>');
 	}
 
 	protected function getJournalArticleWithMoreThanSevenAuthorsResult() {
-		return '<p style="text-indent:-2em;margin-left:2em">Silva, V. A., dos Santos, P., Miller, F. H., Choi, M. J., Angeli, L. L., Harland, A. A., . . . Thomas, S. T. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. doi:10146:55793-493 <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Silva%22+%22Biotemas%22+Etinobot%C3%A2nica%20Xucuru%3A%20esp%C3%A9cies%20m%C3%ADsticas+10146%3A55793-493" target="_blank">[Google Scholar]</a></p>';
+		return array('<p style="text-indent:-2em;margin-left:2em">Silva, V. A., dos Santos, P., Miller, F. H., Choi, M. J., Angeli, L. L., Harland, A. A., . . . Thomas, S. T. (2000). Etinobotânica Xucuru: espécies místicas. <i>Biotemas, </i>15(1), 45-57. pmid:12140307 doi:10146:55793-493', '</p>');
+	}
+
+	protected function getConfProcResult() {
+		return array('<p style="text-indent:-2em;margin-left:2em">Liu, S. (2005). <i>Defending against business crises with the help of intelligent agent based early warning solutions. </i>Paper presented at The Seventh International Conference on Enterprise Information Systems, Miami, FL. Retrieved from http://www.iceis.org/iceis2005/abstracts_2005.htm', '</p>');
 	}
 }
 ?>

@@ -349,10 +349,10 @@ class PKPRouter {
 		}
 
 		// Execute class-wide data integrity checks.
-		if ($validate) $serviceEndpoint[0]->validate($request);
+		if ($validate) $serviceEndpoint[0]->validate($request, $args);
 
 		// Let the handler initialize itself.
-		$serviceEndpoint[0]->initialize($request);
+		$serviceEndpoint[0]->initialize($request, $args);
 
 		// Call the service endpoint.
 		$result = call_user_func($serviceEndpoint, $args, $request);

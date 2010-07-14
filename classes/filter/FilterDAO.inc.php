@@ -291,6 +291,7 @@ class FilterDAO extends DAO {
 		$this->update('DELETE FROM filters WHERE filter_id = ?', $filterId);
 		$this->update('DELETE FROM filter_settings WHERE filter_id = ?', $filterId);
 		$this->_deleteSubFiltersByParentFilterId($filterId);
+		return true;
 	}
 
 

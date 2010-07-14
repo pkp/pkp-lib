@@ -105,6 +105,10 @@
 	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.citations">References</message>
+	<message key="submission.citations.pleaseSetup"><![CDATA[You have to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation editor.]]></message>
+	<message key="submission.citations.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It seems like your installation is running on an earlier PHP version.</message>
+	<message key="submission.citations.pleaseAddParserFilter"><![CDATA[You have to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation editor.]]></message>
+	<message key="submission.citations.pleaseConfigureOutputStyle"><![CDATA[You have to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation editor.]]></message>
 	<message key="submission.citations.grid.fields">Field Name</message>
 	<message key="submission.citations.grid.values">Field Value</message>
 	<message key="submission.citations.grid.title">Edit Citations</message>

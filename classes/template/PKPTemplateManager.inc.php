@@ -230,15 +230,9 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Display the template.
+	 * @see Smarty::fetch()
 	 */
-	function display($template, $sendContentType = 'text/html', $hookName = 'TemplateManager::display') {
-		if (!$this->initialized) {
-			$this->initialize();
-		}
-
-		$charset = Config::getVar('i18n', 'client_charset');
-
+    function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
 		// Add additional java script URLs
 		if (!empty($this->javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');
@@ -252,6 +246,18 @@ class PKPTemplateManager extends Smarty {
 			$additionalHeadData = $this->get_template_vars('additionalHeadData');
 			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
 		}
+		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
+	}
+
+	/**
+	 * Display the template.
+	 */
+	function display($template, $sendContentType = 'text/html', $hookName = 'TemplateManager::display') {
+		if (!$this->initialized) {
+			$this->initialize();
+		}
+
+		$charset = Config::getVar('i18n', 'client_charset');
 
 		// Give any hooks registered against the TemplateManager
 		// the opportunity to modify behavior; otherwise, display

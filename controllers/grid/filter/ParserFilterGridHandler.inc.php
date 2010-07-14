@@ -19,6 +19,13 @@ class ParserFilterGridHandler extends FilterGridHandler {
 	 * Constructor
 	 */
 	function ParserFilterGridHandler() {
+		parent::FilterGridHandler();
+	}
+
+	/**
+	 * @see PKPHandler::initialize()
+	 */
+	function initialize($request) {
 		// Set the input and output sample which
 		// define the filters configured in this
 		// grid.
@@ -32,6 +39,6 @@ class ParserFilterGridHandler extends FilterGridHandler {
 		$this->setTitle('manager.setup.filter.parser.grid.title');
 		$this->setFormDescription('manager.setup.filter.parser.grid.description');
 
-		parent::FilterGridHandler();
+		parent::initialize($request);
 	}
 }

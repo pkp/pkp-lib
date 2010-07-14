@@ -140,12 +140,12 @@ class PKPHandler {
 	/**
 	 * Retrieve authorized context objects from the
 	 * decision manager.
-	 * @param $assocType integer
+	 * @param $assocType integer any of the ASSOC_TYPE_* constants
 	 * @return mixed
 	 */
-	function &getAuthorizedContext($assocType) {
+	function &getAuthorizedContextObject($assocType) {
 		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
-		return $this->_authorizationDecisionManager->getAuthorizedContext($assocType);
+		return $this->_authorizationDecisionManager->getAuthorizedContextObject($assocType);
 	}
 
 	/**

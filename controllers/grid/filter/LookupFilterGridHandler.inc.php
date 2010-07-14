@@ -19,6 +19,13 @@ class LookupFilterGridHandler extends FilterGridHandler {
 	 * Constructor
 	 */
 	function LookupFilterGridHandler() {
+		parent::FilterGridHandler();
+	}
+
+	/**
+	 * @see PKPHandler::initialize()
+	 */
+	function initialize($request) {
 		// Set the input and output sample which
 		// define the filters configured in this
 		// grid.
@@ -30,6 +37,6 @@ class LookupFilterGridHandler extends FilterGridHandler {
 		$this->setTitle('manager.setup.filter.lookup.grid.title');
 		$this->setFormDescription('manager.setup.filter.lookup.grid.description');
 
-		parent::FilterGridHandler();
+		parent::initialize($request);
 	}
 }

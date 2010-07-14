@@ -205,7 +205,6 @@ class PKPCitationGridHandler extends GridHandler {
 			$citation->setSeq($seq);
 
 			$citationDAO->insertObject($citation);
-			// FIXME: Database error handling.
 			$citations[$citation->getId()] = $citation;
 			unset($citation);
 		}
@@ -227,9 +226,14 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 		$nlmCitationSchema = new NlmCitationSchema();
 
-		// We currently only support the ABNT citation output schema
-		import('lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter');
-		$citationOutputFilter = new NlmCitationSchemaApaFilter($request);
+		// Retrieve the currently selected filter from the database.
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		assert(is_object($context));
+		$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
+		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
+		assert(is_a($citationOutputFilter, 'Filter'));
 
 		$formattedCitations = array();
 		$citations =& $this->_getSortedElements();
@@ -485,8 +489,6 @@ class PKPCitationGridHandler extends GridHandler {
 
 	/**
 	 * Instantiates filters that can parse a citation.
-	 * FIXME: Make the filter selection configurable and retrieve
-	 * filter candidates from the filter registry.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
 	 * @return array everything needed to define the transformation:
@@ -522,8 +524,6 @@ class PKPCitationGridHandler extends GridHandler {
 	/**
 	 * Instantiates filters that can validate and amend citations
 	 * with information from external data sources.
-	 * FIXME: Make the filter selection configurable and retrieve
-	 * filter candidates from the filter registry.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
 	 * @return array everything needed to define the transformation:
@@ -565,7 +565,6 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
 	 * @param $intermediateFilterResults array
 	 * @return Citation the filtered citation or null if an error occurred
-	 * FIXME: Remove sample data
 	 */
 	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, &$intermediateFilterResults) {
 		// Make sure that the citation implements the

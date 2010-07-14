@@ -17,7 +17,6 @@
  *  ABNT citation output.
  */
 
-// $Id$
 
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationOutputFormatFilter');
 
@@ -26,10 +25,10 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaAbntFilter(&$request) {
+	function NlmCitationSchemaAbntFilter() {
 		$this->setDisplayName('ABNT Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter($request);
+		parent::NlmCitationSchemaCitationOutputFormatFilter();
 	}
 
 

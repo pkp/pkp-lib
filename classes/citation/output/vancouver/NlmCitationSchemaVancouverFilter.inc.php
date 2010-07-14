@@ -25,7 +25,7 @@ class NlmCitationSchemaVancouverFilter extends NlmCitationSchemaCitationOutputFo
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaVancouverFilter(&$request) {
+	function NlmCitationSchemaVancouverFilter(&$request = null) {
 		$this->setDisplayName('Vancouver Citation Output');
 
 		parent::NlmCitationSchemaCitationOutputFormatFilter($request);

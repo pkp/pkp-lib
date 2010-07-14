@@ -102,6 +102,9 @@ class CompositeFilter extends GenericFilter {
 				$compositeSourceSettingName = 'seq'.$sourceSeq.'_'.$sourceSettingName;
 
 				$settingsMappingData = $this->getData('settingsMapping');
+				if (!isset($settingsMappingData[$compositeSourceSettingName])) {
+					$settingsMappingData[$compositeSourceSettingName] = array();
+				}
 				if (!in_array($compositeSettingName, $settingsMappingData[$compositeSourceSettingName])) {
 					$settingsMappingData[$compositeSourceSettingName][] = $compositeSettingName;
 				}

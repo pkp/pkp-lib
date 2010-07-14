@@ -34,6 +34,7 @@ class RoleApiHandler extends PKPHandler {
 	 * @see PKPHandler::authorize()
 	 */
 	function authorize(&$request, &$args, $roleAssignments) {
+		// FIXME: Add a user logged in policy here rather than checking the user in the operation.
 		import('lib.pkp.classes.security.authorization.PublicHandlerOperationPolicy');
 		$this->addPolicy(new PublicHandlerOperationPolicy($request, 'changeActingAsUserGroup'));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -52,35 +53,38 @@ class RoleApiHandler extends PKPHandler {
 
 		// Check that the user group parameter is in the request
 		if (isset($args['changedActingAsUserGroupId'])) {
-			$changedActingAsUserGroupId = $args['changedActingAsUserGroupId'];
-
-			// Check that the target user group exists and
-			// that the currently logged in user has been
-			// assigned to it.
-			$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
-			$application =& PKPApplication::getApplication();
 			$user =& $request->getUser();
-			$router =& $request->getRouter();
-			$context =& $router->getContext($request);
-			if ($context) {
-				// Handle context-specific user groups.
-				$userInGroup = $userGroupDao->userInGroup($context->getId(), $user->getId(), $changedActingAsUserGroupId);
-			} else {
-				if ($application->getContextDepth() > 0) {
-					// Handle site-wide user groups.
-					$userInGroup = $userGroupDao->userInGroup(0, $user->getId(), $changedActingAsUserGroupId);
-				} else{
-					// Handle apps that don't have a context.
-					$userInGroup = $userGroupDao->userInGroup($user->getId(), $changedActingAsUserGroupId);
+			if (is_a($user, 'User')) {
+				// Check that the target user group exists and
+				// that the currently logged in user has been
+				// assigned to it.
+				$changedActingAsUserGroupId = $args['changedActingAsUserGroupId'];
+				$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+				$router =& $request->getRouter();
+				$context =& $router->getContext($request);
+				if ($context) {
+					// Handle context-specific user groups.
+					$userInGroup = $userGroupDao->userInGroup($context->getId(), $user->getId(), $changedActingAsUserGroupId);
+				} else {
+					$application =& PKPApplication::getApplication();
+					if ($application->getContextDepth() > 0) {
+						// Handle site-wide user groups.
+						$userInGroup = $userGroupDao->userInGroup(0, $user->getId(), $changedActingAsUserGroupId);
+					} else{
+						// Handle apps that don't have a context.
+						$userInGroup = $userGroupDao->userInGroup($user->getId(), $changedActingAsUserGroupId);
+					}
 				}
-			}
 
-			if (!$userInGroup) {
-				$errorMessage = 'common.actingAsUserGroup.userIsNotInTargetUserGroup';
+				if ($userInGroup) {
+					$sessionManager =& SessionManager::getManager();
+					$session =& $sessionManager->getUserSession();
+					$session->setActingAsUserGroupId($changedActingAsUserGroupId);
+				} else {
+					$errorMessage = 'common.actingAsUserGroup.userIsNotInTargetUserGroup';
+				}
 			} else {
-				$sessionManager =& SessionManager::getManager();
-				$session =& $sessionManager->getUserSession();
-				$session->setActingAsUserGroupId($changedActingAsUserGroupId);
+				$errorMessage = 'common.actingAsUserGroup.userNotLoggedIn';
 			}
 		} else {
 			$errorMessage = 'common.actingAsUserGroup.changedActingAsUserGroupIdNotSet';

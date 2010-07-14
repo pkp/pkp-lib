@@ -25,10 +25,10 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaAbntFilter(&$request = null) {
+	function NlmCitationSchemaAbntFilter() {
 		$this->setDisplayName('ABNT Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter($request);
+		parent::NlmCitationSchemaCitationOutputFormatFilter();
 	}
 
 

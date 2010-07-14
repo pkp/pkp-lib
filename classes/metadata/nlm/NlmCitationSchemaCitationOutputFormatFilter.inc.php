@@ -17,14 +17,11 @@
 import('lib.pkp.classes.filter.Filter');
 
 class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
-	/** @var PKPRequest */
-	var $_request;
-
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaCitationOutputFormatFilter(&$request) {
+	function NlmCitationSchemaCitationOutputFormatFilter() {
 		parent::Filter();
 
 		// Load additional translations
@@ -32,9 +29,6 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 		$basePath = $this->getBasePath();
 		$localeFile = $basePath.DIRECTORY_SEPARATOR.'locale'.DIRECTORY_SEPARATOR.$locale.DIRECTORY_SEPARATOR.'locale.xml';
 		Locale::registerLocaleFile($locale, $localeFile);
-
-		// Save the request for later use
-		$this->_request =& $request;
 	}
 
 	//
@@ -69,7 +63,9 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	function &process(&$input) {
 		// Initialize view
 		$locale = Locale::getLocale();
-		$templateMgr =& TemplateManager::getManager($this->_request);
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		// Add the filter's directory as additional template dir so that
 		// citation output format templates can include sub-templates in

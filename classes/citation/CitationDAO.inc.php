@@ -22,6 +22,26 @@ class CitationDAO extends DAO {
 	 * @return integer the new citation id
 	 */
 	function insertObject(&$citation) {
+		$seq = $citation->getSeq();
+		if (!(is_numeric($seq) && $seq > 0)) {
+			// Find the latest sequence number
+			$result =& $this->retrieve(
+				'SELECT MAX(seq) AS lastseq FROM citations
+				 WHERE assoc_type = ? AND assoc_id = ?',
+				array(
+					(integer)$citation->getAssocType(),
+					(integer)$citation->getAssocId(),
+				)
+			);
+
+			if ($result->RecordCount() != 0) {
+				$row =& $result->GetRowAssoc(false);
+				$seq = $row['lastseq'] + 1;
+			} else {
+				$seq = 1;
+			}
+		}
+
 		$this->update(
 			sprintf('INSERT INTO citations
 				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, seq)
@@ -33,7 +53,7 @@ class CitationDAO extends DAO {
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
 				$citation->getEditedCitation(),
-				(integer)$citation->getSeq()
+				(integer)$seq
 			)
 		);
 		$citation->setId($this->getInsertId());

@@ -42,16 +42,6 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	}
 
 	/**
-	 * @see Filter::supports()
-	 * @param $input mixed
-	 * @param $output mixed
-	 * @return boolean
-	 */
-	function supports(&$input, &$output) {
-		return parent::supports($input, $output, true);
-	}
-
-	/**
 	 * @see Filter::process()
 	 * @param $citationString string
 	 * @return MetadataDescription

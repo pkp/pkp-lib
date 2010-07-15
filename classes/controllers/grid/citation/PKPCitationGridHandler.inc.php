@@ -202,7 +202,7 @@ class PKPCitationGridHandler extends GridHandler {
 			$citation->setAssocId($this->_getAssocId());
 
 			// Set the counter
-			$citation->setSeq($seq);
+			$citation->setSeq($seq+1);
 
 			$citationDAO->insertObject($citation);
 			$citations[$citation->getId()] = $citation;

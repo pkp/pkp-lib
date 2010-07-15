@@ -211,8 +211,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$this->setData($citations);
 
 		// Re-display the grid
-		$json = new JSON('true', $this->fetchGrid($args,$request));
-		return $json->getString();
+		return $this->fetchGrid($args,$request);
 	}
 
 	/**

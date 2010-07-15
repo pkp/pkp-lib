@@ -32,7 +32,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		$testFilter->setSeq(9999);
 
 		// Insert filter instance
-		$filterId = $filterDAO->insertObject($testFilter);
+		$filterId = $filterDAO->insertObject($testFilter, 9999);
 		self::assertTrue(is_numeric($filterId));
 		self::assertTrue($filterId > 0);
 
@@ -77,7 +77,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		$testFilter->addFilter($subFilter2);
 
 		// Insert filter instance
-		$filterId = $filterDAO->insertObject($testFilter);
+		$filterId = $filterDAO->insertObject($testFilter, 9999);
 		self::assertTrue(is_numeric($filterId));
 		self::assertTrue($filterId > 0);
 
@@ -148,14 +148,14 @@ class FilterDAOTest extends DatabaseTestCase {
 		// Persist test filters
 		$testFilterIds = array();
 		foreach($testFilters as $testFilter) {
-			$testFilterIds[] = $filterDAO->insertObject($testFilter);
+			$testFilterIds[] = $filterDAO->insertObject($testFilter, 9999);
 		}
 
 		// Test compatibility
 		$inputSample = '2011-01-01';
 		$outputSample = '2009-10-04';
 
-		$compatibleFilters = $filterDAO->getCompatibleObjects($inputSample, $outputSample);
+		$compatibleFilters = $filterDAO->getCompatibleObjects($inputSample, $outputSample, 9999);
 		$returnedFilters = array();
 		foreach($compatibleFilters as $compatibleFilter) {
 			$returnedFilters[] = $compatibleFilter->getDisplayName();

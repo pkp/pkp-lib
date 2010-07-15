@@ -43,17 +43,19 @@ class FilterDAO extends DAO {
 	 * Insert a new filter instance (transformation).
 	 *
 	 * @param $filter Filter The configured filter instance to be persisted
+	 * @param $contextId integer
 	 * @return integer the new filter id
 	 */
-	function insertObject(&$filter) {
+	function insertObject(&$filter, $contextId = 0) {
 		$inputType = $filter->getInputType();
 		$outputType = $filter->getOutputType();
 
 		$this->update(
 			sprintf('INSERT INTO filters
-				(display_name, class_name, input_type, output_type, is_template, parent_filter_id, seq)
-				VALUES (?, ?, ?, ?, ?, ?, ?)'),
+				(context_id, display_name, class_name, input_type, output_type, is_template, parent_filter_id, seq)
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?)'),
 			array(
+				(integer)$contextId,
 				$filter->getDisplayName(),
 				$filter->getClassName(),
 				$inputType->getTypeDescription(),
@@ -109,17 +111,18 @@ class FilterDAO extends DAO {
 	 * Retrieve a result set with all filter instances
 	 * (transformations) that are based on the given class.
 	 * @param $className string
+	 * @param $contextId integer
 	 * @param $getTemplates boolean set true if you want filter templates
 	 *  rather than actual transformations
 	 * @param $allowSubfilters boolean
 	 * @return DAOResultFactory
 	 */
-	function &getObjectsByClass($className, $getTemplates = false, $allowSubfilters = false) {
+	function &getObjectsByClass($className, $contextId = 0, $getTemplates = false, $allowSubfilters = false) {
 		$result =& $this->retrieve(
-				'SELECT * FROM filters WHERE class_name = ?'.
+				'SELECT * FROM filters WHERE context_id = ? AND class_name = ?'.
 				' '.($allowSubfilters ? '' : 'AND parent_filter_id = 0').
 				' AND '.($getTemplates ? '' : 'NOT ').'is_template',
-				$className);
+				array((integer)$contextId, $className));
 
 		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
 		return $daoResultFactory;
@@ -135,6 +138,7 @@ class FilterDAO extends DAO {
 	 *
 	 * @param $inputSample mixed
 	 * @param $outputSample mixed
+	 * @param $contextId integer
 	 * @param $getTemplates boolean set true if you want filter templates
 	 *  rather than actual transformations
 	 * @param $rehash boolean if true then the (costly) filter
@@ -142,7 +146,7 @@ class FilterDAO extends DAO {
 	 *  been hashed before.
 	 * @return array all compatible filter instances (transformations).
 	 */
-	function &getCompatibleObjects($inputSample, $outputSample, $getTemplates = false, $rehash = false) {
+	function &getCompatibleObjects($inputSample, $outputSample, $contextId = 0, $getTemplates = false, $rehash = false) {
 		static $filterHash = array();
 		static $typeDescriptionFactory = null;
 		static $typeDescriptionCache = array();
@@ -155,22 +159,23 @@ class FilterDAO extends DAO {
 
 		// 1) Hash all available transformations by input
 		//    and output type.
-		if (!isset($filterHash[$getTemplates]) || $rehash) {
+		$hashId = $contextId.'-'.($getTemplates?'1':'0');
+		if (!isset($filterHash[$hashId]) || $rehash) {
 			$result =& $this->retrieve(
 				'SELECT * FROM filters'.
 				' WHERE '.($getTemplates ? '' : 'NOT ').'is_template'.
-				' AND parent_filter_id = 0');
+				' AND context_id = ? AND parent_filter_id = 0', (integer)$contextId);
 			foreach($result->GetAssoc() as $filterRow) {
-				$filterHash[$getTemplates][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
+				$filterHash[$hashId][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
 			}
 
 			// Set an empty array if no filters were found at all.
-			if (!isset($filterHash[$getTemplates])) $filterHash[$getTemplates] = array();
+			if (!isset($filterHash[$hashId])) $filterHash[$hashId] = array();
 		}
 
 		// 2) Check the input sample against all input types.
 		$intermediateCandidates = array();
-		foreach($filterHash[$getTemplates] as $inputType => $outputHash) {
+		foreach($filterHash[$hashId] as $inputType => $outputHash) {
 			// Instantiate the type description if not yet done
 			// before.
 			if (!isset($typeDescriptionCache[$inputType])) {

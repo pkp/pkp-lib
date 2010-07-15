@@ -317,6 +317,11 @@ class PKPCitationGridHandler extends GridHandler {
 			$originalCitation =& $this->getCitationFromArgs($args, true);
 		}
 
+		// Find the request context
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		assert(is_object($context));
+
 		// Initialize the filter errors array
 		$filterErrors = array();
 		$intermediateFilterResults = array();
@@ -327,7 +332,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if (!is_null($filteredCitation) && $filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $filterErrors, $intermediateFilterResults);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $context->getId(), $filterErrors, $intermediateFilterResults);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
@@ -336,7 +341,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Also make sure that we get the intermediate results of look-ups
 		// for the user to choose from.
 		$filterCallback = array(&$this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterErrors, $intermediateFilterResults);
+		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $context->getId(), $filterErrors, $intermediateFilterResults);
 
 		// Remove empty results (e.g. if a lookup filter didn't find anything
 		// for a given citation).
@@ -491,13 +496,14 @@ class PKPCitationGridHandler extends GridHandler {
 	 * Instantiates filters that can parse a citation.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
+	 * @param $contextId integer
 	 * @return array everything needed to define the transformation:
 	 *  - the display name of the transformation
 	 *  - the input/output type definition
 	 *  - input data
 	 *  - a filter list
 	 */
-	function &_instantiateParserFilters(&$citation, &$metadataDescription) {
+	function &_instantiateParserFilters(&$citation, &$metadataDescription, $contextId) {
 		$displayName = 'Citation Parser Filters';
 
 		// Parsing takes a raw citation and transforms it
@@ -515,7 +521,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		$inputSample = 'arbitrary strings';
 		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample);
+		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -526,13 +532,14 @@ class PKPCitationGridHandler extends GridHandler {
 	 * with information from external data sources.
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
+	 * @param $contextId integer
 	 * @return array everything needed to define the transformation:
 	 *  - the display name of the transformation
 	 *  - the input/output type definition
 	 *  - input data
 	 *  - a filter list
 	 */
-	function &_instantiateLookupFilters(&$citation, &$metadataDescription) {
+	function &_instantiateLookupFilters(&$citation, &$metadataDescription, $contextId) {
 		$displayName = 'Citation Parser Filters';
 
 		// Lookup takes a single meta-data description and
@@ -549,7 +556,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Instantiate all configured filters that transform NLM-citation schemas.
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		$inputSample = $outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample);
+		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -562,11 +569,12 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @param $filterCallback callable
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
+	 * @param $contextId integer
 	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
 	 * @param $intermediateFilterResults array
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, &$filterErrors, &$intermediateFilterResults) {
+	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, $contextId, &$filterErrors, &$intermediateFilterResults) {
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -579,7 +587,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$metadataDescription =& $citation->extractMetadata($metadataSchema);
 
 		// Let the callback build the filter network.
-		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription));
+		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription, $contextId));
 
 		// Get the input into the transformation.
 		$muxInputData =& $transformationDefinition['inputData'];

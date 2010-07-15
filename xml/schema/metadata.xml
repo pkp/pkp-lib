@@ -163,6 +163,10 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
+		<field name="context_id" type="I8">
+			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
+		</field>
 		<field name="display_name" type="C2" size="255" />
 		<field name="class_name" type="C2" size="255"/>
 		<field name="input_type" type="C2" size="255" />

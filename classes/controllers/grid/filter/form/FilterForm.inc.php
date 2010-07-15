@@ -143,7 +143,7 @@ class FilterForm extends Form {
 			// Retrieve all compatible filter templates
 			// from the database.
 			$filterDao =& DAORegistry::getDAO('FilterDAO');
-			$filterTemplateObjects =& $filterDao->getCompatibleObjects($this->_inputSample, $this->_outputSample, true);
+			$filterTemplateObjects =& $filterDao->getCompatibleObjects($this->_inputSample, $this->_outputSample, 0, true);
 			$filterTemplates = array();
 
 			// Make a blacklist of filters that cannot be
@@ -218,8 +218,9 @@ class FilterForm extends Form {
 
 	/**
 	 * Save filter
+	 * @param $request PKPRequest
 	 */
-	function execute() {
+	function execute(&$request) {
 		$filter =& $this->getFilter();
 		assert(is_a($filter, 'Filter'));
 
@@ -234,7 +235,10 @@ class FilterForm extends Form {
 		if (is_numeric($filter->getId())) {
 			$filterDAO->updateObject($filter);
 		} else {
-			$filterDAO->insertObject($filter);
+			$router =& $request->getRouter();
+			$context =& $router->getContext($request);
+			$contextId = (is_null($context)?0:$context->getId());
+			$filterDAO->insertObject($filter, $contextId);
 		}
 		return true;
 	}

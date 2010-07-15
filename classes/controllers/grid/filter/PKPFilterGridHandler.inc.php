@@ -133,8 +133,11 @@ class PKPFilterGridHandler extends GridHandler {
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION));
 
 		// Retrieve the filters to be displayed in the grid
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		$contextId = (is_null($context)?0:$context->getId());
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$data =& $filterDao->getCompatibleObjects($this->getInputSample(), $this->getOutputSample());
+		$data =& $filterDao->getCompatibleObjects($this->getInputSample(), $this->getOutputSample(), $contextId);
 		$this->setData($data);
 
 		// Grid action
@@ -244,7 +247,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Form validation
 		if ($filterForm->validate()) {
 			// Persist the filter.
-			$filterForm->execute();
+			$filterForm->execute($request);
 
 			// Render the updated filter row into
 			// a JSON response

@@ -245,6 +245,10 @@ class PKPTemplateManager extends Smarty {
 
 			$additionalHeadData = $this->get_template_vars('additionalHeadData');
 			$this->assign('additionalHeadData', $additionalHeadData."\n".$javaScript);
+
+			// Empty the java scripts array so that we don't include
+			// the same scripts twice in case the template manager is called again.
+			$this->javaScripts = array();
 		}
 		return parent::fetch($resource_name, $cache_id, $compile_id, $display);
 	}

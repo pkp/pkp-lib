@@ -97,7 +97,11 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		if (empty($matches[1])) return $nullVar;
 
 		// use xISBN because it's free
-		$isbns = $this->_oclcToIsbns($matches[1][0]);
+		foreach($matches[1] as $oclcId) {
+			$isbns = $this->_oclcToIsbns($oclcId);
+			if (is_array($isbns)) break;
+		}
+		if (is_null($isbns)) return $nullVar;
 
 		$apiKey = $this->getApiKey();
 		if (empty($apiKey)) {
@@ -140,7 +144,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		if (isset($oclcNode)) {
 			return explode(' ', $oclcNode->getAttribute('isbn'));
 		} else {
-			return array();
+			return null;
 		}
 	}
 

@@ -304,18 +304,18 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 		};
 	} else {
 		clickAction = function() {
-			$.get(
+			$.getJSON(
 				url,
 				function(jsonData) {
 					if (jsonData.status === true) {
-						$('#' + actOnId).replaceWith(returnString.content);
+						$('#' + actOnId).replaceWith(jsonData.content);
 					} else {
 						// Alert that the action failed
 						alert(jsonData.content);
 					}
-				},
-				'json'
+				}
 			);
+			return false;
 		};
 	}
 

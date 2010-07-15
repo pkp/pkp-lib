@@ -121,8 +121,11 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 				// Remove the name space prefix
 				$propertyName = substr($fieldName, $namespacePrefixLength);
 				if (in_array($propertyName, array('person-group[@person-group-type="author"]', 'person-group[@person-group-type="editor"]'))) {
+					// Retrieve the names array (must not be by-ref
+					// to protect the original citation object!)
+					$names = $dataObject->getData($fieldName);
+
 					// Convert key/value arrays to MetadataDescription objects.
-					$names =& $dataObject->getData($fieldName);
 					foreach($names as $key => $name) {
 						if (is_array($name)) {
 							// Construct a meta-data description from

@@ -73,7 +73,7 @@ class CompositeFilter extends GenericFilter {
 		// Add the filter to the ordered sub-filter list.
 		assert(is_a($filter, 'Filter'));
 		$seq = $filter->getSeq();
-		if (is_numeric($seq)) {
+		if (is_numeric($seq) && $seq > 0) {
 			// This filter has a pre-set sequence number
 			if (isset($this->_filters[$seq])) return null;
 			if ($seq > $this->_maxSeq) $this->_maxSeq = $seq;

@@ -943,7 +943,6 @@ ul.tagit li:after, ul.tagit li div:after {
 	float: right;
 }
 
-/* Title bar Icons: */
 .modalTitleBar .fileManagement {
 	background: #daf0da url(../templates/images/structure/response_warning.png) no-repeat;
 	width: 32px;
@@ -951,3 +950,10 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 /* @end */
+
+.roundStatusContainer {
+	height: 40px;
+	margin: 11px;
+	border: 2px solid black;
+	background-color: #FFFFDD;
+}

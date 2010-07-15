@@ -103,6 +103,7 @@
 		</field>
 		<field name="review_revision" type="I8" />
 		<field name="review_type" type="I8" />
+		<field name="status" type="I8" />
 		<descr>Review rounds.</descr>
 		<index name="review_rounds_submission_id">
 			<col>submission_id</col>

@@ -714,6 +714,7 @@ class Form {
 			$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
 			$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
+			$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
 
 			return $smarty->fetch('form/element.tpl');
 		}

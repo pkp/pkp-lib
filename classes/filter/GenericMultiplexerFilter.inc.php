@@ -89,6 +89,7 @@ class GenericMultiplexerFilter extends CompositeFilter {
 			// Propagate errors of sub-filters (if any)
 			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
 
+			// Handle sub-filter failure.
 			if (is_null($intermediateOutput))
 				if ($this->getTolerateFailures()) {
 					continue;
@@ -97,13 +98,17 @@ class GenericMultiplexerFilter extends CompositeFilter {
 					// anyway out output validation so we better
 					// safe time and return immediately.
 					$output = null;
-					return $output;
+					break;
 			} else {
 				// Add the output to the output array.
 				$output[] =& $intermediateOutput;
 			}
 			unset($clonedInput, $intermediateOutput);
 		}
+
+		// Fail in any case if all sub-filters failed.
+		if (empty($output)) $output = null;
+
 		return $output;
 	}
 }

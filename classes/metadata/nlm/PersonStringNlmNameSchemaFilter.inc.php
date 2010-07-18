@@ -113,7 +113,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		// We intercept the supports() method so that
 		// we can remove et-al entries which are valid but
 		// do not conform to the canonical type definition.
-		if ($this->getFilterMode() == PERSON_STRING_FILTER_MULTIPLE && !is_null($output)) {
+		if ($this->getFilterMode() == PERSON_STRING_FILTER_MULTIPLE && is_array($output)) {
 			$filteredOutput =& $this->removeEtAlEntries($output);
 			if ($filteredOutput === false) return false;
 		} else {

@@ -102,14 +102,21 @@ class NlmCitationSchemaFilter extends Filter {
 		// Do the normal type check first.
 		if (!parent::supports($input, $output)) return false;
 
-		// This is an additional check that cannot be
-		// done via type checks.
+		// Additional checks that cannot be done via type checks.
+
+		// 1) Check that the given publication type is supported by this filter
+		// If no publication type is given then we'll support the description
+		// by default.
 		if (is_a($this->getInputType(), 'MetadataTypeDescription')) {
-			// Check that the given publication type is supported by this filter
-			// If no publication type is given then we'll support the description
-			// by default.
 			$publicationType = $input->getStatement('[@publication-type]');
 			if (!empty($publicationType) && !in_array($publicationType, $this->getSupportedPublicationTypes())) return false;
+		}
+
+		// 2) Check that the output actually contains data and is not an empty
+		// description.
+		if (!is_null($output) && is_a($output, 'MetadataDescription')) {
+			$statements =& $output->getStatements();
+			if (empty($statements)) return false;
 		}
 
 		return true;

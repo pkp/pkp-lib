@@ -14,7 +14,6 @@
  *  to an (array of) NLM name description(s).
  */
 
-// $Id$
 
 import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.metadata.MetadataDescription');

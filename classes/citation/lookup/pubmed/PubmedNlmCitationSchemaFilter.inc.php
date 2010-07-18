@@ -90,11 +90,13 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			// 1) Try a "loose" search based on the author list.
 			//    (This works surprisingly well for pubmed.)
 			$authors =& $citationDescription->getStatement('person-group[@person-group-type="author"]');
-			import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
-			$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
-			$authorsString = (string)$personNameFilter->execute($authors);
-			if (!empty($authorsString)) {
-				$pmidArrayFromAuthorsSearch =& $this->_search($authorsString);
+			if (is_array($authors)) {
+				import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
+				$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
+				$authorsString = (string)$personNameFilter->execute($authors);
+				if (!empty($authorsString)) {
+					$pmidArrayFromAuthorsSearch =& $this->_search($authorsString);
+				}
 			}
 
 			// 2) Try a "loose" search based on the article title

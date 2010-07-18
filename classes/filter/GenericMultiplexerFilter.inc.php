@@ -20,11 +20,40 @@ import('lib.pkp.classes.filter.CompositeFilter');
 
 class GenericMultiplexerFilter extends CompositeFilter {
 	/**
+	 * @var boolean whether some sub-filters can fail as long as at least one
+	 *  filter returns a result.
+	 */
+	var $_tolerateFailures = false;
+
+	/**
 	 * Constructor
 	 */
 	function GenericMultiplexerFilter($displayName = null, $transformation = null) {
 		parent::CompositeFilter($displayName, $transformation);
 	}
+
+
+	//
+	// Setters and Getters
+	//
+	/**
+	 * Set to true if sub-filters can fail as long as
+	 * at least one filter returns a result.
+	 * @param $tolerateFailures boolean
+	 */
+	function setTolerateFailures($tolerateFailures) {
+		$this->_tolerateFailures = $tolerateFailures;
+	}
+
+	/**
+	 * Returns true when sub-filters can fail as long
+	 * as at least one filter returns a result.
+	 * @return boolean
+	 */
+	function getTolerateFailures() {
+		return $this->_tolerateFailures;
+	}
+
 
 	//
 	// Implementing abstract template methods from Filter
@@ -55,12 +84,25 @@ class GenericMultiplexerFilter extends CompositeFilter {
 			}
 
 			// Execute the filter
-			$output[] =& $filter->execute($clonedInput);
+			$intermediateOutput =& $filter->execute($clonedInput);
 
 			// Propagate errors of sub-filters (if any)
 			foreach($filter->getErrors() as $errorMessage) $this->addError($errorMessage);
 
-			unset ($clonedInput);
+			if (is_null($intermediateOutput))
+				if ($this->getTolerateFailures()) {
+					continue;
+				} else {
+					// No need to go on as the filter will fail
+					// anyway out output validation so we better
+					// safe time and return immediately.
+					$output = null;
+					return $output;
+			} else {
+				// Add the output to the output array.
+				$output[] =& $intermediateOutput;
+			}
+			unset($clonedInput, $intermediateOutput);
 		}
 		return $output;
 	}

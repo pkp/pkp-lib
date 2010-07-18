@@ -12,9 +12,8 @@
  * @brief Abstract base class for a web service.
  */
 
-// $Id$
 
-define('WEBSERVICE_RETRIES', 3);
+define('WEBSERVICE_RETRIES', 2);
 define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 
 import('lib.pkp.classes.webservice.WebServiceRequest');

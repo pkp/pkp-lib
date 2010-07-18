@@ -591,11 +591,16 @@ class PKPCitationGridHandler extends GridHandler {
 		// Get the input into the transformation.
 		$muxInputData =& $transformationDefinition['inputData'];
 
-		// Instantiate the citation multiplexer filter
+		// Instantiate the citation multiplexer filter.
 		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 		$citationMultiplexer = new GenericMultiplexerFilter(
 				$transformationDefinition['displayName'], $transformationDefinition['transformation']);
 
+		// Don't fail just because one of the web services
+		// fail. They are much too unstable to rely on them.
+		$citationMultiplexer->setTolerateFailures(true);
+
+		// Add sub-filters to the multiplexer.
 		$nullVar = null;
 		foreach($transformationDefinition['filterList'] as $citationFilter) {
 			if ($citationFilter->supports($muxInputData, $nullVar)) {

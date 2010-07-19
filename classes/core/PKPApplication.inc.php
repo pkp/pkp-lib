@@ -304,6 +304,7 @@ class PKPApplication {
 			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
 			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
+			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',

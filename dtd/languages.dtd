@@ -1,0 +1,14 @@
+<!--
+  * languages.dtd
+  *
+  * Copyright (c) 2000-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * DTD for language lists.
+  *
+  -->
+<!ELEMENT languages (language+)>
+<!ELEMENT language EMPTY>
+	<!ATTLIST language
+		code CDATA #REQUIRED
+		name CDATA #REQUIRED>

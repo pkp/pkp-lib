@@ -458,6 +458,20 @@ class String {
 		return $html;
 	}
 
+	/**
+	 * Convert limited HTML into a string.
+	 * @param $html string
+	 * @return string
+	 */
+	function html2text($html) {
+		$html = String::regexp_replace('/<[\/]?p>/', "\n", $html);
+		$html = String::regexp_replace('/<li>/', '&bull; ', $html);
+		$html = String::regexp_replace('/<\/li>/', "\n", $html);
+		$html = String::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
+		$html = String::html2utf(strip_tags($html));
+		return $html;
+	}
+
 	//
 	// Wrappers for UTF-8 validation routines
 	// See the phputf8 documentation for usage.

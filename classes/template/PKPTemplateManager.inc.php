@@ -143,7 +143,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
 		// JS UI components
-		$this->register_function('load_div', array(&$this, 'smartyLoadUrlInDiv'));
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
@@ -1111,7 +1110,7 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Smarty usage: {load_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
+	 * Smarty usage: {load_url_in_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
 	 *
 	 * Custom Smarty function for loading a URL via AJAX into a DIV
 	 * @params $params array associative array
@@ -1121,10 +1120,10 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadUrlInDiv($params, &$smarty) {
 		// Required Params
 		if (!isset($params['url'])) {
-			$smarty->trigger_error("URL parameter is missing from load_div");
+			$smarty->trigger_error("URL parameter is missing from load_url_in_div");
 		}
 		if (!isset($params['id'])) {
-			$smarty->trigger_error("id parameter is missing from load_div");
+			$smarty->trigger_error("id parameter is missing from load_url_in_div");
 		}
 		$url = $params['url'];
 		$id = $params['id'];
@@ -1136,11 +1135,11 @@ class PKPTemplateManager extends Smarty {
 			$translatedLoadMessage = Locale::translate('common.loading');
 		}
 
-		return "<div id=\"$id\">$translatedLoadMessage</div>
+		return "<div id=\"" . str_replace("#","",$id) . "\">$translatedLoadMessage</div>
 		<script type='text/javascript'>
 			$.getJSON(\"$url\", function(jsonData) {
 				if (jsonData.status === true) {
-					$(\"#$id\").html(jsonData.content);
+					$(\"$id\").html(jsonData.content);
 				} else {
 					// Alert that the modal failed
 					alert(jsonData.content);

@@ -36,7 +36,7 @@
 					
 					ajaxAction(
 						'post',
-						'editFilterFormContainer{/literal}{$uid}{literal}',
+						'#editFilterFormContainer{/literal}{$uid}{literal}',
 						'#filterTemplateSelect{/literal}{$uid}{literal}',
 						'{/literal}{url op="editFilter"}{literal}',
 						undefined,

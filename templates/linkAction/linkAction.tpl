@@ -6,7 +6,7 @@
 {assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
 
 {if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_MODAL}
-	{modal url=$action->getUrl() actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId}
+	{modal url=$action->getUrl() actOnType=$action->getType() actOnId="#"|concat:$actOnId button="#"|concat:$buttonId}
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_CONFIRM}
 	{if $action->getLocalizedConfirmMessage()}
@@ -14,14 +14,14 @@
 	{else}
 		{assign var="dialogText" value=$action->getLocalizedTitle()}
 	{/if}
-	
+
 	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId  translate=false}
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 	<script type='text/javascript'>
 		ajaxAction(
 			'{$action->getType()}',
-			'{$actOnId}',
+			'#{$actOnId}',
 			'#{$buttonId}',
 			'{$action->getUrl()}'
 		);

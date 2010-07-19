@@ -263,7 +263,7 @@ function clearFormFields(form) {
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 	if (actType == 'post') {
 		clickAction = function() {
-			$form = $('#' + actOnId).find('form');
+			$form = $(actOnId).find('form');
 
 			// Default url and data
 			if (!url) {
@@ -295,7 +295,7 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 						// An AJAX action will always return content that
 						// replaces the original content independent of whether
 						// an error occured or not.
-						$('#' + actOnId).replaceWith(jsonData.content);
+						$(actOnId).replaceWith(jsonData.content);
 					},
 					'json'
 				);
@@ -328,19 +328,19 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
-			$empty = $('#' + actOnId).find('.empty');
+			$empty = $(actOnId).find('.empty');
 			$empty.hide();
-			$('#' + actOnId).append(content);
+			$(actOnId).append(content);
 			break;
 		case 'replace':
-			$('#' + actOnId).replaceWith(content);
+			$(actOnId).replaceWith(content);
 			break;
 		case 'replaceAll':
-			var $p = $('#' + actOnId + ' > .empty').prev();
+			var $p = $(actOnId + ' > .empty').prev();
 			$p.html(content);
 			break;
 		case 'remove':
-			if ($('#' + actOnId).siblings().length == 0) {
+			if ($(actOnId).siblings().length == 0) {
 				deleteElementById(actOnId, true);
 			} else {
 				deleteElementById(actOnId);
@@ -350,8 +350,8 @@ function updateItem(actType, actOnId, content) {
 }
 
 function deleteElementById(elementId, showEmpty) {
-	var $emptyRow = $('#' + elementId).parent().siblings('.empty');
-	$("#"+elementId).fadeOut(500, function() {
+	var $emptyRow = $(elementId).parent().siblings('.empty');
+	$(elementId).fadeOut(500, function() {
 		$(this).remove();
 		if (showEmpty) {
 			$emptyRow.fadeIn(500);

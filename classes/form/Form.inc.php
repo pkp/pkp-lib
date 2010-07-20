@@ -101,7 +101,7 @@ class Form {
 	 * @param $request PKPRequest
 	 */
 	function display($request = null) {
-		echo $this->fetch($request);
+		$this->fetch($request, true);
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Form {
 	 * @param $request PKPRequest
 	 * @return string the rendered form
 	 */
-	function fetch(&$request) {
+	function fetch(&$request, $display = false) {
 		if (checkPhpVersion('4.3.0')) {
 			$returner = null;
 			$trace = debug_backtrace();
@@ -161,7 +161,7 @@ class Form {
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
-		return $templateMgr->fetch($this->_template);
+		return $templateMgr->fetch($this->_template, null, null, $display);
 	}
 
 	/**

@@ -3,7 +3,7 @@
 /**
  * @file classes/xml/XMLParserDOMHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLParserDOMHandler
@@ -15,10 +15,10 @@
  *
  */
 
-//$Id$
+//$Id: XMLParserDOMHandler.inc.php,v 1.7 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.xml.XMLNode');
+import('xml.XMLNode');
 
 class XMLParserDOMHandler extends XMLParserHandler {
 

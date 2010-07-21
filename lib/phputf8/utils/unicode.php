@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id$
+* @version $Id: unicode.php,v 1.1 2008/10/10 20:52:53 mj Exp $
 * Tools for conversion between UTF-8 and unicode
 * The Original Code is Mozilla Communicator client code.
 * The Initial Developer of the Original Code is

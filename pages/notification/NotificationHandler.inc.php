@@ -3,7 +3,7 @@
 /**
  * @file NotificationHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationHandler
@@ -12,8 +12,8 @@
  * @brief Handle requests for viewing notifications.
  */
 
-import('classes.handler.Handler');
-import('classes.notification.Notification');
+import('handler.Handler');
+import('notification.Notification');
 
 class NotificationHandler extends Handler {
 
@@ -37,7 +37,7 @@ class NotificationHandler extends Handler {
 
 		$rangeInfo =& Handler::getRangeInfo('notifications');
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getNotificationsByUserId($userId, NOTIFICATION_LEVEL_NORMAL, $rangeInfo);
+		$notifications = $notificationDao->getNotificationsByUserId($userId, $rangeInfo);
 
 		$templateMgr->assign('notifications', $notifications);
 		$templateMgr->assign('unread', $notificationDao->getUnreadNotificationCount($userId));
@@ -77,7 +77,7 @@ class NotificationHandler extends Handler {
 
 		$user = Request::getUser();
 		if(isset($user)) {
-			import('classes.notification.form.NotificationSettingsForm');
+			import('notification.form.NotificationSettingsForm');
 			$notificationSettingsForm = new NotificationSettingsForm();
 			$notificationSettingsForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
@@ -88,9 +88,8 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSettings() {
 		$this->validate();
-		$this->setupTemplate(true);
 
-		import('classes.notification.form.NotificationSettingsForm');
+		import('notification.form.NotificationSettingsForm');
 
 		$notificationSettingsForm = new NotificationSettingsForm();
 		$notificationSettingsForm->readInputData();
@@ -99,6 +98,7 @@ class NotificationHandler extends Handler {
 			$notificationSettingsForm->execute();
 			PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification', 'settings');
 		} else {
+			$this->setupTemplate(true);
 			$notificationSettingsForm->display();
 		}
 	}
@@ -187,7 +187,7 @@ class NotificationHandler extends Handler {
 		$user = Request::getUser();
 
 		if(!isset($user)) {
-			import('lib.pkp.classes.notification.form.NotificationMailingListForm');
+			import('notification.form.NotificationMailingListForm');
 			$notificationMailingListForm = new NotificationMailingListForm();
 			$notificationMailingListForm->display();
 		} else PKPRequest::redirect(NotificationHandler::getContextDepthArray(), 'notification');
@@ -198,9 +198,8 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSubscribeMailList() {
 		$this->validate();
-		$this->setupTemplate(true);
 
-		import('lib.pkp.classes.notification.form.NotificationMailingListForm');
+		import('notification.form.NotificationMailingListForm');
 
 		$notificationMailingListForm = new NotificationMailingListForm();
 		$notificationMailingListForm->readInputData();
@@ -209,6 +208,7 @@ class NotificationHandler extends Handler {
 			$notificationMailingListForm->execute();
 			PKPRequest::redirect(null, 'notification', 'mailListSubscribed', array('success'));
 		} else {
+			$this->setupTemplate(true);
 			$notificationMailingListForm->display();
 		}
 	}

@@ -1,12 +1,12 @@
 {**
  * install.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Installation form.
  *
- * $Id$
+ * $Id: install.tpl,v 1.6 2009/08/18 23:44:09 asmecher Exp $
  *}
 {strip}
 {include file="common/header.tpl"}

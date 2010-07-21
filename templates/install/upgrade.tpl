@@ -1,12 +1,12 @@
 {**
  * upgrade.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Upgrade form.
  *
- * $Id$
+ * $Id: upgrade.tpl,v 1.4 2009/08/07 22:05:45 mcrider Exp $
  *}
 {strip}
 {include file="common/header.tpl"}

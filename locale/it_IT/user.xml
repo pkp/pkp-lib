@@ -4,7 +4,7 @@
 <!--
   * locale/it_IT/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
@@ -100,6 +100,4 @@
 	<message key="user.userHome">Home utente</message>
 	<message key="user.username">Nome utente</message>
 	<message key="user.workingLanguages">Lingue conosciute</message>
-	<message key="user.other">Altro</message>
-	<message key="user.profile.form.profileImageInvalid">Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo.</message>
 </locale>

@@ -4,12 +4,12 @@
 <!--
   * locale/ja_JP/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ja_JP (日本語) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.5 2009/08/31 21:44:01 asmecher Exp $
   -->
 
 <locale name="ja_JP" full_name = "日本語">

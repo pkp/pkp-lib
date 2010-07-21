@@ -3,7 +3,7 @@
 /**
  * @file classes/help/PluginHelpMappingFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginHelpMappingFile
@@ -12,10 +12,10 @@
  * @brief Abstracts the plugin's help mapping XML files.
  */
 
-// $Id$
+// $Id: PluginHelpMappingFile.inc.php,v 1.4 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.help.HelpMappingFile');
+import('help.HelpMappingFile');
 
 class PluginHelpMappingFile extends HelpMappingFile {
 	/** @var $plugin object */

@@ -3,7 +3,7 @@
 /**
  * @file classes/file/TemporaryFileDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemporaryFileDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying TemporaryFile objects.
  */
 
-// $Id$
+// $Id: TemporaryFileDAO.inc.php,v 1.8 2009/12/02 06:22:42 jerico.dev Exp $
 
 
-import('lib.pkp.classes.file.TemporaryFile');
+import('file.TemporaryFile');
 
 class TemporaryFileDAO extends DAO {
 	/**

@@ -4,12 +4,12 @@
 <!--
   * locale/nl_NL/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.1 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="nl_NL" full_name = "Nederlands">

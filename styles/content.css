@@ -133,15 +133,15 @@ h6, .h6 {
 /* @group Links */
 
 a {
-
+	
 }
 
 a:focus, a:hover {
-
+	
 }
 
 a:visited {
-
+	
 }
 
 /* @end */
@@ -207,167 +207,6 @@ ul.flat_list li, ol.flat_list li {
 
 /* @end */
 
-/* @group Response */
-
-/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
-
-.response {
-	margin-bottom: 10px;
-	text-align: left;
-}
-
-.response_block {
-	background-position: 15px 50% !important;
-	background-repeat: no-repeat !important;
-	padding: 5px 20px 5px 60px;
-}
-
-.response .success {
-	background: #daf0da url(../templates/images/structure/response_success.png);
-	border-top: 1px solid #5abd5a;
-	border-bottom: 1px solid #5abd5a;
-}
-
-.response .warning {
-	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
-	border-top: 1px solid #ffd324;
-	border-bottom: 1px solid #ffd324;
-}
-
-.response .error {
-	background: #f8dada url(../templates/images/structure/response_error.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .forbidden {
-	background: #f8dada url(../templates/images/structure/response_forbidden.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .information {
-	background: #c9e3f8 url(../templates/images/structure/response_info.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
-}
-
-.response .help {
-	background: #c9e3f8 url(../templates/images/structure/response_help.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
-}
-
-/* @end */
-
-/* @group List Builder */
-
-.listbuilder {
-	border: 1px solid #B6C9D5;
-	overflow: hidden;
-	margin: 5px 10px 15px 10px;
-}
-
-.listbuilder div.wrapper {
-	margin: 10px;
-	padding: 10px;
-}
-
-.listbuilder_controls {
-	text-align: center;
-	margin-top: 24px;
-	line-height: 20px;
-}
-
-.listbuilder_controls a {
-	outline: none;
-	cursor: pointer;
-	text-decoration: none;
-	display: inline;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	padding: 5px 10px 5px 10px;
-}
-
-a.add_item {
-	background-image: url(../templates/images/structure/lb_add.png);
-}
-
-a.remove_item {
-	background-image: url(../templates/images/structure/lb_delete.png);
-}
-
-.listbuilder_results {
-	height: 140px;
-	overflow: hidden;
-}
-
-div.list .refresh {
-	float: right;
-	margin-top: 5px;
-	margin-right: 15px;
-}
-
-.listbuilderGrid {
-	border: 1px solid #B6C9D5;
-	height: 100px;
-	overflow: auto;
-	background-color: white;
-}
-
-.listbuilderGrid table {
-	width: 100%;
-}
-
-.listbuilderGrid td {
-	text-align: left;
-	height: 20px;
-	font-size: 85%;
-	vertical-align: middle;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-
-.selected {
-	background-color: #deffff;
-}
-
-/*
-	if width will be 100% horizontal scrollbar will apear
-	when scroll mode will be used
-	*/
-
-
-/*width: 100%;*/
-	font: menu;
-	font-size: 12px;
-
-
-/*
-	it is very important, if line-height not setted or setted
-	in relative units scroll will be broken in firefox
-	*/
-	line-height: 16px;
-	overflow: hidden;
-}
-
-.ac_loading {
-	background: white url('indicator.gif') right center no-repeat;
-}
-
-.ac_odd {
-	background-color: #eee;
-}
-
-.ac_over {
-	background-color: #0A246A;
-	color: white;
-}
-
-
-
-/* @end */
-
 /* @group Grid */
 
 div.grid div.wrapper {
@@ -392,7 +231,6 @@ div.grid th {
 
 div.grid td {
 	text-align: center;
-	min-height: 40px;
 	height: 40px;
 	font-size: 85%;
 	vertical-align: middle;
@@ -401,15 +239,6 @@ div.grid td {
 
 div.grid th:first-child, div.grid td:first-child, div.grid col.first_column {
 	text-align: left !important;
-}
-
-td.first_column {
-	padding: 0 !important;
-	margin: 0 !important;
-}
-
-td.first_column a {
-	background-repeat: no-repeat;
 }
 
 div.grid .my_role {
@@ -438,176 +267,135 @@ div.grid tr.category td {
 }
 
 .options a.add {
-	background: url(../templates/images/structure/grid_new_file.png) no-repeat left;
+	background: url(../images/structure/grid_new_file.png) no-repeat left;
 }
 
 .options a.sort {
-	background: url(../templates/images/structure/grid_sort.png) no-repeat left;
-}
-
-.hidetext {
-	visibility: hidden;
-	overflow: hidden;
-}
-
-.row_container
-{
-	padding-left: 25px;
-	padding-right: 30px;
-	overflow: hidden;
-}
-
-.row_container, .row_controls {
-	background-color: #e8f0f8;
-}
-
-.row_actions, .row_file {
-	position: relative;
-	float: left;
-	min-height: 40px;
-	line-height: 40px;
-	vertical-align: middle;
-}
-
-.row_actions {
-	width: 25px;
-	right: 55px;
-	padding-top: 5px;
-	margin-left: -100%;
-}
-
-.row_actions a {
-	margin-left: 5px;
-}
-
-.row_file {
-	width: 100%;
-	padding: 5px 15px;
-	background-color: #fff;
-}
-
-.row_file a {
-	padding: 2px 20px;
-}
-
-.multiline
-{
-	line-height: inherit;
+	background: url(../images/structure/grid_sort.png) no-repeat left;
 }
 
 .row_controls {
-	display: none;
-	clear: left;
-	height: 25px;
-	line-height: 25px;
-	vertical-align: middle;
-	overflow: hidden;
-	padding-left: 20px;
+	position: relative;
+	float: left;
+	width: 20px;
+	height: 35px;
 }
 
 .row_controls a {
-	text-decoration: none;
-	color: #777;
-	font-size: 90%;
-	padding: 2px 30px 1px 20px;
+	width: 24px;
+	height: 12px;
+	display: block;
+	text-indent: -1500px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: 0 0;
 }
+
 
 .row_controls a:hover {
-	text-decoration: underline;
-}
-
-.row_controls a:hover {
-	text-decoration: underline;
-}
-
-a.sprite {
-	background-position: 0 top;
-	text-decoration: none;
-	padding: 1px 0px;
-}
-
-a.sprite:hover {
 	background-position: 0 bottom;
 }
 
-a.focus {
-	background-position: 0 bottom;
+.grid td div {
+	float: left;
+	line-height: 35px;
+	vertical-align: middle;
 }
 
-a.notes {
-	background: url(../templates/images/structure/grid_note.png);
+.grid td div a {
+	background-position: 0px 50%;
+	background-repeat: no-repeat;
+	display: inline;
+	padding: 5px 0px 5px 20px;
+	margin-left: 15px;
 }
 
-.hasnotes {
+.information_controls {
+	float: left;
+	line-height: 35px;
+	margin-left: 20px;
+	vertical-align: middle;
+}
+
+a.information {
+	width: 28px;
+	height: 21px;
+	display: block;
+	margin-top: 5px;
+	text-indent: -1500px;
+	overflow: hidden;
+	background: url(../images/structure/grid_notes.png);
+}
+
+a.information:hover {
+	background-position: bottom;
+}
+
+.hasnotes
+{
 	background-position: bottom !important;
 }
 
-a.settings {
-	background-image: url(../templates/images/structure/grid_settings.png);
-}
 
 a.promote {
-	background-image: url(../templates/images/structure/grid_promote.png);
-	margin-left: 40px;
+	position: absolute;
+	top: 0;
+	background-image: url(../images/structure/grid_promote.png);
 }
 
 a.delete {
-	background-image: url(../templates/images/structure/grid_delete.png);
-}
-
-a.edit {
-	background-image: url(../templates/images/structure/grid_edit.png);
-}
-
-a.more_info {
-	background-image: url(../templates/images/structure/grid_information.png);
+	position: absolute;
+	bottom: 0;
+	background-image: url(../images/structure/grid_delete.png);
 }
 
 a.word {
-	background-image: url(../templates/images/structure/page_white_word.png);
+	background-image: url(../images/structure/page_white_word.png);
 }
 
 a.excel {
-	background-image: url(../templates/images/structure/page_white_excel.png);
+	background-image: url(../images/structure/page_white_excel.png);
 }
 
 a.pdf {
-	background-image: url(../templates/images/structure/page_white_acrobat.png);
+	background-image: url(../images/structure/page_white_acrobat.png);
 }
 
 a.picture {
-	background-image: url(../templates/images/structure/page_white_picture.png);
+	background-image: url(../images/structure/page_white_picture.png);
 }
 
 a.html {
-	background-image: url(../templates/images/structure/page_white_world.png);
+	background-image: url(../images/structure/page_white_world.png);
 }
 
-.category td:first-child {
+.category td:first-child
+{
 	top: 0;
 }
-
-.group1 td:first-child {
-	background: url(../templates/images/structure/grid_group_1.png) no-repeat;
+.group1 td:first-child
+{
+	background: url(../images/structure/grid_group_1.png) no-repeat;
+}
+.group2 td:first-child
+{
+	background: url(../images/structure/grid_group_2.png) no-repeat;
+}
+.group3 td:first-child
+{
+	background: url(../images/structure/grid_group_3.png) no-repeat;
+}
+.group4 td:first-child
+{
+	background: url(../images/structure/grid_group_4.png) no-repeat;
+}
+.group5 td:first-child
+{
+	background: url(../images/structure/grid_group_5.png) no-repeat;
 }
 
-.group2 td:first-child {
-	background: url(../templates/images/structure/grid_group_2.png) no-repeat;
-}
-
-.group3 td:first-child {
-	background: url(../templates/images/structure/grid_group_3.png) no-repeat;
-}
-
-.group4 td:first-child {
-	background: url(../templates/images/structure/grid_group_4.png) no-repeat;
-}
-
-.group5 td:first-child {
-	background: url(../templates/images/structure/grid_group_5.png) no-repeat;
-}
-
-a.task {
+a.task
+{
 	width: 100%;
 	height: 100%;
 	text-indent: -1500px;
@@ -617,343 +405,35 @@ a.task {
 	background-repeat: no-repeat;
 }
 
-a.new {
-	background-image: url(../templates/images/structure/grid_task.png);
+a.new
+{
+	background-image: url(../images/structure/grid_task.png);
 }
 
-a.accepted {
-	background-image: url(../templates/images/structure/grid_task_accepted.png);
+a.accepted
+{
+	background-image: url(../images/structure/grid_task_accepted.png);
 }
 
-a.completed {
-	background-image: url(../templates/images/structure/grid_task_complete.png);
+a.completed
+{
+	background-image: url(../images/structure/grid_task_complete.png);
 }
 
-a.overdue {
-	background-image: url(../templates/images/structure/grid_email_overdue.png);
+a.overdue
+{
+	background-image: url(../images/structure/grid_email_overdue.png);
 }
 
-a.notify {
-	background-image: url(../templates/images/structure/grid_email.png);
+a.notify
+{
+	background-image: url(../images/structure/grid_email.png);
 }
 
-a.uploaded {
-	background-image: url(../templates/images/structure/grid_folder.png);
+a.uploaded
+{
+	background-image: url(../images/structure/grid_folder.png);
 }
+
 
 /* @end */
-
-/* @group Font Sizer */
-
-.smallFont {
-	outline: none; /*for making it look nice in FF */
-	background: url(../templates/images/icons/font-down.png);
-	text-indent: -9999px;
-	display: block;
-	float: left;
-	width: 20px;
-	height: 23px;
-}
-
-.defaultFont {
-	/*if you want to hide the default font button, use display:none */
-	background: url(../templates/images/icons/font-default.png);
-	text-indent: -9999px;
-	outline: none;
-	display: block;
-	float: left;
-	width: 20px;
-	height: 23px;
-}
-
-.largeFont {
-	background: url(../templates/images/icons/font-up.png);
-	outline: none;
-	text-indent: -9999px;
-	display: block;
-	float: left;
-	width: 20px;
-	height: 23px;
-}
-
-.ldisabled,.sdisabled { /*Styles for disabled buttons*/
-	opacity: 0.3;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	/*This is for IE8 */
-	filter: alpha(opacity = 30);
-}
-
-/* @end */
-
-/* @group File upload field overrides */
-
-.fileInputContainer {
-	height: 30px; 
-	width: 350px;
-	position:relative;
-	float:left;
-}
-
-input.uploadField {
-	padding: 3px; 
-	margin: 0; 
-	height: 30px; 
-	width: 350px; 
-	position: relative; 
-	z-index: 2; 
-	text-align:right;
-	-moz-opacity:0 ;
-	filter:alpha(opacity: 0);
-	opacity: 0;
-}
-
-.fakeFile {
-	left:0;
-	line-height:90%;
-	margin:0;
-	padding:0;
-	position:absolute;
-	top:0;
-	width:350px;
-	z-index:1;
-}
-
-input.fakeInput {
-	margin-bottom:5px;
-	margin-left:0;
-	height:15px;
-	padding-left:3px;
-	padding-top:1px;
-	width:241px;
-}
-
-input.fakeButton {
-	line-height: 90%;
-}
-
-input.uploadFile {
-	line-height: 90%;
-	height: 29px;
-}
-
-/* @end */
-
-/* @group Other Stuff */
-
-#toolbox .block {
-	padding-left: 7px;
-	margin-bottom: 10px;
-}
-
-#toolbox .blockTitle {
-	font-size: 95%;
-	font-weight: bold;
-}
-
-#toolbox .block ul {
-	padding-top: 2px;
-}
-
-#toolbox .block label {
-	font-size: 85%;
-}
-
-.throbber {
-	display: none;
-	background: url(../templates/images/throbber.gif) no-repeat;
-	width: 25px;
-	height: 25px;
-	margin-left: 50%;
-	margin-top: 5%;
-}
-
-/* @end */
-
-/* @group Response */
-/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
-
-.response .success {
-	background: #daf0da url(../templates/images/structure/response_success.png);
-	border-top: 1px solid #5abd5a;
-	border-bottom: 1px solid #5abd5a;
-}
-
-.response .warning {
-	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
-	border-top: 1px solid #ffd324;
-	border-bottom: 1px solid #ffd324;
-}
-
-.response .error {
-	background: #f8dada url(../templates/images/structure/response_error.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .forbidden {
-	background: #f8dada url(../templates/images/structure/response_forbidden.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .information {
-	background: #c9e3f8 url(../templates/images/structure/response_info.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
-}
-
-.response .help {
-	background: #c9e3f8 url(../templates/images/structure/response_help.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
-}
-
-/* @end */
-
-/* @group Information Center */
-
-span.itemTitle {
-	padding-left: 25px;
-	background-image: url(../templates/images/structure/page_white_word.png);
-	background-repeat: no-repeat;
-	color: #2A5685;
-	font-size: 1.4em;
-}
-
-span.itemLastEvent {
-	color: #888;
-	font-size: 0.8em;
-}
-
-#existingNotes {
-	max-height: 200px;
-	overflow: auto;	
-	padding-right: 5px;
-}
-
-/* @end */
-
-/* @group Tag-it */
-
-ul.tagit {
-	padding:1px 5px;
-	border-style:solid;
-	border-width:1px;
-	border-color:#C6C6C6;
-	overflow:auto !important;
-	width:500px;
-}
-ul.tagit li {
-	-moz-border-radius:5px 5px 5px 5px;
-	display: block;
-	float: left !important;
-	margin:2px 5px 2px 0;
-	clear: none;
-}
-ul.tagit li.tagit-choice {
-	background-color:#DEE7F8;
-	border:1px solid #CAD8F3;
-	padding:2px 4px 3px;
-}
-ul.tagit li.tagit-choice:hover {
-	background-color:#bbcef1;
-	border-color:#6d95e0;
-}
-ul.tagit li.tagit-new {
-	padding:2px 4px 3px;
-	padding:2px 4px 1px;
-	padding:2px 4px 1px 0;
-}
-
-ul.tagit li.tagit-choice input {
-	display:block !important;
-	float:left;
-	margin:2px 5px 2px 0;
-}
-ul.tagit li.tagit-choice a.close {
-	color:#777777;
-	cursor:pointer;
-	font-size:12px;
-	font-weight:bold;
-	outline:medium none;
-	padding:2px 0 2px 3px;
-	text-decoration:none;
-}
-ul.tagit input[type="text"] {
-	-moz-box-sizing:border-box;
-	border:none;
-	margin:0;
-	padding:0;
-	width:inherit;
-	border-color:#C6C6C6;
-	background-color:#FFFFFF;
-	color:#333333;
-}
-
-ul.tagit li:after, ul.tagit li div:after {
-	content:" "; 
-	display:block;
-	clear:none; 
-}
-
-/* @end */
-
-/* @group Advanced reviewer selector */
-
-.sliderLabel {
-	margin-bottom: 10px;
-	font-size: .8em;	
-}
-	
-.sliderValue {
-	border: 0pt none;
-	font-weight: bold;
-	width: 50px;
-}
-
-.rangeSlider {
-	margin-left: 13px;	
-	width: 240px;
-}
-
-/* @end */
-
-/* @group Modal Title bar */
-
-.modalTitleBar {
-	height: 40px;
-	width: 100%;
-	margin-bottom: 15px;	
-}
-
-.modalTitleBar .icon {
-	float: left;
-}
-
-.modalTitleBar .text {
-	margin-left: 15px;
-	font-size: 1.4em;
-	color: #20538D;
-	vertical-align: middle;
-	float: left;	
-}
-
-.modalTitleBar .close {
-	vertical-align: middle;
-	float: right;
-}
-
-.modalTitleBar .fileManagement {
-	background: #daf0da url(../templates/images/structure/response_warning.png) no-repeat;
-	width: 32px;
-	height: 32px;
-}
-
-/* @end */
-
-.roundStatusContainer {
-	height: 40px;
-	margin: 11px;
-	border: 2px solid black;
-	background-color: #FFFFDD;
-}

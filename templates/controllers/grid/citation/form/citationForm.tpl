@@ -1,121 +1,44 @@
+
 {**
- * citationForm.tpl
+ * sponsors.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Citation grid form
+ * Sponsors grid form
+ *
+ * $Id: citationForm.tpl,v 1.1 2009/12/24 05:12:33 jalperin Exp $
  *}
+{**FIXME: fix URL action to use new Request URL method **}
+<form name="editSponsorForm" id="editSponsorForm" method="post" action="{$baseUrl}/index.php/dev/$$$call$$$/grid/sponsor/sponsor-row/update-sponsor"}
+{include file="common/formErrors.tpl"}
 
-{assign var=containerId value="editCitationFormContainer-"|uniqid}
-<div id="{$containerId}">
-	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
-		<h3>{translate key="submission.citations.form.title"}</h3>
+<h3>1.5 {translate key="manager.setup.sponsors"}</h3>
 
-		<p>{translate key="submission.citations.form.description"}</p>
-		{if $unsavedChanges}
-			<p><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
-		{/if}
+<p>{translate key="manager.setup.sponsorsDescription"}</p>
 
-		{include file="common/formErrors.tpl"}
+<table width="100%" class="data">
+	<tr valign="top">
+		<td width="20%" class="label">{fieldLabel name="institution" key="manager.setup.institution"}</td>
+		<td width="80%" class="value"><input type="text" name="institution" id="institution" size="40" maxlength="90" class="textField rule_required" value="{$institution|escape}" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="20%" class="label">{fieldLabel name="url" key="common.url"}</td>
+		<td width="80%" class="value"><input type="text" name="url" id="url" size="40" maxlength="255" class="textField rule_required rule_url" value="{$url|escape}" /></td>
+	</tr>
+</table>
 
-		<span class="options">
-			{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
-			<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
-		</span>
+{if $gridId}
+	<input type="hidden" name="gridId" value="{$gridId|escape}" />	
+{/if}
+{if $rowId}
+	<input type="hidden" name="rowId" value={$rowId|escape} />
+{/if}
+{if $sponsorId}
+	<input type="hidden" name="sponsorId" value="{$sponsorId|escape}" />
+{/if}
 
-		<table width="100%" class="data">
-			<tr valign="top">
-				<td width="15%" class="label">{fieldLabel name="editedCitation" key="submission.citations.grid.editedCitation"}</td>
-				<td width="85%" class="value">{fbvElement type="textarea" name="editedCitation" id="editedCitation" size=$fbvStyles.size.LARGE value=$editedCitation}</td>
-			</tr>
-		</table>
+	
 
-		{assign var=tabUid value="tab"|uniqid}
-		<script type='text/javascript'>
-			$(function() {ldelim}
-				$.ajaxSetup({ldelim}cache:false{rdelim});
-				$("#citationFormTab-{$tabUid}").tabs({ldelim} cache: false {rdelim});
-			{rdelim});
-		</script>
-
-		<div id="citationFormTab-{$tabUid}">
-			<ul>
-				{* Tabs that contain editable fields *}
-				{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-					<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">{$citationFormTabName|escape}</a></li>
-				{/foreach}
-				
-				{* Tabs that contain source data *}
-				{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-					<li><a href="#{$citationSourceTabId}-{$tabUid}">{$citationSourceTab.displayName|escape}</a></li>
-				{/foreach}
-			</ul>
-			
-			{* Tab content for tabs that contain editable fields *}
-			{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-				{assign var=hasRequiredField value=false}
-				<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
-					<table width="100%">
-						<tr valign="top">
-							<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
-							<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
-						</tr>
-						{foreach from=$varsArray key=fieldName item=field}
-							{if $field.required}{assign var=hasRequiredField value=true}{/if}
-							<tr valign="top">
-								<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.displayName required=$field.required}</td>
-								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
-								{eval|assign:"fieldValue" var=$fieldValueVar}
-								<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.LARGE maxlength="250" value=$fieldValue"}</td>
-							</tr>
-						{/foreach}
-					</table>
-					{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
-				</div>
-			{/foreach}
-			
-			{* Tab content for tabs that contain source data *}
-			{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-				<div id="{$citationSourceTabId}-{$tabUid}">
-					<table>
-						{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
-							<tr valign="top">
-								<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-								<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
-								<td width="5%">
-									<a id="{$sourcePropertyId}-use" href="">use</a>
-									{literal}<script type='text/javascript'>
-										$(function() {
-											$('#{/literal}{$sourcePropertyId}{literal}-use').click(function() {
-												// Create the source and target selector
-												tabId = '{/literal}{$tabUid}{literal}';
-												sourcePropertyId = '{/literal}{$sourcePropertyId}{literal}';
-												sourceTabId = sourcePropertyId.substring(0, sourcePropertyId.indexOf('-'));
-												sourceSelector = '#' + sourceTabId + '-' + tabId + ' #' + sourcePropertyId;
-												targetFieldId = sourcePropertyId.substring(sourcePropertyId.indexOf('-') + 1);
-												targetSelector = '#Filled-' + tabId + ' #' + targetFieldId + ', #Empty-' + tabId + ' #' + targetFieldId
-												
-												// Copy the content of the source to the target field
-												$(targetSelector).val($(sourceSelector).text());
-												return false;
-											});
-										});
-									</script>{/literal}
-								</td>
-							</tr>
-						{/foreach}
-					</table>
-				</div>
-			{/foreach}
-		</div>
-
-		<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
-		{if $citation->getId()}
-			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
-			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
-		{/if}
-
-		<p>{translate key="submission.citations.form.approveCitation"}{fbvCheckbox id="citationApproved" name="citationApproved" value="citationApproved" checked=$citationApproved}</p>
-	</form>
-</div>
+<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
+</form>

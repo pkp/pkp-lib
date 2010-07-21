@@ -3,7 +3,7 @@
 /**
  * @file classes/captcha/CaptchaDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CaptchaDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying Captcha keys.
  */
 
-// $Id$
+// $Id: CaptchaDAO.inc.php,v 1.9 2009/12/02 06:22:41 jerico.dev Exp $
 
 
-import('lib.pkp.classes.captcha.Captcha');
+import('captcha.Captcha');
 
 class CaptchaDAO extends DAO {
 	/**

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @file classes/form/validation/FormValidatorControlledVocab.inc.php
+ * @file FormValidatorControlledVocab.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorControlledVocab
@@ -12,23 +12,36 @@
  * @brief Form validation check that checks if value is within a certain set.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+//$Id: FormValidatorControlledVocab.inc.php,v 1.3 2009/04/29 00:02:10 mcrider Exp $
+
+import('form.validation.FormValidator');
 
 class FormValidatorControlledVocab extends FormValidator {
+	/** @var $acceptedValues array */
+	var $acceptedValues;
+
 	/**
 	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
+	 * @see FormValidator::FormValidator()
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
 	function FormValidatorControlledVocab(&$form, $field, $type, $message, $symbolic, $assocType, $assocId) {
-		import('lib.pkp.classes.validation.ValidatorControlledVocab');
-		$validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::FormValidator($form, $field, $type, $message);
+		$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+		$controlledVocab = $controlledVocabDao->getBySymbolic($symbolic, $assocType, $assocId);
+		if ($controlledVocab) $this->acceptedValues = array_keys($controlledVocab->enumerate());
+		else $this->acceptedValues = null;
+	}
+
+	/**
+	 * Check if field value is valid.
+	 * Value is valid if it is empty and optional or is in the set of accepted values.
+	 * @return boolean
+	 */
+	function isValid() {
+		return $this->isEmptyAndOptional() || in_array($this->form->getData($this->field), $this->acceptedValues);
 	}
 }
 

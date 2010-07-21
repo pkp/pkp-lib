@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: tiny_mce_gzip.php 315 2007-10-25 14:03:43Z spocke $
+ * $Id: tiny_mce_gzip.php,v 1.2 2008/07/28 18:39:29 asmecher Exp $
  *
  * @author Moxiecode
  * @copyright Copyright © 2005-2006, Moxiecode Systems AB, All rights reserved.
@@ -22,7 +22,7 @@
 	$compress = getParam("compress", "true") == "true";
 	$core = getParam("core", "true") == "true";
 	$suffix = getParam("suffix", "_src") == "_src" ? "_src" : "";
-	$cachePath = realpath("."); // Cache path, this is where the .gz files will be stored
+	$cachePath = realpath(dirname(dirname(dirname(dirname(dirname(dirname(dirname($_SERVER['SCRIPT_FILENAME']))))))) . '/cache'); // Cache path, this is where the .gz files will be stored
 	$expiresOffset = 3600 * 24 * 10; // Cache for 10 days in browser cache
 	$content = "";
 	$encodings = array();

@@ -1,7 +1,7 @@
 <?php
 /**
 * US-ASCII transliterations of Unicode text
-* @version $Id$
+* @version $Id: utf8_to_ascii.php,v 1.1 2008/10/10 20:52:53 mj Exp $
 * @package utf8_to_ascii
 */
 

@@ -3,7 +3,7 @@
 /**
  * @file classes/db/XMLDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLDAO
@@ -12,10 +12,10 @@
  * @brief Operations for retrieving and modifying objects from an XML data source.
  */
 
-// $Id$
+// $Id: XMLDAO.inc.php,v 1.4 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.xml.XMLParser');
+import('xml.XMLParser');
 
 class XMLDAO {
 	/**

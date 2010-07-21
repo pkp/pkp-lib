@@ -3,7 +3,7 @@
 /**
  * @file classes/core/String.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class String
@@ -13,31 +13,15 @@
  *
  */
 
-// $Id$
+// $Id: String.inc.php,v 1.21 2009/12/09 23:24:53 asmecher Exp $
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:
  * These are defined application-wide for consistency
  */
 
-/*
- * RFC-2396 URIs
- *
- * Thanks to the PEAR Validation package (Tomas V.V.Cox <cox@idecnet.com>,
- * Pierre-Alain Joye <pajoye@php.net>, Amir Mohammad Saied <amir@php.net>)
- *
- * Originally published under the "New BSD License"
- * http://www.opensource.org/licenses/bsd-license.php
- */
-define('PCRE_URI', '(?:([a-z][-+.a-z0-9]*):)?' .                                         // Scheme
-                   '(?://' .
-                   '(?:((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();:\&=+$,])*)@)?' .              // User
-                   '(?:((?:[a-z0-9](?:[-a-z0-9]*[a-z0-9])?\.)*[a-z](?:[a-z0-9]+)?\.?)' . // Hostname
-                   '|([0-9]{1,3}(?:\.[0-9]{1,3}){3}))' .                                 // IP Address
-                   '(?::([0-9]*))?)' .                                                   // Port
-                   '((?:/(?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'():@\&=+$,;])*)*/?)?' .          // Path
-                   '(?:\?([^#]*))?' .                                                    // Query String
-                   '(?:\#((?:%[0-9a-f]{2}|[-a-z0-9_.!~*\'();/?:@\&=+$,])*))?');          // Fragment
+// common URL syntax
+define('PCRE_URL', '(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?(\/.)?');
 
 // RFC-2822 email addresses
 define('PCRE_EMAIL_ADDRESS',
@@ -48,14 +32,10 @@ define('PCRE_EMAIL_ADDRESS',
 	'([a-z0-9]([-a-z0-9]*[a-z0-9]+)?)' . '{2,63}' // Must be followed by one set consisting a period of two or max 63 domain characters.
 	);
 
-// Two different types of camel case: one for class names and one for method names
-define ('CAMEL_CASE_HEAD_UP', 0x01);
-define ('CAMEL_CASE_HEAD_DOWN', 0x02);
-
 class String {
 	/**
-	 * Perform initialization required for the string wrapper library.
-	 */
+	* Perform initialization required for the string wrapper library.
+	*/
 	function init() {
 		$clientCharset = strtolower(Config::getVar('i18n', 'client_charset'));
 
@@ -80,11 +60,11 @@ class String {
 	}
 
 	/**
-	 * Check if server has the mbstring library.
-	 * Currently requires PHP >= 4.3.0 (for mb_strtolower, mb_strtoupper,
-	 * and mb_substr_count)
-	 * @return boolean
-	 */
+	* Check if server has the mbstring library.
+	* Currently requires PHP >= 4.3.0 (for mb_strtolower, mb_strtoupper,
+	* and mb_substr_count)
+	* @return boolean
+	*/
 	function hasMBString() {
 		static $hasMBString;
 		if (isset($hasMBString)) return $hasMBString;
@@ -111,9 +91,9 @@ class String {
 	}
 
 	/**
-	 * Check if server supports the PCRE_UTF8 modifier.
-	 * @return boolean
-	 */
+	* Check if server supports the PCRE_UTF8 modifier.
+	* @return boolean
+	*/
 	function hasPCREUTF8() {
 		// The PCRE_UTF8 modifier is only supported on PHP >= 4.1.0 (*nix) or PHP >= 4.2.3 (win32)
 		// Evil check to see if PCRE_UTF8 is supported
@@ -130,138 +110,86 @@ class String {
 	//
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strlen.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strlen.php
+	*/
 	function strlen($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_strlen($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strpos.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strpos.php
+	*/
 	function strpos($haystack, $needle, $offset = 0) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_strpos($haystack, $needle, $offset);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strrpos.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strrpos.php
+	*/
 	function strrpos($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_strrpos($haystack, $needle, $offset);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.substr.php
-	 */
+	* @see http://ca.php.net/manual/en/function.substr.php
+	*/
 	function substr($string, $start, $length = false) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
-			// The default length value for the native implementation
-			// differs
-			if ($length === false) $length = null;
+			require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_substr($string, $start, $length);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.substr_replace.php
-	 * Thanks to poster at http://ca.php.net/manual/en/function.substr-replace.php#90146
-	 */
-	function substr_replace($string, $replacement, $start, $length = null) {
-		if (function_exists('mb_substr_replace') === false) {
-			function mb_substr_replace($string, $replacement, $start, $length = null) {
-				if (extension_loaded('mbstring') === true) {
-					$string_length = String::strlen($string);
-
-					if ($start < 0) {
-						$start = max(0, $string_length + $start);
-					} else if ($start > $string_length) {
-						$start = $string_length;
-					}
-
-					if ($length < 0) {
-						$length = max(0, $string_length - $start + $length);
-					} else if ((is_null($length) === true) || ($length > $string_length)) {
-						$length = $string_length;
-					}
-
-					if (($start + $length) > $string_length) {
-						$length = $string_length - $start;
-					}
-
-					return String::substr($string, 0, $start) . $replacement . String::substr($string, $start + $length, $string_length - $start - $length);
-				}
-			}
-
-			return (is_null($length) === true) ? substr_replace($string, $replacement, $start) : substr_replace($string, $replacement, $start, $length);
-		}
-	}
-
-	/**
-	 * @see http://ca.php.net/manual/en/function.strtolower.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strtolower.php
+	*/
 	function strtolower($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_strtolower($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.strtoupper.php
-	 */
+	* @see http://ca.php.net/manual/en/function.strtoupper.php
+	*/
 	function strtoupper($string) {
 		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+			require_once 'mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
+		 	require_once 'utils/unicode.php';
+			require_once 'native/core.php';
 		}
 		return utf8_strtoupper($string);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.ucfirst.php
-	 */
-	function ucfirst($string) {
-		if (defined('ENABLE_MBSTRING')) {
-			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
-			require_once './lib/pkp/lib/phputf8/ucfirst.php';
-		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-			require_once './lib/pkp/lib/phputf8/native/core.php';
-			require_once './lib/pkp/lib/phputf8/ucfirst.php';
-		}
-		return utf8_ucfirst($string);
-	}
-
-	/**
-	 * @see http://ca.php.net/manual/en/function.substr_count.php
-	 */
+	* @see http://ca.php.net/manual/en/function.substr_count.php
+	*/
 	function substr_count($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_substr_count($haystack, $needle); // Requires PHP >= 4.3.0
@@ -271,8 +199,8 @@ class String {
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.encode_mime_header.php
-	 */
+	* @see http://ca.php.net/manual/en/function.encode_mime_header.php
+	*/
 	function encode_mime_header($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_encode_mimeheader($string, mb_internal_encoding(), 'B', MAIL_EOL);
@@ -282,8 +210,8 @@ class String {
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.mail.php
-	 */
+	* @see http://ca.php.net/manual/en/function.mail.php
+	*/
 	function mail($to, $subject, $message, $additional_headers = '', $additional_parameters = '') {
 		// Cannot use mb_send_mail as it base64 encodes the whole body of the email,
 		// making it useless for multipart emails
@@ -300,31 +228,31 @@ class String {
 	//
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_quote.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_quote.php
+	*/
 	function regexp_quote($string, $delimiter = '/') {
 		return preg_quote($string, $delimiter);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_grep.php
+	*/
 	function regexp_grep($pattern, $input) {
 		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
 		return preg_grep($pattern . PCRE_UTF8, $input);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match.php
+	*/
 	function regexp_match($pattern, $subject) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match_get.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match_get.php
+	*/
 	function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
@@ -332,40 +260,40 @@ class String {
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_match_all.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_match_all.php
+	*/
 	function regexp_match_all($pattern, $subject, &$matches) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_replace.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_replace.php
+	*/
 	function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
+	*/
 	function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.regexp_split.php
-	 */
+	* @see http://ca.php.net/manual/en/function.regexp_split.php
+	*/
 	function regexp_split($pattern, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
 	}
 
 	/**
-	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
-	 */
+	* @see http://ca.php.net/manual/en/function.mime_content_type.php
+	*/
 	function mime_content_type($filename) {
 		if (function_exists('mime_content_type')) {
 			$result = mime_content_type($filename);
@@ -376,7 +304,7 @@ class String {
 			}
 			return $result;
 		} elseif (function_exists('finfo_open')) {
-			$fi =& Registry::get('fileInfo', true, null);
+			$localeFiles =& Registry::get('fileInfo', true, null);
 			if ($fi === null) {
 				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
 			}
@@ -397,11 +325,11 @@ class String {
 
 
 	/**
-	 * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
-	 * onclick(...) attributes, javascript: urls, and special characters.
-	 * @param $input string input string
-	 * @return string
-	 */
+	* Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
+	* onclick(...) attributes, javascript: urls, and special characters.
+	* @param $input string input string
+	* @return string
+	*/
 	function stripUnsafeHtml($input) {
 		// Parts of this implementation were taken from Horde:
 		// see http://cvs.horde.org/co.php/framework/MIME/MIME/Viewer/html.php.
@@ -458,94 +386,80 @@ class String {
 		return $html;
 	}
 
-	/**
-	 * Convert limited HTML into a string.
-	 * @param $html string
-	 * @return string
-	 */
-	function html2text($html) {
-		$html = String::regexp_replace('/<[\/]?p>/', "\n", $html);
-		$html = String::regexp_replace('/<li>/', '&bull; ', $html);
-		$html = String::regexp_replace('/<\/li>/', "\n", $html);
-		$html = String::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
-		$html = String::html2utf(strip_tags($html));
-		return $html;
-	}
-
 	//
 	// Wrappers for UTF-8 validation routines
 	// See the phputf8 documentation for usage.
 	//
 
 	/**
-	 * Detect whether a string contains non-ascii multibyte sequences in the UTF-8 range
-	 * @param $str string input string
-	 * @return boolean
-	 */
+	* Detect whether a string contains non-ascii multibyte sequences in the UTF-8 range
+	* @param $input string input string
+	* @return boolean
+	*/
 	function utf8_is_valid($str) {
-		require_once './lib/pkp/lib/phputf8/utils/validation.php';
+		require_once 'utils/validation.php';
 		return utf8_is_valid($str);
 	}
 
 	/**
-	 * Tests whether a string complies as UTF-8; faster and less strict than utf8_is_valid
-	 * see lib/phputf8/utils/validation.php for more details
-	 * @param $str string input string
-	 * @return boolean
-	 */
+	* Tests whether a string complies as UTF-8; faster and less strict than utf8_is_valid
+	* see lib/phputf8/utils/validation.php for more details
+	* @param $input string input string
+	* @return boolean
+	*/
 	function utf8_compliant($str) {
-		require_once './lib/pkp/lib/phputf8/utils/validation.php';
+		require_once 'utils/validation.php';
 		return utf8_compliant($str);
 	}
 
 	/**
-	 * Locates the first bad byte in a UTF-8 string returning it's byte index in the string
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Locates the first bad byte in a UTF-8 string returning it's byte index in the string
+	* @param $input string input string
+	* @return string
+	*/
 	function utf8_bad_find($str) {
-		require_once './lib/pkp/lib/phputf8/utils/bad.php';
+		require_once 'utils/bad.php';
 		return utf8_bad_find($str);
 	}
 
 	/**
-	 * Strips out any bad bytes from a UTF-8 string and returns the rest
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Strips out any bad bytes from a UTF-8 string and returns the rest
+	* @param $input string input string
+	* @return string
+	*/
 	function utf8_bad_strip($str) {
-		require_once './lib/pkp/lib/phputf8/utils/bad.php';
+		require_once 'utils/bad.php';
 		return utf8_bad_strip($str);
 	}
 
 	/**
-	 * Replace bad bytes with an alternative character - ASCII character
-	 * @param $str string input string
-	 * @param $replace string optional
-	 * @return string
-	 */
+	* Replace bad bytes with an alternative character - ASCII character
+	* @param $str string input string
+	* @param $replace string optional
+	* @return string
+	*/
 	function utf8_bad_replace($str, $replace = '?') {
-		require_once './lib/pkp/lib/phputf8/utils/bad.php';
+		require_once 'utils/bad.php';
 		return utf8_bad_replace($str, $replace);
 	}
 
 	/**
-	 * Replace bad bytes with an alternative character - ASCII character
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Replace bad bytes with an alternative character - ASCII character
+	* @param $input string input string
+	* @return string
+	*/
 	function utf8_strip_ascii_ctrl($str) {
-		require_once './lib/pkp/lib/phputf8/utils/ascii.php';
+		require_once 'utils/ascii.php';
 		return utf8_strip_ascii_ctrl($str);
 	}
 
 	/**
-	 * Normalize a string in an unknown (non-UTF8) encoding into a valid UTF-8 sequence
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Normalize a string in an unknown (non-UTF8) encoding into a valid UTF-8 sequence
+	* @param $input string input string
+	* @return string
+	*/
 	function utf8_normalize($str) {
-		import('lib.pkp.classes.core.Transcoder');
+		import('core.Transcoder');
 
 		if (String::hasMBString()) {
 			// NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
@@ -579,22 +493,12 @@ class String {
 	}
 
 	/**
-	 * US-ASCII transliterations of Unicode text
-	 * @param $str string input string
-	 * @return string
-	 */
-	function utf8_to_ascii($str) {
-		require_once('./lib/pkp/lib/phputf8/utf8_to_ascii.php');
-		return utf8_to_ascii($str);
-	}
-
-	/**
-	 * Returns the UTF-8 string corresponding to the unicode value
-	 * Does not require any multibyte PHP libraries
-	 * (from php.net, courtesy - romans@void.lv)
-	 * @param $num int
-	 * @return string
-	 */
+	* Returns the UTF-8 string corresponding to the unicode value
+	* Does not require any multibyte PHP libraries
+	* (from php.net, courtesy - romans@void.lv)
+	* @param $num int
+	* @return string
+	*/
 	function code2utf ($num) {
 		if ($num < 128) return chr($num);
 		if ($num < 2048) return chr(($num >> 6) + 192) . chr(($num & 63) + 128);
@@ -604,11 +508,11 @@ class String {
 	}
 
 	/**
-	 * Convert UTF-8 encoded characters in a string to escaped HTML entities
-	 * This is a helper function for transcoding into HTML or XML for output
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Convert UTF-8 encoded characters in a string to escaped HTML entities
+	* This is a helper function for transcoding into HTML or XML for output
+	* @param $input string input string
+	* @return string
+	*/
 	function utf2html ($str) {
 		$ret = "";
 		$max = strlen($str);
@@ -648,11 +552,11 @@ class String {
 	}
 
 	/**
-	 * Convert numeric HTML entities in a string to UTF-8 encoded characters
-	 * This is a native alternative to the buggy html_entity_decode() using UTF8
-	 * @param $str string input string
-	 * @return string
-	 */
+	* Convert numeric HTML entities in a string to UTF-8 encoded characters
+	* This is a native alternative to the buggy html_entity_decode() using UTF8
+	* @param $str string input string
+	* @return string
+	*/
 	function html2utf($str) {
 		// convert named entities to numeric entities
 		$str = strtr($str, String::getHTMLEntities());
@@ -665,11 +569,11 @@ class String {
 	}
 
 	/**
-	 * Return an associative array of named->numeric HTML entities
-	 * Required to support HTML functions without objects in PHP4/PHP5
-	 * From php.net: function.get-html-translation-table.php
-	 * @return string
-	 */
+	* Return an associative array of named->numeric HTML entities
+	* Required to support HTML functions without objects in PHP4/PHP5
+	* From php.net: function.get-html-translation-table.php
+	* @return string
+	*/
 	function getHTMLEntities () {
 		// define the conversion table
 		$html_entities = array(
@@ -764,9 +668,9 @@ class String {
 	}
 
 	/**
-	 * Wrapper around fputcsv for systems that may or may not support it
-	 * (i.e. PHP before 5.1.0); see PHP documentation for fputcsv.
-	 */
+	* Wrapper around fputcsv for systems that may or may not support it
+	* (i.e. PHP before 5.1.0); see PHP documentation for fputcsv.
+	*/
 	function fputcsv(&$handle, $fields = array(), $delimiter = ',', $enclosure = '"') {
 		// From PHP website, thanks to boefje at hotmail dot com
 		if (function_exists('fputcsv')) {
@@ -800,243 +704,6 @@ class String {
 		$str = substr($str, 0, -1);
 		$str .= "\n";
 		return fwrite($handle, $str);
-	}
-
-	/**
-	 * Trim punctuation from a string
-	 * @param $string string input string
-	 * @return string the trimmed string
-	 */
-	function trimPunctuation($string) {
-		return trim($string, ' ,.;:!?&()[]\\/');
-	}
-
-	/**
-	 * Convert a string to proper title case
-	 * @param $title string
-	 * @return string
-	 */
-	function titleCase($title) {
-		$smallWords = array(
-			'of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then',
-			'else', 'when', 'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out',
-			'over', 'to', 'into', 'with'
-		);
-
-		$words = explode(' ', $title);
-		foreach ($words as $key => $word) {
-			if ($key == 0 or !in_array(self::strtolower($word), $smallWords)) {
-				$words[$key] = ucfirst(self::strtolower($word));
-			} else {
-				$words[$key] = self::strtolower($word);
-			}
-		}
-
-		$newTitle = implode(' ', $words);
-		return $newTitle;
-	}
-
-	/**
-	 * Iterate over an array of delimiters and see whether
-	 * it exists in the given input string. If so, then use
-	 * it to explode the string into an array.
-	 * @param $delimiters array
-	 * @param $input string
-	 * @return array
-	 */
-	function iterativeExplode($delimiters, $input) {
-		// Run through the delimiters and try them out
-		// one by one.
-		foreach($delimiters as $delimiter) {
-			if (strstr($input, $delimiter) !== false) {
-				return explode($delimiter, $input);
-			}
-		}
-
-		// If none of the delimiters works then return
-		// the original string as an array.
-		return (array($input));
-	}
-
-
-
-	/**
-	 * Transform "handler-class" to "HandlerClass"
-	 * and "my-op" to "myOp".
-	 * @param $string input string
-	 * @param $type which kind of camel case?
-	 * @return string the string in camel case
-	 */
-	function camelize($string, $type = CAMEL_CASE_HEAD_UP) {
-		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
-
-		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
-		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
-
-		// Transform "MyOp" to "myOp"
-		if ($type == CAMEL_CASE_HEAD_DOWN) {
-			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
-			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
-		}
-
-		return $string;
-	}
-
-	/**
-	 * Transform "HandlerClass" to "handler-class"
-	 * and "myOp" to "my-op".
-	 * @param $string
-	 */
-	function uncamelize($string) {
-		assert(!empty($string));
-
-		// Transform "myOp" to "MyOp"
-		$string = ucfirst($string);
-
-		// Insert hyphens between words and return the string in lowercase
-		$words = array();
-		String::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
-		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
-		return strtolower(implode('-', $words[0]));
-	}
-
-	/**
-	 * Calculate the differences between two strings and
-	 * produce an array with three types of entries: added
-	 * substrings, deleted substrings and unchanged substrings.
-	 *
-	 * The calculation is optimized to identify the common
-	 * largest substring.
-	 *
-	 * The return value is an array of the following format:
-	 *
-	 * array(
-	 *   array( diff-type => substring ),
-	 *   array(...)
-	 * )
-	 *
-	 * whereby diff-type can be one of:
-	 *   -1 = deletion
-	 *    0 = common substring
-	 *    1 = addition
-	 *
-	 * @param $string1 string
-	 * @param $string2 string
-	 * @return array
-	 */
-	function diff($originalString, $editedString) {
-		// Determine the length of the strings.
-		$originalStringLength = String::strlen($originalString);
-		$editedStringLength = String::strlen($editedString);
-
-		// Is there anything to compare?
-		if ($originalStringLength == 0 && $editedStringLength == 0) return array();
-
-		// Is the original string empty?
-		if ($originalStringLength == 0) {
-			// Return the edited string as addition.
-			return array(array(1 => $editedString));
-		}
-
-		// Is the edited string empty?
-		if ($editedStringLength == 0) {
-			// Return the original string as deletion.
-			return array(array(-1 => $originalString));
-		}
-
-		// Initialize the local indices:
-		// 1) Create a character index for the edited string.
-		$characterIndex = array();
-		for($characterPosition = 0; $characterPosition < $editedStringLength; $characterPosition++) {
-			$characterIndex[$editedString[$characterPosition]][] = $characterPosition;
-		}
-		// 2) Initialize the substring and the length index.
-		$substringIndex = $lengthIndex = array();
-
-		// Iterate over the original string to identify
-		// the largest common string.
-		for($originalPosition = 0; $originalPosition < $originalStringLength; $originalPosition++) {
-			// Find all occurrences of the original character
-			// in the target string.
-			$comparedCharacter = $originalString[$originalPosition];
-
-			// Do we have a commonality between the original string
-			// and the edited string?
-			if (isset($characterIndex[$comparedCharacter])) {
-				// Loop over all commonalities.
-				foreach($characterIndex[$comparedCharacter] as $editedPosition) {
-					// Calculate the current and the preceding position
-					// ids for indexation.
-					$currentPosition = $originalPosition . '-' . $editedPosition;
-					$previousPosition = ($originalPosition-1) . '-' . ($editedPosition-1);
-
-					// Does the occurrence in the target string continue
-					// an existing common substring or does it start
-					// a new one?
-					if (isset($substringIndex[$previousPosition])) {
-						// This is a continuation of an existing common
-						// substring...
-						$newSubstring = $substringIndex[$previousPosition].$comparedCharacter;
-						$newSubstringLength = String::strlen($newSubstring);
-
-						// Move the substring in the substring index.
-						$substringIndex[$currentPosition] = $newSubstring;
-						unset($substringIndex[$previousPosition]);
-
-						// Move the substring in the length index.
-						$lengthIndex[$newSubstringLength][$currentPosition] = $newSubstring;
-						unset($lengthIndex[$newSubstringLength - 1][$previousPosition]);
-					} else {
-						// Start a new common substring...
-						// Add the substring to the substring index.
-						$substringIndex[$currentPosition] = $comparedCharacter;
-
-						// Add the substring to the length index.
-						$lengthIndex[1][$currentPosition] = $comparedCharacter;
-					}
-				}
-			}
-		}
-
-		// If we have no commonalities at all then mark the original
-		// string as deleted and the edited string as added and
-		// return.
-		if (empty($lengthIndex)) {
-			return array(
-				array( -1 => $originalString ),
-				array( 1 => $editedString )
-			);
-		}
-
-		// Pop the largest common substrings from the length index.
-		end($lengthIndex);
-		$largestSubstringLength = key($lengthIndex);
-
-		// Take the first common substring if we have more than
-		// one substring with the same length.
-		// FIXME: Find a better heuristic for this decision.
-		reset($lengthIndex[$largestSubstringLength]);
-		$largestSubstringPosition = key($lengthIndex[$largestSubstringLength]);
-		list($largestSubstringEndOriginal, $largestSubstringEndEdited) = explode('-', $largestSubstringPosition);
-		$largestSubstring = $lengthIndex[$largestSubstringLength][$largestSubstringPosition];
-
-		// Add the largest common substring to the result set
-		$diffResult = array(array( 0 => $largestSubstring ));
-
-		// Prepend the diff of the substrings before the common substring
-		// to the result diff (by recursion).
-		$precedingSubstringOriginal = String::substr($originalString, 0, $largestSubstringEndOriginal-$largestSubstringLength+1);
-		$precedingSubstringEdited = String::substr($editedString, 0, $largestSubstringEndEdited-$largestSubstringLength+1);
-		$diffResult = array_merge(String::diff($precedingSubstringOriginal, $precedingSubstringEdited), $diffResult);
-
-		// Append the diff of the substrings after thr common substring
-		// to the result diff (by recursion).
-		$succeedingSubstringOriginal = String::substr($originalString, $largestSubstringEndOriginal+1);
-		$succeedingSubstringEdited = String::substr($editedString, $largestSubstringEndEdited+1);
-		$diffResult = array_merge($diffResult, String::diff($succeedingSubstringOriginal, $succeedingSubstringEdited));
-
-		// Return the array representing the diff.
-		return $diffResult;
 	}
 }
 

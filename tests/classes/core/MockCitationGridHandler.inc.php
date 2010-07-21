@@ -2,28 +2,27 @@
 /**
  * @file tests/classes/core/MockCitationGridHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationGridHandler
- * @ingroup tests_classes_core
+ * @ingroup tests
  * @see PKPComponentRouterTest
  *
  * @brief Mock implementation of the CitationGridHandler class for the PKPComponentRouterTest
  */
 
-import('lib.pkp.classes.handler.PKPHandler');
+// $Id$
+
+
+import('classes.handler.PKPHandler');
 
 class CitationGridHandler extends PKPHandler {
 	private $_fetchArgs;
 
 	function CitationGridHandler() {
-		$this->_checks = array();
 		// Make sure that the parent constructor
 		// will not be called.
-
-		// Assign operations to roles.
-		$this->addRoleAssignment(ROLE_ID_AUTHOR, 'fetch');
 	}
 
 	function fetch() {
@@ -43,6 +42,10 @@ class CitationGridHandler extends PKPHandler {
 		// list and should therefore not be granted remote
 		// access.
 		assert(false);
+	}
+
+	function getRemoteOperations() {
+		return array('fetch');
 	}
 }
 ?>

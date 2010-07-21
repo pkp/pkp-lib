@@ -3,7 +3,7 @@
 /**
  * @file classes/notification/NotificationSettingsDAODAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationSettingsDAO
@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying user's notification settings.
  */
 
-// $Id$
+// $Id: NotificationSettingsDAO.inc.php,v 1.5 2009/05/13 16:35:48 asmecher Exp $
 
 class NotificationSettingsDAO extends DAO {
 	/**
@@ -274,7 +274,7 @@ class NotificationSettingsDAO extends DAO {
 		// Get assoc_id into notification_settings table, also used as user_id for access key
 		$assocId = $this->getInsertNotificationSettingId();
 
-		import('lib.pkp.classes.security.AccessKeyManager');
+		import('security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
 
 		$password = $accessKeyManager->createKey('MailListContext', $assocId, $assocId, 10000);
@@ -308,7 +308,7 @@ class NotificationSettingsDAO extends DAO {
 		$result->Close();
 		unset($result);
 
-		import('lib.pkp.classes.security.AccessKeyManager');
+		import('security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
 		$accessKeyHash = AccessKeyManager::generateKeyHash($password);
 		$accessKey = $accessKeyManager->validateKey('MailListContext', $userId, $accessKeyHash);

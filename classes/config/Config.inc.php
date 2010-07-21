@@ -7,7 +7,7 @@
 /**
  * @file classes/config/Config.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Config
@@ -16,13 +16,13 @@
  * @brief Config class for accessing configuration parameters.
  */
 
-// $Id$
+// $Id: Config.inc.php,v 1.10 2009/12/02 06:22:42 jerico.dev Exp $
 
 
 /** The path to the default configuration file */
 define('CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');
 
-import('lib.pkp.classes.config.ConfigParser');
+import('config.ConfigParser');
 
 class Config {
 	/**

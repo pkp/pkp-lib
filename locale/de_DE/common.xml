@@ -4,12 +4,12 @@
 <!--
   * locale/de_DE/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.9 2009/12/03 06:33:55 jmacgreg Exp $
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">

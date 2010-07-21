@@ -3,7 +3,7 @@
 /**
  * @file classes/file/TemporaryFileManager.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPTemporaryFileManager
@@ -13,10 +13,10 @@
  * @brief Class defining operations for temporary file management.
  */
 
-// $Id$
+// $Id: PKPTemporaryFileManager.inc.php,v 1.4 2009/05/13 00:13:20 asmecher Exp $
 
 
-import('lib.pkp.classes.file.FileManager');
+import('file.FileManager');
 
 class PKPTemporaryFileManager extends FileManager {
 	/**

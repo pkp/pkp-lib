@@ -7,7 +7,7 @@
 /**
  * @file classes/security/AccessKey.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AccessKey
@@ -17,7 +17,7 @@
  * @brief AccessKey class.
  */
 
-// $Id$
+// $Id: AccessKey.inc.php,v 1.6 2009/12/02 06:22:42 jerico.dev Exp $
 
 
 class AccessKey extends DataObject {

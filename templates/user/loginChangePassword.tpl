@@ -1,12 +1,12 @@
 {**
  * loginChangePassword.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to change a user's password in order to login.
  *
- * $Id$
+ * $Id: loginChangePassword.tpl,v 1.3 2009/05/26 01:31:32 mcrider Exp $
  *}
 {strip}
 {assign var="pageTitle" value="user.changePassword"}

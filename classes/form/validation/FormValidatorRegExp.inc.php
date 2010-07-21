@@ -3,7 +3,7 @@
 /**
  * @file classes/form/validation/FormValidatorRegExp.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorRegExp
@@ -12,21 +12,33 @@
  * @brief Form validation check using a regular expression.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+// $Id: FormValidatorRegExp.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
+
+
+import ('form.validation.FormValidator');
 
 class FormValidatorRegExp extends FormValidator {
+
+	/** The regular expression to match against the field value */
+	var $regExp;
+
 	/**
 	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
+	 * @see FormValidator::FormValidator()
 	 * @param $regExp string the regular expression (PCRE form)
 	 */
 	function FormValidatorRegExp(&$form, $field, $type, $message, $regExp) {
-		import('lib.pkp.classes.validation.ValidatorRegExp');
-		$validator = new ValidatorRegExp($regExp);
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::FormValidator($form, $field, $type, $message);
+		$this->regExp = $regExp;
+	}
+
+	/**
+	 * Check if field value is valid.
+	 * Value is valid if it is empty and optional or matches regular expression.
+	 * @return boolean
+	 */
+	function isValid() {
+		return $this->isEmptyAndOptional() || String::regexp_match($this->regExp, $this->form->getData($this->field));
 	}
 }
 

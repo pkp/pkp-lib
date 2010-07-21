@@ -4,12 +4,12 @@
 <!--
   * locale/ru_RU/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.5 2009/12/06 22:11:25 jmacgreg Exp $
   -->
 
 <locale name="ru_RU" full_name = "Russian">

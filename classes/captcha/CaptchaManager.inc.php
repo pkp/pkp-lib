@@ -3,7 +3,7 @@
 /**
  * @file classes/captcha/CaptchaManager.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CaptchaManager
@@ -13,10 +13,10 @@
  * @brief Class providing captcha services.
  */
 
-// $Id$
+// $Id: CaptchaManager.inc.php,v 1.6 2009/10/13 21:29:27 jerico.dev Exp $
 
 
-import('lib.pkp.classes.file.FileManager');
+import('file.FileManager');
 
 class CaptchaManager {
 	/**

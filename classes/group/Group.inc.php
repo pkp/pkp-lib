@@ -7,7 +7,7 @@
 /**
  * @file classes/group/Group.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Group
@@ -17,7 +17,7 @@
  * @brief Describes user groups.
  */
 
-// $Id$
+// $Id: Group.inc.php,v 1.10 2009/12/02 06:22:41 jerico.dev Exp $
 
 
 define('GROUP_CONTEXT_EDITORIAL_TEAM',	0x000001);

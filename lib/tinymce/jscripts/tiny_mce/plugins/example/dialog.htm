@@ -13,8 +13,13 @@
 	<p>Custom arg: <input id="somearg" name="somearg" type="text" class="text" /></p>
 
 	<div class="mceActionPanel">
-		<input type="button" id="insert" name="insert" value="{#insert}" onclick="ExampleDialog.insert();" />
-		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		<div style="float: left">
+			<input type="button" id="insert" name="insert" value="{#insert}" onclick="ExampleDialog.insert();" />
+		</div>
+
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
 	</div>
 </form>
 

@@ -3,7 +3,7 @@
 /**
  * @file classes/core/PKPRequest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPRequest
@@ -11,6 +11,8 @@
  *
  * @brief Class providing operations associated with HTTP requests.
  */
+
+// $Id: PKPRequest.inc.php,v 1.22 2009/12/21 01:54:34 jerico.dev Exp $
 
 
 class PKPRequest {
@@ -35,6 +37,9 @@ class PKPRequest {
 	var $_baseUrl;
 	/** @var string request protocol */
 	var $_protocol;
+	/** @var boolean true, if deprecation warning is switched on */
+	var $_deprecationWarning = null;
+
 
 
 	/**
@@ -93,12 +98,13 @@ class PKPRequest {
 	}
 
 	/**
-	 * Get the IF_MODIFIED_SINCE date (as a numerical timestamp) if available
-	 * @return int
+	 * Handle a 404 error (page not found).
 	 */
-	function getIfModifiedSince() {
-		if (!isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) return null;
-		return strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']);
+	function handle404() {
+		PKPRequest::_checkThis();
+
+		header('HTTP/1.0 404 Not Found');
+		fatalError('404 Not Found');
 	}
 
 	/**
@@ -290,8 +296,7 @@ class PKPRequest {
 	function getRequestMethod() {
 		PKPRequest::_checkThis();
 
-		$requestMethod = (isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : '');
-		return $requestMethod;
+		return $_SERVER['REQUEST_METHOD'];
 	}
 
 	/**
@@ -323,18 +328,21 @@ class PKPRequest {
 
 		static $ipaddr;
 		if (!isset($ipaddr)) {
-			if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
-				preg_match_all('/([0-9.a-fA-F:]+)/', $_SERVER['HTTP_X_FORWARDED_FOR'], $matches)) {
-			} else if (isset($_SERVER['REMOTE_ADDR']) &&
-				preg_match_all('/([0-9.a-fA-F:]+)/', $_SERVER['REMOTE_ADDR'], $matches)) {
-			} else if (preg_match_all('/([0-9.a-fA-F:]+)/', getenv('REMOTE_ADDR'), $matches)) {
-			} else {
+			if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				$ipaddr = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else if (isset($_SERVER['REMOTE_ADDR'])) {
+				$ipaddr = $_SERVER['REMOTE_ADDR'];
+			}
+			if (!isset($ipaddr) || empty($ipaddr)) {
+				$ipaddr = getenv('REMOTE_ADDR');
+			}
+			if (!isset($ipaddr) || $ipaddr == false) {
 				$ipaddr = '';
 			}
 
-			if (!isset($ipaddr)) {
-				// If multiple addresses are listed, take the last. (Supports ipv6.)
-				$ipaddr = $matches[0][count($matches[0])-1];
+			// If multiple addresses are listed, take the first. (Supports ipv6.)
+			if (preg_match('/^([0-9.a-fA-F:]+)/', $ipaddr, $matches)) {
+				$ipaddr = $matches[1];
 			}
 			HookRegistry::call('Request::getRemoteAddr', array(&$ipaddr));
 		}
@@ -438,8 +446,6 @@ class PKPRequest {
 		if ($site === null) {
 			$siteDao =& DAORegistry::getDAO('SiteDAO');
 			$site =& $siteDao->getSite();
-			// PHP bug? This is needed for some reason or extra queries results.
-			Registry::set('site', $site);
 		}
 
 		return $site;
@@ -687,8 +693,9 @@ class PKPRequest {
 	 * with static calls to PKPRequest.
 	 *
 	 * If it is called non-statically then it will simply
-	 * return $this. Otherwise a global singleton instance
-	 * from the registry will be returned instead.
+	 * return $this. Otherwise it will issue a deprecation
+	 * warning and expect a global singleton instance in the
+	 * registry that will be returned instead.
 	 *
 	 * NB: This method is protected and may not be used by
 	 * external classes. It should also only be used in legacy
@@ -700,14 +707,15 @@ class PKPRequest {
 		if (isset($this) && is_a($this, 'PKPRequest')) {
 			return $this;
 		} else {
-			// This call is deprecated. We don't trigger a
-			// deprecation error, though, as there are so
-			// many instances of this error that it has a
-			// performance impact and renders the error
-			// log virtually useless when deprecation
-			// warnings are switched on.
-			// FIXME: Fix enough instances of this error so that
-			// we can put a deprecation warning in here.
+			// We have to use a static variable here as
+			// this deprecated call is static itself.
+			static $deprecationWarning = null;
+			if (is_null($deprecationWarning)) {
+				$deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
+				if (is_null($deprecationWarning)) $deprecationWarning = false;
+			}
+			if ($deprecationWarning) trigger_error('Deprecated static function call');
+
 			$instance =& Registry::get('request');
 			assert(!is_null($instance));
 			return $instance;
@@ -728,15 +736,13 @@ class PKPRequest {
 	 * @return mixed depends on the called method
 	 */
 	function &_delegateToRouter($method) {
-		// This call is deprecated. We don't trigger a
-		// deprecation error, though, as there are so
-		// many instances of this error that it has a
-		// performance impact and renders the error
-		// log virtually useless when deprecation
-		// warnings are switched on.
-		// FIXME: Fix enough instances of this error so that
-		// we can put a deprecation warning in here.
 		$_this =& PKPRequest::_checkThis();
+		if (is_null($_this->_deprecationWarning)) {
+			$_this->_deprecationWarning = Config::getVar('debug', 'deprecation_warnings');
+			if (is_null($_this->_deprecationWarning)) $_this->_deprecationWarning = false;
+		}
+		if ($_this->_deprecationWarning) trigger_error('Deprecated function');
+
 		$router =& $_this->getRouter();
 
 		// Construct the method call

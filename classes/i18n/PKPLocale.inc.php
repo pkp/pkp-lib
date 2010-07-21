@@ -7,7 +7,7 @@
 /**
  * @file classes/i18n/PKPLocale.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Locale
@@ -16,10 +16,10 @@
  * @brief Provides methods for loading locale data and translating strings identified by unique keys
  */
 
-// $Id$
+// $Id: PKPLocale.inc.php,v 1.17 2009/12/24 05:00:50 jalperin Exp $
 
 
-import('lib.pkp.classes.i18n.LocaleFile');
+import('i18n.LocaleFile');
 
 define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
 define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));
@@ -32,6 +32,7 @@ define('MASTER_LOCALE', 'en_US');
 // array_merge_recursive doesn't treat numeric keys nicely.
 define('LOCALE_ERROR_MISSING_KEY',		'LOCALE_ERROR_MISSING_KEY');
 define('LOCALE_ERROR_EXTRA_KEY',		'LOCALE_ERROR_EXTRA_KEY');
+define('LOCALE_ERROR_SUSPICIOUS_LENGTH',	'LOCALE_ERROR_SUSPICIOUS_LENGTH');
 define('LOCALE_ERROR_DIFFERING_PARAMS',		'LOCALE_ERROR_DIFFERING_PARAMS');
 define('LOCALE_ERROR_MISSING_FILE',		'LOCALE_ERROR_MISSING_FILE');
 
@@ -69,8 +70,8 @@ class PKPLocale {
 	 * Substitution works by replacing tokens like "{$foo}" with the value
 	 * of the parameter named "foo" (if supplied).
 	 * @param $key string
-	 * @param $params array named substitution parameters
-	 * @param $locale string the locale to use
+	 * @params $params array named substitution parameters
+	 * @params $locale string the locale to use
 	 * @return string
 	 */
 	function translate($key, $params = array(), $locale = null) {
@@ -214,6 +215,7 @@ class PKPLocale {
 	function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
+			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',
@@ -286,12 +288,12 @@ class PKPLocale {
 	}
 
 	/**
-	 * Install support for a new locale.
+	 * Uninstall support for an existing locale.
 	 * @param $locale string
 	 */
 	function installLocale($locale) {
 		// Install default locale-specific data
-		import('lib.pkp.classes.db.DBDataXMLParser');
+		import('db.DBDataXMLParser');
 
 		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
@@ -299,13 +301,13 @@ class PKPLocale {
 		// Load all plugins so they can add locale data if needed
 		$categories = PluginRegistry::getCategories();
 		foreach ($categories as $category) {
-			PluginRegistry::loadCategory($category);
+			PluginRegistry::loadCategory($category, true);
 		}
 		HookRegistry::call('PKPLocale::installLocale', array(&$locale));
 	}
 
 	/**
-	 * Uninstall support for an existing locale.
+	 * Install support for a new locale.
 	 * @param $locale string
 	 */
 	function uninstallLocale($locale) {
@@ -335,6 +337,22 @@ class PKPLocale {
 		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
 		return $matches;
+	}
+
+	/**
+	 * Determine whether or not the lengths of the two supplied values are
+	 * "similar".
+	 * @param $reference string
+	 * @param $value string
+	 * @return boolean True if the lengths match very roughly.
+	 */
+	function checkLengths($reference, $value) {
+		$referenceLength = String::strlen($reference);
+		$length = String::strlen($value);
+		$lengthDifference = abs($referenceLength - $length);
+		if ($referenceLength == 0) return ($length == 0);
+		if ($lengthDifference / $referenceLength > 1 && $lengthDifference > 10) return false;
+		return true;
 	}
 }
 

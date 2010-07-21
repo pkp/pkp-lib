@@ -1,7 +1,7 @@
 {**
  * searchResults.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Show help search results.
@@ -33,7 +33,7 @@
 			{foreach name=results from=$searchResults item=result}
 				{assign var=sections value=$result.topic->getSections()}
 				{assign var=resultNum value=$resultNum+1}
-				<li id="result-{$resultNum}">
+				<li id="result{$resultNum}">
 					<a href="{url op="view" path=$result.topic->getId()|explode:"/" keyword=$helpSearchKeyword|escape result=$resultNum}">{$result.topic->getTitle()}</a>
 					{eval var=$sections[0]->getContent()|strip_tags|truncate:200}
 					<div class="searchBreadcrumb">

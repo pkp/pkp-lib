@@ -6,7 +6,7 @@
 /**
  * @file classes/notification/form/NotificationMailingListForm.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationMailingListForm
@@ -15,11 +15,11 @@
  * @brief Form to subscribe to the notification mailing list
  */
 
-// $Id$
+// $Id: NotificationMailingListForm.inc.php,v 1.2 2009/08/18 23:44:08 asmecher Exp $
 
 
-import('lib.pkp.classes.form.Form');
-import('classes.notification.Notification');
+import('form.Form');
+import('notification.Notification');
 
 class NotificationMailingListForm extends Form {
 	/**

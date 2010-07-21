@@ -1,12 +1,12 @@
 {**
  * lostPassword.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Password reset form.
  *
- * $Id$
+ * $Id: lostPassword.tpl,v 1.3 2009/05/26 01:31:32 mcrider Exp $
  *}
 {strip}
 {assign var="pageTitle" value="user.login.resetPassword"}
@@ -32,9 +32,7 @@
 
 <p><input type="submit" value="{translate key="user.login.resetPassword"}" class="button defaultButton" /></p>
 
-{if !$hideRegisterLink}
-	&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a>
-{/if}
+&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a>
 
 <script type="text/javascript">
 <!--

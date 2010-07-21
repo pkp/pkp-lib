@@ -4,12 +4,12 @@
 <!--
   * locale/pt_PT/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.2 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <locale name="pt_PT" full_name = "Português)">
@@ -312,9 +312,4 @@
 	<message key="notification.unsubscribeDescription">Indique o seu endereço de e-mail e senha a seguir para cancelar o recebimento de notificações via e-mail. Caso não se lembre da senha, deixe o campo em branco para que uma nova senha seja enviada.</message>
 	<message key="notification.unsubscribeError">Ocorreu um erro ao tentar cancelar a subscrição. Verifique se o endereço de e-mail e senha estão correctos.</message>
 	<message key="notification.unsubscribeSuccess">Cancelamento de subscrição de notificações realizado com sucesso.</message>
-	<message key="common.false">Falso</message>
-	<message key="common.ok">OK</message>
-	<message key="common.true">Verdadeiro</message>
-	<message key="common.uploadFailed">Não foi possível carregador o ficheiro. Tente novamente ou contacte o administrador se o problema persistir.</message>
-	<message key="navigation.dashboard">Painel</message>
 </locale>

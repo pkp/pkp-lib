@@ -4,12 +4,12 @@
 <!--
   * signoff.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Signoff schema in XML.
   *
-  * $Id$
+  * $Id: signoff.xml,v 1.2 2009/04/08 21:34:55 asmecher Exp $
   -->
 
 <schema version="0.2">
@@ -45,9 +45,9 @@
 		<field name="date_acknowledged" type="T"/>
 		<descr>Signoffs</descr>
 		<index name="signoff_symbolic">
+			<col>symbolic</col>
 			<col>assoc_type</col>
 			<col>assoc_id</col>
-			<col>symbolic</col>
 			<UNIQUE />
 		</index>
 	</table>

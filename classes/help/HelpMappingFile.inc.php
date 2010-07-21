@@ -3,7 +3,7 @@
 /**
  * @file classes/help/HelpMappingFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HelpMappingFile
@@ -12,7 +12,7 @@
  * @brief Abstracts a Help mapping XML file.
  */
 
-// $Id$
+// $Id: HelpMappingFile.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
 class HelpMappingFile {
@@ -29,6 +29,7 @@ class HelpMappingFile {
 
 	function &_getCache() {
 		if (!isset($this->cache)) {
+			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$this->cache = $cacheManager->getFileCache(
 				'helpmap', md5($this->filename),

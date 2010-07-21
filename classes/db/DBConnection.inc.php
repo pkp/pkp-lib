@@ -3,7 +3,7 @@
 /**
  * @file classes/db/DBConnection.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DBConnection
@@ -13,7 +13,7 @@
  * Currently integrated with ADOdb (from http://adodb.sourceforge.net).
  */
 
-// $Id$
+// $Id: DBConnection.inc.php,v 1.6 2009/04/24 18:50:15 mj Exp $
 
 
 class DBConnection {
@@ -112,7 +112,7 @@ class DBConnection {
 	 * @return boolean
 	 */
 	function initConn() {
-		require_once('lib/pkp/lib/adodb/adodb.inc.php');
+		require_once('adodb.inc.php');
 
 		$this->dbconn =& ADONewConnection($this->driver);
 

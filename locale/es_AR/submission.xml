@@ -4,16 +4,15 @@
 <!--
   * ../pkp//locale/es_AR/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_AR (Español (Argentina)) locale.
+  * Localization strings for the es_AR (España Argentino) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.3 2009/12/23 22:26:18 asmecher Exp $
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
-	<message key="submission.agencies">Agencies</message>
+<locale name="es_AR" full_name = "España Argentino">
 	<message key="submission.abstractViews">opiniones sobre el resumen</message>
 	<message key="submission.accepted">Aceptado</message>
 	<message key="submission.acknowledge">Acusar recibo</message>
@@ -165,13 +164,4 @@
 	<message key="submission.views">Opiniones</message>
 	<message key="submission.layout.galleyLanguageRequired">Un lenguaje de galera es requerido.</message>
 	<message key="submission.layout.galleyLocaleRequired">Una configuración regional para la galerada es requerida</message>
-	<message key="submission.citations">Referencias</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[La edicion de citas requiere que jQuery esté habilitado. Por favor diríjase a la <a target="_new" href="{$genericPluginsUrl}"> página de plugins genéricos </a> y habilite el plugin de jQuery allí]]></message>
-	<message key="submission.citations.grid.title">Editar Citaciones</message>
-	<message key="submission.citations.grid.importCitations">Importar Citaciones</message>
-	<message key="submission.citations.grid.exportCitations">Exportar Citaciones</message>
-	<message key="submission.citations.grid.parseCitation">Parsear</message>
-	<message key="submission.citations.grid.lookupCitation">Buscar</message>
-	<message key="submission.citations.grid.editedCitation">Texto de la Cita</message>
-	<message key="submission.citations.grid.editedCitationRequired">Se requiere un texto para la cita</message>
 </locale>

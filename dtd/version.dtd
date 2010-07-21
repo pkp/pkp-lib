@@ -1,12 +1,12 @@
 <!--
   * version.dtd
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DTD describing PKP application version information.
   *
-  * $Id$
+  * $Id: version.dtd,v 1.1 2009/12/09 20:20:38 asmecher Exp $
   -->
 
 <!ELEMENT version (application, type, release, tag, date, info, package, patch+)>

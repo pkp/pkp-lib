@@ -3,7 +3,7 @@
 /**
  * @file classes/group/GroupMembershipDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GroupMembershipDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying group membership info.
  */
 
-// $Id$
+// $Id: GroupMembershipDAO.inc.php,v 1.7 2009/12/02 06:22:41 jerico.dev Exp $
 
 
-import ('lib.pkp.classes.group.GroupMembership');
+import ('group.GroupMembership');
 
 class GroupMembershipDAO extends DAO {
 	var $userDao;

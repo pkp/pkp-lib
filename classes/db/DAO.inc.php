@@ -7,7 +7,7 @@
 /**
  * @file classes/db/DAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DAO
@@ -17,12 +17,12 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
-// $Id$
+// $Id: DAO.inc.php,v 1.14 2009/08/18 23:44:08 asmecher Exp $
 
 
-import('lib.pkp.classes.db.DBConnection');
-import('lib.pkp.classes.db.DAOResultFactory');
-import('lib.pkp.classes.core.DataObject');
+import('db.DBConnection');
+import('db.DAOResultFactory');
+import('core.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
@@ -37,9 +37,11 @@ class DAO {
 	 */
 	function DAO($dataSource = null, $callHooks = true) {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {
-			// Call hooks based on the object name. Results
-			// in hook calls named e.g. "sessiondao::_Constructor"
-			if (HookRegistry::call(strtolower(get_class($this)) . '::_Constructor', array(&$this, &$dataSource))) {
+			$trace = debug_backtrace();
+			// Call hooks based on the calling entity, assuming
+			// this method is only called by a subclass. Results
+			// in hook calls named e.g. "SessionDAO::_Constructor"
+			if (HookRegistry::call($trace[1]['class'] . '::_Constructor', array(&$this, &$dataSource))) {
 				return;
 			}
 		}
@@ -62,10 +64,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (always lower case).
+			// in hook calls named e.g. "SessionDAO::_getSession"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -91,10 +92,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
+			// in hook calls named e.g. "SessionDAO::_getSession"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
+			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$secsToCache, &$value))) {
 				return $value;
 			}
 		}
@@ -124,10 +124,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
-			// (all lowercase).
+			// in hook calls named e.g. "SessionDAO::_getSession"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
+			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$numRows, &$offset, &$value))) {
 				return $value;
 			}
 		}
@@ -152,9 +151,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_getsession"
+			// in hook calls named e.g. "SessionDAO::_getSession"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$dbResultRange, &$value))) {
+			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$dbResultRange, &$value))) {
 				return $value;
 			}
 		}
@@ -186,10 +185,9 @@ class DAO {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::_updateobject"
-			// (all lowercase)
+			// in hook calls named e.g. "SessionDAO::_updateObject"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call($trace[1]['class'] . '::_' . $trace[1]['function'], array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -234,6 +232,7 @@ class DAO {
 		if (!isset($cacheDir)) {
 			global $ADODB_CACHE_DIR;
 
+			import('cache.CacheManager');
 			$cacheDir = CacheManager::getFileCachePath() . '/_db';
 
 			$ADODB_CACHE_DIR = $cacheDir;
@@ -376,120 +375,39 @@ class DAO {
 	}
 
 	function getAdditionalFieldNames() {
-		$returner = array();
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
-			// (class names lowercase)
-			HookRegistry::call(strtolower($trace[2]['class']) . '::getAdditionalFieldNames', array(&$this, &$returner));
-		}
-		return $returner;
+		return array();
 	}
 
 	function getLocaleFieldNames() {
-		$returner = array();
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getLocaleFieldNames"
-			// (class names lowercase)
-			HookRegistry::call(strtolower($trace[2]['class']) . '::getLocaleFieldNames', array(&$this, &$returner));
-		}
-		return $returner;
+		return array();
 	}
 
-	/**
-	 * Update the settings table of a data object.
-	 * @param $tableName string
-	 * @param $dataObject DataObject
-	 * @param $idArray array
-	 */
 	function updateDataObjectSettings($tableName, &$dataObject, $idArray) {
-		// Initialize variables
 		$idFields = array_keys($idArray);
 		$idFields[] = 'locale';
 		$idFields[] = 'setting_name';
 
-		// Build a data structure that we can process efficiently.
-		$translated = $metadata = 1;
-		$settings = !$metadata;
-		$settingFields = array(
-			// Translated data
-			$translated => array(
-				$settings => $this->getLocaleFieldNames(),
-				$metadata => $dataObject->getLocaleMetadataFieldNames()
-			),
-			// Shared data
-			!$translated => array(
-				$settings => $this->getAdditionalFieldNames(),
-				$metadata => $dataObject->getAdditionalMetadataFieldNames()
-			)
-		);
+		foreach ($this->getLocaleFieldNames() as $field) {
+			$values = $dataObject->getData($field);
+			if (!is_array($values)) continue;
 
-		// Loop over all fields and update them in the settings table
-		$updateArray = $idArray;
-		$noLocale = 0;
-		$staleMetadataSettings = array();
-		foreach ($settingFields as $isTranslated => $fieldTypes) {
-			foreach ($fieldTypes as $isMetadata => $fieldNames) {
-				foreach ($fieldNames as $fieldName) {
-					// Now we have the following control data:
-					// - $isTranslated: true for translated data, false data shared between locales
-					// - $isMetadata: true for metadata fields, false for normal settings
-					// - $fieldName: the field in the data object to be updated
-					if ($dataObject->hasData($fieldName)) {
-						if ($isTranslated) {
-							// Translated data comes in as an array
-							// with the locale as the key.
-							$values = $dataObject->getData($fieldName);
-							if (!is_array($values)) {
-								// Inconsistent data: should have been an array
-								assert(false);
-								continue;
-							}
-						} else {
-							// Transform shared data into an array so that
-							// we can handle them the same way as translated data.
-							$values = array(
-								$noLocale => $dataObject->getData($fieldName)
-							);
-						}
+			foreach ($values as $locale => $value) {
+				$idArray['setting_type'] = null;
+				$idArray['locale'] = $locale;
+				$idArray['setting_name'] = $field;
+				$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
 
-						// Loop over the values and update them in the database
-						foreach ($values as $locale => $value) {
-							$updateArray['locale'] = ($locale === $noLocale ? '' : $locale);
-							$updateArray['setting_name'] = $fieldName;
-							$updateArray['setting_type'] = null;
-							// Convert the data value and implicitly set the setting type.
-							$updateArray['setting_value'] = $this->convertToDB($value, $updateArray['setting_type']);
-							$this->replace($tableName, $updateArray, $idFields);
-						}
-					} else {
-						// Meta-data fields are maintained "sparsly". Only set fields will be
-						// recorded in the settings table. Fields that are not explicity set
-						// in the data object will be deleted.
-						if ($isMetadata) $staleMetadataSettings[] = $fieldName;
-					}
-				}
+				$this->replace($tableName, $idArray, $idFields);
 			}
 		}
+		foreach ($this->getAdditionalFieldNames() as $field) {
+			$value = $dataObject->getData($field);
+			$idArray['setting_type'] = null;
+			$idArray['locale'] = '';
+			$idArray['setting_name'] = $field;
+			$idArray['setting_value'] = $this->convertToDB($value, $idArray['setting_type']);
 
-		// Remove stale meta-data
-		if (count($staleMetadataSettings)) {
-			$removeWhere = '';
-			$removeParams = array();
-			foreach ($idArray as $idField => $idValue) {
-				if (!empty($removeWhere)) $removeWhere .= ' AND ';
-				$removeWhere .= $idField.' = ?';
-				$removeParams[] = $idValue;
-			}
-			$removeWhere .= rtrim(' AND setting_name IN ( '.str_repeat('? ,', count($staleMetadataSettings)), ',').')';
-			$removeParams = array_merge($removeParams, $staleMetadataSettings);
-			$removeSql = 'DELETE FROM '.$tableName.' WHERE '.$removeWhere;
-			$this->update($removeSql, $removeParams);
+			$this->replace($tableName, $idArray, $idFields);
 		}
 	}
 
@@ -501,7 +419,9 @@ class DAO {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;
 		}
+		$start = Core::microtime();
 		$result =& $this->retrieve($sql, $params);
+		DBConnection::logQuery($sql, $start, $params);
 
 		while (!$result->EOF) {
 			$row =& $result->getRowAssoc(false);

@@ -7,7 +7,7 @@
 /**
  * @file ControlledVocab.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocab
@@ -17,7 +17,7 @@
  * @brief Basic class describing an controlled vocab.
  */
 
-//$Id$
+//$Id: ControlledVocab.inc.php,v 1.3 2009/05/13 00:13:20 asmecher Exp $
 
 class ControlledVocab extends DataObject {
 	//

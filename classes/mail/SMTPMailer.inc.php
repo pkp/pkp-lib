@@ -3,7 +3,7 @@
 /**
  * @file classes/mail/SMTPMailer.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SMTPMailer
@@ -14,10 +14,10 @@
  * TODO: TLS support
  */
 
-// $Id$
+// $Id: SMTPMailer.inc.php,v 1.5 2009/05/13 00:13:20 asmecher Exp $
 
 
-import('lib.pkp.classes.mail.Mail');
+import('mail.Mail');
 
 class SMTPMailer {
 

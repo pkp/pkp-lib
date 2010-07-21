@@ -7,7 +7,7 @@
 /**
  * @file classes/cliTool/CliTool.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CommandLineTool
@@ -19,7 +19,7 @@
  *  to bootstrap and route tool requests.
  */
 
-// $Id$
+// $Id: CliTool.inc.php,v 1.8 2009/12/21 02:25:48 jerico.dev Exp $
 
 
 /** Initialization code */
@@ -29,7 +29,7 @@ if (!defined('STDIN')) {
 	define('STDIN', fopen('php://stdin','r'));
 }
 define('SESSION_DISABLE_INIT', 1);
-require('./lib/pkp/includes/bootstrap.inc.php');
+require('lib/pkp/includes/driver.inc.php');
 
 if (!isset($argc)) {
 	// In PHP < 4.3.0 $argc/$argv are not automatically registered
@@ -54,9 +54,9 @@ class CommandLineTool {
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
 
-		// FIXME: Write and use a CLIRouter here (see classdoc)
-		import('classes.core.PageRouter');
-		$router = new PageRouter();
+		// FIXME: Write and use a PKPCLIRouter here (see classdoc)
+		import('core.PKPPageRouter');
+		$router = new PKPPageRouter();
 		$router->setApplication($application);
 		$request->setRouter($router);
 

@@ -4,12 +4,12 @@
 <!--
   * locale/eu_ES/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
@@ -69,6 +69,4 @@
 	<message key="installer.releaseNotes">Bertsio-oharrak</message>
 	<message key="installer.securitySettings">Segurtasun-ezarpenak</message>
 	<message key="installer.skipFilesDir">Ez sortu azpidirektoriorik (eskuzko instalazioan bakarrik da baliagarria)</message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errorea <tt>{$file}</tt> txantiloia analizatzean.]]></message>
-	<message key="installer.locale.maybeIncomplete">Markatutako lokalak osatu gabe egon daitezke.</message>
 </locale>

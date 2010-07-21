@@ -3,7 +3,7 @@
 /**
  * @file PKPInstallHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPInstallHandler
@@ -13,9 +13,9 @@
  */
 
 
-import('classes.install.form.InstallForm');
-import('classes.install.form.UpgradeForm');
-import('classes.handler.Handler');
+import('install.form.InstallForm');
+import('install.form.UpgradeForm');
+import('handler.Handler');
 
 class PKPInstallHandler extends Handler {
 
@@ -25,7 +25,7 @@ class PKPInstallHandler extends Handler {
 	 */
 	function index() {
 		// Make sure errors are displayed to the browser during install.
-		@ini_set('display_errors', true);
+		@ini_set('display_errors', E_ALL);
 
 		$this->validate();
 		$this->setupTemplate();

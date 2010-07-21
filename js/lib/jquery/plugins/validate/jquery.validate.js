@@ -6,7 +6,7 @@
  *
  * Copyright (c) 2006 - 2008 Jörn Zaefferer
  *
- * $Id$
+ * $Id: jquery.validate.js,v 1.1 2009/12/24 04:34:17 jalperin Exp $
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php

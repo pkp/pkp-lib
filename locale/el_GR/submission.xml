@@ -4,16 +4,15 @@
 <!--
   * locale/el_GR/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the el_GR (Greek) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.5 2009/08/25 16:57:29 asmecher Exp $
   -->
 
 <locale name="el_GR" full_name="Greek">
-	<message key="submission.agencies">ΦορείςΓραφεία</message>
 	<message key="submission.abstractViews">Προβολές Περίληψης</message>
 	<message key="submission.accepted">Δεκτό</message>
 	<message key="submission.acknowledge">Ελήφθη</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">Ερώτημα</message>
 	<message key="submission.backToSubmissionEditing">Πίσω στην επιμέλεια υποβολής</message>
 	<message key="submission.changeComments">Αλλαγή σε</message>
-	<message key="submission.citations">Αναφορές</message>	
 	<message key="submission.comments.addComment"> Προσθήκη σχολίου</message>
 	<message key="submission.comments.comments">Σχόλια</message>
 	<message key="submission.comments.confirmDelete"> Είστε βέβαιοι ότι επιθυμείτε να διαγράψετε το συγκεκριμένο σχόλιο;</message>
@@ -166,7 +164,4 @@
 	<message key="submission.uploadFileTo">Ανεβάστε στο αρχείο στο</message>
 	<message key="submission.viewMetadata">Προβολή μεταδεδομένων </message>
 	<message key="submission.views">Προβολές</message>
-	
-	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Παροχή μια λίστας αναφορών για εργασίες που αναφέρονται (cited) σε αυτή την υποβολή.</message>
 </locale>

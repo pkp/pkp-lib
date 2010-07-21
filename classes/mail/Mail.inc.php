@@ -7,7 +7,7 @@
 /**
  * @file classes/mail/Mail.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mail
@@ -16,7 +16,7 @@
  * @brief Class defining basic operations for handling and sending emails.
  */
 
-// $Id$
+// $Id: Mail.inc.php,v 1.10 2009/09/19 00:12:05 asmecher Exp $
 
 
 define('MAIL_EOL', Core::isWindows() ? "\r\n" : "\n");
@@ -397,7 +397,7 @@ class Mail extends DataObject {
 			$attachments = $this->getAttachments();
 			foreach ($attachments as $attachment) {
 				$mailBody .= '--'.$mimeBoundary.MAIL_EOL;
-				$mailBody .= 'Content-Type: '.str_replace('"', '', $attachment['filename']).'; name="'.$attachment['filename'].'"'.MAIL_EOL;
+				$mailBody .= 'Content-Type: '.$attachment['content-type'].'; name="'.$attachment['filename'].'"'.MAIL_EOL;
 				$mailBody .= 'Content-transfer-encoding: base64'.MAIL_EOL;
 				$mailBody .= 'Content-disposition: '.$attachment['disposition'].MAIL_EOL.MAIL_EOL;
 				$mailBody .= $attachment['content'].MAIL_EOL.MAIL_EOL;
@@ -428,7 +428,7 @@ class Mail extends DataObject {
 		if (Config::getVar('email', 'smtp')) {
 			$smtp =& Registry::get('smtpMailer', true, null);
 			if ($smtp === null) {
-				import('lib.pkp.classes.mail.SMTPMailer');
+				import('mail.SMTPMailer');
 				$smtp = new SMTPMailer();
 			}
 			$sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);

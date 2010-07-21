@@ -3,7 +3,7 @@
 /**
  * @file PKPLoginHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPLoginHandler
@@ -12,10 +12,10 @@
  * @brief Handle login/logout requests.
  */
 
-// $Id$
+// $Id: PKPLoginHandler.inc.php,v 1.17 2009/09/22 21:18:27 asmecher Exp $
 
 
-import('classes.handler.Handler');
+import('handler.Handler');
 
 class PKPLoginHandler extends Handler {
 
@@ -185,7 +185,7 @@ class PKPLoginHandler extends Handler {
 			$site =& Request::getSite();
 
 			// Send email confirming password reset
-			import('classes.mail.MailTemplate');
+			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
 			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
@@ -249,7 +249,7 @@ class PKPLoginHandler extends Handler {
 
 			// Send email with new password
 			$site =& Request::getSite();
-			import('classes.mail.MailTemplate');
+			import('mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($mail);
 			$mail->assignParams(array(
@@ -275,7 +275,7 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		import('classes.user.form.LoginChangePasswordForm');
+		import('user.form.LoginChangePasswordForm');
 
 		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->initData();
@@ -292,7 +292,7 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		import('classes.user.form.LoginChangePasswordForm');
+		import('user.form.LoginChangePasswordForm');
 
 		$passwordForm = new LoginChangePasswordForm();
 		$passwordForm->readInputData();

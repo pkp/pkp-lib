@@ -3,7 +3,7 @@
 /**
  * @file classes/xslt/XSLTransformer.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XSLTransformer
@@ -12,14 +12,10 @@
  * @brief Wrapper class for running XSL transformations using PHP 4.x or 5.x
  */
 
-// $Id$
+// $Id: XSLTransformer.inc.php,v 1.1 2009/04/27 19:18:30 mj Exp $
 
 // The default character encoding
 define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));
-
-define('XSL_TRANSFORMER_DOCTYPE_STRING', 0x01);
-define('XSL_TRANSFORMER_DOCTYPE_FILE', 0x02);
-define('XSL_TRANSFORMER_DOCTYPE_DOM', 0x03);
 
 class XSLTransformer {
 
@@ -44,7 +40,7 @@ class XSLTransformer {
 	 * @return boolean returns false if no XSLT processor could be created
 	 */
 	function XSLTransformer() {
-		$this->externalCommand = Config::getVar('cli', 'xslt_command');
+		$this->externalCommand = Config::getVar('general', 'xslt_command');
 
 		// Determine the appropriate XSLT processor for the system
 		if ($this->externalCommand) {
@@ -69,20 +65,6 @@ class XSLTransformer {
 		$this->errors = array();
 	}
 
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the processor type
-	 * @return string
-	 */
-	function getProcessor() {
-		return $this->processor;
-	}
-
-	//
-	// Public methods
-	//
 	/**
 	 * Apply an XSLT transform to a given XML and XSL source files
 	 * @param $xmlFile absolute pathname to the XML source file
@@ -90,7 +72,19 @@ class XSLTransformer {
 	 * @return string containing the transformed XML output, or false on error
 	 */
 	function transformFiles($xmlFile, $xslFile) {
-		return $this->transform($xmlFile, XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, XSL_TRANSFORMER_DOCTYPE_FILE, XSL_TRANSFORMER_DOCTYPE_STRING);
+		// if either XML or XSL file don't exist, then fail without trying to process XSLT
+		if (!FileManager::fileExists($xmlFile) || !FileManager::fileExists($xslFile)) return false;
+
+		switch ($this->processor) {
+			case 'External':
+				return $this->_transformExternal($xmlFile, $xslFile);
+			case 'PHP4':
+				return $this->_transformFilePHP4($xmlFile, $xslFile);
+			case 'PHP5':
+				return $this->_transformFilePHP5($xmlFile, $xslFile);
+		}
+		// No XSLT processor available
+		return false;
 	}
 
 	/**
@@ -100,72 +94,21 @@ class XSLTransformer {
 	 * @return string containing the transformed XML output, or false on error
 	 */
 	function transformStrings($xml, $xsl) {
-		return $this->transform($xml, XSL_TRANSFORMER_DOCTYPE_STRING, $xsl, XSL_TRANSFORMER_DOCTYPE_STRING, XSL_TRANSFORMER_DOCTYPE_STRING);
-	}
-
-	/**
-	 * Apply an XSLT transform to a given XML and XSL. Both parameters
-	 * can be either strings, files or DOM objects.
-	 * @param $xml mixed
-	 * @param $xmlType integer
-	 * @param $xsl mixed
-	 * @param $xslType integer
-	 * @param $resultType integer
-	 * @return mixed return type depends on the $returnType parameter and can be
-	 *  DOMDocument or string. The method returns a boolean value of false if the
-	 *  transformation fails for some reason.
-	 */
-	function &transform(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
-		// If either XML or XSL file don't exist, then fail without trying to process XSLT
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_FILE) {
-			if (!FileManager::fileExists($xml)) return false;
-		}
-		if ($xslType == XSL_TRANSFORMER_DOCTYPE_FILE) {
-			if (!FileManager::fileExists($xsl)) return false;
-		}
-
-		// The result type can only be string or DOM
-		assert($resultType != XSL_TRANSFORMER_DOCTYPE_FILE);
-
 		switch ($this->processor) {
-			case 'External':
-				return $this->_transformExternal($xml, $xmlType, $xsl, $xslType, $resultType);
-
+			// TODO: External requires saving strings to temporary files
 			case 'PHP4':
-				return $this->_transformPHP4($xml, $xmlType, $xsl, $xslType, $resultType);
-
+				return $this->_transformStringPHP4($xml, $xsl);
 			case 'PHP5':
-				return $this->_transformPHP5($xml, $xmlType, $xsl, $xslType, $resultType);
-
-			default:
-				// No XSLT processor available
-				$falseVar = false;
-				return $falseVar;
+				return $this->_transformStringPHP5($xml, $xsl);
 		}
+		// No XSLT processor available
+		return false;
 	}
 
-	//
-	// Private helper methods
-	//
-	/**
-	 * Use external programs to do the XSL transformation
-	 * @param $xml mixed
-	 * @param $xmlType integer
-	 * @param $xsl mixed
-	 * @param $xslType integer
-	 * @param $resultType integer
-	 * @return mixed return type depends on the $returnType parameter and can be
-	 *  DOMDocument or string. Returns boolean "false" on error.
-	 */
-	function &_transformExternal(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
-		$falseVar = false;
-
-		// External transformation can only be done on files
-		if ($xmlType != XSL_TRANSFORMER_DOCTYPE_FILE || $xslType != XSL_TRANSFORMER_DOCTYPE_FILE) return $falseVar;
-
+	function _transformExternal($xmlFile, $xslFile) {
 		// check the external command to check for %xsl and %xml parameter substitution
-		if ( strpos($this->externalCommand, '%xsl') === false ) return $falseVar;
-		if ( strpos($this->externalCommand, '%xml') === false ) return $falseVar;
+		if ( strpos($this->externalCommand, '%xsl') === false ) return false;
+		if ( strpos($this->externalCommand, '%xml') === false ) return false;
 
 		// perform %xsl and %xml replacements for fully-qualified shell command
 		$xsltCommand = str_replace(array('%xsl', '%xml'), array($xslFile, $xmlFile), $this->externalCommand);
@@ -182,177 +125,102 @@ class XSLTransformer {
 				$this->addError(implode("\n", $contents));
 			}
 			// completed with errors
-			return $falseVar;
+			return false;
 		}
 
-		$resultXML = implode("\n", $contents);
-
-		switch ($resultType) {
-			case XSL_TRANSFORMER_DOCTYPE_STRING:
-				// Directly return the XML string
-				return $resultXML;
-
-			case XSL_TRANSFORMER_DOCTYPE_DOM:
-				// Instantiate and configure the result DOM
-				$resultDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
-				$resultDOM->recover = true;
-				$resultDOM->substituteEntities = true;
-				$resultDOM->resolveExternals = true;
-
-				// Load the XML and return the DOM
-				$resultDOM->loadXML($resultXML);
-				return $resultDOM;
-
-			default:
-				assert(false);
-		}
+		return implode("\n", $contents);
 	}
 
-	/**
-	 * Use PHP4's xslt extension to do the XSL transformation
-	 * @param $xml mixed
-	 * @param $xmlType integer
-	 * @param $xsl mixed
-	 * @param $xslType integer
-	 * @param $resultType integer
-	 * @return string return type for PHP4 is always string or "false" on error.
-	 */
-	function &_transformPHP4(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
-		$falseVar = false;
-
-		// PHP4 doesn't support DOM
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_DOM || $xslType == XSL_TRANSFORMER_DOCTYPE_DOM
-				|| $resultType == XSL_TRANSFORMER_DOCTYPE_DOM) return $falseVar;
-
-		// Create the processor
+	function _transformFilePHP4($xmlFile, $xslFile) {
 		$processor = xslt_create();
 		xslt_set_encoding($processor, XSLT_PROCESSOR_ENCODING);
 
-		// Create arguments for string types (if any)
-		$arguments = array();
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_STRING) {
-			$arguments['/_xml'] = $xml;
-			$xml = 'arg:/_xml';
-		}
-		if ($xslType == XSL_TRANSFORMER_DOCTYPE_STRING) {
-			$arguments['/_xsl'] = $xsl;
-			$xsl = 'arg:/_xsl';
-		}
-		if (empty($arguments)) $arguments = null;
+		$contents = xslt_process($processor, $xmlFile, $xslFile, null, null, $this->parameters);
 
-		// Do the transformation
-		$resultXML = xslt_process($processor, $xml, $xsl, null, $arguments, $this->parameters);
-
-		// Error handling
-		if (!$resultXML) {
+		if (!$contents) {
 			$this->addError("Cannot process XSLT document [%d]: %s", xslt_errno($processor), xslt_error($processor));
-			return $falseVar;
+			return false;
 		}
-
-		// DOM is not supported in PHP4 so we can always directly return the string result
-		return $resultXML;
+		return $contents;
 	}
 
-	/**
-	 * Use PHP5's DOMDocument and XSLTProcessor to do the transformation
-	 * @param $xml mixed
-	 * @param $xmlType integer
-	 * @param $xsl mixed
-	 * @param $xslType integer
-	 * @param $resultType integer
-	 * @return mixed return type depends on the $returnType parameter and can be
-	 *  DOMDocument or string. Returns boolean "false" on error.
-	 */
-	function &_transformPHP5(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
-		// Prepare the XML DOM
-		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_DOM) {
-			// We already have a DOM document, no need to create one
-			assert(is_a($xml, 'DOMDocument'));
-			$xmlDOM =& $xml;
-		} else {
-			// Instantiate and configure the XML DOM document
-			$xmlDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+	function _transformStringPHP4($xml, $xsl) {
+		$arguments = array('/_xml' => $xml, '/_xsl' => $xsl);
 
-			// These are required for external entity resolution (eg. &nbsp;), but can slow processing
-			// substantially (20-100x), often up to 60s.  This can be solved by use of local catalogs, ie.
-			// putenv("XML_CATALOG_FILES=/path/to/catalog.ent");
-			//
-			// see:  http://www.whump.com/moreLikeThis/link/03815
-			$xmlDOM->recover = true;
-			$xmlDOM->substituteEntities = true;
-			$xmlDOM->resolveExternals = true;
+		$processor = xslt_create();
+		xslt_set_encoding($processor, XSLT_PROCESSOR_ENCODING);
 
-			// Load the XML based on its type
-			switch ($xmlType) {
-				case XSL_TRANSFORMER_DOCTYPE_FILE:
-					$xmlDOM->load($xml);
-					break;
+		$contents = xslt_process($processor, 'arg:/_xml', 'arg:/_xsl', null, $arguments, $this->parameters);
 
-				case XSL_TRANSFORMER_DOCTYPE_STRING:
-					$xmlDOM->loadXML($xml);
-					break;
-
-				default:
-					assert(false);
-			}
+		if (!$contents) {
+			$this->addError("Cannot process XSLT document [%d]: %s", xslt_errno($processor), xslt_error($processor));
+			return false;
 		}
+		return $contents;
+	}
 
-		// Prepare the XSL DOM
-		if ($xslType == XSL_TRANSFORMER_DOCTYPE_DOM) {
-			// We already have a DOM document, no need to create one
-			assert(is_a($xsl, 'DOMDocument'));
-			$xslDOM =& $xsl;
-		} else {
-			// Instantiate the XSL DOM document
-			$xslDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
-
-			// Load the XSL based on its type
-			switch ($xslType) {
-				case XSL_TRANSFORMER_DOCTYPE_FILE:
-					$xslDOM->load($xsl);
-					break;
-
-				case XSL_TRANSFORMER_DOCTYPE_STRING:
-					$xslDOM->loadXML($xsl);
-					break;
-
-				default:
-					assert(false);
-			}
-		}
-
-		// Create and configure the XSL processor
+	function _transformFilePHP5($xmlFile, $xslFile) {
 		$processor = new XSLTProcessor();
 
-		// Register PHP functions if requested.
-		// NB: This can open potential security issues; see FAQ/README
+		// NB: this can open potential security issues; see FAQ/README
 		if ($this->registerPHPFunctions) {
 			$processor->registerPHPFunctions($this->registerPHPFunctions);
 		}
 
-		// Set XSL parameters (if any)
-		if (is_array($this->parameters)) {
+		if (!empty($this->parameters) && is_array($this->parameters)) {
 			foreach ($this->parameters as $param => $value) {
 				$processor->setParameter(null, $param, $value);
 			}
 		}
 
-		//  Import the style sheet
+		// load the XML file as a domdocument
+		$xmlDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+
+		// These are required for external entity resolution (eg. &nbsp;), but can slow processing
+		// substantially (20-100x), often up to 60s.  This can be solved by use of local catalogs, ie.
+		// putenv("XML_CATALOG_FILES=/path/to/catalog.ent");
+		//
+		// see:  http://www.whump.com/moreLikeThis/link/03815
+		$xmlDOM->recover = true;
+		$xmlDOM->substituteEntities = true;
+		$xmlDOM->resolveExternals = true;
+		$xmlDOM->load($xmlFile);
+
+		// create the processor and import the stylesheet
+		$xslDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+		$xslDOM->load($xslFile);
 		$processor->importStylesheet($xslDOM);
+		$contents = $processor->transformToXML($xmlDOM);
 
-		// Process depending on the requested result type
-		switch($resultType) {
-			case XSL_TRANSFORMER_DOCTYPE_STRING:
-				$resultXML = $processor->transformToXML($xmlDOM);
-				return $resultXML;
+		return $contents;
+	}
 
-			case XSL_TRANSFORMER_DOCTYPE_DOM:
-				$resultDOM = $processor->transformToDoc($xmlDOM);
-				return $resultDOM;
+	function _transformStringPHP5($xml, $xsl) {
+		$processor = new XSLTProcessor();
 
-			default:
-				assert(false);
+		// NB: this can open potential security issues; see FAQ/README
+		if ($this->registerPHPFunctions) {
+			$processor->registerPHPFunctions($this->registerPHPFunctions);
 		}
+
+		foreach ($this->parameters as $param => $value) {
+			$processor->setParameter(null, $param, $value);
+		}
+
+		// load the XML file as a domdocument
+		$xmlDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+		$xmlDOM->recover = true;
+		$xmlDOM->substituteEntities = true;
+		$xmlDOM->resolveExternals = true;
+		$xmlDOM->loadXML($xml);
+
+		// create the processor and import the stylesheet
+		$xslDOM = new DOMDocument('1.0', XSLT_PROCESSOR_ENCODING);
+		$xslDOM->loadXML($xsl);
+		$processor->importStylesheet($xslDOM);
+		$contents = $processor->transformToXML($xmlDOM);
+
+		return $contents;
 	}
 
 	/**
@@ -362,6 +230,7 @@ class XSLTransformer {
 	function addError($error) {
 		array_push($this->errors, $error);
 	}
+
 }
 
 ?>

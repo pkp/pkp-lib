@@ -3,7 +3,7 @@
 /**
  * @file classes/session/SessionManager.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SessionManager
@@ -12,7 +12,7 @@
  * @brief Implements PHP methods for a custom session storage handler (see http://php.net/session).
  */
 
-// $Id$
+// $Id: SessionManager.inc.php,v 1.8 2009/12/02 06:22:42 jerico.dev Exp $
 
 
 class SessionManager {
@@ -64,7 +64,7 @@ class SessionManager {
 		$userAgent = $request->getUserAgent();
 		$now = time();
 
-		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != substr($userAgent, 0, 255)) {
+		if (!isset($this->userSession) || (Config::getVar('security', 'session_check_ip') && $this->userSession->getIpAddress() != $ip) || $this->userSession->getUserAgent() != $userAgent) {
 			if (isset($this->userSession)) {
 				// Destroy old session
 				session_destroy();
@@ -92,8 +92,9 @@ class SessionManager {
 				}
 			}
 
-			// Update existing session's timestamp; will be saved when write is called
+			// Update existing session's timestamp
 			$this->userSession->setSecondsLastUsed($now);
+			$this->sessionDao->updateObject($this->userSession);
 		}
 	}
 

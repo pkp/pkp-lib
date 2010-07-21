@@ -3,7 +3,7 @@
 /**
  * @file classes/core/JSON.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class JSON
@@ -13,7 +13,7 @@
  *
  */
 
-// $Id$
+// $Id: JSON.inc.php,v 1.1 2009/12/24 04:32:28 jalperin Exp $
 
 class JSON {
 	/** @var $status string The status of an event (e.g. false if form validation fails) */
@@ -28,22 +28,16 @@ class JSON {
 	/** @var $elementId string ID for DOM element that will be replaced */
 	var $elementId;
 
-	/** @var $additionalAttributes array Set of additional attributes for special cases*/
-	var $additionalAttributes;
-
 	/**
 	* Constructor.
 	* @param $status string The status of an event (e.g. false if form validation fails)
 	* @param $content string The message to be delivered back to the calling script
 	*/
-	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes = null) {
+	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0') {
 		$this->status = $status;
 		$this->content = $this->json_encode($content);
 		$this->isScript = $isScript;
 		$this->elementId = $this->json_encode($elementId);
-		if (isset($additionalAttributes)) {
-			$this->additionalAttributes = $additionalAttributes;
-		}
 	}
 
 	/**
@@ -111,34 +105,11 @@ class JSON {
 	}
 
 	/**
-	* Get the additionalAttributes array
-	* @return array
-	*/
-	function getAdditionalAttributes () {
-		return $this->additionalAttributes;
-	}
-
-	/**
-	* Set the additionalAttributes array
-	* @param $additionalAttributes array
-	*/
-	function setAdditionalAttributes($additionalAttributes) {
-		$this->additionalAttributes = $additionalAttributes;
-	}
-	/**
 	* Construct a JSON string to use for AJAX communication
 	* @return string
 	*/
 	function getString() {
-		$jsonString = "{\"status\": $this->status, \"content\": $this->content, \"isScript\": $this->isScript, \"elementId\": $this->elementId";
-			if(isset($this->additionalAttributes)) {
-				foreach($this->additionalAttributes as $key => $value) {
-					$jsonString .= ", \"$key\": " . $this->json_encode($value);
-				}
-			}
-		$jsonString .= "}";
-
-		return $jsonString;
+		return "{'status': $this->status, 'content': $this->content, 'isScript': $this->isScript, 'elementId': $this->elementId}";
 	}
 
 	/**

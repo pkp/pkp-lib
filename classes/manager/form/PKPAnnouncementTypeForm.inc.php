@@ -3,7 +3,7 @@
 /**
  * @file AnnouncementTypeForm.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeForm
@@ -13,9 +13,9 @@
  * @brief Form for manager to create/edit announcement types.
  */
 
-//$Id$
+//$Id: PKPAnnouncementTypeForm.inc.php,v 1.5 2009/07/02 21:29:35 mcrider Exp $
 
-import('lib.pkp.classes.form.Form');
+import('form.Form');
 
 class PKPAnnouncementTypeForm extends Form {
 	/** @var typeId int the ID of the announcement type being edited */

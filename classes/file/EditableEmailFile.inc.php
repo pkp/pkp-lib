@@ -3,7 +3,7 @@
 /**
  * @file classes/file/EditableEmailFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditableEmailFile
@@ -13,10 +13,10 @@
  *
  */
 
-// $Id$
+// $Id: EditableEmailFile.inc.php,v 1.6 2009/07/29 21:48:09 asmecher Exp $
 
 
-import('lib.pkp.classes.file.EditableFile');
+import('file.EditableFile');
 
 class EditableEmailFile {
 	var $locale;

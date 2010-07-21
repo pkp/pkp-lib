@@ -79,7 +79,7 @@ div.grid table {
 	border: 1px solid #b6c9d5;
 }
 
-div.grid tr.alternate_row, div.grid tr.alternate_row .row_file {
+div.grid tr.alternate_row {
 	background-color: #f5f5f5;
 }
 
@@ -100,10 +100,6 @@ div.grid tr.category td {
 a.task:hover
 {
 	background-color: #efefef;
-}
-
-.ui-widget {
-	font-size: .9em;
 }
 
 /* @end */

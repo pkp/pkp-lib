@@ -3,7 +3,7 @@
 /**
  * @file classes/cliTool/XmlToSqlTool.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XmlToSqlTool
@@ -12,10 +12,10 @@
  * @brief CLI tool to output the SQL statements corresponding to an XML database schema.
  */
 
-// $Id$
+// $Id: XmlToSqlTool.inc.php,v 1.5 2009/08/26 23:37:33 asmecher Exp $
 
 
-import('lib.pkp.classes.db.DBDataXMLParser');
+import('db.DBDataXMLParser');
 
 class XmlToSqlTool extends CommandLineTool {
 
@@ -89,7 +89,7 @@ class XmlToSqlTool extends CommandLineTool {
 	 * See lib/pkp/dtd/xmlSchema.dtd for the format of the XML files.
 	 */
 	function execute() {
-		require_once('./lib/pkp/lib/adodb/adodb-xmlschema.inc.php');
+		require_once('adodb-xmlschema.inc.php');
 
 		if (in_array($this->command, array('print', 'save'))) {
 			// Don't connect to actual database (so parser won't build upgrade XML)

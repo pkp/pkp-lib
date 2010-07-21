@@ -4,16 +4,15 @@
 <!--
   * locale/da_DK/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Danish) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.1 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="da_DK" full_name = "Danish">
-	<message key="submission.agencies">Instanser</message>
 	<message key="submission.abstractViews">Visninger af resuméer</message>
 	<message key="submission.accepted">Accepteret</message>
 	<message key="submission.acknowledge">Bekræft</message>

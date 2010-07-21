@@ -3,7 +3,7 @@
 /**
  * @file classes/site/Version.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Version
@@ -13,7 +13,7 @@
  * @brief Describes system version history.
  */
 
-// $Id$
+// $Id: Version.inc.php,v 1.7 2009/05/13 00:13:20 asmecher Exp $
 
 
 class Version extends DataObject {
@@ -21,22 +21,8 @@ class Version extends DataObject {
 	/**
 	 * Constructor.
 	 */
-	function Version($major, $minor, $revision, $build, $dateInstalled, $current,
-			$productType, $product, $productClassName, $lazyLoad) {
-
+	function Version() {
 		parent::DataObject();
-
-		// Initialize object
-		$this->setMajor($major);
-		$this->setMinor($minor);
-		$this->setRevision($revision);
-		$this->setBuild($build);
-		$this->setDateInstalled($dateInstalled);
-		$this->setCurrent($current);
-		$this->setProductType($productType);
-		$this->setProduct($product);
-		$this->setProductClassName($productClassName);
-		$this->setLazyLoad($lazyLoad);
 	}
 
 	/**
@@ -58,33 +44,27 @@ class Version extends DataObject {
 	/**
 	 * Static method to return a new version from a version string of the form "W.X.Y.Z".
 	 * @param $versionString string
-	 * @param $productType string
 	 * @param $product string
-	 * @param $productClass string
-	 * @param $lazyLoad integer
+	 * @param $productType string
 	 * @return Version
 	 */
-	function &fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0) {
-		$versionArray = explode('.', $versionString);
+	function &fromString($versionString, $product = null, $productType = null) {
+		$version = new Version();
 
 		if(!$product && !$productType) {
-			$application =& PKPApplication::getApplication();
+			$application = PKPApplication::getApplication();
 			$product = $application->getName();
 			$productType = 'core';
 		}
 
-		$version = new Version(
-			(isset($versionArray[0]) ? (int) $versionArray[0] : 0),
-			(isset($versionArray[1]) ? (int) $versionArray[1] : 0),
-			(isset($versionArray[2]) ? (int) $versionArray[2] : 0),
-			(isset($versionArray[3]) ? (int) $versionArray[3] : 0),
-			Core::getCurrentDate(),
-			1,
-			$productType,
-			$product,
-			$productClass,
-			$lazyLoad
-		);
+		$versionArray = explode('.', $versionString);
+		$version->setMajor(isset($versionArray[0]) ? (int) $versionArray[0] : 0);
+		$version->setMinor(isset($versionArray[1]) ? (int) $versionArray[1] : 0);
+		$version->setRevision(isset($versionArray[2]) ? (int) $versionArray[2] : 0);
+		$version->setBuild(isset($versionArray[3]) ? (int) $versionArray[3] : 0);
+		$version->setDateInstalled(null);
+		$version->setProduct($product);
+		$version->setProductType($productType);
 
 		return $version;
 	}
@@ -190,22 +170,6 @@ class Version extends DataObject {
 	}
 
 	/**
-	 * Get product type.
-	 * @return string
-	 */
-	function getProductType() {
-		return $this->getData('productType');
-	}
-
-	/**
-	 * Set product type.
-	 * @param $product string
-	 */
-	function setProductType($productType) {
-		return $this->setData('productType', $productType);
-	}
-
-	/**
 	 * Get product name.
 	 * @return string
 	 */
@@ -222,35 +186,19 @@ class Version extends DataObject {
 	}
 
 	/**
-	 * Get the product's class name
+	 * Get product type.
 	 * @return string
 	 */
-	function getProductClassName() {
-		return $this->getData('productClassName');
+	function getProductType() {
+		return $this->getData('productType');
 	}
 
 	/**
-	 * Set the product's class name
-	 * @param $productClassName string
+	 * Set product type.
+	 * @param $product string
 	 */
-	function setProductClassName($productClassName) {
-		$this->setData('productClassName', $productClassName);
-	}
-
-	/**
-	 * Get the lazy load flag for this product
-	 * @return boolean
-	 */
-	function getLazyLoad() {
-		return $this->getData('lazyLoad');
-	}
-
-	/**
-	 * Set the lazy load flag for this product
-	 * @param $lazyLoad boolean
-	 */
-	function setLazyLoad($lazyLoad) {
-		return $this->setData('lazyLoad', $lazyLoad);
+	function setProductType($productType) {
+		return $this->setData('productType', $productType);
 	}
 
 	/**

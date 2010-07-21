@@ -3,7 +3,7 @@
 /**
  * @file classes/help/HelpTopicDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HelpTopicDAO
@@ -13,17 +13,18 @@
  * @brief Operations for retrieving HelpTopic objects.
  */
 
-// $Id$
+// $Id: HelpTopicDAO.inc.php,v 1.6 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.help.HelpTopic');
-import('lib.pkp.classes.help.PKPHelp');
+import('help.HelpTopic');
+import('help.PKPHelp');
 
 class HelpTopicDAO extends XMLDAO {
 	function &_getCache($topicId) {
 		$cache =& Registry::get('helpTopicCache', true, null);
 		$locale = PKPHelp::getLocale();
 		if (!isset($cache[$locale][$topicId])) {
+			import('cache.CacheManager');
 			$help =& PKPHelp::getHelp();
 			$cacheManager =& CacheManager::getManager();
 			$cache[$locale][$topicId] = $cacheManager->getFileCache('help-topic-' . $locale, $topicId, array($this, '_cacheMiss'));

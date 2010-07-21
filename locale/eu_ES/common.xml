@@ -4,12 +4,12 @@
 <!--
   * locale/eu_ES/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.3 2009/12/04 00:11:04 jmacgreg Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
@@ -270,52 +270,4 @@
 	<message key="search.title">Titulua</message>
 	<message key="search.typeMethodApproach">Mota (metodoa/hurbilketa)</message>
 	<message key="common.re">Re:</message>
-	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
-		</a>
-		<br/>
-		Lan hau baimentzen du: <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
-		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-		<br />
-		Lan hau baimentzen du: <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
-	</div>]]></message>
-	<message key="common.false">Faltsua</message>
-	<message key="common.manage">Kudeatu</message>
-	<message key="common.noComments">Iruzkinik ez</message>
-	<message key="common.ok">Ados</message>
-	<message key="common.true">Egiazkoa</message>
-	<message key="common.uploadFailed">Fitxategia ezin izan da kargatu. Saiatu berriro edo administratzailearekin harremanetan jarri arazoak jarraitzen badu.</message>
-	<message key="form.startsWith">honela hasten da</message>
-	<message key="navigation.dashboard">Aginte-panela</message>
-	<message key="notification.allow">Onartu horrelako jakinarazpenak nire jakinarazpen barran agertzea.</message>
-	<message key="notification.confirmError">Errorea harpidetza baieztatzean.</message>
-	<message key="notification.confirmSuccess">Harpidetza burutu da.</message>
-	<message key="notification.email">Bidali posta elektronikoa horrelako jakinarazpenentzat.</message>
-	<message key="notification.location">Joan URLra</message>
-	<message key="notification.mailList">Posta-zerrendaren jakinarazpena</message>
-	<message key="notification.mailList.emailInvalid">Idatzi posta elaktronikoko baliozko helbide bat.</message>
-	<message key="notification.mailList.privacyProtection">Pribatutasuna babesteko araua</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribe</a> babestutako edukira jotzeko.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Submit</a> artikulua]]></message>
-	<message key="notification.mailList.register">Gune honen bidez erregistratu zaitezke...</message>
-	<message key="notification.mailList.review"><![CDATA[Parte hartu <a href="{$reviewUrl}">peer review</a> prozesuan]]></message>
-	<message key="notification.noneExist">Une honetan ez duzu jakinarazpenik.</message>
-	<message key="notification.notification">Jakinarazpena</message>
-	<message key="notification.notifications">Jakinarazpenak</message>
-	<message key="notification.notificationsNew">({$numNew} berria)</message>
-	<message key="notification.notificationsDescription"><![CDATA[{$unreadCount} irakurri gabeko jakinarazpenak eta {$readCount} irakurritako jakinarazpenak dituzu.  <a href="{$settingsUrl}">Click here</a> jakinarazpen ezarpenak aldatzeko.]]></message>
-	<message key="notification.settings">Jakinarazpen ezarpenak</message>
-	<message key="notification.settingsDescription">Hautatu sistemako zer gertaerei buruzko informazioa jaso nahi duzun. Elementu bat ezabatuz gero gertaera horri buruzko jakinarazpenik ez da agertuko jakinarazpen barran.</message>
-	<message key="notification.subscribe">Harpidetu</message>
-	<message key="notification.subscribeError">Zure posta elektronikoko helbidea jakinarazpenak jasotzeko harpidetuta dago.</message>
-	<message key="notification.subscribeSuccess">Posta elektroniko bat bidali da zehaztutako helbidera. Egin klik baieztapen estekan posta-zerrendara gehitzeko.</message>
-	<message key="notification.reminderError">Errorea pasahitza bidaltzean, egiaztatu posta elektronikoko helbidea zuzen idatzi duzula.</message>
-	<message key="notification.reminderSent">Pasahitz berria bidali da emandako posta elektronikoko helbidera.</message>
-	<message key="notification.unsubscribe">Harpidetza kendu</message>
-	<message key="notification.unsubscribeDescription">Idatzi behean posta elektronikoko helbidea eta pasahitza posta elektronikoko jakinarazpenen harpidetza kentzeko. Pasahitza gogoan ez baduzu, utzi bete gabe pasahitzaren eremua eta pasahitz berria bidaliko da emandako posta elektronikoko helbidera.</message>
-	<message key="notification.unsubscribeError">Errorea harpidetza kentzean. Egiaztatu posta elektronikoko helbidea eta pasahitza zuzenak direla.</message>
-	<message key="notification.unsubscribeSuccess">Harpidetza kentzea lortu duzu.</message>
 </locale>

@@ -3,7 +3,7 @@
 /**
  * @file classes/xml/XMLCustomWriter.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLCustomWriter
@@ -12,10 +12,10 @@
  * @brief Wrapper class for writing XML documents using PHP 4.x or 5.x
  */
 
-// $Id$
+// $Id: XMLCustomWriter.inc.php,v 1.5 2009/09/23 00:42:47 asmecher Exp $
 
 
-import ('lib.pkp.classes.xml.XMLNode');
+import ('xml.XMLNode');
 
 class XMLCustomWriter {
 	/**

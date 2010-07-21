@@ -1,12 +1,12 @@
 {**
  * login.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User login form.
  *
- * $Id$
+ * $Id: login.tpl,v 1.5 2009/08/18 23:44:09 asmecher Exp $
  *}
 {strip}
 {assign var="pageTitle" value="user.login"}
@@ -64,7 +64,7 @@
 	</table>
 
 	<p>
-		{if !$hideRegisterLink}&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />{/if}
+		&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />
 		&#187; <a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
 	</p>
 {/if}{* !$implicitAuth *}

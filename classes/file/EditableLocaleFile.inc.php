@@ -3,7 +3,7 @@
 /**
  * @file classes/file/EditableLocaleFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditableLocaleFile
@@ -13,10 +13,10 @@
  *
  */
 
-// $Id$
+// $Id: EditableLocaleFile.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.file.EditableFile');
+import('file.EditableFile');
 
 class EditableLocaleFile extends LocaleFile {
 	var $editableFile;

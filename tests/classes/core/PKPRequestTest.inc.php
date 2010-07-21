@@ -3,11 +3,11 @@
 /**
  * @file tests/classes/config/PKPRequestTest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPRequestTest
- * @ingroup tests_classes_core
+ * @ingroup tests
  * @see PKPRequest
  *
  * @brief Tests for the PKPRequest class.
@@ -15,9 +15,9 @@
 
 // $Id$
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.PKPRequest');
-import('lib.pkp.classes.plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
+import('tests.PKPTestCase');
+import('core.PKPRequest');
+import('plugins.HookRegistry'); // This imports our mock HookRegistry implementation.
 
 class PKPRequestTest extends PKPTestCase {
 	protected $request;

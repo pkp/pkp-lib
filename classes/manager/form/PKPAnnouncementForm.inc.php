@@ -3,7 +3,7 @@
 /**
  * @file AnnouncementForm.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementForm
@@ -12,9 +12,9 @@
  * @brief Form for managers to create/edit announcements.
  */
 
-// $Id$
+// $Id: PKPAnnouncementForm.inc.php,v 1.9 2009/12/04 19:00:35 asmecher Exp $
 
-import('lib.pkp.classes.form.Form');
+import('form.Form');
 
 class PKPAnnouncementForm extends Form {
 	/** @var announcementId int the ID of the announcement being edited */
@@ -152,8 +152,6 @@ class PKPAnnouncementForm extends Form {
 			$announcement->setDatetimePosted(Core::getCurrentDate());
 			$announcementDao->insertAnnouncement($announcement);
 		}
-
-		return $announcement;
 	}
 
 	function _getAnnouncementTypesAssocId() {

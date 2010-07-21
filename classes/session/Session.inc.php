@@ -7,7 +7,7 @@
 /**
  * @file classes/session/Session.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Session
@@ -17,7 +17,7 @@
  * @brief Maintains user state information from one request to the next.
  */
 
-// $Id$
+// $Id: Session.inc.php,v 1.5 2009/05/11 23:35:05 asmecher Exp $
 
 
 class Session extends DataObject {
@@ -199,24 +199,6 @@ class Session extends DataObject {
 	 */
 	function &getUser() {
 		return $this->user;
-	}
-
-	/**
-	 * Set user group the current user is currently
-	 * acting as.
-	 * @param $userGroupId integer
-	 */
-	function setActingAsUserGroupId($userGroupId) {
-		$this->setData('actingAsUserGroupId', (int)$userGroupId);
-	}
-
-	/**
-	 * Get user group the current user is currently
-	 * acting as.
-	 * @return integer
-	 */
-	function getActingAsUserGroupId() {
-		return $this->getData('actingAsUserGroupId');
 	}
 }
 

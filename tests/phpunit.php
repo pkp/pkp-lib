@@ -15,9 +15,6 @@ chdir(dirname(INDEX_FILE_LOCATION));
 // Configure PKP error handling for tests
 define('DONT_DIE_ON_ERROR', true);
 
-// Don't support sessions
-define('SESSION_DISABLE_INIT', true);
-
 // Log errors to test specific error log
 ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIRECTORY_SEPARATOR . 'error.log');
 
@@ -40,35 +37,31 @@ if (TEST_BASE_DIRECTORY) {
 	function import($class) {
 		// Test whether we have a mock implementation of
 		// the requested class.
-		$classParts = explode('.', $class);
-		$mockClassFile = TEST_BASE_DIRECTORY.'/Mock'.array_pop($classParts).'.inc.php';
+		$mockClassFile = TEST_BASE_DIRECTORY.'/Mock'.array_pop(explode('.', $class)).'.inc.php';
 		if (file_exists($mockClassFile)) {
 			require_once($mockClassFile);
 		} else {
 			// No mock implementation found, do the normal import
-			require_once('./'.str_replace('.', '/', $class) . '.inc.php');
+			require_once(str_replace('.', '/', $class) . '.inc.php');
 		}
 	}
 }
 
 // Set up minimal PKP application environment
-require_once('./lib/pkp/includes/bootstrap.inc.php');
+require_once('lib/pkp/includes/driver.inc.php');
+import('core.Core');
+import('core.Registry');
+import('config.Config');
+import('core.String');
+String::init();
 
 // Remove the PKP error handler so that PHPUnit
 // can set it's own error handler and catch errors for us.
 restore_error_handler();
 
-// Show errors in the UI
-ini_set('display_errors', true);
+// Show errors on the GUI
+ini_set('display_errors', 'on');
 
-// Configure assertions for tests
-ini_set('assert.active', true);
-ini_set('assert.bail', false);
-ini_set('assert.warning', true);
-ini_set('assert.callback', null);
-ini_set('assert.quiet_eval', false);
-
-// The server variable PHP_PEAR_BIN_DIR points to the PEAR base directory
-include $_SERVER['PHP_PEAR_BIN_DIR'] . '/phpunit';
-
+// The server variable PHPRC points to the PHP base directory
+include $_SERVER['PHPRC'] . '/phpunit';
 ?>

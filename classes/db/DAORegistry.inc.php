@@ -3,7 +3,7 @@
 /**
  * @file classes/db/DAORegistry.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DAORegistry
@@ -13,10 +13,10 @@
  * @brief Maintains a static list of DAO objects so each DAO is instantiated only once.
  */
 
-// $Id$
+// $Id: DAORegistry.inc.php,v 1.4 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.db.DAO');
+import('db.DAO');
 
 class DAORegistry {
 
@@ -66,8 +66,10 @@ class DAORegistry {
 				fatalError('Unrecognized DAO ' . $name . '!');
 			}
 
+			import($className);
+
 			// Only instantiate each class of DAO a single time
-			$daos[$name] =& instantiate($className, array('DAO', 'XMLDAO'));
+			$daos[$name] = new $name();
 			if ($dbconn != null) {
 				// FIXME Needed by installer but shouldn't access member variable directly
 				$daos[$name]->_dataSource = $dbconn;

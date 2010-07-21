@@ -4,16 +4,15 @@
 <!--
   * locale/no_NO/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">
-	<message key="submission.agencies">Kilder til støtte</message>
 	<message key="submission.abstractViews">Sammendrag av synspunkt</message>
 	<message key="submission.accepted">Akseptert</message>
 	<message key="submission.acknowledge">Bekreft</message>

@@ -3,7 +3,7 @@
 /**
  * @file classes/form/validation/FormValidatorCaptcha.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorCaptcha
@@ -12,9 +12,11 @@
  * @brief Form validation check captcha values.
  */
 
+// $Id: FormValidatorCaptcha.inc.php,v 1.4 2009/05/13 16:35:48 asmecher Exp $
+
+
 class FormValidatorCaptcha extends FormValidator {
-	/** @var string */
-	var $_captchaIdField;
+	var $captchaIdField;
 
 	/**
 	 * Constructor.
@@ -24,24 +26,18 @@ class FormValidatorCaptcha extends FormValidator {
 	 * @param $message string Key of message to display on mismatch
 	 */
 	function FormValidatorCaptcha(&$form, $field, $captchaIdField, $message) {
-		parent::FormValidator($form, $field, FORM_VALIDATOR_REQUIRED_VALUE, $message);
-		$this->_captchaIdField = $captchaIdField;
+		parent::FormValidator($form, $field, 'required', $message);
+		$this->captchaIdField = $captchaIdField;
 	}
 
-
-	//
-	// Public methods
-	//
 	/**
-	 * @see FormValidator::isValid()
 	 * Determine whether or not the form meets this Captcha constraint.
 	 * @return boolean
 	 */
 	function isValid() {
 		$captchaDao =& DAORegistry::getDAO('CaptchaDAO');
-		$form =& $this->getForm();
-		$captchaId = $form->getData($this->_captchaIdField);
-		$captchaValue = $this->getFieldValue();
+		$captchaId = $this->form->getData($this->captchaIdField);
+		$captchaValue = $this->form->getData($this->field);
 		$captcha =& $captchaDao->getCaptcha($captchaId);
 		if ($captcha && $captcha->getValue() === $captchaValue) {
 			$captchaDao->deleteObject($captcha);

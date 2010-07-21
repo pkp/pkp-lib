@@ -26,7 +26,7 @@
  * @package Smarty
  */
 
-/* $Id$ */
+/* $Id: Smarty_Compiler.class.php,v 1.2 2009/09/19 00:12:05 asmecher Exp $ */
 
 /**
  * Template compiling class
@@ -162,6 +162,8 @@ class Smarty_Compiler extends Smarty {
                 . '(?:\s*,\s*' . $this->_obj_single_param_regexp . ')*)?\)';
         $this->_obj_start_regexp = '(?:' . $this->_dvar_regexp . '(?:' . $this->_obj_ext_regexp . ')+)';
         $this->_obj_call_regexp = '(?:' . $this->_obj_start_regexp . '(?:' . $this->_obj_params_regexp . ')?(?:' . $this->_dvar_math_regexp . '(?:' . $this->_num_const_regexp . '|' . $this->_dvar_math_var_regexp . ')*)?)';
+        // Added 2004-01-07 Used for expanding object calls in backticks
+        $this->_obj_callext_regexp = '(?:' . $this->_obj_ext_regexp . ')' . '(?:' . $this->_obj_params_regexp . ')?(?:' . $this->_dvar_math_regexp . '(?:' . $this->_num_const_regexp . '|' . $this->_dvar_math_var_regexp . ')*)?';
         
         // matches valid modifier syntax:
         // |foo
@@ -1683,7 +1685,7 @@ class Smarty_Compiler extends Smarty {
     function _expand_quoted_text($var_expr)
     {
         // if contains unescaped $, expand it
-        if(preg_match_all('~(?:\`(?<!\\\\)\$' . $this->_dvar_guts_regexp . '(?:' . $this->_obj_call_regexp . ')*\`)|(?:(?<!\\\\)\$\w+(\[[a-zA-Z0-9]+\])*)~', $var_expr, $_match)) {
+        if(preg_match_all('~(?:\`(?<!\\\\)\$' . $this->_dvar_guts_regexp . '(?:' . $this->_obj_callext_regexp . ')*\`)|(?:(?<!\\\\)\$\w+(\[[a-zA-Z0-9]+\])*)~', $var_expr, $_match)) {
             $_match = $_match[0];
             $_replace = array();
             foreach($_match as $_var) {

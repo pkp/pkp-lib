@@ -4,12 +4,12 @@
 <!--
   * locale/de_DE/admin.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   *
-  * $Id$
+  * $Id: admin.xml,v 1.4 2009/09/10 18:10:34 asmecher Exp $
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">

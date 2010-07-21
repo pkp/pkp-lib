@@ -6,7 +6,7 @@
 /**
  * @file classes/admin/form/PKPSiteSettingsForm.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SiteSettingsForm
@@ -15,11 +15,11 @@
  * @brief Form to edit site settings.
  */
 
-// $Id$
+// $Id: PKPSiteSettingsForm.inc.php,v 1.9 2009/12/11 23:31:51 asmecher Exp $
 
 
 define('SITE_MIN_PASSWORD_LENGTH', 4);
-import('lib.pkp.classes.form.Form');
+import('form.Form');
 
 class PKPSiteSettingsForm extends Form {
 	/** @var $siteSettingsDao object Site settings DAO */
@@ -121,7 +121,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Uploads custom site stylesheet.
 	 */
 	function uploadSiteStyleSheet() {
-		import('classes.file.PublicFileManager');
+		import('file.PublicFileManager');
 		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('siteStyleSheet')) {
@@ -145,7 +145,7 @@ class PKPSiteSettingsForm extends Form {
 	 * Uploads custom site logo.
 	 */
 	function uploadPageHeaderTitleImage($locale) {
-		import('classes.file.PublicFileManager');
+		import('file.PublicFileManager');
 		$fileManager = new PublicFileManager();
 		$site =& Request::getSite();
 		if ($fileManager->uploadedFileExists('pageHeaderTitleImage')) {

@@ -3,7 +3,7 @@
 /**
  * @file classes/cliTool/InstallTool.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class installTool
@@ -12,13 +12,13 @@
  * @brief CLI tool for installing a PKP app.
  */
 
-// $Id$
+// $Id: InstallTool.inc.php,v 1.9 2009/10/06 20:56:13 asmecher Exp $
 
 
-import('classes.install.Install');
-import('classes.install.form.InstallForm');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+import('install.Install');
+import('install.form.InstallForm');
+import('site.Version');
+import('site.VersionCheck');
 
 class InstallTool extends CommandLineTool {
 

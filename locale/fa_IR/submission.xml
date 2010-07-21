@@ -4,16 +4,15 @@
 <!--
   * locale/fa_IR/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fa_IR (Persian) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.4 2009/08/21 17:50:02 asmecher Exp $
   -->
 
 <locale name="fa_IR" full_name = "Persian">
-	<message key="submission.agencies">آژانسها</message>
 	<message key="submission.abstractViews">مشاهده چکیده</message>
 	<message key="submission.accepted">پذیرش</message>
 	<message key="submission.acknowledge">تشکر</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">درخواست</message>
 	<message key="submission.backToSubmissionEditing">بازگشت به صفحه ویرایش سابمیشن</message>
 	<message key="submission.changeComments">تغییر بده به</message>
-	<message key="submission.citations">مراجع</message>
 	<message key="submission.comments.addComment">اضافه کردن نقطه نظر</message>
 	<message key="submission.comments.comments">نظرات</message>
 	<message key="submission.comments.confirmDelete">آیا میخواهید این نظر را حذف کنید؟</message>
@@ -166,7 +164,4 @@
 	<message key="submission.uploadFileTo">آپلود کردن فایل در</message>
 	<message key="submission.viewMetadata">مشاهده فراداده</message>
 	<message key="submission.views">دیده شده</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">لیست مرتب شده ای از مراجع بکار رفته در این ساب میشن را وارد کنید.</message>	
 </locale>

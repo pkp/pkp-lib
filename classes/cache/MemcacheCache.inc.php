@@ -3,7 +3,7 @@
 /**
  * @file classes/cache/MemcacheCache.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MemcacheCache
@@ -13,10 +13,10 @@
  * @brief Provides caching based on Memcache.
  */
 
-// $Id$
+// $Id: MemcacheCache.inc.php,v 1.4 2009/09/22 18:36:22 asmecher Exp $
 
 
-import('lib.pkp.classes.cache.GenericCache');
+import('cache.GenericCache');
 
 // FIXME This should use connection pooling
 // WARNING: This cache MUST be loaded in batch, or else many cache

@@ -7,7 +7,7 @@
 /**
  * @file Signoff.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Signoff
@@ -17,7 +17,7 @@
  * @brief Basic class describing a signoff.
  */
 
-//$Id$
+//$Id: Signoff.inc.php,v 1.3 2009/05/13 00:13:20 asmecher Exp $
 
 class Signoff extends DataObject {
 	//

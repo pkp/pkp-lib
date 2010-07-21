@@ -7,7 +7,7 @@
 /**
  * @file classes/xml/XMLParser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLParser
@@ -16,14 +16,14 @@
  * @brief Generic class for parsing an XML document into a data structure.
  */
 
-// $Id$
+// $Id: XMLParser.inc.php,v 1.15 2009/12/21 02:33:01 jerico.dev Exp $
 
 
 // The default character encodings
 define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));
 define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
 
-import('lib.pkp.classes.xml.XMLParserDOMHandler');
+import('xml.XMLParserDOMHandler');
 
 class XMLParser {
 
@@ -107,7 +107,7 @@ class XMLParser {
 		xml_set_element_handler($parser, "startElement", "endElement");
 		xml_set_character_data_handler($parser, "characterData");
 
-		import('lib.pkp.classes.file.FileWrapper');
+		import('file.FileWrapper');
 		$wrapper =& FileWrapper::wrapper($file);
 
 		// Handle responses of various types
@@ -249,7 +249,7 @@ class XMLParser {
 	 * @return array a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
 	 */
 	function &parseStruct($file, $tagsToMatch = array()) {
-		import('lib.pkp.classes.file.FileWrapper');
+		import('file.FileWrapper');
 		$wrapper =& FileWrapper::wrapper($file);
 		$fileContents = $wrapper->contents();
 		if (!$fileContents) {

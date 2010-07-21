@@ -7,7 +7,7 @@
 /**
  * @file classes/oai/OAIUtils.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAI
@@ -17,7 +17,7 @@
  * @brief Utility functions used by OAI related classes.
  */
 
-// $Id$
+// $Id: OAIUtils.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
 
 
 class OAIUtils {

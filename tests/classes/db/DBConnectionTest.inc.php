@@ -3,18 +3,20 @@
 /**
  * @file tests/classes/db/DBConnectionTest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DBConnectionTest
- * @ingroup tests_classes_db
+ * @ingroup tests
  * @see DBConnection
  *
  * @brief Tests for the DBConnectionTest class.
  */
 
-import('lib.pkp.tests.DatabaseTestCase');
-import('lib.pkp.classes.db.DBConnection');
+// $Id: DBConnectionTest.inc.php,v 1.3 2009/12/02 06:22:42 jerico.dev Exp $
+
+import('tests.DatabaseTestCase');
+import('classes.db.DBConnection');
 
 class DBConnectionTest extends DatabaseTestCase {
 	/**

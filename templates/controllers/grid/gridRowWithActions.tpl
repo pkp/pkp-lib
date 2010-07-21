@@ -1,37 +1,31 @@
 {**
  * gridRowWithActions.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * a grid row with Actions
  *}
-{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
+{assign var=rowId value="`$row->getGridId()`-row-`$row->getId()`"}
 {capture name=rowActions}
-	{if $row->getActions()}
-		<div class="row_controls">
-			{foreach name=actions from=$row->getActions() item=action}
-				{include file="linkAction/linkAction.tpl" action=$action id=$rowId}
-			{/foreach}
-		</div>
-	{/if}
+	{foreach name=actions from=$row->getActions() item=action}
+		{include file="controllers/grid/gridAction.tpl" action=$action id=$rowId}
+		{if $smarty.foreach.actions.last}
+			&nbsp;&nbsp;&nbsp;
+		{else}
+			<br />
+		{/if}
+	{/foreach}
 {/capture}
 <tr id="{$rowId}">
-	{foreach name=columnLoop from=$columns item=column}
-		{if $smarty.foreach.columnLoop.first}
-			<td class="first_column">
-				<div class="row_container">
-					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
-						{$cells[$smarty.foreach.columnLoop.index]}
-					</div>
-					<div class="row_actions">
-						<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
-					</div>
-					{$smarty.capture.rowActions}
-				</div>
+	{foreach name=cellForEach from=$cells item=cell}
+		{if $smarty.foreach.cellForEach.first}
+			<td>
+				{$smarty.capture.rowActions}
+				{$cell}
 			</td>
 		{else}
-			<td>{$cells[$smarty.foreach.columnLoop.index]}</td>
+			{$cell}
 		{/if}
 	{/foreach}
 </tr>

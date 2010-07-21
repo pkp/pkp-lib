@@ -7,7 +7,7 @@
 /**
  * @file classes/cache/FileCache.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileCache
@@ -16,10 +16,10 @@
  * @brief Provides caching based on machine-generated PHP code on the filesystem.
  */
 
-// $Id$
+// $Id: FileCache.inc.php,v 1.4 2009/04/08 21:34:53 asmecher Exp $
 
 
-import('lib.pkp.classes.cache.GenericCache');
+import('cache.GenericCache');
 
 class FileCache extends GenericCache {
 	/**

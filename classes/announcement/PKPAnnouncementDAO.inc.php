@@ -3,7 +3,7 @@
 /**
  * @file PKPAnnouncementDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementDAO
@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying Announcement objects.
  */
 
-import('lib.pkp.classes.announcement.PKPAnnouncement');
+import('announcement.PKPAnnouncement');
 
 class PKPAnnouncementDAO extends DAO {
 	/**

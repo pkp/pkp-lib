@@ -7,15 +7,15 @@
 /**
  * @file classes/citation/Citation.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Citation
  * @ingroup citation
  * @see CitationParserService
- * @see MetadataDescription
+ * @see Metadata
  *
- * @brief Class representing a citation (bibliographic reference)
+ * @brief Class representing a translatable citation
  */
 
 // $Id$
@@ -24,222 +24,156 @@ define('CITATION_RAW', 0x01);
 define('CITATION_EDITED', 0x02);
 define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
-define('CITATION_APPROVED', 0x05);
 
-import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationAdapter');
+import('metadata.Metadata');
 
-class Citation extends DataObject {
-	/** @var int citation state (raw, edited, parsed, looked-up) */
-	var $_citationState = CITATION_RAW;
-
-	/** @var array an array of MetadataDescriptions */
-	var $_sourceDescriptions = array();
-
+class Citation extends Metadata {
 	/**
 	 * Constructor.
+	 * @param $genre integer one of the supported metadata genres
 	 * @param $rawCitation string an unparsed citation string
 	 */
-	function Citation($rawCitation = null) {
-		parent::DataObject();
-
-		// Add NLM meta-data adapter.
-		// FIXME: This will later be done via plugin/user-configurable settings,
-		// see comment in DataObject::DataObject().
-		$metadataAdapter = new NlmCitationSchemaCitationAdapter();
-		$this->addSupportedMetadataAdapter($metadataAdapter);
-
+	function Citation($genre = METADATA_GENRE_UNKNOWN, $rawCitation = null) {
+		parent::Metadata($genre);
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
 	}
-
+	
 	//
-	// Getters and Setters
+	// Get/set methods
 	//
-	/**
-	 * Set meta-data descriptions discovered for this
-	 * citation from external sources.
-	 *
-	 * @param $sourceDescriptions array MetadataDescriptions
-	 */
-	function setSourceDescriptions(&$sourceDescriptions) {
-		$this->_sourceDescriptions =& $sourceDescriptions;
-	}
 
 	/**
-	 * Add a meta-data description discovered for this
-	 * citation from an external source.
-	 *
-	 * @param $sourceDescription MetadataDescription
-	 */
-	function addSourceDescription(&$sourceDescription) {
-		$this->_sourceDescriptions[] =& $sourceDescription;
-	}
-
-	/**
-	 * Get all meta-data descriptions discovered for this
-	 * citation from external sources.
-	 *
-	 * @return array MetadataDescriptions
-	 */
-	function &getSourceDescriptions() {
-		return $this->_sourceDescriptions;
-	}
-
-	/**
-	 * Get the citationState
+	 * get the citationState
+	 * @param $locale string retrieve the rawCitation in this locale
 	 * @return integer
 	 */
-	function getCitationState() {
-		return $this->_citationState;
+	function getCitationState($locale = null) {
+		return $this->getData('citationState');
 	}
-
+	
 	/**
-	 * Set the citationState
+	 * set the citationState
 	 * @param $citationState integer
+	 * @param $locale string set the citationState for this locale
 	 */
-	function setCitationState($citationState) {
+	function setCitationState($citationState, $locale = null) {
 		assert(in_array($citationState, Citation::_getSupportedCitationStates()));
-		$this->_citationState = $citationState;
+		$this->setData('citationState', $citationState, $locale);
+		// FIXME: clean up the class (editedCitation, metadataElements) when the
+		// state is reset from "parsed" or "confirmed" to "edited" or "raw".
 	}
 
 	/**
-	 * Get the association type
-	 * @return integer
-	 */
-	function getAssocType() {
-		return $this->getData('assocType');
-	}
-
-	/**
-	 * Set the association type
-	 * @param $assocType integer
-	 */
-	function setAssocType($assocType) {
-		$this->setData('assocType', $assocType);
-	}
-
-	/**
-	 * Get the association id
-	 * @return integer
-	 */
-	function getAssocId() {
-		return $this->getData('assocId');
-	}
-
-	/**
-	 * Set the association id
-	 * @param $assocId integer
-	 */
-	function setAssocId($assocId) {
-		$this->setData('assocId', $assocId);
-	}
-
-	/**
-	 * Get the rawCitation
+	 * get the rawCitation
+	 * @param $locale string retrieve the rawCitation in this locale
 	 * @return string
 	 */
-	function getRawCitation() {
-		return $this->getData('rawCitation');
+	function getRawCitation($locale = null) {
+		return $this->getData('rawCitation', $locale);
 	}
-
+	
 	/**
-	 * Set the rawCitation
+	 * set the rawCitation
+	 * NB: This will reset the state of the citation to CITATION_RAW and
+	 * the corresponding edited citation will be set to the same string.
 	 * @param $rawCitation string
+	 * @param $locale string set the rawCitation for this locale
 	 */
-	function setRawCitation($rawCitation) {
-		$rawCitation = $this->_cleanCitationString($rawCitation);
-
-		$this->setData('rawCitation', $rawCitation);
+	function setRawCitation($rawCitation, $locale = null) {
+		// Re-set the edited citation
+		$this->setEditedCitation($rawCitation, $locale);
+		
+		// Setting a new raw citation string will reset the
+		// state of the citation to "raw". This must be done
+		// after setEditedCitation() as this will set the
+		// citation state to CITATION_EDITED.
+		$this->setCitationState(CITATION_RAW, $locale);
+		
+		// Clean the raw citation
+		// 1) If the string contains non-UTF8 characters, convert it to UTF-8
+		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !String::utf8_compliant($rawCitation) ) {
+			$rawCitation = String::utf8_normalize($rawCitation);
+		}
+		// 2) Strip slashes and whitespace
+		$rawCitation = trim(stripslashes($rawCitation));
+		
+		$this->setData('rawCitation', $rawCitation, $locale);
 	}
-
+	
 	/**
-	 * Get the editedCitation
+	 * get the editedCitation
+	 * @param $locale string retrieve the editedCitation in this locale
 	 * @return string
 	 */
-	function getEditedCitation() {
-		return $this->getData('editedCitation');
+	function getEditedCitation($locale = null) {
+		return $this->getData('editedCitation', $locale);
 	}
-
+	
 	/**
-	 * Set the editedCitation
+	 * set the editedCitation
+	 * NB: This will reset the state of the citation to CITATION_EDITED.
 	 * @param $editedCitation string
+	 * @param $locale string set the editedCitation for this locale
 	 */
-	function setEditedCitation($editedCitation) {
-		$editedCitation = $this->_cleanCitationString($editedCitation);
-
-		$this->setData('editedCitation', $editedCitation);
+	function setEditedCitation($editedCitation, $locale = null) {
+		// Setting a new edited citation string will reset the
+		// state of the citation to "edited"
+		$this->setCitationState(CITATION_EDITED, $locale);
+		$this->setData('editedCitation', $editedCitation, $locale);
 	}
-
+	
 	/**
-	 * Get the sequence number
+	 * get the confidence score the citation parser attributed to this citation
+	 * @param $locale string retrieve the parseScore in this locale
 	 * @return integer
 	 */
-	function getSeq() {
-		return $this->getData('seq');
+	function getParseScore($locale = null) {
+		return $this->getData('parseScore', $locale);
 	}
-
+	
 	/**
-	 * Set the sequence number
-	 * @param $seq integer
+	 * set the confidence score of the citation parser
+	 * @param $parseScore integer
+	 * @param $locale string set the parseScore for this locale
 	 */
-	function setSeq($seq) {
-		$this->setData('seq', $seq);
+	function setParseScore($parseScore, $locale = null) {
+		$this->setData('parseScore', $parseScore, $locale);
 	}
-
+	
 	/**
-	 * Returns all properties of this citation. The returned
-	 * array contains the name spaces as key and the property
-	 * list as values.
-	 * @return array
+	 * get the lookup similarity score that the citation parser attributed to this citation
+	 * @param $locale string retrieve the lookupScore in this locale
+	 * @return integer
 	 */
-	function &getNamespacedMetadataProperties() {
-		$metadataAdapters =& $this->getSupportedMetadataAdapters();
-		$metadataProperties = array();
-		foreach($metadataAdapters as $metadataAdapter) {
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-			$metadataProperties[$metadataSchema->getNamespace()] = $metadataSchema->getProperties();
-		}
-		return $metadataProperties;
+	function getLookupScore($locale = null) {
+		return $this->getData('lookupScore', $locale);
 	}
-
-
+	
+	/**
+	 * set the lookup similarity score
+	 * @param $lookupScore integer
+	 * @param $locale string set the lookupScore for this locale
+	 */
+	function setLookupScore($lookupScore, $locale = null) {
+		$this->setData('lookupScore', $lookupScore, $locale);
+	}
+	
 	//
 	// Private methods
 	//
 	/**
 	 * Return supported citation states
 	 * NB: PHP4 work-around for a private static class member
-	 * @return array supported citation states
+	 * @return array supported citation states 
 	 */
 	function _getSupportedCitationStates() {
 		static $_supportedCitationStates = array(
 			CITATION_RAW,
 			CITATION_EDITED,
 			CITATION_PARSED,
-			CITATION_LOOKED_UP,
-			CITATION_APPROVED
+			CITATION_LOOKED_UP
 		);
 		return $_supportedCitationStates;
-	}
-
-	/**
-	 * Take a citation string and clean/normalize it
-	 * @param $citationString string
-	 * @return string
-	 */
-	function _cleanCitationString($citationString) {
-		// 1) If the string contains non-UTF8 characters, convert it to UTF-8
-		if (Config::getVar('i18n', 'charset_normalization') && !String::utf8_compliant($citationString)) {
-			$citationString = String::utf8_normalize($citationString);
-		}
-		// 2) Strip slashes and whitespace
-		$citationString = trim(stripslashes($citationString));
-
-		// 3) Normalize whitespace
-		$citationString = String::regexp_replace('/[\s]+/', ' ', $citationString);
-
-		return $citationString;
 	}
 }
 ?>

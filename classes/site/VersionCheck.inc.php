@@ -3,7 +3,7 @@
 /**
  * @file classes/site/VersionCheck.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionCheck
@@ -13,13 +13,13 @@
  * @brief Provides methods to check for the latest version of OJS.
  */
 
-// $Id$
+// $Id: VersionCheck.inc.php,v 1.7 2009/05/13 00:13:20 asmecher Exp $
 
 
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 
-import('lib.pkp.classes.db.XMLDAO');
-import('lib.pkp.classes.site.Version');
+import('db.XMLDAO');
+import('site.Version');
 
 class VersionCheck {
 
@@ -94,22 +94,8 @@ class VersionCheck {
 				$versionInfo['patch'][$patch['attributes']['from']] = $patch['value'];
 			}
 		}
-		if(isset($data['class'][0]['value']))
-			$versionInfo['class'] = (string) $data['class'][0]['value'];
-		$versionInfo['lazy-load'] = (isset($data['lazy-load'][0]['value']) ? (int) $data['lazy-load'][0]['value'] : 0);
-
-		if(isset($data['release'][0]['value']) && isset($data['application'][0]['value'])) {
-			$version =& Version::fromString(
-				$data['release'][0]['value'],
-				isset($data['type'][0]['value']) ? $data['type'][0]['value'] : null,
-				$data['application'][0]['value'],
-				isset($data['class'][0]['value']) ? $data['class'][0]['value'] : '',
-				$versionInfo['lazy-load']
-			);
-			$versionInfo['version'] =& $version;
-		}
-
-
+		if(isset($data['version'][0]['value']))
+			$versionInfo['version'] = Version::fromString($data['release'][0]['value'], $data['application'][0]['value'], isset($data['type'][0]['value']) ? $data['type'][0]['value'] : null);
 
 		return $versionInfo;
 	}
@@ -128,44 +114,6 @@ class VersionCheck {
 			return $versionInfo['patch'][$codeVersion->getVersionString()];
 		}
 		return null;
-	}
-
-	/**
-	 * Checks whether the given version file exists and whether it
-	 * contains valid data. Returns a Version object if everything
-	 * is ok, otherwise null.
-	 *
-	 * @param $versionFile string
-	 * @param $templateMgr TemplateManager
-	 * @return Version or null if invalid or missing version file
-	 */
-	function &getValidPluginVersionInfo($versionFile, &$templateMgr) {
-		$nullVar = null;
-		if (FileManager::fileExists($versionFile)) {
-			$versionInfo =& VersionCheck::parseVersionXML($versionFile);
-		} else {
-			$templateMgr->assign('message', 'manager.plugins.versionFileNotFound');
-			return $nullVar;
-		}
-
-		$pluginVersion =& $versionInfo['version'];
-
-		// Validate plugin name and type to avoid abuse
-		$productType = explode(".", $versionInfo['type']);
-		if(count($productType) != 2 || $productType[0] != 'plugins') {
-			return $nullVar;
-			$templateMgr->assign('message', 'manager.plugins.versionFileInvalid');
-		}
-
-		$namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
-		foreach($namesToValidate as $nameToValidate) {
-			if (!String::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
-				return $nullVar;
-				$templateMgr->assign('message', 'manager.plugins.versionFileInvalid');
-			}
-		}
-
-		return $pluginVersion;
 	}
 }
 

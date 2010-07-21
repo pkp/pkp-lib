@@ -3,7 +3,7 @@
 /**
  * @file SiteSettingsDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package site
@@ -12,15 +12,16 @@
  * Class for Site Settings DAO.
  * Operations for retrieving and modifying site settings.
  *
- * $Id$
+ * $Id: SiteSettingsDAO.inc.php,v 1.9 2009/09/22 18:36:22 asmecher Exp $
  */
 
 class SiteSettingsDAO extends DAO {
 	function &_getCache() {
 		$settingCache =& Registry::get('siteSettingCache', true, null);
 		if ($settingCache === null) {
+			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
-			$settingCache = $cacheManager->getFileCache(
+			$settingCache = $cacheManager->getCache(
 				'siteSettings', 'site',
 				array($this, '_cacheMiss')
 			);

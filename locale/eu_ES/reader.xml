@@ -4,12 +4,12 @@
 <!--
   * locale/eu_ES/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.3 2009/12/04 00:11:04 jmacgreg Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
@@ -157,22 +157,4 @@
 	<message key="rt.version">Bertsioa</message>
 	<message key="rt.viewMetadata">Indexatzeko metadatuak</message>
 	<message key="rt.admin.settings.printerFriendly">Inprimatzeko bertsioa (lana inprimatzeko moduko bertsioan ematen du).</message>
-	<message key="comments.titleRequired">Iruzkinaren titulua behar da.</message>
-	<message key="rt.admin.sharing">Konpartitzea</message>
-	<message key="rt.admin.sharing.enabled">Konpartitzea gaituta</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Irakurleek egunkariko artikuluak irakurleekin partekatzea gaitzeko, ireki kontu bat <a href="http://addthis.com">addthis.com</a> erabiliz, eta kopiatu/itsatsi beheko partekatze botoiaren kodea.]]></message>
-	<message key="rt.admin.sharing.basic">Oinarrizko ezarpenak</message>
-	<message key="rt.admin.sharing.userNameLabel">AddThis.com erabiltzaile-izena</message>
-	<message key="rt.admin.sharing.buttonStyleLabel">Botoi-estiloa</message>
-	<message key="rt.admin.sharing.dropDownMenuLabel">Erabili goitibeherako menua</message>
-	<message key="rt.admin.sharing.advanced">Ezarpen aurreratuak (aukerakoa)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Ikusi <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> erreferentzia gisa.]]></message>
-	<message key="rt.admin.sharing.brandLabel">Marka</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Goitibeherako aukerak <br/> (komaz bereizitako zerrenda)]]></message>
-	<message key="rt.admin.sharing.languageLabel">Hizkuntza</message>
-	<message key="rt.admin.sharing.logolabel">Logotipoa</message>
-	<message key="rt.admin.sharing.logoBackgroundLabel">Logotipoaren atzeko planoa</message>
-	<message key="rt.admin.sharing.logoColorLabel">Logotipoaren kolorea</message>
-	<message key="rt.admin.configureSharing">Konfiguratu AddThis</message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

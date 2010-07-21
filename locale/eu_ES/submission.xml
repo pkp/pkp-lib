@@ -4,16 +4,15 @@
 <!--
   * locale/eu_ES/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.2 2009/10/07 21:13:19 asmecher Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
-	<message key="submission.agencies">Agentziak</message>
 	<message key="submission.abstractViews">Laburpenen ikuspegiak</message>
 	<message key="submission.accepted">Onartua</message>
 	<message key="submission.acknowledge">Hartu-agiria</message>
@@ -165,62 +164,4 @@
 	<message key="submission.uploadFileTo">Kargatu fitxategia:</message>
 	<message key="submission.viewMetadata">Ikusi metadatuak</message>
 	<message key="submission.views">Ikuspegiak</message>
-	<message key="submission.citations">Erreferentziak</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[Aipuen edizioak jQuery behar du gaitzeko. Joan <a target="_new" href="{$genericPluginsUrl}">generic plug-ins' page</a>-ra eta gaitu jQuery plugin-a.]]></message>
-	<message key="submission.citations.grid.title">Aipuak editatu</message>
-	<message key="submission.citations.grid.importCitations">Aipuak inportatu</message>
-	<message key="submission.citations.grid.exportCitations">Aipuak esportatu</message>
-	<message key="submission.citations.grid.parseCitation">Analizatu</message>
-	<message key="submission.citations.grid.lookupCitation">Bilatu</message>
-	<message key="submission.citations.grid.editedCitation">Aipu-testua</message>
-	<message key="submission.citations.grid.editedCitationRequired">Aipu-testua behar da.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Errorea aipua ezabatzen saiatzean.</message>
-	<message key="submission.citations.form.title">Aipua editatu.</message>
-	<message key="submission.citations.form.loadMessage">Itxaron aipuen editorea kargatu bitartean.</message>
-	<message key="submission.citations.form.description">Hobetu aipua eskuz eta ondoren saiatu aipua berriro balidatzen.</message>
-	<message key="submission.citations.form.filterError">Analisi edo bilaketa eragiketak ez du emaitzarik izan. Aipu-testua eskuz editatzen saiatu al zaitezke emaitzak hobetzeko?</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Publikazio-mota ez da onartu edo ez da aurkitu.</message>
-	<message key="submission.citations.output.exportDescription">Kopiatu elkarrizketa-leiho honen edukia eta itsatsi zure dokumentuan.</message>
-	<message key="metadata.property.displayName.author">Egileak</message>
-	<message key="metadata.property.displayName.editor">Editoreak</message>
-	<message key="metadata.property.displayName.article-title">Artikuluaren titulua</message>
-	<message key="metadata.property.displayName.source">Egunkariaren/Liburuaren titulua</message>
-	<message key="metadata.property.displayName.date">Argitalpen-data</message>
-	<message key="metadata.property.displayName.access-date">Sartze-data</message>
-	<message key="metadata.property.displayName.issue">Jaulkipena</message>
-	<message key="metadata.property.displayName.volume">Bolumena</message>
-	<message key="metadata.property.displayName.season">Garaia</message>
-	<message key="metadata.property.displayName.chapter-title">Kapituluaren titulua</message>
-	<message key="metadata.property.displayName.edition">Edizioa</message>
-	<message key="metadata.property.displayName.series">Seriea</message>
-	<message key="metadata.property.displayName.supplement">Gehigarria</message>
-	<message key="metadata.property.displayName.conf-date">Ekitaldiaren data</message>
-	<message key="metadata.property.displayName.conf-loc">Ekitaldiaren tokia</message>
-	<message key="metadata.property.displayName.conf-name">Ekitaldiaren izena</message>
-	<message key="metadata.property.displayName.conf-sponsor">Ekitaldiaren babeslea</message>
-	<message key="metadata.property.displayName.institution">Erakundea</message>
-	<message key="metadata.property.displayName.fpage">Lehen orrialdea</message>
-	<message key="metadata.property.displayName.lpage">Azken orrialdea</message>
-	<message key="metadata.property.displayName.size">Orrialde-zenbakia</message>
-	<message key="metadata.property.displayName.publisher-loc">Argitaratzailearen helbidea</message>
-	<message key="metadata.property.displayName.publisher-name">Argitaratzailearen izena</message>
-	<message key="metadata.property.displayName.isbn">ISBN</message>
-	<message key="metadata.property.displayName.issn">Inprimaketa ISSN</message>
-	<message key="metadata.property.displayName.eissn">ISSN elektronikoa</message>
-	<message key="metadata.property.displayName.doi">DOI</message>
-	<message key="metadata.property.displayName.publisher-id">Argitalpen pertsonalizatuaren ID</message>
-	<message key="metadata.property.displayName.coden">CODEN</message>
-	<message key="metadata.property.displayName.sici">SICI</message>
-	<message key="metadata.property.displayName.pmid">PMID</message>
-	<message key="metadata.property.displayName.uri">Argitalpenerako lotura</message>
-	<message key="metadata.property.displayName.comment">Iruzkina</message>
-	<message key="metadata.property.displayName.annotation">Oharra</message>
-	<message key="metadata.property.displayName.publication-type">Argitalpen-mota</message>
-	<message key="submission.page.citations">#{$id} aipuak</message>
-	<message key="submission.currentAgencies">Uneko agentziak</message>
-	<message key="submission.indexingInformation">Indexatze-informazioa</message>
-	<message key="submission.uploadSuccessful">Fitxategia kargatu da. Sakatu jarraitu fitxategiaren metadatuak editatzeko.</message>
-	<message key="submission.loadMessage">Itxaron fitxategia zerbitzarian kargatu arte.</message>
-	<message key="submission.fileDetails">Fitxategiaren xehetasunak</message>
-	<message key="author.submit.submissionCitations">Eman aurkezpenean aipatutako lanen erreferentzien formatudun zerrenda.</message>
 </locale>

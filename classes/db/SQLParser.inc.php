@@ -3,7 +3,7 @@
 /**
  * @file classes/db/SQLParser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SQLParser
@@ -12,7 +12,7 @@
  * @brief Class for parsing and executing statements in SQL files.
  */
 
-// $Id$
+// $Id: SQLParser.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
 
 
 class SQLParser {

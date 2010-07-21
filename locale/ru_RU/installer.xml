@@ -9,7 +9,7 @@
   *
   * Localization strings for the ru_RU (Russian) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.4 2009/08/21 17:35:42 asmecher Exp $
   -->
 
 <locale name="ru_RU" full_name = "Russian">

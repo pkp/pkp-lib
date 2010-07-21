@@ -7,7 +7,7 @@
 /**
  * @file classes/file/FileWrapper.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileWrapper
@@ -21,7 +21,7 @@
  *     - Write mode (where possible)
  */
 
-// $Id$
+// $Id: FileWrapper.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
 class FileWrapper {
@@ -115,17 +115,17 @@ class FileWrapper {
 		} else {
 			switch (@$info['scheme']) {
 				case 'http':
-					import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
+					import('file.wrappers.HTTPFileWrapper');
 					$wrapper = new HTTPFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'https':
-					import('lib.pkp.classes.file.wrappers.HTTPSFileWrapper');
+					import('file.wrappers.HTTPSFileWrapper');
 					$wrapper = new HTTPSFileWrapper($url, $info);
 					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
 					break;
 				case 'ftp':
-					import('lib.pkp.classes.file.wrappers.FTPFileWrapper');
+					import('file.wrappers.FTPFileWrapper');
 					$wrapper = new FTPFileWrapper($url, $info);
 					break;
 				default:

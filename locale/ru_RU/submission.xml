@@ -4,16 +4,15 @@
 <!--
   * locale/ru_RU/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Russian) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.5 2009/12/06 22:11:25 jmacgreg Exp $
   -->
 
 <locale name="ru_RU" full_name = "Russian">
-	<message key="submission.agencies">Организации</message>
 	<message key="submission.abstractViews">Просм. аннотации</message>
 	<message key="submission.accepted">Принята</message>
 	<message key="submission.acknowledge">Получена</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">Спросить</message>
 	<message key="submission.backToSubmissionEditing">Обратно к редакции статьи</message>
 	<message key="submission.changeComments">Заменить на</message>
-	<message key="submission.citations">Литература</message>
 	<message key="submission.comments.addComment">Добавить комментарий</message>
 	<message key="submission.comments.comments">Комментарии</message>
 	<message key="submission.comments.confirmDelete">Убрать этот комментарий?</message>
@@ -166,7 +164,4 @@
 	<message key="submission.uploadFileTo">Закачать файл как</message>
 	<message key="submission.viewMetadata">Метаданные</message>
 	<message key="submission.views">Просмотры</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Дайте форматированный список ссылок на работы, использованные в данной рукописи.</message>	
 </locale>

@@ -3,11 +3,11 @@
 /**
  * @file tests/classes/core/MockHookRegistry.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HookRegistry
- * @ingroup tests_classes_core
+ * @ingroup tests
  * @see PKPRequestTest
  *
  * @brief Mock implementation of the HookRegistry class for the PKPRequestTest

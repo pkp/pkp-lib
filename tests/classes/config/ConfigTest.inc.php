@@ -3,19 +3,19 @@
 /**
  * @file tests/classes/config/ConfigTest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConfigTest
- * @ingroup tests_classes_config
+ * @ingroup tests
  * @see Config
  *
  * @brief Tests for the Config class.
  */
 
-// $Id$
+// $Id: ConfigTest.inc.php,v 1.3 2009/12/02 06:22:41 jerico.dev Exp $
 
-import('lib.pkp.tests.PKPTestCase');
+import('tests.PKPTestCase');
 
 class ConfigTest extends PKPTestCase {
 	/**

@@ -4,16 +4,15 @@
 <!--
   * locale/fr_CA/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.5 2009/12/23 22:26:18 asmecher Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
-	<message key="submission.agencies">Organismes</message>
 	<message key="submission.abstractViews">Vues des résumés</message>
 	<message key="submission.accepted">Accepté</message>
 	<message key="submission.acknowledge">Envoyer un accusé de réception</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">Demander</message>
 	<message key="submission.backToSubmissionEditing">Retour à la révision de la soumission</message>
 	<message key="submission.changeComments">Modifier pour</message>
-	<message key="submission.citations">Références</message>	
 	<message key="submission.comments.addComment">Ajouter un commentaire</message>
 	<message key="submission.comments.comments">Commentaires</message>
 	<message key="submission.comments.confirmDelete">Êtes-vous certain de vouloir supprimer ce commentaire?</message>
@@ -166,63 +164,4 @@
 	<message key="submission.uploadFileTo">Télécharger le fichier vers</message>
 	<message key="submission.viewMetadata">Voir les métadonnées</message>
 	<message key="submission.views">Vues</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Fournir une liste structurée de références pour les travaux cités dans cette soumission.</message>
-	<message key="metadata.property.displayName.fpage">Première page</message>
-	<message key="metadata.property.displayName.lpage">Dernière page</message>
-	<message key="metadata.property.displayName.size">Nombre de pages</message>
-	<message key="metadata.property.displayName.isbn">ISBN</message>
-	<message key="metadata.property.displayName.issn">ISSN (imprimé)</message>
-	<message key="metadata.property.displayName.eissn">ISSN (numérique)</message>
-	<message key="metadata.property.displayName.doi">DOI</message>
-	<message key="metadata.property.displayName.coden">CODEN</message>
-	<message key="metadata.property.displayName.sici">SICI</message>
-	<message key="metadata.property.displayName.comment">Commentaires</message>
-	<message key="metadata.property.displayName.author">Auteurs</message>
-	<message key="metadata.property.displayName.editor">Rédacteurs</message>
-	<message key="metadata.property.displayName.article-title">Titre de l'article</message>
-	<message key="metadata.property.displayName.source">Titre du livre/de la revue</message>
-	<message key="metadata.property.displayName.date">Date de publication</message>
-	<message key="metadata.property.displayName.access-date">Date du dernier accès</message>
-	<message key="metadata.property.displayName.issue">Numéro</message>
-	<message key="metadata.property.displayName.volume">Volume</message>
-	<message key="metadata.property.displayName.season">Saison</message>
-	<message key="metadata.property.displayName.chapter-title">Titre du chapitre</message>
-	<message key="metadata.property.displayName.edition">Édition</message>
-	<message key="metadata.property.displayName.series">Collection</message>
-	<message key="metadata.property.displayName.supplement">Supplément</message>
-	<message key="metadata.property.displayName.conf-date">Date de la conférence</message>
-	<message key="metadata.property.displayName.conf-loc">Lieu de la conférence</message>
-	<message key="metadata.property.displayName.conf-name">Nom de la conférence</message>
-	<message key="metadata.property.displayName.institution">Institution</message>
-	<message key="metadata.property.displayName.publisher-loc">Lieu de l'éditeur</message>
-	<message key="metadata.property.displayName.publisher-name">Nom de l'éditeur</message>
-	<message key="metadata.property.displayName.publisher-id">ID de publication personnalisé</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[Il est nécessaire que jQuery soit activé pour l'édition des références. Veuillez aller à la <a target="_new" href="{$genericPluginsUrl}">page des plugiciels génériques</a> et activer le plugiciel jQuery à cet endroit.]]></message>
-	<message key="submission.citations.grid.title">Éditer les références</message>
-	<message key="submission.citations.grid.importCitations">Importer les références</message>
-	<message key="submission.citations.grid.exportCitations">Exporter les références</message>
-	<message key="submission.citations.grid.parseCitation">Analyser</message>
-	<message key="submission.citations.grid.lookupCitation">Consulter</message>
-	<message key="submission.citations.grid.editedCitation">Texte de la référence</message>
-	<message key="submission.citations.grid.editedCitationRequired">Le texte de la référence est obligatoire.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Une erreur est survenue lors de la suppression de la référence.</message>
-	<message key="submission.citations.form.title">Éditer la référence</message>
-	<message key="submission.citations.form.loadMessage">Veuillez patienter pendant le chargement de l'éditeur de références.</message>
-	<message key="submission.citations.form.description">Veuillez améliorer manuellement la référence et tenter de nouveau une validation.</message>
-	<message key="submission.citations.form.filterError">L'opération d'analyse ou de consultation n'a retourné aucun résultat. Essayer peut-être d'éditer manuellement le texte de la référence pour améliorer les résultats.</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Type de publication non supporté ou manquant.</message>
-	<message key="submission.citations.output.exportDescription">Veuillez copier le contenu de cette fenêtre de dialogue et le coller dans votre document.</message>
-	<message key="metadata.property.displayName.conf-sponsor">Commanditaire de la conférence</message>
-	<message key="metadata.property.displayName.pmid">PMID</message>
-	<message key="metadata.property.displayName.uri">Lien vers la publication</message>
-	<message key="metadata.property.displayName.annotation">Annotation</message>
-	<message key="metadata.property.displayName.publication-type">Type de publication</message>
-	<message key="submission.page.citations">Références #{$id}</message>
-	<message key="submission.indexingInformation">Information d'indexation</message>
-	<message key="submission.uploadSuccessful">Votre fichier a été téléchargé. Appuyer sur "Continuer" pour modifier les métadonnées du fichier.</message>
-	<message key="submission.loadMessage">Veuillez patienter pendant le téléchargement de votre fichier sur le serveur.</message>
-	<message key="submission.fileDetails">Détails du fichier</message>
-	<message key="submission.currentAgencies">Organismes actuels</message>
 </locale>

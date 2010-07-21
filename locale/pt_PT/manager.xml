@@ -4,12 +4,12 @@
 <!--
   * locale/pt_PT/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.2 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <locale name="pt_PT" full_name = "Português">
@@ -168,6 +168,4 @@
 	<message key="plugins.categories.reports">Plugins de Relatório</message>
 	<message key="plugins.categories.themes.description">Plugins de Visual podem ser utilizados para alterar o visual do sistema.</message>
 	<message key="plugins.categories.themes">Plugins de Visual</message>
-	<message key="manager.emails.form.emailKeyRequired">É requerida uma única chave para o email.</message>
-	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
 </locale>

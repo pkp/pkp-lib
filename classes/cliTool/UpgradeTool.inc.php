@@ -3,7 +3,7 @@
 /**
  * @file classes/cliTool/UpgradeTool.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class upgradeTool
@@ -14,14 +14,14 @@
  * Note: Some functions require fopen wrappers to be enabled.
  */
 
-// $Id$
+// $Id: UpgradeTool.inc.php,v 1.6 2009/11/23 19:27:33 mcrider Exp $
 
 
 define('RUNNING_UPGRADE', 1);
 
-import('classes.install.Upgrade');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+import('install.Upgrade');
+import('site.Version');
+import('site.VersionCheck');
 
 class UpgradeTool extends CommandLineTool {
 

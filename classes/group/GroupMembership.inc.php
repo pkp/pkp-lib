@@ -3,7 +3,7 @@
 /**
  * @file classes/group/GroupMembership.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GroupMembership
@@ -13,7 +13,7 @@
  * @brief Describes memberships for editorial board positions.
  */
 
-// $Id$
+// $Id: GroupMembership.inc.php,v 1.4 2009/07/02 21:29:35 mcrider Exp $
 
 
 class GroupMembership extends DataObject {

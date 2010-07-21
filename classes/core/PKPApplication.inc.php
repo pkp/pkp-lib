@@ -3,7 +3,7 @@
 /**
  * @file classes/core/PKPApplication.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
@@ -13,34 +13,37 @@
  *
  */
 
+// $Id: PKPApplication.inc.php,v 1.33 2009/12/10 21:39:31 jerico.dev Exp $
+
 
 define('REALLY_BIG_NUMBER', 10000);
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
-define('ASSOC_TYPE_ROLE', 0x0100000);
-define('ASSOC_TYPE_USER_GROUP', 0x0200000);
-
-
 class PKPApplication {
-	var $enabledProducts;
-	var $allProducts;
+	/**
+	 * Initialize the application with a given application object
+	 * @param $application object Subclass of PKPApplication class to use
+	 */
+	function initialize(&$application) {
+		Registry::set('application', $application);
+	}
 
 	function PKPApplication() {
 		// Configure error reporting
-		// FIXME: Error logging needs to be suppressed for strict
-		// and deprecation errors in PHP5 as long as we support PHP 4.
-		// This is primarily for static method warnings and warnings
-		// about use of ... =& new ... Static class members cannot be
-		// declared in PHP4 and ... =& new ... is deprecated since PHP 5.
-		$errorReportingLevel = E_ALL;
-		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
-		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
-		@error_reporting($errorReportingLevel);
+		if (defined('E_STRICT')) { // PHP5
+			// FIXME: Error logging needs to be suppressed for strict
+			// errors in PHP5 as long as we support PHP4. This
+			// is primarily for static method warnings. Static class
+			// members cannot be declared in PHP4.
+			error_reporting(E_ALL & ~E_STRICT);
+		} else { // PHP4
+			error_reporting(E_ALL);
+		}
 
 		// Instantiate the profiler
-		import('lib.pkp.classes.core.PKPProfiler');
+		import('core.PKPProfiler');
 		$pkpProfiler = new PKPProfiler();
 
 		// Begin debug logging
@@ -50,46 +53,23 @@ class PKPApplication {
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
-		import('lib.pkp.classes.core.Core');
-		import('lib.pkp.classes.core.String');
-		import('lib.pkp.classes.core.Registry');
+		import('core.Core');
+		import('core.String');
+		import('core.Registry');
 
-		import('lib.pkp.classes.config.Config');
+		import('config.Config');
 
-		if (Config::getVar('debug', 'display_errors')) {
-			// Try to switch off normal error display when error display
-			// is being managed by OJS.
-			@ini_set('display_errors', false);
-		}
+		import('db.DAORegistry');
+		import('db.XMLDAO');
 
-		if (Config::getVar('debug', 'deprecation_warnings')) {
-			// Switch deprecation warnings back on. This can only be done
-			// after declaring the Config class as we need access to the
-			// configuration and we cannot declare the Config class before
-			// we've switched of deprecation warnings as its declaration
-			// causes warnings itself.
-			// FIXME: When we drop PHP4 support and can declare static methods
-			// as such then we can also include E_STRICT/E_DEPRECATED here as
-			// nearly all strict/deprecated warnings concern PHP4 support.
-			@error_reporting($errorReportingLevel);
-		}
+		import('security.Validation');
+		import('session.SessionManager');
+		import('template.TemplateManager');
 
-		Registry::set('application', $this);
+		import('plugins.PluginRegistry');
+		import('plugins.HookRegistry');
 
-		import('lib.pkp.classes.db.DAORegistry');
-		import('lib.pkp.classes.db.XMLDAO');
-
-		import('lib.pkp.classes.cache.CacheManager');
-
-		import('classes.security.Validation');
-		import('lib.pkp.classes.session.SessionManager');
-		import('classes.template.TemplateManager');
-
-		import('lib.pkp.classes.plugins.PluginRegistry');
-		import('lib.pkp.classes.plugins.HookRegistry');
-
-		import('classes.i18n.Locale');
-
+		$this->initialize($this);
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));
 
@@ -133,7 +113,7 @@ class PKPApplication {
 		$request =& Registry::get('request', true, null);
 
 		if (is_null($request)) {
-			import('classes.core.Request');
+			import('core.Request');
 
 			// Implicitly set request by ref in the registry
 			$request = new Request();
@@ -150,7 +130,7 @@ class PKPApplication {
 		$dispatcher =& Registry::get('dispatcher', true, null);
 
 		if (is_null($dispatcher)) {
-			import('lib.pkp.classes.core.Dispatcher');
+			import('core.Dispatcher');
 
 			// Implicitly set dispatcher by ref in the registry
 			$dispatcher = new Dispatcher();
@@ -158,9 +138,8 @@ class PKPApplication {
 			// Inject dependency
 			$dispatcher->setApplication($this->getApplication());
 
-			// Inject router configuration
-			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
-			$dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
+			// Inject generic component router configuration
+			$dispatcher->addRouterName('core.PKPComponentRouter', ROUTE_COMPONENT);
 		}
 
 		return $dispatcher;
@@ -174,14 +153,6 @@ class PKPApplication {
 		// Dispatch the request to the correct handler
 		$dispatcher =& $this->getDispatcher();
 		$dispatcher->dispatch($this->getRequest());
-	}
-
-	/**
-	 * Get the symbolic name of this application
-	 * @return string
-	 */
-	function getName() {
-		return 'pkp-lib';
 	}
 
 	/**
@@ -227,95 +198,33 @@ class PKPApplication {
 	}
 
 	/**
-	 * This function retrieves all enabled product versions once
-	 * from the database and caches the result for further
-	 * access.
-	 *
-	 * @param $category string
-	 * @return array
-	 */
-	function &getEnabledProducts($category = null) {
-		if (is_null($this->enabledProducts)) {
-			$contextDepth = $this->getContextDepth();
-
-			$settingContext = array();
-			if ($contextDepth > 0) {
-				$request =& $this->getRequest();
-				$router =& $request->getRouter();
-
-				// Try to identify the main context (e.g. journal, conference, press),
-				// will be null if none found.
-				$mainContext =& $router->getContext($request, 1);
-
-				// Create the context for the setting if found
-				if ($mainContext) $settingContext[] = $mainContext->getId();
-				$settingContext = array_pad($settingContext, $contextDepth, 0);
-				$settingContext = array_combine($this->getContextList(), $settingContext);
-			}
-
-			$versionDAO =& DAORegistry::getDAO('VersionDAO');
-			$this->enabledProducts =& $versionDAO->getCurrentProducts($settingContext);
-		}
-
-		if (is_null($category)) {
-			return $this->enabledProducts;
-		} elseif (isset($this->enabledProducts[$category])) {
-			return $this->enabledProducts[$category];
-		} else {
-			$returner = array();
-			return $returner;
-		}
-	}
-
-	/**
-	 * Get the list of plugin categories for this application.
-	 */
-	function getPluginCategories() {
-		// To be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
-	 * Return the current version of the application.
-	 * @return Version
-	 */
-	function &getCurrentVersion() {
-		$currentVersion =& $this->getEnabledProducts('core');
-		assert(count($currentVersion)) == 1;
-		return $currentVersion[$this->getName()];
-	}
-
-	/**
 	 * Get the map of DAOName => full.class.Path for this application.
 	 * @return array
 	 */
 	function getDAOMap() {
 		return array(
-			'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
-			'AuthSourceDAO' => 'lib.pkp.classes.security.AuthSourceDAO',
-			'CaptchaDAO' => 'lib.pkp.classes.captcha.CaptchaDAO',
-			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
-			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
-			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
-			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
-			'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
-			'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
-			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
-			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
-			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
-			'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
-			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
-			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
-			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
-			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
-			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
-			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
-			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
-			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
-			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
-			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
-			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
-			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
+			'AccessKeyDAO' => 'security.AccessKeyDAO',
+			'AuthSourceDAO' => 'security.AuthSourceDAO',
+			'CaptchaDAO' => 'captcha.CaptchaDAO',
+			'ControlledVocabDAO' => 'controlledVocab.ControlledVocabDAO',
+			'ControlledVocabEntryDAO' => 'controlledVocab.ControlledVocabEntryDAO',
+			'CountryDAO' => 'i18n.CountryDAO',
+			'CurrencyDAO' => 'currency.CurrencyDAO',
+			'GroupDAO' => 'group.GroupDAO',
+			'GroupMembershipDAO' => 'group.GroupMembershipDAO',
+			'HelpTocDAO' => 'help.HelpTocDAO',
+			'HelpTopicDAO' => 'help.HelpTopicDAO',
+			'NotificationDAO' => 'notification.NotificationDAO',
+			'NotificationSettingsDAO' => 'notification.NotificationSettingsDAO',
+			'ScheduledTaskDAO' => 'scheduledTask.ScheduledTaskDAO',
+			'SessionDAO' => 'session.SessionDAO',
+			'SignoffDAO' => 'signoff.SignoffDAO',
+			'SiteDAO' => 'site.SiteDAO',
+			'SiteSettingsDAO' => 'site.SiteSettingsDAO',
+			'TimeZoneDAO' => 'i18n.TimeZoneDAO',
+			'TemporaryFileDAO' => 'file.TemporaryFileDAO',
+			'VersionDAO' => 'site.VersionDAO',
+			'XMLDAO' => 'db.XMLDAO'
 		);
 	}
 
@@ -399,12 +308,7 @@ class PKPApplication {
 		}
 
 		// Return abridged message if strict error or notice (since they are more common)
-		// This also avoids infinite loops when E_STRICT (=deprecation level) error
-		// reporting is switched on.
-		$shortErrors = E_NOTICE;
-		if (defined('E_STRICT')) $shortErrors |= E_STRICT;
-		if (defined('E_DEPRECATED')) $shortErrors |= E_DEPRECATED;
-		if ($errorno & $shortErrors) {
+		if ($errorno == E_NOTICE) {
 			return $type . ': ' . $errstr . ' (' . $errfile . ':' . $errline . ')';
 		}
 
@@ -435,7 +339,7 @@ class PKPApplication {
 							$args .= $a;
 							break;
 						case 'string':
-							$a = htmlspecialchars($a);
+							$a = htmlspecialchars(substr($a, 0, 64)).((strlen($a) > 64) ? '...' : '');
 							$args .= "\"$a\"";
 							break;
 						case 'array':

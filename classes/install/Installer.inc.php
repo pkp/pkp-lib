@@ -3,7 +3,7 @@
 /**
  * @file classes/install/Installer.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Installer
@@ -12,7 +12,7 @@
  * @brief Base class for install and upgrade scripts.
  */
 
-// $Id$
+// $Id: Installer.inc.php,v 1.12 2009/11/06 18:45:30 mcrider Exp $
 
 
 // Database installation files
@@ -25,12 +25,12 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
-import('lib.pkp.classes.db.DBDataXMLParser');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionDAO');
-import('lib.pkp.classes.config.ConfigParser');
+import('db.DBDataXMLParser');
+import('site.Version');
+import('site.VersionDAO');
+import('config.ConfigParser');
 
-require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
+require_once('adodb-xmlschema.inc.php'); // FIXME?
 
 class Installer {
 
@@ -133,7 +133,6 @@ class Installer {
 	 * @return boolean
 	 */
 	function preInstall() {
-		$this->log('pre-install');
 		if (!isset($this->dbconn)) {
 			// Connect to the database.
 			$conn =& DBConnection::getInstance();
@@ -148,7 +147,7 @@ class Installer {
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao =& DAORegistry::getDAO('VersionDAO');
-			$this->currentVersion =& $versionDao->getCurrentVersion();
+			$this->currentVersion =& $versionDao->getCurrentVersion(null, $this->isUpgrade());
 		}
 
 		if (!isset($this->locale)) {
@@ -204,7 +203,6 @@ class Installer {
 	 * @return boolean
 	 */
 	function postInstall() {
-		$this->log('post-install');
 		$result = true;
 		HookRegistry::call('Installer::postInstall', array(&$this, &$result));
 		return $result;
@@ -246,8 +244,10 @@ class Installer {
 		$versionString = $installTree->getAttribute('version');
 		if (isset($versionString)) {
 			$this->newVersion =& Version::fromString($versionString);
+			$this->newVersion->setCurrent(1);
 		} else {
 			$this->newVersion = $this->currentVersion;
+			$this->newVersion->setCurrent(1);
 		}
 
 		// Parse descriptor
@@ -286,7 +286,7 @@ class Installer {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
 			if ($this->getParam('manualInstall')) {
 				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load) VALUES (%d, %d, %d, %d, NOW(), 1, %s,%s)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct()), $this->dbconn->qstr($this->newVersion->getProductClassName()), $this->newVersion->getLazyLoad()));
+				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product) VALUES (%d, %d, %d, %d, NOW(), 1, %s,%s)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct())));
 			} else {
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
 				if (!$versionDao->insertVersion($this->newVersion)) {
@@ -374,7 +374,7 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('schema: %s', $action['file']));
 
-				require_once './lib/pkp/lib/adodb/adodb-xmlschema.inc.php';
+				require_once('adodb-xmlschema.inc.php');
 				$schemaXMLParser = new adoSchema($this->dbconn);
 				$dict =& $schemaXMLParser->dict;
 				$dict->SetCharSet($this->dbconn->charSet);
@@ -392,10 +392,11 @@ class Installer {
 				$fileName = $action['file'];
 				$this->log(sprintf('data: %s', $action['file']));
 				$sql = $this->dataXMLParser->parseData($fileName);
-				// We might get an empty SQL if the upgrade script has
-				// been executed before.
 				if ($sql) {
 					return $this->executeSQL($sql);
+				} else {
+					$this->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, Locale::translate('installer.installParseDBFileError')));
+					return false;
 				}
 				break;
 			case 'code':
@@ -405,9 +406,9 @@ class Installer {
 					require_once($action['file']);
 				}
 				if (isset($action['attr']['class'])) {
-					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this, $action['attr']);
+					return call_user_func(array($action['attr']['class'], $action['attr']['function']), $this);
 				} else {
-					return call_user_func(array(&$this, $action['attr']['function']), $this, $action['attr']);
+					return call_user_func(array(&$this, $action['attr']['function']));
 				}
 				break;
 			case 'note':
@@ -590,35 +591,12 @@ class Installer {
 	 * @return boolean
 	 */
 	function clearDataCache() {
+		import('cache.CacheManager');
 		$cacheManager =& CacheManager::getManager();
-		$cacheManager->flush(null, CACHE_TYPE_FILE);
-		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
+		$cacheManager->flush();
 		return true;
 	}
 
-	/**
-	 * Set the current version for this installer.
-	 * @var $version Version
-	 */
-	function setCurrentVersion(&$version) {
-		$this->currentVersion = $version;
-	}
-
-	/**
-	 * For upgrade: install email templates and data
-	 * @param $installer object
-	 * @param $attr array Attributes: array containing
-	 * 		'key' => 'EMAIL_KEY_HERE',
-	 * 		'locales' => 'en_US,fr_CA,...'
-	 */
-	function installEmailTemplate($installer, $attr) {
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
-		$emailTemplateDao->installEmailTemplates($emailTemplateDao->getMainEmailTemplatesFilename(), false, $attr['key']);
-		foreach (explode(',', $attr['locales']) as $locale) {
-			$emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale), false, $attr['key']);
-		}
-		return true;
-	}
 }
 
 ?>

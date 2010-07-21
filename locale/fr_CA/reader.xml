@@ -4,12 +4,12 @@
 <!--
   * locale/fr_CA/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.6 2009/10/07 17:05:27 jmacgreg Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -174,5 +174,4 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">Arrière-plan du logo</message>
 	<message key="rt.admin.sharing.logoColorLabel">Couleur du logo</message>
 	<message key="rt.admin.configureSharing">Configurer AddThis</message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

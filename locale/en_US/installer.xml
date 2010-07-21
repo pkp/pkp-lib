@@ -4,12 +4,12 @@
 <!--
   * locale/en_US/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.7 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="en_US" full_name = "English">

@@ -1,12 +1,12 @@
 /**
  * common.css
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * PKP-wide shared stylesheet.
  *
- * $Id$
+ * $Id: common.css,v 1.1 2009/06/02 21:15:35 asmecher Exp $
  */
 
 /**
@@ -256,6 +256,7 @@ span.highlight {
 .nowrap {
 	white-space: nowrap;
 }
+
 
 /**
  * Table styles

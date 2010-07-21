@@ -1,12 +1,12 @@
 {**
  * announcements.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display list of announcements in management.
  *
- * $Id$
+ * $Id: announcements.tpl,v 1.12 2008/12/05 21:11:58 mcrider Exp $
  *}
 {strip}
 {assign var="pageTitle" value="manager.announcements"}

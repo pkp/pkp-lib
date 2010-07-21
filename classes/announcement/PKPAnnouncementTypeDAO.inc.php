@@ -3,7 +3,7 @@
 /**
  * @file PKPAnnouncementTypeDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementTypeDAO
@@ -13,9 +13,9 @@
  * @brief Operations for retrieving and modifying AnnouncementType objects.
  */
 
-//$Id$
+//$Id: PKPAnnouncementTypeDAO.inc.php,v 1.7 2009/12/02 06:22:41 jerico.dev Exp $
 
-import('lib.pkp.classes.announcement.PKPAnnouncementType');
+import('announcement.PKPAnnouncementType');
 
 class PKPAnnouncementTypeDAO extends DAO {
 	/**
@@ -56,7 +56,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 */
 	function getAnnouncementTypeName($typeId) {
 		$result =& $this->retrieve(
-			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings p LEFT JOIN announcement_type_settings l ON (l.type_id = ? AND l.setting_name = ? AND l.locale = ?) WHERE p.type_id = ? AND p.setting_name = ? AND p.locale = ?',
+			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings l LEFT JOIN announcement_type_settings p ON (p.type_id = ? AND p.setting_name = ? AND p.locale = ?) WHERE l.type_id = ? AND l.setting_name = ? AND l.locale = ?',
 			array(
 				$typeId, 'name', Locale::getLocale(),
 				$typeId, 'name', Locale::getPrimaryLocale()

@@ -3,12 +3,12 @@
 <!--
   * locale/fa_IR/countries.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * تحت مجوزGNU GPL v2 منتشرشد. برای دیدن متن کامل فایل docs/COPYING را ببینید.
   *
   * لیست بومی کشورها.
   *
-  * $Id$
+  * $Id: countries.xml,v 1.4 2009/08/18 23:44:09 asmecher Exp $
   -->
 <countries>
 	<country code="AX" name="جزایر آلند" />

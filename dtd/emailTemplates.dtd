@@ -1,12 +1,12 @@
 <!--
   * emails.dtd
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DTD for emails.
   *
-  * $Id$
+  * $Id: emailTemplates.dtd,v 1.1 2009/07/29 21:48:09 asmecher Exp $
   -->
 
 <!ELEMENT emails (email+)>

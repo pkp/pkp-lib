@@ -3,7 +3,7 @@
 /**
  * @file classes/core/PKPProfiler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPProfiler
@@ -12,9 +12,9 @@
  * @brief Basic shell class used to wrap the PHP Quick Profiler Class
  */
 
-// $Id$
+// $Id: PKPProfiler.inc.php,v 1.4 2009/12/02 06:22:41 jerico.dev Exp $
 
-require_once('./lib/pkp/lib/pqp/classes/PhpQuickProfiler.php');
+require_once('PhpQuickProfiler.php');
 
 class PKPProfiler {
 

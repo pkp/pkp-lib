@@ -3,22 +3,22 @@
 /**
  * @file tests/classes/core/PKPRouterTest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPRouterTest
- * @ingroup tests_classes_core
+ * @ingroup tests
  * @see PKPRouter
  *
  * @brief Tests for the PKPRouter class.
  */
 
-import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.PKPRouter');
-import('lib.pkp.classes.core.PKPRequest');
-import('lib.pkp.classes.plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
-import('lib.pkp.classes.core.PKPApplication');
-import('lib.pkp.classes.db.DAORegistry');
+import('tests.PKPTestCase');
+import('core.PKPRouter');
+import('core.PKPRequest');
+import('plugins.HookRegistry'); // This imports a mock HookRegistry implementation.
+import('core.PKPApplication');
+import('db.DAORegistry');
 
 class PKPRouterTest extends PKPTestCase {
 	const
@@ -233,7 +233,7 @@ class PKPRouterTest extends PKPTestCase {
 	 */
 	public function testGetIndexUrl() {
 		$this->_setUpMockEnvironment();
-		$this->setTestConfiguration('request1', 'classes/core/config'); // no restful URLs
+		$this->setTestConfiguration('request1', 'classes/core/config', false); // no restful URLs
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'
@@ -269,7 +269,7 @@ class PKPRouterTest extends PKPTestCase {
 	 */
 	public function testGetIndexUrlRestful() {
 		$this->_setUpMockEnvironment();
-		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs
+		$this->setTestConfiguration('request2', 'classes/core/config', false); // restful URLs
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
 			'SCRIPT_NAME' => '/base/index.php'

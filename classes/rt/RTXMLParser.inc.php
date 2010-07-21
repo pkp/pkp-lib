@@ -3,7 +3,7 @@
 /**
  * @file classes/rt/RTXMLParser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTXMLParser
@@ -13,11 +13,11 @@
  * @brief Class to parse Reading Tools data from an XML format.
  */
 
-// $Id$
+// $Id: RTXMLParser.inc.php,v 1.6 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.xml.XMLParser');
-import('lib.pkp.classes.rt.RTStruct');
+import('xml.XMLParser');
+import('rt.RTStruct');
 
 class RTXMLParser {
 

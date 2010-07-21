@@ -2,7 +2,7 @@
 /**
  * @file classes/handler/validation/HandlerValidator.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HandlerValidator
@@ -10,6 +10,8 @@
  *
  * @brief Class to represent a page validation check.
  */
+
+import('handler.validation.HandlerValidator');
 
 class HandlerValidator {
 
@@ -31,11 +33,6 @@ class HandlerValidator {
 	 * @param $message string the error message for validation failures (i18n key)
 	 */
 	function HandlerValidator(&$handler, $redirectToLogin = false, $message = null, $additionalArgs = array()) {
-		// All handler validators are deprecated and
-		// only exist for backwards compatibility.
-		// FIXME: Switch warning message on when handler validator re-factoring is complete:
-		// if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-
 		$this->handler =& $handler;
 		$this->redirectToLogin = $redirectToLogin;
 		$this->message = $message;

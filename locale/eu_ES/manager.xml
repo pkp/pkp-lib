@@ -4,12 +4,12 @@
 <!--
   * locale/eu_ES/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Basque (Euskara)) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.3 2009/12/04 00:11:04 jmacgreg Exp $
   -->
 
 <locale name="eu_ES" full_name = "Basque (Euskara)">
@@ -168,6 +168,4 @@
 	<message key="plugins.categories.themes.description">Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak.</message>
 	<message key="plugins.categories.themes">Temen pluginak</message>
 	<message key="manager.people.mustChooseRole">Hautatu funtzio bat orriaren goialdean "Inskribatu erabiltzailea"n klik egin aurretik.</message>
-	<message key="manager.emails.form.emailKeyRequired">Posta elektronikoko gako bakarra behar da posta elektronikorako.</message>
-	<message key="manager.setup.errorDeletingItem">Errorea elementu hau ezabatzean.</message>
 </locale>

@@ -3,7 +3,7 @@
 /**
  * @file classes/core/Transcoder.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Transcoder
@@ -12,7 +12,7 @@
  * @brief Multi-class transcoder; uses mbstring and iconv if available, otherwise falls back to built-in classes
  */
 
-// $Id$
+// $Id: Transcoder.inc.php,v 1.5 2009/04/20 21:38:07 mj Exp $
 
 
 class Transcoder {
@@ -83,7 +83,7 @@ class Transcoder {
 
 		} elseif ($this->translit && $this->fromEncoding == "UTF-8" && $this->toEncoding == "ASCII") {
 			// use the utf2ascii library
-			require_once './lib/pkp/lib/phputf8/utf8_to_ascii.php';
+			require_once 'utf8_to_ascii.php';
 			return utf8_to_ascii($string);
 
 		} elseif ($mbstring) {

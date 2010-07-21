@@ -4,16 +4,15 @@
 <!--
   * locale/ja_JP/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ja_JP (日本語) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="ja_JP" full_name = "日本語">
-	<message key="submission.agencies">機関</message>
 	<message key="submission.abstractViews">要旨を読む</message>
 	<message key="submission.accepted">採用</message>
 	<message key="submission.acknowledge">お礼</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">依頼</message>
 	<message key="submission.backToSubmissionEditing">投稿物の編集に戻る</message>
 	<message key="submission.changeComments">コメント機能の変更</message>
-	<message key="submission.citations">参考文献</message>	
 	<message key="submission.comments.addComment">コメントの追加</message>
 	<message key="submission.comments.comments">コメント</message>
 	<message key="submission.comments.confirmDelete">このコメントを削除してもよいですか。</message>
@@ -166,7 +164,4 @@
 	<message key="submission.uploadFileTo">ファイルのアップロード</message>
 	<message key="submission.viewMetadata">メタデータの閲覧</message>
 	<message key="submission.views">閲覧</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">この投稿で引用している文献について整形した参考文献リストを提供してください。</message>
 </locale>

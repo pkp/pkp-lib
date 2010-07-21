@@ -4,12 +4,12 @@
 <!--
   * locale/en_US/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.7 2009/09/29 23:39:13 asmecher Exp $
   -->
 
 <locale name="en_US" full_name = "English">
@@ -117,7 +117,7 @@
 	<message key="manager.people.enrollUserAs">Enroll user as</message>
 	<message key="manager.people.invalidUser">Sorry, the requested user does not exist.</message>
 	<message key="manager.people.mergeUser">Merge User</message>
-	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the selected {$oldAccountCount} account(s) into the account with the username "{$newUsername}"? The selected {$oldAccountCount} accounts will not exist afterwards. This action is not reversible.</message>
+	<message key="manager.people.mergeUsers.confirm">Are you sure you wish to merge the account with the username "{$oldUsername}" into the account with the username "{$newUsername}"? The account with the username "{$oldUsername}" will not exist afterwards. This action is not reversible.</message>
 	<message key="manager.people.mergeUsers">Merge Users</message>
 	<message key="manager.people.mustChooseRole">Please select a role at the top of the page before clicking "Enroll User".</message>
 	<message key="manager.people.mustProvideName">Please provide at least a last name for the user first.</message>
@@ -139,34 +139,7 @@
 	<message key="manager.plugins.sitePlugin">This is a site-wide plugin. Only the Site Administrator may manage this plugin.</message>
 	<message key="manager.plugins">System Plugins</message>
 	<message key="manager.readingTools">Reading Tools</message>
-	<message key="manager.reviewerSearch.advancedSearch">Advanced Reviewer Search</message>
-	<message key="manager.reviewerSearch.searchByName">Search For Reviewer By Name</message>
-	<message key="manager.reviewerSearch.doneAmount">Number of reviews completed</message>
-	<message key="manager.reviewerSearch.avgAmount">Average number of days per review</message>
-	<message key="manager.reviewerSearch.lastAmount">Days since last review</message>
-	<message key="manager.reviewerSearch.activeAmount">Number of currently active reviews</message>
-	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.roles">Roles</message>
-	<message key="manager.setup.citationFilterParserDescription">To find and check citations in citation databases they first have to be split into machine readable metadata. This means you have to extract the title, publisher, publication date, etc. from the original citation text provided by the author. We provide connectors to several external web services that can assist you in doing so. Some of these connectors require registration or configuration information. You can add one or several connectors by clicking on the "Add Item" button below.</message>
-	<message key="manager.setup.citationFilterLookupDescription">Next you have to select and set up connections to external citation databases. We provide connectors to several external databases in which you can search for citations. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</message>
-	<message key="manager.setup.citationOutputStyleDescription">Finally you have to choose the citation style you wish to use for your publication. You'll be able to copy &amp; paste formatted citations directly into your favorite word processor where you edit your galleys (e.g. MS Word or OpenOffice):</message>
-	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>
-	<message key="manager.setup.filter.grid.filterSettings">Registration Information and Connector Settings</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Please select one of the transformations from the drop-down.</message>	
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">You have chosen to add the {$filterDisplayName} database. Please click on 'OK' to confirm.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionSettings">Please configure the parameters for the {$filterDisplayName} lookup database.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Please select a lookup database.</message>
-	<message key="manager.setup.filter.lookup.grid.loadMessage">Please wait until the citation database configuration grid has been loaded...</message>
-	<message key="manager.setup.filter.lookup.grid.title">Citation Database Connectors</message>
-	<message key="manager.setup.filter.noMoreTemplates">All available transformations have already been added. Please click 'Cancel' to return to the setup page.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionConfirm">You have chosen to add the {$filterDisplayName} parser. Please click on 'OK' to confirm.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionSettings">Please configure the {$filterDisplayName} citation parser.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Please select a citation parser.</message>
-	<message key="manager.setup.filter.parser.grid.loadMessage">Please wait until the citation parser configuration grid has been loaded...</message>
-	<message key="manager.setup.filter.parser.grid.title">Citation Extraction Services</message>
-	<message key="manager.setup.filter.pleaseSelect">Please select...</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
@@ -174,7 +147,6 @@
 	<message key="manager.setup.layout.rightSidebar">Right Sidebar</message>
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
-	<message key="manager.setup.metaCitationsDescription">Please activate the following checkbox to enable citation and reference editing. This will allow authors to add raw citations to submissions and check these against external databases, e.g. WorldCat, ISBNdb, PubMed and others.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Select one</message>

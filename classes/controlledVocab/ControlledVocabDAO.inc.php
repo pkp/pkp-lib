@@ -3,7 +3,7 @@
 /**
  * @file ControlledVocabDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocabDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
-//$Id$
+//$Id: ControlledVocabDAO.inc.php,v 1.4 2009/05/13 00:13:20 asmecher Exp $
 
 
-import('lib.pkp.classes.controlledVocab.ControlledVocab');
+import('controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
 	/**
@@ -142,9 +142,10 @@ class ControlledVocabDAO extends DAO {
 	function deleteObjectById($controlledVocabId) {
 		$params = array((int) $controlledVocabId);
 		$controlledVocabEntryDao =& DAORegistry::getDAO('ControlledVocabEntryDAO');
-		$controlledVocabEntries =& $this->enumerate($controlledVocabId);
-		foreach ($controlledVocabEntries as $controlledVocabEntryId => $controlledVocabEntryName) {
-			$controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId);
+		$controlledVocabEntries =& $controlledVocabEntryDao->getControlledVocabEntries($controlledVocabId);
+		while ($controlledVocabEntry =& $controlledVocabEntries->next()) {
+			$controlledVocabEntryDao->deleteObject($controlledVocabEntry);
+			unset($controlledVocabEntry);
 		}
 		return $this->update('DELETE FROM controlled_vocabs WHERE controlled_vocab_id = ?', $params);
 	}

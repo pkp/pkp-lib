@@ -4,12 +4,12 @@
 <!--
   * locale/fa_IR/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fa_IR (Persian) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.4 2009/08/21 17:50:02 asmecher Exp $
   -->
 
 <locale name="fa_IR" full_name = "Persian">

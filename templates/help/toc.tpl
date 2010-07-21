@@ -1,7 +1,7 @@
 {**
  * toc.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Help table of contents.
@@ -16,7 +16,7 @@
 {if !empty($helpSearchResult) && !empty($helpSearchKeyword)}
 <br />
 
-<div><a href="{url op="search" anchor="result-$helpSearchResult"|escape keyword=$helpSearchKeyword|escape}">{translate key="help.searchReturnResults"}</a></div>
+<div><a href="{url op="search" anchor="result`$helpSearchResult`"|escape keyword=$helpSearchKeyword|escape}">{translate key="help.searchReturnResults"}</a></div>
 {/if}
 
 <br />

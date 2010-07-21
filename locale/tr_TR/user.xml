@@ -4,12 +4,12 @@
 <!--
   * locale/tr_TR/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the tr_TR (Türkiye Türkçesi) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.3 2009/08/15 00:13:58 asmecher Exp $
   -->
 
 <locale name="tr_TR" full_name = "Türkiye Türkçesi">

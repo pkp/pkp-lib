@@ -1,12 +1,12 @@
 {**
  * announcementForm.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2008 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Announcement form under management.
  *
- * $Id$
+ * $Id: announcementForm.tpl,v 1.11 2009/02/10 23:22:29 mcrider Exp $
  *}
 {strip}
 {assign var="pageCrumbTitle" value="$announcementTitle"}
@@ -41,8 +41,6 @@
 		</td>
 	</tr>
 {/if}
-
-{if $announcementTypes->getCount() != 0}
 <tr valign="top">
 	<td width="20%" class="label">{fieldLabel name="typeId" key="manager.announcements.form.typeId"}</td>
 	<td width="80%" class="value"><select name="typeId" id="typeId" class="selectMenu">
@@ -52,8 +50,6 @@
 		{/iterate}
 	</select></td>
 </tr>
-{/if}{* $announcementTypes->getCount() != 0 *}
-
 <tr valign="top">
 	<td class="label">{fieldLabel name="title" required="true" key="manager.announcements.form.title"}</td>
 	<td class="value"><input type="text" name="title[{$formLocale|escape}]" value="{$title[$formLocale]|escape}" size="40" id="title" maxlength="255" class="textField" /></td>

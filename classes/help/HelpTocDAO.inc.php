@@ -3,7 +3,7 @@
 /**
  * @file classes/help/HelpTocDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HelpTocDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving HelpToc objects.
  */
 
-// $Id$
+// $Id: HelpTocDAO.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.help.HelpToc');
+import('help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
 	function &_getCache($tocId) {
@@ -24,6 +24,7 @@ class HelpTocDAO extends XMLDAO {
 		$locale = Help::getLocale();
 
 		if (!isset($cache[$locale][$tocId])) {
+			import('cache.CacheManager');
 			$help =& Help::getHelp();
 			$cacheManager =& CacheManager::getManager();
 			$cache[$locale][$tocId] = $cacheManager->getFileCache('help-toc-' . $help->getLocale(), $tocId, array($this, '_cacheMiss'));

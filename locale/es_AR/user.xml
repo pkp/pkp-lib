@@ -4,15 +4,15 @@
 <!--
   * ../pkp//locale/es_AR/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_AR (Español (Argentina)) locale.
+  * Localization strings for the es_AR (España Argentino) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.3 2009/12/23 22:26:18 asmecher Exp $
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name = "España Argentino">
 	<message key="user.affiliation">Institución</message>
 	<message key="user.affiliations">Instituciones</message>
 	<message key="user.biography">Breve descripción del curriculum</message>

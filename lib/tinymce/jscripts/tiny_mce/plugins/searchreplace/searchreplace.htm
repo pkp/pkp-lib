@@ -89,10 +89,15 @@
 	</div>
 
 	<div class="mceActionPanel">
-		<input type="submit" id="insert" name="insert" value="{#searchreplace_dlg.findnext}" />
-		<input type="button" class="button" id="replaceBtn" name="replaceBtn" value="{#searchreplace_dlg.replace}" onclick="SearchReplaceDialog.searchNext('current');" />
-		<input type="button" class="button" id="replaceAllBtn" name="replaceAllBtn" value="{#searchreplace_dlg.replaceall}" onclick="SearchReplaceDialog.searchNext('all');" />
-		<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#searchreplace_dlg.findnext}" />
+			<input type="button" class="button" id="replaceBtn" name="replaceBtn" value="{#searchreplace_dlg.replace}" onclick="SearchReplaceDialog.searchNext('current');" />
+			<input type="button" class="button" id="replaceAllBtn" name="replaceAllBtn" value="{#searchreplace_dlg.replaceall}" onclick="SearchReplaceDialog.searchNext('all');" />
+		</div>
+
+		<div style="float: right">	
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
 	</div>
 </form>
 </body>

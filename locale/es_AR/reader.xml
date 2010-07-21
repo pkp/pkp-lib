@@ -4,15 +4,15 @@
 <!--
   * ../pkp//locale/es_AR/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_AR (Español (Argentina)) locale.
+  * Localization strings for the es_AR (España Argentino) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.3 2009/12/23 22:26:18 asmecher Exp $
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name = "España Argentino">
 	<message key="comments.anonymous">Usuario anónimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Cuerpo del mensaje</message>
@@ -174,5 +174,4 @@
 	<message key="rt.findingReferences">Encontrar Referencias</message>
 	<message key="rt.findingReferences.googleScholar">Google Scholar</message>
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

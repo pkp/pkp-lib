@@ -1,7 +1,7 @@
 {**
  * grid.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * grid HTML markup and construction
@@ -10,17 +10,13 @@
  *  configuring an actual pixel width in the controller.
  *}
 
-{assign var=gridId value="component-"|concat:$grid->getId()}
-{assign var=gridTableId value=$gridId|concat:"-table"}
+{assign var=gridId value="grid-`$grid->getId()`"}
+{assign var=gridTableId value="`$gridId`-table"}
 <div id="{$gridId}" class="grid">
 	<div class="wrapper">
 		<span class="options">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-				{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-					{include file="linkAction/linkAction.tpl" action=$action id=$gridId}
-				{else}
-					{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId}
-				{/if}
+				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
 			{/foreach}
 		</span>
 		<h3>{$grid->getTitle()|translate}</h3>
@@ -32,28 +28,26 @@
 		    	<tr>
 		    		{** build the column headers **}
 		    		{foreach from=$columns item=column}
-		        		<th scope="col">{$column->getLocalizedTitle()}</th>
+		        		<th scope="col">{$column->getTitle()|translate}</th>
 					{/foreach}
 		        </tr>
 		    </thead>
 		    <tbody>
-			{foreach from=$gridBodyParts item=bodyPart}
-				{$bodyPart}
-			{/foreach}
-			</tbody>
-		    <tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
+				{foreach from=$rows item=row}
+					{$row}
+				{/foreach}
 				{**
 					We need the last (=empty) line even if we have rows
 					so that we can restore it if the user deletes all rows.
 				**}
-				<tr>
+				<tr class="empty"{if $rows} style="display: none;"{/if}>
 					<td colspan="{$numColumns}">{translate key="grid.noItems"}</td>
 				</tr>
 		    </tbody>
 		</table>
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId"}
+				{include file="controllers/grid/gridAction.tpl" action=$action id=$gridId actOnId="`$gridTableId` > tbody"}
 			{/foreach}
 		</div>
 	</div>

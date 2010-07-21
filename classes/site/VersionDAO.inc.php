@@ -3,7 +3,7 @@
 /**
  * @file classes/site/VersionDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionDAO
@@ -13,54 +13,46 @@
  * @brief Operations for retrieving and modifying Version objects.
  */
 
-// $Id$
+// $Id: VersionDAO.inc.php,v 1.14 2009/08/11 23:55:38 mcrider Exp $
 
 
-import('lib.pkp.classes.site.Version');
+import('site.Version');
 
 class VersionDAO extends DAO {
 	/**
 	 * Retrieve the current version.
 	 * @param $product string
+	 * @param $isUpgrade boolean
 	 * @param $isPlugin boolean
 	 * @return Version
 	 */
-	function &getCurrentVersion($product = null, $isPlugin = false) {
+	function &getCurrentVersion($product = null, $isUpgrade = false, $isPlugin = false) {
 		if(!$product) {
 			$application = PKPApplication::getApplication();
 			$product = $application->getName();
 		}
 
-		// We only have to check whether we are on a version previous
-		// to the introduction of products when we're not looking for
-		// a product version anyway.
-		$returner = null;
 		if (!$isPlugin) {
 			$result =& $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1'
 			);
-			// If we only have one current version then this must be
-			// the application version before the introduction of products
-			// into the versions table.
-			if ($result->RecordCount() == 1) {
+			if ($result->RecordCount() != 0) {
 				$oldVersion =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
-				if (isset($oldVersion)) $returner =& $oldVersion;
+				$oldVersionType = $oldVersion->getProductType();
+				if (isset($oldVersion) &&  $oldVersion->compare('2.3.0') < 0 && $oldVersion->compare('2.0.0') > 0) $isUpgrade = true;
 			}
 		}
 
-		if (!$returner) {
-			// From here on we can assume that we have the product
-			// column available in the versions table.
+		if (!$isUpgrade) {
 			$result =& $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1 AND product = ?',
 				array($product)
 			);
-			$versionCount = $result->RecordCount();
-			if ($versionCount == 1) {
+			if ($result->RecordCount() != 0) {
 				$returner =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
-			} elseif ($versionCount >1) {
-				fatalError('More than one current version defined for the product "'.$product.'"!');
 			}
+		} else {
+			$returner =& $oldVersion;
 		}
 
 		$result->Close();
@@ -104,18 +96,15 @@ class VersionDAO extends DAO {
 	 * @return Version
 	 */
 	function &_returnVersionFromRow(&$row) {
-		$version = new Version(
-			$row['major'],
-			$row['minor'],
-			$row['revision'],
-			$row['build'],
-			$this->datetimeFromDB($row['date_installed']),
-			$row['current'],
-			(isset($row['product_type']) ? $row['product_type'] : null),
-			(isset($row['product']) ? $row['product'] : null),
-			(isset($row['product_class_name']) ? $row['product_class_name'] : ''),
-			(isset($row['lazy_load']) ? $row['lazy_load'] : 0)
-		);
+		$version = new Version();
+		$version->setMajor($row['major']);
+		$version->setMinor($row['minor']);
+		$version->setRevision($row['revision']);
+		$version->setBuild($row['build']);
+		$version->setDateInstalled($this->datetimeFromDB($row['date_installed']));
+		$version->setCurrent($row['current']);
+		$version->setProductType(isset($row['product_type']) ? $row['product_type'] : null);
+		$version->setProduct(isset($row['product']) ? $row['product'] : null);
 
 		HookRegistry::call('VersionDAO::_returnVersionFromRow', array(&$version, &$row));
 
@@ -126,117 +115,47 @@ class VersionDAO extends DAO {
 	 * Insert a new version.
 	 * @param $version Version
 	 */
-	function insertVersion(&$version, $isPlugin = false) {
-		$isNewVersion = true;
-
+	function insertVersion(&$version) {
 		if ($version->getCurrent()) {
-			// Find out whether the current version is the same as the
-			// one to be inserted.
-			$oldVersion =& $this->getCurrentVersion($version->getProduct(), $isPlugin);
-			if ($oldVersion) {
-				if ($version->compare($oldVersion) == 0) {
-					// The old and the new current versions are the same so we need
-					// to update the existing version entry.
-					$isNewVersion = false;
-				} elseif ($version->compare($oldVersion) == 1) {
-					// Version to insert is newer than the existing version entry.
-					// We reset existing entry.
-					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
-				} else {
-					// We do not support downgrades.
-					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString().'] to version ['.$version->getVersionString().']. Downgrades are not supported.');
-				}
-			}
+			// Version to insert is the new current, reset old current
+			$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
+		}
+		if ($version->getDateInstalled() == null) {
+			$version->setDateInstalled(Core::getCurrentDate());
 		}
 
-		if ($isNewVersion) {
-			// We only change the install date when we insert new
-			// version entries.
-			if ($version->getDateInstalled() == null) {
-				$version->setDateInstalled(Core::getCurrentDate());
-			}
-
-			// Insert new version entry
-			return $this->update(
-				sprintf('INSERT INTO versions
-					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load)
-					VALUES
-					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?)',
-					$this->datetimeToDB($version->getDateInstalled())),
-				array(
-					(int) $version->getMajor(),
-					(int) $version->getMinor(),
-					(int) $version->getRevision(),
-					(int) $version->getBuild(),
-					(int) $version->getCurrent(),
-					$version->getProductType(),
-					$version->getProduct(),
-					$version->getProductClassName(),
-					(int) $version->getLazyLoad()
-				)
-			);
-		} else {
-			// Update existing version entry
-			return $this->update(
-				'UPDATE versions SET current = ?, product_type = ?, product_class_name = ?, lazy_load = ?
-					WHERE product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
-				array(
-					(int) $version->getCurrent(),
-					$version->getProductType(),
-					$version->getProductClassName(),
-					(int) $version->getLazyLoad(),
-					$version->getProduct(),
-					(int) $version->getMajor(),
-					(int) $version->getMinor(),
-					(int) $version->getRevision(),
-					(int) $version->getBuild()
-				)
-			);
-		}
+		return $this->update(
+			sprintf('INSERT INTO versions
+				(major, minor, revision, build, date_installed, current, product_type, product)
+				VALUES
+				(?, ?, ?, ?, %s, ?, ?, ?)',
+				$this->datetimeToDB($version->getDateInstalled())),
+			array(
+				(int) $version->getMajor(),
+				(int) $version->getMinor(),
+				(int) $version->getRevision(),
+				(int) $version->getBuild(),
+				(int) $version->getCurrent(),
+				$version->getProductType(),
+				$version->getProduct()
+			)
+		);
 	}
 
 	/**
-	 * Retrieve all currently enabled products within the
-	 * given context as a two dimensional array with the
-	 * first key representing the product type, the second
-	 * key the product name and the value the product version.
-	 *
-	 * @param $context array the application context, only
-	 *  products enabled in that context will be returned.
-	 * @return array
+	 * Retrieve all products.
+	 * @param $productType string filter by product type (e.g. plugins, core)
+	 * @return DAOResultFactory containing matching versions
 	 */
-	function &getCurrentProducts($context) {
-		if (count($context)) {
-			// Construct the where clause for the plugin settings
-			// context.
-			$contextNames = array_keys($context);
-			foreach ($contextNames as $contextLevel => $contextName) {
-				// Transform from camel case to ..._...
-				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
-				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
-			}
-			$contextWhereClause = 'AND '.implode('_id = ? AND ', $contextNames).'_id = ?';
-		} else {
-			$contextWhereClause = '';
-		}
+	function &getVersions($productType = null) {
+		$result =& $this->retrieveRange(
+			'SELECT * FROM versions WHERE current = 1 ' .
+			($productType ? 'AND product_type LIKE ? ' : '') .
+			'ORDER BY product', $productType ? $productType . '%' : ''
+		);
 
-		$result =& $this->retrieve(
-				'SELECT v.*
-				 FROM versions v LEFT JOIN plugin_settings ps ON
-				     lower(v.product_class_name) = ps.plugin_name
-				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
-				 WHERE current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
-
-		$productArray = array();
-		while(!$result->EOF) {
-			$row =& $result->getRowAssoc(false);
-			$productArray[$row['product_type']][$row['product']] =& $this->_returnVersionFromRow($row);
-			$result->MoveNext();
-		}
-		$result->_close();
-		unset($result);
-
-		return $productArray;
+		$returner = new DAOResultFactory($result, $this, '_returnVersionFromRow');
+		return $returner;
 	}
 
 	/**

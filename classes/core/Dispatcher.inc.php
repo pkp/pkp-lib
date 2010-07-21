@@ -3,7 +3,7 @@
 /**
  * @file classes/core/Dispatcher.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
@@ -11,6 +11,8 @@
  *
  * @brief Class dispatching HTTP requests to handlers.
  */
+
+// $Id$
 
 
 class Dispatcher {
@@ -123,7 +125,7 @@ class Dispatcher {
 		}
 
 		Locale::initialize();
-		PluginRegistry::loadCategory('generic', true);
+		PluginRegistry::loadCategory('generic');
 
 		$router->route($request);
 	}
@@ -162,18 +164,19 @@ class Dispatcher {
 	 */
 	function &_instantiateRouter($routerName, $shortcut) {
 		if (!isset($this->_routerInstances[$shortcut])) {
-			// Routers must belong to the classes.core or lib.pkp.classes.core package
+			$routerParts = explode('.', $routerName);
+
+			// Routers must belong to the core package
 			// NB: This prevents code inclusion attacks.
-			$allowedRouterPackages = array(
-				'classes.core',
-				'lib.pkp.classes.core'
-			);
+			if (count($routerParts) != 2 || $routerParts[0] != 'core') {
+				fatalError('Routers must belong to the core package.');
+			}
+			$routerClass = $routerParts[1];
 
 			// Instantiate the router
-			$router =& instantiate($routerName, 'PKPRouter', $allowedRouterPackages);
-			if (!is_object($router)) {
-				fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
-			}
+			import($routerName);
+			$router = new $routerClass();
+			assert(is_a($router, 'PKPRouter'));
 			$router->setApplication($this->_application);
 			$router->setDispatcher($this);
 
@@ -191,13 +194,6 @@ class Dispatcher {
 	function _displayCached(&$router, &$request) {
 		$filename = $router->getCacheFilename($request);
 		if (!file_exists($filename)) return false;
-
-		// Allow a caching proxy to work its magic if possible
-		$ifModifiedSince = $request->getIfModifiedSince();
-		if ($ifModifiedSince !== null && $ifModifiedSince >= filemtime($filename)) {
-			header('HTTP/1.1 304 Not Modified');
-			exit();
-		}
 
 		$fp = fopen($filename, 'r');
 		$data = fread($fp, filesize($filename));
@@ -229,16 +225,6 @@ class Dispatcher {
 			fclose($fp);
 		}
 		return $contents;
-	}
-
-	/**
-	 * Handle a 404 error (page not found).
-	 */
-	function handle404() {
-		PKPRequest::_checkThis();
-
-		header('HTTP/1.0 404 Not Found');
-		fatalError('404 Not Found');
 	}
 }
 

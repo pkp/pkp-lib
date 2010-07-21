@@ -3,7 +3,7 @@
 /**
  * @file classes/mail/PKPMailTemplate.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPMailTemplate
@@ -12,10 +12,10 @@
  * @brief Subclass of Mail for mailing a template email.
  */
 
-// $Id$
+// $Id: PKPMailTemplate.inc.php,v 1.8 2009/12/12 00:02:16 asmecher Exp $
 
 
-import('lib.pkp.classes.mail.Mail');
+import('mail.Mail');
 
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
@@ -168,7 +168,7 @@ class PKPMailTemplate extends Mail {
 	 * @return void
 	 */
 	function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = array()) {
-		import('lib.pkp.classes.form.Form');
+		import('form.Form');
 		$form = new Form($alternateTemplate!=null?$alternateTemplate:'email/email.tpl');
 
 		$form->setData('formActionUrl', $formActionUrl);
@@ -220,7 +220,7 @@ class PKPMailTemplate extends Mail {
 			foreach ($this->persistAttachments as $persistentAttachment) {
 				$this->addAttachment(
 					$persistentAttachment->getFilePath(),
-					$persistentAttachment->getOriginalFileName(),
+					$persistentAttachment->getFileName(),
 					$persistentAttachment->getFileType()
 				);
 			}
@@ -296,7 +296,7 @@ class PKPMailTemplate extends Mail {
 	 * constructor when attachments are enabled.
 	 */
 	function _handleAttachments($userId) {
-		import('classes.file.TemporaryFileManager');
+		import('file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$this->attachmentsEnabled = true;
@@ -334,7 +334,7 @@ class PKPMailTemplate extends Mail {
 	 * @param $userId int
 	 */
 	function _clearAttachments($userId) {
-		import('classes.file.TemporaryFileManager');
+		import('file.TemporaryFileManager');
 		$temporaryFileManager = new TemporaryFileManager();
 
 		$persistAttachments = Request::getUserVar('persistAttachments');

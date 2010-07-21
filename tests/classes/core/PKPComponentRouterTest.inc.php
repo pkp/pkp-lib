@@ -3,18 +3,18 @@
 /**
  * @file tests/classes/core/PKPComponentRouterTest.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouterTest
- * @ingroup tests_classes_core
+ * @ingroup tests
  * @see PKPComponentRouter
  *
  * @brief Tests for the PKPComponentRouter class.
  */
 
-import('lib.pkp.classes.core.PKPComponentRouter');
-import('lib.pkp.tests.classes.core.PKPRouterTest');
+import('core.PKPComponentRouter');
+import('tests.classes.core.PKPRouterTest');
 
 class PKPComponentRouterTest extends PKPRouterTest {
 	protected function setUp() {
@@ -148,10 +148,8 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_retrieveServiceEndpointParts
 	 * @covers PKPComponentRouter::_validateServiceEndpointParts
 	 * @covers PKPComponentRouter::_camelize
-	 * FIXME: We only can re-activate this test when we have a second handler
-	 * in lib/pkp that we can mock for this.
 	 */
-	/*public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
+	public function testSupportsWithPathinfoUnsuccessfulComponentIsNotAHandler() {
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 
 		$_SERVER = array(
@@ -164,7 +162,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$testInstance = new CitationRowHandler();
 		self::assertTrue(in_array('fetch', get_class_methods('CitationRowHandler')));
 		self::assertFalse(is_a($testInstance, 'PKPHandler'));
-	}*/
+	}
 
 	/**
 	 * @covers PKPComponentRouter::getRequestedComponent
@@ -323,7 +321,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithPathinfo() {
-		$this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
+		$this->setTestConfiguration('request1', 'classes/core/config', false); // restful URLs
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -388,7 +386,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithPathinfoAndOverriddenBaseUrl() {
-		$this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
+		$this->setTestConfiguration('request1', 'classes/core/config', false); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -501,7 +499,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithoutPathinfoAndOverriddenBaseUrl() {
-		$this->setTestConfiguration('request2', 'classes/core/config'); // contains overridden context
+		$this->setTestConfiguration('request2', 'classes/core/config', false); // contains overridden context
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',
@@ -532,7 +530,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 	 * @covers PKPComponentRouter::_urlFromParts
 	 */
 	public function testUrlWithoutPathinfoAndSecondContextObjectIsNull() {
-		$this->setTestConfiguration('request2', 'classes/core/config'); // restful URLs enabled
+		$this->setTestConfiguration('request2', 'classes/core/config', false); // restful URLs enabled
 		$mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
 		$_SERVER = array(
 			'HOSTNAME' => 'mydomain.org',

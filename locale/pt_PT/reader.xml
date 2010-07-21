@@ -4,12 +4,12 @@
 <!--
   * locale/pt_PT/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.2 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <locale name="pt_PT" full_name = "Português">
@@ -174,5 +174,4 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">Fundo do logótipo</message>
 	<message key="rt.admin.sharing.logoColorLabel">Cor do logótipo</message>
 	<message key="rt.admin.configureSharing">Configurar AddThis</message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

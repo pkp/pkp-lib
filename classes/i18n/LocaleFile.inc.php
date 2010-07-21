@@ -3,7 +3,7 @@
 /**
  * @file classes/i18n/LocaleFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LocaleFile
@@ -12,7 +12,7 @@
  * @brief Abstraction of a locale file
  */
 
-// $Id$
+// $Id: LocaleFile.inc.php,v 1.4 2009/04/08 21:34:54 asmecher Exp $
 
 
 class LocaleFile {
@@ -40,8 +40,9 @@ class LocaleFile {
 	 */
 	function &_getCache($locale) {
 		if (!isset($this->cache)) {
+			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
-			$this->cache = $cacheManager->getFileCache(
+			$this->cache = $cacheManager->getCache(
 				'locale', md5($this->filename),
 				array(&$this, '_cacheMiss')
 			);
@@ -63,7 +64,14 @@ class LocaleFile {
 	 * Register a cache miss.
 	 */
 	function _cacheMiss(&$cache, $id) {
-		return null; // It's not in this locale file.
+		$cacheType = Config::getVar('cache','cache');
+
+		if ($cacheType == 'none') {
+			$localeData = $this->load($this->filename);
+			return $localeData[$id];	// return the key directly from the parsed XML file (*slow*)
+		} else {
+			return null; // It's not in this locale file.
+		}
 	}
 
 	/**
@@ -152,6 +160,7 @@ class LocaleFile {
 		$errors = array(
 			LOCALE_ERROR_MISSING_KEY => array(),
 			LOCALE_ERROR_EXTRA_KEY => array(),
+			LOCALE_ERROR_SUSPICIOUS_LENGTH => array(),
 			LOCALE_ERROR_DIFFERING_PARAMS => array(),
 			LOCALE_ERROR_MISSING_FILE => array()
 		);
@@ -178,6 +187,18 @@ class LocaleFile {
 				continue;
 			}
 			$value = $localeContents[$key];
+
+			// Watch for suspicious lengths.
+			if (!Locale::checkLengths($referenceValue, $value)) {
+				$errors[LOCALE_ERROR_SUSPICIOUS_LENGTH][] = array(
+					'key' => $key,
+					'locale' => $this->locale,
+					'referenceLocale' => $referenceLocaleFile->locale,
+					'reference' => $referenceValue,
+					'value' => $value,
+					'filename' => $this->filename
+				);
+			}
 
 			$referenceParams = Locale::getParameterNames($referenceValue);
 			$params = Locale::getParameterNames($value);

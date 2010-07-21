@@ -4,12 +4,12 @@
 <!--
   * locale/en_US/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.7 2009/08/18 23:44:09 asmecher Exp $
   -->
 
 <locale name="en_US" full_name = "English">
@@ -100,7 +100,6 @@
 	<message key="rt.captureCite.format">Citation Format</message>
 	<message key="rt.captureCite">How to cite item</message>
 	<message key="rt.captureCite.online">Online</message>
-	<message key="rt.captureCite.web">Web</message>	
 	<message key="rt.colleague">Notify colleague</message>
 	<message key="rt.context.abbrev">Abbrev</message>
 	<message key="rt.context.and">AND</message>

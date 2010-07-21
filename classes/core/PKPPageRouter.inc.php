@@ -3,7 +3,7 @@
 /**
  * @file classes/core/PKPPageRouter.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPPageRouter
@@ -12,10 +12,12 @@
  * @brief Class mapping an HTTP request to a handler or context.
  */
 
-define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
+// $Id$
+
+define('ROUTER_DEFAULT_PAGE', 'pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('lib.pkp.classes.core.PKPRouter');
+import('core.PKPRouter');
 
 class PKPPageRouter extends PKPRouter {
 	/** @var array pages that don't need an installed system to be displayed */
@@ -55,12 +57,10 @@ class PKPPageRouter extends PKPRouter {
 	/**
 	 * Determine whether or not the request is cacheable.
 	 * @param $request PKPRequest
-	 * @param $testOnly boolean required for unit test to
-	 *  bypass session check.
 	 * @return boolean
 	 */
-	function isCacheable(&$request, $testOnly = false) {
-		if (defined('SESSION_DISABLE_INIT') && !$testOnly) return false;
+	function isCacheable(&$request) {
+		if (defined('SESSION_DISABLE_INIT')) return false;
 		if (!Config::getVar('general', 'installed')) return false;
 		if (!empty($_POST) || Validation::isLoggedIn()) return false;
 
@@ -141,13 +141,9 @@ class PKPPageRouter extends PKPRouter {
 		// If a hook has been registered to handle this page, give it the
 		// opportunity to load required resources and set HANDLER_CLASS.
 		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
-			if (file_exists($sourceFile)) require('./'.$sourceFile);
-			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
+			if (file_exists($sourceFile) || file_exists('lib/pkp/'.$sourceFile)) require($sourceFile);
 			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
-			else {
-				$dispatcher =& $this->getDispatcher();
-				$dispatcher->handle404();
-			}
+			else $request->handle404();
 		}
 
 		if (!defined('SESSION_DISABLE_INIT')) {
@@ -162,29 +158,17 @@ class PKPPageRouter extends PKPRouter {
 		// Redirect to 404 if the operation doesn't exist
 		// for the handler.
 		$methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
-		if (!in_array(strtolower($op), $methods)) {
-			$dispatcher =& $this->getDispatcher();
-			$dispatcher->handle404();
-		}
+		if (!in_array(strtolower($op), $methods)) $request->handle404();
 
 		// Instantiate the handler class
 		$HandlerClass = HANDLER_CLASS;
-		$handler = new $HandlerClass($request);
+		$handler = new $HandlerClass;
 
 		// Pass the dispatcher to the handler (if supported by the handler).
 		if (in_array('setdispatcher', $methods)) $handler->setDispatcher($this->getDispatcher());
 
-		// Authorize and initialize the request but don't call the
-		// validate() method on page handlers.
-		// FIXME: We should call the validate() method for page
-		// requests also (last param = true in the below method
-		// call) once we've made sure that all validate() calls can
-		// be removed from handler operations without damage (i.e.
-		// they don't depend on actions being performed before the
-		// call to validate().
-		$args =& $this->getRequestedArgs($request);
-		$serviceEndpoint = array($handler, $op);
-		$this->_authorizeInitializeAndCallRequest($serviceEndpoint, $request, $args, false);
+		// Route the request to the handler operation
+		$handler->$op($this->getRequestedArgs($request), $request);
 	}
 
 	/**

@@ -3,7 +3,7 @@
 /**
  * @file classes/cliTool/ScheduledTaskTool.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskTool
@@ -12,14 +12,14 @@
  * @brief CLI tool to execute a set of scheduled tasks.
  */
 
-// $Id$
+// $Id: ScheduledTaskTool.inc.php,v 1.3 2009/04/08 21:34:53 asmecher Exp $
 
 
 /** Default XML tasks file to parse if none is specified */
 define('TASKS_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml');
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
-import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');
+import('scheduledTask.ScheduledTask');
+import('scheduledTask.ScheduledTaskDAO');
 
 class ScheduledTaskTool extends CommandLineTool {
 	/** @var string the XML file listing the tasks to be executed */
@@ -105,10 +105,17 @@ class ScheduledTaskTool extends CommandLineTool {
 	 * @param $args array the array of arguments to pass to the class constructors
 	 */
 	function executeTask($className, $args) {
-		// Load and execute the task
-		if (!is_object($task =& instantiate($className, null, null, 'execute', $args))) {
-			fatalError('Cannot instantiate task class.');
+		// Strip off the package name(s) to get the base class name
+		$pos = strrpos($className, '.');
+		if ($pos === false) {
+			$baseClassName = $className;
+		} else {
+			$baseClassName = substr($className, $pos+1);
 		}
+
+		// Load and execute the task
+		import($className);
+		$task = new $baseClassName($args);
 		$task->execute();
 		$this->taskDao->updateLastRunTime($className);
 	}

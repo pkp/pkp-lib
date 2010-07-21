@@ -4,12 +4,12 @@
 <!--
   * locale/fr_CA/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.6 2009/12/23 22:26:18 asmecher Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">

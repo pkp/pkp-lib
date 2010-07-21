@@ -3,7 +3,7 @@
 /**
  * @file ControlledVocabEntry.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocabEntry
@@ -13,7 +13,7 @@
  * @brief Basic class describing a controlled vocab.
  */
 
-//$Id$
+//$Id: ControlledVocabEntry.inc.php,v 1.2 2009/04/08 21:34:53 asmecher Exp $
 
 class ControlledVocabEntry extends DataObject {
 	//

@@ -4,7 +4,7 @@
 * be regarded as a non-word character, like ASCII control characters and punctuation. This has a "Roman"
 * bias - it would be unaware of modern Chinese "punctuation" characters for example.
 * Note: requires utils/unicode.php to be loaded
-* @version $Id$
+* @version $Id: specials.php,v 1.1 2008/10/10 20:52:53 mj Exp $
 * @package utf8
 * @subpackage utils
 * @see utf8_is_valid

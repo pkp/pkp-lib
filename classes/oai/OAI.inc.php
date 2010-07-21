@@ -7,7 +7,7 @@
 /**
  * @file classes/oai/OAI.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAI
@@ -17,11 +17,11 @@
  * @brief Class to process and respond to OAI requests.
  */
 
-// $Id$
+// $Id: OAI.inc.php,v 1.10 2009/08/13 16:45:51 asmecher Exp $
 
 
-import('lib.pkp.classes.oai.OAIStruct');
-import('lib.pkp.classes.oai.OAIUtils');
+import('oai.OAIStruct');
+import('oai.OAIUtils');
 
 class OAI {
 	/** @var $config OAIConfig configuration parameters */

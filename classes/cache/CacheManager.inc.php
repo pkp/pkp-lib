@@ -3,7 +3,7 @@
 /**
  * @file classes/cache/CacheManager.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup cache
@@ -13,13 +13,8 @@
  *
  */
 
-// $Id$
+// $Id: CacheManager.inc.php,v 1.7 2009/09/22 18:36:21 asmecher Exp $
 
-
-import('lib.pkp.classes.cache.FileCache');
-
-define('CACHE_TYPE_FILE', 1);
-define('CACHE_TYPE_OBJECT', 2);
 
 class CacheManager {
 	/**
@@ -42,6 +37,7 @@ class CacheManager {
 	 * @return object FileCache
 	 */
 	function &getFileCache($context, $cacheId, $fallback) {
+		import('cache.FileCache');
 		$returner = new FileCache(
 			$context, $cacheId, $fallback,
 			$this->getFileCachePath()
@@ -49,43 +45,18 @@ class CacheManager {
 		return $returner;
 	}
 
-	function &getObjectCache($context, $cacheId, $fallback) {
-		$returner =& $this->getCache($context, $cacheId, $fallback, CACHE_TYPE_OBJECT);
-		return $returner;
-	}
-
-	function getCacheImplementation($type) {
-		switch ($type) {
-			case CACHE_TYPE_FILE: return 'file';
-			case CACHE_TYPE_OBJECT: return Config::getVar('cache', 'object_cache');
-			default: return null;
-		}
-	}
-
 	/**
 	 * Get a cache.
 	 * @param $context string
 	 * @param $cacheId string
 	 * @param $fallback callback
-	 * @param $type string Type of cache: CACHE_TYPE_...
 	 * @return object Cache
 	 */
-	function &getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE) {
-		switch ($this->getCacheImplementation($type)) {
-			case 'xcache':
-				import('lib.pkp.classes.cache.XCacheCache');
-				$cache = new XCacheCache(
-					$context, $cacheId, $fallback
-				);
-				break;
-			case 'apc':
-				import('lib.pkp.classes.cache.APCCache');
-				$cache = new APCCache(
-					$context, $cacheId, $fallback
-				);
-				break;
+	function &getCache($context, $cacheId, $fallback) {
+		$cacheType = Config::getVar('cache','cache');
+		switch ($cacheType) {
 			case 'memcache':
-				import('lib.pkp.classes.cache.MemcacheCache');
+				import('cache.MemcacheCache');
 				$cache = new MemcacheCache(
 					$context, $cacheId, $fallback,
 					Config::getVar('cache','memcache_hostname'),
@@ -97,7 +68,7 @@ class CacheManager {
 				$cache =& $this->getFileCache($context, $cacheId, $fallback);
 				break;
 			case 'none':
-				import('lib.pkp.classes.cache.GenericCache');
+				import('cache.GenericCache');
 				$cache = new GenericCache(
 					$context, $cacheId, $fallback
 				);
@@ -121,15 +92,14 @@ class CacheManager {
 	 * Flush an entire context, if specified, or
 	 * the whole cache.
 	 * @param $context string The context to flush, if only one is to be flushed
-	 * @param $type string The type of cache to flush
 	 */
-	function flush($context = null, $type = CACHE_TYPE_FILE) {
-		$cacheImplementation = $this->getCacheImplementation($type);
-		switch ($cacheImplementation) {
-			case 'xcache':
-			case 'apc':
+	function flush($context = null) {
+		$cacheType = Config::getVar('cache','cache');
+		switch ($cacheType) {
 			case 'memcache':
-				$junkCache =& $this->getCache($context, null, null);
+				// There is no(t yet) selective flushing in memcache;
+				// invalidate the whole thing.
+				$junkCache =& $this->getCache(null, null, null);
 				$junkCache->flush();
 				break;
 			case 'file':
@@ -139,7 +109,6 @@ class CacheManager {
 					unlink ($file);
 				}
 				break;
-			case '':
 			case 'none':
 				// Nothing necessary.
 				break;

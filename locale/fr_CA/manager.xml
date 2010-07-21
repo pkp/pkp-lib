@@ -4,12 +4,12 @@
 <!--
   * locale/fr_CA/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.5 2009/11/30 21:44:43 asmecher Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -169,5 +169,4 @@
 	<message key="plugins.categories.themes.description">Les plugiciels de thème sont utilisés pour modifier l'apparence du système.</message>
 	<message key="plugins.categories.themes">Plugiciels de thème</message>
 	<message key="manager.emails.form.emailKeyRequired">Une clé de courriel unique est obligatoire pour le courriel.</message>
-	<message key="manager.setup.errorDeletingItem">Il s'est produit une erreur lors de la suppression de cet élément.</message>
 </locale>

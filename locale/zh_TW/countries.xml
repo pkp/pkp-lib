@@ -3,12 +3,12 @@
 <!--
   * locale/zh_TW/countries.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
   *正體中文由 陳文誌 (長庚大學工業設計系) 與 莊惠茹 共同翻譯 (V1 @ 20080515)
-  * $Id$
+  * $Id: countries.xml,v 1.4 2009/08/18 23:44:09 asmecher Exp $
   -->
 <countries>
 	<country name="奧蘭群島" code="AX"/>

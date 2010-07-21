@@ -4,12 +4,12 @@
 <!--
   * locale/de_DE/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.7 2009/09/10 18:10:34 asmecher Exp $
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">

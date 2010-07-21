@@ -4,16 +4,15 @@
 <!--
   * locale/pt_PT/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.2 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <locale name="pt_PT" full_name = "Português">
-	<message key="submission.agencies">Entidades</message>
 	<message key="submission.abstractViews">Acessos ao Resumo</message>
 	<message key="submission.accepted">Aceite</message>
 	<message key="submission.acknowledge">Acusar Recebimento</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">Solicitada em</message>
 	<message key="submission.backToSubmissionEditing">Retornar à Edição da Submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
-	<message key="submission.citations">Referências</message>
 	<message key="submission.comments.addComment">Adicionar Comentário</message>
 	<message key="submission.comments.comments">Comentários</message>
 	<message key="submission.comments.confirmDelete">Deseja realmente eliminar o comentário?</message>
@@ -166,63 +164,4 @@
 	<message key="submission.uploadFileTo">Transferir documento</message>
 	<message key="submission.viewMetadata">Ver Metadados</message>
 	<message key="submission.views">Acessos</message>
-	
-	<!-- Author Submission --> 
-	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>	
-	<message key="submission.citations.grid.title">Editar Citações</message>
-	<message key="submission.citations.grid.importCitations">Importar Citações</message>
-	<message key="submission.citations.grid.exportCitations">Exportar Citações</message>
-	<message key="submission.citations.grid.editedCitation">Texto Citação</message>
-	<message key="submission.citations.grid.editedCitationRequired">É requerido um texto de citação.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Ocorreu um erro ao tentar eliminar a citação</message>
-	<message key="submission.citations.form.title">Editar Citação</message>
-	<message key="submission.citations.form.loadMessage">Por favor aguarde até o editor de citação ser carregado.</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[A edição de citações requer a activação de jQuery. Por favor vá à página <a target="_new" href="{$genericPluginsUrl}">generic plug-ins' e active o plugin aqui.]]></message>
-	<message key="submission.citations.grid.parseCitation">Parse</message>
-	<message key="submission.citations.grid.lookupCitation">Procurar</message>
-	<message key="submission.citations.form.description">Melhore manualmente a citação e tente novamente a sua validação.</message>
-	<message key="submission.citations.form.filterError">A operação parse ou procira não devolveu quaisquer resultados. Pode tentar editar o texto de citação manualmente para melhorar os resultados?</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Tipo de publicação não suportada ou em falta.</message>
-	<message key="submission.citations.output.exportDescription">Por favor copie o conteúdo desta caixa de diálogo e cole-a no seu documento.</message>
-	<message key="metadata.property.displayName.author">Autores</message>
-	<message key="metadata.property.displayName.editor">Editores</message>
-	<message key="metadata.property.displayName.article-title">Título Artigo</message>
-	<message key="metadata.property.displayName.source">Título Revista/Livro</message>
-	<message key="metadata.property.displayName.date">Data Publicação</message>
-	<message key="metadata.property.displayName.access-date">Data Acesso</message>
-	<message key="metadata.property.displayName.issue">Número</message>
-	<message key="metadata.property.displayName.volume">Volume</message>
-	<message key="metadata.property.displayName.season">Época</message>
-	<message key="metadata.property.displayName.chapter-title">Título Capítulo</message>
-	<message key="metadata.property.displayName.edition">Edição</message>
-	<message key="metadata.property.displayName.series">Séries</message>
-	<message key="metadata.property.displayName.supplement">Suplemento</message>
-	<message key="metadata.property.displayName.conf-date">Data Conferência</message>
-	<message key="metadata.property.displayName.conf-loc">Local Conferência</message>
-	<message key="metadata.property.displayName.conf-name">Designação Conferência</message>
-	<message key="metadata.property.displayName.conf-sponsor">Patrocinador Conferência</message>
-	<message key="metadata.property.displayName.institution">Instituição</message>
-	<message key="metadata.property.displayName.fpage">Primeira Página</message>
-	<message key="metadata.property.displayName.lpage">Última Página</message>
-	<message key="metadata.property.displayName.size">Número de Páginas</message>
-	<message key="metadata.property.displayName.publisher-loc">Local Editor</message>
-	<message key="metadata.property.displayName.publisher-name">Nome Editor</message>
-	<message key="metadata.property.displayName.isbn">ISBN</message>
-	<message key="metadata.property.displayName.issn">ISSN Impressão</message>
-	<message key="metadata.property.displayName.eissn">eISSN</message>
-	<message key="metadata.property.displayName.doi">DOI</message>
-	<message key="metadata.property.displayName.publisher-id">ID Publicação Customizada</message>
-	<message key="metadata.property.displayName.coden">CODEN</message>
-	<message key="metadata.property.displayName.sici">SICI</message>
-	<message key="metadata.property.displayName.pmid">PMID</message>
-	<message key="metadata.property.displayName.uri">Link para Publicação</message>
-	<message key="metadata.property.displayName.comment">Comentário</message>
-	<message key="metadata.property.displayName.annotation">Anotação</message>
-	<message key="metadata.property.displayName.publication-type">Tipo Publicação</message>
-	<message key="submission.page.citations">Citações #{$id}</message>
-	<message key="submission.currentAgencies">Agências Actuais</message>
-	<message key="submission.indexingInformation">Informação Indexação</message>
-	<message key="submission.uploadSuccessful">Ou seu ficheiro foi carregado. Por favor continue a editar a metadata do ficheiro.</message>
-	<message key="submission.loadMessage">Por favor aguarde até que o seu ficheiro seja carregado no servidor.</message>
-	<message key="submission.fileDetails">Detalhes do Ficheiro</message>
 </locale>

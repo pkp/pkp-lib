@@ -1,32 +1,39 @@
 <?php
 
 /**
- * @file classes/form/validation/FormValidatorLocaleEmail.inc.php
+ * @file classes/form/validation/FormValidatorEmail.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FormValidatorLocaleEmail
+ * @class FormValidatorEmail
  * @ingroup form_validation
- * @see FormValidatorLocale
+ * @see FormValidator
  *
  * @brief Form validation check for email addresses.
  */
 
-import('lib.pkp.classes.form.validation.FormValidatorLocale');
-import('lib.pkp.classes.validation.ValidatorEmail');
+// $Id: FormValidatorLocaleEmail.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
 
-class FormValidatorLocaleEmail extends FormValidatorLocale {
+
+import('form.validation.FormValidatorRegExp');
+
+class FormValidatorLocaleEmail extends FormValidatorEmail {
 	/**
-	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
+	 * Validate against a localized email field.
+	 * @return boolean
 	 */
-	function FormValidatorLocaleEmail(&$form, $field, $type, $message) {
-		$validator = new ValidatorEmail();
-		parent::FormValidator($form, $field, $type, $message, $validator);
+	function isValid() {
+		if ($this->isEmptyAndOptional()) return true;
+		$value = $this->form->getData($this->field);
+		$primaryLocale = Locale::getPrimaryLocale();
+		return is_array($value) && !empty($value[$primaryLocale]) && String::regexp_match($this->regExp, $value[$primaryLocale]);
+	}
+
+	function getMessage() {
+		$primaryLocale = Locale::getPrimaryLocale();
+		$allLocales = Locale::getAllLocales();
+		return parent::getMessage() . ' (' . $allLocales[$primaryLocale] . ')';
 	}
 }
 

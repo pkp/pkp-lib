@@ -7,7 +7,7 @@
 /**
  * @file classes/submission/Submission.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Submission
@@ -16,7 +16,7 @@
  * @brief Submission class.
  */
 
-// $Id$
+// $Id: Submission.inc.php,v 1.9 2009/09/21 20:11:12 asmecher Exp $
 
 
 class Submission extends DataObject {
@@ -33,30 +33,6 @@ class Submission extends DataObject {
 		parent::DataObject();
 		$this->authors = array();
 		$this->removedAuthors = array();
-	}
-
-	/**
-	 * Get a piece of data for this object, localized to the current
-	 * locale if possible.
-	 * @param $key string
-	 * @return mixed
-	 */
-	function &getLocalizedData($key) {
-		$localePrecedence = array(Locale::getLocale(), $this->getLocale());
-		foreach ($localePrecedence as $locale) {
-			$value =& $this->getData($key, $locale);
-			if (!empty($value)) return $value;
-			unset($value);
-		}
-
-		// Fallback: Get the first available piece of data.
-		$data =& $this->getData($key, null);
-		if (!empty($data)) return $data[array_shift(array_keys($data))];
-
-		// No data available; return null.
-		unset($data);
-		$data = null;
-		return $data;
 	}
 
 	//
@@ -120,7 +96,7 @@ class Submission extends DataObject {
 	 * @return array
 	 */
 	function getAuthorEmails() {
-		import('lib.pkp.classes.mail.Mail');
+		import('mail.Mail');
 		$returner = array();
 		foreach ($this->authors as $a) {
 			$returner[] = Mail::encodeDisplayName($a->getFullName()) . ' <' . $a->getEmail() . '>';
@@ -186,7 +162,7 @@ class Submission extends DataObject {
 	}
 
 	/**
-	 * Get user ID of the submitter.
+	 * Get user ID of te submitter.
 	 * @return int
 	 */
 	function getUserId() {
@@ -208,22 +184,6 @@ class Submission extends DataObject {
 	function getUser() {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		return $userDao->getUser($this->getUserId(), true);
-	}
-
-	/**
-	 * Get the locale of the submission.
-	 * @return string
-	 */
-	function getLocale() {
-		return $this->getData('locale');
-	}
-
-	/**
-	 * Set the locale of the submission.
-	 * @param $locale string
-	 */
-	function setLocale($locale) {
-		return $this->setData('locale', $locale);
 	}
 
 	/**

@@ -3,7 +3,7 @@
 /**
  * @file classes/currency/CurrencyDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CurrencyDAO
@@ -14,7 +14,7 @@
  *
  */
 
-import('lib.pkp.classes.currency.Currency');
+import('currency.Currency');
 
 class CurrencyDAO extends DAO {
 
@@ -29,6 +29,7 @@ class CurrencyDAO extends DAO {
 		$locale = Locale::getLocale();
 		$cache =& Registry::get('currencyCache', true, null);
 		if ($cache === null) {
+			import('cache.CacheManager');
 			$cacheManager = CacheManager::getManager();
 			$cache =& $cacheManager->getFileCache(
 				'currencies', $locale,

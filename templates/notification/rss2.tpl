@@ -1,12 +1,12 @@
 {**
  * rss2.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * RSS 2 feed template
  *
- * $Id$
+ * $Id: rss2.tpl,v 1.4 2009/08/18 23:44:09 asmecher Exp $
  *}
 <?xml version="1.0" encoding="{$defaultCharset|escape}"?>
 <rss version="2.0">

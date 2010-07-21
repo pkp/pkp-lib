@@ -4,16 +4,15 @@
 <!--
   * locale/nl_NL/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.1 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="nl_NL" full_name = "Nederlands">
-	<message key="submission.agencies">Organisaties</message>
 	<message key="submission.abstractViews">Samenvatting bekeken</message>
 	<message key="submission.accepted">Geaccepteerd</message>
 	<message key="submission.acknowledge">Erkenning</message>
@@ -21,7 +20,6 @@
 	<message key="submission.ask">Vraag</message>
 	<message key="submission.backToSubmissionEditing">Terug naar bewerken inzending</message>
 	<message key="submission.changeComments">Verander in</message>
-	<message key="submission.citations">Referenties</message>	
 	<message key="submission.comments.addComment">Commentaar toevoegen</message>
 	<message key="submission.comments.comments">Commentaren</message>
 	<message key="submission.comments.confirmDelete">Weet u zeker dat u dit commentaar wilt verwerken?</message>
@@ -166,7 +164,4 @@
 	<message key="submission.uploadFileTo">Bestand laden in</message>
 	<message key="submission.viewMetadata">Bekijk metadata</message>
 	<message key="submission.views">Bekeken</message>
-	
-	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Geef een geformatteerde lijst met referenties van de werken die geciteerd worden in deze inzending.</message>	
 </locale>

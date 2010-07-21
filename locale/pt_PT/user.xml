@@ -4,12 +4,12 @@
 <!--
   * locale/pt_PT/user.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.2 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <locale name="pt_PT" full_name = "Português">
@@ -102,7 +102,4 @@
 	<message key="user.workingLanguages">Idiomas Conhecidos</message>
 	<message key="user.profile.form.profileImageInvalid">Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels.</message>
 	<message key="user.other">Outro</message>
-	<message key="user.affiliation.description">(A sua instituição, e.g. "Instituto Superior de Psicologia Aplicada - Instituto Universitário")</message>
-	<message key="user.gossip">Notas Privadas</message>
-	<message key="user.profile.form.affiliationRequired">É requerido uma afiliação.</message>
 </locale>

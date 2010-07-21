@@ -3,12 +3,12 @@
 <!--
   * locale/pt_BR/countries.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
   *
-  * $Id$
+  * $Id: countries.xml,v 1.5 2009/09/10 18:10:34 asmecher Exp $
   -->
 <countries>
 	<country name="Afganistão" code="AF"/>

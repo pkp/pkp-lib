@@ -3,7 +3,7 @@
 /**
  * @file classes/mail/EmailTemplate.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BaseEmailTemplate
@@ -13,7 +13,7 @@
  * @brief Describes basic email template properties.
  */
 
-// $Id$
+// $Id: EmailTemplate.inc.php,v 1.2 2009/08/18 23:44:08 asmecher Exp $
 
 
 /**

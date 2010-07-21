@@ -3,7 +3,7 @@
 /**
  * @file classes/search/SearchHTMLParser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SearchHTMLParser
@@ -12,11 +12,11 @@
  * @brief Class to extract text from an HTML file.
  */
 
-// $Id$
+// $Id: SearchHTMLParser.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.core.String');
+import('search.SearchFileParser');
+import('core.String');
 
 class SearchHTMLParser extends SearchFileParser {
 

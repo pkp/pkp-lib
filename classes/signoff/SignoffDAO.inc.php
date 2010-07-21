@@ -3,7 +3,7 @@
 /**
  * @file SignoffDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SignoffDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying Signoff objects.
  */
 
-//$Id$
+//$Id: SignoffDAO.inc.php,v 1.4 2009/05/13 00:13:20 asmecher Exp $
 
 
-import('lib.pkp.classes.signoff.Signoff');
+import('signoff.Signoff');
 
 class SignoffDAO extends DAO {
 	/**

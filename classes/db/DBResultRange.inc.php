@@ -3,7 +3,7 @@
 /**
  * @file classes/db/DBResultRange.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DBResultRange
@@ -12,7 +12,7 @@
  * @brief Container class for range information when retrieving a result set.
  */
 
-// $Id$
+// $Id: DBResultRange.inc.php,v 1.4 2009/04/08 21:34:54 asmecher Exp $
 
 
 class DBResultRange {
@@ -67,7 +67,7 @@ class DBResultRange {
 	 * Set the count of items in this range to display.
 	 * @param $count int
 	 */
-	function setCount($count) {
+	function setCount() {
 		$this->count = $count;
 	}
 }

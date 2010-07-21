@@ -7,7 +7,7 @@
 /**
  * @file classes/install/PKPInstall.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Install
@@ -22,10 +22,10 @@
  * It can also be used for a "manual install" to retrieve the SQL statements required for installation.
  */
 
-// $Id$
+// $Id: PKPInstall.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.install.Installer');
+import('install.Installer');
 
 class PKPInstall extends Installer {
 
@@ -52,9 +52,7 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function preInstall() {
- 		if(!isset($this->currentVersion)) {
- 			$this->currentVersion = Version::fromString('');
- 		}
+ 		$this->currentVersion = Version::fromString('');
 
  		$this->locale = $this->getParam('locale');
 		$this->installedLocales = $this->getParam('additionalLocales');
@@ -136,7 +134,7 @@ class PKPInstall extends Installer {
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('lib.pkp.classes.file.FileManager');
+					import('file.FileManager');
 					if (!FileManager::mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFilesDirError');
 						return false;
@@ -157,7 +155,7 @@ class PKPInstall extends Installer {
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $publicFilesDir . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('lib.pkp.classes.file.FileManager');
+					import('file.FileManager');
 					if (!FileManager::mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.publicFilesDirError');
 						return false;

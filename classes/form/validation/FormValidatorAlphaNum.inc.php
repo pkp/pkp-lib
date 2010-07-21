@@ -3,7 +3,7 @@
 /**
  * @file classes/form/validation/FormValidatorAlphaNum.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorAlphaNum
@@ -13,20 +13,21 @@
  * @brief Form validation check for alphanumeric (plus interior dash/underscore) characters only.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+// $Id: FormValidatorAlphaNum.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
 
-class FormValidatorAlphaNum extends FormValidator {
+
+import('form.validation.FormValidatorRegExp');
+
+class FormValidatorAlphaNum extends FormValidatorRegExp {
+
 	/**
 	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
+	 * @see FormValidatorRegExp::FormValidatorRegExp()
 	 */
 	function FormValidatorAlphaNum(&$form, $field, $type, $message) {
-		import('lib.pkp.classes.validation.ValidatorRegExp');
-		$validator = new ValidatorRegExp('/^[A-Z0-9]+([\-_][A-Z0-9]+)*$/i');
-		parent::FormValidator($form, $field, $type, $message, $validator);
+		parent::FormValidatorRegExp($form, $field, $type, $message,
+			'/^[A-Z0-9]+([\-_][A-Z0-9]+)*$/i'
+		);
 	}
 }
 

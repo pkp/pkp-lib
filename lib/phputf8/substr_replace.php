@@ -1,6 +1,6 @@
 <?php
 /**
-* @version $Id$
+* @version $Id: substr_replace.php,v 1.1 2008/10/10 20:52:53 mj Exp $
 * @package utf8
 * @subpackage strings
 */

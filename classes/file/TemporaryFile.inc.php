@@ -3,7 +3,7 @@
 /**
  * @file classes/file/TemporaryFile.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemporaryFile
@@ -13,7 +13,7 @@
  * @brief Temporary file class.
  */
 
-// $Id$
+// $Id: TemporaryFile.inc.php,v 1.5 2009/12/02 06:22:42 jerico.dev Exp $
 
 
 class TemporaryFile extends DataObject {

@@ -7,7 +7,7 @@
 /**
  * @file classes/site/Site.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Site
@@ -17,7 +17,7 @@
  * @brief Describes system-wide site properties.
  */
 
-// $Id$
+// $Id: Site.inc.php,v 1.9 2009/12/02 06:22:41 jerico.dev Exp $
 
 
 class Site extends DataObject {

@@ -2,7 +2,7 @@
 /**
  * @file classes/handler/HandlerValidatorCustom.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HandlerValidator
@@ -11,7 +11,7 @@
  * @brief Class to represent a page validation check.
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('handler.validation.HandlerValidator');
 
 class HandlerValidatorCustom extends HandlerValidator {
 	/** additionalArguments to apss to the user function **/

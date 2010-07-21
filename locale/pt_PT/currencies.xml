@@ -4,12 +4,12 @@
 <!--
   * locale/pt_PT/currencies.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.1 2009/12/06 22:00:18 jmacgreg Exp $
   -->
 
 <currencies locale="pt_PT">

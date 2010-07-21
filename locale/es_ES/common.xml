@@ -4,12 +4,12 @@
 <!--
   * locale/es_ES/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_ES (Español (España)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.7 2009/12/23 22:26:18 asmecher Exp $
   -->
 
 <locale name="es_ES" full_name = "Español (España)">
@@ -315,7 +315,4 @@
 	</div>]]></message>
 	<message key="common.uploadFailed">No se ha podido subir el fichero. Por favor, inténtalo de nuevo o ponte en contacto con el administrador si el problema persiste.</message>
 	<message key="navigation.dashboard">Panel de control</message>
-	<message key="common.false">Falso</message>
-	<message key="common.ok">OK</message>
-	<message key="common.true">Verdadero</message>
 </locale>

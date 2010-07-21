@@ -7,7 +7,7 @@
 /**
  * @file classes/search/SearchFileParser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SearchFileParser
@@ -16,7 +16,7 @@
  * @brief Abstract class to extract search text from a given file.
  */
 
-// $Id$
+// $Id: SearchFileParser.inc.php,v 1.5 2009/04/08 21:34:54 asmecher Exp $
 
 
 class SearchFileParser {

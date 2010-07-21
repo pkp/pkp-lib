@@ -3,7 +3,7 @@
 /**
  * @file classes/site/SiteDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SiteDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying the Site object.
  */
 
-// $Id$
+// $Id: SiteDAO.inc.php,v 1.9 2009/12/02 06:22:41 jerico.dev Exp $
 
 
-import('lib.pkp.classes.site.Site');
+import('site.Site');
 
 class SiteDAO extends DAO {
 	/**

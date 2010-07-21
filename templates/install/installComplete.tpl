@@ -1,13 +1,13 @@
 {**
  * installComplete.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display confirmation of successful installation.
  * If necessary, will also display new config file contents if config file could not be written.
  *
- * $Id$
+ * $Id: installComplete.tpl,v 1.3 2009/05/26 01:31:32 mcrider Exp $
  *}
 {strip}
 {include file="common/header.tpl"}

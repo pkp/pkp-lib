@@ -4,7 +4,7 @@
   * DTD for database data files.
   * Describes data to be inserted into a database.
   *
-  * $Id$
+  * $Id: xmlData.dtd,v 1.1 2008/06/26 01:42:22 asmecher Exp $
   -->
 
 <!ELEMENT data (table?, sql?)*>

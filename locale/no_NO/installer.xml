@@ -4,12 +4,12 @@
 <!--
   * locale/no_NO/installer.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">

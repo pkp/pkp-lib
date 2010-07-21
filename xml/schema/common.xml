@@ -4,12 +4,12 @@
 <!--
   * common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Common elements of the PKP database schema in XML.
   *
-  * $Id$
+  * $Id: common.xml,v 1.7 2009/08/18 23:44:09 asmecher Exp $
   -->
 
 <schema version="0.2">
@@ -44,20 +44,7 @@
 		</field>
 		<field name="product_type" type="C2" size="30"/>
 		<field name="product" type="C2" size="30"/>
-		<field name="product_class_name" type="C2" size="80"/>
-		<field name="lazy_load" type="I1">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
 		<descr>Installation and upgrade version history.</descr>
-		<index name="versions_pkey">
-			<col>product</col>
-			<col>major</col>
-			<col>minor</col>
-			<col>revision</col>
-			<col>build</col>
-			<UNIQUE />
-		</index>
 	</table>
 
 	<!--
@@ -252,7 +239,7 @@
 	  *
 	  -->
 	<table name="sessions">
-		<field name="session_id" type="C2" size="40">
+		<field name="session_id" type="C2" size="32">
 			<NOTNULL/>
 		</field>
 		<field name="user_id" type="I8"/>
@@ -276,10 +263,6 @@
 			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>
-		<field name="acting_as" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
-		</field>
 		<descr>Browser/user sessions and session data.</descr>
 		<index name="sessions_user_id">
 			<col>user_id</col>
@@ -300,7 +283,7 @@
 			<KEY />
 			<AUTOINCREMENT />
 		</field>
-		<field name="session_id" type="C2" size="40">
+		<field name="session_id" type="C2" size="32">
 			<NOTNULL/>
 		</field>
 		<field name="value" type="C2" size="20">
@@ -355,13 +338,11 @@
 		<field name="user_id" type="I8">
 			<NOTNULL/>
 		</field>
-		<field name="level" type="I8" />
 		<field name="date_created" type="T">
 			<NOTNULL/>
 		</field>
 		<field name="date_read" type="T" />
-		<field name="title" type="C2" size="255" />
-		<field name="contents" type="X" >
+		<field name="contents" type="C2" size="255" >
 			<NOTNULL/>
 		</field>
 		<field name="param" type="C2" size="255" />
@@ -378,12 +359,6 @@
 			<NOTNULL/>
 		</field>
 		<descr>Stores notifications for users as created by the system after certain operations.</descr>
-		<index name="notifications_by_user">
-			<col>product</col>
-			<col>user_id</col>
-			<col>level</col>
-			<col>context</col>
-		</index>
 	</table>
 
 	<!--

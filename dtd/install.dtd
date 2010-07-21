@@ -22,7 +22,7 @@
   *    <data file="data/locale/{$locale}/locale_data.xml"/>
   * </install>
   *
-  * $Id$
+  * $Id: install.dtd,v 1.1 2008/06/26 01:42:22 asmecher Exp $
   -->
 
 <!ELEMENT install (schema?, data?, code?, note?, upgrade?)*>

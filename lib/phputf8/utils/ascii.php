@@ -1,7 +1,7 @@
 <?php
 /**
 * Tools to help with ASCII in UTF-8
-* @version $Id$
+* @version $Id: ascii.php,v 1.1 2008/10/10 20:52:53 mj Exp $
 * @package utf8
 * @subpackage ascii
 */

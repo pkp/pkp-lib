@@ -3,7 +3,7 @@
 /**
  * @file classes/file/wrappers/HTTPFileWrapper.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package file.wrappers
@@ -12,7 +12,7 @@
  * Class providing a wrapper for the HTTP protocol.
  * (for when allow_url_fopen is disabled).
  *
- * $Id$
+ * $Id: HTTPFileWrapper.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
  */
 
 class HTTPFileWrapper extends FileWrapper {
@@ -82,9 +82,8 @@ class HTTPFileWrapper extends FileWrapper {
 			$additionalHeadersString .= "$name: $value\r\n";
 		}
 
-		$requestHost = preg_replace("!^.*://!", "", $realHost);
 		$request = 'GET ' . (empty($this->proxyHost)?$path:$this->url) . " HTTP/1.0\r\n" .
-			"Host: $requestHost\r\n" .
+			"Host: $realHost\r\n" .
 			$additionalHeadersString .
 			"Connection: Close\r\n\r\n";
 		fwrite($this->fp, $request);

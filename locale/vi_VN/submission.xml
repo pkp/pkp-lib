@@ -4,16 +4,15 @@
 <!--
   * locale/vi_VN/submission.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the vi_VN (Tiếng Việt) locale.
   *
-  * $Id$
+  * $Id: submission.xml,v 1.3 2009/08/15 00:13:58 asmecher Exp $
   -->
 
 <locale name="vi_VN" full_name = "Tiếng Việt">
-	<message key="submission.agencies">Cơ quan</message>
 	<message key="submission.abstractViews">Lượt xem Tóm tắt</message>
 	<message key="submission.accepted">Chấp thuận</message>
 	<message key="submission.acknowledge">Báo đã nhận</message>

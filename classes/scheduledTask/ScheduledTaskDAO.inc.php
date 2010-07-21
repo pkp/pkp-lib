@@ -7,7 +7,7 @@
 /**
  * @file classes/scheduledTask/ScheduledTaskDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskDAO
@@ -17,10 +17,10 @@
  * @brief Operations for retrieving and modifying Scheduled Task data.
  */
 
-// $Id$
+// $Id: ScheduledTaskDAO.inc.php,v 1.6 2009/04/08 21:34:54 asmecher Exp $
 
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('scheduledTask.ScheduledTask');
 
 class ScheduledTaskDAO extends DAO {
 	/**

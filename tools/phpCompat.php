@@ -6,7 +6,7 @@
 /**
  * @file tools/phpCompat.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2003-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PhpCompat
@@ -40,7 +40,7 @@
  *        for information about detection accuracy.
  */
 
-// $Id$
+// $Id: phpCompat.php,v 1.2 2009/12/02 22:26:02 jerico.dev Exp $
 
 // FIXME: This doesn't work if lib/pkp is symlinked. realpath($_['SCRIPT_FILENAME'].'/../../index.php') could work but see http://bugs.php.net/bug.php?id=50366
 define('INDEX_FILE_LOCATION', dirname(dirname(dirname(dirname(__FILE__)))) . '/index.php');

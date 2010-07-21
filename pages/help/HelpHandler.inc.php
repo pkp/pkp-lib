@@ -3,7 +3,7 @@
 /**
  * @file HelpHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HelpHandler
@@ -17,20 +17,14 @@
 define('HELP_DEFAULT_TOPIC', 'index/topic/000000');
 define('HELP_DEFAULT_TOC', 'index/toc/000000');
 
-import('lib.pkp.classes.help.HelpToc');
-import('lib.pkp.classes.help.HelpTocDAO');
-import('lib.pkp.classes.help.HelpTopic');
-import('lib.pkp.classes.help.HelpTopicDAO');
-import('lib.pkp.classes.help.HelpTopicSection');
-import('classes.handler.Handler');
+import('help.HelpToc');
+import('help.HelpTocDAO');
+import('help.HelpTopic');
+import('help.HelpTopicDAO');
+import('help.HelpTopicSection');
+import('handler.Handler');
 
 class HelpHandler extends Handler {
-	/**
-	 * Constructor
-	 */
-	function HelpHandler() {
-		parent::Handler();
-	}
 
 	/**
 	 * Display help table of contents.
@@ -44,7 +38,7 @@ class HelpHandler extends Handler {
 		$this->setupTemplate();
 
 		$templateMgr =& TemplateManager::getManager();
-		import('classes.help.Help');
+		import('help.Help');
 		$help =& Help::getHelp();
 		$templateMgr->assign_by_ref('helpToc', $help->getTableOfContents());
 		$templateMgr->display('help/helpToc.tpl');

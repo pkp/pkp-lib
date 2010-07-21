@@ -1,12 +1,12 @@
 <!--
   * locale.dtd
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DTD for localization string definitions.
   *
-  * $Id$
+  * $Id: locale.dtd,v 1.2 2009/04/08 21:34:54 asmecher Exp $
   -->
 
 <!--

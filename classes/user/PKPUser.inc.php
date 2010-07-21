@@ -7,7 +7,7 @@
 /**
  * @file classes/user/PKPUser.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPUser
@@ -17,7 +17,7 @@
  * @brief Basic class describing users existing in the system.
  */
 
-// $Id$
+// $Id: PKPUser.inc.php,v 1.9 2009/12/02 06:22:41 jerico.dev Exp $
 
 
 class PKPUser extends DataObject {
@@ -225,27 +225,18 @@ class PKPUser extends DataObject {
 
 	/**
 	 * Get affiliation (position, institution, etc.).
-	 * @param $locale string
 	 * @return string
 	 */
-	function getAffiliation($locale) {
-		return $this->getData('affiliation', $locale);
+	function getAffiliation() {
+		return $this->getData('affiliation');
 	}
 
 	/**
 	 * Set affiliation.
 	 * @param $affiliation string
-	 * @param $locale string
 	 */
-	function setAffiliation($affiliation, $locale) {
-		return $this->setData('affiliation', $affiliation, $locale);
-	}
-
-	/**
-	 * Get localized user affiliation.
-	 */
-	function getLocalizedAffiliation() {
-		return $this->getLocalizedData('affiliation');
+	function setAffiliation($affiliation) {
+		return $this->setData('affiliation', $affiliation);
 	}
 
 	/**
@@ -374,54 +365,34 @@ class PKPUser extends DataObject {
 		return $this->setData('biography', $biography, $locale);
 	}
 
+	/**
+	 * Get localized user interests.
+	 */
+	function getLocalizedInterests() {
+		return $this->getLocalizedData('interests');
+	}
+
 	function getUserInterests() {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getInterests();
+		return $this->getLocalizedInterests();
 	}
-	
+
 	/**
 	 * Get user reviewing interests.
 	 * @param $locale string
 	 * @return string
 	 */
-	function getInterests() {
-		$interestDao =& DAORegistry::getDAO('InterestDAO');
-		return implode(", ", $interestDao->getInterests($this->getId(), false));
+	function getInterests($locale) {
+		return $this->getData('interests', $locale);
 	}
-	
+
 	/**
 	 * Set user reviewing interests.
 	 * @param $interests string
 	 * @param $locale string
 	 */
-	function setInterests($interests) {
-		$interestDao =& DAORegistry::getDAO('InterestsDAO');
-		$interestDao->insertInterests(explode(",", $interests), $this->getId(), true);
-	}
-
-	/**
-	 * Get localized user gossip.
-	 */
-	function getLocalizedGossip() {
-		return $this->getLocalizedData('gossip');
-	}
-
-	/**
-	 * Get user gossip.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getGossip($locale) {
-		return $this->getData('gossip', $locale);
-	}
-
-	/**
-	 * Set user gossip.
-	 * @param $gossip string
-	 * @param $locale string
-	 */
-	function setGossip($gossip, $locale) {
-		return $this->setData('gossip', $gossip, $locale);
+	function setInterests($interests, $locale) {
+		return $this->setData('interests', $interests, $locale);
 	}
 
 	/**
@@ -589,9 +560,9 @@ class PKPUser extends DataObject {
 
 	function getContactSignature() {
 		$signature = $this->getFullName();
-		if ($a = $this->getLocalizedAffiliation()) $signature .= "\n" . $a;
-		if ($p = $this->getPhone()) $signature .= "\n" . Locale::translate('user.phone') . ' ' . $p;
-		if ($f = $this->getFax()) $signature .= "\n" . Locale::translate('user.fax') . ' ' . $f;
+		if ($this->getAffiliation()) $signature .= "\n" . $this->getAffiliation();
+		if ($this->getPhone()) $signature .= "\n" . Locale::translate('user.phone') . ' ' . $this->getPhone();
+		if ($this->getFax()) $signature .= "\n" . Locale::translate('user.fax') . ' ' . $this->getFax();
 		$signature .= "\n" . $this->getEmail();
 		return $signature;
 	}

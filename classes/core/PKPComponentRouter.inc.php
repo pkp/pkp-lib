@@ -3,7 +3,7 @@
 /**
  * @file classes/core/PKPComponentRouter.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouter
@@ -37,10 +37,6 @@
  *
  *  NB: Component and operation names may only contain a-z, 0-9 and hyphens. Numbers
  *  are not allowed at the beginning of a name or after a hyphen.
- *
- *  NB: Component handlers must implement an initialize() method that will be called
- *  before the request is routed. The initialization method must enforce authorization
- *  and request validation.
  */
 
 // $Id$
@@ -61,8 +57,12 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('lib.pkp.classes.core.PKPRouter');
-import('classes.core.Request');
+// Two different types of camel case: one for class names and one for method names
+define ('COMPONENT_ROUTER_CLASS', 0x01);
+define ('COMPONENT_ROUTER_METHOD', 0x02);
+
+import('core.PKPRouter');
+import('core.Request');
 
 class PKPComponentRouter extends PKPRouter {
 	//
@@ -98,6 +98,7 @@ class PKPComponentRouter extends PKPRouter {
 	function route(&$request) {
 		// Determine the requested service endpoint.
 		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
+		assert(is_callable($rpcServiceEndpoint));
 
 		// Retrieve RPC arguments from the request.
 		$args =& $request->getUserVars();
@@ -106,8 +107,9 @@ class PKPComponentRouter extends PKPRouter {
 		// Remove the caller-parameter (if present)
 		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
 
-		// Authorize, validate and initialize the request
-		$this->_authorizeInitializeAndCallRequest($rpcServiceEndpoint, $request, $args);
+		// Call the service endpoint.
+		$result = call_user_func($rpcServiceEndpoint, $args, $request);
+		echo $result;
 	}
 
 	/**
@@ -134,14 +136,8 @@ class PKPComponentRouter extends PKPRouter {
 			array_pop($rpcServiceEndpointParts);
 
 			// Construct the fully qualified component class name from the rest of it.
-			$handlerClassName = String::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
-
-			// camelize remaining endpoint parts
-			$camelizedRpcServiceEndpointParts = array();
-			foreach ( $rpcServiceEndpointParts as $part) {
-				$camelizedRpcServiceEndpointParts[] = String::camelize($part, CAMEL_CASE_HEAD_DOWN);
-			}
-			$handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
+			$handlerClassName = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_CLASS).'Handler';
+			$handlerPackage = implode('.', $rpcServiceEndpointParts);
 
 			$this->_component = $handlerPackage.'.'.$handlerClassName;
 		}
@@ -170,7 +166,7 @@ class PKPComponentRouter extends PKPRouter {
 			}
 
 			// Pop off the operation part
-			$this->_op = String::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
+			$this->_op = $this->_camelize(array_pop($rpcServiceEndpointParts), COMPONENT_ROUTER_METHOD);
 		}
 
 		return $this->_op;
@@ -201,42 +197,43 @@ class PKPComponentRouter extends PKPRouter {
 			// Construct the component handler file name and test its existence.
 			$component = 'controllers.'.$component;
 			$componentFileName = str_replace('.', '/', $component).'.inc.php';
-			switch (true) {
-				case file_exists($componentFileName):
-					break;
-
-				case file_exists('lib/pkp/'.$componentFileName):
-					$component = 'lib.pkp.'.$component;
-					break;
-
-				default:
-					// Request to non-existent handler
-					return $nullVar;
+			if (!file_exists($componentFileName) && !file_exists('lib/pkp/'.$componentFileName)) {
+				// Request to non-existent handler
+				return $nullVar;
 			}
 
-			// We expect the handler to be part of one
-			// of the following packages:
-			$allowedPackages = array(
-				'controllers',
-				'lib.pkp.controllers'
-			);
+			// Declare the component handler class.
+			import($component);
 
+			// Check that the component class has really been declared
+			$componentClassName = substr($component, strrpos($component, '.') + 1);
+			assert(class_exists($componentClassName));
+
+			//
+			// Operation
+			//
 			// Retrieve requested component operation
 			$op = $this->getRequestedOp($request);
 			assert(!empty($op));
 
-			// A handler at least needs to implement the
-			// following methods:
-			$requiredMethods = array(
-				$op, 'validate', 'initialize'
-			);
-
-			$componentInstance =& instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
-			if (!is_object($componentInstance)) return $nullVar;
+			// Check that the requested operation exists for the handler:
+			// Lowercase comparison for PHP4 compatibility.
+			$methods = array_map('strtolower', get_class_methods($componentClassName));
+			if (!in_array(strtolower($op), $methods)) return $nullVar;
 
 			//
 			// Callable service endpoint
 			//
+			// Instantiate the handler
+			$componentInstance = new $componentClassName();
+
+			// Check that the component instance really is a handler
+			if (!is_a($componentInstance, 'PKPHandler')) return $nullVar;
+
+			// Check that the requested operation is on the
+			// remote operation whitelist.
+			if (!in_array($op, $componentInstance->getRemoteOperations())) return $nullVar;
+
 			// Construct the callable array
 			$this->_rpcServiceEndpoint = array($componentInstance, $op);
 		}
@@ -285,15 +282,9 @@ class PKPComponentRouter extends PKPRouter {
 		$componentParts = explode('.', $component);
 		$componentName = array_pop($componentParts);
 		assert(substr($componentName, -7) == 'Handler');
-		$componentName = String::uncamelize(substr($componentName, 0, -7));
-
-		// uncamelize the component parts
-		$uncamelizedComponentParts = array();
-		foreach ($componentParts as $part) {
-			$uncamelizedComponentParts[] = String::uncamelize($part);
-		}
-		array_push($uncamelizedComponentParts, $componentName);
-		$opName = String::uncamelize($op);
+		$componentName = $this->_uncamelize(substr($componentName, 0, -7));
+		array_push($componentParts, $componentName);
+		$opName = $this->_uncamelize($op);
 
 		//
 		// Additional query parameters
@@ -315,7 +306,7 @@ class PKPComponentRouter extends PKPRouter {
 			$pathInfoArray = array_merge(
 				$context,
 				array(COMPONENT_ROUTER_PATHINFO_MARKER),
-				$uncamelizedComponentParts,
+				$componentParts,
 				array($opName)
 			);
 
@@ -331,7 +322,7 @@ class PKPComponentRouter extends PKPRouter {
 			$queryParametersArray = array_merge(
 				$context,
 				array(
-					COMPONENT_ROUTER_PARAMETER_MARKER.'='.implode('.', $uncamelizedComponentParts),
+					COMPONENT_ROUTER_PARAMETER_MARKER.'='.implode('.', $componentParts),
 					"op=$opName"
 				),
 				$additionalParameters
@@ -464,6 +455,47 @@ class PKPComponentRouter extends PKPRouter {
 		}
 
 		return $rpcServiceEndpointParts;
+	}
+
+
+	/**
+	 * Transform "handler-class" to "HandlerClass"
+	 * and "my-op" to "myOp".
+	 * @param $string input string
+	 * @param $type class or method nomenclature?
+	 * @return string the string in camel case
+	 */
+	function _camelize($string, $type = COMPONENT_ROUTER_CLASS) {
+		assert($type == COMPONENT_ROUTER_CLASS || $type == COMPONENT_ROUTER_METHOD);
+
+		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
+		$string = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+
+		// Transform "MyOp" to "myOp"
+		if ($type == COMPONENT_ROUTER_METHOD) {
+			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
+			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
+		}
+
+		return $string;
+	}
+
+	/**
+	 * Transform "HandlerClass" to "handler-class"
+	 * and "myOp" to "my-op".
+	 * @param $string
+	 */
+	function _uncamelize($string) {
+		assert(!empty($string));
+
+		// Transform "myOp" to "MyOp"
+		$string = ucfirst($string);
+
+		// Insert hyphens between words and return the string in lowercase
+		$words = array();
+		String::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
+		assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
+		return strtolower(implode('-', $words[0]));
 	}
 }
 ?>

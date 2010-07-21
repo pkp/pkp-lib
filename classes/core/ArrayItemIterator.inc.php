@@ -3,7 +3,7 @@
 /**
  * @file classes/core/ArrayItemIterator.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ArrayItemIterator
@@ -12,10 +12,10 @@
  * @brief Provides paging and iteration for arrays.
  */
 
-// $Id$
+// $Id: ArrayItemIterator.inc.php,v 1.6 2009/04/08 21:34:53 asmecher Exp $
 
 
-import('lib.pkp.classes.core.ItemIterator');
+import('core.ItemIterator');
 
 class ArrayItemIterator extends ItemIterator {
 	/** @var $theArray array The array of contents of this iterator. */
@@ -88,7 +88,7 @@ class ArrayItemIterator extends ItemIterator {
 	 * Return the next item in the iterator, with key.
 	 * @return array (key, value)
 	 */
-	function nextWithKey() {
+	function &nextWithKey() {
 		$key = key($this->theArray);
 		$value = $this->next();
 		return array($key, $value);
@@ -171,7 +171,7 @@ class ArrayItemIterator extends ItemIterator {
 	 * @return object DBResultRange
 	 */
 	function &getLastPageRangeInfo() {
-		import('lib.pkp.classes.db.DBResultRange');
+		import('db.DBResultRange');
 		$returner = new DBResultRange(
 			$this->itemsPerPage,
 			$this->getPageCount()

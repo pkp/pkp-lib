@@ -3,7 +3,7 @@
 /**
  * @file classes/i18n/TimeZoneDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TimeZoneDAO
@@ -13,7 +13,7 @@
  *
  */
 
-// $Id$
+// $Id: TimeZoneDAO.inc.php,v 1.1 2009/06/03 22:54:13 asmecher Exp $
 
 
 class TimeZoneDAO extends DAO {
@@ -35,6 +35,7 @@ class TimeZoneDAO extends DAO {
 	function &_getTimeZoneCache() {
 		$cache =& Registry::get('allTimeZones', true, null);
 		if ($cache === null) {
+			import('cache.CacheManager');
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'timeZone', 'list',

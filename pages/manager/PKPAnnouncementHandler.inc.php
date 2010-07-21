@@ -3,7 +3,7 @@
 /**
  * @file AnnouncementHandler.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementHandler
@@ -12,15 +12,12 @@
  * @brief Handle requests for announcement management functions.
  */
 
-import('pages.manager.ManagerHandler');
+//$Id: PKPAnnouncementHandler.inc.php,v 1.8 2009/12/08 22:43:16 asmecher Exp $
+import('manager.ManagerHandler');
 
 class PKPAnnouncementHandler extends ManagerHandler {
 	function PKPAnnouncementHandler() {
 		parent::ManagerHandler();
-		$this->addRoleAssignment(ROLE_ID_PRESS_MANAGER,
-				array('announcements', 'announcementTypes', 'createAnnouncement', 'createAnnouncementType',
-				'deleteAnnouncement', 'deleteAnnouncementType', 'editAnnouncement', 'editAnnouncementType',
-				'index', 'updateAnnouncement', 'updateAnnouncementType'));
 	}
 
 	function index() {
@@ -31,6 +28,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display a list of announcements for the current context.
 	 */
 	function announcements() {
+		$this->validate();
 		$this->setupTemplate();
 
 		$rangeInfo =& Handler::getRangeInfo('announcements', array());
@@ -57,6 +55,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement to delete
 	 */
 	function deleteAnnouncement($args) {
+		$this->validate();
+
 		if (isset($args) && !empty($args)) {
 			$announcementId = (int) $args[0];
 
@@ -76,6 +76,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array optional, first parameter is the ID of the announcement to edit
 	 */
 	function editAnnouncement($args = array()) {
+		$this->validate();
 		$this->setupTemplate();
 
 		$announcementId = !isset($args) || empty($args) ? null : (int) $args[0];
@@ -83,7 +84,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		// Ensure announcement is valid and for this context
 		if ($this->_announcementIsValid($announcementId)) {
-			import('classes.manager.form.AnnouncementForm');
+			import('manager.form.AnnouncementForm');
 
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcements'), 'manager.announcements'));
@@ -122,9 +123,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Save changes to an announcement.
 	 */
 	function updateAnnouncement() {
-		$this->setupTemplate();
+		$this->validate();
 
-		import('classes.manager.form.AnnouncementForm');
+		import('manager.form.AnnouncementForm');
 
 		$announcementId = Request::getUserVar('announcementId') == null ? null : (int) Request::getUserVar('announcementId');
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
@@ -148,6 +149,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				}
 
 			} else {
+				$this->setupTemplate();
+
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
 
@@ -159,8 +162,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 				$announcementForm->display();
 			}
+
 		} else {
-			PKPRequest::redirect(null, null, 'announcements');
+				PKPRequest::redirect(null, null, 'announcements');
 		}
 	}
 
@@ -168,6 +172,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display a list of announcement types for the current context.
 	 */
 	function announcementTypes() {
+		$this->validate();
 		AnnouncementHandler::setupTemplate(true);
 
 		$rangeInfo =& Handler::getRangeInfo('announcementTypes', array());
@@ -188,6 +193,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement type to delete
 	 */
 	function deleteAnnouncementType($args) {
+		$this->validate();
+
 		if (isset($args) && !empty($args)) {
 			$typeId = (int) $args[0];
 
@@ -207,6 +214,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array optional, first parameter is the ID of the announcement type to edit
 	 */
 	function editAnnouncementType($args = array()) {
+		$this->validate();
 		$this->setupTemplate(true);
 
 		$typeId = !isset($args) || empty($args) ? null : (int) $args[0];
@@ -214,7 +222,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		// Ensure announcement type is valid and for this context
 		if ($this->_announcementTypeIsValid($typeId)) {
-			import('classes.manager.form.AnnouncementTypeForm');
+			import('manager.form.AnnouncementTypeForm');
 
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
@@ -249,14 +257,15 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Save changes to an announcement type.
 	 */
 	function updateAnnouncementType() {
-		$this->setupTemplate(true);
+		$this->validate();
 
-		import('classes.manager.form.AnnouncementTypeForm');
+		import('manager.form.AnnouncementTypeForm');
 
 		$typeId = Request::getUserVar('typeId') == null ? null : (int) Request::getUserVar('typeId');
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
 		if ($this->_announcementTypeIsValid($typeId)) {
+
 			$announcementTypeForm = new AnnouncementTypeForm($typeId);
 			$announcementTypeForm->readInputData();
 
@@ -268,7 +277,10 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				} else {
 					PKPRequest::redirect(null, null, 'announcementTypes');
 				}
+
 			} else {
+				$this->setupTemplate(true);
+
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
 
@@ -280,8 +292,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 				$announcementTypeForm->display();
 			}
+
 		} else {
-			PKPRequest::redirect(null, null, 'announcementTypes');
+				PKPRequest::redirect(null, null, 'announcementTypes');
 		}
 	}
 

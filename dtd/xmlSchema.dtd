@@ -9,7 +9,7 @@
   * Database schema DTD adopted from ADOdb.
   * See the adodb-xmlschema documentation distributed with ADOdb for more information.
   *
-  * $Id$
+  * $Id: xmlSchema.dtd,v 1.3 2009/09/04 15:35:22 asmecher Exp $
   -->
 
 <!ELEMENT schema (table*, sql*)>

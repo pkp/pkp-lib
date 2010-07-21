@@ -3,7 +3,7 @@
 /**
  * @file classes/form/validation/FormValidatorArray.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorArray
@@ -12,84 +12,70 @@
  * @brief Form validation check that checks an array of fields.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+// $Id: FormValidatorArray.inc.php,v 1.3 2009/04/08 21:34:54 asmecher Exp $
+
+
+import('form.validation.FormValidatorArray');
 
 class FormValidatorArray extends FormValidator {
 
 	/** @var array Array of fields to check */
-	var $_fields;
+	var $fields;
 
 	/** @var array Array of field names where an error occurred */
-	var $_errorFields;
+	var $errorFields;
 
 	/**
 	 * Constructor.
-	 * @param $form Form the associated form
-	 * @param $field string the name of the associated field
-	 * @param $type string the type of check, either "required" or "optional"
-	 * @param $message string the error message for validation failures (i18n key)
+	 * @see FormValidator::FormValidator()
+	 * @param $field string field name specifying an array of fields, i.e. name[]
 	 * @param $fields array all subfields for each item in the array, i.e. name[][foo]. If empty it is assumed that name[] is a data field
 	 */
 	function FormValidatorArray(&$form, $field, $type, $message, $fields = array()) {
 		parent::FormValidator($form, $field, $type, $message);
-		$this->_fields = $fields;
-		$this->_errorFields = array();
+		$this->fields = $fields;
+		$this->errorFields = array();
 	}
 
-
-	//
-	// Setters and Getters
-	//
 	/**
-	 * Get array of fields where an error occurred.
-	 * @return array
-	 */
-	function getErrorFields() {
-		return $this->_errorFields;
-	}
-
-
-	//
-	// Public methods
-	//
-	/**
-	 * @see FormValidator::isValid()
-	 * Value is valid if it is empty and optional or all field values are set.
+	 * Check if field value is valid.
+	 * Value is valid if it is empty and optional or is in the set of accepted values.
 	 * @return boolean
 	 */
 	function isValid() {
-		if ($this->getType() == FORM_VALIDATOR_OPTIONAL_VALUE) return true;
+		if ($this->type == 'optional') {
+			return true;
+		}
 
-		$data = $this->getFieldValue();
+		$ret = true;
+		$data = $this->form->getData($this->field);
 		if (!is_array($data)) return false;
-
-		$isValid = true;
 		foreach ($data as $key => $value) {
-			if (count($this->_fields) == 0) {
-				// We expect all fields to contain values.
-				if (is_null($value) || trim((string)$value) == '') {
-					$isValid = false;
-					array_push($this->_errorFields, $this->getField()."[{$key}]");
-				}
-			} else {
-				// In the two-dimensional case we always expect a value array.
-				if (!is_array($value)) {
-					$isValid = false;
-					array_push($this->_errorFields, $this->getField()."[{$key}]");
-					continue;
+			if (count($this->fields) == 0) {
+				if (trim($value) == '') {
+					$ret = false;
+					array_push($this->errorFields, "{$this->field}[{$key}]");
 				}
 
-				// Go through all sub-sub-fields and check them explicitly
-				foreach ($this->_fields as $field) {
-					if (!isset($value[$field]) || trim((string)$value[$field]) == '') {
-						$isValid = false;
-						array_push($this->_errorFields, $this->getField()."[{$key}][{$field}]");
+			} else {
+				foreach ($this->fields as $field) {
+					if (trim($value[$field]) == '') {
+						$ret = false;
+						array_push($this->errorFields, "{$this->field}[{$key}][{$field}]");
 					}
 				}
 			}
 		}
 
-		return $isValid;
+		return $ret;
+	}
+
+	/**
+	 * Get array of fields where an error occurred.
+	 * @return array
+	 */
+	function getErrorFields() {
+		return $this->errorFields;
 	}
 }
 

@@ -4,15 +4,15 @@
 <!--
   * ../pkp//locale/es_AR/manager.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_AR (Español (Argentina)) locale.
+  * Localization strings for the es_AR (España Argentino) locale.
   *
-  * $Id$
+  * $Id: manager.xml,v 1.3 2009/12/23 22:26:18 asmecher Exp $
   -->
 
-<locale name="es_AR" full_name = "Español (Argentina)">
+<locale name="es_AR" full_name = "España Argentino">
 	<message key="manager.announcements">Anuncios</message>
 	<message key="manager.announcements.confirmDelete">¿Esta seguro de que quiere borrar permanentemente este anuncio?</message>
 	<message key="manager.announcements.create">Crear nuevo Anuncio</message>
@@ -169,5 +169,4 @@
 	<message key="manager.payment.timestamp">Marca de tiempo (timestamp)</message>
 	<message key="manager.people.mustChooseRole">Por favor seleccione un rol en la parte superior de la página antes de hacer clic en "Enrolar Usuario"</message>
 	<message key="manager.people.mustProvideName">Por favor provea al menos un Apellido para el primer usuario.</message>
-	<message key="manager.setup.errorDeletingItem">Hubo un error al eliminar este elemento</message>
 </locale>

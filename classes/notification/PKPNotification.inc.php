@@ -3,7 +3,7 @@
 /**
  * @file classes/notification/Notification.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Notification
@@ -12,20 +12,9 @@
  * @brief Class for Notification.
  */
 
-// $Id$
+// $Id: PKPNotification.inc.php,v 1.7 2009/12/02 06:22:42 jerico.dev Exp $
 
-import('lib.pkp.classes.notification.NotificationDAO');
-
-define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
-define('NOTIFICATION_LEVEL_NORMAL',				0x0000002);
-
-/** Notification associative types. */
-define('NOTIFICATION_TYPE_SUCCESS', 				0x0000001);
-define('NOTIFICATION_TYPE_WARNING', 				0x0000002);
-define('NOTIFICATION_TYPE_ERROR', 				0x0000003);
-define('NOTIFICATION_TYPE_FORBIDDEN', 				0x0000004);
-define('NOTIFICATION_TYPE_INFORMATION',				0x0000005);
-define('NOTIFICATION_TYPE_HELP', 				0x0000006);
+import('notification.NotificationDAO');
 
 class PKPNotification extends DataObject {
 
@@ -34,6 +23,37 @@ class PKPNotification extends DataObject {
 	 */
 	function PKPNotification() {
 		parent::DataObject();
+	}
+
+	/**
+	 * Create a new notification with the specified arguments and insert into DB
+	 * This is a static method
+	 * @param $userId int
+	 * @param $contents string
+	 * @param $param string
+	 * @param $location string
+	 * @param $isLocalized bool
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return Notification object
+	 */
+	function createNotification($userId, $contents, $param, $location, $isLocalized, $assocType) {
+		$notification = new Notification();
+		$context =& Request::getContext();
+		$contextId = $context->getId();
+
+		$notification->setUserId($userId);
+		$notification->setContents($contents);
+		$notification->setParam($param);
+		$notification->setLocation($location);
+		$notification->setIsLocalized($isLocalized);
+		$notification->setAssocType($assocType);
+		$notification->setContext($contextId);
+
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notificationDao->insertNotification($notification);
+
+		return $notification;
 	}
 
 	/**
@@ -68,22 +88,6 @@ class PKPNotification extends DataObject {
 	 */
 	function setUserId($userId) {
 		return $this->setData('userId', $userId);
-	}
-
-	/**
-	 * Get the level (NOTIFICATION_LEVEL_...) for this notification
-	 * @return int
-	 */
-	function getLevel() {
-		return $this->getData('level');
-	}
-
-	/**
-	 * Set the level (NOTIFICATION_LEVEL_...) for this notification
-	 * @param $level int
-	 */
-	function setLevel($level) {
-		return $this->setData('level', $level);
 	}
 
 	/**
@@ -140,22 +144,6 @@ class PKPNotification extends DataObject {
 	 */
 	function setIsUnread($isUnread) {
 		return $this->setData('isUnread', $isUnread);
-	}
-
-	/**
-	 * get notification title
-	 * @return string
-	 */
-	function getTitle() {
-		return $this->getData('title');
-	}
-
-	/**
-	 * set notification title
-	 * @param $contents int
-	 */
-	function setTitle($title) {
-		return $this->setData('title', $title);
 	}
 
 	/**
@@ -252,17 +240,6 @@ class PKPNotification extends DataObject {
 	 */
 	function setContext($context) {
 		return $this->setData('context', $context);
-	}
-
-	function getIconClass() {
-		switch ($this->getAssocType()) {
-			case NOTIFICATION_TYPE_SUCCESS: return 'success';
-			case NOTIFICATION_TYPE_WARNING: return 'warning';
-			case NOTIFICATION_TYPE_ERROR: return 'error';
-			case NOTIFICATION_TYPE_INFO: return 'info';
-			case NOTIFICATION_TYPE_FORBIDDEN: return 'forbidden';
-			case NOTIFICATION_TYPE_HELP: return 'help';
-		}
 	}
 
 	/**

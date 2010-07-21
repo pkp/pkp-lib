@@ -4,12 +4,12 @@
 <!--
   * locale/nl_NL/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.2 2009/08/25 16:57:29 asmecher Exp $
   -->
 
 <locale name="nl_NL" full_name = "Nederlands">

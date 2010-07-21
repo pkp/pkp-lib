@@ -7,7 +7,7 @@
 /**
  * @file pages/install/index.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_install
@@ -15,7 +15,7 @@
  *
  */
 
-// $Id$
+// $Id: index.php,v 1.4 2009/12/10 00:57:04 asmecher Exp $
 
 
 switch ($op) {
@@ -24,7 +24,7 @@ switch ($op) {
 	case 'upgrade':
 	case 'installUpgrade':
 		define('HANDLER_CLASS', 'PKPInstallHandler');
-		import('lib.pkp.pages.install.PKPInstallHandler');
+		import('pages.install.PKPInstallHandler');
 		break;
 }
 

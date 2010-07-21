@@ -4,12 +4,12 @@
 <!--
   * locale/nl_NL/reader.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
   *
-  * $Id$
+  * $Id: reader.xml,v 1.3 2009/08/28 20:51:48 asmecher Exp $
   -->
 
 <locale name="nl_NL" full_name = "Nederlands">

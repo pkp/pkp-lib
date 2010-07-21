@@ -3,7 +3,7 @@
 /**
  * @file classes/cache/GenericCache.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GenericCache
@@ -14,7 +14,7 @@
  * null cache.
  */
 
-// $Id$
+// $Id: GenericCache.inc.php,v 1.4 2009/09/22 18:36:22 asmecher Exp $
 
 
 // Pseudotype to represent a cache miss

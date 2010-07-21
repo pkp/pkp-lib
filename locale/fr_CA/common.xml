@@ -4,12 +4,12 @@
 <!--
   * locale/fr_CA/common.xml
   *
-  * Copyright (c) 2000-2010 John Willinsky
+  * Copyright (c) 2000-2009 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.9 2009/12/23 22:26:18 asmecher Exp $
   -->
 
 <locale name="fr_CA" full_name = "Français (Canada)">
@@ -315,7 +315,4 @@
 	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="common.uploadFailed">Le fichier n'a pu être téléchargé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>
 	<message key="navigation.dashboard">Tableau de bord</message>
-	<message key="common.false">Faux</message>
-	<message key="common.ok">OK</message>
-	<message key="common.true">Vrai</message>
 </locale>

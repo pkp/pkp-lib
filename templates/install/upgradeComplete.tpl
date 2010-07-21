@@ -1,13 +1,13 @@
 {**
  * upgradeComplete.tpl
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display confirmation of successful upgrade.
  * If necessary, will also display new config file contents if config file could not be written.
  *
- * $Id$
+ * $Id: upgradeComplete.tpl,v 1.4 2009/08/07 22:05:45 mcrider Exp $
  *}
 {strip}
 {include file="common/header.tpl"}

@@ -3,7 +3,7 @@
 /**
  * @file classes/db/DAOResultFactory.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DAOResultFactory
@@ -13,8 +13,10 @@
  * objects from DAOs.
  */
 
+// $Id: DAOResultFactory.inc.php,v 1.6 2009/04/08 21:34:54 asmecher Exp $
 
-import('lib.pkp.classes.core.ItemIterator');
+
+import('core.ItemIterator');
 
 class DAOResultFactory extends ItemIterator {
 	/** The DAO used to create objects */
@@ -22,12 +24,6 @@ class DAOResultFactory extends ItemIterator {
 
 	/** The name of the DAO's factory function (to be called with an associative array of values) */
 	var $functionName;
-
-	/**
-	 * @var array an array of primary key field names that uniquely
-	 *   identify a result row in the record set.
-	 */
-	var $idFields;
 
 	/** The ADORecordSet to be wrapped around */
 	var $records;
@@ -47,14 +43,10 @@ class DAOResultFactory extends ItemIterator {
 	 * @param $records object ADO record set
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
-	 * @param $idFields array an array of primary key field names that uniquely
-	 *  identify a result row in the record set.
-	 *  Should be data object _data array key, not database column name
 	 */
-	function DAOResultFactory(&$records, &$dao, $functionName, $idFields = array()) {
+	function DAOResultFactory(&$records, &$dao, $functionName) {
 		$this->functionName = $functionName;
 		$this->dao =& $dao;
-		$this->idFields = $idFields;
 
 		if (!$records || $records->EOF) {
 			if ($records) $records->Close();
@@ -101,20 +93,9 @@ class DAOResultFactory extends ItemIterator {
 	 * @return array ($key, $value)
 	 */
 	function &nextWithKey() {
-		$result =& $this->next();
-		if (empty($this->idFields)) {
-			$key = null;
-		} else {
-			assert(is_a($result, 'DataObject') && is_array($this->idFields));
-			$key = '';
-			foreach($this->idFields as $idField) {
-				assert(!is_null($result->getData($idField)));
-				if (!empty($key)) $key .= '-';
-				$key .= (string)$result->getData($idField);
-			}
-		}
-		$returner = array($key, &$result);
-		return $returner;
+		// We don't have keys with rows. (Row numbers might become
+		// valuable at some point.)
+		return array(null, $this->next());
 	}
 
 	/**
@@ -204,11 +185,11 @@ class DAOResultFactory extends ItemIterator {
 	 * Convert this iterator to an associative array by database ID.
 	 * @return array
 	 */
-	function &toAssociativeArray($idField) {
+	function &toAssociativeArray($keyName) {
 		$returner = array();
 		while (!$this->eof()) {
 			$result =& $this->next();
-			$returner[$result->getData($idField)] =& $result;
+			$returner[$result->getData($keyName)] =& $result;
 			unset($result);
 		}
 		return $returner;
@@ -227,7 +208,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @return object
 	 */
 	function &getLastPageRangeInfo() {
-		import('lib.pkp.classes.db.DBResultRange');
+		import('db.DBResultRange');
 		$returner = new DBResultRange($this->count, $this->pageCount);
 		return $returner;
 	}

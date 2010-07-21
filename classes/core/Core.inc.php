@@ -7,7 +7,7 @@
 /**
  * @file classes/core/Core.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Core
@@ -17,7 +17,7 @@
  *
  */
 
-// $Id$
+// $Id: Core.inc.php,v 1.10 2009/12/02 06:22:41 jerico.dev Exp $
 
 
 class Core {

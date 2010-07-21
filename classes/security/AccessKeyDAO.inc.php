@@ -3,7 +3,7 @@
 /**
  * @file classes/security/AccessKeyDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AccessKeyDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying AccessKey objects.
  */
 
-// $Id$
+// $Id: AccessKeyDAO.inc.php,v 1.10 2009/12/02 06:22:42 jerico.dev Exp $
 
 
-import('lib.pkp.classes.security.AccessKey');
+import('security.AccessKey');
 
 class AccessKeyDAO extends DAO {
 	/**

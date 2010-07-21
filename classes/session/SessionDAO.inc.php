@@ -3,7 +3,7 @@
 /**
  * @file classes/session/SessionDAO.inc.php
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2009 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SessionDAO
@@ -13,10 +13,10 @@
  * @brief Operations for retrieving and modifying Session objects.
  */
 
-// $Id$
+// $Id: SessionDAO.inc.php,v 1.7 2009/12/02 06:22:42 jerico.dev Exp $
 
 
-import('lib.pkp.classes.session.Session');
+import('session.Session');
 
 class SessionDAO extends DAO {
 	/**
@@ -43,7 +43,7 @@ class SessionDAO extends DAO {
 			$session->setSecondsLastUsed($row['last_used']);
 			$session->setRemember($row['remember']);
 			$session->setSessionData($row['data']);
-			$session->setActingAsUserGroupId((int)$row['acting_as']);
+
 		}
 
 		$result->Close();
@@ -59,18 +59,17 @@ class SessionDAO extends DAO {
 	function insertSession(&$session) {
 		return $this->update(
 			'INSERT INTO sessions
-				(session_id, ip_address, user_agent, created, last_used, remember, data, acting_as)
+				(session_id, ip_address, user_agent, created, last_used, remember, data)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$session->getId(),
 				$session->getIpAddress(),
-				substr($session->getUserAgent(), 0, 255),
+				$session->getUserAgent(),
 				(int) $session->getSecondsCreated(),
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
-				$session->getSessionData(),
-				(int)$session->getActingAsUserGroupId()
+				$session->getSessionData()
 			)
 		);
 	}
@@ -89,18 +88,16 @@ class SessionDAO extends DAO {
 					created = ?,
 					last_used = ?,
 					remember = ?,
-					data = ?,
-					acting_as = ?
+					data = ?
 				WHERE session_id = ?',
 			array(
 				$session->getUserId()==''?null:(int) $session->getUserId(),
 				$session->getIpAddress(),
-				substr($session->getUserAgent(), 0, 255),
+				$session->getUserAgent(),
 				(int) $session->getSecondsCreated(),
 				(int) $session->getSecondsLastUsed(),
 				$session->getRemember() ? 1 : 0,
 				$session->getSessionData(),
-				(int)$session->getActingAsUserGroupId(),
 				$session->getId()
 			)
 		);

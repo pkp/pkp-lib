@@ -1316,6 +1316,7 @@ class PKPTemplateManager extends Smarty {
 		return "<script type='text/javascript'>$(function() {
 		$('$id').parent().prev('.ui-dialog-titlebar').remove();
 		$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); });
+		return false;
 		});</script>
 		<div class='modalTitleBar'>" .
 			$iconHtml .
@@ -1346,6 +1347,7 @@ class PKPTemplateManager extends Smarty {
 		$script = "<script type='text/javascript'>$(function() {
 			" . ($cancelId ? "$('$cancelId').click(function(){
 								$('$id').parent().dialog('close');
+								return false;
 							  });\n" : "")
 			  . ($submitId ? "$('$submitId').click(function(){
 			  					var url = $(\"$id\").attr(\"action\");

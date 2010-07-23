@@ -260,7 +260,7 @@ class PKPCitationGridHandler extends GridHandler {
 	function checkCitation(&$args, &$request) {
 		if ($request->isPost()) {
 			// We update the citation with the user's manual settings
-			$citationForm =& $this->_saveCitation($args, $request);
+			$citationForm =& $this->_handleCitationForm($args, $request);
 
 			if (!$citationForm->isValid()) {
 				// The citation cannot be persisted, so we cannot
@@ -316,7 +316,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 */
 	function updateCitation(&$args, &$request) {
 		// Try to persist the data in the request.
-		$citationForm =& $this->_saveCitation($args, $request);
+		$citationForm =& $this->_handleCitationForm($args, $request);
 		if (!$citationForm->isValid()) {
 			// Re-display the citation form with error messages
 			// so that the user can fix it.
@@ -362,6 +362,38 @@ class PKPCitationGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
+	/**
+	 * Fetch the posted citation as a citation string with
+	 * calculated differences between the field based and the
+	 * raw version.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string a JSON response that contains the raw version
+	 *  and the field based version with additions/deletions marked.
+	 */
+	function fetchCitationDiff(&$args, &$request) {
+		// Read the data in the request into
+		// the form without persisting the data.
+		$citationForm =& $this->_handleCitationForm($args, $request, false);
+
+		// Update the citation's grid row.
+		$savedCitation =& $citationForm->getCitation();
+		$row =& $this->getRowInstance();
+		$row->setGridId($this->getId());
+		$row->setId($savedCitation->getId());
+		$row->setData($savedCitation);
+		if (isset($args['remainsCurrentItem']) && $args['remainsCurrentItem'] == 'yes') {
+			$row->setIsCurrentItem(true);
+		}
+		$row->initialize($request);
+
+		// Render the row into a JSON response
+		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		return $json->getString();
+
+	}
+
+
 	//
 	// Protected helper functions
 	//
@@ -400,12 +432,14 @@ class PKPCitationGridHandler extends GridHandler {
 	// Private helper functions
 	//
 	/**
-	 * Update citation with POST request data.
+	 * Create and validate a citation form with POST
+	 * request data and (optionally) persist the citation.
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @param $persist boolean
 	 * @return CitationForm the citation form for further processing
 	 */
-	function &_saveCitation(&$args, &$request) {
+	function &_handleCitationForm(&$args, &$request, $persist = true) {
 		if(!$request->isPost()) fatalError('Cannot update citation via GET request!');
 
 		// Identify the citation to be updated
@@ -417,7 +451,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$citationForm->readInputData();
 
 		// Form validation
-		if ($citationForm->validate()) {
+		if ($citationForm->validate() && $persist) {
 			// Persist the citation.
 			$citationForm->execute();
 		}

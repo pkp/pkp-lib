@@ -109,19 +109,12 @@
 				<p><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
 			{/if}
 	
-			{include file="common/formErrors.tpl"}
+			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 	
 			<span class="options">
 				{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
 				<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
 			</span>
-	
-			<table width="100%" class="data">
-				<tr valign="top">
-					<td width="15%" class="label">{fieldLabel name="rawCitation" key="submission.citations.grid.rawCitation"}</td>
-					<td width="85%" class="value">{fbvElement type="textarea" name="rawCitation" id="rawCitation" size=$fbvStyles.size.LARGE value=$rawCitation}</td>
-				</tr>
-			</table>
 	
 			<div id="citationFormTab-{$tabUid}">
 				<ul>

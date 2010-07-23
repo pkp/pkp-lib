@@ -40,6 +40,7 @@ class CitationDAO extends DAO {
 			} else {
 				$seq = 1;
 			}
+			$citation->setSeq($seq);
 		}
 
 		$this->update(

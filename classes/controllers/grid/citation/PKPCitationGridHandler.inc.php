@@ -328,6 +328,9 @@ class PKPCitationGridHandler extends GridHandler {
 			$row->setGridId($this->getId());
 			$row->setId($savedCitation->getId());
 			$row->setData($savedCitation);
+			if (isset($args['remainsCurrentItem']) && $args['remainsCurrentItem'] == 'yes') {
+				$row->setIsCurrentItem(true);
+			}
 			$row->initialize($request);
 
 			// Render the row into a JSON response

@@ -105,6 +105,7 @@
 	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.citations">References</message>
+	<message key="submission.citations.addAndApprove">Add And Approve</message>
 	<message key="submission.citations.editor.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the "Edit Citations" tab and make sure you have approved all citations before you try to export them. Unapproved citations appear with a white background in the citation list, approved citations are marked light blue.</p>]]></message>
 	<message key="submission.citations.editor.fullscreen">Fullscreen</message>
 	<message key="submission.citations.editor.fullscreenOff">Fullscreen Off</message>
@@ -115,7 +116,6 @@
 	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.form.approveCitation">Approve Citation?</message>
 	<message key="submission.citations.form.citationDetails">Citation Details</message>
 	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
 	<message key="submission.citations.form.filterError">Several of the configured citation services did not return any results. Please try to edit the citation text manually to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
@@ -146,6 +146,8 @@
 	<message key="submission.citations.pleaseConfigureOutputStyle"><![CDATA[You have to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation editor.]]></message>
 	<message key="submission.citations.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
 	<message key="submission.citations.pleaseClickOnCitationToStartEditing"><![CDATA[<p>You can click on one of the listed citations on the left to start editing.</p><p>FIXME: Explain basic workflow and color code/symbols used for the citation editor listing.</p>]]></message>
+	<message key="submission.citations.saveAndApprove">Save And Approve</message>
+	<message key="submission.citations.saveAndRevokeApproval">Revoke Approval</message>
 	<message key="submission.comments.addComment">Add Comment</message>
 	<message key="submission.comments.comments">Comments</message>
 	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>

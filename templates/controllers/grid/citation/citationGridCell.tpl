@@ -17,10 +17,14 @@
 
 			// Format parent div.
 			$parentDiv
-				.addClass('active_cell')
-				{if $isApproved}.addClass('approved_citation'){/if}
+				.addClass('active-cell')
 				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}Approved{else}Not Approved{/if}]');
 
+			// Mark the row as the current row.
+			$parentDiv.parent().parent().parent()
+				{if $isCurrentItem}.addClass('current-item'){/if}
+				.addClass('{if !$isApproved}un{/if}approved-citation');
+			
 			// Copy click event to parent div.
 			clickEventHandlers = $('#{$cellId}').data('events')['click'];
 			for(clickEventName in clickEventHandlers) {ldelim}

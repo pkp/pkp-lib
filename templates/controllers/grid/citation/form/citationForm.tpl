@@ -9,6 +9,99 @@
 
 {assign var=containerId value="editCitationFormContainer-"|uniqid}
 <div id="citationEditorDetailCanvas" class="canvas">
+	{assign var=tabUid value="tab"|uniqid}
+	<script type="text/javascript">
+		$(function() {ldelim}
+			// Create tabs.
+			$("#citationFormTab-{$tabUid}").tabs();
+			
+			// Create text to be inserted into the empty editor pane.
+			emptyEditorText = '{strip}
+				<div id="citationEditorDetailCanvas" class="canvas">
+					<div class="wrapper">
+						<div class="help-message">{translate key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
+					</div>
+				</div>
+			{/strip}';
+	
+			// Handle deletion of the currently edited citation.
+			{if $citation->getId()}
+				$('#component-grid-citation-citationgrid-row-{$citation->getId()}').bind('updatedItem', function(event, actType) {ldelim}
+					// Make sure that we clear the form panel when the corresponding
+					// citation row is being deleted.
+					$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
+				{rdelim});
+			{/if}
+	
+			// Handle cancel button.
+			$('#citationFormCancel').click(function() {ldelim}
+				// Clear the form panel and show the initial help message.
+				$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
+	
+				// De-select the selected citation.
+				$('.current-item').each(function() {ldelim}
+					$(this).removeClass('current-item');
+				{rdelim});
+			{rdelim});
+	
+			// Style save buttons.
+			{if $citationApproved}
+				$('#citationFormSaveAndApprove').hide();
+				$('#citationFormSaveAndRevokeApproval').addClass('secondary-button');
+			{else}
+				$('#citationFormSaveAndRevokeApproval').hide();
+				$('#citationFormSave').addClass('secondary-button');
+			{/if}
+	
+			// Handle save button.
+			$('.citation-save-button').each(function() {ldelim}
+				$(this).click(function() {ldelim}
+					if (this.id === 'citationFormSaveAndApprove') {ldelim}
+						$('#citationApproved').val('citationApproved');
+						$('#remainsCurrentItem').val('no');
+						$('#citationFormSaveAndApprove').hide();
+						$('#citationFormSaveAndRevokeApproval').show();
+						$('#citationFormSave').removeClass('secondary-button');
+					{rdelim} else {ldelim}
+						$('#remainsCurrentItem').val('yes');
+					{rdelim}
+					if (this.id === 'citationFormSaveAndRevokeApproval') {ldelim}
+						$('#citationApproved').val('');
+						$('#citationFormSaveAndRevokeApproval').hide();
+						$('#citationFormSaveAndApprove').show();
+						$('#citationFormSave').addClass('secondary-button');
+					{rdelim}
+					{if $citation->getId()}
+						submitJsonForm('#citationEditorDetailCanvas', 'replace', 'component-grid-citation-citationgrid-row-{$citation->getId()}');
+					{else}
+						submitJsonForm('#citationEditorDetailCanvas', 'append', 'component-grid-citation-citationgrid-table');
+					{/if}
+					if (this.id === 'citationFormSaveAndApprove') {ldelim}
+						$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()}) .active-cell')
+								.first();
+						if ($nextUnapproved.length) {ldelim}
+							// Load the next unapproved citation.
+							$nextUnapproved.triggerHandler('click');
+						{rdelim} else {ldelim}
+							// Open the export tab (which is the
+							// tab after the current editor tab).
+							$('#citationEditorMainTabs').tabs('select', 'citationEditorTabExport');
+						{rdelim}
+					{rdelim}
+				{rdelim});
+			{rdelim});
+	
+			// Handle highlighting of currently edited citation.
+			$('#citationEditorNavPane div.grid .current-item').removeClass('current-item');
+			$('#component-grid-citation-citationgrid-row-{$citation->getId()}').addClass('current-item');
+	
+			// Throbber
+			$('#citationEditorDetailCanvas').bind('actionStart', function() {ldelim}
+				$('#citationEditorDetailCanvas').html('<div id="citationEditorThrobber" class="throbber"></div>');
+				$('#citationEditorThrobber').show();
+			{rdelim});
+		{rdelim});
+	</script>
 	<div class="wrapper">
 		<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 			<p>{translate key="submission.citations.form.description"}</p>
@@ -29,13 +122,6 @@
 					<td width="85%" class="value">{fbvElement type="textarea" name="rawCitation" id="rawCitation" size=$fbvStyles.size.LARGE value=$rawCitation}</td>
 				</tr>
 			</table>
-	
-			{assign var=tabUid value="tab"|uniqid}
-			<script type='text/javascript'>
-				$(function() {ldelim}
-					$("#citationFormTab-{$tabUid}").tabs();
-				{rdelim});
-			</script>
 	
 			<div id="citationFormTab-{$tabUid}">
 				<ul>
@@ -109,65 +195,19 @@
 			</div>
 	
 			<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
+			<input id="citationApproved" type="hidden" name="citationApproved" value="{if $citationApproved}citationApproved{/if}" />
+			<input id="remainsCurrentItem" type="hidden" name="remainsCurrentItem" value="yes" />
 			{if $citation->getId()}
 				<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
 				<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
 			{/if}
 	
-			<p>{translate key="submission.citations.form.approveCitation"}{fbvCheckbox id="citationApproved" name="citationApproved" value="citationApproved" checked=$citationApproved}</p>
-			
-			<div class="pane_actions">			
-				<button id="citationFormPost" type="button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
+			<div class="pane_actions">
+				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.saveAndRevokeApproval"}</button>
+				<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
+				<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.saveAndApprove"}{else}{translate key="submission.citations.addAndApprove"}{/if}</button>
 				<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript">
-		// Create text to be inserted into the empty editor pane.
-		emptyEditorText = '{strip}
-			<div id="citationEditorDetailCanvas" class="canvas">
-				<div class="wrapper">
-					<div class="help_message">{translate key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
-				</div>
-			</div>
-		{/strip}';
-
-		// Handle deletion of the currently edited citation.
-		{if $citation->getId()}
-			$(function() {ldelim}
-				$('#component-grid-citation-citationgrid-row-{$citation->getId()}').bind('updatedItem', function(event, actType) {ldelim}
-					// Make sure that we clear the form panel when the corresponding
-					// citation row is being deleted.
-					$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
-				{rdelim});
-			{rdelim});
-		{/if}
-
-		// Handle cancel button.
-		$('#citationFormCancel').click(function() {ldelim}
-			// Clear the form panel and show the initial help message.
-			$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
-		{rdelim});
-
-		// Handle save button.
-		$('#citationFormPost').click(function() {ldelim}
-			{if $citation->getId()}
-				submitJsonForm('#citationEditorDetailCanvas', 'replace', 'component-grid-citation-citationgrid-row-{$citation->getId()}');
-			{else}
-				submitJsonForm('#citationEditorDetailCanvas', 'append', 'component-grid-citation-citationgrid-table');
-			{/if}
-		{rdelim});
-
-		// Handle highlighting of currently edited citation.
-		$('#citationEditorNavPane div.grid .current_item').removeClass('current_item');
-		$('#component-grid-citation-citationgrid-row-{$citation->getId()}').addClass('current_item');
-
-		// Throbber
-		$(function() {ldelim}
-			$('#citationEditorDetailCanvas').bind('actionStart', function() {ldelim}
-				$('#citationEditorDetailCanvas').html('<div id="citationEditorThrobber" class="throbber"></div>');
-				$('#citationEditorThrobber').show();
-			{rdelim});
-		{rdelim});
-	</script>
 </div>

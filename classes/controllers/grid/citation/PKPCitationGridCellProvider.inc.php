@@ -33,6 +33,7 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 		$element =& $row->getData();
 		assert(is_a($element, 'Citation'));
 		$templateVars['isApproved'] = ($element->getCitationState() == CITATION_APPROVED ? true : false);
+		$templateVars['isCurrentItem'] = $row->getIsCurrentItem();
 		$templateVars['citationSeq'] = $element->getSeq();
 		return $templateVars;
 	}

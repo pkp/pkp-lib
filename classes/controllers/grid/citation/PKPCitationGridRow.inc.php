@@ -18,6 +18,9 @@ class PKPCitationGridRow extends GridRow {
 	/** @var integer */
 	var $_assocId;
 
+	/** @var boolean */
+	var $_isCurrentItem = false;
+
 	/**
 	 * Constructor
 	 */
@@ -43,6 +46,22 @@ class PKPCitationGridRow extends GridRow {
 	 */
 	function getAssocId() {
 		return $this->_assocId;
+	}
+
+	/**
+	 * Set the current item flag
+	 * @param $isCurrentItem boolean
+	 */
+	function setIsCurrentItem($isCurrentItem) {
+		$this->_isCurrentItem = $isCurrentItem;
+	}
+
+	/**
+	 * Get the current item flag
+	 * @return boolean
+	 */
+	function getIsCurrentItem() {
+		return $this->_isCurrentItem;
 	}
 
 

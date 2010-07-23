@@ -16,6 +16,9 @@
  *  fetched can be determined from the id (=row id) which is always set.
  */
 
+define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');
+define('GRID_ACTION_POSITION_ROW_LEFT', 'row-left');
+
 class GridRow {
 	/**
 	 * @var string identifier of the row instance - must be unique

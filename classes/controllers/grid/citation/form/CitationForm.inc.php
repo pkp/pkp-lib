@@ -27,15 +27,13 @@ class CitationForm extends Form {
 	/**
 	 * Constructor.
 	 * @param $citation Citation
-	 * @param $unsavedChanges boolean should be set to true if the
-	 *  data displayed in the form has not yet been persisted.
 	 */
-	function CitationForm($citation, $unsavedChanges = false) {
+	function CitationForm($citation) {
 		parent::Form('controllers/grid/citation/form/citationForm.tpl');
 		assert(is_a($citation, 'Citation'));
-		$this->_citation =& $citation;
 
-		$this->_unsavedChanges = (boolean) $unsavedChanges;
+		$this->_citation =& $citation;
+		$this->_unsavedChanges = $citation->getHasUnsavedChanges();
 
 		// Identify all form field names for the citation
 		$this->_citationFormFieldNames = array();

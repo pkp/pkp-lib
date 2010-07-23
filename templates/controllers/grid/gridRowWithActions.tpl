@@ -7,27 +7,29 @@
  * a grid row with Actions
  *}
 {assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-{capture name=rowActions}
-	{if $row->getActions()}
-		<div class="row_controls">
-			{foreach name=actions from=$row->getActions() item=action}
-				{include file="linkAction/linkAction.tpl" action=$action id=$rowId}
-			{/foreach}
-		</div>
-	{/if}
-{/capture}
 <tr id="{$rowId}">
-	{foreach name=columnLoop from=$columns item=column}
+	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $smarty.foreach.columnLoop.first}
 			<td class="first_column">
 				<div class="row_container">
-					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">
-						{$cells[$smarty.foreach.columnLoop.index]}
-					</div>
-					<div class="row_actions">
-						<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
-					</div>
-					{$smarty.capture.rowActions}
+					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[0]}</div>
+						<div class="row_actions">
+							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+								<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
+							{/if}
+							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
+								{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+									{include file="linkAction/linkAction.tpl" action=$action id=$rowId hoverTitle=true}
+								{/foreach}
+							{/if}
+						</div>
+						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+							<div class="row_controls">
+								{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
+									{include file="linkAction/linkAction.tpl" action=$action id=$rowId}
+								{/foreach}
+							</div>
+						{/if}
 				</div>
 			</td>
 		{else}

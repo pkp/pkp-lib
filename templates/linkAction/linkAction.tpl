@@ -3,7 +3,15 @@
 	{assign var=actOnId value=$id}
 {/if}
 
-{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
+{* If we have no button id set then let's build our own button. *}
+{if !$buttonId}
+	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
+	{if $action->getImage()}
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}" {if $hoverTitle}title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()}{/if}</a>
+	{else}
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if} {if $hoverTitle} title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()}{/if}</a>
+	{/if}
+{/if}
 
 {if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_MODAL}
 	{modal url=$action->getUrl() actOnType=$action->getType() actOnId="#"|concat:$actOnId button="#"|concat:$buttonId}
@@ -18,7 +26,7 @@
 	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId  translate=false}
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-	<script type='text/javascript'>
+	<script type="text/javascript">
 		ajaxAction(
 			'{$action->getType()}',
 			'#{$actOnId}',
@@ -26,10 +34,4 @@
 			'{$action->getUrl()}'
 		);
 	</script>
-
-{/if}
-{if $action->getImage()}
-	<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}">{$action->getLocalizedTitle()}</a>
-{else}
-	<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if}>{$action->getLocalizedTitle()}</a>
 {/if}

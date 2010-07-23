@@ -28,6 +28,7 @@ import('lib.pkp.classes.core.JSON');
 // grid specific action positions
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
 define('GRID_ACTION_POSITION_ABOVE', 'above');
+define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
 class GridHandler extends PKPHandler {
@@ -185,6 +186,18 @@ class GridHandler extends PKPHandler {
 	function setTemplate($template) {
 		$this->_template = $template;
 	}
+
+	/**
+	 * Override this method to return true if you want
+	 * to use the grid within another component (e.g. to
+	 * remove the title or change the layout accordingly).
+	 *
+	 * @return boolean
+	 */
+	function getIsSubcomponent() {
+		return false;
+	}
+
 
 	//
 	// Overridden methods from PKPHandler

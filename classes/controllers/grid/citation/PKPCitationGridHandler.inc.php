@@ -14,7 +14,7 @@
 
 // import grid base classes
 import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridCellProvider');
 
 // import citation grid specific classes
 import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
@@ -109,23 +109,16 @@ class PKPCitationGridHandler extends GridHandler {
 		$actionArgs = array('assocId' => $this->_getAssocId());
 		$this->addAction(
 			new LinkAction(
-				'importCitations',
+				'addCitation',
 				LINK_ACTION_MODE_AJAX,
 				LINK_ACTION_TYPE_GET,
-				$router->url($request, null, null, 'importCitations', null, $actionArgs),
-				'submission.citations.grid.importCitations'
-			)
-		);
-		$this->addAction(
-			new LinkAction(
-				'addCitation',
-				LINK_ACTION_MODE_MODAL,
-				LINK_ACTION_TYPE_APPEND,
 				$router->url($request, null, null, 'addCitation', null, $actionArgs),
-				'grid.action.addItem'
-			)
+				'submission.citations.grid.newCitation', null, 'add', null,
+				'citationEditorDetailCanvas'
+			),
+			GRID_ACTION_POSITION_LASTCOL
 		);
-		$this->addAction(
+		/* $this->addAction(
 			new LinkAction(
 				'exportCitations',
 				LINK_ACTION_MODE_MODAL,
@@ -133,16 +126,16 @@ class PKPCitationGridHandler extends GridHandler {
 				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
 				'submission.citations.grid.exportCitations'
 			)
-		);
+		); */
 
 		// Columns
-		$cellProvider = new DataObjectGridCellProvider();
+		$cellProvider = new PKPCitationGridCellProvider();
 		$this->addColumn(
 			new GridColumn(
-				'editedCitation',
-				'submission.citations.grid.editedCitation',
+				'rawCitation',
+				'submission.citations.grid.columnHeaderRawCitation',
 				false,
-				'controllers/grid/gridCell.tpl',
+				'controllers/grid/citation/citationGridCell.tpl',
 				$cellProvider,
 				array('multiline' => true)
 			)

@@ -44,21 +44,21 @@ class CitationDAO extends DAO {
 
 		$this->update(
 			sprintf('INSERT INTO citations
-				(assoc_type, assoc_id, citation_state, raw_citation, edited_citation, seq)
+				(assoc_type, assoc_id, citation_state, raw_citation, seq)
 				VALUES
-				(?, ?, ?, ?, ?, ?)'),
+				(?, ?, ?, ?, ?)'),
 			array(
 				(integer)$citation->getAssocType(),
 				(integer)$citation->getAssocId(),
 				(integer)$citation->getCitationState(),
 				$citation->getRawCitation(),
-				$citation->getEditedCitation(),
 				(integer)$seq
 			)
 		);
 		$citation->setId($this->getInsertId());
 		$this->_updateObjectMetadata($citation, false);
 		$this->updateCitationSourceDescriptions($citation);
+		$citation->setHasUnsavedChanges(false);
 		return $citation->getId();
 	}
 
@@ -130,6 +130,7 @@ class CitationDAO extends DAO {
 		);
 		$this->_updateObjectMetadata($citation);
 		$this->updateCitationSourceDescriptions($citation);
+		$citation->setHasUnsavedChanges(false);
 	}
 
 	/**

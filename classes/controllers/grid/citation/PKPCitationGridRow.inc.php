@@ -15,6 +15,9 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class PKPCitationGridRow extends GridRow {
+	/** @var integer */
+	var $_assocId;
+
 	/**
 	 * Constructor
 	 */
@@ -22,12 +25,32 @@ class PKPCitationGridRow extends GridRow {
 		parent::GridRow();
 	}
 
+
+	//
+	// Getters and Setters
+	//
+	/**
+	 * Set the assoc id
+	 * @param $assocId integer
+	 */
+	function setAssocId($assocId) {
+		$this->_assocId = $assocId;
+	}
+
+	/**
+	 * Get the assoc id
+	 * @return integer
+	 */
+	function getAssocId() {
+		return $this->_assocId;
+	}
+
+
 	//
 	// Overridden methods from GridRow
 	//
 	/**
 	 * @see GridRow::initialize()
-	 * @param $request PKPRequest
 	 */
 	function initialize(&$request) {
 		// Do the default initialization
@@ -36,55 +59,66 @@ class PKPCitationGridRow extends GridRow {
 		// Retrieve the assoc id from the request
 		$assocId = $request->getUserVar('assocId');
 		assert(is_numeric($assocId));
+		$this->setAssocId($assocId);
 
 		// Is this a new row or an existing row?
 		$rowId = $this->getId();
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
 			$router =& $request->getRouter();
-			$actionArgs = array(
-				'assocId' => $assocId,
-				'citationId' => $rowId
-			);
-
-			// Get the citation to decide whether it has already been
-			// checked.
-			$citation =& $this->getData();
-			assert(is_a($citation, 'Citation'));
-			if ($citation->getCitationState() < CITATION_LOOKED_UP) {
-				$editActionOp = 'checkCitation';
-				$editActionTitle = 'submission.citations.grid.editCheckCitation';
-			} else {
-				$editActionOp = 'editCitation';
-				$editActionTitle = 'grid.action.edit';
-			}
-
-			// Add row actions
-			$this->addAction(
-				new LinkAction(
-					'editCitation',
-					LINK_ACTION_MODE_MODAL,
-					LINK_ACTION_TYPE_REPLACE,
-					$router->url($request, null, null, $editActionOp, null, $actionArgs),
-					$editActionTitle,
-					null,
-					'edit'
-				)
-			);
 			$this->addAction(
 				new LinkAction(
 					'deleteCitation',
 					LINK_ACTION_MODE_CONFIRM,
 					LINK_ACTION_TYPE_REMOVE,
-					$router->url($request, null, null, 'deleteCitation', null, $actionArgs),
-					'grid.action.delete',
-					null,
-					'delete'
-				)
+					$router->url($request, null, null, 'deleteCitation', null,
+							array('assocId' => $assocId, 'citationId' => $rowId)),
+					'grid.action.delete', null, 'delete',
+					Locale::translate('submission.citations.grid.deleteCitationConfirmation')
+				),
+				GRID_ACTION_POSITION_ROW_LEFT
 			);
 
 			// Set a non-default template that supports row actions
 			$this->setTemplate('controllers/grid/gridRowWithActions.tpl');
 		}
+	}
+
+	/**
+	 * @see GridRow::getCellActions()
+	 */
+	function getCellActions(&$request, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		$cellActions = array();
+		if ($position == GRID_ACTION_POSITION_DEFAULT) {
+			// Is this a new row or an existing row?
+			$rowId = $this->getId();
+			if (!empty($rowId) && is_numeric($rowId)) {
+				// Get the citation to decide whether it has already been
+				// checked.
+				$citation =& $this->getData();
+				assert(is_a($citation, 'Citation'));
+				if ($citation->getCitationState() < CITATION_PARSED) {
+					$editActionOp = 'checkCitation';
+				} else {
+					$editActionOp = 'editCitation';
+				}
+
+				// Instantiate the cell action.
+				$router =& $request->getRouter();
+				$cellActions = array(
+					new LinkAction(
+						'editCitation',
+						LINK_ACTION_MODE_AJAX,
+						LINK_ACTION_TYPE_GET,
+						$router->url($request, null, null, $editActionOp, null,
+								array('assocId' => $this->getAssocId(), 'citationId' => $rowId)),
+						'submission.citations.grid.clickToEdit',
+						null, null, null,
+						'citationEditorDetailCanvas'
+					)
+				);
+			}
+		}
+		return $cellActions;
 	}
 }

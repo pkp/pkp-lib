@@ -1135,13 +1135,20 @@ class PKPTemplateManager extends Smarty {
 			$translatedLoadMessage = Locale::translate('common.loading');
 		}
 
-		return "<div id=\"" . str_replace("#","",$id) . "\">$translatedLoadMessage</div>
+		// Check for CSS class parameter.
+		if (isset($params['class'])) {
+			$class = ' class="'.$params['class'].'"';
+		} else {
+			$class = '';
+		}
+
+		return "<div id=\"" . str_replace("#","",$id) . "\"$class>$translatedLoadMessage</div>
 		<script type='text/javascript'>
 			$.getJSON(\"$url\", function(jsonData) {
 				if (jsonData.status === true) {
 					$(\"$id\").html(jsonData.content);
 				} else {
-					// Alert that the modal failed
+					// Alert that loading failed
 					alert(jsonData.content);
 				}
 			});

@@ -56,18 +56,28 @@ class LinkAction {
 	var $_confirmMessageLocalized;
 
 	/**
-	 * Constructor
-	 * create a LinkAction
-	 * @param string $id
-	 * @param string (enum) $mode
-	 * @param string (enum) $type
-	 * @param string $url
-	 * @param string (i18n) $title optional
-	 * @param string $titleLocalized optional
-	 * @param string $image optional
-	 * @param string $confirmMessageLocalized optional
+	 * @var string a specification of the target on which the action
+	 *  should act, e.g. a selector when the view technology is HTML/jQuery.
+	 *
+	 *  The default depends on the implementation of the action type
+	 *  in the view.
 	 */
-	function LinkAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null, $confirmMessageLocalized = null) {
+	var $_actOn;
+
+	/**
+	 * Constructor
+	 * @param $id string
+	 * @param $mode integer one of LINK_ACTION_MODE_*
+	 * @param $type string one of LINK_ACTION_TYPE_*
+	 * @param $url string
+	 * @param $title string (optional)
+	 * @param $titleLocalized string (optional)
+	 * @param $image string (optional)
+	 * @param $confirmMessageLocalized string (optional)
+	 * @param $actOn string (optional) a specification of the target object
+	 *  to act on
+	 */
+	function LinkAction($id, $mode, $type, $url, $title = null, $titleLocalized = null, $image = null, $confirmMessageLocalized = null, $actOn = null) {
 		$this->_id = $id;
 		$this->_mode = $mode;
 		$this->_type = $type;
@@ -76,51 +86,92 @@ class LinkAction {
 		$this->_titleLocalized = $titleLocalized;
 		$this->_image = $image;
 		$this->_confirmMessageLocalized = $confirmMessageLocalized;
+		$this->_actOn = $actOn;
 	}
 
+	/**
+	 * Set the action id.
+	 * @param $id string
+	 */
 	function setId($id) {
 		$this->_id = $id;
 	}
 
+	/**
+	 * Get the action id.
+	 * @return string
+	 */
 	function getId() {
 		return $this->_id;
 	}
 
+	/**
+	 * Set the action mode.
+	 * @param $mode integer
+	 */
 	function setMode($mode) {
 		$this->_mode = $mode;
 	}
 
+	/**
+	 * Get the action mode.
+	 * @return integer
+	 */
 	function getMode() {
 		return $this->_mode;
 	}
 
+	/**
+	 * Set the action type.
+	 * @param $type string
+	 */
 	function setType($type) {
 		$this->_type = $type;
 	}
 
+	/**
+	 * Get the action type.
+	 * @return string
+	 */
 	function getType() {
 		return $this->_type;
 	}
 
+	/**
+	 * Set the action URL.
+	 * @param $url string
+	 */
 	function setUrl($url) {
 		$this->_url = $url;
 	}
 
+	/**
+	 * Get the action URL.
+	 * @return string
+	 */
 	function getUrl() {
 		return $this->_url;
 	}
 
+	/**
+	 * Set the action title.
+	 * @param $title string
+	 */
 	function setTitle($title) {
 		$this->_title = $title;
 	}
 
+	/**
+	 * Get the action title.
+	 * @return string
+	 */
 	function getTitle() {
 		return $this->_title;
 	}
 
 	/**
 	 * Set the column title (already translated)
-	 * @param $title string
+	 * @param $titleLocalized string
 	 */
 	function setTitleTranslated($titleLocalized) {
 		$this->_titleLocalized = $titleLocalized;
@@ -135,10 +186,18 @@ class LinkAction {
 		return Locale::translate($this->_title);;
 	}
 
+	/**
+	 * Set the action image.
+	 * @param $image string
+	 */
 	function setImage($image) {
 		$this->_image = $image;
 	}
 
+	/**
+	 * Get the action image.
+	 * @return string
+	 */
 	function getImage() {
 		return $this->_image;
 	}
@@ -157,6 +216,22 @@ class LinkAction {
 	 */
 	function getLocalizedConfirmMessage() {
 		return $this->_confirmMessageLocalized;
+	}
+
+	/**
+	 * Specify the target object of the action (if any).
+	 * @param $actOn string
+	 */
+	function setActOn($actOn) {
+		$this->_actOn = $actOn;
+	}
+
+	/**
+	 * Get the target object of the action (null if none configured).
+	 * @return string
+	 */
+	function getActOn() {
+		return $this->_actOn;
 	}
 }
 

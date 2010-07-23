@@ -13,26 +13,41 @@
 {assign var=gridId value="component-"|concat:$grid->getId()}
 {assign var=gridTableId value=$gridId|concat:"-table"}
 <div id="{$gridId}" class="grid">
-	<div class="wrapper">
-		<span class="options">
-			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-				{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-					{include file="linkAction/linkAction.tpl" action=$action id=$gridId}
-				{else}
-					{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId}
-				{/if}
-			{/foreach}
-		</span>
-		<h3>{$grid->getTitle()|translate}</h3>
+	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
+		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
+			<span class="options">
+				{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
+					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn()}
+					{else}
+						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId}
+					{/if}
+				{/foreach}
+			</span>
+		{/if}
+		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
 		<table id="{$gridTableId}">
 		    <colgroup>
 		    	{"<col />"|str_repeat:$numColumns}
 		    </colgroup>
 		    <thead>
+	    		{** build the column headers **}
 		    	<tr>
-		    		{** build the column headers **}
-		    		{foreach from=$columns item=column}
-		        		<th scope="col">{$column->getLocalizedTitle()}</th>
+		    		{foreach name=columns from=$columns item=column}
+		        		<th scope="col">
+		        			{$column->getLocalizedTitle()}
+							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
+								<span class="options">
+									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
+										{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn() hoverTitle=true}
+										{else}
+											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId hoverTitle=true}
+										{/if}
+									{/foreach}
+								</span>
+							{/if}
+						</th>
 					{/foreach}
 		        </tr>
 		    </thead>
@@ -56,5 +71,5 @@
 				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId"}
 			{/foreach}
 		</div>
-	</div>
+	{if !$grid->getIsSubcomponent()}</div>{/if}
 </div>

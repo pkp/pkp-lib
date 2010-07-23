@@ -38,6 +38,15 @@ class Citation extends DataObject {
 	var $_sourceDescriptions = array();
 
 	/**
+	 * @var array errors that occurred while
+	 *  checking or filtering the citation.
+	 */
+	var $_errors = array();
+
+	/** @var boolean */
+	var $_hasUnsavedChanges = false;
+
+	/**
 	 * Constructor.
 	 * @param $rawCitation string an unparsed citation string
 	 */
@@ -104,6 +113,24 @@ class Citation extends DataObject {
 	}
 
 	/**
+	 * Set the flag that indicates whether
+	 * the citation has unsaved changes
+	 * @param $hasUnsavedChanges boolean
+	 */
+	function setHasUnsavedChanges($hasUnsavedChanges) {
+		$this->_hasUnsavedChanges = $hasUnsavedChanges;
+	}
+
+	/**
+	 * Get the flag that indicates whether
+	 * the citation has unsaved changes
+	 * @return boolean
+	 */
+	function getHasUnsavedChanges() {
+		return $this->_hasUnsavedChanges;
+	}
+
+	/**
 	 * Get the association type
 	 * @return integer
 	 */
@@ -136,6 +163,23 @@ class Citation extends DataObject {
 	}
 
 	/**
+	 * Add a checking error
+	 * @param $errorMessage string
+	 */
+	function addError($errorMessage) {
+		$this->_errors[] = $errorMessage;
+	}
+
+	/**
+	 * Get all checking errors
+	 * @return array
+	 */
+	function getErrors() {
+		return $this->_errors;
+	}
+
+
+	/**
 	 * Get the rawCitation
 	 * @return string
 	 */
@@ -151,24 +195,6 @@ class Citation extends DataObject {
 		$rawCitation = $this->_cleanCitationString($rawCitation);
 
 		$this->setData('rawCitation', $rawCitation);
-	}
-
-	/**
-	 * Get the editedCitation
-	 * @return string
-	 */
-	function getEditedCitation() {
-		return $this->getData('editedCitation');
-	}
-
-	/**
-	 * Set the editedCitation
-	 * @param $editedCitation string
-	 */
-	function setEditedCitation($editedCitation) {
-		$editedCitation = $this->_cleanCitationString($editedCitation);
-
-		$this->setData('editedCitation', $editedCitation);
 	}
 
 	/**

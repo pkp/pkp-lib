@@ -40,7 +40,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 			// All other action types will assume that there is a
 			// form to be posted and post it.
 			dialogOptions[okButton] = function() {
-				submitModalForm(formContainer, actType, actOnId);
+				submitJsonForm(formContainer, actType, actOnId);
 			};
 			dialogOptions[cancelButton] = function() {
 				$(this).dialog("close");
@@ -90,18 +90,21 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 }
 
 /**
- * modal
+ * Submit a form that returns JSON data.
  * @param $formContainer Container of form to be submitted, most likely a modal's ID (must include '#')
  * @param $actType Type to define if callback should do (nothing|append|replace|remove)
  * @param $actOnId The ID on which to perform the action on callback
  */
-function submitModalForm(formContainer, actType, actOnId ) {
-	$form = $(formContainer).find('form');
+function submitJsonForm(formContainer, actType, actOnId ) {
+	// jQuerify the form container and find the form in it.
+	$formContainer = $(formContainer);
+	$form = $formContainer.find('form');
 	validator = $form.validate();
+
 	// Post to server and construct callback
 	if ($form.valid()) {
 		$.post(
-			$form.attr("action"),
+			$form.attr('action'),
 			$form.serialize(),
 			function(jsonData) {
 				if(jsonData.isScript == true) {
@@ -109,10 +112,12 @@ function submitModalForm(formContainer, actType, actOnId ) {
 				}
 				if (jsonData.status == true) {
 					updateItem(actType, actOnId, jsonData.content);
-					$(formContainer).dialog("close");
+					if (typeof($formContainer.dialog) == 'function') {
+						$formContainer.dialog('close');
+					}
 				} else {
 					// If an error occurs then redisplay the form
-					$(formContainer).html(jsonData.content);
+					$formContainer.html(jsonData.content);
 				}
 			},
 			"json"
@@ -279,23 +284,21 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 
 			// Validate
 			validator = $form.validate();
-			var d = new Date();
-			var UID = Math.ceil(1000 * Math.random(d.getTime()));
-			var $throbberDialog = $('<div></div>').html('<div class="throbber" id="' + UID + '"></div>').dialog( {draggable: false, width: 600, autoOpen: false, modal: true, position: 'center'} );
-			$('#' + UID).show();
 
 			// Post to server and construct callback
 			if ($form.valid()) {
-				$throbberDialog.dialog('open');
+				$actOnId = $(actOnId);
+				$actOnId.triggerHandler('actionStart');
 				$.post(
 					postUrl,
 					postData,
 					function(jsonData) {
-						$throbberDialog.dialog('close');
+						$actOnId.triggerHandler('actionStop');
+						
 						// An AJAX action will always return content that
 						// replaces the original content independent of whether
 						// an error occured or not.
-						$(actOnId).replaceWith(jsonData.content);
+						$actOnId.replaceWith(jsonData.content);
 					},
 					'json'
 				);
@@ -304,11 +307,14 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 		};
 	} else {
 		clickAction = function() {
+			$actOnId = $(actOnId);
+			$actOnId.triggerHandler('actionStart');
 			$.getJSON(
 				url,
 				function(jsonData) {
+					$actOnId.triggerHandler('actionStop');
 					if (jsonData.status === true) {
-						$('#' + actOnId).replaceWith(jsonData.content);
+						$actOnId.replaceWith(jsonData.content);
 					} else {
 						// Alert that the action failed
 						alert(jsonData.content);
@@ -347,6 +353,10 @@ function updateItem(actType, actOnId, content) {
 			}
 			break;
 	}
+
+	// Trigger custom event so that clients can take
+	// additional action.
+	$(actOnId).triggerHandler('updatedItem', [actType]);
 }
 
 function deleteElementById(elementId, showEmpty) {

@@ -13,10 +13,19 @@
 	[{$citationSeq}] {$label|escape}
 	<script type="text/javascript">
 		$(function() {ldelim}
-			$('#{$cellId}').parent()
+			$parentDiv = $('#{$cellId}').parent();
+
+			// Format parent div.
+			$parentDiv
 				.addClass('active_cell')
 				{if $isApproved}.addClass('approved_citation'){/if}
 				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}Approved{else}Not Approved{/if}]');
+
+			// Copy click event to parent div.
+			clickEventHandlers = $('#{$cellId}').data('events')['click'];
+			for(clickEventName in clickEventHandlers) {ldelim}
+				$parentDiv.click(clickEventHandlers[clickEventName]);
+			{rdelim}
 		{rdelim});
 	</script>
 </span>

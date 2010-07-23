@@ -33,8 +33,7 @@
 			{assign var=tabUid value="tab"|uniqid}
 			<script type='text/javascript'>
 				$(function() {ldelim}
-					$.ajaxSetup({ldelim}cache:false{rdelim});
-					$("#citationFormTab-{$tabUid}").tabs({ldelim} cache: false {rdelim});
+					$("#citationFormTab-{$tabUid}").tabs();
 				{rdelim});
 			</script>
 	

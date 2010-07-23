@@ -171,9 +171,6 @@ class PKPPageRouter extends PKPRouter {
 		$HandlerClass = HANDLER_CLASS;
 		$handler = new $HandlerClass($request);
 
-		// Pass the dispatcher to the handler (if supported by the handler).
-		if (in_array('setdispatcher', $methods)) $handler->setDispatcher($this->getDispatcher());
-
 		// Authorize and initialize the request but don't call the
 		// validate() method on page handlers.
 		// FIXME: We should call the validate() method for page

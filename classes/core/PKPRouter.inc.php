@@ -337,6 +337,9 @@ class PKPRouter {
 	function _authorizeInitializeAndCallRequest(&$serviceEndpoint, &$request, &$args, $validate = true) {
 		assert(is_callable($serviceEndpoint));
 
+		// Pass the dispatcher to the handler.
+		$serviceEndpoint[0]->setDispatcher($this->getDispatcher());
+
 		// Authorize the request.
 		$roleAssignments = $serviceEndpoint[0]->getRoleAssignments();
 		assert(is_array($roleAssignments));

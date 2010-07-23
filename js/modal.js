@@ -47,41 +47,41 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 			};
 		}
 
-		// Construct dialog
-		var $dialog = $('<div id=' + UID + '></div>').dialog({
-			title: title,
-			autoOpen: false,
-			width: 700,
-			modal: true,
-			draggable: false,
-			resizable: false,
-			position: ['center', 100],
-			buttons: dialogOptions,
-			open: function(event, ui) {
-		        $(this).css({'max-height': 600, 'overflow-y': 'auto'}); 
-				$.getJSON(url, function(jsonData) {
-					$('#loading').hide();
-					if (jsonData.status === true) {
-						$('#' + UID).html(jsonData.content);
-					} else {
-						// Alert that the modal failed
-						alert(jsonData.content);
-					}
-				});
-				$(this).html("<div id='loading' class='throbber'></div>");
-				$('#loading').show();
-			},
-			close: function() {
-				// Reset form validation errors and inputs on close
-				if (validator != null) {
-					validator.resetForm();
-				}
-				clearFormFields($(formContainer).find('form'));
-			}
-		});
-
 		// Tell the calling button to open this modal on click
 		$(callingButton).die("click").live("click", (function() {
+			// Construct dialog
+			var $dialog = $('<div id=' + UID + '></div>').dialog({
+				title: title,
+				autoOpen: false,
+				width: 700,
+				modal: true,
+				draggable: false,
+				resizable: false,
+				position: ['center', 100],
+				buttons: dialogOptions,
+				open: function(event, ui) {
+			        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'}); 
+					$.getJSON(url, function(jsonData) {
+						$('#loading').hide();
+						if (jsonData.status === true) {
+							$('#' + UID).html(jsonData.content);
+						} else {
+							// Alert that the modal failed
+							alert(jsonData.content);
+						}
+					});
+					$(this).html("<div id='loading' class='throbber'></div>");
+					$('#loading').show();
+				},
+				close: function() {
+					// Reset form validation errors and inputs on close
+					if (validator != null) {
+						validator.resetForm();
+					}
+					clearFormFields($(formContainer).find('form'));
+				}
+			});
+
 			$dialog.dialog('open');
 			return false;
 		}));

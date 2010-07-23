@@ -82,6 +82,14 @@ class PKPCitationGridHandler extends GridHandler {
 		return $this->_assocType;
 	}
 
+	/**
+	 * Get the assoc id
+	 * @return integer one of the ASSOC_TYPE_* values
+	 */
+	function getAssocId() {
+		$assocObject =& $this->getAssocObject();
+		return $assocObject->getId();
+	}
 
 	//
 	// Overridden methods from PKPHandler
@@ -101,32 +109,23 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Retrieve the associated citations to be displayed in the grid
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->_getAssocId());
+		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId());
 		$this->setData($data);
 
 		// Grid actions
 		$router =& $request->getRouter();
-		$actionArgs = array('assocId' => $this->_getAssocId());
 		$this->addAction(
 			new LinkAction(
 				'addCitation',
 				LINK_ACTION_MODE_AJAX,
 				LINK_ACTION_TYPE_GET,
-				$router->url($request, null, null, 'addCitation', null, $actionArgs),
+				$router->url($request, null, null, 'addCitation', null,
+						array('assocId' => $this->getAssocId())),
 				'submission.citations.grid.newCitation', null, 'add', null,
 				'citationEditorDetailCanvas'
 			),
 			GRID_ACTION_POSITION_LASTCOL
 		);
-		/* $this->addAction(
-			new LinkAction(
-				'exportCitations',
-				LINK_ACTION_MODE_MODAL,
-				LINK_ACTION_TYPE_NOTHING,
-				$router->url($request, null, null, 'exportCitations', null, $actionArgs),
-				'submission.citations.grid.exportCitations'
-			)
-		); */
 
 		// Columns
 		$cellProvider = new PKPCitationGridCellProvider();
@@ -170,9 +169,10 @@ class PKPCitationGridHandler extends GridHandler {
 	 * Export a list of formatted citations
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @param $noCitationsFoundMessage string an app-specific help message
 	 * @return string
 	 */
-	function exportCitations(&$args, &$request) {
+	function exportCitations(&$args, &$request, $noCitationsFoundMessage) {
 		// We currently only support the NLM citation schema.
 		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 		$nlmCitationSchema = new NlmCitationSchema();
@@ -187,21 +187,34 @@ class PKPCitationGridHandler extends GridHandler {
 		assert(is_a($citationOutputFilter, 'Filter'));
 
 		$formattedCitations = array();
+		$initialHelpMessage = null;
 		$citations =& $this->_getSortedElements();
-		while (!$citations->eof()) {
-			// Retrieve NLM citation meta-data
-			$citation =& $citations->next();
-			$metadataDescription =& $citation->extractMetadata($nlmCitationSchema);
-			assert(!is_null($metadataDescription));
+		if ($citations->eof()) {
+			$initialHelpMessage = $noCitationsFoundMessage;
+		} else {
+			while (!$citations->eof()) {
+				// Retrieve NLM citation meta-data
+				$citation =& $citations->next();
+				if ($citation->getCitationState() < CITATION_APPROVED) {
+					// Oops, found an unapproved citation, won't be able to
+					// export then.
+					$initialHelpMessage = Locale::translate('submission.citations.editor.foundUnapprovedCitationsMessage');
+					break;
+				}
 
-			// Apply the citation output format filter
-			$formattedCitations[] = $citationOutputFilter->execute($metadataDescription);
+				$metadataDescription =& $citation->extractMetadata($nlmCitationSchema);
+				assert(!is_null($metadataDescription));
 
-			unset($citation, $metadataDescription);
+				// Apply the citation output format filter
+				$formattedCitations[] = $citationOutputFilter->execute($metadataDescription);
+
+				unset($citation, $metadataDescription);
+			}
 		}
 
 		// Render the citation list
 		$templateMgr = TemplateManager::getManager($request);
+		$templateMgr->assign('initialHelpMessage', $initialHelpMessage);
 		$templateMgr->assign_by_ref('formattedCitations', $formattedCitations);
 		$json = new JSON('true', $templateMgr->fetch('controllers/grid/citation/citationExport.tpl'));
 		return $json->getString();
@@ -372,7 +385,7 @@ class PKPCitationGridHandler extends GridHandler {
 				import('lib.pkp.classes.citation.Citation');
 				$citation = new Citation();
 				$citation->setAssocType($this->getAssocType());
-				$citation->setAssocId($this->_getAssocId());
+				$citation->setAssocId($this->getAssocId());
 			} else {
 				fatalError('Missing citation id!');
 			}
@@ -383,11 +396,6 @@ class PKPCitationGridHandler extends GridHandler {
 	//
 	// Private helper functions
 	//
-	function _getAssocId() {
-		$assocObject =& $this->getAssocObject();
-		return $assocObject->getId();
-	}
-
 	/**
 	 * Update citation with POST request data.
 	 * @param $args array

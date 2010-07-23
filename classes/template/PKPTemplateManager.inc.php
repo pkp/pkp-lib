@@ -257,7 +257,16 @@ class PKPTemplateManager extends Smarty {
 	/**
 	 * Display the template.
 	 */
-	function display($template, $sendContentType = 'text/html', $hookName = 'TemplateManager::display') {
+	function display($template, $sendContentType = null, $hookName = null, $display = true) {
+		// Set the defaults
+		// N.B: This was moved from method signature to allow calls such as: ->display($template, null, null, false)
+		if ( is_null($sendContentType) ) {
+			$sendContentType = 'text/html';
+		}
+		if ( is_null($hookName) ) {
+			$hookName = 'TemplateManager::display';
+		}
+
 		$charset = Config::getVar('i18n', 'client_charset');
 
 		// Give any hooks registered against the TemplateManager
@@ -280,7 +289,7 @@ class PKPTemplateManager extends Smarty {
 			}
 
 			// Actually display the template.
-			$this->fetch($template, null, null, true);
+			return $this->fetch($template, null, null, $display);
 		} else {
 			// Display the results of the plugin.
 			echo $output;

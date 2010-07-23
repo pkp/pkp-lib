@@ -193,7 +193,9 @@ class Form {
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
-		return $templateMgr->fetch($this->_template, null, null, $display);
+		// N.B: We have to call $templateMgr->display instead of ->fetch($display)
+		// in order for the TemplateManager::display hook to be called
+		return $templateMgr->display($this->_template, null, null, $display);
 	}
 
 	/**

@@ -1301,9 +1301,9 @@ class PKPTemplateManager extends Smarty {
 		} else $iconHtml = "";
 
 		if(isset($params['key'])) {
-			$key = $params['key'];
-			$keyHtml = "<span  class='text'>" . Locale::translate($key) . "</span>";
-
+			$keyHtml = "<span class='text'>" . Locale::translate($params['key']) . "</span>";
+		} elseif(isset($params['keyTranslated'])) {
+			$keyHtml = "<span class='text'>" . $params['keyTranslated'] . "</span>";
 		} else $keyHtml = "";
 
 

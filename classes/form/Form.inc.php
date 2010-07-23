@@ -69,7 +69,7 @@ class Form {
 	 * Constructor.
 	 * @param $template string the path to the form template file
 	 */
-	function Form($template, $callHooks = true) {
+	function Form($template = null, $callHooks = true) {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -96,20 +96,52 @@ class Form {
 		);
 	}
 
+
+	//
+	// Setters and Getters
+	//
+	/**
+	 * Set the template
+	 * @param $template string
+	 */
+	function setTemplate($template) {
+		$this->_template = $template;
+	}
+
+	/**
+	 * Get the template
+	 * @return string
+	 */
+	function getTemplate() {
+		return $this->_template;
+	}
+
+
+	//
+	// Public Methods
+	//
 	/**
 	 * Display the form.
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
 	 */
-	function display($request = null) {
-		$this->fetch($request, true);
+	function display($request = null, $template = null) {
+		$this->fetch($request, $template, true);
 	}
 
 	/**
 	 * Returns a string of the rendered form
 	 * @param $request PKPRequest
+	 * @param $template string the template to be rendered, mandatory
+	 *  if no template has been specified on class instantiation.
+	 * @param $display boolean
 	 * @return string the rendered form
 	 */
-	function fetch(&$request, $display = false) {
+	function fetch(&$request, $template = null, $display = false) {
+		// Set custom template.
+		if (!is_null($template)) $this->_template = $template;
+
 		if (checkPhpVersion('4.3.0')) {
 			$returner = null;
 			$trace = debug_backtrace();
@@ -200,8 +232,10 @@ class Form {
 
 	/**
 	 * Assign form data to user-submitted data.
+	 * Can be overridden from subclasses.
 	 */
 	function readInputData() {
+		// Default implementation does nothing.
 	}
 
 	/**
@@ -415,27 +449,6 @@ class Form {
 				$class = '';
 			}
 			$returner = '<label' . (isset($params['suppressId']) ? '' : ' for="' . $params['name'] . '"') . $class . '>' . $params['label'] . (isset($params['required']) && !empty($params['required']) ? '*' : '') . '</label>';
-		}
-		return $returner;
-	}
-
-	function _decomposeArray($name, $value, $stack) {
-		$returner = '';
-		if (is_array($value)) {
-			foreach ($value as $key => $subValue) {
-				$newStack = $stack;
-				$newStack[] = $key;
-				$returner .= $this->_decomposeArray($name, $subValue, $newStack);
-			}
-		} else {
-			$name = htmlentities($name, ENT_COMPAT, LOCALE_ENCODING);
-			$value = htmlentities($value, ENT_COMPAT, LOCALE_ENCODING);
-			$returner .= '<input type="hidden" name="' . $name;
-			while (($item = array_shift($stack)) !== null) {
-				$item = htmlentities($item, ENT_COMPAT, LOCALE_ENCODING);
-				$returner .= '[' . $item . ']';
-			}
-			$returner .= '" value="' . $value . "\" />\n";
 		}
 		return $returner;
 	}
@@ -1086,6 +1099,37 @@ class Form {
 		}
 
 		return $params;
+	}
+
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * FIXME: document
+	 * @param $name
+	 * @param $value
+	 * @param $stack
+	 */
+	function _decomposeArray($name, $value, $stack) {
+		$returner = '';
+		if (is_array($value)) {
+			foreach ($value as $key => $subValue) {
+				$newStack = $stack;
+				$newStack[] = $key;
+				$returner .= $this->_decomposeArray($name, $subValue, $newStack);
+			}
+		} else {
+			$name = htmlentities($name, ENT_COMPAT, LOCALE_ENCODING);
+			$value = htmlentities($value, ENT_COMPAT, LOCALE_ENCODING);
+			$returner .= '<input type="hidden" name="' . $name;
+			while (($item = array_shift($stack)) !== null) {
+				$item = htmlentities($item, ENT_COMPAT, LOCALE_ENCODING);
+				$returner .= '[' . $item . ']';
+			}
+			$returner .= '" value="' . $value . "\" />\n";
+		}
+		return $returner;
 	}
 }
 

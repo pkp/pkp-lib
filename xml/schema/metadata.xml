@@ -35,11 +35,11 @@
 		<field name="raw_citation" type="X">
 			<NOTNULL/>
 		</field>
-		<field name="edited_citation" type="X"/>
 		<field name="seq" type="I8">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
+		<field name="lock_id" type="C2" size="13" />
 		<descr>Citations</descr>
 		<index name="citations_assoc">
 			<col>assoc_type</col>

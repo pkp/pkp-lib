@@ -49,7 +49,6 @@ class CitationDAOTest extends DatabaseTestCase {
 		$citation = new Citation('raw citation');
 		$citation->setAssocType(ASSOC_TYPE_ARTICLE);
 		$citation->setAssocId(999999);
-		$citation->setEditedCitation('edited citation');
 		$citation->setSeq(50);
 		$citation->addSourceDescription($sourceDescription);
 		$citation->injectMetadata($citationDescription);
@@ -90,7 +89,6 @@ class CitationDAOTest extends DatabaseTestCase {
 		$updatedCitation->setId($citationId);
 		$updatedCitation->setAssocType(ASSOC_TYPE_ARTICLE);
 		$updatedCitation->setAssocId(999998);
-		$updatedCitation->setEditedCitation('another edited citation');
 		$updatedCitation->setSeq(50);
 		$updatedCitation->addSourceDescription($sourceDescription);
 		$updatedCitation->injectMetadata($citationDescription);

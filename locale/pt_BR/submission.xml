@@ -175,8 +175,8 @@
 	<message key="submission.citations.grid.exportCitations">Exportar citações</message>
 	<message key="submission.citations.grid.parseCitation">Analisar</message>
 	<message key="submission.citations.grid.lookupCitation">Procurar</message>
-	<message key="submission.citations.grid.editedCitation">Texto da citação</message>
-	<message key="submission.citations.grid.editedCitationRequired">O texto da citação é obrigatório.</message>
+	<message key="submission.citations.grid.rawCitation">Texto da citação</message>
+	<message key="submission.citations.grid.rawCitationRequired">O texto da citação é obrigatório.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação</message>
 	<message key="submission.citations.form.title">Editar citação</message>
 	<message key="submission.citations.form.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>

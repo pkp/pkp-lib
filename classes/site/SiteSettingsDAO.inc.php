@@ -11,8 +11,6 @@
  *
  * Class for Site Settings DAO.
  * Operations for retrieving and modifying site settings.
- *
- * $Id$
  */
 
 class SiteSettingsDAO extends DAO {

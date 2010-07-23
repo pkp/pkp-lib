@@ -205,8 +205,8 @@
 	<message key="submission.citations.grid.exportCitations">Exporter les références</message>
 	<message key="submission.citations.grid.parseCitation">Analyser</message>
 	<message key="submission.citations.grid.lookupCitation">Consulter</message>
-	<message key="submission.citations.grid.editedCitation">Texte de la référence</message>
-	<message key="submission.citations.grid.editedCitationRequired">Le texte de la référence est obligatoire.</message>
+	<message key="submission.citations.grid.rawCitation">Texte de la référence</message>
+	<message key="submission.citations.grid.rawCitationRequired">Le texte de la référence est obligatoire.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">Une erreur est survenue lors de la suppression de la référence.</message>
 	<message key="submission.citations.form.title">Éditer la référence</message>
 	<message key="submission.citations.form.loadMessage">Veuillez patienter pendant le chargement de l'éditeur de références.</message>

@@ -175,8 +175,8 @@
 	<message key="submission.citations.grid.exportCitations">Exportar citas</message>
 	<message key="submission.citations.grid.parseCitation">Analizar</message>
 	<message key="submission.citations.grid.lookupCitation">Búsqueda</message>
-	<message key="submission.citations.grid.editedCitation">Texto de la cita</message>
-	<message key="submission.citations.grid.editedCitationRequired">Se requiere un texto para la cita.</message>
+	<message key="submission.citations.grid.rawCitation">Texto de la cita</message>
+	<message key="submission.citations.grid.rawCitationRequired">Se requiere un texto para la cita.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">Ha sucedido un error al intentar borrar la cita.</message>
 	<message key="submission.citations.form.title">Editar cita</message>
 	<message key="submission.citations.form.loadMessage">Espere a que cargue el editor de citas.</message>

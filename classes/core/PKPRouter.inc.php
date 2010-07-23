@@ -99,7 +99,7 @@ class PKPRouter {
 
 	/**
 	 * get the dispatcher
-	 * @return PKPDispatcher
+	 * @return Dispatcher
 	 */
 	function &getDispatcher() {
 		assert(is_a($this->_dispatcher, 'Dispatcher'));

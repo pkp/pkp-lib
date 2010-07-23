@@ -172,8 +172,8 @@
 	<message key="submission.citations.grid.title">Editar Citações</message>
 	<message key="submission.citations.grid.importCitations">Importar Citações</message>
 	<message key="submission.citations.grid.exportCitations">Exportar Citações</message>
-	<message key="submission.citations.grid.editedCitation">Texto Citação</message>
-	<message key="submission.citations.grid.editedCitationRequired">É requerido um texto de citação.</message>
+	<message key="submission.citations.grid.rawCitation">Texto Citação</message>
+	<message key="submission.citations.grid.rawCitationRequired">É requerido um texto de citação.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">Ocorreu um erro ao tentar eliminar a citação</message>
 	<message key="submission.citations.form.title">Editar Citação</message>
 	<message key="submission.citations.form.loadMessage">Por favor aguarde até o editor de citação ser carregado.</message>

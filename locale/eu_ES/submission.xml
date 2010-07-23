@@ -172,8 +172,8 @@
 	<message key="submission.citations.grid.exportCitations">Aipuak esportatu</message>
 	<message key="submission.citations.grid.parseCitation">Analizatu</message>
 	<message key="submission.citations.grid.lookupCitation">Bilatu</message>
-	<message key="submission.citations.grid.editedCitation">Aipu-testua</message>
-	<message key="submission.citations.grid.editedCitationRequired">Aipu-testua behar da.</message>
+	<message key="submission.citations.grid.rawCitation">Aipu-testua</message>
+	<message key="submission.citations.grid.rawCitationRequired">Aipu-testua behar da.</message>
 	<message key="submission.citations.grid.errorDeletingCitation">Errorea aipua ezabatzen saiatzean.</message>
 	<message key="submission.citations.form.title">Aipua editatu.</message>
 	<message key="submission.citations.form.loadMessage">Itxaron aipuen editorea kargatu bitartean.</message>

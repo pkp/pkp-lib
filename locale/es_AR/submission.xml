@@ -172,6 +172,6 @@
 	<message key="submission.citations.grid.exportCitations">Exportar Citaciones</message>
 	<message key="submission.citations.grid.parseCitation">Parsear</message>
 	<message key="submission.citations.grid.lookupCitation">Buscar</message>
-	<message key="submission.citations.grid.editedCitation">Texto de la Cita</message>
-	<message key="submission.citations.grid.editedCitationRequired">Se requiere un texto para la cita</message>
+	<message key="submission.citations.grid.rawCitation">Texto de la Cita</message>
+	<message key="submission.citations.grid.rawCitationRequired">Se requiere un texto para la cita</message>
 </locale>

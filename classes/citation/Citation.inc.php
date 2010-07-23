@@ -18,10 +18,9 @@
  * @brief Class representing a citation (bibliographic reference)
  */
 
-// $Id$
 
 define('CITATION_RAW', 0x01);
-define('CITATION_EDITED', 0x02);
+define('CITATION_CHECKED', 0x02);
 define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
@@ -241,7 +240,7 @@ class Citation extends DataObject {
 	function _getSupportedCitationStates() {
 		static $_supportedCitationStates = array(
 			CITATION_RAW,
-			CITATION_EDITED,
+			CITATION_CHECKED,
 			CITATION_PARSED,
 			CITATION_LOOKED_UP,
 			CITATION_APPROVED

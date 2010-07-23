@@ -155,58 +155,17 @@ class PKPCitationGridHandler extends GridHandler {
 		return $row;
 	}
 
+	/**
+	 * @see GridHandler::getIsSubcomponent()
+	 */
+	function getIsSubcomponent() {
+		return true;
+	}
+
 
 	//
 	// Public Citation Grid Actions
 	//
-	/**
-	 * Import citations from an associated object
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function importCitations(&$args, &$request) {
-		// Delete existing citations
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->deleteObjectsByAssocId($this->getAssocType(), $this->_getAssocId());
-
-		// (Re-)import raw citations from the assoc object
-		// which must support the "getCitations()" method.
-		$assocObject =& $this->getAssocObject();
-		$rawCitationList = $assocObject->getCitations();
-
-		// Tokenize raw citations
-		import('lib.pkp.classes.citation.CitationListTokenizerFilter');
-		$citationTokenizer = new CitationListTokenizerFilter();
-		$citationStrings = $citationTokenizer->execute($rawCitationList);
-
-		// Instantiate and persist citations
-		import('lib.pkp.classes.citation.Citation');
-		$citations = array();
-		foreach($citationStrings as $seq => $citationString) {
-			$citation = new Citation($citationString);
-
-			// Initialize the edited citation with the raw
-			// citation string.
-			$citation->setEditedCitation($citationString);
-
-			// Set the object association
-			$citation->setAssocType($this->getAssocType());
-			$citation->setAssocId($this->_getAssocId());
-
-			// Set the counter
-			$citation->setSeq($seq+1);
-
-			$citationDAO->insertObject($citation);
-			$citations[$citation->getId()] = $citation;
-			unset($citation);
-		}
-		$this->setData($citations);
-
-		// Re-display the grid
-		return $this->fetchGrid($args,$request);
-	}
-
 	/**
 	 * Export a list of formatted citations
 	 * @param $args array
@@ -314,50 +273,20 @@ class PKPCitationGridHandler extends GridHandler {
 		$context =& $router->getContext($request);
 		assert(is_object($context));
 
-		// Initialize the filter errors array
-		$filterErrors = array();
-		$intermediateFilterResults = array();
-
-		// Only parse the citation if it's not been parsed before.
-		// Otherwise we risk to overwrite manual user changes.
-		$filteredCitation =& $originalCitation;
-		if (!is_null($filteredCitation) && $filteredCitation->getCitationState() < CITATION_PARSED) {
-			// Parse the requested citation
-			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $context->getId(), $filterErrors, $intermediateFilterResults);
-		}
-
-		// Always re-lookup the citation even if it's been looked-up
-		// before. The user asked us to re-check so there's probably
-		// additional manual information in the citation fields.
-		// Also make sure that we get the intermediate results of look-ups
-		// for the user to choose from.
-		$filterCallback = array(&$this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $context->getId(), $filterErrors, $intermediateFilterResults);
-
-		// Remove empty results (e.g. if a lookup filter didn't find anything
-		// for a given citation).
-		$intermediateFilterResults =& arrayClean($intermediateFilterResults);
-		$filteredCitation->setSourceDescriptions($intermediateFilterResults);
-
-		// Immediately persist the intermediate results
+		// Do the actual filtering of the citation.
 		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
+		$filteredCitation =& $citationDAO->checkCitation($originalCitation, $context->getId());
 
-		if (is_null($filteredCitation)) {
-			$filteredCitation =& $originalCitation;
-			$unsavedChanges = false;
-		} else {
-			$unsavedChanges = true;
-		}
+		// Immediately persist intermediate results.
+		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($filteredCitation, $unsavedChanges);
+		$citationForm = new CitationForm($filteredCitation);
 
-		// Add errors to form (if any)
-		foreach($filterErrors as $errorMessage) {
-			$citationForm->addError('editedCitation', $errorMessage);
+		// Transport filtering errors to form (if any).
+		foreach($filteredCitation->getErrors() as $errorMessage) {
+			$citationForm->addError('rawCitation', $errorMessage);
 		}
 
 		// Return the rendered form
@@ -482,175 +411,5 @@ class PKPCitationGridHandler extends GridHandler {
 			$citationForm->execute();
 		}
 		return $citationForm;
-	}
-
-	/**
-	 * Instantiates filters that can parse a citation.
-	 * @param $citation Citation
-	 * @param $metadataDescription MetadataDescription
-	 * @param $contextId integer
-	 * @return array everything needed to define the transformation:
-	 *  - the display name of the transformation
-	 *  - the input/output type definition
-	 *  - input data
-	 *  - a filter list
-	 */
-	function &_instantiateParserFilters(&$citation, &$metadataDescription, $contextId) {
-		$displayName = 'Citation Parser Filters';
-
-		// Parsing takes a raw citation and transforms it
-		// into a array of meta-data descriptions.
-		$transformation = array(
-			'primitive::string',
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
-		);
-
-		// Extract the edited citation string from the citation
-		$inputData = $citation->getEditedCitation();
-
-		// Instantiate all configured filters that take a string
-		// as input and produce an NLM-citation schema as output.
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$inputSample = 'arbitrary strings';
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
-
-		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
-		return $transformationDefinition;
-	}
-
-	/**
-	 * Instantiates filters that can validate and amend citations
-	 * with information from external data sources.
-	 * @param $citation Citation
-	 * @param $metadataDescription MetadataDescription
-	 * @param $contextId integer
-	 * @return array everything needed to define the transformation:
-	 *  - the display name of the transformation
-	 *  - the input/output type definition
-	 *  - input data
-	 *  - a filter list
-	 */
-	function &_instantiateLookupFilters(&$citation, &$metadataDescription, $contextId) {
-		$displayName = 'Citation Parser Filters';
-
-		// Lookup takes a single meta-data description and
-		// checks it against several lookup-sources resulting
-		// in an array of meta-data descriptions.
-		$transformation = array(
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
-		);
-
-		// Define the input for this transformation.
-		$inputData =& $metadataDescription;
-
-		// Instantiate all configured filters that transform NLM-citation schemas.
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$inputSample = $outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
-
-		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
-		return $transformationDefinition;
-	}
-
-	/**
-	 * Call the callback to filter the citation. If errors occur
-	 * they'll be added to the citation form.
-	 * @param $citation Citation
-	 * @param $filterCallback callable
-	 * @param $citationStateAfterFiltering integer the state the citation will
-	 *  be set to after the filter was executed.
-	 * @param $contextId integer
-	 * @param $filterErrors array A reference to a variable that will receive an array of filter errors
-	 * @param $intermediateFilterResults array
-	 * @return Citation the filtered citation or null if an error occurred
-	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, $contextId, &$filterErrors, &$intermediateFilterResults) {
-		// Make sure that the citation implements the
-		// meta-data schema. (We currently only support
-		// NLM citation.)
-		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
-		assert(count($supportedMetadataSchemas) == 1);
-		$metadataSchema =& $supportedMetadataSchemas[0];
-		assert(is_a($metadataSchema, 'NlmCitationSchema'));
-
-		// Extract the meta-data description from the citation.
-		$metadataDescription =& $citation->extractMetadata($metadataSchema);
-
-		// Let the callback build the filter network.
-		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription, $contextId));
-
-		// Get the input into the transformation.
-		$muxInputData =& $transformationDefinition['inputData'];
-
-		// Instantiate the citation multiplexer filter.
-		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
-		$citationMultiplexer = new GenericMultiplexerFilter(
-				$transformationDefinition['displayName'], $transformationDefinition['transformation']);
-
-		// Don't fail just because one of the web services
-		// fail. They are much too unstable to rely on them.
-		$citationMultiplexer->setTolerateFailures(true);
-
-		// Add sub-filters to the multiplexer.
-		$nullVar = null;
-		foreach($transformationDefinition['filterList'] as $citationFilter) {
-			if ($citationFilter->supports($muxInputData, $nullVar)) {
-				$citationMultiplexer->addFilter($citationFilter);
-				unset($citationFilter);
-			}
-		}
-
-		// Instantiate the citation de-multiplexer filter
-		import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
-		$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
-		$citationDemultiplexer->setOriginalCitation($citation);
-
-		// Combine multiplexer and de-multiplexer to form the
-		// final citation filter network.
-		$sequencerTransformation = array(
-			$transformationDefinition['transformation'][0], // The multiplexer input type
-			'class::lib.pkp.classes.citation.Citation'
-		);
-		import('lib.pkp.classes.filter.GenericSequencerFilter');
-		$citationFilterNet = new GenericSequencerFilter('Citation Filter Network', $sequencerTransformation);
-		$citationFilterNet->addFilter($citationMultiplexer);
-		$citationFilterNet->addFilter($citationDemultiplexer);
-
-		// Send the input through the citation filter network.
-		$filteredCitation =& $citationFilterNet->execute($muxInputData);
-
-		// Retrieve the results of intermediate filters for direct
-		// user inspection.
-		$lastOutput =& $citationMultiplexer->getLastOutput();
-		if (is_array($lastOutput)) {
-			$intermediateFilterResults = array_merge($intermediateFilterResults, $lastOutput);
-		}
-
-		// Add filtering errors (if any) to error list
-		$filterErrors = array_merge($filterErrors, $citationFilterNet->getErrors());
-
-		// Return the original citation if the filters
-		// did not produce any results.
-		if (is_null($filteredCitation)) {
-			$filterErrors[] = Locale::translate('submission.citations.form.filterError');
-			$filteredCitation =& $citation;
-		} else {
-			// Copy unfiltered data from the original citation to the filtered citation
-			$filteredCitation->setId($citation->getId());
-			$filteredCitation->setRawCitation($citation->getRawCitation());
-			$filteredCitation->setEditedCitation($citation->getEditedCitation());
-
-			// Associate the citation with the object associated
-			// to the citation editor.
-			$filteredCitation->setAssocId($this->_getAssocId());
-			$filteredCitation->setAssocType($this->getAssocType());
-
-			// Set the citation state
-			$filteredCitation->setCitationState($citationStateAfterFiltering);
-		}
-
-		return $filteredCitation;
 	}
 }

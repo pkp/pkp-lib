@@ -51,7 +51,7 @@ class CitationForm extends Form {
 		}
 
 		// Validation checks for this form that are not checked within the default meta-data validation algorithm.
-		$this->addCheck(new FormValidator($this, 'editedCitation', 'required', 'submission.citations.grid.editedCitationRequired'));
+		$this->addCheck(new FormValidator($this, 'rawCitation', 'required', 'submission.citations.grid.rawCitationRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -85,7 +85,7 @@ class CitationForm extends Form {
 		$citation =& $this->getCitation();
 
 		// The unparsed citation text and the citation state
-		$this->setData('editedCitation', $citation->getEditedCitation());
+		$this->setData('rawCitation', $citation->getRawCitation());
 
 		// Citation meta-data
 		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
@@ -113,7 +113,7 @@ class CitationForm extends Form {
 	 * Initialize form data from user submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('editedCitation', 'citationState', 'citationApproved'));
+		$this->readUserVars(array('rawCitation', 'citationState', 'citationApproved'));
 		$this->readUserVars(array_keys($this->_citationProperties));
 	}
 
@@ -215,7 +215,7 @@ class CitationForm extends Form {
 		// Validate form data and inject it into
 		// the associated citation object.
 		$citation =& $this->getCitation();
-		$citation->setEditedCitation($this->getData('editedCitation'));
+		$citation->setRawCitation($this->getData('rawCitation'));
 		if ($this->getData('citationApproved') == 'citationApproved') {
 			// Editor's shortcut to the approved state, e.g. for manually edited citations.
 			$citation->setCitationState(CITATION_APPROVED);

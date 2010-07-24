@@ -14,6 +14,9 @@
 
 import('lib.pkp.classes.form.Form');
 
+define('CITATION_FORM_FULL_TEMPLATE', 'controllers/grid/citation/form/citationForm.tpl');
+define('CITATION_FORM_COMPARISON_TEMPLATE', 'controllers/grid/citation/form/citationFormErrorsAndComparison.tpl');
+
 class CitationForm extends Form {
 	/** @var Citation the citation being edited */
 	var $_citation;
@@ -21,19 +24,31 @@ class CitationForm extends Form {
 	/** @var boolean */
 	var $_unsavedChanges;
 
+	/** @var NlmCitationSchemaCitationOutputFormatFilter */
+	var $_citationOutputFilter;
+
 	/** @var array all properties contained in the citation */
 	var $_citationProperties;
 
 	/**
+	 * @var array a list of meta-data descriptions with the
+	 *  citation meta-data extracted from the the form citation
+	 *  (in initData()) or the post request (in readInputData()).
+	 */
+	var $_metadataDescriptions = array();
+
+	/**
 	 * Constructor.
 	 * @param $citation Citation
+	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
 	 */
-	function CitationForm($citation) {
-		parent::Form('controllers/grid/citation/form/citationForm.tpl');
+	function CitationForm(&$citation, &$citationOutputFilter) {
+		parent::Form();
 		assert(is_a($citation, 'Citation'));
+		assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
 
 		$this->_citation =& $citation;
-		$this->_unsavedChanges = $citation->getHasUnsavedChanges();
+		$this->_citationOutputFilter =& $citationOutputFilter;
 
 		// Identify all form field names for the citation
 		$this->_citationFormFieldNames = array();
@@ -67,6 +82,14 @@ class CitationForm extends Form {
 	}
 
 	/**
+	 * Set true if the form contains unsaved changes.
+	 * @param $unsavedChanges boolean
+	 */
+	function setUnsavedChanges($unsavedChanges) {
+		return $this->_unsavedChanges = (boolean)$unsavedChanges;
+	}
+
+	/**
 	 * Returns true if the form contains unsaved changes,
 	 * otherwise false.
 	 * @return boolean
@@ -75,6 +98,7 @@ class CitationForm extends Form {
 		return $this->_unsavedChanges;
 	}
 
+
 	//
 	// Template methods from Form
 	//
@@ -82,6 +106,10 @@ class CitationForm extends Form {
 	* Initialize form data from the associated citation.
 	*/
 	function initData() {
+		// Make sure that this method is not called twice which
+		// would corrupt internal state.
+		assert(empty($this->_metadataDescriptions));
+
 		$citation =& $this->getCitation();
 
 		// The unparsed citation text and the citation state
@@ -96,6 +124,10 @@ class CitationForm extends Form {
 			// values for all form fields.
 			$properties = $metadataSchema->getProperties();
 			$metadataDescription =& $citation->extractMetadata($metadataSchema);
+
+			// Save the meta-data description for later usage.
+			$this->_metadataDescriptions[] = $metadataDescription;
+
 			foreach($properties as $propertyName => $property) {
 				if ($metadataDescription->hasStatement($propertyName)) {
 					$value = $metadataDescription->getStatement($propertyName);
@@ -118,98 +150,20 @@ class CitationForm extends Form {
 	}
 
 	/**
-	 * Fetch the form.
-	 * @param $request Request
-	 * @return the rendered form
-	 */
-	function fetch($request) {
-		$citation =& $this->getCitation();
-
-		// Template
-		$templateMgr =& TemplateManager::getManager($request);
-
-		// Form tabs
-		// FIXME: At the moment, we just create two tabs -- one for filled
-		// elements, and one for empty ones. Any number of elements can be
-		// added, and they will appear as new tabs on the modal window.
-		$citationFormTabs = array('Filled' => array(), 'Empty' => array());
-		foreach($this->_citationProperties as $fieldName => $property) {
-			$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
-			$citationFormTabs[$tabName][$fieldName] = array(
-				'displayName' => $property->getDisplayName(),
-				'required' => $property->getMandatory()
-			);
-		}
-		$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
-
-		// Citation source tabs
-		$sourceDescriptions =& $citation->getSourceDescriptions();
-		assert(is_array($sourceDescriptions));
-
-		$citationSourceTabs = array();
-		$locale = Locale::getLocale();
-		// Run through all source descriptions and extract statements
-		foreach($sourceDescriptions as $sourceDescription) {
-			$sourceDescriptionId = $sourceDescription->getId();
-			$metadataSchema =& $sourceDescription->getMetadataSchema();
-			// Use the display name of the description for the tab.
-			// We can safely use the 'displayName' key here as
-			// the keys representing statements will be namespaced.
-			$citationSourceTabs[$sourceDescriptionId]['displayName'] = $sourceDescription->getDisplayName();
-			foreach ($sourceDescription->getStatements() as $propertyName => $value) {
-				$property =& $metadataSchema->getProperty($propertyName);
-
-				// Handle translation
-				if ($property->getTranslated()) {
-					assert(isset($value[$locale]));
-					$value = $value[$locale];
-				}
-
-				$sourcePropertyId = $sourceDescriptionId.'-'.$metadataSchema->getNamespacedPropertyId($propertyName);
-				$sourcePropertyValue = $this->_getStringValueFromMetadataStatement($property, $value);
-				$citationSourceTabs[$sourceDescriptionId]['statements'][$sourcePropertyId] = array(
-					'displayName' => $property->getDisplayName(),
-					'value' => $sourcePropertyValue
-				);
-			}
-
-			// Remove source descriptions that don't have data.
-			if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
-		}
-		$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
-
-		// Add the citation to the template
-		$templateMgr->assign_by_ref('citation', $citation);
-
-		// Does the form contain unsaved changes?
-		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
-
-		// Add actions for parsing and lookup
-		$router = $request->getRouter();
-		$checkAction = new LinkAction(
-			'checkCitation',
-			LINK_ACTION_MODE_AJAX,
-			LINK_ACTION_TYPE_POST,
-			$router->url($request, null, null, 'checkCitation'),
-			'submission.citations.grid.checkCitationAgain'
-		);
-		$templateMgr->assign_by_ref('checkAction', $checkAction);
-
-		// Citation approval
-		$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
-		$templateMgr->assign('citationApproved', $citationApproved);
-
-		// Auto-add client-side validation
-		$templateMgr->assign('validateId', 'citationForm');
-
-		return parent::fetch($request);
-	}
-
-	/**
 	 * Custom implementation of Form::validate() that validates
-	 * meta-data form data.
+	 * meta-data form data and injects it into the internal citation
+	 * object.
+	 *
+	 * NB: The configuration of the internal citation object
+	 * would normally be done in readInputData(). Validation and
+	 * injection can easily be done in one step. It therefore avoids
+	 * code duplication and improves performance to do both here.
 	 */
 	function validate() {
+		// Make sure that this method is not called twice which
+		// would corrupt internal state.
+		assert(empty($this->_metadataDescriptions));
+
 		parent::validate();
 
 		// Validate form data and inject it into
@@ -302,8 +256,12 @@ class CitationForm extends Form {
 				}
 			}
 
-			// Inject the meta-data into the citation
+			// Inject the meta-data into the citation.
 			$citation->injectMetadata($metadataDescription, true);
+
+			// Save the meta-data description for later usage.
+			$this->_metadataDescriptions[] =& $metadataDescription;
+
 			unset($metadataDescription);
 		}
 
@@ -323,6 +281,115 @@ class CitationForm extends Form {
 			$citationDAO->insertObject($citation);
 		}
 		return true;
+	}
+
+
+	/**
+	 * Fetch the form.
+	 * @param $request Request
+	 * @param $template string the template to render the form
+	 * @return the rendered form
+	 */
+	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
+		$citation =& $this->getCitation();
+		$templateMgr =& TemplateManager::getManager($request);
+
+		// Does the form contain unsaved changes?
+		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
+
+		// Either the initData() or validate() method should have prepared
+		// a meta-data representation of the citation.
+		// NB: Our template and output filters currently only handle
+		// one meta-data description. Any others but the first one are ignored.
+		assert(!empty($this->_metadataDescriptions));
+		$metadataDescription = array_pop($this->_metadataDescriptions);
+
+		// Generate the formatted citation output from the description.
+		$generatedCitation = $this->_citationOutputFilter->execute($metadataDescription);
+
+		// Strip formatting and the Google Scholar tag so that we get a plain
+		// text string that is comparable with the raw citation.
+		$generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
+
+		// Compare the raw and the formatted citation and add the result to the template.
+		$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
+		$templateMgr->assign('citationDiff', $citationDiff);
+
+		// Many template variables are only required for the full form template.
+		if ($template == CITATION_FORM_FULL_TEMPLATE) {
+			// Form tabs
+			// FIXME: At the moment, we just create two tabs -- one for filled
+			// elements, and one for empty ones. Any number of elements can be
+			// added, and they will appear as new tabs on the modal window.
+			$citationFormTabs = array('Filled' => array(), 'Empty' => array());
+			foreach($this->_citationProperties as $fieldName => $property) {
+				$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
+				$citationFormTabs[$tabName][$fieldName] = array(
+					'displayName' => $property->getDisplayName(),
+					'required' => $property->getMandatory()
+				);
+			}
+			$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
+
+			// Citation source tabs
+			$sourceDescriptions =& $citation->getSourceDescriptions();
+			assert(is_array($sourceDescriptions));
+
+			$citationSourceTabs = array();
+			$locale = Locale::getLocale();
+			// Run through all source descriptions and extract statements
+			foreach($sourceDescriptions as $sourceDescription) {
+				$sourceDescriptionId = $sourceDescription->getId();
+				$metadataSchema =& $sourceDescription->getMetadataSchema();
+				// Use the display name of the description for the tab.
+				// We can safely use the 'displayName' key here as
+				// the keys representing statements will be namespaced.
+				$citationSourceTabs[$sourceDescriptionId]['displayName'] = $sourceDescription->getDisplayName();
+				foreach ($sourceDescription->getStatements() as $propertyName => $value) {
+					$property =& $metadataSchema->getProperty($propertyName);
+
+					// Handle translation
+					if ($property->getTranslated()) {
+						assert(isset($value[$locale]));
+						$value = $value[$locale];
+					}
+
+					$sourcePropertyId = $sourceDescriptionId.'-'.$metadataSchema->getNamespacedPropertyId($propertyName);
+					$sourcePropertyValue = $this->_getStringValueFromMetadataStatement($property, $value);
+					$citationSourceTabs[$sourceDescriptionId]['statements'][$sourcePropertyId] = array(
+						'displayName' => $property->getDisplayName(),
+						'value' => $sourcePropertyValue
+					);
+				}
+
+				// Remove source descriptions that don't have data.
+				if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
+			}
+			$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
+
+			// Add the citation to the template
+			$templateMgr->assign_by_ref('citation', $citation);
+
+			// Add actions for parsing and lookup
+			$router = $request->getRouter();
+			$checkAction = new LinkAction(
+				'checkCitation',
+				LINK_ACTION_MODE_AJAX,
+				LINK_ACTION_TYPE_POST,
+				$router->url($request, null, null, 'checkCitation'),
+				'submission.citations.grid.checkCitationAgain'
+			);
+			$templateMgr->assign_by_ref('checkAction', $checkAction);
+
+			// Citation approval
+			$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
+			$templateMgr->assign('citationApproved', $citationApproved);
+
+			// Auto-add client-side validation
+			$templateMgr->assign('validateId', 'citationForm');
+		}
+
+		return parent::fetch($request, $template);
 	}
 
 	//

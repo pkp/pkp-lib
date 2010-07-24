@@ -41,7 +41,7 @@
 			{if $nlm30DateInCitationContentTypeAccessDate} [cited {$nlm30DateInCitationContentTypeAccessDate|date_format:'%Y %b %e'}]{/if}.
 			{if $nlm30Uri} Available from: {$nlm30Uri}{/if}
 			{if $nlm30PubIdPubIdTypePmid} PubMed PMID: {$nlm30PubIdPubIdTypePmid}.{/if}
-			{if $nlm30PubIdPubIdTypeDoi} doi: {$nlm30PubIdPubIdTypeDoi}.{/if} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if count($nlm30PersonGroupPersonGroupTypeAuthor)}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">[Google Scholar]</a>
+			{if $nlm30PubIdPubIdTypeDoi} doi: {$nlm30PubIdPubIdTypeDoi}.{/if} <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if count($nlm30PersonGroupPersonGroupTypeAuthor)}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor[0]->getStatement('surname')|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{$smarty.const.GOOGLE_SCHOLAR_TAG}</a>
 		{/if}
 	</p>	
 {/strip}

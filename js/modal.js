@@ -95,7 +95,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
  * @param $actType Type to define if callback should do (nothing|append|replace|remove)
  * @param $actOnId The ID on which to perform the action on callback
  */
-function submitJsonForm(formContainer, actType, actOnId ) {
+function submitJsonForm(formContainer, actType, actOnId) {
 	// jQuerify the form container and find the form in it.
 	$formContainer = $(formContainer);
 	$form = $formContainer.find('form');
@@ -115,9 +115,11 @@ function submitJsonForm(formContainer, actType, actOnId ) {
 					if (typeof($formContainer.dialog) == 'function') {
 						$formContainer.dialog('close');
 					}
+					$formContainer.triggerHandler('submitSuccessful');
 				} else {
 					// If an error occurs then redisplay the form
 					$formContainer.html(jsonData.content);
+					$formContainer.triggerHandler('submitFailed');
 				}
 			},
 			"json"
@@ -256,19 +258,24 @@ function clearFormFields(form) {
 /**
  * ajaxAction
  * Implements an ajax action.
- * @param $actType can be either 'get' or 'post', 'post' expects a form as
- *  a child element of 'actOnId'.
- * @param $callingElement Selector of the element that triggers the ajax call
- * @param $url the url to be called, defaults to the form action in case of
+ * @param actType can be either 'get' or 'post', 'post' expects a form as
+ *  a child element of 'actOnId' if no form has been explicitly given.
+ * @param callingElement selector of the element that triggers the ajax call
+ * @param url the url to be called, defaults to the form action in case of
  *  action type 'post'.
- * @param $data (post action type only) the data to be posted, defaults to
+ * @param data (post action type only) the data to be posted, defaults to
  *  the form data.
- * @param $eventName the name of the event that triggers the action.
+ * @param eventName the name of the event that triggers the action, default 'click'.
+ * @param form the selector of a form element.
  */
-function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
+function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
 	if (actType == 'post') {
-		clickAction = function() {
-			$form = $(actOnId).find('form');
+		eventHandler = function() {
+			if (form) {
+				$form = $(form);
+			} else {
+				$form = $(actOnId).find('form');
+			}
 
 			// Default url and data
 			if (!url) {
@@ -306,7 +313,7 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 			}
 		};
 	} else {
-		clickAction = function() {
+		eventHandler = function() {
 			$actOnId = $(actOnId);
 			$actOnId.triggerHandler('actionStart');
 			$.getJSON(
@@ -327,7 +334,22 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName) {
 
 	if (eventName === undefined) eventName = 'click';
 	$(document).ready(function() {
-		$(callingElement).unbind(eventName).bind(eventName, clickAction);
+		$(callingElement).each(function() {
+			$(this).unbind(eventName).bind(eventName, eventHandler);
+		});
+	});
+}
+
+/**
+ * Binds to the "actionStart" event to delete
+ * the current contents of the actOnId
+ * element and show a throbber instead.
+ * @param actOnId the element to be filled with the throbber image.
+ */
+function actionThrobber(actOnId) {
+	$(actOnId).bind('actionStart', function() {
+		$(this).html('<div id="actionThrobber" class="throbber"></div>');
+		$('#actionThrobber').show();
 	});
 }
 

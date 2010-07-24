@@ -43,7 +43,7 @@
 					$(this).removeClass('current-item');
 				{rdelim});
 			{rdelim});
-	
+
 			// Style save buttons.
 			{if $citationApproved}
 				$('#citationFormSaveAndApprove').hide();
@@ -56,37 +56,67 @@
 			// Handle save button.
 			$('.citation-save-button').each(function() {ldelim}
 				$(this).click(function() {ldelim}
-					if (this.id === 'citationFormSaveAndApprove') {ldelim}
+					pressedButton = this.id;
+					
+					// Bind to the form's submitSuccessful custom event.
+					$('#citationEditorDetailCanvas').bind('submitSuccessful', function() {ldelim}
+						$(this).unbind('submitSuccessful');
+						
+						// Remove warning about unsaved data.
+						$('p.unsaved-data-warning').remove();
+
+						if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
+							// Shuffle buttons around.
+							$('#citationFormSaveAndApprove').hide();
+							$('#citationFormSaveAndRevokeApproval').show();
+							$('#citationFormSave').removeClass('secondary-button');
+
+							// Get the next unapproved citation.
+							$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()}) .row_file')
+									.first();
+							if ($nextUnapproved.length) {ldelim}
+								// If there still are unapproved citations then
+								// load the next one.
+								$nextUnapproved.triggerHandler('click');
+							{rdelim} else {ldelim}
+								// If all citations have been approved then open
+								// the export tab.
+								$('.approved-citation .row_file').first().triggerHandler('click');
+								$('#citationEditorMainTabs').tabs('select', 'citationEditorTabExport');
+							{rdelim}
+						{rdelim}
+						if (pressedButton === 'citationFormSaveAndRevokeApproval') {ldelim}
+							// Shuffle buttons around.
+							$('#citationFormSaveAndRevokeApproval').hide();
+							$('#citationFormSaveAndApprove').show();
+							$('#citationFormSave').addClass('secondary-button');
+						{rdelim}
+					{rdelim});
+
+					// Fill hidden form elements depending on the save action type.
+					if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
 						$('#citationApproved').val('citationApproved');
 						$('#remainsCurrentItem').val('no');
-						$('#citationFormSaveAndApprove').hide();
-						$('#citationFormSaveAndRevokeApproval').show();
-						$('#citationFormSave').removeClass('secondary-button');
+						
+						// Throbber because we'll move to a new citation or tab.
+						actionThrobber('#citationEditorDetailCanvas');
 					{rdelim} else {ldelim}
 						$('#remainsCurrentItem').val('yes');
 					{rdelim}
-					if (this.id === 'citationFormSaveAndRevokeApproval') {ldelim}
+					if (pressedButton === 'citationFormSaveAndRevokeApproval') {ldelim}
 						$('#citationApproved').val('');
-						$('#citationFormSaveAndRevokeApproval').hide();
-						$('#citationFormSaveAndApprove').show();
-						$('#citationFormSave').addClass('secondary-button');
 					{rdelim}
+					
+					// Submit the form.
 					{if $citation->getId()}
-						submitJsonForm('#citationEditorDetailCanvas', 'replace', 'component-grid-citation-citationgrid-row-{$citation->getId()}');
+						submitJsonForm('#citationEditorDetailCanvas', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
 					{else}
-						submitJsonForm('#citationEditorDetailCanvas', 'append', 'component-grid-citation-citationgrid-table');
+						submitJsonForm('#citationEditorDetailCanvas', 'append', '#component-grid-citation-citationgrid-table');
 					{/if}
-					if (this.id === 'citationFormSaveAndApprove') {ldelim}
-						$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()}) .active-cell')
-								.first();
-						if ($nextUnapproved.length) {ldelim}
-							// Load the next unapproved citation.
-							$nextUnapproved.triggerHandler('click');
-						{rdelim} else {ldelim}
-							// Open the export tab (which is the
-							// tab after the current editor tab).
-							$('#citationEditorMainTabs').tabs('select', 'citationEditorTabExport');
-						{rdelim}
+
+					// Trigger the throbber.
+					if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
+						$('#citationEditorDetailCanvas').triggerHandler('actionStart');
 					{rdelim}
 				{rdelim});
 			{rdelim});
@@ -96,27 +126,14 @@
 			$('#component-grid-citation-citationgrid-row-{$citation->getId()}').addClass('current-item');
 	
 			// Throbber
-			$('#citationEditorDetailCanvas').bind('actionStart', function() {ldelim}
-				$('#citationEditorDetailCanvas').html('<div id="citationEditorThrobber" class="throbber"></div>');
-				$('#citationEditorThrobber').show();
-			{rdelim});
+			actionThrobber('#citationEditorDetailCanvas');
 		{rdelim});
 	</script>
 	<div class="wrapper">
 		<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
-			<p>{translate key="submission.citations.form.description"}</p>
-			{if $unsavedChanges}
-				<p><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
-			{/if}
-	
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 	
-			<span class="options">
-				{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
-				<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
-			</span>
-	
-			<div id="citationFormTab-{$tabUid}">
+			<div id="citationFormTab-{$tabUid}" class="citation-form-block">
 				<ul>
 					{* Tabs that contain editable fields *}
 					{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
@@ -195,7 +212,12 @@
 				<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
 			{/if}
 	
-			<div class="pane_actions">
+			<div class="citation-form-block">
+				{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
+				<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+			</div>
+	
+			<div class="pane_actions citation-form-block">
 				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.saveAndRevokeApproval"}</button>
 				<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
 				<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.saveAndApprove"}{else}{translate key="submission.citations.addAndApprove"}{/if}</button>

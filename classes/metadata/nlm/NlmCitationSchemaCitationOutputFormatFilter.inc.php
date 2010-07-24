@@ -16,6 +16,9 @@
 
 import('lib.pkp.classes.filter.Filter');
 
+// This is a brand name so doesn't have to be translated...
+define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
+
 class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	/**
 	 * Constructor

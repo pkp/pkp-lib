@@ -177,21 +177,13 @@ class PKPCitationGridHandler extends GridHandler {
 		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 		$nlmCitationSchema = new NlmCitationSchema();
 
-		// Retrieve the currently selected filter from the database.
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		assert(is_object($context));
-		$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
-		assert(is_a($citationOutputFilter, 'Filter'));
-
 		$formattedCitations = array();
 		$initialHelpMessage = null;
 		$citations =& $this->_getSortedElements();
 		if ($citations->eof()) {
 			$initialHelpMessage = $noCitationsFoundMessage;
 		} else {
+			$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
 			while (!$citations->eof()) {
 				// Retrieve NLM citation meta-data
 				$citation =& $citations->next();
@@ -242,7 +234,8 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($citation);
+		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
+		$citationForm = new CitationForm($citation, $citationOutputFilter);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
 		} else {
@@ -295,12 +288,16 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($filteredCitation);
+		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
+		$citationForm = new CitationForm($filteredCitation, $citationOutputFilter);
 
 		// Transport filtering errors to form (if any).
 		foreach($filteredCitation->getErrors() as $errorMessage) {
 			$citationForm->addError('rawCitation', $errorMessage);
 		}
+
+		// Mark the citation form "dirty".
+		$citationForm->setUnsavedChanges(true);
 
 		// Return the rendered form
 		$citationForm->initData();
@@ -371,26 +368,17 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @return string a JSON response that contains the raw version
 	 *  and the field based version with additions/deletions marked.
 	 */
-	function fetchCitationDiff(&$args, &$request) {
+	function fetchCitationFormErrorsAndComparison(&$args, &$request) {
 		// Read the data in the request into
 		// the form without persisting the data.
 		$citationForm =& $this->_handleCitationForm($args, $request, false);
 
-		// Update the citation's grid row.
-		$savedCitation =& $citationForm->getCitation();
-		$row =& $this->getRowInstance();
-		$row->setGridId($this->getId());
-		$row->setId($savedCitation->getId());
-		$row->setData($savedCitation);
-		if (isset($args['remainsCurrentItem']) && $args['remainsCurrentItem'] == 'yes') {
-			$row->setIsCurrentItem(true);
-		}
-		$row->initialize($request);
+		// Render the form with the citation diff.
+		$output = $citationForm->fetch($request, CITATION_FORM_COMPARISON_TEMPLATE);
 
 		// Render the row into a JSON response
-		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		$json = new JSON('true', $output);
 		return $json->getString();
-
 	}
 
 
@@ -447,14 +435,44 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationForm = new CitationForm($citation);
+		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
+		$citationForm = new CitationForm($citation, $citationOutputFilter);
 		$citationForm->readInputData();
 
 		// Form validation
 		if ($citationForm->validate() && $persist) {
 			// Persist the citation.
 			$citationForm->execute();
+		} else {
+			// Mark the citation form "dirty".
+			$citationForm->setUnsavedChanges(true);
 		}
 		return $citationForm;
+	}
+
+
+	/**
+	 * Instantiates the citation output format filter currently
+	 * configured for the context.
+	 * @param $request PKPRequest
+	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 */
+	function &_instantiateCitationOutputFilter(&$request) {
+		// The filter is stateless so we can instantiate
+		// it once for all requests.
+		static $citationOutputFilter = null;
+		if (is_null($citationOutputFilter)) {
+			// Retrieve the currently selected citation output
+			// filter from the database.
+			$router =& $request->getRouter();
+			$context =& $router->getContext($request);
+			assert(is_object($context));
+			$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
+			$filterDao =& DAORegistry::getDAO('FilterDAO');
+			$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
+			assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
+		}
+
+		return $citationOutputFilter;
 	}
 }

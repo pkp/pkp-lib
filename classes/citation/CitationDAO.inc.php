@@ -59,7 +59,6 @@ class CitationDAO extends DAO {
 		$citation->setId($this->getInsertId());
 		$this->_updateObjectMetadata($citation, false);
 		$this->updateCitationSourceDescriptions($citation);
-		$citation->setHasUnsavedChanges(false);
 		return $citation->getId();
 	}
 
@@ -226,10 +225,9 @@ class CitationDAO extends DAO {
 
 		// Check the citation.
 		$filteredCitation =& $this->checkCitation($rawCitation, $contextId);
-		if ($filteredCitation->getHasUnsavedChanges()) {
-			// Updating the citation will also release the lock.
-			$this->updateObject($filteredCitation);
-		}
+
+		// Updating the citation will also release the lock.
+		$this->updateObject($filteredCitation);
 
 		return true;
 	}
@@ -282,7 +280,6 @@ class CitationDAO extends DAO {
 		);
 		$this->_updateObjectMetadata($citation);
 		$this->updateCitationSourceDescriptions($citation);
-		$citation->setHasUnsavedChanges(false);
 	}
 
 	/**
@@ -563,9 +560,6 @@ class CitationDAO extends DAO {
 			$filteredCitation =& $citation;
 			$filteredCitation->addError(Locale::translate('submission.citations.form.filterError'));
 		} else {
-			// Flag the citation "dirty".
-			$filteredCitation->setHasUnsavedChanges(true);
-
 			// Copy data from the original citation to the filtered citation.
 			$filteredCitation->setId($citation->getId());
 			$filteredCitation->setSeq($citation->getSeq());

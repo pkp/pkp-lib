@@ -42,8 +42,6 @@ class Citation extends DataObject {
 	 */
 	var $_errors = array();
 
-	/** @var boolean */
-	var $_hasUnsavedChanges = false;
 
 	/**
 	 * Constructor.
@@ -109,24 +107,6 @@ class Citation extends DataObject {
 	function setCitationState($citationState) {
 		assert(in_array($citationState, Citation::_getSupportedCitationStates()));
 		$this->_citationState = $citationState;
-	}
-
-	/**
-	 * Set the flag that indicates whether
-	 * the citation has unsaved changes
-	 * @param $hasUnsavedChanges boolean
-	 */
-	function setHasUnsavedChanges($hasUnsavedChanges) {
-		$this->_hasUnsavedChanges = $hasUnsavedChanges;
-	}
-
-	/**
-	 * Get the flag that indicates whether
-	 * the citation has unsaved changes
-	 * @return boolean
-	 */
-	function getHasUnsavedChanges() {
-		return $this->_hasUnsavedChanges;
 	}
 
 	/**

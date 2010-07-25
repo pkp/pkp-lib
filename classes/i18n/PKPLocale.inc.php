@@ -16,8 +16,6 @@
  * @brief Provides methods for loading locale data and translating strings identified by unique keys
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.i18n.LocaleFile');
 

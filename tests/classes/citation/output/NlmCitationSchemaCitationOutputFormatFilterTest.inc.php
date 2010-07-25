@@ -22,20 +22,17 @@ import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
-	var $_request;
-
 	//
 	// Getters and setters
 	//
-	protected function getRequest() {
-		return $this->_request;
-	}
-
 	protected function setUp() {
+		$application =& PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
-		$router = new PKPRouter();
-		$this->_request = new PKPRequest();
-		$this->_request->setRouter($router);
+		$request =& $application->getRequest();
+		if (is_null($request->getRouter())) {
+			$router = new PKPRouter();
+			$request->setRouter($router);
+		}
 	}
 
 	public function testExecuteWithUnsupportedPublicationType() {
@@ -46,7 +43,8 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_THESIS);
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
-		self::assertEquals('translated string', $result); // This is the string returned from the mock locale for all translations
+		self::assertEquals('', $result);
+		self::assertEquals(array('translated string'), $citationOutputFilter->getErrors());
 		self::assertEquals(Locale::getTestedTranslationKey(), 'submission.citations.output.unsupportedPublicationType');
 	}
 
@@ -79,14 +77,12 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		// Book without author
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getBookResultNoAuthor();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getBookResultNoAuthorGoogleScholar().$expectedResult[1], $result);
 
 		// Add an author
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person1Description);
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getBookResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add a chapter title and a second author
@@ -96,7 +92,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('lpage', $lpage = 25);
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getBookChapterResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add editor
@@ -106,7 +101,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationDescription->addStatement('person-group[@person-group-type="editor"]', $person3Description);
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getBookChapterWithEditorResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add another editor and an edition.
@@ -118,7 +112,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		self::assertTrue($citationDescription->addStatement('edition', $edition = '2nd ed'));
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getBookChapterWithEditorsResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getBookResultGoogleScholar().$expectedResult[1], $result);
 	}
 
@@ -154,7 +147,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getJournalArticleResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getJournalArticleResultGoogleScholar().$expectedResult[1], $result);
 
 		// Add 6 more authors
@@ -176,7 +168,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		}
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getJournalArticleWithMoreThanSevenAuthorsResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getJournalArticleResultGoogleScholar().$expectedResult[1], $result);
 	}
 
@@ -202,7 +193,6 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
 		$expectedResult = $this->getConfProcResult();
-		if (!is_array($expectedResult)) $expectedResult = array($expectedResult, '');
 		self::assertEquals($expectedResult[0].$this->getConfProcResultGoogleScholar().$expectedResult[1], $result);
 	}
 

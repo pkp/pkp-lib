@@ -27,6 +27,10 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	 */
 	function NlmCitationSchemaAbntFilter() {
 		$this->setDisplayName('ABNT Citation Output');
+		// FIXME: Implement conference proceedings support for ABNT.
+		$this->setSupportedPublicationTypes(array(
+			NLM_PUBLICATION_TYPE_BOOK, NLM_PUBLICATION_TYPE_JOURNAL
+		));
 
 		parent::NlmCitationSchemaCitationOutputFormatFilter();
 	}
@@ -48,7 +52,6 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	//
 	/**
 	 * @see NlmCitationSchemaCitationOutputFormatFilter::getBasePath()
-	 * @return string
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

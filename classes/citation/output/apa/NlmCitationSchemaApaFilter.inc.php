@@ -46,7 +46,6 @@ class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFi
 	//
 	/**
 	 * @see NlmCitationSchemaCitationOutputFormatFilter::getBasePath()
-	 * @return string
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

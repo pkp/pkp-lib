@@ -251,10 +251,11 @@ class NlmCitationSchemaFilter extends Filter {
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
 		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
-		if (is_null($preliminaryNlmDOM)) {
+		if (is_null($preliminaryNlmDOM) || is_null($preliminaryNlmDOM->documentElement)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
 			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
-			return $preliminaryNlmDOM;
+			$nullVar = null;
+			return $nullVar;
 		}
 
 		// Transform the result to an array.

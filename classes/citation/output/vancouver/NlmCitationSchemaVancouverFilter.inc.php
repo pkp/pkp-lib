@@ -48,7 +48,6 @@ class NlmCitationSchemaVancouverFilter extends NlmCitationSchemaCitationOutputFo
 	//
 	/**
 	 * @see NlmCitationSchemaCitationOutputFormatFilter::getBasePath()
-	 * @return string
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

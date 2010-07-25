@@ -14,10 +14,22 @@
 
 define('LOCALE_ENCODING', 'utf-8');
 
+
+// PKP locale components
+define('LOCALE_COMPONENT_PKP_COMMON',		0x00000001);
+define('LOCALE_COMPONENT_PKP_ADMIN',		0x00000002);
+define('LOCALE_COMPONENT_PKP_INSTALLER',	0x00000003);
+define('LOCALE_COMPONENT_PKP_MANAGER',		0x00000004);
+define('LOCALE_COMPONENT_PKP_READER',		0x00000005);
+define('LOCALE_COMPONENT_PKP_SUBMISSION',	0x00000006);
+define('LOCALE_COMPONENT_PKP_USER',		0x00000007);
+define('LOCALE_COMPONENT_PKP_GRID', 	0x00000008);
+
+
 class Locale {
 	private static
 		$translationKey;
-		
+
 	/*
 	 * method required during setup of
 	 * the PKP application framework
@@ -40,6 +52,14 @@ class Locale {
 	 * the PKP application framework
 	 */
 	function registerLocaleFile($locale, $filename, $addToTop = false) {
+		// do nothing
+	}
+
+	/*
+	 * method required during setup of
+	 * the PKP templating engine and application framework
+	 */
+	function requireComponents($components, $locale = null) {
 		// do nothing
 	}
 

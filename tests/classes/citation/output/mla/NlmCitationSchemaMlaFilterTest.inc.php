@@ -21,7 +21,7 @@ class NlmCitationSchemaMlaFilterTest extends NlmCitationSchemaCitationOutputForm
 	 * Implements abstract methods from NlmCitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new NlmCitationSchemaMlaFilter($this->getRequest());
+		return new NlmCitationSchemaMlaFilter();
 	}
 
 	protected function getBookResultNoAuthor() {

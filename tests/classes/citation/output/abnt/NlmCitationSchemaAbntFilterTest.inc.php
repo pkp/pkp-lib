@@ -22,35 +22,35 @@ class NlmCitationSchemaAbntFilterTest extends NlmCitationSchemaCitationOutputFor
 	 * Implements abstract methods from NlmCitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new NlmCitationSchemaAbntFilter($this->getRequest());
+		return new NlmCitationSchemaAbntFilter();
 	}
 
 	protected function getBookResultNoAuthor() {
-		return '<i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return array('<p><i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)', '</p>');
 	}
 
 	protected function getBookResult() {
-		return 'AZEVEDO, M.A. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return array('<p>AZEVEDO, M.A. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)', '</p>');
 	}
 
 	protected function getBookChapterResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: ________. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return array('<p>AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: ________. <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)', '</p>');
 	}
 
 	protected function getBookChapterWithEditorResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return array('<p>AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)', '</p>');
 	}
 
 	protected function getBookChapterWithEditorsResult() {
-		return 'AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L.; VELADO, JR M. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)';
+		return array('<p>AZEVEDO, M.A.; GUERRA, V. Psicologia genética e lógica. In: BANKS-LEITE, L.; VELADO, JR M. (Ed.). <i>Mania de bater:</i> A punição corporal doméstica de crianças e adolescentes no Brasil. São Paulo: Iglu, 2001. 368 p. (Edição Standard Brasileira das Obras Psicológicas, v.10)', '</p>');
 	}
 
 	protected function getJournalArticleResult() {
-		return 'SILVA, V.A.; DOS SANTOS, P. Etinobotânica Xucuru: espécies místicas. <i>Biotemas</i>, Florianópolis, v.15, n.1, p.45-57, jun 2000. pmid:12140307. doi:10146:55793-493.';
+		return array('<p>SILVA, V.A.; DOS SANTOS, P. Etinobotânica Xucuru: espécies místicas. <i>Biotemas</i>, Florianópolis, v.15, n.1, p.45-57, jun 2000. pmid:12140307. doi:10146:55793-493.', '</p>');
 	}
 
 	protected function getJournalArticleWithMoreThanSevenAuthorsResult() {
-		return 'SILVA, V.A. et al. Etinobotânica Xucuru: espécies místicas. <i>Biotemas</i>, Florianópolis, v.15, n.1, p.45-57, jun 2000. pmid:12140307. doi:10146:55793-493.';
+		return array('<p>SILVA, V.A. et al. Etinobotânica Xucuru: espécies místicas. <i>Biotemas</i>, Florianópolis, v.15, n.1, p.45-57, jun 2000. pmid:12140307. doi:10146:55793-493.', '</p>');
 	}
 
 	protected function getConfProcResult() {

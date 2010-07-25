@@ -20,30 +20,58 @@ import('lib.pkp.classes.filter.Filter');
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
 
 class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
+	/** @var The publication types supported by this output filter. */
+	var $_supportedPublicationTypes;
+
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
 	function NlmCitationSchemaCitationOutputFormatFilter() {
 		parent::Filter();
-
-		// Load additional translations
-		$locale = Locale::getLocale();
-		$basePath = $this->getBasePath();
-		$localeFile = $basePath.DIRECTORY_SEPARATOR.'locale'.DIRECTORY_SEPARATOR.$locale.DIRECTORY_SEPARATOR.'locale.xml';
-		Locale::registerLocaleFile($locale, $localeFile);
 	}
 
+
 	//
-	// Abstract template methods to be implemented by subclasses
+	// Setters and Getters
 	//
 	/**
-	 * Return the base path of the citation filter
+	 * Set the supported publication types.
+	 * @param $supportedPublicationTypes array
+	 */
+	function setSupportedPublicationTypes($supportedPublicationTypes) {
+		$this->_supportedPublicationTypes = $supportedPublicationTypes;
+	}
+
+	/**
+	 * Get the supported publication types.
+	 * @return array
+	 */
+	function getSupportedPublicationTypes() {
+		if (is_null($this->_supportedPublicationTypes)) {
+			// Set default supported publication types.
+			$this->_supportedPublicationTypes = array(
+				NLM_PUBLICATION_TYPE_BOOK, NLM_PUBLICATION_TYPE_JOURNAL, NLM_PUBLICATION_TYPE_CONFPROC
+			);
+		}
+		return $this->_supportedPublicationTypes;
+	}
+
+
+	//
+	// Abstract template methods
+	//
+	/**
+	 * Return the base path of the filter so that we
+	 * can find the filter templates.
+	 *
 	 * @return string
 	 */
 	function getBasePath() {
+		// Must be implemented by sub-classes.
 		assert(false);
 	}
+
 
 	//
 	// Implement template methods from Filter
@@ -64,6 +92,16 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	 * @return string formatted citation output
 	 */
 	function &process(&$input) {
+		// Check whether the incoming publication type is supported by this
+		// output filter.
+		$supportedPublicationTypes = $this->getSupportedPublicationTypes();
+		$inputPublicationType = $input->getStatement('[@publication-type]');
+		if (!in_array($inputPublicationType, $supportedPublicationTypes)) {
+			$this->addError(Locale::translate('submission.citations.output.unsupportedPublicationType'));
+			$emptyResult = '';
+			return $emptyResult;
+		}
+
 		// Initialize view
 		$locale = Locale::getLocale();
 		$application =& PKPApplication::getApplication();

@@ -256,8 +256,11 @@ function clearFormFields(form) {
 }
 
 /**
- * ajaxAction
- * Implements an ajax action.
+ * Implements a generic ajax action.
+ * 
+ * NB: Please make sure you correctly unbind previous ajax action events
+ * before you call this method.
+ * 
  * @param actType can be either 'get' or 'post', 'post' expects a form as
  *  a child element of 'actOnId' if no form has been explicitly given.
  * @param callingElement selector of the element that triggers the ajax call
@@ -271,13 +274,14 @@ function clearFormFields(form) {
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
 	if (actType == 'post') {
 		eventHandler = function() {
+			// jQuerify the form.
 			if (form) {
 				$form = $(form);
 			} else {
 				$form = $(actOnId).find('form');
 			}
 
-			// Default url and data
+			// Set default url and data if none has been given.
 			if (!url) {
 				postUrl = $form.attr("action");
 			} else {
@@ -333,10 +337,12 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 	}
 
 	if (eventName === undefined) eventName = 'click';
-	$(document).ready(function() {
-		$(callingElement).each(function() {
-			$(this).unbind(eventName).bind(eventName, eventHandler);
-		});
+	$(callingElement).each(function() {
+		// NB: We cannot unbind previous events here as this
+		// may delete other legitimate events. Please make sure
+		// you correctly unbind previous ajax action events
+		// before you call this method.
+		$(this).bind(eventName, eventHandler);
 	});
 }
 

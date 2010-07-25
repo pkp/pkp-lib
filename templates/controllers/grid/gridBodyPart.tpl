@@ -6,7 +6,7 @@
  *
  * a set of grid rows within a tbody
  *}
-<tbody>
+<tbody class="scrollable">
 	{foreach from=$rows item=row}
 		{$row}
 	{/foreach}	

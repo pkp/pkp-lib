@@ -41,17 +41,6 @@
 				$('#rawCitationWithMarkup').show();
 			{rdelim});
 			
-		// Update citation diff after editing.
-		ajaxAction(
-			'post',
-			'#citationFormErrorsAndComparison',
-			'#editableRawCitation textarea',
-			'{url op="fetchCitationFormErrorsAndComparison"}',
-			null,
-			'change',
-			'#editCitationForm'
-		);
-
 		// Clicking on the raw citation should make it editable.
 		$('#rawCitationWithMarkup div.value, #rawCitationWithMarkup a').each(function() {ldelim}
 			$(this).click(function() {ldelim}
@@ -60,20 +49,37 @@
 				return false;
 			{rdelim});
 		{rdelim});
-	{rdelim});
+		
+		// Throbber only when raw citation is edited.
+		$('#editableRawCitation textarea').change(function() {ldelim}
+			actionThrobber('#citationFormErrorsAndComparison');
+		{rdelim});
 
-	// Throbber
-	actionThrobber('#citationFormErrorsAndComparison');
+		// Update citation diff after any type of editing.
+		$('.citation-field').each(function() {ldelim}
+			$(this).unbind('change');
+		{rdelim});	
+		ajaxAction(
+			'post',
+			'#citationFormErrorsAndComparison',
+			'#editableRawCitation textarea, .citation-field',
+			'{url op="fetchCitationFormErrorsAndComparison"}',
+			null,
+			'change',
+			'#editCitationForm'
+		);
+	{rdelim});
 </script>
-<div id="citationFormErrorsAndComparison" class="citation-form-block">
-	<div id="citationFormMessages" class="help-message">
-		<p>{translate key="submission.citations.form.description"}</p>
-		{if $unsavedChanges}
-			<p class="unsaved-data-warning"><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
-		{/if}
-	</div>
+<div id="citationFormErrorsAndComparison" class="form-block">
+	{if $unsavedChanges || $isError}
+		<div id="citationFormMessages" class="help-message">
+			{if $unsavedChanges}
+				<p class="unsaved-data-warning"><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
+			{/if}
+			{include file="common/formErrors.tpl"}
+		</div>
+	{/if}
 	
-	{include file="common/formErrors.tpl"}
 
 	{* We have two versions of the raw citation - one editable and the
 	   other with mark-up for comparison. We use JS to switch between the

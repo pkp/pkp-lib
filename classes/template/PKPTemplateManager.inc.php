@@ -1144,13 +1144,15 @@ class PKPTemplateManager extends Smarty {
 
 		return "<div id=\"" . str_replace("#","",$id) . "\"$class>$translatedLoadMessage</div>
 		<script type='text/javascript'>
-			$.getJSON(\"$url\", function(jsonData) {
-				if (jsonData.status === true) {
-					$(\"$id\").html(jsonData.content);
-				} else {
-					// Alert that loading failed
-					alert(jsonData.content);
-				}
+			$(function() {
+				$.getJSON(\"$url\", function(jsonData) {
+					if (jsonData.status === true) {
+						$(\"$id\").html(jsonData.content);
+					} else {
+						// Alert that loading failed
+						alert(jsonData.content);
+					}
+				});
 			});
 		</script>";
 	}

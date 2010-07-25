@@ -132,7 +132,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$this->addColumn(
 			new GridColumn(
 				'rawCitation',
-				'submission.citations.grid.columnHeaderRawCitation',
+				null,
 				false,
 				'controllers/grid/citation/citationGridCell.tpl',
 				$cellProvider,

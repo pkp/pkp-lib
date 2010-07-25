@@ -51,11 +51,9 @@
 					{/foreach}
 		        </tr>
 		    </thead>
-		    <tbody>
 			{foreach from=$gridBodyParts item=bodyPart}
 				{$bodyPart}
 			{/foreach}
-			</tbody>
 		    <tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
 				{**
 					We need the last (=empty) line even if we have rows

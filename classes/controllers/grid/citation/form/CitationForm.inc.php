@@ -317,30 +317,27 @@ class CitationForm extends Form {
 
 		// Many template variables are only required for the full form template.
 		if ($template == CITATION_FORM_FULL_TEMPLATE) {
-			// Form tabs
-			// FIXME: At the moment, we just create two tabs -- one for filled
-			// elements, and one for empty ones. Any number of elements can be
-			// added, and they will appear as new tabs on the modal window.
-			$citationFormTabs = array('Filled' => array(), 'Empty' => array());
+			// Available fields
+			$availableFields = array();
 			foreach($this->_citationProperties as $fieldName => $property) {
-				$tabName = ($this->getData($fieldName) == '' ? 'Empty' : 'Filled');
-				$citationFormTabs[$tabName][$fieldName] = array(
+				$availableFields[$fieldName] = array(
 					'displayName' => $property->getDisplayName(),
-					'required' => $property->getMandatory()
+					'required' => $property->getMandatory()?'true':'false'
 				);
 			}
-			$templateMgr->assign_by_ref('citationFormTabs', $citationFormTabs);
+			$templateMgr->assign_by_ref('availableFields', $availableFields);
 
 			// Citation source tabs
-			$sourceDescriptions =& $citation->getSourceDescriptions();
-			assert(is_array($sourceDescriptions));
-
 			$citationSourceTabs = array();
 			$locale = Locale::getLocale();
+
 			// Run through all source descriptions and extract statements
+			$sourceDescriptions =& $citation->getSourceDescriptions();
+			assert(is_array($sourceDescriptions));
 			foreach($sourceDescriptions as $sourceDescription) {
 				$sourceDescriptionId = $sourceDescription->getId();
 				$metadataSchema =& $sourceDescription->getMetadataSchema();
+
 				// Use the display name of the description for the tab.
 				// We can safely use the 'displayName' key here as
 				// the keys representing statements will be namespaced.
@@ -370,7 +367,7 @@ class CitationForm extends Form {
 			// Add the citation to the template
 			$templateMgr->assign_by_ref('citation', $citation);
 
-			// Add actions for parsing and lookup
+			// Add action for re-checking of a citation.
 			$router = $request->getRouter();
 			$checkAction = new LinkAction(
 				'checkCitation',

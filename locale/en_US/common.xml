@@ -105,7 +105,8 @@
 	<message key="common.error.framesRequired"><![CDATA[This page requires frames. <a href="{$url}">Click here</a> for the non-frames version.]]></message>
 	<message key="common.event">Event</message>
 	<message key="common.export">Export</message>
-	<message key="common.re">Re:</message>
+	<message key="common.fullscreen">Fullscreen</message>
+	<message key="common.fullscreenOff">Fullscreen Off</message>
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
 	<message key="common.fileName">File name</message>
@@ -150,6 +151,7 @@
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
+	<message key="common.re">Re:</message>
 	<message key="common.record">Record</message>
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>

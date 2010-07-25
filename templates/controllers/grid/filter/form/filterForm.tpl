@@ -11,9 +11,11 @@
 <div id="editFilterFormContainer{$uid}">
 	{if $noMoreTemplates}
 		{literal}<script type='text/javascript'>
-			// Hide the OK button.
-			$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
-					.hide()
+			$(function() {
+				// Hide the OK button.
+				$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
+						.hide()
+			});
 		</script>{/literal}
 		<p>{translate key='manager.setup.filter.noMoreTemplates'}</p>
 	{else}
@@ -29,25 +31,29 @@
 				{fbvSelect id="filterTemplateSelect"|concat:$uid name="filterTemplateId"
 						from=$filterTemplates translate=false defaultValue="-1" defaultLabel="manager.setup.filter.pleaseSelect"|translate}
 				{literal}<script type='text/javascript'>
-					// Hide the OK button as long as we
-					// don't have a filter selected.
-					$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
-							.hide()
-					
-					ajaxAction(
-						'post',
-						'#editFilterFormContainer{/literal}{$uid}{literal}',
-						'#filterTemplateSelect{/literal}{$uid}{literal}',
-						'{/literal}{url op="editFilter"}{literal}',
-						undefined,
-						'change'
-					);
+					$(function() {
+						// Hide the OK button as long as we
+						// don't have a filter selected.
+						$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
+								.hide()
+						
+						ajaxAction(
+							'post',
+							'#editFilterFormContainer{/literal}{$uid}{literal}',
+							'#filterTemplateSelect{/literal}{$uid}{literal}',
+							'{/literal}{url op="editFilter"}{literal}',
+							undefined,
+							'change'
+						);
+					});
 				</script>{/literal}
 			{else}
 				{literal}<script type='text/javascript'>
-					// Switch the OK button back on.
-					$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
-							.show()
+					$(function() {
+						// Switch the OK button back on.
+						$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
+								.show()
+					});
 				</script>{/literal}
 	
 				{assign var=hasRequiredField value=false}

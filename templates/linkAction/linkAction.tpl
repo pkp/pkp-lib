@@ -27,11 +27,13 @@
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 	<script type="text/javascript">
-		ajaxAction(
-			'{$action->getType()}',
-			'#{$actOnId}',
-			'#{$buttonId}',
-			'{$action->getUrl()}'
-		);
+		$(function() {ldelim}
+			ajaxAction(
+				'{$action->getType()}',
+				'#{$actOnId}',
+				'#{$buttonId}',
+				'{$action->getUrl()}'
+			);
+		{rdelim});
 	</script>
 {/if}

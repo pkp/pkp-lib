@@ -8,13 +8,10 @@
  *}
 
 {assign var=containerId value="editCitationFormContainer-"|uniqid}
+{assign var=formUid value="form"|uniqid}
 <div id="citationEditorDetailCanvas" class="canvas">
-	{assign var=tabUid value="tab"|uniqid}
 	<script type="text/javascript">
 		$(function() {ldelim}
-			// Create tabs.
-			$("#citationFormTab-{$tabUid}").tabs();
-			
 			// Create text to be inserted into the empty editor pane.
 			emptyEditorText = '{strip}
 				<div id="citationEditorDetailCanvas" class="canvas">
@@ -32,7 +29,23 @@
 					$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
 				{rdelim});
 			{/if}
-	
+
+			// Represent citation fields as an object in JS.
+			{assign var=hasRequiredField value=false}
+			citationFields = {ldelim}
+				{foreach from=$availableFields key=fieldName item=field}
+					{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
+					{eval|assign:"fieldValue" var=$fieldValueVar}
+					'{$fieldName}': ['{translate|escape:javascript key=$field.displayName}', {$field.required}, '{$fieldValue|escape:javascript}'],
+				{/foreach}
+			{rdelim};
+
+			// Create citation source tabs.
+			$('#citationSourceTabs-{$formUid}').tabs();
+
+			// Create citation improvement tabs.
+			$('#citationImprovement').tabs();
+			
 			// Handle cancel button.
 			$('#citationFormCancel').click(function() {ldelim}
 				// Clear the form panel and show the initial help message.
@@ -58,12 +71,17 @@
 				$(this).click(function() {ldelim}
 					pressedButton = this.id;
 					
-					// Bind to the form's submitSuccessful custom event.
+					// Bind to the form's submitSuccessful custom event which
+					// will be called once the citation has been successfully
+					// saved.
 					$('#citationEditorDetailCanvas').bind('submitSuccessful', function() {ldelim}
 						$(this).unbind('submitSuccessful');
 						
 						// Remove warning about unsaved data.
 						$('p.unsaved-data-warning').remove();
+						if($('#citationFormMessages').children().length === 0) {ldelim}
+							$('#citationFormMessages').remove();
+						{rdelim}
 
 						if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
 							// Shuffle buttons around.
@@ -129,100 +147,127 @@
 			actionThrobber('#citationEditorDetailCanvas');
 		{rdelim});
 	</script>
-	<div class="wrapper">
-		<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
+	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
+		<div class="wrapper scrollable">
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
-	
-			<div id="citationFormTab-{$tabUid}" class="citation-form-block">
-				<ul>
-					{* Tabs that contain editable fields *}
-					{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-						<li><a href="#{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">{$citationFormTabName|escape}</a></li>
-					{/foreach}
-					
-					{* Tabs that contain source data *}
-					{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-						<li><a href="#{$citationSourceTabId}-{$tabUid}">{$citationSourceTab.displayName|escape}</a></li>
-					{/foreach}
-				</ul>
-				
-				{* Tab content for tabs that contain editable fields *}
-				{foreach from=$citationFormTabs key=citationFormTabName item=varsArray}
-					{assign var=hasRequiredField value=false}
-					<div id="{$citationFormTabName|escape|regex_replace:"/\s*/":""}-{$tabUid}">
-						<table width="100%">
-							<tr valign="top">
-								<td width="30%" class="label">{fieldLabel name="fieldNames" key="submission.citations.grid.fields"}</td>
-								<td width="70%" class="value">{fieldLabel name="fieldValues" key="submission.citations.grid.values"}</td>
-							</tr>
-							{foreach from=$varsArray key=fieldName item=field}
-								{if $field.required}{assign var=hasRequiredField value=true}{/if}
-								<tr valign="top">
-									<td width="30%" class="label">{fieldLabel name=$fieldName key=$field.displayName required=$field.required}</td>
-									{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
-									{eval|assign:"fieldValue" var=$fieldValueVar}
-									<td width="70%" class="value">{fbvElement type="text" name=$fieldName id=$fieldName size=$fbvStyles.size.LARGE maxlength="250" value=$fieldValue"}</td>
-								</tr>
+
+			<div id="citationImprovementBlock" class="form-block"> 
+				<p>{translate key="submission.citations.form.description"}</p>
+			
+				<div id="citationImprovement">
+					<ul>
+						<li><a href="#citationImprovementManual">Manual Editing</a></li>
+						<li><a href="#citationImprovementDatabase">Database Query</a></li>
+						<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
+						<li><a href="#citationImprovementAuthor">Ask Author</a></li>
+						<li><a href="#citationImprovementSources">View Sources</a></li>
+					</ul>
+					<div id="citationImprovementManual" class="form-block grid">
+						<table>
+							{* Create initial field list which will then be maintained via JS. *}
+							{foreach from=$availableFields key=fieldName item=field}
+								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
+								{eval|assign:"fieldValue" var=$fieldValueVar}
+								{if $fieldValue != ''}
+									{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
+									<tr id="{$fieldName}"{if $field.required == 'true'} class="citation-field-required"{/if}>
+										<td class="first_column" width="30%">
+											<div class="row_container">
+												<div class="row_file label">{translate|escape key=$field.displayName}</div>
+												<div class="row_actions">
+													<a class="delete" title="{translate key="common.delete"}" href=""></a>
+												</div>
+											</div>
+										</td>
+										<td class="value">
+											<input type="text" class="citation-field text large" value="{$fieldValue|escape}" id="{$fieldName}" name="{$fieldName}">
+										</td>
+									</tr>
+								{/if}
 							{/foreach}
 						</table>
+						
 						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 					</div>
-				{/foreach}
-				
-				{* Tab content for tabs that contain source data *}
-				{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-					<div id="{$citationSourceTabId}-{$tabUid}">
-						<table>
-							{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
-								<tr valign="top">
-									<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-									<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
-									<td width="5%">
-										<a id="{$sourcePropertyId}-use" href="">use</a>
-										{literal}<script type='text/javascript'>
-											$(function() {
-												$('#{/literal}{$sourcePropertyId}{literal}-use').click(function() {
-													// Create the source and target selector
-													tabId = '{/literal}{$tabUid}{literal}';
-													sourcePropertyId = '{/literal}{$sourcePropertyId}{literal}';
-													sourceTabId = sourcePropertyId.substring(0, sourcePropertyId.indexOf('-'));
-													sourceSelector = '#' + sourceTabId + '-' + tabId + ' #' + sourcePropertyId;
-													targetFieldId = sourcePropertyId.substring(sourcePropertyId.indexOf('-') + 1);
-													targetSelector = '#Filled-' + tabId + ' #' + targetFieldId + ', #Empty-' + tabId + ' #' + targetFieldId
-													
-													// Copy the content of the source to the target field
-													$(targetSelector).val($(sourceSelector).text());
-													return false;
-												});
-											});
-										</script>{/literal}
-									</td>
-								</tr>
-							{/foreach}
-						</table>
+					<div id="citationImprovementDatabase" class="form-block grid">
+						Databases
+		
+						<div class="form-block">
+							{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
+							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+						</div>
 					</div>
-				{/foreach}
+					
+					<div id="citationImprovementGoogle" class="form-block grid">
+						Google Scholar
+					</div>
+					
+					<div id="citationImprovementAuthor" class="form-block grid">
+						Ask Author
+					</div>
+					
+					<div id="citationImprovementSources" class="form-block grid">
+						{* Tabs that contain source data *}
+						<div id="citationSourceTabs-{$formUid}" class="form-block">
+							{* Tab definition *}
+							<ul>
+								{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+									<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
+								{/foreach}
+							</ul>
+							
+							{* Tab content *}
+							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+								<div id="{$citationSourceTabId}-{$formUid}">
+									<table>
+										{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
+											<tr valign="top">
+												<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+												<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
+												<td width="5%">
+													<a id="{$sourcePropertyId}-use" href="">use</a>
+													{literal}<script type='text/javascript'>
+														$(function() {
+															$('#{/literal}{$sourcePropertyId}{literal}-use').click(function() {
+																// Create the source and target selector
+																tabId = '{/literal}{$formUid}{literal}';
+																sourcePropertyId = '{/literal}{$sourcePropertyId}{literal}';
+																sourceTabId = sourcePropertyId.substring(0, sourcePropertyId.indexOf('-'));
+																sourceSelector = '#' + sourceTabId + '-' + tabId + ' #' + sourcePropertyId;
+																targetFieldId = sourcePropertyId.substring(sourcePropertyId.indexOf('-') + 1);
+																targetSelector = '#Filled-' + tabId + ' #' + targetFieldId + ', #Empty-' + tabId + ' #' + targetFieldId
+																
+																// Copy the content of the source to the target field
+																$(targetSelector).val($(sourceSelector).text());
+																return false;
+															});
+														});
+													</script>{/literal}
+												</td>
+											</tr>
+										{/foreach}
+									</table>
+								</div>
+							{/foreach}
+						</div>
+					</div>
+				</div>
 			</div>
-	
-			<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
-			<input id="citationApproved" type="hidden" name="citationApproved" value="{if $citationApproved}citationApproved{/if}" />
-			<input id="remainsCurrentItem" type="hidden" name="remainsCurrentItem" value="yes" />
-			{if $citation->getId()}
-				<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
-				<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
-			{/if}
-	
-			<div class="citation-form-block">
-				{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
-				<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
-			</div>
-	
-			<div class="pane_actions citation-form-block">
-				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.saveAndRevokeApproval"}</button>
-				<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
-				<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.saveAndApprove"}{else}{translate key="submission.citations.addAndApprove"}{/if}</button>
-				<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
-			</div>
-		</form>
-	</div>
+		</div>
+			
+		<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
+		<input id="citationApproved" type="hidden" name="citationApproved" value="{if $citationApproved}citationApproved{/if}" />
+		<input id="remainsCurrentItem" type="hidden" name="remainsCurrentItem" value="yes" />
+		{if $citation->getId()}
+			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
+			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
+		{/if}
+		
+		<div class="pane_actions form-block"><div>
+			<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.saveAndRevokeApproval"}</button>
+			<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
+			<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.saveAndApprove"}{else}{translate key="submission.citations.addAndApprove"}{/if}</button>
+			<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
+		</div></div>
+	</form>
 </div>

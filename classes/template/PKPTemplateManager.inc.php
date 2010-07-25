@@ -17,8 +17,6 @@
  * Currently integrated with Smarty (from http://smarty.php.net/).
  */
 
-// $Id$
-
 
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
@@ -1188,8 +1186,8 @@ class PKPTemplateManager extends Smarty {
 		// Add the modal javascript to the header
 		$dialogTitle = isset($dialogTitle) ? ", '$dialogTitle'" : "";
 		$modalCode = "<script type='text/javascript'>
-		var localizedButtons = ['$submitButton', '$cancelButton'];
-		modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button'$dialogTitle);
+			var localizedButtons = ['$submitButton', '$cancelButton'];
+			modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button'$dialogTitle);
 		</script>\n";
 
 		return $modalCode;

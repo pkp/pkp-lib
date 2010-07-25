@@ -91,9 +91,9 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 
 /**
  * Submit a form that returns JSON data.
- * @param $formContainer Container of form to be submitted, most likely a modal's ID (must include '#')
- * @param $actType Type to define if callback should do (nothing|append|replace|remove)
- * @param $actOnId The ID on which to perform the action on callback
+ * @param formContainer String Container of form to be submitted, most likely a modal's ID (must include '#')
+ * @param actType String Type to define if callback should do (nothing|append|replace|remove)
+ * @param actOnId String The ID on which to perform the action on callback
  */
 function submitJsonForm(formContainer, actType, actOnId) {
 	// jQuerify the form container and find the form in it.
@@ -130,13 +130,13 @@ function submitJsonForm(formContainer, actType, actOnId) {
 
 
 /**
- * modalConfirm
- * @param $url URL to load into the modal
- * @param $actType Type to define if callback should do (nothing|append|replace|remove)
- * @param $actOnId The ID on which to perform the action on callback
- * @param $dialogText Text to display in the dialog
- * @param $localizedButtons Array of translated 'Cancel/submit' strings
- * @param $callingButton Selector of the button that opens the modal
+ * Opens a modal confirm box.
+ * @param url String URL to load into the modal
+ * @param actType String Type to define if callback should do (nothing|append|replace|remove)
+ * @param actOnId String The ID on which to perform the action on callback
+ * @param dialogText String Text to display in the dialog
+ * @param localizedButtons Array of translated 'Cancel/submit' strings
+ * @param callingButton String Selector of the button that opens the modal
  */
 function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
 	$(document).ready(function() {
@@ -192,9 +192,9 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 }
 
 /**
- * alert - Display a simple alert dialog
- * @param $dialogText Text to display in the dialog
- * @param $localizedButtons Array of translated 'Cancel/submit' strings
+ * Display a simple alert dialog
+ * @param dialogText String Text to display in the dialog
+ * @param localizedButtons Array of translated 'Cancel/submit' strings
  */
 function modalAlert(dialogText, localizedButtons) {
 		var localizedText = new Array();
@@ -227,6 +227,9 @@ function modalAlert(dialogText, localizedButtons) {
 		return false;
 }
 
+/**
+ * FIXME: document
+ */
 function changeModalFormLocale() {
 	oldLocale = $("#currentLocale").val();
 	newLocale = $("#formLocale").val();
@@ -236,6 +239,10 @@ function changeModalFormLocale() {
 	$("."+newLocale).show("normal");
 }
 
+/**
+ * Clear all fields of a form.
+ * @param form jQuery
+ */
 function clearFormFields(form) {
 	$(':input', form).each(function() {
 		if(!$(this).is('.static')) {
@@ -261,15 +268,15 @@ function clearFormFields(form) {
  * NB: Please make sure you correctly unbind previous ajax action events
  * before you call this method.
  * 
- * @param actType can be either 'get' or 'post', 'post' expects a form as
+ * @param actType String can be either 'get' or 'post', 'post' expects a form as
  *  a child element of 'actOnId' if no form has been explicitly given.
- * @param callingElement selector of the element that triggers the ajax call
- * @param url the url to be called, defaults to the form action in case of
+ * @param callingElement String selector of the element that triggers the ajax call
+ * @param url String the url to be called, defaults to the form action in case of
  *  action type 'post'.
- * @param data (post action type only) the data to be posted, defaults to
+ * @param data Array (post action type only) the data to be posted, defaults to
  *  the form data.
- * @param eventName the name of the event that triggers the action, default 'click'.
- * @param form the selector of a form element.
+ * @param eventName String the name of the event that triggers the action, default 'click'.
+ * @param form String the selector of a form element.
  */
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
 	if (actType == 'post') {
@@ -359,6 +366,17 @@ function actionThrobber(actOnId) {
 	});
 }
 
+/**
+ * Update the DOM of a grid depending on the action type.
+ * 
+ * NB: This relies on an element with class "empty" being present
+ * in the grid. Make sure you use an appropriate grid template for
+ * this to work.
+ * 
+ * @param actType String one of the action type constants. 
+ * @param actOnId Selector for the DOM element to be changed.
+ * @param content The content that replaces the current DOM element (replace or append types only)
+ */
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
@@ -387,9 +405,19 @@ function updateItem(actType, actOnId, content) {
 	$(actOnId).triggerHandler('updatedItem', [actType]);
 }
 
-function deleteElementById(elementId, showEmpty) {
-	var $emptyRow = $(elementId).parent().siblings('.empty');
-	$(elementId).fadeOut(500, function() {
+/**
+ * Deletes the given grid element from the DOM.
+ * 
+ * NB: This relies on an element with class "empty" being present
+ * in the grid. Make sure you use an appropriate grid template for
+ * this to work.
+ * 
+ * @param element String a selector for the element to delete.
+ * @param showEmpty Boolean whether to show the "empty" element. 
+ */
+function deleteElementById(element, showEmpty) {
+	var $emptyRow = $(element).parent().siblings('.empty');
+	$(element).fadeOut(500, function() {
 		$(this).remove();
 		if (showEmpty) {
 			$emptyRow.fadeIn(500);
@@ -397,6 +425,14 @@ function deleteElementById(elementId, showEmpty) {
 	});
 }
 
+/**
+ * FIXME: document
+ * @param url String
+ * @param actOnType String
+ * @param actOnId String
+ * @param tabContainer String
+ * @param reopen Boolean
+ */
 function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
 	$.post(url, null, function(returnString) {
 		if (returnString.status == true) {

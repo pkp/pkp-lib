@@ -23,7 +23,7 @@
 		{assign var="dialogText" value=$action->getLocalizedTitle()}
 	{/if}
 
-	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId=$actOnId button="#"|concat:$buttonId  translate=false}
+	{confirm url=$action->getUrl() dialogText=$dialogText actOnType=$action->getType() actOnId="#"|concat:$actOnId button="#"|concat:$buttonId  translate=false}
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 	<script type="text/javascript">

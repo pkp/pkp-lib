@@ -4,21 +4,20 @@
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Implementation of jQuery modals for OMP.
+ * Implementation of jQuery modals and other JS backend functions.
  */
 
 /**
  * modal
- * @param $url URL to load into the modal
- * @param $actType Type to define if callback should do (nothing|append|replace|remove)
- * @param $actOnId The ID on which to perform the action on callback
- * @param $apendTo Selector to append data to
- * @param $localizedButtons Array of translated 'Cancel/submit' strings
- * @param $callingButton Selector of the button that opens the modal
- * @param $dialogTitle Set a custom title for the dialog
+ * @param url String URL to load into the modal
+ * @param actType String Type to define if callback should do (nothing|append|replace|remove)
+ * @param actOnId String The ID on which to perform the action on callback
+ * @param localizedButtons Array of translated 'Cancel/submit' strings
+ * @param callingButton String Selector of the button that opens the modal
+ * @param dialogTitle String Set a custom title for the dialog
  */
 function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTitle) {
-	$(document).ready(function() {
+	$(function() {
 		var validator = null;
 		var title = dialogTitle ? dialogTitle : $(callingButton).text();
 		var okButton = localizedButtons[0];
@@ -47,45 +46,44 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 			};
 		}
 
+		// Construct dialog
+		var $dialog = $('<div id=' + UID + '></div>').dialog({
+			title: title,
+			autoOpen: false,
+			width: 700,
+			modal: true,
+			draggable: false,
+			resizable: false,
+			position: ['center', 100],
+			buttons: dialogOptions,
+			open: function(event, ui) {
+		        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'}); 
+				$.getJSON(url, function(jsonData) {
+					$('#loading').hide();
+					if (jsonData.status === true) {
+						$('#' + UID).html(jsonData.content);
+					} else {
+						// Alert that the modal failed
+						alert(jsonData.content);
+					}
+				});
+				$(this).html("<div id='loading' class='throbber'></div>");
+				$('#loading').show();
+			},
+			close: function() {
+				// Reset form validation errors and inputs on close
+				if (validator != null) {
+					validator.resetForm();
+				}
+				clearFormFields($(formContainer).find('form'));
+			}
+		});
+
 		// Tell the calling button to open this modal on click
 		$(callingButton).die("click").live("click", (function() {
-			// Construct dialog
-			var $dialog = $('<div id=' + UID + '></div>').dialog({
-				title: title,
-				autoOpen: false,
-				width: 700,
-				modal: true,
-				draggable: false,
-				resizable: false,
-				position: ['center', 100],
-				buttons: dialogOptions,
-				open: function(event, ui) {
-			        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'}); 
-					$.getJSON(url, function(jsonData) {
-						$('#loading').hide();
-						if (jsonData.status === true) {
-							$('#' + UID).html(jsonData.content);
-						} else {
-							// Alert that the modal failed
-							alert(jsonData.content);
-						}
-					});
-					$(this).html("<div id='loading' class='throbber'></div>");
-					$('#loading').show();
-				},
-				close: function() {
-					// Reset form validation errors and inputs on close
-					if (validator != null) {
-						validator.resetForm();
-					}
-					clearFormFields($(formContainer).find('form'));
-				}
-			});
-
 			$dialog.dialog('open');
 			return false;
 		}));
-
 	});
 }
 
@@ -111,11 +109,11 @@ function submitJsonForm(formContainer, actType, actOnId) {
 					eval(jsonData.script);
 				}
 				if (jsonData.status == true) {
-					updateItem(actType, actOnId, jsonData.content);
+					$updatedElement = updateItem(actType, actOnId, jsonData.content);
 					if (typeof($formContainer.dialog) == 'function') {
 						$formContainer.dialog('close');
 					}
-					$formContainer.triggerHandler('submitSuccessful');
+					$formContainer.triggerHandler('submitSuccessful', [$updatedElement]);
 				} else {
 					// If an error occurs then redisplay the form
 					$formContainer.html(jsonData.content);
@@ -140,7 +138,12 @@ function submitJsonForm(formContainer, actType, actOnId) {
  */
 function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
 	$(document).ready(function() {
-		var title = $(callingButton).text(); // Assign title to calling button's text
+		// Try to retrieve title from calling button's text.
+		var title = $(callingButton).text();
+		if (title === '') {
+			// Try to retrieve title from calling button's title attribute.
+			title = $(callingButton).attr('title');
+		}
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var d = new Date();
@@ -312,16 +315,20 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 					postData,
 					function(jsonData) {
 						$actOnId.triggerHandler('actionStop');
-						
-						// An AJAX action will always return content that
-						// replaces the original content independent of whether
-						// an error occured or not.
-						$actOnId.replaceWith(jsonData.content);
+						if (jsonData !== null) {
+							if (jsonData.status === true) {
+								$actOnId.replaceWith(jsonData.content);
+							} else {
+								// Alert that the action failed
+								alert(jsonData.content);
+							}
+						}
 					},
 					'json'
 				);
 				validator = null;
 			}
+			return false;
 		};
 	} else {
 		eventHandler = function() {
@@ -331,11 +338,13 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 				url,
 				function(jsonData) {
 					$actOnId.triggerHandler('actionStop');
-					if (jsonData.status === true) {
-						$actOnId.replaceWith(jsonData.content);
-					} else {
-						// Alert that the action failed
-						alert(jsonData.content);
+					if (jsonData !== null) {
+						if (jsonData.status === true) {
+							$actOnId.replaceWith(jsonData.content);
+						} else {
+							// Alert that the action failed
+							alert(jsonData.content);
+						}
 					}
 				}
 			);
@@ -376,28 +385,26 @@ function actionThrobber(actOnId) {
  * @param actType String one of the action type constants. 
  * @param actOnId Selector for the DOM element to be changed.
  * @param content The content that replaces the current DOM element (replace or append types only)
+ * @return jQuery the new or deleted element.
  */
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
 			$empty = $(actOnId).find('.empty');
 			$empty.hide();
-			$(actOnId).append(content);
-			break;
+			return $(actOnId).append(content).children().last();
 		case 'replace':
-			$(actOnId).replaceWith(content);
-			break;
+			return $(actOnId).replaceWith(content);
 		case 'replaceAll':
 			var $p = $(actOnId + ' > .empty').prev();
 			$p.html(content);
-			break;
+			return $p;
 		case 'remove':
 			if ($(actOnId).siblings().length == 0) {
-				deleteElementById(actOnId, true);
+				return deleteElementById(actOnId, true);
 			} else {
-				deleteElementById(actOnId);
+				return deleteElementById(actOnId);
 			}
-			break;
 	}
 
 	// Trigger custom event so that clients can take
@@ -413,16 +420,19 @@ function updateItem(actType, actOnId, content) {
  * this to work.
  * 
  * @param element String a selector for the element to delete.
- * @param showEmpty Boolean whether to show the "empty" element. 
+ * @param showEmpty Boolean whether to show the "empty" element.
+ * @return jQuery the deleted element 
  */
 function deleteElementById(element, showEmpty) {
-	var $emptyRow = $(element).parent().siblings('.empty');
-	$(element).fadeOut(500, function() {
+	$deletedElement = $(element);
+	var $emptyRow = $deletedElement.parent().siblings('.empty');
+	$deletedElement.fadeOut(500, function() {
 		$(this).remove();
 		if (showEmpty) {
 			$emptyRow.fadeIn(500);
 		}
 	});
+	return $deletedElement;
 }
 
 /**

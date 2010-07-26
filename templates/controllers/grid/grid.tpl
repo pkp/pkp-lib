@@ -51,6 +51,14 @@
 					{/foreach}
 		        </tr>
 		    </thead>
+			{if $grid->getIsSubcomponent()}
+				{* Create two separate tables so that the body part
+				   can be scrolled independently from the header in a
+				   cross-browser compatible way. *}
+				</table>
+				<div class="scrollable">
+				<table>
+			{/if}
 			{foreach from=$gridBodyParts item=bodyPart}
 				{$bodyPart}
 			{/foreach}
@@ -64,6 +72,9 @@
 				</tr>
 		    </tbody>
 		</table>
+		{if $grid->getIsSubcomponent()}
+			</div>
+		{/if}
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
 				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId"}

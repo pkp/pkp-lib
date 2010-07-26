@@ -15,7 +15,7 @@
 		{if $nlm30PersonGroupPersonGroupTypeAuthor}
 			{capture assign=authors}{include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor reversed=true}{/capture}{$authors}
 		{else}{$mainTitle}{if $subTitle} {$subTitle}{/if} {/if}
-		({$nlm30Date|truncate:4:''})
+		{if $nlm30Date}({$nlm30Date|truncate:4:''}){/if}
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}
 				{literal} {/literal}{$nlm30ChapterTitle|escape}

@@ -571,6 +571,7 @@ class CitationDAO extends DAO {
 			}
 			foreach($citation->getSourceDescriptions() as $sourceDescription) {
 				$filteredCitation->addSourceDescription($sourceDescription);
+				unset($sourceDescription);
 			}
 
 			// Set the target citation state.
@@ -583,6 +584,7 @@ class CitationDAO extends DAO {
 		if (is_array($lastOutput)) {
 			foreach($lastOutput as $sourceDescription) {
 				$filteredCitation->addSourceDescription($sourceDescription);
+				unset($sourceDescription);
 			}
 		}
 

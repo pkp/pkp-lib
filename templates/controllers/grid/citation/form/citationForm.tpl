@@ -7,14 +7,14 @@
  * Citation grid form
  *}
 
-{assign var=containerId value="editCitationFormContainer-"|uniqid}
+{assign var=containerId value="citationEditorDetailCanvas"}
 {assign var=formUid value="form"|uniqid}
-<div id="citationEditorDetailCanvas" class="canvas">
+<div id="{$containerId}" class="canvas">
 	<script type="text/javascript">
 		$(function() {ldelim}
 			// Create text to be inserted into the empty editor pane.
 			emptyEditorText = '{strip}
-				<div id="citationEditorDetailCanvas" class="canvas">
+				<div id="{$containerId}" class="canvas">
 					<div class="wrapper">
 						<div class="help-message">{translate key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
@@ -26,7 +26,7 @@
 				$('#component-grid-citation-citationgrid-row-{$citation->getId()}').bind('updatedItem', function(event, actType) {ldelim}
 					// Make sure that we clear the form panel when the corresponding
 					// citation row is being deleted.
-					$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
+					$('#{$containerId}').replaceWith(emptyEditorText);
 				{rdelim});
 			{/if}
 
@@ -49,7 +49,7 @@
 			// Handle cancel button.
 			$('#citationFormCancel').click(function() {ldelim}
 				// Clear the form panel and show the initial help message.
-				$('#citationEditorDetailCanvas').replaceWith(emptyEditorText);
+				$('#{$containerId}').replaceWith(emptyEditorText);
 	
 				// De-select the selected citation.
 				$('.current-item').each(function() {ldelim}
@@ -74,7 +74,7 @@
 					// Bind to the form's submitSuccessful custom event which
 					// will be called once the citation has been successfully
 					// saved.
-					$('#citationEditorDetailCanvas').bind('submitSuccessful', function() {ldelim}
+					$('#{$containerId}').bind('submitSuccessful', function(e, $updatedElement) {ldelim}
 						$(this).unbind('submitSuccessful');
 						
 						// Remove warning about unsaved data.
@@ -109,6 +109,12 @@
 							$('#citationFormSaveAndApprove').show();
 							$('#citationFormSave').addClass('secondary-button');
 						{rdelim}
+						
+						{if !$citation->getId()}
+							// A new citation has been saved so refresh the form to get
+							// the new citation id.
+							$updatedElement.find('.row_file').triggerHandler('click');
+						{/if}
 					{rdelim});
 
 					// Fill hidden form elements depending on the save action type.
@@ -117,7 +123,7 @@
 						$('#remainsCurrentItem').val('no');
 						
 						// Throbber because we'll move to a new citation or tab.
-						actionThrobber('#citationEditorDetailCanvas');
+						actionThrobber('#{$containerId}');
 					{rdelim} else {ldelim}
 						$('#remainsCurrentItem').val('yes');
 					{rdelim}
@@ -127,15 +133,19 @@
 					
 					// Submit the form.
 					{if $citation->getId()}
-						submitJsonForm('#citationEditorDetailCanvas', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
+						// Update existing citation.
+						submitJsonForm('#{$containerId}', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
 					{else}
-						submitJsonForm('#citationEditorDetailCanvas', 'append', '#component-grid-citation-citationgrid-table');
+						// Create new citation.
+						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid tbody:not(.empty)');
 					{/if}
 
-					// Trigger the throbber.
-					if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
-						$('#citationEditorDetailCanvas').triggerHandler('actionStart');
-					{rdelim}
+					// Trigger the throbber for citation approval or when we
+					// add a new citation as this will change the whole citation
+					// detail pane.
+					{if $citation->getId()}if (pressedButton === 'citationFormSaveAndApprove') {ldelim}{/if}
+						$('#{$containerId}').triggerHandler('actionStart');
+					{if $citation->getId()}{rdelim}{/if}
 				{rdelim});
 			{rdelim});
 	
@@ -144,7 +154,7 @@
 			$('#component-grid-citation-citationgrid-row-{$citation->getId()}').addClass('current-item');
 	
 			// Throbber
-			actionThrobber('#citationEditorDetailCanvas');
+			actionThrobber('#{$containerId}');
 		{rdelim});
 	</script>
 	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
@@ -194,12 +204,25 @@
 		
 						<div class="form-block">
 							{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
-							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+							<script type="text/javascript">
+								// FIXME: Move this to the templates generas JS once we've fully implemented
+								// DB queries.
+								$(function() {ldelim}
+									// Throbber when citation is re-checked.
+									$('#{$containerId}-{$checkAction->getId()}-button').click(function() {ldelim}
+										actionThrobber('#{$containerId}');
+									{rdelim});
+								{rdelim});
+							</script>
 						</div>
 					</div>
 					
 					<div id="citationImprovementGoogle" class="form-block grid">
 						Google Scholar
+		
+						<div class="form-block">
+							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+						</div>
 					</div>
 					
 					<div id="citationImprovementAuthor" class="form-block grid">

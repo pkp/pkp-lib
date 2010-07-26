@@ -33,13 +33,23 @@
 {/strip}{/capture}
 <script type="text/javascript">
 	$(function() {ldelim}
-		// Hide editable raw citation on startup and after editing.
-		$('#editableRawCitation')
-			.hide().find('textarea')
-			.blur(function() {ldelim}
-				$('#editableRawCitation').hide();
-				$('#rawCitationWithMarkup').show();
+		// Hide editable raw citation on startup (unless we're adding a
+		// new citation) and leaving without editing.
+		// We do nothing when the field changes because then an
+		// AJAX refresh will be triggered anyway.
+		$('#editableRawCitation'){if $citation->getId()}.hide(){/if}
+			.find('textarea').blur(function() {ldelim}
+				if ($(this).text() === $(this).val()) {ldelim}
+					$('#editableRawCitation').hide();
+					$('#rawCitationWithMarkup').show();
+				{rdelim}
 			{rdelim});
+
+		{if !$citation->getId()}
+			// Hide the citation comparison markup when we add a new
+			// citation.
+			$('.citation-comparison').hide();
+		{/if}
 			
 		// Clicking on the raw citation should make it editable.
 		$('#rawCitationWithMarkup div.value, #rawCitationWithMarkup a').each(function() {ldelim}
@@ -48,11 +58,6 @@
 				$('#editableRawCitation').show().find('textarea').focus();
 				return false;
 			{rdelim});
-		{rdelim});
-		
-		// Throbber only when raw citation is edited.
-		$('#editableRawCitation textarea').change(function() {ldelim}
-			actionThrobber('#citationFormErrorsAndComparison');
 		{rdelim});
 
 		// Update citation diff after any type of editing.
@@ -76,7 +81,7 @@
 			{if $unsavedChanges}
 				<p class="unsaved-data-warning"><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
 			{/if}
-			{include file="common/formErrors.tpl"}
+			{include file="common/formErrors.tpl" dontJumpToError=true}
 		</div>
 	{/if}
 	
@@ -85,7 +90,13 @@
 	   other with mark-up for comparison. We use JS to switch between the
 	   two on user demand. *}
 	<div id="editableRawCitation">
-		<div class="label">{fieldLabel name="rawCitation" key="submission.citations.grid.rawCitation"}</div>
+		<div class="label">
+			{if $citation->getId()}
+				{fieldLabel name="rawCitation" key="submission.citations.grid.rawCitation"}
+			{else}
+				{fieldLabel name="rawCitation" key="submission.citations.grid.newCitation"}
+			{/if}
+		</div>
 		<div class="value">
 			<textarea class="textarea" validation="required" id="rawCitation" name="rawCitation">{$rawCitation}</textarea>
 		</div>

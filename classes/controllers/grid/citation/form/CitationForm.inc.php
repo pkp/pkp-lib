@@ -297,23 +297,34 @@ class CitationForm extends Form {
 		// Does the form contain unsaved changes?
 		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
 
-		// Either the initData() or validate() method should have prepared
-		// a meta-data representation of the citation.
-		// NB: Our template and output filters currently only handle
-		// one meta-data description. Any others but the first one are ignored.
-		assert(!empty($this->_metadataDescriptions));
-		$metadataDescription = array_pop($this->_metadataDescriptions);
+		// Add the citation to the template
+		$templateMgr->assign_by_ref('citation', $citation);
 
-		// Generate the formatted citation output from the description.
-		$generatedCitation = $this->_citationOutputFilter->execute($metadataDescription);
+		// Don't prepare a citation output preview if we're
+		// adding a new citation.
+		if ($citation->getId()) {
+			// Either the initData() or validate() method should have prepared
+			// a meta-data representation of the citation.
+			// NB: Our template and output filters currently only handle
+			// one meta-data description. Any others but the first one are ignored.
+			assert(!empty($this->_metadataDescriptions));
+			$metadataDescription = array_pop($this->_metadataDescriptions);
 
-		// Strip formatting and the Google Scholar tag so that we get a plain
-		// text string that is comparable with the raw citation.
-		$generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
+			// Generate the formatted citation output from the description.
+			$generatedCitation = $this->_citationOutputFilter->execute($metadataDescription);
+			foreach($this->_citationOutputFilter->getErrors() as $citationGenerationError) {
+				$this->addError('rawCitation', $citationGenerationError);
+			}
+			$this->_citationOutputFilter->clearErrors();
 
-		// Compare the raw and the formatted citation and add the result to the template.
-		$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
-		$templateMgr->assign('citationDiff', $citationDiff);
+			// Strip formatting and the Google Scholar tag so that we get a plain
+			// text string that is comparable with the raw citation.
+			$generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
+
+			// Compare the raw and the formatted citation and add the result to the template.
+			$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
+			$templateMgr->assign('citationDiff', $citationDiff);
+		}
 
 		// Many template variables are only required for the full form template.
 		if ($template == CITATION_FORM_FULL_TEMPLATE) {
@@ -363,9 +374,6 @@ class CitationForm extends Form {
 				if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
 			}
 			$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
-
-			// Add the citation to the template
-			$templateMgr->assign_by_ref('citation', $citation);
 
 			// Add action for re-checking of a citation.
 			$router = $request->getRouter();

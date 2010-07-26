@@ -330,6 +330,21 @@ class Filter extends DataObject {
 	}
 
 	/**
+	 * Whether this filter has produced errors.
+	 * @return boolean
+	 */
+	function hasErrors() {
+		return (!empty($this->_errors));
+	}
+
+	/**
+	 * Clear all processing errors.
+	 */
+	function clearErrors() {
+		$this->_errors = array();
+	}
+
+	/**
 	 * Add a filter setting
 	 * @param $setting FilterSetting
 	 */

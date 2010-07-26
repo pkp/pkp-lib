@@ -11,7 +11,6 @@
  * @brief A class that groups useful XML helper functions.
  */
 
-// $Id$
 
 class XMLHelper {
 	/**

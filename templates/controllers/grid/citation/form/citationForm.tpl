@@ -45,6 +45,61 @@
 
 			// Create citation improvement tabs.
 			$('#citationImprovement').tabs();
+
+			// Handle label change.
+			$('.citation-field-label').change(function() {ldelim}
+				var $this = $(this);
+				var newName = $this.val();
+
+				// Don't allow unsetting the label.
+				if (newName == '-1') {ldelim}
+					$this.val($this.find(':selected').attr('value'));
+					return false;
+				{rdelim}
+				
+				// Check whether another field currently
+				// has that name set.
+				$('.citation-field[name='+newName+']').each(function() {ldelim}
+					// Reset the other field's label.
+					labelInputId = $(this)
+						.attr('name', 'not-assigned[]')
+						.attr('id').replace(/(-[0-9]*)$/, '-label$1');
+					$('#'+labelInputId).val(-1)
+						.css('color', '#990000')
+						.children().css('color', '#222222');
+				{rdelim});
+
+				// Reset the color of the label in
+				// case we had marked it before.
+				$this.css('color', '#222222');
+				
+				// Find corresponding input field using
+				// the label's for attribute.
+				$('#'+$this.attr('id').replace('-label', ''))
+					// Set the name to the chosen field name.
+					.attr('name', newName)
+					// Trigger a change event for the target field
+					// so that the citation comparison is being
+					// updated.
+					.triggerHandler('change');
+			{rdelim});
+			
+			// Handle addition of new fields:
+			// 1) Remove/add help text on focus/blur.
+			$('#new-field-input')
+				.focus(function() {ldelim}
+					var $this = $(this);
+					if ($this.val() === '{translate|escape:javascript key="submission.citations.form.newFieldInfo"}') {ldelim}
+						$this.val('');
+					{rdelim}
+				{rdelim})
+				.blur(function() {ldelim}
+					var $this = $(this);
+					if ($this.val() === '') {ldelim}
+						$this.val('{translate|escape:javascript key="submission.citations.form.newFieldInfo"}');
+					{rdelim}
+				{rdelim});
+					
 			
 			// Handle cancel button.
 			$('#citationFormCancel').click(function() {ldelim}
@@ -69,7 +124,7 @@
 			// Handle save button.
 			$('.citation-save-button').each(function() {ldelim}
 				$(this).click(function() {ldelim}
-					pressedButton = this.id;
+					var pressedButton = this.id;
 					
 					// Bind to the form's submitSuccessful custom event which
 					// will be called once the citation has been successfully
@@ -175,26 +230,53 @@
 					<div id="citationImprovementManual" class="form-block grid">
 						<table>
 							{* Create initial field list which will then be maintained via JS. *}
-							{foreach from=$availableFields key=fieldName item=field}
+							{foreach from=$availableFields name=availableFields key=fieldName item=field}
 								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
 								{eval|assign:"fieldValue" var=$fieldValueVar}
 								{if $fieldValue != ''}
 									{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
 									<tr id="{$fieldName}"{if $field.required == 'true'} class="citation-field-required"{/if}>
-										<td class="first_column" width="30%">
+										<td class="first_column" width="10%">
 											<div class="row_container">
-												<div class="row_file label">{translate|escape key=$field.displayName}</div>
+												<div class="row_file label">
+													<select
+														id="{"citation-field-input-label-"|cat:$smarty.foreach.availableFields.index}"
+														name="citation-field-input-label[]"
+														title="{translate|escape key="submission.citations.form.changeFieldInfo"}"
+														class="citation-field-label">
+															<option value="-1">{translate|escape key="submission.citations.form.pleaseSelect"}</option>
+															{foreach from=$availableFields key=availableFieldName item=availableField}
+																<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
+															{/foreach}
+													</select>
+												</div>
 												<div class="row_actions">
 													<a class="delete" title="{translate key="common.delete"}" href=""></a>
 												</div>
 											</div>
 										</td>
 										<td class="value">
-											<input type="text" class="citation-field text large" value="{$fieldValue|escape}" id="{$fieldName}" name="{$fieldName}">
+											<input type="text" class="citation-field text large" maxlength="1500"
+												value="{$fieldValue|escape}" id="{"citation-field-input-"|cat:$smarty.foreach.availableFields.index}"
+												name="{$fieldName}" title="{translate|escape key="submission.citations.grid.clickToEdit"}">
 										</td>
 									</tr>
 								{/if}
 							{/foreach}
+							<tr id="new-field-row">
+								<td class="first_column" width="30%">
+									<div class="row_container">
+										<div class="row_file label"></div>
+										<div class="row_actions"></div>
+									</div>
+								</td>
+								<td class="value">
+									<input type="text" class="citation-field text large"
+										value="{translate|escape key="submission.citations.form.newFieldInfo"}"
+										id="new-field-input" name="new-field-input"
+										title="{translate|escape key="submission.citations.grid.clickToEdit"}">
+								</td>
+							</tr>
 						</table>
 						
 						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}

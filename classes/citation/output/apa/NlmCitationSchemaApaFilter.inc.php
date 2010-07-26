@@ -37,7 +37,7 @@ class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter';
+		return 'lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter';
 	}
 
 

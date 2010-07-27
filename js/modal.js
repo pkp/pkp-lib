@@ -57,7 +57,7 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 			position: ['center', 100],
 			buttons: dialogOptions,
 			open: function(event, ui) {
-		        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'}); 
+		        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'});
 				$.getJSON(url, function(jsonData) {
 					$('#loading').hide();
 					if (jsonData.status === true) {
@@ -98,7 +98,6 @@ function submitJsonForm(formContainer, actType, actOnId) {
 	$formContainer = $(formContainer);
 	$form = $formContainer.find('form');
 	validator = $form.validate();
-
 	// Post to server and construct callback
 	if ($form.valid()) {
 		$.post(
@@ -267,10 +266,10 @@ function clearFormFields(form) {
 
 /**
  * Implements a generic ajax action.
- * 
+ *
  * NB: Please make sure you correctly unbind previous ajax action events
  * before you call this method.
- * 
+ *
  * @param actType String can be either 'get' or 'post', 'post' expects a form as
  *  a child element of 'actOnId' if no form has been explicitly given.
  * @param callingElement String selector of the element that triggers the ajax call
@@ -363,7 +362,7 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 		// selectors.
 		$(this).bind(eventName, eventHandler);
 	});
-	
+
 	// Return the event handler so that it can be
 	// custom-bound to other events if necessary.
 	return eventHandler;
@@ -384,12 +383,12 @@ function actionThrobber(actOnId) {
 
 /**
  * Update the DOM of a grid or list depending on the action type.
- * 
+ *
  * NB: This relies on an element with class "empty" being present
  * as a sibling of the parent element. Make sure you use an
  * appropriate DOM for this to work.
- * 
- * @param actType String one of the action type constants. 
+ *
+ * @param actType String one of the action type constants.
  * @param actOnId Selector for the DOM element to be changed.
  * @param content The content that replaces the current DOM element (replace or append types only)
  * @return jQuery the new or deleted element.
@@ -411,6 +410,10 @@ function updateItem(actType, actOnId, content) {
 				updatedItem = deleteElementById(actOnId);
 			}
 			break;
+		case 'redirect':
+			// redirect to the content
+			$(window.location).attr('href', content);
+			break;
 	}
 
 	// Trigger custom event so that clients can take
@@ -421,14 +424,14 @@ function updateItem(actType, actOnId, content) {
 
 /**
  * Deletes the given grid or list element from the DOM.
- * 
+ *
  * NB: This relies on an element with class "empty" being present
  * as a sibling of the parent element. Make sure you use an
  * appropriate DOM for this to work.
- * 
+ *
  * @param element String a selector for the element to delete.
  * @param showEmpty Boolean whether to show the "empty" element.
- * @return jQuery the deleted element 
+ * @return jQuery the deleted element
  */
 function deleteElementById(element, showEmpty) {
 	$deletedElement = $(element);

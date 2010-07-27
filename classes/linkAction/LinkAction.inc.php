@@ -23,6 +23,7 @@ define('LINK_ACTION_TYPE_NOTHING', 'nothing');
 define('LINK_ACTION_TYPE_APPEND', 'append');
 define('LINK_ACTION_TYPE_REPLACE', 'replace');
 define('LINK_ACTION_TYPE_REMOVE', 'remove');
+define('LINK_ACTION_TYPE_REDIRECT', 'redirect');
 
 // Action types for ajax mode
 define('LINK_ACTION_TYPE_GET', 'get');

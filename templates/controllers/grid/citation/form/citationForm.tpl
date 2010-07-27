@@ -11,12 +11,27 @@
 {assign var=formUid value="form"|uniqid}
 <div id="{$containerId}" class="canvas">
 	<script type="text/javascript">
+		/**
+		 * Add a new field for manual editing.
+		 */
+		function addNewCitationField() {ldelim}
+			{capture assign=htmlForNewField}{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName="new"}{/capture}
+			var htmlForNewField = '{$htmlForNewField|escape:javascript}';
+			var $newField = $('#citationImprovementManual tbody')
+				.append(htmlForNewField).children().last();
+			// Hide the label drop-down and the delete action
+			// until the user enters a value
+			$newField.find('a, select').hide();
+			// Set the original value.
+			$newField.find('select').data('original-value', '-1'); 
+		{rdelim}
+		
 		$(function() {ldelim}
 			// Create text to be inserted into the empty editor pane.
 			emptyEditorText = '{strip}
 				<div id="{$containerId}" class="canvas">
 					<div class="wrapper">
-						<div class="help-message">{translate key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
+						<div class="help-message">{translate|escape key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
 				</div>
 			{/strip}';
@@ -30,41 +45,46 @@
 				{rdelim});
 			{/if}
 
-			// Represent citation fields as an object in JS.
-			{assign var=hasRequiredField value=false}
-			citationFields = {ldelim}
-				{foreach from=$availableFields key=fieldName item=field}
-					{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
-					{eval|assign:"fieldValue" var=$fieldValueVar}
-					'{$fieldName}': ['{translate|escape:javascript key=$field.displayName}', {$field.required}, '{$fieldValue|escape:javascript}'],
-				{/foreach}
-			{rdelim};
-
 			// Create citation source tabs.
 			$('#citationSourceTabs-{$formUid}').tabs();
 
 			// Create citation improvement tabs.
 			$('#citationImprovement').tabs();
 
-			// Handle label change.
-			$('.citation-field-label').change(function() {ldelim}
+			// Store original label values so that we can
+			// restore them if we have to cancel a label change.
+			$('.citation-field-label').each(function() {ldelim}
+				$(this).data('original-value', $(this).val());
+			{rdelim});
+					
+			// Handle label change. This must be live() so
+			// that adding of new fields is supported.
+			$('.citation-field-label').live('change', function() {ldelim}
 				var $this = $(this);
 				var newName = $this.val();
 
 				// Don't allow unsetting the label.
-				if (newName == '-1') {ldelim}
-					$this.val($this.find(':selected').attr('value'));
+				if (newName === '-1') {ldelim}
+					alert('{translate|escape:javascript key="submission.citations.form.cannotSelectDefaultForLabel"}'); 
+					$this.val($this.data('original-value'));
 					return false;
 				{rdelim}
-				
+
 				// Check whether another field currently
 				// has that name set.
 				$('.citation-field[name='+newName+']').each(function() {ldelim}
-					// Reset the other field's label.
-					labelInputId = $(this)
-						.attr('name', 'not-assigned[]')
-						.attr('id').replace(/(-[0-9]*)$/, '-label$1');
-					$('#'+labelInputId).val(-1)
+					var $this = $(this);
+
+					// Reset the name of the input field
+					// to something that doesn't clash
+					// with existing fields.
+					$this.attr('name', 'not-assigned[]');
+
+					// Reset the corresponding label selector
+					// and change it's color so that the user
+					// easily identifies that this field has
+					// been unset.
+					$this.closest('tr').find('select').val(-1)
 						.css('color', '#990000')
 						.children().css('color', '#222222');
 				{rdelim});
@@ -73,34 +93,56 @@
 				// case we had marked it before.
 				$this.css('color', '#222222');
 				
-				// Find corresponding input field using
-				// the label's for attribute.
-				$('#'+$this.attr('id').replace('-label', ''))
+				// Find the corresponding input field and
+				// set its name attribute.
+				$this.closest('tr').find('input')
 					// Set the name to the chosen field name.
 					.attr('name', newName)
-					// Trigger a change event for the target field
-					// so that the citation comparison is being
-					// updated.
-					.triggerHandler('change');
+					// Remove the "new-citation-field" class
+					// in case this was a new field
+					.removeClass('new-citation-field');
+
+				// Trigger a change event so that the citation
+				// comparison is being updated.
+				$('#citationFormErrorsAndComparison').triggerHandler('change');
+				
+				// Store the new value for future reference.
+				$this.data('original-value', newName);
+			{rdelim});
+
+			// Handle addition of new fields:
+			// 1) Append the a first new input field to
+			//    the field list.
+			addNewCitationField();
+			
+			// 2) Remove help text and show field label
+			//    selector on focus of the new field.
+			$('.new-citation-field').live('focus', function() {ldelim}
+				var $this = $(this);
+				if ($this.val() === '{translate|escape:javascript key="submission.citations.form.newFieldInfo"}') {ldelim}
+					$this
+						// Empty the field.
+						.val('')
+						// Show label selector and delete button.
+						.closest('tr').find('a, select').fadeIn(500);
+
+					// Add new empty field to be edited next.
+					addNewCitationField();
+				{rdelim}
 			{rdelim});
 			
-			// Handle addition of new fields:
-			// 1) Remove/add help text on focus/blur.
-			$('#new-field-input')
-				.focus(function() {ldelim}
-					var $this = $(this);
-					if ($this.val() === '{translate|escape:javascript key="submission.citations.form.newFieldInfo"}') {ldelim}
-						$this.val('');
-					{rdelim}
-				{rdelim})
-				.blur(function() {ldelim}
-					var $this = $(this);
-					if ($this.val() === '') {ldelim}
-						$this.val('{translate|escape:javascript key="submission.citations.form.newFieldInfo"}');
-					{rdelim}
+			// Handle deletion of fields.
+			$('#citationImprovementManual .delete').click(function() {ldelim}
+				// Remove the table row with that field.
+				$(this).closest('tr').fadeOut(500, function() {ldelim}
+					$(this).remove();
+					// Trigger a change event on the citation
+					// comparison container to refresh it.
+					$('#citationFormErrorsAndComparison').triggerHandler('change');
 				{rdelim});
-					
-			
+				return false;
+			{rdelim});
+		
 			// Handle cancel button.
 			$('#citationFormCancel').click(function() {ldelim}
 				// Clear the form panel and show the initial help message.
@@ -235,48 +277,9 @@
 								{eval|assign:"fieldValue" var=$fieldValueVar}
 								{if $fieldValue != ''}
 									{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
-									<tr id="{$fieldName}"{if $field.required == 'true'} class="citation-field-required"{/if}>
-										<td class="first_column" width="10%">
-											<div class="row_container">
-												<div class="row_file label">
-													<select
-														id="{"citation-field-input-label-"|cat:$smarty.foreach.availableFields.index}"
-														name="citation-field-input-label[]"
-														title="{translate|escape key="submission.citations.form.changeFieldInfo"}"
-														class="citation-field-label">
-															<option value="-1">{translate|escape key="submission.citations.form.pleaseSelect"}</option>
-															{foreach from=$availableFields key=availableFieldName item=availableField}
-																<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
-															{/foreach}
-													</select>
-												</div>
-												<div class="row_actions">
-													<a class="delete" title="{translate key="common.delete"}" href=""></a>
-												</div>
-											</div>
-										</td>
-										<td class="value">
-											<input type="text" class="citation-field text large" maxlength="1500"
-												value="{$fieldValue|escape}" id="{"citation-field-input-"|cat:$smarty.foreach.availableFields.index}"
-												name="{$fieldName}" title="{translate|escape key="submission.citations.grid.clickToEdit"}">
-										</td>
-									</tr>
+									{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName=$fieldName fieldValue=$fieldValue required=$field.required}
 								{/if}
 							{/foreach}
-							<tr id="new-field-row">
-								<td class="first_column" width="30%">
-									<div class="row_container">
-										<div class="row_file label"></div>
-										<div class="row_actions"></div>
-									</div>
-								</td>
-								<td class="value">
-									<input type="text" class="citation-field text large"
-										value="{translate|escape key="submission.citations.form.newFieldInfo"}"
-										id="new-field-input" name="new-field-input"
-										title="{translate|escape key="submission.citations.grid.clickToEdit"}">
-								</td>
-							</tr>
 						</table>
 						
 						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
@@ -331,23 +334,21 @@
 												<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
 												<td width="5%">
 													<a id="{$sourcePropertyId}-use" href="">use</a>
-													{literal}<script type='text/javascript'>
-														$(function() {
-															$('#{/literal}{$sourcePropertyId}{literal}-use').click(function() {
-																// Create the source and target selector
-																tabId = '{/literal}{$formUid}{literal}';
-																sourcePropertyId = '{/literal}{$sourcePropertyId}{literal}';
-																sourceTabId = sourcePropertyId.substring(0, sourcePropertyId.indexOf('-'));
-																sourceSelector = '#' + sourceTabId + '-' + tabId + ' #' + sourcePropertyId;
-																targetFieldId = sourcePropertyId.substring(sourcePropertyId.indexOf('-') + 1);
-																targetSelector = '#Filled-' + tabId + ' #' + targetFieldId + ', #Empty-' + tabId + ' #' + targetFieldId
-																
-																// Copy the content of the source to the target field
-																$(targetSelector).val($(sourceSelector).text());
+													<script type='text/javascript'>
+														$(function() {ldelim}
+															$('#{$sourcePropertyId}-use').click(function() {ldelim}
+																// Identify the source and target elements.
+																var $source = $('#{$citationSourceTabId}-{$formUid} #{$sourcePropertyId}');
+																var $target = $('.citation-field[name={$sourcePropertyId|regex_replace:'/^[0-9]+-/':''}]');
+
+																if ($target.length > 0) {ldelim}
+																	// Copy the content of the source to the target field
+																	$target.val($source.text());
+																{rdelim}
 																return false;
-															});
-														});
-													</script>{/literal}
+															{rdelim});
+														{rdelim});
+													</script>
 												</td>
 											</tr>
 										{/foreach}

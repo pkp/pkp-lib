@@ -1,0 +1,37 @@
+{**
+ * citationInputField.tpl
+ *
+ * Copyright (c) 2000-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * A template for a single citation input field.
+ * Input:
+ *   $availableFields: an array of field names for the supported meta-data schema.
+ *   $fieldName: the name of the field to be constructed
+ *   $fieldValue: the current value of the field
+ *   $required: whether the field is required
+ *}
+<tr{if $required} class="citation-field-required"{/if}>
+	<td class="first_column" width="10%">
+		<div class="row_container">
+			<div class="row_file label">
+				<select name="citation-field-input-label[]"
+					title="{translate|escape key="submission.citations.form.changeFieldInfo"}"
+					class="citation-field-label">
+						<option value="-1"{if $fieldName == 'new'} selected="selected"{/if}>{translate|escape key="submission.citations.form.pleaseSelect"}</option>
+						{foreach from=$availableFields key=availableFieldName item=availableField}
+							<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
+						{/foreach}
+				</select>
+			</div>
+			<div class="row_actions">
+				<a class="delete" title="{translate key="common.delete"}" href=""></a>
+			</div>
+		</div>
+	</td>
+	<td class="value">
+		<input type="text" class="{if $fieldName == 'new'}new-citation-field{/if} citation-field text large" maxlength="1500"
+			value="{if $fieldName == 'new'}{translate|escape key="submission.citations.form.newFieldInfo"}{else}{$fieldValue|escape}{/if}"
+			name="{if $fieldName == 'new'}new-field{else}{$fieldName}{/if}" title="{translate|escape key="submission.citations.grid.clickToEdit"}" />
+	</td>
+</tr>

@@ -280,6 +280,7 @@ function clearFormFields(form) {
  *  the form data.
  * @param eventName String the name of the event that triggers the action, default 'click'.
  * @param form String the selector of a form element.
+ * @return function the generated event handler.
  */
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
 	if (actType == 'post') {
@@ -357,9 +358,15 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 		// NB: We cannot unbind previous events here as this
 		// may delete other legitimate events. Please make sure
 		// you correctly unbind previous ajax action events
-		// before you call this method.
+		// before you call this method. We also don't use
+		// live() here because it doesn't support all required
+		// selectors.
 		$(this).bind(eventName, eventHandler);
 	});
+	
+	// Return the event handler so that it can be
+	// custom-bound to other events if necessary.
+	return eventHandler;
 }
 
 /**

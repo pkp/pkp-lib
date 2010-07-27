@@ -64,15 +64,22 @@
 		$('.citation-field').each(function() {ldelim}
 			$(this).unbind('change');
 		{rdelim});	
-		ajaxAction(
+		eventHandler = ajaxAction(
 			'post',
 			'#citationFormErrorsAndComparison',
-			'#editableRawCitation textarea, .citation-field',
+			// We bind the raw citation textarea and the wrapper
+			// to the change event. The wrapper doesn't implement
+			// its own change event but it can be manually triggered
+			// if we want to refresh the interface for some reason.
+			'#editableRawCitation textarea, #citationFormErrorsAndComparison',
 			'{url op="fetchCitationFormErrorsAndComparison"}',
 			null,
 			'change',
 			'#editCitationForm'
 		);
+		// Bind citation fields with live so that new fields
+		// will be automatically active. 
+		$('.citation-field').live('change', eventHandler);
 	{rdelim});
 </script>
 <div id="citationFormErrorsAndComparison" class="form-block">

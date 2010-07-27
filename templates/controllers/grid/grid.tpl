@@ -20,7 +20,8 @@
 					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn()}
 					{else}
-						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId}
+						{* FIXME: How is this supposed to work with category grids (see #5629)? *}
+						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first"}
 					{/if}
 				{/foreach}
 			</span>
@@ -42,7 +43,8 @@
 										{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn() hoverTitle=true}
 										{else}
-											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId hoverTitle=true}
+											{* FIXME: How is this supposed to work with category grids (see #5629)? *}
+											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first" hoverTitle=true}
 										{/if}
 									{/foreach}
 								</span>
@@ -79,7 +81,8 @@
 		{/if}
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId"}
+				{* FIXME: How is this supposed to work with category grids (see #5629)? *}
+				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first"}
 			{/foreach}
 		</div>
 	{if !$grid->getIsSubcomponent()}</div>{/if}

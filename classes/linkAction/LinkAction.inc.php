@@ -22,7 +22,6 @@ define('LINK_ACTION_MODE_CONFIRM', 4);
 define('LINK_ACTION_TYPE_NOTHING', 'nothing');
 define('LINK_ACTION_TYPE_APPEND', 'append');
 define('LINK_ACTION_TYPE_REPLACE', 'replace');
-define('LINK_ACTION_TYPE_REPLACE_ALL', 'replaceAll');
 define('LINK_ACTION_TYPE_REMOVE', 'remove');
 
 // Action types for ajax mode

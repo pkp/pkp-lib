@@ -383,11 +383,11 @@ function actionThrobber(actOnId) {
 }
 
 /**
- * Update the DOM of a grid depending on the action type.
+ * Update the DOM of a grid or list depending on the action type.
  * 
  * NB: This relies on an element with class "empty" being present
- * in the grid. Make sure you use an appropriate grid template for
- * this to work.
+ * as a sibling of the parent element. Make sure you use an
+ * appropriate DOM for this to work.
  * 
  * @param actType String one of the action type constants. 
  * @param actOnId Selector for the DOM element to be changed.
@@ -397,34 +397,34 @@ function actionThrobber(actOnId) {
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
-			$empty = $(actOnId).find('.empty');
+			$empty = $(actOnId).siblings('.empty');
 			$empty.hide();
-			return $(actOnId).append(content).children().last();
+			updatedItem = $(actOnId).append(content).children().last();
+			break;
 		case 'replace':
-			return $(actOnId).replaceWith(content);
-		case 'replaceAll':
-			var $p = $(actOnId + ' > .empty').prev();
-			$p.html(content);
-			return $p;
+			updatedItem = $(actOnId).replaceWith(content);
+			break;
 		case 'remove':
 			if ($(actOnId).siblings().length == 0) {
-				return deleteElementById(actOnId, true);
+				updatedItem = deleteElementById(actOnId, true);
 			} else {
-				return deleteElementById(actOnId);
+				updatedItem = deleteElementById(actOnId);
 			}
+			break;
 	}
 
 	// Trigger custom event so that clients can take
 	// additional action.
 	$(actOnId).triggerHandler('updatedItem', [actType]);
+	return updatedItem;
 }
 
 /**
- * Deletes the given grid element from the DOM.
+ * Deletes the given grid or list element from the DOM.
  * 
  * NB: This relies on an element with class "empty" being present
- * in the grid. Make sure you use an appropriate grid template for
- * this to work.
+ * as a sibling of the parent element. Make sure you use an
+ * appropriate DOM for this to work.
  * 
  * @param element String a selector for the element to delete.
  * @param showEmpty Boolean whether to show the "empty" element.
@@ -432,11 +432,13 @@ function updateItem(actType, actOnId, content) {
  */
 function deleteElementById(element, showEmpty) {
 	$deletedElement = $(element);
-	var $emptyRow = $deletedElement.parent().siblings('.empty');
+	if (showEmpty) {
+		var $emptyPlaceholder = $deletedElement.parent().siblings('.empty');
+	}
 	$deletedElement.fadeOut(500, function() {
 		$(this).remove();
 		if (showEmpty) {
-			$emptyRow.fadeIn(500);
+			$emptyPlaceholder.fadeIn(500);
 		}
 	});
 	return $deletedElement;

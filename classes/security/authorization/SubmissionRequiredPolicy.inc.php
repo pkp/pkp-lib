@@ -81,23 +81,28 @@ class SubmissionRequiredPolicy extends AuthorizationPolicy {
 		$router =& $this->_request->getRouter();
 		switch(true) {
 			case is_a($router, 'PKPPageRouter'):
-				// We expect the submission to be in the first path argument.
-				if (empty($this->_args) || !is_numeric($this->_args[0])) return false;
-				$submissionId = (int)$this->_args[0];
+				if ( is_numeric($this->_request->getUserVar($this->_submissionParameterName)) ) {
+					// We may expect a submission id in the user vars
+					return (int) $this->_request->getUserVar($this->_submissionParameterName);
+				} else if (isset($this->_args[0]) && is_numeric($this->_args[0])) {
+					// Or the submission id can be expected as the first path in the argument list
+					return (int) $this->args[0];
+				}
 				break;
 
 			case is_a($router, 'PKPComponentRouter'):
 				// We expect a named submission id argument.
-				if (!isset($this->_args[$this->_submissionParameterName])
-						|| !is_numeric($this->_args[$this->_submissionParameterName])) return false;
-				$submissionId = (int)$this->_args[$this->_submissionParameterName];
+				if (isset($this->_args[$this->_submissionParameterName])
+						&& is_numeric($this->_args[$this->_submissionParameterName])) {
+					return (int) $this->_args[$this->_submissionParameterName];
+				}
 				break;
 
 			default:
 				assert(false);
 		}
 
-		return $submissionId;
+		return false;
 	}
 }
 

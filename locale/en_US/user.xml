@@ -24,6 +24,7 @@
 	<message key="user.dateRegistered">Date registered</message>
 	<message key="user.editMyProfile">Edit My Profile</message>
 	<message key="user.email">Email</message>
+	<message key="user.confirmEmail">Confirm Email</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">First name</message>
@@ -82,6 +83,7 @@
 	<message key="user.profile.repeatNewPassword">Repeat new password</message>
 	<message key="user.register.form.emailExists">The selected email address is already in use by another user.</message>
 	<message key="user.register.form.passwordsDoNotMatch">The passwords do not match.</message>
+	<message key="user.register.form.emailsDoNotMatch">The email address fields do not match.</message>
 	<message key="user.register.form.usernameAlphaNumeric">The username can contain only alphanumeric characters, underscores, and hyphens, and must begin and end with an alphanumeric character.</message>
 	<message key="user.register.form.usernameExists">The selected username is already in use by another user.</message>
 	<message key="user.register.passwordLengthRestriction">The password must be at least {$length} characters.</message>

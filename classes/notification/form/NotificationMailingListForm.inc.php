@@ -31,13 +31,14 @@ class NotificationMailingListForm extends Form {
 		// Validation checks for this form
 		$this->addCheck(new FormValidatorPost($this));
 		$this->addCheck(new FormValidatorEmail($this, 'email', 'required', 'notification.mailList.emailInvalid'));
+		$this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailsDoNotMatch', create_function('$email,$form', 'return $email == $form->getData(\'confirmEmail\');'), array(&$this)));
 	}
 
 	/**
 	 * Assign form data to user-submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('email'));
+		$this->readUserVars(array('email', 'confirmEmail'));
 	}
 
 	/**

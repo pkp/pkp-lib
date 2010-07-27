@@ -395,7 +395,7 @@ class PKPUser extends DataObject {
 	 * @param $locale string
 	 */
 	function setInterests($interests) {
-		$interestDao =& DAORegistry::getDAO('InterestsDAO');
+		$interestDao =& DAORegistry::getDAO('InterestDAO');
 		$interestDao->insertInterests(explode(",", $interests), $this->getId(), true);
 	}
 

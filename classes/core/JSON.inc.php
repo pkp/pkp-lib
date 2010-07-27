@@ -13,7 +13,6 @@
  *
  */
 
-// $Id$
 
 class JSON {
 	/** @var $status string The status of an event (e.g. false if form validation fails) */

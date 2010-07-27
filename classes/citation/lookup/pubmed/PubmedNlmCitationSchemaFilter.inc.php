@@ -28,9 +28,7 @@ define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/
 class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	/**
 	 * Constructor
-	 * @param $email string FIXME: This could be PKP's technical
-	 *  contact email as it is only used to report technical problems
-	 *  with the query.
+	 * @param $email string the pubmed registration email
 	 */
 	function PubmedNlmCitationSchemaFilter($email = null) {
 		$this->setDisplayName('PubMed');
@@ -264,7 +262,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		if ($resultDOM->getElementsByTagName("Issue")->length > 0)
 			$metadata['issue'] = $resultDOM->getElementsByTagName("Issue")->item(0)->textContent;
 
-		// get list of author full names
+		// Get list of author full names
 		foreach ($resultDOM->getElementsByTagName("Author") as $authorNode) {
 			if (!isset($metadata['person-group[@person-group-type="author"]']))
 				$metadata['person-group[@person-group-type="author"]'] = array();
@@ -315,13 +313,36 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			}
 		}
 
-		// Get publication date
-		// TODO: The publication date could be in multiple places
+		// Get publication date (can be in several places in PubMed).
+		$dateNode = null;
 		if ($resultDOM->getElementsByTagName("ArticleDate")->length > 0) {
-			$publicationDate = $resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Year")->item(0)->textContent.
-			                   '-'.str_pad($resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Month")->item(0)->textContent, 2, '0', STR_PAD_LEFT).
-			                   '-'.str_pad($resultDOM->getElementsByTagName("ArticleDate")->item(0)->getElementsByTagName("Day")->item(0)->textContent, 2, '0', STR_PAD_LEFT);
-			$metadata['date'] = $publicationDate;
+			$dateNode = $resultDOM->getElementsByTagName("ArticleDate")->item(0);
+		} elseif ($resultDOM->getElementsByTagName("PubDate")->length > 0) {
+			$dateNode = $resultDOM->getElementsByTagName("PubDate")->item(0);
+		}
+
+		// Retrieve the data parts and assemble date.
+		if (!is_null($dateNode)) {
+			$publicationDate = '';
+			$requiresNormalization = false;
+			foreach(array('Year' => 4, 'Month' => 2, 'Day' => 2) as $dateElement => $padding) {
+				if ($dateNode->getElementsByTagName($dateElement)->length > 0) {
+					if (!empty($publicationDate)) $publicationDate.='-';
+					$datePart = str_pad($dateNode->getElementsByTagName($dateElement)->item(0)->textContent, $padding, '0', STR_PAD_LEFT);
+					if (!is_numeric($datePart)) $requiresNormalization = true;
+					$publicationDate .= $datePart;
+				} else {
+					break;
+				}
+			}
+
+			// Normalize the date to NLM standard if necessary.
+			if ($requiresNormalization) {
+				$dateFilter = new DateStringNormalizerFilter();
+				$publicationDate = $dateFilter->execute($publicationDate);
+			}
+
+			if (!empty($publicationDate)) $metadata['date'] = $publicationDate;
 		}
 
 		// Get publication type

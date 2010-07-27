@@ -13,7 +13,6 @@
  *
  */
 
-// $Id$
 
 /*
  * Perl-compatibile regular expression (PCRE) constants:
@@ -925,9 +924,18 @@ class String {
 	 * @return array
 	 */
 	function diff($originalString, $editedString) {
+		// Split strings into character arrays (multi-byte compatible).
+		foreach(array('originalStringCharacters' => $originalString, 'editedStringCharacters' => $editedString) as $characterArrayName => $string) {
+			${$characterArrayName} = array();
+			String::regexp_match_all('/./', $string, ${$characterArrayName});
+			if (isset(${$characterArrayName}[0])) {
+				${$characterArrayName} = ${$characterArrayName}[0];
+			}
+		}
+
 		// Determine the length of the strings.
-		$originalStringLength = String::strlen($originalString);
-		$editedStringLength = String::strlen($editedString);
+		$originalStringLength = count($originalStringCharacters);
+		$editedStringLength = count($editedStringCharacters);
 
 		// Is there anything to compare?
 		if ($originalStringLength == 0 && $editedStringLength == 0) return array();
@@ -948,7 +956,7 @@ class String {
 		// 1) Create a character index for the edited string.
 		$characterIndex = array();
 		for($characterPosition = 0; $characterPosition < $editedStringLength; $characterPosition++) {
-			$characterIndex[$editedString[$characterPosition]][] = $characterPosition;
+			$characterIndex[$editedStringCharacters[$characterPosition]][] = $characterPosition;
 		}
 		// 2) Initialize the substring and the length index.
 		$substringIndex = $lengthIndex = array();
@@ -958,7 +966,7 @@ class String {
 		for($originalPosition = 0; $originalPosition < $originalStringLength; $originalPosition++) {
 			// Find all occurrences of the original character
 			// in the target string.
-			$comparedCharacter = $originalString[$originalPosition];
+			$comparedCharacter = $originalStringCharacters[$originalPosition];
 
 			// Do we have a commonality between the original string
 			// and the edited string?

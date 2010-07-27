@@ -58,7 +58,7 @@ class DateStringNormalizerFilter extends Filter {
 
 		$dateExpressions = array(
 			'/(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})/',
-			'/(?P<year>\d{4})\s*(?P<monthName>[a-z]\w+)?\s*(?P<day>\d+)?/i'
+			'/(?P<year>\d{4})(\s|-)*(?P<monthName>[a-z]\w+)?(\s|-)*(?P<day>\d+)?/i'
 		);
 		$normalizedDate = null;
 		foreach($dateExpressions as $dateExpression) {

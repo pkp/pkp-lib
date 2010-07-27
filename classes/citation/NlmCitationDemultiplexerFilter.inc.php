@@ -83,10 +83,6 @@ class NlmCitationDemultiplexerFilter extends Filter {
 
 		// Iterate over the incoming NLM citation descriptions
 		foreach ($input as $citationIndex => $filteredCitation) {
-			if (is_null($filteredCitation)) continue;
-			// FIXME: We should provide feedback to the end-user
-			// about filters that caused an error.
-
 			// If the publication type is not set, take a guess
 			if (!$filteredCitation->hasStatement('[@publication-type]')) {
 				$guessedPublicationType = $this->_guessPublicationType($filteredCitation);
@@ -126,15 +122,6 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		// If we already have a publication type, why should we guess one?
 		assert(!$metadataDescription->hasStatement('[@publication-type]'));
 
-		// Avoid deducing from a description that has only very few properties set
-		// and may therefore be of low quality.
-		$descriptionCompletenessIndicators = array(
-			'person-group[@person-group-type="editor"]', 'article-title', 'date'
-		);
-		foreach($descriptionCompletenessIndicators as $descriptionCompletenessIndicator) {
-			if (!$metadataDescription->hasStatement($descriptionCompletenessIndicator)) return null;
-		}
-
 		// The following property names help us to guess the most probable publication type
 		$typicalPropertyNames = array(
 			'volume' => NLM_PUBLICATION_TYPE_JOURNAL,
@@ -163,7 +150,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		$highestCounterValue = 0;
 		$probablePublicationType = null;
 		foreach($typicalPropertyNames as $typicalPropertyName => $currentProbablePublicationType) {
-			if ($metadataDescription->hasStatement($currentProbablePublicationType)) {
+			if ($metadataDescription->hasStatement($typicalPropertyName)) {
 				// Record the hit
 				$hitCounters[$currentProbablePublicationType]++;
 

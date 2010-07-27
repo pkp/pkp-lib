@@ -79,7 +79,10 @@ class Citation extends DataObject {
 	 * @param $sourceDescription MetadataDescription
 	 */
 	function addSourceDescription(&$sourceDescription) {
-		$this->_sourceDescriptions[] =& $sourceDescription;
+		// We add descriptions by display name as they are
+		// purely informational. This avoids getting duplicates
+		// when we update a description.
+		$this->_sourceDescriptions[$sourceDescription->getDisplayName()] =& $sourceDescription;
 	}
 
 	/**

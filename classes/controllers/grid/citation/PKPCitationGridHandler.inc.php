@@ -292,8 +292,8 @@ class PKPCitationGridHandler extends GridHandler {
 		$citationForm = new CitationForm($filteredCitation, $citationOutputFilter);
 
 		// Transport filtering errors to form (if any).
-		foreach($filteredCitation->getErrors() as $errorMessage) {
-			$citationForm->addError('rawCitation', $errorMessage);
+		foreach($filteredCitation->getErrors() as $index => $errorMessage) {
+			$citationForm->addError('rawCitation['.$index.']', $errorMessage);
 		}
 
 		// Mark the citation form "dirty".

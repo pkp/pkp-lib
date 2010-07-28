@@ -86,7 +86,7 @@ class SubmissionRequiredPolicy extends AuthorizationPolicy {
 					return (int) $this->_request->getUserVar($this->_submissionParameterName);
 				} else if (isset($this->_args[0]) && is_numeric($this->_args[0])) {
 					// Or the submission id can be expected as the first path in the argument list
-					return (int) $this->args[0];
+					return (int) $this->_args[0];
 				}
 				break;
 

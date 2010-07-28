@@ -167,7 +167,6 @@
 		</field>
 		<field name="gender" type="C" size="1"/>
 		<field name="initials" type="C2" size="5"/>
-		<field name="affiliation" type="C2" size="255"/>
 		<field name="email" type="C2" size="90">
 			<NOTNULL/>
 		</field>

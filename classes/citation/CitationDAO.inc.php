@@ -254,6 +254,60 @@ class CitationDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate citation filters according to
+	 * the given selection rules.
+	 *
+	 * NB: Optional citation filters will only be included when
+	 * a specific set of filter ids is being given.
+	 *
+	 * @param $contextId integer the context for which the filters should be
+	 *  retrieved (journal, conference, press, etc.)
+	 * @param $parserFilters boolean whether to include parser type filters
+	 * @param $lookupFilters boolean whether to include lookup type filters
+	 * @param $fromFilterIds array restrict results to those with the given ids
+	 * @return array an array of NlmCitationSchemaFilters
+	 */
+	function &getCitationFilterInstances($contextId, $parserFilters = true, $lookupFilters = true, $fromFilterIds = array()) {
+		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$filterList = array();
+		if ($parserFilters) {
+			// Instantiate all configured filters that take a string
+			// as input and produce an NLM-citation schema as output
+			// (=parser filters).
+			$inputSample = 'arbitrary strings';
+			$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
+		}
+
+		if ($lookupFilters) {
+			// Instantiate all configured filters that transform NLM-citation
+			// schemas (=lookup filters).
+			$inputSample = $outputSample;
+			$filterList =& array_merge($filterList, $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId));
+		}
+
+		// Filter the result list:
+		// 1) If the filter id list is empty then return only
+		//     non-optional (=default) filters.
+		$finalFilterList = array();
+		if (empty($fromFilterIds)) {
+			foreach($filterList as $filter) {
+				if (!$filter->getData('isOptional')) $finalFilterList[] =& $filter;
+				unset($filter);
+			}
+		// 2) If specific filter ids are given then only filters in that
+		//    list will be returned (even if they are non-default filters).
+		} else {
+			foreach($filterList as $filter) {
+				if (in_array($filter->getId(), $fromFilterIds)) $finalFilterList[] =& $filter;
+				unset($filter);
+			}
+		}
+
+		return $finalFilterList;
+	}
+
+	/**
 	 * Update an existing citation.
 	 * @param $citation Citation
 	 */
@@ -424,13 +478,14 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
 	 * @param $contextId integer
+	 * @param $fromFilterIds array restrict results to those with the given ids
 	 * @return array everything needed to define the transformation:
 	 *  - the display name of the transformation
 	 *  - the input/output type definition
 	 *  - input data
 	 *  - a filter list
 	 */
-	function &_instantiateParserFilters(&$citation, &$metadataDescription, $contextId) {
+	function &_instantiateParserFilters(&$citation, &$metadataDescription, $contextId, $fromFilterIds) {
 		$displayName = 'Citation Parser Filters';
 
 		// Parsing takes a raw citation and transforms it
@@ -443,12 +498,8 @@ class CitationDAO extends DAO {
 		// Extract the raw citation string from the citation
 		$inputData = $citation->getRawCitation();
 
-		// Instantiate all configured filters that take a string
-		// as input and produce an NLM-citation schema as output.
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$inputSample = 'arbitrary strings';
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
+		// Instantiate parser filters.
+		$filterList =& $this->getCitationFilterInstances($contextId, true, false, $fromFilterIds);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -460,13 +511,14 @@ class CitationDAO extends DAO {
 	 * @param $citation Citation
 	 * @param $metadataDescription MetadataDescription
 	 * @param $contextId integer
+	 * @param $fromFilterIds array restrict results to those with the given ids
 	 * @return array everything needed to define the transformation:
 	 *  - the display name of the transformation
 	 *  - the input/output type definition
 	 *  - input data
 	 *  - a filter list
 	 */
-	function &_instantiateLookupFilters(&$citation, &$metadataDescription, $contextId) {
+	function &_instantiateLookupFilters(&$citation, &$metadataDescription, $contextId, $fromFilterIds) {
 		$displayName = 'Citation Parser Filters';
 
 		// Lookup takes a single meta-data description and
@@ -480,10 +532,8 @@ class CitationDAO extends DAO {
 		// Define the input for this transformation.
 		$inputData =& $metadataDescription;
 
-		// Instantiate all configured filters that transform NLM-citation schemas.
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$inputSample = $outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
+		// Instantiate lookup filters.
+		$filterList =& $this->getCitationFilterInstances($contextId, false, true, $fromFilterIds);
 
 		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
 		return $transformationDefinition;
@@ -497,9 +547,10 @@ class CitationDAO extends DAO {
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
 	 * @param $contextId integer
+	 * @param $fromFilterIds only use filters with the given ids
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, $contextId) {
+	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, $contextId, $fromFilterIds = array()) {
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -511,54 +562,60 @@ class CitationDAO extends DAO {
 		// Extract the meta-data description from the citation.
 		$metadataDescription =& $citation->extractMetadata($metadataSchema);
 
-		// Let the callback build the filter network.
-		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription, $contextId));
+		// Let the callback configure the transformation.
+		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription, $contextId, $fromFilterIds));
+		if (empty($transformationDefinition['filterList'])) {
+			// We didn't find any applicable filter.
+			$filteredCitation = null;
+		} else {
+			// Get the input into the transformation.
+			$muxInputData =& $transformationDefinition['inputData'];
 
-		// Get the input into the transformation.
-		$muxInputData =& $transformationDefinition['inputData'];
+			// Instantiate the citation multiplexer filter.
+			import('lib.pkp.classes.filter.GenericMultiplexerFilter');
+			$citationMultiplexer = new GenericMultiplexerFilter(
+					$transformationDefinition['displayName'], $transformationDefinition['transformation']);
 
-		// Instantiate the citation multiplexer filter.
-		import('lib.pkp.classes.filter.GenericMultiplexerFilter');
-		$citationMultiplexer = new GenericMultiplexerFilter(
-				$transformationDefinition['displayName'], $transformationDefinition['transformation']);
+			// Don't fail just because one of the web services
+			// fail. They are much too unstable to rely on them.
+			$citationMultiplexer->setTolerateFailures(true);
 
-		// Don't fail just because one of the web services
-		// fail. They are much too unstable to rely on them.
-		$citationMultiplexer->setTolerateFailures(true);
-
-		// Add sub-filters to the multiplexer.
-		$nullVar = null;
-		foreach($transformationDefinition['filterList'] as $citationFilter) {
-			if ($citationFilter->supports($muxInputData, $nullVar)) {
-				$citationMultiplexer->addFilter($citationFilter);
-				unset($citationFilter);
+			// Add sub-filters to the multiplexer.
+			$nullVar = null;
+			foreach($transformationDefinition['filterList'] as $citationFilter) {
+				if ($citationFilter->supports($muxInputData, $nullVar)) {
+					$citationMultiplexer->addFilter($citationFilter);
+					unset($citationFilter);
+				}
 			}
+
+			// Instantiate the citation de-multiplexer filter
+			import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
+			$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
+			$citationDemultiplexer->setOriginalCitation($citation);
+
+			// Combine multiplexer and de-multiplexer to form the
+			// final citation filter network.
+			$sequencerTransformation = array(
+				$transformationDefinition['transformation'][0], // The multiplexer input type
+				'class::lib.pkp.classes.citation.Citation'
+			);
+			import('lib.pkp.classes.filter.GenericSequencerFilter');
+			$citationFilterNet = new GenericSequencerFilter('Citation Filter Network', $sequencerTransformation);
+			$citationFilterNet->addFilter($citationMultiplexer);
+			$citationFilterNet->addFilter($citationDemultiplexer);
+
+			// Send the input through the citation filter network.
+			$filteredCitation =& $citationFilterNet->execute($muxInputData);
 		}
-
-		// Instantiate the citation de-multiplexer filter
-		import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
-		$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
-		$citationDemultiplexer->setOriginalCitation($citation);
-
-		// Combine multiplexer and de-multiplexer to form the
-		// final citation filter network.
-		$sequencerTransformation = array(
-			$transformationDefinition['transformation'][0], // The multiplexer input type
-			'class::lib.pkp.classes.citation.Citation'
-		);
-		import('lib.pkp.classes.filter.GenericSequencerFilter');
-		$citationFilterNet = new GenericSequencerFilter('Citation Filter Network', $sequencerTransformation);
-		$citationFilterNet->addFilter($citationMultiplexer);
-		$citationFilterNet->addFilter($citationDemultiplexer);
-
-		// Send the input through the citation filter network.
-		$filteredCitation =& $citationFilterNet->execute($muxInputData);
 
 		if (is_null($filteredCitation)) {
 			// Return the original citation if the filters
 			// did not produce any results and add an error message.
 			$filteredCitation =& $citation;
-			$filteredCitation->addError(Locale::translate('submission.citations.form.filterError'));
+			if (!empty($transformationDefinition['filterList'])) {
+				$filteredCitation->addError(Locale::translate('submission.citations.form.filterError'));
+			}
 		} else {
 			// Copy data from the original citation to the filtered citation.
 			$filteredCitation->setId($citation->getId());
@@ -578,19 +635,23 @@ class CitationDAO extends DAO {
 			$filteredCitation->setCitationState($citationStateAfterFiltering);
 		}
 
-		// Retrieve the results of intermediate filters and add
-		// them to the citation for inspection by the end user.
-		$lastOutput =& $citationMultiplexer->getLastOutput();
-		if (is_array($lastOutput)) {
-			foreach($lastOutput as $sourceDescription) {
-				$filteredCitation->addSourceDescription($sourceDescription);
-				unset($sourceDescription);
+		if (is_a($citationMultiplexer, 'CompositeFilter')) {
+			// Retrieve the results of intermediate filters and add
+			// them to the citation for inspection by the end user.
+			$lastOutput =& $citationMultiplexer->getLastOutput();
+			if (is_array($lastOutput)) {
+				foreach($lastOutput as $sourceDescription) {
+					$filteredCitation->addSourceDescription($sourceDescription);
+					unset($sourceDescription);
+				}
 			}
 		}
 
-		// Add filtering errors (if any) to the citation's error list.
-		foreach($citationFilterNet->getErrors() as $filterError) {
-			$filteredCitation->addError($filterError);
+		if (is_a($citationFilterNet, 'CompositeFilter')) {
+			// Add filtering errors (if any) to the citation's error list.
+			foreach($citationFilterNet->getErrors() as $filterError) {
+				$filteredCitation->addError($filterError);
+			}
 		}
 
 		return $filteredCitation;

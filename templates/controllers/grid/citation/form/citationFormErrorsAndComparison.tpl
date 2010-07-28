@@ -79,7 +79,7 @@
 		);
 		// Bind citation fields with live so that new fields
 		// will be automatically active. 
-		$('.citation-field').live('change', eventHandler);
+		$('.citation-field').die('change').live('change', eventHandler);
 	{rdelim});
 </script>
 <div id="citationFormErrorsAndComparison" class="form-block">

@@ -437,32 +437,6 @@ class FilterDAO extends DAO {
 				'SELECT * FROM filters WHERE parent_filter_id = ? ORDER BY seq', $parentFilterId);
 		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
 
-		// Build a reverse settings mapping: The orignal settings
-		// mapping points from the source to the target. Now
-		// we need to identify the targets per sub-filter so that
-		// we can configure the mappings when populating the filter
-		// with sub-filters.
-		$reverseSettingsMapping = array();
-		if ($parentFilter->hasData('settingsMapping')) {
-			$settingsMapping = $parentFilter->getData('settingsMapping');
-			assert(is_array($settingsMapping));
-			foreach ($settingsMapping as $compositeSourceSettingName => $compositeTargetSettingNames) {
-				// Identify the source filter sequence and setting name.
-				list($sourceFilterSeq, $sourceSettingName) = $this->_parseCompositeSettingName($compositeSourceSettingName);
-
-				// A source can be copied to several targets.
-				assert(is_array($compositeTargetSettingNames));
-				foreach($compositeTargetSettingNames as $compositeTargetSettingName) {
-					// Identify the target filter sequence and setting name.
-					list($targetFilterSeq, $targetSettingName) = $this->_parseCompositeSettingName($compositeTargetSettingName);
-
-					// Build the reverse settings mapping.
-					assert(!isset($reverseSettingsMapping[$targetFilterSeq][$targetSettingName]));
-					$reverseSettingsMapping[$targetFilterSeq][$targetSettingName] = array($sourceFilterSeq, $sourceSettingName);
-				}
-			}
-		}
-
 		// Add sub-filters.
 		while (!$daoResultFactory->eof()) {
 			// Retrieve the sub filter.
@@ -470,17 +444,9 @@ class FilterDAO extends DAO {
 			// of this filter via _fromRow().
 			$subFilter =& $daoResultFactory->next();
 
-			// Is there a settings mapping to be set?
-			if (isset($reverseSettingsMapping[$subFilter->getSeq()])) {
-				$settingsMapping = $reverseSettingsMapping[$subFilter->getSeq()];
-			} else {
-				$settingsMapping = array();
-			}
-
 			// Add the sub-filter to the filter list
 			// of its parent filter.
-			$parentFilter->addFilter($subFilter, $settingsMapping);
-
+			$parentFilter->addFilter($subFilter);
 			unset($subFilter);
 		}
 	}
@@ -528,25 +494,6 @@ class FilterDAO extends DAO {
 			// Recursively delete sub-sub-filters.
 			$this->_deleteSubFiltersByParentFilterId($subFilterId);
 		}
-	}
-
-	/**
-	 * Parse a composite setting name of the form
-	 * seqX_someName, whereby 'X' is a filter sequence
-	 * number and 'someName' a setting name.
-	 *
-	 * @param $compositeSettingName string
-	 * @return array the sequence number as first entry
-	 *  and the setting name as second.
-	 */
-	function _parseCompositeSettingName($compositeSettingName) {
-		$settingParts = explode('_', $compositeSettingName);
-		assert(count($settingParts) == 2);
-		list($filterSeq, $settingName) = $settingParts;
-		$filterSeq = str_replace('seq', '', $filterSeq);
-		assert(is_numeric($filterSeq));
-		$filterSeq = (int) $filterSeq;
-		return array($filterSeq, $settingName);
 	}
 }
 

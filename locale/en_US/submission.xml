@@ -25,6 +25,8 @@
 	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Please enter a valid WorldCat API key if you have one.</message>
 	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citation Module</message>
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Please select one of the given citation modules.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Don't use by default (optionally available to the user)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</message>
 	<message key="metadata.property.displayName.author">Authors</message>
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editors</message>

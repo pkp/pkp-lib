@@ -38,38 +38,11 @@ class CompositeFilter extends GenericFilter {
 	 * another filter will not be added.
 	 *
 	 * @param $filter Filter
-	 * @param $settingsMapping array
-	 *  A settings mapping is of the form:
-	 *  array(
-	 *    $settingName => array($sourceFilterSeq, $sourceSettingName),
-	 *    ...
-	 *  )
-	 *
-	 *  A settings mapping means that the given setting
-	 *  will no longer be independent. It will be directly
-	 *  linked to the source setting. Whenever the source
-	 *  setting is changed, the given setting will
-	 *  automatically change as well.
-	 *
-	 *  The setting will also not have its own FilterSetting
-	 *  entry when calling getSettings() on a CompositeFilter.
-	 *  It will effectively disappear from the interface to
-	 *  make sure that users don't have to fill in the same
-	 *  setting twice if it applies to several sub-filters
-	 *  in the exact same way.
-	 *
-	 *  Internally the two settings will be kept separately,
-	 *  to make sure that we can use the default persistence
-	 *  and filter logic.
-	 *
-	 *  NB: The target filter must be added before you
-	 *  can map a setting to it.
-	 *
 	 * @return integer the filter's sequence number, null
 	 *  if the sequence number of the filter had already been
 	 *  set before by a different filter.
 	 */
-	function addFilter(&$filter, $settingsMapping = array()) {
+	function addFilter(&$filter) {
 		// Add the filter to the ordered sub-filter list.
 		assert(is_a($filter, 'Filter'));
 		$seq = $filter->getSeq();
@@ -84,40 +57,6 @@ class CompositeFilter extends GenericFilter {
 			$filter->setSeq($seq);
 		}
 		$this->_filters[$seq] =& $filter;
-
-		// Add the filter settings to the composite filter.
-		$subFilterSettings =& $filter->getSettings();
-		foreach($subFilterSettings as $subFilterSetting) {
-			// Make the setting name unique.
-			$subFilterSettingName = $subFilterSetting->getName();
-			$compositeSettingName = 'seq'.$seq.'_'.$subFilterSettingName;
-
-			// Is the setting mapped to another setting?
-			if (isset($settingsMapping[$subFilterSettingName])) {
-				// Don't set the setting but merely map it
-				// to the source which will override it.
-				$sourceSetting = $settingsMapping[$subFilterSettingName];
-				assert(is_array($sourceSetting) && count($sourceSetting) == 2);
-				list($sourceSeq, $sourceSettingName) = $settingsMapping[$subFilterSettingName];
-				$compositeSourceSettingName = 'seq'.$sourceSeq.'_'.$sourceSettingName;
-
-				$settingsMappingData = $this->getData('settingsMapping');
-				if (!isset($settingsMappingData[$compositeSourceSettingName])) {
-					$settingsMappingData[$compositeSourceSettingName] = array();
-				}
-				if (!in_array($compositeSettingName, $settingsMappingData[$compositeSourceSettingName])) {
-					$settingsMappingData[$compositeSourceSettingName][] = $compositeSettingName;
-				}
-				$this->setData('settingsMapping', $settingsMappingData);
-			} else {
-				// Only add the setting as composite setting if it is not mapped.
-				$setting =& cloneObject($subFilterSetting);
-				$setting->setName($compositeSettingName);
-				parent::addSetting($setting);
-				unset($setting);
-			}
-		}
-
 		return $seq;
 	}
 
@@ -144,10 +83,50 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
-	 * Get the settings mappings
+	 * Set the settings mappings
+	 *
+	 * @param $settingsMapping array
+	 *  A settings mapping is of the form:
+	 *  array(
+	 *    $settingName => array($targetSetting1, $targetSetting2, ...),
+	 *    ...
+	 *  )
+	 *
+	 *  $settingName stands for a setting to be used
+	 *  as a placeholder in the composite filter for the
+	 *  target settings.
+	 *
+	 *  The target settings are of the form "seq_settingName"
+	 *  whereby "seq" stands for the sequence number of
+	 *  the target filter and "settingName" for the
+	 *  corresponding setting there. When you give more than
+	 *  one target setting then all target settings will be
+	 *  kept synchronous.
+	 *
+	 *  You have to map all sub-filter settings that you
+	 *  wish to access from the composite filter.
+	 */
+	function setSettingsMapping($settingsMapping) {
+		$this->setData('settingsMapping', $settingsMapping);
+	}
+
+	/**
+	 * Get the settings mapping.
+	 */
+	function getSettingsMapping() {
+		$settingsMapping = $this->getData('settingsMapping');
+		if (is_null($settingsMapping)) {
+			return array();
+		} else {
+			return $settingsMapping;
+		}
+	}
+
+	/**
+	 * Get a settings mapping
 	 * @return array
 	 */
-	function getSettingsMapping($settingName) {
+	function getSettingsMappingForSetting($settingName) {
 		$settingsMapping = array();
 		$settingsMappingData = $this->getData('settingsMapping');
 		if (isset($settingsMappingData[$settingName])) {
@@ -161,35 +140,62 @@ class CompositeFilter extends GenericFilter {
 	// Overridden methods from Filter
 	//
 	/**
-	 * @see Filter::addSetting()
+	 * @see Filter::getSetting()
 	 */
-	function addSetting(&$setting) {
-		// Composite filters have read only settings
-		// imported from sub-filters. Trying to set
-		// an additional setting is not supported.
-		assert(false);
+	function &getSetting($settingName) {
+		// Try first whether we have the setting locally.
+		if (parent::hasSetting($settingName)) return parent::getSetting($settingName);
+
+		// Otherwise expect a mapped setting.
+		return $this->_getSubfilterSetting($settingName);
+	}
+
+	/**
+	 * @see Filter::getSettings()
+	 */
+	function &getSettings() {
+		// Get local settings.
+		$settings = parent::getSettings();
+
+		// Get mapped settings.
+		foreach($this->getSettingsMapping() as $settingName => $mappedSetting) {
+			$settings[] = $this->_getSubfilterSetting($settingName);
+		}
+
+		return $settings;
 	}
 
 	/**
 	 * @see Filter::hasSettings()
 	 */
 	function hasSettings() {
-		// If any of the sub-filters has settings
-		// then return true.
-		foreach($this->getFilters() as $filter) {
-			if ($filter->hasSettings()) return true;
-		}
-		return false;
+		// Return true if this filter has own
+		// or mapped settings.
+		$settingsMapping = $this->getSettingsMapping();
+		return (parent::hasSettings() || !empty($settingsMapping));
 	}
 
 	/**
 	 * @see Filter::getSettingNames()
 	 */
 	function getSettingNames() {
-		// Composite filters never persist
-		// settings of their own except for
-		// their internal settings mapping.
+		// Composite filters persist only
+		// their own settings. Mapped settings
+		// will be persisted in sub-filters.
+		// We cannot use the parent implementation
+		// here as this would include all sub-
+		// filter settings.
+
+		// Initialize with the internal settingsMapping
+		// setting.
 		$settingNames = array('settingsMapping');
+
+		// Read only local settings.
+		foreach(parent::getSettings() as $setting) {
+			if (!$setting->getIsLocalized()) {
+				$settingNames[] = $setting->getName();
+			}
+		}
 		return $settingNames;
 	}
 
@@ -197,9 +203,15 @@ class CompositeFilter extends GenericFilter {
 	 * @see Filter::getLocalizedSettingNames()
 	 */
 	function getLocalizedSettingNames() {
-		// Composite filters never persist
-		// settings of their own
+		// We cannot use the parent implementation
+		// here as this would include all sub-
+		// filter settings.
 		$localizedSettingNames = array();
+		foreach(parent::getSettings() as $setting) {
+			if ($setting->getIsLocalized()) {
+				$localizedSettingNames[] = $setting->getName();
+			}
+		}
 		return $localizedSettingNames;
 	}
 
@@ -230,11 +242,12 @@ class CompositeFilter extends GenericFilter {
 	 * @see DataObject::getData()
 	 */
 	function getData($key, $locale = null) {
-		// Directly read internal settings.
-		if (in_array($key, $this->getInternalSettings())) return parent::getData($key, $locale);
+		// Directly read local settings.
+		if (in_array($key, $this->getInternalSettings()) || parent::hasData($key, $locale)) return parent::getData($key, $locale);
 
 		// All other settings will be delegated to sub-filters.
-		list($filter, $settingName) = $this->_resolveDataKey($key);
+		$compositeSettingName = $this->_getCompositeSettingName($key);
+		list($filter, $settingName) = $this->_resolveCompositeSettingName($compositeSettingName);
 		return $filter->getData($settingName, $locale);
 	}
 
@@ -242,75 +255,93 @@ class CompositeFilter extends GenericFilter {
 	 * @see DataObject::setData()
 	 */
 	function setData($key, $value, $locale = null) {
-		static $lockedKeys = array();
-
 		// Directly write internal settings.
-		if (in_array($key, $this->getInternalSettings())) return parent::setData($key, $value, $locale);
+		if (is_null($locale)) {
+			if (in_array($key, $this->getInternalSettings()) || in_array($key, $this->getSettingNames())) return parent::setData($key, $value);
+		} else {
+			if (in_array($key, $this->getLocalizedSettingNames())) return parent::setData($key, $value, $locale);
+		}
 
 		// All other settings will be delegated to sub-filters.
-
-		// Check whether the key is already locked (loop detection).
-		if (isset($lockedKeys[$key])) fatalError('Detected a settings mapping loop for key "'.$key.'"!');
-
-		// Lock the key.
-		$lockedKeys[$key] = true;
-
-		// If this setting is a source for other settings then
-		// recursively set the target settings to the same value.
-		foreach($this->getSettingsMapping($key) as $targetSetting) $this->setData($targetSetting, $value, $locale);
-
-		// Release the key.
-		unset($lockedKeys[$key]);
-
-		// Write the setting to the sub-filter.
-		list($filter, $settingName) = $this->_resolveDataKey($key);
-		return $filter->setData($settingName, $value, $locale);
+		$settingsMapping = $this->getSettingsMappingForSetting($key);
+		if (!is_array($settingsMapping)) $settingsMapping = array($settingsMapping);
+		foreach($settingsMapping as $compositeSettingName) {
+			// Write the setting to the sub-filter.
+			list($filter, $settingName) = $this->_resolveCompositeSettingName($compositeSettingName);
+			return $filter->setData($settingName, $value, $locale);
+		}
 	}
 
 	/**
-	 * @see DataObject::setData()
+	 * @see DataObject::hasData()
 	 */
 	function hasData($key, $locale = null) {
-		// Keys that start with "seq" will be delegated to sub-filters.
-		if (substr($key, 0, 3) == 'seq') {
-			// Identify the filter sequence number
-			$keyParts = explode('_', $key, 2);
-			if (count($keyParts) != 2) return false;
-			list($seq, $settingName) = $keyParts;
-			$seq = str_replace('seq', '', $seq);
-			if (!is_numeric($seq)) return false;
-			$seq = (integer)$seq;
+		// Internal settings will only be checked locally.
+		if (in_array($key, $this->getInternalSettings())) return parent::hasData($key);
 
-			// Identify the sub-filter.
-			$filter =& $this->getFilter($seq);
-			if (is_null($filter)) return false;
+		// Now try local settings.
+		if (parent::hasData($key, $locale)) return true;
 
-			// Delegate to the sub-filter
-			return $filter->hasData($settingName, $locale);
-		}
-
-		// Directly check all other settings.
-		if (in_array($key, $this->getInternalSettings())) return parent::hasData($key, $locale);
+		// If nothing is found we try sub-filter settings.
+		$compositeSettingName = $this->_getCompositeSettingName($key);
+		if (is_null($compositeSettingName)) return false;
+		list($filter, $settingName) = $this->_resolveCompositeSettingName($compositeSettingName);
+		return $filter->hasData($settingName, $locale);
 	}
+
 
 	//
 	// Private helper methods
 	//
 	/**
-	 * Split a composite setting key and identify the
+	 * Get the composite setting name for a
+	 * mapped setting. If the setting is mapped
+	 * to several sub-filters then we assume that
+	 * they are identical and return only the first
+	 * one.
+	 * @param $settingName string
+	 * @return $compositeSettingName string
+	 */
+	function _getCompositeSettingName($settingName) {
+		$compositeSettingName = $this->getSettingsMappingForSetting($settingName);
+		if (empty($compositeSettingName)) return null;
+		if (is_array($compositeSettingName)) $compositeSettingName = $compositeSettingName[0];
+		return $compositeSettingName;
+	}
+
+	/**
+	 * Get a setting object from a sub-filter. If
+	 * the setting mapping points to several sub-filters
+	 * then we assume that those settings are identical
+	 * and will return only the first one.
+	 *
+	 * @param $settingName string a mapped sub-filter setting
+	 * @return FilterSetting
+	 */
+	function &_getSubfilterSetting($settingName) {
+		// Resolve the setting name and retrieve the setting by name.
+		$compositeSettingName = $this->_getCompositeSettingName($settingName);
+		list($filter, $settingName) = $this->_resolveCompositeSettingName($compositeSettingName);
+		return $filter->getSetting($settingName);
+	}
+
+	/**
+	 * Split a composite setting name and identify the
 	 * corresponding sub-filter and setting name.
-	 * @param $key string
+	 * @param $compositeSettingName string
 	 * @return array the first entry will be the sub-filter
 	 *  and the second entry the setting name.
 	 */
-	function _resolveDataKey($key) {
+	function _resolveCompositeSettingName($compositeSettingName) {
+		assert(is_string($compositeSettingName));
+
 		// The key should be of the
 		// form filterSeq-settingName.
-		$keyParts = explode('_', $key, 2);
-		if (count($keyParts) != 2) fatalError('Invalid setting name "'.$key.'"!');
-		list($seq, $settingName) = $keyParts;
+		$compositeSettingNameParts = explode('_', $compositeSettingName, 2);
+		if (count($compositeSettingNameParts) != 2) fatalError('Invalid composite setting name "'.$compositeSettingName.'"!');
+		list($seq, $settingName) = $compositeSettingNameParts;
 		$seq = str_replace('seq', '', $seq);
-		if (!is_numeric($seq)) fatalError('Invalid sequence number in "'.$key.'"!');
+		if (!is_numeric($seq)) fatalError('Invalid sequence number in "'.$compositeSettingName.'"!');
 		$seq = (integer)$seq;
 
 		// Identify the sub-filter.

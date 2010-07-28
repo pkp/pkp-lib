@@ -350,12 +350,24 @@ class Filter extends DataObject {
 	 */
 	function addSetting(&$setting) {
 		assert(is_a($setting, 'FilterSetting'));
+		$settingName = $setting->getName();
 
 		// Check that the setting name does not
 		// collide with one of the internal settings.
-		if (in_array($setting->getName(), $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
+		if (in_array($settingName, $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
 
-		$this->_settings[] =& $setting;
+		assert(!isset($this->_settings[$settingName]));
+		$this->_settings[$settingName] =& $setting;
+	}
+
+	/**
+	 * Get a filter setting
+	 * @param $settingName string
+	 * @return FilterSetting
+	 */
+	function &getSetting($settingName) {
+		assert(isset($this->_settings[$settingName]));
+		return $this->_settings[$settingName];
 	}
 
 	/**
@@ -364,6 +376,14 @@ class Filter extends DataObject {
 	 */
 	function &getSettings() {
 		return $this->_settings;
+	}
+
+	/**
+	 * Check whether a given setting
+	 * is present in this filter.
+	 */
+	function hasSetting($settingName) {
+		return isset($this->_settings[$settingName]);
 	}
 
 	/**

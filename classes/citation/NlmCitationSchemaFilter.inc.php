@@ -17,6 +17,7 @@ define('NLM_CITATION_FILTER_PARSE', 0x1);
 define('NLM_CITATION_FILTER_LOOKUP', 0x2);
 
 import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.BooleanFilterSetting');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
@@ -65,6 +66,18 @@ class NlmCitationSchemaFilter extends Filter {
 				break;
 		}
 
+		// Instantiate the "isOptional" setting
+		// which is common to all NLM citation filters.
+		// It contains the information whether a filter
+		// will be used automatically within a given context
+		// or whether the user will have to use it
+		// explicitly (e.g. when parsing citations for
+		// an article, conference paper or monograph).
+		$isOptional = new BooleanFilterSetting('isOptional',
+				'metadata.filters.settings.isOptional.displayName',
+				'metadata.filters.settings.isOptional.validationMessage');
+		$this->addSetting($isOptional);
+
 		parent::Filter();
 	}
 
@@ -77,6 +90,15 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function getSupportedPublicationTypes() {
 		return $this->_supportedPublicationTypes;
+	}
+
+	/**
+	 * Whether this filter is optional within its
+	 * context (journal, conference, press, etc.)
+	 * @return boolean
+	 */
+	function getIsOptional() {
+		return $this->getData('isOptional');
 	}
 
 

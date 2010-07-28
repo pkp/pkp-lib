@@ -57,20 +57,25 @@
 				</script>{/literal}
 	
 				{assign var=hasRequiredField value=false}
-				<table width="100%">
+				<table>
 					{foreach from=$filterSettings item=filterSetting}
 						{if $filterSetting->getRequired() == $smarty.const.FORM_VALIDATOR_REQUIRED_VALUE}
-							{assign var=filterSettingRequired value=true}
+							{assign var=filterSettingRequired value='1'}
+							{assign var=hasRequiredField value=true}
+						{else}
+							{assign var=filterSettingRequired value=''}
 						{/if}
-						{if $filterSettingRequired}{assign var=hasRequiredField value=true}{/if}
 						<tr valign="top">
-							<td width="30%" class="label">{fieldLabel name=$filterSetting->getName() key=$filterSetting->getDisplayName() required=$filterSettingRequired}</td>
+							<td class="label">{fieldLabel name=$filterSetting->getName() key=$filterSetting->getDisplayName() required=$filterSettingRequired}</td>
 							{capture assign=settingValueVar}{ldelim}${$filterSetting->getName()}{rdelim}{/capture}
 							{eval|assign:"settingValue" var=$settingValueVar}
-							<td width="70%" class="value">
+							<td class="value">
 								{if $filterSetting|is_a:SetFilterSetting}
 									{fbvSelect id=$filterSetting->getName() name=$filterSetting->getName()
 											from=$filterSetting->getLocalizedAcceptedValues() selected=$settingValue translate=false}
+								{elseif $filterSetting|is_a:BooleanFilterSetting}
+									{fbvCheckbox id=$filterSetting->getName() name=$filterSetting->getName()
+											checked=$settingValue}
 								{else}
 									{fbvTextInput id=$filterSetting->getName() name=$filterSetting->getName()
 											size=$fbvStyles.size.LARGE maxlength=250 value=$settingValue}

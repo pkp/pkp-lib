@@ -42,9 +42,16 @@ class FilterGridCellProvider extends GridCellProvider {
 				$label = '';
 				foreach($filter->getSettings() as $filterSetting) {
 					$settingData = $filter->getData($filterSetting->getName());
-					if (!empty($settingData)) {
-						if (!empty($label)) $label .= ' | ';
-						$label .= Locale::translate($filterSetting->getDisplayName()).': '.$settingData;
+					if (is_a($filterSetting, 'BooleanFilterSetting')) {
+						if ($settingData) {
+							if (!empty($label)) $label .= ' | ';
+							$label .= Locale::translate($filterSetting->getDisplayName());
+						}
+					} else {
+						if (!empty($settingData)) {
+							if (!empty($label)) $label .= ' | ';
+							$label .= Locale::translate($filterSetting->getDisplayName()).': '.$settingData;
+						}
 					}
 				}
 				break;

@@ -35,7 +35,7 @@
 					</div>
 				</div>
 			{/strip}';
-	
+
 			// Handle deletion of the currently edited citation.
 			{if $citation->getId()}
 				$('#component-grid-citation-citationgrid-row-{$citation->getId()}').bind('updatedItem', function(event, actType) {ldelim}
@@ -59,7 +59,7 @@
 					
 			// Handle label change. This must be live() so
 			// that adding of new fields is supported.
-			$('.citation-field-label').live('change', function() {ldelim}
+			$('.citation-field-label').die('change').live('change', function() {ldelim}
 				var $this = $(this);
 				var newName = $this.val();
 
@@ -117,7 +117,7 @@
 			
 			// 2) Remove help text and show field label
 			//    selector on focus of the new field.
-			$('.new-citation-field').live('focus', function() {ldelim}
+			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
 				var $this = $(this);
 				if ($this.val() === '{translate|escape:javascript key="submission.citations.form.newFieldInfo"}') {ldelim}
 					$this
@@ -132,7 +132,7 @@
 			{rdelim});
 			
 			// Handle deletion of fields.
-			$('#citationImprovementManual .delete').click(function() {ldelim}
+			$('#citationImprovementManual .delete').die('click').live('click', function() {ldelim}
 				// Remove the table row with that field.
 				$(this).closest('tr').fadeOut(500, function() {ldelim}
 					$(this).remove();
@@ -234,7 +234,7 @@
 						submitJsonForm('#{$containerId}', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
 					{else}
 						// Create new citation.
-						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid tbody:not(.empty)');
+						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid tbody:first');
 					{/if}
 
 					// Trigger the throbber for citation approval or when we
@@ -264,10 +264,10 @@
 				<div id="citationImprovement">
 					<ul>
 						<li><a href="#citationImprovementManual">Manual Editing</a></li>
-						<li><a href="#citationImprovementDatabase">Database Query</a></li>
+						<li><a href="#citationImprovementQuery">Citation Services</a></li>
+						<li><a href="#citationImprovementResults">Citation Services</a></li>
 						<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
 						<li><a href="#citationImprovementAuthor">Ask Author</a></li>
-						<li><a href="#citationImprovementSources">View Sources</a></li>
 					</ul>
 					<div id="citationImprovementManual" class="form-block grid">
 						<table>
@@ -284,8 +284,8 @@
 						
 						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 					</div>
-					<div id="citationImprovementDatabase" class="form-block grid">
-						Databases
+					<div id="citationImprovementQuery" class="form-block grid">
+						External Citation Services
 		
 						<div class="form-block">
 							{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
@@ -302,19 +302,7 @@
 						</div>
 					</div>
 					
-					<div id="citationImprovementGoogle" class="form-block grid">
-						Google Scholar
-		
-						<div class="form-block">
-							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
-						</div>
-					</div>
-					
-					<div id="citationImprovementAuthor" class="form-block grid">
-						Ask Author
-					</div>
-					
-					<div id="citationImprovementSources" class="form-block grid">
+					<div id="citationImprovementResults" class="form-block grid">
 						{* Tabs that contain source data *}
 						<div id="citationSourceTabs-{$formUid}" class="form-block">
 							{* Tab definition *}
@@ -356,6 +344,18 @@
 								</div>
 							{/foreach}
 						</div>
+					</div>
+					
+					<div id="citationImprovementGoogle" class="form-block grid">
+						Google Scholar
+		
+						<div class="form-block">
+							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+						</div>
+					</div>
+					
+					<div id="citationImprovementAuthor" class="form-block grid">
+						Ask Author
 					</div>
 				</div>
 			</div>

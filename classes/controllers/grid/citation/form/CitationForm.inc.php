@@ -328,6 +328,9 @@ class CitationForm extends Form {
 
 		// Many template variables are only required for the full form template.
 		if ($template == CITATION_FORM_FULL_TEMPLATE) {
+			//
+			// Manual editing
+			//
 			// Available fields
 			$availableFields = array();
 			foreach($this->_citationProperties as $fieldName => $property) {
@@ -338,11 +341,20 @@ class CitationForm extends Form {
 			}
 			$templateMgr->assign_by_ref('availableFields', $availableFields);
 
+
+			//
+			// Citation Services (Query)
+			//
+
+
+			//
+			// Citation Services (Results)
+			//
 			// Citation source tabs
 			$citationSourceTabs = array();
 			$locale = Locale::getLocale();
 
-			// Run through all source descriptions and extract statements
+			// Run through all source descriptions and extract statements.
 			$sourceDescriptions =& $citation->getSourceDescriptions();
 			assert(is_array($sourceDescriptions));
 			foreach($sourceDescriptions as $sourceDescription) {

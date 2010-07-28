@@ -49,8 +49,8 @@ class PKPReviewAssignmentDAO extends DAO {
 				r.cancelled <> 1 AND
 				r.review_type = ? AND
 				r.round = ?',
-			array((int) $submissionId, (int) $reviewerId, (int) $reviewType, (int) $round) 
-		);      
+			array((int) $submissionId, (int) $reviewerId, (int) $reviewType, (int) $round)
+		);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
@@ -300,7 +300,7 @@ class PKPReviewAssignmentDAO extends DAO {
 			'SELECT	round, MAX(last_modified) as last_modified
 			FROM	review_assignments
 			WHERE	submission_id = ?
-			GROUP BY round', 
+			GROUP BY round',
 			(int) $submissionId
 		);
 
@@ -329,7 +329,7 @@ class PKPReviewAssignmentDAO extends DAO {
 			'SELECT	round, MIN(date_notified) as earliest_date
 			FROM	review_assignments
 			WHERE	submission_id = ?
-			GROUP BY round', 
+			GROUP BY round',
 			(int) $submissionId
 		);
 
@@ -353,7 +353,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	/**
 	 * Insert a new Review Assignment.
 	 * @param $reviewAssignment ReviewAssignment
-	 */	
+	 */
 	function insertObject(&$reviewAssignment) {
 		$this->update(
 			sprintf('INSERT INTO review_assignments (
@@ -530,7 +530,7 @@ class PKPReviewAssignmentDAO extends DAO {
 		$returner = false;
 		$result =& $this->retrieve(
 			'SELECT review_id FROM review_assignments WHERE submission_id = ?',
-			array((int) submissionId)
+			array((int) $submissionId)
 		);
 
 		while (!$result->EOF) {

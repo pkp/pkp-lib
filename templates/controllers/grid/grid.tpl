@@ -12,17 +12,22 @@
 
 {assign var=gridId value="component-"|concat:$grid->getId()}
 {assign var=gridTableId value=$gridId|concat:"-table"}
+{if $grid|is_a:CategoryGridHandler}
+	{assign var=gridActOnId value=$gridTableId}
+{else}
+	{assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
+{/if}
 <div id="{$gridId}" class="grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			<span class="options">
 				{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
 					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn()}
+						{assign var=actionActOnId value=$action->getActOn()}
 					{else}
-						{* FIXME: How is this supposed to work with category grids (see #5629)? *}
-						{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first"}
+						{assign var=actionActOnId value=$gridActOnId}
 					{/if}
+					{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 				{/foreach}
 			</span>
 		{/if}
@@ -41,11 +46,11 @@
 								<span class="options">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
 										{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$action->getActOn() hoverTitle=true}
+											{assign var=actionActOnId value=$action->getActOn()}
 										{else}
-											{* FIXME: How is this supposed to work with category grids (see #5629)? *}
-											{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first" hoverTitle=true}
+											{assign var=actionActOnId value=$gridActOnId}
 										{/if}
+										{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 									{/foreach}
 								</span>
 							{/if}
@@ -81,8 +86,12 @@
 		{/if}
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{* FIXME: How is this supposed to work with category grids (see #5629)? *}
-				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$gridTableId|concat:">tbody:first"}
+				{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+					{assign var=actionActOnId value=$action->getActOn()}
+				{else}
+					{assign var=actionActOnId value=$gridActOnId}
+				{/if}
+				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 			{/foreach}
 		</div>
 	{if !$grid->getIsSubcomponent()}</div>{/if}

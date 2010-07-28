@@ -98,6 +98,7 @@ function submitJsonForm(formContainer, actType, actOnId) {
 	$formContainer = $(formContainer);
 	$form = $formContainer.find('form');
 	validator = $form.validate();
+
 	// Post to server and construct callback
 	if ($form.valid()) {
 		$.post(
@@ -384,8 +385,8 @@ function actionThrobber(actOnId) {
 /**
  * Update the DOM of a grid or list depending on the action type.
  *
- * NB: This relies on an element with class "empty" being present
- * as a sibling of the parent element. Make sure you use an
+ * NB: This relies on an element with class "empty" being
+ * present as a child of a table element. Make sure you use an
  * appropriate DOM for this to work.
  *
  * @param actType String one of the action type constants.
@@ -396,7 +397,7 @@ function actionThrobber(actOnId) {
 function updateItem(actType, actOnId, content) {
 	switch (actType) {
 		case 'append':
-			$empty = $(actOnId).siblings('.empty');
+			$empty = $(actOnId).closest('table').children('.empty');
 			$empty.hide();
 			updatedItem = $(actOnId).append(content).children().last();
 			break;
@@ -425,8 +426,8 @@ function updateItem(actType, actOnId, content) {
 /**
  * Deletes the given grid or list element from the DOM.
  *
- * NB: This relies on an element with class "empty" being present
- * as a sibling of the parent element. Make sure you use an
+ * NB: This relies on an element with class "empty" being
+ * present as a child of a table element. Make sure you use an
  * appropriate DOM for this to work.
  *
  * @param element String a selector for the element to delete.
@@ -436,7 +437,7 @@ function updateItem(actType, actOnId, content) {
 function deleteElementById(element, showEmpty) {
 	$deletedElement = $(element);
 	if (showEmpty) {
-		var $emptyPlaceholder = $deletedElement.parent().siblings('.empty');
+		var $emptyPlaceholder = $deletedElement.closest('table').children('.empty');
 	}
 	$deletedElement.fadeOut(500, function() {
 		$(this).remove();

@@ -26,6 +26,7 @@
 		<field name="assoc_type" type="I2">
 			<NOTNULL/>
 		</field>
+		<field name="publish_email" type="I2" />
 		<field name="assoc_id" type="I8">
 			<NOTNULL/>
 		</field>

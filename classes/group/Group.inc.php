@@ -75,6 +75,22 @@ class Group extends DataObject {
 	}
 
 	/**
+	 * Get publish email flag
+	 * @return int
+	 */
+	function getPublishEmail() {
+		return $this->getData('publishEmail');
+	}
+
+	/**
+	 * Set publish email flag
+	 * @param $context int
+	 */
+	function setPublishEmail($publishEmail) {
+		return $this->setData('publishEmail',$publishEmail);
+	}
+
+	/**
 	 * Get flag indicating whether or not the group is displayed in "About"
 	 * @return boolean
 	 */

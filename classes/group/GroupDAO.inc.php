@@ -83,6 +83,7 @@ class GroupDAO extends DAO {
 		$group = new Group();
 		$group->setId($row['group_id']);
 		$group->setAboutDisplayed($row['about_displayed']);
+		$group->setPublishEmail($row['publish_email']);
 		$group->setSequence($row['seq']);
 		$group->setContext($row['context']);
 		$group->setAssocType($row['assoc_type']);
@@ -111,15 +112,16 @@ class GroupDAO extends DAO {
 	function insertGroup(&$group) {
 		$this->update(
 			'INSERT INTO groups
-				(seq, assoc_type, assoc_id, about_displayed, context)
+				(seq, assoc_type, assoc_id, about_displayed, context, publish_email)
 				VALUES
-				(?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?)',
 			array(
 				(int) $group->getSequence(),
 				(int) $group->getAssocType(),
 				(int) $group->getAssocId(),
 				(int) $group->getAboutDisplayed(),
-				(int) $group->getContext()
+				(int) $group->getContext(),
+				(int) $group->getPublishEmail()
 			)
 		);
 
@@ -139,7 +141,8 @@ class GroupDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?,
 					about_displayed = ?,
-					context = ?
+					context = ?,
+					publish_email = ?
 				WHERE	group_id = ?',
 			array(
 				(int) $group->getSequence(),
@@ -147,6 +150,7 @@ class GroupDAO extends DAO {
 				(int) $group->getAssocId(),
 				(int) $group->getAboutDisplayed(),
 				(int) $group->getContext(),
+				(int) $group->getPublishEmail(),
 				(int) $group->getId()
 			)
 		);

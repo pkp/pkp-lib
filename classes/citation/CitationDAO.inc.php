@@ -133,11 +133,12 @@ class CitationDAO extends DAO {
 	 *
 	 * @param $originalCitation Citation
 	 * @param $contextId integer
+	 * @param $filterIds array a custom selection of filters to be applied
 	 * @return Citation the checked citation. If checking
 	 *  was not successful then the original citation
 	 *  will be returned unchanged.
 	 */
-	function &checkCitation(&$originalCitation, $contextId) {
+	function &checkCitation(&$originalCitation, $contextId, $filterIds) {
 		assert(is_a($originalCitation, 'Citation'));
 
 		// Only parse the citation if it has not been parsed before.
@@ -146,14 +147,14 @@ class CitationDAO extends DAO {
 		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $contextId);
+			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $contextId, $filterIds);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
 		// before. The user asked us to re-check so there's probably
 		// additional manual information in the citation fields.
 		$filterCallback = array(&$this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $contextId);
+		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $contextId, $filterIds);
 
 		// Return the filtered citation.
 		return $filteredCitation;
@@ -258,27 +259,33 @@ class CitationDAO extends DAO {
 	 * the given selection rules.
 	 *
 	 * NB: Optional citation filters will only be included when
-	 * a specific set of filter ids is being given.
+	 * a specific set of filter ids is being given or when the
+	 * $includeOptionalFilters flag is set to true.
 	 *
 	 * @param $contextId integer the context for which the filters should be
 	 *  retrieved (journal, conference, press, etc.)
 	 * @param $parserFilters boolean whether to include parser type filters
 	 * @param $lookupFilters boolean whether to include lookup type filters
 	 * @param $fromFilterIds array restrict results to those with the given ids
+	 * @param $includeOptionalFilters boolean
 	 * @return array an array of NlmCitationSchemaFilters
 	 */
-	function &getCitationFilterInstances($contextId, $parserFilters = true, $lookupFilters = true, $fromFilterIds = array()) {
+	function &getCitationFilterInstances($contextId, $parserFilters = true, $lookupFilters = true, $fromFilterIds = array(), $includeOptionalFilters = false) {
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$filterList = array();
+
+		// All citation filters have NLM output.
+		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+
+		// Parser filters
 		if ($parserFilters) {
 			// Instantiate all configured filters that take a string
-			// as input and produce an NLM-citation schema as output
-			// (=parser filters).
+			// as input (=parser filters).
 			$inputSample = 'arbitrary strings';
 			$filterList =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $contextId);
 		}
 
+		// Lookup filters
 		if ($lookupFilters) {
 			// Instantiate all configured filters that transform NLM-citation
 			// schemas (=lookup filters).
@@ -287,13 +294,20 @@ class CitationDAO extends DAO {
 		}
 
 		// Filter the result list:
-		// 1) If the filter id list is empty then return only
-		//     non-optional (=default) filters.
+		// 1) If the filter id list is empty and optional filters
+		//    should not be included then return only non-optional
+		//    (=default) filters.
 		$finalFilterList = array();
 		if (empty($fromFilterIds)) {
-			foreach($filterList as $filter) {
-				if (!$filter->getData('isOptional')) $finalFilterList[] =& $filter;
-				unset($filter);
+			if ($includeOptionalFilters) {
+				// Return all filters including optional filters.
+				$finalFilterList =& $filterList;
+			} else {
+				// Only return default filters.
+				foreach($filterList as $filter) {
+					if (!$filter->getData('isOptional')) $finalFilterList[] =& $filter;
+					unset($filter);
+				}
 			}
 		// 2) If specific filter ids are given then only filters in that
 		//    list will be returned (even if they are non-default filters).
@@ -614,7 +628,7 @@ class CitationDAO extends DAO {
 			// did not produce any results and add an error message.
 			$filteredCitation =& $citation;
 			if (!empty($transformationDefinition['filterList'])) {
-				$filteredCitation->addError(Locale::translate('submission.citations.form.filterError'));
+				$filteredCitation->addError(Locale::translate('submission.citations.filter.noResultFromFilterError'));
 			}
 		} else {
 			// Copy data from the original citation to the filtered citation.

@@ -33,62 +33,158 @@
 {/strip}{/capture}
 <script type="text/javascript">
 	$(function() {ldelim}
-		// Hide editable raw citation on startup (unless we're adding a
-		// new citation) and leaving without editing.
-		// We do nothing when the field changes because then an
-		// AJAX refresh will be triggered anyway.
-		$('#editableRawCitation'){if $citation->getId()}.hide(){/if}
-			.find('textarea').blur(function() {ldelim}
-				if ($(this).text() === $(this).val()) {ldelim}
-					$('#editableRawCitation').hide();
-					$('#rawCitationWithMarkup').show();
-				{rdelim}
-			{rdelim});
-
-		{if !$citation->getId()}
-			// Hide the citation comparison markup when we add a new
+		//
+		// Initial setup
+		//
+		// Initial setup depends on whether we add or
+		// edit a citation.
+		{if $citation->getId()}
+			// Hide editable raw citation on startup unless we're adding a
+			// new citation.
+			$('#editableRawCitation').hide();
+		{else}
+			// Hide the citation comparison markup instead when we add a new
 			// citation.
 			$('.citation-comparison').hide();
 		{/if}
-			
+
+
+		//
+		// Handle form messages
+		//
+		// "Click to dismiss message" feature.
+		$('#citationFormMessages li').click(function() {ldelim}
+			$(this).remove();
+			if($('#citationFormMessages .formErrorList').children().length === 0) {ldelim}
+				$('#citationFormMessages').remove();
+			{rdelim}
+		{rdelim});
+
+		
+		//
+		// Handle raw citation edition
+		//
 		// Clicking on the raw citation should make it editable.
-		$('#rawCitationWithMarkup div.value, #rawCitationWithMarkup a').each(function() {ldelim}
+		$('#rawCitationWithMarkup div.value, #rawCitationWithMarkup .actions a.edit').each(function() {ldelim}
 			$(this).click(function() {ldelim}
 				$('#rawCitationWithMarkup').hide();
-				$('#editableRawCitation').show().find('textarea').focus();
+				$editableRawCitation = $('#editableRawCitation').show();
+				$textarea = $editableRawCitation.find('textarea').focus();
+				
+				// Save original value for undo
+				$textarea.data('original-value', $textarea.val());
 				return false;
 			{rdelim});
 		{rdelim});
 
-		// Update citation diff after any type of editing.
-		$('.citation-field').each(function() {ldelim}
-			$(this).unbind('change');
-		{rdelim});	
-		eventHandler = ajaxAction(
+		// Handle abort raw citation editing.
+		$('#cancelRawCitationEditing').click(function() {ldelim}
+			$editableRawCitation = $('#editableRawCitation').hide();
+			$('#rawCitationWithMarkup').show();
+
+			// Restore original raw citation value.
+			$textarea = $editableRawCitation.find('textarea');
+			$textarea.val($textarea.data('original-value'));
+			return false;
+		{rdelim}); 
+
+		// Open a confirmation dialog when the user
+		// clicks the "process raw citation" button.
+		$('#processRawCitation')
+			// modalConfirm() doesn't remove prior events
+			// so we do it ourselves.
+			.die('click')
+			// Activate a throbber when the button is clicked.
+			.click(function() {ldelim}
+				// Throbber for raw citation processing.
+				actionThrobber('#{$containerId}');
+			{rdelim});
+		
+		// Configure the dialog.
+		modalConfirm(
+			'{url op="updateRawCitation"}',
+			'replace',
+			'#{$containerId}', 
+			'{translate key="submission.citations.editor.details.processRawCitationWarning"}',
+			[
+				'{translate key="submission.citations.editor.details.processRawCitationGoAhead"}',
+				'{translate key="common.cancel"}'
+			],
+			'#processRawCitation',
+			'{translate key="submission.citations.editor.details.processRawCitationTitle"}',
+			true
+		);
+
+		// Configure expert raw citation editing options.
+		function deactivateRawCitationEditingExpertOptions() {ldelim}
+			$('#editableRawCitation .options-head .option-block-active, #editableRawCitation .option-block').hide();
+			$('#editableRawCitation .options-head .option-block-inactive').show();
+			$('#editableRawCitation .options-head').removeClass('active').addClass('inactive');
+			$('#editableRawCitation .ui-icon').removeClass('ui-icon-triangle-1-s').addClass('ui-icon-triangle-1-e');
+		{rdelim}
+
+		function activateRawCitationEditingExpertOptions() {ldelim}
+			$('#editableRawCitation .options-head .option-block-inactive').hide();
+			$('#editableRawCitation .options-head .option-block-active, #editableRawCitation .option-block').show();
+			$('#editableRawCitation .options-head').removeClass('inactive').addClass('active');
+			$('#editableRawCitation .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
+		{rdelim}
+
+		// Deactivate the settings on startup.
+		deactivateRawCitationEditingExpertOptions();
+
+		// Toggle the settings when clicking on the header.
+		$('#editableRawCitation .options-head').click(function() {ldelim}
+			if ($(this).hasClass('active')) {ldelim}
+				deactivateRawCitationEditingExpertOptions();
+			{rdelim} else {ldelim}
+				activateRawCitationEditingExpertOptions();
+			{rdelim}
+		{rdelim});
+		
+		//
+		// Handle field level data changes.
+		//
+		// Register event handler for refresh of the citation
+		// comparison and message part of the form.
+		ajaxAction(
 			'post',
 			'#citationFormErrorsAndComparison',
-			// We bind the raw citation textarea and the wrapper
-			// to the change event. The wrapper doesn't implement
-			// its own change event but it can be manually triggered
-			// if we want to refresh the interface for some reason.
-			'#editableRawCitation textarea, #citationFormErrorsAndComparison',
+			// We bind the wrapper to a custom event. This can
+			// be manually triggered if we want to refresh the
+			// interface for some reason.
+			'#citationFormErrorsAndComparison',
 			'{url op="fetchCitationFormErrorsAndComparison"}',
 			null,
-			'change',
+			'refresh',
 			'#editCitationForm'
 		);
-		// Bind citation fields with live so that new fields
-		// will be automatically active. 
-		$('.citation-field').die('change').live('change', eventHandler);
+		
+		// Bind citation fields with live to the refresh event
+		// so that new fields will be automatically active. 
+		$('.citation-field').die('change').live('change', function() {ldelim}
+			$('#citationFormErrorsAndComparison').triggerHandler('refresh');
+		{rdelim});
 	{rdelim});
 </script>
 <div id="citationFormErrorsAndComparison" class="form-block">
 	{if $unsavedChanges || $isError}
-		<div id="citationFormMessages" class="help-message">
-			{if $unsavedChanges}
-				<p class="unsaved-data-warning"><span class="formError">{translate key="submission.citations.form.unsavedChanges"}</span></p>
-			{/if}
-			{include file="common/formErrors.tpl" dontJumpToError=true}
+		<div id="citationFormMessages" class="help-message" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}">
+			<div id="formErrors">
+				<p>
+					<span class="formError">{translate key="form.errorsOccurred"}:</span>
+					<ul class="formErrorList">
+						{if $unsavedChanges}
+							<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.unsavedChanges"}</li>
+						{/if}
+						{if $isError}
+							{foreach key=field item=message from=$errors}
+								<li>{$message}</li>
+							{/foreach}
+						{/if}
+					</ul>
+				</p>
+			</div>
 		</div>
 	{/if}
 	
@@ -99,22 +195,76 @@
 	<div id="editableRawCitation">
 		<div class="label">
 			{if $citation->getId()}
-				{fieldLabel name="rawCitation" key="submission.citations.grid.rawCitation"}
+				{fieldLabel name="rawCitation" key="submission.citations.editor.details.rawCitation"}
 			{else}
-				{fieldLabel name="rawCitation" key="submission.citations.grid.newCitation"}
+				{fieldLabel name="rawCitation" key="submission.citations.editor.citationlist.newCitation"}
 			{/if}
 		</div>
 		<div class="value">
 			<textarea class="textarea" validation="required" id="rawCitation" name="rawCitation">{$rawCitation}</textarea>
 		</div>
+		{if $citation->getId()}
+			<div id="rawCitationEditingExpertOptions">
+				<div class="options-head">
+					<span class="ui-icon"></span>
+					<span class="option-block-inactive">{translate key="submission.citations.editor.details.editRawCitationExpertSettingsInactive"}</span>
+					<span class="option-block-active">{translate key="submission.citations.editor.details.editRawCitationExpertSettingsActive"}</span>
+				</div>
+				<div class="option-block">
+					<p>{translate key="submission.citations.editor.details.editRawCitationExtractionServices"}</p>
+					<div>
+						{foreach from=$availableParserFilters item=citationFilter}
+							{assign var=citationFilterFieldName value="citationFilters["|concat:$citationFilter->getId():"]"}
+							{if $citationFilter->getData('isOptional')}
+								{assign var=citationFilterDefault value=false}
+							{else}
+								{assign var=citationFilterDefault value=true}
+							{/if}
+							<div class="option-block-option">
+								{fbvCheckbox id=$citationFilter->getDisplayName() name=$citationFilterFieldName
+										checked=$citationFilterDefault}
+								{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
+							</div>
+						{/foreach}
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="option-block">
+					<p>{translate key="submission.citations.editor.details.editRawCitationDatabaseServices"}</p>
+					<div>
+						{foreach from=$availableLookupFilters item=citationFilter}
+							{assign var=citationFilterFieldName value="citationFilters["|concat:$citationFilter->getId():"]"}
+							{if $citationFilter->getData('isOptional')}
+								{assign var=citationFilterDefault value=false}
+							{else}
+								{assign var=citationFilterDefault value=true}
+							{/if}
+							<div class="option-block-option">
+								{fbvCheckbox id=$citationFilter->getDisplayName() name=$citationFilterFieldName
+										checked=$citationFilterDefault}
+								{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
+							</div>
+						{/foreach}
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="form-block actions">
+				<button id="cancelRawCitationEditing" type="button">{translate key="common.cancel"}</button>
+				<button id="processRawCitation" type="button">{translate key="submission.citations.editor.details.processRawCitation"}</button>
+			</div>
+			<div class="clear"></div>
+		{/if}
 	</div>
 	<div id="rawCitationWithMarkup" class="citation-comparison">
-		<div class="label">{translate key="submission.citations.grid.rawCitation"}</div>
-		<a class="edit" title="{translate key="submission.citations.grid.clickToEdit"}" href=""></a>
-		<div class="value ui-corner-all" title="{translate key="submission.citations.grid.clickToEdit"}">{$rawCitationWithMarkup}</div>
+		<div class="label">{translate key="submission.citations.editor.details.rawCitation"}</div>
+		<div class="actions">
+			<a class="edit" title="{translate key="submission.citations.editor.clickToEdit"}" href=""></a>
+		</div>
+		<div class="value ui-corner-all" title="{translate key="submission.citations.editor.clickToEdit"}">{$rawCitationWithMarkup}</div>
 	</div>
 	<div id="generatedCitationWithMarkup" class="citation-comparison">
-		<div class="label">{translate key="submission.citations.grid.generatedCitation"}</div>
+		<div class="label">{translate key="submission.citations.editor.details.citationExportPreview"}</div>
 		<div class="value ui-corner-all">{$generatedCitationWithMarkup}</div>
 	</div>
 </div>

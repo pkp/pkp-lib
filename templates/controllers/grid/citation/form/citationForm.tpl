@@ -11,27 +11,15 @@
 {assign var=formUid value="form"|uniqid}
 <div id="{$containerId}" class="canvas">
 	<script type="text/javascript">
-		/**
-		 * Add a new field for manual editing.
-		 */
-		function addNewCitationField() {ldelim}
-			{capture assign=htmlForNewField}{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName="new"}{/capture}
-			var htmlForNewField = '{$htmlForNewField|escape:javascript}';
-			var $newField = $('#citationImprovementManual tbody')
-				.append(htmlForNewField).children().last();
-			// Hide the label drop-down and the delete action
-			// until the user enters a value
-			$newField.find('a, select').hide();
-			// Set the original value.
-			$newField.find('select').data('original-value', '-1'); 
-		{rdelim}
-		
 		$(function() {ldelim}
+			////////////////////////////////////////////////////////////
+			// Form-level code.
+			//
 			// Create text to be inserted into the empty editor pane.
 			emptyEditorText = '{strip}
 				<div id="{$containerId}" class="canvas">
 					<div class="wrapper">
-						<div class="help-message">{translate|escape key="submission.citations.pleaseClickOnCitationToStartEditing"}</div>
+						<div class="help-message">{translate|escape key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
 				</div>
 			{/strip}';
@@ -45,12 +33,15 @@
 				{rdelim});
 			{/if}
 
-			// Create citation source tabs.
-			$('#citationSourceTabs-{$formUid}').tabs();
-
+			////////////////////////////////////////////////////////////
+			// Improvement options
+			//
 			// Create citation improvement tabs.
 			$('#citationImprovement').tabs();
 
+			//
+			// 1) Manual editing
+			//
 			// Store original label values so that we can
 			// restore them if we have to cancel a label change.
 			$('.citation-field-label').each(function() {ldelim}
@@ -65,7 +56,7 @@
 
 				// Don't allow unsetting the label.
 				if (newName === '-1') {ldelim}
-					alert('{translate|escape:javascript key="submission.citations.form.cannotSelectDefaultForLabel"}'); 
+					alert('{translate|escape:javascript key="submission.citations.editor.details.cannotSelectDefaultForLabel"}'); 
 					$this.val($this.data('original-value'));
 					return false;
 				{rdelim}
@@ -104,22 +95,38 @@
 
 				// Trigger a change event so that the citation
 				// comparison is being updated.
-				$('#citationFormErrorsAndComparison').triggerHandler('change');
+				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 				
 				// Store the new value for future reference.
 				$this.data('original-value', newName);
 			{rdelim});
 
 			// Handle addition of new fields:
-			// 1) Append the a first new input field to
-			//    the field list.
+			// - Define helper function
+			/**
+			 * Add a new field for manual editing.
+			 */
+			function addNewCitationField() {ldelim}
+				{capture assign=htmlForNewField}{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName="new"}{/capture}
+				var htmlForNewField = '{$htmlForNewField|escape:javascript}';
+				var $newField = $('#citationImprovementManual tbody')
+					.append(htmlForNewField).children().last();
+				// Hide the label drop-down and the delete action
+				// until the user enters a value
+				$newField.find('a, select').hide();
+				// Set the original value.
+				$newField.find('select').data('original-value', '-1'); 
+			{rdelim}
+		
+			// - Append the a first new input field to
+			//   the field list.
 			addNewCitationField();
 			
-			// 2) Remove help text and show field label
-			//    selector on focus of the new field.
+			// - Remove help text and show field label
+			//   selector on focus of the new field.
 			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
 				var $this = $(this);
-				if ($this.val() === '{translate|escape:javascript key="submission.citations.form.newFieldInfo"}') {ldelim}
+				if ($this.val() === '{translate|escape:javascript key="submission.citations.editor.details.newFieldInfo"}') {ldelim}
 					$this
 						// Empty the field.
 						.val('')
@@ -138,12 +145,38 @@
 					$(this).remove();
 					// Trigger a change event on the citation
 					// comparison container to refresh it.
-					$('#citationFormErrorsAndComparison').triggerHandler('change');
+					$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 				{rdelim});
 				return false;
 			{rdelim});
 		
-			// Handle cancel button.
+			//
+			// 2) Citation Services (Query)
+			//
+			// FIXME
+
+			//
+			// 3) Citation Services (Results)
+			//
+			// Create citation source tabs.
+			$('#citationSourceTabs-{$formUid}').tabs();
+
+			//
+			// 4) Google Scholar
+			//
+			// FIXME
+
+			//
+			// 5) Author Query
+			//
+			// FIXME
+
+			////////////////////////////////////////////////////////////
+			// Form-level actions.
+			//
+			//
+			// 1) Cancel button.
+			//
 			$('#citationFormCancel').click(function() {ldelim}
 				// Clear the form panel and show the initial help message.
 				$('#{$containerId}').replaceWith(emptyEditorText);
@@ -154,6 +187,9 @@
 				{rdelim});
 			{rdelim});
 
+			//
+			// 2) Save buttons.
+			//
 			// Style save buttons.
 			{if $citationApproved}
 				$('#citationFormSaveAndApprove').hide();
@@ -175,8 +211,8 @@
 						$(this).unbind('submitSuccessful');
 						
 						// Remove warning about unsaved data.
-						$('p.unsaved-data-warning').remove();
-						if($('#citationFormMessages').children().length === 0) {ldelim}
+						$('li.unsaved-data-warning').remove();
+						if($('#citationFormMessages .formErrorList').children().length === 0) {ldelim}
 							$('#citationFormMessages').remove();
 						{rdelim}
 
@@ -259,7 +295,7 @@
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 
 			<div id="citationImprovementBlock" class="form-block"> 
-				<p>{translate key="submission.citations.form.description"}</p>
+				<p>{translate key="submission.citations.editor.details.explainImprovementOptions"}</p>
 			
 				<div id="citationImprovement">
 					<ul>
@@ -288,8 +324,8 @@
 						External Citation Services
 		
 						<div class="form-block">
-							{include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId}
-							<script type="text/javascript">
+							{* include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId *}
+							{* <script type="text/javascript">
 								// FIXME: Move this to the templates generas JS once we've fully implemented
 								// DB queries.
 								$(function() {ldelim}
@@ -298,7 +334,7 @@
 										actionThrobber('#{$containerId}');
 									{rdelim});
 								{rdelim});
-							</script>
+							</script> *}
 						</div>
 					</div>
 					
@@ -350,7 +386,7 @@
 						Google Scholar
 		
 						<div class="form-block">
-							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.grid.checkGoogleScholar"}</a>
+							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.editor.details.checkInGoogleScholar"}</a>
 						</div>
 					</div>
 					
@@ -370,9 +406,9 @@
 		{/if}
 		
 		<div class="pane_actions form-block"><div>
-			<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.saveAndRevokeApproval"}</button>
+			<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>
 			<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
-			<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.saveAndApprove"}{else}{translate key="submission.citations.addAndApprove"}{/if}</button>
+			<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.editor.details.saveAndApprove"}{else}{translate key="submission.citations.editor.details.addAndApprove"}{/if}</button>
 			<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
 		</div></div>
 	</form>

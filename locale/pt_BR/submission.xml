@@ -170,20 +170,18 @@
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>
 	<message key="submission.citations.jQueryRequired"><![CDATA[Edição de citações exige a habilitação do jQuery. Acesse a página de <a target="_new" href="{$genericPluginsUrl}">Plugins genéricos</a> e habilite o plugin jQuery.]]></message>
-	<message key="submission.citations.grid.title">Editar citações</message>
+	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
 	<message key="submission.citations.grid.importCitations">Importar citações</message>
-	<message key="submission.citations.grid.exportCitations">Exportar citações</message>
 	<message key="submission.citations.grid.parseCitation">Analisar</message>
 	<message key="submission.citations.grid.lookupCitation">Procurar</message>
-	<message key="submission.citations.grid.rawCitation">Texto da citação</message>
-	<message key="submission.citations.grid.rawCitationRequired">O texto da citação é obrigatório.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação</message>
-	<message key="submission.citations.form.title">Editar citação</message>
-	<message key="submission.citations.form.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
-	<message key="submission.citations.form.description">Melhore a qualidade da citação e tente validar novamente.</message>
-	<message key="submission.citations.form.filterError">As operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação para melhorar os resultados.</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Tipo de publicação não suportado ou faltando.</message>
-	<message key="submission.citations.output.exportDescription">Copie o conteúdo desta caixa de diálogo e cole no seu documento.</message>
+	<message key="submission.citations.editor.details.rawCitation">Texto da citação</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação</message>
+	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Melhore a qualidade da citação e tente validar novamente.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">As operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação para melhorar os resultados.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando.</message>
+	<message key="submission.citations.editor.export.exportDescription">Copie o conteúdo desta caixa de diálogo e cole no seu documento.</message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>
 	<message key="metadata.property.displayName.article-title">Tìtulo do artigo</message>

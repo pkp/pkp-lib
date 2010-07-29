@@ -169,21 +169,19 @@
 	
 	<!-- Author Submission --> 
 	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>	
-	<message key="submission.citations.grid.title">Editar Citações</message>
+	<message key="submission.citations.editor.citationlist.title">Editar Citações</message>
 	<message key="submission.citations.grid.importCitations">Importar Citações</message>
-	<message key="submission.citations.grid.exportCitations">Exportar Citações</message>
-	<message key="submission.citations.grid.rawCitation">Texto Citação</message>
-	<message key="submission.citations.grid.rawCitationRequired">É requerido um texto de citação.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Ocorreu um erro ao tentar eliminar a citação</message>
-	<message key="submission.citations.form.title">Editar Citação</message>
-	<message key="submission.citations.form.loadMessage">Por favor aguarde até o editor de citação ser carregado.</message>
+	<message key="submission.citations.editor.details.rawCitation">Texto Citação</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">É requerido um texto de citação.</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar eliminar a citação</message>
+	<message key="submission.citations.editor.loadMessage">Por favor aguarde até o editor de citação ser carregado.</message>
 	<message key="submission.citations.jQueryRequired"><![CDATA[A edição de citações requer a activação de jQuery. Por favor vá à página <a target="_new" href="{$genericPluginsUrl}">generic plug-ins' e active o plugin aqui.]]></message>
 	<message key="submission.citations.grid.parseCitation">Parse</message>
 	<message key="submission.citations.grid.lookupCitation">Procurar</message>
-	<message key="submission.citations.form.description">Melhore manualmente a citação e tente novamente a sua validação.</message>
-	<message key="submission.citations.form.filterError">A operação parse ou procira não devolveu quaisquer resultados. Pode tentar editar o texto de citação manualmente para melhorar os resultados?</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Tipo de publicação não suportada ou em falta.</message>
-	<message key="submission.citations.output.exportDescription">Por favor copie o conteúdo desta caixa de diálogo e cole-a no seu documento.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Melhore manualmente a citação e tente novamente a sua validação.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">A operação parse ou procira não devolveu quaisquer resultados. Pode tentar editar o texto de citação manualmente para melhorar os resultados?</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportada ou em falta.</message>
+	<message key="submission.citations.editor.export.exportDescription">Por favor copie o conteúdo desta caixa de diálogo e cole-a no seu documento.</message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>
 	<message key="metadata.property.displayName.article-title">Título Artigo</message>

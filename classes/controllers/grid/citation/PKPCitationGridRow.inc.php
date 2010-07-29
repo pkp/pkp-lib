@@ -93,7 +93,7 @@ class PKPCitationGridRow extends GridRow {
 					$router->url($request, null, null, 'deleteCitation', null,
 							array('assocId' => $assocId, 'citationId' => $rowId)),
 					'grid.action.delete', null, 'delete',
-					Locale::translate('submission.citations.grid.deleteCitationConfirmation')
+					Locale::translate('submission.citations.editor.citationlist.deleteCitationConfirmation')
 				),
 				GRID_ACTION_POSITION_ROW_LEFT
 			);
@@ -131,7 +131,7 @@ class PKPCitationGridRow extends GridRow {
 						LINK_ACTION_TYPE_GET,
 						$router->url($request, null, null, $editActionOp, null,
 								array('assocId' => $this->getAssocId(), 'citationId' => $rowId)),
-						'submission.citations.grid.clickToEdit',
+						'submission.citations.editor.clickToEdit',
 						null, null, null,
 						'citationEditorDetailCanvas'
 					)

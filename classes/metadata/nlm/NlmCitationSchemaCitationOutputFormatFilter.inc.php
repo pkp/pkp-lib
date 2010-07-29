@@ -97,7 +97,7 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 		$supportedPublicationTypes = $this->getSupportedPublicationTypes();
 		$inputPublicationType = $input->getStatement('[@publication-type]');
 		if (!in_array($inputPublicationType, $supportedPublicationTypes)) {
-			$this->addError(Locale::translate('submission.citations.output.unsupportedPublicationType'));
+			$this->addError(Locale::translate('submission.citations.filter.unsupportedPublicationType'));
 			$emptyResult = '';
 			return $emptyResult;
 		}

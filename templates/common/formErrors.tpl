@@ -18,14 +18,10 @@
 		</ul>
 		</p>
 	</div>
-	{if !$dontJumpToError}
-		<script type="text/javascript">
-		{literal}
+	<script type="text/javascript">{literal}
 		<!--
 		// Jump to form errors.
 		window.location.hash="formErrors";
 		// -->
-		{/literal}
-		</script>
-	{/if}
+	{/literal}</script>
 {/if}

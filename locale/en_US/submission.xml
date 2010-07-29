@@ -107,50 +107,56 @@
 	<message key="submission.backToSubmissionEditing">Back to Submission Editing</message>
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.citations">References</message>
-	<message key="submission.citations.addAndApprove">Add And Approve</message>
-	<message key="submission.citations.editor.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the "Edit Citations" tab and make sure you have approved all citations before you try to export them. Unapproved citations appear with a white background in the citation list, approved citations are marked light blue.</p>]]></message>
-	<message key="submission.citations.editor.introductionMessage">FIXME: Write a help text.</message>
-	<message key="submission.citations.editor.tab.introduction">Introduction</message>
-	<message key="submission.citations.editor.tab.edit">Edit Citations</message>
-	<message key="submission.citations.editor.tab.export">Export Citations</message>
+
+	<message key="submission.citations.editor.details.executeLookup">Check again in external databases</message>
+	
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Are you sure you want to delete this citation?</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
+	<message key="submission.citations.editor.citationlist.newCitation">New Citation</message>
+	<message key="submission.citations.editor.citationlist.title">Edit Citations</message>
+	<message key="submission.citations.editor.clickToEdit">Click to edit.</message>
+	<message key="submission.citations.editor.details.addAndApprove">Add And Approve</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">You cannot unset a field label. Please delete the field if you don't need it</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Check in Google Scholar</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">Type first few letters to select...</message>
+	<message key="submission.citations.editor.details.citationExportPreview">Citation Export Preview</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">You can click the text of a message to dismiss it.</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Select Citation Database Services:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Expert citation editing settings (Click to close)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Expert citation editing settings (Click to open)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Select Citation Extraction Services:</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Internal error: Invalid filter selection. Please submit a bug report.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...click here to add a new field...</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>You can click on one of the listed citations on the left to start editing.</p><p>FIXME: Explain basic workflow and color code/symbols used for the citation editor listing.</p>]]></message>
+	<message key="submission.citations.editor.details.processRawCitation">Process</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">Go Ahead</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">Changing Original Citation</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">You are about to change the original citation text. If you do that then all fields will be replaced with newly generated values. This deletes manual changes you might already have made.</message>
+	<message key="submission.citations.editor.details.saveAndApprove">Save And Approve</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">Revoke Approval</message>
+	<message key="submission.citations.editor.details.rawCitation">Original Citation Text</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">A citation text is required.</message>
+	<message key="submission.citations.editor.details.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>
+	<message key="submission.citations.editor.edit">Edit Citations</message>
+	<message key="submission.citations.editor.export">Export Citations</message>
+	<message key="submission.citations.editor.export.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the "Edit Citations" tab and make sure you have approved all citations before you try to export them. Unapproved citations appear with a white background in the citation list, approved citations are marked light blue.</p>]]></message>
+	<message key="submission.citations.editor.introduction">Introduction</message>
+	<message key="submission.citations.editor.introduction.introductionMessage">FIXME: Write a help text.</message>
+	<message key="submission.citations.editor.loadMessage">Please wait for the citation editor to load.</message>
+	<message key="submission.citations.editor.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It seems like your installation is running on an earlier PHP version.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[You have to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation editor.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[You have to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation editor.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSelect">Please select...</message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[You have to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation editor.]]></message>
 	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Several of the configured citation services did not return any results. Please try to edit the original citation text manually to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.form.cannotSelectDefaultForLabel">You cannot unset a field label. Please delete the field if you don't need it</message>
-	<message key="submission.citations.form.changeFieldInfo">Type first few letters to select...</message>
-	<message key="submission.citations.form.description">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
-	<message key="submission.citations.form.filterError">Several of the configured citation services did not return any results. Please try to edit the original citation text manually to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
-	<message key="submission.citations.form.loadMessage">Please wait for the citation editor to load.</message>
-	<message key="submission.citations.form.newFieldInfo">...click here to add a new field...</message>
-	<message key="submission.citations.form.pleaseSelect">Please select...</message>
-	<message key="submission.citations.form.title">Edit Citation</message>
-	<message key="submission.citations.form.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>
-	<message key="submission.citations.grid.checkCitationAgain">Check again in external databases</message>
-	<message key="submission.citations.grid.checkGoogleScholar">Check in Google Scholar</message>
-	<message key="submission.citations.grid.clickToEdit">Click to edit.</message>
-	<message key="submission.citations.grid.deleteCitationConfirmation">Are you sure you want to delete this citation?</message>
-	<message key="submission.citations.grid.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
-	<message key="submission.citations.grid.exportCitations">Export Citations</message>
-	<message key="submission.citations.grid.fields">Field Name</message>
-	<message key="submission.citations.grid.generatedCitation">Citation Export Preview</message>
-	<message key="submission.citations.grid.importCitations">Import Citations</message>
-	<message key="submission.citations.grid.newCitation">New Citation</message>
-	<message key="submission.citations.grid.rawCitation">Original Citation Text</message>
-	<message key="submission.citations.grid.rawCitationRequired">A citation text is required.</message>
-	<message key="submission.citations.grid.title">Edit Citations</message>
-	<message key="submission.citations.grid.values">Field Value</message>
-	<message key="submission.citations.grid.withdrawApproval">Withdraw Approval</message>
 	<message key="submission.citations.metadata.changeWarning">If you change the references list then all current citations will be overwritten. If you want to change a few citations only then you can do this in the citation editor (see "REFERENCES" page in the editor menu). Do you want to change the references list anyway?</message>
-	<message key="submission.citations.output.exportDescription">Please copy the content of this dialog window and paste it into your document.</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
-	<message key="submission.citations.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It seems like your installation is running on an earlier PHP version.</message>
-	<message key="submission.citations.pleaseSetup"><![CDATA[You have to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation editor.]]></message>
-	<message key="submission.citations.pleaseAddParserFilter"><![CDATA[You have to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation editor.]]></message>
-	<message key="submission.citations.pleaseConfigureOutputStyle"><![CDATA[You have to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation editor.]]></message>
-	<message key="submission.citations.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
-	<message key="submission.citations.pleaseClickOnCitationToStartEditing"><![CDATA[<p>You can click on one of the listed citations on the left to start editing.</p><p>FIXME: Explain basic workflow and color code/symbols used for the citation editor listing.</p>]]></message>
-	<message key="submission.citations.saveAndApprove">Save And Approve</message>
-	<message key="submission.citations.saveAndRevokeApproval">Revoke Approval</message>
 	<message key="submission.comments.addComment">Add Comment</message>
 	<message key="submission.comments.comments">Comments</message>
 	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>

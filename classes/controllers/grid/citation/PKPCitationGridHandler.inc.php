@@ -105,7 +105,7 @@ class PKPCitationGridHandler extends GridHandler {
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
 
 		// Basic grid configuration
-		$this->setTitle('submission.citations.grid.title');
+		$this->setTitle('submission.citations.editor.citationlist.title');
 
 		// Retrieve the associated citations to be displayed in the grid
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
@@ -121,7 +121,7 @@ class PKPCitationGridHandler extends GridHandler {
 				LINK_ACTION_TYPE_GET,
 				$router->url($request, null, null, 'addCitation', null,
 						array('assocId' => $this->getAssocId())),
-				'submission.citations.grid.newCitation', null, 'add', null,
+				'submission.citations.editor.citationlist.newCitation', null, 'add', null,
 				'citationEditorDetailCanvas'
 			),
 			GRID_ACTION_POSITION_LASTCOL
@@ -170,7 +170,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @param $noCitationsFoundMessage string an app-specific help message
-	 * @return string
+	 * @return string a serialized JSON message
 	 */
 	function exportCitations(&$args, &$request, $noCitationsFoundMessage) {
 		// We currently only support the NLM citation schema.
@@ -190,7 +190,7 @@ class PKPCitationGridHandler extends GridHandler {
 				if ($citation->getCitationState() < CITATION_APPROVED) {
 					// Oops, found an unapproved citation, won't be able to
 					// export then.
-					$initialHelpMessage = Locale::translate('submission.citations.editor.foundUnapprovedCitationsMessage');
+					$initialHelpMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
 					break;
 				}
 
@@ -216,6 +216,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * An action to manually add a new citation
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string a serialized JSON message
 	 */
 	function addCitation(&$args, &$request) {
 		// Calling editCitation() with an empty row id will add
@@ -227,6 +228,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * Edit a citation
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string a serialized JSON message
 	 */
 	function editCitation(&$args, &$request) {
 		// Identify the citation to be edited
@@ -235,7 +237,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($citation, $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $citationOutputFilter);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
 		} else {
@@ -246,9 +248,29 @@ class PKPCitationGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Change the raw text of a citation and re-process it.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string a serialized JSON message
+	 */
+	function updateRawCitation(&$args, &$request) {
+		// Retrieve the citation to be changed from the database.
+		$citation =& $this->getCitationFromArgs($args, true);
+
+		// Now retrieve the raw citation from the request.
+		$citation->setRawCitation(strip_tags($request->getUserVar('rawCitation')));
+
+		// Resetting the citation state to "raw" will trigger re-parsing.
+		$citation->setCitationState(CITATION_RAW);
+
+		return $this->_recheckCitation($request, $citation);
+	}
+
+	/**
 	 * Check (parse and lookup) a citation
 	 * @param $args array
 	 * @param $request PKPRequest
+	 * @return string a serialized JSON message
 	 */
 	function checkCitation(&$args, &$request) {
 		if ($request->isPost()) {
@@ -274,42 +296,14 @@ class PKPCitationGridHandler extends GridHandler {
 			$originalCitation =& $this->getCitationFromArgs($args, true);
 		}
 
-		// Find the request context
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		assert(is_object($context));
-
-		// Do the actual filtering of the citation.
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$filteredCitation =& $citationDAO->checkCitation($originalCitation, $context->getId());
-
-		// Immediately persist intermediate results.
-		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
-
-		// Crate a new form for the filtered (but yet unsaved) citation data
-		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($filteredCitation, $citationOutputFilter);
-
-		// Transport filtering errors to form (if any).
-		foreach($filteredCitation->getErrors() as $index => $errorMessage) {
-			$citationForm->addError('rawCitation['.$index.']', $errorMessage);
-		}
-
-		// Mark the citation form "dirty".
-		$citationForm->setUnsavedChanges(true);
-
-		// Return the rendered form
-		$citationForm->initData();
-		$json = new JSON('true', $citationForm->fetch($request));
-		return $json->getString();
+		return $this->_recheckCitation($request, $originalCitation);
 	}
 
 	/**
 	 * Update a citation
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return string a serialized JSON message
 	 */
 	function updateCitation(&$args, &$request) {
 		// Try to persist the data in the request.
@@ -342,7 +336,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * Delete a citation
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string
+	 * @return string a serialized JSON message
 	 */
 	function deleteCitation(&$args, &$request) {
 		// Identify the citation to be deleted
@@ -354,7 +348,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSON('true');
 		} else {
-			$json = new JSON('false', Locale::translate('submission.citations.grid.errorDeletingCitation'));
+			$json = new JSON('false', Locale::translate('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
 		return $json->getString();
 	}
@@ -365,8 +359,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 * raw version.
 	 * @param $args array
 	 * @param $request PKPRequest
-	 * @return string a JSON response that contains the raw version
-	 *  and the field based version with additions/deletions marked.
+	 * @return string a serialized JSON message
 	 */
 	function fetchCitationFormErrorsAndComparison(&$args, &$request) {
 		// Read the data in the request into
@@ -436,7 +429,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($citation, $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $citationOutputFilter);
 		$citationForm->readInputData();
 
 		// Form validation
@@ -474,5 +467,51 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		return $citationOutputFilter;
+	}
+
+	/**
+	 * Internal method that re-checks the given citation and
+	 * returns a rendered citation editing form with the changes.
+	 * @param $request PKPRequest
+	 * @param $originalCitation Citation
+	 * @return string a serialized JSON message
+	 */
+	function _recheckCitation(&$request, &$originalCitation) {
+		// Find the request context
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		assert(is_object($context));
+
+		// Extract filters to be applied from request
+		$requestedFilters = $request->getUserVar('citationFilters');
+		$filterIds = array();
+		foreach($requestedFilters as $filterId => $value) {
+			$filterIds[] = (int)$filterId;
+		}
+
+		// Do the actual filtering of the citation.
+		$citationDAO =& DAORegistry::getDAO('CitationDAO');
+		$filteredCitation =& $citationDAO->checkCitation($originalCitation, $context->getId(), $filterIds);
+
+		// Immediately persist intermediate results.
+		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
+
+		// Crate a new form for the filtered (but yet unsaved) citation data
+		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
+		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
+		$citationForm = new CitationForm($request, $filteredCitation, $citationOutputFilter);
+
+		// Transport filtering errors to form (if any).
+		foreach($filteredCitation->getErrors() as $index => $errorMessage) {
+			$citationForm->addError('rawCitation['.$index.']', $errorMessage);
+		}
+
+		// Mark the citation form "dirty".
+		$citationForm->setUnsavedChanges(true);
+
+		// Return the rendered form
+		$citationForm->initData();
+		$json = new JSON('true', $citationForm->fetch($request));
+		return $json->getString();
 	}
 }

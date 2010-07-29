@@ -170,19 +170,17 @@
 	<!-- Author Submission --> 
 	<message key="author.submit.submissionCitations">Proporcionar una lista de referéncias formateada para trabajos citados en esta presentación.</message>
 	<message key="submission.citations.jQueryRequired"><![CDATA[Editar citas requiere habilitar Jquery. Vaya a la página <a target="_new" href="{$genericPluginsUrl}">página de plugins genéricos</a> y habilite allí el plugin de Jquery.]]></message>
-	<message key="submission.citations.grid.title">Editar citas</message>
+	<message key="submission.citations.editor.citationlist.title">Editar citas</message>
 	<message key="submission.citations.grid.importCitations">Importar citas</message>
-	<message key="submission.citations.grid.exportCitations">Exportar citas</message>
 	<message key="submission.citations.grid.parseCitation">Analizar</message>
 	<message key="submission.citations.grid.lookupCitation">Búsqueda</message>
-	<message key="submission.citations.grid.rawCitation">Texto de la cita</message>
-	<message key="submission.citations.grid.rawCitationRequired">Se requiere un texto para la cita.</message>
-	<message key="submission.citations.grid.errorDeletingCitation">Ha sucedido un error al intentar borrar la cita.</message>
-	<message key="submission.citations.form.title">Editar cita</message>
-	<message key="submission.citations.form.loadMessage">Espere a que cargue el editor de citas.</message>
-	<message key="submission.citations.form.description">Mejore manualmente la cita. Después intente revalidarla.</message>
-	<message key="submission.citations.output.unsupportedPublicationType">Tipo de publicación no soportado o no encontrado</message>
-	<message key="submission.citations.output.exportDescription">Por favor, copie el contenido de esta ventana y péguelo en su documento.</message>
+	<message key="submission.citations.editor.details.rawCitation">Texto de la cita</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">Se requiere un texto para la cita.</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ha sucedido un error al intentar borrar la cita.</message>
+	<message key="submission.citations.editor.loadMessage">Espere a que cargue el editor de citas.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Mejore manualmente la cita. Después intente revalidarla.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicación no soportado o no encontrado</message>
+	<message key="submission.citations.editor.export.exportDescription">Por favor, copie el contenido de esta ventana y péguelo en su documento.</message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>
 	<message key="metadata.property.displayName.article-title">Título del artículo</message>
@@ -224,5 +222,5 @@
 	<message key="submission.uploadSuccessful">Sus ficheros han sido almacenados. Pulse continuar para editar los metadatos del fichero.</message>
 	<message key="submission.loadMessage">Por favor, espere mientras se almacena su fichero en el servidor.</message>
 	<message key="submission.fileDetails">Detalles del fichero</message>
-	<message key="submission.citations.form.filterError">La operación de búsqueda o análisis no ha obtenido ningún resultado. Tal vez usted puede tratar de modificar el texto de la cita de forma manual para mejorar los resultados.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">La operación de búsqueda o análisis no ha obtenido ningún resultado. Tal vez usted puede tratar de modificar el texto de la cita de forma manual para mejorar los resultados.</message>
 </locale>

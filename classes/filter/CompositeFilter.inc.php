@@ -268,7 +268,7 @@ class CompositeFilter extends GenericFilter {
 		foreach($settingsMapping as $compositeSettingName) {
 			// Write the setting to the sub-filter.
 			list($filter, $settingName) = $this->_resolveCompositeSettingName($compositeSettingName);
-			return $filter->setData($settingName, $value, $locale);
+			$filter->setData($settingName, $value, $locale);
 		}
 	}
 

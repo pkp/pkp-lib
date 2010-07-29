@@ -16,9 +16,9 @@
 		<div class="row_container">
 			<div class="row_file label">
 				<select name="citation-field-input-label[]"
-					title="{translate|escape key="submission.citations.form.changeFieldInfo"}"
+					title="{translate|escape key="submission.citations.editor.details.changeFieldInfo"}"
 					class="citation-field-label">
-						<option value="-1"{if $fieldName == 'new'} selected="selected"{/if}>{translate|escape key="submission.citations.form.pleaseSelect"}</option>
+						<option value="-1"{if $fieldName == 'new'} selected="selected"{/if}>{translate|escape key="submission.citations.editor.pleaseSelect"}</option>
 						{foreach from=$availableFields key=availableFieldName item=availableField}
 							<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
 						{/foreach}
@@ -31,7 +31,7 @@
 	</td>
 	<td class="value">
 		<input type="text" class="{if $fieldName == 'new'}new-citation-field{/if} citation-field text large" maxlength="1500"
-			value="{if $fieldName == 'new'}{translate|escape key="submission.citations.form.newFieldInfo"}{else}{$fieldValue|escape}{/if}"
-			name="{if $fieldName == 'new'}new-field{else}{$fieldName}{/if}" title="{translate|escape key="submission.citations.grid.clickToEdit"}" />
+			value="{if $fieldName == 'new'}{translate|escape key="submission.citations.editor.details.newFieldInfo"}{else}{$fieldValue|escape}{/if}"
+			name="{if $fieldName == 'new'}new-field{else}{$fieldName}{/if}" title="{translate|escape key="submission.citations.editor.clickToEdit"}" />
 	</td>
 </tr>

@@ -39,10 +39,11 @@ class CitationForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $request PKPRequest
 	 * @param $citation Citation
 	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
 	 */
-	function CitationForm(&$citation, &$citationOutputFilter) {
+	function CitationForm(&$request, &$citation, &$citationOutputFilter) {
 		parent::Form();
 		assert(is_a($citation, 'Citation'));
 		assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
@@ -66,7 +67,7 @@ class CitationForm extends Form {
 		}
 
 		// Validation checks for this form that are not checked within the default meta-data validation algorithm.
-		$this->addCheck(new FormValidator($this, 'rawCitation', 'required', 'submission.citations.grid.rawCitationRequired'));
+		$this->addCheck(new FormValidator($this, 'rawCitation', 'required', 'submission.citations.editor.details.rawCitationRequired'));
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
@@ -74,9 +75,9 @@ class CitationForm extends Form {
 	// Getters and Setters
 	//
 	/**
-	* Get the citation
-	* @return Citation
-	*/
+	 * Get the citation
+	 * @return Citation
+	 */
 	function &getCitation() {
 		return $this->_citation;
 	}
@@ -98,13 +99,12 @@ class CitationForm extends Form {
 		return $this->_unsavedChanges;
 	}
 
-
 	//
 	// Template methods from Form
 	//
 	/**
-	* Initialize form data from the associated citation.
-	*/
+	 * Initialize form data from the associated citation.
+	 */
 	function initData() {
 		// Make sure that this method is not called twice which
 		// would corrupt internal state.
@@ -145,7 +145,9 @@ class CitationForm extends Form {
 	 * Initialize form data from user submitted data.
 	 */
 	function readInputData() {
-		$this->readUserVars(array('rawCitation', 'citationState', 'citationApproved'));
+		$this->readUserVars(array('rawCitation', 'citationFilters', 'citationState', 'citationApproved'));
+
+		// Read citation meta-data properties.
 		$this->readUserVars(array_keys($this->_citationProperties));
 	}
 
@@ -288,18 +290,26 @@ class CitationForm extends Form {
 	 * Fetch the form.
 	 * @param $request Request
 	 * @param $template string the template to render the form
-	 * @return the rendered form
+	 * @return string the rendered form
 	 */
 	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
-		$citation =& $this->getCitation();
+		/////////////////////////////////////////////////////
+		// Raw citation editing and citation comparison
+		// (comparison template and full template):
+		//
+		// 1) Messages
+		//
+		// Add the citation to the template.
 		$templateMgr =& TemplateManager::getManager($request);
+		$citation =& $this->getCitation();
+		$templateMgr->assign_by_ref('citation', $citation);
 
 		// Does the form contain unsaved changes?
 		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
 
-		// Add the citation to the template
-		$templateMgr->assign_by_ref('citation', $citation);
-
+		//
+		// 2) Citation output preview
+		//
 		// Don't prepare a citation output preview if we're
 		// adding a new citation.
 		if ($citation->getId()) {
@@ -326,10 +336,25 @@ class CitationForm extends Form {
 			$templateMgr->assign('citationDiff', $citationDiff);
 		}
 
-		// Many template variables are only required for the full form template.
+		//
+		// 3) Raw citation editing
+		//
+		// Retrieve all available citation filters
+		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), true, false, array(), true);
+		$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
+		$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), false, true, array(), true);
+		$templateMgr->assign_by_ref('availableLookupFilters', $availableLookupFilters);
+
+
 		if ($template == CITATION_FORM_FULL_TEMPLATE) {
+			/////////////////////////////////////////////////////
+			// Citation improvement options
+			// (full template only):
 			//
-			// Manual editing
+			// 1) Manual editing
 			//
 			// Available fields
 			$availableFields = array();
@@ -341,14 +366,14 @@ class CitationForm extends Form {
 			}
 			$templateMgr->assign_by_ref('availableFields', $availableFields);
 
+			//
+			// 2) Citation Services (Query)
+			//
+			// Nothing to do: Lookup filters have already been assigned for
+			// raw citation editing (see above).
 
 			//
-			// Citation Services (Query)
-			//
-
-
-			//
-			// Citation Services (Results)
+			// 3) Citation Services (Results)
 			//
 			// Citation source tabs
 			$citationSourceTabs = array();
@@ -387,18 +412,19 @@ class CitationForm extends Form {
 			}
 			$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
 
-			// Add action for re-checking of a citation.
-			$router = $request->getRouter();
-			$checkAction = new LinkAction(
-				'checkCitation',
-				LINK_ACTION_MODE_AJAX,
-				LINK_ACTION_TYPE_POST,
-				$router->url($request, null, null, 'checkCitation'),
-				'submission.citations.grid.checkCitationAgain'
-			);
-			$templateMgr->assign_by_ref('checkAction', $checkAction);
+			//
+			// 4) Google Scholar
+			//
+			// FIXME
 
-			// Citation approval
+			//
+			// 5) Author Query
+			//
+			// FIXME
+
+			//
+			// 6) Citation saving and approval
+			//
 			$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
 			$templateMgr->assign('citationApproved', $citationApproved);
 

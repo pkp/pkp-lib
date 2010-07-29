@@ -11,7 +11,7 @@
 	{if $initialHelpMessage}
 		{$initialHelpMessage}
 	{else}
-		<p>{translate key="submission.citations.output.exportDescription"}</p>
+		<p>{translate key="submission.citations.editor.export.exportDescription"}</p>
 	
 		--<p/>
 		{foreach from=$formattedCitations key=citationIndex item=formattedCitation}

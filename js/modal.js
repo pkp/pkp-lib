@@ -13,13 +13,13 @@
  * @param actType String Type to define if callback should do (nothing|append|replace|remove)
  * @param actOnId String The ID on which to perform the action on callback
  * @param localizedButtons Array of translated 'Cancel/submit' strings
- * @param callingButton String Selector of the button that opens the modal
+ * @param callingElement String Selector of the element that triggers the modal
  * @param dialogTitle String Set a custom title for the dialog
  */
-function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTitle) {
+function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTitle) {
 	$(function() {
 		var validator = null;
-		var title = dialogTitle ? dialogTitle : $(callingButton).text();
+		var title = dialogTitle ? dialogTitle : $(callingElement).text();
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
 		var d = new Date();
@@ -79,32 +79,127 @@ function modal(url, actType, actOnId, localizedButtons, callingButton, dialogTit
 			}
 		});
 
-		// Tell the calling button to open this modal on click
-		$(callingButton).die("click").live("click", (function() {
+		// Open the modal when the even is triggered on the calling element.
+		$(callingElement).die('click').live('click', function() {
 			$dialog.dialog('open');
 			return false;
-		}));
+		});
+	});
+}
+
+/**
+ * Opens a modal confirm box.
+ * @param url String URL to load into the modal
+ * @param actType String Type to define if callback should do (nothing|append|replace|remove)
+ * @param actOnId String The ID on which to perform the action on callback
+ * @param dialogText String Text to display in the dialog
+ * @param localizedButtons Array of translated 'Cancel/submit' strings
+ * @param callingButton String Selector of the button that opens the modal
+ * @param title String
+ * @param isForm Boolean whether to interpret the actOnId as a form container and
+ *  submit it as a form.
+ */
+function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton, title, isForm) {
+	$(function() {
+		if (!title) {
+			// Try to retrieve title from calling button's text.
+			title = $(callingButton).text();
+			if (title === '') {
+				// Try to retrieve title from calling button's title attribute.
+				title = $(callingButton).attr('title');
+			}
+		}
+		var okButton = localizedButtons[0];
+		var cancelButton = localizedButtons[1];
+		var d = new Date();
+		var UID = Math.ceil(1000 * Math.random(d.getTime()));
+		// Construct action to perform when OK and Cancels buttons are clicked
+		var dialogOptions = {};
+		if(url == null) {
+			// Show a simple alert dialog (does not communicate with server)
+			dialogOptions[okButton] = function() {
+				$(this).dialog("close");
+			};
+		} else {
+			dialogOptions[okButton] = function() {
+				if (isForm) {
+					// Interpret the "act on id" as a form to
+					// be posted.
+					submitJsonForm(actOnId, actType, actOnId, url);
+				} else {
+					// Trigger start event.
+					$(actOnId).triggerHandler('actionStart');
+
+					// Post to server and construct callback
+					$.post(url, '', function(returnString) {
+						// Trigger stop event
+						$(actOnId).triggerHandler('actionStop');
+	
+						if (returnString.status) {
+							if(returnString.isScript) {
+								eval(returnString.script);
+							} else {
+								updateItem(actType, actOnId, returnString.content);
+							}
+						} else {
+							// Alert that the action failed
+							confirm(null, null, null, returnString.content, localizedButtons, callingButton);
+						}
+					}, 'json');
+				}
+				$('#'+UID).dialog("close");
+			};
+			dialogOptions[cancelButton] = function() {
+				$(actOnId).triggerHandler('actionStop');
+				$(this).dialog("close");
+			};
+		}
+
+		// Construct dialog
+		var $dialog = $('<div id=' + UID + '>'+dialogText+'</div>').dialog({
+			title: title,
+			autoOpen: false,
+			modal: true,
+			draggable: false,
+			buttons: dialogOptions
+		});
+
+		// Tell the calling button to open this modal on click
+		$(callingButton).live("click", function() {
+			$dialog.dialog('open');
+			return false;
+		});
 	});
 }
 
 /**
  * Submit a form that returns JSON data.
- * @param formContainer String Container of form to be submitted, most likely a modal's ID (must include '#')
+ * @param formContainer String Selector of the element containing the form to be submitted, e.g. a modal's ID (must include '#')
  * @param actType String Type to define if callback should do (nothing|append|replace|remove)
  * @param actOnId String The ID on which to perform the action on callback
+ * @param url String the URL to submit to
  */
-function submitJsonForm(formContainer, actType, actOnId) {
+function submitJsonForm(formContainer, actType, actOnId, url) {
 	// jQuerify the form container and find the form in it.
 	$formContainer = $(formContainer);
 	$form = $formContainer.find('form');
 	validator = $form.validate();
 
+	if (!url) {
+		url = $form.attr('action');
+	}
+	
 	// Post to server and construct callback
 	if ($form.valid()) {
+		// Trigger start event.
+		$(actOnId).triggerHandler('actionStart');
+		
 		$.post(
-			$form.attr('action'),
+			url,
 			$form.serialize(),
 			function(jsonData) {
+				// Trigger stop event.
+				$(actOnId).triggerHandler('actionStop');
 				if(jsonData.isScript == true) {
 					eval(jsonData.script);
 				}
@@ -124,74 +219,6 @@ function submitJsonForm(formContainer, actType, actOnId) {
 		);
 		validator = null;
 	}
-}
-
-
-/**
- * Opens a modal confirm box.
- * @param url String URL to load into the modal
- * @param actType String Type to define if callback should do (nothing|append|replace|remove)
- * @param actOnId String The ID on which to perform the action on callback
- * @param dialogText String Text to display in the dialog
- * @param localizedButtons Array of translated 'Cancel/submit' strings
- * @param callingButton String Selector of the button that opens the modal
- */
-function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton) {
-	$(document).ready(function() {
-		// Try to retrieve title from calling button's text.
-		var title = $(callingButton).text();
-		if (title === '') {
-			// Try to retrieve title from calling button's title attribute.
-			title = $(callingButton).attr('title');
-		}
-		var okButton = localizedButtons[0];
-		var cancelButton = localizedButtons[1];
-		var d = new Date();
-		var UID = Math.ceil(1000 * Math.random(d.getTime()));
-		// Construct action to perform when OK and Cancels buttons are clicked
-		var dialogOptions = {};
-		if(url == null) {
-			// Show a simple alert dialog (does not communicate with server)
-			dialogOptions[okButton] = function() {
-				$(this).dialog("close");
-			};
-		} else {
-			dialogOptions[okButton] = function() {
-				// Post to server and construct callback
-				$.post(url, '', function(returnString) {
-					if (returnString.status) {
-						if(returnString.isScript) {
-							eval(returnString.script);
-						} else {
-							updateItem(actType, actOnId, returnString.content);
-						}
-					} else {
-						// Alert that the action failed
-						confirm(null, null, null, returnString.content, localizedButtons, callingButton);
-					}
-				}, 'json');
-				$('#'+UID).dialog("close");
-			};
-			dialogOptions[cancelButton] = function() {
-				$(this).dialog("close");
-			};
-		}
-
-		// Construct dialog
-		var $dialog = $('<div id=' + UID + '>'+dialogText+'</div>').dialog({
-			title: title,
-			autoOpen: false,
-			modal: true,
-			draggable: false,
-			buttons: dialogOptions
-		});
-
-		// Tell the calling button to open this modal on click
-		$(callingButton).live("click", (function() {
-			$dialog.dialog('open');
-			return false;
-		}));
-	});
 }
 
 /**
@@ -280,7 +307,6 @@ function clearFormFields(form) {
  *  the form data.
  * @param eventName String the name of the event that triggers the action, default 'click'.
  * @param form String the selector of a form element.
- * @return function the generated event handler.
  */
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
 	if (actType == 'post') {
@@ -363,10 +389,6 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 		// selectors.
 		$(this).bind(eventName, eventHandler);
 	});
-
-	// Return the event handler so that it can be
-	// custom-bound to other events if necessary.
-	return eventHandler;
 }
 
 /**
@@ -376,10 +398,16 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
  * @param actOnId the element to be filled with the throbber image.
  */
 function actionThrobber(actOnId) {
-	$(actOnId).bind('actionStart', function() {
-		$(this).html('<div id="actionThrobber" class="throbber"></div>');
-		$('#actionThrobber').show();
-	});
+	$(actOnId)
+		.bind('actionStart', function() {
+			// Start throbber.
+			$(this).unbind('actionStart').html('<div id="actionThrobber" class="throbber"></div>');
+			$('#actionThrobber').show();
+		})
+		.bind('actionStop', function() {
+			// Remove all handlers.
+			$(this).unbind('actionStart').unbind('actionStop');
+		});
 }
 
 /**
@@ -395,6 +423,7 @@ function actionThrobber(actOnId) {
  * @return jQuery the new or deleted element.
  */
 function updateItem(actType, actOnId, content) {
+	var updatedItem;
 	switch (actType) {
 		case 'append':
 			$empty = $(actOnId).closest('table').children('.empty');
@@ -411,9 +440,13 @@ function updateItem(actType, actOnId, content) {
 				updatedItem = deleteElementById(actOnId);
 			}
 			break;
+		case 'nothing':
+			updatedItem = null
+			break;
 		case 'redirect':
 			// redirect to the content
 			$(window.location).attr('href', content);
+			updatedItem = null
 			break;
 	}
 

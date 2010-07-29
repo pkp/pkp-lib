@@ -167,11 +167,10 @@
 	<message key="submission.layout.galleyLocaleRequired">Una configuración regional para la galerada es requerida</message>
 	<message key="submission.citations">Referencias</message>
 	<message key="submission.citations.jQueryRequired"><![CDATA[La edicion de citas requiere que jQuery esté habilitado. Por favor diríjase a la <a target="_new" href="{$genericPluginsUrl}"> página de plugins genéricos </a> y habilite el plugin de jQuery allí]]></message>
-	<message key="submission.citations.grid.title">Editar Citaciones</message>
+	<message key="submission.citations.editor.citationlist.title">Editar Citaciones</message>
 	<message key="submission.citations.grid.importCitations">Importar Citaciones</message>
-	<message key="submission.citations.grid.exportCitations">Exportar Citaciones</message>
 	<message key="submission.citations.grid.parseCitation">Parsear</message>
 	<message key="submission.citations.grid.lookupCitation">Buscar</message>
-	<message key="submission.citations.grid.rawCitation">Texto de la Cita</message>
-	<message key="submission.citations.grid.rawCitationRequired">Se requiere un texto para la cita</message>
+	<message key="submission.citations.editor.details.rawCitation">Texto de la Cita</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">Se requiere un texto para la cita</message>
 </locale>

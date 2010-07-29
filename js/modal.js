@@ -312,6 +312,7 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 	if (actType == 'post') {
 		eventHandler = function() {
 			// jQuerify the form.
+			var $form;
 			if (form) {
 				$form = $(form);
 			} else {
@@ -320,14 +321,10 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 
 			// Set default url and data if none has been given.
 			if (!url) {
-				postUrl = $form.attr("action");
-			} else {
-				postUrl = url;
+				url = $form.attr("action");
 			}
 			if (!data) {
-				postData = $form.serialize();
-			} else {
-				postData = data;
+				data = $form.serialize();
 			}
 
 			// Validate
@@ -338,8 +335,8 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 				$actOnId = $(actOnId);
 				$actOnId.triggerHandler('actionStart');
 				$.post(
-					postUrl,
-					postData,
+					url,
+					data,
 					function(jsonData) {
 						$actOnId.triggerHandler('actionStop');
 						if (jsonData !== null) {
@@ -502,4 +499,53 @@ function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
 			$('#formErrors .formErrorList').html(returnString.content);
 		}
 	}, "json");
+}
+
+/**
+ * Implement the "extras on demand" design pattern for a list
+ * of option blocks. Clicking on the header of the extras section
+ * will toggle the section open and closed.
+ * @param actOnId String a selector that contains the options header
+ *  options blocks.
+ */
+function extrasOnDemand(actOnId) {
+	/**
+	 * Shows the extra options.
+	 */
+	function activateExtraOptions() {
+		// Hide the inactive version of the option header text.
+		$(actOnId + ' .options-head .option-block-inactive').hide();
+		// Show the active version of the option header text and the option blocks.
+		$(actOnId + ' .options-head .option-block-active, ' + actOnId + ' .option-block').show();
+		// Adapt styling of the option header.
+		$(actOnId + ' .options-head').removeClass('inactive').addClass('active');
+		// Change the header icon into a triangle pointing downwards.
+		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
+	}
+	
+	/**
+	 * Hides the extra options.
+	 */
+	function deactivateExtraOptions() {
+		// Hide the active version of the option header text and the option blocs.
+		$(actOnId + ' .options-head .option-block-active, ' + actOnId + ' .option-block').hide();
+		// Show the inactive version of the option header text.
+		$(actOnId + ' .options-head .option-block-inactive').show();
+		// Adapt styling of the option header.
+		$(actOnId + ' .options-head').removeClass('active').addClass('inactive');
+		// Change the header icon into a triangle pointing to the right.
+		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-s').addClass('ui-icon-triangle-1-e');
+	}
+	
+	// De-activate the extra options on startup.
+	deactivateExtraOptions();
+	
+	// Toggle the options when clicking on the header.
+	$(actOnId + ' .options-head').click(function() {
+		if ($(this).hasClass('active')) {
+			deactivateExtraOptions();
+		} else {
+			activateExtraOptions();
+		}
+	});
 }

@@ -108,8 +108,6 @@
 	<message key="submission.changeComments">Change to</message>
 	<message key="submission.citations">References</message>
 
-	<message key="submission.citations.editor.details.executeLookup">Check again in external databases</message>
-	
 	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Are you sure you want to delete this citation?</message>
 	<message key="submission.citations.editor.citationlist.errorDeletingCitation">An error occurred while trying to delete the citation.  Please report this as a bug.</message>
 	<message key="submission.citations.editor.citationlist.newCitation">New Citation</message>
@@ -120,14 +118,19 @@
 	<message key="submission.citations.editor.details.checkInGoogleScholar">Check in Google Scholar</message>
 	<message key="submission.citations.editor.details.changeFieldInfo">Type first few letters to select...</message>
 	<message key="submission.citations.editor.details.citationExportPreview">Citation Export Preview</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">Expert internal citation service results (click to close)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Expert internal citation service results (click to open)</message>
 	<message key="submission.citations.editor.details.clickToDismissMessage">You can click the text of a message to dismiss it.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">Below you find a list of citation services configured for your journal. The services that your journal manager considers most relevant for your journal have been pre-selected. You can include additional services in your query or exclude services as you like.</message>
 	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Select Citation Database Services:</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Expert citation editing settings (Click to close)</message>
 	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Expert citation editing settings (Click to open)</message>
 	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Select Citation Extraction Services:</message>
 	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Internal error: Invalid filter selection. Please submit a bug report.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">If you did not get satisfactory results by checking the original citation then you can manually improve the citation by editing the fields and then re-checking it.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">If you did not get satisfactory results by default then you have various options to improve the citation. It often helps to manually edit important fields (e.g. title and author) and then try the citation services again. If that doesn't help you can still query Google Scholar or ask the author for details.</message>
+	<message key="submission.citations.editor.details.messages">Please note (click on messages to dismiss them)</message>
 	<message key="submission.citations.editor.details.newFieldInfo">...click here to add a new field...</message>
+	<message key="submission.citations.editor.details.queryCitation">Re-Query Citation Services</message>
 	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>You can click on one of the listed citations on the left to start editing.</p><p>FIXME: Explain basic workflow and color code/symbols used for the citation editor listing.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Process</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Go Ahead</message>
@@ -152,7 +155,7 @@
 	<message key="submission.citations.editor.pleaseSelect">Please select...</message>
 	<message key="submission.citations.editor.pleaseSetup"><![CDATA[You have to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation editor.]]></message>
 	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">Several of the configured citation services did not return any results. Please try to edit the original citation text manually to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
 	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>

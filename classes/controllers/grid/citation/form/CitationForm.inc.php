@@ -367,13 +367,25 @@ class CitationForm extends Form {
 			$templateMgr->assign_by_ref('availableFields', $availableFields);
 
 			//
-			// 2) Citation Services (Query)
+			// 2) Citation Services Query
 			//
 			// Nothing to do: Lookup filters have already been assigned for
 			// raw citation editing (see above).
 
 			//
-			// 3) Citation Services (Results)
+			// 3) Google Scholar
+			//
+			// FIXME
+
+			//
+			// 4) Author Query
+			//
+			// FIXME
+
+
+			/////////////////////////////////////////////////////
+			// Expert Citation Services Results
+			// (full template only):
 			//
 			// Citation source tabs
 			$citationSourceTabs = array();
@@ -412,19 +424,11 @@ class CitationForm extends Form {
 			}
 			$templateMgr->assign_by_ref('citationSourceTabs', $citationSourceTabs);
 
+			/////////////////////////////////////////////////////
+			// Form level actions
+			// (full template only):
 			//
-			// 4) Google Scholar
-			//
-			// FIXME
-
-			//
-			// 5) Author Query
-			//
-			// FIXME
-
-			//
-			// 6) Citation saving and approval
-			//
+			// Set the approval state.
 			$citationApproved = ($citation->getCitationState() == CITATION_APPROVED ? true : false);
 			$templateMgr->assign('citationApproved', $citationApproved);
 

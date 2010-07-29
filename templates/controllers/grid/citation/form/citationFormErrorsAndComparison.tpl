@@ -77,6 +77,9 @@
 			{rdelim});
 		{rdelim});
 
+		// Handle expert settings
+		extrasOnDemand('#rawCitationEditingExpertOptions');
+		
 		// Handle abort raw citation editing.
 		$('#cancelRawCitationEditing').click(function() {ldelim}
 			$editableRawCitation = $('#editableRawCitation').hide();
@@ -114,33 +117,6 @@
 			'{translate key="submission.citations.editor.details.processRawCitationTitle"}',
 			true
 		);
-
-		// Configure expert raw citation editing options.
-		function deactivateRawCitationEditingExpertOptions() {ldelim}
-			$('#editableRawCitation .options-head .option-block-active, #editableRawCitation .option-block').hide();
-			$('#editableRawCitation .options-head .option-block-inactive').show();
-			$('#editableRawCitation .options-head').removeClass('active').addClass('inactive');
-			$('#editableRawCitation .ui-icon').removeClass('ui-icon-triangle-1-s').addClass('ui-icon-triangle-1-e');
-		{rdelim}
-
-		function activateRawCitationEditingExpertOptions() {ldelim}
-			$('#editableRawCitation .options-head .option-block-inactive').hide();
-			$('#editableRawCitation .options-head .option-block-active, #editableRawCitation .option-block').show();
-			$('#editableRawCitation .options-head').removeClass('inactive').addClass('active');
-			$('#editableRawCitation .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
-		{rdelim}
-
-		// Deactivate the settings on startup.
-		deactivateRawCitationEditingExpertOptions();
-
-		// Toggle the settings when clicking on the header.
-		$('#editableRawCitation .options-head').click(function() {ldelim}
-			if ($(this).hasClass('active')) {ldelim}
-				deactivateRawCitationEditingExpertOptions();
-			{rdelim} else {ldelim}
-				activateRawCitationEditingExpertOptions();
-			{rdelim}
-		{rdelim});
 		
 		//
 		// Handle field level data changes.
@@ -172,7 +148,7 @@
 		<div id="citationFormMessages" class="help-message" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}">
 			<div id="formErrors">
 				<p>
-					<span class="formError">{translate key="form.errorsOccurred"}:</span>
+					<span class="formError">{translate key="submission.citations.editor.details.messages"}:</span>
 					<ul class="formErrorList">
 						{if $unsavedChanges}
 							<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.unsavedChanges"}</li>
@@ -210,44 +186,9 @@
 					<span class="option-block-inactive">{translate key="submission.citations.editor.details.editRawCitationExpertSettingsInactive"}</span>
 					<span class="option-block-active">{translate key="submission.citations.editor.details.editRawCitationExpertSettingsActive"}</span>
 				</div>
-				<div class="option-block">
-					<p>{translate key="submission.citations.editor.details.editRawCitationExtractionServices"}</p>
-					<div>
-						{foreach from=$availableParserFilters item=citationFilter}
-							{assign var=citationFilterFieldName value="citationFilters["|concat:$citationFilter->getId():"]"}
-							{if $citationFilter->getData('isOptional')}
-								{assign var=citationFilterDefault value=false}
-							{else}
-								{assign var=citationFilterDefault value=true}
-							{/if}
-							<div class="option-block-option">
-								{fbvCheckbox id=$citationFilter->getDisplayName() name=$citationFilterFieldName
-										checked=$citationFilterDefault}
-								{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
-							</div>
-						{/foreach}
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="option-block">
-					<p>{translate key="submission.citations.editor.details.editRawCitationDatabaseServices"}</p>
-					<div>
-						{foreach from=$availableLookupFilters item=citationFilter}
-							{assign var=citationFilterFieldName value="citationFilters["|concat:$citationFilter->getId():"]"}
-							{if $citationFilter->getData('isOptional')}
-								{assign var=citationFilterDefault value=false}
-							{else}
-								{assign var=citationFilterDefault value=true}
-							{/if}
-							<div class="option-block-option">
-								{fbvCheckbox id=$citationFilter->getDisplayName() name=$citationFilterFieldName
-										checked=$citationFilterDefault}
-								{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
-							</div>
-						{/foreach}
-					</div>
-					<div class="clear"></div>
-				</div>
+				{include file="controllers/grid/citation/form/citationFilterOptionBlock.tpl"
+					titleKey="submission.citations.editor.details.editRawCitationExtractionServices"
+					availableFilters=$availableParserFilters}
 			</div>
 			<div class="form-block actions">
 				<button id="cancelRawCitationEditing" type="button">{translate key="common.cancel"}</button>

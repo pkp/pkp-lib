@@ -5,7 +5,8 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * A template for a single citation input field.
- * Input:
+ *
+ * Parameters:
  *   $availableFields: an array of field names for the supported meta-data schema.
  *   $fieldName: the name of the field to be constructed
  *   $fieldValue: the current value of the field

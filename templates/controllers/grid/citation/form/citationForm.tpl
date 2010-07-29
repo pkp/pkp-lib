@@ -19,7 +19,7 @@
 			emptyEditorText = '{strip}
 				<div id="{$containerId}" class="canvas">
 					<div class="wrapper">
-						<div class="help-message">{translate|escape key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
+						<div class="help-message">{translate key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
 				</div>
 			{/strip}';
@@ -149,27 +149,45 @@
 				{rdelim});
 				return false;
 			{rdelim});
-		
+
+			
 			//
-			// 2) Citation Services (Query)
+			// 2) Citation Services Query
+			//
+			// Bind action to citation service query button.
+			ajaxAction(
+				'post',
+				'#{$containerId}',
+				'#queryCitation',
+				'{url op="checkCitation"}'
+			);
+				
+			// Throbber when citation is re-queried.
+			$('#queryCitation').click(function() {ldelim}
+				actionThrobber('#{$containerId}');
+			{rdelim});
+			
+
+			//
+			// 3) Google Scholar
 			//
 			// FIXME
 
+			
 			//
-			// 3) Citation Services (Results)
+			// 4) Author Query
 			//
+			// FIXME
+
+			
+			////////////////////////////////////////////////////////////
+			// Citation Service Results
+			//
+			// Handle expert citation service results.
+			extrasOnDemand('#citationImprovementResultsBlock');
+		
 			// Create citation source tabs.
 			$('#citationSourceTabs-{$formUid}').tabs();
-
-			//
-			// 4) Google Scholar
-			//
-			// FIXME
-
-			//
-			// 5) Author Query
-			//
-			// FIXME
 
 			////////////////////////////////////////////////////////////
 			// Form-level actions.
@@ -294,18 +312,18 @@
 		<div class="wrapper scrollable">
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 
-			<div id="citationImprovementBlock" class="form-block"> 
+			<div id="citationImprovementBlock"> 
 				<p>{translate key="submission.citations.editor.details.explainImprovementOptions"}</p>
 			
 				<div id="citationImprovement">
 					<ul>
 						<li><a href="#citationImprovementManual">Manual Editing</a></li>
 						<li><a href="#citationImprovementQuery">Citation Services</a></li>
-						<li><a href="#citationImprovementResults">Citation Services</a></li>
 						<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
 						<li><a href="#citationImprovementAuthor">Ask Author</a></li>
 					</ul>
-					<div id="citationImprovementManual" class="form-block grid">
+					
+					<div id="citationImprovementManual" class="grid">
 						<table>
 							{* Create initial field list which will then be maintained via JS. *}
 							{foreach from=$availableFields name=availableFields key=fieldName item=field}
@@ -320,69 +338,21 @@
 						
 						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 					</div>
-					<div id="citationImprovementQuery" class="form-block grid">
-						External Citation Services
-		
-						<div class="form-block">
-							{* include file="linkAction/linkAction.tpl" action=$checkAction id=$containerId *}
-							{* <script type="text/javascript">
-								// FIXME: Move this to the templates generas JS once we've fully implemented
-								// DB queries.
-								$(function() {ldelim}
-									// Throbber when citation is re-checked.
-									$('#{$containerId}-{$checkAction->getId()}-button').click(function() {ldelim}
-										actionThrobber('#{$containerId}');
-									{rdelim});
-								{rdelim});
-							</script> *}
+					
+					<div id="citationImprovementQuery">
+						<div>
+							<p>{translate key="submission.citations.editor.details.databaseQueryExplanation"}</p>
+							{include file="controllers/grid/citation/form/citationFilterOptionBlock.tpl"
+								titleKey="submission.citations.editor.details.editRawCitationDatabaseServices"
+								availableFilters=$availableLookupFilters}
 						</div>
+						<div class="actions">
+							<button id="queryCitation" type="button">{translate key="submission.citations.editor.details.queryCitation"}</button>
+						</div>
+						<div class="clear"></div>
 					</div>
 					
-					<div id="citationImprovementResults" class="form-block grid">
-						{* Tabs that contain source data *}
-						<div id="citationSourceTabs-{$formUid}" class="form-block">
-							{* Tab definition *}
-							<ul>
-								{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-									<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
-								{/foreach}
-							</ul>
-							
-							{* Tab content *}
-							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-								<div id="{$citationSourceTabId}-{$formUid}">
-									<table>
-										{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
-											<tr valign="top">
-												<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-												<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
-												<td width="5%">
-													<a id="{$sourcePropertyId}-use" href="">use</a>
-													<script type='text/javascript'>
-														$(function() {ldelim}
-															$('#{$sourcePropertyId}-use').click(function() {ldelim}
-																// Identify the source and target elements.
-																var $source = $('#{$citationSourceTabId}-{$formUid} #{$sourcePropertyId}');
-																var $target = $('.citation-field[name={$sourcePropertyId|regex_replace:'/^[0-9]+-/':''}]');
-
-																if ($target.length > 0) {ldelim}
-																	// Copy the content of the source to the target field
-																	$target.val($source.text());
-																{rdelim}
-																return false;
-															{rdelim});
-														{rdelim});
-													</script>
-												</td>
-											</tr>
-										{/foreach}
-									</table>
-								</div>
-							{/foreach}
-						</div>
-					</div>
-					
-					<div id="citationImprovementGoogle" class="form-block grid">
+					<div id="citationImprovementGoogle">
 						Google Scholar
 		
 						<div class="form-block">
@@ -390,10 +360,61 @@
 						</div>
 					</div>
 					
-					<div id="citationImprovementAuthor" class="form-block grid">
+					<div id="citationImprovementAuthor">
 						Ask Author
 					</div>
 				</div>
+			</div>
+
+			<div id="citationImprovementResultsBlock">
+				<div class="options-head">
+					<span class="ui-icon"></span>
+					<span class="option-block-inactive">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
+					<span class="option-block-active">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
+				</div>
+				<div class="option-block">
+					{* Tabs that contain source data *}
+					<div id="citationSourceTabs-{$formUid}">
+						{* Tab definition *}
+						<ul>
+							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+								<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
+							{/foreach}
+						</ul>
+						
+						{* Tab content *}
+						{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+							<div id="{$citationSourceTabId}-{$formUid}">
+								<table>
+									{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
+										<tr valign="top">
+											<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+											<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
+											<td width="5%">
+												<a id="{$sourcePropertyId}-use" href="">use</a>
+												<script type='text/javascript'>
+													$(function() {ldelim}
+														$('#{$sourcePropertyId}-use').click(function() {ldelim}
+															// Identify the source and target elements.
+															var $source = $('#{$citationSourceTabId}-{$formUid} #{$sourcePropertyId}');
+															var $target = $('.citation-field[name={$sourcePropertyId|regex_replace:'/^[0-9]+-/':''}]');
+	
+															if ($target.length > 0) {ldelim}
+																// Copy the content of the source to the target field
+																$target.val($source.text());
+															{rdelim}
+															return false;
+														{rdelim});
+													{rdelim});
+												</script>
+											</td>
+										</tr>
+									{/foreach}
+								</table>
+							</div>
+						{/foreach}
+					</div>
+				</div>				
 			</div>
 		</div>
 			

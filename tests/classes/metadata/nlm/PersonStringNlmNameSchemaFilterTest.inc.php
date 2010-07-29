@@ -51,6 +51,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array('Hans Peter Sperling', false, false),              // firstname middlename surname
 			array('Adelshausen III, H. (Gustav) von', false, false), // surname suffix, initials (firstname) prefix
 			array('Adelshausen, (Gustav)', false, false),            // ibid.
+			array('Gustav.Adelshausen', false, false),               // firstname.lastname (for ParaCite support)
 			array('# # # Greenberg # # #', false, false),            // catch-all
 		);
 		$expectedResults = array(
@@ -73,6 +74,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, array('Hans', 'Peter'), null, 'Sperling'),
 			array(null, array('Hans', 'Peter'), null, 'Sperling'),
 			array('III', array('Gustav', 'H'), 'von', 'Adelshausen'),
+			array(null, array('Gustav'), null, 'Adelshausen'),
 			array(null, array('Gustav'), null, 'Adelshausen'),
 			array(null, null, null, '# # # Greenberg # # #'),
 		);

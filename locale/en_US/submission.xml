@@ -128,9 +128,11 @@
 	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Select Citation Extraction Services:</message>
 	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Internal error: Invalid filter selection. Please submit a bug report.</message>
 	<message key="submission.citations.editor.details.explainImprovementOptions">If you did not get satisfactory results by default then you have various options to improve the citation. It often helps to manually edit important fields (e.g. title and author) and then try the citation services again. If that doesn't help you can still query Google Scholar or ask the author for details.</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">If you don't find citations in any of the connected citation services you can still search for it in Google Scholar. Unfortunately Google Scholar does not provide a field based interface for its data which we could use so you'll have to copy and paste information manually from the Google result page to your fields.</message>
 	<message key="submission.citations.editor.details.messages">Please note (click on messages to dismiss them)</message>
 	<message key="submission.citations.editor.details.newFieldInfo">...click here to add a new field...</message>
 	<message key="submission.citations.editor.details.queryCitation">Re-Query Citation Services</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Search in Google Scholar</message>
 	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>You can click on one of the listed citations on the left to start editing.</p><p>FIXME: Explain basic workflow and color code/symbols used for the citation editor listing.</p>]]></message>
 	<message key="submission.citations.editor.details.processRawCitation">Process</message>
 	<message key="submission.citations.editor.details.processRawCitationGoAhead">Go Ahead</message>

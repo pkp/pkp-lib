@@ -171,7 +171,40 @@
 			//
 			// 3) Google Scholar
 			//
-			// FIXME
+			/**
+			 * Return an Google Scholar query string
+			 * based on NLM citation schema variable names.
+			 *
+			 * NB: The Google Scholar query string construction
+			 * depends on the current metadata schema. That's why
+			 * we separate it into it's own function. When we
+			 * introduce further meta-data schemas we just have
+			 * to provide other versions of this function and
+			 * include it dynamically via smarty {ldelim}include{rdelim}
+			 * based on the meta-data schema name.
+			 *
+			 * @return String
+			 */
+			function createMDSchemaSpecificGSQuery() {ldelim}
+				var author = $('input[name=nlm30PersonGroupPersonGroupTypeAuthor]').val();
+				var confName = $('input[name=nlm30ConfName]').val();
+				var source = $('input[name=nlm30Source]').val();
+				var articleTitle = $('input[name=nlm30ArticleTitle]').val();
+				var doi = $('input[name=nlm30PubIdPubIdTypeDoi]').val();
+
+				var queryString = '';
+				if (author) queryString += author.replace(/[()]/g, '');
+				if (confName) queryString += ' ' + confName;
+				if (source) queryString += ' "' + source + '"';
+				if (articleTitle) queryString += ' "' + articleTitle + '"';
+				if (doi) queryString += ' ' + doi;
+				return queryString;
+			{rdelim}
+			
+			$('#googleQuery').click(function() {ldelim}
+				var googleScholarLink = 'http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=' + encodeURIComponent($.trim(createMDSchemaSpecificGSQuery()));
+				window.open(googleScholarLink, '_blank');
+			{rdelim});
 
 			
 			//
@@ -353,11 +386,13 @@
 					</div>
 					
 					<div id="citationImprovementGoogle">
-						Google Scholar
-		
-						<div class="form-block">
-							<a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q={if $citationFormTabs.Filled.nlm30PersonGroupPersonGroupTypeAuthor}author:%22{$nlm30PersonGroupPersonGroupTypeAuthor|escape:'url'}%22+{/if}%22{if $nlm30ConfName}{$nlm30ConfName|escape:'url'}{else}{$nlm30Source|escape:'url'}{/if}%22+{$nlm30ArticleTitle|escape:'url'}{if $nlm30PubIdPubIdTypeDoi}+{$nlm30PubIdPubIdTypeDoi|escape:'url'}{/if}" target="_blank">{translate key="submission.citations.editor.details.checkInGoogleScholar"}</a>
+						<div>
+							<p>{translate key="submission.citations.editor.details.googleScholarExplanation"}</p>
 						</div>
+						<div class="actions">
+							<button id="googleQuery" type="button">{translate key="submission.citations.editor.details.queryGoogleScholar"}</button>
+						</div>
+						<div class="clear"></div>
 					</div>
 					
 					<div id="citationImprovementAuthor">

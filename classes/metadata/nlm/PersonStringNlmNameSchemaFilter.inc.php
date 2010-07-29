@@ -275,7 +275,10 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 			// DRIVER guidelines 2.0 name syntax
 			'/^\s*(?P<surname>'.$personRegex['surname'].')(?P<suffix>(?:\s+'.$personRegex['suffix'].')?)\s*,\s*(?P<initials>(?:'.$personRegex['initials'].')?)\s*\((?P<givenName>(?:\s*'.$personRegex['givenName'].')+)\s*\)\s*(?P<prefix>(?:'.$personRegex['prefix'].')?)$/',
 
-			// Catch-all expression
+			// ParaCite name syntax
+			'/^(?P<givenName>'.$personRegex['givenName'].')\.(?P<surname>'.$personRegex['surname'].')$/',
+
+		// Catch-all expression
 			'/^(?P<surname>.*)$/'
 		);
 

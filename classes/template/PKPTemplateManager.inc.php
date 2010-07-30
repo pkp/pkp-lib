@@ -1330,7 +1330,7 @@ class PKPTemplateManager extends Smarty {
 		} else $canCloseHtml = "";
 
 		return "<script type='text/javascript'>$(function() {
-		$('$id').parent().prev('.ui-dialog-titlebar').remove();
+		$('$id').last().parent().prev('.ui-dialog-titlebar').remove();
 		$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); });
 		return false;
 		});</script>

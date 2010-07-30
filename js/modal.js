@@ -492,7 +492,7 @@ function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
 			updateItem(actOnType, actOnId, returnString.content);
 			$(tabContainer).parent().dialog('close');
 			if (reopen == true) {
-				$(tabContainer).parent().dialog('open');
+				$(tabContainer).last().parent().dialog('open');
 			}
 		} else {
 			// Display errors in error list

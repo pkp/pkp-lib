@@ -237,7 +237,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $citation, $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $this->getAssocObject(), $citationOutputFilter);
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
 		} else {
@@ -374,6 +374,40 @@ class PKPCitationGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
+	/**
+	 * Send an author query based on the posted data.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string a serialized JSON message
+	 */
+	function sendAuthorQuery(&$args, &$request) {
+		// Instantiate the email to the author.
+		import('lib.pkp.classes.mail.Mail');
+		$mail = new Mail();
+
+		// Sender
+		$user =& $request->getUser();
+		$mail->setFrom($user->getEmail(), $user->getFullName());
+
+		// Recipient
+		$assocObject =& $this->getAssocObject();
+		$author =& $assocObject->getUser();
+		$mail->addRecipient($author->getEmail(), $author->getFullName());
+
+		// The message
+		$mail->setSubject(strip_tags($request->getUserVar('authorQuerySubject')));
+		$mail->setBody(strip_tags($request->getUserVar('authorQueryBody')));
+
+		//$mail->send();
+
+		// In principle we should use a template here but this seems exaggerated
+		// for such a small message.
+		$json = new JSON('true',
+			'<div id="authorQueryResult"><span class="formError">'
+			.Locale::translate('submission.citations.editor.details.sendAuthorQuerySuccess')
+			.'</span></div>');
+		return $json->getString();
+	}
 
 	//
 	// Protected helper functions
@@ -429,7 +463,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $citation, $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $this->getAssocObject(), $citationOutputFilter);
 		$citationForm->readInputData();
 
 		// Form validation
@@ -499,7 +533,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Crate a new form for the filtered (but yet unsaved) citation data
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
 		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $filteredCitation, $citationOutputFilter);
+		$citationForm = new CitationForm($request, $filteredCitation, $this->getAssocObject(), $citationOutputFilter);
 
 		// Transport filtering errors to form (if any).
 		foreach($filteredCitation->getErrors() as $index => $errorMessage) {

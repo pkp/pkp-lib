@@ -21,6 +21,9 @@ class CitationForm extends Form {
 	/** @var Citation the citation being edited */
 	var $_citation;
 
+	/** @var DataObject the object the citation belongs to */
+	var $_assocObject;
+
 	/** @var boolean */
 	var $_unsavedChanges;
 
@@ -41,14 +44,17 @@ class CitationForm extends Form {
 	 * Constructor.
 	 * @param $request PKPRequest
 	 * @param $citation Citation
+	 * @param $assocObject DataObject
 	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
 	 */
-	function CitationForm(&$request, &$citation, &$citationOutputFilter) {
+	function CitationForm(&$request, &$citation, &$assocObject, &$citationOutputFilter) {
 		parent::Form();
 		assert(is_a($citation, 'Citation'));
+		assert(is_a($assocObject, 'DataObject'));
 		assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
 
 		$this->_citation =& $citation;
+		$this->_assocObject =& $assocObject;
 		$this->_citationOutputFilter =& $citationOutputFilter;
 
 		// Identify all form field names for the citation
@@ -80,6 +86,14 @@ class CitationForm extends Form {
 	 */
 	function &getCitation() {
 		return $this->_citation;
+	}
+
+	/**
+	 * Get the object the citation belongs to.
+	 * @return DataObject
+	 */
+	function &getAssocObject() {
+		return $this->_assocObject;
 	}
 
 	/**
@@ -293,6 +307,11 @@ class CitationForm extends Form {
 	 * @return string the rendered form
 	 */
 	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		$citation =& $this->getCitation();
+		$assocObject =& $this->getAssocObject();
+
 		/////////////////////////////////////////////////////
 		// Raw citation editing and citation comparison
 		// (comparison template and full template):
@@ -301,7 +320,6 @@ class CitationForm extends Form {
 		//
 		// Add the citation to the template.
 		$templateMgr =& TemplateManager::getManager($request);
-		$citation =& $this->getCitation();
 		$templateMgr->assign_by_ref('citation', $citation);
 
 		// Does the form contain unsaved changes?
@@ -341,8 +359,6 @@ class CitationForm extends Form {
 		//
 		// Retrieve all available citation filters
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
 		$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), true, false, array(), true);
 		$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
 		$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), false, true, array(), true);
@@ -375,12 +391,27 @@ class CitationForm extends Form {
 			//
 			// 3) Google Scholar
 			//
-			// FIXME
+			// Nothing to do.
 
 			//
 			// 4) Author Query
 			//
-			// FIXME
+			// Add the author query text to the template.
+			$author =& $assocObject->getUser();
+			$user =& $request->getUser();
+			$emailParams = array(
+				'authorFirstName' => strip_tags($author->getFirstName()),
+				'authorLastName' => strip_tags($author->getLastName()),
+				'userFirstName' => strip_tags($user->getFirstName()),
+				'userLastName' => strip_tags($user->getLastName()),
+				'articleTitle' => strip_tags($assocObject->getLocalizedTitle()),
+				'rawCitation' => strip_tags($citation->getRawCitation())
+			);
+			import('classes.mail.MailTemplate');
+			$mail = new MailTemplate('CITATION_EDITOR_AUTHOR_QUERY', null, false, null, true, true);
+			$mail->assignParams($emailParams);
+			$templateMgr->assign('authorQuerySubject', $mail->getSubject());
+			$templateMgr->assign('authorQueryBody', $mail->getBody());
 
 
 			/////////////////////////////////////////////////////

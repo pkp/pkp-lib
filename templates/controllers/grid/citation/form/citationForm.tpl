@@ -210,7 +210,15 @@
 			//
 			// 4) Author Query
 			//
-			// FIXME
+			// Bind action to author query button.
+			ajaxAction(
+				'post',
+				'#authorQueryResult',
+				'#authorQuery',
+				'{url op="sendAuthorQuery"}',
+				null, null,
+				'#editCitationForm'
+			);
 
 			
 			////////////////////////////////////////////////////////////
@@ -396,7 +404,24 @@
 					</div>
 					
 					<div id="citationImprovementAuthor">
-						Ask Author
+						<div>
+							<p>{translate key="submission.citations.editor.details.authorQueryExplanation"}</p>
+							<p>
+								{translate key="submission.citations.editor.details.authorQuerySubject"}
+								<input type="text" maxlength="500" value="{$authorQuerySubject}"
+									id="authorQuerySubject" name="authorQuerySubject" validation="required" /> 
+							</p>
+							<p>
+								{translate key="submission.citations.editor.details.authorQueryBody"}
+								<textarea class="textarea" validation="required" rows=10
+									id="authorQueryBody" name="authorQueryBody">{$authorQueryBody}</textarea>
+							</p>
+						</div>
+						<div id="authorQueryResult"></div>
+						<div class="actions">
+							<button id="authorQuery" type="button">{translate key="submission.citations.editor.details.sendAuthorQuery"}</button>
+						</div>
+						<div class="clear"></div>
 					</div>
 				</div>
 			</div>

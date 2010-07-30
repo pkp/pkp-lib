@@ -138,7 +138,7 @@ class CitationDAO extends DAO {
 	 *  was not successful then the original citation
 	 *  will be returned unchanged.
 	 */
-	function &checkCitation(&$originalCitation, $contextId, $filterIds) {
+	function &checkCitation(&$originalCitation, $contextId, $filterIds = array()) {
 		assert(is_a($originalCitation, 'Citation'));
 
 		// Only parse the citation if it has not been parsed before.

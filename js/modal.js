@@ -376,7 +376,7 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 		};
 	}
 
-	if (eventName === undefined) eventName = 'click';
+	if (!eventName) eventName = 'click';
 	$(callingElement).each(function() {
 		// NB: We cannot unbind previous events here as this
 		// may delete other legitimate events. Please make sure

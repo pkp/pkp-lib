@@ -114,6 +114,9 @@
 	<message key="submission.citations.editor.citationlist.title">Edit Citations</message>
 	<message key="submission.citations.editor.clickToEdit">Click to edit.</message>
 	<message key="submission.citations.editor.details.addAndApprove">Add And Approve</message>
+	<message key="submission.citations.editor.details.authorQueryBody">Your message to the author:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">You can ask the author for further information about the current citation. As soon as you click the "Send" button below, your message will be sent out as an email to the author.</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">Subject:</message>
 	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">You cannot unset a field label. Please delete the field if you don't need it</message>
 	<message key="submission.citations.editor.details.checkInGoogleScholar">Check in Google Scholar</message>
 	<message key="submission.citations.editor.details.changeFieldInfo">Type first few letters to select...</message>
@@ -140,6 +143,8 @@
 	<message key="submission.citations.editor.details.processRawCitationWarning">You are about to change the original citation text. If you do that then all fields will be replaced with newly generated values. This deletes manual changes you might already have made.</message>
 	<message key="submission.citations.editor.details.saveAndApprove">Save And Approve</message>
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Revoke Approval</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">Send Message</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Message sent!</message>
 	<message key="submission.citations.editor.details.rawCitation">Original Citation Text</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.editor.details.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>

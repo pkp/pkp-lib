@@ -14,21 +14,20 @@
  *  via smarty template.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.TemplateBasedFilter');
 
 // This is a brand name so doesn't have to be translated...
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
 
-class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
+class NlmCitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
 	/** @var The publication types supported by this output filter. */
 	var $_supportedPublicationTypes;
 
 	/**
 	 * Constructor
-	 * @param $request PKPRequest
 	 */
 	function NlmCitationSchemaCitationOutputFormatFilter() {
-		parent::Filter();
+		parent::TemplateBasedFilter();
 	}
 
 
@@ -59,21 +58,6 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 
 
 	//
-	// Abstract template methods
-	//
-	/**
-	 * Return the base path of the filter so that we
-	 * can find the filter templates.
-	 *
-	 * @return string
-	 */
-	function getBasePath() {
-		// Must be implemented by sub-classes.
-		assert(false);
-	}
-
-
-	//
 	// Implement template methods from Filter
 	//
 	/**
@@ -88,10 +72,11 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 
 	/**
 	 * @see Filter::process()
-	 * @param $input MetadataDescription NLM citation description
-	 * @return string formatted citation output
+	 * @param $input MetadataDescription the NLM meta-data description
+	 *  to be transformed
+	 * @return string the rendered citation output
 	 */
-	function &process(&$input) {
+	function process(&$input) {
 		// Check whether the incoming publication type is supported by this
 		// output filter.
 		$supportedPublicationTypes = $this->getSupportedPublicationTypes();
@@ -102,23 +87,37 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 			return $emptyResult;
 		}
 
-		// Initialize view
-		$locale = Locale::getLocale();
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
-		$templateMgr =& TemplateManager::getManager($request);
+		return parent::process($input);
+	}
 
-		// Add the filter's directory as additional template dir so that
-		// citation output format templates can include sub-templates in
-		// the same folder.
-		$templateMgr->template_dir[] = $this->getBasePath();
 
+	//
+	// Implement template methods from TemplateBasedFilter
+	//
+	/**
+	 * Get the citation template
+	 * @return string
+	 */
+	function getTemplateName() {
+		return 'nlm-citation.tpl';
+	}
+
+	/**
+	 * @see TemplateBasedFilter::addTemplateVars()
+	 * @param $templateMgr TemplateManager
+	 * @param $input MetadataDescription the NLM meta-data description
+	 *  to be transformed
+	 * @param $request Request
+	 * @param $locale Locale
+	 */
+	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
 		// Loop over the statements in the schema and add them
 		// to the template
 		$propertyNames =& $input->getPropertyNames();
+		$setProperties = array();
 		foreach($propertyNames as $propertyName) {
 			$templateVariable = $input->getNamespacedPropertyId($propertyName);
-			if ($input->hasProperty($propertyName)) {
+			if ($input->hasStatement($propertyName)) {
 				$propertyLocale = $input->getProperty($propertyName)->getTranslated() ? $locale : null;
 				$templateMgr->assign_by_ref($templateVariable, $input->getStatement($propertyName, $propertyLocale));
 			} else {
@@ -126,27 +125,6 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 				$templateMgr->clear_assign($templateVariable);
 			}
 		}
-
-		// Let the template engine render the citation
-		$templateName = $this->_getCitationTemplate();
-		$output = $templateMgr->fetch($templateName);
-
-		// Remove the additional template dir
-		array_pop($templateMgr->template_dir);
-
-		return $output;
-	}
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Get the citation template
-	 * @return string
-	 */
-	function _getCitationTemplate() {
-		$basePath = $this->getBasePath();
-		return 'file:'.$basePath.DIRECTORY_SEPARATOR.'nlm-citation.tpl';
 	}
 }
 ?>

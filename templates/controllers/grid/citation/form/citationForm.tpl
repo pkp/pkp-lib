@@ -36,8 +36,13 @@
 			////////////////////////////////////////////////////////////
 			// Improvement options
 			//
-			// Create citation improvement tabs.
-			$('#citationImprovement').tabs();
+			// Create citation improvement tabs and make sure that
+			// tabs are always fully visible when selected.
+			$('#citationImprovement').tabs({ldelim}
+				show: function() {ldelim}
+					scrollToMakeVisible('#citationImprovementBlock');
+				{rdelim}
+			{rdelim});
 
 			//
 			// 1) Manual editing
@@ -143,8 +148,7 @@
 				// Remove the table row with that field.
 				$(this).closest('tr').fadeOut(500, function() {ldelim}
 					$(this).remove();
-					// Trigger a change event on the citation
-					// comparison container to refresh it.
+					// Trigger citation comparison refresh.
 					$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 				{rdelim});
 				return false;
@@ -230,6 +234,50 @@
 			// Create citation source tabs.
 			$('#citationSourceTabs-{$formUid}').tabs();
 
+			/**
+			 * Helper function that copies all values in
+			 * the given source element list to the
+			 * citation field list.
+			 * @param $sources jQuery a list of source table cells
+			 */
+			function copySourceToFieldList($source) {ldelim}
+				// Copy all source values to target fields.
+				$source.each(function() {ldelim}
+					$sourceCell = $(this);
+					var propertyName = $sourceCell.attr('id').replace(/^[0-9]+-/, '');
+					var $targetField = $('.citation-field[name=' + propertyName + ']');
+		
+					if ($targetField.length > 0) {ldelim}
+						// Copy the content of the source to the target field
+						$targetField.val($sourceCell.text());
+					{rdelim}
+				{rdelim});
+				
+				// Trigger citation comparison refresh.
+				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
+			{rdelim}
+				
+			// Activate "use" buttons.
+			$('.citation-source-use-button').die('click').live('click', function() {ldelim}
+				// Identify the source element.
+				var $source = $(this).closest('td').siblings('.value');
+				// Copy values.
+				copySourceToFieldList($source);
+				// Return false to stop further event processing.
+				return false;
+			{rdelim});
+			
+			// Activate "use all" buttons.
+			$('.citation-source-use-all-button').die('click').live('click', function() {ldelim}
+				// Identify all source elements in this citation source.
+				var $source = $(this).closest('tbody').find('.value');
+				// Copy values.
+				copySourceToFieldList($source);
+				// Return false to stop further event processing.
+				return false;
+			{rdelim});
+
+
 			////////////////////////////////////////////////////////////
 			// Form-level actions.
 			//
@@ -281,13 +329,29 @@
 							$('#citationFormSaveAndRevokeApproval').show();
 							$('#citationFormSave').removeClass('secondary-button');
 
-							// Get the next unapproved citation.
-							$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()}) .row_file')
+							// Get the next unapproved citation:
+							// 1) First try to find an unapproved citation
+							//    after the current citation.
+							$nextUnapproved = $('#component-grid-citation-citationgrid-row-{$citation->getId()} ~ .unapproved-citation')
+								.first();
+							// 2) If that wasn't successful then try to find
+							//    an unapproved citation from the top of the list.
+							if (!$nextUnapproved.length) {ldelim}
+								$nextUnapproved = $('.unapproved-citation:not(#component-grid-citation-citationgrid-row-{$citation->getId()})')
 									.first();
+							{rdelim}
+
+							// If there are still unapproved citations then show
+							// the next one, otherwise jump to the export main tab.
 							if ($nextUnapproved.length) {ldelim}
-								// If there still are unapproved citations then
-								// load the next one.
-								$nextUnapproved.triggerHandler('click');
+								// Scroll the citation list to make the next
+								// citation visible.
+								scrollToMakeVisible($nextUnapproved);
+								
+								// Trigger the click handler on the next
+								// unapproved citation to load it in the
+								// citation detail pane.
+								$nextUnapproved.find('.row_file').triggerHandler('click');
 							{rdelim} else {ldelim}
 								// If all citations have been approved then open
 								// the export tab.
@@ -444,33 +508,25 @@
 						
 						{* Tab content *}
 						{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-							<div id="{$citationSourceTabId}-{$formUid}">
-								<table>
+							<div id="{$citationSourceTabId}-{$formUid}" class="grid">
+								<table><tbody>
 									{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
 										<tr valign="top">
 											<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-											<td width="65%" id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
-											<td width="5%">
-												<a id="{$sourcePropertyId}-use" href="">use</a>
-												<script type='text/javascript'>
-													$(function() {ldelim}
-														$('#{$sourcePropertyId}-use').click(function() {ldelim}
-															// Identify the source and target elements.
-															var $source = $('#{$citationSourceTabId}-{$formUid} #{$sourcePropertyId}');
-															var $target = $('.citation-field[name={$sourcePropertyId|regex_replace:'/^[0-9]+-/':''}]');
-	
-															if ($target.length > 0) {ldelim}
-																// Copy the content of the source to the target field
-																$target.val($source.text());
-															{rdelim}
-															return false;
-														{rdelim});
-													{rdelim});
-												</script>
+											<td id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
+											<td class="citation-source-action-cell">
+												[<a id="{$sourcePropertyId}-use" href="" class="citation-source-use-button" title="{translate key="submission.citations.editor.details.sourceResultsUseExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUse"}</a>]
 											</td>
 										</tr>
 									{/foreach}
-								</table>
+									<tr class="citation-source-action-row">
+										<td></td>
+										<td></td>
+										<td>
+											<button id="{$citationSourceTabId}-{$formUid}-use-all" type="button" class="citation-source-use-all-button" title="{translate key="submission.citations.editor.details.sourceResultsUseAllExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUseAll"}</button>
+										</td>
+									</tr>
+								</tbody></table>
 							</div>
 						{/foreach}
 					</div>

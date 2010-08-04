@@ -10,12 +10,12 @@
 	<p>
 		{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
 		{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
-		{include file="../abnt/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor}
+		{include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor}
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}
 				{$nlm30ChapterTitle|escape}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					. In: {include file="../abnt/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{literal}(Ed.). {/literal}
+					. In: {include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{literal}(Ed.). {/literal}
 				{else}
 					{literal}. In: ________. {/literal}
 				{/if}

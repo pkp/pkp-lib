@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/citation/output/mla/MockLocale.inc.php
+ * @file tests/classes/importexport/nlm/MockLocale.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

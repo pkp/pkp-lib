@@ -506,7 +506,7 @@ function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
  * of option blocks. Clicking on the header of the extras section
  * will toggle the section open and closed.
  * @param actOnId String a selector that contains the options header
- *  options blocks.
+ *  and options blocks.
  */
 function extrasOnDemand(actOnId) {
 	/**
@@ -521,6 +521,8 @@ function extrasOnDemand(actOnId) {
 		$(actOnId + ' .options-head').removeClass('inactive').addClass('active');
 		// Change the header icon into a triangle pointing downwards.
 		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
+		// Scroll the parent so that all extra options are visible.
+		scrollToMakeVisible(actOnId);
 	}
 	
 	/**
@@ -548,4 +550,51 @@ function extrasOnDemand(actOnId) {
 			activateExtraOptions();
 		}
 	});
+}
+
+/**
+ * Scroll a scrollable element to make the
+ * given content element visible. The content element
+ * must be a descendant of a scrollable
+ * element (needs to have class "scrollable").
+ * 
+ * NB: This method depends on the position() method
+ * to refer to the same parent element for both the
+ * content element and the scrollable element.
+ * 
+ * @param actOnId String a selector to identify
+ *  the element to be made visible. 
+ */
+function scrollToMakeVisible(actOnId) {
+	// jQuerify the element to be made visible.
+	var $contentBlock = $(actOnId);
+	
+	// Identify the scrollable element.
+	var $scrollable = $contentBlock.closest('.scrollable');
+	
+	var contentBlockTop = $contentBlock.position().top;
+	var scrollingBlockTop = $scrollable.position().top;
+	var currentScrollingTop = $scrollable.scrollTop();
+
+	// Do we have to scroll down or scroll up?
+	if (contentBlockTop > scrollingBlockTop) {
+		// Consider scrolling down...
+		
+		// Calculate the number of hidden pixels of the child
+		// element within the scrollable element.
+		var hiddenPixels = Math.ceil(contentBlockTop + $contentBlock.height() - $scrollable.height());
+		
+		// Scroll down if parts or all of the content block are hidden.
+		if (hiddenPixels > 0) {
+			$scrollable.scrollTop(currentScrollingTop + hiddenPixels);
+		}
+	} else {
+		// Scroll up...
+		
+		// Calculate the new scrolling top.
+		var newScrollingTop = Math.max(Math.floor(currentScrollingTop + contentBlockTop - scrollingBlockTop), 0);
+
+		// Set the new scrolling top.
+		$scrollable.scrollTop(newScrollingTop);
+	}
 }

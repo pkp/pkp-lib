@@ -13,14 +13,14 @@
 		{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
 		{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
 		{if $nlm30PersonGroupPersonGroupTypeAuthor}
-			{capture assign=authors}{include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor reversed=true}{/capture}{$authors}
+			{capture assign=authors}{include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor reversed=true}{/capture}{$authors}
 		{else}{$mainTitle}{if $subTitle} {$subTitle}{/if} {/if}
 		{if $nlm30Date}({$nlm30Date|truncate:4:''}){/if}
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}
 				{literal} {/literal}{$nlm30ChapterTitle|escape}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					. In {include file="../apa/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
+					. In {include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor}{if count($nlm30PersonGroupPersonGroupTypeEditor)>1}(Eds.), {else}(Ed.), {/if}
 				{else}
 					{literal}. In {/literal}
 				{/if}

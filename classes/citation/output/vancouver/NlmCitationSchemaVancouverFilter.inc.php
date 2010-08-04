@@ -44,10 +44,10 @@ class NlmCitationSchemaVancouverFilter extends NlmCitationSchemaCitationOutputFo
 
 
 	//
-	// Implement abstract template methods from NlmCitationSchemaCitationOutputFormatFilter
+	// Implement abstract template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see NlmCitationSchemaCitationOutputFormatFilter::getBasePath()
+	 * @see TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

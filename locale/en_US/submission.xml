@@ -145,6 +145,10 @@
 	<message key="submission.citations.editor.details.saveAndRevokeApproval">Revoke Approval</message>
 	<message key="submission.citations.editor.details.sendAuthorQuery">Send Message</message>
 	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Message sent!</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">Use</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">Use All</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Click to transport all result fields from this source directly to your field list</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Click to transport this result field directly to your field list</message>
 	<message key="submission.citations.editor.details.rawCitation">Original Citation Text</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.editor.details.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>

@@ -21,10 +21,7 @@ import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
 import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
-	//
-	// Getters and setters
-	//
+abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	protected function setUp() {
 		$application =& PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
@@ -200,20 +197,48 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	// Private methods providing the Google Scholar link for all citations
 	//
 	private function getBookResultNoAuthorGoogleScholar() {
-		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+		if ($this->addGoogleScholar()) {
+			return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+		} else {
+			return '';
+		}
 	}
 
 	private function getBookResultGoogleScholar() {
-		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+		if ($this->addGoogleScholar()) {
+			return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Azevedo%22+%22Mania%20de%20bater%3A%20a%20puni%C3%A7%C3%A3o%20corporal%20dom%C3%A9stica%20de%20crian%C3%A7as%20e%20adolescentes%20no%20Brasil%22+" target="_blank">[Google Scholar]</a>';
+		} else {
+			return '';
+		}
 	}
 
 	private function getJournalArticleResultGoogleScholar() {
-		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Silva%22+%22Biotemas%22+Etinobot%C3%A2nica%20Xucuru%3A%20esp%C3%A9cies%20m%C3%ADsticas+10146%3A55793-493" target="_blank">[Google Scholar]</a>';
+		if ($this->addGoogleScholar()) {
+			return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Silva%22+%22Biotemas%22+Etinobot%C3%A2nica%20Xucuru%3A%20esp%C3%A9cies%20m%C3%ADsticas+10146%3A55793-493" target="_blank">[Google Scholar]</a>';
+		} else {
+			return '';
+		}
 	}
 
 	private function getConfProcResultGoogleScholar() {
-		return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Liu%22+%22The%20Seventh%20International%20Conference%20on%20Enterprise%20Information%20Systems%22+Defending%20against%20business%20crises%20with%20the%20help%20of%20intelligent%20agent%20based%20early%20warning%20solutions" target="_blank">[Google Scholar]</a>';
+		if ($this->addGoogleScholar()) {
+			return ' <a href="http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=author:%22Liu%22+%22The%20Seventh%20International%20Conference%20on%20Enterprise%20Information%20Systems%22+Defending%20against%20business%20crises%20with%20the%20help%20of%20intelligent%20agent%20based%20early%20warning%20solutions" target="_blank">[Google Scholar]</a>';
+		} else {
+			return '';
+		}
 	}
+
+
+	//
+	// Protected method that can be overridden by subclasses.
+	//
+	/**
+	 * @return boolean
+	 */
+	protected function addGoogleScholar() {
+		return true;
+	}
+
 
 	//
 	// Abstract protected template methods to be implemented by subclasses
@@ -221,36 +246,26 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	/**
 	 * @return Filter
 	 */
-	protected function getFilterInstance() {
-		assert(false);
-	}
+	abstract protected function getFilterInstance();
 
 	/**
 	 * @return string
 	 */
-	protected function getBookResult() {
-		assert(false);
-	}
+	abstract protected function getBookResult();
 
 	/**
 	 * @return string
 	 */
-	protected function getBookChapterResult() {
-		assert(false);
-	}
+	abstract protected function getBookChapterResult();
 
 	/**
 	 * @return string
 	 */
-	protected function getBookChapterWithEditorResult() {
-		assert(false);
-	}
+	abstract protected function getBookChapterWithEditorResult();
 
 	/**
 	 * @return string
 	 */
-	protected function getJournalArticleResult() {
-		assert(false);
-	}
+	abstract protected function getJournalArticleResult();
 }
 ?>

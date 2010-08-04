@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/classes/citation/output/apa/NlmCitationSchemaVancouverFilterTest.inc.php
+ * @file tests/classes/citation/output/vancouver/NlmCitationSchemaVancouverFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NlmCitationSchemaVancouverFilterTest
- * @ingroup tests_classes_citation_output_apa
+ * @ingroup tests_classes_citation_output_vancouver
  * @see NlmCitationSchemaVancouverFilter
  *
  * @brief Tests for the NlmCitationSchemaVancouverFilter class.

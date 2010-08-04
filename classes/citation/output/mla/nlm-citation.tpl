@@ -4,19 +4,19 @@
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * ABNT citation output format template (NLM citation schema based)
+ * MLA citation output format template (NLM citation schema based)
  *}
 {strip}
 	<p style="text-indent:-2em;margin-left:2em">
 		{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
 		{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
-		{include file="../mla/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor editor=false}
+		{include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor editor=false}
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}"{$nlm30ChapterTitle|escape}." {/if}
 			<i>{$mainTitle}{if $subTitle} {$subTitle}{/if}.</i>{literal} {/literal}
 			{if $nlm30ChapterTitle}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					Ed. {include file="../mla/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor editor=true}
+					Ed. {include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor editor=true}
 				{/if}
 			{/if}
 			{if $nlm30Edition}{$nlm30Edition}. {/if}

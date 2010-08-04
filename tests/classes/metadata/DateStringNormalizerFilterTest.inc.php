@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/metadata/CitationParserServiceTest.inc.php
+ * @file tests/classes/metadata/DateStringNormalizerFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -10,7 +10,7 @@
  * @ingroup tests_classes_metadata
  * @see DateStringNormalizerFilter
  *
- * @brief Tests for the RegexCitationParserService class.
+ * @brief Tests for the DateStringNormalizerFilter class.
  */
 
 import('lib.pkp.tests.PKPTestCase');

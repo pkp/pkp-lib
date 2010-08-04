@@ -28,7 +28,6 @@
  *  make available, persist or enter in their application.
  */
 
-// $Id$
 
 // literal values (plain)
 define('METADATA_PROPERTY_TYPE_STRING', 0x01);

@@ -4,19 +4,19 @@
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * ABNT citation output format template (NLM citation schema based)
+ * Vancouver citation output format template (NLM citation schema based)
  *}
 {strip}
 	<p>
 		{assign var=mainTitle value=$nlm30Source|escape|regex_replace:'/^([^:]+:?).*$/':'$1'}
 		{assign var=subTitle value=$nlm30Source|escape|regex_replace:'/^[^:]+:?/':''|@trim|@ucfirst}
-		{include file="../vancouver/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor editor=false}
+		{include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeAuthor editor=false}
 		{if $nlm30PublicationType == 'book'}
 			{if $nlm30ChapterTitle}{$nlm30ChapterTitle|escape}. In: {/if}
 			{$mainTitle}{if $subTitle} {$subTitle}{/if}.{literal} {/literal}
 			{if $nlm30ChapterTitle}
 				{if $nlm30PersonGroupPersonGroupTypeEditor}
-					{include file="../vancouver/nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor editor=true}
+					{include file="nlm-citation-persons.tpl" persons=$nlm30PersonGroupPersonGroupTypeEditor editor=true}
 					, editor{if count($nlm30PersonGroupPersonGroupTypeEditor) >1}s. {else}. {/if}
 				{/if}
 			{/if}

@@ -42,10 +42,10 @@ class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFi
 
 
 	//
-	// Implement abstract template methods from NlmCitationSchemaCitationOutputFormatFilter
+	// Implement abstract template methods from TemplateBasedFilter
 	//
 	/**
-	 * @see NlmCitationSchemaCitationOutputFormatFilter::getBasePath()
+	 * @see TemplateBasedFilter::getBasePath()
 	 */
 	function getBasePath() {
 		return dirname(__FILE__);

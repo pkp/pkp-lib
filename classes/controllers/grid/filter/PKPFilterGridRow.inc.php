@@ -69,7 +69,8 @@ class PKPFilterGridRow extends GridRow {
 					$router->url($request, null, null, 'deleteFilter', null, $actionArgs),
 					'grid.action.delete',
 					null,
-					'delete'
+					'delete',
+					Locale::translate('manager.setup.filter.grid.confirmDelete', array('filterName' => $filter->getDisplayName()))
 				)
 			);
 

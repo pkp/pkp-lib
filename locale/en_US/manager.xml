@@ -154,7 +154,8 @@
 	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>
 	<message key="manager.setup.filter.grid.filterSettings">Registration Information and Connector Settings</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Please select one of the transformations from the drop-down.</message>	
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Please select one of the transformations from the drop-down.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Do you really want to delete the {$filterName} filter?</message>	
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">You have chosen to add the {$filterDisplayName} database. Please click on 'OK' to confirm.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionSettings">Please configure the parameters for the {$filterDisplayName} lookup database.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Please select a lookup database.</message>

@@ -16,8 +16,6 @@
  * @brief Submission class.
  */
 
-// $Id$
-
 
 class Submission extends DataObject {
 	/** @var array Authors of this submission */
@@ -33,6 +31,15 @@ class Submission extends DataObject {
 		parent::DataObject();
 		$this->authors = array();
 		$this->removedAuthors = array();
+	}
+
+	/**
+	 * Returns the association type of this submission
+	 * @return integer one of the ASSOC_TYPE_* constants
+	 */
+	function getAssocType() {
+		// Must be implemented by sub-classes.
+		assert(false);
 	}
 
 	/**

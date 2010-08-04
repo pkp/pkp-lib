@@ -107,6 +107,10 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	function &extractMetadataFromDataObject(&$dataObject) {
 		$metadataDescription =& $this->instantiateMetadataDescription();
 
+		// Establish the association between the meta-data description
+		// and the citation object.
+		$metadataDescription->setAssocId($dataObject->getId());
+
 		// Identify the length of the name space prefix
 		$namespacePrefixLength = strlen($this->getMetadataNamespace())+1;
 

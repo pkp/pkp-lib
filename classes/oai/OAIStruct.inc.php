@@ -13,7 +13,6 @@
  * @brief Data structures associated with the OAI request handler.
  */
 
-// $Id$
 
 
 /**

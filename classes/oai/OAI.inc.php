@@ -17,8 +17,6 @@
  * @brief Class to process and respond to OAI requests.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.oai.OAIStruct');
 import('lib.pkp.classes.oai.OAIUtils');

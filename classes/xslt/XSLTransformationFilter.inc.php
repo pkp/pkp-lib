@@ -16,15 +16,6 @@ import('lib.pkp.classes.filter.GenericFilter');
 import('lib.pkp.classes.xslt.XSLTransformer');
 
 class XSLTransformationFilter extends GenericFilter {
-	/** @var DOMDocument|string either an XSL string or an XSL DOMDocument */
-	var $_xsl;
-
-	/** @var integer */
-	var $_xslType;
-
-	/** @var integer */
-	var $_resultType;
-
 	/**
 	 * Constructor
 	 *
@@ -36,6 +27,12 @@ class XSLTransformationFilter extends GenericFilter {
 	 * more details how to enable XML validation.
 	 */
 	function XSLTransformationFilter($displayName = 'XSL Transformation', $transformation = null) {
+		// Instantiate the settings of this filter
+		import('lib.pkp.classes.filter.FilterSetting');
+		$this->addSetting(new FilterSetting('xsl', null, null));
+		$this->addSetting(new FilterSetting('xslType', null, null));
+		$this->addSetting(new FilterSetting('resultType', null, null, FORM_VALIDATOR_OPTIONAL_VALUE));
+
 		parent::GenericFilter($displayName, $transformation);
 	}
 
@@ -63,7 +60,7 @@ class XSLTransformationFilter extends GenericFilter {
 	 * @return DOMDocument|string a document, xsl string or file name
 	 */
 	function &getXSL() {
-		return $this->_xsl;
+		return $this->getData('xsl');
 	}
 
 	/**
@@ -71,7 +68,7 @@ class XSLTransformationFilter extends GenericFilter {
 	 * @return integer
 	 */
 	function getXSLType() {
-		return $this->_xslType;
+		return $this->getData('xslType');
 	}
 
 	/**
@@ -81,12 +78,12 @@ class XSLTransformationFilter extends GenericFilter {
 	function setXSL(&$xsl) {
 		// Determine the xsl type
 		if (is_string($xsl)) {
-			$this->_xslType = XSL_TRANSFORMER_DOCTYPE_STRING;
+			$this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_STRING);
 		} elseif (is_a($xsl, 'DOMDocument')) {
-			$this->_xslType = XSL_TRANSFORMER_DOCTYPE_DOM;
+			$this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_DOM);
 		} else assert(false);
 
-		$this->_xsl =& $xsl;
+		$this->setData('xsl', $xsl);
 	}
 
 	/**
@@ -94,8 +91,8 @@ class XSLTransformationFilter extends GenericFilter {
 	 * @param unknown_type $xslFile
 	 */
 	function setXSLFilename($xslFile) {
-		$this->_xslType = XSL_TRANSFORMER_DOCTYPE_FILE;
-		$this->_xsl = $xslFile;
+		$this->setData('xslType', XSL_TRANSFORMER_DOCTYPE_FILE);
+		$this->setData('xsl', $xslFile);
 	}
 
 	/**
@@ -103,7 +100,7 @@ class XSLTransformationFilter extends GenericFilter {
 	 * @return integer
 	 */
 	function getResultType() {
-		return $this->_resultType;
+		return $this->getData('resultType');
 	}
 
 	/**
@@ -111,7 +108,7 @@ class XSLTransformationFilter extends GenericFilter {
 	 * @param $resultType integer
 	 */
 	function setResultType($resultType) {
-		$this->_resultType = $resultType;
+		$this->setData('resultType', $resultType);
 	}
 
 
@@ -142,13 +139,13 @@ class XSLTransformationFilter extends GenericFilter {
 		// Determine the result type based on
 		// the input type if it has not been
 		// set explicitly.
-		if (is_null($this->_resultType)) {
-			$this->_resultType = $xmlType;
+		if (is_null($this->getResultType())) {
+			$this->setResultType($xmlType);
 		}
 
 		// Transform the input
 		$xslTransformer = new XSLTransformer();
-		$result =& $xslTransformer->transform($xml, $xmlType, $this->_xsl, $this->_xslType, $this->_resultType);
+		$result =& $xslTransformer->transform($xml, $xmlType, $this->getXsl(), $this->getXslType(), $this->getResultType());
 		return $result;
 	}
 }

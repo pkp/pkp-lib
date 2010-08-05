@@ -164,7 +164,7 @@ class FilterDAO extends DAO {
 			$result =& $this->retrieve(
 				'SELECT * FROM filters'.
 				' WHERE '.($getTemplates ? '' : 'NOT ').'is_template'.
-				' AND context_id = ? AND parent_filter_id = 0', (integer)$contextId);
+				' AND context_id in (0, ?) AND parent_filter_id = 0', (integer)$contextId);
 			foreach($result->GetAssoc() as $filterRow) {
 				$filterHash[$hashId][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;
 			}

@@ -173,41 +173,105 @@ class PKPCitationGridHandler extends GridHandler {
 	 * @return string a serialized JSON message
 	 */
 	function exportCitations(&$args, &$request, $noCitationsFoundMessage) {
-		// We currently only support the NLM citation schema.
-		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-		$nlmCitationSchema = new NlmCitationSchema();
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		$templateMgr = TemplateManager::getManager($request);
 
-		$formattedCitations = array();
-		$initialHelpMessage = null;
-		$citations =& $this->_getSortedElements();
+		$errorMessage = null;
+		$citations =& $this->getData();
 		if ($citations->eof()) {
-			$initialHelpMessage = $noCitationsFoundMessage;
+			$errorMessage = $noCitationsFoundMessage;
 		} else {
-			$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
+			// Check whether we have any unapproved citations.
 			while (!$citations->eof()) {
 				// Retrieve NLM citation meta-data
 				$citation =& $citations->next();
 				if ($citation->getCitationState() < CITATION_APPROVED) {
 					// Oops, found an unapproved citation, won't be able to
 					// export then.
-					$initialHelpMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
+					$errorMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
 					break;
 				}
+				unset($citation);
+			}
 
-				$metadataDescription =& $citation->extractMetadata($nlmCitationSchema);
-				assert(!is_null($metadataDescription));
+			// Only go on when we've no error so far
+			if (is_null($errorMessage)) {
+				// Provide the assoc id to the template.
+				$templateMgr->assign_by_ref('assocId', $this->getAssocId());
 
-				// Apply the citation output format filter
-				$formattedCitations[] = $citationOutputFilter->execute($metadataDescription);
+				// Identify export filters.
+				$filterDao =& DAORegistry::getDAO('FilterDAO');
+				$inputSample = $this->getAssocObject();
+				$allowedFilterIds = array();
 
-				unset($citation, $metadataDescription);
+				// Identify filters that are capable to convert the citation
+				// editor's associated object into XML.
+				$outputSample = new DOMDocument();
+				$xmlExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
+				$xmlExportFilters = array();
+				foreach($xmlExportFilterObjects as $xmlExportFilterObject) {
+					$xmlExportFilters[$xmlExportFilterObject->getId()] = '&nbsp;'.$xmlExportFilterObject->getDisplayName();
+					$allowedFilterIds[$xmlExportFilterObject->getId()] = 'xml';
+				}
+				$templateMgr->assign_by_ref('xmlExportFilters', $xmlExportFilters);
+
+				// Identify filters that are capable to convert the citation
+				// editor's associated object into a plain text reference list.
+				import('lib.pkp.classes.citation.PlainTextReferencesList');
+				$outputSample = new PlainTextReferencesList();
+				$textExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
+				$textExportFilters = array();
+				foreach($textExportFilterObjects as $textExportFilterObject) {
+					$textExportFilters[$textExportFilterObject->getId()] = '&nbsp;'.$textExportFilterObject->getDisplayName();
+					$allowedFilterIds[$textExportFilterObject->getId()] = 'plain';
+				}
+				$templateMgr->assign_by_ref('textExportFilters', $textExportFilters);
+
+				// Did the user choose a custom filter?
+				$exportFilter = null;
+				if (isset($args['filterId'])) {
+					$exportFilterId = (int)$args['filterId'];
+					if (isset($allowedFilterIds[$exportFilterId])) {
+						$exportFilter =& $filterDao->getObjectById($exportFilterId);
+					}
+				}
+
+				// Use the first available XML filter by default if no
+				// valid custom filter has been chosen.
+				if (!is_a($exportFilter, 'Filter') && !empty($xmlExportFilterObjects)) {
+					$exportFilter = array_pop($xmlExportFilterObjects);
+					$exportFilterId = $exportFilter->getId();
+				}
+
+				// Prepare the export output if a filter has been identified.
+				$exportOutput = '';
+				if (is_a($exportFilter, 'Filter')) {
+					// Make the template aware of the selected filter.
+					$templateMgr->assign('exportFilterId', $exportFilterId);
+
+					// Save the export filter type to the template.
+					$exportType = $allowedFilterIds[$exportFilterId];
+					$templateMgr->assign('exportFilterType', $exportType);
+
+					// Apply the citation output format filter.
+					$exportOutput = $exportFilter->execute($this->getAssocObject());
+
+					// Pretty-format XML output.
+					if ($exportType = 'xml') {
+						$xmlDom = new DOMDocument();
+						$xmlDom->preserveWhiteSpace = false;
+						$xmlDom->formatOutput = true;
+						$xmlDom->loadXml($exportOutput);
+						$exportOutput = $xmlDom->saveXml($xmlDom->documentElement);
+					}
+				}
+				$templateMgr->assign_by_ref('exportOutput', $exportOutput);
 			}
 		}
 
 		// Render the citation list
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('initialHelpMessage', $initialHelpMessage);
-		$templateMgr->assign_by_ref('formattedCitations', $formattedCitations);
+		$templateMgr->assign('errorMessage', $errorMessage);
 		$json = new JSON('true', $templateMgr->fetch('controllers/grid/citation/citationExport.tpl'));
 		return $json->getString();
 	}

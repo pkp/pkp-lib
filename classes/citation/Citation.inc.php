@@ -12,7 +12,6 @@
  *
  * @class Citation
  * @ingroup citation
- * @see CitationParserService
  * @see MetadataDescription
  *
  * @brief Class representing a citation (bibliographic reference)

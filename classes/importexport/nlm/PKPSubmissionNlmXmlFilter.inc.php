@@ -28,6 +28,8 @@ class PKPSubmissionNlmXmlFilter extends TemplateBasedFilter {
 	 * Constructor
 	 */
 	function PKPSubmissionNlmXmlFilter() {
+		$this->setDisplayName('NLM Journal Publishing V3.0 ref-list');
+
 		parent::TemplateBasedFilter();
 	}
 

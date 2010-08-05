@@ -31,7 +31,8 @@
 				{/if}
 				<year>{$dateParts[0]}</year>
 			{else}
-				{$value}
+				{* Escape only mandatory XML entities. *}
+				{$value|replace:'"':'&quot;'|replace:'&':'&amp;'|replace:"'":'&apos;'|replace:'<':'&lt;'|replace:'>':'&gt;'}
 			{/if}
 		{/if}
 	{/foreach}

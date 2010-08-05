@@ -9,9 +9,11 @@
  * FIXME: This currently is partial NLM XML output (reference lists). Create
  * full NLM mark-up when we have full document support.
  *}
-{foreach from=$citationsMarkup key=seq item=citationMarkup}
-	<ref id="B{$seq}">
-		<label>{$seq}</label>
-		{$citationMarkup}
-	</ref>
-{/foreach}
+<ref-list>
+	{foreach from=$citationsMarkup key=seq item=citationMarkup}
+		<ref id="B{$seq}">
+			<label>{$seq}</label>
+			{$citationMarkup}
+		</ref>
+	{/foreach}
+</ref-list>

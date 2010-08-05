@@ -94,13 +94,8 @@
  *    define compliance as "roundtripability". This means we must be able
  *    to convert our object oriented data encoding to a fully standard
  *    compliant encoding and back without any data loss.
- *
- *  TODO: Develop an object representation for NLM's "collab", "anonymous" and "etal".
- *
- *  TODO: Move Harvester's Schema and Record to the new Metadata object model.
  */
 
-// $Id$
 
 import('lib.pkp.classes.core.DataObject');
 

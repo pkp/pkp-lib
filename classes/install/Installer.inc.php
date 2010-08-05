@@ -12,8 +12,6 @@
  * @brief Base class for install and upgrade scripts.
  */
 
-// $Id$
-
 
 // Database installation files
 define('INSTALLER_DATA_DIR', 'dbscripts/xml');

@@ -88,5 +88,17 @@ class NlmXmlFilterTest extends PKPTestCase {
 		$citation->injectMetadata($citationDescription);
 		return $citation;
 	}
+
+	protected function normalizeAndCompare($nlmXml, $expectedFile) {
+		// Normalize the output.
+		$domDocument = new DOMDocument();
+		$domDocument->preserveWhiteSpace = false;
+		$domDocument->formatOutput = true;
+		$domDocument->loadXML($nlmXml);
+		$nlmXml = $domDocument->saveXML($domDocument->documentElement);
+
+		// Compare with the expected result.
+		self::assertStringEqualsFile($expectedFile, $nlmXml);
+	}
 }
 ?>

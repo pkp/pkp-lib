@@ -10,10 +10,10 @@
  * full NLM mark-up when we have full document support.
  *}
 <ref-list>
-	{foreach from=$citationsMarkup key=seq item=citationMarkup}
+	{foreach from=$citationsOutput key=seq item=citationOutput}
 		<ref id="B{$seq}">
 			<label>{$seq}</label>
-			{$citationMarkup}
+			{$citationOutput}
 		</ref>
 	{/foreach}
 </ref-list>

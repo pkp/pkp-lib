@@ -21,16 +21,17 @@
  * have migrated document parsing from L8X to the PKP library.
  */
 
-import('lib.pkp.classes.filter.TemplateBasedFilter');
 
-class PKPSubmissionNlmXmlFilter extends TemplateBasedFilter {
+import('lib.pkp.classes.citation.output.TemplateBasedReferencesListFilter');
+
+class PKPSubmissionNlmXmlFilter extends TemplateBasedReferencesListFilter {
 	/**
 	 * Constructor
 	 */
 	function PKPSubmissionNlmXmlFilter() {
 		$this->setDisplayName('NLM Journal Publishing V3.0 ref-list');
 
-		parent::TemplateBasedFilter();
+		parent::TemplateBasedReferencesListFilter();
 	}
 
 
@@ -58,6 +59,19 @@ class PKPSubmissionNlmXmlFilter extends TemplateBasedFilter {
 
 
 	//
+	// Implement template methods from TemplateBasedReferencesListFilter
+	//
+	/**
+	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterInstance()
+	 */
+	function &getCitationOutputFilterInstance() {
+		import('lib.pkp.classes.citation.output.nlm.NlmCitationSchemaNlmFilter');
+		$nlmCitationOutputFilter = new NlmCitationSchemaNlmFilter();
+		return $nlmCitationOutputFilter;
+	}
+
+
+	//
 	// Implement template methods from TemplateBasedFilter
 	//
 	/**
@@ -65,39 +79,6 @@ class PKPSubmissionNlmXmlFilter extends TemplateBasedFilter {
 	 */
 	function getTemplateName() {
 		return 'nlm.tpl';
-	}
-
-	/**
-	 * @see TemplateBasedFilter::addTemplateVars()
-	 * @param $templateMgr TemplateManager
-	 * @param $submission Submission
-	 * @param $request Request
-	 * @param $locale Locale
-	 */
-	function addTemplateVars(&$templateMgr, &$submission, &$request, &$locale) {
-		// Retrieve assoc type and id of the submission.
-		$assocId = $submission->getId();
-		$assocType = $submission->getAssocType();
-
-		// Retrieve citations for this assoc object.
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$citationResults =& $citationDao->getObjectsByAssocId($assocType, $assocId);
-		$citations =& $citationResults->toAssociativeArray('seq');
-
-		// Create NLM citation mark-up for these citations.
-		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-		$nlmCitationSchema = new NlmCitationSchema();
-		import('lib.pkp.classes.citation.output.nlm.NlmCitationSchemaNlmFilter');
-		$nlmCitationFilter = new NlmCitationSchemaNlmFilter();
-		$citationsMarkup = array();
-		foreach($citations as $seq => $citation) {
-			$citationMetadata =& $citation->extractMetadata($nlmCitationSchema);
-			$citationsMarkup[$seq] = $nlmCitationFilter->execute($citationMetadata);
-		}
-
-		// Add citation mark-up and submission to template.
-		$templateMgr->assign_by_ref('citationsMarkup', $citationsMarkup);
-		$templateMgr->assign_by_ref('submission', $submission);
 	}
 
 	/**

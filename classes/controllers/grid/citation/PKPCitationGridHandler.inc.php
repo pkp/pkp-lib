@@ -218,8 +218,8 @@ class PKPCitationGridHandler extends GridHandler {
 
 				// Identify filters that are capable to convert the citation
 				// editor's associated object into a plain text reference list.
-				import('lib.pkp.classes.citation.PlainTextReferencesList');
-				$outputSample = new PlainTextReferencesList();
+				import('lib.pkp.classes.citation.output.PlainTextReferencesList');
+				$outputSample = new PlainTextReferencesList(null, null);
 				$textExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
 				$textExportFilters = array();
 				foreach($textExportFilterObjects as $textExportFilterObject) {
@@ -245,7 +245,7 @@ class PKPCitationGridHandler extends GridHandler {
 				}
 
 				// Prepare the export output if a filter has been identified.
-				$exportOutput = '';
+				$exportOutputString = '';
 				if (is_a($exportFilter, 'Filter')) {
 					// Make the template aware of the selected filter.
 					$templateMgr->assign('exportFilterId', $exportFilterId);
@@ -257,16 +257,30 @@ class PKPCitationGridHandler extends GridHandler {
 					// Apply the citation output format filter.
 					$exportOutput = $exportFilter->execute($this->getAssocObject());
 
-					// Pretty-format XML output.
-					if ($exportType = 'xml') {
-						$xmlDom = new DOMDocument();
-						$xmlDom->preserveWhiteSpace = false;
-						$xmlDom->formatOutput = true;
-						$xmlDom->loadXml($exportOutput);
-						$exportOutput = $xmlDom->saveXml($xmlDom->documentElement);
+					// Generate an error message if the export was not successful.
+					if (empty($exportOutput)) {
+						$errorMessage = Locale::translate('submission.citations.editor.export.noExportOutput', array('filterName' => $exportFilter->getDisplayName()));
+					}
+
+					if (is_null($errorMessage)) {
+						switch ($exportType) {
+							case 'xml':
+								// Pretty-format XML output.
+								$xmlDom = new DOMDocument();
+								$xmlDom->preserveWhiteSpace = false;
+								$xmlDom->formatOutput = true;
+								$xmlDom->loadXml($exportOutput);
+								$exportOutputString = $xmlDom->saveXml($xmlDom->documentElement);
+								break;
+
+							case 'plain':
+								assert(is_a($exportOutput, 'PlainTextReferencesList'));
+								$exportOutputString = $exportOutput->getListContent();
+								break;
+						}
 					}
 				}
-				$templateMgr->assign_by_ref('exportOutput', $exportOutput);
+				$templateMgr->assign_by_ref('exportOutput', $exportOutputString);
 			}
 		}
 

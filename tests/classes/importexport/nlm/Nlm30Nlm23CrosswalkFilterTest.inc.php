@@ -97,15 +97,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm/nlm-ref-list-30-to-23.xsl');
 		$nlmXml = $downgradeFilter->execute($nlmXml);
 
-		// Normalize the output.
-		$domDocument = new DOMDocument();
-		$domDocument->preserveWhiteSpace = false;
-		$domDocument->formatOutput = true;
-		$domDocument->loadXML($nlmXml);
-		$nlmXml = $domDocument->saveXML($domDocument->documentElement);
-
-		// Compare with the expected result.
-		self::assertStringEqualsFile('lib/pkp/tests/classes/importexport/nlm/sample-nlm23-citation.xml', $nlmXml);
+		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm/sample-nlm23-citation.xml');
 	}
 }
 ?>

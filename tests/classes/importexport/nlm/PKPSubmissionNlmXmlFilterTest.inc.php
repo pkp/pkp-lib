@@ -50,20 +50,12 @@ class PKPSubmissionNlmXmlFilterTest extends NlmXmlFilterTest {
 			self::assertTrue($citationId > 0);
 		}
 
-		// Construct the expected output.
-		$expectedOutput = '';
-		for ($seq = 1; $seq <= 10; $seq++) {
-			$expectedOutput .=
-				"\t".'<ref id="B'.$seq.'">'."\n"
-				. "\t\t".'<label>'.$seq.'</label>'."\n"
-				. "\t\t".'<element-citation publication-type="book"><person-group person-group-type="author"><name><surname>Bork</surname><given-names>Peter B</given-names><prefix>Mr.</prefix></name></person-group><article-title>PHPUnit in a nutshell</article-title><day>17</day><month>8</month><year>2009</year><size>320</size><uri>http://phpunit.org/nutshell</uri></element-citation>'."\n"
-				."\t".'</ref>'."\n";
-		}
-
 		// Execute the filter and check the outcome.
 		$mockSubmission =& $this->getTestSubmission();
 		$filter = new PKPSubmissionNlmXmlFilter();
-		self::assertEquals($expectedOutput, $filter->execute($mockSubmission));
+		$nlmXml = $filter->execute($mockSubmission);
+
+		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm/sample-nlm30-citation.xml');
 	}
 }
 ?>

@@ -157,6 +157,7 @@
 	<message key="submission.citations.editor.export.filterSelectionDescription"><![CDATA[Please select one of the following export options if you want to change the output type.<br/>You current option is:]]></message>
 	<message key="submission.citations.editor.export.filterSelectionError">You did not select one of the output options.</message>
 	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the "Edit Citations" tab and make sure you have approved all citations before you try to export them. Unapproved citations appear with a white background in the citation list, approved citations are marked light blue.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">The '{$filterName}' output filter has produced an error. Please file a bug report.</message>
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML output options:</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citation style output (experimental only!):</message>
 	<message key="submission.citations.editor.introduction">Introduction</message>

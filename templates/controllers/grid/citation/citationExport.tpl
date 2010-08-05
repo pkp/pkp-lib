@@ -75,7 +75,7 @@
 					{if $exportFilterType == 'xml'}
 						<pre>{$exportOutput|escape:htmlall}</pre>
 					{else}
-						{$exportOutput|escape}
+						{$exportOutput}
 					{/if}
 					--
 				</div>

@@ -50,11 +50,12 @@ class TemplateBasedFilter extends Filter {
 	/**
 	 * Sub-classes must implement this method to add
 	 * template variables to the template.
-	 * @param $request Request
 	 * @param $templateMgr TemplateManager
 	 * @param $input mixed the filter input
+	 * @param $request Request
+	 * @param $locale Locale
 	 */
-	function addTemplateVars(&$request, &$templateMgr, &$input) {
+	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
 		// Must be implemented by sub-classes.
 		assert(false);
 	}

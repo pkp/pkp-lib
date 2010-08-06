@@ -688,19 +688,19 @@ a.uploaded {
 /* @group File upload field overrides */
 
 .fileInputContainer {
-	height: 30px; 
+	height: 30px;
 	width: 350px;
 	position:relative;
 	float:left;
 }
 
 input.uploadField {
-	padding: 3px; 
-	margin: 0; 
-	height: 30px; 
-	width: 350px; 
-	position: relative; 
-	z-index: 2; 
+	padding: 3px;
+	margin: 0;
+	height: 30px;
+	width: 350px;
+	position: relative;
+	z-index: 2;
 	text-align:right;
 	-moz-opacity:0 ;
 	filter:alpha(opacity: 0);
@@ -827,8 +827,12 @@ span.itemLastEvent {
 
 #existingNotes {
 	max-height: 200px;
-	overflow: auto;	
+	overflow: auto;
 	padding-right: 5px;
+}
+
+#informationCenterHistoryTab .heading td {
+	font-weight: bold;
 }
 
 /* @end */
@@ -891,9 +895,9 @@ ul.tagit input[type="text"] {
 }
 
 ul.tagit li:after, ul.tagit li div:after {
-	content:" "; 
+	content:" ";
 	display:block;
-	clear:none; 
+	clear:none;
 }
 
 /* @end */
@@ -902,9 +906,9 @@ ul.tagit li:after, ul.tagit li div:after {
 
 .sliderLabel {
 	margin-bottom: 10px;
-	font-size: .8em;	
+	font-size: .8em;
 }
-	
+
 .sliderValue {
 	border: 0pt none;
 	font-weight: bold;
@@ -912,7 +916,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .rangeSlider {
-	margin-left: 13px;	
+	margin-left: 13px;
 	width: 240px;
 }
 
@@ -923,7 +927,7 @@ ul.tagit li:after, ul.tagit li div:after {
 .modalTitleBar {
 	height: 40px;
 	width: 100%;
-	margin-bottom: 15px;	
+	margin-bottom: 15px;
 }
 
 .modalTitleBar .icon {
@@ -935,7 +939,7 @@ ul.tagit li:after, ul.tagit li div:after {
 	font-size: 1.4em;
 	color: #20538D;
 	vertical-align: middle;
-	float: left;	
+	float: left;
 }
 
 .modalTitleBar .close {
@@ -972,7 +976,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .possibleRevision h5 {
-	padding-top: 0px;	
+	padding-top: 0px;
 }
 
 #revisionWarningIcon {

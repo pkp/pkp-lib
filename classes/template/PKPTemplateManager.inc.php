@@ -1323,7 +1323,7 @@ class PKPTemplateManager extends Smarty {
 		} else $keyHtml = "";
 
 
-		if(isset($params['key'])) {
+		if(isset($params['canClose'])) {
 			$canClose = $params['canClose'];
 			$canCloseHtml = "<a class='close ui-corner-all' href='#'><span class='ui-icon ui-icon-closethick'>close</span></a>";
 

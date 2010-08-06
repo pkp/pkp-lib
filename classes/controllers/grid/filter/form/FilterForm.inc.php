@@ -199,9 +199,22 @@ class FilterForm extends Form {
 		// or configure the settings of a selected template?
 		$filter =& $this->getFilter();
 		if (is_a($filter, 'Filter')) {
-			$templateMgr->assign('filterDisplayName', $filter->getDisplayName());
+			$displayName = $filter->getDisplayName();
+			$templateMgr->assign('filterDisplayName', $displayName);
 			if (count($filter->getSettings())) {
-				$formDescriptionKey = $this->getDescription().'Settings';
+				// We need a filter specific translation key so that we
+				// can explain the filter's configuration options.
+				// We use the display name to generate such a key as this
+				// is probably easiest for translators to understand.
+				// This also has the advantage that we can explain
+				// composite filters individually.
+				// FIXME: When we start to translate display names then
+				// please make sure that you use the en-US key for this
+				// processing. Alternatively we might want to introduce
+				// an alphanumeric "filter key" to the filters table.
+				$filterKey = String::regexp_replace('/[^a-zA-Z0-9]/', '', $displayName);
+				$filterKey = strtolower(substr($filterKey, 0, 1)).substr($filterKey, 1);
+				$formDescriptionKey = $this->getDescription().'.'.$filterKey;
 			} else {
 				$formDescriptionKey = $this->getDescription().'Confirm';
 			}

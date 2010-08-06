@@ -12,7 +12,7 @@
 
 <locale name="en_US" full_name = "English">
 	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission.</message>
+	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
 	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef Registration Email</message>
@@ -174,7 +174,7 @@
 	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
 	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
-	<message key="submission.citations.metadata.changeWarning">If you change the references list then all current citations will be overwritten. If you want to change a few citations only then you can do this in the citation editor (see "REFERENCES" page in the editor menu). Do you want to change the references list anyway?</message>
+	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
 	<message key="submission.comments.addComment">Add Comment</message>
 	<message key="submission.comments.comments">Comments</message>
 	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>

@@ -161,9 +161,24 @@
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML output options:</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citation style output (experimental only!):</message>
 	<message key="submission.citations.editor.introduction">Introduction</message>
-	<message key="submission.citations.editor.introduction.introductionMessage">FIXME: Write a help text.</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
+	<p>With this tool, you can check author-provided citations against external citation databases for accuracy, and export approved citations for use in your final article galleys. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
+	<ul>
+		<li><p><strong>Configuring the Assistant</strong></p>
+		<p>The Configuration Markup Assistant is configured by the journal manager under <em>Journal Setup Step 3.7 Citation Markup Assistant</em>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
+		<li><p><strong>Navigating the Assistant Interface</strong></p>
+		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
+		<li><p><strong>Requesting Citations</strong></p>
+		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
+		<li><p><strong>Editing Citations</strong></p>
+		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
+		<p>All final citations for a submission must be approved before they can be exported.</p></li>
+		<li><p><strong>Exporting Citations</strong></p>
+ 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
+		<p>Text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
+	</ul>]]></message>
 	<message key="submission.citations.editor.loadMessage">Please wait for the citation editor to load.</message>
-	<message key="submission.citations.editor.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It seems like your installation is running on an earlier PHP version.</message>
+	<message key="submission.citations.editor.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It appears that your installation is running on an earlier PHP version.</message>
 	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[You have to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation editor.]]></message>
 	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[You have to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation editor.]]></message>
 	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>

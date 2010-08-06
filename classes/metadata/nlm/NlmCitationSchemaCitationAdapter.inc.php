@@ -155,6 +155,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 						}
 					}
 					$statements[$propertyName] =& $names;
+					unset($names);
 				} else {
 					$statements[$propertyName] =& $dataObject->getData($fieldName);
 				}
@@ -162,7 +163,8 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Set the statements in the meta-data description
-		$metadataDescription->setStatements($statements);
+		$success = $metadataDescription->setStatements($statements);
+		assert($success);
 
 		return $metadataDescription;
 	}

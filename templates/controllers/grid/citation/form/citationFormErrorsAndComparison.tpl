@@ -205,7 +205,7 @@
 		<div class="value ui-corner-all" title="{translate key="submission.citations.editor.clickToEdit"}">{$rawCitationWithMarkup}</div>
 	</div>
 	<div id="generatedCitationWithMarkup" class="citation-comparison">
-		<div class="label">{translate key="submission.citations.editor.details.citationExportPreview"}</div>
+		<div class="label">{translate key="submission.citations.editor.details.citationExportPreview"} ({$currentOutputFilter})</div>
 		<div class="value ui-corner-all">{$generatedCitationWithMarkup}</div>
 	</div>
 </div>

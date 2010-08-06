@@ -352,6 +352,7 @@ class CitationForm extends Form {
 			// Compare the raw and the formatted citation and add the result to the template.
 			$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
 			$templateMgr->assign('citationDiff', $citationDiff);
+			$templateMgr->assign('currentOutputFilter', $this->_citationOutputFilter->getDisplayName());
 		}
 
 		//

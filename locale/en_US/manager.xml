@@ -147,9 +147,16 @@
 	<message key="manager.reviewerSearch.activeAmount">Number of currently active reviews</message>
 	<message key="manager.reviewerSearch.interests">Reviewing Interests</message>
 	<message key="manager.roles">Roles</message>
-	<message key="manager.setup.citationFilterParserDescription">To find and check citations in citation databases they first have to be split into machine readable metadata. This means you have to extract the title, publisher, publication date, etc. from the original citation text provided by the author. We provide connectors to several external web services that can assist you in doing so. Some of these connectors require registration or configuration information. You can add one or several connectors by clicking on the "Add Item" button below.</message>
-	<message key="manager.setup.citationFilterLookupDescription">Next you have to select and set up connections to external citation databases. We provide connectors to several external databases in which you can search for citations. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</message>
-	<message key="manager.setup.citationOutputStyleDescription">Finally you have to choose the citation style you wish to use for your publication. You'll be able to copy &amp; paste formatted citations directly into your favorite word processor where you edit your galleys (e.g. MS Word or OpenOffice):</message>
+	<message key="manager.setup.citationAssistant">Citation Markup Assistant</message>
+	<message key="manager.setup.citationFilterParser">Citation Extraction</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to several external web services can assist you in doing so. You can add one or several connectors by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
+		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Citation Checking</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p> 
+		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
+		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>]]></message>
+	<message key="manager.setup.citationOutput">Citation Output</message>
+	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style you wish to use for your publication. You will be able to copy &amp; paste formatted citations directly into the application you use for creating article galleys (e.g. MS Word or OpenOffice; Adobe inDesign; etc.):</message> <!-- FIXME look up proper spelling of inDesign -->
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>
@@ -175,7 +182,7 @@
 	<message key="manager.setup.layout.rightSidebar">Right Sidebar</message>
 	<message key="manager.setup.layout.unselected">Unselected</message>
 	<message key="manager.setup.loggingAndAuditing">Logging and Auditing</message>
-	<message key="manager.setup.metaCitationsDescription">Please activate the following checkbox to enable citation and reference editing. This will allow authors to add raw citations to submissions and check these against external databases, e.g. WorldCat, ISBNdb, PubMed and others.</message>
+	<message key="manager.setup.metaCitationsDescription">Activate the following checkbox to enable citation and reference editing. This will allow authors to include raw citations with submissions. Editors will be also have access to a citation markup assistant that will check raw citations against external databases, such as WorldCat, ISBNdb, PubMed and others, for accuracy. Approved citations can be exported into final galley files.</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Select one</message>

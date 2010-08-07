@@ -17,8 +17,6 @@
  * @brief Operations for retrieving and modifying Scheduled Task data.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.scheduledTask.ScheduledTask');
 

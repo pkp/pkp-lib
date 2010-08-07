@@ -76,9 +76,7 @@ class CitationDAO extends DAO {
 		if ($result->RecordCount() != 0) {
 			$citation =& $this->_fromRow($result->GetRowAssoc(false));
 		}
-
 		$result->Close();
-		unset($result);
 
 		return $citation;
 	}
@@ -86,11 +84,13 @@ class CitationDAO extends DAO {
 	/**
 	 * Import citations from a raw citation list to the object
 	 * described by the given association type and id.
+	 * @param $request Request
 	 * @param $assocType int
 	 * @param $assocId int
 	 * @param $rawCitationList string
+	 * @return integer the number of spawned citation checking processes
 	 */
-	function importCitations($assocType, $assocId, $rawCitationList) {
+	function importCitations(&$request, $assocType, $assocId, $rawCitationList) {
 		assert(is_numeric($assocType) && is_numeric($assocId));
 		$assocType = (int) $assocType;
 		$assocId = (int) $assocId;
@@ -123,6 +123,11 @@ class CitationDAO extends DAO {
 			$citations[$citation->getId()] = $citation;
 			unset($citation);
 		}
+
+		// Check new citations in parallel.
+		$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
+		$processDao =& DAORegistry::getDAO('ProcessDAO');
+		return $processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
 	}
 
 	/**
@@ -166,14 +171,15 @@ class CitationDAO extends DAO {
 	 * It uses an atomic locking strategy to avoid race conditions.
 	 *
 	 * @param $contextId integer
+	 * @param $lockId string a globally unique id that
+	 *  identifies the calling process.
 	 * @return boolean true if a citation was found and checked, otherwise
 	 *  false.
 	 */
-	function checkNextRawCitation($contextId) {
+	function checkNextRawCitation($contextId, $lockId) {
 		// NB: We implement an atomic locking strategy to make
 		// sure that no two parallel background processes can claim the
 		// same citation.
-		$lockId = uniqid('');
 		$rawCitation = null;
 		for ($try = 0; $try < 3; $try++) {
 			// We use three statements (read, write, read) rather than

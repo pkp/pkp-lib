@@ -31,8 +31,8 @@ class CitationApiHandler extends PKPHandler {
 	 * @see PKPHandler::authorize()
 	 */
 	function authorize(&$request, &$args, $roleAssignments) {
-		import('lib.pkp.classes.security.authorization.PublicHandlerOperationPolicy');
-		$this->addPolicy(new PublicHandlerOperationPolicy($request, 'checkAllCitations'));
+		import('lib.pkp.classes.security.authorization.ProcessExecutionHandlerOperationPolicy');
+		$this->addPolicy(new ProcessExecutionHandlerOperationPolicy($request, $args, 'checkAllCitations'));
 		return parent::authorize($request, $args, $roleAssignments);
 	}
 
@@ -43,12 +43,13 @@ class CitationApiHandler extends PKPHandler {
 	/**
 	 * Check (parse and lookup) all raw citations
 	 *
-	 * NB: This handler method is meant to be called internally only.
-	 * It can be called several times in parallel which will improve
-	 * citation checking performance.
+	 * NB: This handler method is meant to be called by the parallel
+	 * processing framework (see ProcessDAO::spawnProcesses()). Executing
+	 * this handler in parallel will significantly improve citation
+	 * checking performance.
 	 *
-	 * The 'citation_checking_max_processes' config parameter will
-	 * limit the number of parallel processes that can be started.
+	 * The 'citation_checking_max_processes' config parameter limits
+	 * the number of parallel processes that can be started in parallel.
 	 *
 	 * @param $args array
 	 * @param $request PKPRequest
@@ -58,30 +59,31 @@ class CitationApiHandler extends PKPHandler {
 		// give us unlimited execution time.
 		ini_set('max_execution_time', 0);
 
-		// Check whether we've reached the limit of allowed
-		// parallel processes.
-		$maxProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
-		$siteSettingsDao =& DAORegistry::getDAO('SiteSettingsDAO');
-		$currentProcesses = (int)$siteSettingsDao->getSetting('citation_checking_executing_processes');
-		if ($currentProcesses >= $maxProcesses) return 'Reached max execution limit!';
-
-		// Increment the process variable.
-		$siteSettingsDao->updateSetting('citation_checking_executing_processes', $currentProcesses + 1, 'int');
-
 		// Find the request context
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		assert(is_object($context));
 
+		// Get the process id.
+		$processId = $args['authToken'];
+
 		// Run until all citations have been checked.
+		$processDao =& DAORegistry::getDAO('ProcessDAO');
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		while ($citationDao->checkNextRawCitation($context->getId()));
+		do {
+			// Check that the process lease has not expired.
+			$continue = $processDao->canContinue($processId);
 
-		// Decrement the process variable.
-		$currentProcesses = (int)$siteSettingsDao->getSetting('citation_checking_executing_processes');
-		$siteSettingsDao->updateSetting('citation_checking_executing_processes', max($currentProcesses - 1, 0), 'int');
+			if ($continue) {
+				// Check the next citation.
+				$continue = $citationDao->checkNextRawCitation($context->getId(), $processId);
+			}
+		} while ($continue);
 
-		// This request returns just a status message.
+		// Free the process slot.
+		$processDao->deleteObjectById($processId);
+
+		// This request returns just a (private) status message.
 		return 'Done!';
 	}
 }

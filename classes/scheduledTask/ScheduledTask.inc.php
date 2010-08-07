@@ -7,14 +7,12 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTask
- * @ingroup core
+ * @ingroup scheduledTask
  * @see ScheduledTaskDAO
  *
  * @brief Base class for executing scheduled tasks.
  * All scheduled task classes must extend this class and implement execute().
  */
-
-// $Id$
 
 
 class ScheduledTask {

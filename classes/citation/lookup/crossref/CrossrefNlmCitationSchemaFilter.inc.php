@@ -24,7 +24,7 @@ import('lib.pkp.classes.filter.EmailFilterSetting');
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
 
 class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
-	/*
+	/**
 	 * Constructor
 	 * @param $email string
 	 */

@@ -39,7 +39,7 @@
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
 		</field>
-		<field name="lock_id" type="C2" size="13" />
+		<field name="lock_id" type="C2" size="23" />
 		<descr>Citations</descr>
 		<index name="citations_assoc">
 			<col>assoc_type</col>

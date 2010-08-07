@@ -118,7 +118,7 @@ class PKPApplication {
 
 	/**
 	 * Get the current application object
-	 * @return object
+	 * @return Application
 	 */
 	function &getApplication() {
 		$application =& Registry::get('application');
@@ -307,6 +307,7 @@ class PKPApplication {
 			'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
+			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
 			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',

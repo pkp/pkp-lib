@@ -243,16 +243,20 @@ class CitationDAO extends DAO {
 	 * Retrieve an array of citations matching a particular association id.
 	 * @param $assocType int
 	 * @param $assocId int
+	 * @param $minCitationState int one of the CITATION_* constants,
+	 *  leaving this unset will show all citation states.
+	 * @param $maxCitationState int one of the CITATION_* constants,
+	 *  leaving this unset will show all citation states.
 	 * @param $dbResultRange DBResultRange the desired range
 	 * @return DAOResultFactory containing matching Citations
 	 */
-	function &getObjectsByAssocId($assocType, $assocId, $rangeInfo = null) {
+	function &getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
 			'SELECT *
 			FROM citations
-			WHERE assoc_type = ? AND assoc_id = ?
+			WHERE assoc_type = ? AND assoc_id = ? AND citation_state >= ? AND citation_state <= ?
 			ORDER BY seq, citation_id',
-			array((int)$assocType, (int)$assocId),
+			array((int)$assocType, (int)$assocId, (int)$minCitationState, (int)$maxCitationState),
 			$rangeInfo
 		);
 

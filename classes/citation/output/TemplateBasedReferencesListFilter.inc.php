@@ -52,9 +52,9 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 		$assocId = $submission->getId();
 		$assocType = $submission->getAssocType();
 
-		// Retrieve citations for this assoc object.
+		// Retrieve approved citations for this assoc object.
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$citationResults =& $citationDao->getObjectsByAssocId($assocType, $assocId);
+		$citationResults =& $citationDao->getObjectsByAssocId($assocType, $assocId, CITATION_APPROVED);
 		$citations =& $citationResults->toAssociativeArray('seq');
 
 		// Create citation output for these citations.

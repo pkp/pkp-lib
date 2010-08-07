@@ -219,6 +219,8 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Render the entire grid controller and send
 	 * it to the client.
+	 * @param $args array
+	 * @param $request Request
 	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request) {
@@ -243,6 +245,8 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Render a row and send it to the client.
+	 * @param $args array
+	 * @param $request Request
 	 * @return string the serialized row JSON message
 	 */
 	function fetchRow(&$args, &$request) {
@@ -256,6 +260,8 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Render a cell and send it to the client
+	 * @param $args array
+	 * @param $request Request
 	 * @return string the serialized cell JSON message
 	 */
 	function fetchCell(&$args, &$request) {

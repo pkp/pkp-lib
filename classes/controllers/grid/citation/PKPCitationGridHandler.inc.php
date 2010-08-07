@@ -107,9 +107,10 @@ class PKPCitationGridHandler extends GridHandler {
 		// Basic grid configuration
 		$this->setTitle('submission.citations.editor.citationlist.title');
 
-		// Retrieve the associated citations to be displayed in the grid
+		// Retrieve the associated citations to be displayed in the grid.
+		// Only citations that have already been parsed will be displayed.
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId());
+		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
 		$this->setData($data);
 
 		// Grid actions

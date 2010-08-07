@@ -52,8 +52,9 @@
 		//
 		// Handle form messages
 		//
-		// "Click to dismiss message" feature.
-		$('#citationFormMessages li').click(function() {ldelim}
+		// "Click to dismiss message" feature. Must be done
+		// with live as we use JS to insert messages sometimes.
+		$('#citationFormMessages li').die('click').live('click', function() {ldelim}
 			$(this).remove();
 			if($('#citationFormMessages .formErrorList').children().length === 0) {ldelim}
 				$('#citationFormMessages').remove();

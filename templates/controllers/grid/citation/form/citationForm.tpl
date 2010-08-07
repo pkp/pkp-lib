@@ -365,6 +365,24 @@
 							$('#citationFormSaveAndApprove').show();
 							$('#citationFormSave').addClass('secondary-button');
 						{rdelim}
+
+						// If the user pressed only the save button then provide
+						// visual feedback.
+						if (pressedButton === 'citationFormSave') {ldelim}
+							if ($('#citationFormMessages').length == 0) {ldelim}
+								var formErrorHtml =
+									'<div id="citationFormMessages" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}" class="help-message">'+
+									'    <div id="formErrors">'+
+									'        <p><span class="formError">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
+									'        <ul class="formErrorList"></ul>'+
+									'    </div>'+
+									'</div>';
+								$('#citationFormErrorsAndComparison').prepend(formErrorHtml);
+							{rdelim}
+							var messageHtml = '<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.dataSaved"}</li>';
+							$('#formErrors .formErrorList').append(messageHtml);
+						{rdelim}
+						
 						
 						{if !$citation->getId()}
 							// A new citation has been saved so refresh the form to get

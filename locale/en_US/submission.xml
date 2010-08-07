@@ -162,7 +162,7 @@
 	<message key="submission.citations.editor.details.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>
 	<message key="submission.citations.editor.edit">Edit Citations</message>
 	<message key="submission.citations.editor.export">Export Citations</message>
-	<message key="submission.citations.editor.export.exportDescription">You can copy the generated output and paste it into your document.</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Click here</a> to select all of the generated output. You can then copy and paste it into your document.]]></message>
 	<message key="submission.citations.editor.export.filterSelectionDescription">Please select one of the following export options.</message>
 	<message key="submission.citations.editor.export.filterSelectionError">You did not select one of the output options.</message>
 	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Unapproved citations appear with a white background in the citation list, while approved citations are marked light blue.</p>]]></message>

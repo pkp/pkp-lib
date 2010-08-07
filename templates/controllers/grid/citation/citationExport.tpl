@@ -52,6 +52,12 @@
 
 					// Activate throbber for tab reloading.
 					actionThrobber('#citationEditorExportPane');
+
+					// Activate the "select all" link.
+					$('#markForExport').click(function() {ldelim}
+						$('#citationEditorExportPane .scrollable').selectRange();
+						return false;
+					{rdelim});
 				{rdelim});
 			</script>
 			<form name="exportCitationForm" id="exportCitationForm" method="post" action="" >

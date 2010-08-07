@@ -19,7 +19,7 @@
 			emptyEditorText = '{strip}
 				<div id="{$containerId}" class="canvas">
 					<div class="wrapper">
-						<div class="help-message">{translate key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
+						<div class="help-message">{translate|escape:javascript key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
 				</div>
 			{/strip}';

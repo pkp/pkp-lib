@@ -137,7 +137,7 @@
 	<message key="submission.citations.editor.details.queryCitation">Re-Query Citation Services</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">Search in Google Scholar</message>
 	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Welcome to the citation editing process. Clicking on a citation in the listing to the left will present the citation in this window, where you can check the accuracy of the citation process. You will also be able to check the citation against citation database services configured by the journal manager, and manually edit the citation yourself.</p>
-		<h4>Navigating the Interface</strong></h4>
+		<h4>Navigating the Interface</h4>
 		<p>Click on one of the listed citations on the left to start editing.</p>
 		<p>The light blue separator between this window and the column on the left is movable. Whether you need more room to view the citation list, or alternatively more space to edit a citation, it can be moved in either direction.</p>
 		<p>To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button.</p>

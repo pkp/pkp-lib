@@ -1367,7 +1367,7 @@ class PKPTemplateManager extends Smarty {
 							  });\n" : "")
 			  . ($submitId ? "$('$submitId').click(function(){
 			  					var url = $(\"$id\").attr(\"action\");
-			  					$('$id').parent().next('.ui-dialog-buttonpane').children().get(0).click();
+			  					$('$id').parent().next('.ui-dialog-buttonpane').children().children().get(0).click();
 							  });\n" : "") .
 			"$('$id').parent().next('.ui-dialog-buttonpane').hide();
 			$('.button').button();

@@ -206,9 +206,9 @@ class ProcessDAO extends DAO {
 	}
 
 	/**
-	 * Span new processes via web requests up to the
+	 * Spawn new processes via web requests up to the
 	 * given max. parallelism.
-	 * NB: We currently do not support any request parameters. If
+	 * NB: We currently do not support request parameters. If
 	 * the requirement comes up this needs to be added.
 	 * @param $request Request
 	 * @param $handler string a fully qualified handler class name
@@ -265,6 +265,7 @@ class ProcessDAO extends DAO {
 		    fwrite($stream, $processRequest);
 		    fclose($stream);
 			unset($stream);
+
 			$currentParallelism++;
 			$spawnedProcesses++;
 		}

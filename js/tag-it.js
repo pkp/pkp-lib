@@ -23,7 +23,7 @@
 
 		// Add the existing user interests
 		var currentTags = options.currentTags;
-		for each (var tag in currentTags) {
+		for (var tag in currentTags) {
 			create_choice(tag);
 		}
 

@@ -161,6 +161,7 @@
 	<message key="submission.citations.editor.details.rawCitation">Original Citation Text</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">A citation text is required.</message>
 	<message key="submission.citations.editor.details.unsavedChanges">The citation contains unsaved data. Please click the "Save" button to keep the changes or the "Cancel" button to undo the changes.</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">Don't show this message again.</message>
 	<message key="submission.citations.editor.edit">Edit Citations</message>
 	<message key="submission.citations.editor.export">Export Citations</message>
 	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Click here</a> to select all of the generated output. You can then copy and paste it into your document.]]></message>

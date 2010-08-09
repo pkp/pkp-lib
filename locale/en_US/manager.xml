@@ -157,7 +157,7 @@
 		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
 		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
 	<message key="manager.setup.citationOutput">Citation Output</message>
-	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style you wish to use for your publication. You will be able to copy &amp; paste formatted citations directly into the application you use for creating article galleys (e.g. MS Word or OpenOffice; Adobe InDesign; etc.):</message>
+	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your journal's author submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
 	<message key="manager.setup.errorDeletingItem">There was an error when deleting this item.</message>
 	<message key="manager.setup.filter.grid.errorDeletingFilter">An error occurred while trying to remove this filter. Please report this as a bug.</message>
 	<message key="manager.setup.filter.grid.filterDisplayName">Connector</message>

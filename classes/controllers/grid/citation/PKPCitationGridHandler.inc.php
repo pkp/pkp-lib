@@ -625,8 +625,10 @@ class PKPCitationGridHandler extends GridHandler {
 		// Extract filters to be applied from request
 		$requestedFilters = $request->getUserVar('citationFilters');
 		$filterIds = array();
-		foreach($requestedFilters as $filterId => $value) {
-			$filterIds[] = (int)$filterId;
+		if (is_array($requestedFilters)) {
+			foreach($requestedFilters as $filterId => $value) {
+				$filterIds[] = (int)$filterId;
+			}
 		}
 
 		// Do the actual filtering of the citation.

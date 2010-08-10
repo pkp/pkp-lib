@@ -147,7 +147,7 @@ class Installer {
 		if (!isset($this->currentVersion)) {
 			// Retrieve the currently installed version
 			$versionDao =& DAORegistry::getDAO('VersionDAO');
-			$this->currentVersion =& $versionDao->getCurrentVersion(null, $this->isUpgrade());
+			$this->currentVersion =& $versionDao->getCurrentVersion();
 		}
 
 		if (!isset($this->locale)) {

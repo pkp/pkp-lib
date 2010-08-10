@@ -17,7 +17,6 @@
  *
  */
 
-// $Id$
 
 import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
 
@@ -54,17 +53,25 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 			'demo' => '3',
 			'textlines' => $citationString
 		);
+
 		// Parscit web form - the result is (mal-formed) HTML
 		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING, 'POST'))) return $nullVar;
 
-		// Screen-scrape the tagged portion and turn it into XML
+		// Detect errors.
+		if (!String::regexp_match('/.*<algorithm[^>]+>.*<\/algorithm>.*/s', $result)) {
+			$translationParams = array('filterName' => $this->getDisplayName());
+			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
+			return $nullVar;
+		}
+
+		// Screen-scrape the tagged portion and turn it into XML.
 		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));
 		$xmlResult = String::regexp_replace('/&/', '&amp;', $xmlResult);
 
-		// Transform the result into an array of meta-data
+		// Transform the result into an array of meta-data.
 		if (is_null($metadata = $this->transformWebServiceResults($xmlResult, dirname(__FILE__).DIRECTORY_SEPARATOR.'parscit.xsl'))) return $nullVar;
 
-		// Extract a publisher from the place string if possible
+		// Extract a publisher from the place string if possible.
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
 		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);

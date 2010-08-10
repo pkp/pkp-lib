@@ -542,7 +542,7 @@
 										<tr class="citation-source-action-row">
 											<td></td>
 											<td></td>
-											<td>
+											<td class="citation-source-action-cell">
 												<button id="{$citationSourceTabId}-{$formUid}-use-all" type="button" class="citation-source-use-all-button" title="{translate key="submission.citations.editor.details.sourceResultsUseAllExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUseAll"}</button>
 											</td>
 										</tr>

@@ -7,7 +7,7 @@
 {if !$buttonId}
 	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
 	{if $action->getImage()}
-		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}" {if $hoverTitle}title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()}{/if}</a>
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}" {if $hoverTitle}title="{$action->getLocalizedTitle()}">&nbsp;{else}>{$action->getLocalizedTitle()}{/if}</a>
 	{else}
 		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if} {if $hoverTitle} title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()}{/if}</a>
 	{/if}

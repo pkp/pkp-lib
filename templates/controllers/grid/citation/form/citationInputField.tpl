@@ -26,7 +26,7 @@
 				</select>
 			</div>
 			<div class="row_actions">
-				<a class="delete" title="{translate key="common.delete"}" href=""></a>
+				<a class="delete" title="{translate key="common.delete"}" href="">&nbsp;</a>
 			</div>
 		</div>
 	</td>

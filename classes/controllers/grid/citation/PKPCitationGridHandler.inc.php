@@ -98,8 +98,8 @@ class PKPCitationGridHandler extends GridHandler {
 	 * Configure the grid
 	 * @see PKPHandler::initialize()
 	 */
-	function initialize(&$request) {
-		parent::initialize($request);
+	function initialize(&$request, $args) {
+		parent::initialize($request, $args);
 
 		// Load submission-specific translations
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
@@ -112,6 +112,18 @@ class PKPCitationGridHandler extends GridHandler {
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
 		$this->setData($data);
+
+		// If the refresh flag is set in the request then trigger
+		// citation parsing. This is necessary to make sure that
+		// processing of citations is re-triggered if one of the
+		// background processes dies due to an error. The spawning of
+		// processes is idempotent. So it is not a problem if this is
+		// called while all processes are still running.
+		if (isset($args['refresh'])) {
+			$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
+			$processDao =& DAORegistry::getDAO('ProcessDAO');
+			$processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
+		}
 
 		// Grid actions
 		$router =& $request->getRouter();
@@ -342,7 +354,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Resetting the citation state to "raw" will trigger re-parsing.
 		$citation->setCitationState(CITATION_RAW);
 
-		return $this->_recheckCitation($request, $citation);
+		return $this->_recheckCitation($request, $citation, false);
 	}
 
 	/**
@@ -375,7 +387,7 @@ class PKPCitationGridHandler extends GridHandler {
 			$originalCitation =& $this->getCitationFromArgs($args, true);
 		}
 
-		return $this->_recheckCitation($request, $originalCitation);
+		return $this->_recheckCitation($request, $originalCitation, false);
 	}
 
 	/**
@@ -392,8 +404,20 @@ class PKPCitationGridHandler extends GridHandler {
 			// so that the user can fix it.
 			$json = new JSON('false', $citationForm->fetch($request));
 		} else {
-			// Update the citation's grid row.
+			// Get the persisted citation from the form.
 			$savedCitation =& $citationForm->getCitation();
+
+			// If the citation is not yet parsed then
+			// parse it now (should happen on citation
+			// creation only)
+			if ($savedCitation->getCitationState() < CITATION_PARSED) {
+				// Assert that this is a new citation.
+				assert(!isset($args['citationId']));
+				$savedCitation =& $this->_recheckCitation($request, $savedCitation, true);
+				assert(is_a($savedCitation, 'Citation'));
+			}
+
+			// Update the citation's grid row.
 			$row =& $this->getRowInstance();
 			$row->setGridId($this->getId());
 			$row->setId($savedCitation->getId());
@@ -421,8 +445,8 @@ class PKPCitationGridHandler extends GridHandler {
 		// Identify the citation to be deleted
 		$citation =& $this->getCitationFromArgs($args);
 
-		$citationDAO = DAORegistry::getDAO('CitationDAO');
-		$result = $citationDAO->deleteObject($citation);
+		$citationDao = DAORegistry::getDAO('CitationDAO');
+		$result = $citationDao->deleteObject($citation);
 
 		if ($result) {
 			$json = new JSON('true');
@@ -587,13 +611,16 @@ class PKPCitationGridHandler extends GridHandler {
 	 * returns a rendered citation editing form with the changes.
 	 * @param $request PKPRequest
 	 * @param $originalCitation Citation
-	 * @return string a serialized JSON message
+	 * @param $persist boolean whether to save (true) or render (false)
+	 * @return string|Citation a serialized JSON message with the citation
+	 *  form when $persist is false, else the persisted citation object.
 	 */
-	function _recheckCitation(&$request, &$originalCitation) {
+	function _recheckCitation(&$request, &$originalCitation, $persist = true) {
 		// Find the request context
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		assert(is_object($context));
+		$citationDao =& DAORegistry::getDAO('CitationDAO');
 
 		// Extract filters to be applied from request
 		$requestedFilters = $request->getUserVar('citationFilters');
@@ -603,11 +630,7 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Do the actual filtering of the citation.
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
-		$filteredCitation =& $citationDAO->checkCitation($originalCitation, $context->getId(), $filterIds);
-
-		// Immediately persist intermediate results.
-		$citationDAO->updateCitationSourceDescriptions($filteredCitation);
+		$filteredCitation =& $citationDao->checkCitation($originalCitation, $context->getId(), $filterIds);
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
@@ -619,12 +642,23 @@ class PKPCitationGridHandler extends GridHandler {
 			$citationForm->addError('rawCitation['.$index.']', $errorMessage);
 		}
 
-		// Mark the citation form "dirty".
-		$citationForm->setUnsavedChanges(true);
+		if ($persist) {
+			// Persist the checked citation.
+			$citationDao->updateObject($filteredCitation);
 
-		// Return the rendered form
-		$citationForm->initData();
-		$json = new JSON('true', $citationForm->fetch($request));
-		return $json->getString();
+			// Return the persisted citation.
+			return $filteredCitation;
+		} else {
+			// Only persist intermediate results.
+			$citationDao->updateCitationSourceDescriptions($filteredCitation);
+
+			// Mark the citation form "dirty".
+			$citationForm->setUnsavedChanges(true);
+
+			// Return the rendered form.
+			$citationForm->initData();
+			$json = new JSON('true', $citationForm->fetch($request));
+			return $json->getString();
+		}
 	}
 }

@@ -204,10 +204,9 @@ class GridHandler extends PKPHandler {
 	//
 	/**
 	 * @see PKPHandler::initialize()
-	 * @param $request PKPRequest
 	 */
-	function initialize(&$request) {
-		parent::initialize($request);
+	function initialize(&$request, $args = null) {
+		parent::initialize($request, $args);
 
 		// Load grid-specific translations
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON));

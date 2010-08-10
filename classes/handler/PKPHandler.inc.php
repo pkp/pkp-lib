@@ -314,8 +314,9 @@ class PKPHandler {
 	 * authorization.
 	 *
 	 * @param $request PKPRequest
+	 * @param $args array
 	 */
-	function initialize(&$request) {
+	function initialize(&$request, $args = null) {
 		// Set the controller id to the requested
 		// page (page routing) or component name
 		// (component routing) by default.

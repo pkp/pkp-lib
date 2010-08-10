@@ -112,15 +112,12 @@ class PKPCitationGridRow extends GridRow {
 			// Is this a new row or an existing row?
 			$rowId = $this->getId();
 			if (!empty($rowId) && is_numeric($rowId)) {
-				// Get the citation to decide whether it has already been
-				// checked.
 				$citation =& $this->getData();
 				assert(is_a($citation, 'Citation'));
-				if ($citation->getCitationState() < CITATION_PARSED) {
-					$editActionOp = 'checkCitation';
-				} else {
-					$editActionOp = 'editCitation';
-				}
+
+				// We should never present citations to the user that have
+				// not been checked already.
+				assert($citation->getCitationState() >= CITATION_PARSED);
 
 				// Instantiate the cell action.
 				$router =& $request->getRouter();
@@ -129,7 +126,7 @@ class PKPCitationGridRow extends GridRow {
 						'editCitation',
 						LINK_ACTION_MODE_AJAX,
 						LINK_ACTION_TYPE_GET,
-						$router->url($request, null, null, $editActionOp, null,
+						$router->url($request, null, null, 'editCitation', null,
 								array('assocId' => $this->getAssocId(), 'citationId' => $rowId)),
 						'submission.citations.editor.clickToEdit',
 						null, null, null,

@@ -18,7 +18,7 @@
 			// Create text to be inserted into the empty editor pane.
 			emptyEditorText = '{strip}
 				<div id="{$containerId}" class="canvas">
-					<div class="wrapper">
+					<div class="wrapper scrollable">
 						<div class="help-message">{translate|escape:javascript key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"}</div>
 					</div>
 				</div>
@@ -410,7 +410,7 @@
 						// Update existing citation.
 						submitJsonForm('#{$containerId}', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
 					{else}
-						// Create new citation.
+						// Create and the new citation.
 						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid tbody:first');
 					{/if}
 
@@ -432,139 +432,142 @@
 		{rdelim});
 	</script>
 	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
-		<div class="wrapper scrollable">
+		<div class="wrapper scrollable with-pane-actions">
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 
-			<div id="citationImprovementBlock"> 
-				<p>{translate key="submission.citations.editor.details.explainImprovementOptions"}</p>
-			
-				<div id="citationImprovement">
-					<ul>
-						<li><a href="#citationImprovementManual">Manual Editing</a></li>
-						<li><a href="#citationImprovementQuery">Citation Services</a></li>
-						<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
-						<li><a href="#citationImprovementAuthor">Ask Author</a></li>
-					</ul>
-					
-					<div id="citationImprovementManual" class="grid">
-						<table>
-							{* Create initial field list which will then be maintained via JS. *}
-							{foreach from=$availableFields name=availableFields key=fieldName item=field}
-								{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
-								{eval|assign:"fieldValue" var=$fieldValueVar}
-								{if $fieldValue != ''}
-									{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
-									{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName=$fieldName fieldValue=$fieldValue required=$field.required}
-								{/if}
-							{/foreach}
-						</table>
-						
-						{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
-					</div>
-					
-					<div id="citationImprovementQuery">
-						<div>
-							<p>{translate key="submission.citations.editor.details.databaseQueryExplanation"}</p>
-							{include file="controllers/grid/citation/form/citationFilterOptionBlock.tpl"
-								titleKey="submission.citations.editor.details.editRawCitationDatabaseServices"
-								availableFilters=$availableLookupFilters}
-						</div>
-						<div class="actions">
-							<button id="queryCitation" type="button">{translate key="submission.citations.editor.details.queryCitation"}</button>
-						</div>
-						<div class="clear"></div>
-					</div>
-					
-					<div id="citationImprovementGoogle">
-						<div>
-							<p>{translate key="submission.citations.editor.details.googleScholarExplanation"}</p>
-						</div>
-						<div class="actions">
-							<button id="googleQuery" type="button">{translate key="submission.citations.editor.details.queryGoogleScholar"}</button>
-						</div>
-						<div class="clear"></div>
-					</div>
-					
-					<div id="citationImprovementAuthor">
-						<div>
-							<p>{translate key="submission.citations.editor.details.authorQueryExplanation"}</p>
-							<p>
-								{translate key="submission.citations.editor.details.authorQuerySubject"}
-								<input type="text" maxlength="500" value="{$authorQuerySubject}"
-									id="authorQuerySubject" name="authorQuerySubject" validation="required" /> 
-							</p>
-							<p>
-								{translate key="submission.citations.editor.details.authorQueryBody"}
-								<textarea class="textarea" validation="required" rows=10
-									id="authorQueryBody" name="authorQueryBody">{$authorQueryBody}</textarea>
-							</p>
-						</div>
-						<div id="authorQueryResult"></div>
-						<div class="actions">
-							<button id="authorQuery" type="button">{translate key="submission.citations.editor.details.sendAuthorQuery"}</button>
-						</div>
-						<div class="clear"></div>
-					</div>
-				</div>
-			</div>
-
-			<div id="citationImprovementResultsBlock">
-				<div class="options-head">
-					<span class="ui-icon"></span>
-					<span class="option-block-inactive">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
-					<span class="option-block-active">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
-				</div>
-				<div class="option-block">
-					{* Tabs that contain source data *}
-					<div id="citationSourceTabs-{$formUid}">
-						{* Tab definition *}
+			{* Only show the citation improvement block when editing an existin citation *}
+			{if $citation->getId()}
+				<div id="citationImprovementBlock"> 
+					<p>{translate key="submission.citations.editor.details.explainImprovementOptions"}</p>
+				
+					<div id="citationImprovement">
 						<ul>
-							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-								<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
-							{/foreach}
+							<li><a href="#citationImprovementManual">Manual Editing</a></li>
+							<li><a href="#citationImprovementQuery">Citation Services</a></li>
+							<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
+							<li><a href="#citationImprovementAuthor">Ask Author</a></li>
 						</ul>
 						
-						{* Tab content *}
-						{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
-							<div id="{$citationSourceTabId}-{$formUid}" class="grid">
-								<table><tbody>
-									{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
-										<tr valign="top">
-											<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
-											<td id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
-											<td class="citation-source-action-cell">
-												[<a id="{$sourcePropertyId}-use" href="" class="citation-source-use-button" title="{translate key="submission.citations.editor.details.sourceResultsUseExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUse"}</a>]
+						<div id="citationImprovementManual" class="grid">
+							<table>
+								{* Create initial field list which will then be maintained via JS. *}
+								{foreach from=$availableFields name=availableFields key=fieldName item=field}
+									{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
+									{eval|assign:"fieldValue" var=$fieldValueVar}
+									{if $fieldValue != ''}
+										{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
+										{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName=$fieldName fieldValue=$fieldValue required=$field.required}
+									{/if}
+								{/foreach}
+							</table>
+							
+							{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
+						</div>
+						
+						<div id="citationImprovementQuery">
+							<div>
+								<p>{translate key="submission.citations.editor.details.databaseQueryExplanation"}</p>
+								{include file="controllers/grid/citation/form/citationFilterOptionBlock.tpl"
+									titleKey="submission.citations.editor.details.editRawCitationDatabaseServices"
+									availableFilters=$availableLookupFilters}
+							</div>
+							<div class="actions">
+								<button id="queryCitation" type="button">{translate key="submission.citations.editor.details.queryCitation"}</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+						
+						<div id="citationImprovementGoogle">
+							<div>
+								<p>{translate key="submission.citations.editor.details.googleScholarExplanation"}</p>
+							</div>
+							<div class="actions">
+								<button id="googleQuery" type="button">{translate key="submission.citations.editor.details.queryGoogleScholar"}</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+						
+						<div id="citationImprovementAuthor">
+							<div>
+								<p>{translate key="submission.citations.editor.details.authorQueryExplanation"}</p>
+								<p>
+									{translate key="submission.citations.editor.details.authorQuerySubject"}
+									<input type="text" maxlength="500" value="{$authorQuerySubject}"
+										id="authorQuerySubject" name="authorQuerySubject" validation="required" /> 
+								</p>
+								<p>
+									{translate key="submission.citations.editor.details.authorQueryBody"}
+									<textarea class="textarea" validation="required" rows=10
+										id="authorQueryBody" name="authorQueryBody">{$authorQueryBody}</textarea>
+								</p>
+							</div>
+							<div id="authorQueryResult"></div>
+							<div class="actions">
+								<button id="authorQuery" type="button">{translate key="submission.citations.editor.details.sendAuthorQuery"}</button>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+	
+				<div id="citationImprovementResultsBlock">
+					<div class="options-head">
+						<span class="ui-icon"></span>
+						<span class="option-block-inactive">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
+						<span class="option-block-active">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
+					</div>
+					<div class="option-block">
+						{* Tabs that contain source data *}
+						<div id="citationSourceTabs-{$formUid}">
+							{* Tab definition *}
+							<ul>
+								{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+									<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
+								{/foreach}
+							</ul>
+							
+							{* Tab content *}
+							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
+								<div id="{$citationSourceTabId}-{$formUid}" class="grid">
+									<table><tbody>
+										{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
+											<tr valign="top">
+												<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+												<td id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
+												<td class="citation-source-action-cell">
+													[<a id="{$sourcePropertyId}-use" href="" class="citation-source-use-button" title="{translate key="submission.citations.editor.details.sourceResultsUseExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUse"}</a>]
+												</td>
+											</tr>
+										{/foreach}
+										<tr class="citation-source-action-row">
+											<td></td>
+											<td></td>
+											<td>
+												<button id="{$citationSourceTabId}-{$formUid}-use-all" type="button" class="citation-source-use-all-button" title="{translate key="submission.citations.editor.details.sourceResultsUseAllExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUseAll"}</button>
 											</td>
 										</tr>
-									{/foreach}
-									<tr class="citation-source-action-row">
-										<td></td>
-										<td></td>
-										<td>
-											<button id="{$citationSourceTabId}-{$formUid}-use-all" type="button" class="citation-source-use-all-button" title="{translate key="submission.citations.editor.details.sourceResultsUseAllExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUseAll"}</button>
-										</td>
-									</tr>
-								</tbody></table>
-							</div>
-						{/foreach}
-					</div>
-				</div>				
-			</div>
+									</tbody></table>
+								</div>
+							{/foreach}
+						</div>
+					</div>				
+				</div>
+				<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
+				<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
+			{/if}
 		</div>
 			
 		<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
 		<input id="citationApproved" type="hidden" name="citationApproved" value="{if $citationApproved}citationApproved{/if}" />
 		<input id="remainsCurrentItem" type="hidden" name="remainsCurrentItem" value="yes" />
-		{if $citation->getId()}
-			<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
-			<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
-		{/if}
 		
-		<div class="pane_actions form-block"><div>
-			<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>
-			<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
-			<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.editor.details.saveAndApprove"}{else}{translate key="submission.citations.editor.details.addAndApprove"}{/if}</button>
-			<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
-		</div></div>
+		<div class="pane-actions form-block">
+			<div>
+				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>
+				<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
+				<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.editor.details.saveAndApprove"}{else}{translate key="submission.citations.editor.details.addAndApprove"}{/if}</button>
+				<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
+			</div>
+		</div>
 	</form>
 </div>

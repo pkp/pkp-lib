@@ -178,7 +178,7 @@
 			{/if}
 		</div>
 		<div class="value">
-			<textarea class="textarea" validation="required" id="rawCitation" name="rawCitation">{$rawCitation}</textarea>
+			<textarea class="textarea" validation="required" id="rawCitation" name="rawCitation" rows="5">{$rawCitation}</textarea>
 		</div>
 		{if $citation->getId()}
 			<div id="rawCitationEditingExpertOptions">

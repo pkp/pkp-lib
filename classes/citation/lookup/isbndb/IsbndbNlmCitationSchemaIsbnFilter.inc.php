@@ -79,12 +79,19 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 			if (is_null($resultDOM =& $this->callWebService(ISBNDB_WEBSERVICE_URL, $searchParams))) return $nullVar;
 
 			// Did we get a search hit?
-			$numResults = $resultDOM->getElementsByTagName('BookList')->item(0)->getAttribute('total_results');
+			$numResults = '';
+			if (is_a($resultDOM->getElementsByTagName('BookList'), 'DOMNodeList')
+					&& is_a($resultDOM->getElementsByTagName('BookList')->item(0), 'DOMNode')) {
+				$numResults = $resultDOM->getElementsByTagName('BookList')->item(0)->getAttribute('total_results');
+			}
 			if (!empty($numResults)) break;
 		}
 
 		// Retrieve the first search hit
-		$bookData =& $resultDOM->getElementsByTagName('BookData')->item(0);
+		$bookData = '';
+		if (is_a($resultDOM->getElementsByTagName('BookData'), 'DOMNodeList')) {
+			$bookData =& $resultDOM->getElementsByTagName('BookData')->item(0);
+		}
 
 		// If no book data present, then abort (this includes no search result at all)
 		if (empty($bookData)) return $nullVar;

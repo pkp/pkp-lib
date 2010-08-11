@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * submission.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ro_RO (Romanian) locale.
+  * Provided by Constantinescu Nicolaie. 
+  *
+  * $Id: submission.xml,v 1.0 6:32 PM 8/10/2010 kosson Exp $
+  -->
+
+<locale name="ro_RO" full_name = "Romanian">
+	<message key="submission.abstractViews">Vizualizări abstracte</message>
+	<message key="submission.accepted">Acceptat</message>
+	<message key="submission.acknowledge">Confirmă</message>
+	<message key="submission.addSuppFile">Adaugă un fişier suplimentar</message>
+	<message key="submission.ask">Întreabă</message>
+	<message key="submission.backToSubmissionEditing">Înapoi la redactarea propunerii</message>
+	<message key="submission.changeComments">Schimbă în</message>
+	<message key="submission.comments.addComment">Adaugă comentariu</message>
+	<message key="submission.comments.comments">Comentarii</message>
+	<message key="submission.comments.confirmDelete">Eşti sigur că doreşti să ştergi acest comentariu?</message>
+	<message key="submission.comments.corrections">Corecţii</message>
+	<message key="submission.comments.editComment">Editează comentariu</message>
+	<message key="submission.comments.importPeerReviews">Importă evaluări peer review</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Evaluatorul {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">Nu sunt comentarii</message>
+	<message key="submission.comments.noReviews">Nu sunt evaluări</message>
+	<message key="submission.comments.review">Evaluare</message>
+	<message key="submission.comments.sendDecisionToReviewers">Trimite decizia evaluatorului privind redactarea</message>
+	<message key="submission.comments.subject">Subiect</message>
+	<message key="submission.complete">Încheie</message>
+	<message key="submission.done">Finalizat</message>
+	<message key="submission.dueDate">Data limită</message>
+	<message key="submission.due">Termen limită</message>
+	<message key="submission.editing">Editare</message>
+	<message key="submission.editMetadata">Editează metadatele</message>
+	<message key="submission.email.backToEmailLog">Înapoi la jurnalul emailurilor</message>
+	<message key="submission.email.confirmClearLog">Eşti sigur că doreşti să stergi jurnalul emailurilor pentru această propunere?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Eşti sigur că doreşti să ştergi această intrare din jurnalul emailurilor?</message>
+	<message key="submission.email.deleteLogEntry">Şterge intrarea de jurnal</message>
+	<message key="submission.emailLog">Jurnal emailuri</message>
+	<message key="submission.event.backToEventLog">Înapoi la jurnal</message>
+	<message key="submission.event.confirmClearLog">Eşti sigur că doreşti să ștergi jurnalul evenimentelor pentru această propunere?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Eşti sigur că doreşti să ştergi aceastră intrare din jurnal?</message>
+	<message key="submission.event.deleteLogEntry">Şterge intrarea de jurnal</message>
+	<message key="submission.event.general.metadataUpdated">Metadatele propunerii au fost actualizate</message>
+	<message key="submission.event.general.suppFileUpdated">Fişierul propunerii a fost actualizat</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Sarcină de evaluare acceptată de proxy</message>
+	<message key="submission.event.reviewer.reviewAccepted">Sarcină de evaluare acceptată</message>
+	<message key="submission.event.reviewer.reviewCancelled">Sarcină de evaluare anulată</message>
+	<message key="submission.event.reviewer.reviewDeclined">Sarcină de evaluare respinsă</message>
+	<message key="submission.event.reviewer.reviewDueDate">Revizuieşte data limită modificată</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Evaluator angajat propunerii</message>
+	<message key="submission.event.reviewer.reviewerRated">Calificativul pentru evaluator a fost trimis</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Evaluator dezangajat de la propunere</message>
+	<message key="submission.event.reviewer.reviewFile">Fişier de evaluare actualizat</message>
+	<message key="submission.event.reviewer.reviewInitiated">Sarcină de evaluare iniţiată</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Revizuieşte fişierul cu recomandări</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Sarcină de evaluare reiniţiată</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Evaluare retrimisă</message>
+	<message key="submission.event.reviewer.reviewRevision">Fişierul de revizuire al evaluatorului a fost actualizat</message>
+	<message key="submission.files">Fișiere</message>
+	<message key="submission.galley">Asamblare</message>
+	<message key="submission.history.clearLog">Curăță jurnalul</message>
+	<message key="submission.history">Istoric</message>
+	<message key="submission.history.noLogEntries">Nu sunt intrări în jurnal.</message>
+	<message key="submission.history.recentLogEntries">Intrări recente</message>
+	<message key="submission.history.submissionEmailLog">Jurnal emailuri</message>
+	<message key="submission.history.submissionEventLog">Jurnal evenimente</message>
+	<message key="submission.history.submissionNotes">Note la propunere</message>
+	<message key="submission.history.viewLog">Vezi jurnalul</message>
+	<message key="submission.indexing">Indexare</message>
+	<message key="submission.initiated">Inițiat</message>
+	<message key="submission.lastModified">Ultima modificare</message>
+	<message key="submission.layout.addGalley">Adaugă o asamblare de machetare</message>
+	<message key="submission.layout.confirmDeleteGalley">Eşti sigur că doreşti eliminarea permanentă a acestei asamblări?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Eşti sigur că doreşti să elimini această imagine din asamblare?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Eşti sigur că doreşti să ştergi permanent acest fişier suplimentar?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Şterge acest stylesheet.</message>
+	<message key="submission.layout.editGalley">Editează asamblarea de machetare</message>
+	<message key="submission.layout.galleyFileData">Informaţie la fişierul asamblării</message>
+	<message key="submission.layout.galleyFormat">Formatul asamblării</message>
+	<message key="submission.layout.galleyHTMLData">Fișiere HTMLpentru asamblare</message>
+	<message key="submission.layout.galleyImages">Imagini</message>
+	<message key="submission.layout.galleyLabelInstructions">Eticheta asamblării este utilizată pentru a identifica formatul fişierului articolului (ex. HTML, PDF, etc.).</message>
+	<message key="submission.layout.galleyLabel">Etichetă</message>
+	<message key="submission.layout.galleyLabelRequired">Etă este necesară o etichetă pentru asamblare.</message>
+	<message key="submission.layout.galleyLanguageRequired">Este necesară alegerea unei limbi pentru asamblare.</message>
+	<message key="submission.layout.galleyLocaleRequired">Este necesară o localizare pentru asamblare.</message>
+	<message key="submission.layout.galleyNoImages">Nicio imagine</message>
+	<message key="submission.layout.galleys">Asamblări</message>
+	<message key="submission.layout.galleyStylesheet">Fișier de stil</message>
+	<message key="submission.layout.galleyStyle">Stil</message>
+	<message key="submission.layout.initialGalleyCreation">Crearea inițială pentru asamblare</message>
+	<message key="submission.layout.layoutFile">Fișierul de machetare</message>
+	<message key="submission.layout">Machetă</message>
+	<message key="submission.layout.layoutVersion">Versiunea machetei</message>
+	<message key="submission.layout.newGalley">Creează o asamblare nouă</message>
+	<message key="submission.layout.newSupplementaryFile">Încarcă fișiere suplimentare noi</message>
+	<message key="submission.layout.noStyleFile">Nu a fost adăugat niciun stylesheet la această asamblare.</message>
+	<message key="submission.layout.supplementaryFiles">Evaluare fișier suplimentar</message>
+	<message key="submission.layout.viewingGalley">Vizualizează asamblarea propunerii</message>
+	<message key="submission.layout.viewProof">Vezi corectura</message>
+	<message key="submission.metadata">Metadatele propunerii</message>
+	<message key="submission.noReviewAssignments">Nu există sarcini de evaluare</message>
+	<message key="submission.notes.addNewNote">Adaugă notă nouă</message>
+	<message key="submission.notes.attachedFile">Fișier atașament</message>
+	<message key="submission.notes.backToSubmissionNotes">Înapoi la notele propunerii</message>
+	<message key="submission.notes.breadcrumb">Note</message>
+	<message key="submission.notes.clearAllNotes">Scoate toate notele</message>
+	<message key="submission.notes.collapseNotes">Colapsează notele</message>
+	<message key="submission.notes.confirmDeleteAll">Ștergi toate notele la propunere?</message>
+	<message key="submission.notes.confirmDelete">Renunţi la această notă la propunere?</message>
+	<message key="submission.notes.createNewNote">Creează notă nouă</message>
+	<message key="submission.notes.deleteNote">Şterge nota</message>
+	<message key="submission.notes.editNote">Editează Nota</message>
+	<message key="submission.notes.expandNotes">Extinde Notele</message>
+	<message key="submission.notes.noSubmissionNotes">Nu există note la propunere</message>
+	<message key="submission.notes.removeUploadedFile">Elimină fişierul încărcat</message>
+	<message key="submission.notes">Note la trimiterea propunerii</message>
+	<message key="submission.notes.updateNote">Actualizează nota</message>
+	<message key="submission.notes.viewNotes">Vizualizează Notele</message>
+	<message key="submission.originalFile">Fişierul original</message>
+	<message key="submission.page.editing">#{$id} Redactare</message>
+	<message key="submission.page.history">#{$id} Istoric</message>
+	<message key="submission.page.review">#{$id} Evaluare</message>
+	<message key="submission.page.summary">#{$id} Sumar</message>
+	<message key="submission.peerReview">Evaluare Peer&amp;nbsp;Review</message>
+	<message key="submission.recommendation">Recomandare</message>
+	<message key="submission.rejected">Respins</message>
+	<message key="submission.request">Solicitare</message>
+	<message key="submission.response">Răspuns</message>
+	<message key="submission.restrictions">Restricţii</message>
+	<message key="submission.reviewMetadata">Revizuieşte metadatele</message>
+	<message key="submission.review">Evaluare</message>
+	<message key="submission.reviewVersion">Revizuire versiune</message>
+	<message key="submissions.active">Activ</message>
+	<message key="submissions.archived">Arhivat</message>
+	<message key="submission.saveMetadata">Salvează metadatele</message>
+	<message key="submissions.completed">Încheiat</message>
+	<message key="submissions.declined">Respins</message>
+	<message key="submissions.incomplete">Incomplet</message>
+	<message key="submissions.noSubmissions">Nicio propunere</message>
+	<message key="submissions.queuedEditing">În proces de redactare</message>
+	<message key="submissions.queued">În listă</message>
+	<message key="submissions.queuedUnassigned">Aşteptare sarcină</message>
+	<message key="submissions.ruling">Luarea deciziilor</message>
+	<message key="submissions.submit">Trimite</message>
+	<message key="submissions.submitted">Trimis</message>
+	<message key="submission.start">Start</message>
+	<message key="submission.submissionHistory">Istoricul propunerii</message>
+	<message key="submission.submissionManuscript">Manuscrisul propunerii</message>
+	<message key="submission.submissionReview">Evaluarea propunerii</message>
+	<message key="submission.submitter">Propunător</message>
+	<message key="submission.summary">Sumar</message>
+	<message key="submission.supplementaryFiles">Fişiere suplimentare</message>
+	<message key="submission.supportingAgencies">Organismele care sprijină</message>
+	<message key="submission.titleAndAbstract">Titlul şi abstractul</message>
+	<message key="submission.underway">În curs</message>
+	<message key="submission.uploadFileTo">Încarcă fişierele în</message>
+	<message key="submission.viewMetadata">Afişează metadatele</message>
+	<message key="submission.views">Vizualizări</message>
+</locale>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * manager.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ro_RO (Romanian) locale.
+  * Provided by Constantinescu Nicolaie. 
+  *
+  * $Id: manager.xml,v 1.0 3:59 PM 8/10/2010 kosson Exp $
+  -->
+
+<locale name="ro_RO" full_name = "Romanian">
+	<message key="manager.announcements">Înștiințări</message>
+	<message key="manager.announcements.confirmDelete">Eşti sigur că vrei să ştergi permanent această înștiințare?</message>
+	<message key="manager.announcements.create">Creează o nouă înștiințare</message>
+	<message key="manager.announcements.createTitle">Creează</message>
+	<message key="manager.announcements.dateExpire">Expiră</message>
+	<message key="manager.announcements.edit">Editează înștiințarea</message>
+	<message key="manager.announcements.editTitle">Editează</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Selectează un an și/sau o lună suplimentar datei de expirare specificată.</message>
+	<message key="manager.announcements.form.dateExpire">Data la care expiră</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Anunţul va fi afişat cititorilor până la această dată. Lasă liber dacă anunţul va fi afișat nelimitat.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Selectează luna şi/sau ziua în completarea lunii expirării.</message>
+	<message key="manager.announcements.form.dateExpireValid">Selectează o dată validă pentru expirarea înștiințării.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Selectează luna şi/sau ziua în completarea anului expirării.</message>
+	<message key="manager.announcements.form.description">Descriere</message>
+	<message key="manager.announcements.form.descriptionInstructions">Textul integral al înștiințării.</message>
+	<message key="manager.announcements.form.descriptionRequired">Este necesară o descriere a înștiințării.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">O scurtă descriere care apare împreună cu titlul înștiințării.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Este necesară o scurtă descriere a înștiințării.</message>
+	<message key="manager.announcements.form.descriptionShort">Scurtă descriere</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">Salvează şi creează altul</message>
+	<message key="manager.announcements.form.titleRequired">Este necesar un titlu pentru înștiințare.</message>
+	<message key="manager.announcements.form.title">Titlu</message>
+	<message key="manager.announcements.form.typeId">Tip</message>
+	<message key="manager.announcements.form.typeIdValid">Selectează un tip de înștiințare validă.</message>
+	<message key="manager.announcements.noneCreated">Nu au fost create anunţuri.</message>
+	<message key="manager.announcements.title">Titlu</message>
+	<message key="manager.announcements.type">Tip</message>
+	<message key="manager.announcementTypes">Tipuri de înștiințare</message>
+	<message key="manager.announcementTypes.confirmDelete">Avertisment! Toate înștiințările făcute cu acest tip vor fi şterse de asemenea. Eşti sigur că doreşti să continui să ştergi acest tip de înștiințare?</message>
+	<message key="manager.announcementTypes.create">Creează un tip de înștiințare</message>
+	<message key="manager.announcementTypes.createTitle">Creează</message>
+	<message key="manager.announcementTypes.edit">Modifică tipul înștiințării</message>
+	<message key="manager.announcementTypes.editTitle">Editează</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">Salvează şi creează altul</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Un tip de înștiințare cu acest nume deja există.</message>
+	<message key="manager.announcementTypes.form.typeName">Nume</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Este necesar un nume pentru tipul de anunţ.</message>
+	<message key="manager.announcementTypes.noneCreated">Nu au fost create tipuri de înștiințări.</message>
+	<message key="manager.announcementTypes.typeName">Tip de înștiințare</message>
+	<message key="manager.emails.confirmDelete">Eşti sigur(ă) că doreşti să ştergi şablonul acestui email?</message>
+	<message key="manager.emails.confirmReset">Eşti sigur(ă) că doreşti să resetezi şablonul emailului la valorile implicite?</message>
+	<message key="manager.emails.createEmail">Creează email</message>
+	<message key="manager.emails.disable">Dezactivează</message>
+	<message key="manager.emails.editEmail">Editează email</message>
+	<message key="manager.emails.editTestExample">Editează exemplul de email de test</message>
+	<message key="manager.emails.emailKey">Cuvânt cheie email</message>
+	<message key="manager.emails.emailKeyExists">Un email având cheia dată există deja. Cheile pentru emailuri trebuie să fie unice.</message>
+	<message key="manager.emails.emailTemplate">Şablon pentru email</message>
+	<message key="manager.emails.emailTemplates">Şabloane pentru email</message>
+	<message key="manager.emails.enabled">Activează acest şablon pentru email</message>
+	<message key="manager.emails.enable">Activează</message>
+	<message key="manager.emails.form.emailKeyRequired">O cheie unică pentru email este necesară.</message>
+	<message key="manager.emails.form.bodyRequired">Este necesar corpul emailului.</message>
+	<message key="manager.emails.form.subjectRequired">Este necesar un subiect pentru mailul trimis.</message>
+	<message key="manager.emails">Emailuri particularizate</message>
+	<message key="manager.emails.resetAll">Resetează toate şabloanele</message>
+	<message key="manager.emails.reset">Resetează</message>
+	<message key="manager.emails.resetToDefault">Resetează la valorile iniţiale</message>
+	<message key="manager.filesBrowser">Browserul de fişiere</message>
+	<message key="manager.files.confirmDelete">Ştergeţi acest fişier sau director? Trebuie punctat că un director trebuie să fie gol înainte de a fi şters.</message>
+	<message key="manager.files.createDir">Creează director</message>
+	<message key="manager.files.emptyDir">Nu au fost găsite fişiere în acest director.</message>
+	<message key="manager.files.indexOfDir">Indexul {$dir}</message>
+	<message key="manager.files.parentDir">Director părinte</message>
+	<message key="manager.files.uploadedFiles">Fişiere încărcate</message>
+	<message key="manager.files.uploadFile">Încarcă fişier</message>
+	<message key="manager.groups.confirmDelete">Eşti sigur că doreşti să ştergi acest grup?</message>
+	<message key="manager.groups.createTitle">Creează titlu</message>
+	<message key="manager.groups.editTitle">Editează titlul</message>
+	<message key="manager.groups.form.groupTitleRequired">Este necesar un titlu pentru grup.</message>
+	<message key="manager.groups.membership.addMember">Adaugă un membru</message>
+	<message key="manager.groups.membership.confirmDelete">Eşti sigur că doreşti să ştergi apartenenţa la acest grup?</message>
+	<message key="manager.groups.membership">Apartenenţă</message>
+	<message key="manager.groups.membership.noneCreated">Acest grup nu are membri.</message>
+	<message key="manager.groups.membership.noUsers">Nu au fost găsiţi utilizatori.</message>
+	<message key="manager.groups.title">Titlu</message>
+	<message key="manager.importExport">Import/Export Date</message>
+	<message key="manager.languages.alternateLocaleInstructions">Acest sistem permite introducerea anumitor informaţii esențiale să fie introduse în câteva limbi suplimentare. Pentru a utiliza această funcţie, selectează localizări alternative şi alege din opţiunile listate mai jos.</message>
+	<message key="manager.languages.supportedLocalesInstructions">Selectaţi toate localizările pentru site prin intermediul meniului de selecţie care apare în fiecare pagină. Meniul va apărea doar dacă mai mult de o localizare este selectată.</message>
+	<message key="manager.payment.timestamp">Marca temporală</message>
+	<message key="manager.people.authSource">Sursa de autentificare</message>
+	<message key="manager.people.confirmUnenroll">Dezangajezi acest utilizator?</message>
+	<message key="manager.people.createUser">Creează un nou utilizator</message>
+	<message key="manager.people.createUserGeneratePassword">Generează o parolă aleatorie.</message>
+	<message key="manager.people.createUserSendNotify">Trimite utilizatorului un email de bun venit conţinând numele de utilizator şi parola.</message>
+	<message key="manager.people.disable">Dezactivează</message>
+	<message key="manager.people.doNotEnroll">Nu are niciun rol</message>
+	<message key="manager.people.editProfile">Editează profilul</message>
+	<message key="manager.people.editUser">Editează utilizatorul</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Trimite email utilizatorilor selectaţi</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Trimite email utilizatorilor angajaţi ca</message>
+	<message key="manager.people.emailUsers">Trimite email utilizatorilor</message>
+	<message key="manager.people.emailUsers.selectLocale">Selectează o localizare</message>
+	<message key="manager.people.emailUsers.selectUsers">Selectează utilizatorii cărora aţi dori să le trimiteţi email prin bifarea căsuţelor de lângă nume acestora</message>
+	<message key="manager.people.enable">Activează</message>
+	<message key="manager.people.enroll">Angajează utilizator</message>
+	<message key="manager.people.enrollment">Angajare</message>
+	<message key="manager.people.enrollSelected">Angajează utilizatorii selectați</message>
+	<message key="manager.people.enrollSyncRole">Sincronizează rolul</message>
+	<message key="manager.people.enrollSync">Sincronizează angajamentele</message>
+	<message key="manager.people.enrollUserAsDescription">Utilizatorilor li se pot atribui sau retrage roluri în orice moment.</message>
+	<message key="manager.people.enrollUserAs">Angajează utilizatorul ca</message>
+	<message key="manager.people.invalidUser">Scuze, utilizatorul cerut nu există.</message>
+	<message key="manager.people.mergeUser">Fuzionează utilizatorul</message>
+	<message key="manager.people.mergeUsers.confirm">Eşti sigur că doreşti să fuzionezi contul cu utilizatorul „{$oldUsername}” în contul cu numele de utilizator „{$newUsername}”? Contul cu numele de utilizator „{$oldUsername}” nu va mai exista ulterior. Această acţiune nu este reversibilă.</message>
+	<message key="manager.people.mergeUsers">Fuzionează utilizatorii</message>
+	<message key="manager.people.mustChooseRole">Selectaţi unul din rolurile din partea superioară a siteului înainte de a apăsa pe „Angajează utilizatorul”.</message>
+	<message key="manager.people.mustProvideName">Introdu cel puţin prenumele utilizatorului pentru început.</message>
+	<message key="manager.people.noMatchingUsers">Nu se potriveşte cu niciun utilizator.</message>
+	<message key="manager.people.noneEnrolled">Niciun utilizator angajat.</message>
+	<message key="manager.people">Persoane</message>
+	<message key="manager.people.remove">Elimină</message>
+	<message key="manager.people.saveAndCreateAnotherUser">Salvează şi creează altul</message>
+	<message key="manager.people.signInAs">Autentifică-te ca</message>
+	<message key="manager.people.signInAsUser">Autentifică-te ca utilizator</message>
+	<message key="manager.people.syncUsers">Sincronizează angajamentul utilizatorului</message>
+	<message key="manager.people.unenroll">Dezangajează</message>
+	<message key="manager.people.userCreatedSuccessfully">Utilizator creat cu succes.</message>
+	<message key="manager.people.userMustChangePassword">Cere utilizatorului să-şi schimbe parola următoarea dată când se autentifică.</message>
+	<message key="manager.plugins.action">Acţiune:</message>
+	<message key="manager.plugins.disable">Dezactivează</message>
+	<message key="manager.plugins.enable">Activează</message>
+	<message key="manager.plugins.pluginManagement">Managementul modulelor</message>
+	<message key="manager.plugins.sitePlugin">Acesta este un modul cu aplicare pentru întregul site. Doar Administratorul siteului poate gestiona acest modul.</message>
+	<message key="manager.plugins">Modulele sistemului</message>
+	<message key="manager.readingTools">Instrumente de lectură</message>
+	<message key="manager.roles">Roluri</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Format de imagine necorespunzător pentru imaginea logo pentru colontitlul (header) paginii principale. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Format de imagine necorespunzător pentru pagina principală sau încărcarea a eșuat. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Format de imagine necorespunzător pentru imaginea la titlul paginii principale sau încărcarea a eșuat. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
+	<message key="manager.setup.layout.leftSidebar">Bară conținut stânga</message>
+	<message key="manager.setup.layout.rightSidebar">Bară conținut dreapta</message>
+	<message key="manager.setup.layout.unselected">Unselected</message>
+	<message key="manager.setup.loggingAndAuditing">Înregistrări şi auditare</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Format de imagine necorespunzător pentru imaginea logo din colontitlu (header). Formatele acceptate sunt .gif, .jpg, sau .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Format de imagine necorespunzător pentru titlul din colontitlu. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
+	<message key="manager.setup.selectOne">Selectează unul</message>
+	<message key="manager.statistics"><![CDATA[Statistici &amp; Repoarte]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} noi)</message>
+	<message key="manager.users">Utilizatori</message>
+	<message key="plugins.categories.auth">Modulele de Autorizare</message>
+	<message key="plugins.categories.blocks">Module bloc</message>
+	<message key="plugins.categories.blocks.description">Modulele bloc sunt componente UI interconectabile, precum diferitele instrumente din barele laterale.</message>
+	<message key="plugins.categories.citationFormats">Module pentru formatarea citărilor</message>
+	<message key="plugins.categories.gateways.description">Modulele de comunicare (Gateway Plugins) oferă date în timp real sistemelor externe.</message>
+	<message key="plugins.categories.gateways">Module de comunicare</message>
+	<message key="plugins.categories.generic">Module generice</message>
+	<message key="plugins.categories.importexport.description">Modulele de Import/Export pot fi folosite pentru a transfera conţinut la şi de la alte sisteme.</message>
+	<message key="plugins.categories.importexport">Module de Import/Export</message>
+	<message key="plugins.categories.paymethod.description">Modulele pentru metodele de plată implementează suport pentru diferitele moduri de procesare a plăţilor online.</message>
+	<message key="plugins.categories.paymethod">Module pentru plăţi</message>
+	<message key="plugins.categories.reports.description">Modulele de raportare sunt utilizate pentru a implementa diferite tipuri de rapoarte şi extrase de date</message>
+	<message key="plugins.categories.reports">Module de raportare</message>
+	<message key="plugins.categories.themes.description">Modulele pentru şabloane pot fi utilizate pentru a modifica aspectul sistemului.</message>
+	<message key="plugins.categories.themes">Module pentru machetarea siteului</message>
+</locale>

@@ -628,6 +628,10 @@ a.accepted {
 	background-image: url(../templates/images/structure/grid_task_accepted.png);
 }
 
+a.declined {
+	background-image: url(../templates/images/structure/lb_delete.png);
+}
+
 a.completed {
 	background-image: url(../templates/images/structure/grid_task_complete.png);
 }

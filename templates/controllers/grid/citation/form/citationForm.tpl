@@ -53,9 +53,8 @@
 				$(this).data('original-value', $(this).val());
 			{rdelim});
 					
-			// Handle label change. This must be live() so
-			// that adding of new fields is supported.
-			$('.citation-field-label').die('change').live('change', function() {ldelim}
+			// Define a function that handles label change.
+			var labelChangeHandler = function() {ldelim}
 				var $this = $(this);
 				var newName = $this.val();
 
@@ -104,8 +103,13 @@
 				
 				// Store the new value for future reference.
 				$this.data('original-value', newName);
-			{rdelim});
+			{rdelim};
 
+			// Bind initial change handlers for label change.
+			// NB: We cannot use live() here as live for change is broken on IE.
+			$('.citation-field-label').change(labelChangeHandler);
+
+								
 			// Handle addition of new fields:
 			// - Define helper function
 			/**
@@ -119,8 +123,14 @@
 				// Hide the label drop-down and the delete action
 				// until the user enters a value
 				$newField.find('a, select').hide();
-				// Set the original value.
-				$newField.find('select').data('original-value', '-1'); 
+
+				// Configure drop-down.
+				$newField.find('select') 
+					// Set the original value.
+					.data('original-value', '-1')
+					// Bind change handler for label change.
+					// NB: We cannot use live() here as live for change is broken on IE.
+					.change(labelChangeHandler);
 			{rdelim}
 		
 			// - Append the a first new input field to

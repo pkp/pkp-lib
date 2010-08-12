@@ -29,8 +29,8 @@
 			
 			// Copy click event to parent div.
 			clickEventHandlers = $('#{$cellId}').data('events')['click'];
-			for(clickEventName in clickEventHandlers) {ldelim}
-				$parentDiv.click(clickEventHandlers[clickEventName]);
+			for(clickEvent in clickEventHandlers) {ldelim}
+				$parentDiv.click(clickEventHandlers[clickEvent].handler);
 			{rdelim}
 		{rdelim});
 	</script>

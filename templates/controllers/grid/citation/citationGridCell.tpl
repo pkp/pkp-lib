@@ -20,7 +20,7 @@
 				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}Approved{else}Not Approved{/if}]');
 
 			// Mark the clickable row.
-			$parentDiv.parent().addClass('clickable-row')
+			$parentDiv.parent().addClass('clickable-row');
 			
 			// Mark the row as the current row.
 			$parentDiv.parent().parent().parent()

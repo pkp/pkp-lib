@@ -181,9 +181,9 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
  */
 function submitJsonForm(formContainer, actType, actOnId, url) {
 	// jQuerify the form container and find the form in it.
-	$formContainer = $(formContainer);
-	$form = $formContainer.find('form');
-	validator = $form.validate();
+	var $formContainer = $(formContainer);
+	var $form = $formContainer.find('form');
+	var validator = $form.validate();
 
 	if (!url) {
 		url = $form.attr('action');
@@ -191,12 +191,15 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
 	
 	// Post to server and construct callback
 	if ($form.valid()) {
+		// Retrieve form data.
+		var data = $form.serialize();
+		
 		// Trigger start event.
 		$(actOnId).triggerHandler('actionStart');
 		
 		$.post(
 			url,
-			$form.serialize(),
+			data,
 			function(jsonData) {
 				// Trigger stop event.
 				$(actOnId).triggerHandler('actionStop');

@@ -601,7 +601,7 @@ class CitationDAO extends DAO {
 					$transformationDefinition['displayName'], $transformationDefinition['transformation']);
 
 			// Don't fail just because one of the web services
-			// fail. They are much too unstable to rely on them.
+			// fails. They are much too unstable to rely on them.
 			$citationMultiplexer->setTolerateFailures(true);
 
 			// Add sub-filters to the multiplexer.
@@ -654,11 +654,11 @@ class CitationDAO extends DAO {
 				$filteredCitation->addSourceDescription($sourceDescription);
 				unset($sourceDescription);
 			}
-
-			// Set the target citation state.
-			$filteredCitation->setCitationState($citationStateAfterFiltering);
 		}
 
+		// Set the target citation state.
+		$filteredCitation->setCitationState($citationStateAfterFiltering);
+			
 		if (is_a($citationMultiplexer, 'CompositeFilter')) {
 			// Retrieve the results of intermediate filters and add
 			// them to the citation for inspection by the end user.

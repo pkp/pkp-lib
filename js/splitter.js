@@ -190,7 +190,7 @@
 			}
 			
 			// Custom resize event to be triggered from outside.
-			splitter.bind('resize', function() {
+			splitter.bind('splitterRecalc', function() {
 				// Resize to the same percentage as before.
 				splitter.css(opts.sizing, Math.floor(splitter[opts.sizing]())-1);
 				splitTo(_perc);

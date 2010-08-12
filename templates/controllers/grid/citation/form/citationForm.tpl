@@ -57,11 +57,15 @@
 			var labelChangeHandler = function() {ldelim}
 				var $this = $(this);
 				var newName = $this.val();
+				var originalName = $this.data('original-value');
+
+				// Filter fake change events in IE.
+				if (newName === originalName) return false;
 
 				// Don't allow unsetting the label.
 				if (newName === '-1') {ldelim}
 					alert('{translate|escape:javascript key="submission.citations.editor.details.cannotSelectDefaultForLabel"}'); 
-					$this.val($this.data('original-value'));
+					$this.val(originalName);
 					return false;
 				{rdelim}
 

@@ -61,7 +61,7 @@
 			{if $grid->getIsSubcomponent()}
 				{* Create two separate tables so that the body part
 				   can be scrolled independently from the header in a
-				   cross-browser compatible way. *}
+				   cross-browser compatible way using only CSS. *}
 				</table>
 				<div class="scrollable">
 				<table>

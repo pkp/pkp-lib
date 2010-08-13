@@ -52,7 +52,7 @@
 			$('.citation-field-label').each(function() {ldelim}
 				$(this).data('original-value', $(this).val());
 			{rdelim});
-					
+
 			// Define a function that handles label change.
 			var labelChangeHandler = function() {ldelim}
 				var $this = $(this);
@@ -64,7 +64,7 @@
 
 				// Don't allow unsetting the label.
 				if (newName === '-1') {ldelim}
-					alert('{translate|escape:javascript key="submission.citations.editor.details.cannotSelectDefaultForLabel"}'); 
+					alert('{translate|escape:javascript key="submission.citations.editor.details.cannotSelectDefaultForLabel"}');
 					$this.val(originalName);
 					return false;
 				{rdelim}
@@ -91,7 +91,7 @@
 				// Reset the color of the label in
 				// case we had marked it before.
 				$this.css('color', '#222222');
-				
+
 				// Find the corresponding input field and
 				// set its name attribute.
 				$this.closest('tr').find('input')
@@ -104,7 +104,7 @@
 				// Trigger a change event so that the citation
 				// comparison is being updated.
 				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
-				
+
 				// Store the new value for future reference.
 				$this.data('original-value', newName);
 			{rdelim};
@@ -113,7 +113,7 @@
 			// NB: We cannot use live() here as live for change is broken on IE.
 			$('.citation-field-label').change(labelChangeHandler);
 
-								
+
 			// Handle addition of new fields:
 			// - Define helper function
 			/**
@@ -129,18 +129,18 @@
 				$newField.find('a, select').hide();
 
 				// Configure drop-down.
-				$newField.find('select') 
+				$newField.find('select')
 					// Set the original value.
 					.data('original-value', '-1')
 					// Bind change handler for label change.
 					// NB: We cannot use live() here as live for change is broken on IE.
 					.change(labelChangeHandler);
 			{rdelim}
-		
+
 			// - Append the a first new input field to
 			//   the field list.
 			addNewCitationField();
-			
+
 			// - Remove help text and show field label
 			//   selector on focus of the new field.
 			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
@@ -156,7 +156,7 @@
 					addNewCitationField();
 				{rdelim}
 			{rdelim});
-			
+
 			// Handle deletion of fields.
 			$('#citationImprovementManual .delete').die('click').live('click', function() {ldelim}
 				// Remove the table row with that field.
@@ -168,7 +168,7 @@
 				return false;
 			{rdelim});
 
-			
+
 			//
 			// 2) Citation Services Query
 			//
@@ -179,12 +179,12 @@
 				'#queryCitation',
 				'{url op="checkCitation"}'
 			);
-				
+
 			// Throbber when citation is re-queried.
 			$('#queryCitation').click(function() {ldelim}
 				actionThrobber('#{$containerId}');
 			{rdelim});
-			
+
 
 			//
 			// 3) Google Scholar
@@ -218,13 +218,13 @@
 				if (doi) queryString += ' ' + doi;
 				return queryString;
 			{rdelim}
-			
+
 			$('#googleQuery').click(function() {ldelim}
 				var googleScholarLink = 'http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=' + encodeURIComponent($.trim(createMDSchemaSpecificGSQuery()));
 				window.open(googleScholarLink, '_blank');
 			{rdelim});
 
-			
+
 			//
 			// 4) Author Query
 			//
@@ -238,13 +238,13 @@
 				'#editCitationForm'
 			);
 
-			
+
 			////////////////////////////////////////////////////////////
 			// Citation Service Results
 			//
 			// Handle expert citation service results.
 			extrasOnDemand('#citationImprovementResultsBlock');
-		
+
 			// Create citation source tabs.
 			$('#citationSourceTabs-{$formUid}').tabs();
 
@@ -260,17 +260,17 @@
 					$sourceCell = $(this);
 					var propertyName = $sourceCell.attr('id').replace(/^[0-9]+-/, '');
 					var $targetField = $('.citation-field[name=' + propertyName + ']');
-		
+
 					if ($targetField.length > 0) {ldelim}
 						// Copy the content of the source to the target field
 						$targetField.val($sourceCell.text());
 					{rdelim}
 				{rdelim});
-				
+
 				// Trigger citation comparison refresh.
 				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 			{rdelim}
-				
+
 			// Activate "use" buttons.
 			$('.citation-source-use-button').die('click').live('click', function() {ldelim}
 				// Identify the source element.
@@ -280,7 +280,7 @@
 				// Return false to stop further event processing.
 				return false;
 			{rdelim});
-			
+
 			// Activate "use all" buttons.
 			$('.citation-source-use-all-button').die('click').live('click', function() {ldelim}
 				// Identify all source elements in this citation source.
@@ -301,7 +301,7 @@
 			$('#citationFormCancel').click(function() {ldelim}
 				// Clear the form panel and show the initial help message.
 				$('#{$containerId}').replaceWith(emptyEditorText);
-	
+
 				// De-select the selected citation.
 				$('.current-item').each(function() {ldelim}
 					$(this).removeClass('current-item');
@@ -319,18 +319,18 @@
 				$('#citationFormSaveAndRevokeApproval').hide();
 				$('#citationFormSave').addClass('secondary-button');
 			{/if}
-	
+
 			// Handle save button.
 			$('.citation-save-button').each(function() {ldelim}
 				$(this).click(function() {ldelim}
 					var pressedButton = this.id;
-					
+
 					// Bind to the form's submitSuccessful custom event which
 					// will be called once the citation has been successfully
 					// saved.
 					$('#{$containerId}').bind('submitSuccessful', function(e, $updatedElement) {ldelim}
 						$(this).unbind('submitSuccessful');
-						
+
 						// Remove warning about unsaved data.
 						$('li.unsaved-data-warning').remove();
 						if($('#citationFormMessages .formErrorList').children().length === 0) {ldelim}
@@ -361,7 +361,7 @@
 								// Scroll the citation list to make the next
 								// citation visible.
 								scrollToMakeVisible($nextUnapproved);
-								
+
 								// Trigger the click handler on the next
 								// unapproved citation to load it in the
 								// citation detail pane.
@@ -396,8 +396,8 @@
 							var messageHtml = '<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.dataSaved"}</li>';
 							$('#formErrors .formErrorList').append(messageHtml);
 						{rdelim}
-						
-						
+
+
 						{if !$citation->getId()}
 							// A new citation has been saved so refresh the form to get
 							// the new citation id.
@@ -409,7 +409,7 @@
 					if (pressedButton === 'citationFormSaveAndApprove') {ldelim}
 						$('#citationApproved').val('citationApproved');
 						$('#remainsCurrentItem').val('no');
-						
+
 						// Throbber because we'll move to a new citation or tab.
 						actionThrobber('#{$containerId}');
 					{rdelim} else {ldelim}
@@ -418,7 +418,7 @@
 					if (pressedButton === 'citationFormSaveAndRevokeApproval') {ldelim}
 						$('#citationApproved').val('');
 					{rdelim}
-					
+
 					// Submit the form.
 					{if $citation->getId()}
 						// Update existing citation.
@@ -436,11 +436,11 @@
 					{if $citation->getId()}{rdelim}{/if}
 				{rdelim});
 			{rdelim});
-	
+
 			// Handle highlighting of currently edited citation.
 			$('#citationEditorNavPane div.grid .current-item').removeClass('current-item');
 			$('#component-grid-citation-citationgrid-row-{$citation->getId()}').addClass('current-item');
-	
+
 			// Throbber
 			actionThrobber('#{$containerId}');
 		{rdelim});
@@ -451,9 +451,9 @@
 
 			{* Only show the citation improvement block when editing an existin citation *}
 			{if $citation->getId()}
-				<div id="citationImprovementBlock"> 
+				<div id="citationImprovementBlock">
 					<p>{translate key="submission.citations.editor.details.explainImprovementOptions"}</p>
-				
+
 					<div id="citationImprovement">
 						<ul>
 							<li><a href="#citationImprovementManual">Manual Editing</a></li>
@@ -461,7 +461,7 @@
 							<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
 							<li><a href="#citationImprovementAuthor">Ask Author</a></li>
 						</ul>
-						
+
 						<div id="citationImprovementManual" class="grid">
 							<table>
 								{* Create initial field list which will then be maintained via JS. *}
@@ -474,10 +474,10 @@
 									{/if}
 								{/foreach}
 							</table>
-							
+
 							{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 						</div>
-						
+
 						<div id="citationImprovementQuery">
 							<div>
 								<p>{translate key="submission.citations.editor.details.databaseQueryExplanation"}</p>
@@ -490,7 +490,7 @@
 							</div>
 							<div class="clear"></div>
 						</div>
-						
+
 						<div id="citationImprovementGoogle">
 							<div>
 								<p>{translate key="submission.citations.editor.details.googleScholarExplanation"}</p>
@@ -500,14 +500,14 @@
 							</div>
 							<div class="clear"></div>
 						</div>
-						
+
 						<div id="citationImprovementAuthor">
 							<div>
 								<p>{translate key="submission.citations.editor.details.authorQueryExplanation"}</p>
 								<p>
 									{translate key="submission.citations.editor.details.authorQuerySubject"}
 									<input type="text" maxlength="500" value="{$authorQuerySubject}"
-										id="authorQuerySubject" name="authorQuerySubject" validation="required" /> 
+										id="authorQuerySubject" name="authorQuerySubject" validation="required" />
 								</p>
 								<p>
 									{translate key="submission.citations.editor.details.authorQueryBody"}
@@ -523,7 +523,7 @@
 						</div>
 					</div>
 				</div>
-	
+
 				<div id="citationImprovementResultsBlock">
 					<div class="options-head">
 						<span class="ui-icon"></span>
@@ -539,7 +539,7 @@
 									<li><a href="#{$citationSourceTabId}-{$formUid}">{$citationSourceTab.displayName|escape}</a></li>
 								{/foreach}
 							</ul>
-							
+
 							{* Tab content *}
 							{foreach from=$citationSourceTabs key=citationSourceTabId item=citationSourceTab}
 								<div id="{$citationSourceTabId}-{$formUid}" class="grid">
@@ -564,17 +564,17 @@
 								</div>
 							{/foreach}
 						</div>
-					</div>				
+					</div>
 				</div>
 				<input type="hidden" name="citationId" value="{$citation->getId()|escape}" />
 				<input type="hidden" name="citationState" value="{$citation->getCitationState()|escape}" />
 			{/if}
 		</div>
-			
+
 		<input type="hidden" name="assocId" value="{$citation->getAssocId()|escape}" />
 		<input id="citationApproved" type="hidden" name="citationApproved" value="{if $citationApproved}citationApproved{/if}" />
 		<input id="remainsCurrentItem" type="hidden" name="remainsCurrentItem" value="yes" />
-		
+
 		<div class="pane-actions form-block">
 			<div>
 				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>

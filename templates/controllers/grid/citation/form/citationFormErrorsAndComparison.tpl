@@ -61,7 +61,7 @@
 			{rdelim}
 		{rdelim});
 
-		
+
 		//
 		// Handle raw citation edition
 		//
@@ -71,7 +71,7 @@
 				$('#rawCitationWithMarkup').hide();
 				$editableRawCitation = $('#editableRawCitation').show();
 				$textarea = $editableRawCitation.find('textarea').focus();
-				
+
 				// Save original value for undo
 				$textarea.data('original-value', $textarea.val());
 				return false;
@@ -80,7 +80,7 @@
 
 		// Handle expert settings
 		extrasOnDemand('#rawCitationEditingExpertOptions');
-		
+
 		// Handle abort raw citation editing.
 		$('#cancelRawCitationEditing').click(function() {ldelim}
 			$editableRawCitation = $('#editableRawCitation').hide();
@@ -90,7 +90,7 @@
 			$textarea = $editableRawCitation.find('textarea');
 			$textarea.val($textarea.data('original-value'));
 			return false;
-		{rdelim}); 
+		{rdelim});
 
 		// Open a confirmation dialog when the user
 		// clicks the "process raw citation" button.
@@ -103,12 +103,12 @@
 				// Throbber for raw citation processing.
 				actionThrobber('#{$containerId}');
 			{rdelim});
-		
+
 		// Configure the dialog.
 		modalConfirm(
 			'{url op="updateRawCitation"}',
 			'replace',
-			'#{$containerId}', 
+			'#{$containerId}',
 			'{translate key="submission.citations.editor.details.processRawCitationWarning"}',
 			[
 				'{translate key="submission.citations.editor.details.processRawCitationGoAhead"}',
@@ -118,7 +118,7 @@
 			'{translate key="submission.citations.editor.details.processRawCitationTitle"}',
 			true
 		);
-		
+
 		//
 		// Handle field level data changes.
 		//
@@ -136,9 +136,9 @@
 			'refresh',
 			'#editCitationForm'
 		);
-		
+
 		// Bind citation fields with live to the refresh event
-		// so that new fields will be automatically active. 
+		// so that new fields will be automatically active.
 		$('.citation-field').die('change').live('change', function() {ldelim}
 			$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 		{rdelim});
@@ -164,7 +164,7 @@
 			</div>
 		</div>
 	{/if}
-	
+
 
 	{* We have two versions of the raw citation - one editable and the
 	   other with mark-up for comparison. We use JS to switch between the

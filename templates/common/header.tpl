@@ -28,7 +28,7 @@
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" />{/if}
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
-	
+
 	<!-- Base Jquery -->
 	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
 	<script>
@@ -54,14 +54,14 @@
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/tag-it.js"></script>
 	<!-- Add javascript required for font sizer -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>	
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/fontController.js" ></script>
 	<script type="text/javascript">{literal}
 		$(function(){
 			fontSize("#sizer", "body", 9, 16, 32, "{/literal}{$baseUrl}{literal}"); // Initialize the font sizer
 		});
 	{/literal}</script>
-	
+
 	<script type="text/javascript">
         // initialise plugins
 		{literal}
@@ -80,8 +80,8 @@
 			{/literal}{/if}{literal}
 		});
 		{/literal}
-    </script>
-	
+	</script>
+
 	{$additionalHeadData}
 </head>
 <body>

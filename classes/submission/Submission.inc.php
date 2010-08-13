@@ -731,6 +731,13 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get localized hide cover page in abstract view
+	 */
+	function getLocalizedHideCoverPageAbstract() {
+		return $this->getLocalizedData('hideCoverPageAbstract');
+	}
+
+	/**
 	 * Get submission date.
 	 * @return date
 	 */

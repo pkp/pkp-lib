@@ -211,6 +211,9 @@ class PKPTemplateManager extends Smarty {
 		$this->cacheability = $cacheability;
 	}
 
+	/**
+	 * Initialize the template.
+	 */
 	function initialize() {
 		// This code cannot be called in the constructor because of
 		// reference problems, i.e. callers that need getManager fail.
@@ -221,10 +224,18 @@ class PKPTemplateManager extends Smarty {
 		$this->initialized = true;
 	}
 
+	/**
+	 * Add a page-specific style sheet.
+	 * @param $url string the URL to the style sheet
+	 */
 	function addStyleSheet($url) {
 		array_push($this->styleSheets, $url);
 	}
 
+	/**
+	 * Add a page-specific script.
+	 * @param $url string the URL to be included
+	 */
 	function addJavaScript($url) {
 		array_push($this->javaScripts, $url);
 	}

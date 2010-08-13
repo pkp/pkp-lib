@@ -309,7 +309,7 @@
 			{rdelim});
 
 			//
-			// 2) Save buttons.
+			// 2) Save/Add (+Revoke/Approve) buttons.
 			//
 			// Style save buttons.
 			{if $citationApproved}
@@ -317,7 +317,11 @@
 				$('#citationFormSaveAndRevokeApproval').addClass('secondary-button');
 			{else}
 				$('#citationFormSaveAndRevokeApproval').hide();
-				$('#citationFormSave').addClass('secondary-button');
+				{if $citation->getId()}
+					$('#citationFormSave').addClass('secondary-button');
+				{else}
+					$('#citationFormCancel').addClass('secondary-button');
+				{/if}
 			{/if}
 
 			// Handle save button.
@@ -401,6 +405,7 @@
 						{if !$citation->getId()}
 							// A new citation has been saved so refresh the form to get
 							// the new citation id.
+							scrollToMakeVisible($updatedElement);
 							$updatedElement.find('.row_file').triggerHandler('click');
 						{/if}
 					{rdelim});
@@ -425,7 +430,7 @@
 						submitJsonForm('#{$containerId}', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
 					{else}
 						// Create and the new citation.
-						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid tbody:first');
+						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid .scrollable tbody:first');
 					{/if}
 
 					// Trigger the throbber for citation approval or when we
@@ -579,7 +584,7 @@
 			<div>
 				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>
 				<button id="citationFormSave" type="button" class="citation-save-button">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
-				<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{if $citation->getId()}{translate key="submission.citations.editor.details.saveAndApprove"}{else}{translate key="submission.citations.editor.details.addAndApprove"}{/if}</button>
+				{if $citation->getId()}<button id="citationFormSaveAndApprove" type="button" class="citation-save-button">{translate key="submission.citations.editor.details.saveAndApprove"}</button>{/if}
 				<button id="citationFormCancel" type="button">{translate key="common.cancel"}</button>
 			</div>
 		</div>

@@ -112,7 +112,6 @@
 	<message key="submission.citations.editor.citationlist.newCitation">New Citation</message>
 	<message key="submission.citations.editor.citationlist.title">Edit Citations</message>
 	<message key="submission.citations.editor.clickToEdit">Click to edit.</message>
-	<message key="submission.citations.editor.details.addAndApprove">Add And Approve</message>
 	<message key="submission.citations.editor.details.authorQueryBody">Your message to the author:</message>
 	<message key="submission.citations.editor.details.authorQueryExplanation">You can ask the author for further information about the current citation. Clicking the "Send" button below will send your message as an email to the author.</message>
 	<message key="submission.citations.editor.details.authorQuerySubject">Subject:</message>

@@ -13,7 +13,7 @@
  *   $required: whether the field is required
  *}
 <tr{if $required} class="citation-field-required"{/if}>
-	<td class="first_column" width="10%">
+	<td class="first_column">
 		<div class="row_container">
 			<div class="row_file label">
 				<select name="citation-field-input-label[]"

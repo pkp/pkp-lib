@@ -9,7 +9,7 @@
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: admin.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">
@@ -18,8 +18,8 @@
 	<message key="admin.auth.create">Opprett valideringskilde</message>
 	<message key="admin.auth.noneCreated">Ingen valideringskilder er definert.</message>
 	<message key="admin.authSources">Valideringskilder</message>
-	<message key="admin.clearDataCache">Tøm data Cacher</message>
-	<message key="admin.clearTemplateCache">Tøm mal Cache</message>
+	<message key="admin.clearDataCache">Tøm data-cacher</message>
+	<message key="admin.clearTemplateCache">Tøm mal-cache</message>
 	<message key="admin.configFileUpdatedInstructions"><![CDATA[Oppdateringen av konfigurasjonen var vellykket. Vennligst merk at hvis nettstedet ikke lenger virker som det skal, så må du kanskje ordne konfigurasjonen manuelt, ved å redigere <tt>config.inc.php</tt> direkte.]]></message>
 	<message key="admin.confirmClearTemplateCache">Er du sikker på at du vil tømme cachen med kompilerte maler?</message>
 	<message key="admin.confirmExpireSessions">Er du sikker på at du vil avbryte alle brukersesjoner? Alle brukere som for øyeblikket er logget inn på systemet vil måtte logge inn igjen (du også).</message>
@@ -27,26 +27,26 @@
 	<message key="admin.currentVersion">Nyeste versjon</message>
 	<message key="admin.dateInstalled">Installasjonsdato</message>
 	<message key="admin.displayConfigFileInstructions"><![CDATA[Nedenfor vises innholdet i din oppdaterte konfigurasjon. For å iverksette endringene må du åpne <tt>config.inc.php</tt> i et egnet tekstbehandlingsprogram og erstatte innholdet i den med innholdet i tekstfeltet nedenfor.]]></message>
-	<message key="admin.displayNewSystemConfig">Vis ny Konfigurasjon</message>
+	<message key="admin.displayNewSystemConfig">Vis ny konfigurasjon</message>
 	<message key="admin.expireSessions">Avbryt brukersesjoner</message>
 	<message key="admin.languages.confirmReload">Er du sikker på at du vil laste opp igjen denne lokalinnstillingen? Dette vil slette alle nåværende lokalinnstilling-spesifikke data som for eksempel tilpassete e-post maler.</message>
-	<message key="admin.languages.installedLocales">Installerte Lokalinnstillinger</message>
+	<message key="admin.languages.installedLocales">Installerte lokalinnstillinger</message>
 	<message key="admin.languages.installLanguages">Installer språk</message>
 	<message key="admin.languages.installLocales">Installer</message>
-	<message key="admin.languages.installNewLocales">Installer nye Lokalinnstillinger</message>
+	<message key="admin.languages.installNewLocales">Installer nye lokalinnstillinger</message>
 	<message key="admin.languages.languageSettings">Språkinnstillinger</message>
 	<message key="admin.languages.noLocalesAvailable">Ingen øvrige lokalinnstillinger er tilgjengelig for installasjon.</message>
-	<message key="admin.languages.reload">Last opp igjen Lokalfilsett</message>
-	<message key="admin.languages.uninstall">Avinstaller Lokalinnstilling</message>
-	<message key="admin.phpInfo">Mere PHP Informasjon</message>
-	<message key="admin.saveSystemConfig">Lagre Konfigurasjon</message>
+	<message key="admin.languages.reload">Last opp igjen lokalfilsett</message>
+	<message key="admin.languages.uninstall">Avinstaller lokalinnstilling</message>
+	<message key="admin.phpInfo">Mer PHP-informasjon</message>
+	<message key="admin.saveSystemConfig">Lagre konfigurasjon</message>
 	<message key="admin.server.apacheVersion">Apache versjon</message>
 	<message key="admin.server.dbDriver">Databasedriver</message>
 	<message key="admin.server.dbVersion">Databaseserver versjon</message>
-	<message key="admin.serverInformationDescription"><![CDATA[Operativsystem og serverens programvareversjoner. Klikk på <span class="highlight">Mere PHP informasjon</span> for å se flere detaljer om denne serverens PHP konfigurasjon.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[Operativsystem og serverens programvareversjoner. Klikk på <span class="highlight">Mer PHP-informasjon</span> for å se flere detaljer om denne serverens PHP-konfigurasjon.]]></message>
 	<message key="admin.serverInformation">Serverinformasjon</message>
-	<message key="admin.server.phpVersion">PHP versjon</message>
-	<message key="admin.server.platform">OS plattform</message>
+	<message key="admin.server.phpVersion">PHP-versjon</message>
+	<message key="admin.server.platform">OS-plattform</message>
 	<message key="admin.settings.aboutDescription">Om beskrivelsen av nettstedet</message>
 	<message key="admin.settings.contactEmail">E-postadresse til hovedkontaktperson</message>
 	<message key="admin.settings.contactName">Navn på hovedkontaktperson</message>
@@ -72,12 +72,12 @@
 	<message key="admin.versionBuild">Build</message>
 	<message key="admin.version.checkForUpdates">Se etter oppdateringer</message>
 	<message key="admin.version.downloadPackage">Last ned</message>
-	<message key="admin.version.downloadPatch">Last ned Patch</message>
+	<message key="admin.version.downloadPatch">Last ned patch</message>
 	<message key="admin.versionHistory">Versjonshistorikk</message>
 	<message key="admin.version.latest">Siste versjon</message>
 	<message key="admin.versionMajor">Major</message>
 	<message key="admin.versionMinor">Minor</message>
-	<message key="admin.version.moreInfo">Mer Informasjon</message>
+	<message key="admin.version.moreInfo">Mer informasjon</message>
 	<message key="admin.versionRevision">Revisjon</message>
 	<message key="admin.version.updateAvailable">En oppdatert versjon er tilgjengelig</message>
 	<message key="admin.version.upToDate">Systemet er nyeste versjon</message>

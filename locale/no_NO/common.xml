@@ -9,14 +9,14 @@
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: common.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">
 	<message key="about.aboutSite">Om nettstedet</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">E-post</message>
-	<message key="about.contact.fax">Faks</message>
+	<message key="about.contact.fax">Telefaks</message>
 	<message key="about.contact.phone">Telefon</message>
 	<message key="about.contact.principalContact">Hovedkontakt</message>
 	<message key="about.contact.supportContact">Teknisk kontaktperson</message>
@@ -26,11 +26,11 @@
 	<message key="about.siteMap">Nettstedskart</message>
 	<message key="announcement.announcements">Oppslag</message>
 	<message key="announcement.announcementsHome">Oppslagstavle</message>
-	<message key="announcement.moreAnnouncements">Flere Oppslag...</message>
+	<message key="announcement.moreAnnouncements">Flere oppslag ...</message>
 	<message key="announcement.noneExist">Ingen oppslag er publisert.</message>
 	<message key="announcement.posted">Innlevert</message>
-	<message key="announcement.viewLink">Mer...</message>
-	<message key="announcement.view">Vis Oppslag</message>
+	<message key="announcement.viewLink">Mer ...</message>
+	<message key="announcement.view">Vis oppslag</message>
 	<message key="common.copy">Kopi</message>
 	<message key="common.preview">Forhåndsvis</message>
 	<message key="common.activate">Slå på</message>
@@ -168,10 +168,10 @@
 	<message key="debug.notes.localeLoad">Lastet lokalinnstillingsfil "{$localeFile}" fra XML</message>
 	<message key="debug.notes.missingLocaleKey">Mangler lokalinnstillingsnøkkel "{$key}".</message>
 	<message key="debug.notes">Notater:</message>
-	<message key="email.addAttachment">Legg til Vedlegg</message>
-	<message key="email.addBccRecipient">Legg til Blindkopi til</message>
-	<message key="email.addCcRecipient">Legg til Kopi til</message>
-	<message key="email.addToRecipient">Legg til Mottaker</message>
+	<message key="email.addAttachment">Legg til vedlegg</message>
+	<message key="email.addBccRecipient">Legg til blindkopimottaker</message>
+	<message key="email.addCcRecipient">Legg til kopimottaker</message>
+	<message key="email.addToRecipient">Legg til mottaker</message>
 	<message key="email.attachments">Vedlegg</message>
 	<message key="email.bcc">Blindkopi til</message>
 	<message key="email.bccSender">Send en kopi av denne meldingen til min adresse ({$address})</message>
@@ -183,12 +183,12 @@
 	<message key="email.email">E-post</message>
 	<message key="email.from">Fra</message>
 	<message key="email.invalid">E-postadressen {$email} er ugyldig.</message>
-	<message key="email.multipart">This is a multi-part message in MIME format.</message>
+	<message key="email.multipart">Dette er en melding i flere deler i MIME format.</message>
 	<message key="email.recipient">Mottaker</message>
 	<message key="email.recipients">Mottakere</message>
 	<message key="email.sender">Sender</message>
 	<message key="email.send">Send</message>
-	<message key="email.skip">Ikke e-post</message>
+	<message key="email.skip">Ikke send e-post</message>
 	<message key="email.subject">Emne</message>
 	<message key="email.to">Til</message>
 	<message key="form.contains">inneholder</message>
@@ -210,7 +210,7 @@
 	<message key="help.relatedTopics">Relaterte emner</message>
 	<message key="help.searchFor">Søk emner i Hjelp for</message>
 	<message key="help.searchResultsFor">Resultat for</message>
-	<message key="help.searchResults">Søk resultat</message>
+	<message key="help.searchResults">Søkeresultat</message>
 	<message key="help.search">Søk i hjelp</message>
 	<message key="help.toc">Innholdsoversikt</message>
 	<message key="help.upALevel">Opp et nivå</message>
@@ -227,23 +227,23 @@
 	<message key="icon.mail.alt">Post</message>
 	<message key="icon.unchecked.alt">Umerket</message>
 	<message key="icon.view.alt">Vis</message>
-	<message key="locale.primary">Primære lokalinnstillinger</message>
-	<message key="locale.supported">Støttete lokalinnstillinger</message>
+	<message key="locale.primary">Primærespråk</message>
+	<message key="locale.supported">Støttete språk</message>
 	<message key="navigation.about">Om</message>
 	<message key="navigation.browse">Finn fram</message>
-	<message key="navigation.browseByTitle">i Titler</message>
+	<message key="navigation.browseByTitle">i titler</message>
 	<message key="navigation.home">Hjem</message>
-	<message key="navigation.infoForReaders">For Lesere</message>
-	<message key="navigation.infoForReaders.long">Informasjon for Lesere</message>
-	<message key="navigation.items">{$from} - {$to} av {$total} element</message>
+	<message key="navigation.infoForReaders">For lesere</message>
+	<message key="navigation.infoForReaders.long">Informasjon for lesere</message>
+	<message key="navigation.items">{$from} - {$to} av {$total} elementer</message>
 	<message key="navigation.login">Logg inn</message>
-	<message key="navigation.nextPage">&gt;&gt;</message>
-	<message key="navigation.nextStep">Neste trinn</message>
-	<message key="navigation.previousPage">&lt;&lt;</message>
-	<message key="navigation.previousStep">Forrige trinn</message>
+	<message key="navigation.nextPage"><![CDATA[>>]]></message>
+	<message key="navigation.nextStep">Neste steg</message>
+	<message key="navigation.previousPage"><![CDATA[<<]]></message>
+	<message key="navigation.previousStep">Forrige steg</message>
 	<message key="navigation.register">Registrer</message>
 	<message key="navigation.search">Søk</message>
-	<message key="navigation.stepNumber">Trinn {$step}</message>
+	<message key="navigation.stepNumber">Steg {$step}</message>
 	<message key="navigation.userHome">Min side</message>
 	<message key="navigation.user">Bruker</message>
 	<message key="search.abstract">Sammendrag</message>
@@ -257,16 +257,65 @@
 	<message key="search.indexTerms">Emneord</message>
 	<message key="search.matchAll">Treff i alle kategorier</message>
 	<message key="search.noKeywordError">Du må skrive inn minst ett søkeord.</message>
-	<message key="search.noResults">Ingen Resultat</message>
+	<message key="search.noResults">Ingen resultat</message>
 	<message key="search.operator.and">AND</message>
 	<message key="search.operator.not">NOT</message>
 	<message key="search.operator.or">OR</message>
-	<message key="search.reviseSearch">Revider Søk</message>
+	<message key="search.reviseSearch">Revider søk</message>
 	<message key="search.searchAllCategories">Søk i alle kategorier</message>
 	<message key="search.searchCategories">Søk i kategorier</message>
 	<message key="search.searchResults">Søkeresultat</message>
-	<message key="search.subject">Nøkkelord</message>
+	<message key="search.subject">Emneord</message>
 	<message key="search.titleIndex">Finn fram i tittelregister</message>
 	<message key="search.title">Tittel</message>
 	<message key="search.typeMethodApproach">Type (metode/innfallsvinkel)</message>
+	<message key="notification.notification">Varsling</message>
+	<message key="notification.notifications">Varslinger</message>
+	<message key="notification.notificationsNew">({$numNew} nye)</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Dette verket er lisensiert med en <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0-lisens</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Dette verket er lisensiert med en <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0-lisens</a>.
+	</div>]]></message>
+	<message key="common.re">Ad:</message>
+	<message key="common.false">Feil</message>
+	<message key="common.manage">Administrer</message>
+	<message key="common.noComments">Ingen kommentar</message>
+	<message key="common.ok">OK</message>
+	<message key="common.true">Korrekt</message>
+	<message key="common.uploadFailed">Filen kunne ikke lastes opp. Vennligst forsøk igjen eller kontakt administrator dersom feilen ikke blir borte.</message>
+	<message key="form.startsWith">begynner med</message>
+	<message key="navigation.dashboard">Navigasjonskonsoll</message>
+	<message key="notification.allow">Disse varslingstypene skal vises i mine varslinger.</message>
+	<message key="notification.confirmError">Det oppstod en feil i behandlingen av ditt varslingsabonnement.</message>
+	<message key="notification.confirmSuccess">Ditt varslingsabonnement er nå i orden.</message>
+	<message key="notification.email">Send meg en e-post for disse varslingstypene.</message>
+	<message key="notification.location">Gå til nettadresse (URL)</message>
+	<message key="notification.mailList">E-postliste for varslinger</message>
+	<message key="notification.mailList.emailInvalid">Skriv inn en gyldig e-postadresse.</message>
+	<message key="notification.mailList.privacyProtection">Personvernpolicy</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonner</a> på beskyttet innhold.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Levér</a> en artikkel]]></message>
+	<message key="notification.mailList.register">Du kan registrere deg på dette nettstedet for å ...</message>
+	<message key="notification.mailList.review"><![CDATA[Delta i <a href="{$reviewUrl}">fagfellevurderingsarbeidet</a>]]></message>
+	<message key="notification.noneExist">Du har ingen varslinger for øyeblikket</message>
+	<message key="notification.notificationsDescription"><![CDATA[Du har {$unreadCount} uleste varslinger og {$readCount} leste varslinger.  <a href="{$settingsUrl}">Klikk her</a> for å forandre dine varslingsinnstillinger.]]></message>
+	<message key="notification.settings">Varslingsinnstillinger</message>
+	<message key="notification.settingsDescription">Velg hvilke hendelser du vil bli varslet om. Fjerning av avkryssing vil hindre at du får varsling om en hendelsestype.</message>
+	<message key="notification.subscribe">Abonner</message>
+	<message key="notification.subscribeError">Din e-postadresse mottar allerede varslinger.</message>
+	<message key="notification.subscribeSuccess">En e-post har blitt sendt til den e-postadressen du oppga. Klikk på bekreftelseslenken i e-posten for å bli lagt til på e-postlisten.</message>
+	<message key="notification.reminderError">Det oppstod en feil ved utsendelsen av passord, vennligst forsikre deg om at du har lagt inn e-postadressen din korrekt.</message>
+	<message key="notification.reminderSent">Ditt nye passord har blitt sendt til den e-postadressen du oppgav.</message>
+	<message key="notification.unsubscribe">Avslutt abonnement</message>
+	<message key="notification.unsubscribeDescription">Oppgi din e-postadresse og passord nedenfor for å avslutte abonnement på e-postvarslinger. Om du ikke husker passordet ditt, la det være tomt i feltet og du vil få tilsendt et nytt passord på den oppgitt e-postadressen.</message>
+	<message key="notification.unsubscribeError">Det oppstod en feil ved avslutningen av ditt abonnement. Sjekk at din e-postadresse og passord er korrekt angitt.</message>
+	<message key="notification.unsubscribeSuccess">Avslutning av ditt abonnement var vellykket.</message>
 </locale>

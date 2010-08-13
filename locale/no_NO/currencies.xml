@@ -9,7 +9,7 @@
   *
   * Currencies data XML file. Based on ISO 4217.
   *
-  * $Id$
+  * $Id: currencies.xml,v 1.6 2009/10/07 21:13:20 asmecher Exp $
   -->
 
 <currencies locale="no_NO">
@@ -53,16 +53,16 @@
 	<currency name="Cape Verde escudo" code_alpha="CVE" code_numeric="132" />
 	<currency name="Tsjekkisk Koruna" code_alpha="CZK" code_numeric="203" />
 	<currency name="Djibouti franc" code_alpha="DJF" code_numeric="262" />
-	<currency name="Dansk Krone" code_alpha="DKK" code_numeric="208" />
+	<currency name="Dansk krone" code_alpha="DKK" code_numeric="208" />
 	<currency name="Dominican peso" code_alpha="DOP" code_numeric="214" />
 	<currency name="Algerian dinar" code_alpha="DZD" code_numeric="012" />
 	<currency name="Kroon" code_alpha="EEK" code_numeric="233" />
-	<currency name="Egyptisk Pund" code_alpha="EGP" code_numeric="818" />
+	<currency name="Egyptisk pund" code_alpha="EGP" code_numeric="818" />
 	<currency name="Nakfa" code_alpha="ERN" code_numeric="232" />
 	<currency name="Ethiopian birr" code_alpha="ETB" code_numeric="230" />
 	<currency name="Fiji dollar" code_alpha="FJD" code_numeric="242" />
 	<currency name="Falkland Islands pound" code_alpha="FKP" code_numeric="238" />
-	<currency name="Britisk Pund" code_alpha="GBP" code_numeric="826" />
+	<currency name="Britisk pund" code_alpha="GBP" code_numeric="826" />
 	<currency name="Lari" code_alpha="GEL" code_numeric="981" />
 	<currency name="Cedi" code_alpha="GHS" code_numeric="936" />
 	<currency name="Gibraltar pound" code_alpha="GIP" code_numeric="292" />
@@ -80,7 +80,7 @@
 	<currency name="Indian rupee" code_alpha="INR" code_numeric="356" />
 	<currency name="Iraqi dinar" code_alpha="IQD" code_numeric="368" />
 	<currency name="Iranian rial" code_alpha="IRR" code_numeric="364" />
-	<currency name="Islandsk Krone" code_alpha="ISK" code_numeric="352" />
+	<currency name="Islandsk krone" code_alpha="ISK" code_numeric="352" />
 	<currency name="Jamaican dollar" code_alpha="JMD" code_numeric="388" />
 	<currency name="Jordanian dinar" code_alpha="JOD" code_numeric="400" />
 	<currency name="Japansk Yen" code_alpha="JPY" code_numeric="392" />
@@ -138,7 +138,7 @@
 	<currency name="Solomon Islands dollar" code_alpha="SBD" code_numeric="090" />
 	<currency name="Seychelles rupee" code_alpha="SCR" code_numeric="690" />
 	<currency name="Sudanese pound" code_alpha="SDG" code_numeric="938" />
-	<currency name="Svensk Krone" code_alpha="SEK" code_numeric="752" />
+	<currency name="Svensk krone" code_alpha="SEK" code_numeric="752" />
 	<currency name="Singapore dollar" code_alpha="SGD" code_numeric="702" />
 	<currency name="Saint Helena pound" code_alpha="SHP" code_numeric="654" />
 	<currency name="Slovak koruna" code_alpha="SKK" code_numeric="703" />

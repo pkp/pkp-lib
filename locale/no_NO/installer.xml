@@ -9,7 +9,7 @@
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: installer.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">
@@ -19,24 +19,24 @@
 	<message key="installer.checkNo"><![CDATA[<span class="formError">NEI</span>]]></message>
 	<message key="installer.checkYes">Ja</message>
 	<message key="installer.clientCharset">Tegnsett for klienten</message>
-	<message key="installer.clientCharsetInstructions">Encoding som skal brukes for data som blir sendt til og mottatt fra nettlesere.</message>
-	<message key="installer.configFileError"><![CDATA[The configuration file <tt>config.inc.php</tt> finnes ikke eller er ikke lesbar.]]></message>
-	<message key="installer.connectionCharset">Connection tegnsett</message>
-	<message key="installer.connectionCharsetInstructions">Encoding som skal brukes for data som blir sendt til og mottatt fra databasen. Denne bør den samme som client character sett. Merk at denne evnen bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.</message>
+	<message key="installer.clientCharsetInstructions">Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere.</message>
+	<message key="installer.configFileError"><![CDATA[Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke eller er ikke lesbar.]]></message>
+	<message key="installer.connectionCharset">Tegnsett for databasekoblingen</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[Tegnkoding som skal brukes for data som blir sendt til og mottatt fra databasen. Denne bør være den samme som client character sett. Merk at denne muligheten bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.]]></message>
 	<message key="installer.contentsOfConfigFile">Innholdet i konfigurasjonsfilen</message>
 	<message key="installer.createDatabase">Opprett ny database</message>
-	<message key="installer.createDatabaseInstructions">For å bruke denne valgmuligheten ditt database system må støtte remote database creation og din brukerkonto må have the appropriate permissions to create nye databases. Hvis installasjon fails med denne valgmuligheten valgt, manuelt create the database on din server og run the installer igjen med denne valgmuligheten slått av.</message>
-	<message key="installer.databaseCharset">Database tegnsett</message>
-	<message key="installer.databaseCharsetInstructions">Encoding som skal brukes for data som lagres i databasen. Merk at denne evnen bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.</message>
+	<message key="installer.createDatabaseInstructions">For å bruke denne valgmuligheten må ditt databasesystem støtte kreering av databaser  og din brukerkonto må ha de nødvendige rettigheter til å skape nye databaser. Hvis installasjon feiler med denne valgmuligheten valgt, skap databasen manuelt på din server og kjør installasjonsprogrammet igjen med denne valgmuligheten slått av.</message>
+	<message key="installer.databaseCharset">Databasetegnsett</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Tegnkoding som skal brukes for data som lagres i databasen. Merk at denne evnen bare er støttet med MySQL >= 4.1.1 eller PostgreSQL >= 7.1. Velg 'Ikke tilgjengelig' hvis databaseserveren din ikke oppfyller disse kravene.]]></message>
 	<message key="installer.databaseDriver">Databasedriver</message>
-	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Database drivers oppført in brackets ikke appear to have the påkrevet PHP extension loaded og installasjon kommer til å likely fail hvis valgt.</strong><br />Any unsupported database drivers oppført above er oppført solely for academic purposes og er unlikely to work.]]></message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Databasedrivere oppført in hakeparenteser ser ikke ut til å ha den påkrevete PHP-utvidelsen lastet og installasjonen kommer trolig til å feile hvis de velges.</strong><br />Ikke-supporterte databasedrivere oppført over er oppført kun for informasjonsformål og vil trolig ikke fungere.]]></message>
 	<message key="installer.databaseHost">Vert</message>
-	<message key="installer.databaseHostInstructions">La hostname stå tomt for å opprette forbindelsen gjennom domene sockets i stedet for over TCP/IP. Dette er ikke nødvendig med MySQL, som kommer til å bruke sockets automatisk hvis "localhost" er skrevet inn, men er påkrevet med enkelte andre database servere som for eksempel PostgreSQL.</message>
-	<message key="installer.databaseName">Database navn</message>
+	<message key="installer.databaseHostInstructions">La vertsnaven stå tomt for å opprette forbindelsen gjennom "domene sockets" i stedet for over TCP/IP. Dette er ikke nødvendig med MySQL, som kommer til å bruke "sockets" automatisk hvis "localhost" er skrevet inn, men er påkrevet med enkelte andre databaseservere som for eksempel PostgreSQL.</message>
+	<message key="installer.databaseName">Databasenavn</message>
 	<message key="installer.databasePassword">Passord</message>
 	<message key="installer.databaseSettings">Databaseinnstillinger</message>
 	<message key="installer.databaseUsername">Brukernavn</message>
-	<message key="installer.encryptionInstructions">SHA1 anbefales hvis systemet ditt støtter det (krever PHP >= 4.3.0).</message>
+	<message key="installer.encryptionInstructions"><![CDATA[SHA1 anbefales hvis systemet ditt støtter det (krever PHP >= 4.3.0).]]></message>
 	<message key="installer.encryption">Krypteringsalgoritme for passord</message>
 	<message key="installer.filesDir">Mappe for opplastete filer</message>
 	<message key="installer.fileSettings">Filinnstillinger</message>
@@ -48,25 +48,27 @@
 	<message key="installer.form.filesDirRequired">En mappe for lagring av opplastete filer er påkrevet.</message>
 	<message key="installer.form.localeRequired">En lokalinnstilling må være valgt.</message>
 	<message key="installer.form.passwordRequired">Et passord for administratorkontoen er påkrevet.</message>
-	<message key="installer.form.passwordsDoNotMatch">Administrator passordene er ikke like.</message>
+	<message key="installer.form.passwordsDoNotMatch">Administratorpassordene er ikke like.</message>
 	<message key="installer.form.separateMultiple">Skill multiple verdier med komma</message>
-	<message key="installer.form.usernameAlphaNumeric">Administrator brukernavnet kan bare inneholde alfanumeriske tegn, understrek og bindestrek, og må begynne og slutte med et alfanumerisk tegn.</message>
+	<message key="installer.form.usernameAlphaNumeric">Administrator-brukernavnet kan bare inneholde alfanumeriske tegn, understrek og bindestrek, og må begynne og slutte med et alfanumerisk tegn.</message>
 	<message key="installer.form.usernameRequired">Et brukernavn for administratorkontoen er påkrevet.</message>
 	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>ADVARSEL: din nåværende PHP-versjon tilfredsstiller ikke minstekravene for installasjonen. Du bør oppgradere til en nyere utgave av PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Det oppsto feil under installasjon</message>
-	<message key="installer.installerSQLStatements">SQL statements for installasjon</message>
-	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er ikke lesbar.]]></message>
+	<message key="installer.installerSQLStatements">SQL -setninger for installasjon</message>
+	<message key="installer.installFileError"><![CDATA[Installasjonsfilen <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er ikke lesbar.]]></message>
 	<message key="installer.installFilesDirError">Mappen du spesifiserte for opplastete filer finnes ikke eller er ikke overskrivbar.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseDBFileError"><![CDATA[Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalinnstilling</message>
 	<message key="installer.localeSettings">Lokalinnstillinger</message>
 	<message key="installer.manualInstall">Manuell installering</message>
 	<message key="installer.manualUpgrade">Manuell oppgradering</message>
 	<message key="installer.miscSettings">Diverse innstillinger</message>
-	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A Unik identifikator brukt for å identifisere metadata records indeksert from this site using the <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
-	<message key="installer.oaiRepositoryId">OAI repository identifikator</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator brukt for å identifisere metadatafiler indeksert fra dette nettstedet ved bruk av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryId">OAI-arkividentifikator</message>
 	<message key="installer.publicFilesDirError">Mappen for offentlige filer finnes ikke eller er ikke overskrivbar.</message>
-	<message key="installer.releaseNotes">Release Notater</message>
+	<message key="installer.releaseNotes">Releasenotater</message>
 	<message key="installer.securitySettings">Sikkerhetsinnstillinger</message>
 	<message key="installer.skipFilesDir">Ikke lag påkrevete undermapper (bare til bruk ved manuell installasjon)</message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Feil ved parsing av e-postmalen <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale.maybeIncomplete">Merkede lokaliseringsfiler kan være ukomplette.</message>
 </locale>

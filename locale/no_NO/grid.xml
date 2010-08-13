@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2003-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id: grid.xml,v 1.1 2009/12/24 04:32:29 jalperin Exp $
+  -->
+
+<locale name="en_US" full_name = "English">
+	<!-- Common -->
+	<message key="grid.noItems">Ingen elementer</message>
+
+	<message key="grid.action.sort">Sorter</message>
+	<message key="grid.action.addItem">Legg til element</message>
+	<message key="grid.action.delete">Slett</message>
+	<message key="grid.action.edit">Rediger</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Handlinger</message>
+	<message key="grid.columns.institution">Institusjon</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponsorer</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Grupper</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Bidragsyter</message>
+</locale>

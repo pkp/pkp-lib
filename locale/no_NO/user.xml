@@ -9,21 +9,21 @@
   *
   * Localization strings for the no_NO (Norwegian) locale.
   *
-  * $Id$
+  * $Id: user.xml,v 1.3 2009/08/15 00:13:57 asmecher Exp $
   -->
 
 <locale name="no_NO" full_name = "Norwegian">
 	<message key="user.affiliation">Tilknyttet</message>
 	<message key="user.affiliations">Tilknyttet</message>
 	<message key="user.biography">Biografiske opplysninger</message>
-	<message key="user.biography.description">(For eks. institutt og stilling)</message>
+	<message key="user.biography.description">(F.eks. institutt og stilling)</message>
 	<message key="user.changeMyPassword">Endre passordet mitt</message>
 	<message key="user.changePassword">Endre passord</message>
 	<message key="user.dateLastLogin">Sist innlogget</message>
 	<message key="user.dateRegistered">Registrert dato</message>
-	<message key="user.editMyProfile">Rediger Min profil</message>
+	<message key="user.editMyProfile">Rediger min profil</message>
 	<message key="user.email">E-post</message>
-	<message key="user.fax">Faks</message>
+	<message key="user.fax">Telefaks</message>
 	<message key="user.feminine">K</message>
 	<message key="user.firstName">Fornavn</message>
 	<message key="user.gender">Kjønn</message>
@@ -32,8 +32,8 @@
 	<message key="user.interests">Fagvurderingsinteresse</message>
 	<message key="user.lastName">Etternavn</message>
 	<message key="user.login.accountDisabledWithReason">Kontoen din er slått av av følgende grunn: {$reason}</message>
-	<message key="user.login.accountDisabled">Kontoen din er slått av. Vennligst kontakt administratoren for more informasjon.</message>
-	<message key="user.login.accountNotValidated">E-postadressen din er ikke bekreftet. Vennligst sjekk e-posten du har fått, og følg instruksjonenen der. Hvis du ikke har mottatt noen e-post bør du kontakte dette nettstedets administrator for å få hjelp.</message>
+	<message key="user.login.accountDisabled">Kontoen din er slått av. Vennligst kontakt administratoren for mer informasjon.</message>
+	<message key="user.login.accountNotValidated">E-postadressen din er ikke bekreftet. Vennligst sjekk e-posten du har fått, og følg instruksjonene der. Hvis du ikke har mottatt noen e-post bør du kontakte dette nettstedets administrator for å få hjelp.</message>
 	<message key="user.login.activate">Aktiver konto</message>
 	<message key="user.login.activated">Takk for at du aktiverer kontoen din. Du kan nå logge inn med de samme påloggingsdataene du oppga når du opprettet kontoen.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Du må velge et nytt passord before du kan logge inn på dette nettstedet.<br /><br />Vennligst skriv inn brukernavnet ditt, og det nåværende og det nye passordet ditt nedenfor, for å endre passordet for kontoen din.]]></message>
@@ -44,7 +44,7 @@
 	<message key="user.login.lostPassword.confirmationSent">En bekreftelse er nå sendt til din e-postadresse. Vennligst følg instruksjonene i e-posten for å tilbakestille passordet ditt.</message>
 	<message key="user.login.lostPassword.invalidHash">Beklager, lenken du klikket på har utløpt eller er ugyldig. Vennligst prøv å tilbakestille passordet ditt igjen.</message>
 	<message key="user.login.lostPassword.invalidUser">Det finnes ingen bruker med denne e-postadressen.</message>
-	<message key="user.login.lostPassword.passwordSent">Et nytt passord er nå sendt til din e-postadresse. Du may kan nå logge inn på nettstedet med det nye passordet ditt.</message>
+	<message key="user.login.lostPassword.passwordSent">Et nytt passord er nå sendt til din e-postadresse. Du kan nå logge inn på nettstedet med det nye passordet ditt.</message>
 	<message key="user.login.registeredEmail">Den registrerte brukerens e-post</message>
 	<message key="user.login.rememberUsernameAndPassword">Husk mitt brukernavn og passord</message>
 	<message key="user.login.resetPassword">Tilbakestill passordet</message>
@@ -57,16 +57,16 @@
 	<message key="user.password">Passord</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Skriv inn ditt nåværende og ditt nye passord nedenfor for å endre passordet for kontoen din.</message>
-	<message key="user.profile.editProfile">Rediger Profil</message>
+	<message key="user.profile.editProfile">Rediger profil</message>
 	<message key="user.profile.form.emailRequired">En gyldig e-postadresse er påkrevet.</message>
 	<message key="user.profile.form.firstNameRequired">Et fornavn er påkrevet.</message>
 	<message key="user.profile.form.lastNameRequired">Et etternavn er påkrevet.</message>
 	<message key="user.profile.form.newPasswordRequired">Du må skrive inn det nye passordet ditt.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Det nåværende passordet du skrev inn ukorrekt.</message>
-	<message key="user.profile.form.openAccessNotifications">E-post varsel når ny utgave er gitt Open Access</message>
+	<message key="user.profile.form.openAccessNotifications">E-post varsel når ny utgave er blitt Open Access</message>
 	<message key="user.profile.form.passwordRequired">Et passord er påkrevet.</message>
 	<message key="user.profile.form.profileImage">Profilbilde</message>
-	<message key="user.profile.form.publishedNotifications">E-post varsel når ny utgave er publisert</message>
+	<message key="user.profile.form.publishedNotifications">E-postvarsel når ny utgave er publisert</message>
 	<message key="user.profile.form.urlInvalid">Den oppgitte URLen er ikke gyldig. Vennligst kontroller URLen, og prøv igjen. (Tips: kanskje det hjelper å føye til http:// først i URLen)</message>
 	<message key="user.profile.form.usernameRequired">Et brukernavn er påkrevet.</message>
 	<message key="user.profile.leavePasswordBlank">La passordfeltene stå tomme, hvis du vil beholde nåværende passord.</message>
@@ -76,7 +76,7 @@
 	<message key="user.profile.publicProfile">Brukerprofil</message>
 	<message key="user.profile.repeatNewPassword">Gjenta nytt passord</message>
 	<message key="user.register.completeForm">Fyll ut dette skjemaet for å registrere deg hos tidsskriftet.</message>
-	<message key="user.register.form.emailExists">Den valgte e-postadressen er allerede tatt i bruk av en annen bruker.</message>
+	<message key="user.register.form.emailExists">Den valgte e-postadressen er allerede i bruk av en annen bruker.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Passordene var ulike.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Brukernavnet kan bare inneholde alfanumeriske tegn, understrek og bindestrek, og må begynne og slutte med et alfanumerisk tegn.</message>
 	<message key="user.register.form.usernameExists">Det valgte brukernavnet er allerede tatt i bruk av en annen bruker.</message>
@@ -100,4 +100,6 @@
 	<message key="user.userHome">Min side</message>
 	<message key="user.username">Brukernavn</message>
 	<message key="user.workingLanguages">Arbeidsspråk</message>
+	<message key="user.profile.form.profileImageInvalid">Ugyldig profilbildeformat eller et for stort bilde. Mulige formater er .gif, .jpg, eller .png, og bildet kan ikke være større enn 150x150 pixler.</message>
+	<message key="user.other">Annet</message>
 </locale>

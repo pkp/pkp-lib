@@ -24,6 +24,10 @@ div {
 	text-align: left;
 }
 
+p {
+	margin: 1em 0; /* Making default stylesheet explicit - fixes IE7 margin collapsing. */
+}
+
 table {
 	border: 0;
 	border-spacing: 0;

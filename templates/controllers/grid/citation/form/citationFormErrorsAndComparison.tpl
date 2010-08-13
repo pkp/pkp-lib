@@ -178,7 +178,10 @@
 			{/if}
 		</div>
 		<div class="value">
+			{* Hack to fix textarea sizing bug in IE7 - only required when editing existing citation. *}
+			{if $citation->getId()}<!--[if lt IE 8]><div><![endif]-->{/if}
 			<textarea class="textarea" validation="required" id="rawCitation" name="rawCitation" rows="5">{$rawCitation}</textarea>
+			{if $citation->getId()}<!--[if lt IE 8]></div><![endif]-->{/if}
 		</div>
 		{if $citation->getId()}
 			<div id="rawCitationEditingExpertOptions">

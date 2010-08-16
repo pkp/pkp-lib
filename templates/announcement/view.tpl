@@ -1,3 +1,5 @@
+<!-- templates/announcement/view.tpl -->
+
 {**
  * view.tpl
  *
@@ -20,3 +22,6 @@
 </table>
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/announcement/view.tpl -->
+

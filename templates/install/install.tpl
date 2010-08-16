@@ -1,3 +1,5 @@
+<!-- templates/install/install.tpl -->
+
 {**
  * install.tpl
  *
@@ -266,3 +268,6 @@ function doSubmit() {
 </form>
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/install/install.tpl -->
+

@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/citation/form/citationFilterOptionBlock.tpl -->
+
 {**
  * citationFilterOptionBlock.tpl
  *
@@ -29,3 +31,5 @@
 	</div>
 	<div class="clear"></div>
 </div>
+<!-- / templates/controllers/grid/citation/form/citationFilterOptionBlock.tpl -->
+

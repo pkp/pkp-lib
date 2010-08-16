@@ -1,3 +1,5 @@
+<!-- templates/common/message.tpl -->
+
 {**
  * message.tpl
  *
@@ -21,3 +23,6 @@
 {/if}
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/common/message.tpl -->
+

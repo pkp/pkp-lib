@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/filter/form/filterForm.tpl -->
+
 {**
  * filterForm.tpl
  *
@@ -92,3 +94,6 @@
 		</form>
 	{/if}
 </div>
+
+<!-- / templates/controllers/grid/filter/form/filterForm.tpl -->
+

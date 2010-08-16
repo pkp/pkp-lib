@@ -1,3 +1,5 @@
+<!-- templates/manager/announcement/announcementTypes.tpl -->
+
 {**
  * announcementTypes.tpl
  *
@@ -61,3 +63,6 @@
 </div>
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/manager/announcement/announcementTypes.tpl -->
+

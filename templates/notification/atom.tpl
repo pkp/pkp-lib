@@ -1,3 +1,5 @@
+<!-- templates/notification/atom.tpl -->
+
 {**
  * atom.tpl
  *
@@ -40,4 +42,7 @@
 {/foreach}
 </feed>
 
+
+
+<!-- / templates/notification/atom.tpl -->
 

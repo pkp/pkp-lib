@@ -1,3 +1,5 @@
+<!-- templates/notification/rss2.tpl -->
+
 {**
  * rss2.tpl
  *
@@ -43,3 +45,6 @@
 		{/foreach}
 	</channel>
 </rss>
+
+<!-- / templates/notification/rss2.tpl -->
+

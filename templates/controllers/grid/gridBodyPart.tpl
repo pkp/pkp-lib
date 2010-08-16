@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/gridBodyPart.tpl -->
+
 {**
  * gridBodyPart.tpl
  *
@@ -11,3 +13,6 @@
 		{$row}
 	{/foreach}	
 </tbody>
+
+<!-- / templates/controllers/grid/gridBodyPart.tpl -->
+

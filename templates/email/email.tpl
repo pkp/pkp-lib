@@ -1,3 +1,5 @@
+<!-- templates/email/email.tpl -->
+
 {**
  * email.tpl
  *
@@ -161,3 +163,6 @@ function deleteAttachment(fileId) {
 </form>
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/email/email.tpl -->
+

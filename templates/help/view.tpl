@@ -1,3 +1,5 @@
+<!-- templates/help/view.tpl -->
+
 {**
  * view.tpl
  *
@@ -44,3 +46,6 @@
 </div>
 
 {include file="help/footer.tpl"}
+
+<!-- / templates/help/view.tpl -->
+

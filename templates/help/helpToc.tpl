@@ -1,3 +1,5 @@
+<!-- templates/help/helpToc.tpl -->
+
 {**
  * helpToc.tpl
  *
@@ -48,3 +50,6 @@
 </div>
 
 {include file="help/footer.tpl"}
+
+<!-- / templates/help/helpToc.tpl -->
+

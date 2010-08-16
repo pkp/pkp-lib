@@ -1,3 +1,5 @@
+<!-- templates/form/fileInput.tpl -->
+
 {**
  * radioButton.tpl
  *
@@ -15,3 +17,6 @@
 	</div>
 </div>
 {if $FBV_submit}<input type="submit" name="{$FBV_submit}" value="{translate key="common.upload"}" class="button uploadFile"{if $FBV_disabled} disabled="disabled"{/if} />{/if}
+
+<!-- / templates/form/fileInput.tpl -->
+

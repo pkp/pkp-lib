@@ -1,3 +1,5 @@
+<!-- templates/notification/rss.tpl -->
+
 {**
  * rss.tpl
  *
@@ -51,3 +53,6 @@
 	{/foreach}
 
 </rdf:RDF>
+
+<!-- / templates/notification/rss.tpl -->
+

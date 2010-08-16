@@ -1,3 +1,5 @@
+<!-- templates/help/header.tpl -->
+
 {**
  * header.tpl
  *
@@ -41,3 +43,6 @@ if (self.blur) { self.focus(); }
 <div id="container">
 <div id="body">
 <div id="top"></div>
+
+<!-- / templates/help/header.tpl -->
+

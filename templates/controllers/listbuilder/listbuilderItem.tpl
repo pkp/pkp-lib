@@ -1,3 +1,5 @@
+<!-- templates/controllers/listbuilder/listbuilderItem.tpl -->
+
 {**
  * listbuilderItem.tpl
  *
@@ -8,3 +10,6 @@
  *}
 
 <option value='{$itemId}'>{$itemName}{if $attributeNames} ({$attributeNames}){/if}</option>
+
+<!-- / templates/controllers/listbuilder/listbuilderItem.tpl -->
+

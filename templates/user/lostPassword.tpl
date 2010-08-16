@@ -1,3 +1,5 @@
+<!-- templates/user/lostPassword.tpl -->
+
 {**
  * lostPassword.tpl
  *
@@ -44,3 +46,6 @@
 </form>
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/user/lostPassword.tpl -->
+

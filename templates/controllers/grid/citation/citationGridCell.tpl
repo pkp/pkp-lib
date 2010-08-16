@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/citation/citationGridCell.tpl -->
+
 {**
  * citationGridCell.tpl
  *
@@ -35,3 +37,6 @@
 		{rdelim});
 	</script>
 </span>
+
+<!-- / templates/controllers/grid/citation/citationGridCell.tpl -->
+

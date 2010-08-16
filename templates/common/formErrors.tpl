@@ -1,3 +1,5 @@
+<!-- templates/common/formErrors.tpl -->
+
 {**
  * formErrors.tpl
  *
@@ -25,3 +27,6 @@
 		// -->
 	{/literal}</script>
 {/if}
+
+<!-- / templates/common/formErrors.tpl -->
+

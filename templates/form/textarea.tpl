@@ -1,3 +1,5 @@
+<!-- templates/form/textarea.tpl -->
+
 {**
  * textArea.tpl
  *
@@ -8,3 +10,6 @@
  *}
 
 <textarea {$FBV_textAreaParams} class="field textarea {$FBV_class} {if $FBV_sizeInfo}{$FBV_sizeInfo}{/if}{if $FBV_validation} {$FBV_validation|escape}{/if}"{if $FBV_disabled} disabled="disabled"{/if}>{$FBV_value|escape}</textArea>
+
+<!-- / templates/form/textarea.tpl -->
+

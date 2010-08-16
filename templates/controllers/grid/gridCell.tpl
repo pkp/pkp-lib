@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/gridCell.tpl -->
+
 {**
  * gridCell.tpl
  *
@@ -15,3 +17,6 @@
 		{$label|escape}
 	{/if}
 </span>
+
+<!-- / templates/controllers/grid/gridCell.tpl -->
+

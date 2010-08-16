@@ -1,3 +1,5 @@
+<!-- templates/controllers/grid/citation/form/citationInputField.tpl -->
+
 {**
  * citationInputField.tpl
  *
@@ -36,3 +38,5 @@
 			name="{if $fieldName == 'new'}new-field{else}{$fieldName}{/if}" title="{translate|escape key="submission.citations.editor.clickToEdit"}" />
 	</td>
 </tr>
+<!-- / templates/controllers/grid/citation/form/citationInputField.tpl -->
+

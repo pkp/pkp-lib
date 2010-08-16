@@ -1,3 +1,5 @@
+<!-- templates/install/upgradeComplete.tpl -->
+
 {**
  * upgradeComplete.tpl
  *
@@ -38,3 +40,6 @@
 {/if}
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/install/upgradeComplete.tpl -->
+

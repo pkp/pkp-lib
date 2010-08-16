@@ -1,3 +1,5 @@
+<!-- templates/common/error.tpl -->
+
 {**
  * error.tpl
  *
@@ -20,3 +22,6 @@
 {/if}
 
 {include file="common/footer.tpl"}
+
+<!-- / templates/common/error.tpl -->
+

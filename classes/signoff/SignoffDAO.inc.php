@@ -227,8 +227,7 @@ class SignoffDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve an array of signoffs matching the specified
-	 * symbolic name and assoc info.
+	 * Retrieve the first signoff matching the specified symbolic name and assoc info.
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
@@ -259,6 +258,38 @@ class SignoffDAO extends DAO {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
+		return $returner;
+	}
+
+	/**
+	 * Retrieve all signoffs matching the specified input parameters
+	 * @param $symbolic string
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return object
+	 */
+	function getAllBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
+		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
+		$params = array($symbolic, (int) $assocType, (int) $assocId);
+
+		if ($userId) {
+			$sql .= ' AND user_id = ?';
+			$params[] = (int) $userId;
+		}
+
+		if ($stageId) {
+			$sql .= ' AND stage_id = ?';
+			$params[] = (int) $stageId;
+		}
+
+		if ($userGroupId) {
+			$sql .= ' AND user_group_id = ?';
+			$params[] = (int) $userGroupId;
+		}
+
+		$result =& $this->retrieve($sql, $params);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;
 	}
 

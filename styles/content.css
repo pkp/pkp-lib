@@ -387,7 +387,7 @@ div.grid thead tr {
 	height: 30px; /* Must be set for tr rather than th for Chromium. */
 	padding: 4px 0;
 }
-		
+
 div.grid thead th {
 	padding: 0 4px; /* Padding top/bottom must be 0 for IE7 compatibility. */
 	vertical-align: middle;
@@ -955,7 +955,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .modalTitleBar .fileManagement {
-	background: #daf0da url(../templates/images/structure/response_warning.png) no-repeat;
+	background: url(../templates/images/structure/response_warning.png) no-repeat;
 	width: 32px;
 	height: 32px;
 }
@@ -964,7 +964,7 @@ ul.tagit li:after, ul.tagit li div:after {
 
 /* @group Review round status indicator */
 
-.roundStatusContainer {
+.statusContainer {
 	height: 40px;
 	margin: 11px;
 	border: 2px solid black;
@@ -1002,3 +1002,108 @@ ul.tagit li:after, ul.tagit li div:after {
 /* @end */
 
 
+/* @group Review round status indicator */
+
+.statusContainer {
+	height: 40px;
+	margin: 11px;
+	border: 2px solid black;
+	background-color: #FFFFDD;
+}
+
+/* @end */
+
+/* @group Submission header */
+
+.submissionHeader {
+	width: 95%;
+	margin: 5px 10px 15px 10px;
+}
+
+.submissionHeader .icon {
+	float: left;
+}
+
+.submissionHeader .headerTop .heading {
+	font-size: 1.7em;
+	color: #20538D;
+	vertical-align: middle;
+	float: left;
+}
+
+.submissionHeader .headerTop .action{
+	padding-top:  7px;
+	float: right;
+	margin-left: 25px;
+}
+
+.submissionHeader .headerTop .action a {
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.submissionHeader .headerTimeline {
+	font-size: .9em;
+	vertical-align: middle;
+	float: left;
+}
+
+.submissionHeader .headerTimeline .pastStep {
+	font-weight: bold;
+}
+
+.submissionHeader .headerTimeline .futureStep {
+	color: #808080;
+}
+
+.submissionHeader .headerBottom {
+	margin-top: 10px;
+}
+
+.submissionHeader .headerBottom .userInfo {
+	width: 51%;
+	height: 100px;
+	padding-right: 10px;
+	float:left;
+}
+
+.submissionHeader .headerBottom .userInfo .statusContainer {
+	margin-left: 0px;
+}
+
+.submissionHeader .headerBottom .userInfo .icon {
+	background: url(../templates/images/structure/response_warning.png) no-repeat;
+	margin:5px;
+	width: 32px;
+	height: 32px;
+	float:left;
+}
+
+.submissionHeader .headerBottom .userInfo .alert {
+	float:left;
+	font-size: 1.2em;
+	color: orange;
+	margin-top: 15px;
+}
+.submissionHeader .headerBottom .userInfo .stageMetadata {
+	float:left;
+}
+
+.submissionHeader .headerBottom .stageParticipants {
+	width: 45%;
+	padding-left: 10px;
+	float:left;
+}
+
+.submissionHeader .headerBottom .stageParticipants .wrapper {
+	background-color: inherit;
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.submissionHeader .headerBottom .stageParticipants h3 {
+	font-size: 1.2em;
+}
+
+/* @end */

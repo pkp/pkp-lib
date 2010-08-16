@@ -145,7 +145,7 @@ class DAO {
 	 * Execute a SELECT SQL statment, returning rows in the range supplied.
 	 * @param $sql string the SQL statement
 	 * @param $params array parameters for the SQL statement
-	 * @param $dbResultRange object the DBResultRange object describing the desired range
+	 * @param $dbResultRange DBResultRange object describing the desired range
 	 */
 	function &retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {

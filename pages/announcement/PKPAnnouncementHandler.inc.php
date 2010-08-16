@@ -71,7 +71,7 @@ class PKPAnnouncementHandler extends Handler {
 				Request::redirect(null, null, 'announcement');
 			}
 		} else {
-				Request::redirect(null, null, 'announcement');
+			Request::redirect(null, null, 'announcement');
 		}
 	}
 
@@ -87,21 +87,42 @@ class PKPAnnouncementHandler extends Handler {
 		$templateMgr->assign('pageHierachy', array(array(Request::url(null, null, 'announcements'), 'announcement.announcements')));
 	}
 
+	/**
+	 * Returns true when announcements are enabled
+	 * in the context, otherwise false.
+	 * @return boolean
+	 */
 	function _getAnnouncementsEnabled() {
 		// must be implemented by sub-classes
 		assert(false);
 	}
 
+	/**
+	 * Returns a list of (non-expired) announcements
+	 * for this context.
+	 * @param $rangeInfo DBResultRange
+	 * @return DAOResultFactory
+	 */
 	function &_getAnnouncements($rangeInfo = null) {
 		// must be implemented by sub-classes
 		assert(false);
 	}
 
+	/**
+	 * Returns an introductory text to be displayed
+	 * with the announcements.
+	 * @return string
+	 */
 	function _getAnnouncementsIntroduction() {
 		// must be implemented by sub-classes
 		assert(false);
 	}
 
+	/**
+	 * Checks whether the given announcement is
+	 * valid for display.
+	 * @param $announcementId integer
+	 */
 	function _announcementIsValid($announcementId) {
 		// must be implemented by sub-classes
 		assert(false);

@@ -15,7 +15,6 @@
  * @see AnnouncementDAO, PKPAnnouncementDAO
  *
  * @brief Basic class describing a announcement.
- *
  */
 
 define('ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE',	'+10');

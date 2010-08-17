@@ -94,32 +94,61 @@
 			return false;
 		{rdelim});
 
-		// Open a confirmation dialog when the user
-		// clicks the "process raw citation" button.
-		$('#processRawCitation')
-			// modalConfirm() doesn't remove prior events
-			// so we do it ourselves.
-			.die('click')
-			// Activate a throbber when the button is clicked.
-			.click(function() {ldelim}
-				// Throbber for raw citation processing.
-				actionThrobber('#{$containerId}');
-			{rdelim});
+		{if $rawCitationEditingWarningHide}
+			// Process the citation without asking the user.
+			actionThrobber('#{$containerId}');
+			ajaxAction(
+				'post',
+				'#{$containerId}',
+				'#processRawCitation',
+				'{url op="updateRawCitation"}',
+				null,
+				'click',
+				'#editCitationForm'
+			);			
+		{else}
+			// Open a confirmation dialog when the user
+			// clicks the "process raw citation" button.
+			$('#processRawCitation')
+				// modalConfirm() doesn't remove prior events
+				// so we do it ourselves.
+				.die('click')
+				// Activate a throbber when the button is clicked.
+				.click(function() {ldelim}
+					// Throbber for raw citation processing.
+					actionThrobber('#{$containerId}');
+				{rdelim});
+	
+			// Configure the dialog.
+			var warningContent =
+				'{translate key="submission.citations.editor.details.processRawCitationWarning"}<br /><br />' +
+				'<input id="rawCitationEditingWarningHide" type="checkbox" />{translate|escape:javascript key="submission.citations.editor.details.dontShowMessageAgain"}';
+			modalConfirm(
+				'{url op="updateRawCitation"}',
+				'replace',
+				'#{$containerId}',
+				warningContent,
+				[
+					'{translate key="submission.citations.editor.details.processRawCitationGoAhead"}',
+					'{translate key="common.cancel"}'
+				],
+				'#processRawCitation',
+				'{translate key="submission.citations.editor.details.processRawCitationTitle"}',
+				true
+			);
 
-		// Configure the dialog.
-		modalConfirm(
-			'{url op="updateRawCitation"}',
-			'replace',
-			'#{$containerId}',
-			'{translate key="submission.citations.editor.details.processRawCitationWarning"}',
-			[
-				'{translate key="submission.citations.editor.details.processRawCitationGoAhead"}',
-				'{translate key="common.cancel"}'
-			],
-			'#processRawCitation',
-			'{translate key="submission.citations.editor.details.processRawCitationTitle"}',
-			true
-		);
+			// Feature to disable raw citation editing warning.
+			$('#rawCitationEditingWarningHide').die('click').live('click', function() {ldelim}
+				$.getJSON(
+					'{url router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="setUserSetting"}?setting-name=citation-editor-hide-raw-editing-warning&setting-value='+($(this).attr('checked')===true ? 'true' : 'false'),
+					function(jsonData) {ldelim}
+						if (jsonData.status !== true) {ldelim}
+							alert(jsonData.content);
+						{rdelim}
+					{rdelim}
+				);
+			{rdelim});
+		{/if}
 
 		//
 		// Handle field level data changes.

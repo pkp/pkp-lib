@@ -150,7 +150,8 @@ class UserApiHandler extends PKPHandler {
 	function _settingType($settingName) {
 		// Settings whitelist.
 		static $allowedSettings = array(
-			'citation-editor-hide-intro' => 'bool'
+			'citation-editor-hide-intro' => 'bool',
+			'citation-editor-hide-raw-editing-warning' => 'bool'
 		);
 
 		// Identify the setting type.

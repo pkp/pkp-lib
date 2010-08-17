@@ -94,19 +94,19 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
  * @param actOnId String The ID on which to perform the action on callback
  * @param dialogText String Text to display in the dialog
  * @param localizedButtons Array of translated 'Cancel/submit' strings
- * @param callingButton String Selector of the button that opens the modal
+ * @param callingElement String Selector of the element (e.g. a button) that opens the modal
  * @param title String
  * @param isForm Boolean whether to interpret the actOnId as a form container and
  *  submit it as a form.
  */
-function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingButton, title, isForm) {
+function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingElement, title, isForm) {
 	$(function() {
 		if (!title) {
 			// Try to retrieve title from calling button's text.
-			title = $(callingButton).text();
+			title = $(callingElement).text();
 			if (title === '') {
 				// Try to retrieve title from calling button's title attribute.
-				title = $(callingButton).attr('title');
+				title = $(callingElement).attr('title');
 			}
 		}
 		var okButton = localizedButtons[0];
@@ -143,7 +143,7 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 							}
 						} else {
 							// Alert that the action failed
-							confirm(null, null, null, returnString.content, localizedButtons, callingButton);
+							confirm(null, null, null, returnString.content, localizedButtons, callingElement);
 						}
 					}, 'json');
 				}
@@ -165,7 +165,7 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 		});
 
 		// Tell the calling button to open this modal on click
-		$(callingButton).live("click", function() {
+		$(callingElement).live("click", function() {
 			$dialog.dialog('open');
 			return false;
 		});

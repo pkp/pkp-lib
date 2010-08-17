@@ -307,6 +307,7 @@ class CitationForm extends Form {
 	 * @return string the rendered form
 	 */
 	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
+		$user =& $request->getUser();
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		$citation =& $this->getCitation();
@@ -325,12 +326,10 @@ class CitationForm extends Form {
 		// Does the form contain unsaved changes?
 		$templateMgr->assign('unsavedChanges', $this->getUnsavedChanges());
 
-		//
-		// 2) Citation output preview
-		//
-		// Don't prepare a citation output preview if we're
-		// adding a new citation.
 		if ($citation->getId()) {
+			//
+			// 2) Citation output preview
+			//
 			// Either the initData() or validate() method should have prepared
 			// a meta-data representation of the citation.
 			// NB: Our template and output filters currently only handle
@@ -353,18 +352,22 @@ class CitationForm extends Form {
 			$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
 			$templateMgr->assign('citationDiff', $citationDiff);
 			$templateMgr->assign('currentOutputFilter', $this->_citationOutputFilter->getDisplayName());
+
+			//
+			// 3) Raw citation editing
+			//
+			// Retrieve all available citation filters
+			$citationDao =& DAORegistry::getDAO('CitationDAO');
+			$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), true, false, array(), true);
+			$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
+			$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), false, true, array(), true);
+			$templateMgr->assign_by_ref('availableLookupFilters', $availableLookupFilters);
+
+			// Did the user disable the raw citation editing warning?
+			$userSettingsDao =& DAORegistry::getDAO('UserSettingsDAO');
+			$rawCitationEditingWarningHide = (boolean)$userSettingsDao->getSetting($user->getId(), 'citation-editor-hide-raw-editing-warning');
+			$templateMgr->assign('rawCitationEditingWarningHide', $rawCitationEditingWarningHide);
 		}
-
-		//
-		// 3) Raw citation editing
-		//
-		// Retrieve all available citation filters
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
-		$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), true, false, array(), true);
-		$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
-		$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), false, true, array(), true);
-		$templateMgr->assign_by_ref('availableLookupFilters', $availableLookupFilters);
-
 
 		if ($template == CITATION_FORM_FULL_TEMPLATE) {
 			/////////////////////////////////////////////////////

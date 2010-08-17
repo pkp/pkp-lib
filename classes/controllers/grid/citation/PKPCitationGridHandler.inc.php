@@ -501,7 +501,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$mail->setSubject(strip_tags($request->getUserVar('authorQuerySubject')));
 		$mail->setBody(strip_tags($request->getUserVar('authorQueryBody')));
 
-		//$mail->send();
+		$mail->send();
 
 		// In principle we should use a template here but this seems exaggerated
 		// for such a small message.

@@ -124,7 +124,7 @@ function selectRow(listbuilderGridId) {
 
 /**
  * getAutocompleteSource
- * Load either an array of data for a local autocomplete interface, or a URL for a server-based autcomplete
+ * Load either an array of data for a local autocomplete interface, or a URL for a server-based autocomplete
  * @param $handler URL handle the routine
  * @param $listbuilderId DOM id to the listbuilder being used
  */
@@ -155,7 +155,8 @@ function getAutocompleteSource(handler, id) {
 						return false;
 					}
 				});
-			});
+			}
+		);
 	});
 }
 

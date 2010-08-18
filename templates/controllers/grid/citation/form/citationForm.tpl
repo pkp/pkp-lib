@@ -55,6 +55,62 @@
 				$(this).data('original-value', $(this).val());
 			{rdelim});
 
+			// Autocomplete feature.
+			/**
+			 * Add autocomplete to the given field.
+			 * @param fieldName string
+			 */
+			var addAutocomplete = function(fieldName) {ldelim}
+				// Set up local options database.
+				var autocompleteOptions = {ldelim}{strip}
+					{foreach from=$availableFields key=fieldName item=field}
+						{if $field.options}
+							'{$fieldName}': [
+								{foreach name=options from=$field.options item=option}
+									'{$option|escape:javascript}'{if !$smarty.foreach.options.last},{/if}
+								{/foreach}
+							],
+						{/if}
+					{/foreach}
+				{/strip}{rdelim};
+
+				// jQuerify the field.
+				$citationField = $('.citation-field[name="' + fieldName + '"]');
+				
+				// Remove any previous autocomplete that may currently
+				// be attached to the given field.
+				$citationField.autocomplete('destroy');
+				
+				// If the given field has options then add
+				// a new autocomplete.
+				if (autocompleteOptions[fieldName] !== undefined) {ldelim}
+					$citationField.autocomplete({ldelim}
+						source: autocompleteOptions[fieldName],
+						minLength: 0,
+						focus: function(event, ui) {ldelim}
+							$(this).val(ui.item.label);
+							return false;
+						{rdelim},
+						select: function (event, ui) {ldelim}
+							$(this).val(ui.item.value);
+							return false;
+						{rdelim}
+					{rdelim});
+	
+					// Fixing autocomplete font size (the autocomplete
+					// markup is appended to the end of the document and
+					// therefore doesn't correctly inherit styles).
+					$citationField
+						.autocomplete('widget')
+						.css('font-size', '55%');
+				{rdelim}
+			{rdelim};
+
+			// Add initial auto-complete info to fields.
+			$('.citation-field').each(function() {ldelim}
+				addAutocomplete($(this).attr('name'));
+			{rdelim});
+
 			// Define a function that handles label change.
 			var labelChangeHandler = function() {ldelim}
 				var $this = $(this);
@@ -109,6 +165,9 @@
 
 				// Store the new value for future reference.
 				$this.data('original-value', newName);
+
+				// Add auto-complete data (if any).
+				addAutocomplete(newName);
 			{rdelim};
 
 			// Bind initial change handlers for label change.
@@ -121,7 +180,7 @@
 			/**
 			 * Add a new field for manual editing.
 			 */
-			function addNewCitationField() {ldelim}
+			var addNewCitationField = function() {ldelim}
 				{capture assign=htmlForNewField}{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName="new"}{/capture}
 				var htmlForNewField = '{$htmlForNewField|escape:javascript}';
 				var $newField = $('#citationImprovementManual tbody')
@@ -477,7 +536,11 @@
 									{eval|assign:"fieldValue" var=$fieldValueVar}
 									{if $fieldValue != ''}
 										{if $field.required == 'true'}{assign var=hasRequiredField value=true}{/if}
-										{include file="controllers/grid/citation/form/citationInputField.tpl" availableFields=$availableFields fieldName=$fieldName fieldValue=$fieldValue required=$field.required}
+										{include file="controllers/grid/citation/form/citationInputField.tpl"
+											availableFields=$availableFields
+											fieldName=$fieldName
+											fieldValue=$fieldValue
+											required=$field.required}
 									{/if}
 								{/foreach}
 							</table>

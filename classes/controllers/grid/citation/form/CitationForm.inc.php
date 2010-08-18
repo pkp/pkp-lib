@@ -379,10 +379,39 @@ class CitationForm extends Form {
 			// Available fields
 			$availableFields = array();
 			foreach($this->_citationProperties as $fieldName => $property) {
+				// Prepare property information for the view.
 				$availableFields[$fieldName] = array(
 					'displayName' => $property->getDisplayName(),
 					'required' => $property->getMandatory()?'true':'false'
 				);
+
+				// In the case of vocabulary based properties: Retrieve
+				// the vocabulary to be displayed as a drop down.
+				$availableFields[$fieldName]['options'] = null;
+				$controlledVocabDao = null;
+				foreach($property->getAllowedTypes() as $allowedType => $allowedTypeParams) {
+					if ($allowedType == METADATA_PROPERTY_TYPE_VOCABULARY) {
+						assert(count($allowedTypeParams) == 1);
+						$vocabName = $allowedTypeParams[0];
+						$vocabNameParts = explode(':', $vocabName);
+						$vocabNamePartsCount = count($vocabNameParts);
+						assert($vocabNamePartsCount == 1 || $vocabNamePartsCount == 3);
+						if ($vocabNamePartsCount == 1) {
+							// assume a site-wide vocabulary
+							$symbolic = $vocabName;
+							$assocType = $assocId = 0;
+						} else {
+							// assume a context-specific vocabulary
+							list($symbolic, $assocType, $assocId) = $vocabNameParts;
+						}
+
+						// Enumerate the identified vocabulary.
+						if (is_null($controlledVocabDao)) {
+							$controlledVocabDao =& DAORegistry::getDAO('ControlledVocabDAO');
+						}
+						$availableFields[$fieldName]['options'] = $controlledVocabDao->enumerateBySymbolic($symbolic, $assocType, $assocId);
+					}
+				}
 			}
 			$templateMgr->assign_by_ref('availableFields', $availableFields);
 

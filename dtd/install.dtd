@@ -37,7 +37,8 @@
 		file CDATA #REQUIRED>
 <!ELEMENT data EMPTY>
 	<!ATTLIST data
-		file CDATA #REQUIRED>
+		file CDATA #REQUIRED
+		condition CDATA #IMPLIED>
 <!ELEMENT code EMPTY>
 	<!ATTLIST code
 		file CDATA #IMPLIED

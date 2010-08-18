@@ -388,7 +388,15 @@ class Installer {
 				break;
 			case 'data':
 				$fileName = $action['file'];
-				$this->log(sprintf('data: %s', $action['file']));
+				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
+				$includeAction = false;
+				if ($condition) {
+					$funcName = create_function('$installer,$action', $condition);
+					$includeAction = $funcName($this, $action);
+				}
+				$this->log('data: ' . $action['file'] . ($includeAction?'':' (skipped)'));
+				if (!$includeAction) break;
+
 				$sql = $this->dataXMLParser->parseData($fileName);
 				// We might get an empty SQL if the upgrade script has
 				// been executed before.
@@ -773,6 +781,30 @@ class Installer {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Check to see whether a column exists.
+	 * Used in installer XML in conditional checks on <data> nodes.
+	 * @param $tableName string
+	 * @param $columnName string
+	 * @return boolean
+	 */
+	function columnExists($tableName, $columnName) {
+		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$dict = NewDataDictionary($siteDao->_dataSource);
+
+		// Make sure the table exists
+		$tables = $dict->MetaTables('TABLES', false);
+		if (!in_array($tableName, $tables)) return false;
+
+		// Check to see whether it contains the specified column.
+		// Oddly, MetaColumnNames doesn't appear to be available.
+		$columns = $dict->MetaColumns($tableName);
+		foreach ($columns as $column) {
+			if ($column->name == $columnName) return true;
+		}
+		return false;
 	}
 }
 

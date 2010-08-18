@@ -16,10 +16,16 @@ import('lib.pkp.classes.filter.Filter');
 
 class NlmCitationDemultiplexerFilter extends Filter {
 	/**
-	 * @var Citation The original unfiltered citation required
-	 *  to calculate the filter result confidence score.
+	 * @var MetadataDescription the original unfiltered description required
+	 *  for scoring
 	 */
-	var $_originalCitation;
+	var $_originalDescription;
+
+	/** @var string the original plain text citation required for scoring */
+	var $_originalRawCitation;
+
+	/** @var NlmCitationSchemaCitationOutputFormatFilter */
+	var $_citationOutputFilter;
 
 	/**
 	 * Constructor
@@ -34,19 +40,51 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	// Setters and Getters
 	//
 	/**
-	 * Set the original citation description
-	 * @param $originalCitation Citation
+	 * Set the original raw citation
+	 * @param $originalRawCitation string
 	 */
-	function setOriginalCitation(&$originalCitation) {
-		$this->_originalCitation =& $originalCitation;
+	function setOriginalRawCitation($originalRawCitation) {
+		$this->_originalRawCitation = $originalRawCitation;
+	}
+
+	/**
+	 * Get the original raw citation
+	 * @return string
+	 */
+	function getOriginalRawCitation() {
+		return $this->_originalRawCitation;
+	}
+
+	/**
+	 * Set the original citation description
+	 * @param $originalDescription MetadataDescription
+	 */
+	function setOriginalDescription(&$originalDescription) {
+		$this->_originalDescription =& $originalDescription;
 	}
 
 	/**
 	 * Get the original citation description
-	 * @return Citation
+	 * @return MetadataDescription
 	 */
-	function &getOriginalCitation() {
-		return $this->_originalCitation;
+	function &getOriginalDescription() {
+		return $this->_originalDescription;
+	}
+
+	/**
+	 * Set the citation output filter
+	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
+	 */
+	function setCitationOutputFilter(&$citationOutputFilter) {
+		$this->_citationOutputFilter =& $citationOutputFilter;
+	}
+
+	/**
+	 * Get the citation output filter
+	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 */
+	function &getCitationOutputFilter() {
+		return $this->_citationOutputFilter;
 	}
 
 
@@ -81,18 +119,24 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		// the scored citations as values.
 		$scoredCitations = array();
 
+		// Add the original citation to the citation options to be
+		// scored. This is to make sure that we don't downgrade
+		// our results.
+		$citationOptions = $input;
+		$citationOptions[] =& $this->getOriginalDescription();
+
 		// Iterate over the incoming NLM citation descriptions
-		foreach ($input as $citationIndex => $filteredCitation) {
+		foreach ($citationOptions as $citationOption) {
 			// If the publication type is not set, take a guess
-			if (!$filteredCitation->hasStatement('[@publication-type]')) {
-				$guessedPublicationType = $this->_guessPublicationType($filteredCitation);
+			if (!$citationOption->hasStatement('[@publication-type]')) {
+				$guessedPublicationType = $this->_guessPublicationType($citationOption);
 				if (!is_null($guessedPublicationType)) {
-					$filteredCitation->addStatement('[@publication-type]', $guessedPublicationType);
+					$citationOption->addStatement('[@publication-type]', $guessedPublicationType);
 				}
 			}
 
 			// Calculate the score for this filtered citation
-			$confidenceScore = $this->_filterConfidenceScore($filteredCitation, $this->_originalCitation);
+			$confidenceScore = $this->_filterConfidenceScore($citationOption);
 
 			// Save the filtered result hashed by its confidence score.
 			// We save them as a sub-array in case several citations
@@ -100,13 +144,15 @@ class NlmCitationDemultiplexerFilter extends Filter {
 			if (!isset($scoredCitations[$confidenceScore])) {
 				$scoredCitations[$confidenceScore] = array();
 			}
-			$scoredCitations[$confidenceScore][] =& $filteredCitation;
-			unset ($filteredCitation);
+			$scoredCitations[$confidenceScore][] =& $citationOption;
+			unset ($citationOption);
 		}
 
 		// Get a single set of "best" values for the citation description
-		// and set them in a new citation object.
-		$citation =& $this->_guessValues($scoredCitations);
+		// and set them in a new citation object. Don't accept results that
+		// don't stem from citations that got at least 50% of the original
+		// text right.
+		$citation =& $this->_guessValues($scoredCitations, 50);
 		return $citation;
 	}
 
@@ -171,27 +217,41 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	}
 
 	/**
-	 * Derive a confidence score calculated as the number of statements for a group
-	 * of expected properties.
+	 * Derive a confidence score calculated as the similarity of the
+	 * original raw citation and the citation text generated from the
+	 * citation description.
 	 * @param $metadataDescription MetadataDescription
-	 * @param $originalCitation Citation
 	 * @return integer filter confidence score
 	 */
-	function _filterConfidenceScore(&$metadataDescription, &$originalCitation) {
-		// FIXME: Amend this algorithm by calculating the similarity between the edited
-		// citation string and the citation description:
-		// 1) For expected fields: See whether a similar text exists in the original
-		//    citation.
-		// 2) Add up the number of characters that are similar and compare them to the
-		//    number of characters in the original text.
+	function _filterConfidenceScore(&$metadataDescription) {
+		// Retrieve the original plain text citation.
+		$originalCitation = $this->getOriginalRawCitation();
 
-		// Find out how many of the expected properties were identified by the filter.
-		$expectedProperties = array(
-			'person-group[@person-group-type="author"]', 'article-title', 'source',
-			'date', 'fpage', '[@publication-type]'
-		);
-		$setProperties = array_intersect($expectedProperties, $metadataDescription->getSetPropertyNames());
-		$filterConfidenceScore = min(((count($setProperties) / count($expectedProperties))*100), 100);
+		// Generate the formatted citation output from the description.
+		$citationOutputFilter =& $this->getCitationOutputFilter();
+		$generatedCitation = $citationOutputFilter->execute($metadataDescription);
+
+		// Strip formatting and the Google Scholar tag so that we get a plain
+		// text string that is comparable with the raw citation.
+		$generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
+
+		// Compare the original to the generated citation.
+		$citationDiff = String::diff($originalCitation, $generatedCitation);
+
+		// Calculate similarity as the number of deleted characters in relation to the
+		// number of characters in the original citation. This intentionally excludes
+		// additions as these can represent useful data like a DOI or an external link.
+		$deletedCharacters = 0;
+		foreach($citationDiff as $diffPart) {
+			// Identify deletions.
+			if (key($diffPart) == -1) {
+				$deletedCharacters += String::strlen(current($diffPart));
+			}
+		}
+		$originalCharacters = String::strlen($originalCitation);
+		$partOfCommonCharacters = ($originalCharacters-$deletedCharacters) / $originalCharacters;
+
+		$filterConfidenceScore = (integer)round(min($partOfCommonCharacters*100, 100));
 		return $filterConfidenceScore;
 	}
 
@@ -209,15 +269,11 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	 * If two values have the same frequency then decide based on the score. If
 	 * this is still ambivalent then return the first of the remaining values.
 	 *
-	 * This method will also calculate the overall parsing score for the target
-	 * citation.
-	 *
 	 * @param $scoredCitations
-	 * @param $scoreThreshold integer a number between 0 (=no threshold) and 100,
-	 *  default: no threshold
+	 * @param $scoreThreshold integer a number between 0 (=no threshold) and 100
 	 * @return Citation one citation with the "best" values set
 	 */
-	function &_guessValues(&$scoredCitations, $scoreThreshold = 0) {
+	function &_guessValues(&$scoredCitations, $scoreThreshold) {
 		assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
 		// Create the target citation description.
@@ -257,18 +313,19 @@ class NlmCitationDemultiplexerFilter extends Filter {
 
 					// Add the value for the given property, as we want to count
 					// value frequencies later, we explicitly allow duplicates.
-					$valuesByPropertyName[$propertyName][] = serialize($value);
+					$serializedValue = serialize($value);
+					$valuesByPropertyName[$propertyName][] = $serializedValue;
 
 					// As we have ordered our citations descending by score, the
 					// first score found for a value is also the maximum score.
-					if (!isset($maxScoresByPropertyNameAndValue[$propertyName][serialize($value)])) {
-						$maxScoresByPropertyNameAndValue[$propertyName][serialize($value)] = $currentScore;
+					if (!isset($maxScoresByPropertyNameAndValue[$propertyName][$serializedValue])) {
+						$maxScoresByPropertyNameAndValue[$propertyName][$serializedValue] = $currentScore;
 					}
 				}
 			}
 		}
 
-		// Step 2: Find out the values that were occur most frequently for each element
+		// Step 2: Find out the values that occur most frequently for each element
 		//         and order these by score.
 
 		foreach($valuesByPropertyName as $propertyName => $values) {
@@ -306,26 +363,6 @@ class NlmCitationDemultiplexerFilter extends Filter {
 			$success = $targetDescription->setStatements($statements);
 			assert($success);
 		}
-
-		// Calculate the average of all scores
-		$overallScoreSum = 0;
-		$overallScoreCount = 0;
-		foreach ($scoredCitations as $currentScore => $citationsForCurrentScore) {
-			$countCitationsForCurrentScore = count($citationsForCurrentScore);
-			$overallScoreSum += $countCitationsForCurrentScore * $currentScore;
-			$overallScoreCount += $countCitationsForCurrentScore;
-		}
-		$averageScore = ($overallScoreCount > 0 ? $overallScoreSum / $overallScoreCount : 0);
-
-		// Get the max score (= the first key from scoredCitations
-		// as these are sorted by score).
-		reset($scoredCitations);
-		$maxScore = key($scoredCitations);
-
-		// Calculate the overall parse score as by weighing
-		// the max score and the average score 50% each.
-		// FIXME: This algorithm seems a bit arbitrary.
-		$parseScore = ($maxScore + $averageScore) / 2;
 
 		// Instantiate the target citation
 		$targetCitation = new Citation();

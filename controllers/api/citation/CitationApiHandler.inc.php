@@ -59,11 +59,6 @@ class CitationApiHandler extends PKPHandler {
 		// give us unlimited execution time.
 		ini_set('max_execution_time', 0);
 
-		// Find the request context
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		assert(is_object($context));
-
 		// Get the process id.
 		$processId = $args['authToken'];
 
@@ -76,7 +71,7 @@ class CitationApiHandler extends PKPHandler {
 
 			if ($continue) {
 				// Check the next citation.
-				$continue = $citationDao->checkNextRawCitation($context->getId(), $processId);
+				$continue = $citationDao->checkNextRawCitation($request, $processId);
 			}
 		} while ($continue);
 

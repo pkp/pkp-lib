@@ -327,8 +327,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $citation, $this->getAssocObject(), $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $this->getAssocObject());
 		if ($citationForm->isLocaleResubmit()) {
 			$citationForm->readInputData();
 		} else {
@@ -565,8 +564,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $citation, $this->getAssocObject(), $citationOutputFilter);
+		$citationForm = new CitationForm($request, $citation, $this->getAssocObject());
 		$citationForm->readInputData();
 
 		// Form validation
@@ -582,31 +580,6 @@ class PKPCitationGridHandler extends GridHandler {
 
 
 	/**
-	 * Instantiates the citation output format filter currently
-	 * configured for the context.
-	 * @param $request PKPRequest
-	 * @return NlmCitationSchemaCitationOutputFormatFilter
-	 */
-	function &_instantiateCitationOutputFilter(&$request) {
-		// The filter is stateless so we can instantiate
-		// it once for all requests.
-		static $citationOutputFilter = null;
-		if (is_null($citationOutputFilter)) {
-			// Retrieve the currently selected citation output
-			// filter from the database.
-			$router =& $request->getRouter();
-			$context =& $router->getContext($request);
-			assert(is_object($context));
-			$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
-			$filterDao =& DAORegistry::getDAO('FilterDAO');
-			$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
-			assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
-		}
-
-		return $citationOutputFilter;
-	}
-
-	/**
 	 * Internal method that re-checks the given citation and
 	 * returns a rendered citation editing form with the changes.
 	 * @param $request PKPRequest
@@ -616,12 +589,6 @@ class PKPCitationGridHandler extends GridHandler {
 	 *  form when $persist is false, else the persisted citation object.
 	 */
 	function _recheckCitation(&$request, &$originalCitation, $persist = true) {
-		// Find the request context
-		$router =& $request->getRouter();
-		$context =& $router->getContext($request);
-		assert(is_object($context));
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
-
 		// Extract filters to be applied from request
 		$requestedFilters = $request->getUserVar('citationFilters');
 		$filterIds = array();
@@ -632,12 +599,12 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 
 		// Do the actual filtering of the citation.
-		$filteredCitation =& $citationDao->checkCitation($originalCitation, $context->getId(), $filterIds);
+		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$filteredCitation =& $citationDao->checkCitation($request, $originalCitation, $filterIds);
 
 		// Crate a new form for the filtered (but yet unsaved) citation data
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
-		$citationOutputFilter =& $this->_instantiateCitationOutputFilter($request);
-		$citationForm = new CitationForm($request, $filteredCitation, $this->getAssocObject(), $citationOutputFilter);
+		$citationForm = new CitationForm($request, $filteredCitation, $this->getAssocObject());
 
 		// Transport filtering errors to form (if any).
 		foreach($filteredCitation->getErrors() as $index => $errorMessage) {

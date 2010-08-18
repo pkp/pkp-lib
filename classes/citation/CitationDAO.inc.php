@@ -136,14 +136,14 @@ class CitationDAO extends DAO {
 	 * NB: checking the citation will not automatically
 	 * persist the changes. This has to be done by the caller.
 	 *
+	 * @param $request Request
 	 * @param $originalCitation Citation
-	 * @param $contextId integer
 	 * @param $filterIds array a custom selection of filters to be applied
 	 * @return Citation the checked citation. If checking
 	 *  was not successful then the original citation
 	 *  will be returned unchanged.
 	 */
-	function &checkCitation(&$originalCitation, $contextId, $filterIds = array()) {
+	function &checkCitation(&$request, &$originalCitation, $filterIds = array()) {
 		assert(is_a($originalCitation, 'Citation'));
 
 		// Only parse the citation if it has not been parsed before.
@@ -152,14 +152,14 @@ class CitationDAO extends DAO {
 		if ($filteredCitation->getCitationState() < CITATION_PARSED) {
 			// Parse the requested citation
 			$filterCallback = array(&$this, '_instantiateParserFilters');
-			$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_PARSED, $contextId, $filterIds);
+			$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_PARSED, $filterIds);
 		}
 
 		// Always re-lookup the citation even if it's been looked-up
 		// before. The user asked us to re-check so there's probably
 		// additional manual information in the citation fields.
 		$filterCallback = array(&$this, '_instantiateLookupFilters');
-		$filteredCitation =& $this->_filterCitation($filteredCitation, $filterCallback, CITATION_LOOKED_UP, $contextId, $filterIds);
+		$filteredCitation =& $this->_filterCitation($request, $filteredCitation, $filterCallback, CITATION_LOOKED_UP, $filterIds);
 
 		// Return the filtered citation.
 		return $filteredCitation;
@@ -170,13 +170,13 @@ class CitationDAO extends DAO {
 	 * database and checks it. This method is idempotent and parallelisable.
 	 * It uses an atomic locking strategy to avoid race conditions.
 	 *
-	 * @param $contextId integer
+	 * @param $request Request
 	 * @param $lockId string a globally unique id that
 	 *  identifies the calling process.
 	 * @return boolean true if a citation was found and checked, otherwise
 	 *  false.
 	 */
-	function checkNextRawCitation($contextId, $lockId) {
+	function checkNextRawCitation(&$request, $lockId) {
 		// NB: We implement an atomic locking strategy to make
 		// sure that no two parallel background processes can claim the
 		// same citation.
@@ -231,7 +231,7 @@ class CitationDAO extends DAO {
 		if (!is_a($rawCitation, 'Citation')) return false;
 
 		// Check the citation.
-		$filteredCitation =& $this->checkCitation($rawCitation, $contextId);
+		$filteredCitation =& $this->checkCitation($request, $rawCitation);
 
 		// Updating the citation will also release the lock.
 		$this->updateObject($filteredCitation);
@@ -425,6 +425,28 @@ class CitationDAO extends DAO {
 		}
 	}
 
+	/**
+	 * Instantiates the citation output format filter currently
+	 * configured for the context.
+	 * @param $context object journal, press or conference
+	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 */
+	function &instantiateCitationOutputFilter(&$context) {
+		// The filter is stateless so we can instantiate
+		// it once for all requests.
+		static $citationOutputFilter = null;
+		if (is_null($citationOutputFilter)) {
+			// Retrieve the currently selected citation output
+			// filter from the database.
+			$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
+			$filterDao =& DAORegistry::getDAO('FilterDAO');
+			$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
+			assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
+		}
+
+		return $citationOutputFilter;
+	}
+
 	//
 	// Protected helper methods
 	//
@@ -566,15 +588,20 @@ class CitationDAO extends DAO {
 	/**
 	 * Call the callback to filter the citation. If errors occur
 	 * they'll be added to the citation form.
+	 * @param $request Request
 	 * @param $citation Citation
 	 * @param $filterCallback callable
 	 * @param $citationStateAfterFiltering integer the state the citation will
 	 *  be set to after the filter was executed.
-	 * @param $contextId integer
 	 * @param $fromFilterIds only use filters with the given ids
 	 * @return Citation the filtered citation or null if an error occurred
 	 */
-	function &_filterCitation(&$citation, &$filterCallback, $citationStateAfterFiltering, $contextId, $fromFilterIds = array()) {
+	function &_filterCitation(&$request, &$citation, &$filterCallback, $citationStateAfterFiltering, $fromFilterIds = array()) {
+		// Get the context.
+		$router =& $request->getRouter();
+		$context =& $router->getContext($request);
+		assert(is_object($context));
+
 		// Make sure that the citation implements the
 		// meta-data schema. (We currently only support
 		// NLM citation.)
@@ -584,10 +611,10 @@ class CitationDAO extends DAO {
 		assert(is_a($metadataSchema, 'NlmCitationSchema'));
 
 		// Extract the meta-data description from the citation.
-		$metadataDescription =& $citation->extractMetadata($metadataSchema);
+		$originalDescription =& $citation->extractMetadata($metadataSchema);
 
 		// Let the callback configure the transformation.
-		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$metadataDescription, $contextId, $fromFilterIds));
+		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$originalDescription, $context->getId(), $fromFilterIds));
 		if (empty($transformationDefinition['filterList'])) {
 			// We didn't find any applicable filter.
 			$filteredCitation = null;
@@ -616,7 +643,9 @@ class CitationDAO extends DAO {
 			// Instantiate the citation de-multiplexer filter
 			import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
 			$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
-			$citationDemultiplexer->setOriginalCitation($citation);
+			$citationDemultiplexer->setOriginalDescription($originalDescription);
+			$citationDemultiplexer->setOriginalRawCitation($citation->getRawCitation());
+			$citationDemultiplexer->setCitationOutputFilter($this->instantiateCitationOutputFilter($context));
 
 			// Combine multiplexer and de-multiplexer to form the
 			// final citation filter network.
@@ -658,7 +687,7 @@ class CitationDAO extends DAO {
 
 		// Set the target citation state.
 		$filteredCitation->setCitationState($citationStateAfterFiltering);
-			
+
 		if (is_a($citationMultiplexer, 'CompositeFilter')) {
 			// Retrieve the results of intermediate filters and add
 			// them to the citation for inspection by the end user.

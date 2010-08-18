@@ -27,9 +27,6 @@ class CitationForm extends Form {
 	/** @var boolean */
 	var $_unsavedChanges;
 
-	/** @var NlmCitationSchemaCitationOutputFormatFilter */
-	var $_citationOutputFilter;
-
 	/** @var array all properties contained in the citation */
 	var $_citationProperties;
 
@@ -45,17 +42,14 @@ class CitationForm extends Form {
 	 * @param $request PKPRequest
 	 * @param $citation Citation
 	 * @param $assocObject DataObject
-	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
 	 */
-	function CitationForm(&$request, &$citation, &$assocObject, &$citationOutputFilter) {
+	function CitationForm(&$request, &$citation, &$assocObject) {
 		parent::Form();
 		assert(is_a($citation, 'Citation'));
 		assert(is_a($assocObject, 'DataObject'));
-		assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
 
 		$this->_citation =& $citation;
 		$this->_assocObject =& $assocObject;
-		$this->_citationOutputFilter =& $citationOutputFilter;
 
 		// Identify all form field names for the citation
 		$this->_citationFormFieldNames = array();
@@ -307,11 +301,13 @@ class CitationForm extends Form {
 	 * @return string the rendered form
 	 */
 	function fetch($request, $template = CITATION_FORM_FULL_TEMPLATE) {
+		// Instantiate objects used throughout.
 		$user =& $request->getUser();
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		$citation =& $this->getCitation();
 		$assocObject =& $this->getAssocObject();
+		$citationDao =& DAORegistry::getDAO('CitationDAO');
 
 		/////////////////////////////////////////////////////
 		// Raw citation editing and citation comparison
@@ -338,11 +334,12 @@ class CitationForm extends Form {
 			$metadataDescription = array_pop($this->_metadataDescriptions);
 
 			// Generate the formatted citation output from the description.
-			$generatedCitation = $this->_citationOutputFilter->execute($metadataDescription);
-			foreach($this->_citationOutputFilter->getErrors() as $citationGenerationError) {
+			$citationOutputFilter =& $citationDao->instantiateCitationOutputFilter($context);
+			$generatedCitation = $citationOutputFilter->execute($metadataDescription);
+			foreach($citationOutputFilter->getErrors() as $citationGenerationError) {
 				$this->addError('rawCitation', $citationGenerationError);
 			}
-			$this->_citationOutputFilter->clearErrors();
+			$citationOutputFilter->clearErrors();
 
 			// Strip formatting and the Google Scholar tag so that we get a plain
 			// text string that is comparable with the raw citation.
@@ -351,13 +348,12 @@ class CitationForm extends Form {
 			// Compare the raw and the formatted citation and add the result to the template.
 			$citationDiff = String::diff($this->getData('rawCitation'), $generatedCitation);
 			$templateMgr->assign('citationDiff', $citationDiff);
-			$templateMgr->assign('currentOutputFilter', $this->_citationOutputFilter->getDisplayName());
+			$templateMgr->assign('currentOutputFilter', $citationOutputFilter->getDisplayName());
 
 			//
 			// 3) Raw citation editing
 			//
 			// Retrieve all available citation filters
-			$citationDao =& DAORegistry::getDAO('CitationDAO');
 			$availableParserFilters =& $citationDao->getCitationFilterInstances($context->getId(), true, false, array(), true);
 			$templateMgr->assign_by_ref('availableParserFilters', $availableParserFilters);
 			$availableLookupFilters =& $citationDao->getCitationFilterInstances($context->getId(), false, true, array(), true);

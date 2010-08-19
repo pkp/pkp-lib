@@ -111,11 +111,15 @@
 				addAutocomplete($(this).attr('name'));
 			{rdelim});
 
-			// Define a function that handles label change.
-			var labelChangeHandler = function() {ldelim}
-				var $this = $(this);
-				var newName = $this.val();
-				var originalName = $this.data('original-value');
+			/**
+			 * Function that handles label change.
+			 * @param $label jQuery
+			 * @param refresh boolean whether to refresh
+			 *  the citation comparison after the change.
+			 */
+			var labelChangeHandler = function($label, refresh) {ldelim}
+				var newName = $label.val();
+				var originalName = $label.data('original-value');
 
 				// Filter fake change events in IE.
 				if (newName === originalName) return false;
@@ -123,7 +127,7 @@
 				// Don't allow unsetting the label.
 				if (newName === '-1') {ldelim}
 					alert('{translate|escape:javascript key="submission.citations.editor.details.cannotSelectDefaultForLabel"}');
-					$this.val(originalName);
+					$label.val(originalName);
 					return false;
 				{rdelim}
 
@@ -148,31 +152,35 @@
 
 				// Reset the color of the label in
 				// case we had marked it before.
-				$this.css('color', '#222222');
+				$label.css('color', '#222222');
 
 				// Find the corresponding input field and
 				// set its name attribute.
-				$this.closest('tr').find('input')
+				$label.closest('tr').find('input')
 					// Set the name to the chosen field name.
 					.attr('name', newName)
 					// Remove the "new-citation-field" class
 					// in case this was a new field
 					.removeClass('new-citation-field');
 
-				// Trigger a change event so that the citation
-				// comparison is being updated.
-				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
-
 				// Store the new value for future reference.
-				$this.data('original-value', newName);
+				$label.data('original-value', newName);
 
 				// Add auto-complete data (if any).
 				addAutocomplete(newName);
+
+				if (refresh) {ldelim}
+					// Trigger a change event so that the citation
+					// comparison is being updated.
+					$('#citationFormErrorsAndComparison').triggerHandler('refresh');
+				{rdelim}
 			{rdelim};
 
 			// Bind initial change handlers for label change.
 			// NB: We cannot use live() here as live for change is broken on IE.
-			$('.citation-field-label').change(labelChangeHandler);
+			$('.citation-field-label').change(function() {ldelim}
+				labelChangeHandler($(this), true);
+			{rdelim});
 
 
 			// Handle addition of new fields:
@@ -195,7 +203,9 @@
 					.data('original-value', '-1')
 					// Bind change handler for label change.
 					// NB: We cannot use live() here as live for change is broken on IE.
-					.change(labelChangeHandler);
+					.change(function() {ldelim}
+						labelChangeHandler($(this), true);
+					{rdelim});
 			{rdelim}
 
 			// - Append the a first new input field to
@@ -204,18 +214,25 @@
 
 			// - Remove help text and show field label
 			//   selector on focus of the new field.
-			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
-				var $this = $(this);
-				if ($this.val() === '{translate|escape:javascript key="submission.citations.editor.details.newFieldInfo"}') {ldelim}
-					$this
+			/**
+			 * Activate the waiting empty citation field for
+			 * editing.
+			 * @param $newField jQuery
+			 */
+			var activateNewCitationField = function($newField) {ldelim}
+				if ($newField.val() === '{translate|escape:javascript key="submission.citations.editor.details.newFieldInfo"}') {ldelim}
+					$newField
 						// Empty the field.
 						.val('')
 						// Show label selector and delete button.
 						.closest('tr').find('a, select').fadeIn(500);
-
+	
 					// Add new empty field to be edited next.
 					addNewCitationField();
 				{rdelim}
+			{rdelim}
+			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
+				activateNewCitationField($(this));
 			{rdelim});
 
 			// Handle deletion of fields.
@@ -322,10 +339,20 @@
 					var propertyName = $sourceCell.attr('id').replace(/^[0-9]+-/, '');
 					var $targetField = $('.citation-field[name=' + propertyName + ']');
 
-					if ($targetField.length > 0) {ldelim}
-						// Copy the content of the source to the target field
-						$targetField.val($sourceCell.text());
+					if ($targetField.length === 0) {ldelim}
+						// The target field does not exist yet. So let's
+						// configure a new field.
+						$targetField = $('.new-citation-field');
+						activateNewCitationField($targetField);
+
+						// Set the correct label for the new field.
+						$label = $targetField.closest('tr').find('select');
+						$label.val(propertyName);
+						labelChangeHandler($label, false);
 					{rdelim}
+					
+					// Copy the content of the source to the target field
+					$targetField.val($sourceCell.text());
 				{rdelim});
 
 				// Trigger citation comparison refresh.

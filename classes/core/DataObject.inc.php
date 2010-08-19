@@ -87,17 +87,29 @@ class DataObject {
 	 * NB: Passing in null as a value will unset the
 	 * data variable if it already existed.
 	 * @param $key string
-	 * @param $locale string (optional)
-	 * @param $value mixed
+	 * @param $value mixed can be either a single value or
+	 *  an array of of localized values in the form:
+	 *   array(
+	 *     'fr_FR' => 'en français',
+	 *     'en_US' => 'in English',
+	 *     ...
+	 *   )
+	 * @param $locale string (optional) non-null for a single
+	 *  localized value. Null for a non-localized value or
+	 *  when setting all locales at once (see comment for
+	 *  $value parameter)
 	 */
 	function setData($key, $value, $locale = null) {
 		if (is_null($locale)) {
+			// This is either a non-localized value or we're
+			// passing in all locales at once.
 			if (is_null($value)) {
 				if (isset($this->_data[$key])) unset($this->_data[$key]);
 			} else {
 				$this->_data[$key] = $value;
 			}
 		} else {
+			// (Un-)set a single localized value.
 			if (is_null($value)) {
 				// see http://bugs.php.net/bug.php?id=29848
 				if (isset($this->_data[$key])) {

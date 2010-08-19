@@ -205,6 +205,13 @@ class Installer {
 		$this->log('post-install');
 		$result = true;
 		HookRegistry::call('Installer::postInstall', array(&$this, &$result));
+
+		// Inform users that they'll have to run the update script
+		// after doing a manual installation.
+		if ($this->getParam('manualInstall')) {
+			$this->log(Locale::translate('installer.pleaseUpgradeAfterManualInstall'));
+		}
+
 		return $result;
 	}
 

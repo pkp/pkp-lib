@@ -34,6 +34,7 @@
 {if $manualInstall}
 
 {translate key="installer.manualSQLInstructions"}
+<p>{translate key="installer.pleaseUpgradeAfterManualInstall"}</p>
 <div id="manualSQLInstructions">
 <form action="#">
 <p>

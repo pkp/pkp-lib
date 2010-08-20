@@ -396,7 +396,7 @@ class Installer {
 			case 'data':
 				$fileName = $action['file'];
 				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
-				$includeAction = false;
+				$includeAction = true;
 				if ($condition) {
 					$funcName = create_function('$installer,$action', $condition);
 					$includeAction = $funcName($this, $action);

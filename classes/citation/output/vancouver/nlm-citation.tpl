@@ -28,7 +28,7 @@
 				{if $nlm30Fpage}. p. {$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}{/if}
 			{/if}
 		{elseif $nlm30PublicationType == 'journal'}
-			{$nlm30ArticleTitle}. {$mainTitle}{if $subTitle} {$subTitle}{/if}{if $nlm30Date} {$nlm30Date|date_format:'%Y %b'}{elseif strlen($nlm30Date)==4} {$nlm30Date|cat:'-01'|date_format:'%Y'}{/if}
+			{$nlm30ArticleTitle}. {$mainTitle}{if $subTitle} {$subTitle}{/if}{if strlen($nlm30Date)>4} {$nlm30Date|date_format:'%Y %b'}{elseif strlen($nlm30Date)==4} {$nlm30Date|cat:'-01'|date_format:'%Y'}{/if}
 			{if $nlm30Volume};{$nlm30Volume}{if $nlm30Issue}({$nlm30Issue}){/if}{/if}
 			{if $nlm30Fpage}:{$nlm30Fpage}{if $nlm30Lpage}-{$nlm30Lpage}{/if}{/if}
 		{elseif $nlm30PublicationType == 'conf-proc'}

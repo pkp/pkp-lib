@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2003-2008 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id: grid.xml,v 1.1 2009/12/24 04:32:29 jalperin Exp $
+  -->
+
+<locale name="zh_CN" full_name = "China .PR">
+	<!-- Common -->
+	<message key="grid.noItems">没有项目</message>
+
+	<message key="grid.action.sort">分类</message>
+	<message key="grid.action.addItem">添加项目</message>
+	<message key="grid.action.delete">删除</message>
+	<message key="grid.action.edit">编辑</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">行动</message>
+	<message key="grid.columns.institution">机构</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">主管</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">群组</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">合作者</message>
+</locale>

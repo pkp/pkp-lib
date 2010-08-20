@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/submission.xml
+  *
+  * Copyright (c) 2000-2009 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id: submission.xml,v 1.5 2009/08/15 00:13:57 asmecher Exp $
+  -->
+
+<locale name="zh_CN" full_name = "China .PR">
+	<message key="submission.abstractViews">在要审查</message>
+	<message key="submission.accepted">已经接受的</message>
+	<message key="submission.acknowledge">致谢</message>
+	<message key="submission.addSuppFile">添加一个附件</message>
+	<message key="submission.ask">Ask</message>
+	<message key="submission.backToSubmissionEditing">回到投稿编辑</message>
+	<message key="submission.changeComments">修改为</message>
+	<message key="submission.comments.addComment">天骄注释</message>
+	<message key="submission.comments.comments">注释</message>
+	<message key="submission.comments.confirmDelete">您确认删除这个注释?</message>
+	<message key="submission.comments.corrections">更正</message>
+	<message key="submission.comments.editComment">编辑注释</message>
+	<message key="submission.comments.importPeerReviews">导入同行评议</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">审稿人 {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">没有注释</message>
+	<message key="submission.comments.noReviews">没有评论</message>
+	<message key="submission.comments.review">审阅</message>
+	<message key="submission.comments.sendDecisionToReviewers">发送编辑决定给审稿人</message>
+	<message key="submission.comments.subject">主题</message>
+	<message key="submission.complete">完成</message>
+	<message key="submission.done">完成</message>
+	<message key="submission.dueDate">截止日期</message>
+	<message key="submission.due">截止</message>
+	<message key="submission.editing">编辑中</message>
+	<message key="submission.editMetadata">编辑元数据</message>
+	<message key="submission.email.backToEmailLog">回到电子邮件日志</message>
+	<message key="submission.email.confirmClearLog">您确认清楚这个投稿的邮件日志?</message>
+	<message key="submission.email.confirmDeleteLogEntry">您确定要删除此电子邮件日志项?</message>
+	<message key="submission.email.deleteLogEntry">删除日志项</message>
+	<message key="submission.emailLog">电子邮件日志</message>
+	<message key="submission.event.backToEventLog">反回到事件日志</message>
+	<message key="submission.event.confirmClearLog">您确认清楚这个投稿的事件日志?</message>
+	<message key="submission.event.confirmDeleteLogEntry">您确认清楚这个投稿的事件日志项?</message>
+	<message key="submission.event.deleteLogEntry">删除事件日志项</message>
+	<message key="submission.event.general.metadataUpdated">投稿元数据已更新</message>
+	<message key="submission.event.general.suppFileUpdated">投稿元文件已更新</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">通过代理接受的审查指派</message>
+	<message key="submission.event.reviewer.reviewAccepted">已经接受的审查指派</message>
+	<message key="submission.event.reviewer.reviewCancelled">已经取消的审查指派</message>
+	<message key="submission.event.reviewer.reviewDeclined">已经拒绝的审查指派</message>
+	<message key="submission.event.reviewer.reviewDueDate">已修改的审阅截至日期</message>
+	<message key="submission.event.reviewer.reviewerAssigned">已指派给投稿的审稿人</message>
+	<message key="submission.event.reviewer.reviewerRated">已提交的审稿人评价</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">未指派给投稿的审稿人</message>
+	<message key="submission.event.reviewer.reviewFile">已更新的审查文件</message>
+	<message key="submission.event.reviewer.reviewInitiated">已开始的审稿指派</message>
+	<message key="submission.event.reviewer.reviewRecommendation">审查建议文件</message>
+	<message key="submission.event.reviewer.reviewReinitiated">重新开始的审稿指派</message>
+	<message key="submission.event.reviewer.reviewResubmitted">重新提交的审阅</message>
+	<message key="submission.event.reviewer.reviewRevision">已经上传的审稿人修订文件</message>
+	<message key="submission.files">文件</message>
+	<message key="submission.galley">样稿</message>
+	<message key="submission.history.clearLog">清除日志</message>
+	<message key="submission.history">历史</message>
+	<message key="submission.history.noLogEntries">没有日志项.</message>
+	<message key="submission.history.recentLogEntries">最近的日志项目</message>
+	<message key="submission.history.submissionEmailLog">邮件日志</message>
+	<message key="submission.history.submissionEventLog">事件日志</message>
+	<message key="submission.history.submissionNotes">投稿须知</message>
+	<message key="submission.history.viewLog">查看日志</message>
+	<message key="submission.indexing">索引</message>
+	<message key="submission.initiated">已经开始的</message>
+	<message key="submission.lastModified">最后的修改</message>
+	<message key="submission.layout.addGalley">添加一个排版样稿</message>
+	<message key="submission.layout.confirmDeleteGalley">您确认将永久删除这个样稿?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">您确认将从样稿里删除这个图片?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">您确认将永久删除这个附件文件?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">删除这个样式.</message>
+	<message key="submission.layout.editGalley">编辑这个排版样稿</message>
+	<message key="submission.layout.galleyFileData">样稿文件信息</message>
+	<message key="submission.layout.galleyFormat">样稿文件格式</message>
+	<message key="submission.layout.galleyHTMLData">HTML样稿格式</message>
+	<message key="submission.layout.galleyImages">图片</message>
+	<message key="submission.layout.galleyLabelInstructions">样稿标签被用于标识项目的文件格式(例如HTML、PDF等).</message>
+	<message key="submission.layout.galleyLabel">标签</message>
+	<message key="submission.layout.galleyLabelRequired">一个样稿标签是必须的.</message>
+	<message key="submission.layout.galleyLanguageRequired">一个样稿语言是必须的.</message>
+	<message key="submission.layout.galleyLocaleRequired">一个样稿语言环境是必须的.</message>
+	<message key="submission.layout.galleyNoImages">没有图片</message>
+	<message key="submission.layout.galleys">样稿</message>
+	<message key="submission.layout.galleyStylesheet">样式表文件</message>
+	<message key="submission.layout.galleyStyle">风格</message>
+	<message key="submission.layout.initialGalleyCreation">开始创建样稿</message>
+	<message key="submission.layout.layoutFile">排版文件</message>
+	<message key="submission.layout">排版</message>
+	<message key="submission.layout.layoutVersion">排版版本</message>
+	<message key="submission.layout.newGalley">创建新的样稿</message>
+	<message key="submission.layout.newSupplementaryFile">上传新的附件</message>
+	<message key="submission.layout.noStyleFile">没有样式表文件被添加到这个样稿里.</message>
+	<message key="submission.layout.supplementaryFiles">附件审查</message>
+	<message key="submission.layout.viewingGalley">预览投稿样稿</message>
+	<message key="submission.layout.viewProof">预览校对</message>
+	<message key="submission.metadata">投稿元数据</message>
+	<message key="submission.noReviewAssignments">没有审查指派</message>
+	<message key="submission.notes.addNewNote">添加一个新的注释</message>
+	<message key="submission.notes.attachedFile">文件附件</message>
+	<message key="submission.notes.backToSubmissionNotes">反回到投稿注释</message>
+	<message key="submission.notes.breadcrumb">注释</message>
+	<message key="submission.notes.clearAllNotes">清除所有注释</message>
+	<message key="submission.notes.collapseNotes">文件附件</message>
+	<message key="submission.notes.confirmDeleteAll">删除所有投稿注释?</message>
+	<message key="submission.notes.confirmDelete">删除这个投稿注释?</message>
+	<message key="submission.notes.createNewNote">创建新的注释</message>
+	<message key="submission.notes.deleteNote">删除注释</message>
+	<message key="submission.notes.editNote">编辑注释</message>
+	<message key="submission.notes.expandNotes">扩展注释</message>
+	<message key="submission.notes.noSubmissionNotes">没有投稿注释</message>
+	<message key="submission.notes.removeUploadedFile">删除已经上传的文件</message>
+	<message key="submission.notes">投稿注释</message>
+	<message key="submission.notes.updateNote">更新注释</message>
+	<message key="submission.notes.viewNotes">查看注释</message>
+	<message key="submission.originalFile">源文件</message>
+	<message key="submission.page.editing">#{$id} 编辑中</message>
+	<message key="submission.page.history">#{$id} 历史</message>
+	<message key="submission.page.review">#{$id} 审查</message>
+	<message key="submission.page.summary">#{$id} 摘要</message>
+	<message key="submission.peerReview">Peer&amp;nbsp;审查</message>
+	<message key="submission.recommendation">建议</message>
+	<message key="submission.rejected">已经拒绝的</message>
+	<message key="submission.request">请求</message>
+	<message key="submission.response">回复</message>
+	<message key="submission.restrictions">限制</message>
+	<message key="submission.reviewMetadata">审查元数据</message>
+	<message key="submission.review">审查</message>
+	<message key="submission.reviewVersion">审查版本</message>
+	<message key="submissions.active">活动的</message>
+	<message key="submissions.archived">存档的</message>
+	<message key="submission.saveMetadata">保存元数据</message>
+	<message key="submissions.completed">已经完成的</message>
+	<message key="submissions.declined">已经拒绝的</message>
+	<message key="submissions.incomplete">未完成的</message>
+	<message key="submissions.noSubmissions">没有投稿</message>
+	<message key="submissions.queuedEditing">编辑中</message>
+	<message key="submissions.queued">排队</message>
+	<message key="submissions.queuedUnassigned">等待分配工作</message>
+	<message key="submissions.ruling">裁决</message>
+	<message key="submissions.submit">提交</message>
+	<message key="submissions.submitted">已经提交</message>
+	<message key="submission.start">开始</message>
+	<message key="submission.submissionHistory">投稿历史</message>
+	<message key="submission.submissionManuscript">投稿草稿</message>
+	<message key="submission.submissionReview">投稿审阅</message>
+	<message key="submission.submitter">提交人</message>
+	<message key="submission.summary">摘要</message>
+	<message key="submission.supplementaryFiles">附件文件</message>
+	<message key="submission.supportingAgencies">支持机构</message>
+	<message key="submission.titleAndAbstract">标题和摘要</message>
+	<message key="submission.underway">进行</message>
+	<message key="submission.uploadFileTo">上传文件到</message>
+	<message key="submission.viewMetadata">查看元数据</message>
+	<message key="submission.views">查看</message>
+</locale>

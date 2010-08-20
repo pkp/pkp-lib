@@ -53,10 +53,13 @@ class CitationListTokenizerFilter extends Filter {
 		// 1) Remove empty lines and normalize line endings
 		$input = String::regexp_replace('/[\r\n]+/s', "\n", $input);
 		// 2) Break up at line endings
-		$output = explode("\n", $input);
-		// FIXME: Implement more complex treatment, e.g. filtering of
-		// number strings at the beginning of each string, etc.
-		return $output;
+		$citations = explode("\n", $input);
+		// 3) Remove numbers from the beginning of each citation
+		foreach($citations as $index => $citation) {
+			$citations[$index] = String::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
+		}
+
+		return $citations;
 	}
 }
 ?>

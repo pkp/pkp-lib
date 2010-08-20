@@ -22,7 +22,7 @@ class CitationListTokenizerFilterTest extends PKPTestCase {
 	 */
 	public function testCitationListTokenizerFilter() {
 	    $tokenizer = new CitationListTokenizerFilter();
-	    $rawCitationList = "citation1\n\ncitation2\r\ncitation3\ncitation4";
+	    $rawCitationList = "\t1. citation1\n\n2 citation2\r\n 3) citation3\n[4]citation4";
 	    $expectedResult = array(
 	    	'citation1',
 	    	'citation2',

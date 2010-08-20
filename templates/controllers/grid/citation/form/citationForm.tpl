@@ -217,7 +217,8 @@
 					// and change it's color so that the user
 					// easily identifies that this field has
 					// been unset.
-					$this.closest('tr').find('select').val(-1)
+					$this.closest('tr').find('select')
+						.val(-1).data('original-value', -1)
 						.css('color', '#990000')
 						.children().css('color', '#222222');
 				{rdelim});
@@ -278,7 +279,7 @@
 					.change(function() {ldelim}
 						labelChangeHandler($(this), true);
 					{rdelim});
-			{rdelim}
+			{rdelim};
 
 			// - Append the a first new input field to
 			//   the field list.
@@ -302,7 +303,7 @@
 					// Add new empty field to be edited next.
 					addNewCitationField();
 				{rdelim}
-			{rdelim}
+			{rdelim};
 			$('.new-citation-field').die('focus').live('focus', function() {ldelim}
 				activateNewCitationField($(this));
 			{rdelim});
@@ -340,7 +341,7 @@
 			// 3) Google Scholar
 			//
 			/**
-			 * Return an Google Scholar query string
+			 * Return a Google Scholar query string
 			 * based on NLM citation schema variable names.
 			 *
 			 * NB: The Google Scholar query string construction
@@ -353,7 +354,7 @@
 			 *
 			 * @return String
 			 */
-			function createMDSchemaSpecificGSQuery() {ldelim}
+			var createMDSchemaSpecificGSQuery = function() {ldelim}
 				var author = $('input[name=nlm30PersonGroupPersonGroupTypeAuthor]').val();
 				var confName = $('input[name=nlm30ConfName]').val();
 				var source = $('input[name=nlm30Source]').val();
@@ -367,7 +368,7 @@
 				if (articleTitle) queryString += ' "' + articleTitle + '"';
 				if (doi) queryString += ' ' + doi;
 				return queryString;
-			{rdelim}
+			{rdelim};
 
 			$('#googleQuery').click(function() {ldelim}
 				var googleScholarLink = 'http://scholar.google.com/scholar?ie=UTF-8&oe=UTF-8&hl=en&q=' + encodeURIComponent($.trim(createMDSchemaSpecificGSQuery()));
@@ -404,7 +405,7 @@
 			 * citation field list.
 			 * @param $sources jQuery a list of source table cells
 			 */
-			function copySourceToFieldList($source) {ldelim}
+			var copySourceToFieldList = function($source) {ldelim}
 				// Copy all source values to target fields.
 				$source.each(function() {ldelim}
 					$sourceCell = $(this);
@@ -429,7 +430,7 @@
 
 				// Trigger citation comparison refresh.
 				$('#citationFormErrorsAndComparison').triggerHandler('refresh');
-			{rdelim}
+			{rdelim};
 
 			// Activate "use" buttons.
 			$('.citation-source-use-button').die('click').live('click', function() {ldelim}

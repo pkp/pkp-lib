@@ -12,6 +12,7 @@
  * or when refreshing the form as a whole.
  *}
 
+{assign var=containerId value="citationEditorDetailCanvas"}
 {* create the before/after markup versions of the citations from the citation diff *}
 {capture assign=rawCitationWithMarkup}{strip}
 	{foreach from=$citationDiff item=change}
@@ -94,9 +95,20 @@
 			return false;
 		{rdelim});
 
+		// Open a confirmation dialog when the user
+		// clicks the "process raw citation" button.
+		$('#processRawCitation')
+			// modalConfirm() doesn't remove prior events
+			// so we do it ourselves.
+			.die('click')
+			// Activate a throbber when the button is clicked.
+			.click(function() {ldelim}
+				// Throbber for raw citation processing.
+				actionThrobber('#{$containerId}');
+			{rdelim});
+
 		{if $rawCitationEditingWarningHide}
 			// Process the citation without asking the user.
-			actionThrobber('#{$containerId}');
 			ajaxAction(
 				'post',
 				'#{$containerId}',
@@ -107,18 +119,6 @@
 				'#editCitationForm'
 			);			
 		{else}
-			// Open a confirmation dialog when the user
-			// clicks the "process raw citation" button.
-			$('#processRawCitation')
-				// modalConfirm() doesn't remove prior events
-				// so we do it ourselves.
-				.die('click')
-				// Activate a throbber when the button is clicked.
-				.click(function() {ldelim}
-					// Throbber for raw citation processing.
-					actionThrobber('#{$containerId}');
-				{rdelim});
-	
 			// Configure the dialog.
 			var warningContent =
 				'{translate key="submission.citations.editor.details.processRawCitationWarning"}<br /><br />' +

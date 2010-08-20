@@ -409,6 +409,10 @@ class CitationForm extends Form {
 					}
 				}
 			}
+
+			// Sort available fields alphabetically.
+			$availableFields = $this->_orderByDisplayName($availableFields);
+
 			$templateMgr->assign_by_ref('availableFields', $availableFields);
 
 			//
@@ -462,6 +466,9 @@ class CitationForm extends Form {
 				// We can safely use the 'displayName' key here as
 				// the keys representing statements will be namespaced.
 				$citationSourceTabs[$sourceDescriptionId]['displayName'] = $sourceDescription->getDisplayName();
+
+				// Prepare the description's statements as a sub-array.
+				$thisDescription = array();
 				foreach ($sourceDescription->getStatements() as $propertyName => $value) {
 					$property =& $metadataSchema->getProperty($propertyName);
 
@@ -473,11 +480,17 @@ class CitationForm extends Form {
 
 					$sourcePropertyId = $sourceDescriptionId.'-'.$metadataSchema->getNamespacedPropertyId($propertyName);
 					$sourcePropertyValue = $this->_getStringValueFromMetadataStatement($property, $value);
-					$citationSourceTabs[$sourceDescriptionId]['statements'][$sourcePropertyId] = array(
+					$thisDescription[$sourcePropertyId] = array(
 						'displayName' => $property->getDisplayName(),
 						'value' => $sourcePropertyValue
 					);
 				}
+				// Order description properties in the sub-array by display name.
+				$thisDescription = $this->_orderByDisplayName($thisDescription);
+
+				// Add the description sub-array to the descriptons list.
+				$citationSourceTabs[$sourceDescriptionId]['statements'] = $thisDescription;
+				unset($thisDescription);
 
 				// Remove source descriptions that don't have data.
 				if (!isset($citationSourceTabs[$sourceDescriptionId]['statements'])) unset($citationSourceTabs[$sourceDescriptionId]);
@@ -533,6 +546,18 @@ class CitationForm extends Form {
 		}
 
 		return $stringValue;
+	}
+
+	/**
+	 * Alphabetically order the given field list by display
+	 * name.
+	 * @param $fieldList array expects an array of entries
+	 *  with a sub-key "displayName".
+	 * @return array the ordered field.
+	 */
+	function _orderByDisplayName($fieldList) {
+		uasort($fieldList, create_function('$a, $b', 'return strcmp($a["displayName"], $b["displayName"]);'));
+		return $fieldList;
 	}
 }
 

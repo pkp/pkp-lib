@@ -63,6 +63,7 @@
 				{rdelim});
 			</script>
 			<form name="exportCitationForm" id="exportCitationForm" method="post" action="" >
+				<br />
 				<p>
 					<p>{translate key="submission.citations.editor.export.filterSelectionDescription"}</p>
 					<select class="field select" name="filterId" id="xmlExportFilterSelect">

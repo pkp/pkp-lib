@@ -17,6 +17,9 @@
 <tr{if $required} class="citation-field-required"{/if}>
 	<td class="first_column">
 		<div class="row_container">
+			<div class="row_actions">
+				<a class="delete" title="{translate key="common.delete"}" href="">&nbsp;</a>
+			</div>
 			<div class="row_file label">
 				<select name="citation-field-input-label[]"
 					title="{translate|escape key="submission.citations.editor.details.changeFieldInfo"}"
@@ -26,9 +29,6 @@
 							<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
 						{/foreach}
 				</select>
-			</div>
-			<div class="row_actions">
-				<a class="delete" title="{translate key="common.delete"}" href="">&nbsp;</a>
 			</div>
 		</div>
 	</td>

@@ -35,6 +35,78 @@
 				{rdelim});
 			{/if}
 
+			// Add keyboard shortcuts.
+			/**
+			 * keyboard handler
+			 * @param e Event
+			 * @return boolean
+			 */
+			var shortcutHandler = function(e) {ldelim}
+				// All shortcuts are ctrl keys.
+				if (!e.ctrlKey) return;
+
+				switch(e.which) {ldelim}
+					// Ctrl-R
+					case 114:
+						$('#citationFormSaveAndRevokeApproval').click();
+						break;
+
+					// Ctrl-S
+					case 115:
+						$('#citationFormSave').click();
+						break;
+
+					// Ctrl-A
+					case 97:
+						$('#citationFormSaveAndApprove').click();
+						break;
+
+					// Ctrl-C
+					case 99:
+						$('#citationFormCancel').click();
+						break;
+
+					// Ctrl-M
+					case 109:
+						// manual editing
+						$('#citationImprovement').tabs('select', 0);
+						$('.citation-field').first().focus();
+						break;
+
+					// Ctrl-D
+					case 100:
+						// citation services (databases)
+						$('#citationImprovement').tabs('select', 1);
+						break;
+
+					// Ctrl-G
+					case 103:
+						// Google Scholar
+						$('#citationImprovement').tabs('select', 2);
+						break;
+
+					// Ctrl-Q
+					case 113:
+						// author query
+						$('#citationImprovement').tabs('select', 3);
+						break;
+
+					// Ctrl-O
+					case 111:
+						// show sources
+						$('#citationImprovementResultsBlock>.options-head').click();
+						break;
+
+					default:
+						// No hotkey pressed.
+						return;
+				{rdelim}
+
+				// Override all other meanings of these hotkeys.
+				return false;
+			{rdelim};
+			$(document).unbind('keypress').keypress(shortcutHandler);
+
 			////////////////////////////////////////////////////////////
 			// Improvement options
 			//
@@ -549,10 +621,10 @@
 
 					<div id="citationImprovement">
 						<ul>
-							<li><a href="#citationImprovementManual">Manual Editing</a></li>
-							<li><a href="#citationImprovementQuery">Citation Services</a></li>
-							<li><a href="#citationImprovementGoogle">Google Scholar</a></li>
-							<li><a href="#citationImprovementAuthor">Ask Author</a></li>
+							<li><a href="#citationImprovementManual" title="{translate key="submission.citations.editor.details.manualEditing"} [Ctrl-M]">{translate key="submission.citations.editor.details.manualEditing"}</a></li>
+							<li><a href="#citationImprovementQuery" title="{translate key="submission.citations.editor.details.citationServices"} [Ctrl-D]">{translate key="submission.citations.editor.details.citationServices"}</a></li>
+							<li><a href="#citationImprovementGoogle" title="{translate key="submission.citations.editor.details.googleScholar"} [Ctrl-G]">{translate key="submission.citations.editor.details.googleScholar"}</a></li>
+							<li><a href="#citationImprovementAuthor" title="{translate key="submission.citations.editor.details.authorQuery"} [Ctrl-Q]">{translate key="submission.citations.editor.details.authorQuery"}</a></li>
 						</ul>
 
 						<div id="citationImprovementManual" class="grid">
@@ -624,8 +696,8 @@
 				<div id="citationImprovementResultsBlock">
 					<div class="options-head">
 						<span class="ui-icon"></span>
-						<span class="option-block-inactive">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
-						<span class="option-block-active">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
+						<span class="option-block-inactive" title="{translate key="submission.citations.editor.details.citationImprovementResultsInactive"} [Ctrl-O]">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
+						<span class="option-block-active" title="{translate key="submission.citations.editor.details.citationImprovementResultsActive"} [Ctrl-O]">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
 					</div>
 					<div class="option-block">
 						{* Tabs that contain source data *}

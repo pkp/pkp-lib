@@ -471,7 +471,8 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		// Settings are only installed during automated installs. FIXME!
+		// Settings are only installed during automated installs. We issue a warning
+		// to the user to run an upgrade after manual installation.
 		if (!$installer->getParam('manualInstall')) {
 			// All contexts are set to zero for site-wide plug-in settings
 			$application =& PKPApplication::getApplication();

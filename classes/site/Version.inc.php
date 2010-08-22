@@ -13,8 +13,6 @@
  * @brief Describes system version history.
  */
 
-// $Id$
-
 
 class Version extends DataObject {
 

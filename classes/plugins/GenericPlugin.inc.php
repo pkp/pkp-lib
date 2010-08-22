@@ -12,8 +12,6 @@
  * @brief Abstract class for generic plugins
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');
 

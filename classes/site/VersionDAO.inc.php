@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Version objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.site.Version');
 

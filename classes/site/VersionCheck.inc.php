@@ -13,8 +13,6 @@
  * @brief Provides methods to check for the latest version of OJS.
  */
 
-// $Id$
-
 
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 

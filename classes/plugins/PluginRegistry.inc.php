@@ -13,8 +13,6 @@
  * @brief Registry class for managing plugins.
  */
 
-// $Id$
-
 
 define('PLUGINS_PREFIX', 'plugins/');
 

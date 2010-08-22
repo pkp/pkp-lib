@@ -364,8 +364,8 @@
 				var queryString = '';
 				if (author) queryString += author.replace(/[()]/g, '');
 				if (confName) queryString += ' ' + confName;
-				if (source) queryString += ' "' + source + '"';
-				if (articleTitle) queryString += ' "' + articleTitle + '"';
+				if (source) queryString += ' ' + source;
+				if (articleTitle) queryString += ' ' + articleTitle;
 				if (doi) queryString += ' ' + doi;
 				return queryString;
 			{rdelim};

@@ -159,33 +159,64 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	 *  single 'et-al' string.
 	 */
 	function &_parsePersonsString($personsString, $title, $degrees) {
-		// Check for 'et al'
+		// Check for 'et al'.
 		$personsStringBeforeEtal = String::strlen($personsString);
 		$personsString = String::regexp_replace('/et ?al$/', '', $personsString);
 		$etAl = ($personsStringBeforeEtal == String::strlen($personsString) ? false : true);
 
-		// Remove punctuation
+		// Remove punctuation.
 		$personsString = trim($personsString, ':;, ');
 
-		// Cut the authors string into pieces
+		// Cut the authors string into pieces.
 		$personStrings = String::iterativeExplode(array(':', ';'), $personsString);
 
-		// Only try to cut by comma if the pieces contain more
-		// than one word to avoid splitting between last name and
-		// first name.
+		// If we did not have success with simple patterns then try more complex
+		// patterns to tokenize multiple-person strings.
 		if (count($personStrings) == 1) {
-			if (String::regexp_match('/^((\w+\s+)+\w+\s*,)+\s*((\w+\s+)+\w+)$/i', $personStrings[0])) {
-				$personStrings = explode(',', $personStrings[0]);
+			// The first pattern must match the whole string, the second is used
+			// to extract names.
+			$complexPersonsPatterns = array(
+				// APA author style unfortunately uses commas to separate surnames
+				// as well as pre-names which makes it much more difficult to split
+				// correctly. We allow for non-APA whitespacing and punctuation.
+				array(
+					'/^((([^ \t\n\r\f\v,.&]{2,}\s*)+,\s*([A-Z]\.\s*)+),\s*)+(\&|\.\s\.\s\.)\s*([^ \t\n\r\f\v,.&]{2,}\s*,\s*([A-Z]\.\s*)+)$/i',
+					'/(?:[^ \t\n\r\f\v,.&]{2,}\s*)+,\s*(?:[A-Z]\.\s*)+/i'
+				),
+				// Try to cut by comma if the pieces contain more
+				// than one word to avoid splitting between last name and
+				// first name. This captures APA editor and Vancouver
+				// author styles for example.
+				array(
+					'/^((([^ \t\n\r\f\v,&]+\s+)+[^ \t\n\r\f\v,&]+\s*)[,&]\s*)+(([^ \t\n\r\f\v,&]+\s+)+[^ \t\n\r\f\v,&]+)/i',
+					'/(?:(?:[^ \t\n\r\f\v,&.]+|[^ \t\n\r\f\v,&]{2,})\s+)+(?:[^ \t\n\r\f\v,&.]+|[^ \t\n\r\f\v,&]{2,})/i'
+				)
+			);
+			$matched = false;
+			foreach($complexPersonsPatterns as $complexPersonsPattern) {
+				// Break at the first pattern that matches.
+				if ($matched = String::regexp_match($complexPersonsPattern[0], $personsString)) {
+					// Retrieve names.
+					$success = String::regexp_match_all($complexPersonsPattern[1], $personsString, $personStrings);
+					assert($success && count($personStrings) == 1);
+					$personStrings = $personStrings[0];
+					break;
+				}
+			}
+
+			if (!$matched) {
+				// If nothing matches then try to parse as a single person.
+				$personStrings = array($personsString);
 			}
 		}
 
-		// Parse persons
+		// Parse persons.
 		$persons = array();
 		foreach ($personStrings as $personString) {
 			$persons[] =& $this->_parsePersonString($personString, $title, $degrees);
 		}
 
-		// Add et-al string
+		// Add et-al string.
 		if ($etAl) {
 			$persons[] = PERSON_STRING_FILTER_ETAL;
 		}
@@ -212,7 +243,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		static $personRegex = array(
 			'title' => '(?:His (?:Excellency|Honou?r)\s+|Her (?:Excellency|Honou?r)\s+|The Right Honou?rable\s+|The Honou?rable\s+|Right Honou?rable\s+|The Rt\.? Hon\.?\s+|The Hon\.?\s+|Rt\.? Hon\.?\s+|Mr\.?\s+|Ms\.?\s+|M\/s\.?\s+|Mrs\.?\s+|Miss\.?\s+|Dr\.?\s+|Sir\s+|Dame\s+|Prof\.?\s+|Professor\s+|Doctor\s+|Mister\s+|Mme\.?\s+|Mast(?:\.|er)?\s+|Lord\s+|Lady\s+|Madam(?:e)?\s+|Priv\.-Doz\.\s+)+',
 			'degrees' => '(,\s+(?:[A-Z\.]+))+',
-			'initials' => '(?:(?:[A-Z]\.){1,4})|(?:(?:[A-Z]\.\s){1,3}[A-Z])|(?:[A-Z]{1,4})|(?:(?:[A-Z]\.-?){1,4})|(?:(?:[A-Z]\.-?){1,3}[A-Z])|(?:(?:[A-Z]-){1,3}[A-Z])|(?:(?:[A-Z]\s){1,3}[A-Z])|(?:(?:[A-Z] ){1,3}[A-Z]\.)|(?:[A-Z]-(?:[A-Z]\.){1,3})',
+			'initials' => '(?:(?:[A-Z]\.){1,4})|(?:(?:[A-Z]\.\s){1,3}[A-Z]\.)|(?:[A-Z]{1,4})|(?:(?:[A-Z]\.-?){1,4})|(?:(?:[A-Z]\.-?){1,3}[A-Z])|(?:(?:[A-Z]-){1,3}[A-Z])|(?:(?:[A-Z]\s){1,3}[A-Z])|(?:(?:[A-Z] ){1,3}[A-Z]\.)|(?:[A-Z]-(?:[A-Z]\.){1,3})',
 			'prefix' => 'Dell(?:[a|e])?(?:\s|$)|Dalle(?:\s|$)|D[a|e]ll\'(?:\s|$)|Dela(?:\s|$)|Del(?:\s|$)|[Dd]e(?:\s|$)(?:La(?:\s|$)|Los(?:\s|$))?|[Dd]e(?:\s|$)|[Dd][a|i|u](?:\s|$)|L[a|e|o](?:\s|$)|[D|L|O]\'|St\.?(?:\s|$)|San(?:\s|$)|[Dd]en(?:\s|$)|[Vv]on(?:\s|$)(?:[Dd]er(?:\s|$))?|(?:[Ll][ea](?:\s|$))?[Vv]an(?:\s|$)(?:[Dd]e(?:n|r)?(?:\s|$))?',
 			'givenName' => '(?:[^ \t\n\r\f\v,.;()]{2,}|[^ \t\n\r\f\v,.;()]{2,}\-[^ \t\n\r\f\v,.;()]{2,})'
 		);

@@ -36,7 +36,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array('Mrs. P.-B. von Redfield-Brownfox', true, false),  // initials prefix double-surname + title
 			array('Professor K-G. Brown, MA, MSc.', true, true),     // initials surname + title + degree
 			array('IFC Peterberg', false, false),                    // initials surname
-			array('Peters, HC', false, false),                       // surname, initials
+			array('Peters, H. C.', false, false),                    // surname, initials
 			array('Peters HC', false, false),                        // surname initials
 			array('Yu, QK', false, false),                           // short surname, initials
 			array('Yu QK', false, false),                            // short surname initials
@@ -131,11 +131,12 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}
 
-		// Test whether comma separation works correctly
-		$personsString = 'Peterberg IFC, Peters HC';
+		// Test whether Vancouver style comma separation works correctly
+		$personsString = 'Peterberg IFC, Peters HC, Sperling HP';
 		$expectedResults = array(
 			array(null, array('I', 'F', 'C'), null, 'Peterberg'),
 			array(null, array('H', 'C'), null, 'Peters'),
+			array(null, array('H', 'P'), null, 'Sperling')
 		);
 		$this->_personStringNlmNameSchemaFilter->setFilterTitle(false);
 		$this->_personStringNlmNameSchemaFilter->setFilterDegrees(false);
@@ -150,6 +151,23 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 		$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($personsString);
 		$this->assertEquals(1, count($personDescriptions));
 		$this->assertPerson($expectedResult, $personDescriptions[0], $testNumber);
+
+		// Test APA style author tokenization.
+		$singleAuthor = array(1 => 'Berndt, T. J.');
+		$twoAuthors = array(2 => 'Wegener-Prent, D. T., & Petty, R. E.');
+		$threeToSevenAuthors = array(6 => 'Kernis Wettelberger, M. H., Cornell, D. P., Sun, C. R., Berry, A., Harlow, T., & Bach, J. S.');
+		$moreThanSevenAuthors = array(7 => 'Miller, F. H., Choi, M.J., Angeli, L. L., Harland, A. A., Stamos, J. A., Thomas, S. T., . . . Rubin, L. H.');
+		$singleEditor = array(1 => 'A. Editor');
+		$twoEditors = array(2 => 'A. Editor-Double & B. Editor');
+		$threeToSevenEditors = array(6 => 'M.H. Kernis Wettelberger, D. P. Cornell, C.R. Sun, A. Berry, T. Harlow & J.S. Bach');
+		$moreThanSevenEditors = array(7 => 'F. H. Miller, M. J. Choi, L. L. Angeli, A. A. Harland, J. A. Stamos, S. T. Thomas . . . L. H. Rubin');
+		foreach(array($singleAuthor , $twoAuthors, $threeToSevenAuthors, $moreThanSevenAuthors,
+				$singleEditor, $twoEditors, $threeToSevenEditors, $moreThanSevenEditors) as $test) {
+			$expectedNumber = key($test);
+			$testString = current($test);
+			$personDescriptions =& $this->_personStringNlmNameSchemaFilter->execute($testString);
+			$this->assertEquals($expectedNumber, count($personDescriptions), 'Offending string: '.$testString);
+		}
 	}
 
 	/**

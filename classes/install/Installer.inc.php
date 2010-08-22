@@ -291,7 +291,7 @@ class Installer {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
 			if ($this->getParam('manualInstall')) {
 				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load) VALUES (%d, %d, %d, %d, NOW(), 1, %s,%s)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct()), $this->dbconn->qstr($this->newVersion->getProductClassName()), $this->newVersion->getLazyLoad()));
+				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide) VALUES (%d, %d, %d, %d, NOW(), 1, %s, %s, %s, %d, %d)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct()), $this->dbconn->qstr($this->newVersion->getProductClassName()), ($this->newVersion->getLazyLoad()?1:0), ($this->newVersion->getSitewide()?1:0)));
 			} else {
 				$versionDao =& DAORegistry::getDAO('VersionDAO');
 				if (!$versionDao->insertVersion($this->newVersion)) {

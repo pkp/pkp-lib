@@ -114,7 +114,8 @@ class VersionDAO extends DAO {
 			(isset($row['product_type']) ? $row['product_type'] : null),
 			(isset($row['product']) ? $row['product'] : null),
 			(isset($row['product_class_name']) ? $row['product_class_name'] : ''),
-			(isset($row['lazy_load']) ? $row['lazy_load'] : 0)
+			(isset($row['lazy_load']) ? $row['lazy_load'] : 0),
+			(isset($row['sitewide']) ? $row['sitewide'] : 0)
 		);
 
 		HookRegistry::call('VersionDAO::_returnVersionFromRow', array(&$version, &$row));
@@ -159,7 +160,7 @@ class VersionDAO extends DAO {
 			// Insert new version entry
 			return $this->update(
 				sprintf('INSERT INTO versions
-					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load)
+					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide)
 					VALUES
 					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB($version->getDateInstalled())),
@@ -172,19 +173,21 @@ class VersionDAO extends DAO {
 					$version->getProductType(),
 					$version->getProduct(),
 					$version->getProductClassName(),
-					(int) $version->getLazyLoad()
+					($version->getLazyLoad()?1:0),
+					($version->getSitewide()?1:0)
 				)
 			);
 		} else {
 			// Update existing version entry
 			return $this->update(
-				'UPDATE versions SET current = ?, product_type = ?, product_class_name = ?, lazy_load = ?
+				'UPDATE versions SET current = ?, product_type = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
 					WHERE product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
 				array(
 					(int) $version->getCurrent(),
 					$version->getProductType(),
 					$version->getProductClassName(),
-					(int) $version->getLazyLoad(),
+					($version->getLazyLoad()?1:0),
+					($version->getSitewide()?1:0),
 					$version->getProduct(),
 					(int) $version->getMajor(),
 					(int) $version->getMinor(),
@@ -215,7 +218,7 @@ class VersionDAO extends DAO {
 				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
 				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
 			}
-			$contextWhereClause = 'AND '.implode('_id = ? AND ', $contextNames).'_id = ?';
+			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide)';
 		} else {
 			$contextWhereClause = '';
 		}
@@ -225,7 +228,7 @@ class VersionDAO extends DAO {
 				 FROM versions v LEFT JOIN plugin_settings ps ON
 				     lower(v.product_class_name) = ps.plugin_name
 				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
-				 WHERE current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
+				 WHERE v.current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
 
 		$productArray = array();
 		while(!$result->EOF) {

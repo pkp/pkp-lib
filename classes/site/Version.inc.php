@@ -22,7 +22,7 @@ class Version extends DataObject {
 	 * Constructor.
 	 */
 	function Version($major, $minor, $revision, $build, $dateInstalled, $current,
-			$productType, $product, $productClassName, $lazyLoad) {
+			$productType, $product, $productClassName, $lazyLoad, $sitewide) {
 
 		parent::DataObject();
 
@@ -37,6 +37,7 @@ class Version extends DataObject {
 		$this->setProduct($product);
 		$this->setProductClassName($productClassName);
 		$this->setLazyLoad($lazyLoad);
+		$this->setSitewide($sitewide);
 	}
 
 	/**
@@ -62,9 +63,10 @@ class Version extends DataObject {
 	 * @param $product string
 	 * @param $productClass string
 	 * @param $lazyLoad integer
+	 * @param $sitewide integer
 	 * @return Version
 	 */
-	function &fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0) {
+	function &fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1) {
 		$versionArray = explode('.', $versionString);
 
 		if(!$product && !$productType) {
@@ -83,7 +85,8 @@ class Version extends DataObject {
 			$productType,
 			$product,
 			$productClass,
-			$lazyLoad
+			$lazyLoad,
+			$sitewide
 		);
 
 		return $version;
@@ -251,6 +254,22 @@ class Version extends DataObject {
 	 */
 	function setLazyLoad($lazyLoad) {
 		return $this->setData('lazyLoad', $lazyLoad);
+	}
+
+	/**
+	 * Get the sitewide flag for this product
+	 * @return boolean
+	 */
+	function getSitewide() {
+		return $this->getData('sitewide');
+	}
+
+	/**
+	 * Set the sitewide flag for this product
+	 * @param $sitewide boolean
+	 */
+	function setSitewide($sitewide) {
+		return $this->setData('sitewide', $sitewide);
 	}
 
 	/**

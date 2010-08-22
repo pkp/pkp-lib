@@ -97,6 +97,7 @@ class VersionCheck {
 		if(isset($data['class'][0]['value']))
 			$versionInfo['class'] = (string) $data['class'][0]['value'];
 		$versionInfo['lazy-load'] = (isset($data['lazy-load'][0]['value']) ? (int) $data['lazy-load'][0]['value'] : 0);
+		$versionInfo['sitewide'] = (isset($data['sitewide'][0]['value']) ? (int) $data['sitewide'][0]['value'] : 0);
 
 		if(isset($data['release'][0]['value']) && isset($data['application'][0]['value'])) {
 			$version =& Version::fromString(
@@ -104,12 +105,11 @@ class VersionCheck {
 				isset($data['type'][0]['value']) ? $data['type'][0]['value'] : null,
 				$data['application'][0]['value'],
 				isset($data['class'][0]['value']) ? $data['class'][0]['value'] : '',
-				$versionInfo['lazy-load']
+				$versionInfo['lazy-load'],
+				$versionInfo['sitewide']
 			);
 			$versionInfo['version'] =& $version;
 		}
-
-
 
 		return $versionInfo;
 	}

@@ -85,7 +85,6 @@ class AuthorizationPolicy {
 	 * @param $authorizedObject mixed
 	 */
 	function addAuthorizedContextObject($assocType, &$authorizedObject) {
-		assert(!$this->hasAuthorizedContextObject($assocType));
 		$this->_authorizedContext[$assocType] =& $authorizedObject;
 	}
 

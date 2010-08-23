@@ -160,7 +160,7 @@ class VersionDAO extends DAO {
 				sprintf('INSERT INTO versions
 					(major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide)
 					VALUES
-					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?)',
+					(?, ?, ?, ?, %s, ?, ?, ?, ?, ?, ?)',
 					$this->datetimeToDB($version->getDateInstalled())),
 				array(
 					(int) $version->getMajor(),

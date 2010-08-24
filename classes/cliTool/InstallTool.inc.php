@@ -125,9 +125,9 @@ class InstallTool extends CommandLineTool {
 		$this->printTitle('installer.administratorAccount');
 		$this->readParam('adminUsername', 'user.username');
 		@`/bin/stty -echo`;
-		$this->readParam('adminPassword', 'user.password');
-		printf("\n");
 		do {
+			$this->readParam('adminPassword', 'user.password');
+			printf("\n");
 			$this->readParam('adminPassword2', 'user.register.repeatPassword');
 			printf("\n");
 		} while ($this->params['adminPassword'] != $this->params['adminPassword2']);

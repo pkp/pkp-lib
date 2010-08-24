@@ -98,6 +98,7 @@ class EditableEmailFile {
 		$newContents .= '	<email_text key="' . $this->editableFile->xmlEscape($key) . '">
 		<subject>' . $this->editableFile->xmlEscape($subject) . '</subject>
 		<body>' . $this->editableFile->xmlEscape($body) . '</body>
+		<description>' . $this->editableFile->xmlEscape($description) . '</description>
 	</email_text>
 ';
 		$newContents .= substr($this->getContents(), $offset);

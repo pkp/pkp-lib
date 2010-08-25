@@ -426,13 +426,21 @@ function updateItem(actType, actOnId, content) {
 	var updatedItem;
 	switch (actType) {
 		case 'append':
-			$empty = $(actOnId).closest('table').children('.empty');
-			$empty.hide();
-			updatedItem = $(actOnId).append(content).children().last();
-			break;
 		case 'replace':
-			updatedItem = $(actOnId).replaceWith(content);
+			$empty = $(actOnId).closest('table').children('.empty');
+			if (actType === 'append') {
+				updatedItem = $(actOnId).append(content).children().last();
+				$empty.hide();
+			} else {
+				updatedItem = $(actOnId).replaceWith(content);
+				if ($(actOnId).children().length === 0) {
+					$empty.show();
+				} else {
+					$empty.hide();
+				}
+			}
 			break;
+
 		case 'remove':
 			if ($(actOnId).siblings().length == 0) {
 				updatedItem = deleteElementById(actOnId, true);
@@ -440,9 +448,11 @@ function updateItem(actType, actOnId, content) {
 				updatedItem = deleteElementById(actOnId);
 			}
 			break;
+
 		case 'nothing':
 			updatedItem = null
 			break;
+
 		case 'redirect':
 			// redirect to the content
 			$(window.location).attr('href', content);

@@ -559,12 +559,12 @@ class PKPRequest {
 	 * Strips slashes if necessary, then sanitizes variable as per Core::cleanVar().
 	 * @param $var mixed
 	 */
-	function cleanUserVar(&$var, $stripHtml = false) {
+	function cleanUserVar(&$var) {
 		$_this =& PKPRequest::_checkThis();
 
 		if (isset($var) && is_array($var)) {
 			foreach ($var as $key => $value) {
-				$_this->cleanUserVar($var[$key], $stripHtml);
+				$_this->cleanUserVar($var[$key]);
 			}
 		} else if (isset($var)) {
 			$var = Core::cleanVar(get_magic_quotes_gpc() ? stripslashes($var) : $var);

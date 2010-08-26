@@ -1,5 +1,3 @@
-<!-- templates/controllers/listbuilder/listbuilderGridRow.tpl -->
-
 {**
  * gridRow.tpl
  *
@@ -15,6 +13,3 @@
 		<td>{$cell}</td>
 	{/foreach}
 </tr>
-
-<!-- / templates/controllers/listbuilder/listbuilderGridRow.tpl -->
-

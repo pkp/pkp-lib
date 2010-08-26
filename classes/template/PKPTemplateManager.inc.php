@@ -1146,40 +1146,24 @@ class PKPTemplateManager extends Smarty {
 		if (!isset($params['id'])) {
 			$smarty->trigger_error("id parameter is missing from load_url_in_div");
 		}
-		$url = $params['url'];
-		$id = $params['id'];
+
+		$this->assign('inDivUrl', $params['url']);
+		$this->assign('inDivDivId', $params['id']));
+		if (isset($params['class'])) $this->assign('inDivClass', $params['class']);
+
 		if (isset($params['loadMessageId'])) {
 			$loadMessageId = $params['loadMessageId'];
-			unset($params['url'], $params['id'], $params['loadMessageId']);
-			$translatedLoadMessage = Locale::translate($loadMessageId, $params);
+			unset($params['url'], $params['id'], $params['loadMessageId'], $params['class']);
+			$this->assign('inDivLoadMessage', Locale::translate($loadMessageId, $params));
 		} else {
-			$translatedLoadMessage = Locale::translate('common.loading');
+			$this->assign('inDivLoadMessage', Locale::translate('common.loading'));
 		}
 
-		// Check for CSS class parameter.
-		if (isset($params['class'])) {
-			$class = ' class="'.$params['class'].'"';
-		} else {
-			$class = '';
-		}
-
-		return "<div id=\"" . str_replace("#","",$id) . "\"$class>$translatedLoadMessage</div>
-		<script type='text/javascript'>
-			$(function() {
-				$.getJSON(\"$url\", function(jsonData) {
-					if (jsonData.status === true) {
-						$(\"$id\").html(jsonData.content);
-					} else {
-						// Alert that loading failed
-						alert(jsonData.content);
-					}
-				});
-			});
-		</script>";
+		return $this->fetch('common/urlInDiv.tpl');
 	}
 
 	/**
-	 * Smarty usage: {modal	 url=$dialogUrl actOnId="#gridName" button="#dialogButton"}
+	 * Smarty usage: {modal url=$dialogUrl actOnId="#gridName" button="#dialogButton"}
 	 *
 	 * Custom Smarty function for creating jQuery-based modals
 	 * @params $params array associative array

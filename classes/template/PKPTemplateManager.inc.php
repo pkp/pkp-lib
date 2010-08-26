@@ -1148,7 +1148,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		$this->assign('inDivUrl', $params['url']);
-		$this->assign('inDivDivId', $params['id']));
+		$this->assign('inDivDivId', $params['id']);
 		if (isset($params['class'])) $this->assign('inDivClass', $params['class']);
 
 		if (isset($params['loadMessageId'])) {

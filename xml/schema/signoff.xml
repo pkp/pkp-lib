@@ -43,11 +43,16 @@
 		<field name="date_underway" type="T"/>
 		<field name="date_completed" type="T"/>
 		<field name="date_acknowledged" type="T"/>
+		<field name="stage_id" type="I8" />
+		<field name="user_group_id" type="I8" />
 		<descr>Signoffs</descr>
 		<index name="signoff_symbolic">
 			<col>assoc_type</col>
 			<col>assoc_id</col>
 			<col>symbolic</col>
+			<col>user_id</col>
+			<col>stage_id</col>
+			<col>user_group_id</col>
 			<UNIQUE />
 		</index>
 	</table>

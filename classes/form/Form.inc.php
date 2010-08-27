@@ -64,12 +64,17 @@ class Form {
 	/** Client-side validation rules **/
 	var $cssValidation;
 
+	/** @var $requiredLocale string Symbolic name of required locale */
+	var $requiredLocale;
+
+	/** @var $supportedLocales array Set of supported locales */
+	var $supportedLocales;
 
 	/**
 	 * Constructor.
 	 * @param $template string the path to the form template file
 	 */
-	function Form($template = null, $callHooks = true) {
+	function Form($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null) {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
@@ -78,6 +83,11 @@ class Form {
 			// Note that class names are always lower case.
 			HookRegistry::call(strtolower($trace[1]['class']) . '::Constructor', array(&$this, &$template));
 		}
+
+		if ($requiredLocale === null) $requiredLocale = Locale::getPrimaryLocale();
+		$this->requiredLocale = $requiredLocale;
+		if ($supportedLocales === null) $supportedLocales = Locale::getSupportedFormLocales();
+		$this->supportedLocales = $supportedLocales;
 
 		$this->_template = $template;
 		$this->_data = array();
@@ -116,6 +126,14 @@ class Form {
 		return $this->_template;
 	}
 
+	/**
+	 * Get the required locale for this form (i.e. the locale for which
+	 * required fields must be set, all others being optional)
+	 * @return string
+	 */
+	function getRequiredLocale() {
+		return $this->requiredLocale;
+	}
 
 	//
 	// Public Methods
@@ -183,13 +201,13 @@ class Form {
 		$templateMgr->assign('isError', !$this->isValid());
 		$templateMgr->assign('errors', $this->getErrorsArray());
 
-		$templateMgr->assign('formLocales', Locale::getSupportedFormLocales());
+		$templateMgr->assign('formLocales', $this->supportedLocales);
 
 		// Determine the current locale to display fields with
 		$formLocale = Request::getUserVar('formLocale');
 		if (empty($formLocale)) $formLocale = Locale::getLocale();
-		if (!in_array($formLocale, array_keys(Locale::getSupportedFormLocales()))) {
-			$formLocale = Locale::getPrimaryLocale();
+		if (!in_array($formLocale, array_keys($this->supportedLocales))) {
+			$formLocale = $this->requiredLocale;
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
@@ -340,6 +358,7 @@ class Form {
 	function getFormLocale() {
 		$formLocale = Request::getUserVar('formLocale');
 		if (empty($formLocale)) $formLocale = Locale::getLocale();
+		if (!in_array($formLocale, $this->supportedLocales)) $formLocale = $this->requiredLocale;
 		return $formLocale;
 	}
 
@@ -478,7 +497,7 @@ class Form {
 		// Display the language selector widget.
 		$formLocale = $smarty->get_template_vars('formLocale');
 		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
-		foreach (Locale::getSupportedFormLocales() as $locale => $name) {
+		foreach ($this->supportedLocales as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
 		$returner .= '</select></div>';
@@ -661,9 +680,9 @@ class Form {
 		$values = $params['value'];
 		$name = $params['name'];
 
-		foreach (Locale::getSupportedLocales() as $locale => $localeName) {
+		foreach ($this->supportedLocales as $locale => $localeName) {
 			// if the field is required, only set the main locale as required and others optional
-			if ( $locale == Locale::getPrimaryLocale() ) {
+			if ($locale == $this->requiredLocale) {
 				$params['required'] = $required;
 			} else {
 				$params['required'] = false;

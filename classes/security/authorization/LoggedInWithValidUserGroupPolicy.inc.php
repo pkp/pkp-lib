@@ -10,6 +10,9 @@
  *
  * @brief Class to that makes sure that a user is logged in with a valid
  *  user group and role assigned.
+ *
+ * NB: This policy assumes that a context (if it exists in the request)
+ * has already been authorized.
  */
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
@@ -57,7 +60,7 @@ class LoggedInWithValidUserGroupPolicy extends AuthorizationPolicy {
 		// in the session.
 		$actingAsUserGroupId = $session->getActingAsUserGroupId();
 
-		// Get the context.
+		// Get the context (assumed to be authorized!).
 		$router =& $this->_request->getRouter();
 		$context =& $router->getContext($this->_request);
 

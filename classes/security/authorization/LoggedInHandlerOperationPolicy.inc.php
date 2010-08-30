@@ -11,9 +11,9 @@
  * @brief Class to that makes sure that a user is logged in.
  */
 
-import('lib.pkp.classes.security.authorization.PublicHandlerOperationPolicy');
+import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 
-class LoggedInHandlerOperationPolicy extends PublicHandlerOperationPolicy {
+class LoggedInHandlerOperationPolicy extends PKPPublicAccessPolicy {
 	/**
 	 * Constructor
 	 *
@@ -23,7 +23,7 @@ class LoggedInHandlerOperationPolicy extends PublicHandlerOperationPolicy {
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
 	function LoggedInHandlerOperationPolicy(&$request, $operations, $message = null) {
-		parent::PublicHandlerOperationPolicy($request, $operations, $message);
+		parent::PKPPublicAccessPolicy($request, $operations, $message);
 	}
 
 	//

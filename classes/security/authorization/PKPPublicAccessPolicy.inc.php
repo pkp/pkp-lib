@@ -1,11 +1,11 @@
 <?php
 /**
- * @file classes/security/authorization/PublicHandlerOperationPolicy.inc.php
+ * @file classes/security/authorization/PKPPublicAccessPolicy.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PublicHandlerOperationPolicy
+ * @class PKPPublicAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to control access to handler operations based on an
@@ -14,7 +14,7 @@
 
 import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
 
-class PublicHandlerOperationPolicy extends HandlerOperationPolicy {
+class PKPPublicAccessPolicy extends HandlerOperationPolicy {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
@@ -22,7 +22,7 @@ class PublicHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function PublicHandlerOperationPolicy(&$request, $operations, $message = null) {
+	function PKPPublicAccessPolicy(&$request, $operations, $message = null) {
 		parent::HandlerOperationPolicy($request, $operations, $message);
 	}
 

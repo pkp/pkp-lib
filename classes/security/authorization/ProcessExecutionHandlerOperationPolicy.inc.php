@@ -12,9 +12,9 @@
  *  that authorizes a process to execute.
  */
 
-import('lib.pkp.classes.security.authorization.PublicHandlerOperationPolicy');
+import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 
-class ProcessExecutionHandlerOperationPolicy extends PublicHandlerOperationPolicy {
+class ProcessExecutionHandlerOperationPolicy extends PKPPublicAccessPolicy {
 	/** @var string the process authorization token */
 	var $authToken;
 
@@ -30,7 +30,7 @@ class ProcessExecutionHandlerOperationPolicy extends PublicHandlerOperationPolic
 			$this->authToken = $args['authToken'];
 		}
 
-		parent::PublicHandlerOperationPolicy($request, $operations, $message);
+		parent::PKPPublicAccessPolicy($request, $operations, $message);
 	}
 
 

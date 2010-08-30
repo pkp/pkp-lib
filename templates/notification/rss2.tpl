@@ -1,5 +1,3 @@
-<!-- templates/notification/rss2.tpl -->
-
 {**
  * rss2.tpl
  *
@@ -11,6 +9,7 @@
  * $Id$
  *}
 <?xml version="1.0" encoding="{$defaultCharset|escape}"?>
+<!-- templates/notification/rss2.tpl -->
 <rss version="2.0">
 	<channel>
 		{* required elements *}

@@ -1,5 +1,3 @@
-<!-- templates/notification/atom.tpl -->
-
 {**
  * atom.tpl
  *
@@ -11,6 +9,7 @@
  * $Id$
  *}
 <?xml version="1.0" encoding="{$defaultCharset|escape}"?>
+<!-- templates/notification/atom.tpl -->
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<id>{$selfUrl}</id>
 	<title>{$siteTitle} {translate key="notification.notifications"}</title>

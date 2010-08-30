@@ -22,66 +22,63 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 		var title = dialogTitle ? dialogTitle : $(callingElement).text();
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
-		var d = new Date();
-		var UID = Math.ceil(1000 * Math.random(d.getTime()));
-		var formContainer = '#' + UID;
-
-		// Construct action to perform when OK and Cancels buttons are clicked
-		var dialogOptions = {};
-		if (actType == 'nothing') {
-			// If the action type is 'nothing' then simply close the
-			// dialog when the OK button is pressed. No cancel button
-			// is needed.
-			dialogOptions[okButton] = function() {
-				$(this).dialog("close");
-			};
-		} else {
-			// All other action types will assume that there is a
-			// form to be posted and post it.
-			dialogOptions[okButton] = function() {
-				submitJsonForm(formContainer, actType, actOnId);
-			};
-			dialogOptions[cancelButton] = function() {
-				$(this).dialog("close");
-			};
-		}
-
-		// Construct dialog
-		var $dialog = $('<div id=' + UID + '></div>').dialog({
-			title: title,
-			autoOpen: false,
-			width: 700,
-			modal: true,
-			draggable: false,
-			resizable: false,
-			position: ['center', 100],
-			buttons: dialogOptions,
-			open: function(event, ui) {
-		        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'});
-				$.getJSON(url, function(jsonData) {
-					$('#loading').hide();
-					if (jsonData.status === true) {
-						$('#' + UID).html(jsonData.content);
-					} else {
-						// Alert that the modal failed
-						alert(jsonData.content);
-					}
-				});
-				$(this).html("<div id='loading' class='throbber'></div>");
-				$('#loading').show();
-			},
-			close: function() {
-				// Reset form validation errors and inputs on close
-				if (validator != null) {
-					validator.resetForm();
-				}
-				clearFormFields($(formContainer).find('form'));
-			}
-		});
 
 		// Open the modal when the even is triggered on the calling element.
 		$(callingElement).die('click').live('click', function() {
-			$dialog.dialog('open');
+			// Construct action to perform when OK and Cancels buttons are clicked
+			var dialogOptions = {};
+			if (actType == 'nothing') {
+				// If the action type is 'nothing' then simply close the
+				// dialog when the OK button is pressed. No cancel button
+				// is needed.
+				dialogOptions[okButton] = function() {
+					$(this).dialog("close");
+				};
+			} else {
+				// All other action types will assume that there is a
+				// form to be posted and post it.
+				dialogOptions[okButton] = function() {
+					submitJsonForm("#modal", actType, actOnId);
+				};
+				dialogOptions[cancelButton] = function() {
+					$(this).dialog("close");
+				};
+			}
+			// Construct dialog
+			$('<div id=\"modal\"></div>').dialog({
+				title: title,
+				autoOpen: true,
+				width: 700,
+				modal: true,
+				draggable: false,
+				resizable: false,
+				position: ['center', 100],
+				buttons: dialogOptions,
+				open: function(event, ui) {
+			        $(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'});
+					$.getJSON(url, function(jsonData) {
+						$('#loading').hide();
+						if (jsonData.status === true) {
+							$('#modal').html(jsonData.content);
+						} else {
+							// Alert that the modal failed
+							alert(jsonData.content);
+						}
+					});
+					$(this).html("<div id='loading' class='throbber'></div>");
+					$('#loading').show();
+				},
+				close: function() {
+					// Reset form validation errors and inputs on close
+					if (validator != null) {
+						validator.resetForm();
+					}
+					clearFormFields($("#modal").find('form'));
+					$('#modal').dialog('destroy');
+					$('#modal').remove();
+				}
+			});
+
 			return false;
 		});
 	});
@@ -101,71 +98,74 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
  */
 function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, callingElement, title, isForm) {
 	$(function() {
-		if (!title) {
-			// Try to retrieve title from calling button's text.
-			title = $(callingElement).text();
-			if (title === '') {
-				// Try to retrieve title from calling button's title attribute.
-				title = $(callingElement).attr('title');
-			}
-		}
-		var okButton = localizedButtons[0];
-		var cancelButton = localizedButtons[1];
-		var d = new Date();
-		var UID = Math.ceil(1000 * Math.random(d.getTime()));
-		// Construct action to perform when OK and Cancels buttons are clicked
-		var dialogOptions = {};
-		if(url == null) {
-			// Show a simple alert dialog (does not communicate with server)
-			dialogOptions[okButton] = function() {
-				$(this).dialog("close");
-			};
-		} else {
-			dialogOptions[okButton] = function() {
-				if (isForm) {
-					// Interpret the "act on id" as a form to
-					// be posted.
-					submitJsonForm(actOnId, actType, actOnId, url);
-				} else {
-					// Trigger start event.
-					$(actOnId).triggerHandler('actionStart');
-
-					// Post to server and construct callback
-					$.post(url, '', function(returnString) {
-						// Trigger stop event
-						$(actOnId).triggerHandler('actionStop');
-	
-						if (returnString.status) {
-							if(returnString.isScript) {
-								eval(returnString.script);
-							} else {
-								updateItem(actType, actOnId, returnString.content);
-							}
-						} else {
-							// Alert that the action failed
-							confirm(null, null, null, returnString.content, localizedButtons, callingElement);
-						}
-					}, 'json');
-				}
-				$('#'+UID).dialog("close");
-			};
-			dialogOptions[cancelButton] = function() {
-				$(actOnId).triggerHandler('actionStop');
-				$(this).dialog("close");
-			};
-		}
-
-		// Construct dialog
-		var $dialog = $('<div id=' + UID + '>'+dialogText+'</div>').dialog({
-			title: title,
-			autoOpen: false,
-			modal: true,
-			draggable: false,
-			buttons: dialogOptions
-		});
-
 		// Tell the calling button to open this modal on click
 		$(callingElement).live("click", function() {
+			if (!title) {
+				// Try to retrieve title from calling button's text.
+				title = $(callingElement).text();
+				if (title === '') {
+					// Try to retrieve title from calling button's title attribute.
+					title = $(callingElement).attr('title');
+				}
+			}
+			var okButton = localizedButtons[0];
+			var cancelButton = localizedButtons[1];
+
+			// Construct action to perform when OK and Cancels buttons are clicked
+			var dialogOptions = {};
+			if(url == null) {
+				// Show a simple alert dialog (does not communicate with server)
+				dialogOptions[okButton] = function() {
+					$(this).dialog("close");
+				};
+			} else {
+				dialogOptions[okButton] = function() {
+					if (isForm) {
+						// Interpret the "act on id" as a form to
+						// be posted.
+						submitJsonForm(actOnId, actType, actOnId, url);
+					} else {
+						// Trigger start event.
+						$(actOnId).triggerHandler('actionStart');
+
+						// Post to server and construct callback
+						$.post(url, '', function(returnString) {
+							// Trigger stop event
+							$(actOnId).triggerHandler('actionStop');
+
+							if (returnString.status) {
+								if(returnString.isScript) {
+									eval(returnString.script);
+								} else {
+									updateItem(actType, actOnId, returnString.content);
+								}
+							} else {
+								// Alert that the action failed
+								confirm(null, null, null, returnString.content, localizedButtons, callingElement);
+							}
+						}, 'json');
+					}
+					$('#modalConfirm').dialog("close");
+				};
+				dialogOptions[cancelButton] = function() {
+					$(actOnId).triggerHandler('actionStop');
+					$(this).dialog("close");
+				};
+			}
+
+			// Construct dialog
+			var $dialog = $('<div id=\"modalConfirm\">'+dialogText+'</div>').dialog({
+				title: title,
+				autoOpen: true,
+				modal: true,
+				draggable: false,
+				buttons: dialogOptions,
+				close: function() {
+					$('#modalConfirm').dialog('destroy');
+					$('#modalConfirm').remove();
+				}
+			});
+
 			$dialog.dialog('open');
 			return false;
 		});
@@ -188,15 +188,15 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
 	if (!url) {
 		url = $form.attr('action');
 	}
-	
+
 	// Post to server and construct callback
 	if ($form.valid()) {
 		// Retrieve form data.
 		var data = $form.serialize();
-		
+
 		// Trigger start event.
 		$(actOnId).triggerHandler('actionStart');
-		
+
 		$.post(
 			url,
 			data,
@@ -238,8 +238,6 @@ function modalAlert(dialogText, localizedButtons) {
 		} else {
 			var title = "Alert";
 		}
-		var d = new Date();
-		var UID = Math.ceil(1000 * Math.random(d.getTime()));
 
 		// Construct action to perform when OK button is clicked
 		var dialogOptions = {};
@@ -248,12 +246,16 @@ function modalAlert(dialogText, localizedButtons) {
 		};
 
 		// Construct dialog
-		var $dialog = $('<div id=' + UID + '>'+dialogText+'</div>').dialog({
+		var $dialog = $('<div id=\"modalAlert\">'+dialogText+'</div>').dialog({
 			title: title,
 			autoOpen: false,
 			modal: true,
 			draggable: false,
-			buttons: dialogOptions
+			buttons: dialogOptions,
+			close: function() {
+				$('#modalAlert').dialog('destroy');
+				$('#modalAlert').remove();
+			}
 		});
 
 		$dialog.dialog('open');
@@ -537,7 +539,7 @@ function extrasOnDemand(actOnId) {
 		// Scroll the parent so that all extra options are visible.
 		scrollToMakeVisible(actOnId);
 	}
-	
+
 	/**
 	 * Hides the extra options.
 	 */
@@ -551,10 +553,10 @@ function extrasOnDemand(actOnId) {
 		// Change the header icon into a triangle pointing to the right.
 		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-s').addClass('ui-icon-triangle-1-e');
 	}
-	
+
 	// De-activate the extra options on startup.
 	deactivateExtraOptions();
-	
+
 	// Toggle the options when clicking on the header.
 	$(actOnId + ' .options-head').click(function() {
 		if ($(this).hasClass('active')) {
@@ -570,21 +572,21 @@ function extrasOnDemand(actOnId) {
  * given content element visible. The content element
  * must be a descendant of a scrollable
  * element (needs to have class "scrollable").
- * 
+ *
  * NB: This method depends on the position() method
  * to refer to the same parent element for both the
  * content element and the scrollable element.
- * 
+ *
  * @param actOnId String a selector to identify
- *  the element to be made visible. 
+ *  the element to be made visible.
  */
 function scrollToMakeVisible(actOnId) {
 	// jQuerify the element to be made visible.
 	var $contentBlock = $(actOnId);
-	
+
 	// Identify the scrollable element.
 	var $scrollable = $contentBlock.closest('.scrollable');
-	
+
 	var contentBlockTop = $contentBlock.position().top;
 	var scrollingBlockTop = $scrollable.position().top;
 	var currentScrollingTop = $scrollable.scrollTop();
@@ -592,18 +594,18 @@ function scrollToMakeVisible(actOnId) {
 	// Do we have to scroll down or scroll up?
 	if (contentBlockTop > scrollingBlockTop) {
 		// Consider scrolling down...
-		
+
 		// Calculate the number of hidden pixels of the child
 		// element within the scrollable element.
 		var hiddenPixels = Math.ceil(contentBlockTop + $contentBlock.height() - $scrollable.height());
-		
+
 		// Scroll down if parts or all of the content block are hidden.
 		if (hiddenPixels > 0) {
 			$scrollable.scrollTop(currentScrollingTop + hiddenPixels);
 		}
 	} else {
 		// Scroll up...
-		
+
 		// Calculate the new scrolling top.
 		var newScrollingTop = Math.max(Math.floor(currentScrollingTop + contentBlockTop - scrollingBlockTop), 0);
 
@@ -632,7 +634,7 @@ $.fn.selectRange = function() {
 						&& this.innerHTML.substring(this.innerHTML.length - 4) == '<BR>') {
 					this.innerHTML = this.innerHTML + '&nbsp;';
 				}
-	
+
 				var r = document.createRange();
 				r.selectNodeContents(this);
 				s.removeAllRanges();
@@ -664,48 +666,48 @@ $.fn.selectRange = function() {
  */
 $(function() {
     var userAgent = navigator.userAgent.toLowerCase();
-    $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase()); 
-    
+    $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+
     // Is this a version of IE?
     if($.browser.msie){
         $('body').addClass('browserIE');
-        
+
         // Add the version number
         $('body').addClass('browserIE' + $.browser.version.substring(0,1));
     }
-    
-    
+
+
     // Is this a version of Chrome?
     if($.browser.chrome){
-    
+
         $('body').addClass('browserChrome');
-        
+
         //Add the version number
         userAgent = userAgent.substring(userAgent.indexOf('chrome/') +7);
         userAgent = userAgent.substring(0,1);
         $('body').addClass('browserChrome' + userAgent);
-        
+
         // If it is chrome then jQuery thinks it's safari so we have to tell it it isn't
         $.browser.safari = false;
     }
-    
+
     // Is this a version of Safari?
     if($.browser.safari){
         $('body').addClass('browserSafari');
-        
+
         // Add the version number
         userAgent = userAgent.substring(userAgent.indexOf('version/') +8);
         userAgent = userAgent.substring(0,1);
         $('body').addClass('browserSafari' + userAgent);
     }
-    
+
     // Is this a version of Mozilla?
     if($.browser.mozilla){
-        
+
         //Is it Firefox?
         if(navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
             $('body').addClass('browserFirefox');
-            
+
             // Add the version number
             userAgent = userAgent.substring(userAgent.indexOf('firefox/') +8);
             userAgent = userAgent.substring(0,1);
@@ -716,7 +718,7 @@ $(function() {
             $('body').addClass('browserMozilla');
         }
     }
-    
+
     // Is this a version of Opera?
     if($.browser.opera){
         $('body').addClass('browserOpera');

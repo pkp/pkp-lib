@@ -90,6 +90,7 @@ class PKPTemplateManager extends Smarty {
 		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
+		$this->assign('basePath', $request->getBasePath());
 		$this->assign('baseUrl', $request->getBaseUrl());
 		$this->assign('requiresFormRequest', $request->isPost());
 		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($request));

@@ -149,6 +149,17 @@ class PKPHandler {
 	}
 
 	/**
+	 * Retrieve the last authorization message from the
+	 * decision manager.
+	 * @return string
+	 */
+	function &getLastAuthorizationMessage() {
+		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+		$authorizationMessages =& $this->_authorizationDecisionManager->getAuthorizationMessages();
+		return end($authorizationMessages);
+	}
+
+	/**
 	 * Add role - operation assignments to the handler.
 	 *
 	 * @param $roleIds integer|array one or more of the ROLE_ID_*

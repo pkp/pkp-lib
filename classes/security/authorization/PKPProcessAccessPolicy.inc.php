@@ -25,7 +25,7 @@ class PKPProcessAccessPolicy extends PKPPublicAccessPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function PKPProcessAccessPolicy(&$request, $args, $operations, $message = null) {
+	function PKPProcessAccessPolicy(&$request, $args, $operations, $message = 'user.authorization.processAuthenticationTokenRequired') {
 		if (isset($args['authToken'])) {
 			$this->authToken = $args['authToken'];
 		}

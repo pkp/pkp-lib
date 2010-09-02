@@ -22,7 +22,7 @@ class PKPAuthenticatedAccessPolicy extends PKPPublicAccessPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function PKPAuthenticatedAccessPolicy(&$request, $operations, $message = null) {
+	function PKPAuthenticatedAccessPolicy(&$request, $operations, $message = 'user.authorization.loginRequired') {
 		parent::PKPPublicAccessPolicy($request, $operations, $message);
 	}
 

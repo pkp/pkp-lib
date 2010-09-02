@@ -24,7 +24,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	 * @param $request PKPRequest
 	 */
 	function RestrictedSiteAccessPolicy(&$request) {
-		parent::AuthorizationPolicy();
+		parent::AuthorizationPolicy('user.authorization.restrictedSiteAccess');
 		$this->_router =& $request->getRouter();
 	}
 

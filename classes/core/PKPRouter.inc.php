@@ -344,11 +344,16 @@ class PKPRouter {
 		$roleAssignments = $serviceEndpoint[0]->getRoleAssignments();
 		assert(is_array($roleAssignments));
 		if (!$serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
-			// If the authorization method returns with false
-			// this either indicates a programming error or
-			// somebody trying to tamper with the system. So
-			// we can safely fail the request.
-			fatalError('Authorization denied!');
+			// Authorization failed - try to retrieve a user
+			// message.
+			$authorizationMessage = $serviceEndpoint[0]->getLastAuthorizationMessage();
+
+			// Set a generic authorization message if no
+			// specific authorization message was set.
+			if (is_null($authorizationMessage)) $authorizationMessage = 'user.authorization.accessDenied';
+
+			// Redirect to the authorization denied page.
+			$request->redirect(null, 'user', 'authorizationDenied', null, array('message' => $authorizationMessage));
 		}
 
 		// Execute class-wide data integrity checks.

@@ -22,7 +22,7 @@ class PKPPublicAccessPolicy extends HandlerOperationPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function PKPPublicAccessPolicy(&$request, $operations, $message = null) {
+	function PKPPublicAccessPolicy(&$request, $operations, $message = 'user.authorization.privateOperation') {
 		parent::HandlerOperationPolicy($request, $operations, $message);
 	}
 

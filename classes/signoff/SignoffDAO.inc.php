@@ -314,8 +314,9 @@ class SignoffDAO extends DAO {
 	 * @param $stageId int optional
 	 * @param $userGroupId int optional
  	 */
-	function &getUsersBySymbolic($symbolic, $assocType, $assocId, $stageId = null, $userGroupId = null) {
-		$sql = 'SELECT u.* FROM users u, signoffs s
+	function &getUsersBySymbolic($symbolic, $assocType, $assocId, $stageId = null, $userGroupId = null, $unique = true) {
+		$selectDistinct = $unique ? 'SELECT DISTINCT' : 'SELECT';
+		$sql = $selectDistinct . ' u.* FROM users u, signoffs s
 				WHERE u.user_id = s.user_id AND s.symbolic = ? AND s.assoc_type = ? AND s.assoc_id = ?';
 		$params = array($symbolic, (int) $assocType, (int) $assocId);
 

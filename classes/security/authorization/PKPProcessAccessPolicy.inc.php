@@ -1,11 +1,11 @@
 <?php
 /**
- * @file classes/security/authorization/ProcessExecutionHandlerOperationPolicy.inc.php
+ * @file classes/security/authorization/PKPProcessAccessPolicy.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ProcessExecutionHandlerOperationPolicy
+ * @class PKPProcessAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to control access to handler operations based on a one time key
@@ -14,7 +14,7 @@
 
 import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
 
-class ProcessExecutionHandlerOperationPolicy extends PKPPublicAccessPolicy {
+class PKPProcessAccessPolicy extends PKPPublicAccessPolicy {
 	/** @var string the process authorization token */
 	var $authToken;
 
@@ -25,7 +25,7 @@ class ProcessExecutionHandlerOperationPolicy extends PKPPublicAccessPolicy {
 	 *  this policy is targeting.
 	 * @param $message string a message to be displayed if the authorization fails
 	 */
-	function ProcessExecutionHandlerOperationPolicy(&$request, $args, $operations, $message = null) {
+	function PKPProcessAccessPolicy(&$request, $args, $operations, $message = null) {
 		if (isset($args['authToken'])) {
 			$this->authToken = $args['authToken'];
 		}

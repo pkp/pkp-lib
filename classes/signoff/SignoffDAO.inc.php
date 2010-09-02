@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Signoff objects.
  */
 
-//$Id$
-
 
 import('lib.pkp.classes.signoff.Signoff');
 
@@ -98,7 +96,6 @@ class SignoffDAO extends DAO {
 		unset($result);
 
 		return $returner;
-
 	}
 
 	/**

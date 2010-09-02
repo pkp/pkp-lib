@@ -8,7 +8,8 @@
  * @class HandlerOperationPolicy
  * @ingroup security_authorization
  *
- * @brief Class to control access to handler operations.
+ * @brief Abstract base class that provides infrastructure
+ *  to control access to handler operations.
  */
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');

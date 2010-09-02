@@ -35,7 +35,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *  enough for only one role to match ("any of").
 	 * @param $bypassOperationCheck boolean only for backwards compatibility, don't use.
 	 *  FIXME: remove this parameter once we've removed the HandlerValidatorRole
-	 *  compatibility class.
+	 *  compatibility class, see #5868.
 	 */
 	function RoleBasedHandlerOperationPolicy(&$request, $roles, $operations, $message = null, $allRoles = false, $bypassOperationCheck = false) {
 		parent::HandlerOperationPolicy($request, $operations, $message);

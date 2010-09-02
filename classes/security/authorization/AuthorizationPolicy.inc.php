@@ -72,11 +72,17 @@ class AuthorizationPolicy {
 	}
 
 	/**
-	 * Get all advice
-	 * @return array
+	 * Get advice for the given advice type.
+	 * @param $adviceType integer
+	 * @return mixed
 	 */
-	function &getAdvice() {
-		return $this->_advice;
+	function &getAdvice($adviceType) {
+		if ($this->hasAdvice($adviceType)) {
+			return $this->_advice[$adviceType];
+		} else {
+			$nullVar = null;
+			return $nullVar;
+		}
 	}
 
 	/**

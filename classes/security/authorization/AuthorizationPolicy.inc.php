@@ -18,7 +18,7 @@
  * future improvements to the authorization framework can be done in a
  * consistent manner.
  *
- * This of course doesn't mean that we try to be XACML compliant in any way.
+ * This of course doesn't mean that we are "XACML compliant" in any way.
  */
 
 define ('AUTHORIZATION_PERMIT', 0x01);
@@ -30,9 +30,6 @@ define ('AUTHORIZATION_ADVICE_CALL_ON_DENY', 0x02);
 class AuthorizationPolicy {
 	/** @var array advice to be returned to the decision point */
 	var $_advice = array();
-
-	/** @var array a cache of previously retrieved values */
-	var $_effectCache = array();
 
 	/**
 	 * @var array a list of authorized context objects that should be
@@ -155,36 +152,6 @@ class AuthorizationPolicy {
 	function effect() {
 		// Deny by default.
 		return AUTHORIZATION_DENY;
-	}
-
-
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Cache an effect for a given cache id
-	 *
-	 * @param $cacheId mixed any scalar that uniquely
-	 *  identified the cached effect.
-	 * @param $response boolean
-	 */
-	function cacheEffect($cacheId, $effect) {
-		assert(is_scalar($cacheId));
-		$this->_effectCache[$cacheId] = $effect;
-	}
-
-	/**
-	 * Retrieve a cached effect for a given cache id
-	 *
-	 * @param $cacheId mixed any scalar that uniquely
-	 *  identified the cached effect.
-	 * @return $response mixed or null if no cached
-	 *  effect present.
-	 */
-	function retrieveCachedEffect($cacheId) {
-		assert(is_scalar($cacheId));
-		if (!isset($this->_effectCache[$cacheId])) return null;
-		return $this->_effectCache[$cacheId];
 	}
 }
 

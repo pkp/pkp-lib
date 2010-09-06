@@ -17,8 +17,6 @@
  * @brief Basic class describing users existing in the system.
  */
 
-// $Id$
-
 
 class PKPUser extends DataObject {
 
@@ -378,7 +376,7 @@ class PKPUser extends DataObject {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->getInterests();
 	}
-	
+
 	/**
 	 * Get user reviewing interests.
 	 * @param $locale string
@@ -388,7 +386,7 @@ class PKPUser extends DataObject {
 		$interestDao =& DAORegistry::getDAO('InterestDAO');
 		return implode(", ", $interestDao->getInterests($this->getId(), false));
 	}
-	
+
 	/**
 	 * Set user reviewing interests.
 	 * @param $interests string

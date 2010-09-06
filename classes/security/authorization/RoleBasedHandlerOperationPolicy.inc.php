@@ -85,7 +85,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 
 		// FIXME: Remove the "bypass operation check" code once we've removed the
 		// HandlerValidatorRole compatibility class and make the operation
-		// check unconditional.
+		// check unconditional, see #5868.
 		if ($this->_bypassOperationCheck) {
 			assert($this->getOperations() === array());
 		} else {
@@ -138,23 +138,30 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		// Try to find a matching role.
 		$foundMatchingRole = false;
 		foreach($this->_roles as $roleId) {
-			if ($this->_checkRoleInDatabase($roleId, $roleContext, $contextDepth)) {
-				$foundMatchingRole = true;
-			} else {
-				if ($this->_allRoles) {
+			$foundMatchingRole = $this->_checkRoleInDatabase($roleId, $roleContext, $contextDepth);
+			if ($this->_allRoles) {
+				if (!$foundMatchingRole) {
 					// When the "all roles" flag is switched on then
 					// one missing role is enough to fail.
 					return false;
+				}
+			} else {
+				if ($foundMatchingRole) {
+					// When the "all roles" flag is not set then
+					// one matching role is enough to succeed.
+					return true;
 				}
 			}
 		}
 
 		// Deny if no matching role can be found.
-		if (!$foundMatchingRole) {
+		if ($this->_allRoles) {
+			// All roles matched, otherwise we'd have failed before.
+			return true;
+		} else {
+			// None of the roles matched, otherwise we'd have succeeded already.
 			return false;
 		}
-
-		return true;
 	}
 
 	/**
@@ -177,14 +184,14 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
 		if ($contextDepth > 0) {
 			// Correct context for site level or manager roles.
-			if ( $roleId == ROLE_ID_SITE_ADMIN ) {
+			if ($roleId == ROLE_ID_SITE_ADMIN) {
 				// site level role
 				for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
 					$roleExistsArguments[$contextLevel-1] = 0;
 				}
-			} elseif ( $roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
-				// FIXME: Make this work with the "acting as user group".
+			} elseif ($roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
 				// This is a main context managerial role (i.e. conference-level).
+				// FIXME: Make this work with the "acting as user group".
 				$roleExistsArguments[1] = 0;
 			}
 		}

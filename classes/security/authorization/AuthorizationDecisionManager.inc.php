@@ -213,7 +213,7 @@ class AuthorizationDecisionManager {
 				// In case of a "deny overrides" we allow a "call-on-deny" advice.
 				if (is_a($policy, 'AuthorizationPolicy') && $dominantEffect == AUTHORIZATION_DENY
 						&& $policy->hasAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY)) {
-					$callOnDeny =& $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
+					$callOnDeny = $policy->getAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY);
 				}
 
 				// Only one dominant effect overrides all other effects

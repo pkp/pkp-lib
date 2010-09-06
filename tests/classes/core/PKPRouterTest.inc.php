@@ -332,10 +332,13 @@ class PKPRouterTest extends PKPTestCase {
 	protected function _setUpMockDAOs($firstContextPath = 'current-context1', $secondContextPath = 'current-context2', $firstContextIsNull = false, $secondContextIsNull = false) {
 		$mockFirstContextDAO = $this->getMock('FirstContextDAO', array('getFirstContextByPath'));
 		if (!$firstContextIsNull) {
-			$firstContextInstance = $this->getMock('FirstContext', array('getPath'));
+			$firstContextInstance = $this->getMock('FirstContext', array('getPath', 'getSetting'));
 			$firstContextInstance->expects($this->any())
 			                     ->method('getPath')
 			                     ->will($this->returnValue($firstContextPath));
+			$firstContextInstance->expects($this->any())
+			                     ->method('getSetting')
+			                     ->will($this->returnValue(null));
 			$mockFirstContextDAO->expects($this->any())
 			                    ->method('getFirstContextByPath')
 			                    ->with($firstContextPath)

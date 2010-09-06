@@ -153,7 +153,7 @@ class PKPHandler {
 	 * decision manager.
 	 * @return string
 	 */
-	function &getLastAuthorizationMessage() {
+	function getLastAuthorizationMessage() {
 		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
 		$authorizationMessages =& $this->_authorizationDecisionManager->getAuthorizationMessages();
 		return end($authorizationMessages);

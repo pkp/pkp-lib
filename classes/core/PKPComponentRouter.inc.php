@@ -228,7 +228,7 @@ class PKPComponentRouter extends PKPRouter {
 			// A handler at least needs to implement the
 			// following methods:
 			$requiredMethods = array(
-				$op, 'validate', 'initialize'
+				$op, 'authorize', 'validate', 'initialize'
 			);
 
 			$componentInstance =& instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);

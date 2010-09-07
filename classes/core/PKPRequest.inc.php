@@ -19,6 +19,8 @@ class PKPRequest {
 	//
 	/** @var PKPRouter router instance used to route this request */
 	var $_router = null;
+	/** @var Dispatcher dispatcher instance used to dispatch this request */
+	var $_dispatcher = null;
 	/** @var array the request variables cache (GET/POST) */
 	var $_requestVars = null;
 	/** @var string request base path */
@@ -52,6 +54,23 @@ class PKPRequest {
 	function setRouter(&$router) {
 		$this->_router =& $router;
 	}
+
+	/**
+	 * Set the dispatcher
+	 * @param $dispatcher Dispatcher
+	 */
+	function setDispatcher(&$dispatcher) {
+		$this->_dispatcher =& $dispatcher;
+	}
+
+	/**
+	 * Get the dispatcher
+	 * @return Dispatcher
+	 */
+	function &getDispatcher() {
+		return $this->_dispatcher;
+	}
+
 
 	/**
 	 * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
@@ -604,7 +623,7 @@ class PKPRequest {
 
 	/**
 	 * Redirect to the specified page within a PKP Application.
-	 * Shorthand for a common call to $request->redirect($router->url(...)).
+	 * Shorthand for a common call to $request->redirect($dispatcher->url($request, ROUTE_PAGE, ...)).
 	 * @param $context Array The optional contextual paths
 	 * @param $page string The name of the op to redirect to.
 	 * @param $op string optional The name of the op to redirect to.
@@ -614,9 +633,8 @@ class PKPRequest {
 	 */
 	function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null) {
 		$_this =& PKPRequest::_checkThis();
-
-		$router =& $_this->getRouter();
-		$_this->redirectUrl($router->url($_this, $context, $page, $op, $path, $params, $anchor));
+		$dispatcher =& $_this->getDispatcher();
+		$_this->redirectUrl($dispatcher->url($_this, ROUTE_PAGE, $context, $page, $op, $path, $params, $anchor));
 	}
 
 	/**

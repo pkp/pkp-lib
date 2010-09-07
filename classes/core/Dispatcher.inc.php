@@ -93,13 +93,14 @@ class Dispatcher {
 
 			// Does this router support the current request?
 			if ($routerCandidate->supports($request)) {
-				// Inject router into request
+				// Inject router and dispatcher into request
 				$request->setRouter($routerCandidate);
-				$router =& $routerCandidate;
-				$this->_router =& $router;
+				$request->setDispatcher($this);
 
 				// We've found our router and can go on
 				// to handle the request.
+				$router =& $routerCandidate;
+				$this->_router =& $router;
 				break;
 			}
 		}

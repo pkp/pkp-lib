@@ -629,7 +629,7 @@
 						</ul>
 
 						<div id="citationImprovementManual" class="grid">
-							<table>
+							<table><tbody>
 								{* Create initial field list which will then be maintained via JS. *}
 								{foreach from=$availableFields name=availableFields key=fieldName item=field}
 									{capture assign=fieldValueVar}{ldelim}${$fieldName}{rdelim}{/capture}
@@ -643,7 +643,7 @@
 											required=$field.required}
 									{/if}
 								{/foreach}
-							</table>
+							</tbody></table>
 
 							{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
 						</div>

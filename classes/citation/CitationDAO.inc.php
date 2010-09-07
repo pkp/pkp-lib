@@ -617,7 +617,7 @@ class CitationDAO extends DAO {
 		$transformationDefinition = call_user_func_array($filterCallback, array(&$citation, &$originalDescription, $context->getId(), $fromFilterIds));
 		if (empty($transformationDefinition['filterList'])) {
 			// We didn't find any applicable filter.
-			$filteredCitation = null;
+			$filteredCitation = $citationMultiplexer = $citationFilterNet = null;
 		} else {
 			// Get the input into the transformation.
 			$muxInputData =& $transformationDefinition['inputData'];

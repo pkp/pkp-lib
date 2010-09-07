@@ -80,111 +80,6 @@ class PKPPageRouter extends PKPRouter {
 	}
 
 	/**
-	 * Get the filename to use for cached content for the current request.
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function getCacheFilename(&$request) {
-		if (!isset($this->_cacheFilename)) {
-			if ($request->isPathInfoEnabled()) {
-				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
-				$id .= '-' . Locale::getLocale();
-			} else {
-				$id = '';
-				$application =& $this->getApplication();
-				foreach($application->getContextList() as $contextName) {
-					$id .= $request->getUserVar($contextName) . '-';
-				}
-				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
-			}
-			$path = dirname(INDEX_FILE_LOCATION);
-			$this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
-		}
-		return $this->_cacheFilename;
-	}
-
-	/**
-	 * Routes the given request to a page handler
-	 * @param $request PKPRequest
-	 */
-	function route(&$request) {
-		// Determine the requested page and operation
-		$page = $this->getRequestedPage($request);
-		$op = $this->getRequestedOp($request);
-
-		// If the application has not yet been installed we only
-		// allow installer pages to be displayed.
-		if (!Config::getVar('general', 'installed')) {
-			define('SESSION_DISABLE_INIT', 1);
-			if (!in_array($page, $this->getInstallationPages())) {
-				// A non-installation page was called although
-				// the system is not yet installed. Redirect to
-				// the installation page.
-				$redirectMethod = array($request, 'redirect');
-
-				// The correct redirection for the installer page
-				// depends on the context depth of this application.
-				$application =& $this->getApplication();
-				$contextDepth = $application->getContextDepth();
-				// The context will be filled with all nulls
-				$redirectArguments = array_pad(array('install'), - $contextDepth - 1, null);
-
-				// Call request's redirect method
-				call_user_func_array($redirectMethod, $redirectArguments);
-			}
-		}
-
-		// Determine the page index file. This file contains the
-		// logic to resolve a page to a specific handler class.
-		$sourceFile = sprintf('pages/%s/index.php', $page);
-
-		// If a hook has been registered to handle this page, give it the
-		// opportunity to load required resources and set HANDLER_CLASS.
-		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
-			if (file_exists($sourceFile)) require('./'.$sourceFile);
-			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
-			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
-			else {
-				$dispatcher =& $this->getDispatcher();
-				$dispatcher->handle404();
-			}
-		}
-
-		if (!defined('SESSION_DISABLE_INIT')) {
-			// Initialize session
-			$sessionManager =& SessionManager::getManager();
-		}
-
-		// Call the selected handler's index operation if
-		// no operation was defined in the request.
-		if (empty($op)) $op = ROUTER_DEFAULT_OP;
-
-		// Redirect to 404 if the operation doesn't exist
-		// for the handler.
-		$methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
-		if (!in_array(strtolower($op), $methods)) {
-			$dispatcher =& $this->getDispatcher();
-			$dispatcher->handle404();
-		}
-
-		// Instantiate the handler class
-		$HandlerClass = HANDLER_CLASS;
-		$handler = new $HandlerClass($request);
-
-		// Authorize and initialize the request but don't call the
-		// validate() method on page handlers.
-		// FIXME: We should call the validate() method for page
-		// requests also (last param = true in the below method
-		// call) once we've made sure that all validate() calls can
-		// be removed from handler operations without damage (i.e.
-		// they don't depend on actions being performed before the
-		// call to validate().
-		$args =& $this->getRequestedArgs($request);
-		$serviceEndpoint = array($handler, $op);
-		$this->_authorizeInitializeAndCallRequest($serviceEndpoint, $request, $args, false);
-	}
-
-	/**
 	 * Get the page requested in the URL.
 	 * @param $request PKPRequest the request to be routed
 	 * @return String the page path (under the "pages" directory)
@@ -264,17 +159,114 @@ class PKPPageRouter extends PKPRouter {
 		return $args;
 	}
 
+
+	//
+	// Implement template methods from PKPRouter
+	//
 	/**
-	 * Build a page request URL into PKPApplication.
-	 * @param $request PKPRequest the request to be routed
-	 * @param $newContext mixed Optional contextual paths
-	 * @param $page string Optional name of page to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path mixed Optional string or array of args to pass to handler
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
-	 * @return string the URL
+	 * @see PKPRouter::getCacheFilename()
+	 */
+	function getCacheFilename(&$request) {
+		if (!isset($this->_cacheFilename)) {
+			if ($request->isPathInfoEnabled()) {
+				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
+				$id .= '-' . Locale::getLocale();
+			} else {
+				$id = '';
+				$application =& $this->getApplication();
+				foreach($application->getContextList() as $contextName) {
+					$id .= $request->getUserVar($contextName) . '-';
+				}
+				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
+			}
+			$path = dirname(INDEX_FILE_LOCATION);
+			$this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
+		}
+		return $this->_cacheFilename;
+	}
+
+	/**
+	 * @see PKPRouter::route()
+	 */
+	function route(&$request) {
+		// Determine the requested page and operation
+		$page = $this->getRequestedPage($request);
+		$op = $this->getRequestedOp($request);
+
+		// If the application has not yet been installed we only
+		// allow installer pages to be displayed.
+		if (!Config::getVar('general', 'installed')) {
+			define('SESSION_DISABLE_INIT', 1);
+			if (!in_array($page, $this->getInstallationPages())) {
+				// A non-installation page was called although
+				// the system is not yet installed. Redirect to
+				// the installation page.
+				$redirectMethod = array($request, 'redirect');
+
+				// The correct redirection for the installer page
+				// depends on the context depth of this application.
+				$application =& $this->getApplication();
+				$contextDepth = $application->getContextDepth();
+				// The context will be filled with all nulls
+				$redirectArguments = array_pad(array('install'), - $contextDepth - 1, null);
+
+				// Call request's redirect method
+				call_user_func_array($redirectMethod, $redirectArguments);
+			}
+		}
+
+		// Determine the page index file. This file contains the
+		// logic to resolve a page to a specific handler class.
+		$sourceFile = sprintf('pages/%s/index.php', $page);
+
+		// If a hook has been registered to handle this page, give it the
+		// opportunity to load required resources and set HANDLER_CLASS.
+		if (!HookRegistry::call('LoadHandler', array(&$page, &$op, &$sourceFile))) {
+			if (file_exists($sourceFile)) require('./'.$sourceFile);
+			elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
+			elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
+			else {
+				$dispatcher =& $this->getDispatcher();
+				$dispatcher->handle404();
+			}
+		}
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+			// Initialize session
+			$sessionManager =& SessionManager::getManager();
+		}
+
+		// Call the selected handler's index operation if
+		// no operation was defined in the request.
+		if (empty($op)) $op = ROUTER_DEFAULT_OP;
+
+		// Redirect to 404 if the operation doesn't exist
+		// for the handler.
+		$methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
+		if (!in_array(strtolower($op), $methods)) {
+			$dispatcher =& $this->getDispatcher();
+			$dispatcher->handle404();
+		}
+
+		// Instantiate the handler class
+		$HandlerClass = HANDLER_CLASS;
+		$handler = new $HandlerClass($request);
+
+		// Authorize and initialize the request but don't call the
+		// validate() method on page handlers.
+		// FIXME: We should call the validate() method for page
+		// requests also (last param = true in the below method
+		// call) once we've made sure that all validate() calls can
+		// be removed from handler operations without damage (i.e.
+		// they don't depend on actions being performed before the
+		// call to validate().
+		$args =& $this->getRequestedArgs($request);
+		$serviceEndpoint = array($handler, $op);
+		$this->_authorizeInitializeAndCallRequest($serviceEndpoint, $request, $args, false);
+	}
+
+	/**
+	 * @see PKPRouter::url()
 	 */
 	function url(&$request, $newContext = null, $page = null, $op = null, $path = null,
 				$params = null, $anchor = null, $escape = false) {
@@ -419,6 +411,15 @@ class PKPPageRouter extends PKPRouter {
 
 		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
 	}
+
+	/**
+	 * @see PKPRouter::handleAuthorizationFailure()
+	 */
+	function handleAuthorizationFailure($request, $authorizationMessage) {
+		// Redirect to the authorization denied page.
+		$request->redirect(null, 'user', 'authorizationDenied', null, array('message' => $authorizationMessage));
+	}
+
 }
 
 ?>

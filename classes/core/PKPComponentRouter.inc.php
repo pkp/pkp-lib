@@ -92,25 +92,6 @@ class PKPComponentRouter extends PKPRouter {
 	}
 
 	/**
-	 * Routes the given request to a page handler
-	 * @param $request PKPRequest
-	 */
-	function route(&$request) {
-		// Determine the requested service endpoint.
-		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
-
-		// Retrieve RPC arguments from the request.
-		$args =& $request->getUserVars();
-		assert(is_array($args));
-
-		// Remove the caller-parameter (if present)
-		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
-
-		// Authorize, validate and initialize the request
-		$this->_authorizeInitializeAndCallRequest($rpcServiceEndpoint, $request, $args);
-	}
-
-	/**
 	 * Retrieve the requested component from the request.
 	 *
 	 * NB: This can be a component that not actually exists
@@ -244,17 +225,30 @@ class PKPComponentRouter extends PKPRouter {
 		return $this->_rpcServiceEndpoint;
 	}
 
+
+	//
+	// Implement template methods from PKPRouter
+	//
 	/**
-	 * Build a component request URL into PKPApplication.
-	 * @param $request PKPRequest the request to be routed
-	 * @param $context mixed Optional contextual paths
-	 * @param $component string Optional name of page to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path for compatibility only, not supported for the component router.
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
-	 * @return string the URL
+	 * @see PKPRouter::route()
+	 */
+	function route(&$request) {
+		// Determine the requested service endpoint.
+		$rpcServiceEndpoint =& $this->getRpcServiceEndpoint($request);
+
+		// Retrieve RPC arguments from the request.
+		$args =& $request->getUserVars();
+		assert(is_array($args));
+
+		// Remove the caller-parameter (if present)
+		if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) unset($args[COMPONENT_ROUTER_PARAMETER_MARKER]);
+
+		// Authorize, validate and initialize the request
+		$this->_authorizeInitializeAndCallRequest($rpcServiceEndpoint, $request, $args);
+	}
+
+	/**
+	 * @see PKPRouter::url()
 	 */
 	function url(&$request, $newContext = null, $component = null, $op = null, $path = null,
 			$params = null, $anchor = null, $escape = false) {
@@ -339,6 +333,29 @@ class PKPComponentRouter extends PKPRouter {
 		}
 
 		return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+	}
+
+	/**
+	 * @see PKPRouter::handleAuthorizationFailure()
+	 */
+	function handleAuthorizationFailure($request, $authorizationMessage) {
+		// Translate the authorization error message.
+		if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
+			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		}
+		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_USER));
+		$translatedAuthorizationMessage = Locale::translate($authorizationMessage);
+
+		// Add the router name and operation.
+		$url = $request->getRequestUrl();
+		$queryString = $request->getQueryString();
+		if ($queryString) $queryString = '?'.$queryString;
+		$translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
+
+		// Return a JSON error message.
+		import('lib.pkp.classes.core.JSON');
+		$json = new JSON('false', $translatedAuthorizationMessage);
+		return $json->getString();
 	}
 
 

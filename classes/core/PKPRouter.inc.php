@@ -135,43 +135,6 @@ class PKPRouter {
 	}
 
 	/**
-	 * Determine the filename to use for a local cache file.
-	 * @param $request PKPRequest
-	 * @return string
-	 */
-	function getCacheFilename(&$request) {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
-	 * Routes a given request to a handler operation
-	 * @param $request PKPRequest
-	 */
-	function route(&$request) {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
-	 * Build a handler request URL into PKPApplication.
-	 * @param $request PKPRequest the request to be routed
-	 * @param $newContext mixed Optional contextual paths
-	 * @param $handler string Optional name of the handler to invoke
-	 * @param $op string Optional name of operation to invoke
-	 * @param $path mixed Optional string or array of args to pass to handler
-	 * @param $params array Optional set of name => value pairs to pass as user parameters
-	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
-	 * @return string the URL
-	 */
-	function url(&$request, $newContext = null, $handler = null, $op = null, $path = null,
-				$params = null, $anchor = null, $escape = false) {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-	/**
 	 * A generic method to return an array of context paths (e.g. a Press or a Conference/SchedConf paths)
 	 * @param $request PKPRequest the request to be routed
 	 * @param $requestedContextLevel int (optional) the context level to return in the path
@@ -316,6 +279,59 @@ class PKPRouter {
 		return $this->_indexUrl;
 	}
 
+
+	//
+	// Protected template methods to be implemented by sub-classes.
+	//
+	/**
+	 * Determine the filename to use for a local cache file.
+	 * @param $request PKPRequest
+	 * @return string
+	 */
+	function getCacheFilename(&$request) {
+		// must be implemented by sub-classes
+		assert(false);
+	}
+
+	/**
+	 * Routes a given request to a handler operation
+	 * @param $request PKPRequest
+	 */
+	function route(&$request) {
+		// Must be implemented by sub-classes.
+		assert(false);
+	}
+
+	/**
+	 * Build a handler request URL into PKPApplication.
+	 * @param $request PKPRequest the request to be routed
+	 * @param $newContext mixed Optional contextual paths
+	 * @param $handler string Optional name of the handler to invoke
+	 * @param $op string Optional name of operation to invoke
+	 * @param $path mixed Optional string or array of args to pass to handler
+	 * @param $params array Optional set of name => value pairs to pass as user parameters
+	 * @param $anchor string Optional name of anchor to add to URL
+	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+	 * @return string the URL
+	 */
+	function url(&$request, $newContext = null, $handler = null, $op = null, $path = null,
+				$params = null, $anchor = null, $escape = false) {
+		// Must be implemented by sub-classes.
+		assert(false);
+	}
+
+	/**
+	 * Handle an authorization failure.
+	 * @param $request Request
+	 * @param $authorizationMessage string a translation key with the authorization
+	 *  failure message.
+	 */
+	function handleAuthorizationFailure($request, $authorizationMessage) {
+		// Must be implemented by sub-classes.
+		assert(false);
+	}
+
+
 	//
 	// Private helper methods
 	//
@@ -352,18 +368,18 @@ class PKPRouter {
 			// specific authorization message was set.
 			if (is_null($authorizationMessage)) $authorizationMessage = 'user.authorization.accessDenied';
 
-			// Redirect to the authorization denied page.
-			$request->redirect(null, 'user', 'authorizationDenied', null, array('message' => $authorizationMessage));
+			// Handle the authorization failure.
+			$result = $this->handleAuthorizationFailure($request, $authorizationMessage);
+		} else {
+			// Execute class-wide data integrity checks.
+			if ($validate) $serviceEndpoint[0]->validate($request, $args);
+
+			// Let the handler initialize itself.
+			$serviceEndpoint[0]->initialize($request, $args);
+
+			// Call the service endpoint.
+			$result = call_user_func($serviceEndpoint, $args, $request);
 		}
-
-		// Execute class-wide data integrity checks.
-		if ($validate) $serviceEndpoint[0]->validate($request, $args);
-
-		// Let the handler initialize itself.
-		$serviceEndpoint[0]->initialize($request, $args);
-
-		// Call the service endpoint.
-		$result = call_user_func($serviceEndpoint, $args, $request);
 
 		// Return the result of the operation to the client.
 		if (is_string($result)) echo $result;

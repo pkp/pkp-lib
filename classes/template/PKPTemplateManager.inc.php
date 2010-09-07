@@ -150,7 +150,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
 		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
-		$this->register_function('init_button_bar', array(&$this, 'smartyInitButtonBar'));
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -1340,41 +1339,6 @@ class PKPTemplateManager extends Smarty {
 		"<span style='clear:both' /></div>";
 	}
 
-	function smartyInitButtonBar($params, &$smarty) {
-		// Required params
-		// Id must be the main form of the modal (and be child of main modal container)
-		if (!isset($params['id'])) {
-			$smarty->trigger_error("Selector missing for modal button initialization");
-		} else {
-			$id = $params['id'];
-		}
-
-		// Get the ID of the 'Cancel' link (the link that appears on the left)
-		if(isset($params['cancelId'])) {
-			$cancelId = $params['cancelId'];
-		} else $cancelId = null;
-
-		// Get the ID of the 'Submit' button
-		if(isset($params['submitId'])) {
-			$submitId = $params['submitId'];
-		} else $submitId = null;
-
-		$script = "<script type='text/javascript'>$(function() {
-			" . ($cancelId ? "$('$cancelId').click(function(){
-								$('$id').parent().dialog('close');
-								return false;
-							  });\n" : "")
-			  . ($submitId ? "$('$submitId').click(function(){
-			  					var url = $(\"$id\").attr(\"action\");
-			  					$('$id').parent().next('.ui-dialog-buttonpane').children().children().get(0).click();
-							  });\n" : "") .
-			"$('$id').parent().next('.ui-dialog-buttonpane').hide();
-			$('.button').button();
-		});
-		</script>";
-
-		return $script;
-	}
 }
 
 ?>

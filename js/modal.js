@@ -79,6 +79,16 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 				}
 			});
 
+			// Handle custom dialog buttons
+			$("#cancelModalButton").die('click').live('click', function() {
+				$("#modal").dialog("close");
+				return false;
+			});
+			$("#submitModalButton").die('click').live('click', function() {
+				submitJsonForm("#modal", actType, actOnId);
+				return false;
+			});
+
 			return false;
 		});
 	});

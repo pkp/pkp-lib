@@ -14,7 +14,7 @@
 		{assign var=defaultCellAction value=$actions[0]}
 		{include file="linkAction/linkAction.tpl" id=$cellId|concat:"-action-":$defaultCellAction->getId() action=$defaultCellAction objectId=$cellId}
 	{else}
-		{$label|escape}
+		{$label|strip_unsafe_html}
 	{/if}
 </span>
 

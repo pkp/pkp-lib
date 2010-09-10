@@ -254,14 +254,33 @@ class PKPNotification extends DataObject {
 		return $this->setData('context', $context);
 	}
 
+	/**
+	 * get notification style class 
+	 * @return string
+	 */
+	function getStyleClass() {
+		switch ($this->getAssocType()) {
+			case NOTIFICATION_TYPE_SUCCESS: return 'notifySuccess';
+			case NOTIFICATION_TYPE_WARNING: return 'notifyWarning';
+			case NOTIFICATION_TYPE_ERROR: return 'notifyError';
+			case NOTIFICATION_TYPE_INFO: return 'notifyInfo';
+			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyForbidden';
+			case NOTIFICATION_TYPE_HELP: return 'notifyHelp';
+		}
+	}
+
+	/**
+	 * get notification icon style class 
+	 * @return string
+	 */
 	function getIconClass() {
 		switch ($this->getAssocType()) {
-			case NOTIFICATION_TYPE_SUCCESS: return 'success';
-			case NOTIFICATION_TYPE_WARNING: return 'warning';
-			case NOTIFICATION_TYPE_ERROR: return 'error';
-			case NOTIFICATION_TYPE_INFO: return 'info';
-			case NOTIFICATION_TYPE_FORBIDDEN: return 'forbidden';
-			case NOTIFICATION_TYPE_HELP: return 'help';
+			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
+			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
+			case NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
+			case NOTIFICATION_TYPE_INFO: return 'notifyIconInfo';
+			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
+			case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
 		}
 	}
 

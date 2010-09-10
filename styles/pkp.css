@@ -1,0 +1,14 @@
+/**
+ * pkp.css
+ *
+ * Copyright (c) 2000-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * PKP-wide shared library default stylesheets.
+ */
+
+/* jQuery UI - http://jqueryui.com/ */
+@import url("jqueryUi.css");
+
+/* Pines Notify - http://pines.sourceforge.net/pnotify/ */
+@import url("jquery.pnotify.default.css");

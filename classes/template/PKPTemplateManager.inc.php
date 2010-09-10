@@ -103,10 +103,6 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
 		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
 
-		// Add jQuery stylesheets
-		$this->addStyleSheet($request->getBaseUrl() . '/lib/pkp/styles/jqueryUi.css');
-		$this->addStyleSheet($request->getBaseUrl() . '/lib/pkp/styles/jquery.pnotify.default.css');
-
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);
 

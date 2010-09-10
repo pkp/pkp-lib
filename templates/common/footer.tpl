@@ -34,7 +34,8 @@
 			$.pnotify({
 				pnotify_title: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js"|default:$defaultTitleText key=$notification->getTitle()}{else}{$notification->getTitle()|escape:"js"|default:$defaultTitleText}{/if}{literal}',
 				pnotify_text: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js" key=$notification->getContents() param=$notification->getParam()}{else}{$notification->getContents()|escape:"js"}{/if}{literal}',
-				pnotify_notice_icon: 'icon {/literal}{$notification->getIconClass()|escape:"js"}{literal}'
+				pnotify_addclass: '{/literal}{$notification->getStyleClass()|escape:"js"}{literal}',
+				pnotify_notice_icon: 'notifyIcon {/literal}{$notification->getIconClass()|escape:"js"}{literal}'
 			});
 		{/literal}
 	{/foreach}

@@ -359,7 +359,16 @@ class PKPRouter {
 		// Authorize the request.
 		$roleAssignments = $serviceEndpoint[0]->getRoleAssignments();
 		assert(is_array($roleAssignments));
-		if (!$serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
+		if ($serviceEndpoint[0]->authorize($request, $args, $roleAssignments)) {
+			// Execute class-wide data integrity checks.
+			if ($validate) $serviceEndpoint[0]->validate($request, $args);
+
+			// Let the handler initialize itself.
+			$serviceEndpoint[0]->initialize($request, $args);
+
+			// Call the service endpoint.
+			$result = call_user_func($serviceEndpoint, $args, $request);
+		} else {
 			// Authorization failed - try to retrieve a user
 			// message.
 			$authorizationMessage = $serviceEndpoint[0]->getLastAuthorizationMessage();
@@ -370,15 +379,6 @@ class PKPRouter {
 
 			// Handle the authorization failure.
 			$result = $this->handleAuthorizationFailure($request, $authorizationMessage);
-		} else {
-			// Execute class-wide data integrity checks.
-			if ($validate) $serviceEndpoint[0]->validate($request, $args);
-
-			// Let the handler initialize itself.
-			$serviceEndpoint[0]->initialize($request, $args);
-
-			// Call the service endpoint.
-			$result = call_user_func($serviceEndpoint, $args, $request);
 		}
 
 		// Return the result of the operation to the client.

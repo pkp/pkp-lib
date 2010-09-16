@@ -22,6 +22,8 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 		var title = dialogTitle ? dialogTitle : $(callingElement).text();
 		var okButton = localizedButtons[0];
 		var cancelButton = localizedButtons[1];
+		var d = new Date();
+		var UID = Math.ceil(1000 * Math.random(d.getTime()));
 
 		// Open the modal when the even is triggered on the calling element.
 		$(callingElement).die('click').live('click', function() {
@@ -38,14 +40,14 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 				// All other action types will assume that there is a
 				// form to be posted and post it.
 				dialogOptions[okButton] = function() {
-					submitJsonForm("#modal", actType, actOnId);
+					submitJsonForm("#"+UID, actType, actOnId);
 				};
 				dialogOptions[cancelButton] = function() {
 					$(this).dialog("close");
 				};
 			}
 			// Construct dialog
-			$('<div id=\"modal\"></div>').dialog({
+			$('<div id=' + UID + '></div>').dialog({
 				title: title,
 				autoOpen: true,
 				width: 700,
@@ -59,7 +61,7 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 					$.getJSON(url, function(jsonData) {
 						$('#loading').hide();
 						if (jsonData.status === true) {
-							$('#modal').html(jsonData.content);
+							$("#"+UID).html(jsonData.content);
 						} else {
 							// Alert that the modal failed
 							alert(jsonData.content);
@@ -73,19 +75,19 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 					if (validator != null) {
 						validator.resetForm();
 					}
-					clearFormFields($("#modal").find('form'));
-					$('#modal').dialog('destroy');
-					$('#modal').remove();
+					clearFormFields($("#"+UID).find('form'));
+					$("#"+UID).dialog('destroy');
+					$("#"+UID).remove();
 				}
 			});
 
 			// Handle custom dialog buttons
 			$("#cancelModalButton").die('click').live('click', function() {
-				$("#modal").dialog("close");
+				$("#"+UID).dialog("close");
 				return false;
 			});
 			$("#submitModalButton").die('click').live('click', function() {
-				submitJsonForm("#modal", actType, actOnId);
+				submitJsonForm("#"+UID, actType, actOnId);
 				return false;
 			});
 

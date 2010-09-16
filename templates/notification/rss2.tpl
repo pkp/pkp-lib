@@ -34,9 +34,9 @@
 				</link>
 				<description>
 					{if $notification->getIsLocalized()}
-						{translate key=$notification->getContents() param=$notification->getParam()}
+						{translate key=$notification->getContents() param=$notification->getParam()|escape:"html"}
 					{else}
-						{$notification->getContents()}
+						{$notification->getContents()|escape:"html"}
 					{/if}
 				</description>
 				<pubDate>{$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</pubDate>

@@ -30,9 +30,9 @@
 
 		<summary type="html" xml:base="{if $notification->getLocation() != null}{$notification->getLocation()}{else}{url page="notification"}{/if}">
 			{if $notification->getIsLocalized()}
-				{translate key=$notification->getContents() param=$notification->getParam()}
+				{translate key=$notification->getContents() param=$notification->getParam()|escape:"html"}
 			{else}
-				{$notification->getContents()}
+				{$notification->getContents()|escape:"html"}
 			{/if}
 		</summary>
 

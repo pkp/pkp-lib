@@ -26,12 +26,12 @@
 	<message key="user.email">Email</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
-	<message key="user.firstName">Nume</message>
+	<message key="user.firstName">Prenume</message>
 	<message key="user.gender">Sex</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Inițiale</message>
 	<message key="user.interests">Trecerea în revistă a punctelor de interes</message>
-	<message key="user.lastName">Prenume</message>
+	<message key="user.lastName">Nume</message>
 	<message key="user.profile.form.profileImageInvalid">Format de imagine invalid sau imaginea este mult prea mare. Formatele acceptate sunt .gif, .jpg, sau .png, iar imaginea nu trebuie să depăşească 150x150 pixeli.</message>
 	<message key="user.login.accountDisabledWithReason">Contul tău a fost dezactivat din următorul motiv: {$reason}</message>
 	<message key="user.login.accountDisabled">Contul tău a fost dezactivat. Contactează administratorul pentru mai multe informaţii.</message>
@@ -93,7 +93,7 @@
 	<message key="user.role.siteAdmin">Administrator de site</message>
 	<message key="user.role.siteAdmins">Administratori de site</message>
 	<message key="user.roles">Roluri</message>
-	<message key="user.salutation">Salutare</message>
+	<message key="user.salutation">Titlu</message>
 	<message key="user.sendPassword">Confirmare</message>
 	<message key="user.sendPassword.description">Trimite-mi un email de confirmare care să includă numele şi parola</message>
 	<message key="user.signature">Semnătură</message>
@@ -103,4 +103,10 @@
 	<message key="user.username">Nume utilizator</message>
 	<message key="user.workingLanguages">Limbi de lucru</message>
 	<message key="user.register.completeForm">Completaţi acest formular pentru a vă înregistra la această revistă.</message>
+	<message key="user.affiliation.description">(Instituția în care lucrezi, ex. „Universitatea din București”</message>
+	<message key="user.confirmEmail">Confirmă emailul</message>
+	<message key="user.gossip">Note personale</message>
+	<message key="user.profile.form.affiliationRequired">Menționarea afilierii este necesară.</message>
+	<message key="user.register.form.emailsDoNotMatch">Câmpurile cu adresa de email nu se potrivesc.</message>
+	<message key="user.repeatPassword">Repetă parola</message>
 </locale>

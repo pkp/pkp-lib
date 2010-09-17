@@ -13,7 +13,7 @@
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
-	<message key="user.affiliation">Instituição</message>
+	<message key="user.affiliation">Instituição/Afiliação</message>
 	<message key="user.affiliations">Outras Afiliações</message>
 	<message key="user.biography">Resumo da Biografia</message>
 	<message key="user.biography.description">(Ex.: departamento e área)</message>
@@ -35,7 +35,7 @@
 	<message key="user.login.accountDisabled">Sua conta foi desativada. Entre em contato com o administrador para maiores informações.</message>
 	<message key="user.login.accountNotValidated">É necessário validar seu endereço de e-mail. Verifique sua caixa de correio eletrônico e siga as instruções na mensagem recebida. Caso não tenha recebido a mensagem, entre em contato com o administrador para suporte.</message>
 	<message key="user.login.activate">Ativar cadastro</message>
-	<message key="user.login.activated">Seu cadastro foi ativado, permitindo o acesso ao sistema com os dados de acesso informados.</message>
+	<message key="user.login.activated">Seu cadastro foi ativado, permitindo o acesso ao sistema com os dados informados no momento do cadastro.</message>
 	<message key="user.login.changePasswordInstructions"><![CDATA[Uma nova senha deve ser definida antes de cadastrar-se no sistema.<br /><br />Digite seu login e senhas atual e nova para alterar a senha de acesso à conta.]]></message>
 	<message key="user.login.forgotPassword">Esqueceu a senha?</message>
 	<message key="user.login.loginError">Login e/ou senha inválido(s). Tente novamente.</message>
@@ -89,7 +89,7 @@
 	<message key="user.role.reviewer">Avaliador</message>
 	<message key="user.role.reviewers">Avaliadores</message>
 	<message key="user.role.siteAdmin">Administrador do Portal</message>
-	<message key="user.role.siteAdmins">Administradores do Site</message>
+	<message key="user.role.siteAdmins">Administradores do Portal</message>
 	<message key="user.roles">Papéis</message>
 	<message key="user.salutation">Pronome de tratamento</message>
 	<message key="user.sendPassword">Confirmação</message>
@@ -104,5 +104,8 @@
 	<message key="user.other">Outro</message>
 	<message key="user.affiliation.description">(Sua instituição, por exemplo "Simon Fraser University")</message>
 	<message key="user.gossip">Notas privadas</message>
-	<message key="user.profile.form.affiliationRequired">Sua instituição é obrigatória</message>
+	<message key="user.profile.form.affiliationRequired">A instituição/afiliação é obrigatória.</message>
+	<message key="user.confirmEmail">Confirmar e-mail</message>
+	<message key="user.register.form.emailsDoNotMatch">O e-mail informado nos campos não correspondem.</message>
+	<message key="user.repeatPassword">Repetir senha</message>
 </locale>

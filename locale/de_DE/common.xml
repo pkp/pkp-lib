@@ -314,4 +314,17 @@
 		Diese Arbeit steht unter einer <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
 	</div>]]></message>
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Sie sind nicht in dieser Benutzer/innengruppe.</message>
+	<message key="common.disable">Ausschalten</message>
+	<message key="common.enable">Einschalten</message>
+	<message key="common.fullscreen">Vollbild</message>
+	<message key="common.fullscreenOff">Vollbild aus</message>
+	<message key="common.ok">OK</message>
+	<message key="common.pluginEnabled">Das Plug-In "{$pluginName}" ist aktiviert worden.</message>
+	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
+	<message key="common.refresh">Aktualisieren</message>
+	<message key="common.loading">Laden …</message>
+	<message key="navigation.dashboard">Dashboard</message>
+	<message key="common.false">Falsch</message>
+	<message key="common.true">Wahr</message>
 </locale>

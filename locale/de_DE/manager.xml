@@ -169,4 +169,52 @@
 	<message key="plugins.categories.themes.description">Designvorlagen-Plug-Ins können verwendet werden, um das Aussehen des Systems zu verändern.</message>
 	<message key="plugins.categories.themes">Designvorlagen-Plug-Ins</message>
 	<message key="manager.emails.form.emailKeyRequired">Eine eindeutige E-Mail-Adresse wird für die E-Mail benötigt.</message>
+	<message key="manager.reviewerSearch.advancedSearch">Erweiterte Gutachter/innensuche</message>
+	<message key="manager.reviewerSearch.searchByName">Nach Gutachter/in per Name suchen</message>
+	<message key="manager.reviewerSearch.doneAmount">Anzahl abgeschlossener Gutachten</message>
+	<message key="manager.reviewerSearch.avgAmount">Durchschnittliche Zahl an Tagen pro Gutachten</message>
+	<message key="manager.reviewerSearch.lastAmount">Tage seit letztem Gutachten</message>
+	<message key="manager.reviewerSearch.activeAmount">Anzahl momentan aktiver Begutachtungen</message>
+	<message key="manager.reviewerSearch.interests">Begutachtungsinteressen</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Um Zitationen in Zitationsdatenbanken zu finden und zu überprüfen, müssen Sie erstens in maschinenlesbare Metadaten aufgetrennt werden: Titel, Verlag, Veröffentlichungsdatum etc. müssen aus dem originalen Zitationstext, den der/die Autor/in geliefert hat, entnommen werden. Verknüpfungen zu externen Webdiensten können in diesem Prozess hilfreich sein. Eine oder mehrere Verknüpfungen können durch Klicken des "Eintrag hinzufügen"-Knopfes unten. Einige dieser Verknüpfungen könnten konfiguriert werden müssen; Sie werden in diesem Fall dazu aufgefordert werden.</p>
+<p>Sie können existierende Verknüpfungen bearbeiten oder löschen, indem Sie das Symbol daneben anklicken.</p>]]></message>
+	<message key="manager.setup.citationFilterParser">Zitationsextraktion</message>
+	<message key="manager.setup.citationFilterLookup">Zitationsprüfung</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Sie müssen auch Verknüpfungen zu externen Zitationsdatenbanken aktivieren und konfigurieren. Dies hilft Ihnen dabei, Fehler in den Autor/innen-Zitationen zu finden oder zusätzliche Informationen (z.B. DOI oder PubMed ID), die für elektronisches Publizieren oder Archivieren nötig sind, hinzuzufügen.</p>
+<p>Wir liefern Verknüpfungen zu verschiedenen externen Datenbanken, in denen Sie nach Zitationen suchen können. Einige dieser Datenbanken erfordern die Eingabe Informationen zur Registrierung oder zu den Einstellungen. Bitte überprüfen Sie die öffentlichen WEbseiten der Datenbanken für weitere Informationen über die Registrierung. Sie können eine oder mehrere Datenbanken hinzufügen, indem Sie den "Eintrag hinzufügen"-Knopf unten drücken.</p>
+<p>Sie können eine existierende Datenbankverknüpfung bearbeiten oder löschen, in dem Sie das zugehörige Symbol klicken.</p>
+<p><strong>Hinweis:</strong> Damit die Zitationsprüfung in vertretbarer Zeit abgeschlossen werden kann, muss die <tt>citation_checking_max_processes</tt>-Direktive in Ihrer Konfigurationsdatei auf einen vernünftigen Wert gesetzt sein. Für weitere Informationen vgl. den General-Settings-Abschnitt in <tt>config.inc.php</tt>.]]></message>
+	<message key="manager.setup.citationOutput">Zitationsausgabe</message>
+	<message key="manager.setup.citationOutputStyleDescription">Bitte wählen Sie den Zitationsstil, der bei Ihren Autor/inneneinreichungen genutzt wird. Der Zitationsauszeichnungsassistent bietet Ihnen einen Vergleich zwischen der Autor/innenversion der Zitation zu einer aus dem von Ihnen erstellten XML generierten Version, so dass Sie Fehler einfach aufspüren können:</message>
+	<message key="manager.setup.errorDeletingItem">Es gab einen Fehler beim Löschen dieses Eintrags.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Es ist ein Fehler beim Versuch, diesen Filter zu löschen, aufgetreten. Bitte melden Sie dies als einen Bug.</message>
+	<message key="manager.setup.citationAssistant">Zitationsauszeichnungsassistent</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Verknüpfung</message>
+	<message key="manager.setup.filter.grid.filterSettings">Registrierungsinformationen und Verknüpfungseinstellungen</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Bitte wählen Sie eine der Transformationen aus dem Auswahlmenü.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Möchten Sie den {$filterName}-Filter wirklich löschen?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Sie haben sich dafür entschieden, die {$filterDisplayName}-Datenbank hinzuzufügen. Bitte klicken Sie auf 'OK' zur Bestätigung.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Bitte wählen Sie eine Nachschlagedatenbank aus.</message>
+	<message key="manager.setup.filter.lookup.grid.title">Verknüpfungen zu Zitationsdatenbanken</message>
+	<message key="manager.setup.filter.noMoreTemplates">Alle verfügbaren Transformationen sind bereits hinzugefügt worden. Bitte klicken Sie 'Abbrechen' um zur Setupseite zurückzukehren.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Sie haben sich dafür entschieden, den {$filterDisplayName}-Parser hinzuzufügen. Bitten klicken Sie auf 'OK' zur Bestätigung.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Bitte wählen Sie einen Zitationsparser aus.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Dieser Extraktionsfilter verbindet sich zum <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> Webangebot.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Dieser Filter ist mit PubMeds <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> Metasuchmaschine verknüpft.</p>
+<p>Eine Registrierungs-E-Mail ist nicht unbedingt erforderlich, könnte aber nötig werden, wenn Sie auf Verbindungsprobleme stoßen. Vgl. für weitere Informationen den Abschnitt <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in der Entrez-Dokumentation.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Dieser Extraktionsfilter ist mit dem <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> Webdienst verknüpft.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Der RegEx-Extraktionsfilter benutzt eine Reihe regulärer Ausdrücke, um Zitationen zu analysieren.</message>
+	<message key="manager.setup.filter.parser.grid.title">Zitationsextraktionsdienste</message>
+	<message key="manager.setup.filter.pleaseSelect">Bitte wählen Sie aus…</message>
+	<message key="manager.setup.metaCitationsDescription">Aktivieren Sie die folgende Auswahlbox, um Zitationsbearbeitung zu ermöglichen. Dies wird es Autor/innen ermöglichen, unbearbeitete Zitationen mit ihren Beiträgen einzureichen. Redakteur/innen werden ebenfalls Zugriff auf einen Zitationsauszeichnungsassistenten haben, der unbearbeitete Zitationen mit externen Datenbanken wie WorldCat, ISBNdb, PubMed u.a. abgleichen kann. Bestätigte Zitationen können in die endgültigen Fahnendateien exportiert werden.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dieser Filter ist mit der  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> Buch-und-ISBN-Datenbank verknüpft.</p>
+	<p>Ein ISBNdb API key wird benötigt. Vgl. die <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">Online-Dokumentation</a> für Informationen zum Erzeugen eines Schlüssels.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dieser Filter ist mit der CrossRef-Zitationsdatenbenk über CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a> verknüpft.</p> 
+<p>Um diesen Filter zu benutzen, können Sie Ihren CrossRef-Account benutzen, oder Sie registrieren eine gültige E-Mail-Adresse bei CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">hier</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Dieser Filter ist mit den OCLC-Diensten <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> und <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional) verknüpft.</p>
+<p>Wenn Sie einen Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> besitzen, können Sie auf Worldcat zugreifen, in dem Sie den Schlüssel unten eingeben.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Bitte warten Sie, bis das Raster zur Konfiguration der Zitationsdatenbank geladen worden ist…</message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Dieser Extraktionsfilter ist mit den <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl-Modulen verknüpft, um die <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> Zitationsanalyse zu ermöglichen. Damit dies richtig funktioniert, müssen Sie Perl zusammen mit den CPAN-Modulen <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> und <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> installiert haben. Sie müssen außerdem die <tt>perl</tt>-Anweisung in Ihrer Konfigurationsdatei einstellen. Diese Anweisung befindet sich im Abschnitt External Commands von <tt>config.inc.php</tt>.</p>
+	<p>Sie können auch auswählen, welches Analysemodul ParaTools benutzen soll. Sie können wählen zwischen dem Standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> und <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Bitte warten Sie, bis das Raster zur Konfiguration der Zitationsdatenbank geladen worden ist…</message>
 </locale>

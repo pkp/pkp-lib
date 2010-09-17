@@ -18,7 +18,7 @@
 	<message key="grid.settings">Configurações</message>
 
 	<message key="grid.action.sort">Ordenar</message>
-	<message key="grid.action.addItem">Incluir item</message>
+	<message key="grid.action.addItem">Incluir</message>
 	<message key="grid.action.delete">Excluir</message>
 	<message key="grid.action.edit">Editar</message>
 	<message key="grid.action.restoreDefaults">Restaurar padrões</message>
@@ -60,12 +60,12 @@
 	<message key="grid.artworkFile.type.figure">Figura</message>
 	<message key="grid.artworkFile.placement">Localização no livro</message>
 	<message key="grid.artworkFile.placementDetail">Tabela/Fig. #</message>
-	<message key="grid.artworkFile.contactAuthor">Contatar autor</message>
+	<message key="grid.artworkFile.contactAuthor">Contactar autor</message>
 
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Documentos</message>
 	<message key="grid.libraryFiles.submission.title">Biblioteca de submissão</message>
-	<message key="grid.libraryFiles.editorial.title">Biblioteca Editorial</message>
+	<message key="grid.libraryFiles.editorial.title">Biblioteca editorial</message>
 	<message key="grid.libraryFiles.review.title">Bilbioteca de revisão</message>
 	<message key="grid.libraryFiles.production.title">Biblioteca de produção</message>
 	<message key="grid.libraryFiles.productionTemplate.title">Biblioteca de modelos de produção</message>
@@ -75,8 +75,19 @@
 	<message key="grid.submissionChecklist.column.checklistItem">Item de verificação</message>
 
 	<!-- Submission Contributors -->
-	<message key="author.submit.contributor.name">Nome</message>
-	<message key="author.submit.contributor.email">E-mail</message>
-	<message key="author.submit.contributor.role">Papel</message>
-	<message key="author.submit.contributor.principalContact">Contato principal</message>
+	<message key="grid.action.remove">Retirar</message>
+	<message key="grid.action.approve">Aceitar</message>
+	<message key="grid.action.approveForReview">Enviar a nova rodade de avaliação</message>
+	<message key="grid.action.approveForPub">Aceito para publicação</message>
+	<message key="grid.action.decline">Recusar</message>
+	<message key="grid.action.moreInformation">Mais informações</message>
+	<message key="grid.action.addAuthor">Incluir autor</message>
+	<message key="grid.artworkFile.captionAndCredit">Legenda e Créditos (caso não estejam incluídos no arquivo)</message>
+	<message key="author.users.contributor.name">Nome</message>
+	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.role">Papel</message>
+	<message key="author.users.contributor.principalContact">Contato principal</message>
+	<message key="grid.reviewAttachments.title">Anexos do avaliador</message>
+	<message key="grid.reviewAttachments.add">Incluir anexo à avaliação</message>
+	<message key="grid.chapters.title">Capítulos</message>
 </locale>

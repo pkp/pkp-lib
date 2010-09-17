@@ -313,4 +313,18 @@
 	<message key="notification.unsubscribeError">Παρουσιάστηκε ένα σφάλμα κατά την διαγραφή σας από τη λίστα. Παρακαλούμε επιβεβαιωθείτε ότι η διεύθυση και ο κωδικός που εισάγατε είναι σωστά.</message>
 	<message key="notification.unsubscribeSuccess">Διαγραφήκατε με επιτυχία.</message>
 	<message key="common.re">Re:</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Δεν ανήκετε σε αυτή την ομάδα χρηστών</message>
+	<message key="common.disable">Απενεργοποίηση</message>
+	<message key="common.enable">Ενεργοποίηση</message>
+	<message key="common.fullscreen">Πλήρης Οθόνη</message>
+	<message key="common.fullscreenOff">Πλήρης Οθόνη Off</message>
+	<message key="common.false">Ψευδές</message>
+	<message key="common.ok">Εντάξει</message>
+	<message key="common.pluginEnabled">Το plugin "{$pluginName}" έχει ενεργοποιηθεί.</message>
+	<message key="common.pluginDisabled">Το plugin "{$pluginName}" έχει απενεργοποιηθεί.</message>
+	<message key="common.refresh">Ανανέωση</message>
+	<message key="common.true">Αληθές</message>
+	<message key="common.uploadFailed">Το αρχείο δεν ανέβηκε. Σας παρακαλούμε προσπαθήστε ξανά ή επικοινωνήστε με τον διαχειριστή αν το πρόβλημα επιμείνει.</message>
+	<message key="common.loading">Φόρτωση...</message>
+	<message key="navigation.dashboard">Ταμπλό</message>
 </locale>

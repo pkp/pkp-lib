@@ -317,4 +317,13 @@
 	<message key="common.true">Verdadeiro</message>
 	<message key="common.uploadFailed">Não foi possível carregador o ficheiro. Tente novamente ou contacte o administrador se o problema persistir.</message>
 	<message key="navigation.dashboard">Painel</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Você não pertence a este grupo de usuários.</message>
+	<message key="common.disable">Desabilitar</message>
+	<message key="common.enable">Habilitar</message>
+	<message key="common.fullscreen">Tela cheia</message>
+	<message key="common.fullscreenOff">Tela padrão</message>
+	<message key="common.pluginEnabled">O Plugin "{$pluginName}" foi habilitado.</message>
+	<message key="common.pluginDisabled">O Plugin "{$pluginName}" foi desabilitado.</message>
+	<message key="common.refresh">Atualizar</message>
+	<message key="common.loading">Carregando ...</message>
 </locale>

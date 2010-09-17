@@ -102,4 +102,7 @@
 	<message key="user.workingLanguages">Arbeidsspråk</message>
 	<message key="user.profile.form.profileImageInvalid">Ugyldig profilbildeformat eller et for stort bilde. Mulige formater er .gif, .jpg, eller .png, og bildet kan ikke være større enn 150x150 pixler.</message>
 	<message key="user.other">Annet</message>
+	<message key="user.affiliation.description">(Din institusjon, f.eks. «Det Kongelige Frederiks Universitet»</message>
+	<message key="user.confirmEmail">Bekreft e-post</message>
+	<message key="user.profile.form.affiliationRequired">Institusjonstilhørighet må angis.</message>
 </locale>

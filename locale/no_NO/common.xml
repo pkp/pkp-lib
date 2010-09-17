@@ -318,4 +318,13 @@
 	<message key="notification.unsubscribeDescription">Oppgi din e-postadresse og passord nedenfor for å avslutte abonnement på e-postvarslinger. Om du ikke husker passordet ditt, la det være tomt i feltet og du vil få tilsendt et nytt passord på den oppgitt e-postadressen.</message>
 	<message key="notification.unsubscribeError">Det oppstod en feil ved avslutningen av ditt abonnement. Sjekk at din e-postadresse og passord er korrekt angitt.</message>
 	<message key="notification.unsubscribeSuccess">Avslutning av ditt abonnement var vellykket.</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Du er ikke medlem av denne brukergruppen.</message>
+	<message key="common.disable">Slå av</message>
+	<message key="common.enable">Slå på</message>
+	<message key="common.fullscreen">Fullskjerm</message>
+	<message key="common.fullscreenOff">Fullskjerm av</message>
+	<message key="common.pluginEnabled">Programutvidelsen "{$pluginName}" er slått på.</message>
+	<message key="common.pluginDisabled">Programutvidelsen "{$pluginName}" er slått av.</message>
+	<message key="common.refresh">Oppdater</message>
+	<message key="common.loading">Laster ...</message>
 </locale>

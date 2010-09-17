@@ -168,4 +168,133 @@
 	<message key="plugins.categories.reports">پلاگین های گزارش</message>
 	<message key="plugins.categories.themes.description">پلاگین های چهره می توانند برای تغییر ظاهر سیستم استفاده شوند</message>
 	<message key="plugins.categories.themes">پلاگین های چهره</message>
+	<message key="manager.emails.form.emailKeyRequired">یک کلید منحصر به فرد ایمیل برای ایمیل لازم است</message>
+	<message key="manager.reviewerSearch.advancedSearch">جستجوی پیشرفته کارشناس</message>
+	<message key="manager.reviewerSearch.searchByName">جستجوی کارشناس بر اساس نام</message>
+	<message key="manager.reviewerSearch.doneAmount">تعداد کارشناسی های کامل شده</message>
+	<message key="manager.reviewerSearch.avgAmount">میانگین روزهای صرف شده برای کارشناسی</message>
+	<message key="manager.reviewerSearch.lastAmount">تعداد روز از آخرین کارشناسی</message>
+	<message key="manager.reviewerSearch.activeAmount">تعداد کارشناسی های در دست اقدام</message>
+	<message key="manager.reviewerSearch.interests">علائق کارشناسی</message>
+	<message key="manager.setup.citationAssistant">کمک ارجاع مارک آپ</message>
+	<message key="manager.setup.citationFilterParser">استخراج ارجاعات</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>
+برای یافتن ارجاعات در بانکهای ارجاع ابتدا باید بصورت قابل خواندن برای ماشین در آیند: عنوان، ناشر، تارخ نشر، و غیره همگی یاید از متن ارجاعی اصلی که نویسنده ارائه کرده است استخراج شود. اتصالات به سرویس های وب اکسترنال می تواند در این روند کمک کنند. با کلیک بر روی افزودن آیتم می توان یک یا چند اتصال اضافه کرد. بعضی از این اتصالات ممکن است نیاز به تنظیماتی داشته باشند که در این صورت از شما خواسته می شود.
+</p>
+<p>
+برای ویرایش یا حذف یک اتصال موجود بر روی شکلک چرخ دنده کلیک کنید.
+</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">چک ارجاعات</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>
+همچنین می بایست اتصال به بانکهای اکسترنال را فعال و تنظیم کنید. بدین وسیله اشکالات موجود در ارجاعات نویسنده را می توانید پیگیری کنید و یا اطلاعات بیشتری اضافه کنید. مانند DOI, PubMed ID
+</p>
+<p>اتصالاتی به جندین بانک اکسترنال تامین شده است که در آنها می توان به دنبال ارجاعات گشت. بعضی از آنها نیاز به ثبت نام یا تنظیمات برای ورود دارند. برای اطلاعات بیشتر به سایت خود بانک اطلاعاتی مراجعه کنید. با کلیک بر وری افزودن آیتم می توانید یک یا چند بانک اضافه کنید.
+</p>
+برای ویرایش یا حذف یک اتصال موجود بر روی شکلک چرخ دنده کلیک کنید.
+</p>
+<p>
+برای اینکه روند چک ارجاع به موقع کار خود را تمام کند تنظیم 
+<tt>citation_checking_max_processes</tt>
+در فایل تنظیمات باید به طرز مناسبی مقدار دهی شود. لطفا به راهنمائی های
+<tt>config.inc.php</tt>
+مراجعه کنید.]]></message>
+	<message key="manager.setup.citationOutput">خروجی ارجاع</message>
+	<message key="manager.setup.citationOutputStyleDescription">سبک ارجاع مورد استفاده در مجله خود را انتخاب کنید. به کمک مددیار ارجاع مارک آپ می توانید نسحه نویسنده ارجاع را با نسخه حاصل از XML مقایسه کنید و خطاها را ردیابی نمائید</message>
+	<message key="manager.setup.errorDeletingItem">هنگام حذف این آیتم خطائی رخ داد</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">هنگام حذف این فیلتر خطا رخ داد. لطفا این را به عنوان یک باگ گزارش کنید</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">اتصال</message>
+	<message key="manager.setup.filter.grid.filterSettings">اطلاعات ثبت نام و تنظیمات اتصال</message>
+	<message key="manager.setup.filter.grid.confirmDelete">آیا واقعا می خواهید {$filterName} حذف کنید</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">لطفا یکی از تبدیلات را از منو انتخاب کنید</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">شما بانک {$filterDisplayName} را برای افزودن انتخاب کرده اید. لطفا بر روی OK کلیک کنید تا تایید شود</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">لطفا یک بانک اطلاعاتی برای جستجو انتخاب کنید</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>
+این فیلتر به بانک کتاب و ISBN
+<a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>
+وصل می شود
+</p><p>
+کلید ISBNdb الزامی است. برای اطلاع از نحوه تولید یک کلید به
+<a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a>
+مراجعه کنید]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>
+این فیلتر به بانک ارجاع CrossRef به کمک 
+<a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>
+وصل می شود.
+</p>
+<p>
+برای استفاده از این فیلتر شما می توانید از حساب سیستم CrossRef خود استفاده کنید و یا ایمیلی را در CrossRef در آدرس 
+<a href="http://www.crossref.org/requestaccount/" target="_blank">اینجا</a>.</p>
+ثبت نام کنید
+</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>
+این فیلتر به بانک PubMed
+<a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>
+وصل می شود.
+</p>
+<p>
+ایمیل ثبت نام الزامی نیست ولی ممکن است در صورت برخورد به اشکال در اتصال لازم شود. لطفا به قسمت 
+<a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">
+راهنمای استفاده و ملزومات
+</a>
+در مستندات Entrez مراجعه کنید.
+</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[این فیلتر به سرویس OCLC وصل می شود
+<a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> 
+و 
+<a href="http://www.worldcat.org/" target="_blank">Worldcat</a>
+</p>
+<p>
+اگر شما یک 
+<a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">
+کلید API
+</a>
+Worldcat
+دارید در این صورت می توانید با وارد کردن کلید در قسمت زیر وارد Worldcat شوید.
+</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">لطفا تا زمان بارگیری جدول تنظیمات بانک ارجاعی صبر کنید...</message>
+	<message key="manager.setup.filter.lookup.grid.title">اتصالات بانک ارجاع</message>
+	<message key="manager.setup.filter.noMoreTemplates">تمامی تبدیلات تا کنون اضافه شده اند. لطفا بر روی لغو کلیک کنید تا به صفحه ست آپ برگردید.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">شما مفسر
+{$filterDisplayName}
+را برای افزودن انتخاب کرده اید. لطفا بر روی OKکلیک کنید.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">لطفا یک مفسر ارجاع را انتخاب کنید.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>
+این فیلتر استخراج به سرویس وب 
+<a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>
+وصل می شود
+.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>
+این فیلتر استخراج از ماژولهای پرل
+<a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a>
+برای تامین قابلیت تفسیر ارجاعات 
+<a href="http://paracite.eprints.org" target="_blank">ParaCite</a>
+استفاده می کند. بدین منظور باید پرل نصب باشد. همچنین ماژول های CPAN 
+<a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a>
+و
+<a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>
+نیز لازم هستند. همچنین لازم است دستور
+<tt>perl</tt>
+در فایل تنظیمات را تنظیم کنید. این دستور را می توان در دستورات اکسترنال 
+<tt>config.inc.php</tt>
+بیابید.
+</p>
+<p>
+همچنین می توانید انتخاب کنید که از کدام ماژول مفسر
+ParaTools
+استفاده شود. گزینه های در دسترس عبارتند از 
+standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, and <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>
+این فیلتر استخراج به سوریس وب 
+<a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>
+وصل می شود.
+</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">فیلتر 
+RegEx 
+از یک سری عبارات منظم برای تفسیر ارجاعات استفاده می کند.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">لطفا تا زمان بارگیری جدول تنظیمات مفسر ارجاعی صبر کنید...</message>
+	<message key="manager.setup.filter.parser.grid.title">سرویس های استخراج ارجاعات</message>
+	<message key="manager.setup.filter.pleaseSelect">لطفا انتخاب کنید ...</message>
+	<message key="manager.setup.metaCitationsDescription">برای فعال سازی ارجاع و ویرایش مرجع کزینه زیر را انتخاب کنید. بدین ترتیب نویسندگان می توانند ارجاعات خام به ساب میشن اضافه کنند. ادیتورها نیز به مددیار مارک آپ ارجاع نیز دسترسی پیدا میکنند که می تواند ارجاعات خام را با استفاده از بانهای اکسترنال مانند 
+WorldCat, ISBNdb, PubMed 
+از نظر صحت چک کند. سپس ارجاعات تایید شده را می توان به گالی نهائی انتقال داد.</message>
 </locale>

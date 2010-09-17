@@ -170,4 +170,50 @@
 	<message key="plugins.categories.themes">Plugins de Visual</message>
 	<message key="manager.emails.form.emailKeyRequired">É requerida uma única chave para o email.</message>
 	<message key="manager.setup.errorDeletingItem">Ocorreu um erro ao eliminar este item.</message>
+	<message key="manager.reviewerSearch.advancedSearch">Busca avançada de avaliadores</message>
+	<message key="manager.reviewerSearch.searchByName">Buscar por nome do avaliador</message>
+	<message key="manager.reviewerSearch.doneAmount">Total de avaliações concluídas</message>
+	<message key="manager.reviewerSearch.avgAmount">Média de dias para avaliar</message>
+	<message key="manager.reviewerSearch.lastAmount">Dias desde a última avaliação</message>
+	<message key="manager.reviewerSearch.activeAmount">Total de avalições ativas</message>
+	<message key="manager.reviewerSearch.interests">Área de interesse</message>
+	<message key="manager.setup.citationAssistant">Assistente de marcação de citações</message>
+	<message key="manager.setup.citationFilterParser">Extração de citações</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Para encontrar e verificar citações em bases de dados especializadas, é necessário extraí-las em metadados em formato de máquina para leitura: título, editora, data de publicação, entre outros, devem ser todos extraídos do texto original da citação informada pelo autor. Conexões com serviços <i>Web</i> externos podem auxiliar no processo. Uma ou mais conexões podem ser incluídas, clicando no botão "Incluir item" a seguir. Algumas conexões podem exigir configuração; um aviso o notificará, caso seja necessário.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Verificação de citações</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>É necessário também habilitar e configurar as conexões a bases de dados de citacões externas. Isto facilita a detecção de erros na citação ou informações adicionais informadas pelo autor (como DOI o IDs do PubMed), exigidos para publicação ou depósito eletrônico.</p> 
+<p>O sistema oferece conectores a várias bases de dados nas quais pesquisar citações. Algumas exigem cadastro ou informações de configuração. Acesse o site das bases de dados para mais informações sobre os requisitos e processos de cadastro. Podem ser incluídas várias bases clicando no botão "Incluir item" a seguir.</p>
+<p>Edite ou exclua conexões existentes clicando no ícone de engrenagem ao lado da base.</p>
+<p><strong>Aviso:</strong> Para que o processo de verificação de citações seja concluído em tempo razoável, a variável <tt>citation_checking_max_processes</tt> no arquivo de configuração deve possuir um valor alto o suficiente. Veja a seção General Settings do arquivo <tt>config.inc.php</tt> para mais informações.</p>]]></message>
+	<message key="manager.setup.citationOutput">Extração de citações</message>
+	<message key="manager.setup.citationOutputStyleDescription">Escolha o padrão de citação usado para submissão em seus artigos. O Assistente de marcação de citações permite comparar a versão do autor com a versão gerada em XML, sendo mais fácil identificar possíveis erros:</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Ocorreu um erro ao tentar remover este filtro. Favor reportar este erro como falha de sistema.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Conexão</message>
+	<message key="manager.setup.filter.grid.filterSettings">Cadastro e Configuração de conexões</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Escolha uma das transformações do menu drop-down.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Deseja realmente excluir o filtro {$filterName}?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base de dados {$filterDisplayName} está sendo incluída. Clique no botão 'OK' para confirmar.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Escolha uma base de dados para verificação.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e códigos ISBN <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
+<p>Uma chave de API ISBNdb é obrigatória. Para informações sobre como gerar a chave, acesse a<a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentação online</a>.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base CrossRef de citações usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p> 
+<p>Para usar este filtro, deve-se usar sua conta CrossRef, ou cadastrar um e-mail válido <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta ao mecanismo de busca na base cruzada do PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
+<p>Um e-mail para cadastro não estritamente obrigatório, mas pode ser necessário caso tenha problemas de conexão. Veja como funciona o sistema na documentação do Entrez acessando <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Guia de Uso e Requisitos</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Este filtro se conecta aos serviços da OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> e <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opcional).</p>
+<p>Se possui uma <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">chave de API</a> da WorldCat, poderá se conectar informando a chave no campo a seguir.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Aguarde enquanto a grade de configuração de bases de dados de citações é carregado...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Conexões de bases de dados de citações</message>
+	<message key="manager.setup.filter.noMoreTemplates">Todas as transformações disponíveis foram incluídas. Clique no botão 'Cancelar' para voltar à página de configuração.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">O analisador {$filterDisplayName} foi incluído. Clique em 'ok' para confirmar.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Escolha um analisador.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Este filtro de extração se conecta ao web service <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Este filtro de extracção usa os <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Módulos Perl para fornecer <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> uma funcionalidade de análise de citações. De modo a funcionar correctamente, tem de instalar o Perl installed, assim como <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> e <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> Módulos CPAN. Também tem de configurar a <tt>perl</tt> directiva no ficheiro de configuração. Esta directiva pode ser encontrada na secção de Comandos Externos do <tt>config.inc.php</tt>.</p>
+	<p>Pode também escolher qual o módulo de análise ParaTools deve usar. Pode escolher entre o standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, e <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Base de citação</a> módulos de análise.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Este filtro de extracção liga-se a <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> serviço web.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">O filtro de extracção RegEx usa um conjunto de expressões regulares para analisar citações.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Agurarde até a grelha de configuração da análise da citação seja carregada...</message>
+	<message key="manager.setup.filter.parser.grid.title">Serviços de Extracção de Citações</message>
+	<message key="manager.setup.filter.pleaseSelect">Por favor seleccione...</message>
+	<message key="manager.setup.metaCitationsDescription">Activar a seguinte checkbox para activar a citação e a edição de referências. Esta operação permite aos autores incluir linhas de citação com as submissões. Os Editores também terão acesso ao assistente de marcação da citação, que pode comparar as linhas de citação com bases de dados externas, tais como WorldCat, ISBNdb, PubMed e outras. As citações aprovadas podem ser exportadas para ficheiros próprios.</message>
 </locale>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2000-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (English) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="en_US" full_name = "English">
+	<!-- Common -->
+	<message key="grid.noItems">Geen onderdelen</message>
+	<message key="grid.settings">Instellingen</message>
+
+	<message key="grid.action.sort">Sorteren</message>
+	<message key="grid.action.addItem">Onderdeel toevoegen</message>
+	<message key="grid.action.delete">Verwijderen</message>
+	<message key="grid.action.remove">Weghalen</message>
+	<message key="grid.action.edit">Bewerken</message>
+	<message key="grid.action.approve">Goedkeuren</message>
+	<message key="grid.action.approveForReview">Naar review sturen</message>
+	<message key="grid.action.approveForPub">Goedkeuren voor publicatie</message>
+	<message key="grid.action.decline">Afwijzen</message>
+	<message key="grid.action.moreInformation">Meer informatie</message>
+	<message key="grid.action.restoreDefaults">Terug naar standaardwaarden</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Acties</message>
+	<message key="grid.columns.institution">Instituut</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponsors</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Colofon</message>
+	<message key="grid.masthead.column.groups">Groepen</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Bijgedragen door</message>
+	<message key="grid.action.addAuthor">Auteur toevoegen</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Reviewformulieren</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Sta toe dat bestanden van dit type naar component gesorteerd worden (bv. naar hoofdstuk)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Grafisch werk met toestemming</message>
+	<message key="grid.artworkFile.file">Bestand</message>
+	<message key="grid.artworkFile.form.title">Grafisch werk met toesteming toevoegen</message>
+	<message key="grid.artworkFile.form.metadata">Metadata grafisch werk</message>
+	<message key="grid.artworkFile.caption">Bijschrift</message>
+	<message key="grid.artworkFile.credit">Erkenning</message>
+	<message key="grid.artworkFile.captionAndCredit">Bijschrift en erkenning (indien niet in het bestand opgenomen)</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright-eigenaar</message>
+	<message key="grid.artworkFile.copyrightContact">Contactinformatie (indien niet auteur/uitgever)</message>
+	<message key="grid.artworkFile.permissionTerms">Voorwaarden toestemming</message>
+	<message key="grid.artworkFile.permissionForm">Toestemmingsformulier</message>
+	<message key="grid.artworkFile.type">Type</message>
+	<message key="grid.artworkFile.type.table">Tabel</message>
+	<message key="grid.artworkFile.type.figure">Figuur</message>
+	<message key="grid.artworkFile.placement">Plaatsing in boek</message>
+	<message key="grid.artworkFile.placementDetail">Tabel/fig. nr.</message>
+	<message key="grid.artworkFile.contactAuthor">Contact auteur</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Bestanden</message>
+	<message key="grid.libraryFiles.submission.title">Bibliotheek inzending</message>
+	<message key="grid.libraryFiles.editorial.title">Bibliotheek redactie</message>
+	<message key="grid.libraryFiles.review.title">Bibliotheek review</message>
+	<message key="grid.libraryFiles.production.title">Bibliotheek productie</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Bibliotheek productiesjabloon</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Checklist inzending</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Checklist onderdeel</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">Naam</message>
+	<message key="author.users.contributor.email">E-mail</message>
+	<message key="author.users.contributor.role">Rol</message>
+	<message key="author.users.contributor.principalContact">Primair contact</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">Bijlagen reviewer</message>
+	<message key="grid.reviewAttachments.add">Bijlage toevoegen aan review</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Hoofdstukken</message>
+</locale>

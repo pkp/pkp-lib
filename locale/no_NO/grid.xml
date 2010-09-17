@@ -34,4 +34,24 @@
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Bidragsyter</message>
+	<message key="grid.settings">Innstillinger</message>
+	<message key="grid.action.remove">Fjern</message>
+	<message key="grid.action.approve">Godkjenn</message>
+	<message key="grid.action.decline">Avslå</message>
+	<message key="grid.action.moreInformation">Mer informasjon</message>
+	<message key="grid.action.restoreDefaults">Tilbakestill til standardinnstillinger</message>
+	<message key="grid.masthead.column.groups">Grupper</message>
+	<message key="grid.action.addAuthor">Legg til forfatter</message>
+	<message key="grid.artworkFile.file">Fil</message>
+	<message key="grid.artworkFile.caption">Billedtekst</message>
+	<message key="grid.artworkFile.copyrightOwner">Copyright-eier</message>
+	<message key="grid.artworkFile.type">Type</message>
+	<message key="grid.artworkFile.type.table">Tabell</message>
+	<message key="grid.artworkFile.type.figure">Figur</message>
+	<message key="grid.libraryFiles.column.files">Filer</message>
+	<message key="author.users.contributor.name">Navn</message>
+	<message key="author.users.contributor.email">E-post</message>
+	<message key="author.users.contributor.role">Rolle</message>
+	<message key="author.users.contributor.principalContact">Primærkontakt</message>
+	<message key="grid.chapters.title">Kapitler</message>
 </locale>

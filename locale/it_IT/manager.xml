@@ -153,20 +153,68 @@
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nuovi)</message>
 	<message key="manager.users">Utenti</message>
-	<message key="plugins.categories.auth">Plugin di Autorizzazione</message>
-	<message key="plugins.categories.blocks">Plugin del blocco</message>
+	<message key="plugins.categories.auth">Modalità di autenticazione</message>
+	<message key="plugins.categories.blocks">Gestione dei blocchi</message>
 	<message key="plugins.categories.blocks.description">I plugin del blocco sono componenti dell'interfaccia utente, come i vari strumenti del menu laterale.</message>
-	<message key="plugins.categories.citationFormats">Plugin di formato della citazione</message>
+	<message key="plugins.categories.citationFormats">Formati delle citazioni</message>
 	<message key="plugins.categories.gateways.description">I Plugins di gateway forniscono dati a sistemi esterni.</message>
-	<message key="plugins.categories.gateways">Plugin di gateway</message>
-	<message key="plugins.categories.generic">Plugin generici</message>
+	<message key="plugins.categories.gateways">Gateway</message>
+	<message key="plugins.categories.generic">Generici</message>
 	<message key="plugins.categories.importexport.description">I plugin di Importazione/Esportazione possono essere usati per trasferire contenuti da e verso un altro sistema.</message>
-	<message key="plugins.categories.importexport">Plugin di importazione/esportazione</message>
-	<message key="plugins.categories.paymethod.description">I plugin del metodo di pagamento implementano i supporti per vari modi di effettuare pagamenti online.</message>
-	<message key="plugins.categories.paymethod">Plugin di pagamento</message>
+	<message key="plugins.categories.importexport">Import/Export</message>
+	<message key="plugins.categories.paymethod.description">I plugin per i pagamenti rendono possibili pagamenti online secondo diverse modalità.</message>
+	<message key="plugins.categories.paymethod">Modalità di pagamento</message>
 	<message key="plugins.categories.reports.description">I plugin per i report sono utilizzati per creare vari tipi di rapporti per l'amministratore della rivista</message>
-	<message key="plugins.categories.reports">Report plugin</message>
+	<message key="plugins.categories.reports">Gestione dei report</message>
 	<message key="plugins.categories.themes.description">Il plugin del tema può essere usato per cambiare l'aspetto del sistema.</message>
-	<message key="plugins.categories.themes">Plugin del tema</message>
+	<message key="plugins.categories.themes">Temi</message>
 	<message key="manager.emails.form.emailKeyRequired">L'indirizzo email deve essere unico.</message>
+	<message key="manager.reviewerSearch.activeAmount">Numero di revisioni attive</message>
+	<message key="manager.setup.citationFilterParser">Estrazione delle citazioni</message>
+	<message key="manager.setup.citationFilterLookup">Controllo delle citazioni</message>
+	<message key="manager.setup.errorDeletingItem">Si è verificato un errore eliminando questo elemento</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Si è verificato un errore nel tentativo di rimuovere questo filtro. Segnalarlo come bug.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Vuoi davvero eliminare il filtro {$filterName}?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Hai scelto di aggiungere il database {$filterDisplayName}. Premi 'OK' per confermare.</message>
+	<message key="manager.reviewerSearch.searchByName">Cerca un Revisore per nome</message>
+	<message key="manager.reviewerSearch.doneAmount">Numero di revisioni completate</message>
+	<message key="manager.reviewerSearch.advancedSearch">Ricerca avanzata dei Revisori</message>
+	<message key="manager.reviewerSearch.avgAmount">Giorni impiegati per la revisione</message>
+	<message key="manager.reviewerSearch.lastAmount">Giorni trascorsi dall'ultima revisione</message>
+	<message key="manager.reviewerSearch.interests">Interessi per la revisione</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Connettore</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Seleziona una delle trasformazioni dalla tendina</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Seleziona il database in cui cercare.</message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Aspetta finché la griglia di configurazione del database delle citazioni non sia stata caricata...</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Hai aggiunto il parser {$filterDisplayName}. Clicca su 'OK' per confermare.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Seleziona un parser.</message>
+	<message key="manager.setup.filter.pleaseSelect">Seleziona...</message>
+	<message key="manager.setup.filter.parser.grid.title">Servizi di estrazione delle citazioni</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Per cercare e controllare le citazioni nei database citazionali, le citazioni devono essere prima divise in metadati: titolo, editore, data di pubblicazione etc. vanno estratti dal testo originale fornito dall'autore. I connettori a servizi web esterni possono fare da supporto in questo processo. &#200; possibile aggiungere uno o pi&#249; connettori cliccando sul pulsante "Aggiungi". In caso di configurazione necessaria dei connettori, ti verranno fornite tutte le indicazioni del caso.</p>
+<p>Puoi modificare o eliminare i connettori cliccando sull'icona di fianco ad essi.</p>]]></message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>&#200; necessario abilitare e configurare le connessioni ai database citazionali esterni per facilitare la scoperta di errori nelle citazioni o per aggiungere informazioni necessarie alla pubblicazione elettronica o al deposito (es. DOI, PubMed ID..).</p>
+<p>Vengono forniti i connettori a una serie di database, nei quali puoi cercare le citazioni. Alcuni di questi database richiedono la registrazione o informazioni di configurazione. Fai riferimento ai siti web dei database per la registrazione. Puoi aggiungere uno o più database cliccando sul pulsante "Aggiungi".</p>
+<p>Puoi modificare o eliminare i database cliccando sull'icona di fianco ad essi.</p>
+<p><strong>Nota Bene</strong> Al fine di consentire il controllo delle citazioni nella maniera pi&#249; opportuna, il file di configurazione deve contenere un numero ragionevole di citazioni da controllare <tt>citation_checking_max_processes</tt>. Controlla le impostazioni generali in <tt>config.inc.php</tt> per magigori informazioni.</p>]]></message>
+	<message key="manager.setup.filter.grid.filterSettings">Informazioni sulla registrazione e Impostazioni dei Connettori</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p> Questo filtro ti connette a <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>, database di libri e ISBN.</p>
+<p>&#200; necessario essere in possesso di una chiave d'accesso, che puoi generare gratuitamente seguendo <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">queste istruzioni</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Questo filtro ti connette al database di CrossRef utilizzando <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL</a>.</p>
+<p>Per utilizzare questo filtro, puoi inserire il tuo account CrossRef o registrarne uno gratuitamente <a href="http://www.crossref.org/requestaccount/" target="_blank">qui</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Questo filtro ti connette a <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>, motore di ricerca tra database di PubMed.</p>
+<p>La registrazione al servizio non &#232; indispensabile, ma potrebbe essere utile in caso di problemi di connessione. Per maggiori informazioni consulta la <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">documentazione</a> sull'utilizzo di Entrez.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Questo filtro connette a <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> e <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opzionale), servizi di OCLC.</p>
+<p>Se possiedi una <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">chiave d'accesso</a> per Worldcat inseriscila qui di seguito per connetterti.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.title">Connettori ai database citazionali</message>
+	<message key="manager.setup.filter.noMoreTemplates">Sono state effettuate tutte le modifiche possibili. Clicca "Cancella" per tornare alla pagina delle impostazioni.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Questo filtro consente la connessione al servizio web <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Questo filtro consente la connessione al servizio web <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Il filtro ReEx utilizza una serie di espressioni regolari per analizzare le citazioni.</message>
+	<message key="manager.setup.citationAssistant">Assistente bibliografico</message>
+	<message key="manager.setup.citationOutput">Prodotto della citazione</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Attendi finché non è caricata la griglia di configurazione del parser delle citazioni...</message>
+	<message key="manager.setup.citationOutputStyleDescription">Scegli lo stile di citazioni utilizzato dalla rivista. L'assistente bibliografico comparerà la versione della citazione creata dell'autore con una versione generata da XML, in maniera tale da evidenziare rapidamente gli errori:</message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Questo filtro usa i moduli Perl di <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> per fornire funzionalità di parsing delle citazioni basate su <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Per funzionare correttamente, deve avere Per installato, con i moduli <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> e CPAN <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Devi anche configurare <tt>perl</tt> nel tuo file di configurazione, nella sezione 'Comandi esterni' del tuo <tt>config.inc.php</tt>.</p>
+	<p>Puoi anche scegliere quali moduli parser debba usare ParaTools. Puoi scegliere tra quello standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, e <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.metaCitationsDescription">Attivare il seguente controllo per abilitare la modifica di citazioni e riferimenti bibliografici. Questo permetterà agli autori di includere citazioni grezze nelle loro submission. Gli editor avranno accesso a un assistente bibliografico che verificherà l'accuratezza delle citazioni grezze su database esterni, come WorldCat, ISBNdb, PubMed e altri. Le citazioni approvate potranno essere esportate nei file finali per la produzione delle bozze.</message>
 </locale>

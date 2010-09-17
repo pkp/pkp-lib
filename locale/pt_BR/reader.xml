@@ -41,7 +41,7 @@
 	<message key="rt.admin.contexts.edit.editContext">Editar contexto</message>
 	<message key="rt.admin.contexts.metadata">Metadados</message>
 	<message key="rt.admin.contexts.options.authorTerms">Nome do autor como termo de pesquisa padrão permite aos leitores encontrar outros trabalhos do autor (Ex.: para um contexto de "Outros Trabalhos")</message>
-	<message key="rt.admin.contexts.options.citedBy">Use os nomes do autor como termos de pesquisa padrão e descreva o contexto como busca de citações para o artigo.</message>
+	<message key="rt.admin.contexts.options.citedBy">Usar os nomes de autores como termos de pesquisa padrão e descreva o contexto como busca de citações para o artigo.</message>
 	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Utilizar a palavra selecionada pelo leitor como termo padrão de pesquisa ou deixar em branco caso não houver seleção (Ex.: para contextos "Definição da Palavra"). A opção "Definição da Palavra" deve estar habilitada nas <a href="{$settingsUrl}">Configurações da Ferramenta de Leitura</a> para permitir clique duplo em palavras do texto exibido para abrir este contexto.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Usar dados de indexação geográfica como termos de pesquisa padrão.</message>
 	<message key="rt.admin.contexts.options">Opções</message>
@@ -69,7 +69,7 @@
 	<message key="rt.admin.validateUrls">Validar URLs</message>
 	<message key="rt.admin.validateUrls.validate">Validar</message>
 	<message key="rt.admin.versions.confirmDelete">Deseja realmente excluir esta versão e todos os contextos e pesquisas associados?</message>
-	<message key="rt.admin.versions.confirmRestore">Deseja realmente restaurar as versões padrão (ato irreversível)? Em caso positivo, escolha uma versão ativa em Configurações.</message>
+	<message key="rt.admin.versions.confirmRestore">Deseja realmente restaurar as versões padrão (ação irreversível)? Em caso positivo, escolha uma versão ativa em Configurações.</message>
 	<message key="rt.admin.versions.createVersion">Criar versão</message>
 	<message key="rt.admin.versions.edit.editVersion">Editar versão</message>
 	<message key="rt.admin.versions.export">Exportar</message>
@@ -83,7 +83,7 @@
 	<message key="rt.colleague">Enviar para outros</message>
 	<message key="rt.context.abbrev">Abreviatura</message>
 	<message key="rt.context.and">E</message>
-	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Acadêmico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem sua citação. O Google Acadêmico também listará todos os itens que citam o título e o autor. Para acessar recursos on-line disponíveis somente na sua biblioteca, podem ser habilitados Links de Biblioteca para sua instituição nas Preferências do Google Acadêmico.</message>
+	<message key="rt.context.citesContextDescription">Caso o documento seja indexado pelo Google Acadêmico, o mesmo pode ser acompanhado por um hipertexto "Citado por X", que encaminhará à lista de trabalhos que fazem sua citação. O Google Acadêmico também listará todos os itens que citam o título e o autor. Para acessar recursos online disponíveis somente na sua biblioteca, podem ser habilitados Links de Biblioteca para sua instituição nas Preferências do Google Acadêmico.</message>
 	<message key="rt.context">Contexto</message>
 	<message key="rt.context.defineTermsDescription">Clique duas vezes sobre qualquer palavra, de um documento em HTML (ao contrário do PDF), para que apareça na janela de definição de termos. É possível digitar ou colar uma palavra no campo. Utilize a função de pesquisa para procurar uma definição para o termo. Para saber mais sobre o recurso pesquisado, clique no símbolo de informação. Estes recursos foram escolhidos devido a sua relevância e acessibilidade aberta (gratuita) para todo ou parte do conteúdo.</message>
 	<message key="rt.context.description">Descrição</message>
@@ -133,7 +133,7 @@
 	<message key="rt.metadata.pkp.suppFiles">Docs. Sups.</message>
 	<message key="rt.metadata.pkp.title">Título do documento</message>
 	<message key="rt.metadata.pkp.type">Tipo</message>
-	<message key="rt.metadata.pkp.uri">Identificador Universal Único (URI)</message>
+	<message key="rt.metadata.pkp.uri">Identificador de Recurso Uniforme (URI)</message>
 	<message key="rt.printVersion">Versão de Impressão</message>
 	<message key="rt.readingTools">Ferramenta de Leitura</message>
 	<message key="rt.relatedItems">Itens relacionados</message>

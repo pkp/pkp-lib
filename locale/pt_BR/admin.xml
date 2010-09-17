@@ -50,18 +50,18 @@
 	<message key="admin.settings.aboutDescription">Descrição sobre o Portal</message>
 	<message key="admin.settings.contactEmail">E-mail do Contato Principal</message>
 	<message key="admin.settings.contactName">Nome do Contato Principal</message>
-	<message key="admin.settings.form.contactEmailRequired">E-mail do contato principal é obrigatório</message>
-	<message key="admin.settings.form.contactNameRequired">Nome do contato principal é obrigatório</message>
-	<message key="admin.settings.form.minPasswordLengthRequired">Informe uma quantidade mínima de caracteres para senhas</message>
-	<message key="admin.settings.form.titleRequired">Título obrigatório.</message>
+	<message key="admin.settings.form.contactEmailRequired">O e-mail do contato principal é obrigatório.</message>
+	<message key="admin.settings.form.contactNameRequired">O nome do contato principal é obrigatório.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Informe uma quantidade mínima de caracteres para senhas.</message>
+	<message key="admin.settings.form.titleRequired">Um título é obrigatório.</message>
 	<message key="admin.settings.homeHeaderImage.altText">Logo do Portal</message>
-	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png.</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Formato de imagem inválido. Formatos aceitáveis são .gif, .jpg ou .png. Verifique as configuração de mime_type, permissões e dono de pasta, e tamanho de arquivo permitido.</message>
 	<message key="admin.settings.introduction">Introdução</message>
 	<message key="admin.settings.minPasswordLength">Tamanho mínimo de senha</message>
 	<message key="admin.settings.oaiRegistration">Cadastrar Portal para Indexação (Coleta de Metadados)</message>
 	<message key="admin.settings.passwordCharacters">caracteres</message>
 	<message key="admin.settings.siteLanguage">Idioma do Portal</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Formato de folha de estilo inválido. Formato aceitável é .css. Verifique as configuração de mime_type, permissões e dono de pasta.</message>
 	<message key="admin.settings.siteStyleSheet">Folha de Estilos do Portal (CSS)</message>
 	<message key="admin.settings.siteTitle">Título do Portal</message>
 	<message key="admin.siteAdmin">Administração do Portal</message>
@@ -80,6 +80,6 @@
 	<message key="admin.version.moreInfo">Detalhar</message>
 	<message key="admin.versionRevision">Revisão</message>
 	<message key="admin.version.updateAvailable">Atualização disponível</message>
-	<message key="admin.version.upToDate">Sistema está atualizado</message>
+	<message key="admin.version.upToDate">O sistema está atualizado</message>
 	<message key="admin.version">Versão</message>
 </locale>

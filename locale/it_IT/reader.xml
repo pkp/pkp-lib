@@ -36,9 +36,9 @@
 	<message key="reader.fullText">Full Text:</message>
 	<message key="rt.addComment">Aggiungi un commento</message>
 	<message key="rt.admin.configuration">Configurazione</message>
-	<message key="rt.admin.contexts.confirmDelete">Sei sicuro di voler cancellare questo Contesto e tutte le relative Ricerche?</message>
-	<message key="rt.admin.contexts.createContext">Crea il Contesto</message>
-	<message key="rt.admin.contexts.edit.editContext">Modifica il Contesto</message>
+	<message key="rt.admin.contexts.confirmDelete">Sei sicuro di voler cancellare questo contesto e tutte le relative Ricerche?</message>
+	<message key="rt.admin.contexts.createContext">Crea il contesto</message>
+	<message key="rt.admin.contexts.edit.editContext">Modifica il contesto</message>
 	<message key="rt.admin.contexts.metadata">Metadati</message>
 	<message key="rt.admin.contexts.options.authorTerms">Utilizza i nomi degli autori come termini di default per la ricerca, in modo che gli utenti siano in grado di trovare altri documenti dell'autore in questione. (ad esempio in un contesto "altri documenti")</message>
 	<message key="rt.admin.contexts.options.citedBy">Usa i nomi dell'autore come termini di default della ricerca e descrivi il contesto come una ricerca per le citazioni di un articolo.</message>
@@ -48,19 +48,19 @@
 	<message key="rt.admin.management">Gestione</message>
 	<message key="rt.admin.readingToolsEnabled">Strumenti di lettura</message>
 	<message key="rt.admin.searches.confirmDelete">Sei sicuro di voler cancellare questa Ricerca?</message>
-	<message key="rt.admin.searches.createSearch">Crea una Ricerca</message>
-	<message key="rt.admin.searches.edit.editSearch">Modifica la Ricerca</message>
+	<message key="rt.admin.searches.createSearch">Crea una ricerca</message>
+	<message key="rt.admin.searches.edit.editSearch">Modifica la ricerca</message>
 	<message key="rt.admin.selectedVersion">Versione selezionata</message>
-	<message key="rt.admin.settings.abstract">Abstract (mostra l'abstract dell'item).</message>
+	<message key="rt.admin.settings.abstract">Abstract (mostra l'abstract dell'articolo).</message>
 	<message key="rt.admin.settings.authorBio">Informazioni sull'autore (Mostra le informazioni biografiche inserite dall'autore)</message>
-	<message key="rt.admin.settings.captureCite">Come citare l'articolo</message>
-	<message key="rt.admin.settings.defineTerms">Definizioni dei termini (Facendo doppio-click su una parola di un documento, questa verrà inviata ad un dizionario)</message>
+	<message key="rt.admin.settings.captureCite">Come citare l'articolo (fornisce la citazione bibliografica dell'articolo)</message>
+	<message key="rt.admin.settings.defineTerms">Definizioni dei termini (facendo doppio-click su una parola di un documento, questa verrà inviata ad un dizionario)</message>
 	<message key="rt.admin.settings.disableRelatedItems">Disabilita gli strumenti di lettura</message>
 	<message key="rt.admin.settings.emailAuthor">Scrivi all'autore (conduce il lettore a un modulo per l'invio di email all'autore dell'articolo)</message>
 	<message key="rt.admin.settings.emailOthers">Segnala a un collega (conduce il lettore a un modulo per l'invio di email di segnalazione dell'articolo ad amici o colleghi)</message>
 	<message key="rt.admin.settings.findingReferences">Trova riferimenti</message>
 	<message key="rt.admin.settings.printerFriendly">Versione per la stampa (fornisce una versione facile da stampare di un articolo).</message>
-	<message key="rt.admin.settings.supplementaryFiles">Vedi i file ulteriori (Mostra un elenco degli eventuali altri file che l'autore ha inserito nel documento)</message>
+	<message key="rt.admin.settings.supplementaryFiles">Vedi i file aggiuntivi (Mostra un elenco degli eventuali altri file che l'autore ha inserito nel documento)</message>
 	<message key="rt.admin.settings.viewMetadata">Metadati (Mostra i metadati utilizzati per l'indicizzazione dell'articolo)</message>
 	<message key="rt.admin.status">Stato</message>
 	<message key="rt.admin.validateUrls.complete">La validazione è stata completata.</message>
@@ -101,7 +101,7 @@
 	<message key="rt.findingReferences.windowsLiveAcademic">Windows Live Academic</message>
 	<message key="rt.lookUp">Cerca parole</message>
 	<message key="rt.metadata.dublinCore.contributor">Collaboratore</message>
-	<message key="rt.metadata.dublinCore.coverage">Ambito</message>
+	<message key="rt.metadata.dublinCore.coverage">Copertura</message>
 	<message key="rt.metadata.dublinCore.date">Data</message>
 	<message key="rt.metadata.dublinCore.description">Descrizione</message>
 	<message key="rt.metadata.dublinCore">Dublin Core</message>
@@ -117,7 +117,7 @@
 	<message key="rt.metadata.dublinCore.type">Tipo</message>
 	<message key="rt.metadata.forThisDocument">Metadati di questo documento</message>
 	<message key="rt.metadata.pkp.abstract">Abstract</message>
-	<message key="rt.metadata.pkp.copyright">Copyright e permessi</message>
+	<message key="rt.metadata.pkp.copyright">Copyright e autorizzazioni</message>
 	<message key="rt.metadata.pkp.coverage">Localizzazione geospaziale, periodo cronologico, campioni di ricerca  (sesso, età, etc.)</message>
 	<message key="rt.metadata.pkp.date">(AAAA-MM-GG)</message>
 	<message key="rt.metadata.pkp.discipline">Materia/e</message>
@@ -137,7 +137,7 @@
 	<message key="rt.printVersion">Versione per la stampa</message>
 	<message key="rt.readingTools">Strumenti di lettura</message>
 	<message key="rt.relatedItems">Risorse correlate</message>
-	<message key="rt.reviewPolicy">Politica di revisione</message>
+	<message key="rt.reviewPolicy">Politiche di revisione</message>
 	<message key="rt.search.description">Descrizione</message>
 	<message key="rt.searches">Ricerche</message>
 	<message key="rt.search.order">Ordine</message>
@@ -151,7 +151,7 @@
 	<message key="rt.suppFiles">File supplementari</message>
 	<message key="rt.suppFiles.viewMetadata">Metadati</message>
 	<message key="rt.version.description">Descrizione</message>
-	<message key="rt.version.key">Key</message>
+	<message key="rt.version.key">Chiave</message>
 	<message key="rt.version.locale">Lingua</message>
 	<message key="rt.versions">Set di elementi collegati</message>
 	<message key="rt.version.title">Titolo</message>
@@ -163,15 +163,16 @@
 	<message key="rt.admin.sharing.dropDownMenuLabel">Utilizza un menu a tendina</message>
 	<message key="rt.admin.sharing.advanced">Impostazioni avanzate (opzionali)</message>
 	<message key="rt.admin.sharing.brandLabel">Marchio</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opzioni dell'elenco a tendina<br /> (separali da virgole)]]></message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Opzioni dell'elenco a tendina<br /> (separati da virgole)]]></message>
 	<message key="rt.admin.sharing.languageLabel">Lingua</message>
 	<message key="rt.admin.sharing.logolabel">Logo</message>
 	<message key="rt.admin.sharing.logoBackgroundLabel">Sfondo del logo</message>
-	<message key="rt.admin.sharing.logoColorLabel">Colore del Logo</message>
+	<message key="rt.admin.sharing.logoColorLabel">Colore del logo</message>
 	<message key="rt.admin.configureSharing">Configura AddThis</message>
 	<message key="comments.titleRequired">Inserisci un titolo per il commento</message>
-	<message key="rt.admin.sharing.description"><![CDATA[per abilitare i lettori a condividere gli articoli, iscriviti a <a href="http://addthis.com">addthis.com</a>, e copia/incolla il codice del pulsante Sharing qui sotto.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Per abilitare i lettori a condividere gli articoli, iscriviti a <a href="http://addthis.com">addthis.com</a>, e copia/incolla il codice del pulsante Sharing qui sotto.]]></message>
 	<message key="rt.admin.sharing.basic">Impostazioni di base</message>
 	<message key="rt.admin.sharing.buttonStyleLabel">Stile del bottone</message>
 	<message key="rt.admin.sharing.customizationLink"><![CDATA[Vedi <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> per informazioni.]]></message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

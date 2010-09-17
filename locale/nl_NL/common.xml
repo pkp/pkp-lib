@@ -20,10 +20,10 @@
 	<message key="about.contact.phone">Telefoon</message>
 	<message key="about.contact.principalContact">Primaire contactpersoon</message>
 	<message key="about.contact.supportContact">Contactpersoon ondersteuning</message>
-	<message key="about.other">Andere</message>
-	<message key="about.people">Mensen</message>
+	<message key="about.other">Overig</message>
+	<message key="about.people">Contact</message>
 	<message key="about.policies">Beleid</message>
-	<message key="about.siteMap">Inhoud</message>
+	<message key="about.siteMap">Sitemap</message>
 	<message key="announcement.announcements">Aankondigingen</message>
 	<message key="announcement.announcementsHome">Aankondigingen</message>
 	<message key="announcement.moreAnnouncements">Meer aankondigingen...</message>
@@ -92,7 +92,7 @@
 	<message key="common.fileSize">Bestandsgrootte</message>
 	<message key="common.fileType">Bestandstype</message>
 	<message key="common.height">Hoogte</message>
-	<message key="common.homePageHeaderLogo.altText">Home-pagina loga</message>
+	<message key="common.homePageHeaderLogo.altText">Home-pagina logo</message>
 	<message key="common.hour">Uur</message>
 	<message key="common.id">ID</message>
 	<message key="common.import">Importeer</message>
@@ -120,11 +120,11 @@
 	<message key="common.order">Volgorde</message>
 	<message key="common.originalFileName">Originele bestandsnaam</message>
 	<message key="common.or">of</message>
-	<message key="common.other">Ander</message>
+	<message key="common.other">Overig</message>
 	<message key="common.pageHeaderLogo.altText">Paginakop logo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Uitgever</message>
-	<message key="common.record">Registreer</message>
+	<message key="common.record">Registreren</message>
 	<message key="common.related">Verwant</message>
 	<message key="common.remove">Verwijder</message>
 	<message key="common.removeSelection">Selectie weghalen</message>
@@ -236,15 +236,15 @@
 	<message key="navigation.infoForReaders">Voor lezers</message>
 	<message key="navigation.infoForReaders.long">Informatie voor lezers</message>
 	<message key="navigation.items">{$from} - {$to} van {$total} items</message>
-	<message key="navigation.login">Log in</message>
+	<message key="navigation.login">Inloggen</message>
 	<message key="navigation.nextPage"><![CDATA[>>]]></message>
 	<message key="navigation.nextStep">Volgende stap</message>
 	<message key="navigation.previousPage"><![CDATA[<<]]></message>
 	<message key="navigation.previousStep">Vorige stap</message>
-	<message key="navigation.register">Registreer</message>
+	<message key="navigation.register">Registreren</message>
 	<message key="navigation.search">Zoek</message>
 	<message key="navigation.stepNumber">Stap {$step}</message>
-	<message key="navigation.userHome">Gebruiker home</message>
+	<message key="navigation.userHome">Gebruiker</message>
 	<message key="navigation.user">Gebruiker</message>
 	<message key="search.abstract">Samenvatting</message>
 	<message key="search.allFields">Alle</message>
@@ -296,16 +296,16 @@
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
-		 Dit werk heeft een <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  licentie</a>.]]></message>
+		 Dit werk wordt gepubliceerd onder een <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  licentie</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Dit werk heeft een <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 licentie</a>.
+		Dit werk wordt gepubliceerd onder een <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 licentie</a>.
 	</div>]]></message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonneer</a> op beschermd materiaal.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Stuur</a> een artikel in.]]></message>
-	<message key="notification.mailList.review"><![CDATA[Neem deel aan het <a href="{$reviewUrl}">peer review</a> proces]]></message>
+	<message key="notification.mailList.review"><![CDATA[Neem deel aan de <a href="{$reviewUrl}">peer review</a> procedure]]></message>
 	<message key="notification.notificationsNew">({$numNew} nieuw)</message>
 	<message key="notification.notificationsDescription"><![CDATA[U heeft {$unreadCount} ongelezen attenderingen en {$readCount} gelezen attenderingen.  <a href="{$settingsUrl}">Klik hier</a> om uw addenderingsinstellingen te veranderen.]]></message>
 	<message key="notification.settingsDescription">Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken van een onderdeel voorkomt attenderingen daarop.</message>
@@ -313,4 +313,18 @@
 	<message key="notification.unsubscribeDescription">Geef uw e-mail adres en wachtwoord hieronder om u af te melden voor e-mail attenderingen. Als u uw wachtword niet meer weet, laat dan het wachtwoordveld leeg. Er wordt dan een nieuw wachtwoord verstuurd naar het opgegeven e-mail adres.</message>
 	<message key="notification.unsubscribeError">Er is iets misgegaan bij het afmelden. Vergewis u ervan dat uw e-mail adres en wachtwoord correct zijn</message>
 	<message key="notification.unsubscribeSuccess">U bent met succes afgemeld</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">U behoort niet tot deze gebruikersgroep.</message>
+	<message key="common.disable">Uitschakelen</message>
+	<message key="common.enable">Inschakelen</message>
+	<message key="common.fullscreen">Schermvullend</message>
+	<message key="common.fullscreenOff">Niet schermvullend</message>
+	<message key="common.false">Onwaar</message>
+	<message key="common.ok">OK</message>
+	<message key="common.pluginEnabled">De plugin "{$pluginName}" is ingeschakeld.</message>
+	<message key="common.pluginDisabled">De plugin "{$pluginName}" is uitgeschakeld.</message>
+	<message key="common.refresh">Verversen</message>
+	<message key="common.true">Waar</message>
+	<message key="common.uploadFailed">Het bestand kon niet geladen worden. Probeer het opnieuw of neem contact op met de beheerder als het probleem niet verdwijnt.</message>
+	<message key="common.loading">Laden...</message>
+	<message key="navigation.dashboard">Dashboard</message>
 </locale>

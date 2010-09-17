@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">No crear subdirectorios (sólo tiene utilidad en la instalación manual)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Ha habido un error analizándo el fichero de plantilla de correo <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Las traducciones marcadas pueden estar incompletas.</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Por favor, ejecute la herramienta de actualización una vez que haya instalado su base de datos. Ejecute 'php tools/upgrade.php upgrade' desde el directorio de instalación principal con este propósito.</message>
 </locale>

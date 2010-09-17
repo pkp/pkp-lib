@@ -57,7 +57,7 @@
 	<message key="common.captchaField.description">Veuillez saisir les lettres telles qu'elles apparaissent dans l'image au-dessus.</message>
 	<message key="common.captchaField">Validation</message>
 	<message key="common.changesSaved">Les changements effectués ont été enregistrés.</message>
-	<message key="common.chooseOne">En choisir un</message>
+	<message key="common.chooseOne">En choisir un(e)</message>
 	<message key="common.close">Fermer</message>
 	<message key="common.closeWindow">Fermer la fenêtre</message>
 	<message key="common.complete">Terminer</message>
@@ -106,14 +106,14 @@
 	<message key="common.modify">Modifier</message>
 	<message key="common.month">Mois</message>
 	<message key="common.noneAssigned">Aucun assigné</message>
-	<message key="common.none">Aucun</message>
+	<message key="common.none">Aucun(e)</message>
 	<message key="common.no">Non</message>
 	<message key="common.notApplicable">Sans objet</message>
 	<message key="common.notApplicableShort">SO</message>
 	<message key="common.notAvailable">Non disponible</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
-	<message key="common.notify">Alerter</message>
+	<message key="common.notify">Aviser</message>
 	<message key="common.off">Arrêté</message>
 	<message key="common.on">Démarré</message>
 	<message key="common.options">Options</message>
@@ -318,4 +318,13 @@
 	<message key="common.false">Faux</message>
 	<message key="common.ok">OK</message>
 	<message key="common.true">Vrai</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Vous ne faites pas partie de ce groupe d'utilisateurs</message>
+	<message key="common.disable">Désactiver</message>
+	<message key="common.enable">Activer</message>
+	<message key="common.fullscreen">Plein écran</message>
+	<message key="common.fullscreenOff">Fermer le Plein écran</message>
+	<message key="common.pluginEnabled">Le plugiciel "{$pluginName}" a été activé.</message>
+	<message key="common.pluginDisabled">Le plugiciel "{$pluginName}" a été désactivé.</message>
+	<message key="common.refresh">Rafraîchir</message>
+	<message key="common.loading">Chargement ...</message>
 </locale>

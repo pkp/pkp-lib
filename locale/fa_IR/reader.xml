@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">زمینه لوگو</message>
 	<message key="rt.admin.sharing.logoColorLabel">رنگ لوگو</message>
 	<message key="rt.admin.configureSharing">پیکربندی AddThis</message>
+	<message key="rt.captureCite.web">وب</message>
 </locale>

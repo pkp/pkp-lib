@@ -84,14 +84,14 @@
 	<message key="manager.groups.createTitle">Creează titlu</message>
 	<message key="manager.groups.editTitle">Editează titlul</message>
 	<message key="manager.groups.form.groupTitleRequired">Este necesar un titlu pentru grup.</message>
-	<message key="manager.groups.membership.addMember">Adaugă un membru</message>
+	<message key="manager.groups.membership.addMember">Adaugă membru</message>
 	<message key="manager.groups.membership.confirmDelete">Eşti sigur că doreşti să ştergi apartenenţa la acest grup?</message>
 	<message key="manager.groups.membership">Apartenenţă</message>
 	<message key="manager.groups.membership.noneCreated">Acest grup nu are membri.</message>
 	<message key="manager.groups.membership.noUsers">Nu au fost găsiţi utilizatori.</message>
-	<message key="manager.groups.title">Titlu</message>
+	<message key="manager.groups.title">Titulatura</message>
 	<message key="manager.importExport">Import/Export Date</message>
-	<message key="manager.languages.alternateLocaleInstructions">Acest sistem permite introducerea anumitor informaţii esențiale să fie introduse în câteva limbi suplimentare. Pentru a utiliza această funcţie, selectează localizări alternative şi alege din opţiunile listate mai jos.</message>
+	<message key="manager.languages.alternateLocaleInstructions">Acest sistem permite introducerea anumitor informaţii esențiale în câteva limbi suplimentare. Pentru a utiliza această funcţie, selectează localizări alternative şi alege din opţiunile afișate mai jos.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Selectaţi toate localizările pentru site prin intermediul meniului de selecţie care apare în fiecare pagină. Meniul va apărea doar dacă mai mult de o localizare este selectată.</message>
 	<message key="manager.payment.timestamp">Marca temporală</message>
 	<message key="manager.people.authSource">Sursa de autentificare</message>
@@ -117,9 +117,9 @@
 	<message key="manager.people.enrollUserAsDescription">Utilizatorilor li se pot atribui sau retrage roluri în orice moment.</message>
 	<message key="manager.people.enrollUserAs">Angajează utilizatorul ca</message>
 	<message key="manager.people.invalidUser">Scuze, utilizatorul cerut nu există.</message>
-	<message key="manager.people.mergeUser">Fuzionează utilizatorul</message>
+	<message key="manager.people.mergeUser">Unește utilizatorul</message>
 	<message key="manager.people.mergeUsers.confirm">Eşti sigur că doreşti să fuzionezi contul cu utilizatorul „{$oldUsername}” în contul cu numele de utilizator „{$newUsername}”? Contul cu numele de utilizator „{$oldUsername}” nu va mai exista ulterior. Această acţiune nu este reversibilă.</message>
-	<message key="manager.people.mergeUsers">Fuzionează utilizatorii</message>
+	<message key="manager.people.mergeUsers">Unește utilizatorii</message>
 	<message key="manager.people.mustChooseRole">Selectaţi unul din rolurile din partea superioară a siteului înainte de a apăsa pe „Angajează utilizatorul”.</message>
 	<message key="manager.people.mustProvideName">Introdu cel puţin prenumele utilizatorului pentru început.</message>
 	<message key="manager.people.noMatchingUsers">Nu se potriveşte cu niciun utilizator.</message>
@@ -150,7 +150,7 @@
 	<message key="manager.setup.loggingAndAuditing">Înregistrări şi auditare</message>
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Format de imagine necorespunzător pentru imaginea logo din colontitlu (header). Formatele acceptate sunt .gif, .jpg, sau .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Format de imagine necorespunzător pentru titlul din colontitlu. Formatele acceptate sunt .gif, .jpg, sau .png.</message>
-	<message key="manager.setup.selectOne">Selectează unul</message>
+	<message key="manager.setup.selectOne">Selectează din opțiunile</message>
 	<message key="manager.statistics"><![CDATA[Statistici &amp; Repoarte]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} noi)</message>
@@ -170,4 +170,52 @@
 	<message key="plugins.categories.reports">Module de raportare</message>
 	<message key="plugins.categories.themes.description">Modulele pentru şabloane pot fi utilizate pentru a modifica aspectul sistemului.</message>
 	<message key="plugins.categories.themes">Module pentru machetarea siteului</message>
+	<message key="manager.reviewerSearch.advancedSearch">Căutare avansată pentru evaluator</message>
+	<message key="manager.reviewerSearch.searchByName">Căutare după nume pentru evaluator</message>
+	<message key="manager.reviewerSearch.doneAmount">Numărul de evaluări încheiate</message>
+	<message key="manager.reviewerSearch.avgAmount">Numărul de zile în medie per evaluare</message>
+	<message key="manager.reviewerSearch.lastAmount">Zile de la ultima evaluare</message>
+	<message key="manager.reviewerSearch.activeAmount">Numărul de evaluări active în acest moment</message>
+	<message key="manager.reviewerSearch.interests">Evaluarea intereselor</message>
+	<message key="manager.setup.citationAssistant">Ajutor de markup pentru citări</message>
+	<message key="manager.setup.citationFilterParser">Extragere referințe bibliografice</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Pentru a găsi și verifica referințele din baza de date specifică, ar trebui ca mai întâi să fie adaptate la formate de metadate inteligibile pentru computer: titlul, editorul, data publicării, etc. trebuie să fie extrase din textul original al referinței pus la dispoziție de către autor. Conectorii cu serviciile web externe pot fi de folos în acest proces. Unul dintre acești conectori poate fi adăugat prin clic pe butonul „adaugă element” de mai jos. Unul dinter acești conectori trebuie să fie configurat; vei fi semnalat dacă se va pune problema.<p>
+<p>Poți edita sau șterge un conector existent prin clic pe pictograma cu roți dințate alăturată.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Verificarea referințelor bibliografice</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Trebuie să activezi și să configurezi conexiunile către baze de date cu referințe bibliografice externe. Acestestea te vor ajuta să găsești erorile de citare a autorilor sau vei putea adăuga informație suplimentară (de ex. DOI-uri sau ID-uri de la  PubMed) necesară pentru publicarea sau depozitarea electronică.</p> 
+		<p>Îți oferim conectori pentru câteva baze de date externe în care poți face căutări bibliografice. Unele dintre aceste baze de date necesită informații de înregistrare sau configurare. Pentru mai multe detalii necesare înregistrării, mergeți pe paginile proprii ale acestor site-uri. Poți adăuga una sau câteva baze de date dând clic mai jos pe „adaugă element”.</p>
+		<p>Poți edita sau șterge o conectare la o bază de date externă dând clic pe pictograma cu roți dințate alăturată.</p>
+		<p><strong>Notă:</strong> Pentru a verifica referința într-un timp rezonabil, directiva <tt>citation_checking_max_processes</tt> din fișierul de configurare, trebuie setată la o valoare rezonabilă. Vezi secțiunea „setări generale” din fișierul <tt>config.inc.php</tt> pentru mai multe informații.</p>]]></message>
+	<message key="manager.setup.citationOutput">Rezultatul pentru această referință</message>
+	<message key="manager.setup.citationOutputStyleDescription">Alege tipicul după care autorul propunerii face referințele bibliografice. Ajutorul pentru markup-ul referințelor bibliografice te lasă să compari tipiculutilizat de autor cu o versiune generată din XML-ul rezultat pentru a vedea repede erorile:</message>
+	<message key="manager.setup.errorDeletingItem">S-a înregistrat o eroare la ștergerea acestui element.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">A apărut o eroare încercând să elimin acest filtru. Raportați eroarea ca bug.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Conector</message>
+	<message key="manager.setup.filter.grid.filterSettings">Informații de înregistrare și setările conectorilor</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Selectează una din transformări din meniul derulant</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Chair dorești ștergerea filtrului {$filterName}?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ai ales să adaugi baza de date {$filterDisplayName}. Dă clic pe „OK” pentru a confirma.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Selectează o bază de date.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Acest filtru se conectează la <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> - baza de date pentru cărți și ISBN.</p>
+	<p>Este necesară o cheie ISBNdb API. Pentru informații privind cum să generezi o cheie, vezi <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentația online</a>.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Acest filtru asigură conectarea la baza de date cu citări bibliografice CrossRef folosind <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfața pentru interogare OpenURL</a>.</p> 
+	<p>Pentru a utiliza acest filtru, poți utiliza contul personal pentru sau te poți înregistra cu o adresă de email validă <a href="http://www.crossref.org/requestaccount/" target="_blank">aici</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Acest filtru asigură conectarea la motorul bazei de date al PubMed: <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>
+	<p>Nu este necesar neapărat un email de înregistrare, dar se poate dovedi util atunci când ai probleme de conectare. Vezi secțiunea <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">instrucțiunilor de utilizare și a cerințelor specifice</a> existente în documentația Entrez pentru mai multe informații.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Acest filtru asigură conectarea la serviciile OCLC <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> și <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (opțional).</p>
+	<p>Dacă ai o <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">cheie API</a> Worldcat, atunci te poți conecta introducând-o mai jos.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Așteaptă până când matricea de configurare a bazei de date pentru referințe bibliografice a fost încărcată...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Conectori pentru bazele de date bibliografice</message>
+	<message key="manager.setup.filter.noMoreTemplates">Toate transformările existente au fost deja adăugate. Dă clic pe „anulează” pentru a te întoarce la pagina setărilor</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Dacă ați ales să adăugați parserul {$filterDisplayName}, dă clic pe „OK” pentru a confirma.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Selectează un parser pentru referințele bibliografice.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Acest filtru de extracție se conectează la serviciul web<a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Acest filtru de extracție folosește modulele PERL <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> pentru a asigura funcțiile de parsing pentru citările bibliografice ale <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Pentru ca acest instrument să lucreze corespunzător, trebuie să ai instalat Perl împreună cu <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> și modulele CPAN <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Trebuie să configurezi și directiva  <tt>perl</tt> din fișierul de configurare. Această directivă poate fi găsită în secțiunea comenzilor externe din <tt>config.inc.php</tt>.</p>
+	<p>Poți alege și care dintre modulele de parsing ParaTools ar trebui să le folosească. Poți alege între cel standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a> și <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> modulele parserului.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Acest filtru de extragere se conectează la servicul web <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Filtrul pentru extracție RegEx utilizează o serie de expresii regulate pentru a parsa citările.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Așteaptă până când matricea de configurare a parserului pentru referințe bibliografice a fost încărcată...</message>
+	<message key="manager.setup.filter.parser.grid.title">Servicii pentru extragerea referințelor bibliografice</message>
+	<message key="manager.setup.filter.pleaseSelect">Selectează...</message>
+	<message key="manager.setup.metaCitationsDescription">Bifează pentru a activa editarea citărilor și a referințelor bibliografice. Acest lucru va permite autorilor să includă citări bibliografice brute. Redactorilor li se va permite accesul la asistentul pentru markup care poate verifica referințele brute pentru a vedea dacă există în baze de date externe precum WorldCat, ISBNdb, PubMed și altele și pentru acuratețe. Referințele bibliografice aprobate pot fi exportate în fișierele finale de asamblare.</message>
 </locale>

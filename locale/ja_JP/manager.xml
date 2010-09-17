@@ -168,4 +168,53 @@
 	<message key="plugins.categories.reports">報告書プラグイン</message>
 	<message key="plugins.categories.themes.description">システムの外観を変更することができます。</message>
 	<message key="plugins.categories.themes">テーマプラグイン</message>
+	<message key="manager.emails.form.emailKeyRequired">ユニークなメールテンプレート識別キーが必要です。</message>
+	<message key="manager.reviewerSearch.advancedSearch">詳細査読者検索</message>
+	<message key="manager.reviewerSearch.searchByName">者読者名で検索</message>
+	<message key="manager.reviewerSearch.doneAmount">完了した査読数</message>
+	<message key="manager.reviewerSearch.avgAmount">1論文あたりの平均査読所要日数</message>
+	<message key="manager.reviewerSearch.lastAmount">最後の査読からの日数</message>
+	<message key="manager.reviewerSearch.activeAmount">現在担当中の査読数</message>
+	<message key="manager.reviewerSearch.interests">査読可能分野</message>
+	<message key="manager.setup.errorDeletingItem">このアイテムを削除する際にエラーが発生しました。</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">このフィルターを削除する際にエラーが発生しました。バグとして報告してください。</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Do you really want to delete the {$filterName} filter?</message>
+	<message key="manager.setup.citationAssistant">引用マークアップ支援</message>
+	<message key="manager.setup.citationFilterParser">引用抽出</message>
+	<message key="manager.setup.citationFilterLookup">引用チェック</message>
+	<message key="manager.setup.citationOutput">引用出力</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">コネクタ</message>
+	<message key="manager.setup.filter.grid.filterSettings">登録情報とコネクタ設定</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">{$filterDisplayName} データベースを追加します。確認して"OK"をクリックしてください。</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">検索するデータベースを選択してください。</message>
+	<message key="manager.setup.filter.lookup.grid.title">引用データベースコネクタ</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">{$filterDisplayName} パーサーを追加します。確認して"OK"をクリックしてください。</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">引用パーサーを選択してください。</message>
+	<message key="manager.setup.citationOutputStyleDescription">投稿する雑誌で使用されている引用スタイルを選択してください。引用マークアップ支援では，エラーが簡単に発見できるように，著者の引用バージョンと作成したXMLから生成された引用バージョンを比較することができます。</message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>このフィルタでは CrossRefの <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>を使用してCrossRef の引用データベースに接続します。</p> 
+	<p>このフィルタを使用するためには，CrossRef system account を使用するか，あるいは<a href="http://www.crossref.org/requestaccount/" target="_blank">ここから</a> CrossRefに適切なメールアドレスを登録します。</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>このフィルタでは PubMedの横断検索エンジン <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> にアクセスします。</p>
+	<p>メールアドレスの登録は強制ではりませんが，コネクションに問題が発生する場合は必要になります。詳細については Entrez ドキュメンテーションの <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> セクションを参照してください。</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">引用パーサーの設定の読込が完了するまでしばらくお待ちください。</message>
+	<message key="manager.setup.filter.parser.grid.title">引用抽出サービス</message>
+	<message key="manager.setup.filter.pleaseSelect">選択してください...</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>このフィルタでは <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> の book and ISBN database に接続できます。</p>
+	<p>ISBNdb API key の取得が必要です。key 作成の詳細については <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a> を参照してください。]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>このフィルタでは，OCLCが提供する <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> と <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (オプション)に接続します。</p>
+	<p>既に Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> を持っている場合は下記にkey を入力することで Worldcat にアクセスできます。</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">引用データベースの設定を読み込むまでお待ちください。</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>この抽出フィルタでは <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> のWebサービスに接続します。</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>この抽出フィルタでは <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> のWebサービスに接続します。</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">RegEx抽出フィルタでは引用を解析するために正規表現を使用します。</message>
+	<message key="manager.setup.metaCitationsDescription">下記のチェックボックスをチェックすることで引用および参考文献の編集が可能です。これによって著者は投稿時にオリジナルの引用情報を含めることができます。また編集者も引用マークアップ支援にアクセスして，WorldCat，ISBNdb，Pubmed等の外部データベースでオリジナルの引用情報が正確かどうかチェックすることができます。承認された引用情報を最終のゲラファイルにエクスポートすることができます。</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>外部の引用データベースへの接続設定が必要です。著者の引用情報に含まれる誤りや電子出版やデポジットで必要な追加情報(例: DOI，PubMed ID)を付け加えることができます。</p>
+<p>私達は引用情報を検索することができるいくつかの外部のデータベースへのコネクタを提供します。登録や設定情報の入力が必要なデータベースもあります。登録方法など詳細についてはデータベースのWebサイトを参照してください。いくつかのデータベースは下の"アイテムを追加"ボタンをクリックすることで追加することが可能です。</p>
+<p>歯車形のアイコンをクリックすることで現在登録している外部のデータベースについて修正および削除が可能です。</p>
+<p><strong>注意:</strong> 引用チェックのプロセスを迅速に完了するためには，設定ファイルの <tt>citation_checking_max_processes</tt> で適切な値を設定しなければなりません。詳細については，<tt>config.inc.php</tt> の General Settings section を参照してください。</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>この抽出フィルタでは <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> の引用解析機能を提供する <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perlモジュールを使用します。動作させるには，Perl および <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> と <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN モジュールのインストールが必要です。また，設定ファイルで <tt>perl</tt> ディレクティブを設定しなければなりません。このディレクティブは， <tt>config.inc.php</tt> の External Commands セクションにあります。</p>
+	<p>ParaTools でどのパーサーモジュールを使用するか選択することもできます。
+標準，<a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> パーサーモジュールから選択することができます。</p>]]></message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>引用データベースで引用情報を検索・確認するためには著者が入力したオリジナルの引用情報からタイトル，出版社，出版日などの情報を抽出して機械可読のメタデータに分解しなければなりません。外部のWebサービス用のコネクタはこのプロセスを支援してくれます。下記の"アイテムを追加"ボタンをクリックするだけで追加できるコネクタもあれば設定が必要なコネクタもあります。</p><p>歯車形のアイコンをクリックすることで現在登録している外部のデータベースについて修正および削除が可能です。</p>]]></message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">ドロップダウンからテンプレートを選択してください。</message>
+	<message key="manager.setup.filter.noMoreTemplates">利用可能なすべてのテンプレートがすでに追加されています。"キャンセル"をクリックして設定ページに戻ってください。</message>
 </locale>

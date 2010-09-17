@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.logoBackgroundLabel">Φόντο λογοτύπου</message>
 	<message key="rt.admin.sharing.logoColorLabel">Χρώμα λογοτύπου</message>
 	<message key="rt.admin.configureSharing">Ρύθμιση AddThis</message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

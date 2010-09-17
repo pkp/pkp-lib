@@ -22,7 +22,7 @@
 	<message key="comments.email">Poster Email</message>
 	<message key="comments.emailReply">Email Reply</message>
 	<message key="comments.enterComment">Enter Comment</message>
-	<message key="comments.inResponseTo">In response to <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.inResponseTo"><![CDATA[In response to <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">Poster Name</message>
 	<message key="comments.noComments">No reader comments have been posted.</message>
 	<message key="comments.nReplies">({$num} Replies)</message>
@@ -143,7 +143,7 @@
 	<message key="rt.metadata.pkp.date">(YYYY-MM-DD)</message>
 	<message key="rt.metadata.pkp.discipline">Discipline(s)</message>
 	<message key="rt.metadata.pkp.format">File format</message>
-	<message key="rt.metadata.pkp.genre">Status &amp; genre</message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[Status & genre]]></message>
 	<message key="rt.metadata.pkpItem">PKP Metadata Items</message>
 	<message key="rt.metadata.pkp.language">English=en</message>
 	<message key="rt.metadata.pkp.publisher">Organizing agency, location</message>
@@ -154,7 +154,7 @@
 	<message key="rt.metadata.pkp.suppFiles">Supp. Files</message>
 	<message key="rt.metadata.pkp.title">Title of document</message>
 	<message key="rt.metadata.pkp.type">Type</message>
-	<message key="rt.metadata.pkp.uri">Universal Resource Indicator</message>
+	<message key="rt.metadata.pkp.uri">Uniform Resource Identifier</message>
 	<message key="rt.printVersion">Print version</message>
 	<message key="rt.readingTools">Reading Tools</message>
 	<message key="rt.relatedItems">Related items</message>

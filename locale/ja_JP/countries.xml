@@ -58,7 +58,6 @@
 	<country name="オランダ領アンティル" code="AN"/>
 	<country name="ガーナ" code="GH"/>
 	<country name="カーボベルデ" code="CV"/>
-	<country name="ガーンジー島" code="GG"/>
 	<country name="ガイアナ" code="GY"/>
 	<country name="カザフスタン" code="KZ"/>
 	<country name="カタール" code="QA"/>
@@ -103,7 +102,6 @@
 	<country name="シエラレオネ" code="SL"/>
 	<country name="ジブチ" code="DJ"/>
 	<country name="ジブラルタル" code="GI"/>
-	<country name="ジャージー島" code="JE"/>
 	<country name="ジャマイカ" code="JM"/>
 	<country name="シリア" code="SY"/>
 	<country name="シンガポール" code="SG"/>
@@ -121,7 +119,7 @@
 	<country name="セーシェル" code="SC"/>
 	<country name="赤道ギニア" code="GQ"/>
 	<country name="セネガル" code="SN"/>
-	<country name="セルビア" code="RS"/>
+	<country name="セルビア・モンテネグロ" code="CS"/>
 	<country name="セントクリストファー・ネイビス" code="KN"/>
 	<country name="セントビンセントおよびグレナディーン諸島" code="VC"/>
 	<country name="セントヘレナ島" code="SH"/>
@@ -225,7 +223,6 @@
 	<country name="マルタ" code="MT"/>
 	<country name="マルチニーク島" code="MQ"/>
 	<country name="マレーシア" code="MY"/>
-	<country name="マン島" code="IM"/>
 	<country name="ミクロネシア連邦" code="FM"/>
 	<country name="南アフリカ" code="ZA"/>
 	<country name="南ジョージア島・南サンドイッチ諸島" code="GS"/>
@@ -239,7 +236,6 @@
 	<country name="モルドバ" code="MD"/>
 	<country name="モロッコ" code="MA"/>
 	<country name="モンゴル" code="MN"/>
-	<country name="モンテネグロ" code="ME"/>
 	<country name="モントセラト" code="MS"/>
 	<country name="ヨルダン" code="JO"/>
 	<country name="ラオス" code="LA"/>

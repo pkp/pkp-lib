@@ -318,4 +318,13 @@
 	<message key="common.false">Falso</message>
 	<message key="common.ok">OK</message>
 	<message key="common.true">Verdadero</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Usted no se encuentra este grupo de usuarios.</message>
+	<message key="common.disable">Desactivar</message>
+	<message key="common.enable">Activar</message>
+	<message key="common.fullscreen">Pantalla completa</message>
+	<message key="common.fullscreenOff">Salir de pantalla completa</message>
+	<message key="common.pluginEnabled">El plugin "{$pluginName}" ha sido activado.</message>
+	<message key="common.pluginDisabled">El plugin "{$pluginName}" ha sido desactivado.</message>
+	<message key="common.refresh">Recargar</message>
+	<message key="common.loading">Cargando ...</message>
 </locale>

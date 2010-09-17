@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">Μη δημιουργείτε τους απαιτούμενος φακέλους (directories) (είναι χρήσιμο μόνο για μη αυτόματη εγκατάσταση)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Οι επιλεγμένες τοπικές ρυθμίσεις μπορεί να μην είναι ολοκλήρωμένες</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Σας παρακαλούμε τρέξτε το εργαλείο αναβάθμισης μόλις εγκαταστήσετε την βάση δεδομένων σας. Εκτελέστε το 'php tools/upgrade.php upgrade' μέσα από το βασικό φάκελλο εγκατάστασης για αυτό το σκοπό.</message>
 </locale>

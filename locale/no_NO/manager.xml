@@ -169,4 +169,14 @@
 	<message key="plugins.categories.themes.description">Theme Plugins can be used to change the system's appearance.</message>
 	<message key="plugins.categories.themes">Programutvidelser for tema</message>
 	<message key="manager.emails.form.emailKeyRequired">En unik e-postnøkkel er påkrevd for e-posten.</message>
+	<message key="manager.reviewerSearch.advancedSearch">Avansert fagfelle-søk</message>
+	<message key="manager.reviewerSearch.searchByName">Søk etter fagfelle etter navn</message>
+	<message key="manager.reviewerSearch.doneAmount">Antall fullførte vurderinger</message>
+	<message key="manager.reviewerSearch.avgAmount">Gjennomsnittlig antall dager per vurdering</message>
+	<message key="manager.reviewerSearch.lastAmount">Dager siden siste vurdering</message>
+	<message key="manager.reviewerSearch.activeAmount">Antall pågående vurderinger</message>
+	<message key="manager.setup.errorDeletingItem">Det oppstod en feil ved sletting.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Det oppstod en feil ved forsøket på å fjerne dette filteret. Vennligst rapporter dette som en programfeil.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Vil du virkelig slette {$filterName}-filteret?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Vennligst velg en database å slå opp i</message>
 </locale>

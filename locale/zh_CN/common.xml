@@ -322,4 +322,13 @@
 	<message key="common.preview">预览</message>
 	<message key="common.activate">激活</message>
 	<message key="common.deactivate">停用</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">您不在这个用户组</message>
+	<message key="common.disable">禁止</message>
+	<message key="common.enable">激活</message>
+	<message key="common.fullscreen">全屏</message>
+	<message key="common.fullscreenOff">关闭全屏</message>
+	<message key="common.pluginEnabled">插件"{$pluginName}"已经被启用</message>
+	<message key="common.pluginDisabled">插件"{$pluginName}"已经被禁用</message>
+	<message key="common.refresh">刷新</message>
+	<message key="common.loading">载入...</message>
 </locale>

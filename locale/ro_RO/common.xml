@@ -122,7 +122,7 @@
 	<message key="common.modify">Modifică</message>
 	<message key="common.month">Lună</message>
 	<message key="common.noneAssigned">Niciuna atribuită</message>
-	<message key="common.none">Niciuna</message>
+	<message key="common.none">Nu există</message>
 	<message key="common.no">Nu</message>
 	<message key="common.noComments">Fără comentarii</message>
 	<message key="common.notApplicable">Nu se aplică</message>
@@ -136,7 +136,7 @@
 	<message key="common.ok">OK</message>
 	<message key="common.options">Opțiuni</message>
 	<message key="common.order">Ordine</message>
-	<message key="common.originalFileName">Numele originar al fișierului</message>
+	<message key="common.originalFileName">Numele original al fișierului</message>
 	<message key="common.or">sau</message>
 	<message key="common.other">Altele</message>
 	<message key="common.pageHeaderLogo.altText">Logo în colontitlul (headerul) pagini</message>
@@ -323,4 +323,13 @@
 	<message key="common.preview">Previzualizează</message>
 	<message key="common.activate">Activează</message>
 	<message key="common.deactivate">Dezactivează</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Nu ești în acest grup de utilizatori</message>
+	<message key="common.disable">Dezactivează</message>
+	<message key="common.enable">Activează</message>
+	<message key="common.fullscreen">Tot ecranul</message>
+	<message key="common.fullscreenOff">În fereastră</message>
+	<message key="common.pluginEnabled">Modulul "{$pluginName}" a fost activat.</message>
+	<message key="common.pluginDisabled">Modulul "{$pluginName}" a fost dezactivat.</message>
+	<message key="common.refresh">Actualizează</message>
+	<message key="common.loading">Încarc...</message>
 </locale>

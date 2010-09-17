@@ -170,4 +170,49 @@
 	<message key="manager.people.mustChooseRole">Hautatu funtzio bat orriaren goialdean "Inskribatu erabiltzailea"n klik egin aurretik.</message>
 	<message key="manager.emails.form.emailKeyRequired">Posta elektronikoko gako bakarra behar da posta elektronikorako.</message>
 	<message key="manager.setup.errorDeletingItem">Errorea elementu hau ezabatzean.</message>
+	<message key="manager.setup.citationFilterParserDescription">Datu-basea instalatu ondoren, exekutatu ezazu berritze-tresna, mesedez. Exekutatu ezazu 'php tools/upgrade.php upgrade' horretarako dagoen instalazio-direktorio nagusian.</message>
+	<message key="manager.setup.citationAssistant">Aipua markatzeko laguntzailea</message>
+	<message key="manager.reviewerSearch.advancedSearch">Ebaluatzaileen bilaketa aurreratua</message>
+	<message key="manager.reviewerSearch.searchByName">Ebaluatzailea izenez bilatu</message>
+	<message key="manager.reviewerSearch.doneAmount">Amaitutako ebaluazio kopurua</message>
+	<message key="manager.reviewerSearch.avgAmount">Ebaluazioa egiteko egunak</message>
+	<message key="manager.reviewerSearch.lastAmount">Azken ebaluaziotik igarotako egunak</message>
+	<message key="manager.reviewerSearch.activeAmount">Ebaluazio aktiboen kopurua</message>
+	<message key="manager.reviewerSearch.interests">Interesak ebaluatzen</message>
+	<message key="manager.setup.citationFilterParser">Aipuak erauztea</message>
+	<message key="manager.setup.citationFilterLookup">Aipuak egiaztatzen</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p> Aipuen kanpoko datu-baseetarako konexioak ere gaitu eta konfiguratu behar dituzu. Horrek egilearen aipuetan akatsak aurkitzen edo informazioa gehitzen lagunduko dizu, eta beharrezkoa da elektronikoki argitaratzeko edo bertan uzteko (adib., DOI edo PubMed-en ID-ak). </p> 
+		<p>Kanpoko hainbat datu-baseetarako konektore ditugu, eta horietan aipuak bilatu ahal izango dituzu. Datu-base horietako zenbaitek erregistratzeko edo konfiguratzeko informazioa eskatzen dute. Mesedez, begiratu datu-baseen web orri publikoak, erregistratzeari buruzko informazio gehiago izateko. Datu-base bat edo gehiago gehitu ditzakezu azpian agertzen den “Gehitu elementua” botoia sakatuz gero. </p>
+		<p> Kanpoko datu-baseetako konexioak editatzeko edo ezabatzeko, egin klik haren ondoko engranaje-ikonoan. </p>
+		<p><strong>Oharra: </strong>Aipua egiaztatzeko prozesua modu egokian amaitzeko, zure konfigurazio-fitxategiko <tt>citation_checking_max_processes</tt> direktiba balio egokian ezarri behar da. Informazio gehiago izateko, begiratu “Ezarpen Orokorrak” atala helbide honetan: <tt>config.inc.php</tt>.</p>]]></message>
+	<message key="manager.setup.citationOutput">Aipuen irteera</message>
+	<message key="manager.setup.citationOutputStyleDescription">Aukeratu zure aldizkariko egilearen aurkezpenetan erabilitako aipuen estiloa. Aipuak markatzeko laguntzaileak egileak egindako aipuaren bertsioa eta egiten ari zaren XML-tik sortutako bertsioa alderatzeko aukera ematen dizu, eta, beraz, erroreak erraz ikus ditzakezu:</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Errore bat gertatu da iragazkia kentzen saiatzean. Mesedez, eman errorearen berri.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Konektorea</message>
+	<message key="manager.setup.filter.grid.filterSettings">Erregistratzeko Informazioa eta Konektorearen Ezarpenak</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Mesedez, hautatu goitibeheran dauden eraldaketetako bat.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Ziur zaude {$filterName} iragazkia ezabatu nahi duzula?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">{$filterDisplayName} datu-basea gehitzea aukeratu duzu. Mesedez, egin klik “OK” botoian baieztatzeko.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Mesedez, hautatu bilaketa egiteko datu-basea.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p> Iragazki honek <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> liburuaren eta ISBN-aren datu-basearekin konektatzen du. <p>ISBNdb API gakoa nahitaezkoa da. Gakoa sortzeari buruzko informazioa eskuratzeko, begiratu <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank"> linean dagoen dokumentazioa </a>.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p> Iragazki honek CrossRef aipuaren datu-basera konektatzen du, CrossRef-en <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank"> OpenURL Query Interface interfazea erabiliz. </p> 
+	<p>Iragazki hori erabiltzeko, CrossRef sistemako zure kontua erabil dezakezu, edo baliozko helbide elektronikoa erregistra dezakezu CrossRef-en <a href="http://w ww.crossref.org/requestaccount/" target="_blank">, hemen</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p> Iragazki honek PubMed-en  <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> datu-baseen arteko bilatzailearekin konektatzen du. </p>
+	<p>Erregistratzeko helbide elektronikoa ez da guztiz nahitaezkoa, baina beharrezkoa izan daiteke konexio-arazoak izanez gero. Informazio gehiago izateko, begiratu <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank"> atala Entrez dokumentazioan.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p> Iragazki honek OCLC zerbitzuetara <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> eta Worldcat-era <a href="http://www.worldcat.org/" target="_blank"> </a> (aukerakoa) konektatzen du. </p>
+	<p>Worldcat  <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank"> API gakoa baduzu, Worldcat-era konektatu zaitezke, beheran agertzen den gakoa sartuz.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Mesedez, itxaron aipuen datu-baseen konfigurazio-sareta kargatu arte…</message>
+	<message key="manager.setup.filter.lookup.grid.title">Aipuen Datu-baseen Konektoreak</message>
+	<message key="manager.setup.filter.noMoreTemplates">Eskuragarri dauden eraldaketa guztiak gehitu dira. Mesedez, egin klik “Ezeztatu” botoian konfigurazio-orrira itzultzeko.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">{$filterDisplayName} sintaxi-analizatzailea gehitzea aukeratu duzu. Mesedez, egin klik “OK” botoian baieztatzeko.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Mesedez, hautatu aipuen sintaxi-analizatzaile bat.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Erauzketa-iragazki honek <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> sareko zerbitzuara konektatzen du.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Erauzketa-iragazki honek <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl moduluak erabiltzen ditu <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> aipuen sintaxi-analizatzailearen funtzionalitatea emateko. Horrek ondo lan egin dezan, Perl instalatuta izan behar duzu, baita<a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank"> Biblio::Citation::Parser</a> eta <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank"> Text::Unicode</a>CPAN moduluak ere. <tt>Perl</tt> direktiba ere instalatu behar duzu zure konfigurazio-fitxategian. Direktiba hori Kanpoko Komandoak <tt>config.inc.php</tt> atalean aurkituko duzu. </p>
+	<p>Era berean, zein sintaxi-analizatzaile modulu erabili hauta dezakezu. <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank"> Jiao</a>,  estandarra, edo <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank"> Citebase </a>, sintaxi-analizatzaileen modulua, hauta dezakezu. </p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p> Erauzketa-iragazki honek <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank"> ParsCit </a> sareko zerbitzura konektatzen du.]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">RegEx erauzketa-iragazkiak hainbat hitz arrunt erabiltzen ditu aipuak analizatzeko.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Mesedez, itxaron aipuen sintaxi-analizatzailearen konfigurazio-sareta kargatu arte…</message>
+	<message key="manager.setup.filter.parser.grid.title">Aipuen Erauzketa Zerbitzuak</message>
+	<message key="manager.setup.filter.pleaseSelect">Mesedez, hautatu…</message>
+	<message key="manager.setup.metaCitationsDescription">Aktibatu hurrengo kontrol-laukia aipua eta erreferentzia editatzea gaitzeko. Egileei aurkezpenetan aipu gordinak sartzeko aukera ematen die. Editoreek aipuak markatzeko laguntzailera sartu ahal izango dute; tresna horrek aipu gordinak eta kanpoko datu-baseak (hala nola WorldCat, ISBNdb, PubMed eta beste zenbait) alderatzeko bide ematen du, zehaztasun gehiagorako. Onartutako aipuak azken galerada-fitxategietara esportatu daitezke.</message>
 </locale>

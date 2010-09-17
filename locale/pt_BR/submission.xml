@@ -19,7 +19,7 @@
 	<message key="submission.acknowledge">Acusar recebimento</message>
 	<message key="submission.addSuppFile">Incluir documento suplementar</message>
 	<message key="submission.ask">Solicitada em</message>
-	<message key="submission.backToSubmissionEditing">Retornar à Edição da submissão</message>
+	<message key="submission.backToSubmissionEditing">Retornar à edição da submissão</message>
 	<message key="submission.changeComments">Mudar para</message>
 	<message key="submission.citations">Referências</message>
 	<message key="submission.comments.addComment">Incluir comentário</message>
@@ -27,7 +27,7 @@
 	<message key="submission.comments.confirmDelete">Deseja realmente excluir o comentário?</message>
 	<message key="submission.comments.corrections">Correções</message>
 	<message key="submission.comments.editComment">Editar comentário</message>
-	<message key="submission.comments.importPeerReviews">Importar avaliação pelos pares</message>
+	<message key="submission.comments.importPeerReviews">Importar a avaliação pelos pares</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">Avaliador {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">Nenhum comentário</message>
 	<message key="submission.comments.noReviews">Nenhuma avaliação</message>
@@ -44,14 +44,14 @@
 	<message key="submission.email.confirmClearLog">Deseja realmente limpar o log de e-mail da submissão?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de e-mail?</message>
 	<message key="submission.email.deleteLogEntry">Excluir entrada no log</message>
-	<message key="submission.emailLog">Histórico de e-mail (log)</message>
+	<message key="submission.emailLog">Log de e-mail</message>
 	<message key="submission.event.backToEventLog">Voltar para log de eventos</message>
 	<message key="submission.event.confirmClearLog">Deseja realmente limpar o log de eventos da submissão?</message>
-	<message key="submission.event.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de evento?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Deseja realmente excluir esta entrada no log de eventos?</message>
 	<message key="submission.event.deleteLogEntry">Excluir entrada de log</message>
 	<message key="submission.event.general.metadataUpdated">Metadados da submissão atualizados</message>
 	<message key="submission.event.general.suppFileUpdated">Documento suplementar da submissão atualizado</message>
-	<message key="submission.event.reviewer.reviewAcceptedByProxy">Tarefa de avaliação aceita pelo proxy</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Tarefa de avaliação aceita pelo responsável, em nome do avaliador</message>
 	<message key="submission.event.reviewer.reviewAccepted">Tarefa de avaliação aceita</message>
 	<message key="submission.event.reviewer.reviewCancelled">Tarefa de avaliação cancelada</message>
 	<message key="submission.event.reviewer.reviewDeclined">Tarefa de avaliação recusada</message>
@@ -74,7 +74,7 @@
 	<message key="submission.history.submissionEmailLog">Log de e-mail</message>
 	<message key="submission.history.submissionEventLog">Log de eventos</message>
 	<message key="submission.history.submissionNotes">Notas sobre a submissão</message>
-	<message key="submission.history.viewLog">Visualizar log</message>
+	<message key="submission.history.viewLog">Ver log</message>
 	<message key="submission.indexing">Indexação</message>
 	<message key="submission.initiated">Iniciado</message>
 	<message key="submission.lastModified">Última alteração</message>
@@ -83,9 +83,9 @@
 	<message key="submission.layout.confirmDeleteGalleyImage">Deseja realmente remover esta imagem?</message>
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Deseja realmente excluir permanentemente este documento suplementar?</message>
 	<message key="submission.layout.deleteGalleyStylesheet">Excluir folha de estilo.</message>
-	<message key="submission.layout.editGalley">Editar o modelo para layout</message>
+	<message key="submission.layout.editGalley">Editar modelo de layout</message>
 	<message key="submission.layout.galleyFileData">Informações sobre o documento</message>
-	<message key="submission.layout.galleyFormat">Formato para Publicação</message>
+	<message key="submission.layout.galleyFormat">Formato para publicação</message>
 	<message key="submission.layout.galleyHTMLData">Composição HTML</message>
 	<message key="submission.layout.galleyImages">Imagens</message>
 	<message key="submission.layout.galleyLabelInstructions">O rótulo é utilizado para identificar o formato do documento (ex.: HTML, PDF, etc).</message>
@@ -98,7 +98,7 @@
 	<message key="submission.layout.galleyStylesheet">Folha de Estilo (CSS)</message>
 	<message key="submission.layout.galleyStyle">Estilo</message>
 	<message key="submission.layout.initialGalleyCreation">Composição Inicial</message>
-	<message key="submission.layout.layoutFile">Modelo para Layout</message>
+	<message key="submission.layout.layoutFile">Modelo de layout</message>
 	<message key="submission.layout">Layout</message>
 	<message key="submission.layout.layoutVersion">para Layout</message>
 	<message key="submission.layout.newGalley">Criar nova composição</message>
@@ -109,22 +109,22 @@
 	<message key="submission.layout.viewProof">Ler prova</message>
 	<message key="submission.metadata">Metadados da submissão</message>
 	<message key="submission.noReviewAssignments">Sem avaliações</message>
-	<message key="submission.notes.addNewNote">Incluir nova nota</message>
+	<message key="submission.notes.addNewNote">Incluir</message>
 	<message key="submission.notes.attachedFile">Documento anexo</message>
 	<message key="submission.notes.backToSubmissionNotes">Voltar para notas sobre a submissão</message>
 	<message key="submission.notes.breadcrumb">Notas</message>
 	<message key="submission.notes.clearAllNotes">Excluir TODAS as notas</message>
-	<message key="submission.notes.collapseNotes">Ocultar notas</message>
+	<message key="submission.notes.collapseNotes">Ocultar</message>
 	<message key="submission.notes.confirmDeleteAll">Excluir TODAS as notas sobre a submissão?</message>
 	<message key="submission.notes.confirmDelete">Excluir esta nota sobre a submissão?</message>
-	<message key="submission.notes.createNewNote">Criar nova nota</message>
-	<message key="submission.notes.deleteNote">Remover nota</message>
-	<message key="submission.notes.editNote">Editar nota</message>
-	<message key="submission.notes.expandNotes">Exibir notas</message>
+	<message key="submission.notes.createNewNote">Criar nova</message>
+	<message key="submission.notes.deleteNote">Excluir</message>
+	<message key="submission.notes.editNote">Editar</message>
+	<message key="submission.notes.expandNotes">Exibir</message>
 	<message key="submission.notes.noSubmissionNotes">Sem notas sobre a submissão</message>
 	<message key="submission.notes.removeUploadedFile">Excluir documento transferido</message>
 	<message key="submission.notes">Notas sobre a submissão</message>
-	<message key="submission.notes.updateNote">Atualizar nota</message>
+	<message key="submission.notes.updateNote">Atualizar</message>
 	<message key="submission.notes.viewNotes">Ver notas</message>
 	<message key="submission.originalFile">Documento original</message>
 	<message key="submission.page.editing">#{$id} Edição</message>
@@ -151,7 +151,7 @@
 	<message key="submissions.queued">Em fila</message>
 	<message key="submissions.queuedUnassigned">Aguardando designação</message>
 	<message key="submissions.ruling">Decisão</message>
-	<message key="submissions.submit">Enviar</message>
+	<message key="submissions.submit">Enviado</message>
 	<message key="submissions.submitted">Enviado</message>
 	<message key="submission.start">Iniciar</message>
 	<message key="submission.submissionHistory">Histórico da submissão</message>
@@ -160,7 +160,7 @@
 	<message key="submission.submitter">Submetido por</message>
 	<message key="submission.summary">Resumo</message>
 	<message key="submission.supplementaryFiles">Documentos suplementares</message>
-	<message key="submission.supportingAgencies">Agências de apoio</message>
+	<message key="submission.supportingAgencies">Apoio e financiamento</message>
 	<message key="submission.titleAndAbstract">Título e Resumo</message>
 	<message key="submission.underway">Encaminhado</message>
 	<message key="submission.uploadFileTo">Transferir documento</message>
@@ -168,20 +168,16 @@
 	<message key="submission.views">Acessos</message>
 	
 	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Forneça uma lista formatada de referências a citações incluídas nesta submissão.</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[Edição de citações exige a habilitação do jQuery. Acesse a página de <a target="_new" href="{$genericPluginsUrl}">Plugins genéricos</a> e habilite o plugin jQuery.]]></message>
+	<message key="author.submit.submissionCitations">Forneça uma lista formatada de citações incluídas nesta submissão.</message>
 	<message key="submission.citations.editor.citationlist.title">Editar citações</message>
-	<message key="submission.citations.grid.importCitations">Importar citações</message>
-	<message key="submission.citations.grid.parseCitation">Analisar</message>
-	<message key="submission.citations.grid.lookupCitation">Procurar</message>
-	<message key="submission.citations.editor.details.rawCitation">Texto da citação</message>
+	<message key="submission.citations.editor.details.rawCitation">Citação original</message>
 	<message key="submission.citations.editor.details.rawCitationRequired">O texto da citação é obrigatório.</message>
-	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Ocorreu um erro ao tentar excluir a citação. Reporte este erro com uma falha do sistema.</message>
 	<message key="submission.citations.editor.loadMessage">Aguarde enquanto o editor de citações é carregado.</message>
-	<message key="submission.citations.editor.details.explainImprovementOptions">Melhore a qualidade da citação e tente validar novamente.</message>
-	<message key="submission.citations.filter.noResultFromFilterError">As operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação para melhorar os resultados.</message>
-	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando.</message>
-	<message key="submission.citations.editor.export.exportDescription">Copie o conteúdo desta caixa de diálogo e cole no seu documento.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Caso não tenha conseguido resultados satisfatórios, tente melhorar a citação de outras formas. Pode ser útil alterar manualmente campos importantes (como o título ou autor) e tentar os serviços de citação novamente. Caso isso não ajude, ainda pode pesquisar no Google Acadêmico ou solicitar ao autor mais detalhes.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Várias operações de procura e análise não retornaram nenhum resultado. Tente editar manualmente o texto da citação e pesquisar novamente nos serviços externos para melhorar os resultados. Caso não perceba melhora, a citação pode não existir em nenhuma das bases conectadas.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Tipo de publicação não suportado ou faltando. Edite a citação manualmente e digite o tipo de publicação (tipos permitidos são 'book', 'journal', 'thesis' e 'conf-proc').</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Clique aqui</a> para selecionar todo o texto gerado. Copie o conteúdo desta caixa de diálogo e cole no seu documento.]]></message>
 	<message key="metadata.property.displayName.author">Autores</message>
 	<message key="metadata.property.displayName.editor">Editores</message>
 	<message key="metadata.property.displayName.article-title">Tìtulo do artigo</message>
@@ -190,7 +186,7 @@
 	<message key="metadata.property.displayName.access-date">Data de acesso</message>
 	<message key="metadata.property.displayName.issue">Edição</message>
 	<message key="metadata.property.displayName.volume">Volume</message>
-	<message key="metadata.property.displayName.season">Período</message>
+	<message key="metadata.property.displayName.season">Período/Temporada</message>
 	<message key="metadata.property.displayName.chapter-title">Título do capítulo</message>
 	<message key="metadata.property.displayName.edition">Edição</message>
 	<message key="metadata.property.displayName.series">Série</message>
@@ -203,8 +199,8 @@
 	<message key="metadata.property.displayName.fpage">Primeira página</message>
 	<message key="metadata.property.displayName.lpage">Última página</message>
 	<message key="metadata.property.displayName.size">Número de páginas</message>
-	<message key="metadata.property.displayName.publisher-loc">Local da Editora</message>
-	<message key="metadata.property.displayName.publisher-name">Nome da Editora</message>
+	<message key="metadata.property.displayName.publisher-loc">Local da Editora/Publicadora</message>
+	<message key="metadata.property.displayName.publisher-name">Nome da Editora/Publicadora</message>
 	<message key="metadata.property.displayName.isbn">ISBN</message>
 	<message key="metadata.property.displayName.issn">ISSN Impresso</message>
 	<message key="metadata.property.displayName.eissn">ISSN eletrônico</message>
@@ -218,9 +214,152 @@
 	<message key="metadata.property.displayName.annotation">Anotação</message>
 	<message key="metadata.property.displayName.publication-type">Tipo de publicação</message>
 	<message key="submission.page.citations">#{$id} Citações</message>
-	<message key="submission.currentAgencies">Agências atuais</message>
+	<message key="submission.currentAgencies">Apoio e financiamento atual</message>
 	<message key="submission.indexingInformation">Informação para indexação</message>
-	<message key="submission.uploadSuccessful">Seu arquivo foi enviado. Pressione continuar para editar os metadados do documento.</message>
+	<message key="submission.uploadSuccessful">Seu arquivo foi enviado.</message>
 	<message key="submission.loadMessage">Aguarde enquanto o arquivo é enviado ao servidor.</message>
 	<message key="submission.fileDetails">Detalhes do arquivo</message>
+	<message key="metadata.filters.crossref.settings.email.displayName">E-mail de cadastro CrossRef</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">Chave de API ISBNdb</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">E-mail de cadastro PubMed</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Informe um e-mail de cadastro PubMed válido, caso possua.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">Chave de API WorldCat</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Informe uma chave de API WorldCat válida, caso possua.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Módulo de citação</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Escolha um dos módulos de citação disponíveis.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Não usar por padrão (ainda assim estará disponível ao editor)</message>
+	<message key="metadata.property.validationMessage.article-title">Informe um título válido de artigo ou paper.</message>
+	<message key="metadata.property.validationMessage.source">Informe um título válido de periódico ou livro.</message>
+	<message key="metadata.property.validationMessage.date">Informe uma data de publicação válida (formato: YYYY-MM-DD).</message>
+	<message key="metadata.property.validationMessage.access-date">Infome uma data de acesso válida (formato: YYYY-MM-DD).</message>
+	<message key="metadata.property.validationMessage.issue">Informe uma edição ou fascículo válido.</message>
+	<message key="metadata.property.validationMessage.volume">Informe um volume válido.</message>
+	<message key="metadata.property.validationMessage.season">Informe um identificador de temporada válido.</message>
+	<message key="metadata.property.validationMessage.chapter-title">Informe um título de capítulo válido.</message>
+	<message key="metadata.property.validationMessage.edition">Informe uma edição válida.</message>
+	<message key="metadata.property.validationMessage.series">Informe uma série válida.</message>
+	<message key="metadata.property.validationMessage.supplement">Informe um suplemento válido.</message>
+	<message key="metadata.property.validationMessage.conf-date">Informe uma data de conferência válida (formato: YYYY-MM-DD).</message>
+	<message key="metadata.property.validationMessage.conf-loc">Informe um local válido para a conferência.</message>
+	<message key="metadata.property.validationMessage.conf-name">Informe um título válido para a conferência.</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">Informe um patrocinador válido para a conferência.</message>
+	<message key="metadata.property.validationMessage.institution">Informe uma instituição válida.</message>
+	<message key="metadata.property.validationMessage.fpage">Informe um valor válido para a primeira página (deve ser um valor numérico).</message>
+	<message key="metadata.property.validationMessage.lpage">Informe um valor válido para a última página (deve ser um valor numérico).</message>
+	<message key="metadata.property.validationMessage.size">Informe um valor válido para o total de páginas (deve ser um valor numérico).</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Informe um local válido para a publicadora.</message>
+	<message key="metadata.property.validationMessage.publisher-name">Informe um nome válido para a publicadora</message>
+	<message key="metadata.property.validationMessage.isbn">Informe um número de ISBN válido (9 ou 13 digitos).</message>
+	<message key="metadata.property.validationMessage.issn">Informe um ISSN impresso válido.</message>
+	<message key="metadata.property.validationMessage.eissn">Informe um ISSN eletrônico válido.</message>
+	<message key="metadata.property.validationMessage.doi">Informe um DOI válido.</message>
+	<message key="metadata.property.validationMessage.publisher-id">Informe um código de publicação personalizado válido.</message>
+	<message key="metadata.property.validationMessage.coden">Informe um CODEN válido.</message>
+	<message key="metadata.property.validationMessage.sici">Informe um SICI válido.</message>
+	<message key="metadata.property.validationMessage.pmid">Informe um PMID válido.</message>
+	<message key="metadata.property.validationMessage.uri">Informe um link alternativo válido para a publicação.</message>
+	<message key="metadata.property.validationMessage.comment">Informe um comentário válido.</message>
+	<message key="metadata.property.validationMessage.annotation">Informe uma anotação válida.</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Deseja realmente excluir esta citação?</message>
+	<message key="submission.citations.editor.citationlist.newCitation">Nova citação</message>
+	<message key="submission.citations.editor.clickToEdit">Clique para editar.</message>
+	<message key="submission.citations.editor.details.authorQueryBody">Sua mensagem ao autor:</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">Assunto:</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Não é possível alterar o rótulo do campo. Exclua o campo caso não o necessite</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Verificar no Google Acadêmico</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">Digite as primeiras letras para escolher...</message>
+	<message key="submission.citations.editor.details.citationExportPreview">Preliminar da exportação de citações</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">Resultado do serviço interno especializado de citações (clique para fechar)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultado do serviço interno especializado de citações (clique para abrir)</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">Clique no texto de uma mensagem para dispensá-la.</message>
+	<message key="submission.citations.editor.details.dataSaved">Alterações salvas com sucesso.</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Pesquisar no Google Acadêmico</message>
+	<message key="submission.citations.editor.details.processRawCitation">Processo</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">Continuar</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">Alterando a citação original</message>
+	<message key="submission.citations.editor.details.saveAndApprove">Salvar e aprovar</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">Revogar aprovação</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">Enviar mensagem</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Mensagem enviada!</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">Usar</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">Usar todas</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Clique para transportar este resultado diretamente à lista</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">Não mostrar esta mensagem novamente.</message>
+	<message key="submission.citations.editor.edit">Editar citações</message>
+	<message key="submission.citations.editor.export">Exportar citações</message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">Escolha uma das opções de exportação a seguir.</message>
+	<message key="submission.citations.editor.export.filterSelectionError">Escolha uma opção de saída.</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">Opções de saída XML:</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Saída do formato de citação (experimental apenas!):</message>
+	<message key="submission.citations.editor.introduction">Introdução</message>
+	<message key="submission.citations.editor.pleaseSelect">Escolha...</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">Atualizar lista de citações</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clique para atualizar a lista de citações.</message>
+	<message key="submission.uploadSuccessfulContinue">Arquivo enviado. Clique em "continuar" para editar os metadados do arquivo.</message>
+	<message key="submission.artworkFileDetails">Detalhes do arquivo de arte</message>
+	<message key="submission.nameRequired">O título do item é obrigatório.</message>
+	<message key="submission.date.mmdd">MM-DD</message>
+	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Escolha os serviços de bases de citações:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Configurações especializadas de edição de citações (clique para fechar)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Configurações especializadas de edição de citações (clique para abrir)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Escolha os serviços de extração de citações:</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Erro interno: filtro de seleção inválido. Notifique o problema ao sistema de gestão de erros.</message>
+	<message key="submission.citations.editor.details.messages">Observe (clique nas mensagems para removê-las)</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...clique aqui para incluir novo campo...</message>
+	<message key="submission.citations.editor.details.queryCitation">Pesquisar serviços de citação novamente</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Informe um e-mail de cadastro CrossRef válido. O cadastro é gratuito no site do CrossRef.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Informe a chave de API ISBNdb. Caso não possua a chave ainda, solicite uma gratuitamente pelo projeto ISBNdb.</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Erro interno. Um valor inválido foi inserido para a configuração de 'filtro opcional'. Notifique o problema ao sistema de gestão de erros.</message>
+	<message key="metadata.property.validationMessage.author">Para melhorar os resultados, os autores devem ser informados no seguinte formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.validationMessage.editor">Para melhorar os resultados, os editores devem ser informados no seguinte formato: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.validationMessage.publication-type">Certifique-se de sempre definir o tipo de publicação. Atualmente, são aceitos livros (para livros ou capítulos de livros) e periódicos (para artigos). Caso contrário, a saída da extração de citações não funcionará corretamente.</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">Solicite ao autor mais informações sobre a citação atual. Clique no botão 'enviar' a seguir para encaminhar sua mensagem via e-mail ao autor.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">A seguir, apresentamos uma lista de serviços de citação configurados para seu sistema. Os serviços considerados mais relevantes estão pré-selecionados. Inclua os serviços adicionais de acordo com sua necessidade.</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">Caso uma citação não tenha sido encontrada em nenhum serviço de citações, ainda assim pode tentar encontrá-la no Google Acadêmico. Infelizmente, esse serviço não oferece uma interface com campos que possa ser usada, o que impossibilita a execução e retorno automático dos dados no Assistente. Será necessário copiar e colar a informação manualmente dos resultados do Google para os campos.</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Bem-vindo ao processo de edição de citações. Clique em uma citação da lista para exibi-la nesta janela, onde poderá verificar a precisão do processo de extração. Também poderá verificar a citação em serviços de bases de citação configuradas no sistema, e editar manualmente as citações.</p>
+<h4>Navegando na interface</h4>
+<p>Clique em uma das citações listadas para iniciar a edição.</p>
+<p>Uma leve linha separadora entre esta janela e a coluna é móvel. Caso precise de mais espaço  para editar a citação ou ler a lista, mova a linha para o lado desejado.</p>
+<p>Para expandir a interface de citação, clique no botão <strong>Tela cheia</strong>. Para retornar à interface padrão, clique no botão <strong>Tela padrão</strong>.</p>
+<h4>Incluindo e excluindo citações</h4>
+<p>Inclua novas citações clicando no ícone <strong>Nova citação</strong> no canto superior direito da coluna que lista as citações. Exclua citações clicando no ícone vermelho <strong>Excluir</strong> ao lado da citação.</p>
+<h4>Editando citações</h4>
+<p>Para editar a citação na lista, clique nela para abri-la nesta janela. A citação original será apresentada como foi alimentada pelo autor, seguida da tentativa de extração automática do Assistente; edite conforme a necessidade; verifique novamente a citação nos serviços de bases de citação configuradas; pesquise no Google Acadêmico; solicite mais informações ao autor em caso de dúvidas sobre as citações.</p>
+<p>Quando estiver satisfeito com a edição das citações, clique no botão <strong>Salvar e aprovar</strong>, que o levará automaticamente à próxima citação não aprovada da lista. Desta forma, poderá trabalhar rapidamente sobre uma lista longa de citações. Uma vez aprovadas todas as citações, será apresentada a página <strong>Exportar citações</strong>.</p>]]></message>
+	<message key="submission.citations.editor.details.authorQuery">Perguntar ao autor</message>
+	<message key="submission.citations.editor.details.citationServices">Serviços de citação</message>
+	<message key="submission.citations.editor.details.googleScholar">Google Acadêmico</message>
+	<message key="submission.citations.editor.details.manualEditing">Edição manual</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">Você está alterando o texto original da citação. Neste caso , todos os campos serão substituídos pelo conteúdo novo. Isto exclui alterações manuais anteriores.</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Clique para transferir todos os campos de resultado desta fonte diretamente para sua lista de campos</message>
+	<message key="submission.citations.editor.details.unsavedChanges">A citação contém dados ainda não salvos. Clique no botão "salvar" para manter as alterações ou o botão "cancelar" para desfazer as alterações.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Ainda falta aprovar todas as citações. Acesse a aba <strong>Editar Citações</strong> e certifique-se de aprovar todas as citações antes de tentar exportá-las. Citações aprovadas estão marcadas com um risco azul escuro à sua esquerda.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">O filtro de saída '{$filterName}' produziu um erro. Notifique o problema ao sistema de gestão de erros.</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Bem-vindo ao Assistente de marcação de citações!</h4>
+	<p>Com este assistente, é possível marcar as citações fornecidas pelo autor para exportação a composições em XML no formato NLM 2.3 ou 3.0, ou no formato de texto puro como alternativa. Esta ferramenta tenta primeiro extrair e reconhecer automaticamente citações como foram fornecidas, mas pode-se intervir e editar os resultados a qualquer tempo.</p>
+	<ul>
+		<li><p><strong>Configurando o assistente</strong></p>
+		<p>O Assistente de marcação de citações é configurado pelo editor gerente na página <a href="{$citationSetupUrl}">Configuração da revista Passo 3.7: Assistente de marcação de citações</a>. Ferramentas diferentes de extração e verificação de citação podem ser incluídas, configuradas ou excluídas. Para mais informações, entre em contato com o editor gerente.</p></li>
+		<li><p><strong>Navegando na interface do assistente</strong></p>
+		<p>Para alternar entre as abas <strong>Introdução</strong>, <strong>Editar citações</strong> e <strong>Exportar citações</strong>, clique no título da aba. Para expandir a interface de citação, clique no botão <strong>Tela cheia</strong>. Para sair da tela cheia e retornar à interface padrão interface, clique no botão de <strong>Tela padrão</strong>. Para remover esta tela de introdução clique no botão abaixo.</p></li>
+		<li><p><strong>Solicitando citações</strong></p>
+		<p>Caso o editor gerente tenha habilitado o Assistente de marcação de citações, a lista de referências será solicitada aos autores durante o processo de submissão. Estas referências serão solicitadas em documento separado da submissão em si. Após a submissão, os autores podem alterar a lista de referências a qualquer tempo, editando os metadados da submissão; note que isto sobrescreverá quaisquer alterações anteriores às citações realizadas por meio desta ferramenta.</p></li>
+		<li><p><strong>Editando citações</strong></p>
+		<p>O Assistente de marcação de citações tentará identificar e extrair individualmente as citações da lista de referências fornecida pelo autor. Compare sistematicamente a qualidade e precisão de cada tentativa de extração de citações em várias bases de dados externas; edite citações incorretas e atualize as informações; aprove ou exclua citações; inclua novas citações.</p>
+		<p>Todas as citações finais da submissão devem ser aprovadas antes de sua exportação.</p></li>
+		<li><p><strong>Exportando citações</strong></p>
+ 		<p>Citações podem ser exportadas em XML ou texto. As opções de exportação em XML atualmente incluem <a href="http://dtd.nlm.nih.gov/publishing/">Formato de Publicação de Periódicos NLM</a> 2.3 e 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. A escolha de uma dessas opções gerará um fragmento ref-list em código XML que pode ser copiado e colado em uma composição NLM XML.</p>
+		<p>Opções de exportação experimental em texto incluem os formatos de citação ABNT, APA, MLA e Vancouver. Estas opções oferecem um saída em texto que pode ser copiada e colada em composições no formato texto (como no Microsoft Word, ou OpenOffice; Adobe InDesign; etc.). Cada citação inclui hiperlinks embutidos para pesquisar pela citação automaticamente no Google Acadêmico.</p></li>
+	</ul>]]></message>
+	<message key="submission.citations.editor.php5Required">A edição de citações exige suporte a XML e XSL, disponível apenas no PHP versão 5.0.0 ou superior. Aparentemente, sua instalação está rodando em uma versão anterior do PHP. Não será possível usar o assistente de marcação de citações sem atualizar a versão do PHP.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Solicite ao editor gerente <a href="{$citationSetupUrl}">a inclusão de pelo menos um serviço de extração de citações</a> antes de usar o assistente de marcação de citações.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Solicite ao editor gerente <a href="{$citationSetupUrl}">a configuração de um formato de citação para exportação</a> antes de usar o assistente de marcação de citações.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Não há citações para este artigo.</p><p>Acesse a <a href="{$articleMetadataUrl}">página de metadados</a> do artigo e envie uma lista de referências ou inclua referências manualmente por meio do botão de inclusão de itens do editor.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Solicite ao editor gerente <a href="{$citationSetupUrl}">habilitar a edição de citações</a> antes de usar o assistente de marcação de citações.]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">O servidor ainda está processando as citações do artigo. A lista de citações atual contém apenas citações já processadas. Clique no botão atualizar para verificar se não há novas citações processadas.</message>
+	<message key="submission.citations.filter.invalidMetadata">Ocorreu um erro no filtro {$filterName}: Um dos elementos retornados da fonte de dados (um web service, por exemplo) não está em conformidade com o formato interno de metadados. Os resultados da fonte de dados foram rejeitados. Notifique o problema ao sistema de gestão de erros.</message>
+	<message key="submission.citations.filter.webserviceError">O web service do filtro {$filterName} retornou um erro ao ser executado pela URL: {$webserviceUrl}. O serviço pode estar temporariamente indisponível. Ainda assim, é possível trabalhar com os outros serviços restantes e salvar seus resultados. Também poderá tentar novamente mais tarde. Caso o problema persista, solicite ao editor gerente que desabilite este serviço e notifique o problema ao sistema de gestão de erros.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">Ocorreu um erro no filtro {$filterName}: A transformação de resultados XML (provenientes de um web service, por exemplo) em metadados baseados em campos falhou. O web service pode ter retornado dados inválidos ou incompletos. Notifique o problema ao sistema de gestão de erros.</message>
+	<message key="submission.citations.metadata.changeWarning">Deseja realmente atualizar a lista de referências? Caso clique em 'ok', quaisquer alterações realizadas no editor serão sobrescritas. Caso não tenha certeza se deve alterar a lista de referências, entre em contato com o editor responsável pelo acompanhamento da submissão.</message>
 </locale>

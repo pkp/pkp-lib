@@ -53,7 +53,7 @@
 	<message key="common.cancel">Cancelar</message>
 	<message key="common.cancelled">Cancelado</message>
 	<message key="common.captchaField.altText">Imagem de verificação</message>
-	<message key="common.captchaField.badCaptcha">Código informado está incorreto. Verifique os caracteres e tente novamente.</message>
+	<message key="common.captchaField.badCaptcha">O código informado está incorreto. Verifique os caracteres e tente novamente.</message>
 	<message key="common.captchaField.description">Informe o código como aparece na imagem.</message>
 	<message key="common.captchaField">Validação</message>
 	<message key="common.changesSaved">Alterações salvas com sucesso.</message>
@@ -118,7 +118,7 @@
 	<message key="common.on">Ativado</message>
 	<message key="common.options">Opções</message>
 	<message key="common.order">Ordem</message>
-	<message key="common.originalFileName">Nome original do Documento</message>
+	<message key="common.originalFileName">Nome original do documento</message>
 	<message key="common.or">ou</message>
 	<message key="common.other">Outro</message>
 	<message key="common.pageHeaderLogo.altText">Logo do cabeçalho da página</message>
@@ -262,7 +262,7 @@
 	<message key="search.operator.or">OU</message>
 	<message key="search.reviseSearch">Alterar parâmetros</message>
 	<message key="search.searchAllCategories">Pesquisar termo em todas as categorias</message>
-	<message key="search.searchCategories">Pesquisar categorias</message>
+	<message key="search.searchCategories">Pesquisar nas categorias</message>
 	<message key="search.searchResults">Resultado da pesquisa</message>
 	<message key="search.subject">Assunto</message>
 	<message key="search.titleIndex">Índice de títulos</message>
@@ -317,4 +317,13 @@
 	<message key="common.ok">ok</message>
 	<message key="common.true">Verdadeiro</message>
 	<message key="navigation.dashboard">Painel de Controle</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Você não pertence a este grupo de usuários.</message>
+	<message key="common.disable">Desabilitar</message>
+	<message key="common.enable">Habilitar</message>
+	<message key="common.fullscreen">Tela cheia</message>
+	<message key="common.fullscreenOff">Tela padrão</message>
+	<message key="common.pluginEnabled">O Plugin "{$pluginName}" foi habilitado.</message>
+	<message key="common.pluginDisabled">O Plugin "{$pluginName}" foi desabilitado.</message>
+	<message key="common.refresh">Atualizar</message>
+	<message key="common.loading">Carregando ...</message>
 </locale>

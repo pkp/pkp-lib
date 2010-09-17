@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">Ez sortu azpidirektoriorik (eskuzko instalazioan bakarrik da baliagarria)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errorea <tt>{$file}</tt> txantiloia analizatzean.]]></message>
 	<message key="installer.locale.maybeIncomplete">Markatutako lokalak osatu gabe egon daitezke.</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Datu-basea instalatu ondoren, exekutatu ezazu berritze-tresna, mesedez. Exekutatu ezazu 'php tools/upgrade.php upgrade' horretarako dagoen instalazio-direktorio nagusian.</message>
 </locale>

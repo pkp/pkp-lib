@@ -75,8 +75,19 @@
 	<message key="grid.submissionChecklist.column.checklistItem">Élément de la liste de vérification</message>
 
 	<!-- Submission Contributors -->
-	<message key="author.submit.contributor.name">Nom</message>
-	<message key="author.submit.contributor.email">Courriel</message>
-	<message key="author.submit.contributor.role">Rôle</message>
-	<message key="author.submit.contributor.principalContact">Contact principal</message>
+	<message key="grid.action.remove">Supprimer</message>
+	<message key="grid.action.approve">Approuver</message>
+	<message key="grid.action.approveForReview">Soumettre à l'étape d'évaluation</message>
+	<message key="grid.action.approveForPub">Approuver pour publication</message>
+	<message key="grid.action.decline">Décliner</message>
+	<message key="grid.action.moreInformation">Plus d'information</message>
+	<message key="grid.action.addAuthor">Ajouter un auteur</message>
+	<message key="grid.artworkFile.captionAndCredit">Légende et source (si non inclus dans le fichier)</message>
+	<message key="author.users.contributor.name">Nom</message>
+	<message key="author.users.contributor.email">Courriel</message>
+	<message key="author.users.contributor.role">Rôle</message>
+	<message key="author.users.contributor.principalContact">Contact principal</message>
+	<message key="grid.reviewAttachments.title">Pièces jointes de l'évaluateur</message>
+	<message key="grid.reviewAttachments.add">Ajouter une pièce jointe à l'évaluation</message>
+	<message key="grid.chapters.title">Chapitres</message>
 </locale>

@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.brandLabel">Značka</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti rozbalovacího seznamu <br /> (seznam oddělený čárkou)]]></message>
 	<message key="rt.admin.configureSharing">Konfigurovat AddThis</message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

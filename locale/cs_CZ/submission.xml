@@ -170,4 +170,12 @@
 	<!-- Author Submission -->
 	<message key="author.submit.submissionCitations">Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku.</message>
 	
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Key</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citační modul</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Vyberte prosím jeden z dostupných citačních modulů.</message>
+	<message key="metadata.property.displayName.author">Autoři</message>
+	<message key="metadata.property.displayName.editor">Editoři</message>
+	<message key="metadata.property.displayName.article-title">Název článku</message>
+	<message key="metadata.property.validationMessage.article-title">Vložte prosím platný název článku.</message>
 </locale>

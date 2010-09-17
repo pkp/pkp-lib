@@ -102,4 +102,10 @@
 	<message key="user.workingLanguages">Arbeitssprachen</message>
 	<message key="user.other">Andere</message>
 	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild sollte eine Größe von 150x150 Pixel nicht überschreiten.</message>
+	<message key="user.affiliation.description">(Ihre Institution, z.B. "Simon Fraser University")</message>
+	<message key="user.confirmEmail">E-Mail bestätigen</message>
+	<message key="user.gossip">Private Notizen</message>
+	<message key="user.repeatPassword">Passwort wiederholen</message>
+	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
+	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
 </locale>

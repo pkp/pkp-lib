@@ -75,8 +75,19 @@
 	<message key="grid.submissionChecklist.column.checklistItem">Item de la lista de comprobación</message>
 
 	<!-- Submission Contributors -->
-	<message key="author.submit.contributor.name">Nombre</message>
-	<message key="author.submit.contributor.email">email</message>
-	<message key="author.submit.contributor.role">Rol</message>
-	<message key="author.submit.contributor.principalContact">Contacto principal</message>
+	<message key="grid.action.remove">Eliminar</message>
+	<message key="grid.action.approve">Aprobar</message>
+	<message key="grid.action.approveForPub">Aprobar para Publicar</message>
+	<message key="grid.action.decline">Declinar</message>
+	<message key="grid.action.moreInformation">Más información</message>
+	<message key="grid.action.addAuthor">Añadir autor</message>
+	<message key="author.users.contributor.name">Nombre</message>
+	<message key="author.users.contributor.email">Correo electrónico</message>
+	<message key="author.users.contributor.role">Rol</message>
+	<message key="author.users.contributor.principalContact">Contacto Principal</message>
+	<message key="grid.chapters.title">Capítulos</message>
+	<message key="grid.action.approveForReview">Enviar a la etapa de Revisión</message>
+	<message key="grid.artworkFile.captionAndCredit">Leyenda y Crédito (si no está incluido en el archivo)</message>
+	<message key="grid.reviewAttachments.title">Ficheros adjuntos para los Revisores</message>
+	<message key="grid.reviewAttachments.add">Añadir fichero adjunto para Revisión</message>
 </locale>

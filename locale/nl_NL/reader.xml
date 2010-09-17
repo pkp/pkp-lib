@@ -174,4 +174,5 @@
 	<message key="rt.admin.configureSharing">Configureer AddThis</message>
 	<message key="rt.admin.sharing.customizationLink"><![CDATA[SZie de <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> voor naslag.]]></message>
 	<message key="rt.admin.sharing.description"><![CDATA[Om uw lezers in de gellegenheid te stellen om tijdschriftartikelen te delen, kunt u een account nemen bij <a href="http://addthis.com">addthis.com</a> en de Sharing knop code hieronder kopiëren en plakken.]]></message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

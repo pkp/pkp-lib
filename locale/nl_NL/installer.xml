@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">De benodigde submappen niet aanmaken (alleen nuttig voor handmatige installatie)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk incompleet</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Start het upgrade gereedschap als u de database heeft geïnstalleerd. Voer daartoe 'php tools/upgrade.php upgrade' uit vanuit de installatiemap.</message>
 </locale>

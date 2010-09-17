@@ -318,4 +318,13 @@
 	<message key="notification.unsubscribeDescription">Idatzi behean posta elektronikoko helbidea eta pasahitza posta elektronikoko jakinarazpenen harpidetza kentzeko. Pasahitza gogoan ez baduzu, utzi bete gabe pasahitzaren eremua eta pasahitz berria bidaliko da emandako posta elektronikoko helbidera.</message>
 	<message key="notification.unsubscribeError">Errorea harpidetza kentzean. Egiaztatu posta elektronikoko helbidea eta pasahitza zuzenak direla.</message>
 	<message key="notification.unsubscribeSuccess">Harpidetza kentzea lortu duzu.</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Ez zaude erabiltzaileen taldean</message>
+	<message key="common.disable">Desgaitu</message>
+	<message key="common.enable">Gaitu</message>
+	<message key="common.fullscreen">Pantaila osoa</message>
+	<message key="common.fullscreenOff">Kendu pantaila osoa</message>
+	<message key="common.pluginEnabled">"{$pluginName}" plugina gaitu da.</message>
+	<message key="common.pluginDisabled">"{$pluginName}" plugina desgaitu da.</message>
+	<message key="common.refresh">Freskatu</message>
+	<message key="common.loading">Kargatzen...</message>
 </locale>

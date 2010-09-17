@@ -39,7 +39,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[U moet een nieuw wachtwoord kiezen voordat u in kunt loggen op de site.<br /><br />Geef uw gebruikersnaam en uw huidige en nieuwe wachtwoord om het wachtwoord voor uw account te veranderen.]]></message>
 	<message key="user.login.forgotPassword">Wachtwoord vergeten?</message>
 	<message key="user.login.loginError">Verkeerde gebruikersnaam of wachtwoord. Probeer het opnieuw</message>
-	<message key="user.login">Log in</message>
+	<message key="user.login">Inloggen</message>
 	<message key="user.logIn">Log in</message>
 	<message key="user.login.lostPassword.confirmationSent">Er is een bevestiging gestuurd naar uw e-mail adres. Volg de instructies in die e-mail om uw wachtwoord terug te zetten</message>
 	<message key="user.login.lostPassword.invalidHash">Helaas, de link waar u op klikte is verlopen of ongeldig. Probeer het terugzetten van uw wachtwoord opnieuw.</message>
@@ -48,7 +48,7 @@
 	<message key="user.login.registeredEmail">E-mail van geregistreerde gebruiker</message>
 	<message key="user.login.rememberUsernameAndPassword">Onthou mijn gebruikersnaam en wachtwoord</message>
 	<message key="user.login.resetPassword">Wachtwoord terugzetten</message>
-	<message key="user.logOut">Log uit</message>
+	<message key="user.logOut">Uitloggen</message>
 	<message key="user.mailingAddress">Postadres</message>
 	<message key="user.masculine">M</message>
 	<message key="user.middleName">Tweede voornaam</message>
@@ -82,7 +82,7 @@
 	<message key="user.register.form.usernameExists">De gekozen gebruikersnaam is al in gebruik bij een andere gebruiker.</message>
 	<message key="user.register.passwordLengthRestriction">Het wachtwoord moet minimaal {$length} tekens zijn.</message>
 	<message key="user.register.registerAs">Registreer als</message>
-	<message key="user.register">Registreer</message>
+	<message key="user.register">Registreren</message>
 	<message key="user.register.usernameRestriction">De gebruikernaam mag alleen kleine letters, cijfers, liggende streepjes en koppeltekens bevatten.</message>
 	<message key="user.role.reader">Lezer</message>
 	<message key="user.role.readers">Lezers</message>
@@ -97,9 +97,15 @@
 	<message key="user.signature">Ondertekening</message>
 	<message key="user.title">Titel</message>
 	<message key="user.url">URL</message>
-	<message key="user.userHome">Gebruiker home</message>
+	<message key="user.userHome">Gebruiker</message>
 	<message key="user.username">Gebruikersnaam</message>
 	<message key="user.workingLanguages">Talen</message>
-	<message key="user.other">Ander</message>
+	<message key="user.other">Overig</message>
 	<message key="user.profile.form.profileImageInvalid">Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels.</message>
+	<message key="user.register.form.emailsDoNotMatch">De e-mailadresvelden komen niet overeen</message>
+	<message key="user.affiliation.description">(Uw institut, bv. "Simon Fraser University")</message>
+	<message key="user.confirmEmail">Bevestig e-mail</message>
+	<message key="user.gossip">Prive notities</message>
+	<message key="user.profile.form.affiliationRequired">Een affiliatie is verplciht</message>
+	<message key="user.repeatPassword">Herhaal wachtwoord</message>
 </locale>

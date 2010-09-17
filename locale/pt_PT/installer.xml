@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">Não criar sub-pastas (útil apenas para instalação manual)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Erro ao tentar analisar o ficheiro de e-mail padrão <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Execute a ferramenta de atualização após instalar a base de dados. execute o comando 'php tools/upgrade.php upgrade' a partir da raíz do sistema.</message>
 </locale>

@@ -169,4 +169,185 @@
 	
 	<!-- Author Submission --> 
 	<message key="author.submit.submissionCitations">この投稿で引用している文献について整形した参考文献リストを提供してください。</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API key</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">有効な WorldCat API key をお持ちの場合は入力してください。</message>
+	<message key="metadata.property.validationMessage.source">適切な</message>
+	<message key="metadata.property.displayName.date">出版日</message>
+	<message key="metadata.property.validationMessage.date">適切な出版日を入力してください(形式: YYYY-MM-DD)。</message>
+	<message key="metadata.property.displayName.series">シリーズ名</message>
+	<message key="metadata.property.validationMessage.series">適切なシリーズ名を入力してください。</message>
+	<message key="metadata.property.displayName.fpage">開始ページ</message>
+	<message key="metadata.property.displayName.lpage">終了ページ</message>
+	<message key="metadata.property.displayName.size">ページ数</message>
+	<message key="metadata.property.displayName.publisher-name">出版社名</message>
+	<message key="metadata.property.validationMessage.publisher-name">適切な出版社名を入力してください。</message>
+	<message key="metadata.property.displayName.isbn">ISBN</message>
+	<message key="metadata.property.validationMessage.isbn">有効なISBN(9桁あるいは13桁)を入力してください。</message>
+	<message key="metadata.property.displayName.issn">Print ISSN</message>
+	<message key="metadata.property.displayName.eissn">eISSN</message>
+	<message key="submission.date.mmdd">MM-DD</message>
+	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="metadata.property.displayName.doi">DOI</message>
+	<message key="metadata.property.validationMessage.doi">適切なDOIを入力してください。</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">内部エラー: 不正なフィルターが選択されています。バグとして報告してください。</message>
+	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
+	<message key="submission.citations.editor.details.manualEditing">マニュアル修正</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">メッセージを送信</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">メッセージが送信されました!</message>
+	<message key="submission.indexingInformation">インデクス情報</message>
+	<message key="submission.uploadSuccessful">ファイルがアップロードされました。</message>
+	<message key="submission.uploadSuccessfulContinue">ファイルがアップロードされました。続けてファイルのメタデータを編集してください。</message>
+	<message key="submission.loadMessage">ファイルをサーバにアップロード中です。しばらくお待ちください。</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">ISBNdb API キーを入力してください。まだキーがない場合は，ISBNdb プロジェクトから無料でキーを取得することができます。</message>
+	<message key="metadata.property.displayName.article-title">記事・論文タイトル</message>
+	<message key="metadata.property.validationMessage.article-title">適切な記事/論文タイトルを入力してください。</message>
+	<message key="metadata.property.displayName.source">雑誌名・書名</message>
+	<message key="metadata.property.displayName.access-date">アクセス日</message>
+	<message key="metadata.property.validationMessage.access-date">適切なアクセス日(形式: YYYY-MM-DD)を入力してください。</message>
+	<message key="metadata.property.displayName.issue">号</message>
+	<message key="metadata.property.validationMessage.issue">適切な号数を入力してください。</message>
+	<message key="metadata.property.displayName.volume">巻</message>
+	<message key="metadata.property.validationMessage.volume">適切な巻数を入力してください。</message>
+	<message key="metadata.property.validationMessage.chapter-title">適切な章タイトルを入力してください。</message>
+	<message key="metadata.property.displayName.edition">版</message>
+	<message key="metadata.property.validationMessage.edition">適切な版情報を入力してください。</message>
+	<message key="metadata.property.displayName.supplement">補遺</message>
+	<message key="metadata.property.validationMessage.supplement">適切な補遺を入力して下さい。</message>
+	<message key="metadata.property.displayName.conf-date">会議開催日</message>
+	<message key="metadata.property.validationMessage.conf-date">適切な会議開催日(形式: YYYY-MM-DD)を入力してください。</message>
+	<message key="metadata.property.displayName.conf-loc">会議開催地</message>
+	<message key="metadata.property.validationMessage.conf-loc">適切な会議開催地を入力してください。</message>
+	<message key="metadata.property.displayName.conf-name">会議名</message>
+	<message key="metadata.property.validationMessage.conf-name">適切な会議名を入力してください。</message>
+	<message key="metadata.property.displayName.conf-sponsor">会議主催者</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">適切な会議主催者を入力してください。</message>
+	<message key="metadata.property.displayName.institution">機関</message>
+	<message key="metadata.property.validationMessage.institution">適切な機関名を入力してください。</message>
+	<message key="metadata.property.validationMessage.fpage">適切な開始ページ(数字のみ)を入力してください。</message>
+	<message key="metadata.property.validationMessage.lpage">適切な終了ページ(数字のみ)を入力してください。</message>
+	<message key="metadata.property.validationMessage.size">適切な総ページ数(数字のみ)を入力してください。</message>
+	<message key="metadata.property.displayName.publisher-loc">出版地</message>
+	<message key="metadata.property.validationMessage.publisher-loc">適切な出版地を入力してください。</message>
+	<message key="metadata.property.validationMessage.issn">適切な Print ISSNを入力してください。</message>
+	<message key="metadata.property.validationMessage.eissn">適切な eISSNを入力してください。</message>
+	<message key="metadata.property.displayName.coden">CODEN</message>
+	<message key="metadata.property.validationMessage.coden">適切なCODENを入力してください。</message>
+	<message key="metadata.property.displayName.sici">SICI</message>
+	<message key="metadata.property.validationMessage.sici">適切なSICIを入力してください。</message>
+	<message key="metadata.property.displayName.pmid">PMID</message>
+	<message key="metadata.property.validationMessage.pmid">適切なPMIDを入力してください。</message>
+	<message key="metadata.property.displayName.comment">コメント</message>
+	<message key="metadata.property.validationMessage.comment">適切なコメントを入力してください。</message>
+	<message key="metadata.property.displayName.annotation">注釈</message>
+	<message key="metadata.property.validationMessage.annotation">適切な注釈を入力してください。</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">本当のこの引用情報を消去したいですか？</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">引用情報の消去中にエラーが発生しました。バグとして報告してください。</message>
+	<message key="submission.citations.editor.details.authorQueryBody">著者へのメッセージ:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">この引用についてさらに詳細な情報を著者に問い合わせることができます。"送信"ボタンをクリックすると，著者にメールでメッセージが送信されます。</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">件名:</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Google Scholar でチェック</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">最初の数文字を入力して選択...</message>
+	<message key="submission.citations.editor.details.dataSaved">修正が保存されました。</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">先へ進む</message>
+	<message key="submission.citations.editor.details.unsavedChanges">引用情報に保存されていないデータが含まれています。"保存" ボタンをクリックして修正を保存するか，"キャンセル"ボタンをクリックして修正を取り消してください。</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">今後このメッセージを表示しない。</message>
+	<message key="submission.citations.editor.export.noExportOutput">'{$filterName}' 出力フィルターでエラーが発生しました。バグとして報告してください。</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML出力オプション:</message>
+	<message key="submission.citations.editor.pleaseSelect">選択してください...</message>
+	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef 登録メールアドレス</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed 登録メールアドレス</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">PubMed登録用の有効なメールアドレスを入力して下さい。</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">引用モジュール</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">引用モジュールを一つ選択してください。</message>
+	<message key="metadata.filters.settings.isOptional.displayName">デフォルトで使用しない (編集者は利用可能)</message>
+	<message key="metadata.property.displayName.uri">リンク情報</message>
+	<message key="metadata.property.validationMessage.uri">適切な代替リンク情報を入力して下さい。</message>
+	<message key="metadata.property.displayName.publication-type">出版タイプ</message>
+	<message key="metadata.property.validationMessage.publication-type">出版タイプを設定する場合は確認してください。現在サポートされているのは図書(book: 図書および図書の章)と雑誌(journal: 雑誌記事・論文)です。それ以外は引用出力フォーマットが正しく動作しません。</message>
+	<message key="submission.citations.editor.citationlist.newCitation">新規引用</message>
+	<message key="submission.citations.editor.citationlist.title">引用を編集</message>
+	<message key="submission.citations.editor.clickToEdit">クリックして編集</message>
+	<message key="submission.citations.editor.details.authorQuery">著者に質問</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">フィールドラベルは外すことができません。必要ない場合はフィールドを削除してください。</message>
+	<message key="submission.citations.editor.details.citationExportPreview">引用エクスポートプレビュー</message>
+	<message key="submission.citations.editor.details.citationServices">引用サービス</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">引用リストの再読込</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">クリックして引用リストを再読込する</message>
+	<message key="submission.nameRequired">このアイテムには名前が必要です。</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">適切なCrossRef登録メールアドレスを入力してください。CrossRefのWebサイトであなたのメールアドレスを無料で登録することができます。</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">クリックしてこの結果をフィールドリストにダイレクトに転送します。</message>
+	<message key="submission.citations.editor.details.rawCitation">オリジナル引用テキスト</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">引用テキストが必要です。</message>
+	<message key="submission.citations.editor.edit">引用の編集</message>
+	<message key="submission.citations.editor.export">引用のエクスポート</message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">下記からエクスポートオプションを選択してください。</message>
+	<message key="submission.citations.editor.export.filterSelectionError">出力オプションが選択されていません。</message>
+	<message key="submission.citations.editor.loadMessage">引用マークアップ支援機能を読み込むまでお待ちください。</message>
+	<message key="metadata.property.displayName.author">著者</message>
+	<message key="metadata.property.validationMessage.author">著者が下記のフォーマットで入力するのが最適です。: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.editor">編集者</message>
+	<message key="metadata.property.validationMessage.editor">編集者が下記のフォーマットで入力するのが最適です。: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.chapter-title">章のタイトル</message>
+	<message key="metadata.property.displayName.publisher-id">カスタムID</message>
+	<message key="metadata.property.validationMessage.publisher-id">適切なカスタムIDを入力して下さい。</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">引用抽出サービスを選択:</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...ここをクリックして新しいフィールドを追加...</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Google Scholarで検索</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">オリジナルの引用情報の修正</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">オリジナルの引用テクストを編集しようとしています。この操作によりすべてのフィールドが新たに生成された値に置き換えられます。これによってすでにマニュアルで修正された結果は削除されます。</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>すべての引用がまだ承認されていません。 Please go to the <strong>引用情報の修正</strong> タブからエクスポートしようとしている全ての引用が承認されているかどうか確認してください。承認された引用は左に青紺色のストライプでマークされています。</p>]]></message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[引用マークアップ支援機能を使用する前に， <a href="{$citationSetupUrl}"> に少なくともひとつ引用抽出サービスを追加するように雑誌管理者へ依頼してください。]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[引用マークアップ支援機能を使用する前に， <a href="{$citationSetupUrl}"> 引用エクスポート形式を設定</a> するように雑誌管理者へ依頼してください。]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>この論文には引用情報がありません。</p><p>論文の <a href="{$articleMetadataUrl}">メタデータページ</a> で参考文献リストを入力するか，編集者のアイテム追加ボタンを使用して手動で参考文献を追加してください。</p>]]></message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[引用マークアップ支援機能にアクセスする前に，<a href="{$citationSetupUrl}">引用の編集を可能にする</a> ように雑誌管理者へ依頼してください。]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">この論文の引用情報はサーバで処理途中です。現在表示されているものは処理が完了した引用情報のみです。再読み込みボタンをクリックして処理された引用情報を確認してください。</message>
+	<message key="metadata.property.displayName.season">Season</message>
+	<message key="metadata.property.validationMessage.season">適切な Season を入力してください。</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">内部エラー。不正な値が "選択フィルタ" 設定に入力されました。バグとして報告してください。</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">ここをクリック</a> して生成された出力結果を選択してください。コピーしてあなたの文書に貼り付けすることができます。]]></message>
+	<message key="submission.currentAgencies">現在のエージェンシー</message>
+	<message key="submission.artworkFileDetails">芸術作品のファイル詳細</message>
+	<message key="submission.fileDetails">ファイル詳細</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">{$filterName} でエラーが発生しました: (例. Webサービスから)フィールドベースのメタデータへのXMLの変換が失敗しました。Webサービスが不正，あるいは不完全なデータを返したことが主な原因と考えらえれます。バグとして報告してください。</message>
+	<message key="submission.citations.metadata.changeWarning">参考文献リストを更新してもよろしいですか? OKをクリックすると，編集者がおこなった修正が上書きされます。参考文献リストを修正すべきかどうか不明な場合は，担当の編集者に連絡してください。</message>
+	<message key="submission.page.citations">#{$id} 引用</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">メッセージのテキストをクリックして却下することができます。</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">引用データベースサービスの選択:</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">デフォルトの結果に満足が得られなかった場合は，引用を向上する様々なオプションがあります。重要なフィールド(例: タイトルや著者名)を手作業で編集したのち，再度引用サービスを試すとうまくいく場合があります。うまくいかない場合は Google Scholar を検索したり，詳細について著者に質問することもできます。</message>
+	<message key="submission.citations.editor.details.messages">注意してください。(メッセージをクリックすると却下されます。)</message>
+	<message key="submission.citations.editor.details.queryCitation">引用サービスを再検索</message>
+	<message key="submission.citations.editor.details.processRawCitation">処理</message>
+	<message key="submission.citations.editor.details.saveAndApprove">保存して承認</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">承認の取消</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">使用</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">すべて使用</message>
+	<message key="submission.citations.editor.introduction">概要</message>
+	<message key="submission.citations.editor.php5Required">引用情報の編集は XMLとXSL をサポートしている必要があります(PHPバージョン5.0.0以降)。インストールされているPHPのバージョンが古い場合に表示されます。新しいバージョンにアップグレードしない限り引用マークアップ支援機能は使用できません。</message>
+	<message key="submission.citations.filter.noResultFromFilterError">いくつかの引用サービスから結果が得られませんでした。よい結果を得るために，引用フィールドをマニュアルで修正して再度引用サービスを検索してください。うまくいかない場合は，引用情報が接続しているデータベースに存在していません。</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">サポートされていな不明な出版種別です。マニュアルで引用を編集して許可されている出版種別(図書，雑誌，学位論文，会議録)を入力してください。</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">下記にこの雑誌で設定された引用サービスのリストが表示されます。雑誌管理者がこの雑誌に最も関連のあると判断したサービスがあらかじめ選択されています。好みに応じてサービスを追加して検索したり除外することができます。</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">クリックすると情報源から得られたすべてのフィールドが直接あなたのフィールドリストに移動します。</message>
+	<message key="submission.citations.filter.invalidMetadata">{$filterName} でエラーが発生しました: 情報源(例: Webサービス)から返ってきたデータ要素が内部のメタデータフォーマットに一致しませんでした。そのためデータソースの結果が拒絶されました。バグとして報告して下さい。</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">エキスパート内部引用サービス結果 (クリックして閉じる)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">エキスパート内部引用サービス結果 (クリックして開く)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">エキスパート引用修正設定 (クリックして閉じる)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">エキスパート引用修正設定 (クリックして開く)</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">引用形式出力 (実験用!):</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">接続した引用サービスにも見つからない場合は Google Scholar を検索することもできます。残念ながら Google Scholar はこのシステムで使用できるデータ用のフィールドベースのインタフェースを提供していないため，自動的にこの支援機能にデータを戻す方法がありません。Googleの検索結果ページからあなたのフィールドに手作業で情報をコピーして貼り付けしなければなりません。</message>
+	<message key="submission.citations.filter.webserviceError">{$filterName} のWebサービス URL: {$webserviceUrl} に問合せた際にエラーが発生しました。Webサービスが一時的に利用できなくなっている可能性があります。 他のサービスを利用して結果を保存してください。後ほど再度試していただき，まだエラーになるようでしたら，雑誌管理者にこのサービスを停止するよう依頼して，バグを報告してください。</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>引用マークアップ支援にようこそ!</h4>
+	<p>この支援機能で著者が提供した引用情報をエクスポート用にNLM 2.3 or 3.0 XML，あるいはテキストベースの出力形式にマークアップすることができます。このツールは自動的に引用情報を抽出・認識しますが，いつでも中断し，結果を修正することができます。</p>	<ul>		<li><p><strong>支援機能の設定</strong></p>		<p>引用マークアップ支援機能を使用するためには雑誌管理者が <a href="{$citationSetupUrl}">雑誌設定 3.7: 引用マークアップ支援</a> で設定します。異なる引用抽出サービスやチェックツールを追加，設定，削除することができます。詳細は雑誌管理者に問い合わせてください。</p></li>		<li><p><strong>支援機能インタフェースのナビゲーション</strong></p><p>タブのタイトルをクリックして，<strong>概要</strong>, <strong>引用を編集</strong>，<strong>引用のエクスポート</strong>を切り替えます。引用のインタフェースを拡大するには，<strong>フルスクリーン</strong> ボタンをクリックします。通常のインタフェースに戻るには，<strong>フルスクリーン オフ</strong> ボタンをクリックします。タブ全体を削除するには，下記のボタンをクリックします。</p></li>		<li><p><strong>引用情報をリクエストする</strong></p><p>引用マークアップ支援が雑誌管理者によって有効にされていれば，著者は，論文投稿中に参考文献リストについて指示されます。この参考文献リストは投稿論文ごとに別々に要求されます。投稿後，著者も投稿時のメタデータを修正することでいつでも参考文献リストを修正することができます(注意] このツールを使うと既におこなわれた引用情報への修正が上書きされます)。</p></li><li><p><strong>引用を編集</strong></p><p>引用マークアップ支援では著者の参考文献リストから個別の引用情報を同定・抽出を試みます。外部のデータベースから抽出した引用情報が正確かどうかシステム的なチェックをおこなう，間違った引用情報を修正する，関連情報を追加する，引用の承認・削除をおこなう，新しい引用を追加することができます。</p><p>投稿のための最終的な引用情報はエクスポート前にすべて承認されていなければなりません。</p></li><li><p><strong>引用のエクスポート</strong></p>
+ 		<p>引用情報はXMLかテキストとしてエクスポートされます。XML エクスポートオプションは現在， <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 および 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a> に対応しています。オプションのいずれかを選択すると，XMLにエンコードされた参考文献リストのスニペットが出力されて，NLM XML ゲラファイルにコピー・貼り付けることができます。</p><p>ABNT, APA, MLA，Vancouver の引用出力形式でテキストエキスポートできるオプションもあります。これらのオプションで出力されたものは，テキストベースの論文のゲラファイル(例えば，Microsoft Word，OpenOffice，Adobe InDesign など)にコピー・貼り付けができます。それぞれの引用情報にはGoogle Scholarの引用情報を検索するためのリンクが自動的に埋め込まれます。</p></li></ul>]]></message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>引用編集プロセスにようこそ。左のリストに表示されている引用情報をクリックして，このウィンドウに引用情報を表示すると，引用情報が正確かどうかチェックすることができます。雑誌管理者が設定した引用データベースサービスで引用情報をチェックしたり，マニュアルで引用情報を修正することができます。</p>
+		<h4>ナビゲーション</h4>
+		<p>左の引用リストのひとつをクリックすると編集が開始されます。</p>
+		<p>このウィンドウと左カラムとの間の青色のセパレータは移動可能です。引用リストを表示したり，引用を編集するスペースを確保したい，など必要に応じてどちらかに移動させることができます。</p>
+		<p>引用のインタフェースを拡大するには，<strong>フルスクリーン</strong> ボタンをクリックします。通常のインタフェースに戻るには，<strong>フルスクリーン オフ</strong> ボタンをクリックします。</p>
+		<h4>引用の追加と削除</h4>
+		<p>引用リストカラムの右側にある<strong>新規引用</strong>アイコンをクリックすることで引用情報を追加することができます。左側の赤い<strong>削除</strong>アイコンをクリックすることで引用情報の削除が可能です。</p>
+		<h4>引用を編集</h4>
+		<p>左側のリストにある引用を編集するには，それをクリックしてこのウィンドウを開いてください。著者によって記述されたオリジナルの引用情報と自動抽出支援機能が表示されます。オリジナルの引用情報についてマニュアルで修正，新しい引用の一部あるいはすべてを編集，設定済の引用データベースでの再チェック，Google Scholarの検索，引用情報の詳細について著者への問合せ，がおこなえます。</p>
+		<p>
+満足のいく結果が得られて引用の編集を終了する場合は，<strong>保存して承認</strong> ボタンをクリックすると，リストにある次の未承認の引用に自動的に遷移します。このように大量の引用情報を迅速に処理することができます。すべての引用情報が承認されると，<strong>引用をエクスポート</strong> ページに移動します。</p>]]></message>
 </locale>

@@ -174,4 +174,5 @@
 	<message key="rt.admin.configureSharing">AddThis 設定</message>
 	<message key="comments.inResponseTo"><![CDATA[<a href="{$url}">{$title}</a> への反応]]></message>
 	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[ユーザが選択した単語をデフォルトの検索語として使い，もしユーザが何も選択してない場合には[このコンテキストが表示されるスペース]ブランクにしておく．（例えば，「語の定義」コンテキストのために．）単語をダブルクリックしたときに「語の定義」コンテキストが表示されるようにするには，「<a href="{$settingsUrl}">読書ツールオプション</a>」で有効にしておかないといけない．]]></message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

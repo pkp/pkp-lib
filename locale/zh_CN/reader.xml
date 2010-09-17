@@ -177,4 +177,5 @@
 	<message key="rt.version.title">标题</message>
 	<message key="rt.version">版本</message>
 	<message key="rt.viewMetadata">索引源数据</message>
+	<message key="rt.captureCite.web">互联网</message>
 </locale>

@@ -34,4 +34,27 @@
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">合作者</message>
+	<message key="grid.settings">设置</message>
+	<message key="grid.action.remove">删除</message>
+	<message key="grid.action.approve">同意</message>
+	<message key="grid.action.approveForPub">同意出版</message>
+	<message key="grid.action.decline">还原</message>
+	<message key="grid.action.moreInformation">更多</message>
+	<message key="grid.masthead.column.groups">组</message>
+	<message key="grid.action.addAuthor">添加作者</message>
+	<message key="grid.reviewForm.title">审查表单</message>
+	<message key="grid.artworkFile.file">文件</message>
+	<message key="grid.artworkFile.type">类型</message>
+	<message key="grid.artworkFile.type.table">表格</message>
+	<message key="grid.artworkFile.type.figure">图解</message>
+	<message key="grid.artworkFile.contactAuthor">联系作者</message>
+	<message key="grid.libraryFiles.column.files">文件</message>
+	<message key="grid.submissionChecklist.title">投稿检查列表</message>
+	<message key="grid.submissionChecklist.column.checklistItem">项目清单</message>
+	<message key="author.users.contributor.name">姓名</message>
+	<message key="author.users.contributor.email">电子邮件</message>
+	<message key="author.users.contributor.role">角色</message>
+	<message key="author.users.contributor.principalContact">主要联系人</message>
+	<message key="grid.reviewAttachments.title">审查人附件</message>
+	<message key="grid.reviewAttachments.add">为审查添加附件</message>
 </locale>

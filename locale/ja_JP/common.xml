@@ -313,4 +313,18 @@
 	<message key="notification.notificationsNew">(新規 {$numNew})</message>
 	<message key="common.noComments">コメントなし</message>
 	<message key="notification.mailList.register">このサイトで次の登録ができます。</message>
+	<message key="common.fullscreen">フルスクリーン</message>
+	<message key="common.fullscreenOff">フルスクリーン オフ</message>
+	<message key="common.ok">OK</message>
+	<message key="common.pluginEnabled">"{$pluginName}" は有効です。</message>
+	<message key="common.pluginDisabled">"{$pluginName}" は無効です。</message>
+	<message key="common.refresh">再読込</message>
+	<message key="common.uploadFailed">このファイルはアップロードできませんでした。再度試して，問題が解消されない場合は管理者に連絡してください。</message>
+	<message key="common.loading">読込中 ...</message>
+	<message key="navigation.dashboard">ダッシュボード</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">あなたはこのユーザグループに存在しません。</message>
+	<message key="common.disable">無効化</message>
+	<message key="common.enable">有効化</message>
+	<message key="common.false">誤</message>
+	<message key="common.true">正</message>
 </locale>

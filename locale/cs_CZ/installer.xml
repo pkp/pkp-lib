@@ -71,4 +71,5 @@
 	<message key="installer.skipFilesDir">Nevytvářet požadované podadresáře (užitečné pouze při ruční instalaci)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Chyba při rozebírání souboru šablony emailu <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Označené soubory lokalizace mohou být nekompletní.</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Po nainstalování databáze prosím spusťte nástroj pro aktualizaci. Použijte k tomu 'php tools/upgrade.php upgrade' z hlavního adresáře instalace.</message>
 </locale>

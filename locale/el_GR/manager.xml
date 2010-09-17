@@ -168,4 +168,53 @@
 	<message key="plugins.categories.reports">Plugins Αναφορών</message>
 	<message key="plugins.categories.themes.description">Τα Theme Plugins μπορούν να χρησιμοποιηθούν για να αλλάξει η εμφάνιση του συστήματος.</message>
 	<message key="plugins.categories.themes">Θεματικά (Theme) Plugins</message>
+	<message key="manager.emails.form.emailKeyRequired">Απαιτείτα ένα μοναδικό κλειδί email για το email.</message>
+	<message key="manager.reviewerSearch.advancedSearch">Προχωρημένη Αναζήτηση Αξιολογητή</message>
+	<message key="manager.reviewerSearch.searchByName">Αναζήτηση Αξιολογητή κατά Όνομα</message>
+	<message key="manager.reviewerSearch.doneAmount">Αριθμός ολοκληρωμένης αξιολογήσεων</message>
+	<message key="manager.reviewerSearch.avgAmount">Μέσος αριθμός ημερών ανά αξιολόγηση</message>
+	<message key="manager.reviewerSearch.lastAmount">Ημέρες από την τελευταία αξιολόγηση</message>
+	<message key="manager.reviewerSearch.activeAmount">Αριθμός τρεχόντων ενεργών αξιολογήσεων</message>
+	<message key="manager.reviewerSearch.interests">Ενδιαφέροντα Αξιολόγησης</message>
+	<message key="manager.setup.citationAssistant">Βοηθός Σήμανσης Παραπομπής</message>
+	<message key="manager.setup.citationFilterParser">Εξαγωγή Παραπομπής</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Για να αναζητήσετε και να ελέγξετε αναφορές/παραπομπές σε βάσεις αναφορών, θα πρέπει πρώτα αυτές να διαχωριστούν σε κατάλληλη και αναγνώσιμη απόμηχανή μορφή μεταδεδομένων: ο τίτλος, εκδότης, έκδοση, ημερομηνία κλπ. θα πρέπει να εξαχθούν από το πρωτότυπο κείμενο της παραπομπής που παρέχεται από τον συγγραφέα. Σύνδεσμοι (connectors) προς εξωτερικές δικτυακές υπηρεσίες μπορούν να βοηθήσουν σε αυτή τη διαδικασία. Ένας ή περισσότεροι σύνδεσμοι (connectors) μπορούν να προστεθούν επιλέγοντας το κουμπί "Προσθήκη" παρακάτω. Κάποιοι από αυτούς του συνδέσμους μπορεί να χρειάζονται τις κατάλληλες ρυθμίσεις οπότε και θα σας ζητηθούν.</p>
+		<p>Μπορείτε να επεξεργαστείτε ή να διαγράψετε έναν υφιστάμενο σύνδεσμο (Connector) επιλέγοντας τo εικονίδιο δίπλα του.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">'Ελεγχος παραπομπής</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Θα πρέπει επίσης να ενεργοποιήσετε και ρυθμίσετε τις συνδέσεις προς τις εξωτερικές βάσεις δεδομένων. Αυτό θα σας βοηθήσει να βρίσκετε σφάλματα στις παραπομπές των συγγραφέων ή να προσθέτετε πρόσθετες πληροφορίες (π.χ. DOIs ή PubMed IDs) για την ηλεκτρονική έκδοση ή την αρχειοθέτηση.</p> 
+		<p>Παρέχουμε συνδέσεις σε αρκετές εξωτερικές βάσεις δεδομένων όπου μπορείτε να αναζητήσετε αναφορές/παραπομπές. Κάποιες από αυτές απαιτούν εγγραφή ή εισαγωγή πληροφοριών για την είσοδο και χρήση. Σας παρακαλούμε ανατρέξτε στις δημόσιες ιστοσελίδες των βάσεων δεδομένων για περισσότερες πληροφορίες. Μπορείτε να προσθέσετε μια ή περισσότερες βάσεις επιλέγοντας το κουμπί "Προσθήκη" παρακάτω.</p>
+		<p>Μπορείτε να επεξεργαστείτε ή να διαγράψετε μια υφιστάμενη εξωτερική βάση δεδεομένων επιλέγονταςο το εικονίδιο δίπλα στο τίτλο της.</p>
+		<p><strong>Σημείωση:</strong> Για να ολοκλήρωθεί ο έλεγχος των αναφορών/παραπομπών σε ένα εύλογο χρονικό διάστημα, η τιμή για <tt>citation_checking_max_processes</tt> στο αρχείο ρυθμίσεών σας θα πρέπει να πάρει μια λογική τιμή. Δείτε την ενότητα General Settings στο αρχείο <tt>config.inc.php</tt> για περισσότερς πληροφορίες.</p>]]></message>
+	<message key="manager.setup.citationOutput">Απόδοση Παραπομπής</message>
+	<message key="manager.setup.citationOutputStyleDescription">Επιλέξτε τη μορφή αναφοράς που χρησιμοποιείται για τις υποβολές άρθρων στο περιοδικό σας. Ο Βοηθός Σήμανσης Παραπομπής σας επιτρέπει να συγκρίνετε την εκδοχή της αναφοράς του συγγραφέα με μια εκδοχή που παράγεται από το XML που παράγετε για τον εύκολο εντοπισμό σφαλμάτων.</message>
+	<message key="manager.setup.errorDeletingItem">Παρουσιάστηκε σφάλμα κατά την διαγραφή του φίλτρου</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Ένα σφάλμα παρουσιάστηκε ενώ προσπαθούσατε να μετακινήσετε αυτό το φίλτρο. Σας παρακαλούμε αναφέρετε το πρόβλημα.</message>
+	<message key="manager.setup.filter.grid.filterSettings">Πληροφορίες Εγγραφής και Ρυθμίσεις Συνδέσμου</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Σας παρακαλούμε επιλέξτε μία από τις μετατροπές από το μενού επιλογής.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Θέλετε πραγαμτικά να διαγράψετε το φίλτρο {$filterName};</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Έχετε επιλέξει να προσθέσετε την βάση {$filterDisplayName}. Σας παρακαλούμε πατήστε  'OK' για επιβεβαίωση.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Σύνδεσμος (Connector)</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Παρακαλούμε επιλέξτε μια βάση δεδομένων</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Το φίλτρο αυτό συνδέεται στην βάση βιβλίων και ISBN  <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> .</p>
+	<p>Ένα ISBNdb API κλειδό είναι υποχρεωτικό. Πληροφορίες για την δημιιουργία ενός τέτοιου κλειδιού, μπορείτε να βρείτε στη <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">σχετική ιστοσελίδα τεκμηρίωσης</a>.]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Το φίλτρο αυτό συνδέεται με την βάση CrossRef χρησιμοποιώντας το  <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p> 
+	<p>Για να χρησιμοποιήσετε αυτό το φίλτρο, μπορείτε είτε να χρησιμοποιήσετε τον λογαριασμό σας στο CrossRef, ή να εγγραφείτε στο CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">ακολουθώντας τη σχετική διαδικασία</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Το φίλτρο αυτό συνδέεται στη βάση <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">PubMed's Entrez</a> </p>
+	<p>Η εγγραφή δεν είναι υποχρεωτική, αλλά μπορεί να είναι χρήσιμη σε περίπτωση προβλημάτων σύνδεσης. Δείτε τη σχετική ενότητα στις <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Οδηγίες και Απαιτήσεις Χρήσης </a> για περισσότερες πληροφορίες.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Το φίλτρο αυτό συνδέεται με τις υπηρεσίες της OCLC  <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> και <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
+	<p>Αν έχετε ένα <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">Worldcat API κλειδί</a> μπορείτε να συνδεθείτε στη βάση εισάγοντας το κλειδί παρακάτω.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Σας παρακαλούμε περιμένετε μέχρι να φορτωθεί το πλέγμα ρυθμίσεων της βάσης...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Σύνδεσμοι (Connectosrs) Βάσεων Αναφορών/Παραπομπών</message>
+	<message key="manager.setup.filter.noMoreTemplates">Όλες οι διαθεσιμες μετατροπές έχουν ολοκλήρωθεί. Παρακαλούμε πατήσετ "Ακύρωση" για να επιστρέψετε στη σελίδα ρυθμίσεων.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Έχετε επιλέξει να προσθέτες τοn κατατμητή {$filterDisplayName}. Παρακαλούμε πατήστε  'OK' για επιβεβαίωση.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Παρακαλούμε επιλέξτε έναν κατατμητή αναφορών.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Αυτό το φίλτρο εξαγωγής συνδέεται με την υπηρεσία <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> .</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Αυτό το φίλτρο εξαγωγής χρησιμοποιεί τα εργαλεία Perl  <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> για την παροχή της λειτουργίας κατάτμησης αναφορών <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Για την λειτουργίας αυτή θα πρέπει να έχετε εγκατεστημένη στο μηχάνημά σας την Perl, μαζί με τις λειτουργίας CPAN <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> και <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> . Θα πρέπει επίσης να ρυθμίσετε την οδηγία <tt>perl</tt> στο αρχείο των ρυθμίσεών σας. Η οδηγία αυτή μπορεί να βρεθεί στην ενότητα External Commands του αρχείου <tt>config.inc.php</tt>.</p>
+	<p>Μπορείτε επίσης να επιλέξετε ποιο από τα εργαλεία κατάτμησης της ParaTools θα χρησιμοποιήσετε. Μπορείτε να επιλέξετε μεταξύ των <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, και <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Αυτό το φίλτρο εξαγωγής συνδέεται με την υπηρεσία <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a>.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Το φίλτρο εξαγωγής RegEx χρησιμοποιεί μια σειρά συνηθισμένων εκφράσεων για την κατάτμηση αναφορών/παραπομπών.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Σας παρακαλούμε περιμένετε μέχρι να φορτωθούν οι ρυθμίσεις κατάτμησης αναφορών/παραπομπών ..</message>
+	<message key="manager.setup.filter.parser.grid.title">Υπηρεσίες Εξαγωγής Αναφορών</message>
+	<message key="manager.setup.filter.pleaseSelect">Παρακαλούμε περιμένετε...</message>
+	<message key="manager.setup.metaCitationsDescription">Ενεργοποιήστε τις παρακάτω επιλογές για να ενεργοποιήσετε την δυνατότητα επεξεργασίας των αναφορών/παραπομπών. Αυτό θα επιτρέψει στους συγγραφές να συμπεριλαμβάνουν ακατέργαστες αναφορές με τις υποβολές τους. Οι επιμελητές θα έχουν επίσης πρόσβαση στον Βοηθό Σήμανσης Παραπομπής με την βοήθεια του οποίου θα μπορούν να ελέγξουν την ορθότητα ακατέργαστων αναφορών μέσω εξωτερικών βάσεων δεδομένων όπως WorldCat, ISBNdb, PubMed  κλπ. Οι εγκεκριμένες αναφορές/παραπομπές μπορούν να εξαχθούν στα τελικά αρχεία του άρθρου.</message>
 </locale>

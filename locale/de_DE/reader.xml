@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.dropDownMenuLabel">Drop-down-Menü verwenden</message>
 	<message key="rt.admin.sharing.brandLabel">Marke</message>
 	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Kommata trennen)]]></message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

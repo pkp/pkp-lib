@@ -17,7 +17,7 @@
 	<message key="user.affiliations">Affiliazioni</message>
 	<message key="user.biography">Note biografiche</message>
 	<message key="user.biography.description">(es. dipartimento ed incarico)</message>
-	<message key="user.changeMyPassword">Modifica password</message>
+	<message key="user.changeMyPassword">Modifica la mia password</message>
 	<message key="user.changePassword">Modifica password</message>
 	<message key="user.dateLastLogin">Ultimo login</message>
 	<message key="user.dateRegistered">Data di iscrizione</message>
@@ -29,14 +29,14 @@
 	<message key="user.gender">Sesso</message>
 	<message key="user.initialsExample">Mario Carlo Rossi = MCR</message>
 	<message key="user.initials">Iniziali</message>
-	<message key="user.interests">Ambito di interesse per le revisioni</message>
+	<message key="user.interests">Argomenti di interesse per le revisioni</message>
 	<message key="user.lastName">Cognome</message>
 	<message key="user.login.accountDisabledWithReason">Il tuo account è stato disattivato per la seguente ragione: {$reason}</message>
 	<message key="user.login.accountDisabled">Il tuo account è stato disattivato. Contatta l'amministratore per maggiori informazioni.</message>
 	<message key="user.login.accountNotValidated">Il tuo indirizzo email non è stato validato. Per favore controlla la tua email e segui le istruzioni fornite. Se non hai ricevuto una email,  potresti aver bisogno di contattare l'amministratore del sito per assistenza.</message>
-	<message key="user.login.activate">Attiva un account</message>
+	<message key="user.login.activate">Attiva l'account</message>
 	<message key="user.login.activated">Grazie per aver attivato il tuo account. Ora puoi effettuare il log in usando le credenziali  che hai fornito quando hai creato il tuo account.</message>
-	<message key="user.login.changePasswordInstructions"><![CDATA[Devi scegliere una nuova password per registrarti a questo sito.<br /><br />Inserisci sotto il tuo username e la tua password attuali e quella nuova  per cambiare la password per il tuo account.]]></message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Devi scegliere una nuova password prima di entrare in questo sito.<br /><br />Inserisci sotto il tuo username e la tua password attuale e  la nuova password che vuoi utilizzare.]]></message>
 	<message key="user.login.forgotPassword">Password dimenticata?</message>
 	<message key="user.login.loginError">Username o password non valida. Riprova.</message>
 	<message key="user.login">Entra</message>
@@ -53,7 +53,7 @@
 	<message key="user.masculine">M</message>
 	<message key="user.middleName">Secondo nome</message>
 	<message key="user.myAccount">Il mio account</message>
-	<message key="user.name">Nome e Cognome</message>
+	<message key="user.name">Nome</message>
 	<message key="user.password">Password</message>
 	<message key="user.phone">Telefono</message>
 	<message key="user.profile.changePasswordInstructions">Per cambiare la password del tuo account, inserisci qui sotto la tua vecchia password e poi quella nuova.</message>
@@ -67,7 +67,7 @@
 	<message key="user.profile.form.passwordRequired">Inserire la password.</message>
 	<message key="user.profile.form.profileImage">Immagine del profilo</message>
 	<message key="user.profile.form.publishedNotifications">Notifica email della pubblicazione di nuovi fascicoli</message>
-	<message key="user.profile.form.urlInvalid">L'URL specificata non è valida. Per favore ricontrolla la URL e riprova. (Suggerimento: Prova aggiungendo http:// all'inizio della URL.)</message>
+	<message key="user.profile.form.urlInvalid">L'URL specificata non è valida. Per favore ricontrolla la URL e riprova. (Suggerimento: Prova aggiungendo http:// all'inizio della URL)</message>
 	<message key="user.profile.form.usernameRequired">Inserisci una username.</message>
 	<message key="user.profile.leavePasswordBlank">Lascia il campo password vuoto per mantenere la password corrente.</message>
 	<message key="user.profile.newPassword">Nuova password</message>
@@ -91,7 +91,7 @@
 	<message key="user.role.siteAdmin">Amministratore del sistema</message>
 	<message key="user.role.siteAdmins">Amministratori di sistema</message>
 	<message key="user.roles">Ruoli</message>
-	<message key="user.salutation">Titolo</message>
+	<message key="user.salutation">Titolo (Ing., Dott. ecc.)</message>
 	<message key="user.sendPassword">Conferma</message>
 	<message key="user.sendPassword.description">Inviami un'email di conferma con il mio nome utente e password</message>
 	<message key="user.signature">Firma</message>
@@ -102,4 +102,10 @@
 	<message key="user.workingLanguages">Lingue conosciute</message>
 	<message key="user.other">Altro</message>
 	<message key="user.profile.form.profileImageInvalid">Formato non valido o immagine troppo grande. I formati accettati sono .gif, .jpg, or .png, e le immagini devono essere grandi 150x150 pixel al massimo.</message>
+	<message key="user.profile.form.affiliationRequired">Inserisci un'affiliazione</message>
+	<message key="user.register.form.emailsDoNotMatch">Le email inserite non corrispondono.</message>
+	<message key="user.affiliation.description"><![CDATA[(La tua istituzione, es. "Universit&#224; La Sapienza di Roma")]]></message>
+	<message key="user.confirmEmail">Ripeti l'email</message>
+	<message key="user.gossip">Note private</message>
+	<message key="user.repeatPassword">Ripeti la password</message>
 </locale>

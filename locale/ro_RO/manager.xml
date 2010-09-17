@@ -197,7 +197,7 @@
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ai ales să adaugi baza de date {$filterDisplayName}. Dă clic pe „OK” pentru a confirma.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Selectează o bază de date.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Acest filtru se conectează la <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> - baza de date pentru cărți și ISBN.</p>
-	<p>Este necesară o cheie ISBNdb API. Pentru informații privind cum să generezi o cheie, vezi <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentația online</a>.]]></message>
+	<p>Este necesară o cheie ISBNdb API. Pentru informații privind cum să generezi o cheie, vezi <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentația online</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Acest filtru asigură conectarea la baza de date cu citări bibliografice CrossRef folosind <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">interfața pentru interogare OpenURL</a>.</p> 
 	<p>Pentru a utiliza acest filtru, poți utiliza contul personal pentru sau te poți înregistra cu o adresă de email validă <a href="http://www.crossref.org/requestaccount/" target="_blank">aici</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Acest filtru asigură conectarea la motorul bazei de date al PubMed: <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>.</p>

@@ -215,7 +215,7 @@
 </p><p>
 کلید ISBNdb الزامی است. برای اطلاع از نحوه تولید یک کلید به
 <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a>
-مراجعه کنید]]></message>
+مراجعه کنید</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>
 این فیلتر به بانک ارجاع CrossRef به کمک 
 <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>

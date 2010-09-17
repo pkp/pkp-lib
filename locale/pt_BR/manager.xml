@@ -202,7 +202,7 @@
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Ocorreu um erro ao tentar remover este filtro. Encaminhe este problema como erro de sistema.</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">A base {$filterDisplayName} está sendo incluída. Clique em 'ok' para confirmar.</message>
 	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Este filtro se conecta à base de livros e ISBNs <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>.</p>
-<p>Uma chave de API ISBNdb é obrigatória. Para mais informações sobre como gerar uma chave, acesse a <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentação online</a>.]]></message>
+<p>Uma chave de API ISBNdb é obrigatória. Para mais informações sobre como gerar uma chave, acesse a <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">documentação online</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Este filtro se conecta à base de citações CrossRef usando sua <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">Interface de Query OpenURL</a>.</p> 
 <p>Para usar este filtro, use seu cadastro no sistema CrossRef, ou cadastre um e-mail válido junto ao CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">aqui</a>.</p>]]></message>
 	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Este filtro se conecta ao <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a>, mecanismo de busca em bases cruzadas do PubMed.</p>

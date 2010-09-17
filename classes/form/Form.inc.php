@@ -205,12 +205,8 @@ class Form {
 		$templateMgr->assign('formLocales', $this->supportedLocales);
 
 		// Determine the current locale to display fields with
-		$formLocale = Request::getUserVar('formLocale');
-		if (empty($formLocale)) $formLocale = Locale::getLocale();
-		if (!in_array($formLocale, array_keys($this->supportedLocales))) {
-			$formLocale = $this->requiredLocale;
-		}
-		$templateMgr->assign('formLocale', $formLocale);
+		$formLocale = $this->getFormLocale();
+		$templateMgr->assign('formLocale', $this->getFormLocale());
 
 		// N.B: We have to call $templateMgr->display instead of ->fetch($display)
 		// in order for the TemplateManager::display hook to be called
@@ -353,13 +349,23 @@ class Form {
 	}
 
 	/**
+	 * Get the default form locale.
+	 * @return string
+	 */
+	function getDefaultFormLocale() {
+		if (empty($formLocale)) $formLocale = Locale::getLocale();
+		if (!in_array($formLocale, $this->supportedLocales)) $formLocale = $this->requiredLocale;
+	}
+
+	/**
 	 * Get the current form locale.
 	 * @return string
 	 */
 	function getFormLocale() {
 		$formLocale = Request::getUserVar('formLocale');
-		if (empty($formLocale)) $formLocale = Locale::getLocale();
-		if (!in_array($formLocale, $this->supportedLocales)) $formLocale = $this->requiredLocale;
+		if (!$formLocale || !in_array($formLocale, $this->supportedLocales)) {
+			$formLocale = $this->getDefaultFormLocale();
+		}
 		return $formLocale;
 	}
 
@@ -486,7 +492,7 @@ class Form {
 
 		// Print back all non-current language field values so that they
 		// are not lost.
-		$formLocale = $smarty->get_template_vars('formLocale');
+		$formLocale = $this->getFormLocale();
 		foreach ($this->getLocaleFieldNames() as $field) {
 			$values = $this->getData($field);
 			if (!is_array($values)) continue;
@@ -496,7 +502,6 @@ class Form {
 		}
 
 		// Display the language selector widget.
-		$formLocale = $smarty->get_template_vars('formLocale');
 		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
 		foreach ($this->supportedLocales as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';

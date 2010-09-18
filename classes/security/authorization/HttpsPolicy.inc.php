@@ -47,7 +47,7 @@ class HttpsPolicy extends AuthorizationPolicy {
 	function effect() {
 		// Check the request protocol
 		if ($this->_request->getProtocol() == 'https') {
-			return AUTHORIZATiON_ALLOW;
+			return AUTHORIZATION_ALLOW;
 		} else {
 			return AUTHORIZATION_DENY;
 		}

@@ -62,43 +62,36 @@ class DBDataXMLParser {
 
 					// Match table element
 					foreach ($table->getChildren() as $row) {
-						if ($row->getName() == 'field_default') {
-							// Match a default field element
-							$fieldName = $row->getAttribute('name');
-							$value = $row->getValue();
-							if ($value === null || $row->getAttribute('null') == 1) {
-								$value = 'NULL';
-							} else if (!is_numeric($value)) {
-								$value = $this->quoteString($value);
-							}
-							$fieldDefaultValues[$fieldName] = $value;
+						switch ($row->getName()) {
+							case 'field_default':
+								// Match a default field element
+								list($fieldName, $value) = $this->_getFieldData($row);
+								$fieldDefaultValues[$fieldName] = $value;
+								break;
 
-						} else if ($row->getName() == 'row') {
-							// Match a row element
-							$fieldValues = array();
+							case 'row':
+								// Match a row element
+								$fieldValues = array();
 
-							foreach ($row->getChildren() as $field) {
-								// Get the field names and values for this INSERT
-								$fieldName = $field->getAttribute('name');
-								$value = $field->getValue();
-								if ($value === null || $field->getAttribute('null') == 1) {
-									$value = 'NULL';
-								} else if (!is_numeric($value)) {
-									$value = $this->quoteString($value);
+								foreach ($row->getChildren() as $field) {
+									// Get the field names and values for this INSERT
+									list($fieldName, $value) = $this->_getFieldData($field);
+									$fieldValues[$fieldName] = $value;
 								}
-								$fieldValues[$fieldName] = $value;
-							}
 
-							$fieldValues = array_merge($fieldDefaultValues, $fieldValues);
+								$fieldValues = array_merge($fieldDefaultValues, $fieldValues);
 
-							if (count($fieldValues) > 0) {
-								$this->sql[] = sprintf(
-										'INSERT INTO %s (%s) VALUES (%s)',
-										$table->getAttribute('name'),
-										join(', ', array_keys($fieldValues)),
-										join(', ', array_values($fieldValues))
-									);
-							}
+								if (count($fieldValues) > 0) {
+									$this->sql[] = sprintf(
+											'INSERT INTO %s (%s) VALUES (%s)',
+											$table->getAttribute('name'),
+											join(', ', array_keys($fieldValues)),
+											join(', ', array_values($fieldValues)));
+								}
+								break;
+
+							default:
+								assert(false);
 						}
 					}
 
@@ -223,6 +216,49 @@ class DBDataXMLParser {
 	function destroy() {
 		$this->parser->destroy();
 		unset($this);
+	}
+
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * retrieve a field name and value from a field node
+	 * @param $fieldNode XMLNode
+	 * @return array an array with two entries: the field
+	 *  name and the field value
+	 */
+	function _getFieldData($fieldNode) {
+		$fieldName = $fieldNode->getAttribute('name');
+		$fieldValue = $fieldNode->getValue();
+
+		// Is this field empty? If so: do we want NULL or
+		// an empty string?
+		$isEmpty = $fieldNode->getAttribute('null');
+		if (!is_null($isEmpty)) {
+			assert(is_null($fieldValue));
+			switch($isEmpty) {
+				case 1:
+					$fieldValue = null;
+					break;
+
+				case 0:
+					$fieldValue = '';
+					break;
+			}
+		}
+
+		// Translate null to 'NULL' for SQL use.
+		if (is_null($fieldValue)) {
+			$fieldValue = 'NULL';
+		} else {
+			// Quote the value.
+			if (!is_numeric($fieldValue)) {
+				$fieldValue = $this->quoteString($fieldValue);
+			}
+		}
+
+		return array($fieldName, $fieldValue);
 	}
 }
 

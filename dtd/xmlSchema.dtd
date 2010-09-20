@@ -8,8 +8,6 @@
   *
   * Database schema DTD adopted from ADOdb.
   * See the adodb-xmlschema documentation distributed with ADOdb for more information.
-  *
-  * $Id$
   -->
 
 <!ELEMENT schema (table*, sql*)>

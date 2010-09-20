@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/metadata/OpenUrlDissertationSchema.inc.php
+ * @file classes/metadata/openurl/OpenUrlDissertationSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -14,7 +14,6 @@
  *  OpenURL 1.0 dissertation standard.
  */
 
-// $Id$
 
 import('lib.pkp.classes.metadata.openurl.OpenUrlBaseSchema');
 
@@ -26,18 +25,15 @@ class OpenUrlDissertationSchema extends OpenUrlBaseSchema {
 	 * Constructor
 	 */
 	function OpenUrlDissertationSchema() {
-		$this->setName('openurl-1.0-dissertation');
-
-		parent::OpenUrlBaseSchema();
+		parent::OpenUrlBaseSchema('openurl-1.0-dissertation');
 
 		// Add meta-data properties that only appear in the OpenURL dissertation standard
-		$citation = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('co', $citation)); // Country of publication (plain text)
-		$this->addProperty(new MetadataProperty('cc', $citation)); // Country of publication (ISO 2-character code)
-		$this->addProperty(new MetadataProperty('inst', $citation)); // Institution that issued the dissertation
-		$this->addProperty(new MetadataProperty('advisor', $citation));
-		$this->addProperty(new MetadataProperty('tpages', $citation, METADATA_PROPERTY_TYPE_INTEGER));
-		$this->addProperty(new MetadataProperty('degree', $citation));
+		$this->addProperty('co'); // Country of publication (plain text)
+		$this->addProperty('cc'); // Country of publication (ISO 2-character code)
+		$this->addProperty('inst'); // Institution that issued the dissertation
+		$this->addProperty('advisor');
+		$this->addProperty('tpages', METADATA_PROPERTY_TYPE_INTEGER);
+		$this->addProperty('degree');
 	}
 }
 ?>

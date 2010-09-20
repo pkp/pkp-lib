@@ -19,9 +19,13 @@ define('REALLY_BIG_NUMBER', 10000);
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
-define('ASSOC_TYPE_ROLE', 0x0100000);
-define('ASSOC_TYPE_USER_GROUP', 0x0200000);
+define('ASSOC_TYPE_ROLE', 0x0100001);
+define('ASSOC_TYPE_USER_GROUP', 0x0100002);
 
+define('ASSOC_TYPE_CITATION', 0x0100003);
+
+define('ASSOC_TYPE_AUTHOR', 0x0100004);
+define('ASSOC_TYPE_EDITOR', 0x0100005);
 
 class PKPApplication {
 	var $enabledProducts;

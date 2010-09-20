@@ -33,7 +33,7 @@
 define('METADATA_PROPERTY_TYPE_STRING', 0x01);
 
 // literal values (typed)
-define('METADATA_PROPERTY_TYPE_DATE', 0x02);
+define('METADATA_PROPERTY_TYPE_DATE', 0x02); // This is W3CDTF encoding without time (YYYY[-MM[-DD]])!
 define('METADATA_PROPERTY_TYPE_INTEGER', 0x03);
 
 // non-literal value string from a controlled vocabulary
@@ -118,13 +118,13 @@ class MetadataProperty {
 				$allowedTypeParam = null;
 			}
 
+			// Validate type
+			assert(in_array($allowedTypeId, MetadataProperty::getSupportedTypes()));
+
 			// Transform the type array in a
 			// structure that is easy to handle
 			// in for loops.
 			$canonicalizedTypes[$allowedTypeId][] = $allowedTypeParam;
-
-			// Validate type
-			assert(in_array($allowedTypeId, MetadataProperty::getSupportedTypes()));
 
 			// Validate additional type parameter.
 			switch($allowedTypeId) {
@@ -271,13 +271,17 @@ class MetadataProperty {
 	 * types, then we'll return 'false'.
 	 *
 	 * @param $value mixed the input to be validated
+	 * @param $locale string the locale to be used for validation
 	 * @return array|boolean an array with a single entry of the format
 	 *  "type => additional type parameter" against which the value
 	 *  validated or boolean false if not validated at all.
 	 */
-	function isValid($value) {
+	function isValid($value, $locale = null) {
 		// We never accept null values or arrays.
 		if (is_null($value) || is_array($value)) return false;
+
+		// Translate the locale.
+		if (is_null($locale)) $locale = '';
 
 		// MetadataProperty::getSupportedTypes() returns an ordered
 		// list of possible meta-data types with the most specific
@@ -344,8 +348,8 @@ class MetadataProperty {
 
 							if (is_string($value)) {
 								// Try to translate the string value into a controlled vocab entry
-								$controlledVocabEntryDao =& DAORegistry::getDao('ControlledVocabEntryDAO');
-								if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId))) {
+								$controlledVocabEntryDao =& DAORegistry::getDao('ControlledVocabEntryDAO'); /* @var $controlledVocabEntryDao ControlledVocabEntryDAO */
+								if (!is_null($controlledVocabEntryDao->getBySetting($value, $symbolic, $assocType, $assocId, 'name', $locale))) {
 									// The string was successfully translated so mark it as "valid".
 									return array(METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam);
 								}

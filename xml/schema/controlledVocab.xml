@@ -8,8 +8,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Controlled vocabulary schema in XML.
-  *
-  * $Id$
   -->
 
 <schema version="0.2">
@@ -23,7 +21,7 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
-		<field name="symbolic" type="C2" size="32">
+		<field name="symbolic" type="C2" size="64">
 			<NOTNULL/>
 		</field>
 		<field name="assoc_type" type="I8">

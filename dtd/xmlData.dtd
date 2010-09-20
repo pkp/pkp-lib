@@ -3,8 +3,6 @@
   *
   * DTD for database data files.
   * Describes data to be inserted into a database.
-  *
-  * $Id$
   -->
 
 <!ELEMENT data (table?, sql?)*>

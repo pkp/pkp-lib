@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/metadata/OpenUrlJournalSchema.inc.php
+ * @file classes/metadata/openurl/OpenUrlJournalSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -14,7 +14,6 @@
  *  OpenURL journal 1.0 standard.
  */
 
-// $Id$
 
 import('lib.pkp.classes.metadata.openurl.OpenUrlJournalBookBaseSchema');
 
@@ -28,25 +27,22 @@ class OpenUrlJournalSchema extends OpenUrlJournalBookBaseSchema {
 	 * Constructor
 	 */
 	function OpenUrlJournalSchema() {
-		$this->setName('openurl-1.0-journal');
-
-		parent::OpenUrlJournalBookBaseSchema();
+		parent::OpenUrlJournalBookBaseSchema('openurl-1.0-journal');
 
 		// Add meta-data properties that only appear in the OpenURL journal standard
-		$citation = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('jtitle', $citation));
-		$this->addProperty(new MetadataProperty('stitle', $citation)); // Short title
-		$this->addProperty(new MetadataProperty('chron', $citation));  // Enumeration or chronology in not-normalized form, e.g. "1st quarter"
-		$this->addProperty(new MetadataProperty('ssn', $citation));    // Season
-		$this->addProperty(new MetadataProperty('quarter', $citation));
-		$this->addProperty(new MetadataProperty('volume', $citation));
-		$this->addProperty(new MetadataProperty('part', $citation));   // A special subdivision of a volume or the highest level division of the journal
-		$this->addProperty(new MetadataProperty('issue', $citation));
-		$this->addProperty(new MetadataProperty('artnum', $citation)); // Number assigned by the publisher
-		$this->addProperty(new MetadataProperty('eissn', $citation));
-		$this->addProperty(new MetadataProperty('coden', $citation));
-		$this->addProperty(new MetadataProperty('sici', $citation));
-		$this->addProperty(new MetadataProperty('genre', $citation, array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-journal-genres')));
+		$this->addProperty('jtitle');
+		$this->addProperty('stitle'); // Short title
+		$this->addProperty('chron');  // Enumeration or chronology in not-normalized form, e.g. "1st quarter"
+		$this->addProperty('ssn');    // Season
+		$this->addProperty('quarter');
+		$this->addProperty('volume');
+		$this->addProperty('part');   // A special subdivision of a volume or the highest level division of the journal
+		$this->addProperty('issue');
+		$this->addProperty('artnum'); // Number assigned by the publisher
+		$this->addProperty('eissn');
+		$this->addProperty('coden');
+		$this->addProperty('sici');
+		$this->addProperty('genre', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'openurl10-journal-genres'));
 	}
 }
 ?>

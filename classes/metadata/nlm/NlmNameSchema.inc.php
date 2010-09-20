@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/metadata/NlmNameSchema.inc.php
+ * @file classes/metadata/nlm/NlmNameSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -30,17 +30,20 @@ class NlmNameSchema extends MetadataSchema {
 	 * Constructor
 	 */
 	function NlmNameSchema() {
-		$this->setName('nlm-3.0-name');
-		$this->setNamespace('nlm30');
+		// Configure the meta-data schema.
+		parent::MetadataSchema(
+			'nlm-3.0-name',
+			'nlm30',
+			array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)
+		);
 
 		// This schema is used for persons (authors, editors, ...)
-		$types = array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR);
-		$this->addProperty(new MetadataProperty('surname', $types));
+		$this->addProperty('surname');
 		// The following is a deviation from original NLM schema.
 		// See classdoc for further info.
-		$this->addProperty(new MetadataProperty('given-names', $types, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
-		$this->addProperty(new MetadataProperty('prefix', $types));
-		$this->addProperty(new MetadataProperty('suffix', $types));
+		$this->addProperty('given-names', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
+		$this->addProperty('prefix');
+		$this->addProperty('suffix');
 	}
 }
 ?>

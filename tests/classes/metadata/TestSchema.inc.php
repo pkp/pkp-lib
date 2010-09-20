@@ -14,7 +14,6 @@
  *  testing purposes.
  */
 
-// $Id$
 
 import('lib.pkp.classes.metadata.MetadataSchema');
 
@@ -23,14 +22,18 @@ class TestSchema extends MetadataSchema {
 	 * Constructor
 	 */
 	function TestSchema() {
-		$this->setName('test-schema');
+		// Configure the meta-data schema.
+		parent::MetadataSchema(
+			'test-schema',
+			'test',
+			ASSOC_TYPE_CITATION
+		);
 
-		$types = array(ASSOC_TYPE_CITATION);
-		$this->addProperty(new MetadataProperty('not-translated-one', $types, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE));
-		$this->addProperty(new MetadataProperty('not-translated-many', $types, METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY));
-		$this->addProperty(new MetadataProperty('translated-one', $types, METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_ONE));
-		$this->addProperty(new MetadataProperty('translated-many', $types, METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY));
-		$this->addProperty(new MetadataProperty('composite-translated-many', $types, METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY));
+		$this->addProperty('not-translated-one', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE);
+		$this->addProperty('not-translated-many', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_MANY);
+		$this->addProperty('translated-one', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_ONE);
+		$this->addProperty('translated-many', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
+		$this->addProperty('composite-translated-many', METADATA_PROPERTY_TYPE_STRING, true, METADATA_PROPERTY_CARDINALITY_MANY);
 	}
 }
 ?>

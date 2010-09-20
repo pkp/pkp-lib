@@ -16,7 +16,6 @@
  *  object nodes).
  */
 
-// $Id$
 
 class MetadataRecord {
 	/** @var array the MetadataDescriptions in this record */

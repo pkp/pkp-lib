@@ -340,6 +340,20 @@ class MetadataDataObjectAdapter extends Filter {
 		return $this->_metadataFieldNames[$translated];
 	}
 
+	/**
+	 * Set several localized statements in a meta-data schema.
+	 * @param $metadataDescription MetadataDescription
+	 * @param $propertyName string
+	 * @param $localizedValues array (keys: locale, values: localized values)
+	 */
+	function addLocalizedStatements(&$metadataDescription, $propertyName, $localizedValues) {
+		if (is_array($localizedValues)) {
+			foreach ($localizedValues as $locale => $value) {
+				$metadataDescription->addStatement($propertyName, $value, $locale);
+			}
+		}
+	}
+
 	//
 	// Private helper methods
 	//

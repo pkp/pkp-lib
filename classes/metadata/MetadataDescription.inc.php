@@ -252,9 +252,6 @@ class MetadataDescription extends DataObject {
 		// Check that the property is allowed for the described resource
 		if (!in_array($this->_assocType, $property->getAssocTypes())) return false;
 
-		// Check that the value is compliant with the property specification
-		if ($property->isValid($value) === false) return false;
-
 		// Handle translation
 		$translated = $property->getTranslated();
 		if (isset($locale) && !$translated) return false;
@@ -262,6 +259,9 @@ class MetadataDescription extends DataObject {
 			// Retrieve the current locale
 			$locale = Locale::getLocale();
 		}
+
+		// Check that the value is compliant with the property specification
+		if ($property->isValid($value, $locale) === false) return false;
 
 		// Handle cardinality
 		$existingValue =& $this->getStatement($propertyName, $locale);
@@ -353,7 +353,8 @@ class MetadataDescription extends DataObject {
 	 * @param $propertyName string
 	 * @return array all translations of a given property; if the
 	 *  property has cardinality "many" then this returns a two-dimensional
-	 *  array whereby the first key represents the locale and the second.
+	 *  array whereby the first key represents the locale and the second
+	 *  the translated values.
 	 */
 	function &getStatementTranslations($propertyName) {
 		assert($this->isTranslatedProperty($propertyName));

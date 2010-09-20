@@ -15,6 +15,7 @@
 	<message key="author.submit.submissionCitations">Provide a formatted list of references for works cited in this submission. Please separate individual references with a blank line.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
+	<!-- messages used by meta-data filters -->
 	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef Registration Email</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Please enter a valid CrossRef registration email. You can register your email for free on the CrossRef web site.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
@@ -27,10 +28,14 @@
 	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Please select one of the given citation modules.</message>
 	<message key="metadata.filters.settings.isOptional.displayName">Don't use by default (will still be available to the editor)</message>
 	<message key="metadata.filters.settings.isOptional.validationMessage">Internal error. A non-valid value has been posted for the 'optional filter' setting. Please report this as a bug.</message>
+	
+	<!-- messages shared between MD schemas -->
 	<message key="metadata.property.displayName.author">Authors</message>
 	<message key="metadata.property.validationMessage.author">For best results, authors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
 	<message key="metadata.property.displayName.editor">Editors</message>
 	<message key="metadata.property.validationMessage.editor">For best results, editors should be entered in the following format: Coleman Jr, D. (Ralf) Dr.</message>
+	
+	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Article/Paper Title</message>
 	<message key="metadata.property.validationMessage.article-title">Please enter a valid article/paper title.</message>
 	<message key="metadata.property.displayName.source">Journal/Book Title</message>
@@ -97,7 +102,24 @@
 	<message key="metadata.property.validationMessage.annotation">Please enter a valid annotation.</message>
 	<message key="metadata.property.displayName.publication-type">Publication Type</message>
 	<message key="metadata.property.validationMessage.publication-type">Please make sure that you always set a publication type. Currently supported values are book (for books or book chapters) and journal (for journal articles). Otherwise the citation output formatting will not work correctly.</message>
+	
+	<!-- MODS-specific messages -->
+	<message key="metadata.property.displayName.title-type">Title Type</message>
+	<message key="metadata.property.validationMessage.title-type">Please make sure that you set a valid title type. Supported values are 'abbreviated', 'translated', 'alternative' and 'uniform'.</message>
+	<message key="metadata.property.displayName.nonSort">Part of title ignored while sorting</message>
+	<message key="metadata.property.validationMessage.nonSort">Please only enter the initial characters of the title that should be ignored when sorting the title.</message>
+	<message key="metadata.property.displayName.title">Title</message>
+	<message key="metadata.property.validationMessage.title">Please enter a valid title.</message>
+	<message key="metadata.property.displayName.subTitle">Subtitle</message>
+	<message key="metadata.property.validationMessage.subTitle">Please enter a valid subtitle.</message>
+	<message key="metadata.property.displayName.partNumber">Part Number</message>
+	<message key="metadata.property.validationMessage.partNumber">Please enter a valid part number.</message>
+	<message key="metadata.property.displayName.partName">Part Name</message>
+	<message key="metadata.property.validationMessage.partName">Please enter a valid part name.</message>
+	<message key="metadata.property.displayName.name-type">Name Type</message>
+	<message key="metadata.property.validationMessage.name-type">Please make sure that you set a valid name type. Supported values are 'personal', 'corporate' and 'conference'.</message>
 	<!-- FIXME: end -->
+	
 	<message key="submission.agencies">Agencies</message>
 	<message key="submission.abstractViews">Abstract Views</message>
 	<message key="submission.accepted">Accepted</message>

@@ -354,7 +354,7 @@ class Form {
 	 */
 	function getDefaultFormLocale() {
 		if (empty($formLocale)) $formLocale = Locale::getLocale();
-		if (!in_array($formLocale, $this->supportedLocales)) $formLocale = $this->requiredLocale;
+		if (!isset($this->supportedLocales[$formLocale])) $formLocale = $this->requiredLocale;
 		return $formLocale;
 	}
 
@@ -364,7 +364,7 @@ class Form {
 	 */
 	function getFormLocale() {
 		$formLocale = Request::getUserVar('formLocale');
-		if (!$formLocale || !in_array($formLocale, $this->supportedLocales)) {
+		if (!$formLocale || !isset($this->supportedLocales[$formLocale])) {
 			$formLocale = $this->getDefaultFormLocale();
 		}
 		return $formLocale;

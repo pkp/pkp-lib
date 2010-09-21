@@ -9,10 +9,12 @@
   * $Id$
   -->
 
-<!ELEMENT version (application, type, release, tag?, date)>
+<!ELEMENT version (application, type, release, tag?, date, lazy-load?, sitewide?, class?)>
 <!ELEMENT application (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT release (#PCDATA)>
 <!ELEMENT tag (#PCDATA)>
 <!ELEMENT date (#PCDATA)>
-
+<!ELEMENT lazy-load (#PCDATA)>
+<!ELEMENT sitewide (#PCDATA)>
+<!ELEMENT class (#PCDATA)>

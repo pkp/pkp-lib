@@ -43,7 +43,9 @@
 	<!ATTLIST code
 		file CDATA #IMPLIED
 		class CDATA #IMPLIED
-		function CDATA #REQUIRED>
+		function CDATA #REQUIRED
+		locales CDATA #IMPLIED
+		key CDATA #IMPLIED>
 <!ELEMENT note EMPTY>
 	<!ATTLIST note
 		file CDATA #REQUIRED>

@@ -592,8 +592,8 @@
 			<NOTNULL/>
 		</field>
 		<field name="obliterated" type="I1">
-			<DEFAULT VALUE="0"/>
 			<NOTNULL/>
+			<DEFAULT VALUE="0"/>
 		</field>
 		<descr>Currently running processes.</descr>
 		<index name="processes_pkey">

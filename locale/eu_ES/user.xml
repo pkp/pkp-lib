@@ -108,4 +108,12 @@
 	<message key="user.confirmEmail">Berretsi helbide elektronikoa</message>
 	<message key="user.repeatPassword">Errepikatu pasahitza</message>
 	<message key="user.register.form.emailsDoNotMatch">Helbide elektronikoaren eremuak ez datoz bat.</message>
+	<message key="user.authorization.accessDenied">Sarbidea ukatuta.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Prozesua autentifikatzeko fitxa falta da edo ez da baliozkoa.</message>
+	<message key="user.authorization.contextRequired">Ezin duzu eragiketa hori egin testuingururik gabe (prentsa, aldizkaria, kongresua, etab.).</message>
+	<message key="user.authorization.loginRequired">Beharrezkoa da saioa hastea.</message>
+	<message key="user.authorization.privateOperation">Egiten saiatu zaren eragiketa pribatua da edo ez da existitzen.</message>
+	<message key="user.authorization.restrictedSiteAccess">Sarbidea ukatu zaizu. Une honetan, orri honetarako sarbidea murriztuta dago.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Une honetako eginkizunak ez du eragiketa hori egiteko baimenik.</message>
+	<message key="user.authorization.userGroupRequired">Eragiketa hori egin ahal izateko, baliozko erabiltzaile taldea ezarri behar duzu.</message>
 </locale>

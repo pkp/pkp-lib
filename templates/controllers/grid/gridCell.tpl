@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridCell.tpl -->
-
 {**
  * gridCell.tpl
  *
@@ -17,6 +15,4 @@
 		{$label|strip_unsafe_html}
 	{/if}
 </span>
-
-<!-- / templates/controllers/grid/gridCell.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/form/link.tpl -->
-
  {**
  * link.tpl
  *
@@ -10,6 +8,4 @@
  *}
 
 <a href="#" id="{$FBV_id}" class="{$FBV_class}">{translate key=$FBV_label}</a>
-
-<!-- / templates/form/link.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/citation/form/citationFormErrorsAndComparison.tpl -->
-
 {**
  * citationFormErrorsAndComparison.tpl
  *
@@ -244,6 +242,4 @@
 		<div class="value ui-corner-all">{$generatedCitationWithMarkup}</div>
 	</div>
 </div>
-
-<!-- / templates/controllers/grid/citation/form/citationFormErrorsAndComparison.tpl -->
 

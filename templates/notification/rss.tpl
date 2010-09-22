@@ -9,7 +9,6 @@
  * $Id$
  *}
 <?xml version="1.0" encoding="{$defaultCharset|escape}"?>
-<!-- templates/notification/rss.tpl -->
 <rdf:RDF
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns="http://purl.org/rss/1.0/"
@@ -52,6 +51,4 @@
 	{/foreach}
 
 </rdf:RDF>
-
-<!-- / templates/notification/rss.tpl -->
 

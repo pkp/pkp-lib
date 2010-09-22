@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridBodyPartWithCategory.tpl -->
-
 {**
  * gridBodyPartWithCategory.tpl
  *
@@ -18,6 +16,4 @@
 		{/foreach}
 	</tr>
 </tbody>
-
-<!-- / templates/controllers/grid/gridBodyPartWithCategory.tpl -->
 

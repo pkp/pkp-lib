@@ -1,5 +1,3 @@
-<!-- templates/controllers/listbuilder/listbuilderGrid.tpl -->
-
 {**
  * listbuilder.tpl
  *
@@ -25,6 +23,4 @@
     </tbody>
 </table>
 </div>
-
-<!-- / templates/controllers/listbuilder/listbuilderGrid.tpl -->
 

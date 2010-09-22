@@ -1,5 +1,3 @@
-<!-- templates/form/buttonBar.tpl -->
-
 {**
  * buttonBar.tpl
  *
@@ -22,6 +20,4 @@
         {fbvButton id="submitModalButton" label=$submitText disabled=$submitDisabled align=$fbvStyles.align.RIGHT}
     {/fbvFormSection}
 {/fbvFormArea}
-
-<!-- / templates/form/buttonBar.tpl -->
 

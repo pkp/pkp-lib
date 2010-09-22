@@ -1,5 +1,3 @@
-<!-- templates/controllers/listbuilder/listbuilder.tpl -->
-
 {**
  * listbuilder.tpl
  *
@@ -84,6 +82,4 @@
 	</script>
 </div>
 
-
-<!-- / templates/controllers/listbuilder/listbuilder.tpl -->
 

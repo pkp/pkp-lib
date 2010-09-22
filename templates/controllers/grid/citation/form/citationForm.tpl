@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/citation/form/citationForm.tpl -->
-
 {**
  * citationForm.tpl
  *
@@ -755,6 +753,4 @@
 		</div>
 	</form>
 </div>
-
-<!-- / templates/controllers/grid/citation/form/citationForm.tpl -->
 

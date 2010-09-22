@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridRowWithActions.tpl -->
-
 {**
  * gridRowWithActions.tpl
  *
@@ -39,6 +37,4 @@
 		{/if}
 	{/foreach}
 </tr>
-
-<!-- / templates/controllers/grid/gridRowWithActions.tpl -->
 

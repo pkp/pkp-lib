@@ -1,5 +1,3 @@
-<!-- templates/manager/announcement/announcementTypeForm.tpl -->
-
 {**
  * announcementTypeForm.tpl
  *
@@ -57,6 +55,4 @@
 <p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 {include file="common/footer.tpl"}
-
-<!-- / templates/manager/announcement/announcementTypeForm.tpl -->
 

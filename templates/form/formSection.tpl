@@ -1,5 +1,3 @@
-<!-- templates/form/formSection.tpl -->
-
 {**
  * formSection.tpl
  *
@@ -21,6 +19,4 @@
 
 	{if $FBV_layoutColumns}</div>{/if}
 </li>
-
-<!-- / templates/form/formSection.tpl -->
 

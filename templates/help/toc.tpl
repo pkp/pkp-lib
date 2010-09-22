@@ -1,5 +1,3 @@
-<!-- templates/help/toc.tpl -->
-
 {**
  * toc.tpl
  *
@@ -55,6 +53,4 @@
 	</ul>
 </div>
 
-
-<!-- / templates/help/toc.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/form/element.tpl -->
-
 {**
  * element.tpl
  *
@@ -13,6 +11,4 @@
 	{$FBV_content}
 	{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
 </span>
-
-<!-- / templates/form/element.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/form/keywordInput.tpl -->
-
 {**
  * keywordInput.tpl
  *
@@ -24,6 +22,4 @@
 	<ul id="{$FBV_id}"></ul>
 	{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
 </div>
-
-<!-- / templates/form/keywordInput.tpl -->
 

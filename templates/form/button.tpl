@@ -1,5 +1,3 @@
-<!-- templates/form/button.tpl -->
-
  {**
  * button.tpl
  *
@@ -10,6 +8,4 @@
  *}
 
 <button class="button {$FBV_class}" type="{$FBV_type|escape}"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{translate key=$FBV_label}</button>
-
-<!-- / templates/form/button.tpl -->
 

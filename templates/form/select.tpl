@@ -1,5 +1,3 @@
-<!-- templates/form/select.tpl -->
-
 {**
  * select.tpl
  *
@@ -13,6 +11,4 @@
 	{if $FBV_defaultValue !== null}<option value="{$FBV_defaultValue|escape}">{$FBV_defaultLabel|escape}</option>{/if}
 	{if $FBV_translate}{html_options_translate options=$FBV_from selected=$FBV_selected}{else}{html_options options=$FBV_from selected=$FBV_selected}{/if}
 </select>
-
-<!-- / templates/form/select.tpl -->
 

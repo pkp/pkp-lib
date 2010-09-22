@@ -1,5 +1,3 @@
-<!-- templates/user/login.tpl -->
-
 {**
  * login.tpl
  *
@@ -79,6 +77,4 @@
 </form>
 
 {include file="common/footer.tpl"}
-
-<!-- / templates/user/login.tpl -->
 

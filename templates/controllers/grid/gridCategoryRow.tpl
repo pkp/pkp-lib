@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridCategoryRow.tpl -->
-
 {**
  * gridCategoryRow.tpl
  *
@@ -17,6 +15,4 @@
 {/if}
 {$categoryRow->getCategoryLabel()}
 </td>
-
-<!-- / templates/controllers/grid/gridCategoryRow.tpl -->
 

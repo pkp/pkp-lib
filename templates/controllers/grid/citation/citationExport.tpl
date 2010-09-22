@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/citation/citationExport.tpl -->
-
 
 {**
  * citationExport.tpl
@@ -97,6 +95,4 @@
 {foreach from=$formattedCitations key=citationIndex item=formattedCitation}
 	<a name="c{$citationIndex+1}_{$formattedCitation|strip_tags|truncate:50:'':false|regex_replace:'/[ ,.;:()]+/':'_'}" ></a>{$formattedCitation}
 {/foreach *}
-
-<!-- / templates/controllers/grid/citation/citationExport.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridCellUrl.tpl -->
-
 {**
  * gridCell.tpl
  *
@@ -12,6 +10,4 @@
 <span id="{$cellId}">
 	<a href="{$label}">{$label}</a>
 </span>
-
-<!-- / templates/controllers/grid/gridCellUrl.tpl -->
 

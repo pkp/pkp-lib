@@ -1,5 +1,3 @@
-<!-- templates/help/footer.tpl -->
-
 {**
  * footer.tpl
  *
@@ -14,6 +12,4 @@
 </div>
 </body>
 </html>
-
-<!-- / templates/help/footer.tpl -->
 

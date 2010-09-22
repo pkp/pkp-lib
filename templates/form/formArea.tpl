@@ -1,5 +1,3 @@
-<!-- templates/form/formArea.tpl -->
-
 {**
  * formArea.tpl
  *
@@ -13,6 +11,4 @@
 	{$FBV_content}
 </ul>
 <div class="clear"></div>
-
-<!-- / templates/form/formArea.tpl -->
 

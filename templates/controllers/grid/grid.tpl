@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/grid.tpl -->
-
 {**
  * grid.tpl
  *
@@ -98,6 +96,4 @@
 		</div>
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 </div>
-
-<!-- / templates/controllers/grid/grid.tpl -->
 

@@ -1,5 +1,3 @@
-<!-- templates/common/urlInDiv.tpl -->
-
 {**
  * urlInDiv.tpl
  *
@@ -26,4 +24,3 @@
 	{/literal}
 </script>
 
-<!-- / templates/common/urlInDiv.tpl -->

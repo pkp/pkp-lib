@@ -1,5 +1,3 @@
-<!-- templates/linkAction/linkAction.tpl -->
-
 {** if the actOnId has not been specified, assume the id plays the role *}
 {if !$actOnId}
 	{assign var=actOnId value=$id}
@@ -39,6 +37,4 @@
 		{rdelim});
 	</script>
 {/if}
-
-<!-- / templates/linkAction/linkAction.tpl -->
 

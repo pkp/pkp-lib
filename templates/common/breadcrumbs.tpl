@@ -1,5 +1,3 @@
-<!-- templates/common/breadcrumbs.tpl -->
-
 {**
  * breadcrumbs.tpl
  *
@@ -17,6 +15,4 @@
 	{* Disable linking to the current page if the request is a post (form) request. Otherwise following the link will lead to a form submission error. *}
 	{if $requiresFormRequest}<span class="current">{else}<a href="{$currentUrl|escape}" class="current">{/if}{$pageCrumbTitleTranslated}{if $requiresFormRequest}</span>{else}</a>{/if}
 </div>
-
-<!-- / templates/common/breadcrumbs.tpl -->
 

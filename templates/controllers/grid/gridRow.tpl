@@ -1,5 +1,3 @@
-<!-- templates/controllers/grid/gridRow.tpl -->
-
 {**
  * gridRow.tpl
  *
@@ -14,6 +12,4 @@
 		<td>{$cell}</td>
 	{/foreach}
 </tr>
-
-<!-- / templates/controllers/grid/gridRow.tpl -->
 

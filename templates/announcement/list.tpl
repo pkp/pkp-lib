@@ -1,5 +1,3 @@
-<!-- templates/announcement/list.tpl -->
-
 {**
  * list.tpl
  *
@@ -45,6 +43,4 @@
 	</tr>
 {/if}
 </table>
-
-<!-- / templates/announcement/list.tpl -->
 

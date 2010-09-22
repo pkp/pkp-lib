@@ -114,6 +114,8 @@ class XMLTypeDescription extends TypeDescription {
 		}
 
 		switch($this->_validationStrategy) {
+			// We have to suppress validation errors, otherwise the script
+			// will stop when validation errors occur.
 			case XML_TYPE_DESCRIPTION_VALIDATE_DTD:
 				if (!@$xmlDom->validate()) return false;
 				break;

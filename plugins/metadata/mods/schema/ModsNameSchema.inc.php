@@ -77,7 +77,7 @@ class ModsNameSchema extends MetadataSchema {
 		// The affiliation subelement contains the name, address, etc. of an organization with which the
 		// name entity was associated when the resource was created. If the information is readily
 		// available, it may be included.
-		$this->addProperty('affiliation', METADATA_PROPERTY_TYPE_STRING, true);
+		$this->addProperty('affiliation');
 
 		// Use the role element as a wrapper element to contain coded and/or textual description
 		// of the role of the named entity. Use this element primarily with personal names. Repeat role

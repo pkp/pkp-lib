@@ -87,12 +87,19 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 								// Affiliation
 								$localizedAffiliations = $nameDescription->getStatementTranslations('affiliation');
-								if (is_array($localizedAffiliations)) {
-									foreach($localizedAffiliations as $locale => $affiliations) {
-										if (is_array($affiliations) && isset($affiliations[0])) {
-											$author->setAffiliation($affiliations[0], $locale);
-										}
+								if (!empty($localizedAffiliation)) {
+									// We can only use one affiliation as our MODS mapping cannot
+									// provide translation support for affiliations.
+									$primaryLocale = Locale::getPrimaryLocale();
+									$currentLocale = Locale::getLocale();
+									if (isset($localizedAffiliations[$primaryLocale])) {
+										$affiliation = $localizedAffiliations[$primaryLocale];
+									} elseif (isset($localizedAffiliations[$currentLocale])) {
+										$affiliation = $localizedAffiliations[$currentLocale];
+									} else {
+										$affiliation = $localizedAffiliations[0];
 									}
+									$author->setAffiliation($affiliation, $locale);
 								}
 
 								// Add the author to the submission.

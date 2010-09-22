@@ -57,9 +57,9 @@
 		</div>
 		<div class="unit size1of10 listbuilder_controls">
 			<a href="#" id="add-{$listbuilderId}{if $itemId}-{$itemId}{/if}" onclick="return false;" class="add_item">
-				<span class="hidetext">Add</span></a>
+				<span class="hidetext">{translate key="common.add"}</span></a>
 			<a href="#" id="delete-{$listbuilderId}{if $itemId}-{$itemId}{/if}" onclick="return false;" class="remove_item">
-				<span class="hidetext">Delete</span></a>
+				<span class="hidetext">{translate key="common.delete"}</span></a>
 		</div>
 		<div id="results-{$listbuilderId}{if $itemId}-{$itemId}{/if}" class="unit size1of2 lastUnit listbuilder_results">
 		    <ul>

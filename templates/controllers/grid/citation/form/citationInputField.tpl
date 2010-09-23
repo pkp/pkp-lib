@@ -24,7 +24,7 @@
 					class="citation-field-label">
 						<option value="-1"{if $fieldName == 'new'} selected="selected"{/if}>{translate|escape key="submission.citations.editor.pleaseSelect"}</option>
 						{foreach from=$availableFields key=availableFieldName item=availableField}
-							<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{translate|escape key=$availableField.displayName}</option>
+							<option value="{$availableFieldName}"{if $availableFieldName == $fieldName} selected="selected"{/if}>{$availableField.displayName}</option>
 						{/foreach}
 				</select>
 			</div>

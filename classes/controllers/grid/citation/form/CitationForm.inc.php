@@ -377,7 +377,7 @@ class CitationForm extends Form {
 			foreach($this->_citationProperties as $fieldName => $property) {
 				// Prepare property information for the view.
 				$availableFields[$fieldName] = array(
-					'displayName' => $property->getDisplayName(),
+					'displayName' => Locale::translate($property->getDisplayName()),
 					'required' => $property->getMandatory()?'true':'false'
 				);
 

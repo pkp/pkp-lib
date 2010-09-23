@@ -34,76 +34,70 @@
 			{/if}
 
 			// Add keyboard shortcuts.
-			/**
-			 * keyboard handler
-			 * @param e Event
-			 * @return boolean
-			 */
-			var shortcutHandler = function(e) {ldelim}
-				// All shortcuts are ctrl keys.
-				if (!e.ctrlKey) return;
+			$(document)
+				.unbind('keydown').unbind('keypress')
 
-				switch(e.which) {ldelim}
-					// Ctrl-R
-					case 114:
-						$('#citationFormSaveAndRevokeApproval').click();
-						break;
+				// Ctrl-R: save and revoke approval
+				.bind('keydown', 'ctrl+r', function() {ldelim}
+					$('#citationFormSaveAndRevokeApproval').click();
+					return false;
+				{rdelim})
 
-					// Ctrl-S
-					case 115:
-						$('#citationFormSave').click();
-						break;
+				// Ctrl-S: save
+				.bind('keydown', 'ctrl+s', function() {ldelim}
+					$('#citationFormSave').click();
+					return false;
+				{rdelim})
 
-					// Ctrl-A
-					case 97:
-						$('#citationFormSaveAndApprove').click();
-						break;
+				// Ctrl-A: save and approve
+				.bind('keydown', 'ctrl+a', function() {ldelim}
+					$('#citationFormSaveAndApprove').click();
+					return false;
+				{rdelim})
 
-					// Ctrl-C
-					case 99:
-						$('#citationFormCancel').click();
-						break;
+				// Ctrl-C: cancel
+				.bind('keydown', 'ctrl+c', function() {ldelim}
+					$('#citationFormCancel').click();
+					return false;
+				{rdelim})
 
-					// Ctrl-M
-					case 109:
-						// manual editing
-						$('#citationImprovement').tabs('select', 0);
-						$('.citation-field').first().focus();
-						break;
+				// Ctrl-M: manual editing
+				.bind('keydown', 'ctrl+m', function() {ldelim}
+					$('#citationImprovement').tabs('select', 0);
+					$('.citation-field').first().focus();
+					return false;
+				{rdelim})
 
-					// Ctrl-D
-					case 100:
-						// citation services (databases)
-						$('#citationImprovement').tabs('select', 1);
-						break;
+				// Ctrl-D: citation services (databases)
+				.bind('keydown', 'ctrl+d', function() {ldelim}
+					$('#citationImprovement').tabs('select', 1);
+					return false;
+				{rdelim})
 
-					// Ctrl-G
-					case 103:
-						// Google Scholar
-						$('#citationImprovement').tabs('select', 2);
-						break;
+				// Ctrl-G: Google Scholar
+				.bind('keydown', 'ctrl+g', function() {ldelim}
+					$('#citationImprovement').tabs('select', 2);
+					return false;
+				{rdelim})
 
-					// Ctrl-Q
-					case 113:
-						// author query
-						$('#citationImprovement').tabs('select', 3);
-						break;
+				// Ctrl-Q: author query
+				.bind('keydown', 'ctrl+q', function() {ldelim}
+					$('#citationImprovement').tabs('select', 3);
+					return false;
+				{rdelim})
 
-					// Ctrl-O
-					case 111:
-						// show sources
-						$('#citationImprovementResultsBlock>.options-head').click();
-						break;
+				// Ctrl-H: show sources
+				.bind('keydown', 'ctrl+h', function() {ldelim}
+					$('#citationImprovementResultsBlock>.options-head').click();
+					return false;
+				{rdelim})
 
-					default:
-						// No hotkey pressed.
-						return;
-				{rdelim}
+				// Additionally bind to keypress to cancel the default event in Opera.
+				.bind('keypress', 'ctrl+h ctrl+r ctrl+s ctrl+a ctrl+c ctrl+m ctrl+d ctrl+g ctrl+q', function() {ldelim}
+					return false;
+				{rdelim});
 
-				// Override all other meanings of these hotkeys.
-				return false;
-			{rdelim};
-			$(document).unbind('keypress').keypress(shortcutHandler);
+
 
 			////////////////////////////////////////////////////////////
 			// Improvement options
@@ -695,8 +689,8 @@
 				<div id="citationImprovementResultsBlock">
 					<div class="options-head">
 						<span class="ui-icon"></span>
-						<span class="option-block-inactive" title="{translate key="submission.citations.editor.details.citationImprovementResultsInactive"} [Ctrl-O]">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
-						<span class="option-block-active" title="{translate key="submission.citations.editor.details.citationImprovementResultsActive"} [Ctrl-O]">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
+						<span class="option-block-inactive" title="{translate key="submission.citations.editor.details.citationImprovementResultsInactive"} [Ctrl-H]">{translate key="submission.citations.editor.details.citationImprovementResultsInactive"}</span>
+						<span class="option-block-active" title="{translate key="submission.citations.editor.details.citationImprovementResultsActive"} [Ctrl-H]">{translate key="submission.citations.editor.details.citationImprovementResultsActive"}</span>
 					</div>
 					<div class="option-block">
 						{* Tabs that contain source data *}

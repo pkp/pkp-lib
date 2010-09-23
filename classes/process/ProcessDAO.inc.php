@@ -72,15 +72,8 @@ class ProcessDAO extends DAO {
 	 *  false if there are too many parallel processes.
 	 */
 	function &insertObject($processType, $maxParallelism) {
-		static $zombiesDeleted = false;
-
 		// Free processing slots occupied by zombie processes.
-		// For performance reasons don't do this more than once per
-		// request.
-		if (!$zombiesDeleted) {
-			$this->deleteZombies();
-			$zombiesDeleted = true;
-		}
+		$this->deleteZombies();
 
 		// Cap the parallelism to the max. parallelism.
 		$maxParallelism = min($maxParallelism, PROCESS_MAX_PARALLELISM);
@@ -158,7 +151,7 @@ class ProcessDAO extends DAO {
 		$runningProcesses = 0;
 		if ($result->RecordCount() != 0) {
 			$row =& $result->GetRowAssoc(false);
-			$runningProcesses = $row['running_processes'];
+			$runningProcesses = (int)$row['running_processes'];
 		}
 		return $runningProcesses;
 	}
@@ -189,10 +182,22 @@ class ProcessDAO extends DAO {
 	 * that for some reason died. We have to regularly remove
 	 * them so that the process slots they occupy are freed
 	 * for new processes.
+	 * @param $force whether to force zombie removal, even
+	 *  if they have been removed before.
 	 *
 	 * @see PROCESS_MAX_EXECUTION_TIME
 	 */
-	function deleteZombies() {
+	function deleteZombies($force = false) {
+		static $zombiesDeleted = false;
+
+		// For performance reasons don't delete zombies
+		// more than once per request.
+		if ($zombiesDeleted && !$force) {
+			return;
+		} else {
+			$zombiesDeleted = true;
+		}
+
 		// Calculate the max timestamp that is considered ok.
 		$maxTimestamp = time() - PROCESS_MAX_EXECUTION_TIME;
 
@@ -236,6 +241,9 @@ class ProcessDAO extends DAO {
 			$port = 80;
 			$transport = '';
 		}
+
+		// Delete process zombies for correct process slot calculation.
+		$this->deleteZombies();
 
 		// Calculate the number of max process slots for the given process type.
 		$noOfProcesses = min($noOfProcesses, PROCESS_MAX_PARALLELISM);

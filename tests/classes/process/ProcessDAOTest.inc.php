@@ -57,8 +57,14 @@ class ProcessDAOTest extends DatabaseTestCase {
 		// Manually turn one process into a zombie process.
 		$this->processDAO->update('UPDATE processes SET time_started = 0 WHERE process_id = ?', $processes[0]->getId());
 
-		// Test zombie removal.
+		// Zombie removal has been called during insertObject(). As it should
+		// only be executed once per request it should remain without effect if
+		// we don't call it with the force-parameter set to true.
 		$this->processDAO->deleteZombies();
+		self::assertEquals(2, $this->processDAO->getNumberOfObjectsByProcessType($this->testProcessType));
+
+		// Test forced zombie removal.
+		$this->processDAO->deleteZombies(true);
 		self::assertEquals(1, $this->processDAO->getNumberOfObjectsByProcessType($this->testProcessType));
 
 		// Remove the remaining process.

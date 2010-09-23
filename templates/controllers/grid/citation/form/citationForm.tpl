@@ -127,13 +127,16 @@
 			var addAutocomplete = function(fieldName) {ldelim}
 				// Set up local options database.
 				var autocompleteOptions = {ldelim}{strip}
+					{assign var=firstOption value=true}
 					{foreach from=$availableFields key=fieldName item=field}
 						{if $field.options}
+							{if !$firstOption}, {/if}
 							'{$fieldName}': [
 								{foreach name=options from=$field.options item=option}
 									'{$option|escape:javascript}'{if !$smarty.foreach.options.last},{/if}
 								{/foreach}
-							],
+							]
+							{assign var=firstOption value=false}
 						{/if}
 					{/foreach}
 				{/strip}{rdelim};

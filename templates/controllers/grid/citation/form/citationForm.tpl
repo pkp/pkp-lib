@@ -143,11 +143,11 @@
 
 				// jQuerify the field.
 				$citationField = $('.citation-field[name="' + fieldName + '"]');
-				
+
 				// Remove any previous autocomplete that may currently
 				// be attached to the given field.
 				$citationField.autocomplete('destroy');
-				
+
 				// If the given field has options then add
 				// a new autocomplete.
 				if (autocompleteOptions[fieldName] !== undefined) {ldelim}
@@ -163,7 +163,7 @@
 							return false;
 						{rdelim}
 					{rdelim});
-	
+
 					// Fixing autocomplete font size (the autocomplete
 					// markup is appended to the end of the document and
 					// therefore doesn't correctly inherit styles).
@@ -294,7 +294,7 @@
 						.val('')
 						// Show label selector and delete button.
 						.closest('tr').find('a, select').fadeIn(500);
-	
+
 					// Add new empty field to be edited next.
 					addNewCitationField();
 				{rdelim}
@@ -418,7 +418,7 @@
 						$label.val(propertyName);
 						labelChangeHandler($label, false);
 					{rdelim}
-					
+
 					// Copy the content of the source to the target field
 					$targetField.val($sourceCell.text());
 				{rdelim});

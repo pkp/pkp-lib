@@ -115,7 +115,7 @@
 				null,
 				'click',
 				'#editCitationForm'
-			);			
+			);
 		{else}
 			// Configure the dialog.
 			var warningContent =

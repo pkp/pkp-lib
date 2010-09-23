@@ -549,7 +549,14 @@ function extrasOnDemand(actOnId) {
 		// Change the header icon into a triangle pointing downwards.
 		$(actOnId + ' .ui-icon').removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
 		// Scroll the parent so that all extra options are visible.
-		scrollToMakeVisible(actOnId);
+		if ($.browser.msie && parseInt($.browser.version.substring(0,1)) <= 7) {
+			// IE7 is old and slow and returns before repainting everything,
+			// so wait half a second for the page to repaint before going on.
+			setTimeout(function(){scrollToMakeVisible(actOnId)}, 500);
+		} else {
+			// Other browsers can proceed immediately.
+			scrollToMakeVisible(actOnId);
+		}
 	}
 
 	/**
@@ -668,7 +675,7 @@ $.fn.selectRange = function() {
 			r.select();
 		}
 	});
-}
+};
 
 /**
  * Add a class to the <body> tag that identifies the browser

@@ -214,7 +214,7 @@ function &cloneObject(&$object) {
  *  if the class instantiation didn't result in the expected
  *  type.
  */
-function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, &$constructorArg = null) {
+function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, $constructorArg = null) {
 	$errorFlag = false;
 
 	// Validate the class name

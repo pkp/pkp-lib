@@ -53,7 +53,12 @@ class DataObject {
 
 		// Fallback: Get the first available piece of data.
 		$data =& $this->getData($key, null);
-		if (!empty($data)) return $data[array_shift(array_keys($data))];
+		if (!empty($data)) {
+			// WARNING: Collapsing the following into a single line causes PHP 5.0.5 to die.
+			$locales = array_keys($data);
+			$firstLocale = array_shift($locales);
+			return $data[$firstLocale];
+		}
 
 		// No data available; return null.
 		unset($data);

@@ -121,7 +121,7 @@ class FilterDAO extends DAO {
 		$result =& $this->retrieve(
 				'SELECT * FROM filters WHERE context_id = ? AND class_name = ?'.
 				' '.($allowSubfilters ? '' : 'AND parent_filter_id = 0').
-				' AND '.($getTemplates ? '' : 'NOT ').'is_template',
+				' AND '.($getTemplates ? ' is_template = 1' : ' is_template = 0'),
 				array((integer)$contextId, $className));
 
 		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));

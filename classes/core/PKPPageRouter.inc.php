@@ -260,7 +260,7 @@ class PKPPageRouter extends PKPRouter {
 		// be removed from handler operations without damage (i.e.
 		// they don't depend on actions being performed before the
 		// call to validate().
-		$args =& $this->getRequestedArgs($request);
+		$args = $this->getRequestedArgs($request);
 		$serviceEndpoint = array($handler, $op);
 		$this->_authorizeInitializeAndCallRequest($serviceEndpoint, $request, $args, false);
 	}

@@ -121,7 +121,7 @@ class FilterDAO extends DAO {
 		$result =& $this->retrieve(
 				'SELECT * FROM filters WHERE context_id = ? AND class_name = ?'.
 				' '.($allowSubfilters ? '' : 'AND parent_filter_id = 0').
-				' AND '.($getTemplates ? ' is_template = 1' : ' is_template = 0'),
+				' AND '.($getTemplates ? 'is_template = 1' : 'is_template = 0'),
 				array((integer)$contextId, $className));
 
 		$daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
@@ -163,7 +163,7 @@ class FilterDAO extends DAO {
 		if (!isset($filterHash[$hashId]) || $rehash) {
 			$result =& $this->retrieve(
 				'SELECT * FROM filters'.
-				' WHERE '.($getTemplates ? '' : 'NOT ').'is_template'.
+				' WHERE '.($getTemplates ? 'is_template = 1' : 'is_template = 0').
 				' AND context_id in (0, ?) AND parent_filter_id = 0', (integer)$contextId);
 			foreach($result->GetAssoc() as $filterRow) {
 				$filterHash[$hashId][$filterRow['input_type']][$filterRow['output_type']][] = $filterRow;

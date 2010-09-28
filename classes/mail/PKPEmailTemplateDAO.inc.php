@@ -564,31 +564,33 @@ class PKPEmailTemplateDAO extends DAO {
 	 * Check if a template exists with the given email key for a journal/
 	 * conference/...
 	 * @param $emailKey string
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $assocType int optional
+	 * @param $assocId int optional
 	 * @return boolean
 	 */
-	function templateExistsByKey($emailKey, $assocType, $assocId) {
-		$result =& $this->retrieve(
-			'SELECT	COUNT(*)
-			FROM	email_templates
-			WHERE	email_key = ? AND
-				assoc_type = ? AND
-				assoc_id = ?',
-			array(
-				$emailKey,
-				$assocType,
-				$assocId
-			)
-		);
-		if (isset($result->fields[0]) && $result->fields[0] != 0) {
+	function templateExistsByKey($emailKey, $assocType = null, $assocId = null) {
+		if ($assocType !== null) {
+			$result =& $this->retrieve(
+				'SELECT	COUNT(*)
+				FROM	email_templates
+				WHERE	email_key = ? AND
+					assoc_type = ? AND
+					assoc_id = ?',
+				array(
+					$emailKey,
+					$assocType,
+					$assocId
+				)
+			);
+			if (isset($result->fields[0]) && $result->fields[0] != 0) {
+				$result->Close();
+				unset($result);
+				return true;
+			}
+
 			$result->Close();
 			unset($result);
-			return true;
 		}
-
-		$result->Close();
-		unset($result);
 
 		$result =& $this->retrieve(
 			'SELECT COUNT(*)
@@ -656,11 +658,15 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $templatesFile string Filename to install
 	 * @param $returnSql boolean Whether or not to return SQL rather than
 	 * executing it
+	 * @param $emailKey string Optional name of single email key to install,
+	 * skipping others
+	 * @param $skipExisting boolean If true, do not install email templates
+	 * that already exist in the database
 	 * @param $emailKey string If specified, the key of the single template
 	 * to install (otherwise all are installed)
 	 * @return array
 	 */
-	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null) {
+	function installEmailTemplates($templatesFile, $returnSql = false, $emailKey = null, $skipExisting = false) {
 		$xmlDao = new XMLDAO();
 		$sql = array();
 		$data = $xmlDao->parseStruct($templatesFile, array('email'));
@@ -668,6 +674,7 @@ class PKPEmailTemplateDAO extends DAO {
 		foreach ($data['email'] as $entry) {
 			$attrs = $entry['attributes'];
 			if ($emailKey && $emailKey != $attrs['key']) continue;
+			if ($skipExisting && $this->templateExistsByKey($attrs['key'])) continue;
 			$sql[] = 'INSERT INTO email_templates_default
 				(email_key, can_disable, can_edit, from_role_id, to_role_id)
 				VALUES

@@ -542,7 +542,7 @@ class PKPPlugin {
 		$result =& $args[1];
 
 		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
-		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true);
+		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
 		if ($sql) {
 			$result = $installer->executeSQL($sql);
 		} else {

@@ -248,7 +248,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 		$aSql = array_merge($aSql,$this->CreateTableSQL($tabname,$tableflds,$tableoptions));
 		$aSql[] = "INSERT INTO $tabname ($insertflds) SELECT $copyflds FROM $tempname";
 		if (isset($seq_name) && $seq_name && $seq_fld) {	// if we have a sequence we need to set it again
-			//$seq_name = $tabname.'_'.$seq_fld.'_seq';	// has to be the name of the new implicit sequence
+			$seq_name = $tabname.'_'.$seq_fld.'_seq';	// has to be the name of the new implicit sequence
 			$aSql[] = "SELECT setval('$seq_name',MAX($seq_fld)) FROM $tabname";
 		}
 		$aSql[] = "DROP TABLE $tempname";

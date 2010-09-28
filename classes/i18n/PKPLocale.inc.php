@@ -19,33 +19,39 @@
 
 import('lib.pkp.classes.i18n.LocaleFile');
 
-define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
-define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));
-define('LOCALE_ENCODING', Config::getVar('i18n', 'client_charset'));
+if (!defined('LOCALE_REGISTRY_FILE')) {
+	define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
+}
+if (!defined('LOCALE_DEFAULT')) {
+	define('LOCALE_DEFAULT', Config::getVar('i18n', 'locale'));
+}
+if (!defined('LOCALE_ENCODING')) {
+	define('LOCALE_ENCODING', Config::getVar('i18n', 'client_charset'));
+}
 
 define('MASTER_LOCALE', 'en_US');
 
 // Error types for locale checking.
 // Note: Cannot use numeric symbols for the constants below because
 // array_merge_recursive doesn't treat numeric keys nicely.
-define('LOCALE_ERROR_MISSING_KEY',		'LOCALE_ERROR_MISSING_KEY');
-define('LOCALE_ERROR_EXTRA_KEY',		'LOCALE_ERROR_EXTRA_KEY');
-define('LOCALE_ERROR_DIFFERING_PARAMS',		'LOCALE_ERROR_DIFFERING_PARAMS');
-define('LOCALE_ERROR_MISSING_FILE',		'LOCALE_ERROR_MISSING_FILE');
+define('LOCALE_ERROR_MISSING_KEY', 'LOCALE_ERROR_MISSING_KEY');
+define('LOCALE_ERROR_EXTRA_KEY', 'LOCALE_ERROR_EXTRA_KEY');
+define('LOCALE_ERROR_DIFFERING_PARAMS', 'LOCALE_ERROR_DIFFERING_PARAMS');
+define('LOCALE_ERROR_MISSING_FILE', 'LOCALE_ERROR_MISSING_FILE');
 
-define('EMAIL_ERROR_MISSING_EMAIL',		'EMAIL_ERROR_MISSING_EMAIL');
-define('EMAIL_ERROR_EXTRA_EMAIL',		'EMAIL_ERROR_EXTRA_EMAIL');
-define('EMAIL_ERROR_DIFFERING_PARAMS',		'EMAIL_ERROR_DIFFERING_PARAMS');
+define('EMAIL_ERROR_MISSING_EMAIL', 'EMAIL_ERROR_MISSING_EMAIL');
+define('EMAIL_ERROR_EXTRA_EMAIL', 'EMAIL_ERROR_EXTRA_EMAIL');
+define('EMAIL_ERROR_DIFFERING_PARAMS', 'EMAIL_ERROR_DIFFERING_PARAMS');
 
 // Locale components
-define('LOCALE_COMPONENT_PKP_COMMON',		0x00000001);
-define('LOCALE_COMPONENT_PKP_ADMIN',		0x00000002);
-define('LOCALE_COMPONENT_PKP_INSTALLER',	0x00000003);
-define('LOCALE_COMPONENT_PKP_MANAGER',		0x00000004);
-define('LOCALE_COMPONENT_PKP_READER',		0x00000005);
-define('LOCALE_COMPONENT_PKP_SUBMISSION',	0x00000006);
-define('LOCALE_COMPONENT_PKP_USER',		0x00000007);
-define('LOCALE_COMPONENT_PKP_GRID', 	0x00000008);
+define('LOCALE_COMPONENT_PKP_COMMON', 0x00000001);
+define('LOCALE_COMPONENT_PKP_ADMIN', 0x00000002);
+define('LOCALE_COMPONENT_PKP_INSTALLER', 0x00000003);
+define('LOCALE_COMPONENT_PKP_MANAGER', 0x00000004);
+define('LOCALE_COMPONENT_PKP_READER', 0x00000005);
+define('LOCALE_COMPONENT_PKP_SUBMISSION', 0x00000006);
+define('LOCALE_COMPONENT_PKP_USER', 0x00000007);
+define('LOCALE_COMPONENT_PKP_GRID', 0x00000008);
 
 class PKPLocale {
 	/**
@@ -172,8 +178,7 @@ class PKPLocale {
 	}
 
 	function getLocaleStyleSheet($locale) {
-		$allLocales =& Locale::_getAllLocalesCache();
-		$contents = $allLocales->getContents();
+		$contents =& Locale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]['stylesheet'])) {
 			return $contents[$locale]['stylesheet'];
 		}
@@ -186,8 +191,8 @@ class PKPLocale {
 	 * @return boolean
 	 */
 	function isLocaleComplete($locale) {
-		$allLocales =& Locale::_getAllLocalesCache();
-		$contents = $allLocales->getContents();
+		$contents =& Locale::_getAllLocalesCacheContent();
+		if (!isset($contents[$locale])) return false;
 		if (isset($contents[$locale]['complete']) && $contents[$locale]['complete'] == 'false') {
 			return false;
 		}
@@ -204,27 +209,6 @@ class PKPLocale {
 		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z]$/', $locale)) return false;
 		if (file_exists('locale/' . $locale)) return true;
 		return false;
-	}
-
-	/**
-	 * Get the cache object for the current list of all locales.
-	 */
-	function &_getAllLocalesCache() {
-		$cache =& Registry::get('allLocalesCache', true, null);
-		if ($cache === null) {
-			$cacheManager =& CacheManager::getManager();
-			$cache = $cacheManager->getFileCache(
-				'locale', 'list',
-				array('Locale', '_allLocalesCacheMiss')
-			);
-
-			// Check to see if the data is outdated
-			$cacheTime = $cache->getCacheTime();
-			if ($cacheTime !== null && $cacheTime < filemtime(LOCALE_REGISTRY_FILE)) {
-				$cache->flush();
-			}
-		}
-		return $cache;
 	}
 
 	/**
@@ -247,28 +231,12 @@ class PKPLocale {
 		return $allLocales;
 	}
 
-	function _allLocalesCacheMiss(&$cache, $id) {
-		$allLocales =& Registry::get('allLocales', true, null);
-		if ($allLocales === null) {
-			// Add a locale load to the debug notes.
-			$notes =& Registry::get('system.debug.notes');
-			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));
-
-			// Reload locale registry file
-			$allLocales = Locale::loadLocaleList(LOCALE_REGISTRY_FILE);
-			asort($allLocales);
-			$cache->setEntireCache($allLocales);
-		}
-		return null;
-	}
-
 	/**
 	 * Return a list of all available locales.
 	 * @return array
 	 */
 	function &getAllLocales() {
-		$cache =& Locale::_getAllLocalesCache();
-		$rawContents = $cache->getContents();
+		$rawContents =& Locale::_getAllLocalesCacheContent();
 		$allLocales = array();
 
 		foreach ($rawContents as $locale => $contents) {
@@ -333,6 +301,165 @@ class PKPLocale {
 		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
 		return $matches;
+	}
+
+	/**
+	 * Translate the ISO 2-letter language string (ISO639-1)
+	 * into a ISO compatible 3-letter string (ISO639-2b).
+	 * @param $iso2Letter string
+	 * @return string the translated string or null if we
+	 *  don't know about the given language.
+	 */
+	function get3LetterFrom2LetterIsoLanguage($iso2Letter) {
+		assert(strlen($iso2Letter) == 2);
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			if (substr($locale, 0, 2) == $iso2Letter) {
+				assert(isset($localeData['iso639-2b']));
+				return $localeData['iso639-2b'];
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Translate the ISO 3-letter language string (ISO639-2b)
+	 * into a ISO compatible 2-letter string (ISO639-1).
+	 * @param $iso3Letter string
+	 * @return string the translated string or null if we
+	 *  don't know about the given language.
+	 */
+	function get2LetterFrom3LetterIsoLanguage($iso3Letter) {
+		assert(strlen($iso3Letter) == 3);
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			assert(isset($localeData['iso639-2b']));
+			if ($localeData['iso639-2b'] == $iso3Letter) {
+				return substr($locale, 0, 2);
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Translate the PKP locale identifier into an
+	 * ISO639-2b compatible 3-letter string.
+	 * @param $locale string
+	 * @return string
+	 */
+	function get3LetterIsoFromLocale($locale) {
+		assert(strlen($locale) == 5);
+		$iso2Letter = substr($locale, 0, 2);
+		return Locale::get3LetterFrom2LetterIsoLanguage($iso2Letter);
+	}
+
+	/**
+	 * Translate an ISO639-2b compatible 3-letter string
+	 * into the PKP locale identifier.
+	 *
+	 * This can be ambiguous if several locales are defined
+	 * for the same language. In this case we'll use the
+	 * primary locale to disambiguate.
+	 *
+	 * If that still doesn't determine a unique locale then
+	 * we'll choose the first locale found.
+	 *
+	 * @param $iso3letter string
+	 * @return string
+	 */
+	function getLocaleFrom3LetterIso($iso3Letter) {
+		assert(strlen($iso3Letter) == 3);
+		$primaryLocale = Locale::getPrimaryLocale();
+
+		$localeCandidates = array();
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			assert(isset($localeData['iso639-2b']));
+			if ($localeData['iso639-2b'] == $iso3Letter) {
+				if ($locale == $primaryLocale) {
+					// In case of ambiguity the primary locale
+					// overrides all other options so we're done.
+					return $primaryLocale;
+				}
+				$localeCandidates[] = $locale;
+			}
+		}
+
+		// Return null if we found no candidate locale.
+		if (empty($localeCandidates)) return null;
+
+		if (count($localeCandidates) > 1) {
+			// Check whether one of the candidate locales
+			// is a supported locale. If so choose the first
+			// supported locale.
+			$supportedLocales = Locale::getSupportedLocales();
+			foreach($supportedLocales as $supportedLocale => $localeName) {
+				if (in_array($supportedLocale, $localeCandidates)) return $supportedLocale;
+			}
+		}
+
+		// If there is only one candidate (or if we were
+		// unable to disambiguate) then return the unique
+		// (first) candidate found.
+		return array_shift($localeCandidates);
+	}
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Retrieves locale data from the locales cache.
+	 * @return array
+	 */
+	function &_getAllLocalesCacheContent() {
+		static $contents = false;
+		if ($contents === false) {
+			$allLocalesCache =& Locale::_getAllLocalesCache();
+			$contents = $allLocalesCache->getContents();
+		}
+		return $contents;
+	}
+
+	/**
+	 * Get the cache object for the current list of all locales.
+	 * @return FileCache
+	 */
+	function &_getAllLocalesCache() {
+		$cache =& Registry::get('allLocalesCache', true, null);
+		if ($cache === null) {
+			$cacheManager =& CacheManager::getManager();
+			$cache = $cacheManager->getFileCache(
+				'locale', 'list',
+				array('Locale', '_allLocalesCacheMiss')
+			);
+
+			// Check to see if the data is outdated
+			$cacheTime = $cache->getCacheTime();
+			if ($cacheTime !== null && $cacheTime < filemtime(LOCALE_REGISTRY_FILE)) {
+				$cache->flush();
+			}
+		}
+		return $cache;
+	}
+
+	/**
+	 * Create a cache file with locale data.
+	 * @param $cache CacheManager
+	 * @param $id the cache id (not used here, required by the cache manager)
+	 */
+	function _allLocalesCacheMiss(&$cache, $id) {
+		$allLocales =& Registry::get('allLocales', true, null);
+		if ($allLocales === null) {
+			// Add a locale load to the debug notes.
+			$notes =& Registry::get('system.debug.notes');
+			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));
+
+			// Reload locale registry file
+			$allLocales = Locale::loadLocaleList(LOCALE_REGISTRY_FILE);
+			asort($allLocales);
+			$cache->setEntireCache($allLocales);
+		}
+		return null;
 	}
 }
 

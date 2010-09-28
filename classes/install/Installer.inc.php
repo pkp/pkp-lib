@@ -639,6 +639,9 @@ class Installer {
 	 * FIXME: Move this to plug-in installation when moving filters to plug-ins, see #5157.
 	 */
 	function installFilterTemplates() {
+		// Filters are supported on PHP5+ only.
+		if (!checkPhpVersion('5.0.0')) return false;
+
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		$filtersToBeInstalled = array(
 			'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter',

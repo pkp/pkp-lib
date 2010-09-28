@@ -33,7 +33,7 @@ class UserApiHandler extends PKPHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize(&$request, $args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPAuthenticatedAccessPolicy');
 		$this->addPolicy(new PKPAuthenticatedAccessPolicy($request,
 				array('changeActingAsUserGroup', 'setUserSetting')));

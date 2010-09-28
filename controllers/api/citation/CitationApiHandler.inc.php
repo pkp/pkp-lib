@@ -30,7 +30,7 @@ class CitationApiHandler extends PKPHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, &$args, $roleAssignments) {
+	function authorize(&$request, $args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPProcessAccessPolicy');
 		$this->addPolicy(new PKPProcessAccessPolicy($request, $args, 'checkAllCitations'));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -54,7 +54,7 @@ class CitationApiHandler extends PKPHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function checkAllCitations(&$args, &$request) {
+	function checkAllCitations($args, &$request) {
 		// This is potentially a long running request. So
 		// give us unlimited execution time.
 		ini_set('max_execution_time', 0);

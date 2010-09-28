@@ -1,3 +1,11 @@
+/*
+ * jQuery Tag-it plugin
+ *
+ * By Levy Carneiro Jr (http://levycarneiro.com/)
+ *
+ * Customized by Matthew Crider, PKP (http://pkp.sfu.ca), 2010
+ */
+
 (function($) {
 
 	$.fn.tagit = function(options) {
@@ -5,6 +13,7 @@
 		var el = this;
 		var id = el.attr('id');
 
+		// MC: const declarations are mozilla-only--Declare as var
 		var BACKSPACE		= 8;
 		var ENTER			= 13;
 		var SPACE			= 32;
@@ -12,20 +21,22 @@
 
 		// add the tagit CSS class.
 		el.addClass("tagit");
-		
+
 
 		// create the input field.
+		// MC: Allow for unique IDs (so multiple tag-it instances can live on the same page
 		var html_input_field = "<li class=\"tagit-new\"><input class=\"tagit-input\" id=\""+id+"KeywordInput\" type=\"text\" /></li>\n";
 		el.html (html_input_field);
 
 		//tag_input		= el.children(".tagit-new").children(".tagit-input");
 		var tag_input = $("#"+id+"KeywordInput");
 
-		// Add the existing user interests
+		// Add the existing keywords
+		// 'For each' is not browser-safe. Use jQuery's .each method
 		var currentTags = options.currentTags;
-		for (var tag in currentTags) {
-			create_choice(tag);
-		}
+		$.each(currentTags, function() {
+			create_choice(this);
+		});
 
 		$(this).click(function(e){
 			if (e.target.tagName == 'A') {
@@ -48,6 +59,7 @@
 				}
 			}
 			// Comma/Space/Enter are all valid delimiters for new tags.
+			// MC: Allow for multi-word keywords (removed space as delimiter)
 			else if (event.which == COMMA || event.which == ENTER) {
 				event.preventDefault();
 
@@ -66,7 +78,7 @@
 		});
 
 		tag_input.autocomplete({
-			source: options.availableTags, 
+			source: options.availableTags,
 			select: function(event,ui){
 				if (is_new (ui.item.value)) {
 					create_choice (ui.item.value);

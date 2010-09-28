@@ -216,7 +216,7 @@ class VersionDAO extends DAO {
 				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
 				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
 			}
-			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide)';
+			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide = 1)';
 		} else {
 			$contextWhereClause = '';
 		}
@@ -225,8 +225,8 @@ class VersionDAO extends DAO {
 				'SELECT v.*
 				 FROM versions v LEFT JOIN plugin_settings ps ON
 				     lower(v.product_class_name) = ps.plugin_name
-				     AND ps.setting_name = "enabled" '.$contextWhereClause.'
-				 WHERE v.current = 1 AND (ps.setting_value OR NOT v.lazy_load)', $context, false);
+				     AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
+				 WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)', $context, false);
 
 		$productArray = array();
 		while(!$result->EOF) {

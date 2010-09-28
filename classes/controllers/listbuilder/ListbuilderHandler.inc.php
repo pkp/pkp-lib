@@ -215,7 +215,8 @@ class ListbuilderHandler extends GridHandler {
 		$templateMgr->assign('numColumns', count($columns));
 
 		// Render the rows
-		$rows = $this->_renderRowsInternally($request);
+		$nullVar = null; // Kludge
+		$rows = $this->_renderRowsInternally($request, $nullVar);
 		$templateMgr->assign_by_ref('rows', $rows);
 
 		$templateMgr->assign('listbuilder', $this);

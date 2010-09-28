@@ -356,7 +356,8 @@ class GridHandler extends PKPHandler {
 	 */
 	function _renderGridBodyPartsInternally(&$request) {
 		$gridBodyParts = array();
-		$renderedRows = $this->_renderRowsInternally($request);
+		$nullVar = null; // Kludge
+		$renderedRows = $this->_renderRowsInternally($request, $nullVar);
 		$templateMgr =& TemplateManager::getManager();
 		if ( count($renderedRows) > 0 ) {
 			$templateMgr->assign_by_ref('rows', $renderedRows);
@@ -372,7 +373,7 @@ class GridHandler extends PKPHandler {
 	 * @param $elementIterator ItemIterator (optional)
 	 * @return array of HTML Strings for Grid Rows.
 	 */
-	function _renderRowsInternally(&$request, &$elementIterator = null) {
+	function _renderRowsInternally(&$request, &$elementIterator) {
 		// Iterate through the rows and render them according
 		// to the row definition.  Uses $rowIterator or gets all the grid data.
 		if ( !$elementIterator ) $elementIterator =& $this->_getSortedElements();

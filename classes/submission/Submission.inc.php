@@ -142,6 +142,7 @@ class Submission extends DataObject {
 	 */
 	function getFirstAuthor($lastOnly = false) {
 		$author = $this->authors[0];
+		if (!$author) return null;
 		return $lastOnly ? $author->getLastName() : $author->getFullName();
 	}
 

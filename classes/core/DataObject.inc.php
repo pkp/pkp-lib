@@ -25,11 +25,6 @@ class DataObject {
 	 * Constructor.
 	 */
 	function DataObject($callHooks = true) {
-		// FIXME: Add meta-data schema plug-in support here to
-		// dynamically add supported meta-data schemas.
-		// Adapters should be added as class names and then
-		// lazy-loaded when required.
-
 		$this->_data = array();
 	}
 

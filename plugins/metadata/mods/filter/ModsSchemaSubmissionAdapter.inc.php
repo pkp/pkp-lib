@@ -43,7 +43,11 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		if ($replace) $submission = new Submission();
 		assert(is_a($submission, 'Submission'));
 		assert($modsDescription->getMetadataSchemaName() == 'plugins.metadata.mods.schema.ModsSchema');
-		$modsSchema =& $modsDescription->getMetadataSchema();
+
+		// Get the cataloging language.
+		$catalogingLanguage = $modsDescription->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
+		$catalogingLocale = Locale::getLocaleFrom3LetterIso($catalogingLanguage);
+		assert(!is_null($catalogingLocale));
 
 		// Title
 		$localizedTitles = $modsDescription->getStatementTranslations('titleInfo/title');
@@ -67,6 +71,7 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 				// Transport the name into the submission depending
 				// on name type and role.
+				// FIXME: Move this to a dedicated adapter in the Author class.
 				if (is_array($nameRoles)) {
 					switch($nameType) {
 						// Authors
@@ -82,24 +87,31 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 								// Given Names
 								$givenNames = $nameDescription->getStatement('namePart[@type="given"]');
-								if (isset($givenNames[0])) $author->setFirstName($givenNames[0]);
-								if (isset($givenNames[1])) $author->setMiddleName($givenNames[1]);
+								if (!empty($givenNames)) {
+									$givenNames = explode(' ', $givenNames, 2);
+									if (isset($givenNames[0])) $author->setFirstName($givenNames[0]);
+									if (isset($givenNames[1])) $author->setMiddleName($givenNames[1]);
+								}
 
 								// Affiliation
-								$localizedAffiliations = $nameDescription->getStatementTranslations('affiliation');
-								if (!empty($localizedAffiliation)) {
-									// We can only use one affiliation as our MODS mapping cannot
-									// provide translation support for affiliations.
-									$primaryLocale = Locale::getPrimaryLocale();
-									$currentLocale = Locale::getLocale();
-									if (isset($localizedAffiliations[$primaryLocale])) {
-										$affiliation = $localizedAffiliations[$primaryLocale];
-									} elseif (isset($localizedAffiliations[$currentLocale])) {
-										$affiliation = $localizedAffiliations[$currentLocale];
-									} else {
-										$affiliation = $localizedAffiliations[0];
-									}
-									$author->setAffiliation($affiliation, $locale);
+								// NB: Our MODS mapping currently doesn't support translation for names.
+								// This can be added when required by data providers. We assume the cataloging
+								// language for the record.
+								$affiliation = $nameDescription->getStatement('affiliation');
+								if (!empty($affiliation)) {
+									$author->setAffiliation($affiliation, $catalogingLocale);
+								}
+
+								// Terms of address (unmapped field)
+								$termsOfAddress = $nameDescription->getStatement('namePart[@type="termsOfAddress"]');
+								if ($termsOfAddress) {
+									$author->setData('nlm34:namePart[@type="termsOfAddress"]', $termsOfAddress);
+								}
+
+								// Date (unmapped field)
+								$date = $nameDescription->getStatement('namePart[@type="date"]');
+								if ($date) {
+									$author->setData('nlm34:namePart[@type="date"]', $date);
 								}
 
 								// Add the author to the submission.
@@ -109,11 +121,14 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 							break;
 
 						// Sponsor
+						// NB: Our MODS mapping currently doesn't support translation for names.
+						// This can be added when required by data providers. We assume the cataloging
+						// language for the record.
 						case 'corporate':
 							// Only the first sponsor goes into the submission.
 							if (!$foundSponsor && in_array('spn', $nameRoles)) {
 								$foundSponsor = true;
-								$submission->setSponsor($nameDescription->getStatement('namePart'));
+								$submission->setSponsor($nameDescription->getStatement('namePart'), $catalogingLocale);
 							}
 							break;
 					}
@@ -128,9 +143,10 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		if ($dateSubmitted) $submission->setDateSubmitted($dateSubmitted);
 
 		// Submission language
-		$submissionLanguages = $modsSchema->get2LetterFrom3LetterIsoLanguage($modsDescription->getStatement('language[@objectPart=""]/languageTerm[@type="code" @authority="iso639-2b"]'));
-		if (is_array($submissionLanguages) && isset($submissionLanguages[0])) {
-			$submission->setLanguage($submissionLanguages[0]);
+		$submissionLanguage = $modsDescription->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
+		$submissionLocale = Locale::get2LetterFrom3LetterIsoLanguage($submissionLanguage);
+		if ($submissionLocale) {
+			$submission->setLanguage($submissionLocale);
 		}
 
 		// Pages (extent)
@@ -170,6 +186,9 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// NB: We currently don't override the submission id with the record identifier in MODS
 		// to make sure that MODS records can be transported between different installations.
 
+		// Handle unmapped fields.
+		$this->injectUnmappedDataObjectMetadataFields($modsDescription, $submission);
+
 		return $submission;
 	}
 
@@ -178,15 +197,15 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 * @param $submission Submission
 	 * @param $authorMarcrelatorRole string the marcrelator role to be used
 	 *  for submission authors.
+	 * @return MetadataDescription
 	 */
 	function &extractMetadataFromDataObject(&$submission, $authorMarcrelatorRole = 'aut') {
 		assert(is_a($submission, 'Submission'));
 		$modsDescription =& $this->instantiateMetadataDescription();
-		$modsSchema =& $modsDescription->getMetadataSchema();
 
 		// Retrieve the primary locale.
-		$primaryLocale = Locale::getPrimaryLocale();
-		$primaryLanguage = $modsSchema->get3LetterIsoFromLocale($primaryLocale);
+		$catalogingLocale = Locale::getPrimaryLocale();
+		$catalogingLanguage = Locale::get3LetterIsoFromLocale($catalogingLocale);
 
 		// Establish the association between the meta-data description
 		// and the submission.
@@ -197,8 +216,9 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$this->addLocalizedStatements($modsDescription, 'titleInfo/title', $localizedTitles);
 
 		// Authors
+		// FIXME: Move this to a dedicated adapter in the Author class.
 		$authors =& $submission->getAuthors();
-		foreach($authors as $author) {
+		foreach($authors as $author) { /* @var $author Author */
 			// Create a new name description.
 			$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods.schema.ModsNameSchema', ASSOC_TYPE_AUTHOR);
 
@@ -210,15 +230,33 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			$authorDescription->addStatement('namePart[@type="family"]', $author->getLastName());
 
 			// Given Names
-			$authorDescription->addStatement('namePart[@type="given"]', $author->getFirstName());
-			$middleName = $author->getMiddleName();
-			if (!empty($middleName)) {
-				$authorDescription->addStatement('namePart[@type="given"]', $middleName);
+			$firstName = (string)$author->getFirstName();
+			$middleName = (string)$author->getMiddleName();
+			$givenNames = trim($firstName.' '.$middleName);
+			if (!empty($givenNames)) {
+				$authorDescription->addStatement('namePart[@type="given"]', $givenNames);
 			}
 
 			// Affiliation
-			$localizedAffiliation =& $author->getAffiliation(null); // Localized
-			$this->addLocalizedStatements($authorDescription, 'affiliation', $localizedAffiliation);
+			// NB: Our MODS mapping currently doesn't support translation for names.
+			// This can be added when required by data consumers. We therefore only use
+			// translations in the cataloging language.
+			$affiliation = $author->getAffiliation($catalogingLocale);
+			if ($affiliation) {
+				$authorDescription->addStatement('affiliation', $affiliation);
+			}
+
+			// Terms of address (unmapped field)
+			$termsOfAddress = $author->getData('nlm34:namePart[@type="termsOfAddress"]');
+			if ($termsOfAddress) {
+				$authorDescription->addStatement('namePart[@type="termsOfAddress"]', $termsOfAddress);
+			}
+
+			// Date (unmapped field)
+			$date = $author->getData('nlm34:namePart[@type="date"]');
+			if ($date) {
+				$authorDescription->addStatement('namePart[@type="date"]', $date);
+			}
 
 			// Role
 			$authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $authorMarcrelatorRole);
@@ -229,15 +267,17 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Sponsor
-		$supportingAgency = $submission->getSponsor($primaryLanguage); // Try the cataloging language first.
-		if (!$supportingAgency) {
-			$supportingAgency = $submission->getLocalizedSponsor();
-		}
+		// NB: Our MODS mapping currently doesn't support translation for names.
+		// This can be added when required by data consumers. We therefore only use
+		// translations in the cataloging language.
+		$supportingAgency = $submission->getSponsor($catalogingLocale);
 		if ($supportingAgency) {
 			$supportingAgencyDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods.schema.ModsNameSchema', ASSOC_TYPE_AUTHOR);
-			$supportingAgencyDescription->addStatement('[@type]', 'corporate');
+			$sponsorNameType = 'corporate';
+			$supportingAgencyDescription->addStatement('[@type]', $sponsorNameType);
 			$supportingAgencyDescription->addStatement('namePart', $supportingAgency);
-			$supportingAgencyDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', 'spn');
+			$sponsorRole = 'spn';
+			$supportingAgencyDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $sponsorRole);
 			$modsDescription->addStatement('name', $supportingAgencyDescription);
 		}
 
@@ -245,15 +285,20 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$typeOfResource = 'text';
 		$modsDescription->addStatement('typeOfResource', $typeOfResource);
 
-		// Creation date
-		$modsDescription->addStatement('originInfo/dateCreated[@encoding="w3cdtf"]', $submission->getDateSubmitted());
+		// Creation & copyright date
+		$submissionDate = $submission->getDateSubmitted();
+		if (strlen($submissionDate) >= 4) {
+			$modsDescription->addStatement('originInfo/dateCreated[@encoding="w3cdtf"]', $submissionDate);
+			$modsDescription->addStatement('originInfo/copyrightDate[@encoding="w3cdtf"]', substr($submissionDate, 0, 4));
+		}
 
 		// Submission language
-		$submissionLanguage = $modsSchema->get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		$submissionLanguage = Locale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
 		if (!$submissionLanguage) {
-			$submissionLanguage = $primaryLanguage;
+			// Assume the cataloging language by default.
+			$submissionLanguage = $catalogingLanguage;
 		}
-		$modsDescription->addStatement('language[@objectPart=""]/languageTerm[@type="code" @authority="iso639-2b"]', $submissionLanguage);
+		$modsDescription->addStatement('language/languageTerm[@type="code" @authority="iso639-2b"]', $submissionLanguage);
 
 		// Pages (extent)
 		$modsDescription->addStatement('physicalDescription/extent', $submission->getPages());
@@ -283,16 +328,49 @@ class ModsSchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$this->addLocalizedStatements($modsDescription, 'subject/temporal', $localizedCoverageChron);
 
 		// Record creation date
-		$recordCreationDate = date('%Y-%m-%d');
+		$recordCreationDate = date('Y-m-d');
 		$modsDescription->addStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]', $recordCreationDate);
 
 		// Record identifier
 		$modsDescription->addStatement('recordInfo/recordIdentifier[@source="pkp"]', $submission->getId());
 
 		// Cataloging language
-		$modsDescription->addStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', $primaryLanguage);
+		$modsDescription->addStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', $catalogingLanguage);
+
+		// Handle unmapped fields.
+		$this->extractUnmappedDataObjectMetadataFields($submission, $modsDescription);
 
 		return $modsDescription;
+	}
+
+	/**
+	 * @see MetadataDataObjectAdapter::getDataObjectMetadataFieldNames()
+	 * @param $translated boolean
+	 */
+	function getDataObjectMetadataFieldNames($translated = true) {
+		static $unmappedFields = false;
+
+		if ($unmappedFields === false) {
+			$metadataSchema =& $this->getMetadataSchema();
+			$metadataSchemaNamespace = $metadataSchema->getNamespace();
+
+			// The following properties have no mapping within this adapter.
+			$unmappedFields = array(
+				true => array(
+					$metadataSchemaNamespace.':titleInfo/nonSort',
+					$metadataSchemaNamespace.':titleInfo/subTitle',
+					$metadataSchemaNamespace.':titleInfo/partNumber',
+					$metadataSchemaNamespace.':titleInfo/partName',
+					$metadataSchemaNamespace.':note'
+				),
+				false => array(
+					$metadataSchemaNamespace.':subject/temporal[@encoding="w3cdtf" @point="start"]',
+					$metadataSchemaNamespace.':subject/temporal[@encoding="w3cdtf" @point="end"]'
+				)
+			);
+		}
+
+		return ($unmappedFields[$translated]);
 	}
 }
 ?>

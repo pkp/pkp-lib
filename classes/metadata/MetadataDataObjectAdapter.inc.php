@@ -348,11 +348,81 @@ class MetadataDataObjectAdapter extends Filter {
 	 */
 	function addLocalizedStatements(&$metadataDescription, $propertyName, $localizedValues) {
 		if (is_array($localizedValues)) {
-			foreach ($localizedValues as $locale => $value) {
-				$metadataDescription->addStatement($propertyName, $value, $locale);
+			foreach ($localizedValues as $locale => $values) {
+				// Handle cardinality "many" and "one" in the same way.
+				if (is_scalar($values)) $values = array($values);
+				foreach($values as $value) {
+					$metadataDescription->addStatement($propertyName, $value, $locale);
+					unset($value);
+				}
 			}
 		}
 	}
+
+	/**
+	 * Directly inject all fields that are not mapped to the
+	 * data object into the data object's data array for
+	 * automatic persistence by the meta-data framework.
+	 * @param $metadataDescription MetadataDescription
+	 * @param $dataObject DataObject
+	 */
+	function injectUnmappedDataObjectMetadataFields(&$metadataDescription, &$dataObject) {
+		// Handle translated and non-translated statements separately.
+		foreach(array(true, false) as $translated) {
+			// Retrieve the unmapped fields.
+			foreach($this->getDataObjectMetadataFieldNames($translated) as $unmappedProperty) {
+				// Identify the corresponding property name.
+				list($namespace, $propertyName) = explode(':', $unmappedProperty);
+
+				// Find out whether we have a statement for this unmapped property.
+				if ($metadataDescription->hasStatement($propertyName)) {
+					// Add the unmapped statement directly to the
+					// data object.
+					if ($translated) {
+						$dataObject->setData($unmappedProperty, $metadataDescription->getStatementTranslations($propertyName));
+					} else {
+						$dataObject->setData($unmappedProperty, $metadataDescription->getStatement($propertyName));
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Directly extract all fields that are not mapped to the
+	 * data object from the data object's data array.
+	 * @param $dataObject DataObject
+	 * @param $metadataDescription MetadataDescription
+	 */
+	function extractUnmappedDataObjectMetadataFields(&$dataObject, &$metadataDescription) {
+		$metadataSchema =& $this->getMetadataSchema();
+		$handledNamespace = $metadataSchema->getNamespace();
+
+		// Handle translated and non-translated statements separately.
+		foreach(array(true, false) as $translated) {
+			// Retrieve the unmapped fields.
+			foreach($this->getDataObjectMetadataFieldNames($translated) as $unmappedProperty) {
+				// Find out whether we have a statement for this unmapped property.
+				if ($dataObject->hasData($unmappedProperty)) {
+					// Identify the corresponding property name and namespace.
+					list($namespace, $propertyName) = explode(':', $unmappedProperty);
+
+					// Only extract data if the namespace of the property
+					// is the same as the one handled by this adapter and the
+					// property is within the current description.
+					if ($namespace == $handledNamespace && $metadataSchema->hasProperty($propertyName)) {
+						// Add the unmapped statement to the metadata description.
+						if ($translated) {
+							$this->addLocalizedStatements($metadataDescription, $propertyName, $dataObject->getData($unmappedProperty));
+						} else {
+							$metadataDescription->addStatement($propertyName, $dataObject->getData($unmappedProperty));
+						}
+					}
+				}
+			}
+		}
+	}
+
 
 	//
 	// Private helper methods

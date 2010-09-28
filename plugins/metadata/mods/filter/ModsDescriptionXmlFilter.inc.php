@@ -132,16 +132,45 @@ class ModsDescriptionXmlFilter extends Filter {
 			'@branch' => &$root
 		);
 
-		// Build the document hierarchy.
+		// Find the translations required for top-level elements.
+		// We need this array later because we'll have to repeat non-translated
+		// values for every translated top-level element.
 		$properties = $modsDescription->getProperties();
+		$translations = array();
 		foreach ($properties as $propertyName => $property) { /* @var $property MetadataProperty */
 			if ($modsDescription->hasStatement($propertyName)) {
+				$nodes = explode('/', $propertyName);
+				$topLevelNode = array_shift($nodes);
+				if (!isset($translations[$topLevelNode])) $translations[$topLevelNode] = array();
+				if ($property->getTranslated()) {
+					foreach ($modsDescription->getStatementTranslations($propertyName) as $locale => $value) {
+						$isoLanguage = Locale::get3LetterIsoFromLocale($locale);
+						if (!in_array($isoLanguage, $translations[$topLevelNode])) {
+							$translations[$topLevelNode][] = $isoLanguage;
+						}
+					}
+				} else {
+					if (!in_array($catalogingLanguage, $translations[$topLevelNode])) {
+						$translations[$topLevelNode][] = $catalogingLanguage;
+					}
+				}
+			}
+		}
+
+		// Build the document hierarchy.
+		foreach ($properties as $propertyName => $property) { /* @var $property MetadataProperty */
+			if ($modsDescription->hasStatement($propertyName)) {
+				// Get relevant property attributes.
 				$translated = $property->getTranslated();
 				$cardinality = $property->getCardinality();
 
+				// Get the XML element hierarchy.
+				$nodes = explode('/', $propertyName);
+				$hierarchyDepth = count($nodes) - 1;
+
 				// Normalize property values to an array of translated strings.
 				if ($translated) {
-					// Only the main mods schema can contain translated values.
+					// Only the main MODS schema can contain translated values.
 					assert(is_a($modsSchema, 'ModsSchema'));
 
 					// Retrieve the translated values of the statement.
@@ -150,16 +179,19 @@ class ModsDescriptionXmlFilter extends Filter {
 					// Translate the PKP locale into ISO639-2b 3-letter codes.
 					$translatedValues = array();
 					foreach($localizedValues as $locale => $translatedValue) {
-						$isoLanguage = $modsSchema->get3LetterIsoFromLocale($locale);
+						$isoLanguage = Locale::get3LetterIsoFromLocale($locale);
 						assert(!is_null($isoLanguage));
 						$translatedValues[$isoLanguage] = $translatedValue;
 					}
 				} else {
-					// Untranslated statements will be normalized to the cataloging language.
-					$statement =& $modsDescription->getStatement($propertyName);
-					$translatedValues = array(
-						$catalogingLanguage => $statement
-					);
+					// Untranslated statements will be repeated for all languages
+					// present in the top-level element.
+					$untranslatedValue =& $modsDescription->getStatement($propertyName);
+					$translatedValues = array();
+					assert(isset($translations[$nodes[0]]));
+					foreach($translations[$nodes[0]] as $isoLanguage) {
+						$translatedValues[$isoLanguage] = $untranslatedValue;
+					}
 				}
 
 				// Normalize all values to arrays so that we can
@@ -173,25 +205,23 @@ class ModsDescriptionXmlFilter extends Filter {
 						assert(is_array($translatedValue));
 						$translatedValueArrays[$isoLanguage] =& $translatedValue;
 					}
+					unset($translatedValue);
 				}
 
 				// Add the translated values one by one to the element hierarchy.
 				foreach($translatedValueArrays as $isoLanguage => $translatedValueArray) {
 					foreach($translatedValueArray as $translatedValue) {
-						// Get the XML element hierarchy.
-						$nodes = explode('/', $propertyName);
-						$hierarchyDepth = count($nodes) - 1;
-						$currentNodeList =& $documentHierarchy;
-
 						// Add a language attribute to the top-level element if
 						// it differs from the cataloging language.
+						$translatedNodes = $nodes;
 						if ($isoLanguage != $catalogingLanguage) {
-							assert(strpos($nodes[0], '[') === false);
-							$nodes[0] .= '[@lang="'.$isoLanguage.']';
+							assert(strpos($translatedNodes[0], '[') === false);
+							$translatedNodes[0] .= '[@lang="'.$isoLanguage.'"]';
 						}
 
 						// Create the node hierarchy for the statement.
-						foreach($nodes as $nodeDepth => $nodeName) {
+						$currentNodeList =& $documentHierarchy;
+						foreach($translatedNodes as $nodeDepth => $nodeName) {
 							// Are we at a leaf node?
 							if($nodeDepth == $hierarchyDepth) {
 								// Is this a top-level attribute?
@@ -288,10 +318,10 @@ class ModsDescriptionXmlFilter extends Filter {
 		// Add attributes.
 		if (count($elementPlusAttributes) == 2) {
 			// Separate the attribute key/value pairs.
-			$unparsedAttributes = explode(' ', rtrim($elementPlusAttributes[1], ']'));
+			$unparsedAttributes = explode('@', rtrim(ltrim($elementPlusAttributes[1], '@'), ']'));
 			foreach($unparsedAttributes as $unparsedAttribute) {
 				// Split attribute expressions into key and value.
-				list($attributeName, $attributeValue) = explode('=', ltrim($unparsedAttribute, '@'));
+				list($attributeName, $attributeValue) = explode('=', rtrim($unparsedAttribute, ' '));
 				$attributeValue = trim($attributeValue, '"');
 				XMLCustomWriter::setAttribute($newNode, $attributeName, $attributeValue);
 			}

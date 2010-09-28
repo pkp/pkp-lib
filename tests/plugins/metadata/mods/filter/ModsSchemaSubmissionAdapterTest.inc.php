@@ -13,11 +13,11 @@
  * @brief Test class for ModsSchemaSubmissionAdapter.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.tests.plugins.metadata.mods.filter.ModsDescriptionTestCase');
 import('lib.pkp.classes.submission.Submission');
 import('lib.pkp.plugins.metadata.mods.filter.ModsSchemaSubmissionAdapter');
 
-class ModsSchemaSubmissionAdapterTest extends PKPTestCase {
+class ModsSchemaSubmissionAdapterTest extends ModsDescriptionTestCase {
 	/**
 	 * @covers ModsSchemaSubmissionAdapter
 	 */
@@ -39,40 +39,74 @@ class ModsSchemaSubmissionAdapterTest extends PKPTestCase {
 		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
 		// Instantiate a test description.
-		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods.schema.ModsNameSchema', ASSOC_TYPE_AUTHOR);
-		self::assertTrue($authorDescription->addStatement('[@type]', $nameType = 'personal'));
-		self::assertTrue($authorDescription->addStatement('namePart[@type="family"]', $familyName = 'some family name'));
-		self::assertTrue($authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $role = 'aut'));
-		$submissionDescription = new MetadataDescription('plugins.metadata.mods.schema.ModsSchema', ASSOC_TYPE_CITATION);
-		self::assertTrue($submissionDescription->addStatement('titleInfo/title', $articleTitle = 'new submission title'));
-		self::assertTrue($submissionDescription->addStatement('name', $authorDescription));
-		self::assertTrue($submissionDescription->addStatement('typeOfResource', $typeOfResource = 'text'));
-		self::assertTrue($submissionDescription->addStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', $languageOfCataloging = 'eng'));
+		$submissionDescription =& $this->getModsDescription();
 
 		// Instantiate test submission.
 		$submission = new Submission();
 		$submission->setTitle('previous submission title', 'en_US');
 		$submission->setAbstract('previous abstract', 'en_US');
+		// Remove the abstract to test whether the replacement flag works.
+		// (The abstract should not be deleted if replace is off.)
+		$submissionDescription->removeStatement('abstract');
 
 		// Test metadata injection (no replace).
 		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, false, 'lib.pkp.tests.plugins.metadata.mods.filter.Author');
 		$expectedResult = array(
-			'cleanTitle' => array('en_US' => 'new submission title'),
-			'title' => array('en_US' => 'new submission title'),
-			'abstract' => array('en_US' => 'previous abstract')
+			'cleanTitle' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
+			'title' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
+			'abstract' => array('en_US' => 'previous abstract'),
+			'sponsor' => array('en_US' => 'Some Sponsor'),
+			'dateSubmitted' => '2010-07-07',
+			'language' => 'en',
+			'pages' => 215,
+			'coverageGeo' => array('en_US' => 'some geography'),
+			'mods34:titleInfo/nonSort' => array('en_US' => 'the', 'de_DE' => 'ein'),
+			'mods34:titleInfo/subTitle' => array('en_US' => 'subtitle', 'de_DE' => 'Subtitel'),
+			'mods34:titleInfo/partNumber' => array('en_US' => 'part I', 'de_DE' => 'Teil I'),
+			'mods34:titleInfo/partName' => array('en_US' => 'introduction', 'de_DE' => 'Einführung'),
+			'mods34:note' => array(
+				'en_US' => array('0' => 'some note', '1' => 'another note'),
+				'de_DE' => array('0' => 'übersetzte Anmerkung')
+			),
+			'mods34:subject/temporal[@encoding="w3cdtf" @point="start"]' => '1950',
+			'mods34:subject/temporal[@encoding="w3cdtf" @point="end"]' => '1954'
 		);
 		self::assertEquals($expectedResult, $resultSubmission->getAllData());
 
 		// Test meta-data injection (replace).
 		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, true, 'lib.pkp.tests.plugins.metadata.mods.filter.Author');
-		$expectedResult = array(
-			'cleanTitle' => array('en_US' => 'new submission title'),
-			'title' => array('en_US' => 'new submission title')
-		);
+		unset($expectedResult['abstract'], $expectedResult['recordInfo/recordIdentifier[@source="pkp"]']);
 		self::assertEquals($expectedResult, $resultSubmission->getAllData());
 
 		// Test meta-data extraction.
 		$extractedDescription =& $adapter->extractMetadataFromDataObject($submission);
+		$submissionDescription->removeStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]');
+		self::assertTrue($submissionDescription->addStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]', date('Y-m-d')));
+
+		$missingMappings = array(
+			// The following properties must be mapped via
+			// application-specific subclasses.
+			'genre[@authority="marcgt"]',
+			'originInfo/place/placeTerm[@type="text"]',
+			'originInfo/place/placeTerm[@type="code" @authority="iso3166"]',
+			'originInfo/publisher',
+			'originInfo/dateIssued[@keyDate="yes" @encoding="w3cdtf"]',
+			'originInfo/edition',
+			'physicalDescription/form[@authority="marcform"]',
+			'physicalDescription/internetMediaType',
+			'identifier[@type="isbn"]',
+			'identifier[@type="doi"]',
+			'identifier[@type="uri"]',
+			'location/url[@usage="primary display"]',
+
+			// Impossible to be correctly mapped right now, see
+			// corresponding comments in the adapter.
+			'recordInfo/recordIdentifier[@source="pkp"]',
+			'subject/topic',
+		);
+		foreach($missingMappings as $missingMapping) {
+			$submissionDescription->removeStatement($missingMapping);
+		}
 		self::assertEquals($submissionDescription, $extractedDescription);
 	}
 }

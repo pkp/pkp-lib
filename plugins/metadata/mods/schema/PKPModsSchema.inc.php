@@ -139,7 +139,7 @@ class PKPModsSchema extends MetadataSchema {
 		// The DLF/Aquifer Implementation Guidelines for Shareable MODS Records require the
 		// use in all records of at least one typeOfResource statement using the required
 		// enumerated values (see the controlled vocabulary).
-		$this->addProperty('typeOfResource', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods43-typeOfResource'), false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
+		$this->addProperty('typeOfResource', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods34-typeOfResource'), false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
 
 
 		//
@@ -149,7 +149,7 @@ class PKPModsSchema extends MetadataSchema {
 		// A term that designates a category characterizing a particular style, form, or content,
 		// such as artistic, musical, literary composition, etc. genre contains terms that give more
 		// specificity than the broad terms used in typeOfResource (see the controlled vocabulary).
-		$this->addProperty('genre[@authority="marcgt"]', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods43-genre-marcgt'), false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
+		$this->addProperty('genre[@authority="marcgt"]', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods34-genre-marcgt'), false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
 
 
 		//
@@ -233,7 +233,10 @@ class PKPModsSchema extends MetadataSchema {
 		// to understanding the photograph, but not primary. Whether to include a language
 		// element based on the language's importance or primacy is left to the user's discretion.
 		// Repeat the language element as necessary.
-		$this->addProperty('language[@objectPart=""]/languageTerm[@type="code" @authority="iso639-2b"]', array(METADATA_PROPERTY_TYPE_VOCABULARY => 'mods43-typeOfResource'), false, METADATA_PROPERTY_CARDINALITY_MANY, null, null, true);
+		// NB: We could use a vocabulary for language names here. We avoid this for now as
+		// the list would be huge. See http://www.loc.gov/standards/iso639-2/php/code_list.php
+		// for a complete list. Use the (B)-type codes when two codes exist.
+		$this->addProperty('language/languageTerm[@type="code" @authority="iso639-2b"]', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
 
 
 		//
@@ -394,95 +397,10 @@ class PKPModsSchema extends MetadataSchema {
 		// MODS record. If additional language(s) are used this will be indicated with the $locale
 		// parameter within the specific element(s) in which the additional language(s)
 		// appear(s).
+		// NB: We could use a vocabulary for language names here. We avoid this for now as
+		// the list would be huge. See http://www.loc.gov/standards/iso639-2/php/code_list.php
+		// for a complete list. Use the (B)-type codes when two codes exist.
 		$this->addProperty('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', METADATA_PROPERTY_TYPE_STRING, false, METADATA_PROPERTY_CARDINALITY_ONE, null, null, true);
-	}
-
-
-	//
-	// Public helper methods
-	//
-	/**
-	 * Translate the ISO 2-letter language string
-	 * into a ISO compatible 3-letter string.
-	 * @param $iso2Letter string
-	 * @return string
-	 */
-	function get3LetterFrom2LetterIsoLanguage($iso2Letter) {
-		$knownLanguages = $this->_getKnownLanguages();
-		if (isset($knownLanguages[$iso2Letter])) {
-			return $knownLanguages[$iso2Letter];
-		} else {
-			return null;
-		}
-	}
-
-	/**
-	 * Translate the ISO 3-letter language string
-	 * into a ISO compatible 2-letter string.
-	 * @param $iso3Letter string
-	 * @return string
-	 */
-	function get2LetterFrom3LetterIsoLanguage($iso3Letter) {
-		$knownLanguages = $this->_getKnownLanguages(false);
-		if (isset($knownLanguages[$iso3Letter])) {
-			return $knownLanguages[$iso3Letter];
-		} else {
-			return null;
-		}
-	}
-
-	/**
-	 * Translate the PKP locale identifier into an
-	 * ISO639-2b compatible 3-letter string.
-	 * @param $locale string
-	 * @return string
-	 */
-	function get3LetterIsoFromLocale($locale) {
-		assert(strlen($locale) == 5);
-		$iso2Letter = substr($locale, 0, 2);
-		return $this->get3LetterFrom2LetterIsoLanguage($iso2Letter);
-	}
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * Get a list of known languages for
-	 * language symbol conversions.
-	 * @param $toLong boolean true when converting from 2-letter codes
-	 *  to 3-letter codes, otherwise false.
-	 * @return array
-	 */
-	function _getKnownLanguages($toLong = true) {
-		static $knownLanguages = array(
-			'ca' => 'cat',
-			'cs' => 'cze',
-			'da' => 'dan',
-			'de' => 'ger',
-			'el' => 'grc',
-			'en' => 'eng',
-			'es' => 'spa',
-			'eu' => 'eus',
-			'fa' => 'fas',
-			'fr' => 'fra',
-			'hr' => 'hrv',
-			'it' => 'ita',
-			'ja' => 'jpn',
-			'nl' => 'nld',
-			'pt' => 'por',
-			'ro' => 'ron',
-			'ru' => 'rus',
-			'sv' => 'swe',
-			'tr' => 'tur',
-			'vi' => 'vie',
-			'zh' => 'zho'
-		);
-
-		if ($toLong) {
-			return $knownLanguages;
-		} else {
-			return array_flip($knownLanguages);
-		}
 	}
 }
 ?>

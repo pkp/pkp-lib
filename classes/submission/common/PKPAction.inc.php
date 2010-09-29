@@ -53,26 +53,30 @@ class PKPAction {
 
 
 		// Check whether the citation editor requirements are complete.
-		// 1) Citation editing must be enabled for the journal.
+		// 1) PHP5 availability.
 		$citationEditorConfigurationError = null;
-		$context =& $router->getContext($request);
-		if (!$context->getSetting('metaCitations')) {
-			$citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
-		}
-
-		// 2) PHP5 availability.
-		if (!$citationEditorConfigurationError && !checkPhpVersion('5.0.0')) {
+		if (!checkPhpVersion('5.0.0')) {
 			$citationEditorConfigurationError = 'submission.citations.editor.php5Required';
+			$showIntroductoryMessage = false;
+		} else {
+			$showIntrodutoryMessage = true;
+		}
+		$templateMgr->assign('showIntroductoryMessage', $showIntroductoryMessage);
+
+		// 2) Citation editing must be enabled for the journal.
+		if (!$citationEditorConfigurationError) {
+			$context =& $router->getContext($request);
+		 	if (!$context->getSetting('metaCitations')) $citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
 		}
 
 		// 3) At least one citation parser is available.
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$inputSample = 'arbitrary strings';
-		import('lib.pkp.classes.metadata.MetadataDescription');
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
-		$configuredCitationParsers =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
-		if (!$citationEditorConfigurationError && !count($configuredCitationParsers)) {
-			$citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
+		if (!$citationEditorConfigurationError) {
+			$filterDao =& DAORegistry::getDAO('FilterDAO');
+			$inputSample = 'arbitrary strings';
+			import('lib.pkp.classes.metadata.MetadataDescription');
+			$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+			$configuredCitationParsers =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
+			if (!count($configuredCitationParsers)) $citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
 		}
 
 		// 4) A citation output filter has been set.
@@ -92,8 +96,7 @@ class PKPAction {
 		}
 		$templateMgr->assign('introductionHide', $introductionHide);
 
-
-		// Display a help message if no citations have been imported/added yet.
+		// Display an initial help message.
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		$citations =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId());
 		if ($citations->getCount() > 0) {

@@ -257,12 +257,22 @@ class NotificationSettingsDAO extends DAO {
 			return false;
 		} else {
 			$this->update(
+				'DELETE FROM notification_settings WHERE setting_name = ? AND setting_value = ? AND user_id = ? AND product = ? AND context = ?',
+				array(
+					'mailListUnconfirmed',
+					$email,
+					0,
+					$productName,
+					(int) $contextId
+				)
+			);
+			$this->update(
 				'INSERT INTO notification_settings
 					(setting_name, setting_value, user_id, product, context)
 					VALUES
 					(?, ?, ?, ?, ?)',
 				array(
-					'mailListUncomfirmed',
+					'mailListUnconfirmed',
 					$email,
 					0,
 					$productName,
@@ -277,7 +287,7 @@ class NotificationSettingsDAO extends DAO {
 		import('lib.pkp.classes.security.AccessKeyManager');
 		$accessKeyManager = new AccessKeyManager();
 
-		$password = $accessKeyManager->createKey('MailListContext', $assocId, $assocId, 10000);
+		$password = $accessKeyManager->createKey('MailListContext', $assocId, $assocId, 60); // 60 days
 		return $password;
 	}
 
@@ -333,7 +343,7 @@ class NotificationSettingsDAO extends DAO {
 	 * Gets the setting id for a maillist member (to access the accompanying access key)
 	 * @return array
 	 */
-	function getMailListSettingId($email, $settingName = 'mailListUncomfirmed') {
+	function getMailListSettingId($email, $settingName = 'mailListUnconfirmed') {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();

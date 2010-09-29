@@ -59,7 +59,7 @@ class PKPAction {
 			$citationEditorConfigurationError = 'submission.citations.editor.php5Required';
 			$showIntroductoryMessage = false;
 		} else {
-			$showIntrodutoryMessage = true;
+			$showIntroductoryMessage = true;
 		}
 		$templateMgr->assign('showIntroductoryMessage', $showIntroductoryMessage);
 

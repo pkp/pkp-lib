@@ -248,7 +248,8 @@ class ADODB2_postgres extends ADODB_DataDict {
 		$aSql = array_merge($aSql,$this->CreateTableSQL($tabname,$tableflds,$tableoptions));
 		$aSql[] = "INSERT INTO $tabname ($insertflds) SELECT $copyflds FROM $tempname";
 		if (isset($seq_name) && $seq_name && $seq_fld) {	// if we have a sequence we need to set it again
-			$seq_name = $tabname.'_'.$seq_fld.'_seq';	// has to be the name of the new implicit sequence
+			// $seq_name = $tabname.'_'.$seq_fld.'_seq';	// has to be the name of the new implicit sequence
+			$seq_name = $this->makeObjectName($tabname, $seq_fld, 'seq');
 			$aSql[] = "SELECT setval('$seq_name',MAX($seq_fld)) FROM $tabname";
 		}
 		$aSql[] = "DROP TABLE $tempname";
@@ -289,7 +290,7 @@ class ADODB2_postgres extends ADODB_DataDict {
 
 		if ($typename) $overhead += strlen($typename) + 1;
 
-		$availchars = 32 - 1 - $overhead; /* --- 32 = default NAMEDATALEN in PostgreSQL --- */
+		$availchars = 64 - 1 - $overhead; /* --- 32 = default NAMEDATALEN in PostgreSQL --- */
 
 		/*
 		* If we must truncate, preferentially truncate the longer name. This

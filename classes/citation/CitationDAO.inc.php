@@ -105,7 +105,7 @@ class CitationDAO extends DAO {
 
 		// Instantiate and persist citations
 		$citations = array();
-		foreach($citationStrings as $seq => $citationString) {
+		if (is_array($citationStrings)) foreach($citationStrings as $seq => $citationString) {
 			$citation = new Citation($citationString);
 
 			// Initialize the citation with the raw

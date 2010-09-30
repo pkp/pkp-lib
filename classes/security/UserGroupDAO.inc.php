@@ -324,7 +324,7 @@ class UserGroupDAO extends DAO {
     function &getUsersById($userGroupId = null, $pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
         $users = array();
 
-        $paramArray = array('interests');
+        $paramArray = array('interest');
         if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
         if (isset($pressId)) $paramArray[] = (int) $pressId;
         // For security / resource usage reasons, a user group or press ID
@@ -338,7 +338,7 @@ class UserGroupDAO extends DAO {
             USER_FIELD_LASTNAME => 'u.last_name',
             USER_FIELD_USERNAME => 'u.username',
             USER_FIELD_EMAIL => 'u.email',
-            USER_FIELD_INTERESTS => 's.setting_value'
+            USER_FIELD_INTERESTS => 'cves.setting_value'
         );
 
         if (!empty($search) && isset($searchTypeMap[$searchType])) {
@@ -372,7 +372,9 @@ class UserGroupDAO extends DAO {
 
         $result =& $this->retrieveRange(
             'SELECT DISTINCT u.* FROM users AS u
-            LEFT JOIN user_settings s ON (u.user_id = s.user_id AND s.setting_name = ?), user_groups AS ug, user_user_groups AS uug
+            LEFT JOIN controlled_vocabs cv ON (cv.assoc_id = u.user_id AND cv.symbolic = ?)
+				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
+				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
             WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($pressId) ? ' AND ug.press_id = ?' : '') . ' ' . $searchSql,
             $paramArray,
             $dbResultRange

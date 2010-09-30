@@ -229,7 +229,7 @@ class PKPUserDAO extends DAO {
 	}
 
 	function getLocaleFieldNames() {
-		return array('biography', 'signature', 'interests', 'gossip', 'affiliation');
+		return array('biography', 'signature', 'gossip', 'affiliation');
 	}
 
 	function updateLocaleFields(&$user) {
@@ -388,7 +388,7 @@ class PKPUserDAO extends DAO {
 	 */
 
 	function &getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
-		$sql = 'SELECT * FROM users u';
+		$sql = 'SELECT DISTINCT * FROM users u';
 		switch ($field) {
 			case USER_FIELD_USERID:
 				$sql .= ' WHERE u.user_id = ?';
@@ -403,7 +403,9 @@ class PKPUserDAO extends DAO {
 				$var = "$value%";
 				break;
 			case USER_FIELD_INTERESTS:
-				$sql .= ', user_settings us WHERE us.user_id = u.user_id AND us.setting_name = \'interests\' AND LOWER(us.setting_value) ' . ($match == 'is' ? '=' : 'LIKE') . ' LOWER(?)';
+				$sql .=', controlled_vocabs cv, controlled_vocab_entries cve, controlled_vocab_entry_settings cves
+					WHERE cv.symbolic = \'interest\' AND cv.assoc_id = u.user_id AND cve.controlled_vocab_id = cv.controlled_vocab_id
+					AND cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id AND LOWER(cves.setting_value) ' . ($match == 'is' ? '=' : 'LIKE') . ' LOWER(?)';
 				$var = $match == 'is' ? $value : "%$value%";
 				break;
 			case USER_FIELD_EMAIL:

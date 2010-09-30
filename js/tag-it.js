@@ -102,11 +102,12 @@
 			return is_new;
 		}
 		function create_choice (value){
+			value = unescape(value);
 			var el = "";
 			el  = "<li class=\"tagit-choice\">\n";
 			el += value + "\n";
 			el += "<a class=\"close\">x</a>\n";
-			el += "<input type=\"hidden\" class=\"keywordValue\" style=\"display:none;\" value=\""+value+"\" name=\""+id+"Keywords[]\">\n";
+			el += "<input type=\"hidden\" class=\"keywordValue\" style=\"display:none;\" value=\""+escape(value)+"\" name=\""+id+"Keywords[]\">\n";
 			el += "</li>\n";
 			var li_search_tags = tag_input.parent();
 			$(el).insertBefore (li_search_tags);

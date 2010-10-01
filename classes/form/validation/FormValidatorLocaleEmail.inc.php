@@ -27,7 +27,7 @@ class FormValidatorLocaleEmail extends FormValidatorLocale {
 	 */
 	function FormValidatorLocaleEmail(&$form, $field, $type, $message, $requiredLocale = null) {
 		$validator = new ValidatorEmail();
-		parent::FormValidator($form, $field, $type, $message, $validator, $requiredLocale);
+		parent::FormValidatorLocale($form, $field, $type, $message, $requiredLocale, $validator);
 	}
 }
 

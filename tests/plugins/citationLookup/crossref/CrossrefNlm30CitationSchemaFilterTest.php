@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/crossref/CrossrefNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/crossref/CrossrefNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefNlm30CitationSchemaFilterTest
- * @ingroup tests_classes_citation_lookup_crossref
+ * @ingroup tests_plugins_citationLookup_crossref
  * @see CrossrefNlm30CitationSchemaFilter
  *
  * @brief Tests for the CrossrefNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.classes.citation.lookup.crossref.CrossrefNlm30CitationSchemaFilter');
+import('lib.pkp.plugins.citationLookup.crossref.CrossrefNlm30CitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
 
 class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {

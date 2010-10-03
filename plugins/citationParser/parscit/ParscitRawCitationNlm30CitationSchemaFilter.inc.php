@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_parser_parscit
+ * @defgroup plugins_citationParser_parscit
  */
 
 /**
- * @file classes/citation/parser/parscit/ParscitRawCitationNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationParser/parscit/ParscitRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ParscitRawCitationNlm30CitationSchemaFilter
- * @ingroup citation_parser_parscit
+ * @ingroup plugins_citationParser_parscit
  *
  * @brief Parsing filter implementation that uses the Parscit web service.
  *
@@ -39,7 +39,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationParser.parscit.ParscitRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**

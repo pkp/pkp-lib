@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_output_abnt
+ * @defgroup plugins_citationOutput_abnt
  */
 
 /**
- * @file citation/output/abnt/Nlm30CitationSchemaAbntFilter.inc.php
+ * @file plugins/citationOutput/abnt/Nlm30CitationSchemaAbntFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaAbntFilter
- * @ingroup citation_output_abnt
+ * @ingroup plugins_citationOutput_abnt
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
  *  ABNT citation output.
@@ -43,7 +43,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.abnt.Nlm30CitationSchemaAbntFilter';
+		return 'lib.pkp.plugins.citationOutput.abnt.Nlm30CitationSchemaAbntFilter';
 	}
 
 

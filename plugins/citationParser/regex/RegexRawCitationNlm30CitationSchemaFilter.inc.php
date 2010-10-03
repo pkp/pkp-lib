@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_parser_regex
+ * @defgroup plugins_citationParser_regex
  */
 
 /**
- * @file classes/citation/parser/regex/RegexRawCitationNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationParser/regex/RegexRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegexRawCitationNlm30CitationSchemaFilter
- * @ingroup citation_parser_regex
+ * @ingroup plugins_citationParser_regex
  *
  * @brief A simple regex based citation parsing filter. Uses regexes to break a
  *  citation string into metadata elements. Works best on ICMJE/Vancouver-type
@@ -40,7 +40,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationParser.regex.RegexRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**

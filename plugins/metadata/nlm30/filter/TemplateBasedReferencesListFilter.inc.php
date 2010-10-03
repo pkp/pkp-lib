@@ -1,12 +1,12 @@
 <?php
 /**
- * @file classes/citation/output/TemplateBasedReferencesListFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/TemplateBasedReferencesListFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateBasedReferencesListFilter
- * @ingroup citation_output
+ * @ingroup plugins_metadata_nlm30_filter
  *
  * @brief Abstract base class for filters that create a references
  *  list for a submission.

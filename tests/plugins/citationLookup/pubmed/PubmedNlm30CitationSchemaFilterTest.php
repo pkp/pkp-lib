@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/pubmed/PubmedNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/pubmed/PubmedNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PubmedNlm30CitationSchemaFilterTest
- * @ingroup tests_classes_citation_lookup_pubmed
+ * @ingroup tests_plugins_citationLookup_pubmed
  * @see PubmedNlm30CitationSchemaFilter
  *
  * @brief Tests for the PubmedNlm30CitationSchemaFilter class.
@@ -15,7 +15,7 @@
 
 // $Id$
 
-import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlm30CitationSchemaFilter');
+import('lib.pkp.plugins.citationLookup.pubmed.PubmedNlm30CitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
 
 class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {

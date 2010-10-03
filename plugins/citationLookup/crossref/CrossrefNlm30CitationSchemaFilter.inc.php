@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_lookup_crossref
+ * @defgroup plugins_citationLookup_crossref
  */
 
 /**
- * @file classes/citation/lookup/crossref/CrossrefNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationLookup/crossref/CrossrefNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefNlm30CitationSchemaFilter
- * @ingroup citation_lookup_crossref
+ * @ingroup plugins_citationLookup_crossref
  *
  * @brief Filter that uses the Crossref web
  *  service to identify a DOI and corresponding
@@ -77,7 +77,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationLookup.crossref.CrossrefNlm30CitationSchemaFilter';
 	}
 
 	/**

@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaIsbnFilterTest.inc.php
+ * @file tests/plugins/citationLookup/isbndb/IsbndbNlm30CitationSchemaIsbnFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IsbndbNlm30CitationSchemaIsbnFilterTest
- * @ingroup tests_classes_citation_lookup_isbndb
+ * @ingroup tests_plugins_citationLookup_isbndb
  *
  * @brief Tests for IsbndbNlm30CitationSchemaIsbnFilter
  */
 
 // $Id$
 
-import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaIsbnFilter');
-import('lib.pkp.tests.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaFilterTest');
+import('lib.pkp.plugins.citationLookup.isbndb.IsbndbNlm30CitationSchemaIsbnFilter');
+import('lib.pkp.tests.plugins.citationLookup.isbndb.IsbndbNlm30CitationSchemaFilterTest');
 
 class IsbndbNlm30CitationSchemaIsbnFilterTest extends IsbndbNlm30CitationSchemaFilterTest {
 

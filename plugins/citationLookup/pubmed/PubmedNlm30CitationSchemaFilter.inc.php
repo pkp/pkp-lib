@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_lookup_pubmed
+ * @defgroup plugins_citationLookup_pubmed
  */
 
 /**
- * @file classes/citation/lookup/pubmed/PubmedNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationLookup/pubmed/PubmedNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PubmedNlm30CitationSchemaFilter
- * @ingroup citation_lookup_pubmed
+ * @ingroup plugins_citationLookup_pubmed
  *
  * @brief Filter that uses the Pubmed web
  *  service to identify a PMID and corresponding
@@ -68,7 +68,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationLookup.pubmed.PubmedNlm30CitationSchemaFilter';
 	}
 
 	/**

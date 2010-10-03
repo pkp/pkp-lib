@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file classes/citation/lookup/isbndb/IsbndbIsbnNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationLookup/isbndb/IsbndbIsbnNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IsbndbIsbnNlm30CitationSchemaFilter
- * @ingroup citation_lookup_isbndb
+ * @ingroup plugins_citationLookup_isbndb
  *
  * @brief Filter that uses the ISBNdb web service to look up
  *  an ISBN and create a NLM citation description from the result.
  */
 
-import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaFilter');
+import('lib.pkp.plugins.citationLookup.isbndb.IsbndbNlm30CitationSchemaFilter');
 
 class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilter {
 	/*
@@ -43,7 +43,7 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationLookup.isbndb.IsbndbIsbnNlm30CitationSchemaFilter';
 	}
 
 	/**

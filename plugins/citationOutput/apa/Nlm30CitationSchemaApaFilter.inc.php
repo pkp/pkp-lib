@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_output_apa
+ * @defgroup plugins_citationOutput_apa
  */
 
 /**
- * @file citation/output/apa/Nlm30CitationSchemaApaFilter.inc.php
+ * @file plugins/citationOutput/apa/Nlm30CitationSchemaApaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaApaFilter
- * @ingroup citation_output_apa
+ * @ingroup plugins_citationOutput_apa
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
  *  APA citation output.
@@ -37,7 +37,7 @@ class Nlm30CitationSchemaApaFilter extends Nlm30CitationSchemaCitationOutputForm
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.apa.Nlm30CitationSchemaApaFilter';
+		return 'lib.pkp.plugins.citationOutput.apa.Nlm30CitationSchemaApaFilter';
 	}
 
 

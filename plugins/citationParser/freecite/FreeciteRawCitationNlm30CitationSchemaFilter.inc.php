@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_parser_freecite
+ * @defgroup plugins_citationParser_freecite
  */
 
 /**
- * @file classes/citation/parser/freecite/FreeciteRawCitationNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationParser/freecite/FreeciteRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FreeciteRawCitationNlm30CitationSchemaFilter
- * @ingroup citation_parser_freecite
+ * @ingroup plugins_citationParser_freecite
  *
  * @brief Parsing filter implementation that uses the Freecite web service.
  *
@@ -38,7 +38,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationParser.freecite.FreeciteRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**

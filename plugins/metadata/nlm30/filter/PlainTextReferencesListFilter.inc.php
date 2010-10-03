@@ -5,21 +5,21 @@
  */
 
 /**
- * @file classes/citation/output/PlainTextReferencesListFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/PlainTextReferencesListFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PlainTextReferencesListFilter
- * @ingroup importexport_nlm
+ * @ingroup plugins_metadata_nlm30_filter
  *
  * @brief Class that converts a submission to a plain text references list
  *  based on the configured ordering type and citation output filter.
  */
 
 
-import('lib.pkp.classes.citation.output.TemplateBasedReferencesListFilter');
-import('lib.pkp.classes.citation.output.PlainTextReferencesList');
+import('lib.pkp.plugins.metadata.nlm30.filter.TemplateBasedReferencesListFilter');
+import('lib.pkp.classes.citation.PlainTextReferencesList');
 
 class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	/**
@@ -51,7 +51,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.PlainTextReferencesListFilter';
+		return 'lib.pkp.plugins.metadata.nlm30.filter.PlainTextReferencesListFilter';
 	}
 
 	/**

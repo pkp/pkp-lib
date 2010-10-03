@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/worldcat/WorldcatNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/worldcat/WorldcatNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WorldcatNlm30CitationSchemaFilterTest
- * @ingroup tests_classes_citation_lookup_worldcat
+ * @ingroup tests_plugins_citationLookup_worldcat
  * @see WorldcatNlm30CitationSchemaFilter
  *
  * @brief Tests for the WorldcatNlm30CitationSchemaFilter class.
@@ -15,7 +15,7 @@
  * NB: This test requires a WordCat API key to function properly!
  */
 
-import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlm30CitationSchemaFilter');
+import('lib.pkp.plugins.citationLookup.worldcat.WorldcatNlm30CitationSchemaFilter');
 import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
 
 class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {

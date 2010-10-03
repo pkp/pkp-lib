@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_output_vancouver
+ * @defgroup plugins_citationOutput_vancouver
  */
 
 /**
- * @file citation/output/vancouver/Nlm30CitationSchemaVancouverFilter.inc.php
+ * @file plugins/citationOutput/vancouver/Nlm30CitationSchemaVancouverFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaVancouverFilter
- * @ingroup citation_output_vancouver
+ * @ingroup plugins_citationOutput_vancouver
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
  *  Vancouver citation output.
@@ -39,7 +39,7 @@ class Nlm30CitationSchemaVancouverFilter extends Nlm30CitationSchemaCitationOutp
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.vancouver.Nlm30CitationSchemaVancouverFilter';
+		return 'lib.pkp.plugins.citationOutput.vancouver.Nlm30CitationSchemaVancouverFilter';
 	}
 
 

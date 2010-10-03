@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file tests/classes/citation/parser/regex/RegexRawCitationNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationParser/regex/RegexRawCitationNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegexRawCitationNlm30CitationSchemaFilterTest
- * @ingroup tests_classes_citation_parser_regex
+ * @ingroup tests_plugins_citationParser_regex
  * @see RegexRawCitationNlm30CitationSchemaFilter
  *
  * @brief Tests for the RegexRawCitationNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.tests.classes.citation.parser.Nlm30CitationSchemaParserFilterTestCase');
-import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlm30CitationSchemaFilter');
+import('lib.pkp.tests.plugins.citationParser.Nlm30CitationSchemaParserFilterTestCase');
+import('lib.pkp.plugins.citationParser.regex.RegexRawCitationNlm30CitationSchemaFilter');
 
 class RegexRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaParserFilterTestCase {
 	/**

@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file tests/classes/citation/output/nlm30/Nlm30CitationSchemaNlm30FilterTest.inc.php
+ * @file tests/plugins/citationOutput/nlm30/Nlm30CitationSchemaNlm30FilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaNlm30FilterTest
- * @ingroup tests_classes_citation_output_nlm
+ * @ingroup tests_plugins_citationOutput_nlm
  * @see Nlm30CitationSchemaNlm30Filter
  *
  * @brief Tests for the Nlm30CitationSchemaNlm30Filter class.
  */
 
-import('lib.pkp.classes.citation.output.nlm.Nlm30CitationSchemaNlm30Filter');
-import('lib.pkp.tests.classes.citation.output.Nlm30CitationSchemaCitationOutputFormatFilterTest');
+import('lib.pkp.plugins.citationOutput.nlm.Nlm30CitationSchemaNlm30Filter');
+import('lib.pkp.tests.plugins.citationOutput.Nlm30CitationSchemaCitationOutputFormatFilterTest');
 
 class Nlm30CitationSchemaNlm30FilterTest extends Nlm30CitationSchemaCitationOutputFormatFilterTest {
 	/*

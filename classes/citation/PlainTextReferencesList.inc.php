@@ -5,13 +5,13 @@
  */
 
 /**
- * @file classes/citation/output/PlainTextReferencesList.inc.php
+ * @file classes/citation/PlainTextReferencesList.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PlainTextReferencesList
- * @ingroup citation_output
+ * @ingroup citation
  *
  * @brief Class representing an ordered list of plain text citation output.
  */

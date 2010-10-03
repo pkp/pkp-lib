@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_output_nlm
+ * @defgroup plugins_citationOutput_nlm
  */
 
 /**
- * @file citation/output/nlm30/Nlm30CitationSchemaNlm30Filter.inc.php
+ * @file plugins/citationOutput/nlm30/Nlm30CitationSchemaNlm30Filter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaNlm30Filter
- * @ingroup citation_output_nlm
+ * @ingroup plugins_citationOutput_nlm
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
  *  NLM XML citation output.
@@ -39,7 +39,7 @@ class Nlm30CitationSchemaNlm30Filter extends Nlm30CitationSchemaCitationOutputFo
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.nlm.Nlm30CitationSchemaNlm30Filter';
+		return 'lib.pkp.plugins.citationOutput.nlm.Nlm30CitationSchemaNlm30Filter';
 	}
 
 	/**

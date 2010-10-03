@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaFilterTest.inc.php
+ * @file tests/plugins/citationLookup/isbndb/IsbndbNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IsbndbNlm30CitationSchemaFilterTest
- * @ingroup tests_classes_citation_lookup_isbndb
+ * @ingroup tests_plugins_citationLookup_isbndb
  *
  * @brief Basic configuration for Isbndb tests
  */

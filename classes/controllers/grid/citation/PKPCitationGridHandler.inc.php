@@ -231,7 +231,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 				// Identify filters that are capable to convert the citation
 				// editor's associated object into a plain text reference list.
-				import('lib.pkp.classes.citation.output.PlainTextReferencesList');
+				import('lib.pkp.classes.citation.PlainTextReferencesList');
 				$outputSample = new PlainTextReferencesList(null, null);
 				$textExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
 				$textExportFilters = array();

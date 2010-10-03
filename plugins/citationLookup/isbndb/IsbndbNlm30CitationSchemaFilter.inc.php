@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_lookup_isbndb
+ * @defgroup plugins_citationLookup_isbndb
  */
 
 /**
- * @file classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationLookup/isbndb/IsbndbNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IsbndbNlm30CitationSchemaFilter
- * @ingroup citation_lookup_isbndb
+ * @ingroup plugins_citationLookup_isbndb
  *
  * @brief Abstract filter that wraps the ISBNdb web service.
  */

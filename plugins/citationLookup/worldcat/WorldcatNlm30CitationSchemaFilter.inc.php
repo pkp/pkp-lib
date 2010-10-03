@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_lookup_worldcat
+ * @defgroup plugins_citationLookup_worldcat
  */
 
 /**
- * @file classes/citation/lookup/worldcat/WorldcatNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationLookup/worldcat/WorldcatNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WorldcatNlm30CitationSchemaFilter
- * @ingroup citation_lookup_worldcat
+ * @ingroup plugins_citationLookup_worldcat
  * @see CitationMangager
  *
  * @brief Citation lookup filter that uses the OCLC Worldcat Search API
@@ -66,7 +66,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationLookup.worldcat.WorldcatNlm30CitationSchemaFilter';
 	}
 
 	/**

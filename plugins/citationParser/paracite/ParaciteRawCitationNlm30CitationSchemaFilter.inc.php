@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @defgroup citation_parser_paracite
+ * @defgroup plugins_citationParser_paracite
  */
 
 /**
- * @file classes/citation/parser/paracite/ParaciteRawCitationNlm30CitationSchemaFilter.inc.php
+ * @file plugins/citationParser/paracite/ParaciteRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ParaciteRawCitationNlm30CitationSchemaFilter
- * @ingroup citation_parser_paracite
+ * @ingroup plugins_citationParser_paracite
  *
  * @brief Paracite parsing filter implementation.
  *
@@ -74,7 +74,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlm30CitationSchemaFilter';
+		return 'lib.pkp.plugins.citationParser.paracite.ParaciteRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**

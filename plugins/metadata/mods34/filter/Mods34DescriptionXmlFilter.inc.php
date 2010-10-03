@@ -5,7 +5,7 @@
  */
 
 /**
- * @file classes/plugins/metadata/mods/filter/Mods34DescriptionXmlFilter.inc.php
+ * @file classes/plugins/metadata/mods34/filter/Mods34DescriptionXmlFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -65,9 +65,9 @@ class Mods34DescriptionXmlFilter extends Filter {
 
 		// Add the XML namespace and schema.
 		XMLCustomWriter::setAttribute($root, 'version', '3.4');
-		XMLCustomWriter::setAttribute($root, 'xmlns', 'http://www.loc.gov/mods/v3');
+		XMLCustomWriter::setAttribute($root, 'xmlns', 'http://www.loc.gov/mods34/v3');
 		XMLCustomWriter::setAttribute($root, 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-		XMLCustomWriter::setAttribute($root, 'xsi:schemaLocation', 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd');
+		XMLCustomWriter::setAttribute($root, 'xsi:schemaLocation', 'http://www.loc.gov/mods34/v3 http://www.loc.gov/standards/mods34/v3/mods-3-4.xsd');
 
 		// Prepare the MODS document hierarchy from the MODS MetadataDescription instance.
 		$documentHierarchy =& $this->_buildDocumentHierarchy($doc, $root, $input);

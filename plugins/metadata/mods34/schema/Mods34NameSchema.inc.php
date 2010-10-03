@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file plugins/metadata/mods/schema/Mods34NameSchema.inc.php
+ * @file plugins/metadata/mods34/schema/Mods34NameSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -16,7 +16,7 @@
  *  from the original XML standard to 'element[@attribute="..."]' property
  *  names.
  *
- *  See <http://www.loc.gov/standards/mods/mods-outline.html#name>.
+ *  See <http://www.loc.gov/standards/mods34/mods-outline.html#name>.
  *
  *  Wherever possible we follow the "Digital Library Federation / Aquifer
  *  Implementation Guidelines for Shareable MODS Records", see

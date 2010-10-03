@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/mods/filter/Mods34DescriptionXmlFilterTest.inc.php
+ * @file tests/plugins/metadata/mods34/filter/Mods34DescriptionXmlFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -29,7 +29,7 @@ class Mods34DescriptionXmlFilterTest extends Mods34DescriptionTestCase {
 
 		// Transform MODS description to XML.
 		$output = $filter->execute($submissionDescription);
-		self::assertXmlStringEqualsXmlFile('./lib/pkp/tests/plugins/metadata/mods/filter/test.xml', $output);
+		self::assertXmlStringEqualsXmlFile('./lib/pkp/tests/plugins/metadata/mods34/filter/test.xml', $output);
 	}
 }
 ?>

@@ -5,7 +5,7 @@
  */
 
 /**
- * @file plugins/metadata/mods/schema/PKPMods34Schema.inc.php
+ * @file plugins/metadata/mods34/schema/PKPMods34Schema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -28,7 +28,7 @@
  *  notable exception to this rule is the name element which is implemented
  *  as a composite. Additional composites can be introduced later if required.
  *
- *  See <http://www.loc.gov/standards/mods/mods-outline.html>.
+ *  See <http://www.loc.gov/standards/mods34/mods-outline.html>.
  *
  *  Wherever possible we follow the "Digital Library Federation / Aquifer
  *  Implementation Guidelines for Shareable MODS Records", see

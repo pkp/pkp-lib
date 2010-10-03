@@ -83,10 +83,10 @@ class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
 			'comment' => 'a comment',
 			'annotation' => 'an annotation',
 		);
-		$nlmDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
-		self::assertTrue($nlmDescription->setStatements($citationData));
+		$nlm30Description = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
+		self::assertTrue($nlm30Description->setStatements($citationData));
 
-		return $nlmDescription;
+		return $nlm30Description;
 	}
 
 	/**
@@ -119,10 +119,10 @@ class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
 			'coden' => 'coden',
 			'sici' => 'sici'
 		);
-		$openUrlDescription = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema', ASSOC_TYPE_CITATION);
-		self::assertTrue($openUrlDescription->setStatements($citationData));
+		$openUrl10Description = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema', ASSOC_TYPE_CITATION);
+		self::assertTrue($openUrl10Description->setStatements($citationData));
 
-		return $openUrlDescription;
+		return $openUrl10Description;
 	}
 }
 ?>

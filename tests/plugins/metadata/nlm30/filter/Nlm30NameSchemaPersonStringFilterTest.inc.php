@@ -28,8 +28,8 @@ class Nlm30NameSchemaPersonStringFilterTest extends PKPTestCase {
 		$personDescription->addStatement('surname', $surname = 'Assis');
 		$personDescription->addStatement('suffix', $suffix = 'Jr');
 
-		$nlmNameSchemaPersonStringFilter = new Nlm30NameSchemaPersonStringFilter();
-		self::assertEquals('Assis Jr, (Machado) de', $nlmNameSchemaPersonStringFilter->execute($personDescription));
+		$nlm30NameSchemaPersonStringFilter = new Nlm30NameSchemaPersonStringFilter();
+		self::assertEquals('Assis Jr, (Machado) de', $nlm30NameSchemaPersonStringFilter->execute($personDescription));
 		return $personDescription;
 	}
 
@@ -46,14 +46,14 @@ class Nlm30NameSchemaPersonStringFilterTest extends PKPTestCase {
 
 		$personDescriptions = array($personDescription1, $personDescription2, PERSON_STRING_FILTER_ETAL);
 
-		$nlmNameSchemaPersonStringFilter = new Nlm30NameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
+		$nlm30NameSchemaPersonStringFilter = new Nlm30NameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
 
-		self::assertEquals('Assis Jr, (Machado) de; Elis, A. (Bernardo); et al', $nlmNameSchemaPersonStringFilter->execute($personDescriptions));
+		self::assertEquals('Assis Jr, (Machado) de; Elis, A. (Bernardo); et al', $nlm30NameSchemaPersonStringFilter->execute($personDescriptions));
 
 		// Test template and delimiter
-		$nlmNameSchemaPersonStringFilter->setDelimiter(':');
-		$nlmNameSchemaPersonStringFilter->setTemplate('%firstname%%initials%%prefix% %surname%%suffix%');
-		self::assertEquals('Machado de Assis Jr:Bernardo A. Elis:et al', $nlmNameSchemaPersonStringFilter->execute($personDescriptions));
+		$nlm30NameSchemaPersonStringFilter->setDelimiter(':');
+		$nlm30NameSchemaPersonStringFilter->setTemplate('%firstname%%initials%%prefix% %surname%%suffix%');
+		self::assertEquals('Machado de Assis Jr:Bernardo A. Elis:et al', $nlm30NameSchemaPersonStringFilter->execute($personDescriptions));
 	}
 }
 ?>

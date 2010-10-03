@@ -200,8 +200,8 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BookSchema';
-				$openUrlSchemaClass = 'OpenUrl10BookSchema';
+				$openUrl10SchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BookSchema';
+				$openUrl10SchemaClass = 'OpenUrl10BookSchema';
 				break;
 
 			case OPENURL_GENRE_ARTICLE:
@@ -220,14 +220,14 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema';
-				$openUrlSchemaClass = 'OpenUrl10JournalSchema';
+				$openUrl10SchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema';
+				$openUrl10SchemaClass = 'OpenUrl10JournalSchema';
 				break;
 		}
 
 		// Instantiate an OpenURL description
-		$openUrlDescription = new MetadataDescription($openUrlSchemaName, ASSOC_TYPE_CITATION);
-		$openUrlSchema = new $openUrlSchemaClass();
+		$openUrl10Description = new MetadataDescription($openUrl10SchemaName, ASSOC_TYPE_CITATION);
+		$openUrl10Schema = new $openUrl10SchemaClass();
 
 		// Map the ParaCite result to OpenURL
 		foreach ($metadata as $paraciteElementName => $paraciteValue) {
@@ -237,15 +237,15 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 
 				// Transfer the value to the OpenURL result array
 				assert(array_key_exists($paraciteElementName, $metadataMapping));
-				$openUrlPropertyName = $metadataMapping[$paraciteElementName];
-				if (!is_null($openUrlPropertyName) && $openUrlSchema->hasProperty($openUrlPropertyName)) {
+				$openUrl10PropertyName = $metadataMapping[$paraciteElementName];
+				if (!is_null($openUrl10PropertyName) && $openUrl10Schema->hasProperty($openUrl10PropertyName)) {
 					if (is_array($paraciteValue)) {
 						foreach($paraciteValue as $singleValue) {
-							$success = $openUrlDescription->addStatement($openUrlPropertyName, $singleValue);
+							$success = $openUrl10Description->addStatement($openUrl10PropertyName, $singleValue);
 							assert($success);
 						}
 					} else {
-						$success = $openUrlDescription->addStatement($openUrlPropertyName, $paraciteValue);
+						$success = $openUrl10Description->addStatement($openUrl10PropertyName, $paraciteValue);
 						assert($success);
 					}
 				}
@@ -254,21 +254,21 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 
 		// Crosswalk to NLM
 		$crosswalkFilter = new OpenUrl10Nlm30CitationSchemaCrosswalkFilter();
-		$nlmDescription =& $crosswalkFilter->execute($openUrlDescription);
-		assert(is_a($nlmDescription, 'MetadataDescription'));
+		$nlm30Description =& $crosswalkFilter->execute($openUrl10Description);
+		assert(is_a($nlm30Description, 'MetadataDescription'));
 
 		// Add 'rest_text' as NLM comment (if given)
 		if (isset($metadata['rest_text'])) {
-			$nlmDescription->addStatement('comment', String::trimPunctuation($metadata['rest_text']));
+			$nlm30Description->addStatement('comment', String::trimPunctuation($metadata['rest_text']));
 		}
 
 		// Set display name and sequence id in the meta-data description
 		// to the corresponding values from the filter. This is important
 		// so that we later know which result came from which filter.
-		$nlmDescription->setDisplayName($this->getDisplayName());
-		$nlmDescription->setSeq($this->getSeq());
+		$nlm30Description->setDisplayName($this->getDisplayName());
+		$nlm30Description->setSeq($this->getSeq());
 
-		return $nlmDescription;
+		return $nlm30Description;
 	}
 
 

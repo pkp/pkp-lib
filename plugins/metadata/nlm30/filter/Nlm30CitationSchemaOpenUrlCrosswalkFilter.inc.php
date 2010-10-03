@@ -150,9 +150,9 @@ class Nlm30CitationSchemaOpenUrl10CrosswalkFilter extends OpenUrl10CrosswalkFilt
 		$propertyMap =& $this->nlmOpenUrl10Mapping($publicationType, $output->getMetadataSchema());
 
 		// Transfer mapped properties with default locale
-		foreach ($propertyMap as $nlmProperty => $openUrlProperty) {
-			if ($input->hasStatement($nlmProperty)) {
-				$success = $output->addStatement($openUrlProperty, $input->getStatement($nlmProperty));
+		foreach ($propertyMap as $nlm30Property => $openUrl10Property) {
+			if ($input->hasStatement($nlm30Property)) {
+				$success = $output->addStatement($openUrl10Property, $input->getStatement($nlm30Property));
 				assert($success);
 			}
 		}

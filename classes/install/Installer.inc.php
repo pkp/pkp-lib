@@ -734,9 +734,9 @@ class Installer {
 
 			// Instantiate and add the NLM-to-ISBN filter.
 			import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaIsbnFilter');
-			$nlmToIsbnFilter = new IsbndbNlm30CitationSchemaIsbnFilter(
+			$nlm30ToIsbnFilter = new IsbndbNlm30CitationSchemaIsbnFilter(
 					$filterGroupDao->getObjectBySymbolic('nlm30-element-citation=>isbn'));
-			$isbndbFilter->addFilter($nlmToIsbnFilter);
+			$isbndbFilter->addFilter($nlm30ToIsbnFilter);
 
 			// Instantiate and add the ISBN-to-NLM filter.
 			import('lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlm30CitationSchemaFilter');
@@ -747,8 +747,8 @@ class Installer {
 			// Add the settings mapping.
 			$isbndbFilter->setSettingsMapping(
 					array(
-						'apiKey' => array('seq'.$nlmToIsbnFilter->getSeq().'_apiKey', 'seq'.$isbnToNlm30Filter->getSeq().'_apiKey'),
-						'isOptional' => array('seq'.$nlmToIsbnFilter->getSeq().'_isOptional', 'seq'.$isbnToNlm30Filter->getSeq().'_isOptional')
+						'apiKey' => array('seq'.$nlm30ToIsbnFilter->getSeq().'_apiKey', 'seq'.$isbnToNlm30Filter->getSeq().'_apiKey'),
+						'isOptional' => array('seq'.$nlm30ToIsbnFilter->getSeq().'_isOptional', 'seq'.$isbnToNlm30Filter->getSeq().'_isOptional')
 					));
 
 			// Persist the composite filter.

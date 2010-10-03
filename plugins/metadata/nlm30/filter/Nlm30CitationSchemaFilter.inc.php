@@ -357,9 +357,9 @@ class Nlm30CitationSchemaFilter extends Filter {
 			'pub-id-pmid' => 'pub-id[@pub-id-type="pmid"]',
 			'publication-type' => '[@publication-type]'
 		);
-		foreach($elementToAttributeMap as $elementName => $nlmPropertyName) {
+		foreach($elementToAttributeMap as $elementName => $nlm30PropertyName) {
 			if (isset($preliminaryNlm30Array[$elementName])) {
-				$preliminaryNlm30Array[$nlmPropertyName] = $preliminaryNlm30Array[$elementName];
+				$preliminaryNlm30Array[$nlm30PropertyName] = $preliminaryNlm30Array[$elementName];
 				unset($preliminaryNlm30Array[$elementName]);
 			}
 		}

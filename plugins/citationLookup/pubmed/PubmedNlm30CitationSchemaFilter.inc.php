@@ -115,12 +115,12 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			);
 			$searchTerms = '';
 			$statements = $citationDescription->getStatements();
-			foreach($searchProperties as $nlmProperty => $pubmedProperty) {
-				if (isset($statements[$nlmProperty])) {
+			foreach($searchProperties as $nlm30Property => $pubmedProperty) {
+				if (isset($statements[$nlm30Property])) {
 					if (!empty($searchTerms)) $searchTerms .= ' AND ';
 
 					// Special treatment for authors
-					if ($nlmProperty == 'person-group[@person-group-type="author"]') {
+					if ($nlm30Property == 'person-group[@person-group-type="author"]') {
 						assert(isset($statements['person-group[@person-group-type="author"]'][0]));
 						$firstAuthor =& $statements['person-group[@person-group-type="author"]'][0];
 
@@ -131,7 +131,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 						$givenNames = $firstAuthor->getStatement('given-names');
 						if (is_array($givenNames)) $searchTerms .= ' '.String::substr($givenNames[0], 0, 1);
 					} else {
-						$searchTerms .= $citationDescription->getStatement($nlmProperty);
+						$searchTerms .= $citationDescription->getStatement($nlm30Property);
 					}
 
 					$searchTerms .= $pubmedProperty;

@@ -34,23 +34,23 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	//
 	/**
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
-	 * @param $modsDescription MetadataDescription
+	 * @param $mods34Description MetadataDescription
 	 * @param $submission Submission
 	 * @param $replace boolean whether to replace the existing submission
 	 * @param $authorClassName string the application specific author class name
 	 */
-	function &injectMetadataIntoDataObject(&$modsDescription, &$submission, $replace, $authorClassName) {
+	function &injectMetadataIntoDataObject(&$mods34Description, &$submission, $replace, $authorClassName) {
 		if ($replace) $submission = new Submission();
 		assert(is_a($submission, 'Submission'));
-		assert($modsDescription->getMetadataSchemaName() == 'plugins.metadata.mods34.schema.Mods34Schema');
+		assert($mods34Description->getMetadataSchemaName() == 'plugins.metadata.mods34.schema.Mods34Schema');
 
 		// Get the cataloging language.
-		$catalogingLanguage = $modsDescription->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
+		$catalogingLanguage = $mods34Description->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
 		$catalogingLocale = Locale::getLocaleFrom3LetterIso($catalogingLanguage);
 		assert(!is_null($catalogingLocale));
 
 		// Title
-		$localizedTitles = $modsDescription->getStatementTranslations('titleInfo/title');
+		$localizedTitles = $mods34Description->getStatementTranslations('titleInfo/title');
 		if (is_array($localizedTitles)) {
 			foreach($localizedTitles as $locale => $title) {
 				$submission->setTitle($title, $locale);
@@ -59,7 +59,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 		// Names: authors and sponsor
 		$foundSponsor = false;
-		$nameDescriptions =& $modsDescription->getStatement('name');
+		$nameDescriptions =& $mods34Description->getStatement('name');
 		if (is_array($nameDescriptions)) {
 			foreach($nameDescriptions as $nameDescription) { /* @var $nameDescription MetadataDescription */
 				// Check that we find the expected name schema.
@@ -139,22 +139,22 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Creation date
-		$dateSubmitted = $modsDescription->getStatement('originInfo/dateCreated[@encoding="w3cdtf"]');
+		$dateSubmitted = $mods34Description->getStatement('originInfo/dateCreated[@encoding="w3cdtf"]');
 		if ($dateSubmitted) $submission->setDateSubmitted($dateSubmitted);
 
 		// Submission language
-		$submissionLanguage = $modsDescription->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
+		$submissionLanguage = $mods34Description->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
 		$submissionLocale = Locale::get2LetterFrom3LetterIsoLanguage($submissionLanguage);
 		if ($submissionLocale) {
 			$submission->setLanguage($submissionLocale);
 		}
 
 		// Pages (extent)
-		$pages = $modsDescription->getStatement('physicalDescription/extent');
+		$pages = $mods34Description->getStatement('physicalDescription/extent');
 		if ($pages) $submission->setPages($pages);
 
 		// Abstract
-		$localizedAbstracts = $modsDescription->getStatementTranslations('abstract');
+		$localizedAbstracts = $mods34Description->getStatementTranslations('abstract');
 		if (is_array($localizedAbstracts)) {
 			foreach($localizedAbstracts as $locale => $abstract) {
 				$submission->setAbstract($abstract, $locale);
@@ -167,7 +167,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// statements with different authorities instead?
 
 		// Geographical coverage
-		$localizedCoverageGeos = $modsDescription->getStatementTranslations('subject/geographic');
+		$localizedCoverageGeos = $mods34Description->getStatementTranslations('subject/geographic');
 		if (is_array($localizedCoverageGeos)) {
 			foreach($localizedCoverageGeos as $locale => $localizedCoverageGeo) {
 				$submission->setCoverageGeo($localizedCoverageGeo, $locale);
@@ -175,7 +175,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Chronological coverage
-		$localizedCoverageChrons = $modsDescription->getStatementTranslations('subject/temporal');
+		$localizedCoverageChrons = $mods34Description->getStatementTranslations('subject/temporal');
 		if (is_array($localizedCoverageChrons)) {
 			foreach($localizedCoverageChrons as $locale => $localizedCoverageChron) {
 				$submission->setCoverageChron($localizedCoverageChron, $locale);
@@ -187,7 +187,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		// to make sure that MODS records can be transported between different installations.
 
 		// Handle unmapped fields.
-		$this->injectUnmappedDataObjectMetadataFields($modsDescription, $submission);
+		$this->injectUnmappedDataObjectMetadataFields($mods34Description, $submission);
 
 		return $submission;
 	}
@@ -201,7 +201,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 */
 	function &extractMetadataFromDataObject(&$submission, $authorMarcrelatorRole = 'aut') {
 		assert(is_a($submission, 'Submission'));
-		$modsDescription =& $this->instantiateMetadataDescription();
+		$mods34Description =& $this->instantiateMetadataDescription();
 
 		// Retrieve the primary locale.
 		$catalogingLocale = Locale::getPrimaryLocale();
@@ -209,11 +209,11 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 		// Establish the association between the meta-data description
 		// and the submission.
-		$modsDescription->setAssocId($submission->getId());
+		$mods34Description->setAssocId($submission->getId());
 
 		// Title
 		$localizedTitles =& $submission->getTitle(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'titleInfo/title', $localizedTitles);
+		$this->addLocalizedStatements($mods34Description, 'titleInfo/title', $localizedTitles);
 
 		// Authors
 		// FIXME: Move this to a dedicated adapter in the Author class.
@@ -262,7 +262,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			$authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $authorMarcrelatorRole);
 
 			// Add the author to the MODS schema.
-			$modsDescription->addStatement('name', $authorDescription);
+			$mods34Description->addStatement('name', $authorDescription);
 			unset($authorDescription);
 		}
 
@@ -278,18 +278,18 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			$supportingAgencyDescription->addStatement('namePart', $supportingAgency);
 			$sponsorRole = 'spn';
 			$supportingAgencyDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $sponsorRole);
-			$modsDescription->addStatement('name', $supportingAgencyDescription);
+			$mods34Description->addStatement('name', $supportingAgencyDescription);
 		}
 
 		// Type of resource
 		$typeOfResource = 'text';
-		$modsDescription->addStatement('typeOfResource', $typeOfResource);
+		$mods34Description->addStatement('typeOfResource', $typeOfResource);
 
 		// Creation & copyright date
 		$submissionDate = $submission->getDateSubmitted();
 		if (strlen($submissionDate) >= 4) {
-			$modsDescription->addStatement('originInfo/dateCreated[@encoding="w3cdtf"]', $submissionDate);
-			$modsDescription->addStatement('originInfo/copyrightDate[@encoding="w3cdtf"]', substr($submissionDate, 0, 4));
+			$mods34Description->addStatement('originInfo/dateCreated[@encoding="w3cdtf"]', $submissionDate);
+			$mods34Description->addStatement('originInfo/copyrightDate[@encoding="w3cdtf"]', substr($submissionDate, 0, 4));
 		}
 
 		// Submission language
@@ -298,49 +298,49 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 			// Assume the cataloging language by default.
 			$submissionLanguage = $catalogingLanguage;
 		}
-		$modsDescription->addStatement('language/languageTerm[@type="code" @authority="iso639-2b"]', $submissionLanguage);
+		$mods34Description->addStatement('language/languageTerm[@type="code" @authority="iso639-2b"]', $submissionLanguage);
 
 		// Pages (extent)
-		$modsDescription->addStatement('physicalDescription/extent', $submission->getPages());
+		$mods34Description->addStatement('physicalDescription/extent', $submission->getPages());
 
 		// Abstract
 		$localizedAbstracts =& $submission->getAbstract(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'abstract', $localizedAbstracts);
+		$this->addLocalizedStatements($mods34Description, 'abstract', $localizedAbstracts);
 
 		// Discipline
 		$localizedDisciplines = $submission->getDiscipline(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'subject/topic', $localizedDisciplines);
+		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedDisciplines);
 
 		// Subject class
 		$localizedSubjectClasses = $submission->getSubjectClass(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'subject/topic', $localizedSubjectClasses);
+		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedSubjectClasses);
 
 		// Subject
 		$localizedSubjects = $submission->getSubject(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'subject/topic', $localizedSubjects);
+		$this->addLocalizedStatements($mods34Description, 'subject/topic', $localizedSubjects);
 
 		// Geographical coverage
 		$localizedCoverageGeo = $submission->getCoverageGeo(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'subject/geographic', $localizedCoverageGeo);
+		$this->addLocalizedStatements($mods34Description, 'subject/geographic', $localizedCoverageGeo);
 
 		// Chronological coverage
 		$localizedCoverageChron = $submission->getCoverageChron(null); // Localized
-		$this->addLocalizedStatements($modsDescription, 'subject/temporal', $localizedCoverageChron);
+		$this->addLocalizedStatements($mods34Description, 'subject/temporal', $localizedCoverageChron);
 
 		// Record creation date
 		$recordCreationDate = date('Y-m-d');
-		$modsDescription->addStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]', $recordCreationDate);
+		$mods34Description->addStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]', $recordCreationDate);
 
 		// Record identifier
-		$modsDescription->addStatement('recordInfo/recordIdentifier[@source="pkp"]', $submission->getId());
+		$mods34Description->addStatement('recordInfo/recordIdentifier[@source="pkp"]', $submission->getId());
 
 		// Cataloging language
-		$modsDescription->addStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', $catalogingLanguage);
+		$mods34Description->addStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]', $catalogingLanguage);
 
 		// Handle unmapped fields.
-		$this->extractUnmappedDataObjectMetadataFields($submission, $modsDescription);
+		$this->extractUnmappedDataObjectMetadataFields($submission, $mods34Description);
 
-		return $modsDescription;
+		return $mods34Description;
 	}
 
 	/**

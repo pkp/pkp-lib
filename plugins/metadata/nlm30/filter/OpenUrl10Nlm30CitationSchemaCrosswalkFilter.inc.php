@@ -75,9 +75,9 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 		$propertyMap =& $this->nlmOpenUrl10Mapping($publicationType, $input->getMetadataSchema());
 
 		// Transfer mapped properties with default locale
-		foreach ($propertyMap as $nlmProperty => $openUrlProperty) {
-			if ($input->hasStatement($openUrlProperty)) {
-				$success = $output->addStatement($nlmProperty, $input->getStatement($openUrlProperty));
+		foreach ($propertyMap as $nlm30Property => $openUrl10Property) {
+			if ($input->hasStatement($openUrl10Property)) {
+				$success = $output->addStatement($nlm30Property, $input->getStatement($openUrl10Property));
 				assert($success);
 			}
 		}
@@ -97,7 +97,7 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 	 * @return array
 	 */
 	function _getOpenUrl10GenreTranslationMapping() {
-		static $openUrlGenreTranslationMapping = array(
+		static $openUrl10GenreTranslationMapping = array(
 			OPENURL_GENRE_ARTICLE => NLM_PUBLICATION_TYPE_JOURNAL,
 			OPENURL_GENRE_ISSUE => NLM_PUBLICATION_TYPE_JOURNAL,
 			OPENURL_GENRE_CONFERENCE => NLM_PUBLICATION_TYPE_CONFPROC,
@@ -110,7 +110,7 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 			OPENURL_PSEUDOGENRE_DISSERTATION => NLM_PUBLICATION_TYPE_THESIS
 		);
 
-		return $openUrlGenreTranslationMapping;
+		return $openUrl10GenreTranslationMapping;
 	}
 }
 ?>

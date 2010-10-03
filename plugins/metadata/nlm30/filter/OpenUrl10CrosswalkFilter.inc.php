@@ -40,10 +40,10 @@ class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 	 * Create a mapping of NLM properties to OpenURL
 	 * properties that do not need special processing.
 	 * @param $publicationType The NLM publication type
-	 * @param $openUrlSchema MetadataSchema
+	 * @param $openUrl10Schema MetadataSchema
 	 * @return array
 	 */
-	function &nlmOpenUrl10Mapping($publicationType, &$openUrlSchema) {
+	function &nlmOpenUrl10Mapping($publicationType, &$openUrl10Schema) {
 		$propertyMap = array();
 
 		// Map titles and date
@@ -81,7 +81,7 @@ class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 		$propertyMap['isbn'] = 'isbn';
 
 		// Properties common to OpenURL book and journal
-		if (is_a($openUrlSchema, 'OpenUrl10JournalBookBaseSchema')) {
+		if (is_a($openUrl10Schema, 'OpenUrl10JournalBookBaseSchema')) {
 			// Some properties can be mapped one-to-one
 			$propertyMap += array(
 				'issn[@pub-type="ppub"]' => 'issn',
@@ -95,7 +95,7 @@ class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 
 		// OpenURL journal properties
 		// The properties 'chron' and 'quarter' remain unmatched.
-		if (is_a($openUrlSchema, 'OpenUrl10JournalSchema')) {
+		if (is_a($openUrl10Schema, 'OpenUrl10JournalSchema')) {
 			$propertyMap += array(
 				'season' => 'ssn',
 				'volume' => 'volume',
@@ -110,7 +110,7 @@ class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 
 		// OpenURL book properties
 		// The 'bici' property remains unmatched.
-		if (is_a($openUrlSchema, 'OpenUrl10BookSchema')) {
+		if (is_a($openUrl10Schema, 'OpenUrl10BookSchema')) {
 			$propertyMap += array(
 				'publisher-loc' => 'place',
 				'publisher-name' => 'pub',
@@ -123,7 +123,7 @@ class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 		// OpenURL dissertation properties
 		// The properties 'cc', 'advisor' and 'degree' remain unmatched
 		// as NLM does not have good dissertation support.
-		if (is_a($openUrlSchema, 'OpenUrl10DisertationSchema')) {
+		if (is_a($openUrl10Schema, 'OpenUrl10DisertationSchema')) {
 			$propertyMap += array(
 				'size' => 'tpages',
 				'publisher-loc' => 'co',

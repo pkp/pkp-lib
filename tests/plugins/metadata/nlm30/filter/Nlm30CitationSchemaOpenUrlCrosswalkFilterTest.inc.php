@@ -22,11 +22,11 @@ class Nlm30CitationSchemaOpenUrl10CrosswalkFilterTest extends OpenUrl10Crosswalk
 	 * @covers OpenUrl10CrosswalkFilter
 	 */
 	public function testExecute() {
-		$nlmDescription = $this->getTestNlm30Description();
-		$openUrlDescription = $this->getTestOpenUrl10Description();
+		$nlm30Description = $this->getTestNlm30Description();
+		$openUrl10Description = $this->getTestOpenUrl10Description();
 
 		$filter = new Nlm30CitationSchemaOpenUrl10CrosswalkFilter();
-		self::assertEquals($openUrlDescription, $filter->execute($nlmDescription));
+		self::assertEquals($openUrl10Description, $filter->execute($nlm30Description));
 	}
 }
 ?>

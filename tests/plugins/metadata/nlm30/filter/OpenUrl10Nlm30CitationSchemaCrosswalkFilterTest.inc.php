@@ -22,25 +22,25 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilterTest extends OpenUrl10Crosswalk
 	 * @covers OpenUrl10CrosswalkFilter
 	 */
 	public function testExecute() {
-		$openUrlDescription = $this->getTestOpenUrl10Description();
-		$nlmDescription = $this->getTestNlm30Description();
+		$openUrl10Description = $this->getTestOpenUrl10Description();
+		$nlm30Description = $this->getTestNlm30Description();
 
 		// Properties that are not part of the OpenURL
 		// description must be removed from the NLM description
 		// before we compare the two.
-		self::assertTrue($nlmDescription->removeStatement('person-group[@person-group-type="editor"]'));
-		self::assertTrue($nlmDescription->removeStatement('source', 'de_DE'));
-		self::assertTrue($nlmDescription->removeStatement('article-title', 'de_DE'));
-		self::assertTrue($nlmDescription->removeStatement('publisher-loc'));
-		self::assertTrue($nlmDescription->removeStatement('publisher-name'));
-		self::assertTrue($nlmDescription->removeStatement('pub-id[@pub-id-type="doi"]'));
-		self::assertTrue($nlmDescription->removeStatement('pub-id[@pub-id-type="pmid"]'));
-		self::assertTrue($nlmDescription->removeStatement('uri'));
-		self::assertTrue($nlmDescription->removeStatement('comment'));
-		self::assertTrue($nlmDescription->removeStatement('annotation'));
+		self::assertTrue($nlm30Description->removeStatement('person-group[@person-group-type="editor"]'));
+		self::assertTrue($nlm30Description->removeStatement('source', 'de_DE'));
+		self::assertTrue($nlm30Description->removeStatement('article-title', 'de_DE'));
+		self::assertTrue($nlm30Description->removeStatement('publisher-loc'));
+		self::assertTrue($nlm30Description->removeStatement('publisher-name'));
+		self::assertTrue($nlm30Description->removeStatement('pub-id[@pub-id-type="doi"]'));
+		self::assertTrue($nlm30Description->removeStatement('pub-id[@pub-id-type="pmid"]'));
+		self::assertTrue($nlm30Description->removeStatement('uri'));
+		self::assertTrue($nlm30Description->removeStatement('comment'));
+		self::assertTrue($nlm30Description->removeStatement('annotation'));
 
 		$filter = new OpenUrl10Nlm30CitationSchemaCrosswalkFilter();
-		self::assertEquals($nlmDescription, $filter->execute($openUrlDescription));
+		self::assertEquals($nlm30Description, $filter->execute($openUrl10Description));
 	}
 }
 ?>

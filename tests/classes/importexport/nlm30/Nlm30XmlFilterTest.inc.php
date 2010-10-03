@@ -89,16 +89,16 @@ class Nlm30XmlFilterTest extends PKPTestCase {
 		return $citation;
 	}
 
-	protected function normalizeAndCompare($nlmXml, $expectedFile) {
+	protected function normalizeAndCompare($nlm30Xml, $expectedFile) {
 		// Normalize the output.
 		$domDocument = new DOMDocument();
 		$domDocument->preserveWhiteSpace = false;
 		$domDocument->formatOutput = true;
-		$domDocument->loadXML($nlmXml);
-		$nlmXml = $domDocument->saveXML($domDocument->documentElement);
+		$domDocument->loadXML($nlm30Xml);
+		$nlm30Xml = $domDocument->saveXML($domDocument->documentElement);
 
 		// Compare with the expected result.
-		self::assertStringEqualsFile($expectedFile, $nlmXml);
+		self::assertStringEqualsFile($expectedFile, $nlm30Xml);
 	}
 }
 ?>

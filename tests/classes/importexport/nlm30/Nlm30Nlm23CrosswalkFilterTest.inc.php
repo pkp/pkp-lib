@@ -86,8 +86,8 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 		// Prepare NLM 3.0 input.
 		$mockSubmission =& $this->getTestSubmission();
 		import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter');
-		$nlmFilter = new PKPSubmissionNlm30XmlFilter();
-		$nlmXml = $nlmFilter->execute($mockSubmission);
+		$nlm30Filter = new PKPSubmissionNlm30XmlFilter();
+		$nlm30Xml = $nlm30Filter->execute($mockSubmission);
 
 		// Test the downgrade filter.
 		import('lib.pkp.classes.xslt.XSLTransformationFilter');
@@ -95,9 +95,9 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 			'xml::*', 'xml::*',
 			'NLM 3.0 to 2.3 ref-list downgrade');
 		$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm30/nlm-ref-list-30-to-23.xsl');
-		$nlmXml = $downgradeFilter->execute($nlmXml);
+		$nlm30Xml = $downgradeFilter->execute($nlm30Xml);
 
-		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm23-citation.xml');
+		$this->normalizeAndCompare($nlm30Xml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm23-citation.xml');
 	}
 }
 ?>

@@ -59,11 +59,11 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 
 		// Create citation output for these citations.
 		import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-		$nlmCitationSchema = new Nlm30CitationSchema();
+		$nlm30CitationSchema = new Nlm30CitationSchema();
 		$citationOutputFilter = $this->getCitationOutputFilterInstance();
 		$citationsOutput = array();
 		foreach($citations as $seq => $citation) {
-			$citationMetadata =& $citation->extractMetadata($nlmCitationSchema);
+			$citationMetadata =& $citation->extractMetadata($nlm30CitationSchema);
 			$citationsOutput[$seq] = $citationOutputFilter->execute($citationMetadata);
 		}
 

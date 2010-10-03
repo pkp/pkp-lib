@@ -110,20 +110,20 @@ class Mods34DescriptionXmlFilter extends Filter {
 	 * @param $doc XMLNode|DOMDocument the MODS document node.
 	 * @param $root XMLNode|DOMDocument the root node of the
 	 *  MODS document.
-	 * @param $modsDescription MetadataDescription
+	 * @param $mods34Description MetadataDescription
 	 * @return array a hierarchical array of XMLNode|DOMDocument objects
 	 *  representing the MODS document.
 	 */
-	function &_buildDocumentHierarchy(&$doc, &$root, &$modsDescription) {
+	function &_buildDocumentHierarchy(&$doc, &$root, &$mods34Description) {
 		// Get the MODS schema.
-		$modsSchema =& $modsDescription->getMetadataSchema();
-		if (is_a($modsSchema, 'Mods34Schema')) {
+		$mods34Schema =& $mods34Description->getMetadataSchema();
+		if (is_a($mods34Schema, 'Mods34Schema')) {
 			// Identify the cataloging language.
-			assert($modsDescription->hasStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]'));
-			$catalogingLanguage = $modsDescription->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
+			assert($mods34Description->hasStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]'));
+			$catalogingLanguage = $mods34Description->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
 		} else {
 			// This must be a MODS name schema.
-			assert(is_a($modsSchema, 'Mods34NameSchema'));
+			assert(is_a($mods34Schema, 'Mods34NameSchema'));
 			$catalogingLanguage = 'undefined';
 		}
 
@@ -135,15 +135,15 @@ class Mods34DescriptionXmlFilter extends Filter {
 		// Find the translations required for top-level elements.
 		// We need this array later because we'll have to repeat non-translated
 		// values for every translated top-level element.
-		$properties = $modsDescription->getProperties();
+		$properties = $mods34Description->getProperties();
 		$translations = array();
 		foreach ($properties as $propertyName => $property) { /* @var $property MetadataProperty */
-			if ($modsDescription->hasStatement($propertyName)) {
+			if ($mods34Description->hasStatement($propertyName)) {
 				$nodes = explode('/', $propertyName);
 				$topLevelNode = array_shift($nodes);
 				if (!isset($translations[$topLevelNode])) $translations[$topLevelNode] = array();
 				if ($property->getTranslated()) {
-					foreach ($modsDescription->getStatementTranslations($propertyName) as $locale => $value) {
+					foreach ($mods34Description->getStatementTranslations($propertyName) as $locale => $value) {
 						$isoLanguage = Locale::get3LetterIsoFromLocale($locale);
 						if (!in_array($isoLanguage, $translations[$topLevelNode])) {
 							$translations[$topLevelNode][] = $isoLanguage;
@@ -159,7 +159,7 @@ class Mods34DescriptionXmlFilter extends Filter {
 
 		// Build the document hierarchy.
 		foreach ($properties as $propertyName => $property) { /* @var $property MetadataProperty */
-			if ($modsDescription->hasStatement($propertyName)) {
+			if ($mods34Description->hasStatement($propertyName)) {
 				// Get relevant property attributes.
 				$translated = $property->getTranslated();
 				$cardinality = $property->getCardinality();
@@ -171,10 +171,10 @@ class Mods34DescriptionXmlFilter extends Filter {
 				// Normalize property values to an array of translated strings.
 				if ($translated) {
 					// Only the main MODS schema can contain translated values.
-					assert(is_a($modsSchema, 'Mods34Schema'));
+					assert(is_a($mods34Schema, 'Mods34Schema'));
 
 					// Retrieve the translated values of the statement.
-					$localizedValues =& $modsDescription->getStatementTranslations($propertyName);
+					$localizedValues =& $mods34Description->getStatementTranslations($propertyName);
 
 					// Translate the PKP locale into ISO639-2b 3-letter codes.
 					$translatedValues = array();
@@ -186,7 +186,7 @@ class Mods34DescriptionXmlFilter extends Filter {
 				} else {
 					// Untranslated statements will be repeated for all languages
 					// present in the top-level element.
-					$untranslatedValue =& $modsDescription->getStatement($propertyName);
+					$untranslatedValue =& $mods34Description->getStatement($propertyName);
 					$translatedValues = array();
 					assert(isset($translations[$nodes[0]]));
 					foreach($translations[$nodes[0]] as $isoLanguage) {

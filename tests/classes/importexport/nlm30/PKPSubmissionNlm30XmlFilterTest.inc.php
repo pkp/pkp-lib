@@ -53,9 +53,9 @@ class PKPSubmissionNlm30XmlFilterTest extends Nlm30XmlFilterTest {
 		// Execute the filter and check the outcome.
 		$mockSubmission =& $this->getTestSubmission();
 		$filter = new PKPSubmissionNlm30XmlFilter();
-		$nlmXml = $filter->execute($mockSubmission);
+		$nlm30Xml = $filter->execute($mockSubmission);
 
-		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm30-citation.xml');
+		$this->normalizeAndCompare($nlm30Xml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm30-citation.xml');
 	}
 }
 ?>

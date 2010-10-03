@@ -82,8 +82,8 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 	 */
 	function &getCitationOutputFilterInstance() {
 		$citationOutputFilterName = $this->getData('citationOutputFilterName');
-		$nlmCitationOutputFilter =& instantiate($citationOutputFilterName, 'Nlm30CitationSchemaCitationOutputFormatFilter');
-		return $nlmCitationOutputFilter;
+		$nlm30CitationOutputFilter =& instantiate($citationOutputFilterName, 'Nlm30CitationSchemaCitationOutputFormatFilter');
+		return $nlm30CitationOutputFilter;
 	}
 
 

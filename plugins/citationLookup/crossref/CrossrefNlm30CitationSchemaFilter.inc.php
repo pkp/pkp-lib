@@ -102,8 +102,8 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			$searchParams['id'] = 'doi:'.$doi;
 		} else {
 			// Use OpenURL meta-data to search for the entry.
-			if (is_null($openUrlMetadata = $this->_prepareOpenUrl10Search($citationDescription))) return $nullVar;
-			$searchParams += $openUrlMetadata;
+			if (is_null($openUrl10Metadata = $this->_prepareOpenUrl10Search($citationDescription))) return $nullVar;
+			$searchParams += $openUrl10Metadata;
 		}
 
 		// Call the CrossRef web service
@@ -133,8 +133,8 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 
 		// Crosswalk to OpenURL.
 		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenUrl10CrosswalkFilter');
-		$nlmOpenUrl10Filter = new Nlm30CitationSchemaOpenUrl10CrosswalkFilter();
-		if (is_null($openUrlCitation =& $nlmOpenUrl10Filter->execute($citationDescription))) return $nullVar;
+		$nlm30OpenUrl10Filter = new Nlm30CitationSchemaOpenUrl10CrosswalkFilter();
+		if (is_null($openUrl10Citation =& $nlm30OpenUrl10Filter->execute($citationDescription))) return $nullVar;
 
 		// Prepare the search.
 		$searchParams = array(
@@ -142,17 +142,17 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		);
 
 		// Configure the meta-data schema.
-		$openUrlCitationSchema =& $openUrlCitation->getMetadataSchema();
+		$openUrl10CitationSchema =& $openUrl10Citation->getMetadataSchema();
 		switch(true) {
-			case is_a($openUrlCitationSchema, 'OpenUrl10JournalSchema'):
+			case is_a($openUrl10CitationSchema, 'OpenUrl10JournalSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:journal';
 				break;
 
-			case is_a($openUrlCitationSchema, 'OpenUrl10BookSchema'):
+			case is_a($openUrl10CitationSchema, 'OpenUrl10BookSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:book';
 				break;
 
-			case is_a($openUrlCitationSchema, 'OpenUrl10DissertationSchema'):
+			case is_a($openUrl10CitationSchema, 'OpenUrl10DissertationSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:dissertation';
 				break;
 
@@ -167,8 +167,8 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			'artnum', 'date', 'volume', 'issue', 'spage', 'epage'
 		);
 		foreach ($searchProperties as $property) {
-			if ($openUrlCitation->hasStatement($property)) {
-				$searchParams['rft.'.$property] = $openUrlCitation->getStatement($property);
+			if ($openUrl10Citation->hasStatement($property)) {
+				$searchParams['rft.'.$property] = $openUrl10Citation->getStatement($property);
 			}
 		}
 

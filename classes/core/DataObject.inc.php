@@ -315,7 +315,7 @@ class DataObject {
 	}
 
 	/**
-	 * Inject a meta-data description into this
+	 * Extract a meta-data description from this
 	 * data object.
 	 * @param $metadataSchema MetadataSchema
 	 * @return $metadataDescription MetadataDescription

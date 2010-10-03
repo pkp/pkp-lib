@@ -58,7 +58,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 		$citations =& $citationResults->toAssociativeArray('seq');
 
 		// Create citation output for these citations.
-		import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+		import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
 		$nlmCitationSchema = new NlmCitationSchema();
 		$citationOutputFilter = $this->getCitationOutputFilterInstance();
 		$citationsOutput = array();

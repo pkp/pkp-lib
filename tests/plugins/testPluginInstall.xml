@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE install SYSTEM "../../lib/pkp/dtd/install.dtd">
+<!--
+  * testPluginInstall.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Dummy installation descriptor file required to test plug-in installation.
+  -->
+
+<install>
+</install>

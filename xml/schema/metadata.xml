@@ -155,13 +155,38 @@
 
 	<!--
 	  *
+	  * TABLE filter_groups
+	  *
+	  -->
+	<table name="filter_groups">
+		<field name="filter_group_id" type="I8">
+			<KEY/>
+			<AUTOINCREMENT/>
+		</field>
+		<field name="symbolic" type="C2" size="255" />
+		<field name="display_name" type="C2" size="255" />
+		<field name="description" type="C2" size="255" />
+		<field name="input_type" type="C2" size="255" />
+		<field name="output_type" type="C2" size="255" />
+		<descr>Filter groups</descr>
+		<index name="filter_groups_symbolic">
+			<col>symbolic</col>
+			<UNIQUE/>
+		</index>
+	</table>
+
+	<!--
+	  *
 	  * TABLE filters
 	  *
 	  -->
 	<table name="filters">
 		<field name="filter_id" type="I8">
-			<KEY />
+			<KEY/>
 			<AUTOINCREMENT/>
+		</field>
+		<field name="filter_group_id" type="I8">
+			<NOTNULL/>
 		</field>
 		<field name="context_id" type="I8">
 			<NOTNULL/>
@@ -169,8 +194,6 @@
 		</field>
 		<field name="display_name" type="C2" size="255" />
 		<field name="class_name" type="C2" size="255"/>
-		<field name="input_type" type="C2" size="255" />
-		<field name="output_type" type="C2" size="255" />
 		<field name="is_template" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>
@@ -193,14 +216,14 @@
 	  -->
 	<table name="filter_settings">
 		<field name="filter_id" type="I8">
-			<NOTNULL />
+			<NOTNULL/>
 		</field>
 		<field name="locale" type="C2" size="5">
-			<NOTNULL />
+			<NOTNULL/>
 			<DEFAULT VALUE=""/>
 		</field>
 		<field name="setting_name" type="C2" size="255">
-			<NOTNULL />
+			<NOTNULL/>
 		</field>
 		<field name="setting_value" type="X"/>
 		<field name="setting_type" type="C2" size="6">
@@ -214,7 +237,7 @@
 			<col>filter_id</col>
 			<col>locale</col>
 			<col>setting_name</col>
-			<UNIQUE />
+			<UNIQUE/>
 		</index>
 	</table>
 </schema>

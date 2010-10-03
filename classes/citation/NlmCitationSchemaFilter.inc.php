@@ -20,9 +20,9 @@ import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.filter.BooleanFilterSetting');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
-import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
+import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlmNameSchemaFilter');
 import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
 
 import('lib.pkp.classes.webservice.XmlWebService');
@@ -54,14 +54,14 @@ class NlmCitationSchemaFilter extends Filter {
 			case NLM_CITATION_FILTER_PARSE:
 				$this->_supportedTransformation = array(
 					'primitive::string',
-					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
 				);
 				break;
 
 			case NLM_CITATION_FILTER_LOOKUP:
 				$this->_supportedTransformation = array(
-					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
-					'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
 				);
 				break;
 		}
@@ -163,7 +163,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function constructSearchStrings(&$searchTemplates, &$citationDescription) {
 		// Convert first authors' name description to a string
-		import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
+		import('lib.pkp.plugins.metadata.nlm30.filter.NlmNameSchemaPersonStringFilter');
 		$personStringFilter = new NlmNameSchemaPersonStringFilter();
 
 		// Retrieve the authors
@@ -269,7 +269,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function &transformWebServiceResults(&$xmlResult, $xslFileName) {
 		// Send the result through the XSL to generate a (preliminary) NLM XML.
-		$xslFilter = new XSLTransformationFilter('Web Service Transformation', array('xml::*', 'xml::*'));
+		$xslFilter = new XSLTransformationFilter('xml::*', 'xml::*', 'Web Service Transformation');
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
 		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
@@ -309,12 +309,12 @@ class NlmCitationSchemaFilter extends Filter {
 				unset($preliminaryNlmArray[$personType]);
 
 				// Parse the author/editor strings into NLM name descriptions
-				$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType);
 				// Interpret a scalar as a textual authors list
 				if (is_scalar($personStrings)) {
-					$personStringFilter->setFilterMode(PERSON_STRING_FILTER_MULTIPLE);
+					$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType, PERSON_STRING_FILTER_MULTIPLE);
 					$persons =& $personStringFilter->execute($personStrings);
 				} else {
+					$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType, PERSON_STRING_FILTER_SINGLE);
 					$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
 				}
 
@@ -375,7 +375,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function &getNlmCitationDescriptionFromMetadataArray(&$metadataArray) {
 		// Create a new citation description
-		$citationDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 
 		// Add the meta-data to the description
 		$metadataArray = arrayClean($metadataArray);

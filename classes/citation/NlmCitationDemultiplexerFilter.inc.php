@@ -96,7 +96,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	 */
 	function getSupportedTransformation() {
 		return array(
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]',
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]',
 			'class::lib.pkp.classes.citation.Citation'
 		);
 	}
@@ -277,7 +277,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
 		// Create the target citation description.
-		$targetDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$targetDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 
 		// Step 1: List all values and max scores that have been identified for a given element
 		//         but only include values from results above a given scoring threshold

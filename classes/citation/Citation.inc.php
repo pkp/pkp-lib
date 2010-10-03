@@ -25,8 +25,8 @@ define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
 
 import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationAdapter');
+import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
 	/** @var int citation state (raw, edited, parsed, looked-up) */

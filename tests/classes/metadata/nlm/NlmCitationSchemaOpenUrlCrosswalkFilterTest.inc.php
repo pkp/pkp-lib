@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/metadata/nlm/NlmCitationSchemaOpenUrlCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/NlmCitationSchemaOpenUrlCrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -13,7 +13,7 @@
  * @brief Tests for the NlmCitationSchemaOpenUrlCrosswalkFilter class.
  */
 
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaOpenUrlCrosswalkFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaOpenUrlCrosswalkFilter');
 import('lib.pkp.tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
 
 class NlmCitationSchemaOpenUrlCrosswalkFilterTest extends OpenUrlCrosswalkFilterTest {

@@ -25,36 +25,36 @@ class FilterDAOTest extends DatabaseTestCase {
 	 * @covers FilterDAO
 	 */
 	public function testFilterCrud() {
-		$filterDAO = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		// Instantiate a test filter object
 		$testFilter = new WorldcatNlmCitationSchemaFilter('some api key');
 		$testFilter->setSeq(9999);
 
 		// Insert filter instance
-		$filterId = $filterDAO->insertObject($testFilter, 9999);
+		$filterId = $filterDao->insertObject($testFilter, 9999);
 		self::assertTrue(is_numeric($filterId));
 		self::assertTrue($filterId > 0);
 
 		// Retrieve filter instance by id
-		$filterById = $filterDAO->getObjectById($filterId);
+		$filterById = $filterDao->getObjectById($filterId);
 		self::assertEquals($testFilter, $filterById);
 
 		// Update filter instance
 		$testFilter->setData('apiKey', 'another api key');
 		$testFilter->setIsTemplate(true);
 
-		$filterDAO->updateObject($testFilter);
-		$filterAfterUpdate = $filterDAO->getObject($testFilter);
+		$filterDao->updateObject($testFilter);
+		$filterAfterUpdate = $filterDao->getObject($testFilter);
 		self::assertEquals($testFilter, $filterAfterUpdate);
 
 		// Delete filter instance
-		$filterDAO->deleteObject($testFilter);
-		self::assertNull($filterDAO->getObjectById($filterId));
+		$filterDao->deleteObject($testFilter);
+		self::assertNull($filterDao->getObjectById($filterId));
 	}
 
 	public function testCompositeFilterCrud() {
-		$filterDAO = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		// Instantiate a composite test filter object
 		$transformation = array(
@@ -77,7 +77,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		$testFilter->addFilter($subFilter2);
 
 		// Insert filter instance
-		$filterId = $filterDAO->insertObject($testFilter, 9999);
+		$filterId = $filterDao->insertObject($testFilter, 9999);
 		self::assertTrue(is_numeric($filterId));
 		self::assertTrue($filterId > 0);
 
@@ -97,7 +97,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		}
 
 		// Retrieve filter instance by id
-		$filterById = $filterDAO->getObjectById($filterId);
+		$filterById = $filterDao->getObjectById($filterId);
 		self::assertEquals($testFilter, $filterById);
 
 		// Update filter instance
@@ -115,13 +115,13 @@ class FilterDAOTest extends DatabaseTestCase {
 		$subFilter3->addFilter($subSubFilter3);
 		$testFilter->addFilter($subFilter3);
 
-		$filterDAO->updateObject($testFilter);
-		$filterAfterUpdate = $filterDAO->getObject($testFilter);
+		$filterDao->updateObject($testFilter);
+		$filterAfterUpdate = $filterDao->getObject($testFilter);
 		self::assertEquals($testFilter, $filterAfterUpdate);
 
 		// Delete filter instance
-		$filterDAO->deleteObject($testFilter);
-		self::assertNull($filterDAO->getObjectById($filterId));
+		$filterDao->deleteObject($testFilter);
+		self::assertNull($filterDao->getObjectById($filterId));
 	}
 
 	/**
@@ -129,7 +129,7 @@ class FilterDAOTest extends DatabaseTestCase {
 	 * @depends testFilterCrud
 	 */
 	public function testGetCompatibleObjects() {
-		$filterDAO = DAORegistry::getDAO('FilterDAO');
+		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		// Instantiate test filter objects
 		$testFilters = array(
@@ -148,14 +148,14 @@ class FilterDAOTest extends DatabaseTestCase {
 		// Persist test filters
 		$testFilterIds = array();
 		foreach($testFilters as $testFilter) {
-			$testFilterIds[] = $filterDAO->insertObject($testFilter, 9999);
+			$testFilterIds[] = $filterDao->insertObject($testFilter, 9999);
 		}
 
 		// Test compatibility
 		$inputSample = '2011-01-01';
 		$outputSample = '2009-10-04';
 
-		$compatibleFilters = $filterDAO->getCompatibleObjects($inputSample, $outputSample, 9999);
+		$compatibleFilters = $filterDao->getCompatibleObjects($inputSample, $outputSample, 9999);
 		$returnedFilters = array();
 		foreach($compatibleFilters as $compatibleFilter) {
 			$returnedFilters[] = $compatibleFilter->getDisplayName();
@@ -166,7 +166,7 @@ class FilterDAOTest extends DatabaseTestCase {
 
 		// Delete test filters
 		foreach($testFilterIds as $testFilterId) {
-			$filterDAO->deleteObjectById($testFilterId);
+			$filterDao->deleteObjectById($testFilterId);
 		}
 	}
 }

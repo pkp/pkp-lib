@@ -12,43 +12,33 @@
  * @brief Class that transforms XML via XSL.
  */
 
-import('lib.pkp.classes.filter.GenericFilter');
+import('lib.pkp.classes.filter.PersistableFilter');
 import('lib.pkp.classes.xslt.XSLTransformer');
 
-class XSLTransformationFilter extends GenericFilter {
+class XSLTransformationFilter extends PersistableFilter {
 	/**
 	 * Constructor
 	 *
+	 * @param $filterGroup FilterGroup
 	 * @param $displayName string
-	 * @param $transformation array the supported transformation
 	 *
 	 * NB: The input side of the transformation must always
 	 * be an XML format. See the XMLTypeDescription class for
 	 * more details how to enable XML validation.
 	 */
-	function XSLTransformationFilter($displayName = 'XSL Transformation', $transformation = null) {
+	function XSLTransformationFilter(&$filterGroup, $displayName = 'XSL Transformation') {
+		// Check that we only get xml input, the output type is arbitrary.
+		if (!substr($filterGroup->getInputType(), 0, 5) == 'xml::') fatalError('XSL filters need XML as input.');
+
 		// Instantiate the settings of this filter
 		import('lib.pkp.classes.filter.FilterSetting');
 		$this->addSetting(new FilterSetting('xsl', null, null));
 		$this->addSetting(new FilterSetting('xslType', null, null));
 		$this->addSetting(new FilterSetting('resultType', null, null, FORM_VALIDATOR_OPTIONAL_VALUE));
 
-		parent::GenericFilter($displayName, $transformation);
-	}
+		$this->setDisplayName($displayName);
 
-
-	//
-	// Overridden methods from GenericFilter
-	//
-	/**
-	 * @see Filter::setTransformationType()
-	 * @see GenericFilter::setTransformationType()
-	 */
-	function setTransformationType($inputType, $outputType) {
-		// Intercept setTransformationType() to check that we
-		// only get xml input, the output type is arbitrary.
-		if (!substr($inputType, 0, 5) == 'xml::') fatalError('XSL filters need XML as input.');
-		parent::setTransformationType($inputType, $outputType);
+		parent::PersistableFilter($filterGroup);
 	}
 
 
@@ -113,15 +103,19 @@ class XSLTransformationFilter extends GenericFilter {
 
 
 	//
-	// Implement template methods from Filter
+	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see Filter::getClassName()
+	 * @see PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.xslt.XSLTransformationFilter';
 	}
 
+
+	//
+	// Implement template methods from Filter
+	//
 	/**
 	 * Process the given XML with the configured XSL
 	 * @see Filter::process()

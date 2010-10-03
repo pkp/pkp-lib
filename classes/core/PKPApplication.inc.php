@@ -302,6 +302,8 @@ class PKPApplication {
 			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
 			'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
 			'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
+			'FilterDAO' => 'lib.pkp.classes.filter.FilterDAO',
+			'FilterGroupDAO' => 'lib.pkp.classes.filter.FilterGroupDAO',
 			'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
 			'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
 			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',

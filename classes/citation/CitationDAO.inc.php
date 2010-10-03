@@ -285,7 +285,7 @@ class CitationDAO extends DAO {
 		$filterList = array();
 
 		// All citation filters have NLM output.
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 
 		// Parser filters
 		if ($parserFilters) {
@@ -536,10 +536,8 @@ class CitationDAO extends DAO {
 
 		// Parsing takes a raw citation and transforms it
 		// into a array of meta-data descriptions.
-		$transformation = array(
-			'primitive::string',
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
-		);
+		$inputType = 'primitive::string';
+		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]';
 
 		// Extract the raw citation string from the citation
 		$inputData = $citation->getRawCitation();
@@ -547,7 +545,7 @@ class CitationDAO extends DAO {
 		// Instantiate parser filters.
 		$filterList =& $this->getCitationFilterInstances($contextId, true, false, $fromFilterIds);
 
-		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
+		$transformationDefinition = compact('displayName', 'inputType', 'outputType', 'inputData', 'filterList');
 		return $transformationDefinition;
 	}
 
@@ -570,10 +568,8 @@ class CitationDAO extends DAO {
 		// Lookup takes a single meta-data description and
 		// checks it against several lookup-sources resulting
 		// in an array of meta-data descriptions.
-		$transformation = array(
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
-			'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)[]'
-		);
+		$inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)';
+		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]';
 
 		// Define the input for this transformation.
 		$inputData =& $metadataDescription;
@@ -581,7 +577,7 @@ class CitationDAO extends DAO {
 		// Instantiate lookup filters.
 		$filterList =& $this->getCitationFilterInstances($contextId, false, true, $fromFilterIds);
 
-		$transformationDefinition = compact('displayName', 'transformation', 'inputData', 'filterList');
+		$transformationDefinition = compact('displayName', 'inputType', 'outputType', 'inputData', 'filterList');
 		return $transformationDefinition;
 	}
 
@@ -625,7 +621,10 @@ class CitationDAO extends DAO {
 			// Instantiate the citation multiplexer filter.
 			import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 			$citationMultiplexer = new GenericMultiplexerFilter(
-					$transformationDefinition['displayName'], $transformationDefinition['transformation']);
+					PersistableFilter::tempGroup(
+							$transformationDefinition['inputType'],
+							$transformationDefinition['outputType']),
+					$transformationDefinition['displayName']);
 
 			// Don't fail just because one of the web services
 			// fails. They are much too unstable to rely on them.
@@ -649,12 +648,12 @@ class CitationDAO extends DAO {
 
 			// Combine multiplexer and de-multiplexer to form the
 			// final citation filter network.
-			$sequencerTransformation = array(
-				$transformationDefinition['transformation'][0], // The multiplexer input type
-				'class::lib.pkp.classes.citation.Citation'
-			);
 			import('lib.pkp.classes.filter.GenericSequencerFilter');
-			$citationFilterNet = new GenericSequencerFilter('Citation Filter Network', $sequencerTransformation);
+			$citationFilterNet = new GenericSequencerFilter(
+					PersistableFilter::tempGroup(
+							$transformationDefinition['inputType'],
+							'class::lib.pkp.classes.citation.Citation'),
+					'Citation Filter Network');
 			$citationFilterNet->addFilter($citationMultiplexer);
 			$citationFilterNet->addFilter($citationDemultiplexer);
 

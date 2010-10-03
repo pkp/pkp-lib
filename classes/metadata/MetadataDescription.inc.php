@@ -544,6 +544,7 @@ class MetadataDescription extends DataObject {
 		return $property->getTranslated();
 	}
 
+
 	//
 	// Private helper methods
 	//

@@ -23,26 +23,13 @@ class DateStringNormalizerFilter extends Filter {
 	function DateStringNormalizerFilter() {
 		$this->setDisplayName('Date String Normalizer');
 
-		parent::Filter();
+		parent::Filter('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
 	}
+
 
 	//
 	// Implement abstract methods from Filter
 	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		return array('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')');
-	}
-
-	/**
-	 * @see Filter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.classes.metadata.DateStringNormalizerFilter';
-	}
-
 	/**
 	 * Normalize incoming date string.
 	 * @see Filter::process()

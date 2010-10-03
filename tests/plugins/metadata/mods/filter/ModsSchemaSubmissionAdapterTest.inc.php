@@ -1,45 +1,45 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/mods/filter/ModsSchemaSubmissionAdapterTest.inc.php
+ * @file tests/plugins/metadata/mods/filter/Mods34SchemaSubmissionAdapterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ModsSchemaSubmissionAdapterTest
+ * @class Mods34SchemaSubmissionAdapterTest
  * @ingroup tests_plugins_metadata_mods_filter
- * @see ModsSchemaSubmissionAdapter
+ * @see Mods34SchemaSubmissionAdapter
  *
- * @brief Test class for ModsSchemaSubmissionAdapter.
+ * @brief Test class for Mods34SchemaSubmissionAdapter.
  */
 
-import('lib.pkp.tests.plugins.metadata.mods.filter.ModsDescriptionTestCase');
+import('lib.pkp.tests.plugins.metadata.mods34.filter.Mods34DescriptionTestCase');
 import('lib.pkp.classes.submission.Submission');
-import('lib.pkp.plugins.metadata.mods.filter.ModsSchemaSubmissionAdapter');
+import('lib.pkp.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
 
-class ModsSchemaSubmissionAdapterTest extends ModsDescriptionTestCase {
+class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 	/**
-	 * @covers ModsSchemaSubmissionAdapter
+	 * @covers Mods34SchemaSubmissionAdapter
 	 */
-	public function testModsSchemaSubmissionAdapter() {
+	public function testMods34SchemaSubmissionAdapter() {
 		// Test constructor.
-		$adapter = new ModsSchemaSubmissionAdapter(ASSOC_TYPE_CITATION);
+		$adapter = new Mods34SchemaSubmissionAdapter(ASSOC_TYPE_CITATION);
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
-		self::assertType('ModsSchema', $adapter->getMetadataSchema());
+		self::assertType('Mods34Schema', $adapter->getMetadataSchema());
 		$expectedTransformations = array(
 			array(
-				'metadata::plugins.metadata.mods.schema.ModsSchema(CITATION)',
+				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
 				'class::lib.pkp.classes.submission.Submission'
 			),
 			array(
 				'class::lib.pkp.classes.submission.Submission',
-				'metadata::plugins.metadata.mods.schema.ModsSchema(CITATION)'
+				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)'
 			)
 		);
 		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
 		// Instantiate a test description.
-		$submissionDescription =& $this->getModsDescription();
+		$submissionDescription =& $this->getMods34Description();
 
 		// Instantiate test submission.
 		$submission = new Submission();
@@ -50,7 +50,7 @@ class ModsSchemaSubmissionAdapterTest extends ModsDescriptionTestCase {
 		$submissionDescription->removeStatement('abstract');
 
 		// Test metadata injection (no replace).
-		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, false, 'lib.pkp.tests.plugins.metadata.mods.filter.Author');
+		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, false, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
 		$expectedResult = array(
 			'cleanTitle' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
 			'title' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
@@ -74,7 +74,7 @@ class ModsSchemaSubmissionAdapterTest extends ModsDescriptionTestCase {
 		self::assertEquals($expectedResult, $resultSubmission->getAllData());
 
 		// Test meta-data injection (replace).
-		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, true, 'lib.pkp.tests.plugins.metadata.mods.filter.Author');
+		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, true, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
 		unset($expectedResult['abstract'], $expectedResult['recordInfo/recordIdentifier[@source="pkp"]']);
 		self::assertEquals($expectedResult, $resultSubmission->getAllData());
 

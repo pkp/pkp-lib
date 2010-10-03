@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../lib/pkp/dtd/xmlData.dtd">
+
+<!--
+  * controlled_vocab.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Definition of filter groups.
+  -->
+<data>
+	<table name="filter_groups">
+		<!-- citation parsers (citation extraction services) -->
+		<row>
+			<field name="symbolic">plaintext=>nlm30-element-citation</field>
+			<field name="display_name">Citation Extraction Services</field>
+			<field name="description">Convert a plain text citation into NLM 3.0 element-citation mark-up.</field>
+			<field name="input_type">primitive::string</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+		</row>
+
+		<!-- citation lookup (citation database/improvement/lookup services) -->
+		<row>
+			<field name="symbolic">nlm30-element-citation=>nlm30-element-citation</field>
+			<field name="display_name">Citation Database Services</field>
+			<field name="description">Improve NLM 3.0 element-citation mark-up, e.g. by looking up citations in external databases.</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+		</row>
+
+		<!-- ISBN lookup and extraction services -->
+		<row>
+			<field name="symbolic">nlm30-element-citation=>isbn</field>
+			<field name="display_name">ISBN extraction service</field>
+			<field name="description">Find an ISBN for a given NLM 3.0 element-citation description.</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="output_type">primitive::string</field>
+		</row>
+		<row>
+			<field name="symbolic">isbn=>nlm30-element-citation</field>
+			<field name="display_name">ISBN lookup service</field>
+			<field name="description">Look up a full NLM 3.0 element-citation description with a given ISBN.</field>
+			<field name="input_type">primitive::string</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+		</row>
+
+		<!-- citation output -->
+		<row>
+			<field name="symbolic">nlm30-element-citation=>plaintext</field>
+			<field name="display_name">Citation Output Services</field>
+			<field name="description">Convert NLM 3.0 element-citation mark-up into a plain-text citation output standard.</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="output_type">primitive::string</field>
+		</row>
+
+		<!-- NLM 3.0 output -->
+		<row>
+			<field name="symbolic">submission=>nlm30-article</field>
+			<field name="display_name">NLM 3.0 Journal Publishing Output</field>
+			<field name="description">Convert an OJS or OCS article/paper into NLM 3.0.</field>
+			<field name="input_type">class::lib.pkp.classes.submission.Submission</field>
+			<!-- FIXME: Add NLM 3.0 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+			<field name="output_type">xml::*</field>
+		</row>
+		
+		<!-- NLM 2.3 output -->
+		<row>
+			<field name="symbolic">submission=>nlm23-article</field>
+			<field name="display_name">NLM 2.3 Journal Publishing Output</field>
+			<field name="description">Convert an OJS or OCS article/paper into NLM 2.3.</field>
+			<field name="input_type">class::lib.pkp.classes.submission.Submission</field>
+			<!-- FIXME: Add NLM 2.3 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+			<field name="output_type">xml::*</field>
+		</row>
+		
+		<!-- NLM 3.0 to 2.3 downgrade -->
+		<row>
+			<field name="symbolic">nlm30-article=>nlm23-article</field>
+			<field name="display_name">NLM 3.0 to 2.3 Journal Publishing Downgrade</field>
+			<field name="description">Downgrades NLM 3.0 to NLM 2.3.</field>
+			<!-- FIXME: Add NLM 2.3 and 3.0 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+			<field name="input_type">xml::*</field>
+			<field name="output_type">xml::*</field>
+		</row>
+		
+		<!-- Plain text reference list output -->
+		<row>
+			<field name="symbolic">submission=>reference-list</field>
+			<field name="display_name">Plain text reference list generation</field>
+			<field name="description">Generate a formatted plain text reference list from an OJS/OCS/OMP submission's references</field>
+			<field name="input_type">class::lib.pkp.classes.submission.Submission</field>
+			<field name="output_type">class::lib.pkp.classes.citation.PlainTextReferencesList</field>
+		</row>
+	</table>
+</data>

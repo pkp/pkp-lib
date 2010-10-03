@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/metadata/nlm/OpenUrlCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/OpenUrlCrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -17,9 +17,9 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.classes.metadata.nlm.NlmNameSchema');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
-import('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema');
 
 class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 	/**
@@ -35,21 +35,21 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'surname' => 'Surname1',
 			'suffix' => 'suff'
 		);
-		$authorDescription1 = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription1 = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($authorDescription1->setStatements($authorData1));
 
 		$authorData2 = array(
 			'given-names' => array('Given2'),
 			'surname' => 'Surname2'
 		);
-		$authorDescription2 = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription2 = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($authorDescription2->setStatements($authorData2));
 
 		// 2) Editor
 		$editorData = array(
 			'surname' => 'The Editor'
 		);
-		$editorDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_EDITOR);
+		$editorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_EDITOR);
 		self::assertTrue($editorDescription->setStatements($editorData));
 
 		// 3) The citation itself
@@ -83,7 +83,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'comment' => 'a comment',
 			'annotation' => 'an annotation',
 		);
-		$nlmDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$nlmDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($nlmDescription->setStatements($citationData));
 
 		return $nlmDescription;
@@ -119,7 +119,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'coden' => 'coden',
 			'sici' => 'sici'
 		);
-		$openUrlDescription = new MetadataDescription('lib.pkp.classes.metadata.openurl.OpenUrlJournalSchema', ASSOC_TYPE_CITATION);
+		$openUrlDescription = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($openUrlDescription->setStatements($citationData));
 
 		return $openUrlDescription;

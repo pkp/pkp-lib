@@ -102,7 +102,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 		}
 
 		// Instantiate the NLM citation description
-		$citationDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($citationDescription->setStatements($citationArray));
 
 		return $citationDescription;
@@ -122,7 +122,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 			} else {
 				// Create a new NLM name description and fill it
 				// with the values from the test array.
-				$personDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', $assocType);
+				$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', $assocType);
 				self::assertTrue($personDescription->setStatements($person));
 			}
 

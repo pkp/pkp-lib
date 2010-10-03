@@ -75,9 +75,6 @@ import('lib.pkp.classes.core.DataObject');
 import('lib.pkp.classes.filter.TypeDescriptionFactory');
 
 class Filter extends DataObject {
-	/** @var TypeDescriptionFactory */
-	var $_typeDescriptionFactory;
-
 	/** @var TypeDescription */
 	var $_inputType;
 
@@ -89,9 +86,6 @@ class Filter extends DataObject {
 
 	/** @var mixed */
 	var $_output;
-
-	/** @var array a list of FilterSetting objects */
-	var $_settings = array();
 
 	/** @var array a list of errors occurred while filtering */
 	var $_errors = array();
@@ -105,71 +99,21 @@ class Filter extends DataObject {
 	/**
 	 * Constructor
 	 *
-	 * NB: Filters should always either have no constructor
-	 * arguments or only optional constructor arguments.
-	 * All optional constructor arguments must also be accessible
-	 * via setters. Filter parameters must be stored as data
-	 * in the underlying DataObject.
+	 * Receives input and output type that define the transformation.
+	 * @see TypeDescription
 	 *
-	 * This is necessary as the FilterDAO does not support
-	 * constructor configuration. Filter parameters will be
-	 * configured via DataObject::setData(). Only parameters
-	 * that are available in the DataObject will be persisted.
+	 * @param $inputType string a string representation of a TypeDescription
+	 * @param $outputType string a string representation of a TypeDescription
 	 */
-	function Filter() {
-		// If we only support one transformation then we can
-		// set it immediately. Otherwise this has to be done by
-		// the user.
-		$supportedTransformations = $this->getSupportedTransformations();
-		if (count($supportedTransformations) == 1) {
-			$supportedTransformation = $supportedTransformations[0];
-			$this->setTransformationType($supportedTransformation[0], $supportedTransformation[1]);
-		}
-
-		// Initialize the parent filter id.
-		$this->setParentFilterId(0);
-		$this->setIsTemplate(false);
+	function Filter($inputType, $outputType) {
+		// Initialize the filter.
+		parent::DataObject();
+		$this->setTransformationType($inputType, $outputType);
 	}
 
 	//
 	// Setters and Getters
 	//
-	/**
-	 * Set the input/output type of this filter instance.
-	 *
-	 * @param $inputType TypeDescription|string
-	 * @param $outputType TypeDescription|string
-	 *
-	 * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
-	 *
-	 * NB: the input/output type combination must be one of those
-	 * returned by getSupportedTransformations().
-	 */
-	function setTransformationType(&$inputType, &$outputType) {
-		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
-
-		// We need both, the input/output type as a string and
-		// as a TypeDescription
-		if (is_a($inputType, 'TypeDescription')) {
-			$inputTypeString = $inputType->getTypeDescription();
-		} else {
-			$inputTypeString = $inputType;
-			$inputType =& $typeDescriptionFactory->instantiateTypeDescription($inputType);
-		}
-		if (is_a($outputType, 'TypeDescription')) {
-			$outputTypeString = $outputType->getTypeDescription();
-		} else {
-			$outputTypeString = $outputType;
-			$outputType =& $typeDescriptionFactory->instantiateTypeDescription($outputType);
-		}
-
-		// Make sure that this transformation is valid
-		if (!$this->isValidTransformation($inputTypeString, $outputTypeString)) fatalError('Trying to set an invalid transformation type.');
-
-		$this->_inputType =& $inputType;
-		$this->_outputType =& $outputType;
-	}
-
 	/**
 	 * Set the display name
 	 * @param $displayName string
@@ -197,6 +141,33 @@ class Filter extends DataObject {
 		return $this->getData('displayName');
 	}
 
+
+	/**
+	 * Set the input/output type of this filter group.
+	 *
+	 * @param $inputType TypeDescription|string
+	 * @param $outputType TypeDescription|string
+	 *
+	 * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
+	 */
+	function setTransformationType(&$inputType, &$outputType) {
+		$typeDescriptionFactory =& TypeDescriptionFactory::getInstance();
+
+		// Instantiate the type descriptions if we got string input.
+		if (!is_a($inputType, 'TypeDescription')) {
+			assert(is_string($inputType));
+			$inputType =& $typeDescriptionFactory->instantiateTypeDescription($inputType);
+		}
+		if (!is_a($outputType, 'TypeDescription')) {
+			assert(is_string($outputType));
+			$outputType =& $typeDescriptionFactory->instantiateTypeDescription($outputType);
+		}
+
+		$this->_inputType =& $inputType;
+		$this->_outputType =& $outputType;
+	}
+
+
 	/**
 	 * Get the input type
 	 * @return TypeDescription
@@ -211,66 +182,6 @@ class Filter extends DataObject {
 	 */
 	function &getOutputType() {
 		return $this->_outputType;
-	}
-
-	/**
-	 * Set whether this is a transformation template
-	 * rather than an actual transformation.
-	 *
-	 * Transformation templates are saved to the database
-	 * when the filter is first registered. They are
-	 * configured with default settings and will be used
-	 * to let users identify available transformation
-	 * types.
-	 *
-	 * There must be exactly one transformation template
-	 * for each supported transformation type.
-	 *
-	 * @param $isTemplate boolean
-	 */
-	function setIsTemplate($isTemplate) {
-		$this->setData('isTemplate', (boolean)$isTemplate);
-	}
-
-	/**
-	 * Is this a transformation template rather than
-	 * an actual transformation?
-	 * @return boolean
-	 */
-	function getIsTemplate() {
-		return $this->getData('isTemplate');
-	}
-
-	/**
-	 * Set the parent filter id
-	 * @param $parentFilterId integer
-	 */
-	function setParentFilterId($parentFilterId) {
-		$this->setData('parentFilterId', $parentFilterId);
-	}
-
-	/**
-	 * Get the parent filter id
-	 * @return integer
-	 */
-	function getParentFilterId() {
-		return $this->getData('parentFilterId');
-	}
-
-	/**
-	 * Set the sequence id
-	 * @param $seq integer
-	 */
-	function setSeq($seq) {
-		$this->setData('seq', $seq);
-	}
-
-	/**
-	 * Get the sequence id
-	 * @return integer
-	 */
-	function getSeq() {
-		return $this->getData('seq');
 	}
 
 	/**
@@ -345,56 +256,6 @@ class Filter extends DataObject {
 	}
 
 	/**
-	 * Add a filter setting
-	 * @param $setting FilterSetting
-	 */
-	function addSetting(&$setting) {
-		assert(is_a($setting, 'FilterSetting'));
-		$settingName = $setting->getName();
-
-		// Check that the setting name does not
-		// collide with one of the internal settings.
-		if (in_array($settingName, $this->getInternalSettings())) fatalError('Trying to override an internal filter setting!');
-
-		assert(!isset($this->_settings[$settingName]));
-		$this->_settings[$settingName] =& $setting;
-	}
-
-	/**
-	 * Get a filter setting
-	 * @param $settingName string
-	 * @return FilterSetting
-	 */
-	function &getSetting($settingName) {
-		assert(isset($this->_settings[$settingName]));
-		return $this->_settings[$settingName];
-	}
-
-	/**
-	 * Get all filter settings
-	 * @return array a list of FilterSetting objects
-	 */
-	function &getSettings() {
-		return $this->_settings;
-	}
-
-	/**
-	 * Check whether a given setting
-	 * is present in this filter.
-	 */
-	function hasSetting($settingName) {
-		return isset($this->_settings[$settingName]);
-	}
-
-	/**
-	 * Can this filter be parameterized?
-	 * @return boolean
-	 */
-	function hasSettings() {
-		return (is_array($this->_settings) && count($this->_settings));
-	}
-
-	/**
 	 * Set the required runtime environment
 	 * @param $runtimeEnvironment RuntimeEnvironment
 	 */
@@ -415,64 +276,6 @@ class Filter extends DataObject {
 	// Abstract template methods to be implemented by subclasses
 	//
 	/**
-	 * Return the fully qualified class name of the filter class.
-	 *
-	 * (This must be hard coded by sub-classes for PHP4 compatibility.
-	 * PHP4 always returns class names lowercase which we cannot
-	 * tolerate as we need this path to find the class on case sensitive
-	 * file systems.)
-	 */
-	function getClassName() {
-		assert(false);
-	}
-
-	/**
-	 * Subclasses can override this method if they
-	 * support exactly one transformation.
-	 *
-	 * The return value of this method must be of
-	 * the following format:
-	 *
-	 * array('input type', 'output type')
-	 */
-	function getSupportedTransformation() {
-		// Can be implemented by subclasses.
-		assert(false);
-	}
-
-	/**
-	 * Subclasses can override this method if they
-	 * support more than one transformation.
-	 *
-	 * The return value of this method must be of
-	 * the following format:
-	 *
-	 * array(
-	 *   array('input type', 'output type'),
-	 *   array(...),
-	 *   ...
-	 * )
-	 *
-	 * NB: Classes that override this method must not
-	 * at the same time implement getSupportedTransformation().
-	 *
-	 * @return array
-	 */
-	function getSupportedTransformations() {
-		// The default implementation assumes that there is only
-		// one supported transformation and returns it as an array.
-		// If your filter supports more than one transformation you
-		// can override this method to return an array with
-		// multiple entries.
-		$supportedTransformation = $this->getSupportedTransformation();
-		if (is_array($supportedTransformation) && count($supportedTransformation) == 2) {
-			return array($supportedTransformation);
-		} else {
-			return array();
-		}
-	}
-
-	/**
 	 * This method performs the actual data processing.
 	 * NB: sub-classes must implement this method.
 	 * @param $input mixed validated filter input data
@@ -486,64 +289,6 @@ class Filter extends DataObject {
 	//
 	// Public methods
 	//
-	/**
-	 * Return an array with the names of filter settings.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getSettingNames() {
-		$settingNames = array();
-		foreach($this->getSettings() as $setting) {
-			if (!$setting->getIsLocalized()) {
-				$settingNames[] = $setting->getName();
-			}
-		}
-		return $settingNames;
-	}
-
-	/**
-	 * Return an array with the names of localized
-	 * filter settings.
-	 *
-	 * This will be used by the FilterDAO for filter
-	 * setting persistence.
-	 *
-	 * @return array
-	 */
-	function getLocalizedSettingNames() {
-		$localizedSettingNames = array();
-		foreach($this->getSettings() as $setting) {
-			if ($setting->getIsLocalized()) {
-				$localizedSettingNames[] = $setting->getName();
-			}
-		}
-		return $localizedSettingNames;
-	}
-
-	/**
-	 * Checks whether the given input/output type combination
-	 * is supported by this filter.
-	 *
-	 * @param $inputTypeString string a text representation of the
-	 *  requested input type.
-	 * @param $outputTypeString string a text representation of the
-	 *  requested output type.
-	 */
-	function isValidTransformation($inputTypeString, $outputTypeString) {
-		// The default implementation retrieves a simple list of
-		// allowed input/output type combinations and checks whether the
-		// given combination is part of that list.
-		$validTransformations = $this->getSupportedTransformations();
-		foreach($validTransformations as $validTransformation) {
-			assert(count($validTransformation) == 2);
-			if ($validTransformation[0] == $inputTypeString && $validTransformation[1] == $outputTypeString) return true;
-		}
-		return false;
-	}
-
 	/**
 	 * Returns true if the given input and output
 	 * objects represent a valid transformation
@@ -705,19 +450,6 @@ class Filter extends DataObject {
 		);
 
 		return $runtimeEnvironmentSettings;
-	}
-
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Returns names of settings which are in use by the
-	 * filter class and therefore cannot be set as filter
-	 * settings
-	 * @return array
-	 */
-	function getInternalSettings() {
-		return array('id', 'displayName', 'isTemplate', 'parentFilterId', 'seq');
 	}
 }
 ?>

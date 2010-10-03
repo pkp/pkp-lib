@@ -25,14 +25,14 @@ class CitationDAOTest extends DatabaseTestCase {
 	public function testCitationCrud() {
 		$citationDAO = DAORegistry::getDAO('CitationDAO');
 
-		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
 		$nameDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
 		$nameDescription->addStatement('surname', $value = 'Bork');
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 
-		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
 		$citationDescription->addStatement('article-title', $value = 'PHPUnit in a nutshell', 'en_US');

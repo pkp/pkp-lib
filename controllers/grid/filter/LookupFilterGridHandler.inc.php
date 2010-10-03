@@ -29,7 +29,7 @@ class LookupFilterGridHandler extends FilterGridHandler {
 		// Set the input and output sample which
 		// define the filters configured in this
 		// grid.
-		$inputSample = $outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$inputSample = $outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$this->setInputSample($inputSample);
 		$this->setOutputSample($outputSample);
 

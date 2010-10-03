@@ -12,9 +12,9 @@
  *  filters into filter networks.
  */
 
-import('lib.pkp.classes.filter.GenericFilter');
+import('lib.pkp.classes.filter.PersistableFilter');
 
-class CompositeFilter extends GenericFilter {
+class CompositeFilter extends PersistableFilter {
 	/** @var array An ordered array of sub-filters */
 	var $_filters = array();
 
@@ -23,9 +23,12 @@ class CompositeFilter extends GenericFilter {
 
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
+	 * @param $displayName string
 	 */
-	function CompositeFilter($displayName = null, $transformation = null) {
-		parent::GenericFilter($displayName, $transformation);
+	function CompositeFilter(&$filterGroup, $displayName = null) {
+		$this->setDisplayName($displayName);
+		parent::PersistableFilter($filterGroup);
 	}
 
 	//
@@ -137,10 +140,10 @@ class CompositeFilter extends GenericFilter {
 
 
 	//
-	// Overridden methods from Filter
+	// Overridden methods from PersistableFilter
 	//
 	/**
-	 * @see Filter::getSetting()
+	 * @see PersistableFilter::getSetting()
 	 */
 	function &getSetting($settingName) {
 		// Try first whether we have the setting locally.
@@ -151,7 +154,7 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
-	 * @see Filter::getSettings()
+	 * @see PersistableFilter::getSettings()
 	 */
 	function &getSettings() {
 		// Get local settings.
@@ -166,7 +169,7 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
-	 * @see Filter::hasSettings()
+	 * @see PersistableFilter::hasSettings()
 	 */
 	function hasSettings() {
 		// Return true if this filter has own
@@ -176,7 +179,7 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
-	 * @see Filter::getSettingNames()
+	 * @see PersistableFilter::getSettingNames()
 	 */
 	function getSettingNames() {
 		// Composite filters persist only
@@ -200,7 +203,7 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
-	 * @see Filter::getLocalizedSettingNames()
+	 * @see PersistableFilter::getLocalizedSettingNames()
 	 */
 	function getLocalizedSettingNames() {
 		// We cannot use the parent implementation
@@ -216,6 +219,19 @@ class CompositeFilter extends GenericFilter {
 	}
 
 	/**
+	 * @see PersistableFilter::getInternalSettings()
+	 */
+	function getInternalSettings() {
+		$filterInternalSettings = parent::getInternalSettings();
+		$filterInternalSettings[] = 'settingsMapping';
+		return $filterInternalSettings;
+	}
+
+
+	//
+	// Overridden methods from Filter
+	//
+	/**
 	 * @see Filter::isCompatibleWithRuntimeEnvironment()
 	 */
 	function isCompatibleWithRuntimeEnvironment() {
@@ -226,14 +242,6 @@ class CompositeFilter extends GenericFilter {
 		return true;
 	}
 
-	/**
-	 * @see Filter::getInternalSettings()
-	 */
-	function getInternalSettings() {
-		$filterInternalSettings = parent::getInternalSettings();
-		$filterInternalSettings[] = 'settingsMapping';
-		return $filterInternalSettings;
-	}
 
 	//
 	// Overridden methods from DataObject

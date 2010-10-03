@@ -30,10 +30,10 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	}
 
 	//
-	// Implement template methods from Filter
+	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see Filter::getClassName()
+	 * @see PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.classes.metadata.MetadataDescriptionDummyAdapter';
@@ -45,25 +45,27 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	//
 	/**
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
-	 * @param $metadataDescription MetadataDescription
-	 * @param $dataObject MetadataDescription
-	 * @param $replace boolean whether existing meta-data should be replaced
-	 * @return DataObject
+	 * @param $sourceMetadataDescription MetadataDescription
+	 * @param $targetMetadataDescription MetadataDescription
+	 * @return MetadataDescription
 	 */
-	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject, $replace) {
-		assert($metadataDescription->getMetadataSchema() == $dataObject->getMetadataSchema());
-		$replace = ($replace ? METADATA_DESCRIPTION_REPLACE_ALL : METADATA_DESCRIPTION_REPLACE_NOTHING);
-		$dataObject->setStatements($metadataDescription->getStatements(), $replace);
-		return $dataObject;
+	function &injectMetadataIntoDataObject(&$sourceMetadataDescription, &$targetMetadataDescription) {
+		// Inject data from the source description into the target description.
+		assert($sourceMetadataDescription->getMetadataSchema() == $targetMetadataDescription->getMetadataSchema());
+		$targetMetadataDescription->setStatements($sourceMetadataDescription->getStatements());
+		return $targetMetadataDescription;
 	}
 
 	/**
 	 * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
-	 * @param $dataObject MetadataDescription
+	 * @param $metadataDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$dataObject) {
-		return $dataObject;
+	function &extractMetadataFromDataObject(&$metadataDescription) {
+		// Create a copy of the meta-data description to decouple
+		// it from the original.
+		$clonedMetadataDescription = cloneObject($metadataDescription);
+		return $clonedMetadataDescription;
 	}
 
 	/**

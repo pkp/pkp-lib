@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/importexport/nlm/Nlm30Nlm23CrosswalkFilterTest.inc.php
+ * @file tests/classes/importexport/nlm30/Nlm30Nlm23CrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -24,7 +24,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		// available schema (although in practice this doesn't make sense) so that
 		// we can make sure all tags are correctly converted.
 		import('lib.pkp.classes.metadata.MetadataDescription');
-		$nameSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
 		$nameDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
@@ -32,7 +32,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 		$nameDescription->addStatement('suffix', $value = 'Jr');
 
-		$citationSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
@@ -92,12 +92,12 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		// Test the downgrade filter.
 		import('lib.pkp.classes.xslt.XSLTransformationFilter');
 		$downgradeFilter = new XSLTransformationFilter(
-			'NLM 3.0 to 2.3 ref-list downgrade',
-			array('xml::*', 'xml::*'));
-		$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm/nlm-ref-list-30-to-23.xsl');
+			'xml::*', 'xml::*',
+			'NLM 3.0 to 2.3 ref-list downgrade');
+		$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm30/nlm-ref-list-30-to-23.xsl');
 		$nlmXml = $downgradeFilter->execute($nlmXml);
 
-		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm/sample-nlm23-citation.xml');
+		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm23-citation.xml');
 	}
 }
 ?>

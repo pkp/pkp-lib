@@ -20,28 +20,14 @@ class CitationListTokenizerFilter extends Filter {
 	 * Constructor
 	 */
 	function CitationListTokenizerFilter() {
-		$this->setDisplayName('Citation Tokenizer');
+		$this->setDisplayName('Split a reference list into separate citations');
 
-		parent::Filter();
+		parent::Filter('primitive::string', 'primitive::string[]');
 	}
 
 	//
 	// Implement template methods from Filter
 	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		return array('primitive::string', 'primitive::string[]');
-	}
-
-	/**
-	 * @see Filter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.classes.citation.CitationListTokenizerFilter';
-	}
-
 	/**
 	 * @see Filter::process()
 	 * @param $input string

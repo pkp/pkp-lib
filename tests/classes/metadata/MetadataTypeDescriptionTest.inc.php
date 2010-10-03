@@ -23,10 +23,10 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	public function testInstantiateAndCheck() {
 		// Test with specific assoc type
-		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)');
 
-		$rightSchemaName = 'lib.pkp.classes.metadata.nlm.NlmCitationSchema';
-		$wrongSchemaName = 'lib.pkp.classes.metadata.nlm.NlmNameSchema';
+		$rightSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$wrongSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
 		$compatibleMetadataDescription = new MetadataDescription($rightSchemaName, ASSOC_TYPE_CITATION);
 		$wrongMetadataDescription1 = new MetadataDescription($wrongSchemaName, ASSOC_TYPE_CITATION);
 		$wrongMetadataDescription2 = new MetadataDescription($rightSchemaName, ASSOC_TYPE_AUTHOR);
@@ -35,7 +35,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription2));
 
 		// Test with wildcard assoc type
-		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(*)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(*)');
 		self::assertTrue($typeDescription->isCompatible($compatibleMetadataDescription));
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription1));
 		self::assertTrue($typeDescription->isCompatible($wrongMetadataDescription2));
@@ -56,7 +56,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	function testInstantiateWithInvalidTypeDescriptor2() {
 		// Missing assoc type.
-		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
 	}
 
 	/**
@@ -65,7 +65,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// Wrong assoc type.
-		$typeDescription = new MetadataTypeDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema(UNKNOWN)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(UNKNOWN)');
 	}
 }
 ?>

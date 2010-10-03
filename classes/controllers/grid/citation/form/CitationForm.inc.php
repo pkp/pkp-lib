@@ -242,7 +242,7 @@ class CitationForm extends Form {
 							}
 
 							// Try to transform the field to a name composite.
-							import('lib.pkp.classes.metadata.nlm.PersonStringNlmNameSchemaFilter');
+							import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlmNameSchemaFilter');
 							$personStringFilter = new PersonStringNlmNameSchemaFilter($assocType, PERSON_STRING_FILTER_MULTIPLE);
 							assert($personStringFilter->supportsAsInput($fieldValue));
 							$typedFieldValues =& $personStringFilter->execute($fieldValue);
@@ -531,7 +531,7 @@ class CitationForm extends Form {
 				// name arrays to strings.
 				$allowedAssocTypes = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
 				assert(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocTypes) || in_array(ASSOC_TYPE_EDITOR, $allowedAssocTypes));
-				import('lib.pkp.classes.metadata.nlm.NlmNameSchemaPersonStringFilter');
+				import('lib.pkp.plugins.metadata.nlm30.filter.NlmNameSchemaPersonStringFilter');
 				$personStringFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
 				assert($personStringFilter->supportsAsInput($value));
 				$stringValue = $personStringFilter->execute($value);

@@ -115,10 +115,28 @@ class PluginRegistry {
 			while (($file = readdir($handle)) !== false) {
 				if ($file == '.' || $file == '..') continue;
 				$pluginPath = "$categoryDir/$file";
-				$pluginWrapper = "$pluginPath/index.php";
-				if (!file_exists($pluginWrapper)) continue;
+				$plugin = null;
 
-				$plugin = include($pluginWrapper);
+				// Try the plug-in wrapper first for backwards
+				// compatibility.
+				$pluginWrapper = "$pluginPath/index.php";
+				if (file_exists($pluginWrapper)) {
+					$plugin = include($pluginWrapper);
+				} else {
+					// Try the well-known plug-in class name next.
+					$pluginClassName = ucfirst($file).ucfirst($category).'Plugin';
+					$pluginClassFile = $pluginClassName.'.inc.php';
+					if (file_exists("$categoryDir/$file/$pluginClassFile")) {
+						// Try to instantiate the plug-in class.
+						$pluginPackage = 'plugins.'.$category.'.'.$file;
+						$plugin =& instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+
+						// Any error at this stage is an internal inconsistency
+						// in the plug-in which is a bug.
+						assert(is_a($plugin, 'PKPPlugin'));
+					}
+				}
+
 				if ($plugin && is_object($plugin)) {
 					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
 					unset($plugin);

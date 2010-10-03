@@ -642,52 +642,48 @@ class Installer {
 		// Filters are supported on PHP5+ only.
 		if (!checkPhpVersion('5.0.0')) return false;
 
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
+		// Get DAOs.
+		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+
+		// The following list defines the filter classes to be installed
+		// as well as the filter groups they belong to.
 		$filtersToBeInstalled = array(
-			'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter',
-			'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter',
-			'lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter',
-			'lib.pkp.classes.citation.output.mla.NlmCitationSchemaMlaFilter',
-			'lib.pkp.classes.citation.output.vancouver.NlmCitationSchemaVancouverFilter',
-			'lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter'
+			'nlm30-element-citation=>nlm30-element-citation' => 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter',
+			'nlm30-element-citation=>nlm30-element-citation' => 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter',
+			'nlm30-element-citation=>nlm30-element-citation' => 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter',
+			'plaintext=>nlm30-element-citation' => 'lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter',
+			'plaintext=>nlm30-element-citation' => 'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter',
+			'plaintext=>nlm30-element-citation' => 'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter',
+			'plaintext=>nlm30-element-citation' => 'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter',
+			'nlm30-element-citation=>plaintext' => 'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter',
+			'nlm30-element-citation=>plaintext' => 'lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter',
+			'nlm30-element-citation=>plaintext' => 'lib.pkp.classes.citation.output.mla.NlmCitationSchemaMlaFilter',
+			'nlm30-element-citation=>plaintext' => 'lib.pkp.classes.citation.output.vancouver.NlmCitationSchemaVancouverFilter',
+			'submission=>nlm30-article' => 'lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter'
 		);
+
 		import('lib.pkp.classes.citation.output.PlainTextReferencesListFilter');
-		foreach($filtersToBeInstalled as $filterToBeInstalled) {
-			// Instantiate filter.
-			$filter =& instantiate($filterToBeInstalled, 'Filter');
-
+		foreach($filtersToBeInstalled as $filterGroupSymbolic => $filterToBeInstalled) {
 			// Install citation output filters as non-configurable site-wide filter instances.
-			if (is_a($filter, 'NlmCitationSchemaCitationOutputFormatFilter') ||
-					is_a($filter, 'PKPSubmissionNlmXmlFilter')) {
-				$filter->setIsTemplate(false);
-
-				// Check whether the filter instance has been
-				// installed before.
-				$existingFilters =& $filterDao->getObjectsByClass($filterToBeInstalled, 0, false);
-
-			// Install other filter as configurable templates.
+			if ($filterGroupSymbolic == 'nlm30-element-citation=>plaintext') {
+				$installAsTemplate = false;
+			// Install other filters as configurable templates.
 			} else {
-				$filter->setIsTemplate(true);
-
-				// Check whether the filter template has been
-				// installed before.
-				$existingFilters =& $filterDao->getObjectsByClass($filterToBeInstalled, 0, true);
+				$installAsTemplate = true;
 			}
 
-			// Guarantee idempotence.
+			// Check whether the filter instance has been
+			// installed before to guarantee idempotence.
+			$existingFilters =& $filterDao->getObjectsByGroupAndClass(
+					$filterGroupSymbolic, $filterToBeInstalled, 0, $installAsTemplate);
 			if ($existingFilters->getCount()) continue;
 
 			// Install the filter or template.
-			$filterDao->insertObject($filter, 0);
+			$filter =& $filterDao->installObject($filterToBeInstalled, $filterGroupSymbolic, array(), $installAsTemplate, 0);
 
 			// If this is a citation output filter then also install a corresponding references list filter.
-			if (is_a($filter, 'NlmCitationSchemaCitationOutputFormatFilter')) {
+			if ($filterGroupSymbolic == 'nlm30-element-citation=>plaintext') {
 				// Only Vancouver Style listings require numerical ordering.
 				if (is_a($filter, 'NlmCitationSchemaVancouverFilter')) {
 					$ordering = REFERENCES_LIST_ORDERING_NUMERICAL;
@@ -695,12 +691,17 @@ class Installer {
 					$ordering = REFERENCES_LIST_ORDERING_ALPHABETICAL;
 				}
 
-				// Instantiate the filter.
-				$referencesListFilter = new PlainTextReferencesListFilter($filter->getDisplayName(), $filter->getClassName(), $ordering);
-				$referencesListFilter->setIsTemplate(false);
+				// Prepare the filter settings.
+				$settings = array(
+					'displayName' => $filter->getDisplayName(),
+					'citationOutputFilterName' => $filter->getClassName(),
+					'ordering' => $ordering
+				);
 
 				// Install the filter.
-				$filterDao->insertObject($referencesListFilter, 0);
+				$referencesListFilter =& $filterDao->installObject(
+						'lib.pkp.classes.citation.output.PlainTextReferencesListFilter',
+						'submission=>reference-list', array(), false, 0);
 				unset($referencesListFilter);
 			}
 
@@ -711,7 +712,9 @@ class Installer {
 		// need to be constructed first:
 		// 1) Check and install the ISBNdb filter template.
 		$alreadyInstalled = false;
-		$existingTemplatesFactory =& $filterDao->getObjectsByClass('lib.pkp.classes.filter.GenericSequencerFilter', 0, true);
+		$existingTemplatesFactory =& $filterDao->getObjectsByGroupAndClass(
+				'nlm30-element-citation=>nlm30-element-citation',
+				'lib.pkp.classes.filter.GenericSequencerFilter', 0, true);
 		$existingTemplates =& $existingTemplatesFactory->toArray();
 		foreach($existingTemplates as $existingTemplate) {
 			$subFilters =& $existingTemplate->getFilters();
@@ -723,22 +726,22 @@ class Installer {
 		}
 		if (!$alreadyInstalled) {
 			// Instantiate the filter as a configurable template.
-			$isbndbTransformation = array(
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
-			);
 			import('lib.pkp.classes.filter.GenericSequencerFilter');
-			$isbndbFilter = new GenericSequencerFilter('ISBNdb', $isbndbTransformation);
+			$isbndbFilter = new GenericSequencerFilter(
+					$filterGroupDao->getObjectBySymbolic('nlm30-element-citation=>nlm30-element-citation'),
+					'ISBNdb');
 			$isbndbFilter->setIsTemplate(true);
 
 			// Instantiate and add the NLM-to-ISBN filter.
 			import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-			$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter();
+			$nlmToIsbnFilter = new IsbndbNlmCitationSchemaIsbnFilter(
+					$filterGroupDao->getObjectBySymbolic('nlm30-element-citation=>isbn'));
 			$isbndbFilter->addFilter($nlmToIsbnFilter);
 
 			// Instantiate and add the ISBN-to-NLM filter.
 			import('lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter');
-			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter();
+			$isbnToNlmFilter = new IsbndbIsbnNlmCitationSchemaFilter(
+					$filterGroupDao->getObjectBySymbolic('isbn=>nlm30-element-citation'));
 			$isbndbFilter->addFilter($isbnToNlmFilter);
 
 			// Add the settings mapping.
@@ -754,7 +757,9 @@ class Installer {
 
 		// 3) Check and install the NLM XML 2.3 output filter.
 		$alreadyInstalled = false;
-		$existingTemplatesFactory =& $filterDao->getObjectsByClass('lib.pkp.classes.filter.GenericSequencerFilter', 0, false);
+		$existingTemplatesFactory =& $filterDao->getObjectsByGroupAndClass(
+				'submission=>nlm23-article',
+				'lib.pkp.classes.filter.GenericSequencerFilter', 0, false);
 		$existingTemplates =& $existingTemplatesFactory->toArray();
 		foreach($existingTemplates as $existingTemplate) {
 			$subFilters =& $existingTemplate->getFilters();
@@ -766,24 +771,23 @@ class Installer {
 		}
 		if (!$alreadyInstalled) {
 			// Instantiate the filter as a non-configurable filter instance.
-			$nlm23Transformation = array(
-				'class::lib.pkp.classes.submission.Submission',
-				'xml::*'
-			);
-			$nlm23Filter = new GenericSequencerFilter('NLM Journal Publishing V2.3 ref-list', $nlm23Transformation);
+			$nlm23Filter = new GenericSequencerFilter(
+					$filterGroupDao->getObjectBySymbolic('submission=>nlm23-article'),
+					'NLM Journal Publishing V2.3 ref-list');
 			$nlm23Filter->setIsTemplate(false);
 
 			// Instantiate and add the NLM 3.0 export filter.
 			import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter');
-			$nlm30Filter = new PKPSubmissionNlmXmlFilter();
+			$nlm30Filter = new PKPSubmissionNlmXmlFilter(
+					$filterGroupDao->getObjectBySymbolic('submission=>nlm30-article'));
 			$nlm23Filter->addFilter($nlm30Filter);
 
 			// Instantiate, configure and add the NLM 3.0 to 2.3 downgrade XSL transformation.
 			import('lib.pkp.classes.xslt.XSLTransformationFilter');
 			$downgradeFilter = new XSLTransformationFilter(
-				'NLM 3.0 to 2.3 ref-list downgrade',
-				array('xml::*', 'xml::*'));
-			$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm/nlm-ref-list-30-to-23.xsl');
+					$filterGroupDao->getObjectBySymbolic('nlm30-article=>nlm23-article'),
+					'NLM 3.0 to 2.3 ref-list downgrade');
+			$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm30/nlm-ref-list-30-to-23.xsl');
 			$nlm23Filter->addFilter($downgradeFilter);
 
 			// Persist the composite filter.

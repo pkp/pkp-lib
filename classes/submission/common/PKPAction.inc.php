@@ -74,7 +74,7 @@ class PKPAction {
 			$filterDao =& DAORegistry::getDAO('FilterDAO');
 			$inputSample = 'arbitrary strings';
 			import('lib.pkp.classes.metadata.MetadataDescription');
-			$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+			$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 			$configuredCitationParsers =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
 			if (!count($configuredCitationParsers)) $citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
 		}

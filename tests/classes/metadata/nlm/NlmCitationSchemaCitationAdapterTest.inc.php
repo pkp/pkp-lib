@@ -15,7 +15,7 @@
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.citation.Citation');
-import('lib.pkp.classes.metadata.nlm.NlmCitationSchemaCitationAdapter');
+import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationAdapter');
 import('lib.pkp.tests.classes.metadata.TestSchema');
 
 class NlmCitationSchemaCitationAdapterTest extends PKPTestCase {
@@ -29,20 +29,20 @@ class NlmCitationSchemaCitationAdapterTest extends PKPTestCase {
 		self::assertType('NlmCitationSchema', $adapter->getMetadataSchema());
 		$expectedTransformations = array(
 			array(
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
 				'class::lib.pkp.classes.citation.Citation'
 			),
 			array(
 				'class::lib.pkp.classes.citation.Citation',
-				'metadata::lib.pkp.classes.metadata.nlm.NlmCitationSchema(CITATION)'
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
 			)
 		);
 		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
 		// Instantiate a test description
-		$authorDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		$authorDescription->addStatement('surname', $surname = 'some surname');
-		$citationDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('article-title', $articleTitle = 'article title');
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $authorDescription);
 
@@ -63,9 +63,9 @@ class NlmCitationSchemaCitationAdapterTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $resultCitation->getAllData());
 
 		// Instantiate and inject a second test description
-		$authorDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
 		$authorDescription->addStatement('surname', $anotherSurname = 'another surname');
-		$secondDescription = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$secondDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$secondDescription->addStatement('person-group[@person-group-type="author"]', $authorDescription);
 		$secondDescription->addStatement('source', $source = 'some source');
 		$resultCitation =& $adapter->injectMetadataIntoDataObject($secondDescription, $citation, false);

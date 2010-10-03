@@ -24,20 +24,8 @@ class CrosswalkFilter extends Filter {
 	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
 	 * @param $toSchema string fully qualified class name of supported output meta-data schema
 	 */
-	function CrosswalkFilter() {
-		parent::Filter();
-	}
-
-	//
-	// Implement template methods from Filter
-	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation($fromSchema, $toSchema) {
-		// We allow any type of described subject. See MetadataTypeDescription
-		// class doc for meta-data schema validation syntax used below.
-		return array('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
+	function CrosswalkFilter($fromSchema, $toSchema) {
+		parent::Filter('metadata::'.$fromSchema.'(*)', 'metadata::'.$toSchema.'(*)');
 	}
 }
 ?>

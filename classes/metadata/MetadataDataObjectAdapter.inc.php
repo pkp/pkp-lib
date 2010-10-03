@@ -14,60 +14,61 @@
  *
  * @brief Class that injects/extracts a meta-data description
  *  into/from an application entity object (DataObject).
+ *
+ *  These adapters have to be persistable as they'll be provided
+ *  by plug-ins via the filter registry.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.PersistentFilter');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-class MetadataDataObjectAdapter extends Filter {
-	/** @var string fully qualified name of a meta-data schema class */
-	var $_metadataSchemaName;
-
+class MetadataDataObjectAdapter extends PersistableFilter {
 	/** @var MetadataSchema */
 	var $_metadataSchema;
 
 	/** @var string */
-	var $_dataObjectName;
-
-	/** @var string */
 	var $_dataObjectClass;
-
-	/** @var integer */
-	var $_assocType;
 
 	/** @var array */
 	var $_metadataFieldNames;
 
-	/** @var array */
-	var $_supportedTransformations;
-
 	/**
 	 * Constructor
-	 * @param $metadataSchemaName string a fully qualified class name
-	 * @param $dataObjectName string a fully qualified class name
-	 * @param $assocType integer
+	 * @param $filterGroup FilterGroup
 	 */
-	function MetadataDataObjectAdapter($metadataSchemaName, $dataObjectName, $assocType) {
+	function MetadataDataObjectAdapter(&$filterGroup) {
 		assert(is_string($metadataSchemaName) && is_string($dataObjectName)
 				&& is_integer($assocType));
 
-		// Initialize the adapter
+		// Configure the persistable settings.
+		$this->addSetting(new FilterSetting('metadataSchemaName', null, null));
+		$this->addSetting(new FilterSetting('dataObjectName', null, null));
+		$this->addSetting(new FilterSetting('assocType', null, null));
+
+		// Initialize the adapter.
 		$this->setDisplayName('Inject/Extract Metadata into/from a '.$dataObjectName);
-		$this->_metadataSchemaName = $metadataSchemaName;
-		$this->_dataObjectName = $dataObjectName;
-		$this->_assocType = $assocType;
-		parent::Filter();
+		parent::PersistableFilter($filterGroup);
 	}
 
 	//
 	// Getters and setters
 	//
 	/**
+	 * Set the fully qualified class name of
+	 * the supported meta-data schema.
+	 * @param string
+	 */
+	function setMetadataSchemaName($metadataSchemaName) {
+		return $this->setData('metadataSchemaName', $metadataSchemaName);
+	}
+
+	/**
 	 * Get the fully qualified class name of
 	 * the supported meta-data schema.
+	 * @return string
 	 */
 	function getMetadataSchemaName() {
-		return $this->_metadataSchemaName;
+		return $this->getData('metadataSchemaName');
 	}
 
 	/**
@@ -78,7 +79,9 @@ class MetadataDataObjectAdapter extends Filter {
 		// Lazy-load the meta-data schema if this has
 		// not been done before.
 		if (is_null($this->_metadataSchema)) {
-			$this->_metadataSchema =& instantiate($this->getMetadataSchemaName(), 'MetadataSchema');
+			$metadataSchemaName = $this->getMetadataSchemaName();
+			assert(!is_null($metadataSchemaName));
+			$this->_metadataSchema =& instantiate($metadataSchemaName, 'MetadataSchema');
 			assert(is_object($this->_metadataSchema));
 		}
 		return $this->_metadataSchema;
@@ -95,11 +98,19 @@ class MetadataDataObjectAdapter extends Filter {
 	}
 
 	/**
+	 * set the supported application entity (class) name
+	 * @param string
+	 */
+	function setDataObjectName($dataObjectName) {
+		$this->setData('dataObjectName', $dataObjectName);
+	}
+
+	/**
 	 * Get the supported application entity (class) name
 	 * @return string
 	 */
 	function getDataObjectName() {
-		return $this->_dataObjectName;
+		return $this->getData('dataObjectName');
 	}
 
 	/**
@@ -110,7 +121,9 @@ class MetadataDataObjectAdapter extends Filter {
 	 */
 	function getDataObjectClass() {
 		if (is_null($this->_dataObjectClass)) {
-			$dataObjectNameParts = explode('.', $this->getDataObjectName());
+			$dataObjectName = $this->getDataObjectName();
+			assert(!is_null($dataObjectName));
+			$dataObjectNameParts = explode('.', $dataObjectName);
 			$this->_dataObjectClass = array_pop($dataObjectNameParts);
 		}
 		return $this->_dataObjectClass;
@@ -119,11 +132,29 @@ class MetadataDataObjectAdapter extends Filter {
 	/**
 	 * Get the association type corresponding to the data
 	 * object type.
+	 * @param integer
+	 */
+	function getAssocType($assocType) {
+		$this->setData('assocType', $assocType);
+	}
+
+	/**
+	 * Get the association type corresponding to the data
+	 * object type.
 	 * @return integer
 	 */
 	function getAssocType() {
-		return $this->_assocType;
+		return $this->getData('assocType');
 	}
+
+	/**
+	 * @param $dataObject DataObject
+	 */
+
+	/**
+	 * @param $replace boolean whether to delete existing meta-data
+	 */
+
 
 	//
 	// Abstract template methods
@@ -171,95 +202,43 @@ class MetadataDataObjectAdapter extends Filter {
 	// Implement template methods from Filter
 	//
 	/**
-	 * @see getSupportedTransformations()
-	 */
-	function getSupportedTransformations() {
-		if (is_null($this->_supportedTransformations)) {
-			// Find the ASSOC_TYPE_* constant with the correct value.
-			$definedConstants = array_keys(get_defined_constants());
-			$assocTypeConstants = array_filter($definedConstants,
-					create_function('$o', 'return (strpos($o, "ASSOC_TYPE_") === 0) && '
-					.'(constant($o) === '.(string)$this->getAssocType().');'));
-			assert(count($assocTypeConstants) == 1);
-
-			// Extract the assoc type name.
-			$assocTypeName = str_replace('ASSOC_TYPE_', '', array_pop($assocTypeConstants));
-
-			// Construct the supported type definitions
-			$metadataType = 'metadata::'.$this->getMetadataSchemaName().'('.$assocTypeName.')';
-			$dataObjectType = 'class::'.$this->getDataObjectName();
-
-			// Construct the supported transformations
-			$this->_supportedTransformations = array(
-				array($metadataType, $dataObjectType),
-				array($dataObjectType, $metadataType)
-			);
-		}
-		return $this->_supportedTransformations;
-	}
-
-	/**
 	 * @see Filter::supports()
 	 * @param $input mixed
 	 * @param $output mixed
 	 * @return boolean
 	 */
 	function supports(&$input, &$output) {
-		// Check input tpye
-		switch(true) {
-			// Inject meta-data into an existing data object
-			case is_array($input):
-				// Check input type
-				// We expect two array entries: a MetadataDescription and a target data object.
-				if (count($input) != 3) return false;
-				$metadataDescription =& $input[0];
-				if (!is_a($metadataDescription, 'MetadataDescription')) return false;
+		// Intercept Filter::supports() to check the consistency of
+		// the filter parameterization with the filter group.
 
-				$dataObject =& $input[1];
-				if (!is_a($dataObject, $this->getDataObjectClass())) return false;
+		// Get the input/output types.
+		$inputType =& $this->getInputType();
+		$outputType =& $this->getOutputType();
 
-				$replace = $input[2];
-				if (!is_bool($replace)) return false;
+		// Get the input/output type descriptions.
+		$inputTypeDescription = $inputType->getTypeDescription();
+		$outputTypeDescription = $outputType->getTypeDescription();
 
-				// Check the the meta-data description compliance
-				if (!$this->_complies($metadataDescription)) return false;
-				break;
+		// Get the supported transformations.
+		$supportedTransformations = $this->_getSupportedTransformations();
 
-			// Inject meta-data into a new data object
-			case is_a($input, 'MetadataDescription'):
-				// We just need to check the meta-data description compliance.
-				if (!$this->_complies($input)) return false;
-				break;
+		// Check whether the input/output type descriptions
+		// match the supported transformations.
+		foreach($supportedTransformations as $supportedTransformation) {
+			list($supportedInputType, $supportedOutputType) = $supportedTransformation;
 
-			// Create a new meta-data description from a data object
-			case is_a($input, $this->getDataObjectClass()):
-				break;
-
-			default:
-				// A non-supported data-type
-				return false;
+			// Go on only if the configured input/output type match the
+			// supported types.
+			if ($inputTypeDescription == $supportedInputType &&
+					$outputTypeDescription == $supportedOutputType) {
+				// Let the filter framework do the rest of the checking.
+				return parent::supports($input, $output);
+			}
 		}
 
-		// Check output type
-		if (is_null($output)) return true;
-		switch(true) {
-			case is_array($input):
-			case is_a($input, 'MetadataDescription'):
-				// We expect an application object (DataObject)
-				return is_a($output, $this->getDataObjectClass());
-
-			case is_a($input, $this->getDataObjectClass()):
-				if (!is_a($output, 'MetadataDescription')) return false;
-
-				// Check whether the the output
-				// complies with the supported schema
-				return $this->_complies($output);
-
-			default:
-				// The adapter mode must always be defined
-				// when calling supports().
-				assert(false);
-		}
+		// None of the supported transformations matched. This is a
+		// fatal configuration or coding error.
+		fatalError('Found inconsistent configuration of input/output types in \''.get_class($this).'\'!');
 	}
 
 	/**
@@ -270,15 +249,19 @@ class MetadataDataObjectAdapter extends Filter {
 	 * @return mixed either a MetadataDescription or an application object
 	 */
 	function &process(&$input) {
-		// Set the adapter mode and convert the input.
+		// Do we inject or extract metadata?
 		switch (true) {
-			case is_array($input):
-				$output =& $this->injectMetadataIntoDataObject($input[0], $input[1], $input[2]);
-				break;
-
 			case is_a($input, 'MetadataDescription'):
-				$nullVar = null;
-				$output =& $this->injectMetadataIntoDataObject($input, $nullVar, false);
+				$dataObject =& $this->getDataObject();
+
+				// Instantiate a new data object if none was given.
+				if (is_null($dataObject)) {
+					$dataObject =& $this->instantiateDataObject();
+					assert(is_a($dataObject, $this->getDataObjectName()));
+				}
+
+				// Inject meta-data into the data object.
+				$output =& $this->injectMetadataIntoDataObject($input, $dataObject);
 				break;
 
 			case is_a($input, $this->getDataObjectClass()):
@@ -297,6 +280,23 @@ class MetadataDataObjectAdapter extends Filter {
 	//
 	// Protected helper methods
 	//
+	/**
+	 * Instantiate a new data object of the
+	 * correct type.
+	 *
+	 * NB: This can be overridden by sub-classes for more complex
+	 * data objects. The standard implementation assumes there are
+	 * no constructor args to be set or configurations to be made.
+	 *
+	 * @return DataObject
+	 */
+	function &instantiateDataObject() {
+		$dataObjectName = $this->getDataObjectName();
+		assert(!is_null($dataObjectName));
+		$dataObject =& instantiate($dataObjectName, $this->getDataObjectClass());
+		return $dataObject;
+	}
+
 	/**
 	 * Instantiate a meta-data description that conforms to the
 	 * settings of this adapter.
@@ -428,22 +428,39 @@ class MetadataDataObjectAdapter extends Filter {
 	// Private helper methods
 	//
 	/**
-	 * Check whether a given meta-data description complies with
-	 * the meta-data schema configured for this adapter.
-	 * @param $metadataDescription MetadataDescription
-	 * @return boolean true if the given description complies, otherwise false
+	 * Construct the supported input/output types from the
+	 * parameterization of the filter.
+	 * @see MetadataObjectAdapter::supports()
+	 * @return array a list of supported transformations as a two-dimensional array.
 	 */
-	function _complies($metadataDescription) {
-		// Check that the description describes the correct resource
-		if ($metadataDescription->getAssocType() != $this->_assocType) return false;
+	function _getSupportedTransformations() {
+		// Retrieve filter parameters.
+		$metadataSchemaName = $this->getMetadataSchemaName();
+		$dataObjectName = $this->getDataObjectName();
+		$assocType = $this->getAssocType();
 
-		// Check that the description complies with the correct schema
-		$descriptionSchemaName =& $metadataDescription->getMetadataSchemaName();
-		$supportedSchemaName =& $this->getMetadataSchemaName();
-		if ($descriptionSchemaName != $supportedSchemaName) return false;
+		// Make sure that all parameters are set.
+		if (is_null($metadataSchemaName) || is_null($dataObjectName) || is_null($assocType)) return false;
 
-		// Compliance was successfully checked
-		return true;
+		// Find the ASSOC_TYPE_* constant with the correct value.
+		$definedConstants = array_keys(get_defined_constants());
+		$assocTypeConstants = array_filter($definedConstants,
+				create_function('$o', 'return (strpos($o, "ASSOC_TYPE_") === 0) && '
+				.'(constant($o) === '.(string)$this->getAssocType().');'));
+		assert(count($assocTypeConstants) == 1);
+
+		// Extract the assoc type name.
+		$assocTypeName = str_replace('ASSOC_TYPE_', '', array_pop($assocTypeConstants));
+
+		// Construct the supported type definitions.
+		$metadataType = 'metadata::'.$this->getMetadataSchemaName().'('.$assocTypeName.')';
+		$dataObjectType = 'class::'.$this->getDataObjectName();
+
+		// Construct and return the supported transformations.
+		return array(
+			array($metadataType, $dataObjectType),
+			array($dataObjectType, $metadataType)
+		);
 	}
 }
 ?>

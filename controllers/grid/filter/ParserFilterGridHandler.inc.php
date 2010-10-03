@@ -32,7 +32,7 @@ class ParserFilterGridHandler extends FilterGridHandler {
 		$inputSample = 'arbitrary strings';
 		$this->setInputSample($inputSample);
 
-		$outputSample = new MetadataDescription('lib.pkp.classes.metadata.nlm.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
 		$this->setOutputSample($outputSample);
 
 		// Set the title of this grid

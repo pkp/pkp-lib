@@ -12,8 +12,6 @@
  * @brief Class for linking core functionality with plugins
  */
 
-// $Id$
-
 
 class HookRegistry {
 	/**

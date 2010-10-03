@@ -1,14 +1,18 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/mods/filter/ModsDescriptionTestCase.inc.php
+ * @defgroup tests_plugins_metadata_mods_filter
+ */
+
+/**
+ * @file tests/plugins/metadata/mods/filter/Mods34DescriptionTestCase.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ModsDescriptionTestCase
+ * @class Mods34DescriptionTestCase
  * @ingroup tests_plugins_metadata_mods_filter
- * @see ModsSchema
+ * @see Mods34Schema
  *
  * @brief Base test case for tests that involve a MODS MetadataDescription.
  */
@@ -16,14 +20,14 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-class ModsDescriptionTestCase extends PKPTestCase {
+class Mods34DescriptionTestCase extends PKPTestCase {
 	/**
 	 * Prepare a MODS description that covers as much data as possible.
 	 * @return MetadataDescription
 	 */
-	public function getModsDescription() {
+	public function getMods34Description() {
 		// Author
-		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods.schema.ModsNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($authorDescription->addStatement('[@type]', $nameType = 'personal'));
 		self::assertTrue($authorDescription->addStatement('namePart[@type="family"]', $familyName = 'some family name'));
 		self::assertTrue($authorDescription->addStatement('namePart[@type="given"]', $givenName = 'given names'));
@@ -33,12 +37,12 @@ class ModsDescriptionTestCase extends PKPTestCase {
 		self::assertTrue($authorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $authorRole = 'aut'));
 
 		// Sponsor
-		$sponsorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods.schema.ModsNameSchema', ASSOC_TYPE_AUTHOR);
+		$sponsorDescription = new MetadataDescription('lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
 		self::assertTrue($sponsorDescription->addStatement('[@type]', $nameType = 'corporate'));
 		self::assertTrue($sponsorDescription->addStatement('namePart', $namePart = 'Some Sponsor'));
 		self::assertTrue($sponsorDescription->addStatement('role/roleTerm[@type="code" @authority="marcrelator"]', $sponsorRole = 'spn'));
 
-		$modsDescription = new MetadataDescription('plugins.metadata.mods.schema.ModsSchema', ASSOC_TYPE_CITATION);
+		$modsDescription = new MetadataDescription('plugins.metadata.mods34.schema.Mods34Schema', ASSOC_TYPE_CITATION);
 		self::assertTrue($modsDescription->addStatement('titleInfo/nonSort', $titleNonSort = 'the'));
 		self::assertTrue($modsDescription->addStatement('titleInfo/title', $title = 'new submission title'));
 		self::assertTrue($modsDescription->addStatement('titleInfo/subTitle', $subTitle = 'subtitle'));

@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file tests/classes/citation/parser/freecite/FreeciteRawCitationNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/parser/freecite/FreeciteRawCitationNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FreeciteRawCitationNlmCitationSchemaFilterTest
+ * @class FreeciteRawCitationNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_parser_freecite
- * @see FreeciteRawCitationNlmCitationSchemaFilter
+ * @see FreeciteRawCitationNlm30CitationSchemaFilter
  *
- * @brief Tests for the FreeciteRawCitationNlmCitationSchemaFilter class.
+ * @brief Tests for the FreeciteRawCitationNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
-import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.parser.Nlm30CitationSchemaParserFilterTestCase');
+import('lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlm30CitationSchemaFilter');
 
-class FreeciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParserFilterTestCase {
+class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaParserFilterTestCase {
 	/**
-	 * @covers FreeciteRawCitationNlmCitationSchemaFilter
+	 * @covers FreeciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
 		$testCitations = array(
@@ -65,22 +65,22 @@ class FreeciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 			)
 		);
 
-		$filter = new FreeciteRawCitationNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($testCitations, $filter);
+		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
 	/**
-	 * @covers FreeciteRawCitationNlmCitationSchemaFilter
+	 * @covers FreeciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {
-		$this->assertWebServiceError('FreeciteRawCitationNlmCitationSchemaFilter');
+		$this->assertWebServiceError('FreeciteRawCitationNlm30CitationSchemaFilter');
 	}
 
 	/**
-	 * @see NlmCitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
+	 * @see Nlm30CitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new FreeciteRawCitationNlmCitationSchemaFilter();
+		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter();
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 }

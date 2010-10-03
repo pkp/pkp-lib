@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/OpenUrlNlmCitationSchemaCrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/OpenUrlNlm30CitationSchemaCrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlNlmCitationSchemaCrosswalkFilter
+ * @class OpenUrlNlm30CitationSchemaCrosswalkFilter
  * @ingroup metadata_nlm
- * @see NlmCitationSchema
+ * @see Nlm30CitationSchema
  * @see OpenUrlBookSchema
  * @see OpenUrlJournalSchema
  * @see OpenUrlDissertationSchema
@@ -19,14 +19,14 @@
 
 import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlCrosswalkFilter');
 
-class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
+class OpenUrlNlm30CitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	/**
 	 * Constructor
 	 */
-	function OpenUrlNlmCitationSchemaCrosswalkFilter() {
+	function OpenUrlNlm30CitationSchemaCrosswalkFilter() {
 		$this->setDisplayName('Crosswalk from Open URL to NLM Citation');
 		parent::OpenUrlCrosswalkFilter('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBaseSchema',
-				'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+				'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 	}
 
 
@@ -45,11 +45,11 @@ class OpenUrlNlmCitationSchemaCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		$nullVar = null;
 
 		// Instantiate the target description.
-		$output = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', $input->getAssocType());
+		$output = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $input->getAssocType());
 
 		// Parse au statements into name descriptions
-		import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlmNameSchemaFilter');
-		$personStringFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
+		import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
+		$personStringFilter = new PersonStringNlm30NameSchemaFilter(ASSOC_TYPE_AUTHOR);
 		$authors =& $input->getStatement('au');
 		if (is_array($authors) && count($authors)) {
 			// TODO: We might improve results here by constructing the

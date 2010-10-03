@@ -278,14 +278,14 @@ class CitationDAO extends DAO {
 	 * @param $lookupFilters boolean whether to include lookup type filters
 	 * @param $fromFilterIds array restrict results to those with the given ids
 	 * @param $includeOptionalFilters boolean
-	 * @return array an array of NlmCitationSchemaFilters
+	 * @return array an array of Nlm30CitationSchemaFilters
 	 */
 	function &getCitationFilterInstances($contextId, $parserFilters = true, $lookupFilters = true, $fromFilterIds = array(), $includeOptionalFilters = false) {
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		$filterList = array();
 
 		// All citation filters have NLM output.
-		$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
 		// Parser filters
 		if ($parserFilters) {
@@ -429,7 +429,7 @@ class CitationDAO extends DAO {
 	 * Instantiates the citation output format filter currently
 	 * configured for the context.
 	 * @param $context object journal, press or conference
-	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 * @return Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	function &instantiateCitationOutputFilter(&$context) {
 		// The filter is stateless so we can instantiate
@@ -441,7 +441,7 @@ class CitationDAO extends DAO {
 			$citationOutputFilterId = $context->getSetting('metaCitationOutputFilterId');
 			$filterDao =& DAORegistry::getDAO('FilterDAO');
 			$citationOutputFilter = $filterDao->getObjectById($citationOutputFilterId);
-			assert(is_a($citationOutputFilter, 'NlmCitationSchemaCitationOutputFormatFilter'));
+			assert(is_a($citationOutputFilter, 'Nlm30CitationSchemaCitationOutputFormatFilter'));
 		}
 
 		return $citationOutputFilter;
@@ -537,7 +537,7 @@ class CitationDAO extends DAO {
 		// Parsing takes a raw citation and transforms it
 		// into a array of meta-data descriptions.
 		$inputType = 'primitive::string';
-		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]';
+		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]';
 
 		// Extract the raw citation string from the citation
 		$inputData = $citation->getRawCitation();
@@ -568,8 +568,8 @@ class CitationDAO extends DAO {
 		// Lookup takes a single meta-data description and
 		// checks it against several lookup-sources resulting
 		// in an array of meta-data descriptions.
-		$inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)';
-		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]';
+		$inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)';
+		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]';
 
 		// Define the input for this transformation.
 		$inputData =& $metadataDescription;
@@ -604,7 +604,7 @@ class CitationDAO extends DAO {
 		$supportedMetadataSchemas =& $citation->getSupportedMetadataSchemas();
 		assert(count($supportedMetadataSchemas) == 1);
 		$metadataSchema =& $supportedMetadataSchemas[0];
-		assert(is_a($metadataSchema, 'NlmCitationSchema'));
+		assert(is_a($metadataSchema, 'Nlm30CitationSchema'));
 
 		// Extract the meta-data description from the citation.
 		$originalDescription =& $citation->extractMetadata($metadataSchema);
@@ -640,8 +640,8 @@ class CitationDAO extends DAO {
 			}
 
 			// Instantiate the citation de-multiplexer filter
-			import('lib.pkp.classes.citation.NlmCitationDemultiplexerFilter');
-			$citationDemultiplexer = new NlmCitationDemultiplexerFilter();
+			import('lib.pkp.classes.citation.Nlm30CitationDemultiplexerFilter');
+			$citationDemultiplexer = new Nlm30CitationDemultiplexerFilter();
 			$citationDemultiplexer->setOriginalDescription($originalDescription);
 			$citationDemultiplexer->setOriginalRawCitation($citation->getRawCitation());
 			$citationDemultiplexer->setCitationOutputFilter($this->instantiateCitationOutputFilter($context));

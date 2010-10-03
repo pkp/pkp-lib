@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmCitationSchemaCitationOutputFormatFilter.inc.php
+ * @file plugins/metadata/nlm30/Nlm30CitationSchemaCitationOutputFormatFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaCitationOutputFormatFilter
+ * @class Nlm30CitationSchemaCitationOutputFormatFilter
  * @ingroup classes_metadata_nlm
  *
  * @brief Abstract base class for all filters that transform
@@ -19,14 +19,14 @@ import('lib.pkp.classes.filter.TemplateBasedFilter');
 // This is a brand name so doesn't have to be translated...
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
 
-class NlmCitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
+class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
 	/** @var The publication types supported by this output filter. */
 	var $_supportedPublicationTypes;
 
 	/**
 	 * Constructor
 	 */
-	function NlmCitationSchemaCitationOutputFormatFilter() {
+	function Nlm30CitationSchemaCitationOutputFormatFilter() {
 		parent::TemplateBasedFilter();
 	}
 
@@ -65,7 +65,7 @@ class NlmCitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
 	 */
 	function getSupportedTransformation() {
 		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 			'primitive::string'
 		);
 	}

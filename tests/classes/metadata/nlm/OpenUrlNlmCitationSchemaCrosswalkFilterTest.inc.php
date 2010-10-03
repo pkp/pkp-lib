@@ -1,29 +1,29 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/OpenUrlNlmCitationSchemaCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/OpenUrlNlm30CitationSchemaCrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlNlmCitationSchemaCrosswalkFilterTest
+ * @class OpenUrlNlm30CitationSchemaCrosswalkFilterTest
  * @ingroup tests_classes_metadata_nlm
- * @see OpenUrlNlmCitationSchemaCrosswalkFilter
+ * @see OpenUrlNlm30CitationSchemaCrosswalkFilter
  *
- * @brief Tests for the OpenUrlNlmCitationSchemaCrosswalkFilter class.
+ * @brief Tests for the OpenUrlNlm30CitationSchemaCrosswalkFilter class.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlmCitationSchemaCrosswalkFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
 import('lib.pkp.tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
 
-class OpenUrlNlmCitationSchemaCrosswalkFilterTest extends OpenUrlCrosswalkFilterTest {
+class OpenUrlNlm30CitationSchemaCrosswalkFilterTest extends OpenUrlCrosswalkFilterTest {
 	/**
-	 * @covers OpenUrlNlmCitationSchemaCrosswalkFilter
+	 * @covers OpenUrlNlm30CitationSchemaCrosswalkFilter
 	 * @covers OpenUrlCrosswalkFilter
 	 */
 	public function testExecute() {
 		$openUrlDescription = $this->getTestOpenUrlDescription();
-		$nlmDescription = $this->getTestNlmDescription();
+		$nlmDescription = $this->getTestNlm30Description();
 
 		// Properties that are not part of the OpenURL
 		// description must be removed from the NLM description
@@ -39,7 +39,7 @@ class OpenUrlNlmCitationSchemaCrosswalkFilterTest extends OpenUrlCrosswalkFilter
 		self::assertTrue($nlmDescription->removeStatement('comment'));
 		self::assertTrue($nlmDescription->removeStatement('annotation'));
 
-		$filter = new OpenUrlNlmCitationSchemaCrosswalkFilter();
+		$filter = new OpenUrlNlm30CitationSchemaCrosswalkFilter();
 		self::assertEquals($nlmDescription, $filter->execute($openUrlDescription));
 	}
 }

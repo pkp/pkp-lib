@@ -1,29 +1,29 @@
 <?php
 
 /**
- * @file classes/citation/lookup/isbndb/IsbndbIsbnNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/lookup/isbndb/IsbndbIsbnNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class IsbndbIsbnNlmCitationSchemaFilter
+ * @class IsbndbIsbnNlm30CitationSchemaFilter
  * @ingroup citation_lookup_isbndb
  *
  * @brief Filter that uses the ISBNdb web service to look up
  *  an ISBN and create a NLM citation description from the result.
  */
 
-import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaFilter');
 
-class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
+class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function IsbndbIsbnNlmCitationSchemaFilter($apiKey = null) {
+	function IsbndbIsbnNlm30CitationSchemaFilter($apiKey = null) {
 		$this->setDisplayName('ISBNdb');
 
-		parent::IsbndbNlmCitationSchemaFilter($apiKey);
+		parent::IsbndbNlm30CitationSchemaFilter($apiKey);
 	}
 
 	//
@@ -35,7 +35,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	function getSupportedTransformation() {
 		return array(
 			'primitive::string',
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 		);
 	}
 
@@ -43,7 +43,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbIsbnNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -94,7 +94,7 @@ class IsbndbIsbnNlmCitationSchemaFilter extends IsbndbNlmCitationSchemaFilter {
 		// Set the publicationType
 		$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_BOOK;
 
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

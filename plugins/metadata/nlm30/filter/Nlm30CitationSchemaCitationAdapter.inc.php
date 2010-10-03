@@ -1,30 +1,30 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmCitationSchemaCitationAdapter.inc.php
+ * @file plugins/metadata/nlm30/Nlm30CitationSchemaCitationAdapter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaCitationAdapter
+ * @class Nlm30CitationSchemaCitationAdapter
  * @ingroup metadata_nlm
  * @see Citation
- * @see NlmCitationSchema
+ * @see Nlm30CitationSchema
  *
  * @brief Class that injects/extracts NLM citation schema compliant
  *  meta-data into/from a Citation object.
  */
 
 import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 
-class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
+class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
 	 */
-	function NlmCitationSchemaCitationAdapter() {
+	function Nlm30CitationSchemaCitationAdapter() {
 		// Configure the adapter
-		parent::MetadataDataObjectAdapter('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', 'lib.pkp.classes.citation.Citation', ASSOC_TYPE_CITATION);
+		parent::MetadataDataObjectAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', 'lib.pkp.classes.citation.Citation', ASSOC_TYPE_CITATION);
 	}
 
 	//
@@ -34,7 +34,7 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationAdapter';
+		return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter';
 	}
 
 
@@ -143,14 +143,14 @@ class NlmCitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 									$assocType = ASSOC_TYPE_EDITOR;
 									break;
 							}
-							$nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', $assocType);
+							$nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $assocType);
 							$nameDescription->setStatements($name);
 							$names[$key] =& $nameDescription;
 							unset($nameDescription);
 						} else {
 							// The only non-structured data allowed here
 							// is the et-al string.
-							import('lib.pkp.plugins.metadata.nlm30.filter.NlmPersonStringFilter');
+							import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 							assert($name == PERSON_STRING_FILTER_ETAL);
 						}
 					}

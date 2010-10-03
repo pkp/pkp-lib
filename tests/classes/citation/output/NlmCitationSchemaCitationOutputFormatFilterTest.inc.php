@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/classes/citation/output/NlmCitationSchemaCitationOutputFormatFilterTest.inc.php
+ * @file tests/classes/citation/output/Nlm30CitationSchemaCitationOutputFormatFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaCitationOutputFormatFilterTest
+ * @class Nlm30CitationSchemaCitationOutputFormatFilterTest
  * @ingroup tests_classes_citation_output
  *
  * @brief Base tests class for citation output format filters.
@@ -17,11 +17,11 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRouter');
 import('lib.pkp.classes.core.PKPRequest');
 
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
+abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 	protected function setUp() {
 		$application =& PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
@@ -33,8 +33,8 @@ abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCa
 	}
 
 	public function testExecuteWithUnsupportedPublicationType() {
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 		// Create a description with an unsupported publication type
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_THESIS);
@@ -46,8 +46,8 @@ abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCa
 	}
 
 	public function testExecuteWithBook() {
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 
 		// Two representative authors
 		$person1Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
@@ -113,8 +113,8 @@ abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCa
 	}
 
 	public function testExecuteWithJournal() {
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 
 		// Two representative authors
 		$person1Description = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
@@ -169,8 +169,8 @@ abstract class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCa
 	}
 
 	public function testExecuteWithConferenceProceeding() {
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 
 		// An author
 		$personDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);

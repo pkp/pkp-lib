@@ -5,12 +5,12 @@
  */
 
 /**
- * @file citation/output/vancouver/NlmCitationSchemaVancouverFilter.inc.php
+ * @file citation/output/vancouver/Nlm30CitationSchemaVancouverFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaVancouverFilter
+ * @class Nlm30CitationSchemaVancouverFilter
  * @ingroup citation_output_vancouver
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
@@ -18,17 +18,17 @@
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
-class NlmCitationSchemaVancouverFilter extends NlmCitationSchemaCitationOutputFormatFilter {
+class Nlm30CitationSchemaVancouverFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaVancouverFilter() {
+	function Nlm30CitationSchemaVancouverFilter() {
 		$this->setDisplayName('Vancouver Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
 	}
 
 
@@ -39,7 +39,7 @@ class NlmCitationSchemaVancouverFilter extends NlmCitationSchemaCitationOutputFo
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.vancouver.NlmCitationSchemaVancouverFilter';
+		return 'lib.pkp.classes.citation.output.vancouver.Nlm30CitationSchemaVancouverFilter';
 	}
 
 

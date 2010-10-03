@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/classes/importexport/nlm30/NlmXmlFilterTest.inc.php
+ * @file tests/classes/importexport/nlm30/Nlm30XmlFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmXmlFilterTest
+ * @class Nlm30XmlFilterTest
  * @ingroup tests_classes_importexport_nlm
  *
  * @brief Basic test class for filters that handle NLM XML.
@@ -17,7 +17,7 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRouter');
 import('lib.pkp.classes.core.PKPRequest');
 
-class NlmXmlFilterTest extends PKPTestCase {
+class Nlm30XmlFilterTest extends PKPTestCase {
 	protected
 		// Define a fake assoc object for testing.
 		$assocId = 999999,

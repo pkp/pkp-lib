@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/PersonStringNlmNameSchemaFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/PersonStringNlm30NameSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PersonStringNlmNameSchemaFilterTest
+ * @class PersonStringNlm30NameSchemaFilterTest
  * @ingroup tests_classes_metadata_nlm
- * @see PersonStringNlmNameSchemaFilter
+ * @see PersonStringNlm30NameSchemaFilter
  *
- * @brief Tests for the PersonStringNlmNameSchemaFilter class.
+ * @brief Tests for the PersonStringNlm30NameSchemaFilter class.
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlmNameSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
 
-class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
+class PersonStringNlm30NameSchemaFilterTest extends PKPTestCase {
 	/**
-	 * @covers PersonStringNlmNameSchemaFilter
-	 * @covers NlmPersonStringFilter
+	 * @covers PersonStringNlm30NameSchemaFilter
+	 * @covers Nlm30PersonStringFilter
 	 */
 	public function testExecuteWithSinglePersonString() {
 		$personArgumentArray = array(
@@ -71,18 +71,18 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, null, null, '# # # Greenberg # # #'),
 		);
 
-		$personStringNlmNameSchemaFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR);
+		$personStringNlm30NameSchemaFilter = new PersonStringNlm30NameSchemaFilter(ASSOC_TYPE_AUTHOR);
 		foreach($personArgumentArray as $testNumber => $personArguments) {
-			$personStringNlmNameSchemaFilter->setFilterTitle($personArguments[1]);
-			$personStringNlmNameSchemaFilter->setFilterDegrees($personArguments[2]);
-			$personDescription =& $personStringNlmNameSchemaFilter->execute($personArguments[0]);
+			$personStringNlm30NameSchemaFilter->setFilterTitle($personArguments[1]);
+			$personStringNlm30NameSchemaFilter->setFilterDegrees($personArguments[2]);
+			$personDescription =& $personStringNlm30NameSchemaFilter->execute($personArguments[0]);
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}
 	}
 
 	/**
-	 * @covers PersonStringNlmNameSchemaFilter
-	 * @covers NlmPersonStringFilter
+	 * @covers PersonStringNlm30NameSchemaFilter
+	 * @covers Nlm30PersonStringFilter
 	 * @depends testExecuteWithSinglePersonString
 	 */
 	public function testExecuteWithMultiplePersonsStrings() {
@@ -95,8 +95,8 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, array('Hans', 'Peter', 'B'), null, 'Sperling'),
 		);
 
-		$personStringNlmNameSchemaFilter = new PersonStringNlmNameSchemaFilter(ASSOC_TYPE_AUTHOR, PERSON_STRING_FILTER_MULTIPLE);
-		$personDescriptions =& $personStringNlmNameSchemaFilter->execute($personsString);
+		$personStringNlm30NameSchemaFilter = new PersonStringNlm30NameSchemaFilter(ASSOC_TYPE_AUTHOR, PERSON_STRING_FILTER_MULTIPLE);
+		$personDescriptions =& $personStringNlm30NameSchemaFilter->execute($personsString);
 		// The last description should be an 'et-al' string
 		self::assertEquals(PERSON_STRING_FILTER_ETAL, array_pop($personDescriptions));
 		foreach($personDescriptions as $testNumber => $personDescription) {
@@ -113,9 +113,9 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, array('Hans', 'Peter', 'B'), null, 'Sperling'),
 		);
 
-		$personStringNlmNameSchemaFilter->setFilterTitle(true);
-		$personStringNlmNameSchemaFilter->setFilterDegrees(true);
-		$personDescriptions =& $personStringNlmNameSchemaFilter->execute($personsString);
+		$personStringNlm30NameSchemaFilter->setFilterTitle(true);
+		$personStringNlm30NameSchemaFilter->setFilterDegrees(true);
+		$personDescriptions =& $personStringNlm30NameSchemaFilter->execute($personsString);
 		// The last description should be an 'et-al' string
 		self::assertEquals(PERSON_STRING_FILTER_ETAL, array_pop($personDescriptions));
 		foreach($personDescriptions as $testNumber => $personDescription) {
@@ -129,9 +129,9 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 			array(null, array('H', 'C'), null, 'Peters'),
 			array(null, array('H', 'P'), null, 'Sperling')
 		);
-		$personStringNlmNameSchemaFilter->setFilterTitle(false);
-		$personStringNlmNameSchemaFilter->setFilterDegrees(false);
-		$personDescriptions =& $personStringNlmNameSchemaFilter->execute($personsString);
+		$personStringNlm30NameSchemaFilter->setFilterTitle(false);
+		$personStringNlm30NameSchemaFilter->setFilterDegrees(false);
+		$personDescriptions =& $personStringNlm30NameSchemaFilter->execute($personsString);
 		foreach($personDescriptions as $testNumber => $personDescription) {
 			$this->assertPerson($expectedResults[$testNumber], $personDescription, $testNumber);
 		}
@@ -139,7 +139,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 		// Single name strings should not be cut when separated by comma.
 		$personsString = 'Willinsky, John';
 		$expectedResult = array(null, array('John'), null, 'Willinsky');
-		$personDescriptions =& $personStringNlmNameSchemaFilter->execute($personsString);
+		$personDescriptions =& $personStringNlm30NameSchemaFilter->execute($personsString);
 		$this->assertEquals(1, count($personDescriptions));
 		$this->assertPerson($expectedResult, $personDescriptions[0], $testNumber);
 
@@ -156,7 +156,7 @@ class PersonStringNlmNameSchemaFilterTest extends PKPTestCase {
 				$singleEditor, $twoEditors, $threeToSevenEditors, $moreThanSevenEditors) as $test) {
 			$expectedNumber = key($test);
 			$testString = current($test);
-			$personDescriptions =& $personStringNlmNameSchemaFilter->execute($testString);
+			$personDescriptions =& $personStringNlm30NameSchemaFilter->execute($testString);
 			$this->assertEquals($expectedNumber, count($personDescriptions), 'Offending string: '.$testString);
 		}
 	}

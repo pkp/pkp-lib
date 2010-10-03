@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file tests/classes/citation/parser/regex/RegexRawCitationNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/parser/regex/RegexRawCitationNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class RegexRawCitationNlmCitationSchemaFilterTest
+ * @class RegexRawCitationNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_parser_regex
- * @see RegexRawCitationNlmCitationSchemaFilter
+ * @see RegexRawCitationNlm30CitationSchemaFilter
  *
- * @brief Tests for the RegexRawCitationNlmCitationSchemaFilter class.
+ * @brief Tests for the RegexRawCitationNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
-import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.parser.Nlm30CitationSchemaParserFilterTestCase');
+import('lib.pkp.classes.citation.parser.regex.RegexRawCitationNlm30CitationSchemaFilter');
 
-class RegexRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParserFilterTestCase {
+class RegexRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaParserFilterTestCase {
 	/**
-	 * @covers RegexRawCitationNlmCitationSchemaFilter
+	 * @covers RegexRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
 		$testCitations = array(
@@ -127,15 +127,15 @@ class RegexRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParse
 			)
 		);
 
-		$filter = new RegexRawCitationNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($testCitations, $filter);
+		$filter = new RegexRawCitationNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
 	/**
-	 * @see NlmCitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
+	 * @see Nlm30CitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new RegexRawCitationNlmCitationSchemaFilter();
+		$filter = new RegexRawCitationNlm30CitationSchemaFilter();
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 }

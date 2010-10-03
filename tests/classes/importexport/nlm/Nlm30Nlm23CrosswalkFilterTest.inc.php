@@ -13,9 +13,9 @@
  * @brief Tests for the Nlm30Nlm23CrosswalkFilterTest class.
  */
 
-import('lib.pkp.tests.classes.importexport.nlm.NlmXmlFilterTest');
+import('lib.pkp.tests.classes.importexport.nlm.Nlm30XmlFilterTest');
 
-class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
+class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 	/**
 	 * @covers Nlm30Nlm23CrosswalkFilter
 	 */
@@ -24,7 +24,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		// available schema (although in practice this doesn't make sense) so that
 		// we can make sure all tags are correctly converted.
 		import('lib.pkp.classes.metadata.MetadataDescription');
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
 		$nameDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
@@ -32,7 +32,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 		$nameDescription->addStatement('suffix', $value = 'Jr');
 
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
@@ -85,8 +85,8 @@ class Nlm30Nlm23CrosswalkFilterTest extends NlmXmlFilterTest {
 
 		// Prepare NLM 3.0 input.
 		$mockSubmission =& $this->getTestSubmission();
-		import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter');
-		$nlmFilter = new PKPSubmissionNlmXmlFilter();
+		import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter');
+		$nlmFilter = new PKPSubmissionNlm30XmlFilter();
 		$nlmXml = $nlmFilter->execute($mockSubmission);
 
 		// Test the downgrade filter.

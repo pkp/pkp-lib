@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/lookup/pubmed/PubmedNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/lookup/pubmed/PubmedNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PubmedNlmCitationSchemaFilter
+ * @class PubmedNlm30CitationSchemaFilter
  * @ingroup citation_lookup_pubmed
  *
  * @brief Filter that uses the Pubmed web
@@ -18,19 +18,19 @@
  *  meta-data for a given NLM citation.
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.EmailFilterSetting');
 
 define('PUBMED_WEBSERVICE_ESEARCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
 define('PUBMED_WEBSERVICE_EFETCH', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
 define('PUBMED_WEBSERVICE_ELINK', 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi');
 
-class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/**
 	 * Constructor
 	 * @param $email string the pubmed registration email
 	 */
-	function PubmedNlmCitationSchemaFilter($email = null) {
+	function PubmedNlm30CitationSchemaFilter($email = null) {
 		$this->setDisplayName('PubMed');
 		if (!is_null($email)) $this->setData('email', $email);
 
@@ -41,7 +41,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($emailSetting);
 
-		parent::NlmCitationSchemaFilter(
+		parent::Nlm30CitationSchemaFilter(
 			NLM_CITATION_FILTER_LOOKUP,
 			array(
 				NLM_PUBLICATION_TYPE_JOURNAL,
@@ -68,7 +68,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.lookup.pubmed.PubmedNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -89,8 +89,8 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			//    (This works surprisingly well for pubmed.)
 			$authors =& $citationDescription->getStatement('person-group[@person-group-type="author"]');
 			if (is_array($authors)) {
-				import('lib.pkp.plugins.metadata.nlm30.filter.NlmNameSchemaPersonStringFilter');
-				$personNameFilter = new NlmNameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
+				import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+				$personNameFilter = new Nlm30NameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE, '%firstname%%initials%%prefix% %surname%%suffix%', ', ');
 				$authorsString = (string)$personNameFilter->execute($authors);
 				if (!empty($authorsString)) {
 					$pmidArrayFromAuthorsSearch =& $this->_search($authorsString);
@@ -268,7 +268,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 				$metadata['person-group[@person-group-type="author"]'] = array();
 
 			// Instantiate an NLM name description
-			$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+			$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 
 			// Surname
 			$authorDescription->addStatement('surname', $authorNode->getElementsByTagName("LastName")->item(0)->textContent);
@@ -386,7 +386,7 @@ class PubmedNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			if (isset($links[0])) $metadata['uri'] = $links[0];
 		}
 
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

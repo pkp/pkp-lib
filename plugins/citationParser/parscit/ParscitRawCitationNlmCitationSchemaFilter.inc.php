@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/parser/parscit/ParscitRawCitationNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/parser/parscit/ParscitRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ParscitRawCitationNlmCitationSchemaFilter
+ * @class ParscitRawCitationNlm30CitationSchemaFilter
  * @ingroup citation_parser_parscit
  *
  * @brief Parsing filter implementation that uses the Parscit web service.
@@ -18,18 +18,18 @@
  */
 
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 
 define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
 
-class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 */
-	function ParscitRawCitationNlmCitationSchemaFilter() {
+	function ParscitRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('ParsCit');
 
-		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -39,7 +39,7 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -74,7 +74,7 @@ class ParscitRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter 
 		// Extract a publisher from the place string if possible.
 		$metadata =& $this->fixPublisherNameAndLocation($metadata);
 
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

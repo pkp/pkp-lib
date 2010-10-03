@@ -5,12 +5,12 @@
  */
 
 /**
- * @file citation/output/nlm30/NlmCitationSchemaNlmFilter.inc.php
+ * @file citation/output/nlm30/Nlm30CitationSchemaNlm30Filter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaNlmFilter
+ * @class Nlm30CitationSchemaNlm30Filter
  * @ingroup citation_output_nlm
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
@@ -18,17 +18,17 @@
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
-class NlmCitationSchemaNlmFilter extends NlmCitationSchemaCitationOutputFormatFilter {
+class Nlm30CitationSchemaNlm30Filter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaNlmFilter() {
+	function Nlm30CitationSchemaNlm30Filter() {
 		$this->setDisplayName('NLM XML Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
 	}
 
 
@@ -39,7 +39,7 @@ class NlmCitationSchemaNlmFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.nlm.NlmCitationSchemaNlmFilter';
+		return 'lib.pkp.classes.citation.output.nlm.Nlm30CitationSchemaNlm30Filter';
 	}
 
 	/**
@@ -47,7 +47,7 @@ class NlmCitationSchemaNlmFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 */
 	function getSupportedTransformation() {
 		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 			'xml::*' // FIXME: Add NLM citation + name validation (requires partial NLM DTD, XSD or RelaxNG).
 		);
 	}

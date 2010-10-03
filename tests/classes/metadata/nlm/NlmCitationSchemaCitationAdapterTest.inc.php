@@ -1,48 +1,48 @@
 <?php
 
 /**
- * @file tests/classes/metadata/NlmCitationSchemaCitationAdapterTest.inc.php
+ * @file tests/classes/metadata/Nlm30CitationSchemaCitationAdapterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaCitationAdapterTest
+ * @class Nlm30CitationSchemaCitationAdapterTest
  * @ingroup tests_classes_metadata
- * @see NlmCitationSchemaCitationAdapter
+ * @see Nlm30CitationSchemaCitationAdapter
  *
- * @brief Test class for NlmCitationSchemaCitationAdapter.
+ * @brief Test class for Nlm30CitationSchemaCitationAdapter.
  */
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.citation.Citation');
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationAdapter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
 import('lib.pkp.tests.classes.metadata.TestSchema');
 
-class NlmCitationSchemaCitationAdapterTest extends PKPTestCase {
+class Nlm30CitationSchemaCitationAdapterTest extends PKPTestCase {
 	/**
-	 * @covers NlmCitationSchemaCitationAdapter
+	 * @covers Nlm30CitationSchemaCitationAdapter
 	 */
-	public function testNlmCitationSchemaCitationAdapter() {
+	public function testNlm30CitationSchemaCitationAdapter() {
 		// Test constructor
-		$adapter = new NlmCitationSchemaCitationAdapter();
+		$adapter = new Nlm30CitationSchemaCitationAdapter();
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
-		self::assertType('NlmCitationSchema', $adapter->getMetadataSchema());
+		self::assertType('Nlm30CitationSchema', $adapter->getMetadataSchema());
 		$expectedTransformations = array(
 			array(
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'class::lib.pkp.classes.citation.Citation'
 			),
 			array(
 				'class::lib.pkp.classes.citation.Citation',
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 			)
 		);
 		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
 		// Instantiate a test description
-		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 		$authorDescription->addStatement('surname', $surname = 'some surname');
-		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('article-title', $articleTitle = 'article title');
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $authorDescription);
 
@@ -63,9 +63,9 @@ class NlmCitationSchemaCitationAdapterTest extends PKPTestCase {
 		self::assertEquals($expectedResult, $resultCitation->getAllData());
 
 		// Instantiate and inject a second test description
-		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 		$authorDescription->addStatement('surname', $anotherSurname = 'another surname');
-		$secondDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$secondDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 		$secondDescription->addStatement('person-group[@person-group-type="author"]', $authorDescription);
 		$secondDescription->addStatement('source', $source = 'some source');
 		$resultCitation =& $adapter->injectMetadataIntoDataObject($secondDescription, $citation, false);

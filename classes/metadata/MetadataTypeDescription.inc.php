@@ -14,7 +14,7 @@
  *   metadata::fully.qualified.MetadataSchema(ASSOC)
  *
  * e.g.:
- *   metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(ARTICLE)
+ *   metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(ARTICLE)
  *
  * The assoc form must be the final part of a ASSOC_TYPE_* definition.
  * It can be '*' to designate any assoc type.

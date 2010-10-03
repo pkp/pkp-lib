@@ -5,12 +5,12 @@
  */
 
 /**
- * @file citation/output/abnt/NlmCitationSchemaAbntFilter.inc.php
+ * @file citation/output/abnt/Nlm30CitationSchemaAbntFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaAbntFilter
+ * @class Nlm30CitationSchemaAbntFilter
  * @ingroup citation_output_abnt
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
@@ -18,21 +18,21 @@
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
-class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatFilter {
+class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaAbntFilter() {
+	function Nlm30CitationSchemaAbntFilter() {
 		$this->setDisplayName('ABNT Citation Output');
 		// FIXME: Implement conference proceedings support for ABNT.
 		$this->setSupportedPublicationTypes(array(
 			NLM_PUBLICATION_TYPE_BOOK, NLM_PUBLICATION_TYPE_JOURNAL
 		));
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
 	}
 
 
@@ -43,7 +43,7 @@ class NlmCitationSchemaAbntFilter extends NlmCitationSchemaCitationOutputFormatF
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter';
+		return 'lib.pkp.classes.citation.output.abnt.Nlm30CitationSchemaAbntFilter';
 	}
 
 

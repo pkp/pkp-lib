@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmNameSchema.inc.php
+ * @file plugins/metadata/nlm30/Nlm30NameSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmNameSchema
+ * @class Nlm30NameSchema
  * @ingroup metadata_nlm
  * @see MetadataSchema
  *
@@ -25,11 +25,11 @@
 
 import('lib.pkp.classes.metadata.MetadataSchema');
 
-class NlmNameSchema extends MetadataSchema {
+class Nlm30NameSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function NlmNameSchema() {
+	function Nlm30NameSchema() {
 		// Configure the meta-data schema.
 		parent::MetadataSchema(
 			'nlm-3.0-name',

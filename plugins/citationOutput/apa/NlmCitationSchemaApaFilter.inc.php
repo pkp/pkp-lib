@@ -5,29 +5,29 @@
  */
 
 /**
- * @file citation/output/apa/NlmCitationSchemaApaFilter.inc.php
+ * @file citation/output/apa/Nlm30CitationSchemaApaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaApaFilter
+ * @class Nlm30CitationSchemaApaFilter
  * @ingroup citation_output_apa
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
  *  APA citation output.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
-class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFilter {
+class Nlm30CitationSchemaApaFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaApaFilter() {
+	function Nlm30CitationSchemaApaFilter() {
 		$this->setDisplayName('APA Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
 	}
 
 	//
@@ -37,7 +37,7 @@ class NlmCitationSchemaApaFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.apa.NlmCitationSchemaApaFilter';
+		return 'lib.pkp.classes.citation.output.apa.Nlm30CitationSchemaApaFilter';
 	}
 
 

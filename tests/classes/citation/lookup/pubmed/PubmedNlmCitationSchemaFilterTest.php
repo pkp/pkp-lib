@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/pubmed/PubmedNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/lookup/pubmed/PubmedNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PubmedNlmCitationSchemaFilterTest
+ * @class PubmedNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_lookup_pubmed
- * @see PubmedNlmCitationSchemaFilter
+ * @see PubmedNlm30CitationSchemaFilter
  *
- * @brief Tests for the PubmedNlmCitationSchemaFilter class.
+ * @brief Tests for the PubmedNlm30CitationSchemaFilter class.
  */
 
 // $Id$
 
-import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlmCitationSchemaFilter');
-import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.classes.citation.lookup.pubmed.PubmedNlm30CitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
 
-class PubmedNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
+class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
 	/**
 	 * Test Pubmed lookup with PmID
-	 * @covers PubmedNlmCitationSchemaFilter
+	 * @covers PubmedNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithPmid() {
 		// Test article Pubmed lookup
@@ -35,13 +35,13 @@ class PubmedNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase 
 		);
 
 		// Execute the tests
-		$filter = new PubmedNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
+		$filter = new PubmedNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 
 	/**
 	 * Test Pubmed lookup without PmID
-	 * @covers PubmedNlmCitationSchemaFilter
+	 * @covers PubmedNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithSearch() {
 		// Build the test citations array
@@ -75,8 +75,8 @@ class PubmedNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase 
 		);
 
 		// Execute the test
-		$filter = new PubmedNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
+		$filter = new PubmedNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 
 	private function &getTestOutput() {

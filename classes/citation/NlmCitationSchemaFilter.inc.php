@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/citation/NlmCitationSchemaFilter.inc.php
+ * @file classes/citation/Nlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaFilter
+ * @class Nlm30CitationSchemaFilter
  * @ingroup classes_citation
  *
  * @brief Abstract base class for all filters that transform
@@ -20,9 +20,9 @@ import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.filter.BooleanFilterSetting');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
-import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlmNameSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
 import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
 
 import('lib.pkp.classes.webservice.XmlWebService');
@@ -30,7 +30,7 @@ import('lib.pkp.classes.webservice.XmlWebService');
 import('lib.pkp.classes.xml.XMLHelper');
 import('lib.pkp.classes.xslt.XSLTransformationFilter');
 
-class NlmCitationSchemaFilter extends Filter {
+class Nlm30CitationSchemaFilter extends Filter {
 	/** @var array */
 	var $_supportedPublicationTypes;
 
@@ -44,7 +44,7 @@ class NlmCitationSchemaFilter extends Filter {
 	 *  or a lookup filter
 	 * @param $supportedPublicationTypes array
 	 */
-	function NlmCitationSchemaFilter($filterType = null, $supportedPublicationTypes = array()) {
+	function Nlm30CitationSchemaFilter($filterType = null, $supportedPublicationTypes = array()) {
 		// All NLM citation filters require XSL functionality
 		// that is only present in PHP5.
 		$this->setData('phpVersionMin', '5.0.0');
@@ -54,14 +54,14 @@ class NlmCitationSchemaFilter extends Filter {
 			case NLM_CITATION_FILTER_PARSE:
 				$this->_supportedTransformation = array(
 					'primitive::string',
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 				);
 				break;
 
 			case NLM_CITATION_FILTER_LOOKUP:
 				$this->_supportedTransformation = array(
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 				);
 				break;
 		}
@@ -163,8 +163,8 @@ class NlmCitationSchemaFilter extends Filter {
 	 */
 	function constructSearchStrings(&$searchTemplates, &$citationDescription) {
 		// Convert first authors' name description to a string
-		import('lib.pkp.plugins.metadata.nlm30.filter.NlmNameSchemaPersonStringFilter');
-		$personStringFilter = new NlmNameSchemaPersonStringFilter();
+		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+		$personStringFilter = new Nlm30NameSchemaPersonStringFilter();
 
 		// Retrieve the authors
 		$firstAuthorSurname = $firstAuthor = '';
@@ -272,8 +272,8 @@ class NlmCitationSchemaFilter extends Filter {
 		$xslFilter = new XSLTransformationFilter('xml::*', 'xml::*', 'Web Service Transformation');
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
-		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
-		if (is_null($preliminaryNlmDOM) || is_null($preliminaryNlmDOM->documentElement)) {
+		$preliminaryNlm30DOM =& $xslFilter->execute($xmlResult);
+		if (is_null($preliminaryNlm30DOM) || is_null($preliminaryNlm30DOM->documentElement)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
 			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
 			$nullVar = null;
@@ -282,66 +282,66 @@ class NlmCitationSchemaFilter extends Filter {
 
 		// Transform the result to an array.
 		$xmlHelper = new XMLHelper();
-		$preliminaryNlmArray = $xmlHelper->xmlToArray($preliminaryNlmDOM->documentElement);
+		$preliminaryNlm30Array = $xmlHelper->xmlToArray($preliminaryNlm30DOM->documentElement);
 
-		$preliminaryNlmArray =& $this->postProcessMetadataArray($preliminaryNlmArray);
+		$preliminaryNlm30Array =& $this->postProcessMetadataArray($preliminaryNlm30Array);
 
-		return $preliminaryNlmArray;
+		return $preliminaryNlm30Array;
 	}
 
 	/**
 	 * Post processes an NLM meta-data array
-	 * @param $preliminaryNlmArray array
+	 * @param $preliminaryNlm30Array array
 	 * @return array
 	 */
-	function &postProcessMetadataArray(&$preliminaryNlmArray) {
+	function &postProcessMetadataArray(&$preliminaryNlm30Array) {
 		// Clean array
-		$preliminaryNlmArray =& arrayClean($preliminaryNlmArray);
+		$preliminaryNlm30Array =& arrayClean($preliminaryNlm30Array);
 
 		// Trim punctuation
-		$preliminaryNlmArray =& $this->_recursivelyTrimPunctuation($preliminaryNlmArray);
+		$preliminaryNlm30Array =& $this->_recursivelyTrimPunctuation($preliminaryNlm30Array);
 
 		// Parse (=filter) author/editor strings into NLM name descriptions
 		foreach(array('author' => ASSOC_TYPE_AUTHOR, 'editor' => ASSOC_TYPE_EDITOR) as $personType => $personAssocType) {
-			if (isset($preliminaryNlmArray[$personType])) {
+			if (isset($preliminaryNlm30Array[$personType])) {
 				// Get the author/editor strings from the result
-				$personStrings = $preliminaryNlmArray[$personType];
-				unset($preliminaryNlmArray[$personType]);
+				$personStrings = $preliminaryNlm30Array[$personType];
+				unset($preliminaryNlm30Array[$personType]);
 
 				// Parse the author/editor strings into NLM name descriptions
 				// Interpret a scalar as a textual authors list
 				if (is_scalar($personStrings)) {
-					$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType, PERSON_STRING_FILTER_MULTIPLE);
+					$personStringFilter = new PersonStringNlm30NameSchemaFilter($personAssocType, PERSON_STRING_FILTER_MULTIPLE);
 					$persons =& $personStringFilter->execute($personStrings);
 				} else {
-					$personStringFilter = new PersonStringNlmNameSchemaFilter($personAssocType, PERSON_STRING_FILTER_SINGLE);
+					$personStringFilter = new PersonStringNlm30NameSchemaFilter($personAssocType, PERSON_STRING_FILTER_SINGLE);
 					$persons =& array_map(array($personStringFilter, 'execute'), $personStrings);
 				}
 
-				$preliminaryNlmArray['person-group[@person-group-type="'.$personType.'"]'] = $persons;
+				$preliminaryNlm30Array['person-group[@person-group-type="'.$personType.'"]'] = $persons;
 				unset($persons);
 			}
 		}
 
 		// Join comments
-		if (isset($preliminaryNlmArray['comment']) && is_array($preliminaryNlmArray['comment'])) {
+		if (isset($preliminaryNlm30Array['comment']) && is_array($preliminaryNlm30Array['comment'])) {
 			// Implode comments from the result into a single string
 			// as required by the NLM citation schema.
-			$preliminaryNlmArray['comment'] = implode("\n", $preliminaryNlmArray['comment']);
+			$preliminaryNlm30Array['comment'] = implode("\n", $preliminaryNlm30Array['comment']);
 		}
 
 		// Normalize date strings
 		foreach(array('date', 'conf-date', 'access-date') as $dateProperty) {
-			if (isset($preliminaryNlmArray[$dateProperty])) {
+			if (isset($preliminaryNlm30Array[$dateProperty])) {
 				$dateFilter = new DateStringNormalizerFilter();
-				$preliminaryNlmArray[$dateProperty] = $dateFilter->execute($preliminaryNlmArray[$dateProperty]);
+				$preliminaryNlm30Array[$dateProperty] = $dateFilter->execute($preliminaryNlm30Array[$dateProperty]);
 			}
 		}
 
 		// Cast strings to integers where necessary
 		foreach(array('fpage', 'lpage', 'size') as $integerProperty) {
-			if (isset($preliminaryNlmArray[$integerProperty]) && is_numeric($preliminaryNlmArray[$integerProperty])) {
-				$preliminaryNlmArray[$integerProperty] = (integer)$preliminaryNlmArray[$integerProperty];
+			if (isset($preliminaryNlm30Array[$integerProperty]) && is_numeric($preliminaryNlm30Array[$integerProperty])) {
+				$preliminaryNlm30Array[$integerProperty] = (integer)$preliminaryNlm30Array[$integerProperty];
 			}
 		}
 
@@ -358,13 +358,13 @@ class NlmCitationSchemaFilter extends Filter {
 			'publication-type' => '[@publication-type]'
 		);
 		foreach($elementToAttributeMap as $elementName => $nlmPropertyName) {
-			if (isset($preliminaryNlmArray[$elementName])) {
-				$preliminaryNlmArray[$nlmPropertyName] = $preliminaryNlmArray[$elementName];
-				unset($preliminaryNlmArray[$elementName]);
+			if (isset($preliminaryNlm30Array[$elementName])) {
+				$preliminaryNlm30Array[$nlmPropertyName] = $preliminaryNlm30Array[$elementName];
+				unset($preliminaryNlm30Array[$elementName]);
 			}
 		}
 
-		return $preliminaryNlmArray;
+		return $preliminaryNlm30Array;
 	}
 
 	/**
@@ -373,9 +373,9 @@ class NlmCitationSchemaFilter extends Filter {
 	 * @param $metadataArray array
 	 * @return MetadataDescription
 	 */
-	function &getNlmCitationDescriptionFromMetadataArray(&$metadataArray) {
+	function &getNlm30CitationDescriptionFromMetadataArray(&$metadataArray) {
 		// Create a new citation description
-		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
 		// Add the meta-data to the description
 		$metadataArray = arrayClean($metadataArray);

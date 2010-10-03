@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/parser/regex/RegexRawCitationNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/parser/regex/RegexRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class RegexRawCitationNlmCitationSchemaFilter
+ * @class RegexRawCitationNlm30CitationSchemaFilter
  * @ingroup citation_parser_regex
  *
  * @brief A simple regex based citation parsing filter. Uses regexes to break a
@@ -21,16 +21,16 @@
  *  expressions.
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 
-class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 */
-	function RegexRawCitationNlmCitationSchemaFilter() {
+	function RegexRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('RegEx');
 
-		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -40,7 +40,7 @@ class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.parser.regex.RegexRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -180,7 +180,7 @@ class RegexRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$metadata =& $this->postProcessMetadataArray($metadata);
 
 		// Create the NLM citation description
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

@@ -1,11 +1,11 @@
 <?php
 /**
- * @file classes/citation/NlmCitationDemultiplexerFilter.inc.php
+ * @file classes/citation/Nlm30CitationDemultiplexerFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationDemultiplexerFilter
+ * @class Nlm30CitationDemultiplexerFilter
  * @ingroup citation
  *
  * @brief Filter that takes a list of NLM citation descriptions and joins
@@ -14,7 +14,7 @@
 
 import('lib.pkp.classes.filter.Filter');
 
-class NlmCitationDemultiplexerFilter extends Filter {
+class Nlm30CitationDemultiplexerFilter extends Filter {
 	/**
 	 * @var MetadataDescription the original unfiltered description required
 	 *  for scoring
@@ -24,13 +24,13 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	/** @var string the original plain text citation required for scoring */
 	var $_originalRawCitation;
 
-	/** @var NlmCitationSchemaCitationOutputFormatFilter */
+	/** @var Nlm30CitationSchemaCitationOutputFormatFilter */
 	var $_citationOutputFilter;
 
 	/**
 	 * Constructor
 	 */
-	function NlmCitationDemultiplexerFilter() {
+	function Nlm30CitationDemultiplexerFilter() {
 		$this->setDisplayName('Join several NLM Citation descriptions into a single citation');
 
 		parent::Filter();
@@ -73,7 +73,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 
 	/**
 	 * Set the citation output filter
-	 * @param $citationOutputFilter NlmCitationSchemaCitationOutputFormatFilter
+	 * @param $citationOutputFilter Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	function setCitationOutputFilter(&$citationOutputFilter) {
 		$this->_citationOutputFilter =& $citationOutputFilter;
@@ -81,7 +81,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 
 	/**
 	 * Get the citation output filter
-	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 * @return Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	function &getCitationOutputFilter() {
 		return $this->_citationOutputFilter;
@@ -96,7 +96,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	 */
 	function getSupportedTransformation() {
 		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)[]',
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
 			'class::lib.pkp.classes.citation.Citation'
 		);
 	}
@@ -105,7 +105,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.NlmCitationDemultiplexerFilter';
+		return 'lib.pkp.classes.citation.Nlm30CitationDemultiplexerFilter';
 	}
 
 	/**
@@ -277,7 +277,7 @@ class NlmCitationDemultiplexerFilter extends Filter {
 		assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
 		// Create the target citation description.
-		$targetDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$targetDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
 		// Step 1: List all values and max scores that have been identified for a given element
 		//         but only include values from results above a given scoring threshold

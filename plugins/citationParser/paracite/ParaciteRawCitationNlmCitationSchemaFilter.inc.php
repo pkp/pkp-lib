@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/parser/paracite/ParaciteRawCitationNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/parser/paracite/ParaciteRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ParaciteRawCitationNlmCitationSchemaFilter
+ * @class ParaciteRawCitationNlm30CitationSchemaFilter
  * @ingroup citation_parser_paracite
  *
  * @brief Paracite parsing filter implementation.
@@ -28,32 +28,32 @@
  *  disabled in shared hosting environments.
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
-import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlmCitationSchemaCrosswalkFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
 import('lib.pkp.classes.filter.SetFilterSetting');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
 define('CITATION_PARSER_PARACITE_JIAO', 'Jiao');
 
-class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 */
-	function ParaciteRawCitationNlmCitationSchemaFilter($citationModule = CITATION_PARSER_PARACITE_STANDARD) {
+	function ParaciteRawCitationNlm30CitationSchemaFilter($citationModule = CITATION_PARSER_PARACITE_STANDARD) {
 		$this->setDisplayName('ParaCite');
 
-		assert(in_array($citationModule, ParaciteRawCitationNlmCitationSchemaFilter::getSupportedCitationModules()));
+		assert(in_array($citationModule, ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules()));
 		$this->setData('citationModule', $citationModule);
 
 		// Instantiate the settings of this filter
 		$citationModuleSetting = new SetFilterSetting('citationModule',
 				'metadata.filters.paracite.settings.citationModule.displayName',
 				'metadata.filters.paracite.settings.citationModule.validationMessage',
-				ParaciteRawCitationNlmCitationSchemaFilter::getSupportedCitationModules());
+				ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules());
 		$this->addSetting($citationModuleSetting);
 
-		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -74,7 +74,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -253,7 +253,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		}
 
 		// Crosswalk to NLM
-		$crosswalkFilter = new OpenUrlNlmCitationSchemaCrosswalkFilter();
+		$crosswalkFilter = new OpenUrlNlm30CitationSchemaCrosswalkFilter();
 		$nlmDescription =& $crosswalkFilter->execute($openUrlDescription);
 		assert(is_a($nlmDescription, 'MetadataDescription'));
 

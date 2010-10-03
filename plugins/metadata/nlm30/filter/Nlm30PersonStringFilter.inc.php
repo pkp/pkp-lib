@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmPersonStringFilter.inc.php
+ * @file plugins/metadata/nlm30/Nlm30PersonStringFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmPersonStringFilter
+ * @class Nlm30PersonStringFilter
  * @ingroup metadata_nlm
- * @see NlmNameSchema
+ * @see Nlm30NameSchema
  *
  * @brief Filter that converts from a string
  *  to an (array of) NLM name description(s).
@@ -17,14 +17,14 @@
 
 import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 
 define('PERSON_STRING_FILTER_MULTIPLE', 0x01);
 define('PERSON_STRING_FILTER_SINGLE', 0x02);
 
 define('PERSON_STRING_FILTER_ETAL', 'et-al');
 
-class NlmPersonStringFilter extends Filter {
+class Nlm30PersonStringFilter extends Filter {
 	/** @var integer */
 	var $_filterMode;
 
@@ -34,7 +34,7 @@ class NlmPersonStringFilter extends Filter {
 	 * @param $outputType string
 	 * @param $filterMode integer one of the PERSON_STRING_FILTER_* constants
 	 */
-	function NlmPersonStringFilter($inputType, $outputType, $filterMode = PERSON_STRING_FILTER_SINGLE) {
+	function Nlm30PersonStringFilter($inputType, $outputType, $filterMode = PERSON_STRING_FILTER_SINGLE) {
 		$this->_filterMode = $filterMode;
 		parent::Filter($inputType, $outputType);
 	}

@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/lookup/crossref/CrossrefNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/lookup/crossref/CrossrefNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class CrossrefNlmCitationSchemaFilter
+ * @class CrossrefNlm30CitationSchemaFilter
  * @ingroup citation_lookup_crossref
  *
  * @brief Filter that uses the Crossref web
@@ -18,17 +18,17 @@
  *  meta-data for a given NLM citation.
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.EmailFilterSetting');
 
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');
 
-class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/**
 	 * Constructor
 	 * @param $email string
 	 */
-	function CrossrefNlmCitationSchemaFilter($email = null) {
+	function CrossrefNlm30CitationSchemaFilter($email = null) {
 		$this->setDisplayName('CrossRef');
 		if (!is_null($email)) $this->setEmail($email);
 
@@ -38,7 +38,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 				'metadata.filters.crossref.settings.email.validationMessage');
 		$this->addSetting($emailSetting);
 
-		parent::NlmCitationSchemaFilter(
+		parent::Nlm30CitationSchemaFilter(
 			NLM_CITATION_FILTER_LOOKUP,
 			array(
 				NLM_PUBLICATION_TYPE_JOURNAL,
@@ -77,7 +77,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.lookup.crossref.CrossrefNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -116,7 +116,7 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		// Transform and process the web service result
 		if (is_null($metadata =& $this->transformWebServiceResults($resultXml, dirname(__FILE__).DIRECTORY_SEPARATOR.'crossref.xsl'))) return $nullVar;
 
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 
 
@@ -132,8 +132,8 @@ class CrossrefNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 		$nullVar = null;
 
 		// Crosswalk to OpenURL.
-		import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaOpenUrlCrosswalkFilter');
-		$nlmOpenUrlFilter = new NlmCitationSchemaOpenUrlCrosswalkFilter();
+		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenUrlCrosswalkFilter');
+		$nlmOpenUrlFilter = new Nlm30CitationSchemaOpenUrlCrosswalkFilter();
 		if (is_null($openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription))) return $nullVar;
 
 		// Prepare the search.

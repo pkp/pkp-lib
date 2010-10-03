@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/lookup/isbndb/IsbndbNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class IsbndbNlmCitationSchemaFilter
+ * @class IsbndbNlm30CitationSchemaFilter
  * @ingroup citation_lookup_isbndb
  *
  * @brief Abstract filter that wraps the ISBNdb web service.
@@ -18,15 +18,15 @@
 
 define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.FilterSetting');
 
-class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function IsbndbNlmCitationSchemaFilter($apiKey = null) {
+	function IsbndbNlm30CitationSchemaFilter($apiKey = null) {
 		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
 
 		// Instantiate the settings of this filter
@@ -35,7 +35,7 @@ class IsbndbNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 				'metadata.filters.isbndb.settings.apiKey.validationMessage');
 		$this->addSetting($apiKeySetting);
 
-		parent::NlmCitationSchemaFilter(null, array(NLM_PUBLICATION_TYPE_BOOK));
+		parent::Nlm30CitationSchemaFilter(null, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

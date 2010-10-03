@@ -24,7 +24,7 @@
 				{if $property->getCardinality() == $smarty.const.METADATA_PROPERTY_CARDINALITY_MANY}
 					{* Elements with cardinality 'many' require special treatment for two reasons:
 					   1) We need to implement a workaround for our deviation from
-					      NLM 3.0 in the name schema (see NlmNameSchema's classdoc for
+					      NLM 3.0 in the name schema (see Nlm30NameSchema's classdoc for
 					      further info).
 					   2) Composite descriptions provide their own root tag which means that
 					      we have to provide a single enclosing element tag only.
@@ -69,9 +69,9 @@
 	{/capture}
 
 	{* The main element depends on the meta-data schema we're currently transforming. *}
-	{if $metadataDescription->getMetadataSchema()|is_a:'NlmCitationSchema'}
+	{if $metadataDescription->getMetadataSchema()|is_a:'Nlm30CitationSchema'}
 		<element-citation{$mainElementAttribs}>{$xmlBody}</element-citation>
-	{elseif $metadataDescription->getMetadataSchema()|is_a:'NlmNameSchema'}
+	{elseif $metadataDescription->getMetadataSchema()|is_a:'Nlm30NameSchema'}
 		<name{$mainElementAttribs}>{$xmlBody}</name>
 	{/if}
 {/strip}

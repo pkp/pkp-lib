@@ -1,27 +1,27 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/isbndb/IsbndbNlmCitationSchemaIsbnFilterTest.inc.php
+ * @file tests/classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaIsbnFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class IsbndbNlmCitationSchemaIsbnFilterTest
+ * @class IsbndbNlm30CitationSchemaIsbnFilterTest
  * @ingroup tests_classes_citation_lookup_isbndb
  *
- * @brief Tests for IsbndbNlmCitationSchemaIsbnFilter
+ * @brief Tests for IsbndbNlm30CitationSchemaIsbnFilter
  */
 
 // $Id$
 
-import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter');
-import('lib.pkp.tests.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilterTest');
+import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaIsbnFilter');
+import('lib.pkp.tests.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaFilterTest');
 
-class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilterTest {
+class IsbndbNlm30CitationSchemaIsbnFilterTest extends IsbndbNlm30CitationSchemaFilterTest {
 
 	/**
-	 * @covers IsbndbNlmCitationSchemaIsbnFilter
-	 * @covers IsbndbNlmCitationSchemaFilter
+	 * @covers IsbndbNlm30CitationSchemaIsbnFilter
+	 * @covers IsbndbNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
 		// Test data
@@ -43,8 +43,8 @@ class IsbndbNlmCitationSchemaIsbnFilterTest extends IsbndbNlmCitationSchemaFilte
 		);
 
 		// Test the filter
-		$filter = new IsbndbNlmCitationSchemaIsbnFilter(self::ISBNDB_TEST_APIKEY);
-		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
+		$filter = new IsbndbNlm30CitationSchemaIsbnFilter(self::ISBNDB_TEST_APIKEY);
+		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 }
 ?>

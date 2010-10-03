@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/citation/lookup/worldcat/WorldcatNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/lookup/worldcat/WorldcatNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class WorldcatNlmCitationSchemaFilter
+ * @class WorldcatNlm30CitationSchemaFilter
  * @ingroup citation_lookup_worldcat
  * @see CitationMangager
  *
@@ -18,7 +18,7 @@
  *  and xISBN services to search for book citation metadata.
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.FilterSetting');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
@@ -29,12 +29,12 @@ define('WORLDCAT_WEBSERVICE_EXTRACT', 'http://www.worldcat.org/webservices/catal
 define('WORLDCAT_WEBSERVICE_XISBN', 'http://xisbn.worldcat.org/webservices/xid/isbn/');
 // TODO: Should we use OCLC basic API as fallback (see <http://www.worldcat.org/devnet/wiki/BasicAPIDetails>)?
 
-class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/**
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function WorldcatNlmCitationSchemaFilter($apiKey = null) {
+	function WorldcatNlm30CitationSchemaFilter($apiKey = null) {
 		$this->setDisplayName('WorldCat');
 		if (!is_null($apiKey)) $this->setData('apiKey', $apiKey);
 
@@ -45,7 +45,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($apiKeySetting);
 
-		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
+		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
 	}
 
 	//
@@ -66,7 +66,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.lookup.worldcat.WorldcatNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -171,7 +171,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 			$metadata['date'] = String::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
 		}
 
-		$citationDescription =& $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		$citationDescription =& $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 		return $citationDescription;
 	}
 
@@ -204,7 +204,7 @@ class WorldcatNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
 
 		// Clean and process the meta-data
 		$metadata =& $this->postProcessMetadataArray($metadata);
-		$citationDescription =& $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		$citationDescription =& $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 		return $citationDescription;
 	}
 

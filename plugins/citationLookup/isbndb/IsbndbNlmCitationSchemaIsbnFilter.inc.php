@@ -1,29 +1,29 @@
 <?php
 
 /**
- * @file classes/citation/lookup/isbndb/IsbndbNlmCitationSchemaIsbnFilter.inc.php
+ * @file classes/citation/lookup/isbndb/IsbndbNlm30CitationSchemaIsbnFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class IsbndbNlmCitationSchemaIsbnFilter
+ * @class IsbndbNlm30CitationSchemaIsbnFilter
  * @ingroup citation_lookup_isbndb
  *
  * @brief Filter that uses the ISBNdb web
  *  service to identify an ISBN for a given citation.
  */
 
-import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaFilter');
 
-class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
+class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 * @param $apiKey string
 	 */
-	function IsbndbNlmCitationSchemaIsbnFilter($apiKey = null) {
+	function IsbndbNlm30CitationSchemaIsbnFilter($apiKey = null) {
 		$this->setDisplayName('ISBNdb (from NLM)');
 
-		parent::IsbndbNlmCitationSchemaFilter($apiKey);
+		parent::IsbndbNlm30CitationSchemaFilter($apiKey);
 	}
 
 	//
@@ -34,7 +34,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 */
 	function getSupportedTransformation() {
 		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 			'primitive::string'
 		);
 	}
@@ -43,7 +43,7 @@ class IsbndbNlmCitationSchemaIsbnFilter extends IsbndbNlmCitationSchemaFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbNlmCitationSchemaIsbnFilter';
+		return 'lib.pkp.classes.citation.lookup.isbndb.IsbndbNlm30CitationSchemaIsbnFilter';
 	}
 
 	/**

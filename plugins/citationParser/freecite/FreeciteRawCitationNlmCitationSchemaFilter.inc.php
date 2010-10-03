@@ -5,30 +5,30 @@
  */
 
 /**
- * @file classes/citation/parser/freecite/FreeciteRawCitationNlmCitationSchemaFilter.inc.php
+ * @file classes/citation/parser/freecite/FreeciteRawCitationNlm30CitationSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FreeciteRawCitationNlmCitationSchemaFilter
+ * @class FreeciteRawCitationNlm30CitationSchemaFilter
  * @ingroup citation_parser_freecite
  *
  * @brief Parsing filter implementation that uses the Freecite web service.
  *
  */
 
-import('lib.pkp.classes.citation.NlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
 
 define('FREECITE_WEBSERVICE', 'http://freecite.library.brown.edu/citations/create');
 
-class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter {
+class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*
 	 * Constructor
 	 */
-	function FreeciteRawCitationNlmCitationSchemaFilter() {
+	function FreeciteRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('FreeCite');
 
-		parent::NlmCitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -38,7 +38,7 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlmCitationSchemaFilter';
+		return 'lib.pkp.classes.citation.parser.freecite.FreeciteRawCitationNlm30CitationSchemaFilter';
 	}
 
 	/**
@@ -62,8 +62,8 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		// Convert the genre
 		if (isset($metadata['genre'])) {
 			$genre = $metadata['genre'];
-			import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlmCitationSchemaCrosswalkFilter');
-			$genreMap = OpenUrlNlmCitationSchemaCrosswalkFilter::_getOpenUrlGenreTranslationMapping();
+			import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
+			$genreMap = OpenUrlNlm30CitationSchemaCrosswalkFilter::_getOpenUrlGenreTranslationMapping();
 			$metadata['[@publication-type]'] = (isset($genreMap[$genre]) ? $genreMap[$genre] : $genre);
 			unset($metadata['genre']);
 		}
@@ -76,7 +76,7 @@ class FreeciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 
 		unset($metadata['raw_string']);
 
-		return $this->getNlmCitationDescriptionFromMetadataArray($metadata);
+		return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);
 	}
 }
 ?>

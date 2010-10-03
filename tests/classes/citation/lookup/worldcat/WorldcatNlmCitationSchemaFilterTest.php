@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file tests/classes/citation/lookup/worldcat/WorldcatNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/lookup/worldcat/WorldcatNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class WorldcatNlmCitationSchemaFilterTest
+ * @class WorldcatNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_lookup_worldcat
- * @see WorldcatNlmCitationSchemaFilter
+ * @see WorldcatNlm30CitationSchemaFilter
  *
- * @brief Tests for the WorldcatNlmCitationSchemaFilter class.
+ * @brief Tests for the WorldcatNlm30CitationSchemaFilter class.
  *
  * NB: This test requires a WordCat API key to function properly!
  */
 
-import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
-import('lib.pkp.tests.classes.citation.NlmCitationSchemaFilterTestCase');
+import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlm30CitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
 
-class WorldcatNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCase {
+class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
 	const
 		// Due to legal limitations, an API key cannot be published.
 		// Please insert your own API key for testing.
@@ -26,7 +26,7 @@ class WorldcatNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 
 	/**
 	 * Test CrossRef lookup with DOI
-	 * @covers WorldcatNlmCitationSchemaFilter
+	 * @covers WorldcatNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithDoi() {
 		// Test book lookup
@@ -53,8 +53,8 @@ class WorldcatNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 		$citationFilterTests = array($testWithApiKey);
 
 		// Execute the tests with API key
-		$filter = new WorldcatNlmCitationSchemaFilter(self::WORLDCAT_TEST_APIKEY);
-		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
+		$filter = new WorldcatNlm30CitationSchemaFilter(self::WORLDCAT_TEST_APIKEY);
+		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 
 		// Try again without API key
 		$testWithoutApiKey = array(
@@ -76,8 +76,8 @@ class WorldcatNlmCitationSchemaFilterTest extends NlmCitationSchemaFilterTestCas
 			)
 		);
 		$citationFilterTests = array($testWithoutApiKey);
-		$filter = new WorldcatNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($citationFilterTests, $filter);
+		$filter = new WorldcatNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 }
 ?>

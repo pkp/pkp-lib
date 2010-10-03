@@ -1,36 +1,36 @@
 <?php
 
 /**
- * @file tests/classes/importexport/nlm30/PKPSubmissionNlmXmlFilterTest.inc.php
+ * @file tests/classes/importexport/nlm30/PKPSubmissionNlm30XmlFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionNlmXmlFilterTest
+ * @class PKPSubmissionNlm30XmlFilterTest
  * @ingroup tests_classes_importexport_nlm
- * @see PKPSubmissionNlmXmlFilter
+ * @see PKPSubmissionNlm30XmlFilter
  *
- * @brief Tests for the PKPSubmissionNlmXmlFilterTest class.
+ * @brief Tests for the PKPSubmissionNlm30XmlFilterTest class.
  */
 
-import('lib.pkp.tests.classes.importexport.nlm.NlmXmlFilterTest');
-import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter');
+import('lib.pkp.tests.classes.importexport.nlm.Nlm30XmlFilterTest');
+import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter');
 
-class PKPSubmissionNlmXmlFilterTest extends NlmXmlFilterTest {
+class PKPSubmissionNlm30XmlFilterTest extends Nlm30XmlFilterTest {
 	/**
-	 * @covers PKPSubmissionNlmXmlFilter
+	 * @covers PKPSubmissionNlm30XmlFilter
 	 */
 	public function testExecute() {
 		// Instantiate test meta-data for a citation.
 		import('lib.pkp.classes.metadata.MetadataDescription');
-		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
+		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
 		$nameDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
 		$nameDescription->addStatement('surname', $value = 'Bork');
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 
-		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $nameDescription);
 		$citationDescription->addStatement('article-title', $value = 'PHPUnit in a nutshell', 'en_US');
@@ -52,7 +52,7 @@ class PKPSubmissionNlmXmlFilterTest extends NlmXmlFilterTest {
 
 		// Execute the filter and check the outcome.
 		$mockSubmission =& $this->getTestSubmission();
-		$filter = new PKPSubmissionNlmXmlFilter();
+		$filter = new PKPSubmissionNlm30XmlFilter();
 		$nlmXml = $filter->execute($mockSubmission);
 
 		$this->normalizeAndCompare($nlmXml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm30-citation.xml');

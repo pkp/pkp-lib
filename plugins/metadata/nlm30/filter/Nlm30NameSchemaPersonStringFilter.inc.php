@@ -1,22 +1,22 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmNameSchemaPersonStringFilter.inc.php
+ * @file plugins/metadata/nlm30/Nlm30NameSchemaPersonStringFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmNameSchemaPersonStringFilter
+ * @class Nlm30NameSchemaPersonStringFilter
  * @ingroup metadata_nlm
- * @see NlmNameSchema
+ * @see Nlm30NameSchema
  *
  * @brief Filter that converts from NLM name to
  *  a string.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmPersonStringFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
-class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
+class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
 	/** @var string */
 	var $_template;
 
@@ -29,7 +29,7 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 	 * @param $template string default: DRIVER guidelines 2.0 name template
 	 *  Possible template variables are %surname%, %suffix%, %prefix%, %initials%, %firstname%
 	 */
-	function NlmNameSchemaPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
+	function Nlm30NameSchemaPersonStringFilter($filterMode = PERSON_STRING_FILTER_SINGLE, $template = '%surname%%suffix%,%initials% (%firstname%)%prefix%', $delimiter = '; ') {
 		$this->setDisplayName('NLM Name Schema to string conversion');
 
 		assert(!empty($template) && is_string($template));
@@ -37,11 +37,11 @@ class NlmNameSchemaPersonStringFilter extends NlmPersonStringFilter {
 		assert(is_string($delimiter));
 		$this->_delimiter = $delimiter;
 
-		$inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema(*)';
+		$inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
 		$outputType = 'primitive::string';
 		if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $inputType .= '[]';
 
-		parent::NlmPersonStringFilter($inputType, $outputType, $filterMode);
+		parent::Nlm30PersonStringFilter($inputType, $outputType, $filterMode);
 	}
 
 	//

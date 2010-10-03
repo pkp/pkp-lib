@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/NlmCitationSchemaOpenUrlCrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/Nlm30CitationSchemaOpenUrlCrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaOpenUrlCrosswalkFilter
+ * @class Nlm30CitationSchemaOpenUrlCrosswalkFilter
  * @ingroup metadata_nlm
- * @see NlmCitationSchema
+ * @see Nlm30CitationSchema
  * @see OpenUrlBookSchema
  * @see OpenUrlJournalSchema
  * @see OpenUrlDissertationSchema
@@ -19,13 +19,13 @@
 
 import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlCrosswalkFilter');
 
-class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
+class Nlm30CitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 	/**
 	 * Constructor
 	 */
-	function NlmCitationSchemaOpenUrlCrosswalkFilter() {
+	function Nlm30CitationSchemaOpenUrlCrosswalkFilter() {
 		$this->setDisplayName('Crosswalk from NLM Citation to Open URL');
-		parent::OpenUrlCrosswalkFilter('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema',
+		parent::OpenUrlCrosswalkFilter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 				'lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBaseSchema');
 	}
 
@@ -69,8 +69,8 @@ class NlmCitationSchemaOpenUrlCrosswalkFilter extends OpenUrlCrosswalkFilter {
 		$output = new MetadataDescription($outputSchemaName, $input->getAssocType());
 
 		// Transform authors
-		import('lib.pkp.plugins.metadata.nlm30.filter.NlmNameSchemaPersonStringFilter');
-		$personStringFilter = new NlmNameSchemaPersonStringFilter();
+		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+		$personStringFilter = new Nlm30NameSchemaPersonStringFilter();
 		$authors =& $input->getStatement('person-group[@person-group-type="author"]');
 		if (is_array($authors) && count($authors)) {
 			$aulast = ($authors[0]->hasStatement('prefix') ? $authors[0]->getStatement('prefix').' ' : '');

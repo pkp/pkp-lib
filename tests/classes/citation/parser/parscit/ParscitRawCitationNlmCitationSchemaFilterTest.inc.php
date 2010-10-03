@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file tests/classes/citation/parser/parscit/ParscitRawCitationNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/parser/parscit/ParscitRawCitationNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ParscitRawCitationNlmCitationSchemaFilterTest
+ * @class ParscitRawCitationNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_parser_parscit
- * @see ParscitRawCitationNlmCitationSchemaFilter
+ * @see ParscitRawCitationNlm30CitationSchemaFilter
  *
- * @brief Tests for the ParscitRawCitationNlmCitationSchemaFilter class.
+ * @brief Tests for the ParscitRawCitationNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
-import('lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.parser.Nlm30CitationSchemaParserFilterTestCase');
+import('lib.pkp.classes.citation.parser.parscit.ParscitRawCitationNlm30CitationSchemaFilter');
 
-class ParscitRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParserFilterTestCase {
+class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaParserFilterTestCase {
 	/**
-	 * @covers ParscitRawCitationNlmCitationSchemaFilter
+	 * @covers ParscitRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
 		$testCitations = array(
@@ -50,23 +50,23 @@ class ParscitRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPar
 			)
 		);
 
-		$filter = new ParscitRawCitationNlmCitationSchemaFilter();
-		$this->assertNlmCitationSchemaFilter($testCitations, $filter);
+		$filter = new ParscitRawCitationNlm30CitationSchemaFilter();
+		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
 	/**
-	 * @covers ParaciteRawCitationNlmCitationSchemaFilter
+	 * @covers ParaciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new ParscitRawCitationNlmCitationSchemaFilter();
+		$filter = new ParscitRawCitationNlm30CitationSchemaFilter();
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 
 	/**
-	 * @covers ParscitRawCitationNlmCitationSchemaFilter
+	 * @covers ParscitRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {
-		$this->assertWebServiceError('ParscitRawCitationNlmCitationSchemaFilter');
+		$this->assertWebServiceError('ParscitRawCitationNlm30CitationSchemaFilter');
 	}
 }
 ?>

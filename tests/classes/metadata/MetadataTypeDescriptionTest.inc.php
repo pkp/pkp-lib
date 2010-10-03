@@ -23,10 +23,10 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	public function testInstantiateAndCheck() {
 		// Test with specific assoc type
-		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)');
 
-		$rightSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
-		$wrongSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema';
+		$rightSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
+		$wrongSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
 		$compatibleMetadataDescription = new MetadataDescription($rightSchemaName, ASSOC_TYPE_CITATION);
 		$wrongMetadataDescription1 = new MetadataDescription($wrongSchemaName, ASSOC_TYPE_CITATION);
 		$wrongMetadataDescription2 = new MetadataDescription($rightSchemaName, ASSOC_TYPE_AUTHOR);
@@ -35,7 +35,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription2));
 
 		// Test with wildcard assoc type
-		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(*)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(*)');
 		self::assertTrue($typeDescription->isCompatible($compatibleMetadataDescription));
 		self::assertFalse($typeDescription->isCompatible($wrongMetadataDescription1));
 		self::assertTrue($typeDescription->isCompatible($wrongMetadataDescription2));
@@ -47,7 +47,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	function testInstantiateWithInvalidTypeDescriptor1() {
 		// Type name is not fully qualified.
-		$typeDescription = new MetadataTypeDescription('NlmCitationSchema(CITATION)');
+		$typeDescription = new MetadataTypeDescription('Nlm30CitationSchema(CITATION)');
 	}
 
 	/**
@@ -56,7 +56,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	function testInstantiateWithInvalidTypeDescriptor2() {
 		// Missing assoc type.
-		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 	}
 
 	/**
@@ -65,7 +65,7 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 */
 	function testInstantiateWithInvalidTypeDescriptor3() {
 		// Wrong assoc type.
-		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(UNKNOWN)');
+		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(UNKNOWN)');
 	}
 }
 ?>

@@ -25,8 +25,8 @@ define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
 
 import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationAdapter');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
 	/** @var int citation state (raw, edited, parsed, looked-up) */
@@ -52,7 +52,7 @@ class Citation extends DataObject {
 		// Add NLM meta-data adapter.
 		// FIXME: This will later be done via plugin/user-configurable settings,
 		// see comment in DataObject::DataObject().
-		$metadataAdapter = new NlmCitationSchemaCitationAdapter();
+		$metadataAdapter = new Nlm30CitationSchemaCitationAdapter();
 		$this->addSupportedMetadataAdapter($metadataAdapter);
 
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW

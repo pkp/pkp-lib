@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @file tests/classes/citation/output/abnt/NlmCitationSchemaAbntFilterTest.inc.php
+ * @file tests/classes/citation/output/abnt/Nlm30CitationSchemaAbntFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaAbntFilterTest
+ * @class Nlm30CitationSchemaAbntFilterTest
  * @ingroup tests_classes_citation_output_abnt
- * @see NlmCitationSchemaAbntFilter
+ * @see Nlm30CitationSchemaAbntFilter
  *
- * @brief Tests for the NlmCitationSchemaAbntFilter class.
+ * @brief Tests for the Nlm30CitationSchemaAbntFilter class.
  */
 
 
-import('lib.pkp.classes.citation.output.abnt.NlmCitationSchemaAbntFilter');
-import('lib.pkp.tests.classes.citation.output.NlmCitationSchemaCitationOutputFormatFilterTest');
+import('lib.pkp.classes.citation.output.abnt.Nlm30CitationSchemaAbntFilter');
+import('lib.pkp.tests.classes.citation.output.Nlm30CitationSchemaCitationOutputFormatFilterTest');
 
-class NlmCitationSchemaAbntFilterTest extends NlmCitationSchemaCitationOutputFormatFilterTest {
+class Nlm30CitationSchemaAbntFilterTest extends Nlm30CitationSchemaCitationOutputFormatFilterTest {
 	/*
-	 * Implements abstract methods from NlmCitationSchemaCitationOutputFormatFilter
+	 * Implements abstract methods from Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new NlmCitationSchemaAbntFilter();
+		return new Nlm30CitationSchemaAbntFilter();
 	}
 
 	protected function getBookResultNoAuthor() {

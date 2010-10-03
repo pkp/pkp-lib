@@ -30,7 +30,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	/**
 	 * Retrieve the citation output filter that will be
 	 * used to transform citations.
-	 * @return NlmCitationSchemaCitationOutputFormatFilter
+	 * @return Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	function &getCitationOutputFilterInstance() {
 		// Must be implemented by sub-classes.
@@ -58,8 +58,8 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 		$citations =& $citationResults->toAssociativeArray('seq');
 
 		// Create citation output for these citations.
-		import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
-		$nlmCitationSchema = new NlmCitationSchema();
+		import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+		$nlmCitationSchema = new Nlm30CitationSchema();
 		$citationOutputFilter = $this->getCitationOutputFilterInstance();
 		$citationsOutput = array();
 		foreach($citations as $seq => $citation) {

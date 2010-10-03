@@ -14,7 +14,7 @@
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescriptionDummyAdapter');
 import('lib.pkp.tests.classes.metadata.TestSchema');
 
@@ -23,7 +23,7 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 	 * @covers MetadataDescriptionDummyAdapter
 	 */
 	public function testMetadataDescriptionDummyAdapter() {
-		$schema = 'lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema';
+		$schema = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 
 		// Instantiate a test description
 		$originalDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);
@@ -33,15 +33,15 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 		$adapter = new MetadataDescriptionDummyAdapter($originalDescription);
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
 		self::assertEquals($schema, $adapter->getMetadataSchemaName());
-		self::assertType('NlmCitationSchema', $adapter->getMetadataSchema());
+		self::assertType('Nlm30CitationSchema', $adapter->getMetadataSchema());
 		$expectedTransformations = array(
 			array(
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'class::lib.pkp.classes.metadata.MetadataDescription'
 			),
 			array(
 				'class::lib.pkp.classes.metadata.MetadataDescription',
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)'
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 			)
 		);
 		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());

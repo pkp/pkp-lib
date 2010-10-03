@@ -17,7 +17,7 @@
 			<field name="display_name">Citation Extraction Services</field>
 			<field name="description">Convert a plain text citation into NLM 3.0 element-citation mark-up.</field>
 			<field name="input_type">primitive::string</field>
-			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
 		</row>
 
 		<!-- citation lookup (citation database/improvement/lookup services) -->
@@ -25,8 +25,8 @@
 			<field name="symbolic">nlm30-element-citation=>nlm30-element-citation</field>
 			<field name="display_name">Citation Database Services</field>
 			<field name="description">Improve NLM 3.0 element-citation mark-up, e.g. by looking up citations in external databases.</field>
-			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
-			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
 		</row>
 
 		<!-- ISBN lookup and extraction services -->
@@ -34,7 +34,7 @@
 			<field name="symbolic">nlm30-element-citation=>isbn</field>
 			<field name="display_name">ISBN extraction service</field>
 			<field name="description">Find an ISBN for a given NLM 3.0 element-citation description.</field>
-			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
 			<field name="output_type">primitive::string</field>
 		</row>
 		<row>
@@ -42,7 +42,7 @@
 			<field name="display_name">ISBN lookup service</field>
 			<field name="description">Look up a full NLM 3.0 element-citation description with a given ISBN.</field>
 			<field name="input_type">primitive::string</field>
-			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="output_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
 		</row>
 
 		<!-- citation output -->
@@ -50,7 +50,7 @@
 			<field name="symbolic">nlm30-element-citation=>plaintext</field>
 			<field name="display_name">Citation Output Services</field>
 			<field name="description">Convert NLM 3.0 element-citation mark-up into a plain-text citation output standard.</field>
-			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema(CITATION)</field>
+			<field name="input_type">metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)</field>
 			<field name="output_type">primitive::string</field>
 		</row>
 

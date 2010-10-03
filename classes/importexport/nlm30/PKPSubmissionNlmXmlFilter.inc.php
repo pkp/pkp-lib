@@ -5,12 +5,12 @@
  */
 
 /**
- * @file classes/importexport/nlm30/PKPSubmissionNlmXmlFilter.inc.php
+ * @file classes/importexport/nlm30/PKPSubmissionNlm30XmlFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionNlmXmlFilter
+ * @class PKPSubmissionNlm30XmlFilter
  * @ingroup importexport_nlm
  *
  * @brief Class that converts a submission to an NLM Journal Publishing
@@ -24,11 +24,11 @@
 
 import('lib.pkp.classes.citation.output.TemplateBasedReferencesListFilter');
 
-class PKPSubmissionNlmXmlFilter extends TemplateBasedReferencesListFilter {
+class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	/**
 	 * Constructor
 	 */
-	function PKPSubmissionNlmXmlFilter() {
+	function PKPSubmissionNlm30XmlFilter() {
 		$this->setDisplayName('NLM Journal Publishing V3.0 ref-list');
 
 		parent::TemplateBasedReferencesListFilter();
@@ -42,7 +42,7 @@ class PKPSubmissionNlmXmlFilter extends TemplateBasedReferencesListFilter {
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.importexport.nlm.PKPSubmissionNlmXmlFilter';
+		return 'lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter';
 	}
 
 	/**
@@ -65,8 +65,8 @@ class PKPSubmissionNlmXmlFilter extends TemplateBasedReferencesListFilter {
 	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterInstance()
 	 */
 	function &getCitationOutputFilterInstance() {
-		import('lib.pkp.classes.citation.output.nlm.NlmCitationSchemaNlmFilter');
-		$nlmCitationOutputFilter = new NlmCitationSchemaNlmFilter();
+		import('lib.pkp.classes.citation.output.nlm.Nlm30CitationSchemaNlm30Filter');
+		$nlmCitationOutputFilter = new Nlm30CitationSchemaNlm30Filter();
 		return $nlmCitationOutputFilter;
 	}
 

@@ -5,12 +5,12 @@
  */
 
 /**
- * @file citation/output/mla/NlmCitationSchemaMlaFilter.inc.php
+ * @file citation/output/mla/Nlm30CitationSchemaMlaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaMlaFilter
+ * @class Nlm30CitationSchemaMlaFilter
  * @ingroup citation_output_mla
  *
  * @brief Filter that transforms NLM citation metadata descriptions into
@@ -18,17 +18,17 @@
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmCitationSchemaCitationOutputFormatFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
-class NlmCitationSchemaMlaFilter extends NlmCitationSchemaCitationOutputFormatFilter {
+class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
 	 * @param $request PKPRequest
 	 */
-	function NlmCitationSchemaMlaFilter() {
+	function Nlm30CitationSchemaMlaFilter() {
 		$this->setDisplayName('MLA Citation Output');
 
-		parent::NlmCitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
 	}
 
 
@@ -39,7 +39,7 @@ class NlmCitationSchemaMlaFilter extends NlmCitationSchemaCitationOutputFormatFi
 	 * @see Filter::getClassName()
 	 */
 	function getClassName() {
-		return 'lib.pkp.classes.citation.output.mla.NlmCitationSchemaMlaFilter';
+		return 'lib.pkp.classes.citation.output.mla.Nlm30CitationSchemaMlaFilter';
 	}
 
 

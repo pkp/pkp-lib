@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @file tests/classes/citation/parser/paracite/ParaciteRawCitationNlmCitationSchemaFilterTest.inc.php
+ * @file tests/classes/citation/parser/paracite/ParaciteRawCitationNlm30CitationSchemaFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class ParaciteRawCitationNlmCitationSchemaFilterTest
+ * @class ParaciteRawCitationNlm30CitationSchemaFilterTest
  * @ingroup tests_classes_citation_parser_paracite
- * @see ParaciteRawCitationNlmCitationSchemaFilter
+ * @see ParaciteRawCitationNlm30CitationSchemaFilter
  *
- * @brief Tests for the ParaciteRawCitationNlmCitationSchemaFilter class.
+ * @brief Tests for the ParaciteRawCitationNlm30CitationSchemaFilter class.
  */
 
-import('lib.pkp.tests.classes.citation.parser.NlmCitationSchemaParserFilterTestCase');
-import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlmCitationSchemaFilter');
+import('lib.pkp.tests.classes.citation.parser.Nlm30CitationSchemaParserFilterTestCase');
+import('lib.pkp.classes.citation.parser.paracite.ParaciteRawCitationNlm30CitationSchemaFilter');
 
-class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParserFilterTestCase {
+class ParaciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaParserFilterTestCase {
 	/**
-	 * @covers ParaciteRawCitationNlmCitationSchemaFilter
+	 * @covers ParaciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecute() {
 		$testCitations = array(
@@ -98,21 +98,21 @@ class ParaciteRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPa
 			)
 		);
 
-		foreach (ParaciteRawCitationNlmCitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
+		foreach (ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
 			assert(isset($testCitations[$citationModule]));
 
-			$filter = new ParaciteRawCitationNlmCitationSchemaFilter($citationModule);
-			$this->assertNlmCitationSchemaFilter($testCitations[$citationModule], $filter);
+			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter($citationModule);
+			$this->assertNlm30CitationSchemaFilter($testCitations[$citationModule], $filter);
 			unset($filter);
 		}
 	}
 
 	/**
-	 * @covers ParaciteRawCitationNlmCitationSchemaFilter
+	 * @covers ParaciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testAllCitationsWithThisParser() {
-		foreach (ParaciteRawCitationNlmCitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
-			$filter = new ParaciteRawCitationNlmCitationSchemaFilter($citationModule);
+		foreach (ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
+			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter($citationModule);
 			parent::testAllCitationsWithThisParser($filter);
 			unset($filter);
 		}

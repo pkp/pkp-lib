@@ -75,7 +75,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 	 */
 /*	function testInstantiateWithInvalidTypeDescriptor1() {
 		// Type name is not fully qualified.
-		$typeDescription = new XMLTypeDescription('NlmCitationSchema(CITATION)');
+		$typeDescription = new XMLTypeDescription('Nlm30CitationSchema(CITATION)');
 	}*/
 }
 ?>

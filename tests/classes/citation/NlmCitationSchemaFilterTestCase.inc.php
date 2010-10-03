@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/classes/citation/NlmCitationSchemaFilterTestCase.inc.php
+ * @file tests/classes/citation/Nlm30CitationSchemaFilterTestCase.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchemaFilterTestCase
+ * @class Nlm30CitationSchemaFilterTestCase
  * @ingroup tests_classes_citation
  *
  * @brief Base class for all citation parser and lookup service implementation tests.
@@ -15,23 +15,23 @@
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
+abstract class Nlm30CitationSchemaFilterTestCase extends PKPTestCase {
 	//
 	// Protected helper methods
 	//
 	/**
 	 * Test a given NLM citation filter with an array of test data.
 	 * @param $citationFilterTests array test data
-	 * @param $filter NlmCitationSchemaFilter
+	 * @param $filter Nlm30CitationSchemaFilter
 	 */
-	protected function assertNlmCitationSchemaFilter($citationFilterTests, $filter) {
+	protected function assertNlm30CitationSchemaFilter($citationFilterTests, $filter) {
 		// Execute the filter for all test citations and check the result
 		foreach($citationFilterTests as $citationFilterTestIndex => $citationFilterTest) {
 			// Transform citation description arrays into citation descriptions (if any);
 			foreach(array('testInput', 'testOutput') as $testDataType) {
 				if (is_array($citationFilterTest[$testDataType])) {
 					$citationFilterTest[$testDataType] =&
-							$this->instantiateNlmCitationDescription($citationFilterTest[$testDataType]);
+							$this->instantiateNlm30CitationDescription($citationFilterTest[$testDataType]);
 				}
 			}
 			// The expected display name of the description
@@ -64,7 +64,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	 * @param $paramenters array parameters for the citation service
 	 */
 	protected function assertWebServiceError($citationFilterName, $constructorArguments = array()) {
-		// Mock NlmCitationSchemaFilter->callWebService()
+		// Mock Nlm30CitationSchemaFilter->callWebService()
 		$mockCPFilter =&
 				$this->getMock($citationFilterName, array('callWebService'), $constructorArguments);
 
@@ -87,7 +87,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	 * @param $citationArray array
 	 * @return MetadataDescription
 	 */
-	private function &instantiateNlmCitationDescription(&$citationArray) {
+	private function &instantiateNlm30CitationDescription(&$citationArray) {
 		static $personGroups = array(
 			'person-group[@person-group-type="author"]' => ASSOC_TYPE_AUTHOR,
 			'person-group[@person-group-type="editor"]' => ASSOC_TYPE_EDITOR
@@ -97,12 +97,12 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 		foreach($personGroups as $personGroup => $personAssocType) {
 			if (isset($citationArray[$personGroup])) {
 				$citationArray[$personGroup] =&
-						$this->instantiateNlmNameDescriptions($citationArray[$personGroup], $personAssocType);
+						$this->instantiateNlm30NameDescriptions($citationArray[$personGroup], $personAssocType);
 			}
 		}
 
 		// Instantiate the NLM citation description
-		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($citationDescription->setStatements($citationArray));
 
 		return $citationDescription;
@@ -114,7 +114,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 	 * @param $assocType integer
 	 * @return MetadataDescription
 	 */
-	private function &instantiateNlmNameDescriptions(&$personArray, $assocType) {
+	private function &instantiateNlm30NameDescriptions(&$personArray, $assocType) {
 		$personDescriptions = array();
 		foreach ($personArray as $key => $person) {
 			if ($person == PERSON_STRING_FILTER_ETAL) {
@@ -122,7 +122,7 @@ abstract class NlmCitationSchemaFilterTestCase extends PKPTestCase {
 			} else {
 				// Create a new NLM name description and fill it
 				// with the values from the test array.
-				$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', $assocType);
+				$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $assocType);
 				self::assertTrue($personDescription->setStatements($person));
 			}
 

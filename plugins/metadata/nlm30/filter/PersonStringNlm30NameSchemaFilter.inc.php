@@ -1,22 +1,22 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/PersonStringNlmNameSchemaFilter.inc.php
+ * @file plugins/metadata/nlm30/PersonStringNlm30NameSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PersonStringNlmNameSchemaFilter
+ * @class PersonStringNlm30NameSchemaFilter
  * @ingroup metadata_nlm
- * @see NlmNameSchema
+ * @see Nlm30NameSchema
  *
  * @brief Filter that converts from a string
  *  to an (array of) NLM name description(s).
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.NlmPersonStringFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
-class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
+class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 	/** @var integer */
 	var $_assocType;
 
@@ -29,7 +29,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 	/**
 	 * Constructor
 	 */
-	function PersonStringNlmNameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
+	function PersonStringNlm30NameSchemaFilter($assocType, $filterMode = PERSON_STRING_FILTER_SINGLE, $filterTitle = false, $filterDegrees = false) {
 		$this->setDisplayName('String to NLM Name Schema conversion');
 
 		assert(in_array($assocType, array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)));
@@ -38,10 +38,10 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$this->_filterDegrees = $filterDegrees;
 
 		$inputType = 'primitive::string';
-		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema(*)';
+		$outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
 		if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $outputType .= '[]';
 
-		parent::NlmPersonStringFilter($inputType, $outputType, $filterMode);
+		parent::Nlm30PersonStringFilter($inputType, $outputType, $filterMode);
 	}
 
 	//
@@ -235,7 +235,7 @@ class PersonStringNlmNameSchemaFilter extends NlmPersonStringFilter {
 		$personRegexPrefixedSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['surname'].")";
 
 		// Instantiate the target person description
-		$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', $this->_assocType);
+		$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
 
 		// Clean the person string
 		$personString = trim($personString);

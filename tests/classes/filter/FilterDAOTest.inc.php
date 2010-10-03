@@ -17,7 +17,7 @@ import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.filter.FilterDAO');
 import('lib.pkp.classes.filter.GenericSequencerFilter');
 import('lib.pkp.classes.filter.GenericMultiplexerFilter');
-import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlmCitationSchemaFilter');
+import('lib.pkp.classes.citation.lookup.worldcat.WorldcatNlm30CitationSchemaFilter');
 import('lib.pkp.tests.classes.filter.CompatibilityTestFilter');
 
 class FilterDAOTest extends DatabaseTestCase {
@@ -28,7 +28,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		$filterDao = DAORegistry::getDAO('FilterDAO');
 
 		// Instantiate a test filter object
-		$testFilter = new WorldcatNlmCitationSchemaFilter('some api key');
+		$testFilter = new WorldcatNlm30CitationSchemaFilter('some api key');
 		$testFilter->setSeq(9999);
 
 		// Insert filter instance
@@ -135,7 +135,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		$testFilters = array(
 			new CompatibilityTestFilter('TestFilter1', array('primitive::string', 'primitive::string')),
 			new CompatibilityTestFilter('TestFilter2', array('primitive::string', 'validator::date('.DATE_FORMAT_ISO.')')),
-			new CompatibilityTestFilter('TestFilter3', array('metadata::lib.pkp.classes.metadata.NlmCitationSchema(CITATION)', 'primitive::string')),
+			new CompatibilityTestFilter('TestFilter3', array('metadata::lib.pkp.classes.metadata.Nlm30CitationSchema(CITATION)', 'primitive::string')),
 			new CompatibilityTestFilter('TestFilter4', array('validator::date('.DATE_FORMAT_ISO.')', 'primitive::string')),
 			new CompatibilityTestFilter('TestFilter5', array('primitive::string', 'primitive::integer'))
 		);

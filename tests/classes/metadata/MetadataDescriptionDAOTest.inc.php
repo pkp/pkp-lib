@@ -28,13 +28,13 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 	public function testMetadataDescriptionCrud() {
 		$metadataDescriptionDAO = DAORegistry::getDAO('MetadataDescriptionDAO');
 
-		$nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmNameSchema', ASSOC_TYPE_AUTHOR);
+		$nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
 		$nameDescription->addStatement('given-names', $value = 'B');
 		$nameDescription->addStatement('surname', $value = 'Bork');
 		$nameDescription->addStatement('prefix', $value = 'Mr.');
 
-		$testDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema', ASSOC_TYPE_CITATION);
+		$testDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 		$testDescription->setAssocId(999999);
 		$testDescription->setDisplayName('test meta-data description');
 		$testDescription->setSeq(5);
@@ -52,7 +52,7 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 
 		// Retrieve meta-data description by id
 		$metadataDescriptionById = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
-		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema'); // Required for comparison
+		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema'); // Required for comparison
 		$metadataDescriptionById->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionById);
 
@@ -67,7 +67,7 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 		$testDescription->addStatement('article-title', $value = 'PHPUnit rápido', 'pt_BR');
 
 		$metadataDescriptionDAO->updateObject($testDescription);
-		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema'); // Required for comparison
+		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema'); // Required for comparison
 		$metadataDescriptionAfterUpdate = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
 		$metadataDescriptionAfterUpdate->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionAfterUpdate);

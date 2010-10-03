@@ -8,7 +8,7 @@
  *
  * @class OpenUrlCrosswalkFilter
  * @ingroup metadata_nlm
- * @see NlmCitationSchema
+ * @see Nlm30CitationSchema
  * @see OpenUrlBookSchema
  * @see OpenUrlJournalSchema
  * @see OpenUrlDissertationSchema
@@ -18,7 +18,7 @@
  */
 
 import('lib.pkp.classes.metadata.CrosswalkFilter');
-import('lib.pkp.plugins.metadata.nlm30.schema.NlmCitationSchema');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBookSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlDissertationSchema');

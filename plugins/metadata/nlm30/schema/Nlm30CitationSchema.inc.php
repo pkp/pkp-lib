@@ -5,12 +5,12 @@
  */
 
 /**
- * @file plugins/metadata/nlm30/NlmCitationSchema.inc.php
+ * @file plugins/metadata/nlm30/Nlm30CitationSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NlmCitationSchema
+ * @class Nlm30CitationSchema
  * @ingroup metadata_nlm
  * @see MetadataSchema
  *
@@ -36,11 +36,11 @@ define('NLM_PUBLICATION_TYPE_CONFPROC', 'conf-proc');
 define('NLM_PUBLICATION_TYPE_BOOK', 'book');
 define('NLM_PUBLICATION_TYPE_THESIS', 'thesis');
 
-class NlmCitationSchema extends MetadataSchema {
+class Nlm30CitationSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 */
-	function NlmCitationSchema() {
+	function Nlm30CitationSchema() {
 		// Configure the meta-data schema.
 		parent::MetadataSchema(
 			'nlm-3.0-element-citation',

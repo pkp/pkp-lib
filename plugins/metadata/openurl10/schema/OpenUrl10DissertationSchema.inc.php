@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/openurl10/OpenUrl10DissertationSchema.inc.php
+ * @file plugins/metadata/openurl10/schema/OpenUrl10DissertationSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenUrl10DissertationSchema
- * @ingroup metadata_openurl
+ * @ingroup plugins_metadata_openurl10_schema
  * @see OpenUrl10BaseSchema
  *
  * @brief Class that provides meta-data properties of the

@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34SchemaSubmissionAdapter
- * @ingroup plugins_metadata_mods_filter
+ * @ingroup plugins_metadata_mods34_filter
  * @see Submission
  * @see PKPMods34Schema
  *

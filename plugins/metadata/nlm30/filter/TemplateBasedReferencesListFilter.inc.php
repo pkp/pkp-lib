@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file plugins/metadata/nlm30/filter/TemplateBasedReferencesListFilter.inc.php
  *

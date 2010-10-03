@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup plugins_metadata_mods
+ * @defgroup plugins_metadata_mods34
  */
 
 /**
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PKPMods34MetadataPlugin
- * @ingroup plugins_metadata_mods
+ * @ingroup plugins_metadata_mods34
  *
  * @brief Abstract base class for MODS metadata plugins
  */

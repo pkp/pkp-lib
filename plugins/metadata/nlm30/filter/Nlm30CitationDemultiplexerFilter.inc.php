@@ -1,12 +1,17 @@
 <?php
+
 /**
- * @file classes/citation/Nlm30CitationDemultiplexerFilter.inc.php
+ * @defgroup plugins_metadata_nlm30_filter
+ */
+
+/**
+ * @file plugins/metadata/nlm30/filter/Nlm30CitationDemultiplexerFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationDemultiplexerFilter
- * @ingroup citation
+ * @ingroup plugins_metadata_nlm30_filter
  *
  * @brief Filter that takes a list of NLM citation descriptions and joins
  *  them into a single "best" citation.

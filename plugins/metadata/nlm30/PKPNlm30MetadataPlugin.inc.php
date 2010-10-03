@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @defgroup plugins_metadata_mods
+ * @defgroup plugins_metadata_nlm30
  */
 
 /**
- * @file plugins/metadata/mods/Mods34MetadataPlugin.inc.php
+ * @file plugins/metadata/nlm30/PKPNlm30MetadataPlugin.inc.php
  *
  * Copyright (c) 2003-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPMods34MetadataPlugin
- * @ingroup plugins_metadata_mods
+ * @class PKPNlm30MetadataPlugin
+ * @ingroup plugins_metadata_nlm30
  *
- * @brief Abstract base class for MODS metadata plugins
+ * @brief Abstract base class for NLM 3.0 metadata plugins
  */
 
 

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/Nlm30CitationSchemaCitationOutputFormatFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/Nlm30CitationSchemaCitationOutputFormatFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaCitationOutputFormatFilter
- * @ingroup classes_metadata_nlm
+ * @ingroup plugins_metadata_nlm30_filter
  *
  * @brief Abstract base class for all filters that transform
  *  NLM citation metadata descriptions into citation output formats

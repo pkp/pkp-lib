@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @defgroup plugins_metadata_mods
+ * @defgroup plugins_metadata_openurl10
  */
 
 /**
- * @file plugins/metadata/mods/Mods34MetadataPlugin.inc.php
+ * @file plugins/metadata/openurl10/PKPOpenUrl10MetadataPlugin.inc.php
  *
  * Copyright (c) 2003-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPMods34MetadataPlugin
- * @ingroup plugins_metadata_mods
+ * @class PKPOpenUrl10MetadataPlugin
+ * @ingroup plugins_metadata_openurl10
  *
- * @brief Abstract base class for MODS metadata plugins
+ * @brief Abstract base class for OpenURL 1.0 metadata plugins
  */
 
 

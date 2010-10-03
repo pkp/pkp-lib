@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup citation_output
- */
-
-/**
  * @file plugins/metadata/nlm30/filter/PlainTextReferencesListFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky

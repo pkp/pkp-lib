@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/openurl10/OpenUrl10JournalSchema.inc.php
+ * @file plugins/metadata/openurl10/schema/OpenUrl10JournalSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenUrl10JournalSchema
- * @ingroup metadata_openurl
+ * @ingroup plugins_metadata_openurl10_schema
  * @see OpenUrl10JournalBookBaseSchema
  *
  * @brief Class that provides meta-data properties of the

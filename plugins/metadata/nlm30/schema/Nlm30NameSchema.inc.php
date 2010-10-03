@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/Nlm30NameSchema.inc.php
+ * @file plugins/metadata/nlm30/schema/Nlm30NameSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30NameSchema
- * @ingroup metadata_nlm
+ * @ingroup plugins_metadata_nlm30_schema
  * @see MetadataSchema
  *
  * @brief Class that provides meta-data properties compliant with

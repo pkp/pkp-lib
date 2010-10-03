@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup plugins_metadata_mods_filter
+ * @defgroup plugins_metadata_mods34_filter
  */
 
 /**
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34DescriptionXmlFilter
- * @ingroup plugins_metadata_mods_filter
+ * @ingroup plugins_metadata_mods34_filter
  *
  * @brief Class that converts a submission to a MODS 3.4 XML document.
  */

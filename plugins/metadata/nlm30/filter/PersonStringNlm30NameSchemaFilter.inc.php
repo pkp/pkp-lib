@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/PersonStringNlm30NameSchemaFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/PersonStringNlm30NameSchemaFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PersonStringNlm30NameSchemaFilter
- * @ingroup metadata_nlm
+ * @ingroup plugins_metadata_nlm30_filter
  * @see Nlm30NameSchema
  *
  * @brief Filter that converts from a string

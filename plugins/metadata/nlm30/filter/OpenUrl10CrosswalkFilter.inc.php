@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/OpenUrl10CrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/OpenUrl10CrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenUrl10CrosswalkFilter
- * @ingroup metadata_nlm
+ * @ingroup plugins_metadata_nlm30_filter
  * @see Nlm30CitationSchema
  * @see OpenUrl10BookSchema
  * @see OpenUrl10JournalSchema

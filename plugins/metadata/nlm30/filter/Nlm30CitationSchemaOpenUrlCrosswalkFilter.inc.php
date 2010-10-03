@@ -47,16 +47,16 @@ class Nlm30CitationSchemaOpenUrl10CrosswalkFilter extends OpenUrl10CrosswalkFilt
 		// instantiate the target description.
 		$publicationType = $input->getStatement('[@publication-type]');
 		switch($publicationType) {
-			case NLM_PUBLICATION_TYPE_JOURNAL:
-			case NLM_PUBLICATION_TYPE_CONFPROC:
+			case NLM30_PUBLICATION_TYPE_JOURNAL:
+			case NLM30_PUBLICATION_TYPE_CONFPROC:
 				$outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema';
 				break;
 
-			case NLM_PUBLICATION_TYPE_BOOK:
+			case NLM30_PUBLICATION_TYPE_BOOK:
 				$outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BookSchema';
 				break;
 
-			case NLM_PUBLICATION_TYPE_THESIS:
+			case NLM30_PUBLICATION_TYPE_THESIS:
 				$outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10DissertationSchema';
 				break;
 
@@ -129,16 +129,16 @@ class Nlm30CitationSchemaOpenUrl10CrosswalkFilter extends OpenUrl10CrosswalkFilt
 		// Genre: Guesswork
 		if (is_a($output->getMetadataSchema(), 'OpenUrl10JournalBookBaseSchema')) {
 			switch($publicationType) {
-				case NLM_PUBLICATION_TYPE_JOURNAL:
-					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_ARTICLE : OPENURL_GENRE_JOURNAL);
+				case NLM30_PUBLICATION_TYPE_JOURNAL:
+					$genre = ($input->hasProperty('article-title') ? OPENURL10_GENRE_ARTICLE : OPENURL10_GENRE_JOURNAL);
 					break;
 
-				case NLM_PUBLICATION_TYPE_CONFPROC:
-					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_PROCEEDING : OPENURL_GENRE_CONFERENCE);
+				case NLM30_PUBLICATION_TYPE_CONFPROC:
+					$genre = ($input->hasProperty('article-title') ? OPENURL10_GENRE_PROCEEDING : OPENURL10_GENRE_CONFERENCE);
 					break;
 
-				case NLM_PUBLICATION_TYPE_BOOK:
-					$genre = ($input->hasProperty('article-title') ? OPENURL_GENRE_BOOKITEM : OPENURL_GENRE_BOOK);
+				case NLM30_PUBLICATION_TYPE_BOOK:
+					$genre = ($input->hasProperty('article-title') ? OPENURL10_GENRE_BOOKITEM : OPENURL10_GENRE_BOOK);
 					break;
 			}
 			assert(!empty($genre));

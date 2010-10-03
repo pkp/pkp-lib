@@ -28,7 +28,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	function FreeciteRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('FreeCite');
 
-		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM30_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -69,7 +69,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 		}
 
 		// Convert article title to source for dissertations
-		if (isset($metadata['[@publication-type]']) && $metadata['[@publication-type]'] == NLM_PUBLICATION_TYPE_THESIS && isset($metadata['article-title'])) {
+		if (isset($metadata['[@publication-type]']) && $metadata['[@publication-type]'] == NLM30_PUBLICATION_TYPE_THESIS && isset($metadata['article-title'])) {
 			$metadata['source'] = $metadata['article-title'];
 			unset($metadata['article-title']);
 		}

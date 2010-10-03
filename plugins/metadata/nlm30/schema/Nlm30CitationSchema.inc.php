@@ -31,10 +31,10 @@
 import('lib.pkp.classes.metadata.MetadataSchema');
 
 // Define the well-known elements of the NLM publication type vocabulary.
-define('NLM_PUBLICATION_TYPE_JOURNAL', 'journal');
-define('NLM_PUBLICATION_TYPE_CONFPROC', 'conf-proc');
-define('NLM_PUBLICATION_TYPE_BOOK', 'book');
-define('NLM_PUBLICATION_TYPE_THESIS', 'thesis');
+define('NLM30_PUBLICATION_TYPE_JOURNAL', 'journal');
+define('NLM30_PUBLICATION_TYPE_CONFPROC', 'conf-proc');
+define('NLM30_PUBLICATION_TYPE_BOOK', 'book');
+define('NLM30_PUBLICATION_TYPE_THESIS', 'thesis');
 
 class Nlm30CitationSchema extends MetadataSchema {
 	/**

@@ -18,7 +18,7 @@
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BaseSchema');
 
 // "dissertation" is not defined as genre in the standard. We only use it internally.
-define('OPENURL_PSEUDOGENRE_DISSERTATION', 'dissertation');
+define('OPENURL10_PSEUDOGENRE_DISSERTATION', 'dissertation');
 
 class OpenUrl10DissertationSchema extends OpenUrl10BaseSchema {
 	/**

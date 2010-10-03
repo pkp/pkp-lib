@@ -17,9 +17,9 @@
 
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BaseSchema');
 
-define('OPENURL_GENRE_CONFERENCE', 'conference');
-define('OPENURL_GENRE_PROCEEDING', 'proceeding');
-define('OPENURL_GENRE_UNKNOWN', 'unknown');
+define('OPENURL10_GENRE_CONFERENCE', 'conference');
+define('OPENURL10_GENRE_PROCEEDING', 'proceeding');
+define('OPENURL10_GENRE_UNKNOWN', 'unknown');
 
 class OpenUrl10JournalBookBaseSchema extends OpenUrl10BaseSchema {
 	/**

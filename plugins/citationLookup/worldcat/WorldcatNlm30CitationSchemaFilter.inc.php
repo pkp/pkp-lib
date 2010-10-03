@@ -21,7 +21,7 @@
 import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.FilterSetting');
 
-// TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search
+// TODO: Might wish to change this if the publication type is NLM30_PUBLICATION_TYPE_BOOK, etc. for advanced search
 define('WORLDCAT_WEBSERVICE_SEARCH', 'http://www.worldcat.org/search');
 define('WORLDCAT_WEBSERVICE_OCLC', 'http://xisbn.worldcat.org/webservices/xid/oclcnum/');
 // Lookup in MARCXML which has better granularity than Dublin Core
@@ -45,7 +45,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				FORM_VALIDATOR_OPTIONAL_VALUE);
 		$this->addSetting($apiKeySetting);
 
-		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_LOOKUP, array(NLM_PUBLICATION_TYPE_BOOK));
+		parent::Nlm30CitationSchemaFilter(NLM30_CITATION_FILTER_LOOKUP, array(NLM30_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

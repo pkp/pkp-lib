@@ -35,7 +35,7 @@ class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				'metadata.filters.isbndb.settings.apiKey.validationMessage');
 		$this->addSetting($apiKeySetting);
 
-		parent::Nlm30CitationSchemaFilter(null, array(NLM_PUBLICATION_TYPE_BOOK));
+		parent::Nlm30CitationSchemaFilter(null, array(NLM30_PUBLICATION_TYPE_BOOK));
 	}
 
 	//

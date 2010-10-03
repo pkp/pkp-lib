@@ -17,10 +17,10 @@
 
 import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalBookBaseSchema');
 
-define('OPENURL_GENRE_JOURNAL', 'journal');
-define('OPENURL_GENRE_ISSUE', 'issue');
-define('OPENURL_GENRE_ARTICLE', 'article');
-define('OPENURL_GENRE_PREPRINT', 'preprint');
+define('OPENURL10_GENRE_JOURNAL', 'journal');
+define('OPENURL10_GENRE_ISSUE', 'issue');
+define('OPENURL10_GENRE_ARTICLE', 'article');
+define('OPENURL10_GENRE_PREPRINT', 'preprint');
 
 class OpenUrl10JournalSchema extends OpenUrl10JournalBookBaseSchema {
 	/**

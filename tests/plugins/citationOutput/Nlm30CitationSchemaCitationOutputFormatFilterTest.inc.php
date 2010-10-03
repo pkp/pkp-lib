@@ -37,7 +37,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 		$citationSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 		// Create a description with an unsupported publication type
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_THESIS);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM30_PUBLICATION_TYPE_THESIS);
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
 		self::assertEquals('', $result);
@@ -60,7 +60,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 
 		// Check a book with minimal data
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_BOOK);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM30_PUBLICATION_TYPE_BOOK);
 		$citationDescription->addStatement('source', $source = 'Mania de bater: a punição corporal doméstica de crianças e adolescentes no Brasil');
 		$citationDescription->addStatement('date', $date = '2001');
 		$citationDescription->addStatement('publisher-loc', $pubLoc = 'São Paulo');
@@ -128,7 +128,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 
 		// Check a journal article
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_JOURNAL);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM30_PUBLICATION_TYPE_JOURNAL);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person1Description);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $person2Description);
 		$citationDescription->addStatement('article-title', $articleTitle = 'Etinobotânica Xucuru: espécies místicas');
@@ -179,7 +179,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 
 		// A conference paper found on the web
 		$citationDescription = new MetadataDescription($citationSchemaName, ASSOC_TYPE_CITATION);
-		$citationDescription->addStatement('[@publication-type]', $pubType = NLM_PUBLICATION_TYPE_CONFPROC);
+		$citationDescription->addStatement('[@publication-type]', $pubType = NLM30_PUBLICATION_TYPE_CONFPROC);
 		$citationDescription->addStatement('person-group[@person-group-type="author"]', $personDescription);
 		$citationDescription->addStatement('article-title', $articleTitle = 'Defending against business crises with the help of intelligent agent based early warning solutions');
 		$citationDescription->addStatement('conf-name', $confName = 'The Seventh International Conference on Enterprise Information Systems');

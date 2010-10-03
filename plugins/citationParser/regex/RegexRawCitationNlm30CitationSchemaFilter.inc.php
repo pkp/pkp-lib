@@ -30,7 +30,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	function RegexRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('RegEx');
 
-		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM30_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -103,7 +103,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 		// Book citation
 		$unparsedTail = '';
 		if (String::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<source>.*?)\s*(?P<publisherLoc>[^\.]*):\s*(?P<publisherName>[^:]*?);\s*(?P<date>\d\d\d\d.*?)(?P<tail>.*)/", $citationString, $matches)) {
-			$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_BOOK;
+			$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_BOOK;
 			$metadata['author'] = $matches['authors'];
 			$metadata['source'] = $matches['source'];
 			$metadata['publisher-loc'] = $matches['publisherLoc'];
@@ -113,7 +113,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
 		// Journal citation
 		} elseif (String::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<titleSource>.*)\s*(?P<date>\d\d\d\d.*?);(?P<volumeAndIssue>[^:]+):(?P<tail>.*)/", $citationString, $matches)) {
-			$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_JOURNAL;
+			$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
 			$metadata['author'] = $matches['authors'];
 
 			$titleSource = array();

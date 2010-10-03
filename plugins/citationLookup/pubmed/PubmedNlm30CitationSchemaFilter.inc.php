@@ -42,10 +42,10 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		$this->addSetting($emailSetting);
 
 		parent::Nlm30CitationSchemaFilter(
-			NLM_CITATION_FILTER_LOOKUP,
+			NLM30_CITATION_FILTER_LOOKUP,
 			array(
-				NLM_PUBLICATION_TYPE_JOURNAL,
-				NLM_PUBLICATION_TYPE_CONFPROC
+				NLM30_PUBLICATION_TYPE_JOURNAL,
+				NLM30_PUBLICATION_TYPE_CONFPROC
 			)
 		);
 	}
@@ -350,7 +350,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			foreach($resultDOM->getElementsByTagName("PublicationType") as $publicationType) {
 				// The vast majority of items on PubMed are articles so catch these...
 				if (String::strpos(String::strtolower($publicationType->textContent), 'article') !== false) {
-					$metadata['[@publication-type]'] = NLM_PUBLICATION_TYPE_JOURNAL;
+					$metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
 					break;
 				}
 			}

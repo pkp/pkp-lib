@@ -13,8 +13,8 @@
  *  NLM citation metadata descriptions.
  */
 
-define('NLM_CITATION_FILTER_PARSE', 0x1);
-define('NLM_CITATION_FILTER_LOOKUP', 0x2);
+define('NLM30_CITATION_FILTER_PARSE', 0x1);
+define('NLM30_CITATION_FILTER_LOOKUP', 0x2);
 
 import('lib.pkp.classes.filter.Filter');
 import('lib.pkp.classes.filter.BooleanFilterSetting');
@@ -51,14 +51,14 @@ class Nlm30CitationSchemaFilter extends Filter {
 
 		$this->_supportedPublicationTypes = $supportedPublicationTypes;
 		switch($filterType) {
-			case NLM_CITATION_FILTER_PARSE:
+			case NLM30_CITATION_FILTER_PARSE:
 				$this->_supportedTransformation = array(
 					'primitive::string',
 					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
 				);
 				break;
 
-			case NLM_CITATION_FILTER_LOOKUP:
+			case NLM30_CITATION_FILTER_LOOKUP:
 				$this->_supportedTransformation = array(
 					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
@@ -469,10 +469,10 @@ class Nlm30CitationSchemaFilter extends Filter {
 	 */
 	function _allowedPublicationTypes() {
 		static $allowedPublicationTypes = array(
-			NLM_PUBLICATION_TYPE_JOURNAL,
-			NLM_PUBLICATION_TYPE_CONFPROC,
-			NLM_PUBLICATION_TYPE_BOOK,
-			NLM_PUBLICATION_TYPE_THESIS
+			NLM30_PUBLICATION_TYPE_JOURNAL,
+			NLM30_PUBLICATION_TYPE_CONFPROC,
+			NLM30_PUBLICATION_TYPE_BOOK,
+			NLM30_PUBLICATION_TYPE_THESIS
 		);
 		return $allowedPublicationTypes;
 	}

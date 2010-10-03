@@ -50,7 +50,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 		if (is_null($this->_supportedPublicationTypes)) {
 			// Set default supported publication types.
 			$this->_supportedPublicationTypes = array(
-				NLM_PUBLICATION_TYPE_BOOK, NLM_PUBLICATION_TYPE_JOURNAL, NLM_PUBLICATION_TYPE_CONFPROC
+				NLM30_PUBLICATION_TYPE_BOOK, NLM30_PUBLICATION_TYPE_JOURNAL, NLM30_PUBLICATION_TYPE_CONFPROC
 			);
 		}
 		return $this->_supportedPublicationTypes;

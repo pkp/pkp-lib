@@ -29,7 +29,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 	function ParscitRawCitationNlm30CitationSchemaFilter() {
 		$this->setDisplayName('ParsCit');
 
-		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM30_CITATION_FILTER_PARSE);
 	}
 
 	//

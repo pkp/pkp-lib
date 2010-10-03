@@ -162,7 +162,7 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 	/**
 	 * Try to guess a citation's publication type based on detected elements
 	 * @param $metadataDescription MetadataDescription
-	 * @return integer one of NLM_PUBLICATION_TYPE_*
+	 * @return integer one of NLM30_PUBLICATION_TYPE_*
 	 */
 	function _guessPublicationType(&$metadataDescription) {
 		// If we already have a publication type, why should we guess one?
@@ -170,28 +170,28 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 
 		// The following property names help us to guess the most probable publication type
 		$typicalPropertyNames = array(
-			'volume' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'issue' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'season' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'issn[@pub-type="ppub"]' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'issn[@pub-type="epub"]' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'pub-id[@pub-id-type="pmid"]' => NLM_PUBLICATION_TYPE_JOURNAL,
-			'person-group[@person-group-type="editor"]' => NLM_PUBLICATION_TYPE_BOOK,
-			'edition' => NLM_PUBLICATION_TYPE_BOOK,
-			'chapter-title' => NLM_PUBLICATION_TYPE_BOOK,
-			'isbn' => NLM_PUBLICATION_TYPE_BOOK,
-			'publisher-name' => NLM_PUBLICATION_TYPE_BOOK,
-			'publisher-loc' => NLM_PUBLICATION_TYPE_BOOK,
-			'conf-date' => NLM_PUBLICATION_TYPE_CONFPROC,
-			'conf-loc' => NLM_PUBLICATION_TYPE_CONFPROC,
-			'conf-name' => NLM_PUBLICATION_TYPE_CONFPROC,
-			'conf-sponsor' => NLM_PUBLICATION_TYPE_CONFPROC
+			'volume' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issue' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'season' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issn[@pub-type="ppub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issn[@pub-type="epub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'pub-id[@pub-id-type="pmid"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'person-group[@person-group-type="editor"]' => NLM30_PUBLICATION_TYPE_BOOK,
+			'edition' => NLM30_PUBLICATION_TYPE_BOOK,
+			'chapter-title' => NLM30_PUBLICATION_TYPE_BOOK,
+			'isbn' => NLM30_PUBLICATION_TYPE_BOOK,
+			'publisher-name' => NLM30_PUBLICATION_TYPE_BOOK,
+			'publisher-loc' => NLM30_PUBLICATION_TYPE_BOOK,
+			'conf-date' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-loc' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-name' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-sponsor' => NLM30_PUBLICATION_TYPE_CONFPROC
 		);
 
 		$hitCounters = array(
-			NLM_PUBLICATION_TYPE_JOURNAL => 0,
-			NLM_PUBLICATION_TYPE_BOOK => 0,
-			NLM_PUBLICATION_TYPE_CONFPROC => 0
+			NLM30_PUBLICATION_TYPE_JOURNAL => 0,
+			NLM30_PUBLICATION_TYPE_BOOK => 0,
+			NLM30_PUBLICATION_TYPE_CONFPROC => 0
 		);
 		$highestCounterValue = 0;
 		$probablePublicationType = null;

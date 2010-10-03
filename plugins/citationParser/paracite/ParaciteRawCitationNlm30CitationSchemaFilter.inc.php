@@ -53,7 +53,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 				ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules());
 		$this->addSetting($citationModuleSetting);
 
-		parent::Nlm30CitationSchemaFilter(NLM_CITATION_FILTER_PARSE);
+		parent::Nlm30CitationSchemaFilter(NLM30_CITATION_FILTER_PARSE);
 	}
 
 	//
@@ -179,15 +179,15 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 		}
 
 		// Set default genre
-		if (empty($metadata['genre'])) $metadata['genre'] = OPENURL_GENRE_ARTICLE;
+		if (empty($metadata['genre'])) $metadata['genre'] = OPENURL10_GENRE_ARTICLE;
 
 		// Handle title, chapter and publication depending on
 		// the (inferred) genre. Also instantiate the target schema.
 		switch($metadata['genre']) {
-			case OPENURL_GENRE_BOOK:
-			case OPENURL_GENRE_BOOKITEM:
-			case OPENURL_GENRE_REPORT:
-			case OPENURL_GENRE_DOCUMENT:
+			case OPENURL10_GENRE_BOOK:
+			case OPENURL10_GENRE_BOOKITEM:
+			case OPENURL10_GENRE_REPORT:
+			case OPENURL10_GENRE_DOCUMENT:
 				$metadataMapping += array(
 					'publication' => 'btitle',
 					'chapter' => 'atitle'
@@ -204,12 +204,12 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 				$openUrl10SchemaClass = 'OpenUrl10BookSchema';
 				break;
 
-			case OPENURL_GENRE_ARTICLE:
-			case OPENURL_GENRE_JOURNAL:
-			case OPENURL_GENRE_ISSUE:
-			case OPENURL_GENRE_CONFERENCE:
-			case OPENURL_GENRE_PROCEEDING:
-			case OPENURL_GENRE_PREPRINT:
+			case OPENURL10_GENRE_ARTICLE:
+			case OPENURL10_GENRE_JOURNAL:
+			case OPENURL10_GENRE_ISSUE:
+			case OPENURL10_GENRE_CONFERENCE:
+			case OPENURL10_GENRE_PROCEEDING:
+			case OPENURL10_GENRE_PREPRINT:
 			default:
 				$metadataMapping += array('publication' => 'jtitle');
 				if (isset($metadata['title'])) {

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/OpenUrlCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/OpenUrl10CrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlCrosswalkFilterTest
+ * @class OpenUrl10CrosswalkFilterTest
  * @ingroup tests_classes_metadata_nlm
- * @see Nlm30CitationSchemaOpenUrlCrosswalkFilter
+ * @see Nlm30CitationSchemaOpenUrl10CrosswalkFilter
  *
- * @brief Tests for the Nlm30CitationSchemaOpenUrlCrosswalkFilter class.
+ * @brief Tests for the Nlm30CitationSchemaOpenUrl10CrosswalkFilter class.
  */
 
 // $Id$
@@ -19,9 +19,9 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema');
 
-class OpenUrlCrosswalkFilterTest extends PKPTestCase {
+class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
 	/**
 	 * Creates a test description in NLM format
 	 * @return MetadataDescription
@@ -90,10 +90,10 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 	}
 
 	/**
-	 * Creates a test description in OpenUrl format
+	 * Creates a test description in OpenUrl10 format
 	 * @return MetadataDescription
 	 */
-	protected function getTestOpenUrlDescription() {
+	protected function getTestOpenUrl10Description() {
 		$citationData = array(
 			'aulast' => 'von Surname1',
 			'aufirst' => 'Given1 P',
@@ -119,7 +119,7 @@ class OpenUrlCrosswalkFilterTest extends PKPTestCase {
 			'coden' => 'coden',
 			'sici' => 'sici'
 		);
-		$openUrlDescription = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema', ASSOC_TYPE_CITATION);
+		$openUrlDescription = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema', ASSOC_TYPE_CITATION);
 		self::assertTrue($openUrlDescription->setStatements($citationData));
 
 		return $openUrlDescription;

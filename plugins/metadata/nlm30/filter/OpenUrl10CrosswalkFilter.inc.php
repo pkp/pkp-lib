@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/OpenUrlCrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/OpenUrl10CrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlCrosswalkFilter
+ * @class OpenUrl10CrosswalkFilter
  * @ingroup metadata_nlm
  * @see Nlm30CitationSchema
- * @see OpenUrlBookSchema
- * @see OpenUrlJournalSchema
- * @see OpenUrlDissertationSchema
+ * @see OpenUrl10BookSchema
+ * @see OpenUrl10JournalSchema
+ * @see OpenUrl10DissertationSchema
  *
  * @brief Filter that converts from NLM citation to
  *  OpenURL schemas.
@@ -19,17 +19,17 @@
 
 import('lib.pkp.classes.metadata.CrosswalkFilter');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBookSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlDissertationSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BookSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10DissertationSchema');
 
-class OpenUrlCrosswalkFilter extends CrosswalkFilter {
+class OpenUrl10CrosswalkFilter extends CrosswalkFilter {
 	/**
 	 * Constructor
 	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
 	 * @param $toSchema string fully qualified class name of supported output meta-data schema
 	 */
-	function OpenUrlCrosswalkFilter($fromSchema, $toSchema) {
+	function OpenUrl10CrosswalkFilter($fromSchema, $toSchema) {
 		parent::CrosswalkFilter($fromSchema, $toSchema);
 	}
 
@@ -43,7 +43,7 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 	 * @param $openUrlSchema MetadataSchema
 	 * @return array
 	 */
-	function &nlmOpenUrlMapping($publicationType, &$openUrlSchema) {
+	function &nlmOpenUrl10Mapping($publicationType, &$openUrlSchema) {
 		$propertyMap = array();
 
 		// Map titles and date
@@ -81,7 +81,7 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 		$propertyMap['isbn'] = 'isbn';
 
 		// Properties common to OpenURL book and journal
-		if (is_a($openUrlSchema, 'OpenUrlJournalBookBaseSchema')) {
+		if (is_a($openUrlSchema, 'OpenUrl10JournalBookBaseSchema')) {
 			// Some properties can be mapped one-to-one
 			$propertyMap += array(
 				'issn[@pub-type="ppub"]' => 'issn',
@@ -95,7 +95,7 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 
 		// OpenURL journal properties
 		// The properties 'chron' and 'quarter' remain unmatched.
-		if (is_a($openUrlSchema, 'OpenUrlJournalSchema')) {
+		if (is_a($openUrlSchema, 'OpenUrl10JournalSchema')) {
 			$propertyMap += array(
 				'season' => 'ssn',
 				'volume' => 'volume',
@@ -110,7 +110,7 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 
 		// OpenURL book properties
 		// The 'bici' property remains unmatched.
-		if (is_a($openUrlSchema, 'OpenUrlBookSchema')) {
+		if (is_a($openUrlSchema, 'OpenUrl10BookSchema')) {
 			$propertyMap += array(
 				'publisher-loc' => 'place',
 				'publisher-name' => 'pub',
@@ -123,7 +123,7 @@ class OpenUrlCrosswalkFilter extends CrosswalkFilter {
 		// OpenURL dissertation properties
 		// The properties 'cc', 'advisor' and 'degree' remain unmatched
 		// as NLM does not have good dissertation support.
-		if (is_a($openUrlSchema, 'OpenUrlDisertationSchema')) {
+		if (is_a($openUrlSchema, 'OpenUrl10DisertationSchema')) {
 			$propertyMap += array(
 				'size' => 'tpages',
 				'publisher-loc' => 'co',

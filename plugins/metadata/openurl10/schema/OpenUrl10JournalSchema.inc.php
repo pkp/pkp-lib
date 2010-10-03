@@ -1,33 +1,33 @@
 <?php
 
 /**
- * @file plugins/metadata/openurl10/OpenUrlJournalSchema.inc.php
+ * @file plugins/metadata/openurl10/OpenUrl10JournalSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlJournalSchema
+ * @class OpenUrl10JournalSchema
  * @ingroup metadata_openurl
- * @see OpenUrlJournalBookBaseSchema
+ * @see OpenUrl10JournalBookBaseSchema
  *
  * @brief Class that provides meta-data properties of the
  *  OpenURL journal 1.0 standard.
  */
 
 
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalBookBaseSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalBookBaseSchema');
 
 define('OPENURL_GENRE_JOURNAL', 'journal');
 define('OPENURL_GENRE_ISSUE', 'issue');
 define('OPENURL_GENRE_ARTICLE', 'article');
 define('OPENURL_GENRE_PREPRINT', 'preprint');
 
-class OpenUrlJournalSchema extends OpenUrlJournalBookBaseSchema {
+class OpenUrl10JournalSchema extends OpenUrl10JournalBookBaseSchema {
 	/**
 	 * Constructor
 	 */
-	function OpenUrlJournalSchema() {
-		parent::OpenUrlJournalBookBaseSchema('openurl-1.0-journal');
+	function OpenUrl10JournalSchema() {
+		parent::OpenUrl10JournalBookBaseSchema('openurl-1.0-journal');
 
 		// Add meta-data properties that only appear in the OpenURL journal standard
 		$this->addProperty('jtitle');

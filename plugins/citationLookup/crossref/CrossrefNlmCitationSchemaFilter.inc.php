@@ -102,7 +102,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			$searchParams['id'] = 'doi:'.$doi;
 		} else {
 			// Use OpenURL meta-data to search for the entry.
-			if (is_null($openUrlMetadata = $this->_prepareOpenUrlSearch($citationDescription))) return $nullVar;
+			if (is_null($openUrlMetadata = $this->_prepareOpenUrl10Search($citationDescription))) return $nullVar;
 			$searchParams += $openUrlMetadata;
 		}
 
@@ -128,13 +128,13 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
  	 * @param $citationDescription MetadataDescription
  	 * @return array an array of search parameters
 	 */
-	function &_prepareOpenUrlSearch(&$citationDescription) {
+	function &_prepareOpenUrl10Search(&$citationDescription) {
 		$nullVar = null;
 
 		// Crosswalk to OpenURL.
-		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenUrlCrosswalkFilter');
-		$nlmOpenUrlFilter = new Nlm30CitationSchemaOpenUrlCrosswalkFilter();
-		if (is_null($openUrlCitation =& $nlmOpenUrlFilter->execute($citationDescription))) return $nullVar;
+		import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenUrl10CrosswalkFilter');
+		$nlmOpenUrl10Filter = new Nlm30CitationSchemaOpenUrl10CrosswalkFilter();
+		if (is_null($openUrlCitation =& $nlmOpenUrl10Filter->execute($citationDescription))) return $nullVar;
 
 		// Prepare the search.
 		$searchParams = array(
@@ -144,15 +144,15 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		// Configure the meta-data schema.
 		$openUrlCitationSchema =& $openUrlCitation->getMetadataSchema();
 		switch(true) {
-			case is_a($openUrlCitationSchema, 'OpenUrlJournalSchema'):
+			case is_a($openUrlCitationSchema, 'OpenUrl10JournalSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:journal';
 				break;
 
-			case is_a($openUrlCitationSchema, 'OpenUrlBookSchema'):
+			case is_a($openUrlCitationSchema, 'OpenUrl10BookSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:book';
 				break;
 
-			case is_a($openUrlCitationSchema, 'OpenUrlDissertationSchema'):
+			case is_a($openUrlCitationSchema, 'OpenUrl10DissertationSchema'):
 				$searchParams['rft_val_fmt'] = 'info:ofi/fmt:kev:mtx:dissertation';
 				break;
 

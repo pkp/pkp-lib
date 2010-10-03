@@ -1,31 +1,31 @@
 <?php
 
 /**
- * @file plugins/metadata/openurl10/OpenUrlDissertationSchema.inc.php
+ * @file plugins/metadata/openurl10/OpenUrl10DissertationSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlDissertationSchema
+ * @class OpenUrl10DissertationSchema
  * @ingroup metadata_openurl
- * @see OpenUrlBaseSchema
+ * @see OpenUrl10BaseSchema
  *
  * @brief Class that provides meta-data properties of the
  *  OpenURL 1.0 dissertation standard.
  */
 
 
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBaseSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BaseSchema');
 
 // "dissertation" is not defined as genre in the standard. We only use it internally.
 define('OPENURL_PSEUDOGENRE_DISSERTATION', 'dissertation');
 
-class OpenUrlDissertationSchema extends OpenUrlBaseSchema {
+class OpenUrl10DissertationSchema extends OpenUrl10BaseSchema {
 	/**
 	 * Constructor
 	 */
-	function OpenUrlDissertationSchema() {
-		parent::OpenUrlBaseSchema('openurl-1.0-dissertation');
+	function OpenUrl10DissertationSchema() {
+		parent::OpenUrl10BaseSchema('openurl-1.0-dissertation');
 
 		// Add meta-data properties that only appear in the OpenURL dissertation standard
 		$this->addProperty('co'); // Country of publication (plain text)

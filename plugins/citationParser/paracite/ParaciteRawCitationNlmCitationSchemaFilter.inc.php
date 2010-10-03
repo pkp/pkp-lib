@@ -29,7 +29,7 @@
  */
 
 import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
-import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrl10Nlm30CitationSchemaCrosswalkFilter');
 import('lib.pkp.classes.filter.SetFilterSetting');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
@@ -200,8 +200,8 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrlBookSchema';
-				$openUrlSchemaClass = 'OpenUrlBookSchema';
+				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BookSchema';
+				$openUrlSchemaClass = 'OpenUrl10BookSchema';
 				break;
 
 			case OPENURL_GENRE_ARTICLE:
@@ -220,8 +220,8 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 					}
 					unset($metadata['title']);
 				}
-				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalSchema';
-				$openUrlSchemaClass = 'OpenUrlJournalSchema';
+				$openUrlSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema';
+				$openUrlSchemaClass = 'OpenUrl10JournalSchema';
 				break;
 		}
 
@@ -253,7 +253,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 		}
 
 		// Crosswalk to NLM
-		$crosswalkFilter = new OpenUrlNlm30CitationSchemaCrosswalkFilter();
+		$crosswalkFilter = new OpenUrl10Nlm30CitationSchemaCrosswalkFilter();
 		$nlmDescription =& $crosswalkFilter->execute($openUrlDescription);
 		assert(is_a($nlmDescription, 'MetadataDescription'));
 

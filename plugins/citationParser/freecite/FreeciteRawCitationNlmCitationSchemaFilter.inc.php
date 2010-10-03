@@ -62,8 +62,8 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 		// Convert the genre
 		if (isset($metadata['genre'])) {
 			$genre = $metadata['genre'];
-			import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
-			$genreMap = OpenUrlNlm30CitationSchemaCrosswalkFilter::_getOpenUrlGenreTranslationMapping();
+			import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrl10Nlm30CitationSchemaCrosswalkFilter');
+			$genreMap = OpenUrl10Nlm30CitationSchemaCrosswalkFilter::_getOpenUrl10GenreTranslationMapping();
 			$metadata['[@publication-type]'] = (isset($genreMap[$genre]) ? $genreMap[$genre] : $genre);
 			unset($metadata['genre']);
 		}

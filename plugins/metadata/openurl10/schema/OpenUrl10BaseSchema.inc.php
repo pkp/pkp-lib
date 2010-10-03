@@ -5,12 +5,12 @@
  */
 
 /**
- * @file plugins/metadata/openurl10/OpenUrlBaseSchema.inc.php
+ * @file plugins/metadata/openurl10/OpenUrl10BaseSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlBaseSchema
+ * @class OpenUrl10BaseSchema
  * @ingroup metadata_openurl
  * @see MetadataSchema
  *
@@ -21,12 +21,12 @@
 
 import('lib.pkp.classes.metadata.MetadataSchema');
 
-class OpenUrlBaseSchema extends MetadataSchema {
+class OpenUrl10BaseSchema extends MetadataSchema {
 	/**
 	 * Constructor
 	 * @param $name string the meta-data schema name
 	 */
-	function OpenUrlBaseSchema($name) {
+	function OpenUrl10BaseSchema($name) {
 		// Configure the meta-data schema.
 		parent::MetadataSchema(
 			$name,

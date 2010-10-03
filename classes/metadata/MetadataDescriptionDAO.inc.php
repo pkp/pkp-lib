@@ -177,9 +177,9 @@ class MetadataDescriptionDAO extends DAO {
 		static $metadataSchemaMapping = array(
 			'nlm30:nlm-3.0-element-citation' => 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 			'nlm30:nlm-3.0-name' => 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema',
-			'openurl10:openurl-1.0-journal' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrlJournalSchema',
-			'openurl10:openurl-1.0-book' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrlBookSchema',
-			'openurl10:openurl-1.0-dissertation' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrlDissertationSchema'
+			'openurl10:openurl-1.0-journal' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10JournalSchema',
+			'openurl10:openurl-1.0-book' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10BookSchema',
+			'openurl10:openurl-1.0-dissertation' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10DissertationSchema'
 		);
 
 		// Map the metadata schema identifier to a metadata schema class name.

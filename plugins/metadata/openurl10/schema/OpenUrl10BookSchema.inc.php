@@ -1,33 +1,33 @@
 <?php
 
 /**
- * @file plugins/metadata/openurl10/OpenUrlBookSchema.inc.php
+ * @file plugins/metadata/openurl10/OpenUrl10BookSchema.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlBookSchema
+ * @class OpenUrl10BookSchema
  * @ingroup metadata_openurl
- * @see OpenUrlJournalBookBaseSchema
+ * @see OpenUrl10JournalBookBaseSchema
  *
  * @brief Class that provides meta-data properties of the
  *  OpenURL 1.0 book standard.
  */
 
 
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrlJournalBookBaseSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalBookBaseSchema');
 
 define('OPENURL_GENRE_BOOK', 'book');
 define('OPENURL_GENRE_BOOKITEM', 'bookitem');
 define('OPENURL_GENRE_REPORT', 'report');
 define('OPENURL_GENRE_DOCUMENT', 'document');
 
-class OpenUrlBookSchema extends OpenUrlJournalBookBaseSchema {
+class OpenUrl10BookSchema extends OpenUrl10JournalBookBaseSchema {
 	/**
 	 * Constructor
 	 */
-	function OpenUrlBookSchema() {
-		parent::OpenUrlJournalBookBaseSchema('openurl-1.0-book');
+	function OpenUrl10BookSchema() {
+		parent::OpenUrl10JournalBookBaseSchema('openurl-1.0-book');
 
 		// Add meta-data properties that only appear in the OpenURL book standard
 		$this->addProperty('btitle');

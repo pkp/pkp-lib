@@ -1,28 +1,28 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/OpenUrlNlm30CitationSchemaCrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/OpenUrl10Nlm30CitationSchemaCrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrlNlm30CitationSchemaCrosswalkFilterTest
+ * @class OpenUrl10Nlm30CitationSchemaCrosswalkFilterTest
  * @ingroup tests_classes_metadata_nlm
- * @see OpenUrlNlm30CitationSchemaCrosswalkFilter
+ * @see OpenUrl10Nlm30CitationSchemaCrosswalkFilter
  *
- * @brief Tests for the OpenUrlNlm30CitationSchemaCrosswalkFilter class.
+ * @brief Tests for the OpenUrl10Nlm30CitationSchemaCrosswalkFilter class.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrlNlm30CitationSchemaCrosswalkFilter');
-import('lib.pkp.tests.classes.metadata.nlm.OpenUrlCrosswalkFilterTest');
+import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrl10Nlm30CitationSchemaCrosswalkFilter');
+import('lib.pkp.tests.classes.metadata.nlm.OpenUrl10CrosswalkFilterTest');
 
-class OpenUrlNlm30CitationSchemaCrosswalkFilterTest extends OpenUrlCrosswalkFilterTest {
+class OpenUrl10Nlm30CitationSchemaCrosswalkFilterTest extends OpenUrl10CrosswalkFilterTest {
 	/**
-	 * @covers OpenUrlNlm30CitationSchemaCrosswalkFilter
-	 * @covers OpenUrlCrosswalkFilter
+	 * @covers OpenUrl10Nlm30CitationSchemaCrosswalkFilter
+	 * @covers OpenUrl10CrosswalkFilter
 	 */
 	public function testExecute() {
-		$openUrlDescription = $this->getTestOpenUrlDescription();
+		$openUrlDescription = $this->getTestOpenUrl10Description();
 		$nlmDescription = $this->getTestNlm30Description();
 
 		// Properties that are not part of the OpenURL
@@ -39,7 +39,7 @@ class OpenUrlNlm30CitationSchemaCrosswalkFilterTest extends OpenUrlCrosswalkFilt
 		self::assertTrue($nlmDescription->removeStatement('comment'));
 		self::assertTrue($nlmDescription->removeStatement('annotation'));
 
-		$filter = new OpenUrlNlm30CitationSchemaCrosswalkFilter();
+		$filter = new OpenUrl10Nlm30CitationSchemaCrosswalkFilter();
 		self::assertEquals($nlmDescription, $filter->execute($openUrlDescription));
 	}
 }

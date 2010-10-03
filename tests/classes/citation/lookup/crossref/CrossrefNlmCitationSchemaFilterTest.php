@@ -105,7 +105,7 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * Test CrossRef lookup without DOI
 	 * @covers CrossrefNlm30CitationSchemaFilter
 	 */
-	public function testExecuteWithOpenUrlSearch() {
+	public function testExecuteWithOpenUrl10Search() {
 		// Build the test citations array
 		$citationFilterTests = array(
 			array(

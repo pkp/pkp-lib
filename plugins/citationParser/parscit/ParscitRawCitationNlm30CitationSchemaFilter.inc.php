@@ -18,7 +18,7 @@
  */
 
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
 

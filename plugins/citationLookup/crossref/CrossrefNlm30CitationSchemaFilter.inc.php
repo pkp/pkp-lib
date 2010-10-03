@@ -18,7 +18,7 @@
  *  meta-data for a given NLM citation.
  */
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.EmailFilterSetting');
 
 define('CROSSREF_WEBSERVICE_URL', 'http://www.crossref.org/openurl/');

@@ -21,7 +21,7 @@
  *  expressions.
  */
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	/*

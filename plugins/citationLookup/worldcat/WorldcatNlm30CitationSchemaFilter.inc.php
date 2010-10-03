@@ -18,7 +18,7 @@
  *  and xISBN services to search for book citation metadata.
  */
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.classes.filter.FilterSetting');
 
 // TODO: Might wish to change this if the publication type is NLM_PUBLICATION_TYPE_BOOK, etc. for advanced search

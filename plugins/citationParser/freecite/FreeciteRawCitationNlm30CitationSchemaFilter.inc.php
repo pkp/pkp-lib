@@ -17,7 +17,7 @@
  *
  */
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 define('FREECITE_WEBSERVICE', 'http://freecite.library.brown.edu/citations/create');
 

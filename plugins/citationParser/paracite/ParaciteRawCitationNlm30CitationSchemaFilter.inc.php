@@ -28,7 +28,7 @@
  *  disabled in shared hosting environments.
  */
 
-import('lib.pkp.classes.citation.Nlm30CitationSchemaFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrl10Nlm30CitationSchemaCrosswalkFilter');
 import('lib.pkp.classes.filter.SetFilterSetting');
 

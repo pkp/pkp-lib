@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file tests/classes/citation/Nlm30CitationSchemaFilterTestCase.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30CitationSchemaFilterTestCase.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
-//$Id$
-
 
 import('lib.pkp.classes.controlledVocab.ControlledVocab');
 

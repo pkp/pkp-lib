@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying FilterGroup objects.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.FilterGroup');
 
 class FilterGroupDAO extends DAO {
 	/**
@@ -144,6 +144,17 @@ class FilterGroupDAO extends DAO {
 	function deleteObjectById($filterGroupId) {
 		$filterGroupId = (int)$filterGroupId;
 		$filterGroup =& $this->getObjectById($filterGroupId);
+		if (!is_a($filterGroup, 'FilterGroup')) return false;
+		return $this->deleteObject($filterGroup);
+	}
+
+	/**
+	 * Delete a filter group by symbolic name.
+	 * @param $filterGroupSymbolic string
+	 * @return boolean
+	 */
+	function deleteObjectBySymbolic($filterGroupSymbolic) {
+		$filterGroup =& $this->getObjectBySymbolic($filterGroupSymbolic);
 		if (!is_a($filterGroup, 'FilterGroup')) return false;
 		return $this->deleteObject($filterGroup);
 	}

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @defgroup tests_plugins_metadata_mods_filter
+ * @defgroup tests_plugins_metadata_mods34_filter
  */
 
 /**
@@ -11,7 +11,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34DescriptionTestCase
- * @ingroup tests_plugins_metadata_mods_filter
+ * @ingroup tests_plugins_metadata_mods34_filter
  * @see Mods34Schema
  *
  * @brief Base test case for tests that involve a MODS MetadataDescription.

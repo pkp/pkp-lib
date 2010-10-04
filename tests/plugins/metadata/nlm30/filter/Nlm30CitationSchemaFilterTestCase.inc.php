@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaFilterTestCase
- * @ingroup tests_classes_citation
+ * @ingroup tests_plugins_metadata_nlm30_filter
  *
  * @brief Base class for all citation parser and lookup service implementation tests.
  */

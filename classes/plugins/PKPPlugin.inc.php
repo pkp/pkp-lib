@@ -41,6 +41,9 @@
  */
 
 
+// Define the well-known file name for filter configuration data.
+define('PLUGIN_FILTER_DATAFILE', 'filterConfig.xml');
+
 class PKPPlugin {
 	/** @var $pluginPath string Path name to files for this plugin */
 	var $pluginPath;
@@ -94,6 +97,7 @@ class PKPPlugin {
 		if ($this->getContextSpecificPluginSettingsFile()) {
 			HookRegistry::register ($this->_getContextSpecificInstallationHook(), array(&$this, 'installContextSpecificSettings'));
 		}
+		HookRegistry::register ('Installer::postInstall', array(&$this, 'installFilters'));
 		return true;
 	}
 
@@ -213,7 +217,7 @@ class PKPPlugin {
 	 * Get the filename of the install data for this plugin.
 	 * Subclasses using SQL tables should override this.
 	 *
-	 * @return string
+	 * @return string|array|null one or more data files to be installed.
 	 */
 	function getInstallDataFile() {
 		return null;
@@ -450,12 +454,20 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		$sql = $installer->dataXMLParser->parseData($this->getInstallDataFile());
-		if ($sql) {
-			$result = $installer->executeSQL($sql);
-		} else {
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseDBFileError')));
-			$result = false;
+		// Treat single and multiple data files uniformly.
+		$dataFiles = $this->getInstallDataFile();
+		if (is_scalar($dataFiles)) $dataFiles = array($dataFiles);
+
+		// Install all data files.
+		foreach($dataFiles as $dataFile) {
+			$sql = $installer->dataXMLParser->parseData($dataFile);
+			if ($sql) {
+				$result = $installer->executeSQL($sql);
+			} else {
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseDBFileError')));
+				$result = false;
+			}
+			if (!$result) return false;
 		}
 		return false;
 	}
@@ -594,6 +606,61 @@ class PKPPlugin {
 	}
 
 	/**
+	 * Callback used to install filters.
+	 * @param $hookName string
+	 * @param $args array
+	 */
+	function installFilters($hookName, $args) {
+		$result =& $args[1];
+
+		// Construct the well-known filter configuration file names.
+		$filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
+		$filterConfigFiles = array(
+			'./lib/pkp/'.$filterConfigFile,
+			'./'.$filterConfigFile
+		);
+
+		// Run through the config file positions and see
+		// whether one of these exists and needs to be installed.
+		foreach($filterConfigFiles as $filterConfigFile) {
+			// Is there a filter configuration?
+			if (!file_exists($filterConfigFile)) continue;
+
+			// Parse the filter configuration.
+			$xmlParser = new XMLParser();
+			$tree =& $xmlParser->parse($filterConfigFile);
+
+			// Validate the filter configuration.
+			if (!$tree) {
+				$xmlParser->destroy();
+
+				// Stop installation.
+				$result = false;
+				return true;
+			}
+
+			// Are there any filter groups to be installed?
+			$filterGroupsNode =& $tree->getChildByName('filterGroups');
+			if (is_a($filterGroupsNode, 'XMLNode')) {
+				$this->_installFilterGroups($filterGroupsNode);
+			}
+
+			// Are there any filters to be installed?
+			$filtersNode =& $tree->getChildByName('filters');
+			if (is_a($filtersNode, 'XMLNode')) {
+				$this->_installFilters($filtersNode);
+			}
+
+			// Get rid of the parser.
+			$xmlParser->destroy();
+			unset($xmlParser);
+		}
+
+		// Do not stop installation.
+		return false;
+	}
+
+	/**
 	 * Called during the install process to install the plugin schema,
 	 * if applicable.
 	 *
@@ -669,6 +736,124 @@ class PKPPlugin {
 
 		$contextList = $application->getContextList();
 		return ucfirst(array_shift($contextList)).'SiteSettingsForm::execute';
+	}
+
+	/**
+	 * Helper method that installs filter groups based on
+	 * the given XML node which represents a <filterGroups>
+	 * element.
+	 * @param $filterGroupsNode XMLNode
+	 */
+	function _installFilterGroups($filterGroupsNode) {
+		// Install filter groups.
+		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+		import('lib.pkp.classes.filter.FilterGroup');
+
+		foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /* @var $filterGroupNode XMLNode */
+			$filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
+
+			// Make sure that the filter group has not been
+			// installed before to guarantee idempotence.
+			$existingFilterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
+			if (!is_null($existingFilterGroup)) continue;
+
+			// Instantiate and configure the filter group.
+			$filterGroup = new FilterGroup();
+			$filterGroup->setSymbolic($filterGroupSymbolic);
+			$filterGroup->setDisplayName($filterGroupNode->getAttribute('displayName'));
+			$filterGroup->setDescription($filterGroupNode->getAttribute('description'));
+			$filterGroup->setInputType($filterGroupNode->getAttribute('inputType'));
+			$filterGroup->setOutputType($filterGroupNode->getAttribute('outputType'));
+
+			// Install the filter group.
+			$installedGroupId = $filterGroupDao->insertObject($filterGroup);
+			assert(is_integer($installedGroupId));
+
+			unset($filterGroup);
+		}
+	}
+
+	/**
+	 * Helper method that installs filters based on
+	 * the given XML node which represents a <filters>
+	 * element.
+	 * @param $filtersNode XMLNode
+	 */
+	function _installFilters($filtersNode) {
+		// Install filters.
+		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+
+		foreach ($filtersNode->getChildren() as $filterNode) { /* @var $filterNode XMLNode */
+			$filterGroupSymbolic = $filterNode->getAttribute('inGroup');
+			$filterName = $filterNode->getAttribute('class');
+			$isTemplate = $filterNode->getAttribute('isTemplate');
+
+			// Make sure that the filter has not been
+			// installed before to guarantee idempotence.
+			$existingFilters =& $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterName, 0, $isTemplate);
+			if ($existingFilters->getCount()) continue;
+
+			// Get the filter settings (if any).
+			$settings = $this->_getFilterSettings($filterNode);
+
+			// Install the filter.
+			$installedFilter =& $filterDao->installObject($filterName, $filterGroupSymbolic, $settings, $isTemplate);
+			assert(is_a($installedFilter, 'PersistableFilter'));
+			unset($installedFilter);
+		}
+	}
+
+	/**
+	 * Helper method that extracts filter settings
+	 * from the children of a <filter> element.
+	 * @param $filterNode XMLNode
+	 * @return $settings array an array of key-value pairs.
+	 */
+	function _getFilterSettings($filterNode) {
+		$settings = array();
+		$settingNodes = $filterNode->getChildren();
+		if (is_array($settingNodes)) {
+			foreach ($settingNodes as $settingNode) { /* @var $settingNode XMLNode */
+				// Retrieve the setting name.
+				$nameNode =& $settingNode->getChildByName('name');
+				assert(is_a($nameNode, 'XMLNode'));
+				$name = $nameNode->getValue();
+
+				// Retrieve the setting value.
+				$type = $settingNode->getAttribute('type');
+				$valueNode =& $settingNode->getChildByName('value');
+				assert(is_a($valueNode, 'XMLNode'));
+				switch($type) {
+					case 'string':
+						$value = (string)$valueNode->getValue();
+						break;
+
+					case 'bool':
+						$value = (boolean)$valueNode->getValue();
+						break;
+
+					case 'int':
+						$value = (integer)$valueNode->getValue();
+						break;
+
+					case 'const':
+						$constName = $valueNode->getValue();
+						assert(defined($constName));
+						$value = constant($constName);
+						break;
+
+					default:
+						// Unknown type.
+						assert(false);
+						$value = null;
+				}
+
+				// Add the setting to the list.
+				$settings[$name] = $value;
+			}
+			unset($settingsNode);
+		}
+		return $settings;
 	}
 }
 

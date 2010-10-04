@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/Nlm30NameSchemaPersonStringFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30NameSchemaPersonStringFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30NameSchemaPersonStringFilterTest
- * @ingroup tests_classes_metadata_nlm
+ * @ingroup tests_plugins_metadata_nlm30_filter
  * @see Nlm30NameSchemaPersonStringFilter
  *
  * @brief Tests for the Nlm30NameSchemaPersonStringFilter class.

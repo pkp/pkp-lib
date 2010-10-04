@@ -1,27 +1,26 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/OpenUrl10CrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Openurl10CrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrl10CrosswalkFilterTest
- * @ingroup tests_classes_metadata_nlm
- * @see Nlm30CitationSchemaOpenUrl10CrosswalkFilter
+ * @class Openurl10CrosswalkFilterTest
+ * @ingroup tests_plugins_metadata_nlm30_filter
+ * @see Nlm30CitationSchemaOpenurl10CrosswalkFilter
  *
- * @brief Tests for the Nlm30CitationSchemaOpenUrl10CrosswalkFilter class.
+ * @brief Tests for the Nlm30CitationSchemaOpenurl10CrosswalkFilter class.
  */
 
-// $Id$
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema');
+import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
 
-class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
+class Openurl10CrosswalkFilterTest extends PKPTestCase {
 	/**
 	 * Creates a test description in NLM format
 	 * @return MetadataDescription
@@ -90,10 +89,10 @@ class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
 	}
 
 	/**
-	 * Creates a test description in OpenUrl10 format
+	 * Creates a test description in Openurl10 format
 	 * @return MetadataDescription
 	 */
-	protected function getTestOpenUrl10Description() {
+	protected function getTestOpenurl10Description() {
 		$citationData = array(
 			'aulast' => 'von Surname1',
 			'aufirst' => 'Given1 P',
@@ -119,10 +118,10 @@ class OpenUrl10CrosswalkFilterTest extends PKPTestCase {
 			'coden' => 'coden',
 			'sici' => 'sici'
 		);
-		$openUrl10Description = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10JournalSchema', ASSOC_TYPE_CITATION);
-		self::assertTrue($openUrl10Description->setStatements($citationData));
+		$openurl10Description = new MetadataDescription('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema', ASSOC_TYPE_CITATION);
+		self::assertTrue($openurl10Description->setStatements($citationData));
 
-		return $openUrl10Description;
+		return $openurl10Description;
 	}
 }
 ?>

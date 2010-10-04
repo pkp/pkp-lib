@@ -21,17 +21,17 @@ import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaCitationAdapter() {
-		// Configure the adapter
-		parent::MetadataDataObjectAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', 'lib.pkp.classes.citation.Citation', ASSOC_TYPE_CITATION);
+	function Nlm30CitationSchemaCitationAdapter(&$filterGroup) {
+		parent::MetadataDataObjectAdapter($filterGroup);
 	}
 
 	//
-	// Implement template methods from Filter
+	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see Filter::getClassName()
+	 * @see PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter';
@@ -45,15 +45,10 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
 	 * @param $metadataDescription MetadataDescription
 	 * @param $dataObject Citation
-	 * @param $replace boolean whether existing meta-data should be replaced
 	 * @return DataObject
 	 */
-	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject, $replace) {
-		// Did we get an existing citation object or should we create a new one?
-		if (is_null($dataObject)) {
-			import('lib.pkp.classes.citation.Citation');
-			$dataObject = new Citation();
-		}
+	function &injectMetadataIntoDataObject(&$metadataDescription, &$dataObject) {
+		assert(is_a($dataObject, 'Citation'));
 
 		// Add new meta-data statements to the citation. Add the schema
 		// name space to each property name so that it becomes unique
@@ -90,9 +85,6 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 				}
 				$dataObject->setData($dataObjectKey, $value);
 				unset($value);
-			} elseif ($replace && $dataObject->hasData($dataObjectKey)) {
-				// Delete existing property data
-				$dataObject->setData($dataObjectKey, $nullVar);
 			}
 		}
 

@@ -1,31 +1,31 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/filter/OpenUrl10Nlm30CitationSchemaCrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/Openurl10Nlm30CitationSchemaCrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OpenUrl10Nlm30CitationSchemaCrosswalkFilter
+ * @class Openurl10Nlm30CitationSchemaCrosswalkFilter
  * @ingroup plugins_metadata_nlm30_filter
  * @see Nlm30CitationSchema
- * @see OpenUrl10BookSchema
- * @see OpenUrl10JournalSchema
- * @see OpenUrl10DissertationSchema
+ * @see Openurl10BookSchema
+ * @see Openurl10JournalSchema
+ * @see Openurl10DissertationSchema
  *
  * @brief Filter that converts from NLM citation to
  *  OpenURL schemas.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.OpenUrl10CrosswalkFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Openurl10CrosswalkFilter');
 
-class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilter {
+class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Openurl10CrosswalkFilter {
 	/**
 	 * Constructor
 	 */
-	function OpenUrl10Nlm30CitationSchemaCrosswalkFilter() {
+	function Openurl10Nlm30CitationSchemaCrosswalkFilter() {
 		$this->setDisplayName('Crosswalk from Open URL to NLM Citation');
-		parent::OpenUrl10CrosswalkFilter('lib.pkp.plugins.metadata.openurl10.schema.OpenUrl10BaseSchema',
+		parent::Openurl10CrosswalkFilter('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema',
 				'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 	}
 
@@ -65,19 +65,19 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 		// Publication type
 		if ($input->hasStatement('genre')) {
 			$genre = $input->getStatement('genre');
-			$genreMap = $this->_getOpenUrl10GenreTranslationMapping();
+			$genreMap = $this->_getOpenurl10GenreTranslationMapping();
 			$publicationType = (isset($genreMap[$genre]) ? $genreMap[$genre] : $genre);
 			$success = $output->addStatement('[@publication-type]', $publicationType);
 			assert($success);
 		}
 
 		// Get NLM => OpenURL property mapping.
-		$propertyMap =& $this->nlmOpenUrl10Mapping($publicationType, $input->getMetadataSchema());
+		$propertyMap =& $this->nlmOpenurl10Mapping($publicationType, $input->getMetadataSchema());
 
 		// Transfer mapped properties with default locale
-		foreach ($propertyMap as $nlm30Property => $openUrl10Property) {
-			if ($input->hasStatement($openUrl10Property)) {
-				$success = $output->addStatement($nlm30Property, $input->getStatement($openUrl10Property));
+		foreach ($propertyMap as $nlm30Property => $openurl10Property) {
+			if ($input->hasStatement($openurl10Property)) {
+				$success = $output->addStatement($nlm30Property, $input->getStatement($openurl10Property));
 				assert($success);
 			}
 		}
@@ -96,8 +96,8 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 	 * filter.
 	 * @return array
 	 */
-	function _getOpenUrl10GenreTranslationMapping() {
-		static $openUrl10GenreTranslationMapping = array(
+	function _getOpenurl10GenreTranslationMapping() {
+		static $openurl10GenreTranslationMapping = array(
 			OPENURL10_GENRE_ARTICLE => NLM30_PUBLICATION_TYPE_JOURNAL,
 			OPENURL10_GENRE_ISSUE => NLM30_PUBLICATION_TYPE_JOURNAL,
 			OPENURL10_GENRE_CONFERENCE => NLM30_PUBLICATION_TYPE_CONFPROC,
@@ -110,7 +110,7 @@ class OpenUrl10Nlm30CitationSchemaCrosswalkFilter extends OpenUrl10CrosswalkFilt
 			OPENURL10_PSEUDOGENRE_DISSERTATION => NLM30_PUBLICATION_TYPE_THESIS
 		);
 
-		return $openUrl10GenreTranslationMapping;
+		return $openurl10GenreTranslationMapping;
 	}
 }
 ?>

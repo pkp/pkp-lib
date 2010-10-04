@@ -104,7 +104,7 @@ class FilterGroup extends DataObject {
 	 * Set the input type
 	 * @param $inputType string a string representation of a TypeDescription
 	 */
-	function setInputType(&$inputType) {
+	function setInputType($inputType) {
 		$this->setData('inputType', $inputType);
 	}
 
@@ -112,7 +112,7 @@ class FilterGroup extends DataObject {
 	 * Get the input type
 	 * @return string a string representation of a TypeDescription
 	 */
-	function &getInputType() {
+	function getInputType() {
 		return $this->getData('inputType');
 	}
 
@@ -120,7 +120,7 @@ class FilterGroup extends DataObject {
 	 * Set the output type
 	 * @param $outputType string a string representation of a TypeDescription
 	 */
-	function setOutputType(&$outputType) {
+	function setOutputType($outputType) {
 		$this->setData('outputType', $outputType);
 	}
 
@@ -128,7 +128,7 @@ class FilterGroup extends DataObject {
 	 * Get the output type
 	 * @return string a string representation of a TypeDescription
 	 */
-	function &getOutputType() {
+	function getOutputType() {
 		return $this->getData('outputType');
 	}
 

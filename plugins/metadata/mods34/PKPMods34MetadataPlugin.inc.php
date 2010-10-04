@@ -21,6 +21,17 @@ import('lib.pkp.classes.plugins.MetadataPlugin');
 
 class PKPMods34MetadataPlugin extends MetadataPlugin {
 	/**
+	 * Constructor
+	 */
+	function PKPMods34MetadataPlugin() {
+		parent::MetadataPlugin();
+	}
+
+
+	//
+	// Override protected template methods from PKPPlugin
+	//
+	/**
 	 * @see PKPPlugin::getName()
 	 */
 	function getName() {

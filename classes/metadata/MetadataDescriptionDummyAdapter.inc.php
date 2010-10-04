@@ -20,13 +20,23 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
 	 *
-	 * @param $metadataDescription MetadataDescription
+	 * @param $filterGroup MetadataDescription
 	 */
-	function MetadataDescriptionDummyAdapter($metadataDescription) {
+	function MetadataDescriptionDummyAdapter(&$filterGroup) {
 		$this->setDisplayName('Inject/Extract Metadata into/from a MetadataDescription');
 
 		// Configure the adapter
-		parent::MetadataDataObjectAdapter($metadataDescription->getMetadataSchemaName(), 'lib.pkp.classes.metadata.MetadataDescription', $metadataDescription->getAssocType());
+		parent::MetadataDataObjectAdapter($filterGroup);
+	}
+
+
+	//
+	// Getters and Setters
+	//
+	function setMetadataDescription(&$metadataDescription) {
+		$this->setMetadataSchemaName($metadataDescription->getMetadataSchemaName());
+		$this->setDataObjectName('lib.pkp.classes.metadata.MetadataDescription');
+		$this->setAssocType($metadataDescription->getAssocType());
 	}
 
 	//
@@ -58,13 +68,13 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 
 	/**
 	 * @see MetadataDataObjectAdapter::extractMetadataFromDataObject()
-	 * @param $metadataDescription MetadataDescription
+	 * @param $sourceMetadataDescription MetadataDescription
 	 * @return MetadataDescription
 	 */
-	function &extractMetadataFromDataObject(&$metadataDescription) {
+	function &extractMetadataFromDataObject(&$sourceMetadataDescription) {
 		// Create a copy of the meta-data description to decouple
 		// it from the original.
-		$clonedMetadataDescription = cloneObject($metadataDescription);
+		$clonedMetadataDescription = cloneObject($sourceMetadataDescription);
 		return $clonedMetadataDescription;
 	}
 

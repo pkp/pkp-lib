@@ -1,13 +1,17 @@
 <?php
 
 /**
- * @file tests/classes/metadata/Nlm30CitationSchemaCitationAdapterTest.inc.php
+ * @defgroup tests_plugins_metadata_nlm30_filter
+ */
+
+/**
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30CitationSchemaCitationAdapterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaCitationAdapterTest
- * @ingroup tests_classes_metadata
+ * @ingroup tests_plugins_metadata_nlm30_filter
  * @see Nlm30CitationSchemaCitationAdapter
  *
  * @brief Test class for Nlm30CitationSchemaCitationAdapter.

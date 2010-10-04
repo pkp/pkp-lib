@@ -19,26 +19,37 @@
 
 import('lib.pkp.classes.plugins.MetadataPlugin');
 
-class PKPMods34MetadataPlugin extends MetadataPlugin {
+class PKPNlm30MetadataPlugin extends MetadataPlugin {
+	/**
+	 * Constructor
+	 */
+	function PKPNlm30MetadataPlugin() {
+		parent::MetadataPlugin();
+	}
+
+
+	//
+	// Override protected template methods from PKPPlugin
+	//
 	/**
 	 * @see PKPPlugin::getName()
 	 */
 	function getName() {
-		return 'Mods34MetadataPlugin';
+		return 'Nlm30MetadataPlugin';
 	}
 
 	/**
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.metadata.mods34.displayName');
+		return Locale::translate('plugins.metadata.nlm30.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.metadata.mods34.description');
+		return Locale::translate('plugins.metadata.nlm30.description');
 	}
 }
 

@@ -13,8 +13,6 @@
  * @brief Mock implementation of the HookRegistry class for the PKPRequestTest
  */
 
-// $Id$
-
 
 class HookRegistry {
 	static $_calledHooks = array();

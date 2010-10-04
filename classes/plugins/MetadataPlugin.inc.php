@@ -16,7 +16,11 @@
 import('classes.plugins.Plugin');
 
 // Define the well-known file name for controlled vocabulary data.
-define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlled_vocabs.xml');
+define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
+
+// Define the sitewide plug-in setting that saves the state of the
+// controlled vocabulary data.
+define('METADATA_PLUGIN_VOCAB_INSTALLED_SETTING', 'metadataPluginControlledVocabInstalled');
 
 class MetadataPlugin extends Plugin {
 	/**
@@ -28,19 +32,6 @@ class MetadataPlugin extends Plugin {
 
 
 	//
-	// Protected template methods to be implemented by sub-classes.
-	//
-	/**
-	 * Get the metadata adapter class names provided by this plug-in.
-	 * @return array a list of fully qualified class names
-	 */
-	function getMetadataAdapterNames() {
-		// must be implemented by sub-classes
-		assert(false);
-	}
-
-
-	//
 	// Override public methods from PKPPlugin
 	//
 	/**
@@ -48,17 +39,21 @@ class MetadataPlugin extends Plugin {
 	 */
 	function register($category, $path) {
 		$success = parent::register($category, $path);
-		HookRegistry::register ('Installer::postInstall', array(&$this, 'installMetadataSchema'));
 		$this->addLocaleData();
 		return $success;
 	}
 
 	/**
 	 * This implementation looks for files that contain controlled
-	 * vocabulary data.
+	 * vocabulary data. It can discover and return more than one file.
 	 * @see PKPPlugin::getInstallDataFile()
+	 * @return array|null
 	 */
 	function getInstallDataFile() {
+		// Check whether the vocabulary has already
+		// been installed.
+		if($this->getSetting(0, METADATA_PLUGIN_VOCAB_INSTALLED_SETTING)) return null;
+
 		// Search the well-known locations for vocabulary data files. If
 		// one is found then return it.
 		$pluginPath = $this->getPluginPath();
@@ -66,41 +61,34 @@ class MetadataPlugin extends Plugin {
 			'./'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE,
 			'./lib/pkp/'.$pluginPath.'/schema/'.METADATA_PLUGIN_VOCAB_DATAFILE
 		);
+
+		$dataFiles = array();
 		foreach ($wellKnownVocabLocations as $wellKnownVocabLocation) {
-			if (file_exists($wellKnownVocabLocation)) return $wellKnownVocabLocation;
+			if (file_exists($wellKnownVocabLocation)) $dataFiles[] = $wellKnownVocabLocation;
 		}
 
-		return null;
+		if(empty($dataFiles)) {
+			return null;
+		} else {
+			return $dataFiles;
+		}
 	}
 
-
-	//
-	// Public methods
-	//
 	/**
-	 * Installs the meta-data adapters that belong to this schema.
-	 * @param $hookName string
-	 * @param $args array
+	 * This implementation marks the vocabulary data as installed.
+	 * @see PKPPlugin::installData()
 	 */
-	function installMetadataSchema($hookName, $args) {
-		$adapterNames = $this->getMetadataAdapterNames();
-		foreach($adapterNames as $adapterName) {
-			// Instantiate adapter.
-			$adapter =& instantiate($adapterName, 'MetadataDataObjectAdapter');
+	function installData($hookName, $args) {
+		parent::installData($hookName, $args);
+		$success =& $args[1];
 
-			// Install adapters as non-configurable site-wide filter instances.
-			$adapter->setIsTemplate(false);
-
-			// Make sure that the adapter has not been
-			// installed before to guarantee idempotence.
-			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-			$existingAdapters =& $filterDao->getObjectsByClass($adapterName, 0, false);
-			if ($existingAdapters->getCount()) continue;
-
-			// Install the adapter.
-			$filterDao->insertObject($adapter, 0);
-			unset($adapter);
+		if ($success) {
+			// Mark the controlled vocab as installed.
+			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO'); /* @var $pluginSettingsDao PluginSettingsDAO */
+			$success = $pluginSettingsDao->updateSetting(0, $this->getName(), METADATA_PLUGIN_VOCAB_INSTALLED_SETTING, true, 'bool');
 		}
+
+		return false;
 	}
 }
 

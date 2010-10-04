@@ -7,7 +7,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34DescriptionXmlFilterTest
- * @ingroup tests_plugins_metadata_mods_filter
+ * @ingroup tests_plugins_metadata_mods34_filter
  * @see Mods34DescriptionXmlFilter
  *
  * @brief Test class for Mods34DescriptionXmlFilter.

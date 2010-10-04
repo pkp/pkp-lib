@@ -177,9 +177,9 @@ class MetadataDescriptionDAO extends DAO {
 		static $metadataSchemaMapping = array(
 			'nlm30:nlm-3.0-element-citation' => 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 			'nlm30:nlm-3.0-name' => 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema',
-			'openurl10:openurl-1.0-journal' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10JournalSchema',
-			'openurl10:openurl-1.0-book' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10BookSchema',
-			'openurl10:openurl-1.0-dissertation' => 'lib.pkp.plugins.metadata.nlm30.schema.OpenUrl10DissertationSchema'
+			'openurl10:openurl-1.0-journal' => 'lib.pkp.plugins.metadata.nlm30.schema.Openurl10JournalSchema',
+			'openurl10:openurl-1.0-book' => 'lib.pkp.plugins.metadata.nlm30.schema.Openurl10BookSchema',
+			'openurl10:openurl-1.0-dissertation' => 'lib.pkp.plugins.metadata.nlm30.schema.Openurl10DissertationSchema'
 		);
 
 		// Map the metadata schema identifier to a metadata schema class name.
@@ -225,6 +225,16 @@ class MetadataDescriptionDAO extends DAO {
 	 * @param $metadataDescription MetadataDescription
 	 */
 	function _updateObjectMetadata(&$metadataDescription) {
+		// Inject a dummy meta-data adapter so that we can
+		// use the meta-data persistence infrastructure of the
+		// DAO and DataObject classes to persist our meta-data
+		// description.
+		import('lib.pkp.classes.metadata.MetadataDescriptionDummyAdapter');
+		$metadataAdapter = new MetadataDescriptionDummyAdapter(
+				PersistableFilter::tempGroup());
+		$metadataAdapter->setMetadataDescription($metadataDescription);
+		$metadataDescription->addSupportedMetadataAdapter($metadataAdapter);
+
 		$this->updateDataObjectSettings('metadata_description_settings', $metadataDescription,
 				array('metadata_description_id' => $metadataDescription->getId()));
 	}

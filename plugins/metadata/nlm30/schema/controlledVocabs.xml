@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../../dtd/xmlData.dtd">
+
+<!--
+  * controlled_vocab.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Definition of filter groups.
+  -->
+<data>
+	<table name="controlled_vocabs">
+		<field_default name="assoc_type">0</field_default>
+		<field_default name="assoc_id">0</field_default>
+		<row>
+			<field name="controlled_vocab_id">200</field>
+			<field name="symbolic">nlm30-publication-types</field>
+		</row>
+	</table>
+	<table name="controlled_vocab_entries">
+		<!-- NLM publication types -->
+		<field_default name="controlled_vocab_id">200</field_default>
+		<row>
+			<field name="controlled_vocab_entry_id">200</field>
+			<field name="seq">1</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">201</field>
+			<field name="seq">2</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">202</field>
+			<field name="seq">3</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">203</field>
+			<field name="seq">4</field>
+		</row>
+	</table>
+	<table name="controlled_vocab_entry_settings">
+		<!-- NLM publication types -->
+		<field_default name="locale" null="0" />
+		<field_default name="setting_name">name</field_default>
+		<field_default name="setting_type">string</field_default>
+		<row>
+			<field name="controlled_vocab_entry_id">200</field>
+			<field name="setting_value">journal</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">201</field>
+			<field name="setting_value">book</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">202</field>
+			<field name="setting_value">conf-proc</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">203</field>
+			<field name="setting_value">thesis</field>
+		</row>
+	</table>
+</data>

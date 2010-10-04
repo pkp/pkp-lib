@@ -59,15 +59,17 @@ class FilterDAO extends DAO {
 	 * @param $contextId integer the context the filter should be installed into
 	 * @return PersistableFilter|boolean the new filter if installation successful, otherwise 'false'.
 	 */
-	function installObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0) {
+	function &installObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0) {
+		$falseVar = false;
+
 		// Retrieve the filter group from the database.
 		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		$filterGroup =& $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic);
-		if (!is_a($filterGroup, 'FilterGroup')) return false;
+		if (!is_a($filterGroup, 'FilterGroup')) return $falseVar;
 
 		// Instantiate the filter.
-		$filter =& instantiate($filterClassName, 'PersistableFilter', null, null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
-		if (!is_object($filter)) return false;
+		$filter =& instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
+		if (!is_object($filter)) return $falseVar;
 
 		// Is this a template?
 		$filter->setIsTemplate((boolean)$asTemplate);
@@ -80,7 +82,7 @@ class FilterDAO extends DAO {
 
 		// Persist the filter.
 		$filterId = $this->insertObject($filter, $contextId);
-		if (!is_integer($filterId) || $filterId == 0) return false;
+		if (!is_integer($filterId) || $filterId == 0) return $falseVar;
 
 		return $filter;
 	}
@@ -375,7 +377,7 @@ class FilterDAO extends DAO {
 		assert(is_a($filterGroup, 'FilterGroup'));
 
 		// Instantiate the filter
-		$filter =& instantiate($filterClassName, 'PersistableFilter', null, null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
+		$filter =& instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
 		if (!is_object($filter)) fatalError('Error while instantiating class "'.$filterClassName.'" as filter!');
 
 		return $filter;

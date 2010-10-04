@@ -6,7 +6,7 @@
   -->
 
 <!ELEMENT data (table?, sql?)*>
-<!ELEMENT table (field_default*, row*)>
+<!ELEMENT table (field_default*, row*)+>
 	<!ATTLIST table
 		name CDATA #REQUIRED>
 <!ELEMENT field_default (#PCDATA)>

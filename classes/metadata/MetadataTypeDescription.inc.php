@@ -54,6 +54,20 @@ class MetadataTypeDescription extends ClassTypeDescription {
 		return TYPE_DESCRIPTION_NAMESPACE_METADATA;
 	}
 
+	/**
+	 * @return string the fully qualified class name of the meta-data schema.
+	 */
+	function getMetadataSchemaClass() {
+		return $this->_metadataSchemaPackageName.'.'.$this->_metadataSchemaClassName;
+	}
+
+	/**
+	 * @return integer
+	 */
+	function getAssocType() {
+		return $this->_assocType;
+	}
+
 
 	//
 	// Implement abstract template methods from TypeDescription

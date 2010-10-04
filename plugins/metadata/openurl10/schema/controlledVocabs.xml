@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data SYSTEM "../../../../dtd/xmlData.dtd">
+
+<!--
+  * controlled_vocab.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Definition of filter groups.
+  -->
+<data>
+	<table name="controlled_vocabs">
+		<field_default name="assoc_type">0</field_default>
+		<field_default name="assoc_id">0</field_default>
+		<row>
+			<field name="controlled_vocab_id">300</field>
+			<field name="symbolic">openurl10-journal-genres</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_id">301</field>
+			<field name="symbolic">openurl10-book-genres</field>
+		</row>
+	</table>
+	<table name="controlled_vocab_entries">
+		<!-- OpenURL journal genres -->
+		<field_default name="controlled_vocab_id">300</field_default>
+		<row>
+			<field name="controlled_vocab_entry_id">300</field>
+			<field name="seq">1</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">301</field>
+			<field name="seq">2</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">302</field>
+			<field name="seq">3</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">303</field>
+			<field name="seq">4</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">304</field>
+			<field name="seq">5</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">305</field>
+			<field name="seq">6</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">306</field>
+			<field name="seq">7</field>
+		</row>
+
+		<!-- OpenURL book genres -->
+		<field_default name="controlled_vocab_id">301</field_default>
+		<row>
+			<field name="controlled_vocab_entry_id">310</field>
+			<field name="seq">1</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">311</field>
+			<field name="seq">2</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">312</field>
+			<field name="seq">3</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">313</field>
+			<field name="seq">4</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">314</field>
+			<field name="seq">5</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">315</field>
+			<field name="seq">6</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">316</field>
+			<field name="seq">7</field>
+		</row>
+	</table>
+	<table name="controlled_vocab_entry_settings">
+		<!-- OpenURL journal genres -->
+		<row>
+			<field name="controlled_vocab_entry_id">300</field>
+			<field name="setting_value">journal</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">301</field>
+			<field name="setting_value">issue</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">302</field>
+			<field name="setting_value">article</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">303</field>
+			<field name="setting_value">proceeding</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">304</field>
+			<field name="setting_value">conference</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">305</field>
+			<field name="setting_value">preprint</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">306</field>
+			<field name="setting_value">unknown</field>
+		</row>
+		
+		<!-- OpenURL book genres -->
+		<row>
+			<field name="controlled_vocab_entry_id">310</field>
+			<field name="setting_value">book</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">311</field>
+			<field name="setting_value">bookitem</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">312</field>
+			<field name="setting_value">proceeding</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">313</field>
+			<field name="setting_value">conference</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">314</field>
+			<field name="setting_value">report</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">315</field>
+			<field name="setting_value">document</field>
+		</row>
+		<row>
+			<field name="controlled_vocab_entry_id">316</field>
+			<field name="setting_value">unknown</field>
+		</row>
+	</table>
+</data>

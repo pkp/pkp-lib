@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filterConfig SYSTEM "../../../../dtd/filterConfig.dtd">
+
+<!--
+  * filterConfig.xml
+  *
+  * Copyright (c) 2003-2010 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Filter Configuration.
+  -->
+<filterConfig>
+	<filterGroups>
+		<filterGroup
+			symbolic="citation=>nlm30"
+			displayName="plugins.metadata.nlm30.citationAdapter.displayName"
+			description="plugins.metadata.nlm30.citationAdapter.description"
+			inputType="class::lib.pkp.classes.citation.Citation"
+			outputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)" />
+		<filterGroup
+			symbolic="nlm30=>citation"
+			displayName="plugins.metadata.nlm30.citationAdapter.displayName"
+			description="plugins.metadata.nlm30.citationAdapter.description"
+			inputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)"
+			outputType="class::lib.pkp.classes.citation.Citation" />
+	</filterGroups>
+	<filters>
+		<filter
+			inGroup="citation=>nlm30"
+			class="lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter"
+			isTemplate="0" />
+		<filter
+			inGroup="nlm30=>citation"
+			class="lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter"
+			isTemplate="0" />
+	</filters>
+</filterConfig>

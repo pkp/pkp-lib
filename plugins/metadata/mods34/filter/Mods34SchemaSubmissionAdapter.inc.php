@@ -22,10 +22,10 @@ import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
 class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
 	 */
-	function Mods34SchemaSubmissionAdapter($assocType) {
-		// Configure the adapter
-		parent::MetadataDataObjectAdapter('plugins.metadata.mods34.schema.Mods34Schema', 'lib.pkp.classes.submission.Submission', $assocType);
+	function Mods34SchemaSubmissionAdapter(&$filterGroup) {
+		parent::MetadataDataObjectAdapter($filterGroup);
 	}
 
 
@@ -36,11 +36,9 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
 	 * @param $mods34Description MetadataDescription
 	 * @param $submission Submission
-	 * @param $replace boolean whether to replace the existing submission
 	 * @param $authorClassName string the application specific author class name
 	 */
-	function &injectMetadataIntoDataObject(&$mods34Description, &$submission, $replace, $authorClassName) {
-		if ($replace) $submission = new Submission();
+	function &injectMetadataIntoDataObject(&$mods34Description, &$submission, $authorClassName) {
 		assert(is_a($submission, 'Submission'));
 		assert($mods34Description->getMetadataSchemaName() == 'plugins.metadata.mods34.schema.Mods34Schema');
 

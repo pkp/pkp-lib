@@ -264,14 +264,14 @@ class ProcessDAO extends DAO {
 			// Make the request including the generated one-time-key.
 			$stream = fsockopen($transport.$urlParts['host'], $port);
 			if (!$stream) break;
-		    $processRequest =
-		    	'GET '.$urlParts['path'].'?authToken='.urlencode($oneTimeKey)." HTTP/1.1\r\n"
-		    	.'Host: '.$urlParts['host']."\r\n"
-		    	."User-Agent: OJS\r\n"
-		    	."Connection: Close\r\n\r\n";
+			$processRequest =
+				'GET '.$urlParts['path'].'?authToken='.urlencode($oneTimeKey)." HTTP/1.1\r\n"
+				.'Host: '.$urlParts['host']."\r\n"
+				."User-Agent: OJS\r\n"
+				."Connection: Close\r\n\r\n";
 			stream_set_blocking($stream, 0);
-		    fwrite($stream, $processRequest);
-		    fclose($stream);
+			fwrite($stream, $processRequest);
+			fclose($stream);
 			unset($stream);
 
 			$currentParallelism++;

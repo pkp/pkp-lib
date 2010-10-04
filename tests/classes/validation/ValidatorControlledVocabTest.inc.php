@@ -29,7 +29,7 @@ class ValidatorControlledVocabTest extends PKPTestCase {
 		$mockControlledVocab->setAssocId(333);
 		$mockControlledVocab->setSymbolic('testVocab');
 
-	    // Set up the mock enumerate() method
+		// Set up the mock enumerate() method
 		$mockControlledVocab->expects($this->any())
 		                    ->method('enumerate')
 		                    ->will($this->returnValue(array(1 => 'vocab1', 2 => 'vocab2')));
@@ -37,7 +37,7 @@ class ValidatorControlledVocabTest extends PKPTestCase {
 		// Mock the ControlledVocabDAO
 		$mockControlledVocabDAO = $this->getMock('ControlledVocabDAO', array('getBySymbolic'));
 
-	    // Set up the mock getBySymbolic() method
+		// Set up the mock getBySymbolic() method
 		$mockControlledVocabDAO->expects($this->any())
 		                       ->method('getBySymbolic')
 		                       ->with('testVocab', ASSOC_TYPE_CITATION, 333)

@@ -58,7 +58,7 @@ class ControlledVocabEntryDAO extends DAO {
 			 INNER JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
 			 INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id
 			 WHERE cves.setting_name = ? and cves.locale = ? AND cves.setting_value = ?
-			       AND cv.symbolic = ? AND cv.assoc_type = ? AND cv.assoc_id = ?',
+			 	AND cv.symbolic = ? AND cv.assoc_type = ? AND cv.assoc_id = ?',
 			array($settingName, $locale, $settingValue, $symbolic, $assocType, $assocId)
 		);
 

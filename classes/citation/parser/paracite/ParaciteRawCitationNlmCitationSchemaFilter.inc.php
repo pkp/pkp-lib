@@ -95,7 +95,7 @@ class ParaciteRawCitationNlmCitationSchemaFilter extends NlmCitationSchemaFilter
 		// Call the paracite parser
 		$wrapperScript = dirname(__FILE__).DIRECTORY_SEPARATOR.'paracite.pl';
 		$paraciteCommand = $perlCommand.' '.escapeshellarg($wrapperScript).' '.
-		                   $this->getCitationModule().' '.escapeshellarg($citationString);
+			$this->getCitationModule().' '.escapeshellarg($citationString);
 		$xmlResult = shell_exec($paraciteCommand);
 		if (empty($xmlResult)) return $nullVar;
 

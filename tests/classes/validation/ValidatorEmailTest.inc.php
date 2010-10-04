@@ -22,7 +22,7 @@ class ValidatorEmailTest extends PKPTestCase {
 	 * @covers ValidatorRegExp
 	 */
 	public function testValidatorEmail() {
-	    $validator = new ValidatorEmail();
+		$validator = new ValidatorEmail();
 		self::assertTrue($validator->isValid('some.address@gmail.com'));
 		self::assertFalse($validator->isValid('anything else'));
 

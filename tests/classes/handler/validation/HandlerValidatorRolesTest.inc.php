@@ -213,7 +213,7 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 		// Mock a RoleDAO object
 		$mockRoleDao = $this->getMock('RoleDAO', array('roleExists'));
 
-	    // Set up the mock getRoleIdFromPath() method
+		// Set up the mock getRoleIdFromPath() method
 		$intermediateResult = $mockRoleDao->expects($this->any())->method('roleExists');
 		$expectedUserId = $roleExistsExpectedArgs[count($roleExistsExpectedArgs)-2];
 		if (is_array($roleExistsReturnValue)) {

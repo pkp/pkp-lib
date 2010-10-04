@@ -206,13 +206,13 @@ class UserGroupDAO extends DAO {
 		return $returner;
 	}
 
-    /**
-     * Validation check to see if a user belongs to any group that has a given role
-     * @param $pressId
-     * @param $userId
-     * @param $roleId
-     * @return bool
-     */
+	/**
+	 * Validation check to see if a user belongs to any group that has a given role
+	 * @param $pressId
+	 * @param $userId
+	 * @param $roleId
+	 * @return bool
+	 */
 	function userHasRole($pressId, $userId, $roleId) {
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
 		return $roleDao->userHasRole($pressId, $userId, $roleId);
@@ -321,68 +321,68 @@ class UserGroupDAO extends DAO {
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
 	 */
-    function &getUsersById($userGroupId = null, $pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-        $users = array();
+	function &getUsersById($userGroupId = null, $pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+		$users = array();
 
-        $paramArray = array('interest');
-        if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
-        if (isset($pressId)) $paramArray[] = (int) $pressId;
-        // For security / resource usage reasons, a user group or press ID
-        // must be specified. Don't allow calls supplying neither.
-        if ($pressId === null && $userGroupId === null) return null;
+		$paramArray = array('interest');
+		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
+		if (isset($pressId)) $paramArray[] = (int) $pressId;
+		// For security / resource usage reasons, a user group or press ID
+		// must be specified. Don't allow calls supplying neither.
+		if ($pressId === null && $userGroupId === null) return null;
 
-        $searchSql = '';
+		$searchSql = '';
 
-        $searchTypeMap = array(
-            USER_FIELD_FIRSTNAME => 'u.first_name',
-            USER_FIELD_LASTNAME => 'u.last_name',
-            USER_FIELD_USERNAME => 'u.username',
-            USER_FIELD_EMAIL => 'u.email',
-            USER_FIELD_INTERESTS => 'cves.setting_value'
-        );
+		$searchTypeMap = array(
+			USER_FIELD_FIRSTNAME => 'u.first_name',
+			USER_FIELD_LASTNAME => 'u.last_name',
+			USER_FIELD_USERNAME => 'u.username',
+			USER_FIELD_EMAIL => 'u.email',
+			USER_FIELD_INTERESTS => 'cves.setting_value'
+		);
 
-        if (!empty($search) && isset($searchTypeMap[$searchType])) {
-            $fieldName = $searchTypeMap[$searchType];
-            switch ($searchMatch) {
-                case 'is':
-                    $searchSql = "AND LOWER($fieldName) = LOWER(?)";
-                    $paramArray[] = $search;
-                    break;
-                case 'contains':
-                    $searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-                    $paramArray[] = '%' . $search . '%';
-                    break;
-                case 'startsWith':
-                    $searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-                    $paramArray[] = $search . '%';
-                    break;
-            }
-        } elseif (!empty($search)) switch ($searchType) {
-            case USER_FIELD_USERID:
-                $searchSql = 'AND u.user_id=?';
-                $paramArray[] = $search;
-                break;
-            case USER_FIELD_INITIAL:
-                $searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
-                $paramArray[] = $search . '%';
-                break;
-        }
+		if (!empty($search) && isset($searchTypeMap[$searchType])) {
+			$fieldName = $searchTypeMap[$searchType];
+			switch ($searchMatch) {
+				case 'is':
+					$searchSql = "AND LOWER($fieldName) = LOWER(?)";
+					$paramArray[] = $search;
+					break;
+				case 'contains':
+					$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+					$paramArray[] = '%' . $search . '%';
+					break;
+				case 'startsWith':
+					$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+					$paramArray[] = $search . '%';
+					break;
+			}
+		} elseif (!empty($search)) switch ($searchType) {
+			case USER_FIELD_USERID:
+				$searchSql = 'AND u.user_id=?';
+				$paramArray[] = $search;
+				break;
+			case USER_FIELD_INITIAL:
+				$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
+				$paramArray[] = $search . '%';
+				break;
+		}
 
-        $searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
-        $result =& $this->retrieveRange(
-            'SELECT DISTINCT u.* FROM users AS u
-            LEFT JOIN controlled_vocabs cv ON (cv.assoc_id = u.user_id AND cv.symbolic = ?)
+		$result =& $this->retrieveRange(
+			'SELECT DISTINCT u.* FROM users AS u
+			LEFT JOIN controlled_vocabs cv ON (cv.assoc_id = u.user_id AND cv.symbolic = ?)
 				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
-            WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($pressId) ? ' AND ug.press_id = ?' : '') . ' ' . $searchSql,
-            $paramArray,
-            $dbResultRange
-        );
+				WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($pressId) ? ' AND ug.press_id = ?' : '') . ' ' . $searchSql,
+			$paramArray,
+			$dbResultRange
+		);
 
-        $returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
-        return $returner;
-    }
+		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+		return $returner;
+	}
 
 	//
 	// UserGroupAssignment related

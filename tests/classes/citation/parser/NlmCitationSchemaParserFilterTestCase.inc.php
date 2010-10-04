@@ -41,7 +41,7 @@ abstract class NlmCitationSchemaParserFilterTestCase extends NlmCitationSchemaFi
 		$sourceFile = dirname(__FILE__).DIRECTORY_SEPARATOR.'test-citations.txt';
 		$parameterExtension = implore('', $parameters);
 		$targetFile = dirname(dirname(dirname(dirname(__FILE__)))).DIRECTORY_SEPARATOR.
-		              'results'.DIRECTORY_SEPARATOR.$this->getCitationServiceName().$parameterExtension.'Results.inc.php';
+			'results'.DIRECTORY_SEPARATOR.$this->getCitationServiceName().$parameterExtension.'Results.inc.php';
 
 		// Get the test citations from the source file
 		$testCitationsString = file_get_contents($sourceFile);

@@ -239,12 +239,12 @@ class PKPTemplateManager extends Smarty {
 	/**
 	 * @see Smarty::fetch()
 	 */
-    function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
-    	if (!$this->initialized) {
+	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
+		if (!$this->initialized) {
 			$this->initialize();
 		}
 
-    	// Add additional java script URLs
+		// Add additional java script URLs
 		if (!empty($this->javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');
 			$scriptOpen = '	<script language="javascript" type="text/javascript" src="';
@@ -1279,18 +1279,18 @@ class PKPTemplateManager extends Smarty {
 
 		return "<script type='text/javascript'>$(function() {
 		$('$id').tabs({
-		    ajaxOptions: {
-		        dataFilter: function(jsonData){
-		        	var data = $.parseJSON(jsonData);
-		        	if(data.status === true) {
-			            return data.content;
-		        	} else {
-		        		alert(data.content);
-		        	}
-		        }
-		    }});
-	    });
-	    </script>";
+			ajaxOptions: {
+				dataFilter: function(jsonData){
+					var data = $.parseJSON(jsonData);
+					if(data.status === true) {
+						return data.content;
+					} else {
+						alert(data.content);
+					}
+				}
+			}});
+		});
+		</script>";
 	}
 
 	function smartyModalTitle($params, &$smarty) {

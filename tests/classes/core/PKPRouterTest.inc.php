@@ -195,9 +195,9 @@ class PKPRouterTest extends PKPTestCase {
 		$mockDAO = $this->getMock('SomeContextDAO', array('getSomeContextByPath'));
 		DAORegistry::registerDAO('SomeContextDAO', $mockDAO);
 
-	    // Set up the mock DAO get-by-path method which
-	    // should be called with the context path from
-	    // the path info.
+		// Set up the mock DAO get-by-path method which
+		// should be called with the context path from
+		// the path info.
 		$expectedResult = $this->getMock('SomeContext');
 		$mockDAO->expects($this->once())
 		        ->method('getSomeContextByPath')

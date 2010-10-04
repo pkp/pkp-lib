@@ -223,7 +223,7 @@ class ListbuilderHandler extends GridHandler {
 
 		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
-    }
+	}
 
 	//
 	// Overridden methods from GridHandler

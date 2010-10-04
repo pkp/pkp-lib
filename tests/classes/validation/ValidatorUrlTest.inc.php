@@ -24,7 +24,7 @@ class ValidatorUrlTest extends PKPTestCase {
 	 * @covers Validator
 	 */
 	public function testValidatorUrlAndUri() {
-	    $validator = new ValidatorUrl();
+		$validator = new ValidatorUrl();
 		self::assertTrue($validator->isValid('ftp://some.download.com/'));
 		self::assertTrue($validator->isValid('http://some.site.org/'));
 		self::assertFalse($validator->isValid('gopher://another.site.org/'));

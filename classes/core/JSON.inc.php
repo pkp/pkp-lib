@@ -163,7 +163,7 @@ class JSON {
 				else {
 					return $a;
 				}
-		    }
+			}
 			$isList = true;
 			for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
 				if (key($a) !== $i) {

@@ -22,7 +22,7 @@ class ValidatorDateTest extends PKPTestCase {
 	 * @covers ValidatorRegExp
 	 */
 	public function testValidatorDate() {
-	    $validator = new ValidatorDate();
+		$validator = new ValidatorDate();
 		self::assertTrue($validator->isValid('2010-05-14'));
 		self::assertTrue($validator->isValid('2010-05'));
 		self::assertTrue($validator->isValid('2010'));

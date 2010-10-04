@@ -1,13 +1,17 @@
 <?php
 
 /**
+ * @defgroup tests_plugins_citationParser
+ */
+
+/**
  * @file tests/citation/parser/Nlm30CitationSchemaParserFilterTestCase.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaParserFilterTestCase
- * @ingroup tests_classes_citation_parser
+ * @ingroup tests_plugins_citationParser
  *
  * @brief Base class for all Nlm30CitationSchemaFilter tests for parser filters.
  */

@@ -11,6 +11,7 @@
   -->
 <filterConfig>
 	<filterGroups>
+		<!-- citation meta-data adapter -->
 		<filterGroup
 			symbolic="citation=>nlm30"
 			displayName="plugins.metadata.nlm30.citationAdapter.displayName"
@@ -23,6 +24,65 @@
 			description="plugins.metadata.nlm30.citationAdapter.description"
 			inputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)"
 			outputType="class::lib.pkp.classes.citation.Citation" />
+			
+		<!-- citation parsers (citation extraction services) -->
+		<filterGroup
+			symbolic="plaintext=>nlm30-element-citation"
+			displayName="plugins.metadata.nlm30.citationParsers.displayName"
+			description="plugins.metadata.nlm30.citationParsers.description"
+			inputType="primitive::string"
+			outputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)" />
+
+		<!-- citation lookup (citation database/improvement/lookup services) -->
+		<filterGroup
+			symbolic="nlm30-element-citation=>nlm30-element-citation"
+			displayName="plugins.metadata.nlm30.citationLookup.displayName"
+			description="plugins.metadata.nlm30.citationLookup.description"
+			inputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)"
+			outputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)" />
+
+		<!-- citation output -->
+		<filterGroup
+			symbolic="nlm30-element-citation=>plaintext"
+			displayName="plugins.metadata.nlm30.citationOutput.displayName"
+			description="plugins.metadata.nlm30.citationOutput.description"
+			inputType="metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)"
+			outputType="primitive::string" />
+
+		<!-- NLM 3.0 output -->
+		<filterGroup
+			symbolic="submission=>nlm30-article"
+			displayName="plugins.metadata.nlm30.nlm30XmlOutput.displayName"
+			description="plugins.metadata.nlm30.nlm30XmlOutput.description"
+			inputType="class::lib.pkp.classes.submission.Submission"
+			outputType="xml::*" />
+			<!-- FIXME: Add NLM 3.0 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+		
+		<!-- NLM 2.3 output -->
+		<filterGroup
+			symbolic="submission=>nlm23-article"
+			displayName="plugins.metadata.nlm30.nlm23XmlOutput.displayName"
+			description="plugins.metadata.nlm30.nlm23XmlOutput.description"
+			inputType="class::lib.pkp.classes.submission.Submission"
+			outputType="xml::*" />
+			<!-- FIXME: Add NLM 2.3 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+		
+		<!-- NLM 3.0 to 2.3 downgrade -->
+		<filterGroup
+			symbolic="nlm30-article=>nlm23-article"
+			displayName="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName"
+			description="plugins.metadata.nlm30.nlm30ToNlm23Xml.description"
+			inputType="xml::*"
+			outputType="xml::*" />
+			<!-- FIXME: Add NLM 2.3 and 3.0 tag set schema validation as soon as we implement the full tag set, see #5648 -->
+		
+		<!-- Plain text reference list output -->
+		<filterGroup
+			symbolic="submission=>reference-list"
+			displayName="plugins.metadata.nlm30.refList.displayName"
+			description="plugins.metadata.nlm30.refList.description"
+			inputType="class::lib.pkp.classes.submission.Submission"
+			outputType="class::lib.pkp.classes.citation.PlainTextReferencesList" />
 	</filterGroups>
 	<filters>
 		<filter

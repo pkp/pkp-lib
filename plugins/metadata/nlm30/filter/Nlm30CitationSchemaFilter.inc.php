@@ -13,10 +13,8 @@
  *  NLM citation metadata descriptions.
  */
 
-define('NLM30_CITATION_FILTER_PARSE', 0x1);
-define('NLM30_CITATION_FILTER_LOOKUP', 0x2);
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.PersistableFilter');
 import('lib.pkp.classes.filter.BooleanFilterSetting');
 
 import('lib.pkp.classes.metadata.MetadataDescription');
@@ -30,41 +28,21 @@ import('lib.pkp.classes.webservice.XmlWebService');
 import('lib.pkp.classes.xml.XMLHelper');
 import('lib.pkp.classes.xslt.XSLTransformationFilter');
 
-class Nlm30CitationSchemaFilter extends Filter {
+class Nlm30CitationSchemaFilter extends PersistableFilter {
 	/** @var array */
 	var $_supportedPublicationTypes;
 
-	/** @var array */
-	var $_supportedTransformation;
-
 	/**
 	 * Constructor
-	 *
-	 * @param $filterType integer whether this is a parser
-	 *  or a lookup filter
+	 * @param $filterGroup FilterGroup
 	 * @param $supportedPublicationTypes array
 	 */
-	function Nlm30CitationSchemaFilter($filterType = null, $supportedPublicationTypes = array()) {
+	function Nlm30CitationSchemaFilter(&$filterGroup, $supportedPublicationTypes = array()) {
 		// All NLM citation filters require XSL functionality
 		// that is only present in PHP5.
 		$this->setData('phpVersionMin', '5.0.0');
 
 		$this->_supportedPublicationTypes = $supportedPublicationTypes;
-		switch($filterType) {
-			case NLM30_CITATION_FILTER_PARSE:
-				$this->_supportedTransformation = array(
-					'primitive::string',
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
-				);
-				break;
-
-			case NLM30_CITATION_FILTER_LOOKUP:
-				$this->_supportedTransformation = array(
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
-					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
-				);
-				break;
-		}
 
 		// Instantiate the "isOptional" setting
 		// which is common to all NLM citation filters.
@@ -78,7 +56,7 @@ class Nlm30CitationSchemaFilter extends Filter {
 				'metadata.filters.settings.isOptional.validationMessage');
 		$this->addSetting($isOptional);
 
-		parent::Filter();
+		parent::PersistableFilter($filterGroup);
 	}
 
 	//
@@ -105,13 +83,6 @@ class Nlm30CitationSchemaFilter extends Filter {
 	//
 	// Implement template methods from Filter
 	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		return $this->_supportedTransformation;
-	}
-
 	/**
 	 * @see Filter::supports()
 	 * @param $input mixed

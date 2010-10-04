@@ -65,7 +65,7 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterInstance()
 	 */
 	function &getCitationOutputFilterInstance() {
-		import('lib.pkp.plugins.citationOutput.nlm.Nlm30CitationSchemaNlm30Filter');
+		import('lib.pkp.plugins.citationOutput.nlm.filter.Nlm30CitationSchemaNlm30Filter');
 		$nlm30CitationOutputFilter = new Nlm30CitationSchemaNlm30Filter();
 		return $nlm30CitationOutputFilter;
 	}

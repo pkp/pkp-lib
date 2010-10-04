@@ -19,6 +19,7 @@
 
 <!--
   * filterGroup - a group of transformations with a common semantic and common input/output types.
+  *
   * symbolic: a unique symbolic name for the group, see FilterGroup for more information on the nomenclature.
   * displayName: a translation key that points to a short label for the filter.
   * description: a translation key that points to a description of the filter.
@@ -41,11 +42,13 @@
 
 <!--
   * filter - a transformation to be registered with the filter registry.
+  *   NB: Only composite filters can have nested filters (see CompositeFilter).
+  *
   * class: the filter class
   * inGroup: a symbolic group name (see filterGroup above)
   * isTemplate: whether this is a template for other transformations or a transformation itself.
   -->
-<!ELEMENT filter (setting*)>
+<!ELEMENT filter (setting*, filter*)*>
 	<!ATTLIST filter
 		class CDATA #REQUIRED
 		inGroup CDATA #REQUIRED
@@ -53,13 +56,17 @@
 
 <!--
   * setting - a filter parameter (see FilterSetting class for details).
-  *  similar to pluginSettings.dtd, can be extended to arrays/objects
-  *  in the same way if required
-  * type: the type of the setting (string, integer, boolean or constant),
-  *  NB: const is an additional type not present in pluginSettings.dtd
-  *  which can be used to refer to a defined constant.
+  *   similar to pluginSettings.dtd, can be extended to arrays/objects
+  *   in the same way if required
+  *
+  * type: the type of the setting (string, integer, boolean, object/array or constant),
+  *   NB: const is an additional type not present in pluginSettings.dtd
+  *   which can be used to refer to a defined constant.
   -->
 <!ELEMENT setting (name, value)>
-<!ATTLIST setting type (int|string|bool|const) #REQUIRED>
+<!ATTLIST setting type (int|string|bool|object|const) #REQUIRED>
 <!ELEMENT name (#PCDATA)>
-<!ELEMENT value (#PCDATA)>
+<!ELEMENT value (#PCDATA | array)*>
+<!ELEMENT element (#PCDATA | array)*>
+<!ATTLIST element key CDATA #IMPLIED>
+<!ELEMENT array (element+)>

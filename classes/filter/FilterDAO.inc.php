@@ -57,9 +57,11 @@ class FilterDAO extends DAO {
 	 *  via DataObject::setData().
 	 * @param $asTemplate boolean
 	 * @param $contextId integer the context the filter should be installed into
+	 * @param $subFilters array sub-filters (only allowed when the filter is a CompositeFilter)
+	 * @param $persist boolean whether to actually persist the filter
 	 * @return PersistableFilter|boolean the new filter if installation successful, otherwise 'false'.
 	 */
-	function &installObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0) {
+	function &configureObject($filterClassName, $filterGroupSymbolic, $settings = array(), $asTemplate = false, $contextId = 0, $subFilters = array(), $persist = true) {
 		$falseVar = false;
 
 		// Retrieve the filter group from the database.
@@ -74,6 +76,16 @@ class FilterDAO extends DAO {
 		// Is this a template?
 		$filter->setIsTemplate((boolean)$asTemplate);
 
+		// Add sub-filters (if any).
+		if (!empty($subFilters)) {
+			assert(is_a($filter, 'CompositeFilter'));
+			assert(is_array($subFilters));
+			foreach($subFilters as $subFilter) {
+				$filter->addFilter($subFilter);
+				unset($subFilter);
+			}
+		}
+
 		// Parameterize the filter.
 		assert(is_array($settings));
 		foreach($settings as $key => $value) {
@@ -81,8 +93,10 @@ class FilterDAO extends DAO {
 		}
 
 		// Persist the filter.
-		$filterId = $this->insertObject($filter, $contextId);
-		if (!is_integer($filterId) || $filterId == 0) return $falseVar;
+		if ($persist) {
+			$filterId = $this->insertObject($filter, $contextId);
+			if (!is_integer($filterId) || $filterId == 0) return $falseVar;
+		}
 
 		return $filter;
 	}
@@ -189,7 +203,7 @@ class FilterDAO extends DAO {
 	 */
 	function &getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = 0, $getTemplates = false, $allowSubfilters = false) {
 		$result =& $this->retrieve(
-				'SELECT * FROM filters f'.
+				'SELECT f.* FROM filters f'.
 				' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id'.
 				' WHERE fg.symbolic = ? AND f.context_id = ? AND f.class_name = ?'.
 				' '.($allowSubfilters ? '' : 'AND f.parent_filter_id = 0').
@@ -219,7 +233,7 @@ class FilterDAO extends DAO {
 	function &getObjectsByGroup($groupSymbolic, $contextId = 0, $getTemplates = false, $checkRuntimeEnvironment = true) {
 		// 1) Get all available transformations in the group.
 		$result =& $this->retrieve(
-				'SELECT * FROM filters f'.
+				'SELECT f.* FROM filters f'.
 				' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id'.
 				' WHERE fg.symbolic = ? AND '.($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0').
 				'  '.(is_null($contextId) ? '' : 'AND f.context_id in (0, '.(integer)$contextId.')').

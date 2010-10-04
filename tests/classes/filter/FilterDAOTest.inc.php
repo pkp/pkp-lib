@@ -17,7 +17,7 @@ import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.filter.FilterDAO');
 import('lib.pkp.classes.filter.GenericSequencerFilter');
 import('lib.pkp.classes.filter.GenericMultiplexerFilter');
-import('lib.pkp.plugins.citationLookup.worldcat.WorldcatNlm30CitationSchemaFilter');
+import('lib.pkp.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSchemaFilter');
 import('lib.pkp.tests.classes.filter.CompatibilityTestFilter');
 
 class FilterDAOTest extends DatabaseTestCase {

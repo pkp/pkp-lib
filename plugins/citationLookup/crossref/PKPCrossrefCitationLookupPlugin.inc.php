@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @defgroup plugins_citationLookup_crossref
+ */
+
+/**
+ * @file plugins/citationLookup/crossref/PKPCrossrefCitationLookupPlugin.inc.php
+ *
+ * Copyright (c) 2003-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class PKPCrossrefCitationLookupPlugin
+ * @ingroup plugins_citationLookup_crossref
+ *
+ * @brief Cross-application CrossRef citation lookup plugin
+ */
+
+
+import('classes.plugins.Plugin');
+
+class PKPCrossrefCitationLookupPlugin extends Plugin {
+	/**
+	 * Constructor
+	 */
+	function PKPCrossrefCitationLookupPlugin() {
+		parent::Plugin();
+	}
+
+
+	//
+	// Override protected template methods from PKPPlugin
+	//
+	/**
+	 * @see PKPPlugin::getName()
+	 */
+	function getName() {
+		return 'CrossrefCitationLookupPlugin';
+	}
+
+	/**
+	 * @see PKPPlugin::getDisplayName()
+	 */
+	function getDisplayName() {
+		return Locale::translate('plugins.citationLookup.crossref.displayName');
+	}
+
+	/**
+	 * @see PKPPlugin::getDescription()
+	 */
+	function getDescription() {
+		return Locale::translate('plugins.citationLookup.crossref.description');
+	}
+}
+
+?>

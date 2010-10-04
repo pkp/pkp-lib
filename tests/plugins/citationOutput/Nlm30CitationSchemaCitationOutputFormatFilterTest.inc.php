@@ -1,13 +1,17 @@
 <?php
 
 /**
+ * @defgroup tests_plugins_citationOutput
+ */
+
+/**
  * @file tests/plugins/citationOutput/Nlm30CitationSchemaCitationOutputFormatFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30CitationSchemaCitationOutputFormatFilterTest
- * @ingroup tests_classes_citation_output
+ * @ingroup tests_plugins_citationOutput
  *
  * @brief Base tests class for citation output format filters.
  */

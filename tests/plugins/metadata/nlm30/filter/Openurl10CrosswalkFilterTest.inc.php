@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/plugins/metadata/nlm30/filter/Openurl10CrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30Openurl10CrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Openurl10CrosswalkFilterTest
+ * @class Nlm30Openurl10CrosswalkFilterTest
  * @ingroup tests_plugins_metadata_nlm30_filter
  * @see Nlm30CitationSchemaOpenurl10CrosswalkFilter
  *
@@ -20,7 +20,7 @@ import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
 
-class Openurl10CrosswalkFilterTest extends PKPTestCase {
+class Nlm30Openurl10CrosswalkFilterTest extends PKPTestCase {
 	/**
 	 * Creates a test description in NLM format
 	 * @return MetadataDescription

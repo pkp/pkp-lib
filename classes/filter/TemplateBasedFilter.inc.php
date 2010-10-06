@@ -13,14 +13,15 @@
  *  their input via smarty templates.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.PersistableFilter');
 
-class TemplateBasedFilter extends Filter {
+class TemplateBasedFilter extends PersistableFilter {
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
 	 */
-	function TemplateBasedFilter() {
-		parent::Filter();
+	function TemplateBasedFilter(&$filterGroup) {
+		parent::PersistableFilter($filterGroup);
 	}
 
 
@@ -61,6 +62,9 @@ class TemplateBasedFilter extends Filter {
 	}
 
 
+	//
+	// Implement template methods from Filter
+	//
 	/**
 	 * @see Filter::process()
 	 */

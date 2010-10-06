@@ -14,12 +14,12 @@
  */
 
 import('lib.pkp.plugins.metadata.nlm30.filter.Openurl10Nlm30CitationSchemaCrosswalkFilter');
-import('lib.pkp.tests.classes.metadata.nlm.Openurl10CrosswalkFilterTest');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilterTest');
 
-class Openurl10Nlm30CitationSchemaCrosswalkFilterTest extends Openurl10CrosswalkFilterTest {
+class Openurl10Nlm30CitationSchemaCrosswalkFilterTest extends Nlm30Openurl10CrosswalkFilterTest {
 	/**
 	 * @covers Openurl10Nlm30CitationSchemaCrosswalkFilter
-	 * @covers Openurl10CrosswalkFilter
+	 * @covers Nlm30Openurl10CrosswalkFilter
 	 */
 	public function testExecute() {
 		$openurl10Description = $this->getTestOpenurl10Description();

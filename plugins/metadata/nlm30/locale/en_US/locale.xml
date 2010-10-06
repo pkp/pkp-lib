@@ -30,6 +30,8 @@
 	<!-- citation output -->
 	<message key="plugins.metadata.nlm30.citationOutput.displayName">Citation Output Services</message>
 	<message key="plugins.metadata.nlm30.citationOutput.description">Convert NLM 3.0 element-citation mark-up into a plain-text citation output standard.</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.displayName">Citation Output Services (XML)</message>
+	<message key="plugins.metadata.nlm30Xml.citationOutput.description">Convert NLM 3.0 element-citation mark-up into an XML citation output standard.</message>
 
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 Journal Publishing Output</message>

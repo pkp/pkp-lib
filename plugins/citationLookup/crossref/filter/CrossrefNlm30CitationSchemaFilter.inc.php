@@ -129,8 +129,8 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	//
 	/**
 	 * Prepare a search with the CrossRef OpenURL resolver
- 	 * @param $citationDescription MetadataDescription
- 	 * @return array an array of search parameters
+	 * @param $citationDescription MetadataDescription
+	 * @return array an array of search parameters
 	 */
 	function &_prepareOpenurl10Search(&$citationDescription) {
 		$nullVar = null;

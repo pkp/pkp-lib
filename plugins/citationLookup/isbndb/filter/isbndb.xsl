@@ -50,7 +50,7 @@
 <xsl:template match="PublisherText">
 	<place-publisher><xsl:value-of select="."/></place-publisher>
 
-	<!-- also possible year in Details/@edition_info -->	
+	<!-- also possible year in Details/@edition_info -->
 	<date><xsl:value-of select="."/></date>
 </xsl:template>
 

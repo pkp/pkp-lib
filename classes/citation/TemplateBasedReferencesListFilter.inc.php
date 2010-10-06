@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/filter/TemplateBasedReferencesListFilter.inc.php
+ * @file classes/citation/TemplateBasedReferencesListFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TemplateBasedReferencesListFilter
- * @ingroup plugins_metadata_nlm30_filter
+ * @ingroup classes_citation
  *
  * @brief Abstract base class for filters that create a references
  *  list for a submission.
@@ -19,24 +19,45 @@ import('lib.pkp.classes.filter.TemplateBasedFilter');
 class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
 	 */
-	function TemplateBasedReferencesListFilter() {
-		parent::TemplateBasedFilter();
+	function TemplateBasedReferencesListFilter(&$filterGroup) {
+		// Add the persistable filter settings.
+		import('lib.pkp.classes.filter.FilterSetting');
+		$this->addSetting(new FilterSetting('citationOutputFilterName', null, null));
+		$this->addSetting(new FilterSetting('metadataSchemaName', null, null));
+
+		parent::TemplateBasedFilter($filterGroup);
 	}
 
 
 	//
-	// Template methods to be implemented by sub-classes.
+	// Getters and Setters
 	//
+	/**
+	 * Get the metadata schema being used to extract
+	 * data from the citations.
+	 * @return MetadataSchema
+	 */
+	function &getMetadataSchema() {
+		$metadataSchemaName = $this->getData('metadataSchemaName');
+		assert(!is_null($metadataSchemaName));
+		$metadataSchema =& instantiate($metadataSchemaName, 'MetadataSchema');
+		return $metadataSchema;
+	}
+
 	/**
 	 * Retrieve the citation output filter that will be
 	 * used to transform citations.
-	 * @return Nlm30CitationSchemaCitationOutputFormatFilter
+	 * @return TemplateBasedFilter
 	 */
 	function &getCitationOutputFilterInstance() {
-		// Must be implemented by sub-classes.
-		assert(false);
+		$citationOutputFilterName = $this->getData('citationOutputFilterName');
+		assert(!is_null($citationOutputFilterName));
+		$citationOutputFilter =& instantiate($citationOutputFilterName, 'TemplateBasedFilter');
+		return $citationOutputFilter;
 	}
+
 
 	//
 	// Implement template methods from TemplateBasedFilter
@@ -59,12 +80,12 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 		$citations =& $citationResults->toAssociativeArray('seq');
 
 		// Create citation output for these citations.
-		import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-		$nlm30CitationSchema = new Nlm30CitationSchema();
+		$metadataSchema =& $this->getMetadataSchema();
+		assert(is_a($metadataSchema, 'MetadataSchema'));
 		$citationOutputFilter = $this->getCitationOutputFilterInstance();
 		$citationsOutput = array();
 		foreach($citations as $seq => $citation) {
-			$citationMetadata =& $citation->extractMetadata($nlm30CitationSchema);
+			$citationMetadata =& $citation->extractMetadata($metadataSchema);
 			$citationsOutput[$seq] = $citationOutputFilter->execute($citationMetadata);
 		}
 

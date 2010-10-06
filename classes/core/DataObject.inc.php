@@ -16,7 +16,7 @@
 
 class DataObject {
 	/** Array of object data */
-	var $_data;
+	var $_data = array();
 
 	/** @var array an array of MetadataAdapter instances (one per supported schema) */
 	var $_metadataAdapters = array();
@@ -25,7 +25,6 @@ class DataObject {
 	 * Constructor.
 	 */
 	function DataObject($callHooks = true) {
-		$this->_data = array();
 	}
 
 	//

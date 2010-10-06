@@ -20,14 +20,12 @@ import('lib.pkp.classes.filter.TemplateBasedFilter');
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
 
 class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
-	/** @var The publication types supported by this output filter. */
-	var $_supportedPublicationTypes;
-
 	/**
 	 * Constructor
+	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaCitationOutputFormatFilter() {
-		parent::TemplateBasedFilter();
+	function Nlm30CitationSchemaCitationOutputFormatFilter(&$filterGroup) {
+		parent::TemplateBasedFilter($filterGroup);
 	}
 
 
@@ -60,16 +58,6 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	//
 	// Implement template methods from Filter
 	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
-			'primitive::string'
-		);
-	}
-
 	/**
 	 * @see Filter::process()
 	 * @param $input MetadataDescription the NLM meta-data description

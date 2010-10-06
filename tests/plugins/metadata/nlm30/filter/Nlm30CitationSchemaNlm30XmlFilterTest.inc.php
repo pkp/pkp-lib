@@ -1,31 +1,27 @@
 <?php
 
 /**
- * @defgroup tests_plugins_citationOutput_nlm_filter
- */
-
-/**
- * @file tests/plugins/citationOutput/nlm30/Nlm30CitationSchemaNlm30FilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30CitationSchemaNlm30XmlFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Nlm30CitationSchemaNlm30FilterTest
- * @ingroup tests_plugins_citationOutput_nlm_filter
- * @see Nlm30CitationSchemaNlm30Filter
+ * @class Nlm30CitationSchemaNlm30XmlFilterTest
+ * @ingroup tests_plugins_metadata_nlm30_filter
+ * @see Nlm30CitationSchemaNlm30XmlFilter
  *
- * @brief Tests for the Nlm30CitationSchemaNlm30Filter class.
+ * @brief Tests for the Nlm30CitationSchemaNlm30XmlFilter class.
  */
 
-import('lib.pkp.plugins.citationOutput.nlm.filter.Nlm30CitationSchemaNlm30Filter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter');
 import('lib.pkp.tests.plugins.citationOutput.Nlm30CitationSchemaCitationOutputFormatFilterTest');
 
-class Nlm30CitationSchemaNlm30FilterTest extends Nlm30CitationSchemaCitationOutputFormatFilterTest {
+class Nlm30CitationSchemaNlm30XmlFilterTest extends Nlm30CitationSchemaCitationOutputFormatFilterTest {
 	/*
 	 * Implements abstract methods from Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new Nlm30CitationSchemaNlm30Filter();
+		return new Nlm30CitationSchemaNlm30XmlFilter();
 	}
 
 	protected function addGoogleScholar() {

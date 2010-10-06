@@ -17,41 +17,34 @@
  */
 
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.pkp.classes.filter.PersistableFilter');
 import('lib.pkp.classes.xml.XMLCustomWriter');
 
-class Mods34DescriptionXmlFilter extends Filter {
+class Mods34DescriptionXmlFilter extends PersistableFilter {
 	/**
 	 * Constructor
+	 * $filterGroup FilterGroup
 	 */
-	function Mods34DescriptionXmlFilter() {
+	function Mods34DescriptionXmlFilter(&$filterGroup) {
 		$this->setDisplayName('MODS 3.4');
-		parent::Filter();
+		parent::PersistableFilter($filterGroup);
+	}
+
+
+	//
+	// Implement template methods from PersistableFilter
+	//
+	/**
+	 * @see PersistableFilter::getClassName()
+	 */
+	function getClassName() {
+		return 'lib.pkp.plugins.metadata.mods34.filter.Mods34DescriptionXmlFilter';
 	}
 
 
 	//
 	// Implement template methods from Filter
 	//
-	/**
-	 * @see Filter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.plugins.metadata.mods34.filters.Mods34DescriptionXmlFilter';
-	}
-
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		// We take a MODS meta-data description and render
-		// it into MODS XML output.
-		return array(
-			'metadata::plugins.metadata.mods34.schema.Mods34Schema(*)',
-			'xml::schema(lib/pkp/plugins/metadata/mods34/filter/mods34.xsd)'
-		);
-	}
-
 	/**
 	 * @see Filter::process()
 	 * @param $input MetadataDescription

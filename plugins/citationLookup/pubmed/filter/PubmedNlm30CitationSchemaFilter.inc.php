@@ -32,6 +32,8 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * @param $filterGroup FilterGroup
 	 */
 	function PubmedNlm30CitationSchemaFilter(&$filterGroup) {
+		$this->setDisplayName('PubMed');
+
 		// Instantiate the settings of this filter
 		$emailSetting = new EmailFilterSetting('email',
 				'metadata.filters.pubmed.settings.email.displayName',

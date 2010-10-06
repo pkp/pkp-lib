@@ -35,7 +35,6 @@ class PluginTestCase extends PKPTestCase {
 
 		// Make sure that data from earlier tests is being deleted first.
 		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
 		foreach($filterGroups as $filterGroupSymbolic) {
 			foreach($filterDao->getObjectsByGroup($filterGroupSymbolic) as $filter) {
 				$filterDao->deleteObject($filter);
@@ -43,6 +42,9 @@ class PluginTestCase extends PKPTestCase {
 			foreach($filterDao->getObjectsByGroup($filterGroupSymbolic, 0, true) as $filter) {
 				$filterDao->deleteObject($filter);
 			}
+		}
+		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
+		foreach($filterGroups as $filterGroupSymbolic) {
 			$filterGroupDao->deleteObjectBySymbolic($filterGroupSymbolic);
 		}
 
@@ -83,7 +85,7 @@ class PluginTestCase extends PKPTestCase {
 		// Test whether the filter groups have been installed.
 		foreach($filterGroups as $filterGroupSymbolic) {
 			// Check the group.
-			self::assertType('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic));
+			self::assertType('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);
 		}
 	}
 

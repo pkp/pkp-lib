@@ -13,8 +13,8 @@
  * @brief Tests for the PKPSubmissionNlm30XmlFilterTest class.
  */
 
-import('lib.pkp.tests.classes.importexport.nlm.Nlm30XmlFilterTest');
-import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30XmlFilterTest');
+import('lib.pkp.plugins.metadata.nlm30.filter.PKPSubmissionNlm30XmlFilter');
 
 class PKPSubmissionNlm30XmlFilterTest extends Nlm30XmlFilterTest {
 	/**

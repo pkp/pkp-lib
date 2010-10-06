@@ -22,7 +22,7 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
 	 * @param $filterGroup FilterGroup
 	 */
 	function IsbndbIsbnNlm30CitationSchemaFilter(&$filterGroup) {
-		$this->setDisplayName('ISBNdb');
+		$this->setDisplayName('ISBNdb (to NLM)');
 
 		parent::IsbndbNlm30CitationSchemaFilter($filterGroup);
 	}

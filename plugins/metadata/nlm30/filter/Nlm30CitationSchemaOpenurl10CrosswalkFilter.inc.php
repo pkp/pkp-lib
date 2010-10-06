@@ -17,15 +17,15 @@
  *  OpenURL schemas.
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Openurl10CrosswalkFilter');
+import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilter');
 
-class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Openurl10CrosswalkFilter {
+class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10CrosswalkFilter {
 	/**
 	 * Constructor
 	 */
 	function Nlm30CitationSchemaOpenurl10CrosswalkFilter() {
 		$this->setDisplayName('Crosswalk from NLM Citation to Open URL');
-		parent::Openurl10CrosswalkFilter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
+		parent::Nlm30Openurl10CrosswalkFilter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 				'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
 	}
 

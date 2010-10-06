@@ -38,7 +38,8 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 	function Nlm30CitationDemultiplexerFilter() {
 		$this->setDisplayName('Join several NLM Citation descriptions into a single citation');
 
-		parent::Filter();
+		parent::Filter('metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
+			'class::lib.pkp.classes.citation.Citation');
 	}
 
 	//
@@ -96,23 +97,6 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 	//
 	// Implementing abstract template methods from Filter
 	//
-	/**
-	 * @see Filter::getSupportedTransformation()
-	 */
-	function getSupportedTransformation() {
-		return array(
-			'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
-			'class::lib.pkp.classes.citation.Citation'
-		);
-	}
-
-	/**
-	 * @see Filter::getClassName()
-	 */
-	function getClassName() {
-		return 'lib.pkp.classes.citation.Nlm30CitationDemultiplexerFilter';
-	}
-
 	/**
 	 * @see Filter::process()
 	 * @param $input array incoming MetadataDescriptions

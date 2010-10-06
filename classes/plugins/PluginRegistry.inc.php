@@ -184,6 +184,13 @@ class PluginRegistry {
 
 	/**
 	 * Get a list of the various plugin categories available.
+	 *
+	 * NB: The categories are returned in the order in which they
+	 * have to be registered and/or installed. Plug-ins in categories
+	 * later in the list may depend on plug-ins in earlier
+	 * categories.
+	 *
+	 * @return array
 	 */
 	function getCategories() {
 		$application =& PKPApplication::getApplication();
@@ -197,6 +204,7 @@ class PluginRegistry {
 	 * @param $enabledOnly boolean load only enabled plug-ins
 	 */
 	function &loadAllPlugins($enabledOnly = false) {
+		// Retrieve and register categories (order is significant).
 		foreach (PluginRegistry::getCategories() as $category) {
 			PluginRegistry::loadCategory($category, $enabledOnly);
 		}

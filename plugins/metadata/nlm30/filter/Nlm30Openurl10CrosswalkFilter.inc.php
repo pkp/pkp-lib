@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file plugins/metadata/nlm30/filter/Openurl10CrosswalkFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/Nlm30Openurl10CrosswalkFilter.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Openurl10CrosswalkFilter
+ * @class Nlm30Openurl10CrosswalkFilter
  * @ingroup plugins_metadata_nlm30_filter
  * @see Nlm30CitationSchema
  * @see Openurl10BookSchema
@@ -23,13 +23,13 @@ import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BookSchema');
 import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema');
 
-class Openurl10CrosswalkFilter extends CrosswalkFilter {
+class Nlm30Openurl10CrosswalkFilter extends CrosswalkFilter {
 	/**
 	 * Constructor
 	 * @param $fromSchema string fully qualified class name of supported input meta-data schema
 	 * @param $toSchema string fully qualified class name of supported output meta-data schema
 	 */
-	function Openurl10CrosswalkFilter($fromSchema, $toSchema) {
+	function Nlm30Openurl10CrosswalkFilter($fromSchema, $toSchema) {
 		parent::CrosswalkFilter($fromSchema, $toSchema);
 	}
 

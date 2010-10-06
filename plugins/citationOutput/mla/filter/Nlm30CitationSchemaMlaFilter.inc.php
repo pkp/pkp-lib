@@ -23,20 +23,20 @@ import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputF
 class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
 	/**
 	 * Constructor
-	 * @param $request PKPRequest
+	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaMlaFilter() {
+	function Nlm30CitationSchemaMlaFilter(&$filterGroup) {
 		$this->setDisplayName('MLA Citation Output');
 
-		parent::Nlm30CitationSchemaCitationOutputFormatFilter();
+		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);
 	}
 
 
 	//
-	// Implement template methods from Filter
+	// Implement template methods from PersistableFilter
 	//
 	/**
-	 * @see Filter::getClassName()
+	 * @see PersistableFilter::getClassName()
 	 */
 	function getClassName() {
 		return 'lib.pkp.plugins.citationOutput.mla.filter.Nlm30CitationSchemaMlaFilter';

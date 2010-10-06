@@ -13,7 +13,7 @@
  * @brief Tests for the Nlm30Nlm23CrosswalkFilterTest class.
  */
 
-import('lib.pkp.tests.classes.importexport.nlm.Nlm30XmlFilterTest');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30XmlFilterTest');
 
 class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 	/**
@@ -85,7 +85,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 
 		// Prepare NLM 3.0 input.
 		$mockSubmission =& $this->getTestSubmission();
-		import('lib.pkp.classes.importexport.nlm.PKPSubmissionNlm30XmlFilter');
+		import('lib.pkp.plugins.metadata.nlm30.filter.PKPSubmissionNlm30XmlFilter');
 		$nlm30Filter = new PKPSubmissionNlm30XmlFilter();
 		$nlm30Xml = $nlm30Filter->execute($mockSubmission);
 

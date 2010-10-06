@@ -14,7 +14,6 @@
 
 // $Id$
 
-
 class SubmissionFile extends DataObject {
 
 	/**
@@ -179,7 +178,7 @@ class SubmissionFile extends DataObject {
 
 	/**
 	 * Get type of the file.
-	 * @ return string
+	 * @return int
 	 */
 	function getType() {
 		return $this->getData('type');
@@ -187,7 +186,7 @@ class SubmissionFile extends DataObject {
 
 	/**
 	 * Set type of the file.
-	 * @param $type string
+	 * @param $type int
 	 */
 	function setType($type) {
 		return $this->setData('type', $type);

@@ -25,7 +25,7 @@
 			<p>{translate key=$formDescription filterDisplayName=$filterDisplayName}</p>
 
 			{include file="common/formErrors.tpl"}
-	
+
 			{if $filterTemplates}
 				{* Template selection *}
 				{fbvSelect id="filterTemplateSelect"|concat:$uid name="filterTemplateId"
@@ -36,7 +36,7 @@
 						// don't have a filter selected.
 						$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
 								.hide()
-						
+
 						ajaxAction(
 							'post',
 							'#editFilterFormContainer{/literal}{$uid}{literal}',
@@ -55,7 +55,7 @@
 								.show()
 					});
 				</script>{/literal}
-	
+
 				{assign var=hasRequiredField value=false}
 				<table>
 					{foreach from=$filterSettings item=filterSetting}
@@ -85,7 +85,7 @@
 					{/foreach}
 				</table>
 				{if $hasRequiredField}<p><span class="formRequired">{translate key="common.requiredField"}</span></p>{/if}
-				
+
 				{if $filterId}<input type="hidden" name="filterId" value="{$filterId|escape}" />{/if}
 				{if $filterTemplateId}<input type="hidden" name="filterTemplateId" value="{$filterTemplateId|escape}" />{/if}
 			{/if}

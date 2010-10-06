@@ -115,7 +115,7 @@
 			<field name="controlled_vocab_entry_id">306</field>
 			<field name="setting_value">unknown</field>
 		</row>
-		
+
 		<!-- OpenURL book genres -->
 		<row>
 			<field name="controlled_vocab_entry_id">310</field>

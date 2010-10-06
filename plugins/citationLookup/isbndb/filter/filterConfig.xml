@@ -31,7 +31,7 @@
 			class="lib.pkp.classes.filter.GenericSequencerFilter"
 			isTemplate="1">
 			<setting type="string"><name>displayName</name><value>ISBNdb</value></setting>
-			
+
 			<filter
 				inGroup="nlm30-element-citation=>isbn"
 				class="lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaIsbnFilter"

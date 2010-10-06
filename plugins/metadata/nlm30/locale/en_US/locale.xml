@@ -14,7 +14,7 @@
 	<!-- plug-in -->
 	<message key="plugins.metadata.nlm30.displayName">NLM 3.0 meta-data</message>
 	<message key="plugins.metadata.nlm30.description">Contributes NLM 3.0 schemas and application adapters.</message>
-	
+
 	<!-- citation meta-data adapter -->
 	<message key="plugins.metadata.nlm30.citationAdapter.displayName">NLM 3.0 Citation Adapter</message>
 	<message key="plugins.metadata.nlm30.citationAdapter.description">Extracts/injects meta-data from/into citations.</message>
@@ -36,15 +36,15 @@
 	<!-- NLM 3.0 output -->
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.displayName">NLM 3.0 Journal Publishing Output</message>
 	<message key="plugins.metadata.nlm30.nlm30XmlOutput.description">Convert an OJS or OCS article/paper into NLM 3.0.</message>
-		
+
 	<!-- NLM 2.3 output -->
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.displayName">NLM 2.3 Journal Publishing Output</message>
 	<message key="plugins.metadata.nlm30.nlm23XmlOutput.description">Convert an OJS or OCS article/paper into NLM 2.3.</message>
-		
+
 	<!-- NLM 3.0 to 2.3 downgrade -->
 	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.displayName">NLM 3.0 to 2.3 Journal Publishing Downgrade</message>
 	<message key="plugins.metadata.nlm30.nlm30ToNlm23Xml.description">Downgrades NLM 3.0 to NLM 2.3.</message>
-		
+
 	<!-- Plain text reference list output -->
 	<message key="plugins.metadata.nlm30.refList.displayName">Plain text reference list generation</message>
 	<message key="plugins.metadata.nlm30.refList.description">Generate a formatted plain text reference list from an OJS/OCS/OMP submission's references</message>

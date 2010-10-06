@@ -11,7 +11,7 @@
 		{if ($personIndex < 6 || $smarty.foreach.persons.last) && is_object($person)}
 			{capture assign=surname}
 				{if $person->getStatement('prefix')}{$person->getStatement('prefix')|escape} {/if}{$person->getStatement('surname')|escape}
-			{/capture}	
+			{/capture}
 			{capture assign=initials}
 				{foreach from=$person->getStatement('given-names') item=givenName name=givenNames}
 					{$givenName[0]|escape}.{if !$smarty.foreach.givenNames.last} {/if}

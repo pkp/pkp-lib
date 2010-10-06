@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.citationParser.regex.displayName">Regular Expressions Citation Extractor</message>
 	<message key="plugins.citationParser.regex.description">Extracts fields from plain text citations via regular expressions.</message>

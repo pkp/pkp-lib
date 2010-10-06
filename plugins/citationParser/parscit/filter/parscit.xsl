@@ -30,7 +30,7 @@
 			<xsl:when test=". = 'proceeding'">conf-proc</xsl:when>
 			<xsl:otherwise>unknown</xsl:otherwise>
 		</xsl:choose>
-	</publication-type>		
+	</publication-type>
 </xsl:template>
 
 <!-- Authors -->
@@ -45,12 +45,12 @@
 
 <!-- Book title -->
 <xsl:template match="booktitle">
-	<source><xsl:value-of select="."/></source>		
+	<source><xsl:value-of select="."/></source>
 </xsl:template>
 
 <!-- Journal title -->
 <xsl:template match="journal">
-	<source><xsl:value-of select="."/></source>		
+	<source><xsl:value-of select="."/></source>
 </xsl:template>
 
 <!-- Date -->

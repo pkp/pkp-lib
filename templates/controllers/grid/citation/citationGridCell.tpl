@@ -21,12 +21,12 @@
 
 			// Mark the clickable row.
 			$parentDiv.parent().addClass('clickable-row');
-			
+
 			// Mark the row as the current row.
 			$parentDiv.parent().parent().parent()
 				{if $isCurrentItem}.addClass('current-item'){/if}
 				.addClass('{if !$isApproved}un{/if}approved-citation');
-			
+
 			// Copy click event to parent div.
 			clickEventHandlers = $('#{$cellId}').data('events')['click'];
 			for(clickEvent in clickEventHandlers) {ldelim}

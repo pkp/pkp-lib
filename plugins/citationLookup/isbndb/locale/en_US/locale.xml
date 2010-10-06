@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<!-- plug-in -->
 	<message key="plugins.citationLookup.isbndb.displayName">CrossRef Database Connector</message>

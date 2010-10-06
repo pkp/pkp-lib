@@ -24,7 +24,7 @@
 			<xsl:when test="ctx:context-objects/ctx:context-object/ctx:referent/ctx:metadata-by-val/ctx:metadata">
 				<xsl:apply-templates select="ctx:context-objects/ctx:context-object/ctx:referent/ctx:metadata-by-val/ctx:metadata/*/*"/>
 			</xsl:when>
-			
+
 			<xsl:otherwise>
 				<!-- get any additional elements from citation -->
 				<xsl:apply-templates select="citation/authors/*"/>
@@ -41,27 +41,27 @@
 
 <!-- Authors -->
 <xsl:template match="*[local-name() = 'au'] | *[local-name() = 'corp']">
-	<author><xsl:value-of select="."/></author>		
+	<author><xsl:value-of select="."/></author>
 </xsl:template>
 
 <!-- Book title -->
 <xsl:template match="*[local-name() = 'btitle']">
-	<source><xsl:value-of select="."/></source>		
+	<source><xsl:value-of select="."/></source>
 </xsl:template>
 
 <!-- Journal/conference title -->
 <xsl:template match="*[local-name() = 'stitle'] | *[local-name() = 'jtitle']">
-	<source><xsl:value-of select="."/></source>		
+	<source><xsl:value-of select="."/></source>
 </xsl:template>
 
 <!-- Article title -->
 <xsl:template match="*[local-name() = 'title'] | *[local-name() = 'atitle']">
-	<article-title><xsl:value-of select="."/></article-title>		
+	<article-title><xsl:value-of select="."/></article-title>
 </xsl:template>
 
 <!-- Article title -->
 <xsl:template match="*[local-name() = 'year'] | *[local-name() = 'date']">
-	<date><xsl:value-of select="."/></date>		
+	<date><xsl:value-of select="."/></date>
 </xsl:template>
 
 <!-- Location -->
@@ -80,10 +80,10 @@
 	<lpage><xsl:value-of select="substring-after(., '--')"/></lpage>
 </xsl:template>
 <xsl:template match="*[local-name() = 'spage']">
-	<fpage><xsl:value-of select="."/></fpage>		
+	<fpage><xsl:value-of select="."/></fpage>
 </xsl:template>
 <xsl:template match="*[local-name() = 'epage']">
-	<lpage><xsl:value-of select="."/></lpage>		
+	<lpage><xsl:value-of select="."/></lpage>
 </xsl:template>
 
 <!-- Issue: We cannot interpret number or quarter, so let's save them as issue -->

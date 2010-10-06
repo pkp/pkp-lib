@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.citationOutput.mla.displayName">MLA Citation Style</message>
 	<message key="plugins.citationOutput.mla.description">Implements the MLA citation style.</message>

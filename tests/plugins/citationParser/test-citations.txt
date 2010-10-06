@@ -104,7 +104,7 @@ Jablonski S. Online Multiple Congenital Anomaly/Mental Retardation (MCA/MR) Synd
 MeSH Browser [database on the Internet]. Bethesda (MD): National Library of Medicine (US); 2002 - [cited 2003 Jun 10]. Meta-analysis; unique ID: D015201; [about 3 p.]. Available from: http://www.nlm.nih.gov/mesh/MBrowser.html Files updated weekly.
 Smithline HA, Mader TJ, Ali FM, Cocchi MN. Determining pretest probability of DVT: clinical intuition vs. validated scoring systems. N Engl J Med. 2003 Apr 4;21(2):161-2.
 ao SR, McGarry M, Ferrier TL, Pallante B, Gasparrini B, Fletcher JR, et al. Effect of cell confluence on production of cloned mice using an inbred embryonic stem cell line. Biol Reprod. 2003;68(2):595-603.
-Carlson BM. Human embryology and developmental biology. 3rd ed. St. Louis: Mosby; 2004. 
+Carlson BM. Human embryology and developmental biology. 3rd ed. St. Louis: Mosby; 2004.
 Brown AM, Stubbs DW, editors. Medical physiology. New York: Wiley; 1983.
 Blaxter PS, Farnsworth TP. Social health and class inequalities. In: Carter C, Peel JR, editors. Equalities and inequalities in health. 2nd ed. London: Academic Press; 1976. p. 165-78.
 Anderson JC. Current status of chorion villus biopsy. In: Tudenhope D, Chenoweth J, editors. Proceedings of the 4th Congress of the Australian Perinatal Society; 1986: Brisbane, Queensland: Australian Perinatal Society; 1987. p. 190-6.
@@ -116,5 +116,5 @@ HeartCentreOnline [homepage on the Internet]. Boca Raton, FL: HeartCentreOnline,
 American Medical Association [homepage on the Internet]. Chicago: The Association; c1995-2002 [cited 2005 Apr 20]. Group and Faculty Practice Physicians; [about 2 screens]. Available from: http://www.ama-assn.org/ama/pub/category/1736.html
 Miller DM, The wisdom of the eye. San Diego: Academic Press; 2000
 Rau JG, Wooten DC. Environmental impact analysis handbook. New York: McGraw-Hill; 1980.
-Richardson AJ. Traffic planning and modelling: a twenty year perspective. Aust Road Res. 1990;20(1):9-21. 
+Richardson AJ. Traffic planning and modelling: a twenty year perspective. Aust Road Res. 1990;20(1):9-21.
 Meyer MD. Public transportation in the 21st century. In: Gray GE, Hoel LA, editors. Public transportation. 2nd ed. Englewood Cliffs, New Jersey: Prentice Hall; 1992. p. 636-653.

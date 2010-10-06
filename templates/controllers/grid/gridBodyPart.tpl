@@ -9,6 +9,6 @@
 <tbody>
 	{foreach from=$rows item=row}
 		{$row}
-	{/foreach}	
+	{/foreach}
 </tbody>
 

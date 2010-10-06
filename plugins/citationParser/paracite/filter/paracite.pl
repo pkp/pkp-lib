@@ -53,11 +53,10 @@ use Biblio::Citation::Parser 1.10;
 		} else {
 			# HTML encode the tag value
 			print encode_entities($metadata->{$key});
-      	}
+		}
 
 		print "</$key>\n";
-   	}
+	}
 
-   	# close the root node
+	# close the root node
 	print "</element-citation>\n";
-   	

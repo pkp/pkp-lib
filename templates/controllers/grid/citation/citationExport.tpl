@@ -73,11 +73,11 @@
 					</select>
 				</p>
 			</form>
-		
+
 			{if $exportOutput}
 				<p>{translate key="submission.citations.editor.export.exportDescription"}</p>
-				
-				<div class="scrollable">	
+
+				<div class="scrollable">
 					--<p/>
 					{if $exportFilterType == 'xml'}
 						<pre>{$exportOutput|escape:htmlall}</pre>

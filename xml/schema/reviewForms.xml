@@ -35,7 +35,7 @@
 		<field name="is_active" type="I1" />
 		<descr>Review forms.</descr>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE review_form_settings
@@ -90,7 +90,7 @@
 			<col>review_form_id</col>
 		</index>
 	</table>
-	
+
 	<!--
 	  *
 	  * TABLE review_form_element_settings

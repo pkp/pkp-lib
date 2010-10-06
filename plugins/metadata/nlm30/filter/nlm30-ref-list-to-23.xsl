@@ -7,12 +7,12 @@
 			<xsl:apply-templates/>
 		</xsl:copy>
 	</xsl:template>
-	
+
 	<!-- Elements to be copied unchanged (deep copy): -->
 	<xsl:template match="person-group">
 		<xsl:copy-of select="."/>
 	</xsl:template>
-	
+
 	<!-- Elements to be changed -->
 	<xsl:template match="element-citation">
 		<xsl:element name="citation">
@@ -29,7 +29,7 @@
 			<xsl:apply-templates/>
 		</xsl:element>
 	</xsl:template>
-	
+
 	<xsl:template match="date-in-citation[@content-type='access-date']">
 		<xsl:element name="access-date">
 			<xsl:value-of select="year"/>
@@ -49,7 +49,7 @@
 			</xsl:if>
 		</xsl:element>
 	</xsl:template>
-	
+
 	<xsl:template match="chapter-title">
 		<xsl:element name="article-title">
 			<xsl:value-of select="."/>

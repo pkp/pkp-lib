@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.citationLookup.worldcat.displayName">WorldCat Database Connector</message>
 	<message key="plugins.citationLookup.worldcat.description">Connects to the WorldCat bibliographic database.</message>

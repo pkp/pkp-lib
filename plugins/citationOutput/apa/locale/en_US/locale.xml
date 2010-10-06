@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.citationOutput.apa.displayName">APA Citation Style</message>
 	<message key="plugins.citationOutput.apa.description">Implements the APA citation style.</message>

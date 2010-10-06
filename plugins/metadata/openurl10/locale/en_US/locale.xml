@@ -9,7 +9,7 @@
   *
   * Localization strings for the en_US (U.S. English) locale.
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.metadata.openurl10.displayName">OpenURL 1.0 meta-data</message>
 	<message key="plugins.metadata.openurl10.description">Contributes OpenURL 1.0 schemas and application adapters.</message>

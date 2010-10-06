@@ -240,7 +240,7 @@
 			<field name="setting_name">description</field>
 			<field name="setting_value">Translator</field>
 		</row>
-		
+
 		<!-- MODS types of resources -->
 		<row>
 			<field name="controlled_vocab_entry_id">120</field>

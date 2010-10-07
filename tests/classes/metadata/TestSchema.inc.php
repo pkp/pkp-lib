@@ -26,6 +26,7 @@ class TestSchema extends MetadataSchema {
 		parent::MetadataSchema(
 			'test-schema',
 			'test',
+			'lib.pkp.tests.classes.metadata.TestSchema',
 			ASSOC_TYPE_CITATION
 		);
 

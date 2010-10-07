@@ -230,9 +230,7 @@ class MetadataDescriptionDAO extends DAO {
 		// DAO and DataObject classes to persist our meta-data
 		// description.
 		import('lib.pkp.classes.metadata.MetadataDescriptionDummyAdapter');
-		$metadataAdapter = new MetadataDescriptionDummyAdapter(
-				PersistableFilter::tempGroup());
-		$metadataAdapter->setMetadataDescription($metadataDescription);
+		$metadataAdapter = new MetadataDescriptionDummyAdapter($metadataDescription);
 		$metadataDescription->addSupportedMetadataAdapter($metadataAdapter);
 
 		$this->updateDataObjectSettings('metadata_description_settings', $metadataDescription,

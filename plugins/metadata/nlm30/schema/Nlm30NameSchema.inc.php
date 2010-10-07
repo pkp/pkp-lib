@@ -34,6 +34,7 @@ class Nlm30NameSchema extends MetadataSchema {
 		parent::MetadataSchema(
 			'nlm-3.0-name',
 			'nlm30',
+			'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema',
 			array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)
 		);
 

@@ -58,7 +58,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 		$inputType =& $this->getInputType();
 		$outputType =& $this->getOutputType();
 		if (is_a($inputType, 'MetadataTypeDescription')) {
-			// We are in meta-data injection mode.
+			// We are in meta-data injection mode (or both input and output are meta-data descriptions).
 			$metadataTypeDescription =& $inputType; /* @var $metadataTypeDescription MetadataTypeDescription */
 			assert(is_a($outputType, 'ClassTypeDescription'));
 			$dataObjectTypeDescription =& $outputType; /* @var $dataObjectTypeDescription ClassTypeDescription */

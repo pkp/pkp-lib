@@ -27,7 +27,10 @@ class Openurl10JournalSchema extends Openurl10JournalBookBaseSchema {
 	 * Constructor
 	 */
 	function Openurl10JournalSchema() {
-		parent::Openurl10JournalBookBaseSchema('openurl-1.0-journal');
+		parent::Openurl10JournalBookBaseSchema(
+			'openurl-1.0-journal',
+			'lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema'
+		);
 
 		// Add meta-data properties that only appear in the OpenURL journal standard
 		$this->addProperty('jtitle');

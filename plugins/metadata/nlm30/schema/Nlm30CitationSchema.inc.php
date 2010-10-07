@@ -45,6 +45,7 @@ class Nlm30CitationSchema extends MetadataSchema {
 		parent::MetadataSchema(
 			'nlm-3.0-element-citation',
 			'nlm30',
+			'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
 			ASSOC_TYPE_CITATION
 		);
 

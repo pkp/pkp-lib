@@ -25,44 +25,32 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 	public function testMetadataDescriptionDummyAdapter() {
 		$schema = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 
-		// Instantiate a test description
+		// Instantiate a test description.
 		$originalDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);
+		$originalDescription->addStatement('source', $originalTitle = 'original source');
 		$originalDescription->addStatement('article-title', $originalTitle = 'original title');
 
-		// Test constructor
+		// Test constructor.
 		$adapter = new MetadataDescriptionDummyAdapter($originalDescription);
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
 		self::assertEquals($schema, $adapter->getMetadataSchemaName());
 		self::assertType('Nlm30CitationSchema', $adapter->getMetadataSchema());
-		$expectedTransformations = array(
-			array(
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
-				'class::lib.pkp.classes.metadata.MetadataDescription'
-			),
-			array(
-				'class::lib.pkp.classes.metadata.MetadataDescription',
-				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'
-			)
-		);
-		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
 
-		// Test metadata injection (no replace)
+		// Test metadata injection.
 		$sourceDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);
 		$sourceDescription->addStatement('article-title', $injectedTitle = 'injected title');
-		$resultDescription =& $adapter->injectMetadataIntoDataObject($sourceDescription, $originalDescription, false);
+		$resultDescription =& $adapter->injectMetadataIntoDataObject($sourceDescription, $originalDescription);
 		$expectedResult = array(
+			'source' => array(
+				'en_US' => 'original source'
+			),
 			'article-title' => array(
-				'en_US' => 'original title'
+				'en_US' => 'injected title'
 			)
 		);
 		self::assertEquals($expectedResult, $resultDescription->getStatements());
 
-		// Test meta-data injection (replace)
-		$resultDescription =& $adapter->injectMetadataIntoDataObject($sourceDescription, $originalDescription, true);
-		$expectedResult['article-title']['en_US'] = 'injected title';
-		self::assertEquals($expectedResult, $resultDescription->getStatements());
-
-		// Test meta-data extraction
+		// Test meta-data extraction.
 		$extractedDescription =& $adapter->extractMetadataFromDataObject($originalDescription);
 		self::assertEquals($originalDescription, $extractedDescription);
 

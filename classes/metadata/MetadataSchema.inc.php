@@ -71,6 +71,9 @@ class MetadataSchema {
 	/** @var string */
 	var $_namespace;
 
+	/** @var string */
+	var $_classname;
+
 	/**
 	 * @var array meta-data properties (predicates)
 	 *  supported for this meta-data schema.
@@ -83,18 +86,21 @@ class MetadataSchema {
 	 * @param $namespace string a globally unique namespace for
 	 *  the schema. Property names must be unique within this
 	 *  namespace.
+	 * @param $classname the fully qualified class name of
+	 *  this schema
 	 * @param $assocTypes array|integer the association types of
 	 *  PKP application objects that can be described using
 	 *  this schema. A single association type can be given as
 	 *  a scalar.
 	 */
-	function MetadataSchema($name, $namespace, $assocTypes) {
-		assert(is_string($name) && is_string($namespace));
+	function MetadataSchema($name, $namespace, $classname, $assocTypes) {
+		assert(is_string($name) && is_string($namespace) && is_string($classname));
 		assert(is_array($assocTypes) || is_integer($assocTypes));
 
 		// Set name and namespace.
 		$this->_name = $name;
 		$this->_namespace = $namespace;
+		$this->_classname = $classname;
 
 		// Normalize and set the association types.
 		if (!is_array($assocTypes)) {
@@ -121,6 +127,14 @@ class MetadataSchema {
 	 */
 	function getNamespace() {
 		return $this->_namespace;
+	}
+
+	/**
+	 * Get the fully qualified class name of this schema.
+	 * @return string
+	 */
+	function getClassName() {
+		return $this->_className;
 	}
 
 	/**

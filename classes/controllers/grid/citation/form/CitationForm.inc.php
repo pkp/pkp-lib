@@ -53,10 +53,7 @@ class CitationForm extends Form {
 
 		// Identify all form field names for the citation
 		$this->_citationFormFieldNames = array();
-		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
-			// Retrieve the meta-data schema
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-
+		foreach($citation->getSupportedMetadataSchemas() as $metadataSchema) {
 			// Loop over the properties names in the schema and save
 			// them in a flat list.
 			$properties = $metadataSchema->getProperties();
@@ -124,10 +121,7 @@ class CitationForm extends Form {
 		$this->setData('rawCitation', $citation->getRawCitation());
 
 		// Citation meta-data
-		foreach($citation->getSupportedMetadataAdapters() as $metadataAdapter) {
-			// Retrieve the meta-data schema
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
-
+		foreach($citation->getSupportedMetadataSchemas() as $metadataSchema) {
 			// Loop over the properties in the schema and add string
 			// values for all form fields.
 			$properties = $metadataSchema->getProperties();
@@ -191,13 +185,12 @@ class CitationForm extends Form {
 
 		// Extract data from citation form fields and inject it into the citation
 		import('lib.pkp.classes.metadata.MetadataDescription');
-		$metadataAdapters = $citation->getSupportedMetadataAdapters();
-		foreach($metadataAdapters as $metadataAdapter) {
+		$metadataAdapters = $citation->getSupportedMetadataSchemas();
+		foreach($metadataSchemas as $metadataSchema) { /* @var $metadataSchema MetadataSchema */
 			// Instantiate a meta-data description for the given schema
-			$metadataDescription = new MetadataDescription($metadataAdapter->getMetadataSchemaName(), ASSOC_TYPE_CITATION);
+			$metadataDescription = new MetadataDescription($metadataSchema->getClassName(), ASSOC_TYPE_CITATION);
 
 			// Set the meta-data statements
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
 			foreach($metadataSchema->getProperties() as $propertyName => $property) {
 				$fieldName = $metadataSchema->getNamespacedPropertyId($propertyName);
 				$fieldValue = trim($this->getData($fieldName));
@@ -267,7 +260,7 @@ class CitationForm extends Form {
 			}
 
 			// Inject the meta-data into the citation.
-			$citation->injectMetadata($metadataDescription, true);
+			$citation->injectMetadata($metadataDescription);
 
 			// Save the meta-data description for later usage.
 			$this->_metadataDescriptions[] =& $metadataDescription;

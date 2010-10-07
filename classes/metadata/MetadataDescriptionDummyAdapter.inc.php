@@ -20,24 +20,17 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	/**
 	 * Constructor
 	 *
-	 * @param $filterGroup MetadataDescription
+	 * @param $metadataDescription MetadataDescription
 	 */
-	function MetadataDescriptionDummyAdapter(&$filterGroup) {
+	function MetadataDescriptionDummyAdapter(&$metadataDescription) {
 		$this->setDisplayName('Inject/Extract Metadata into/from a MetadataDescription');
 
 		// Configure the adapter
-		parent::MetadataDataObjectAdapter($filterGroup);
+		$inputType = $outputType = 'metadata::'.$metadataDescription->getMetadataSchemaName().'(*)';
+		parent::MetadataDataObjectAdapter(PersistableFilter::tempGroup($inputType, $outputType));
+		$this->_assocType = $metadataDescription->getAssocType();
 	}
 
-
-	//
-	// Getters and Setters
-	//
-	function setMetadataDescription(&$metadataDescription) {
-		$this->setMetadataSchemaName($metadataDescription->getMetadataSchemaName());
-		$this->setDataObjectName('lib.pkp.classes.metadata.MetadataDescription');
-		$this->setAssocType($metadataDescription->getAssocType());
-	}
 
 	//
 	// Implement template methods from PersistableFilter

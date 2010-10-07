@@ -215,6 +215,59 @@ class FilterDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve filters based on the supported input/output type.
+	 * @param $data mixed the data to be matched by the filter
+	 * @param $inputTypeDescription a type description that has to match the input type
+	 * @param $outputTypeDescription a type description that has to match the output type
+	 *  NB: input and output type description can contain wildcards.
+	 * @param $dataIsInput boolean true if the given data object is to be checked as
+	 *  input type, false to check against the output type.
+	 * return array a list of meta-data adapter instances.
+	 */
+	function &getObjectsByTypeDescription(&$data, $inputTypeDescription, $outputTypeDescription, $dataIsInput = true) {
+		static $filterCache = array();
+		static $objectFilterCache = array();
+
+		// We do not yet support array data types. Implement when required.
+		assert(!is_array($data));
+
+		// Build the adapter cache.
+		$filterCacheKey = md5($inputTypeDescription.'=>'.$outputTypeDescription);
+		if (!isset($filterCache[$filterCacheKey])) {
+			// Get all adapter filters.
+			$result =& $this->retrieve(
+					'SELECT f.*'.
+					' FROM filters f'.
+					'  INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id'.
+					' WHERE fg.input_type like ?'.
+					'  AND fg.output_type like ?',
+					array($inputTypeDescription, $outputTypeDescription));
+
+			// Instantiate all filters.
+			$filterFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
+			$filterCache[$filterCacheKey] =& $filterFactory->toArray();
+		}
+
+		// Build the object-specific adapter cache.
+		$objectFilterCacheKey = md5($filterCacheKey.(is_object($data)?get_class($data):"'$data'").($dataIsInput?'in':'out'));
+		if (!isset($objectFilterCache[$objectFilterCacheKey])) {
+			$objectFilterCache[$objectFilterCacheKey] = array();
+			foreach($filterCache[$filterCacheKey] as $filterCandidate) { /* @var $filterCandidate PersistableFilter */
+				// Check whether the given object can be transformed
+				// with this filter.
+				if ($dataIsInput) {
+					$filterDataType =& $filterCandidate->getInputType();
+				} else {
+					$filterDataType =& $filterCandidate->getOutputType();
+				}
+				if ($filterDataType->checkType($data)) $objectFilterCache[$objectFilterCacheKey][] =& $filterCandidate;
+			}
+		}
+
+		return $objectFilterCache[$objectFilterCacheKey];
+	}
+
+	/**
 	 * Retrieve filter instances configured for a given context
 	 * that belong to a given filter group.
 	 *

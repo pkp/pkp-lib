@@ -42,6 +42,7 @@ class Mods34NameSchema extends MetadataSchema {
 		parent::MetadataSchema(
 			'mods-3.4-name',
 			'mods34',
+			'lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema',
 			array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)
 		);
 

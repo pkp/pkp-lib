@@ -47,13 +47,10 @@ class Citation extends DataObject {
 	 * @param $rawCitation string an unparsed citation string
 	 */
 	function Citation($rawCitation = null) {
-		parent::DataObject();
+		// Switch on meta-data adapter support.
+		$this->setHasLoadableAdapters(true);
 
-		// Add NLM meta-data adapter.
-		// FIXME: This will later be done via plugin/user-configurable settings,
-		// see comment in DataObject::DataObject().
-		$metadataAdapter = new Nlm30CitationSchemaCitationAdapter();
-		$this->addSupportedMetadataAdapter($metadataAdapter);
+		parent::DataObject();
 
 		$this->setRawCitation($rawCitation); // this will set state to CITATION_RAW
 	}
@@ -201,10 +198,9 @@ class Citation extends DataObject {
 	 * @return array
 	 */
 	function &getNamespacedMetadataProperties() {
-		$metadataAdapters =& $this->getSupportedMetadataAdapters();
+		$metadataSchemas =& $this->getSupportedMetadataSchemas();
 		$metadataProperties = array();
-		foreach($metadataAdapters as $metadataAdapter) {
-			$metadataSchema =& $metadataAdapter->getMetadataSchema();
+		foreach($metadataSchemas as $metadataSchema) {
 			$metadataProperties[$metadataSchema->getNamespace()] = $metadataSchema->getProperties();
 		}
 		return $metadataProperties;

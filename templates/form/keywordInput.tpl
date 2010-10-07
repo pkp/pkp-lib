@@ -11,8 +11,9 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#{/literal}{$FBV_id}{literal}").tagit({
-			availableTags: [{/literal}{$FBV_availableKeywords}{literal}]
-			{/literal}{if $FBV_currentKeywords}{literal}, currentTags: [{/literal}{$FBV_currentKeywords}]{/if}{literal}
+			{/literal}{if $existingInterests}{literal} availableTags: [{/literal}{foreach name=existingInterests from=$FBV_availableKeywords item=interest}"{$interest|escape|escape:"javascript"}"{if !$smarty.foreach.existingInterests.last}, {/if}{/foreach}{literal}],{/literal}{/if}
+		      {if $interestsKeywords}{literal}currentTags: [{/literal}{foreach name=currentInterests from=$FBV_currentKeywords item=interest}"{$interest|escape|escape:"javascript"}"{if !$smarty.foreach.currentInterests.last}, {/if}{/foreach}{literal}]{/literal}
+		            {else}{literal}currentTags: []{/literal}{/if}{literal}
 		});
 	});
 </script>

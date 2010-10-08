@@ -460,7 +460,6 @@ class PKPRouter {
 				$contextObject =& $this->getContextByName($request, $contextName);
 				if ($contextObject) $contextValue = $contextObject->getPath();
 				else $contextValue = 'index';
-
 			}
 
 			// Check whether the base URL is overridden.
@@ -468,7 +467,7 @@ class PKPRouter {
 				$overriddenBaseUrl = Config::getVar('general', "base_url[$contextValue]");
 			}
 
-			$context[] = $contextParameter.$contextValue;;
+			$context[] = $contextParameter.$contextValue;
 		}
 
 		// Generate the base url

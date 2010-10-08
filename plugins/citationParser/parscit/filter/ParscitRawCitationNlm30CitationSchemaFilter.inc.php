@@ -61,6 +61,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 
 		// Parscit web form - the result is (mal-formed) HTML
 		if (is_null($result = $this->callWebService(PARSCIT_WEBSERVICE, $queryParams, XSL_TRANSFORMER_DOCTYPE_STRING, 'POST'))) return $nullVar;
+		$result = html_entity_decode($result);
 
 		// Detect errors.
 		if (!String::regexp_match('/.*<algorithm[^>]+>.*<\/algorithm>.*/s', $result)) {
@@ -70,7 +71,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 		}
 
 		// Screen-scrape the tagged portion and turn it into XML.
-		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', html_entity_decode($result));
+		$xmlResult = String::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', $result);
 		$xmlResult = String::regexp_replace('/&/', '&amp;', $xmlResult);
 
 		// Transform the result into an array of meta-data.

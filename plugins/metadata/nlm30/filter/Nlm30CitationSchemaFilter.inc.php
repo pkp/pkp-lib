@@ -240,7 +240,9 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	 */
 	function &transformWebServiceResults(&$xmlResult, $xslFileName) {
 		// Send the result through the XSL to generate a (preliminary) NLM XML.
-		$xslFilter = new XSLTransformationFilter('xml::*', 'xml::*', 'Web Service Transformation');
+		$xslFilter = new XSLTransformationFilter(
+				PersistableFilter::tempGroup('xml::*', 'xml::*'),
+				'Web Service Transformation');
 		$xslFilter->setXSLFilename($xslFileName);
 		$xslFilter->setResultType(XSL_TRANSFORMER_DOCTYPE_DOM);
 		$preliminaryNlm30DOM =& $xslFilter->execute($xmlResult);

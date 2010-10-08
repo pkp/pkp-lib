@@ -18,7 +18,7 @@
  */
 
 import('lib.pkp.plugins.citationLookup.crossref.filter.CrossrefNlm30CitationSchemaFilter');
-import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
 class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
 	const
@@ -57,7 +57,7 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 				'pub-id[@pub-id-type="doi"]' => '10.1145/311625.311726'
 			),
 			'testOutput' => array(
-				'conf-name' => 'ACM SIGGRAPH 99 Conference abstracts and applications on   - SIGGRAPH \'99',
+				'conf-name' => 'ACM SIGGRAPH 99 Conference abstracts and applications on - SIGGRAPH \'99',
 				'isbn' => '1581131038',
 				'publisher-name' => 'ACM Press',
 				'publisher-loc' => 'New York, New York, USA',
@@ -100,7 +100,9 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 		);
 
 		// Execute the tests
-		$filter = new CrossrefNlm30CitationSchemaFilter();
+		$filter = new CrossrefNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$filter->setEmail(self::ACCESS_EMAIL);
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
@@ -142,7 +144,9 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 		);
 
 		// Execute the test
-		$filter = new CrossrefNlm30CitationSchemaFilter();
+		$filter = new CrossrefNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$filter->setEmail(self::ACCESS_EMAIL);
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}

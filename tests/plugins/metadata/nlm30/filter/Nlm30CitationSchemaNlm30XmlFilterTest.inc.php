@@ -21,7 +21,10 @@ class Nlm30CitationSchemaNlm30XmlFilterTest extends Nlm30CitationSchemaCitationO
 	 * Implements abstract methods from Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new Nlm30CitationSchemaNlm30XmlFilter();
+		// FIXME: Add NLM citation-element + name validation (requires partial NLM DTD, XSD or RelaxNG), see #5648.
+		return new Nlm30CitationSchemaNlm30XmlFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'xml::*'));
 	}
 
 	protected function addGoogleScholar() {

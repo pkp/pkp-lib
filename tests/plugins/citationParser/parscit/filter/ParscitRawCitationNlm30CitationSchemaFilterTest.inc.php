@@ -54,7 +54,9 @@ class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchem
 			)
 		);
 
-		$filter = new ParscitRawCitationNlm30CitationSchemaFilter();
+		$filter = new ParscitRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
@@ -62,7 +64,9 @@ class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchem
 	 * @covers ParaciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new ParscitRawCitationNlm30CitationSchemaFilter();
+		$filter = new ParscitRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 
@@ -70,7 +74,10 @@ class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchem
 	 * @covers ParscitRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {
-		$this->assertWebServiceError('ParscitRawCitationNlm30CitationSchemaFilter');
+		$constructor = array(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
+		$this->assertWebServiceError('ParscitRawCitationNlm30CitationSchemaFilter', $constructor);
 	}
 }
 ?>

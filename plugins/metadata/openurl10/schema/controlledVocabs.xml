@@ -86,6 +86,10 @@
 		</row>
 	</table>
 	<table name="controlled_vocab_entry_settings">
+		<field_default name="locale" null="0" />
+		<field_default name="setting_name">name</field_default>
+		<field_default name="setting_type">string</field_default>
+
 		<!-- OpenURL journal genres -->
 		<row>
 			<field name="controlled_vocab_entry_id">300</field>

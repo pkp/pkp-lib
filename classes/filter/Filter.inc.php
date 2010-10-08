@@ -272,6 +272,15 @@ class Filter extends DataObject {
 		}
 	}
 
+	/**
+	 * Get the required runtime environment
+	 * @return RuntimeEnvironment
+	 */
+	function &getRuntimeEnvironment() {
+		return $this->_runtimeEnvironment;
+	}
+
+
 	//
 	// Abstract template methods to be implemented by subclasses
 	//

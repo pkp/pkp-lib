@@ -12,9 +12,8 @@
  * @brief Basic configuration for Isbndb tests
  */
 
-// $Id$
 
-import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
 class IsbndbNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
 	const ISBNDB_TEST_APIKEY = '4B5GQSQ4';

@@ -38,6 +38,20 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 
 
 	//
+	// Implement template methods from TemplateBasedReferencesListFilter
+	//
+	/**
+	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
+	 */
+	function getCitationOutputFilterTypeDescriptions() {
+		// FIXME: Add NLM citation-element + name validation (requires partial NLM DTD, XSD or RelaxNG), see #5648.
+		return array(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'xml::*');
+	}
+
+
+	//
 	// Implement template methods from PersistableFilter
 	//
 	/**

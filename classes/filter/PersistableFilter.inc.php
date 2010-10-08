@@ -220,7 +220,8 @@ class PersistableFilter extends Filter {
 	// Public methods
 	//
 	/**
-	 * Return an array with the names of filter settings.
+	 * Return an array with the names of non-localized
+	 * filter settings.
 	 *
 	 * This will be used by the FilterDAO for filter
 	 * setting persistence.
@@ -229,7 +230,7 @@ class PersistableFilter extends Filter {
 	 */
 	function getSettingNames() {
 		$settingNames = array();
-		foreach($this->getSettings() as $setting) {
+		foreach($this->getSettings() as $setting) { /* @var $setting FilterSetting */
 			if (!$setting->getIsLocalized()) {
 				$settingNames[] = $setting->getName();
 			}
@@ -246,7 +247,7 @@ class PersistableFilter extends Filter {
 	 *
 	 * @return array
 	 */
-	function getLocalizedSettingNames() {
+	function getLocalizedSettingNames() { /* @var $setting FilterSetting */
 		$localizedSettingNames = array();
 		foreach($this->getSettings() as $setting) {
 			if ($setting->getIsLocalized()) {

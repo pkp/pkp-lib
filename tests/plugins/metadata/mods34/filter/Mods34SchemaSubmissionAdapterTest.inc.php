@@ -23,20 +23,12 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 	 */
 	public function testMods34SchemaSubmissionAdapter() {
 		// Test constructor.
-		$adapter = new Mods34SchemaSubmissionAdapter(ASSOC_TYPE_CITATION);
+		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(
+				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
+				'class::lib.pkp.classes.submission.Submission'));
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
 		self::assertType('Mods34Schema', $adapter->getMetadataSchema());
-		$expectedTransformations = array(
-			array(
-				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
-				'class::lib.pkp.classes.submission.Submission'
-			),
-			array(
-				'class::lib.pkp.classes.submission.Submission',
-				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)'
-			)
-		);
-		self::assertEquals($expectedTransformations, $adapter->getSupportedTransformations());
+		self::assertEquals('Submission', $adapter->getDataObjectClass());
 
 		// Instantiate a test description.
 		$submissionDescription =& $this->getMods34Description();
@@ -45,12 +37,12 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		$submission = new Submission();
 		$submission->setTitle('previous submission title', 'en_US');
 		$submission->setAbstract('previous abstract', 'en_US');
-		// Remove the abstract to test whether the replacement flag works.
-		// (The abstract should not be deleted if replace is off.)
+		// Remove the abstract to test whether the injection into existing data works.
+		// (The abstract should not be deleted.)
 		$submissionDescription->removeStatement('abstract');
 
 		// Test metadata injection (no replace).
-		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, false, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
+		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
 		$expectedResult = array(
 			'cleanTitle' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
 			'title' => array('en_US' => 'new submission title', 'de_DE' => 'neuer Titel'),
@@ -73,15 +65,14 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 		);
 		self::assertEquals($expectedResult, $resultSubmission->getAllData());
 
-		// Test meta-data injection (replace).
-		$resultSubmission =& $adapter->injectMetadataIntoDataObject($submissionDescription, $submission, true, 'lib.pkp.tests.plugins.metadata.mods34.filter.Author');
-		unset($expectedResult['abstract'], $expectedResult['recordInfo/recordIdentifier[@source="pkp"]']);
-		self::assertEquals($expectedResult, $resultSubmission->getAllData());
-
 		// Test meta-data extraction.
+		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(
+				'class::lib.pkp.classes.submission.Submission',
+				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)'));
 		$extractedDescription =& $adapter->extractMetadataFromDataObject($submission);
 		$submissionDescription->removeStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]');
 		self::assertTrue($submissionDescription->addStatement('recordInfo/recordCreationDate[@encoding="w3cdtf"]', date('Y-m-d')));
+		self::assertTrue($submissionDescription->addStatement('abstract', $abstract = 'previous abstract'));
 
 		$missingMappings = array(
 			// The following properties must be mapped via

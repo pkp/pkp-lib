@@ -98,18 +98,5 @@ class ClassTypeDescription extends TypeDescription {
 		$packageName = implode('.', $typeNameParts);
 		return array($packageName, $className);
 	}
-
-	/**
-	 * Instantiates the given class from the given
-	 * package
-	 * @param $packageName string
-	 * @param $className string
-	 * @return object
-	 */
-	function &instantiateClass($packageName, $className) {
-		assert(!empty($packageName) && !empty($className));
-		$object =& instantiate($packageName.'.'.$className, $className);
-		return $object;
-	}
 }
 ?>

@@ -22,7 +22,7 @@ class FormValidatorLocaleTest extends PKPTestCase {
 	 */
 	public function testGetMessage() {
 		$formValidator = new FormValidatorLocale($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
-		self::assertSame('translated string (English/America)', $formValidator->getMessage());
+		self::assertSame('translated string (English)', $formValidator->getMessage());
 		self::assertSame('some.message.key', Locale::getTestedTranslationKey());
 	}
 

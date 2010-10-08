@@ -1,21 +1,21 @@
 <?php
 
 /**
- * @file tests/classes/importexport/nlm30/Nlm30Nlm23CrosswalkFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30Nlm23CrosswalkFilterTest.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30Nlm23CrosswalkFilterTest
- * @ingroup tests_classes_importexport_nlm
+ * @ingroup tests_plugins_metadata_nlm30_filter
  * @see Nlm30Nlm23CrosswalkFilter
  *
  * @brief Tests for the Nlm30Nlm23CrosswalkFilterTest class.
  */
 
-import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30XmlFilterTest');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30XmlFilterTestCase');
 
-class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
+class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTestCase {
 	/**
 	 * @covers Nlm30Nlm23CrosswalkFilter
 	 */
@@ -76,6 +76,7 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 		// Persist one copy of the citation for testing.
 		$citationDao =& $this->getCitationDao();
 		$citation->setSeq(1);
+		$citation->setCitationState(CITATION_APPROVED);
 		$citationId = $citationDao->insertObject($citation);
 		self::assertTrue(is_numeric($citationId));
 		self::assertTrue($citationId > 0);
@@ -86,18 +87,21 @@ class Nlm30Nlm23CrosswalkFilterTest extends Nlm30XmlFilterTest {
 		// Prepare NLM 3.0 input.
 		$mockSubmission =& $this->getTestSubmission();
 		import('lib.pkp.plugins.metadata.nlm30.filter.PKPSubmissionNlm30XmlFilter');
-		$nlm30Filter = new PKPSubmissionNlm30XmlFilter();
+		$nlm30Filter = new PKPSubmissionNlm30XmlFilter(PersistableFilter::tempGroup(
+				'class::lib.pkp.classes.submission.Submission',
+				'xml::*'));
 		$nlm30Xml = $nlm30Filter->execute($mockSubmission);
 
 		// Test the downgrade filter.
 		import('lib.pkp.classes.xslt.XSLTransformationFilter');
+		// FIXME: Add NLM 2.3 and 3.0 tag set schema validation as soon as we implement the full tag set, see #5648.
 		$downgradeFilter = new XSLTransformationFilter(
-			'xml::*', 'xml::*',
+			PersistableFilter::tempGroup('xml::*', 'xml::*'),
 			'NLM 3.0 to 2.3 ref-list downgrade');
-		$downgradeFilter->setXSLFilename('lib/pkp/classes/importexport/nlm30/nlm-ref-list-30-to-23.xsl');
+		$downgradeFilter->setXSLFilename('lib/pkp/plugins/metadata/nlm30/filter/nlm30-to-23-ref-list.xsl');
 		$nlm30Xml = $downgradeFilter->execute($nlm30Xml);
 
-		$this->normalizeAndCompare($nlm30Xml, 'lib/pkp/tests/classes/importexport/nlm30/sample-nlm23-citation.xml');
+		self::assertXmlStringEqualsXmlFile('./lib/pkp/tests/plugins/metadata/nlm30/filter/sample-nlm23-citation.xml', $nlm30Xml);
 	}
 }
 ?>

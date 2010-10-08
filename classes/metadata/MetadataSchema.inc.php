@@ -134,7 +134,7 @@ class MetadataSchema {
 	 * @return string
 	 */
 	function getClassName() {
-		return $this->_className;
+		return $this->_classname;
 	}
 
 	/**

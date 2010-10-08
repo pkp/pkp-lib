@@ -13,7 +13,6 @@
  * @brief Tests for the PKPRequest class.
  */
 
-// $Id$
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRequest');
@@ -71,24 +70,6 @@ class PKPRequestTest extends PKPTestCase {
 			array(array('Request::redirect' , array('http://some.url/'))),
 			HookRegistry::getCalledHooks()
 		);
-	}
-
-	/**
-	 * @todo Implement testRedirectSSL().
-	 */
-	public function testRedirectSSL() {
-	}
-
-	/**
-	 * @todo Implement testRedirectNonSSL().
-	 */
-	public function testRedirectNonSSL() {
-	}
-
-	/**
-	 * @todo Implement testHandle404().
-	 */
-	public function testHandle404() {
 	}
 
 	/**
@@ -163,30 +144,6 @@ class PKPRequestTest extends PKPTestCase {
 			'SCRIPT_NAME' => '/main'
 		);
 		self::assertEquals('', $this->request->getBasePath());
-	}
-
-	/**
-	 * @todo Implement testGetCompleteUrl().
-	 */
-	public function testGetCompleteUrl() {
-	}
-
-	/**
-	 * @todo Implement testGetRequestUrl().
-	 */
-	public function testGetRequestUrl() {
-	}
-
-	/**
-	 * @todo Implement testGetQueryString().
-	 */
-	public function testGetQueryString() {
-	}
-
-	/**
-	 * @todo Implement testGetQueryArray().
-	 */
-	public function testGetQueryArray() {
 	}
 
 	/**
@@ -346,66 +303,6 @@ class PKPRequestTest extends PKPTestCase {
 	}
 
 	/**
-	 * @todo Implement testGetRequestMethod().
-	 */
-	public function testGetRequestMethod() {
-	}
-
-	/**
-	 * @todo Implement testIsPost().
-	 */
-	public function testIsPost() {
-	}
-
-	/**
-	 * @todo Implement testIsGet().
-	 */
-	public function testIsGet() {
-	}
-
-	/**
-	 * @todo Implement testGetRemoteAddr().
-	 */
-	public function testGetRemoteAddr() {
-	}
-
-	/**
-	 * @todo Implement testGetRemoteDomain().
-	 */
-	public function testGetRemoteDomain() {
-	}
-
-	/**
-	 * @todo Implement testGetUserAgent().
-	 */
-	public function testGetUserAgent() {
-	}
-
-	/**
-	 * @todo Implement testIsBot().
-	 */
-	public function testIsBot() {
-	}
-
-	/**
-	 * @todo Implement testGetSite().
-	 */
-	public function testGetSite() {
-	}
-
-	/**
-	 * @todo Implement testGetSession().
-	 */
-	public function testGetSession() {
-	}
-
-	/**
-	 * @todo Implement testGetUser().
-	 */
-	public function testGetUser() {
-	}
-
-	/**
 	 * @covers PKPRequest::getUserVar
 	 */
 	public function testGetUserVar() {
@@ -442,36 +339,6 @@ class PKPRequestTest extends PKPTestCase {
 			'par4' => 'val4'
 		);
 		self::assertEquals($expectedResult, $this->request->getUserVars());
-	}
-
-	/**
-	 * @todo Implement testGetUserDateVar().
-	 */
-	public function testGetUserDateVar() {
-	}
-
-	/**
-	 * @todo Implement testCleanUserVar().
-	 */
-	public function testCleanUserVar() {
-	}
-
-	/**
-	 * @todo Implement testGetCookieVar().
-	 */
-	public function testGetCookieVar() {
-	}
-
-	/**
-	 * @todo Implement testSetCookieVar().
-	 */
-	public function testSetCookieVar() {
-	}
-
-	/**
-	 * @todo Implement testRedirect().
-	 */
-	public function testRedirect() {
 	}
 }
 ?>

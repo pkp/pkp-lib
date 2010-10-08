@@ -115,6 +115,14 @@ class Locale extends PKPLocale {
 	}
 
 	/**
+	 * Mocked method
+	 * @return array
+	 */
+	function getSupportedFormLocales() {
+		return array('en_US');
+	}
+
+	/**
 	 * An internal function that allows us to inpect
 	 * the translation key that was passed to the
 	 * translate() method.

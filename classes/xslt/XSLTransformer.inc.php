@@ -116,12 +116,13 @@ class XSLTransformer {
 	 *  transformation fails for some reason.
 	 */
 	function &transform(&$xml, $xmlType, &$xsl, $xslType, $resultType) {
+		$falseVar = false;
 		// If either XML or XSL file don't exist, then fail without trying to process XSLT
 		if ($xmlType == XSL_TRANSFORMER_DOCTYPE_FILE) {
-			if (!FileManager::fileExists($xml)) return false;
+			if (!FileManager::fileExists($xml)) return $falseVar;
 		}
 		if ($xslType == XSL_TRANSFORMER_DOCTYPE_FILE) {
-			if (!FileManager::fileExists($xsl)) return false;
+			if (!FileManager::fileExists($xsl)) return $falseVar;
 		}
 
 		// The result type can only be string or DOM
@@ -139,7 +140,6 @@ class XSLTransformer {
 
 			default:
 				// No XSLT processor available
-				$falseVar = false;
 				return $falseVar;
 		}
 	}

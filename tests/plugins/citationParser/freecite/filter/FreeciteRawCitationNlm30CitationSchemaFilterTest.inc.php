@@ -69,7 +69,9 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 			)
 		);
 
-		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter();
+		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
@@ -77,14 +79,19 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 	 * @covers FreeciteRawCitationNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithWebServiceError() {
-		$this->assertWebServiceError('FreeciteRawCitationNlm30CitationSchemaFilter');
+		$constructor = array(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
+		$this->assertWebServiceError('FreeciteRawCitationNlm30CitationSchemaFilter', $constructor);
 	}
 
 	/**
 	 * @see Nlm30CitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter();
+		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 }

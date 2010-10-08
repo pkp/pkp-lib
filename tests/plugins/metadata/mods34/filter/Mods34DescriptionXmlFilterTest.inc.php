@@ -25,7 +25,9 @@ class Mods34DescriptionXmlFilterTest extends Mods34DescriptionTestCase {
 		$submissionDescription = $this->getMods34Description();
 
 		// Instantiate filter.
-		$filter = new Mods34DescriptionXmlFilter();
+		$filter = new Mods34DescriptionXmlFilter(PersistableFilter::tempGroup(
+				'metadata::plugins.metadata.mods34.schema.Mods34Schema(*)',
+				'xml::schema(lib/pkp/plugins/metadata/mods34/filter/mods34.xsd)'));
 
 		// Transform MODS description to XML.
 		$output = $filter->execute($submissionDescription);

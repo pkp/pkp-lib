@@ -36,7 +36,9 @@ abstract class Nlm30CitationSchemaFilterTestCase extends PKPTestCase {
 			}
 			// The expected display name of the description
 			// corresponds to the filter display name.
-			$citationFilterTest['testOutput']->setDisplayName($filter->getDisplayName());
+			if (is_a($citationFilterTest['testOutput'], 'MetadataDescription')) {
+				$citationFilterTest['testOutput']->setDisplayName($filter->getDisplayName());
+			}
 
 			// Execute the filter with the test description/raw citation
 			$testInput =& $citationFilterTest['testInput'];

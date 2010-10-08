@@ -25,7 +25,9 @@ class Nlm30CitationSchemaMlaFilterTest extends Nlm30CitationSchemaCitationOutput
 	 * Implements abstract methods from Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new Nlm30CitationSchemaMlaFilter();
+		return new Nlm30CitationSchemaMlaFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'primitive::string'));
 	}
 
 	protected function getBookResultNoAuthor() {

@@ -13,7 +13,6 @@
  * @brief Tests for the Config class.
  */
 
-// $Id$
 
 import('lib.pkp.tests.PKPTestCase');
 
@@ -22,7 +21,7 @@ class ConfigTest extends PKPTestCase {
 	 * @covers Config::getConfigFileName
 	 */
 	public function testGetDefaultConfigFileName() {
-		$expectedResult = dirname(INDEX_FILE_LOCATION). "\config.inc.php";
+		$expectedResult = dirname(INDEX_FILE_LOCATION). DIRECTORY_SEPARATOR. 'config.inc.php';
 		self::assertEquals($expectedResult, Config::getConfigFileName());
 	}
 
@@ -54,7 +53,7 @@ class ConfigTest extends PKPTestCase {
 		$expectedResult = array(
 			'installed' => true,
 			'base_url' => 'http://pkp.sfu.ca/ojs',
-			'registry_dir' => 'registry',
+			'registry_dir' => 'lib/pkp/tests/registry',
 			'session_cookie_name' => 'OJSSID',
 			'session_lifetime' => 30,
 			'scheduled_tasks' => false,

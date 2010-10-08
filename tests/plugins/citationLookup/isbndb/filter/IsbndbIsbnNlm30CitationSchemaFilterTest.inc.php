@@ -16,6 +16,7 @@
  * @brief Tests for IsbndbNlm30CitationSchemaIsbnFilter
  */
 
+
 import('lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbIsbnNlm30CitationSchemaFilter');
 import('lib.pkp.tests.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilterTest');
 
@@ -50,7 +51,10 @@ class IsbndbIsbnNlm30CitationSchemaFilterTest extends IsbndbNlm30CitationSchemaF
 		);
 
 		// Test the filter
-		$filter = new IsbndbIsbnNlm30CitationSchemaFilter(self::ISBNDB_TEST_APIKEY);
+		$filter = new IsbndbIsbnNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
+		$filter->setData('apiKey', self::ISBNDB_TEST_APIKEY);
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 }

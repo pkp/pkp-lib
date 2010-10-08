@@ -93,37 +93,5 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase {
 		// An invalid cardinality will also cause an error.
 		$typeDescription = new PrimitiveTypeDescription('integer[x]');
 	}
-
-	/**
-	 * @covers PrimitiveTypeDescription
-	 * @covers TypeDescription
-	 */
-	public function testGetSampleObject() {
-		// Test scalar types
-		$typeDescription = new PrimitiveTypeDescription('string');
-		self::assertTrue(is_string($typeDescription->getSampleObject()));
-		$typeDescription = new PrimitiveTypeDescription('integer');
-		self::assertTrue(is_integer($typeDescription->getSampleObject()));
-		$typeDescription = new PrimitiveTypeDescription('float');
-		self::assertTrue(is_float($typeDescription->getSampleObject()));
-		$typeDescription = new PrimitiveTypeDescription('boolean');
-		self::assertTrue(is_bool($typeDescription->getSampleObject()));
-
-		// Test variable length array type
-		$typeDescription = new PrimitiveTypeDescription('integer[]');
-		$sampleObject = $typeDescription->getSampleObject();
-		self::assertTrue(is_array($sampleObject));
-		self::assertEquals(1, count($sampleObject));
-		self::assertTrue(isset($sampleObject[0]) && is_integer($sampleObject[0]));
-
-		// Test fixed length array type
-		$typeDescription = new PrimitiveTypeDescription('integer[3]');
-		$sampleObject = $typeDescription->getSampleObject();
-		self::assertTrue(is_array($sampleObject));
-		self::assertEquals(3, count($sampleObject));
-		for ($i = 0; $i < 3; $i++) {
-			self::assertTrue(isset($sampleObject[$i]) && is_integer($sampleObject[$i]));
-		}
-	}
 }
 ?>

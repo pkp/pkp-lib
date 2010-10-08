@@ -20,6 +20,9 @@ import('lib.pkp.classes.filter.TemplateBasedFilter');
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
 
 class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter {
+	/* @var array */
+	var $_supportedPublicationTypes;
+
 	/**
 	 * Constructor
 	 * @param $filterGroup FilterGroup

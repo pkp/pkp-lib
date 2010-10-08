@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file tests/classes/importexport/nlm30/Nlm30XmlFilterTest.inc.php
+ * @file tests/plugins/metadata/nlm30/filter/Nlm30XmlFilterTestCase.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Nlm30XmlFilterTest
- * @ingroup tests_classes_importexport_nlm
+ * @class Nlm30XmlFilterTestCase
+ * @ingroup tests_plugins_metadata_nlm30_filter
  *
  * @brief Basic test class for filters that handle NLM XML.
  */
@@ -17,7 +17,7 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRouter');
 import('lib.pkp.classes.core.PKPRequest');
 
-class Nlm30XmlFilterTest extends PKPTestCase {
+class Nlm30XmlFilterTestCase extends PKPTestCase {
 	protected
 		// Define a fake assoc object for testing.
 		$assocId = 999999,
@@ -87,18 +87,6 @@ class Nlm30XmlFilterTest extends PKPTestCase {
 		$citation->setAssocId($this->assocId);
 		$citation->injectMetadata($citationDescription);
 		return $citation;
-	}
-
-	protected function normalizeAndCompare($nlm30Xml, $expectedFile) {
-		// Normalize the output.
-		$domDocument = new DOMDocument();
-		$domDocument->preserveWhiteSpace = false;
-		$domDocument->formatOutput = true;
-		$domDocument->loadXML($nlm30Xml);
-		$nlm30Xml = $domDocument->saveXML($domDocument->documentElement);
-
-		// Compare with the expected result.
-		self::assertStringEqualsFile($expectedFile, $nlm30Xml);
 	}
 }
 ?>

@@ -105,7 +105,10 @@ class ParaciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 		foreach (ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
 			assert(isset($testCitations[$citationModule]));
 
-			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter($citationModule);
+			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+					'primitive::string',
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
+			$filter->setData('citationModule', $citationModule);
 			$this->assertNlm30CitationSchemaFilter($testCitations[$citationModule], $filter);
 			unset($filter);
 		}
@@ -116,7 +119,10 @@ class ParaciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 	 */
 	public function testAllCitationsWithThisParser() {
 		foreach (ParaciteRawCitationNlm30CitationSchemaFilter::getSupportedCitationModules() as $citationModule) {
-			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter($citationModule);
+			$filter = new ParaciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+					'primitive::string',
+					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
+			$filter->setData('citationModule', $citationModule);
 			parent::testAllCitationsWithThisParser($filter);
 			unset($filter);
 		}

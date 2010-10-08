@@ -25,7 +25,9 @@ class Nlm30CitationSchemaVancouverFilterTest extends Nlm30CitationSchemaCitation
 	 * Implements abstract methods from Nlm30CitationSchemaCitationOutputFormatFilter
 	 */
 	protected function getFilterInstance() {
-		return new Nlm30CitationSchemaVancouverFilter();
+		return new Nlm30CitationSchemaVancouverFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'primitive::string'));
 	}
 
 	protected function getBookResultNoAuthor() {

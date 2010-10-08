@@ -131,7 +131,9 @@ class RegexRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaP
 			)
 		);
 
-		$filter = new RegexRawCitationNlm30CitationSchemaFilter();
+		$filter = new RegexRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$this->assertNlm30CitationSchemaFilter($testCitations, $filter);
 	}
 
@@ -139,7 +141,9 @@ class RegexRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaP
 	 * @see Nlm30CitationSchemaParserFilterTestCase::testAllCitationsWithThisParser()
 	 */
 	public function testAllCitationsWithThisParser() {
-		$filter = new RegexRawCitationNlm30CitationSchemaFilter();
+		$filter = new RegexRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'primitive::string',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		parent::testAllCitationsWithThisParser(&$filter);
 	}
 }

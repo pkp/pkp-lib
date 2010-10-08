@@ -33,6 +33,19 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
 
 
 	//
+	// Implement template methods from TemplateBasedReferencesListFilter
+	//
+	/**
+	 * @see TemplateBasedReferencesListFilter::getCitationOutputFilterTypeDescriptions()
+	 */
+	function getCitationOutputFilterTypeDescriptions() {
+		return array(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'primitive::string');
+	}
+
+
+	//
 	// Implement template methods from PersistableFilter
 	//
 	/**

@@ -137,7 +137,7 @@
 				<setting type="int"><name>seq</name><value>2</value></setting>
 				<setting type="string"><name>displayName</name><value>NLM 2.3: NLM 3.0 to 2.3</value></setting>
 				<setting type="const"><name>xslType</name><value>XSL_TRANSFORMER_DOCTYPE_FILE</value></setting>
-				<setting type="string"><name>xsl</name><value>lib/pkp/classes/importexport/nlm30/nlm-ref-list-30-to-23.xsl</value></setting>
+				<setting type="string"><name>xsl</name><value>lib/pkp/plugins/metadata/nlm30/filter/nlm-30-to-23-ref-list.xsl</value></setting>
 			</filter>
 			<setting type="object">
 				<name>settingsMapping</name>

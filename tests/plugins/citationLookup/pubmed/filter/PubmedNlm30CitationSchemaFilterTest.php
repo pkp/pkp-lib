@@ -17,10 +17,9 @@
  * @brief Tests for the PubmedNlm30CitationSchemaFilter class.
  */
 
-// $Id$
 
 import('lib.pkp.plugins.citationLookup.pubmed.filter.PubmedNlm30CitationSchemaFilter');
-import('lib.pkp.tests.classes.citation.Nlm30CitationSchemaFilterTestCase');
+import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
 class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
 	/**
@@ -39,7 +38,9 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 		);
 
 		// Execute the tests
-		$filter = new PubmedNlm30CitationSchemaFilter();
+		$filter = new PubmedNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 
@@ -79,7 +80,9 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 		);
 
 		// Execute the test
-		$filter = new PubmedNlm30CitationSchemaFilter();
+		$filter = new PubmedNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 	}
 
@@ -97,8 +100,10 @@ class PubmedNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestC
 			),
 			'fpage' => 284,
 			'lpage' => 287,
+			'date' => '2002-07-25',
 			'[@publication-type]' => 'journal',
-			'pub-id[@pub-id-type="doi"]' => '10.1056/NEJMsb020632'
+			'pub-id[@pub-id-type="doi"]' => '10.1056/NEJMsb020632',
+			'uri' => 'http://www.nlm.nih.gov/medlineplus/organtransplantation.html'
 		);
 		return $testOutput;
 	}

@@ -22,8 +22,12 @@ class MetadataTypeDescriptionTest extends PKPTestCase {
 	 * @covers MetadataTypeDescription
 	 */
 	public function testInstantiateAndCheck() {
-		// Test with specific assoc type
+		// Test with specific assoc type.
 		$typeDescription = new MetadataTypeDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)');
+
+		// Test getters.
+		self::assertEquals('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $typeDescription->getMetadataSchemaClass());
+		self::assertEquals(ASSOC_TYPE_CITATION, $typeDescription->getAssocType());
 
 		$rightSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema';
 		$wrongSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';

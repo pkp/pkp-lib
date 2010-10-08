@@ -48,7 +48,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
 	 */
 	function effect() {
 		if (is_a($this->_router, 'PKPPageRouter')) {
-			$page = $this->_router->getRequestedPage($request);
+			$page = $this->_router->getRequestedPage($this->_request);
 		} else {
 			$page = null;
 		}

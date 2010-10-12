@@ -75,23 +75,27 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 
 			// Did we get a search hit?
 			$numResults = '';
-			if (is_a($resultDOM->getElementsByTagName('BookList'), 'DOMNodeList')
-					&& is_a($resultDOM->getElementsByTagName('BookList')->item(0), 'DOMNode')) {
-				$numResults = $resultDOM->getElementsByTagName('BookList')->item(0)->getAttribute('total_results');
+			$bookList =& $resultDOM->getElementsByTagName('BookList');
+			if (is_a($bookList, 'DOMNodeList')) {
+				$bookListFirstItem =& $bookList->item(0);
+				if (is_a($bookListFirstItem, 'DOMNode')) {
+					$numResults = $bookListFirstItem->getAttribute('total_results');
+				}
 			}
 			if (!empty($numResults)) break;
 		}
 
 		// Retrieve the first search hit
-		$bookData = '';
-		if (is_a($resultDOM->getElementsByTagName('BookData'), 'DOMNodeList')) {
-			$bookData =& $resultDOM->getElementsByTagName('BookData')->item(0);
+		$bookDataNodes =& $resultDOM->getElementsByTagName('BookData');
+		$bookDataFirstNode = null;
+		if (is_a($bookDataNodes, 'DOMNodeList')) {
+			$bookDataFirstNode =& $bookDataNodes->item(0);
 		}
 
 		// If no book data present, then abort (this includes no search result at all)
-		if (empty($bookData)) return $nullVar;
+		if (is_null($bookDataFirstNode)) return $nullVar;
 
-		$isbn = $bookData->getAttribute('isbn13');
+		$isbn = $bookDataFirstNode->getAttribute('isbn13');
 
 		// If we have no ISBN then abort
 		if (empty($isbn)) return $nullVar;

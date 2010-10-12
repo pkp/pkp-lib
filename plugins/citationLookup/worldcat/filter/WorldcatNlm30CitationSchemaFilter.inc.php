@@ -144,10 +144,11 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_OCLC.urlencode($oclcId), $lookupParams))) return $nullVar;
 
 		// Extract ISBN from response
-		$oclcNode = $resultDOM->getElementsByTagName('oclcnum')->item(0);
+		$oclcnumNodes =& $resultDOM->getElementsByTagName('oclcnum');
+		$oclcnumFirstNode = $oclcnumNodes->item(0);
 
-		if (isset($oclcNode)) {
-			return explode(' ', $oclcNode->getAttribute('isbn'));
+		if (isset($oclcnumFirstNode)) {
+			return explode(' ', $oclcnumFirstNode->getAttribute('isbn'));
 		} else {
 			return null;
 		}
@@ -196,7 +197,8 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn), $lookupParams))) return $nullVar;
 
 		// Extract metadata from response
-		if (is_null($recordNode = $resultDOM->getElementsByTagName('isbn')->item(0))) return $nullVar;
+		$recordNodes =& $resultDOM->getElementsByTagName('isbn');
+		if (is_null($recordNode = $recordNodes->item(0))) return $nullVar;
 
 		$metadata['isbn'] = $isbn;
 		$metadata['date'] = $recordNode->getAttribute('year');

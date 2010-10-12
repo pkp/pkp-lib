@@ -26,14 +26,9 @@ class ParserFilterGridHandler extends FilterGridHandler {
 	 * @see PKPHandler::initialize()
 	 */
 	function initialize($request) {
-		// Set the input and output sample which
-		// define the filters configured in this
-		// grid.
-		$inputSample = 'arbitrary strings';
-		$this->setInputSample($inputSample);
-
-		$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
-		$this->setOutputSample($outputSample);
+		// Set the filter group defining the filters
+		// configured in this grid.
+		$this->setFilterGroupSymbolic(CITATION_PARSER_FILTER_GROUP);
 
 		// Set the title of this grid
 		$this->setTitle('manager.setup.filter.parser.grid.title');

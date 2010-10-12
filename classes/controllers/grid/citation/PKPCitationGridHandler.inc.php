@@ -214,32 +214,29 @@ class PKPCitationGridHandler extends GridHandler {
 				$templateMgr->assign_by_ref('assocId', $this->getAssocId());
 
 				// Identify export filters.
-				$filterDao =& DAORegistry::getDAO('FilterDAO');
-				$inputSample = $this->getAssocObject();
+				$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 				$allowedFilterIds = array();
 
-				// Identify filters that are capable to convert the citation
-				// editor's associated object into XML.
-				$outputSample = new DOMDocument();
-				$xmlExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
-				$xmlExportFilters = array();
-				foreach($xmlExportFilterObjects as $xmlExportFilterObject) {
-					$xmlExportFilters[$xmlExportFilterObject->getId()] = '&nbsp;'.$xmlExportFilterObject->getDisplayName();
-					$allowedFilterIds[$xmlExportFilterObject->getId()] = 'xml';
-				}
-				$templateMgr->assign_by_ref('xmlExportFilters', $xmlExportFilters);
+				// Retrieve export filters.
+				$exportFilters = array();
+				$exportFilterConfiguration = $this->_getExportFilterConfiguration();
+				foreach($exportFilterConfiguration as $selectListHeading => $outputType) {
+					// All filters that take a submission and one of the supported
+					// output types will be displayed.
+					$exportFilterObjects =& $filterDao->getObjectsByTypeDescription('class::lib.pkp.classes.submission.Submission', $outputType);
 
-				// Identify filters that are capable to convert the citation
-				// editor's associated object into a plain text reference list.
-				import('lib.pkp.classes.citation.PlainTextReferencesList');
-				$outputSample = new PlainTextReferencesList(null, null);
-				$textExportFilterObjects =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
-				$textExportFilters = array();
-				foreach($textExportFilterObjects as $textExportFilterObject) {
-					$textExportFilters[$textExportFilterObject->getId()] = '&nbsp;'.$textExportFilterObject->getDisplayName();
-					$allowedFilterIds[$textExportFilterObject->getId()] = 'plain';
+					// Build the array for the template.
+					$exportFilters[$selectListHeading] = array();
+					foreach($exportFilterObjects as $exportFilterObject) { /* @var $exportFilterObject PersistableFilter */
+						$filterId = $exportFilterObject->getId();
+						// FIXME: Move &nbsp; to the template.
+						$exportFilters[$selectListHeading][$filterId] = '&nbsp;'.$exportFilterObject->getDisplayName();
+						$allowedFilterIds[$filterId] = $outputType;
+					}
+
+					unset($exportFilterObjects);
 				}
-				$templateMgr->assign_by_ref('textExportFilters', $textExportFilters);
+				$templateMgr->assign_by_ref('exportFilters', $xmlExportFilters);
 
 				// Did the user choose a custom filter?
 				$exportFilter = null;
@@ -276,8 +273,8 @@ class PKPCitationGridHandler extends GridHandler {
 					}
 
 					if (is_null($errorMessage)) {
-						switch ($exportType) {
-							case 'xml':
+						switch (substr($exportType, 0, 5)) {
+							case 'xml::':
 								// Pretty-format XML output.
 								$xmlDom = new DOMDocument();
 								$xmlDom->preserveWhiteSpace = false;
@@ -286,10 +283,9 @@ class PKPCitationGridHandler extends GridHandler {
 								$exportOutputString = $xmlDom->saveXml($xmlDom->documentElement);
 								break;
 
-							case 'plain':
+							default:
 								assert(is_a($exportOutput, 'PlainTextReferencesList'));
 								$exportOutputString = $exportOutput->getListContent();
-								break;
 						}
 					}
 				}
@@ -548,6 +544,25 @@ class PKPCitationGridHandler extends GridHandler {
 	//
 	// Private helper functions
 	//
+	/**
+	 * This method returns the texts and filter groups that should be
+	 * presented for citation reference list export.
+	 *
+	 * FIXME: We either have to move that somewhere to the configuration
+	 * or create more generic filter groups if we want to support several
+	 * meta-data schemas.
+	 *
+	 * @return array keys are translation keys that point to the heading
+	 *  to be displayed in the select list, the values are the type description
+	 *  wildcards to be used for filter selection in this group.
+	 */
+	function _getExportFilterConfiguration() {
+		return array(
+			'submission.citations.editor.export.pleaseSelectXmlFilter' => 'xml::%',
+			'submission.citations.editor.export.pleaseSelectPlaintextFilter' => 'class::lib.pkp.classes.citation.PlainTextReferencesList'
+		);
+	}
+
 	/**
 	 * Create and validate a citation form with POST
 	 * request data and (optionally) persist the citation.

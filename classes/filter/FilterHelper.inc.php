@@ -113,7 +113,7 @@ class FilterHelper {
 
 			// 3) If the filter has been installed before then return the existing filter.
 			if ($identicalFilters) {
-				$existingFilter =& array_pop($similarFilters);
+				$existingFilter = array_pop($similarFilters);
 				return $existingFilter;
 			}
 		}

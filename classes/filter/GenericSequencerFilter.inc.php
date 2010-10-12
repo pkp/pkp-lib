@@ -21,7 +21,7 @@ class GenericSequencerFilter extends CompositeFilter {
 	 * Constructor
 	 */
 	function GenericSequencerFilter(&$filterGroup, $displayName = null) {
-		parent::CompositeFilter(&$filterGroup, $displayName);
+		parent::CompositeFilter($filterGroup, $displayName);
 	}
 
 

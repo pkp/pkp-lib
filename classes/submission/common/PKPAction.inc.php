@@ -71,11 +71,8 @@ class PKPAction {
 
 		// 3) At least one citation parser is available.
 		if (!$citationEditorConfigurationError) {
-			$filterDao =& DAORegistry::getDAO('FilterDAO');
-			$inputSample = 'arbitrary strings';
-			import('lib.pkp.classes.metadata.MetadataDescription');
-			$outputSample = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
-			$configuredCitationParsers =& $filterDao->getCompatibleObjects($inputSample, $outputSample, $context->getId());
+			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$configuredCitationParsers =& $filterDao->getObjectsByGroup(CITATION_PARSER_FILTER_GROUP, $context->getId());
 			if (!count($configuredCitationParsers)) $citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
 		}
 

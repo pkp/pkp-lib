@@ -25,29 +25,24 @@ class FilterForm extends Form {
 	/** @var string a translation key for the filter form description */
 	var $_description;
 
-	/** @var mixed sample input object required to identify compatible filters */
-	var $_inputSample;
-
-	/** @var mixed sample output object required to identify compatible filters */
-	var $_outputSample;
+	/** @var string the filter group to be configured in this form */
+	var $_filterGroupSymbolic;
 
 	/**
 	 * Constructor.
 	 * @param $filter Filter
-	 * @param $inputSample mixed
-	 * @param $outputSample mixed
+	 * @param $filterGroupSymbolic string
 	 * @param $title string
 	 * @param $description string
 	 */
-	function FilterForm(&$filter, $title, $description, &$inputSample, &$outputSample) {
+	function FilterForm(&$filter, $title, $description, $filterGroupSymbolic) {
 		parent::Form('controllers/grid/filter/form/filterForm.tpl');
 
 		// Initialize internal state.
 		$this->_filter =& $filter;
 		$this->_title = $title;
 		$this->_description = $description;
-		$this->_inputSample =& $inputSample;
-		$this->_outputSample =& $outputSample;
+		$this->_filterGroupSymbolic = $filterGroupSymbolic;
 
 		// Transport filter/template id.
 		$this->readUserVars(array('filterId', 'filterTemplateId'));
@@ -99,19 +94,11 @@ class FilterForm extends Form {
 	}
 
 	/**
-	 * Get the input sample object
+	 * Get the filter group symbol
 	 * @return mixed
 	 */
-	function &getInputSample() {
-		return $this->_inputSample;
-	}
-
-	/**
-	 * Get the output sample object
-	 * @return mixed
-	 */
-	function &getOutputSample() {
-		return $this->_outputSample;
+	function getFilterGroupSymbolic() {
+		return $this->_filterGroupSymbolic;
 	}
 
 	//
@@ -142,8 +129,8 @@ class FilterForm extends Form {
 
 			// Retrieve all compatible filter templates
 			// from the database.
-			$filterDao =& DAORegistry::getDAO('FilterDAO');
-			$filterTemplateObjects =& $filterDao->getCompatibleObjects($this->_inputSample, $this->_outputSample, 0, true);
+			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+			$filterTemplateObjects =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), 0, true);
 			$filterTemplates = array();
 
 			// Make a blacklist of filters that cannot be

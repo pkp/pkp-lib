@@ -50,6 +50,7 @@ class PluginTestCase extends PKPTestCase {
 
 		// Mock request and router.
 		import('lib.pkp.classes.core.PKPRouter');
+		import('classes.core.Request');
 		$mockRequest = $this->getMock('Request', array('getRouter', 'getUser'));
 		$router = new PKPRouter();
 		$mockRequest->expects($this->any())

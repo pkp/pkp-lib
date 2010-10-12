@@ -109,8 +109,10 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 		foreach($propertyNames as $propertyName) {
 			$templateVariable = $input->getNamespacedPropertyId($propertyName);
 			if ($input->hasStatement($propertyName)) {
-				$propertyLocale = $input->getProperty($propertyName)->getTranslated() ? $locale : null;
+				$property =& $input->getProperty($propertyName);
+				$propertyLocale = $property->getTranslated() ? $locale : null;
 				$templateMgr->assign_by_ref($templateVariable, $input->getStatement($propertyName, $propertyLocale));
+				unset($property);
 			} else {
 				// Delete potential leftovers from previous calls
 				$templateMgr->clear_assign($templateVariable);

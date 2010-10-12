@@ -216,15 +216,17 @@ class FilterDAO extends DAO {
 
 	/**
 	 * Retrieve filters based on the supported input/output type.
-	 * @param $data mixed the data to be matched by the filter
+	 *
 	 * @param $inputTypeDescription a type description that has to match the input type
 	 * @param $outputTypeDescription a type description that has to match the output type
 	 *  NB: input and output type description can contain wildcards.
+	 * @param $data mixed the data to be matched by the filter. If no data is given then
+	 *  all filters will be matched.
 	 * @param $dataIsInput boolean true if the given data object is to be checked as
 	 *  input type, false to check against the output type.
-	 * return array a list of meta-data adapter instances.
+	 * @return array a list of matched filters.
 	 */
-	function &getObjectsByTypeDescription(&$data, $inputTypeDescription, $outputTypeDescription, $dataIsInput = true) {
+	function &getObjectsByTypeDescription($inputTypeDescription, $outputTypeDescription, $data = null, $dataIsInput = true) {
 		static $filterCache = array();
 		static $objectFilterCache = array();
 
@@ -247,6 +249,9 @@ class FilterDAO extends DAO {
 			$filterFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
 			$filterCache[$filterCacheKey] =& $filterFactory->toArray();
 		}
+
+		// Return all filter candidates if no data is given to check against.
+		if (is_null($data)) return $filterCache[$filterCacheKey];
 
 		// Build the object-specific adapter cache.
 		$objectFilterCacheKey = md5($filterCacheKey.(is_object($data)?get_class($data):"'$data'").($dataIsInput?'in':'out'));

@@ -30,11 +30,8 @@ class PKPFilterGridHandler extends GridHandler {
 	/** @var string the description text to be displayed in the filter form */
 	var $_formDescription;
 
-	/** @var mixed sample input object required to identify compatible filters */
-	var $_inputSample;
-
-	/** @var mixed sample output object required to identify compatible filters */
-	var $_outputSample;
+	/** @var mixed the symbolic name of the filter group to be configured in this grid */
+	var $_filterGroupSymbolic;
 
 	/**
 	 * Constructor
@@ -85,35 +82,19 @@ class PKPFilterGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Set the input sample object
-	 * @param $inputSample mixed
+	 * Set the filter group symbol
+	 * @param $filterGroupSymbolic string
 	 */
-	function setInputSample(&$inputSample) {
-		$this->_inputSample =& $inputSample;
+	function setFilterGroupSymbolic($filterGroupSymbolic) {
+		$this->_filterGroupSymbolic = $filterGroupSymbolic;
 	}
 
 	/**
-	 * Get the input sample object
-	 * @return mixed
+	 * Get the filter group symbol
+	 * @return string
 	 */
-	function &getInputSample() {
-		return $this->_inputSample;
-	}
-
-	/**
-	 * Set the output sample object
-	 * @param $outputSample mixed
-	 */
-	function setOutputSample(&$outputSample) {
-		$this->_outputSample =& $outputSample;
-	}
-
-	/**
-	 * Get the output sample object
-	 * @return mixed
-	 */
-	function &getOutputSample() {
-		return $this->_outputSample;
+	function getFilterGroupSymbolic() {
+		return $this->_filterGroupSymbolic;
 	}
 
 
@@ -136,8 +117,8 @@ class PKPFilterGridHandler extends GridHandler {
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
 		$contextId = (is_null($context)?0:$context->getId());
-		$filterDao =& DAORegistry::getDAO('FilterDAO');
-		$data =& $filterDao->getCompatibleObjects($this->getInputSample(), $this->getOutputSample(), $contextId);
+		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
+		$data =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
 		$this->setData($data);
 
 		// Grid action
@@ -217,7 +198,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.filter.form.FilterForm');
 		$filterForm = new FilterForm($filter, $this->getTitle(), $this->getFormDescription(),
-				$this->getInputSample(), $this->getOutputSample());
+				$this->getFilterGroupSymbolic());
 
 		$filterForm->initData($this->getData());
 
@@ -241,7 +222,7 @@ class PKPFilterGridHandler extends GridHandler {
 		import('lib.pkp.classes.controllers.grid.filter.form.FilterForm');
 		$nullVar = null;
 		$filterForm = new FilterForm($filter, $this->getTitle(), $this->getFormDescription(),
-				$nullVar, $nullVar); // No input/output samples required here.
+				$nullVar); // No filter group required here.
 		$filterForm->readInputData();
 
 		// Form validation

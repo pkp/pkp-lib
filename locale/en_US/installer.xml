@@ -59,6 +59,7 @@
 	<message key="installer.installFilesDirError">The directory specified for uploaded files does not exist or is not writable.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Locale</message>
 	<message key="installer.locale.maybeIncomplete">Marked locales may be incomplete.</message>
 	<message key="installer.localeSettings">Locale Settings</message>

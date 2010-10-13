@@ -267,6 +267,26 @@ class PKPPlugin {
 		return null;
 	}
 
+	/**
+	 * Get the filename(s) of the filter configuration data for
+	 * this plugin. Subclasses using filters can override this.
+	 *
+	 * The default implementation establishes "well known" locations
+	 * for the filter configuration. If you keep your files in these
+	 * locations then there's no need to override this method.
+	 *
+	 * @return string|array one or more file locations.
+	 */
+	function getInstallFilterConfigFiles() {
+		// Construct the well-known filter configuration file names.
+		$filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
+		$filterConfigFiles = array(
+			'./lib/pkp/'.$filterConfigFile,
+			'./'.$filterConfigFile
+		);
+		return $filterConfigFiles;
+	}
+
 	/*
 	 * Protected helper methods (can be used by custom plugins but
 	 * should not be overridden by custom plugins)
@@ -621,12 +641,9 @@ class PKPPlugin {
 		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1]; /* @var $result boolean */
 
-		// Construct the well-known filter configuration file names.
-		$filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
-		$filterConfigFiles = array(
-			'./lib/pkp/'.$filterConfigFile,
-			'./'.$filterConfigFile
-		);
+		// Get the filter configuration file name(s).
+		$filterConfigFiles = $this->getInstallFilterConfigFiles();
+		if (is_scalar($filterConfigFiles)) $filterConfigFiles = array($filterConfigFiles);
 
 		// Run through the config file positions and see
 		// whether one of these exists and needs to be installed.
@@ -635,10 +652,10 @@ class PKPPlugin {
 			if (!file_exists($filterConfigFile)) continue;
 
 			// Install the filter configuration.
-			if (!$installer->installFilterConfig($filterConfigFile)) {
-				// Stop installation.
-				$result = false;
-				return true;
+			$result = $installer->installFilterConfig($filterConfigFile);
+			if (!$result) {
+				// The filter configuration file seems to be invalid.
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $filterConfigFile, Locale::translate('installer.installParseFilterConfigFileError')));
 			}
 		}
 

@@ -77,9 +77,9 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 
 		// Set the display name.
 		if (is_a($inputType, 'MetadataTypeDescription')) {
-			$this->setDisplayName('Inject Metadata into a '.$this->getDataObjectClass());
+			$this->setDisplayName('Inject metadata into a(n) '.$this->getDataObjectClass());
 		} else {
-			$this->setDisplayName('Extract Metadata from a '.$this->getDataObjectClass());
+			$this->setDisplayName('Extract metadata from a(n) '.$this->getDataObjectClass());
 		}
 	}
 

@@ -550,16 +550,23 @@ class PKPPlugin {
 	 * @return boolean
 	 */
 	function installEmailTemplates($hookName, $args) {
-		$installer =& $args[0];
+		$installer =& $args[0]; /* @var $installer Installer */
 		$result =& $args[1];
 
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
 		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
-		if ($sql) {
-			$result = $installer->executeSQL($sql);
-		} else {
+
+		if ($sql === false) {
+			// The template file seems to be invalid.
 			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
 			$result = false;
+		} else {
+			// Are there any yet uninstalled email templates?
+			assert(is_array($sql));
+			if (!empty($sql)) {
+				// Install templates.
+				$result = $installer->executeSQL($sql);
+			}
 		}
 		return false;
 	}

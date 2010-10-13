@@ -513,13 +513,13 @@ function deleteElementById(element, showEmpty) {
  * @param tabContainer String
  * @param reopen Boolean
  */
-function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen) {
+function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen, callingButton) {
 	$.post(url, null, function(returnString) {
 		if (returnString.status == true) {
 			updateItem(actOnType, actOnId, returnString.content);
 			$(tabContainer).parent().dialog('close');
 			if (reopen == true) {
-				$(tabContainer).last().parent().dialog('open');
+				$(callingButton).click();
 			}
 		} else {
 			// Display errors in error list

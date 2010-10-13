@@ -66,6 +66,8 @@
 	<message key="grid.artworkFile.type">Type</message>
 	<message key="grid.artworkFile.type.table">Table</message>
 	<message key="grid.artworkFile.type.figure">Figure</message>
+	<message key="grid.artworkFile.type.photo">Photo</message>
+	<message key="grid.artworkFile.type.illustration">Illustration</message>
 	<message key="grid.artworkFile.placement">Placement in book</message>
 	<message key="grid.artworkFile.placementDetail">Table/Fig. No.</message>
 	<message key="grid.artworkFile.contactAuthor">Contact Author</message>

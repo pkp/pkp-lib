@@ -25,10 +25,11 @@ class PersonStringNlm30NameSchemaFilterTest extends PKPTestCase {
 		$personArgumentArray = array(
 			array('MULLER', false, false),                           // surname
 			array('His Excellency B.C. Van de Haan', true, false),   // initials prefix surname + title
-			array('Mrs. P.-B. von Redfield-Brownfox', true, false),  // initials prefix double-surname + title
+			array('Mrs. P.-B. von Redfield-Brownfox', true, false),  // initials prefix double-surname with hyphen + title
 			array('Professor K-G. Brown, MA, MSc.', true, true),     // initials surname + title + degree
 			array('IFC Peterberg', false, false),                    // initials surname
 			array('Peters, H. C.', false, false),                    // surname, initials
+			array('Fernandes Lopes, Paula', false, false),           // double-surname with spaces, initials
 			array('Peters HC', false, false),                        // surname initials
 			array('Yu, QK', false, false),                           // short surname, initials
 			array('Yu QK', false, false),                            // short surname initials
@@ -53,6 +54,7 @@ class PersonStringNlm30NameSchemaFilterTest extends PKPTestCase {
 			array('Professor - MA; MSc', array('K', 'G'), null, 'Brown'),
 			array(null, array('I', 'F', 'C'), null, 'Peterberg'),
 			array(null, array('H', 'C'), null, 'Peters'),
+			array(null, array('Paula'), null, 'Fernandes Lopes'),
 			array(null, array('H', 'C'), null, 'Peters'),
 			array(null, array('Q', 'K'), null, 'Yu'),
 			array(null, array('Q', 'K'), null, 'Yu'),

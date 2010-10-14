@@ -230,9 +230,11 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 		);
 		// The expressions for given name, suffix and surname are the same
 		$personRegex['surname'] = $personRegex['suffix'] = $personRegex['givenName'];
+		$personRegex['double-surname'] = "(?:".$personRegex['surname']."\s)*".$personRegex['surname'];
 
 		// Shortcut for prefixed surname
 		$personRegexPrefixedSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['surname'].")";
+		$personRegexPrefixedDoubleSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['double-surname'].")";
 
 		// Instantiate the target person description
 		$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
@@ -277,18 +279,18 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 			// Several permutations of name elements, ordered by specificity
 			'/^(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
 			'/^'.$personRegexPrefixedSurname.',?\s(?P<initials>'.$personRegex['initials'].')$/',
-			'/^'.$personRegexPrefixedSurname.',\s(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')$/',
+			'/^'.$personRegexPrefixedDoubleSurname.',\s(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')$/',
 			'/^(?P<givenName>'.$personRegex['givenName'].')\s(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
-			'/^'.$personRegexPrefixedSurname.',\s(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')$/',
+			'/^'.$personRegexPrefixedDoubleSurname.',\s(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')$/',
 			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)(?P<initials>'.$personRegex['initials'].')\s'.$personRegexPrefixedSurname.'$/',
-			'/^'.$personRegexPrefixedSurname.',(?P<givenName>(?:\s'.$personRegex['givenName'].')+)$/',
+			'/^'.$personRegexPrefixedDoubleSurname.',(?P<givenName>(?:\s'.$personRegex['givenName'].')+)$/',
 			'/^(?P<givenName>(?:'.$personRegex['givenName'].'\s)+)'.$personRegexPrefixedSurname.'$/',
 
 			// DRIVER guidelines 2.0 name syntax
 			'/^\s*(?P<surname>'.$personRegex['surname'].')(?P<suffix>(?:\s+'.$personRegex['suffix'].')?)\s*,\s*(?P<initials>(?:'.$personRegex['initials'].')?)\s*\((?P<givenName>(?:\s*'.$personRegex['givenName'].')+)\s*\)\s*(?P<prefix>(?:'.$personRegex['prefix'].')?)$/',
 
 			// ParaCite name syntax
-			'/^(?P<givenName>'.$personRegex['givenName'].')\.(?P<surname>'.$personRegex['surname'].')$/',
+			'/^(?P<givenName>'.$personRegex['givenName'].')\.(?P<surname>'.$personRegex['double-surname'].')$/',
 
 		// Catch-all expression
 			'/^(?P<surname>.*)$/'

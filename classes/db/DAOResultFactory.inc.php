@@ -204,7 +204,7 @@ class DAOResultFactory extends ItemIterator {
 	 * Convert this iterator to an associative array by database ID.
 	 * @return array
 	 */
-	function &toAssociativeArray($idField) {
+	function &toAssociativeArray($idField = 'id') {
 		$returner = array();
 		while (!$this->eof()) {
 			$result =& $this->next();

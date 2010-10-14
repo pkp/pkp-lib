@@ -294,7 +294,7 @@ class CitationDAO extends DAO {
 		// Retrieve the requested filter group(s).
 		if (is_scalar($filterGroups)) $filterGroups = array($filterGroups);
 		foreach($filterGroups as $filterGroupSymbolic) {
-			$filterList =& array_merge($filterList, $filterDao->getObjectsByGroup($filterGroupSymbolic));
+			$filterList =& array_merge($filterList, $filterDao->getObjectsByGroup($filterGroupSymbolic, $contextId));
 		}
 
 		// Filter the result list:
@@ -630,7 +630,7 @@ class CitationDAO extends DAO {
 			// Instantiate the citation de-multiplexer filter
 			// FIXME: This must be configurable if we want to support other
 			// meta-data schemas.
-			import('lib.pkp.classes.citation.Nlm30CitationDemultiplexerFilter');
+			import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');
 			$citationDemultiplexer = new Nlm30CitationDemultiplexerFilter();
 			$citationDemultiplexer->setOriginalDescription($originalDescription);
 			$citationDemultiplexer->setOriginalRawCitation($citation->getRawCitation());

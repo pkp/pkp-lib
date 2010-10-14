@@ -236,7 +236,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 					unset($exportFilterObjects);
 				}
-				$templateMgr->assign_by_ref('exportFilters', $xmlExportFilters);
+				$templateMgr->assign_by_ref('exportFilters', $exportFilters);
 
 				// Did the user choose a custom filter?
 				$exportFilter = null;

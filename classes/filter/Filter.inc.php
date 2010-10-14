@@ -141,6 +141,21 @@ class Filter extends DataObject {
 		return $this->getData('displayName');
 	}
 
+	/**
+	 * Set the sequence id
+	 * @param $seq integer
+	 */
+	function setSeq($seq) {
+		$this->setData('seq', $seq);
+	}
+
+	/**
+	 * Get the sequence id
+	 * @return integer
+	 */
+	function getSeq() {
+		return $this->getData('seq');
+	}
 
 	/**
 	 * Set the input/output type of this filter group.

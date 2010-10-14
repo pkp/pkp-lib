@@ -70,6 +70,7 @@ class PKPAction {
 		}
 
 		// 3) At least one citation parser is available.
+		$citationDao =& DAORegistry::getDAO('CitationDAO'); // NB: This also loads the parser/lookup filter category constants.
 		if (!$citationEditorConfigurationError) {
 			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 			$configuredCitationParsers =& $filterDao->getObjectsByGroup(CITATION_PARSER_FILTER_GROUP, $context->getId());
@@ -94,7 +95,6 @@ class PKPAction {
 		$templateMgr->assign('introductionHide', $introductionHide);
 
 		// Display an initial help message.
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		$citations =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId());
 		if ($citations->getCount() > 0) {
 			$initialHelpMessage = Locale::translate('submission.citations.editor.details.pleaseClickOnCitationToStartEditing');

@@ -15,6 +15,7 @@
  */
 
 import('lib.pkp.classes.filter.TemplateBasedFilter');
+import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 
 // This is a brand name so doesn't have to be translated...
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');

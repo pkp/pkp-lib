@@ -185,7 +185,7 @@ class CitationForm extends Form {
 
 		// Extract data from citation form fields and inject it into the citation
 		import('lib.pkp.classes.metadata.MetadataDescription');
-		$metadataAdapters = $citation->getSupportedMetadataSchemas();
+		$metadataSchemas = $citation->getSupportedMetadataSchemas();
 		foreach($metadataSchemas as $metadataSchema) { /* @var $metadataSchema MetadataSchema */
 			// Instantiate a meta-data description for the given schema
 			$metadataDescription = new MetadataDescription($metadataSchema->getClassName(), ASSOC_TYPE_CITATION);
@@ -300,7 +300,7 @@ class CitationForm extends Form {
 		$context =& $router->getContext($request);
 		$citation =& $this->getCitation();
 		$assocObject =& $this->getAssocObject();
-		$citationDao =& DAORegistry::getDAO('CitationDAO');
+		$citationDao =& DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
 
 		/////////////////////////////////////////////////////
 		// Raw citation editing and citation comparison

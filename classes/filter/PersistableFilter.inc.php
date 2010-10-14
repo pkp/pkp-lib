@@ -14,8 +14,7 @@
  * @brief A filter that can be persisted to the database.
  *
  * Persisted filters are attributed to a filter group so that all filters
- * of the same kind can be discovered from the database. Filters can be
- * ordered within a group. That's where their sequence number comes in.
+ * of the same kind can be discovered from the database.
  *
  * Persisted filters also can provide a list of FilterSetting objects which
  * represent persistable filter configuration parameters.
@@ -130,22 +129,6 @@ class PersistableFilter extends Filter {
 	 */
 	function getParentFilterId() {
 		return $this->getData('parentFilterId');
-	}
-
-	/**
-	 * Set the sequence id
-	 * @param $seq integer
-	 */
-	function setSeq($seq) {
-		$this->setData('seq', $seq);
-	}
-
-	/**
-	 * Get the sequence id
-	 * @return integer
-	 */
-	function getSeq() {
-		return $this->getData('seq');
 	}
 
 	/**

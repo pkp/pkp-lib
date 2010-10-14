@@ -242,12 +242,13 @@ class FilterDAO extends DAO {
 					' FROM filters f'.
 					'  INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id'.
 					' WHERE fg.input_type like ?'.
-					'  AND fg.output_type like ?',
+					'  AND fg.output_type like ?'.
+					'  AND f.parent_filter_id = 0 AND f.is_template = 0',
 					array($inputTypeDescription, $outputTypeDescription));
 
 			// Instantiate all filters.
 			$filterFactory = new DAOResultFactory($result, $this, '_fromRow', array('filter_id'));
-			$filterCache[$filterCacheKey] =& $filterFactory->toArray();
+			$filterCache[$filterCacheKey] =& $filterFactory->toAssociativeArray();
 		}
 
 		// Return all filter candidates if no data is given to check against.
@@ -257,7 +258,7 @@ class FilterDAO extends DAO {
 		$objectFilterCacheKey = md5($filterCacheKey.(is_object($data)?get_class($data):"'$data'").($dataIsInput?'in':'out'));
 		if (!isset($objectFilterCache[$objectFilterCacheKey])) {
 			$objectFilterCache[$objectFilterCacheKey] = array();
-			foreach($filterCache[$filterCacheKey] as $filterCandidate) { /* @var $filterCandidate PersistableFilter */
+			foreach($filterCache[$filterCacheKey] as $filterCandidateId => $filterCandidate) { /* @var $filterCandidate PersistableFilter */
 				// Check whether the given object can be transformed
 				// with this filter.
 				if ($dataIsInput) {
@@ -265,7 +266,7 @@ class FilterDAO extends DAO {
 				} else {
 					$filterDataType =& $filterCandidate->getOutputType();
 				}
-				if ($filterDataType->checkType($data)) $objectFilterCache[$objectFilterCacheKey][] =& $filterCandidate;
+				if ($filterDataType->checkType($data)) $objectFilterCache[$objectFilterCacheKey][$filterCandidateId] =& $filterCandidate;
 			}
 		}
 
@@ -306,7 +307,7 @@ class FilterDAO extends DAO {
 		foreach($result->GetAssoc() as $filterRow) {
 			$filterInstance =& $this->_fromRow($filterRow);
 			if (!$checkRuntimeEnvironment || $filterInstance->isCompatibleWithRuntimeEnvironment()) {
-				$matchingFilters[] =& $filterInstance;
+				$matchingFilters[$filterInstance->getId()] =& $filterInstance;
 			}
 			unset($filterInstance);
 		}

@@ -37,8 +37,6 @@ class PersistableFilterTest extends PKPTestCase {
 		self::assertEquals(0, $testFilter->getParentFilterId());
 		$testFilter->setParentFilterId(1);
 		self::assertEquals(1, $testFilter->getParentFilterId());
-		$testFilter->setSeq(5);
-		self::assertEquals(5, $testFilter->getSeq());
 
 		// Test settings
 		self::assertFalse($testFilter->hasSettings());

@@ -186,7 +186,7 @@ class Form {
 		$templateMgr->register_function('fbvButton', array(&$this, 'smartyFBVButton'));
 		$templateMgr->register_function('fbvLink', array(&$this, 'smartyFBVLink'));
 		$templateMgr->register_function('fbvTextInput', array(&$this, 'smartyFBVTextInput'));
-		$templateMgr->register_function('fbvTextarea', array(&$this, 'smartyFBVTextArea'));
+		$templateMgr->register_function('fbvTextArea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
 		$templateMgr->register_function('fbvElement', array(&$this, 'smartyFBVElement'));
 		$templateMgr->register_function('fbvElementMultilingual', array(&$this, 'smartyFBVElementMultilingual'));

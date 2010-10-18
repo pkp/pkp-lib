@@ -242,7 +242,8 @@ class PKPPageRouter extends PKPRouter {
 
 		// Redirect to 404 if the operation doesn't exist
 		// for the handler.
-		$methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
+		$methods = array();
+		if (defined('HANDLER_CLASS')) $methods = array_map('strtolower', get_class_methods(HANDLER_CLASS));
 		if (!in_array(strtolower($op), $methods)) {
 			$dispatcher =& $this->getDispatcher();
 			$dispatcher->handle404();

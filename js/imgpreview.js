@@ -6,15 +6,15 @@
  * Updated: 08/02/09
  * @author James Padolsey
  * @version 0.2
- * 
+ *
  * Modifications made by Matt Crider to allow for OMP-style links to images
  *  The original javascript required image extensions in the URL.
- * 
+ *
  */
 (function($){
-    
+    // MC Customization: Removed $.expr definition which ensures files end with typical image extensions
     $.fn.imgPreview = function(userDefinedSettings){
-        
+
         var s = $.extend({
             imgCSS: {},
             distanceFromCursor: {top:10, left:10},
@@ -27,22 +27,23 @@
             thumbPrefix: '',
             srcAttr: 'href'
         }, userDefinedSettings),
-        
+
         $container = $('<div/>').attr('id', s.containerID)
                         .append('<img/>').hide()
                         .css('position','absolute')
                         .appendTo('body'),
-            
+
         $img = $('img', $container).css(s.imgCSS);
-        
+
+        // MC customization: Removed more suffix checking code
         if (s.preloadImages) {
             this.each(function(){
-                
+
                     (new Image()).src = $(this).attr(s.srcAttr).replace(/(\/?)([^\/]+)$/,'$1' + s.thumbPrefix + '$2');
-                
+
             });
         }
-        
+
         this.mousemove(function(e){
                 $container.css({
                     top: e.pageY + s.distanceFromCursor.top + 'px',
@@ -62,9 +63,9 @@
                 $img.unbind('load').attr('src','');
                 s.onHide.call($container[0], this);
             });
-            
+
         return this;
-        
+
     }
-    
+
 })(jQuery);

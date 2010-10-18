@@ -225,6 +225,14 @@ class DAO {
 	}
 
 	/**
+	 * Return the number of affected rows by the last UPDATE or DELETE.
+	 * @return int (or false if not supported)
+	 */
+	function getAffectedRows() {
+		return $this->_dataSource->Affected_Rows();
+	}
+
+	/**
 	 * Configure the caching directory for database results
 	 * NOTE: This is implemented as a GLOBAL setting and cannot
 	 * be set on a per-connection basis.

@@ -207,6 +207,34 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
+	 * Get an array of user group ids belonging to a given role
+	 * @param $roleId in
+	 * @param $pressId int
+	 */
+	function &getUserGroupIdsByRoleId($roleId, $pressId = null) {
+		$sql = 'SELECT user_group_id FROM user_groups WHERE role_id = ?';
+		$params = array($roleId);
+
+		if($pressId) {
+			$sql .= ' AND press_id = ?';
+			$params[] = $pressId;
+		}
+
+		$result =& $this->retrieve($sql, $params);
+
+		$userGroupIds = array();
+		while (!$result->EOF) {
+			$userGroupIds[] = (int) $result->fields[0];
+			$result->moveNext();
+		}
+
+		$result->Close();
+		unset($result);
+
+		return $userGroupIds;
+	}
+
+	/**
 	 * Validation check to see if a user belongs to any group that has a given role
 	 * @param $pressId
 	 * @param $userId

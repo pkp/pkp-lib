@@ -40,7 +40,10 @@ class SignoffDAO extends DAO {
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
-	 * @return $signoff
+	 * @param $userId int
+	 * @param $stageId int
+	 * @param $userGroupId int
+	 * @return Signoff
 	 */
 	function build($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
 		// If one exists, fetch and return.
@@ -228,6 +231,10 @@ class SignoffDAO extends DAO {
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
+	 * @param $userId int
+	 * @param $stageId int
+	 * @param $userGroupId int
+	 * @return object
 	 */
 	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
@@ -263,11 +270,24 @@ class SignoffDAO extends DAO {
 	 * @param $symbolic string
 	 * @param $assocType int
 	 * @param $assocId int
+	 * @param $userId int
+	 * @param $stageId int
+	 * @param $userGroupId int
 	 * @return object
 	 */
-	function getAllBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
-		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
-		$params = array($symbolic, (int) $assocType, (int) $assocId);
+	function getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $stageId = null, $userGroupId = null) {
+		$sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
+		$params = array($symbolic);
+
+		if ($assocType) {
+			$sql .= ' AND assoc_type = ?';
+			$params[] = (int) $assocType;
+		}
+
+		if ($assocId) {
+			$sql .= ' AND assoc_id = ?';
+			$params[] = (int) $assocId;
+		}
 
 		if ($userId) {
 			$sql .= ' AND user_id = ?';
@@ -293,6 +313,7 @@ class SignoffDAO extends DAO {
 	/**
 	 * Retrieve an array of signoffs matching the specified user id
 	 * @param $userId int
+	 * @return object
 	 */
 	function getByUserId($userId) {
 		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';
@@ -300,19 +321,19 @@ class SignoffDAO extends DAO {
 
 		$result =& $this->retrieve($sql, $params);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner = $this->_fromRow($result->GetRowAssoc(false));
-		}
-		$result->Close();
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;
 	}
 
 	/**
 	 * Get all users assigned to a particular workflow stage
-	 * @param $monographId int
-	 * @param $stageId int optional
-	 * @param $userGroupId int optional
+	 * @param $symbolic string
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $stageId int
+	 * @param $userGroupId
+	 * @param $unique boolean
+	 * @return object
  	 */
 	function &getUsersBySymbolic($symbolic, $assocType, $assocId, $stageId = null, $userGroupId = null, $unique = true) {
 		$selectDistinct = $unique ? 'SELECT DISTINCT' : 'SELECT';

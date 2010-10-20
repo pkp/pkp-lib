@@ -291,6 +291,9 @@ ul.flat_list li, ol.flat_list li {
 
 a.add_item {
 	background-image: url(../templates/images/structure/lb_add.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
 }
 
 a.remove_item {
@@ -551,11 +554,16 @@ a.settings {
 
 a.promote {
 	background-image: url(../templates/images/structure/grid_promote.png);
-	margin-left: 40px;
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
 }
 
 a.delete {
 	background-image: url(../templates/images/structure/grid_delete.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
 }
 
 a.edit {

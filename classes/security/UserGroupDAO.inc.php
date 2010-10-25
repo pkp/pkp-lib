@@ -352,7 +352,7 @@ class UserGroupDAO extends DAO {
 	function &getUsersById($userGroupId = null, $pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$users = array();
 
-		$paramArray = array('interest');
+		$paramArray = array(ASSOC_TYPE_USER, 'interest');
 		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
 		if (isset($pressId)) $paramArray[] = (int) $pressId;
 		// For security / resource usage reasons, a user group or press ID
@@ -400,7 +400,7 @@ class UserGroupDAO extends DAO {
 
 		$result =& $this->retrieveRange(
 			'SELECT DISTINCT u.* FROM users AS u
-			LEFT JOIN controlled_vocabs cv ON (cv.assoc_id = u.user_id AND cv.symbolic = ?)
+			LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
 				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
 				WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($pressId) ? ' AND ug.press_id = ?' : '') . ' ' . $searchSql,

@@ -24,7 +24,7 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="assoc_type" type="I2">
-			<NOTNULL/>
+			<!-- NOT NULL not included for upgrade purposes -->
 		</field>
 		<field name="assoc_id" type="I8">
 			<NOTNULL/>
@@ -79,7 +79,7 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="assoc_type" type="I2">
-			<NOTNULL/>
+			<!-- NOT NULL not included for upgrade purposes -->
 		</field>
 		<field name="assoc_id" type="I8">
 			<NOTNULL/>

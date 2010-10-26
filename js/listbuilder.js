@@ -21,9 +21,10 @@ function addItem(handler, listbuilderId, localizedButtons) {
 
 		$('#add-' + listbuilderId).click(function() {
 			newItem = $('#source-' + listbuilderId + ' *').serialize();
+			additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
 			$.post(
 				handler,
-				newItem,
+				newItem + '&' + additionalData,
 				function(returnString) {
 					if (returnString.status) {
 						$(returnString.content).hide().prependTo('#listGrid-' + listbuilderId).fadeIn('slow').css("display","");
@@ -66,10 +67,11 @@ function deleteItems(handler, listbuilderId) {
 			$('#listGrid-' + listbuilderId + ' .selected').each(function(i, selected){
 				selectedItems.push('item_' + i + '=' + $(selected).attr('id'));
 			});
+			additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
 
 			$.post(
 				handler,
-				selectedItems.join('&'),
+				selectedItems.join('&') + '&' + additionalData,
 				function(returnString) {
 					if (returnString.status) {
 						// Remove the select items from the list

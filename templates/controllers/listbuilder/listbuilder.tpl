@@ -11,6 +11,26 @@
 
 <div id="{$listbuilderId}" class="listbuilder">
 	<div class="wrapper">
+		<div id="additionalData-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
+ 			<ul>
+		        <li>
+					{foreach from=$listbuilder->getAdditionalData() key=dataKey item=dataValue}
+						{if is_array($dataValue)}
+							{foreach name="dataArray" from=$dataValue item=arrayValue}
+								{assign var="iteration" value=$smarty.foreach.dataArray.iteration}
+								<span>
+									<input type="hidden" name="additionalData-{$listbuilderId}-{$dataKey}[]" id="additionalData-{$listbuilderId}-{$dataKey}-{$iteration}" value="{$arrayValue|escape}" />
+								</span>
+							{/foreach}
+						{else}
+							<span>
+								<input type="hidden" name="additionalData-{$listbuilderId}-{$dataKey}" id="additionalData-{$listbuilderId}-{$dataKey}" value="{$dataValue|escape}" />
+							</span>
+						{/if}
+					{/foreach}
+				</li>
+			</ul>
+		</div>
 		<div class="unit size2of5" id="source-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
  			<ul>
 		        <li>

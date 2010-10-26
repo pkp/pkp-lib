@@ -45,6 +45,9 @@ class ListbuilderHandler extends GridHandler {
 	/** @var array Array of optional attributes **/
 	var $_attributeNames;
 
+	/** @var array Array of optional data **/
+	var $_additionalData;
+
 	/** @var array Array of strings containing possible items that are stored in the source list */
 	var $_possibleItems;
 
@@ -164,6 +167,22 @@ class ListbuilderHandler extends GridHandler {
 	 */
 	function getAttributeNames() {
 		return $this->_attributeNames;
+	}
+
+	/**
+	 * Set additional data for the listbuilder
+	 * @param $additionalData array
+	 */
+	function setAdditionalData($additionalData) {
+		$this->_additionalData = $additionalData;
+	}
+
+	/**
+	 * Get additional data for the listbuilder
+	 * @return array
+	 */
+	function getAdditionalData() {
+		return $this->_additionalData;
 	}
 
 	/**

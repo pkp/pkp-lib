@@ -20,11 +20,12 @@ function addItem(handler, listbuilderId, localizedButtons) {
 		var form = '#source-' + listbuilderId;
 
 		$('#add-' + listbuilderId).click(function() {
-			newItem = $('#source-' + listbuilderId + ' *').serialize();
-			additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
+			var newItem = $('#source-' + listbuilderId + ' *').serialize();
+			var additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
+
 			$.post(
 				handler,
-				newItem + '&' + additionalData,
+				additionalData ? newItem + '&' + additionalData : newItem,
 				function(returnString) {
 					if (returnString.status) {
 						$(returnString.content).hide().prependTo('#listGrid-' + listbuilderId).fadeIn('slow').css("display","");
@@ -67,11 +68,11 @@ function deleteItems(handler, listbuilderId) {
 			$('#listGrid-' + listbuilderId + ' .selected').each(function(i, selected){
 				selectedItems.push('item_' + i + '=' + $(selected).attr('id'));
 			});
-			additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
+			var additionalData = $('#additionalData-' + listbuilderId + ' *').serialize();
 
 			$.post(
 				handler,
-				selectedItems.join('&') + '&' + additionalData,
+				additionalData ? selectedItems.join('&') + '&' + additionalData : selectedItems.join('&'),
 				function(returnString) {
 					if (returnString.status) {
 						// Remove the select items from the list

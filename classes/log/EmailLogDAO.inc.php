@@ -18,6 +18,13 @@ import ('classes.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function EmailLogDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a log entry by ID.
 	 * @param $logId int
 	 * @param $assocType int optional

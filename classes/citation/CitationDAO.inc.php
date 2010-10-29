@@ -610,6 +610,10 @@ class CitationDAO extends DAO {
 			// group.
 			$filterGroup =& $filterList[0]->getFilterGroup(); /* @var $filterGroup FilterGroup */
 
+			// The filter group must be adapted to return an array rather
+			// than a scalar value.
+			$filterGroup->setOutputType($filterGroup->getOutputType().'[]');
+
 			// Instantiate the citation multiplexer filter.
 			import('lib.pkp.classes.filter.GenericMultiplexerFilter');
 			$citationMultiplexer = new GenericMultiplexerFilter($filterGroup, $transformationDefinition['displayName']);
@@ -627,7 +631,7 @@ class CitationDAO extends DAO {
 				}
 			}
 
-			// Instantiate the citation de-multiplexer filter
+			// Instantiate the citation de-multiplexer filter.
 			// FIXME: This must be configurable if we want to support other
 			// meta-data schemas.
 			import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');

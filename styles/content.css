@@ -568,10 +568,16 @@ a.delete {
 
 a.edit {
 	background-image: url(../templates/images/structure/grid_edit.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
 }
 
 a.more_info {
 	background-image: url(../templates/images/structure/grid_information.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
 }
 
 a.word {
@@ -990,6 +996,11 @@ ul.tagit li:after, ul.tagit li div:after {
 	background-color: #FFFFDD;
 }
 
+#existingFiles {
+	margin-left: 140px; 
+	margin-bottom: 10px;
+}
+
 .possibleRevision h5 {
 	padding-top: 0px;
 }
@@ -1006,6 +1017,12 @@ ul.tagit li:after, ul.tagit li div:after {
 
 #revisionWarningText a{
 	margin-left: 35px;
+}
+
+.editorPersonalMessage {
+	width: 96%;
+	height: 200px;
+	margin: 5px 0px 0px 10px;
 }
 /* @end */
 
@@ -1056,12 +1073,75 @@ ul.tagit li:after, ul.tagit li div:after {
 	float: left;
 }
 
-.submissionHeader .headerTimeline .pastStep {
+#authorTimeline {
+	margin-top: 20px;
+}
+
+#timelineContainer {
+	width: 90%;
+	margin: 0 auto;
+	clear:both;
+	border: 2px solid gray;	
+}
+
+#timelineFiller {
+	height: 20px;
+	background-color: #E0FFFF;
+	width: 0px;	
+}
+
+#timelineFiller.accepted {
+	width: 25%;
+}
+
+#timelineFiller.reviewed {
+	width: 50%;
+}
+
+#timelineFiller.copyedited {
+	width: 75%;
+}
+
+#timelineFiller.published {
+	width: 100%;	
+}
+
+#timelineLabelContainer {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.timelineLabel {
+	font-size: .9em;
+	float: left;
+	width: 20%;
+}
+
+.timelineLabel.center {
+	text-align: center;
+}
+
+.timelineLabel.right {
+	text-align: right;
+}
+
+.pastStep {
 	font-weight: bold;
 }
 
-.submissionHeader .headerTimeline .futureStep {
+.futureStep {
 	color: #808080;
+}
+
+.authorAction {
+	float: left;
+	width: 28%;
+	margin-left: 30px;	
+}
+
+.stageContainer {
+	width: 90%;
+	margin: 10px auto;	
 }
 
 .submissionHeader .headerBottom {

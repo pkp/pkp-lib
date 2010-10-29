@@ -242,6 +242,7 @@
 	<message key="submission.comments.sendDecisionToReviewers">Send Reviewers editorial decision</message>
 	<message key="submission.comments.subject">Subject</message>
 	<message key="submission.complete">Complete</message>
+	<message key="submission.copyedited">Copyedited</message>
 	<message key="submission.done">Done</message>
 	<message key="submission.dueDate">Due Date</message>
 	<message key="submission.due">Due</message>
@@ -347,6 +348,7 @@
 	<message key="submission.restrictions">Restrictions</message>
 	<message key="submission.reviewMetadata">Review Metadata</message>
 	<message key="submission.review">Review</message>
+	<message key="submission.reviewed">Reviewed</message>
 	<message key="submission.reviewVersion">Review Version</message>
 	<message key="submissions.active">Active</message>
 	<message key="submissions.archived">Archived</message>

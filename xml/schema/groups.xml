@@ -24,11 +24,11 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="assoc_type" type="I2">
-			<NOTNULL/>
+			<!-- NOT NULL not included for upgrade purposes -->
 		</field>
 		<field name="publish_email" type="I2" />
 		<field name="assoc_id" type="I8">
-			<NOTNULL/>
+			<!-- NOT NULL not included for upgrade purposes -->
 		</field>
 		<field name="context" type="I8"/>
 		<field name="about_displayed" type="I1">

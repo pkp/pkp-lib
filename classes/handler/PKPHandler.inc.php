@@ -298,7 +298,7 @@ class PKPHandler {
 			// instantiating handlers without reference. Should not
 			// be removed or otherwise used.
 			// See <http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor>
-			// for a similar proplem.
+			// for a similar problem.
 			$check->_setHandler($this);
 
 			// check should redirect on fail and continue on pass

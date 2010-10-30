@@ -19,13 +19,15 @@ import('lib.pkp.classes.site.Version');
 class VersionDAO extends DAO {
 	/**
 	 * Retrieve the current version.
+	 * @param $productType string
 	 * @param $product string
 	 * @param $isPlugin boolean
 	 * @return Version
 	 */
-	function &getCurrentVersion($product = null, $isPlugin = false) {
-		if(!$product) {
+	function &getCurrentVersion($productType = null, $product = null, $isPlugin = false) {
+		if(!$productType || !$product) {
 			$application = PKPApplication::getApplication();
+			$productType = 'core';
 			$product = $application->getName();
 		}
 
@@ -47,17 +49,17 @@ class VersionDAO extends DAO {
 		}
 
 		if (!$returner) {
-			// From here on we can assume that we have the product
-			// column available in the versions table.
+			// From here on we can assume that we have the product type
+			// and product columns available in the versions table.
 			$result =& $this->retrieve(
-				'SELECT * FROM versions WHERE current = 1 AND product = ?',
-				array($product)
+				'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
+				array($productType, $product)
 			);
 			$versionCount = $result->RecordCount();
 			if ($versionCount == 1) {
 				$returner =& $this->_returnVersionFromRow($result->GetRowAssoc(false));
 			} elseif ($versionCount >1) {
-				fatalError('More than one current version defined for the product "'.$product.'"!');
+				fatalError('More than one current version defined for the product type "'.$productType.'" and product "'.$product.'"!');
 			}
 		}
 
@@ -69,20 +71,22 @@ class VersionDAO extends DAO {
 
 	/**
 	 * Retrieve the complete version history, ordered by date (most recent first).
+	 * @param $productType string
 	 * @param $product string
 	 * @return array Versions
 	 */
-	function &getVersionHistory($product = null) {
+	function &getVersionHistory($productType = null, $product = null) {
 		$versions = array();
 
-		if(!$product) {
+		if(!$productType || !$product) {
 			$application = PKPApplication::getApplication();
+			$productType = 'core';
 			$product = $application->getName();
 		}
 
 		$result =& $this->retrieve(
-			'SELECT * FROM versions WHERE product = ? ORDER BY date_installed DESC',
-			array($product)
+			'SELECT * FROM versions WHERE product_type = ? AND product = ? ORDER BY date_installed DESC',
+			array($productType, $product)
 		);
 
 		while (!$result->EOF) {
@@ -124,6 +128,7 @@ class VersionDAO extends DAO {
 	/**
 	 * Insert a new version.
 	 * @param $version Version
+	 * @param $isPlugin boolean
 	 */
 	function insertVersion(&$version, $isPlugin = false) {
 		$isNewVersion = true;
@@ -131,7 +136,7 @@ class VersionDAO extends DAO {
 		if ($version->getCurrent()) {
 			// Find out whether the current version is the same as the
 			// one to be inserted.
-			$oldVersion =& $this->getCurrentVersion($version->getProduct(), $isPlugin);
+			$oldVersion =& $this->getCurrentVersion($version->getProductType(), $version->getProduct(), $isPlugin);
 			if ($oldVersion) {
 				if ($version->compare($oldVersion) == 0) {
 					// The old and the new current versions are the same so we need
@@ -140,7 +145,7 @@ class VersionDAO extends DAO {
 				} elseif ($version->compare($oldVersion) == 1) {
 					// Version to insert is newer than the existing version entry.
 					// We reset existing entry.
-					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
+					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?', array($version->getProductType(), $version->getProduct()));
 				} else {
 					// We do not support downgrades.
 					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString().'] to version ['.$version->getVersionString().']. Downgrades are not supported.');
@@ -178,14 +183,14 @@ class VersionDAO extends DAO {
 		} else {
 			// Update existing version entry
 			return $this->update(
-				'UPDATE versions SET current = ?, product_type = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
-					WHERE product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
+				'UPDATE versions SET current = ?, product_class_name = ?, lazy_load = ?, sitewide = ?
+					WHERE product_type = ? AND product = ? AND major = ? AND minor = ? AND revision = ? AND build = ?',
 				array(
 					(int) $version->getCurrent(),
-					$version->getProductType(),
 					$version->getProductClassName(),
 					($version->getLazyLoad()?1:0),
 					($version->getSitewide()?1:0),
+					$version->getProductType(),
 					$version->getProduct(),
 					(int) $version->getMajor(),
 					(int) $version->getMinor(),

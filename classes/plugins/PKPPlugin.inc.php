@@ -722,8 +722,10 @@ class PKPPlugin {
 	 */
 	function getCurrentVersion() {
 		$versionDao =& DAORegistry::getDAO('VersionDAO');
-		$product = basename($this->getPluginPath());
-		$installedPlugin = $versionDao->getCurrentVersion($product, true);
+		$pluginPath = $this->getPluginPath();
+		$product = basename($pluginPath);
+		$category = basename(dirname($pluginPath));
+		$installedPlugin = $versionDao->getCurrentVersion('plugins.'.$category, $product, true);
 
 		if ($installedPlugin) {
 			return $installedPlugin;

@@ -55,6 +55,7 @@
 		</field>
 		<descr>Installation and upgrade version history.</descr>
 		<index name="versions_pkey">
+			<col>product_type</col>
 			<col>product</col>
 			<col>major</col>
 			<col>minor</col>

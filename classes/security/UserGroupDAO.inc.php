@@ -128,7 +128,7 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Get the ID of the last inserted author.
+	 * Get the ID of the last inserted user group.
 	 * @return int
 	 */
 	function getInsertUserGroupId() {
@@ -270,6 +270,31 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
+	 * Check if a user is in any user group
+	 * @param $userId int
+	 * @param $pressId int optional
+	 * @return boolean
+	 */
+	function userInAnyGroup($userId, $pressId = null) {
+		$params = array((int) $userId);
+		if ($pressId) $params[] = (int) $pressId;
+
+		$result =& $this->retrieve(
+			'SELECT count(*)
+			FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			WHERE uug.user_id = ?' . ($pressId?' AND ug.press_id = ?':''),
+			$params
+		);
+
+		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
+
+		$result->Close();
+		unset($result);
+
+		return $returner;
+	}
+
+	/**
 	 * Retrieve user groups to which a user is assigned.
 	 * @param $userId int
 	 * @param $pressId int
@@ -284,6 +309,32 @@ class UserGroupDAO extends DAO {
 			$params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
+		return $returner;
+	}
+
+	/**
+	 * Validation check to see if user group exists for a given press
+	 * @param $pressId
+	 * @param $userGroupId
+	 * @return bool
+	 */
+	function pressHasGroup($pressId, $userGroupId) {
+		$result =& $this->retrieve(
+			'SELECT count(*)
+				FROM user_groups ug
+				WHERE ug.user_group_id = ?
+				AND ug.press_id = ?',
+			array (
+				(int) $userGroupId,
+				(int) $pressId
+			)
+		);
+
+		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
+
+		$result->Close();
+		unset($result);
+
 		return $returner;
 	}
 
@@ -424,19 +475,20 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Delete all user group assignments for a given pressId
-	 * @param $pressId
-	 */
-	function deleteAssignmentsByPressId($pressId) {
-		$this->userGroupAssignmentDao->deleteByPressId($pressId);
-	}
-
-	/**
 	 * Delete all assignments to a given user group
 	 * @param unknown_type $userGroupId
 	 */
 	function deleteAssignmentsByUserGroupId($userGroupId) {
 		$this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
+	}
+
+	/**
+	 * Remove all user group assignments for a given user in a press
+	 * @param int $pressId
+	 * @param int $userId
+	 */
+	function deleteAssignmentsByPressId($pressId, $userId = null) {
+		$this->userGroupAssignmentDao->deleteAssignmentsByPressId($pressId, $userId);
 	}
 
 	/**
@@ -452,7 +504,7 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * remote a given user from a given user group
+	 * remove a given user from a given user group
 	 * @param $userId
 	 * @param $groupId
 	 */

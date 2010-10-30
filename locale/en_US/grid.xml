@@ -96,4 +96,34 @@
 
 	<!-- Chapters -->
 	<message key="grid.chapters.title">Chapters</message>
+
+	<!-- Users -->
+	<message key="grid.user.currentUsers">Current Users</message>
+	<message key="grid.user.currentEnrollment">Current Enrollment</message>
+	<message key="grid.user.add">Add User</message>
+	<message key="grid.user.enroll">Enroll User</message>
+	<message key="grid.user.edit">Edit User</message>
+	<message key="grid.user.email">Email</message>
+	<message key="grid.user.error">An error was encountered administrating this user. Please try again.</message>
+	<message key="grid.user.errorEmail">An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</message>
+	<message key="grid.user.cannotAdminister">You do not have sufficient permissions to edit this user.</message>
+	<message key="grid.user.authSource">Authentication source</message>
+	<message key="grid.user.mustProvideName">Please provide at least a last name for the user first.</message>
+	<message key="grid.user.generatePassword">Generate Password</message>
+	<message key="grid.user.generatePasswordDescription">Generate random password for this user.</message>
+	<message key="grid.user.notifyUser">Notify User</message>
+	<message key="grid.user.notifyUserDescription">Send user a welcome email.</message>
+	<message key="grid.user.mustChangePassword">Change Password</message>
+	<message key="grid.user.mustChangePasswordDescription">User must change password on next log in.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Require the user to change their password the next time they log in.</message>
+	<message key="grid.user.moreDetails">More User Details</message>
+	<message key="grid.user.lessDetails">Less User Details</message>
+	<message key="grid.user.userDetails">User Details</message>
+	<message key="grid.user.userRoles">User Roles</message>
+	<message key="grid.user.userNoRoles">This user does not have any roles.</message>
+	<message key="grid.user.step1">Step #1: Fill in User Details</message>
+	<message key="grid.user.step2">Step #2: Add User Roles</message>
+	<message key="grid.user.addRoles">Add Roles</message>
+	<message key="grid.user.selectUser">Select User</message>
+	<message key="grid.user.pleaseSelectUser">Please select a user</message>
 </locale>

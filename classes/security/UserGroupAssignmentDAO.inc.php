@@ -69,12 +69,16 @@ class UserGroupAssignmentDAO extends DAO {
 	/**
 	 * Remove all user group assignments in a given press
 	 * @param int $pressId
+	 * @param int $userId
 	 */
-	function deleteByPressId($pressId) {
+	function deleteAssignmentsByPressId($pressId, $userId = null) {
+		$params = array($pressId);
+		if ( $userId ) $params[] = $userId;
 		$result =& $this->retrieve(
 						'SELECT uug.user_group_id, uug.user_id
 						FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-						WHERE ug.press_id = ?', $pressId);
+						WHERE ug.press_id = ?' . ($userId?' AND uug.user_id = ?':''),
+					$params);
 
 		$assignments =& new DAOResultFactory($result, $this, '_returnFromRow');
 		while ( !$assignments->eof() ) {

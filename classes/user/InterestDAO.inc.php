@@ -22,7 +22,7 @@ define('CONTROLLED_VOCAB_INTEREST', 'interest');
 class InterestDAO extends ControlledVocabDAO {
 
 	function build($userId) {
-		return parent::build(CONTROLLED_VOCAB_INTEREST, ROLE_ID_REVIEWER, $userId);
+		return parent::build(CONTROLLED_VOCAB_INTEREST, ASSOC_TYPE_USER, $userId);
 	}
 
 	function getInterests($userId) {

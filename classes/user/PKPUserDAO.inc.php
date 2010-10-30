@@ -404,7 +404,7 @@ class PKPUserDAO extends DAO {
 				break;
 			case USER_FIELD_INTERESTS:
 				$sql .=', controlled_vocabs cv, controlled_vocab_entries cve, controlled_vocab_entry_settings cves
-					WHERE cv.symbolic = \'interest\' AND cv.assoc_id = u.user_id AND cve.controlled_vocab_id = cv.controlled_vocab_id
+					WHERE cv.assoc_type = ' . ASSOC_TYPE_USER . ' AND cv.symbolic = \'interest\' AND cv.assoc_id = u.user_id AND cve.controlled_vocab_id = cv.controlled_vocab_id
 					AND cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id AND LOWER(cves.setting_value) ' . ($match == 'is' ? '=' : 'LIKE') . ' LOWER(?)';
 				$var = $match == 'is' ? $value : "%$value%";
 				break;

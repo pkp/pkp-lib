@@ -32,6 +32,15 @@ class PKPMlaCitationOutputPlugin extends Plugin {
 	// Override protected template methods from PKPPlugin
 	//
 	/**
+	 * @see PKPPlugin::register()
+	 */
+	function register($category, $path) {
+		if (!parent::register($category, $path)) return false;
+		$this->addLocaleData();
+		return true;
+	}
+
+	/**
 	 * @see PKPPlugin::getName()
 	 */
 	function getName() {

@@ -156,11 +156,17 @@ class LocaleFile {
 			LOCALE_ERROR_MISSING_FILE => array()
 		);
 
-		if (!$this->isValid()) {
-			$errors[LOCALE_ERROR_MISSING_FILE][] = array(
-				'locale' => $this->locale,
-				'filename' => $this->filename
-			);
+		if ($referenceLocaleFile->isValid()) {
+			if (!$this->isValid()) {
+				$errors[LOCALE_ERROR_MISSING_FILE][] = array(
+					'locale' => $this->locale,
+					'filename' => $this->filename
+				);
+				return $errors;
+			}
+		} else {
+			// If the reference file itself does not exist or is invalid then
+			// there's nothing to be translated here.
 			return $errors;
 		}
 

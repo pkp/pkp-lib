@@ -325,9 +325,12 @@ class PKPPlugin {
 	 */
 	function addLocaleData($locale = null) {
 		if ($locale == '') $locale = Locale::getLocale();
-		$localeFilename = $this->getLocaleFilename($locale);
-		if ($localeFilename) {
-			Locale::registerLocaleFile($locale, $this->getLocaleFilename($locale));
+		$localeFilenames = $this->getLocaleFilename($locale);
+		if ($localeFilenames) {
+			if (is_scalar($localeFilenames)) $localeFilenames = array($localeFilenames);
+			foreach($localeFilenames as $localeFilename) {
+				Locale::registerLocaleFile($locale, $localeFilename);
+			}
 			return true;
 		}
 		return false;
@@ -447,10 +450,15 @@ class PKPPlugin {
 	 * Get the filename for the locale data for this plugin.
 	 *
 	 * @param $locale string
-	 * @return string
+	 * @return string|array the locale file names (the scalar return value is supported for
+	 *  backwards compatibility only).
 	 */
 	function getLocaleFilename($locale) {
-		return $this->getPluginPath() . DIRECTORY_SEPARATOR . 'locale' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . 'locale.xml';
+		$baseLocaleFilename = $this->getPluginPath() . DIRECTORY_SEPARATOR . 'locale' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . 'locale.xml';
+		return array(
+			$baseLocaleFilename,
+			'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . $baseLocaleFilename
+		);
 	}
 
 	/**

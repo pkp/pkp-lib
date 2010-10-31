@@ -12,8 +12,6 @@
  * @brief Handle login/logout requests.
  */
 
-// $Id$
-
 
 import('classes.handler.Handler');
 

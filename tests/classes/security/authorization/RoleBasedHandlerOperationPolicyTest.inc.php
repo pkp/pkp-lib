@@ -76,8 +76,8 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'roleExistsExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
-					'roleExistsReturnValue' => true
+					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleReturnValue' => true
 				)
 			)
 		);
@@ -91,8 +91,8 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 			array(
 				array(
 					// The context is 0 this time because we're looking at the site admin role.
-					'roleExistsExpectedArgs' => array(0, $testUser->getId(), $nonAuthorizedRole),
-					'roleExistsReturnValue' => false
+					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), $nonAuthorizedRole),
+					'userHasRoleReturnValue' => false
 				)
 			)
 		);
@@ -104,12 +104,12 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 
 		// Test the policy with an authorized role but a non-authorized operation.
 		$request = $this->getMockRequest('privateOperation', null, $testUser);
-		$roleExistsInvocation= array(
+		$userHasRoleInvocation= array(
 			// The context is 0 this time because we're testing without a context.
-			'roleExistsExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_TEST),
-			'roleExistsReturnValue' => true
+			'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_TEST),
+			'userHasRoleReturnValue' => true
 		);
-		$this->mockRoleDao(array($roleExistsInvocation));
+		$this->mockRoleDao(array($userHasRoleInvocation));
 		$rolePolicy = new RoleBasedHandlerOperationPolicy($request, ROLE_ID_TEST, 'permittedOperation');
 		$decisionManager = new AuthorizationDecisionManager();
 		$decisionManager->addPolicy($rolePolicy);
@@ -119,7 +119,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		// but bypass the the operation check.
 		// FIXME: Remove the "bypass operation check" code once we've removed the
 		// HandlerValidatorRole compatibility class, see #5868.
-		$this->mockRoleDao(array($roleExistsInvocation));
+		$this->mockRoleDao(array($userHasRoleInvocation));
 		$rolePolicy = new RoleBasedHandlerOperationPolicy($request, ROLE_ID_TEST, array(), 'some.message', false, true);
 		$decisionManager = new AuthorizationDecisionManager();
 		$decisionManager->addPolicy($rolePolicy);
@@ -130,12 +130,12 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'roleExistsExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
-					'roleExistsReturnValue' => true
+					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleReturnValue' => true
 				),
 				array(
-					'roleExistsExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
-					'roleExistsReturnValue' => true
+					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
+					'userHasRoleReturnValue' => true
 				)
 			)
 		);
@@ -149,12 +149,12 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'roleExistsExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
-					'roleExistsReturnValue' => true
+					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleReturnValue' => true
 				),
 				array(
-					'roleExistsExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
-					'roleExistsReturnValue' => false
+					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
+					'userHasRoleReturnValue' => false
 				)
 			)
 		);

@@ -84,6 +84,9 @@
 				}
 			});
 			{/literal}{/if}{literal}
+			$(".tagit").live('click', function() {
+				$(this).find('input').focus();
+			});
 		});
 		{/literal}
 	</script>

@@ -32,7 +32,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 		 * @var array
 		 * @see mockRoleDao() below
 		 */
-	 	$userHasRoleInvocations;
+	 	$roleExistsInvocations;
 
 	/**
 	 * Create an authorization context manipulation policy.
@@ -106,46 +106,46 @@ abstract class PolicyTestCase extends PKPTestCase {
 
 	/**
 	 * Mocks the role DAO.
-	 * @param $userHasRoleInvocations array a two dimensional array.
+	 * @param $roleExistsInvocations array a two dimensional array.
 	 *  - the first key is the invocation
-	 *  - the second key's first entry contains the expected arguments for the userHasRole() call
-	 *  - the second key's second entry contains the return value for the userHasRole() call
-	 * @param $userHasRoleReturnValue boolean
+	 *  - the second key's first entry contains the expected arguments for the roleExists() call
+	 *  - the second key's second entry contains the return value for the roleExists() call
+	 * @param $roleExistsReturnValue boolean
 	 */
-	protected function mockRoleDao($userHasRoleInvocations) {
+	protected function mockRoleDao($roleExistsInvocations) {
 		// Create a mock role DAO.
 		import('classes.security.RoleDAO');
-		$mockRoleDao = $this->getMock('RoleDAO', array('getRoleIdFromPath', 'userHasRole'));
+		$mockRoleDao = $this->getMock('RoleDAO', array('getRoleIdFromPath', 'roleExists'));
 
 		// Mock getRoleIdFromPath().
 		$mockRoleDao->expects($this->any())
 		            ->method('getRoleIdFromPath')
 		            ->will($this->returnValue(ROLE_ID_TEST));
 
-		// Mock userHasRole().
+		// Mock roleExists().
 		$mockRoleDao->expects($this->any())
-		            ->method('userHasRole')
-		            ->will($this->returnCallback(array($this, 'mockUserHasRole')));
+		            ->method('roleExists')
+		            ->will($this->returnCallback(array($this, 'mockRoleExists')));
 
 		// Register the mock RoleDAO.
 		DAORegistry::registerDAO('RoleDAO', $mockRoleDao);
 
-		// Configure the mock userHasRole() call.
-		$this->userHasRoleInvocations = $userHasRoleInvocations;
+		// Configure the mock roleExists() call.
+		$this->roleExistsInvocations = $roleExistsInvocations;
 	}
 
 	/**
 	 * Callback used by the mock RoleDAO created
 	 * in mockRoleDao().
-	 * @see RoleDAO::userHasRole() in the different apps for the
+	 * @see RoleDAO::roleExists() in the different apps for the
 	 *  expected arguments. These depend on the context depth of
 	 *  the application.
 	 * @return boolean
 	 */
-	public function mockUserHasRole() {
-		$userHasRoleInvocation = array_shift($this->userHasRoleInvocations);
-		self::assertEquals($userHasRoleInvocation['userHasRoleExpectedArgs'], func_get_args());
-		return $userHasRoleInvocation['userHasRoleReturnValue'];
+	public function mockRoleExists() {
+		$roleExistsInvocation = array_shift($this->roleExistsInvocations);
+		self::assertEquals($roleExistsInvocation['roleExistsExpectedArgs'], func_get_args());
+		return $roleExistsInvocation['roleExistsReturnValue'];
 	}
 }
 ?>

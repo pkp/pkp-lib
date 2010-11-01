@@ -122,7 +122,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 */
 	function _checkUserRoleAssignment(&$user) {
 		// Prepare the method call arguments for a
-		// RoleDAO::userHasRole() call, i.e. the context
+		// RoleDAO::roleExists() call, i.e. the context
 		// ids plus the user id.
 		$application =& PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
@@ -170,16 +170,16 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 *
 	 * @param $roleId integer
 	 * @param $roleContext array basic arguments for a
-	 *  RoleDAO::userHasRole() call.
+	 *  RoleDAO::roleExists() call.
 	 * @param $contextDepth integer context depth of the
 	 *  current application.
 	 * @return boolean
 	 */
 	function _checkRoleInDatabase($roleId, $roleContext, $contextDepth) {
 		// Prepare the method arguments for a call to
-		// RoleDAO::userHasRole().
-		$userHasRoleArguments = $roleContext;
-		$userHasRoleArguments[] = $roleId;
+		// RoleDAO::roleExists().
+		$roleExistsArguments = $roleContext;
+		$roleExistsArguments[] = $roleId;
 
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
 		if ($contextDepth > 0) {
@@ -187,17 +187,17 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 			if ($roleId == ROLE_ID_SITE_ADMIN) {
 				// site level role
 				for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-					$userHasRoleArguments[$contextLevel-1] = 0;
+					$roleExistsArguments[$contextLevel-1] = 0;
 				}
 			} elseif ($roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
 				// This is a main context managerial role (i.e. conference-level).
 				// FIXME: Make this work with the "acting as user group".
-				$userHasRoleArguments[1] = 0;
+				$roleExistsArguments[1] = 0;
 			}
 		}
 
 		// Call the role DAO.
-		$response = (boolean)call_user_func_array(array($roleDao, 'userHasRole'), $userHasRoleArguments);
+		$response = (boolean)call_user_func_array(array($roleDao, 'roleExists'), $roleExistsArguments);
 		return $response;
 	}
 }

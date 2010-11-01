@@ -62,7 +62,7 @@ class PKPApplication {
 
 		if (Config::getVar('debug', 'display_errors')) {
 			// Try to switch off normal error display when error display
-			// is being managed by us.
+			// is being managed by OJS.
 			@ini_set('display_errors', false);
 		}
 

@@ -280,6 +280,7 @@
 	<message key="navigation.nextStep">Next Step</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Previous Step</message>
+	<message key="navigation.publicMenu">Public Menu</message>
 	<message key="navigation.register">Register</message>
 	<message key="navigation.search">Search</message>
 	<message key="navigation.settings">Settings</message>

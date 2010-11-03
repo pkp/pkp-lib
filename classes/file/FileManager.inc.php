@@ -16,8 +16,6 @@
  * @brief Class defining basic operations for file management.
  */
 
-// $Id$
-
 
 define('FILE_MODE_MASK', 0666);
 define('DIRECTORY_MODE_MASK', 0777);

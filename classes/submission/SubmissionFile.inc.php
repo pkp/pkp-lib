@@ -12,7 +12,6 @@
  * @brief Submission file class.
  */
 
-// $Id$
 
 class SubmissionFile extends DataObject {
 

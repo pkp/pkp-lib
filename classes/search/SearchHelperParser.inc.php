@@ -12,8 +12,6 @@
  * @brief Class to extract text from a file using an external helper program.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.search.SearchFileParser');
 

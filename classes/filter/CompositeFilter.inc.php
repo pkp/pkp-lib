@@ -43,11 +43,13 @@ class CompositeFilter extends PersistableFilter {
 	 * @param $filter Filter
 	 * @return integer the filter's sequence number, null
 	 *  if the sequence number of the filter had already been
-	 *  set before by a different filter.
+	 *  set before by a different filter and the filter has
+	 *  not been added.
 	 */
 	function addFilter(&$filter) {
-		// Add the filter to the ordered sub-filter list.
 		assert(is_a($filter, 'Filter'));
+
+		// Identify an appropriate sequence number.
 		$seq = $filter->getSeq();
 		if (is_numeric($seq) && $seq > 0) {
 			// This filter has a pre-set sequence number
@@ -59,6 +61,8 @@ class CompositeFilter extends PersistableFilter {
 			$seq = $this->_maxSeq;
 			$filter->setSeq($seq);
 		}
+
+		// Add the filter to the list.
 		$this->_filters[$seq] =& $filter;
 		return $seq;
 	}

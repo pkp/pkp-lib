@@ -337,6 +337,19 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 			}
 		}
 
+		// Guess a publication type if none has been set by the
+		// citation service.
+		$this->_guessPublicationType($preliminaryNlm30Array);
+
+		// Some services return the title as article-title although
+		// the publication type is a book.
+		if (isset($preliminaryNlm30Array['[@publication-type]']) && $preliminaryNlm30Array['[@publication-type]'] == 'book') {
+			if (isset($preliminaryNlm30Array['article-title']) && !isset($preliminaryNlm30Array['source'])) {
+				$preliminaryNlm30Array['source'] = $preliminaryNlm30Array['article-title'];
+				unset($preliminaryNlm30Array['article-title']);
+			}
+		}
+
 		return $preliminaryNlm30Array;
 	}
 
@@ -359,11 +372,10 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 			return $nullVar;
 		}
 
-		// Set display name and sequence id in the meta-data description
-		// to the corresponding values from the filter. This is important
+		// Set display name in the meta-data description
+		// to the corresponding value from the filter. This is important
 		// so that we later know which result came from which filter.
 		$citationDescription->setDisplayName($this->getDisplayName());
-		$citationDescription->setSeq($this->getSeq());
 
 		return $citationDescription;
 	}
@@ -414,7 +426,66 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	// Private helper methods
 	//
 	/**
+	 * Try to guess a citation's publication type based on detected elements
+	 * @param $metadataArray array
+	 */
+	function _guessPublicationType(&$metadataArray) {
+		// If we already have a publication type, why should we guess one?
+		if (isset($metadataArray['[@publication-type]'])) return;
+
+		// The following property names help us to guess the most probable publication type
+		$typicalPropertyNames = array(
+			'volume' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issue' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'season' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issn[@pub-type="ppub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'issn[@pub-type="epub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'pub-id[@pub-id-type="pmid"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
+			'person-group[@person-group-type="editor"]' => NLM30_PUBLICATION_TYPE_BOOK,
+			'edition' => NLM30_PUBLICATION_TYPE_BOOK,
+			'chapter-title' => NLM30_PUBLICATION_TYPE_BOOK,
+			'isbn' => NLM30_PUBLICATION_TYPE_BOOK,
+			'publisher-name' => NLM30_PUBLICATION_TYPE_BOOK,
+			'publisher-loc' => NLM30_PUBLICATION_TYPE_BOOK,
+			'conf-date' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-loc' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-name' => NLM30_PUBLICATION_TYPE_CONFPROC,
+			'conf-sponsor' => NLM30_PUBLICATION_TYPE_CONFPROC
+		);
+
+		$hitCounters = array(
+			NLM30_PUBLICATION_TYPE_JOURNAL => 0,
+			NLM30_PUBLICATION_TYPE_BOOK => 0,
+			NLM30_PUBLICATION_TYPE_CONFPROC => 0
+		);
+		$highestCounterValue = 0;
+		$probablePublicationType = null;
+		foreach($typicalPropertyNames as $typicalPropertyName => $currentProbablePublicationType) {
+			if (isset($metadataArray[$typicalPropertyName])) {
+				// Record the hit
+				$hitCounters[$currentProbablePublicationType]++;
+
+				// Is this currently the highest counter value?
+				if ($hitCounters[$currentProbablePublicationType] > $highestCounterValue) {
+					// This is the highest value
+					$highestCounterValue = $hitCounters[$currentProbablePublicationType];
+					$probablePublicationType = $currentProbablePublicationType;
+				} elseif ($hitCounters[$currentProbablePublicationType] == $highestCounterValue) {
+					// There are two counters with the same value, so no unique result
+					$probablePublicationType = null;
+				}
+			}
+		}
+
+		// Add the publication type with the highest hit counter to the result array.
+		if (!is_null($probablePublicationType)) {
+			$metadataArray['[@publication-type]'] = $probablePublicationType;
+		}
+	}
+
+	/**
 	 * Recursively trim punctuation from a metadata array.
+	 * @param $metadataArray array
 	 */
 	function &_recursivelyTrimPunctuation(&$metadataArray) {
 		assert(is_array($metadataArray));
@@ -439,6 +510,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	 * Static method that returns a list of permitted
 	 * publication types.
 	 * NB: PHP4 workaround for static class member.
+	 * @return array
 	 */
 	function _allowedPublicationTypes() {
 		static $allowedPublicationTypes = array(

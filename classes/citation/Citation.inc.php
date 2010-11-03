@@ -35,6 +35,9 @@ class Citation extends DataObject {
 	/** @var array an array of MetadataDescriptions */
 	var $_sourceDescriptions = array();
 
+	/** @var integer the max sequence number that has been attributed so far */
+	var $_maxSourceDescriptionSeq = 0;
+
 	/**
 	 * @var array errors that occurred while
 	 *  checking or filtering the citation.
@@ -73,12 +76,29 @@ class Citation extends DataObject {
 	 * citation from an external source.
 	 *
 	 * @param $sourceDescription MetadataDescription
+	 * @return integer the source description's sequence
+	 *  number.
 	 */
 	function addSourceDescription(&$sourceDescription) {
+		assert(is_a($sourceDescription, 'MetadataDescription'));
+
+		// Identify an appropriate sequence number.
+		$seq = $sourceDescription->getSeq();
+		if (is_numeric($seq) && $seq > 0) {
+			// This description has a pre-set sequence number
+			if ($seq > $this->_maxSourceDescriptionSeq) $this->_maxSourceDescriptionSeq = $seq;
+		} else {
+			// We'll create a sequence number for the description
+			$this->_maxSourceDescriptionSeq++;
+			$seq = $this->_maxSourceDescriptionSeq;
+			$sourceDescription->setSeq($seq);
+		}
+
 		// We add descriptions by display name as they are
 		// purely informational. This avoids getting duplicates
 		// when we update a description.
 		$this->_sourceDescriptions[$sourceDescription->getDisplayName()] =& $sourceDescription;
+		return $seq;
 	}
 
 	/**

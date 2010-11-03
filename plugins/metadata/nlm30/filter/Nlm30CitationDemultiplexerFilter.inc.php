@@ -116,14 +116,6 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 
 		// Iterate over the incoming NLM citation descriptions
 		foreach ($citationOptions as $citationOption) {
-			// If the publication type is not set, take a guess
-			if (!$citationOption->hasStatement('[@publication-type]')) {
-				$guessedPublicationType = $this->_guessPublicationType($citationOption);
-				if (!is_null($guessedPublicationType)) {
-					$citationOption->addStatement('[@publication-type]', $guessedPublicationType);
-				}
-			}
-
 			// Calculate the score for this filtered citation
 			$confidenceScore = $this->_filterConfidenceScore($citationOption);
 
@@ -148,63 +140,6 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
 	//
 	// Private helper methods
 	//
-	/**
-	 * Try to guess a citation's publication type based on detected elements
-	 * @param $metadataDescription MetadataDescription
-	 * @return integer one of NLM30_PUBLICATION_TYPE_*
-	 */
-	function _guessPublicationType(&$metadataDescription) {
-		// If we already have a publication type, why should we guess one?
-		assert(!$metadataDescription->hasStatement('[@publication-type]'));
-
-		// The following property names help us to guess the most probable publication type
-		$typicalPropertyNames = array(
-			'volume' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'issue' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'season' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'issn[@pub-type="ppub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'issn[@pub-type="epub"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'pub-id[@pub-id-type="pmid"]' => NLM30_PUBLICATION_TYPE_JOURNAL,
-			'person-group[@person-group-type="editor"]' => NLM30_PUBLICATION_TYPE_BOOK,
-			'edition' => NLM30_PUBLICATION_TYPE_BOOK,
-			'chapter-title' => NLM30_PUBLICATION_TYPE_BOOK,
-			'isbn' => NLM30_PUBLICATION_TYPE_BOOK,
-			'publisher-name' => NLM30_PUBLICATION_TYPE_BOOK,
-			'publisher-loc' => NLM30_PUBLICATION_TYPE_BOOK,
-			'conf-date' => NLM30_PUBLICATION_TYPE_CONFPROC,
-			'conf-loc' => NLM30_PUBLICATION_TYPE_CONFPROC,
-			'conf-name' => NLM30_PUBLICATION_TYPE_CONFPROC,
-			'conf-sponsor' => NLM30_PUBLICATION_TYPE_CONFPROC
-		);
-
-		$hitCounters = array(
-			NLM30_PUBLICATION_TYPE_JOURNAL => 0,
-			NLM30_PUBLICATION_TYPE_BOOK => 0,
-			NLM30_PUBLICATION_TYPE_CONFPROC => 0
-		);
-		$highestCounterValue = 0;
-		$probablePublicationType = null;
-		foreach($typicalPropertyNames as $typicalPropertyName => $currentProbablePublicationType) {
-			if ($metadataDescription->hasStatement($typicalPropertyName)) {
-				// Record the hit
-				$hitCounters[$currentProbablePublicationType]++;
-
-				// Is this currently the highest counter value?
-				if ($hitCounters[$currentProbablePublicationType] > $highestCounterValue) {
-					// This is the highest value
-					$highestCounterValue = $hitCounters[$currentProbablePublicationType];
-					$probablePublicationType = $currentProbablePublicationType;
-				} elseif ($hitCounters[$currentProbablePublicationType] == $highestCounterValue) {
-					// There are two counters with the same value, so no unique result
-					$probablePublicationType = null;
-				}
-			}
-		}
-
-		// Return the publication type with the highest hit counter.
-		return $probablePublicationType;
-	}
-
 	/**
 	 * Derive a confidence score calculated as the similarity of the
 	 * original raw citation and the citation text generated from the

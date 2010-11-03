@@ -1046,6 +1046,14 @@ class String {
 		// Return the array representing the diff.
 		return $diffResult;
 	}
+
+	/**
+	 * Get a letter $steps places after 'A'
+	 * @param $steps int
+	 */
+	function enumerateAlphabetically($steps) {
+		return chr(ord('A') + $steps);
+	}
 }
 
 ?>

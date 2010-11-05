@@ -37,13 +37,13 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @param $reviewType int
 	 * @return ReviewAssignment
 	 */
-	function &getReviewAssignment($submissionId, $reviewerId, $round, $reviewType = 0) {
+	function &getReviewAssignment($submissionId, $reviewerId, $round, $reviewType = 1) {
 
 		$result =& $this->retrieve(
 			'SELECT r.*, r2.review_revision, u.first_name, u.last_name
 			FROM    review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
+				INNER JOIN users u ON (r.reviewer_id = u.user_id)
+				INNER JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
 			WHERE   r.submission_id = ? AND
 				r.reviewer_id = ? AND
 				r.cancelled <> 1 AND

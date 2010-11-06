@@ -113,7 +113,12 @@ class FileWrapper {
 		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen')) {
 			$wrapper = new FileWrapper($url, $info);
 		} else {
-			switch (@$info['scheme']) {
+			if (isset($info['scheme'])) {
+				$scheme = $info['scheme'];
+			} else {
+				$scheme = null;
+			}
+			switch ($scheme) {
 				case 'http':
 					import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 					$wrapper = new HTTPFileWrapper($url, $info);

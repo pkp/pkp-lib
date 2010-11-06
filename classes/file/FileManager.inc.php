@@ -309,7 +309,6 @@ class FileManager {
 		if (file_exists($file)) {
 			if (is_dir($file)) {
 				$handle = opendir($file);
-				import('lib.pkp.classes.file.FileManager');
 				while (($filename = readdir($handle)) !== false) {
 					if ($filename != '.' && $filename != '..') {
 						FileManager::rmtree($file . '/' . $filename);

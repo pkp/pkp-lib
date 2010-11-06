@@ -257,8 +257,8 @@ class PKPApplication {
 				$settingContext = array_combine($this->getContextList(), $settingContext);
 			}
 
-			$versionDAO =& DAORegistry::getDAO('VersionDAO');
-			$this->enabledProducts =& $versionDAO->getCurrentProducts($settingContext);
+			$versionDao =& DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
+			$this->enabledProducts =& $versionDao->getCurrentProducts($settingContext);
 		}
 
 		if (is_null($category)) {

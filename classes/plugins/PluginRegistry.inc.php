@@ -17,6 +17,9 @@
 define('PLUGINS_PREFIX', 'plugins/');
 
 class PluginRegistry {
+	//
+	// Public methods
+	//
 	/**
 	 * Return all plugins in the given category as an array, or, if the
 	 * category is not specified, all plugins in an associative array of
@@ -96,14 +99,9 @@ class PluginRegistry {
 			$products =& $application->getEnabledProducts('plugins.'.$category);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
-				if(!preg_match('/[a-zA-Z0-9]+/', $file)) fatalError('Invalid product name "'.$file.'"!');
-				$pluginPath = "$categoryDir/$file";
-				$pluginWrapper = "$pluginPath/index.php";
-				$plugin = include($pluginWrapper);
-				$pluginClass = $product->getProductClassName();
-				if ($pluginClass) assert(is_a($plugin, $pluginClass));
+				$plugin =& self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
 				if ($plugin && is_object($plugin)) {
-					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
 					unset($plugin);
 				}
 			}
@@ -114,31 +112,9 @@ class PluginRegistry {
 			$handle = opendir($categoryDir);
 			while (($file = readdir($handle)) !== false) {
 				if ($file == '.' || $file == '..') continue;
-				$pluginPath = "$categoryDir/$file";
-				$plugin = null;
-
-				// Try the plug-in wrapper first for backwards
-				// compatibility.
-				$pluginWrapper = "$pluginPath/index.php";
-				if (file_exists($pluginWrapper)) {
-					$plugin = include($pluginWrapper);
-				} else {
-					// Try the well-known plug-in class name next.
-					$pluginClassName = ucfirst($file).ucfirst($category).'Plugin';
-					$pluginClassFile = $pluginClassName.'.inc.php';
-					if (file_exists("$categoryDir/$file/$pluginClassFile")) {
-						// Try to instantiate the plug-in class.
-						$pluginPackage = 'plugins.'.$category.'.'.$file;
-						$plugin =& instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
-
-						// Any error at this stage is an internal inconsistency
-						// in the plug-in which is a bug.
-						assert(is_a($plugin, 'PKPPlugin'));
-					}
-				}
-
+				$plugin =& self::_instantiatePlugin($category, $categoryDir, $file);
 				if ($plugin && is_object($plugin)) {
-					$plugins[$plugin->getSeq()][$pluginPath] =& $plugin;
+					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
 					unset($plugin);
 				}
 			}
@@ -210,6 +186,56 @@ class PluginRegistry {
 		}
 		$allPlugins =& PluginRegistry::getAllPlugins();
 		return $allPlugins;
+	}
+
+
+	//
+	// Private helper methods
+	//
+	/**
+	 * Instantiate a plugin.
+	 *
+	 * This method can be called statically.
+	 *
+	 * @param $category string
+	 * @param $categoryDir string
+	 * @param $file string
+	 * @param $classToCheck string set null to maintain pre-2.3.x backwards compatibility
+	 * @return Plugin
+	 */
+	function &_instantiatePlugin($category, $categoryDir, $file, $classToCheck = null) {
+		if(!is_null($classToCheck) && !preg_match('/[a-zA-Z0-9]+/', $file)) fatalError('Invalid product name "'.$file.'"!');
+
+		$pluginPath = "$categoryDir/$file";
+		$plugin = null;
+
+		// Try the plug-in wrapper first for backwards
+		// compatibility.
+		$pluginWrapper = "$pluginPath/index.php";
+		if (file_exists($pluginWrapper)) {
+			$plugin = include($pluginWrapper);
+			if (!is_null($classToCheck)) {
+				assert(is_a($plugin, $classToCheck));
+			}
+		} else {
+			// Try the well-known plug-in class name next.
+			$pluginClassName = ucfirst($file).ucfirst($category).'Plugin';
+			$pluginClassFile = $pluginClassName.'.inc.php';
+			if (file_exists("$pluginPath/$pluginClassFile")) {
+				// Try to instantiate the plug-in class.
+				$pluginPackage = 'plugins.'.$category.'.'.$file;
+				$plugin =& instantiate($pluginPackage.'.'.$pluginClassName, $pluginClassName, $pluginPackage, 'register');
+			}
+		}
+
+		// Make sure that the plug-in inherits from the right class.
+		if (is_object($plugin)) {
+			assert(is_a($plugin, 'Plugin'));
+		} else {
+			assert(is_null($plugin));
+		}
+
+		return $plugin;
 	}
 }
 

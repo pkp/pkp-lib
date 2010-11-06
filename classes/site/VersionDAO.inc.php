@@ -134,9 +134,10 @@ class VersionDAO extends DAO {
 		$isNewVersion = true;
 
 		if ($version->getCurrent()) {
-			// Find out whether the current version is the same as the
+			// Find out whether the last installed version is the same as the
 			// one to be inserted.
-			$oldVersion =& $this->getCurrentVersion($version->getProductType(), $version->getProduct(), $isPlugin);
+			$versionHistory =& $this->getVersionHistory($version->getProductType(), $version->getProduct());
+			$oldVersion =& array_pop($versionHistory);
 			if ($oldVersion) {
 				if ($version->compare($oldVersion) == 0) {
 					// The old and the new current versions are the same so we need
@@ -247,19 +248,14 @@ class VersionDAO extends DAO {
 
 	/**
 	 * Disable a product by setting its 'current' column to 0
+	 * @param $productType string
 	 * @param $product string
 	 */
-	function disableVersion($product) {
-		if ($product == 'NULL') {
-			$this->update(
-				'UPDATE versions SET current = 0 WHERE current = 1 AND product IS NULL'
-			);
-		} else {
-			$this->update(
-				'UPDATE versions SET current = 0 WHERE current = 1 AND product = ?',
-				array($product)
-			);
-		}
+	function disableVersion($productType, $product) {
+		$this->update(
+			'UPDATE versions SET current = 0 WHERE current = 1 AND product_type = ? AND product = ?',
+			array($productType, $product)
+		);
 	}
 }
 

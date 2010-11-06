@@ -214,7 +214,7 @@ class PluginRegistry {
 		$pluginWrapper = "$pluginPath/index.php";
 		if (file_exists($pluginWrapper)) {
 			$plugin = include($pluginWrapper);
-			if (!is_null($classToCheck)) {
+			if ($classToCheck) {
 				assert(is_a($plugin, $classToCheck));
 			}
 		} else {

@@ -48,9 +48,6 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">査読フォーム</message>
 
-	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">このタイプのファイルを要素でソートする (例: 章)</message>
-
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">芸術作品(許諾あり)</message>
 	<message key="grid.artworkFile.file">ファイル</message>

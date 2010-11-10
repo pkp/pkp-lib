@@ -41,9 +41,6 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Formulaires d'évaluation</message>
 
-	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Permettre aux fichiers de ce type d'être trié par composant (par ex., par chapitre)</message>
-
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">Illustration libre de droit</message>
 	<message key="grid.artworkFile.file">Fichier</message>

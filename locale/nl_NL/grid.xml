@@ -48,9 +48,6 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Reviewformulieren</message>
 
-	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Sta toe dat bestanden van dit type naar component gesorteerd worden (bv. naar hoofdstuk)</message>
-
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">Grafisch werk met toestemming</message>
 	<message key="grid.artworkFile.file">Bestand</message>

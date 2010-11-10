@@ -48,9 +48,6 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Begutachtungsformulare</message>
 
-	<!-- Book File Types Grid -->
-	<message key="grid.bookFileType.form.sortable">Dateien dieses Typs können nach Bestandteilen (z.B. nach Kapitel) sortiert werden</message>
-
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">Kunstwerk mit Genehmigung</message>
 	<message key="grid.artworkFile.file">Datei</message>

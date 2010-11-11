@@ -13,8 +13,6 @@
  * @brief Describes review assignment properties (abstracted for PKP library).
  */
 
-// $Id$
-
 
 define('SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT', 1);
 define('SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS', 2);

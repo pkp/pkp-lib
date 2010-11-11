@@ -13,8 +13,6 @@
  * @brief Class for DAO relating reviewers to submissions.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignment');
 
@@ -463,7 +461,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	function &_fromRow(&$row) {
 		$reviewAssignment = $this->newDataObject();
 
-		$reviewAssignment->setReviewId($row['review_id']);
+		$reviewAssignment->setId($row['review_id']);
 		$reviewAssignment->setSubmissionId($row['submission_id']);
 		$reviewAssignment->setReviewerId($row['reviewer_id']);
 		$reviewAssignment->setReviewerFullName($row['first_name'].' '.$row['last_name']);

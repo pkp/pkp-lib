@@ -17,7 +17,6 @@
  * @brief Basic class describing a signoff.
  */
 
-//$Id$
 
 class Signoff extends DataObject {
 	//

@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying AuthSource objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.security.AuthSource');
 

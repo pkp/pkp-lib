@@ -43,6 +43,12 @@ if (!function_exists('file_get_contents')) {
 	}
 }
 
+if (!function_exists('stream_get_contents')) {
+	function stream_get_contents($fp) {
+		fflush($fp);
+	}
+}
+
 if (!function_exists('array_combine')) {
 	// For PHP 4
 	function array_combine($keys, $values) {

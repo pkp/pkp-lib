@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Min brukerkonto</message>
 	<message key="user.name">Navn</message>
 	<message key="user.password">Passord</message>
+	<message key="user.repeatPassword">Gjenta passord</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Skriv inn ditt nåværende og ditt nye passord nedenfor for å endre passordet for kontoen din.</message>
 	<message key="user.profile.editProfile">Rediger profil</message>

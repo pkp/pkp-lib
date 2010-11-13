@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Můj účet</message>
 	<message key="user.name">Jméno</message>
 	<message key="user.password">Heslo</message>
+	<message key="user.repeatPassword">Zopakujte heslo</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Pro změnu hesla k Vašemu účtu vložte níže Vaše současné a nové heslo.</message>
 	<message key="user.profile.editProfile">Editovat profil</message>

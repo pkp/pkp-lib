@@ -55,6 +55,7 @@
 	<message key="user.myAccount">El meu compte</message>
 	<message key="user.name">Nom</message>
 	<message key="user.password">Contrasenya</message>
+	<message key="user.repeatPassword">Repetiu la contrasenya</message>
 	<message key="user.phone">Telèfon</message>
 	<message key="user.profile.changePasswordInstructions">Introduïu la contrasenya actual i la contrasenya nova per a canviar la contrasenya del vostre compte.</message>
 	<message key="user.profile.editProfile">Edita el perfil</message>

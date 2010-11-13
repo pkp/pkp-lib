@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Mitt användarkonto</message>
 	<message key="user.name">Namn</message>
 	<message key="user.password">Lösenord</message>
+	<message key="user.repeatPassword">Upprepa lösenord</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Ange ditt aktuella lösenord samt nytt lösenord för att ändra lösenordsinställningarna för ditt konto.</message>
 	<message key="user.profile.editProfile">Redigera Profil</message>

@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Mijn gegevens</message>
 	<message key="user.name">Naam</message>
 	<message key="user.password">Wachtwoord</message>
+	<message key="user.repeatPassword">Herhaal wachtwoord</message>
 	<message key="user.phone">Telefoon</message>
 	<message key="user.profile.changePasswordInstructions">Geef uw huidige en nieuwe wachtwoord om het wachtwoord voor uw account te veranderen.</message>
 	<message key="user.profile.editProfile">Bewerk profiel</message>

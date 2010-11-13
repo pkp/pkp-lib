@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Mesclar cadastro</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Senha</message>
+	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Fone</message>
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>

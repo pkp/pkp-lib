@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Nire kontua</message>
 	<message key="user.name">Izen-abizenak</message>
 	<message key="user.password">Pasahitza</message>
+	<message key="user.repeatPassword">Errepikatu pasahitza</message>
 	<message key="user.phone">Telefonoa</message>
 	<message key="user.profile.changePasswordInstructions">Zure kontuaren pasahitza aldatzeko, idatzi zure oraingo pasahitza eta pasahitz berria behean.</message>
 	<message key="user.profile.editProfile">Editatu profila</message>

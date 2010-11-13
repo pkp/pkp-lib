@@ -57,6 +57,7 @@
 	<message key="user.name">Фамилия</message>
 	<message key="user.other">Иное</message>
 	<message key="user.password">Пароль</message>
+	<message key="user.repeatPassword">Повторить пароль</message>
 	<message key="user.phone">Телефон</message>
 	<message key="user.profile.changePasswordInstructions">Введите Ваш старый и новый пароли.</message>
 	<message key="user.profile.editProfile">Профиль</message>

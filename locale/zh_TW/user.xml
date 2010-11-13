@@ -49,6 +49,7 @@
 	<message key="user.myAccount">我的帳戶</message>
 	<message key="user.name">姓名</message>
 	<message key="user.password">密碼</message>
+	<message key="user.repeatPassword">重複密碼</message>
 	<message key="user.phone">電話號碼</message>
 	<message key="user.profile.changePasswordInstructions">在下面鍵入您現在使用以及新的密碼以更改您的使用者密碼。</message>
 	<message key="user.profile.editProfile">編輯個人帳號</message>

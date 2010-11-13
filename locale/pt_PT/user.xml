@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Minha Conta</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Senha</message>
+	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Telefone</message>
 	<message key="user.profile.changePasswordInstructions">Insira as senhas actual e nova para alterar a senha de acesso à conta.</message>
 	<message key="user.profile.editProfile">Editar Perfil</message>

@@ -54,6 +54,7 @@
 	<message key="user.myAccount">Moji podaci</message>
 	<message key="user.name">Ime</message>
 	<message key="user.password">Lozinka</message>
+	<message key="user.repeatPassword">Ponovite lozinku</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.form.emailRequired">Važeća adresa e-pošte je obavezna.</message>
 	<message key="user.profile.form.firstNameRequired">Ime je obavezno.</message>

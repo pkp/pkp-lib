@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Min konto</message>
 	<message key="user.name">Navn</message>
 	<message key="user.password">Adgangskode</message>
+	<message key="user.repeatPassword">Gentag adgangskode</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Angiv din aktuelle og din nye adgangskode nedenfor for at ændre adgangskoden til din konto.</message>
 	<message key="user.profile.editProfile">Rediger profil</message>

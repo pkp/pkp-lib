@@ -49,6 +49,7 @@
 	<message key="user.myAccount">Hesabım</message>
 	<message key="user.name">Adı</message>
 	<message key="user.password">Şifre</message>
+	<message key="user.repeatPassword">Şifreyi tekrarlayınız </message>
 	<message key="user.phone">Tel</message>
 	<message key="user.profile.changePasswordInstructions">Kullancı hesabınızın şifresini değiştirmek için mevcut ve yeni şifrenizi giriniz. </message>
 	<message key="user.profile.editProfile">Profili düzenle</message>

@@ -66,7 +66,7 @@
 	<message key="user.name">Name</message>
 	<message key="user.other">Other</message>
 	<message key="user.password">Password</message>
-	<message key="user.repeatPassword">Repeat Password</message>
+	<message key="user.repeatPassword">Repeat password</message>
 	<message key="user.phone">Phone</message>
 	<message key="user.profile.changePasswordInstructions">Enter your current and new passwords below to change the password for your account.</message>
 	<message key="user.profile.editProfile">Edit Profile</message>

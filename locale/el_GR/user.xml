@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Ο Λογαριασμός μου</message>
 	<message key="user.name">Όνομα</message>
 	<message key="user.password">Password</message>
+	<message key="user.repeatPassword">Επαναλάβετε τον κωδικό πρόσβασης (password)</message>
 	<message key="user.phone">Τηλέφωνο</message>
 	<message key="user.profile.changePasswordInstructions">Εισαγάγετε τον  τρέχοντα και τον νέο κωδικό πρόσβασης παρακάτω για να  αλλάξετε τον προσωπικό σας κωδικό πρόσβασης.</message>
 	<message key="user.profile.editProfile">Διαμόρφωση Προφίλ</message>

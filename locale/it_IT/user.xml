@@ -55,6 +55,7 @@
 	<message key="user.myAccount">Il mio account</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Password</message>
+	<message key="user.repeatPassword">Ripeti password</message>
 	<message key="user.phone">Telefono</message>
 	<message key="user.profile.changePasswordInstructions">Per cambiare la password del tuo account, inserisci qui sotto la tua vecchia password e poi quella nuova.</message>
 	<message key="user.profile.editProfile">Modifica il profilo</message>

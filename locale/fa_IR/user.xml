@@ -55,6 +55,7 @@
 	<message key="user.myAccount">حساب کاربری من</message>
 	<message key="user.name">نام</message>
 	<message key="user.password">اسم رمز</message>
+	<message key="user.repeatPassword">تکرار رمز عبور</message>
 	<message key="user.phone">تلفن</message>
 	<message key="user.profile.changePasswordInstructions">برای تغییر رمز عبور، رمز عبور فعلی و جدید  را در قسمت های زیر وارد کنید</message>
 	<message key="user.profile.editProfile">ویرایش پرونده</message>

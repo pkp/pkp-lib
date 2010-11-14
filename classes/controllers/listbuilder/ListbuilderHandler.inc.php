@@ -58,6 +58,25 @@ class ListbuilderHandler extends GridHandler {
 		parent::GridHandler();
 	}
 
+
+	//
+	// Getters and Setters
+	//
+	/**
+	 * Get possible items for left-hand drop-down list
+	 */
+	function getPossibleItemList() {
+		return $this->_possibleItems;
+	}
+
+	/**
+	 * Set possible items for left-hand drop-down list
+	 */
+	function setPossibleItemList($possibleItems) {
+		$this->_possibleItems = $possibleItems;
+	}
+
+
 	/**
 	 * Get the listbuilder template
 	 * @return string

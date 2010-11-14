@@ -33,8 +33,9 @@ class PKPCitationGridHandler extends GridHandler {
 		parent::GridHandler();
 	}
 
+
 	//
-	// Getters/Setters
+	// Getters and Setters
 	//
 	/**
 	 * Set the object that citations are associated to
@@ -90,6 +91,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$assocObject =& $this->getAssocObject();
 		return $assocObject->getId();
 	}
+
 
 	//
 	// Overridden methods from PKPHandler
@@ -176,7 +178,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 
 	//
-	// Public Citation Grid Actions
+	// Public grid actions
 	//
 	/**
 	 * Export a list of formatted citations
@@ -507,8 +509,9 @@ class PKPCitationGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
+
 	//
-	// Protected helper functions
+	// Protected helper methods
 	//
 	/**
 	 * This will retrieve a citation object from the
@@ -542,7 +545,7 @@ class PKPCitationGridHandler extends GridHandler {
 	}
 
 	//
-	// Private helper functions
+	// Private helper methods
 	//
 	/**
 	 * This method returns the texts and filter groups that should be

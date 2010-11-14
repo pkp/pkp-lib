@@ -153,7 +153,7 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 								}
 							} else {
 								// Alert that the action failed
-								confirm(null, null, null, returnString.content, localizedButtons, callingElement);
+								alert(returnString.content);
 							}
 						}, 'json');
 					}

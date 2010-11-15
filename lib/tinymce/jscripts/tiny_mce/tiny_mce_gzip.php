@@ -3,7 +3,7 @@
  * $Id: tiny_mce_gzip.php 315 2007-10-25 14:03:43Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2005-2006, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2005-2006, Moxiecode Systems AB, All rights reserved.
  *
  * This file compresses the TinyMCE JavaScript using GZip and
  * enables the browser to do two requests instead of one for each .js file.
@@ -121,7 +121,7 @@
 		$content .= "tinyMCE_GZ.end();";
 
 	// Generate GZIP'd content
-	if ($supportsGzip) {
+	if ($supportsGzip && is_writable(dirname($cacheFile))) {
 		if ($compress) {
 			header("Content-Encoding: " . $enc);
 			$cacheData = gzencode($content, 9, FORCE_GZIP);

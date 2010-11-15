@@ -17,8 +17,6 @@
  * @brief Operations for retrieving and modifying objects from a database.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.db.DBConnection');
 import('lib.pkp.classes.db.DAOResultFactory');
@@ -367,13 +365,21 @@ class DAO {
 			case 'bool':
 				$value = $value ? 1 : 0;
 				break;
+			case 'int':
+				$value = (int) $value;
+				break;
+			case 'float':
+				$value = (float) $value;
+				break;
 			case 'date':
 				if ($value !== null) {
 					if (!is_numeric($value)) $value = strtotime($value);
 					$value = strftime('%Y-%m-%d %H:%M:%S', $value);
 				}
 				break;
+			case 'string':
 			default:
+				// do nothing.
 		}
 
 		return $value;

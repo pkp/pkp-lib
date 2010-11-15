@@ -153,6 +153,14 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Check whether the grid has rows.
+	 * @return boolean
+	 */
+	function hasData() {
+		return !empty($this->_data);
+	}
+
+	/**
 	 * Set the grid data
 	 * @param $data mixed an array or ItemIterator with element data
 	 */

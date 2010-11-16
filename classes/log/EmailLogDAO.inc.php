@@ -14,7 +14,7 @@
  */
 
 
-import ('classes.log.EmailLogEntry');
+import ('lib.pkp.classes.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
 	/**

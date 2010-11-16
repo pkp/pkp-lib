@@ -27,7 +27,7 @@ class PersonStringNlm30NameSchemaFilterTest extends PKPTestCase {
 			array('His Excellency B.C. Van de Haan', true, false),   // initials prefix surname + title
 			array('Mrs. P.-B. von Redfield-Brownfox', true, false),  // initials prefix double-surname with hyphen + title
 			array('Professor K-G. Brown, MA, MSc.', true, true),     // initials surname + title + degree
-			array('IFC Peterberg', false, false),                    // initials surname
+			array('IFC O\'Connor', false, false),                    // initials surname
 			array('Peters, H. C.', false, false),                    // surname, initials
 			array('Fernandes Lopes, Paula', false, false),           // double-surname with spaces, initials
 			array('Peters HC', false, false),                        // surname initials
@@ -52,7 +52,7 @@ class PersonStringNlm30NameSchemaFilterTest extends PKPTestCase {
 			array('His Excellency', array('B', 'C'), 'Van de', 'Haan'),
 			array('Mrs.', array('P','B'), 'von', 'Redfield-Brownfox'),
 			array('Professor - MA; MSc', array('K', 'G'), null, 'Brown'),
-			array(null, array('I', 'F', 'C'), null, 'Peterberg'),
+			array(null, array('I', 'F', 'C'), 'O\'', 'Connor'),
 			array(null, array('H', 'C'), null, 'Peters'),
 			array(null, array('Paula'), null, 'Fernandes Lopes'),
 			array(null, array('H', 'C'), null, 'Peters'),

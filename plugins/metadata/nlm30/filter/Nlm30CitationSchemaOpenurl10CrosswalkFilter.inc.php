@@ -119,7 +119,11 @@ class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10Crosswal
 			}
 
 			foreach ($authors as $author) {
-				$au = $personStringFilter->execute($author);
+				if ($author == PERSON_STRING_FILTER_ETAL) {
+					$au = $author;
+				} else {
+					$au = $personStringFilter->execute($author);
+				}
 				$success = $output->addStatement('au', $au);
 				assert($success);
 				unset($au);

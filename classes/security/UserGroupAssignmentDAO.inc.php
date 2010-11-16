@@ -11,6 +11,9 @@
  * @see UserGroupAssigment
  *
  * @brief Operations for retrieving and modifying user group assignments
+ * FIXME: Some of the context-specific features of this class will have
+ * to be changed for zero- or double-context applications when user groups
+ * are ported over to them.
  */
 
 import('lib.pkp.classes.security.UserGroupAssignment');
@@ -67,17 +70,17 @@ class UserGroupAssignmentDAO extends DAO {
 	}
 
 	/**
-	 * Remove all user group assignments in a given press
-	 * @param int $pressId
+	 * Remove all user group assignments in a given context
+	 * @param int $contextId
 	 * @param int $userId
 	 */
-	function deleteAssignmentsByPressId($pressId, $userId = null) {
-		$params = array($pressId);
+	function deleteAssignmentsByContextId($contextId, $userId = null) {
+		$params = array($contextId);
 		if ( $userId ) $params[] = $userId;
 		$result =& $this->retrieve(
 						'SELECT uug.user_group_id, uug.user_id
 						FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-						WHERE ug.press_id = ?' . ($userId?' AND uug.user_id = ?':''),
+						WHERE ug.context_id = ?' . ($userId?' AND uug.user_id = ?':''),
 					$params);
 
 		$assignments =& new DAOResultFactory($result, $this, '_returnFromRow');
@@ -93,16 +96,16 @@ class UserGroupAssignmentDAO extends DAO {
 	/**
 	 * Retrieve user group assignments for a user
 	 * @param $userId int
-	 * @param $pressId int
+	 * @param $contextId int
 	 * @return Iterator UserGroup
 	 */
-	function &getByUserId($userId, $pressId = null){
+	function &getByUserId($userId, $contextId = null){
 		$params = array($userId);
-		if ( $pressId ) $params[] = $pressId;
+		if ( $contextId ) $params[] = $contextId;
 		$result =& $this->retrieve(
 			'SELECT uug.user_group_id, uug.user_id
 				FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ?' . ($pressId?' AND ug.press_id = ?':''),
+				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
 			$params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');

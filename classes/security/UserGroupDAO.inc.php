@@ -11,6 +11,9 @@
  * @see UserGroup
  *
  * @brief Operations for retrieving and modifying User Groups and user group assignments
+ * FIXME: Some of the context-specific features of this class will have
+ * to be changed for zero- or double-context applications when user groups
+ * are ported over to them.
  */
 
 
@@ -50,7 +53,7 @@ class UserGroupDAO extends DAO {
 		$userGroup =& $this->newDataObject();
 		$userGroup->setId($row['user_group_id']);
 		$userGroup->setRoleId($row['role_id']);
-		$userGroup->setPressId($row['press_id']);
+		$userGroup->setContextId($row['context_id']);
 		$userGroup->setPath($row['path']);
 		$userGroup->setDefault($row['is_default']);
 
@@ -68,13 +71,13 @@ class UserGroupDAO extends DAO {
 	function insertUserGroup(&$userGroup) {
 		$returner = $this->update(
 			'INSERT INTO user_groups
-				(role_id, path, press_id, is_default)
+				(role_id, path, context_id, is_default)
 				VALUES
 				(?, ?, ?, ?)',
 			array(
 				(int) $userGroup->getRoleId(),
 				$userGroup->getPath(),
-				(int) $userGroup->getPressId(),
+				(int) $userGroup->getContextId(),
 				($userGroup->getDefault()?1:0)
 			)
 		);
@@ -107,11 +110,11 @@ class UserGroupDAO extends DAO {
 
 
 	/**
-	 * Delete a user group by its press id
-	 * @param $pressId int
+	 * Delete a user group by its context id
+	 * @param $contextId int
 	 */
-	function deleteByPressId($pressId) {
-		$result =& $this->retrieve('SELECT user_group_id FROM user_groups WHERE press_id = ?', $pressId);
+	function deleteByContextId($contextId) {
+		$result =& $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', $contextId);
 
 		$returner = true;
 		for ($i=1; !$result->EOF; $i++) {
@@ -156,15 +159,15 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Get an individual user group
 	 * @param $userGroupId
-	 * @param $pressId
+	 * @param $contextId
 	 */
-	function getById($userGroupId, $pressId = null) {
+	function getById($userGroupId, $contextId = null) {
 		$params = array($userGroupId);
-		if ( $pressId ) $params[] = $pressId;
+		if ( $contextId ) $params[] = $contextId;
 		$result =& $this->retrieve(
-			'SELECT user_group_id, press_id, role_id, path, is_default
+			'SELECT user_group_id, context_id, role_id, path, is_default
 			FROM user_groups
-			WHERE user_group_id = ?' . ($pressId?' AND press_id = ?':''),
+			WHERE user_group_id = ?' . ($contextId?' AND context_id = ?':''),
 			$params
 			);
 
@@ -174,12 +177,12 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Get a single default user group with a particular roleId
 	 * FIXME: ??
-	 * @param $pressId
+	 * @param $contextId
 	 * @param $roleId
 	 */
-	function &getDefaultByRoleId($pressId, $roleId) {
+	function &getDefaultByRoleId($contextId, $roleId) {
 		$returner = false;
-		$allDefaults =& $this->getByRoleId($pressId, $roleId, true);
+		$allDefaults =& $this->getByRoleId($contextId, $roleId, true);
 		if ( $allDefaults->eof() ) return $returner;
 		$returner =& $allDefaults->next();
 		return $returner;
@@ -188,17 +191,17 @@ class UserGroupDAO extends DAO {
 	/**
 	 * For now defaulting to only one userGroup.
 	 * FIXME: need to review this.
-	 * @param $pressId
+	 * @param $contextId
 	 * @param $roleId
 	 * @param $default
 	 */
-	function &getByRoleId($pressId, $roleId, $default = false) {
-		$params = array($pressId, $roleId);
+	function &getByRoleId($contextId, $roleId, $default = false) {
+		$params = array($contextId, $roleId);
 		if ( $default ) $params[] = 1;
 		$result =& $this->retrieve(
-			'SELECT user_group_id, press_id, role_id, path, is_default
+			'SELECT user_group_id, context_id, role_id, path, is_default
 			FROM user_groups
-			WHERE press_id = ? AND role_id = ?' . ($default?' AND is_default = ?':''),
+			WHERE context_id = ? AND role_id = ?' . ($default?' AND is_default = ?':''),
 			$params
 			);
 
@@ -209,15 +212,15 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Get an array of user group ids belonging to a given role
 	 * @param $roleId in
-	 * @param $pressId int
+	 * @param $contextId int
 	 */
-	function &getUserGroupIdsByRoleId($roleId, $pressId = null) {
+	function &getUserGroupIdsByRoleId($roleId, $contextId = null) {
 		$sql = 'SELECT user_group_id FROM user_groups WHERE role_id = ?';
 		$params = array($roleId);
 
-		if($pressId) {
-			$sql .= ' AND press_id = ?';
-			$params[] = $pressId;
+		if($contextId) {
+			$sql .= ' AND context_id = ?';
+			$params[] = $contextId;
 		}
 
 		$result =& $this->retrieve($sql, $params);
@@ -236,28 +239,28 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Validation check to see if a user belongs to any group that has a given role
-	 * @param $pressId
+	 * @param $contextId
 	 * @param $userId
 	 * @param $roleId
 	 * @return bool
 	 */
-	function userHasRole($pressId, $userId, $roleId) {
+	function userHasRole($contextId, $userId, $roleId) {
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		return $roleDao->userHasRole($pressId, $userId, $roleId);
+		return $roleDao->userHasRole($contextId, $userId, $roleId);
 	}
 
 	/**
 	 * Check if a user is in a particular user group
-	 * @param $pressId int
+	 * @param $contextId int
 	 * @param $userId int
 	 * @param $userGroupId int
 	 * @return boolean
 	 */
-	function userInGroup($pressId, $userId, $userGroupId) {
+	function userInGroup($contextId, $userId, $userGroupId) {
 		$result =& $this->retrieve(
 			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.press_id = ? AND uug.user_id = ? AND ug.user_group_id = ?',
-			array((int) $pressId, (int) $userId, (int) $userGroupId)
+			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.user_group_id = ?',
+			array((int) $contextId, (int) $userId, (int) $userGroupId)
 		);
 
 		// > 0 because user could belong to more than one user group with this role
@@ -272,17 +275,17 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Check if a user is in any user group
 	 * @param $userId int
-	 * @param $pressId int optional
+	 * @param $contextId int optional
 	 * @return boolean
 	 */
-	function userInAnyGroup($userId, $pressId = null) {
+	function userInAnyGroup($userId, $contextId = null) {
 		$params = array((int) $userId);
-		if ($pressId) $params[] = (int) $pressId;
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result =& $this->retrieve(
 			'SELECT count(*)
 			FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE uug.user_id = ?' . ($pressId?' AND ug.press_id = ?':''),
+			WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
 
@@ -297,15 +300,15 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Retrieve user groups to which a user is assigned.
 	 * @param $userId int
-	 * @param $pressId int
+	 * @param $contextId int
 	 * @return Iterator UserGroup
 	 */
-	function &getByUserId($userId, $pressId = 0){
-		$params = array($userId, $pressId);
+	function &getByUserId($userId, $contextId = 0){
+		$params = array($userId, $contextId);
 		$result =& $this->retrieve(
-			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.press_id, ug.is_default
+			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.context_id, ug.is_default
 				FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ? AND ug.press_id = ?',
+				WHERE uug.user_id = ? AND ug.context_id = ?',
 			$params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
@@ -313,20 +316,20 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Validation check to see if user group exists for a given press
-	 * @param $pressId
+	 * Validation check to see if user group exists for a given context
+	 * @param $contextId
 	 * @param $userGroupId
 	 * @return bool
 	 */
-	function pressHasGroup($pressId, $userGroupId) {
+	function contextHasGroup($contextId, $userGroupId) {
 		$result =& $this->retrieve(
 			'SELECT count(*)
 				FROM user_groups ug
 				WHERE ug.user_group_id = ?
-				AND ug.press_id = ?',
+				AND ug.context_id = ?',
 			array (
 				(int) $userGroupId,
-				(int) $pressId
+				(int) $contextId
 			)
 		);
 
@@ -339,16 +342,16 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve user groups for a given Press (all presses if null)
-	 * @param $pressId
+	 * Retrieve user groups for a given context (all contexts if null)
+	 * @param $contextId
 	 */
-	function &getByPressId($pressId = null) {
+	function &getByContextId($contextId = null) {
 		$params = array();
-		if ( $pressId ) $params[] = $pressId;
+		if ( $contextId ) $params[] = $contextId;
 		$result =& $this->retrieve(
-			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.press_id, ug.is_default
+			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.context_id, ug.is_default
 				FROM user_groups ug' .
-				($pressId?' WHERE ug.press_id = ?':''),
+				($contextId?' WHERE ug.context_id = ?':''),
 			$params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
@@ -356,18 +359,18 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve the number of users associated with the specified press.
-	 * @param $pressId int
+	 * Retrieve the number of users associated with the specified context.
+	 * @param $contextId int
 	 * @return int
 	 */
-	function getPressUsersCount($pressId, $userGroupId = null, $roleId = null) {
-		$params = array((int) $pressId);
+	function getContextUsersCount($contextId, $userGroupId = null, $roleId = null) {
+		$params = array((int) $contextId);
 		if ($userGroupId) $params[] = (int) $userGroupId;
 		if ($roleId) $params[] = (int) $roleId;
 		$result =& $this->retrieve(
 			'SELECT COUNT(DISTINCT(uug.user_id))
 			FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE press_id = ?' . ($userGroupId?' AND ug.user_group_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
+			WHERE context_id = ?' . ($userGroupId?' AND ug.user_group_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
 			$params
 		);
 
@@ -381,34 +384,34 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * return an Iterator of User objects given the search parameters
-	 * @param int $pressId
+	 * @param int $contextId
 	 * @param string $searchType
 	 * @param string $search
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
 	 */
-	function &getUsersByPressId($pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		return $this->getUsersById(null, $pressId, $searchType, $search, $searchMatch, $dbResultRange);
+	function &getUsersByContextId($contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+		return $this->getUsersById(null, $contextId, $searchType, $search, $searchMatch, $dbResultRange);
 	}
 
 	/**
 	 * return an Iterator of User objects given the search parameters
 	 * @param int $userGroupId
-	 * @param int $pressId
+	 * @param int $contextId
 	 * @param string $searchType
 	 * @param string $search
 	 * @param string $searchMatch
 	 * @param DBResultRange $dbResultRange
 	 */
-	function &getUsersById($userGroupId = null, $pressId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
+	function &getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$users = array();
 
 		$paramArray = array(ASSOC_TYPE_USER, 'interest');
 		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
-		if (isset($pressId)) $paramArray[] = (int) $pressId;
-		// For security / resource usage reasons, a user group or press ID
+		if (isset($contextId)) $paramArray[] = (int) $contextId;
+		// For security / resource usage reasons, a user group or context ID
 		// must be specified. Don't allow calls supplying neither.
-		if ($pressId === null && $userGroupId === null) return null;
+		if ($contextId === null && $userGroupId === null) return null;
 
 		$searchSql = '';
 
@@ -454,7 +457,7 @@ class UserGroupDAO extends DAO {
 			LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
 				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
-				WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($pressId) ? ' AND ug.press_id = ?' : '') . ' ' . $searchSql,
+				WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
 			$paramArray,
 			$dbResultRange
 		);
@@ -483,12 +486,12 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Remove all user group assignments for a given user in a press
-	 * @param int $pressId
+	 * Remove all user group assignments for a given user in a context
+	 * @param int $contextId
 	 * @param int $userId
 	 */
-	function deleteAssignmentsByPressId($pressId, $userId = null) {
-		$this->userGroupAssignmentDao->deleteAssignmentsByPressId($pressId, $userId);
+	function deleteAssignmentsByContextId($contextId, $userId = null) {
+		$this->userGroupAssignmentDao->deleteAssignmentsByContextId($contextId, $userId);
 	}
 
 	/**
@@ -559,7 +562,7 @@ class UserGroupDAO extends DAO {
 
 
 	/**
-	 * Retrieve a press setting value.
+	 * Retrieve a context setting value.
 	 * @param $userGroupId int
 	 * @param $name string
 	 * @param $locale string optional
@@ -598,10 +601,10 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Load the XML file and move the settings to the DB
-	 * @param $pressId
+	 * @param $contextId
 	 * @param $filename
 	 */
-	function installSettings($pressId, $filename) {
+	function installSettings($contextId, $filename) {
 		$xmlParser = new XMLParser();
 		$tree = $xmlParser->parse($filename);
 
@@ -622,7 +625,7 @@ class UserGroupDAO extends DAO {
 			$userGroup =& $this->newDataObject();
 			$userGroup->setRoleId($roleId);
 			$userGroup->setPath($role->getPath());
-			$userGroup->setPressId($pressId);
+			$userGroup->setContextId($contextId);
 			$userGroup->setDefault(true);
 
 			// insert the group into the DB
@@ -632,7 +635,7 @@ class UserGroupDAO extends DAO {
 			foreach ($defaultStages as $stageId) {
 				if (!empty($stageId) && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION && $stageId >= WORKFLOW_STAGE_ID_SUBMISSION) {
 					$userGroupStageAssignmentDao =& DAORegistry::getDAO('UserGroupStageAssignmentDAO');
-					$userGroupStageAssignmentDao->assignGroupToStage($pressId, $userGroupId, $stageId);
+					$userGroupStageAssignmentDao->assignGroupToStage($contextId, $userGroupId, $stageId);
 				}
 			}
 
@@ -641,18 +644,18 @@ class UserGroupDAO extends DAO {
 			$this->updateSetting($userGroup->getId(), 'nameLocaleKey', $nameKey);
 			$this->updateSetting($userGroup->getId(), 'abbrevLocaleKey', $abbrevKey);
 
-			// install the settings in the current locale for this press
-			$this->installLocale(Locale::getLocale(), $pressId);
+			// install the settings in the current locale for this context
+			$this->installLocale(Locale::getLocale(), $contextId);
 		}
 	}
 
 	/**
 	 * use the locale keys stored in the settings table to install the locale settings
 	 * @param $locale
-	 * @param $pressId
+	 * @param $contextId
 	 */
-	function installLocale($locale, $pressId = null) {
-		$userGroups =& $this->getByPressId($pressId);
+	function installLocale($locale, $contextId = null) {
+		$userGroups =& $this->getByContextId($contextId);
 		while ( !$userGroups->eof() ) {
 			$userGroup =& $userGroups->next();
 			$nameKey = $this->getSetting($userGroup->getId(), 'nameLocaleKey');

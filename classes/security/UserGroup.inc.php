@@ -42,12 +42,12 @@ class UserGroup extends DataObject {
 		$this->setData('path', $path);
 	}
 
-	function getPressId() {
-		return $this->getData('pressId');
+	function getContextId() {
+		return $this->getData('contextId');
 	}
 
-	function setPressId($pressId) {
-		$this->setData('pressId', $pressId);
+	function setContextId($contextId) {
+		$this->setData('contextId', $contextId);
 	}
 
 

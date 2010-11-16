@@ -220,6 +220,7 @@ class PKPCitationGridHandler extends GridHandler {
 				$allowedFilterIds = array();
 
 				// Retrieve export filters.
+				$exportFilter = null;
 				$exportFilters = array();
 				$exportFilterConfiguration = $this->_getExportFilterConfiguration();
 				foreach($exportFilterConfiguration as $selectListHeading => $outputType) {
@@ -231,9 +232,18 @@ class PKPCitationGridHandler extends GridHandler {
 					$exportFilters[$selectListHeading] = array();
 					foreach($exportFilterObjects as $exportFilterObject) { /* @var $exportFilterObject PersistableFilter */
 						$filterId = $exportFilterObject->getId();
+
+						// Use the first filter as default export filter.
+						if (is_null($exportFilter)) {
+							$exportFilter =& $exportFilterObject;
+							$exportFilterId = $filterId;
+						}
+
 						// FIXME: Move &nbsp; to the template.
 						$exportFilters[$selectListHeading][$filterId] = '&nbsp;'.$exportFilterObject->getDisplayName();
 						$allowedFilterIds[$filterId] = $outputType;
+
+						unset($exportFilterObject);
 					}
 
 					unset($exportFilterObjects);
@@ -241,19 +251,11 @@ class PKPCitationGridHandler extends GridHandler {
 				$templateMgr->assign_by_ref('exportFilters', $exportFilters);
 
 				// Did the user choose a custom filter?
-				$exportFilter = null;
 				if (isset($args['filterId'])) {
 					$exportFilterId = (int)$args['filterId'];
 					if (isset($allowedFilterIds[$exportFilterId])) {
 						$exportFilter =& $filterDao->getObjectById($exportFilterId);
 					}
-				}
-
-				// Use the first available XML filter by default if no
-				// valid custom filter has been chosen.
-				if (!is_a($exportFilter, 'Filter') && !empty($xmlExportFilterObjects)) {
-					$exportFilter = array_pop($xmlExportFilterObjects);
-					$exportFilterId = $exportFilter->getId();
 				}
 
 				// Prepare the export output if a filter has been identified.

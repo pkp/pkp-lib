@@ -30,6 +30,9 @@ class CitationListTokenizerFilterTest extends PKPTestCase {
 			'citation4'
 		);
 		self::assertEquals($expectedResult, $tokenizer->process($rawCitationList));
+
+		$rawCitationList = '';
+		self::assertEquals(array(), $tokenizer->process($rawCitationList));
 	}
 }
 ?>

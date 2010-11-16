@@ -36,11 +36,17 @@ class CitationListTokenizerFilter extends Filter {
 	function &process(&$input) {
 		// The default implementation assumes that raw citations are
 		// separated with line endings.
-		// 1) Remove empty lines and normalize line endings
+		// 1) Remove empty lines and normalize line endings.
 		$input = String::regexp_replace('/[\r\n]+/s', "\n", $input);
-		// 2) Break up at line endings
-		$citations = explode("\n", $input);
-		// 3) Remove numbers from the beginning of each citation
+		// 2) Remove trailing/leading line breaks.
+		$input = trim($input, "\n");
+		// 3) Break up at line endings.
+		if (empty($input)) {
+			$citations = array();
+		} else {
+			$citations = explode("\n", $input);
+		}
+		// 4) Remove numbers from the beginning of each citation.
 		foreach($citations as $index => $citation) {
 			$citations[$index] = String::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
 		}

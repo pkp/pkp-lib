@@ -165,6 +165,7 @@ class PKPUserDAO extends DAO {
 		$user->setPhone($row['phone']);
 		$user->setFax($row['fax']);
 		$user->setMailingAddress($row['mailing_address']);
+		$user->setBillingAddress($row['billing_address']);
 		$user->setCountry($row['country']);
 		$user->setLocales(isset($row['locales']) && !empty($row['locales']) ? explode(':', $row['locales']) : array());
 		$user->setDateLastEmail($this->datetimeFromDB($row['date_last_email']));
@@ -195,9 +196,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, gender, email, url, phone, fax, mailing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
+				(username, password, salutation, first_name, middle_name, initials, last_name, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -213,6 +214,7 @@ class PKPUserDAO extends DAO {
 				$user->getPhone(),
 				$user->getFax(),
 				$user->getMailingAddress(),
+				$user->getBillingAddress(),
 				$user->getCountry(),
 				join(':', $user->getLocales()),
 				$user->getMustChangePassword() ? 1 : 0,
@@ -264,6 +266,7 @@ class PKPUserDAO extends DAO {
 					phone = ?,
 					fax = ?,
 					mailing_address = ?,
+					billing_address = ?,
 					country = ?,
 					locales = ?,
 					date_last_email = %s,
@@ -290,6 +293,7 @@ class PKPUserDAO extends DAO {
 				$user->getPhone(),
 				$user->getFax(),
 				$user->getMailingAddress(),
+				$user->getBillingAddress(),
 				$user->getCountry(),
 				join(':', $user->getLocales()),
 				$user->getMustChangePassword() ? 1 : 0,

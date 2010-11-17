@@ -64,7 +64,8 @@ class QueuedPaymentDAO extends DAO {
 			)
 		);
 
-		return $this->getInsertQueuedPaymentId();
+		$queuedPayment->setPaymentId($this->getInsertQueuedPaymentId());
+		return $queuedPayment->getPaymentId();
 	}
 
 	/**

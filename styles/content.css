@@ -1194,4 +1194,8 @@ ul.tagit li:after, ul.tagit li div:after {
 	font-size: 1.2em;
 }
 
+.selectHeader {
+	margin-top: 10px;	
+}
+
 /* @end */

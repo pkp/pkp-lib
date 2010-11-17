@@ -548,6 +548,7 @@ a.notes {
 	background-position: bottom !important;
 }
 
+/* FIXME: Update with new icon set from Brent */
 a.settings {
 	background-image: url(../templates/images/structure/grid_settings.png);
 }
@@ -559,7 +560,21 @@ a.promote {
 	padding-left: 18px;
 }
 
+a.enable {
+	background-image: url(../templates/images/structure/grid_promote.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
+}
+
 a.delete {
+	background-image: url(../templates/images/structure/grid_delete.png);
+	background-repeat: no-repeat;
+	margin-left: 10px;
+	padding-left: 18px;
+}
+
+a.disable {
 	background-image: url(../templates/images/structure/grid_delete.png);
 	background-repeat: no-repeat;
 	margin-left: 10px;

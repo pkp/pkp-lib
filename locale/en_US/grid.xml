@@ -97,10 +97,15 @@
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Current Users</message>
 	<message key="grid.user.currentEnrollment">Current Enrollment</message>
+	<message key="grid.user.allRoles">All Roles</message>
 	<message key="grid.user.add">Add User</message>
 	<message key="grid.user.enroll">Enroll User</message>
 	<message key="grid.user.edit">Edit User</message>
 	<message key="grid.user.email">Email</message>
+	<message key="grid.user.enable">Enable</message>
+	<message key="grid.user.disable">Disable</message>
+	<message key="grid.user.disableReason">Reason for disabling user</message>
+	<message key="grid.user.enableReason">Reason for enabling user</message>
 	<message key="grid.user.error">An error was encountered administrating this user. Please try again.</message>
 	<message key="grid.user.errorEmail">An error was encountered sending this email. Please ensure that your email server configuration is working and/or contact your system administrator.</message>
 	<message key="grid.user.cannotAdminister">You do not have sufficient permissions to edit this user.</message>

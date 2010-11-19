@@ -58,14 +58,24 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 	 * @covers RoleBasedHandlerOperationPolicy
 	 */
 	public function testRoleAuthorization() {
-		// Create a test context.
-		$testContext = new DataObject();
-		$testContext->setId(5);
-
 		// Create a test user;
 		import('classes.user.User');
 		$testUser = new User();
 		$testUser->setId(3);
+
+		// Create a test context.
+		$application = PKPApplication::getApplication();
+		$contextDepth = $application->getContextDepth();
+		if ($contextDepth > 0) {
+			$testContext = new DataObject();
+			$testContextId = 5;
+			$testContext->setId($testContextId);
+			$userHasRoleContextArgs = array($testContextId, $testUser->getId());
+			$userHasRoleSiteArgs = array(0, $testUser->getId());
+		} else {
+			$testContext = null;
+			$userHasRoleSiteArgs = $userHasRoleContextArgs = array($testUser->getId());
+		}
 
 		// Create a non-authorized role.
 		$nonAuthorizedRole = ROLE_ID_SITE_ADMIN;
@@ -76,7 +86,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleContextArgs, array(ROLE_ID_TEST)),
 					'userHasRoleReturnValue' => true
 				)
 			)
@@ -91,7 +101,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 			array(
 				array(
 					// The context is 0 this time because we're looking at the site admin role.
-					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), $nonAuthorizedRole),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleSiteArgs, array($nonAuthorizedRole)),
 					'userHasRoleReturnValue' => false
 				)
 			)
@@ -106,7 +116,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$request = $this->getMockRequest('privateOperation', null, $testUser);
 		$userHasRoleInvocation= array(
 			// The context is 0 this time because we're testing without a context.
-			'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_TEST),
+			'userHasRoleExpectedArgs' => array_merge($userHasRoleSiteArgs, array(ROLE_ID_TEST)),
 			'userHasRoleReturnValue' => true
 		);
 		$this->mockRoleDao(array($userHasRoleInvocation));
@@ -130,11 +140,11 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleContextArgs, array(ROLE_ID_TEST)),
 					'userHasRoleReturnValue' => true
 				),
 				array(
-					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleSiteArgs, array(ROLE_ID_SITE_ADMIN)),
 					'userHasRoleReturnValue' => true
 				)
 			)
@@ -149,11 +159,11 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 		$this->mockRoleDao(
 			array(
 				array(
-					'userHasRoleExpectedArgs' => array($testContext->getId(), $testUser->getId(), ROLE_ID_TEST),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleContextArgs, array(ROLE_ID_TEST)),
 					'userHasRoleReturnValue' => true
 				),
 				array(
-					'userHasRoleExpectedArgs' => array(0, $testUser->getId(), ROLE_ID_SITE_ADMIN),
+					'userHasRoleExpectedArgs' => array_merge($userHasRoleSiteArgs, array(ROLE_ID_SITE_ADMIN)),
 					'userHasRoleReturnValue' => false
 				)
 			)

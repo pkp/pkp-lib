@@ -318,7 +318,6 @@
 	<message key="common.false">Falso</message>
 	<message key="common.ok">OK</message>
 	<message key="common.true">Verdadero</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Usted no se encuentra este grupo de usuarios.</message>
 	<message key="common.disable">Desactivar</message>
 	<message key="common.enable">Activar</message>
 	<message key="common.fullscreen">Pantalla completa</message>

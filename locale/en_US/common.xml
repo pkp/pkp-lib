@@ -31,7 +31,6 @@
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">You are not in this user group.</message>
 	<message key="common.action">Action</message>
 	<message key="common.activate">Activate</message>
 	<message key="common.active">Active</message>

@@ -314,7 +314,6 @@
 		Diese Arbeit steht unter einer <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
 	</div>]]></message>
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Sie sind nicht in dieser Benutzer/innengruppe.</message>
 	<message key="common.disable">Ausschalten</message>
 	<message key="common.enable">Einschalten</message>
 	<message key="common.fullscreen">Vollbild</message>

@@ -322,7 +322,6 @@
 	<message key="common.uploadFailed">このファイルはアップロードできませんでした。再度試して，問題が解消されない場合は管理者に連絡してください。</message>
 	<message key="common.loading">読込中 ...</message>
 	<message key="navigation.dashboard">ダッシュボード</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">あなたはこのユーザグループに存在しません。</message>
 	<message key="common.disable">無効化</message>
 	<message key="common.enable">有効化</message>
 	<message key="common.false">誤</message>

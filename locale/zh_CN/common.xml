@@ -322,7 +322,6 @@
 	<message key="common.preview">预览</message>
 	<message key="common.activate">激活</message>
 	<message key="common.deactivate">停用</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">您不在这个用户组</message>
 	<message key="common.disable">禁止</message>
 	<message key="common.enable">激活</message>
 	<message key="common.fullscreen">全屏</message>

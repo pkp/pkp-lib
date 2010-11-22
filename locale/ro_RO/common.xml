@@ -323,7 +323,6 @@
 	<message key="common.preview">Previzualizează</message>
 	<message key="common.activate">Activează</message>
 	<message key="common.deactivate">Dezactivează</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Nu ești în acest grup de utilizatori</message>
 	<message key="common.disable">Dezactivează</message>
 	<message key="common.enable">Activează</message>
 	<message key="common.fullscreen">Tot ecranul</message>

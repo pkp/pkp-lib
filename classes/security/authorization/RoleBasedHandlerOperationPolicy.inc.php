@@ -61,27 +61,12 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 * @see AuthorizationPolicy::effect()
 	 */
 	function effect() {
-		// We implement two different role checking algorithms.
-		if ($this->hasAuthorizedContextObject(ASSOC_TYPE_USER_GROUP)) {
-			// 1) If there is an authorized user group in the authorization
-			//    context then we'll make sure that that user group's
-			//    role is one of the allowed roles.
-			//    This has two advantages:
-			//    - It is fast as it can be done without database access.
-			//    - It makes sure that the selected user group belongs to one of
-			//      the authorized roles and that we deny access if that's not
-			//      the case.
-			$userGroup =& $this->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP);
-			if (!$this->_checkUserGroupRoleAssignment($userGroup)) return AUTHORIZATION_DENY;
-		} else {
-			// 2) If there is no authorized user group in the authorization
-			//    context then we'll check whether the user has one of the
-			//    allowed roles assigned. If that's the case we'll permit access.
-			$request =& $this->getRequest();
-			$user =& $request->getUser();
-			if (!$user) return AUTHORIZATION_DENY;
-			if (!$this->_checkUserRoleAssignment($user)) return AUTHORIZATION_DENY;
-		}
+		// Check whether the user has one of the allowed roles
+		// assigned. If that's the case we'll permit access.
+		$request =& $this->getRequest();
+		$user =& $request->getUser();
+		if (!$user) return AUTHORIZATION_DENY;
+		if (!$this->_checkUserRoleAssignment($user)) return AUTHORIZATION_DENY;
 
 		// FIXME: Remove the "bypass operation check" code once we've removed the
 		// HandlerValidatorRole compatibility class and make the operation
@@ -99,20 +84,6 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	//
 	// Private helper methods
 	//
-	/**
-	 * Check whether the given user group belongs to
-	 * one of the allowed roles. If so then grant
-	 * access.
-	 * @param $userGroup UserGroup
-	 * @return boolean
-	 */
-	function _checkUserGroupRoleAssignment(&$userGroup) {
-		foreach($this->_roles as $roleId) {
-			if ($roleId == $userGroup->getRoleId()) return true;
-		}
-		return false;
-	}
-
 	/**
 	 * Check whether the given user has been assigned
 	 * to any of the allowed roles. If so then grant
@@ -139,6 +110,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		$foundMatchingRole = false;
 		foreach($this->_roles as $roleId) {
 			$foundMatchingRole = $this->_checkRoleInDatabase($roleId, $roleContext, $contextDepth);
+
 			if ($this->_allRoles) {
 				if (!$foundMatchingRole) {
 					// When the "all roles" flag is switched on then
@@ -191,7 +163,6 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 				}
 			} elseif ($roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
 				// This is a main context managerial role (i.e. conference-level).
-				// FIXME: Make this work with the "acting as user group".
 				$userHasRoleArguments[1] = 0;
 			}
 		}

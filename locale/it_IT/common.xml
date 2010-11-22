@@ -316,7 +316,6 @@
 	<message key="notification.unsubscribeDescription">Inserisci l'indirizzo email e la password per non ricevere più notifiche. Se hai dimenticato la password, lascia il campo vuoto e ne invieremo una nuova all'indirizzo postale che indichi.</message>
 	<message key="notification.unsubscribeError">La cancellazione non è avvenuta. Controlla di aver inserito il tuo indirizzo email correttamente</message>
 	<message key="notification.unsubscribeSuccess">Sei stato cancellato dalla lista.</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Non appartieni a questo gruppo</message>
 	<message key="common.disable">Disabilita</message>
 	<message key="common.enable">Abilita</message>
 	<message key="common.fullscreen">Schermo intero</message>

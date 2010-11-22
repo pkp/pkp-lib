@@ -324,7 +324,6 @@
 	<message key="notification.unsubscribeDescription">آدرس ایمیل و رمز عبور خود را در پائین وارد کنید تا اشتراک خود را برای اطلاع رسانی از طریق ایمیل لغو کرده باشید. اگر رمز عبور خود را بیاد نمی آورید، رمز عبور را خالی بگذارید تا بدین رسیله رمز جدیدی برایتان ارسال شود.</message>
 	<message key="notification.unsubscribeError">بروز خطا هنگام لغو اشتراک شما. لطفا مطمئن شوید که آدرس ایمیل و رمز عبور را صحیح وارد کرده اید.</message>
 	<message key="notification.unsubscribeSuccess">لغو اشتراک با موفقیت انجام شد.</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">شما در این گروه کاربری نیستید</message>
 	<message key="common.disable">غیرفعال کردن</message>
 	<message key="common.enable">فعال کردن</message>
 	<message key="common.fullscreen">تمام صفحه</message>

@@ -313,7 +313,6 @@
 	<message key="notification.unsubscribeDescription">Geef uw e-mail adres en wachtwoord hieronder om u af te melden voor e-mail attenderingen. Als u uw wachtword niet meer weet, laat dan het wachtwoordveld leeg. Er wordt dan een nieuw wachtwoord verstuurd naar het opgegeven e-mail adres.</message>
 	<message key="notification.unsubscribeError">Er is iets misgegaan bij het afmelden. Vergewis u ervan dat uw e-mail adres en wachtwoord correct zijn</message>
 	<message key="notification.unsubscribeSuccess">U bent met succes afgemeld</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">U behoort niet tot deze gebruikersgroep.</message>
 	<message key="common.disable">Uitschakelen</message>
 	<message key="common.enable">Inschakelen</message>
 	<message key="common.fullscreen">Schermvullend</message>

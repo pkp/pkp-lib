@@ -224,22 +224,22 @@ class FileManager {
 	 * Download a file.
 	 * Outputs HTTP headers and file content for download
 	 * @param $filePath string the location of the file to be sent
-	 * @param $type string the MIME type of the file, optional
+	 * @param $mediaType string the MIME type of the file, optional
 	 * @param $inline print file as inline instead of attachment, optional
 	 * @return boolean
 	 */
-	function downloadFile($filePath, $type = null, $inline = false) {
+	function downloadFile($filePath, $mediaType = null, $inline = false) {
 		$result = null;
-		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$type, &$inline, &$result))) return $result;
+		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result))) return $result;
 		if (is_readable($filePath)) {
-			if ($type == null) {
-				$type = String::mime_content_type($filePath);
-				if (empty($type)) $type = 'application/octet-stream';
+			if ($mediaType == null) {
+				$mediaType = String::mime_content_type($filePath);
+				if (empty($mediaType)) $mediaType = 'application/octet-stream';
 			}
 
 			Registry::clear(); // Free some memory
 
-			header("Content-Type: $type");
+			header("Content-Type: $mediaType");
 			header("Content-Length: ".filesize($filePath));
 			header("Content-Disposition: " . ($inline ? 'inline' : 'attachment') . "; filename=\"" .basename($filePath)."\"");
 			header("Cache-Control: private"); // Workarounds for IE weirdness

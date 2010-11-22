@@ -99,7 +99,7 @@ class PluginRegistry {
 			$products =& $application->getEnabledProducts('plugins.'.$category);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
-				$plugin =& self::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
+				$plugin =& PluginRegistry::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());
 				if ($plugin && is_object($plugin)) {
 					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
 					unset($plugin);
@@ -112,7 +112,7 @@ class PluginRegistry {
 			$handle = opendir($categoryDir);
 			while (($file = readdir($handle)) !== false) {
 				if ($file == '.' || $file == '..') continue;
-				$plugin =& self::_instantiatePlugin($category, $categoryDir, $file);
+				$plugin =& PluginRegistry::_instantiatePlugin($category, $categoryDir, $file);
 				if ($plugin && is_object($plugin)) {
 					$plugins[$plugin->getSeq()]["$categoryDir/$file"] =& $plugin;
 					unset($plugin);

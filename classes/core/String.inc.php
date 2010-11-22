@@ -816,18 +816,15 @@ class String {
 	 * @return string
 	 */
 	function titleCase($title) {
-		$smallWords = array(
-			'of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then',
-			'else', 'when', 'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out',
-			'over', 'to', 'into', 'with'
-		);
+		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_COMMON));
+		$smallWords = explode(' ', Locale::translate('common.titleSmallWords'));
 
 		$words = explode(' ', $title);
 		foreach ($words as $key => $word) {
-			if ($key == 0 or !in_array(self::strtolower($word), $smallWords)) {
-				$words[$key] = ucfirst(self::strtolower($word));
+			if ($key == 0 or !in_array(String::strtolower($word), $smallWords)) {
+				$words[$key] = ucfirst(String::strtolower($word));
 			} else {
-				$words[$key] = self::strtolower($word);
+				$words[$key] = String::strtolower($word);
 			}
 		}
 

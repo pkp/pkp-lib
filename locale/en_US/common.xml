@@ -38,6 +38,7 @@
 	<message key="common.addSelf">Add Self</message>
 	<message key="common.all">All</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
+	<message key="common.titleSmallWords">of a the and an or nor but is if then else when at from by on off for in out over to into with</message>
 	<message key="common.alreadyAssigned">Assigned</message>
 	<message key="common.altText">Alternate text</message>
 	<message key="common.altTextInstructions">Please provide alternate text for this image to ensure accessibility for users with text-only browsers or assistive devices.</message>

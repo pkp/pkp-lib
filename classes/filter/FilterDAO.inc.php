@@ -267,6 +267,7 @@ class FilterDAO extends DAO {
 					$filterDataType =& $filterCandidate->getOutputType();
 				}
 				if ($filterDataType->checkType($data)) $objectFilterCache[$objectFilterCacheKey][$filterCandidateId] =& $filterCandidate;
+				unset($filterCandidate);
 			}
 		}
 

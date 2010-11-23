@@ -15,6 +15,8 @@
 define('LOCALE_REGISTRY_FILE', 'lib/pkp/tests/registry/locales.xml');
 define('LOCALE_ENCODING', 'utf-8');
 
+define('LOCALE_COMPONENT_APPLICATION_COMMON',	0x00000101);
+
 import('lib.pkp.classes.i18n.PKPLocale');
 
 class Locale extends PKPLocale {

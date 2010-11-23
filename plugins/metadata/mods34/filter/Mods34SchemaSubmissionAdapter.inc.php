@@ -12,7 +12,7 @@
  * @see PKPMods34Schema
  *
  * @brief Abstract base class for meta-data adapters that
- *  inject/extract MODS schema compliant meta-data into/from
+ *  injects/extracts MODS schema compliant meta-data into/from
  *  a Submission object.
  */
 

@@ -56,7 +56,7 @@ class PKPMods34Schema extends MetadataSchema {
 		parent::MetadataSchema(
 			'mods-3.4',
 			'mods34',
-			'lib.pkp.plugins.metadata.mods34.schema.Mods34Schema',
+			'plugins.metadata.mods34.schema.Mods34Schema',
 			$assocTypes
 		);
 

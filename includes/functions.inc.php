@@ -316,4 +316,21 @@ function arrayClean(&$array) {
 	if (!is_array($array)) return null;
 	return array_filter($array, create_function('$o', 'return !empty($o);'));
 }
+
+
+/**
+ * Recursively strip HTML from a (multidimensional) array.
+ * @param $values array
+ * @return array the cleansed array
+ */
+function stripAssocArray($values) {
+	foreach ($values as $key => $value) {
+		if (is_scalar($value)) {
+			$values[$key] = strip_tags($values[$key]);
+		} else {
+			$values[$key] = stripAssocArray($values[$key]);
+		}
+	}
+	return $values;
+}
 ?>

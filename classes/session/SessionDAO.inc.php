@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Session objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.session.Session');
 
@@ -60,7 +58,7 @@ class SessionDAO extends DAO {
 			'INSERT INTO sessions
 				(session_id, ip_address, user_agent, created, last_used, remember, data)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?)',
 			array(
 				$session->getId(),
 				$session->getIpAddress(),

@@ -17,8 +17,6 @@
  * @brief Maintains user state information from one request to the next.
  */
 
-// $Id$
-
 
 class Session extends DataObject {
 
@@ -199,24 +197,6 @@ class Session extends DataObject {
 	 */
 	function &getUser() {
 		return $this->user;
-	}
-
-	/**
-	 * Set user group the current user is currently
-	 * acting as.
-	 * @param $userGroupId integer
-	 */
-	function setActingAsUserGroupId($userGroupId) {
-		$this->setData('actingAsUserGroupId', (int)$userGroupId);
-	}
-
-	/**
-	 * Get user group the current user is currently
-	 * acting as.
-	 * @return integer
-	 */
-	function getActingAsUserGroupId() {
-		return $this->getData('actingAsUserGroupId');
 	}
 }
 

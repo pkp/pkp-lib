@@ -157,7 +157,10 @@ class GridHandler extends PKPHandler {
 	 * @return boolean
 	 */
 	function hasData() {
-		return !empty($this->_data);
+		$data =& $this->getData();
+		assert (is_a($data, 'ItemIterator'));
+		$hasData = $data->getCount() ? true : false;
+		return $hasData;
 	}
 
 	/**

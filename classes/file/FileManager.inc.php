@@ -362,7 +362,7 @@ class FileManager {
 	 * @return string (Enuemrated DOCUMENT_TYPEs)
 	 */
 	function getDocumentType($type) {
-		if ( $this->getImageExtension($type) )
+		if ( FileManager::getImageExtension($type) )
 			return DOCUMENT_TYPE_IMAGE;
 		switch ($type) {
 			case 'application/pdf':

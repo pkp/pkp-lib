@@ -1002,47 +1002,13 @@ ul.tagit li:after, ul.tagit li div:after {
 
 /* @end */
 
-/* @group Review round status indicator */
-
-.possibleRevision {
-	padding: 10px;
-	margin: 10px;
-	border: 2px solid black;
-	background-color: #FFFFDD;
-}
-
-#existingFiles {
-	margin-left: 140px; 
-	margin-bottom: 10px;
-}
-
-.possibleRevision h5 {
-	padding-top: 0px;
-}
-
-#revisionWarningIcon {
-	height: 30px;
-	width: 30px;
-	float: left;
-}
-
-#revisionWarningText {
-	margin-left: 35px;
-}
-
-#revisionWarningText a{
-	margin-left: 35px;
-}
+/* @group Review round */
 
 .editorPersonalMessage {
 	width: 96%;
 	height: 200px;
 	margin: 5px 0px 0px 10px;
 }
-/* @end */
-
-
-/* @group Review round status indicator */
 
 .statusContainer {
 	height: 40px;

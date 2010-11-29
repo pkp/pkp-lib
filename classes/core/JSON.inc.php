@@ -34,6 +34,8 @@ class JSON {
 	* Constructor.
 	* @param $status string The status of an event (e.g. false if form validation fails)
 	* @param $content string The message to be delivered back to the calling script
+	* @param $elementId string The DOM element to be replaced
+	* @param $additionalAttributes array additional data to be returned.
 	*/
 	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes = null) {
 		$this->status = $status;

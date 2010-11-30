@@ -226,6 +226,8 @@
 	<message key="email.subjectRequired">Please provide an email subject.</message>
 	<message key="email.bodyRequired">Please provide the email body text.</message>
 	<message key="email.to">To</message>
+	<message key="form.confirmSubmit">Are you sure you want to submit this form?</message>
+	<message key="form.confirmSubmit.title">Confirm</message>
 	<message key="form.errorsOccurred">Errors occurred processing this form</message>
 	<message key="form.formLanguage.description">To enter the information below in additional languages, first select the language.</message>
 	<message key="form.formLanguage">Form Language</message>

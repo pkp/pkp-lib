@@ -143,6 +143,7 @@ class PKPTemplateManager extends Smarty {
 		// JS UI components
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
+		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
 		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
@@ -1248,6 +1249,45 @@ class PKPTemplateManager extends Smarty {
 			buttonPost('$url', '$button');
 			</script>";
 		}
+
+		return $confirmCode;
+	}
+
+	/**
+	 * Smarty usage: {confirm_submit button='buttonId' dialogText="example.locale.key" dialogTitle="example.locale.key"}
+	 * Custom Smarty function for confirming submission of a form
+	 * @params $params array associative array
+	 * @params $smarty Smarty
+	 * @return string Call to modalConfirmSubmit function with specified parameters
+	 */
+	function smartyConfirmSubmit($params, &$smarty) {
+		// Required params
+		if (!isset($params['button'])) {
+			$smarty->trigger_error("Button parameter is missing from confirm");
+		} else {
+			$button = $params['button'];
+		}
+
+		// Optional params
+		if (!isset($params['dialogText'])) {
+			$dialogText = Locale::translate('form.confirmSubmit');
+		} else {
+			$dialogText = Locale::translate($params['dialogText']);
+		}
+		if (!isset($params['dialogTitle'])) {
+			$dialogTitle = Locale::translate('form.confirmSubmit.title');
+		} else {
+			$dialogTitle = Locale::translate($params['dialogTitle']);
+		}
+
+		// Translate modal submit/cancel buttons
+		$submitButton = Locale::translate('common.ok');
+		$cancelButton = Locale::translate('common.cancel');
+
+		$confirmCode = "<script type='text/javascript'>
+		var localizedButtons = ['$submitButton', '$cancelButton'];
+		modalConfirmSubmit('$button', '$dialogText', '$dialogTitle', localizedButtons);
+		</script>\n";
 
 		return $confirmCode;
 	}

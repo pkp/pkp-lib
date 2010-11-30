@@ -275,6 +275,47 @@ function modalAlert(dialogText, localizedButtons) {
 }
 
 /**
+ * Confirm submission of a form
+ * @param dialogText String Translated text to display in the dialog
+ * @param dialogTitle String Translated text to display in the title bar
+ * @param localizedButtons Array of translated 'Cancel/OK' strings
+ */
+function modalConfirmSubmit(submitButtonId, dialogText, dialogTitle, localizedButtons) {
+	// Construct actions to perform when buttons are clicked
+	var dialogOptions = {};
+	var confirmButton = localizedButtons[0];
+	dialogOptions[confirmButton] = function() {
+		$(this).dialog('close');
+		dialogIsSubmitting = true;
+		$('#'+submitButtonId).click();
+	};
+	var cancelButton = localizedButtons[1];
+	dialogOptions[cancelButton] = function() {
+		$(this).dialog("close");
+	};
+
+	// Construct dialog
+	$('<div id=\"modalConfirmSubmit\">'+dialogText+'</div>').dialog({
+		title: dialogTitle,
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		buttons: dialogOptions
+	});
+	
+	var dialogIsSubmitting = false; // To prevent infinite loop when dialog calls click
+	$('#'+submitButtonId).live('click',function(){
+		var $form = $(this).parents('form:first');
+		if(dialogIsSubmitting) return true;
+		$form.validate();
+		if($form.valid()) {
+			$('#modalConfirmSubmit').dialog('open');
+		}
+		return false;
+	});
+}
+
+/**
  * FIXME: document
  */
 function changeModalFormLocale() {

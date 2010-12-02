@@ -334,7 +334,7 @@
 	<message key="submission.notes">Submission Notes</message>
 	<message key="submission.notes.updateNote">Update Note</message>
 	<message key="submission.notes.viewNotes">View Notes</message>
-	<message key="submission.originalFile">Original file</message>
+	<message key="submission.originalFile">File to replace</message>
 	<message key="submission.page.editing">#{$id} Editing</message>
 	<message key="submission.page.history">#{$id} History</message>
 	<message key="submission.page.review">#{$id} Review</message>
@@ -379,7 +379,6 @@
 	<message key="submission.viewMetadata">View Metadata</message>
 	<message key="submission.views">Views</message>
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>
-	<message key="submission.uploadSuccessfulContinue">You have successfully uploaded {$fileName}.  Press continue to edit the file's metadata.</message>
 	<message key="submission.loadMessage">Please wait while your file is uploaded to the server.</message>
 	<message key="submission.artworkFileDetails">Artwork File Details</message>
 	<message key="submission.fileDetails">File Details</message>

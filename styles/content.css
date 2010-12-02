@@ -991,6 +991,35 @@ ul.tagit li:after, ul.tagit li div:after {
 
 /* @end */
 
+/* @group File upload revision handling */
+
+.possibleRevision {
+	padding: 10px;
+	margin: 10px;
+	border: 2px solid black;
+	background-color: #FFFFDD;
+}
+
+.possibleRevision #revisedFileId, .possibleRevision p, .possibleRevision h5 {
+	margin-bottom: 10px;
+}
+
+.possibleRevision h5 {
+	padding-top: 0px;
+}
+
+#revisionWarningIcon {
+	height: 30px;
+	width: 30px;
+	float: left;
+}
+
+#revisionWarningText {
+	margin-left: 35px;
+}
+
+/* @end */
+
 /* @group Review round status indicator */
 
 .statusContainer {

@@ -101,8 +101,6 @@
 		</field>
 		<field name="ip_address" type="C2" size="39"/>
 		<field name="event_type" type="I8"/>
-		<field name="assoc_type" type="I8"/>
-		<field name="assoc_id" type="I8"/>
 		<field name="from_address" type="C2" size="255"/>
 		<field name="recipients" type="X"/>
 		<field name="cc_recipients" type="X"/>

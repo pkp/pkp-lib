@@ -32,10 +32,17 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @param $submissionId int
 	 * @param $reviewerId int
 	 * @param $round int
-	 * @param $reviewType int
+	 * @param $reviewType int optional
 	 * @return ReviewAssignment
 	 */
-	function &getReviewAssignment($submissionId, $reviewerId, $round, $reviewType = 1) {
+	function &getReviewAssignment($submissionId, $reviewerId, $round, $reviewType = null) {
+		$params = array(
+			(int) $submissionId,
+			(int) $reviewerId,
+			(int) $reviewType,
+			(int) $round
+		);
+		if ($reviewType !== null) $params[] = (int) $reviewType;
 
 		$result =& $this->retrieve(
 			'SELECT r.*, r2.review_revision, u.first_name, u.last_name
@@ -45,9 +52,9 @@ class PKPReviewAssignmentDAO extends DAO {
 			WHERE   r.submission_id = ? AND
 				r.reviewer_id = ? AND
 				r.cancelled <> 1 AND
-				r.review_type = ? AND
-				r.round = ?',
-			array((int) $submissionId, (int) $reviewerId, (int) $reviewType, (int) $round)
+				r.round = ?' .
+				($reviewType !== null? ' AND r.review_type = ?' : ''),
+			$params
 		);
 
 		$returner = null;

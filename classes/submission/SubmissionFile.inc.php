@@ -14,7 +14,6 @@
 
 
 class SubmissionFile extends DataObject {
-
 	/**
 	 * Constructor.
 	 */
@@ -26,7 +25,6 @@ class SubmissionFile extends DataObject {
 	//
 	// Get/set methods
 	//
-
 	/**
 	 * Get ID of file.
 	 * @return int
@@ -311,6 +309,29 @@ class SubmissionFile extends DataObject {
 
 	function setViewable($viewable) {
 		return $this->SetData('viewable', $viewable);
+	}
+
+
+	//
+	// Abstract template methods to be implemented by subclasses.
+	//
+	/**
+	 * Return absolute path to the file on the host filesystem.
+	 * @return string
+	 */
+	function getFilePath() {
+		assert(false);
+	}
+
+	/**
+	 * Check if the file may be displayed inline.
+	 * FIXME: Move to DAO to remove coupling of the domain
+	 *  object to its DAO.
+	 * @return boolean
+	 */
+	function isInlineable() {
+		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
+		return $submissionFileDao->isInlineable($this);
 	}
 }
 

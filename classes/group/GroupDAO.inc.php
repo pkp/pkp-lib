@@ -145,7 +145,7 @@ class GroupDAO extends DAO {
 					publish_email = ?
 				WHERE	group_id = ?',
 			array(
-				(int) $group->getSequence(),
+				(float) $group->getSequence(),
 				(int) $group->getAssocType(),
 				(int) $group->getAssocId(),
 				(int) $group->getAboutDisplayed(),

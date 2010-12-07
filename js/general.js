@@ -152,3 +152,15 @@ function urlEncode(s) {
 function escapeHTML(s) {
 	return $('<div/>').text(s).html();
 }
+
+/**
+ * HTML decode a string
+ * @param s string
+ */
+function unescapeHTML(s) {
+	return $('<div/>').html(s).text();
+	/*var e = document.createElement('div');
+	e.innerHTML = s;
+	return e.childNodes[0].nodeValue;*/
+
+}

@@ -102,7 +102,8 @@
 			return is_new;
 		}
 		function create_choice (value){
-			value = unescape(value);
+			value = unescapeHTML(value.toString());  // Unescape HTML encodings (e.g. &lt;)
+			value = unescape(value);	// Unescape JS encodings (e.g. %3E;)
 			var el = "";
 			el  = "<li class=\"tagit-choice\">\n";
 			el += escapeHTML(value.toString()) + "\n";

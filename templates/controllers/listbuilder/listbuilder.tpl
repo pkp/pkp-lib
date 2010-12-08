@@ -94,6 +94,7 @@
 		</div>
 	</div>
 	<script type='text/javascript'>
+	<!--
 	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
 		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");{/literal}
 	{/if}
@@ -102,6 +103,7 @@
 		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");
 		selectRow("{/literal}{$listbuilderId}{if $itemId}-{$itemId}{/if}{literal}");
 	{/literal}
+	// -->
 	</script>
 </div>
 

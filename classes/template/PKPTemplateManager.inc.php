@@ -1190,8 +1190,10 @@ class PKPTemplateManager extends Smarty {
 		// Add the modal javascript to the header
 		$dialogTitle = isset($dialogTitle) ? ", '$dialogTitle'" : "";
 		$modalCode = "<script type='text/javascript'>
+			<!--
 			var localizedButtons = ['$submitButton', '$cancelButton'];
 			modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button'$dialogTitle);
+			// -->
 		</script>\n";
 
 		return $modalCode;
@@ -1241,12 +1243,16 @@ class PKPTemplateManager extends Smarty {
 
 		if ($showDialog) {
 			$confirmCode = "<script type='text/javascript'>
+			<!--
 			var localizedButtons = ['$submitButton', '$cancelButton'];
 			modalConfirm('$url', '$actOnType', '$actOnId', '$dialogText', localizedButtons, '$button');
+			// -->
 			</script>\n";
 		} else {
 			$confirmCode = "<script type='text/javascript'>
+			<!--
 			buttonPost('$url', '$button');
+			// -->
 			</script>";
 		}
 
@@ -1285,8 +1291,10 @@ class PKPTemplateManager extends Smarty {
 		$cancelButton = Locale::translate('common.cancel');
 
 		$confirmCode = "<script type='text/javascript'>
+		<!--
 		var localizedButtons = ['$submitButton', '$cancelButton'];
 		modalConfirmSubmit('$button', '$dialogText', '$dialogTitle', localizedButtons);
+		// -->
 		</script>\n";
 
 		return $confirmCode;

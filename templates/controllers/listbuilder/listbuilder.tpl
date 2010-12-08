@@ -15,7 +15,7 @@
 		{if !empty($additionalData)}
 		<div id="additionalData-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
  			<ul>
-		        <li>
+				<li>
 					{foreach from=$additionalData key=dataKey item=dataValue}
 						{if is_array($dataValue)}
 							{foreach name="dataArray" from=$dataValue item=arrayValue}
@@ -36,17 +36,17 @@
 		{/if}
 		<div class="unit size2of5" id="source-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
  			<ul>
-		        <li>
-		            <label class="desc">
-		            	{translate key=$listbuilder->getTitle()}
+				<li>
+					<label class="desc">
+						{translate key=$listbuilder->getTitle()}
 					</label>
 				  	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 						<span>
 							<input type="text" class="field text" id="sourceTitle-{$listbuilderId}" name="sourceTitle-{$listbuilderId}" value="" />
 							<label for="sourceTitle-{$listbuilderId}">
-		                    	{translate key=$listbuilder->getSourceTitle()}
+								{translate key=$listbuilder->getSourceTitle()}
 								<span class="req">*</span>
-		                	</label>
+							</label>
 						</span>
 						{foreach name="attributes" from=$listbuilder->getAttributeNames() item=attributeName}
 							{assign var="iteration" value=$smarty.foreach.attributes.iteration}
@@ -65,9 +65,9 @@
 							{foreach from=$listbuilder->getPossibleItemList() item=item}{$item}{/foreach}
 						</select>
 							<label for="selectList-{$listbuilderId}">
-		                    	{translate key=$listbuilder->getSourceTitle()}
+								{translate key=$listbuilder->getSourceTitle()}
 								<span class="req">*</span>
-		                	</label>
+							</label>
 						</span>
 					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
 						<input type="text" class="textField" id="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" name="sourceTitle-{$listbuilderId}{if $itemId}-{$itemId}{/if}" value="" /> <br />
@@ -83,11 +83,11 @@
 				<span class="hidetext">{translate key="common.delete"}</span></a>
 		</div>
 		<div id="results-{$listbuilderId}{if $itemId}-{$itemId}{/if}" class="unit size1of2 lastUnit listbuilder_results">
-		    <ul>
-		        <li>
-		            <label class="desc">
-		                {$listbuilder->getListTitle()|translate}
-		            </label>
+			<ul>
+				<li>
+					<label class="desc">
+						{$listbuilder->getListTitle()|translate}
+					</label>
 					{include file="controllers/listbuilder/listbuilderGrid.tpl"}
 				</li>
 			</ul>

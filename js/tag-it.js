@@ -35,7 +35,7 @@
 		// MC 'For each' is not browser-safe. Use jQuery's .each method
 		var currentTags = options.currentTags;
 		$.each(currentTags, function() {
-			create_choice(this);
+			create_choice(this, true);
 		});
 
 		$(this).click(function(e){
@@ -77,8 +77,13 @@
 			}
 		});
 
+		// MC Need to unescape the data going into the autocomplete widget
+		var autoCompleteSource = new Array();
+		$.each(options.availableTags, function() {
+			autoCompleteSource.push(unescapeHTML(this.toString()));
+		});
 		tag_input.autocomplete({
-			source: options.availableTags,
+			source: autoCompleteSource,
 			select: function(event,ui){
 				if (is_new (ui.item.value)) {
 					create_choice (ui.item.value);
@@ -101,8 +106,8 @@
 			})
 			return is_new;
 		}
-		function create_choice (value){
-			value = unescapeHTML(value.toString());  // Unescape HTML encodings (e.g. &lt;)
+		function create_choice (value, loadingList){
+			if(loadingList == true) value = unescapeHTML(value.toString());  // Unescape HTML encodings (e.g. &lt;)
 			value = unescape(value);	// Unescape JS encodings (e.g. %3E;)
 			var el = "";
 			el  = "<li class=\"tagit-choice\">\n";

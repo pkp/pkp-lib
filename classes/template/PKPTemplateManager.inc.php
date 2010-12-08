@@ -1341,8 +1341,8 @@ class PKPTemplateManager extends Smarty {
 					}
 				});
 			});
-			</script>
-			// -->";
+			// -->
+			</script>";
 	}
 
 	function smartyModalTitle($params, &$smarty) {

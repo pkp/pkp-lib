@@ -248,7 +248,7 @@ class PKPTemplateManager extends Smarty {
 		// Add additional java script URLs
 		if (!empty($this->javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');
-			$scriptOpen = '	<script language="javascript" type="text/javascript" src="';
+			$scriptOpen = '	<script type="text/javascript" src="';
 			$scriptClose = '"></script>';
 			$javaScript = '';
 			foreach ($this->javaScripts as $script) {

@@ -576,27 +576,14 @@ class PKPSubmissionFileDAO extends DAO {
 			// Delete the the matched files on the file system.
 			FileManager::deleteFile($deletedFile->getFilePath());
 
-			// Concatenate the IDs together for use in the SQL delete
-			// statement.
-			// NB: We cannot use an IN clause here because MySQL 3.23
+			// Delete file in the database.
+			// NB: We cannot safely bulk-delete because MySQL 3.23
 			// does not support multi-column IN-clauses. Same is true
 			// for multi-table access or subselects in the DELETE
-			// statement.
-			$filterClause .= $conjunction.' (file_id=? AND revision=?)';
-			$conjunction = ' OR';
-			$params[] = $deletedFile->getFileId();
-			$params[] = $deletedFile->getRevision();
-		}
-
-		// Delete the matched files in the database. We do so by calling
-		// all delegates in turn with the given SQL parameters. The DAO
-		// delegates will then bulk-delete the files in the corresponding
-		// class table. We have to call all delegates because we cannot
-		// be sure what mixture of file types we have to delete.
-		foreach($this->getDelegateClassNames() as $fileImplementation => $delegateClassName) {
-			$daoDelegate =& $this->_getDaoDelegate($fileImplementation);
-			$daoDelegate->deleteObjects($filterClause, $params);
-			unset($daoDelegate);
+			// statement. And having a long (... AND ...) OR (...)
+			// clause could hit length limitations.
+			$daoDelegate =& $this->_getDaoDelegateForObject($deletedFile);
+			$daoDelegate->deleteObject($deletedFile);
 		}
 
 		// Return the number of deleted files.

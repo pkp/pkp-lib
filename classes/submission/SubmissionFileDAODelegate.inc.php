@@ -62,14 +62,11 @@ class SubmissionFileDAODelegate {
 	}
 
 	/**
-	 * Delete submission files from the database.
-	 * @param $filterClause string a SQL clause that works on
-	 *  the primary key columns to bulk-select all files
-	 *  to be deleted.
-	 * @param $params array the corresponding query parameters
+	 * Delete a submission file from the database.
+	 * @param $submissionFile SubmissionFile
 	 * @return boolean
 	 */
-	function deleteObjects($filterClause, $params) {
+	function deleteObject(&$submissionFile) {
 		assert(false);
 	}
 

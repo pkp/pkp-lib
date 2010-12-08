@@ -9,6 +9,7 @@
 
 {literal}
 <script type="text/javascript">
+	<!--
 	$(document).ready(function(){
 		$("#{/literal}{$FBV_id}{literal}").tagit({
 			{/literal}{if $existingInterests}{literal} availableTags: [{/literal}{foreach name=existingInterests from=$FBV_availableKeywords item=interest}"{$interest|escape|escape:"javascript"}"{if !$smarty.foreach.existingInterests.last}, {/if}{/foreach}{literal}],{/literal}{/if}
@@ -16,6 +17,7 @@
 		            {else}{literal}currentTags: []{/literal}{/if}{literal}
 		});
 	});
+	// -->
 </script>
 {/literal}
 

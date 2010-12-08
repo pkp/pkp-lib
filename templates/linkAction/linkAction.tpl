@@ -27,6 +27,7 @@
 
 {elseif $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
 	<script type="text/javascript">
+		<!--
 		$(function() {ldelim}
 			ajaxAction(
 				'{$action->getType()}',
@@ -35,6 +36,7 @@
 				'{$action->getUrl()}'
 			);
 		{rdelim});
+		// -->
 	</script>
 {/if}
 

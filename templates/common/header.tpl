@@ -32,6 +32,7 @@
 	<!-- Base Jquery -->
 	{if $allowCDN}<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 	<script type="text/javascript">{literal}
+		<!--
 		// Provide a local fallback if the CDN cannot be reached
 		if (typeof google == 'undefined') {
 			document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
@@ -40,6 +41,7 @@
 			google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
 			google.load("jqueryui", "{/literal}{$smarty.const.CDN_JQUERY_UI_VERSION}{literal}");
 		}
+		// -->
 	{/literal}</script>
 	{else}
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
@@ -63,16 +65,19 @@
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/fontController.js" ></script>
 	<script type="text/javascript">{literal}
+		<!--
 		$(function(){
 			fontSize("#sizer", "body", 9, 16, 32, "{/literal}{$basePath|escape:"javascript"}{literal}"); // Initialize the font sizer
 		});
+		// -->
 	{/literal}</script>
 
 	<script type="text/javascript">
-        // initialise plugins
+		<!--
+		// initialise plugins
 		{literal}
-        $(function(){
-        	{/literal}{if $validateId}{literal}
+		$(function(){
+			{/literal}{if $validateId}{literal}
 			jqueryValidatorI18n("{/literal}{$baseUrl}{literal}", "{/literal}{$currentLocale}{literal}"); // include the appropriate validation localization
 			$("form[name={/literal}{$validateId}{literal}]").validate({
 				errorClass: "error",
@@ -88,6 +93,7 @@
 				$(this).find('input').focus();
 			});
 		});
+		// -->
 		{/literal}
 	</script>
 

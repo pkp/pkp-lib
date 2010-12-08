@@ -1325,20 +1325,24 @@ class PKPTemplateManager extends Smarty {
 			$id = $params['id'];
 		}
 
-		return "<script type='text/javascript'>$(function() {
-		$('$id').tabs({
-			ajaxOptions: {
-				dataFilter: function(jsonData){
-					var data = $.parseJSON(jsonData);
-					if(data.status === true) {
-						return data.content;
-					} else {
-						alert(data.content);
+		return "<script type='text/javascript'>
+			<!--
+			$(function() {
+				$('$id').tabs({
+					ajaxOptions: {
+						dataFilter: function(jsonData){
+							var data = $.parseJSON(jsonData);
+							if(data.status === true) {
+								return data.content;
+							} else {
+								alert(data.content);
+							}
+						}
 					}
-				}
-			}});
-		});
-		</script>";
+				});
+			});
+			</script>
+			// -->";
 	}
 
 	function smartyModalTitle($params, &$smarty) {
@@ -1371,16 +1375,21 @@ class PKPTemplateManager extends Smarty {
 
 		} else $canCloseHtml = "";
 
-		return "<script type='text/javascript'>$(function() {
-		$('$id').last().parent().prev('.ui-dialog-titlebar').remove();
-		$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); return false; });
-		return false;
-		});</script>
-		<div class='modalTitleBar'>" .
-			$iconHtml .
-			$keyHtml .
-			$canCloseHtml .
-		"<span style='clear:both' /></div>";
+		return "<script type='text/javascript'>
+			<!--
+			$(function() {
+				$('$id').last().parent().prev('.ui-dialog-titlebar').remove();
+				$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); return false; });
+				return false;
+			});
+			// -->
+			</script>
+			<div class='modalTitleBar'>" .
+				$iconHtml .
+				$keyHtml .
+				$canCloseHtml .
+				"<span style='clear:both' />
+			</div>";
 	}
 
 }

@@ -11,6 +11,7 @@
 {assign var=formUid value="form"|uniqid}
 <div id="{$containerId}" class="canvas">
 	<script type="text/javascript">
+		<!--
 		$(function() {ldelim}
 			////////////////////////////////////////////////////////////
 			// Form-level code.
@@ -605,6 +606,7 @@
 			// Throbber
 			actionThrobber('#{$containerId}');
 		{rdelim});
+		// -->
 	</script>
 	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 		<div class="wrapper scrollable with-pane-actions">

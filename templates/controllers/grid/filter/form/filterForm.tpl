@@ -11,11 +11,13 @@
 <div id="editFilterFormContainer{$uid}">
 	{if $noMoreTemplates}
 		{literal}<script type='text/javascript'>
+			<!--
 			$(function() {
 				// Hide the OK button.
 				$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
 						.hide()
 			});
+			// -->
 		</script>{/literal}
 		<p>{translate key='manager.setup.filter.noMoreTemplates'}</p>
 	{else}
@@ -31,6 +33,7 @@
 				{fbvSelect id="filterTemplateSelect"|concat:$uid name="filterTemplateId"
 						from=$filterTemplates translate=false defaultValue="-1" defaultLabel="manager.setup.filter.pleaseSelect"|translate}
 				{literal}<script type='text/javascript'>
+					<!--
 					$(function() {
 						// Hide the OK button as long as we
 						// don't have a filter selected.
@@ -46,14 +49,17 @@
 							'change'
 						);
 					});
+					// -->
 				</script>{/literal}
 			{else}
 				{literal}<script type='text/javascript'>
+					<!--
 					$(function() {
 						// Switch the OK button back on.
 						$('.ui-dialog:has(#editFilterFormContainer{/literal}{$uid}{literal}) :button:first')
 								.show()
 					});
+					// -->
 				</script>{/literal}
 
 				{assign var=hasRequiredField value=false}

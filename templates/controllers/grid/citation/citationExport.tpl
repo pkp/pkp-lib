@@ -14,6 +14,7 @@
 			</div>
 		{else}
 			<script type="text/javascript">
+				<!--
 				$(function() {ldelim}
 					// Activate the export filter selection drop-down boxes.
 					$('#exportCitationForm .select')
@@ -58,6 +59,7 @@
 						return false;
 					{rdelim});
 				{rdelim});
+				// -->
 			</script>
 			<form name="exportCitationForm" id="exportCitationForm" method="post" action="" >
 				<br />

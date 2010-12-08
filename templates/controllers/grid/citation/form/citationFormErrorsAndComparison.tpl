@@ -33,6 +33,7 @@
 	{/foreach}
 {/strip}{/capture}
 <script type="text/javascript">
+	<!--
 	$(function() {ldelim}
 		//
 		// Initial setup
@@ -172,6 +173,7 @@
 			$('#citationFormErrorsAndComparison').triggerHandler('refresh');
 		{rdelim});
 	{rdelim});
+	// -->
 </script>
 <div id="citationFormErrorsAndComparison" class="form-block">
 	{if $unsavedChanges || $isError}

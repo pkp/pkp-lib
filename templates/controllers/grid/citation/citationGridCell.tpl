@@ -12,6 +12,7 @@
 	{include file="linkAction/linkAction.tpl" id=$cellId|concat:"-action-":$cellAction->getId() action=$cellAction actOnId=$cellAction->getActOn() buttonId=$cellId}
 	[{$citationSeq}] {$label|escape}
 	<script type="text/javascript">
+		<!--
 		$(function() {ldelim}
 			$parentDiv = $('#{$cellId}').parent();
 
@@ -33,6 +34,7 @@
 				$parentDiv.click(clickEventHandlers[clickEvent].handler);
 			{rdelim}
 		{rdelim});
+		// -->
 	</script>
 </span>
 

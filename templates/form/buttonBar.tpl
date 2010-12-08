@@ -8,10 +8,12 @@
  *}
 
 <script type='text/javascript'>
+	<!--
 	{literal}$(function() {
 		$('{/literal}{$id}{literal}').parent().next('.ui-dialog-buttonpane').hide();
 		$('.button').button();
 	});{/literal}
+	// -->
 </script>
 
 {fbvFormArea id="buttons"}

@@ -10,6 +10,7 @@
 
 <div id="{$inDivDivId}"{if $inDivClass} class="{$inDivClass}"{/if}>{$inDivLoadMessage}</div>
 <script type='text/javascript'>
+	<!--
 	{literal}
 	$(function() {
 		$.getJSON("{/literal}{$inDivUrl|escape:"javascript"}{literal}", function(jsonData) {
@@ -22,5 +23,6 @@
 		});
 	});
 	{/literal}
+	// -->
 </script>
 

@@ -23,7 +23,7 @@ class SubmissionFile extends DataObject {
 
 
 	//
-	// Get/set methods
+	// Getters and Setters
 	//
 	/**
 	 * Get ID of file.
@@ -313,16 +313,8 @@ class SubmissionFile extends DataObject {
 
 
 	//
-	// Abstract template methods to be implemented by subclasses.
+	// Public methods
 	//
-	/**
-	 * Return absolute path to the file on the host filesystem.
-	 * @return string
-	 */
-	function getFilePath() {
-		assert(false);
-	}
-
 	/**
 	 * Check if the file may be displayed inline.
 	 * FIXME: Move to DAO to remove coupling of the domain
@@ -332,6 +324,18 @@ class SubmissionFile extends DataObject {
 	function isInlineable() {
 		$submissionFileDao =& DAORegistry::getDAO('SubmissionFileDAO'); /* @var $submissionFileDao SubmissionFileDAO */
 		return $submissionFileDao->isInlineable($this);
+	}
+
+
+	//
+	// Abstract template methods to be implemented by subclasses.
+	//
+	/**
+	 * Return absolute path to the file on the host filesystem.
+	 * @return string
+	 */
+	function getFilePath() {
+		assert(false);
 	}
 }
 

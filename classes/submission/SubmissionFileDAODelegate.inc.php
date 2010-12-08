@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/monograph/SubmissionFileDAODelegate.inc.php
+ * @file classes/submission/SubmissionFileDAODelegate.inc.php
  *
  * Copyright (c) 2003-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -10,7 +10,7 @@
  * @ingroup submission
  * @see SubmissionFile
  *
- * @brief Abstract class to support DAO delegates that provide perations
+ * @brief Abstract class to support DAO delegates that provide operations
  *  to retrieve and modify SubmissionFile objects.
  */
 
@@ -41,18 +41,6 @@ class SubmissionFileDAODelegate {
 
 
 	//
-	// Public methods
-	//
-	/**
-	 * Get the list of fields for which data is localized.
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return array();
-	}
-
-
-	//
 	// Abstract public methods to be implemented by subclasses.
 	//
 	/**
@@ -75,15 +63,13 @@ class SubmissionFileDAODelegate {
 
 	/**
 	 * Delete submission files from the database.
-	 * @param $filterSql string an SQL where clause that works on
-	 *  the submission file base class table to bulk-select all files
+	 * @param $filterClause string a SQL clause that works on
+	 *  the primary key columns to bulk-select all files
 	 *  to be deleted.
 	 * @param $params array the corresponding query parameters
-	 * @param $latestOnly boolean true if only the last revision
-	 *  of every matched file should be deleted.
 	 * @return boolean
 	 */
-	function deleteObject($filterSql, $params, $latestOnly) {
+	function deleteObjects($filterClause, $params) {
 		assert(false);
 	}
 
@@ -109,15 +95,22 @@ class SubmissionFileDAODelegate {
 	// Protected helper methods
 	//
 	/**
-	 * Update the localized fields for this supp file.
+	 * Get the list of fields for which data is localized.
+	 * @return array
+	 */
+	function getLocaleFieldNames() {
+		return array();
+	}
+
+	/**
+	 * Update the localized fields for this submission file.
 	 * @param $submissionFile SubmissionFile
 	 */
 	function updateLocaleFields(&$submissionFile) {
-		$submissionFileDao =& $this->getSubmissionFileDAO();
-
 		// Configure the submission file DAO with the
-		// locale field names adequate to the current
+		// locale field names corresponding to the current
 		// file implementation.
+		$submissionFileDao =& $this->getSubmissionFileDAO();
 		$submissionFileDao->setLocaleFieldNames($this->getLocaleFieldNames());
 
 		// Update the locale fields.

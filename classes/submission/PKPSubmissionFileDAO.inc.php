@@ -30,7 +30,7 @@
  */
 
 
-define('INLINEABLE_TYPES_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'inlineTypes.txt');
+define('INLINEABLE_TYPES_FILE', 'inlineTypes.txt');
 
 class PKPSubmissionFileDAO extends DAO {
 	/**
@@ -361,7 +361,7 @@ class PKPSubmissionFileDAO extends DAO {
 	function isInlineable(&$submissionFile) {
 		// Retrieve MIME types.
 		if (!isset($this->_inlineableTypes)) {
-			$this->_inlineableTypes = array_filter(file(INLINEABLE_TYPES_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
+			$this->_inlineableTypes = array_filter(file(Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . INLINEABLE_TYPES_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
 		}
 
 		// Check the MIME type of the file.
@@ -501,21 +501,25 @@ class PKPSubmissionFileDAO extends DAO {
 		if (!is_null($rangeInfo)) assert(is_a($rangeInfo, 'DBResultRange'));
 
 		// Retrieve the base query.
-		$sql = $this->baseQueryForFileSelection();
+		$sql = $this->baseQueryForFileSelection($latestOnly);
 
 		// Filter the query.
-		list($whereClause, $params) = $this->_buildFileSelectionFilter(
-				$submissionId, $fileStage, $fileId, $revision, $assocType, $assocId, ($latestOnly ? '' : 'sf'));
+		list($filterClause, $params) = $this->_buildFileSelectionFilter(
+				$submissionId, $fileStage, $fileId, $revision, $assocType, $assocId);
 
-		// Take care of the "latest only" parameter.
-		// NB: We have to do this in the SQL for paging to work
-		// correctly.
+		// Did the user request all or only the latest revision?
 		$submissionEntity = $this->getSubmissionEntityName();
 		if ($latestOnly) {
-			$sql .= ' WHERE (sf.file_id, sf.revision) IN
-			            (SELECT file_id, MAX(revision) FROM '.$submissionEntity.'_files'.$whereClause.' GROUP BY file_id)';
+			// Filter the latest revision of each file.
+			// NB: We have to do this in the SQL for paging to work
+			// correctly. We use a partial cartesian join here to
+			// maintain MySQL 3.23 backwards compatibility. This
+			// should be ok as we usually only have few revisions per
+			// file.
+			$sql .= 'LEFT JOIN '.$submissionEntity.'_files sf2 ON sf.file_id = sf2.file_id AND sf.revision < sf2.revision
+			         WHERE sf2.revision IS NULL AND '.$filterClause;
 		} else {
-			$sql .= $whereClause;
+			$sql .= 'WHERE '.$filterClause;
 		}
 
 		// Order the query.
@@ -563,24 +567,35 @@ class PKPSubmissionFileDAO extends DAO {
 
 		// Identify all matched files.
 		$deletedFiles =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision, $assocType, $assocId, $latestOnly);
+		if (empty($deletedFiles)) return 0;
 
-		// Delete the the matched files on the file system.
+		$filterClause = '';
+		$conjunction = '';
+		$params = array();
 		foreach($deletedFiles as $deletedFile) { /* @var $deletedFile SubmissionFile */
+			// Delete the the matched files on the file system.
 			FileManager::deleteFile($deletedFile->getFilePath());
-		}
 
-		// Get the SQL where clause and parameters to select the
-		// files to be deleted from the database.
-		list($whereClause, $params) = $this->_buildFileSelectionFilter(
-				$submissionId, $fileStage, $fileId, $revision, $assocType, $assocId);
+			// Concatenate the IDs together for use in the SQL delete
+			// statement.
+			// NB: We cannot use an IN clause here because MySQL 3.23
+			// does not support multi-column IN-clauses. Same is true
+			// for multi-table access or subselects in the DELETE
+			// statement.
+			$filterClause .= $conjunction.' (file_id=? AND revision=?)';
+			$conjunction = ' OR';
+			$params[] = $deletedFile->getFileId();
+			$params[] = $deletedFile->getRevision();
+		}
 
 		// Delete the matched files in the database. We do so by calling
 		// all delegates in turn with the given SQL parameters. The DAO
 		// delegates will then bulk-delete the files in the corresponding
-		// class tables.
+		// class table. We have to call all delegates because we cannot
+		// be sure what mixture of file types we have to delete.
 		foreach($this->getDelegateClassNames() as $fileImplementation => $delegateClassName) {
 			$daoDelegate =& $this->_getDaoDelegate($fileImplementation);
-			$daoDelegate->deleteObject($whereClause, $params, $latestOnly);
+			$daoDelegate->deleteObjects($filterClause, $params);
 			unset($daoDelegate);
 		}
 
@@ -631,10 +646,10 @@ class PKPSubmissionFileDAO extends DAO {
 	 * @param $assocId integer
 	 * @param $alias string the alias of the table to be filtered
 	 * @return array an array that contains the generated SQL
-	 *  where clause and the corresponding parameters.
+	 *  filter clause and the corresponding parameters.
 	 */
 	function _buildFileSelectionFilter($submissionId, $fileStage,
-			$fileId, $revision, $assocType, $assocId, $alias = '') {
+			$fileId, $revision, $assocType, $assocId) {
 
 		// Make sure that at least one entity filter has been set.
 		assert((int)$submissionId || (int)$fileId || (int)$assocId);
@@ -645,29 +660,28 @@ class PKPSubmissionFileDAO extends DAO {
 		// Collect the filtered columns and ids in
 		// an array for consistent handling.
 		$submissionEntity = $this->getSubmissionEntityName();
-		if (!empty($alias)) $alias .= '.';
 		$filters = array(
-			$alias.$submissionEntity.'_id' => (int)$submissionId,
-			$alias.'file_stage' => (int)$fileStage,
-			$alias.'file_id' => (int)$fileId,
-			$alias.'revision' => (int)$revision,
-			$alias.'assoc_type' => (int)$assocType,
-			$alias.'assoc_id' => (int)$assocId
+			'sf.'.$submissionEntity.'_id' => $submissionId,
+			'sf.file_stage' => $fileStage,
+			'sf.file_id' => $fileId,
+			'sf.revision' => $revision,
+			'sf.assoc_type' => $assocType,
+			'sf.assoc_id' => $assocId
 		);
 
 		// Build and return a SQL where clause and a parameter
 		// array.
-		$whereClause = ' WHERE';
+		$filterClause = '';
 		$params = array();
 		$conjunction = '';
 		foreach($filters as $filteredColumn => $filteredId) {
 			if ($filteredId) {
-				$whereClause .= $conjunction.' '.$filteredColumn.' = ?';
+				$filterClause .= $conjunction.' '.$filteredColumn.' = ?';
 				$conjunction = ' AND';
-				$params[] = $filteredId;
+				$params[] = (int)$filteredId;
 			}
 		}
-		return array($whereClause, $params);
+		return array($filterClause, $params);
 	}
 }
 

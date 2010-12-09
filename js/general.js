@@ -159,8 +159,4 @@ function escapeHTML(s) {
  */
 function unescapeHTML(s) {
 	return $('<div/>').html(s).text();
-	/*var e = document.createElement('div');
-	e.innerHTML = s;
-	return e.childNodes[0].nodeValue;*/
-
 }

@@ -100,9 +100,12 @@ class DAOResultFactory extends ItemIterator {
 	 * Return the next row, with key.
 	 * @return array ($key, $value)
 	 */
-	function &nextWithKey() {
+	function &nextWithKey($idField = null) {
 		$result =& $this->next();
-		if (empty($this->idFields)) {
+		if($idField) {
+			assert(is_a($result, 'DataObject'));
+			$key = $result->getData($idField);
+		} elseif (empty($this->idFields)) {
 			$key = null;
 		} else {
 			assert(is_a($result, 'DataObject') && is_array($this->idFields));

@@ -51,6 +51,9 @@ class GridHandler extends PKPHandler {
 	/** @var string the grid template */
 	var $_template;
 
+	/** @var string name of row identifer (passed to getData()) */
+	var $_rowIdentifer;
+
 	/**
 	 * Constructor.
 	 */
@@ -167,7 +170,7 @@ class GridHandler extends PKPHandler {
 	 * Set the grid data
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
-	function setData(&$data) {
+	function setData(&$data, $rowIdentifier = null) {
 		if (is_a($data, 'ItemIterator')) {
 			$this->_data =& $data;
 		} elseif(is_array($data)) {
@@ -176,6 +179,8 @@ class GridHandler extends PKPHandler {
 		} else {
 			assert(false);
 		}
+
+		if($rowIdentifier) $this->setRowIdentifier($rowIdentifier);
 	}
 
 	/**
@@ -209,6 +214,21 @@ class GridHandler extends PKPHandler {
 		return false;
 	}
 
+	/**
+	 * Set the custom row identifier
+	 * @param $rowIdentifer string
+	 */
+	function setRowIdentifier($rowIdentifer) {
+	    $this->_rowIdentifer = $rowIdentifer;
+	}
+
+	/**
+	 * Get the custom row identifier
+	 * @return string
+	 */
+	function getRowIdentifier() {
+	    return $this->_rowIdentifer;
+	}
 
 	//
 	// Overridden methods from PKPHandler
@@ -394,8 +414,10 @@ class GridHandler extends PKPHandler {
 			$row =& $this->getRowInstance();
 			$row->setGridId($this->getId());
 
-			// Use the element key as the row id
-			list($key, $element) = $elementIterator->nextWithKey();
+			// If we're not using the default ID field, get the custom one
+			$idField = $this->getRowIdentifier() ? $this->getRowIdentifier() : null;
+			// Get the element for the row and its key
+			list($key, $element) = $elementIterator->nextWithKey($idField);
 
 			$row->setId($key);
 			$row->setData($element);

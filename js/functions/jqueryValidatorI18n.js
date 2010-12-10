@@ -5,8 +5,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * short function to map PKP localization strings to the jquery validation plugin localization
- *
- * $Id:
  */
 
 /**

@@ -5,25 +5,28 @@
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
- *
  */
 
 /**
  * Create a cookie with the given name and value and other optional parameters.
  *
- * @example $.cookie('the_cookie', 'the_value');
- * @desc Set the value of a cookie.
- * @example $.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: 'jquery.com', secure: true });
- * @desc Create a cookie with all available options.
- * @example $.cookie('the_cookie', 'the_value');
- * @desc Create a session cookie.
- * @example $.cookie('the_cookie', null);
- * @desc Delete a cookie by passing null as value. Keep in mind that you have to use the same path and domain
- *       used when the cookie was set.
+ * @example Set the value of a cookie:
+ *  $.cookie('the_cookie', 'the_value');
+ * @example Create a cookie with all available options:
+ *  $.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: 'jquery.com', secure: true });
+ * @example Create a session cookie:
+ *  $.cookie('the_cookie', 'the_value');
+ * @example Delete a cookie by passing null as value. Keep in mind that you have to use the same path and domain
+ *  used when the cookie was set:
+ *  $.cookie('the_cookie', null);
+ *
+ * Get the value of a cookie with the given name.
+ *
+ * @example Get the value of a cookie: $.cookie('the_cookie')
  *
  * @param String name The name of the cookie.
- * @param String value The value of the cookie.
- * @param Object options An object literal containing key/value pairs to provide optional cookie attributes.
+ * @option String value The value of the cookie.
+ * @option Object options An object literal containing key/value pairs to provide optional cookie attributes.
  * @option Number|Date expires Either an integer specifying the expiration date from now on in days or a Date object.
  *                             If a negative value is specified (e.g. a date in the past), the cookie will be deleted.
  *                             If set to null or omitted, the cookie will be a session cookie and will not be retained
@@ -32,23 +35,6 @@
  * @option String domain The value of the domain attribute of the cookie (default: domain of page that created the cookie).
  * @option Boolean secure If true, the secure attribute of the cookie will be set and the cookie transmission will
  *                        require a secure protocol (like HTTPS).
- * @type undefined
- *
- * @name $.cookie
- * @cat Plugins/Cookie
- * @author Klaus Hartl/klaus.hartl@stilbuero.de
- */
-
-/**
- * Get the value of a cookie with the given name.
- *
- * @example $.cookie('the_cookie');
- * @desc Get the value of a cookie.
- *
- * @param String name The name of the cookie.
- * @return The value of the cookie.
- * @type String
- *
  * @name $.cookie
  * @cat Plugins/Cookie
  * @author Klaus Hartl/klaus.hartl@stilbuero.de

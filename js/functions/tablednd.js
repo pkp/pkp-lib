@@ -1,5 +1,5 @@
 /**
- * tablednd.js
+ * functions/tablednd.js
  *
  * Copyright (c) 2003-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -7,8 +7,6 @@
  * Setup a table for dragging and dropping.
  *
  * Depends on the jquery.tablednd library.
- *
- * $Id$
  */
 
 /**

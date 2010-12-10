@@ -102,6 +102,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('datetimeFormatLong', Config::getVar('general', 'datetime_format_long'));
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
 		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
+		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);
@@ -144,7 +145,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
-		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
 		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
 
@@ -1298,23 +1298,6 @@ class PKPTemplateManager extends Smarty {
 		</script>\n";
 
 		return $confirmCode;
-	}
-
-	function smartyAjaxUpload($params, &$smarty) {
-		// Required params
-		if (!isset($params['form'])) {
-			$smarty->trigger_error("Form parameter is missing from ajax upload");
-		} else {
-			$form = $params['form'];
-		}
-
-		// Required params
-		if (!isset($params['url'])) {
-			$smarty->trigger_error("URL parameter is missing from ajax upload");
-		} else {
-			$url = $params['url'];
-		}
-		return "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
 
 	function smartyInitTabs($params, &$smarty) {

@@ -59,11 +59,11 @@
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 	{/foreach}
 
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/tag-it.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/functions/general.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jquery.tag-it.js"></script>
 	<!-- Add javascript required for font sizer -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/jquery.cookie.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/fontController.js" ></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jquery.cookie.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/functions/fontController.js" ></script>
 	<script type="text/javascript">{literal}
 		<!--
 		$(function(){

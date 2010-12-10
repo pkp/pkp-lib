@@ -7,10 +7,11 @@
  * Implementation of jQuery modals and other JS backend functions.
  */
 
+
 /**
  * modal
  * @param url String URL to load into the modal
- * @param actType String Type to define if callback should do (nothing|append|replace|remove)
+ * @param actType String Type to define what callback should do (nothing|append|replace|remove)
  * @param actOnId String The ID on which to perform the action on callback
  * @param localizedButtons Array of translated 'Cancel/submit' strings
  * @param callingElement String Selector of the element that triggers the modal
@@ -27,7 +28,7 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 
 		// Open the modal when the even is triggered on the calling element.
 		$(callingElement).die('click').live('click', function() {
-			// Construct action to perform when OK and Cancels buttons are clicked
+			// Construct action to perform when OK and Cancel buttons are clicked
 			var dialogOptions = {};
 			if (actType == 'nothing') {
 				// If the action type is 'nothing' then simply close the

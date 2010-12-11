@@ -18,7 +18,7 @@
 
 			// Format parent div.
 			$parentDiv
-				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}Approved{else}Not Approved{/if}]');
+				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}{translate key="submission.citations.editor.citationlist.approved"}{else}{translate key="submission.citations.editor.citationlist.notApproved"}{/if}]');
 
 			// Mark the clickable row.
 			$parentDiv.parent().addClass('clickable-row');

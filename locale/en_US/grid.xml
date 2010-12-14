@@ -48,35 +48,6 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>
 
-	<!-- Artwork Files Grid -->
-	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
-	<message key="grid.artworkFile.file">File</message>
-	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
-	<message key="grid.artworkFile.form.metadata">Artwork Metadata</message>
-	<message key="grid.artworkFile.caption">Caption</message>
-	<message key="grid.artworkFile.credit">Credit</message>
-	<message key="grid.artworkFile.captionAndCredit">Caption and Credit (If Not Included in the File)</message>
-	<message key="grid.artworkFile.copyrightOwner">Copyright Owner</message>
-	<message key="grid.artworkFile.copyrightContact">Contact Info (if not author/publisher)</message>
-	<message key="grid.artworkFile.permissionTerms">Permission Terms</message>
-	<message key="grid.artworkFile.permissionForm">Permission Form</message>
-	<message key="grid.artworkFile.type">Type</message>
-	<message key="grid.artworkFile.type.table">Table</message>
-	<message key="grid.artworkFile.type.figure">Figure</message>
-	<message key="grid.artworkFile.type.photo">Photo</message>
-	<message key="grid.artworkFile.type.illustration">Illustration</message>
-	<message key="grid.artworkFile.placement">Placement in book</message>
-	<message key="grid.artworkFile.placementDetail">Table/Fig. No.</message>
-	<message key="grid.artworkFile.contactAuthor">Contact Author</message>
-
-	<!-- Library Files -->
-	<message key="grid.libraryFiles.column.files">Files</message>
-	<message key="grid.libraryFiles.submission.title">Submission Library</message>
-	<message key="grid.libraryFiles.editorial.title">Editorial Library</message>
-	<message key="grid.libraryFiles.review.title">Review Library</message>
-	<message key="grid.libraryFiles.production.title">Production Library</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
-
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Submission Checklist</message>
 	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
@@ -90,9 +61,6 @@
 	<!-- Review Attachments -->
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
 	<message key="grid.reviewAttachments.add">Add Attachment to Review</message>
-
-	<!-- Chapters -->
-	<message key="grid.chapters.title">Chapters</message>
 
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Current Users</message>

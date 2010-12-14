@@ -260,6 +260,36 @@ ul.flat_list li, ol.flat_list li {
 
 /* @end */
 
+/* @group Form validation */
+span.formError {
+	color: #900;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.formErrorList a {
+	color: #900;
+}
+
+span.formSuccess {
+	color: #090;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+ul.formErrorList {
+	color: #900;
+}
+
+.installContainer {
+	background-color: #EAF3F8;
+    border: 1px dotted #A2C6DC;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* @end */
+
 /* @group List Builder */
 
 .listbuilder {
@@ -1091,13 +1121,13 @@ ul.tagit li:after, ul.tagit li div:after {
 	width: 90%;
 	margin: 0 auto;
 	clear:both;
-	border: 2px solid gray;	
+	border: 2px solid gray;
 }
 
 #timelineFiller {
 	height: 20px;
 	background-color: #E0FFFF;
-	width: 0px;	
+	width: 0px;
 }
 
 #timelineFiller.accepted {
@@ -1113,7 +1143,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 #timelineFiller.published {
-	width: 100%;	
+	width: 100%;
 }
 
 #timelineLabelContainer {
@@ -1146,12 +1176,12 @@ ul.tagit li:after, ul.tagit li div:after {
 .authorAction {
 	float: left;
 	width: 28%;
-	margin-left: 30px;	
+	margin-left: 30px;
 }
 
 .stageContainer {
 	width: 90%;
-	margin: 10px auto;	
+	margin: 10px auto;
 }
 
 .submissionHeader .headerBottom {
@@ -1205,7 +1235,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .selectHeader {
-	margin-top: 10px;	
+	margin-top: 10px;
 }
 
 /* @end */

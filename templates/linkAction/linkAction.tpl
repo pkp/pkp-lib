@@ -1,3 +1,13 @@
+{**
+ * templates/linkAction/linkAction.tpl
+ *
+ * Copyright (c) 2000-2010 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * Link action template
+ *
+ * $Id$
+ *}
 {** if the actOnId has not been specified, assume the id plays the role *}
 {if !$actOnId}
 	{assign var=actOnId value=$id}
@@ -7,9 +17,9 @@
 {if !$buttonId}
 	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
 	{if $action->getImage()}
-		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" class="{if $actionCss}{$actionCss} {/if}{$action->getImage()}" {if $hoverTitle}title="{$action->getLocalizedTitle()}">&nbsp;{else}>{$action->getLocalizedTitle()}{/if}</a>
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" class="{if $actionCss}{$actionCss|escape} {/if}{$action->getImage()|escape}" {if $hoverTitle}title="{$action->getLocalizedTitle()|escape}">&nbsp;{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
 	{else}
-		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId}" {if $actionCss}class="{$actionCss}"{/if} {if $hoverTitle} title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()}{/if}</a>
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" {if $actionCss}class="{$actionCss|escape}"{/if} {if $hoverTitle} title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
 	{/if}
 {/if}
 
@@ -30,10 +40,10 @@
 		<!--
 		$(function() {ldelim}
 			ajaxAction(
-				'{$action->getType()}',
-				'#{$actOnId}',
-				'#{$buttonId}',
-				'{$action->getUrl()}'
+				'{$action->getType()|escape:"javascript"}',
+				'#{$actOnId|escape:"javascript"}',
+				'#{$buttonId|escape:"javascript"}',
+				'{$action->getUrl()|escape:"javascript"}'
 			);
 		{rdelim});
 		// -->

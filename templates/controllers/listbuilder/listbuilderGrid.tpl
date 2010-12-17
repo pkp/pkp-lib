@@ -8,7 +8,7 @@
  *}
 
 <div class="listbuilderGrid">
-<table id="listGrid-{$listbuilderId}{if $itemId}-{$itemId}{/if}">
+<table id="listGrid-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}">
     <tbody>
 		{foreach from=$rows item=row}
 			{$row}
@@ -18,7 +18,7 @@
 			so that we can restore it if the user deletes all rows.
 		**}
 		<tr class="empty"{if $rows} style="display: none;"{/if}>
-			<td colspan="{$numColumns}">{translate key="grid.noItems"}</td>
+			<td colspan="{$numColumns|escape}">{translate key="grid.noItems"}</td>
 		</tr>
     </tbody>
 </table>

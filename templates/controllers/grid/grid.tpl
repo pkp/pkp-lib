@@ -17,7 +17,7 @@
 {else}
 	{assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
 {/if}
-<div id="{$gridId}" class="grid">
+<div id="{$gridId|escape}" class="grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			<span class="options">
@@ -32,16 +32,16 @@
 			</span>
 		{/if}
 		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
-		<table id="{$gridTableId}">
-		    <colgroup>
-		    	{"<col />"|str_repeat:$numColumns}
-		    </colgroup>
-		    <thead>
-	    		{** build the column headers **}
-		    	<tr>
-		    		{foreach name=columns from=$columns item=column}
-		        		<th scope="col">
-		        			{$column->getLocalizedTitle()}
+		<table id="{$gridTableId|escape}">
+			<colgroup>
+				{"<col />"|str_repeat:$numColumns}
+			</colgroup>
+			<thead>
+				{** build the column headers **}
+				<tr>
+					{foreach name=columns from=$columns item=column}
+						<th scope="col">
+							{$column->getLocalizedTitle()}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
 								<span class="options">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
@@ -56,8 +56,8 @@
 							{/if}
 						</th>
 					{/foreach}
-		        </tr>
-		    </thead>
+				</tr>
+			</thead>
 			{if $grid->getIsSubcomponent()}
 				{* Create two separate tables so that the body part
 				   can be scrolled independently from the header in a
@@ -71,15 +71,15 @@
 			{foreachelse}
 				<tbody></tbody>
 			{/foreach}
-		    <tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
+			<tbody class="empty"{if count($gridBodyParts) > 0} style="display: none;"{/if}>
 				{**
 					We need the last (=empty) line even if we have rows
 					so that we can restore it if the user deletes all rows.
 				**}
 				<tr>
-					<td colspan="{$numColumns}">{translate key="grid.noItems"}</td>
+					<td colspan="{$numColumns|escape}">{translate key="grid.noItems"}</td>
 				</tr>
-		    </tbody>
+			</tbody>
 		</table>
 		{if $grid->getIsSubcomponent()}
 			</div>

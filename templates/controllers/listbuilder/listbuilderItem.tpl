@@ -7,5 +7,5 @@
  * Represents an item in a listbuilder source (for a drop-down list or autocomplete source)
  *}
 
-<option value='{$itemId}'>{$itemName}{if $attributeNames} ({$attributeNames}){/if}</option>
+<option value="{$itemId|escape}">{$itemName|escape}{if $attributeNames} ({$attributeNames|escape}){/if}</option>
 

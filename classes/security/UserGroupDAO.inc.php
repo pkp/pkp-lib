@@ -189,15 +189,14 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * For now defaulting to only one userGroup.
-	 * FIXME: need to review this.
+	 * Get all user groups belonging to a role
 	 * @param $contextId
 	 * @param $roleId
 	 * @param $default
 	 */
 	function &getByRoleId($contextId, $roleId, $default = false) {
 		$params = array($contextId, $roleId);
-		if ( $default ) $params[] = 1;
+		if ($default) $params[] = 1;
 		$result =& $this->retrieve(
 			'SELECT user_group_id, context_id, role_id, path, is_default
 			FROM user_groups

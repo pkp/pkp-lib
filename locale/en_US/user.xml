@@ -40,6 +40,7 @@
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
 	<message key="user.gossip">Private Notes</message>
+	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
@@ -82,6 +83,7 @@
 	<message key="user.profile.form.profileImage">Profile Image</message>
 	<message key="user.profile.form.publishedNotifications">New issue published email notifications</message>
 	<message key="user.profile.form.urlInvalid">The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</message>
+	<message key="user.profile.form.usergroupRequired">A user group is required.</message>
 	<message key="user.profile.form.usernameRequired">A username is required.</message>
 	<message key="user.profile.leavePasswordBlank">Leave the password fields blank to keep the current password.</message>
 	<message key="user.profile.newPassword">New password</message>

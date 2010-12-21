@@ -912,6 +912,7 @@ ul.tagit {
 	border-color:#C6C6C6;
 	overflow:auto !important;
 	width:500px;
+	background: white;
 }
 ul.tagit li {
 	-moz-border-radius:5px 5px 5px 5px;
@@ -984,6 +985,15 @@ ul.tagit li:after, ul.tagit li div:after {
 .rangeSlider {
 	margin-left: 13px;
 	width: 240px;
+}
+
+#addReviewer li {
+	clear: none;
+}
+
+#addReviewer h3 {
+	padding: 0px;
+	margin: 5px;
 }
 
 /* @end */

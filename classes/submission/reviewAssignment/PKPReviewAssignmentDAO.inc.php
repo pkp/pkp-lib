@@ -39,7 +39,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		$params = array(
 			(int) $submissionId,
 			(int) $reviewerId,
-			(int) $reviewType,
 			(int) $round
 		);
 		if ($reviewType !== null) $params[] = (int) $reviewType;
@@ -164,6 +163,45 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		while (!$result->EOF) {
 			$reviewAssignments[$result->fields['review_id']] =& $this->_fromRow($result->GetRowAssoc(false));
+			$result->MoveNext();
+		}
+
+		$result->Close();
+		unset($result);
+
+		return $reviewAssignments;
+	}
+
+	/**
+	 * Get the IDs of all reviewers assigned to a submission.
+	 * @param $submissionId int
+	 * @param $round int optional
+	 * @param $reviewType int optional
+	 * @return array ReviewAssignments
+	 */
+	function &getReviewerIdsBySubmissionId($submissionId, $round = null, $reviewType = null) {
+		$query = 'SELECT r.reviewer_id
+				FROM	review_assignments r
+				WHERE r.submission_id = ?';
+
+		$queryParams[] = (int) $submissionId;
+
+		if ($round != null) {
+			$query .= ' AND r.round = ?';
+			$queryParams[] = (int) $round;
+		}
+
+		if ($reviewType != null) {
+			$query .= ' AND r.review_type = ?';
+			$queryParams[] = (int) $reviewType;
+		}
+
+		$result =& $this->retrieve($query, $queryParams);
+
+		$reviewAssignments = array();
+		while (!$result->EOF) {
+			$row = $result->GetRowAssoc(false);
+			$reviewAssignments[] = $row['reviewer_id'];
 			$result->MoveNext();
 		}
 

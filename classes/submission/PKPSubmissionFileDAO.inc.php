@@ -30,7 +30,7 @@
  */
 
 
-define('INLINEABLE_TYPES_FILE', 'inlineTypes.txt');
+define('INLINEABLE_TYPES_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'inlineTypes.txt');
 
 class PKPSubmissionFileDAO extends DAO {
 	/**
@@ -361,7 +361,7 @@ class PKPSubmissionFileDAO extends DAO {
 	function isInlineable(&$submissionFile) {
 		// Retrieve MIME types.
 		if (!isset($this->_inlineableTypes)) {
-			$this->_inlineableTypes = array_filter(file(Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . INLINEABLE_TYPES_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
+			$this->_inlineableTypes = array_filter(file(INLINEABLE_TYPES_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
 		}
 
 		// Check the MIME type of the file.

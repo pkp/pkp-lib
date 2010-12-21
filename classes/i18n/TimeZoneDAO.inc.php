@@ -29,7 +29,7 @@ class TimeZoneDAO extends DAO {
 	 * Get the filename of the time zone registry file for the given locale
 	 */
 	function getFilename() {
-		return "lib/pkp/xml/timeZones.xml";
+		return "lib/pkp/registry/timeZones.xml";
 	}
 
 	function &_getTimeZoneCache() {

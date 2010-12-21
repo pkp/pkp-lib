@@ -392,7 +392,7 @@ class PKPUserDAO extends DAO {
 	 */
 
 	function &getUsersByField($field = USER_FIELD_NONE, $match = null, $value = null, $allowDisabled = true, $dbResultRange = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
-		$sql = 'SELECT DISTINCT * FROM users u';
+		$sql = 'SELECT DISTINCT u.* FROM users u';
 		switch ($field) {
 			case USER_FIELD_USERID:
 				$sql .= ' WHERE u.user_id = ?';

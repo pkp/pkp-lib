@@ -4,10 +4,7 @@
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * grid HTML markup and construction
- *
- * FIXME: Re-introduce "partial width" when needed without
- *  configuring an actual pixel width in the controller.
+ * Grid HTML markup and construction
  *}
 
 {assign var=gridId value="component-"|concat:$grid->getId()}

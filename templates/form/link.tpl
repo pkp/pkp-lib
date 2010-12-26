@@ -1,4 +1,4 @@
- {**
+{**
  * link.tpl
  *
  * Copyright (c) 2000-2010 John Willinsky

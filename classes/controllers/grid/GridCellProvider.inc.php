@@ -36,7 +36,6 @@ class GridCellProvider {
 		$columnId = $column->getId();
 		assert(!empty($columnId));
 
-		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		// Construct a default cell id
 		$rowId = $row->getId();
 
@@ -50,7 +49,9 @@ class GridCellProvider {
 		$templateMgr->assign_by_ref('actions', $this->getCellActions($request, $row, $column));
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
-		// assign all values from element (FIXME: by ref not working for some reason)
+		// Assign all values from element.
+		// FIXME: by ref not working for some reason.
+		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
 		}

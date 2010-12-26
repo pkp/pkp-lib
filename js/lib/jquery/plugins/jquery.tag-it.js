@@ -99,7 +99,7 @@
 		function is_new (value){
 			var is_new = true;
 			tag_input.parents("ul").children(".tagit-choice").each(function(i){
-				n = $(this).children("input").val();
+				var n = $(this).children("input").val();
 				if (value == n) {
 					is_new = false;
 				}

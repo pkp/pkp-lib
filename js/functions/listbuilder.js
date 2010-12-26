@@ -10,8 +10,9 @@
 /**
  * addItem
  * Add an item to the list
- * @param $handler URL handle the routine
- * @param $listbuilderId DOM id to the listbuilder being used
+ * @param {string} handler URL handle the routine
+ * @param {string} listbuilderId DOM id to the listbuilder being used
+ * @param {Array} localizedButtons
  */
 function addItem(handler, listbuilderId, localizedButtons) {
 	$(document).ready(function() {
@@ -56,8 +57,8 @@ function addItem(handler, listbuilderId, localizedButtons) {
 /**
  * deleteItems
  * Delete selected items from the list
- * @param $handler URL handle the routine
- * @param $listbuilderId DOM id to the listbuilder being used
+ * @param {string} handler URL handle the routine
+ * @param {string} listbuilderId DOM id to the listbuilder being used
  */
 function deleteItems(handler, listbuilderId) {
 	$(document).ready(function() {
@@ -107,6 +108,7 @@ function deleteItems(handler, listbuilderId) {
 /**
  * selectRow
  * Select a row in a listbuilder grid
+ * @param {string} listbuilderGridId The DOM ID of the list builder.
  */
 function selectRow(listbuilderGridId) {
 	$('#results-'+listbuilderGridId)
@@ -115,7 +117,7 @@ function selectRow(listbuilderGridId) {
 			var clicked = $(e.target);
 			if(clicked.parent().is('tr') && !clicked.parent().hasClass('empty')) {
 				clicked.parent().toggleClass('selected');
-			} 
+			}
 			if(clicked.parent().parent().is('tr') && !clicked.parent().parent().hasClass('empty')) {
 				clicked.parent().parent().toggleClass('selected');
 			}
@@ -126,8 +128,8 @@ function selectRow(listbuilderGridId) {
 /**
  * getAutocompleteSource
  * Load either an array of data for a local autocomplete interface, or a URL for a server-based autocomplete
- * @param $handler URL handle the routine
- * @param $listbuilderId DOM id to the listbuilder being used
+ * @param {string} handler URL handle the routine
+ * @param {string} id DOM id to the listbuilder being used
  */
 function getAutocompleteSource(handler, id) {
 	$(document).ready(function(){
@@ -142,7 +144,7 @@ function getAutocompleteSource(handler, id) {
 					// Set the data to the url
 					data = returnString.content;
 				}
-				
+
 				// Initialize the autocomplete field
 				$("#sourceTitle-" + id).autocomplete({
 					source: data,
@@ -161,11 +163,18 @@ function getAutocompleteSource(handler, id) {
 	});
 }
 
-/* Helper function for getAutocompleteSource */
+/**
+ * Helper function for getAutocompleteSource
+ * @param {Array} row row data
+ */
 function formatItem(row) {
 	return row[0] + " (<strong>id: " + row[1] + "</strong>)";
 }
-/* Helper function for getAutocompleteSource */
+
+/**
+ * Helper function for getAutocompleteSource
+ * @param {Array} row row data
+ */
 function formatResult(row) {
 	return row[0].replace(/(<.+?>)/gi, '');
 }

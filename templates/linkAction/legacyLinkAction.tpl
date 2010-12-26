@@ -1,13 +1,12 @@
 {**
- * templates/linkAction/linkAction.tpl
+ * templates/linkAction/legacyLinkAction.tpl
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Link action template
- *
- * $Id$
+ * Deprecated template to render link actions.
  *}
+
 {** if the actOnId has not been specified, assume the id plays the role *}
 {if !$actOnId}
 	{assign var=actOnId value=$id}
@@ -15,7 +14,7 @@
 
 {* If we have no button id set then let's build our own button. *}
 {if !$buttonId}
-	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"}
+	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"|uniqid}
 	{if $action->getImage()}
 		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" class="{if $actionCss}{$actionCss|escape} {/if}{$action->getImage()|escape}" {if $hoverTitle}title="{$action->getLocalizedTitle()|escape}">&nbsp;{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
 	{else}

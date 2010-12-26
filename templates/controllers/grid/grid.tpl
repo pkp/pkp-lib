@@ -22,12 +22,16 @@
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			<span class="options">
 				{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-						{assign var=actionActOnId value=$action->getActOn()}
+					{if is_a($action, 'LegacyLinkAction')}
+						{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+							{assign var=actionActOnId value=$action->getActOn()}
+						{else}
+							{assign var=actionActOnId value=$gridActOnId}
+						{/if}
+						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 					{else}
-						{assign var=actionActOnId value=$gridActOnId}
+						{include file=$action->getTemplate() action=$action}
 					{/if}
-					{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 				{/foreach}
 			</span>
 		{/if}
@@ -45,12 +49,16 @@
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
 								<span class="options">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
-										{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-											{assign var=actionActOnId value=$action->getActOn()}
+										{if is_a($action, 'LegacyLinkAction')}
+											{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+												{assign var=actionActOnId value=$action->getActOn()}
+											{else}
+												{assign var=actionActOnId value=$gridActOnId}
+											{/if}
+											{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 										{else}
-											{assign var=actionActOnId value=$gridActOnId}
+											{include file=$action->getTemplate() action=$action}
 										{/if}
-										{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 									{/foreach}
 								</span>
 							{/if}
@@ -86,12 +94,16 @@
 		{/if}
 		<div class="actions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-					{assign var=actionActOnId value=$action->getActOn()}
+				{if is_a($action, 'LegacyLinkAction')}
+					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+						{assign var=actionActOnId value=$action->getActOn()}
+					{else}
+						{assign var=actionActOnId value=$gridActOnId}
+					{/if}
+					{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 				{else}
-					{assign var=actionActOnId value=$gridActOnId}
+					{include file=$action->getTemplate() action=$action}
 				{/if}
-				{include file="linkAction/linkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 			{/foreach}
 		</div>
 	{if !$grid->getIsSubcomponent()}</div>{/if}

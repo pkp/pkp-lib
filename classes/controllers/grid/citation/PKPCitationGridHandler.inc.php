@@ -130,7 +130,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Grid actions
 		$router =& $request->getRouter();
 		$this->addAction(
-			new LinkAction(
+			new LegacyLinkAction(
 				'addCitation',
 				LINK_ACTION_MODE_AJAX,
 				LINK_ACTION_TYPE_GET,

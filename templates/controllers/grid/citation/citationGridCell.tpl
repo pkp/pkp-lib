@@ -9,7 +9,7 @@
 {assign var=cellId value="cell-"|concat:$id}
 <span id="{$cellId}">
 	{assign var=cellAction value=$actions[0]}
-	{include file="linkAction/linkAction.tpl" id=$cellId|concat:"-action-":$cellAction->getId() action=$cellAction actOnId=$cellAction->getActOn() buttonId=$cellId}
+	{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$cellAction->getId() action=$cellAction actOnId=$cellAction->getActOn() buttonId=$cellId}
 	[{$citationSeq}] {$label|escape}
 	<script type="text/javascript">
 		<!--

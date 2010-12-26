@@ -19,14 +19,14 @@
 						{/if}
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-								{include file="linkAction/linkAction.tpl" action=$action id=$rowId hoverTitle=true}
+								{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId hoverTitle=true}
 							{/foreach}
 						{/if}
 					</div>
 					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 						<div class="row_controls">
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-								{include file="linkAction/linkAction.tpl" action=$action id=$rowId}
+								{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
 							{/foreach}
 						</div>
 					{/if}

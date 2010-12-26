@@ -10,7 +10,7 @@
 <td colspan="{$numColumns|escape}">
 	{if $categoryRow->getActions()}
 		{foreach name=actions from=$categoryRow->getActions() item=action}
-			{include file="linkAction/linkAction.tpl" action=$action id=$categoryId}
+			{include file="linkAction/legacyLinkAction.tpl" action=$action id=$categoryId}
 		{/foreach}
 	{/if}
 	{$categoryRow->getCategoryLabel()}

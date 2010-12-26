@@ -50,7 +50,7 @@ class PKPFilterGridRow extends GridRow {
 			assert(is_a($filter, 'Filter'));
 			if ($filter->hasSettings()) {
 				$this->addAction(
-					new LinkAction(
+					new LegacyLinkAction(
 						'editFilter',
 						LINK_ACTION_MODE_MODAL,
 						LINK_ACTION_TYPE_REPLACE,
@@ -62,7 +62,7 @@ class PKPFilterGridRow extends GridRow {
 				);
 			}
 			$this->addAction(
-				new LinkAction(
+				new LegacyLinkAction(
 					'deleteFilter',
 					LINK_ACTION_MODE_CONFIRM,
 					LINK_ACTION_TYPE_REMOVE,

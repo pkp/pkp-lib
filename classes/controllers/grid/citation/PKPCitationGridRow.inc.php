@@ -86,7 +86,7 @@ class PKPCitationGridRow extends GridRow {
 			// Only add row actions if this is an existing row
 			$router =& $request->getRouter();
 			$this->addAction(
-				new LinkAction(
+				new LegacyLinkAction(
 					'deleteCitation',
 					LINK_ACTION_MODE_CONFIRM,
 					LINK_ACTION_TYPE_REMOVE,
@@ -122,7 +122,7 @@ class PKPCitationGridRow extends GridRow {
 				// Instantiate the cell action.
 				$router =& $request->getRouter();
 				$cellActions = array(
-					new LinkAction(
+					new LegacyLinkAction(
 						'editCitation',
 						LINK_ACTION_MODE_AJAX,
 						LINK_ACTION_TYPE_GET,

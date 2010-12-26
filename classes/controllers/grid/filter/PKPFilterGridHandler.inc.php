@@ -129,7 +129,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Grid action
 		$router =& $request->getRouter();
 		$this->addAction(
-			new LinkAction(
+			new LegacyLinkAction(
 				'addFilter',
 				LINK_ACTION_MODE_MODAL,
 				LINK_ACTION_TYPE_APPEND,

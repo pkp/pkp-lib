@@ -26,7 +26,11 @@
 					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 						<div class="row_controls">
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-								{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
+								{if is_a($action, 'LegacyLinkAction')}
+									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
+								{else}
+									{include file=$action->getTemplate() action=$action}
+								{/if}
 							{/foreach}
 						</div>
 					{/if}

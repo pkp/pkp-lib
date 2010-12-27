@@ -64,7 +64,24 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// The default implementation will post the form,
 		// and act depending on the returned JSON message.
 		var $form = this.getHtmlElement();
-		$.post($form.attr('action'), $form.serialize(), function(jsonData) {
+		$.post($form.attr('action'), $form.serialize(),
+				this.callbackWrapper(this.handleResponse), 'json');
+	};
+
+
+	/**
+	 * Internal callback called after form validation to handle form
+	 * submission.
+	 *
+	 * You can override this handler if you want to do custom validation
+	 * before you submit the form.
+	 *
+	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 * @param {Object} jsonData The data returned from the server.
+	 */
+	$.pkp.controllers.FormHandler.prototype.handleResponse =
+		function(formElement, jsonData) {
+
 			if (jsonData.status === true) {
 				// Replace the form content.
 				$form.replaceWith(jsonData.content);
@@ -72,7 +89,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				// Display an error message.
 				alert(jsonData.content);
 			}
-		}, 'json');
 	};
 
 

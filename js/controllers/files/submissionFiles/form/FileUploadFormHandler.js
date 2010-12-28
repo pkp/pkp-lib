@@ -2,9 +2,8 @@
  * @defgroup js_controllers_files_submissionFiles_form
  */
 // Create the submissionFiles form namespace
-jQuery.pkp.controllers.files =
-			jQuery.pkp.controllers.files ||
-			{ submissionFiles: { form: { } } };
+jQuery.pkp.controllers.files.submissionFiles.form =
+			jQuery.pkp.controllers.files.submissionFiles.form || { };
 
 /**
  * @file js/controllers/FileUploadFormHandler.js
@@ -181,9 +180,17 @@ jQuery.pkp.controllers.files =
 		// Handle the server's JSON response.
 		var jsonData = $.parseJSON(ret.response);
 		if (jsonData.status === true) {
-			// Replace the upload form.
+			// Trigger the file uploaded event.
 			var $uploadForm = this.getHtmlElement();
-			$uploadForm.replaceWith(jsonData.content);
+			$uploadForm.trigger('fileUploaded', jsonData.uploadedFile);
+
+			if (jsonData.content === '') {
+				// Trigger the file upload complete event.
+				$uploadForm.trigger('fileUploadComplete');
+			} else {
+				// Display the revision confirmation form.
+				$uploadForm.replaceWith(jsonData.content);
+			}
 		} else {
 			alert(jsonData.content);
 		}

@@ -25,34 +25,18 @@
 
 		this.parent($form, options);
 
-		// Save the delete url.
-		this.deleteUrl_ = options.deleteUrl;
-
 		// Show the possible revision message.
 		$form.find('#possibleRevision').show('slide');
 
-		// Subscribe wizard events.
+		// Subscribe to wizard events.
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
-		this.bind('wizardCancelRequested', this.wizardCancelRequested);
 
-		// Allow wizard advance.
+		// Enable the wizard's advance button.
 		$form.trigger('enableAdvance');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler,
 			$.pkp.controllers.FormHandler);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * The URL to be called when a cancel event occurs.
-	 * @private
-	 * @type {string}
-	 */
-	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
-			prototype.deleteUrl_ = '';
 
 
 	//
@@ -67,30 +51,32 @@
 	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
 			prototype.wizardAdvanceRequested = function(wizardElement, event) {
 
-		var $uploadForm = this.getHtmlElement();
-		var revisedFileId = $uploadForm.find('#revisedFileId').val().parseInt();
+		var $confirmationForm = this.getHtmlElement();
+		var revisedFileId = parseInt(
+				$confirmationForm.find('#revisedFileId').val(), 10);
 		if (revisedFileId > 0) {
-			// Confirm the revision.
-			$uploadForm.submit();
-		} /* else {
-			// Do nothing, i.e. advance directly to the
-			// next step.
-		} */
+			// Confirm the revision if one has been chosen.
+			$confirmationForm.submit();
+		}
+
+		// Do not automatically advance.
+		event.preventDefault();
 	};
 
 
 	/**
-	 * Handle the "cancel requested" event triggered by the enclosing wizard.
-	 *
-	 * @param {HTMLElement} wizardElement The calling wizard.
-	 * @param {Event} event The triggered event.
+	 * @inheritDoc
 	 */
 	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
-			prototype.wizardCancelRequested = function(wizardElement, event) {
+			prototype.handleResponse = function(formElement, jsonData) {
 
-		// If the user presses cancel after uploading a file then delete the file.
-		if (this.deleteUrl_ !== '') {
-			$.post(this.deleteUrl_);
+		if (this.parent('handleResponse', formElement, jsonData)) {
+			// Trigger the file uploaded event.
+			var $confirmationForm = this.getHtmlElement();
+			$confirmationForm.trigger('fileUploaded', jsonData.uploadedFile);
+
+			// Trigger the file upload complete event.
+			$confirmationForm.trigger('fileUploadComplete');
 		}
 	};
 

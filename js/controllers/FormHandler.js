@@ -80,15 +80,17 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {Object} jsonData The data returned from the server.
 	 */
 	$.pkp.controllers.FormHandler.prototype.handleResponse =
-		function(formElement, jsonData) {
+			function(formElement, jsonData) {
 
-			if (jsonData.status === true) {
-				// Replace the form content.
-				$form.replaceWith(jsonData.content);
-			} else {
-				// Display an error message.
-				alert(jsonData.content);
-			}
+		// The default implementation handles JSON errors.
+		var $form = this.getHtmlElement();
+		if (jsonData.status === true) {
+			// Replace the form content.
+			$form.replaceWith(jsonData.content);
+		} else {
+			// Display an error message.
+			alert(jsonData.content);
+		}
 	};
 
 

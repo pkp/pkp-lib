@@ -78,6 +78,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 * @param {Object} jsonData The data returned from the server.
+	 * @return {boolean} The response status.
 	 */
 	$.pkp.controllers.FormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
@@ -91,6 +92,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			// Display an error message.
 			alert(jsonData.content);
 		}
+		return jsonData.status;
 	};
 
 

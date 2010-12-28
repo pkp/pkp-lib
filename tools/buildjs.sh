@@ -13,6 +13,8 @@
 #   <http://code.google.com/closure>. Please download the compiler.jar
 #   from there. Expects Closure's compiler.jar file in '~/bin'. If you want to put it
 #   into a different directory then please change the TOOL_PATH variable below.
+#   Please see the Closure Linter documentation for installation instructions
+#   of that tool.
 #
 # - Requires jslint4java, see <http://code.google.com/p/jslint4java/>. Expects the
 #   jslint4java.jar (must be renamed!) in the same path as the Closure compiler,
@@ -80,7 +82,7 @@ COMPILE_FILES=$(sed -nr '/<script type="text\/javascript"/ { s%^.*src="\{\$baseU
 LINT_FILES=`echo "$COMPILE_FILES" | egrep -v '^lib/pkp/js/(lib|functions)'`
 
 # Create a working directory in the cache
-WORKDIR=`mktemp --tmpdir=cache -d`
+WORKDIR=`mktemp -d` || { echo "The working directory could not be created!"; exit 1; }
 
 # Show a list of the files we are going to lint.
 echo "Lint..." >&2

@@ -42,8 +42,8 @@
 	 * Find a static property in the constructor hierarchy.
 	 *
 	 * NB: If the property is a function then it will be executed
-	 * in the context of the me parameter with the additional
-	 * arguments given.
+	 * in the current context with the additional arguments given.
+	 * If it is any other type then the property will be returned.
 	 *
 	 * @param {string} propertyName The name of the static
 	 *  property to be found.

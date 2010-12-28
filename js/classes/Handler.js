@@ -28,7 +28,7 @@
 
 		// Check whether a handler has already been bound
 		// to the element.
-		if (this.data(this.getObjectName()) !== undefined) {
+		if (this.data('handler') !== undefined) {
 			throw Error(['The handler "', this.getObjectName(),
 						'" has already been bound to the selected element!'].join(''));
 		}

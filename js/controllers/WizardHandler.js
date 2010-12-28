@@ -36,21 +36,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			disabledSteps.push(i);
 		}
 
-		// Attach the tabsshow handler.
-		this.bind('tabsshow', this.tabsshow);
+		// Attach the "tabs show" event handler.
+		this.bind('tabsshow', this.tabsShow);
 
 		// Render the wizard as jQueryUI tabs.
 		$wizard.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
 			ajaxOptions: {
-				dataFilter: function(jsonData) {
-					var data = $.parseJSON(jsonData);
-					if (data.status === true) {
-						return data.content;
-					} else {
-						alert(data.content);
-					}
-				}
+				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
 			disabled: disabledSteps,
 			selected: 0
@@ -112,12 +105,34 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.tabsshow =
+	$.pkp.controllers.WizardHandler.prototype.tabsShow =
 			function(tabsElement, event, ui) {
 
 		// Save a reference to the current tab.
 		this.$currentTab_ = ui.panel;
 		return false;
+	};
+
+
+	/**
+	 * Callback that processes AJAX data returned by the server before
+	 * it is displayed in a wizard tab.
+	 *
+	 * @param {Object} ajaxOptions The options object from which the
+	 *  callback originated.
+	 * @param {Object} jsonData The data returned from an AJAX call.
+	 * @return {string} The wizard page mark-up.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.dataFilter =
+			function(ajaxOptions, jsonData) {
+
+		var data = $.parseJSON(jsonData);
+		if (data.status === true) {
+			return data.content;
+		} else {
+			alert(data.content);
+		}
+		return '';
 	};
 
 

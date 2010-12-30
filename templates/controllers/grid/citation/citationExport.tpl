@@ -47,7 +47,7 @@
 						{rdelim})
 						.each(function() {ldelim}
 							// Save the original selection.
-							$(this).data('original-value', $(this).val()); 
+							$(this).data('original-value', $(this).val());
 						{rdelim});
 
 					// Activate throbber for tab reloading.
@@ -61,7 +61,7 @@
 				{rdelim});
 				// -->
 			</script>
-			<form name="exportCitationForm" id="exportCitationForm" method="post" action="" >
+			<form id="exportCitationForm" method="post" action="">
 				<br />
 				<p>
 					<p>{translate key="submission.citations.editor.export.filterSelectionDescription"}</p>

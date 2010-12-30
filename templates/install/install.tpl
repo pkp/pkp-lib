@@ -43,7 +43,7 @@ function doSubmit() {
 
 <div class="separator"></div>
 
-<form method="post" name="install" action="{url op="install"}">
+<form method="post" id="install" action="{url op="install"}">
 <input type="hidden" name="installing" value="0" />
 {include file="common/formErrors.tpl"}
 

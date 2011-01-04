@@ -18,6 +18,7 @@
 
 {* Attach the JS modal handler to the button. *}
 <script type="text/javascript">
+	<!--
 	$(function() {ldelim}
 		$('#{$buttonId}').pkpHandler(
 				'$.pkp.controllers.linkAction.ModalLinkActionHandler',
@@ -30,4 +31,5 @@
 					{rdelim}
 				{rdelim});
 	{rdelim});
+	// -->
 </script>

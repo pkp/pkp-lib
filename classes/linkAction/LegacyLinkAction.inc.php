@@ -25,10 +25,8 @@ define('LINK_ACTION_TYPE_REPLACE', 'replace');
 define('LINK_ACTION_TYPE_REMOVE', 'remove');
 define('LINK_ACTION_TYPE_REDIRECT', 'redirect');
 
-// Action types for ajax mode
-define('LINK_ACTION_TYPE_GET', 'get');
-define('LINK_ACTION_TYPE_POST', 'post');
-
+// Action types for ajax mode (Moved into AjaxLinkAction!)
+import('lib.pkp.classes.linkAction.AjaxLinkAction');
 
 class LegacyLinkAction {
 	/** @var string the id of the action */

@@ -33,10 +33,12 @@
 
 		// Add the existing keywords
 		// MC 'For each' is not browser-safe. Use jQuery's .each method
-		var currentTags = options.currentTags;
-		$.each(currentTags, function() {
-			create_choice(this, true);
-		});
+		if(options.currentTags) {
+			var currentTags = options.currentTags;
+			$.each(currentTags, function() {
+				create_choice(this, true);
+			});
+		}
 
 		$(this).click(function(e){
 			if (e.target.tagName == 'A') {
@@ -78,24 +80,26 @@
 		});
 
 		// MC Need to unescape the data going into the autocomplete widget
-		var autoCompleteSource = new Array();
-		$.each(options.availableTags, function() {
-			autoCompleteSource.push(unescapeHTML(this.toString()));
-		});
-		tag_input.autocomplete({
-			source: autoCompleteSource,
-			select: function(event,ui){
-				if (is_new (ui.item.value)) {
-					create_choice (ui.item.value);
+		if(options.availableTags) {
+			var autoCompleteSource = new Array();
+			$.each(options.availableTags, function() {
+				autoCompleteSource.push(unescapeHTML(this.toString()));
+			});
+			tag_input.autocomplete({
+				source: autoCompleteSource,
+				select: function(event,ui){
+					if (is_new (ui.item.value)) {
+						create_choice (ui.item.value);
+					}
+					// Cleaning the input.
+					tag_input.val("");
+	
+					// Preventing the tag input to be update with the chosen value.
+					return false;
 				}
-				// Cleaning the input.
-				tag_input.val("");
-
-				// Preventing the tag input to be update with the chosen value.
-				return false;
-			}
-		});
-
+			});
+		}
+	
 		function is_new (value){
 			var is_new = true;
 			tag_input.parents("ul").children(".tagit-choice").each(function(i){

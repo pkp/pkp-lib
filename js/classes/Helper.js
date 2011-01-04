@@ -160,13 +160,19 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 		// Create a new proxy constructor instance.
 		var ObjectProxyInstance = $.pkp.classes.Helper.getObjectProxyInstance();
 
+		// Copy static members over from the object proxy. (This may
+		// overwrite the proxy constructor's prototype in some
+		// browsers but we don't care because we'll replace the prototype
+		// anyway when we inherit.)
+		$.extend(true, ObjectProxyInstance, $.pkp.classes.ObjectProxy);
+
 		// Let the proxy inherit from the proxied object.
 		$.pkp.classes.Helper.inherits(ObjectProxyInstance, ObjectConstructor);
 
-		// Copy proxy object members into the new proxy constructor instance.
+		// Enrich the new proxy constructor prototype with proxy object
+		// prototype members.
 		$.extend(true, ObjectProxyInstance.prototype,
 				$.pkp.classes.ObjectProxy.prototype);
-		$.extend(ObjectProxyInstance, $.pkp.classes.ObjectProxy);
 
 		// Instantiate the proxy with the proxied object.
 		var objectInstance = new ObjectProxyInstance(objectName, args);

@@ -78,7 +78,7 @@ class LinkAction {
 	 * @return string
 	 */
 	function getTemplate() {
-		return 'linkAction/linkAction.tpl';
+		assert(false);
 	}
 }
 

@@ -30,11 +30,32 @@
 
 		this.parent($handledElement, options);
 
-		// Subscribe to wizard events.
+		// Subscribe the modal to wizard events.
 		this.bind('wizardClose', this.modalClose);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.WizardModalHandler,
 			$.pkp.controllers.modal.AjaxModalHandler);
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.modal.WizardModalHandler.prototype.modalClose =
+			function(event) {
+
+		// Trigger a cancel event on the wizard.
+		var wizardCancelRequestedEvent = new $.Event('wizardCancelRequested');
+		wizardCancelRequestedEvent.stopPropagation();
+		var $wizard = this.getHtmlElement().children().first();
+		$wizard.trigger(wizardCancelRequestedEvent);
+
+		// Only close the modal if the wizard didn't prevent this.
+		if (!wizardCancelRequestedEvent.isDefaultPrevented()) {
+			this.parent('modalClose', event);
+		}
+
+		return false;
+	};
 
 
 /** @param {jQuery} $ jQuery closure. */

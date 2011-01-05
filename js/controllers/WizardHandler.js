@@ -63,7 +63,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.WizardHandler.prototype.continueButton_ = null;
+	$.pkp.controllers.WizardHandler.prototype.$continueButton_ = null;
 
 
 	/**
@@ -92,10 +92,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			function(buttonElement, event) {
 
 		// Trigger the "advance requested" event on the current
-		// tab's first child to give it a chance to veto the advance
+		// tab's children to give it a chance to veto the advance
 		// request.
 		var advanceRequestedEvent = new $.Event('wizardAdvanceRequested');
-		this.getCurrentTab().children().first().trigger(advanceRequestedEvent);
+		advanceRequestedEvent.stopPropagation();
+		this.getCurrentTab().children().trigger(advanceRequestedEvent);
 
 		// Trigger the wizardAdvance/wizardClose event if the
 		// advanceRequestEvent handler didn't prevent it.
@@ -105,7 +106,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			if (currentStep < lastStep) {
 				this.getHtmlElement().trigger('wizardAdvance');
 			} else {
-				this.getHtmlElement().trigger('modalClose');
+				this.getHtmlElement().trigger('wizardClose');
 			}
 		}
 		return false;
@@ -127,10 +128,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			function(buttonElement, event) {
 
 		// Trigger the "cancel requested" event on the current
-		// tab's first child to give it a chance to veto the cancel
+		// tab's children to give it a chance to veto the cancel
 		// request.
 		var cancelRequestedEvent = new $.Event('wizardCancelRequested');
-		this.getCurrentTab().children().first().trigger(cancelRequestedEvent);
+		cancelRequestedEvent.stopPropagation();
+		this.getCurrentTab().children().trigger(cancelRequestedEvent);
 
 		// Trigger the wizardCancel event if the
 		// cancelRequestEvent handler didn't prevent it.
@@ -164,6 +166,43 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
+	 * Handle the wizard "cancel requested" event.
+	 *
+	 * Please override this method to clean up before the wizard is
+	 * being canceled. You can execute event.preventDefault() if you
+	 * don't want the wizard to cancel.
+	 *
+	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
+	 *  which the event was triggered.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.wizardCancelRequested =
+			function(wizardElement, event) {
+
+		// The default implementation does nothing which means that
+		// the wizard will cancel immediately.
+	};
+
+
+	/**
+	 * Handle the wizard "cancel" event.
+	 *
+	 * You can override this method to perform custom clean-up before
+	 * the wizard closes.
+	 *
+	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
+	 *  which the event was triggered.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.wizardCancel =
+			function(wizardElement, event) {
+
+		// The default implementation simply closes the wizard.
+		this.getHtmlElement().trigger('wizardClose');
+	};
+
+
+	/**
 	 * Handle the wizard "advance requested" event.
 	 *
 	 * Please override this method to make validation checks or submit
@@ -182,24 +221,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// The default implementation does nothing which means that
 		// the wizard will advance to the next step without validation
 		// check.
-	};
-
-
-	/**
-	 * Handle the wizard "cancel" event.
-	 *
-	 * You can override this method to perform custom clean-up before
-	 * the wizard closes.
-	 *
-	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
-	 *  which the event was triggered.
-	 * @param {Event} event The triggered event.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.wizardCancel =
-			function(wizardElement, event) {
-
-		// The default implementation simply closes the wizard.
-		this.getHtmlElement().trigger('modalClose');
 	};
 
 
@@ -260,9 +281,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.WizardHandler.prototype.bindWizardEvents = function() {
 		this.bind('enableAdvance', this.enableAdvance);
+		this.bind('wizardCancelRequested', this.wizardCancelRequested);
+		this.bind('wizardCancel', this.wizardCancel);
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 		this.bind('wizardAdvance', this.wizardAdvance);
-		this.bind('wizardCancel', this.wizardCancel);
 	};
 
 
@@ -293,7 +315,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @return {jQuery} The continue button.
 	 */
 	$.pkp.controllers.WizardHandler.prototype.getContinueButton = function() {
-		return this.continueButton_;
+		return this.$continueButton_;
 	};
 
 
@@ -358,7 +380,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 					// Attach the continue request handler.
 					bind('click',
 							this.callbackWrapper(this.continueRequest));
-			this.continueButton_ = $continueButton;
+			this.$continueButton_ = $continueButton;
 			if (options.finishButtonText) {
 				this.finishButtonText_ = options.finishButtonText;
 			}

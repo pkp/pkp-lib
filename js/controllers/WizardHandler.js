@@ -21,7 +21,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.pkp.controllers.TabbedHandler
 	 *
 	 * @param {jQuery} $wizard A wrapped HTML element that
 	 *  represents the wizard.
@@ -35,27 +35,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		for (var i = 1; i < this.getNumberOfSteps(); i++) {
 			disabledSteps.push(i);
 		}
+		$wizard.tabs('option', 'disabled', disabledSteps);
 
-		// Attach the "tabs show" event handler.
-		this.bind('tabsshow', this.tabsShow);
-
-		// Render the wizard as jQueryUI tabs.
-		$wizard.tabs({
-			// Enable AJAX-driven tabs with JSON messages.
-			ajaxOptions: {
-				dataFilter: this.callbackWrapper(this.dataFilter)
-			},
-			disabled: disabledSteps,
-			selected: 0
-		});
-
+		// Add the wizard buttons
 		this.addWizardButtons_($wizard, options);
 
 		// Bind the wizard events to handlers.
 		this.bindWizardEvents();
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.WizardHandler, $.pkp.classes.Handler);
+			$.pkp.controllers.WizardHandler, $.pkp.controllers.TabbedHandler);
 
 
 	//
@@ -67,14 +56,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @type {number}
 	 */
 	$.pkp.controllers.WizardHandler.prototype.currentStep_ = 0;
-
-
-	/**
-	 * The current wizard tab.
-	 * @private
-	 * @type {jQuery}
-	 */
-	$.pkp.controllers.WizardHandler.prototype.$currentTab_ = null;
 
 
 	/**
@@ -97,46 +78,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	// Public methods
 	//
 	/**
-	 * Event handler that is called when a tab is shown.
-	 *
-	 * @param {HTMLElement} tabsElement The tab element that triggered
-	 *  the event.
-	 * @param {Event} event The triggered event.
-	 * @param {Object} ui The tabs ui data.
-	 * @return {boolean} Should return false to stop event propagation.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.tabsShow =
-			function(tabsElement, event, ui) {
-
-		// Save a reference to the current tab.
-		this.$currentTab_ = ui.panel;
-		return false;
-	};
-
-
-	/**
-	 * Callback that processes AJAX data returned by the server before
-	 * it is displayed in a wizard tab.
-	 *
-	 * @param {Object} ajaxOptions The options object from which the
-	 *  callback originated.
-	 * @param {Object} jsonData The data returned from an AJAX call.
-	 * @return {string} The wizard page mark-up.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.dataFilter =
-			function(ajaxOptions, jsonData) {
-
-		var data = $.parseJSON(jsonData);
-		if (data.status === true) {
-			return data.content;
-		} else {
-			alert(data.content);
-		}
-		return '';
-	};
-
-
-	/**
 	 * Handle the user's request to advance the wizard.
 	 *
 	 * NB: Please do not override this method. This is an internal event
@@ -154,7 +95,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// tab's first child to give it a chance to veto the advance
 		// request.
 		var advanceRequestedEvent = new $.Event('wizardAdvanceRequested');
-		this.$currentTab_.children().first().trigger(advanceRequestedEvent);
+		this.getCurrentTab().children().first().trigger(advanceRequestedEvent);
 
 		// Trigger the wizardAdvance/wizardClose event if the
 		// advanceRequestEvent handler didn't prevent it.
@@ -164,7 +105,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			if (currentStep < lastStep) {
 				this.getHtmlElement().trigger('wizardAdvance');
 			} else {
-				this.getHtmlElement().trigger('wizardClose');
+				this.getHtmlElement().trigger('modalClose');
 			}
 		}
 		return false;
@@ -189,7 +130,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// tab's first child to give it a chance to veto the cancel
 		// request.
 		var cancelRequestedEvent = new $.Event('wizardCancelRequested');
-		this.$currentTab_.children().first().trigger(cancelRequestedEvent);
+		this.getCurrentTab().children().first().trigger(cancelRequestedEvent);
 
 		// Trigger the wizardCancel event if the
 		// cancelRequestEvent handler didn't prevent it.
@@ -258,7 +199,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			function(wizardElement, event) {
 
 		// The default implementation simply closes the wizard.
-		this.getHtmlElement().trigger('wizardClose');
+		this.getHtmlElement().trigger('modalClose');
 	};
 
 

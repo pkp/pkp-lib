@@ -7,7 +7,7 @@
  * @class RevisionConfirmationHandler
  * @ingroup js_controllers_files_submissionFiles_form
  *
- * @brief Revision confirmation form handler.
+ * @brief Revision confirmation tab handler.
  */
 (function($) {
 

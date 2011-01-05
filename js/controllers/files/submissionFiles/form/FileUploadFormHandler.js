@@ -14,7 +14,7 @@ jQuery.pkp.controllers.files.submissionFiles.form =
  * @class FileUploadFormHandler
  * @ingroup js_controllers_files_submissionFiles_form
  *
- * @brief File upload form handler.
+ * @brief File upload tab handler.
  */
 (function($) {
 

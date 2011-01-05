@@ -6,7 +6,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 			{ submissionFiles: { } };
 
 /**
- * @file js/controllers/FileUploadWizardHandler.js
+ * @file js/controllers/files/submissionFiles/FileUploadWizardHandler.js
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -72,17 +72,19 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 	 * @inheritDoc
 	 */
 	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
-			prototype.wizardCancel = function(wizardElement, event) {
+			prototype.wizardCancelRequested = function(wizardElement, event) {
 
 		// If the user presses cancel after uploading a file then delete the file.
 		if (this.uploadedFile_) {
 			$.post(this.deleteUrl_, this.uploadedFile_,
 					$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 							wizardElement, event), 'json');
-		} else {
-			// Just call the superclass implementation.
-			this.parent('wizardCancel', wizardElement, event);
+
+			// Do not cancel immediately.
+			event.preventDefault();
 		}
+
+		this.parent('wizardCancelRequested', wizardElement, event);
 	};
 
 

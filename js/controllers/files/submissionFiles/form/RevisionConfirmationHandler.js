@@ -30,9 +30,6 @@
 
 		// Subscribe to wizard events.
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
-
-		// Enable the wizard's advance button.
-		$form.trigger('enableAdvance');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler,
@@ -55,12 +52,10 @@
 		var revisedFileId = parseInt(
 				$confirmationForm.find('#revisedFileId').val(), 10);
 		if (revisedFileId > 0) {
-			// Confirm the revision if one has been chosen.
+			// Submit the form.
 			$confirmationForm.submit();
+			event.preventDefault();
 		}
-
-		// Do not automatically advance.
-		event.preventDefault();
 	};
 
 
@@ -70,14 +65,13 @@
 	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
 			prototype.handleResponse = function(formElement, jsonData) {
 
-		if (this.parent('handleResponse', formElement, jsonData)) {
+		if (jsonData.status === true) {
 			// Trigger the file uploaded event.
 			var $confirmationForm = this.getHtmlElement();
 			$confirmationForm.trigger('fileUploaded', jsonData.uploadedFile);
-
-			// Trigger the file upload complete event.
-			$confirmationForm.trigger('fileUploadComplete');
 		}
+
+		this.parent('handleResponse', formElement, jsonData);
 	};
 
 

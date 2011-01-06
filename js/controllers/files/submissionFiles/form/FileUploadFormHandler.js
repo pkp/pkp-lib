@@ -185,8 +185,8 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 			$uploadForm.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
-				// Trigger the file upload complete event.
-				$uploadForm.trigger('fileUploadComplete');
+				// Send the form submission event.
+				$uploadForm.trigger('formSubmitted');
 			} else {
 				// Display the revision confirmation form.
 				$uploadForm.replaceWith(jsonData.content);

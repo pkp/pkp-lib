@@ -32,12 +32,16 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 
 		this.parent($wizard, options);
 
-		// Save the delete url.
+		// Save action urls.
 		this.deleteUrl_ = options.deleteUrl;
+		this.metadataUrl_ = options.metadataUrl;
+		this.finishUrl_ = options.finishUrl;
 
 		// Bind events of the nested widgets.
 		this.bind('fileUploaded', this.handleFileUploaded);
-		this.bind('fileUploadComplete', this.handleFileUploadComplete);
+
+		// Initially disable the continue button.
+		this.getContinueButton().button('disable');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler,
@@ -57,6 +61,24 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 
 
 	/**
+	 * The URL from which to load the meta-data form.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
+			prototype.metadataUrl_ = '';
+
+
+	/**
+	 * The URL from which to load the finish form.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
+			prototype.finishUrl_ = '';
+
+
+	/**
 	 * Information about the uploaded file (once there is one).
 	 * @private
 	 * @type {Object}
@@ -68,6 +90,57 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 	//
 	// Public methods
 	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
+			prototype.tabsSelect = function(tabsElement, event, ui) {
+
+		// The last two tabs require a file to be uploaded.
+		if (ui.index > 0) {
+			if (!this.uploadedFile_) {
+				throw Error('Uploaded file missing!');
+			}
+
+			// Set the correct URLs.
+			var $wizard = this.getHtmlElement(), newUrl = '';
+			switch (ui.index) {
+				case 1:
+					newUrl = this.metadataUrl_;
+					break;
+
+				case 2:
+					newUrl = this.finishUrl_;
+					break;
+
+				default:
+					throw Error('Unsupported tab index.');
+			}
+
+			newUrl = newUrl + '&fileId=' + this.uploadedFile_.fileId;
+			$wizard.tabs('url', ui.index, newUrl);
+		}
+
+		return this.parent('tabsSelect', tabsElement, event, ui);
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
+			prototype.formValid = function(formElement, event) {
+
+		// Ignore form validation events for the upload form.
+		if (this.getCurrentStep() === 0 &&
+				!this.getHtmlElement().find('#uploadConfirmationForm')) {
+			return;
+		}
+
+		this.parent('formValid', formElement, event);
+	};
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -102,9 +175,9 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 			prototype.wizardCancelSuccess = function(wizardElement, event, jsonData) {
 
 		if (jsonData.status === true) {
-			// Delete the uploaded file info and return to the wizard cancel method.
+			// Delete the uploaded file info and cancel the wizard.
 			this.uploadedFile_ = null;
-			this.wizardCancel(wizardElement, event);
+			this.getHtmlElement().trigger('wizardCancel');
 		} else {
 			alert(jsonData.content);
 		}
@@ -127,23 +200,6 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 
 		// Save the uploaded file information.
 		this.uploadedFile_ = uploadedFile;
-	};
-
-
-	/**
-	 * Handle the "file upload complete" event triggered by the
-	 * file upload/revision confirmation forms when the file
-	 * upload step is completed.
-	 *
-	 * @param {$.pkp.controllers.FormHandler} callingForm The form
-	 *  that triggered the event.
-	 * @param {Event} event The upload complete event.
-	 */
-	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
-			prototype.handleFileUploadComplete = function(callingForm, event) {
-
-		// Advance the wizard to the meta-data step.
-		this.getHtmlElement().trigger('wizardAdvance');
 	};
 
 

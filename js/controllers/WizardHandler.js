@@ -27,8 +27,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *  represents the wizard.
 	 * @param {Object} options Wizard options.
 	 */
-	$.pkp.controllers.WizardHandler = function($wizard, options) {
-		this.parent($wizard, options);
+	$.pkp.controllers.WizardHandler = function($wizard) {
+		this.parent($wizard);
 
 		// Disable all but the first step.
 		var disabledSteps = [];

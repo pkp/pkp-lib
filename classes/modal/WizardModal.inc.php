@@ -12,9 +12,9 @@
  */
 
 
-import('lib.pkp.classes.modal.TabbedModal');
+import('lib.pkp.classes.modal.AjaxModal');
 
-class WizardModal extends TabbedModal {
+class WizardModal extends AjaxModal {
 	/**
 	 * Constructor
 	 * @param $url string
@@ -23,7 +23,7 @@ class WizardModal extends TabbedModal {
 	 * @param $canClose boolean (optional)
 	 */
 	function WizardModal($url, $title = null, $titleIcon = null, $canClose = true) {
-		parent::TabbedModal($url, $title, $titleIcon, $canClose);
+		parent::AjaxModal($url, $title, $titleIcon, $canClose);
 	}
 
 

@@ -30,8 +30,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.TabbedHandler = function($modal, options) {
 		this.parent($modal, options);
 
-		// Attach the "tabs show" event handler.
+		// Attach the tabs event handlers.
 		this.bind('tabsshow', this.tabsShow);
+		this.bind('tabsselect', this.tabsSelect);
 
 		// Render the tabs as jQueryUI tabs.
 		$modal.tabs({
@@ -61,20 +62,37 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	// Public methods
 	//
 	/**
+	 * Event handler that is called when a tab is selected.
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 * @return {boolean} Should return true to continue tab loading.
+	 */
+	$.pkp.controllers.TabbedHandler.prototype.tabsSelect =
+			function(tabsElement, event, ui) {
+
+		// The default implementation does nothing.
+		return true;
+	};
+
+
+	/**
 	 * Event handler that is called when a tab is shown.
 	 *
 	 * @param {HTMLElement} tabsElement The tab element that triggered
 	 *  the event.
 	 * @param {Event} event The triggered event.
 	 * @param {Object} ui The tabs ui data.
-	 * @return {boolean} Should return false to stop event propagation.
+	 * @return {boolean} Should return true to continue tab loading.
 	 */
 	$.pkp.controllers.TabbedHandler.prototype.tabsShow =
 			function(tabsElement, event, ui) {
 
 		// Save a reference to the current tab.
-		this.$currentTab_ = ui.panel;
-		return false;
+		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
+		return true;
 	};
 
 

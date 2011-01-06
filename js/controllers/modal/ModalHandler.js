@@ -127,11 +127,13 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * close icon is clicked.
 	 *
 	 * @protected
+	 * @param {HTMLElement} buttonElement The close button.
 	 * @param {Event} event The close button click event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
-			function(event) {
+			function(buttonElement, event) {
+
 		var $dialogElement = this.getHtmlElement();
 		$dialogElement.dialog('close');
 		return false;

@@ -42,6 +42,12 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Bind the wizard events to handlers.
 		this.bindWizardEvents();
+
+		// Assume that we usually have forms in the wizard
+		// tabs and bind to form events.
+		this.bind('formValid', this.formValid);
+		this.bind('formInvalid', this.formInvalid);
+		this.bind('formSubmitted', this.formSubmitted);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.WizardHandler, $.pkp.controllers.TabbedHandler);
@@ -95,21 +101,61 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// tab's children to give it a chance to veto the advance
 		// request.
 		var advanceRequestedEvent = new $.Event('wizardAdvanceRequested');
-		advanceRequestedEvent.stopPropagation();
-		this.getCurrentTab().children().trigger(advanceRequestedEvent);
+		this.getCurrentTab().children().first().trigger(advanceRequestedEvent);
 
-		// Trigger the wizardAdvance/wizardClose event if the
-		// advanceRequestEvent handler didn't prevent it.
+		// Advance the wizard if the advanceRequestEvent handler didn't
+		// prevent it.
 		if (!advanceRequestedEvent.isDefaultPrevented()) {
-			var currentStep = this.getCurrentStep(),
-					lastStep = this.getNumberOfSteps() - 1;
-			if (currentStep < lastStep) {
-				this.getHtmlElement().trigger('wizardAdvance');
-			} else {
-				this.getHtmlElement().trigger('wizardClose');
-			}
+			this.advanceOrClose_();
 		}
 		return false;
+	};
+
+
+	/**
+	 * Handle "form valid" events that may be triggered by forms in the
+	 * wizard tab.
+	 *
+	 * @param {HTMLElement} formElement The form that triggered the event.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.formValid =
+			function(formElement, event) {
+
+		// The default implementation enables the continue button
+		// as soon as the form validates.
+		this.getContinueButton().button('enable');
+	};
+
+
+	/**
+	 * Handle "form invalid" events that may be triggered by forms in the
+	 * wizard tab.
+	 *
+	 * @param {HTMLElement} formElement The form that triggered the event.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.formInvalid =
+			function(formElement, event) {
+
+		// The default implementation disables the continue button
+		// as if the form no longer validates.
+		this.getContinueButton().button('disable');
+	};
+
+
+	/**
+	 * Handle "form submitted" events that may be triggered by forms in the
+	 * wizard tab.
+	 *
+	 * @param {HTMLElement} formElement The form that triggered the event.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.formSubmitted =
+			function(formElement, event) {
+
+		// The default implementation advances the wizard.
+		this.advanceOrClose_();
 	};
 
 
@@ -131,8 +177,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// tab's children to give it a chance to veto the cancel
 		// request.
 		var cancelRequestedEvent = new $.Event('wizardCancelRequested');
-		cancelRequestedEvent.stopPropagation();
-		this.getCurrentTab().children().trigger(cancelRequestedEvent);
+		this.getCurrentTab().children().first().trigger(cancelRequestedEvent);
 
 		// Trigger the wizardCancel event if the
 		// cancelRequestEvent handler didn't prevent it.
@@ -144,33 +189,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * Handle the wizard "enable advance" event.
-	 *
-	 * Widgets within the wizard should trigger this event as soon
-	 * as all pre-conditions are given (e.g. valid data) to allow
-	 * the user to advance.
-	 *
-	 * You usually don't need to override this method. It simply
-	 * activates the continue button which is disabled by default.
-	 *
-	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
-	 *  which the event was triggered.
-	 * @param {Event} event The triggered event.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.enableAdvance =
-			function(wizardElement, event) {
-
-		// The default implementation activates the continue button.
-		this.getContinueButton().button('enable');
-	};
-
-
-	/**
 	 * Handle the wizard "cancel requested" event.
 	 *
 	 * Please override this method to clean up before the wizard is
 	 * being canceled. You can execute event.preventDefault() if you
 	 * don't want the wizard to cancel.
+	 *
+	 * NB: This is a fallback handler that will be called if no other
+	 * event handler calls the event.stopPropagation() method.
 	 *
 	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
 	 *  which the event was triggered.
@@ -185,31 +211,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * Handle the wizard "cancel" event.
-	 *
-	 * You can override this method to perform custom clean-up before
-	 * the wizard closes.
-	 *
-	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
-	 *  which the event was triggered.
-	 * @param {Event} event The triggered event.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.wizardCancel =
-			function(wizardElement, event) {
-
-		// The default implementation simply closes the wizard.
-		this.getHtmlElement().trigger('wizardClose');
-	};
-
-
-	/**
 	 * Handle the wizard "advance requested" event.
 	 *
-	 * Please override this method to make validation checks or submit
-	 * data to the server before you let the wizard advance to the next
+	 * Please override this method to make custom validation checks or
+	 * place server requests before you let the wizard advance to the next
 	 * step. You can execute event.preventDefault() if you don't want
 	 * the wizard to advance because you encountered errors during
 	 * validation.
+	 *
+	 * NB: This is a fallback handler that will be called if no other
+	 * event handler calls the event.stopPropagation() method.
 	 *
 	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
 	 *  which the event was triggered.
@@ -218,9 +229,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.WizardHandler.prototype.wizardAdvanceRequested =
 			function(wizardElement, event) {
 
-		// The default implementation does nothing which means that
-		// the wizard will advance to the next step without validation
-		// check.
+		// If we find a form then submit it.
+		var $form = this.getForm_();
+		if ($form) {
+			// Try to submit the form.
+			$form.submit();
+
+			// Prevent default event handling so that the form
+			// can do its validation checks first.
+			event.preventDefault();
+		}
 	};
 
 
@@ -267,7 +285,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// continue button to finish.
 		if (targetStep === lastStep) {
 			var $continueButton = this.getContinueButton();
-			$continueButton.text(this.getFinishButtonText());
+			$continueButton.button('option', 'label', this.getFinishButtonText());
 		}
 	};
 
@@ -280,9 +298,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @protected
 	 */
 	$.pkp.controllers.WizardHandler.prototype.bindWizardEvents = function() {
-		this.bind('enableAdvance', this.enableAdvance);
 		this.bind('wizardCancelRequested', this.wizardCancelRequested);
-		this.bind('wizardCancel', this.wizardCancel);
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 		this.bind('wizardAdvance', this.wizardAdvance);
 	};
@@ -344,6 +360,42 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	// Private methods
 	//
 	/**
+	 * Return the current form (if any).
+	 *
+	 * @private
+	 * @return {?jQuery} The form (if any).
+	 */
+	$.pkp.controllers.WizardHandler.prototype.getForm_ = function() {
+		// If we find a form in the current tab then return it.
+		var $tabContent = this.getCurrentTab().children().first();
+		if ($tabContent.is('form')) {
+			return $tabContent;
+		}
+
+		return null;
+	};
+
+
+	/**
+	 * Continue to the next step or, if this is the last step,
+	 * then close the wizard.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.WizardHandler.prototype.advanceOrClose_ =
+			function() {
+		var currentStep = this.getCurrentStep(),
+				lastStep = this.getNumberOfSteps() - 1;
+
+		if (currentStep < lastStep) {
+			this.getHtmlElement().trigger('wizardAdvance');
+		} else {
+			this.getHtmlElement().trigger('wizardClose');
+		}
+	};
+
+
+	/**
 	 * Add wizard buttons to the wizard.
 	 *
 	 * @private
@@ -371,12 +423,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			// Add continue/finish button.
 			var $continueButton = $(['<button id="continueButton"',
 				'class="button align_right">', options.continueButtonText,
-				'</button>'].join(''));
+				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
 
 			$continueButton.
-					// The continue-button is disabled by default.
-					button({disabled: true}).
 					// Attach the continue request handler.
 					bind('click',
 							this.callbackWrapper(this.continueRequest));

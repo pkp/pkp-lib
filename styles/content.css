@@ -1023,6 +1023,12 @@ ul.tagit li:after, ul.tagit li div:after {
 	float: right;
 }
 
+.modalTitleBar .informationCenter {
+	background: url(../templates/images/structure/grid_notes.png) no-repeat;
+	width: 28px;
+	height: 42px;
+}
+
 .modalTitleBar .fileManagement {
 	background: url(../templates/images/structure/response_warning.png) no-repeat;
 	width: 32px;

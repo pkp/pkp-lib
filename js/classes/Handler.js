@@ -385,7 +385,7 @@
 	 * @protected
 	 * @param {string} eventType The event to be triggered.
 	 * @param {Object=} data Additional event data.
-	 * @param {boolean} publicOnly Whether the event should be
+	 * @param {boolean=} publicOnly Whether the event should be
 	 *  triggered on this handler also (false by default).
 	 */
 	$.pkp.classes.Handler.prototype.trigger =

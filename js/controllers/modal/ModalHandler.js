@@ -134,8 +134,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
 			function(buttonElement, event) {
 
-		var $dialogElement = this.getHtmlElement();
-		$dialogElement.dialog('close');
+		// Close the modal dialog.
+		var $modalElement = this.getHtmlElement();
+		$modalElement.dialog('close');
 		return false;
 	};
 

@@ -20,6 +20,9 @@ class LinkAction {
 	/** @var string the id of the action */
 	var $_id;
 
+	/** @var LinkActionRequest The action to be taken when the link action is activated */
+	var $_actionRequest;
+
 	/** @var string A translation key defining the title of the action. */
 	var $_title;
 
@@ -29,13 +32,16 @@ class LinkAction {
 	/**
 	 * Constructor
 	 * @param $id string
+	 * @param $actionRequest LinkActionRequest The action to be taken when the link action is activated.
 	 * @param $title string (optional) A translation key defining
 	 *  the title of the action.
 	 * @param $image string (optional) The name of an icon for the
 	 *  action.
 	 */
-	function LinkAction($id, $title = null, $image = null) {
+	function LinkAction($id, &$actionRequest, $title = null, $image = null) {
 		$this->_id = $id;
+		assert(is_a($actionRequest, 'LinkActionRequest'));
+		$this->_actionRequest =& $actionRequest;
 		$this->_title = $title;
 		$this->_image = $image;
 	}
@@ -53,6 +59,14 @@ class LinkAction {
 	}
 
 	/**
+	 * Get the action handler.
+	 * @return LinkActionRequest
+	 */
+	function &getActionRequest() {
+		return $this->_actionRequest;
+	}
+
+	/**
 	 * Get the action title.
 	 * @return string
 	 */
@@ -66,19 +80,6 @@ class LinkAction {
 	 */
 	function getImage() {
 		return $this->_image;
-	}
-
-
-	//
-	// Protected methods
-	//
-	/**
-	 * Get the template responsible for
-	 * rendering this link action.
-	 * @return string
-	 */
-	function getTemplate() {
-		assert(false);
 	}
 }
 

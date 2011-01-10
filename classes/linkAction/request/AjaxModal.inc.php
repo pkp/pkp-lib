@@ -1,18 +1,18 @@
 <?php
 /**
- * @file classes/modal/AjaxModal.inc.php
+ * @file classes/linkAction/request/AjaxModal.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AjaxModal
- * @ingroup modal
+ * @ingroup linkAction_request
  *
  * @brief A modal that retrieves its content from via AJAX.
  */
 
 
-import('lib.pkp.classes.modal.Modal');
+import('lib.pkp.classes.linkAction.request.Modal');
 
 class AjaxModal extends Modal {
 	/** @var string The URL to be loaded into the modal. */
@@ -45,20 +45,14 @@ class AjaxModal extends Modal {
 
 
 	//
-	// Overridden public methods
+	// Overridden methods from LinkActionRequest
 	//
 	/**
-	 * @see CancellableModal::getJSHandler()
+	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
-	function getJSHandler() {
-		return '$.pkp.controllers.modal.AjaxModalHandler';
-	}
-
-	/**
-	 * @see Modal::getLocalizedModalOptions()
-	 */
-	function getLocalizedModalOptions() {
-		return array_merge(parent::getLocalizedModalOptions(), array(
+	function getLocalizedOptions() {
+		return array_merge(parent::getLocalizedOptions(), array(
+				'modalHandler' => '$.pkp.controllers.modal.AjaxModalHandler',
 				'url' => $this->getUrl()));
 	}
 }

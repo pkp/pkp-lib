@@ -16,6 +16,9 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridCellProvider');
 
+// import UI base classes
+import('lib.pkp.classes.linkAction.request.AjaxAction');
+
 // import citation grid specific classes
 import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
 
@@ -130,12 +133,14 @@ class PKPCitationGridHandler extends GridHandler {
 		// Grid actions
 		$router =& $request->getRouter();
 		$this->addAction(
-			new AjaxLinkAction(
+			new LinkAction(
 				'addCitation',
-				LINK_ACTION_TYPE_GET,
-				$router->url($request, null, null, 'addCitation', null,
-						array('assocId' => $this->getAssocId())),
-				'citationEditorDetailCanvas',
+				new AjaxAction(
+					LINK_ACTION_TYPE_GET,
+					$router->url($request, null, null, 'addCitation', null,
+							array('assocId' => $this->getAssocId())),
+					'citationEditorDetailCanvas'
+				),
 				'submission.citations.editor.citationlist.newCitation', 'add'
 			),
 			GRID_ACTION_POSITION_LASTCOL

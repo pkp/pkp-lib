@@ -1,18 +1,18 @@
 <?php
 /**
- * @file classes/modal/WizardModal.inc.php
+ * @file classes/linkAction/request/WizardModal.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WizardModal
- * @ingroup modal
+ * @ingroup linkAction_request
  *
  * @brief A modal that contains a wizard retrieved via AJAX.
  */
 
 
-import('lib.pkp.classes.modal.AjaxModal');
+import('lib.pkp.classes.linkAction.request.AjaxModal');
 
 class WizardModal extends AjaxModal {
 	/**
@@ -28,13 +28,15 @@ class WizardModal extends AjaxModal {
 
 
 	//
-	// Overridden public methods
+	// Overridden methods from LinkActionRequest
 	//
 	/**
-	 * @see CancellableModal::getJSHandler()
+	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
-	function getJSHandler() {
-		return '$.pkp.controllers.modal.WizardModalHandler';
+	function getLocalizedOptions() {
+		$options = parent::getLocalizedOptions();
+		$options['modalHandler'] = '$.pkp.controllers.modal.WizardModalHandler';
+		return $options;
 	}
 }
 

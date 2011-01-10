@@ -1,21 +1,20 @@
 <?php
 /**
- * @defgroup modal
- */
-
-/**
- * @file classes/modal/Modal.inc.php
+ * @file classes/linkAction/request/Modal.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Modal
- * @ingroup modal
+ * @ingroup linkAction_request
  *
  * @brief Abstract base class for all modal dialogs.
  */
 
-class Modal {
+
+import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+
+class Modal extends LinkActionRequest {
 	/** @var string A translation key defining the title of the modal. */
 	var $_title;
 
@@ -27,11 +26,12 @@ class Modal {
 
 	/**
 	 * Constructor
-	 * @param $title string (optional)
-	 * @param $titleIcon string (optional)
-	 * @param $canClose boolean (optional)
+	 * @param $title string (optional) The modal title.
+	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
+	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
 	function Modal($title = null, $titleIcon = null, $canClose = true) {
+		parent::LinkActionRequest();
 		$this->_title = $title;
 		$this->_titleIcon = $titleIcon;
 		$this->_canClose = $canClose;
@@ -67,25 +67,19 @@ class Modal {
 
 
 	//
-	// Public methods
+	// Overridden methods from LinkActionRequest
 	//
 	/**
-	 * Return the JavaScript controller that will
-	 * handle this modal.
-	 * @return string
+	 * @see LinkActionRequest::getJSLinkActionRequest()
 	 */
-	function getJSHandler() {
-		// Must be implemented by sub-classes.
-		assert(false);
+	function getJSLinkActionRequest() {
+		return '$.pkp.classes.linkAction.ModalRequest';
 	}
 
 	/**
-	 * Return the options to be passed on to the
-	 * modal dialog.
-	 * @return array An array describing the dialog
-	 *  options.
+	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
-	function getLocalizedModalOptions() {
+	function getLocalizedOptions() {
 		return array(
 			'title' => Locale::translate($this->getTitle()),
 			'titleIcon' => $this->getTitleIcon(),

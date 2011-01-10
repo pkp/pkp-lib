@@ -27,7 +27,7 @@
 						{/if}
 						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 					{else}
-						{include file=$action->getTemplate() action=$action}
+						{include file="linkAction/linkAction.tpl" action=$action}
 					{/if}
 				{/foreach}
 			</span>
@@ -54,7 +54,7 @@
 											{/if}
 											{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 										{else}
-											{include file=$action->getTemplate() action=$action}
+											{include file="linkAction/linkAction.tpl" action=$action}
 										{/if}
 									{/foreach}
 								</span>
@@ -99,7 +99,7 @@
 					{/if}
 					{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 				{else}
-					{include file=$action->getTemplate() action=$action}
+					{include file="linkAction/linkAction.tpl" action=$action}
 				{/if}
 			{/foreach}
 		</div>

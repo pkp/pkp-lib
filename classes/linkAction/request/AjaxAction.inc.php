@@ -1,22 +1,23 @@
 <?php
 /**
- * @file classes/linkAction/AjaxLinkAction.inc.php
+ * @file classes/linkAction/request/AjaxAction.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AjaxLinkAction
- * @ingroup linkAction
+ * @class AjaxAction
+ * @ingroup linkAction_request
  *
  * @brief Class defining an AJAX action.
  */
 
+
 define('LINK_ACTION_TYPE_GET', 'get');
 define('LINK_ACTION_TYPE_POST', 'post');
 
-import('lib.pkp.classes.linkAction.LinkAction');
+import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
-class AjaxLinkAction extends LinkAction {
+class AjaxAction extends LinkActionRequest {
 	/** @var string The LINK_ACTION_TYPE_(GET|POST) type of this action. */
 	var $_type;
 
@@ -28,15 +29,12 @@ class AjaxLinkAction extends LinkAction {
 
 	/**
 	 * Constructor
-	 * @param $id string
 	 * @param $type string LINK_ACTION_TYPE_...
 	 * @param $url string Target URL
 	 * @param $actOn string ID of element to act on
-	 * @param $title string (optional)
-	 * @param $image string (optional)
 	 */
-	function AjaxLinkAction($id, $type, $url, $actOn, $title = null, $image = null) {
-		parent::LinkAction($id, $title, $image);
+	function AjaxAction($type, $url, $actOn) {
+		parent::LinkActionRequest();
 		$this->_type = $type;
 		$this->_url = $url;
 		$this->_actOn = $actOn;
@@ -70,14 +68,26 @@ class AjaxLinkAction extends LinkAction {
 		return $this->_actOn;
 	}
 
+
 	//
-	// Overridden protected methods from LinkAction
+	// Overridden protected methods from LinkActionRequest
 	//
 	/**
-	 * @see LinkAction::getTemplate()
+	 * @see LinkActionRequest::getJSLinkActionRequest()
 	 */
-	function getTemplate() {
-		return 'linkAction/ajaxLinkAction.tpl';
+	function getJSLinkActionRequest() {
+		return '$.pkp.classes.linkAction.AjaxRequest';
+	}
+
+	/**
+	 * @see LinkActionRequest::getLocalizedOptions()
+	 */
+	function getLocalizedOptions() {
+		return array(
+			'type' => $this->getType(),
+			'url' => $this->getUrl(),
+			'actOn' => $this->getActOn()
+		);
 	}
 }
 

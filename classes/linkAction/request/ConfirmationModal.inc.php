@@ -1,20 +1,23 @@
 <?php
 /**
- * @file classes/modal/ConfirmationModal.inc.php
+ * @file classes/linkAction/request/ConfirmationModal.inc.php
  *
  * Copyright (c) 2000-2010 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConfirmationModal
- * @ingroup modal
+ * @ingroup linkAction_request
  *
  * @brief Class defining a simple confirmation modal.
  */
 
 
-import('lib.pkp.classes.modal.Modal');
+import('lib.pkp.classes.linkAction.request.Modal');
 
 class ConfirmationModal extends Modal {
+	/** @var string A URL to be called when the confirmation button is clicked. */
+	var $_remoteAction;
+
 	/**
 	 * @var string A translation key defining the text for the confirmation
 	 * button of the modal.
@@ -37,14 +40,17 @@ class ConfirmationModal extends Modal {
 	 * Constructor
 	 * @param $dialogText string (optional)
 	 * @param $title string (optional)
+	 * @param $remoteAction string (optional) A URL to be called
+	 *  when the confirmation button is clicked.
 	 * @param $titleIcon string (optional)
 	 * @param $okButton string (optional)
 	 * @param $cancelButton string (optional)
 	 * @param $canClose boolean (optional)
 	 */
-	function ConfirmationModal($dialogText, $title = null, $titleIcon = null, $okButton = 'common.ok', $cancelButton = 'common.cancel', $canClose = true) {
+	function ConfirmationModal($dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = 'common.ok', $cancelButton = 'common.cancel', $canClose = true) {
 		parent::Modal($title, $titleIcon, $canClose);
 
+		$this->_remoteAction = $remoteAction;
 		$this->_okButton = $okButton;
 		$this->_cancelButton = $cancelButton;
 		$this->_dialogText = $dialogText;
@@ -54,6 +60,14 @@ class ConfirmationModal extends Modal {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * Get the remote action.
+	 * @return string
+	 */
+	function getRemoteAction() {
+		return $this->_remoteAction;
+	}
+
 	/**
 	 * Get the translation key for the confirmation
 	 * button text.
@@ -83,20 +97,15 @@ class ConfirmationModal extends Modal {
 
 
 	//
-	// Overridden public methods
+	// Overridden methods from LinkActionRequest
 	//
 	/**
-	 * @see Modal::getJSHandler()
+	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
-	function getJSHandler() {
-		return '$.pkp.controllers.modal.ConfirmationModalHandler';
-	}
-
-	/**
-	 * @see Modal::getLocalizedModalOptions()
-	 */
-	function getLocalizedModalOptions() {
-		return array_merge(parent::getLocalizedModalOptions(), array(
+	function getLocalizedOptions() {
+		return array_merge(parent::getLocalizedOptions(), array(
+				'modalHandler' => '$.pkp.controllers.modal.ConfirmationModalHandler',
+				'remoteAction' => $this->getRemoteAction(),
 				'okButton' => Locale::translate($this->getOkButton()),
 				'cancelButton' => Locale::translate($this->getCancelButton()),
 				'dialogText' => Locale::translate($this->getDialogText())));

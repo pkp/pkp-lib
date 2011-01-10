@@ -29,18 +29,6 @@ class CategoryGridHandler extends GridHandler {
 
 
 	//
-	// Overridden methods from PKPHandler
-	//
-	/**
-	 * @see PKPHandler::initialize()
-	 * @param $request PKPRequest
-	 */
-	function initialize(&$request) {
-		parent::initialize($request);
-	}
-
-
-	//
 	// Public handler methods
 	//
 	/**
@@ -64,39 +52,7 @@ class CategoryGridHandler extends GridHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
-		// Let the view render the grid
 		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
-		return $json->getString();
-	}
-
-	/**
-	 * Render a row and send it to the client.
-	 * @return string the row HTML
-	 */
-	function fetchRow(&$args, &$request) {
-		// Instantiate the requested row
-		$row =& $this->getRequestedRow($request, $args);
-
-		// Render the requested row
-		$json = new JSON('true', $this->_renderRowInternally($request, $row));
-		return $json->getString();
-	}
-
-	/**
-	 * Render a cell and send it to the client
-	 * @return string the row HTML
-	 */
-	function fetchCell(&$args, &$request) {
-		// Check the requested column
-		if(!isset($args['columnId'])) fatalError('Missing column id!');
-		if(!$this->hasColumn($args['columnId'])) fatalError('Invalid column id!');
-		$column =& $this->getColumn($args['columnId']);
-
-		// Instantiate the requested row
-		$row =& $this->getRequestedRow($request, $args);
-
-		// Render the cell
-		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
 		return $json->getString();
 	}
 
@@ -114,59 +70,6 @@ class CategoryGridHandler extends GridHandler {
 		//provide a sensible default category row definition
 		$row = new GridCategoryRow();
 		return $row;
-	}
-
-	/**
-	 * Tries to identify the data element in the grids
-	 * data source that corresponds to the requested row id.
-	 * Raises a fatal error if such an element cannot be
-	 * found.
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @return GridRow the requested grid row, already
-	 *  configured with id and data.
-	 */
-	function &getRequestedRow($request, $args) {
-		// Instantiate a new row
-		$row =& $this->getRowInstance();
-		$row->setGridId($this->getId());
-
-		// Try to retrieve a row id from $args if it is present
-		if(!isset($args['rowId'])) fatalError('Missing row id!');
-		$rowId = $args['rowId'];
-		$row->setId($rowId);
-
-		// Retrieve row data for the requested row id
-		$dataElement = $this->getRowDataElement($rowId);
-		if (is_null($dataElement)) fatalError('Invalid row id!');
-		$row->setData($dataElement);
-
-		// Initialize the row
-		$row->initialize($request);
-
-		return $row;
-	}
-
-	/**
-	 * Retrieve a single data element from the grid's data
-	 * source corresponding to the given row id. If none is
-	 * found then return null.
-	 * @param $rowId
-	 * @return mixed
-	 */
-	function &getRowDataElement($rowId) {
-		$elementIterator =& $this->getData();
-		if (is_a($elementIterator, 'DAOResultFactory')) {
-			$dataArray =& $elementIterator->toAssociativeArray('id');
-		} else {
-			$dataArray =& $elementIterator->toArray();
-		}
-		if (!isset($dataArray[$rowId])) {
-			$nullVar = null;
-			return $nullVar;
-		} else {
-			return $dataArray[$rowId];
-		}
 	}
 
 

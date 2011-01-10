@@ -28,7 +28,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.FormHandler = function($form, options) {
-		this.parent($form);
+		this.parent($form, options);
 
 		// Check whether we really got a form.
 		if (!$form.is('form')) {
@@ -44,9 +44,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Initial form validation.
 		if (validator.checkForm()) {
-			this.getHtmlElement().trigger('formValid');
+			this.trigger('formValid');
 		} else {
-			this.getHtmlElement().trigger('formInvalid');
+			this.trigger('formInvalid');
 		}
 	};
 	$.pkp.classes.Helper.inherits(
@@ -74,10 +74,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// Emit validation events.
 		if (validator.checkForm()) {
 			// Trigger a "form valid" event.
-			this.getHtmlElement().trigger('formValid');
+			this.trigger('formValid');
 		} else {
 			// Trigger a "form invalid" event.
-			this.getHtmlElement().trigger('formInvalid');
+			this.trigger('formInvalid');
 		}
 	};
 
@@ -117,19 +117,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.FormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 
-		// The default implementation handles JSON errors.
-		var $form = this.getHtmlElement();
-		if (jsonData.status === true) {
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
 			if (jsonData.content !== '') {
 				// Redisplay the form.
+				var $form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);
 			} else {
 				// Trigger the "form submitted" event.
-				$form.trigger('formSubmitted');
+				this.trigger('formSubmitted');
 			}
-		} else {
-			// Display an error message.
-			alert(jsonData.content);
 		}
 		return jsonData.status;
 	};

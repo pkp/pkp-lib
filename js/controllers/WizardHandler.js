@@ -27,8 +27,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *  represents the wizard.
 	 * @param {Object} options Wizard options.
 	 */
-	$.pkp.controllers.WizardHandler = function($wizard) {
-		this.parent($wizard);
+	$.pkp.controllers.WizardHandler = function($wizard, options) {
+		this.parent($wizard, options);
 
 		// Disable all but the first step.
 		var disabledSteps = [];
@@ -182,7 +182,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// Trigger the wizardCancel event if the
 		// cancelRequestEvent handler didn't prevent it.
 		if (!cancelRequestedEvent.isDefaultPrevented()) {
-			this.getHtmlElement().trigger('wizardCancel');
+			this.trigger('wizardCancel');
 		}
 		return false;
 	};
@@ -388,9 +388,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				lastStep = this.getNumberOfSteps() - 1;
 
 		if (currentStep < lastStep) {
-			this.getHtmlElement().trigger('wizardAdvance');
+			this.trigger('wizardAdvance');
 		} else {
-			this.getHtmlElement().trigger('wizardClose');
+			this.trigger('wizardClose');
 		}
 	};
 

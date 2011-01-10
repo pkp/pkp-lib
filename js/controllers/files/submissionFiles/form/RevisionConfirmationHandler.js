@@ -67,8 +67,7 @@
 
 		if (jsonData.status === true) {
 			// Trigger the file uploaded event.
-			var $confirmationForm = this.getHtmlElement();
-			$confirmationForm.trigger('fileUploaded', jsonData.uploadedFile);
+			this.trigger('fileUploaded', jsonData.uploadedFile);
 		}
 
 		this.parent('handleResponse', formElement, jsonData);

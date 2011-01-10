@@ -22,7 +22,7 @@
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.UploaderHandler = function($uploader, options) {
-		this.parent($uploader);
+		this.parent($uploader, options);
 
 		// Check whether we really got an empty div to attach
 		// our uploader to.

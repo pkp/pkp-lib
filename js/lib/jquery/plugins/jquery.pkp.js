@@ -22,7 +22,7 @@
 	 * @this {jQuery}
 	 * @param {string} handlerName The handler to be instantiated
 	 *  and attached to the target HTML element(s).
-	 * @param {Object} options Parameters to be passed on
+	 * @param {Object=} options Parameters to be passed on
 	 *  to the handler.
 	 * @return {jQuery} Selected HTML elements for chaining.
 	 */
@@ -33,6 +33,7 @@
 
 			// Instantiate the handler and bind it
 			// to the element.
+			options = options || {};
 			var handler = $.pkp.classes.Helper.objectFactory(
 					handlerName, [$element, options]);
 		});

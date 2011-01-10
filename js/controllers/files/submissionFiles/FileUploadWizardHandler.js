@@ -37,7 +37,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 		this.metadataUrl_ = options.metadataUrl;
 		this.finishUrl_ = options.finishUrl;
 
-		// Bind events of the nested widgets.
+		// Bind events of the nested upload forms.
 		this.bind('fileUploaded', this.handleFileUploaded);
 
 		// Initially disable the continue button.
@@ -174,12 +174,11 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 	$.pkp.controllers.files.submissionFiles.FileUploadWizardHandler.
 			prototype.wizardCancelSuccess = function(wizardElement, event, jsonData) {
 
-		if (jsonData.status === true) {
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
 			// Delete the uploaded file info and cancel the wizard.
 			this.uploadedFile_ = null;
-			this.getHtmlElement().trigger('wizardCancel');
-		} else {
-			alert(jsonData.content);
+			this.trigger('wizardCancel');
 		}
 	};
 

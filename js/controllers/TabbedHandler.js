@@ -25,9 +25,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @param {jQuery} $modal A wrapped HTML element that
 	 *  represents the tabbed modal.
+	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.TabbedHandler = function($modal) {
-		this.parent($modal);
+	$.pkp.controllers.TabbedHandler = function($modal, options) {
+		this.parent($modal, options);
 
 		// Attach the tabs event handlers.
 		this.bind('tabsshow', this.tabsShow);

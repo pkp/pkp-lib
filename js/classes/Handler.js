@@ -16,8 +16,9 @@
 	 * @constructor
 	 * @param {jQuery} $element A DOM element to which
 	 *  this handler is bound.
+	 * @param {Object} options Handler options.
 	 */
-	$.pkp.classes.Handler = function($element) {
+	$.pkp.classes.Handler = function($element, options) {
 		// Check whether a single element was passed in.
 		if ($element.length > 1) {
 			throw Error('jQuery selector contained more than one handler!');
@@ -37,13 +38,18 @@
 		this.eventBindings_ = { };
 		this.dataItems_ = { };
 
+		if (options.$eventBridge) {
+			// Configure the event bridge.
+			this.$eventBridge_ = options.$eventBridge;
+		}
+
 		// Bind the handler to the DOM element.
 		this.data('handler', this);
 	};
 
 
 	//
-	// Private instance variables
+	// Private properties
 	//
 	/**
 	 * The HTML element this handler is bound to.
@@ -70,12 +76,19 @@
 	$.pkp.classes.Handler.prototype.dataItems_ = null;
 
 
+	/**
+	 * A element to which we'll forward all handler events.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.classes.Handler.prototype.$eventBridge_ = null;
+
+
 	//
-	// Protected static methods
+	// Public static methods
 	//
 	/**
 	 * Retrieve the bound handler from the jQuery element.
-	 * @protected
 	 * @param {jQuery} $element The element to which the
 	 *  handler was attached.
 	 * @return {Object} The retrieved handler.
@@ -95,6 +108,114 @@
 		}
 
 		return handler;
+	};
+
+
+	//
+	// Public methods
+	//
+	/**
+	 * A generic event dispatcher that will be bound to
+	 * all handler events. See bind() above.
+	 *
+	 * @this {HTMLElement}
+	 * @param {Event} event The jQuery event object.
+	 * @return {boolean} Return value to be passed back
+	 *  to jQuery.
+	 */
+	$.pkp.classes.Handler.prototype.handleEvent = function(event) {
+		// This handler is always called out of the
+		// handler context.
+		var $callingElement = $(this);
+
+		// Identify the targeted handler.
+		var handler = $.pkp.classes.Handler.getHandler($callingElement);
+
+		// Make sure that we really got the right element.
+		if ($callingElement[0] !== handler.getHtmlElement.call(handler)[0]) {
+			throw Error(['An invalid handler is bound to the calling ',
+				'element of an event!'].join(''));
+		}
+
+		// Retrieve the event handlers for the given event type.
+		var boundEvents = handler.eventBindings_[event.type];
+		if (boundEvents === undefined) {
+			// We have no handler for this event but we also
+			// don't allow bubbling of events outside of the
+			// GUI widget!
+			return false;
+		}
+
+		// Call all event handlers.
+		var args = $.makeArray(arguments), returnValue = true;
+		args.unshift(this);
+		for (var i = 0, l = boundEvents.length; i < l; i++) {
+			// Invoke the event handler in the context
+			// of the handler object.
+			if (boundEvents[i].apply(handler, args) === false) {
+				// False overrides true.
+				returnValue = false;
+			}
+
+			// Stop immediately if one of the handlers requests this.
+			if (event.isImmediatePropagationStopped()) {
+				break;
+			}
+		}
+
+		// We do not allow bubbling of events outside of the GUI widget!
+		event.stopPropagation();
+
+		// Return the event handler status.
+		return returnValue;
+	};
+
+
+	/**
+	 * This callback can be used to handle simple remote server requests.
+	 *
+	 * @param {Object} ajaxOptions AJAX options.
+	 * @param {Object} jsonData A JSON object.
+	 * @return {Object|boolean} The parsed JSON data if no error occurred,
+	 *  otherwise false.
+	 */
+	$.pkp.classes.Handler.prototype.remoteResponse =
+			function(ajaxOptions, jsonData) {
+
+		return this.handleJson(jsonData);
+	};
+
+
+	/**
+	 * Completely remove all traces of the handler from the
+	 * HTML element to which it is bound and leave the element in
+	 * it's previous state.
+	 *
+	 * Subclasses should override this method if necessary but
+	 * should always call this implementation.
+	 */
+	$.pkp.classes.Handler.prototype.remove = function() {
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Remove all event handlers in our namespace.
+		var $element = this.getHtmlElement();
+		$element.unbind('.pkpHandler');
+
+		// Remove all our data items except for the
+		// handler itself.
+		for (var key in this.dataItems_) {
+			if (key === 'pkp.handler') {
+				continue;
+			}
+			$element.removeData(key);
+		}
+
+		// Trigger the remove event, then delete it.
+		$element.trigger('pkpRemoveHandler');
+		$element.unbind('.pkpHandlerRemove');
+
+		// Delete the handler.
+		$element.removeData('pkp.handler');
 	};
 
 
@@ -197,112 +318,123 @@
 	 *
 	 * @protected
 	 * @param {Function} callback The callback to be wrapped.
+	 * @param {Object=} context Specifies the object which
+	 *  |this| should point to when the function is run.
+	 *  If the value is not given, the context will default
+	 *  to the handler object.
 	 * @return {Function} The wrapped callback.
 	 */
-	$.pkp.classes.Handler.prototype.callbackWrapper = function(callback) {
+	$.pkp.classes.Handler.prototype.callbackWrapper = function(callback, context) {
 		$.pkp.classes.Handler.checkContext_(this);
 
 		// Create a closure that calls the event handler
 		// in the right context.
-		var handlerContext = this;
+		if (!context) {
+			context = this;
+		}
 		return function() {
 			var args = $.makeArray(arguments);
 			args.unshift(this);
-			return callback.apply(handlerContext, args);
+			return callback.apply(context, args);
 		};
 	};
 
 
-	//
-	// Public methods
-	//
 	/**
-	 * A generic event dispatcher that will be bound to
-	 * all handler events. See bind() above.
+	 * This function should be used to pre-process a JSON response
+	 * from the server.
 	 *
-	 * @this {HTMLElement}
-	 * @param {Event} event The jQuery event object.
-	 * @return {boolean} Return value to be passed back
-	 *  to jQuery.
+	 * @protected
+	 * @param {Object} jsonData The returned server response data.
+	 * @return {Object|boolean} The returned server response data or
+	 *  false if an error occurred.
 	 */
-	$.pkp.classes.Handler.prototype.handleEvent = function(event) {
-		// This handler is always called out of the
-		// handler context.
-		var $callingElement = $(this);
-
-		// Identify the targeted handler.
-		var handler = $.pkp.classes.Handler.getHandler($callingElement);
-
-		// Make sure that we really got the right element.
-		if ($callingElement[0] !== handler.getHtmlElement.call(handler)[0]) {
-			throw Error(['An invalid handler is bound to the calling ',
-				'element of an event!'].join(''));
+	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+		if (!jsonData) {
+			throw Error('Server error: Server returned no or invalid data!');
 		}
 
-		// Retrieve the event handlers for the given event type.
-		var boundEvents = handler.eventBindings_[event.type];
-		if (boundEvents === undefined) {
-			// We have no handler for this event but we also
-			// don't allow bubbling of events outside of the
-			// GUI widget!
+		if (jsonData.status === true) {
+			// Did the server respond with an event to be triggered?
+			if (jsonData.event) {
+				if (jsonData.event.data) {
+					this.trigger(jsonData.event.name,
+							jsonData.event.data);
+				} else {
+					this.trigger(jsonData.event.name);
+				}
+			}
+			return jsonData;
+		} else {
+			// If we got an error message then display it.
+			if (jsonData.content) {
+				alert(jsonData.content);
+			}
 			return false;
 		}
-
-		// Call all event handlers.
-		var args = $.makeArray(arguments), returnValue = true;
-		args.unshift(this);
-		for (var i = 0, l = boundEvents.length; i < l; i++) {
-			// Invoke the event handler in the context
-			// of the handler object.
-			if (boundEvents[i].apply(handler, args) === false) {
-				// False overrides true.
-				returnValue = false;
-			}
-
-			// Stop immediately if one of the handlers requests this.
-			if (event.isImmediatePropagationStopped()) {
-				break;
-			}
-		}
-
-		// We do not allow bubbling of events outside of the GUI widget!
-		event.stopPropagation();
-
-		// Return the event handler status.
-		return returnValue;
 	};
 
 
 	/**
-	 * Completely remove all traces of the handler from the
-	 * HTML element to which it is bound and leave the element in
-	 * it's previous state.
+	 * This function should be used let the element emit events
+	 * meant for public use.
 	 *
-	 * Subclasses should override this method if necessary but
-	 * should always this implementation.
+	 * These events will also be forwarded through the event bridge
+	 * if one has been configured.
+	 *
+	 * @protected
+	 * @param {string} eventType The event to be triggered.
+	 * @param {Object=} data Additional event data.
+	 * @param {boolean} publicOnly Whether the event should be
+	 *  triggered on this handler also (false by default).
 	 */
-	$.pkp.classes.Handler.prototype.remove = function() {
-		$.pkp.classes.Handler.checkContext_(this);
+	$.pkp.classes.Handler.prototype.trigger =
+			function(eventType, data, publicOnly) {
 
-		// Remove all event handlers in our namespace.
-		var $element = this.getHtmlElement();
-		$element.unbind('.pkpHandler');
+		publicOnly = (publicOnly ? true : false);
 
-		// Remove all our data items except for the
-		// handler itself.
-		for (var key in this.dataItems_) {
-			if (key === 'pkp.handler') {
-				continue;
+		// Trigger the event on the handled element and its parent elements.
+		var $handledElement = this.getHtmlElement();
+		if (data) {
+			if (!publicOnly) {
+				$handledElement.triggerHandler(eventType, data);
 			}
-			$element.removeData(key);
+			$handledElement.parent().trigger(eventType, data);
+		} else {
+			if (!publicOnly) {
+				$handledElement.triggerHandler(eventType);
+			}
+			$handledElement.parent().trigger(eventType);
 		}
 
-		// Trigger the remove event, then delete it.
-		$element.trigger('pkpRemoveHandler');
-		$element.unbind('.pkpHandlerRemove');
+		// If we have an event bridge configured then re-trigger
+		// the event on the target object.
+		if (this.$eventBridge_) {
+			if (data) {
+				this.$eventBridge_.trigger(eventType, data);
+			} else {
+				this.$eventBridge_.trigger(eventType);
+			}
+		}
+	};
 
-		// Delete the handler.
-		$element.removeData('pkp.handler');
+
+	/**
+	 * Publish an event triggered by a nested widget.
+	 *
+	 * @param {string} eventType The event name.
+	 */
+	$.pkp.classes.Handler.prototype.publishEvent = function(eventType) {
+		this.bind(eventType, function(context, privateEvent, var_args) {
+			// Retrieve additional event data.
+			var eventArgs = null;
+			if (arguments.length > 2) {
+				eventArgs = Array.prototype.slice.call(arguments, 2);
+			}
+
+			// Re-trigger the private event publicly.
+			this.trigger(privateEvent.type, eventArgs, true);
+		});
 	};
 
 

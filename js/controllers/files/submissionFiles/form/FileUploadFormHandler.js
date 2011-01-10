@@ -178,21 +178,18 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 			uploaderFileUploaded = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
-		var jsonData = $.parseJSON(ret.response);
-		if (jsonData.status === true) {
+		var jsonData = this.handleJson($.parseJSON(ret.response));
+		if (jsonData !== false) {
 			// Trigger the file uploaded event.
-			var $uploadForm = this.getHtmlElement();
-			$uploadForm.trigger('fileUploaded', jsonData.uploadedFile);
+			this.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
 				// Send the form submission event.
-				$uploadForm.trigger('formSubmitted');
+				this.trigger('formSubmitted');
 			} else {
 				// Display the revision confirmation form.
-				$uploadForm.replaceWith(jsonData.content);
+				this.getHtmlElement().replaceWith(jsonData.content);
 			}
-		} else {
-			alert(jsonData.content);
 		}
 	};
 

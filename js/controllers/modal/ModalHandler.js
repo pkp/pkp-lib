@@ -31,7 +31,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object} options non-default Dialog options
+	 * @param {Object} options Non-default dialog options
 	 *  to be passed into the dialog widget.
 	 *
 	 *  Options are:
@@ -41,7 +41,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *    except for the buttons parameter which is not supported.
 	 */
 	$.pkp.controllers.modal.ModalHandler = function($handledElement, options) {
-		this.parent($handledElement);
+		this.parent($handledElement, options);
 
 		// Check the options.
 		if (!this.checkOptions(options)) {
@@ -122,11 +122,13 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	};
 
 
+	//
+	// Public methods
+	//
 	/**
 	 * Callback that will be activated when the modal's
 	 * close icon is clicked.
 	 *
-	 * @protected
 	 * @param {HTMLElement} buttonElement The close button.
 	 * @param {Event} event The close button click event.
 	 * @return {boolean} Should return false to stop event processing.
@@ -145,7 +147,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * Callback that will be bound to the close event
 	 * triggered when the dialog is closed.
 	 *
-	 * @protected
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */

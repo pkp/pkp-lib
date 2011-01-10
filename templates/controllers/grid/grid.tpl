@@ -14,6 +14,20 @@
 {else}
 	{assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
 {/if}
+
+<script type="text/javascript">
+	{* Attach a handler to the grid. *}
+	$(function() {ldelim}
+		$('#{$gridId|escape}').pkpHandler(
+			'$.pkp.controllers.grid.GridHandler',
+			{ldelim}
+				gridId: '{$grid->getId()|escape:javascript}',
+				fetchRowUrl: '{$fetchRowUrl|escape:javascript}',
+				bodySelector: '#{$gridActOnId|escape:javascript}'
+			{rdelim});
+	{rdelim});
+</script>
+
 <div id="{$gridId|escape}" class="grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}

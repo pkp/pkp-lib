@@ -7,7 +7,7 @@
  * a regular grid row
  *}
 {assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-<tr id="{$rowId|escape}">
+<tr id="{$rowId|escape}" class="element{$row->getId()} gridRow">
 	{foreach from=$cells item=cell}
 		<td>{$cell}</td>
 	{/foreach}

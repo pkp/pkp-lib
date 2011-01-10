@@ -6,8 +6,9 @@
  *
  * a grid row with Actions
  *}
+
 {assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-<tr id="{$rowId}">
+<tr id="{$rowId}" class="element{$row->getId()} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $smarty.foreach.columnLoop.first}
 			<td class="first_column">

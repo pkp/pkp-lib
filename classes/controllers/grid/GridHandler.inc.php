@@ -254,7 +254,7 @@ class GridHandler extends PKPHandler {
 	 * @param $request Request
 	 * @return string the serialized grid JSON message
 	 */
-	function fetchGrid($args, &$request) {
+	function fetchGrid($args, &$request, $fetchRowUrl = '') {
 
 		// Prepare the template to render the grid
 		$templateMgr =& TemplateManager::getManager();
@@ -268,6 +268,13 @@ class GridHandler extends PKPHandler {
 		// Render the body elements
 		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+
+		// Add the URL to fetch a row.
+		if (empty($fetchRowUrl)) {
+			$router =& $request->getRouter();
+			$fetchRowUrl = $router->url($request, null, null, 'fetchRow');
+		}
+		$templateMgr->assign('fetchRowUrl', $fetchRowUrl);
 
 		// Let the view render the grid
 		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
@@ -370,6 +377,40 @@ class GridHandler extends PKPHandler {
 			return $dataArray[$rowId];
 		}
 	}
+
+	/**
+	 * Generate a JSON message with an event that can be sent
+	 * to the grid after a data element was deleted.
+	 * @param $elementId integer
+	 * @return string A rendered JSON message.
+	 */
+	function elementDeleted($elementId) {
+		$json = new JSON('true', '', 'false', '0', array(
+			'event' => array(
+				'name' => 'elementDeleted',
+				'data' => array($this->getId(), (string)$elementId)
+			)
+		));
+		return $json->getString();
+	}
+
+
+	/**
+	 * Generate a JSON message with an event that can be sent
+	 * to the grid after a data element has been added.
+	 * @param $elementId integer
+	 * @return string A rendered JSON message.
+	 */
+	function elementAdded($elementId) {
+		$json = new JSON('true', '', 'false', '0', array(
+			'event' => array(
+				'name' => 'elementAdded',
+				'data' => array($this->getId(), (string)$elementId)
+			)
+		));
+		return $json->getString();
+	}
+
 
 	//
 	// Private helper methods

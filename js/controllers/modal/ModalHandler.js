@@ -62,6 +62,11 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
+
+		// Publish some otherwise private events triggered
+		// by nested widgets.
+		this.publishEvent('elementDeleted');
+		this.publishEvent('elementAdded');
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);

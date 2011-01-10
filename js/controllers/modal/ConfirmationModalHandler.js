@@ -24,16 +24,36 @@
 	 *
 	 *  Options are:
 	 *  - cancelButton string the name for the confirmation button
+	 *  - url string an action to be executed if the confirmation button has
+	 *    been pressed.
 	 *  - all options from the ModalHandler widget
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
+
 		this.parent($handledElement, options);
+
+		if (options.remoteAction) {
+			this.confirmationAction_ = options.remoteAction;
+		}
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,
 			$.pkp.controllers.modal.ModalHandler);
+
+
+	//
+	// Private properties
+	//
+	/**
+	 * A remote action to be executed when the confirmation button
+	 * has been pressed.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
+			confirmationAction_ = null;
 
 
 	//
@@ -80,17 +100,25 @@
 	};
 
 
+	//
+	// Public methods
+	//
 	/**
 	 * Callback that will be activated when the modal's
 	 * confirm button is clicked.
 	 *
-	 * @protected
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
 			function(dialogElement) {
-		$(dialogElement).dialog('close');
+
+		if (this.confirmationAction_) {
+			$.post(this.confirmationAction_,
+					this.callbackWrapper(this.remoteResponse), 'json');
+		} else {
+			this.getHtmlElement().dialog('close');
+		}
 	};
 
 
@@ -98,13 +126,28 @@
 	 * Callback that will be activated when the modal's
 	 * cancel button is clicked.
 	 *
-	 * @protected
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalCancel =
 			function(dialogElement) {
-		$(dialogElement).dialog('close');
+		this.getHtmlElement().dialog('close');
+	};
+
+
+	//
+	// Protected methods
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.remoteResponse =
+			function(ajaxOptions, jsonData) {
+
+		jsonData = this.parent('remoteResponse', ajaxOptions, jsonData);
+		if (jsonData !== false) {
+			this.getHtmlElement().dialog('close');
+		}
 	};
 
 

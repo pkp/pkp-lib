@@ -145,10 +145,6 @@ class GridRow {
 	 * @return string
 	 */
 	function getTemplate() {
-		if (is_null($this->_template)) {
-			$this->setTemplate('controllers/grid/gridRow.tpl');
-		}
-
 		return $this->_template;
 	}
 
@@ -169,9 +165,11 @@ class GridRow {
 	 * Subclasses can override this method.
 	 *
 	 * @param $request Request
+	 * @param $template string
 	 */
-	function initialize($request) {
-		// Default implementation does nothing
+	function initialize($request, $template = 'controllers/grid/gridRow.tpl') {
+		// Set the template.
+		$this->setTemplate($template);
 	}
 }
 ?>

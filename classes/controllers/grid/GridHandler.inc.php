@@ -336,23 +336,16 @@ class GridHandler extends PKPHandler {
 	 *  configured with id and data.
 	 */
 	function &getRequestedRow($request, $args) {
-		// Instantiate a new row
-		$row =& $this->getRowInstance();
-		$row->setGridId($this->getId());
-
 		// Try to retrieve a row id from $args if it is present
 		if(!isset($args['rowId'])) fatalError('Missing row id!');
-		$rowId = $args['rowId'];
-		$row->setId($rowId);
+		$elementId = $args['rowId'];
 
 		// Retrieve row data for the requested row id
-		$dataElement = $this->getRowDataElement($rowId);
+		$dataElement = $this->getRowDataElement($elementId);
 		if (is_null($dataElement)) fatalError('Invalid row id!');
-		$row->setData($dataElement);
 
-		// Initialize the row
-		$row->initialize($request);
-
+		// Instantiate a new row
+		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement);
 		return $row;
 	}
 
@@ -382,13 +375,32 @@ class GridHandler extends PKPHandler {
 	// Private helper methods
 	//
 	/**
+	 * Instantiate a new row.
+	 * @param $request Request
+	 * @param $elementId integer
+	 * @param $element mixed
+	 * @return GridRow
+	 */
+	function &_getInitializedRowInstance(&$request, $elementId, &$element) {
+		// Instantiate a new row
+		$row =& $this->getRowInstance();
+		$row->setGridId($this->getId());
+		$row->setId($elementId);
+		$row->setData($element);
+
+		// Initialize the row before we render it
+		$row->initialize($request);
+		return $row;
+	}
+
+	/**
 	 * Method that renders tbodys to go in the grid main body
 	 * @param Request $request
 	 * @return array
 	 */
 	function _renderGridBodyPartsInternally(&$request) {
 		$gridBodyParts = array();
-		$nullVar = null; // Kludge
+		$nullVar = null;
 		$renderedRows = $this->_renderRowsInternally($request, $nullVar);
 		$templateMgr =& TemplateManager::getManager();
 		if ( count($renderedRows) > 0 ) {
@@ -402,7 +414,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Cycle through the data and get generate the row HTML
 	 * @param $request PKPRequest
-	 * @param $elementIterator ItemIterator (optional)
+	 * @param $elementIterator ItemIterator
 	 * @return array of HTML Strings for Grid Rows.
 	 */
 	function _renderRowsInternally(&$request, &$elementIterator) {
@@ -411,20 +423,14 @@ class GridHandler extends PKPHandler {
 		if ( !$elementIterator ) $elementIterator =& $this->_getSortedElements();
 		$renderedRows = array();
 		while (!$elementIterator->eof()) {
-			// Instantiate a new row
-			$row =& $this->getRowInstance();
-			$row->setGridId($this->getId());
-
 			// If we're not using the default ID field, get the custom one
 			$idField = $this->getRowIdentifier() ? $this->getRowIdentifier() : null;
+
 			// Get the element for the row and its key
-			list($key, $element) = $elementIterator->nextWithKey($idField);
+			list($elementId, $element) = $elementIterator->nextWithKey($idField);
 
-			$row->setId($key);
-			$row->setData($element);
-
-			// Initialize the row before we render it
-			$row->initialize($request);
+			// Instantiate a new row.
+			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
 
 			// Render the row
 			$renderedRows[] = $this->_renderRowInternally($request, $row);

@@ -133,7 +133,7 @@ LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -r 's/
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --jscomp_warning visibility --warning_level VERBOSE $LINT_FILES --js_output_file /dev/null 2>&1 | sed 's/^/\t/' >>"$WORKDIR/.compile-warnings.out"
+java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --externs lib/pkp/tools/closure-externs-check-only.js --jscomp_warning visibility --warning_level VERBOSE $LINT_FILES --js_output_file /dev/null 2>&1 | sed 's/^/\t/' >>"$WORKDIR/.compile-warnings.out"
 
 # Only minify when there were no warnings.
 if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then

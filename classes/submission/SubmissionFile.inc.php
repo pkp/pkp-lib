@@ -12,13 +12,14 @@
  * @brief Submission file class.
  */
 
+import('lib.pkp.classes.file.PKPFile');
 
-class SubmissionFile extends DataObject {
+class SubmissionFile extends PKPFile {
 	/**
 	 * Constructor.
 	 */
 	function SubmissionFile() {
-		parent::DataObject();
+		parent::PKPFile();
 	}
 
 
@@ -126,54 +127,6 @@ class SubmissionFile extends DataObject {
 	}
 
 	/**
-	 * Get file name of the file.
-	 * @param return string
-	 */
-	function getFileName() {
-		return $this->getData('fileName');
-	}
-
-	/**
-	 * Set file name of the file.
-	 * @param $fileName string
-	 */
-	function setFileName($fileName) {
-		return $this->setData('fileName', $fileName);
-	}
-
-	/**
-	 * Get file type of the file.
-	 * @ return string
-	 */
-	function getFileType() {
-		return $this->getData('fileType');
-	}
-
-	/**
-	 * Set file type of the file.
-	 * @param $fileType string
-	 */
-	function setFileType($fileType) {
-		return $this->setData('fileType', $fileType);
-	}
-
-	/**
-	 * Get original uploaded file name of the file.
-	 * @param return string
-	 */
-	function getOriginalFileName() {
-		return $this->getData('originalFileName');
-	}
-
-	/**
-	 * Set original uploaded file name of the file.
-	 * @param $originalFileName string
-	 */
-	function setOriginalFileName($originalFileName) {
-		return $this->setData('originalFileName', $originalFileName);
-	}
-
-	/**
 	 * Get type of the file.
 	 * @return int
 	 */
@@ -208,25 +161,6 @@ class SubmissionFile extends DataObject {
 	}
 
 	/**
-	 * Get uploaded date of file.
-	 * @return date
-	 */
-
-	function getDateUploaded() {
-		return $this->getData('dateUploaded');
-	}
-
-
-	/**
-	 * Set uploaded date of file.
-	 * @param $dateUploaded date
-	 */
-
-	function setDateUploaded($dateUploaded) {
-		return $this->SetData('dateUploaded', $dateUploaded);
-	}
-
-	/**
 	 * Get modified date of file.
 	 * @return date
 	 */
@@ -234,7 +168,6 @@ class SubmissionFile extends DataObject {
 	function getDateModified() {
 		return $this->getData('dateModified');
 	}
-
 
 	/**
 	 * Set modified date of file.
@@ -246,34 +179,6 @@ class SubmissionFile extends DataObject {
 	}
 
 	/**
-	 * Get file size of file.
-	 * @return int
-	 */
-
-	function getFileSize() {
-		return $this->getData('fileSize');
-	}
-
-
-	/**
-	 * Set file size of file.
-	 * @param $fileSize int
-	 */
-
-	function setFileSize($fileSize) {
-		return $this->SetData('fileSize', $fileSize);
-	}
-
-	/**
-	 * Get nice file size of file.
-	 * @return string
-	 */
-
-	function getNiceFileSize() {
-		return FileManager::getNiceFileSize($this->getData('fileSize'));
-	}
-
-	/**
 	 * Get round.
 	 * @return int
 	 */
@@ -282,12 +187,10 @@ class SubmissionFile extends DataObject {
 		return $this->getData('round');
 	}
 
-
 	/**
 	 * Set round.
 	 * @param $round int
 	 */
-
 	function setRound($round) {
 		return $this->SetData('round', $round);
 	}
@@ -296,7 +199,6 @@ class SubmissionFile extends DataObject {
 	 * Get viewable.
 	 * @return boolean
 	 */
-
 	function getViewable() {
 		return $this->getData('viewable');
 	}
@@ -306,7 +208,6 @@ class SubmissionFile extends DataObject {
 	 * Set viewable.
 	 * @param $viewable boolean
 	 */
-
 	function setViewable($viewable) {
 		return $this->SetData('viewable', $viewable);
 	}
@@ -326,17 +227,6 @@ class SubmissionFile extends DataObject {
 		return $submissionFileDao->isInlineable($this);
 	}
 
-
-	//
-	// Abstract template methods to be implemented by subclasses.
-	//
-	/**
-	 * Return absolute path to the file on the host filesystem.
-	 * @return string
-	 */
-	function getFilePath() {
-		assert(false);
-	}
 }
 
 ?>

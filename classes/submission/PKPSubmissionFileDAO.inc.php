@@ -29,21 +29,15 @@
  * between DAO implementations.
  */
 
+import('lib.pkp.classes.file.PKPFileDAO');
 
-define('INLINEABLE_TYPES_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'inlineTypes.txt');
 
-class PKPSubmissionFileDAO extends DAO {
+class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * @var array a private list of delegates that provide operations for
 	 *  different SubmissionFile implementations.
 	 */
 	var $_delegates = array();
-
-	/**
-	 * @var array a private list of MIME types that can be shown inline
-	 *  in the browser
-	 */
-	var $_inlineableTypes;
 
 	/**
 	 * @var array a list of localized field names, will be set by delegates
@@ -351,21 +345,6 @@ class PKPSubmissionFileDAO extends DAO {
 	 */
 	function deleteAllRevisionsByAssocId($assocType, $assocId, $fileStage = null) {
 		return $this->_deleteInternally(null, $fileStage, null, null, $assocType, $assocId);
-	}
-
-	/**
-	 * Check whether a file may be displayed inline.
-	 * @param $submissionFile SubmissionFile
-	 * @return boolean
-	 */
-	function isInlineable(&$submissionFile) {
-		// Retrieve MIME types.
-		if (!isset($this->_inlineableTypes)) {
-			$this->_inlineableTypes = array_filter(file(INLINEABLE_TYPES_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
-		}
-
-		// Check the MIME type of the file.
-		return in_array($submissionFile->getFileType(), $this->_inlineableTypes);
 	}
 
 

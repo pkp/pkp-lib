@@ -8,7 +8,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 /**
  * @file js/controllers/files/submissionFiles/FileUploadWizardHandler.js
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler

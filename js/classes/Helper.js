@@ -15,7 +15,7 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 /**
  * @file js/classes/Helper.js
  *
- * Copyright (c) 2000-2010 John Willinsky
+ * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Helper
@@ -58,7 +58,7 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 	 * http://www.broofa.com, adapted by PKP.
 	 *
 	 * Copyright (c) 2010 Robert Kieffer
-	 * Copyright (c) 2010 John Willinsky
+	 * Copyright (c) 2010-2011 John Willinsky
 	 * Distributed under the GNU GPL v2 and MIT licenses. For full
 	 * terms see the file docs/COPYING.
 	 *

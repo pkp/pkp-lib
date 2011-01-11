@@ -129,12 +129,12 @@ function sendAsyncRequest(req, url, data, method) {
 
 /**
  * Change the form action
- * @param formName string
+ * @param formId string
  * @param action string
  */
-function changeFormAction(formName, action) {
-	document.forms[formName].action = action;
-	document.forms[formName].submit();
+function changeFormAction(formId, action) {
+	document.getElementById(formId).action = action;
+	document.getElementById(formId).submit();
 }
 
 /**

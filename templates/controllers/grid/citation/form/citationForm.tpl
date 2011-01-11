@@ -608,7 +608,7 @@
 		{rdelim});
 		// -->
 	</script>
-	<form name="editCitationForm" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
+	<form id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 		<div class="wrapper scrollable with-pane-actions">
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 

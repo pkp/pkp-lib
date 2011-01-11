@@ -38,7 +38,7 @@
 
 <script type="text/javascript">
 <!--
-	document.reset.email.focus();
+	document.getElementById('reset').email.focus();
 // -->
 </script>
 </form>

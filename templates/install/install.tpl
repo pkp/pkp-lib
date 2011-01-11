@@ -17,9 +17,10 @@
 <!--
 // Ensure that the form submit button cannot be double-clicked
 function doSubmit() {
-	if (document.install.installing.value != 1) {
-		document.install.installing.value = 1;
-		document.install.submit();
+	var installForm = document.getElementById('install');
+	if (installForm.installing.value != 1) {
+		installForm.installing.value = 1;
+		installForm.submit();
 	}
 	return true;
 }

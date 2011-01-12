@@ -620,37 +620,42 @@ class PKPTemplateManager extends Smarty {
 	 * - path (array)
 	 * - anchor
 	 * - escape (default to true unless otherwise specified)
+	 * - params: parameters to include in the URL if available as an array
 	 */
-	function smartyUrl($params, &$smarty) {
-		if ( !isset($params['context']) ) {
+	function smartyUrl($parameters, &$smarty) {
+		if ( !isset($parameters['context']) ) {
 			// Extract the variables named in $paramList, and remove them
-			// from the params array. Variables remaining in params will be
+			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
 			$contextList = Application::getContextList();
 			foreach ($contextList as $contextName) {
-				if (isset($params[$contextName])) {
-					$context[$contextName] = $params[$contextName];
-					unset($params[$contextName]);
+				if (isset($parameters[$contextName])) {
+					$context[$contextName] = $parameters[$contextName];
+					unset($parameters[$contextName]);
 				} else {
 					$context[$contextName] = null;
 				}
 			}
-			$params['context'] = $context;
+			$parameters['context'] = $context;
 		}
 
-		// Extract the variables named in $paramList, and remove them
-		// from the params array. Variables remaining in params will be
-		// passed along to Request::url as extra parameters.
-		$paramList = array('router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape');
-		foreach ($paramList as $param) {
-			if (isset($params[$param])) {
-				$$param = $params[$param];
-				unset($params[$param]);
+		// Extract the reserved variables named in $paramList, and remove them
+		// from the parameters array. Variables remaining in parameters will be passed
+		// along to Request::url as extra parameters.
+		$paramList = array('params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape');
+		foreach ($paramList as $parameter) {
+			if (isset($parameters[$parameter])) {
+				$$parameter = $parameters[$parameter];
+				unset($parameters[$parameter]);
 			} else {
-				$$param = null;
+				$$parameter = null;
 			}
 		}
+
+		// Merge parameters specified in the {url paramName=paramValue} format with
+		// those optionally supplied in {url params=$someAssociativeArray} format
+		$parameters = array_merge($parameters, (array) $params);
 
 		// Set the default router
 		$request =& PKPApplication::getRequest();
@@ -683,7 +688,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $params, $anchor, !isset($escape) || $escape);
+		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
 	}
 
 	function setProgressFunction($progressFunction) {

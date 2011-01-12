@@ -891,7 +891,7 @@ span.itemLastEvent {
 	font-size: 0.8em;
 }
 
-#existingNotes {
+#notesList {
 	max-height: 200px;
 	overflow: auto;
 	padding-right: 5px;

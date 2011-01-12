@@ -143,21 +143,6 @@ class PKPNote extends DataObject {
 	function setAssocId($assocId) {
 		return $this->setData('assocId', $assocId);
 	}
-	/**
-	 * get context id
-	 * @return int
-	 */
-	function getContextId() {
-		return $this->getData('contextId');
-	}
-
-	/**
-	 * set context id
-	 * @param $contextId int
-	 */
-	function setContextId($contextId) {
-		return $this->setData('contextId', $contextId);
-	}
 
 	/**
 	 * get file id

@@ -68,13 +68,11 @@ class PKPNoteDAO extends DAO {
 	function &getByAssoc($assocType, $assocId, $userId = null) {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
 
-		$params = array((int) $assocId, (int) $assocType, (int) $contextId);
+		$params = array((int) $assocId, (int) $assocType);
 		if (isset($userId)) $params[] = (int) $userId;
 
-		$sql = 'SELECT * FROM notes WHERE assoc_id = ? AND assoc_type = ? AND context_id = ?';
+		$sql = 'SELECT * FROM notes WHERE assoc_id = ? AND assoc_type = ?';
 		if (isset($userId)) {
 			$sql .= ' AND user_id = ?';
 		}
@@ -100,7 +98,6 @@ class PKPNoteDAO extends DAO {
 		$note->setDateModified($this->datetimeFromDB($row['date_modified']));
 		$note->setContents($row['contents']);
 		$note->setTitle($row['title']);
-		$note->setContextId($row['context_id']);
 		$note->setFileId($row['file_id']);
 		$note->setAssocType($row['assoc_type']);
 		$note->setAssocId($row['assoc_id']);
@@ -118,9 +115,9 @@ class PKPNoteDAO extends DAO {
 	function insertObject(&$note) {
 		$this->update(
 			sprintf('INSERT INTO notes
-				(user_id, date_created, date_modified, title, contents, context_id, file_id, assoc_type, assoc_id)
+				(user_id, date_created, date_modified, title, contents, file_id, assoc_type, assoc_id)
 				VALUES
-				(?, %s, %s, ?, ?, ?, ?, ?, ?)',
+				(?, %s, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB(date('Y-m-d H:i:s')),
 				$this->datetimeToDB(date('Y-m-d H:i:s'))
 			),
@@ -128,7 +125,6 @@ class PKPNoteDAO extends DAO {
 				(int) $note->getUserId(),
 				$note->getTitle(),
 				$note->getContents(),
-				(int) $note->getContextId(),
 				(int) $note->getFileId(),
 				(int) $note->getAssocType(),
 				(int) $note->getAssocId()
@@ -152,7 +148,6 @@ class PKPNoteDAO extends DAO {
 					date_modified = %s,
 					title = ?,
 					contents = ?,
-					context_id = ?,
 					file_id = ?,
 					assoc_type = ?,
 					assoc_id = ?
@@ -164,7 +159,6 @@ class PKPNoteDAO extends DAO {
 				(int) $note->getUserId(),
 				$note->getTitle(),
 				$note->getContents(),
-				(int) $note->getContextId(),
 				(int) $note->getFileId(),
 				(int) $note->getAssocType(),
 				(int) $note->getAssocId(),

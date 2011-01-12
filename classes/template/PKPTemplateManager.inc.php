@@ -1120,6 +1120,11 @@ class PKPTemplateManager extends Smarty {
 				$direction = SORT_DIRECTION_ASC;
 			}
 
+			// Escape variables for JS inclusion
+			foreach (array('heading', 'direction') as $varName) {
+				$$varName = $this->smartyEscape($$varName, 'javascript');
+			}
+
 			$heading = isset($params['sort']) ? $params['sort'] : $sort;
 			$text = isset($params['key']) ? Locale::translate($params['key']) : '';
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
@@ -1187,6 +1192,11 @@ class PKPTemplateManager extends Smarty {
 		$submitButton = Locale::translate('common.ok');
 		$cancelButton = Locale::translate('common.cancel');
 
+		// Escape variables for JS inclusion
+		foreach (array('submitButton', 'cancelButton', 'url', 'actOnType', 'actOnId', 'button') as $varName) {
+			$$varName = $this->smartyEscape($$varName, 'javascript');
+		}
+
 		// Add the modal javascript to the header
 		$dialogTitle = isset($dialogTitle) ? ", '$dialogTitle'" : "";
 		$modalCode = "<script type='text/javascript'>
@@ -1241,6 +1251,11 @@ class PKPTemplateManager extends Smarty {
 		$submitButton = Locale::translate('common.ok');
 		$cancelButton = Locale::translate('common.cancel');
 
+		// Properly escape variables for inclusion in Javascript
+		foreach (array('button', 'url, actOnType, actOnId, dialogText, submitButton, cancelButton') as $varName) {
+			$$varName = $this->smartyEscape($$varName, 'javascript');
+		}
+
 		if ($showDialog) {
 			$confirmCode = "<script type='text/javascript'>
 			<!--
@@ -1289,6 +1304,11 @@ class PKPTemplateManager extends Smarty {
 		// Translate modal submit/cancel buttons
 		$submitButton = Locale::translate('common.ok');
 		$cancelButton = Locale::translate('common.cancel');
+
+		// Escape variables for JS inclusion
+		foreach (array('submitButton, cancelButton, button, dialogText, dialogTitle') as $varName) {
+			$$varName = $this->smartyEscape($$varName, 'javascript');
+		}
 
 		$confirmCode = "<script type='text/javascript'>
 		<!--

@@ -13,7 +13,7 @@
 	<div class="wrapper">
 		{assign var="additionalData" value=$listbuilder->getAdditionalData()}
 		{if !empty($additionalData)}
-		<div id="additionalData-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}">
+		<div id="additionalData-{$listbuilderId|escape}">
  			<ul>
 				<li>
 					{foreach from=$additionalData key=dataKey item=dataValue}
@@ -34,7 +34,7 @@
 			</ul>
 		</div>
 		{/if}
-		<div class="unit size2of5" id="source-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}">
+		<div class="unit size2of5" id="source-{$listbuilderId|escape}">
  			<ul>
 				<li>
 					<label class="desc">
@@ -70,19 +70,19 @@
 							</label>
 						</span>
 					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-						<input type="text" class="textField" id="sourceTitle-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" name="sourceTitle-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" value="" /> <br />
-						<input type="hidden" id="sourceId-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" name="sourceId-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}">
+						<input type="text" class="textField" id="sourceTitle-{$listbuilderId|escape}" name="sourceTitle-{$listbuilderId|escape}" value="" /> <br />
+						<input type="hidden" id="sourceId-{$listbuilderId|escape}" name="sourceId-{$listbuilderId|escape}">
 					{/if}
 				</li>
 			</ul>
 		</div>
 		<div class="unit size1of10 listbuilder_controls">
-			<a href="#" id="add-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" onclick="return false;" class="add_item">
+			<a href="#" id="add-{$listbuilderId|escape}" onclick="return false;" class="add_item">
 				<span class="hidetext">{translate key="common.add"}</span></a>
-			<a href="#" id="delete-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" onclick="return false;" class="remove_item">
+			<a href="#" id="delete-{$listbuilderId|escape}" onclick="return false;" class="remove_item">
 				<span class="hidetext">{translate key="common.delete"}</span></a>
 		</div>
-		<div id="results-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}" class="unit size1of2 lastUnit listbuilder_results">
+		<div id="results-{$listbuilderId|escape}" class="unit size1of2 lastUnit listbuilder_results">
 			<ul>
 				<li>
 					<label class="desc">
@@ -93,17 +93,15 @@
 			</ul>
 		</div>
 	</div>
-	<script type='text/javascript'>
-	<!--
+	<script type="text/javascript">
 	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{if $itemId}-{$itemId|escape:"javascript"}{/if}{literal}");{/literal}
+		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}");{/literal}
 	{/if}
 	{literal}
-		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{if $itemId}-{$itemId|escape:"javascript"}{/if}{literal}", "{/literal}{$localizedButtons|escape:"javascript"}{literal}");
-		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{if $itemId}-{$itemId|escape:"javascript"}{/if}{literal}");
-		selectRow("{/literal}{$listbuilderId|escape:"javascript"}{if $itemId}-{$itemId|escape:"javascript"}{/if}{literal}");
+		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}", "{/literal}{$localizedButtons|escape:"javascript"}{literal}");
+		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}");
+		selectRow("{/literal}{$listbuilderId|escape:"javascript"}{literal}");
 	{/literal}
-	// -->
 	</script>
 </div>
 

@@ -1,5 +1,5 @@
 {**
- * listbuilder.tpl
+ * listbuilderGrid.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -8,7 +8,7 @@
  *}
 
 <div class="listbuilderGrid">
-<table id="listGrid-{$listbuilderId|escape}{if $itemId}-{$itemId|escape}{/if}">
+<table id="listGrid-{$listbuilderId|escape}">
     <tbody>
 		{foreach from=$rows item=row}
 			{$row}

@@ -211,12 +211,12 @@ class ListbuilderHandler extends GridHandler {
 	 */
 	function _buildListItemHTML($itemId = null, $itemName = null, $attributeNames = null) {
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('itemId', $itemId);
-		$templateMgr->assign('itemName', $itemName);
+		$templateMgr->assign('lbItemId', $itemId);
+		$templateMgr->assign('lbItemName', $itemName);
 
 		if (isset($attributeNames)) {
 			if (is_array($attributeNames)) $attributeNames = implode(', ', $attributeNames);
-			$templateMgr->assign('attributeNames', $attributeNames);
+			$templateMgr->assign('lbAttributeNames', $attributeNames);
 		}
 
 		return $templateMgr->fetch('controllers/listbuilder/listbuilderItem.tpl');

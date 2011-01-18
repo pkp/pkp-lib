@@ -112,7 +112,7 @@ class SubmissionFileDAODelegate {
 
 		// Update the locale fields.
 		$submissionFileDao->updateDataObjectSettings($submissionFileDao->getSubmissionEntityName().'_file_settings', $submissionFile, array(
-			'file_id' => $submissionFile->getFileId()
+			'file_id' => $submissionFile->getId()
 		));
 	}
 }

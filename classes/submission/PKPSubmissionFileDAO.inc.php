@@ -279,7 +279,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return integer the number of deleted file revisions
 	 */
 	function deleteRevision(&$submissionFile) {
-		return $this->deleteRevisionById($submissionFile->getId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submissionFile->getSubmissionId());
+		return $this->deleteRevisionById($submissionFile->getFileId(), $submissionFile->getRevision(), $submissionFile->getFileStage(), $submissionFile->getSubmissionId());
 	}
 
 	/**
@@ -589,15 +589,15 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			     assoc_id = ?
 			 WHERE file_id = ?',
 			array(
-				$revisedFile->getId(),
+				$revisedFile->getFileId(),
 				$newFile->getRevision(),
 				$newFile->getGenreId(),
 				$newFile->getAssocType(),
 				$newFile->getAssocId(),
-				$newFile->getId())
+				$newFile->getFileId())
 		);
 
-		$newFile->setFileId($revisedFile->getId());
+		$newFile->setFileId($revisedFile->getFileId());
 		return $newFile;
 	}
 

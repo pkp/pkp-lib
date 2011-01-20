@@ -20,7 +20,16 @@
 						{/if}
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-								{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId hoverTitle=true}
+								{if is_a($action, 'LegacyLinkAction')}
+									{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
+										{assign var=actionActOnId value=$action->getActOn()}
+									{else}
+										{assign var=actionActOnId value=$gridActOnId}
+									{/if}
+									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId hoverTitle=true}
+								{else}
+									{include file="linkAction/linkAction.tpl" action=$action}
+								{/if}
 							{/foreach}
 						{/if}
 					</div>

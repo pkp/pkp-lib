@@ -385,12 +385,8 @@ class GridHandler extends PKPHandler {
 	 * @return string A rendered JSON message.
 	 */
 	function elementDeleted($elementId) {
-		$json = new JSON('true', '', 'false', '0', array(
-			'event' => array(
-				'name' => 'elementDeleted',
-				'data' => array($this->getId(), (string)$elementId)
-			)
-		));
+		$json = new JSON('true');
+		$json->setEvent('elementDeleted', array($this->getId(), (string)$elementId));
 		return $json->getString();
 	}
 

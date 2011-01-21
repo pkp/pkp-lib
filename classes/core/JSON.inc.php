@@ -27,16 +27,22 @@ class JSON {
 	/** @var $elementId string ID for DOM element that will be replaced */
 	var $elementId;
 
+	/** @var $eventName string Name for included event */
+	var $eventName;
+
+	/** @var $eventData string Data for included event */
+	var $eventData;
+
 	/** @var $additionalAttributes array Set of additional attributes for special cases*/
 	var $additionalAttributes;
 
 	/**
-	* Constructor.
-	* @param $status string The status of an event (e.g. false if form validation fails)
-	* @param $content string The message to be delivered back to the calling script
-	* @param $elementId string The DOM element to be replaced
-	* @param $additionalAttributes array additional data to be returned.
-	*/
+	 * Constructor.
+	 * @param $status string The status of an event (e.g. false if form validation fails)
+	 * @param $content string The message to be delivered back to the calling script
+	 * @param $elementId string The DOM element to be replaced
+	 * @param $additionalAttributes array additional data to be returned.
+	 */
 	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes = null) {
 		$this->status = $status;
 		$this->content = $this->json_encode($content);
@@ -45,36 +51,38 @@ class JSON {
 		if (isset($additionalAttributes)) {
 			$this->additionalAttributes = $additionalAttributes;
 		}
+
+		$this->eventName = $this->eventData = null;
 	}
 
 	/**
-	* Get the status string
-	* @return string
-	*/
+	 * Get the status string
+	 * @return string
+	 */
 	function getStatus () {
 		return $this->status;
 	}
 
 	/**
-	* Set the status string
-	* @param $status string
-	*/
+	 * Set the status string
+	 * @param $status string
+	 */
 	function setStatus($status) {
 		$this->status = $status;
 	}
 
 	/**
-	* Construct the content string
-	* @return string
-	*/
+	 * Construct the content string
+	 * @return string
+	 */
 	function getContent() {
 		return $this->content;
 	}
 
 	/**
-	* Set the content string
-	* @param $content string
-	*/
+	 * Set the content string
+	 * @param $content string
+	 */
 	function setContent($content) {
 		$this->content = $this->json_encode($content);
 	}
@@ -88,55 +96,68 @@ class JSON {
 	}
 
 	/**
-	* Set the isScript string
-	* @param $isScript string
-	*/
+	 * Set the isScript string
+	 * @param $isScript string
+	 */
 	function setIsScript($isScript) {
 		$this->isScript = $isScript;
 	}
 
 	/**
-	* Get the elementId string
-	* @return string
-	*/
+	 * Get the elementId string
+	 * @return string
+	 */
 	function getElementId () {
 		return $this->elementId;
 	}
 
 	/**
-	* Set the elementId string
-	* @param $elementId string
-	*/
+	 * Set the elementId string
+	 * @param $elementId string
+	 */
 	function setElementId($elementId) {
 		$this->elementId = $this->json_encode($elementId);
 	}
 
 	/**
-	* Get the additionalAttributes array
-	* @return array
-	*/
+	 * Set the event to trigger with this JSON message
+	 * @param $eventName string
+	 * @param $eventData string
+	 */
+	function setEvent($eventName, $eventData) {
+		$this->eventName = $eventName;
+		$this->eventData = $eventData;
+	}
+
+	/**
+	 * Get the additionalAttributes array
+	 * @return array
+	 */
 	function getAdditionalAttributes () {
 		return $this->additionalAttributes;
 	}
 
 	/**
-	* Set the additionalAttributes array
-	* @param $additionalAttributes array
-	*/
+	 * Set the additionalAttributes array
+	 * @param $additionalAttributes array
+	 */
 	function setAdditionalAttributes($additionalAttributes) {
 		$this->additionalAttributes = $additionalAttributes;
 	}
 	/**
-	* Construct a JSON string to use for AJAX communication
-	* @return string
-	*/
+	 * Construct a JSON string to use for AJAX communication
+	 * @return string
+	 */
 	function getString() {
 		$jsonString = "{\"status\": $this->status, \"content\": $this->content, \"isScript\": $this->isScript, \"elementId\": $this->elementId";
-			if(isset($this->additionalAttributes)) {
-				foreach($this->additionalAttributes as $key => $value) {
-					$jsonString .= ", \"$key\": " . $this->json_encode($value);
-				}
+		if(isset($this->additionalAttributes)) {
+			foreach($this->additionalAttributes as $key => $value) {
+				$jsonString .= ", \"$key\": " . $this->json_encode($value);
 			}
+		}
+		if(isset($this->eventName)) {
+			$jsonString .= ', event: ' . $this->json_encode(array('name' => $this->eventName, 'data' => $this->eventData));
+		}
 		$jsonString .= "}";
 
 		return $jsonString;

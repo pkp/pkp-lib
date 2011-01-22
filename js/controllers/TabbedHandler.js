@@ -7,7 +7,11 @@
  * @class TabbedHandler
  * @ingroup js_controllers
  *
- * @brief Basic tabbed modal handler.
+ * @brief A basic handler for a tabbed set of pages.
+ *
+ * See <http://jqueryui.com/demos/tabs/> for documentation on JQuery tabs.
+ * Attach this handler to a div that contains a <ul> with a <li> for each tab
+ * to be created.
  */
 (function($) {
 

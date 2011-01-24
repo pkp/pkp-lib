@@ -62,6 +62,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
+		this.bind('formSubmitted', this.modalClose);
 
 		// Publish some otherwise private events triggered
 		// by nested widgets.
@@ -134,12 +135,12 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * Callback that will be activated when the modal's
 	 * close icon is clicked.
 	 *
-	 * @param {HTMLElement} buttonElement The close button.
+	 * @param {HTMLElement} callingElement The calling element.
 	 * @param {Event} event The close button click event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
-			function(buttonElement, event) {
+			function(callingElement, event) {
 
 		// Close the modal dialog.
 		var $modalElement = this.getHtmlElement();

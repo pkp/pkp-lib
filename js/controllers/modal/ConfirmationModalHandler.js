@@ -23,7 +23,7 @@
 	 *  to be passed into the dialog widget.
 	 *
 	 *  Options are:
-	 *  - cancelButton string the name for the confirmation button
+	 *  - cancelButton string the name for the cancel button
 	 *  - url string an action to be executed if the confirmation button has
 	 *    been pressed.
 	 *  - all options from the ModalHandler widget

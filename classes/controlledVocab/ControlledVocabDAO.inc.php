@@ -18,6 +18,15 @@ import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
 	/**
+	 * Return the Controlled Vocab Entry DAO for this Controlled Vocab.
+	 * Can be subclassed to provide extended DAOs.
+	 */
+	function &getEntryDAO() {
+		$entryDao =& DAORegistry::getDAO('ControlledVocabEntryDAO');
+		return $entryDao;
+	}
+
+	/**
 	 * Retrieve a controlled vocab by controlled vocab ID.
 	 * @param $controlledVocabId int
 	 * @return ControlledVocab

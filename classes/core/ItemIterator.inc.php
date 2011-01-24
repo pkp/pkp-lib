@@ -95,7 +95,8 @@ class ItemIterator {
 	 * @return array
 	 */
 	function &toArray() {
-		return array();
+		$returner = array();
+		return $returner;
 	}
 }
 

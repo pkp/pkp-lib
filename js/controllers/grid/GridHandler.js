@@ -32,8 +32,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		this.parent($grid, options);
 
 		// Bind event handlers.
-		this.bind('elementDeleted', this.elementDeleted);
-		this.bind('elementAdded', this.elementAdded);
+		this.bind('elementDeleted', this.deleteElement);
+		this.bind('elementAdded', this.addElement);
+		this.bind('elementsChanged', this.refreshGrid);
 
 		// Save the ID of this row and it's grid.
 		this.gridId_ = options.gridId;
@@ -41,6 +42,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Save the URL to fetch a row.
 		this.fetchRowUrl_ = options.fetchRowUrl;
 
+		// Save the URL to fetch the entire grid
+		this.fetchGridUrl_ = options.fetchGridUrl;
+		
 		// Save the selector for the grid body.
 		this.bodySelector_ = options.bodySelector;
 	};
@@ -66,7 +70,14 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl_ = null;
 
+	/**
+	 * The URL to fetch the entire grid.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.fetchGridUrl_ = null;
 
+	
 	/**
 	 * The selector for the grid body.
 	 * @private
@@ -88,7 +99,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 *  belongs to.
 	 * @param {string} rowId The id of the row to be deleted.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.elementDeleted =
+	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
 			function(sourceElement, event, gridId, rowId) {
 
 		// Check the grid.
@@ -129,7 +140,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 *  belongs to.
 	 * @param {string} rowId The id of the row to be deleted.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.elementAdded =
+	$.pkp.controllers.grid.GridHandler.prototype.addElement =
 			function(sourceElement, event, gridId, rowId) {
 
 		// Check the grid.
@@ -139,8 +150,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		$.get(this.fetchRowUrl_, {rowId: rowId},
 				this.callbackWrapper(this.insertOrUpdateRow), 'json');
 	};
-
-
+	
 	/**
 	 * Callback to insert or update a row.
 	 *
@@ -178,6 +188,41 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
+	/**
+	 * Callback bound to the "elements changed" event.
+	 *
+	 * @param {Event} event The "element deleted" event.
+	 * @param {string} gridId The id of the grid to be refreshed.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
+		function(sourceElement, event, gridId) {
+		
+		// Check the grid.
+		this.checkGridId_(gridId);
+		
+		// Fetch the new grid data.
+		$.get(this.fetchGridUrl_, null,
+			this.callbackWrapper(this.replaceGridContent), 'json');
+	};
+	
+	/**
+	 * Callback to replace a grid's content.
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.replaceGridContent =
+			function(ajaxContext, jsonData) {
+
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
+			// Get the grid that we're updating
+			var $grid = this.getHtmlElement();
+			
+			// Replace the grid content
+			$grid.html(jsonData.content);
+		}
+	};
 
 	//
 	// Private methods

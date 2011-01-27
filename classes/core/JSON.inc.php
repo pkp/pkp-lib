@@ -124,9 +124,9 @@ class JSON {
 	 * @param $eventName string
 	 * @param $eventData string
 	 */
-	function setEvent($eventName, $eventData) {
+	function setEvent($eventName, $eventData = null) {
 		$this->eventName = $eventName;
-		$this->eventData = $eventData;
+		if($eventData) $this->eventData = $eventData;
 	}
 
 	/**
@@ -144,6 +144,7 @@ class JSON {
 	function setAdditionalAttributes($additionalAttributes) {
 		$this->additionalAttributes = $additionalAttributes;
 	}
+
 	/**
 	 * Construct a JSON string to use for AJAX communication
 	 * @return string
@@ -156,7 +157,9 @@ class JSON {
 			}
 		}
 		if(isset($this->eventName)) {
-			$jsonString .= ', event: ' . $this->json_encode(array('name' => $this->eventName, 'data' => $this->eventData));
+			$event = array('name' => $this->eventName);
+			if(isset($this->eventData)) $event['data'] = $this->eventData;
+			$jsonString .= ', "event": ' . $this->json_encode($event);
 		}
 		$jsonString .= "}";
 

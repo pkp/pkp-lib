@@ -19,7 +19,7 @@
 {fbvFormArea id="buttons"}
     {fbvFormSection}
         {fbvLink id="cancelModalButton" label="common.cancel"}
-        {fbvButton id="submitModalButton" label=$submitText disabled=$submitDisabled align=$fbvStyles.align.RIGHT}
+        {fbvButton type="submit" id="submitModalButton" label=$submitText disabled=$submitDisabled align=$fbvStyles.align.RIGHT}
     {/fbvFormSection}
 {/fbvFormArea}
 

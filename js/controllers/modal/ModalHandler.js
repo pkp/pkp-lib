@@ -68,6 +68,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// by nested widgets.
 		this.publishEvent('elementDeleted');
 		this.publishEvent('elementAdded');
+		this.publishEvent('elementsChanged');
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);

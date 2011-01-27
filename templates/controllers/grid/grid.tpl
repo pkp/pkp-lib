@@ -16,16 +16,18 @@
 {/if}
 
 <script type="text/javascript">
-	{* Attach a handler to the grid. *}
-	$(function() {ldelim}
-		$('#{$gridId|escape}').pkpHandler(
-			'$.pkp.controllers.grid.GridHandler',
-			{ldelim}
-				gridId: '{$grid->getId()|escape:javascript}',
-				fetchRowUrl: '{$fetchRowUrl|escape:javascript}',
-				bodySelector: '#{$gridActOnId|escape:javascript}'
-			{rdelim});
-	{rdelim});
+{literal}
+	$(function() {
+		$('#{/literal}{$gridId|escape}{literal}').pkpHandler(
+				'$.pkp.controllers.grid.GridHandler',
+				{
+					gridId: '{/literal}{$grid->getId()|escape:javascript}{literal}',
+					fetchRowUrl: '{/literal}{url op='fetchRow' params=$fetchParams escape=false}{literal}',
+					fetchGridUrl: '{/literal}{url op='fetchGrid' params=$fetchParams escape=false}{literal}',
+					bodySelector: '#{/literal}{$gridActOnId|escape:javascript}{literal}'
+				});
+		});
+	{/literal}
 </script>
 
 <div id="{$gridId|escape}" class="grid">

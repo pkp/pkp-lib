@@ -75,14 +75,6 @@ class Form {
 	 * @param $template string the path to the form template file
 	 */
 	function Form($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::Constructor"
-			// Note that class names are always lower case.
-			HookRegistry::call(strtolower($trace[1]['class']) . '::Constructor', array(&$this, &$template));
-		}
 
 		if ($requiredLocale === null) $requiredLocale = Locale::getPrimaryLocale();
 		$this->requiredLocale = $requiredLocale;
@@ -104,6 +96,14 @@ class Form {
 							'1OF5' => '1OF5', '2OF5' => '2OF5', '3OF5' => '3OF5', '4OF5' => '4OF5', '1OF10' => '1OF10', '8OF10' => '8OF10'),
 			'layout' => array('THREE_COLUMNS' => 'THREE_COLUMNS', 'TWO_COLUMNS' => 'TWO_COLUMNS', 'ONE_COLUMN' => 'ONE_COLUMN')
 		);
+
+		if ($callHooks === true) {
+			// Call hooks based on the calling entity, assuming
+			// this method is only called by a subclass. Results
+			// in hook calls named e.g. "papergalleyform::Constructor"
+			// Note that class names are always lower case.
+			HookRegistry::call(strtolower(get_class($this)) . '::Constructor', array(&$this, &$template));
+		}
 	}
 
 
@@ -160,16 +160,13 @@ class Form {
 		// Set custom template.
 		if (!is_null($template)) $this->_template = $template;
 
-		if (checkPhpVersion('4.3.0')) {
-			$returner = null;
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::display"
-			// Note that class names are always lower case.
-			if (HookRegistry::call(strtolower($trace[1]['class']) . '::' . $trace[0]['function'], array(&$this, &$returner))) {
-				return $returner;
-			}
+		$returner = null;
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::display"
+		// Note that class names are always lower case.
+		if (HookRegistry::call(strtolower(get_class($this)) . '::display', array(&$this, &$returner))) {
+			return $returner;
 		}
 
 		$templateMgr =& TemplateManager::getManager($request);
@@ -236,15 +233,12 @@ class Form {
 	 * Initialize form data for a new form.
 	 */
 	function initData() {
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::initData"
-			// Note that class and function names are always lower
-			// case.
-			HookRegistry::call(strtolower($trace[1]['class'] . '::' . $trace[0]['function']), array(&$this));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::initData"
+		// Note that class and function names are always lower
+		// case.
+		HookRegistry::call(strtolower(get_class($this) . '::initData'), array(&$this));
 	}
 
 	/**
@@ -285,15 +279,14 @@ class Form {
 			}
 		}
 
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
+		if ($callHooks === true) {
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
 			// in hook calls named e.g. "papergalleyform::validate"
 			// Note that class and function names are always lower
 			// case.
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[0]['class'] . '::' . $trace[0]['function']), array(&$this, &$value))) {
+			if (HookRegistry::call(strtolower(get_class($this) . '::validate'), array(&$this, &$value))) {
 				return $value;
 			}
 		}
@@ -306,16 +299,13 @@ class Form {
 	 * (Note that it is assumed that the form has already been validated.)
 	 */
 	function execute() {
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::execute"
-			// Note that class and function names are always lower
-			// case.
-			$value = null;
-			HookRegistry::call(strtolower($trace[1]['class'] . '::' . $trace[0]['function']), array(&$this, &$vars));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::execute"
+		// Note that class and function names are always lower
+		// case.
+		$value = null;
+		HookRegistry::call(strtolower(get_class($this) . '::execute'), array(&$this, &$vars));
 	}
 
 	/**
@@ -324,16 +314,13 @@ class Form {
 	 */
 	function getLocaleFieldNames() {
 		$returner = array();
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::getLocaleFieldNames"
-			// Note that class and function names are always lower
-			// case.
-			$value = null;
-			HookRegistry::call(strtolower($trace[1]['class'] . '::' . $trace[0]['function']), array(&$this, &$returner));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::getLocaleFieldNames"
+		// Note that class and function names are always lower
+		// case.
+		$value = null;
+		HookRegistry::call(strtolower(get_class($this) . '::getLocaleFieldNames'), array(&$this, &$returner));
 
 		return $returner;
 	}
@@ -375,16 +362,13 @@ class Form {
 	 * @param $vars array the names of the variables to read
 	 */
 	function readUserVars($vars) {
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::readUserVars"
-			// Note that class and function names are always lower
-			// case.
-			$value = null;
-			HookRegistry::call(strtolower($trace[1]['class'] . '::' . $trace[0]['function']), array(&$this, &$vars));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::readUserVars"
+		// Note that class and function names are always lower
+		// case.
+		$value = null;
+		HookRegistry::call(strtolower(get_class($this) . '::readUserVars'), array(&$this, &$vars));
 
 		foreach ($vars as $k) {
 			$this->setData($k, Request::getUserVar($k));
@@ -396,16 +380,13 @@ class Form {
 	 * @param $vars array the names of the date variables to read
 	 */
 	function readUserDateVars($vars) {
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "papergalleyform::readUserDateVars"
-			// Note that class and function names are always lower
-			// case.
-			$value = null;
-			HookRegistry::call(strtolower($trace[1]['class'] . '::' . $trace[0]['function']), array(&$this, &$vars));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "papergalleyform::readUserDateVars"
+		// Note that class and function names are always lower
+		// case.
+		$value = null;
+		HookRegistry::call(strtolower(get_class($this) . '::readUserDateVars'), array(&$this, &$vars));
 
 		foreach ($vars as $k) {
 			$this->setData($k, Request::getUserDateVar($k));

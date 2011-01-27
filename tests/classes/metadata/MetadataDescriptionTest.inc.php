@@ -80,6 +80,20 @@ class MetadataDescriptionTest extends PKPTestCase {
 			'not-translated-many' => array (
 				0 => 'ntm1-new',
 				1 => 'ntm2-new'
+			),
+			'translated-one' => array (
+				'en_US' => 'to_en-new',
+				'de_DE' => 'to_de-new'
+			),
+			'translated-many' => array (
+				'en_US' => array (
+					0 => 'tm1_en-new',
+					1 => 'tm2_en-new'
+				),
+				'de_DE' => array (
+					0 => 'tm1_de-new',
+					1 => 'tm2_de-new'
+				)
 			)
   		);
 
@@ -92,11 +106,19 @@ class MetadataDescriptionTest extends PKPTestCase {
 		// Unset the offending property and try again - this should work
   		$previousData = self::$testStatementsData;
   		unset($previousData['not-translated-one']);
-		$this->metadataDescription->setAllData($previousData);
+  		unset($previousData['translated-one']);
+  		$this->metadataDescription->setAllData($previousData);
 		$expectedResult = self::$testStatementsData;
   		$expectedResult['not-translated-many'][] = 'ntm1-new';
   		$expectedResult['not-translated-many'][] = 'ntm2-new';
-		unset($expectedResult['not-translated-one']);
+  		unset($expectedResult['translated-one']);
+  		$expectedResult['translated-one']['en_US'] = 'to_en-new';
+  		$expectedResult['translated-one']['de_DE'] = 'to_de-new';
+  		$expectedResult['translated-many']['en_US'][] = 'tm1_en-new';
+  		$expectedResult['translated-many']['en_US'][] = 'tm2_en-new';
+  		$expectedResult['translated-many']['de_DE'][] = 'tm1_de-new';
+  		$expectedResult['translated-many']['de_DE'][] = 'tm2_de-new';
+  		unset($expectedResult['not-translated-one']);
   		$expectedResult['not-translated-one'] = 'nto-new';
   		self::assertTrue($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_NOTHING));
   		self::assertEquals($expectedResult, $this->metadataDescription->getAllData());
@@ -104,10 +126,10 @@ class MetadataDescriptionTest extends PKPTestCase {
   		// Using the default replacement level (METADATA_DESCRIPTION_REPLACE_PROPERTY)
   		$previousData = self::$testStatementsData;
   		$this->metadataDescription->setAllData($previousData);
-  		unset($expectedResult['not-translated-many']);
-  		$expectedResult['not-translated-many'] = array('ntm1-new', 'ntm2-new');
-		self::assertTrue($this->metadataDescription->setStatements($testStatements));
-  		self::assertEquals($expectedResult, $this->metadataDescription->getAllData());
+  		//unset($expectedResult['not-translated-many']);
+  		//$expectedResult['not-translated-many'] = array('ntm1-new', 'ntm2-new');
+  		self::assertTrue($this->metadataDescription->setStatements($testStatements));
+  		self::assertEquals($testStatements, $this->metadataDescription->getAllData());
 
   		// Now test METADATA_DESCRIPTION_REPLACE_ALL
   		self::assertTrue($this->metadataDescription->setStatements($testStatements, METADATA_DESCRIPTION_REPLACE_ALL));

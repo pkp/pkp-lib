@@ -406,7 +406,9 @@ class MetadataDescription extends DataObject {
 				$replaceProperty = false;
 			}
 
+			$valueIndex = 0;
 			foreach($values as $value) {
+				$firstValue = ($valueIndex == 0) ? true : false;
 				// Is this a translated property?
 				if (is_array($value)) {
 					foreach($value as $locale => $translation) {
@@ -416,33 +418,29 @@ class MetadataDescription extends DataObject {
 						} else {
 							$translationValues =& $translation;
 						}
+						$translationIndex = 0;
 						foreach($translationValues as $translationValue) {
+							$firstTranslation = ($translationIndex == 0) ? true : false;
 							// Add a statement (replace existing statement if any)
-							if (!($this->addStatement($propertyName, $translationValue, $locale, $replaceProperty))) {
+							if (!($this->addStatement($propertyName, $translationValue, $locale, $firstTranslation && $replaceProperty))) {
 								$this->setAllData($statementsBackup);
 								return false;
 							}
-							// Reset the $replaceProperty flag to avoid that subsequent
-							// value entries will overwrite previous value entries.
-							$replaceProperty = false;
-
 							unset($translationValue);
+							$translationIndex++;
 						}
 						unset($translationValues);
 					}
 					unset($translation);
 				} else {
 					// Add a statement (replace existing statement if any)
-					if (!($this->addStatement($propertyName, $value, null, $replaceProperty))) {
+					if (!($this->addStatement($propertyName, $value, null, $firstValue && $replaceProperty))) {
 						$this->setAllData($statementsBackup);
 						return false;
 					}
-
-					// Reset the $replaceProperty flag to avoid that subsequent
-					// value entries will overwrite previous value entries.
-					$replaceProperty = false;
 				}
 				unset($value);
+				$valueIndex++;
 			}
 			unset($values);
 		}

@@ -640,7 +640,7 @@ class Installer {
 	 */
 	function installFilterTemplates() {
 		// Filters are supported on PHP5+ only.
-		if (!checkPhpVersion('5.0.0')) return false;
+		if (!checkPhpVersion('5.0.0')) return true;
 
 		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		$filtersToBeInstalled = array(

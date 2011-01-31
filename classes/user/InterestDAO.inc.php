@@ -107,6 +107,7 @@ class InterestDAO extends ControlledVocabDAO {
 			}
 		}
 
+		$interests = array_unique($interests); // Remove any duplicate interests that weren't caught by the JS validator
 		foreach ($interests as $interest) {
 			$interestEntry = $interestEntryDao->newDataObject();
 			$interestEntry->setControlledVocabId($currentInterests->getId());

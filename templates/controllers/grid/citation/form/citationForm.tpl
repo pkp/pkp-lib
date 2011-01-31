@@ -49,15 +49,9 @@
 					return false;
 				{rdelim})
 
-				// Ctrl-A: save and approve
-				.bind('keydown', 'ctrl+a', function() {ldelim}
+				// Ctrl-Enter: save and approve
+				.bind('keydown', 'ctrl+return', function() {ldelim}
 					$('#citationFormSaveAndApprove').click();
-					return false;
-				{rdelim})
-
-				// Ctrl-C: cancel
-				.bind('keydown', 'ctrl+c', function() {ldelim}
-					$('#citationFormCancel').click();
 					return false;
 				{rdelim})
 
@@ -92,8 +86,14 @@
 					return false;
 				{rdelim})
 
-				// Additionally bind to keypress to cancel the default event in Opera.
-				.bind('keypress', 'ctrl+h ctrl+r ctrl+s ctrl+a ctrl+c ctrl+m ctrl+d ctrl+g ctrl+q', function() {ldelim}
+				// Esc: cancel
+				.bind('keydown', 'esc', function() {ldelim}
+					$('#citationFormCancel').click();
+					return false;
+				{rdelim})
+
+				// Additionally bind to "keypress" event to cancel the default event in Opera.
+				.bind('keypress', 'ctrl+h ctrl+r ctrl+s ctrl+return ctrl+m ctrl+d ctrl+g ctrl+q esc', function() {ldelim}
 					return false;
 				{rdelim});
 
@@ -744,8 +744,8 @@
 			<div>
 				<button id="citationFormSaveAndRevokeApproval" type="button" class="citation-save-button secondary-button" title="{translate key="submission.citations.editor.details.saveAndRevokeApproval"} [Ctrl-R]">{translate key="submission.citations.editor.details.saveAndRevokeApproval"}</button>
 				<button id="citationFormSave" type="button" class="citation-save-button" title="{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if} [Ctrl-S]">{if $citation->getId()}{translate key="common.save"}{else}{translate key="common.add"}{/if}</button>
-				{if $citation->getId()}<button id="citationFormSaveAndApprove" type="button" class="citation-save-button" title="{translate key="submission.citations.editor.details.saveAndApprove"} [Ctrl-A]">{translate key="submission.citations.editor.details.saveAndApprove"}</button>{/if}
-				<button id="citationFormCancel" type="button" title="{translate key="common.cancel"} [Ctrl-C]">{translate key="common.cancel"}</button>
+				{if $citation->getId()}<button id="citationFormSaveAndApprove" type="button" class="citation-save-button" title="{translate key="submission.citations.editor.details.saveAndApprove"} [Ctrl-Enter]">{translate key="submission.citations.editor.details.saveAndApprove"}</button>{/if}
+				<button id="citationFormCancel" type="button" title="{translate key="common.cancel"} [Esc]">{translate key="common.cancel"}</button>
 			</div>
 		</div>
 	</form>

@@ -391,27 +391,23 @@ class DAO {
 
 	function getAdditionalFieldNames() {
 		$returner = array();
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
-			// (class names lowercase)
-			HookRegistry::call(strtolower($trace[2]['class']) . '::getAdditionalFieldNames', array(&$this, &$returner));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
+		// (class names lowercase)
+		HookRegistry::call(strtolower(get_class($this)) . '::getAdditionalFieldNames', array(&$this, &$returner));
+
 		return $returner;
 	}
 
 	function getLocaleFieldNames() {
 		$returner = array();
-		if (checkPhpVersion('4.3.0')) {
-			$trace = debug_backtrace();
-			// Call hooks based on the calling entity, assuming
-			// this method is only called by a subclass. Results
-			// in hook calls named e.g. "sessiondao::getLocaleFieldNames"
-			// (class names lowercase)
-			HookRegistry::call(strtolower($trace[2]['class']) . '::getLocaleFieldNames', array(&$this, &$returner));
-		}
+		// Call hooks based on the calling entity, assuming
+		// this method is only called by a subclass. Results
+		// in hook calls named e.g. "sessiondao::getLocaleFieldNames"
+		// (class names lowercase)
+		HookRegistry::call(strtolower(get_class($this)) . '::getLocaleFieldNames', array(&$this, &$returner));
+
 		return $returner;
 	}
 

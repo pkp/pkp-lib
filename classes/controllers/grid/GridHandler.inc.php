@@ -252,7 +252,8 @@ class GridHandler extends PKPHandler {
 	 * it to the client.
 	 * @param $args array
 	 * @param $request Request
-	 * @param $fetchParams additional params to assign to the template for the fetch URLs
+	 * @param $fetchParams array additional params to assign to the
+	 *  template for the fetch URLs
 	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request, $fetchParams = array()) {

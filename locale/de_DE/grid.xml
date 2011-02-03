@@ -2,17 +2,17 @@
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
-  * locale/en_US/grid.xml
+  * locale/de_DE/grid.xml
   *
   * Copyright (c) 2000-2011 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the en_US (English) locale.
+  * Localization strings for the de_DE (German) locale.
   *
   * $Id$
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="de_DE" full_name = "German">
 	<!-- Common -->
 	<message key="grid.noItems">Keine Einträge</message>
 	<message key="grid.settings">Einstellungen</message>
@@ -69,11 +69,11 @@
 
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Dateien</message>
-	<message key="grid.libraryFiles.submission.title">Bibliothek für Einreichungen</message>
-	<message key="grid.libraryFiles.editorial.title">Bibliothek für Redaktion</message>
-	<message key="grid.libraryFiles.review.title">Bibliothek für Begutachtung</message>
-	<message key="grid.libraryFiles.production.title">Bibliothek für Produktion</message>
-	<message key="grid.libraryFiles.productionTemplate.title">Bibliothek für Produktionsvorlagen</message>
+	<message key="grid.libraryFiles.submission.title">Einreichungsbibliothek</message>
+	<message key="grid.libraryFiles.editorial.title">Redaktionsbibliothek</message>
+	<message key="grid.libraryFiles.review.title">Begutachtungsbibliothek</message>
+	<message key="grid.libraryFiles.production.title">Produktionsbibliothek</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Produktionsvorlagenbibliothek</message>
 
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Checkliste für Einreichungen</message>

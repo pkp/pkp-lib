@@ -1,10 +1,4 @@
 /**
- * @defgroup js_controllers
- */
-// Create the controllers namespace.
-jQuery.pkp.controllers = jQuery.pkp.controllers || { };
-
-/**
  * @file js/controllers/FormHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky

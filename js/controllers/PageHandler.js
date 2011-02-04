@@ -1,3 +1,8 @@
+/**
+ * @defgroup js_controllers
+ */
+// Create the controllers namespace.
+jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 /**
  * @file js/controllers/PageHandler.js
@@ -8,7 +13,7 @@
  * @class PageHandler
  * @ingroup js_controllers
  *
- * @brief PKP handler for the page level (bound typically to the div.main element).
+ * @brief Handle the page widget.
  */
 (function($) {
 
@@ -18,18 +23,11 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $page the wrapped HTML form element.
-	 * @param {Object} options options to be passed
-	 *  into the validator plug-in.
+	 * @param {jQuery} $page the wrapped page element.
+	 * @param {Object} options handler options.
 	 */
 	$.pkp.controllers.PageHandler = function($page, options) {
 		this.parent($page, options);
-
-		// Check whether we really got a form.
-		if (!$page.is('div')) {
-			throw Error(['A PageHandler controller can only be bound',
-				' to a div element!'].join(''));
-		}
 
 		this.bind('redirectRequested', this.redirectToUrl);
 	};
@@ -41,20 +39,18 @@
 	// Public methods
 	//
 	/**
-	 * Callback that is triggered when the page should redirect
-	 * after a modal form submitted.
+	 * Callback that is triggered when the page should redirect.
 	 *
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  "redirectRequested" event.
-	 * @param {Event} event The "element deleted" event.
-	 * @param string The URL to redirect to
+	 * @param {Event} event The "redirect requested" event.
+	 * @param {string} url The URL to redirect to.
 	 */
 	$.pkp.controllers.PageHandler.prototype.redirectToUrl =
-		function(sourceElement, event, url) {
+			function(sourceElement, event, url) {
 
 		window.location = url;
 	};
-
 
 
 /** @param {jQuery} $ jQuery closure. */

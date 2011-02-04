@@ -24,3 +24,8 @@ SWORD PHP API Library
  * URL: <http://php.swordapp.org>
  * Version: 0.9 (Oct 5, 2009)
  * License: Modified BSD
+
+lessphp PHP LESS CSS Compiler
+ * URL: <http://leafo.net/lessphp>
+ * Version: 0.2
+ * License: GPLv3 or MIT

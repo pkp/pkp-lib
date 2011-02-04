@@ -44,7 +44,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Save the URL to fetch the entire grid
 		this.fetchGridUrl_ = options.fetchGridUrl;
-		
+
 		// Save the selector for the grid body.
 		this.bodySelector_ = options.bodySelector;
 	};
@@ -70,6 +70,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl_ = null;
 
+
 	/**
 	 * The URL to fetch the entire grid.
 	 * @private
@@ -77,7 +78,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchGridUrl_ = null;
 
-	
+
 	/**
 	 * The selector for the grid body.
 	 * @private
@@ -150,7 +151,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		$.get(this.fetchRowUrl_, {rowId: rowId},
 				this.callbackWrapper(this.insertOrUpdateRow), 'json');
 	};
-	
+
+
 	/**
 	 * Callback to insert or update a row.
 	 *
@@ -188,23 +190,27 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
+
 	/**
 	 * Callback bound to the "elements changed" event.
 	 *
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "refresh grid" event.
 	 * @param {Event} event The "element deleted" event.
 	 * @param {string} gridId The id of the grid to be refreshed.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
-		function(sourceElement, event, gridId) {
-		
+			function(sourceElement, event, gridId) {
+
 		// Check the grid.
 		this.checkGridId_(gridId);
-		
+
 		// Fetch the new grid data.
 		$.get(this.fetchGridUrl_, null,
-			this.callbackWrapper(this.replaceGridContent), 'json');
+				this.callbackWrapper(this.replaceGridContent), 'json');
 	};
-	
+
+
 	/**
 	 * Callback to replace a grid's content.
 	 *
@@ -218,11 +224,12 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		if (jsonData !== false) {
 			// Get the grid that we're updating
 			var $grid = this.getHtmlElement();
-			
+
 			// Replace the grid content
 			$grid.html(jsonData.content);
 		}
 	};
+
 
 	//
 	// Private methods
@@ -239,7 +246,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Check that grid and row ids are correct.
 		if (gridId !== this.gridId_) {
-			throw Error('The grid id of the "element deleted" ' +
+			throw Error('The grid id of the ' +
 					'event does not fit the grid id of the handler!');
 		}
 	};

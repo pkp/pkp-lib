@@ -38,7 +38,7 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 		if (options.presetRevisedFileId) {
 			this.presetRevisedFileId_ = options.presetRevisedFileId;
 		}
-		this.monographFileGenres_ = options.monographFileGenres;
+		this.fileGenres_ = options.fileGenres;
 
 		// Attach the uploader handler to the uploader HTML element.
 		options.uploaderOptions.setup = this.callbackWrapper(this.uploaderSetup);
@@ -85,12 +85,12 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 
 
 	/**
-	 * All currently available monograph file genres.
+	 * All currently available file genres.
 	 * @private
 	 * @type {Object}
 	 */
 	$.pkp.controllers.files.submissionFiles.form.FileUploadFormHandler
-			.monographFileGenres_ = null;
+			.fileGenres_ = null;
 
 
 	//
@@ -211,7 +211,7 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 			$genreId.attr('disabled', '');
 		} else {
 			// Revision...
-			$genreId.val(this.monographFileGenres_[$revisedFileId.val()]);
+			$genreId.val(this.fileGenres_[$revisedFileId.val()]);
 			$genreId.attr('disabled', 'disabled');
 		}
 	};

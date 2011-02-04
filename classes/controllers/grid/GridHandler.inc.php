@@ -275,7 +275,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign('fetchParams', $fetchParams);
 
 		// Let the view render the grid
-		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
 	}
 
@@ -290,7 +290,7 @@ class GridHandler extends PKPHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the requested row
-		$json = new JSON('true', $this->_renderRowInternally($request, $row));
+		$json = new JSON(true, $this->_renderRowInternally($request, $row));
 		return $json->getString();
 	}
 
@@ -310,7 +310,7 @@ class GridHandler extends PKPHandler {
 		$row =& $this->getRequestedRow($request, $args);
 
 		// Render the cell
-		$json = new JSON('true', $this->_renderCellInternally($request, $row, $column));
+		$json = new JSON(true, $this->_renderCellInternally($request, $row, $column));
 		return $json->getString();
 	}
 
@@ -383,7 +383,7 @@ class GridHandler extends PKPHandler {
 	 * @return string A rendered JSON message.
 	 */
 	function elementDeleted($elementId) {
-		$json = new JSON('true');
+		$json = new JSON(true);
 		$json->setEvent('elementDeleted', array($this->getId(), (string)$elementId));
 		return $json->getString();
 	}
@@ -396,7 +396,7 @@ class GridHandler extends PKPHandler {
 	 * @return string A rendered JSON message.
 	 */
 	function elementAdded($elementId) {
-		$json = new JSON('true');
+		$json = new JSON(true);
 		$json->setEvent('elementAdded', array($this->getId(), (string)$elementId));
 		return $json->getString();
 	}
@@ -407,7 +407,7 @@ class GridHandler extends PKPHandler {
 	 * @return string A rendered JSON message.
 	 */
 	function elementsChanged() {
-		$json = new JSON('true');
+		$json = new JSON(true);
 		$json->setEvent('elementsChanged', array($this->getId()));
 		return $json->getString();
 	}

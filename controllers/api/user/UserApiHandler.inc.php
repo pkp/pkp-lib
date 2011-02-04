@@ -55,9 +55,10 @@ class UserApiHandler extends PKPHandler {
 		$user =& $request->getUser();
 		assert(is_a($user, 'User'));
 
-		// Exit with an error if request parameters are missing.
+		// Exit with an error if request parameters are missing - no translation needed
+		// for fatal error messages.
 		if (!(isset($args['setting-name'])) && isset($args['setting-value'])) {
-			$json = new JSON('false', 'Required request parameter "setting-name" or "setting-value" missing!');
+			$json = new JSON(false, 'Required request parameter "setting-name" or "setting-value" missing!');
 			return $json->getString();
 		}
 
@@ -68,15 +69,17 @@ class UserApiHandler extends PKPHandler {
 		switch($settingType) {
 			case 'bool':
 				if (!($settingValue === 'false' || $settingValue === 'true')) {
-					$json = new JSON('false', 'Invalid setting value! Must be "true" or "false".');
+					// Send back error message - no translation needed for fatal error messages.
+					$json = new JSON(false, 'Invalid setting value! Must be "true" or "false".');
 					return $json->getString();
 				}
 				$settingValue = ($settingValue === 'true' ? true : false);
 				break;
 
 			default:
-				// Exit with a fatal error when an unknown setting is found.
-				$json = new JSON('false', 'Unknown setting!');
+				// Exit with a fatal error when an unknown setting is found - no translation
+				// needed for fatal error messages.
+				$json = new JSON(false, 'Unknown setting!');
 				return $json->getString();
 		}
 
@@ -85,7 +88,7 @@ class UserApiHandler extends PKPHandler {
 		$userSettingsDAO->updateSetting($user->getId(), $settingName, $settingValue, $settingType);
 
 		// Return a success message.
-		$json = new JSON('true');
+		$json = new JSON(true);
 		return $json->getString();
 
 	}

@@ -354,7 +354,7 @@ class PKPComponentRouter extends PKPRouter {
 
 		// Return a JSON error message.
 		import('lib.pkp.classes.core.JSON');
-		$json = new JSON('false', $translatedAuthorizationMessage);
+		$json = new JSON(false, $translatedAuthorizationMessage);
 		return $json->getString();
 	}
 

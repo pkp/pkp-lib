@@ -259,7 +259,7 @@ class ListbuilderHandler extends GridHandler {
 
 		$templateMgr->assign('listbuilder', $this);
 
-		$json = new JSON('true', $templateMgr->fetch($this->getTemplate()));
+		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
 	}
 

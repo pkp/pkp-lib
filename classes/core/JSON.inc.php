@@ -15,44 +15,44 @@
 
 
 class JSON {
-	/** @var $status string The status of an event (e.g. false if form validation fails) */
-	var $status;
+	/** @var string The status of an event (e.g. false if form validation fails). */
+	var $_status;
 
-	/** @var $content string The message to be delivered back to the calling script */
-	var $content;
+	/** @var string The message to be delivered back to the calling script. */
+	var $_content;
 
-	/** @var $isScript string Whether the content is javascript that should be executed */
-	var $isScript;
+	/** @var string Whether the content is javascript that should be executed. */
+	var $_isScript;
 
-	/** @var $elementId string ID for DOM element that will be replaced */
-	var $elementId;
+	/** @var string ID for DOM element that will be replaced. */
+	var $_elementId;
 
-	/** @var $eventName string Name for included event */
-	var $eventName;
+	/** @var array A JS event generated on the server side. */
+	var $_event;
 
-	/** @var $eventData string Data for included event */
-	var $eventData;
+	/** @var array Set of additional attributes for special cases. */
+	var $_additionalAttributes;
 
-	/** @var $additionalAttributes array Set of additional attributes for special cases*/
-	var $additionalAttributes;
+	/** @var boolean An internal variable used for unit testing only. */
+	var $_simulatePhp4 = false;
 
 	/**
 	 * Constructor.
-	 * @param $status string The status of an event (e.g. false if form validation fails)
-	 * @param $content string The message to be delivered back to the calling script
-	 * @param $elementId string The DOM element to be replaced
-	 * @param $additionalAttributes array additional data to be returned.
+	 * @param $status boolean The status of an event (e.g. false if form validation fails).
+	 * @param $content string The message to be delivered back to the calling script.
+	 * @param $isScript boolean Whether the JSON returns a script. FIXME: see #6375 - scripts in JSON are evil.
+	 * @param $elementId string The DOM element to be replaced.
+	 * @param $additionalAttributes array Additional data to be returned.
 	 */
-	function JSON($status = 'true', $content = '', $isScript = 'false', $elementId = '0', $additionalAttributes = null) {
-		$this->status = $status;
-		$this->content = $this->json_encode($content);
-		$this->isScript = $isScript;
-		$this->elementId = $this->json_encode($elementId);
+	function JSON($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
+		// Set internal state.
+		$this->setStatus($status);
+		$this->setContent($content);
+		$this->setIsScript($isScript);
+		$this->setElementId($elementId);
 		if (isset($additionalAttributes)) {
-			$this->additionalAttributes = $additionalAttributes;
+			$this->setAdditionalAttributes($additionalAttributes);
 		}
-
-		$this->eventName = $this->eventData = null;
 	}
 
 	/**
@@ -60,7 +60,7 @@ class JSON {
 	 * @return string
 	 */
 	function getStatus () {
-		return $this->status;
+		return $this->_status;
 	}
 
 	/**
@@ -68,7 +68,8 @@ class JSON {
 	 * @param $status string
 	 */
 	function setStatus($status) {
-		$this->status = $status;
+		assert(is_bool($status));
+		$this->_status = $status;
 	}
 
 	/**
@@ -76,7 +77,7 @@ class JSON {
 	 * @return string
 	 */
 	function getContent() {
-		return $this->content;
+		return $this->_content;
 	}
 
 	/**
@@ -84,7 +85,8 @@ class JSON {
 	 * @param $content string
 	 */
 	function setContent($content) {
-		$this->content = $this->json_encode($content);
+		assert(is_string($content));
+		$this->_content = $content;
 	}
 
 	/**
@@ -92,7 +94,7 @@ class JSON {
 	* @return string
 	*/
 	function getIsScript () {
-		return $this->isScript;
+		return $this->_isScript;
 	}
 
 	/**
@@ -100,7 +102,8 @@ class JSON {
 	 * @param $isScript string
 	 */
 	function setIsScript($isScript) {
-		$this->isScript = $isScript;
+		assert(is_bool($isScript));
+		$this->_isScript = $isScript;
 	}
 
 	/**
@@ -108,7 +111,7 @@ class JSON {
 	 * @return string
 	 */
 	function getElementId () {
-		return $this->elementId;
+		return $this->_elementId;
 	}
 
 	/**
@@ -116,7 +119,8 @@ class JSON {
 	 * @param $elementId string
 	 */
 	function setElementId($elementId) {
-		$this->elementId = $this->json_encode($elementId);
+		assert(is_string($elementId));
+		$this->_elementId = $elementId;
 	}
 
 	/**
@@ -125,8 +129,21 @@ class JSON {
 	 * @param $eventData string
 	 */
 	function setEvent($eventName, $eventData = null) {
-		$this->eventName = $eventName;
-		if($eventData) $this->eventData = $eventData;
+		assert(is_string($eventName));
+
+		// Construct the even as an associative array.
+		$event = array('name' => $eventName);
+		if(!is_null($eventData)) $event['data'] = $eventData;
+
+		$this->_event = $event;
+	}
+
+	/**
+	 * Get the event to trigger with this JSON message
+	 * @return array
+	 */
+	function getEvent() {
+		return $this->_event;
 	}
 
 	/**
@@ -134,7 +151,7 @@ class JSON {
 	 * @return array
 	 */
 	function getAdditionalAttributes () {
-		return $this->additionalAttributes;
+		return $this->_additionalAttributes;
 	}
 
 	/**
@@ -142,7 +159,18 @@ class JSON {
 	 * @param $additionalAttributes array
 	 */
 	function setAdditionalAttributes($additionalAttributes) {
-		$this->additionalAttributes = $additionalAttributes;
+		assert(is_array($additionalAttributes));
+		$this->_additionalAttributes = $additionalAttributes;
+	}
+
+	/**
+	 * Set to simulate a PHP4 environment.
+	 * This is for internal use in unit tests only.
+	 * @param $simulatePhp4 boolean
+	 */
+	function setSimulatePhp4($simulatePhp4) {
+		assert(is_bool($simulatePhp4));
+		$this->_simulatePhp4 = $simulatePhp4;
 	}
 
 	/**
@@ -150,30 +178,43 @@ class JSON {
 	 * @return string
 	 */
 	function getString() {
-		$jsonString = "{\"status\": $this->status, \"content\": $this->content, \"isScript\": $this->isScript, \"elementId\": $this->elementId";
-		if(isset($this->additionalAttributes)) {
-			foreach($this->additionalAttributes as $key => $value) {
-				$jsonString .= ", \"$key\": " . $this->json_encode($value);
+		// Construct an associative array that contains all information we require.
+		$jsonObject = array(
+			'status' => $this->getStatus(),
+			'content' => $this->getContent(),
+			'isScript' => $this->getIsScript(),
+			'elementId' => $this->getElementId()
+		);
+		if(is_array($this->getAdditionalAttributes())) {
+			foreach($this->getAdditionalAttributes() as $key => $value) {
+				$jsonObject[$key] = $value;
 			}
 		}
-		if(isset($this->eventName)) {
-			$event = array('name' => $this->eventName);
-			if(isset($this->eventData)) $event['data'] = $this->eventData;
-			$jsonString .= ', "event": ' . $this->json_encode($event);
+		if(is_array($this->getEvent())) {
+			$jsonObject['event'] = $this->getEvent();
 		}
-		$jsonString .= "}";
 
-		return $jsonString;
+		// Encode the object.
+		return $this->_json_encode($jsonObject);
 	}
 
+
+	//
+	// Private helper methods
+	//
 	/**
-	 * encode a string for use with JSON
+	 * PHP4 compatible version of json_encode()
 	 * Thanks to: http://usphp.com/manual/en/function.json-encode.php#82904
+	 *
+	 * @param $a mixed The content to encode.
+	 * @return string The encoded content.
 	 */
-	function json_encode($a = false) {
-		if (function_exists('json_encode')) {
+	function _json_encode($a = false) {
+		if (function_exists('json_encode') && !$this->_simulatePhp4) {
+			// Use the internal function if it exists.
 			return json_encode($a);
 		} else {
+			// Deal with scalar variables.
 			if (is_null($a)) return 'null';
 			if ($a === false) return 'false';
 			if ($a === true) return 'true';
@@ -185,11 +226,13 @@ class JSON {
 				if (is_string($a)) {
 					static $jsonReplaces = array(array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
 					return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
-				}
-				else {
+				} else {
 					return $a;
 				}
 			}
+
+			// Find out whether this is an indexed array
+			// or an associative array/object.
 			$isList = true;
 			for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
 				if (key($a) !== $i) {
@@ -197,13 +240,16 @@ class JSON {
 					break;
 				}
 			}
+
+			// Render the array/object.
 			$result = array();
 			if ($isList) {
-				foreach ($a as $v) $result[] = $this->json_encode($v);
+				// Indexed lists.
+				foreach ($a as $v) $result[] = $this->_json_encode($v);
 				return '[' . join(',', $result) . ']';
-			}
-			else {
-				foreach ($a as $k => $v) $result[] = $this->json_encode($k).':'.$this->json_encode($v);
+			} else {
+				// Objects or associative arrays.
+				foreach ($a as $k => $v) $result[] = $this->_json_encode($k).':'.$this->_json_encode($v);
 				return '{' . join(',', $result) . '}';
 			}
 		}

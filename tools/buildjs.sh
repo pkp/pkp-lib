@@ -25,6 +25,19 @@
 # Usage: lib/pkp/tools/build.sh
 #
 
+
+### OS specific configuration ###
+
+# Define a tab to be used inside of sed commands (sed on OSX does not recognize \t)
+TAB=$'\t'
+
+# Determine what flag to use for extended regular expressions
+if [ `uname` == 'Darwin' ]; then
+	EXTENDED_REGEX_FLAG='E'
+else
+	EXTENDED_REGEX_FLAG='r'
+fi
+
 ### Configuration ###
 
 TOOL_PATH=~/bin
@@ -75,14 +88,14 @@ echo >&2
 
 # A list with all files to be compiled and minified. Expects
 # a complete list of script files in minifiedScripts.tpl.
-COMPILE_FILES=$(sed -nr '/<script type="text\/javascript"/ { s%^.*src="\{\$baseUrl\}/([^"]+)".*$%\1%p }' templates/common/minifiedScripts.tpl)
+COMPILE_FILES=$(sed -n -$EXTENDED_REGEX_FLAG '/<script type="text\/javascript"/ s%^.*src="\{\$baseUrl\}/([^"]+)".*$%\1%p' templates/common/minifiedScripts.tpl)
 
 # FIXME: For now we only check classes as the other
 # files contain too many errors to be fixed right now.
 LINT_FILES=`echo "$COMPILE_FILES" | egrep -v '^lib/pkp/js/(lib|functions)'`
 
 # Create a working directory in the cache
-WORKDIR=`mktemp -d` || { echo "The working directory could not be created!"; exit 1; }
+WORKDIR=`mktemp -dt buildjs` || { echo "The working directory could not be created\!"; exit 1; }
 
 # Show a list of the files we are going to lint.
 echo "Lint..." >&2
@@ -96,7 +109,7 @@ for JS_FILE in $LINT_FILES; do
 	# - wraps @extends type in curly braces to comply with Google style guide.
 	# - works around http://code.google.com/p/closure-compiler/issues/detail?id=61 by removing the jQuery closure.
 	mkdir -p `dirname "$WORKDIR/$JS_FILE"`
-	sed 's/^\t//;s/\t/  /g;s/^(function(\$) {//;s/^})(jQuery);//;s/@extends \(.*\)$/@extends {\1}/' "$JS_FILE" > "$WORKDIR/$JS_FILE"
+	sed "s/^${TAB}//;s/${TAB}/  /g;s/^(function(\$) {//;s/^})(jQuery);//;s/@extends \(.*\)$/@extends {\1}/" "$JS_FILE" > "$WORKDIR/$JS_FILE"
 
 
 	# Only lint file if it has been changed since last compilation.
@@ -105,22 +118,22 @@ for JS_FILE in $LINT_FILES; do
 		#############################
 		### Google Closure Linter ###
 		#############################
-	
+
 		# Run gjslint on the file.
-		gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed 's/^/\t/'
-	
-	
+		gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed "s/^/${TAB}/"
+
+
 		##################################
 		### Douglas Crockford's JSLint ###
 		##################################
-	
+
 		# Run JSLint on the file:
 		# - allow for loops without "hasOwnProperty()" check because we operate in an environment
 		#   where additions to the Object prototype are not allowed (same as jQuery).
 		# - remove jslint "unexpected space" error - whitespace checking is better done by gjslint.
 		#   This is necessary to remove inconsistency between gjslint's line length checking and
 		#   jslint's line break rules.
-		java -jar "$TOOL_PATH/jslint4java.jar" --forin $JS_FILE | grep -v '^$' | grep -v 'Unexpected space before ' | sed 's/^/\t/'
+		java -jar "$TOOL_PATH/jslint4java.jar" --forin $JS_FILE | grep -v '^$' | grep -v 'Unexpected space before ' | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 
 	else
@@ -135,13 +148,13 @@ echo >&2
 ###############################
 
 # Transform lint file list into Closure input parameter list.
-LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -r 's/ $//;s/(^| )/ --js /g'`
+LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
 
 # Run Closure - first pass to check with transformed files.
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --externs lib/pkp/tools/closure-externs-check-only.js --jscomp_warning visibility --warning_level VERBOSE $LINT_FILES --js_output_file /dev/null 2>&1 | sed 's/^/\t/' >>"$WORKDIR/.compile-warnings.out"
+java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --externs lib/pkp/tools/closure-externs-check-only.js --jscomp_warning visibility --warning_level VERBOSE $LINT_FILES --js_output_file /dev/null 2>&1 | sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
 # Only minify when there were no warnings.
 if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
@@ -155,14 +168,14 @@ else
 	echo >&2
 	echo "Compile (Minify)..." >&2
 	echo "$COMPILE_FILES" | sed 's/^/.../' >&2
-	
+
 	# Transform file list into Closure input parameter list.
-	COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -r 's/ $//;s/(^| )/ --js /g'`
-	
+	COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
+
 	# Run Closure - second pass to minify
-	java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES --js_output_file "$JS_OUTPUT" 2>&1 
+	java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES --js_output_file "$JS_OUTPUT" 2>&1
 	echo >&2
-	
+
 	echo "Please don't forget to set enable_minified=On in your config.inc.php." >&2
 	echo >&2
 	echo "Done!" >&2

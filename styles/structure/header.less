@@ -1,0 +1,49 @@
+/**
+ * @file styles/structure/header.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_structure_header
+ *
+ * @brief Classes for the page header structural elements
+ */
+
+.pkp_structure_header {
+	height: 175px;
+
+	/**
+	 * Navigation mixin
+	 */
+	._navigation {
+		font-size: 90%;
+		line-height: 30px;
+
+		/* Between items, there should be padding. */
+		li {
+			padding-left: 15px;
+		}
+		li:first_child {
+			padding-left: 0px;
+		}
+		li:last_child {
+			padding-right: 15px;
+		}
+	}
+
+	.pkp_structure_header_siteNav {
+	        padding: 0px 10px 0 10px;
+	        height: 30px;
+		._navigation;
+	}
+
+	.pkp_structure_header_masthead {
+		padding: 0 10px 0 10px;
+		height: 110px;
+	}
+
+	.pkp_structure_header_localNav {
+	        height: 35px;
+		._navigation;
+	}
+}

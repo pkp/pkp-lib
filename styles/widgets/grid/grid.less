@@ -1,0 +1,243 @@
+/**
+ * @file styles/widgets/grid/grid.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_widgets_grid
+ *
+ * @brief Classes for grid structure
+ */
+
+/* Below was taken from content.css */
+
+div.pkp_widgets_grid {
+	div.wrapper {
+		margin: 10px;
+		padding: 20px;
+	}
+
+	div.actions {
+		margin-top: 10px;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	thead tr {
+		height: 30px; /* Must be set for tr rather than th for Chromium. */
+		padding: 4px 0;
+	}
+
+	thead th {
+		padding: 0 4px; /* Padding top/bottom must be 0 for IE7 compatibility. */
+		vertical-align: middle;
+		text-align: center;
+	}
+
+	td {
+		text-align: center;
+		min-height: 40px;
+		height: 40px;
+		font-size: 85%;
+		vertical-align: middle;
+		padding: 2px 4px;
+	}
+
+	th:first-child, td:first-child, col.first_column {
+		text-align: left !important;
+	}
+
+	td.first_column {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+
+	td.first_column a {
+		background-repeat: no-repeat;
+	}
+
+	tr.category td {
+		text-align: left;
+		height: 20px;
+		font-size: 70%;
+		text-transform: uppercase;
+		padding-left: 10px;
+	}
+
+	.options {
+		float: right;
+		margin-bottom: 10px;
+	}
+
+	.options a {
+		background-position: 0px 50%;
+		display: inline;
+		padding: 5px 0px 5px 20px;
+		margin-left: 20px;
+		font-size: 90%;
+	}
+
+	.hidetext {
+		visibility: hidden;
+		overflow: hidden;
+	}
+
+	.row_container {
+		position: relative; /* Required to anchor absolute row actions positioning below. */
+		padding-left: 25px;
+		padding-right: 30px;
+		overflow: hidden;
+	}
+
+	.row_container, .row_controls {
+		background-color: #e8f0f8;
+	}
+
+	.row_actions, .row_file {
+		min-height: 40px;
+		line-height: 40px;
+		vertical-align: middle;
+	}
+
+	.row_actions {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 25px;
+		padding-top: 5px;
+	}
+
+	.row_actions a {
+		margin-left: 5px;
+		padding: 1px 7px;
+	}
+
+	.row_file {
+		width: 100%;
+		padding: 5px 15px;
+		background-color: #fff;
+	}
+
+	.row_file a {
+		padding: 2px 20px;
+	}
+
+	.multiline {
+		line-height: 125%; /* IE7 doesn't support "inherit", all other browsers will ignore this. */
+		line-height: inherit;
+	}
+
+	.row_controls {
+		display: none;
+		height: 25px;
+		line-height: 25px;
+		vertical-align: middle;
+		overflow: hidden;
+		padding-left: 20px;
+	}
+
+	.row_controls a {
+		text-decoration: none;
+		color: #777;
+		font-size: 90%;
+		padding: 2px 30px 1px 20px;
+	}
+
+	.row_controls a:hover {
+		text-decoration: underline;
+	}
+
+	.row_controls a:hover {
+		text-decoration: underline;
+	}
+
+	a.sprite {
+		background-position: 0 top;
+		text-decoration: none;
+		padding: 1px 0px;
+	}
+
+	a.sprite:hover {
+		background-position: 0 bottom;
+	}
+
+	a.focus {
+		background-position: 0 bottom;
+	}
+
+	.category td:first-child {
+		top: 0;
+	}
+
+	a.task {
+		width: 100%;
+		height: 100%;
+		text-indent: -1500px;
+		overflow: hidden;
+		display: block;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+
+	/* Below was taken from the theme */
+
+	div.wrapper {
+		border: 1px solid #b6c9d5;
+		background-color: #efefef;
+	}
+
+	table {
+		background-color: #fff;
+		border: 1px solid #b6c9d5;
+		border-collapse: collapse; /* Required for IE7 to remove table borders. */
+	}
+
+	tr.alternate_row, div.pkp_component_grid tr.alternate_row .row_file {
+		background-color: #f5f5f5;
+	}
+
+	th {
+		color: #20538d;
+		background-color: #ced7e1;
+	}
+
+	tr.category td {
+		background-color: #e3ecea;
+		color: #627b81;
+	}
+
+	/* FIXME: This should go somewhere else. */
+	a.task:hover {
+		background-color: #efefef;
+	}
+
+	.ui-widget {
+		font-size: .9em;
+	}
+
+
+	/* @group More/Less Detail Toggle */
+	.toggleDetailContainer {
+		margin: 20px 0 20px 0;
+	}
+
+	.toggleDetail {
+		display: block;
+		text-indent: -99999px;
+		overflow: hidden;
+		background-repeat: no-repeat;
+		width: 16px;
+		height: 16px;
+		background-image: url(../lib/pkp/styles/images/ui-icons_222222_256x240.png);
+	}
+
+	.moreDetail {
+		background-position: -48px -192px;
+	}
+
+	.lessDetail {
+		background-position: -64px -192px;
+	}
+}

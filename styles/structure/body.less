@@ -1,0 +1,49 @@
+/**
+ * @file styles/structure/body.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_structure_page
+ *
+ * @brief Classes for the page structural elements
+ */
+
+/* Align all content in the center of the page */
+.pkp_structure_body {
+	/* FIXME: What is _text-align for? */
+	_text-align: center;
+	text-align: center;
+
+	/**
+	 * Application layout panels
+	 */
+	.pkp_structure_page_bodyPanel {
+		overflow: hidden;
+		_overflow: visible;
+		_zoom: 1;
+		clear: both;
+	}
+
+	.pkp_structure_page_pagePanel {
+		margin: 0 auto;
+		width: 950px;
+		/* Body tag contents are centered; reset to left. */
+		text-align: left;
+	}
+
+	.pkp_structure_page_headPanel {
+		height: 175px;
+	}
+
+	.pkp_structure_page_mainPanel {
+		overflow: hidden;
+		_overflow: visible;
+		_zoom: 1;
+	}
+
+	.pkp_structure_page_masthead {
+		padding: 0 10px 0 10px;
+		height: 110px;
+	}
+}

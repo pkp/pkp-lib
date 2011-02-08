@@ -1,18 +1,6 @@
-body {
-	font-family: Helvetica, Arial, sans-serif;
-}
-
 img {
 	display: block;
 	padding: 2px;
-}
-
-em {
-	font-style: italic;
-}
-
-strong {
-	font-weight: bold;
 }
 
 hr {
@@ -130,22 +118,6 @@ h6, .h6 {
 
 /* @end */
 
-/* @group Links */
-
-a {
-
-}
-
-a:focus, a:hover {
-
-}
-
-a:visited {
-
-}
-
-/* @end */
-
 /* @group Lists */
 
 /* numbered list */
@@ -176,14 +148,7 @@ ul.flat_list li, ol.flat_list li {
 
 /* @group Navigation */
 
-.breadcrumb li {
-	padding-left: 10px;
-	font-size: 85%;
-	list-style-type: circle;
-	list-style-position: inside;
-}
-
-.installation_navigation, .user_navigation {
+/* .installation_navigation, .user_navigation {
 	font-size: 90%;
 	line-height: 30px;
 }
@@ -194,16 +159,7 @@ ul.flat_list li, ol.flat_list li {
 
 .user_navigation li {
 	padding-left: 15px;
-}
-
-.foot {
-	font-size: 80%;
-}
-
-.footer_navigation li {
-	padding-left: 15px;
-	padding-right: 15px;
-}
+} */
 
 /* @end */
 
@@ -220,42 +176,6 @@ ul.flat_list li, ol.flat_list li {
 	background-position: 15px 50% !important;
 	background-repeat: no-repeat !important;
 	padding: 5px 20px 5px 60px;
-}
-
-.response .success {
-	background: #daf0da url(../templates/images/structure/response_success.png);
-	border-top: 1px solid #5abd5a;
-	border-bottom: 1px solid #5abd5a;
-}
-
-.response .warning {
-	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
-	border-top: 1px solid #ffd324;
-	border-bottom: 1px solid #ffd324;
-}
-
-.response .error {
-	background: #f8dada url(../templates/images/structure/response_error.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .forbidden {
-	background: #f8dada url(../templates/images/structure/response_forbidden.png);
-	border-top: 1px solid #e68080;
-	border-bottom: 1px solid #e68080;
-}
-
-.response .information {
-	background: #c9e3f8 url(../templates/images/structure/response_info.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
-}
-
-.response .help {
-	background: #c9e3f8 url(../templates/images/structure/response_help.png);
-	border-top: 1px solid #6aa6d6;
-	border-bottom: 1px solid #6aa6d6;
 }
 
 /* @end */
@@ -320,14 +240,14 @@ ul.formErrorList {
 }
 
 a.add_item {
-	background-image: url(../templates/images/structure/lb_add.png);
+	background-image: url(../lib/pkp/templates/images/structure/lb_add.png);
 	background-repeat: no-repeat;
 	margin-left: 10px;
 	padding-left: 18px;
 }
 
 a.remove_item {
-	background-image: url(../templates/images/structure/lb_delete.png);
+	background-image: url(../lib/pkp/templates/images/structure/lb_delete.png);
 }
 
 .listbuilder_results {
@@ -365,25 +285,6 @@ div.list .refresh {
 	background-color: #deffff;
 }
 
-/*
-	if width will be 100% horizontal scrollbar will apear
-	when scroll mode will be used
-	*/
-
-
-/*width: 100%;*/
-	font: menu;
-	font-size: 12px;
-
-
-/*
-	it is very important, if line-height not setted or setted
-	in relative units scroll will be broken in firefox
-	*/
-	line-height: 16px;
-	overflow: hidden;
-}
-
 .ac_loading {
 	background: white url('indicator.gif') right center no-repeat;
 }
@@ -401,319 +302,11 @@ div.list .refresh {
 
 /* @end */
 
-/* @group Grid */
-
-div.grid div.wrapper {
-	margin: 10px;
-	padding: 20px;
-}
-
-div.grid div.actions {
-	margin-top: 10px;
-}
-
-div.grid table {
-	width: 100%;
-}
-
-div.grid thead tr {
-	height: 30px; /* Must be set for tr rather than th for Chromium. */
-	padding: 4px 0;
-}
-
-div.grid thead th {
-	padding: 0 4px; /* Padding top/bottom must be 0 for IE7 compatibility. */
-	vertical-align: middle;
-	text-align: center;
-}
-
-div.grid td {
-	text-align: center;
-	min-height: 40px;
-	height: 40px;
-	font-size: 85%;
-	vertical-align: middle;
-	padding: 2px 4px;
-}
-
-div.grid th:first-child, div.grid td:first-child, div.grid col.first_column {
-	text-align: left !important;
-}
-
-td.first_column {
-	padding: 0 !important;
-	margin: 0 !important;
-}
-
-td.first_column a {
-	background-repeat: no-repeat;
-}
-
-div.grid .my_role {
-	border: 2px solid #ccc;
-}
-
-div.grid tr.category td {
-	text-align: left;
-	height: 20px;
-	font-size: 70%;
-	text-transform: uppercase;
-	padding-left: 10px;
-}
-
-.options {
-	float: right;
-	margin-bottom: 10px;
-}
-
-.options a {
-	background-position: 0px 50%;
-	display: inline;
-	padding: 5px 0px 5px 20px;
-	margin-left: 20px;
-	font-size: 90%;
-}
-
-.options a.add {
-	background: url(../templates/images/structure/grid_new_file.png) no-repeat left;
-}
-
-.options a.sort {
-	background: url(../templates/images/structure/grid_sort.png) no-repeat left;
-}
-
-.hidetext {
-	visibility: hidden;
-	overflow: hidden;
-}
-
-.row_container {
-	position: relative; /* Required to anchor absolute row actions positioning below. */
-	padding-left: 25px;
-	padding-right: 30px;
-	overflow: hidden;
-}
-
-.row_container, .row_controls {
-	background-color: #e8f0f8;
-}
-
-.row_actions, .row_file {
-	min-height: 40px;
-	line-height: 40px;
-	vertical-align: middle;
-}
-
-.row_actions {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 25px;
-	padding-top: 5px;
-}
-
-.row_actions a {
-	margin-left: 5px;
-	padding: 1px 7px;
-}
-
-.row_file {
-	width: 100%;
-	padding: 5px 15px;
-	background-color: #fff;
-}
-
-.row_file a {
-	padding: 2px 20px;
-}
-
-.multiline {
-	line-height: 125%; /* IE7 doesn't support "inherit", all other browsers will ignore this. */
-	line-height: inherit;
-}
-
-.row_controls {
-	display: none;
-	height: 25px;
-	line-height: 25px;
-	vertical-align: middle;
-	overflow: hidden;
-	padding-left: 20px;
-}
-
-.row_controls a {
-	text-decoration: none;
-	color: #777;
-	font-size: 90%;
-	padding: 2px 30px 1px 20px;
-}
-
-.row_controls a:hover {
-	text-decoration: underline;
-}
-
-.row_controls a:hover {
-	text-decoration: underline;
-}
-
-a.sprite {
-	background-position: 0 top;
-	text-decoration: none;
-	padding: 1px 0px;
-}
-
-a.sprite:hover {
-	background-position: 0 bottom;
-}
-
-a.focus {
-	background-position: 0 bottom;
-}
-
-a.notes {
-	background: url(../templates/images/structure/grid_note.png);
-}
-
-.hasnotes {
-	background-position: bottom !important;
-}
-
-/* FIXME: Update with new icon set from Brent */
-a.settings {
-	background-image: url(../templates/images/structure/grid_settings.png);
-}
-
-a.promote {
-	background-image: url(../templates/images/structure/grid_promote.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.enable {
-	background-image: url(../templates/images/structure/grid_promote.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.delete {
-	background-image: url(../templates/images/structure/grid_delete.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.disable {
-	background-image: url(../templates/images/structure/grid_delete.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.edit {
-	background-image: url(../templates/images/structure/grid_edit.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.more_info {
-	background-image: url(../templates/images/structure/grid_information.png);
-	background-repeat: no-repeat;
-	margin-left: 10px;
-	padding-left: 18px;
-}
-
-a.word {
-	background-image: url(../templates/images/structure/page_white_word.png);
-}
-
-a.excel {
-	background-image: url(../templates/images/structure/page_white_excel.png);
-}
-
-a.pdf {
-	background-image: url(../templates/images/structure/page_white_acrobat.png);
-}
-
-a.picture {
-	background-image: url(../templates/images/structure/page_white_picture.png);
-}
-
-a.html {
-	background-image: url(../templates/images/structure/page_white_world.png);
-}
-
-.category td:first-child {
-	top: 0;
-}
-
-.group1 td:first-child {
-	background: url(../templates/images/structure/grid_group_1.png) no-repeat;
-}
-
-.group2 td:first-child {
-	background: url(../templates/images/structure/grid_group_2.png) no-repeat;
-}
-
-.group3 td:first-child {
-	background: url(../templates/images/structure/grid_group_3.png) no-repeat;
-}
-
-.group4 td:first-child {
-	background: url(../templates/images/structure/grid_group_4.png) no-repeat;
-}
-
-.group5 td:first-child {
-	background: url(../templates/images/structure/grid_group_5.png) no-repeat;
-}
-
-a.task {
-	width: 100%;
-	height: 100%;
-	text-indent: -1500px;
-	overflow: hidden;
-	display: block;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
-}
-
-a.new {
-	background-image: url(../templates/images/structure/grid_task.png);
-}
-
-a.accepted {
-	background-image: url(../templates/images/structure/grid_task_accepted.png);
-}
-
-a.declined {
-	background-image: url(../templates/images/structure/lb_delete.png);
-}
-
-a.completed {
-	background-image: url(../templates/images/structure/grid_task_complete.png);
-}
-
-a.overdue {
-	background-image: url(../templates/images/structure/grid_email_overdue.png);
-}
-
-a.notify {
-	background-image: url(../templates/images/structure/grid_email.png);
-}
-
-a.uploaded {
-	background-image: url(../templates/images/structure/grid_folder.png);
-}
-
-/* @end */
-
 /* @group Font Sizer */
 
 .smallFont {
 	outline: none; /*for making it look nice in FF */
-	background: url(../templates/images/icons/font-down.png);
+	background: url(../lib/pkp/templates/images/icons/font-down.png);
 	text-indent: -9999px;
 	display: block;
 	float: left;
@@ -723,7 +316,7 @@ a.uploaded {
 
 .defaultFont {
 	/*if you want to hide the default font button, use display:none */
-	background: url(../templates/images/icons/font-default.png);
+	background: url(../lib/pkp/templates/images/icons/font-default.png);
 	text-indent: -9999px;
 	outline: none;
 	display: block;
@@ -733,7 +326,7 @@ a.uploaded {
 }
 
 .largeFont {
-	background: url(../templates/images/icons/font-up.png);
+	background: url(../lib/pkp/templates/images/icons/font-up.png);
 	outline: none;
 	text-indent: -9999px;
 	display: block;
@@ -742,7 +335,8 @@ a.uploaded {
 	height: 23px;
 }
 
-.ldisabled,.sdisabled { /*Styles for disabled buttons*/
+/*Styles for disabled buttons*/
+.ldisabled, .sdisabled {
 	opacity: 0.3;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 	/*This is for IE8 */
@@ -768,8 +362,8 @@ input.uploadField {
 	position: relative;
 	z-index: 2;
 	text-align:right;
-	-moz-opacity:0 ;
-	filter:alpha(opacity: 0);
+	-moz-opacity:0;
+	filter:alpha(opacity=0);
 	opacity: 0;
 }
 
@@ -839,37 +433,37 @@ input.uploadFile {
 /* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
 
 .response .success {
-	background: #daf0da url(../templates/images/structure/response_success.png);
+	background: #daf0da url(../lib/pkp/templates/images/structure/response_success.png);
 	border-top: 1px solid #5abd5a;
 	border-bottom: 1px solid #5abd5a;
 }
 
 .response .warning {
-	background: #FFFAE1 url(../templates/images/structure/response_warning.png);
+	background: #FFFAE1 url(../lib/pkp/templates/images/structure/response_warning.png);
 	border-top: 1px solid #ffd324;
 	border-bottom: 1px solid #ffd324;
 }
 
 .response .error {
-	background: #f8dada url(../templates/images/structure/response_error.png);
+	background: #f8dada url(../lib/pkp/templates/images/structure/response_error.png);
 	border-top: 1px solid #e68080;
 	border-bottom: 1px solid #e68080;
 }
 
 .response .forbidden {
-	background: #f8dada url(../templates/images/structure/response_forbidden.png);
+	background: #f8dada url(../lib/pkp/templates/images/structure/response_forbidden.png);
 	border-top: 1px solid #e68080;
 	border-bottom: 1px solid #e68080;
 }
 
 .response .information {
-	background: #c9e3f8 url(../templates/images/structure/response_info.png);
+	background: #c9e3f8 url(../lib/pkp/templates/images/structure/response_info.png);
 	border-top: 1px solid #6aa6d6;
 	border-bottom: 1px solid #6aa6d6;
 }
 
 .response .help {
-	background: #c9e3f8 url(../templates/images/structure/response_help.png);
+	background: #c9e3f8 url(../lib/pkp/templates/images/structure/response_help.png);
 	border-top: 1px solid #6aa6d6;
 	border-bottom: 1px solid #6aa6d6;
 }
@@ -880,7 +474,7 @@ input.uploadFile {
 
 span.itemTitle {
 	padding-left: 25px;
-	background-image: url(../templates/images/structure/page_white_word.png);
+	background-image: url(../lib/pkp/templates/images/structure/page_white_word.png);
 	background-repeat: no-repeat;
 	color: #2A5685;
 	font-size: 1.4em;
@@ -1024,13 +618,13 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .modalTitleBar .informationCenter {
-	background: url(../templates/images/structure/grid_notes.png) no-repeat;
+	background: url(../lib/pkp/templates/images/structure/grid_notes.png) no-repeat;
 	width: 28px;
 	height: 42px;
 }
 
 .modalTitleBar .fileManagement {
-	background: url(../templates/images/structure/response_warning.png) no-repeat;
+	background: url(../lib/pkp/templates/images/structure/response_warning.png) no-repeat;
 	width: 32px;
 	height: 32px;
 }
@@ -1216,7 +810,7 @@ ul.tagit li:after, ul.tagit li div:after {
 }
 
 .submissionHeader .headerBottom .userInfo .icon {
-	background: url(../templates/images/structure/response_warning.png) no-repeat;
+	background: url(../lib/pkp/templates/images/structure/response_warning.png) no-repeat;
 	margin:5px;
 	width: 32px;
 	height: 32px;

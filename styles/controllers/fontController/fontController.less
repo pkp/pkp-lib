@@ -1,0 +1,35 @@
+/**
+ * @file styles/controllers/fontController/fontController.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_controllers_fontController
+ *
+ * @brief Classes for fontController structure
+ */
+
+/* Not for external use */
+.fontControllerMixin {
+	outline: none; /*for making it look nice in FF */
+	text-indent: -9999px;
+	display: block;
+	float: left;
+	width: 20px;
+	height: 23px;
+}
+
+.pkp_controllers_fontController_smallFont {
+	background: url(../lib/pkp/templates/images/icons/font-down.png);
+	.fontControllerMixin;
+}
+	
+.pkp_controllers_fontController_defaultFont {
+	background: url(../lib/pkp/templates/images/icons/font-default.png);
+	.fontControllerMixin;
+}
+	
+.pkp_controllers_fontController_largeFont {
+	background: url(../lib/pkp/templates/images/icons/font-up.png);
+	.fontControllerMixin;
+}

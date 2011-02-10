@@ -28,9 +28,9 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	var cookie = 'font-size';
 
 	//Now we'll add the font size changer interface in container
-	var smallFontHtml = "<a href='javascript:void(0);' class='smallFont' title='" + minCaption +"'>" + minCaption + "</a> ";
-	var defFontHtml = "<a href='javascript:void(0);' class='defaultFont' title='" + defCaption +"'>" + defCaption + "</a> ";
-	var largeFontHtml = "<a href='javascript:void(0);' class='largeFont' title='" + maxCaption +"'>" + maxCaption + "</a> ";
+	var smallFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_smallFont' title='" + minCaption +"'>" + minCaption + "</a> ";
+	var defFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_defaultFont' title='" + defCaption +"'>" + defCaption + "</a> ";
+	var largeFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_largeFont' title='" + maxCaption +"'>" + maxCaption + "</a> ";
 	$(container).html(smallFontHtml + defFontHtml + largeFontHtml);
 
 	//Read cookie & sets the fontsize
@@ -42,42 +42,42 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	}
 
 	//on clicking small font button, font size is decreased by 1px
-	$(container + " .smallFont").click(function(){
+	$(container + " .pkp_controllers_fontController_smallFont").click(function(){
 		var curSize = parseInt($(target).css("font-size"), 10);
 		var newSize = curSize - 1;
 		if (newSize >= minSize) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize <= minSize) {
-			$(container + " .smallFont").addClass("sdisabled");
+			$(container + " .pkp_controllers_fontController_smallFont").addClass("sdisabled");
 		}
 		if (newSize < maxSize) {
-			$(container + " .largeFont").removeClass("ldisabled");
+			$(container + " .pkp_controllers_fontController_largeFont").removeClass("ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl); //sets the cookie
 
 	});
 
 	//on clicking default font size button, font size is reset
-	$(container + " .defaultFont").click(function(){
+	$(container + " .pkp_controllers_fontController_defaultFont").click(function(){
 		$(target).css('font-size', defSize);
-		$(container + " .smallFont").removeClass("sdisabled");
-		$(container + " .largeFont").removeClass("ldisabled");
+		$(container + " .pkp_controllers_fontController_smallFont").removeClass("sdisabled");
+		$(container + " .pkp_controllers_fontController_largeFont").removeClass("ldisabled");
 		updatefontCookie(defSize, baseUrl);
 	});
 
 	//on clicking large font size button, font size is incremented by 1 to the maximum limit
-	$(container + " .largeFont").click(function(){
+	$(container + " .pkp_controllers_fontController_largeFont").click(function(){
 		var curSize = parseInt($(target).css("font-size"), 10);
 		var newSize = curSize + 1;
 		if (newSize <= maxSize) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize > minSize) {
-			$(container + " .smallFont").removeClass("sdisabled");
+			$(container + " .pkp_controllers_fontController_smallFont").removeClass("sdisabled");
 		}
 		if (newSize >= maxSize) {
-			$(container + " .largeFont").addClass("ldisabled");
+			$(container + " .pkp_controllers_fontController_largeFont").addClass("ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl);
 	});

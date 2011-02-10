@@ -46,4 +46,72 @@
 		padding: 0 10px 0 10px;
 		height: 110px;
 	}
+
+	/**
+	 * Non-theme miscellaneous styles
+	 */
+	img {
+		display: block;
+		padding: 2px;
+	}
+
+	hr {
+		border: 5px solid #e2e2e2;
+		border-width: 0 0 5px 0;
+		margin: 20px 10px 10px 10px;
+	}
+
+	h1, h2, h3, h4, h5, h6, ul, ol,dl, p, blockquote {
+		padding: 10px;
+	}
+
+	h1, h2, h3, h4, h5, h6, img {
+		padding-bottom: 0px;
+	}
+
+	pre {
+		margin: 10px;
+	}
+
+	table h1,table h2,table h3, table h4, table h5, table h6, table p,
+	table ul, table ol, table dl,
+	ul h1,ul h2,ul h3, ul h4, ul h5, ul h6, ul p, ul ul, ul ol, ul dl,
+	ol h1,ol h2,ol h3, ol h4, ol h5, ol h6, ol p, ol ul, ol ol, ol dl {
+		padding: 0;
+	}
+
+	.plain_font_mixin {
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	h1, .h1 {
+		font-size: 196%;
+		.plain_font_mixin;
+	}
+
+	h2, .h2 {
+		font-size: 167%;
+		.plain_font_mixin;
+	}
+
+	h3, .h3 {
+		font-size: 146.5%;
+		.plain_font_mixin;
+	}
+
+	h4, .h4 {
+		font-size: 123.1%;
+		.plain_font_mixin;
+	}
+
+	h5, .h5 {
+		font-size: 108%;
+		.plain_font_mixin;
+	}
+
+	h6, .h6 {
+		font-size: 108%;
+		.plain_font_mixin;
+	}
 }

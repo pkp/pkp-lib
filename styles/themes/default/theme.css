@@ -35,12 +35,6 @@
 	color: #999;
 }
 
-.pkp_structure_page_main {
-}
-
-.pkp_structure_toolbox {
-}
-
 /* @end */
 
 /* @group Content Overrides */
@@ -55,7 +49,11 @@ h2, .h2
 	color: #666;
 }
 
-.pkp_navigation .pkp_structure_header_localNav a {
+.pkp_structure_header_localNav a {
+	color: #fff;
+}
+
+.pkp_structure_header_siteNav a {
 	color: #fff;
 }
 

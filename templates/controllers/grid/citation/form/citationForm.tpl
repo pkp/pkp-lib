@@ -625,7 +625,7 @@
 							<li><a href="#citationImprovementAuthor" title="{translate key="submission.citations.editor.details.authorQuery"} [Ctrl-Q]">{translate key="submission.citations.editor.details.authorQuery"}</a></li>
 						</ul>
 
-						<div id="citationImprovementManual" class="pkp_components_grid">
+						<div id="citationImprovementManual" class="pkp_controllers_grid">
 							<table><tbody>
 								{* Create initial field list which will then be maintained via JS. *}
 								{foreach from=$availableFields name=availableFields key=fieldName item=field}

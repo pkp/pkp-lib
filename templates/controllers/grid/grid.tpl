@@ -30,7 +30,7 @@
 	{/literal}
 </script>
 
-<div id="{$gridId|escape}" class="pkp_widgets_grid">
+<div id="{$gridId|escape}" class="pkp_components_grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			<span class="options">

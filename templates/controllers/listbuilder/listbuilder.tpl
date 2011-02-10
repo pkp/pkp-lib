@@ -9,7 +9,7 @@
 
 {assign var="listbuilderId" value=$listbuilder->getId()}
 
-<div id="{$listbuilderId|escape}" class="listbuilder">
+<div id="{$listbuilderId|escape}" class="pkp_controllers_listbuilder">
 	<div class="wrapper">
 		{assign var="additionalData" value=$listbuilder->getAdditionalData()}
 		{if !empty($additionalData)}

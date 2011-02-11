@@ -63,6 +63,7 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
 		}
 
 		// Publication type
+		$publicationType = null;
 		if ($input->hasStatement('genre')) {
 			$genre = $input->getStatement('genre');
 			$genreMap = $this->_getOpenurl10GenreTranslationMapping();

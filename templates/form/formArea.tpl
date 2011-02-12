@@ -10,5 +10,5 @@
 <ul{if $FBV_id} id="{$FBV_id}"{/if}>
 	{$FBV_content}
 </ul>
-<div class="clear"></div>
+<div class="pkp_helpers_clear"></div>
 

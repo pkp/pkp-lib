@@ -229,7 +229,7 @@
 				<button id="cancelRawCitationEditing" type="button" title="{translate key="common.cancel"}">{translate key="common.cancel"}</button>
 				<button id="processRawCitation" type="button" title="{translate key="submission.citations.editor.details.processRawCitation"}">{translate key="submission.citations.editor.details.processRawCitation"}</button>
 			</div>
-			<div class="clear"></div>
+			<div class="pkp_helpers_clear"></div>
 		{/if}
 	</div>
 	<div id="rawCitationWithMarkup" class="citation-comparison">

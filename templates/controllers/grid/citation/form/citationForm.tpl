@@ -655,7 +655,7 @@
 							<div class="actions">
 								<button id="queryCitation" type="button">{translate key="submission.citations.editor.details.queryCitation"}</button>
 							</div>
-							<div class="clear"></div>
+							<div class="pkp_helpers_clear"></div>
 						</div>
 
 						<div id="citationImprovementGoogle">
@@ -665,7 +665,7 @@
 							<div class="actions">
 								<button id="googleQuery" type="button">{translate key="submission.citations.editor.details.queryGoogleScholar"}</button>
 							</div>
-							<div class="clear"></div>
+							<div class="pkp_helpers_clear"></div>
 						</div>
 
 						<div id="citationImprovementAuthor">
@@ -686,7 +686,7 @@
 							<div class="actions">
 								<button id="authorQuery" type="button">{translate key="submission.citations.editor.details.sendAuthorQuery"}</button>
 							</div>
-							<div class="clear"></div>
+							<div class="pkp_helpers_clear"></div>
 						</div>
 					</div>
 				</div>

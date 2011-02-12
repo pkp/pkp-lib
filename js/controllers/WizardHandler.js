@@ -416,7 +416,7 @@
 		if (options.continueButtonText) {
 			// Add continue/finish button.
 			var $continueButton = $(['<button id="continueButton"',
-				'class="button align_right">', options.continueButtonText,
+				'class="button pkp_helpers_align_right">', options.continueButtonText,
 				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
 

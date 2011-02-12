@@ -558,8 +558,8 @@ class Form {
 				break;
 			case 'align':
 				switch($value) {
-					case 'LEFT': $returner = 'align_left'; break;
-					case 'RIGHT': $returner = 'align_right'; break;
+					case 'LEFT': $returner = 'pkp_helpers_align_left'; break;
+					case 'RIGHT': $returner = 'pkp_helpers_align_right'; break;
 				}
 				break;
 			case 'layout':

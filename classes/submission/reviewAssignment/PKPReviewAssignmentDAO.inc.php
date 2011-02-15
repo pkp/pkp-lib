@@ -306,8 +306,6 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @return array associating review ID with number; ie if review ID 26 is first, returned['26']=0
 	 */
 	function &getReviewIndexesForRound($submissionId, $round) {
-		$returner = array();
-		$index = 0;
 		$result =& $this->retrieve(
 			'SELECT	review_id
 			FROM	review_assignments
@@ -318,6 +316,8 @@ class PKPReviewAssignmentDAO extends DAO {
 			array((int) $submissionId, (int) $round)
 		);
 
+		$index = 0;
+		$returner = array();
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$returner[$row['review_id']] = $index++;

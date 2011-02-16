@@ -133,7 +133,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files ||
 
 		// Ignore form validation events for the upload form.
 		if (this.getCurrentStep() === 0 &&
-				!this.getHtmlElement().find('#uploadConfirmationForm')) {
+				this.getHtmlElement().find('#uploadConfirmationForm').length === 0) {
 			return;
 		}
 

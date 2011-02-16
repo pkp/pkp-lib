@@ -98,11 +98,11 @@
 
 
 	/**
-	 * Internal callback called after form validation to handle form
-	 * submission.
+	 * Internal callback called after form validation to handle the
+	 * response to a form submission.
 	 *
-	 * You can override this handler if you want to do custom validation
-	 * before you submit the form.
+	 * You can override this handler if you want to do custom handling
+	 * of a form response.
 	 *
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 * @param {Object} jsonData The data returned from the server.

@@ -18,33 +18,47 @@
 	/**
 	 * Application layout panels
 	 */
-	.pkp_structure_page_bodyPanel {
-		overflow: hidden;
-		_overflow: visible;
-		_zoom: 1;
-		clear: both;
-	}
 
 	.pkp_structure_page_pagePanel {
+		margin: 10px auto;
+		_text-align: left;
+		width: 960px;
+	}
+
+	.pkp_structure_page_contentPanel {
 		margin: 0 auto;
-		width: 950px;
+
 		/* Body tag contents are centered; reset to left. */
 		text-align: left;
 	}
 
 	.pkp_structure_page_headPanel {
-		height: 175px;
+		height: 90px;
 	}
 
 	.pkp_structure_page_mainPanel {
-		overflow: hidden;
-		_overflow: visible;
-		_zoom: 1;
+		display: table-cell;
+		*display: block;
+		width: auto;
+	}
+
+	.pkp_structure_page_mainPanel, .pkp_structure_page_bodyPanel {
+		*zoom: 1;
+		:after {
+			clear: both;
+			display: block;
+			visibility: hidden;
+			overflow: hidden;
+			height: 0 !important;
+			line-height: 0;
+			font-size: xx-large;
+			content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+		}
+		
 	}
 
 	.pkp_structure_page_masthead {
-		padding: 0 10px 0 10px;
-		height: 110px;
+		height: 90px;
 	}
 
 	/**

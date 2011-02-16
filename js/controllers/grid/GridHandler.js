@@ -109,6 +109,14 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var $grid = this.getHtmlElement(),
 				$rowElement = $grid.find('.element' + rowId);
 
+		// Sometimes we get a delete event before the
+		// row has actually been inserted (e.g. when deleting
+		// elements due to a cancel action or similar).
+		if ($rowElement.length === 0) {
+			return;
+		}
+
+		// Check whether we really only match one row.
 		if ($rowElement.length !== 1) {
 			throw Error('There were ' + $rowElement.length +
 					' rather than 1 rows to delete!');

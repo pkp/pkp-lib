@@ -107,23 +107,23 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 
 		// Subscribe to uploader events.
 		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.uploaderFilesAdded));
-		pluploader.bind('QueueChanged',
-				this.callbackWrapper(this.uploaderQueueChanged));
+				this.callbackWrapper(this.limitQueueSize));
+		pluploader.bind('BeforeUpload',
+				this.callbackWrapper(this.prepareFileUploadRequest));
 		pluploader.bind('FileUploaded',
-				this.callbackWrapper(this.uploaderFileUploaded));
+				this.callbackWrapper(this.handleUploadResponse));
 	};
 
 
 	/**
-	 * Handle the "files added" event of the uploader.
+	 * Limit the queue size of the uploader to one file only.
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
 	 *
 	 */
 	$.pkp.controllers.files.submissionFiles.form.FileUploadFormHandler.prototype.
-			uploaderFilesAdded = function(caller, pluploader, file) {
+			limitQueueSize = function(caller, pluploader, file) {
 
 		// Prevent > 1 files from being added.
 		if (pluploader.files.length > 1) {
@@ -134,12 +134,12 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 
 
 	/**
-	 * Handle the "queue changed" event of the uploader.
+	 * Prepare the request parameters for the file upload request.
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 */
 	$.pkp.controllers.files.submissionFiles.form.FileUploadFormHandler.prototype.
-			uploaderQueueChanged = function(caller, pluploader) {
+			prepareFileUploadRequest = function(caller, pluploader) {
 
 		var $uploadForm = this.getHtmlElement();
 		var multipartParams = { };
@@ -168,14 +168,14 @@ jQuery.pkp.controllers.files.submissionFiles.form =
 
 
 	/**
-	 * Handle the "file uploaded" event of the uploader.
+	 * Handle the response of a "file upload" request.
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
 	 * @param {string} ret The serialized JSON response.
 	 */
 	$.pkp.controllers.files.submissionFiles.form.FileUploadFormHandler.prototype.
-			uploaderFileUploaded = function(caller, pluploader, file, ret) {
+			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
 		var jsonData = this.handleJson($.parseJSON(ret.response));

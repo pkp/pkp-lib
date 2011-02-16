@@ -14,22 +14,7 @@
 	padding: 20px 10px 0 10px;
 	height: 120px;
 
-	/**
-	 * Navigation mixin
-	 */
-	.navigation {
-		font-size: 90%;
-		line-height: 30px;
-
-		/* Between items, there should be padding. */
-		li {
-			padding-left: 15px;
-		}
-		li:first_child {
-			padding-left: 0px;
-		}
-		li:last_child {
-			padding-right: 15px;
-		}
+	.pkp_structure_footer_navigation {
+		@pkp_structure_navigation;
 	}
 }

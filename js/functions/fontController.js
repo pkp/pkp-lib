@@ -49,10 +49,10 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize <= minSize) {
-			$(container + " .pkp_controllers_fontController_smallFont").addClass("sdisabled");
+			$(container + " .pkp_controllers_fontController_smallFont").addClass("pkp_controllers_fontController_sdisabled");
 		}
 		if (newSize < maxSize) {
-			$(container + " .pkp_controllers_fontController_largeFont").removeClass("ldisabled");
+			$(container + " .pkp_controllers_fontController_largeFont").removeClass("pkp_controllers_fontController_ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl); //sets the cookie
 
@@ -61,8 +61,8 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	//on clicking default font size button, font size is reset
 	$(container + " .pkp_controllers_fontController_defaultFont").click(function(){
 		$(target).css('font-size', defSize);
-		$(container + " .pkp_controllers_fontController_smallFont").removeClass("sdisabled");
-		$(container + " .pkp_controllers_fontController_largeFont").removeClass("ldisabled");
+		$(container + " .pkp_controllers_fontController_smallFont").removeClass("pkp_controllers_fontController_sdisabled");
+		$(container + " .pkp_controllers_fontController_largeFont").removeClass("pkp_controllers_fontController_ldisabled");
 		updatefontCookie(defSize, baseUrl);
 	});
 
@@ -74,10 +74,10 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize > minSize) {
-			$(container + " .pkp_controllers_fontController_smallFont").removeClass("sdisabled");
+			$(container + " .pkp_controllers_fontController_smallFont").removeClass("pkp_controllers_fontController_sdisabled");
 		}
 		if (newSize >= maxSize) {
-			$(container + " .pkp_controllers_fontController_largeFont").addClass("ldisabled");
+			$(container + " .pkp_controllers_fontController_largeFont").addClass("pkp_controllers_fontController_ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl);
 	});

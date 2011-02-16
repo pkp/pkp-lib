@@ -560,7 +560,7 @@ function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen, callingBut
 			}
 		} else {
 			// Display errors in error list
-			$('#formErrors .formErrorList').html(returnString.content);
+			$('#formErrors .pkp_controllers_form_error_list').html(returnString.content);
 		}
 	}, "json");
 }

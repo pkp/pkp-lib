@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Localizzazioni aggiuntive</message>
 	<message key="installer.administratorAccount">Account dell'amministratore</message>
 	<message key="installer.administratorAccountInstructions">Questo account utente sarà l'amministratore del sito ed avrà accesso totale al sistema. potrai creare dopo il termine dell'installazione altri account utente.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NO</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NO</span>]]></message>
 	<message key="installer.checkYes">Si</message>
 	<message key="installer.clientCharset">Set di caratteri del client</message>
 	<message key="installer.clientCharsetInstructions">La codifica da utilizzare per l'invio e ricezione dei dati dai browser.</message>

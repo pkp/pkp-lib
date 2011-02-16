@@ -65,7 +65,7 @@
 	<message key="installer.skipFilesDir">必要なサブディレクトリを作成しない（マニュアルインストール時にのみ有効）</message>
 	<message key="installer.configFileError"><![CDATA[設定ファイル <tt>config.inc.php</tt> が存在しないか，あるいは読み込めません。]]></message>
 	<message key="installer.locale.maybeIncomplete">マークがついているロケールは完全ではありません。</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">いいえ</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">いいえ</span>]]></message>
 	<message key="installer.installParseDBFileError"><![CDATA[データベースインストールファイル <tt>{$file}</tt> のパースエラー。]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[メールテンプレートファイル <tt>{$file}</tt> のパースエラー。]]></message>
 	<message key="installer.installFileError"><![CDATA[インストールファイル<tt>dbscripts/xml/install.xml</tt> が存在しない，または読み込めません。]]></message>

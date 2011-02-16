@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Weitere Regionaleinstellungen</message>
 	<message key="installer.administratorAccount">Administrator/innen-Konto</message>
 	<message key="installer.administratorAccountInstructions">Dieses Benutzer/innen-Konto erhält die Administrationsrechte für die gesamte Website und wird kompletten Zugriff auf das System haben. Zusätzliche Benutzer/innen-Konten können nach der Installation erstellt werden.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NEIN</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NEIN</span>]]></message>
 	<message key="installer.checkYes">Ja</message>
 	<message key="installer.clientCharset">Client-Zeichensatz</message>
 	<message key="installer.clientCharsetInstructions">Codierung für Daten, die vom oder zum Browser geschickt werden.</message>

@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Дополнительные языки</message>
 	<message key="installer.administratorAccount">Учетная запись Администратора</message>
 	<message key="installer.administratorAccountInstructions">Этот пользователь станет администратором сайта и получт полный доступ к системе. Дополнительные учетные записи можно создать после завершения установки.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">НЕТ</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">НЕТ</span>]]></message>
 	<message key="installer.checkYes">Да</message>
 	<message key="installer.clientCharset">Кодировка браузера</message>
 	<message key="installer.clientCharsetInstructions">Кодировка, в которой производится обмен данными с пользовательским WWW-браузером.</message>

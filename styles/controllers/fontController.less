@@ -1,5 +1,5 @@
 /**
- * @file styles/controllers/fontController/fontController.less
+ * @file styles/controllers/fontController.less
  *
  * Copyright (c) 2003-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -10,7 +10,7 @@
  */
 
 /* Not for external use */
-.fontControllerMixin {
+@fontControllerMixin {
 	outline: none; /*for making it look nice in FF */
 	text-indent: -9999px;
 	display: block;
@@ -21,15 +21,22 @@
 
 .pkp_controllers_fontController_smallFont {
 	background: url(../lib/pkp/templates/images/icons/font-down.png);
-	.fontControllerMixin;
+	@fontControllerMixin;
 }
 	
 .pkp_controllers_fontController_defaultFont {
 	background: url(../lib/pkp/templates/images/icons/font-default.png);
-	.fontControllerMixin;
+	@fontControllerMixin;
 }
 	
 .pkp_controllers_fontController_largeFont {
 	background: url(../lib/pkp/templates/images/icons/font-up.png);
-	.fontControllerMixin;
+	@fontControllerMixin;
+}
+
+.pkp_controllers_fontController_ldisabled, .pkp_controllers_fontController_sdisabled {
+	opacity: 0.3;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	/*This is for IE8 */
+	filter: alpha(opacity = 30);
 }

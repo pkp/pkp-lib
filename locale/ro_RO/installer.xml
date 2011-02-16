@@ -17,7 +17,7 @@
 	<message key="installer.additionalLocales">Localizări suplimentare</message>
 	<message key="installer.administratorAccount">Contul administratorului</message>
 	<message key="installer.administratorAccountInstructions">Acest cont va fi administratorul siteului și are acces complet asupra sistemului. După instalare pot fi create și alte conturi.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">NU</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NU</span>]]></message>
 	<message key="installer.checkYes">Da</message>
 	<message key="installer.clientCharset">Setul de caractere al clientului</message>
 	<message key="installer.clientCharsetInstructions">Codarea utilizată pentru trimiterea datelor și pentru primirea lor de la browsere.</message>

@@ -1,0 +1,30 @@
+/**
+ * @file styles/structure/navigation.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_structure_header
+ *
+ * @brief Classes for navigation menu elements
+ */
+
+@pkp_structure_navigation {
+	font-size: 90%;
+	line-height: 30px;
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Padding between items and on outsides. */
+	> li {
+		padding-left: 15px;
+		float: left;
+		position: relative;
+	}
+	> li:last-child {
+		padding-right: 15px;
+	}
+}

@@ -5,7 +5,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * PKP-wide shared stylesheet.
- * This is NOT used by OMP and should be considered deprecated.
+ * DEPRECATED. Do not modify.
  */
 
 /**
@@ -348,19 +348,19 @@ span.nested {
  * Form-specific elements
  */
 
-span.formError {
+span.pkp_controllers_form_error { /* Named for compatibility with new lessphp structure */
 	color: #900;
 	font-weight: bold;
 	font-size: 1em;
 }
 
-span.formSuccess {
+span.pkp_controllers_form_success { /* Named for compatibility with new lessphp structure */
 	color: #090;
 	font-weight: bold;
 	font-size: 1em;
 }
 
-ul.formErrorList {
+ul.pkp_controllers_form_error_list { /* Named for compatibility with new lessphp structure */
 	color: #900;
 }
 

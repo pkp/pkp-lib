@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Configuracions regionals addicionals</message>
 	<message key="installer.administratorAccount">Compte de l’administrador/a</message>
 	<message key="installer.administratorAccountInstructions">Aquest compte d’usuari esdevindrà l’administrador del lloc i tindrà accés complet al sistema. Una vegada finalitzada la instal·lació serà possible crear comptes d’usuari addicionals.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">No</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">No</span>]]></message>
 	<message key="installer.checkYes">Sí</message>
 	<message key="installer.clientCharset">Joc de caràcters del client</message>
 	<message key="installer.clientCharsetInstructions">Codificació que s’utilitzarà per a les dades que s’enviïn als navegadors i es rebin des d’aquests.</message>

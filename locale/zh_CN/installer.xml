@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">额外的语言环境</message>
 	<message key="installer.administratorAccount">管理员帐户</message>
 	<message key="installer.administratorAccountInstructions">这个帐户将成为站点的管理员，并且可以存取整站的所有内容，额外的用户信息可以在安装后添加.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">未通过</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">未通过</span>]]></message>
 	<message key="installer.checkYes">通过</message>
 	<message key="installer.clientCharset">客户端字符设置</message>
 	<message key="installer.clientCharsetInstructions">从浏览器发送和接受数据的使用的编码.</message>

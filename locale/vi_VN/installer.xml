@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Các ngôn ngữ khác</message>
 	<message key="installer.administratorAccount">Tài khoản của Người quản trị </message>
 	<message key="installer.administratorAccountInstructions">Tài khoản người dùng này sẽ trở thành người quản trị website và có quyền truy cập toàn bộ hệ thống. Các tài khoản người dùng khác có thể thêm sau khi cài đặt.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">Sai</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">Sai</span>]]></message>
 	<message key="installer.checkYes">Đúng</message>
 	<message key="installer.clientCharset">Bộ mã ký tự trên máy khách</message>
 	<message key="installer.clientCharsetInstructions">Bộ mã ký tự dùng cho dữ liệu gửi và nhận từ các trình duyệt</message>

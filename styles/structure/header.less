@@ -12,30 +12,8 @@
 .pkp_structure_header {
 	height: 175px;
 
-	/**
-	 * Navigation mixin
-	 */
-	._pkp_structure_header_navigation {
-		font-size: 90%;
-		line-height: 30px;
-
-		/* Between items, there should be padding. */
-		.pkp_structure_header_basemenu > li {
-			padding-left: 15px;
-		}
-
-		.pkp_structure_header_basemenu > li:first_child {
-			padding-left: 0px;
-		}
-
-		.pkp_structure_header_basemenu > li:last_child {
-			padding-right: 15px;
-		}
-	}
-
 	.pkp_structure_header_siteNav {
 	        height: 30px;
-		._pkp_structure_header_navigation;
 	}
 
 	.pkp_structure_header_masthead {
@@ -45,6 +23,9 @@
 
 	.pkp_structure_header_localNav {
 	        height: 35px;
-		._pkp_structure_header_navigation;
+	}
+
+	.pkp_structure_header_basemenu {
+		@pkp_structure_navigation;
 	}
 }

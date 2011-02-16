@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">زبانهای اضافی</message>
 	<message key="installer.administratorAccount">حساب مدیر</message>
 	<message key="installer.administratorAccountInstructions">این حساب کاربری مدیر سایت خواهد شد و دسترسی کامل به  سیستم خواهد داشت. حسابهای اضافی کاربران را میتئان پس از نصب برنامه ایجاد کرد.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">خیر</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">خیر</span>]]></message>
 	<message key="installer.checkYes">بلی</message>
 	<message key="installer.clientCharset">مجموعه کاراکترهای مشتری</message>
 	<message key="installer.clientCharsetInstructions">سیستم کد گذاری مورد استفاده برای برای ارسال به و دریافت داده ها از مرورگر</message>

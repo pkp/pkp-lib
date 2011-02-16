@@ -16,7 +16,7 @@
 	<message key="installer.additionalLocales">Locale gehiago</message>
 	<message key="installer.administratorAccount">Administratzailearen kontua</message>
 	<message key="installer.administratorAccountInstructions">Erabiltzaile-kontu hau gune-administratzaile bihurtuko da eta sistemarako sarbide osoa izango du. Erabiltzaile-kontu gehiago sortu ahal izango dira instalazioa egin ondoren.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="formError">EZ</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">EZ</span>]]></message>
 	<message key="installer.checkYes">Bai</message>
 	<message key="installer.clientCharset">Bezeroaren karaktere-jokoa</message>
 	<message key="installer.clientCharsetInstructions">Arakatzaileetara bidaltzen eta arakatzaileetatik jasotzen diren datuetan erabiltzeko kodeketa.</message>

@@ -347,6 +347,21 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		return $this->_deleteInternally(null, $fileStage, null, null, $assocType, $assocId);
 	}
 
+	/**
+	 * Construct a new data object corresponding to this DAO.
+	 * @param $genreId integer The genre is required to identify the right
+	 *  file implementation.
+	 * @return SubmissionFile
+	 */
+	function &newDataObject($genreId) {
+		// Identify the delegate.
+		$daoDelegate =& $this->_getDaoDelegateForGenreId($genreId);
+
+		// Instantiate and return the object.
+		$newSubmissionFile =& $daoDelegate->newDataObject();
+		return $newSubmissionFile;
+	}
+
 
 	//
 	// Implement template methods from DAO
@@ -373,7 +388,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
-	 * Return the available delegate.
+	 * Return the available delegates mapped by lower
+	 * case class names.
 	 * @return array a list of fully qualified class names
 	 *  indexed by the lower case class name of the file
 	 *  implementation they serve.
@@ -383,6 +399,16 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  place the sub-classes before the super-classes.
 	 */
 	function getDelegateClassNames() {
+		assert(false);
+	}
+
+	/**
+	 * Return the mapping of genre categories to the lower
+	 * case class name of file implementation.
+	 * @return array a list of lower case class names of
+	 *  file implementations.
+	 */
+	function getGenreCategoryMapping() {
 		assert(false);
 	}
 
@@ -425,6 +451,27 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	//
 	// Private helper methods
 	//
+	/**
+	 * Instantiates an approprate SubmissionFileDAODelegate
+	 * based on the given genre identifier.
+	 * @param $genreId integer
+	 * @return SubmissionFileDAODelegate
+	 */
+	function &_getDaoDelegateForGenreId($genreId) {
+		// We have to instantiate the genre to find out about
+		// its category.
+		$genreDao =& DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+		$genre =& $genreDao->getById($genreId);
+
+		// Identify the file implementation.
+		$genreMapping = $this->getGenreCategoryMapping();
+		assert(isset($genreMapping[$genre->getCategory()]));
+		$fileImplementation = $genreMapping[$genre->getCategory()];
+
+		// Return the DAO delegate.
+		return $this->_getDaoDelegate($fileImplementation);
+	}
+
 	/**
 	 * Instantiates an appropriate SubmissionFileDAODelegate
 	 * based on the given SubmissionFile.

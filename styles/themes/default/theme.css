@@ -10,7 +10,7 @@
 
 /* @group Structure Overrides */
 
-.pkp_structure_page_bodyElement {
+.pkp_structure_page_body {
 	font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -30,7 +30,7 @@
 	background-color: #999;
 }
 
-.pkp_structure_footer {
+.pkp_structure_footerPanel {
 	background-color: #efefef;
 	color: #999;
 }
@@ -62,6 +62,3 @@ h2, .h2
 }
 
 /* @end */
-
-
-

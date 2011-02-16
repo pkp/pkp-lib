@@ -7,7 +7,7 @@
  * A citation editor grid cell.
  *}
 {assign var=cellId value="cell-"|concat:$id}
-<span id="{$cellId}">
+<span id="{$cellId}" class="pkp_linkActions">
 	{assign var=cellAction value=$actions[0]}
 	{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$cellAction->getId() action=$cellAction actOnId=$cellAction->getActOn() buttonId=$cellId}
 	[{$citationSeq}] {$label|escape}

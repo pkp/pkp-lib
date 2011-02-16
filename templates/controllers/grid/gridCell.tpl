@@ -7,7 +7,7 @@
  * a regular grid cell (with or without actions)
  *}
 {assign var=cellId value="cell-"|concat:$id}
-<span id="{$cellId|escape}">
+<span id="{$cellId|escape}" class="pkp_linkActions">
 	{if count($actions) gt 0}
 		{assign var=defaultCellAction value=$actions[0]}
 		{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$defaultCellAction->getId() action=$defaultCellAction objectId=$cellId}

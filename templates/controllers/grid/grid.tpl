@@ -33,7 +33,7 @@
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-			<span class="options">
+			<span class="options pkp_linkActions">
 				{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
 					{if is_a($action, 'LegacyLinkAction')}
 						{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
@@ -60,7 +60,7 @@
 						<th scope="col">
 							{$column->getLocalizedTitle()}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
-								<span class="options">
+								<span class="options pkp_linkActions">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
 										{if is_a($action, 'LegacyLinkAction')}
 											{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
@@ -105,7 +105,7 @@
 		{if $grid->getIsSubcomponent()}
 			</div>
 		{/if}
-		<div class="actions">
+		<div class="actions pkp_linkActions">
 			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
 				{if is_a($action, 'LegacyLinkAction')}
 					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}

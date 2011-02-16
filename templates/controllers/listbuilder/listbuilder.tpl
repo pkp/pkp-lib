@@ -76,7 +76,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="unit size1of10 listbuilder_controls">
+		<div class="unit size1of10 listbuilder_controls pkp_linkActions">
 			<a href="#" id="add-{$listbuilderId|escape}" onclick="return false;" class="add_item">
 				<span class="hidetext">{translate key="common.add"}</span></a>
 			<a href="#" id="delete-{$listbuilderId|escape}" onclick="return false;" class="remove_item">

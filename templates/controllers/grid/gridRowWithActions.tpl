@@ -14,7 +14,7 @@
 			<td class="first_column">
 				<div class="row_container">
 					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[0]}</div>
-					<div class="row_actions">
+					<div class="row_actions pkp_linkActions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 							<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
 						{/if}
@@ -34,7 +34,7 @@
 						{/if}
 					</div>
 					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-						<div class="row_controls">
+						<div class="row_controls pkp_linkActions">
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
 								{if is_a($action, 'LegacyLinkAction')}
 									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}

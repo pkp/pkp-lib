@@ -7,7 +7,7 @@
  * a regular grid row
  *}
 {assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
-<td colspan="{$numColumns|escape}">
+<td colspan="{$numColumns|escape}" class="pkp_linkActions">
 	{if $categoryRow->getActions()}
 		{foreach name=actions from=$categoryRow->getActions() item=action}
 			{include file="linkAction/legacyLinkAction.tpl" action=$action id=$categoryId}

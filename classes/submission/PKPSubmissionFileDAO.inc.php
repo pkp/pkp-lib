@@ -191,7 +191,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
-	 * Set a file as the latest revision of an existing file
+	 * Set the latest revision of a file as the latest revision
+	 * of another file.
 	 * @param $revisedFileId integer the revised file
 	 * @param $newFileId integer the file that will become the
 	 *  latest revision of the revised file.
@@ -219,14 +220,22 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		// Check that the two files have the same implementation.
 		if (get_class($revisedFile) != get_class($newFile)) return $nullVar;
 
+		// Save identifying data of the changed file required for update.
+		$previousFileId = $newFile->getFileId();
+		$previousRevision = $newFile->getRevision();
+
 		// Copy data over from the revised file to the new file.
+		$newFile->setFileId($revisedFileId);
 		$newFile->setRevision($revisedFile->getRevision()+1);
 		$newFile->setGenreId($revisedFile->getGenreId());
 		$newFile->setAssocType($revisedFile->getAssocType());
 		$newFile->setAssocId($revisedFile->getAssocId());
 
-		// Update the revision information in the database.
-		return $this->_updateNewRevision($revisedFile, $newFile);
+		// Update the identifying information in the database.
+		if (!$this->updateObject($newFile, $previousFileId, $previousRevision)) {
+			return $nullVar;
+		}
+		return $newFile;
 	}
 
 	/**
@@ -266,11 +275,17 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Update an existing submission file.
 	 * @param $submissionFile SubmissionFile
+	 * @param $previousFileId integer The file id before the file
+	 *  was changed. Must only be given if the file id changed
+	 *  so that the previous file can be identified.
+	 * @param $previousRevision integer The revision before the file
+	 *  was changed. Must only be given if the revision changed
+	 *  so that the previous file can be identified.
 	 * @return boolean
 	 */
-	function updateObject(&$submissionFile) {
+	function updateObject(&$submissionFile, $previousFileId = null, $previousRevision = null) {
 		$daoDelegate =& $this->_getDaoDelegateForObject($submissionFile);
-		return $daoDelegate->updateObject($submissionFile);
+		return $daoDelegate->updateObject($submissionFile, $previousFileId, $previousRevision);
 	}
 
 	/**
@@ -353,13 +368,97 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  file implementation.
 	 * @return SubmissionFile
 	 */
-	function &newDataObject($genreId) {
+	function &newDataObjectByGenreId($genreId) {
 		// Identify the delegate.
 		$daoDelegate =& $this->_getDaoDelegateForGenreId($genreId);
 
 		// Instantiate and return the object.
 		$newSubmissionFile =& $daoDelegate->newDataObject();
 		return $newSubmissionFile;
+	}
+
+	/**
+	 * Convert the specified revisions of a file to the given
+	 * target implementation in the database.
+	 *
+	 * Downcasting is done by simple polymorphism: We take the
+	 * source object, interpret it as the target type and
+	 * persist it as such via the DAO delegate corresponding
+	 * to the target type.
+	 *
+	 * Upcasting is more complicated. We create the target object
+	 * from scratch and copy source data to the target object
+	 * (see DataObject::upcastTo() for more details). Then we
+	 * again persist the target object with the target DAO delegate.
+	 *
+	 * @param $fileId integer The file to convert.
+	 * @param $targetImplementation string The required target
+	 *  implementation.
+	 * @param $revision integer The revision of the file
+	 *  to convert. If not given then all revisions of the
+	 *  file will be converted to the target implementation.
+	 */
+	function cast($fileId, $targetImplementation, $revision = null) {
+		// Get all requested revisions of the original file.
+		if (is_null($revision)) {
+			$sourceRevisions =& $this->getAllRevisions($fileId);
+		} else {
+			$sourceRevision =& $this->getRevision($fileId, $revision);
+			if (is_a($sourceRevision, 'SubmissionFile')) {
+				$sourceRevisions = array(&$sourceRevision);
+			}
+		}
+
+		// Check whether we got a result at all.
+		if (!isset($sourceRevisions[0])) {
+			$nullVar = null;
+			return $nullVar;
+		}
+
+		// Canonicalize the target implementation class name.
+		$targetImplementation = strtolower($targetImplementation);
+
+		// Instantiate the delegate for the target object.
+		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
+
+		// Go through all matched revisions and cast them.
+		foreach($sourceRevisions as $sourceRevision) { /* @var $sourceRevision SubmissionFile */
+			// Canonicalize the source implementation class name.
+			$sourceImplementation = strtolower(get_class($sourceRevision));
+
+			// Only if the source implementation differs from the target
+			// implementation will we have to update the object at all.
+			if ($sourceImplementation != $targetImplementation) {
+				// See whether the source revision already implements
+				// the interface of the target revision.
+				if (is_a($sourceRevision, $targetImplementation)) {
+					// The source revision can be downcast unchanged
+					// by simple polymorphism.
+					$targetRevision =& $sourceRevision;
+				} else {
+					// The source object has to be upcast by manually
+					// instantiating the target object and copying data
+					// from source to target.
+					$targetRevision =& $targetDaoDelegate->newDataObject();
+					$targetRevision =& $sourceRevision->upcastTo($targetRevision);
+				}
+
+				// We use the delegates directly to make sure
+				// that we address the right implementation in the database
+				// even when we're changing types. We also use a "delete-
+				// and-insert" rather than an "update" approach to
+				// make sure that remnants from the source object that
+				// are not part of the target object will be properly
+				// removed first.
+				$sourceDaoDelegate =& $this->_getDaoDelegate($sourceImplementation);
+				$sourceDaoDelegate->deleteObject($sourceRevision);
+				$targetDaoDelegate->insertObject($targetRevision);
+			}
+
+			// Unset variable references to avoid overwriting on the
+			// next iteration.
+			unset($sourceRevision, $targetRevision);
+		}
 	}
 
 
@@ -614,38 +713,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// Return the number of deleted files.
 		return count($deletedFiles);
-	}
-
-	/**
-	 * Update the data and id of a file that will become
-	 * the latest revision of an existing (revised) file.
-	 * @param $revisedFile SubmissionFile
-	 * @param $newFile SubmissionFile
-	 * @return SubmissionFile the updated new file
-	 */
-	function &_updateNewRevision(&$revisedFile, &$newFile) {
-		// NB: We cannot use updateObject() becase we have
-		// to change the id of the file.
-		$this->update(
-			'UPDATE '.$this->getSubmissionEntityName().'_files
-			 SET
-			     file_id = ?,
-			     revision = ?,
-			     genre_id = ?,
-			     assoc_type =?,
-			     assoc_id = ?
-			 WHERE file_id = ?',
-			array(
-				$revisedFile->getFileId(),
-				$newFile->getRevision(),
-				$newFile->getGenreId(),
-				$newFile->getAssocType(),
-				$newFile->getAssocId(),
-				$newFile->getFileId())
-		);
-
-		$newFile->setFileId($revisedFile->getFileId());
-		return $newFile;
 	}
 
 	/**

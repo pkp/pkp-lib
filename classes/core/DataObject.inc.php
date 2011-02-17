@@ -41,7 +41,7 @@ class DataObject {
 
 
 	//
-	// Getters/Setters
+	// Getters and Setters
 	//
 	/**
 	 * Get a piece of data for this object, localized to the current
@@ -180,6 +180,43 @@ class DataObject {
 	function setId($id) {
 		return $this->setData('id', $id);
 	}
+
+
+	//
+	// Public helper methods
+	//
+	/**
+	 * Upcast this data object to the target object.
+	 *
+	 * We use the DataObject's getAllData() and setAllData() interface
+	 * to upcast objects. This means that if the default implementations
+	 * of these methods do not provide data that is adequate for
+	 * upcasting between objects of the same inheritance hierarchy
+	 * then objects that need more complicated casting behavior
+	 * must override these methods.
+	 *
+	 * Our implementation also implies that the target has to inherit
+	 * from the source object and thereby implicitly from DataObject.
+	 *
+	 * Note: Data in the target object will be overwritten. We do not
+	 * clone the target object before we upcast.
+	 *
+	 * @param $targetObject DataObject The object to cast to.
+	 *
+	 * @return DataObject The upcast target object.
+	 */
+	function &upcastTo(&$targetObject) {
+		// Make sure that target is really inheriting
+		// from this class.
+		assert(is_a($targetObject, get_class($this)));
+
+		// Copy data from the source to the target.
+		$targetObject->setAllData($this->getAllData());
+
+		// Return the upcast object.
+		return $targetObject;
+	}
+
 
 	//
 	// MetadataProvider interface implementation

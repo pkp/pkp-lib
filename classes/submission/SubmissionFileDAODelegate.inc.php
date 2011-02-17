@@ -55,9 +55,15 @@ class SubmissionFileDAODelegate {
 	/**
 	 * Update a submission file.
 	 * @param $submissionFile SubmissionFile
+	 * @param $previousFileId integer The file id before the file
+	 *  was changed. Must only be given if the file id changed
+	 *  so that the previous file can be identified.
+	 * @param $previousRevision integer The revision before the file
+	 *  was changed. Must only be given if the revision changed
+	 *  so that the previous file can be identified.
 	 * @return boolean
 	 */
-	function updateObject(&$submissionFile) {
+	function updateObject(&$submissionFile, $previousFileId = null, $previousRevision = null) {
 		assert(false);
 	}
 

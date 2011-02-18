@@ -9,7 +9,7 @@
  */
 
 /* jQuery UI - http://jqueryui.com/ */
-@import url("jqueryUi.css");
+@import url("lib/jqueryUi/jqueryUi.css");
 
 /* Pines Notify - http://pines.sourceforge.net/pnotify/ */
-@import url("jquery.pnotify.default.css");
+@import url("lib/jquery.pnotify.default.css");

@@ -217,8 +217,17 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
 		if (!($revisedFile && $newFile)) return $nullVar;
 
-		// Check that the two files have the same implementation.
-		if (get_class($revisedFile) != get_class($newFile)) return $nullVar;
+		// If two file implementations do not match then cast the new
+		// file to the type of the revised file.
+		if (get_class($revisedFile) != get_class($newFile)) {
+			// Cast the file in the database.
+			$this->cast($newFileId, get_class($revisedFile), $newFile->getRevision());
+
+			// Retrieve the new file again so that the implementation
+			// fits the revised file.
+			$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
+			if (is_null($newFile)) return $nullVar;
+		}
 
 		// Save identifying data of the changed file required for update.
 		$previousFileId = $newFile->getFileId();

@@ -5,7 +5,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RevisionConfirmationHandler
- * @ingroup js_controllers_files_submissionFiles_form
+ * @ingroup js_controllers_files_form
  *
  * @brief Revision confirmation tab handler.
  */
@@ -20,7 +20,7 @@
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
-	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler =
+	$.pkp.controllers.files.form.RevisionConfirmationHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -32,7 +32,7 @@
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler,
+			$.pkp.controllers.files.form.RevisionConfirmationHandler,
 			$.pkp.controllers.FormHandler);
 
 
@@ -45,7 +45,7 @@
 	 * @param {HTMLElement} wizardElement The calling wizard.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
+	$.pkp.controllers.files.form.RevisionConfirmationHandler.
 			prototype.wizardAdvanceRequested = function(wizardElement, event) {
 
 		var $confirmationForm = this.getHtmlElement();
@@ -62,7 +62,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.submissionFiles.form.RevisionConfirmationHandler.
+	$.pkp.controllers.files.form.RevisionConfirmationHandler.
 			prototype.handleResponse = function(formElement, jsonData) {
 
 		if (jsonData.status === true) {

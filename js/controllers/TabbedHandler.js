@@ -29,8 +29,9 @@
 		this.parent($modal, options);
 
 		// Attach the tabs event handlers.
-		this.bind('tabsshow', this.tabsShow);
 		this.bind('tabsselect', this.tabsSelect);
+		this.bind('tabsshow', this.tabsShow);
+		this.bind('tabsload', this.tabsLoad);
 
 		// Render the tabs as jQueryUI tabs.
 		$modal.tabs({
@@ -90,6 +91,23 @@
 
 		// Save a reference to the current tab.
 		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
+		return true;
+	};
+
+
+	/**
+	 * Event handler that is called after a remote tab was loaded.
+	 *
+	 * @param {HTMLElement} tabsElement The tab element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 * @return {boolean} Should return true to continue tab loading.
+	 */
+	$.pkp.controllers.TabbedHandler.prototype.tabsLoad =
+			function(tabsElement, event, ui) {
+
+		// The default implementation does nothing.
 		return true;
 	};
 

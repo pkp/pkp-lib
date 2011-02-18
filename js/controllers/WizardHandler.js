@@ -24,12 +24,8 @@
 	$.pkp.controllers.WizardHandler = function($wizard, options) {
 		this.parent($wizard, options);
 
-		// Disable all but the first step.
-		var disabledSteps = [];
-		for (var i = 1; i < this.getNumberOfSteps(); i++) {
-			disabledSteps.push(i);
-		}
-		$wizard.tabs('option', 'disabled', disabledSteps);
+		// Start the wizard.
+		this.startWizard();
 
 		// Add the wizard buttons
 		this.addWizardButtons_($wizard, options);
@@ -67,7 +63,15 @@
 
 
 	/**
-	 * The continue button.
+	 * The continue button label.
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.WizardHandler.prototype.continueButtonText_ = null;
+
+
+	/**
+	 * The finish button label.
 	 * @private
 	 * @type {?string}
 	 */
@@ -288,6 +292,41 @@
 	// Protected methods
 	//
 	/**
+	 * (Re-)Start the wizard.
+	 * @protected
+	 */
+	$.pkp.controllers.WizardHandler.prototype.startWizard = function() {
+
+		// Retrieve the wizard element.
+		var $wizard = this.getHtmlElement();
+
+		// Do we re-start the wizard?
+		if (this.getCurrentStep() !== 0) {
+			// Open the first step to restart the wizard.
+			this.setCurrentStep(0);
+
+			// Make sure that the first step is enabled, otherwise
+			// we cannot select it.
+			$wizard.tabs('enable', 0);
+
+			// Go to the first step.
+			$wizard.tabs('select', 0);
+
+			// Reset the continue button label.
+			var $continueButton = this.getContinueButton();
+			$continueButton.button('option', 'label', this.getContinueButtonText());
+		}
+
+		// Disable all but the first step.
+		var disabledSteps = [];
+		for (var i = 1; i < this.getNumberOfSteps(); i++) {
+			disabledSteps.push(i);
+		}
+		$wizard.tabs('option', 'disabled', disabledSteps);
+	};
+
+
+	/**
 	 * Bind wizard events to default event handlers.
 	 * @protected
 	 */
@@ -330,7 +369,17 @@
 
 
 	/**
-	 * Get the finish button text.
+	 * Get the continue button label.
+	 * @protected
+	 * @return {?string} The text to display on the continue button.
+	 */
+	$.pkp.controllers.WizardHandler.prototype.getContinueButtonText = function() {
+		return this.continueButtonText_;
+	};
+
+
+	/**
+	 * Get the finish button label.
 	 * @protected
 	 * @return {?string} The text to display on the continue button
 	 *  in the last wizard step.
@@ -425,8 +474,13 @@
 					bind('click',
 							this.callbackWrapper(this.continueRequest));
 			this.$continueButton_ = $continueButton;
+
+			// Remember the button labels.
+			this.continueButtonText_ = options.continueButtonText;
 			if (options.finishButtonText) {
 				this.finishButtonText_ = options.finishButtonText;
+			} else {
+				this.finishButtonText_ = options.continueButtonText;
 			}
 		}
 

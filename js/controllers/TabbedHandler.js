@@ -57,6 +57,14 @@
 	$.pkp.controllers.TabbedHandler.prototype.$currentTab_ = null;
 
 
+	/**
+	 * The current tab index.
+	 * @private
+	 * @type {number}
+	 */
+	$.pkp.controllers.TabbedHandler.prototype.currentTabIndex_ = 0;
+
+
 	//
 	// Public methods
 	//
@@ -91,6 +99,10 @@
 
 		// Save a reference to the current tab.
 		this.$currentTab_ = (ui.panel.jquery ? ui.panel : $(ui.panel));
+
+		// Save the tab index.
+		this.currentTabIndex_ = ui.index;
+
 		return true;
 	};
 
@@ -145,6 +157,17 @@
 	$.pkp.controllers.TabbedHandler.prototype.getCurrentTab = function() {
 		return this.$currentTab_;
 	};
+
+
+	/**
+	 * Get the current tab index.
+	 * @protected
+	 * @return {number} The current tab index.
+	 */
+	$.pkp.controllers.TabbedHandler.prototype.getCurrentTabIndex = function() {
+		return this.currentTabIndex_;
+	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -47,14 +47,6 @@
 	// Private properties
 	//
 	/**
-	 * The current wizard step.
-	 * @private
-	 * @type {number}
-	 */
-	$.pkp.controllers.WizardHandler.prototype.currentStep_ = 0;
-
-
-	/**
 	 * The continue button.
 	 * @private
 	 * @type {jQuery}
@@ -273,7 +265,6 @@
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
-		this.setCurrentStep(targetStep);
 		$wizard.tabs('select', targetStep);
 
 		// Disable the previous step.
@@ -302,9 +293,6 @@
 
 		// Do we re-start the wizard?
 		if (this.getCurrentStep() !== 0) {
-			// Open the first step to restart the wizard.
-			this.setCurrentStep(0);
-
 			// Make sure that the first step is enabled, otherwise
 			// we cannot select it.
 			$wizard.tabs('enable', 0);
@@ -343,18 +331,7 @@
 	 * @return {number} The current wizard step.
 	 */
 	$.pkp.controllers.WizardHandler.prototype.getCurrentStep = function() {
-		return this.currentStep_;
-	};
-
-
-	/**
-	 * Set the current wizard step.
-	 * @protected
-	 * @param {number} currentStep The current wizard step.
-	 */
-	$.pkp.controllers.WizardHandler.prototype.setCurrentStep =
-			function(currentStep) {
-		this.currentStep_ = currentStep;
+		return this.getCurrentTabIndex();
 	};
 
 

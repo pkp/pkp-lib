@@ -67,8 +67,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Publish some otherwise private events triggered
 		// by nested widgets.
 		this.publishEvent('redirectRequested');
-		this.publishEvent('elementDeleted');
-		this.publishEvent('elementAdded');
 		this.publishEvent('elementsChanged');
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,

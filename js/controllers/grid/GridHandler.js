@@ -31,9 +31,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler = function($grid, options) {
 		this.parent($grid, options);
 
-		// Bind event handlers.
-		this.bind('elementDeleted', this.deleteElement);
-		this.bind('elementAdded', this.addElement);
+		// Bind the handler for the "elements changed" event.
 		this.bind('elementsChanged', this.refreshGrid);
 
 		// Save the ID of this row and it's grid.
@@ -91,20 +89,128 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	// Public methods
 	//
 	/**
-	 * Callback bound to the "element deleted" event.
+	 * Refresh either a single row of the grid or the whole grid.
 	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  "element deleted" event.
-	 * @param {Event} event The "element deleted" event.
-	 * @param {string} gridId The id of the grid that the deleted row
-	 *  belongs to.
-	 * @param {string} rowId The id of the row to be deleted.
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @param {string} gridId The id of the grid to be refreshed.
+	 * @param {number=} rowId The id of a row that was updated,
+	 *  added or deleted. If not given then the whole grid will
+	 *  be refreshed.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
 			function(sourceElement, event, gridId, rowId) {
 
 		// Check the grid.
 		this.checkGridId_(gridId);
+
+		if (rowId) {
+			// Retrieve a single row from the server.
+			$.get(this.fetchRowUrl_, {rowId: rowId},
+					this.callbackWrapper(this.replaceRow), 'json');
+		} else {
+			// Retrieve the whole grid from the server.
+			$.get(this.fetchGridUrl_, null,
+					this.callbackWrapper(this.replaceGrid), 'json');
+		}
+	};
+
+
+	/**
+	 * Callback to insert, remove or replace a row after an
+	 * element has been inserted, update or deleted.
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.replaceRow =
+			function(ajaxContext, jsonData) {
+
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
+			if (jsonData.rowNotFound) {
+				// The server reported that this row no
+				// longer exists in the database so let's
+				// delete it.
+				this.deleteRow_(jsonData.rowNotFound);
+			} else {
+				// The server returned mark-up to replace
+				// or insert the row.
+				this.insertOrReplaceRow_(jsonData.content);
+			}
+		}
+	};
+
+
+	/**
+	 * Callback to replace a grid's content.
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.replaceGrid =
+			function(ajaxContext, jsonData) {
+
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
+			// Get the grid that we're updating
+			var $grid = this.getHtmlElement();
+
+			// Replace the grid content
+			$grid.html(jsonData.content);
+		}
+	};
+
+
+	//
+	// Private methods
+	//
+	/**
+	 * Helper that inserts or replaces a row.
+	 *
+	 * @private
+	 *
+	 * @param {string} rowContent The new mark-up of the row.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceRow_ =
+			function(rowContent) {
+
+		// Parse the HTML returned from the server.
+		var $newRow = $(rowContent), newRowId = $newRow.attr('id');
+
+		// Does the row exist already?
+		var $grid = this.getHtmlElement(),
+				$existingRow = $grid.find('#' + newRowId);
+		if ($existingRow.length > 1) {
+			throw Error('There were ' + $existingRow.length +
+					' rather than 0 or 1 rows to be replaced!');
+		}
+
+		// Hide the empty grid row placeholder.
+		var $emptyElement = $grid.find('.empty');
+		$emptyElement.hide();
+
+		if ($existingRow.length === 1) {
+			// Update row.
+			$existingRow.replaceWith($newRow);
+		} else {
+			// Insert row.
+			var $gridBody = this.getHtmlElement().find(this.bodySelector_);
+			$gridBody.append($newRow);
+		}
+	};
+
+
+	/**
+	 * Helper that deletes the given row.
+	 *
+	 * @private
+	 *
+	 * @param {number} rowId The ID of the row to be updated.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.deleteRow_ =
+			function(rowId) {
 
 		var $grid = this.getHtmlElement(),
 				$rowElement = $grid.find('.element' + rowId);
@@ -139,109 +245,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	};
 
 
-	/**
-	 * Callback bound to the "element added" event.
-	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  "element deleted" event.
-	 * @param {Event} event The "element deleted" event.
-	 * @param {string} gridId The id of the grid that the deleted row
-	 *  belongs to.
-	 * @param {string} rowId The id of the row to be deleted.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.addElement =
-			function(sourceElement, event, gridId, rowId) {
-
-		// Check the grid.
-		this.checkGridId_(gridId);
-
-		// Fetch the row.
-		$.get(this.fetchRowUrl_, {rowId: rowId},
-				this.callbackWrapper(this.insertOrUpdateRow), 'json');
-	};
-
-
-	/**
-	 * Callback to insert or update a row.
-	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} jsonData A parsed JSON response object.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.insertOrUpdateRow =
-			function(ajaxContext, jsonData) {
-
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			// Parse the HTML returned from the server.
-			var $newRow = $(jsonData.content), newRowId = $newRow.attr('id');
-
-			// Does the row exist already?
-			var $grid = this.getHtmlElement(),
-					$existingRow = $grid.find('#' + newRowId);
-			if ($existingRow.length > 1) {
-				throw Error('There were ' + $existingRow.length +
-						' rather than 0 or 1 rows to be replaced!');
-			}
-
-			// Hide the empty grid row placeholder.
-			var $emptyElement = $grid.find('.empty');
-			$emptyElement.hide();
-
-			if ($existingRow.length === 1) {
-				// Update row.
-				$existingRow.replaceWith($newRow);
-			} else {
-				// Insert row.
-				var $gridBody = this.getHtmlElement().find(this.bodySelector_);
-				$gridBody.append($newRow);
-			}
-		}
-	};
-
-
-	/**
-	 * Callback bound to the "elements changed" event.
-	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  "refresh grid" event.
-	 * @param {Event} event The "element deleted" event.
-	 * @param {string} gridId The id of the grid to be refreshed.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
-			function(sourceElement, event, gridId) {
-
-		// Check the grid.
-		this.checkGridId_(gridId);
-
-		// Fetch the new grid data.
-		$.get(this.fetchGridUrl_, null,
-				this.callbackWrapper(this.replaceGridContent), 'json');
-	};
-
-
-	/**
-	 * Callback to replace a grid's content.
-	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} jsonData A parsed JSON response object.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.replaceGridContent =
-			function(ajaxContext, jsonData) {
-
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			// Get the grid that we're updating
-			var $grid = this.getHtmlElement();
-
-			// Replace the grid content
-			$grid.html(jsonData.content);
-		}
-	};
-
-
-	//
-	// Private methods
-	//
 	/**
 	 * Check whether the given grid id corresponds to the id
 	 * of the grid attached to this handler.

@@ -280,17 +280,28 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Render a row and send it to the client.
+	 * Render a row and send it to the client. If the row no
+	 * longer exists then inform the client.
 	 * @param $args array
 	 * @param $request Request
-	 * @return string the serialized row JSON message
+	 * @return string the serialized row JSON message or a flag
+	 *  that indicates that the row has not been found.
 	 */
 	function fetchRow(&$args, &$request) {
-		// Instantiate the requested row
+		// Instantiate the requested row (includes a
+		// validity check on the row id).
 		$row =& $this->getRequestedRow($request, $args);
 
-		// Render the requested row
-		$json = new JSON(true, $this->_renderRowInternally($request, $row));
+		$json = new JSON(true);
+		if (is_null($row)) {
+			// Inform the client that the row does no longer exist.
+			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
+		} else {
+			// Render the requested row
+			$json->setContent($this->_renderRowInternally($request, $row));
+		}
+
+		// Render and return the JSON message.
 		return $json->getString();
 	}
 
@@ -308,6 +319,7 @@ class GridHandler extends PKPHandler {
 
 		// Instantiate the requested row
 		$row =& $this->getRequestedRow($request, $args);
+		if (is_null($row)) fatalError('Row not found!');
 
 		// Render the cell
 		$json = new JSON(true, $this->_renderCellInternally($request, $row, $column));
@@ -338,7 +350,8 @@ class GridHandler extends PKPHandler {
 	 * @param $request PKPRequest
 	 * @param $args array
 	 * @return GridRow the requested grid row, already
-	 *  configured with id and data.
+	 *  configured with id and data or null if the row
+	 *  could not been found.
 	 */
 	function &getRequestedRow($request, $args) {
 		// Try to retrieve a row id from $args if it is present
@@ -347,7 +360,14 @@ class GridHandler extends PKPHandler {
 
 		// Retrieve row data for the requested row id
 		$dataElement = $this->getRowDataElement($elementId);
-		if (is_null($dataElement)) fatalError('Invalid row id!');
+		if (is_null($dataElement)) {
+			// If the row doesn't exist then
+			// return null. It may be that the
+			// row has been deleted in the meantime
+			// and the client does not yet know about this.
+			$nullVar = null;
+			return $nullVar;
+		}
 
 		// Instantiate a new row
 		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement);
@@ -378,37 +398,30 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Generate a JSON message with an event that can be sent
-	 * to the grid after a data element was deleted.
-	 * @param $elementId integer
-	 * @return string A rendered JSON message.
-	 */
-	function elementDeleted($elementId) {
-		$json = new JSON(true);
-		$json->setEvent('elementDeleted', array($this->getId(), (string)$elementId));
-		return $json->getString();
-	}
-
-
-	/**
-	 * Generate a JSON message with an event that can be sent
-	 * to the grid after a data element has been added.
-	 * @param $elementId integer
-	 * @return string A rendered JSON message.
-	 */
-	function elementAdded($elementId) {
-		$json = new JSON(true);
-		$json->setEvent('elementAdded', array($this->getId(), (string)$elementId));
-		return $json->getString();
-	}
-
-	/**
-	 * Generate a JSON message with an event that can be sent
 	 * to the grid to get it to refresh itself.
+	 *
+	 * This event can be used no matter how the grid changed
+	 * (deletion, update or insertion of one or several elements).
+	 *
+	 * @param $elementId integer To refresh a single element
+	 *  give the element ID here. Otherwise all elements will
+	 *  be refreshed.
 	 * @return string A rendered JSON message.
 	 */
-	function elementsChanged() {
+	function elementsChanged($elementId = null) {
+		// Cast element id to integer.
+		$elementId = (is_null($elementId) ? null : (int)$elementId);
+
+		// Create the event data.
+		$eventData = array($this->getId());
+		if ($elementId) {
+			$eventData[] = $elementId;
+		}
+
+		// Create and render the JSON message with the
+		// event to be triggered on the client side.
 		$json = new JSON(true);
-		$json->setEvent('elementsChanged', array($this->getId()));
+		$json->setEvent('elementsChanged', $eventData);
 		return $json->getString();
 	}
 

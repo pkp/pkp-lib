@@ -12,21 +12,21 @@
  * @brief Class defining basic operations for handling HTML grids.
  */
 
-// import the base Handler
+// Import the base Handler.
 import('lib.pkp.classes.handler.PKPHandler');
 
-// import action class
+// Import action class.
 import('lib.pkp.classes.linkAction.LinkAction');
 import('lib.pkp.classes.linkAction.LegacyLinkAction');
 
-// import grid classes
+// Import grid classes.
 import('lib.pkp.classes.controllers.grid.GridColumn');
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-// import JSON class for use with all AJAX requests
+// Import JSON class for use with all AJAX requests.
 import('lib.pkp.classes.core.JSON');
 
-// grid specific action positions
+// Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
 define('GRID_ACTION_POSITION_ABOVE', 'above');
 define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
@@ -37,22 +37,22 @@ class GridHandler extends PKPHandler {
 	var $_title = '';
 
 	/**
-	 * @var array grid actions, the first key represents
+	 * @var array Grid actions. The first key represents
 	 *  the position of the action in the grid, the second key
 	 *  represents the action id.
 	 */
 	var $_actions = array(GRID_ACTION_POSITION_DEFAULT => array());
 
-	/** @var array the GridColumns of this grid */
+	/** @var array The GridColumns of this grid. */
 	var $_columns = array();
 
-	/** @var ItemIterator the grid's data source */
+	/** @var ItemIterator The grid's data source. */
 	var $_data;
 
-	/** @var string the grid template */
+	/** @var string The grid template. */
 	var $_template;
 
-	/** @var string name of row identifer (passed to getData()) */
+	/** @var string Name of the row identifer (passed to getData()). */
 	var $_rowIdentifer;
 
 	/**
@@ -62,11 +62,12 @@ class GridHandler extends PKPHandler {
 		parent::PKPHandler();
 	}
 
+
 	//
-	// Getters/Setters
+	// Getters and Setters
 	//
 	/**
-	 * Get the grid title
+	 * Get the grid title.
 	 * @return string
 	 */
 	function getTitle() {
@@ -74,7 +75,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Set the grid title
+	 * Set the grid title.
 	 * @param $title string
 	 */
 	function setTitle($title) {
@@ -82,9 +83,9 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Get all actions for a given position within the grid
-	 * @param $position string the position of the actions
-	 * @return array the LegacyLinkActions for the given position
+	 * Get all actions for a given position within the grid.
+	 * @param $position string The position of the actions.
+	 * @return array The LegacyLinkActions for the given position.
 	 */
 	function getActions($position = GRID_ACTION_POSITION_ABOVE) {
 		if(!isset($this->_actions[$position])) return array();
@@ -92,9 +93,9 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Add an action
-	 * @param $position string the position of the action
-	 * @param $action mixed a single action
+	 * Add an action.
+	 * @param $position string The position of the action.
+	 * @param $action Mixed a single action.
 	 */
 	function addAction($action, $position = GRID_ACTION_POSITION_ABOVE) {
 		if (!isset($this->_actions[$position])) $this->_actions[$position] = array();
@@ -102,15 +103,15 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Get all columns
-	 * @return array an array of GridColumn instances
+	 * Get all columns.
+	 * @return array An array of GridColumn instances.
 	 */
 	function &getColumns() {
 		return $this->_columns;
 	}
 
 	/**
-	 * Retrieve a single column by id
+	 * Retrieve a single column by id.
 	 * @param $columnId
 	 * @return GridColumn
 	 */
@@ -120,7 +121,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Checks whether a column exists
+	 * Checks whether a column exists.
 	 * @param $columnId
 	 * @return boolean
 	 */
@@ -129,8 +130,8 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Add a column
-	 * @param $column mixed a single GridColumn instance
+	 * Add a column.
+	 * @param $column mixed A single GridColumn instance.
 	 */
 	function addColumn(&$column) {
 		assert(is_a($column, 'GridColumn'));
@@ -138,7 +139,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Get the grid data
+	 * Get the grid data.
 	 * @return ItemIterator
 	 */
 	function &getData() {
@@ -168,7 +169,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Set the grid data
+	 * Set the grid data.
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setData(&$data, $rowIdentifier = null) {
@@ -185,7 +186,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Get the grid template
+	 * Get the grid template.
 	 * @return string
 	 */
 	function getTemplate() {
@@ -197,7 +198,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Set the grid template
+	 * Set the grid template.
 	 * @param $template string
 	 */
 	function setTemplate($template) {
@@ -216,7 +217,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Set the custom row identifier
+	 * Set the custom row identifier.
 	 * @param $rowIdentifer string
 	 */
 	function setRowIdentifier($rowIdentifer) {
@@ -224,12 +225,13 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Get the custom row identifier
+	 * Get the custom row identifier.
 	 * @return string
 	 */
 	function getRowIdentifier() {
 	    return $this->_rowIdentifer;
 	}
+
 
 	//
 	// Overridden methods from PKPHandler
@@ -243,6 +245,7 @@ class GridHandler extends PKPHandler {
 		// Load grid-specific translations
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON));
 	}
+
 
 	//
 	// Public handler methods
@@ -326,6 +329,7 @@ class GridHandler extends PKPHandler {
 		return $json->getString();
 	}
 
+
 	//
 	// Protected methods to be overridden/used by subclasses
 	//
@@ -340,7 +344,6 @@ class GridHandler extends PKPHandler {
 		$row = new GridRow();
 		return $row;
 	}
-
 
 	/**
 	 * Tries to identify the data element in the grids
@@ -449,7 +452,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Method that renders tbodys to go in the grid main body
+	 * Method that renders tbodys to go in the grid main body.
 	 * @param Request $request
 	 * @return array
 	 */
@@ -465,9 +468,8 @@ class GridHandler extends PKPHandler {
 		return $gridBodyParts;
 	}
 
-
 	/**
-	 * Cycle through the data and get generate the row HTML
+	 * Cycle through the data and get generate the row HTML.
 	 * @param $request PKPRequest
 	 * @param $elementIterator ItemIterator
 	 * @return array of HTML Strings for Grid Rows.
@@ -524,7 +526,7 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Method that renders a cell
+	 * Method that renders a cell.
 	 *
 	 * NB: You must have initialized the row
 	 * before you call this method.

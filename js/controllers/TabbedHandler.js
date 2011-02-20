@@ -130,13 +130,13 @@
 	 *
 	 * @param {Object} ajaxOptions The options object from which the
 	 *  callback originated.
-	 * @param {Object} jsonData The data returned from an AJAX call.
+	 * @param {string} jsonString Unparsed JSON data returned from the server.
 	 * @return {string} The tab mark-up.
 	 */
 	$.pkp.controllers.TabbedHandler.prototype.dataFilter =
-			function(ajaxOptions, jsonData) {
+			function(ajaxOptions, jsonString) {
 
-		var jsonData = this.handleJson(jsonData);
+		var jsonData = this.handleJson($.parseJSON(jsonString));
 		if (jsonData === false) {
 			return '';
 		}

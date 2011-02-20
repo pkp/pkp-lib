@@ -21,12 +21,12 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $modal A wrapped HTML element that
-	 *  represents the tabbed modal.
+	 * @param {jQuery} $tabs A wrapped HTML element that
+	 *  represents the tabbed interface.
 	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.TabbedHandler = function($modal, options) {
-		this.parent($modal, options);
+	$.pkp.controllers.TabbedHandler = function($tabs, options) {
+		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
 		this.bind('tabsselect', this.tabsSelect);
@@ -34,7 +34,7 @@
 		this.bind('tabsload', this.tabsLoad);
 
 		// Render the tabs as jQueryUI tabs.
-		$modal.tabs({
+		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
 			ajaxOptions: {
 				dataFilter: this.callbackWrapper(this.dataFilter)

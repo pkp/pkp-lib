@@ -136,13 +136,11 @@
 	$.pkp.controllers.TabbedHandler.prototype.dataFilter =
 			function(ajaxOptions, jsonData) {
 
-		var data = $.parseJSON(jsonData);
-		if (data.status === true) {
-			return data.content;
-		} else {
-			alert(data.content);
+		var jsonData = this.handleJson(jsonData);
+		if (jsonData === false) {
+			return '';
 		}
-		return '';
+		return jsonData.content;
 	};
 
 

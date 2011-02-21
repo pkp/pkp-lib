@@ -1,10 +1,10 @@
 /**
- * @file js/controllers/TabbedHandler.js
+ * @file js/controllers/TabHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class TabbedHandler
+ * @class TabHandler
  * @ingroup js_controllers
  *
  * @brief A basic handler for a tabbed set of pages.
@@ -25,7 +25,7 @@
 	 *  represents the tabbed interface.
 	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.TabbedHandler = function($tabs, options) {
+	$.pkp.controllers.TabHandler = function($tabs, options) {
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
@@ -43,7 +43,7 @@
 		});
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.TabbedHandler, $.pkp.classes.Handler);
+			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);
 
 
 	//
@@ -54,7 +54,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.$currentTab_ = null;
+	$.pkp.controllers.TabHandler.prototype.$currentTab_ = null;
 
 
 	/**
@@ -62,7 +62,7 @@
 	 * @private
 	 * @type {number}
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.currentTabIndex_ = 0;
+	$.pkp.controllers.TabHandler.prototype.currentTabIndex_ = 0;
 
 
 	//
@@ -77,7 +77,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.tabsSelect =
+	$.pkp.controllers.TabHandler.prototype.tabsSelect =
 			function(tabsElement, event, ui) {
 
 		// The default implementation does nothing.
@@ -94,7 +94,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.tabsShow =
+	$.pkp.controllers.TabHandler.prototype.tabsShow =
 			function(tabsElement, event, ui) {
 
 		// Save a reference to the current tab.
@@ -116,7 +116,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.tabsLoad =
+	$.pkp.controllers.TabHandler.prototype.tabsLoad =
 			function(tabsElement, event, ui) {
 
 		// The default implementation does nothing.
@@ -133,7 +133,7 @@
 	 * @param {string} jsonString Unparsed JSON data returned from the server.
 	 * @return {string} The tab mark-up.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.dataFilter =
+	$.pkp.controllers.TabHandler.prototype.dataFilter =
 			function(ajaxOptions, jsonString) {
 
 		var jsonData = this.handleJson($.parseJSON(jsonString));
@@ -152,7 +152,7 @@
 	 * @protected
 	 * @return {jQuery} The current tab.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.getCurrentTab = function() {
+	$.pkp.controllers.TabHandler.prototype.getCurrentTab = function() {
 		return this.$currentTab_;
 	};
 
@@ -162,7 +162,7 @@
 	 * @protected
 	 * @return {number} The current tab index.
 	 */
-	$.pkp.controllers.TabbedHandler.prototype.getCurrentTabIndex = function() {
+	$.pkp.controllers.TabHandler.prototype.getCurrentTabIndex = function() {
 		return this.currentTabIndex_;
 	};
 

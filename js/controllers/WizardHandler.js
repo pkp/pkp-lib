@@ -15,7 +15,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.TabbedHandler
+	 * @extends $.pkp.controllers.TabHandler
 	 *
 	 * @param {jQuery} $wizard A wrapped HTML element that
 	 *  represents the wizard.
@@ -40,7 +40,7 @@
 		this.bind('formSubmitted', this.formSubmitted);
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.WizardHandler, $.pkp.controllers.TabbedHandler);
+			$.pkp.controllers.WizardHandler, $.pkp.controllers.TabHandler);
 
 
 	//

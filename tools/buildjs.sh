@@ -88,7 +88,7 @@ WORKDIR=`mktemp -d` || { echo "The working directory could not be created!"; exi
 echo "Lint..." >&2
 echo "Lint..." >"$WORKDIR/.compile-warnings.out"
 for JS_FILE in $LINT_FILES; do
-	echo "...$JS_FILE" >&2
+	echo -n "...$JS_FILE" >&2
 	echo "...$JS_FILE"
 
 	# Prepare file for gjslint and compiler check:
@@ -99,25 +99,33 @@ for JS_FILE in $LINT_FILES; do
 	sed 's/^\t//;s/\t/  /g;s/^(function(\$) {//;s/^})(jQuery);//;s/@extends \(.*\)$/@extends {\1}/' "$JS_FILE" > "$WORKDIR/$JS_FILE"
 
 
-	#############################
-	### Google Closure Linter ###
-	#############################
+	# Only lint file if it has been changed since last compilation.
+	if [ -e "$JS_OUTPUT" -a \( "$JS_FILE" -nt "$JS_OUTPUT" \) ]; then
 
-	# Run gjslint on the file.
-	gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed 's/^/\t/'
+		#############################
+		### Google Closure Linter ###
+		#############################
+	
+		# Run gjslint on the file.
+		gjslint --strict --nosummary --custom_jsdoc_tags=defgroup,ingroup,file,brief "$WORKDIR/$JS_FILE" | grep '^Line' | sed 's/^/\t/'
+	
+	
+		##################################
+		### Douglas Crockford's JSLint ###
+		##################################
+	
+		# Run JSLint on the file:
+		# - allow for loops without "hasOwnProperty()" check because we operate in an environment
+		#   where additions to the Object prototype are not allowed (same as jQuery).
+		# - remove jslint "unexpected space" error - whitespace checking is better done by gjslint.
+		#   This is necessary to remove inconsistency between gjslint's line length checking and
+		#   jslint's line break rules.
+		java -jar "$TOOL_PATH/jslint4java.jar" --forin $JS_FILE | grep -v '^$' | grep -v 'Unexpected space before ' | sed 's/^/\t/'
+		echo "...processed!" >&2
 
-
-	##################################
-	### Douglas Crockford's JSLint ###
-	##################################
-
-	# Run JSLint on the file:
-	# - allow for loops without "hasOwnProperty()" check because we operate in an environment
-	#   where additions to the Object prototype are not allowed (same as jQuery).
-	# - remove jslint "unexpected space" error - whitespace checking is better done by gjslint.
-	#   This is necessary to remove inconsistency between gjslint's line length checking and
-	#   jslint's line break rules.
-	java -jar "$TOOL_PATH/jslint4java.jar" --forin $JS_FILE | grep -v '^$' | grep -v 'Unexpected space before ' | sed 's/^/\t/'
+	else
+		echo "...skipped!" >&2
+	fi
 done >>"$WORKDIR/.compile-warnings.out"
 echo >&2
 

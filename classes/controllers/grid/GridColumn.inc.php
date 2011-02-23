@@ -179,4 +179,21 @@ class GridColumn {
 	function setCellProvider(&$cellProvider) {
 		$this->_cellProvider =& $cellProvider;
 	}
+
+	/**
+	 * Get cell actions for this column.
+	 *
+	 * NB: Subclasses have to override this method to
+	 * actually provide cell-specific actions. The default
+	 * implementation returns an empty array.
+	 *
+	 * @param $row GridRow The row for which actions are
+	 *  being requested.
+	 * @return array An array of LinkActions for the cell.
+	 */
+	function getCellActions(&$request, &$row, $position = GRID_ACTION_POSITION_DEFAULT) {
+		// The default implementation returns an empty array
+		$actions = array();
+		return $actions;
+	}
 }

@@ -37,4 +37,14 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 		$templateVars['citationSeq'] = $element->getSeq();
 		return $templateVars;
 	}
+
+
+	/**
+	 * @see GridCellProvider::getCellActions()
+	 */
+	function &getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+		// The citation grid retrieves actions from the row.
+		$actions =& $row->getCellActions($request, $column, $position);
+		return $actions;
+	}
 }

@@ -50,7 +50,6 @@ class GridCellProvider {
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
 
 		// Assign all values from element.
-		// FIXME: by ref not working for some reason.
 		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
@@ -79,17 +78,18 @@ class GridCellProvider {
 	 * Subclasses can override this template method to provide
 	 * cell specific actions.
 	 *
-	 * NB: The default implementation delegates to the grid row for
-	 * row specific actions. Another thinkable implementation would
-	 * be column-specific actions in which case action instantiation
-	 * should be delegated to the column.
+	 * NB: The default implementation delegates to the grid column for
+	 * cell-specific actions. Another thinkable implementation would
+	 * be row-specific actions in which case action instantiation
+	 * should be delegated to the row.
 	 *
+	 * @param $request Request
 	 * @param $row GridRow
 	 * @param $column GridColumn
 	 * @return array an array of LinkAction instances
 	 */
 	function &getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$actions =& $row->getCellActions($request, $column, $position);
+		$actions =& $column->getCellActions($request, $row, $position);
 		return $actions;
 	}
 }

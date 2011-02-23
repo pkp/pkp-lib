@@ -9,7 +9,11 @@
  * @class DataObjectGridCellProvider
  * @ingroup controllers_grid
  *
- * @brief Base class for a cell provider that can retrieve labels from DataObjects
+ * @brief Base class for a cell provider that can retrieve simple labels
+ *  from DataObjects. If you need more complex cell content then you may
+ *  be better off using a ColumnBasedGridCellProvider.
+ *
+ * @see ColumnBasedGridCellProvider
  */
 
 import('lib.pkp.classes.controllers.grid.GridCellProvider');

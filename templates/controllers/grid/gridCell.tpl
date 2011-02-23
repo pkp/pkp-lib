@@ -9,8 +9,12 @@
 {assign var=cellId value="cell-"|concat:$id}
 <span id="{$cellId|escape}" class="pkp_linkActions">
 	{if count($actions) gt 0}
-		{assign var=defaultCellAction value=$actions[0]}
-		{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$defaultCellAction->getId() action=$defaultCellAction objectId=$cellId}
+		{assign var=action value=$actions[0]}
+		{if is_a($action, 'LegacyLinkAction')}
+			{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$action->getId() action=$action objectId=$cellId}
+		{else}
+			{include file="linkAction/linkAction.tpl" action=$action}
+		{/if}
 	{else}
 		{$label|strip_unsafe_html}
 	{/if}

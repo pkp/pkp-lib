@@ -35,6 +35,15 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 
 		// Save the link action request options.
 		this.options = options;
+
+		// If the link action element is an actual link
+		// and we find a URL in the options then set the
+		// link of the link action for better documentation
+		// and easier debugging in the DOM and for other
+		// JS to easily access the target if required.
+		if ($linkActionElement.is('a') && options.url) {
+			$linkActionElement.attr('href', options.url);
+		}
 	};
 
 

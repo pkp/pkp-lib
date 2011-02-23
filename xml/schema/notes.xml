@@ -15,7 +15,7 @@
 <schema version="0.2">
 	<!--
 	  *
-	  * TABLE groups
+	  * TABLE notes
 	  *
 	  -->
 	<table name="notes">

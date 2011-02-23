@@ -16,16 +16,16 @@
 {/if}
 
 <script type="text/javascript">
-{literal}
-	$(function() {
-		$('#{/literal}{$gridId|escape}{literal}').pkpHandler(
-				'$.pkp.controllers.grid.GridHandler',
-				{
-					gridId: '{/literal}{$grid->getId()|escape:javascript}{literal}',
-					fetchRowUrl: '{/literal}{url op='fetchRow' params=$fetchParams escape=false}{literal}',
-					fetchGridUrl: '{/literal}{url op='fetchGrid' params=$fetchParams escape=false}{literal}',
-					bodySelector: '#{/literal}{$gridActOnId|escape:javascript}{literal}'
-				});
+	{literal}
+		$(function() {
+			$('#{/literal}{$gridId|escape}{literal}').pkpHandler(
+					'$.pkp.controllers.grid.GridHandler',
+					{
+						gridId: '{/literal}{$grid->getId()|escape:javascript}{literal}',
+						fetchRowUrl: '{/literal}{url op='fetchRow' params=$fetchParams escape=false}{literal}',
+						fetchGridUrl: '{/literal}{url op='fetchGrid' params=$fetchParams escape=false}{literal}',
+						bodySelector: '#{/literal}{$gridActOnId|escape:javascript}{literal}',
+					});
 		});
 	{/literal}
 </script>

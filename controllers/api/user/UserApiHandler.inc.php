@@ -1,4 +1,7 @@
 <?php
+/**
+ * @defgroup controllers_api_user
+ */
 
 /**
  * @file controllers/api/user/UserApiHandler.inc.php

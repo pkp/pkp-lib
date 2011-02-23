@@ -1,4 +1,7 @@
 <?php
+/**
+ * @defgroup controllers_api_citation
+ */
 
 /**
  * @file controllers/api/user/CitationApiHandler.inc.php

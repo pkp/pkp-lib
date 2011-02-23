@@ -23,7 +23,7 @@ class LinkAction {
 	/** @var LinkActionRequest The action to be taken when the link action is activated */
 	var $_actionRequest;
 
-	/** @var string A translation key defining the title of the action. */
+	/** @var string The localized title of the action. */
 	var $_title;
 
 	/** @var string The name of an icon for the action. */
@@ -33,8 +33,7 @@ class LinkAction {
 	 * Constructor
 	 * @param $id string
 	 * @param $actionRequest LinkActionRequest The action to be taken when the link action is activated.
-	 * @param $title string (optional) A translation key defining
-	 *  the title of the action.
+	 * @param $title string (optional) The localized title of the action.
 	 * @param $image string (optional) The name of an icon for the
 	 *  action.
 	 */
@@ -67,7 +66,7 @@ class LinkAction {
 	}
 
 	/**
-	 * Get the action title.
+	 * Get the localized action title.
 	 * @return string
 	 */
 	function getTitle() {

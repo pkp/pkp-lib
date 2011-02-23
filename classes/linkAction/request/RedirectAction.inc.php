@@ -54,9 +54,7 @@ class RedirectAction extends LinkActionRequest {
 	 * @see LinkActionRequest::getLocalizedOptions()
 	 */
 	function getLocalizedOptions() {
-		return array(
-			'url' => $this->getUrl(),
-		);
+		return array('url' => $this->getUrl());
 	}
 }
 

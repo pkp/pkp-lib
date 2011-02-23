@@ -17,10 +17,10 @@ import('lib.pkp.classes.linkAction.request.AjaxModal');
 class WizardModal extends AjaxModal {
 	/**
 	 * Constructor
-	 * @param $url string
-	 * @param $title string (optional)
-	 * @param $titleIcon string (optional)
-	 * @param $canClose boolean (optional)
+	 * @param $url string The URL of the AJAX resource to load into the wizard modal.
+	 * @param $title string (optional) The localized modal title.
+	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
+	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
 	function WizardModal($url, $title = null, $titleIcon = null, $canClose = true) {
 		parent::AjaxModal($url, $title, $titleIcon, $canClose);

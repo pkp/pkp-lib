@@ -15,7 +15,7 @@
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class Modal extends LinkActionRequest {
-	/** @var string A translation key defining the title of the modal. */
+	/** @var string The localized title of the modal. */
 	var $_title;
 
 	/** @var string The icon to be displayed in the title bar. */
@@ -26,7 +26,7 @@ class Modal extends LinkActionRequest {
 
 	/**
 	 * Constructor
-	 * @param $title string (optional) The modal title.
+	 * @param $title string (optional) The localized modal title.
 	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
 	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
@@ -42,7 +42,7 @@ class Modal extends LinkActionRequest {
 	// Getters and Setters
 	//
 	/**
-	 * Get the modal title translation key.
+	 * Get the localized title.
 	 * @return string
 	 */
 	function getTitle() {
@@ -81,7 +81,7 @@ class Modal extends LinkActionRequest {
 	 */
 	function getLocalizedOptions() {
 		return array(
-			'title' => Locale::translate($this->getTitle()),
+			'title' => $this->getTitle(),
 			'titleIcon' => $this->getTitleIcon(),
 			'canClose' => ($this->getCanClose() ? '1' : '0')
 		);

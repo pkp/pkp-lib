@@ -463,4 +463,25 @@ class PKPLocale {
 	}
 }
 
+
+/**
+ * Wrapper around PKPLocale::translate().
+ *
+ * Enables us to work with translated strings everywhere without
+ * introducing a lot of duplicate code and without getting
+ * blisters on our fingers.
+ *
+ * This is similar to WordPress' solution for translation, see
+ * <http://codex.wordpress.org/Translating_WordPress>.
+ *
+ * @see PKPLocale::translate()
+ *
+ * @param $key string
+ * @param $params array named substitution parameters
+ * @param $locale string the locale to use
+ * @return string
+ */
+function __($key, $params = array(), $locale = null) {
+	return PKPLocale::translate($key, $params, $locale);
+}
 ?>

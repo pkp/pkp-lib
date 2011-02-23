@@ -38,21 +38,26 @@ class ConfirmationModal extends Modal {
 
 	/**
 	 * Constructor
-	 * @param $dialogText string (optional)
-	 * @param $title string (optional)
-	 * @param $remoteAction string (optional) A URL to be called
-	 *  when the confirmation button is clicked.
-	 * @param $titleIcon string (optional)
-	 * @param $okButton string (optional)
-	 * @param $cancelButton string (optional)
-	 * @param $canClose boolean (optional)
+	 * @param $dialogText string (optional) The localized
+	 *  text to appear in the dialog modal.
+	 * @param $title string (optional) The localized modal title.
+	 * @param $remoteAction string (optional) A URL to be
+	 *  called when the confirmation button is clicked.
+	 * @param $titleIcon string (optional) The icon to be used
+	 *  in the modal title bar.
+	 * @param $okButton string (optional) The localized text to
+	 *  appear on the confirmation button.
+	 * @param $cancelButton string (optional) The localized text to
+	 *  appear on the cancel button.
+	 * @param $canClose boolean (optional) Whether the modal will
+	 *  have a close button.
 	 */
-	function ConfirmationModal($dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = 'common.ok', $cancelButton = 'common.cancel', $canClose = true) {
+	function ConfirmationModal($dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
 		parent::Modal($title, $titleIcon, $canClose);
 
 		$this->_remoteAction = $remoteAction;
-		$this->_okButton = $okButton;
-		$this->_cancelButton = $cancelButton;
+		$this->_okButton = (is_null($okButton) ? __('common.ok') : $okButton);
+		$this->_cancelButton = (is_null($cancelButton) ? __('common.cancel') : $cancelButton);
 		$this->_dialogText = $dialogText;
 	}
 
@@ -106,9 +111,9 @@ class ConfirmationModal extends Modal {
 		return array_merge(parent::getLocalizedOptions(), array(
 				'modalHandler' => '$.pkp.controllers.modal.ConfirmationModalHandler',
 				'remoteAction' => $this->getRemoteAction(),
-				'okButton' => Locale::translate($this->getOkButton()),
-				'cancelButton' => Locale::translate($this->getCancelButton()),
-				'dialogText' => Locale::translate($this->getDialogText())));
+				'okButton' => $this->getOkButton(),
+				'cancelButton' => $this->getCancelButton(),
+				'dialogText' => $this->getDialogText()));
 	}
 }
 

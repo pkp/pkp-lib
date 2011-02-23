@@ -20,10 +20,10 @@ class AjaxModal extends Modal {
 
 	/**
 	 * Constructor
-	 * @param $url string
-	 * @param $title string (optional)
-	 * @param $titleIcon string (optional)
-	 * @param $canClose boolean (optional)
+	 * @param $url string The URL of the AJAX resource to load into the modal.
+	 * @param $title string (optional) The localized modal title.
+	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
+	 * @param $canClose boolean (optional) Whether the modal will have a close button.
 	 */
 	function AjaxModal($url, $title = null, $titleIcon = null, $canClose = true) {
 		parent::Modal($title, $titleIcon, $canClose);

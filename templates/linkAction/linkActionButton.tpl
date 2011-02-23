@@ -15,8 +15,8 @@
 <a href="#" id="{$buttonId}" {strip}
 	{if $action->getImage()}
 		class="{$action->getImage()}"
-		{if $hoverTitle}title="{translate key=$action->getTitle()}">&nbsp;{else}>{translate key=$action->getTitle()}{/if}
+		{if $hoverTitle}title="{$action->getTitle()}">&nbsp;{else}>{$action->getTitle()}{/if}
 	{else}
-		{if $hoverTitle} title="{translate key=$action->getTitle()}">{else}>{translate key=$action->getTitle()}{/if}
+		{if $hoverTitle} title="{$action->getTitle()}">{else}>{$action->getTitle()}{/if}
 	{/if}
 {/strip}</a>

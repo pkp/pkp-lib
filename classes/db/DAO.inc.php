@@ -555,6 +555,34 @@ class DAO {
 				return 'ASC';
 		}
 	}
+
+	/**
+	 * Generate a JSON message with an event that can be sent
+	 * to the client to refresh itself according to changes
+	 * in the DB.
+	 *
+	 * @param $elementId integer To refresh a single element
+	 *  give the element ID here. Otherwise all elements will
+	 *  be refreshed.
+	 * @return string A rendered JSON message.
+	 */
+	function getDataChangedEvent($elementId = null) {
+		// Cast element id to integer.
+		$elementId = (is_null($elementId) ? null : (int)$elementId);
+
+		// Create the event data.
+		$eventData = null;
+		if ($elementId) {
+			$eventData = array($elementId);
+		}
+
+		// Create and render the JSON message with the
+		// event to be triggered on the client side.
+		import('lib.pkp.classes.core.JSON');
+		$json = new JSON(true);
+		$json->setEvent('dataChanged', $eventData);
+		return $json->getString();
+	}
 }
 
 ?>

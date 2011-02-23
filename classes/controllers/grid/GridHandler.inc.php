@@ -399,35 +399,6 @@ class GridHandler extends PKPHandler {
 		}
 	}
 
-	/**
-	 * Generate a JSON message with an event that can be sent
-	 * to the grid to get it to refresh itself.
-	 *
-	 * This event can be used no matter how the grid changed
-	 * (deletion, update or insertion of one or several elements).
-	 *
-	 * @param $elementId integer To refresh a single element
-	 *  give the element ID here. Otherwise all elements will
-	 *  be refreshed.
-	 * @return string A rendered JSON message.
-	 */
-	function elementsChanged($elementId = null) {
-		// Cast element id to integer.
-		$elementId = (is_null($elementId) ? null : (int)$elementId);
-
-		// Create the event data.
-		$eventData = array($this->getId());
-		if ($elementId) {
-			$eventData[] = $elementId;
-		}
-
-		// Create and render the JSON message with the
-		// event to be triggered on the client side.
-		$json = new JSON(true);
-		$json->setEvent('elementsChanged', $eventData);
-		return $json->getString();
-	}
-
 
 	//
 	// Private helper methods

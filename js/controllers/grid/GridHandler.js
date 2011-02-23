@@ -32,7 +32,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		this.parent($grid, options);
 
 		// Bind the handler for the "elements changed" event.
-		this.bind('elementsChanged', this.refreshGrid);
+		this.bind('dataChanged', this.refreshGrid);
 
 		// Save the ID of this row and it's grid.
 		this.gridId_ = options.gridId;
@@ -94,20 +94,16 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
-	 * @param {string} gridId The id of the grid to be refreshed.
-	 * @param {number=} rowId The id of a row that was updated,
-	 *  added or deleted. If not given then the whole grid will
-	 *  be refreshed.
+	 * @param {number=} elementId The id of a data element that was
+	 *  updated, added or deleted. If not given then the whole grid
+	 *  will be refreshed.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
-			function(sourceElement, event, gridId, rowId) {
+			function(sourceElement, event, elementId) {
 
-		// Check the grid.
-		this.checkGridId_(gridId);
-
-		if (rowId) {
+		if (elementId) {
 			// Retrieve a single row from the server.
-			$.get(this.fetchRowUrl_, {rowId: rowId},
+			$.get(this.fetchRowUrl_, {rowId: elementId},
 					this.callbackWrapper(this.replaceRow), 'json');
 		} else {
 			// Retrieve the whole grid from the server.
@@ -242,24 +238,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				$emptyElement.fadeIn(500);
 			}
 		});
-	};
-
-
-	/**
-	 * Check whether the given grid id corresponds to the id
-	 * of the grid attached to this handler.
-	 *
-	 * @private
-	 * @param {string} gridId The remote grid id.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.checkGridId_ =
-			function(gridId) {
-
-		// Check that grid and row ids are correct.
-		if (gridId !== this.gridId_) {
-			throw Error('The grid id of the ' +
-					'event does not fit the grid id of the handler!');
-		}
 	};
 
 

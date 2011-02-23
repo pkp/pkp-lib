@@ -66,6 +66,6 @@
 
         return this;
 
-    }
+    };
 
 })(jQuery);

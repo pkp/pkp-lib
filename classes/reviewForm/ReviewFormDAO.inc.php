@@ -42,25 +42,9 @@ class ReviewFormDAO extends DAO {
 		}
 
 		$result =& $this->retrieve (
-			'SELECT	rf.review_form_id,
-				rf.assoc_type,
-				rf.assoc_id,
-				rf.seq,
-				rf.is_active,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
+			'SELECT	rf.*
 			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
-			WHERE	rf.review_form_id = ? ' . (($assocType !== null) ? 'AND rf.assoc_type = ? AND rf.assoc_id = ?' : '') . '
-			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active',
+			WHERE	rf.review_form_id = ? ' . (($assocType !== null) ? 'AND rf.assoc_type = ? AND rf.assoc_id = ?' : ''),
 			$params
 		);
 
@@ -69,6 +53,42 @@ class ReviewFormDAO extends DAO {
 			$returner =& $this->_returnReviewFormFromRow($result->GetRowAssoc(false));
 		}
 
+		$result->Close();
+		unset($result);
+
+		return $returner;
+	}
+
+	/**
+	 * Retrieve review form complete/incomplete counts by ID.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $completion mixed true for completed forms only, false for incomplete forms only, null for both
+	 * @return array
+	 */
+	function getUseCounts($assocType, $assocId, $completion = null) {
+		$params = array((int) $assocType, (int) $assocId);
+
+		$result =& $this->retrieve (
+			'SELECT	rf.review_form_id AS review_form_id,
+				count(ra.review_form_id) AS rf_count
+			FROM	review_forms rf
+				LEFT JOIN review_assignments ra ON (
+					ra.review_form_id = rf.review_form_id' .
+					($completion === true?' AND ra.date_confirmed IS NOT NULL':'') .
+					($completion === false?' AND ra.date_notified IS NOT NULL AND ra.date_confirmed IS NULL':'') . '
+				)
+			WHERE	rf.assoc_type = ? AND rf.assoc_id = ?
+			GROUP BY rf.review_form_id',
+			$params
+		);
+
+		$returner = array();
+		while (!$result->EOF) {
+			$row = $result->getRowAssoc(false);
+			$returner[$row['review_form_id']] = $row['rf_count'];
+			$result->MoveNext();
+		}
 		$result->Close();
 		unset($result);
 
@@ -95,8 +115,6 @@ class ReviewFormDAO extends DAO {
 		$reviewForm->setAssocId($row['assoc_id']);
 		$reviewForm->setSequence($row['seq']);
 		$reviewForm->setActive($row['is_active']);
-		$reviewForm->setCompleteCount($row['complete_count']);
-		$reviewForm->setIncompleteCount($row['incomplete_count']);
 
 		$this->getDataObjectSettings('review_form_settings', 'review_form_id', $row['review_form_id'], $reviewForm);
 
@@ -237,27 +255,11 @@ class ReviewFormDAO extends DAO {
 	 */
 	function &getByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
-			'SELECT	rf.review_form_id,
-				rf.assoc_type,
-				rf.assoc_id,
-				rf.seq,
-				rf.is_active,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
-			FROM	review_forms rf
-				LEFT JOIN review_assignments rac ON (
-					rac.review_form_id = rf.review_form_id AND
-					rac.date_confirmed IS NOT NULL
-				)
-				LEFT JOIN review_assignments rai ON (
-					rai.review_form_id = rf.review_form_id AND
-					rai.date_notified IS NOT NULL AND
-					rai.date_confirmed IS NULL
-				)
-			WHERE	rf.assoc_type = ? AND rf.assoc_id = ?
-			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
-			ORDER BY rf.seq',
-			array($assocType, $assocId), $rangeInfo
+			'SELECT	*
+			FROM	review_forms
+			WHERE	assoc_type = ? AND assoc_id = ?
+			ORDER BY seq',
+			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
@@ -273,13 +275,7 @@ class ReviewFormDAO extends DAO {
 	 */
 	function &getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
-			'SELECT	rf.review_form_id,
-				rf.assoc_type,
-				rf.assoc_id,
-				rf.seq,
-				rf.is_active,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
+			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
 					rac.review_form_id = rf.review_form_id AND
@@ -293,7 +289,7 @@ class ReviewFormDAO extends DAO {
 			WHERE	rf.assoc_type = ? AND assoc_id = ? AND rf.is_active = 1
 			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			ORDER BY rf.seq',
-			array($assocType, $assocId), $rangeInfo
+			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
@@ -309,13 +305,7 @@ class ReviewFormDAO extends DAO {
 	 */
 	function &getUsedByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
-			'SELECT	rf.review_form_id,
-				rf.assoc_type,
-				rf.assoc_id,
-				rf.seq,
-				rf.is_active,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
+			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
 					rac.review_form_id = rf.review_form_id AND
@@ -330,7 +320,7 @@ class ReviewFormDAO extends DAO {
 			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			HAVING COUNT(rac.review_id) > 0 OR COUNT(rai.review_id) > 0
 			ORDER BY rf.seq',
-			array($assocType, $assocId), $rangeInfo
+			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');
@@ -346,13 +336,7 @@ class ReviewFormDAO extends DAO {
 	 */
 	function &getUnusedByAssocId($assocType, $assocId, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
-			'SELECT	rf.review_form_id,
-				rf.assoc_type,
-				rf.assoc_id,
-				rf.seq,
-				rf.is_active,
-				COUNT(rac.review_id) AS complete_count,
-				COUNT(rai.review_id) AS incomplete_count
+			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
 					rac.review_form_id = rf.review_form_id AND
@@ -367,7 +351,7 @@ class ReviewFormDAO extends DAO {
 			GROUP BY rf.assoc_type, rf.assoc_id, rf.review_form_id, rf.seq, rf.is_active
 			HAVING COUNT(rac.review_id) = 0 AND COUNT(rai.review_id) = 0
 			ORDER BY rf.seq',
-			array($assocType, $assocId), $rangeInfo
+			array((int) $assocType, (int) $assocId), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnReviewFormFromRow');

@@ -1,17 +1,18 @@
 /**
- * @defgroup js_controllers_files
+ * @defgroup js_controllers_wizard_fileUpload
  */
 // Create the files namespace
-jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
+jQuery.pkp.controllers.wizard.fileUpload =
+			jQuery.pkp.controllers.wizard.fileUpload || { };
 
 /**
- * @file js/controllers/files/FileUploadWizardHandler.js
+ * @file js/controllers/wizard/fileUpload/FileUploadWizardHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler
- * @ingroup js_controllers_files
+ * @ingroup js_controllers_wizard_fileUpload
  *
  * @brief File uploader wizard handler.
  */
@@ -21,12 +22,12 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.WizardHandler
+	 * @extends $.pkp.controllers.wizard.WizardHandler
 	 *
 	 * @param {jQuery} $wizard The wrapped HTML form element.
 	 * @param {Object} options Wizard options.
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler =
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler =
 			function($wizard, options) {
 
 		this.parent($wizard, options);
@@ -43,8 +44,8 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 		this.getContinueButton().button('disable');
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.files.FileUploadWizardHandler,
-			$.pkp.controllers.WizardHandler);
+			$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler,
+			$.pkp.controllers.wizard.WizardHandler);
 
 
 	//
@@ -55,7 +56,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @private
 	 * @type {string}
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.deleteUrl_ = '';
 
 
@@ -64,7 +65,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @private
 	 * @type {string}
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.metadataUrl_ = '';
 
 
@@ -73,7 +74,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @private
 	 * @type {string}
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.finishUrl_ = '';
 
 
@@ -82,7 +83,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.uploadedFile_ = null;
 
 
@@ -92,7 +93,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.tabsSelect = function(tabsElement, event, ui) {
 
 		// The last two tabs require a file to be uploaded.
@@ -127,7 +128,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.tabsLoad = function(tabsElement, event, ui) {
 
 		// In the last step: Bind click a event to the button that re-starts
@@ -148,7 +149,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.formValid = function(formElement, event) {
 
 		// Ignore form validation events for the upload form.
@@ -164,7 +165,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelRequested = function(wizardElement, event) {
 
 		// If the user presses cancel after uploading a file then delete the file.
@@ -191,7 +192,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @param {Object} jsonData The JSON data returned by the server on
 	 *  file deletion.
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelSuccess = function(wizardElement, event, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -214,7 +215,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	 * @param {Object} uploadedFile Information about the uploaded
 	 *  file.
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.handleFileUploaded = function(callingForm, event, uploadedFile) {
 
 		// Save the uploaded file information.
@@ -228,7 +229,7 @@ jQuery.pkp.controllers.files = jQuery.pkp.controllers.files || { };
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.files.FileUploadWizardHandler.
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.startWizard = function() {
 
 		// Reset the uploaded file.

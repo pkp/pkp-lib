@@ -1,11 +1,17 @@
 /**
- * @file js/controllers/WizardHandler.js
+ * @defgroup js_controllers_wizard
+ */
+// Create the files namespace
+jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
+
+/**
+ * @file js/controllers/wizard/WizardHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WizardHandler
- * @ingroup js_controllers
+ * @ingroup js_controllers_wizard
  *
  * @brief Basic wizard handler.
  */
@@ -21,7 +27,7 @@
 	 *  represents the wizard.
 	 * @param {Object} options Wizard options.
 	 */
-	$.pkp.controllers.WizardHandler = function($wizard, options) {
+	$.pkp.controllers.wizard.WizardHandler = function($wizard, options) {
 		this.parent($wizard, options);
 
 		// Start the wizard.
@@ -40,7 +46,7 @@
 		this.bind('formSubmitted', this.formSubmitted);
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.WizardHandler, $.pkp.controllers.TabHandler);
+			$.pkp.controllers.wizard.WizardHandler, $.pkp.controllers.TabHandler);
 
 
 	//
@@ -51,7 +57,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.WizardHandler.prototype.$continueButton_ = null;
+	$.pkp.controllers.wizard.WizardHandler.prototype.$continueButton_ = null;
 
 
 	/**
@@ -59,7 +65,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.WizardHandler.prototype.continueButtonText_ = null;
+	$.pkp.controllers.wizard.WizardHandler.prototype.continueButtonText_ = null;
 
 
 	/**
@@ -67,7 +73,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.WizardHandler.prototype.finishButtonText_ = null;
+	$.pkp.controllers.wizard.WizardHandler.prototype.finishButtonText_ = null;
 
 
 	//
@@ -84,7 +90,7 @@
 	 * @param {Event} event The triggered event.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.continueRequest =
+	$.pkp.controllers.wizard.WizardHandler.prototype.continueRequest =
 			function(buttonElement, event) {
 
 		// Trigger the "advance requested" event on the current
@@ -109,7 +115,7 @@
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.formValid =
+	$.pkp.controllers.wizard.WizardHandler.prototype.formValid =
 			function(formElement, event) {
 
 		// The default implementation enables the continue button
@@ -125,7 +131,7 @@
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.formInvalid =
+	$.pkp.controllers.wizard.WizardHandler.prototype.formInvalid =
 			function(formElement, event) {
 
 		// The default implementation disables the continue button
@@ -141,7 +147,7 @@
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.formSubmitted =
+	$.pkp.controllers.wizard.WizardHandler.prototype.formSubmitted =
 			function(formElement, event) {
 
 		// The default implementation advances the wizard.
@@ -160,7 +166,7 @@
 	 * @param {Event} event The triggered event.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.cancelRequest =
+	$.pkp.controllers.wizard.WizardHandler.prototype.cancelRequest =
 			function(buttonElement, event) {
 
 		// Trigger the "cancel requested" event on the current
@@ -192,7 +198,7 @@
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.wizardCancelRequested =
+	$.pkp.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =
 			function(wizardElement, event) {
 
 		// The default implementation does nothing which means that
@@ -216,7 +222,7 @@
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.wizardAdvanceRequested =
+	$.pkp.controllers.wizard.WizardHandler.prototype.wizardAdvanceRequested =
 			function(wizardElement, event) {
 
 		// If we find a form then submit it.
@@ -245,7 +251,7 @@
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.wizardAdvance =
+	$.pkp.controllers.wizard.WizardHandler.prototype.wizardAdvance =
 			function(wizardElement, event) {
 
 		// The wizard can only be advanced one step at a time.
@@ -286,7 +292,7 @@
 	 * (Re-)Start the wizard.
 	 * @protected
 	 */
-	$.pkp.controllers.WizardHandler.prototype.startWizard = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.startWizard = function() {
 
 		// Retrieve the wizard element.
 		var $wizard = this.getHtmlElement();
@@ -318,7 +324,7 @@
 	 * Bind wizard events to default event handlers.
 	 * @protected
 	 */
-	$.pkp.controllers.WizardHandler.prototype.bindWizardEvents = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.bindWizardEvents = function() {
 		this.bind('wizardCancelRequested', this.wizardCancelRequested);
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 		this.bind('wizardAdvance', this.wizardAdvance);
@@ -330,7 +336,9 @@
 	 * @protected
 	 * @return {number} The current wizard step.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getCurrentStep = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getCurrentStep = function() {
+
 		return this.getCurrentTabIndex();
 	};
 
@@ -340,7 +348,9 @@
 	 * @protected
 	 * @return {jQuery} The continue button.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getContinueButton = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getContinueButton = function() {
+
 		return this.$continueButton_;
 	};
 
@@ -350,7 +360,9 @@
 	 * @protected
 	 * @return {?string} The text to display on the continue button.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getContinueButtonText = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getContinueButtonText = function() {
+
 		return this.continueButtonText_;
 	};
 
@@ -361,7 +373,9 @@
 	 * @return {?string} The text to display on the continue button
 	 *  in the last wizard step.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getFinishButtonText = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getFinishButtonText = function() {
+
 		return this.finishButtonText_;
 	};
 
@@ -370,7 +384,9 @@
 	 * Count the wizard steps.
 	 * @return {number} The current number of wizard steps.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getNumberOfSteps = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getNumberOfSteps = function() {
+
 		var $wizard = this.getHtmlElement();
 		return $wizard.find('ul').first().children().length;
 	};
@@ -385,7 +401,7 @@
 	 * @private
 	 * @return {?jQuery} The form (if any).
 	 */
-	$.pkp.controllers.WizardHandler.prototype.getForm_ = function() {
+	$.pkp.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
 		// If we find a form in the current tab then return it.
 		var $tabContent = this.getCurrentTab().children().first();
 		if ($tabContent.is('form')) {
@@ -402,7 +418,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.controllers.WizardHandler.prototype.advanceOrClose_ =
+	$.pkp.controllers.wizard.WizardHandler.prototype.advanceOrClose_ =
 			function() {
 		var currentStep = this.getCurrentStep(),
 				lastStep = this.getNumberOfSteps() - 1;
@@ -422,7 +438,7 @@
 	 * @param {jQuery} $wizard The wizard element.
 	 * @param {Object} options The wizard options.
 	 */
-	$.pkp.controllers.WizardHandler.prototype.addWizardButtons_ =
+	$.pkp.controllers.wizard.WizardHandler.prototype.addWizardButtons_ =
 			function($wizard, options) {
 
 		// Add space before wizard buttons.

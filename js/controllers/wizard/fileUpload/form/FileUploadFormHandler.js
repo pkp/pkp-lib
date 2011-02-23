@@ -1,18 +1,18 @@
 /**
- * @defgroup js_controllers_files_form
+ * @defgroup js_controllers_wizard_fileUpload_form
  */
 // Create the files form namespace
-jQuery.pkp.controllers.files.form =
-			jQuery.pkp.controllers.files.form || { };
+jQuery.pkp.controllers.wizard.fileUpload.form =
+			jQuery.pkp.controllers.wizard.fileUpload.form || { };
 
 /**
- * @file js/controllers/FileUploadFormHandler.js
+ * @file js/controllers/wizard/fileUpload/form/FileUploadFormHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadFormHandler
- * @ingroup js_controllers_files_form
+ * @ingroup js_controllers_wizard_fileUpload_form
  *
  * @brief File upload tab handler.
  */
@@ -27,7 +27,7 @@ jQuery.pkp.controllers.files.form =
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler =
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -50,7 +50,7 @@ jQuery.pkp.controllers.files.form =
 		$revisedFileId.change(this.callbackWrapper(this.revisedFileChange));
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.files.form.FileUploadFormHandler,
+			$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler,
 			$.pkp.controllers.FormHandler);
 
 
@@ -62,7 +62,7 @@ jQuery.pkp.controllers.files.form =
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.hasFileSelector_ = false;
 
 
@@ -71,7 +71,7 @@ jQuery.pkp.controllers.files.form =
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.hasGenreSelector_ = false;
 
 
@@ -80,7 +80,7 @@ jQuery.pkp.controllers.files.form =
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.presetRevisedFileId_ = null;
 
 
@@ -89,7 +89,7 @@ jQuery.pkp.controllers.files.form =
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.fileGenres_ = null;
 
 
@@ -102,7 +102,7 @@ jQuery.pkp.controllers.files.form =
 	 *  from which this callback is being called.
 	 * @param {Object} pluploader The pluploader object.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function(uploaderOptions, pluploader) {
 
 		// Subscribe to uploader events.
@@ -122,7 +122,7 @@ jQuery.pkp.controllers.files.form =
 	 * @param {Object} file The data of the uploaded file.
 	 *
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			limitQueueSize = function(caller, pluploader, file) {
 
 		// Prevent > 1 files from being added.
@@ -138,7 +138,7 @@ jQuery.pkp.controllers.files.form =
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			prepareFileUploadRequest = function(caller, pluploader) {
 
 		var $uploadForm = this.getHtmlElement();
@@ -174,7 +174,7 @@ jQuery.pkp.controllers.files.form =
 	 * @param {Object} file The data of the uploaded file.
 	 * @param {string} ret The serialized JSON response.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
@@ -200,7 +200,7 @@ jQuery.pkp.controllers.files.form =
 	 *  which the event was triggered.
 	 * @param {Event} event The change event.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			revisedFileChange = function(revisedFileElement, event) {
 
 		var $uploadForm = this.getHtmlElement();
@@ -226,7 +226,7 @@ jQuery.pkp.controllers.files.form =
 	 * @param {jQuery} $uploader The wrapped HTML uploader element.
 	 * @param {Object} options Uploader options.
 	 */
-	$.pkp.controllers.files.form.FileUploadFormHandler.prototype.
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			attachUploader_ = function($uploader, options) {
 
 		// Attach the uploader handler to the uploader div.

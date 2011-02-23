@@ -101,7 +101,6 @@ class AuthorizationPolicy {
 		return isset($this->_authorizedContext[$assocType]);
 	}
 
-
 	/**
 	 * Retrieve an object from the authorized context
 	 * @param $assocType integer

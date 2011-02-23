@@ -149,6 +149,21 @@ class PKPHandler {
 	}
 
 	/**
+	 * Get the authorized context.
+	 *
+	 * NB: You should avoid accessing the authorized context
+	 * directly to avoid accidentally overwriting an object
+	 * in the context. Try to use getAuthorizedContextObject()
+	 * instead where possible.
+	 *
+	 * @return array
+	 */
+	function &getAuthorizedContext() {
+		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
+		return $this->_authorizationDecisionManager->getAuthorizedContext();
+	}
+
+	/**
 	 * Retrieve the last authorization message from the
 	 * decision manager.
 	 * @return string

@@ -99,6 +99,14 @@ class AuthorizationDecisionManager {
 		}
 	}
 
+	/**
+	 * Get the authorized context.
+	 * @return array
+	 */
+	function &getAuthorizedContext() {
+		return $this->_authorizedContext;
+	}
+
 
 	//
 	// Public methods
@@ -176,7 +184,7 @@ class AuthorizationDecisionManager {
 					// will change globally if changed by the policy which is intended
 					// behavior so that policies can access authorized objects provided
 					// by policies called earlier in the authorization process.
-					$policy->setAuthorizedContext($this->_authorizedContext);
+					$policy->setAuthorizedContext($this->getAuthorizedContext());
 
 					// Check whether the policy applies.
 					if ($policy->applies()) {

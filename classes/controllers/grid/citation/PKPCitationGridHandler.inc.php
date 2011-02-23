@@ -299,8 +299,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Render the citation list
 		$templateMgr->assign('errorMessage', $errorMessage);
-		$json = new JSON(true, $templateMgr->fetch('controllers/grid/citation/citationExport.tpl'));
-		return $json->getString();
+		return $templateMgr->fetchJson('controllers/grid/citation/citationExport.tpl');
 	}
 
 	/**

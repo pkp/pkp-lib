@@ -9,114 +9,121 @@
  * @brief Classes for the page structural elements
  */
 
-/* Align all content in the center of the page */
+p {
+	font-size: 90%;
+}
+
+a {
+	color: #569bbe;
+}
+
+img {
+	display: block;
+	padding: 2px;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+hr {
+	border: 5px solid #e2e2e2;
+	border-width: 0 0 5px 0;
+	margin: 20px 10px 10px 10px;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol,dl, p,blockquote {
+	padding: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, img {
+	padding-bottom: 0px;
+}
+
+pre {
+	margin: 10px;
+}
+
+table h1,table h2,table h3, table h4, table h5, table h6, table p, table ul, table ol, table dl,
+ul h1,ul h2,ul h3, ul h4, ul h5, ul h6, ul p, ul ul, ul ol, ul dl,
+ol h1,ol h2,ol h3, ol h4, ol h5, ol h6, ol p, ol ul, ol ol, ol dl {
+	padding: 0;
+}
+
+@pkp_structure_body_normal_font {
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1, .h1 {
+	font-size: 196%;
+	@pkp_structure_body_normal_font;
+}
+
+h2, .h2 {
+	font-size: 167%;
+	@pkp_structure_body_normal_font;
+}
+
+h3, .h3 {
+	font-size: 120%;
+	@pkp_structure_body_normal_font;
+}
+
+h4, .h4 {
+	font-size: 105%;
+	@pkp_structure_body_normal_font;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	_text-align: center;
+	color: #333;
+}
+
+.pkp_structure_content {
+	margin: 0 auto;
+	width: 960px;
+}
+
+/* Liquid width (full browser width) */
+.liquid .pkp_structure_content {
+	margin: 0;
+	width: auto;
+}
+
+.pkp_structure_page {
+	margin: 10px auto;
+	_text-align: left;
+}
+
+.pkp_structure_body:after, .pkp_structure_main:after {
+	clear: both;
+	display: block;
+	visibility: hidden;
+	overflow: hidden;
+	height: 0 !important;
+	line-height: 0;
+	font-size: xx-large;
+	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
 .pkp_structure_body {
-	/**
-	 * Application layout panels
-	 */
-	.pkp_structure_page_pagePanel {
-		margin: 10px auto;
-		_text-align: left;
-		width: 960px;
-		/* Body tag contents are centered; reset to left. */
-	}
+	*zoom: 1;
+	border-bottom: 1px dotted #999;
+	margin-bottom: 3px;
 
-	.pkp_structure_page_contentPanel {
-		margin: 0 auto;
-
-	}
-
-	.pkp_structure_page_headPanel {
-		height: 90px;
-	}
-
-	.pkp_structure_page_mainPanel {
+	.pkp_structure_main {
+		*zoom: 1;
+		padding-top: 10px;
+		border-top: 1px dotted #999;
 		display: table-cell;
 		*display: block;
 		width: auto;
-	}
-
-	.pkp_structure_page_mainPanel, .pkp_structure_page_bodyPanel {
-		*zoom: 1;
-		:after {
-			clear: both;
-			display: block;
-			visibility: hidden;
-			overflow: hidden;
-			height: 0 !important;
-			line-height: 0;
-			font-size: xx-large;
-			content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
-		}
-		
-	}
-
-	.pkp_structure_page_masthead {
-		height: 90px;
-	}
-
-	/**
-	 * Non-theme miscellaneous styles
-	 */
-	img {
-		display: block;
-		padding: 2px;
-	}
-
-	hr {
-		border: 5px solid #e2e2e2;
-		border-width: 0 0 5px 0;
-		margin: 20px 10px 10px 10px;
-	}
-
-	h1, h2, h3, h4, h5, h6, img {
-		padding-bottom: 0px;
-	}
-
-	pre {
-		margin: 10px;
-	}
-
-	table h1,table h2,table h3, table h4, table h5, table h6, table p,
-	table ul, table ol, table dl,
-	ul h1,ul h2,ul h3, ul h4, ul h5, ul h6, ul p, ul ul, ul ol, ul dl,
-	ol h1,ol h2,ol h3, ol h4, ol h5, ol h6, ol p, ol ul, ol ol, ol dl {
-		padding: 0;
-	}
-
-	@plain_font_mixin {
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	h1, .h1 {
-		font-size: 196%;
-		@plain_font_mixin;
-	}
-
-	h2, .h2 {
-		font-size: 167%;
-		@plain_font_mixin;
-	}
-
-	h3, .h3 {
-		font-size: 146.5%;
-		@plain_font_mixin;
-	}
-
-	h4, .h4 {
-		font-size: 123.1%;
-		@plain_font_mixin;
-	}
-
-	h5, .h5 {
-		font-size: 108%;
-		@plain_font_mixin;
-	}
-
-	h6, .h6 {
-		font-size: 108%;
-		@plain_font_mixin;
 	}
 }
 

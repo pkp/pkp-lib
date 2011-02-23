@@ -4,61 +4,215 @@
 
 @import url("wufoo.css");
 
-@import url("pnotify.css");
-
 /* @end */
 
 /* @group Structure Overrides */
 
-.pkp_structure_page_body {
-	font-family: Helvetica, Arial, sans-serif;
+.pkp_structure_head {
+	background-color: #a2c6dc;
 }
 
-.pkp_structure_header_head {
-	background-color: #efefef;
+.pkp_structure_body {
+	border-bottom: 1px dotted #999;
+	margin-bottom: 3px;
 }
 
-.pkp_structure_header_siteNav {
-	background-color: #666;
+.pkp_structure_foot, .pkp_structure_subfoot {
+	background-color: #c1bbaf;
 }
 
-.pkp_structure_header_masthead {
-	background-color: #ccc;
+.pkp_structure_subfoot {
+	border-top: 1px dotted #fff;
 }
 
-.pkp_structure_header_localNav {
-	background-color: #999;
+.pkp_structure_masthead {
+	background-color: #fff;
 }
 
-.pkp_structure_footerPanel {
-	background-color: #efefef;
-	color: #999;
+.pkp_structure_head_siteNav {
+	border-color: #fff;
 }
 
 /* @end */
 
 /* @group Content Overrides */
 
-h1, .h1
-{
+body {
 	color: #333;
 }
 
-h2, .h2
-{
-	color: #666;
+a {
+	color: #569bbe;
 }
 
-.pkp_structure_header_localNav a {
+h1, .h1 {
+	color: #333;
+}
+
+h2, .h2 {
+	color: #555;
+	font-family: Georgia;
+	font-style: italic;
+}
+
+h3, .h3 {
+	color: #231f20;
+	text-transform: uppercase;
+	font-family: "Courier New", Courier, mono;
+}
+
+h4, .h4 {
+	color: #555;
+	text-transform: uppercase;
+	font-family: "Courier New", Courier, mono;
+}
+
+.pkp_structure_head_siteNav a {
 	color: #fff;
 }
 
-.pkp_structure_header_siteNav a {
-	color: #fff;
+/* @group Grid */
+
+div.pkp_controllers_grid div.wrapper {
+	border: 1px dotted #a2c6dc;
+	background-color: #eaf3f8;
 }
 
-.pkp_structure_footer .pkp_navigation a {
-	color: #666;
+div.pkp_controllers_grid table {
+	background-color: #fff;
+	border: 1px dotted #ACA9A6;
+}
+
+div.pkp_controllers_grid tr.alternate_row, div.pkp_controllers_grid tr.alternate_row .row_file {
+	background-color: #f8f8f8;
+}
+
+div.pkp_controllers_grid th {
+	color: #555;
+	background-color: #E6E0DA;
+}
+
+div.pkp_controllers_grid .my_role {
+	border: 1px solid #ACA9A6;
+}
+
+div.pkp_controllers_grid .row_container {
+	background-color: #f9f6f3;
+}
+
+div.pkp_controllers_grid tr.category td {
+	background-color: #F2EEE9;
+	color: #888;
+}
+
+a.task:hover {
+	background-color: #F2EEE9;
 }
 
 /* @end */
+
+/* @group jQuery UI */
+
+/* General */
+
+.ui-widget-content {
+	font-size: 100%;
+}
+
+/* Accordion */
+
+.ui-accordion, .ui-accordion-header, .ui-accordion-content, .ui-accordion-content-active {
+	border: 0;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+}
+
+.ui-accordion-header {
+	border-bottom: 1px dotted #999;
+	color: #569bbe;
+	background: none;
+	text-transform: uppercase;
+	font: 100% "Courier New", Courier, mono;
+	
+}
+
+.ui-accordion-content {
+	font-size: 80%;
+}
+
+.ui-accordion-content-active {
+	border-bottom: 1px dotted #999;
+}
+
+/* Tabs */
+.ui-tabs {
+	border: 0;
+}
+
+.ui-tabs-nav {
+	border: 0;
+	border-bottom: 1px solid #999;
+	background-image: none;
+	background-color: transparent;
+	font: 100% "Courier New", Courier, mono;
+	text-transform: uppercase;
+}
+
+.ui-tabs .ui-state-default {
+	background-color: #fff;
+	background-image: none;
+	color: #569bbe;
+	border-color: #efefef;
+	font-weight: normal;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+}
+
+.ui-tabs .ui-state-active {
+	border-color: #999;
+	font-weight: normal;
+}
+
+.ui-tabs .ui-state-active a {
+	margin-top: 1px;
+	margin-bottom: -1px;
+}
+
+/* Button */
+
+.ui-button {
+	text-transform: uppercase;
+	font: 100% "Courier New", Courier, mono;
+}
+
+.ui-button-text {
+	line-height: 100% !important;
+}
+
+.go {
+	color: #fff;
+	background-color: #003768;
+	background-image: none;
+	border: 1px solid #003768;
+}
+
+/* Dialog */
+
+.ui-dialog {
+	
+}
+
+.ui-dialog-titlebar {
+	display: none;
+}
+
+.ui-dialog-custom-titlebar {
+	padding:0.5em 1em 0.3em;
+	position:relative;
+}
+
+/*
+
+@end */

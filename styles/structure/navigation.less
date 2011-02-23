@@ -4,27 +4,27 @@
  * Copyright (c) 2003-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * 
- * @ingroup pkp_structure_header
+ * @ingroup pkp_structure
  *
  * @brief Classes for navigation menu elements
  */
+.pkp_structure_navigation {
+	margin-left: 20px;
+}
 
-@pkp_structure_navigation {
+.pkp_structure_head_siteNav {
+	height: 35px;
+	padding: 2px 10px 0 0;
+	border-bottom: 1px solid;
 	font-size: 90%;
 	line-height: 30px;
 
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* Padding between items and on outsides. */
-	> li {
+	li {
 		padding-left: 15px;
-		float: left;
-		position: relative;
 	}
-	> li:last-child {
-		padding-right: 15px;
-	}
+}
+
+.pkp_structure_head_localNav {
+	text-transform: uppercase;
+	font: 130% "Courier New", Courier, mono;
 }

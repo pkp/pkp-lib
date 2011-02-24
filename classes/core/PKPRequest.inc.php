@@ -88,6 +88,17 @@ class PKPRequest {
 	}
 
 	/**
+	 * Request an HTTP redirect via JSON to be used from components.
+	 * @param $url string
+	 */
+	function redirectUrlJson($url) {
+		import('lib.pkp.classes.core.JSON');
+		$json = new JSON(true);
+		$json->setEvent('redirectRequested', $url);
+		return $json->getString();
+	}
+
+	/**
 	 * Redirect to the current URL, forcing the HTTPS protocol to be used.
 	 */
 	function redirectSSL() {

@@ -253,20 +253,61 @@
 	$.pkp.classes.Handler.prototype.bind = function(eventName, handler) {
 		$.pkp.classes.Handler.checkContext_(this);
 
-		// Store the event binding internally
-		this.eventBindings_[eventName] = this.eventBindings_[eventName] || [];
-		this.eventBindings_[eventName].push(handler);
+		if (!this.eventBindings_[eventName]) {
+			// Initialize the event store for this event.
+			this.eventBindings_[eventName] = [];
 
-		// Determine the event namespace.
-		var eventNamespace = '.pkpHandler';
-		if (eventName === 'pkpRemoveHandler') {
-			// We have a special namespace for the remove event
-			// because it needs to be triggered when all other
-			// events have already been removed.
-			eventNamespace = '.pkpHandlerRemove';
+			// Determine the event namespace.
+			var eventNamespace = '.pkpHandler';
+			if (eventName === 'pkpRemoveHandler') {
+				// We have a special namespace for the remove event
+				// because it needs to be triggered when all other
+				// events have already been removed.
+				eventNamespace = '.pkpHandlerRemove';
+			}
+
+			// Bind the generic event handler to the event within our namespace.
+			this.getHtmlElement().bind(eventName + eventNamespace, this.handleEvent);
 		}
-		// Bind the generic event handler to the event within our namespace.
-		this.getHtmlElement().bind(eventName + eventNamespace, this.handleEvent);
+
+		// Store the event binding internally
+		this.eventBindings_[eventName].push(handler);
+	};
+
+
+	/**
+	 * Unbind an event from a handler operation.
+	 *
+	 * @protected
+	 * @param {string} eventName The name of the event
+	 *  to be bound. See jQuery.bind() for event names.
+	 * @param {Function} handler The event handler to
+	 *  be called when the even is triggered.
+	 * @return {boolean} True, if a handler was found and
+	 *  removed, otherwise false.
+	 */
+	$.pkp.classes.Handler.prototype.unbind = function(eventName, handler) {
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Remove the event from the internal event cache.
+		if (!this.eventBindings_[eventName]) {
+			return false;
+		}
+		for (var i = 0, length = this.eventBindings_[eventName].length;
+				i < length; i++) {
+			if (this.eventBindings_[eventName][i] === handler) {
+				this.eventBindings_[eventName].splice([i], 1);
+				break;
+			}
+		}
+
+		if (this.eventBindings_[eventName].length === 0) {
+			// If this was the last event then unbind the generic event handler.
+			delete this.eventBindings_[eventName];
+			this.getHtmlElement().unbind(eventName, this.handleEvent);
+		}
+
+		return true;
 	};
 
 

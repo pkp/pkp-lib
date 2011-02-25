@@ -296,7 +296,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		var $grid = this.getHtmlElement();
 		$grid.find('a.settings').unbind('click').bind('click',
-			this.callbackWrapper(this.toggleRowActions));
+				this.callbackWrapper(this.toggleRowActions));
 	};
 
 

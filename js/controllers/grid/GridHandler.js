@@ -48,6 +48,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Save the selector for the grid body.
 		this.bodySelector_ = options.bodySelector;
+
+		// Show/hide row action feature.
+		this.activateRowActions_();
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.GridHandler,
 			$.pkp.classes.Handler);
@@ -91,6 +94,21 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	//
 	// Public methods
 	//
+	/**
+	 * Show/hide row actions.
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.toggleRowActions =
+			function(sourceElement, event) {
+
+		// Toggle the row actions.
+		$(sourceElement).parent().siblings('.row_controls').toggle(300);
+	};
+
+
 	/**
 	 * Preview an image when hovering over it's link in the grid.
 	 *
@@ -156,6 +174,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				// The server returned mark-up to replace
 				// or insert the row.
 				this.insertOrReplaceRow_(jsonData.content);
+
+				// Refresh row action event binding.
+				this.activateRowActions_();
 			}
 		}
 	};
@@ -177,6 +198,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 			// Replace the grid content
 			$grid.html(jsonData.content);
+
+			// Refresh row action event binding.
+			this.activateRowActions_();
 		}
 	};
 
@@ -260,6 +284,19 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				$emptyElement.fadeIn(500);
 			}
 		});
+	};
+
+
+	/**
+	 * Helper that attaches click events to row actions.
+	 * @private
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.activateRowActions_ =
+			function() {
+
+		var $grid = this.getHtmlElement();
+		$grid.find('a.settings').unbind('click').bind('click',
+			this.callbackWrapper(this.toggleRowActions));
 	};
 
 

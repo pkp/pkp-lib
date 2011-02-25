@@ -32,6 +32,13 @@
 
 		// Activate and configure the validation plug-in.
 		var validator = $form.validate({
+			errorClass: 'error',
+			highlight: function(element, errorClass) {
+				$(element).parent().parent().addClass(errorClass);
+			},
+			unhighlight: function(element, errorClass) {
+				$(element).parent().parent().removeClass(errorClass);
+			},
 			submitHandler: this.callbackWrapper(this.handleSubmit),
 			showErrors: this.callbackWrapper(this.formChange)
 		});

@@ -499,6 +499,7 @@ class CitationForm extends Form {
 			$templateMgr->assign('citationApproved', $citationApproved);
 
 			// Auto-add client-side validation
+			// FIXME: Move to JS framework's FormHandler, also see #6442
 			$templateMgr->assign('validateId', 'citationForm');
 		}
 

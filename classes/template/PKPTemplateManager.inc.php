@@ -1292,52 +1292,6 @@ class PKPTemplateManager extends Smarty {
 		return $confirmCode;
 	}
 
-	/**
-	 * Smarty usage: {confirm_submit button='buttonId' dialogText="example.locale.key" dialogTitle="example.locale.key"}
-	 * Custom Smarty function for confirming submission of a form
-	 * @params $params array associative array
-	 * @params $smarty Smarty
-	 * @return string Call to modalConfirmSubmit function with specified parameters
-	 */
-	function smartyConfirmSubmit($params, &$smarty) {
-		// Required params
-		if (!isset($params['button'])) {
-			$smarty->trigger_error("Button parameter is missing from confirm");
-		} else {
-			$button = $params['button'];
-		}
-
-		// Optional params
-		if (!isset($params['dialogText'])) {
-			$dialogText = Locale::translate('form.confirmSubmit');
-		} else {
-			$dialogText = Locale::translate($params['dialogText']);
-		}
-		if (!isset($params['dialogTitle'])) {
-			$dialogTitle = Locale::translate('form.confirmSubmit.title');
-		} else {
-			$dialogTitle = Locale::translate($params['dialogTitle']);
-		}
-
-		// Translate modal submit/cancel buttons
-		$submitButton = Locale::translate('common.ok');
-		$cancelButton = Locale::translate('common.cancel');
-
-		// Escape variables for JS inclusion
-		foreach (array('submitButton, cancelButton, button, dialogText, dialogTitle') as $varName) {
-			$$varName = $this->smartyEscape($$varName, 'javascript');
-		}
-
-		$confirmCode = "<script type='text/javascript'>
-		<!--
-		var localizedButtons = ['$submitButton', '$cancelButton'];
-		modalConfirmSubmit('$button', '$dialogText', '$dialogTitle', localizedButtons);
-		// -->
-		</script>\n";
-
-		return $confirmCode;
-	}
-
 	function smartyInitTabs($params, &$smarty) {
 		// Required params
 		if (!isset($params['id'])) {

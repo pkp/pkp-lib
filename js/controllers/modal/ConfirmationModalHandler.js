@@ -7,7 +7,8 @@
  * @class ConfirmationModalHandler
  * @ingroup js_controllers_modal
  *
- * @brief A modal that has a cancel button.
+ * @brief A modal that displays a static explanatory text and has cancel and
+ *  confirmation buttons.
  */
 (function($) {
 
@@ -19,41 +20,24 @@
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object} options non-default Dialog options
-	 *  to be passed into the dialog widget.
+	 * @param {Object} options Non-default options to configure
+	 *  the modal.
 	 *
 	 *  Options are:
-	 *  - cancelButton string the name for the cancel button
-	 *  - url string an action to be executed if the confirmation button has
-	 *    been pressed.
-	 *  - all options from the ModalHandler widget
-	 *  - all options documented for the jQueryUI dialog widget,
+	 *  - okButton string the name for the confirmation button.
+	 *  - cancelButton string the name for the cancel button.
+	 *  - dialogText string the text to be displayed in the modal.
+	 *  - All options from the ModalHandler widget.
+	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
-
-		if (options.remoteAction) {
-			this.confirmationAction_ = options.remoteAction;
-		}
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,
 			$.pkp.controllers.modal.ModalHandler);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * A remote action to be executed when the confirmation button
-	 * has been pressed.
-	 * @private
-	 * @type {?string}
-	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.
-			confirmationAction_ = null;
 
 
 	//
@@ -88,7 +72,7 @@
 
 		// Configure the cancel button.
 		internalOptions.buttons[options.cancelButton] =
-				this.callbackWrapper(this.modalCancel);
+				this.callbackWrapper(this.modalClose);
 		delete options.cancelButton;
 
 		// Add the modal dialog text.
@@ -113,41 +97,8 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
 			function(dialogElement) {
 
-		if (this.confirmationAction_) {
-			$.post(this.confirmationAction_,
-					this.callbackWrapper(this.remoteResponse), 'json');
-		} else {
-			this.getHtmlElement().dialog('close');
-		}
-	};
-
-
-	/**
-	 * Callback that will be activated when the modal's
-	 * cancel button is clicked.
-	 *
-	 * @param {HTMLElement} dialogElement The element the
-	 *  dialog was created on.
-	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalCancel =
-			function(dialogElement) {
-		this.getHtmlElement().dialog('close');
-	};
-
-
-	//
-	// Protected methods
-	//
-	/**
-	 * @inheritDoc
-	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.remoteResponse =
-			function(ajaxOptions, jsonData) {
-
-		jsonData = this.parent('remoteResponse', ajaxOptions, jsonData);
-		if (jsonData !== false) {
-			this.getHtmlElement().dialog('close');
-		}
+		// The default implementation will simply close the modal.
+		this.modalClose(dialogElement);
 	};
 
 

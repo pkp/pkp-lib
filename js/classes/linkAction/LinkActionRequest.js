@@ -86,7 +86,7 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 
 	/**
 	 * Callback that will be bound to the 'action finished' event of the
-	 * link action. This will execute the response handler.
+	 * link action.
 	 * @param {HTMLElement} element The action handler that triggered
 	 *  the event.
 	 * @param {Event} event "action finished" event.
@@ -94,6 +94,11 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.finish =
 			function(element, event) {
+
+		// Execute the finish callback if there is one.
+		if (this.options.finishCallback) {
+			this.options.finishCallback();
+		}
 
 		return false;
 	};

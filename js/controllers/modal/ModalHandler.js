@@ -29,8 +29,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $handledElement The clickable element
-	 *  the modal will be attached to.
+	 * @param {jQuery} $handledElement The modal.
 	 * @param {Object} options Non-default dialog options
 	 *  to be passed into the dialog widget.
 	 *
@@ -62,10 +61,10 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
-		this.bind('formSubmitted', this.modalClose);
 
 		// Publish some otherwise private events triggered
-		// by nested widgets.
+		// by nested widgets so that they can be handled by
+		// the element that opened the modal.
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
 	};
@@ -104,6 +103,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions =
 			function(options) {
+
 		// Check for basic configuration requirements.
 		return typeof options === 'object' &&
 				options.buttons === undefined;
@@ -121,6 +121,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions =
 			function(options) {
+
 		// Merge the user options into the default options.
 		var mergedOptions = $.extend(true, { },
 				this.self('DEFAULT_OPTIONS_'), options);
@@ -135,12 +136,13 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * Callback that will be activated when the modal's
 	 * close icon is clicked.
 	 *
-	 * @param {HTMLElement} callingElement The calling element.
-	 * @param {Event} event The close button click event.
+	 * @param {Object} callingContext The calling element or object.
+	 * @param {Event=} event The triggering event (e.g. a click on
+	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
-			function(callingElement, event) {
+			function(callingContext, event) {
 
 		// Close the modal dialog.
 		var $modalElement = this.getHtmlElement();

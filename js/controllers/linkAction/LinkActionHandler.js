@@ -44,6 +44,12 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			throw Error(['The "actionRequest" and "actionRequestOptions"',
 				'settings are required in a LinkActionHandler'].join(''));
 		}
+
+		// Configure the callback called when the link
+		// action request finishes.
+		options.actionRequestOptions.finishCallback =
+				this.callbackWrapper(this.bindActionRequest);
+
 		this.linkActionRequest_ =
 				/** @type {$.pkp.classes.linkAction.LinkActionRequest} */
 				($.pkp.classes.Helper.objectFactory(
@@ -51,8 +57,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 						[$handledElement, options.actionRequestOptions]));
 
 		// Bind the link action request to the handled element.
-		$handledElement.click(this.callbackWrapper(
-				this.linkActionRequest_.activate, this.linkActionRequest_));
+		this.bindActionRequest();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.linkAction.LinkActionHandler,
@@ -69,6 +74,42 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			linkActionRequest_ = null;
+
+
+	//
+	// Public methods
+	//
+	/**
+	 * Activate the link action request.
+	 *
+	 * @param {HTMLElement} callingElement The element that triggered
+	 *  the link action activation event.
+	 * @param {Event} event The event that activated the link action.
+	 * @return {boolean} Should return false to stop event propagation.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			activateAction = function(callingElement, event) {
+
+		// Unbind our click handler to avoid double-execution
+		// while the link action is executing.
+		this.unbind('click', this.activateAction);
+
+		// Call the link request.
+		return this.linkActionRequest_.activate.call(this.linkActionRequest_,
+				callingElement, event);
+	};
+
+
+	/**
+	 * Bind the link action request.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			bindActionRequest = function() {
+
+		// (Re-)bind our click handler so that the action
+		// can be executed.
+		this.bind('click', this.activateAction);
+	};
 
 
 /** @param {jQuery} $ jQuery closure. */

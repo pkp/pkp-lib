@@ -109,7 +109,7 @@ class ConfirmationModal extends Modal {
 	 */
 	function getLocalizedOptions() {
 		return array_merge(parent::getLocalizedOptions(), array(
-				'modalHandler' => '$.pkp.controllers.modal.ConfirmationModalHandler',
+				'modalHandler' => '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler',
 				'remoteAction' => $this->getRemoteAction(),
 				'okButton' => $this->getOkButton(),
 				'cancelButton' => $this->getCancelButton(),

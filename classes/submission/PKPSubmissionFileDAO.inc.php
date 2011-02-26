@@ -40,28 +40,10 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	var $_delegates = array();
 
 	/**
-	 * @var array a list of localized field names, will be set by delegates
-	 *  before calling DAO methods that require this information.
-	 */
-	var $_localeFieldNames;
-
-	/**
 	 * Constructor
 	 */
 	function PKPSubmissionFileDAO() {
-		return parent::DAO();
-	}
-
-
-	//
-	// Setters and Getters
-	//
-	/**
-	 * Set the locale field names.
-	 * @param $localeFieldNames array
-	 */
-	function setLocaleFieldNames($localeFieldNames) {
-		$this->_localeFieldNames = $localeFieldNames;
+		parent::DAO();
 	}
 
 
@@ -217,18 +199,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
 		if (!($revisedFile && $newFile)) return $nullVar;
 
-		// If two file implementations do not match then cast the new
-		// file to the type of the revised file.
-		if (get_class($revisedFile) != get_class($newFile)) {
-			// Cast the file in the database.
-			$this->cast($newFileId, get_class($revisedFile), $newFile->getRevision());
-
-			// Retrieve the new file again so that the implementation
-			// fits the revised file.
-			$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
-			if (is_null($newFile)) return $nullVar;
-		}
-
 		// Save identifying data of the changed file required for update.
 		$previousFileId = $newFile->getFileId();
 		$previousRevision = $newFile->getRevision();
@@ -240,11 +210,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$newFile->setAssocType($revisedFile->getAssocType());
 		$newFile->setAssocId($revisedFile->getAssocId());
 
-		// Update the identifying information in the database.
-		if (!$this->updateObject($newFile, $previousFileId, $previousRevision)) {
-			return $nullVar;
-		}
-		return $newFile;
+		// Update the file in the database.
+		return $this->updateObject($newFile, $previousFileId, $previousRevision);
 	}
 
 	/**
@@ -274,27 +241,109 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	/**
 	 * Insert a new SubmissionFile.
 	 * @param $submissionFile SubmissionFile
+	 * @param $sourceFile string The place where the physical file
+	 *  resides right now or the file name in the case of an upload.
+	 *  The file will be copied to its canonical target location.
+	 * @param $isUpload boolean set to true if the file has just been
+	 *  uploaded.
 	 * @return SubmissionFile
 	 */
-	function &insertObject(&$submissionFile) {
-		$daoDelegate =& $this->_getDaoDelegateForObject($submissionFile);
-		return $daoDelegate->insertObject($submissionFile);
+	function &insertObject(&$submissionFile, $sourceFile, $isUpload = false) {
+		// Make sure that the implementation of the updated file
+		// is compatible with its genre (upcast but no downcast).
+		$submissionFile =& $this->_castToGenre($submissionFile);
+
+		// Find the required target implementation and delegate.
+		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
+				$submissionFile->getGenreId()));
+		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
+		$insertedFile =& $targetDaoDelegate->insertObject($submissionFile, $sourceFile, $isUpload);
+
+		// If the updated file does not have the correct target type then we'll have
+		// to retrieve it again from the database to cast it to the right type (downcast).
+		if (strtolower(get_class($insertedFile)) != $targetImplementation) {
+			$insertedFile =& $this->_castToDatabase($insertedFile);
+		}
+		return $insertedFile;
 	}
 
 	/**
 	 * Update an existing submission file.
-	 * @param $submissionFile SubmissionFile
+	 *
+	 * NB: We implement a delete + insert strategy to deal with
+	 * various casting problems (e.g. file implementation/genre
+	 * may change, file path may change, etc.).
+	 *
+	 * @param $updatedFile SubmissionFile
 	 * @param $previousFileId integer The file id before the file
 	 *  was changed. Must only be given if the file id changed
 	 *  so that the previous file can be identified.
 	 * @param $previousRevision integer The revision before the file
 	 *  was changed. Must only be given if the revision changed
 	 *  so that the previous file can be identified.
-	 * @return boolean
+	 * @return SubmissionFile The updated file. This file may be of
+	 *  a different file implementation than the file passed into the
+	 *  method if the genre of the file didn't fit its implementation.
 	 */
-	function updateObject(&$submissionFile, $previousFileId = null, $previousRevision = null) {
-		$daoDelegate =& $this->_getDaoDelegateForObject($submissionFile);
-		return $daoDelegate->updateObject($submissionFile, $previousFileId, $previousRevision);
+	function &updateObject(&$updatedFile, $previousFileId = null, $previousRevision = null) {
+		// Make sure that the implementation of the updated file
+		// is compatible with its genre.
+		$updatedFile =& $this->_castToGenre($updatedFile);
+
+		// Complete the identifying data of the previous file if not given.
+		$previousFileId = (int)($previousFileId ? $previousFileId : $updatedFile->getFileId());
+		$previousRevision = (int)($previousRevision ? $previousRevision : $updatedFile->getRevision());
+
+		// Retrieve the previous file.
+		$previousFile =& $this->getRevision($previousFileId, $previousRevision);
+		assert(is_a($previousFile, 'MonographFile'));
+
+		// Canonicalized the implementation of the previous file.
+		$previousImplementation = strtolower(get_class($previousFile));
+
+		// Find the required target implementation and delegate.
+		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
+				$updatedFile->getGenreId()));
+		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
+
+		// If the implementation in the database differs from the target
+		// implementation then we'll have to delete + insert the object
+		// to make sure that the database contains consistent data.
+		if ($previousImplementation != $targetImplementation) {
+			// We'll have to copy the previous file to its target
+			// destination so that it is not lost when we delete the
+			// previous file.
+			// When the implementation (i.e. genre) changes then the
+			// file locations will also change so we should not get
+			// a file name clash.
+			$previousFilePath = $previousFile->getFilePath();
+			$targetFilePath = $updatedFile->getFilePath();
+			assert($previousFilePath != $targetFilePath && !file_exists($targetFilePath));
+			import('lib.pkp.classes.file.FileManager');
+			FileManager::copyFile($previousFilePath, $targetFilePath);
+
+			// We use the delegates directly to make sure
+			// that we address the right implementation in the database
+			// on delete and insert.
+			$sourceDaoDelegate =& $this->_getDaoDelegate($previousImplementation);
+			$sourceDaoDelegate->deleteObject($previousFile);
+			$targetDaoDelegate->insertObject($updatedFile, $targetFilePath);
+		} else {
+			// If the implementation in the database does not change then we
+			// can do an efficient update.
+			if (!$targetDaoDelegate->updateObject($updatedFile, $previousFile)) {
+				$nullVar = null;
+				return $nullVar;
+			}
+		}
+
+		// If the updated file does not have the correct target type then we'll have
+		// to retrieve it again from the database to cast it to the right type.
+		if (strtolower(get_class($updatedFile)) != $targetImplementation) {
+			$updatedFile =& $this->_castToDatabase($updatedFile);
+		}
+
+		return $updatedFile;
 	}
 
 	/**
@@ -386,102 +435,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		return $newSubmissionFile;
 	}
 
-	/**
-	 * Convert the specified revisions of a file to the given
-	 * target implementation in the database.
-	 *
-	 * Downcasting is done by simple polymorphism: We take the
-	 * source object, interpret it as the target type and
-	 * persist it as such via the DAO delegate corresponding
-	 * to the target type.
-	 *
-	 * Upcasting is more complicated. We create the target object
-	 * from scratch and copy source data to the target object
-	 * (see DataObject::upcastTo() for more details). Then we
-	 * again persist the target object with the target DAO delegate.
-	 *
-	 * @param $fileId integer The file to convert.
-	 * @param $targetImplementation string The required target
-	 *  implementation.
-	 * @param $revision integer The revision of the file
-	 *  to convert. If not given then all revisions of the
-	 *  file will be converted to the target implementation.
-	 */
-	function cast($fileId, $targetImplementation, $revision = null) {
-		// Get all requested revisions of the original file.
-		if (is_null($revision)) {
-			$sourceRevisions =& $this->getAllRevisions($fileId);
-		} else {
-			$sourceRevision =& $this->getRevision($fileId, $revision);
-			if (is_a($sourceRevision, 'SubmissionFile')) {
-				$sourceRevisions = array(&$sourceRevision);
-			}
-		}
-
-		// Check whether we got a result at all.
-		if (!isset($sourceRevisions[0])) {
-			$nullVar = null;
-			return $nullVar;
-		}
-
-		// Canonicalize the target implementation class name.
-		$targetImplementation = strtolower($targetImplementation);
-
-		// Instantiate the delegate for the target object.
-		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
-
-		// Go through all matched revisions and cast them.
-		foreach($sourceRevisions as $sourceRevision) { /* @var $sourceRevision SubmissionFile */
-			// Canonicalize the source implementation class name.
-			$sourceImplementation = strtolower(get_class($sourceRevision));
-
-			// Only if the source implementation differs from the target
-			// implementation will we have to update the object at all.
-			if ($sourceImplementation != $targetImplementation) {
-				// See whether the source revision already implements
-				// the interface of the target revision.
-				if (is_a($sourceRevision, $targetImplementation)) {
-					// The source revision can be downcast unchanged
-					// by simple polymorphism.
-					$targetRevision =& $sourceRevision;
-				} else {
-					// The source object has to be upcast by manually
-					// instantiating the target object and copying data
-					// from source to target.
-					$targetRevision =& $targetDaoDelegate->newDataObject();
-					$targetRevision =& $sourceRevision->upcastTo($targetRevision);
-				}
-
-				// We use the delegates directly to make sure
-				// that we address the right implementation in the database
-				// even when we're changing types. We also use a "delete-
-				// and-insert" rather than an "update" approach to
-				// make sure that remnants from the source object that
-				// are not part of the target object will be properly
-				// removed first.
-				$sourceDaoDelegate =& $this->_getDaoDelegate($sourceImplementation);
-				$sourceDaoDelegate->deleteObject($sourceRevision);
-				$targetDaoDelegate->insertObject($targetRevision);
-			}
-
-			// Unset variable references to avoid overwriting on the
-			// next iteration.
-			unset($sourceRevision, $targetRevision);
-		}
-	}
-
-
-	//
-	// Implement template methods from DAO
-	//
-	/**
-	 * Get the list of fields for which data is localized.
-	 * @return array
-	 */
-	function getLocaleFieldNames() {
-		return $this->_localeFieldNames;
-	}
-
 
 	//
 	// Abstract template methods to be implemented by subclasses.
@@ -546,19 +499,33 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		return $daoDelegate->fromRow($row);
 	}
 
-	/**
-	 * Get the ID of the last inserted submission file.
-	 * @return int
-	 */
-	function getInsertSubmissionFileId() {
-		$submissionEntityName = $this->getSubmissionEntityName();
-		return $this->getInsertId($submissionEntityName.'_files', $submissionEntityName.'_id');
-	}
-
 
 	//
 	// Private helper methods
 	//
+	/**
+	 * Map a genre to the corresponding file implementation.
+	 * @param $genreId integer
+	 * @return string The class name of the file implementation.
+	 */
+	function &_getFileImplementationForGenreId($genreId) {
+		static $genreCache = array();
+
+		if (!isset($genreCache[$genreId])) {
+			// We have to instantiate the genre to find out about
+			// its category.
+			$genreDao =& DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
+			$genre =& $genreDao->getById($genreId);
+
+			// Identify the file implementation.
+			$genreMapping = $this->getGenreCategoryMapping();
+			assert(isset($genreMapping[$genre->getCategory()]));
+			$genreCache[$genreId] = $genreMapping[$genre->getCategory()];
+		}
+
+		return $genreCache[$genreId];
+	}
+
 	/**
 	 * Instantiates an approprate SubmissionFileDAODelegate
 	 * based on the given genre identifier.
@@ -566,15 +533,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return SubmissionFileDAODelegate
 	 */
 	function &_getDaoDelegateForGenreId($genreId) {
-		// We have to instantiate the genre to find out about
-		// its category.
-		$genreDao =& DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
-		$genre =& $genreDao->getById($genreId);
-
-		// Identify the file implementation.
-		$genreMapping = $this->getGenreCategoryMapping();
-		assert(isset($genreMapping[$genre->getCategory()]));
-		$fileImplementation = $genreMapping[$genre->getCategory()];
+		// Find the required file implementation.
+		$fileImplementation = $this->_getFileImplementationForGenreId($genreId);
 
 		// Return the DAO delegate.
 		return $this->_getDaoDelegate($fileImplementation);
@@ -694,7 +654,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $assocType integer
 	 * @param $assocId integer
 	 * @param $latestOnly boolean
-	 * @return boolean
+	 * @return boolean|integer Returns boolean false if an error occurs, otherwise the number
+	 *  of deleted files.
 	 */
 	function _deleteInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $latestOnly = false) {
@@ -707,9 +668,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$conjunction = '';
 		$params = array();
 		foreach($deletedFiles as $deletedFile) { /* @var $deletedFile SubmissionFile */
-			// Delete the the matched files on the file system.
-			FileManager::deleteFile($deletedFile->getFilePath());
-
 			// Delete file in the database.
 			// NB: We cannot safely bulk-delete because MySQL 3.23
 			// does not support multi-column IN-clauses. Same is true
@@ -717,7 +675,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// statement. And having a long (... AND ...) OR (...)
 			// clause could hit length limitations.
 			$daoDelegate =& $this->_getDaoDelegateForObject($deletedFile);
-			$daoDelegate->deleteObject($deletedFile);
+			if (!$daoDelegate->deleteObject($deletedFile)) return false;
 		}
 
 		// Return the number of deleted files.
@@ -771,6 +729,53 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			}
 		}
 		return array($filterClause, $params);
+	}
+
+	/**
+	 * Make sure that the genre of the file and its file
+	 * implementation are compatible.
+	 *
+	 * NB: In the case of a downcast this means that not all data in the
+	 * object will be saved to the database. It is the UI's responsibility
+	 * to inform users about potential loss of data if they change to
+	 * a genre that permits less meta-data than the prior genre!
+	 *
+	 * @param $submissionFile SubmissionFile
+	 * @return SubmissionFile The same file in a compatible implementation.
+	 */
+	function &_castToGenre(&$submissionFile) {
+		// Find the required target implementation.
+		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
+				$submissionFile->getGenreId()));
+
+		// If the current implementation of the updated object
+		// differs from the target implementation then we'll
+		// have to cast the object.
+		if (!is_a($submissionFile, $targetImplementation)) {
+			// The updated file has to be upcast by manually
+			// instantiating the target object and copying data
+			// to the target.
+			$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
+			$targetFile =& $targetDaoDelegate->newDataObject();
+			$targetFile =& $submissionFile->upcastTo($targetFile);
+			unset($submissionFile);
+			$submissionFile =& $targetFile;
+		}
+
+		return $submissionFile;
+	}
+
+	/**
+	 * Make sure that a file's implementation corresponds to the way it is
+	 * saved in the database.
+	 * @param $submissionFile SubmissionFile
+	 * @return SubmissionFile
+	 */
+	function &_castToDatabase(&$submissionFile) {
+		$fileId = $submissionFile->getFileId();
+		$revision = $submissionFile->getRevision();
+		unset($submissionFile);
+		return $this->getRevision($fileId, $revision);
 	}
 }
 

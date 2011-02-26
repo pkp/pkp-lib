@@ -14,29 +14,14 @@
  *  to retrieve and modify SubmissionFile objects.
  */
 
+import('lib.pkp.classes.db.DAO');
 
-class SubmissionFileDAODelegate {
-	/** @var SubmissionFileDAO a reference to the calling DAO */
-	var $_submissionFileDao;
-
+class SubmissionFileDAODelegate extends DAO {
 	/**
 	 * Constructor
-	 * @param $submissionFileDao SubmissionFileDAO
 	 */
-	function SubmissionFileDAODelegate(&$submissionFileDao) {
-		$this->_submissionFileDao =& $submissionFileDao;
-	}
-
-
-	//
-	// Getters and Setters
-	//
-	/**
-	 * Get the submission file DAO.
-	 * @return SubmissionFileDAO
-	 */
-	function &getSubmissionFileDAO() {
-		return $this->_submissionFileDao;
+	function SubmissionFileDAODelegate() {
+		parent::DAO();
 	}
 
 
@@ -44,26 +29,37 @@ class SubmissionFileDAODelegate {
 	// Abstract public methods to be implemented by subclasses.
 	//
 	/**
+	 * Return the name of the base submission entity
+	 * (i.e. 'monograph', 'paper', 'article', etc.)
+	 * @return string
+	 */
+	function getSubmissionEntityName() {
+		assert(false);
+	}
+
+	/**
 	 * Insert a new submission file.
 	 * @param $submissionFile SubmissionFile
+	 * @param $sourceFile string The place where the physical file
+	 *  resides right now or the file name in the case of an upload.
+	 *  The file will be copied to its canonical target location.
+	 * @param $isUpload boolean set to true if the file has just been
+	 *  uploaded.
 	 * @return SubmissionFile the inserted file
 	 */
-	function &insertObject(&$submissionFile) {
+	function &insertObject(&$submissionFile, $sourceFile, $isUpload = false) {
 		assert(false);
 	}
 
 	/**
 	 * Update a submission file.
-	 * @param $submissionFile SubmissionFile
-	 * @param $previousFileId integer The file id before the file
-	 *  was changed. Must only be given if the file id changed
-	 *  so that the previous file can be identified.
-	 * @param $previousRevision integer The revision before the file
-	 *  was changed. Must only be given if the revision changed
-	 *  so that the previous file can be identified.
+	 * @param $submissionFile SubmissionFile The target state
+	 *  of the updated file.
+	 * @param $previousFile SubmissionFile The current state
+	 *  of the updated file.
 	 * @return boolean
 	 */
-	function updateObject(&$submissionFile, $previousFileId = null, $previousRevision = null) {
+	function updateObject(&$submissionFile, &$previousFile) {
 		assert(false);
 	}
 
@@ -110,14 +106,8 @@ class SubmissionFileDAODelegate {
 	 * @param $submissionFile SubmissionFile
 	 */
 	function updateLocaleFields(&$submissionFile) {
-		// Configure the submission file DAO with the
-		// locale field names corresponding to the current
-		// file implementation.
-		$submissionFileDao =& $this->getSubmissionFileDAO();
-		$submissionFileDao->setLocaleFieldNames($this->getLocaleFieldNames());
-
 		// Update the locale fields.
-		$submissionFileDao->updateDataObjectSettings($submissionFileDao->getSubmissionEntityName().'_file_settings', $submissionFile, array(
+		$this->updateDataObjectSettings($this->getSubmissionEntityName().'_file_settings', $submissionFile, array(
 			'file_id' => $submissionFile->getFileId()
 		));
 	}

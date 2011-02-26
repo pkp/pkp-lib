@@ -41,7 +41,8 @@ class FileManager {
 	 * @return boolean
 	 */
 	function uploadedFileExists($fileName) {
-		if (isset($_FILES[$fileName]['tmp_name']) && is_uploaded_file($_FILES[$fileName]['tmp_name'])) {
+		if (isset($_FILES[$fileName]) && isset($_FILES[$fileName]['tmp_name'])
+				&& is_uploaded_file($_FILES[$fileName]['tmp_name'])) {
 			return true;
 		}
 		return false;

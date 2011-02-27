@@ -62,6 +62,10 @@
 	<message key="grid.reviewAttachments.title">Reviewer's Attachments</message>
 	<message key="grid.reviewAttachments.add">Add Attachment to Review</message>
 
+	<!-- Roles -->
+	<message key="grid.roles.currentRoles">Current Roles</message>
+	<message key="grid.roles.add">Add Role</message>
+	
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Current Users</message>
 	<message key="grid.user.currentEnrollment">Current Enrollment</message>

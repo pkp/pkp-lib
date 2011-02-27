@@ -90,13 +90,15 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Delete a user group by its id
 	 * will also delete related settings and all the assignments to this group
+	 * @param $pressId int
 	 * @param $userGroupId int
 	 */
-	function deleteById($userGroupId) {
+	function deleteById($pressId, $userGroupId) {
 		$ret1 = $this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
 		$ret2 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
 		$ret3 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
-		return $ret1 && $ret2 && $ret3;
+		$ret4 = $this->removeAllStagesFromGroup($pressId, $userGroupId);
+		return $ret1 && $ret2 && $ret3 && $ret4;
 	}
 
 	/**
@@ -105,7 +107,7 @@ class UserGroupDAO extends DAO {
 	 * @param $userGroup UserGroup
 	 */
 	function deleteUserGroup(&$userGroup) {
-		return $this->deleteById($userGroup->getId());
+		return $this->deleteById($userGroup->getContextId(), $userGroup->getId());
 	}
 
 
@@ -143,7 +145,7 @@ class UserGroupDAO extends DAO {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		return array('name', 'nameAbbrev');
+		return array('name', 'abbrev');
 	}
 
 	/**
@@ -517,6 +519,20 @@ class UserGroupDAO extends DAO {
 		$assignment->setUserGroupId($groupId);
 		return $this->userGroupAssignmentDao->deleteAssignment($assignment);
 	}
+
+	/**
+	 * Delete all stage assignments in a user group.
+	 * @param $pressId int
+	 * @param $userGroupId int
+	 */
+	function removeAllStagesFromGroup($pressId, $userGroupId) {
+		$userGroupStageAssignmentDao =& DAORegistry::getDAO('UserGroupStageAssignmentDAO');
+		$assignedStages = $userGroupStageAssignmentDao->getAssignedStagesByUserGroupId($pressId, $userGroupId);
+		foreach($assignedStages as $stageId => $stageLocaleKey) {
+			$userGroupStageAssignmentDao->removeGroupFromStage($pressId, $userGroupId, $stageId);
+		}
+	}
+
 
 	//
 	// Extra settings (not handled by rest of Dao

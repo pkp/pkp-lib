@@ -83,7 +83,7 @@ class CategoryGridHandler extends GridHandler {
 	function _renderCategoriesInternally(&$request) {
 		// Iterate through the rows and render them according
 		// to the row definition.
-		$elementIterator =& $this->_getSortedElements();
+		$elementIterator = $this->getGridDataElements($request);
 		$renderedCategories = array();
 		$iterator = 1;
 		while (!$elementIterator->eof()) {

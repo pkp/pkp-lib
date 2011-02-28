@@ -140,12 +140,17 @@ class GridHandler extends PKPHandler {
 	 * Get the grid data.
 	 * @return ItemIterator
 	 */
-	function &getData() {
+	function &getGridDataElements($request) {
 		if (is_null($this->_data)) {
-			// initialize data to an empty iterator
-			import('lib.pkp.classes.core.ItemIterator');
-			$elementIterator = new ItemIterator();
-			$this->setData($elementIterator);
+			$filter = $this->getFilterSelectionData($request);
+			$data = $this->loadData($request, $filter);
+
+			if (is_null($data)) {
+				// initialize data to an empty iterator
+				import('lib.pkp.classes.core.ItemIterator');
+				$data = new ItemIterator();
+			}
+			$this->setGridDataElements($data);
 		}
 
 		// Make a copy of the iterator (iterators
@@ -159,18 +164,18 @@ class GridHandler extends PKPHandler {
 	 * Check whether the grid has rows.
 	 * @return boolean
 	 */
-	function hasData() {
-		$data =& $this->getData();
+	function hasGridDataElements($request) {
+		$data =& $this->getGridDataElements($request);
 		assert (is_a($data, 'ItemIterator'));
-		$hasData = $data->getCount() ? true : false;
-		return $hasData;
+		$hasGridDataElements = $data->getCount() ? true : false;
+		return $hasGridDataElements;
 	}
 
 	/**
 	 * Set the grid data.
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
-	function setData(&$data) {
+	function setGridDataElements(&$data) {
 		if (is_a($data, 'ItemIterator')) {
 			$this->_data =& $data;
 		} elseif(is_array($data)) {
@@ -244,6 +249,10 @@ class GridHandler extends PKPHandler {
 		// Prepare the template to render the grid.
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign_by_ref('grid', $this);
+
+		// Add rendered filter
+		$renderedFilter = $this->renderFilter($request);
+		$templateMgr->assign('gridFilterForm', $renderedFilter);
 
 		// Add columns to the view.
 		$columns =& $this->getColumns();
@@ -342,7 +351,7 @@ class GridHandler extends PKPHandler {
 		$elementId = $args['rowId'];
 
 		// Retrieve row data for the requested row id
-		$dataElement = $this->getRowDataElement($elementId);
+		$dataElement = $this->getRowDataElement($request, $elementId);
 		if (is_null($dataElement)) {
 			// If the row doesn't exist then
 			// return null. It may be that the
@@ -364,8 +373,8 @@ class GridHandler extends PKPHandler {
 	 * @param $rowId
 	 * @return mixed
 	 */
-	function &getRowDataElement($rowId) {
-		$elementIterator =& $this->getData();
+	function &getRowDataElement($request, $rowId) {
+		$elementIterator =& $this->getGridDataElements($request);
 		if (is_a($elementIterator, 'DAOResultFactory')) {
 			$dataArray =& $elementIterator->toAssociativeArray();
 		} else {
@@ -377,6 +386,68 @@ class GridHandler extends PKPHandler {
 		} else {
 			return $dataArray[$rowId];
 		}
+	}
+
+	/**
+	 * Implement this method to load data into the grid.
+	 * @param $request PKPRequest
+	 * @param $filter array An associative array with filter data as returned by
+	 *  getFilterSelectionData(). If no filter has been selected by the user
+	 *  then the array will be empty.
+	 * @return null
+	 */
+	function &loadData($request, $filter) {
+		return null;
+	}
+
+	/**
+	 * Returns a Form object or the path name of a filter template.
+	 * @return Form|string
+	 */
+	function getFilterForm() {
+		return null;
+	}
+
+	/**
+	 * Method that extracts the user's filter selection from the request either
+	 * by instantiating the filter's Form object or by reading the request directly
+	 * (if using a simple filter template only).
+	 * @param $request PKPRequest
+	 * @return array
+	 */
+	function getFilterSelectionData($request) {
+		return null;
+	}
+
+	/**
+	 * Render the filter (a template or a Form).
+	 * @param $request PKPRequest
+	 * @param $filterData Array Data to be used by the filter template.
+	 * @return string
+	 */
+	function renderFilter($request, $filterData = array()) {
+		$form = $this->getFilterForm();
+		assert(is_a($form, 'Form') || is_string($form));
+
+		$renderedForm = '';
+
+		if(is_a($form, 'Form')) {
+			// FIXME: Implement the possibility to use forms for the filter part of the grid
+			assert(false);
+		} else if(is_string($form)) {
+			$templateMgr =& TemplateManager::getManager();
+
+			// Assign data to the filter.
+			$templateMgr->assign('filterData', $filterData);
+
+			// Assign current selected filter data.
+			$filterSelectionData = $this->getFilterSelectionData($request);
+			$templateMgr->assign('filterSelectionData', $filterSelectionData);
+
+			$renderedForm = $templateMgr->fetch($form);
+		}
+
+		return $renderedForm;
 	}
 
 
@@ -409,7 +480,7 @@ class GridHandler extends PKPHandler {
 	 */
 	function _renderGridBodyPartsInternally(&$request) {
 		// Render the rows.
-		$elementIterator =& $this->_getSortedElements();
+		$elementIterator = $this->getGridDataElements($request);
 		$renderedRows = $this->_renderRowsInternally($request, $elementIterator);
 
 		// Render the body part.
@@ -490,18 +561,6 @@ class GridHandler extends PKPHandler {
 		// Get the cell content
 		$cellProvider =& $column->getCellProvider();
 		return $cellProvider->render($request, $row, $column);
-	}
-
-	/**
-	 * Returns the sorted and filtered data elements
-	 * to be displayed.
-	 *
-	 * @return ItemIterator
-	 */
-	function &_getSortedElements() {
-		// TODO: This method will implement sorting, filtering and
-		//  paging strategies.
-		return $this->getData();
 	}
 }
 ?>

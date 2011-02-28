@@ -124,7 +124,7 @@ class PKPFilterGridHandler extends GridHandler {
 		$contextId = (is_null($context)?0:$context->getId());
 		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$data =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
-		$this->setData($data);
+		$this->setGridDataElements($data);
 
 		// Grid action
 		$router =& $request->getRouter();
@@ -197,7 +197,7 @@ class PKPFilterGridHandler extends GridHandler {
 		if ($newFilter) {
 			$filter = null;
 		} else {
-			$filter =& $this->getFilterFromArgs($args, true);
+			$filter =& $this->getFilterFromArgs($request, $args, true);
 		}
 
 		// Form handling
@@ -205,7 +205,7 @@ class PKPFilterGridHandler extends GridHandler {
 		$filterForm = new FilterForm($filter, $this->getTitle(), $this->getFormDescription(),
 				$this->getFilterGroupSymbolic());
 
-		$filterForm->initData($this->getData());
+		$filterForm->initData($this->getGridDataElements($request));
 
 		$json = new JSON(true, $filterForm->fetch($request));
 		return $json->getString();
@@ -221,7 +221,7 @@ class PKPFilterGridHandler extends GridHandler {
 		if(!$request->isPost()) fatalError('Cannot update filter via GET request!');
 
 		// Identify the citation to be updated
-		$filter =& $this->getFilterFromArgs($args, true);
+		$filter =& $this->getFilterFromArgs($request, $args, true);
 
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.filter.form.FilterForm');
@@ -261,7 +261,7 @@ class PKPFilterGridHandler extends GridHandler {
 	 */
 	function deleteFilter(&$args, &$request) {
 		// Identify the filter to be deleted
-		$filter =& $this->getFilterFromArgs($args);
+		$filter =& $this->getFilterFromArgs($request, $args);
 
 		$filterDAO = DAORegistry::getDAO('FilterDAO');
 		$result = $filterDAO->deleteObject($filter);
@@ -288,11 +288,11 @@ class PKPFilterGridHandler extends GridHandler {
 	 *  should be considered.
 	 * @return Filter
 	 */
-	function &getFilterFromArgs(&$args, $mayBeTemplate = false) {
+	function &getFilterFromArgs($request, &$args, $mayBeTemplate = false) {
 		if (isset($args['filterId'])) {
 			// Identify the filter id and retrieve the
 			// corresponding element from the grid's data source.
-			$filter =& $this->getRowDataElement($args['filterId']);
+			$filter =& $this->getRowDataElement($request, $args['filterId']);
 			if (!is_a($filter, 'Filter')) fatalError('Invalid filter id!');
 		} elseif ($mayBeTemplate && isset($args['filterTemplateId'])) {
 			// We need to instantiate a new filter from a

@@ -116,7 +116,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// Only citations that have already been parsed will be displayed.
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		$data =& $citationDao->getObjectsByAssocId($this->getAssocType(), $this->getAssocId(), CITATION_PARSED);
-		$this->setData($data);
+		$this->setGridDataElements($data);
 
 		// If the refresh flag is set in the request then trigger
 		// citation parsing. This is necessary to make sure that
@@ -200,7 +200,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		$errorMessage = null;
-		$citations =& $this->getData();
+		$citations =& $this->getGridDataElements($request);
 		if ($citations->eof()) {
 			$errorMessage = $noCitationsFoundMessage;
 		} else {
@@ -330,7 +330,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 */
 	function editCitation(&$args, &$request) {
 		// Identify the citation to be edited
-		$citation =& $this->getCitationFromArgs($args, true);
+		$citation =& $this->getCitationFromArgs($request, $args, true);
 
 		// Form handling
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
@@ -352,7 +352,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 */
 	function updateRawCitation(&$args, &$request) {
 		// Retrieve the citation to be changed from the database.
-		$citation =& $this->getCitationFromArgs($args, true);
+		$citation =& $this->getCitationFromArgs($request, $args, true);
 
 		// Now retrieve the raw citation from the request.
 		$citation->setRawCitation(strip_tags($request->getUserVar('rawCitation')));
@@ -390,7 +390,7 @@ class PKPCitationGridHandler extends GridHandler {
 			unset($citationForm);
 		} else {
 			// We retrieve the citation to be checked from the database.
-			$originalCitation =& $this->getCitationFromArgs($args, true);
+			$originalCitation =& $this->getCitationFromArgs($request, $args, true);
 		}
 
 		return $this->_recheckCitation($request, $originalCitation, false);
@@ -449,7 +449,7 @@ class PKPCitationGridHandler extends GridHandler {
 	 */
 	function deleteCitation(&$args, &$request) {
 		// Identify the citation to be deleted
-		$citation =& $this->getCitationFromArgs($args);
+		$citation =& $this->getCitationFromArgs($request, $args);
 
 		$citationDao = DAORegistry::getDAO('CitationDAO');
 		$result = $citationDao->deleteObject($citation);
@@ -533,11 +533,11 @@ class PKPCitationGridHandler extends GridHandler {
 	 *  citation id is in the request.
 	 * @return Citation
 	 */
-	function &getCitationFromArgs(&$args, $createIfMissing = false) {
+	function &getCitationFromArgs($request, &$args, $createIfMissing = false) {
 		// Identify the citation id and retrieve the
 		// corresponding element from the grid's data source.
 		if (isset($args['citationId'])) {
-			$citation =& $this->getRowDataElement($args['citationId']);
+			$citation =& $this->getRowDataElement($request, $args['citationId']);
 			if (is_null($citation)) fatalError('Invalid citation id!');
 		} else {
 			if ($createIfMissing) {
@@ -587,7 +587,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if(!$request->isPost()) fatalError('Cannot update citation via GET request!');
 
 		// Identify the citation to be updated
-		$citation =& $this->getCitationFromArgs($args, true);
+		$citation =& $this->getCitationFromArgs($request, $args, true);
 
 		// Form initialization
 		import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');

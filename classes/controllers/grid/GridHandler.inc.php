@@ -52,8 +52,6 @@ class GridHandler extends PKPHandler {
 	/** @var string The grid template. */
 	var $_template;
 
-	/** @var string Name of the row identifer (passed to getData()). */
-	var $_rowIdentifer;
 
 	/**
 	 * Constructor.
@@ -172,7 +170,7 @@ class GridHandler extends PKPHandler {
 	 * Set the grid data.
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
-	function setData(&$data, $rowIdentifier = null) {
+	function setData(&$data) {
 		if (is_a($data, 'ItemIterator')) {
 			$this->_data =& $data;
 		} elseif(is_array($data)) {
@@ -181,8 +179,6 @@ class GridHandler extends PKPHandler {
 		} else {
 			assert(false);
 		}
-
-		if($rowIdentifier) $this->setRowIdentifier($rowIdentifier);
 	}
 
 	/**
@@ -216,22 +212,6 @@ class GridHandler extends PKPHandler {
 		return false;
 	}
 
-	/**
-	 * Set the custom row identifier.
-	 * @param $rowIdentifer string
-	 */
-	function setRowIdentifier($rowIdentifer) {
-	    $this->_rowIdentifer = $rowIdentifer;
-	}
-
-	/**
-	 * Get the custom row identifier.
-	 * @return string
-	 */
-	function getRowIdentifier() {
-	    return $this->_rowIdentifer;
-	}
-
 
 	//
 	// Overridden methods from PKPHandler
@@ -261,23 +241,23 @@ class GridHandler extends PKPHandler {
 	 */
 	function fetchGrid($args, &$request, $fetchParams = array()) {
 
-		// Prepare the template to render the grid
+		// Prepare the template to render the grid.
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign_by_ref('grid', $this);
 
-		// Add columns to the view
+		// Add columns to the view.
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign('numColumns', count($columns));
 
-		// Render the body elements
+		// Render the body elements.
 		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
-		// Assign additional params for the fetchRow and fetchGrid URLs to use
+		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('fetchParams', $fetchParams);
 
-		// Let the view render the grid
+		// Let the view render the grid.
 		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
 	}
@@ -387,7 +367,7 @@ class GridHandler extends PKPHandler {
 	function &getRowDataElement($rowId) {
 		$elementIterator =& $this->getData();
 		if (is_a($elementIterator, 'DAOResultFactory')) {
-			$dataArray =& $elementIterator->toAssociativeArray('id');
+			$dataArray =& $elementIterator->toAssociativeArray();
 		} else {
 			$dataArray =& $elementIterator->toArray();
 		}
@@ -428,10 +408,13 @@ class GridHandler extends PKPHandler {
 	 * @return array
 	 */
 	function _renderGridBodyPartsInternally(&$request) {
-		$gridBodyParts = array();
-		$nullVar = null;
-		$renderedRows = $this->_renderRowsInternally($request, $nullVar);
+		// Render the rows.
+		$elementIterator =& $this->_getSortedElements();
+		$renderedRows = $this->_renderRowsInternally($request, $elementIterator);
+
+		// Render the body part.
 		$templateMgr =& TemplateManager::getManager();
+		$gridBodyParts = array();
 		if ( count($renderedRows) > 0 ) {
 			$templateMgr->assign_by_ref('rows', $renderedRows);
 			$gridBodyParts[] = $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
@@ -447,15 +430,11 @@ class GridHandler extends PKPHandler {
 	 */
 	function _renderRowsInternally(&$request, &$elementIterator) {
 		// Iterate through the rows and render them according
-		// to the row definition.  Uses $rowIterator or gets all the grid data.
-		if ( !$elementIterator ) $elementIterator =& $this->_getSortedElements();
+		// to the row definition.
 		$renderedRows = array();
 		while (!$elementIterator->eof()) {
-			// If we're not using the default ID field, get the custom one
-			$idField = $this->getRowIdentifier() ? $this->getRowIdentifier() : null;
-
 			// Get the element for the row and its key
-			list($elementId, $element) = $elementIterator->nextWithKey($idField);
+			list($elementId, $element) = $elementIterator->nextWithKey();
 
 			// Instantiate a new row.
 			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);

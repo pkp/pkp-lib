@@ -253,8 +253,10 @@ class ListbuilderHandler extends GridHandler {
 		$templateMgr->assign('numColumns', count($columns));
 
 		// Render the rows
-		$nullVar = null; // Kludge
-		$rows = $this->_renderRowsInternally($request, $nullVar);
+		// FIXME: Using a private method in a sub-class is not allowed. This is duplicate
+		// code anyway so factor it into it's own method in the base class.
+		$elementIterator =& $this->_getSortedElements();
+		$rows = $this->_renderRowsInternally($request, $elementIterator);
 		$templateMgr->assign_by_ref('rows', $rows);
 
 		$templateMgr->assign('listbuilder', $this);

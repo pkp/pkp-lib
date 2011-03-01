@@ -2,14 +2,12 @@
 <!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
 
 <!--
-  * groups.xml
+  * announcements.xml
   *
   * Copyright (c) 2000-2011 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Groups schema in XML.
-  *
-  * $Id$
+  * Announcements schema in XML.
   -->
 
 <schema version="0.2">

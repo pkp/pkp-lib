@@ -8,8 +8,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Temporary file management support for the PKP database schema in XML.
-  *
-  * $Id$
   -->
 
 <schema version="0.2">

@@ -8,8 +8,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Scheduled tasks schema descriptor in XML.
-  *
-  * $Id$
   -->
 
 <schema version="0.2">

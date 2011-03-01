@@ -64,16 +64,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-
 		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision);
-		assert(count($revisions) <= 1);
-		if (empty($revisions)) {
-			$nullVar = null;
-			return $nullVar;
-		} else {
-			assert(isset($revisions[0]));
-			return $revisions[0];
-		}
+		return $this->_checkAndReturnRevision($revisions);
 	}
 
 
@@ -91,16 +83,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-
-		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, true);
-		assert(count($revisions) <= 1);
-		if (empty($revisions)) {
-			$nullVar = null;
-			return $nullVar;
-		} else {
-			assert(isset($revisions[0]));
-			return $revisions[0];
-		}
+		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, true);
+		return $this->_checkAndReturnRevision($revisions);
 	}
 
 	/**
@@ -116,7 +100,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, true, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, null, null, true, $rangeInfo);
 	}
 
 	/**
@@ -134,7 +118,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, false, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, false, $rangeInfo);
 	}
 
 	/**
@@ -152,7 +136,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, true, $rangeInfo);
+		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, null, null, true, $rangeInfo);
 	}
 
 	/**
@@ -169,49 +153,38 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, false, $rangeInfo);
+		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, null, null, false, $rangeInfo);
 	}
 
 	/**
-	 * Set the latest revision of a file as the latest revision
-	 * of another file.
-	 * @param $revisedFileId integer the revised file
-	 * @param $newFileId integer the file that will become the
-	 *  latest revision of the revised file.
-	 * @param $submissionId integer the submission id the two files
-	 *  must belong to.
-	 * @param $fileStage integer the file stage the two files
-	 *  must belong to.
-	 * @return SubmissionFile the new revision or null if something went wrong.
+	 * Get all file revisions assigned to the given review round.
+	 * @param $submissionId integer
+	 * @param $reviewType integer
+	 * @param $round integer
+	 * @return array A list of MonographFiles.
 	 */
-	function &setAsLatestRevision($revisedFileId, $newFileId, $submissionId, $fileStage) {
-		$revisedFileId = (int)$revisedFileId;
-		$newFileId = (int)$newFileId;
-		$submissionId = (int)$submissionId;
-		$fileStage = (int)$fileStage;
+	function &getRevisionsByReviewRound($submissionId, $reviewType, $round) {
+		if (!($reviewType && $round)) {
+			$nullVar = null;
+			return $nullVar;
+		}
+		return $this->_getInternally($submissionId, null, null, null, null, null, $reviewType, $round);
+	}
 
-		// Check whether the two files are already revisions of each other.
-		$nullVar = null;
-		if ($revisedFileId == $newFileId) return $nullVar;
-
-		// Retrieve the latest revisions of the two submission files.
-		$revisedFile =& $this->getLatestRevision($revisedFileId, $fileStage, $submissionId);
-		$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
-		if (!($revisedFile && $newFile)) return $nullVar;
-
-		// Save identifying data of the changed file required for update.
-		$previousFileId = $newFile->getFileId();
-		$previousRevision = $newFile->getRevision();
-
-		// Copy data over from the revised file to the new file.
-		$newFile->setFileId($revisedFileId);
-		$newFile->setRevision($revisedFile->getRevision()+1);
-		$newFile->setGenreId($revisedFile->getGenreId());
-		$newFile->setAssocType($revisedFile->getAssocType());
-		$newFile->setAssocId($revisedFile->getAssocId());
-
-		// Update the file in the database.
-		return $this->updateObject($newFile, $previousFileId, $previousRevision);
+	/**
+	 * Get all files that are in the current review
+	 * round, but have later revisions.
+	 * @param $submissionId int
+	 * @param $reviewType int
+	 * @param $round int
+	 * @return array A list of MonographFiles.
+	 */
+	function &getLatestNewRevisionsByReviewRound($submissionId, $reviewType, $round) {
+		if (!($reviewType && $round)) {
+			$nullVar = null;
+			return $nullVar;
+		}
+		return $this->_getInternally($submissionId, null, null, null, null, null, $reviewType, $round, true);
 	}
 
 	/**
@@ -347,6 +320,64 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
+	 * Set the latest revision of a file as the latest revision
+	 * of another file.
+	 * @param $revisedFileId integer the revised file
+	 * @param $newFileId integer the file that will become the
+	 *  latest revision of the revised file.
+	 * @param $submissionId integer the submission id the two files
+	 *  must belong to.
+	 * @param $fileStage integer the file stage the two files
+	 *  must belong to.
+	 * @return SubmissionFile the new revision or null if something went wrong.
+	 */
+	function &setAsLatestRevision($revisedFileId, $newFileId, $submissionId, $fileStage) {
+		$revisedFileId = (int)$revisedFileId;
+		$newFileId = (int)$newFileId;
+		$submissionId = (int)$submissionId;
+		$fileStage = (int)$fileStage;
+
+		// Check whether the two files are already revisions of each other.
+		$nullVar = null;
+		if ($revisedFileId == $newFileId) return $nullVar;
+
+		// Retrieve the latest revisions of the two submission files.
+		$revisedFile =& $this->getLatestRevision($revisedFileId, $fileStage, $submissionId);
+		$newFile =& $this->getLatestRevision($newFileId, $fileStage, $submissionId);
+		if (!($revisedFile && $newFile)) return $nullVar;
+
+		// Save identifying data of the changed file required for update.
+		$previousFileId = $newFile->getFileId();
+		$previousRevision = $newFile->getRevision();
+
+		// Copy data over from the revised file to the new file.
+		$newFile->setFileId($revisedFileId);
+		$newFile->setRevision($revisedFile->getRevision()+1);
+		$newFile->setGenreId($revisedFile->getGenreId());
+		$newFile->setAssocType($revisedFile->getAssocType());
+		$newFile->setAssocId($revisedFile->getAssocId());
+
+		// Update the file in the database.
+		return $this->updateObject($newFile, $previousFileId, $previousRevision);
+	}
+
+	/**
+	 * Assign file to a review round.
+	 * @param $fileId int The file to be assigned.
+	 * @param $revision int The revision of the file to be assigned.
+	 * @param $reviewType int The review round type.
+	 * @param $round int The review round number.
+	 * @param $submissionId int The submission id of the file.
+	 */
+	function assignRevisionToReviewRound($fileId, $revision, $reviewType, $round, $submissionId) {
+		if (!is_numeric($fileId) || !is_numeric($revision)) fatalError('Invalid file!');
+		return $this->update('INSERT INTO review_round_files
+				('.$this->getSubmissionEntityName().'_id, review_type, round, file_id, revision)
+				VALUES (?, ?, ?, ?, ?)',
+				array((int)$submissionId, (int)$reviewType, (int)$round, (int)$fileId, (int)$revision));
+	}
+
+	/**
 	 * Delete a specific revision of a submission file.
 	 * @param $submissionFile SubmissionFile
 	 * @return integer the number of deleted file revisions
@@ -379,7 +410,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @return integer the number of deleted file revisions
 	 */
 	function deleteLatestRevisionById($fileId, $fileStage= null, $submissionId = null) {
-		return $this->_deleteInternally($submissionId, $fileStage, $fileId, null, null, null, true);
+		return $this->_deleteInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, true);
 	}
 
 	/**
@@ -418,6 +449,20 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function deleteAllRevisionsByAssocId($assocType, $assocId, $fileStage = null) {
 		return $this->_deleteInternally(null, $fileStage, null, null, $assocType, $assocId);
+	}
+
+	/**
+	 * Remove all file assignements for the given review round.
+	 * @param $reviewType int The review round type.
+	 * @param $round int The review round number.
+	 * @param $submissionId int The submission id of
+	 *  the file.
+	 */
+	function deleteAllRevisionsByReviewRound($submissionId, $reviewType, $round) {
+		// Remove currently assigned review files.
+		$returner = $this->update('DELETE FROM review_round_files
+				WHERE '.$this->getSubmissionEntityName().'_id = ? AND review_type = ? AND round = ?',
+				array((int)$submissionId, (int)$reviewType, (int)$round));
 	}
 
 	/**
@@ -575,7 +620,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
-	 * Protected method to retrieve submission file revisions
+	 * Private method to retrieve submission file revisions
 	 * according to the given filters.
 	 * @param $submissionId integer
 	 * @param $fileStage integer
@@ -583,12 +628,14 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $revision integer
 	 * @param $assocType integer
 	 * @param $assocId integer
+	 * @param $reviewType integer
+	 * @param $round integer
 	 * @param $latestOnly boolean
 	 * @param $rangeInfo DBResultRange
 	 * @return array a list of SubmissionFile instances
 	 */
 	function &_getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
-			$assocType = null, $assocId = null, $latestOnly = false, $rangeInfo = null) {
+			$assocType = null, $assocId = null, $reviewType = null, $round = null, $latestOnly = false, $rangeInfo = null) {
 
 		// Sanitize parameters.
 		$latestOnly = (boolean)$latestOnly;
@@ -597,12 +644,22 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		// Retrieve the base query.
 		$sql = $this->baseQueryForFileSelection($latestOnly);
 
+		// Add the revision round file join if a revision round
+		// filter was requested.
+		$submissionEntity = $this->getSubmissionEntityName();
+		if ($reviewType) {
+			$sql .= 'INNER JOIN review_round_files rrf
+					ON sf.'.$submissionEntity.'_id = rrf.'.$submissionEntity.'_id
+					AND sf.file_id = rrf.file_id
+					AND sf.revision '.($latestOnly ? '>' : '=').' rrf.revision ';
+		}
+
 		// Filter the query.
 		list($filterClause, $params) = $this->_buildFileSelectionFilter(
-				$submissionId, $fileStage, $fileId, $revision, $assocType, $assocId);
+				$submissionId, $fileStage, $fileId, $revision,
+				$assocType, $assocId, $reviewType, $round);
 
 		// Did the user request all or only the latest revision?
-		$submissionEntity = $this->getSubmissionEntityName();
 		if ($latestOnly) {
 			// Filter the latest revision of each file.
 			// NB: We have to do this in the SQL for paging to work
@@ -632,8 +689,16 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// Retrieve the next result row.
 			$row =& $result->GetRowAssoc(false);
 
-			// Instantiate the file.
-			$submissionFiles[] =& $this->fromRow($row);
+			// Construct a combined id from file id and revision
+			// that uniquely identifies the file.
+			$idAndRevision = $row['monograph_file_id'].'-'.$row['monograph_revision'];
+
+			// Check for duplicates.
+			assert(!isset($submissionFiles[$idAndRevision]));
+
+			// Instantiate the file and add it to the
+			// result array with a unique key.
+			$submissionFiles[$idAndRevision] =& $this->fromRow($row);
 
 			// Move the query cursor to the next record.
 			$result->moveNext();
@@ -645,23 +710,26 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
-	 * Protected method to retrieve submission file revisions
+	 * Private method to delete submission file revisions
 	 * according to the given filters.
-	 * @param $submissionId int
-	 * @param $fileStage int
-	 * @param $fileId int
-	 * @param $revision int
+	 * @param $submissionId integer
+	 * @param $fileStage integer
+	 * @param $fileId integer
+	 * @param $revision integer
 	 * @param $assocType integer
 	 * @param $assocId integer
+	 * @param $reviewType integer
+	 * @param $round integer
 	 * @param $latestOnly boolean
 	 * @return boolean|integer Returns boolean false if an error occurs, otherwise the number
 	 *  of deleted files.
 	 */
 	function _deleteInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
-			$assocType = null, $assocId = null, $latestOnly = false) {
+			$assocType = null, $assocId = null, $reviewType = null, $round = null, $latestOnly = false) {
 
 		// Identify all matched files.
-		$deletedFiles =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision, $assocType, $assocId, $latestOnly);
+		$deletedFiles =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision,
+				$assocType, $assocId, $reviewType, $round, $latestOnly);
 		if (empty($deletedFiles)) return 0;
 
 		$filterClause = '';
@@ -691,18 +759,22 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $revision integer
 	 * @param $assocType integer
 	 * @param $assocId integer
-	 * @param $alias string the alias of the table to be filtered
+	 * @param $reviewType integer
+	 * @param $round integer
 	 * @return array an array that contains the generated SQL
 	 *  filter clause and the corresponding parameters.
 	 */
 	function _buildFileSelectionFilter($submissionId, $fileStage,
-			$fileId, $revision, $assocType, $assocId) {
+			$fileId, $revision, $assocType, $assocId, $reviewType, $round) {
 
 		// Make sure that at least one entity filter has been set.
 		assert((int)$submissionId || (int)$fileId || (int)$assocId);
 
 		// Both, assoc type and id, must be set (or unset) together.
 		assert(((int)$assocType && (int)$assocId) || !((int)$assocType || (int)$assocId));
+
+		// Both, review type and round, must be set (or unset) together.
+		assert(((int)$reviewType && (int)$round) || !((int)$reviewType || (int)$round));
 
 		// Collect the filtered columns and ids in
 		// an array for consistent handling.
@@ -713,7 +785,9 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			'sf.file_id' => $fileId,
 			'sf.revision' => $revision,
 			'sf.assoc_type' => $assocType,
-			'sf.assoc_id' => $assocId
+			'sf.assoc_id' => $assocId,
+			'rrf.review_type' => $reviewType,
+			'rrf.round' => $round
 		);
 
 		// Build and return a SQL where clause and a parameter
@@ -776,6 +850,24 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$revision = $submissionFile->getRevision();
 		unset($submissionFile);
 		return $this->getRevision($fileId, $revision);
+	}
+
+	/**
+	 * Check whether the given array contains exactly
+	 * zero or one revisions and return it.
+	 * @param $revisions array
+	 * @return SubmissionFile
+	 */
+	function &_checkAndReturnRevision(&$revisions) {
+		assert(count($revisions) <= 1);
+		if (empty($revisions)) {
+			$nullVar = null;
+			return $nullVar;
+		} else {
+			$revision =& array_pop($revisions);
+			assert(is_a($revision, 'SubmissionFile'));
+			return $revision;
+		}
 	}
 }
 

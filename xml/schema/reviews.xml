@@ -98,11 +98,11 @@
 		<field name="submission_id" type="I8">
 			<NOTNULL />
 		</field>
+		<field name="review_type" type="I8" />
 		<field name="round" type="I1">
 			<NOTNULL />
 		</field>
 		<field name="review_revision" type="I8" />
-		<field name="review_type" type="I8" />
 		<field name="status" type="I8" />
 		<descr>Review rounds.</descr>
 		<index name="review_rounds_submission_id">

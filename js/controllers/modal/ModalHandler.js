@@ -188,7 +188,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			function($handledElement, options) {
 
 		// The new titlebar.
-		var $titleBar = $('<div class="modalTitleBar"></div>');
+		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>');
 
 		// Title bar icon.
 		var iconClass = options.titleIcon || null;

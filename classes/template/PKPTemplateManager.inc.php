@@ -1350,6 +1350,8 @@ class PKPTemplateManager extends Smarty {
 
 		} else $canCloseHtml = "";
 
+		// WARNING: The div here MUST be synced with ModalHandler.js
+		// as part of the title bar fix code to work around JQueryUI.
 		return "<script type='text/javascript'>
 			<!--
 			$(function() {
@@ -1359,7 +1361,7 @@ class PKPTemplateManager extends Smarty {
 			});
 			// -->
 			</script>
-			<div class='modalTitleBar'>" .
+			<div class='pkp_controllers_modal_titleBar'>" .
 				$iconHtml .
 				$keyHtml .
 				$canCloseHtml .

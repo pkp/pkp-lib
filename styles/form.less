@@ -1,0 +1,64 @@
+/**
+ * @defgroup pkp_form
+ */
+
+/**
+ * @file styles/form.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @ingroup pkp_form
+ *
+ * @brief Form Builder Vocabulary classes
+ */
+
+.pkp_form_fileInputContainer {
+	height: 30px;
+	width: 350px;
+	position:relative;
+	float:left;
+
+	.pkp_form_fakeFile {
+		left:0;
+		line-height:90%;
+		margin:0;
+		padding:0;
+		position:absolute;
+		top:0;
+		width:350px;
+		z-index:1;
+	}
+
+	.pkp_form_fakeInput {
+		margin-bottom:5px;
+		margin-left:0;
+		height:15px;
+		padding-left:3px;
+		padding-top:1px;
+		width:241px;
+	}
+
+	.pkp_form_fakeButton {
+		line-height:90%;
+	}
+
+	.pkp_form_uploadFile {
+		line-height: 90%;
+		height: 29px;
+	}
+}
+
+input.pkp_form_uploadField {
+	padding: 3px;
+	margin: 0;
+	height: 30px;
+	width: 350px;
+	position: relative;
+	z-index: 2;
+	text-align:right;
+	-moz-opacity:0;
+	filter:alpha(opacity=0);
+	opacity: 0;
+}
+

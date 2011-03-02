@@ -1,68 +1,8 @@
-.installContainer {
-	background-color: #EAF3F8;
-	border: 1px dotted #A2C6DC;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-/* @group File upload field overrides */
-
-.fileInputContainer {
-	height: 30px;
-	width: 350px;
-	position:relative;
-	float:left;
-}
-
-input.uploadField {
-	padding: 3px;
-	margin: 0;
-	height: 30px;
-	width: 350px;
-	position: relative;
-	z-index: 2;
-	text-align:right;
-	-moz-opacity:0;
-	filter:alpha(opacity=0);
-	opacity: 0;
-}
-
-.fakeFile {
-	left:0;
-	line-height:90%;
-	margin:0;
-	padding:0;
-	position:absolute;
-	top:0;
-	width:350px;
-	z-index:1;
-}
-
-input.fakeInput {
-	margin-bottom:5px;
-	margin-left:0;
-	height:15px;
-	padding-left:3px;
-	padding-top:1px;
-	width:241px;
-}
-
-input.fakeButton {
-	line-height: 90%;
-}
-
-input.uploadFile {
-	line-height: 90%;
-	height: 29px;
-}
-
-/* @end */
-
 /* @group Other Stuff */
 
 .throbber {
 	display: none;
-	background: url(../templates/images/throbber.gif) no-repeat;
+	background: url(../lib/pkp/templates/images/throbber.gif) no-repeat;
 	width: 25px;
 	height: 25px;
 	margin-left: 50%;
@@ -73,254 +13,24 @@ input.uploadFile {
 
 /* @group Modal Title bar */
 
-.modalTitleBar {
-	height: 40px;
-	width: 100%;
-	margin-bottom: 15px;
-}
-
-.modalTitleBar .icon {
-	float: left;
-}
-
-.modalTitleBar .text {
-	margin-left: 15px;
-	font-size: 1.4em;
-	color: #20538D;
-	vertical-align: middle;
-	float: left;
-}
-
-.modalTitleBar .close {
-	vertical-align: middle;
-	float: right;
-}
-
-.modalTitleBar .informationCenter {
+.pkp_controllers_modal_titleBar .informationCenter {
 	background: url(../lib/pkp/templates/images/structure/grid_notes.png) no-repeat;
 	width: 28px;
 	height: 42px;
 }
 
-.modalTitleBar .fileManagement {
+.pkp_controllers_modal_titleBar .fileManagement {
 	background: url(../lib/pkp/templates/images/structure/response_warning.png) no-repeat;
 	width: 32px;
 	height: 32px;
-}
-
-/* @end */
-
-/* @group File upload revision handling */
-
-.possibleRevision {
-	padding: 10px;
-	margin: 10px;
-	border: 2px solid black;
-	background-color: #FFFFDD;
-}
-
-.possibleRevision #revisedFileId, .possibleRevision p, .possibleRevision h5 {
-	margin-bottom: 10px;
-}
-
-.possibleRevision h5 {
-	padding-top: 0px;
-}
-
-#revisionWarningIcon {
-	height: 30px;
-	width: 30px;
-	float: left;
-}
-
-#revisionWarningText {
-	margin-left: 35px;
-}
-
-/* @end */
-
-/* @group Review round status indicator */
-
-.statusContainer {
-	height: 40px;
-	margin: 11px;
-	border: 2px solid black;
-	background-color: #FFFFDD;
-}
-
-/* @end */
-
-/* @group Review round */
-
-.editorPersonalMessage {
-	width: 96%;
-	height: 200px;
-	margin: 5px 0px 0px 10px;
-}
-
-.statusContainer {
-	height: 40px;
-	margin: 11px;
-	border: 2px solid black;
-	background-color: #FFFFDD;
 }
 
 /* @end */
 
 /* @group Submission header */
-
-.submissionHeader {
-	width: 95%;
-	margin: 5px 10px 15px 10px;
-}
-
-.submissionHeader .icon {
-	float: left;
-}
-
-.submissionHeader .headerTop .heading {
-	font-size: 1.7em;
-	color: #20538D;
-	vertical-align: middle;
-	float: left;
-}
-
-.submissionHeader .headerTop .action{
-	padding-top:  7px;
-	float: right;
-	margin-left: 25px;
-}
-
-.submissionHeader .headerTop .action a {
-	background-repeat: no-repeat;
-	padding-left: 20px;
-}
-
-.submissionHeader .headerTimeline {
-	font-size: .9em;
-	vertical-align: middle;
-	float: left;
-}
-
-#authorTimeline {
-	margin-top: 20px;
-}
-
-#timelineContainer {
-	width: 90%;
-	margin: 0 auto;
-	clear:both;
-	border: 2px solid gray;
-}
-
-#timelineFiller {
-	height: 20px;
-	background-color: #E0FFFF;
-	width: 0px;
-}
-
-#timelineFiller.accepted {
-	width: 25%;
-}
-
-#timelineFiller.reviewed {
-	width: 50%;
-}
-
-#timelineFiller.copyedited {
-	width: 75%;
-}
-
-#timelineFiller.published {
-	width: 100%;
-}
-
-#timelineLabelContainer {
-	width: 90%;
-	margin: 0 auto;
-}
-
-.timelineLabel {
-	font-size: .9em;
-	float: left;
-	width: 20%;
-}
-
-.timelineLabel.center {
-	text-align: center;
-}
-
-.timelineLabel.right {
-	text-align: right;
-}
-
-.pastStep {
-	font-weight: bold;
-}
-
-.futureStep {
-	color: #808080;
-}
-
-.authorAction {
-	float: left;
-	width: 28%;
-	margin-left: 30px;
-}
-
 .stageContainer {
 	width: 90%;
 	margin: 10px auto;
-}
-
-.submissionHeader .headerBottom {
-	margin-top: 10px;
-}
-
-.submissionHeader .headerBottom .userInfo {
-	width: 51%;
-	height: 100px;
-	padding-right: 10px;
-	float:left;
-}
-
-.submissionHeader .headerBottom .userInfo .statusContainer {
-	margin-left: 0px;
-}
-
-.submissionHeader .headerBottom .userInfo .icon {
-	background: url(../lib/pkp/templates/images/structure/response_warning.png) no-repeat;
-	margin:5px;
-	width: 32px;
-	height: 32px;
-	float:left;
-}
-
-.submissionHeader .headerBottom .userInfo .alert {
-	float:left;
-	font-size: 1.2em;
-	color: orange;
-	margin-top: 15px;
-}
-.submissionHeader .headerBottom .userInfo .stageMetadata {
-	float:left;
-}
-
-.submissionHeader .headerBottom .stageParticipants {
-	width: 45%;
-	padding-left: 10px;
-	float:left;
-}
-
-.submissionHeader .headerBottom .stageParticipants .wrapper {
-	background-color: inherit;
-	border: none;
-	margin: 0px;
-	padding: 0px;
-}
-
-.submissionHeader .headerBottom .stageParticipants h3 {
-	font-size: 1.2em;
 }
 
 .selectHeader {

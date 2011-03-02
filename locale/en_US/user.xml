@@ -39,6 +39,7 @@
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
 	<message key="user.interests">Reviewing interests</message>
+	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
 	<message key="user.gossip">Private Notes</message>
 	<message key="user.group">User Group</message>
 	<message key="user.lastName">Last name</message>

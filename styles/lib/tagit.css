@@ -8,6 +8,7 @@ ul.tagit {
 	overflow:auto !important;
 	width:500px;
 	background: white;
+	margin-bottom: 0px;
 }
 ul.tagit li {
 	-moz-border-radius:5px 5px 5px 5px;

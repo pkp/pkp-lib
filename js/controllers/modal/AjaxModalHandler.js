@@ -33,8 +33,9 @@
 		this.parent($handledElement, options);
 
 		// We assume that AJAX modals usually contain forms and
-		// therefore bind to the form submitted event.
+		// therefore bind to form events by default.
 		this.bind('formSubmitted', this.modalClose);
+		this.bind('formCanceled', this.modalClose);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
 			$.pkp.controllers.modal.ModalHandler);

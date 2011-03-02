@@ -30,6 +30,9 @@
 				' to an HTML form element!'].join(''));
 		}
 
+		// Transform all form buttons with jQueryUI.
+		$('.button', $form).button();
+
 		// Activate and configure the validation plug-in.
 		var validator = $form.validate({
 			errorClass: 'error',
@@ -39,9 +42,12 @@
 			unhighlight: function(element, errorClass) {
 				$(element).parent().parent().removeClass(errorClass);
 			},
-			submitHandler: this.callbackWrapper(this.handleSubmit),
+			submitHandler: this.callbackWrapper(this.submitForm),
 			showErrors: this.callbackWrapper(this.formChange)
 		});
+
+		// Activate the cancel button (if present).
+		$('#cancelFormButton', $form).click(this.callbackWrapper(this.cancelForm));
 
 		// Initial form validation.
 		if (validator.checkForm()) {
@@ -93,7 +99,7 @@
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
-	$.pkp.controllers.FormHandler.prototype.handleSubmit =
+	$.pkp.controllers.FormHandler.prototype.submitForm =
 			function(validator, formElement) {
 
 		// The default implementation will post the form,
@@ -130,6 +136,21 @@
 			}
 		}
 		return jsonData.status;
+	};
+
+
+	/**
+	 * Internal callback called to cancel the form.
+	 *
+	 * @param {HTMLElement} cancelButton The cancel button.
+	 * @param {Event} event The event that triggered the
+	 *  cancel button.
+	 */
+	$.pkp.controllers.FormHandler.prototype.cancelForm =
+			function(cancelButton, event) {
+
+		// Trigger the "form submitted" event.
+		this.trigger('formCanceled');
 	};
 
 

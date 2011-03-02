@@ -78,8 +78,8 @@ class LocaleFile {
 	 * Substitution works by replacing tokens like "{$foo}" with the value of
 	 * the parameter named "foo" (if supplied).
 	 * @param $key string
-	 * @params $params array named substitution parameters
-	 * @params $locale string the locale to use
+	 * @param $params array named substitution parameters
+	 * @param $locale string the locale to use
 	 * @return string
 	 */
 	function translate($key, $params = array(), $locale = null) {

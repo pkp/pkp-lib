@@ -389,10 +389,10 @@ class PKPTemplateManager extends Smarty {
 	 *
 	 * Custom Smarty function for translating localization keys.
 	 * Substitution works by replacing tokens like "{$foo}" with the value of the parameter named "foo" (if supplied).
-	 * @params $params array associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
+	 * @param $params array associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
 	 * 	Translation variables can be specified also as an optional
 	 * 	associative array named "params".
-	 * @params $smarty Smarty
+	 * @param $smarty Smarty
 	 * @return string the localized string, including any parameter substitutions
 	 */
 	function smartyTranslate($params, &$smarty) {
@@ -443,8 +443,8 @@ class PKPTemplateManager extends Smarty {
 	 * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.options.php
 	 *
 	 * Identical to Smarty's "html_options" function except option values are translated from i18n keys.
-	 * @params $params array
-	 * @params $smarty Smarty
+	 * @param $params array
+	 * @param $smarty Smarty
 	 */
 	function smartyHtmlOptionsTranslate($params, &$smarty) {
 		if (isset($params['options'])) {
@@ -512,7 +512,7 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {icon name="image name" alt="alternative name" url="url path"}
 	 *
 	 * Custom Smarty function for generating anchor tag with optional url
-	 * @params $params array associative array, must contain "name" paramater to create image anchor tag
+	 * @param $params array associative array, must contain "name" paramater to create image anchor tag
 	 * @return string <a href="url"><img src="path to image/image name" ... /></a>
 	 */
 	function smartyIcon($params, &$smarty) {
@@ -1084,8 +1084,8 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {sort_heading key="localization.key.name" sort="foo"}
 	 *
 	 * Custom Smarty function for creating heading links to sort tables by
-	 * @params $params array associative array
-	 * @params $smarty Smarty
+	 * @param $params array associative array
+	 * @param $smarty Smarty
 	 * @return string heading link to sort table by
 	 */
 	function smartySortHeading($params, &$smarty) {
@@ -1118,8 +1118,8 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {sort_search key="localization.key.name" sort="foo"}
 	 *
 	 * Custom Smarty function for creating heading links to sort search-generated tables
-	 * @params $params array associative array
-	 * @params $smarty Smarty
+	 * @param $params array associative array
+	 * @param $smarty Smarty
 	 * @return string heading link to sort table by
 	 */
 	function smartySortSearch($params, &$smarty) {
@@ -1154,8 +1154,8 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {load_url_in_div id="someHtmlId" url="http://the.url.to.be.loaded.into.the.grid"}
 	 *
 	 * Custom Smarty function for loading a URL via AJAX into a DIV
-	 * @params $params array associative array
-	 * @params $smarty Smarty
+	 * @param $params array associative array
+	 * @param $smarty Smarty
 	 * @return string of HTML/Javascript
 	 */
 	function smartyLoadUrlInDiv($params, &$smarty) {
@@ -1186,8 +1186,8 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {modal url=$dialogUrl actOnId="#gridName" button="#dialogButton"}
 	 *
 	 * Custom Smarty function for creating jQuery-based modals
-	 * @params $params array associative array
-	 * @params $smarty Smarty
+	 * @param $params array associative array
+	 * @param $smarty Smarty
 	 * @return string Call to modal function with specified parameters
 	 */
 	function smartyModal($params, &$smarty) {
@@ -1233,8 +1233,8 @@ class PKPTemplateManager extends Smarty {
 	 * Custom Smarty function for creating simple yes/no dialogs (or to just send an AJAX post)
 	 * NB:  -Leave out 'url' parameter to just display a message
 	 *		-Leave out 'dialogText' parameter to immediately submit an AJAX request
-	 * @params $params array associative array
-	 * @params $smarty Smarty
+	 * @param $params array associative array
+	 * @param $smarty Smarty
 	 * @return string Call to modal function with specified parameters
 	 */
 	function smartyConfirm($params, &$smarty) {
@@ -1366,7 +1366,6 @@ class PKPTemplateManager extends Smarty {
 				"<span style='clear:both' />
 			</div>";
 	}
-
 }
 
 ?>

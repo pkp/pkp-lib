@@ -191,7 +191,6 @@ class Form {
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
 		$templateMgr->register_function('fbvFileInput', array(&$this, 'smartyFBVFileInput'));
 		$templateMgr->register_function('fbvKeywordInput', array(&$this, 'smartyFBVKeywordInput'));
-		$templateMgr->register_function('init_button_bar', array(&$this, 'smartyInitButtonBar'));
 
 		$templateMgr->assign('fbvStyles', $this->fbvStyles);
 
@@ -1095,40 +1094,6 @@ class Form {
 		return $smarty->fetch('form/keywordInput.tpl');
 	}
 
-
-	/**
-	 * Smarty usage: {init_button_bar id="#editChapterForm" cancelId="#cancelButton" submitId="#submitButton"}
-	 *	NB: -id must be the main form of the modal (and be child of main modal container)
-	 * 		-cancelId refers to control that closes the modal without submitting the form (could be link or 'OK' button)
-	 * 		-submitId refers to control that submits the form then closes the modal
-	 * Custom Smarty function for rolling our own button bars for jQuery UI modals
-	 * @params $params array associative array
-	 * @params $smarty Smarty
-	 * @return string Call to modal function with specified parameters
-	 */
-	function smartyInitButtonBar($params, &$smarty) {
-		// Required params
-		// Id must be the main form of the modal (and be child of main modal container)
-		if (!isset($params['id'])) {
-			$smarty->trigger_error("Selector missing for modal button initialization");
-		} else {
-			$id = $params['id'];
-		}
-
-		$submitDisabled = isset($params['submitDisabled']) ? true : false;
-
-		if(isset($params['submitDisabled'])) {
-			$submitText = $params['submitText'];
-		} else {
-			$submitText = 'common.ok';
-		}
-
-		$smarty->assign('id', $id);
-		$smarty->assign('submitDisabled', $submitDisabled);
-		$smarty->assign('submitText', $submitText);
-
-		return $smarty->fetch('form/buttonBar.tpl');
-	}
 
 	/**
 	 * Assign the appropriate class name to the element for client-side validation

@@ -1,6 +1,19 @@
-/* @group Other Stuff */
+/**
+ * @file lib/pkp/styles/content.css
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
+ * @brief Main OMP stylesheet wrapper
+ *
+ */
 
-.throbber {
+/**
+ * DEPRECATED. Do not use these styles. Remove them when possible.
+ */
+
+/* Used by old modal.js; deprecated in favour of pkp_controllers_grid_throbber */
+.deprecated_throbber {
 	display: none;
 	background: url(../lib/pkp/templates/images/throbber.gif) no-repeat;
 	width: 25px;
@@ -9,31 +22,8 @@
 	margin-top: 5%;
 }
 
-/* @end */
-
-/* @group Modal Title bar */
-
-.pkp_controllers_modal_titleBar .informationCenter {
-	background: url(../lib/pkp/templates/images/structure/grid_notes.png) no-repeat;
-	width: 28px;
-	height: 42px;
-}
-
-.pkp_controllers_modal_titleBar .fileManagement {
-	background: url(../lib/pkp/templates/images/structure/response_warning.png) no-repeat;
-	width: 32px;
-	height: 32px;
-}
-
-/* @end */
-
-/* @group Submission header */
-.stageContainer {
-	width: 90%;
-	margin: 10px auto;
-}
-
-.selectHeader {
+/* Used by dashboard press selector */
+.deprecated_selectHeader {
 	margin-top: 10px;
 }
 

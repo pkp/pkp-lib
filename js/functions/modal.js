@@ -66,7 +66,7 @@ function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTi
 							alert(jsonData.content);
 						}
 					});
-					$(this).html("<div id='loading' class='throbber'></div>");
+					$(this).html("<div id='loading' class='deprecated_throbber'></div>");
 					$('#loading').show();
 				},
 				close: function() {
@@ -411,7 +411,7 @@ function actionThrobber(actOnId) {
 	$(actOnId)
 		.bind('actionStart', function() {
 			// Start throbber.
-			$(this).unbind('actionStart').html('<div id="actionThrobber" class="throbber"></div>');
+			$(this).unbind('actionStart').html('<div id="actionThrobber" class="deprecated_throbber"></div>');
 			$('#actionThrobber').show();
 		})
 		.bind('actionStop', function() {

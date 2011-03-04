@@ -28,7 +28,7 @@
 									{/if}
 									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId hoverTitle=true}
 								{else}
-									{include file="linkAction/linkAction.tpl" action=$action}
+									{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 								{/if}
 							{/foreach}
 						{/if}
@@ -39,7 +39,7 @@
 								{if is_a($action, 'LegacyLinkAction')}
 									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
 								{else}
-									{include file="linkAction/linkAction.tpl" action=$action}
+									{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 								{/if}
 							{/foreach}
 						</div>

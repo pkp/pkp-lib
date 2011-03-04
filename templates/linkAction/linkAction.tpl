@@ -8,10 +8,13 @@
  *
  * Parameters:
  *  action: A LinkAction object.
+ *  contextId: The name of the context in which the link
+ *   action is being placed. This is required to disambiguate
+ *   actions with the same id on one page.
  *}
 
 {* Generate the link action's button. *}
-{assign var=buttonId value=$id|concat:"-":$action->getId():"-button-"|uniqid}
+{assign var=buttonId value=$contextId|concat:"-":$action->getId():"-button-"|uniqid}
 {include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
 
 <script type="text/javascript">

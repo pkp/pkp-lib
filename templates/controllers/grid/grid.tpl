@@ -43,7 +43,7 @@
 						{/if}
 						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 					{else}
-						{include file="linkAction/linkAction.tpl" action=$action}
+						{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 					{/if}
 				{/foreach}
 			</span>
@@ -70,7 +70,7 @@
 											{/if}
 											{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 										{else}
-											{include file="linkAction/linkAction.tpl" action=$action}
+											{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 										{/if}
 									{/foreach}
 								</span>
@@ -115,7 +115,7 @@
 					{/if}
 					{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
 				{else}
-					{include file="linkAction/linkAction.tpl" action=$action}
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 				{/if}
 			{/foreach}
 		</div>

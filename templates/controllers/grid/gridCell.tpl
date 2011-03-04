@@ -13,7 +13,7 @@
 		{if is_a($action, 'LegacyLinkAction')}
 			{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$action->getId() action=$action objectId=$cellId}
 		{else}
-			{include file="linkAction/linkAction.tpl" action=$action}
+			{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
 		{/if}
 	{else}
 		{$label|strip_unsafe_html}

@@ -48,41 +48,45 @@ class UserApiHandler extends PKPHandler {
 	// Public handler methods
 	//
 	/**
-	 * Remotely set a user setting.
+	 * Update the information whether user messages should be
+	 * displayed or not.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string a JSON message
+	 * FIXME: Rename this method to make it clear that we do not intend to expose
+	 * the user_settings table remotely but only provide a "remote transaction"
+	 * with side effects in the database like all other handler operations do. A
+	 * better name may be updateUserMessageState() or something like that.
 	 */
 	function setUserSetting($args, &$request) {
+		// Exit with a fatal error if request parameters are missing.
+		if (!(isset($args['setting-name'])) && isset($args['setting-value'])) {
+			fatalError('Required request parameter "setting-name" or "setting-value" missing!');
+		}
+
 		// Retrieve the user from the session.
 		$user =& $request->getUser();
 		assert(is_a($user, 'User'));
 
-		// Exit with an error if request parameters are missing - no translation needed
-		// for fatal error messages.
-		if (!(isset($args['setting-name'])) && isset($args['setting-value'])) {
-			$json = new JSON(false, 'Required request parameter "setting-name" or "setting-value" missing!');
-			return $json->getString();
-		}
-
 		// Validate the setting.
+		// FIXME: We don't have to retrieve the setting type (which is always bool
+		// for user messages) but only whether the setting name is valid and the
+		// value is boolean.
 		$settingName = $args['setting-name'];
 		$settingValue = $args['setting-value'];
 		$settingType = $this->_settingType($settingName);
 		switch($settingType) {
 			case 'bool':
 				if (!($settingValue === 'false' || $settingValue === 'true')) {
-					// Send back error message - no translation needed for fatal error messages.
-					$json = new JSON(false, 'Invalid setting value! Must be "true" or "false".');
-					return $json->getString();
+					// Exit with a fatal error when the setting value is invalid.
+					fatalError('Invalid setting value! Must be "true" or "false".');
 				}
 				$settingValue = ($settingValue === 'true' ? true : false);
 				break;
 
 			default:
-				// Exit with a fatal error when an unknown setting is found - no translation
-				// needed for fatal error messages.
-				$json = new JSON(false, 'Unknown setting!');
+				// Exit with a fatal error when an unknown setting is found.
+				fatalError('Unknown setting!');
 				return $json->getString();
 		}
 

@@ -93,8 +93,6 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
 	 * Return a mapping of OpenURL genres to NLM publication
 	 * types.
 	 * NB: PHP4 work-around for a private static class member
-	 * FIXME: Implement this with an OpenURL-to-NLM crosswalk
-	 * filter.
 	 * @return array
 	 */
 	function _getOpenurl10GenreTranslationMapping() {

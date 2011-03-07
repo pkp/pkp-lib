@@ -31,6 +31,7 @@
 </script>
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
+	{$gridFilterForm}
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			<span class="options pkp_linkActions">

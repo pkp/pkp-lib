@@ -37,6 +37,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Bind the handler for the "elements changed" event.
 		this.bind('dataChanged', this.refreshGrid);
 
+		// Handle grid filter events.
+		this.bind('formSubmitted', this.refreshGridWithFilter);
+
 		// Save the ID of this row and it's grid.
 		this.gridId_ = options.gridId;
 
@@ -150,6 +153,24 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			$.get(this.fetchGridUrl_, null,
 					this.callbackWrapper(this.replaceGrid), 'json');
 		}
+	};
+
+
+	/**
+	 * Refresh the grid after it's filter has changed.
+	 *
+	 * @param {$.pkp.controllers.form.ClientFormHandler} filterForm
+	 *  The filter form.
+	 * @param {Event} event A "formSubmitted" event.
+	 * @param {string} filterData Serialized filter data.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridWithFilter =
+			function(filterForm, event, filterData) {
+
+		// Retrieve the grid from the server and add the
+		// filter data as form data.
+		$.post(this.fetchGridUrl_, filterData,
+				this.callbackWrapper(this.replaceGrid), 'json');
 	};
 
 

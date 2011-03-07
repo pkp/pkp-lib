@@ -15,7 +15,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.FormHandler
+	 * @extends $.pkp.controllers.form.FormHandler
 	 *
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
@@ -33,7 +33,7 @@
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler,
-			$.pkp.controllers.FormHandler);
+			$.pkp.controllers.form.FormHandler);
 
 
 	//

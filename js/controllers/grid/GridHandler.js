@@ -218,7 +218,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			var $grid = this.getHtmlElement();
 
 			// Replace the grid content
-			$grid.html(jsonData.content);
+			$grid.replaceWith(jsonData.content);
 
 			// Refresh row action event binding.
 			this.activateRowActions_();

@@ -37,6 +37,7 @@
 		// Initialize object properties.
 		this.eventBindings_ = { };
 		this.dataItems_ = { };
+		this.publishedEvents_ = { };
 
 		if (options.$eventBridge) {
 			// Configure the event bridge.
@@ -74,6 +75,14 @@
 	 * @type {Object.<string, boolean>}
 	 */
 	$.pkp.classes.Handler.prototype.dataItems_ = null;
+
+
+	/**
+	 * A list of published events.
+	 * @private
+	 * @type {Object.<string, boolean>}
+	 */
+	$.pkp.classes.Handler.prototype.publishedEvents_ = null;
 
 
 	/**
@@ -417,65 +426,84 @@
 
 
 	/**
-	 * This function should be used let the element emit events
-	 * meant for public use.
-	 *
-	 * These events will also be forwarded through the event bridge
-	 * if one has been configured.
+	 * This function should be used to let the element emit events
+	 * that bubble outside the widget and are published over the
+	 * event bridge.
 	 *
 	 * @protected
-	 * @param {string} eventType The event to be triggered.
+	 * @param {string} eventName The event to be triggered.
 	 * @param {Object=} data Additional event data.
-	 * @param {boolean=} publicOnly Whether the event should be
-	 *  triggered on this handler also (false by default).
 	 */
 	$.pkp.classes.Handler.prototype.trigger =
-			function(eventType, data, publicOnly) {
+			function(eventName, data) {
 
-		publicOnly = (publicOnly ? true : false);
-
-		// Trigger the event on the handled element and its parent elements.
+		// Trigger the event on the handled element.
 		var $handledElement = this.getHtmlElement();
-		if (data) {
-			if (!publicOnly) {
-				$handledElement.triggerHandler(eventType, data);
-			}
-			$handledElement.parent().trigger(eventType, data);
-		} else {
-			if (!publicOnly) {
-				$handledElement.triggerHandler(eventType);
-			}
-			$handledElement.parent().trigger(eventType);
-		}
+		$handledElement.triggerHandler(eventName, data);
 
-		// If we have an event bridge configured then re-trigger
-		// the event on the target object.
-		if (this.$eventBridge_) {
-			if (data) {
-				this.$eventBridge_.trigger(eventType, data);
-			} else {
-				this.$eventBridge_.trigger(eventType);
-			}
+		// Trigger the event publicly if it's not
+		// published anyway.
+		if (!this.publishedEvents_[eventName]) {
+			this.triggerPublicEvent_(eventName, data);
 		}
 	};
 
 
 	/**
-	 * Publish an event triggered by a nested widget.
+	 * Publish an event triggered by a nested widget. This event
+	 * will bubble outside the widget and will also be published
+	 * over the event bridge.
 	 *
-	 * @param {string} eventType The event name.
+	 * @param {string} eventName The event name.
 	 */
-	$.pkp.classes.Handler.prototype.publishEvent = function(eventType) {
-		this.bind(eventType, function(context, privateEvent, var_args) {
+	$.pkp.classes.Handler.prototype.publishEvent = function(eventName) {
+		// If the event has been published before then do nothing.
+		if (this.publishedEvents_[eventName]) {
+			return;
+		}
+
+		// Add the event to the published event list.
+		this.publishedEvents_[eventName] = true;
+
+		this.bind(eventName, function(context, privateEvent, var_args) {
 			// Retrieve additional event data.
-			var eventArgs = null;
+			var eventData = null;
 			if (arguments.length > 2) {
-				eventArgs = Array.prototype.slice.call(arguments, 2);
+				eventData = Array.prototype.slice.call(arguments, 2);
 			}
 
 			// Re-trigger the private event publicly.
-			this.trigger(privateEvent.type, eventArgs, true);
+			this.triggerPublicEvent_(eventName, eventData);
 		});
+	};
+
+
+	//
+	// Private methods
+	//
+	/**
+	 * Trigger a public event.
+	 *
+	 * Public events will bubble outside the widget and will
+	 * also be forwarded through the event bridge if one has
+	 * been configured.
+	 *
+	 * @private
+	 * @param {string} eventName The event to be triggered.
+	 * @param {Object=} data Additional event data.
+	 */
+	$.pkp.classes.Handler.prototype.triggerPublicEvent_ =
+			function(eventName, data) {
+
+		// Publish the event.
+		var $handledElement = this.getHtmlElement();
+		$handledElement.parent().trigger(eventName, data);
+
+		// If we have an event bridge configured then re-trigger
+		// the event on the target object.
+		if (this.$eventBridge_) {
+			this.$eventBridge_.trigger(eventName, data);
+		}
 	};
 
 

@@ -133,16 +133,21 @@ class PKPCitationGridHandler extends GridHandler {
 		// Grid actions
 		$router =& $request->getRouter();
 		$this->addAction(
-				new LinkAction(
-						'addCitation',
-						new AjaxAction(
-								LINK_ACTION_TYPE_GET,
-								$router->url($request, null, null, 'addCitation', null,
-										array('assocId' => $this->getAssocId())),
-								'citationEditorDetailCanvas'),
-						__('submission.citations.editor.citationlist.newCitation'),
-						'add'),
-				GRID_ACTION_POSITION_LASTCOL);
+			new LinkAction(
+				'addCitation',
+				new AjaxAction(
+					LINK_ACTION_TYPE_GET,
+					$router->url(
+						$request, null, null, 'addCitation', null,
+						array('assocId' => $this->getAssocId())
+					),
+					'citationEditorDetailCanvas'
+				),
+				__('submission.citations.editor.citationlist.newCitation'),
+				'add'
+			),
+			GRID_ACTION_POSITION_LASTCOL
+		);
 
 		// Columns
 		$cellProvider = new PKPCitationGridCellProvider();

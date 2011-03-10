@@ -69,7 +69,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 
 	//
-	// Public static methods
+	// Public methods
 	//
 	/**
 	 * Internal callback called whenever the form changes.

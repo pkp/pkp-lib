@@ -33,7 +33,7 @@
 
 
 	//
-	// Public static methods
+	// Public methods
 	//
 	/**
 	 * @inheritDoc

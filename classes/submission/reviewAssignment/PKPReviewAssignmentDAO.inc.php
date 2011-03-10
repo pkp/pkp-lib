@@ -303,7 +303,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * Determine the order of active reviews for the given round of the given submission
 	 * @param $submissionId int
 	 * @param $round int
-	 * @return array associating review ID with number; ie if review ID 26 is first, returned['26']=0
+	 * @return array Associating review ID with number, i.e. if review ID 26 is first returned['26']=0.
 	 */
 	function &getReviewIndexesForRound($submissionId, $round) {
 		$result =& $this->retrieve(

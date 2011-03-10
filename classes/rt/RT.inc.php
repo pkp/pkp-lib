@@ -122,10 +122,12 @@ class RT {
 	}
 
 	function setAuthorBio($authorBio) {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		$this->authorBio = $authorBio;
 	}
 
 	function getAuthorBio() {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return $this->authorBio;
 	}
 

@@ -193,6 +193,7 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId
 	 * @param $roleId
 	 * @param $default
+	 * @return DAOResultFactory
 	 */
 	function &getByRoleId($contextId, $roleId, $default = false) {
 		$params = array($contextId, $roleId);
@@ -300,7 +301,7 @@ class UserGroupDAO extends DAO {
 	 * Retrieve user groups to which a user is assigned.
 	 * @param $userId int
 	 * @param $contextId int
-	 * @return Iterator UserGroup
+	 * @return DAOResultFactory
 	 */
 	function &getByUserId($userId, $contextId = 0){
 		$params = array($userId, $contextId);

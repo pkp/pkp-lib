@@ -234,7 +234,7 @@ class SignoffDAO extends DAO {
 	 * @param $userId int
 	 * @param $stageId int
 	 * @param $userGroupId int
-	 * @return object
+	 * @return Signoff
 	 */
 	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
@@ -273,7 +273,7 @@ class SignoffDAO extends DAO {
 	 * @param $userId int
 	 * @param $stageId int
 	 * @param $userGroupId int
-	 * @return object
+	 * @return DAOResultFactory
 	 */
 	function getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $stageId = null, $userGroupId = null) {
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
@@ -313,7 +313,7 @@ class SignoffDAO extends DAO {
 	/**
 	 * Retrieve an array of signoffs matching the specified user id
 	 * @param $userId int
-	 * @return object
+	 * @return DAOResultFactory
 	 */
 	function getByUserId($userId) {
 		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';

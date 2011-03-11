@@ -144,6 +144,11 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		var $uploadForm = this.getHtmlElement();
 		var multipartParams = { };
 
+		// Add the uploader user group id.
+		var $uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId');
+		$uploaderUserGroupId.attr('disabled', 'disabled');
+		multipartParams.uploaderUserGroupId = $uploaderUserGroupId.val();
+
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {
 			var $revisedFileId = $uploadForm.find('#revisedFileId');

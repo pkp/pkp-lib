@@ -427,24 +427,27 @@ class GridHandler extends PKPHandler {
 	 */
 	function renderFilter($request, $filterData = array()) {
 		$form = $this->getFilterForm();
-		assert(is_a($form, 'Form') || is_string($form));
+		assert(is_null($form) || is_a($form, 'Form') || is_string($form));
 
 		$renderedForm = '';
+		switch(true) {
+			case is_a($form, 'Form'):
+				// FIXME: Implement the possibility to use forms for the filter part of the grid
+				assert(false);
+				break;
 
-		if(is_a($form, 'Form')) {
-			// FIXME: Implement the possibility to use forms for the filter part of the grid
-			assert(false);
-		} else if(is_string($form)) {
-			$templateMgr =& TemplateManager::getManager();
+			case is_string($form):
+				$templateMgr =& TemplateManager::getManager();
 
-			// Assign data to the filter.
-			$templateMgr->assign('filterData', $filterData);
+				// Assign data to the filter.
+				$templateMgr->assign('filterData', $filterData);
 
-			// Assign current selected filter data.
-			$filterSelectionData = $this->getFilterSelectionData($request);
-			$templateMgr->assign('filterSelectionData', $filterSelectionData);
+				// Assign current selected filter data.
+				$filterSelectionData = $this->getFilterSelectionData($request);
+				$templateMgr->assign('filterSelectionData', $filterSelectionData);
 
-			$renderedForm = $templateMgr->fetch($form);
+				$renderedForm = $templateMgr->fetch($form);
+				break;
 		}
 
 		return $renderedForm;

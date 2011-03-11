@@ -90,7 +90,7 @@ class GridDataProvider {
 	 * Retrieve the data to load into the grid.
 	 * @return array
 	 */
-	function getRowData() {
+	function &loadData() {
 		assert(false);
 	}
 }

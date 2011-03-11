@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2003-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
- * 
+ *
  * @ingroup pkp_controllers_grid
  *
  * @brief Classes for grid structure
@@ -131,7 +131,6 @@ div.pkp_controllers_grid {
 
 	.row_controls {
 		display: none;
-		height: 25px;
 		line-height: 25px;
 		vertical-align: middle;
 		overflow: hidden;
@@ -246,7 +245,10 @@ div.pkp_controllers_grid {
 		background: url(../lib/pkp/templates/images/throbber.gif) no-repeat;
 		width: 25px;
 		height: 25px;
-		margin-left: 50%;
-		margin-top: 5%;
+		margin: 5% auto 0 auto;
+	}
+
+	.visible {
+		display: block;
 	}
 }

@@ -96,4 +96,7 @@
 	<message key="grid.user.addRoles">Add Roles</message>
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
+	
+	<!-- Prepared emails -->
+	<message key="grid.preparedEmails.currentList">Current List</message>
 </locale>

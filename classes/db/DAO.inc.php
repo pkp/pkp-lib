@@ -561,15 +561,12 @@ class DAO {
 	 * to the client to refresh itself according to changes
 	 * in the DB.
 	 *
-	 * @param $elementId integer To refresh a single element
+	 * @param $elementId string To refresh a single element
 	 *  give the element ID here. Otherwise all elements will
 	 *  be refreshed.
 	 * @return string A rendered JSON message.
 	 */
 	function getDataChangedEvent($elementId = null) {
-		// Cast element id to integer.
-		$elementId = (is_null($elementId) ? null : (int)$elementId);
-
 		// Create the event data.
 		$eventData = null;
 		if ($elementId) {

@@ -386,7 +386,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Instantiate a new row.
 	 * @param $request Request
-	 * @param $elementId integer
+	 * @param $elementId string
 	 * @param $element mixed
 	 * @return GridRow
 	 */

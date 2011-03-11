@@ -1176,7 +1176,7 @@ class PKPTemplateManager extends Smarty {
 			unset($params['url'], $params['id'], $params['loadMessageId'], $params['class']);
 			$this->assign('inDivLoadMessage', Locale::translate($loadMessageId, $params));
 		} else {
-			$this->assign('inDivLoadMessage', Locale::translate('common.loading'));
+			$this->assign('inDivLoadMessage', $this->fetch('common/loadingContainer.tpl'));
 		}
 
 		return $this->fetch('common/urlInDiv.tpl');

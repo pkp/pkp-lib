@@ -15,7 +15,7 @@
 	$(function() {
 		$.getJSON("{/literal}{$inDivUrl|escape:"javascript"}{literal}", function(jsonData) {
 			if (jsonData.status === true) {
-				$("#{/literal}{$inDivDivId}{literal}").html(jsonData.content);
+				$("#{/literal}{$inDivDivId}{literal}").hide().html(jsonData.content).fadeIn(400);
 			} else {
 				// Alert that loading failed
 				alert(jsonData.content);

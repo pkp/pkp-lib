@@ -20,7 +20,7 @@ Last Updated : March 2, 2010
 /* ----- INFO ----- */
 
 .info{
-	display:inline-block; 
+	display:inline-block;
 	clear:both;
 	margin:0 0 5px 0;
 	padding:0 1% 1.1em 1%;
@@ -61,10 +61,10 @@ form li{
 	-webkit-transition: background-color 350ms ease-out;
 }
 form ul:after,form li:after, form li div:after{
-	content:"."; 
+	content:".";
 	display:block;
-	height:0; 
-	clear:both; 
+	height:0;
+	clear:both;
 	visibility:hidden;
 }
 * html form li{height: 1%;margin-bottom:-3px;}
@@ -118,14 +118,14 @@ form li.complex div span{
 form li.complex div span.full{
 	margin:0;
 }
-form li.complex div span.left, 
+form li.complex div span.left,
 form li.complex div span.right{
 	margin:0;
 	width:48%;
 }
-form li.complex div span.full input, 
-form li.complex div span.full select, 
-form li.complex div span.left input, 
+form li.complex div span.full input,
+form li.complex div span.full select,
+form li.complex div span.left input,
 form li.complex div span.right input,
 form li.complex div span.left select,
 form li.complex div span.right select{
@@ -151,9 +151,9 @@ label span, .section span, p span, .likert span{
 
 /* ----- TEXT DIRECTION ----- */
 
-.rtl .info h2, .rtl .info div, .rtl label.desc, .rtl label.choice, 
-.rtl div label, .rtl span label, .rtl input.text, 
-.rtl textarea.textarea, .rtl select.select, .rtl p.instruct, 
+.rtl .info h2, .rtl .info div, .rtl label.desc, .rtl label.choice,
+.rtl div label, .rtl span label, .rtl input.text,
+.rtl textarea.textarea, .rtl select.select, .rtl p.instruct,
 .rtl .section h3, .rtl .section div, .rtl input.btTxt{
 	direction:rtl;
 }
@@ -234,7 +234,6 @@ form li div label .currently{
 input.text, input.search, input.file, textarea.textarea, select.select{
 	font-family:"Lucida Grande", Tahoma, Arial, sans-serif;
 	font-size:100%;
-	color:#333;
 	margin:0;
 	padding:2px 0;
 }
@@ -276,10 +275,10 @@ input.other{
 	margin:1px 0;
 }
 
-.center, 
+.center,
 form li span.center input.text, form li span.center label,
 form li.name span label,
-form li.date input.text, form li.date span label, 
+form li.date input.text, form li.date span label,
 form li.phone input.text, form li.phone span label,
 form li.time input.text, form li.time span label{
 	text-align:center;
@@ -445,7 +444,7 @@ form li.likert{
 
 /* ----- Likert Classes ----- */
 
-.col1 td{width:30%;} 
+.col1 td{width:30%;}
 .col2 td{width:25%;}
 .col3 td{width:18%;}
 .col4 td{width:14.5%;}
@@ -636,7 +635,7 @@ li.leftThird p.complex, li.middleThird p.complex, li.rightThird p.complex,
 
 /* ----- ADVANCED CLASSNAMES ----- */
 
-.hideSeconds .seconds, .hideAMPM .ampm, .hideAddr2 .addr2, .hideSecondary #previousPageButton, 
+.hideSeconds .seconds, .hideAMPM .ampm, .hideAddr2 .addr2, .hideSecondary #previousPageButton,
 .hideCents .decimal, .hideCents .radix{
 	display:none;
 }

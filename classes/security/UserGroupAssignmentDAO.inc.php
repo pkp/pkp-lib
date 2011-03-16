@@ -83,7 +83,7 @@ class UserGroupAssignmentDAO extends DAO {
 						WHERE ug.context_id = ?' . ($userId?' AND uug.user_id = ?':''),
 					$params);
 
-		$assignments =& new DAOResultFactory($result, $this, '_returnFromRow');
+		$assignments = new DAOResultFactory($result, $this, '_returnFromRow');
 		while ( !$assignments->eof() ) {
 			$assignment =& $assignments->next();
 			$this->deleteByUserId($assignment->getUserId(), $assignment->getUserGroupId());

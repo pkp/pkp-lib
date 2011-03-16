@@ -621,7 +621,7 @@ class UserGroupDAO extends DAO {
 			$userGroup =& $this->newDataObject();
 
 			// create a role associated with this user group
-			$role =& new Role($roleId);
+			$role = new Role($roleId);
 			$userGroup =& $this->newDataObject();
 			$userGroup->setRoleId($roleId);
 			$userGroup->setPath($role->getPath());

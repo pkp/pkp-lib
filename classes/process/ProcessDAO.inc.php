@@ -356,7 +356,7 @@ class ProcessDAO extends DAO {
 	 * @return Process
 	 */
 	function &_fromRow(&$row) {
-		$process =& new Process();
+		$process = new Process();
 		$process->setId($row['process_id']);
 		$process->setProcessType((integer)$row['process_type']);
 		$process->setTimeStarted((integer)$row['time_started']);

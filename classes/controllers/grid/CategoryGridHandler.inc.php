@@ -6,10 +6,10 @@
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class GridHandler
+ * @class CategoryGridHandler
  * @ingroup controllers_grid
  *
- * @brief Class defining basic operations for handling HTML grids.
+ * @brief Class defining basic operations for handling HTML grids with categories.
  */
 
 // import grid classes
@@ -34,6 +34,8 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * Render the entire grid controller and send
 	 * it to the client.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 * @return string the grid HTML
 	 */
 	function fetchGrid($args, &$request) {
@@ -78,7 +80,7 @@ class CategoryGridHandler extends GridHandler {
 	//
  	/**
  	 * Render all the categories internally
- 	 * @param $request
+ 	 * @param $request PKPRequest
  	 */
 	function _renderCategoriesInternally(&$request) {
 		// Iterate through the rows and render them according
@@ -110,8 +112,9 @@ class CategoryGridHandler extends GridHandler {
 
 	/**
 	 * Optionally render a category row and render its data.  If no category data given, render the rows only
-	 * @param PKPRequest $request
-	 * @param GridCategoryRow $categoryRow
+	 * @param $request PKPRequest
+	 * @param $categoryRow GridCategoryRow
+	 * @param $iterator int optional
 	 * @return String HTML for all the rows (including category)
 	 */
 	function _renderCategoryInternally(&$request, &$categoryRow, $iterator = null) {
@@ -137,8 +140,8 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * Given a category name and a data element, return an id that identifies this category
 	 * To be used for sorting data elements into category buckets
-	 * @param Data Object $element
-	 * @param String $category
+	 * @param $element DataObject
+	 * @param $category String
 	 * return mixed int/string
 	 */
 	function getCategoryIdFromElement(&$element, $category) {
@@ -146,4 +149,5 @@ class CategoryGridHandler extends GridHandler {
 		return GRID_CATEGORY_NONE;
 	}
 }
+
 ?>

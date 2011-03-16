@@ -154,4 +154,5 @@ class GridRow {
 		$this->setTemplate($template);
 	}
 }
+
 ?>

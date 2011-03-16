@@ -65,13 +65,13 @@
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			if (jsonData.content !== '') {
+			if (jsonData.content === '') {
+				// Trigger the "form submitted" event.
+				this.trigger('formSubmitted');
+			} else {
 				// Redisplay the form.
 				var $form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);
-			} else {
-				// Trigger the "form submitted" event.
-				this.trigger('formSubmitted');
 			}
 		}
 		return jsonData.status;

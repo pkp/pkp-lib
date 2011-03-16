@@ -30,6 +30,7 @@ define('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
 // the base class and the re-factored grid handler then you know
 // you're on the right track.
 class ListbuilderHandler extends GridHandler {
+
 	/** @var string The label associated with the primary source to be added to the list **/
 	var $_sourceTitle;
 
@@ -49,7 +50,8 @@ class ListbuilderHandler extends GridHandler {
 	var $_additionalData;
 
 	/** @var array Array of strings containing possible items that are stored in the source list */
-	var $_possibleItems;
+	var $_possibleItems = array();
+
 
 	/**
 	 * Constructor.
@@ -63,22 +65,23 @@ class ListbuilderHandler extends GridHandler {
 	// Getters and Setters
 	//
 	/**
-	 * Get possible items for left-hand drop-down list
+	 * Get possible items for left-hand drop-down list.
+	 * @return array
 	 */
 	function getPossibleItemList() {
 		return $this->_possibleItems;
 	}
 
 	/**
-	 * Set possible items for left-hand drop-down list
+	 * Set possible items for left-hand drop-down list.
+	 * @param $possibleItems array
 	 */
 	function setPossibleItemList($possibleItems) {
 		$this->_possibleItems = $possibleItems;
 	}
 
-
 	/**
-	 * Get the listbuilder template
+	 * Get the listbuilder template.
 	 * @return string
 	 */
 	function getTemplate() {
@@ -91,9 +94,6 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Set the title for the source (left side of the listbuilder)
-	 * FIXME: AFAIK doxygen needs the $ to correctly parse variable names
-	 *  I've corrected this throughout the code but leave this as a marker
-	 *  for you.
 	 * @param $sourceTitle string
 	 */
 	function setSourceTitle($sourceTitle) {
@@ -204,31 +204,11 @@ class ListbuilderHandler extends GridHandler {
 		return $this->_additionalData;
 	}
 
-	/**
- 	 * Build a list of <option>'s based on the input (can be array or one list item)
-	 * @param $itemName string
-	 * @param $attributeNames string
-	 */
-	function _buildListItemHTML($itemId = null, $itemName = null, $attributeNames = null) {
-		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('lbItemId', $itemId);
-		$templateMgr->assign('lbItemName', $itemName);
-
-		if (isset($attributeNames)) {
-			if (is_array($attributeNames)) $attributeNames = implode(', ', $attributeNames);
-			$templateMgr->assign('lbAttributeNames', $attributeNames);
-		}
-
-		return $templateMgr->fetch('controllers/listbuilder/listbuilderItem.tpl');
-	}
-
 
 	/**
 	 * Display the Listbuilder
 	 */
 	function fetch(&$args, &$request, $additionalVars = null) {
-		// FIXME: User validation
-
 		$templateMgr =& TemplateManager::getManager();
 		$this->setupTemplate();
 		$router =& $request->getRouter();
@@ -265,6 +245,7 @@ class ListbuilderHandler extends GridHandler {
 		return $json->getString();
 	}
 
+
 	//
 	// Overridden methods from GridHandler
 	//
@@ -278,6 +259,23 @@ class ListbuilderHandler extends GridHandler {
 		return $row;
 	}
 
+
+	//
+	// Overridden methods from PKPHandler
+	//
+	/**
+	 * @see PKPHandler::setupTemplate()
+	 */
+	function setupTemplate() {
+		parent::setupTemplate();
+
+		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
+	}
+
+
+	//
+	// Abstract protected methods to be implemented by subclasses.
+	//
 	/**
 	 * Handle adding an item to the list
 	 * NB: sub-classes must implement this method.
@@ -294,14 +292,60 @@ class ListbuilderHandler extends GridHandler {
 		assert(false);
 	}
 
-	/**
-	 * @see PKPHandler::setupTemplate()
-	 */
-	function setupTemplate() {
-		parent::setupTemplate();
 
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
+	//
+	// Protected helper methods
+	//
+	/**
+	 * Retrieves the added item from the request and
+	 * checks whether it points to an item that is part of
+	 * the possible item list.
+	 * FIXME: This should be called by default in all list builders
+	 * whenever we add items, see #6193. This method can then
+	 * probably be made private.
+	 * @param $args array
+	 * @return string
+	 */
+	function getAddedItemId($args) {
+		// Retrieve the item id.
+		$rowId = "selectList-" . $this->getId();
+		$itemId = (int)$args[$rowId];
+		if(!isset($itemId)) fatalError('Missing item id!');
+
+		// Check whether the item id is part of the
+		// possible items.
+		$possibleItems =& $this->getPossibleItemList();
+		if (!isset($possibleItems[$itemId])) fatalError('Trying to add an item that is not part of the possible items!');
+
+		return $itemId;
+	}
+
+	/**
+	 * Retrieve a list of items from the request that were
+	 * selected for deletion and checks whether these items
+	 * are actually part of the list.
+	 * FIXME: This should be called by default in all list builders
+	 * whenever we add/delete items, see #6193. This method can then
+	 * probably be made private.
+	 * @param $request Request
+	 * @param $args array
+	 * @param $numInitialArgs integer The number of request arguments
+	 *  used to call the list builder. This is required because the
+	 *  deleted elements will be at the end of the argument list.
+	 *  FIXME: Implement the deleted parameters as a proper array
+	 *  with it's own parameter name, see #6193.
+	 * @return array An array of strings.
+	 */
+	function getDeletedItemIds(&$request, $args, $numInitialArgs) {
+		$rowIds = array_splice($args, $numInitialArgs + 1);
+		$availbaleItems =& $this->getGridDataElements($request);
+		$items = array();
+		foreach($rowIds as $rowId) {
+			$itemId = (int)array_pop(explode('-', $rowId));
+			if (!isset($availbaleItems[$itemId])) fatalError('Trying to delete an item that is not on the list!');
+			$items[] = $itemId;
+		}
+		return $items;
 	}
 }
-
 ?>

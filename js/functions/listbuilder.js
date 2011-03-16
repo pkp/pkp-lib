@@ -112,17 +112,14 @@ function deleteItems(handler, listbuilderId) {
  */
 function selectRow(listbuilderGridId) {
 	$('#results-'+listbuilderGridId)
-		.css("cursor","pointer")
-		.live("click", (function(e) {
-			var clicked = $(e.target);
-			if(clicked.parent().is('tr') && !clicked.parent().hasClass('empty')) {
-				clicked.parent().toggleClass('selected');
-			}
-			if(clicked.parent().parent().is('tr') && !clicked.parent().parent().hasClass('empty')) {
-				clicked.parent().parent().toggleClass('selected');
+		.css('cursor', 'pointer')
+		.click(function(e) {
+			var $clicked = $(e.target).closest('tr');
+			if($clicked.length && !$clicked.hasClass('empty')) {
+				$clicked.toggleClass('selected');
 			}
 			return false;
-		}));
+		});
 }
 
 /**

@@ -62,7 +62,9 @@
 						<span>
 						<select name="selectList-{$listbuilderId|escape}" id="selectList-{$listbuilderId|escape}" class="field select">
 							<option>{translate key="manager.setup.selectOne"}</option>
-							{foreach from=$listbuilder->getPossibleItemList() item=item}{$item}{/foreach}
+							{foreach from=$listbuilder->getPossibleItemList() key="itemId" item="itemName"}
+								<option value="{$itemId|escape}">{$itemName|escape}</option>
+							{/foreach}
 						</select>
 							<label for="selectList-{$listbuilderId|escape}">
 								{translate key=$listbuilder->getSourceTitle()}

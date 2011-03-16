@@ -83,17 +83,16 @@ class CategoryGridHandler extends GridHandler {
 	function _renderCategoriesInternally(&$request) {
 		// Iterate through the rows and render them according
 		// to the row definition.
-		$elementIterator = $this->getGridDataElements($request);
 		$renderedCategories = array();
 		$iterator = 1;
-		while (!$elementIterator->eof()) {
+		$elements = $this->getGridDataElements($request);
+		foreach($elements as $key => $element) {
 
 			// Instantiate a new row
 			$categoryRow =& $this->getCategoryRowInstance();
 			$categoryRow->setGridId($this->getId());
 
 			// Use the element key as the row id
-			list($key, $element) = $elementIterator->nextWithKey();
 			$categoryRow->setId($key);
 			$categoryRow->setData($element);
 

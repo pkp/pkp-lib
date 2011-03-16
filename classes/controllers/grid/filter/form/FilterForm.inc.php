@@ -137,7 +137,7 @@ class FilterForm extends Form {
 			// instantiated again because they already
 			// have been instantiated and cannot be parameterized.
 			$filterClassBlacklist = array();
-			foreach($alreadyInstantiatedFilters->toArray() as $alreadyInstantiatedFilter) {
+			foreach($alreadyInstantiatedFilters as $alreadyInstantiatedFilter) {
 				if (!$alreadyInstantiatedFilter->hasSettings()) {
 					$filterClassBlacklist[] = $alreadyInstantiatedFilter->getClassName();
 				}

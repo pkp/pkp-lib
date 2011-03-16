@@ -138,26 +138,25 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Get the grid data.
-	 * @return ItemIterator
+	 * @return array
 	 */
 	function &getGridDataElements($request) {
+		static $firstFetch = true;
+
+		// Try to load data if it has not yet been loaded.
 		if (is_null($this->_data)) {
 			$filter = $this->getFilterSelectionData($request);
 			$data = $this->loadData($request, $filter);
 
 			if (is_null($data)) {
-				// initialize data to an empty iterator
-				import('lib.pkp.classes.core.ItemIterator');
-				$data = new ItemIterator();
+				// Initialize data to an empty array.
+				$data = array();
 			}
+
 			$this->setGridDataElements($data);
 		}
 
-		// Make a copy of the iterator (iterators
-		// "auto-destroy" after one-time use...)
-		assert(is_a($this->_data, 'ItemIterator'));
-		$elementIterator =& cloneObject($this->_data);
-		return $elementIterator;
+		return $this->_data;
 	}
 
 	/**
@@ -166,9 +165,8 @@ class GridHandler extends PKPHandler {
 	 */
 	function hasGridDataElements($request) {
 		$data =& $this->getGridDataElements($request);
-		assert (is_a($data, 'ItemIterator'));
-		$hasGridDataElements = $data->getCount() ? true : false;
-		return $hasGridDataElements;
+		assert (is_array($data));
+		return (boolean) count($data);
 	}
 
 	/**
@@ -176,11 +174,14 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements(&$data) {
-		if (is_a($data, 'ItemIterator')) {
+		// FIXME: We go to arrays for all types of iterators because
+		// iterators cannot be re-used, see #6498.
+		if (is_array($data)) {
 			$this->_data =& $data;
-		} elseif(is_array($data)) {
-			import('lib.pkp.classes.core.ArrayItemIterator');
-			$this->_data = new ArrayItemIterator($data);
+		} elseif(is_a($data, 'DAOResultFactory')) {
+			$this->_data = $data->toAssociativeArray();
+		} elseif(is_a($data, 'ItemIterator')) {
+			$this->_data = $data->toArray();
 		} else {
 			assert(false);
 		}
@@ -374,17 +375,13 @@ class GridHandler extends PKPHandler {
 	 * @return mixed
 	 */
 	function &getRowDataElement($request, $rowId) {
-		$elementIterator =& $this->getGridDataElements($request);
-		if (is_a($elementIterator, 'DAOResultFactory')) {
-			$dataArray =& $elementIterator->toAssociativeArray();
-		} else {
-			$dataArray =& $elementIterator->toArray();
-		}
-		if (!isset($dataArray[$rowId])) {
+		$elements =& $this->getGridDataElements($request);
+		assert(is_array($elements));
+		if (!isset($elements[$rowId])) {
 			$nullVar = null;
 			return $nullVar;
 		} else {
-			return $dataArray[$rowId];
+			return $elements[$rowId];
 		}
 	}
 
@@ -483,8 +480,8 @@ class GridHandler extends PKPHandler {
 	 */
 	function _renderGridBodyPartsInternally(&$request) {
 		// Render the rows.
-		$elementIterator = $this->getGridDataElements($request);
-		$renderedRows = $this->_renderRowsInternally($request, $elementIterator);
+		$elements = $this->getGridDataElements($request);
+		$renderedRows = $this->_renderRowsInternally($request, $elements);
 
 		// Render the body part.
 		$templateMgr =& TemplateManager::getManager();
@@ -499,17 +496,14 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Cycle through the data and get generate the row HTML.
 	 * @param $request PKPRequest
-	 * @param $elementIterator ItemIterator
+	 * @param $elements array The grid data elements to be rendered.
 	 * @return array of HTML Strings for Grid Rows.
 	 */
-	function _renderRowsInternally(&$request, &$elementIterator) {
+	function _renderRowsInternally(&$request, &$elements) {
 		// Iterate through the rows and render them according
 		// to the row definition.
 		$renderedRows = array();
-		while (!$elementIterator->eof()) {
-			// Get the element for the row and its key
-			list($elementId, $element) = $elementIterator->nextWithKey();
-
+		foreach ($elements as $elementId => $element) {
 			// Instantiate a new row.
 			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
 

@@ -201,20 +201,18 @@ class PKPCitationGridHandler extends GridHandler {
 
 		$errorMessage = null;
 		$citations =& $this->getGridDataElements($request);
-		if ($citations->eof()) {
+		if (empty($citations)) {
 			$errorMessage = $noCitationsFoundMessage;
 		} else {
 			// Check whether we have any unapproved citations.
-			while (!$citations->eof()) {
+			foreach($citations as $citation) {
 				// Retrieve NLM citation meta-data
-				$citation =& $citations->next();
 				if ($citation->getCitationState() < CITATION_APPROVED) {
 					// Oops, found an unapproved citation, won't be able to
 					// export then.
 					$errorMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
 					break;
 				}
-				unset($citation);
 			}
 
 			// Only go on when we've no error so far

@@ -1,5 +1,5 @@
 {**
- * listbuilderGrid.tpl
+ * templates/controllers/listbuilder/listbuilderGrid.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -18,7 +18,7 @@
 			so that we can restore it if the user deletes all rows.
 		**}
 		<tr class="empty"{if $rows} style="display: none;"{/if}>
-			<td colspan="{$numColumns|escape}">{translate key="grid.noItems"}</td>
+			<td colspan="{$columns|@count}">{translate key="grid.noItems"}</td>
 		</tr>
     </tbody>
 </table>

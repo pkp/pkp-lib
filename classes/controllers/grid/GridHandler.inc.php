@@ -33,7 +33,7 @@ define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
 class GridHandler extends PKPHandler {
-	/** @var string grid title */
+	/** @var string grid title locale key */
 	var $_title = '';
 
 	/**
@@ -66,7 +66,7 @@ class GridHandler extends PKPHandler {
 	//
 	/**
 	 * Get the grid title.
-	 * @return string
+	 * @return string locale key
 	 */
 	function getTitle() {
 		return $this->_title;
@@ -74,7 +74,7 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Set the grid title.
-	 * @param $title string
+	 * @param $title string locale key
 	 */
 	function setTitle($title) {
 		$this->_title = $title;
@@ -138,11 +138,10 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Get the grid data.
+	 * @param $request PKPRequest
 	 * @return array
 	 */
 	function &getGridDataElements($request) {
-		static $firstFetch = true;
-
 		// Try to load data if it has not yet been loaded.
 		if (is_null($this->_data)) {
 			$filter = $this->getFilterSelectionData($request);
@@ -258,7 +257,6 @@ class GridHandler extends PKPHandler {
 		// Add columns to the view.
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
-		$templateMgr->assign('numColumns', count($columns));
 
 		// Render the body elements.
 		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);

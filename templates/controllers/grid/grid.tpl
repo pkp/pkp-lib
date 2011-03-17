@@ -52,7 +52,7 @@
 		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
-				{"<col />"|str_repeat:$numColumns}
+				{foreach from=$columns item=column}<col />{/foreach}
 			</colgroup>
 			<thead>
 				{** build the column headers **}
@@ -99,7 +99,7 @@
 					so that we can restore it if the user deletes all rows.
 				**}
 				<tr>
-					<td colspan="{$numColumns|escape}">{translate key="grid.noItems"}</td>
+					<td colspan="{$columns|@count}">{translate key="grid.noItems"}</td>
 				</tr>
 			</tbody>
 		</table>

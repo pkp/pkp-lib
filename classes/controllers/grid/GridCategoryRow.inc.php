@@ -22,22 +22,10 @@ class GridCategoryRow extends GridRow {
 		parent::GridRow();
 	}
 
+
 	//
 	// Getters/Setters
 	//
-
-	/**
-	 * Get the row template - override base
-	 * implementation to provide a sensible default.
-	 * @return string
-	 */
-	function getTemplate() {
-		if (is_null($this->_template)) {
-			$this->setTemplate('controllers/grid/gridCategoryRow.tpl');
-		}
-
-		return $this->_template;
-	}
 
 	/**
 	 * Category rows only have one cell and one label.  This is it.
@@ -47,5 +35,14 @@ class GridCategoryRow extends GridRow {
 	function getCategoryLabel() {
 		return '';
 	}
+
+
+	//
+	// Public methods
+	//
+	function initialize($request, $template = 'controllers/grid/gridCategoryRow.tpl') {
+		parent::initialize($request, $template);
+	}
 }
+
 ?>

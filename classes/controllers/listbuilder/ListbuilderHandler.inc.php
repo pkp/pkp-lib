@@ -230,7 +230,6 @@ class ListbuilderHandler extends GridHandler {
 		// initialize to create the columns
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
-		$templateMgr->assign('numColumns', count($columns));
 
 		// Render the rows
 		// FIXME: Using a private method in a sub-class is not allowed. This is duplicate

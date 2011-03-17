@@ -47,7 +47,6 @@ class CategoryGridHandler extends GridHandler {
 		// Add columns to the view
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
-		$templateMgr->assign('numColumns', count($columns));
 
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
@@ -128,7 +127,6 @@ class CategoryGridHandler extends GridHandler {
 		$templateMgr->assign_by_ref('rows', $renderedRows);
 
 		$columns =& $this->getColumns();
-		$templateMgr->assign('numColumns', count($columns));
 		$templateMgr->assign('iterator', $iterator);
 		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());

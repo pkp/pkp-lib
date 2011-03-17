@@ -656,3 +656,5 @@ class PKPCitationGridHandler extends GridHandler {
 		}
 	}
 }
+
+?>

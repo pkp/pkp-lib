@@ -62,3 +62,5 @@ class FilterGridCellProvider extends GridCellProvider {
 		return array('label' => $label);
 	}
 }
+
+?>

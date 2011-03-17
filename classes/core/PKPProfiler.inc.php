@@ -61,3 +61,5 @@ class PKPDBProfiler {
 		$this->queries =& Registry::get('queries', true, array());
 	}
 }
+
+?>

@@ -40,3 +40,5 @@ class ColumnBasedGridCellProvider extends GridCellProvider {
 		return $column->getTemplateVarsFromRow($row);
 	}
 }
+
+?>

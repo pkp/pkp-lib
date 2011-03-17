@@ -312,3 +312,5 @@ class PKPFilterGridHandler extends GridHandler {
 		return $filter;
 	}
 }
+
+?>

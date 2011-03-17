@@ -79,3 +79,5 @@ class PKPFilterGridRow extends GridRow {
 		}
 	}
 }
+
+?>

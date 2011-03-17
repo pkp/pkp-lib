@@ -68,3 +68,5 @@ class DataObjectGridCellProvider extends GridCellProvider {
 		return array('label' => $element->getData($columnId, $this->getLocale()));
 	}
 }
+
+?>

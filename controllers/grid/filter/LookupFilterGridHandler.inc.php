@@ -37,3 +37,5 @@ class LookupFilterGridHandler extends FilterGridHandler {
 		parent::initialize($request);
 	}
 }
+
+?>

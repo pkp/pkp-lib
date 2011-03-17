@@ -48,3 +48,5 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 		return $actions;
 	}
 }
+
+?>

@@ -197,3 +197,5 @@ class GridColumn {
 		return $actions;
 	}
 }
+
+?>

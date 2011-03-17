@@ -138,3 +138,5 @@ class PKPCitationGridRow extends GridRow {
 		return $cellActions;
 	}
 }
+
+?>

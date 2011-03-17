@@ -94,3 +94,5 @@ class GridDataProvider {
 		assert(false);
 	}
 }
+
+?>

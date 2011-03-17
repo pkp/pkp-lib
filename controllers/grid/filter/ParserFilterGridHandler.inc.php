@@ -37,3 +37,5 @@ class ParserFilterGridHandler extends FilterGridHandler {
 		parent::initialize($request);
 	}
 }
+
+?>

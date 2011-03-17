@@ -40,3 +40,5 @@ class ArrayGridCellProvider extends GridCellProvider {
 		return array('label' => $element[$columnId]);
 	}
 }
+
+?>

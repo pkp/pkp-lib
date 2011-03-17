@@ -93,3 +93,5 @@ class GridCellProvider {
 		return $actions;
 	}
 }
+
+?>

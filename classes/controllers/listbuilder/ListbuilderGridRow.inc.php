@@ -48,3 +48,5 @@ class ListbuilderGridRow extends GridRow {
 		$this->setTemplate($this->getTemplate());
 	}
 }
+
+?>

@@ -98,10 +98,10 @@
 	 * @inheritDoc
 	 */
 	$.pkp.classes.linkAction.ModalRequest.prototype.finish =
-			function(element, event) {
+			function() {
 
 		this.$dialog_.remove();
-		return this.parent('finish', element, event);
+		return this.parent('finish');
 	};
 
 

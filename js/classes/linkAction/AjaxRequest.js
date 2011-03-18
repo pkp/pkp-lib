@@ -41,25 +41,36 @@
 	$.pkp.classes.linkAction.AjaxRequest.prototype.activate =
 			function(element, event) {
 
-		// FIXME: Replace the reference to the ajaxAction() function
-		// with an object/event oriented implementation in this class,
-		// see #6339.
-		var options = this.getOptions();
-		ajaxAction(options.type, '#' + options.actOn,
-				'#' + this.getLinkActionElement().attr('id'), options.url);
-		return this.parent('activate', element, event);
+		var returnValue = this.parent('activate', element, event),
+				options = this.getOptions();
+
+		var responseHandler = $.pkp.classes.Helper.curry(
+				this.handleResponse, this);
+		switch (options.requestType) {
+			case 'get':
+				$.getJSON(options.url,
+						responseHandler);
+				break;
+
+			case 'post':
+				$.post(options.url,
+						responseHandler,
+						'json');
+		}
+		return returnValue;
 	};
 
 
 	/**
-	 * @inheritDoc
+	 * Handle the AJAX response.
+	 * @param {Object} jsonData The data returned by the server.
 	 */
-	$.pkp.classes.linkAction.AjaxRequest.prototype.finish =
-			function(element, event) {
+	$.pkp.classes.linkAction.AjaxRequest.prototype.handleResponse =
+			function(jsonData) {
 
-		// FIXME: Move the response handling of the AJAX request here,
-		// see #6339.
-		return this.parent('finish', element, event);
+		var $linkActionHandler = this.getLinkActionElement().data('pkp.handler');
+		$linkActionHandler.handleJson(jsonData);
+		this.finish();
 	};
 
 

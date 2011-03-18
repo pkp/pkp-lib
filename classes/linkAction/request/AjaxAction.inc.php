@@ -12,32 +12,29 @@
  */
 
 
-define('LINK_ACTION_TYPE_GET', 'get');
-define('LINK_ACTION_TYPE_POST', 'post');
+define('AJAX_REQUEST_TYPE_GET', 'get');
+define('AJAX_REQUEST_TYPE_POST', 'post');
 
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class AjaxAction extends LinkActionRequest {
-	/** @var string The LINK_ACTION_TYPE_(GET|POST) type of this action. */
-	var $_type;
 
-	/** @var string The URL this action will invoke */
-	var $_url;
+	/** @var string */
+	var $_remoteAction;
 
-	/** @var string The ID of the DOM element to act on */
-	var $_actOn;
+	/** @var string */
+	var $_requestType;
+
 
 	/**
 	 * Constructor
-	 * @param $type string LINK_ACTION_TYPE_...
-	 * @param $url string Target URL
-	 * @param $actOn string ID of element to act on
+	 * @param $remoteAction string The target URL.
+	 * @param $requestType string One of the AJAX_REQUEST_TYPE_* constants.
 	 */
-	function AjaxAction($type, $url, $actOn) {
+	function AjaxAction($remoteAction, $requestType = AJAX_REQUEST_TYPE_POST) {
 		parent::LinkActionRequest();
-		$this->_type = $type;
-		$this->_url = $url;
-		$this->_actOn = $actOn;
+		$this->_remoteAction = $remoteAction;
+		$this->_requestType = $requestType;
 	}
 
 
@@ -45,27 +42,19 @@ class AjaxAction extends LinkActionRequest {
 	// Getters and Setters
 	//
 	/**
-	 * Get the modal object.
-	 * @return Modal
-	 */
-	function getType() {
-		return $this->_type;
-	}
-
-	/**
 	 * Get the target URL.
 	 * @return string
 	 */
-	function getUrl() {
-		return $this->_url;
+	function getRemoteAction() {
+		return $this->_remoteAction;
 	}
 
 	/**
-	 * Get ID of the element to act on
-	 * @return string
+	 * Get the modal object.
+	 * @return Modal
 	 */
-	function getActOn() {
-		return $this->_actOn;
+	function getRequestType() {
+		return $this->_requestType;
 	}
 
 
@@ -84,9 +73,8 @@ class AjaxAction extends LinkActionRequest {
 	 */
 	function getLocalizedOptions() {
 		return array(
-			'type' => $this->getType(),
-			'url' => $this->getUrl(),
-			'actOn' => $this->getActOn()
+			'url' => $this->getRemoteAction(),
+			'requestType' => $this->getRequestType()
 		);
 	}
 }

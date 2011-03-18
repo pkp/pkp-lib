@@ -80,6 +80,7 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.activate =
 			function(element, event) {
 
+		this.getLinkActionElement().trigger('actionStart');
 		return false;
 	};
 
@@ -87,19 +88,18 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 	/**
 	 * Callback that will be bound to the 'action finished' event of the
 	 * link action.
-	 * @param {HTMLElement} element The action handler that triggered
-	 *  the event.
-	 * @param {Event} event "action finished" event.
+	 *
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.finish =
-			function(element, event) {
+			function() {
 
 		// Execute the finish callback if there is one.
 		if (this.options.finishCallback) {
 			this.options.finishCallback();
 		}
 
+		this.getLinkActionElement().trigger('actionStop');
 		return false;
 	};
 

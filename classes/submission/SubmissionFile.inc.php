@@ -103,6 +103,21 @@ class SubmissionFile extends PKPFile {
 	}
 
 	/**
+	 * Get the combined key of the file
+	 * consisting of the file id and the revision.
+	 * @return string
+	 */
+	function getFileIdAndRevision() {
+		$id = $this->getFileId();
+		$revision = $this->getRevision();
+		$idAndRevision = $id;
+		if ($revision) {
+			$idAndRevision .= '-'.$revision;
+		}
+		return $idAndRevision;
+	}
+
+	/**
 	 * Set revision number.
 	 * @param $revision int
 	 */

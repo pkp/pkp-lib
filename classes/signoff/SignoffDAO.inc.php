@@ -43,11 +43,18 @@ class SignoffDAO extends DAO {
 	 * @param $userId int
 	 * @param $stageId int
 	 * @param $userGroupId int
+	 * @param $fileId int
+	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function build($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
+	function build($symbolic, $assocType, $assocId, $userId = null, $stageId = null,
+			$userGroupId = null, $fileId = null, $fileRevision = null) {
+
 		// If one exists, fetch and return.
-		$signoff = $this->getBySymbolic($symbolic, $assocType, $assocId, $userId, $stageId, $userGroupId);
+		$signoff = $this->getBySymbolic(
+			$symbolic, $assocType, $assocId, $userId, $stageId,
+			$userGroupId, $fileId, $fileRevision
+		);
 		if ($signoff) return $signoff;
 
 		// Otherwise, build one.
@@ -59,6 +66,8 @@ class SignoffDAO extends DAO {
 		$signoff->setUserId($userId);
 		$signoff->setStageId($stageId);
 		$signoff->setUserGroupId($userGroupId);
+		$signoff->setFileId($fileId);
+		$signoff->setFileRevision($fileRevision);
 		$this->insertObject($signoff);
 		return $signoff;
 	}
@@ -234,9 +243,13 @@ class SignoffDAO extends DAO {
 	 * @param $userId int
 	 * @param $stageId int
 	 * @param $userGroupId int
+	 * @param $fileId int
+	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null, $userGroupId = null) {
+	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null, $stageId = null,
+			$userGroupId = null, $fileId = null, $fileRevision = null) {
+
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
 		$params = array($symbolic, (int) $assocType, (int) $assocId);
 
@@ -253,6 +266,16 @@ class SignoffDAO extends DAO {
 		if ($userGroupId) {
 			$sql .= ' AND user_group_id = ?';
 			$params[] = (int) $userGroupId;
+		}
+
+		if ($fileId) {
+			$sql .= ' AND file_id = ?';
+			$params[] = (int) $fileId;
+		}
+
+		if ($fileRevision) {
+			$sql .= ' AND file_revision = ?';
+			$params[] = (int) $fileRevision;
 		}
 
 		$result =& $this->retrieve($sql, $params);
@@ -321,6 +344,24 @@ class SignoffDAO extends DAO {
 
 		$result =& $this->retrieve($sql, $params);
 
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
+	}
+
+	/**
+	 * Retrieve all signoffs for a given file.
+	 * @param $fileId integer
+	 * @param $revision integer
+	 * @return DAOResultFactory
+	 */
+	function getByFileRevision($fileId, $revision = null) {
+		$sql = 'SELECT * FROM signoffs WHERE file_id = ?';
+		$params = array((int)$fileId);
+		if ($revision) {
+			$sql .= ' AND file_revision = ?';
+			$params[] = (int)$revision;
+		}
+		$result =& $this->retrieve($sql, $params);
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;
 	}

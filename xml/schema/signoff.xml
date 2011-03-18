@@ -51,6 +51,8 @@
 			<col>user_id</col>
 			<col>stage_id</col>
 			<col>user_group_id</col>
+			<col>file_id</col>
+			<col>file_revision</col>
 			<UNIQUE />
 		</index>
 	</table>

@@ -203,7 +203,7 @@ class UserGroupDAO extends DAO {
 			FROM user_groups
 			WHERE context_id = ? AND role_id = ?' . ($default?' AND is_default = ?':''),
 			$params
-			);
+		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
 		return $returner;

@@ -38,22 +38,19 @@ class GridCellProvider {
 
 		// Construct a default cell id
 		$rowId = $row->getId();
-
 		assert(isset($rowId));
 		$cellId = $rowId.'-'.$columnId;
 
-		// Pass control to the view to render the cell
+		// Assign values extracted from the element for the cell.
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('id', $cellId);
-		$templateMgr->assign_by_ref('column', $column);
-		$templateMgr->assign_by_ref('actions', $this->getCellActions($request, $row, $column));
-		$templateMgr->assign_by_ref('flags', $column->getFlags());
-
-		// Assign all values from element.
 		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);
 		}
+		$templateMgr->assign('id', $cellId);
+		$templateMgr->assign_by_ref('column', $column);
+		$templateMgr->assign_by_ref('actions', $this->getCellActions($request, $row, $column));
+		$templateMgr->assign_by_ref('flags', $column->getFlags());
 		$template = $column->getTemplate();
 		assert(!empty($template));
 		return $templateMgr->fetch($template);

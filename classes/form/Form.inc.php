@@ -25,6 +25,7 @@ import('lib.pkp.classes.form.validation.FormValidatorArrayCustom');
 import('lib.pkp.classes.form.validation.FormValidatorControlledVocab');
 import('lib.pkp.classes.form.validation.FormValidatorCustom');
 import('lib.pkp.classes.form.validation.FormValidatorCaptcha');
+import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
 import('lib.pkp.classes.form.validation.FormValidatorEmail');
 import('lib.pkp.classes.form.validation.FormValidatorInSet');
 import('lib.pkp.classes.form.validation.FormValidatorLength');

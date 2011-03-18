@@ -67,7 +67,7 @@ class PKPInstallHandler extends Handler {
 		$installForm->readInputData();
 
 		if ($installForm->validate()) {
-			$installForm->execute();
+			return $installForm->execute();
 
 		} else {
 			$installForm->display();

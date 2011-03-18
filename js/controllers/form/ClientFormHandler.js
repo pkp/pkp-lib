@@ -18,25 +18,30 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.BaseFormHandler
+	 * @extends $.pkp.controllers.form.FormHandler
 	 *
 	 * @param {jQuery} $form the wrapped HTML form element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.form.ClientFormHandler = function($form, options) {
+		options.submitHandler = this.submitForm;
 		this.parent($form, options);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.ClientFormHandler,
-			$.pkp.controllers.form.BaseFormHandler);
+			$.pkp.controllers.form.FormHandler);
 
 
 	//
 	// Public methods
 	//
 	/**
-	 * @inheritDoc
+	 * Internal callback called after form validation to handle form
+	 * submission.
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
 	$.pkp.controllers.form.ClientFormHandler.prototype.submitForm =
 			function(validator, formElement) {

@@ -22,7 +22,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.FormHandler
+	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
@@ -51,7 +51,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler,
-			$.pkp.controllers.form.FormHandler);
+			$.pkp.controllers.form.AjaxFormHandler);
 
 
 	//

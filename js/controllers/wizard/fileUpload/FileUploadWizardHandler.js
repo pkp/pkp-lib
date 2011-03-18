@@ -209,7 +209,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 	 * file upload/revision confirmation forms whenever the
 	 * uploaded file changed.
 	 *
-	 * @param {$.pkp.controllers.form.FormHandler} callingForm The form
+	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The upload event.
 	 * @param {Object} uploadedFile Information about the uploaded

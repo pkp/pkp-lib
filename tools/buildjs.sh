@@ -95,7 +95,7 @@ COMPILE_FILES=$(sed -n -$EXTENDED_REGEX_FLAG '/<script type="text\/javascript"/ 
 LINT_FILES=`echo "$COMPILE_FILES" | egrep -v '^lib/pkp/js/(lib|functions)'`
 
 # Create a working directory in the cache
-WORKDIR=`mktemp -dt buildjs` || { echo "The working directory could not be created\!"; exit 1; }
+WORKDIR=`mktemp -dt tmp.XXXXXXXXXX` || { echo "The working directory could not be created\!"; exit 1; }
 
 # Show a list of the files we are going to lint.
 echo "Lint..." >&2

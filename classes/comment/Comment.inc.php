@@ -238,7 +238,6 @@ class Comment extends DataObject {
 	function setChildren(&$children) {
 		$this->setData('children', $children);
 	}
-
- }
+}
 
 ?>

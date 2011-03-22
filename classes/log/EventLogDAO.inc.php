@@ -171,11 +171,11 @@ class EventLogDAO extends DAO {
 			$params[] = (int) $assocId;
 		}
 		$this->update(
-			'DELETE FROM event_log_settings WHERE log_id = ?' .
+			'DELETE FROM event_log WHERE log_id = ?' .
 			($assocType !== null?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
 		);
-		if ($this->getAffectedRows()) $this->update('DELETE FROM event_log WHERE log_id = ?', array((int) $logId));
+		if ($this->getAffectedRows()) $this->update('DELETE FROM event_log_settings WHERE log_id = ?', array((int) $logId));
 	}
 
 	/**

@@ -56,11 +56,45 @@ class EmailLogDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve a log entry by event type.
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $eventType int
+	 * @param $rangeInfo object optional
+	 * @return EmailLogEntry
+	 */
+	function &getByEventType($assocType, $assocId, $eventType, $rangeInfo = null) {
+		$result =& $this->retrieveRange(
+			'SELECT	e.*
+			FROM	email_log e
+			WHERE	e.assoc_type = ? AND
+				e.assoc_id = ? AND
+				e.event_type = ? AND
+				e.log_id = s.log_id',
+			array(
+				(int) $assocType,
+				(int) $assocId,
+				(int) $eventType
+			),
+			$rangeInfo
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner =& $this->build($result->GetRowAssoc(false));
+		}
+
+		$result->Close();
+		unset($result);
+
+		return $returner;
+	}
+
+	/**
 	 * Retrieve all log entries for an object matching the specified association.
 	 * @param $assocType int
 	 * @param $assocId int
-	 * @param $assocType int
-	 * @param $assocId int
+	 * @param $rangeInfo object optional
 	 * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
 	 */
 	function &getByAssoc($assocType = null, $assocId = null, $rangeInfo = null) {

@@ -8,7 +8,6 @@
   *
   * Regionalisierte Länderliste (vgl. http://de.wikipedia.org/wiki/ISO-3166-1-Kodierliste).
   *
-  * $Id$
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>
@@ -100,6 +99,7 @@
 	<country name="Guadeloupe" code="GP"/>
 	<country name="Guam" code="GU"/>
 	<country name="Guatemala" code="GT"/>
+	<country name="Guernsey" code="GG"/>
 	<country name="Guinea" code="GN"/>
 	<country name="Guinea-Bissau" code="GW"/>
 	<country name="Guyana" code="GY"/>
@@ -115,10 +115,12 @@
 	<country name="Iran, Islamische Republik" code="IR"/>
 	<country name="Irak" code="IQ"/>
 	<country name="Irland" code="IE"/>
+	<country name="Insel Man" code="IM"/>
 	<country name="Israel" code="IL"/>
 	<country name="Italien" code="IT"/>
 	<country name="Jamaika" code="JM"/>
 	<country name="Japan" code="JP"/>
+	<country name="Jersey" code="JE"/>
 	<country name="Jordanien" code="JO"/>
 	<country name="Kasachstan" code="KZ"/>
 	<country name="Kenia	" code="KE"/>
@@ -154,6 +156,7 @@
 	<country name="Moldawien" code="MD"/>
 	<country name="Monaco" code="MC"/>
 	<country name="Mongolei" code="MN"/>
+	<country name="Montenegro" code="ME"/>
 	<country name="Montserrat" code="MS"/>
 	<country name="Marokko" code="MA"/>
 	<country name="Mosambik" code="MZ"/>
@@ -190,9 +193,11 @@
 	<country name="Rumänien" code="RO"/>
 	<country name="Russische Föderation" code="RU"/>
 	<country name="Ruanda" code="RW"/>
+	<country name="Saint-Barthélemy" code="BL"/>
 	<country name="St. Helena" code="SH"/>
 	<country name="St. Kitts und Nevis" code="KN"/>
 	<country name="St. Lucia" code="LC"/>
+	<country name="Saint-Martin" code="MF"/>
 	<country name="Saint-Pierre und Miquelon" code="PM"/>
 	<country name="St. Vincent und die Grenadinen" code="VC"/>
 	<country name="Samoa" code="WS"/>

@@ -40,12 +40,12 @@
 	<message key="admin.languages.uninstall">Regionaleinstellung deinstallieren</message>
 	<message key="admin.phpInfo">Ausführliche Informationen zu PHP</message>
 	<message key="admin.saveSystemConfig">Konfiguration speichern</message>
-	<message key="admin.server.apacheVersion">Version von Apache</message>
+	<message key="admin.server.apacheVersion">Apache-Version</message>
 	<message key="admin.server.dbDriver">Datenbanktreiber</message>
 	<message key="admin.server.dbVersion">Version des Datenbankservers</message>
 	<message key="admin.serverInformationDescription"><![CDATA[Versionen der System- und Datenbankprogramme der Server. <span class="highlight">Ausführliche Informationen zu PHP</span> anklicken, um Einzelheiten zur Konfiguration von PHP auf diesem Server anzuzeigen.]]></message>
 	<message key="admin.serverInformation">Serverinformationen</message>
-	<message key="admin.server.phpVersion">Version von PHP</message>
+	<message key="admin.server.phpVersion">PHP-Version</message>
 	<message key="admin.server.platform">OS-Plattform</message>
 	<message key="admin.settings.aboutDescription">Über die Website</message>
 	<message key="admin.settings.contactEmail">E-Mail-Adresse des Hauptkontaktes</message>

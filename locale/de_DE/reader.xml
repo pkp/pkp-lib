@@ -16,6 +16,7 @@
 	<message key="comments.anonymous">Anonymer Kommentar</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Text</message>
+	<message key="comments.titleRequired">Ein Kommentar-Titel ist erforderlich.</message>
 	<message key="comments.confirmDeleteChildren">Mit diesem Kommentar löschen Sie auch alle Antworten. Sind Sie sicher, dass Sie ihn löschen wollen?</message>
 	<message key="comments.delete">Diesen Kommentar löschen</message>
 	<message key="comments.email">E-Mail-Adresse</message>
@@ -46,6 +47,24 @@
 	<message key="rt.admin.contexts.options.geoTerms">Geographische Indizierungsmerkmale als Standardsuchbegriff verwenden.</message>
 	<message key="rt.admin.contexts.options">Optionen</message>
 	<message key="rt.admin.management">Verwaltung</message>
+
+	<message key="rt.admin.sharing">Mit anderen teilen</message>
+	<message key="rt.admin.sharing.enabled">Teilen aktiviert</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen zu ermöglichen, Zeitschriftenbeiträge mit anderen zu teilen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für den Teilen-Knopf  kopieren und einfügen.]]></message>
+
+	<message key="rt.admin.sharing.basic">Grundeinstellungen</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com-Benutzer/innenname</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Art des Buttons</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Drop-down-Menü verwenden</message>
+	<message key="rt.admin.sharing.advanced">Erweiterte Einstellungen (optional)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Siehe die <a href="http://www.addthis.com/help/customize/custom-button/">Dokumentation zur AddThis-Anpassung</a> für Hinweise.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Marke</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Kommata trennen)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Sprache</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-Hintergrund</message>
+	<message key="rt.admin.sharing.logoColorLabel">Logo-Farbe</message>
+
 	<message key="rt.admin.readingToolsEnabled">Lesewerkzeuge</message>
 	<message key="rt.admin.searches.confirmDelete">Sind Sie sicher, dass Sie diese Suche löschen wollen?</message>
 	<message key="rt.admin.searches.createSearch">Suche erstellen</message>
@@ -63,6 +82,7 @@
 	<message key="rt.admin.settings.supplementaryFiles">Zusatzdateien (zeigt eine Liste aller Zusatzdateien, die die Autorin/der Autor einem Artikel hinzugefügt hat)</message>
 	<message key="rt.admin.settings.viewMetadata">Metadaten (zeigt die durch Autor/in und System bereitgestellten Metadaten für die Artikelindizierung an)</message>
 	<message key="rt.admin.status">Status</message>
+	<message key="rt.admin.configureSharing">AddThis konfigurieren</message>
 	<message key="rt.admin.validateUrls.complete">Bestätigung beendet.</message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} ist ungültig.</message>
@@ -80,6 +100,7 @@
 	<message key="rt.captureCite.format">Zitierformat</message>
 	<message key="rt.captureCite">Zitation</message>
 	<message key="rt.captureCite.online">online</message>
+	<message key="rt.captureCite.web">Web</message>
 	<message key="rt.colleague">Eine/n Kollege/in benachrichtigen</message>
 	<message key="rt.context.abbrev">Abkürzung</message>
 	<message key="rt.context.and">UND</message>
@@ -123,7 +144,7 @@
 	<message key="rt.metadata.pkp.discipline">Fachgebiet(e)</message>
 	<message key="rt.metadata.pkp.format">Dateiformat</message>
 	<message key="rt.metadata.pkp.genre">Status &amp; Genre</message>
-	<message key="rt.metadata.pkpItem">PKP Metadaten </message>
+	<message key="rt.metadata.pkpItem">PKP-Metadaten </message>
 	<message key="rt.metadata.pkp.language">Englisch=en</message>
 	<message key="rt.metadata.pkp.publisher">Verlag, Ort</message>
 	<message key="rt.metadata.pkp.source">Titel der Zeitschrift/Konferenz; Bd.; Nr. (Jahr)</message>
@@ -157,22 +178,4 @@
 	<message key="rt.version.title">Titel</message>
 	<message key="rt.version">Version</message>
 	<message key="rt.viewMetadata">Metadaten indizieren</message>
-	<message key="rt.admin.sharing.languageLabel">Sprache</message>
-	<message key="comments.titleRequired">Ein Kommentar-Titel ist erforderlich.</message>
-	<message key="rt.admin.sharing.basic">Grundeinstellungen</message>
-	<message key="rt.admin.sharing.userNameLabel">AddThis.com-Benutzer/innenname</message>
-	<message key="rt.admin.sharing.advanced">Erweiterte Einstellungen (optional)</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Siehe die <a href="http://www.addthis.com/help/customize/custom-button/">Dokumentation zur AddThis-Anpassung</a> für Hinweise.]]></message>
-	<message key="rt.admin.configureSharing">AddThis konfigurieren</message>
-	<message key="rt.admin.sharing.logolabel">Logo</message>
-	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-Hintergrund</message>
-	<message key="rt.admin.sharing.logoColorLabel">Logo-Farbe</message>
-	<message key="rt.admin.sharing">Mit anderen teilen</message>
-	<message key="rt.admin.sharing.enabled">Teilen aktiviert</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen zu ermöglichen, Zeitschriftenbeiträge mit anderen zu teilen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für den Teilen-Knopf  kopieren und einfügen.]]></message>
-	<message key="rt.admin.sharing.buttonStyleLabel">Art des Buttons</message>
-	<message key="rt.admin.sharing.dropDownMenuLabel">Drop-down-Menü verwenden</message>
-	<message key="rt.admin.sharing.brandLabel">Marke</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Drop-down-Optionen <br /> (Liste durch Kommata trennen)]]></message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

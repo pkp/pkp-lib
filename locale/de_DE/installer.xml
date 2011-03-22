@@ -57,19 +57,20 @@
 	<message key="installer.installerSQLStatements">SQL-Anweisungen für die Installation</message>
 	<message key="installer.installFileError"><![CDATA[Die Installationsdatei <tt>dbscripts/xml/install.xml</tt> existiert nicht oder ist nicht lesbar.]]></message>
 	<message key="installer.installFilesDirError">Das Verzeichnis, das als Ort für hochgeladene Dateien angegeben worden ist, existiert nicht oder erlaubt keine Schreibzugriffe.</message>
-	<message key="installer.installParseDBFileError"><![CDATA[Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseDBFileError"><![CDATA[Paring-Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Parsing-Fehler bei der Verarbeitung der E-Mail-Vorlagen-Datei <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Parsing-Fehler bei der Verarbeitung der Filterkonfigurationsdatei <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Regionaleinstellungen</message>
+	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
 	<message key="installer.localeSettings">Regionaleinstellungen</message>
 	<message key="installer.manualInstall">Manuelle Installation</message>
-	<message key="installer.manualUpgrade">Manuelle Aktualisierung</message>
 	<message key="installer.miscSettings">Verschiedene Einstellungen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
 	<message key="installer.oaiRepositoryId">Kennung für das OAI-Repository</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Bitte starten Sie das Upgrade-Tool, nachdem Sie die Datenbank installiert haben. Führen Sie  dazu 'php tools/upgrade.php upgrade' aus dem Hauptinstallationspfad heraus aus.</message>
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
 	<message key="installer.skipFilesDir">Überspringe das Anlegen der benötigten Unterverzeichnisse (nur in einer manuellen Installation sinnvoll).</message>
-	<message key="installer.locale.maybeIncomplete">Die markierten Regionaleinstellungen sind möglicherweise unvollständig.</message>
-	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Parsing-Fehler bei der E-Mail-Vorlagen-Datei <tt>{$file}</tt>.]]></message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Bitte starten Sie das Upgrade-Tool, nachdem Sie die Datenbank installiert haben. Führen Sie  dazu 'php tools/upgrade.php upgrade' aus dem Hauptinstallationspfad heraus aus.</message>
+	<message key="installer.manualUpgrade">Manuelle Aktualisierung</message>
 </locale>

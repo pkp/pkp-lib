@@ -8,13 +8,21 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
-  *
-  * $Id$
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
+	<message key="user.accountInformation">Konto-Information</message>
 	<message key="user.affiliation">Institution</message>
+	<message key="user.affiliation.description">(Ihre Institution, z.B. "Simon Fraser University")</message>
 	<message key="user.affiliations">Institutionen</message>
+	<message key="user.authorization.accessDenied">Zugang verweigert.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Das Authentifizierungstoken des Prozesses fehlt oder ist ungültig.</message>
+	<message key="user.authorization.contextRequired">Sie können diese Operation nicht ohne einen Kontext (Presse, Zeitschrift, Konferenz etc.) aufrufen.</message>
+	<message key="user.authorization.loginRequired">Login erforderlich.</message>
+	<message key="user.authorization.privateOperation">Die Operation, auf die Sie zugreifen wollten, ist entweder privat oder existiert nicht.</message>
+	<message key="user.authorization.restrictedSiteAccess">Ihnen wurde der Zugang verweigert. Der Zugang zu dieser Site ist momentan beschränkt.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Die aktuelle Rolle hat keinen Zugriff auf diese Operation.</message>
+	<message key="user.authorization.userGroupRequired">Sie müssen eine gültige Benutzer/innen-Gruppe setzen, um auf diese Operation zugreifen zu können.</message>
 	<message key="user.biography">Angaben zum Lebenslauf</message>
 	<message key="user.biography.description">(z.B. Abteilung und Position)</message>
 	<message key="user.changeMyPassword">Mein Passwort ändern</message>
@@ -23,14 +31,19 @@
 	<message key="user.dateRegistered">Angemeldet am</message>
 	<message key="user.editMyProfile">Mein Profil bearbeiten</message>
 	<message key="user.email">E-Mail</message>
+	<message key="user.confirmEmail">E-Mail bestätigen</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
 	<message key="user.firstName">Vorname</message>
 	<message key="user.gender">Geschlecht</message>
-	<message key="user.initialsExample">Beispiel: Anna-Lena Savard = ALS</message>
+	<message key="user.initialsExample">Beispiel: Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initialen</message>
 	<message key="user.interests">Interessen</message>
+	<message key="user.interests.description">(Trennen Sie Interessen durch die Enter-Taste oder durch Komma.)</message>
+	<message key="user.gossip">Private Notizen</message>
+	<message key="user.group">Benutzer/innen-Gruppe</message>
 	<message key="user.lastName">Familienname</message>
+	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild darf eine Größe von 150x150 Pixel nicht überschreiten.</message>
 	<message key="user.login.accountDisabledWithReason">Ihr Konto wurde aus folgenden Gründen deaktiviert: {$reason}</message>
 	<message key="user.login.accountDisabled">Ihr Konto wurde deaktiviert. Für nähere Informationen setzen Sie sich bitte mit der/dem Website-Administrator/in in Verbindung.</message>
 	<message key="user.login.accountNotValidated">Ihre E-Mail-Adresse konnte nicht verifiziert werden. Rufen Sie bitte Ihre E-Mails ab und befolgen Sie die Anweisungen, die Ihnen übermittelt wurden. Sollten Sie keine E-Mail erhalten haben, müssen Sie eventuell die/den Website-Administrator/in kontaktieren.</message>
@@ -43,7 +56,7 @@
 	<message key="user.logIn">Einloggen</message>
 	<message key="user.login.lostPassword.confirmationSent">Eine Bestätigung wurde an Ihre E-Mail-Adresse versandt. Zur Wiederherstellung Ihres Passwortes folgen Sie bitte den Anweisungen aus der E-Mail.</message>
 	<message key="user.login.lostPassword.invalidHash">Leider ist der Link, den Sie angeklickt haben, abgelaufen oder ungültig. Versuchen Sie bitte erneut, Ihr Passwort wiederherzustellen.</message>
-	<message key="user.login.lostPassword.invalidUser">Unter der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in.</message>
+	<message key="user.login.lostPassword.invalidUser">Zu der angegebenen E-Mail-Adresse existiert kein/e Benutzer/in.</message>
 	<message key="user.login.lostPassword.passwordSent">Ein neues Passwort wurde an Ihre E-Mail-Adresse versandt. Sie können sich jetzt mit dem neuen Passwort einloggen.</message>
 	<message key="user.login.registeredEmail">E-Mail-Adresse der registrierten Benutzerin/des registrierten Benutzers</message>
 	<message key="user.login.rememberUsernameAndPassword">Benutzer/innen-Namen und Passwort speichern</message>
@@ -54,12 +67,14 @@
 	<message key="user.middleName">Zweiter Vorname</message>
 	<message key="user.myAccount">Mein Konto</message>
 	<message key="user.name">Name</message>
+	<message key="user.other">Andere</message>
 	<message key="user.password">Passwort</message>
 	<message key="user.repeatPassword">Passwort wiederholen</message>
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Sie ändern das Passwort Ihres Kontos, indem Sie nachfolgend Ihr aktuelles und Ihr neues Passwort eintragen.</message>
 	<message key="user.profile.editProfile">Profil bearbeiten</message>
 	<message key="user.profile.form.emailRequired">Eine gültige E-Mail-Adresse ist erforderlich.</message>
+	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
 	<message key="user.profile.form.firstNameRequired">Ein Vorname ist erforderlich.</message>
 	<message key="user.profile.form.lastNameRequired">Ein Nachname ist erforderlich.</message>
 	<message key="user.profile.form.newPasswordRequired">Tragen Sie Ihr neues Passwort ein.</message>
@@ -69,6 +84,7 @@
 	<message key="user.profile.form.profileImage">Profilbild</message>
 	<message key="user.profile.form.publishedNotifications">E-Mail-Benachrichtigung: Neue Ausgabe erschienen</message>
 	<message key="user.profile.form.urlInvalid">Die angegebene URL ist ungültig. Bitte überprüfen Sie die URL nochmals und versuchen es erneut. (Hinweis: Fügen Sie http:// an den Anfang der URL an.)</message>
+	<message key="user.profile.form.usergroupRequired">Eine Benutzer/innen-Gruppe ist notwendig.</message>
 	<message key="user.profile.form.usernameRequired">Ein Benutzer/innen-Name ist erforderlich.</message>
 	<message key="user.profile.leavePasswordBlank">Wenn Sie Ihr aktuelles Passwort beibehalten wollen, lassen Sie die Passwortfelder frei.</message>
 	<message key="user.profile.newPassword">Neues Passwort</message>
@@ -76,9 +92,9 @@
 	<message key="user.profile">Profil</message>
 	<message key="user.profile.publicProfile">Profil</message>
 	<message key="user.profile.repeatNewPassword">Neues Passwort wiederholen</message>
-	<message key="user.register.completeForm">Sie können sich für diese Zeitschrift registrieren, indem Sie das folgende Formular ausfüllen.</message>
 	<message key="user.register.form.emailExists">Die ausgewählte E-Mail-Adresse wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.form.passwordsDoNotMatch">Die Passwörter stimmen nicht überein.</message>
+	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
 	<message key="user.register.form.usernameAlphaNumeric">Der Benutzer/innen-Name darf nur Buchstaben und Zahlen, Unterstriche und Bindestriche enthalten und muss mit einem Buchstaben oder einer Zahl beginnen und enden.</message>
 	<message key="user.register.form.usernameExists">Der ausgewählte Benutzer/innen-Name wird bereits von einer anderen Benutzerin/einem anderen Benutzer verwendet.</message>
 	<message key="user.register.passwordLengthRestriction">Das Passwort muss mindestens {$length} Zeichen enthalten.</message>
@@ -101,12 +117,5 @@
 	<message key="user.userHome">Persönliche Startseite</message>
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
-	<message key="user.other">Andere</message>
-	<message key="user.profile.form.profileImageInvalid">Ungültiges oder zu großes Bildformat für das Nutzer/innenprofil. Gültige Formate sind .gif, .jpg oder .png, und das Bild sollte eine Größe von 150x150 Pixel nicht überschreiten.</message>
-	<message key="user.affiliation.description">(Ihre Institution, z.B. "Simon Fraser University")</message>
-	<message key="user.confirmEmail">E-Mail bestätigen</message>
-	<message key="user.gossip">Private Notizen</message>
-	<message key="user.repeatPassword">Passwort wiederholen</message>
-	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
-	<message key="user.register.form.emailsDoNotMatch">Die E-Mail-Adressen stimmen nicht überein.</message>
+	<message key="user.register.completeForm">Sie können sich für diese Zeitschrift registrieren, indem Sie das folgende Formular ausfüllen.</message>
 </locale>

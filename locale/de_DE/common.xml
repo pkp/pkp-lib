@@ -31,16 +31,14 @@
 	<message key="announcement.posted">Veröffentlicht</message>
 	<message key="announcement.viewLink">Weiter...</message>
 	<message key="announcement.view">Mitteilungen ansehen</message>
-	<message key="common.copy">Kopieren</message>
-	<message key="common.preview">Vorschau</message>
-	<message key="common.activate">Aktivieren</message>
-	<message key="common.deactivate">Deaktivieren</message>
 	<message key="common.action">Aktion</message>
+	<message key="common.activate">Aktivieren</message>
 	<message key="common.active">Aktiv</message>
 	<message key="common.add">Hinzufügen</message>
 	<message key="common.addSelf">Sich selbst hinzufügen</message>
 	<message key="common.all">Alle(s)</message>
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
+	<message key="common.titleSmallWords">von ein eine einer eines der die das und oder weder aber ist wenn als dann sonst durch in aus über zu zum zur mit</message>
 	<message key="common.alreadyAssigned">Bereits zugewiesen</message>
 	<message key="common.altText">Alternativtext</message>
 	<message key="common.altTextInstructions">Bitte geben Sie einen Alternativtext für dieses Bild an um die Zugänglichkeit für Nutzer/innen mit Nur-Text-Browsern oder technischen Hilfsmitteln zu gewährleisten.</message>
@@ -56,6 +54,22 @@
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
 	<message key="common.captchaField.description">Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen.</message>
 	<message key="common.captchaField">Überprüfung</message>
+	<message key="common.ccLicense"><![CDATA[
+		<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative-Commons-Lizenz" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br />
+		Diese Arbeit steht unter einer <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.
+	]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative-Commons-Lizenz" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Diese Arbeit steht unter einer <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
+	</div>
+	]]></message>
 	<message key="common.changesSaved">Ihre Änderungen wurden gespeichert.</message>
 	<message key="common.chooseOne">Bitte wählen Sie aus.</message>
 	<message key="common.close">Schließen</message>
@@ -63,6 +77,7 @@
 	<message key="common.complete">Beenden</message>
 	<message key="common.completed">Beendet</message>
 	<message key="common.continue">Fortfahren</message>
+	<message key="common.copy">Kopieren</message>
 	<message key="common.country">Land</message>
 	<message key="common.create">Erstellen</message>
 	<message key="common.dateCompleted">Abgeschlossen am</message>
@@ -72,21 +87,28 @@
 	<message key="common.dateSubmitted">Eingegangen am</message>
 	<message key="common.dateUploaded">Hochgeladen am</message>
 	<message key="common.day">Tag</message>
+	<message key="common.deactivate">Deaktivieren</message>
 	<message key="common.default">Standard</message>
 	<message key="common.delete">Löschen</message>
 	<message key="common.deleteSelection">Auswahl löschen</message>
 	<message key="common.description">Beschreibung</message>
+	<message key="common.disable">Ausschalten</message>
 	<message key="common.disabled">Deaktiviert</message>
 	<message key="common.discipline">Disziplin</message>
 	<message key="common.done">Fertig</message>
 	<message key="common.download">Herunterladen</message>
 	<message key="common.edit">Bearbeiten</message>
+	<message key="common.enable">Einschalten</message>
 	<message key="common.enabled">Aktiviert</message>
 	<message key="common.error.databaseError">Ein Datenbankfehler ist aufgetreten: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">Ein unbekannter Fehler bei der Verbindung mit der Datenbank ist aufgetreten.</message>
 	<message key="common.error.framesRequired"><![CDATA[Diese Seite enthält Frames. <a href="{$url}">Hier</a> geht es zur Version ohne Frames.]]></message>
 	<message key="common.event">Ereignis</message>
 	<message key="common.export">Exportieren</message>
+	<message key="common.finish">Abschließen</message>
+	<message key="common.fullscreen">Vollbild</message>
+	<message key="common.fullscreenOff">Vollbild aus</message>
+	<message key="common.false">Falsch</message>
 	<message key="common.file">Datei</message>
 	<message key="common.fileName">Dateiname</message>
 	<message key="common.fileSize">Dateigröße</message>
@@ -101,13 +123,16 @@
 	<message key="common.keywords">Schlagworte</message>
 	<message key="common.language">Sprache</message>
 	<message key="common.languages">Sprachen</message>
+	<message key="common.manage">Verwalten</message>
 	<message key="common.mailingAddress">Adresse</message>
+	<message key="common.billingAddress">Rechnungsadresse (wenn unterschiedlich)</message>
 	<message key="common.minute">Minute(n)</message>
 	<message key="common.modify">Ändern</message>
 	<message key="common.month">Monat</message>
 	<message key="common.noneAssigned">Nicht zugewiesen</message>
 	<message key="common.none">Keine</message>
 	<message key="common.no">Nein</message>
+	<message key="common.noComments">Keine Kommentare</message>
 	<message key="common.notApplicable">Entfällt</message>
 	<message key="common.notApplicableShort">Entf.</message>
 	<message key="common.notAvailable">Nicht bekannt</message>
@@ -116,6 +141,7 @@
 	<message key="common.notify">Benachrichtigen</message>
 	<message key="common.off">Aus</message>
 	<message key="common.on">Ein</message>
+	<message key="common.ok">OK</message>
 	<message key="common.options">Optionen</message>
 	<message key="common.order">Sortieren</message>
 	<message key="common.originalFileName">Ursprünglicher Dateiname</message>
@@ -123,8 +149,13 @@
 	<message key="common.other">Andere</message>
 	<message key="common.pageHeaderLogo.altText">Logo in der Kopfzeile</message>
 	<message key="common.plugin">Plug-In</message>
+	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
+	<message key="common.pluginEnabled">Das Plug-In "{$pluginName}" ist aktiviert worden.</message>
+	<message key="common.preview">Vorschau</message>
 	<message key="common.publisher">Verlag, Organisation</message>
+	<message key="common.re">Re:</message>
 	<message key="common.record">Protokollieren</message>
+	<message key="common.refresh">Aktualisieren</message>
 	<message key="common.related">Verbunden</message>
 	<message key="common.remove">Entfernen</message>
 	<message key="common.removeSelection">Auswahl entfernen</message>
@@ -147,12 +178,14 @@
 	<message key="common.suggest">Vorschlagen</message>
 	<message key="common.title">Titel</message>
 	<message key="common.top">Zum Seitenanfang</message>
+	<message key="common.true">Wahr</message>
 	<message key="common.type">Typ</message>
 	<message key="common.uninitiated">Nicht begonnen</message>
 	<message key="common.untitled">Ohne Titel</message>
 	<message key="common.updated">Aktualisiert</message>
 	<message key="common.uploadedFile">Hochgeladene Datei</message>
 	<message key="common.upload">Hochladen</message>
+	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
 	<message key="common.up">Aufwärts</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Benutzer/in</message>
@@ -161,6 +194,7 @@
 	<message key="common.width">Breite</message>
 	<message key="common.year">Jahr</message>
 	<message key="common.yes">Ja</message>
+	<message key="common.loading">Laden …</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -190,12 +224,17 @@
 	<message key="email.send">Senden</message>
 	<message key="email.skip">Nachricht überspringen</message>
 	<message key="email.subject">Betreff</message>
+	<message key="email.subjectRequired">Bitte geben Sie einen E-Mail-Betreff an.</message>
+	<message key="email.bodyRequired">Bitte geben Sie einen E-Mail-Text an.</message>
 	<message key="email.to">An</message>
-	<message key="form.contains">enthält</message>
+	<message key="form.confirmSubmit">Sind Sie sicher, dass Sie dieses Formular übermitteln möchten?</message>
+	<message key="form.confirmSubmit.title">Bestätigen</message>
 	<message key="form.errorsOccurred">Es sind Fehler bei der Bearbeitung des Formulars aufgetreten.</message>
 	<message key="form.formLanguage.description">Um die unten stehenden Angaben in einer weiteren Sprache einzugeben, wählen Sie bitte zunächst die gewünschte Sprache aus.</message>
 	<message key="form.formLanguage">Formularsprache</message>
+	<message key="form.contains">enthält</message>
 	<message key="form.is">ist</message>
+	<message key="form.startsWith">beginnt mit</message>
 	<message key="form.postRequired">Das Formular wurde nicht ordnungsgemäß ausgefüllt.</message>
 	<message key="form.required">Mit * gekennzeichnete Angaben sind Pflichtangaben.</message>
 	<message key="form.resubmit">Erneut abschicken</message>
@@ -230,8 +269,12 @@
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.about">Über uns</message>
+	<message key="navigation.admin">Verwaltung</message>
 	<message key="navigation.browse">Durchsuchen</message>
+	<message key="navigation.browseByAuthor">Nach Autor/in</message>
 	<message key="navigation.browseByTitle">Nach Titel</message>
+	<message key="navigation.dashboard">Dashboard</message>
+	<message key="navigation.data">Daten</message>
 	<message key="navigation.home">Startseite</message>
 	<message key="navigation.infoForReaders">Für Leser/innen</message>
 	<message key="navigation.infoForReaders.long">Informationen für Leser/innen</message>
@@ -241,37 +284,18 @@
 	<message key="navigation.nextStep">Nächster Schritt</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Vorheriger Schritt</message>
+	<message key="navigation.publicMenu">Öffentliches Menü</message>
 	<message key="navigation.register">Registrieren</message>
 	<message key="navigation.search">Suche</message>
+	<message key="navigation.settings">Einstellungen</message>
+	<message key="navigation.setup">Einrichtung</message>
+	<message key="navigation.sitemap">Site Map</message>
 	<message key="navigation.stepNumber">Schritt {$step}</message>
+	<message key="navigation.submissions">Einreichungen</message>
+	<message key="navigation.system">System</message>
 	<message key="navigation.userHome">Persönliche Startseite</message>
 	<message key="navigation.user">Benutzer/in</message>
-	<message key="search.abstract">Abstract</message>
-	<message key="search.allFields">Alle</message>
-	<message key="search.coverage">Bereich</message>
-	<message key="search.date">Datum</message>
-	<message key="search.dateFrom">von</message>
-	<message key="search.dateTo">bis</message>
-	<message key="search.discipline">Fachgebiet(e)</message>
-	<message key="search.fullText">Volltext</message>
-	<message key="search.indexTerms">Schlagworte</message>
-	<message key="search.matchAll">In allen Kategorien übereinstimmen</message>
-	<message key="search.noKeywordError">Geben Sie mindestens einen Suchbegriff ein.</message>
-	<message key="search.noResults">Kein Ergebnis</message>
-	<message key="search.operator.and">UND</message>
-	<message key="search.operator.not">NICHT</message>
-	<message key="search.operator.or">ODER</message>
-	<message key="search.reviseSearch">Suche bearbeiten</message>
-	<message key="search.searchAllCategories">Alle Kategorien durchsuchen nach</message>
-	<message key="search.searchCategories">Suchkategorien</message>
-	<message key="search.searchResults"> Ergebnis der Suche</message>
-	<message key="search.subject">Thema</message>
-	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
-	<message key="search.title">Titel</message>
-	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
-	<message key="common.re">Re:</message>
-	<message key="common.noComments">Keine Kommentare</message>
-	<message key="form.startsWith">beginnt mit</message>
+	<message key="navigation.userManagement">Nutzer/innenverwaltung</message>
 	<message key="notification.confirmError">Es gab einen Fehler beim Bestätigen Ihrer Registrierung.</message>
 	<message key="notification.confirmSuccess">Sie haben sich erfolreich registriert.</message>
 	<message key="notification.location">Gehe zu URL</message>
@@ -300,30 +324,27 @@
 	<message key="notification.unsubscribeDescription">Geben Sie bitte Ihre E-Mail-Adresse und Ihr Passwort ein, um keine weiteren E-Mail-Benachrichtigungen zu erhalten. Wenn Sie sich nicht an Ihr Passwort erinnern, lassen Sie das Feld bitte frei; es wird dann ein neues Passwort an die angegebene E-Mail-Adresse geschickt.</message>
 	<message key="notification.unsubscribeError">Beim Versuch, Sie auzutragen, ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass sie die richtige E-Mail-Adresse und das richtige Passwort verwenden.</message>
 	<message key="notification.unsubscribeSuccess">Sie wurden erfolgreich ausgetragen.</message>
-	<message key="common.manage">Verwalten</message>
-	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative-Commons-Lizenz" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
-		</a>
-		<br/>
-		Diese Arbeit steht unter einer <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
-		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative-Commons-Lizenz" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-		<br />
-		Diese Arbeit steht unter einer <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
-	</div>]]></message>
-	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
-	<message key="common.disable">Ausschalten</message>
-	<message key="common.enable">Einschalten</message>
-	<message key="common.fullscreen">Vollbild</message>
-	<message key="common.fullscreenOff">Vollbild aus</message>
-	<message key="common.ok">OK</message>
-	<message key="common.pluginEnabled">Das Plug-In "{$pluginName}" ist aktiviert worden.</message>
-	<message key="common.pluginDisabled">Das Plug-In "{$pluginName}" ist deaktiviert worden.</message>
-	<message key="common.refresh">Aktualisieren</message>
-	<message key="common.loading">Laden …</message>
-	<message key="navigation.dashboard">Dashboard</message>
-	<message key="common.false">Falsch</message>
-	<message key="common.true">Wahr</message>
+	<message key="search.abstract">Abstract</message>
+	<message key="search.allFields">Alle</message>
+	<message key="search.coverage">Bereich</message>
+	<message key="search.date">Datum</message>
+	<message key="search.dateFrom">von</message>
+	<message key="search.dateTo">bis</message>
+	<message key="search.discipline">Fachgebiet(e)</message>
+	<message key="search.fullText">Volltext</message>
+	<message key="search.indexTerms">Schlagworte</message>
+	<message key="search.matchAll">In allen Kategorien übereinstimmen</message>
+	<message key="search.noKeywordError">Geben Sie mindestens einen Suchbegriff ein.</message>
+	<message key="search.noResults">Kein Ergebnis</message>
+	<message key="search.operator.and">UND</message>
+	<message key="search.operator.not">NICHT</message>
+	<message key="search.operator.or">ODER</message>
+	<message key="search.reviseSearch">Suche bearbeiten</message>
+	<message key="search.searchAllCategories">Alle Kategorien durchsuchen nach</message>
+	<message key="search.searchCategories">Suchkategorien</message>
+	<message key="search.searchResults"> Ergebnis der Suche</message>
+	<message key="search.subject">Thema</message>
+	<message key="search.titleIndex">Titelverzeichnis durchsuchen</message>
+	<message key="search.title">Titel</message>
+	<message key="search.typeMethodApproach">Forschungsansatz, -methode und -verfahren</message>
 </locale>

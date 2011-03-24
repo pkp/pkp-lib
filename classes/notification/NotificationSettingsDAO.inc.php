@@ -34,7 +34,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$notificationSettings = array();
 
@@ -66,7 +66,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$emailSettings = array();
 
@@ -96,7 +96,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		// Delete old settings first, then insert new settings
 		$this->update('DELETE FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
@@ -128,7 +128,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		// Delete old settings first, then insert new settings
 		$this->update('DELETE FROM notification_settings WHERE user_id = ? AND product = ? AND setting_name = ? AND context = ?',
@@ -160,7 +160,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
 			'SELECT user_id FROM notification_settings WHERE setting_value = ? AND setting_name = ? AND product = ? AND context = ?',
@@ -185,7 +185,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
 			'SELECT setting_value FROM notification_settings WHERE user_id = ? AND setting_name = ? AND product = ? AND context = ?',
@@ -210,7 +210,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$token = uniqid(rand());
 
@@ -240,7 +240,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		// Check that the email doesn't already exist
 		$result =& $this->retrieve(
@@ -301,7 +301,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND product = ? AND context = ?',
@@ -347,7 +347,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND setting_value = ? AND product = ? AND context = ?',
@@ -384,7 +384,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 		$mailList = array();
 
 		$result =& $this->retrieve(
@@ -417,7 +417,7 @@ class NotificationSettingsDAO extends DAO {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();
-		$contextId = $context->getId();
+		$contextId = $context?$context->getId():0;
 
 		$result =& $this->retrieve(
 			'SELECT setting_id FROM notification_settings WHERE setting_name = ? AND setting_value = ? AND product = ? AND context = ?',

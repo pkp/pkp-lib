@@ -1,5 +1,5 @@
 {**
- * gridRowWithActions.tpl
+ * templates/controllers/grid/gridRowWithActions.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -8,7 +8,7 @@
  *}
 
 {assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-<tr id="{$rowId}" class="element{$row->getId()} gridRow">
+<tr id="{$rowId|escape}" class="element{$row->getId()|escape} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $smarty.foreach.columnLoop.first}
 			<td class="first_column">

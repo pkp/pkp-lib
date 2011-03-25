@@ -1,5 +1,5 @@
 {**
- * grid.tpl
+ * templates/controllers/grid/grid.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -22,8 +22,8 @@
 					'$.pkp.controllers.grid.GridHandler',
 					{
 						gridId: '{/literal}{$grid->getId()|escape:javascript}{literal}',
-						fetchRowUrl: '{/literal}{url op='fetchRow' params=$fetchParams escape=false}{literal}',
-						fetchGridUrl: '{/literal}{url op='fetchGrid' params=$fetchParams escape=false}{literal}',
+						fetchRowUrl: '{/literal}{url|escape:javascript op='fetchRow' params=$fetchParams escape=false}{literal}',
+						fetchGridUrl: '{/literal}{url|escape:javascript op='fetchGrid' params=$fetchParams escape=false}{literal}',
 						bodySelector: '#{/literal}{$gridActOnId|escape:javascript}{literal}',
 					});
 		});

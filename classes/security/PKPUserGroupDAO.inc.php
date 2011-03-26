@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/security/UserGroupDAO.inc.php
+ * @file classes/security/PKPUserGroupDAO.inc.php
  *
  * Copyright (c) 2003-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class UserGroupDAO
+ * @class PKPUserGroupDAO
  * @ingroup security
  * @see UserGroup
  *
@@ -19,7 +19,7 @@
 
 import('lib.pkp.classes.security.UserGroup');
 
-class UserGroupDAO extends DAO {
+class PKPUserGroupDAO extends DAO {
 	/** @var a shortcut to get the UserDAO **/
 	var $userDao;
 
@@ -29,7 +29,7 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Constructor.
 	 */
-	function UserGroupDAO() {
+	function PKPUserGroupDAO() {
 		parent::DAO();
 		$this->userDao =& DAORegistry::getDAO('UserDAO');
 		$this->userGroupAssignmentDao =& DAORegistry::getDAO('UserGroupAssignmentDAO');
@@ -47,7 +47,7 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Internal function to return a UserGroup object from a row.
 	 * @param $row array
-	 * @return UserGroupDAO
+	 * @return PKPUserGroup
 	 */
 	function &_returnFromRow(&$row) {
 		$userGroup =& $this->newDataObject();
@@ -59,7 +59,7 @@ class UserGroupDAO extends DAO {
 
 		$this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
-		HookRegistry::call('UserGroupDAO::_returnFromRow', array(&$userGroup, &$row));
+		HookRegistry::call('PKPUserGroupDAO::_returnFromRow', array(&$userGroup, &$row));
 
 		return $userGroup;
 	}
@@ -90,14 +90,14 @@ class UserGroupDAO extends DAO {
 	/**
 	 * Delete a user group by its id
 	 * will also delete related settings and all the assignments to this group
-	 * @param $pressId int
+	 * @param $contextId int
 	 * @param $userGroupId int
 	 */
-	function deleteById($pressId, $userGroupId) {
+	function deleteById($contextId, $userGroupId) {
 		$ret1 = $this->userGroupAssignmentDao->deleteAssignmentsByUserGroupId($userGroupId);
 		$ret2 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
 		$ret3 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
-		$ret4 = $this->removeAllStagesFromGroup($pressId, $userGroupId);
+		$ret4 = $this->removeAllStagesFromGroup($contextId, $userGroupId);
 		return $ret1 && $ret2 && $ret3 && $ret4;
 	}
 
@@ -116,7 +116,7 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function deleteByContextId($contextId) {
-		$result =& $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', $contextId);
+		$result =& $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', (int) $contextId);
 
 		$returner = true;
 		for ($i=1; !$result->EOF; $i++) {
@@ -154,7 +154,7 @@ class UserGroupDAO extends DAO {
 	 */
 	function updateLocaleFields(&$userGroup) {
 		$this->updateDataObjectSettings('user_group_settings', $userGroup, array(
-			'user_group_id' => $userGroup->getId()
+			'user_group_id' => (int) $userGroup->getId()
 		));
 	}
 
@@ -164,12 +164,12 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId
 	 */
 	function getById($userGroupId, $contextId = null) {
-		$params = array($userGroupId);
-		if ( $contextId ) $params[] = $contextId;
+		$params = array((int) $userGroupId);
+		if ($contextId) $params[] = (int) $contextId;
 		$result =& $this->retrieve(
-			'SELECT user_group_id, context_id, role_id, path, is_default
-			FROM user_groups
-			WHERE user_group_id = ?' . ($contextId?' AND context_id = ?':''),
+			'SELECT	user_group_id, context_id, role_id, path, is_default
+			FROM	user_groups
+			WHERE	user_group_id = ?' . ($contextId?' AND context_id = ?':''),
 			$params
 			);
 
@@ -198,12 +198,13 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function &getByRoleId($contextId, $roleId, $default = false) {
-		$params = array($contextId, $roleId);
-		if ($default) $params[] = 1;
+		$params = array((int) $contextId, (int) $roleId);
+		if ($default) $params[] = 1; // true
 		$result =& $this->retrieve(
-			'SELECT user_group_id, context_id, role_id, path, is_default
-			FROM user_groups
-			WHERE context_id = ? AND role_id = ?' . ($default?' AND is_default = ?':''),
+			'SELECT	*
+			FROM	user_groups
+			WHERE	context_id = ? AND
+				role_id = ?' . ($default?' AND is_default = ?':''),
 			$params
 		);
 
@@ -218,11 +219,11 @@ class UserGroupDAO extends DAO {
 	 */
 	function &getUserGroupIdsByRoleId($roleId, $contextId = null) {
 		$sql = 'SELECT user_group_id FROM user_groups WHERE role_id = ?';
-		$params = array($roleId);
+		$params = array((int) $roleId);
 
-		if($contextId) {
+		if ($contextId) {
 			$sql .= ' AND context_id = ?';
-			$params[] = $contextId;
+			$params[] = (int) $contextId;
 		}
 
 		$result =& $this->retrieve($sql, $params);
@@ -240,18 +241,6 @@ class UserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Validation check to see if a user belongs to any group that has a given role
-	 * @param $contextId
-	 * @param $userId
-	 * @param $roleId
-	 * @return bool
-	 */
-	function userHasRole($contextId, $userId, $roleId) {
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		return $roleDao->userHasRole($contextId, $userId, $roleId);
-	}
-
-	/**
 	 * Check if a user is in a particular user group
 	 * @param $contextId int
 	 * @param $userId int
@@ -260,8 +249,12 @@ class UserGroupDAO extends DAO {
 	 */
 	function userInGroup($contextId, $userId, $userGroupId) {
 		$result =& $this->retrieve(
-			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.user_group_id = ?',
+			'SELECT	count(*)
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			WHERE	ug.context_id = ? AND
+				uug.user_id = ? AND
+				ug.user_group_id = ?',
 			array((int) $contextId, (int) $userId, (int) $userGroupId)
 		);
 
@@ -285,9 +278,10 @@ class UserGroupDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result =& $this->retrieve(
-			'SELECT count(*)
-			FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
+			'SELECT	count(*)
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			WHERE	uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
 
@@ -306,12 +300,14 @@ class UserGroupDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function &getByUserId($userId, $contextId = 0){
-		$params = array($userId, $contextId);
+		$params = array((int) $userId, (int) $contextId);
 		$result =& $this->retrieve(
-			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.context_id, ug.is_default
-				FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			'SELECT	ug.*
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 				WHERE uug.user_id = ? AND ug.context_id = ?',
-			$params);
+			$params
+		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
 		return $returner;
@@ -349,10 +345,10 @@ class UserGroupDAO extends DAO {
 	 */
 	function &getByContextId($contextId = null) {
 		$params = array();
-		if ( $contextId ) $params[] = $contextId;
+		if ($contextId) $params[] = (int) $contextId;
 		$result =& $this->retrieve(
-			'SELECT ug.user_group_id, ug.role_id, ug.path, ug.context_id, ug.is_default
-				FROM user_groups ug' .
+			'SELECT ug.*
+			FROM	user_groups ug' .
 				($contextId?' WHERE ug.context_id = ?':''),
 			$params);
 
@@ -370,9 +366,10 @@ class UserGroupDAO extends DAO {
 		if ($userGroupId) $params[] = (int) $userGroupId;
 		if ($roleId) $params[] = (int) $roleId;
 		$result =& $this->retrieve(
-			'SELECT COUNT(DISTINCT(uug.user_id))
-			FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE context_id = ?' . ($userGroupId?' AND ug.user_group_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
+			'SELECT	COUNT(DISTINCT(uug.user_id))
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			WHERE	context_id = ?' . ($userGroupId?' AND ug.user_group_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
 			$params
 		);
 
@@ -455,11 +452,16 @@ class UserGroupDAO extends DAO {
 		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
 		$result =& $this->retrieveRange(
-			'SELECT DISTINCT u.* FROM users AS u
-			LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
+			'SELECT	DISTINCT u.*
+			FROM	users AS u
+				LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
 				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
-				WHERE ug.user_group_id = uug.user_group_id AND u.user_id = uug.user_id' . (isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') . (isset($contextId) ? ' AND ug.context_id = ?' : '') . ' ' . $searchSql,
+			WHERE	ug.user_group_id = uug.user_group_id AND
+				u.user_id = uug.user_id' .
+				(isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') .
+				(isset($contextId) ? ' AND ug.context_id = ?' : '') .
+				' ' . $searchSql,
 			$paramArray,
 			$dbResultRange
 		);
@@ -522,20 +524,19 @@ class UserGroupDAO extends DAO {
 
 	/**
 	 * Delete all stage assignments in a user group.
-	 * @param $pressId int
+	 * @param $contextId int
 	 * @param $userGroupId int
 	 */
-	function removeAllStagesFromGroup($pressId, $userGroupId) {
-		$userGroupStageAssignmentDao =& DAORegistry::getDAO('UserGroupStageAssignmentDAO');
-		$assignedStages = $userGroupStageAssignmentDao->getAssignedStagesByUserGroupId($pressId, $userGroupId);
+	function removeAllStagesFromGroup($contextId, $userGroupId) {
+		$assignedStages = $this->getAssignedStagesByUserGroupId($contextId, $userGroupId);
 		foreach($assignedStages as $stageId => $stageLocaleKey) {
-			$userGroupStageAssignmentDao->removeGroupFromStage($pressId, $userGroupId, $stageId);
+			$this->removeGroupFromStage($contextId, $userGroupId, $stageId);
 		}
 	}
 
 
 	//
-	// Extra settings (not handled by rest of Dao
+	// Extra settings (not handled by rest of Dao)
 	//
 	/**
 	 * Method for updatea userGroup setting
@@ -552,7 +553,7 @@ class UserGroupDAO extends DAO {
 			$value = $this->convertToDB($value, $type);
 			$this->replace('user_group_settings',
 				array(
-					'user_group_id' => $userGroupId,
+					'user_group_id' => (int) $userGroupId,
 					'setting_name' => $name,
 					'setting_value' => $value,
 					'setting_type' => $type,
@@ -562,7 +563,7 @@ class UserGroupDAO extends DAO {
 			);
 		} else {
 			if (is_array($value)) foreach ($value as $locale => $localeValue) {
-				$this->update('DELETE FROM user_group_settings WHERE user_group_id = ? AND setting_name = ? AND locale = ?', array($userGroupId, $name, $locale));
+				$this->update('DELETE FROM user_group_settings WHERE user_group_id = ? AND setting_name = ? AND locale = ?', array((int) $userGroupId, $name, $locale));
 				if (empty($localeValue)) continue;
 				$type = null;
 				$this->update('INSERT INTO user_group_settings
@@ -585,21 +586,23 @@ class UserGroupDAO extends DAO {
 	 * @return mixed
 	 */
 	function &getSetting($userGroupId, $name, $locale = null) {
-		$params = array($userGroupId, $name);
-		if ( $locale ) $params[] = $locale;
+		$params = array((int) $userGroupId, $name);
+		if ($locale) $params[] = $locale;
 		$result =& $this->retrieve(
-			'SELECT setting_name, setting_value, setting_type, locale
-			FROM user_group_settings
-			WHERE user_group_id = ? AND setting_name = ?' . ($locale?' AND locale = ?':''),
+			'SELECT	setting_name, setting_value, setting_type, locale
+			FROM	user_group_settings
+			WHERE	user_group_id = ? AND
+				setting_name = ?' .
+				($locale?' AND locale = ?':''),
 			$params
 		);
 
 		$recordCount = $result->RecordCount();
 		$returner = false;
-		if ( $recordCount == 1) {
+		if ($recordCount == 1) {
 			$row =& $result->getRowAssoc(false);
 			$returner =& $this->convertFromDB($row['setting_value'], $row['setting_type']);
-		} elseif ( $recordCount > 1 ) {
+		} elseif ($recordCount > 1) {
 			$returner = array();
 			while (!$result->EOF) {
 				$returner[$row['locale']] = $this->convertFromDB($row['setting_value'], $row['setting_type']);
@@ -650,8 +653,7 @@ class UserGroupDAO extends DAO {
 			// Install default groups for each stage
 			foreach ($defaultStages as $stageId) {
 				if (!empty($stageId) && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION && $stageId >= WORKFLOW_STAGE_ID_SUBMISSION) {
-					$userGroupStageAssignmentDao =& DAORegistry::getDAO('UserGroupStageAssignmentDAO');
-					$userGroupStageAssignmentDao->assignGroupToStage($contextId, $userGroupId, $stageId);
+					$this->assignGroupToStage($contextId, $userGroupId, $stageId);
 				}
 			}
 
@@ -672,23 +674,25 @@ class UserGroupDAO extends DAO {
 	 */
 	function installLocale($locale, $contextId = null) {
 		$userGroups =& $this->getByContextId($contextId);
-		while ( !$userGroups->eof() ) {
+		while (!$userGroups->eof()) {
 			$userGroup =& $userGroups->next();
 			$nameKey = $this->getSetting($userGroup->getId(), 'nameLocaleKey');
 			$this->updateSetting($userGroup->getId(),
-								'name',
-								array($locale => Locale::translate($nameKey, null, $locale)),
-								'string',
-								$locale,
-								true);
+				'name',
+				array($locale => Locale::translate($nameKey, null, $locale)),
+				'string',
+				$locale,
+				true
+			);
 
 			$abbrevKey = $this->getSetting($userGroup->getId(), 'abbrevLocaleKey');
 			$this->updateSetting($userGroup->getId(),
-								'abbrev',
-								array($locale => Locale::translate($abbrevKey, null, $locale)),
-								'string',
-								$locale,
-								true);
+				'abbrev',
+				array($locale => Locale::translate($abbrevKey, null, $locale)),
+				'string',
+				$locale,
+				true
+			);
 			unset($userGroup);
 		}
 	}
@@ -702,4 +706,5 @@ class UserGroupDAO extends DAO {
 		return $result;
 	}
 }
+
 ?>

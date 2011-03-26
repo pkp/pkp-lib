@@ -20,13 +20,20 @@ import ('lib.pkp.classes.group.Group');
 
 class GroupDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function GroupDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a group by ID.
 	 * @param $groupId int
 	 * @param $assocType int optional
 	 * @param $assocId int optional
 	 * @return Group
 	 */
-	function &getGroup($groupId, $assocType = null, $assocId = null) {
+	function &getById($groupId, $assocType = null, $assocId = null) {
 		$params = array((int) $groupId);
 		if ($assocType !== null) {
 			$params[] = (int) $assocType;
@@ -42,6 +49,12 @@ class GroupDAO extends DAO {
 		}
 		$result->Close();
 		unset($result);
+		return $returner;
+	}
+
+	function getGroup($groupId, $assocType = null, $assocId = null) {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+		$returner =& $this->getById($groupId, $assocType, $assocId);
 		return $returner;
 	}
 
@@ -75,12 +88,20 @@ class GroupDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate a new DataObject.
+	 * @return PKPGroup
+	 */
+	function newDataObject() {
+		return new PKPGroup();
+	}
+
+	/**
 	 * Internal function to return a Group object from a row.
 	 * @param $row array
 	 * @return Group
 	 */
 	function &_returnGroupFromRow(&$row) {
-		$group = new Group();
+		$group = $this->newDataObject();
 		$group->setId($row['group_id']);
 		$group->setAboutDisplayed($row['about_displayed']);
 		$group->setPublishEmail($row['publish_email']);

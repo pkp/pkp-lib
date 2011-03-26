@@ -90,6 +90,7 @@ class PKPGiftDAO extends DAO {
 		$gift->setRecipientEmail($row['recipient_email']);
 		$gift->setRecipientUserId($row['recipient_user_id']);
 		$gift->setDatetimeRedeemed($this->datetimeFromDB($row['date_redeemed']));
+		$gift->setLocale($row['locale']);
 		$gift->setGiftNoteTitle($row['gift_note_title']);
 		$gift->setGiftNote($row['gift_note']);
 		$gift->setNotes($row['notes']);
@@ -122,12 +123,13 @@ class PKPGiftDAO extends DAO {
 				recipient_last_name,
 				recipient_email,
 				recipient_user_id,
+				locale,
 				gift_note_title,
 				gift_note,
 				notes,
 				date_redeemed)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s)',
 				$this->datetimeToDB($gift->getDatetimeRedeemed())),
 			array(
 				$gift->getAssocType(),
@@ -145,6 +147,7 @@ class PKPGiftDAO extends DAO {
 				$gift->getRecipientLastName(),
 				$gift->getRecipientEmail(),
 				$gift->getRecipientUserId(),
+				$gift->getLocale(),
 				$gift->getGiftNoteTitle(),
 				$gift->getGiftNote(),
 				$gift->getNotes()
@@ -178,6 +181,7 @@ class PKPGiftDAO extends DAO {
 					recipient_last_name = ?,
 					recipient_email = ?,
 					recipient_user_id = ?,
+					locale = ?,
 					gift_note_title = ?,
 					gift_note = ?,
 					notes = ?,
@@ -200,6 +204,7 @@ class PKPGiftDAO extends DAO {
 				$gift->getRecipientLastName(),
 				$gift->getRecipientEmail(),
 				$gift->getRecipientUserId(),
+				$gift->getLocale(),
 				$gift->getGiftNoteTitle(),
 				$gift->getGiftNote(),
 				$gift->getNotes(),

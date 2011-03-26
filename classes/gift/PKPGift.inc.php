@@ -313,6 +313,22 @@ class PKPGift extends DataObject {
 	}
 
 	/**
+	 * Get locale.
+	 * @return string
+	 */
+	function getLocale() {
+		return $this->getData('locale');
+	}
+
+	/**
+	 * Set locale.
+	 * @param $locale string
+	 */
+	function setLocale($locale) {
+		return $this->setData('locale', $locale);
+	}
+
+	/**
 	 * Get the gift note title from buyer.
 	 * @return string
 	 */

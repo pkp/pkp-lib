@@ -59,6 +59,10 @@
 		</field>
 		<field name="recipient_user_id" type="I8" />
 		<field name="date_redeemed" type="T" />
+		<field name="locale" type="C2" size="5">
+			<NOTNULL/>
+			<DEFAULT VALUE=""/>
+		</field>
 		<field name="gift_note_title" type="C2" size="90"/>
 		<field name="gift_note" type="X"/>
 		<field name="notes" type="X"/>

@@ -1,5 +1,5 @@
 {**
- * radioButton.tpl
+ * templates/form/radioButton.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,4 +15,4 @@
 	</div>
 </div>
 {if $FBV_submit}<input type="submit" name="{$FBV_submit}" value="{translate key="common.upload"}" class="button pkp_form_uploadFile"{if $FBV_disabled} disabled="disabled"{/if} />{/if}
-
+{$FBV_label_content}

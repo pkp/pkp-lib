@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * manager.xml
+  *
+  * Copyright (c) 2003-2011 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the te_ST (Test Loçale) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="te_ST" full_name="Test Loçale">
+	<message key="manager.announcements">Æññóüñçèmèñtþ</message>
+	<message key="manager.announcements.confirmDelete">Ærè ýóü þürè ýóü wåñt tó pèrmåñèñtlý ðèlètè thîþ åññóüñçèmèñt?</message>
+	<message key="manager.announcements.create">Çrèåtè Ñèw Æññóüñçèmèñt</message>
+	<message key="manager.announcements.createTitle">Çrèåtè</message>
+	<message key="manager.announcements.dateExpire">Éxpîrý</message>
+	<message key="manager.announcements.edit">Éðît Æññóüñçèmèñt</message>
+	<message key="manager.announcements.editTitle">Éðît</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Plèåþè þèlèçt å ýèår åñð/ór móñth îñ åððîtîóñ tó thè èxpîrý ðåtè ðåý.</message>
+	<message key="manager.announcements.form.dateExpire">Éxpîrý Ðåtè</message>
+	<message key="manager.announcements.form.dateExpireInstructions">Thè åññóüñçèmèñt wîll bè ðîþplåýèð tó rèåðèrþ üñtîl thîþ ðåtè. Lèåvè blåñk îf thè åññóüñçèmèñt þhóülð bè ðîþplåýèð îñðèfîñîtèlý.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">Plèåþè þèlèçt å ýèår åñð/ór ðåý îñ åððîtîóñ tó thè èxpîrý ðåtè móñth.</message>
+	<message key="manager.announcements.form.dateExpireValid">Plèåþè þèlèçt å vålîð åññóüñçèmèñt èxpîrý ðåtè.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">Plèåþè þèlèçt å móñth åñð/ór ðåý îñ åððîtîóñ tó thè èxpîrý ðåtè ýèår.</message>
+	<message key="manager.announcements.form.description">Ðèþçrîptîóñ</message>
+	<message key="manager.announcements.form.descriptionInstructions">Thè füll tèxt óf thè åññóüñçèmèñt.</message>
+	<message key="manager.announcements.form.descriptionRequired">Æñ åññóüñçèmèñt ðèþçrîptîóñ îþ rèqüîrèð.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">Æ brîèf ðèþçrîptîóñ tó åppèår ålóñg wîth thè åññóüñçèmèñt tîtlè.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">Æ þhórt åññóüñçèmèñt ðèþçrîptîóñ îþ rèqüîrèð.</message>
+	<message key="manager.announcements.form.descriptionShort">ßhórt Ðèþçrîptîóñ</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">ßåvè åñð Çrèåtè Æñóthèr</message>
+	<message key="manager.announcements.form.titleRequired">Æñ åññóüñçèmèñt tîtlè îþ rèqüîrèð.</message>
+	<message key="manager.announcements.form.title">Tîtlè</message>
+	<message key="manager.announcements.form.typeId">Týpè</message>
+	<message key="manager.announcements.form.typeIdValid">Plèåþè þèlèçt å vålîð åññóüñçèmèñt týpè.</message>
+	<message key="manager.announcements.noneCreated">Ñó åññóüñçèmèñtþ håvè bèèñ çrèåtèð.</message>
+	<message key="manager.announcements.title">Tîtlè</message>
+	<message key="manager.announcements.type">Týpè</message>
+	<message key="manager.announcementTypes">Æññóüñçèmèñt Týpèþ</message>
+	<message key="manager.announcementTypes.confirmDelete">Wårñîñg! Æll åññóüñçèmèñtþ wîth thîþ åññóüñçèmèñt týpè wîll ålþó bè ðèlètèð. Ærè ýóü þürè ýóü wåñt tó çóñtîñüè åñð ðèlètè thîþ åññóüñçèmèñt týpè?</message>
+	<message key="manager.announcementTypes.create">Çrèåtè Æññóüñçèmèñt Týpè</message>
+	<message key="manager.announcementTypes.createTitle">Çrèåtè</message>
+	<message key="manager.announcementTypes.edit">Éðît Æññóüñçèmèñt Týpè</message>
+	<message key="manager.announcementTypes.editTitle">Éðît</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">ßåvè åñð Çrèåtè Æñóthèr</message>
+	<message key="manager.announcementTypes.form.typeNameExists">Æñ åññóüñçèmèñt týpè wîth thîþ ñåmè ålrèåðý èxîþtþ.</message>
+	<message key="manager.announcementTypes.form.typeName">Ñåmè</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">Æñ åññóüñçèmèñt týpè ñåmè îþ rèqüîrèð.</message>
+	<message key="manager.announcementTypes.noneCreated">Ñó åññóüñçèmèñt týpèþ håvè bèèñ çrèåtèð.</message>
+	<message key="manager.announcementTypes.typeName">Æññóüñçèmèñt Týpè</message>
+	<message key="manager.emails.confirmDelete">Ærè ýóü þürè ýóü wåñt tó ðèlètè thîþ èmåîl tèmplåtè?</message>
+	<message key="manager.emails.confirmReset">Ærè ýóü þürè ýóü wåñt tó rèþèt thîþ èmåîl tèmplåtè tó îtþ ðèfåült vålüèþ?</message>
+	<message key="manager.emails.addEmail">Æðð Émåîl Tèmplåtè</message>
+	<message key="manager.emails.createEmail">Çrèåtè Émåîl</message>
+	<message key="manager.emails.data">Tèmplåtè Mèþþågè Ðåtå</message>
+	<message key="manager.emails.details">Tèmplåtè Ðètåîlþ</message>
+	<message key="manager.emails.disable">Ðîþåblè</message>
+	<message key="manager.emails.disable.message">Ýóü årè åbóüt tó ðîþåblè thîþ èmåîl tèmplåtè.  Îf thèrè wèrè þýþtèm próçèþþèþ üþîñg thîþ tèmplåtè, thèý wîll ñót üþè ît åñýmórè.  Ðó ýóü wåñt tó çóñfîrm thîþ ópèråtîóñ?</message>
+	<message key="manager.emails.editEmail">Éðît Émåîl</message>
+	<message key="manager.emails.editTestExample">Éðît Émåîl Tèþt Éxåmplè</message>
+	<message key="manager.emails.emailKey">Émåîl Kèý</message>
+	<message key="manager.emails.emailKeyExists">Æñ èmåîl wîth thè gîvèñ kèý ålrèåðý èxîþtþ. Émåîl kèýþ müþt bè üñîqüè.</message>
+	<message key="manager.emails.emailTemplate">Émåîl Tèmplåtè</message>
+	<message key="manager.emails.emailTemplates">Émåîl Tèmplåtèþ</message>
+	<message key="manager.emails.enabled">Éñåblè thîþ èmåîl tèmplåtè</message>
+	<message key="manager.emails.enable">Éñåblè</message>
+	<message key="manager.emails.enable.message">Ýóü årè åbóüt tó èñåblè thîþ èmåîl.  Ðó ýóü wåñt tó çóñfîrm thîþ ópèråtîóñ?</message>
+	<message key="manager.emails.form.emailKeyRequired">Æ üñîqüè èmåîl kèý îþ rèqüîrèð fór thè èmåîl.</message>
+	<message key="manager.emails.form.bodyRequired">Æ bóðý îþ rèqüîrèð fór thè èmåîl.</message>
+	<message key="manager.emails.form.subjectRequired">Æ þübjèçt îþ rèqüîrèð fór thè èmåîl.</message>
+	<message key="manager.emails">Prèpårèð Émåîlþ</message>
+	<message key="manager.emails.resetAll">Rèþèt Æll Tèmplåtèþ</message>
+	<message key="manager.emails.resetAll.message">Îf ýóü rèþèt åll tèmplåtèþ, åll móðîfîçåtîóñþ tó thè èmåîl tèmplåtèþ wîll bè lóþt.  Ðó ýóü wåñt tó çóñfîrm thîþ ópèråtîóñ?</message>
+	<message key="manager.emails.reset">Rèþèt</message>
+	<message key="manager.emails.reset.message">Îf ýóü rèþèt thîþ tèmplåtè, åll mèþþågè ðåtå wîll bè rèþèt tó îtþ ðèfåült vålüè, lóþîñg åll móðîfîçåtîóñþ.  Ðó ýóü wåñt tó çóñfîrm thîþ ópèråtîóñ?</message>
+	<message key="manager.emails.resetToDefault">Rèþèt Tó Ðèfåült</message>
+	<message key="manager.filesBrowser">Fîlèþ Brówþèr</message>
+	<message key="manager.files.confirmDelete">Ðèlètè thîþ fîlè ór ðîrèçtórý? Ñótè thåt å ðîrèçtórý müþt bè èmptý bèfórè ît çåñ bè ðèlètèð.</message>
+	<message key="manager.files.createDir">Çrèåtè Ðîrèçtórý</message>
+	<message key="manager.files.emptyDir">Ñó fîlèþ wèrè fóüñð îñ thîþ ðîrèçtórý.</message>
+	<message key="manager.files.indexOfDir">Îñðèx óf {$dir}</message>
+	<message key="manager.files.parentDir">Pårèñt Ðîrèçtórý</message>
+	<message key="manager.files.uploadedFiles">Üplóåðèð Fîlèþ</message>
+	<message key="manager.files.uploadFile">Üplóåð Fîlè</message>
+	<message key="manager.groups.confirmDelete">Ærè ýóü þürè ýóü wîþh tó ðèlètè thîþ gróüp?</message>
+	<message key="manager.groups.createTitle">Çrèåtè Tîtlè</message>
+	<message key="manager.groups.editTitle">Éðît Tîtlè</message>
+	<message key="manager.groups.form.groupTitleRequired">Æ gróüp tîtlè îþ rèqüîrèð.</message>
+	<message key="manager.groups.membership.addMember">Æðð Mèmbèr</message>
+	<message key="manager.groups.membership.confirmDelete">Ærè ýóü þürè ýóü wîþh tó ðèlètè thîþ gróüp mèmbèrþhîp?</message>
+	<message key="manager.groups.membership">Mèmbèrþhîp</message>
+	<message key="manager.groups.membership.noneCreated">Thîþ gróüp håþ ñó mèmbèrþ.</message>
+	<message key="manager.groups.membership.noUsers">Ñó üþèrþ wèrè fóüñð.</message>
+	<message key="manager.groups.title">Tîtlè</message>
+	<message key="manager.importExport">Împórt/Éxpórt Ðåtå</message>
+	<message key="manager.languages.alternateLocaleInstructions">Thîþ þýþtèm óptîóñållý ållówþ çèrtåîñ çrîtîçål îñfórmåtîóñ tó bè èñtèrèð îñ þèvèrål åððîtîóñål låñgüågèþ. Tó üþè thîþ fèåtürè, þèlèçt åltèrñåtè lóçålèþ åñð çhóóþè fróm thè óptîóñþ lîþtèð bèlów.</message>
+	<message key="manager.languages.supportedLocalesInstructions">ßèlèçt åll lóçålèþ tó þüppórt óñ thè þîtè vîå å låñgüågè þèlèçt mèñü tó åppèår óñ èåçh pågè. Thè mèñü wîll óñlý åppèår îf mórè thåñ óñè lóçålè îþ þèlèçtèð.</message>
+	<message key="manager.payment.timestamp">Tîmèþtåmp</message>
+	<message key="manager.people.authSource">Æüthèñtîçåtîóñ þóürçè</message>
+	<message key="manager.people.confirmUnenroll">Üñèñróll thîþ üþèr?</message>
+	<message key="manager.people.createUser">Çrèåtè Ñèw Üþèr</message>
+	<message key="manager.people.createUserGeneratePassword">Gèñèråtè å råñðóm påþþwórð.</message>
+	<message key="manager.people.createUserSendNotify">ßèñð thè üþèr å wèlçómè èmåîl çóñtåîñîñg thèîr üþèrñåmè åñð påþþwórð.</message>
+	<message key="manager.people.disable">Ðîþåblè</message>
+	<message key="manager.people.doNotEnroll">Wîth ñó rólè</message>
+	<message key="manager.people.editProfile">Éðît Prófîlè</message>
+	<message key="manager.people.editUser">Éðît Üþèr</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">Émåîl þèlèçtèð üþèrþ</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">Émåîl üþèrþ èñróllèð åþ</message>
+	<message key="manager.people.emailUsers">Émåîl Üþèrþ</message>
+	<message key="manager.people.emailUsers.selectLocale">ßèlèçt å lóçålè</message>
+	<message key="manager.people.emailUsers.selectUsers">ßèlèçt thè üþèrþ ýóü wóülð lîkè tó èmåîl bý çhèçkîñg thè bóxèþ bèþîðè thèîr ñåmèþ</message>
+	<message key="manager.people.enable">Éñåblè</message>
+	<message key="manager.people.enroll">Éñróll Üþèr</message>
+	<message key="manager.people.enrollment">Éñróllmèñt</message>
+	<message key="manager.people.enrollSelected">Éñróll ßèlèçtèð Üþèrþ</message>
+	<message key="manager.people.enrollSyncRole">ßýñçhróñîzè rólè</message>
+	<message key="manager.people.enrollSync">ßýñç Éñróllmèñt</message>
+	<message key="manager.people.enrollUserAsDescription">Üþèrþ çåñ bè åþþîgñèð tó, ór rèmóvèð fróm, å rólè åt åñý póîñt.</message>
+	<message key="manager.people.enrollUserAs">Éñróll üþèr åþ</message>
+	<message key="manager.people.invalidUser">ßórrý, thè rèqüèþtèð üþèr ðóèþ ñót èxîþt.</message>
+	<message key="manager.people.mergeUser">Mèrgè Üþèr</message>
+	<message key="manager.people.mergeUsers.confirm">Ærè ýóü þürè ýóü wîþh tó mèrgè thè þèlèçtèð {$oldAccountCount} åççóüñt(þ) îñtó thè åççóüñt wîth thè üþèrñåmè "{$newUsername}"? Thè þèlèçtèð {$oldAccountCount} åççóüñtþ wîll ñót èxîþt åftèrwårðþ. Thîþ åçtîóñ îþ ñót rèvèrþîblè.</message>
+	<message key="manager.people.mergeUsers">Mèrgè Üþèrþ</message>
+	<message key="manager.people.mustChooseRole">Plèåþè þèlèçt å rólè åt thè tóp óf thè pågè bèfórè çlîçkîñg "Éñróll Üþèr".</message>
+	<message key="manager.people.mustProvideName">Plèåþè próvîðè åt lèåþt å låþt ñåmè fór thè üþèr fîrþt.</message>
+	<message key="manager.people.noMatchingUsers">Ñó måtçhîñg üþèrþ.</message>
+	<message key="manager.people.noneEnrolled">Ñó èñróllèð üþèrþ.</message>
+	<message key="manager.people">Pèóplè</message>
+	<message key="manager.people.remove">Rèmóvè</message>
+	<message key="manager.people.saveAndCreateAnotherUser">ßåvè åñð Çrèåtè Æñóthèr</message>
+	<message key="manager.people.signInAs">Lóg Îñ Æþ</message>
+	<message key="manager.people.signInAsUser">Lóg Îñ åþ Üþèr</message>
+	<message key="manager.people.syncUsers">ßýñçhróñîzè Üþèr Éñróllmèñt</message>
+	<message key="manager.people.unenroll">Üñèñróll</message>
+	<message key="manager.people.userCreatedSuccessfully">Üþèr çrèåtèð þüççèþþfüllý.</message>
+	<message key="manager.people.userMustChangePassword">Rèqüîrè thè üþèr tó çhåñgè thèîr påþþwórð thè ñèxt tîmè thèý lóg îñ.</message>
+	<message key="manager.plugins.action">Æçtîóñ:</message>
+	<message key="manager.plugins.disable">Ðîþåblè</message>
+	<message key="manager.plugins.enable">Éñåblè</message>
+	<message key="manager.plugins.pluginManagement">Plügîñ Måñågèmèñt</message>
+	<message key="manager.plugins.sitePlugin">Thîþ îþ å þîtè-wîðè plügîñ. Òñlý thè ßîtè Æðmîñîþtråtór måý måñågè thîþ plügîñ.</message>
+	<message key="manager.plugins">ßýþtèm Plügîñþ</message>
+	<message key="manager.readingTools">Rèåðîñg Tóólþ</message>
+	<message key="manager.reviewerSearch.advancedSearch">Æðvåñçèð Rèvîèwèr ßèårçh</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Æðvåñçèð ßèårçh</message>
+	<message key="manager.reviewerSearch.searchByName">ßèårçh Fór Rèvîèwèr Bý Ñåmè</message>
+	<message key="manager.reviewerSearch.searchByName.short">ßèårçh Bý Ñåmè</message>
+	<message key="manager.reviewerSearch.doneAmount">Ñümbèr óf rèvîèwþ çómplètèð</message>
+	<message key="manager.reviewerSearch.avgAmount">Ævèrågè ñümbèr óf ðåýþ pèr rèvîèw</message>
+	<message key="manager.reviewerSearch.lastAmount">Ðåýþ þîñçè låþt rèvîèw</message>
+	<message key="manager.reviewerSearch.activeAmount">Ñümbèr óf çürrèñtlý åçtîvè rèvîèwþ</message>
+	<message key="manager.reviewerSearch.interests">Rèvîèwîñg Îñtèrèþtþ</message>
+	<message key="manager.roles">Rólèþ</message>
+	<message key="manager.setup.citationAssistant">Çîtåtîóñ Mårküp Æþþîþtåñt</message>
+	<message key="manager.setup.citationFilterParser">Çîtåtîóñ Éxtråçtîóñ</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>Tó fîñð åñð çhèçk çîtåtîóñþ îñ çîtåtîóñ ðåtåbåþèþ thèý fîrþt håvè tó bè þplît îñtó måçhîñè rèåðåblè mètåðåtå: tîtlè, püblîþhèr, püblîçåtîóñ ðåtè, ètç. müþt åll bè èxtråçtèð fróm thè órîgîñål çîtåtîóñ tèxt próvîðèð bý thè åüthór. Çóññèçtórþ tó èxtèrñål wèb þèrvîçèþ çåñ åþþîþt îñ thîþ próçèþþ. Òñè ór þèvèrål çóññèçtórþ çåñ bè åððèð bý çlîçkîñg óñ thè "Æðð Îtèm" büttóñ bèlów. ßómè óf thèþè çóññèçtórþ måý ñèèð tó bè çóñfîgürèð; ýóü wîll bè prómptèð îf thîþ îþ thè çåþè.</p>
+		<p>Ýóü çåñ èðît ór ðèlètè åñ èxîþtîñg Çóññèçtór bý çlîçkîñg thè gèår îçóñ ñèxt tó ît.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Çîtåtîóñ Çhèçkîñg</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Ýóü müþt ålþó èñåblè åñð çóñfîgürè çóññèçtîóñþ tó èxtèrñål çîtåtîóñ ðåtåbåþèþ. Thîþ hèlpþ ýóü tó fîñð èrrórþ îñ åüthórþ' çîtåtîóñþ ór åðð åððîtîóñål îñfórmåtîóñ (è.g. ÐÒÎþ ór PübMèð ÎÐþ) rèqüîrèð fór èlèçtróñîç püblîþhîñg ór ðèpóþît.</p>
+		<p>Wè próvîðè çóññèçtórþ tó þèvèrål èxtèrñål ðåtåbåþèþ îñ whîçh ýóü çåñ þèårçh fór çîtåtîóñþ. ßómè óf thèþè ðåtåbåþèþ rèqüîrè règîþtråtîóñ ór çóñfîgüråtîóñ îñfórmåtîóñ tó bè èñtèrèð. Plèåþè rèfèr tó thè püblîç wèbþîtèþ óf thè ðåtåbåþèþ fór fürthèr îñfórmåtîóñ óñ hów tó règîþtèr. Ýóü çåñ åðð óñè ór þèvèrål ðåtåbåþèþ bý çlîçkîñg óñ thè "Æðð Îtèm" büttóñ bèlów.</p>
+		<p>Ýóü çåñ èðît ór ðèlètè åñ èxîþtîñg èxtèrñål ðåtåbåþè çóññèçtîóñ bý çlîçkîñg thè gèår îçóñ ñèxt tó ît.</p>
+		<p><strong>Ñótè:</strong> Îñ órðèr fór thè çîtåtîóñ çhèçkîñg próçèþþ tó çómplètè îñ å tîmèlý måññèr, thè <tt>çîtåtîóñ_çhèçkîñg_måx_próçèþþèþ</tt> ðîrèçtîvè îñ ýóür çóñfîgüråtîóñ fîlè müþt bè þèt tó å rèåþóñåblè vålüè. ßèè thè Gèñèrål ßèttîñgþ þèçtîóñ îñ <tt>çóñfîg.îñç.php</tt> fór mórè îñfórmåtîóñ.</p>]]></message>
+	<message key="manager.setup.citationOutput">Çîtåtîóñ Òütpüt</message>
+	<message key="manager.setup.citationOutputStyleDescription">Çhóóþè thè çîtåtîóñ þtýlè thåt îþ bèîñg üþèð îñ ýóür jóürñål'þ åüthór þübmîþþîóñþ. Thè Çîtåtîóñ Mårküp Æþþîþtåñt lètþ ýóü çómpårè thè åüthór'þ vèrþîóñ óf thè çîtåtîóñ tó å vèrþîóñ gèñèråtèð fróm thè XML ýóü årè gèñèråtîñg þó thåt ýóü çåñ èåþîlý þpót èrrórþ:</message>
+	<message key="manager.setup.errorDeletingItem">Thèrè wåþ åñ èrrór whèñ ðèlètîñg thîþ îtèm.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">Æñ èrrór óççürrèð whîlè trýîñg tó rèmóvè thîþ fîltèr. Plèåþè rèpórt thîþ åþ å büg.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Çóññèçtór</message>
+	<message key="manager.setup.filter.grid.filterSettings">Règîþtråtîóñ Îñfórmåtîóñ åñð Çóññèçtór ßèttîñgþ</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Plèåþè þèlèçt óñè óf thè tråñþfórmåtîóñþ fróm thè ðróp-ðówñ.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">Ðó ýóü rèållý wåñt tó ðèlètè thè {$filterName} fîltèr?</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Ýóü håvè çhóþèñ tó åðð thè {$filterDisplayName} ðåtåbåþè. Plèåþè çlîçk óñ 'ÒK' tó çóñfîrm.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Plèåþè þèlèçt å lóóküp ðåtåbåþè.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Thîþ fîltèr çóññèçtþ tó thè <a href="http://isbndb.com/" target="_blank">ÎßBÑðb.çóm</a> bóók åñð ÎßBÑ ðåtåbåþè.</p>
+	<p>Æñ ÎßBÑðb ÆPÎ kèý îþ måñðåtórý. Fór îñfórmåtîóñ óñ gèñèråtîñg å kèý, þèè thè <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">óñlîñè ðóçümèñtåtîóñ</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Thîþ fîltèr çóññèçtþ tó thè ÇróþþRèf çîtåtîóñ ðåtåbåþè üþîñg ÇróþþRèf'þ <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">ÒpèñÜRL Qüèrý Îñtèrfåçè</a>.</p>
+	<p>Tó üþè thîþ fîltèr, ýóü çåñ üþè ýóür ÇróþþRèf þýþtèm åççóüñt, ór règîþtèr å vålîð èmåîl åððrèþþ wîth ÇróþþRèf <a href="http://www.crossref.org/requestaccount/" target="_blank">hèrè</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>Thîþ fîltèr çóññèçtþ tó PübMèð'þ <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Éñtrèz</a> çróþþ-ðåtåbåþè þèårçh èñgîñè.</p>
+	<p>Æ règîþtråtîóñ èmåîl îþ ñót þtrîçtlý måñðåtórý, büt måý bè ñèçèþþårý îf ýóü rüñ îñtó çóññèçtîóñ próblèmþ. ßèè thè þèçtîóñ óñ <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Üþågè Güîðèlîñèþ åñð Rèqüîrèmèñtþ</a> îñ thè Éñtrèz ðóçümèñtåtîóñ fór mórè îñfórmåtîóñ.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>Thîþ fîltèr çóññèçtþ tó ÒÇLÇ þèrvîçèþ <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xÎßBÑ</a> åñð <a href="http://www.worldcat.org/" target="_blank">Wórlðçåt</a> (óptîóñål).</p>
+	<p>Îf ýóü håvè å Wórlðçåt <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">ÆPÎ kèý</a> ýóü çåñ çóññèçt tó Wórlðçåt bý èñtèrîñg thè kèý bèlów.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">Plèåþè wåît üñtîl thè çîtåtîóñ ðåtåbåþè çóñfîgüråtîóñ grîð håþ bèèñ lóåðèð...</message>
+	<message key="manager.setup.filter.lookup.grid.title">Çîtåtîóñ Ðåtåbåþè Çóññèçtórþ</message>
+	<message key="manager.setup.filter.noMoreTemplates">Æll åvåîlåblè tråñþfórmåtîóñþ håvè ålrèåðý bèèñ åððèð. Plèåþè çlîçk 'Çåñçèl' tó rètürñ tó thè þètüp pågè.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">Ýóü håvè çhóþèñ tó åðð thè {$filterDisplayName} pårþèr. Plèåþè çlîçk óñ 'ÒK' tó çóñfîrm.</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Plèåþè þèlèçt å çîtåtîóñ pårþèr.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>Thîþ èxtråçtîóñ fîltèr çóññèçtþ tó thè <a href="http://freecite.library.brown.edu/" target="_blank">FrèèÇîtè</a> wèb þèrvîçè.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Thîþ èxtråçtîóñ fîltèr üþèþ thè <a href="http://paracite.eprints.org/developers/" target="_blank">PåråTóólþ</a> Pèrl móðülèþ tó próvîðè <a href="http://paracite.eprints.org" target="_blank">PåråÇîtè</a> çîtåtîóñ pårþîñg füñçtîóñålîtý. Îñ órðèr fór thîþ tó wórk própèrlý, ýóü müþt håvè Pèrl îñþtållèð, ålóñg wîth thè <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Bîblîó::Çîtåtîóñ::Pårþèr</a> åñð <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Tèxt::Üñîðèçóðè</a> ÇPÆÑ móðülèþ. Ýóü müþt ålþó çóñfîgürè thè <tt>pèrl</tt> ðîrèçtîvè îñ ýóür çóñfîgüråtîóñ fîlè. Thîþ ðîrèçtîvè çåñ bè fóüñð îñ thè Éxtèrñål Çómmåñðþ þèçtîóñ óf <tt>çóñfîg.îñç.php</tt>.</p>
+	<p>Ýóü çåñ ålþó çhóóþè whîçh pårþèr móðülè PåråTóólþ þhóülð üþè. Ýóü çåñ çhóóþè bètwèèñ thè þtåñðårð, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jîåó</a>, åñð <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Çîtèbåþè</a> pårþèr móðülèþ.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>Thîþ èxtråçtîóñ fîltèr çóññèçtþ tó thè <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">PårþÇît</a> wèb þèrvîçè.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">Thè RègÉx èxtråçtîóñ fîltèr üþèþ å þèrîèþ óf règülår èxprèþþîóñþ tó pårþè çîtåtîóñþ.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">Plèåþè wåît üñtîl thè çîtåtîóñ pårþèr çóñfîgüråtîóñ grîð håþ bèèñ lóåðèð...</message>
+	<message key="manager.setup.filter.parser.grid.title">Çîtåtîóñ Éxtråçtîóñ ßèrvîçèþ</message>
+	<message key="manager.setup.filter.pleaseSelect">Plèåþè þèlèçt...</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Îñvålîð hómèpågè hèåðèr lógó îmågè fórmåt ór üplóåð fåîlèð. Æççèptèð fórmåtþ årè .gîf, .jpg, ór .pñg.</message>
+	<message key="manager.setup.homepageImageInvalid">Îñvålîð hómèpågè îmågè fórmåt ór üplóåð fåîlèð. Æççèptèð fórmåtþ årè .gîf, .jpg, ór .pñg.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Îñvålîð hómèpågè hèåðèr tîtlè îmågè fórmåt ór üplóåð fåîlèð. Æççèptèð fórmåtþ årè .gîf, .jpg, ór .pñg.</message>
+	<message key="manager.setup.layout.leftSidebar">Lèft ßîðèbår</message>
+	<message key="manager.setup.layout.rightSidebar">Rîght ßîðèbår</message>
+	<message key="manager.setup.layout.unselected">Üñþèlèçtèð</message>
+	<message key="manager.setup.loggingAndAuditing">Lóggîñg åñð Æüðîtîñg</message>
+	<message key="manager.setup.metaCitationsDescription">Æçtîvåtè thè fóllówîñg çhèçkbóx tó èñåblè çîtåtîóñ åñð rèfèrèñçè èðîtîñg. Thîþ wîll ållów åüthórþ tó îñçlüðè råw çîtåtîóñþ wîth þübmîþþîóñþ. Éðîtórþ wîll ålþó håvè åççèþþ tó å çîtåtîóñ mårküp åþþîþtåñt whîçh çåñ çhèçk råw çîtåtîóñþ ågåîñþt èxtèrñål ðåtåbåþèþ, þüçh åþ WórlðÇåt, ÎßBÑðb, PübMèð åñð óthèrþ, fór åççüråçý. Æppróvèð çîtåtîóñþ çåñ bè èxpórtèð îñtó fîñål gållèý fîlèþ.</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Îñvålîð pågè hèåðèr lógó îmågè fórmåt ór üplóåð fåîlèð. Æççèptèð fórmåtþ årè .gîf, .jpg, ór .pñg.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Îñvålîð pågè hèåðèr tîtlè îmågè fórmåt ór üplóåð fåîlèð. Æççèptèð fórmåtþ årè .gîf, .jpg, ór .pñg.</message>
+	<message key="manager.setup.selectOne">ßèlèçt óñè</message>
+	<message key="manager.statistics">ßtåtþ &amp;åmp; Rèpórtþ</message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} ñèw)</message>
+	<message key="manager.users">Üþèrþ</message>
+	<message key="plugins.categories.metadata">Mètåðåtå Plügîñþ</message>
+	<message key="plugins.categories.metadata.description">Mètåðåtå Plügîñþ împlèmèñt åððîtîóñål mètå-ðåtå þtåñðårðþ.</message>
+	<message key="plugins.categories.auth">Æüthórîzåtîóñ Plügîñþ</message>
+	<message key="plugins.categories.blocks">Blóçk Plügîñþ</message>
+	<message key="plugins.categories.blocks.description">Blóçk Plügîñþ årè plüggåblè ÜÎ çómpóñèñtþ, þüçh åþ thè vårîóüþ þîðèbår tóólþ.</message>
+	<message key="plugins.categories.citationFormats">Çîtåtîóñ Fórmåt Plügîñþ</message>
+	<message key="plugins.categories.citationLookup">Çîtåtîóñ Ðåtåbåþè Çóññèçtór Plügîñþ</message>
+	<message key="plugins.categories.citationLookup.description">Çîtåtîóñ Ðåtåbåþè Çóññèçtór Plügîñþ çóññèçt tó çîtåtîóñ ðåtåbåþèþ tó lóók üp çîtåtîóñþ, è.g. ðürîñg çîtåtîóñ èðîtîñg.</message>
+	<message key="plugins.categories.citationOutput">Çîtåtîóñ Òütpüt Plügîñþ</message>
+	<message key="plugins.categories.citationOutput.description">Çîtåtîóñ Òütpüt Plügîñþ împlèmèñt çîtåtîóñ þtåñðårðþ. Thîþ þüpèrþèðèþ Çîtåtîóñ Fórmåt Plügîñþ.</message>
+	<message key="plugins.categories.citationParser">Çîtåtîóñ Éxtråçtîóñ Plügîñþ</message>
+	<message key="plugins.categories.citationParser.description">Çîtåtîóñ Éxtråçtîóñ Plügîñþ èxtråçt fîèlð-lèvèl ðåtå fróm råw çîtåtîóñþ (è.g. åüthór, tîtlè, ètç.).</message>
+	<message key="plugins.categories.gateways.description">Gåtèwåý Plügîñþ próvîðè lîvè ðåtå tó èxtèrñål þýþtèmþ.</message>
+	<message key="plugins.categories.gateways">Gåtèwåý Plügîñþ</message>
+	<message key="plugins.categories.generic">Gèñèrîç Plügîñþ</message>
+	<message key="plugins.categories.importexport.description">Împórt/Éxpórt Plügîñþ çåñ bè üþèð tó tråñþfèr çóñtèñt tó åñð fróm óthèr þýþtèmþ.</message>
+	<message key="plugins.categories.importexport">Împórt/Éxpórt Plügîñþ</message>
+	<message key="plugins.categories.paymethod.description">Påýmèñt Mèthóð plügîñþ împlèmèñt þüppórt fór vårîóüþ wåýþ óf próçèþþîñg påýmèñtþ óñlîñè.</message>
+	<message key="plugins.categories.paymethod">Påýmèñt Plügîñþ</message>
+	<message key="plugins.categories.reports.description">Rèpórt Plügîñþ årè üþèð tó împlèmèñt vårîóüþ týpèþ óf rèpórtþ åñð ðåtå èxtråçtþ.</message>
+	<message key="plugins.categories.reports">Rèpórt Plügîñþ</message>
+	<message key="plugins.categories.themes.description">Thèmè Plügîñþ çåñ bè üþèð tó çhåñgè thè þýþtèm'þ åppèåråñçè.</message>
+	<message key="plugins.categories.themes">Thèmè Plügîñþ</message>
+</locale>

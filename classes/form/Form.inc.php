@@ -186,7 +186,6 @@ class Form {
 		$templateMgr->register_function('fbvTextArea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
 		$templateMgr->register_function('fbvElement', array(&$this, 'smartyFBVElement'));
-		$templateMgr->register_function('fbvElementMultilingual', array(&$this, 'smartyFBVElementMultilingual'));
 		$templateMgr->register_function('fbvCheckbox', array(&$this, 'smartyFBVCheckbox'));
 		$templateMgr->register_function('fbvRadioButton', array(&$this, 'smartyFBVRadioButton'));
 		$templateMgr->register_function('fbvFileInput', array(&$this, 'smartyFBVFileInput'));
@@ -653,34 +652,6 @@ class Form {
 		return '';
 	}
 
-	function smartyFBVElementMultilingual($params, &$smarty, $content = null) {
-		if ( !isset($params['value']) || !is_array($params['value'])) {
-			$smarty->trigger_error('FBV: value parameter must be an array for multilingual elements');
-		}
-		if ( !isset($params['name']) ) {
-			$smarty->trigger_error('FBV: parameter must be set');
-		}
-
-		$required = isset($params['required'])?$params['required']:false;
-
-		$returner = '';
-		$values = $params['value'];
-		$name = $params['name'];
-
-		foreach ($this->supportedLocales as $locale => $localeName) {
-			// if the field is required, only set the main locale as required and others optional
-			if ($locale == $this->requiredLocale) {
-				$params['required'] = $required;
-			} else {
-				$params['required'] = false;
-			}
-			$params['name'] = $name . "[$locale]";
-			$params['value'] = $values[$locale];
-			$returner .= $localeName . ' ' . $this->smartyFBVElement($params, $smarty, $content) . '<br />';
-		}
-		return $returner;
-	}
-
 	/**
 	 * Form element.
 	 * parameters: type, id, label (optional), required (optional), measure, any other attributes specific to 'type'
@@ -735,6 +706,7 @@ class Form {
 			$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
 			$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
+			$smarty->assign('FBV_multilingual', isset($params['multilingual']) ? $params['multilingual'] : false);
 			$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
 
 			return $smarty->fetch('form/element.tpl');
@@ -836,7 +808,7 @@ class Form {
 
 	/**
 	 * Form text input.
-	 * parameters: size, disabled (optional), name (optional - assigned value of 'id' by default), all other attributes associated with this control (except class and type)
+	 * parameters: size, disabled (optional), name (optional - assigned value of 'id' by default), multilingual (optional), all other attributes associated with this control (except class and type)
 	 * @param $params array
 	 * @param $smarty object
 	 */
@@ -861,6 +833,10 @@ class Form {
 				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
 				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
+				case 'name': $smarty->assign('FBV_name', $params['name']); break;
+				case 'id': $smarty->assign('FBV_id', $params['id']); break;
+				case 'value': $smarty->assign('FBV_value', $params['value']); break;
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
@@ -873,7 +849,7 @@ class Form {
 
 	/**
 	 * Form text area.
-	 * parameters: value, id, name (optional - assigned value of 'id' by default), disabled (optional), all other attributes associated with this control (except class)
+	 * parameters: value, id, name (optional - assigned value of 'id' by default), disabled (optional), multilingual (optional), all other attributes associated with this control (except class)
 	 * @param $params array
 	 * @param $smarty object
 	 */
@@ -891,12 +867,14 @@ class Form {
 
 		foreach ($params as $key => $value) {
 			switch ($key) {
+				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
 				case 'label': break;
 				case 'type': break;
 				case 'class': break; //ignore class attributes
 				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * grid.xml
+  *
+  * Copyright (c) 2003-2011 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the te_ST (Test Loçale) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="te_ST" full_name="Test Loçale">
+	<message key="grid.noItems">Ñó Îtèmþ</message>
+	<message key="grid.settings">ßèttîñgþ</message>
+	<message key="grid.action.sort">ßórt</message>
+	<message key="grid.action.addItem">Æðð Îtèm</message>
+	<message key="grid.action.delete">Ðèlètè</message>
+	<message key="grid.action.remove">Rèmóvè</message>
+	<message key="grid.action.edit">Éðît</message>
+	<message key="grid.action.approve">Æppróvè</message>
+	<message key="grid.action.approveForReview">ßübmît tó Rèvîèw ßtågè</message>
+	<message key="grid.action.approveForPub">Æppróvè fór Püblîçåtîóñ</message>
+	<message key="grid.action.decline">Ðèçlîñè</message>
+	<message key="grid.action.moreInformation">Mórè Îñfórmåtîóñ</message>
+	<message key="grid.action.restoreDefaults">Rèþtórè Ðèfåültþ</message>
+	<message key="grid.columns.actions">Æçtîóñþ</message>
+	<message key="grid.columns.institution">Îñþtîtütîóñ</message>
+	<message key="grid.columns.url">ÜRL</message>
+	<message key="grid.sponsor.title">ßpóñþórþ</message>
+	<message key="grid.masthead.title">Måþthèåð</message>
+	<message key="grid.masthead.column.groups">Gróüpþ</message>
+	<message key="grid.contributor.title">Çóñtrîbütór</message>
+	<message key="grid.action.addAuthor">Æðð Æüthór</message>
+	<message key="grid.reviewForm.title">Rèvîèw Fórmþ</message>
+	<message key="grid.submissionChecklist.title">ßübmîþþîóñ Çhèçklîþt</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Çhèçklîþt Îtèm</message>
+	<message key="author.users.contributor.name">Ñåmè</message>
+	<message key="author.users.contributor.email">É-måîl</message>
+	<message key="author.users.contributor.role">Rólè</message>
+	<message key="author.users.contributor.principalContact">Prîmårý Çóñtåçt</message>
+	<message key="grid.reviewAttachments.title">Rèvîèwèr'þ Ættåçhmèñtþ</message>
+	<message key="grid.reviewAttachments.add">Æðð Ættåçhmèñt tó Rèvîèw</message>
+	<message key="grid.roles.currentRoles">Çürrèñt Rólèþ</message>
+	<message key="grid.roles.add">Æðð Rólè</message>
+	<message key="grid.user.currentUsers">Çürrèñt Üþèrþ</message>
+	<message key="grid.user.currentEnrollment">Çürrèñt Éñróllmèñt</message>
+	<message key="grid.user.allRoles">Æll Rólèþ</message>
+	<message key="grid.user.add">Æðð Üþèr</message>
+	<message key="grid.user.enroll">Éñróll Üþèr</message>
+	<message key="grid.user.edit">Éðît Üþèr</message>
+	<message key="grid.user.email">Émåîl</message>
+	<message key="grid.user.enable">Éñåblè</message>
+	<message key="grid.user.disable">Ðîþåblè</message>
+	<message key="grid.user.disableReason">Rèåþóñ fór ðîþåblîñg üþèr</message>
+	<message key="grid.user.enableReason">Rèåþóñ fór èñåblîñg üþèr</message>
+	<message key="grid.user.error">Æñ èrrór wåþ èñçóüñtèrèð åðmîñîþtråtîñg thîþ üþèr. Plèåþè trý ågåîñ.</message>
+	<message key="grid.user.errorEmail">Æñ èrrór wåþ èñçóüñtèrèð þèñðîñg thîþ èmåîl. Plèåþè èñþürè thåt ýóür èmåîl þèrvèr çóñfîgüråtîóñ îþ wórkîñg åñð/ór çóñtåçt ýóür þýþtèm åðmîñîþtråtór.</message>
+	<message key="grid.user.cannotAdminister">Ýóü ðó ñót håvè þüffîçîèñt pèrmîþþîóñþ tó èðît thîþ üþèr.</message>
+	<message key="grid.user.authSource">Æüthèñtîçåtîóñ þóürçè</message>
+	<message key="grid.user.mustProvideName">Plèåþè próvîðè åt lèåþt å låþt ñåmè fór thè üþèr fîrþt.</message>
+	<message key="grid.user.generatePassword">Gèñèråtè Påþþwórð</message>
+	<message key="grid.user.generatePasswordDescription">Gèñèråtè råñðóm påþþwórð fór thîþ üþèr.</message>
+	<message key="grid.user.notifyUser">Ñótîfý Üþèr</message>
+	<message key="grid.user.notifyUserDescription">ßèñð üþèr å wèlçómè èmåîl.</message>
+	<message key="grid.user.mustChangePassword">Çhåñgè Påþþwórð</message>
+	<message key="grid.user.mustChangePasswordDescription">Üþèr müþt çhåñgè påþþwórð óñ ñèxt lóg îñ.</message>
+	<message key="grid.user.mustChangePasswordDescriptionOld">Rèqüîrè thè üþèr tó çhåñgè thèîr påþþwórð thè ñèxt tîmè thèý lóg îñ.</message>
+	<message key="grid.user.moreDetails">Mórè Üþèr Ðètåîlþ</message>
+	<message key="grid.user.lessDetails">Lèþþ Üþèr Ðètåîlþ</message>
+	<message key="grid.user.userDetails">Üþèr Ðètåîlþ</message>
+	<message key="grid.user.userRoles">Üþèr Rólèþ</message>
+	<message key="grid.user.userNoRoles">Thîþ üþèr ðóèþ ñót håvè åñý rólèþ.</message>
+	<message key="grid.user.step1">ßtèp #1: Fîll îñ Üþèr Ðètåîlþ</message>
+	<message key="grid.user.step2">ßtèp #2: Æðð Üþèr Rólèþ</message>
+	<message key="grid.user.addRoles">Æðð Rólèþ</message>
+	<message key="grid.user.selectUser">ßèlèçt Üþèr</message>
+	<message key="grid.user.pleaseSelectUser">Plèåþè þèlèçt å üþèr</message>
+	<message key="grid.preparedEmails.currentList">Çürrèñt Lîþt</message>
+</locale>

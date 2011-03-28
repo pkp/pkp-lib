@@ -1,8 +1,4 @@
 /**
- * @defgroup pkp_controllers_form
- */
-
-/**
  * @file styles/controllers/form.less
  *
  * Copyright (c) 2003-2011 John Willinsky
@@ -28,5 +24,29 @@
 	        color: #090;
 	        font-weight: bold;
 	        font-size: 1em;
+	}
+
+	.pkp_controllers_form_localization_container {
+		background-color: #fff; 
+		padding: 5px; 
+
+		.pkp_controllers_form_localization_container_focus {
+			background-color: #ddd !important; 
+		}
+
+		.pkp_controllers_form_localization_popover {
+			margin:2em;
+			margin-left: -5px;
+			position:absolute; 
+			z-index: 10001;
+			background-color: #ddd;
+			display: none;
+		}
+
+		label.multilingual_extra_label {
+			text-indent: -9999px; 
+			margin: 0; 
+			padding: 0;
+		}
 	}
 }

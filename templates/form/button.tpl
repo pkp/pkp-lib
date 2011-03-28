@@ -1,5 +1,5 @@
- {**
- * button.tpl
+{**
+ * templates/form/button.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -8,4 +8,4 @@
  *}
 
 <button class="button {$FBV_class}" type="{$FBV_type|escape}"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{translate key=$FBV_label}</button>
-
+{$FBV_label_content}

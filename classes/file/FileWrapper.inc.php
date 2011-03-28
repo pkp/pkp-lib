@@ -122,12 +122,12 @@ class FileWrapper {
 				case 'http':
 					import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 					$wrapper = new HTTPFileWrapper($url, $info);
-					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
+					$wrapper->addHeader('User-Agent', 'PKP/2.x');
 					break;
 				case 'https':
 					import('lib.pkp.classes.file.wrappers.HTTPSFileWrapper');
 					$wrapper = new HTTPSFileWrapper($url, $info);
-					$wrapper->addHeader('User-Agent', 'PKP-OJS/2.x');
+					$wrapper->addHeader('User-Agent', 'PKP/2.x');
 					break;
 				case 'ftp':
 					import('lib.pkp.classes.file.wrappers.FTPFileWrapper');

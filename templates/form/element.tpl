@@ -1,5 +1,5 @@
 {**
- * element.tpl
+ * templates/form/element.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -8,7 +8,9 @@
  *}
 
 <span{if $FBV_measureInfo} class="{$FBV_measureInfo}"{/if}>
+	{capture assign="FBV_label_content"}
+		{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
+	{/capture}
 	{$FBV_content}
-	{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
 </span>
-
+{$FBV_label_content}

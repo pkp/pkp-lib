@@ -114,7 +114,7 @@ class ADODB_postgres7 extends ADODB_postgres64 {
 				// , instead of . for floats, violating the
 				// SQL standard. Format it locally.
 				if (gettype($inputarr[$k]) == 'double') {
-					$inputarr[$k] = str_replace($localedata['decimal_point'], '.', number_format($inputarr[$k]));
+					$inputarr[$k] = str_replace($localedata['decimal_point'], '.', $inputarr[$k]);
 				}
 			}
 			

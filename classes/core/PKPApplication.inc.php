@@ -492,6 +492,33 @@ class PKPApplication {
 
 		return implode("\n", $message);
 	}
+
+	/**
+	 * Define a constant so that it can be exposed to the JS front-end.
+	 * @param $name string
+	 * @param $value mixed
+	 */
+	function &defineExposedConstant($name, $value) {
+		define($name, $value);
+		assert(preg_match('/^[a-zA-Z_]+$/', $name));
+		$constants =& PKPApplication::getExposedConstants();
+		$constants[$name] = $value;
+	}
+
+	/**
+	 * Get an associative array of defined constants that should be exposed
+	 * to the JS front-end.
+	 * @return array
+	 */
+	function &getExposedConstants() {
+		static $exposedConstants = array();
+		return $exposedConstants;
+	}
 }
 
-?>
+/**
+ * @see PKPApplication::defineExposed
+ */
+function define_exposed($name, $value) {
+	PKPApplication::defineExposedConstant($name, $value);
+}

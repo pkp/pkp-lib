@@ -112,6 +112,7 @@ class PKPTemplateManager extends Smarty {
 
 		$application =& PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
+		$this->assign('exposedConstants', $application->getExposedConstants());
 
 		// Register custom functions
 		$this->register_modifier('translate', array('Locale', 'translate'));

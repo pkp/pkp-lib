@@ -95,9 +95,10 @@ class PKPGift extends DataObject {
 
 	/**
 	 * Get the name of the gift based on gift type.
+	 * @param $locale string
 	 * @return string
 	 */
-	function getGiftName() {
+	function getGiftName($locale = null) {
 		// Must be implemented by sub-classes
 		assert(false);
 	}

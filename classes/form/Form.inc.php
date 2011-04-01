@@ -868,6 +868,7 @@ class Form {
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
+				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
 				case 'label': break;
 				case 'type': break;

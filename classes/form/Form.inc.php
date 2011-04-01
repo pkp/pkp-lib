@@ -822,6 +822,7 @@ class Form {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
+		$params['value'] = isset($params['value']) ? $params['value'] : '';
 		$params = $this->addClientSideValidation($params);
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
@@ -866,6 +867,7 @@ class Form {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['rich'] = isset($params['rich']) ? $params['rich'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
+		$params['value'] = isset($params['value']) ? $params['value'] : '';
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 
 		foreach ($params as $key => $value) {

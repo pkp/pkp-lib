@@ -60,14 +60,14 @@
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="descriptionShort" required="true" key="manager.announcements.form.descriptionShort"}</td>
-	<td class="value"><textarea name="descriptionShort[{$formLocale|escape}]" id="descriptionShort" cols="40" rows="6" class="textArea">{$descriptionShort[$formLocale]|escape}</textarea>
+	<td class="value"><textarea name="descriptionShort[{$formLocale|escape}]" id="descriptionShort" cols="40" rows="6" class="textArea richContent">{$descriptionShort[$formLocale]|escape}</textarea>
 		<br />
 		<span class="instruct">{translate key="manager.announcements.form.descriptionShortInstructions"}</span>
 	</td>
 </tr>
 <tr valign="top">
 	<td class="label">{fieldLabel name="description" key="manager.announcements.form.description"}</td>
-	<td class="value"><textarea name="description[{$formLocale|escape}]" id="description" cols="40" rows="6" class="textArea">{$description[$formLocale]|escape}</textarea>
+	<td class="value"><textarea name="description[{$formLocale|escape}]" id="description" cols="40" rows="6" class="textArea richContent">{$description[$formLocale]|escape}</textarea>
 		<br />
 		<span class="instruct">{translate key="manager.announcements.form.descriptionInstructions"}</span>
 	</td>

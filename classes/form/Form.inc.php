@@ -821,6 +821,7 @@ class Form {
 
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params = $this->addClientSideValidation($params);
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
@@ -863,6 +864,8 @@ class Form {
 		$textAreaParams = '';
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['rich'] = isset($params['rich']) ? $params['rich'] : false;
+		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
 
 		foreach ($params as $key => $value) {

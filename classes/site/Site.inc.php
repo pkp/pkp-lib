@@ -17,8 +17,6 @@
  * @brief Describes system-wide site properties.
  */
 
-// $Id$
-
 
 class Site extends DataObject {
 	/**

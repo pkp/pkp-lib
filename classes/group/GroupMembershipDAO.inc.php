@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying group membership info.
  */
 
-// $Id$
-
 
 import ('lib.pkp.classes.group.GroupMembership');
 

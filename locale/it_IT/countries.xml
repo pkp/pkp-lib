@@ -8,7 +8,6 @@
   *
   * Localized list of countries.
   *
-  * $Id: countries.xml,v 1.4 2009/08/18 23:44:09 asmecher Exp $
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>

@@ -17,8 +17,6 @@
  * @brief Describes user groups.
  */
 
-// $Id$
-
 
 define('GROUP_CONTEXT_EDITORIAL_TEAM',	0x000001);
 define('GROUP_CONTEXT_PEOPLE',		0x000002);

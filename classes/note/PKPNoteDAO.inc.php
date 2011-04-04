@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Note objects.
  */
 
-// $Id$
-
 
 class PKPNoteDAO extends DAO {
 	/**

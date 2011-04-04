@@ -21,8 +21,6 @@
  *     - Write mode (where possible)
  */
 
-// $Id$
-
 
 class FileWrapper {
 

@@ -13,8 +13,6 @@
  * formatting and comments (i.e. unparsed editing).
  */
 
-// $Id$
-
 
 class EditableFile {
 	var $contents;

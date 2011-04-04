@@ -12,8 +12,6 @@
  * @brief CLI tool for installing a PKP app.
  */
 
-// $Id$
-
 
 import('classes.install.Install');
 import('classes.install.form.InstallForm');

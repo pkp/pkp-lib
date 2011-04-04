@@ -14,8 +14,6 @@
  * null cache.
  */
 
-// $Id$
-
 
 // Pseudotype to represent a cache miss
 class generic_cache_miss {

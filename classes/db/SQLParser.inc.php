@@ -12,8 +12,6 @@
  * @brief Class for parsing and executing statements in SQL files.
  */
 
-// $Id$
-
 
 class SQLParser {
 

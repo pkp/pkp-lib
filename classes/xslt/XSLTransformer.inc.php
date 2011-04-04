@@ -12,7 +12,6 @@
  * @brief Wrapper class for running XSL transformations using PHP 4.x or 5.x
  */
 
-// $Id$
 
 // The default character encoding
 define('XSLT_PROCESSOR_ENCODING', Config::getVar('i18n', 'client_charset'));

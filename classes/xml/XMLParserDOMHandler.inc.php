@@ -15,8 +15,6 @@
  *
  */
 
-//$Id$
-
 
 import('lib.pkp.classes.xml.XMLNode');
 

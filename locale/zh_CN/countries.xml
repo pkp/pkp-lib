@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+<!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
+
 <!--
-  * countries.xml
+  * locale/zh_CN/countries.xml
   *
   * Copyright (c) 2003-2011 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
   *
-  * $Id: countries.xml,v 1.9.2.1 2009/04/08 19:43:28 asmecher Exp $
   -->
 
-<!DOCTYPE countries [
-	<!ELEMENT countries (country+)>
-	<!ELEMENT country EMPTY>
-		<!ATTLIST country
-			code CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
-	
 <countries>
 	<country name="阿富汗" code="AF"/>
 	<country name="奥兰群岛" code="AX"/>

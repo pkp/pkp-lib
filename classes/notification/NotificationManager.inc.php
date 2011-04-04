@@ -13,7 +13,6 @@
  * @brief Class for Notification Manager.
  */
 
-// $Id$
 
 import('classes.notification.Notification');
 

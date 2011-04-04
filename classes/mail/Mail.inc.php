@@ -16,8 +16,6 @@
  * @brief Class defining basic operations for handling and sending emails.
  */
 
-// $Id$
-
 
 define('MAIL_EOL', Core::isWindows() ? "\r\n" : "\n");
 define('MAIL_WRAP', 76);

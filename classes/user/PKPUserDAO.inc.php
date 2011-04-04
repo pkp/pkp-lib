@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying User objects.
  */
 
-// $Id$
-
 
 /* These constants are used user-selectable search fields. */
 define('USER_FIELD_USERID', 'user_id');

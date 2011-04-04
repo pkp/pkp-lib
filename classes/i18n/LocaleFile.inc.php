@@ -12,8 +12,6 @@
  * @brief Abstraction of a locale file
  */
 
-// $Id$
-
 
 class LocaleFile {
 	/** @var $cache object Cache of this locale file */

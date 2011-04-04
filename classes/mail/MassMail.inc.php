@@ -12,8 +12,6 @@
  * @brief Helper class to send mass emails
  */
 
-// $Id$
-
 
 import ('classes.mail.MailTemplate');
 

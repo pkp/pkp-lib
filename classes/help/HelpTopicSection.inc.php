@@ -13,8 +13,6 @@
  * A HelpTopicSection is associated with a single HelpTopic.
  */
 
-// $Id$
-
 
 class HelpTopicSection extends DataObject {
 

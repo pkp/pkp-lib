@@ -12,7 +12,6 @@
  * @brief Basic shell class used to wrap the PHP Quick Profiler Class
  */
 
-// $Id$
 
 require_once('./lib/pkp/lib/pqp/classes/PhpQuickProfiler.php');
 

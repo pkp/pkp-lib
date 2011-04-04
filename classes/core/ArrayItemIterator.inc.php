@@ -12,8 +12,6 @@
  * @brief Provides paging and iteration for arrays.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.core.ItemIterator');
 

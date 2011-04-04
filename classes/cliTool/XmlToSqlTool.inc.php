@@ -12,8 +12,6 @@
  * @brief CLI tool to output the SQL statements corresponding to an XML database schema.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.db.DBDataXMLParser');
 

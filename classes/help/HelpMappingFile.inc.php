@@ -12,8 +12,6 @@
  * @brief Abstracts a Help mapping XML file.
  */
 
-// $Id$
-
 
 class HelpMappingFile {
 	/** @var $filename string */

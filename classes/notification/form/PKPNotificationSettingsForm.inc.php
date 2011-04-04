@@ -15,8 +15,6 @@
  * @brief Form to edit notification settings.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.form.Form');
 

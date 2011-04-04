@@ -15,8 +15,6 @@
  * @brief Form to edit site settings.
  */
 
-// $Id$
-
 
 define('SITE_MIN_PASSWORD_LENGTH', 4);
 import('lib.pkp.classes.form.Form');

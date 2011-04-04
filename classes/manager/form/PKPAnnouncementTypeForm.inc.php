@@ -13,7 +13,6 @@
  * @brief Form for manager to create/edit announcement types.
  */
 
-//$Id$
 
 import('lib.pkp.classes.form.Form');
 

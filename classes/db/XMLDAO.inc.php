@@ -12,8 +12,6 @@
  * @brief Operations for retrieving and modifying objects from an XML data source.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.xml.XMLParser');
 

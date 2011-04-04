@@ -11,10 +11,7 @@
  *
  * @brief Maintains a static table of keyed references.
  * Used for storing/accessing single instance objects and values.
- *
  */
-
-// $Id$
 
 
 class Registry {

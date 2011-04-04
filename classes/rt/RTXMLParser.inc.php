@@ -13,8 +13,6 @@
  * @brief Class to parse Reading Tools data from an XML format.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.xml.XMLParser');
 import('lib.pkp.classes.rt.RTStruct');

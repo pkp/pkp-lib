@@ -12,8 +12,6 @@
  * @brief Wrapper class for writing XML documents using PHP 4.x or 5.x
  */
 
-// $Id$
-
 
 import ('lib.pkp.classes.xml.XMLNode');
 

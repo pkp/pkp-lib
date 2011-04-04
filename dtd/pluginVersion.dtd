@@ -6,7 +6,6 @@
   *
   * DTD for plugin version data.
   *
-  * $Id$
   -->
 
 <!ELEMENT version (application, type, release, tag?, date, lazy-load?, sitewide?, class?)>

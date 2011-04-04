@@ -14,8 +14,6 @@
  * Note: Some functions require fopen wrappers to be enabled.
  */
 
-// $Id$
-
 
 define('RUNNING_UPGRADE', 1);
 

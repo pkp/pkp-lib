@@ -13,8 +13,6 @@
  * @brief Operations for retrieving HelpTopic objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.help.HelpTopic');
 import('lib.pkp.classes.help.PKPHelp');

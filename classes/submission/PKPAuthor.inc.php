@@ -13,8 +13,6 @@
  * @brief Author metadata class.
  */
 
-// $Id$
-
 
 class PKPAuthor extends DataObject {
 	/**

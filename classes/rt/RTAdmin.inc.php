@@ -12,8 +12,6 @@
  * @brief Class to process and respond to Reading Tools administration requests.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.rt.RTStruct');
 

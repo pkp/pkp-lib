@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Captcha keys.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.captcha.Captcha');
 

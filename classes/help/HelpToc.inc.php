@@ -14,8 +14,6 @@
  * A HelpToc object is associated with zero or more HelpTopic objects.
  */
 
-// $Id$
-
 
 class HelpToc extends DataObject {
 

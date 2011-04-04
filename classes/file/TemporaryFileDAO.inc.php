@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying TemporaryFile objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.file.TemporaryFile');
 

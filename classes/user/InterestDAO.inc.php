@@ -13,7 +13,6 @@
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-// $Id$
 
 import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 

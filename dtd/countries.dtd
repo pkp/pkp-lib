@@ -6,7 +6,6 @@
   *
   * DTD for country lists.
   *
-  * $Id$
   -->
 <!ELEMENT countries (country+)>
 <!ELEMENT country EMPTY>

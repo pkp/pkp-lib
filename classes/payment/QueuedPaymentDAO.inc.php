@@ -14,7 +14,6 @@
  *
  */
 
-//$Id$
 
 class QueuedPaymentDAO extends DAO {
 	/**

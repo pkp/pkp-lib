@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying user settings.
  */
 
-// $Id$
-
 
 class PKPUserSettingsDAO extends DAO {
 	/**

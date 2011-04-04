@@ -13,8 +13,6 @@
  * providing specific implementations.
  */
 
-// $Id$
-
 
 class ItemIterator {
 	/**

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
+
 <!--
   * locale/zh_TW/countries.xml
   *
@@ -8,8 +9,8 @@
   *
   * Localized list of countries.
   *正體中文由 陳文誌 (長庚大學工業設計系) 與 莊惠茹 共同翻譯 (V1 @ 20080515)
-  * $Id$
   -->
+
 <countries>
 	<country name="奧蘭群島" code="AX"/>
 	<country name="阿爾巴尼亞" code="AL"/>

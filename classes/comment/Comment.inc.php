@@ -17,8 +17,6 @@
  * @brief Class for public Comment associated with submission.
  */
 
-// $Id$
-
 
 class Comment extends DataObject {
 

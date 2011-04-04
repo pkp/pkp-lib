@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
-  * currencies.xml
+  * locale/zh_CN/currencies.xml
   *
   * Copyright (c) 2003-2011 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -9,19 +10,7 @@
   * Currencies data XML file. Based on ISO 4217.
   * Translator:Edwin Chain edwin.chain@gmail.com
   *
-  * $Id: currencies.xml,v 1.4.2.1 2009/04/08 19:43:04 asmecher Exp $
   -->
-
-<!DOCTYPE currencies [
-	<!ELEMENT currencies (currency+)>
-		<!ATTLIST currencies
-			locale CDATA #REQUIRED>
-	<!ELEMENT currency EMPTY>
-		<!ATTLIST currency
-			code_alpha CDATA #REQUIRED
-			code_numeric CDATA #REQUIRED
-			name CDATA #REQUIRED>
-]>
 
 <currencies locale="zh_CN">
 	<currency name="阿联酋迪拉姆" code_alpha="AED" code_numeric="784" />

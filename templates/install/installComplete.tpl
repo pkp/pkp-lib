@@ -7,7 +7,6 @@
  * Display confirmation of successful installation.
  * If necessary, will also display new config file contents if config file could not be written.
  *
- * $Id$
  *}
 {strip}
 {include file="common/header.tpl"}

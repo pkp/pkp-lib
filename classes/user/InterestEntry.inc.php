@@ -13,8 +13,6 @@
  * @brief Basic class describing a reviewer interest
  */
 
-//$Id$
-
 
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
 

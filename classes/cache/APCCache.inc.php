@@ -13,8 +13,6 @@
  * @brief Provides caching based on APC's variable store.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.cache.GenericCache');
 

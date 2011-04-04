@@ -16,8 +16,6 @@
  * @brief Abstract class to extract search text from a given file.
  */
 
-// $Id$
-
 
 class SearchFileParser {
 

@@ -13,8 +13,6 @@
  *
  */
 
-// $Id$
-
 
 class CountryDAO extends DAO {
 	var $cache;

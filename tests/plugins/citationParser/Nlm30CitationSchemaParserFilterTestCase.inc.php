@@ -16,7 +16,6 @@
  * @brief Base class for all Nlm30CitationSchemaFilter tests for parser filters.
  */
 
-// $Id$
 
 import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
+
 <!--
   * locale/cs_CZ/countries.xml
   *
@@ -10,7 +11,6 @@
   *
   * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
   *
-  * $Id$
   -->
 <countries>
 	<country name="Afghánistán" code="AF"/>

@@ -13,8 +13,6 @@
  * @brief Class defining operations for AccessKey management.
  */
 
-// $Id$
-
 
 class AccessKeyManager {
 	var $accessKeyDao;

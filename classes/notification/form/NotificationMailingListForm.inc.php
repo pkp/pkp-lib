@@ -15,8 +15,6 @@
  * @brief Form to subscribe to the notification mailing list
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.form.Form');
 import('classes.notification.Notification');

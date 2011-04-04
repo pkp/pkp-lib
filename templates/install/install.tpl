@@ -6,7 +6,6 @@
  *
  * Installation form.
  *
- * $Id$
  *}
 {strip}
 {include file="common/header.tpl"}

@@ -12,8 +12,6 @@
  * @brief Multi-class transcoder; uses mbstring and iconv if available, otherwise falls back to built-in classes
  */
 
-// $Id$
-
 
 class Transcoder {
 	/** @var $fromEncoding string Name of source encoding */

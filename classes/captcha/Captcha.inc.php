@@ -18,8 +18,6 @@
  *
  */
 
-// $Id$
-
 
 class Captcha extends DataObject {
 	/**

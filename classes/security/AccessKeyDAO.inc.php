@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying AccessKey objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.security.AccessKey');
 

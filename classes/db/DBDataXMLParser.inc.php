@@ -13,8 +13,6 @@
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.xml.XMLParser');
 

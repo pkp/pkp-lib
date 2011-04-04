@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying PKPAuthor objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.submission.PKPAuthor');
 

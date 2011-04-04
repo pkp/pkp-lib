@@ -8,7 +8,6 @@
   *
   * Localized list of currencies.
   *
-  * $Id: currencies.xml,v 1.6 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
 <!DOCTYPE currencies [

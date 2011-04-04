@@ -13,8 +13,6 @@
  * @brief Describes memberships for editorial board positions.
  */
 
-// $Id$
-
 
 class GroupMembership extends DataObject {
 

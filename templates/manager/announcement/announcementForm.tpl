@@ -6,7 +6,6 @@
  *
  * Announcement form under management.
  *
- * $Id$
  *}
 {strip}
 {assign var="pageCrumbTitle" value="$announcementTitle"}

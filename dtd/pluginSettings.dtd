@@ -6,7 +6,6 @@
   *
   * DTD for installing plugin settings.
   *
-  * $Id$
   -->
 
 <!ELEMENT plugin_settings (setting+)>

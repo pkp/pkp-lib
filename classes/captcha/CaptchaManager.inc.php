@@ -13,8 +13,6 @@
  * @brief Class providing captcha services.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.file.FileManager');
 

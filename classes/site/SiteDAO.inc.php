@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying the Site object.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.site.Site');
 

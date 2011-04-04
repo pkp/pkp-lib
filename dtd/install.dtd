@@ -22,7 +22,6 @@
   *    <data file="data/locale/{$locale}/locale_data.xml"/>
   * </install>
   *
-  * $Id$
   -->
 
 <!ELEMENT install (schema?, data?, code?, note?, upgrade?)*>

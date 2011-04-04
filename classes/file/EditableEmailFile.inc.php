@@ -13,8 +13,6 @@
  *
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.file.EditableFile');
 

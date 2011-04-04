@@ -12,7 +12,6 @@
  * @brief Class for Notification.
  */
 
-// $Id$
 
 import('lib.pkp.classes.notification.NotificationDAO');
 

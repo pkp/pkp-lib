@@ -12,8 +12,6 @@
  * @brief Abstracts the plugin's help mapping XML files.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.help.HelpMappingFile');
 

@@ -14,8 +14,6 @@
  *
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
 

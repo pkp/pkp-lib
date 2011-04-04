@@ -15,7 +15,6 @@
  *  specific configuration (e.g. column title).
  */
 
-// $Id$
 
 class GridColumn {
 	/** @var string the column id */

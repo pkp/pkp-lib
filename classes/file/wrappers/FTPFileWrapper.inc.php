@@ -14,8 +14,6 @@
  *
  */
 
-// $Id$
-
 
 class FTPFileWrapper extends FileWrapper {
 

@@ -12,7 +12,6 @@
  * @brief A web service that returns XML data.
  */
 
-// $Id$
 
 import('lib.pkp.classes.webservice.WebService');
 

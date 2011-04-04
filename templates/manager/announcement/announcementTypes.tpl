@@ -6,7 +6,6 @@
  *
  * Display list of announcement types in management.
  *
- * $Id$
  *}
 {strip}
 {assign var="pageTitle" value="manager.announcementTypes"}

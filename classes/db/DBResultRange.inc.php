@@ -12,8 +12,6 @@
  * @brief Container class for range information when retrieving a result set.
  */
 
-// $Id$
-
 
 class DBResultRange {
 	/** The number of items to display */

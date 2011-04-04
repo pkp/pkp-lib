@@ -22,8 +22,6 @@
  * It can also be used for a "manual install" to retrieve the SQL statements required for installation.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.install.Installer');
 

@@ -14,8 +14,6 @@
  * TODO: TLS support
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.mail.Mail');
 

@@ -13,7 +13,6 @@
  * This handler parses an XML document into a tree structure of XMLNode objects.
  */
 
-// $Id$
 
 class XMLNode {
 

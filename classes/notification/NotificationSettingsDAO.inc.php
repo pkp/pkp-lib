@@ -13,7 +13,6 @@
  * @brief Operations for retrieving and modifying user's notification settings.
  */
 
-// $Id$
 
 class NotificationSettingsDAO extends DAO {
 	/**

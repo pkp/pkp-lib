@@ -16,8 +16,6 @@
  * @brief Provides caching based on machine-generated PHP code on the filesystem.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.cache.GenericCache');
 

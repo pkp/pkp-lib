@@ -6,7 +6,6 @@
  *
  * Form to change a user's password in order to login.
  *
- * $Id$
  *}
 {strip}
 {assign var="pageTitle" value="user.changePassword"}

@@ -6,7 +6,6 @@
   *
   * DTD for emails.
   *
-  * $Id$
   -->
 
 <!ELEMENT emails (email+)>

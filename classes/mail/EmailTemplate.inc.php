@@ -13,8 +13,6 @@
  * @brief Describes basic email template properties.
  */
 
-// $Id$
-
 
 /**
  * Email template base class.

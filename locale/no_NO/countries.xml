@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
+
 <!--
   * locale/no_NO/countries.xml
   *
@@ -8,7 +9,6 @@
   *
   * Localized list of countries.
   *
-  * $Id: countries.xml,v 1.6 2009/08/18 23:44:09 asmecher Exp $
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>

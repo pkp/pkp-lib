@@ -12,8 +12,6 @@
  * @brief Implements PHP methods for a custom session storage handler (see http://php.net/session).
  */
 
-// $Id$
-
 
 class SessionManager {
 

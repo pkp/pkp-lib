@@ -14,10 +14,7 @@
  * @ingroup core
  *
  * @brief Class containing system-wide functions.
- *
  */
-
-// $Id$
 
 
 class Core {

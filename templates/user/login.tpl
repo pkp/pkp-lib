@@ -6,7 +6,6 @@
  *
  * User login form.
  *
- * $Id$
  *}
 {strip}
 {assign var="pageTitle" value="user.login"}

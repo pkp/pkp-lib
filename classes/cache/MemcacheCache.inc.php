@@ -13,8 +13,6 @@
  * @brief Provides caching based on Memcache.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.cache.GenericCache');
 

@@ -13,8 +13,6 @@
  * @brief Maintains a static list of DAO objects so each DAO is instantiated only once.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.db.DAO');
 

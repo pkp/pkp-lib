@@ -12,7 +12,6 @@
  * Class providing a wrapper for the HTTP protocol.
  * (for when allow_url_fopen is disabled).
  *
- * $Id$
  */
 
 class HTTPFileWrapper extends FileWrapper {

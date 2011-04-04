@@ -9,7 +9,6 @@
   *
   * Localization strings for the en_US (English) locale.
   *
-  * $Id: grid.xml,v 1.1 2009/12/24 04:32:29 jalperin Exp $
   -->
 
 <locale name="en_US" full_name = "English">

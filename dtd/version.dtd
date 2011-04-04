@@ -6,7 +6,6 @@
   *
   * DTD describing PKP application version information.
   *
-  * $Id$
   -->
 
 <!ELEMENT version (application, type, release, tag, date, info, package, patch+)>

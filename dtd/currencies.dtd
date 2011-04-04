@@ -6,7 +6,6 @@
   *
   * DTD for currency localization definitions.
   *
-  * $Id$
   -->
 
 <!ELEMENT currencies (currency+)>

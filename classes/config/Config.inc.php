@@ -16,8 +16,6 @@
  * @brief Config class for accessing configuration parameters.
  */
 
-// $Id$
-
 
 /** The path to the default configuration file */
 define('CONFIG_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'config.inc.php');

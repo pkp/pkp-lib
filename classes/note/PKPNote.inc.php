@@ -12,8 +12,6 @@
  * @brief Class for Note.
  */
 
-// $Id$
-
 
 class PKPNote extends DataObject {
 	/**

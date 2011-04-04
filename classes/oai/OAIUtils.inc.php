@@ -17,8 +17,6 @@
  * @brief Utility functions used by OAI related classes.
  */
 
-// $Id$
-
 
 class OAIUtils {
 

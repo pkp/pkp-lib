@@ -13,8 +13,6 @@
  * objects from DAOs.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.core.ItemIterator');
 

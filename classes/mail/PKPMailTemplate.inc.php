@@ -12,8 +12,6 @@
  * @brief Subclass of Mail for mailing a template email.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.mail.Mail');
 

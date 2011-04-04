@@ -16,8 +16,6 @@
  * @brief Generic class for parsing an XML document into a data structure.
  */
 
-// $Id$
-
 
 // The default character encodings
 define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));

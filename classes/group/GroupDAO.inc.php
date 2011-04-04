@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Group objects.
  */
 
-// $Id$
-
 
 import ('lib.pkp.classes.group.Group');
 

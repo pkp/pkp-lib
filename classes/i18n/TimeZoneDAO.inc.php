@@ -13,8 +13,6 @@
  *
  */
 
-// $Id$
-
 
 class TimeZoneDAO extends DAO {
 	var $cache;

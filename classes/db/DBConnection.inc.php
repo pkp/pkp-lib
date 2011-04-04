@@ -13,8 +13,6 @@
  * Currently integrated with ADOdb (from http://adodb.sourceforge.net).
  */
 
-// $Id$
-
 
 class DBConnection {
 

@@ -13,8 +13,6 @@
  * the current "page" is available, but are much bigger in entirety.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.core.ItemIterator');
 

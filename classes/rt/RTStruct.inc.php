@@ -13,8 +13,6 @@
  * @brief Data structures associated with the Reading Tools component.
  */
 
-// $Id$
-
 
 /**
  * RT Version entity.

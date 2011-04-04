@@ -12,8 +12,6 @@
  * @brief CLI tool to execute a set of scheduled tasks.
  */
 
-// $Id$
-
 
 /** Default XML tasks file to parse if none is specified */
 define('TASKS_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml');

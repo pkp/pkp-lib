@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Email Template objects.
  */
 
-// $Id$
-
 
 class PKPEmailTemplateDAO extends DAO {
 	/**

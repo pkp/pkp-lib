@@ -12,8 +12,6 @@
  * @brief Mock implementation of the Validation class for the PKPPageRouterTest
  */
 
-// $Id$
-
 
 class Validation {
 	static $_isLoggedIn = false;

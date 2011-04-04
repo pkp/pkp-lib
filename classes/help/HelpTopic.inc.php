@@ -13,8 +13,6 @@
  * @brief A HelpTopic object is associated with a single HelpToc object and zero or more HelpTopicSection objects.
  */
 
-// $Id$
-
 
 class HelpTopic extends DataObject {
 

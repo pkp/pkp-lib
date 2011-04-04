@@ -13,8 +13,6 @@
  * @brief Operations for retrieving and modifying Comment objects.
  */
 
-// $Id$
-
 
 import('lib.pkp.classes.comment.Comment');
 

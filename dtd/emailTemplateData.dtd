@@ -6,7 +6,6 @@
   *
   * DTD for email texts.
   *
-  * $Id$
   -->
 
 <!ELEMENT email_texts (email_text+)>

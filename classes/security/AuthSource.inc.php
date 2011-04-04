@@ -13,8 +13,6 @@
  * @brief Describes an authentication source.
  */
 
-// $Id$
-
 
 import('classes.plugins.AuthPlugin');
 

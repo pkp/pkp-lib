@@ -13,7 +13,6 @@
  * @brief Operations for retrieving and modifying AnnouncementType objects.
  */
 
-//$Id$
 
 import('lib.pkp.classes.announcement.PKPAnnouncementType');
 

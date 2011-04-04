@@ -43,8 +43,6 @@
  *  and request validation.
  */
 
-// $Id$
-
 
 // The string to be found in the URL to mark this request as a component request
 define('COMPONENT_ROUTER_PATHINFO_MARKER', '$$$call$$$');

@@ -19,8 +19,6 @@
  *  to bootstrap and route tool requests.
  */
 
-// $Id$
-
 
 /** Initialization code */
 define('PWD', getcwd());

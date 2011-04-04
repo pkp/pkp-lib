@@ -13,7 +13,6 @@
  * @brief Basic class describing a controlled vocab.
  */
 
-//$Id$
 
 class ControlledVocabEntry extends DataObject {
 	//

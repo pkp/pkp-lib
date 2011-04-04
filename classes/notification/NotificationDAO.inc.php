@@ -13,7 +13,6 @@
  * @brief Operations for retrieving and modifying Notification objects.
  */
 
-// $Id$
 
 import('classes.notification.Notification');
 

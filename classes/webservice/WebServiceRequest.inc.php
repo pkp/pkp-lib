@@ -12,7 +12,6 @@
  * @brief Represents a web service request.
  */
 
-// $Id$
 
 class WebServiceRequest {
 	/** @var string */

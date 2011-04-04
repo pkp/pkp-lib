@@ -17,8 +17,6 @@
  * @brief AccessKey class.
  */
 
-// $Id$
-
 
 class AccessKey extends DataObject {
 

@@ -17,8 +17,6 @@
  * help ids.
  */
 
-// $Id$
-
 
 class PKPHelp {
 	/** @var $mappingFiles array of HelpMappingFile objects */

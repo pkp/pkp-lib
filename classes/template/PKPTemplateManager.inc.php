@@ -146,7 +146,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
-		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
 		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
 
 		// register the resource name "core"
@@ -1291,34 +1290,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $confirmCode;
-	}
-
-	function smartyInitTabs($params, &$smarty) {
-		// Required params
-		if (!isset($params['id'])) {
-			$smarty->trigger_error("Selector missing for tab initialization");
-		} else {
-			$id = $params['id'];
-		}
-
-		return "<script type='text/javascript'>
-			<!--
-			$(function() {
-				$('$id').tabs({
-					ajaxOptions: {
-						dataFilter: function(jsonData){
-							var data = $.parseJSON(jsonData);
-							if(data.status === true) {
-								return data.content;
-							} else {
-								alert(data.content);
-							}
-						}
-					}
-				});
-			});
-			// -->
-			</script>";
 	}
 
 	function smartyModalTitle($params, &$smarty) {

@@ -207,6 +207,9 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Display the Listbuilder
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @param $additionalVars array optional
 	 */
 	function fetch(&$args, &$request, $additionalVars = null) {
 		$templateMgr =& TemplateManager::getManager();
@@ -260,35 +263,18 @@ class ListbuilderHandler extends GridHandler {
 
 
 	//
-	// Overridden methods from PKPHandler
-	//
-	/**
-	 * @see PKPHandler::setupTemplate()
-	 */
-	function setupTemplate() {
-		parent::setupTemplate();
-
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
-	}
-
-
-	//
 	// Abstract protected methods to be implemented by subclasses.
 	//
 	/**
 	 * Handle adding an item to the list
-	 * NB: sub-classes must implement this method.
 	 */
 	function addItem(&$args, &$request) {
-		assert(false);
 	}
 
 	/**
 	 * Handle deleting items from the list
-	 * NB: sub-classes must implement this method.
 	 */
 	function deleteItems(&$args, &$request) {
-		assert(false);
 	}
 
 

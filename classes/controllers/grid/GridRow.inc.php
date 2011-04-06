@@ -20,6 +20,10 @@ define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');
 define('GRID_ACTION_POSITION_ROW_LEFT', 'row-left');
 
 class GridRow {
+
+	/** @var array */
+	var $_requestArgs;
+
 	/**
 	 * @var string identifier of the row instance - must be unique
 	 *  among all row instances within a grid.
@@ -83,6 +87,24 @@ class GridRow {
 	 */
 	function getGridId() {
 		return $this->_gridId;
+	}
+
+	/**
+	 * Set the grid request parameters.
+	 * @see GridHandler::getRequestArgs()
+	 * @param $requestArgs array
+	 */
+	function setRequestArgs($requestArgs) {
+		$this->_requestArgs = $requestArgs;
+	}
+
+	/**
+	 * Get the grid request parameters.
+	 * @see GridHandler::getRequestArgs()
+	 * @return array
+	 */
+	function getRequestArgs() {
+		return $this->_requestArgs;
 	}
 
 	/**

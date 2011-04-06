@@ -33,8 +33,12 @@ define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
 class GridHandler extends PKPHandler {
+
 	/** @var string grid title locale key */
 	var $_title = '';
+
+	/** @var GridDataProvider */
+	var $_dataProvider;
 
 	/**
 	 * @var array Grid actions. The first key represents
@@ -55,8 +59,13 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Constructor.
+	 * @param $dataProvider GridDataProvider An optional data provider
+	 *  for the grid. If no data provider is given then the grid
+	 *  assumes that child classes will override default method
+	 *  implementations.
 	 */
-	function GridHandler() {
+	function GridHandler($dataProvider = null) {
+		$this->_dataProvider =& $dataProvider;
 		parent::PKPHandler();
 	}
 
@@ -64,6 +73,53 @@ class GridHandler extends PKPHandler {
 	//
 	// Getters and Setters
 	//
+	/**
+	 * Get the data provider.
+	 * @return FilesGridDataProvider
+	 */
+	function &getDataProvider() {
+		return $this->_dataProvider;
+	}
+
+	/**
+	 * Get the grid request parameters. These
+	 * are the parameters that uniquely identify the
+	 * data within a grid.
+	 *
+	 * NB: You should make sure to authorize and/or
+	 * validate parameters before you publish them
+	 * through this interface. Callers will assume that
+	 * date accessed through this method will not have
+	 * to be sanitized.
+	 *
+	 * The default implementation tries to retrieve
+	 * request parameters from a data provider if there
+	 * is one.
+	 *
+	 * @return array
+	 */
+	function getRequestArgs() {
+		$dataProvider =& $this->getDataProvider();
+		$requestArgs = array();
+		if (is_a($dataProvider, 'GridDataProvider')) {
+			$requestArgs = $dataProvider->getRequestArgs();
+		}
+		return $requestArgs;
+	}
+
+	/**
+	 * Get a single grid request parameter.
+	 * @see getRequestArgs()
+	 *
+	 * @param $key string The name of the parameter to retrieve.
+	 * @return mixed
+	 */
+	function getRequestArg($key) {
+		$requestArgs = $this->getRequestArgs();
+		assert(isset($requestArgs[$key]));
+		return $requestArgs[$key];
+	}
+
 	/**
 	 * Get the grid title.
 	 * @return string locale key
@@ -222,6 +278,25 @@ class GridHandler extends PKPHandler {
 	// Overridden methods from PKPHandler
 	//
 	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize(&$request, &$args, $roleAssignments) {
+		$dataProvider =& $this->getDataProvider();
+		$hasDataProvider = is_a($dataProvider, 'GridDataProvider');
+		if ($hasDataProvider) {
+			$this->addPolicy($dataProvider->getAuthorizationPolicy(&$request, &$args, $roleAssignments));
+		}
+
+		$success = parent::authorize($request, $args, $roleAssignments);
+
+		if ($hasDataProvider && $success === true) {
+			$dataProvider->setAuthorizedContext($this->getAuthorizedContext());
+		}
+
+		return $success;
+	}
+
+	/**
 	 * @see PKPHandler::initialize()
 	 */
 	function initialize(&$request, $args = null) {
@@ -240,11 +315,9 @@ class GridHandler extends PKPHandler {
 	 * it to the client.
 	 * @param $args array
 	 * @param $request Request
-	 * @param $fetchParams array additional params to assign to the
-	 *  template for the fetch URLs
 	 * @return string the serialized grid JSON message
 	 */
-	function fetchGrid($args, &$request, $fetchParams = array()) {
+	function fetchGrid($args, &$request) {
 
 		// Prepare the template to render the grid.
 		$templateMgr =& TemplateManager::getManager();
@@ -263,7 +336,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
-		$templateMgr->assign('fetchParams', $fetchParams);
+		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 
 		// Let the view render the grid.
 		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
@@ -385,14 +458,21 @@ class GridHandler extends PKPHandler {
 
 	/**
 	 * Implement this method to load data into the grid.
-	 * @param $request PKPRequest
+	 * @param $request Request
 	 * @param $filter array An associative array with filter data as returned by
 	 *  getFilterSelectionData(). If no filter has been selected by the user
 	 *  then the array will be empty.
 	 * @return null
 	 */
-	function &loadData($request, $filter) {
-		return null;
+	function &loadData(&$request, $filter) {
+		$gridData = null;
+		$dataProvider =& $this->getDataProvider();
+		if (is_a($dataProvider, 'GridDataProvider')) {
+			// Populate the grid with data from the
+			// data provider.
+			$gridData =& $dataProvider->loadData();
+		}
+		return $gridData;
 	}
 
 	/**
@@ -465,6 +545,7 @@ class GridHandler extends PKPHandler {
 		$row->setGridId($this->getId());
 		$row->setId($elementId);
 		$row->setData($element);
+		$row->setRequestArgs($this->getRequestArgs());
 
 		// Initialize the row before we render it
 		$row->initialize($request);

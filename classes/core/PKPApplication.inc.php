@@ -498,7 +498,7 @@ class PKPApplication {
 	 * @param $name string
 	 * @param $value mixed
 	 */
-	function &defineExposedConstant($name, $value) {
+	function defineExposedConstant($name, $value) {
 		define($name, $value);
 		assert(preg_match('/^[a-zA-Z_]+$/', $name));
 		$constants =& PKPApplication::getExposedConstants();

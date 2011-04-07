@@ -9,6 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -316,6 +317,7 @@
 	<message key="common.ok">ok</message>
 	<message key="common.true">Verdadeiro</message>
 	<message key="navigation.dashboard">Painel de Controle</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Você não pertence a este grupo de usuários.</message>
 	<message key="common.disable">Desabilitar</message>
 	<message key="common.enable">Habilitar</message>
 	<message key="common.fullscreen">Tela cheia</message>

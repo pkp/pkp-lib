@@ -9,6 +9,7 @@
   *
   * Localization strings for the pt_BR locale.
   *
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -39,6 +40,9 @@
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Formulários de avaliação</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Permitir ordenação por componentes a documentos desta natureza (ex.: por capítulo)</message>
 
 	<!-- Artwork Files Grid -->
 	<message key="grid.artworkFile.title">Trabalho de arte com permissões</message>

@@ -9,6 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -54,7 +55,6 @@
 	<message key="user.myAccount">Mesclar cadastro</message>
 	<message key="user.name">Nome</message>
 	<message key="user.password">Senha</message>
-	<message key="user.repeatPassword">Repetir senha</message>
 	<message key="user.phone">Fone</message>
 	<message key="user.profile.changePasswordInstructions">Digite as senhas atual e nova para alterar a senha de acesso ao cadastro.</message>
 	<message key="user.profile.editProfile">Editar perfil</message>
@@ -108,4 +108,12 @@
 	<message key="user.confirmEmail">Confirmar e-mail</message>
 	<message key="user.register.form.emailsDoNotMatch">O e-mail informado nos campos não correspondem.</message>
 	<message key="user.repeatPassword">Repetir senha</message>
+	<message key="user.authorization.accessDenied">Acesso negado.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">O verificador do processo de autenticação está faltando ou é inválido.</message>
+	<message key="user.authorization.contextRequired">Não é possível executar esta operação sem um contexto (impresso, periódico, conferência, entre outros).</message>
+	<message key="user.authorization.loginRequired">Login obrigatório.</message>
+	<message key="user.authorization.privateOperation">A operação acessada é privada ou não existe.</message>
+	<message key="user.authorization.restrictedSiteAccess">Seu acesso foi negado. Acesso a esta página está atualmente bloqueado.</message>
+	<message key="user.authorization.roleBasedAccessDenied">O papel atual não possui permissão para realizar esta operação.</message>
+	<message key="user.authorization.userGroupRequired">É necessário definir um grupo de usuário válido para acessar esta operação.</message>
 </locale>

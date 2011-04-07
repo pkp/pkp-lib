@@ -9,6 +9,7 @@
   *
   * Localization strings for the pt_BR (Português (Brasil)) locale.
   *
+  * $Id$
   -->
 
 <locale name="pt_BR" full_name = "Português (Brasil)">
@@ -361,4 +362,18 @@
 	<message key="submission.citations.filter.webserviceError">O web service do filtro {$filterName} retornou um erro ao ser executado pela URL: {$webserviceUrl}. O serviço pode estar temporariamente indisponível. Ainda assim, é possível trabalhar com os outros serviços restantes e salvar seus resultados. Também poderá tentar novamente mais tarde. Caso o problema persista, solicite ao editor gerente que desabilite este serviço e notifique o problema ao sistema de gestão de erros.</message>
 	<message key="submission.citations.filter.webserviceResultTransformationError">Ocorreu um erro no filtro {$filterName}: A transformação de resultados XML (provenientes de um web service, por exemplo) em metadados baseados em campos falhou. O web service pode ter retornado dados inválidos ou incompletos. Notifique o problema ao sistema de gestão de erros.</message>
 	<message key="submission.citations.metadata.changeWarning">Deseja realmente atualizar a lista de referências? Caso clique em 'ok', quaisquer alterações realizadas no editor serão sobrescritas. Caso não tenha certeza se deve alterar a lista de referências, entre em contato com o editor responsável pelo acompanhamento da submissão.</message>
+	<message key="metadata.property.displayName.title-type">Tipo de título</message>
+	<message key="metadata.property.validationMessage.title-type">Certifique-se de que o título seja válido. Tipos suportados são 'abreviado', 'traduzido', 'alternativo' e 'uniforme'.</message>
+	<message key="metadata.property.displayName.nonSort">Parte do título ignorado ao ordenar</message>
+	<message key="metadata.property.validationMessage.nonSort">Informe os caracteres iniciais do título que devem ser ignorados ao ordenar por título.</message>
+	<message key="metadata.property.displayName.title">Título</message>
+	<message key="metadata.property.validationMessage.title">Informe um título válido.</message>
+	<message key="metadata.property.displayName.subTitle">Subtítulo</message>
+	<message key="metadata.property.validationMessage.subTitle">Informe um subtítulo válido.</message>
+	<message key="metadata.property.displayName.partNumber">Número da parte</message>
+	<message key="metadata.property.validationMessage.partNumber">Informe um número da parte válido.</message>
+	<message key="metadata.property.displayName.partName">Nome da parte</message>
+	<message key="metadata.property.validationMessage.partName">Informe um nome de parte válido.</message>
+	<message key="metadata.property.displayName.name-type">Tipo de nome</message>
+	<message key="metadata.property.validationMessage.name-type">Certifique-se de informar um tipo de nome válido. Nomes suportados são 'pessoal', 'corporativo' e 'conferência'.</message>
 </locale>

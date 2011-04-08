@@ -136,9 +136,9 @@ class GridColumn {
 	/**
 	 * Add a flag
 	 * @param $flag string
-	 * @param $value mixed
+	 * @param $value mixed optional
 	 */
-	function addFlag($flag, $value) {
+	function addFlag($flag, $value = true) {
 		$this->_flags[$flag] = $value;
 	}
 

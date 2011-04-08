@@ -15,8 +15,10 @@
 		{else}
 			{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
 		{/if}
-	{else}
+	{elseif $column->hasFlag('html')}
 		{$label|strip_unsafe_html}
+	{else}
+		{$label|escape}
 	{/if}
 </span>
 

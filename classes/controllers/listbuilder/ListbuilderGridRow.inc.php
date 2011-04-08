@@ -22,18 +22,6 @@ class ListbuilderGridRow extends GridRow {
 		parent::GridRow();
 	}
 
-	/**
-	 * Get the listbuilder template
-	 * @return string
-	 */
-	function getTemplate() {
-		if (is_null($this->_template)) {
-			$this->setTemplate('controllers/listbuilder/listbuilderGridRow.tpl');
-		}
-
-		return $this->_template;
-	}
-	
 	//
 	// Overridden template methods
 	//
@@ -41,11 +29,11 @@ class ListbuilderGridRow extends GridRow {
 	 * @see GridRow::initialize()
 	 * @param PKPRequest $request
 	 */
-	function initialize(&$request) {
+	function initialize(&$request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
 		parent::initialize($request);
 
 		// add list builder row template
-		$this->setTemplate($this->getTemplate());
+		$this->setTemplate($template);
 	}
 }
 

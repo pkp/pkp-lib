@@ -42,7 +42,7 @@ class LinkActionRequest {
 	 *  options.
 	 */
 	function getLocalizedOptions() {
-		assert(false);
+		return array();
 	}
 }
 

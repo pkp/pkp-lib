@@ -44,7 +44,7 @@
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.toggleExtras =
 			function(toggleExtras) {
 
-		$widgetWrapper = this.getHtmlElement();
+		var $widgetWrapper = this.getHtmlElement();
 
 		if ($(toggleExtras, $widgetWrapper).hasClass('active')) {
 			this.deactivateExtraContent_('slow');
@@ -167,4 +167,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-}(jQuery));
+})(jQuery);

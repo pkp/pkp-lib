@@ -90,7 +90,7 @@ class GroupDAO extends DAO {
 	 * @return PKPGroup
 	 */
 	function newDataObject() {
-		return new PKPGroup();
+		return new Group();
 	}
 
 	/**

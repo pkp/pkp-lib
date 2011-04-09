@@ -527,7 +527,7 @@ class Form {
 		// Get layout information (number of columns)
 		if ($layout = $params['layout']) {
 			$layout = $params['layout'];
-			$class .= ' ' . $this->getStyleInfoByIdentifier('layout', $float);
+			$class .= ' ' . $this->getStyleInfoByIdentifier('layout', $layout);
 		}
 
 		return $class;

@@ -16,38 +16,24 @@
 {/if}
 
 <script type="text/javascript">
-	{literal}
-		$(function() {
-			$('#{/literal}{$gridId|escape}{literal}').pkpHandler(
-					'$.pkp.controllers.grid.GridHandler',
-					{
-						gridId: '{/literal}{$grid->getId()|escape:javascript}{literal}',
-						fetchRowUrl: '{/literal}{url|escape:javascript op='fetchRow' params=$fetchParams escape=false}{literal}',
-						fetchGridUrl: '{/literal}{url|escape:javascript op='fetchGrid' params=$fetchParams escape=false}{literal}',
-						bodySelector: '#{/literal}{$gridActOnId|escape:javascript}{literal}',
-					});
-		});
-	{/literal}
+	$(function() {ldelim}
+		$('#{$gridId|escape:javascript}').pkpHandler(
+			'$.pkp.controllers.grid.GridHandler',
+			{ldelim}
+				gridId: '{$grid->getId()|escape:javascript}',
+				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$fetchParams escape=false}',
+				fetchGridUrl: '{url|escape:javascript op='fetchGrid' params=$fetchParams escape=false}',
+				bodySelector: '#{$gridActOnId|escape:javascript}',
+			{rdelim}
+		);
+	{rdelim});
 </script>
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
 	{$gridFilterForm}
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-			<span class="options pkp_linkActions">
-				{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) item=action}
-					{if is_a($action, 'LegacyLinkAction')}
-						{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-							{assign var=actionActOnId value=$action->getActOn()}
-						{else}
-							{assign var=actionActOnId value=$gridActOnId}
-						{/if}
-						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
-					{else}
-						{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-					{/if}
-				{/foreach}
-			</span>
+			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
 		{/if}
 		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
 		<table id="{$gridTableId|escape}">
@@ -106,20 +92,9 @@
 		{if $grid->getIsSubcomponent()}
 			</div>
 		{/if}
-		<div class="actions pkp_linkActions">
-			{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
-				{if is_a($action, 'LegacyLinkAction')}
-					{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-						{assign var=actionActOnId value=$action->getActOn()}
-					{else}
-						{assign var=actionActOnId value=$gridActOnId}
-					{/if}
-					{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
-				{else}
-					{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-				{/if}
-			{/foreach}
-		</div>
+
+		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$gridId}
+
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 </div>
 

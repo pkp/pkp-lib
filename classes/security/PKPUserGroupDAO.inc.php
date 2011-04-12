@@ -394,6 +394,34 @@ class PKPUserGroupDAO extends DAO {
 	}
 
 	/**
+	 * FIXME: This should be integrated into one single search method.
+	 * @param $contextId int
+	 * @param ROLE_ID int (const)
+	 * @param $search string
+	 */
+	function &getUsersNotInRole($contextId, $roleId, $search) {
+		$params = array((int) $contextId, (int) $roleId);
+		$params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
+
+		$result =& $this->retrieve(
+			'SELECT	DISTINCT u.*
+			FROM	users AS u
+				LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
+				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
+				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
+			WHERE	ug.user_group_id = uug.user_group_id AND
+				u.user_id = uug.user_id' .
+				' AND ug.context_id = ?' .
+				' AND ug.role_id <> ?' .
+				' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)',
+			$params
+		);
+
+		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+		return $returner;
+	}
+
+	/**
 	 * return an Iterator of User objects given the search parameters
 	 * @param int $userGroupId
 	 * @param int $contextId

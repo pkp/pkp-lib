@@ -12,5 +12,5 @@
 		{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
 	{/capture}
 	{$FBV_content}
+	{$FBV_label_content}
 </span>
-{$FBV_label_content}

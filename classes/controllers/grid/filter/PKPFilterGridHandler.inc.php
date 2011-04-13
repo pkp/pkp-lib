@@ -207,7 +207,7 @@ class PKPFilterGridHandler extends GridHandler {
 
 		$filterForm->initData($this->getGridDataElements($request));
 
-		$json = new JSON(true, $filterForm->fetch($request));
+		$json = new JSONMessage(true, $filterForm->fetch($request));
 		return $json->getString();
 	}
 
@@ -242,11 +242,11 @@ class PKPFilterGridHandler extends GridHandler {
 			$row->setId($filter->getId());
 			$row->setData($filter);
 			$row->initialize($request);
-			$json = new JSON(true, $this->_renderRowInternally($request, $row));
+			$json = new JSONMessage(true, $this->_renderRowInternally($request, $row));
 		} else {
 			// Re-display the filter form with error messages
 			// so that the user can fix it.
-			$json = new JSON(false, $filterForm->fetch($request));
+			$json = new JSONMessage(false, $filterForm->fetch($request));
 		}
 
 		// Return the serialized JSON response
@@ -267,9 +267,9 @@ class PKPFilterGridHandler extends GridHandler {
 		$result = $filterDAO->deleteObject($filter);
 
 		if ($result) {
-			$json = new JSON(true);
+			$json = new JSONMessage(true);
 		} else {
-			$json = new JSON(false, Locale::translate('manager.setup.filter.grid.errorDeletingFilter'));
+			$json = new JSONMessage(false, Locale::translate('manager.setup.filter.grid.errorDeletingFilter'));
 		}
 		return $json->getString();
 	}

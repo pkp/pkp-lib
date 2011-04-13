@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file classes/core/JSON.inc.php
+ * @file classes/core/JSONMessage.inc.php
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class JSON
+ * @class JSONMessage
  * @ingroup core
  *
- * @brief Class to build and manipulate JSON (Javascript Object Notation) objects.
+ * @brief Class to represent a JSON (Javascript Object Notation) message.
  *
  */
 
 
-class JSON {
+class JSONMessage {
 	/** @var string The status of an event (e.g. false if form validation fails). */
 	var $_status;
 
@@ -44,7 +44,7 @@ class JSON {
 	 * @param $elementId string The DOM element to be replaced.
 	 * @param $additionalAttributes array Additional data to be returned.
 	 */
-	function JSON($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
+	function JSONMessage($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
 		// Set internal state.
 		$this->setStatus($status);
 		$this->setContent($content);
@@ -93,7 +93,7 @@ class JSON {
 	* Get the isScript string
 	* @return string
 	*/
-	function getIsScript () {
+	function getIsScript() {
 		return $this->_isScript;
 	}
 
@@ -110,7 +110,7 @@ class JSON {
 	 * Get the elementId string
 	 * @return string
 	 */
-	function getElementId () {
+	function getElementId() {
 		return $this->_elementId;
 	}
 
@@ -150,7 +150,7 @@ class JSON {
 	 * Get the additionalAttributes array
 	 * @return array
 	 */
-	function getAdditionalAttributes () {
+	function getAdditionalAttributes() {
 		return $this->_additionalAttributes;
 	}
 
@@ -195,64 +195,9 @@ class JSON {
 		}
 
 		// Encode the object.
-		return $this->_json_encode($jsonObject);
-	}
-
-
-	//
-	// Private helper methods
-	//
-	/**
-	 * PHP4 compatible version of json_encode()
-	 * Thanks to: http://usphp.com/manual/en/function.json-encode.php#82904
-	 *
-	 * @param $a mixed The content to encode.
-	 * @return string The encoded content.
-	 */
-	function _json_encode($a = false) {
-		if (function_exists('json_encode') && !$this->_simulatePhp4) {
-			// Use the internal function if it exists.
-			return json_encode($a);
-		} else {
-			// Deal with scalar variables.
-			if (is_null($a)) return 'null';
-			if ($a === false) return 'false';
-			if ($a === true) return 'true';
-			if (is_scalar($a)){
-				if (is_float($a)) {
-					// Always use "." for floats.
-					return floatval(str_replace(",", ".", strval($a)));
-				}
-				if (is_string($a)) {
-					static $jsonReplaces = array(array("\\", "/", "\n", "\t", "\r", "\b", "\f", '"'), array('\\\\', '\\/', '\\n', '\\t', '\\r', '\\b', '\\f', '\"'));
-					return '"' . str_replace($jsonReplaces[0], $jsonReplaces[1], $a) . '"';
-				} else {
-					return $a;
-				}
-			}
-
-			// Find out whether this is an indexed array
-			// or an associative array/object.
-			$isList = true;
-			for ($i = 0, reset($a); $i < count($a); $i++, next($a)) {
-				if (key($a) !== $i) {
-					$isList = false;
-					break;
-				}
-			}
-
-			// Render the array/object.
-			$result = array();
-			if ($isList) {
-				// Indexed lists.
-				foreach ($a as $v) $result[] = $this->_json_encode($v);
-				return '[' . join(',', $result) . ']';
-			} else {
-				// Objects or associative arrays.
-				foreach ($a as $k => $v) $result[] = $this->_json_encode($k).':'.$this->_json_encode($v);
-				return '{' . join(',', $result) . '}';
-			}
-		}
+		import('lib.pkp.classes.core.JSONManager');
+		$jsonManager = new JSONManager();
+		return $jsonManager->encode($jsonObject);
 	}
 }
 

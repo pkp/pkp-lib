@@ -92,8 +92,8 @@ class PKPRequest {
 	 * @param $url string
 	 */
 	function redirectUrlJson($url) {
-		import('lib.pkp.classes.core.JSON');
-		$json = new JSON(true);
+		import('lib.pkp.classes.core.JSONMessage');
+		$json = new JSONMessage(true);
 		$json->setEvent('redirectRequested', $url);
 		return $json->getString();
 	}

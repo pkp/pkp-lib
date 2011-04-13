@@ -53,7 +53,7 @@ class CategoryGridHandler extends GridHandler {
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 
 		// Let the view render the grid
-		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
+		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
 	}
 

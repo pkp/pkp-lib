@@ -272,9 +272,9 @@ class PKPTemplateManager extends Smarty {
 	 * @return string JSON message with the template rendered
 	 */
 	function fetchJson($template, $status = true) {
-		import('lib.pkp.classes.core.JSON');
+		import('lib.pkp.classes.core.JSONMessage');
 
-		$json = new JSON($status, $this->fetch($template));
+		$json = new JSONMessage($status, $this->fetch($template));
 		return $json->getString();
 	}
 

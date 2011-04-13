@@ -575,8 +575,8 @@ class DAO {
 
 		// Create and render the JSON message with the
 		// event to be triggered on the client side.
-		import('lib.pkp.classes.core.JSON');
-		$json = new JSON(true);
+		import('lib.pkp.classes.core.JSONMessage');
+		$json = new JSONMessage(true);
 		$json->setEvent('dataChanged', $eventData);
 		return $json->getString();
 	}

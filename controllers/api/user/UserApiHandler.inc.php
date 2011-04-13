@@ -19,7 +19,7 @@
 import('lib.pkp.classes.handler.PKPHandler');
 
 // import JSON class for API responses
-import('lib.pkp.classes.core.JSON');
+import('lib.pkp.classes.core.JSONMessage');
 
 class UserApiHandler extends PKPHandler {
 	/**
@@ -95,7 +95,7 @@ class UserApiHandler extends PKPHandler {
 		$userSettingsDAO->updateSetting($user->getId(), $settingName, $settingValue, $settingType);
 
 		// Return a success message.
-		$json = new JSON(true);
+		$json = new JSONMessage(true);
 		return $json->getString();
 
 	}

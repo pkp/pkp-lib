@@ -332,7 +332,7 @@ class PKPCitationGridHandler extends GridHandler {
 		} else {
 			$citationForm->initData();
 		}
-		$json = new JSON(true, $citationForm->fetch($request));
+		$json = new JSONMessage(true, $citationForm->fetch($request));
 		return $json->getString();
 	}
 
@@ -373,7 +373,7 @@ class PKPCitationGridHandler extends GridHandler {
 				// Re-display the form without processing so that the
 				// user can fix the errors that kept us from persisting
 				// the citation.
-				$json = new JSON(false, $citationForm->fetch($request));
+				$json = new JSONMessage(false, $citationForm->fetch($request));
 				return $json->getString();
 			}
 
@@ -400,7 +400,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if (!$citationForm->isValid()) {
 			// Re-display the citation form with error messages
 			// so that the user can fix it.
-			$json = new JSON(false, $citationForm->fetch($request));
+			$json = new JSONMessage(false, $citationForm->fetch($request));
 		} else {
 			// Get the persisted citation from the form.
 			$savedCitation =& $citationForm->getCitation();
@@ -426,7 +426,7 @@ class PKPCitationGridHandler extends GridHandler {
 			$row->initialize($request);
 
 			// Render the row into a JSON response
-			$json = new JSON(true, $this->_renderRowInternally($request, $row));
+			$json = new JSONMessage(true, $this->_renderRowInternally($request, $row));
 		}
 
 		// Return the serialized JSON response
@@ -447,9 +447,9 @@ class PKPCitationGridHandler extends GridHandler {
 		$result = $citationDao->deleteObject($citation);
 
 		if ($result) {
-			$json = new JSON(true);
+			$json = new JSONMessage(true);
 		} else {
-			$json = new JSON(false, Locale::translate('submission.citations.editor.citationlist.errorDeletingCitation'));
+			$json = new JSONMessage(false, Locale::translate('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
 		return $json->getString();
 	}
@@ -471,7 +471,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$output = $citationForm->fetch($request, CITATION_FORM_COMPARISON_TEMPLATE);
 
 		// Render the row into a JSON response
-		$json = new JSON(true, $output);
+		$json = new JSONMessage(true, $output);
 		return $json->getString();
 	}
 
@@ -503,7 +503,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// In principle we should use a template here but this seems exaggerated
 		// for such a small message.
-		$json = new JSON(true,
+		$json = new JSONMessage(true,
 			'<div id="authorQueryResult"><span class="pkp_controllers_form_error">'
 			.Locale::translate('submission.citations.editor.details.sendAuthorQuerySuccess')
 			.'</span></div>');
@@ -645,7 +645,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 			// Return the rendered form.
 			$citationForm->initData();
-			$json = new JSON(true, $citationForm->fetch($request));
+			$json = new JSONMessage(true, $citationForm->fetch($request));
 			return $json->getString();
 		}
 	}

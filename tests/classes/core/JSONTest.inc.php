@@ -8,24 +8,24 @@
  *
  * @class JSONTest
  * @ingroup tests_classes_core
- * @see JSON
+ * @see JSONMessage
  *
  * @brief Tests for the JSON class.
  */
 
 import('lib.pkp.tests.PKPTestCase');
-import('lib.pkp.classes.core.JSON');
+import('lib.pkp.classes.core.JSONMessage');
 
 class JSONTest extends PKPTestCase {
 	/**
-	 * @covers JSON
+	 * @covers JSONMessage
 	 */
 	public function testGetString() {
 		// Create a test object.
 		$testObject = new stdClass();
 		$testObject->someInt = 5;
 		$testObject->someFloat = 5.5;
-		$json = new JSON($status = true, $content = 'test content',
+		$json = new JSONMessage($status = true, $content = 'test content',
 				$isScript = false, $elementId = '0',
 				$additionalAttributes = array('testObj' => $testObject));
 		$json->setEvent('someEvent', array('eventDataKey' => array('item1', 'item2')));

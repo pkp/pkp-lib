@@ -24,7 +24,7 @@ import('lib.pkp.classes.controllers.grid.GridColumn');
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 // Import JSON class for use with all AJAX requests.
-import('lib.pkp.classes.core.JSON');
+import('lib.pkp.classes.core.JSONMessage');
 
 // Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
@@ -339,7 +339,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 
 		// Let the view render the grid.
-		$json = new JSON(true, $templateMgr->fetch($this->getTemplate()));
+		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
 	}
 
@@ -356,7 +356,7 @@ class GridHandler extends PKPHandler {
 		// validity check on the row id).
 		$row =& $this->getRequestedRow($request, $args);
 
-		$json = new JSON(true);
+		$json = new JSONMessage(true);
 		if (is_null($row)) {
 			// Inform the client that the row does no longer exist.
 			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
@@ -386,7 +386,7 @@ class GridHandler extends PKPHandler {
 		if (is_null($row)) fatalError('Row not found!');
 
 		// Render the cell
-		$json = new JSON(true, $this->_renderCellInternally($request, $row, $column));
+		$json = new JSONMessage(true, $this->_renderCellInternally($request, $row, $column));
 		return $json->getString();
 	}
 

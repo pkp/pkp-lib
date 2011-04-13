@@ -29,3 +29,8 @@ lessphp PHP LESS CSS Compiler
  * URL: <http://leafo.net/lessphp>
  * Version: 0.2+ (downloaded from github 2011-02-04)
  * License: GPLv3 or MIT
+
+PHP JSON parser
+ * URL: <http://mike.teczno.com/JSON.tar.gz>
+ * Version: ?
+ * License: see json/LICENSE

@@ -24,7 +24,8 @@
 		this.parent($widgetWrapper, options);
 
 		// Attach click event.
-		$('.toggleExtras', $widgetWrapper).click(this.callbackWrapper(this.toggleExtras));
+		$('.toggleExtras', $widgetWrapper).click(
+				this.callbackWrapper(this.toggleExtras));
 
 		// Hide extras (default initial widget state).
 		this.deactivateExtraContent_();
@@ -59,7 +60,7 @@
 	//
 	/**
 	 * Activate extra content.
-	 * @optional
+	 * @private
 	 * @param {String} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
@@ -78,18 +79,23 @@
 		$('.toggleExtras', $widgetWrapper).removeClass('inactive').addClass('active');
 
 		// Change the toggle icon into a triangle pointing downwards.
-		$('.ui-icon', $widgetWrapper).removeClass('ui-icon-triangle-1-e').addClass('ui-icon-triangle-1-s');
+		$('.ui-icon', $widgetWrapper)
+				.removeClass('ui-icon-triangle-1-e')
+				.addClass('ui-icon-triangle-1-s');
 
 		// Identify if there is a scrollable parent.
 		var $scrollable = $widgetWrapper.closest('.scrollable');
 		if ($scrollable.size() > 0) {
 
-			// Scroll the parent so that all extra content in extras container is visible.
-			if ($.browser.msie && parseInt($.browser.version.substring(0,1), 10) <= 7) {
+			// Scroll the parent so that all extra content in
+			// extras container is visible.
+			if ($.browser.msie && parseInt(
+					$.browser.version.substring(0, 1), 10) <= 7) {
 
 				// IE7 is old and slow and returns before repainting everything,
 				// so wait half a second for the page to repaint before going on.
-				setTimeout(function(){this.scrollToMakeVisible_($widgetWrapper, $scrollable);}, 500);
+				setTimeout(function() {this.scrollToMakeVisible_(
+						$widgetWrapper, $scrollable);}, 500);
 			} else {
 
 				// Other browsers can proceed immediately.
@@ -98,9 +104,10 @@
 		}
 	};
 
+
 	/**
 	 * Deactivate extra content.
-	 * @optional
+	 * @private
 	 * @param {String} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.deactivateExtraContent_ =
@@ -119,8 +126,10 @@
 		$('.toggleExtras', $widgetWrapper).removeClass('active').addClass('inactive');
 
 		// Change the toggle icon into a triangle pointing to the right.
-		$('.ui-icon', $widgetWrapper).removeClass('ui-icon-triangle-1-s').addClass('ui-icon-triangle-1-e');
+		$('.ui-icon', $widgetWrapper).removeClass('ui-icon-triangle-1-s')
+				.addClass('ui-icon-triangle-1-e');
 	};
+
 
 	/**
 	 * Scroll a scrollable element to make the
@@ -131,6 +140,8 @@
 	 * NB: This method depends on the position() method
 	 * to refer to the same parent element for both the
 	 * content element and the scrollable element.
+	 *
+	 * @private
 	 *
 	 * @param {JQuery} $widgetWrapper The element to be made visible.
 	 * @param {JQuery} $scrollable The parent scrollable element.
@@ -148,7 +159,8 @@
 
 			// Calculate the number of hidden pixels of the child
 			// element within the scrollable element.
-			var hiddenPixels = Math.ceil(extrasWidgetTop + $widgetWrapper.height() - $scrollable.height());
+			var hiddenPixels = Math.ceil(extrasWidgetTop +
+					$widgetWrapper.height() - $scrollable.height());
 
 			// Scroll down if parts or all of this widget are hidden.
 			if (hiddenPixels > 0) {
@@ -158,7 +170,8 @@
 			// Scroll up...
 
 			// Calculate the new scrolling top.
-			var newScrollingTop = Math.max(Math.floor(currentScrollingTop + extrasWidgetTop - scrollingWidgetTop), 0);
+			var newScrollingTop = Math.max(Math.floor(
+					currentScrollingTop + extrasWidgetTop - scrollingWidgetTop), 0);
 
 			// Set the new scrolling top.
 			$scrollable.scrollTop(newScrollingTop);

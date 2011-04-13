@@ -52,4 +52,6 @@
 		value="{$FBV_value|escape}"
 		id="{$FBV_id|escape}"
 	/>
+
+	{$FBV_label_content}
 {/if}

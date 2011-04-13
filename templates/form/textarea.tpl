@@ -45,4 +45,6 @@
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		id="{$FBV_id|escape}">{$FBV_value|escape}</textarea>
+
+		{$FBV_label_content}
 {/if}

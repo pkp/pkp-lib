@@ -36,10 +36,9 @@ class GridCellProvider {
 		$columnId = $column->getId();
 		assert(!empty($columnId));
 
-		// Construct a default cell id
-		$rowId = $row->getId();
-		assert(isset($rowId));
-		$cellId = $rowId.'-'.$columnId;
+		// Construct a default cell id (null for "nonexistent" new rows)
+		$rowId = $row->getId(); // Potentially null (indicating row not backed in the DB)
+		$cellId = isset($rowId)?$rowId.'-'.$columnId:null;
 
 		// Assign values extracted from the element for the cell.
 		$templateMgr =& TemplateManager::getManager();

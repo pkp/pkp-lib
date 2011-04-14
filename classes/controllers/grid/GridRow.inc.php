@@ -36,6 +36,9 @@ class GridRow {
 	/** @var mixed the row's data source */
 	var $_data;
 
+	/** @var $isModified boolean true iff the row has been modified */
+	var $_isModified;
+
 	/**
 	 * @var array row actions, the first key represents
 	 *  the position of the action in the row template,
@@ -51,6 +54,7 @@ class GridRow {
 	 * Constructor.
 	 */
 	function GridRow() {
+		$this->_isModified = false;
 	}
 
 
@@ -121,6 +125,22 @@ class GridRow {
 	 */
 	function &getData() {
 		return $this->_data;
+	}
+
+	/**
+	 * Set the modified flag for the row
+	 * @param $isModified boolean
+	 */
+	function setIsModified($isModified) {
+		$this->_isModified = $isModified;
+	}
+
+	/**
+	 * Get the modified flag for the row
+	 * @return boolean
+	 */
+	function getIsModified() {
+		return $this->_isModified;
 	}
 
 	/**

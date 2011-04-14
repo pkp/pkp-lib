@@ -6,8 +6,12 @@
  *
  * a regular grid row
  *}
-{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-<tr id="{$rowId|escape}" class="element{$row->getId()|escape} gridRow">
+{if $row->getId()}
+	{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
+{else}
+	{assign var=rowId value=""}
+{/if}
+<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
 	{foreach from=$cells item=cell}
 		<td>{$cell}</td>
 	{/foreach}

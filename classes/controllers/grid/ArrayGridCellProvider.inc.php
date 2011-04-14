@@ -36,7 +36,7 @@ class ArrayGridCellProvider extends GridCellProvider {
 	function getTemplateVarsFromRowColumn(&$row, $column) {
 		$element =& $row->getData();
 		$columnId = $column->getId();
-		assert(is_array($element) && isset($element[$columnId]));
+		assert(is_array($element) && in_array($columnId, array_keys($element)));
 		return array('label' => $element[$columnId]);
 	}
 }

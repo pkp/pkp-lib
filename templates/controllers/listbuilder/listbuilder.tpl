@@ -1,5 +1,5 @@
 {**
- * templates/controllers/listbuilder.tpl
+ * templates/controllers/listbuilder/listbuilder.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -7,103 +7,44 @@
  * Displays a ListBuilder object
  *}
 
-{assign var="listbuilderId" value=$listbuilder->getId()}
+{assign var=gridId value="component-"|concat:$grid->getId()}
+{assign var=gridTableId value=$gridId|concat:"-table"}
 
-<div id="{$listbuilderId|escape}" class="pkp_controllers_listbuilder">
+<script type="text/javascript">
+	$(function() {ldelim}
+		$('#{$gridId|escape}').pkpHandler(
+			'$.pkp.controllers.listbuilder.ListbuilderHandler',
+			{ldelim}
+				gridId: '{$grid->getId()|escape:javascript}',
+				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$fetchParams escape=false}',
+				saveUrl: '{url|escape:javascript op='save' params=$fetchParams escape=false}',
+			{rdelim}
+		);
+	});
+</script>
+
+
+<div id="{$gridId|escape}" class="pkp_controllers_grid pkp_controllers_listbuilder formWidget">
 	<div class="wrapper">
-		{assign var="additionalData" value=$listbuilder->getAdditionalData()}
-		{if !empty($additionalData)}
-		<div id="additionalData-{$listbuilderId|escape}">
- 			<ul>
-				<li>
-					{foreach from=$additionalData key=dataKey item=dataValue}
-						{if is_array($dataValue)}
-							{foreach name="dataArray" from=$dataValue item=arrayValue}
-								{assign var="iteration" value=$smarty.foreach.dataArray.iteration}
-								<span>
-									<input type="hidden" name="additionalData-{$listbuilderId|escape}-{$dataKey|escape}[]" id="additionalData-{$listbuilderId|escape}-{$dataKey|escape}-{$iteration}" value="{$arrayValue|escape}" />
-								</span>
-							{/foreach}
-						{else}
-							<span>
-								<input type="hidden" name="additionalData-{$listbuilderId|escape}-{$dataKey|escape}" id="additionalData-{$listbuilderId|escape}-{$dataKey|escape}" value="{$dataValue|escape}" />
-							</span>
-						{/if}
-					{/foreach}
-				</li>
-			</ul>
-		</div>
+		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
+			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
 		{/if}
-		<div class="unit size2of5" id="source-{$listbuilderId|escape}">
- 			<ul>
-				<li>
-					<label class="desc">
-						{translate key=$listbuilder->getTitle()}
-					</label>
-				  	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
-						<span>
-							<input type="text" class="field text" id="sourceTitle-{$listbuilderId|escape}" name="sourceTitle-{$listbuilderId|escape}" value="" />
-							<label for="sourceTitle-{$listbuilderId|escape}">
-								{translate key=$listbuilder->getSourceTitle()}
-								<span class="req">*</span>
-							</label>
-						</span>
-						{foreach name="attributes" from=$listbuilder->getAttributeNames() item=attributeName}
-							{assign var="iteration" value=$smarty.foreach.attributes.iteration}
-							<span>
-								<input type="text" class="field text" name="attribute-{$iteration}-{$listbuilderId|escape}" id="attribute-{$iteration}-{$listbuilderId|escape}" value="" />
-								<label for="attribute-{$iteration}-{$listbuilderId|escape}">
-									{translate key=$attributeName}
-									<span class="req">*</span>
-								</label>
-							</span>
-						{/foreach}
-					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
-						<span>
-						<select name="selectList-{$listbuilderId|escape}" id="selectList-{$listbuilderId|escape}" class="field select">
-							<option>{translate key="manager.setup.selectOne"}</option>
-							{foreach from=$listbuilder->getPossibleItemList() key="itemId" item="itemName"}
-								<option value="{$itemId|escape}">{$itemName|escape}</option>
-							{/foreach}
-						</select>
-							<label for="selectList-{$listbuilderId|escape}">
-								{translate key=$listbuilder->getSourceTitle()}
-								<span class="req">*</span>
-							</label>
-						</span>
-					{elseif $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-						<input type="text" class="textField" id="sourceTitle-{$listbuilderId|escape}" name="sourceTitle-{$listbuilderId|escape}" value="" /> <br />
-						<input type="hidden" id="sourceId-{$listbuilderId|escape}" name="sourceId-{$listbuilderId|escape}">
-					{/if}
-				</li>
-			</ul>
-		</div>
-		<div class="unit size1of10 listbuilder_controls pkp_linkActions">
-			<a href="#" id="add-{$listbuilderId|escape}" onclick="return false;" class="add_item">
-				<span class="hidetext">{translate key="common.add"}</span></a>
-			<a href="#" id="delete-{$listbuilderId|escape}" onclick="return false;" class="remove_item">
-				<span class="hidetext">{translate key="common.delete"}</span></a>
-		</div>
-		<div id="results-{$listbuilderId|escape}" class="unit size1of2 lastUnit listbuilder_results">
-			<ul>
-				<li>
-					<label class="desc">
-						{$listbuilder->getListTitle()|translate}
-					</label>
-					{include file="controllers/listbuilder/listbuilderGrid.tpl"}
-				</li>
-			</ul>
-		</div>
+		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
+		<table id="{$gridTableId|escape}">
+			<tbody>
+				{foreach from=$rows item=lb_row}
+					{$lb_row}
+				{/foreach}
+				{**
+					We need the last (=empty) line even if we have rows
+					so that we can restore it if the user deletes all rows.
+				**}
+				<tr class="empty"{if $rows} style="display: none;"{/if}>
+					<td colspan="{$columns|@count}">{translate key="grid.noItems"}</td>
+				</tr>
+				<div class="newRow"></div>
+			</tbody>
+		</table>
 	</div>
-	<script type="text/javascript">
-	{if $listbuilder->getSourceType() == $smarty.const.LISTBUILDER_SOURCE_TYPE_BOUND}
-		{literal}getAutocompleteSource("{/literal}{$autocompleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}");{/literal}
-	{/if}
-	{literal}
-		addItem("{/literal}{$addUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}", "{/literal}{$localizedButtons|escape:"javascript"}{literal}");
-		deleteItems("{/literal}{$deleteUrl}{literal}", "{/literal}{$listbuilderId|escape:"javascript"}{literal}");
-		selectRow("{/literal}{$listbuilderId|escape:"javascript"}{literal}");
-	{/literal}
-	</script>
 </div>
 

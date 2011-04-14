@@ -407,6 +407,19 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Create a data element from a request. This is used to format
+	 * new rows prior to their insertion or existing rows that have
+	 * been edited but not saved.
+	 * @param $request PKPRequest
+	 * @param $elementId int Reference to be filled with element
+	 *  ID (if one is to be used)
+	 * @return object
+	 */
+	function &getDataElementFromRequest(&$request, &$elementId) {
+		fatalError('Grid does not support data element creation!');
+	}
+
+	/**
 	 * Tries to identify the data element in the grids
 	 * data source that corresponds to the requested row id.
 	 * Raises a fatal error if such an element cannot be
@@ -418,23 +431,31 @@ class GridHandler extends PKPHandler {
 	 *  could not been found.
 	 */
 	function &getRequestedRow($request, $args) {
-		// Try to retrieve a row id from $args if it is present
-		if(!isset($args['rowId'])) fatalError('Missing row id!');
-		$elementId = $args['rowId'];
+		$isModified = isset($args['modify']);
+		if (isset($args['rowId']) && !$isModified) {
+			// A row ID was specified. Fetch it
+			$elementId = $args['rowId'];
 
-		// Retrieve row data for the requested row id
-		$dataElement = $this->getRowDataElement($request, $elementId);
-		if (is_null($dataElement)) {
-			// If the row doesn't exist then
-			// return null. It may be that the
-			// row has been deleted in the meantime
-			// and the client does not yet know about this.
-			$nullVar = null;
-			return $nullVar;
+			// Retrieve row data for the requested row id
+			$dataElement = $this->getRowDataElement($request, $elementId);
+			if (is_null($dataElement)) {
+				// If the row doesn't exist then
+				// return null. It may be that the
+				// row has been deleted in the meantime
+				// and the client does not yet know about this.
+				$nullVar = null;
+				return $nullVar;
+			}
+		} else {
+			// No row ID was specified. The client may be asking
+			// for a formatted new entry, to be saved later, or
+			// for a representation of a modified row.
+			$elementId = null;
+			$dataElement =& $this->getDataElementFromRequest($request, $elementId);
 		}
 
 		// Instantiate a new row
-		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement);
+		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement, $isModified);
 		return $row;
 	}
 
@@ -537,15 +558,17 @@ class GridHandler extends PKPHandler {
 	 * @param $request Request
 	 * @param $elementId string
 	 * @param $element mixed
+	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	function &_getInitializedRowInstance(&$request, $elementId, &$element) {
+	function &_getInitializedRowInstance(&$request, $elementId, &$element, $isModified = false) {
 		// Instantiate a new row
 		$row =& $this->getRowInstance();
 		$row->setGridId($this->getId());
 		$row->setId($elementId);
 		$row->setData($element);
 		$row->setRequestArgs($this->getRequestArgs());
+		$row->setIsModified($isModified);
 
 		// Initialize the row before we render it
 		$row->initialize($request);

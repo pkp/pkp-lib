@@ -41,9 +41,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		$('.button', $form).button();
 
 		// Activate and configure the validation plug-in.
-		var submitHandler;
 		if (options.submitHandler) {
-			submitHandler = this.callbackWrapper(options.submitHandler);
+			this.callerSubmitHandler_ = options.submitHandler;
 		}
 		var validator = $form.validate({
 			errorClass: 'error',
@@ -53,7 +52,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			unhighlight: function(element, errorClass) {
 				$(element).parent().parent().removeClass(errorClass);
 			},
-			submitHandler: submitHandler,
+			submitHandler: this.callbackWrapper(this.submitHandler_),
 			showErrors: this.callbackWrapper(this.formChange)
 		});
 
@@ -79,6 +78,18 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
 			$.pkp.classes.Handler);
+
+
+	//
+	// Private properties
+	//
+	/**
+	 * If provided, the caller's submit handler, which will be
+	 * triggered to save the form.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
 
 
 	//
@@ -168,5 +179,43 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	};
 
 
+	//
+	// Private Methods
+	//
+	/**
+	 * Internal callback called after form validation to handle form
+	 * submission.
+	 *
+	 * @private
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
+			function(validator, formElement) {
+
+		// Notify any nested formWidgets of the submit action.
+		var formSubmitEvent = new $.Event('formSubmitRequested');
+		$(formElement).find('.formWidget').trigger(formSubmitEvent);
+
+		// If the default behavior was prevented for any reason, stop.
+		if (formSubmitEvent.isDefaultPrevented()) {
+			return;
+		}
+
+		if (this.callerSubmitHandler_ !== null) {
+			// A form submission handler (e.g. Ajax) was provided. Use it.
+			this.callerSubmitHandler_.call(validator, formElement);
+		} else {
+			// No form submission handler was provided. Use the usual method.
+
+			// FIXME: Is there a better way? This is used to invoke
+			// the default form submission code. (Necessary to
+			// avoid an infinite loop.)
+			validator.settings.submitHandler = null;
+
+			this.getHtmlElement().submit();
+		}
+	};
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

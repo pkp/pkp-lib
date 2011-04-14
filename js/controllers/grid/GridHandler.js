@@ -32,15 +32,18 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		this.parent($grid, options);
 
 		// Bind the handler for image preview.
-		this.bind('mouseover', this.imagePreview);
+		this.bind('mouseover', this.imagePreviewHandler_);
 
 		// Bind the handler for the "elements changed" event.
-		this.bind('dataChanged', this.refreshGrid);
+		this.bind('dataChanged', this.refreshGridHandler_);
+
+		// Bind the handler for the "add new row" event.
+		this.bind('addRow', this.addRowHandler_);
 
 		// Handle grid filter events.
-		this.bind('formSubmitted', this.refreshGridWithFilter);
+		this.bind('formSubmitted', this.refreshGridWithFilterHandler_);
 
-		// Save the ID of this row and it's grid.
+		// Save the ID of this grid.
 		this.gridId_ = options.gridId;
 
 		// Save the URL to fetch a row.
@@ -95,6 +98,33 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	//
+	// Protected methods
+	//
+	/**
+	 * Get the fetch row URL.
+	 * @return {?string} URL to the "fetch row" operation handler.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getFetchRowUrl =
+			function() {
+
+		return this.fetchRowUrl_;
+	};
+
+
+	/**
+	 * Append a new row to the end of the list.
+	 * @protected
+	 * @param {HTMLElement} $newRow The new row to append.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.appendRow =
+			function($newRow) {
+
+		var $gridBody = this.getHtmlElement().find(this.bodySelector_);
+		$gridBody.append($newRow);
+	};
+
+
+	//
 	// Public methods
 	//
 	/**
@@ -113,13 +143,36 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
-	 * Preview an image when hovering over it's link in the grid.
+	 * Refresh the grid after its filter has changed.
+	 *
+	 * @param {$.pkp.controllers.form.ClientFormHandler} filterForm
+	 *  The filter form.
+	 * @param {Event} event A "formSubmitted" event.
+	 * @param {string} filterData Serialized filter data.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridWithFilterHandler =
+			function(filterForm, event, filterData) {
+
+		// Retrieve the grid from the server and add the
+		// filter data as form data.
+		$.post(this.fetchGridUrl_, filterData,
+				this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
+	};
+
+
+	//
+	// Private methods
+	//
+	/**
+	 * Preview an image when hovering over its link in the grid.
+	 *
+	 * @private
 	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.imagePreview =
+	$.pkp.controllers.grid.GridHandler.prototype.imagePreviewHandler_ =
 			function(sourceElement, event) {
 
 		// Use the jQuery imagepreview plug-in to show the image.
@@ -134,6 +187,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Refresh either a single row of the grid or the whole grid.
 	 *
+	 * @private
+	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
@@ -141,36 +196,38 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 *  updated, added or deleted. If not given then the whole grid
 	 *  will be refreshed.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGrid =
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler_ =
 			function(sourceElement, event, elementId) {
 
 		if (elementId) {
 			// Retrieve a single row from the server.
 			$.get(this.fetchRowUrl_, {rowId: elementId},
-					this.callbackWrapper(this.replaceRow), 'json');
+					this.callbackWrapper(this.replaceRowResponseHandler_), 'json');
 		} else {
 			// Retrieve the whole grid from the server.
 			$.get(this.fetchGridUrl_, null,
-					this.callbackWrapper(this.replaceGrid), 'json');
+					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 		}
 	};
 
 
 	/**
-	 * Refresh the grid after it's filter has changed.
+	 * Add a new row to the grid.
 	 *
-	 * @param {$.pkp.controllers.form.ClientFormHandler} filterForm
-	 *  The filter form.
-	 * @param {Event} event A "formSubmitted" event.
-	 * @param {string} filterData Serialized filter data.
+	 * @private
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @param {Object} params The request parameters to use to generate
+	 *  the new row.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGridWithFilter =
-			function(filterForm, event, filterData) {
+	$.pkp.controllers.grid.GridHandler.prototype.addRowHandler_ =
+			function(sourceElement, event, params) {
 
-		// Retrieve the grid from the server and add the
-		// filter data as form data.
-		$.post(this.fetchGridUrl_, filterData,
-				this.callbackWrapper(this.replaceGrid), 'json');
+		// Retrieve a single new row from the server.
+		$.get(this.fetchRowUrl_, params,
+				this.callbackWrapper(this.replaceRowResponseHandler_), 'json');
 	};
 
 
@@ -178,10 +235,12 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * Callback to insert, remove or replace a row after an
 	 * element has been inserted, update or deleted.
 	 *
+	 * @private
+	 *
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.replaceRow =
+	$.pkp.controllers.grid.GridHandler.prototype.replaceRowResponseHandler_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -206,10 +265,12 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Callback to replace a grid's content.
 	 *
+	 * @private
+	 *
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.replaceGrid =
+	$.pkp.controllers.grid.GridHandler.prototype.replaceGridResponseHandler_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -226,9 +287,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	};
 
 
-	//
-	// Private methods
-	//
 	/**
 	 * Helper that inserts or replaces a row.
 	 *
@@ -244,7 +302,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Does the row exist already?
 		var $grid = this.getHtmlElement(),
-				$existingRow = $grid.find('#' + newRowId);
+				$existingRow = newRowId ? $grid.find('#' + newRowId) : {};
+
 		if ($existingRow.length > 1) {
 			throw Error('There were ' + $existingRow.length +
 					' rather than 0 or 1 rows to be replaced!');
@@ -259,8 +318,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			$existingRow.replaceWith($newRow);
 		} else {
 			// Insert row.
-			var $gridBody = this.getHtmlElement().find(this.bodySelector_);
-			$gridBody.append($newRow);
+			this.appendRow($newRow);
 		}
 	};
 

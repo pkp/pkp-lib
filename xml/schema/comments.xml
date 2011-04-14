@@ -45,6 +45,9 @@
 		<index name="comments_submission_id">
 			<col>submission_id</col>
 		</index>
+		<index name="comments_parent_comment_id">
+			<col>parent_comment_id</col>
+		</index>
 		<index name="comments_user_id">
 			<col>user_id</col>
 		</index>

@@ -73,22 +73,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	// Protected methods
 	//
 	/**
-	 * Append a new row to the end of the list.
-	 * @protected
-	 * @param {HTMLElement} $newRow The new row to append.
-	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.appendRow =
-			function($newRow) {
-
-		var $createRow = this.getHtmlElement().find('.newRow');
-		$createRow.before($newRow);
-
-		// Attach content edit handlers
-		this.attachContentHandlers_($newRow);
-	};
-
-
-	/**
 	 * Get the "save" URL.
 	 * @private
 	 * @return {?string} URL to the "save listbuilder" handler operation.
@@ -194,6 +178,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
+			// Make sure the "empty" row is hidden
+			this.getHtmlElement().find('.empty').hide();
+
 			// Show the new input row
 			var $newRowMarker = this.getHtmlElement().find('.newRow');
 			var $newRow = $(jsonData.content);

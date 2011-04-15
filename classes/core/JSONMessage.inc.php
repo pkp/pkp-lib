@@ -18,7 +18,7 @@ class JSONMessage {
 	/** @var string The status of an event (e.g. false if form validation fails). */
 	var $_status;
 
-	/** @var string The message to be delivered back to the calling script. */
+	/** @var Mixed The message to be delivered back to the calling script. */
 	var $_content;
 
 	/** @var string Whether the content is javascript that should be executed. */
@@ -39,12 +39,19 @@ class JSONMessage {
 	/**
 	 * Constructor.
 	 * @param $status boolean The status of an event (e.g. false if form validation fails).
-	 * @param $content string The message to be delivered back to the calling script.
+	 * @param $content Mixed The message to be delivered back to the calling script.
 	 * @param $isScript boolean Whether the JSON returns a script. FIXME: see #6375 - scripts in JSON are evil.
 	 * @param $elementId string The DOM element to be replaced.
 	 * @param $additionalAttributes array Additional data to be returned.
 	 */
 	function JSONMessage($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
+		// If the content parameter is not a simple string, encode it as one
+		if(is_array($content)) {
+			// Encode the object.
+			import('lib.pkp.classes.core.JSONManager');
+			$jsonManager = new JSONManager();
+			$content = $jsonManager->encode($content);
+		}
 		// Set internal state.
 		$this->setStatus($status);
 		$this->setContent($content);

@@ -83,7 +83,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 */
 	$.pkp.controllers.modal.ModalHandler.DEFAULT_OPTIONS_ = {
 		autoOpen: true,
-		width: 700,
+		width: 710,
 		modal: true,
 		draggable: false,
 		resizable: false,

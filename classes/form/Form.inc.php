@@ -182,6 +182,7 @@ class Form {
 		$templateMgr->register_block('fbvFormArea', array(&$this, 'smartyFBVFormArea'));
 		$templateMgr->register_function('fbvButton', array(&$this, 'smartyFBVButton'));
 		$templateMgr->register_function('fbvLink', array(&$this, 'smartyFBVLink'));
+		$templateMgr->register_function('fbvAutocompleteInput', array(&$this, 'smartyFBVAutocompleteInput'));
 		$templateMgr->register_function('fbvTextInput', array(&$this, 'smartyFBVTextInput'));
 		$templateMgr->register_function('fbvTextArea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
@@ -686,6 +687,9 @@ class Form {
 			case 'select':
 				$content = $this->smartyFBVSelect($params, $smarty);
 				break;
+			case 'autocomplete':
+                    $content = $this->smartyFBVAutocompleteInput($params, $smarty);
+                    break;
 			case 'custom':
 				break;
 			default: $content = null;
@@ -804,6 +808,35 @@ class Form {
 		$smarty->assign('FBV_buttonParams', $buttonParams);
 
 		return $smarty->fetch('form/link.tpl');
+	}
+
+	/**
+	 * Form Autocomplete text input. (actually two inputs, label and value)
+	 * parameters: size, disabled (optional), name (optional - assigned value of 'id' by default), all other attributes associated with this control (except class and type)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVAutocompleteInput($params, &$smarty) {
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: autocomplete input form element \'id\' not set.');
+		}
+
+		if ( !isset($params['autocompleteUrl']) ) {
+			$smarty->trigger_error('FBV: url for autocompletion not specified.');
+		}
+
+		$params = $this->addClientSideValidation($params);
+		$smarty->assign('FBV_validation', $params['validation']);
+
+		// This id will be used for the hidden input that should be read by the Form.
+		$smarty->assign('FBV_id_hidden', $params['id']);
+		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
+
+		// Override the id parameter to differentiate it from the <div>
+		$params['id'] = $params['id'] . '_input';
+		$smarty->assign('FBV_textInput', $this->smartyFBVTextInput($params, $smarty));
+
+		return $smarty->fetch('form/autocompleteInput.tpl');
 	}
 
 	/**

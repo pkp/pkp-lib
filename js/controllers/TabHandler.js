@@ -33,10 +33,15 @@
 		this.bind('tabsshow', this.tabsShow);
 		this.bind('tabsload', this.tabsLoad);
 
+		if (options.emptyLastTab) {
+			this.emptyLastTab_ = options.emptyLastTab;
+		}
+
 		// Render the tabs as jQueryUI tabs.
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.
 			ajaxOptions: {
+				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
 			selected: 0
@@ -64,6 +69,13 @@
 	 */
 	$.pkp.controllers.TabHandler.prototype.currentTabIndex_ = 0;
 
+	/**
+	 * Whether to empty the previous tab when switching to a new one
+	 * @private
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.TabHandler.prototype.emptyLastTab_ = false;
+
 
 	//
 	// Public methods
@@ -80,7 +92,9 @@
 	$.pkp.controllers.TabHandler.prototype.tabsSelect =
 			function(tabsElement, event, ui) {
 
-		// The default implementation does nothing.
+		if(this.emptyLastTab_) {
+			this.$currentTab_.empty();
+		}
 		return true;
 	};
 

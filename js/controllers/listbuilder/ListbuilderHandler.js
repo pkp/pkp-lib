@@ -178,15 +178,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			// Make sure the "empty" row is hidden
-			this.getHtmlElement().find('.empty').hide();
-
-			// Show the new input row
-			var $newRowMarker = this.getHtmlElement().find('.newRow');
+			// Show the new input row; hide the "empty" row
 			var $newRow = $(jsonData.content);
-
-			// Add to the DOM
-			$newRowMarker.before($newRow);
+			this.getHtmlElement().find('.empty').hide().before($newRow);
 
 			// Attach content handlers and focus
 			this.attachContentHandlers_($newRow);

@@ -659,59 +659,59 @@ class Form {
 	 * @param $smarty object
 	 */
 	function smartyFBVElement($params, &$smarty, $content = null) {
-		if (isset($params['type'])) {
-			switch (strtolower($params['type'])) {
-				case 'text':
-					$content = $this->smartyFBVTextInput($params, $smarty);
-					break;
-				case 'textarea':
-					$content = $this->smartyFBVTextArea($params, $smarty);
-					break;
-				case 'checkbox':
-					$content = $this->smartyFBVCheckbox($params, $smarty);
-					unset($params['label']);
-					break;
-				case 'radio':
-					$content = $this->smartyFBVRadioButton($params, $smarty);
-					unset($params['label']);
-					break;
-				case 'select':
-					$content = $this->smartyFBVSelect($params, $smarty);
-					break;
-				case 'custom':
-					break;
-				default: $content = null;
-			}
+		if (!isset($params['type'])) return '';
 
-			if (!$content) return '';
+		// Set up the label template
+		$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
+		$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
+		$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
+		$smarty->assign('FBV_label_content', empty($params['label']) ? null : $smarty->fetch('form/label.tpl'));
 
-			unset($params['type']);
-
-			$parent = $smarty->_tag_stack[count($smarty->_tag_stack)-1];
-			$group = false;
-
-			if ($parent) {
-				if (isset($this->errorFields[$params['id']])) {
-					array_push($this->formSectionErrors, $this->errorsArray[$params['id']]);
-				}
-
-				if (isset($parent[1]['group']) && $parent[1]['group']) {
-					$group = true;
-				}
-			}
-
-			$smarty->assign('FBV_class', $this->getAllStyles($params));
-			$smarty->assign('FBV_content', $content);
-			$smarty->assign('FBV_group', $group);
-			$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
-			$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
-			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
-			$smarty->assign('FBV_multilingual', isset($params['multilingual']) ? $params['multilingual'] : false);
-			$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
-
-			return $smarty->fetch('form/element.tpl');
+		// Set up the specific field's template
+		switch (strtolower($params['type'])) {
+			case 'text':
+				$content = $this->smartyFBVTextInput($params, $smarty);
+				break;
+			case 'textarea':
+				$content = $this->smartyFBVTextArea($params, $smarty);
+				break;
+			case 'checkbox':
+				$content = $this->smartyFBVCheckbox($params, $smarty);
+				unset($params['label']);
+				break;
+			case 'radio':
+				$content = $this->smartyFBVRadioButton($params, $smarty);
+				unset($params['label']);
+				break;
+			case 'select':
+				$content = $this->smartyFBVSelect($params, $smarty);
+				break;
+			case 'custom':
+				break;
+			default: $content = null;
 		}
-		return '';
+
+		if (!$content) return '';
+
+		unset($params['type']);
+
+		$parent = $smarty->_tag_stack[count($smarty->_tag_stack)-1];
+		$group = false;
+
+		if ($parent) {
+			if (isset($this->errorFields[$params['id']])) {
+				array_push($this->formSectionErrors, $this->errorsArray[$params['id']]);
+			}
+
+			if (isset($parent[1]['group']) && $parent[1]['group']) {
+				$group = true;
+			}
+		}
+
+		// Set up the element template
+		$smarty->assign('FBV_content', $content);
+		$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
+		return $smarty->fetch('form/element.tpl');
 	}
 
 	/**

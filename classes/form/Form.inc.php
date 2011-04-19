@@ -183,6 +183,7 @@ class Form {
 		$templateMgr->register_function('fbvButton', array(&$this, 'smartyFBVButton'));
 		$templateMgr->register_function('fbvLink', array(&$this, 'smartyFBVLink'));
 		$templateMgr->register_function('fbvAutocompleteInput', array(&$this, 'smartyFBVAutocompleteInput'));
+		$templateMgr->register_function('fbvRangeSlider', array(&$this, 'smartyFBVRangeSlider'));
 		$templateMgr->register_function('fbvTextInput', array(&$this, 'smartyFBVTextInput'));
 		$templateMgr->register_function('fbvTextArea', array(&$this, 'smartyFBVTextArea'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
@@ -688,8 +689,11 @@ class Form {
 				$content = $this->smartyFBVSelect($params, $smarty);
 				break;
 			case 'autocomplete':
-                    $content = $this->smartyFBVAutocompleteInput($params, $smarty);
-                    break;
+				$content = $this->smartyFBVAutocompleteInput($params, $smarty);
+				break;
+			case 'rangeslider':
+				$content = $this->smartyFBVRangeSlider($params, $smarty);
+				break;
 			case 'custom':
 				break;
 			default: $content = null;
@@ -837,6 +841,35 @@ class Form {
 		$smarty->assign('FBV_textInput', $this->smartyFBVTextInput($params, $smarty));
 
 		return $smarty->fetch('form/autocompleteInput.tpl');
+	}
+
+	/**
+	 * Range slider input.
+	 * parameters: min, max, all other attributes associated with this control (except class and type)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVRangeSlider($params, &$smarty) {
+		// Make sure our required fields are included
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: range slider input form element \'id\' not set.');
+		}
+
+		if (!isset($params['min']) || !isset($params['max'])) {
+			$smarty->trigger_error('FBV: Min and/or max value for range slider not specified.');
+		}
+
+		$params = $this->addClientSideValidation($params);
+		$smarty->assign('FBV_validation', $params['validation']);
+
+		// This id will be used for the input that should be read by the Form.
+		$smarty->assign('FBV_id', $params['id']);
+
+		// Assign the min and max values to the handler
+		$smarty->assign('FBV_min', $params['min']);
+		$smarty->assign('FBV_max', $params['max']);
+
+		return $smarty->fetch('form/rangeSlider.tpl');
 	}
 
 	/**

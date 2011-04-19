@@ -30,5 +30,3 @@
 	<ul id="{$FBV_id|escape}"><li></li></ul>
 	{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
 </div>
-
-{$FBV_label_content}

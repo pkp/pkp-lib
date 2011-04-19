@@ -14,6 +14,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
+import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
 
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define_exposed('LISTBUILDER_SOURCE_TYPE_SELECT', 1);

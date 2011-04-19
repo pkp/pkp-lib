@@ -10,7 +10,20 @@
  */
 
 div.pkp_controllers_listbuilder {
-	.newRow {
+	/**
+	 * Editable grid row styles
+	 */
+	/* Default: Edit not displayed */
+	.gridCellEdit {
 		display: none;
+	}
+
+	.gridRowEdit {
+		.gridCellEdit {
+			display: block;
+		}
+		.gridCellDisplay {
+			display: none;
+		}
 	}
 }

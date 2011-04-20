@@ -409,8 +409,8 @@ class PKPUserGroupDAO extends DAO {
 			WHERE ug.user_group_id = uug.user_group_id AND
 				u.user_id = uug.user_id
 				AND ug.context_id = ?
-				AND ug.role_id <> ?
-				AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)',
+				AND ug.role_id <> ?'
+				. (isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)':''),
 			$params
 		);
 

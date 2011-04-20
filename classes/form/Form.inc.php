@@ -186,6 +186,7 @@ class Form {
 		$templateMgr->register_function('fbvRangeSlider', array(&$this, 'smartyFBVRangeSlider'));
 		$templateMgr->register_function('fbvTextInput', array(&$this, 'smartyFBVTextInput'));
 		$templateMgr->register_function('fbvTextArea', array(&$this, 'smartyFBVTextArea'));
+		$templateMgr->register_function('fbvHiddenInput', array(&$this, 'smartyFBVHiddenInput'));
 		$templateMgr->register_function('fbvSelect', array(&$this, 'smartyFBVSelect'));
 		$templateMgr->register_function('fbvElement', array(&$this, 'smartyFBVElement'));
 		$templateMgr->register_function('fbvCheckbox', array(&$this, 'smartyFBVCheckbox'));
@@ -694,6 +695,8 @@ class Form {
 			case 'rangeslider':
 				$content = $this->smartyFBVRangeSlider($params, $smarty);
 				break;
+			case 'hidden':
+				$content = $this->smartyFBVHiddenInput($params, $smarty);
 			case 'custom':
 				break;
 			default: $content = null;
@@ -816,7 +819,8 @@ class Form {
 
 	/**
 	 * Form Autocomplete text input. (actually two inputs, label and value)
-	 * parameters: size, disabled (optional), name (optional - assigned value of 'id' by default), all other attributes associated with this control (except class and type)
+	 * parameters: size, disabled (optional), name (optional - assigned value of 'id' by default),
+	 *  all other attributes associated with this control (except class and type)
 	 * @param $params array
 	 * @param $smarty object
 	 */
@@ -833,13 +837,17 @@ class Form {
 		$smarty->assign('FBV_validation', $params['validation']);
 
 		// This id will be used for the hidden input that should be read by the Form.
+		//  Since the hidden input and the text input are in the same namespace,
+		//  we must assign the autocomplete's ID to a new variable so the form class
+		//  doesn't read the text input instead of the hidden input.
 		$smarty->assign('FBV_id_hidden', $params['id']);
-		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
 
-		// Override the id parameter to differentiate it from the <div>
+		// We then override the id parameter to differentiate it from the hidden element
+		//  and make sure that the text input is not read by the Form class.
 		$params['id'] = $params['id'] . '_input';
 		$smarty->assign('FBV_textInput', $this->smartyFBVTextInput($params, $smarty));
 
+		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
 		return $smarty->fetch('form/autocompleteInput.tpl');
 	}
 
@@ -955,6 +963,44 @@ class Form {
 		$smarty->assign('FBV_textAreaParams', $textAreaParams);
 
 		return $smarty->fetch('form/textarea.tpl');
+	}
+
+	/**
+	 * Hidden input element.
+	 * parameters: value, id, name (optional - assigned value of 'id' by default), disabled (optional), multilingual (optional), all other attributes associated with this control (except class)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function smartyFBVHiddenInput($params, &$smarty) {
+		if (!isset($params['id'])) {
+			$smarty->trigger_error('FBV: text area form element \'id\' not set.');
+		}
+
+		$params = $this->addClientSideValidation($params);
+
+		$hiddenInputParams = '';
+		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
+		$params['value'] = isset($params['value']) ? $params['value'] : '';
+		$smarty->assign('FBV_validation', null); // Reset form validation fields in memory
+
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'name': $smarty->assign('FBV_name', $value); break;
+				case 'id': $smarty->assign('FBV_id', $value); break;
+				case 'value': $smarty->assign('FBV_value', $value); break;
+				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
+				case 'label': break;
+				case 'type': break;
+				case 'class': break; //ignore class attributes
+				case 'required': break; //ignore required field (define required fields in form class)
+				default: $hiddenInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+			}
+		}
+
+		$smarty->assign('FBV_class', $this->getAllStyles($params));
+		$smarty->assign('FBV_hiddenInputParams', $hiddenInputParams);
+
+		return $smarty->fetch('form/hiddenInput.tpl');
 	}
 
 	/**

@@ -45,13 +45,6 @@ class JSONMessage {
 	 * @param $additionalAttributes array Additional data to be returned.
 	 */
 	function JSONMessage($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
-		// If the content parameter is not a simple string, encode it as one
-		if(is_array($content)) {
-			// Encode the object.
-			import('lib.pkp.classes.core.JSONManager');
-			$jsonManager = new JSONManager();
-			$content = $jsonManager->encode($content);
-		}
 		// Set internal state.
 		$this->setStatus($status);
 		$this->setContent($content);

@@ -205,7 +205,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		if (this.callerSubmitHandler_ !== null) {
 			// A form submission handler (e.g. Ajax) was provided. Use it.
-			return this.callbackWrapper(this.callerSubmitHandler_).call(validator, formElement);
+			return this.callbackWrapper(this.callerSubmitHandler_).
+					call(validator, formElement);
 		} else {
 			// No form submission handler was provided. Use the usual method.
 

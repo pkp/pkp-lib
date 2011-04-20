@@ -114,12 +114,12 @@ class GridColumn {
 	}
 
 	/**
-	 * Get a single layout flags
+	 * Get a single layout flag
 	 * @param $flag string
 	 * @return mixed
 	 */
 	function getFlag($flag) {
-		assert(isset($this->flags[$flag]));
+		assert(isset($this->_flags[$flag]));
 		return $this->_flags[$flag];
 	}
 

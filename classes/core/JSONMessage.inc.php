@@ -73,19 +73,18 @@ class JSONMessage {
 	}
 
 	/**
-	 * Construct the content string
-	 * @return string
+	 * Get the content string
+	 * @return mixed
 	 */
 	function getContent() {
 		return $this->_content;
 	}
 
 	/**
-	 * Set the content string
-	 * @param $content string
+	 * Set the content data
+	 * @param $content mixed
 	 */
 	function setContent($content) {
-		assert(is_string($content));
 		$this->_content = $content;
 	}
 

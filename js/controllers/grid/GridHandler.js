@@ -150,7 +150,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {Event} event A "formSubmitted" event.
 	 * @param {string} filterData Serialized filter data.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGridWithFilterHandler =
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridWithFilterHandler_ =
 			function(filterForm, event, filterData) {
 
 		// Retrieve the grid from the server and add the

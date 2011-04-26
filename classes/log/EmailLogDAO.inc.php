@@ -69,8 +69,7 @@ class EmailLogDAO extends DAO {
 			FROM	email_log e
 			WHERE	e.assoc_type = ? AND
 				e.assoc_id = ? AND
-				e.event_type = ? AND
-				e.log_id = s.log_id',
+				e.event_type = ?',
 			array(
 				(int) $assocType,
 				(int) $assocId,

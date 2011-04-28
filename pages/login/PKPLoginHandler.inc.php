@@ -48,6 +48,14 @@ class PKPLoginHandler extends Handler {
 		$templateMgr->assign('remember', Request::getUserVar('remember'));
 		$templateMgr->assign('source', Request::getUserVar('source'));
 		$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
+
+		// For force_login_ssl with base_url[...]: make sure SSL used for login form
+		$loginUrl = Request::url(null, 'login', 'signIn');
+		if (Config::getVar('security', 'force_login_ssl')) {
+			$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
+		}
+		$templateMgr->assign('loginUrl', $loginUrl);
+
 		$templateMgr->display('user/login.tpl');
 	}
 

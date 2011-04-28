@@ -296,7 +296,7 @@ class PKPPageRouter extends PKPRouter {
 			// If path info is disabled then we have to
 			// encode the path as query parameters.
 			if (!$pathInfoEnabled) {
-				$pathKey = 'path%5B%5D=';
+				$pathKey = $escape?'path%5B%5D=':'path[]=';
 				foreach($additionalPath as $key => $pathElement) {
 					$additionalPath[$key] = $pathKey.$pathElement;
 				}
@@ -368,7 +368,7 @@ class PKPPageRouter extends PKPRouter {
 		//
 		// Additional query parameters
 		//
-		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params);
+		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
 		//
 		// Anchor

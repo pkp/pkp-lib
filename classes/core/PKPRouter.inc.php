@@ -491,17 +491,18 @@ class PKPRouter {
 	 * @param $request PKPRequest the request to be routed
 	 * @param $params array (optional) the parameter list to be
 	 *  transformed to a url part.
+	 * @param $escape boolean (optional) Whether or not to escape structural elements
 	 * @return array the encoded parameters or an empty array
 	 *  if no parameters were given.
 	 */
-	function _urlGetAdditionalParameters(&$request, $params = null) {
+	function _urlGetAdditionalParameters(&$request, $params = null, $escape = true) {
 		$additionalParameters = array();
 		if (!empty($params)) {
 			assert(is_array($params));
 			foreach ($params as $key => $value) {
 				if (is_array($value)) {
 					foreach($value as $element) {
-						$additionalParameters[] = $key.'%5B%5D='.rawurlencode($element);
+						$additionalParameters[] = $key.($escape?'%5B%5D=':'[]=').rawurlencode($element);
 					}
 				} else {
 					$additionalParameters[] = $key.'='.rawurlencode($value);

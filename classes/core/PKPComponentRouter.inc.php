@@ -290,7 +290,7 @@ class PKPComponentRouter extends PKPRouter {
 		//
 		// Additional query parameters
 		//
-		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params);
+		$additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
 		//
 		// Anchor

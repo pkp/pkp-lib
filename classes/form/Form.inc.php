@@ -837,16 +837,14 @@ class Form {
 		$smarty->assign('FBV_validation', $params['validation']);
 
 		// This id will be used for the hidden input that should be read by the Form.
-		//  Since the hidden input and the text input are in the same namespace,
-		//  we must assign the autocomplete's ID to a new variable so the form class
-		//  doesn't read the text input instead of the hidden input.
-		$smarty->assign('FBV_id_hidden', $params['id']);
+		$autocompleteId = $params['id'];
 
 		// We then override the id parameter to differentiate it from the hidden element
 		//  and make sure that the text input is not read by the Form class.
-		$params['id'] = $params['id'] . '_input';
+		$params['id'] = $autocompleteId . '_input';
 		$smarty->assign('FBV_textInput', $this->smartyFBVTextInput($params, $smarty));
 
+		$smarty->assign('FBV_id', $autocompleteId);
 		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
 		return $smarty->fetch('form/autocompleteInput.tpl');
 	}

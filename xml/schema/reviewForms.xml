@@ -22,12 +22,10 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="assoc_type" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
+			<!-- NOTNULL constraint omitted for upgrade purposes -->
 		</field>
 		<field name="assoc_id" type="I8">
-			<NOTNULL/>
-			<DEFAULT VALUE="0"/>
+			<!-- NOTNULL constraint omitted for upgrade purposes -->
 		</field>
 		<field name="seq" type="F" />
 		<field name="is_active" type="I1" />

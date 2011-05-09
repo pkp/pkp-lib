@@ -22,10 +22,10 @@
 			<AUTOINCREMENT/>
 		</field>
 		<field name="assoc_type" type="I2">
-			<NOTNULL/>
+			<!-- Not flagged NOTNULL for upgrade purposes -->
 		</field>
 		<field name="assoc_id" type="I8">
-			<NOTNULL/>
+			<!-- Not flagged NOTNULL for upgrade purposes -->
 		</field>
 		<field name="user_id" type="I8">
 			<NOTNULL/>

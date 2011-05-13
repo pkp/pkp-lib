@@ -107,7 +107,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $entry mixed New entry with data to persist
 	 * @return boolean
 	 */
-	function insertEntry($entry) {
+	function insertEntry($entry, &$request) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -138,7 +138,7 @@ class ListbuilderHandler extends GridHandler {
 		$changedData = $jsonManager->decode($request->getUserVar('data'));
 
 		// 1. Check that all modified entries actually exist
-		$data =& $this->getGridDataElements();
+		$data =& $this->getGridDataElements(&$request);
 		foreach ($changedData as $entry) {
 			// Skip new entries
 			if (!isset($entry->rowId)) continue;
@@ -161,7 +161,7 @@ class ListbuilderHandler extends GridHandler {
 				}
 			} else {
 				// Insert a new entry
-				if (!$this->insertEntry($entry)) {
+				if (!$this->insertEntry($entry, &$request)) {
 					// Failure; abort.
 					$json = new JSONMessage(false);
 					return $json->getString();

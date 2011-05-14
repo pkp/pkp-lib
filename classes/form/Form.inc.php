@@ -565,8 +565,8 @@ class Form {
 				break;
 			case 'layout':
 				switch($value) {
-					case 'THREE_COLUMNS': $returner = 'full threeColumns'; break;
-					case 'TWO_COLUMNS': $returner = 'full twoColumns'; break;
+					case 'THREE_COLUMNS': $returner = 'threeColumns'; break;
+					case 'TWO_COLUMNS': $returner = 'twoColumns'; break;
 					case 'ONE_COLUMN': $returner = 'full'; break;
 				}
 				break;
@@ -644,7 +644,7 @@ class Form {
 			$smarty->assign('FBV_sectionErrors', $this->formSectionErrors);
 			$smarty->assign('FBV_class', $class);
 
-			$smarty->assign('FBV_layoutColumns', empty($layoutInfo) ? false : true);
+			$smarty->assign('FBV_layoutColumns', empty($params['layout']) ? false : true);
 			$this->formSectionErrors = array();
 
 			return $smarty->fetch('form/formSection.tpl');

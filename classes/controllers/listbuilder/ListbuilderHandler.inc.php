@@ -103,6 +103,14 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
+	 * Fetch the options for a LISTBUILDER_SOURCE_TYPE_SELECT LB
+	 * @return array
+	 */
+	function loadOptions() {
+		fatalError('ABSTRACT METHOD');
+	}
+
+	/**
 	 * Persist a new entry insert.
 	 * @param $entry mixed New entry with data to persist
 	 * @return boolean
@@ -126,6 +134,8 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Save the listbuilder.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
 	function save($args, &$request) {
 		import('lib.pkp.classes.core.JSONManager');
@@ -171,6 +181,18 @@ class ListbuilderHandler extends GridHandler {
 
 		// Report a successful save.
 		$json = new JSONMessage(true);
+		return $json->getString();
+	}
+
+
+	/**
+	 * Load the set of options for a select list type listbuilder.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function fetchOptions($args, &$request) {
+		$options = $this->loadOptions();
+		$json = new JSONMessage(true, $options);
 		return $json->getString();
 	}
 

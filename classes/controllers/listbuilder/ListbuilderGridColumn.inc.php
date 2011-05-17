@@ -19,9 +19,11 @@ class ListbuilderGridColumn extends GridColumn {
 	/**
 	 * Constructor
 	 */
-	function ListbuilderGridColumn($id = '', $title = null, $titleTranslated = null,
+	function ListbuilderGridColumn($listbuilder, $id = '', $title = null, $titleTranslated = null,
 			$template = 'controllers/listbuilder/listbuilderGridCell.tpl', $cellProvider = null, $flags = array()) {
 
+		// Make the listbuilder's source type available to the cell template as a flag
+		$flags['sourceType'] = $listbuilder->getSourceType();
 		parent::GridColumn($id, $title, $titleTranslated, $template, $cellProvider, $flags);
 	}
 }

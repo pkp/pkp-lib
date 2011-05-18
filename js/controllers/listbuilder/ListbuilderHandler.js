@@ -339,13 +339,13 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		if (event.which == CR_KEY) {
 			var $target = $(callingContext);
 			var $row = $target.parents('.gridRow');
-			var $inputs = $row.find('.textField:input');
-			if ($target.parents('.gridCell').hasClass('lastGridCell')) {
+			var $inputs = $row.find(':input:visible');
+			var i = $inputs.index($target);
+			if ($inputs.length == i+1) {
 				this.saveRow($row);
 				return false; // Prevent default
 			} else {
 				// Not the last field. Tab to the next.
-				var i = $inputs.index($target);
 				$inputs[i + 1].focus();
 				return false; // Prevent default
 			}
@@ -413,7 +413,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				this.callbackWrapper(this.editItemHandler_));
 
 		// Attach keypress handler for text fields
-		$context.find('.textField:input').keypress(
+		$context.find(':input').keypress(
 				this.callbackWrapper(this.inputKeystrokeHandler_));
 	};
 

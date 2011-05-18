@@ -141,7 +141,6 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetch($args, &$request) {
-		$templateMgr =& TemplateManager::getManager();
 		return $this->fetchGrid($args, $request);
 	}
 

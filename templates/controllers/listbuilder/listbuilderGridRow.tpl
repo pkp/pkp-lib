@@ -13,7 +13,7 @@
 {/if}
 <tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
 	{foreach from=$cells item=cell name=listbuilderCells}
-		<td class="gridCell{if $smarty.foreach.listbuilderCells.last} lastGridCell{/if}">{$cell}</td>
+		<td class="gridCell">{$cell}</td>
 	{/foreach}
 	{if $row->getId()}
 		<input type="hidden" name="rowId" value="{$row->getId()|escape}" />

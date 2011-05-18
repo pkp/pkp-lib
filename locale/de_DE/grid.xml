@@ -47,21 +47,29 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Begutachtungsformulare</message>
 
-	<!-- SubmissionChecklist -->
+	<!-- Bibliotheksdateien -->
+	<message key="grid.libraryFiles.column.files">Dateien</message>
+	<message key="grid.libraryFiles.submission.title">Einreichungsbibliothek</message>
+	<message key="grid.libraryFiles.editorial.title">Redaktionsbibliothek</message>
+	<message key="grid.libraryFiles.review.title">Gutachtenbibliothek</message>
+	<message key="grid.libraryFiles.production.title">Produktionsbibliothek</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Produktionsvorlagenbibliothek</message>
+
+	<!-- Einreichungscheckliste -->
 	<message key="grid.submissionChecklist.title">Checkliste für Einreichungen</message>
 	<message key="grid.submissionChecklist.column.checklistItem">Eintrag auf Checkliste</message>
 
-	<!-- Submission Contributors -->
+	<!-- Beiträger/innen zu einer Einreichung -->
 	<message key="author.users.contributor.name">Name</message>
 	<message key="author.users.contributor.email">E-Mail</message>
 	<message key="author.users.contributor.role">Rolle</message>
 	<message key="author.users.contributor.principalContact">Hauptkontakt</message>
 
-	<!-- Review Attachments -->
-	<message key="grid.reviewAttachments.title">Anlagen des Gutachters/der Gutachterin</message>
-	<message key="grid.reviewAttachments.add">Anlage dem Gutachten hinzufügen</message>
+	<!-- Rollen -->
+	<message key="grid.roles.currentRoles">Aktuelle Rollen</message>
+	<message key="grid.roles.add">Rolle hinzufügen</message>
 
-	<!-- Users -->
+	<!-- Benutzer/innen -->
 	<message key="grid.user.currentUsers">Aktuelle Benutzer/innen</message>
 	<message key="grid.user.currentEnrollment">Aktuelle Registrierung</message>
 	<message key="grid.user.allRoles">Alle Rollen</message>

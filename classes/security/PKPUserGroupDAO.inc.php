@@ -537,14 +537,18 @@ class PKPUserGroupDAO extends DAO {
 
 	/**
 	 * remove a given user from a given user group
-	 * @param $userId
-	 * @param $groupId
+	 * @param $userId int
+	 * @param $groupId int
+	 * @param $contextId int
 	 */
-	function removeUserFromGroup($userId, $groupId) {
-		$assignment =& $this->userGroupAssignmentDao->newDataObject();
-		$assignment->setUserId($userId);
-		$assignment->setUserGroupId($groupId);
-		return $this->userGroupAssignmentDao->deleteAssignment($assignment);
+	function removeUserFromGroup($userId, $groupId, $contextId) {
+		$assignments =& $this->userGroupAssignmentDao->getByUserId($userId, $contextId);
+		while ($assignment =& $assignments->next()) {
+			if ($assignment->getUserGroupId() == $groupId) {
+				$this->userGroupAssignmentDao->deleteAssignment($assignment);
+			}
+			unset($assignment);
+		}
 	}
 
 	/**

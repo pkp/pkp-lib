@@ -35,6 +35,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Save listbuilder options
 		this.sourceType_ = options.sourceType;
 		this.saveUrl_ = options.saveUrl;
+		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
 
 		// Attach the button handlers
 		$listbuilder.find('.add_item').click(
@@ -67,6 +68,14 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @type {?string}
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.saveUrl_ = null;
+
+
+	/**
+	 * The "fetch options" URL of the listbuilder (for "select" source type).
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.fetchOptionsUrl_ = null;
 
 
 	//
@@ -128,7 +137,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			saveRow = function($row) {
 
 		// Retrieve a single new row from the server.
-		// (Avoid IE closure leak using this flag.)
+		// (Avoid IE closure leak using this flag rather than passing
+		// around a DOM element in a closure.)
 		$row.addClass('saveRowResponsePlaceholder');
 		var params = this.buildParamsFromInputs_($row.find(':input'));
 		params.modify = true; // Flag the row for modification
@@ -185,7 +195,66 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Attach content handlers and focus
 			this.attachContentHandlers_($newRow);
 			$newRow.addClass('gridRowEdit');
-			$newRow.find('.textField:input').first().focus();
+			$newRow.find(':input').first().focus();
+
+			// If this is a select menu listbuilder, load the options
+			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+				$.get(this.fetchOptionsUrl_, {},
+					this.callbackWrapper(this.fetchOptionsResponseHandler_, null), 'json');
+			}
+		}
+
+		return false;
+	};
+
+
+	/**
+	 * Callback that will be activated when a request for row appending
+	 * returns.
+	 *
+	 * @private
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 * @return {boolean} Should return false to stop event processing.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			fetchOptionsResponseHandler_ = function(ajaxContext, jsonData) {
+
+		// Find the currently editable select menu and fill
+		jsonData = this.handleJson(jsonData);
+		if (jsonData !== false) {
+			$(this.getHtmlElement()).find('.gridRowEdit:visible .selectMenu:input').each(function(i) {
+				var $this = $(this);
+				var $container = $this.parents('.gridCellContainer');
+				var currentValue = $container.find('.gridCellDisplay :input').val();
+
+				// Add the options, noting the currently selected index
+				var options = '';
+				var optionsCount = 0;
+				var selectedIndex = null;
+				$this.children().empty();
+				for (var j in jsonData.content[i]) {
+					// Create and populate the option node
+					var content = jsonData.content[i][j];
+					var $option = $('<option/>');
+					$option.attr('value', j);
+					$option.text(content);
+					if (content == currentValue) {
+						$option.attr('selected', 'selected');
+					}
+					$this.append($option);
+
+					optionsCount++;
+				}
+
+				// If less than two options are available for this select menu,
+				// hide the input -- no point showing an unusable drop-down.
+				if (optionsCount <= 1) {
+					$container.find('.gridCellDisplay').show();
+					$container.find('.gridCellEdit').hide();
+				}
+			});
 		}
 
 		return false;
@@ -207,11 +276,19 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		var $targetRow = $(callingContext).closest('.gridRow');
 
+		// Close any existing edits if necessary
 		this.closeEdits();
 
 		// Show inputs; hide display
 		$targetRow.addClass('gridRowEdit');
-		$targetRow.find('.textField').first().focus();
+		$targetRow.find(':input').first().focus();
+
+		// If this is a select menu listbuilder, load the options
+		if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+			$.get(this.fetchOptionsUrl_, {},
+				this.callbackWrapper(this.fetchOptionsResponseHandler_, null), 'json');
+		}
+
 		return false;
 	};
 
@@ -331,10 +408,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			attachContentHandlers_ = function($context) {
 
+		// Attach click handler for text fields and select menus
 		$context.find('.gridCellDisplay').click(
 				this.callbackWrapper(this.editItemHandler_));
 
-		$context.find('.textField').keypress(
+		// Attach keypress handler for text fields
+		$context.find('.textField:input').keypress(
 				this.callbackWrapper(this.inputKeystrokeHandler_));
 	};
 

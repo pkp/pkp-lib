@@ -50,13 +50,18 @@ class UserGroupAssignmentDAO extends DAO {
 	/**
 	 * Delete all user group assignments for a given userId
 	 * @param int $userId
+	 * @param $userGroupId int optional
 	 */
 	function deleteByUserId($userId, $userGroupId = null) {
-		$params = array($userId);
-		if ($userGroupId) $params[] = $userGroupId;
-		return $this->update('DELETE FROM user_user_groups
-							WHERE user_id = ?' . ($userGroupId?' AND user_group_id = ?':''),
-						$params);
+		$params = array((int) $userId);
+		if ($userGroupId) $params[] = (int) $userGroupId;
+		if ($contextId) $params[] = (int) $contextId;
+		return $this->update(
+			'DELETE FROM user_user_groups
+			WHERE	user_id = ?
+			' . ($userGroupId?' AND user_group_id = ?':''),
+			$params
+		);
 	}
 
 	/**
@@ -78,10 +83,13 @@ class UserGroupAssignmentDAO extends DAO {
 		$params = array($contextId);
 		if ( $userId ) $params[] = $userId;
 		$result =& $this->retrieve(
-						'SELECT uug.user_group_id, uug.user_id
-						FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-						WHERE ug.context_id = ?' . ($userId?' AND uug.user_id = ?':''),
-					$params);
+			'SELECT	uug.user_group_id, uug.user_id
+			FROM	user_groups ug
+				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+			WHERE	ug.context_id = ?
+				' . ($userId?' AND uug.user_id = ?':''),
+			$params
+		);
 
 		$assignments = new DAOResultFactory($result, $this, '_returnFromRow');
 		while ( !$assignments->eof() ) {
@@ -99,7 +107,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @param $contextId int
 	 * @return Iterator UserGroup
 	 */
-	function &getByUserId($userId, $contextId = null){
+	function &getByUserId($userId, $contextId = null) {
 		$params = array($userId);
 		if ( $contextId ) $params[] = $contextId;
 		$result =& $this->retrieve(

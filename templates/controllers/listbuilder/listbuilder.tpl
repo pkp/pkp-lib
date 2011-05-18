@@ -17,7 +17,9 @@
 			{ldelim}
 				gridId: '{$grid->getId()|escape:javascript}',
 				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$fetchParams escape=false}',
+				fetchOptionsUrl: '{url|escape:javascript op='fetchOptions' params=$fetchParams escape=false}',
 				saveUrl: '{url|escape:javascript op='save' params=$fetchParams escape=false}',
+				sourceType: '{$grid->getSourceType()|escape:javascript}'
 			{rdelim}
 		);
 	});

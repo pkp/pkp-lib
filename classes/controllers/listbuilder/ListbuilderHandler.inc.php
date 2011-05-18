@@ -92,6 +92,15 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
+	 * Delete an entry.
+	 * @param $rowId mixed ID of row to modify
+	 * @return boolean
+	 */
+	function deleteEntry($rowId) {
+		fatalError('ABSTRACT METHOD');
+	}
+
+	/**
 	 * Persist an update to an entry.
 	 * @param $rowId mixed ID of row to modify
 	 * @param $existingEntry mixed Existing entry to be modified
@@ -99,15 +108,11 @@ class ListbuilderHandler extends GridHandler {
 	 * @return boolean
 	 */
 	function updateEntry($rowId, $existingEntry, $newEntry) {
-		fatalError('ABSTRACT METHOD');
-	}
-
-	/**
-	 * Fetch the options for a LISTBUILDER_SOURCE_TYPE_SELECT LB
-	 * @return array
-	 */
-	function loadOptions() {
-		fatalError('ABSTRACT METHOD');
+		// This may well be overridden by a subclass to modify
+		// an existing entry, e.g. to maintain referential integrity.
+		// If not, we can simply delete and insert.
+		if (!$this->deleteEntry($rowId)) return false;
+		return $this->insertEntry($newEntry);
 	}
 
 	/**
@@ -116,6 +121,14 @@ class ListbuilderHandler extends GridHandler {
 	 * @return boolean
 	 */
 	function insertEntry($entry, &$request) {
+		fatalError('ABSTRACT METHOD');
+	}
+
+	/**
+	 * Fetch the options for a LISTBUILDER_SOURCE_TYPE_SELECT LB
+	 * @return array
+	 */
+	function getOptions() {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -171,7 +184,7 @@ class ListbuilderHandler extends GridHandler {
 				}
 			} else {
 				// Insert a new entry
-				if (!$this->insertEntry($entry, &$request)) {
+				if (!$this->insertEntry($entry)) {
 					// Failure; abort.
 					$json = new JSONMessage(false);
 					return $json->getString();
@@ -191,7 +204,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetchOptions($args, &$request) {
-		$options = $this->loadOptions();
+		$options = $this->getOptions();
 		$json = new JSONMessage(true, $options);
 		return $json->getString();
 	}

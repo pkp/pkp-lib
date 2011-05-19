@@ -126,6 +126,11 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Fetch the options for a LISTBUILDER_SOURCE_TYPE_SELECT LB
+	 * Should return a multidimensional array:
+	 * array(
+	 * 	array('column 1 option 1', 'column 2 option 1'),
+	 * 	array('column 1 option 2', 'column 2 option 2'
+	 * );
 	 * @return array
 	 */
 	function getOptions() {

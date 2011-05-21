@@ -227,7 +227,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			$(this.getHtmlElement()).find('.gridRowEdit:visible .selectMenu:input').each(function(i) {
 				var $this = $(this);
 				var $container = $this.parents('.gridCellContainer');
-				var currentValue = $container.find('.gridCellDisplay :input').val();
+				var currentIndex = $container.find('.gridCellDisplay :input').val();
 
 				// Add the options, noting the currently selected index
 				var options = '';
@@ -240,7 +240,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					var $option = $('<option/>');
 					$option.attr('value', j);
 					$option.text(content);
-					if (content == currentValue) {
+					if (j == currentIndex) {
 						$option.attr('selected', 'selected');
 					}
 					$this.append($option);

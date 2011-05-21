@@ -13,11 +13,13 @@
 {/if}
 <span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
 	<div class="gridCellDisplay">
-		{**
-		 * Include a hidden element containing the current value.
-	 	 * Used e.g. to match the currently selected value.
-		 *}
-		<input type="hidden" value="{$label|escape}" />
+		{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
+			{**
+			 * Include a hidden element containing the current key.
+		 	 * Used e.g. to match the currently selected value.
+			 *}
+			<input type="hidden" value="{$labelKey|escape}" />
+		{/if}
 
 		{* Display the current value *}
 		{include file="controllers/grid/gridCellContents.tpl"}
@@ -29,7 +31,7 @@
 		{elseif $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
 			<select name="{$column->getId()|escape}" class="selectMenu">
 				{* Populated by JavaScript in ListbuilderHandler.js *}
-				<option value="{$label|escape}">{translate key="common.loading"}</option>
+				<option value="{$labelKey|escape}">{translate key="common.loading"}</option>
 			</select>
 		{else}{* LISTBUILDER_SOURCE_TYPE_BOUND *}
 			{* FIXME Is this type still needed? *}

@@ -546,9 +546,10 @@ class PKPPlugin {
 		$sql = $emailTemplateDao->installEmailTemplates($this->getInstallEmailTemplatesFile(), true, null, true);
 		if ($sql) {
 			$result = $installer->executeSQL($sql);
-		} else {
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
-			$result = false;
+			if (!$result) {
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallEmailTemplatesFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
+				$result = false;
+			}
 		}
 		return false;
 	}

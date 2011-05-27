@@ -13,7 +13,7 @@
 		{strip}
 		<input	type="{if $FBV_isPassword}password{else}text{/if}"
 			{$FBV_textInputParams}
-			class="field multilingual_primary text{if $FBV_sizeInfo} {$FBV_sizeInfo|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
+			class="field multilingual_primary text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			value="{$FBV_value[$formLocale]|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
@@ -46,7 +46,7 @@
 	{* This is not a multilingual control. *}
 	<input	type="{if $FBV_isPassword}password{else}text{/if}"
 		{$FBV_textInputParams}
-		class="field text{if $FBV_sizeInfo} {$FBV_sizeInfo|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
+		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		value="{$FBV_value|escape}"

@@ -505,31 +505,26 @@ class Form {
 
 		// Get size (height)
 		if ($size = $params['size']) {
-			$size = $params['size'];
 			$class .= ' ' . $this->getStyleInfoByIdentifier('size', $size);
 		}
 
 		// Get measure (width)
 		if ($measure = $params['measure']) {
-			$measure = $params['measure'];
 			$class .= ' ' . $this->getStyleInfoByIdentifier('measure', $measure);
 		}
 
 		// Get float information (for sections)
 		if ($float = $params['float']) {
-			$float = $params['float'];
 			$class .= ' ' . $this->getStyleInfoByIdentifier('float', $float);
 		}
 
 		// Get alignment information (for elements)
 		if ($align = $params['align']) {
-			$align = $params['align'];
 			$class .= ' ' . $this->getStyleInfoByIdentifier('align', $align);
 		}
 
 		// Get layout information (number of columns)
 		if ($layout = $params['layout']) {
-			$layout = $params['layout'];
 			$class .= ' ' . $this->getStyleInfoByIdentifier('layout', $layout);
 		}
 
@@ -553,8 +548,8 @@ class Form {
 				break;
 			case 'float':
 				switch($value) {
-					case 'LEFT': $returner = 'full leftHalf'; break;
-					case 'RIGHT': $returner = 'full rightHalf'; break;
+					case 'LEFT': $returner = 'leftHalf'; break;
+					case 'RIGHT': $returner = 'rightHalf'; break;
 				}
 				break;
 			case 'align':
@@ -612,6 +607,7 @@ class Form {
  		if (!$repeat) {
 			$smarty->assign('FBV_id', $params['id']);
 			$smarty->assign('FBV_content', $content);
+			$smarty->assign('FBV_title', $params['title']);
 			return $smarty->fetch('form/formArea.tpl');
 		}
 		return '';
@@ -719,6 +715,7 @@ class Form {
 			}
 		}
 
+		return $content;
 		// Set up the element template
 		$smarty->assign('FBV_content', $content);
 		$smarty->assign('FBV_measureInfo', empty($params['measure']) ? null : $this->getStyleInfoByIdentifier('measure', $params['measure']));
@@ -904,6 +901,7 @@ class Form {
 				case 'class': break; //ignore class attributes
 				case 'label': break;
 				case 'type': break;
+				case 'size': break;
 				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
 				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
@@ -949,6 +947,8 @@ class Form {
 				case 'value': $smarty->assign('FBV_value', $value); break;
 				case 'label': break;
 				case 'type': break;
+				case 'size': break;
+				case 'rich': break;
 				case 'class': break; //ignore class attributes
 				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;

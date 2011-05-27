@@ -8,6 +8,11 @@
  *}
 
 <ul{if $FBV_id} id="{$FBV_id}"{/if}>
+	{if $FBV_title}
+		<li class="section">
+			<h3>{translate key=$FBV_title}</h3>
+		</li>
+	{/if}
 	{$FBV_content}
 </ul>
 <div class="pkp_helpers_clear"></div>

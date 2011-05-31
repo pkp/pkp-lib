@@ -7,4 +7,4 @@
  * form button
  *}
 
-<button class="button {$FBV_class}" type="{$FBV_type|escape}"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{translate key=$FBV_label}</button>
+<button class="{$FBV_class}" type="{$FBV_type|escape}"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{translate key=$FBV_label}</button>

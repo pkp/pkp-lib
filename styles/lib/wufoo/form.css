@@ -166,7 +166,7 @@ form li div label, form li span label{
 	clear:both;
 	font-size:85%;
 	line-height:160%;
-	color:#444;
+	color:#666;
 	display:block;
 }
 label.desc{
@@ -952,3 +952,15 @@ form li.error p.error{
 form li.complex p.error{
 	padding:0 0 9px 0 !important;
 }
+
+.clear_choice label
+{
+    display:block;
+    font-size:100%;
+    line-height:150%;
+    margin:-17px 0 0 23px;
+    padding:0 0 5px 0;
+    color:#222;
+    width:100%;
+}
+

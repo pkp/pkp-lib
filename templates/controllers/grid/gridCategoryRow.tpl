@@ -10,7 +10,7 @@
 <td colspan="{$columns|@count}" class="pkp_linkActions">
 	{if $categoryRow->getActions()}
 		{foreach name=actions from=$categoryRow->getActions() item=action}
-			{include file="linkAction/legacyLinkAction.tpl" action=$action id=$categoryId}
+			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 		{/foreach}
 	{/if}
 	{$categoryRow->getCategoryLabel()}

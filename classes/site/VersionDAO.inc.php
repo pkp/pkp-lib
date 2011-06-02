@@ -145,7 +145,8 @@ class VersionDAO extends DAO {
 					$isNewVersion = false;
 				} elseif ($version->compare($oldVersion) == 1) {
 					// Version to insert is newer than the existing version entry.
-					// We'll update the existing entry below.
+					// We reset existing entry.
+					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
 				} else {
 					// We do not support downgrades.
 					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString().'] to version ['.$version->getVersionString().']. Downgrades are not supported.');

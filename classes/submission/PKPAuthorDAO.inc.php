@@ -47,6 +47,30 @@ class PKPAuthorDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve all authors for a submission.
+	 * @param $submissionId int
+	 * @return array Authors ordered by sequence
+	 */
+	function &getAuthorsBySubmissionId($submissionId) {
+		$authors = array();
+
+		$result =& $this->retrieve(
+			'SELECT * FROM authors WHERE submission_id = ? ORDER BY seq',
+			(int) $submissionId
+		);
+
+		while (!$result->EOF) {
+			$authors[] =& $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+			$result->moveNext();
+		}
+
+		$result->Close();
+		unset($result);
+
+		return $authors;
+	}
+
+	/**
 	 * Retrieve the number of authors assigned to a submission
 	 * @param $submissionId int
 	 * @return int
@@ -198,6 +222,25 @@ class PKPAuthorDAO extends DAO {
 
 		$result->close();
 		unset($result);
+	}
+
+	/**
+	 * Retrieve the primary author for a submission.
+	 * @param $submissionId int
+	 * @return Author
+	 */
+	function &getPrimaryContact($submissionId) {
+		$result =& $this->retrieve(
+			'SELECT * FROM authors WHERE submission_id = ? AND primary_contact = 1',
+			(int) $submissionId
+		);
+
+		$returner = null;
+		if ($result->RecordCount() != 0) {
+			$returner = $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+		}
+		$result->Close();
+		return $returner;
 	}
 
 	/**

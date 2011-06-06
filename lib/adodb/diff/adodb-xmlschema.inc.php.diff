@@ -12,7 +12,7 @@
 > * @version $Revision$
 1285a1286,1288
 > 	* Modified to support specifying a character encoding
-> 	* Modified 2004-06-20 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+> 	* Modified 2004-06-20 by Kevin Jamieson (http://pkp.sfu.ca/)
 > 	*
 1286a1290
 > 	* @param object $charSet character encoding for the data dictionary.

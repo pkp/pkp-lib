@@ -582,7 +582,7 @@ class ADODB_mysql extends ADOConnection {
 	 
 	
 	// Functions for managing the client encoding
-	// Added 2004-06-20 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+	// Added 2004-06-20 by Kevin Jamieson (http://pkp.sfu.ca/)
 	function GetCharSet()
 	{
 		if (function_exists('mysql_client_encoding')) {

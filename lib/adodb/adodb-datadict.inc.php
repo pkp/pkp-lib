@@ -180,7 +180,7 @@ class ADODB_DataDict {
 	var $invalidResizeTypes4 = array('CLOB','BLOB','TEXT','DATE','TIME'); // for changetablesql
 	var $blobSize = 100; 	/// any varchar/char field this size or greater is treated as a blob
 							/// in other words, we use a text area for editting.
-	var $charSet; // Added 2004-06-20 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+	var $charSet; // Added 2004-06-20 by Kevin Jamieson (http://pkp.sfu.ca/)
 	
 	function GetCommentSQL($table,$col)
 	{
@@ -806,7 +806,7 @@ class ADODB_DataDict {
 	
 	// Functions for managing the database character encoding
 	// (for CREATE DATABASE, CREATE TABLE, etc.)
-	// Added 2004-06-20 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+	// Added 2004-06-20 by Kevin Jamieson (http://pkp.sfu.ca/)
 	function GetCharSet()
 	{
 		if (!$this->charSet) {

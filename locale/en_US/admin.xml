@@ -46,6 +46,7 @@
 	<message key="admin.serverInformation">Server Information</message>
 	<message key="admin.server.phpVersion">PHP version</message>
 	<message key="admin.server.platform">OS platform</message>
+	<message key="admin.settings">Settings</message>
 	<message key="admin.settings.aboutDescription">About the Site description</message>
 	<message key="admin.settings.contactEmail">Email of principal contact</message>
 	<message key="admin.settings.contactName">Name of principal contact</message>
@@ -65,7 +66,7 @@
 	<message key="admin.settings.siteTitle">Site title</message>
 	<message key="admin.siteAdmin">Site Administration</message>
 	<message key="admin.siteManagement">Site Management</message>
-	<message key="admin.siteSettings">Site Settings</message>
+	<message key="admin.siteSetup">Site Setup</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist, is not readable, or is invalid.]]></message>
 	<message key="admin.systemInformation">System Information</message>
 	<message key="admin.versionBuild">Build</message>

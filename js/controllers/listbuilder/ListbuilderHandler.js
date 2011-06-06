@@ -234,23 +234,31 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var optionsCount = 0;
 				var selectedIndex = null;
 				$this.children().empty();
+				var $lastElement;
 				for (var j in jsonData.content[i]) {
 					// Create and populate the option node
 					var content = jsonData.content[i][j];
 					var $option = $('<option/>');
 					$option.attr('value', j);
 					$option.text(content);
+
 					if (j == currentIndex) {
 						$option.attr('selected', 'selected');
 					}
-					$this.append($option);
 
+					$this.append($option);
 					optionsCount++;
+					$lastElement = $option;
 				}
 
-				// If less than two options are available for this select menu,
-				// hide the input -- no point showing an unusable drop-down.
-				if (optionsCount <= 1) {
+				// If only one element is available, select it.
+				if (optionsCount == 1) {
+					$lastElement.attr('selected', 'selected');
+				}
+
+				// If no options are available for this select menu,
+				// hide the input to prevent empty dropdown.
+				if (optionsCount == 0) {
 					$container.find('.gridCellDisplay').show();
 					$container.find('.gridCellEdit').hide();
 				}

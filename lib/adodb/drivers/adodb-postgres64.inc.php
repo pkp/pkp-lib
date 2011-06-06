@@ -160,7 +160,7 @@ a different OID if a database must be reloaded. */
 		return empty($table) || empty($column) ? $oid : $this->GetOne("SELECT $column FROM $table WHERE oid=".(int)$oid);
 	}
 
-	// Added 2004-06-27 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+	// Added 2004-06-27 by Kevin Jamieson (http://pkp.sfu.ca/)
 	// Insert_ID function that returns the actual field value instead of the OID
 	function PO_Insert_ID($table="", $id="") {
 		if (!empty($table) && !empty($id)) {
@@ -676,7 +676,7 @@ WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 		   	if ($str)  {
 			 	$host = split(":", $str);
 				if ($host[0]) $str = "host=".adodb_addslashes($host[0]);
-				else $str = 'host='; // Modified 2004-07-23 by Kevin Jamieson (http://www.pkp.ubc.ca/)
+				else $str = 'host='; // Modified 2004-07-23 by Kevin Jamieson (http://pkp.sfu.ca/)
 				// Don't specify a host if none was entered (so will connect using sockets)
 				if (isset($host[1])) $str .= " port=$host[1]";
 				else if (!empty($this->port)) $str .= " port=".$this->port;

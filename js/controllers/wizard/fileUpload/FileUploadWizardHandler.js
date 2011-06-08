@@ -139,6 +139,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 			if ($newFileButton.length !== 1) {
 				throw Error('Did not find "new file" button!');
 			}
+			$newFileButton.button();
 			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 		}
 

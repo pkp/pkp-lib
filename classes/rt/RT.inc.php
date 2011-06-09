@@ -31,6 +31,9 @@ class RT {
 	/** @var $abstract boolean */
 	var $abstract;
 
+	/** @var $viewReviewPolicy boolean */
+	var $viewReviewPolicy;
+
 	/** @var $captureCite boolean */
 	var $captureCite;
 
@@ -93,6 +96,14 @@ class RT {
 
 	function getAbstract() {
 		return $this->abstract;
+	}
+
+	function setViewReviewPolicy($viewReviewPolicy) {
+		$this->viewReviewPolicy = $viewReviewPolicy;
+	}
+
+	function getViewReviewPolicy() {
+		return $this->viewReviewPolicy;
 	}
 
 	function setViewMetadata($viewMetadata) {

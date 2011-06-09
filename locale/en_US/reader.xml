@@ -70,6 +70,7 @@
 	<message key="rt.admin.searches.edit.editSearch">Edit Search</message>
 	<message key="rt.admin.selectedVersion">Related items</message>
 	<message key="rt.admin.settings.abstract">Abstract (presents the item's abstract).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">View Review Policy</message>
 	<message key="rt.admin.settings.authorBio">About the author (displays the bio statements entered by the author).</message>
 	<message key="rt.admin.settings.captureCite">How to cite item (provides bibliographic detail for item).</message>
 	<message key="rt.admin.settings.defineTerms">Look up terms (enables readers to double-click on any word in an item and send the word to a dictionary).</message>

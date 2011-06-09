@@ -7,7 +7,8 @@
  * @class AutocompleteHandler
  * @ingroup js_controllers
  *
- * @brief PKP autocomplete handler (extends the functionality of the jqueryUI autocomplete)
+ * @brief PKP autocomplete handler (extends the functionality of the
+ *  jqueryUI autocomplete)
  */
 (function($) {
 
@@ -19,7 +20,7 @@
 	 *
 	 * @param {jQuery} $autocompleteField the wrapped HTML input element element.
 	 * @param {Object} options options to be passed
-	 *  into the jqueryUI autocomplete plugin
+	 *  into the jqueryUI autocomplete plugin.
 	 */
 	$.pkp.controllers.AutocompleteHandler = function($autocompleteField, options) {
 		this.parent($autocompleteField, options);
@@ -31,19 +32,15 @@
 		this.hiddenInput_ = $autocompleteField.children(':hidden');
 
 		// Create autocomplete settings.
-		var autocompleteOptions = $.extend(
-			{ },
-			// Default settings.
-			this.self('DEFAULT_PROPERTIES_'),
-			// Non-default settings.
-			{
-				source: function(request, response){
-					$.post(options.source, {term:request.term}, function(data){
-						var jsonData = $.parseJSON(data.content);
-						response(jsonData);
-					}, "json");
-				}
-			});
+		var opt = {};
+		opt.source = function(request, response) {
+			$.post(options.source, { term: request.term }, function(data) {
+				var jsonData = $.parseJSON(data.content);
+				response(jsonData);
+			}, 'json');
+		};
+		var autocompleteOptions = $.extend({ },
+				this.self('DEFAULT_PROPERTIES_'), opt);
 
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput_.autocomplete(autocompleteOptions);
@@ -58,15 +55,19 @@
 	//
 	/**
 	 * The text input inside the autocomplete div that holds the label.
-	 * @type {HTML element}
+	 * @private
+	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.AutocompleteHandler.textInput_ = null;
 
+
 	/**
 	 * The hidden input inside the autocomplete div that holds the value.
-	 * @type {HTML element}
+	 * @private
+	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.AutocompleteHandler.hiddenInput_ = null;
+
 
 	/**
 	 * Default options
@@ -79,6 +80,7 @@
 		minLength: 2
 	};
 
+
 	//
 	// Public Methods
 	//
@@ -89,9 +91,11 @@
 	 *  the event.
 	 * @param {Event} event The triggered event.
 	 * @param {Object} ui The tabs ui data.
+	 * @return {boolean} Return value to be passed back
+	 *  to jQuery.
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.itemSelected =
-		function(autocompleteElement, event, ui) {
+			function(autocompleteElement, event, ui) {
 
 		var $hiddenInput = this.hiddenInput_;
 		var $textInput = this.textInput_;

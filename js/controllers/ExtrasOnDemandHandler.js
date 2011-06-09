@@ -28,7 +28,7 @@
 				this.callbackWrapper(this.toggleExtras));
 
 		// Hide extras (default initial widget state).
-		this.deactivateExtraContent_();
+		this.deactivateExtraContent_('slow');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.ExtrasOnDemandHandler, $.pkp.classes.Handler);
@@ -61,7 +61,7 @@
 	/**
 	 * Activate extra content.
 	 * @private
-	 * @param {String} opt_duration The effect duration.
+	 * @param {string} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
@@ -108,7 +108,7 @@
 	/**
 	 * Deactivate extra content.
 	 * @private
-	 * @param {String} opt_duration The effect duration.
+	 * @param {string} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.deactivateExtraContent_ =
 			function(opt_duration) {
@@ -143,8 +143,8 @@
 	 *
 	 * @private
 	 *
-	 * @param {JQuery} $widgetWrapper The element to be made visible.
-	 * @param {JQuery} $scrollable The parent scrollable element.
+	 * @param {jQuery} $widgetWrapper The element to be made visible.
+	 * @param {jQuery} $scrollable The parent scrollable element.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {

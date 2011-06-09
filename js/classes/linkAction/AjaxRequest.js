@@ -56,6 +56,7 @@
 				$.post(options.url,
 						responseHandler,
 						'json');
+				break;
 		}
 		return returnValue;
 	};

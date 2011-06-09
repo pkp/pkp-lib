@@ -59,7 +59,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?number}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.sourceType_ = null;
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			sourceType_ = null;
 
 
 	/**
@@ -67,7 +68,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.saveUrl_ = null;
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			saveUrl_ = null;
 
 
 	/**
@@ -75,7 +77,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.fetchOptionsUrl_ = null;
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			fetchOptionsUrl_ = null;
 
 
 	//
@@ -200,7 +203,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// If this is a select menu listbuilder, load the options
 			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
 				$.get(this.fetchOptionsUrl_, {},
-					this.callbackWrapper(this.fetchOptionsResponseHandler_, null), 'json');
+						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
+							'json');
 			}
 		}
 
@@ -224,7 +228,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Find the currently editable select menu and fill
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			$(this.getHtmlElement()).find('.gridRowEdit:visible .selectMenu:input').each(function(i) {
+			var $listbuilder = this.getHtmlElement();
+			var $selectInput = $listbuilder.find(
+					'.gridRowEdit:visible .selectMenu:input'
+					);
+			$selectInput.each(function(i) {
 				var $this = $(this);
 				var $container = $this.parents('.gridCellContainer');
 				var currentIndex = $container.find('.gridCellDisplay :input').val();
@@ -235,7 +243,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var selectedIndex = null;
 				$this.children().empty();
 				var $lastElement;
-				for (var j in jsonData.content[i]) {
+				var j = null;
+				for (j in jsonData.content[i]) {
 					// Create and populate the option node
 					var content = jsonData.content[i][j];
 					var $option = $('<option/>');
@@ -294,7 +303,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// If this is a select menu listbuilder, load the options
 		if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
 			$.get(this.fetchOptionsUrl_, {},
-				this.callbackWrapper(this.fetchOptionsResponseHandler_, null), 'json');
+					this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
+						'json');
 		}
 
 		return false;
@@ -349,7 +359,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			var $row = $target.parents('.gridRow');
 			var $inputs = $row.find(':input:visible');
 			var i = $inputs.index($target);
-			if ($inputs.length == i+1) {
+			if ($inputs.length == i + 1) {
 				this.saveRow($row);
 				return false; // Prevent default
 			} else {

@@ -158,7 +158,8 @@
 		// Call all event handlers.
 		var args = $.makeArray(arguments), returnValue = true;
 		args.unshift(this);
-		for (var i = 0, l = boundEvents.length; i < l; i++) {
+		var i, l;
+		for (i = 0, l = boundEvents.length; i < l; i++) {
 			// Invoke the event handler in the context
 			// of the handler object.
 			if (boundEvents[i].apply(handler, args) === false) {
@@ -212,11 +213,11 @@
 
 		// Remove all our data items except for the
 		// handler itself.
-		for (var key in this.dataItems_) {
-			if (key === 'pkp.handler') {
-				continue;
+		var key;
+		for (key in this.dataItems_) {
+			if (key !== 'pkp.handler') {
+				$element.removeData(key);
 			}
-			$element.removeData(key);
 		}
 
 		// Trigger the remove event, then delete it.
@@ -302,8 +303,8 @@
 		if (!this.eventBindings_[eventName]) {
 			return false;
 		}
-		for (var i = 0, length = this.eventBindings_[eventName].length;
-				i < length; i++) {
+		var i, length;
+		for (i = 0, length = this.eventBindings_[eventName].length; i < length; i++) {
 			if (this.eventBindings_[eventName][i] === handler) {
 				this.eventBindings_[eventName].splice([i], 1);
 				break;

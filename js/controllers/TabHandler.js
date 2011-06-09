@@ -69,6 +69,7 @@
 	 */
 	$.pkp.controllers.TabHandler.prototype.currentTabIndex_ = 0;
 
+
 	/**
 	 * Whether to empty the previous tab when switching to a new one
 	 * @private
@@ -92,7 +93,7 @@
 	$.pkp.controllers.TabHandler.prototype.tabsSelect =
 			function(tabsElement, event, ui) {
 
-		if(this.emptyLastTab_) {
+		if (this.emptyLastTab_) {
 			this.$currentTab_.empty();
 		}
 		return true;

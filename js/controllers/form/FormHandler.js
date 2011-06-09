@@ -87,7 +87,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * If provided, the caller's submit handler, which will be
 	 * triggered to save the form.
 	 * @private
-	 * @type {Object}
+	 * @type {Function}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
 
@@ -190,6 +190,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 *
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 * @return {Function|boolean} a callback method.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
 			function(validator, formElement) {
@@ -200,7 +201,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// If the default behavior was prevented for any reason, stop.
 		if (formSubmitEvent.isDefaultPrevented()) {
-			return;
+			return false;
 		}
 
 		if (this.callerSubmitHandler_ !== null) {

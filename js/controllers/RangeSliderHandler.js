@@ -20,7 +20,7 @@
 	 *
 	 * @param {jQuery} $rangeSliderField the wrapped HTML input element element.
 	 * @param {Object} options options to be passed
-	 *  into the jqueryUI slider plugin
+	 *  into the jqueryUI slider plugin.
 	 */
 	$.pkp.controllers.RangeSliderHandler = function($rangeSliderField, options) {
 		this.parent($rangeSliderField, options);
@@ -32,22 +32,22 @@
 		}
 
 		// Get the container that will hold the actual slider.
-		this.slider_ = $rangeSliderField.children('.pkp_controllers_rangeSlider_slider');
+		this.slider_ = $rangeSliderField.children(
+				'.pkp_controllers_rangeSlider_slider'
+				);
 
 		// Get the container that will display the numeric values of the slider.
-		this.label_ = $rangeSliderField.find('.pkp_controllers_rangeSlider_sliderValue');
+		this.label_ = $rangeSliderField.find(
+				'.pkp_controllers_rangeSlider_sliderValue'
+				);
 
 		// Create slider settings.
-		var rangeSliderOptions = $.extend(
-			{ },
-			// Default settings.
-			this.self('DEFAULT_PROPERTIES_'),
-			// Non-default settings.
-			{
-				min: options.min,
-				max: options.max,
-				values: [options.min, options.max]
-			});
+		var opt = {};
+		opt.min = options.min;
+		opt.max = options.max;
+		opt.values = [options.min, options.max];
+		var rangeSliderOptions = $.extend({ },
+				this.self('DEFAULT_PROPERTIES_'), opt);
 
 		// Create the slider with the jqueryUI plug-in.
 		this.slider_.slider(rangeSliderOptions);
@@ -62,15 +62,19 @@
 	//
 	/**
 	 * The container that will hold the actual slider.
-	 * @type {HTML element}
+	 * @private
+	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.RangeSliderHandler.slider_ = null;
 
+
 	/**
 	 * The container that will display the numeric values of the slider.
-	 * @type {HTML element}
+	 * @private
+	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.RangeSliderHandler.label_ = null;
+
 
 	/**
 	 * Default options
@@ -82,6 +86,7 @@
 		// General settings
 		range: true
 	};
+
 
 	//
 	// Public Methods
@@ -95,16 +100,20 @@
 	 * @param {Object} ui The tabs ui data.
 	 */
 	$.pkp.controllers.RangeSliderHandler.prototype.sliderAdjusted =
-		function(rangeSliderElement, event, ui) {
+			function(rangeSliderElement, event, ui) {
 
 		// Set the label
 		var $label = this.label_;
 		$label.val(ui.values[0] + ' - ' + ui.values[1]);
 
 		// Set the hidden inputs
-		var $minVal = $(rangeSliderElement).children('.pkp_controllers_rangeSlider_minInput');
+		var $minVal = $(rangeSliderElement).children(
+				'.pkp_controllers_rangeSlider_minInput'
+				);
 		$minVal.val(ui.values[0]);
-		var $maxVal = $(rangeSliderElement).children('.pkp_controllers_rangeSlider_maxInput');
+		var $maxVal = $(rangeSliderElement).children(
+				'.pkp_controllers_rangeSlider_maxInput'
+				);
 		$maxVal.val(ui.values[1]);
 	};
 

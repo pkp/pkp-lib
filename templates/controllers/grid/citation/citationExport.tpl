@@ -61,7 +61,7 @@
 				{rdelim});
 				// -->
 			</script>
-			<form id="exportCitationForm" method="post" action="">
+			<form class="pkp_form" id="exportCitationForm" method="post" action="">
 				<br />
 				<p>
 					<p>{translate key="submission.citations.editor.export.filterSelectionDescription"}</p>

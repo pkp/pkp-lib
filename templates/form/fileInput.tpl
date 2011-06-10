@@ -7,8 +7,8 @@
  * form radio button
  *}
 
-<div class="pkp_form_fileInputContainer">
-	<input type="file" id="{$FBV_id}" name="{$FBV_name}" class="pkp_form_uploadField"{if $FBV_disabled} disabled="disabled"{/if} />
+<div class="pkp_form_file_input_container">
+	<input type="file" id="{$FBV_id}" name="{$FBV_name}" class="pkp_form_upload_field"{if $FBV_disabled} disabled="disabled"{/if} />
 	<div class="pkp_form_fakeFile">
 		<input class="pkp_form_fakeInput" {if $FBV_disabled} disabled="disabled"{/if} />
 		<input type="button" value="{translate key='navigation.browse'}..." class="button pkp_form_fakeButton"{if $FBV_disabled} disabled="disabled"{/if}/>

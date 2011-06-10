@@ -26,7 +26,7 @@
 </script>
 {/literal}
 
-<div class="keywordInputContainer">
+<div class="keywordInputContainer{if $FBV_layoutInfo} {$FBV_layoutInfo}{/if}"><div>
 	<ul id="{$FBV_id|escape}"><li></li></ul>
-	{if $FBV_label}{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label}{/if}{/if}
+	{if $FBV_label}<span>{if $FBV_required}{fieldLabel name=$FBV_id key=$FBV_label class="sub_label" required="true"}{else}{fieldLabel name=$FBV_id key=$FBV_label class="sub_label"}{/if}</span>{/if}
 </div>

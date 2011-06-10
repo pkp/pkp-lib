@@ -21,7 +21,7 @@
 		</script>{/literal}
 		<p>{translate key='manager.setup.filter.noMoreTemplates'}</p>
 	{else}
-		<form id="editFilterForm" method="post" action="{url op="updateFilter"}" >
+		<form class="pkp_form" id="editFilterForm" method="post" action="{url op="updateFilter"}" >
 			<h3>{translate key=$formTitle}</h3>
 
 			<p>{translate key=$formDescription filterDisplayName=$filterDisplayName}</p>
@@ -30,7 +30,7 @@
 
 			{if $filterTemplates}
 				{* Template selection *}
-				{fbvSelect id="filterTemplateSelect"|concat:$uid name="filterTemplateId"
+				{fbvElement type="select" id="filterTemplateSelect"|concat:$uid name="filterTemplateId"
 						from=$filterTemplates translate=false defaultValue="-1" defaultLabel="manager.setup.filter.pleaseSelect"|translate}
 				{literal}<script type='text/javascript'>
 					<!--
@@ -77,13 +77,13 @@
 							{eval|assign:"settingValue" var=$settingValueVar}
 							<td class="value">
 								{if $filterSetting|is_a:SetFilterSetting}
-									{fbvSelect id=$filterSetting->getName() name=$filterSetting->getName()
+									{fbvElement type="select" id=$filterSetting->getName() name=$filterSetting->getName()
 											from=$filterSetting->getLocalizedAcceptedValues() selected=$settingValue translate=false}
 								{elseif $filterSetting|is_a:BooleanFilterSetting}
-									{fbvCheckbox id=$filterSetting->getName() name=$filterSetting->getName()
+									{fbvElement type="checkbox" id=$filterSetting->getName() name=$filterSetting->getName()
 											checked=$settingValue}
 								{else}
-									{fbvTextInput id=$filterSetting->getName() name=$filterSetting->getName()
+									{fbvElement type="text" id=$filterSetting->getName() name=$filterSetting->getName()
 											size=$fbvStyles.size.LARGE maxlength=250 value=$settingValue}
 								{/if}
 							</td>

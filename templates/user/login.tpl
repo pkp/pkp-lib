@@ -34,7 +34,7 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
-	<form id="signinForm" method="post" action="{$loginUrl}">
+	<form class="pkp_form" id="signinForm" method="post" action="{$loginUrl}">
 {/if}
 
 <input type="hidden" name="source" value="{$source|escape}" />

@@ -27,7 +27,7 @@
 <div id="writeConfigFailed">
 {translate key="installer.overwriteConfigFileInstructions"}
 
-<form action="#">
+<form class="pkp_form" action="#">
 <p>
 {translate key="installer.contentsOfConfigFile"}:<br />
 <textarea name="config" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{$configFileContents|escape}</textarea>

@@ -7,6 +7,4 @@
  * form element wrapper
  *}
 
-<span{if $FBV_measureInfo} class="{$FBV_measureInfo}"{/if}>
-	{$FBV_content}
-</span>
+{$FBV_content}

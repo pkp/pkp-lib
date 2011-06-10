@@ -16,7 +16,7 @@
 	{rdelim});
 </script>
 
-<div id="{$FBV_id}_container" class="pkp_controllers_rangeSlider">
+<div id="{$FBV_id}_container" class="pkp_controllers_rangeSlider {if $FBV_layoutInfo}{$FBV_layoutInfo}{/if}">
 	<p class="pkp_controllers_rangeSlider_sliderLabel">
 		{$FBV_label_content}
 		<input type="text" id="{$FBV_id}" value="{$FBV_min} - {$FBV_max}" class="pkp_controllers_rangeSlider_sliderValue{if $FBV_validation} {$FBV_validation}{/if}" />

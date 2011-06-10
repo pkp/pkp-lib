@@ -17,7 +17,7 @@
 <div class="separator"></div>
 
 
-<form method="post" action="{url op="installUpgrade"}">
+<form class="pkp_form" method="post" action="{url op="installUpgrade"}">
 {include file="common/formErrors.tpl"}
 
 {if $isInstallError}

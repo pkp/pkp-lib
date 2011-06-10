@@ -15,7 +15,7 @@
 	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
 {/if}
 
-<form id="reset" action="{url page="login" op="requestResetPassword"}" method="post">
+<form class="pkp_form" id="reset" action="{url page="login" op="requestResetPassword"}" method="post">
 <p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
 
 {if $error}

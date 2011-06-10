@@ -21,7 +21,7 @@
 				{assign var=citationFilterDefault value=true}
 			{/if}
 			<div class="option-block-option">
-				{fbvCheckbox id=$citationFilter->getDisplayName() name=$citationFilterFieldName
+				{fbvElement type="checkbox" id=$citationFilter->getDisplayName() name=$citationFilterFieldName
 						checked=$citationFilterDefault}
 				{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
 			</div>

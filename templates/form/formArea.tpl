@@ -7,12 +7,10 @@
  * form area
  *}
 
-<ul{if $FBV_id} id="{$FBV_id}"{/if}>
+<fieldset {if $FBV_id} id="{$FBV_id}"{/if}{if $FBV_class} class="{$FBV_class|escape}"{/if}>
 	{if $FBV_title}
-		<li class="section">
-			<h3>{translate key=$FBV_title}</h3>
-		</li>
+		<legend>{translate key=$FBV_title}</legend>
 	{/if}
 	{$FBV_content}
-</ul>
+</fieldset>
 <div class="pkp_helpers_clear"></div>

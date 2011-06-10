@@ -17,7 +17,7 @@
 	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.passwordLengthRestriction"}
 {/if}
 
-<form method="post" action="{url page="login" op="savePassword"}">
+<form class="pkp_form" method="post" action="{url page="login" op="savePassword"}">
 
 {include file="common/formErrors.tpl"}
 

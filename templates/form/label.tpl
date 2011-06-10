@@ -8,7 +8,7 @@
  *}
 
 {if $FBV_required}
-	{fieldLabel name=$FBV_id key=$FBV_label required="true"}
+	{fieldLabel name=$FBV_id key=$FBV_label required="true" class='sub_label'}
 {else}
-	{fieldLabel name=$FBV_id key=$FBV_label}
+	{fieldLabel name=$FBV_id key=$FBV_label class='sub_label'}
 {/if}

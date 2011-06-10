@@ -59,7 +59,7 @@
 
 		<div id="helpSearch">
 			<h4>{translate key="help.search"}</h4>
-			<form action="{url op="search"}" method="post" style="display: inline">
+			<form class="pkp_form" action="{url op="search"}" method="post" style="display: inline">
 			{translate key="help.searchFor"}&nbsp;&nbsp;<input type="text" name="keyword" size="30" maxlength="60" value="{$helpSearchKeyword|escape}" class="textField" />
 			<input type="submit" value="{translate key="common.search"}" class="button" />
 			</form>

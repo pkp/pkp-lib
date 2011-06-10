@@ -7,6 +7,7 @@
  * form text input
  *}
 
+<div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual}
 	{* This is a multilingual control. Enable popover display. *}
 	<span class="pkp_controllers_form_localization_container">
@@ -53,5 +54,6 @@
 		id="{$FBV_id|escape}"
 	/>
 
-	{$FBV_label_content}
+	<span>{$FBV_label_content}</span>
 {/if}
+</div>

@@ -144,7 +144,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Refresh the grid after its filter has changed.
-	 * 
+	 *
 	 * @private
 	 *
 	 * @param {$.pkp.controllers.form.ClientFormHandler} filterForm

@@ -261,13 +261,13 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				}
 
 				// If only one element is available, select it.
-				if (optionsCount == 1) {
+				if (optionsCount === 1) {
 					$lastElement.attr('selected', 'selected');
 				}
 
 				// If no options are available for this select menu,
 				// hide the input to prevent empty dropdown.
-				if (optionsCount == 0) {
+				if (optionsCount === 0) {
 					$container.find('.gridCellDisplay').show();
 					$container.find('.gridCellEdit').hide();
 				}

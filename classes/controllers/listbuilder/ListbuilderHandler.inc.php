@@ -16,9 +16,14 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
 
+/* Listbuilder source types: text-based, pulldown, ... */
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define_exposed('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
 define_exposed('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
+
+/* Listbuilder save types */
+define('LISTBUILDER_SAVE_TYPE_EXTERNAL', 0); // Outside the listbuilder handler
+define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
 
 // FIXME: Rather than inheriting from grid handler, common base
 // functionality might better be factored into a common base handler
@@ -34,6 +39,11 @@ class ListbuilderHandler extends GridHandler {
 	/** @var integer Definition of the type of source LISTBUILDER_SOURCE_TYPE_... **/
 	var $_sourceType;
 
+	/** @var integer Constant indicating the save approach for the LB LISTBUILDER_SAVE_TYPE_... **/
+	var $_saveType = LISTBUILDER_SAVE_TYPE_INTERNAL;
+
+	/** @var $saveFieldName Field for LISTBUILDER_SAVE_TYPE_EXTERNAL naming the field used to send the saved contents of the LB */
+	var $_saveFieldName = null;
 
 	/**
 	 * Constructor.
@@ -89,6 +99,39 @@ class ListbuilderHandler extends GridHandler {
 	 */
 	function getSourceType() {
 		return $this->_sourceType;
+	}
+
+	/**
+	 * Set the save type (using this handler or another external one)
+	 * @param $sourceType int LISTBUILDER_SAVE_TYPE_...
+	 */
+	function setSaveType($saveType) {
+		$this->_saveType = $saveType;
+	}
+
+	/**
+	 * Get the save type (using this handler or another external one)
+	 * @return int LISTBUILDER_SAVE_TYPE_...
+	 */
+	function getSaveType() {
+		return $this->_saveType;
+	}
+
+	/**
+	 * Set the save field name for LISTBUILDER_SAVE_TYPE_EXTERNAL
+	 * @param $fieldName string
+	 */
+	function setSaveFieldName($fieldName) {
+		$this->_saveFieldName = $fieldName;
+	}
+
+	/**
+	 * Set the save field name for LISTBUILDER_SAVE_TYPE_EXTERNAL
+	 * @return string
+	 */
+	function getSaveFieldName() {
+		assert(isset($this->_saveFieldName));
+		return $this->_saveFieldName;
 	}
 
 	/**

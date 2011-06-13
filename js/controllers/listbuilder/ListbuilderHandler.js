@@ -35,6 +35,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Save listbuilder options
 		this.sourceType_ = options.sourceType;
 		this.saveUrl_ = options.saveUrl;
+		this.saveFieldName_ = options.saveFieldName;
 		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
 
 		// Attach the button handlers
@@ -64,12 +65,23 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 
 	/**
-	 * The "save" URL of the listbuilder.
+	 * The "save" URL of the listbuilder (for
+	 * LISTBUILDER_SAVE_TYPE_INTERNAL).
 	 * @private
 	 * @type {?string}
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveUrl_ = null;
+
+
+	/**
+	 * The "save" field name of the listbuilder (for
+	 * LISTBUILDER_SAVE_TYPE_EXTERNAL).
+	 * @private
+	 * @type {?string}
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			saveFieldName_ = null;
 
 
 	/**
@@ -85,7 +97,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	// Protected methods
 	//
 	/**
-	 * Get the "save" URL.
+	 * Get the "save" URL for LISTBUILDER_SAVE_TYPE_INTERNAL.
 	 * @private
 	 * @return {?string} URL to the "save listbuilder" handler operation.
 	 */
@@ -93,6 +105,18 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			function() {
 
 		return this.saveUrl_;
+	};
+
+
+	/**
+	 * Get the "save" field name for LISTBUILDER_SAVE_TYPE_EXTERNAL.
+	 * @private
+	 * @return {?string} Name of the field to transmit LB contents in.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getSaveFieldName_ =
+			function() {
+
+		return this.saveFieldName_;
 	};
 
 
@@ -126,9 +150,36 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					changes.push(params);
 				}));
 
-		// Post the changes to the server
-		$.post(this.getSaveUrl_(), {data: JSON.stringify(changes)},
-				this.callbackWrapper(this.saveResponseHandler_, null), 'json');
+		var stringifiedData = JSON.stringify(changes);
+		var saveUrl = this.getSaveUrl_();
+		if (saveUrl) {
+			// Post the changes to the server using the internal
+			// save handler.
+			$.post(saveUrl, {data: stringifiedData},
+					this.callbackWrapper(this.saveResponseHandler_, null), 'json');
+		} else {
+			// Supply the data to an external save handler (e.g.
+			// a form handler) using a hidden field.
+			var saveFieldName = this.getSaveFieldName_();
+
+			// Try to find and reuse an existing element (if
+			// e.g. a previous attempt was aborted)
+			var $e = this.getHtmlElement()
+					.find(':input[type=\'hidden\'')
+					.filter(
+					function() {return $(this).attr('name') == saveFieldName;})
+					.first();
+
+			// If we couldn't find one, create one.
+			if ($e.length === 0) {
+				$e = $('<input type="hidden" />');
+				$e.attr('name', saveFieldName);
+				this.getHtmlElement().append($e);
+			}
+
+			// Set the value of the hidden element.
+			$e.attr('value', stringifiedData);
+		}
 	};
 
 
@@ -452,7 +503,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		this.save();
 
 		// Prevent the submission of LB elements to the parent form
-		this.getHtmlElement().find(':input').attr('disabled', 'disabled');
+		// (except potentially for :input[name='getSaveFieldName()'])
+		this.getHtmlElement().find('.gridRow :input').attr('disabled', 'disabled');
 
 		// Continue the default (form submit) behavior
 		return true;

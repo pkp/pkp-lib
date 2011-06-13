@@ -193,19 +193,27 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
-	 * Save the listbuilder.
+	 * Unpack data to save using an external handler.
+	 * @param $data String
+	 * @return array
+	 */
+	function unpack($data) {
+		import('lib.pkp.classes.core.JSONManager');
+		$jsonManager = new JSONManager();
+		return $jsonManager->decode($data);
+	}
+
+	/**
+	 * Save the listbuilder using the internal handler.
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
 	function save($args, &$request) {
-		import('lib.pkp.classes.core.JSONManager');
-
 		// The ListbuilderHandler will post a list of changed
 		// data in the "data" post var. Need to go through it
 		// and reconcile the data against this list, adding/
 		// updating/deleting as needed.
-		$jsonManager = new JSONManager();
-		$changedData = $jsonManager->decode($request->getUserVar('data'));
+		$changedData = $this->unpack($request->getUserVar('data'));
 
 		// 1. Check that all modified entries actually exist
 		$data =& $this->getGridDataElements(&$request);

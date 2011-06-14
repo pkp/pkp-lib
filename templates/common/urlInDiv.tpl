@@ -10,19 +10,15 @@
 
 <div id="{$inDivDivId}"{if $inDivClass} class="{$inDivClass}"{/if}>{$inDivLoadMessage}</div>
 <script type='text/javascript'>
-	<!--
-	{literal}
-	$(function() {
-		$.getJSON("{/literal}{$inDivUrl|escape:"javascript"}{literal}", function(jsonData) {
-			if (jsonData.status === true) {
-				$("#{/literal}{$inDivDivId}{literal}").hide().html(jsonData.content).fadeIn(400);
-			} else {
+	$(function() {ldelim}
+		$.getJSON("{$inDivUrl|escape:"javascript"}", function(jsonData) {ldelim}
+			if (jsonData.status === true) {ldelim}
+				$("#{$inDivDivId}").hide().html(jsonData.content).fadeIn(400);
+			{rdelim} else {ldelim}
 				// Alert that loading failed
 				alert(jsonData.content);
-			}
-		});
-	});
-	{/literal}
-	// -->
+			{rdelim}
+		{rdelim});
+	{rdelim});
 </script>
 

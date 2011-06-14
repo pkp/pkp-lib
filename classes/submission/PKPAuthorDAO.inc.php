@@ -60,7 +60,8 @@ class PKPAuthorDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$authors[] =& $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+			list($authorId) = $result->fields;
+			$authors[$authorId] =& $this->_returnAuthorFromRow($result->GetRowAssoc(false));
 			$result->moveNext();
 		}
 

@@ -23,6 +23,8 @@ class WebServiceRequest {
 	/** @var string HTTP request method */
 	var $_method;
 
+	var $_accept;
+
 	/**
 	 * Constructor
 	 */
@@ -30,6 +32,7 @@ class WebServiceRequest {
 		$this->_url = $url;
 		$this->_params = $params;
 		$this->_method = $method;
+		$this->_accept = 'text/xml, */*';
 	}
 
 	//
@@ -81,6 +84,22 @@ class WebServiceRequest {
 	 */
 	function setMethod($method) {
 		$this->_method = $method;
+	}
+
+	/**
+	 * Set the accept header value
+	 * @param $accept string
+	 */
+	function setAccept($accept) {
+		$this->_accept = $accept;
+	}
+
+	/**
+	 * Get the accept header value
+	 * @return string
+	 */
+	function getAccept() {
+		return $this->_accept;
 	}
 }
 ?>

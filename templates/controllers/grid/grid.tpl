@@ -36,6 +36,7 @@
 			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
 		{/if}
 		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
+        {translate key=$grid->getInstructions()}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
 				{foreach from=$columns item=column}<col />{/foreach}
@@ -97,4 +98,3 @@
 
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 </div>
-

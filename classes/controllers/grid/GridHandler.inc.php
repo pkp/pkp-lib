@@ -136,6 +136,22 @@ class GridHandler extends PKPHandler {
 		$this->_title = $title;
 	}
 
+    /**
+     * Get the grid instructions.
+     * @return string locale key
+     */
+    function getInstructions() {
+        return $this->_instructions;
+    }
+
+    /**
+     * Set the grid instructions.
+     * @param $instructions string locale key
+     */
+    function setInstructions($instructions) {
+        $this->_instructions = $instructions;
+    }
+
 	/**
 	 * Get all actions for a given position within the grid.
 	 * @param $position string The position of the actions.

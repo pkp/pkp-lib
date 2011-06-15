@@ -25,7 +25,7 @@ if (!function_exists('import')) {
 		// Try to bypass include path for best performance
 		$filePath = str_replace('.', '/', $class) . '.inc.php';
 		if((@include_once BASE_SYS_DIR.'/'.$filePath) === false) {
-			// Oups, we found a legacy include statement,
+			// Oops, we found a legacy include statement,
 			// let's try the include path then.
 			require_once($filePath);
 			if (is_null($deprecationWarning) && class_exists('Config')) {

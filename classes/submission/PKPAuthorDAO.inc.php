@@ -49,9 +49,10 @@ class PKPAuthorDAO extends DAO {
 	/**
 	 * Retrieve all authors for a submission.
 	 * @param $submissionId int
+	 * @param $sortByAuthorId bool Use author Ids as indexes in the array
 	 * @return array Authors ordered by sequence
 	 */
-	function &getAuthorsBySubmissionId($submissionId) {
+	function &getAuthorsBySubmissionId($submissionId, $sortByAuthorId = false) {
 		$authors = array();
 
 		$result =& $this->retrieve(
@@ -60,8 +61,14 @@ class PKPAuthorDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			list($authorId) = $result->fields;
-			$authors[$authorId] =& $this->_returnAuthorFromRow($result->GetRowAssoc(false));
+			$row =& $result->getRowAssoc(false);
+			if ($sortByAuthorId) {
+				$authorId = $row['author_id'];
+				$authors[$authorId] =& $this->_returnAuthorFromRow($row);
+			} else {
+				$authors[] =& $this->_returnAuthorFromRow($row);
+			}
+			unset($row);
 			$result->moveNext();
 		}
 

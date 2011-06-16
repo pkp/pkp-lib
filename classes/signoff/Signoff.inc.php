@@ -184,22 +184,6 @@ class Signoff extends DataObject {
 	}
 
 	/**
-	 * Get the publication stage ID.
-	 * @return string
-	 */
-	function getStageId() {
-		return $this->getData('stageId');
-	}
-
-	/**
-	 * Set the publication stage ID..
-	 * @param $stageId string
-	 */
-	function setStageId($stageId) {
-		return $this->setData('stageId', $stageId);
-	}
-
-	/**
 	 * Get id of user group the user is acting as.
 	 * @return string
 	 */

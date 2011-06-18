@@ -462,12 +462,18 @@ class GridHandler extends PKPHandler {
 				$nullVar = null;
 				return $nullVar;
 			}
-		} else {
-			// No row ID was specified. The client may be asking
+		} elseif ( $isModified ) {
+			// The row is modified. The client may be asking
 			// for a formatted new entry, to be saved later, or
 			// for a representation of a modified row.
-			$elementId = null;
-			$dataElement =& $this->getDataElementFromRequest($request, $elementId);
+			$dataElement = $this->getRowDataElement($request, null);
+            if ( isset($args['rowId']) ) {
+                // the rowId holds the elementId being modified
+                $elementId = $args['rowId'];
+            } else {
+                // no rowId means that there is no element being modified.
+                $elementId = null;
+            }
 		}
 
 		// Instantiate a new row
@@ -679,7 +685,16 @@ class GridHandler extends PKPHandler {
 	 * @return string the cell HTML
 	 */
 	function _renderCellInternally(&$request, &$row, &$column) {
-		// Get the cell content
+        // If there is no object, then we want to return an empty row.
+        // override the assigned GridCellProvider and provide the default.
+        $element =& $row->getData();
+        if ( is_null($element) && $row->getIsModified() ) {
+            import('lib.pkp.classes.controllers.grid.GridCellProvider');
+            $cellProvider =& new GridCellProvider();
+            return $cellProvider->render($request, $row, $column);
+        }
+
+		// Otherwise, Get the cell content
 		$cellProvider =& $column->getCellProvider();
 		return $cellProvider->render($request, $row, $column);
 	}

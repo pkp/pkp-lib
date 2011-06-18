@@ -29,7 +29,7 @@
 		{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 			<input type="text" name="{$column->getId()|escape}" class="textField" value="{$label|escape}" />
 		{elseif $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
-			<select name="{$column->getId()|escape}" class="selectMenu">
+			<select name="newRowId" class="selectMenu">
 				{* Populated by JavaScript in ListbuilderHandler.js *}
 				<option value="{$labelKey|escape}">{translate key="common.loading"}</option>
 			</select>

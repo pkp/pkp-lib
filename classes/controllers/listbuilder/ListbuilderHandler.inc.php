@@ -163,7 +163,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $entry mixed New entry with data to persist
 	 * @return boolean
 	 */
-	function insertEntry($entry, &$request) {
+	function insertEntry($entry) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -174,9 +174,10 @@ class ListbuilderHandler extends GridHandler {
 	 * 	array('column 1 option 1', 'column 2 option 1'),
 	 * 	array('column 1 option 2', 'column 2 option 2'
 	 * );
+     * @param request Request
 	 * @return array
 	 */
-	function getOptions() {
+	function getOptions(&$request) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -227,6 +228,9 @@ class ListbuilderHandler extends GridHandler {
 
 		// 2. Make the changes.
 		foreach ($changedData as $entry) {
+			// Assume blank row means they started to add but selected nothing.
+			if ( !isset($entry->newRowId) ) continue;
+
 			// Update an existing entry
 			if (isset($entry->rowId)) {
 				$rowId = $entry->rowId;
@@ -259,7 +263,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetchOptions($args, &$request) {
-		$options = $this->getOptions();
+		$options = $this->getOptions($request);
 		$json = new JSONMessage(true, $options);
 		return $json->getString();
 	}

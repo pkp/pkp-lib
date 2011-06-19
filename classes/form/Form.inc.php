@@ -764,7 +764,7 @@ class Form {
 		// We then override the id parameter to differentiate it from the hidden element
 		//  and make sure that the text input is not read by the Form class.
 		$params['id'] = $autocompleteId . '_input';
-		$smarty->assign('FBV_textInput', $this->smartyFBVTextInput($params, $smarty));
+		$smarty->assign('FBV_textInput', $this->_smartyFBVTextInput($params, $smarty));
 
 		$smarty->assign('FBV_id', $autocompleteId);
 		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);

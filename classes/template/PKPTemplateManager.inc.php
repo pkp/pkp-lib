@@ -47,6 +47,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var $cacheability string Type of cacheability (Cache-Control). */
 	var $cacheability;
 
+	/** @var $fbv object The form builder vocabulary class. */
+	var $fbv;
+
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
@@ -147,6 +150,16 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
 		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
+
+		// Modified vocabulary for creating forms
+		$fbv =& $this->getFBV();
+		$this->register_block('fbvFormSection', array(&$fbv, 'smartyFBVFormSection'));
+		$this->register_block('fbvFormArea', array(&$fbv, 'smartyFBVFormArea'));
+		$this->register_function('fbvElement', array(&$fbv, 'smartyFBVElement'));
+		$this->assign('fbvStyles', $fbv->getStyles());
+
+		$this->register_function('fieldLabel', array(&$fbv, 'smartyFieldLabel'));
+
 
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
@@ -354,6 +367,18 @@ class PKPTemplateManager extends Smarty {
 			$instance = new TemplateManager($request);
 		}
 		return $instance;
+	}
+
+	/**
+	 * Return an instance of the Form Builder Vocabulary class.
+	 * @return TemplateManager the template manager object
+	 */
+	function &getFBV() {
+		if(!$this->fbv) {
+			import('lib.pkp.classes.form.FormBuilderVocabulary');
+			$this->fbv = new FormBuilderVocabulary();
+		}
+		return $this->fbv;
 	}
 
 	//

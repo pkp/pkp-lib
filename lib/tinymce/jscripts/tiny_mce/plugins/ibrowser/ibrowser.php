@@ -1,6 +1,6 @@
 <?php
 	// ================================================
-	// PHP image browser - iBrowser 
+	// PHP image browser - iBrowser
 	// Heavily modified by Matt Crider for the PKP
 	// ================================================
 	// iBrowser dialog
@@ -22,20 +22,20 @@
 	//-------------------------------------------------------------------------
 	// include configuration settings
 	include dirname(__FILE__) . '/config/config.inc.php';
-	include dirname(__FILE__) . '/langs/lang.class.php';	
+	include dirname(__FILE__) . '/langs/lang.class.php';
 	//-------------------------------------------------------------------------
-	// language settings	
+	// language settings
+
+	$langs = array('cs','da','de','en','es','fr','it','nl','pl','pt_br','sk');
+	if(isset($_REQUEST['lang']) && !in_array($_REQUEST['lang'], $langs)) die('invalid language set');
 	$l = (isset($_REQUEST['lang']) ? new PLUG_Lang($_REQUEST['lang']) : new PLUG_Lang($cfg['lang']));
-	$l->setBlock('ibrowser');	
+	$l->setBlock('ibrowser');
 	//-------------------------------------------------------------------------
-	// if set, include file specified in $cfg['ilibs_incl']; hardcoded libraries will be ignored!	
+	// if set, include file specified in $cfg['ilibs_incl']; hardcoded libraries will be ignored!
 	if (!empty($cfg['ilibs_inc'])) {
 		include $cfg['ilibs_inc'];
-	}	
-	//-------------------------------------------------------------------------		
-	// set current image library	
-	$clib = (isset($_REQUEST['clib']) ? $_REQUEST['clib'] : '');
-	//-------------------------------------------------------------------------	
+	}
+	//-------------------------------------------------------------------------
 	$value_found = false;
 	// callback function for preventing listing of non-library directory
 	function is_array_value($value, $key, $tlib) {
@@ -46,13 +46,10 @@
 		if ($value == $tlib) {
 			$value_found = true;
 		}
-	}	
-	//-------------------------------------------------------------------------	
+	}
+	//-------------------------------------------------------------------------
 	if(isset($user)) {
-		array_walk($cfg['ilibs'], 'is_array_value', $clib);	
-		if (!$value_found || empty($clib)) {
-			$clib = $cfg['ilibs'][0]['value'];
-		}		
+		$clib = $cfg['ilibs'][0]['value'];
 	}
 	//-------------------------------------------------------------------------
 	// create library dropdown
@@ -80,7 +77,7 @@
 	function iBrowser() {
 		// browser check
 		this.isMSIE  = (navigator.appName == 'Microsoft Internet Explorer');
-		this.isGecko = navigator.userAgent.indexOf('Gecko') != -1;	
+		this.isGecko = navigator.userAgent.indexOf('Gecko') != -1;
 		this.isWebKit = navigator.userAgent.indexOf('Safari') != -1;
 	};
 	var iBrowser = new iBrowser();
@@ -88,9 +85,9 @@
 // ============================================================
 // = iBrowser init V 1.0, date: 12/03/2004                    =
 // ============================================================
-	function init() {			
-		resizeDialogToContent();		
-		window.focus();		
+	function init() {
+		resizeDialogToContent();
+		window.focus();
 	}
 
 // ============================================================
@@ -101,7 +98,7 @@
 		switch(elm) {
 			case 'imDiv':
 				retstr = '<?php echo $l->m('im_004'); ?>';
-				break;		
+				break;
 			case 'inDiv':
 				retstr = '<?php echo $l->m('im_008'); ?>';
 				break;
@@ -112,55 +109,55 @@
 				retstr = '<?php echo $l->m('im_014'); ?>';
 				break;
 			default:
-				retstr = '<?php echo $l->m('im_016'); ?>'; 		
+				retstr = '<?php echo $l->m('im_016'); ?>';
 		}
-		return retstr;	
+		return retstr;
 	}
 // ============================================================
 // = set image properties V 1.0, date: 04/25/2005             =
-// ============================================================		
+// ============================================================
 	function setImageArgs() {
-		var formObj = document.forms[0];		
-		var args = window.dialogArguments;					
-		
+		var formObj = document.forms[0];
+		var args = window.dialogArguments;
+
 		if (args.tsrc) { 											// dynamic thumbnail
 			formObj.pr_src.value = args.tsrc;
-			changeClass(0,'alertImg','showit');						// show warning		
+			changeClass(0,'alertImg','showit');						// show warning
 		}
 		if (args.rset) {
 			formObj.pr_src.value = args.rsrc;
 		}
-		
-		formObj.pr_width.value 	= args.width  ? args.width  : '';	// WIDTH value		
+
+		formObj.pr_width.value 	= args.width  ? args.width  : '';	// WIDTH value
 		formObj.pr_height.value	= args.height ? args.height : '';	// HEIGHT value
-		formObj.pr_alt.value 	= args.alt;							// ALT text		
+		formObj.pr_alt.value 	= args.alt;							// ALT text
 		formObj.pr_title.value 	= args.title;						// DESCR text
-		formObj.pr_border.value = args.border ? args.border : '';	// BORDER value	
-		formObj.pr_vspace.value = args.vspace ? args.vspace : '';	// VSPACE value				
+		formObj.pr_border.value = args.border ? args.border : '';	// BORDER value
+		formObj.pr_vspace.value = args.vspace ? args.vspace : '';	// VSPACE value
 		formObj.pr_hspace.value = args.hspace ? args.hspace : '';	// HSPACE value
-		
+
 		if (args.caption == 1) { // if image caption
 			formObj.pr_chkCaption.checked = true;
 			for (var i = 0; i < formObj.pr_captionClass.options.length; i++) {	// CLASS value
 				if (formObj.pr_captionClass.options[i].value == args.captionClass) {
-					formObj.pr_captionClass.options.selectedIndex = i;				
+					formObj.pr_captionClass.options.selectedIndex = i;
 				}
 			}
 		}
-		
-		for (var i = 0; i < formObj.pr_align.options.length; i++) {	// ALIGN value 
+
+		for (var i = 0; i < formObj.pr_align.options.length; i++) {	// ALIGN value
 			if (formObj.pr_align.options[i].value == args.align) {
-				formObj.pr_align.options.selectedIndex = i;				
-			}
-		}
-		
-		for (var i = 0; i < formObj.pr_class.options.length; i++) {	// CLASS value
-			if (formObj.pr_class.options[i].value == args.className) {
-				formObj.pr_class.options.selectedIndex = i;				
+				formObj.pr_align.options.selectedIndex = i;
 			}
 		}
 
-		formObj.param.value = ''; // resetting param value		
+		for (var i = 0; i < formObj.pr_class.options.length; i++) {	// CLASS value
+			if (formObj.pr_class.options[i].value == args.className) {
+				formObj.pr_class.options.selectedIndex = i;
+			}
+		}
+
+		formObj.param.value = ''; // resetting param value
 	}
 // ============================================================
 // = insertImage, date: 08/03/2005                            =
@@ -168,27 +165,24 @@
 	function insertImage() {
 		var formObj = document.forms[0];
 		var args = {};
-		// check if valid image is selected		
-		if (!args.action) { // if not popup	mode, check whether there is a valid image selected		
-			if (formObj.pr_src.value == '') { // no valid picture has been selected				
+		// check if valid image is selected
+		if (!args.action) { // if not popup	mode, check whether there is a valid image selected
+			if (formObj.pr_src.value == '') { // no valid picture has been selected
 				var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_002'); ?>');
 				alert(msg);
 				return;
 			}
-			
-			args.src = (formObj.pr_src.value) ? (formObj.pr_src.value) : '';									
-			if ('<?php echo $cfg['furl']; ?>' == true) { // create full url incl. e.g. http://localhost....
-				args.src = '<?php echo $cfg['base_url']; ?>' + args.src;				
-			}
-						
+
+			args.src = (formObj.pr_src.value) ? (formObj.pr_src.value) : '';
+
 			args.width  = (formObj.pr_width.value)  ? (formObj.pr_width.value)  : '';
-			args.height = (formObj.pr_height.value) ? (formObj.pr_height.value) : '';				
+			args.height = (formObj.pr_height.value) ? (formObj.pr_height.value) : '';
 			args.align 	= (formObj.pr_align.value)  ? (formObj.pr_align.value)  : '';
-			args.border = (formObj.pr_border.value) ? (formObj.pr_border.value) : '';				
+			args.border = (formObj.pr_border.value) ? (formObj.pr_border.value) : '';
 			args.alt 	= (formObj.pr_alt.value)    ? (formObj.pr_alt.value)    : '';
 			args.title 	= (formObj.pr_title.value)  ? (formObj.pr_title.value)  : '';
 			args.hspace = (formObj.pr_hspace.value) ? (formObj.pr_hspace.value) : '';
-			args.vspace = (formObj.pr_vspace.value) ? (formObj.pr_vspace.value) : ''; 
+			args.vspace = (formObj.pr_vspace.value) ? (formObj.pr_vspace.value) : '';
 			if (formObj.pr_class.selectedIndex > 0) { // if class style is selected
 				args.className = (formObj.pr_class.options[formObj.pr_class.selectedIndex].value) ? (formObj.pr_class.options[formObj.pr_class.selectedIndex].value) : '';
 			}
@@ -196,30 +190,30 @@
 			args.caption = formObj.pr_chkCaption.checked ? formObj.pr_chkCaption.value : '';
 			args.captionClass = (formObj.pr_captionClass.options[formObj.pr_captionClass.selectedIndex].value) ? (formObj.pr_captionClass.options[formObj.pr_captionClass.selectedIndex].value) : '';
 		} else { // check whether there is valid popup image
-			if (formObj.popSrc.value == '') { // no valid picture has been selected				
+			if (formObj.popSrc.value == '') { // no valid picture has been selected
 				var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_002'); ?>');
 				alert(msg);
 				return;
 			}
-		}		
-			
-		
-		
-		//-------------------------------------------------------------------------	
-		// save image to wysiwyg editor and close window		
+		}
+
+
+
+		//-------------------------------------------------------------------------
+		// save image to wysiwyg editor and close window
 		window.returnValue = args;
-		window.close();				
-		
-		if (!iBrowser.isMSIE) { // Gecko	
-			<?php					
-				if (!empty($_REQUEST['callback'])) {          				
+		window.close();
+
+		if (!iBrowser.isMSIE) { // Gecko
+			<?php
+				if (!empty($_REQUEST['callback'])) {
 					echo "opener." . @$_REQUEST['callback'] . "('" . @$_REQUEST['editor'] . "',this);\n";
 				};
-			?>	
-		}	
-		
-	
-	
+			?>
+		}
+
+
+
 	}
 	//Used to build and insert the img url when users are not logged in
 	function saveContent() {
@@ -228,66 +222,63 @@
 			args.src = URL;
 
 			window.returnValue = args;
-			window.close();				
-		
-			if (!iBrowser.isMSIE) { // Gecko	
-				<?php					
-					if (!empty($_REQUEST['callback'])) {          				
+			window.close();
+
+			if (!iBrowser.isMSIE) { // Gecko
+				<?php
+					if (!empty($_REQUEST['callback'])) {
 						echo "opener." . @$_REQUEST['callback'] . "('" . @$_REQUEST['editor'] . "',this);\n";
 					};
-				?>	
+				?>
 			}
 		}
 // ============================================================
 // = image change - set attributes V 1.0, date: 12/03/2004    =
 // ============================================================
-	function imageChange() {		
+	function imageChange() {
 		var formObj = document.forms[0];
-		var args 	= imageChange.arguments;  												// image change arguments - set by rfiles.php						
-		var clib    = "<?php echo $cfg['ilibs'][0]['value'] ?>";	// current library - absolute path		
+		var args 	= imageChange.arguments;  												// image change arguments - set by rfiles.php
+		var clib    = "<?php echo $cfg['ilibs'][0]['value'] ?>";	// current library - absolute path
 		var cfile   = document.getElementById('cimg').attributes['cfile'].value;			// get current image
-		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width	
-		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height		
+		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width
+		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height
 		var csize   = document.getElementById('cimg').attributes['csize'].value.split('|');	// get current size (array)
-		var ctype   = document.getElementById('cimg').attributes['ctype'].value.split('|');	// get current type (array)	
-			
+		var ctype   = document.getElementById('cimg').attributes['ctype'].value.split('|');	// get current type (array)
+
 		//-------------------------------------------------------------------------
 		// set default image attributes
-		formObj.pr_src.value    = clib + cfile;		
+		formObj.pr_src.value    = cfile;
 		formObj.pr_width.value  = cwidth;
-		formObj.pr_height.value = cheight;		
-		formObj.pr_size.value   = csize[0];		
+		formObj.pr_height.value = cheight;
+		formObj.pr_size.value   = csize[0];
 		formObj.pr_align.options.selectedIndex = 0;
 		formObj.pr_class.options.selectedIndex = 0;
-		document.getElementById('pr_sizeUnit').innerHTML = csize[1]; // e.g. kb		
+		document.getElementById('pr_sizeUnit').innerHTML = csize[1]; // e.g. kb
 		formObj.pr_alt.value 	= cfile.substr(0, cfile.length-4);
-		formObj.pr_title.value 	= cfile.substr(0, cfile.length-4);		
+		formObj.pr_title.value 	= cfile.substr(0, cfile.length-4);
 		changeClass(0,'alertImg','hideit');
 		//-------------------------------------------------------------------------
-		// update preview window	
-		var sizes = resizePreview(cwidth, cheight, 150, 150);		
-		var src = '<?php echo $cfg['scripts']; ?>' + 'phpThumb/phpThumb.php'; // command
-		src = src + '?src=' + clib + cfile; // source file
-		src = src + '&w=' + sizes['w']; // width		
+		// update preview window
+		var src = cfile;
 		document.getElementById('inPrevFrame').src = src; // update regular preview
-		
+
 		//-------------------------------------------------------------------------
 		// reset rename and delete info
 		if ('<?php echo $cfg['rename']; ?>' == true) {
-			formObj.in_srcnew.value  = cfile.substr(0, cfile.length-4); // default rename value			
+			formObj.in_srcnew.value  = cfile.substr(0, cfile.length-4); // default rename value
 		}
 		if ('<?php echo $cfg['delete']; ?>' == true) {
 			formObj.in_delinfo.value = cfile; 							// default delete value
 		}
-		
+
 		//-------------------------------------------------------------------------
-		// change image attributes in case it's an existing image		
-		if (args[0] == 'update') { 	// if argument from rfiles.php received				
+		// change image attributes in case it's an existing image
+		if (args[0] == 'update') { 	// if argument from rfiles.php received
 			setImageArgs(); 		// update image attributes
 		} else if (args[0] == 'delete') { // image was deleted
-			document.getElementById('cimg').attributes['cfile'].value = '';			
+			document.getElementById('cimg').attributes['cfile'].value = '';
 			document.getElementById('in_srcnew').value  = '';
-			document.getElementById('in_delinfo').value = '';			
+			document.getElementById('in_delinfo').value = '';
 			document.getElementById('inPrevFrame').src = 'images/noImg.gif'; // update preview
 		}
 
@@ -296,19 +287,19 @@
 
 // ============================================================
 // = resize image to fit preview V 1.0, date: 12/19/2004      =
-// ============================================================	
-	function resizePreview(w,h,mw,mh) { // width, height, max width, max height				
-		var sizes = new Array();		
+// ============================================================
+	function resizePreview(w,h,mw,mh) { // width, height, max width, max height
+		var sizes = new Array();
 		if (w > mw || h > mh) { // thumbnailing required
-			f = w / h; // proportions of image: (f > 1) = landscape; (f < 1) = portrait; (f = 1) = square			
+			f = w / h; // proportions of image: (f > 1) = landscape; (f < 1) = portrait; (f = 1) = square
 			if (f > 1) { // landscape and square
 				w = mw;
-				h = Math.round(w / f);			
+				h = Math.round(w / f);
 			} else if (f <= 1) {	// portrait
-				h = mh;				
-				w = Math.round(h * f);			
-			}	
-		}				
+				h = mh;
+				w = Math.round(h * f);
+			}
+		}
 		sizes['w'] = w;
 		sizes['h'] = h;
 		return sizes;
@@ -316,7 +307,7 @@
 
 // ============================================================
 // = preload Images, date: 11/13/2004                         =
-// ============================================================		
+// ============================================================
 	function preloadImages() {
   		var d=document;
 		if(d.images) {
@@ -335,49 +326,49 @@
 // = upload image, date: 05/24/2005                           =
 // ============================================================
 	function uploadClick() {
-		var formObj = document.forms[0];		
+		var formObj = document.forms[0];
 		if (!checkUpload()) {
 			var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_023'); ?>');
 			alert(msg);
 			return;
 		}
-		
+
 		<?php if ($cfg['captcha'] ){ ?>
 		if(!checkCaptcha()) {
 			alert("Captcha validation failed");
 			return;
 		}
 		<?php } ?>
-		
-		if (confirm('<?php echo $l->m('er_021'); ?>')) {			
-			formObj.param.value = 'upload'; // parameter: <action>			
-			formObj.submit();						
+
+		if (confirm('<?php echo $l->m('er_021'); ?>')) {
+			formObj.param.value = 'upload'; // parameter: <action>
+			formObj.submit();
 		}
 	}
 	// check whether image file is selected for uploading
-	function checkUpload() {		
-		var formObj = document.forms[0];	
+	function checkUpload() {
+		var formObj = document.forms[0];
 		var upload = false;
 		var x = document.getElementById('fiUplDiv').getElementsByTagName('input');
 		for (var i = 0; i < x.length; i++) {
 			if (x[i].type == 'file') {
-				if (x[i].value != '') { // check whether files has been selected for upload					
-					
-					for (z=0; document.getElementById('chkThumbSize['+ z +']'); z++) {						
+				if (x[i].value != '') { // check whether files has been selected for upload
+
+					for (z=0; document.getElementById('chkThumbSize['+ z +']'); z++) {
 						if(document.getElementById('chkThumbSize['+ z +']').checked) {
-							upload = true;							
-						}						
+							upload = true;
+						}
 					}
 				}
-			}			
+			}
 		}
-		return upload;	
+		return upload;
 	}
-	
+
 	function checkCaptcha() {
 		var x = document.getElementById('captcha');
 		var y = document.getElementById('cVal');
-		if (x.value != y.value) { 
+		if (x.value != y.value) {
 			return false;
 		}
 		else return true;
@@ -387,134 +378,134 @@
 // = delete image V 1.0, date: 04/22/2005                     =
 // ============================================================
 	function deleteClick() {
-		var formObj = document.forms[0];		
+		var formObj = document.forms[0];
 		var cfile = document.getElementById('cimg').attributes['cfile'].value;
-		if (cfile == '') { // check if image is selected	
+		if (cfile == '') { // check if image is selected
 			var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_002'); ?>');
 			alert(msg);
 			return;
 		}
-				
-		if (confirm('<?php echo $l->m('er_008'); ?> ' + cfile + '!')) {				
-			formObj.param.value = 'delete' + '|' + cfile; // parameter: <action>|<file>				
-			formObj.submit();	
-		}	  	
-	} 
+
+		if (confirm('<?php echo $l->m('er_008'); ?> ' + cfile + '!')) {
+			formObj.param.value = 'delete' + '|' + cfile; // parameter: <action>|<file>
+			formObj.submit();
+		}
+	}
 // ============================================================
 // = rename image V 1.0, date: 04/22/2005                     =
 // ============================================================
 	function renameClick() {
 		var formObj = document.forms[0];
 		var clib =  "<?php echo $cfg['ilibs'][0]['value'] ?>"; // current library
-		var cfile = document.getElementById('cimg').attributes['cfile'].value;		
-		var ctype = document.getElementById('cimg').attributes['ctype'].value.split('|');		
-				
+		var cfile = document.getElementById('cimg').attributes['cfile'].value;
+		var ctype = document.getElementById('cimg').attributes['ctype'].value.split('|');
+
 		if (cfile == '') { // check if image is selected
 			var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_002'); ?>');
 			alert(msg);
 			return;
-		}		
-		
-		var ctype = '.' + imageType(ctype[0]);		
+		}
+
+		var ctype = '.' + imageType(ctype[0]);
 		if (formObj.in_srcnew.value == '' || formObj.in_srcnew.value + ctype == cfile) { // new name is either empty or hasn't changed
 			var msg = escapeHTML('<?php echo $l->m('er_011'); ?>');
 			alert(msg);
 			return;
 		}
-				
-		if (confirm('<?php echo $l->m('er_010'); ?>: ' + formObj.in_srcnew.value + ctype)) { // do rename					
-			var nfile = formObj.in_srcnew.value + ctype;				 
-			formObj.param.value = 'rename' + '|' + cfile + '|' + nfile; // parameter: <action>|<filename>|<newname>		
-			formObj.submit();				
-		}		  	
+
+		if (confirm('<?php echo $l->m('er_010'); ?>: ' + formObj.in_srcnew.value + ctype)) { // do rename
+			var nfile = formObj.in_srcnew.value + ctype;
+			formObj.param.value = 'rename' + '|' + cfile + '|' + nfile; // parameter: <action>|<filename>|<newname>
+			formObj.submit();
+		}
 	}
 // ============================================================
 // = change class, date: 12/01/2004                           =
 // ============================================================
-	function changeClass() { 		
-		var args = changeClass.arguments; 		
+	function changeClass() {
+		var args = changeClass.arguments;
 		if (args[0] == 0 || args[0] == 1) { // 0 = no resizeDialogToContent; 1 = resizeDialogToContent
 			var start = 1;
 		} else {
 			var start = 0;
 		}
-		
+
 		for(var i = start; i < args.length; i += 2) {
-			if(document.getElementById(args[i]) != null) {				
+			if(document.getElementById(args[i]) != null) {
 				document.getElementById(args[i]).className = args[i+1];
 			}
 		}
 		// resize dialog to content
-		if (args[0] == 1) {					
+		if (args[0] == 1) {
 			resizeDialogToContent();
-		}		
-	}	
+		}
+	}
 // ============================================================
 // = image dimension change, date: 05/08/2005                 =
-// ============================================================		
-	function changeDim(sel) {		
+// ============================================================
+	function changeDim(sel) {
 		var formObj = document.forms[0];
-		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width	
-		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height	
-		
-		if (eval(formObj.pr_width.value) > cwidth || eval(formObj.pr_height.value) > cheight) { 		// check for enlarging			
+		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width
+		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height
+
+		if (eval(formObj.pr_width.value) > cwidth || eval(formObj.pr_height.value) > cheight) { 		// check for enlarging
 			var msg = escapeHTML('<?php echo $l->m('er_001') . ': ' . $l->m('er_035'); ?>');
 			alert(msg);
 			resetDim();
 			return;
-		}		
-		
-		f = cheight/cwidth; // factor		
-		if (sel == 1) { 																	// height changed				
+		}
+
+		f = cheight/cwidth; // factor
+		if (sel == 1) { 																	// height changed
 			formObj.pr_width.value  = Math.round(formObj.pr_height.value / f);
-		} else if (sel == 0) { 																// width changed			
-			formObj.pr_height.value = Math.round(formObj.pr_width.value * f);			
-		}		
+		} else if (sel == 0) { 																// width changed
+			formObj.pr_height.value = Math.round(formObj.pr_width.value * f);
+		}
 	}
-	
+
 	function resetDim() { // reset dimensions
  		var formObj = document.forms[0];
-		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width	
-		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height	
+		var cwidth  = document.getElementById('cimg').attributes['cwidth'].value;			// get current width
+		var cheight = document.getElementById('cimg').attributes['cheight'].value;			// get current height
 		formObj.pr_width.value  = cwidth;
 		formObj.pr_height.value = cheight;
-	}			
+	}
 // ============================================================
 // = show about, date: 06/04/2005                             =
-// ============================================================	
-	function about() {		
-		var formObj = document.forms[0];		
+// ============================================================
+	function about() {
+		var formObj = document.forms[0];
 		if (document.getElementById('imDiv').className == 'hideit') {
 			var x = document.getElementById('menuBarDiv').getElementsByTagName('li');
 			for (var i = 0; i < x.length; i++) {
-				if (x[i].className == 'btnDown') {				
+				if (x[i].className == 'btnDown') {
 					formObj.param.value = (x[i].id);
-					elm = x[i].id.substring(x[i].id.length-2, x[i].id.length);			
+					elm = x[i].id.substring(x[i].id.length-2, x[i].id.length);
 					if (elm == 'po') { // popup windows - uses inDiv
 						elm = 'in'
 					}
 					elm = elm + 'Div';
-					document.getElementById('mainDivHeader').innerHTML = setTitle('imDiv'); 		
-					changeClass(1,elm,'hideit','imDiv','showit');											
+					document.getElementById('mainDivHeader').innerHTML = setTitle('imDiv');
+					changeClass(1,elm,'hideit','imDiv','showit');
 				}
 			}
 		} else if (document.getElementById('imDiv').className == 'showit' && formObj.param.value != '') {
-			elm = formObj.param.value;			
-			btn_click(elm);			
+			elm = formObj.param.value;
+			btn_click(elm);
 		}
 	}
 // ============================================================
 // = image file type extension V 1.0, date: 11/27/2004        =
-// ============================================================	
-	function imageType(type) {		
-		var ext;		
+// ============================================================
+	function imageType(type) {
+		var ext;
 		switch(parseInt(type)) {
 			case 1 : ext = 'gif'; break;
    			case 2 : ext = 'jpg'; break;
 			case 3 : ext = 'png'; break;
 			case 6 : ext = 'bmp'; break;
-   			default: ext = 'unknown';		
-		}		
+   			default: ext = 'unknown';
+		}
 		return ext;
 	}
 
@@ -523,16 +514,16 @@
 // ============================================================
 	function absPath(path) {
 		if (path.charAt(0) != '/') {
-			path = '/' + path;			
+			path = '/' + path;
 		}
 		return path;
 	}
 // ============================================================
 // = escapeHTML, date: 08/12/2005                             =
 // ============================================================
-	function escapeHTML(str) {		
+	function escapeHTML(str) {
 		var divElm = document.createElement('div');
-		divElm.innerHTML = str; 
+		divElm.innerHTML = str;
 		str = divElm.innerHTML;
 		return str;
   	}
@@ -583,10 +574,10 @@
     </div>
     <div class="brdPad">
 
-      
+
       <!- MAIN CONTENT ------------------------------------------------------ -->
       <div id="mainDivWrap">
-        
+
         <div class="brdPad">
           <div id="mainDiv">
             <!- INSERT/CHANGE ----------------------------------------------------- -->
@@ -635,7 +626,7 @@
                 </div>
               </div>
               <!- // colRight -->
-           
+
               <!- file section ----------------------------------------------------- -->
               <div id="fileDivWrap" class="showit">
                 <div class="rowDiv">
@@ -661,7 +652,7 @@
                   <?php if ($cfg['delete']) { ?>
                   <div id="fiDelDiv" class="hideit">
                     <div class="rowDiv">
-                      
+
                       <label for="in_srcnew"> <span class="pad10"> <?php echo $l->m('in_024'); ?> </span> </label>
                       <input class="fldlg readonly" id="in_delinfo" name="in_delinfo" type="text" value="" disabled="true" readonly="true" />
                     </div>
@@ -691,8 +682,8 @@
                   <?php if ($cfg['upload']) {; ?>
                   <div id="fiUplDiv" class="showit">
                     <div class="rowDiv">
-                      <?php 
-							$max = isset($cfg['umax']) && $cfg['umax'] >= 1 ? $cfg['umax'] : 1;					
+                      <?php
+							$max = isset($cfg['umax']) && $cfg['umax'] >= 1 ? $cfg['umax'] : 1;
 							for($i=1; $i <= $max; $i++) {; ?>
                       <label for="nfile"> <span class="pad20"> <?php echo $l->m('in_018'); if ($max > 1){ echo ' (' . $i . ')';} ?> </span> </label>
                       <input name="nfile[]" type="file" class="fldlg" id="nfile[]" size="40" accept="image/*" />
@@ -704,14 +695,14 @@
                         <?php echo thumbSizes($cfg['thumbs']); ?>
                       </div>
                     </div>
-                  
-					<?php  
+
+					<?php
 						if ($cfg['captcha'] ){
 							import('captcha.CaptchaManager');
 							$captchaManager = new CaptchaManager();
-							if ($captchaManager->isEnabled()) { 
+							if ($captchaManager->isEnabled()) {
 								$captcha = $captchaManager->createCaptcha();
-								
+
 							?>
 							<div class="rowDiv">
 							<label for="captchaPic"> <span class="pad20"> Captcha </span> </label>
@@ -887,7 +878,7 @@
 // ============================================================
 	function liboptions($arr, $prefix = '', $sel = '') {
   		$retval = '';
-  		foreach($arr as $lib) {			
+  		foreach($arr as $lib) {
     		$retval .= '<option value="' . absPath($lib['value']) . '"' . (($lib['value'] == $sel) ? ' selected="selected"' : '') . '>' . $prefix . $lib['text'] . '</option>' . "\n";
   		}
   		return $retval;
@@ -898,7 +889,7 @@
 	function thumbSizes($arr, $sel = '') {
   		global $l;
 		$retval = '';
-  		foreach($arr as $key => $thumb) {			
+  		foreach($arr as $key => $thumb) {
 			$retval .= '<div>' . '<input id="chkThumbSize[' . $key . ']" name="chkThumbSize[' . $key . ']" class="chkBox" type="checkbox" value="' . $key . '"' . (($key == 0) ? ' checked="checked"' : '') . ' />' . '<span class="frmText">' . (($thumb['size'] == '*') ? $l->m('in_022') . '&nbsp;'  : $thumb['size'] . ' px' ) . '</span>' . (($thumb['crop'] == true) ? '<img src="images/thbCrop.gif" align="absmiddle" width="10px" height="10px" alt="' . $l->m('in_023') . '" title="' . $l->m('in_023') . '" />' : '') . '</div>' . "\n";
 		}
   		return $retval;
@@ -906,7 +897,7 @@
 // ============================================================
 // = abs path - add slashes V 1.0, date: 05/10/2005           =
 // ============================================================
-	function absPath($path) {		
+	function absPath($path) {
 		if (substr($path,-1)  != '/') $path .= '/';
 		if (substr($path,0,1) != '/') $path  = '/' . $path;
 		return $path;

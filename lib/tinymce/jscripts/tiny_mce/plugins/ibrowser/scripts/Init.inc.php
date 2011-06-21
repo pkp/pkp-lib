@@ -17,8 +17,8 @@ require($baseDir . '/lib/pkp/includes/bootstrap.inc.php');
 // to the application context (required by Locale).
 $application =& PKPApplication::getApplication();
 $request =& $application->getRequest();
-import('core.PKPRouter');
-$router = new PKPRouter();
+import('core.PageRouter');
+$router = new PageRouter();
 $router->setApplication($application);
 $request->setRouter($router);
 Locale::initialize();
@@ -38,18 +38,7 @@ if (isset($user)) {
 	$init['baseUrl'] = Config::getVar('general', 'base_url');
 	$init['baseDir'] =  $baseDir;
 
-	$application = PKPApplication::getApplication();
-	$contextDepth = $application->getContextDepth();
-
-	$params = array();
-	for ($i = 0; $i < $contextDepth; $i++) {
-		array_push($params, 'index');
-	}
-	array_push($params, 'user');
-	array_push($params, 'viewCaptcha');
-
-	$url = call_user_func_array(array('Request', 'url'), $params);
-
+	$url = $router->url($request, null, 'user', 'viewCaptcha');
 	$init['captchaPath'] = str_replace('/lib/pkp/lib/tinymce/jscripts/tiny_mce/plugins/ibrowser', '', $url);
 } else {
 	// User is not logged in; they may only enter a URL for image upload

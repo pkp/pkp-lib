@@ -323,11 +323,8 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'type': $smarty->assign('FBV_type', $value); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
-				default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}
-
-		$smarty->assign('FBV_buttonParams', $buttonParams);
 
 		return $smarty->fetch('form/link.tpl');
 	}
@@ -591,7 +588,6 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['submit'] = isset($params['submit']) ? $params['submit'] : false;
 
-		$radioParams = '';
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
@@ -601,11 +597,10 @@ class FormBuilderVocabulary {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
-				default: $radioParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}
 
-		$smarty->assign('FBV_radioParams', $radioParams);
+		$smarty->assign('FBV_radioParams', $fileParams);
 
 		return $smarty->fetch('form/fileInput.tpl');
 	}
@@ -625,7 +620,6 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'available': $smarty->assign('FBV_availableKeywords', $params['available']); break;
 				case 'current': $smarty->assign('FBV_currentKeywords', $params['current']); break;
-				default: $keywordParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}
 

@@ -183,7 +183,7 @@ class Form {
 		// in order for the TemplateManager::display hook to be called
 		$returner = $templateMgr->display($this->_template, null, null, $display);
 
-		// Need to reset the FBV's form in case we try to load the form within a template (which shouldn't happen)
+		// Need to reset the FBV's form in case the template manager does another fetch on a template that is not within a form.
 		$nullVar = null;
 		$fbv->setForm($nullVar);
 

@@ -600,8 +600,6 @@ class FormBuilderVocabulary {
 			}
 		}
 
-		$smarty->assign('FBV_radioParams', $fileParams);
-
 		return $smarty->fetch('form/fileInput.tpl');
 	}
 

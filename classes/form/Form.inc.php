@@ -60,9 +60,6 @@ class Form {
 	/** Array of errors for the form section currently being processed */
 	var $formSectionErrors;
 
-	/** Styles organized by parameter name */
-	var $fbvStyles;
-
 	/** Client-side validation rules **/
 	var $cssValidation;
 
@@ -90,9 +87,6 @@ class Form {
 		$this->errorsArray = array();
 		$this->errorFields = array();
 		$this->formSectionErrors = array();
-		$this->fbvStyles = array(
-			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM'),
-		);
 
 		if ($callHooks === true) {
 			// Call hooks based on the calling entity, assuming

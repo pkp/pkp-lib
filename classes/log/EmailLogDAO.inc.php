@@ -78,14 +78,7 @@ class EmailLogDAO extends DAO {
 			$rangeInfo
 		);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner =& $this->build($result->GetRowAssoc(false));
-		}
-
-		$result->Close();
-		unset($result);
-
+		$returner = new DAOResultFactory($result, $this, 'build');
 		return $returner;
 	}
 

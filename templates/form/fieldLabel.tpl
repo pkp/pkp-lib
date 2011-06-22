@@ -7,7 +7,7 @@
  * Form field label
  *}
 
-<label{if !$suppressId} for="{$name}"{/if}{if $class} class="{$class}"{/if} >
-	{$label} {if $required}*{/if}
+<label{if !$FBV_suppressId} for="{$FBV_name|escape}"{/if}{if $FBV_class} class="{$FBV_class|escape}"{/if} >
+	{$FBV_label|escape} {if $FBV_required}*{/if}
 </label>
 

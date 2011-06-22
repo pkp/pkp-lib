@@ -688,12 +688,12 @@ class FormBuilderVocabulary {
 
 			foreach ($params as $key => $value) {
 				switch ($key) {
-					case 'label': $smarty->assign('label', $value); break;
-					case 'required': $smarty->assign('required', $value); break;
-					case 'suppressId': $smarty->assign('suppressId', true); break;
-					case 'required': $smarty->assign('required', true); break;
-					case 'disabled': $smarty->assign('disabled', $value); break;
-					case 'name': $smarty->assign('name', $value); break;
+					case 'label': $smarty->assign('FBV_label', $value); break;
+					case 'required': $smarty->assign('FBV_required', $value); break;
+					case 'suppressId': $smarty->assign('FBV_suppressId', true); break;
+					case 'required': $smarty->assign('FBV_required', true); break;
+					case 'disabled': $smarty->assign('FBV_disabled', $value); break;
+					case 'name': $smarty->assign('FBV_name', $value); break;
 				}
 			}
 

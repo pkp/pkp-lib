@@ -431,7 +431,6 @@ class FileManager {
 			case 'video/x-flv':
 			case 'application/x-flash-video':
 			case 'flv-application/octet-stream':
-			case 'application/octet-stream':
 				return '.flv';
 			case 'audio/mpeg':
 				return '.mp3';

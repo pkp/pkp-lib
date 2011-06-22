@@ -108,24 +108,25 @@ class WebService {
 		}
 		$url = $url.$queryString;
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: ' . $webServiceRequest->getAccept()));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: ' . $webServiceRequest->getAccept()));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-        // Relax timeout a little bit for slow servers
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		// Relax timeout a little bit for slow servers
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-        // POST to the web service
-        for ($retries = 0; $retries < WEBSERVICE_RETRIES; $retries++) {
-            if ($result = @curl_exec($ch)) break;
+		// POST to the web service
+		for ($retries = 0; $retries < WEBSERVICE_RETRIES; $retries++) {
+			if ($result = @curl_exec($ch)) break;
 
-            // Wait for a short interval before trying again
-            usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
-        }
+			// Wait for a short interval before trying again
+			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
+		}
 
-        curl_close($ch);
-        return $result;
+		curl_close($ch);
+		return $result;
 	}
 }
+
 ?>

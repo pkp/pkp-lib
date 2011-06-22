@@ -174,7 +174,7 @@ class ListbuilderHandler extends GridHandler {
 	 * 	array('column 1 option 1', 'column 2 option 1'),
 	 * 	array('column 1 option 2', 'column 2 option 2'
 	 * );
-     * @param request Request
+	 * @param request Request
 	 * @return array
 	 */
 	function getOptions(&$request) {

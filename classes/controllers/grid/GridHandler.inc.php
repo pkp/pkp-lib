@@ -136,21 +136,21 @@ class GridHandler extends PKPHandler {
 		$this->_title = $title;
 	}
 
-    /**
-     * Get the grid instructions.
-     * @return string locale key
-     */
-    function getInstructions() {
-        return $this->_instructions;
-    }
+	/**
+	 * Get the grid instructions.
+	 * @return string locale key
+	 */
+	function getInstructions() {
+		return $this->_instructions;
+	}
 
-    /**
-     * Set the grid instructions.
-     * @param $instructions string locale key
-     */
-    function setInstructions($instructions) {
-        $this->_instructions = $instructions;
-    }
+	/**
+	 * Set the grid instructions.
+	 * @param $instructions string locale key
+	 */
+	function setInstructions($instructions) {
+		$this->_instructions = $instructions;
+	}
 
 	/**
 	 * Get all actions for a given position within the grid.
@@ -467,13 +467,13 @@ class GridHandler extends PKPHandler {
 			// for a formatted new entry, to be saved later, or
 			// for a representation of a modified row.
 			$dataElement = $this->getRowDataElement($request, null);
-            if ( isset($args['rowId']) ) {
-                // the rowId holds the elementId being modified
-                $elementId = $args['rowId'];
-            } else {
-                // no rowId means that there is no element being modified.
-                $elementId = null;
-            }
+			if ( isset($args['rowId']) ) {
+				// the rowId holds the elementId being modified
+				$elementId = $args['rowId'];
+			} else {
+				// no rowId means that there is no element being modified.
+				$elementId = null;
+			}
 		}
 
 		// Instantiate a new row
@@ -685,14 +685,14 @@ class GridHandler extends PKPHandler {
 	 * @return string the cell HTML
 	 */
 	function _renderCellInternally(&$request, &$row, &$column) {
-        // If there is no object, then we want to return an empty row.
-        // override the assigned GridCellProvider and provide the default.
-        $element =& $row->getData();
-        if ( is_null($element) && $row->getIsModified() ) {
-            import('lib.pkp.classes.controllers.grid.GridCellProvider');
-            $cellProvider =& new GridCellProvider();
-            return $cellProvider->render($request, $row, $column);
-        }
+		// If there is no object, then we want to return an empty row.
+		// override the assigned GridCellProvider and provide the default.
+		$element =& $row->getData();
+		if ( is_null($element) && $row->getIsModified() ) {
+			import('lib.pkp.classes.controllers.grid.GridCellProvider');
+			$cellProvider =& new GridCellProvider();
+			return $cellProvider->render($request, $row, $column);
+		}
 
 		// Otherwise, Get the cell content
 		$cellProvider =& $column->getCellProvider();

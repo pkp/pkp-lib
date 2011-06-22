@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="gridCellEdit">
-        {* To hide the cell contents *}
+		{* To hide the cell contents *}
 	</div>
 </span>
 

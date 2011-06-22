@@ -98,11 +98,11 @@ class FilterGroupDAO extends DAO {
 		$returner = $this->update(
 			'UPDATE	filter_groups
 			SET	symbolic = ?,
-			    display_name = ?,
-			    description = ?,
-			    input_type = ?,
+				display_name = ?,
+				description = ?,
+				input_type = ?,
 				output_type = ?
-			WHERE filter_group_id = ?',
+			WHERE	filter_group_id = ?',
 			array(
 				$filterGroup->getSymbolic(),
 				$filterGroup->getDisplayName(),

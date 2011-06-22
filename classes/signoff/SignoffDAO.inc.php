@@ -161,7 +161,7 @@ class SignoffDAO extends DAO {
 				$this->nullOrInt($signoff->getUserGroupId()),
 				$this->nullOrInt($signoff->getFileId()),
 				$this->nullOrInt($signoff->getFileRevision())
-            )
+			)
 		);
 		$signoff->setId($this->getInsertId());
 		return $signoff->getId();
@@ -284,8 +284,8 @@ class SignoffDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
-        $sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
-        $params = array($symbolic);
+		$sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
+		$params = array($symbolic);
 
 		if ($assocType) {
 			$sql .= ' AND assoc_type = ?';
@@ -361,7 +361,7 @@ class SignoffDAO extends DAO {
 
 		$sql = $selectDistinct . ' u.* FROM users u, signoffs s
 				WHERE u.user_id = s.user_id AND s.symbolic = ? AND s.assoc_type = ? AND s.assoc_id = ?';
-        $params = array($symbolic, (int) $assocType, (int) $assocId);
+		$params = array($symbolic, (int) $assocType, (int) $assocId);
 
 		if ($userGroupId) {
 			$sql .= ' AND s.user_group_id = ?';

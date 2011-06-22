@@ -45,7 +45,7 @@ class PKPReviewAssignmentDAO extends DAO {
 
 		$result =& $this->retrieve(
 			'SELECT r.*, r2.review_revision, u.first_name, u.last_name
-			FROM    review_assignments r
+			FROM	review_assignments r
 				INNER JOIN users u ON (r.reviewer_id = u.user_id)
 				INNER JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
 			WHERE   r.submission_id = ? AND
@@ -75,7 +75,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	function &getById($reviewId) {
 		$result =& $this->retrieve(
 			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM    review_assignments r
+			FROM	review_assignments r
 				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
 			WHERE   r.review_id = ?',

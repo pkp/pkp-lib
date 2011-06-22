@@ -19,8 +19,8 @@
 {/if}
 
 {fbvFormArea id="buttons"}
-    {fbvFormSection}
-        {fbvElement type="link" id="cancelFormButton" label="common.cancel"}
-        {fbvElement type="submit" id="submitFormButton" label=$submitText disabled=$submitDisabled}
-    {/fbvFormSection}
+	{fbvFormSection}
+		{fbvElement type="link" id="cancelFormButton" label="common.cancel"}
+		{fbvElement type="submit" id="submitFormButton" label=$submitText disabled=$submitDisabled}
+	{/fbvFormSection}
 {/fbvFormArea}

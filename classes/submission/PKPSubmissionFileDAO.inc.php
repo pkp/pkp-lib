@@ -668,7 +668,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			// should be ok as we usually only have few revisions per
 			// file.
 			$sql .= 'LEFT JOIN '.$submissionEntity.'_files sf2 ON sf.file_id = sf2.file_id AND sf.revision < sf2.revision
-			         WHERE sf2.revision IS NULL AND '.$filterClause;
+				WHERE sf2.revision IS NULL AND '.$filterClause;
 		} else {
 			$sql .= 'WHERE '.$filterClause;
 		}

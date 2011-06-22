@@ -123,93 +123,93 @@ a.task:hover {
 /* General */
 
 .ui-widget-content {
-    font-size: 100%;
+	font-size: 100%;
 }
 
 /* Accordian */
 
 .ui-accordion, .ui-accordion-header, .ui-accordion-content, .ui-accordion-content-active {
-    border: 0;
-    border-radius: 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
+	border: 0;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
 }
 
 .ui-accordion-header {
-    border-bottom: 1px dotted #999;
-    color: #569bbe;
-    background: none;
-    text-transform: uppercase;
-    font: 100% "Courier New", Courier, mono;
+	border-bottom: 1px dotted #999;
+	color: #569bbe;
+	background: none;
+	text-transform: uppercase;
+	font: 100% "Courier New", Courier, mono;
 
 }
 
 .ui-accordion-content {
-    font-size: 80%;
+	font-size: 80%;
 }
 
 .ui-accordion-content-active {
-    border-bottom: 1px dotted #999;
+	border-bottom: 1px dotted #999;
 }
 
 /* Tabs */
 .ui-tabs {
-    border: 0;
+	border: 0;
 }
 
 .ui-tabs-nav {
-    border: 0;
-    border-bottom: 1px solid #999;
-    background-image: none;
-    background-color: transparent;
-    font: 100% "Courier New", Courier, mono;
-    text-transform: uppercase;
+	border: 0;
+	border-bottom: 1px solid #999;
+	background-image: none;
+	background-color: transparent;
+	font: 100% "Courier New", Courier, mono;
+	text-transform: uppercase;
 }
 
 .ui-tabs .ui-state-default {
-    background-color: #fff;
-    background-image: none;
-    color: #569bbe;
-    border-color: #efefef;
-    font-weight: normal;
-    border-radius: 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
+	background-color: #fff;
+	background-image: none;
+	color: #569bbe;
+	border-color: #efefef;
+	font-weight: normal;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
 }
 
 .ui-tabs .ui-state-active {
-    border-color: #999;
-    font-weight: normal;
+	border-color: #999;
+	font-weight: normal;
 }
 
 .ui-tabs .ui-state-active a {
-    margin-top: 1px;
-    margin-bottom: -1px;
+	margin-top: 1px;
+	margin-bottom: -1px;
 }
 
 /* Button */
 
 .ui-button {
-    text-transform: uppercase;
-    font: 100% "Courier New", Courier, mono;
+	text-transform: uppercase;
+	font: 100% "Courier New", Courier, mono;
 }
 
 .ui-button-text {
-    line-height: 100% !important;
+	line-height: 100% !important;
 }
 
 .go {
-    color: #fff;
-    background-color: #003768;
-    background-image: none;
-    border: 1px solid #003768;
+	color: #fff;
+	background-color: #003768;
+	background-image: none;
+	border: 1px solid #003768;
 }
 
 .buy_now {
-    color: #fff;
-    background-color: #6c9348;
-    background-image: none;
-    border: 1px solid #6c9348;
+	color: #fff;
+	background-color: #6c9348;
+	background-image: none;
+	border: 1px solid #6c9348;
 }
 
 /* Dialog */
@@ -219,12 +219,12 @@ a.task:hover {
 }
 
 .ui-dialog-titlebar {
-    display: none;
+	display: none;
 }
 
 .ui-dialog-custom-titlebar {
-    padding:0.5em 1em 0.3em;
-    position:relative;
+	padding:0.5em 1em 0.3em;
+	position:relative;
 }
 
 /*

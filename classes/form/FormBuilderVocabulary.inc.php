@@ -128,6 +128,8 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_labelFor', empty($params['for']) ? null : $params['for']);
 
 			$smarty->assign('FBV_title', $params['title']);
+			$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
+			$smarty->assign('FBV_description', isset($params['description']) ? $params['description'] : null);
 			$smarty->assign('FBV_content', $content);
 
 			$class = $params['class'];
@@ -179,7 +181,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
 		$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
 		$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
-		$smarty->assign('FBV_label_content', empty($params['label']) ? null : $smarty->fetch('form/label.tpl'));
+		$smarty->assign('FBV_for', empty($params['for']) ? null : $params['for']);
 
 		// Find fields that the form class has marked as required and add the 'required' class to them
 		$params = $this->_addClientSideValidation($params);
@@ -226,10 +228,9 @@ class FormBuilderVocabulary {
 			case 'textarea':
 				$content = $this->_smartyFBVTextArea($params, $smarty);
 				break;
-			default: $content = null;
+			default:
+				$smarty->trigger_error('FBV: Invalid element type "' . $params['type'] . '"');
 		}
-
-		if (!$content) $smarty->trigger_error('FBV: Invalid element type "' . $params['type'] . '"');
 
 		unset($params['type']);
 
@@ -366,6 +367,10 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
+		if (isset($params['label'])) {
+			$smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty));
+		}
+
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}
 
@@ -385,7 +390,7 @@ class FormBuilderVocabulary {
 		$textInputParams = '';
 		foreach ($params as $key => $value) {
 			switch ($key) {
-				case 'label': break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'class': break;
 				case 'size': break;
@@ -424,7 +429,7 @@ class FormBuilderVocabulary {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
-				case 'label': break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'size': break;
 				case 'rich': break;
@@ -499,6 +504,7 @@ class FormBuilderVocabulary {
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
 				case 'class': break;
 				case 'type': break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
@@ -593,7 +599,7 @@ class FormBuilderVocabulary {
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'submit': $smarty->assign('FBV_submit', $params['submit']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
-				case 'label': $smarty->assign('FBV_label', $params['label']); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 			}
 		}
@@ -619,9 +625,38 @@ class FormBuilderVocabulary {
 			}
 		}
 
-		$smarty->assign('FBV_keywordParams', $keywordParams);
-
 		return $smarty->fetch('form/keywordInput.tpl');
+	}
+
+	/**
+	 * Custom Smarty function for labelling/highlighting of form fields.
+	 * @param $params array can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
+	 * @param $smarty Smarty
+	 */
+	function _smartyFBVSubLabel($params, &$smarty) {
+		$returner = '';
+		if (!isset($params) || !isset($params['label']) ) {
+			$smarty->trigger_error('FBV: label for SubLabel not specified.');
+		}
+
+		$form =& $this->getForm();
+		if (isset($form) && isset($form->errorFields[$params['name']])) {
+			$smarty->assign('FBV_error', true);
+		} else {
+			$smarty->assign('FBV_error', false);
+		}
+
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'label': $smarty->assign('FBV_label', $value); break;
+				case 'suppressId': $smarty->assign('FBV_suppressId', $value); break;
+				case 'required': $smarty->assign('FBV_required', $value); break;
+			}
+		}
+
+		$returner = $smarty->fetch('form/subLabel.tpl');
+
+		return $returner;
 	}
 
 	/**
@@ -664,6 +699,7 @@ class FormBuilderVocabulary {
 			return implode(' ', $classes);
 		} else return null;
 	}
+
 
 	/**
 	 * Custom Smarty function for labelling/highlighting of form fields.

@@ -7,11 +7,10 @@
  * form select
  *}
 
-<div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
-	<select {$FBV_selectParams} class="field select"{if $FBV_disabled} disabled="disabled"{/if}>
-		{if $FBV_defaultValue !== null}<option value="{$FBV_defaultValue|escape}">{$FBV_defaultLabel|escape}</option>{/if}
-		{if $FBV_translate}{html_options_translate options=$FBV_from selected=$FBV_selected}{else}{html_options options=$FBV_from selected=$FBV_selected}{/if}
-	</select>
+<select {$FBV_selectParams} {if $FBV_disabled} disabled="disabled"{/if}>
+	{if $FBV_defaultValue !== null}
+		<option value="{$FBV_defaultValue|escape}">{$FBV_defaultLabel|escape}</option>{/if}
+	{if $FBV_translate}{html_options_translate options=$FBV_from selected=$FBV_selected}{else}{html_options options=$FBV_from selected=$FBV_selected}{/if}
+</select>
 
-	<span>{$FBV_label_content}</span>
-</div>
+<span>{$FBV_label_content}</span>

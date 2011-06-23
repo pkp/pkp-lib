@@ -27,3 +27,9 @@
  * @param {string=} form the selector of a form element.
  */
 function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {};
+
+
+/**
+ * @constructor
+ */
+function JSON() {};

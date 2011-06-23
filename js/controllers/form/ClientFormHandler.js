@@ -54,7 +54,7 @@
 		var formData = $form.serializeArray();
 
 		// Inform the server that the form has been submitted.
-		formData.push({name:'clientSubmit', value: true});
+		formData.push({name: 'clientSubmit', value: true});
 
 		// Trigger a "form submitted" event with the form
 		// data as argument.

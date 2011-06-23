@@ -22,8 +22,3 @@ function jQuery(selector, context) {};
  * @param {jQuery=} context The context for the selector.
  */
 function $(selector, context) {};
-
-/**
- * @constructor
- */
-function JSON() {};

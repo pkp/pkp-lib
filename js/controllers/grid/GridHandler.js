@@ -57,6 +57,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Show/hide row action feature.
 		this.activateRowActions_();
+
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.GridHandler,
 			$.pkp.classes.Handler);
@@ -210,6 +211,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			$.get(this.fetchGridUrl_, null,
 					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 		}
+
+		// Let the calling context (page?) know that the grids are being redrawn.
+		this.trigger('gridRefreshRequested');
 	};
 
 

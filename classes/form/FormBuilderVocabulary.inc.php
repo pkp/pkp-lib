@@ -248,9 +248,6 @@ class FormBuilderVocabulary {
 		}
 
 		return $content;
-		// Set up the element template
-		$smarty->assign('FBV_content', $content);
-		return $smarty->fetch('form/element.tpl');
 	}
 
 	//

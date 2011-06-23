@@ -27,7 +27,7 @@
 
 	<div class="gridCellEdit">
 		{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
-			<input type="text" name="{$column->getId()|escape}" class="textField" value="{$label|escape}" />
+			<input type="text" name="newRowId" class="textField" value="{$label|escape}" />
 		{elseif $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
 			<select name="newRowId" class="selectMenu">
 				{* Populated by JavaScript in ListbuilderHandler.js *}

@@ -136,34 +136,35 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Delete an entry.
+	 * @param $request Request object
 	 * @param $rowId mixed ID of row to modify
 	 * @return boolean
 	 */
-	function deleteEntry($rowId) {
+	function deleteEntry(&$request, $rowId) {
 		fatalError('ABSTRACT METHOD');
 	}
 
 	/**
 	 * Persist an update to an entry.
+	 * @param $request Request object
 	 * @param $rowId mixed ID of row to modify
-	 * @param $existingEntry mixed Existing entry to be modified
-	 * @param $newEntry mixed New entry with changes to persist
+	 * @param $newRowId mixed ID of the new entry
 	 * @return boolean
 	 */
-	function updateEntry($rowId, $existingEntry, $newEntry) {
+	function updateEntry(&$request, $rowId, $newRowId) {
 		// This may well be overridden by a subclass to modify
 		// an existing entry, e.g. to maintain referential integrity.
 		// If not, we can simply delete and insert.
-		if (!$this->deleteEntry($rowId)) return false;
-		return $this->insertEntry($newEntry);
+		if (!$this->deleteEntry($request, $rowId)) return false;
+		return $this->insertEntry($request, $newRowId);
 	}
 
 	/**
 	 * Persist a new entry insert.
-	 * @param $entry mixed New entry with data to persist
-	 * @return boolean
+	 * @param $request Request object
+	 * @param $newRowId mixed ID of row to modify
 	 */
-	function insertEntry($entry) {
+	function insertEntry(&$request, $newRowId) {
 		fatalError('ABSTRACT METHOD');
 	}
 
@@ -195,13 +196,49 @@ class ListbuilderHandler extends GridHandler {
 
 	/**
 	 * Unpack data to save using an external handler.
-	 * @param $data String
-	 * @return array
+	 * @param $data String (the json encoded data from the listbuilder itself)
+	 * @param $deletionCallback array callback to be used for each deleted element
+	 * @param $insertionCallback array callback to be used for each updated element
+	 * @param $updateCallback array callback to be used for each updated element
 	 */
-	function unpack($data) {
+	function unpack(&$request, $data, $deletionCallback = null, $insertionCallback = null, $updateCallback = null) {
+		// Set some defaults
+		// N.B. if this class is called statically, then $this is not set to Listbuilder, but to your calling class.
+		if ( !$deletionCallback ) {
+			$deletionCallback = array(&$this, 'deleteEntry');
+		}
+		if ( !$insertionCallback ) {
+			$insertionCallback = array(&$this, 'insertEntry');
+		}
+		if ( !$updateCallback ) {
+			$updateCallback = array(&$this, 'updateEntry');
+		}
+
 		import('lib.pkp.classes.core.JSONManager');
 		$jsonManager = new JSONManager();
-		return $jsonManager->decode($data);
+		$data = $jsonManager->decode($data);
+		// Go through each of the 4 cases and use the callback for each
+		// 1. the row in the listbuilder was new and not completed (nothing).
+		// 2. The row had an id, but has no new one (deletion).
+		// 3. The row did not have an id, but now has a new one (insertion).
+		// 4. The row had an id, but now has a new one (update).
+		foreach ( $data as $entry ) {
+			if ( !isset($entry->rowId) && !isset($entry->newRowId) ) {
+				continue;
+			} elseif ( isset($entry->rowId) && !isset($entry->newRowId) ) {
+				if ( !empty($entry->rowId) ) {
+					call_user_func($deletionCallback, $request, $entry->rowId);
+				}
+			} elseif ( !isset($entry->rowId) && isset($entry->newRowId) ) {
+				if ( !empty($entry->newRowId) ) {
+					call_user_func($insertionCallback, $request, $entry->newRowId);
+				}
+			} elseif ( isset($entry->rowId) && isset($entry->newRowId) ) {
+				if ( !empty($entry->rowId) && !empty($entry->newRowId) ) {
+					call_user_func($updateCallback, $request, $entry->rowId, $entry->newRowId);
+				}
+			}
+		}
 	}
 
 	/**
@@ -214,46 +251,9 @@ class ListbuilderHandler extends GridHandler {
 		// data in the "data" post var. Need to go through it
 		// and reconcile the data against this list, adding/
 		// updating/deleting as needed.
-		$changedData = $this->unpack($request->getUserVar('data'));
-
-		// 1. Check that all modified entries actually exist
-		$data =& $this->getGridDataElements(&$request);
-		foreach ($changedData as $entry) {
-			// Skip new entries
-			if (!isset($entry->rowId)) continue;
-
-			$rowId = $entry->rowId;
-			if (!isset($data[$rowId])) fatalError('Nonexistent element modified!');
-		}
-
-		// 2. Make the changes.
-		foreach ($changedData as $entry) {
-			// Assume blank row means they started to add but selected nothing.
-			if ( !isset($entry->newRowId) ) continue;
-
-			// Update an existing entry
-			if (isset($entry->rowId)) {
-				$rowId = $entry->rowId;
-				unset($entry->rowId);
-				if (!$this->updateEntry($rowId, $data[$rowId], $entry)) {
-					// Failure; abort.
-					$json = new JSONMessage(false);
-					return $json->getString();
-
-				}
-			} else {
-				// Insert a new entry
-				if (!$this->insertEntry($entry)) {
-					// Failure; abort.
-					$json = new JSONMessage(false);
-					return $json->getString();
-				}
-			}
-		}
-
-		// Report a successful save.
-		$json = new JSONMessage(true);
-		return $json->getString();
+		$data = $request->getUserVar('data');
+		$this->unpack($request, $data,
+					  array(&$this, 'deleteEntry'), array(&$this, 'insertEntry'), array(&$this, 'updateEntry'));
 	}
 
 

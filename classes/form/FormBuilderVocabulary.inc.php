@@ -392,6 +392,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'class': break;
 				case 'size': break;
+				case 'autocompleteUrl': break;
 				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;

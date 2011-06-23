@@ -26,10 +26,10 @@
 		this.parent($autocompleteField, options);
 
 		// Get the text input inside of this Div.
-		this.textInput_ = $autocompleteField.children(':text');
+		this.textInput_ = $autocompleteField.find(':text');
 
 		// Get the text input inside of this Div.
-		this.hiddenInput_ = $autocompleteField.children(':hidden');
+		this.hiddenInput_ = $autocompleteField.find(':hidden');
 
 		// Create autocomplete settings.
 		var opt = {};

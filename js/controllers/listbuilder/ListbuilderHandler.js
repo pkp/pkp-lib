@@ -165,7 +165,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Try to find and reuse an existing element (if
 			// e.g. a previous attempt was aborted)
 			var $e = this.getHtmlElement()
-					.find(':input[type=\'hidden\'')
+					.find(':input[type=hidden]')
 					.filter(
 					function() {return $(this).attr('name') == saveFieldName;})
 					.first();

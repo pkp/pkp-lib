@@ -180,7 +180,7 @@ class SignoffDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?,
 					user_id = ?,
-					user_group_id = ?
+					user_group_id = ?,
 					file_id = ?,
 					file_revision = ?,
 					date_notified = %s,

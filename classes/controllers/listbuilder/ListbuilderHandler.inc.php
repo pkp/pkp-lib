@@ -221,20 +221,24 @@ class ListbuilderHandler extends GridHandler {
 		// 2. The row had an id, but has no new one (deletion).
 		// 3. The row did not have an id, but now has a new one (insertion).
 		// 4. The row had an id, but now has a new one (update).
+
+		// Kludge to access $entry->"newRowId[]"
+		$newRowIdKey = 'newRowId[]';
+
 		foreach ( $data as $entry ) {
-			if ( !isset($entry->rowId) && !isset($entry->newRowId) ) {
+			if ( !isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
 				continue;
-			} elseif ( isset($entry->rowId) && !isset($entry->newRowId) ) {
+			} elseif ( isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
 				if ( !empty($entry->rowId) ) {
 					call_user_func($deletionCallback, $request, $entry->rowId);
 				}
-			} elseif ( !isset($entry->rowId) && isset($entry->newRowId) ) {
-				if ( !empty($entry->newRowId) ) {
-					call_user_func($insertionCallback, $request, $entry->newRowId);
+			} elseif ( !isset($entry->rowId) && isset($entry->$newRowIdKey) ) {
+				if ( !empty($entry->$newRowIdKey) ) {
+					call_user_func($insertionCallback, $request, $entry->$newRowIdKey);
 				}
-			} elseif ( isset($entry->rowId) && isset($entry->newRowId) ) {
-				if ( !empty($entry->rowId) && !empty($entry->newRowId) ) {
-					call_user_func($updateCallback, $request, $entry->rowId, $entry->newRowId);
+			} elseif ( isset($entry->rowId) && isset($entry->$newRowIdKey) ) {
+				if ( !empty($entry->rowId) && !empty($entry->$newRowIdKey) ) {
+					call_user_func($updateCallback, $request, $entry->rowId, $entry->$newRowIdKey);
 				}
 			}
 		}

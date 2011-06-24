@@ -93,7 +93,7 @@ class PKPLocale {
 		$notes[] = array('debug.notes.missingLocaleKey', array('key' => $key));
 
 		// Add some octothorpes to missing keys to make them more obvious
-		return '##' . $key . '##';
+		return '##' . htmlentities($key) . '##';
 	}
 
 	/**

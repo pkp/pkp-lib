@@ -33,8 +33,6 @@
 				{* Populated by JavaScript in ListbuilderHandler.js *}
 				<option value="{$labelKey|escape}">{translate key="common.loading"}</option>
 			</select>
-		{else}{* LISTBUILDER_SOURCE_TYPE_BOUND *}
-			{* FIXME Is this type still needed? *}
 		{/if}
 	</div>
 </span>

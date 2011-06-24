@@ -19,7 +19,6 @@ import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
 /* Listbuilder source types: text-based, pulldown, ... */
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
 define_exposed('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
-define_exposed('LISTBUILDER_SOURCE_TYPE_BOUND', 2);
 
 /* Listbuilder save types */
 define('LISTBUILDER_SAVE_TYPE_EXTERNAL', 0); // Outside the listbuilder handler

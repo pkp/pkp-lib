@@ -129,6 +129,7 @@ class FormBuilderVocabulary {
 
 			$smarty->assign('FBV_title', $params['title']);
 			$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
+			$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
 			$smarty->assign('FBV_description', isset($params['description']) ? $params['description'] : null);
 			$smarty->assign('FBV_content', $content);
 

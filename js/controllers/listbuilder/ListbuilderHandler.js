@@ -447,6 +447,46 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 
 	/**
+	 * Callback that will be activated when a new/modifying row's input
+	 * field is blurred to check whether or not to save the row.
+	 *
+	 * @private
+	 *
+	 * @param {HTMLElement} callingContext The calling element or object.
+	 * @param {Event=} event The triggering event.
+	 * @return {boolean} Should return false to stop event processing.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			inputBlurHandler_ = function(callingContext, event) {
+
+		// Flag currently selected input using a CSS class. (Don't
+		// want to pass it into the closure because of the IE memory
+		// leak bug.)
+		$(callingContext).closest('.gridRow').addClass('editingRowPlaceholder');
+
+		// Check to see whether the row has lost focus after this event has
+		// been processed.
+		setTimeout(this.callbackWrapper(function() {
+			var $editingRow = $('.editingRowPlaceholder');
+			var found = false;
+			$editingRow.find(':input').each(function(index, elem) {
+				if (elem === document.activeElement) {
+					found = true;
+				}
+			});
+
+			// Clean up extra placeholder class.
+			$editingRow.removeClass('editingRowPlaceholder');
+
+			// If the focused element isn't within the current row, save.
+			if (!found) {
+				this.closeEdits();
+			}
+		}), 0);
+
+		return true;
+	};
+	/**
 	 * Callback to replace a grid row's content.
 	 *
 	 * @private
@@ -505,8 +545,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				this.callbackWrapper(this.editItemHandler_));
 
 		// Attach keypress handler for text fields
-		$context.find(':input').keypress(
-				this.callbackWrapper(this.inputKeystrokeHandler_));
+		$context.find(':input')
+				.keypress(this.callbackWrapper(this.inputKeystrokeHandler_))
+				.blur(this.callbackWrapper(this.inputBlurHandler_));
 	};
 
 

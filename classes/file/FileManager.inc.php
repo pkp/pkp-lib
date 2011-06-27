@@ -424,6 +424,7 @@ class FileManager {
 				return '.png';
 			case 'image/vnd.microsoft.icon':
 			case 'image/x-icon':
+			case 'image/x-ico':
 			case 'image/ico':
 				return '.ico';
 			case 'application/x-shockwave-flash':

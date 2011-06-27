@@ -280,10 +280,22 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
 			var $listbuilder = this.getHtmlElement();
+
+			// Get the list of already-selected options, to ensure
+			// that we don't offer duplicates.
+			var selectedValues = [];
+			$listbuilder.find('.gridCellDisplay :input').each(function(i, selected) {
+				selectedValues[i] = $(selected).val();
+			});console.log(selectedValues);
+
+			// Get the currently available input row's elements
 			var $selectInput = $listbuilder.find(
 					'.gridRowEdit:visible .selectMenu:input'
 					);
+
+			// For each pulldown (generally 1), add options.
 			$selectInput.each(function(i) {
+				// Fetch some useful properties
 				var $this = $(this);
 				var $container = $this.parents('.gridCellContainer');
 				var currentIndex = $container.find('.gridCellDisplay :input').val();
@@ -296,19 +308,30 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var $lastElement;
 				var j = null;
 				for (j in jsonData.content[i]) {
-					// Create and populate the option node
-					var content = jsonData.content[i][j];
-					var $option = $('<option/>');
-					$option.attr('value', j);
-					$option.text(content);
-
-					if (j == currentIndex) {
-						$option.attr('selected', 'selected');
+					// Check to see if this option is
+					// already in the LB.
+					var isDuplicate = false;
+					for (var k = 0; k < selectedValues.length; k++) {
+						if (selectedValues[k] == j) {
+							isDuplicate = true;
+						}
 					}
 
-					$this.append($option);
-					optionsCount++;
-					$lastElement = $option;
+					if (!isDuplicate) {
+						// Create and populate the option node
+						var content = jsonData.content[i][j];
+						var $option = $('<option/>');
+						$option.attr('value', j);
+						$option.text(content);
+
+						if (j == currentIndex) {
+							$option.attr('selected', 'selected');
+						}
+
+						$this.append($option);
+						optionsCount++;
+						$lastElement = $option;
+					}
 				}
 
 				// If only one element is available, select it.

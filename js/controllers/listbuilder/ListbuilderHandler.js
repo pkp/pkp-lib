@@ -286,7 +286,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			var selectedValues = [];
 			$listbuilder.find('.gridCellDisplay :input').each(function(i, selected) {
 				selectedValues[i] = $(selected).val();
-			});console.log(selectedValues);
+			});
 
 			// Get the currently available input row's elements
 			var $selectInput = $listbuilder.find(

@@ -16,7 +16,7 @@
  * @brief Class defining Form Builder Vocabulary methods.
  *
  * Form Builder Vocabulary - FBV
- * Generates form code in templates using {fbvX} calls.
+ * Generates form markup in templates using {fbvX} calls.
  * Group form areas with the {fbvFormArea} call.  These sections mark off groups of semantically
  *  related form sections.
  *  Parameters:
@@ -105,10 +105,10 @@ class FormBuilderVocabulary {
 		}
 
  		if (!$repeat) {
-			$smarty->assign('FBV_class', $params['class']);
+			$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
 			$smarty->assign('FBV_id', $params['id']);
-			$smarty->assign('FBV_content', $content);
-			$smarty->assign('FBV_title', $params['title']);
+			$smarty->assign('FBV_content', isset($content) ? $content : null);
+			$smarty->assign('FBV_title', isset($params['title']) ? $params['title'] : null);
 			return $smarty->fetch('form/formArea.tpl');
 		}
 		return '';
@@ -126,12 +126,11 @@ class FormBuilderVocabulary {
 		if (!$repeat) {
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
 			$smarty->assign('FBV_labelFor', empty($params['for']) ? null : $params['for']);
-
-			$smarty->assign('FBV_title', $params['title']);
+			$smarty->assign('FBV_title', isset($params['title']) ? $params['title'] : null);
 			$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
 			$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
 			$smarty->assign('FBV_description', isset($params['description']) ? $params['description'] : null);
-			$smarty->assign('FBV_content', $content);
+			$smarty->assign('FBV_content', isset($content) ? $content: null);
 
 			$class = $params['class'];
 
@@ -178,15 +177,18 @@ class FormBuilderVocabulary {
 
 		// Set up the element template
 		$smarty->assign('FBV_id', $params['id']);
-		$smarty->assign('FBV_class', empty($params['class']) ? null : $params['class']);
-		$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
+		$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
 		$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
-		$smarty->assign('FBV_label', empty($params['label']) ? null : $params['label']);
-		$smarty->assign('FBV_for', empty($params['for']) ? null : $params['for']);
+		$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
+		$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
+		$smarty->assign('FBV_for', isset($params['for']) ? $params['for'] : null);
+
+		// Unset these parameters so they don't get assigned twice
+		unset($params['class'], $params['required']);
 
 		// Find fields that the form class has marked as required and add the 'required' class to them
 		$params = $this->_addClientSideValidation($params);
-		$smarty->assign('FBV_validation', $params['validation']);
+		$smarty->assign('FBV_validation', isset($params['validation']) ? $params['validation'] : null);
 
 		// Set up the specific field's template
 		switch (strtolower($params['type'])) {
@@ -275,11 +277,11 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 
 		$buttonParams = '';
+		$smarty->clear_assign(array('FBV_label', 'FBV_type', 'FBV_disabled'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'type': $smarty->assign('FBV_type', $value); break;
-				case 'class': break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $buttonParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
@@ -309,16 +311,12 @@ class FormBuilderVocabulary {
 		}
 
 		// Set the URL if there is one (defaults to '#' e.g. when the link should activate javascript)
-		if (isset($params['href'])) {
-			$smarty->assign('FBV_href', $params['href']);
-		} else {
-			$smarty->assign('FBV_href', '#');
-		}
+		$smarty->assign('FBV_href', isset($params['href']) ? $params['href'] : '#');
 
+		$smarty->clear_assign(array('FBV_label', 'FBV_type', 'FBV_disabled'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
-				case 'class': break;
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'type': $smarty->assign('FBV_type', $value); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
@@ -368,9 +366,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
-		if (isset($params['label'])) {
-			$smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty));
-		}
+		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, &$smarty) : null);
 
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}
@@ -389,14 +385,12 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
 		$textInputParams = '';
+		$smarty->clear_assign(array('FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
-				case 'class': break;
 				case 'size': break;
-				case 'autocompleteUrl': break;
-				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -425,17 +419,15 @@ class FormBuilderVocabulary {
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
 
 		$textAreaParams = '';
+		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
-				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'size': break;
 				case 'rich': break;
-				case 'class': break;
-				case 'required': break; //ignore required field (define required fields in form class)
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
@@ -458,6 +450,7 @@ class FormBuilderVocabulary {
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
 
 		$hiddenInputParams = '';
+		$smarty->clear_assign(array('FBV_id'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $value); break;
@@ -465,8 +458,6 @@ class FormBuilderVocabulary {
 				case 'value': $smarty->assign('FBV_value', $value); break;
 				case 'label': break;
 				case 'type': break;
-				case 'class': break; //ignore class attributes
-				case 'required': break; //ignore required field (define required fields in form class)
 				default: $hiddenInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}
@@ -496,6 +487,7 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_defaultLabel', null);
 		}
 
+		$smarty->clear_assign(array('FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'from': $smarty->assign('FBV_from', $value); break;
@@ -503,7 +495,6 @@ class FormBuilderVocabulary {
 				case 'translate': $smarty->assign('FBV_translate', $value); break;
 				case 'defaultValue': $smarty->assign('FBV_defaultValue', $value); break;
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
-				case 'class': break;
 				case 'type': break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
@@ -527,16 +518,14 @@ class FormBuilderVocabulary {
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
-		$params['required'] = isset($params['required']) ? $params['required'] : false;
 
 		$checkboxParams = '';
+		$smarty->clear_assign(array('FBV_id', 'FBV_label'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
-				case 'class': break;
 				case 'type': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
-				case 'required': $smarty->assign('FBV_required', $params['required']); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'checked': $smarty->assign('FBV_checked', $params['checked']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
@@ -562,10 +551,10 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 
 		$radioParams = '';
+		$smarty->clear_assign(array('FBV_id', 'FBV_label'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
-				case 'class': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
@@ -593,10 +582,10 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['submit'] = isset($params['submit']) ? $params['submit'] : false;
 
+		$smarty->clear_assign(array('FBV_id', 'FBV_label_content'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
-				case 'class': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'submit': $smarty->assign('FBV_submit', $params['submit']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -615,10 +604,10 @@ class FormBuilderVocabulary {
 	 * @param $smarty object
 	 */
 	function _smartyFBVKeywordInput($params, &$smarty) {
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
-				case 'class': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'available': $smarty->assign('FBV_availableKeywords', $params['available']); break;
@@ -647,6 +636,7 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_error', false);
 		}
 
+		$smarty->clear_assign(array('FBV_suppressId', 'FBV_label', 'FBV_required'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label': $smarty->assign('FBV_label', $value); break;

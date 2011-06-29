@@ -19,8 +19,6 @@
 	//-------------------------------------------------------------------------
 
 	// language settings
-	$langs = array('cs','da','de','en','es','fr','it','nl','pl','pt_br','sk');
-	if(isset($_REQUEST['lang']) && !in_array($_REQUEST['lang'], $langs)) die('invalid language set');
 	$l = (isset($_REQUEST['lang']) ? new PLUG_Lang($_REQUEST['lang']) : new PLUG_Lang($cfg['lang']));
 	$l->setBlock('ibrowser');
 	//-------------------------------------------------------------------------

@@ -22,9 +22,15 @@ class SignoffDAO extends DAO {
 	 * @param $signoffId int
 	 * @return Signoff
 	 */
-	function getById($signoffId) {
+	function getById($signoffId, $assocType = null, $assocId = null) {
+		$params = array((int) $signoffId);
+		if ($assocType !== null) $params[] = (int) $assocType;
+		if ($assocId !== null) $params[] = (int) $assocId;
 		$result =& $this->retrieve(
-			'SELECT * FROM signoffs WHERE signoff_id = ?', array((int) $signoffId)
+			'SELECT * FROM signoffs WHERE signoff_id = ?'
+			. ($assocType !== null?' AND assoc_type = ?':'')
+			. ($assocId !== null?' AND assoc_id = ?':''),
+			$params
 		);
 
 		$returner = null;
@@ -47,7 +53,7 @@ class SignoffDAO extends DAO {
 	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function build($symbolic, $assocType, $assocId, $userId = null,
+	function &build($symbolic, $assocType, $assocId, $userId = null,
 			$userGroupId = null, $fileId = null, $fileRevision = null) {
 
 		// If one exists, fetch and return.

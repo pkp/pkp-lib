@@ -229,8 +229,6 @@ class CategoryGridHandler extends GridHandler {
 		// Should be overriden by subclasses
 		return GRID_CATEGORY_NONE;
 	}
-
-
 }
 
 ?>

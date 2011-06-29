@@ -27,12 +27,16 @@ class PKPAuthorDAO extends DAO {
 	/**
 	 * Retrieve an author by ID.
 	 * @param $authorId int
+	 * @param $submissionId int optional
 	 * @return Author
 	 */
-	function &getAuthor($authorId) {
+	function &getAuthor($authorId, $submissionId = null) {
+		$params = array((int) $authorId);
+		if ($submissionId !== null) $params[] = (int) $submissionId;
 		$result =& $this->retrieve(
-			'SELECT * FROM authors WHERE author_id = ?',
-			(int) $authorId
+			'SELECT * FROM authors WHERE author_id = ?'
+			. ($submissionId !== null?' AND submission_id = ?':''),
+			$params
 		);
 
 		$returner = null;

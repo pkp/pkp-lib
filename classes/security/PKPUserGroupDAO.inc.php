@@ -165,13 +165,13 @@ class PKPUserGroupDAO extends DAO {
 	 */
 	function getById($userGroupId, $contextId = null) {
 		$params = array((int) $userGroupId);
-		if ($contextId) $params[] = (int) $contextId;
+		if ($contextId !== null) $params[] = (int) $contextId;
 		$result =& $this->retrieve(
 			'SELECT	user_group_id, context_id, role_id, path, is_default
 			FROM	user_groups
-			WHERE	user_group_id = ?' . ($contextId?' AND context_id = ?':''),
+			WHERE	user_group_id = ?' . ($contextId !== null?' AND context_id = ?':''),
 			$params
-			);
+		);
 
 		return $this->_returnFromRow($result->GetRowAssoc(false));
 	}

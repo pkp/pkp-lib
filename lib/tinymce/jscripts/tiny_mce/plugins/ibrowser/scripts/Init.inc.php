@@ -22,6 +22,7 @@ $router = new PageRouter();
 $router->setApplication($application);
 $request->setRouter($router);
 Locale::initialize();
+Locale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
 
 // Load user variables
 $sessionManager =& SessionManager::getManager();

@@ -63,7 +63,7 @@ class PKPSiteSettingsForm extends Form {
 		$siteDao =& DAORegistry::getDAO('SiteDAO');
 		$site =& $siteDao->getSite();
 
-		$this->_data = array(
+		$data = array(
 			'title' => $site->getSetting('title'), // Localized
 			'intro' => $site->getSetting('intro'), // Localized
 			'redirect' => $site->getRedirect(),
@@ -73,6 +73,10 @@ class PKPSiteSettingsForm extends Form {
 			'minPasswordLength' => $site->getMinPasswordLength(),
 			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType') // Localized
 		);
+
+		foreach ($data as $key => $value) {
+			$this->setData($key, $value);
+		}
 	}
 
 	function getLocaleFieldNames() {

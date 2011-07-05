@@ -134,6 +134,22 @@ class ListbuilderHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the new row ID from the request. For multi-column listbuilders,
+	 * this is an array representing the row. For single-column
+	 * listbuilders, this is a single piece of data (i.e. a string or int)
+	 * @param $request PKPRequest
+	 * @return mixed
+	 */
+	function getNewRowId($request) {
+		$newRowId = $request->getUserVar('newRowId');
+		if (is_array($newRowId) && count($newRowId) === 1) {
+			return array_shift($newRowId);
+		} else {
+			return $newRowId;
+		}
+	}
+
+	/**
 	 * Delete an entry.
 	 * @param $request Request object
 	 * @param $rowId mixed ID of row to modify

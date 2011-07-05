@@ -117,7 +117,7 @@ class PKPCitationGridRow extends GridRow {
 
 				// We should never present citations to the user that have
 				// not been checked already.
-				assert($citation->getCitationState() >= CITATION_PARSED);
+				if ($citation->getCitationState() < CITATION_PARSED) fatalError('Invalid citation!');
 
 				// Instantiate the cell action.
 				$router =& $request->getRouter();

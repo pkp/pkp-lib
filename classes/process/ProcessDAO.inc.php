@@ -103,9 +103,9 @@ class ProcessDAO extends DAO {
 				VALUES
 				(?, ?, ?, 0)'),
 			array(
-				$process->getId(),
-				(integer)$process->getProcessType(),
-				(integer)$process->getTimeStarted(),
+				(int) $process->getId(),
+				(int) $process->getProcessType(),
+				(int) $process->getTimeStarted(),
 			)
 		);
 		$process->setObliterated(false);
@@ -120,7 +120,7 @@ class ProcessDAO extends DAO {
 	function getObjectById($processId) {
 		$result =& $this->retrieve(
 			'SELECT process_id, process_type, time_started, obliterated FROM processes WHERE process_id = ?',
-			$processId
+			(int) $processId
 		);
 
 		$process = null;
@@ -145,7 +145,7 @@ class ProcessDAO extends DAO {
 			'SELECT COUNT(*) AS running_processes
 			 FROM processes
 			 WHERE process_type = ?',
-			(integer)$processType
+			(int) $processType
 		);
 
 		$runningProcesses = 0;
@@ -172,7 +172,7 @@ class ProcessDAO extends DAO {
 		assert(!empty($processId));
 
 		// Delete process
-		return $this->update('DELETE FROM processes WHERE process_id = ?', $processId);
+		return $this->update('DELETE FROM processes WHERE process_id = ?', (int) $processId);
 	}
 
 	/**
@@ -206,7 +206,7 @@ class ProcessDAO extends DAO {
 		return $this->update(
 			'DELETE FROM processes
 			WHERE time_started < ?',
-			(integer)$maxTimestamp
+			(int) $maxTimestamp
 		);
 	}
 
@@ -298,7 +298,7 @@ class ProcessDAO extends DAO {
 				'UPDATE processes
 				 SET obliterated = 1
 				 WHERE process_id = ?',
-				$processId
+				(int) $processId
 			);
 			if (!$success) return false;
 

@@ -193,13 +193,13 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Title bar icon.
 		var iconClass = options.titleIcon || null;
 		if (iconClass) {
-			$titleBar.append(['<span class="icon ', iconClass, '" />'].join(''));
+			$titleBar.append(['<div class="icon ', iconClass, '" />'].join(''));
 		}
 
 		// Title text.
 		var title = options.title || null;
 		if (title) {
-			$titleBar.append(['<span class="text">', title, '</span>'].join(''));
+			$titleBar.append(['<div class="text">', title, '</div>'].join(''));
 		}
 
 		// Close icon.

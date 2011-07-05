@@ -14,24 +14,41 @@
  */
 
 .pkp_controllers_modal_titleBar {
-	height: 40px;
+    height: 48px;
 	width: 100%;
-	margin-bottom: 15px;
+	margin: 10px 0 10px 0;
 
 	.icon {
+	    width: 44px;
+	 	height: 44px;
 		float: left;
+		margin-left: 15px;
+		vertical-align: middle;
+		background-position: 0 50% !important;
+		background-repeat: no-repeat !important;
 	}
 
 	.text {
 		margin-left: 15px;
-		font-size: 1.4em;
-		color: #20538D;
-		vertical-align: middle;
+		line-height: 44px;
 		float: left;
+		vertical-align: middle;
 	}
 
 	.close {
-		vertical-align: middle;
 		float: right;
+		padding-right: 10px;
 	}
+}
+
+.modal-buttons {
+    margin: 0px 0px 15px 0px;
+	padding: 0px 20px 0px 20px;
+	overflow: hidden;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.ui-dialog .ui-tabs-panel {
+	padding: 0px;
 }

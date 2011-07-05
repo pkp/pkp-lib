@@ -56,6 +56,7 @@ class FormBuilderVocabulary {
 	function FormBuilderVocabulary($form = null) {
 		$this->_fbvStyles = array(
 			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM'),
+			'height' => array('SHORT' => 'SHORT', 'MEDIUM' => 'MEDIUM', 'TALL' => 'TALL')
 		);
 	}
 
@@ -680,6 +681,13 @@ class FormBuilderVocabulary {
 					switch($value) {
 						case 'SMALL': $classes[] = 'quarter'; break;
 						case 'MEDIUM': $classes[] = 'half'; break;
+					}
+					break;
+				case 'height':
+					switch($value) {
+						case 'SHORT': $classes[] = 'short'; break;
+						case 'MEDIUM': $classes[] = 'medium'; break;
+						case 'TALL': $classes[] = 'tall'; break;
 					}
 					break;
 				case 'inline':

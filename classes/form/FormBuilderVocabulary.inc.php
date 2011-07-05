@@ -420,7 +420,7 @@ class FormBuilderVocabulary {
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
 
 		$textAreaParams = '';
-		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value'));
+		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -428,6 +428,16 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'size': break;
+				case 'height':
+					$styles = $this->getStyles();
+					switch($params['height']) {
+						case $styles['height']['SHORT']: $smarty->assign('FBV_height', 'short'); break;
+						case $styles['height']['MEDIUM']: $smarty->assign('FBV_height', 'medium'); break;
+						case $styles['height']['TALL']: $smarty->assign('FBV_height', 'tall'); break;
+						default:
+							$smarty->trigger_error('FBV: invalid height specified for textarea.');
+					}
+					break;
 				case 'rich': break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
@@ -681,13 +691,6 @@ class FormBuilderVocabulary {
 					switch($value) {
 						case 'SMALL': $classes[] = 'quarter'; break;
 						case 'MEDIUM': $classes[] = 'half'; break;
-					}
-					break;
-				case 'height':
-					switch($value) {
-						case 'SHORT': $classes[] = 'short'; break;
-						case 'MEDIUM': $classes[] = 'medium'; break;
-						case 'TALL': $classes[] = 'tall'; break;
 					}
 					break;
 				case 'inline':

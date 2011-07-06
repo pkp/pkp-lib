@@ -36,10 +36,6 @@
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsors</message>
 
-	<!-- Masthead Grid -->
-	<message key="grid.masthead.title">Masthead</message>
-	<message key="grid.masthead.column.groups">Groups</message>
-
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributor</message>
 	<message key="grid.action.addAuthor">Add Author</message>

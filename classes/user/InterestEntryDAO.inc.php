@@ -33,6 +33,23 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	function getAdditionalFieldNames() {
 		return array('interest');
 	}
+
+	/**
+	 * Retrieve an iterator of controlled vocabulary entries matching a
+	 * particular controlled vocabulary ID.
+	 * @param $controlledVocabId int
+	 * @return object DAOResultFactory containing matching CVE objects
+	 */
+	function getByControlledVocabId($controlledVocabId, $rangeInfo = null) {
+		$result =& $this->retrieveRange(
+			'SELECT cve.* FROM controlled_vocab_entries cve, user_interests ui WHERE cve.controlled_vocab_id = ? AND ui.controlled_vocab_entry_id = cve.controlled_vocab_entry_id ORDER BY seq',
+			array((int) $controlledVocabId),
+			$rangeInfo
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow');
+		return $returner;
+	}
 }
 
 ?>

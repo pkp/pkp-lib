@@ -98,21 +98,45 @@ class InterestDAO extends ControlledVocabDAO {
 		$interestDao =& DAORegistry::getDAO('InterestDAO');
 		$interestEntryDao =& DAORegistry::getDAO('InterestEntryDAO');
 		$currentInterests = $this->build($userId);
+		$preservedInterests = array();
 
 		if ($deleteFirst) {
 			$existingEntries = $interestDao->enumerate($currentInterests->getId(), 'interest');
 
 			foreach ($existingEntries as $id => $entry) {
-				$interestEntryDao->deleteObjectById($id);
+				$entry = trim($entry);
+				$result =& $this->retrieve(
+					'SELECT user_id FROM user_interests WHERE controlled_vocab_entry_id = ?', array((int) $id)
+				);
+
+				// if the interest is only used by this user, delete it from the controlled_vocab_* tables as well.
+				if ($result->RecordCount() == 1) {
+					$interestEntryDao->deleteObjectById($id);
+				} else {
+					// preserve the interests that we did not delete, so we can skip the creation step below.
+					$preservedInterests[$entry] = $id;
+				}
 			}
+
+			// remove existing user_interests relationships - we re-assign them later.
+			$result =& $this->update('DELETE FROM user_interests WHERE user_id = ?', array((int) $userId));
 		}
 
 		$interests = array_unique($interests); // Remove any duplicate interests that weren't caught by the JS validator
 		foreach ($interests as $interest) {
-			$interestEntry = $interestEntryDao->newDataObject();
-			$interestEntry->setControlledVocabId($currentInterests->getId());
-			$interestEntry->setInterest($interest);
-			$interestEntryDao->insertObject($interestEntry);
+			// if this is not a preserved interest, create the c_v_e record and capture the id, else use the existing id in user_interests
+			if (!in_array($interest, array_keys($preservedInterests))) {
+				$interestEntry = $interestEntryDao->newDataObject();
+				$interestEntry->setControlledVocabId($currentInterests->getId());
+				$interestEntry->setInterest($interest);
+				$interestEntryId = $interestEntryDao->insertObject($interestEntry);
+			} else {
+				$interestEntryId = $preservedInterests[$interest];
+			}
+			$result =& $this->update(
+				'INSERT INTO user_interests (user_id, controlled_vocab_entry_id) VALUES (?, ?)',
+				array((int) $userId, (int) $interestEntryId)
+			);
 		}
 	}
 

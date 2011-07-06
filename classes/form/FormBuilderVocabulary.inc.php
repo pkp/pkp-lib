@@ -136,6 +136,7 @@ class FormBuilderVocabulary {
 			$class = $params['class'];
 
 			// Check if we are using the Form class and if there are any errors
+			$smarty->clear_assign(array('FBV_sectionErrors'));
 			if (isset($form) && !empty($form->formSectionErrors)) {
 				$class = $class . (empty($class) ? '' : ' ') . 'error';
 				$smarty->assign('FBV_sectionErrors', $form->formSectionErrors);
@@ -172,7 +173,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object
 	 */
-	function smartyFBVElement($params, &$smarty, $content = null) {
+	function smartyFBVElement($params, &$smarty, $content = null) {	
 		if (!isset($params['type'])) $smarty->trigger_error('FBV: Element type not set');
 		if (!isset($params['id'])) $smarty->trigger_error('FBV: Element ID not set');
 
@@ -185,7 +186,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_for', isset($params['for']) ? $params['for'] : null);
 
 		// Unset these parameters so they don't get assigned twice
-		unset($params['class'], $params['required']);
+		unset($params['class']);
 
 		// Find fields that the form class has marked as required and add the 'required' class to them
 		$params = $this->_addClientSideValidation($params);

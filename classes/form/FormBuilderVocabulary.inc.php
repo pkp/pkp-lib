@@ -718,9 +718,9 @@ class FormBuilderVocabulary {
 
 			$form =& $this->getForm();
 			if (isset($form) && isset($form->errorFields[$params['name']])) {
-				$smarty->assign('class', 'error ' . $params['class']);
+				$smarty->assign('FBV_class', 'error ' . $params['class']);
 			} else {
-				$smarty->assign('class', $params['class']);
+				$smarty->assign('FBV_class', $params['class']);
 			}
 
 			foreach ($params as $key => $value) {

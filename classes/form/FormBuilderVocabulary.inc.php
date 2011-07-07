@@ -30,11 +30,14 @@
  *   title (optional): Title of the area
  * Form submit/cancel buttons should be created with {fbvFormButtons}
  *  Parameters:
- *   $FBV_cancelText (optional): Text to display for the cancel link (default is 'Cancel')
- *   $FBV_submitText (optional): Text to display for the submit link (default is 'Ok')
- *   $FBV_submitDisabled (optional): Whether the submit button should be disabled
- *   $FBV_confirmSubmit (optional): Text to display in a confirmation dialog that must be okayed
+ *   id: The button container's ID
+ *   cancelText (optional): Text to display for the cancel link (default is 'Cancel')
+ *   submitText (optional): Text to display for the submit link (default is 'Ok')
+ *   submitDisabled (optional): Whether the submit button should be disabled
+ *   hideCancel (optional): Whether the submit button should be disabled
+ *   confirmSubmit (optional): Text to display in a confirmation dialog that must be okayed
  * 		before the form is submitted
+ * 	 confirmCancel (optional): Text to display in cancel button's confirmation dialog
  * Form elements are created with {fbvElement type="type"} plus any additional parameters.
  * Each specific element type may have other additional attributes (see their method comments)
  *  Parameters:
@@ -183,15 +186,17 @@ class FormBuilderVocabulary {
 	 * @param $repeat
 	 */
 	function smartyFBVFormButtons($params, &$smarty) {
-		if (!isset($params['id'])) $smarty->trigger_error('FBV: Form Button ID not set');
-		$smarty->assign('FBV_id', $params['id']);
-
+		// Submit button options.
 		$smarty->assign('FBV_submitText', isset($params['submitText']) ? $params['submitText'] : 'common.ok');
 		$smarty->assign('FBV_submitDisabled', isset($params['submitDisabled']) ? (boolean)$params['submitDisabled'] : false);
 		$smarty->assign('FBV_confirmSubmit', isset($params['confirmSubmit']) ? $params['confirmSubmit'] : null);
 
+		// Cancel button options.
 		$smarty->assign('FBV_cancelText', isset($params['cancelText']) ? $params['cancelText'] : 'common.cancel');
 		$smarty->assign('FBV_hideCancel', isset($params['hideCancel']) ? (boolean)$params['hideCancel'] : false);
+		$smarty->assign('FBV_confirmCancel', isset($params['confirmCancel']) ? $params['confirmCancel'] : null);
+		$smarty->assign('FBV_cancelAction', isset($params['cancelAction']) ? $params['cancelAction'] : null);
+		$smarty->assign('FBV_cancelUrl', isset($params['cancelUrl']) ? $params['cancelUrl'] : null);
 
 		return $smarty->fetch('form/formButtons.tpl');
 	}
@@ -201,7 +206,7 @@ class FormBuilderVocabulary {
 	 * @param $params array
 	 * @param $smarty object-
 	 */
-	function smartyFBVElement($params, &$smarty, $content = null) {	
+	function smartyFBVElement($params, &$smarty, $content = null) {
 		if (!isset($params['type'])) $smarty->trigger_error('FBV: Element type not set');
 		if (!isset($params['id'])) $smarty->trigger_error('FBV: Element ID not set');
 

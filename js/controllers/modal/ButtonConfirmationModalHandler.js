@@ -62,20 +62,6 @@
 	//
 	// Protected methods
 	//
-	/** @inheritDoc */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
-			checkOptions = function(options) {
-		// Check the mandatory options of the ModalHandler handler.
-		if (!this.parent('checkOptions', options)) {
-			return false;
-		}
-
-		// Check for our own mandatory options.
-		return typeof options.$button === 'object' &&
-				options.$button.jquery;
-	};
-
-
 	/**
 	 * Callback that clicks the handling element.
 	 * @protected

@@ -44,6 +44,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		if (options.submitHandler) {
 			this.callerSubmitHandler_ = options.submitHandler;
 		}
+
+		// Set the redirect-to URL for the cancel button (if there is one).
+		if (options.cancelRedirectUrl) {
+			this.cancelRedirectUrl_ = options.cancelRedirectUrl;
+		}
+
 		var validator = $form.validate({
 			errorClass: 'error',
 			highlight: function(element, errorClass) {
@@ -90,6 +96,13 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @type {Function}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
+
+	/**
+	 * If provided, the URL to redirect to when the cancel button is clicked
+	 * @private
+	 * @type {String}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.cancelRedirectUrl_ = null;
 
 
 	//

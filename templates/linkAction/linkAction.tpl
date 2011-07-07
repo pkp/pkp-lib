@@ -22,14 +22,7 @@
 	$(function() {ldelim}
 		$('#{$buttonId}').pkpHandler(
 			'$.pkp.controllers.linkAction.LinkActionHandler',
-			{ldelim}
-				{assign var="actionRequest" value=$action->getActionRequest()}
-				actionRequest: '{$actionRequest->getJSLinkActionRequest()}',
-				actionRequestOptions: {ldelim}
-					{foreach name=actionRequestOptions from=$actionRequest->getLocalizedOptions() key=optionName item=optionValue}
-						{if $optionValue}{$optionName}: '{$optionValue|escape:javascript}'{if !$smarty.foreach.actionRequestOptions.last},{/if}{/if}
-					{/foreach}
-				{rdelim},
-			{rdelim});
+				{include file="linkAction/linkActionOptions.tpl" action=$action}
+			);
 	{rdelim});
 </script>

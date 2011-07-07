@@ -8,7 +8,7 @@
  *}
 
 
-<div {if $FBV_id}id="{$FBV_id|escape}" {/if}class="{$FBV_class|escape} {$FBV_layoutInfo|escape}">
+<div {if $FBV_id}id="{$FBV_id|escape}" {/if}class="section {$FBV_class|escape} {$FBV_layoutInfo|escape}">
 	{if $FBV_label}<label>{translate key=$FBV_label|escape}</label>{/if}
 	{if $FBV_description}<span><label class="sub_label">{translate key=$FBV_description}</label></span>{/if}
 	{if $FBV_listSection}<ul class="checkbox_and_radiobutton">{/if}

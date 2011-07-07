@@ -155,6 +155,7 @@ class PKPTemplateManager extends Smarty {
 		$fbv =& $this->getFBV();
 		$this->register_block('fbvFormSection', array(&$fbv, 'smartyFBVFormSection'));
 		$this->register_block('fbvFormArea', array(&$fbv, 'smartyFBVFormArea'));
+		$this->register_function('fbvFormButtons', array(&$fbv, 'smartyFBVFormButtons'));
 		$this->register_function('fbvElement', array(&$fbv, 'smartyFBVElement'));
 		$this->assign('fbvStyles', $fbv->getStyles());
 

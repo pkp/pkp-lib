@@ -5,20 +5,19 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form button bar
- *
- * Parameters:
- *  submitText: The text to be displayed on the submit button.
- *  submitDisabled: Whether to disable the submit button.
  *}
 
-{if !$submitText}
-	{assign var="submitText" value="common.ok"}
-{/if}
-{if !$submitDisabled}
-	{assign var="submitDisabled" value=false}
-{/if}
+{fbvFormSection id=$FBV_id class="formButtons"}
+	{if !$FBV_hideCancel}
+		{fbvElement type="link" class="cancelFormButton" id="cancelFormButton" label=$FBV_cancelText}
+	{/if}
 
-{fbvFormSection}
-		{fbvElement type="link" id="cancelFormButton" label="common.cancel"}
-		{fbvElement type="submit" id="submitFormButton" label=$submitText disabled=$submitDisabled}
+	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}
+	{if $FBV_confirmSubmit}
+		{include file="linkAction/buttonConfirmationLinkAction.tpl"
+				 buttonSelector="#submitFormButton"
+				 dialogText="$FBV_confirmSubmit"}
+	{/if}
+	{fbvElement type="submit" class="submitFormButton" id="submitFormButton" label=$FBV_submitText disabled=$FBV_submitDisabled}
+	<div class="clear"></div>
 {/fbvFormSection}

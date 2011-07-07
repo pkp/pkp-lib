@@ -10,7 +10,7 @@
  * Parameters:
  *  buttonSelector: A jQuery selector that designates the button to attach this
  *   link action to.
- *  dialogText: A tranlation key for the message to be displayed in the dialog.
+ *  dialogText: A translation key for the message to be displayed in the dialog.
  *}
 
 <script type="text/javascript">

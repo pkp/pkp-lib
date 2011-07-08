@@ -30,7 +30,7 @@ class OAIConfig {
 	var $granularity = 'YYYY-MM-DDThh:mm:ssZ';
 
 	/** @var $tokenLifetime int TTL of resumption tokens */
-	var $tokenLifetime = 3600;
+	var $tokenLifetime = 86400;
 
 	/** @var $maxIdentifiers int maximum identifiers returned per request */
 	var $maxIdentifiers = 500;

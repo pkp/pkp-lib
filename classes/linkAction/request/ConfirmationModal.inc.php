@@ -8,16 +8,13 @@
  * @class ConfirmationModal
  * @ingroup linkAction_request
  *
- * @brief Class defining a simple confirmation modal.
+ * @brief Class defining a simple confirmation modal either with remote action or not.
  */
 
 
 import('lib.pkp.classes.linkAction.request.Modal');
 
 class ConfirmationModal extends Modal {
-	/** @var string A URL to be called when the confirmation button is clicked. */
-	var $_remoteAction;
-
 	/**
 	 * @var string A translation key defining the text for the confirmation
 	 * button of the modal.
@@ -52,10 +49,9 @@ class ConfirmationModal extends Modal {
 	 * @param $canClose boolean (optional) Whether the modal will
 	 *  have a close button.
 	 */
-	function ConfirmationModal($dialogText, $title = null, $remoteAction = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
+	function ConfirmationModal($dialogText, $title = null, $titleIcon = null, $okButton = null, $cancelButton = null, $canClose = true) {
 		parent::Modal($title, $titleIcon, $canClose);
 
-		$this->_remoteAction = $remoteAction;
 		$this->_okButton = (is_null($okButton) ? __('common.ok') : $okButton);
 		$this->_cancelButton = (is_null($cancelButton) ? __('common.cancel') : $cancelButton);
 		$this->_dialogText = $dialogText;
@@ -65,14 +61,6 @@ class ConfirmationModal extends Modal {
 	//
 	// Getters and Setters
 	//
-	/**
-	 * Get the remote action.
-	 * @return string
-	 */
-	function getRemoteAction() {
-		return $this->_remoteAction;
-	}
-
 	/**
 	 * Get the translation key for the confirmation
 	 * button text.
@@ -109,8 +97,7 @@ class ConfirmationModal extends Modal {
 	 */
 	function getLocalizedOptions() {
 		return array_merge(parent::getLocalizedOptions(), array(
-				'modalHandler' => '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler',
-				'remoteAction' => $this->getRemoteAction(),
+				'modalHandler' => '$.pkp.controllers.modal.ConfirmationModalHandler',
 				'okButton' => $this->getOkButton(),
 				'cancelButton' => $this->getCancelButton(),
 				'dialogText' => $this->getDialogText()));

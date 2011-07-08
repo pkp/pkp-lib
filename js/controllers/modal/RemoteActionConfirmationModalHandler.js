@@ -70,7 +70,9 @@
 		}
 
 		// Check for our own mandatory options.
-		return typeof options.remoteAction === 'string';
+		// The cancel button is mandatory for remote action confirmation modals.
+		return 	typeof options.cancelButton === 'string' &&
+				typeof options.remoteAction === 'string';
 	};
 
 

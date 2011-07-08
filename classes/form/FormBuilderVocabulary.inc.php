@@ -426,6 +426,7 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'size': break;
+				case 'inline': break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -462,6 +463,7 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'type': break;
 				case 'size': break;
+				case 'inline': break;
 				case 'height':
 					$styles = $this->getStyles();
 					switch($params['height']) {
@@ -541,6 +543,7 @@ class FormBuilderVocabulary {
 				case 'defaultValue': $smarty->assign('FBV_defaultValue', $value); break;
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
 				case 'type': break;
+				case 'inline': break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';

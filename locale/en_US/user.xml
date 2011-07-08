@@ -23,7 +23,7 @@
 	<message key="user.authorization.restrictedSiteAccess">You have been denied access. Access to this site is currently restricted.</message>
 	<message key="user.authorization.roleBasedAccessDenied">The current role does not have access to this operation.</message>
 	<message key="user.authorization.userGroupRequired">You have to set a valid user group to access this operation.</message>
-	<message key="user.biography">Bio statement</message>
+	<message key="user.biography">Bio Statement</message>
 	<message key="user.biography.description">(E.g., department and rank)</message>
 	<message key="user.changeMyPassword">Change My Password</message>
 	<message key="user.changePassword">Change Password</message>
@@ -34,7 +34,7 @@
 	<message key="user.confirmEmail">Confirm Email</message>
 	<message key="user.fax">Fax</message>
 	<message key="user.feminine">F</message>
-	<message key="user.firstName">First name</message>
+	<message key="user.firstName">First Name</message>
 	<message key="user.gender">Gender</message>
 	<message key="user.initialsExample">Joan Alice Smith = JAS</message>
 	<message key="user.initials">Initials</message>
@@ -42,7 +42,7 @@
 	<message key="user.interests.description">(Separate interests by pressing the enter or comma key)</message>
 	<message key="user.gossip">Private Notes</message>
 	<message key="user.group">User Group</message>
-	<message key="user.lastName">Last name</message>
+	<message key="user.lastName">Last Name</message>
 	<message key="user.profile.form.profileImageInvalid">Invalid profile image format or image too big. Accepted formats are .gif, .jpg, or .png, and the image must not exceed 150x150 pixels.</message>
 	<message key="user.login.accountDisabledWithReason">Your account has been disabled for the following reason: {$reason}</message>
 	<message key="user.login.accountDisabled">Your account has been disabled. Please contact the administrator for more information.</message>
@@ -52,8 +52,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></message>
 	<message key="user.login.forgotPassword">Forgot your password?</message>
 	<message key="user.login.loginError">Invalid username or password. Please try again.</message>
-	<message key="user.login">Log In</message>
-	<message key="user.logIn">Log In</message>
+	<message key="user.logIn">Login</message>
 	<message key="user.login.lostPassword.confirmationSent">A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</message>
 	<message key="user.login.lostPassword.invalidHash">Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</message>
 	<message key="user.login.lostPassword.invalidUser">No user exists with the specified email address.</message>
@@ -62,9 +61,9 @@
 	<message key="user.login.rememberUsernameAndPassword">Remember my username and password</message>
 	<message key="user.login.resetPassword">Reset Password</message>
 	<message key="user.logOut">Log Out</message>
-	<message key="user.mailingAddress">Mailing address</message>
+	<message key="user.mailingAddress">Mailing Address</message>
 	<message key="user.masculine">M</message>
-	<message key="user.middleName">Middle name</message>
+	<message key="user.middleName">Middle Name</message>
 	<message key="user.myAccount">My Account</message>
 	<message key="user.name">Name</message>
 	<message key="user.other">Other</message>
@@ -116,6 +115,6 @@
 	<message key="user.url">URL</message>
 	<message key="user.userHome">User Home</message>
 	<message key="user.username">Username</message>
-	<message key="user.workingLanguages">Working languages</message>
+	<message key="user.workingLanguages">Working Languages</message>
 	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
 </locale>

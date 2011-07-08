@@ -109,9 +109,9 @@
 	<message key="common.fullscreenOff">Fullscreen Off</message>
 	<message key="common.false">False</message>
 	<message key="common.file">File</message>
-	<message key="common.fileName">File name</message>
-	<message key="common.fileSize">File size</message>
-	<message key="common.fileType">File type</message>
+	<message key="common.fileName">File Name</message>
+	<message key="common.fileSize">File Size</message>
+	<message key="common.fileType">File Type</message>
 	<message key="common.height">Height</message>
 	<message key="common.homePageHeaderLogo.altText">Homepage Header Logo</message>
 	<message key="common.hour">Hour</message>

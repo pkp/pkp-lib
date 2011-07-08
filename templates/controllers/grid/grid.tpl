@@ -32,10 +32,12 @@
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
 	{$gridFilterForm}
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
-		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
-		{/if}
-		{if !$grid->getIsSubcomponent()}<h3>{$grid->getTitle()|translate}</h3>{/if}
+		<div class="header">
+			{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
+				{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
+			{/if}
+			{if !$grid->getIsSubcomponent()}<span class="h3 no_border float_left">{$grid->getTitle()|translate}</span>{/if}
+		</div>
 		{translate key=$grid->getInstructions()}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
@@ -47,6 +49,7 @@
 					{foreach name=columns from=$columns item=column}
 						<th scope="col">
 							{$column->getLocalizedTitle()}
+							{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
 								<span class="options pkp_linkActions">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}

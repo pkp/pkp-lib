@@ -181,8 +181,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function &getLatestNewRevisionsByReviewRound($submissionId, $reviewType, $round) {
 		if (!($reviewType && $round)) {
-			$nullVar = null;
-			return $nullVar;
+			$emptyArray = array();
+			return $emptyArray;
 		}
 		return $this->_getInternally($submissionId, null, null, null, null, null, $reviewType, $round, true);
 	}
@@ -698,6 +698,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 			// Instantiate the file and add it to the
 			// result array with a unique key.
+			// FIXME: #6748# there is a missing parameter $fileImplementation in fromRow
 			$submissionFiles[$idAndRevision] =& $this->fromRow($row);
 
 			// Move the query cursor to the next record.

@@ -172,12 +172,14 @@
 		position: absolute;
 		z-index: 100;
 		width: 97.3%; /* should be set in javascript */
+		display: none;
 	}
 
 	label.locale {
 		font-size: 1px;
 		text-indent: -9999px;
 	}
+
 
 	/*
 	input.flag
@@ -269,27 +271,4 @@
 		}
 	}
 
-	.pkp_form_localization_container {
-		background-color: #fff;
-		padding: 5px;
-
-		.pkp_form_localization_container_focus {
-			background-color: #ddd !important;
-		}
-
-		.pkp_form_localization_popover {
-			margin:2em;
-			margin-left: -5px;
-			position:absolute;
-			z-index: 10001;
-			background-color: #ddd;
-			display: none;
-		}
-
-		label.multilingual_extra_label {
-			text-indent: -9999px;
-			margin: 0;
-			padding: 0;
-		}
-	}
 }

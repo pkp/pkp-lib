@@ -163,12 +163,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Get the localization container for this element
 		var $n = $(multilingualInput)
-				.parents('.pkp_form_localization_container')
+				.parents('.localization_popover_container')
 				.first();
 
 		// Show the popover
-		$n.find('.pkp_form_localization_popover').show();
-		$n.addClass('pkp_form_localization_container_focus');
+		$n.find('.localization_popover').show();
+		$n.addClass('localization_popover_container_focus');
 	};
 
 
@@ -184,12 +184,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			function(multilingualInput, event) {
 
 		var $n = $(multilingualInput)
-				.parents('.pkp_form_localization_container')
+				.parents('.localization_popover_container')
 				.first();
 
 		// Show the popover
-		$n.find('.pkp_form_localization_popover').hide();
-		$n.removeClass('pkp_form_localization_container_focus');
+		$n.find('.localization_popover').hide();
+		$n.removeClass('localization_popover_container_focus');
 	};
 
 

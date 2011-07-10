@@ -58,7 +58,7 @@
 		<field name="date_rated" type="T"/>
 		<field name="date_reminded" type="T"/>
 		<field name="quality" type="I1"/>
-		<field name="review_type" type="I1">
+		<field name="stage_id" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>
 		</field>
@@ -96,7 +96,7 @@
 		<field name="submission_id" type="I8">
 			<NOTNULL />
 		</field>
-		<field name="review_type" type="I8" />
+		<field name="stage_id" type="I8" />
 		<field name="round" type="I1">
 			<NOTNULL />
 		</field>
@@ -108,8 +108,8 @@
 		</index>
 		<index name="review_rounds_pkey">
 			<col>submission_id</col>
+			<col>stage_id</col>
 			<col>round</col>
-			<col>review_type</col>
 			<UNIQUE/>
 		</index>
 	</table>

@@ -149,16 +149,16 @@ class PKPReviewAssignment extends DataObject {
 	 * Get the type of the review.
 	 * @return int
 	 */
-	function getReviewType() {
-		return $this->getData('reviewType');
+	function getStageId() {
+		return $this->getData('stageId');
 	}
 
 	/**
 	 * Set the type of review.
 	 * @param $type int
 	 */
-	function setReviewType($type) {
-		return $this->setData('reviewType', $type);
+	function setStageId($type) {
+		return $this->setData('stageId', $type);
 	}
 
 	/**

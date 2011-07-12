@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Additionele talen</message>
 	<message key="installer.administratorAccount">Beheerdersaccount</message>
 	<message key="installer.administratorAccountInstructions">Deze gebruiker wordt de sitebeheerder en heeft volledige toegang tot het systeem. Additionele gebruikersaccounts kunnen na installatie aangemaakt worden.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NEE</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NEE</span>]]></message>
 	<message key="installer.checkYes">Ja</message>
 	<message key="installer.clientCharset">Browser karakterset</message>
 	<message key="installer.clientCharsetInstructions">De codering die gebruikt moet worden voor de gegevens die verzonden worden naar en ontvangen worden van browsers.</message>

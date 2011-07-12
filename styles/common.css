@@ -345,19 +345,19 @@ span.nested {
  * Form-specific elements
  */
 
-span.pkp_controllers_form_error { /* Named for compatibility with new lessphp structure */
+span.pkp_form_error { /* Named for compatibility with new lessphp structure */
 	color: #900;
 	font-weight: bold;
 	font-size: 1em;
 }
 
-span.pkp_controllers_form_success { /* Named for compatibility with new lessphp structure */
+span.pkp_form_success { /* Named for compatibility with new lessphp structure */
 	color: #090;
 	font-weight: bold;
 	font-size: 1em;
 }
 
-ul.pkp_controllers_form_error_list { /* Named for compatibility with new lessphp structure */
+ul.pkp_form_error_list { /* Named for compatibility with new lessphp structure */
 	color: #900;
 }
 

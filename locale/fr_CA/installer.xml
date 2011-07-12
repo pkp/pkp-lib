@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Langues supplémentaires</message>
 	<message key="installer.administratorAccount">Compte administrateur</message>
 	<message key="installer.administratorAccountInstructions">Ce compte utilisateur deviendra l'administrateur du site et aura le plein accès à tout le système. D'autres comptes utilisateurs peuvent être créés après l'installation.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NON</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NON</span>]]></message>
 	<message key="installer.checkYes">Oui</message>
 	<message key="installer.clientCharset">Jeu de caractères du client</message>
 	<message key="installer.clientCharsetInstructions">L'encodage à utiliser pour les données envoyées et reçues des navigateurs.</message>

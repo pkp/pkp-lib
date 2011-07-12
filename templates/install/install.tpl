@@ -49,8 +49,8 @@ function doSubmit() {
 
 {if $isInstallError}
 <p>
-	<span class="pkp_controllers_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-	<ul class="pkp_controllers_form_error_list">
+	<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
+	<ul class="pkp_form_error_list">
 		<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
 	</ul>
 </p>
@@ -78,14 +78,14 @@ function doSubmit() {
 			{foreach from=$localeOptions key=localeKey item=localeName}
 				<input type="checkbox" name="additionalLocales[]" id="additionalLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if in_array($localeKey, $additionalLocales)} checked="checked"{/if} /> <label for="additionalLocales-{$localeKey|escape}">{$localeName|escape} ({$localeKey|escape})</label>
 				{if !$localesComplete[$localeKey]}
-					<span class="pkp_controllers_form_error">*</span>
+					<span class="pkp_form_error">*</span>
 					{assign var=incompleteLocaleFound value=1}
 				{/if}<br />
 			{/foreach}
 			<span class="instruct">{translate key="installer.additionalLocalesInstructions"}</span>
 			{if $incompleteLocaleFound}
 				<br/>
-				<span class="pkp_controllers_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
+				<span class="pkp_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
 			{/if}{* $incompleteLocaleFound *}
 		</td>
 	</tr>

@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Πρόσθετες τοπικές ρυθμίσεις</message>
 	<message key="installer.administratorAccount">Λογαριασμός διαχειριστή</message>
 	<message key="installer.administratorAccountInstructions">Ο συγκεκριμένος λογαριασμός χρήστη θα αποτελεί τον διαχειριστή του ιστοτόπου και θα έχει πλήρη πρόσβαση στο σύστημα. Πρόσθετοι λογαριασμοί χρηστών μπορούν να δημιουργηθούν μετά από την εγκατάσταση.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">Όχι</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">Όχι</span>]]></message>
 	<message key="installer.checkYes">Ναι</message>
 	<message key="installer.clientCharset">Client character set</message>
 	<message key="installer.clientCharsetInstructions">Κωδικοποίηση για τα δεδομένα που αποστέλλονται και λαμβάνονται από προγράμματα φυλλομέτρησης.</message>

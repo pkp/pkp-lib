@@ -30,14 +30,15 @@
  *   title (optional): Title of the area
  * Form submit/cancel buttons should be created with {fbvFormButtons}
  *  Parameters:
- *   id: The button container's ID
- *   cancelText (optional): Text to display for the cancel link (default is 'Cancel')
  *   submitText (optional): Text to display for the submit link (default is 'Ok')
  *   submitDisabled (optional): Whether the submit button should be disabled
- *   hideCancel (optional): Whether the submit button should be disabled
  *   confirmSubmit (optional): Text to display in a confirmation dialog that must be okayed
  * 		before the form is submitted
+ *   cancelText (optional): Text to display for the cancel link (default is 'Cancel')
+ *   hideCancel (optional): Whether the submit button should be disabled
  * 	 confirmCancel (optional): Text to display in cancel button's confirmation dialog
+ *   cancelAction (optional): A LinkAction object to execute when cancel is clicked
+ *   cancelUrl (optional): URL to redirect to when cancel is clicked
  * Form elements are created with {fbvElement type="type"} plus any additional parameters.
  * Each specific element type may have other additional attributes (see their method comments)
  *  Parameters:

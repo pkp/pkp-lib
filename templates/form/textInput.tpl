@@ -10,7 +10,7 @@
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual}
 	{* This is a multilingual control. Enable popover display. *}
-	<span class="pkp_controllers_form_localization_container">
+	<span class="pkp_form_localization_container">
 		{strip}
 		<input	type="{if $FBV_isPassword}password{else}text{/if}"
 			{$FBV_textInputParams}
@@ -25,7 +25,7 @@
 		{$FBV_label_content}
 
 		<span>
-			<div class="pkp_controllers_form_localization_popover">
+			<div class="pkp_form_localization_popover">
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
 					{strip}
 					<input	type="{if $FBV_isPassword}password{else}text{/if}"

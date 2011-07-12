@@ -494,7 +494,7 @@
 
 						// Remove warning about unsaved data.
 						$('li.unsaved-data-warning').remove();
-						if($('#citationFormMessages .pkp_controllers_form_error_list').children().length === 0) {ldelim}
+						if($('#citationFormMessages .pkp_form_error_list').children().length === 0) {ldelim}
 							$('#citationFormMessages').remove();
 						{rdelim}
 
@@ -547,15 +547,15 @@
 							if ($('#citationFormMessages').length == 0) {ldelim}
 								var formErrorHtml =
 									'<div id="citationFormMessages" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}" class="help-message">'+
-									'    <div id="pkp_controllers_form_errors">'+
-									'        <p><span class="pkp_controllers_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
-									'        <ul class="pkp_controllers_form_error_list"></ul>'+
+									'    <div id="pkp_form_errors">'+
+									'        <p><span class="pkp_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
+									'        <ul class="pkp_form_error_list"></ul>'+
 									'    </div>'+
 									'</div>';
 								$('#citationFormErrorsAndComparison').prepend(formErrorHtml);
 							{rdelim}
 							var messageHtml = '<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.dataSaved"}</li>';
-							$('#formErrors .pkp_controllers_form_error_list').append(messageHtml);
+							$('#formErrors .pkp_form_error_list').append(messageHtml);
 						{rdelim}
 
 

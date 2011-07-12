@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Flere lokalinnstillinger</message>
 	<message key="installer.administratorAccount">Administratorkonto</message>
 	<message key="installer.administratorAccountInstructions">Denne brukerkontoen kommer til å bli nettstedsadministrator, vil ha full tilgang til systemet. Flere brukerkontoer kan opprettes etter installasjon.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NEI</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NEI</span>]]></message>
 	<message key="installer.checkYes">Ja</message>
 	<message key="installer.clientCharset">Tegnsett for klienten</message>
 	<message key="installer.clientCharsetInstructions">Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere.</message>

@@ -504,7 +504,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// In principle we should use a template here but this seems exaggerated
 		// for such a small message.
 		$json = new JSONMessage(true,
-			'<div id="authorQueryResult"><span class="pkp_controllers_form_error">'
+			'<div id="authorQueryResult"><span class="pkp_form_error">'
 			.Locale::translate('submission.citations.editor.details.sendAuthorQuerySuccess')
 			.'</span></div>');
 		return $json->getString();

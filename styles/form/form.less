@@ -25,7 +25,7 @@
 
 	legend {
 		font-size: 110%;
-		padding: 10px 0px 10px 0px;
+		padding: 10px 0 10px 0;
 	}
 
 	div.section {
@@ -37,7 +37,7 @@
 	label {
 		display: block;
 		font-weight: bold;
-		padding: 3px 0px 3px 0px;
+		padding: 3px 0 3px 0;
 	}
 
 
@@ -45,11 +45,27 @@
 		color: #900;
 	}
 
+	span.pkp_form_error {
+		color: #900;
+		font-weight: bold;
+		font-size: 1em;
+	}
+
+ 	.pkp_form_error_list a {
+ 		color: #900;
+ 	}
+
+ 	span.pkp_form_success {
+ 		color: #090;
+ 		font-weight: bold;
+ 		font-size: 1em;
+ 	}
+		
 	span label.sub_label {
 		font-size: 80%;
 		color: #999;
 		font-weight: normal;
-		padding: 2px 0px 4px 0px;
+		padding: 2px 0 4px 0;
 	}
 
 	input, textarea, select {
@@ -97,13 +113,14 @@
 		float: left;
 		clear: none !important;
 		margin-right: 2%;
-		margin-bottom: 0px;
+		margin-bottom: 0;
 	}
 
 	ul.checkbox_and_radiobutton
 	{
-		margin-bottom: 0px;
-		padding-bottom: 0px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		padding-left: 0;
 	}
 
 	.checkbox_and_radiobutton li {
@@ -121,7 +138,7 @@
 		height: 13px;
 	}
 
-	.checkbox_and_radiobutton label {
+	.checkbox_and_radiobutton li label {
 		line-height: 150%;
 		margin: -17px 0 0 20px;
 		padding: 0 0 5px 0;
@@ -249,6 +266,30 @@
 		}
 		div.clear {
 			clear: both;
+		}
+	}
+
+	.pkp_form_localization_container {
+		background-color: #fff;
+		padding: 5px;
+
+		.pkp_form_localization_container_focus {
+			background-color: #ddd !important;
+		}
+
+		.pkp_form_localization_popover {
+			margin:2em;
+			margin-left: -5px;
+			position:absolute;
+			z-index: 10001;
+			background-color: #ddd;
+			display: none;
+		}
+
+		label.multilingual_extra_label {
+			text-indent: -9999px;
+			margin: 0;
+			padding: 0;
 		}
 	}
 }

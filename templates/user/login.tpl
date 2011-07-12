@@ -25,16 +25,16 @@
 	<br />
 {/if}
 
-{if $error}
-	<span class="pkp_controllers_form_error">{translate key="$error" reason=$reason}</span>
-	<br />
-	<br />
-{/if}
-
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
 	<form class="pkp_form" id="signinForm" method="post" action="{$loginUrl}">
+{/if}
+
+{if $error}
+	<span class="pkp_form_error">{translate key="$error" reason=$reason}</span>
+	<br />
+	<br />
 {/if}
 
 <input type="hidden" name="source" value="{$source|escape}" />

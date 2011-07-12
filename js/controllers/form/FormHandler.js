@@ -66,7 +66,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		$('#cancelFormButton', $form).click(this.callbackWrapper(this.cancelForm));
 
 		// Root node(s) to work with
-		var $n = $('.pkp_controllers_form');
+		var $n = $('.pkp_form');
 
 		// Attach focus/unfocus handlers to multilingual elements
 		$n.find('.multilingual_primary', $form).focus(
@@ -162,12 +162,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Get the localization container for this element
 		var $n = $(multilingualInput)
-				.parents('.pkp_controllers_form_localization_container')
+				.parents('.pkp_form_localization_container')
 				.first();
 
 		// Show the popover
-		$n.find('.pkp_controllers_form_localization_popover').show();
-		$n.addClass('pkp_controllers_form_localization_container_focus');
+		$n.find('.pkp_form_localization_popover').show();
+		$n.addClass('pkp_form_localization_container_focus');
 	};
 
 
@@ -183,12 +183,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			function(multilingualInput, event) {
 
 		var $n = $(multilingualInput)
-				.parents('.pkp_controllers_form_localization_container')
+				.parents('.pkp_form_localization_container')
 				.first();
 
 		// Show the popover
-		$n.find('.pkp_controllers_form_localization_popover').hide();
-		$n.removeClass('pkp_controllers_form_localization_container_focus');
+		$n.find('.pkp_form_localization_popover').hide();
+		$n.removeClass('pkp_form_localization_container_focus');
 	};
 
 

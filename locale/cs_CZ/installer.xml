@@ -15,7 +15,7 @@
 	<message key="installer.additionalLocales">Doplňkové lokalizace</message>
 	<message key="installer.administratorAccount">Účet administrátora</message>
 	<message key="installer.administratorAccountInstructions">Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci.</message>
-	<message key="installer.checkNo"><![CDATA[<span class="pkp_controllers_form_error formError">NE</span>]]></message>
+	<message key="installer.checkNo"><![CDATA[<span class="pkp_form_error formError">NE</span>]]></message>
 	<message key="installer.checkYes">Ano</message>
 	<message key="installer.clientCharset">Znaková sada klienta</message>
 	<message key="installer.clientCharsetInstructions">Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů.</message>

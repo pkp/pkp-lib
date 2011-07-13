@@ -12,8 +12,13 @@
 	{assign var=rowId value=""}
 {/if}
 <tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
-	{foreach from=$cells item=cell}
-		<td>{$cell}</td>
+	{foreach name=columnLoop from=$columns key=columnId item=column}
+		{if $column->hasFlag('alignment')}
+			{assign var=alignment value=$column->getFlag('alignment')}
+		{else}
+			{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+		{/if}
+		<td style="text-align: {$alignment}">{$cells[$smarty.foreach.columnLoop.index]}</td>
 	{/foreach}
 </tr>
 

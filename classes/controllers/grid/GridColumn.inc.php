@@ -15,6 +15,9 @@
  *  specific configuration (e.g. column title).
  */
 
+define('COLUMN_ALIGNMENT_LEFT', 'left');
+define('COLUMN_ALIGNMENT_CENTER', 'center');
+define('COLUMN_ALIGNMENT_RIGHT', 'right');
 
 class GridColumn {
 	/** @var string the column id */

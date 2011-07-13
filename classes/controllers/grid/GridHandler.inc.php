@@ -344,6 +344,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign('gridFilterForm', $renderedFilter);
 
 		// Add columns to the view.
+		$this->_fixColumnWidths();
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 
@@ -697,6 +698,39 @@ class GridHandler extends PKPHandler {
 		// Otherwise, Get the cell content
 		$cellProvider =& $column->getCellProvider();
 		return $cellProvider->render($request, $row, $column);
+	}
+
+	/**
+	 * Method that grabs all the existing columns and makes sure the column widths add to exactly 100
+	 * N.B. We do some extra column fetching because PHP makes copies of arrays with foreach.
+	 */
+	function _fixColumnWidths() {
+		$columns =& $this->getColumns();
+		$width = 0;
+		$noSpecifiedWidthCount = 0;
+		// Find the total width and how many columns do not specify their width.
+		foreach ($columns as $column) {
+			if ($column->hasFlag('width')) {
+				$width += $column->getFlag('width');
+			} else {
+				$noSpecifiedWidthCount++;
+			}
+		}
+
+		// Four cases: we have to add or remove some width, and either we have wiggle room or not.
+		// We will try just correcting the first case, width less than 100 and some unspecified columns to add it to.
+		if ($width < 100) {
+			if ($noSpecifiedWidthCount > 0) {
+				// We need to add width to columns that did not specify it.
+				foreach ($columns as $column) {
+					if (!$column->hasFlag('width')) {
+						$modifyColumn =& $this->getColumn($column->getId());
+						$modifyColumn->addFlag('width', round((100 - $width)/$noSpecifiedWidthCount));
+						unset($modifyColumn);
+					}
+				}
+			}
+		}
 	}
 }
 ?>

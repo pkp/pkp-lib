@@ -47,7 +47,12 @@
 				{** build the column headers **}
 				<tr>
 					{foreach name=columns from=$columns item=column}
-						<th scope="col">
+						{if $column->hasFlag('alignment')}
+							{assign var=alignment value=$column->getFlag('alignment')}
+						{else}
+							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+						{/if}
+						<th scope="col" style="text-align: {$alignment};{if $column->hasFlag('width')} width: {$column->getFlag('width')}%"{/if}">
 							{$column->getLocalizedTitle()}
 							{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}

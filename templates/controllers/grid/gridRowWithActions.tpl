@@ -47,7 +47,12 @@
 				</div>
 			</td>
 		{else}
-			<td>{$cells[$smarty.foreach.columnLoop.index]}</td>
+			{if $column->hasFlag('alignment')}
+				{assign var=alignment value=$column->getFlag('alignment')}
+			{else}
+				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
+			{/if}
+			<td style="text-align: {$alignment}">{$cells[$smarty.foreach.columnLoop.index]}</td>
 		{/if}
 	{/foreach}
 </tr>

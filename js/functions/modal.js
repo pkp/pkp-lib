@@ -211,9 +211,6 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
 			function(jsonData) {
 				// Trigger stop event.
 				$(actOnId).triggerHandler('actionStop');
-				if(jsonData.isScript == true) {
-					eval(jsonData.script);
-				}
 				if (jsonData.status == true) {
 					var $updatedElement = updateItem(actType, actOnId, jsonData.content);
 					if (typeof($formContainer.dialog) == 'function') {

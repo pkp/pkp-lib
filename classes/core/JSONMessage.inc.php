@@ -21,9 +21,6 @@ class JSONMessage {
 	/** @var Mixed The message to be delivered back to the calling script. */
 	var $_content;
 
-	/** @var string Whether the content is javascript that should be executed. */
-	var $_isScript;
-
 	/** @var string ID for DOM element that will be replaced. */
 	var $_elementId;
 
@@ -40,15 +37,13 @@ class JSONMessage {
 	 * Constructor.
 	 * @param $status boolean The status of an event (e.g. false if form validation fails).
 	 * @param $content Mixed The message to be delivered back to the calling script.
-	 * @param $isScript boolean Whether the JSON returns a script. FIXME: see #6375 - scripts in JSON are evil.
 	 * @param $elementId string The DOM element to be replaced.
 	 * @param $additionalAttributes array Additional data to be returned.
 	 */
-	function JSONMessage($status = true, $content = '', $isScript = false, $elementId = '0', $additionalAttributes = null) {
+	function JSONMessage($status = true, $content = '', $elementId = '0', $additionalAttributes = null) {
 		// Set internal state.
 		$this->setStatus($status);
 		$this->setContent($content);
-		$this->setIsScript($isScript);
 		$this->setElementId($elementId);
 		if (isset($additionalAttributes)) {
 			$this->setAdditionalAttributes($additionalAttributes);
@@ -86,23 +81,6 @@ class JSONMessage {
 	 */
 	function setContent($content) {
 		$this->_content = $content;
-	}
-
-	/**
-	* Get the isScript string
-	* @return string
-	*/
-	function getIsScript() {
-		return $this->_isScript;
-	}
-
-	/**
-	 * Set the isScript string
-	 * @param $isScript string
-	 */
-	function setIsScript($isScript) {
-		assert(is_bool($isScript));
-		$this->_isScript = $isScript;
 	}
 
 	/**
@@ -181,7 +159,6 @@ class JSONMessage {
 		$jsonObject = array(
 			'status' => $this->getStatus(),
 			'content' => $this->getContent(),
-			'isScript' => $this->getIsScript(),
 			'elementId' => $this->getElementId()
 		);
 		if(is_array($this->getAdditionalAttributes())) {

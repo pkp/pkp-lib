@@ -26,8 +26,7 @@ class JSONTest extends PKPTestCase {
 		$testObject->someInt = 5;
 		$testObject->someFloat = 5.5;
 		$json = new JSONMessage($status = true, $content = 'test content',
-				$isScript = false, $elementId = '0',
-				$additionalAttributes = array('testObj' => $testObject));
+				$elementId = '0', $additionalAttributes = array('testObj' => $testObject));
 		$json->setEvent('someEvent', array('eventDataKey' => array('item1', 'item2')));
 
 		// Render the JSON message.

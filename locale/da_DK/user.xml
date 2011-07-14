@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Har du glemt din adgangskode?</message>
 	<message key="user.login.loginError">Ugyldigt brugernavn eller ugyldig adgangskode. Forsøg igen.</message>
 	<message key="user.login">Log på</message>
-	<message key="user.logIn">Log på</message>
 	<message key="user.login.lostPassword.confirmationSent">Der er sendt en bekræftelse til din e-mail-adresse. Følg instruktionerne i e-mailen for at nulstille din adgangskode.</message>
 	<message key="user.login.lostPassword.invalidHash">Det link, du har klikket på, er udløbet eller er ikke gyldigt. Forsøg at nulstille din adgangskode igen.</message>
 	<message key="user.login.lostPassword.invalidUser">Der findes ingen brugere med den angivne e-mail-adresse.</message>

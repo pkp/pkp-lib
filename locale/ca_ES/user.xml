@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Heu oblidat la contrasenya?</message>
 	<message key="user.login.loginError">El nom d’usuari o la contrasenya no són vàlids. Torneu-ho a intentar.</message>
 	<message key="user.login">Inici de la sessió</message>
-	<message key="user.logIn">Inicia la sessió</message>
 	<message key="user.login.lostPassword.confirmationSent">S’ha enviat una confirmació a la vostra adreça electrònica. Seguiu les instruccions incloses en el missatge enviat per a reinicialitzar la vostra contrasenya.</message>
 	<message key="user.login.lostPassword.invalidHash">Ho sentim, l’enllaç al qual heu fet clic ha vençut o no és vàlid. Intenteu reinicialitzar la contrasenya una altra vegada.</message>
 	<message key="user.login.lostPassword.invalidUser">No existeix cap usuari/usuària amb l’adreça electrònica especificada.</message>

@@ -40,7 +40,6 @@
 	<message key="user.login.forgotPassword">Esqueceu a senha?</message>
 	<message key="user.login.loginError">Login e/ou senha inválido(s). Tente novamente.</message>
 	<message key="user.login">Acesso</message>
-	<message key="user.logIn">Entrar</message>
 	<message key="user.login.lostPassword.confirmationSent">Um e-mail de confirmação foi enviado. Siga as instruções para criar uma nova senha.</message>
 	<message key="user.login.lostPassword.invalidHash">O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente.</message>
 	<message key="user.login.lostPassword.invalidUser">Nenhum usuário cadastrado com o e-mail especificado.</message>

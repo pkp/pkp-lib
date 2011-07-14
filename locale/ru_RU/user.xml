@@ -40,7 +40,6 @@
 	<message key="user.login.forgotPassword">Забыли Ваш пароль?</message>
 	<message key="user.login.loginError">Неправильный логин.</message>
 	<message key="user.login">Вход</message>
-	<message key="user.logIn">Войти</message>
 	<message key="user.login.lostPassword.confirmationSent">На Ваш адрес отправлено требование о верификации. Следуйте инструкциям, чтобы получить новый пароль.</message>
 	<message key="user.login.lostPassword.invalidHash">Недействительный линк. Пожалуйста, затребуйте снова Ваш пароль.</message>
 	<message key="user.login.lostPassword.invalidUser">Нет пользователя с таким адресом.</message>

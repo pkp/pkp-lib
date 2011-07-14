@@ -38,8 +38,7 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Debe elegir una nueva contraseña antes de entrar en el sitio.<br /><br />Por favor, introduzca a continuación su nombre de usuaria/o y su contraseña actual y nueva para cambiar la contraseña de su cuenta.]]></message>
 	<message key="user.login.forgotPassword">¿Ha olvidado su contraseña?</message>
 	<message key="user.login.loginError">Nombre de usuaria/o o contraseña no válida. Inténtelo de nuevo.</message>
-	<message key="user.login">Login</message>
-	<message key="user.logIn">Entrar</message>
+	<message key="user.login">Entrar</message>
 	<message key="user.login.lostPassword.confirmationSent">Se le ha enviado una confirmación por correo-e. Siga las instrucciones para cambiar su contraseña.</message>
 	<message key="user.login.lostPassword.invalidHash">Lo sentimos, el enlace ha caducado o no es válido. Intente cambiar su contraseña de nuevo.</message>
 	<message key="user.login.lostPassword.invalidUser">No existe ningún/a usuario/a con la dirección de correo-e especificada.</message>

@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">رمز عبور خود را فراموش کرده اید؟</message>
 	<message key="user.login.loginError">نام کاربری یا رمز عبور غلط است. لطفا از نو وارد کنید.</message>
 	<message key="user.login">ورود</message>
-	<message key="user.logIn">ورود</message>
 	<message key="user.login.lostPassword.confirmationSent">یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را بدقت اجرا کنید تا رمز عبورتان بازنشانی شود.</message>
 	<message key="user.login.lostPassword.invalidHash">متاسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر وحود ندارد. برای بازنشانی رمز عبور از نو اقدام کنید.</message>
 	<message key="user.login.lostPassword.invalidUser">هیچ کاربری با این ایمیل وجود ندارد.</message>

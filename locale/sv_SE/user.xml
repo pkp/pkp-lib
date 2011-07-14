@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Har du glömt lösenordet?</message>
 	<message key="user.login.loginError">Ogiltigt användarnamn och lösenord. Vänligen försök igen.</message>
 	<message key="user.login">Logga in</message>
-	<message key="user.logIn">Logga in</message>
 	<message key="user.login.lostPassword.confirmationSent">Bekräftelsemail har skickats till din E-postadress. Följ instruktionerna i E-posten för att återställa ditt lösenord.</message>
 	<message key="user.login.lostPassword.invalidHash">Tyvärr, länken du har klickat på har upphört eller är inte längre giltig. Prova att återställ lösenorden en gång till.</message>
 	<message key="user.login.lostPassword.invalidUser">Det finns ingen användare med den här E-postadressen.</message>

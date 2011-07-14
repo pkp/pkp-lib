@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Quên Mật khẩu?</message>
 	<message key="user.login.loginError">Bí danh và mật khẩu không hợp lệ. Vui lòng thử lại.</message>
 	<message key="user.login">Vào mạng</message>
-	<message key="user.logIn">Đăng nhập</message>
 	<message key="user.login.lostPassword.confirmationSent">Thư  khẳng định đã được gửi tới địa chỉ email của quý vị. Vui lòng theo hướng dẫn trong email để tạo mật khẩu mới của quý vị.</message>
 	<message key="user.login.lostPassword.invalidHash">Xin lỗi, đường dẫn mà quý vị vừa mới truy cập đã hết thời hạn hoặc không hợp lệ. Vui lòng tạo lại mật khẩu một lần nữa.</message>
 	<message key="user.login.lostPassword.invalidUser">Không có người dùng nào có địa chỉ email vừa nhập.</message>

@@ -40,7 +40,6 @@
 	<message key="user.login.forgotPassword">忘记您的密码?</message>
 	<message key="user.login.loginError">无效的用户名或者密码，请重试.</message>
 	<message key="user.login">登录</message>
-	<message key="user.logIn">登录</message>
 	<message key="user.login.lostPassword.confirmationSent">一封确认已发送到您的电子邮件地址,请按照电子邮件中的说明重置您的密码.</message>
 	<message key="user.login.lostPassword.invalidHash">对不起，你点击链接已过期或无效,请尝试再次重置您的密码.</message>
 	<message key="user.login.lostPassword.invalidUser">指定的电子邮件相关用户不存在.</message>

@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Wachtwoord vergeten?</message>
 	<message key="user.login.loginError">Verkeerde gebruikersnaam of wachtwoord. Probeer het opnieuw</message>
 	<message key="user.login">Inloggen</message>
-	<message key="user.logIn">Log in</message>
 	<message key="user.login.lostPassword.confirmationSent">Er is een bevestiging gestuurd naar uw e-mail adres. Volg de instructies in die e-mail om uw wachtwoord terug te zetten</message>
 	<message key="user.login.lostPassword.invalidHash">Helaas, de link waar u op klikte is verlopen of ongeldig. Probeer het terugzetten van uw wachtwoord opnieuw.</message>
 	<message key="user.login.lostPassword.invalidUser">Er is geen gebruiker met dit e-mail adres.</message>

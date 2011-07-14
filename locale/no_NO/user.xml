@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Har du glemt passordet?</message>
 	<message key="user.login.loginError">Ugyldig brukernavn eller passord. Vennligst prøv igjen.</message>
 	<message key="user.login">Logg inn</message>
-	<message key="user.logIn">Logg inn</message>
 	<message key="user.login.lostPassword.confirmationSent">En bekreftelse er nå sendt til din e-postadresse. Vennligst følg instruksjonene i e-posten for å tilbakestille passordet ditt.</message>
 	<message key="user.login.lostPassword.invalidHash">Beklager, lenken du klikket på har utløpt eller er ugyldig. Vennligst prøv å tilbakestille passordet ditt igjen.</message>
 	<message key="user.login.lostPassword.invalidUser">Det finnes ingen bruker med denne e-postadressen.</message>

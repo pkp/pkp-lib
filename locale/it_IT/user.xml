@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Password dimenticata?</message>
 	<message key="user.login.loginError">Username o password non valida. Riprova.</message>
 	<message key="user.login">Entra</message>
-	<message key="user.logIn">Entra</message>
 	<message key="user.login.lostPassword.confirmationSent">La conferma è stata mandata al tuo indirizzo email. Si prega di seguire le istruzioni nella email per risettare la  password.</message>
 	<message key="user.login.lostPassword.invalidHash">Il link utilizzato è scaduto o non è valido. Prova a rigenerare nuovamente la password.</message>
 	<message key="user.login.lostPassword.invalidUser">Non esiste nessun utente con l'indirizzo email specificato.</message>

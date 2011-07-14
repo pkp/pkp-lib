@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Pasahitza ahaztu zaizu?</message>
 	<message key="user.login.loginError">Erabiltzaile-izena edo pasahitza ez da baliozkoa. Saiatu berriro.</message>
 	<message key="user.login">Hasi saioa</message>
-	<message key="user.logIn">Hasi saioa</message>
 	<message key="user.login.lostPassword.confirmationSent">Berrespen bat bidali da zure helbide elektronikora. Jarraitu mezuan emandako azalpenak pasahitza berrezartzeko.</message>
 	<message key="user.login.lostPassword.invalidHash">Sakatu duzun esteka iraungita dago edo ez da baliozkoa. Saiatu zure pasahitza berriro berrezartzen.</message>
 	<message key="user.login.lostPassword.invalidUser">Ez dago helbide elektroniko hori duen erabiltzailerik.</message>

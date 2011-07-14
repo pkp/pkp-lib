@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Ξεχάσατε τον προσωπικό σας Κωδικό Πρόσβασης;</message>
 	<message key="user.login.loginError">Μη έγκυρο Όνομα Χρήστη ή Κωδικος Πρόσβασης. Παρακαλούμε προσπαθήστε  ξανά.</message>
 	<message key="user.login">Συνδεθείτε</message>
-	<message key="user.logIn">Συνδεθείτε</message>
 	<message key="user.login.lostPassword.confirmationSent">Ένα μήνυμα επιβεβαίωσης έχει σταλεί στη διεύθυνση ηλεκτρονικού ταχυδρομείου σας. Παρακαλούμε ακολουθήστε τις οδηγίες του μηνύματος για να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης.</message>
 	<message key="user.login.lostPassword.invalidHash">Η  σύνδεση που επιλέξατε έχει λήξει ή δεν είναι έγκυρη. Σας παρακαλούμε προσπαθήστε να αλλάξετε τον προσωπικό σας κωδικό πρόσβασης ξανά. </message>
 	<message key="user.login.lostPassword.invalidUser">Κανένας χρήστης δεν υπάρχει με τη συγκεκριμένη διεύθυνση ηλεκτρονικού ταχυδρομείου.</message>

@@ -39,7 +39,6 @@
 	<message key="user.login.forgotPassword">Vous avez oublié votre mot de passe?</message>
 	<message key="user.login.loginError">Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau.</message>
 	<message key="user.login">Se connecter</message>
-	<message key="user.logIn">Se connecter</message>
 	<message key="user.login.lostPassword.confirmationSent">Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre les instructions dans le courriel pour réinitialiser votre mot de passe.</message>
 	<message key="user.login.lostPassword.invalidHash">Malheureusement, le lien sur lequel vous avez cliqué est expiré ou n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe encore une fois.</message>
 	<message key="user.login.lostPassword.invalidUser">Aucun utilisateur n'existe avec l'adresse de courriel indiquée.</message>

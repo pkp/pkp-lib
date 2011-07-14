@@ -38,7 +38,6 @@
 	<message key="user.login.changePasswordInstructions"><![CDATA[Morate odabrati novu lozinku prije nego što se prijavite na ovu stranicu.<br /><br />Molimo unesite ispod vaše korisničko ime i vašu sadašnju i novu lozinku kako biste promijenili lozinku za vaš korisnički račun.]]></message>
 	<message key="user.login.forgotPassword">Zaboravili ste lozinku?</message>
 	<message key="user.login">Prijava</message>
-	<message key="user.logIn">Prijava</message>
 	<message key="user.login.lostPassword.confirmationSent">Potvrda je poslana na vašu adresu e-pošte. Molimo slijedite upute u  e-pošti zbog ponovnog uspostavljanja vaše lozinke.</message>
 	<message key="user.login.lostPassword.invalidHash">Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana. Molimo pokušajte ponovno zatražiti izmjenu vaše lozinke.</message>
 	<message key="user.login.lostPassword.invalidUser">Ne postoji korisnik s navedenom adresom e-pošte.</message>

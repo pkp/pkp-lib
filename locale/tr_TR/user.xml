@@ -34,7 +34,6 @@
 	<message key="user.login.forgotPassword">Şifrenizi mi unuttunuz?</message>
 	<message key="user.login.loginError">Yanlış kullanıcı adı ya da şifre. Yeniden deneyiniz.</message>
 	<message key="user.login">Giriş</message>
-	<message key="user.logIn">Giriş</message>
 	<message key="user.login.lostPassword.confirmationSent">E-posta adresinize bir doğrulama mesajı gönderilmiştir. Şifrenizi yenilemek için bu e-postadaki talimatları uygulayınız.</message>
 	<message key="user.login.lostPassword.invalidHash">Üzgünüz, tıklamış olduğunuz bağlantı geçerli değildir.Şifrenizi yenilemek için tekrar deneyiniz. </message>
 	<message key="user.login.lostPassword.invalidUser">Belirtilen e-posta adresiyle kayıtlı bir kullanıcı bulunamamıştır.</message>

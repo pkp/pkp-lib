@@ -38,7 +38,6 @@
 	<message key="user.login.forgotPassword">パスワードを忘れた方はこちらで手続きをしてください。</message>
 	<message key="user.login.loginError">ユーザ名またはパスワードが正しくありません。もう一度入力してください。</message>
 	<message key="user.login">ログイン</message>
-	<message key="user.logIn">ログイン</message>
 	<message key="user.login.lostPassword.confirmationSent">確認メールを入力されたメールアドレスに送信しました。メールに書かれている指示に従って、パスワードをリセットしてください。</message>
 	<message key="user.login.lostPassword.invalidHash">このリンクは有効期限切れ、または正しくありません。申し訳ありませんが、もう一度、パスワードのリセット処理を行ってください。</message>
 	<message key="user.login.lostPassword.invalidUser">指定されたメールアドレスにユーザが存在しません。</message>

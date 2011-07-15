@@ -26,12 +26,19 @@
             containerLoadingClass: 'loading',
             thumbPrefix: '',
             srcAttr: 'href'
-        }, userDefinedSettings),
+        }, userDefinedSettings);
 
-        $container = $('<div/>').attr('id', s.containerID)
-                        .append('<img/>').hide()
-                        .css('position','absolute')
-                        .appendTo('body'),
+		// MC Customization: Re-use the container if it is already in the DOM
+		if($("#"+s.containerID).length) {
+			$("#"+s.containerID).html(''); // Clear out container
+			$container = $("#"+s.containerID)
+					.append('<img/>').hide();
+		} else {
+			$container = $('<div/>').attr('id', s.containerID)
+					.append('<img/>').hide()
+					.css('position','absolute')
+					.appendTo('body');
+		}
 
         $img = $('img', $container).css(s.imgCSS);
 

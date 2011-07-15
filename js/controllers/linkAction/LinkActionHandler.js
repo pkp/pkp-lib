@@ -45,6 +45,11 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 				'settings are required in a LinkActionHandler'].join(''));
 		}
 
+		// Bind the handler for image preview.
+		if($handledElement.hasClass('imageFile')) {
+			this.bind('mouseover', this.imagePreviewHandler_);
+		}
+
 		// Configure the callback called when the link
 		// action request finishes.
 		options.actionRequestOptions.finishCallback =
@@ -76,6 +81,30 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			linkActionRequest_ = null;
 
 
+	//
+	// Private methods
+	//
+	/**
+	 * Preview an image when hovering over its link in the grid.
+	 *
+	 * @private
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			imagePreviewHandler_ = function(sourceElement, event) {
+
+		// Use the jQuery imagepreview plug-in to show the image.
+		var $sourceElement = $(sourceElement);
+		$sourceElement.imgPreview({
+			preloadImages: false,
+			imgCSS: { width: 300 }
+		});
+	};
+
+	
 	//
 	// Public methods
 	//

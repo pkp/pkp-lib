@@ -31,9 +31,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler = function($grid, options) {
 		this.parent($grid, options);
 
-		// Bind the handler for image preview.
-		this.bind('mouseover', this.imagePreviewHandler_);
-
 		// Bind the handler for the "elements changed" event.
 		this.bind('dataChanged', this.refreshGridHandler_);
 
@@ -166,27 +163,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	//
 	// Private methods
 	//
-	/**
-	 * Preview an image when hovering over its link in the grid.
-	 *
-	 * @private
-	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.imagePreviewHandler_ =
-			function(sourceElement, event) {
-
-		// Use the jQuery imagepreview plug-in to show the image.
-		var $sourceElement = $(sourceElement);
-		$('a.imageFile', $sourceElement).imgPreview({
-			preloadImages: false,
-			imgCSS: { width: 300 }
-		});
-	};
-
-
 	/**
 	 * Refresh either a single row of the grid or the whole grid.
 	 *

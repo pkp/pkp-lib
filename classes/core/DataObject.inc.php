@@ -302,6 +302,7 @@ class DataObject {
 			$loadedAdapters =& $filterDao->getObjectsByTypeDescription('class::%', 'metadata::%', $this);
 			foreach($loadedAdapters as $loadedAdapter) {
 				$this->addSupportedMetadataAdapter($loadedAdapter);
+				unset($loadedAdapter);
 			}
 			$this->_extractionAdaptersLoaded = true;
 		}

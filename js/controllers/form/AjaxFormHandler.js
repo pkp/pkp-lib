@@ -72,6 +72,7 @@
 		if (jsonData !== false) {
 			if (jsonData.content === '') {
 				// Trigger the "form submitted" event.
+				this.trigger('notifyUser');
 				this.trigger('formSubmitted');
 			} else {
 				// Redisplay the form.

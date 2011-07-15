@@ -63,6 +63,14 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 		// Bind the link action request to the handled element.
 		this.bindActionRequest();
+
+		// Bind the data changed event, so we know when trigger
+		// the notify user event.
+		this.bind('dataChanged', this.dataChangedHandler_);
+
+		// Publish this event so we can handle it and grids still
+		// can listen to it to refresh themselfs.
+		this.publishEvent('dataChanged');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.linkAction.LinkActionHandler,
@@ -128,7 +136,6 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 				callingElement, event);
 	};
 
-
 	/**
 	 * Bind the link action request.
 	 */
@@ -138,6 +145,19 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// (Re-)bind our click handler so that the action
 		// can be executed.
 		this.bind('click', this.activateAction);
+	};
+
+
+	//
+	// Private methods.
+	//
+	/**
+	 * Handle the changed data event.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			dataChangedHandler_ = function(sourceElement, event, elementId) {
+
+		this.trigger('notifyUser');
 	};
 
 

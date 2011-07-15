@@ -307,6 +307,53 @@ class NotificationHandler extends Handler {
 
 		return $contextDepthArray;
 	 }
+
+	 /**
+	  * Fetch notification data and return using Json.
+	  * @param $args array
+	  * @param $request Request
+	  *
+	  * @return JSONMessage
+	  */
+	 function fetchNotification($args, &$request) {
+	 	$user =& $request->getUser();
+		if ($user) {
+			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+			$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+			$notificationsArray =& $notifications->toArray();
+			unset($notifications);
+
+			// Create an array to pass to pnotify. If we are really going to
+			// use pnotify, then we should make this code available in
+			// NotificationManager, let TemplateManager get the notification
+			// data from it and remove the NotificationHandler options
+			// code, in common/header.tpl.
+			$notificationsData = array();
+			$defaultTitle = Locale::translate('notification.notification');
+			foreach ($notificationsArray as $notification) {
+				$title = $notification->getTitle();
+				$contents = $notification->getContents();
+				if ($notification->getIsLocalized()) {
+					$title = Locale::translate($title);
+					$contents = Locale::translate($contents, $notification->getParam());
+				}
+				$notificationsData[] = array(
+					'pnotify_title' => (!is_null($title)) ? $title : $defaultTitle,
+					'pnotify_text' => $contents,
+					'pnotify_addClass' => $notification->getStyleClass(),
+					'pnotify_notice_icon' => 'notifyIcon' . $notification->getIconClass()
+				);
+
+				$notificationDao->deleteNotificationById($notification->getId());
+			}
+
+			import('lib.pkp.classes.core.JSONMessage');
+			$json = new JSONMessage(true);
+			$json->setContent($notificationsData);
+
+			return $json->getString();
+		}
+	 }
 }
 
 ?>

@@ -404,6 +404,105 @@ class PKPLocale {
 		return array_shift($localeCandidates);
 	}
 
+	/**
+	* Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
+	* @param $iso1 string
+	* @return string the translated string or null if we
+	* don't know about the given language.
+	*/
+	function getIso3FromIso1($iso1) {
+		assert(strlen($iso1) == 2);
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			if (substr($locale, 0, 2) == $iso1) {
+				assert(isset($localeData['iso639-3']));
+				return $localeData['iso639-3'];
+			}
+		}
+		return null;
+	}
+	
+	/**
+	* Translate the ISO639-3 into ISO639-1.
+	* @param $iso3 string
+	* @return string the translated string or null if we
+	* don't know about the given language.
+	*/
+	function getIso1FromIso3($iso3) {
+		assert(strlen($iso3) == 3);
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			assert(isset($localeData['iso639-3']));
+			if ($localeData['iso639-3'] == $iso3) {
+				return substr($locale, 0, 2);
+			}
+		}
+		return null;
+	}
+	
+	/**
+	* Translate the PKP locale identifier into an
+	* ISO639-3 compatible 3-letter string.
+	* @param $locale string
+	* @return string
+	*/
+	function getIso3FromLocale($locale) {
+		assert(strlen($locale) == 5);
+		$iso1 = substr($locale, 0, 2);
+		return Locale::getIso3FromIso1($iso1);
+	}
+	
+	/**
+	* Translate an ISO639-3 compatible 3-letter string
+	* into the PKP locale identifier.
+	*
+	* This can be ambiguous if several locales are defined
+	* for the same language. In this case we'll use the
+	* primary locale to disambiguate.
+	*
+	* If that still doesn't determine a unique locale then
+	* we'll choose the first locale found.
+	*
+	* @param $iso3 string
+	* @return string
+	*/
+	function getLocaleFromIso3($iso3) {
+		assert(strlen($iso3) == 3);
+		$primaryLocale = Locale::getPrimaryLocale();
+	
+		$localeCandidates = array();
+		$locales =& Locale::_getAllLocalesCacheContent();
+		foreach($locales as $locale => $localeData) {
+			assert(isset($localeData['iso639-3']));
+			if ($localeData['iso639-3'] == $iso3) {
+				if ($locale == $primaryLocale) {
+					// In case of ambiguity the primary locale
+					// overrides all other options so we're done.
+					return $primaryLocale;
+				}
+				$localeCandidates[] = $locale;
+			}
+		}
+	
+		// Return null if we found no candidate locale.
+		if (empty($localeCandidates)) return null;
+		
+		if (count($localeCandidates) > 1) {
+			// Check whether one of the candidate locales
+			// is a supported locale. If so choose the first
+			// supported locale.
+			$supportedLocales = Locale::getSupportedLocales();
+			foreach($supportedLocales as $supportedLocale => $localeName) {
+				if (in_array($supportedLocale, $localeCandidates)) return $supportedLocale;
+			}
+		}
+	
+		// If there is only one candidate (or if we were
+		// unable to disambiguate) then return the unique
+		// (first) candidate found.
+		return array_shift($localeCandidates);
+	}
+		
 	//
 	// Private helper methods.
 	//

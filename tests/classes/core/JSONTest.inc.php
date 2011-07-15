@@ -31,7 +31,7 @@ class JSONTest extends PKPTestCase {
 
 		// Render the JSON message.
 		$expectedString = '{"status":true,"content":"test content",'.
-				'"isScript":false,"elementId":"0","testObj":{"someInt":5,"someFloat":5.5},'.
+				'"elementId":"0","testObj":{"someInt":5,"someFloat":5.5},'.
 				'"event":{"name":"someEvent","data":{"eventDataKey":["item1","item2"]}}}';
 		self::assertEquals($expectedString, $json->getString());
 

@@ -142,11 +142,7 @@ function modalConfirm(url, actType, actOnId, dialogText, localizedButtons, calli
 							$(actOnId).triggerHandler('actionStop');
 
 							if (returnString.status) {
-								if(returnString.isScript) {
-									eval(returnString.script);
-								} else {
-									updateItem(actType, actOnId, returnString.content);
-								}
+								updateItem(actType, actOnId, returnString.content);
 							} else {
 								// Alert that the action failed
 								alert(returnString.content);

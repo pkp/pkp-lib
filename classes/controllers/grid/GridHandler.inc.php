@@ -155,7 +155,7 @@ class GridHandler extends PKPHandler {
 	/**
 	 * Get all actions for a given position within the grid.
 	 * @param $position string The position of the actions.
-	 * @return array The LegacyLinkActions for the given position.
+	 * @return array The LinkActions for the given position.
 	 */
 	function getActions($position = GRID_ACTION_POSITION_ABOVE) {
 		if(!isset($this->_actions[$position])) return array();

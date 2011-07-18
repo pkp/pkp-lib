@@ -698,7 +698,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 			// Instantiate the file and add it to the
 			// result array with a unique key.
-			// FIXME: #6748# there is a missing parameter $fileImplementation in fromRow
+			// N.B. The subclass implementation of fromRow receives just the $row
+			// but calls PKPSubmissionFileDAO::fromRow($row, $fileImplementation) as defined here.
 			$submissionFiles[$idAndRevision] =& $this->fromRow($row);
 
 			// Move the query cursor to the next record.

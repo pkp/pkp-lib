@@ -64,6 +64,7 @@
 	<!-- Roles -->
 	<message key="grid.roles.currentRoles">Current Roles</message>
 	<message key="grid.roles.add">Add Role</message>
+	<message key="grid.roles.stageAssignment">Stage Assignment</message>
 	
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Current Users</message>

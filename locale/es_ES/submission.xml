@@ -159,7 +159,6 @@
 	<message key="submission.submitter">Remitente</message>
 	<message key="submission.summary">Resumen</message>
 	<message key="submission.supplementaryFiles">Ficheros adicionales</message>
-	<message key="submission.supportingAgencies">Agencias de patrocinio</message>
 	<message key="submission.titleAndAbstract">Título y resumen</message>
 	<message key="submission.underway">En curso</message>
 	<message key="submission.uploadFileTo">Subir fichero a</message>

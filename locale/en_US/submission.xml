@@ -371,7 +371,7 @@
 	<message key="submission.submitter">Submitter</message>
 	<message key="submission.summary">Summary</message>
 	<message key="submission.supplementaryFiles">Supplementary Files</message>
-	<message key="submission.supportingAgencies">Supporting Agencies</message>
+	<message key="submission.supportingAgencies">Contributors and Supporting Agencies</message>
 	<message key="submission.currentAgencies">Current Agencies</message>
 	<message key="submission.indexingInformation">Indexing Information</message>
 	<message key="submission.titleAndAbstract">Title and Abstract</message>

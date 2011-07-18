@@ -159,7 +159,6 @@
 	<message key="submission.submitter">Прислал</message>
 	<message key="submission.summary">Резюме</message>
 	<message key="submission.supplementaryFiles">Дополн. файлы</message>
-	<message key="submission.supportingAgencies">Исследование поддерживается кем</message>
 	<message key="submission.titleAndAbstract">Название и аннотация</message>
 	<message key="submission.underway">На подходе</message>
 	<message key="submission.uploadFileTo">Закачать файл как</message>

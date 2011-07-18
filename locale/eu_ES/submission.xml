@@ -158,7 +158,6 @@
 	<message key="submission.submitter">Bidaltzailea</message>
 	<message key="submission.summary">Sumarioa</message>
 	<message key="submission.supplementaryFiles">Fitxategi osagarriak</message>
-	<message key="submission.supportingAgencies">Agentzia laguntzaileak</message>
 	<message key="submission.titleAndAbstract">Titulua eta laburpena</message>
 	<message key="submission.underway">Lanean</message>
 	<message key="submission.uploadFileTo">Kargatu fitxategia:</message>

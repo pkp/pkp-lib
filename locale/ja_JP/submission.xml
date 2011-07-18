@@ -159,7 +159,6 @@
 	<message key="submission.submitter">投稿者</message>
 	<message key="submission.summary">概要</message>
 	<message key="submission.supplementaryFiles">補足ファイル</message>
-	<message key="submission.supportingAgencies">支援機関</message>
 	<message key="submission.titleAndAbstract">タイトルと要旨</message>
 	<message key="submission.underway">作業中</message>
 	<message key="submission.uploadFileTo">ファイルのアップロード</message>

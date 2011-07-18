@@ -157,7 +157,6 @@
 	<message key="submission.submitter">提交人</message>
 	<message key="submission.summary">摘要</message>
 	<message key="submission.supplementaryFiles">附件文件</message>
-	<message key="submission.supportingAgencies">支持机构</message>
 	<message key="submission.titleAndAbstract">标题和摘要</message>
 	<message key="submission.underway">进行</message>
 	<message key="submission.uploadFileTo">上传文件到</message>

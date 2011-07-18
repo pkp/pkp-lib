@@ -155,7 +155,6 @@
 	<message key="submission.submitter">投稿者</message>
 	<message key="submission.summary">摘要</message>
 	<message key="submission.supplementaryFiles">補充檔案</message>
-	<message key="submission.supportingAgencies">支持單位</message>
 	<message key="submission.titleAndAbstract">篇名和摘要</message>
 	<message key="submission.underway">途中</message>
 	<message key="submission.uploadFileTo">上傳檔案到</message>

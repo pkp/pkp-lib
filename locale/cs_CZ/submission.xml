@@ -159,7 +159,6 @@
 	<message key="submission.submitter">Odesílatel</message>
 	<message key="submission.summary">Souhrn</message>
 	<message key="submission.supplementaryFiles">Doplňkové soubory</message>
-	<message key="submission.supportingAgencies">Podporující instituce (granty)</message>
 	<message key="submission.titleAndAbstract">Název a abstrakt</message>
 	<message key="submission.underway">Zpracovává se</message>
 	<message key="submission.uploadFileTo">Nahrát soubor k</message>

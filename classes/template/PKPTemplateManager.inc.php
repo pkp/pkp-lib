@@ -188,16 +188,16 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
 
 			$user =& $request->getUser();
+			$hasSystemNotifications = false;
 			if ($user) {
 				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 				$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
 				$notificationsArray =& $notifications->toArray();
-				unset($notifications);
-				foreach ($notificationsArray as $notification) {
-					$notificationDao->deleteNotificationById($notification->getId());
+				if (!empty($notificationsArray)) {
+					$hasSystemNotifications = true;
 				}
-				$this->assign('systemNotifications', $notificationsArray);
 			}
+			$this->assign('hasSystemNotifications', $hasSystemNotifications);
 		}
 
 		$this->initialized = false;

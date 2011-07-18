@@ -23,23 +23,19 @@
 {if $enableDebugStats}{include file=$pqpTemplate}{/if}
 
 </div><!-- container -->
-{if !empty($systemNotifications)}
-	{translate|assign:"defaultTitleText" key="notification.notification"}
+{if $hasSystemNotifications}
+	{url|assign:fetchNotificationUrl page='notification' op='fetchNotification' escape=false}
 	<script type="text/javascript">
-	<!--
-	{foreach from=$systemNotifications item=notification}
-		{literal}
-			$.pnotify({
-				pnotify_title: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js"|default:$defaultTitleText key=$notification->getTitle()}{else}{$notification->getTitle()|escape:"js"|default:$defaultTitleText}{/if}{literal}',
-				pnotify_text: '{/literal}{if $notification->getIsLocalized()}{translate|escape:"js" key=$notification->getContents() param=$notification->getParam()}{else}{$notification->getContents()|escape:"js"}{/if}{literal}',
-				pnotify_addclass: '{/literal}{$notification->getStyleClass()|escape:"js"}{literal}',
-				pnotify_notice_icon: 'notifyIcon {/literal}{$notification->getIconClass()|escape:"js"}{literal}'
-			});
-		{/literal}
-	{/foreach}
-	// -->
+		$.get('{$fetchNotificationUrl}', null,
+			function(data){ldelim}
+				var notification = data.content;
+				var i, l;
+				for (i = 0, l = notification.length; i < l; i++) {ldelim}
+					$.pnotify(notification[i]);
+				{rdelim}
+		{rdelim}, 'json');
 	</script>
-{/if}{* systemNotifications *}
+{/if}{* hasSystemNotifications *}
 </body>
 </html>
 

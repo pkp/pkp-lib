@@ -297,8 +297,18 @@ class OAI {
 			"\t\t\t\t<delimiter>" . $info->delimiter . "</delimiter>\n" .
 			"\t\t\t\t<sampleIdentifier>" . $info->sampleIdentifier . "</sampleIdentifier>\n" .
 			"\t\t\t</oai-identifier>\n" .
-			"\t\t</description>\n" .
-			"\t</Identify>\n";
+			"\t\t</description>\n";
+		$response .= "\t\t<description>\n" .
+			"\t\t\t<toolkit\n" .
+			"\t\t\t\txmlns=\"http://oai.dlib.vt.edu/OAI/metadata/toolkit\"\n" .
+			"\t\t\t\txsi:schemaLocation=\"http://oai.dlib.vt.edu/OAI/metadata/toolkit\n" .
+			"\t\t\t\t\thttp://oai.dlib.vt.edu/OAI/metadata/toolkit.xsd\">\n" .
+			"\t\t\t\t<title>" . $info->toolkitTitle . "</title>\n" .
+			"\t\t\t\t<version>" . $info->toolkitVersion . "</version>\n" .
+			"\t\t\t\t<URL>" . $info->toolkitURL . "</URL>\n" .
+			"\t\t\t</toolkit>\n" .
+			"\t\t</description>\n";
+		$response .= "\t</Identify>\n";
 
 		$this->response($response);
 	}

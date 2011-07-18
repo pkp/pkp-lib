@@ -26,12 +26,12 @@
 
 		this.fetchNotificationUrl_ = options.fetchNotificationUrl;
 
-		// Check if we have notifications to show.
-		if (options.notification !== undefined) {
-			this.showNotification_(options.notification);
-		}
-
 		this.bind('notifyUser', this.fetchNotificationHandler_);
+
+		// Check if we have notifications to show.
+		if (options.hasSystemNotifications) {
+			this.trigger('notifyUser');
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.NotificationHandler, $.pkp.classes.Handler);

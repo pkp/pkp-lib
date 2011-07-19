@@ -9,12 +9,19 @@
 
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual}
+	<script type="text/javascript">
+	$(function() {ldelim}
+		$('#{$FBV_name|escape:javascript}-localization-popover-container').pkpHandler(
+			'$.pkp.controllers.form.MultilingualInputHandler'
+			);
+	{rdelim});
+	</script>
     {* This is a multilingual control. Enable popover display. *}
-    <span class="localization_popover_container">
+    <span id="{$FBV_name|escape}-localization-popover-container" class="localization_popover_container">
         {strip}
-        <input    type="{if $FBV_isPassword}password{else}text{/if}"
+        <input type="{if $FBV_isPassword}password{else}text{/if}"
             {$FBV_textInputParams}
-            class="multilingual_primary{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
+            class="{if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
             {if $FBV_disabled} disabled="disabled"{/if}
             value="{$FBV_value[$formLocale]|escape}"
             name="{$FBV_name|escape}[{$formLocale|escape}]"
@@ -44,7 +51,7 @@
         </span>
     </span>
 {else}
-    { This is not a multilingual control. *}
+    {* This is not a multilingual control. *}
     <input    type="{if $FBV_isPassword}password{else}text{/if}"
         {$FBV_textInputParams}
         class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"

@@ -9,11 +9,18 @@
 
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual}
+	<script type="text/javascript">
+	$(function() {ldelim}
+		$('#{$FBV_name|escape:javascript}-localization-popover-container').pkpHandler(
+			'$.pkp.controllers.form.MultilingualInputHandler'
+			);
+	{rdelim});
+	</script>
 	{* This is a multilingual control. Enable popover display. *}
-	<span class="localization_container">
+	<span id="{$FBV_name|escape}-localization-popover-container" class="localization_popover_container">
 		{strip}
 			<textarea {$FBV_textAreaParams}
-				class="field textarea {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
+				class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]"
 				id="{$FBV_id|escape}-{$formLocale|escape}">{$FBV_value[$formLocale]|escape}
@@ -28,7 +35,7 @@
 					{strip}
 					<textarea {$FBV_textAreaParams}
 						placeholder="{$thisFormLocaleName|escape}"
-						class="field textarea locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich} richContent{/if}"
+						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich} richContent{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
 						id="{$FBV_id|escape}-{$thisFormLocale|escape}">{$FBV_value[$thisFormLocale]|escape}

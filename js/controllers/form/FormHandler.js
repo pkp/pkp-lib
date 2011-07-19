@@ -65,15 +65,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// Activate the cancel button (if present).
 		$('#cancelFormButton', $form).click(this.callbackWrapper(this.cancelForm));
 
-		// Root node(s) to work with
-		var $n = $('.pkp_form');
-
-		// Attach focus/unfocus handlers to multilingual elements
-		$n.find('.multilingual_primary', $form).focus(
-				this.callbackWrapper(this.multilingualShow));
-		$n.find('.multilingual_extra', $form).blur(
-				this.callbackWrapper(this.multilingualHide));
-
 		// Initial form validation.
 		if (validator.checkForm()) {
 			this.trigger('formValid');
@@ -148,50 +139,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// Trigger the "form submitted" event.
 		this.trigger('formCanceled');
 	};
-
-
-	/**
-	 * Internal callback called to show additional languages for a
-	 * multilingual input
-	 *
-	 * @param {HTMLElement} multilingualInput The primary multilingual
-	 *		element in the set to show.
-	 * @param {Event} event The event that triggered the action.
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.multilingualShow =
-			function(multilingualInput, event) {
-
-		// Get the localization container for this element
-		var $n = $(multilingualInput)
-				.parents('.localization_popover_container')
-				.first();
-
-		// Show the popover
-		$n.find('.localization_popover').show();
-		$n.addClass('localization_popover_container_focus');
-	};
-
-
-	/**
-	 * Internal callback called to hide additional languages for a
-	 * multilingual input
-	 *
-	 * @param {HTMLElement} multilingualInput The element in the
-	 *		multilingual set to hide.
-	 * @param {Event} event The event that triggered the action.
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.multilingualHide =
-			function(multilingualInput, event) {
-
-		var $n = $(multilingualInput)
-				.parents('.localization_popover_container')
-				.first();
-
-		// Show the popover
-		$n.find('.localization_popover').hide();
-		$n.removeClass('localization_popover_container_focus');
-	};
-
 
 	//
 	// Private Methods

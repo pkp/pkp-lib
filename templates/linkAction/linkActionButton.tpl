@@ -12,11 +12,11 @@
  *  hoverTitle: Whether to show the title as hover text only.
  *}
 
-<a href="#" id="{$buttonId}" {strip}
+<a href="#" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
-		class="{$action->getImage()}"
-		{if $hoverTitle}title="{$action->getTitle()}">&nbsp;{else}>{$action->getTitle()}{/if}
+		class="{$action->getImage()|escape}"
+		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}
 	{else}
-		{if $hoverTitle} title="{$action->getTitle()}">{else}>{$action->getTitle()}{/if}
+		{if $hoverTitle} title="{$action->getTitle()|escape}">{else}>{$action->getTitle()|escape}{/if}
 	{/if}
 {/strip}</a>

@@ -9,8 +9,6 @@
  * @brief Classes for grid structure
  */
 
-/* Below was taken from content.css */
-
 div.pkp_controllers_grid {
 	div.wrapper {
 		margin: 10px;
@@ -64,6 +62,14 @@ div.pkp_controllers_grid {
 		font-size: 70%;
 		text-transform: uppercase;
 		padding-left: 10px;
+		background-color: #e3ecea;
+		color: #627b81;
+		top: 0;
+
+		a { /* For category row actions */
+			background-position: 0px 50%;
+			padding: 5px 0px 5px 15px;
+		}
 	}
 
 	.options {
@@ -167,10 +173,6 @@ div.pkp_controllers_grid {
 		background-position: 0 bottom;
 	}
 
-	.category td:first-child {
-		top: 0;
-	}
-
 	a.task {
 		width: 100%;
 		height: 100%;
@@ -203,11 +205,6 @@ div.pkp_controllers_grid {
 	th {
 		color: #20538d;
 		background-color: #ced7e1;
-	}
-
-	tr.category td {
-		background-color: #e3ecea;
-		color: #627b81;
 	}
 
 	/* FIXME: This should go somewhere else. */

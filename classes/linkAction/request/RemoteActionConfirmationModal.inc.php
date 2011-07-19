@@ -62,6 +62,7 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
 		$parentLocalizedOptions = parent::getLocalizedOptions();
 		// override the modalHandler option.
 		$parentLocalizedOptions['modalHandler'] = '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler';
+		$parentLocalizedOptions['remoteAction'] = $this->getRemoteAction();
 		return $parentLocalizedOptions;
 	}
 }

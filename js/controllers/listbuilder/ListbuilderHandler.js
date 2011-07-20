@@ -196,8 +196,16 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		$row.addClass('saveRowResponsePlaceholder');
 		var params = this.buildParamsFromInputs_($row.find(':input'));
 		params.modify = true; // Flag the row for modification
-		$.get(this.getFetchRowUrl(), params,
-				this.callbackWrapper(this.saveRowResponseHandler_, null), 'json');
+		// Use a blocking request to avoid race conditions sometimes
+		// duplicating items, i.e. when editing an existing item after
+		// adding a new one.
+		$.ajax({
+			url: this.getFetchRowUrl(),
+			data: params,
+			success: this.callbackWrapper(this.saveRowResponseHandler_, null),
+			dataType: 'json',
+			async: false
+		});
 	};
 
 

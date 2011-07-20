@@ -311,9 +311,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					// Check to see if this option is
 					// already in the LB.
 					var isDuplicate = false;
-					for (var k = 0; k < selectedValues.length; k++) {
-						if (selectedValues[k] == j) {
-							isDuplicate = true;
+					if (j != currentIndex) {
+						// If it's the current row, don't consider it a duplicate
+						for (var k = 0; k < selectedValues.length; k++) {
+							if (selectedValues[k] == j) {
+								isDuplicate = true;
+							}
 						}
 					}
 

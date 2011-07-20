@@ -429,10 +429,11 @@ class PKPUserGroupDAO extends DAO {
 	 */
 	function &getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
 		$users = array();
+		$paramArray = array();
 
-		$paramArray = array(ASSOC_TYPE_USER, 'interest');
 		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
 		if (isset($contextId)) $paramArray[] = (int) $contextId;
+
 		// For security / resource usage reasons, a user group or context ID
 		// must be specified. Don't allow calls supplying neither.
 		if ($contextId === null && $userGroupId === null) return null;
@@ -444,49 +445,71 @@ class PKPUserGroupDAO extends DAO {
 			USER_FIELD_LASTNAME => 'u.last_name',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
-			USER_FIELD_INTERESTS => 'cves.setting_value'
+			USER_FIELD_INTERESTS => 'cves.setting_value',
+			USER_FIELD_AFFILIATION => 'us.setting_value'
 		);
 
-		if (!empty($search) && isset($searchTypeMap[$searchType])) {
-			$fieldName = $searchTypeMap[$searchType];
-			switch ($searchMatch) {
-				case 'is':
-					$searchSql = "AND LOWER($fieldName) = LOWER(?)";
-					$paramArray[] = $search;
+		if (!empty($search)) {
+
+			if (!isset($searchTypeMap[$searchType])) {
+				$concatFields = ' LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? ';
+				$search = strtolower($search);
+
+				$words = preg_split('{\s+}', $search);
+				$searchFieldMap = array();
+
+				foreach ($words as $word) {
+					$searchFieldMap[] = $concatFields;
+					$paramArray[] = '%' . $word . '%';
+				}
+
+				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
+			} else {
+				$fieldName = $searchTypeMap[$searchType];
+				switch ($searchMatch) {
+					case 'is':
+						$searchSql = "AND LOWER($fieldName) = LOWER(?)";
+						$paramArray[] = $search;
+						break;
+					case 'contains':
+						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+						$paramArray[] = '%' . $search . '%';
+						break;
+					case 'startsWith':
+						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+						$paramArray[] = $search . '%';
+						break;
+				}
+			}
+		} else {
+			switch ($searchType) {
+				case USER_FIELD_USERID:
+					$searchSql = 'AND u.user_id=?';
 					break;
-				case 'contains':
-					$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-					$paramArray[] = '%' . $search . '%';
-					break;
-				case 'startsWith':
-					$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-					$paramArray[] = $search . '%';
+				case USER_FIELD_INITIAL:
+					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
 					break;
 			}
-		} elseif (!empty($search)) switch ($searchType) {
-			case USER_FIELD_USERID:
-				$searchSql = 'AND u.user_id=?';
-				$paramArray[] = $search;
-				break;
-			case USER_FIELD_INITIAL:
-				$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
-				$paramArray[] = $search . '%';
-				break;
 		}
 
 		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
+		$sql = 'SELECT DISTINCT u.*
+			FROM users AS u
+			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = "affiliation")
+			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
+			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
+			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
+			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id) WHERE';
+
+
+		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? AND ' : ' ') .
+		(isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
+
+		// if (isset($search)) $paramArray[] = $search;
+
 		$result =& $this->retrieveRange(
-			'SELECT	DISTINCT u.*
-			FROM	users AS u
-				LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
-				LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
-				LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id), user_groups AS ug, user_user_groups AS uug
-			WHERE	ug.user_group_id = uug.user_group_id AND
-				u.user_id = uug.user_id' .
-				(isset($userGroupId) ? ' AND ug.user_group_id = ?' : '') .
-				(isset($contextId) ? ' AND ug.context_id = ?' : '') .
-				' ' . $searchSql,
+			$sql,
 			$paramArray,
 			$dbResultRange
 		);

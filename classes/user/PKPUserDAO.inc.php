@@ -23,6 +23,7 @@ define('USER_FIELD_EMAIL', 'email');
 define('USER_FIELD_URL', 'url');
 define('USER_FIELD_INTERESTS', 'interests');
 define('USER_FIELD_INITIAL', 'initial');
+define('USER_FIELD_AFFILIATION', 'affiliation');
 define('USER_FIELD_NONE', null);
 
 class PKPUserDAO extends DAO {

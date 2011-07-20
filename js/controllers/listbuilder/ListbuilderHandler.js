@@ -497,6 +497,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		return true;
 	};
+
+
 	/**
 	 * Callback to replace a grid row's content.
 	 *

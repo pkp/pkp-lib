@@ -97,6 +97,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
 
+
 	/**
 	 * If provided, the URL to redirect to when the cancel button is clicked
 	 * @private

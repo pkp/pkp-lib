@@ -442,7 +442,8 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			function($wizard, options) {
 
 		// Add space before wizard buttons.
-		var $wizardButtons = $('<div id="wizardButtons" class="modal-buttons"></div>');
+		var $wizardButtons =
+				$('<div id="wizardButtons" class="modal-buttons"></div>');
 
 		if (options.cancelButtonText) {
 			// Add cancel button.

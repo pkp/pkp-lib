@@ -25,7 +25,8 @@
 	 *
 	 *  Options are:
 	 *  - okButton string the name for the confirmation button.
-	 *  - cancelButton string the name for the cancel button (or false for no button).
+	 *  - cancelButton string the name for the cancel button
+	 *    (or false for no button).
 	 *  - dialogText string the text to be displayed in the modal.
 	 *  - All options from the ModalHandler widget.
 	 *  - All options documented for the jQueryUI dialog widget,
@@ -53,7 +54,8 @@
 
 		// Check for our own mandatory options.
 		return typeof options.okButton === 'string' &&
-				(options.cancelButton === false || typeof options.cancelButton === 'string') &&
+				(options.cancelButton === false ||
+				typeof options.cancelButton === 'string') &&
 				typeof options.dialogText === 'string';
 	};
 

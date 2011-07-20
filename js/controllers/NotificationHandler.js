@@ -54,7 +54,8 @@
 	/**
 	 * Event handler to refresh the notifications data.
 	 *
-	 * @param {Array} notifications Notifications data to be shown to user.
+	 * @param {Array} notification Notification data to be shown to user.
+	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.showNotification_ =
 			function(notification) {
@@ -67,8 +68,10 @@
 		}
 	};
 
+
 	/**
 	 * Fetch the notifications data from server.
+	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
 			function() {
@@ -77,11 +80,13 @@
 				this.callbackWrapper(this.showNotificationsResponseHandler_), 'json');
 	};
 
+
 	/**
 	 * Callback to show notifications.
 	 *
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
+	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.showNotificationsResponseHandler_ =
 			function(ajaxContext, jsonData) {
@@ -91,7 +96,5 @@
 			this.showNotification_(jsonData.content);
 		}
 	};
-
-
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

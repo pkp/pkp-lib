@@ -46,7 +46,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 
 		// Bind the handler for image preview.
-		if($handledElement.hasClass('imageFile')) {
+		if ($handledElement.hasClass('imageFile')) {
 			this.bind('mouseover', this.imagePreviewHandler_);
 		}
 
@@ -136,6 +136,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 				callingElement, event);
 	};
 
+
 	/**
 	 * Bind the link action request.
 	 */
@@ -153,6 +154,10 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	//
 	/**
 	 * Handle the changed data event.
+	 * @param {HTMLElement} sourceElement The element that this event came from.
+	 * @param {Event} event The event encapsulating the changed data.
+	 * @param {String} elementId The element ID for the changed data.
+	 * @private
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			dataChangedHandler_ = function(sourceElement, event, elementId) {

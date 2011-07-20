@@ -8,5 +8,5 @@
  *}
 
 <label class="sub_label{if $FBV_error} error{/if}" {if !$FBV_suppressId} for="{$FBV_id|escape}"{/if}>
-	{translate key=$FBV_label|escape} {if $FBV_required}<span class="req">*</span>{/if}
+	{if $FBV_translate}{translate key=$FBV_label|escape}{else}{$FBV_label|escape}{/if} {if $FBV_required}<span class="req">*</span>{/if}
 </label>

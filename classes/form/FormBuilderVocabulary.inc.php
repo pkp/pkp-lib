@@ -564,7 +564,7 @@ class FormBuilderVocabulary {
 	 */
 	function _smartyFBVCheckbox($params, &$smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
-		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
+		$params['translate'] = isset($params['translate']) ? (boolean)$params['translate'] : true;
 		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 
@@ -677,6 +677,7 @@ class FormBuilderVocabulary {
 		if (!isset($params) || !isset($params['label']) ) {
 			$smarty->trigger_error('FBV: label for SubLabel not specified.');
 		}
+		$params['translate'] = isset($params['translate']) ? (boolean)$params['translate'] : true;
 
 		$form =& $this->getForm();
 		if (isset($form) && isset($form->errorFields[$params['name']])) {
@@ -688,6 +689,7 @@ class FormBuilderVocabulary {
 		$smarty->clear_assign(array('FBV_suppressId', 'FBV_label', 'FBV_required'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
+				case 'translate': $smarty->assign('FBV_translate', $value); break;
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'suppressId': $smarty->assign('FBV_suppressId', $value); break;
 				case 'required': $smarty->assign('FBV_required', $value); break;

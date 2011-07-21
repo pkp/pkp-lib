@@ -30,9 +30,9 @@
 </script>
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
-	{$gridFilterForm}
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 		<div class="header">
+			{$gridFilterForm}
 			{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 				{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
 			{/if}

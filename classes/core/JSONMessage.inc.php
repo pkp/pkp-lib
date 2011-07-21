@@ -96,7 +96,7 @@ class JSONMessage {
 	 * @param $elementId string
 	 */
 	function setElementId($elementId) {
-		assert(is_string($elementId));
+		assert(is_string($elementId) || is_numeric($elementId));
 		$this->_elementId = $elementId;
 	}
 

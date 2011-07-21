@@ -180,7 +180,7 @@ class FileManager {
 
 			$destDir->close();
 		} else {
-			FileManager::copyFile($source, $target);
+			FileManager::copyFile($source, $dest);
 		}
 
 		if (FileManager::fileExists($dest, 'dir')) {

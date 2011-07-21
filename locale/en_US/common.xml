@@ -113,6 +113,7 @@
 	<message key="common.fileName">File Name</message>
 	<message key="common.fileSize">File Size</message>
 	<message key="common.fileType">File Type</message>
+	<message key="common.go">Go</message>
 	<message key="common.height">Height</message>
 	<message key="common.homePageHeaderLogo.altText">Homepage Header Logo</message>
 	<message key="common.hour">Hour</message>

@@ -583,7 +583,7 @@ class FilterDAO extends DAO {
 			// NB: We need to do this before we delete
 			// sub-sub-filters to avoid loops.
 			$subFilterId = $subFilterRow['filter_id'];
-			$this->deleteObjectById($subFilterId);;
+			$this->deleteObjectById($subFilterId);
 
 			// Recursively delete sub-sub-filters.
 			$this->_deleteSubFiltersByParentFilterId($subFilterId);

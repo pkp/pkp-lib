@@ -53,8 +53,6 @@ class NotificationDAO extends DAO {
 		$context =& Request::getContext();
 		$contextId = $context?$context->getId():0;
 
-		$notifications = array();
-
 		$result =& $this->retrieveRange(
 			'SELECT * FROM notifications WHERE user_id = ? AND product = ? AND context = ? AND level = ? ORDER BY date_created DESC',
 			array((int) $userId, $productName, (int) $contextId, (int) $level), $rangeInfo

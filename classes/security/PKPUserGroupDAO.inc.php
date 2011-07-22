@@ -428,7 +428,6 @@ class PKPUserGroupDAO extends DAO {
 	 * @param DBResultRange $dbResultRange
 	 */
 	function &getUsersById($userGroupId = null, $contextId = null, $searchType = null, $search = null, $searchMatch = null, $dbResultRange = null) {
-		$users = array();
 		$paramArray = array();
 
 		if (isset($userGroupId)) $paramArray[] = (int) $userGroupId;
@@ -484,7 +483,7 @@ class PKPUserGroupDAO extends DAO {
 		} else {
 			switch ($searchType) {
 				case USER_FIELD_USERID:
-					$searchSql = 'AND u.user_id=?';
+					$searchSql = 'AND u.user_id = ?';
 					break;
 				case USER_FIELD_INITIAL:
 					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
@@ -503,8 +502,8 @@ class PKPUserGroupDAO extends DAO {
 			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id) WHERE';
 
 
-		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? AND ' : ' ') .
-		(isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
+		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' : ' ') . (isset($contextId) ? 'AND ' : '');
+		$sql .= (isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
 
 		// if (isset($search)) $paramArray[] = $search;
 

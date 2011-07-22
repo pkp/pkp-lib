@@ -24,10 +24,21 @@
 		this.parent($page, options);
 
 		this.bind('redirectRequested', this.redirectToUrl);
+		this.bind('notifyUser', this.notifyUserHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.PageHandler, $.pkp.classes.Handler);
 
+
+	//
+	// Private properties.
+	//
+	/**
+	 * The notification manager object.
+	 * @private
+	 * @type {$.pkp.classes.notification.InPlaceNotificationManager}
+	 */
+	$.pkp.controllers.PageHandler.prototype.notificationManager_ = null;
 
 	//
 	// Public methods
@@ -44,6 +55,24 @@
 			function(sourceElement, event, url) {
 
 		window.location = url;
+	};
+
+
+	//
+	// Private methods.
+	//
+	/**
+	 * Use notification manager object to fetch the notification data.
+	 * @private
+	 */
+	$.pkp.controllers.PageHandler.prototype.notifyUserHandler_ =
+			function(sourceElement, event, url) {
+		var $notificationElement = $(".pkp_notification:visible");
+		if ($notificationElement.length) {
+			$notificationElement.triggerHandler('notifyUser');
+		} else {
+			this.getHtmlElement().parent().trigger('notifyUser');
+		}
 	};
 
 

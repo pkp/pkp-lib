@@ -118,6 +118,78 @@ class NotificationManager {
 			$mail->send();
 		}
 	}
+
+	/**
+	 * Get current notifications.
+	 * @param User $user The user that will be used to get
+	 * notifications.
+	 * @param int $level The notification level.
+	 * @return array
+	 */
+	function getNotifications($user, $level) {
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), $level);
+		$notificationsArray =& $notifications->toArray();
+		unset($notifications);
+
+		return $notificationsArray;
+	}
+
+	/**
+	 * Deletes notifications from database.
+	 * @param array $notifications
+	 */
+	function deleteNotifications($notifications) {
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		foreach($notifications as $notification) {
+			// Don't delete normal level notifications.
+			if($notification->getLevel() !== NOTIFICATION_LEVEL_NORMAL) {
+				$notificationDao->deleteNotificationById($notification->getId());
+			}
+		}
+	}
+
+	/**
+	 * General notification data formating.
+	 * @param array $notifications
+	 * @return array
+	 */
+	function formatToGeneralNotification($notifications) {
+		$formattedNotificationsData = array();
+		foreach ($notifications as $notification) {
+			$title = $notification->getTitle();
+			$contents = $notification->getContents();
+			if ($notification->getIsLocalized()) {
+				$title = Locale::translate($title);
+				$contents = Locale::translate($contents, $notification->getParam());
+			}
+			$formattedNotificationsData[] = array(
+				'pnotify_title' => (!is_null($title)) ? $title : $defaultTitle,
+				'pnotify_text' => $contents,
+				'pnotify_addClass' => $notification->getStyleClass(),
+				'pnotify_notice_icon' => 'notifyIcon' . $notification->getIconClass()
+			);
+		}
+
+		return $formattedNotificationsData;
+	}
+
+	/**
+	 * In place notification data formating.
+	 * @param $notifications array
+	 * @return array
+	 */
+	function formatToInPlaceNotification($notifications) {
+		$formattedNotificationsData = null;
+
+		if (!empty($notifications)) {
+			$templateMgr =& TemplateManager::getManager();
+			$templateMgr->assign('notifications', $notifications);
+			$formattedNotificationsData = $templateMgr->fetch('controllers/notification/inPlaceNotificationContent.tpl');
+		}
+
+		return $formattedNotificationsData;
+	}
 }
 
 ?>

@@ -31,10 +31,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.parent($widgetWrapper, options);
 
 		this.bind('redirectRequested', this.redirectToUrl);
-		this.fetchNotificationUrl_ = options.fetchNotificationUrl;
-
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);
+
+		this.options_ = options;
 
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
@@ -49,11 +49,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	// Private properties
 	//
 	/**
-	 * The URL to fetch notification data.
+	 * Site handler options.
 	 * @private
-	 * @type {Array}
+	 * @type {Object}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.fetchNotificationUrl_ = null;
+	$.pkp.controllers.SiteHandler.prototype.options_ = null;
 
 
 	//
@@ -77,38 +77,41 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	// Private methods
 	//
+	//
+	// Private methods.
+	//
 	/**
-	 * Fetch the notifications data from server.
+	 * Fetch the notification data.
 	 * @param {Object} element The active element.
 	 * @param {Object} event The event that initiated this call.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
-			function(element, event) {
+			function() {
 
-		$.get(this.fetchNotificationUrl_, null,
-				this.callbackWrapper(this.showNotificationsResponseHandler_), 'json');
+		$.get(this.options_.fetchNotificationUrl, this.options_.requestOptions,
+				this.callbackWrapper(this.showNotificationResponseHandler_), 'json');
 	};
 
-
 	/**
-	 * Callback to show notifications.
+	 * Response handler to the notification fetch.
 	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} jsonData A parsed JSON response object.
-	 * @private
+	 * @param {content} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.SiteHandler.prototype.showNotificationsResponseHandler_ =
+	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {
+		var workingJsonData = this.handleJson(jsonData);
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			var notification = jsonData.content;
-			var i, l;
-			for (i = 0, l = notification.length; i < l; i++) {
-				$.pnotify(notification[i]);
+		if (workingJsonData !== false) {
+			if (workingJsonData.content.general) {
+				var dataInPlace = workingJsonData.content.general;
+				var i, l;
+				for (i = 0, l = dataInPlace.length; i < l; i++) {
+					$.pnotify(dataInPlace[i]);
+				}
 			}
 		}
 	};
+
+
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

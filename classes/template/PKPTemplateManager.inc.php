@@ -188,14 +188,14 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
 
 			$user =& $request->getUser();
+			import('lib.pkp.classes.notification.NotificationManager');
+			$notificationManager = new NotificationManager();
 			$hasSystemNotifications = false;
 			if ($user) {
+				$notificationsArray =& $notificationManager->getNotifications($user, NOTIFICATION_LEVEL_TRIVIAL);
 				// Assign the user name to be used in the sitenav
 				$this->assign('username', $user->getUserName());
 
-				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-				$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
-				$notificationsArray =& $notifications->toArray();
 				if (!empty($notificationsArray)) {
 					$hasSystemNotifications = true;
 				}

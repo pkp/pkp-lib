@@ -295,7 +295,7 @@ class NotificationHandler extends Handler {
 	/**
 	 * Return an array with null values * the context depth
 	 */
-	 function getContextDepthArray() {
+	function getContextDepthArray() {
 		$contextDepthArray = array();
 
 		$application = PKPApplication::getApplication();
@@ -308,52 +308,59 @@ class NotificationHandler extends Handler {
 		return $contextDepthArray;
 	 }
 
-	 /**
-	  * Fetch notification data and return using Json.
-	  * @param $args array
-	  * @param $request Request
-	  *
-	  * @return JSONMessage
-	  */
-	 function fetchNotification($args, &$request) {
+	/**
+	 * Return formatted notification data using Json.
+	 * @param $args array
+	 * @param $request Request
+	 *
+	 * @return JSONMessage
+	 */
+	function fetchNotification($args, &$request) {
 		$user =& $request->getUser();
+		$notificationLevels = $request->getUserVar('notificationLevels');
+
+		import('lib.pkp.classes.notification.NotificationManager');
+		$notificationManager = new NotificationManager();
 		if ($user) {
-			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-			$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
-			$notificationsArray =& $notifications->toArray();
-			unset($notifications);
-
-			// Create an array to pass to pnotify. If we are really going to
-			// use pnotify, then we should make this code available in
-			// NotificationManager, let TemplateManager get the notification
-			// data from it and remove the NotificationHandler options
-			// code, in common/header.tpl.
-			$notificationsData = array();
-			$defaultTitle = Locale::translate('notification.notification');
-			foreach ($notificationsArray as $notification) {
-				$title = $notification->getTitle();
-				$contents = $notification->getContents();
-				if ($notification->getIsLocalized()) {
-					$title = Locale::translate($title);
-					$contents = Locale::translate($contents, $notification->getParam());
-				}
-				$notificationsData[] = array(
-					'pnotify_title' => (!is_null($title)) ? $title : $defaultTitle,
-					'pnotify_text' => $contents,
-					'pnotify_addClass' => $notification->getStyleClass(),
-					'pnotify_notice_icon' => 'notifyIcon' . $notification->getIconClass()
-				);
-
-				$notificationDao->deleteNotificationById($notification->getId());
+			// If there is no notification level in request, we
+			// assume that the widget is going to show only
+			// trivial notifications.
+			if (is_null($notificationLevels)) {
+				$notificationLevels = array(NOTIFICATION_LEVEL_TRIVIAL);
 			}
 
+			// Get current notifications from database.
+			$notifications = array();
+			foreach($notificationLevels as $level) {
+				// Check each level.
+				$level = (int)$level;
+				if ($level != NOTIFICATION_LEVEL_TRIVIAL &&
+					$level != NOTIFICATION_LEVEL_NORMAL) {
+						assert(false);
+				}
+
+				$notifications = array_merge($notifications, $notificationManager->getNotifications($user, $level));
+			}
+
+			$formattedNotificationsData = array();
+
+			// Format in place notifications.
+			$formattedNotificationsData['inPlace'] = $notificationManager->formatToInPlaceNotification($notifications);
+
+			// Format general notifications.
+			$formattedNotificationsData['general'] = $notificationManager->formatToGeneralNotification($notifications);
+
+			// Delete notifications from database.
+			$notificationManager->deleteNotifications($notifications);
+
+			// Construct the json message.
 			import('lib.pkp.classes.core.JSONMessage');
 			$json = new JSONMessage(true);
-			$json->setContent($notificationsData);
+			$json->setContent($formattedNotificationsData);
 
 			return $json->getString();
 		}
-	 }
+	}
 }
 
 ?>

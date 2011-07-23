@@ -21,7 +21,7 @@
         {strip}
         <input type="{if $FBV_isPassword}password{else}text{/if}"
             {$FBV_textInputParams}
-            class="{if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
+            class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
             {if $FBV_disabled} disabled="disabled"{/if}
             value="{$FBV_value[$formLocale]|escape}"
             name="{$FBV_name|escape}[{$formLocale|escape}]"

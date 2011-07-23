@@ -20,7 +20,7 @@
 	<span id="{$FBV_name|escape}-localization-popover-container" class="localization_popover_container">
 		{strip}
 			<textarea {$FBV_textAreaParams}
-				class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
+				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]"
 				id="{$FBV_id|escape}-{$formLocale|escape}">{$FBV_value[$formLocale]|escape}
@@ -41,7 +41,7 @@
 						id="{$FBV_id|escape}-{$thisFormLocale|escape}">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
 					{/strip}
-					<label class="multilingual_extra_label" for="{$FBV_id|escape}-{$thisFormLocale|escape}" class="locale">({$thisFormLocaleName|escape})</label>
+					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}" class="locale">({$thisFormLocaleName|escape})</label>
 				{/if}{/foreach}
 			</div>
 		</span>

@@ -29,9 +29,9 @@
 	}
 
 	div.section {
-		clear: left;
-		margin-bottom: 10px;
-		overflow:hidden;
+		/*clear: left;*/
+		/*margin-bottom: 10px;*/
+		/*overflow:hidden;*/
 	}
 
 	label {
@@ -69,6 +69,11 @@
 	}
 
 	input, textarea, select {
+
+		:focus {
+			outline: none;
+		}
+
 		width: 98%;
 		border: 1px solid #ccc;
 		padding: 2px;
@@ -155,15 +160,37 @@
 	}
 
 	.localization_popover_container {
+
+		input, textarea, select {
+		}
+//
+//		:after {
+//			content: "";
+//			width: 24px;
+//			height: 24px;
+//			position: absolute;
+//			background: url(../lib/pkp/templates/images/structure/grid_icon_sprite.png) no-repeat;
+//			background-position: -264px -2px;
+//	 	}
 	}
 
 	.localization_popover_container_focus {
 		margin-top: -2px;
 		background-color: #eee;
 		display: block;
-		padding: 2px 5px 2px 5px;
+		padding: 2px 5px 0px 5px;
 		position: relative;
+
+//		:after {
+//			content: "";
+//			width: 24px;
+//			height: 24px;
+//			position: absolute;
+//			background: url(../lib/pkp/templates/images/structure/grid_icon_sprite.png) no-repeat;
+//			background-position: -264px -26px;
+//	 	}
 	}
+
 
 	.localization_popover {
 		background-color: #eee;
@@ -180,26 +207,28 @@
 		text-indent: -9999px;
 	}
 
-
-	/*
-	input.flag
+	.localizable
 	{
-		margin: 0;
+		background-color: #fff !important;
 		background-repeat: no-repeat;
-		background-position: 98% 50%;
+		background: url(../lib/pkp/templates/images/structure/icon_globe.png) no-repeat;
+		background-position: 100% 50%;
 	}
 
-	.flag_fr
-	{
-		background-image: url(images/structure/flags/fr.png) !important;
+
+	textarea.localizable {
+		background-position: 100% 0;
 	}
 
-	.flag_de
-	{
-		background-image: url(images/structure/flags/de.png) !important;
+	.flag {
+		background-color: #fff !important;
+		background-repeat: no-repeat;
+		background-position: 100% 50%;
 	}
 
-	*/
+	.flag_te_ST {
+		background-image: url(../lib/pkp/templates/images/structure/flags/te_ST.png) !important;
+	}
 
 	.pkp_form_file_input_container {
 		height: 30px;

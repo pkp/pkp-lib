@@ -1,13 +1,19 @@
 /**
- * @file js/controllers/NotificationHandler.js
+ * @defgroup js_controllers
+ */
+// Create the controllers namespace.
+jQuery.pkp.controllers = jQuery.pkp.controllers || { };
+
+/**
+ * @file js/controllers/SiteHandler.js
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class NotificationHandler
+ * @class SiteHandler
  * @ingroup js_controllers
  *
- * @brief A basic handler for the general user notification widget.
+ * @brief Handle the site widget.
  */
 (function($) {
 
@@ -21,7 +27,7 @@
 	 * be attached to.
 	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.NotificationHandler = function($widgetWrapper, options) {
+	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
 		this.fetchNotificationUrl_ = options.fetchNotificationUrl;
@@ -34,7 +40,7 @@
 		}
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.NotificationHandler, $.pkp.classes.Handler);
+			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
 
 
 	//
@@ -45,36 +51,18 @@
 	 * @private
 	 * @type {array}
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationUrl_ = null;
+	$.pkp.controllers.SiteHandler.prototype.fetchNotificationUrl_ = null;
 
 
 	//
 	// Private methods
 	//
 	/**
-	 * Event handler to refresh the notifications data.
-	 *
-	 * @param {Array} notification Notification data to be shown to user.
-	 * @private
-	 */
-	$.pkp.controllers.NotificationHandler.prototype.showNotification_ =
-			function(notification) {
-
-		// This code should be adapted if we don't keep
-		// using pnotify as our general user notification system.
-		var i, l;
-		for (i = 0, l = notification.length; i < l; i++) {
-			$.pnotify(notification[i]);
-		}
-	};
-
-
-	/**
 	 * Fetch the notifications data from server.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
-			function() {
+	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
+			function(element, event) {
 
 		$.get(this.fetchNotificationUrl_, null,
 				this.callbackWrapper(this.showNotificationsResponseHandler_), 'json');
@@ -88,12 +76,16 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.showNotificationsResponseHandler_ =
+	$.pkp.controllers.SiteHandler.prototype.showNotificationsResponseHandler_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			this.showNotification_(jsonData.content);
+			var notification = jsonData.content;
+			var i, l;
+			for (i = 0, l = notification.length; i < l; i++) {
+				$.pnotify(notification[i]);
+			}
 		}
 	};
 /** @param {jQuery} $ jQuery closure. */

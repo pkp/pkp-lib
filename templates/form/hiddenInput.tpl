@@ -10,6 +10,5 @@
 	  id="{$FBV_id|escape}"
 	  name="{$FBV_name|escape}"
 	  class="{$FBV_class}{if $FBV_validation} {$FBV_validation|escape}{/if}"
-	  type="{$FBV_type|escape}"
 	  value="{$FBV_value|escape}"
 	  {$FBV_hiddenInputParams} />

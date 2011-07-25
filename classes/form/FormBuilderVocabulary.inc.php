@@ -421,7 +421,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
 		$textInputParams = '';
-		$smarty->clear_assign(array('FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value'));
+		$smarty->clear_assign(array('FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;

@@ -502,7 +502,7 @@ class PKPUserGroupDAO extends DAO {
 			LEFT JOIN user_groups ug ON (ug.user_group_id = uug.user_group_id) WHERE';
 
 
-		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' : ' ') . (isset($contextId) ? 'AND ' : '');
+		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' . (isset($contextId) ? 'AND ' : '') : ' ');
 		$sql .= (isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
 
 		// if (isset($search)) $paramArray[] = $search;

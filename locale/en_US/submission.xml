@@ -378,6 +378,7 @@
 	<message key="submission.underway">Underway</message>
 	<message key="submission.uploadFileTo">Upload file to</message>
 	<message key="submission.uploaderUserGroup">Upload in my role as...</message>
+	<message key="submission.submitterUserGroup">Submit in my role as...</message>
 	<message key="submission.viewMetadata">View Metadata</message>
 	<message key="submission.views">Views</message>
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>

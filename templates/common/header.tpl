@@ -30,7 +30,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 
 	<!-- Base Jquery -->
-	{if $allowCDN}<script type="text/javascript" src="http{if $forceSSL}s{/if}://www.google.com/jsapi"></script>
+	{if $allowCDN}<script type="text/javascript" src="//www.google.com/jsapi"></script>
 	<script type="text/javascript">{literal}
 		<!--
 		// Provide a local fallback if the CDN cannot be reached

@@ -106,11 +106,6 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('timeFormat', Config::getVar('general', 'time_format'));
 		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
 		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
-		if (Config::getVar('security', 'force_ssl') || Config::getVar('security', 'force_login_ssl')) {
-			$this->assign('forceSSL', '1');
-		} else {
-			$this->assign('forceSSL', '0');
-		}
 
 		$locale = Locale::getLocale();
 		$this->assign('currentLocale', $locale);

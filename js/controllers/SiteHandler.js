@@ -30,7 +30,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
+		this.bind('redirectRequested', this.redirectToUrl);
 		this.fetchNotificationUrl_ = options.fetchNotificationUrl;
+
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 
@@ -52,6 +54,24 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @type {array}
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationUrl_ = null;
+
+
+	//
+	// Public methods
+	//
+	/**
+	 * Callback that is triggered when the page should redirect.
+	 *
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "redirectRequested" event.
+	 * @param {Event} event The "redirect requested" event.
+	 * @param {string} url The URL to redirect to.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.redirectToUrl =
+			function(sourceElement, event, url) {
+
+		window.location = url;
+	};
 
 
 	//

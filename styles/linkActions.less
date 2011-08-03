@@ -14,10 +14,17 @@
  */
 
 .pkp_linkActions {
+	/* Configure layout for link action icons */
 	a {
 		background-repeat: no-repeat;
 		margin-left: 10px;
 		padding-left: 18px;
+		
+	}
+	/* Actions in grid cells aren't spaced widely */
+	&.gridCellContainer a {
+		margin-left: 0px;
+		padding-left: 0px;
 	}
 	
 	/* Grid Actions */

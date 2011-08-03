@@ -229,6 +229,16 @@ class CategoryGridHandler extends GridHandler {
 		// Should be overriden by subclasses
 		return GRID_CATEGORY_NONE;
 	}
+
+	/**
+	 * Fetch the contents of a category.
+	 * @param $categoryDataElement mixed
+	 * @return array
+	 */
+	function getCategoryData(&$categoryDataElement) {
+		// Should be overridden by subclasses
+		assert(false);
+	}
 }
 
 ?>

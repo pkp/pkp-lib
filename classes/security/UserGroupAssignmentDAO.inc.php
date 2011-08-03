@@ -56,7 +56,6 @@ class UserGroupAssignmentDAO extends DAO {
 	function deleteByUserId($userId, $userGroupId = null) {
 		$params = array((int) $userId);
 		if ($userGroupId) $params[] = (int) $userGroupId;
-		if ($contextId) $params[] = (int) $contextId;
 
 		return $this->update(
 			'DELETE FROM user_user_groups
@@ -121,9 +120,7 @@ class UserGroupAssignmentDAO extends DAO {
 				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),
 			$params);
 
-		if ($result->RecordCount() != 0) {
-			$returner = new DAOResultFactory($result, $this, '_returnFromRow');
-		}
+		$returner = new DAOResultFactory($result, $this, '_returnFromRow');
 
 		return $returner;
 	}

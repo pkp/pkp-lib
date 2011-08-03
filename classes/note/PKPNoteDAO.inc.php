@@ -64,9 +64,6 @@ class PKPNoteDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
 	function &getByAssoc($assocType, $assocId, $userId = null) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
-
 		$params = array((int) $assocId, (int) $assocType);
 		if (isset($userId)) $params[] = (int) $userId;
 
@@ -79,6 +76,29 @@ class PKPNoteDAO extends DAO {
 		$result =& $this->retrieveRange($sql, $params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNoteFromRow');
+
+		return $returner;
+	}
+
+	/**
+	 * Retrieve Notes by assoc id/type
+	 * @param $assocId int
+	 * @param $assocType int
+	 * @param $userId int
+	 * @return object DAOResultFactory containing matching Note objects
+	 */
+	function &notesExistByAssoc($assocType, $assocId, $userId = null) {
+		$params = array((int) $assocId, (int) $assocType);
+		if (isset($userId)) $params[] = (int) $userId;
+
+		$sql = 'SELECT COUNT(*) FROM notes WHERE assoc_id = ? AND assoc_type = ?';
+		if (isset($userId)) {
+			$sql .= ' AND user_id = ?';
+		}
+
+		$result =& $this->retrieve($sql, $params);
+		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$result->Close();
 
 		return $returner;
 	}

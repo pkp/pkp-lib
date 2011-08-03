@@ -90,7 +90,6 @@ class UserApiHandler extends PKPHandler {
 			default:
 				// Exit with a fatal error when an unknown setting is found.
 				fatalError('Unknown setting!');
-				return $json->getString();
 		}
 
 		// Persist the validated setting.

@@ -205,13 +205,6 @@ class Installer {
 		$this->log('post-install');
 		$result = true;
 		HookRegistry::call('Installer::postInstall', array(&$this, &$result));
-
-		// Inform users that they'll have to run the update script
-		// after doing a manual installation.
-		if ($this->getParam('manualInstall')) {
-			$this->log(Locale::translate('installer.pleaseUpgradeAfterManualInstall'));
-		}
-
 		return $result;
 	}
 
@@ -289,17 +282,9 @@ class Installer {
 	 */
 	function updateVersion() {
 		if ($this->newVersion->compare($this->currentVersion) > 0) {
-			if ($this->getParam('manualInstall')) {
-				// Mark old version as no longer current
-				$this->executeSQL(sprintf('UPDATE versions SET current = 0 WHERE product = %s', $this->dbconn->qstr($this->currentVersion->getProduct())));
-
-				// FIXME Would be better to have a mode where $dbconn->execute() saves the query
-				return $this->executeSQL(sprintf('INSERT INTO versions (major, minor, revision, build, date_installed, current, product_type, product, product_class_name, lazy_load, sitewide) VALUES (%d, %d, %d, %d, NOW(), 1, %s, %s, %s, %d, %d)', $this->newVersion->getMajor(), $this->newVersion->getMinor(), $this->newVersion->getRevision(), $this->newVersion->getBuild(), $this->dbconn->qstr($this->newVersion->getProductType()), $this->dbconn->qstr($this->newVersion->getProduct()), $this->dbconn->qstr($this->newVersion->getProductClassName()), ($this->newVersion->getLazyLoad()?1:0), ($this->newVersion->getSitewide()?1:0)));
-			} else {
-				$versionDao =& DAORegistry::getDAO('VersionDAO');
-				if (!$versionDao->insertVersion($this->newVersion)) {
-					return false;
-				}
+			$versionDao =& DAORegistry::getDAO('VersionDAO');
+			if (!$versionDao->insertVersion($this->newVersion)) {
+				return false;
 			}
 		}
 
@@ -416,7 +401,6 @@ class Installer {
 				break;
 			case 'code':
 				$this->log(sprintf('code: %s %s::%s', isset($action['file']) ? $action['file'] : 'Installer', isset($action['attr']['class']) ? $action['attr']['class'] : 'Installer', $action['attr']['function']));
-				// FIXME Don't execute code with "manual install" ???
 				if (isset($action['file'])) {
 					require_once($action['file']);
 				}
@@ -448,15 +432,10 @@ class Installer {
 				}
 			}
 		} else {
-			if ($this->getParam('manualInstall')) {
-				$this->sql[] = $sql;
-
-			} else {
-				$this->dbconn->execute($sql);
-				if ($this->dbconn->errorNo() != 0) {
-					$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-					return false;
-				}
+			$this->dbconn->execute($sql);
+			if ($this->dbconn->errorNo() != 0) {
+				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
+				return false;
 			}
 		}
 

@@ -512,22 +512,18 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		// Settings are only installed during automated installs. We issue a warning
-		// to the user to run an upgrade after manual installation.
-		if (!$installer->getParam('manualInstall')) {
-			// All contexts are set to zero for site-wide plug-in settings
-			$application =& PKPApplication::getApplication();
-			$contextDepth = $application->getContextDepth();
-			if ($contextDepth >0) {
-				$arguments = array_fill(0, $contextDepth, 0);
-			} else {
-				$arguments = array();
-			}
-			$arguments[] = $this->getName();
-			$arguments[] = $this->getInstallSitePluginSettingsFile();
-			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
-			call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
+		// All contexts are set to zero for site-wide plug-in settings
+		$application =& PKPApplication::getApplication();
+		$contextDepth = $application->getContextDepth();
+		if ($contextDepth >0) {
+			$arguments = array_fill(0, $contextDepth, 0);
+		} else {
+			$arguments = array();
 		}
+		$arguments[] = $this->getName();
+		$arguments[] = $this->getInstallSitePluginSettingsFile();
+		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
 	}

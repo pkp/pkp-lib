@@ -61,7 +61,6 @@
 	<message key="installer.locale">语言设置</message>
 	<message key="installer.locale.maybeIncomplete">标记的语言环境尚未完成.</message>
 	<message key="installer.localeSettings">语言环境设置</message>
-	<message key="installer.manualInstall">手动安装</message>
 	<message key="installer.miscSettings">杂项设置</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[一个独一无二的识别码，用来识别本站使用<a href="http://www.openarchives.org/" target="_blank">开放存档计划(Open Archives Initiative)</a>元数据搜集协定所索引的元数据记录 ]]></message>
 	<message key="installer.oaiRepositoryId">OAI库标识符</message>
@@ -69,6 +68,4 @@
 	<message key="installer.releaseNotes">发行说明</message>
 	<message key="installer.securitySettings">安全设置</message>
 	<message key="installer.skipFilesDir">不要创建所需的子目录 (用于手动安装)</message>
-	<message key="installer.manualUpgrade">手动升级</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">当您已经安装完数据库,请使用升级工具.使用方法如下:在主安装目录下执行'php tools/upgrade.php upgrade'</message>
 </locale>

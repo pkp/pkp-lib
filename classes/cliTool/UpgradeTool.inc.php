@@ -80,8 +80,7 @@ class UpgradeTool extends CommandLineTool {
 	 * Run upgrade script.
 	 */
 	function upgrade() {
-		$pretend = false; // isset($this->argv[1]) && $this->argv[1] == 'pretend';
-		$installer = new Upgrade(array('manualInstall' => $pretend));
+		$installer = new Upgrade(array());
 		$installer->setLogger($this);
 
 		if ($installer->execute()) {
@@ -93,19 +92,8 @@ class UpgradeTool extends CommandLineTool {
 				}
 			}
 
-			if ($pretend) {
-				if (count($installer->getSQL()) > 0) {
-					printf("\nSQL\n");
-					printf("----------------------------------------\n");
-					foreach ($installer->getSQL() as $sql) {
-						printf("%s\n\n", $sql);
-					}
-				}
-
-			} else {
-				$newVersion =& $installer->getNewVersion();
-				printf("Successfully upgraded to version %s\n", $newVersion->getVersionString());
-			}
+			$newVersion =& $installer->getNewVersion();
+			printf("Successfully upgraded to version %s\n", $newVersion->getVersionString());
 
 		} else {
 			printf("ERROR: Upgrade failed: %s\n", $installer->getErrorString());

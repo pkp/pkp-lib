@@ -62,7 +62,6 @@
 	<message key="installer.locale">Localizare</message>
 	<message key="installer.locale.maybeIncomplete">Localizările marcate pot fi incomplete.</message>
 	<message key="installer.localeSettings">Setări pentru localizare</message>
-	<message key="installer.manualInstall">Instalare manuală</message>
 	<message key="installer.miscSettings">Setări diverse</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identificator unic pentru identificarea înregistrărilor de metadate indexate de pe acest site folosind <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Identificator pentru depozit OAI</message>
@@ -70,6 +69,4 @@
 	<message key="installer.releaseNotes">Note de versiune</message>
 	<message key="installer.securitySettings">Setări de securitate</message>
 	<message key="installer.skipFilesDir">Nu crea subdirectoarele solicitate (este util doar pentru instalarea manuală)</message>
-	<message key="installer.manualUpgrade">Manual Upgrade</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Din moment ce ai instalat baza de date, rulează instrumentul pentru actualizare. Execută „php tools/upgrade.php upgrade” din directorul principal în acest scop.</message>
 </locale>

@@ -54,8 +54,6 @@
 	<message key="installer.installFilesDirError">アップロードファイル用に指定されたディレクトリが存在しない、または、書き込みができません。</message>
 	<message key="installer.locale">言語</message>
 	<message key="installer.localeSettings">言語の設定</message>
-	<message key="installer.manualInstall">マニュアルインストール</message>
-	<message key="installer.manualUpgrade">マニュアルバージョンアップ</message>
 	<message key="installer.miscSettings">その他の設定</message>
 	<message key="installer.oaiRepositoryId">OAIリポジトリ識別子</message>
 	<message key="installer.publicFilesDirError">公開ファイルディレクトリが存在しない、または、書き込みができません。</message>
@@ -70,5 +68,4 @@
 	<message key="installer.installFileError"><![CDATA[インストールファイル<tt>dbscripts/xml/install.xml</tt> が存在しない，または読み込めません。]]></message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[識別子は <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting (OAI-PMH) を使用してサイトからメタデータをインデクスする際に識別するために使用されます。]]></message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>括弧中に挙げたデータベースドライバは必要となるPHP拡張を持っていないようなので，それらを選択した場合にはインストールが失敗するだろう．</strong><br />これら未サポートのデータベースドライバは単に理論的な目的で紹介されているだけにすぎず，動作はしないだろう．]]></message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">データベースのインストール後にアップグレードツールを使用してください。メインインストールディレクトリ内で 'php tools/upgrade.php upgrade' を実行してください。</message>
 </locale>

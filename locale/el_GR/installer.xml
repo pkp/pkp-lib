@@ -59,8 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Σφάλμα κατά την ανάλυση (parsing) του αρχείου εγκατάστασης της βάσης δεδομένων <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Τοπικές ρυθμίσεις</message>
 	<message key="installer.localeSettings">Τοπικές ρυθμίσεις</message>
-	<message key="installer.manualInstall">Μη αυτόματη εγκατάσταση</message>
-	<message key="installer.manualUpgrade">Μη αυτόματη αναβάθμιση</message>
 	<message key="installer.miscSettings">Λοιπές Ρυθμίσεις </message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Ένα μοναδικό αναγνωριστικό χρησιμοποιείται για την αναγνώριση των εγγραφών μεταδεδομένων των ευρετηρίων του συγκεκριμένου ιστοτόπου με χρήση του <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">Αναγνωριστικό (identifier) OAI καταθετηρίου</message>

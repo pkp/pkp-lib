@@ -58,8 +58,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[بروز خطا هنگام تجزیه فایل نصبی بانک اطلاعاتی <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">زبان</message>
 	<message key="installer.localeSettings">تنظیمات زبانی</message>
-	<message key="installer.manualInstall">نصب دستی</message>
-	<message key="installer.manualUpgrade">بروزرسانی دستی</message>
 	<message key="installer.miscSettings">تنظیمات متفرقه</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[یک شناسه منحصر به فرد برای تشخیص رکورد های متاداه اندکس شده از این سایت توسط پروتوکل  <a href="http://www.openarchives.org/" target="_blank">پیشگام بایگانی آزاد</a> برای استخراج متا داده.]]></message>
 	<message key="installer.oaiRepositoryId">شناسه مخزن OAI</message>
@@ -70,7 +68,4 @@
 	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>هشدار: نسخه PHP شما فاقد خداقل های مورد نیاز برای نصب برنامه است. توصیه میشود به نسخه های جدید ارتفا دهید.</strong>]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[بروز خطا هنگام پردازش فایل تمپلیت ایمیل <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">زبانهای مشخص شده ممکن است ناکامل باشند.</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">پس از نصب بانک اطلاعاتی لطفا ابزار بروزرسانی را اجرا کنید. برای این منظور از داخل پوشه اصلی نصب، برنامه
-'php tools/upgrade.php upgrade'
-را اجرا کنید</message>
 </locale>

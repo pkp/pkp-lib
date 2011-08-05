@@ -55,8 +55,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Kurulum dili yeri</message>
 	<message key="installer.localeSettings">Yerel Ayarlar</message>
-	<message key="installer.manualInstall">Elle Yükleme</message>
-	<message key="installer.manualUpgrade">Elle güncelleme</message>
 	<message key="installer.miscSettings">Diğer Ayarlar</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Bu sitede <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> meta veri toplama protokolüne uygun olarak meta verileri tanımlamak için tekil bir tanımlama kullanılır.]]></message>
 	<message key="installer.oaiRepositoryId">OAI depo belirleyici</message>

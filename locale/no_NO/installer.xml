@@ -59,8 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalinnstilling</message>
 	<message key="installer.localeSettings">Lokalinnstillinger</message>
-	<message key="installer.manualInstall">Manuell installering</message>
-	<message key="installer.manualUpgrade">Manuell oppgradering</message>
 	<message key="installer.miscSettings">Diverse innstillinger</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[En unik identifikator brukt for å identifisere metadatafiler indeksert fra dette nettstedet ved bruk av <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI-arkividentifikator</message>

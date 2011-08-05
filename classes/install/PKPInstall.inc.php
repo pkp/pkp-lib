@@ -19,7 +19,6 @@
  * This script will:
  *  - Create the database (optionally), and install the database tables and initial data.
  *  - Update the config file with installation parameters.
- * It can also be used for a "manual install" to retrieve the SQL statements required for installation.
  */
 
 
@@ -63,36 +62,22 @@ class PKPInstall extends Installer {
 			array_push($this->installedLocales, $this->locale);
 		}
 
-		if ($this->getParam('manualInstall')) {
-			// Do not perform database installation for manual install
-			// Create connection object with the appropriate database driver for adodb-xmlschema
-			$conn = new DBConnection(
-				$this->getParam('databaseDriver'),
-				null,
-				null,
-				null,
-				null
-			);
-			$this->dbconn =& $conn->getDBConn();
+		// Connect to database
+		$conn = new DBConnection(
+			$this->getParam('databaseDriver'),
+			$this->getParam('databaseHost'),
+			$this->getParam('databaseUsername'),
+			$this->getParam('databasePassword'),
+			$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
+			true,
+			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
+		);
 
-		} else {
-			// Connect to database
-			$conn = new DBConnection(
-				$this->getParam('databaseDriver'),
-				$this->getParam('databaseHost'),
-				$this->getParam('databaseUsername'),
-				$this->getParam('databasePassword'),
-				$this->getParam('createDatabase') ? null : $this->getParam('databaseName'),
-				true,
-				$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-			);
+		$this->dbconn =& $conn->getDBConn();
 
-			$this->dbconn =& $conn->getDBConn();
-
-			if (!$conn->isConnected()) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
+		if (!$conn->isConnected()) {
+			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
+			return false;
 		}
 
 		DBConnection::getInstance($conn);
@@ -190,28 +175,26 @@ class PKPInstall extends Installer {
 			return false;
 		}
 
-		if (!$this->getParam('manualInstall')) {
-			// Re-connect to the created database
-			$this->dbconn->disconnect();
+		// Re-connect to the created database
+		$this->dbconn->disconnect();
 
-			$conn = new DBConnection(
-				$this->getParam('databaseDriver'),
-				$this->getParam('databaseHost'),
-				$this->getParam('databaseUsername'),
-				$this->getParam('databasePassword'),
-				$this->getParam('databaseName'),
-				true,
-				$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
-			);
+		$conn = new DBConnection(
+			$this->getParam('databaseDriver'),
+			$this->getParam('databaseHost'),
+			$this->getParam('databaseUsername'),
+			$this->getParam('databasePassword'),
+			$this->getParam('databaseName'),
+			true,
+			$this->getParam('connectionCharset') == '' ? false : $this->getParam('connectionCharset')
+		);
 
-			DBConnection::getInstance($conn);
+		DBConnection::getInstance($conn);
 
-			$this->dbconn =& $conn->getDBConn();
+		$this->dbconn =& $conn->getDBConn();
 
-			if (!$conn->isConnected()) {
-				$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
-				return false;
-			}
+		if (!$conn->isConnected()) {
+			$this->setError(INSTALLER_ERROR_DB, $this->dbconn->errorMsg());
+			return false;
 		}
 
 		return true;

@@ -59,8 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erreur d'analyse du fichier d'installation de la base de données <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Langue</message>
 	<message key="installer.localeSettings">Paramètres de langue</message>
-	<message key="installer.manualInstall">Installation manuelle</message>
-	<message key="installer.manualUpgrade">Mise à jour manuelle</message>
 	<message key="installer.miscSettings">Paramètres divers</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Un identifiant unique utilisé pour identifier les enregistrements de métadonnées indexées à partir de ce site à l'aide du protocole<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> pour la collecte de métadonnées.]]></message>
 	<message key="installer.oaiRepositoryId">Identifiant du dépôt OAI</message>
@@ -70,5 +68,4 @@
 	<message key="installer.skipFilesDir">Ne pas créer de sous-répertoire (utile uniquement pour l'installation manuelle)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Une erreur s'est produite lors de l'analyse du fichier du modèle de courriel <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Les langues sélectionnées peuvent être incomplètes.</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Veuillez démarrer l'outil de mise à jour après avoir installé votre base de données. Exécuter 'php tools/upgrade.php upgrade' à partir du répertoire d'installation principal prévu à cet effet.</message>
 </locale>

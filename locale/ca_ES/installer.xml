@@ -60,8 +60,6 @@
 	<message key="installer.locale">Configuració regional</message>
 	<message key="installer.localeSettingsInstructions">Si necessiteu compatibilitat completa amb Unicode (UTF-8), seleccioneu UTF-8 per a tots els paràmetres relatius als jocs de caràcters. Noteu que per a poder dispo</message>
 	<message key="installer.localeSettings">Paràmetres de configuració regional</message>
-	<message key="installer.manualInstall">Instal·lació manual</message>
-	<message key="installer.manualUpgrade">Actualització manual</message>
 	<message key="installer.miscSettings">Paràmetres diversos</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Identificador únic utilitzat per a identificar els registres de metadades indexats des d’aquest lloc mitjançant el Protocol for Metadata Harvesting (protocol per a la recopilació de metadades) de l’<a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador del dipòsit OAI</message>

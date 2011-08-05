@@ -59,8 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Chyba při rozebírání (parsing) instalačního souboru databáze <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Lokalizace</message>
 	<message key="installer.localeSettings">Nastavení lokalizace</message>
-	<message key="installer.manualInstall">Instalovat ručně</message>
-	<message key="installer.manualUpgrade">Upgradovat ručně</message>
 	<message key="installer.miscSettings">Různá nastavení</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[jedinečný idnetifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting).]]></message>
 	<message key="installer.oaiRepositoryId">Identifikátor OAI úložiště</message>

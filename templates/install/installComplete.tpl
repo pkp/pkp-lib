@@ -28,22 +28,4 @@
 </div>
 {/if}
 
-{if $manualInstall}
-
-{translate key="installer.manualSQLInstructions"}
-<p>{translate key="installer.pleaseUpgradeAfterManualInstall"}</p>
-<div id="manualSQLInstructions">
-<form class="pkp_form" action="#">
-<p>
-{translate key="installer.installerSQLStatements"}:<br />
-<textarea name="sql" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{foreach from=$installSql item=sqlStmt}{$sqlStmt|escape};
-
-
-{/foreach}</textarea>
-</p>
-</form>
-</div>
-{/if}
-
 {include file="common/footer.tpl"}
-

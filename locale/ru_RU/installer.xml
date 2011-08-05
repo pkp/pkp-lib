@@ -61,7 +61,6 @@
 	<message key="installer.locale">Язык</message>
 	<message key="installer.locale.maybeIncomplete">Поддержка отмеченных языков может быть неполной.</message>
 	<message key="installer.localeSettings">Настройки Языка</message>
-	<message key="installer.manualInstall">Ручная установка</message>
 	<message key="installer.miscSettings">Дополнительные настройки</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Для идентификации записей метаданных (в протоколе <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting) требуется идентификатор, уникальный для данного сайта (хранилища метаданных).]]></message>
 	<message key="installer.oaiRepositoryId">идентификатор хранилища OAI</message>
@@ -69,5 +68,4 @@
 	<message key="installer.releaseNotes">Замечания о текущей версии</message>
 	<message key="installer.securitySettings">Установки безопасности</message>
 	<message key="installer.skipFilesDir">Не создавать подкаталогов (может потребоваться при для ручной установке)</message>
-	<message key="installer.manualUpgrade">Ручное обновление</message>
 </locale>

@@ -59,8 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Fout bij het parseren van het database installatiebestand <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Taal</message>
 	<message key="installer.localeSettings">Taalinstelingen</message>
-	<message key="installer.manualInstall">Handmatige installatie</message>
-	<message key="installer.manualUpgrade">Handmatig opwaarderen</message>
 	<message key="installer.miscSettings">Diverse instellingen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identificatie</message>
@@ -70,5 +68,4 @@
 	<message key="installer.skipFilesDir">De benodigde submappen niet aanmaken (alleen nuttig voor handmatige installatie)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk incompleet</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Start het upgrade gereedschap als u de database heeft geïnstalleerd. Voer daartoe 'php tools/upgrade.php upgrade' uit vanuit de installatiemap.</message>
 </locale>

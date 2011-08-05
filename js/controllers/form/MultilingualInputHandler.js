@@ -7,7 +7,8 @@
  * @class MultilingualInputHandler
  * @ingroup js_controllers_form
  *
- * @brief Handler for toggling the pop-over on multi lingual inputs (text inputs and text areas, mostly).
+ * @brief Handler for toggling the pop-over on multi lingual inputs (text
+ * inputs and text areas, mostly).
  */
 (function($) {
 
@@ -17,15 +18,18 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQuery} $popover the wrapped HTML element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler = function($popover, options) {
-		// Bind to the focus of the primary language (the first input) open the pop-over
-		$popover.find(':input').first().focus(this.callbackWrapper(this.multilingualShow));
+		// Bind to the focus of the primary language (the first input)
+		// open the pop-over
+		$popover.find(':input').first()
+				.focus(this.callbackWrapper(this.multilingualShow));
 		// Bind to the blur of any of the inputs to to check if we should close.
-		$popover.find(':input').blur(this.callbackWrapper(this.multilingualHide));
+		$popover.find(':input').
+				blur(this.callbackWrapper(this.multilingualHide));
 
 		this.parent($popover, options);
 	};
@@ -33,10 +37,10 @@
 			$.pkp.controllers.form.MultilingualInputHandler,
 			$.pkp.classes.Handler);
 
+
 	//
 	// Public methods
 	//
-
 	/**
 	 * Internal callback called to show additional languages for a
 	 * multilingual input

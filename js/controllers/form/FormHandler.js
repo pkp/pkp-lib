@@ -140,6 +140,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		this.trigger('formCanceled');
 	};
 
+
 	//
 	// Private Methods
 	//

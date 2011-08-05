@@ -51,7 +51,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * The URL to fetch notification data.
 	 * @private
-	 * @type {array}
+	 * @type {Array}
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationUrl_ = null;
 
@@ -79,6 +79,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	/**
 	 * Fetch the notifications data from server.
+	 * @param {Object} element The active element.
+	 * @param {Object} event The event that initiated this call.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =

@@ -261,7 +261,7 @@ function doSubmit() {
 </div>
 {/if}{* !$skipMiscSettings *}
 
-<p><input name="install" type="button" id="install" value="{translate key="installer.installApplication"}" class="button defaultButton" onclick="doSubmit()" /> <input type="submit" name="manualInstall" value="{translate key="installer.manualInstall"}" class="button" /></p>
+<p><input name="install" type="button" id="install" value="{translate key="installer.installApplication"}" class="button defaultButton" onclick="doSubmit()" /></p>
 
 </form>
 

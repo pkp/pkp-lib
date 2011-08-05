@@ -60,8 +60,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Fehler bei der Verarbeitung der Datenbank-Installationsdatei <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Regionaleinstellungen</message>
 	<message key="installer.localeSettings">Regionaleinstellungen</message>
-	<message key="installer.manualInstall">Manuelle Installation</message>
-	<message key="installer.manualUpgrade">Manuelle Aktualisierung</message>
 	<message key="installer.miscSettings">Verschiedene Einstellungen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
 	<message key="installer.oaiRepositoryId">Kennung für das OAI-Repository</message>

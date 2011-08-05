@@ -62,7 +62,6 @@
 	<message key="installer.locale">Locale</message>
 	<message key="installer.locale.maybeIncomplete">Marked locales may be incomplete.</message>
 	<message key="installer.localeSettings">Locale Settings</message>
-	<message key="installer.manualInstall">Manual Install</message>
 	<message key="installer.miscSettings">Miscellaneous Settings</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identifier</message>
@@ -70,5 +69,4 @@
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Security Settings</message>
 	<message key="installer.skipFilesDir">Do not create required subdirectories (only useful for a manual installation)</message>
-	<message key="installer.manualUpgrade">Manual Upgrade</message>
 </locale>

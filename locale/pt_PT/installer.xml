@@ -60,8 +60,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Erro na execução do documento de instalação da base de dados <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Idioma</message>
 	<message key="installer.localeSettings">Configurações de Idioma (Localização)</message>
-	<message key="installer.manualInstall">Instalação Manual</message>
-	<message key="installer.manualUpgrade">Actualização Manual</message>
 	<message key="installer.miscSettings">Configurações Gerais</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Um identificador único de registos de metadados indexados através do protocolo de Recolha de Metadados do <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Identificador para repositório OAI</message>

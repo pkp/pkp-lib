@@ -65,7 +65,6 @@
 	<message key="installer.miscSettings">Verschiedene Einstellungen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Eine eindeutige Kennung zur Identifikation von Metadaten-Einträgen, die von dieser Website mittels des <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>-Protokolls für Metadaten-Harvesting abgerufen werden.]]></message>
 	<message key="installer.oaiRepositoryId">Kennung für das OAI-Repository</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Bitte starten Sie das Upgrade-Tool, nachdem Sie die Datenbank installiert haben. Führen Sie  dazu 'php tools/upgrade.php upgrade' aus dem Hauptinstallationspfad heraus aus.</message>
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>

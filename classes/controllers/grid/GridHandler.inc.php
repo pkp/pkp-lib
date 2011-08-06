@@ -89,7 +89,7 @@ class GridHandler extends PKPHandler {
 	 * NB: You should make sure to authorize and/or
 	 * validate parameters before you publish them
 	 * through this interface. Callers will assume that
-	 * date accessed through this method will not have
+	 * data accessed through this method will not have
 	 * to be sanitized.
 	 *
 	 * The default implementation tries to retrieve

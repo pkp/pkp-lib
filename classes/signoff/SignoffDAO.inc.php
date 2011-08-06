@@ -123,7 +123,7 @@ class SignoffDAO extends DAO {
 	 * @param $row array
 	 * @return Signoff
 	 */
-	function _fromRow(&$row) {
+	function &_fromRow(&$row) {
 		$signoff = $this->newDataObject();
 
 		$signoff->setId($row['signoff_id']);
@@ -243,7 +243,7 @@ class SignoffDAO extends DAO {
 	 * @param $fileRevision int
 	 * @return Signoff
 	 */
-	function getBySymbolic($symbolic, $assocType, $assocId, $userId = null,
+	function &getBySymbolic($symbolic, $assocType, $assocId, $userId = null,
 			$userGroupId = null, $fileId = null, $fileRevision = null) {
 
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?';
@@ -289,7 +289,7 @@ class SignoffDAO extends DAO {
 	 * @param $userGroupId int
 	 * @return DAOResultFactory
 	 */
-	function getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
+	function &getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
 		$sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
 		$params = array($symbolic);
 
@@ -324,7 +324,7 @@ class SignoffDAO extends DAO {
 	 * @param $userId int
 	 * @return DAOResultFactory
 	 */
-	function getByUserId($userId) {
+	function &getByUserId($userId) {
 		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';
 		$params = array((int) $userId);
 
@@ -340,7 +340,7 @@ class SignoffDAO extends DAO {
 	 * @param $revision integer
 	 * @return DAOResultFactory
 	 */
-	function getByFileRevision($fileId, $revision = null) {
+	function &getByFileRevision($fileId, $revision = null) {
 		$sql = 'SELECT * FROM signoffs WHERE file_id = ?';
 		$params = array((int)$fileId);
 		if ($revision) {

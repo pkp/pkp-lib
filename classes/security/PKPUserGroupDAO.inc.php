@@ -247,15 +247,15 @@ class PKPUserGroupDAO extends DAO {
 	 * @param $userGroupId int
 	 * @return boolean
 	 */
-	function userInGroup($contextId, $userId, $userGroupId) {
+	function userInGroup($userId, $userGroupId) {
 		$result =& $this->retrieve(
 			'SELECT	count(*)
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	ug.context_id = ? AND
+			WHERE
 				uug.user_id = ? AND
 				ug.user_group_id = ?',
-			array((int) $contextId, (int) $userId, (int) $userGroupId)
+			array((int) $userId, (int) $userGroupId)
 		);
 
 		// > 0 because user could belong to more than one user group with this role

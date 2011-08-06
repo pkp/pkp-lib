@@ -291,16 +291,25 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 					' rather than 0 or 1 rows to be replaced!');
 		}
 
-		// Hide the empty grid row placeholder.
-		var $emptyElement = $grid.find('.empty');
-		$emptyElement.hide();
-
-		if ($existingRow.length === 1) {
-			// Update row.
-			$existingRow.replaceWith($newRow);
+		// Does this grid have a different number of columns than the existing grid?
+		// If yes, we have to redraw the whole grid so new columns get added/removed to match row.
+		var numColumns = $grid.find('th').length;
+		var numCellsInNewNonCategoryRow = $newRow.find('tr').not('.category').length;
+		if (numCellsInNewNonCategoryRow != 0 || numColumns != numCellsInNewNonCategoryRow) {
+			$.get(this.fetchGridUrl_, null,
+					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 		} else {
-			// Insert row.
-			this.appendRow($newRow);
+			// Hide the empty grid row placeholder.
+			var $emptyElement = $grid.find('.empty');
+			$emptyElement.hide();
+
+			if ($existingRow.length === 1) {
+				// Update row.
+				$existingRow.replaceWith($newRow);
+			} else {
+				// Insert row.
+				this.appendRow($newRow);
+			}
 		}
 	};
 

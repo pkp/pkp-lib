@@ -32,6 +32,7 @@
 	<message key="grid.columns.actions">Actions</message>
 	<message key="grid.columns.institution">Institution</message>
 	<message key="grid.columns.url">URL</message>
+	<message key="grid.columns.auditor">Auditor</message>
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsors</message>
@@ -50,7 +51,7 @@
 	<message key="grid.libraryFiles.review.title">Review Library</message>
 	<message key="grid.libraryFiles.production.title">Production Library</message>
 	<message key="grid.libraryFiles.productionTemplate.title">Production Template Library</message>
-	
+
 	<!-- SubmissionChecklist -->
 	<message key="grid.submissionChecklist.title">Submission Checklist</message>
 	<message key="grid.submissionChecklist.column.checklistItem">Checklist Item</message>
@@ -65,7 +66,7 @@
 	<message key="grid.roles.currentRoles">Current Roles</message>
 	<message key="grid.roles.add">Add Role</message>
 	<message key="grid.roles.stageAssignment">Stage Assignment</message>
-	
+
 	<!-- Users -->
 	<message key="grid.user.currentUsers">Current Users</message>
 	<message key="grid.user.currentEnrollment">Current Enrollment</message>
@@ -100,7 +101,7 @@
 	<message key="grid.user.addRoles">Add Roles</message>
 	<message key="grid.user.selectUser">Select User</message>
 	<message key="grid.user.pleaseSelectUser">Please select a user</message>
-	
+
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.currentList">Current List</message>
 </locale>

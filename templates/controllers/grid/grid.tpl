@@ -41,7 +41,7 @@
 		{translate key=$grid->getInstructions()}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
-				{foreach from=$columns item=column}<col />{/foreach}
+				{foreach from=$columns item=column}<col {if $column->hasFlag('myUserGroup')}class="my_role"{/if}/>{/foreach}
 			</colgroup>
 			<thead>
 				{** build the column headers **}

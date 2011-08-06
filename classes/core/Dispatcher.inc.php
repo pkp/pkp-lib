@@ -223,6 +223,7 @@ class Dispatcher {
 	 */
 	function _cacheContent($contents) {
 		assert(is_a($this->_router, 'PKPRouter'));
+		// FIXME: #6807 getCacheFilename expects a $request variable.
 		$filename = $this->_router->getCacheFilename();
 		$fp = fopen($filename, 'w');
 		if ($fp) {

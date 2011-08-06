@@ -7,11 +7,18 @@
  * a category row
  *}
 {assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
-<td colspan="{$columns|@count}" class="pkp_linkActions">
-	{if $categoryRow->getActions()}
-		{foreach name=actions from=$categoryRow->getActions() item=action}
-			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-		{/foreach}
+{foreach name=columnLoop from=$columns key=columnId item=column}
+	{if $smarty.foreach.columnLoop.first}
+		<td class="pkp_linkActions">
+			{if $categoryRow->getActions()}
+				{foreach name=actions from=$categoryRow->getActions() item=action}
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
+				{/foreach}
+			{/if}
+			{$categoryRow->getCategoryLabel()|escape}
+		</td>
+	{else}
+		<td />
 	{/if}
-	{$categoryRow->getCategoryLabel()|escape}
-</td>
+{/foreach}
+

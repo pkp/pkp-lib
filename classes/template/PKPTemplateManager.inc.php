@@ -190,6 +190,9 @@ class PKPTemplateManager extends Smarty {
 			$user =& $request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
+				// Assign the user name to be used in the sitenav
+				$this->assign('username', $user->getUserName());
+
 				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 				$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
 				$notificationsArray =& $notifications->toArray();

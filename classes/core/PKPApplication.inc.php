@@ -27,6 +27,8 @@ define('ASSOC_TYPE_CITATION', 0x0100003);
 define('ASSOC_TYPE_AUTHOR', 0x0100004);
 define('ASSOC_TYPE_EDITOR', 0x0100005);
 
+define('ASSOC_TYPE_SIGNOFF', 0x0100006);
+
 class PKPApplication {
 	var $enabledProducts;
 	var $allProducts;

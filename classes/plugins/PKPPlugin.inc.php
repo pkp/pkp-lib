@@ -241,16 +241,13 @@ class PKPPlugin {
 		$installer =& $args[0];
 		$result =& $args[1];
 
-		// Settings are only installed during automated installs. FIXME!
-		if (!$installer->getParam('manualInstall')) {
-			// All contexts are set to zero for site-wide plug-in settings
-			$application =& PKPApplication::getApplication();
-			$arguments = array_fill(0, $application->getContextDepth(), 0);
-			$arguments[] = $this->getName();
-			$arguments[] = $this->getInstallSitePluginSettingsFile();
-			$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
-			call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
-		}
+		// All contexts are set to zero for site-wide plug-in settings
+		$application =& PKPApplication::getApplication();
+		$arguments = array_fill(0, $application->getContextDepth(), 0);
+		$arguments[] = $this->getName();
+		$arguments[] = $this->getInstallSitePluginSettingsFile();
+		$pluginSettingsDao =& DAORegistry::getDAO('PluginSettingsDAO');
+		call_user_func_array(array(&$pluginSettingsDao, 'installSettings'), $arguments);
 
 		return false;
 	}

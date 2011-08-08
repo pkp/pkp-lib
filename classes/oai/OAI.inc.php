@@ -304,6 +304,10 @@ class OAI {
 			"\t\t\t\txsi:schemaLocation=\"http://oai.dlib.vt.edu/OAI/metadata/toolkit\n" .
 			"\t\t\t\t\thttp://oai.dlib.vt.edu/OAI/metadata/toolkit.xsd\">\n" .
 			"\t\t\t\t<title>" . $info->toolkitTitle . "</title>\n" .
+			"\t\t\t\t<author>\n" .
+			"\t\t\t\t\t<name>Public Knowledge Project</name>\n" .
+			"\t\t\t\t\t<email>pkp.contact@gmail.com</email>\n" .
+			"\t\t\t\t</author>\n" .
 			"\t\t\t\t<version>" . $info->toolkitVersion . "</version>\n" .
 			"\t\t\t\t<URL>" . $info->toolkitURL . "</URL>\n" .
 			"\t\t\t</toolkit>\n" .

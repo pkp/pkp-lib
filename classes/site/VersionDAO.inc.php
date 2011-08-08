@@ -230,8 +230,8 @@ class VersionDAO extends DAO {
 		$result =& $this->retrieve(
 				'SELECT v.*
 				 FROM versions v LEFT JOIN plugin_settings ps ON
-				 	lower(v.product_class_name) = ps.plugin_name
-				 	AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
+					lower(v.product_class_name) = ps.plugin_name
+					AND ps.setting_name = \'enabled\' '.$contextWhereClause.'
 				 WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)', $context, false);
 
 		$productArray = array();

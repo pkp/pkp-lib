@@ -66,7 +66,7 @@ class PKPAction {
 		// 2) Citation editing must be enabled for the journal.
 		if (!$citationEditorConfigurationError) {
 			$context =& $router->getContext($request);
-		 	if (!$context->getSetting('metaCitations')) $citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
+			if (!$context->getSetting('metaCitations')) $citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
 		}
 
 		// 3) At least one citation parser is available.

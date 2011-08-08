@@ -116,7 +116,7 @@ class FormBuilderVocabulary {
 			$smarty->trigger_error('FBV: form area \'id\' not set.');
 		}
 
- 		if (!$repeat) {
+		if (!$repeat) {
 			$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
 			$smarty->assign('FBV_id', $params['id']);
 			$smarty->assign('FBV_content', isset($content) ? $content : null);

@@ -361,7 +361,7 @@ class SignoffDAO extends DAO {
 	 * @param $userGroupId
 	 * @param $unique boolean
 	 * @return object
- 	 */
+	 */
 	function &getUsersBySymbolic($symbolic, $assocType, $assocId, $userGroupId = null, $unique = true) {
 		$selectDistinct = $unique ? 'SELECT DISTINCT' : 'SELECT';
 

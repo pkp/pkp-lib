@@ -135,7 +135,7 @@ class String {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
 		return utf8_strlen($string);
@@ -148,7 +148,7 @@ class String {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
 		return utf8_strpos($haystack, $needle, $offset);
@@ -161,7 +161,7 @@ class String {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
 		return utf8_strrpos($haystack, $needle, $offset);
@@ -224,7 +224,7 @@ class String {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
 		return utf8_strtolower($string);
@@ -237,7 +237,7 @@ class String {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 		}
 		return utf8_strtoupper($string);
@@ -251,7 +251,7 @@ class String {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 			require_once './lib/pkp/lib/phputf8/ucfirst.php';
 		} else {
-		 	require_once './lib/pkp/lib/phputf8/utils/unicode.php';
+			require_once './lib/pkp/lib/phputf8/utils/unicode.php';
 			require_once './lib/pkp/lib/phputf8/native/core.php';
 			require_once './lib/pkp/lib/phputf8/ucfirst.php';
 		}
@@ -424,7 +424,7 @@ class String {
 		/* Get all attribute="javascript:foo()" tags. This is
 		* essentially the regex /(=|url\()("?)[^>]* script:/ but
 		* expanded to catch camouflage with spaces and entities. */
-		$preg 	= '/((&#0*61;?|&#x0*3D;?|=)|'
+		$preg	= '/((&#0*61;?|&#x0*3D;?|=)|'
 			. '((u|&#0*85;?|&#x0*55;?|&#0*117;?|&#x0*75;?)\s*'
 			. '(r|&#0*82;?|&#x0*52;?|&#0*114;?|&#x0*72;?)\s*'
 			. '(l|&#0*76;?|&#x0*4c;?|&#0*108;?|&#x0*6c;?)\s*'

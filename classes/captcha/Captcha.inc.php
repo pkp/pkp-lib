@@ -89,7 +89,7 @@ class Captcha extends DataObject {
 		return $this->setData('dateCreated', $dateCreated);
 	}
 
- 	/**
+	/**
 	 * get date created
 	 * @return date
 	 */

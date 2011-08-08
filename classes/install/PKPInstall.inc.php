@@ -49,11 +49,11 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function preInstall() {
- 		if(!isset($this->currentVersion)) {
- 			$this->currentVersion = Version::fromString('');
- 		}
+		if(!isset($this->currentVersion)) {
+			$this->currentVersion = Version::fromString('');
+		}
 
- 		$this->locale = $this->getParam('locale');
+		$this->locale = $this->getParam('locale');
 		$this->installedLocales = $this->getParam('additionalLocales');
 		if (!isset($this->installedLocales) || !is_array($this->installedLocales)) {
 			$this->installedLocales = array();

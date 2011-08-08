@@ -188,7 +188,7 @@ class Comment extends DataObject {
 		return $this->setData('body', $body);
 	}
 
- 	/**
+	/**
 	 * get date posted
 	 * @return date
 	 */
@@ -204,7 +204,7 @@ class Comment extends DataObject {
 		return $this->setData('datePosted', $datePosted);
 	}
 
- 	/**
+	/**
 	 * get date modified
 	 * @return date
 	 */

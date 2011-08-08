@@ -38,18 +38,18 @@ class PKPPublicFileManager extends FileManager {
 	 * @param $destFileName string the destination file name
 	 * @return boolean
 	 */
- 	function uploadSiteFile($fileName, $destFileName) {
- 		return $this->uploadFile($fileName, $this->getSiteFilesPath() . '/' . $destFileName);
- 	}
+	function uploadSiteFile($fileName, $destFileName) {
+		return $this->uploadFile($fileName, $this->getSiteFilesPath() . '/' . $destFileName);
+	}
 
- 	/**
+	/**
 	 * Delete a file from the site's public directory.
- 	 * @param $fileName string the target file name
+	 * @param $fileName string the target file name
 	 * @return boolean
- 	 */
- 	function removeSiteFile($fileName) {
- 		return $this->deleteFile($this->getSiteFilesPath() . '/' . $fileName);
- 	}
+	 */
+	function removeSiteFile($fileName) {
+		return $this->deleteFile($this->getSiteFilesPath() . '/' . $fileName);
+	}
 }
 
 ?>

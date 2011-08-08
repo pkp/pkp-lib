@@ -162,10 +162,11 @@ class CategoryGridHandler extends GridHandler {
 		$row->initialize($request);
 		return $row;
 	}
- 	/**
- 	 * Render all the categories internally
- 	 * @param $request PKPRequest
- 	 */
+
+	/**
+	 * Render all the categories internally
+	 * @param $request PKPRequest
+	 */
 	function _renderCategoriesInternally(&$request) {
 		// Iterate through the rows and render them according
 		// to the row definition.

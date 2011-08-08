@@ -385,7 +385,7 @@ class PKPApplication {
 	 * @param $errstr string
 	 * @param $errfile string
 	 * @param $errline string
- 	 * @return $message string
+	 * @return $message string
 	 */
 	function buildErrorMessage($errorno, $errstr, $errfile, $errline) {
 		$message = array();

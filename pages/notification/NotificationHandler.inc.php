@@ -296,9 +296,9 @@ class NotificationHandler extends Handler {
 	 * Return an array with null values * the context depth
 	 */
 	 function getContextDepthArray() {
-	 	$contextDepthArray = array();
+		$contextDepthArray = array();
 
-	 	$application = PKPApplication::getApplication();
+		$application = PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
 
 		for ($i=0; $i < $contextDepth; $i++) {
@@ -316,7 +316,7 @@ class NotificationHandler extends Handler {
 	  * @return JSONMessage
 	  */
 	 function fetchNotification($args, &$request) {
-	 	$user =& $request->getUser();
+		$user =& $request->getUser();
 		if ($user) {
 			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 			$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);

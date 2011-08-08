@@ -103,14 +103,14 @@ class FTPFileWrapper extends FileWrapper {
 	}
 
 	function _receiveLine(&$line) {
- 		do {
- 			$line = fgets($this->ctrl);
- 		} while($line !== false && ($tmp = substr(trim($line), 3, 1)) != ' ' && $tmp != '');
+		do {
+			$line = fgets($this->ctrl);
+		} while($line !== false && ($tmp = substr(trim($line), 3, 1)) != ' ' && $tmp != '');
 
- 		if ($line !== false) {
- 			return substr($line, 0, 3);
- 		}
- 		return false;
+		if ($line !== false) {
+			return substr($line, 0, 3);
+		}
+		return false;
 	}
 }
 

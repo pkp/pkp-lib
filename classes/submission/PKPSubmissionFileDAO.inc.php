@@ -668,9 +668,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// Did the user request all or only the latest revision?
 		if ($latestOnly) {
-			// FIXME: #6808 The SQL is not filtering out all previous revisions correctly when there are 3+ revisions.
-			// The assertion a few lines down fails.
-
 			// Filter the latest revision of each file.
 			// NB: We have to do this in the SQL for paging to work
 			// correctly. We use a partial cartesian join here to

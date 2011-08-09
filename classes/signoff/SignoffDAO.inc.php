@@ -290,32 +290,22 @@ class SignoffDAO extends DAO {
 	 * @return DAOResultFactory
 	 */
 	function &getAllBySymbolic($symbolic, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
-		$sql = 'SELECT * FROM signoffs WHERE symbolic = ?';
-		$params = array($symbolic);
+		$returner =& $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
+		return $returner;
+	}
 
-		if ($assocType) {
-			$sql .= ' AND assoc_type = ?';
-			$params[] = (int) $assocType;
-		}
-
-		if ($assocId) {
-			$sql .= ' AND assoc_id = ?';
-			$params[] = (int) $assocId;
-		}
-
-		if ($userId) {
-			$sql .= ' AND user_id = ?';
-			$params[] = (int) $userId;
-		}
-
-		if ($userGroupId) {
-			$sql .= ' AND user_group_id = ?';
-			$params[] = (int) $userGroupId;
-		}
-
-		$result =& $this->retrieve($sql, $params);
-
-		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+	/**
+	 * Retrieve all signoffs matching the specified input parameters
+	 * @param $symbolic string
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $userId int
+	 * @param $stageId int
+	 * @param $userGroupId int
+	 * @return DAOResultFactory
+	 */
+	function &getAllByAssocType($assocType, $assocId, $symbolic = null, $userId = null, $userGroupId = null) {
+		$returner =& $this->_getAllInternally($symbolic, $assocType, $assocId, $userId, $userGroupId);
 		return $returner;
 	}
 
@@ -387,7 +377,7 @@ class SignoffDAO extends DAO {
 	 * @param $newUserId int
 	 */
 	function transferSignoffs($oldUserId, $newUserId) {
-		$returner = $this->update(
+		return $this->update(
 			'UPDATE	signoffs
 			SET	user_id = ?
 			WHERE	user_id = ?',
@@ -404,6 +394,54 @@ class SignoffDAO extends DAO {
 	 */
 	function getInsertId() {
 		return parent::getInsertId('signoffs', 'signoff_id');
+	}
+
+	/**
+	 * Retrieve all signoffs matching the specified input parameters
+	 * @param $symbolic string
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $userId int
+	 * @param $stageId int
+	 * @param $userGroupId int
+	 * @return DAOResultFactory
+	 */
+	function &_getAllInternally($symbolic = null, $assocType = null, $assocId = null, $userId = null, $userGroupId = null) {
+		$sql = 'SELECT * FROM signoffs';
+
+		if ($symbolic) {
+			$conditions[] = 'symbolic = ?';
+			$params[] = $symbolic;
+		}
+
+		if ($assocType) {
+			$conditions[] = 'assoc_type = ?';
+			$params[] = (int) $assocType;
+		}
+
+		if ($assocId) {
+			$conditions[] = 'assoc_id = ?';
+			$params[] = (int) $assocId;
+		}
+
+		if ($userId) {
+			$conditions[] = 'user_id = ?';
+			$params[] = (int) $userId;
+		}
+
+		if ($userGroupId) {
+			$conditions[] = 'user_group_id = ?';
+			$params[] = (int) $userGroupId;
+		}
+
+		if (count($conditions) > 0) {
+			$sql .= ' WHERE ' . implode(' AND ', $conditions);
+		}
+
+		$result =& $this->retrieve($sql, $params);
+
+		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
+		return $returner;
 	}
 }
 

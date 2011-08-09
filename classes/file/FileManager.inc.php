@@ -476,7 +476,7 @@ class FileManager {
 		}
 
 		// FIXME Check for evil
-		if (!isset($fileExtension) || strstr($fileExtension, 'php') || strlen($fileExtension) > 6 || !preg_match('/^\w+$/', $fileExtension)) {
+		if (!isset($fileExtension) || stristr($fileExtension, 'php') || strlen($fileExtension) > 6 || !preg_match('/^\w+$/', $fileExtension)) {
 			$fileExtension = 'txt';
 		}
 

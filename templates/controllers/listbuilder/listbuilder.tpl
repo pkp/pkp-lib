@@ -33,6 +33,10 @@
 
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid pkp_controllers_listbuilder formWidget">
+
+	{* Use this disabled input to store LB deletions. See ListbuilderHandler.js *}
+	<input disabled="disabled" type="hidden" class="deletions" />
+
 	<div class="wrapper">
 		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}

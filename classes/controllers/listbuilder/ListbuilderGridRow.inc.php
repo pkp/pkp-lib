@@ -32,8 +32,26 @@ class ListbuilderGridRow extends GridRow {
 	function initialize(&$request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
 		parent::initialize($request);
 
-		// add list builder row template
+		// Set listbuilder row template
 		$this->setTemplate($template);
+
+		// Add deletion action (handled in JS-land)
+		import('lib.pkp.classes.linkAction.request.NullAction');
+		$this->addAction(
+			new LinkAction(
+				'delete',
+				new NullAction(),
+				'',
+				'delete'
+			)
+		);
+	}
+
+	/**
+	 * @see GridRow::addAction()
+	 */
+	function addAction($action) {
+		return parent::addAction($action, GRID_ACTION_POSITION_ROW_LEFT);
 	}
 }
 

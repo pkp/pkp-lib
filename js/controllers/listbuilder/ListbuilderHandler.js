@@ -142,7 +142,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			function() {
 
 		// Find all rows with the "modified" flag
-		var changes = [];
+		var changes = [
+			{deletions: this.getHtmlElement().find('input.deletions').val()}
+		];
 		this.getHtmlElement().find('.gridRow input.isModified[value="1"]')
 				.each(this.callbackWrapper(function(context, k, v) {
 					var $row = $(v).parents('.gridRow');
@@ -230,6 +232,41 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		$.get(this.getFetchRowUrl(), {modify: true},
 				this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
+
+		return false;
+	};
+
+
+	/**
+	 * Callback that will be activated when a delete icon is clicked
+	 *
+	 * @private
+	 *
+	 * @param {Object} callingContext The calling element or object.
+	 * @param {Event=} event The triggering event (e.g. a click on
+	 *  a button.
+	 * @return {boolean} Should return false to stop event processing.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.deleteItemHandler_ =
+			function(callingContext, event) {
+
+		// Close any existing edits if necessary
+		this.closeEdits();
+
+		var $callingContext = $(callingContext);
+		var $targetRow = $callingContext.closest('.gridRow');
+		var $deletions = $callingContext.closest('.pkp_controllers_listbuilder').find('.deletions');
+		var rowId = $targetRow.find('input[name="rowId"]').val();
+
+		// Append the row ID to the deletions list.
+		if (rowId !== undefined) {
+			$deletions.val($deletions.val() + ' ' + rowId);
+		}
+
+		// Hide and delete the item.
+		$targetRow.hide('slow', function() {
+			$(this).remove();
+		});
 
 		return false;
 	};
@@ -561,6 +598,10 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		$context.find(':input')
 				.keypress(this.callbackWrapper(this.inputKeystrokeHandler_))
 				.blur(this.callbackWrapper(this.inputBlurHandler_));
+
+		// Attach deletion handler
+		$context.find('.delete').click(
+				this.callbackWrapper(this.deleteItemHandler_));
 	};
 
 

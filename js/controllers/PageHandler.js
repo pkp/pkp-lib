@@ -40,6 +40,7 @@
 	 */
 	$.pkp.controllers.PageHandler.prototype.notificationManager_ = null;
 
+
 	//
 	// Public methods
 	//
@@ -67,7 +68,7 @@
 	 */
 	$.pkp.controllers.PageHandler.prototype.notifyUserHandler_ =
 			function(sourceElement, event, url) {
-		var $notificationElement = $(".pkp_notification:visible");
+		var $notificationElement = $('.pkp_notification:visible');
 		if ($notificationElement.length) {
 			$notificationElement.triggerHandler('notifyUser');
 		} else {

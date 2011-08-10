@@ -242,12 +242,12 @@ class ListbuilderHandler extends GridHandler {
 		$newRowIdKey = 'newRowId[]';
 
 		foreach ( $data as $entry ) {
-			if ( !isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
-				continue;
-			} elseif ( isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
-				if ( !empty($entry->rowId) ) {
-					call_user_func($deletionCallback, $request, $entry->rowId);
+			if ( isset($entry->deletions) ) {
+				foreach (explode(' ', $entry->deletions) as $rowId) {
+					call_user_func($deletionCallback, $request, $rowId);
 				}
+			} elseif ( !isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
+				continue;
 			} elseif ( !isset($entry->rowId) && isset($entry->$newRowIdKey) ) {
 				if ( !empty($entry->$newRowIdKey) ) {
 					call_user_func($insertionCallback, $request, $entry->$newRowIdKey);

@@ -82,8 +82,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	/**
 	 * Fetch the notification data.
-	 * @param {Object} element The active element.
-	 * @param {Object} event The event that initiated this call.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function() {
@@ -91,6 +89,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		$.get(this.options_.fetchNotificationUrl, this.options_.requestOptions,
 				this.callbackWrapper(this.showNotificationResponseHandler_), 'json');
 	};
+
 
 	/**
 	 * Response handler to the notification fetch.

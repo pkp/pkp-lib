@@ -13,7 +13,22 @@
 {/if}
 <tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
 	{foreach from=$cells item=cell name=listbuilderCells}
-		<td class="gridCell">{$cell}</td>
+		{if $smarty.foreach.listbuilderCells.first}
+			<td class="first_column">
+				<div class="row_container">
+					<div class="gridCell row_file">{$cell}</div>
+					<div class="row_actions pkp_linkActions">
+						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
+							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
+								{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+							{/foreach}
+						{/if}
+					</div>
+				</div>
+			</td>
+		{else}
+			<td class="gridCell">{$cell}</td>
+		{/if}
 	{/foreach}
 	{if $row->getId()}
 		<input type="hidden" name="rowId" value="{$row->getId()|escape}" />

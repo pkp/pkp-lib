@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE schema SYSTEM "../../dtd/xmlSchema.dtd">
+
+<!--
+  * mutex.xml
+  *
+  * Copyright (c) 2000-2011 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Mutex schema in XML.
+  -->
+
+<schema version="0.2">
+	<!--
+	 *
+	 * TABLE mutex
+	 *
+	 -->
+	<table name="mutex">
+		<field name="i" type="I1">
+			<KEY />
+		</field>
+		<descr>Mutex help table.</descr>
+	</table>
+</schema>

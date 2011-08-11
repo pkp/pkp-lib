@@ -27,6 +27,9 @@
 		this.options_ = options;
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);
+
+		// Trigger the notify user event without bubbling up.
+		this.getHtmlElement().triggerHandler('notifyUser');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.NotificationHandler,

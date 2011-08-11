@@ -30,6 +30,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
+		// Initialize the navigation menu
+		$('ul.sf-menu', $widgetWrapper).superfish();
+
 		this.bind('redirectRequested', this.redirectToUrl);
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);

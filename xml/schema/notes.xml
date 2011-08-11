@@ -21,7 +21,7 @@
 			<KEY />
 			<AUTOINCREMENT/>
 		</field>
-		<field name="assoc_type" type="I2">
+		<field name="assoc_type" type="I8">
 			<!-- Not flagged NOTNULL for upgrade purposes -->
 		</field>
 		<field name="assoc_id" type="I8">

@@ -44,7 +44,7 @@
 				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
-			selected: 0
+			selected: options.selected ? options.selected : 0
 		});
 	};
 	$.pkp.classes.Helper.inherits(

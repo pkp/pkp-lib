@@ -54,6 +54,11 @@
 
 		var $popover = this.getHtmlElement();
 		$popover.addClass('localization_popover_container_focus');
+
+		// Hack alert: setting width in JS because they do not line up otherwise.
+		$popover.find('.localization_popover').width($popover.width());
+
+		// Show the pop over.
 		$popover.find('.localization_popover').show();
 	};
 

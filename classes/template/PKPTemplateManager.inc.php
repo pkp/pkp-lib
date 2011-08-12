@@ -194,7 +194,7 @@ class PKPTemplateManager extends Smarty {
 			if ($user) {
 				$notificationsArray =& $notificationManager->getNotifications($user, NOTIFICATION_LEVEL_TRIVIAL);
 				// Assign the user name to be used in the sitenav
-				$this->assign('username', $user->getUserName());
+				$this->assign('loggedInUsername', $user->getUserName());
 
 				if (!empty($notificationsArray)) {
 					$hasSystemNotifications = true;

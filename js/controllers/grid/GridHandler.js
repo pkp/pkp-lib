@@ -294,8 +294,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Does this grid have a different number of columns than the existing grid?
 		// If yes, we have to redraw the whole grid so new columns get added/removed to match row.
 		var numColumns = $grid.find('th').length;
-		var numCellsInNewNonCategoryRow = $newRow.find('tr').not('.category').length;
-		if (numColumns != numCellsInNewNonCategoryRow) {
+		var numCellsInNewRow = $newRow.find('td').length;
+		if (numColumns != numCellsInNewRow) {
 			$.get(this.fetchGridUrl_, null,
 					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 		} else {

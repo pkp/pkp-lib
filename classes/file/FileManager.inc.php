@@ -229,24 +229,28 @@ class FileManager {
 	 * @param $inline print file as inline instead of attachment, optional
 	 * @return boolean
 	 */
-	function downloadFile($filePath, $mediaType = null, $inline = false) {
+	function downloadFile($filePath, $mediaType = null, $inline = false, $fileName = null) {
 		$result = null;
-		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result))) return $result;
+		if (HookRegistry::call('FileManager::downloadFile', array(&$filePath, &$mediaType, &$inline, &$result, &$fileName))) return $result;
 		if (is_readable($filePath)) {
-			if ($mediaType == null) {
+			if ($mediaType === null) {
+				// If the media type wasn't specified, try to detect.
 				$mediaType = String::mime_content_type($filePath);
 				if (empty($mediaType)) $mediaType = 'application/octet-stream';
+			}
+			if ($fileName === null) {
+				// If the filename wasn't specified, use the server-side.
+				$fileName = basename($filePath);
 			}
 
 			Registry::clear(); // Free some memory
 
 			header("Content-Type: $mediaType");
-			header("Content-Length: ".filesize($filePath));
-			header("Content-Disposition: " . ($inline ? 'inline' : 'attachment') . "; filename=\"" .basename($filePath)."\"");
-			header("Cache-Control: private"); // Workarounds for IE weirdness
-			header("Pragma: public");
+			header('Content-Length: ' . filesize($filePath));
+			header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"$fileName\"");
+			header('Cache-Control: private'); // Workarounds for IE weirdness
+			header('Pragma: public');
 
-			import('lib.pkp.classes.file.FileManager');
 			FileManager::readFile($filePath, true);
 
 			return true;

@@ -418,6 +418,7 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
+		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
 		$textInputParams = '';
@@ -428,6 +429,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
+				case 'subLabelTransalte': break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -454,6 +456,7 @@ class FormBuilderVocabulary {
 		$params['rich'] = isset($params['rich']) ? $params['rich'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
+		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
 
 		$textAreaParams = '';
 		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height'));
@@ -465,6 +468,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
+				case 'subLabelTransalte': break;
 				case 'height':
 					$styles = $this->getStyles();
 					switch($params['height']) {
@@ -526,6 +530,7 @@ class FormBuilderVocabulary {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
 
 		$selectParams = '';
 		if (!$params['defaultValue'] || !$params['defaultLabel']) {
@@ -545,6 +550,7 @@ class FormBuilderVocabulary {
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
 				case 'type': break;
 				case 'inline': break;
+				case 'subLabelTransalte': break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
@@ -677,7 +683,6 @@ class FormBuilderVocabulary {
 		if (!isset($params) || !isset($params['label']) ) {
 			$smarty->trigger_error('FBV: label for SubLabel not specified.');
 		}
-		$params['translate'] = isset($params['translate']) ? (boolean)$params['translate'] : true;
 
 		$form =& $this->getForm();
 		if (isset($form) && isset($form->errorFields[$params['name']])) {
@@ -689,7 +694,7 @@ class FormBuilderVocabulary {
 		$smarty->clear_assign(array('FBV_suppressId', 'FBV_label', 'FBV_required'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
-				case 'translate': $smarty->assign('FBV_translate', $value); break;
+				case 'subLabelTranslate': $smarty->assign('FBV_subLabelTranslate', $value); break;
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'suppressId': $smarty->assign('FBV_suppressId', $value); break;
 				case 'required': $smarty->assign('FBV_required', $value); break;

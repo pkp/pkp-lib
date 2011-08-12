@@ -27,6 +27,8 @@
 	$.pkp.controllers.form.AjaxFormHandler = function($form, options) {
 		options.submitHandler = this.submitForm;
 		this.parent($form, options);
+
+		this.bind('refreshForm', this.refreshFormHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.AjaxFormHandler,
@@ -51,6 +53,27 @@
 		var $form = this.getHtmlElement();
 		$.post($form.attr('action'), $form.serialize(),
 				this.callbackWrapper(this.handleResponse), 'json');
+	};
+
+
+	/**
+	 * Callback to replace a modal's content.
+	 *
+	 * @private
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 */
+	$.pkp.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
+			function(sourceElement, event, content) {
+
+		if (content) {
+			// Get the grid that we're updating
+			var $element = this.getHtmlElement();
+
+			// Replace the grid content
+			$element.replaceWith(content);
+		}
 	};
 
 
@@ -82,7 +105,6 @@
 		}
 		return jsonData.status;
 	};
-
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -138,6 +138,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Trigger the "form submitted" event.
 		this.trigger('formCanceled');
+		return false;
 	};
 
 

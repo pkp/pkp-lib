@@ -97,7 +97,7 @@ class PKPNoteDAO extends DAO {
 		}
 
 		$result =& $this->retrieve($sql, $params);
-		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
+		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
 		$result->Close();
 
 		return $returner;

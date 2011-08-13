@@ -99,9 +99,10 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		$contextDepth = $application->getContextDepth();
 		$request =& $this->getRequest();
 		$router =& $request->getRouter();
+		$roleContext = array();
 		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
 			$context =& $router->getContext($request, $contextLevel);
-			$roleContext[] = ($context)?$context->getId():0;
+			$roleContext[] = $context?$context->getId():0;
 			unset($context);
 		}
 		$roleContext[] = $user->getId();

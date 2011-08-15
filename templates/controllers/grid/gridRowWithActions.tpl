@@ -46,7 +46,7 @@
 	{/foreach}
 </tr>
 <tr id="{$rowId|escape}-control-row" class="row_controls">
-	<td class="first_column" colspan="{$columns|@count}">
+	<td colspan="{$columns|@count}">
 		{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 			<div class="pkp_linkActions">
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}

@@ -11,7 +11,7 @@
 
 div.pkp_controllers_grid {
 	div.wrapper {
-		margin: 10px 0;
+		margin: 10px;
 		padding: 20px;
 	}
 
@@ -97,7 +97,7 @@ div.pkp_controllers_grid {
 		overflow: hidden;
 	}
 
-	.row_container, .row_controls {
+	.row_container {
 		background-color: #e8f0f8;
 	}
 
@@ -137,18 +137,24 @@ div.pkp_controllers_grid {
 
 	.row_controls {
 		display: none;
-		line-height: 25px;
+		border-bottom:1px solid #999;
+	}
+
+	.row_controls td {
+
 		vertical-align: middle;
 		overflow: hidden;
-		padding-left: 20px;
 		white-space: nowrap;
+		line-height: 25px;
+		height: 25px;
+		padding: 0px;
 	}
 
 	.row_controls a {
 		text-decoration: none;
 		color: #777;
 		font-size: 90%;
-		padding: 2px 30px 1px 20px;
+		padding: 2px 30px 2px 20px;
 	}
 
 	.row_controls a:hover {

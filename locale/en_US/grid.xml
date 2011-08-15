@@ -27,6 +27,7 @@
 	<message key="grid.action.decline">Decline</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
+	<message key="grid.action.addAuthor">Add Author</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>
@@ -36,10 +37,14 @@
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsors</message>
+	<message key="grid.action.addSponsor">Add Sponsor</message>
+
+	<!-- Series Grid -->
+	<message key="grid.action.addSeries">Add Series</message>
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Contributor</message>
-	<message key="grid.action.addAuthor">Add Author</message>
+	<message key="grid.contributor.title">Contributors</message>
+	<message key="grid.action.addContributor">Add Contributor</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>

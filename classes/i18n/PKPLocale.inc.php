@@ -83,7 +83,7 @@ class PKPLocale {
 
 		$localeFiles =& Locale::getLocaleFiles($locale);
 		$value = '';
-		for ($i = 0; $i < count($localeFiles); $i++) { // By reference
+		for ($i = count($localeFiles) - 1 ; $i >= 0 ; $i --) {
 			$value = $localeFiles[$i]->translate($key, $params);
 			if ($value !== null) return $value;
 		}
@@ -421,7 +421,7 @@ class PKPLocale {
 		}
 		return null;
 	}
-	
+
 	/**
 	* Translate the ISO639-3 into ISO639-1.
 	* @param $iso3 string
@@ -439,7 +439,7 @@ class PKPLocale {
 		}
 		return null;
 	}
-	
+
 	/**
 	* Translate the PKP locale identifier into an
 	* ISO639-3 compatible 3-letter string.
@@ -451,7 +451,7 @@ class PKPLocale {
 		$iso1 = substr($locale, 0, 2);
 		return Locale::getIso3FromIso1($iso1);
 	}
-	
+
 	/**
 	* Translate an ISO639-3 compatible 3-letter string
 	* into the PKP locale identifier.
@@ -469,7 +469,7 @@ class PKPLocale {
 	function getLocaleFromIso3($iso3) {
 		assert(strlen($iso3) == 3);
 		$primaryLocale = Locale::getPrimaryLocale();
-	
+
 		$localeCandidates = array();
 		$locales =& Locale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
@@ -483,10 +483,10 @@ class PKPLocale {
 				$localeCandidates[] = $locale;
 			}
 		}
-	
+
 		// Return null if we found no candidate locale.
 		if (empty($localeCandidates)) return null;
-		
+
 		if (count($localeCandidates) > 1) {
 			// Check whether one of the candidate locales
 			// is a supported locale. If so choose the first
@@ -496,13 +496,13 @@ class PKPLocale {
 				if (in_array($supportedLocale, $localeCandidates)) return $supportedLocale;
 			}
 		}
-	
+
 		// If there is only one candidate (or if we were
 		// unable to disambiguate) then return the unique
 		// (first) candidate found.
 		return array_shift($localeCandidates);
 	}
-		
+
 	//
 	// Private helper methods.
 	//

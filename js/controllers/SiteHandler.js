@@ -32,6 +32,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Initialize the navigation menu
 		$('ul.sf-menu', $widgetWrapper).superfish();
+		$('.go').button();
 
 		this.bind('redirectRequested', this.redirectToUrl);
 

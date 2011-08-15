@@ -126,6 +126,17 @@ a.task:hover {
 
 /* General */
 
+.ui-tabs {
+	background: none !important;
+}
+
+.ui-tabs-nav {
+	border: 0;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+}
+
 .ui-widget-content {
 	font-size: 100%;
 }
@@ -170,7 +181,7 @@ a.task:hover {
 	text-transform: uppercase;
 }
 
-.ui-tabs .ui-state-default {
+.ui-tabs-nav .ui-state-default {
 	background-color: #fff;
 	background-image: none;
 	color: #569bbe;
@@ -181,12 +192,16 @@ a.task:hover {
 	-webkit-border-radius: 0px;
 }
 
-.ui-tabs .ui-state-active {
+.ui-tabs-nav .ui-state-hover a {
+	color: #E17009;
+}
+
+.ui-tabs-nav .ui-state-active {
 	border-color: #999;
 	font-weight: normal;
 }
 
-.ui-tabs .ui-state-active a {
+.ui-tabs-nav .ui-state-active a {
 	margin-top: 1px;
 	margin-bottom: -1px;
 }
@@ -194,8 +209,8 @@ a.task:hover {
 /* Button */
 
 .ui-button {
-	text-transform: uppercase;
-	font: 100% "Courier New", Courier, mono;
+	text-transform: uppercase !important;
+	font: 100% "Courier New", Courier, mono !important;
 }
 
 .ui-button-text {
@@ -206,15 +221,18 @@ a.task:hover {
 	color: #fff;
 	background-color: #003768;
 	background-image: none;
-	border: 1px solid #003768;
+	border: 0;
+	line-height: 90% !important;
 }
 
 .buy_now {
 	color: #fff;
 	background-color: #6c9348;
 	background-image: none;
-	border: 1px solid #6c9348;
+	border: 0;
+	line-height: 90% !important;
 }
+
 
 /* Dialog */
 

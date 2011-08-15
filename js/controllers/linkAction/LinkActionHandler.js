@@ -112,7 +112,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		});
 	};
 
-	
+
 	//
 	// Public methods
 	//
@@ -154,15 +154,12 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	//
 	/**
 	 * Handle the changed data event.
-	 * @param {HTMLElement} sourceElement The element that this event came from.
-	 * @param {Event} event The event encapsulating the changed data.
-	 * @param {String} elementId The element ID for the changed data.
 	 * @private
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			dataChangedHandler_ = function(sourceElement, event, elementId) {
+			dataChangedHandler_ = function() {
 
-		this.trigger('notifyUser');
+		this.trigger('notifyUser', this.getHtmlElement());
 	};
 
 

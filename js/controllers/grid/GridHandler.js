@@ -136,7 +136,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function(sourceElement, event) {
 
 		// Toggle the row actions.
-		$(sourceElement).parent().siblings('.row_controls').toggle(300);
+		$(sourceElement).parents('tr').next('.row_controls').toggle();
 	};
 
 
@@ -294,7 +294,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Does this grid have a different number of columns than the existing grid?
 		// If yes, we have to redraw the whole grid so new columns get added/removed to match row.
 		var numColumns = $grid.find('th').length;
-		var numCellsInNewRow = $newRow.find('td').length;
+		var numCellsInNewRow = $newRow.first('tr').find('td').length;
 		if (numColumns != numCellsInNewRow) {
 			$.get(this.fetchGridUrl_, null,
 					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
@@ -305,6 +305,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 			if ($existingRow.length === 1) {
 				// Update row.
+				this.deleteControlsRow_($existingRow);
 				$existingRow.replaceWith($newRow);
 			} else {
 				// Insert row.
@@ -340,6 +341,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 					' rather than 1 rows to delete!');
 		}
 
+		// Remove the controls row (do this before check for siblings below).
+		this.deleteControlsRow_($rowElement);
+
 		// Check whether this is the last row.
 		var lastRow = false;
 		if ($rowElement.siblings().length === 0) {
@@ -356,6 +360,20 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		});
 	};
 
+	/**
+	 * Helper that deletes the row of controls (if present).
+	 *
+	 * @private
+	 *
+	 * @param {jQuery} $row The row whose matching control row should be deleted
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.deleteControlsRow_ =
+			function($row) {
+
+			if ($row.next().is('tr') && $row.next().hasClass('row_controls')) {
+				$row.next().remove();
+			}
+	};
 
 	/**
 	 * Helper that attaches click events to row actions.

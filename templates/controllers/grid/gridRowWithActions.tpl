@@ -33,17 +33,6 @@
 							{/foreach}
 						{/if}
 					</div>
-					{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-						<div class="row_controls pkp_linkActions">
-							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-								{if is_a($action, 'LegacyLinkAction')}
-									{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
-								{else}
-									{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-								{/if}
-							{/foreach}
-						</div>
-					{/if}
 				</div>
 			</td>
 		{else}
@@ -55,5 +44,20 @@
 			<td style="text-align: {$alignment}">{$cells[$smarty.foreach.columnLoop.index]}</td>
 		{/if}
 	{/foreach}
+</tr>
+<tr id="{$rowId|escape}-control-row" class="row_controls">
+	<td class="first_column" colspan="{$columns|@count}">
+		{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+			<div class="pkp_linkActions">
+				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
+					{if is_a($action, 'LegacyLinkAction')}
+						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
+					{else}
+						{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+					{/if}
+				{/foreach}
+			</div>
+		{/if}
+	</td>
 </tr>
 

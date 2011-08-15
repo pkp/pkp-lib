@@ -444,14 +444,14 @@ class PKPUserGroupDAO extends DAO {
 			USER_FIELD_LASTNAME => 'u.last_name',
 			USER_FIELD_USERNAME => 'u.username',
 			USER_FIELD_EMAIL => 'u.email',
-			USER_FIELD_INTERESTS => 'cves.setting_value',
 			USER_FIELD_AFFILIATION => 'us.setting_value'
 		);
 
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$concatFields = ' LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? ';
+				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
+
 				$search = strtolower($search);
 
 				$words = preg_split('{\s+}', $search);
@@ -459,7 +459,8 @@ class PKPUserGroupDAO extends DAO {
 
 				foreach ($words as $word) {
 					$searchFieldMap[] = $concatFields;
-					$paramArray[] = '%' . $word . '%';
+					$term = '%' . $word . '%';
+					array_push($paramArray, $term, $term);
 				}
 
 				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
@@ -504,8 +505,6 @@ class PKPUserGroupDAO extends DAO {
 
 		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' . (isset($contextId) ? 'AND ' : '') : ' ');
 		$sql .= (isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
-
-		// if (isset($search)) $paramArray[] = $search;
 
 		$result =& $this->retrieveRange(
 			$sql,

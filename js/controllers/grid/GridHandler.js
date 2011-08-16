@@ -136,7 +136,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function(sourceElement, event) {
 
 		// Toggle the row actions.
-		$(sourceElement).parents('tr').next('.row_controls').toggle();
+		$(sourceElement).parents('tr').next('.row_controls').toggle(300);
 	};
 
 

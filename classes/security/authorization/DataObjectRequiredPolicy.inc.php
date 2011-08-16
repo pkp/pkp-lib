@@ -51,6 +51,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 	 * @param $args array request parameters
 	 * @param $parameterName string the request parameter we expect
 	 * @param $message string
+	 * @param $operations array Optional list of operations for which this check takes effect. If specified, operations outside this set will not be checked against this policy.
 	 */
 	function DataObjectRequiredPolicy(&$request, &$args, $parameterName, $message = null, $operations = null) {
 		parent::AuthorizationPolicy($message);

@@ -291,7 +291,6 @@
 	<message key="notification.reminderError">发送您的密码的时候发生一个错误，请确认您已经正确输入电子邮件地址.</message>
 	<message key="notification.reminderSent">您的新密码已经发送到提供的电子邮件地址.</message>
 	<message key="notification.unsubscribe">取消订阅</message>
-	<message key="notification.unsubscribeDescription">在下面输入您的电子邮箱地址和密码以取消邮件通知. 如果您不记得密码，可以不填写密码，同时一个新的密码将按照您填写的邮箱地址电邮给您.</message>
 	<message key="notification.unsubscribeError">T有一个错误退订, 请确保您的电子邮件地址和密码是正确的.</message>
 	<message key="notification.unsubscribeSuccess">您已成功退订.</message>
 	<message key="search.abstract">摘要</message>

@@ -309,7 +309,6 @@
 	<message key="notification.reminderError">Il s'est produit une erreur lors de l'envoi de votre mot de passe. Veuillez vous assurer que vous avez saisi votre adresse de courriel correctement.</message>
 	<message key="notification.reminderSent">Votre nouveau mot de passe a été envoyé à l'adresse de courriel fournie.</message>
 	<message key="notification.unsubscribe">Se désabonner</message>
-	<message key="notification.unsubscribeDescription">Saisir votre adresse de courriel et mot de passe ci-dessous pour vous désabonner des avis par courriel. Si vous ne souvenez pas de votre mot de passe, laisser le champ vide et un nouveau mot de passe vous sera envoyé par courriel à l'adresse de courriel indiquée.</message>
 	<message key="notification.unsubscribeError">Il s'est produit une erreur lors de votre désabonnement. Veuillez vous assurer que votre adresse de courriel et votre mot de passe sont corrects.</message>
 	<message key="notification.unsubscribeSuccess">Vous avez été désabonné avec succès.</message>
 	<message key="common.uploadFailed">Le fichier n'a pu être téléchargé. Veuillez essayer de nouveau ou communiquer avec l'administrateur si le problème persiste.</message>

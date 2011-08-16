@@ -127,8 +127,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 	/**
 	 * Save changes to an announcement.
+	 * @param $request PKPRequest
 	 */
-	function updateAnnouncement() {
+	function updateAnnouncement(&$request) {
 		// FIXME: Remove call to validate() when all ManagerHandler implementations
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();
@@ -136,7 +137,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		import('classes.manager.form.AnnouncementForm');
 
-		$announcementId = Request::getUserVar('announcementId') == null ? null : (int) Request::getUserVar('announcementId');
+		$announcementId = Request::getUserVar('announcementId') == null ? null : (int) $request->getUserVar('announcementId');
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 		if ($this->_announcementIsValid($announcementId)) {
@@ -149,17 +150,17 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$announcementForm->readInputData();
 
 			if ($announcementForm->validate()) {
-				$announcementForm->execute();
+				$announcementForm->execute($request);
 
-				if (Request::getUserVar('createAnother')) {
-					PKPRequest::redirect(null, null, 'createAnnouncement');
+				if ($request->getUserVar('createAnother')) {
+					$request->redirect(null, null, 'createAnnouncement');
 				} else {
-					PKPRequest::redirect(null, null, 'announcements');
+					$request->redirect(null, null, 'announcements');
 				}
 
 			} else {
 				$templateMgr =& TemplateManager::getManager();
-				$templateMgr->append('pageHierarchy', array(Request::url(null, null, 'manager', 'announcements'), 'manager.announcements'));
+				$templateMgr->append('pageHierarchy', array($request->url(null, null, 'manager', 'announcements'), 'manager.announcements'));
 
 				if ($announcementId == null) {
 					$templateMgr->assign('announcementTitle', 'manager.announcements.createTitle');

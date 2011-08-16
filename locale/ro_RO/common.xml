@@ -8,7 +8,7 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ro_RO (Romanian) locale.
-  * Provided by Constantinescu Nicolaie. 
+  * Provided by Constantinescu Nicolaie.
   *
   -->
 
@@ -292,7 +292,6 @@
 	<message key="notification.reminderError">Există o eroare la trimiterea parolei, asigură-te că ai introdus adresa de email corect.</message>
 	<message key="notification.reminderSent">Noua parolă a fost trimisă la adresa de email menționată.</message>
 	<message key="notification.unsubscribe">Dezabonează-te</message>
-	<message key="notification.unsubscribeDescription">Introdu adresa de email și parola pentru a te dezabona de la emailurile de înștiințare. Dacă nu-ți aduci aminte parola, lasă gol câmpul corespondent și îți va fi trimisă una nouă la adresa de email specificată.</message>
 	<message key="notification.unsubscribeError">S-a înregistrat o eraoare la dezabonare. Asigură-te că adresa și parola sunt corecte.</message>
 	<message key="notification.unsubscribeSuccess">Te-ai dezabonat cu succes.</message>
 	<message key="search.abstract">Abstract</message>

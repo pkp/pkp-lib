@@ -307,7 +307,6 @@
 	<message key="notification.reminderError">Hubo un error al enviar su contraseña. Por favor asegúrese que ha ingresado su dirección de correo correctamente</message>
 	<message key="notification.reminderSent">Su nueva clave ha sido enviada a la dirección de correo provista</message>
 	<message key="notification.unsubscribe">Dessuscribirse</message>
-	<message key="notification.unsubscribeDescription">Ingrese su dirección de email y contraseña debajo para dessuscribirse de las notificaciones por email. Si usted no recuerda su contraseña, deje el campo Contraseña en blanco y una nueva contraseña se le enviará a la dirección de email.</message>
 	<message key="notification.unsubscribeError">Hubo un error al desssuscribirlo. Por favor asegúrese que su dirección de email y contraseña son correctas</message>
 	<message key="notification.unsubscribeSuccess">Usted su dessuscripto satisfactoriamente</message>
 	<message key="common.copy">Copiar</message>

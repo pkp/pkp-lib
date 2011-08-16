@@ -310,7 +310,6 @@
 	<message key="notification.settingsDescription">Zvolte systémové události, o kterých chcete být informován. Zrušení zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve vašem dodavači oznámení.</message>
 	<message key="notification.subscribeSuccess">Na uvedenou adresu byl zaslán email. Abyste byl přidán na rozesílací seznam, klikněte prosím na potvrzovací odkaz v tomto emailu.</message>
 	<message key="notification.reminderError">Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl emailovou adresu správně.</message>
-	<message key="notification.unsubscribeDescription">Pro odhlášení z odběru emailových oznámení vložte níže Vaši emailovou adresu a heslo. Pokud si nepamatujete své heslo, nechejte políčko pro heslo prázdné a na uvedenou emailovou adresu Vám bude odesláno nové.</message>
 	<message key="notification.unsubscribeError">Při odhlašování se vyskytla chyba. Ujistěte se prosím, že Vaše emailová adresa a heslo jsou správné.</message>
 	<message key="common.disable">Zakázat</message>
 	<message key="common.enable">Povolit</message>

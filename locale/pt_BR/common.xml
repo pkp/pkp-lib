@@ -309,7 +309,6 @@
 	<message key="notification.reminderError">Ocorreu um erro ao enviar a senha. Verifique se o endereço de e-mail informado está correto.</message>
 	<message key="notification.reminderSent">Uma nova senha foi enviada ao endereço de e-mail informado.</message>
 	<message key="notification.unsubscribe">Cancelar assinatura de notificações</message>
-	<message key="notification.unsubscribeDescription">Informe seu endereço de e-mail e senha a seguir para cancelar o recebimento de notificações via e-mail. Caso não se lembre da senha, deixe o campo em branco para que uma nova senha senha enviada.</message>
 	<message key="notification.unsubscribeError">Ocorreu um erro ao tentar cancelar a assinatura. Verifique se o endereço de e-mail e senha estão corretos.</message>
 	<message key="notification.unsubscribeSuccess">Cancelamento de assinatura de notificações realizado com sucesso.</message>
 	<message key="common.uploadFailed">Não foi possível enviar o arquivo. Por favor, tente novamente ou entre em contato com o administrador se o problema persistir.</message>

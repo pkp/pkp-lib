@@ -325,8 +325,7 @@
 	<message key="notification.reminderError">There was an error sending your password, please ensure you've entered your email address correctly.</message>
 	<message key="notification.reminderSent">Your new password has been sent to the email address provided.</message>
 	<message key="notification.unsubscribe">Unsubscribe</message>
-	<message key="notification.unsubscribeDescription">Enter your email address and password below to unsubscribe from email notifications.  If you do not remember your password, leave the password field blank and a new one will be emailed to you at the given email address.</message>
-	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure your email address and password are correct.</message>
+	<message key="notification.unsubscribeError">There was an error unsubscribing you.  Please ensure that you are using the correct URL as included in your notification email.</message>
 	<message key="notification.unsubscribeSuccess">You were successfully unsubscribed.</message>
 	<message key="search.abstract">Abstract</message>
 	<message key="search.allFields">All</message>

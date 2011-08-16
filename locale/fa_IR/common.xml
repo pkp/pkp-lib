@@ -272,7 +272,7 @@
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
-کار حاضر تحت لیسانس 
+کار حاضر تحت لیسانس
 		<a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">
 		Creative Commons Attribution 3.0
 		</a>
@@ -281,7 +281,7 @@
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-کار حاضر تحت لیسانس 
+کار حاضر تحت لیسانس
 		<a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">
 		Creative Commons Attribution 3.0
 		</a>
@@ -320,7 +320,6 @@
 	<message key="notification.reminderError">بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده اید.</message>
 	<message key="notification.reminderSent">رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد.</message>
 	<message key="notification.unsubscribe">لغو اشتراک</message>
-	<message key="notification.unsubscribeDescription">آدرس ایمیل و رمز عبور خود را در پائین وارد کنید تا اشتراک خود را برای اطلاع رسانی از طریق ایمیل لغو کرده باشید. اگر رمز عبور خود را بیاد نمی آورید، رمز عبور را خالی بگذارید تا بدین رسیله رمز جدیدی برایتان ارسال شود.</message>
 	<message key="notification.unsubscribeError">بروز خطا هنگام لغو اشتراک شما. لطفا مطمئن شوید که آدرس ایمیل و رمز عبور را صحیح وارد کرده اید.</message>
 	<message key="notification.unsubscribeSuccess">لغو اشتراک با موفقیت انجام شد.</message>
 	<message key="common.disable">غیرفعال کردن</message>

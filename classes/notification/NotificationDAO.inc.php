@@ -27,7 +27,7 @@ class NotificationDAO extends DAO {
 	/**
 	 * Retrieve Notification by notification id
 	 * @param $notificationId int
-	 * @return Notification object
+	 * @return object Notification
 	 */
 	function &getNotificationById($notificationId) {
 		$result =& $this->retrieve(
@@ -44,18 +44,21 @@ class NotificationDAO extends DAO {
 
 	/**
 	 * Retrieve Notifications by user id
+	 * Note that this method will not return fully-fledged notification objects.  Use
+	 *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
+	 * @param $contextId int
 	 * @param $userId int
+	 * @param $level int
+	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
+	function &getNotificationsByUserId($contextId = null, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
+		$params = array((int) $userId, (int) $level);
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result =& $this->retrieveRange(
-			'SELECT * FROM notifications WHERE user_id = ? AND product = ? AND context = ? AND level = ? ORDER BY date_created DESC',
-			array((int) $userId, $productName, (int) $contextId, (int) $level), $rangeInfo
+			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
+			$params, $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
@@ -66,18 +69,29 @@ class NotificationDAO extends DAO {
 	/**
 	 * Retrieve Notifications by notification id
 	 * @param $notificationId int
+	 * @param $dateRead date
 	 * @return boolean
 	 */
-	function setDateRead($notificationId) {
+	function setDateRead($notificationId, $dateRead = null) {
+		$dateRead = isset($dateRead) ? $dateRead : Core::getCurrentDate();
+
 		$returner = $this->update(
 			sprintf('UPDATE notifications
 				SET date_read = %s
 				WHERE notification_id = ?',
-				$this->datetimeToDB(date('Y-m-d H:i:s'))),
+				$this->datetimeToDB($dateRead)),
 			(int) $notificationId
 		);
 
-		return $returner;
+		return $dateRead;
+	}
+
+	/**
+	 * Get the list of custom field names for this table
+	 * @return array
+	 */
+	function getSettingNames() {
+		return array('contents');
 	}
 
 	/**
@@ -90,15 +104,14 @@ class NotificationDAO extends DAO {
 		$notification->setId($row['notification_id']);
 		$notification->setUserId($row['user_id']);
 		$notification->setLevel($row['level']);
-		$notification->setDateCreated($row['date_created']);
-		$notification->setDateRead($row['date_read']);
-		$notification->setTitle($row['title']);
-		$notification->setContents($row['contents']);
-		$notification->setParam($row['param']);
-		$notification->setLocation($row['location']);
-		$notification->setIsLocalized($row['is_localized']);
-		$notification->setContext($row['context']);
+		$notification->setDateCreated($this->datetimeFromDB($row['date_created']));
+		$notification->setDateRead($this->datetimeFromDB($row['date_read']));
+		$notification->setContextId($row['context_id']);
+		$notification->setType($row['type']);
 		$notification->setAssocType($row['assoc_type']);
+		$notification->setAssocId($row['assoc_id']);
+
+		$this->getDataObjectSettings('notification_settings', 'notification_id', $row['notification_id'], $notification);
 
 		HookRegistry::call('NotificationDAO::_returnNotificationFromRow', array(&$notification, &$row));
 
@@ -107,104 +120,53 @@ class NotificationDAO extends DAO {
 
 	/**
 	 * Inserts a new notification into notifications table
-	 * @param Notification object
+	 * @param $notification object
 	 * @return int Notification Id
 	 */
 	function insertNotification(&$notification) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
+		$this->update(
+			sprintf('INSERT INTO notifications
+					(user_id, level, date_created, context_id, type, assoc_type, assoc_id)
+				VALUES
+					(?, ?, %s, ?, ?, ?, ?)',
+				$this->datetimeToDB(Core::getCurrentDate())),
+			array(
+				(int) $notification->getUserId(),
+				(int) $notification->getLevel(),
+				(int) $notification->getContextId(),
+				(int) $notification->getType(),
+				(int) $notification->getAssocType(),
+				(int) $notification->getAssocId()
+			)
+		);
+		$notification->setId($this->getInsertNotificationId());
+		$this->_updateObjectMetadata($notification);
 
-		if ($this->notificationAlreadyExists($notification)) {
-			return 0;
-		}
+		return $notification->getId();
+	}
 
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-		if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
-			$notificationSettings = $notificationSettingsDao->getNotificationSettings($notification->getUserId());
-			$notificationEmailSettings = $notificationSettingsDao->getNotificationEmailSettings($notification->getUserId());
-
-			if(in_array($notification->getAssocType(), $notificationEmailSettings)) {
-				$this->sendNotificationEmail($notification);
-			}
-		}
-
-		if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL || !in_array($notification->getAssocType(), $notificationSettings)) {
-			$this->update(
-				sprintf('INSERT INTO notifications
-					(user_id, level, date_created, title, contents, param, location, is_localized, context, product, assoc_type)
-					VALUES
-					(?, ?, %s, ?, ?, ?, ?, ?, ?, ?, ?)',
-					$this->datetimeToDB(date('Y-m-d H:i:s'))),
-				array(
-					(int) $notification->getUserId(),
-					(int) $notification->getLevel(),
-					$notification->getTitle(),
-					$notification->getContents(),
-					$notification->getParam(),
-					$notification->getLocation(),
-					(int) $notification->getIsLocalized(),
-					(int) $notification->getContext(),
-					$productName,
-					(int) $notification->getAssocType(),
-				)
-			);
-
-			$notification->setId($this->getInsertNotificationId());
-			return $notification->getId();
-		} else return 0;
+	/**
+	 * Update custom metadata for this notification
+	 * @param $notification Notification
+	 */
+	function _updateObjectMetadata(&$notification) {
+		// Persist notification meta-data
+		$this->updateDataObjectSettings('notification_settings', $notification,
+				array('notification_id' => $notification->getId()));
 	}
 
 	/**
 	 * Delete Notification by notification id
 	 * @param $notificationId int
+	 * @param $userId int
 	 * @return boolean
 	 */
-	function deleteNotificationById($notificationId, $userId = null) {
-		$params = array($notificationId);
-		if (isset($userId)) $params[] = $userId;
+	function deleteNotificationById($notificationId, $userId) {
+		$this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
 
-		return $this->update('DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
-			$params
+		return $this->update('DELETE FROM notifications WHERE notification_id = ? AND user_id = ?',
+			array((int) $notificationId, (int) $userId)
 		);
-	}
-
-	/**
-	 * Check if the same notification was added in the last hour
-	 * Will prevent multiple notifications to show up in a user's feed e.g.
-	 * if a user edits a submission multiple times in a short time span
-	 * @param notification object
-	 * @return boolean
-	 */
-	function notificationAlreadyExists(&$notification) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
-
-		$result =& $this->retrieve(
-			'SELECT date_created FROM notifications WHERE user_id = ? AND title = ? AND contents = ? AND param = ? AND product = ? AND assoc_type = ? AND context = ? AND level = ?',
-			array(
-					(int) $notification->getUserId(),
-					$notification->getTitle(),
-					$notification->getContents(),
-					$notification->getParam(),
-					$productName,
-					(int) $notification->getAssocType(),
-					(int) $contextId,
-					(int) $notification->getLevel()
-				)
-		);
-
-		$date = isset($result->fields[0]) ? $result->fields[0] : 0;
-
-		if ($date == 0) {
-			return false;
-		} else {
-			$timeDiff = strtotime($date) - time();
-			if ($timeDiff < 3600) { // 1 hour (in seconds)
-				return true;
-			} else return false;
-		}
 	}
 
 	/**
@@ -217,18 +179,20 @@ class NotificationDAO extends DAO {
 
 	/**
 	 * Get the number of unread messages for a user
+	 * @param $read boolean Whether to check for read (true) or unread (false) notifications
+	 * @param $contextId int
 	 * @param $userId int
+	 * @param $level int
 	 * @return int
 	 */
-	function getUnreadNotificationCount($userId, $level = NOTIFICATION_LEVEL_NORMAL) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
+	function getNotificationCount($read = true, $userId, $contextId = null, $level = NOTIFICATION_LEVEL_NORMAL) {
+		$params = array((int) $userId, (int) $level);
+		if ($contextId) $params[] = (int) $contextId;
 
 		$result =& $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NULL AND product = ? AND context = ? AND level = ?',
-			array((int) $userId, $productName, (int) $contextId, (int) $level)
+			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
+			. (isset($contextId) ? ' AND context_id = ?' : ''),
+			$params
 		);
 
 		$returner = $result->fields[0];
@@ -239,62 +203,6 @@ class NotificationDAO extends DAO {
 		return $returner;
 	}
 
-	/**
-	 * Get the number of read messages for a user
-	 * @param $userId int
-	 * @return int
-	 */
-	function getReadNotificationCount($userId, $level = NOTIFICATION_LEVEL_NORMAL) {
-		$application =& PKPApplication::getApplication();
-		$productName = $application->getName();
-		$context =& Request::getContext();
-		$contextId = $context?$context->getId():0;
-
-		$result =& $this->retrieve(
-			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS NOT NULL AND product = ? AND context = ? AND level = ?',
-			array((int) $userId, $productName, (int) $contextId, (int) $level)
-		);
-
-		$returner = $result->fields[0];
-
-		$result->Close();
-		unset($result);
-
-		return $returner;
-	}
-
-	/**
-	 * Send an email to a user regarding the notification
-	 * @param $notification object Notification
-	 */
-	function sendNotificationEmail($notification) {
-		$userId = $notification->getUserId();
-		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getUser($userId);
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
-
-		if ($notification->getIsLocalized()) {
-			$params = array('param' => $notification->getParam());
-			$notificationTitle = Locale::translate($notification->getTitle(), $params);
-			$notificationContents = Locale::translate($notification->getContents(), $params);
-		} else {
-			$notificationTitle = $notification->getTitle();
-			$notificationContents = $notification->getContents();
-		}
-
-		import('classes.mail.MailTemplate');
-		$site =& Request::getSite();
-		$mail = new MailTemplate('NOTIFICATION');
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-		$mail->assignParams(array(
-			'notificationTitle' => $notificationTitle,
-			'notificationContents' => $notificationContents,
-			'url' => $notification->getLocation(),
-			'siteTitle' => $site->getLocalizedTitle()
-		));
-		$mail->addRecipient($user->getEmail(), $user->getFullName());
-		$mail->send();
-	}
 }
 
 ?>

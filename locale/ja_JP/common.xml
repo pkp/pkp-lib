@@ -289,7 +289,6 @@
 	<message key="notification.reminderError">入力されたパスワードに誤りがあります。正確にメールアドレスを入力してください。</message>
 	<message key="notification.reminderSent">新しいパスワードが登録されているメールアドレス宛てに送信されました。</message>
 	<message key="notification.unsubscribe">配信停止</message>
-	<message key="notification.unsubscribeDescription">下記にあなたのメールアドレスとパスワードを入力すると通知メールを停止します。もしパスワードを忘れてしまった場合は，パスワードの欄を空白にしておくと新しいパスワードが登録されているメールアドレスに届きます。</message>
 	<message key="notification.unsubscribeError">配信停止手続きでエラーが発生しました。あなたのメールアドレスとパスワードが正しいかどうか確認してください。</message>
 	<message key="notification.unsubscribeSuccess">正常に配信停止手続きが完了しました。</message>
 	<message key="notification.allow">これらの通知を通知フィードに表示させる。</message>

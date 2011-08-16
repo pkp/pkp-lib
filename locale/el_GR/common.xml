@@ -308,7 +308,6 @@
 	<message key="notification.reminderError">Παρουσίαστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. Παρακαλούμε επιβεβαιωθείτε ότι εισάγατε σωστά την διεύθυνσή σας.</message>
 	<message key="notification.reminderSent">Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που εισάγατε.</message>
 	<message key="notification.unsubscribe">Διαγραφή από τη λίστα</message>
-	<message key="notification.unsubscribeDescription">Εισάγετε την διεύθυνση του ηλεκτρονικού σας ταχυδρομείο και τον κωδικό πρόσβασης παρακάτω για να διαγραφείτε από την λίστα των ειδοποιήσεων. Αν δεν θυμάστε τον κωδικό σας, αφήστε το σχετικό πεδίο κενό και ένας κανούργιος κωδικός θα σας αποσταλεί στο email σας.</message>
 	<message key="notification.unsubscribeError">Παρουσιάστηκε ένα σφάλμα κατά την διαγραφή σας από τη λίστα. Παρακαλούμε επιβεβαιωθείτε ότι η διεύθυση και ο κωδικός που εισάγατε είναι σωστά.</message>
 	<message key="notification.unsubscribeSuccess">Διαγραφήκατε με επιτυχία.</message>
 	<message key="common.re">Re:</message>

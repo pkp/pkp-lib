@@ -314,7 +314,6 @@
 	<message key="notification.reminderError">Det oppstod en feil ved utsendelsen av passord, vennligst forsikre deg om at du har lagt inn e-postadressen din korrekt.</message>
 	<message key="notification.reminderSent">Ditt nye passord har blitt sendt til den e-postadressen du oppgav.</message>
 	<message key="notification.unsubscribe">Avslutt abonnement</message>
-	<message key="notification.unsubscribeDescription">Oppgi din e-postadresse og passord nedenfor for å avslutte abonnement på e-postvarslinger. Om du ikke husker passordet ditt, la det være tomt i feltet og du vil få tilsendt et nytt passord på den oppgitt e-postadressen.</message>
 	<message key="notification.unsubscribeError">Det oppstod en feil ved avslutningen av ditt abonnement. Sjekk at din e-postadresse og passord er korrekt angitt.</message>
 	<message key="notification.unsubscribeSuccess">Avslutning av ditt abonnement var vellykket.</message>
 	<message key="common.disable">Slå av</message>

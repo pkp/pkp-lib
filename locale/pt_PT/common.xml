@@ -308,7 +308,6 @@
 	<message key="notification.reminderError">Ocorreu um erro ao enviar a senha. Verifique se o endereço de e-mail fornecido está correcto.</message>
 	<message key="notification.reminderSent">Uma nova senha foi enviada para o endereço de e-mail fornecido.</message>
 	<message key="notification.unsubscribe">Cancelar subscrição de notificações</message>
-	<message key="notification.unsubscribeDescription">Indique o seu endereço de e-mail e senha a seguir para cancelar o recebimento de notificações via e-mail. Caso não se lembre da senha, deixe o campo em branco para que uma nova senha seja enviada.</message>
 	<message key="notification.unsubscribeError">Ocorreu um erro ao tentar cancelar a subscrição. Verifique se o endereço de e-mail e senha estão correctos.</message>
 	<message key="notification.unsubscribeSuccess">Cancelamento de subscrição de notificações realizado com sucesso.</message>
 	<message key="common.false">Falso</message>

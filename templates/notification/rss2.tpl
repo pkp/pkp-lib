@@ -1,5 +1,5 @@
 {**
- * rss2.tpl
+ * templates/notification/rss2.tpl
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -12,7 +12,7 @@
 	<channel>
 		{* required elements *}
 		<title>{$siteTitle} {translate key="notification.notifications"}</title>
-		<link>{$selfUrl}</link>
+		<link>{$selfUrl|escape}</link>
 
 		{* optional elements *}
 		<language>{$locale|replace:'_':'-'|strip|escape:"html"}</language>
@@ -20,26 +20,7 @@
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<ttl>60</ttl>
 
-		{foreach from=$notifications item=notification}
-			<item>
-				<title>{translate key="notification.notification"} : {$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</title>
-				<link>
-					{if $notification->getLocation() != null}
-						{$notification->getLocation()}
-					{else}
-						{url page="notification"}
-					{/if}
-				</link>
-				<description>
-					{if $notification->getIsLocalized()}
-						{translate key=$notification->getContents() param=$notification->getParam()|escape:"html"}
-					{else}
-						{$notification->getContents()|escape:"html"}
-					{/if}
-				</description>
-				<pubDate>{$notification->getDateCreated()|date_format:"%a, %d %b %Y %T %z"}</pubDate>
-			</item>
-		{/foreach}
+		{$formattedNotifications|escape:"html"}
 	</channel>
 </rss>
 

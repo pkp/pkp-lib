@@ -42,11 +42,15 @@ class NotificationMailingListForm extends Form {
 	/**
 	 * Display the form.
 	 */
-	function display() {
+	function display(&$request) {
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('new', true);
 
-		$templateMgr->assign('settings', Notification::getSubscriptionSettings());
+		$context =& $request->getContext();
+		if ($context) {
+			$templateMgr->assign('allowRegReviewer', $context->getSetting('allowRegReviewer'));
+			$templateMgr->assign('allowRegAuthor', $context->getSetting('allowRegAuthor'));
+		}
 
 		return parent::display();
 	}
@@ -54,15 +58,18 @@ class NotificationMailingListForm extends Form {
 	/**
 	 * Save the form
 	 */
-	function execute() {
+	function execute(&$request) {
 		$userEmail = $this->getData('email');
+		$context =& $request->getContext();
 
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-		if($password = $notificationSettingsDao->subscribeGuest($userEmail)) {
-			Notification::sendMailingListEmail($userEmail, $password, 'NOTIFICATION_MAILLIST_WELCOME');
+		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
+		if($password = $notificationMailListDao->subscribeGuest($userEmail, $context->getId())) {
+			import('classes.notification.NotificationManager');
+			$notificationManager = new NotificationManager();
+			$notificationManager->sendMailingListEmail($request, $userEmail, $password, 'NOTIFICATION_MAILLIST_WELCOME');
 			return true;
 		} else {
-			PKPRequest::redirect(null, 'notification', 'mailListSubscribed', array('error'));
+			$request->redirect(null, 'notification', 'mailListSubscribed', array('error'));
 			return false;
 		}
 	}

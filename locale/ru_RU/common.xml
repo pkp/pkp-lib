@@ -267,26 +267,25 @@
 	<message key="notification.email">Сообщать мне о следующих уведомлениях по электронной почте.</message>
 	<message key="notification.location">Перейти по ссылке</message>
 	<message key="notification.mailList">Список рассылки уведомлений</message>
-	<message key="notification.mailList.emailInvalid">Пожалуйста введите свой адрес электронной почты.</message>	
+	<message key="notification.mailList.emailInvalid">Пожалуйста введите свой адрес электронной почты.</message>
 	<message key="notification.mailList.privacyProtection">Политика защиты информации</message>
 	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Подписаться</a> для просмотра информации, доступной только подписчикам.]]></message>
 	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Отправить</a> статью]]></message>
 	<message key="notification.mailList.register">Вы можете зарегистрироваться на сайте чтобы...</message>
 	<message key="notification.mailList.review"><![CDATA[Участвовать в <a href="{$reviewUrl}">рецензировании</a>]]></message>
 	<message key="notification.noneExist">Сейчас у Вас нет уведомлений.</message>
-	<message key="notification.notification">Уведомление</message>	
-	<message key="notification.notifications">Уведомления</message>	
+	<message key="notification.notification">Уведомление</message>
+	<message key="notification.notifications">Уведомления</message>
 	<message key="notification.notificationsNew">({$numNew} новых)</message>
 	<message key="notification.notificationsDescription">У Вас {$unreadCount} непрочитанных уведомлений и {$readCount} прочитанных.<![CDATA[  <a href="{$settingsUrl}">Нажмите здесь</a> для изменения настройки Ваших уведомлений.]]></message>
 	<message key="notification.settings">Настройка Уведомлений</message>
 	<message key="notification.settingsDescription">Выберите события системы о которых Вы хотите быть уведомлены. Выключение события приведет к тому, что оно не будет появляться в Вашей ленте уведомлений.</message>
-	<message key="notification.subscribe">Подписаться</message>	
+	<message key="notification.subscribe">Подписаться</message>
 	<message key="notification.subscribeError">Ваш почтовый адрес уже подписан для получения уведомлений.</message>
 	<message key="notification.subscribeSuccess">На указанный Вами адрес было отправлено сообщение. Пожалуйста нажмите на ссылку в письме для подтверждения себя в качестве подписчика данного списка рассылки.</message>
 	<message key="notification.reminderError">При передаче пароля произошла ошибка, пожалуйста убедитесь, что Вы ввели правильный почтовый адрес.</message>
 	<message key="notification.reminderSent">Ваш новый пароль был отправлен по указанному Вами ранее адресу.</message>
-	<message key="notification.unsubscribe">Отписаться</message>	
-	<message key="notification.unsubscribeDescription">Введите свой электронный адрес и пароль ниже для отмены уведомлений по электронной почте. Если Вы забыли пароль, оставьте поле ввода пароля пустым и новый пароль будет отправлен по заданному почтовому адресу.</message>	
+	<message key="notification.unsubscribe">Отписаться</message>
 	<message key="notification.unsubscribeError">При отмене Вашей подписки произошла ошибка. Пожалуйста убедитесь, что почтовый адрес и пароль введены правильно.</message>
 	<message key="notification.unsubscribeSuccess">Ваша подписка успешно прекращена.</message>
 	<message key="search.abstract">Аннотации</message>

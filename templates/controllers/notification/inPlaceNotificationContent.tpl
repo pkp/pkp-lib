@@ -12,8 +12,8 @@
 		{translate key="notification.notification"}
 	</div>
 	<div class="pkp_notification_content">
-		{if $notificationContent}
-			{$notificationContent|nl2br}
+		{if $notificationContents}
+			{$notificationContents|nl2br}
 		{/if}
 	</div>
 </div>

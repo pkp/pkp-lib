@@ -71,6 +71,10 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Publish this event so we can handle it and grids still
 		// can listen to it to refresh themselfs.
 		this.publishEvent('dataChanged');
+
+		if (options.selfActivate) {
+			this.trigger('click');
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.linkAction.LinkActionHandler,

@@ -22,7 +22,7 @@
 	$(function() {ldelim}
 		$('#{$buttonId}').pkpHandler(
 			'$.pkp.controllers.linkAction.LinkActionHandler',
-				{include file="linkAction/linkActionOptions.tpl" action=$action}
+				{include file="linkAction/linkActionOptions.tpl" action=$action selfActivate=$selfActivate}
 			);
 	{rdelim});
 </script>

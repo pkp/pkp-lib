@@ -15,6 +15,9 @@
 
 {* Generate the link action's options. *}
 {ldelim}
+	{if $selfActivate}
+		selfActivate: {$selfActivate},
+	{/if}
 	{assign var="actionRequest" value=$action->getActionRequest()}
 	actionRequest: '{$actionRequest->getJSLinkActionRequest()}',
 	actionRequestOptions: {ldelim}

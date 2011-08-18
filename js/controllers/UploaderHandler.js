@@ -39,7 +39,6 @@
 				// Non-default settings.
 				{
 					url: options.uploadUrl,
-					setup: options.setup,
 					// Flash settings
 					flash_swf_url: options.baseUrl +
 							'/lib/pkp/js/lib/plupload/plupload.flash.swf',
@@ -50,11 +49,59 @@
 
 		// Create the uploader with the puploader plug-in.
 		// Setup the upload widget.
-		$uploader.pluploadQueue(uploaderOptions);
+		$uploader.plupload(uploaderOptions);
+
+		// Hack to fix the add files button in non-FF browsers
+		// courtesy of: http://stackoverflow.com/questions/5471141/
+		var pluploader = $uploader.plupload('getUploader');
+		pluploader.refresh();
+		$uploader.find('div.plupload').css('z-index', 99999);
+
+
+		// Bind to the pluploader for some configuration
+		pluploader.bind('FilesAdded',
+				this.callbackWrapper(this.limitQueueSize));
+		pluploader.bind('FilesAdded',
+				this.callbackWrapper(this.startUploader));
+		// Hide the start button (since we set to auto-start).
+		$uploader.find('.plupload_button.plupload_start').hide();
+
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
 
+
+	//
+	// Public methods
+	//
+	/**
+	 * Limit the queue size of the uploader to one file only.
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			limitQueueSize = function(caller, pluploader, file) {
+
+		// Prevent > 1 files from being added.
+		if (pluploader.files.length > 1) {
+			pluploader.splice(0, 1);
+			pluploader.refresh();
+		}
+	};
+
+	/**
+	 * Limit the queue size of the uploader to one file only.
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			startUploader = function(caller, pluploader, file) {
+		pluploader.start();
+	}
 
 	//
 	// Private static properties

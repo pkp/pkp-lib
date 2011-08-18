@@ -155,7 +155,9 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 		// Ignore form validation events for the upload form.
 		if (this.getCurrentStep() === 0 &&
-				this.getHtmlElement().find('#uploadConfirmationForm').length === 0) {
+				this.getHtmlElement().find('#uploadConfirmationForm').length === 0 &&
+				!this.uploadedFile_
+				) {
 			return;
 		}
 

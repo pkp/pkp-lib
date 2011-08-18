@@ -46,29 +46,8 @@
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function(uploaderOptions, pluploader) {
 
-		// Subscribe to uploader events.
-		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.limitQueueSize));
 		pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
-	};
-
-
-	/**
-	 * Limit the queue size of the uploader to one file only.
-	 * @param {Object} caller The original context in which the callback was called.
-	 * @param {Object} pluploader The pluploader object.
-	 * @param {Object} file The data of the uploaded file.
-	 *
-	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.
-			limitQueueSize = function(caller, pluploader, file) {
-
-		// Prevent > 1 files from being added.
-		if (pluploader.files.length > 1) {
-			pluploader.splice(0, 1);
-			pluploader.refresh();
-		}
 	};
 
 

@@ -106,30 +106,10 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 		var pluploader = $uploader.plupload('getUploader');
 		// Subscribe to uploader events.
-		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.startUploader));
 		pluploader.bind('BeforeUpload',
 				this.callbackWrapper(this.prepareFileUploadRequest));
 		pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
-	};
-
-
-	/**
-	 * Limit the queue size of the uploader to one file only.
-	 * @param {Object} caller The original context in which the callback was called.
-	 * @param {Object} pluploader The pluploader object.
-	 * @param {Object} file The data of the uploaded file.
-	 *
-	 */
-	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
-			limitQueueSize = function(caller, pluploader, file) {
-
-		// Prevent > 1 files from being added.
-		if (pluploader.files.length > 1) {
-			pluploader.splice(0, 1);
-			pluploader.refresh();
-		}
 	};
 
 
@@ -189,8 +169,8 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
-				// Send the form submission event.
-				this.trigger('formSubmitted');
+				// Trigger formValid to enable to continue button
+				this.trigger('formValid');
 			} else {
 				// Display the revision confirmation form.
 				this.getHtmlElement().replaceWith(jsonData.content);
@@ -198,6 +178,19 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		}
 	};
 
+	/**
+	 * Internal callback to handle form submission.
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 * @param {HTMLElement} formElement The wrapped HTML form.
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			submitForm = function(validator, formElement) {
+
+		// There is no form to submit (file already uploaded).
+		// Trigger event to signal that user requests the form to be submitted.
+		this.trigger('formSubmitted');
+	}
 
 	/**
 	 * Handle the "change" event of the revised file selector.

@@ -41,8 +41,9 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		this.fileGenres_ = options.fileGenres;
 
 		// Attach the uploader handler to the uploader HTML element.
-		options.uploaderOptions.setup = this.callbackWrapper(this.uploaderSetup);
 		this.attachUploader_(options.$uploader, options.uploaderOptions);
+
+		this.uploaderSetup(options.$uploader);
 
 		// When a user selects a submission to revise then the
 		// the file genre chooser must be disabled.
@@ -98,16 +99,15 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {Object} uploaderOptions The uploader options object
-	 *  from which this callback is being called.
-	 * @param {Object} pluploader The pluploader object.
+	 * @param {jQuery} Element that contains the plupload object
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
-			uploaderSetup = function(uploaderOptions, pluploader) {
+			uploaderSetup = function($uploader) {
 
+		var pluploader = $uploader.plupload('getUploader');
 		// Subscribe to uploader events.
 		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.limitQueueSize));
+				this.callbackWrapper(this.startUploader));
 		pluploader.bind('BeforeUpload',
 				this.callbackWrapper(this.prepareFileUploadRequest));
 		pluploader.bind('FileUploaded',

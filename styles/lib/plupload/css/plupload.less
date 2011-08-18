@@ -1,0 +1,44 @@
+/**
+ * @file styles/lib/plupload/css/plupload.less
+ *
+ * Copyright (c) 2003-2011 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Override the plupload styles
+ */
+
+
+//
+// Hide unwanted elements
+//
+div.plupload div.plupload_header {
+	display:none;
+}
+.plupload .plupload_filelist_header {
+	display:none;
+}
+
+.plupload_header_content {
+	background-image: none;
+	display: none;
+}
+.plupload_header_content_bw {
+    background-image: none;
+}
+.plupload_header_title {
+	display:none;
+}
+
+//
+// Shrink the upload widget
+//
+.plupload_scroll {
+	max-height: 25px;
+	min-height: 25px;
+	_height: 25px;
+}
+
+.plupload_hidden {display: none;}
+.plupload_droptext {
+	line-height: 25px;
+}

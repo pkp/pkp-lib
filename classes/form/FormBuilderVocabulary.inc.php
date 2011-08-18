@@ -239,6 +239,10 @@ class FormBuilderVocabulary {
 				$content = $this->_smartyFBVCheckbox($params, $smarty);
 				unset($params['label']);
 				break;
+			case 'checkboxgroup':
+				$content = $this->_smartyFBVCheckboxGroup($params, $smarty);
+				unset($params['label']);
+				break;
 			case 'file':
 				$content = $this->_smartyFBVFileInput($params, $smarty);
 				break;
@@ -418,7 +422,7 @@ class FormBuilderVocabulary {
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
-		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
+		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$smarty->assign('FBV_isPassword', isset($params['password']) ? true : false);
 
 		$textInputParams = '';
@@ -429,7 +433,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
-				case 'subLabelTransalte': break;
+				case 'subLabelTranslate': break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
@@ -456,7 +460,7 @@ class FormBuilderVocabulary {
 		$params['rich'] = isset($params['rich']) ? $params['rich'] : false;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
-		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
+		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 
 		$textAreaParams = '';
 		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height'));
@@ -468,7 +472,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
-				case 'subLabelTransalte': break;
+				case 'subLabelTranslate': break;
 				case 'height':
 					$styles = $this->getStyles();
 					switch($params['height']) {
@@ -530,7 +534,7 @@ class FormBuilderVocabulary {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
-		$params['subLabelTranslate'] = isset($params['subLabelTransalte']) ? (boolean) $params['subLabelTransalte'] : true;
+		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 
 		$selectParams = '';
 		if (!$params['defaultValue'] || !$params['defaultLabel']) {
@@ -550,7 +554,7 @@ class FormBuilderVocabulary {
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
 				case 'type': break;
 				case 'inline': break;
-				case 'subLabelTransalte': break;
+				case 'subLabelTranslate': break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
@@ -560,6 +564,51 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_selectParams', $selectParams);
 
 		return $smarty->fetch('form/select.tpl');
+	}
+
+	/**
+	 * Form checkbox group control.
+	 * parameters: from [array], selected [array index], defaultLabel (optional), defaultValue (optional), disabled (optional),
+	 * 	translate (optional), name (optional - value of 'id' by default)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function _smartyFBVCheckboxGroup($params, &$smarty) {
+		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
+		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
+		$params['validation'] = isset($params['validation']) ? true : false;
+		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
+		$checkboxParams = '';
+		if (!$params['defaultValue'] || !$params['defaultLabel']) {
+			if (isset($params['defaultValue'])) unset($params['defaultValue']);
+			if (isset($params['defaultLabel'])) unset($params['defaultLabel']);
+			$smarty->assign('FBV_defaultValue', null);
+			$smarty->assign('FBV_defaultLabel', null);
+		}
+
+		$smarty->clear_assign(array('FBV_from', 'FBV_selected', 'FBV_label_content', 'FBV_defaultValue', 'FBV_defaultLabel', 'FBV_name'));
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'from': $smarty->assign('FBV_from', $value); break;
+				case 'selected': $smarty->assign('FBV_selected', $value); break;
+				case 'translate': $smarty->assign('FBV_translate', $value); break;
+				case 'defaultValue': $smarty->assign('FBV_defaultValue', $value); break;
+				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
+				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
+				case 'name': $smarty->assign('FBV_name', $params['name']); break;
+				case 'validation'; $smarty->assign('FBV_required', $params['validation']); break;
+				case 'type': break;
+				case 'inline': break;
+				case 'subLabelTranslate': break;
+				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				default: $checkboxParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
+			}
+		}
+
+		$smarty->assign('FBV_checkboxParams', $checkboxParams);
+
+		return $smarty->fetch('form/checkboxGroup.tpl');
 	}
 
 	/**

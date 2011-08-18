@@ -576,7 +576,7 @@ class FormBuilderVocabulary {
 	function _smartyFBVCheckboxGroup($params, &$smarty) {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['translate'] = isset($params['translate']) ? $params['translate'] : true;
-		$params['validation'] = isset($params['validation']) ? true : false;
+		$params['validation'] = isset($params['validation']) ? $params['validation'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$checkboxParams = '';

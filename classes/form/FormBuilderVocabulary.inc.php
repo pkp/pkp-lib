@@ -483,7 +483,7 @@ class FormBuilderVocabulary {
 							$smarty->trigger_error('FBV: invalid height specified for textarea.');
 					}
 					break;
-				case 'rich': break;
+				case 'rich': $smarty->assign('FBV_rich', $params['rich']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';

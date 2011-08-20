@@ -90,7 +90,7 @@ class NotificationDAO extends DAO {
 	 * Get the list of custom field names for this table
 	 * @return array
 	 */
-	function getSettingNames() {
+	function getAdditionalFieldNames() {
 		return array('contents');
 	}
 

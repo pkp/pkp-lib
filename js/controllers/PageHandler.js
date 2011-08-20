@@ -52,9 +52,7 @@
 	// Private methods.
 	//
 	/**
-	 * Notify user handler. If we have any in place notification
-	 * handler, trigger the notify user event there. Otherwise, bubbles
-	 * up the notify user event.
+	 * Notify user handler.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "notifyUser" event.
 	 * @param {Event} event The "notify user" event.
@@ -65,40 +63,8 @@
 	$.pkp.controllers.PageHandler.prototype.notifyUserHandler_ =
 			function(sourceElement, event, triggerElement) {
 
-		// Search for the closest in place notification element.
-		var $thisElementParent = this.getHtmlElement().parent();
-		var $containerElement = $(triggerElement);
-		var $notificationElement = this.searchNotificationElement_($containerElement);
-
-		while ($notificationElement.length == 0 && $containerElement[0] != $thisElementParent[0]) {
-			$containerElement = $containerElement.parent();
-			$notificationElement = this.searchNotificationElement_($containerElement);
-		}
-
-		// Check if we found a notification element.
-		if ($notificationElement.length) {
-			// Show in place notification to user.
-			$notificationElement.triggerHandler('notifyUser');
-		} else {
-			// Didn´t find any in place notification element. Bubble up
-			// the notify user event so the site can handle the
-			// general notification.
-			this.getHtmlElement().parent().trigger('notifyUser');
-		}
-	};
-
-	/**
-	 * Search for a notification element.
-	 * @param {JQuery}$element The element that will be used
-	 * in the search. Only the first level child elements will be
-	 * considered.
-	 * @returns {JQuery} or null
-	 */
-	$.pkp.controllers.PageHandler.prototype.searchNotificationElement_ =
-			function($element) {
-
-		var $notificationElement = $element.children('.pkp_notification');
-		return $notificationElement;
+		// Use the notification helper to redirect the notify user event.
+		$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(this, triggerElement);
 	};
 
 

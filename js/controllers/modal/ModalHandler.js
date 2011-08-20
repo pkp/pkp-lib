@@ -67,6 +67,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// the element that opened the modal.
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
+
+		// Bind notify user event.
+		this.bind('notifyUser', this.notifyUserHandler_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);
@@ -215,6 +218,22 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Replace the original title bar with our own implementation.
 		$titleBar.append($('<span style="clear:both" />'));
 		$handledElement.parent().find('.ui-dialog-titlebar').replaceWith($titleBar);
+	};
+
+	/**
+	 * Notify user handler.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 * "notifyUser" event.
+	 * @param {Event} event The "notify user" event.
+	 * @param {HTMLElement} triggerElement The element that triggered
+	 * the "notifyUser" event.
+	 * @private
+	 */
+	$.pkp.controllers.modal.ModalHandler.prototype.notifyUserHandler_ =
+			function(sourceElement, event, triggerElement) {
+
+		// Use the notification helper to redirect the notify user event.
+		$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(this, triggerElement);
 	};
 
 

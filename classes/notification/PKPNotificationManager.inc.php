@@ -131,7 +131,7 @@ class PKPNotificationManager {
 			case NOTIFICATION_TYPE_SUCCESS: return 'notifySuccess';
 			case NOTIFICATION_TYPE_WARNING: return 'notifyWarning';
 			case NOTIFICATION_TYPE_ERROR: return 'notifyError';
-			case NOTIFICATION_TYPE_INFO: return 'notifyInfo';
+			case NOTIFICATION_TYPE_INFORMATION: return 'notifyInfo';
 			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyForbidden';
 			case NOTIFICATION_TYPE_HELP: return 'notifyHelp';
 		}
@@ -147,7 +147,7 @@ class PKPNotificationManager {
 			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
 			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
 			case NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
-			case NOTIFICATION_TYPE_INFO: return 'notifyIconInfo';
+			case NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
 			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
 			case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
 			default: return 'notifyIconPageAlert';

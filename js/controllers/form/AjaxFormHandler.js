@@ -96,16 +96,16 @@
 			if (jsonData.content === '') {
 				// Trigger the "form submitted" event.
 				this.trigger('formSubmitted');
-
-				// Trigger the notify user event, passing this
-				// html element as data.
-				this.trigger('notifyUser', this.getHtmlElement());
 			} else {
 				// Redisplay the form.
 				var $form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);
 			}
 		}
+		// Trigger the notify user event, passing this
+		// html element as data.
+		this.trigger('notifyUser', this.getHtmlElement());
+
 		return jsonData.status;
 	};
 

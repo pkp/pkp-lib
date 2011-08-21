@@ -4,7 +4,7 @@
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Display a single notificiation.
+ * Display a single notification.
  *}
 
 <table width="100%" class="notifications">

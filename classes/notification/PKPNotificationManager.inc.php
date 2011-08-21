@@ -78,6 +78,7 @@ class PKPNotificationManager {
 		$templateMgr->assign('notificationDateCreated', $notification->getDateCreated());
 		$templateMgr->assign('notificationId', $notification->getId());
 		$templateMgr->assign('notificationContents',$this->getNotificationContents($request, $notification));
+		$templateMgr->assign('notificationStyleClass', $this->getStyleClass($notification));
 		$templateMgr->assign('notificationIconClass', $this->getIconClass($notification));
 		$templateMgr->assign('notificationDateRead', $notification->getDateRead());
 		if($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
@@ -109,15 +110,17 @@ class PKPNotificationManager {
 	function getNotificationContents(&$request, &$notification) {
 		$type = $notification->getType();
 		assert(isset($type));
+		$contents = array();
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:
-				$contents = __('common.changesSaved');
+				$contents['description'] = __('common.changesSaved');
 				break;
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->assign('errors', $notification->getData('contents'));
-				$contents = $templateMgr->fetch('controllers/notification/formErrorNotification.tpl');
+				$contents['title'] = __('form.errorsOccurred');
+				$contents['description'] = $templateMgr->fetch('controllers/notification/formErrorNotification.tpl');
 				break;
 			default:
 				$contents = null;
@@ -139,6 +142,7 @@ class PKPNotificationManager {
 			case NOTIFICATION_TYPE_INFORMATION: return 'notifyInfo';
 			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyForbidden';
 			case NOTIFICATION_TYPE_HELP: return 'notifyHelp';
+			case NOTIFICATION_TYPE_FORM_ERROR: return 'notifyFormError';
 		}
 	}
 
@@ -256,10 +260,15 @@ class PKPNotificationManager {
 		$formattedNotificationsData = array();
 		foreach ($notifications as $notification) {
 			$contents = $this->getNotificationContents(&$request, $notification);
+			if ($contents['title']) {
+				$title = $contents['title'];
+			} else {
+				$title = __('notification.notification');
+			}
 
 			$formattedNotificationsData[] = array(
-				'pnotify_title' => __('notification.notification'),
-				'pnotify_text' => $contents,
+				'pnotify_title' => $title,
+				'pnotify_text' => $contents['description'],
 				'pnotify_addClass' => $this->getStyleClass($notification),
 				'pnotify_notice_icon' => 'notifyIcon' . $this->getIconClass($notification)
 			);

@@ -6,8 +6,6 @@
  *
  * Display in place notifications.
  *}
-<ul>
 {foreach key=field item=message from=$errors}
-	<li><a href="#{$field|escape}">{$message}</a></li>
+	<a href="#{$field|escape}">{$message}</a><br />
 {/foreach}
-</ul>

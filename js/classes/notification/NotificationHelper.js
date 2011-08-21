@@ -52,8 +52,10 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			$notificationElement = $containerElement.children($notificationSelector);
 		}
 
-		// Check if we found a notification element and if this element is visible.
-		if ($notificationElement.length && $notificationElement.is(":visible")) {
+		// Check if we found a notification element and if this element its
+		// inside a visible parent.
+
+		if ($notificationElement.length && $notificationElement.parent(':hidden').length == 0) {
 			// Show in place notification to user.
 			$notificationElement.triggerHandler('notifyUser');
 		} else {

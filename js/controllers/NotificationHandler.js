@@ -28,6 +28,9 @@
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 
+		// Hide the notification element.
+		this.getHtmlElement().hide();
+
 		// Trigger the notify user event without bubbling up.
 		this.getHtmlElement().triggerHandler('notifyUser');
 	};
@@ -74,6 +77,7 @@
 			if (workingJsonData.content.inPlace) {
 				var dataInPlace = workingJsonData.content.inPlace;
 				this.getHtmlElement().html(dataInPlace);
+				this.getHtmlElement().show();
 			}
 		}
 	};

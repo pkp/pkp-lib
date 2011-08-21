@@ -271,6 +271,20 @@ class Form {
 			}
 		}
 
+		// FIXME: Should pass request to this method as parameter.
+		$application =& PKPApplication::getApplication();
+		$request =& $application->getRequest();
+		$user =& $request->getUser();
+		$press =& $request->getPress();
+
+		if (!$this->isValid() && $user) {
+			// Create a form error notification.
+			import('classes.notification.NotificationManager');
+			PKPNotificationManager::createNotification(
+				$request, $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $press->getId(), null,
+				null, NOTIFICATION_LEVEL_TRIVIAL, $this->getErrorsArray());
+		}
+
 		return $this->isValid();
 	}
 

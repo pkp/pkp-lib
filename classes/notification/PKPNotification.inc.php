@@ -27,6 +27,7 @@ define('NOTIFICATION_TYPE_ERROR', 				    0x0000003);
 define('NOTIFICATION_TYPE_FORBIDDEN', 				0x0000004);
 define('NOTIFICATION_TYPE_INFORMATION',				0x0000005);
 define('NOTIFICATION_TYPE_HELP', 				    0x0000006);
+define('NOTIFICATION_TYPE_FORM_ERROR',              0x0000007);
 
 class PKPNotification extends DataObject {
 

@@ -114,6 +114,11 @@ class PKPNotificationManager {
 			case NOTIFICATION_TYPE_SUCCESS:
 				$contents = __('common.changesSaved');
 				break;
+			case NOTIFICATION_TYPE_FORM_ERROR:
+				$templateMgr =& TemplateManager::getManager();
+				$templateMgr->assign('errors', $notification->getData('contents'));
+				$contents = $templateMgr->fetch('controllers/notification/formErrorNotification.tpl');
+				break;
 			default:
 				$contents = null;
 		}

@@ -438,6 +438,8 @@ class SignoffDAO extends DAO {
 			$sql .= ' WHERE ' . implode(' AND ', $conditions);
 		}
 
+		$sql .= ' ORDER BY signoff_id';
+
 		$result =& $this->retrieve($sql, $params);
 
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));

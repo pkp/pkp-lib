@@ -22,8 +22,6 @@
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
-	<message key="grid.action.approveForReview">Submit to Review Stage</message>
-	<message key="grid.action.approveForPub">Approve for Publication</message>
 	<message key="grid.action.decline">Decline</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>

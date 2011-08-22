@@ -52,7 +52,7 @@
 						{else}
 							{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
 						{/if}
-						<th scope="col" style="text-align: {$alignment};{if $column->hasFlag('width')} width: {$column->getFlag('width')}%"{/if}">
+						<th scope="col" style="text-align: {$alignment};{if $column->hasFlag('width')} width: {$column->getFlag('width')}%{/if}">
 							{$column->getLocalizedTitle()}
 							{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
@@ -94,7 +94,7 @@
 					so that we can restore it if the user deletes all rows.
 				**}
 				<tr>
-					<td colspan="{$columns|@count}">{translate key="grid.noItems"}</td>
+					<td colspan="{$columns|@count}">{translate key=$grid->getEmptyRowText()}</td>
 				</tr>
 			</tbody>
 		</table>

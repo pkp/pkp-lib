@@ -214,6 +214,7 @@ class CategoryGridHandler extends GridHandler {
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
 
 		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
+		$templateMgr->assign('emptyRowText', $this->getEmptyRowText());
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
 	}
 

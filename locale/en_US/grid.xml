@@ -49,6 +49,9 @@
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>
 
+	<!-- Files -->
+	<message key="grid.noFiles">No Files</message>
+
 	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Files</message>
 	<message key="grid.libraryFiles.submission.title">Submission Library</message>

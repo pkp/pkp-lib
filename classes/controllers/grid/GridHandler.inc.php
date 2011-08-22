@@ -37,6 +37,9 @@ class GridHandler extends PKPHandler {
 	/** @var string grid title locale key */
 	var $_title = '';
 
+	/** @var string empty row locale key */
+	var $_emptyRowText = 'grid.noItems';
+
 	/** @var GridDataProvider */
 	var $_dataProvider;
 
@@ -134,6 +137,20 @@ class GridHandler extends PKPHandler {
 	 */
 	function setTitle($title) {
 		$this->_title = $title;
+	}
+
+	/**
+	 * Get the no items locale key
+	 */
+	function getEmptyRowText() {
+		return $this->_emptyRowText;
+	}
+
+	/**
+	 * Set the no items locale key
+	 */
+	function setEmptyRowText($emptyRowText) {
+		$this->_emptyRowText = $emptyRowText;
 	}
 
 	/**
@@ -618,6 +635,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr =& TemplateManager::getManager();
 		$gridBodyParts = array();
 		if ( count($renderedRows) > 0 ) {
+			$templateMgr->assign_by_ref('grid', $this);
 			$templateMgr->assign_by_ref('rows', $renderedRows);
 			$gridBodyParts[] = $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
 		}

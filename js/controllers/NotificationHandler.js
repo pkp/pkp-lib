@@ -80,6 +80,9 @@
 				var dataInPlace = workingJsonData.content.inPlace;
 				this.getHtmlElement().html(dataInPlace);
 				this.getHtmlElement().show();
+			} else {
+				this.getHtmlElement().empty();
+				this.getHtmlElement().hide();
 			}
 		}
 	};

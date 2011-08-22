@@ -31,13 +31,13 @@
 		// Get the text input inside of this Div.
 		this.hiddenInput_ = $autocompleteField.find(':hidden');
 
+		// Get the URL passed in
+		this.sourceUrl_ = options.sourceUrl;
+
 		// Create autocomplete settings.
 		var opt = {};
-		opt.source = function(request, response) {
-			$.post(options.source, { term: request.term }, function(data) {
-				response(data.content);
-			}, 'json');
-		};
+		opt.source = this.callbackWrapper(this.fetchAutocomplete);
+
 		var autocompleteOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
@@ -79,6 +79,15 @@
 		minLength: 2
 	};
 
+	//
+	// Private properties
+	//
+	/**
+	 * The URL to be used for autocomplete
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.AutocompleteHandler.sourceUrl_ = null;
 
 	//
 	// Public Methods
@@ -102,6 +111,35 @@
 		$hiddenInput.val(ui.item.value);
 		$textInput.val(ui.item.label);
 		return false;
+	};
+
+	/**
+	 * Search for the users who are availble
+	 * @param callingElement
+	 * @param request
+	 * @param response
+	 */
+	$.pkp.controllers.AutocompleteHandler.prototype.fetchAutocomplete =
+			function(callingElement, request, response) {
+		$.post(this.getAutocompleteUrl(), { term: request.term }, function(data) {
+			response(data.content);
+		}, 'json');
+	};
+
+	/**
+	 * Get the autocomplete Url
+	 */
+	$.pkp.controllers.AutocompleteHandler.prototype.getAutocompleteUrl =
+			function() {
+		return this.sourceUrl_;
+	};
+
+	/**
+	 * Set the autocomplete url
+	 */
+	$.pkp.controllers.AutocompleteHandler.prototype.setAutocompleteUrl =
+			function(url) {
+		this.sourceUrl_ = url;
 	};
 
 /** @param {jQuery} $ jQuery closure. */

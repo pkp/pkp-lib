@@ -35,7 +35,7 @@ class PKPNotificationManager {
 	 */
 	function getFormattedNotificationsForUser(&$request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getNotificationsByUserId($contextId, $userId, $level, $rangeInfo);
+		$notifications = $notificationDao->getNotificationsByUserId($userId, $level, null, $contextId, $rangeInfo);
 
 		return $this->formatNotifications($request, $notifications, $notificationTemplate);
 	}
@@ -176,7 +176,7 @@ class PKPNotificationManager {
 	 * @param $contents string Override the notification's default contents
 	 * @return Notification object
 	 */
-	function createNotification(&$request, $userId, $notificationType, $contextId = null, $assocType, $assocId, $level = NOTIFICATION_LEVEL_NORMAL, $contents = null) {
+	function createNotification(&$request, $userId = null, $notificationType, $contextId = null, $assocType, $assocId, $level = NOTIFICATION_LEVEL_NORMAL, $contents = null) {
 		$contextId = $contextId? (int) $contextId: 0;
 
 		// Get set of notifications user does not want to be notified of
@@ -237,14 +237,14 @@ class PKPNotificationManager {
 	}
 
 	/**
-	 * Deletes notifications from database.
+	 * Deletes trivial notifications from database.
 	 * @param array $notifications
 	 */
-	function deleteNotifications($notifications) {
+	function deleteTrivialNotifications($notifications) {
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		foreach($notifications as $notification) {
-			// Don't delete normal level notifications.
-			if($notification->getLevel() !== NOTIFICATION_LEVEL_NORMAL) {
+			// Delete only trivial notifications.
+			if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
 				$notificationDao->deleteNotificationById($notification->getId(), $notification->getUserId());
 			}
 		}
@@ -256,11 +256,11 @@ class PKPNotificationManager {
 	 * @param array $notifications
 	 * @return array
 	 */
-	function formatToGeneralNotification(&$request, $notifications) {
+	function formatToGeneralNotification(&$request, &$notifications) {
 		$formattedNotificationsData = array();
 		foreach ($notifications as $notification) {
 			$contents = $this->getNotificationContents(&$request, $notification);
-			if ($contents['title']) {
+			if (isset($contents['title'])) {
 				$title = $contents['title'];
 			} else {
 				$title = __('notification.notification');
@@ -283,7 +283,7 @@ class PKPNotificationManager {
 	 * @param $notifications array
 	 * @return string
 	 */
-	function formatToInPlaceNotification(&$request, $notifications) {
+	function formatToInPlaceNotification(&$request, &$notifications) {
 		$formattedNotificationsData = null;
 
 		if (!empty($notifications)) {

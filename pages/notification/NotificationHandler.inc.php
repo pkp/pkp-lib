@@ -51,7 +51,7 @@ class NotificationHandler extends Handler {
 		$formattedNotifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, $contextId, $rangeInfo);
 
 		// Get the same notifications used for the string so we can paginate
-		$notifications = $notificationDao->getNotificationsByUserId($contextId, $userId, NOTIFICATION_LEVEL_NORMAL, $rangeInfo);
+		$notifications = $notificationDao->getNotificationsByUserId($userId, NOTIFICATION_LEVEL_NORMAL, null, $contextId, $rangeInfo);
 
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$templateMgr->assign('formattedNotifications', $formattedNotifications);
@@ -352,52 +352,95 @@ class NotificationHandler extends Handler {
 	 * @return JSONMessage
 	 */
 	function fetchNotification($args, &$request) {
+		parent::setupTemplate();
 		$user =& $request->getUser();
-		$notificationLevels = $request->getUserVar('notificationLevels');
+		$press =& $request->getPress();
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notifications = array();
 
-		import('classes.notification.NotificationManager');
-		$notificationManager = new NotificationManager();
-		if ($user) {
-			// If there is no notification level in request, we
-			// assume that the widget is going to show only
-			// trivial notifications.
-			if (is_null($notificationLevels)) {
-				$notificationLevels = array(NOTIFICATION_LEVEL_TRIVIAL);
-			}
+		// Get the notification options from request.
+		$notificationOptions = $request->getUserVar('requestOptions');
 
-			// Get current notifications from database.
-			$mergedNotifications = array();
-			foreach($notificationLevels as $level) {
-				// Check each level.
-				$level = (int)$level;
-				if ($level != NOTIFICATION_LEVEL_TRIVIAL &&
-					$level != NOTIFICATION_LEVEL_NORMAL) {
-						assert(false);
-				}
+		if (is_array($notificationOptions)) {
+			// Retrieve the notifications.
+			$notifications = $this->_getNotificationsByOptions($notificationOptions, $press->getId(), $user->getId());
+		} else {
+			// No options, get only TRIVIAL notifications.
+			$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+			$notifications =& $notifications->toArray();
+		}
 
-				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-				$notificationsByLevel = $notificationDao->getNotificationsByUserId(null, $user->getId(), $level);
-				$mergedNotifications = array_merge($mergedNotifications, $notificationsByLevel->toArray());
-			}
+		import('lib.pkp.classes.core.JSONMessage');
+		$json = new JSONMessage();
 
+		if (is_array($notifications) && !empty($notifications)) {
 			$formattedNotificationsData = array();
+			import('classes.notification.NotificationManager');
+			$notificationManager = new NotificationManager();
 
 			// Format in place notifications.
-			$formattedNotificationsData['inPlace'] = $notificationManager->formatToInPlaceNotification(&$request, $mergedNotifications);
+			$formattedNotificationsData['inPlace'] = $notificationManager->formatToInPlaceNotification($request, $notifications);
 
 			// Format general notifications.
-			$formattedNotificationsData['general'] = $notificationManager->formatToGeneralNotification(&$request, $mergedNotifications);
+			$formattedNotificationsData['general'] = $notificationManager->formatToGeneralNotification($request, $notifications);
 
-			// Delete notifications from database.
-			$notificationManager->deleteNotifications($mergedNotifications);
+			// Delete trivial notifications from database.
+			$notificationManager->deleteTrivialNotifications($notifications);
 
-			// Construct the json message.
-			import('lib.pkp.classes.core.JSONMessage');
-			$json = new JSONMessage(true);
 			$json->setContent($formattedNotificationsData);
-
-			return $json->getString();
 		}
+
+		return $json->getString();
+	}
+
+	/**
+	 * Get the notifications using options.
+	 * @param $notificationOptions Array
+	 * @param $contextId int
+	 * @param $userId int
+	 * @return Array
+	 */
+	function &_getNotificationsByOptions($notificationOptions, $contextId, $userId = null) {
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notificationsArray = array();
+
+		foreach ($notificationOptions as $level => $levelOptions) {
+			if ($levelOptions) {
+				foreach ($levelOptions as $type => $typeOptions) {
+					if ($typeOptions) {
+						$notificationsResultFactory =& $notificationDao->getNotificationsByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $type, $contextId);
+						$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+					} else {
+						if ($userId) {
+							$notificationsResultFactory =& $notificationDao->getNotificationsByUserId($userId, $level, $type, $contextId);
+							$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+						}
+					}
+				}
+			} else {
+				if ($userId) {
+					$notificationsResultFactory =& $notificationDao->getNotificationsByUserId($userId, $level, null, $contextId);
+					$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+				}
+			}
+			$notificationsResultFactory = null;
+		}
+
+		return $notificationsArray;
+	}
+
+	/**
+	 * Add notifications from a result factory to an array of
+	 * existing notifications.
+	 * @param $resultFactory DAOResultFactory
+	 * @param $notificationArray Array
+	 */
+	function &_addNotificationsToArray(&$resultFactory, &$notificationArray) {
+		if (!$resultFactory->wasEmpty()) {
+			$notificationArray = array_merge($notificationArray, $resultFactory->toArray());
+		}
+
+		return $notificationArray;
 	}
 }
 

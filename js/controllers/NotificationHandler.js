@@ -59,7 +59,9 @@
 	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
 			function() {
 
-		$.get(this.options_.fetchNotificationUrl, null,
+		var requestOptions = new Object();
+		requestOptions.requestOptions = this.options_.requestOptions;
+		$.post(this.options_.fetchNotificationUrl, requestOptions,
 				this.callbackWrapper(this.showNotificationResponseHandler_), 'json');
 	};
 

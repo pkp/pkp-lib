@@ -358,7 +358,6 @@
 			<NOTNULL/>
 		</field>
 		<field name="user_id" type="I8">
-			<NOTNULL/>
 		</field>
 		<field name="level" type="I8">
 			<NOTNULL/>
@@ -376,6 +375,10 @@
 		<index name="notifications_context_id_user_id">
 			<col>context_id</col>
 			<col>user_id</col>
+			<col>level</col>
+		</index>
+		<index name="notifications_context_id">
+			<col>context_id</col>
 			<col>level</col>
 		</index>
 		<index name="notifications_assoc">

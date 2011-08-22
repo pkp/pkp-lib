@@ -46,19 +46,46 @@ class NotificationDAO extends DAO {
 	 * Retrieve Notifications by user id
 	 * Note that this method will not return fully-fledged notification objects.  Use
 	 *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
-	 * @param $contextId int
 	 * @param $userId int
 	 * @param $level int
+	 * @param $type int
+	 * @param $contextId int
 	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByUserId($contextId = null, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
+	function &getNotificationsByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
 		$params = array((int) $userId, (int) $level);
+		if ($type) $params[] = (int) $type;
 		if ($contextId) $params[] = (int) $contextId;
 
 		$result =& $this->retrieveRange(
-			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
+			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($type) ?' AND type = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
 			$params, $rangeInfo
+		);
+
+		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
+
+		return $returner;
+	}
+
+	/**
+	 * Retrieve Notifications by assoc.
+	 * Note that this method will not return fully-fledged notification objects.  Use
+	 *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $type int
+	 * @param $contextId int
+	 * @return object DAOResultFactory containing matching Notification objects
+	 */
+	function &getNotificationsByAssoc($assocType, $assocId, $type = null, $contextId = null) {
+		$params = array((int) $assocType, (int) $assocId);
+		if ($contextId) $params[] = (int) $contextId;
+		if ($type) $params[] = (int) $type;
+
+		$result =& $this->retrieveRange(
+			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' . (isset($contextId) ?' AND context_id = ?' : '') . (isset($type) ?' AND type = ?' : '') . ' ORDER BY date_created DESC',
+			$params
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNotificationFromRow');
@@ -161,7 +188,7 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return boolean
 	 */
-	function deleteNotificationById($notificationId, $userId) {
+	function deleteNotificationById($notificationId, $userId = null) {
 		$this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
 
 		return $this->update('DELETE FROM notifications WHERE notification_id = ? AND user_id = ?',

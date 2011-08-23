@@ -28,3 +28,56 @@
 }
 
 /* @end */
+
+/* @group Response */
+
+/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
+
+.response {
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.response_block {
+	background-position: 15px 50% !important;
+	background-repeat: no-repeat !important;
+	padding: 5px 20px 5px 60px;
+}
+
+.response .success {
+	background: #daf0da url(../images/structure/response_success.png);
+	border-top: 1px solid #5abd5a;
+	border-bottom: 1px solid #5abd5a;
+}
+
+.response .warning {
+	background: #FFFAE1 url(../images/structure/response_warning.png);
+	border-top: 1px solid #ffd324;
+	border-bottom: 1px solid #ffd324;
+}
+
+.response .error {
+	background: #f8dada url(../images/structure/response_error.png);
+	border-top: 1px solid #e68080;
+	border-bottom: 1px solid #e68080;
+}
+
+.response .forbidden {
+	background: #f8dada url(../images/structure/response_forbidden.png);
+	border-top: 1px solid #e68080;
+	border-bottom: 1px solid #e68080;
+}
+
+.response .information {
+	background: #c9e3f8 url(../images/structure/response_info.png);
+	border-top: 1px solid #6aa6d6;
+	border-bottom: 1px solid #6aa6d6;
+}
+
+.response .help {
+	background: #c9e3f8 url(../images/structure/response_help.png);
+	border-top: 1px solid #6aa6d6;
+	border-bottom: 1px solid #6aa6d6;
+}
+
+/* @end */

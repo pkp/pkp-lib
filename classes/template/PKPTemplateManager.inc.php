@@ -132,7 +132,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('flush', array(&$this, 'smartyFlush'));
 		$this->register_function('call_hook', array(&$this, 'smartyCallHook'));
 		$this->register_function('html_options_translate', array(&$this, 'smartyHtmlOptionsTranslate'));
-		$this->register_function('html_checkboxes_translate', array(&$this, 'smartyHtmlCheckboxesTranslate'));
 		$this->register_block('iterate', array(&$this, 'smartyIterate'));
 		$this->register_function('call_progress_function', array(&$this, 'smartyCallProgressFunction'));
 		$this->register_function('page_links', array(&$this, 'smartyPageLinks'));
@@ -500,41 +499,6 @@ class PKPTemplateManager extends Smarty {
 
 		require_once($this->_get_plugin_filepath('function','html_options'));
 		return smarty_function_html_options($params, $smarty);
-	}
-
-	/**
-	 * Smarty usage: {html_checkboxes_translate ...}
-	 * For parameter usage, see http://smarty.php.net/manual/en/language.function.html.checkboxes.php
-	 *
-	 * Identical to Smarty's "html_checkboxes" function except checkbox values are translated from i18n keys.
-	 * @param $params array
-	 * @param $smarty Smarty
-	 */
-	function smartyHtmlCheckboxesTranslate($params, &$smarty) {
-		if (isset($params['options'])) {
-			if (isset($params['translateValues'])) {
-				// Translate values AND output
-				$newOptions = array();
-				foreach ($params['options'] as $k => $v) {
-					$newOptions[Locale::translate($k)] = Locale::translate($v);
-				}
-				$params['options'] = $newOptions;
-			} else {
-				// Just translate output
-				$params['options'] = array_map(array('Locale', 'translate'), $params['options']);
-			}
-		}
-
-		if (isset($params['output'])) {
-			$params['output'] = array_map(array('Locale', 'translate'), $params['output']);
-		}
-
-		if (isset($params['values']) && isset($params['translateValues'])) {
-			$params['values'] = array_map(array('Locale', 'translate'), $params['values']);
-		}
-
-		require_once($this->_get_plugin_filepath('function','html_checkboxes'));
-		return smarty_function_html_checkboxes($params, $smarty);
 	}
 
 	/**

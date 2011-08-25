@@ -21,7 +21,7 @@
 			so that we can restore it if the user deletes all rows.
 		**}
 		<tr>
-			<td colspan="{$columns|@count}">{translate key=$emptyRowText}</td>
+			<td colspan="{$columns|@count}">{translate key=$emptyCategoryRowText}</td>
 		</tr>
 	</tbody>
 </tbody>

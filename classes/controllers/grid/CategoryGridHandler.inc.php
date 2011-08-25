@@ -214,22 +214,8 @@ class CategoryGridHandler extends GridHandler {
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
 
 		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
-		$templateMgr->assign('emptyRowText', $this->getEmptyRowText());
+		$templateMgr->assign('emptyCategoryRowText', $categoryRow->getEmptyCategoryRowText());
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
-	}
-
-	/**
-	 * FIXME: is this dead code? Leaving in for now, since we do not have many examples of category grids yet.
-	 *
-	 * Given a category name and a data element, return an id that identifies this category
-	 * To be used for sorting data elements into category buckets
-	 * @param $element DataObject
-	 * @param $category String
-	 * return mixed int/string
-	 */
-	function getCategoryIdFromElement(&$element, $category) {
-		// Should be overriden by subclasses
-		return GRID_CATEGORY_NONE;
 	}
 
 	/**

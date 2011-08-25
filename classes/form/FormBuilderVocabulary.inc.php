@@ -541,7 +541,8 @@ class FormBuilderVocabulary {
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 
 		$selectParams = '';
-		if (!$params['defaultValue'] || !$params['defaultLabel']) {
+
+		if (!isset($params['defaultValue']) || !isset($params['defaultLabel'])) {
 			if (isset($params['defaultValue'])) unset($params['defaultValue']);
 			if (isset($params['defaultLabel'])) unset($params['defaultLabel']);
 			$smarty->assign('FBV_defaultValue', null);

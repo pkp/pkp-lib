@@ -7,17 +7,15 @@
  * Display a single notification for in place notifications data.
  *}
 
-<div id="pkp_notification_{$notificationId|escape}" class="notification_box {$notificationStyleClass}">
-	<div class="pkp_notification_title">
-		{if $notificationContents.title}
-			<h4>{$notificationContents.title}:</h4>
-		{else}
-			<h4>{translate key="notification.notification"}</h4>
-		{/if}
-	</div>
-	<div class="pkp_notification_description">
+<div id="pkp_notification_{$notificationId|escape}" class="notification_block {$notificationStyleClass}">
+	{if $notificationContents.title}
+		<h4>{$notificationContents.title}:</h4>
+	{else}
+		<h4>{translate key="notification.notification"}</h4>
+	{/if}
+	<span class="description">
 		{if $notificationContents.description}
 			<p>{$notificationContents.description}</p>
 		{/if}
-	</div>
+	</span>
 </div>

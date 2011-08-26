@@ -14,17 +14,49 @@
  */
  
  .pkp_notification {
+ 	margin-top: 10px;
+	text-align: left;
  
- 	.notification_box {
- 		padding: 10px;
- 		border: 1px solid;
- 	}
- 	.notifyFormError {
- 		background-color:#ffe7e7;
- 		border-color:red;
- 		
- 		.pkp_notification_title h4 {
- 			color:red;
- 		}
- 	}
+ 	.notification_block {
+ 		background-position: 15px 50% !important;
+		background-repeat: no-repeat !important;
+		padding: 5px 20px 5px 60px;
+	}
+
+ 	/* -- Iconography: http://www.jankoatwarpspeed.com/post/2009/09/17/sixpack-status-icons.aspx --*/
+	.notifySuccess {
+		background: #daf0da url(../lib/pkp/templates/images/structure/response_success.png);
+		border-top: 1px solid #5abd5a;
+		border-bottom: 1px solid #5abd5a;
+	}
+	
+	.notifyWarning {
+		background: #FFFAE1 url(../lib/pkp/templates/images/structure/response_warning.png);
+		border-top: 1px solid #ffd324;
+		border-bottom: 1px solid #ffd324;
+	}
+	
+	.notifyError, .notifyFormError {
+		background: #f8dada url(../lib/pkp/templates/images/structure/response_error.png);
+		border-top: 1px solid #e68080;
+		border-bottom: 1px solid #e68080;
+	}
+	
+	.notifyForbidden {
+		background: #f8dada url(../lib/pkp/templates/images/structure/response_forbidden.png);
+		border-top: 1px solid #e68080;
+		border-bottom: 1px solid #e68080;
+	}
+	
+	.notifyInformation {
+		background: #c9e3f8 url(../lib/pkp/templates/images/structure/response_info.png);
+		border-top: 1px solid #6aa6d6;
+		border-bottom: 1px solid #6aa6d6;
+	}
+	
+	.notifyHelp {
+		background: #c9e3f8 url(../lib/pkp/templates/images/structure/response_help.png);
+		border-top: 1px solid #6aa6d6;
+		border-bottom: 1px solid #6aa6d6;
+	}	
  }

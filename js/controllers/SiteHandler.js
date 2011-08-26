@@ -90,8 +90,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function() {
 
-		$.get(this.options_.fetchNotificationUrl, this.options_.requestOptions,
-				this.callbackWrapper(this.showNotificationResponseHandler_), 'json');
+		// Avoid race conditions with in place notifications.
+		$.ajax({
+			url: this.options_.fetchNotificationUrl,
+			data: this.options_.requestOptions,
+			success: this.callbackWrapper(this.showNotificationResponseHandler_),
+			dataType: 'json',
+			async: false
+		});
 	};
 
 

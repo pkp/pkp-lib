@@ -61,8 +61,16 @@
 
 		var requestOptions = new Object();
 		requestOptions.requestOptions = this.options_.requestOptions;
-		$.post(this.options_.fetchNotificationUrl, requestOptions,
-				this.callbackWrapper(this.showNotificationResponseHandler_), 'json');
+
+		// Avoid race conditions with other notification controllers.
+		$.ajax({
+			type: 'POST',
+			url: this.options_.fetchNotificationUrl,
+			data: requestOptions,
+			success: this.callbackWrapper(this.showNotificationResponseHandler_),
+			dataType: 'json',
+			async: false
+		});
 	};
 
 	/**

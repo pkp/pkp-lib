@@ -62,6 +62,16 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		// Get the html element of the handler.
 		$handledElement = handler.getHtmlElement();
 
+		// If the trigger element is inside a grid, let the site
+		// handler show TRIVIAL notifications.
+		var trivialAlreadyHandled = false;
+		if (!(handler instanceof $.pkp.controllers.SiteHandler)) {
+			if ($(triggerElement).parents('.pkp_controllers_grid').length > 0) {
+				$handledElement.parent().trigger('notifyUser');
+				trivialAlreadyHandled = true;
+			}
+		}
+
 		// Find all notification elements inside the handled element.
 		$pageNotificationElements = $($notificationSelector, $handledElement);
 
@@ -120,9 +130,11 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			// Show in place notification to user.
 			possibleNotificationWidgets[elementKey].triggerHandler('notifyUser');
 		} else {
-			// Bubble up the notify user event so the site can handle the
-			// general notification.
-			handler.getHtmlElement().parent().trigger('notifyUser');
+			if (!trivialAlreadyHandled) {
+				// Bubble up the notify user event so the site can handle the
+				// general notification.
+				handler.getHtmlElement().parent().trigger('notifyUser');
+			}
 		}
 	};
 

@@ -15,6 +15,7 @@
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
 import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
+import('lib.pkp.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
 
 /* Listbuilder source types: text-based, pulldown, ... */
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
@@ -232,30 +233,48 @@ class ListbuilderHandler extends GridHandler {
 		import('lib.pkp.classes.core.JSONManager');
 		$jsonManager = new JSONManager();
 		$data = $jsonManager->decode($data);
-		// Go through each of the 4 cases and use the callback for each
-		// 1. the row in the listbuilder was new and not completed (nothing).
-		// 2. The row had an id, but has no new one (deletion).
-		// 3. The row did not have an id, but now has a new one (insertion).
-		// 4. The row had an id, but now has a new one (update).
 
-		// Kludge to access $entry->"newRowId[]"
-		$newRowIdKey = 'newRowId[]';
+		// Handle deletions
+		if (isset($data->deletions)) {
+			foreach (explode(' ', $entry->deletions) as $rowId) {
+				call_user_func($deletionCallback, $request, $rowId);
+			}
+		}
 
-		foreach ( $data as $entry ) {
-			if ( isset($entry->deletions) ) {
-				foreach (explode(' ', $entry->deletions) as $rowId) {
-					call_user_func($deletionCallback, $request, $rowId);
-				}
-			} elseif ( !isset($entry->rowId) && !isset($entry->$newRowIdKey) ) {
-				continue;
-			} elseif ( !isset($entry->rowId) && isset($entry->$newRowIdKey) ) {
-				if ( !empty($entry->$newRowIdKey) ) {
-					call_user_func($insertionCallback, $request, $entry->$newRowIdKey);
-				}
-			} elseif ( isset($entry->rowId) && isset($entry->$newRowIdKey) ) {
-				if ( !empty($entry->rowId) && !empty($entry->$newRowIdKey) ) {
-					call_user_func($updateCallback, $request, $entry->rowId, $entry->$newRowIdKey);
-				}
+		// Handle changes and insertions
+		if (isset($data->changes)) foreach ($data->changes as $entry) {
+			// Get the row ID, if any, from submitted data
+			if (isset($entry->rowId)) {
+				$rowId = $entry->rowId;
+				unset($entry->rowId);
+			} else {
+				$rowId = null;
+			}
+
+			// $entry should now contain only submitted modified or new rows.
+			// Go through each and unpack the data in prep for application.
+			$changes = array();
+			foreach ($entry as $key => $value) {
+				// Match the column name and localization data, if any.
+				if (!preg_match('/^newRowId\[([a-zA-Z]+)\](\[([a-z][a-z]_[A-Z][A-Z])\])?$/', $key, $matches)) assert(false);
+
+				// Get the column name
+				$column = $matches[1];
+
+				// If this is a multilingual input, fetch $locale; otherwise null
+				$locale = isset($matches[3])?$matches[3]:null;
+
+				if ($locale) $changes[$column][$locale] = $value;
+				else $changes[$column] = $value;
+			}
+
+			// $changes should now contain e.g.:
+			// array ('localizedColumnName' => array('en_US' => 'englishValue'),
+			// 'nonLocalizedColumnName' => 'someNonLocalizedValue');
+			if (is_null($rowId)) {
+				call_user_func($insertionCallback, $request, $changes);
+			} else {
+				call_user_func($updateCallback, $request, $rowId, $changes);
 			}
 		}
 	}

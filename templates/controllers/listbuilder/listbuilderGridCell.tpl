@@ -27,9 +27,15 @@
 
 	<div class="gridCellEdit">
 		{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
-			<input type="text" name="newRowId[]" class="textField" value="{$label|escape}" />
+			{if $column->hasFlag('multilingual')}{* Multilingual *}
+				{foreach from=$column->getFlag('availableLocales') key=_labelLocale item=_labelLocaleName}
+					{$_labelLocaleName|escape} <input type="text" name="newRowId[{$column->getId()|escape}][{$_labelLocale|escape}]" class="textField" value="{$label.$_labelLocale|escape}" />
+				{/foreach}
+			{else}{* Not multilingual *}
+				<input type="text" name="newRowId[{$column->getId()|escape}]" class="textField" value="{$label|escape}" />
+			{/if}
 		{elseif $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
-			<select name="newRowId[]" class="selectMenu">
+			<select name="newRowId[{$column->getId()|escape}]" class="selectMenu">
 				{* Populated by JavaScript in ListbuilderHandler.js *}
 				<option value="{$labelKey|escape}">{translate key="common.loading"}</option>
 			</select>

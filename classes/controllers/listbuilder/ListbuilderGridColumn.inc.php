@@ -20,7 +20,11 @@ class ListbuilderGridColumn extends GridColumn {
 	 * Constructor
 	 */
 	function ListbuilderGridColumn($listbuilder, $id = '', $title = null, $titleTranslated = null,
-			$template = 'controllers/listbuilder/listbuilderGridCell.tpl', $cellProvider = null, $flags = array()) {
+			$template = null, $cellProvider = null, $flags = array()) {
+
+		// Set this here so that callers using later optional parameters don't need to
+		// duplicate it.
+		if ($template === null) $template = 'controllers/listbuilder/listbuilderGridCell.tpl';
 
 		// Make the listbuilder's source type available to the cell template as a flag
 		$flags['sourceType'] = $listbuilder->getSourceType();

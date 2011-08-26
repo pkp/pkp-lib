@@ -141,10 +141,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.save =
 			function() {
 
-		// Find all rows with the "modified" flag
-		var changes = [
-			{deletions: this.getHtmlElement().find('input.deletions').val()}
-		];
+		// Get deletions
+		var deletions = this.getHtmlElement().find('input.deletions').val();
+
+		// Get insertions and modifications
+		var changes = [];
 		this.getHtmlElement().find('.gridRow input.isModified[value="1"]')
 				.each(this.callbackWrapper(function(context, k, v) {
 					var $row = $(v).parents('.gridRow');
@@ -152,7 +153,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					changes.push(params);
 				}));
 
-		var stringifiedData = JSON.stringify(changes);
+		// Assemble and send to the server
+		var stringifiedData = JSON.stringify({deletions: deletions, changes: changes});
 		var saveUrl = this.getSaveUrl_();
 		if (saveUrl) {
 			// Post the changes to the server using the internal

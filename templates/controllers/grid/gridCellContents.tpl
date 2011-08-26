@@ -14,9 +14,29 @@
 			{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
 		{/if}
 	{/foreach}
-{elseif $column->hasFlag('html')}
-	{* Limited HTML is allowed *}
-	{$label|strip_unsafe_html}
 {else}
-	{$label|escape}
+	{* Preserve the value in case it's used externally *}
+	{assign var=_label value=$label}
+
+	{* Prepare multilingual content for display *}
+	{if $column->hasFlag('multilingual')}
+		{* Multilingual column *}
+		{if isset($_label.$currentLocale)}
+			{assign var=_label value=$_label.$currentLocale}
+		{else}
+			{assign var=_primaryLocale value=Locale::getPrimaryLocale()}
+			{assign var=_label value=$_label.$_primaryLocale}
+		{/if}
+	{/if}
+
+	{* Handle escaping as needed *}
+	{if $column->hasFlag('html')}
+		{* Limited HTML is allowed *}
+		{assign var=_label value=$_label|strip_unsafe_html}
+	{else}
+		{* No HTML allowed; escape the label. *}
+		{assign var=_label value=$_label|escape}
+	{/if}
+
+	{$_label}
 {/if}

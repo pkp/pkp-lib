@@ -236,7 +236,7 @@ class ListbuilderHandler extends GridHandler {
 
 		// Handle deletions
 		if (isset($data->deletions)) {
-			foreach (explode(' ', $entry->deletions) as $rowId) {
+			foreach (explode(' ', $data->deletions) as $rowId) {
 				call_user_func($deletionCallback, $request, $rowId);
 			}
 		}

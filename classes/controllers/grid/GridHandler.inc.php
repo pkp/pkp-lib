@@ -506,15 +506,13 @@ class GridHandler extends PKPHandler {
 	 * @param $rowId
 	 * @return mixed
 	 */
-	function &getRowDataElement($request, $rowId) {
+	function getRowDataElement($request, $rowId) {
 		$elements =& $this->getGridDataElements($request);
+
 		assert(is_array($elements));
-		if (!isset($elements[$rowId])) {
-			$nullVar = null;
-			return $nullVar;
-		} else {
-			return $elements[$rowId];
-		}
+		if (!isset($elements[$rowId])) return null;
+
+		return $elements[$rowId];
 	}
 
 	/**

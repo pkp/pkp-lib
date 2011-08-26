@@ -90,6 +90,7 @@ class PKPApplication {
 		import('classes.security.Validation');
 		import('lib.pkp.classes.session.SessionManager');
 		import('classes.template.TemplateManager');
+		import('classes.notification.NotificationManager');
 
 		import('lib.pkp.classes.plugins.PluginRegistry');
 		import('lib.pkp.classes.plugins.HookRegistry');

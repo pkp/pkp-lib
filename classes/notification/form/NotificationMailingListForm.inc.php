@@ -64,7 +64,6 @@ class NotificationMailingListForm extends Form {
 
 		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
 		if($password = $notificationMailListDao->subscribeGuest($userEmail, $context->getId())) {
-			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
 			$notificationManager->sendMailingListEmail($request, $userEmail, $password, 'NOTIFICATION_MAILLIST_WELCOME');
 			return true;

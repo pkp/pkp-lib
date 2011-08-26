@@ -41,7 +41,6 @@ class NotificationHandler extends Handler {
 		$context =& $request->getContext();
 		$contextId = isset($context)?$context->getId():null;
 
-		import('classes.notification.NotificationManager');
 		$notificationManager = new NotificationManager();
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 
@@ -206,7 +205,6 @@ class NotificationHandler extends Handler {
 		);
 		if (!isset($typeMap[$type])) return false;
 
-		import('classes.notification.NotificationManager');
 		$notificationManager = new NotificationManager();
 		$notifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, 'notification/' . $contentTypeMap[$type]);
 
@@ -375,7 +373,6 @@ class NotificationHandler extends Handler {
 
 		if (is_array($notifications) && !empty($notifications)) {
 			$formattedNotificationsData = array();
-			import('classes.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
 
 			// Format in place notifications.

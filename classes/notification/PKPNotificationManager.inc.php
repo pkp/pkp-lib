@@ -120,7 +120,7 @@ class PKPNotificationManager {
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->assign('errors', $notification->getData('contents'));
 				$contents['title'] = __('form.errorsOccurred');
-				$contents['description'] = $templateMgr->fetch('controllers/notification/formErrorNotification.tpl');
+				$contents['description'] = $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
 				break;
 			default:
 				$contents = null;

@@ -271,7 +271,6 @@ class Form {
 			}
 		}
 
-		// FIXME: Should pass request to this method as parameter.
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
 		$user =& $request->getUser();

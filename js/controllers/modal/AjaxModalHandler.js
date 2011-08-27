@@ -68,6 +68,19 @@
 	};
 
 
+	/** @inheritDoc */
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalClose =
+		function(callingContext, event) {
+
+		if (event.type == 'formSubmitted') {
+			// Trigger the notify user event.
+			this.getHtmlElement().parent().trigger('notifyUser');
+		}
+
+		return this.parent('modalClose');
+	};
+
+
 	/**
 	 * Callback that will be bound to the open event
 	 * triggered when the dialog is opened.

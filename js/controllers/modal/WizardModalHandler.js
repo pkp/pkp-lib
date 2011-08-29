@@ -53,7 +53,7 @@
 			function(callingElement, event, closeWithoutCancel) {
 
 		if (closeWithoutCancel) {
-			this.parent('modalClose', event);
+			this.parent('modalClose', callingElement, event);
 		} else {
 			// Trigger a cancel event on the wizard.
 			var wizardCancelRequestedEvent = new $.Event('wizardCancelRequested');

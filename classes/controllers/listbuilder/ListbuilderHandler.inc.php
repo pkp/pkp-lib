@@ -142,12 +142,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @return mixed
 	 */
 	function getNewRowId($request) {
-		$newRowId = $request->getUserVar('newRowId');
-		if (is_array($newRowId) && count($newRowId) === 1) {
-			return array_shift($newRowId);
-		} else {
-			return $newRowId;
-		}
+		return $request->getUserVar('newRowId');
 	}
 
 	/**

@@ -418,6 +418,7 @@ class PKPPageRouter extends PKPRouter {
 	 */
 	function handleAuthorizationFailure($request, $authorizationMessage) {
 		// Redirect to the authorization denied page.
+		if (!$request->getUser()) Validation::redirectLogin();
 		$request->redirect(null, 'user', 'authorizationDenied', null, array('message' => $authorizationMessage));
 	}
 

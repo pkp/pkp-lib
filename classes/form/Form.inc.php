@@ -271,16 +271,18 @@ class Form {
 			}
 		}
 
-		$application =& PKPApplication::getApplication();
-		$request =& $application->getRequest();
-		$user =& $request->getUser();
-		$press =& $request->getPress();
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$application =& PKPApplication::getApplication();
+			$request =& $application->getRequest();
+			$user =& $request->getUser();
+			$press =& $request->getPress();
 
-		if (!$this->isValid() && $user) {
-			// Create a form error notification.
-			PKPNotificationManager::createNotification(
-				$request, $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $press->getId(), null,
-				null, NOTIFICATION_LEVEL_TRIVIAL, $this->getErrorsArray());
+			if (!$this->isValid() && $user) {
+				// Create a form error notification.
+				PKPNotificationManager::createNotification(
+					$request, $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $press->getId(), null,
+					null, NOTIFICATION_LEVEL_TRIVIAL, $this->getErrorsArray());
+			}
 		}
 
 		return $this->isValid();

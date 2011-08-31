@@ -48,7 +48,6 @@
 	<message key="common.back">Zurück</message>
 	<message key="common.between">zwischen</message>
 	<message key="common.cancel">Abbrechen</message>
-	<message key="common.go">Los</message>
 	<message key="common.cancelled">Abgebrochen</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>

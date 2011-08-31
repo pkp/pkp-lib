@@ -48,6 +48,7 @@
 	<message key="common.back">Zurück</message>
 	<message key="common.between">zwischen</message>
 	<message key="common.cancel">Abbrechen</message>
+	<message key="common.go">Los</message>
 	<message key="common.cancelled">Abgebrochen</message>
 	<message key="common.captchaField.altText">Bild zur Überprüfung</message>
 	<message key="common.captchaField.badCaptcha">Die Zeichen, die Sie eingegeben haben, entsprechen nicht den Zeichen im Bild. Bitte überprüfen Sie Ihre Eingabe und versuchen Sie es erneut.</message>
@@ -112,6 +113,7 @@
 	<message key="common.fileName">Dateiname</message>
 	<message key="common.fileSize">Dateigröße</message>
 	<message key="common.fileType">Dateityp</message>
+	<message key="common.go">Los</message>
 	<message key="common.height">Höhe</message>
 	<message key="common.homePageHeaderLogo.altText">Logo in der Kopfzeile der Startseite</message>
 	<message key="common.hour">Stunde</message>
@@ -185,6 +187,7 @@
 	<message key="common.uploadedFile">Hochgeladene Datei</message>
 	<message key="common.upload">Hochladen</message>
 	<message key="common.uploadFailed">Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht.</message>
+	<message key="common.invalidFileType">Keine Datei hochgeladen oder ungültiger Dateityp!</message>
 	<message key="common.up">Aufwärts</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Benutzer/in</message>
@@ -267,6 +270,8 @@
 	<message key="icon.view.alt">Anzeigen</message>
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
+	<message key="navigation.website">Website</message>
+	<message key="navigation.access"><![CDATA[Zugriff &amp; Sicherheit]]></message
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Verwaltung</message>
 	<message key="navigation.browse">Durchsuchen</message>

@@ -26,8 +26,9 @@
 		this.parent($form, options);
 
 		// Attach the uploader handler to the uploader HTML element.
-		options.uploaderOptions.setup = this.callbackWrapper(this.uploaderSetup);
 		this.attachUploader_(options.$uploader, options.uploaderOptions);
+
+		this.uploaderSetup(options.$uploader);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FileUploadFormHandler,
@@ -39,13 +40,14 @@
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {Object} uploaderOptions The uploader options object
-	 *  from which this callback is being called.
-	 * @param {Object} pluploader The pluploader object.
+	 * @param {jQuery} Element that contains the plupload object.
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
-			uploaderSetup = function(uploaderOptions, pluploader) {
+			uploaderSetup = function($uploader) {
 
+		var pluploader = $uploader.plupload('getUploader');
+
+		// Subscribe to uploader events.
 		pluploader.bind('FileUploaded',
 				this.callbackWrapper(this.handleUploadResponse));
 	};

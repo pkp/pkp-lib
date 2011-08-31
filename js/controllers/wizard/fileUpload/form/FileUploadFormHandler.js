@@ -99,7 +99,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {jQuery} Element that contains the plupload object
+	 * @param {jQuery} Element that contains the plupload object.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {

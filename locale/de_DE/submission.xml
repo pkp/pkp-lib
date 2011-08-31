@@ -371,6 +371,7 @@
 	<message key="submission.submitter">Eingereicht von</message>
 	<message key="submission.summary">Zusammenfassung</message>
 	<message key="submission.supplementaryFiles">Zusätzliche Dateien</message>
+	<message key="submission.supportingAgencies">Mitwirkende und Unterstützung</message>
 	<message key="submission.currentAgencies">Aktuelle Organisationen</message>
 	<message key="submission.indexingInformation">Indizierungsinformationen</message>
 	<message key="submission.titleAndAbstract">Titel und Abstract</message>

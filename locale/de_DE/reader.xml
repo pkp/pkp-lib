@@ -70,6 +70,7 @@
 	<message key="rt.admin.searches.edit.editSearch">Suche bearbeiten</message>
 	<message key="rt.admin.selectedVersion">Verwandte Beiträge</message>
 	<message key="rt.admin.settings.abstract">Abstract (zeigt das Abstract des Beitrags).</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Begutachtungsrichtlinien anzeigen</message>
 	<message key="rt.admin.settings.authorBio">Autor/in (zeigt biografische Angaben der Autorin/des Autors an)</message>
 	<message key="rt.admin.settings.captureCite">Zitation (stellt bibliographische Angaben zur Verfügung) </message>
 	<message key="rt.admin.settings.defineTerms">Wortsuche (die Leserin/der Leser kann ein Wort im Artikel doppelklicken, das dann an ein Wörterbuch geschickt wird)</message>

@@ -336,7 +336,6 @@
 	<message key="submission.notes">Anmerkungen zum Beitrag</message>
 	<message key="submission.notes.updateNote">Anmerkung aktualisieren</message>
 	<message key="submission.notes.viewNotes">Anmerkungen anzeigen</message>
-	<message key="submission.originalFile">Originaldatei</message>
 	<message key="submission.page.editing">#{$id} Redaktion</message>
 	<message key="submission.page.history">#{$id} Verlauf</message>
 	<message key="submission.page.review">#{$id} Begutachtung</message>
@@ -387,4 +386,8 @@
 	<message key="submission.nameRequired">Für diesen Eintrag ist ein Name erforderlich.</message>
 	<message key="submission.date.mmdd">MM-TT</message>
 	<message key="submission.date.yyyymmdd">JJJJ-MM-TT</message>
+
+	<!-- Submission file upload form elements -->
+	<message key="submission.form.name">Geben Sie einen Namen an, der den Inhalt dieser datei beschreibt.</message>
+	<message key="submission.form.replaceExisting">Eine existierende Datei ersetzen?</message>
 </locale>

@@ -378,6 +378,7 @@
 	<message key="submission.underway">In Arbeit</message>
 	<message key="submission.uploadFileTo">Datei hochladen nach/zu</message>
 	<message key="submission.uploaderUserGroup">Lade hoch in meiner Rolle als…</message>
+	<message key="submission.submitterUserGroup">Reiche ein in meiner Rolle als…</message>
 	<message key="submission.viewMetadata">Metadaten ansehen</message>
 	<message key="submission.views">Ansichten</message>
 	<message key="submission.uploadSuccessful">Ihre Datei wurde hochgeladen.</message>

@@ -14,9 +14,9 @@
 			<td class="first_column">
 				<div class="row_container">
 					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[0]}</div>
-					<div class="row_actions pkp_linkActions">
+					<div class="row_actions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-							<a class="settings sprite"><span class="hidetext">{translate key="grid.settings"}</span></a>
+							<a class="sprite settings"><span class="hidetext">{translate key="grid.settings"}</span></a>
 						{/if}
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
@@ -48,15 +48,13 @@
 <tr id="{$rowId|escape}-control-row" class="row_controls">
 	<td colspan="{$columns|@count}">
 		{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-			<div class="pkp_linkActions">
-				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-					{if is_a($action, 'LegacyLinkAction')}
-						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
-					{else}
-						{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-					{/if}
-				{/foreach}
-			</div>
+			{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
+				{if is_a($action, 'LegacyLinkAction')}
+					{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
+				{else}
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
+				{/if}
+			{/foreach}
 		{/if}
 	</td>
 </tr>

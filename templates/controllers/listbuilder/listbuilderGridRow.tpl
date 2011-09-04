@@ -17,7 +17,7 @@
 			<td class="first_column">
 				<div class="row_container">
 					<div class="gridCell row_file">{$cell}</div>
-					<div class="row_actions pkp_linkActions">
+					<div class="row_actions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
 								{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}

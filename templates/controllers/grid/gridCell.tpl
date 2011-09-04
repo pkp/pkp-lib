@@ -11,7 +11,7 @@
 {else}
 	{assign var=cellId value=""}
 {/if}
-<span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
+<span {if $cellId}id="{$cellId|escape}" {/if}class="gridCellContainer">
 	{include file="controllers/grid/gridCellContents.tpl"}
 </span>
 

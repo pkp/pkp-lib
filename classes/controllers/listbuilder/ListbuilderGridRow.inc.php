@@ -42,7 +42,7 @@ class ListbuilderGridRow extends GridRow {
 				'delete',
 				new NullAction(),
 				'',
-				'delete'
+				'remove_item'
 			)
 		);
 	}

@@ -7,7 +7,7 @@
  * Actions markup for upper grid actions
  *}
 
-<span class="options pkp_linkActions">
+<span class="options">
 	{foreach from=$actions item=action}
 		{if is_a($action, 'LegacyLinkAction')}
 			{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}

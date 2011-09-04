@@ -31,13 +31,11 @@
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
-		<div class="header">
 			{$gridFilterForm}
 			{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
 				{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
 			{/if}
 			{if !$grid->getIsSubcomponent()}<span class="h3 no_border float_left">{$grid->getTitle()|translate}</span>{/if}
-		</div>
 		{translate key=$grid->getInstructions()}
 		<table id="{$gridTableId|escape}">
 			<colgroup>

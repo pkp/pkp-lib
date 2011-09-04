@@ -40,7 +40,7 @@ div.pkp_controllers_grid {
 		height: 40px;
 		font-size: 85%;
 		vertical-align: middle;
-		padding: 2px 4px;
+		padding: 0px 4px;
 	}
 
 	th:first-child, td:first-child, col.first_column {
@@ -49,11 +49,6 @@ div.pkp_controllers_grid {
 
 	td.first_column {
 		padding: 0 !important;
-		margin: 0 !important;
-	}
-
-	td.first_column a {
-		background-repeat: no-repeat;
 	}
 
 	tr.category td {
@@ -74,15 +69,18 @@ div.pkp_controllers_grid {
 
 	.options {
 		float: right;
+		line-height: 24px;
+		height: 24px;
+		vertical-align: middle;
 		margin-bottom: 10px;
 	}
 
 	.options a {
-		background-position: 0px 50%;
-		display: inline;
-		padding: 5px 0px 5px 20px;
-		margin-left: 20px;
 		font-size: 90%;
+	}
+
+	.options a:before {
+		margin-left: 20px;
 	}
 
 	.hidetext {
@@ -92,16 +90,10 @@ div.pkp_controllers_grid {
 
 	.row_container {
 		position: relative; /* Required to anchor absolute row actions positioning below. */
-		padding-left: 25px;
+		padding-left: 40px;
 		padding-right: 30px;
 		overflow: hidden;
-	}
-
-	.row_container {
-		background-color: #e8f0f8;
-	}
-
-	.row_actions, .row_file {
+		height: 40px;
 		min-height: 40px;
 		line-height: 40px;
 		vertical-align: middle;
@@ -111,23 +103,22 @@ div.pkp_controllers_grid {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 25px;
-		padding-top: 5px;
+		width: 24px;
 	}
 
 	.row_actions a {
-		margin-left: 5px;
-		padding: 1px 7px;
+		display: block;
+		cursor: pointer;
 	}
 
 	.row_file {
 		width: 100%;
-		padding: 5px 15px;
 		background-color: #fff;
 	}
 
 	.row_file a {
-		padding: 2px 10px;
+		float:left;
+		margin-right: 20px;
 	}
 
 	.multiline {
@@ -141,38 +132,21 @@ div.pkp_controllers_grid {
 	}
 
 	.row_controls td {
-
-		vertical-align: middle;
-		overflow: hidden;
-		white-space: nowrap;
+		padding-left: 30px;
 		line-height: 25px;
-		height: 25px;
-		padding: 0px;
+   		height: 25px;
 	}
 
 	.row_controls a {
+		float:left;
+		margin-right: 20px;
 		text-decoration: none;
 		color: #777;
 		font-size: 90%;
-		padding: 2px 30px 2px 20px;
 	}
 
 	.row_controls a:hover {
 		text-decoration: underline;
-	}
-
-	.row_controls a:hover {
-		text-decoration: underline;
-	}
-
-	a.sprite {
-		background-position: 0 top;
-		text-decoration: none;
-		padding: 1px 0px;
-	}
-
-	a.sprite:hover {
-		background-position: 0 bottom;
 	}
 
 	a.focus {

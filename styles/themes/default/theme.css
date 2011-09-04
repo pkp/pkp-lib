@@ -112,7 +112,7 @@ div.pkp_controllers_grid .my_role {
 	border: 1px solid #ACA9A6;
 }
 
-div.pkp_controllers_grid .row_container, .row_controls {
+div.pkp_controllers_grid .row_actions, .row_controls {
 	background-color: #f9f6f3;
 }
 

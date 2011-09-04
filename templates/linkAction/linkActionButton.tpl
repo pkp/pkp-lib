@@ -14,7 +14,7 @@
 
 <a href="#" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
-		class="{$action->getImage()|escape}"
+		class="sprite {$action->getImage()|escape}"
 		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}
 	{else}
 		{if $hoverTitle} title="{$action->getTitle()|escape}">{else}>{$action->getTitle()|escape}{/if}

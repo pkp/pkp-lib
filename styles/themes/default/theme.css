@@ -131,6 +131,14 @@ a.task:hover {
 
 /* General */
 
+.ui-widget-content a {
+	color: #569bbe;
+}
+
+.ui-widget-content a:hover {
+	color: #E17009;
+}
+
 .ui-tabs {
 	background: none !important;
 }

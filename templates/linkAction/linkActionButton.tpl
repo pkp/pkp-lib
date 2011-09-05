@@ -12,7 +12,7 @@
  *  hoverTitle: Whether to show the title as hover text only.
  *}
 
-<a href="#" id="{$buttonId|escape}" {strip}
+<a href="#" style="float: left;" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
 		class="sprite {$action->getImage()|escape}"
 		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}

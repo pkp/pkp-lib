@@ -158,6 +158,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
 			function(validator, formElement) {
 
+		if (tinyMCE) {
+			tinyMCE.triggerSave();
+		}
 		// Notify any nested formWidgets of the submit action.
 		var formSubmitEvent = new $.Event('formSubmitRequested');
 		$(formElement).find('.formWidget').trigger(formSubmitEvent);

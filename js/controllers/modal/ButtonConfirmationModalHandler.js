@@ -70,9 +70,6 @@
 			clickButton = function() {
 
 		var $button = this.$button_;
-		if (tinyMCE) {
-			tinyMCE.triggerSave();
-		}
 		if ($button.attr('type') == 'submit') {
 			// Trigger a submit event when the calling element is of the
 			// "submit" type. Otherwise the no submit event will be triggered

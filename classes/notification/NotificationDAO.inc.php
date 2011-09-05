@@ -78,13 +78,14 @@ class NotificationDAO extends DAO {
 	 * @param $contextId int
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByAssoc($assocType, $assocId, $type = null, $contextId = null) {
+	function &getNotificationsByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
 		$params = array((int) $assocType, (int) $assocId);
+		if ($userId) $params[] = (int) $userId;
 		if ($contextId) $params[] = (int) $contextId;
 		if ($type) $params[] = (int) $type;
 
 		$result =& $this->retrieveRange(
-			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' . (isset($contextId) ?' AND context_id = ?' : '') . (isset($type) ?' AND type = ?' : '') . ' ORDER BY date_created DESC',
+			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' . (isset($userId) ?' AND user_id = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . (isset($type) ?' AND type = ?' : '') . ' ORDER BY date_created DESC',
 			$params
 		);
 
@@ -191,9 +192,10 @@ class NotificationDAO extends DAO {
 	function deleteNotificationById($notificationId, $userId = null) {
 		$this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
 
-		return $this->update('DELETE FROM notifications WHERE notification_id = ? AND user_id = ?',
-			array((int) $notificationId, (int) $userId)
-		);
+		$params = array((int) $notificationId);
+		if ($userId) $params[] = (int) $userId;
+		return $this->update('DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
+			$params);
 	}
 
 	/**

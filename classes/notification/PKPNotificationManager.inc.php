@@ -114,7 +114,11 @@ class PKPNotificationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:
-				$contents['description'] = __('common.changesSaved');
+				if (!is_null($notification->getData('contents'))) {
+					$contents['description'] = __($notification->getData('contents'));
+				} else {
+					$contents['description'] = __('common.changesSaved');
+				}
 				break;
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				$templateMgr =& TemplateManager::getManager();

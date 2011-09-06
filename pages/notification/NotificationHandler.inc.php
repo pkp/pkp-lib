@@ -405,7 +405,8 @@ class NotificationHandler extends Handler {
 			if ($levelOptions) {
 				foreach ($levelOptions as $type => $typeOptions) {
 					if ($typeOptions) {
-						$notificationsResultFactory =& $notificationDao->getNotificationsByAssoc($typeOptions['assocType'], $typeOptions['assocId'], null, $type, $contextId);
+						$typeOptions['allUsers'] ? $workingUserId = null : $workingUserId = $userId;
+						$notificationsResultFactory =& $notificationDao->getNotificationsByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $workingUserId, $type, $contextId);
 						$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
 					} else {
 						if ($userId) {

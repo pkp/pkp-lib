@@ -17,7 +17,8 @@ hasSystemNotifications: '{$hasSystemNotifications}'
 				{foreach name=types from=$levelOptions key=type item=typeOptions}
 					{$type}: {if $typeOptions} {ldelim}
 						assocType: '{$typeOptions[0]}',
-						assocId: '{$typeOptions[1]}'
+						assocId: '{$typeOptions[1]}',
+						allUsers: {if $typeOptions[2]} 1 {else} 0 {/if}
 					{rdelim}{else}0{/if}{if !$smarty.foreach.types.last},{/if}
 				{/foreach}
 			{rdelim}{else}0{/if}{if !$smarty.foreach.levels.last},{/if}

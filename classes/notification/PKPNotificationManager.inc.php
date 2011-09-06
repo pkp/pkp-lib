@@ -51,7 +51,7 @@ class PKPNotificationManager {
 		$notificationString = '';
 
 		// Build out the notifications based on their associated objects and format into a string
-		while($notification =& $notifications->next()) {
+		foreach($notifications as $notification) {
 			$notificationString .= $this->formatNotification($request, $notification, $notificationTemplate);
 			unset($notification);
 		}
@@ -292,10 +292,6 @@ class PKPNotificationManager {
 
 		if (!empty($notifications)) {
 			$templateMgr =& TemplateManager::getManager();
-			// Cast the notifications back as an ItemIterator for further processing
-			import('lib.pkp.classes.core.ArrayItemIterator');
-			$notifications =& new ArrayItemIterator($notifications, 1, 1);
-
 			$templateMgr->assign('inPlaceNotificationContent',
 				$this->formatNotifications($request, $notifications, 'controllers/notification/inPlaceNotificationContent.tpl')
 			);

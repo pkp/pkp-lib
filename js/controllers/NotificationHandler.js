@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $notification The html notification element.
+	 * @param {jQuery} $notificationElement The html notification element.
 	 * @param {Object} options Notification options.
 	 */
 	$.pkp.controllers.NotificationHandler =
@@ -55,11 +55,12 @@
 	//
 	/**
 	 * Handler to fetch the notification data.
+	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
 			function() {
 
-		var requestOptions = new Object();
+		var requestOptions = {};
 		requestOptions.requestOptions = this.options_.requestOptions;
 
 		// Avoid race conditions with other notification controllers.
@@ -73,14 +74,16 @@
 		});
 	};
 
+
 	/**
 	 * Callback to show the notification data in place.
 	 *
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
+	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.showNotificationResponseHandler_ =
-			function(ajaxContext, jsonData) {
+	$.pkp.controllers.NotificationHandler.prototype.
+			showNotificationResponseHandler_ = function(ajaxContext, jsonData) {
 		var workingJsonData = this.handleJson(jsonData);
 
 		if (workingJsonData !== false) {

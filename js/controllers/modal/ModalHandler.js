@@ -220,6 +220,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		$handledElement.parent().find('.ui-dialog-titlebar').replaceWith($titleBar);
 	};
 
+
 	/**
 	 * Notify user handler.
 	 * @param {HTMLElement} sourceElement The element that issued the
@@ -233,7 +234,8 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(this, triggerElement);
+		$.pkp.classes.notification.NotificationHelper.
+				redirectNotifyUserEvent(this, triggerElement);
 	};
 
 

@@ -86,6 +86,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	/**
 	 * Fetch the notification data.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function() {
@@ -104,7 +105,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Response handler to the notification fetch.
 	 *
+	 * @param {Object} ajaxContext The data returned from the server.
 	 * @param {content} jsonData A parsed JSON response object.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {

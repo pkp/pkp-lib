@@ -79,6 +79,7 @@
 		minLength: 2
 	};
 
+
 	//
 	// Private properties
 	//
@@ -88,6 +89,7 @@
 	 * @type {string}
 	 */
 	$.pkp.controllers.AutocompleteHandler.sourceUrl_ = null;
+
 
 	//
 	// Public Methods
@@ -113,11 +115,12 @@
 		return false;
 	};
 
+
 	/**
 	 * Search for the users who are availble
-	 * @param callingElement
-	 * @param request
-	 * @param response
+	 * @param {HTMLElement} callingElement The calling HTML element.
+	 * @param {Object} request The autocomplete search request.
+	 * @param {Object} response The response handler function.
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.fetchAutocomplete =
 			function(callingElement, request, response) {
@@ -126,16 +129,20 @@
 		}, 'json');
 	};
 
+
 	/**
 	 * Get the autocomplete Url
+	 * @return {String} Autocomplete URL.
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.getAutocompleteUrl =
 			function() {
 		return this.sourceUrl_;
 	};
 
+
 	/**
 	 * Set the autocomplete url
+	 * @param {String} url Autocomplete URL.
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.setAutocompleteUrl =
 			function(url) {

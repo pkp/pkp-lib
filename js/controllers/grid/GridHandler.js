@@ -291,8 +291,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 					' rather than 0 or 1 rows to be replaced!');
 		}
 
-		// Does this grid have a different number of columns than the existing grid?
-		// If yes, we have to redraw the whole grid so new columns get added/removed to match row.
+		// Does this grid have a different number of columns than the
+		// existing grid? If yes, we have to redraw the whole grid so
+		// new columns get added/removed to match row.
 		var numColumns = $grid.find('th').length;
 		var numCellsInNewRow = $newRow.first('tr').find('td').length;
 		if (numColumns != numCellsInNewRow) {
@@ -360,20 +361,21 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		});
 	};
 
+
 	/**
 	 * Helper that deletes the row of controls (if present).
 	 *
 	 * @private
 	 *
-	 * @param {jQuery} $row The row whose matching control row should be deleted
+	 * @param {jQuery} $row The row whose matching control row should be deleted.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.deleteControlsRow_ =
 			function($row) {
-
-			if ($row.next().is('tr') && $row.next().hasClass('row_controls')) {
-				$row.next().remove();
-			}
+		if ($row.next().is('tr') && $row.next().hasClass('row_controls')) {
+			$row.next().remove();
+		}
 	};
+
 
 	/**
 	 * Helper that attaches click events to row actions.

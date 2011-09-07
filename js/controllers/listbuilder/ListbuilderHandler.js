@@ -154,7 +154,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				}));
 
 		// Assemble and send to the server
-		var stringifiedData = JSON.stringify({deletions: deletions, changes: changes});
+		var stringifiedData = JSON.stringify(
+				{deletions: deletions, changes: changes});
 		var saveUrl = this.getSaveUrl_();
 		if (saveUrl) {
 			// Post the changes to the server using the internal
@@ -257,7 +258,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		var $callingContext = $(callingContext);
 		var $targetRow = $callingContext.closest('.gridRow');
-		var $deletions = $callingContext.closest('.pkp_controllers_listbuilder').find('.deletions');
+		var $deletions = $callingContext.closest('.pkp_controllers_listbuilder')
+				.find('.deletions');
 		var rowId = $targetRow.find('input[name="rowId"]').val();
 
 		// Append the row ID to the deletions list.

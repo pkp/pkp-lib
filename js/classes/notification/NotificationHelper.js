@@ -20,47 +20,50 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 
 	$.pkp.classes.notification.NotificationHelper = function() {};
 
+
 	//
 	// Public static helper methods
 	//
 	/**
 	 * Decides which notification will be used: in place or general.
-	 * This method finds all notification widgets that are inside of the handled element
-	 * of the controller that is handling the current notify user event (page or modal).
-	 * We need to make sure that all notifications will be shown inside the same widget
-	 * where the notify user was triggered. Beyond that, we also need to make sure that,
-	 * inside some widgets (tabs and accordions, for example) we use the right
-	 * notification controller.
+	 * This method finds all notification widgets that are inside of the
+	 * handled element of the controller that is handling the current
+	 * notify user event (page or modal). We need to make sure that all
+	 * notifications will be shown inside the same widget where the notify
+	 * user was triggered. Beyond that, we also need to make sure that,
+	 * inside some widgets (tabs and accordions, for example) we use the
+	 * right notification controller.
 	 * To do this, the notification element must follow these rules:
 	 *
-	 * 1 - the notification element must not have a hidden parent, although it can be
-	 * hidden itself.
+	 * 1 - the notification element must not have a hidden parent, although
+	 * it can be hidden itself.
 	 *
-	 * 2 - the notification element first widget parent also needs to contain the
-	 * element that triggered the notify user event.
+	 * 2 - the notification element first widget parent also needs to contain
+	 * the element that triggered the notify user event.
 	 *
-	 * 3 - if the notification element is inside an accordion container, it will only
-	 * notify user from events that have the trigger element also inside the accordion
-	 * container.
+	 * 3 - if the notification element is inside an accordion container, it
+	 * will only notify user from events that have the trigger element also
+	 * inside the accordion container.
 	 *
-	 * At the final, if this method find and select more than one notification element,
-	 * we get the closest comparing to the element that triggered the event.
-	 * If it don't find any visible element, it bubbles up the event
-	 * so the site handler can show general notifications.
+	 * At the final, if this method find and select more than one
+	 * notification element, we get the closest comparing to the element
+	 * that triggered the event. If it don't find any visible element, it
+	 * bubbles up the event so the site handler can show general
+	 * notifications.
 	 *
-	 * @param {$.pkp.classes.Handler} handler The widget handler that is handling the
+	 * @param {$.pkp.classes.Handler} handler The widget handler that is
+	 * handling the notify user event.
+	 * @param {HTMLElement} triggerElement The element that triggered the
 	 * notify user event.
-	 * @param {HTMLElement} triggerElement The element that triggered the notify
-	 * user event.
 	 */
 	$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent =
 			function(handler, triggerElement) {
 
 		// Get the selector for a notification element.
-		$notificationSelector = '.pkp_notification';
+		var $notificationSelector = '.pkp_notification';
 
 		// Get the html element of the handler.
-		$handledElement = handler.getHtmlElement();
+		var $handledElement = handler.getHtmlElement();
 
 		// If the trigger element is inside a grid, let the site
 		// handler show TRIVIAL notifications.
@@ -73,16 +76,17 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		}
 
 		// Find all notification elements inside the handled element.
-		$pageNotificationElements = $($notificationSelector, $handledElement);
+		var $pageNotificationElements = $($notificationSelector, $handledElement);
 
-		// Create a variable to store all possible notification widgets that can notify this event.
-		possibleNotificationWidgets = new Array();
+		// Create a variable to store all possible notification widgets
+		// that can notify this event.
+		var possibleNotificationWidgets = [];
 
 		var i, length;
 		for (i = 0, length = $pageNotificationElements.length; i < length; i++) {
 
 			// Get one page notification element.
-			$element = $($pageNotificationElements[i]);
+			var $element = $($pageNotificationElements[i]);
 
 			// If it is inside a hidden parent, get next element.
 			if ($element.parents(':hidden').length > 0) {
@@ -93,9 +97,10 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			// FIXME If we use a class to identify pkp widgets, we can avoid
 			// this code duplication from the get handler method in Handler class,
 			// unnecessary access to the element data and unnecessary loop.
-			$elementParents = $element.parents();
+			var $elementParents = $element.parents();
 			var j, parentsLength, $elementParentWidget;
-			for (j = 0, parentsLength = $elementParents.length; j < parentsLength; j++) {
+			for (j = 0, parentsLength = $elementParents.length;
+					j < parentsLength; j++) {
 				handler = $($elementParents[j]).data('pkp.handler');
 				if ((handler instanceof $.pkp.classes.Handler)) {
 					$elementParentWidget = $($elementParents[j]);
@@ -103,13 +108,16 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 				}
 			}
 
-			// If the element that triggered the event is inside of this widget or is the widget...
-			if ($elementParentWidget.has(triggerElement).length || $elementParentWidget[0] == triggerElement) {
+			// If the element that triggered the event is inside of
+			// this widget or is the widget...
+			if ($elementParentWidget.has(triggerElement).length ||
+					$elementParentWidget[0] == triggerElement) {
 
 				// If it is inside an accordion container, and this accordion container
-				// doesn't also contain the element that triggered the event, get other element.
+				// doesn't also contain the element that triggered the event, get other
+				// element.
 				if ($element.parents('.ui-accordion:first').length > 0) {
-					$accordionContainer = $element.parents('.ui-accordion:first');
+					var $accordionContainer = $element.parents('.ui-accordion:first');
 
 					if (!$accordionContainer.has(triggerElement)) {
 						continue;
@@ -125,7 +133,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		if (possibleNotificationWidgets.length) {
 			// Use the last element of the array, its the closest notification
 			// widget related to the element that triggered the action.
-			elementKey = possibleNotificationWidgets.length - 1;
+			var elementKey = possibleNotificationWidgets.length - 1;
 
 			// Show in place notification to user.
 			possibleNotificationWidgets[elementKey].triggerHandler('notifyUser');

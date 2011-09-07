@@ -70,7 +70,7 @@
 
 	/** @inheritDoc */
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalClose =
-		function(callingContext, event) {
+			function(callingContext, event) {
 
 		if (event.type == 'formSubmitted') {
 			// Trigger the notify user event.

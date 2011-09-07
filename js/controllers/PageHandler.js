@@ -64,7 +64,8 @@
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(this, triggerElement);
+		$.pkp.classes.notification.NotificationHelper.
+				redirectNotifyUserEvent(this, triggerElement);
 	};
 
 

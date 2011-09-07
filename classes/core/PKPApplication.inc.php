@@ -318,6 +318,7 @@ class PKPApplication {
 			'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
 			'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
 			'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',
+			'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
 			'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
 			'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',

@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.notification.NotificationDAO');
 
+define('UNSUBSCRIBED_USER_NOTIFICATION',					0);
+
 /** Notification levels.  Determines notification behavior **/
 define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
 define('NOTIFICATION_LEVEL_NORMAL',					0x0000002);

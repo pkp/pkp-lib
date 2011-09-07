@@ -129,7 +129,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Save changes to an announcement.
 	 * @param $request PKPRequest
 	 */
-	function updateAnnouncement(&$request) {
+	function updateAnnouncement($args, &$request) {
 		// FIXME: Remove call to validate() when all ManagerHandler implementations
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();

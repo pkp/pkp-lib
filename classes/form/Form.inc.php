@@ -280,9 +280,11 @@ class Form {
 
 			if (!$this->isValid() && $user) {
 				// Create a form error notification.
-				PKPNotificationManager::createNotification(
-					$request, $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $press->getId(), null,
-					null, NOTIFICATION_LEVEL_TRIVIAL, $this->getErrorsArray());
+				import('classes.notification.NotificationManager');
+				$notificationManager = new NotificationManager();
+				$notificationManager->createTrivialNotification(
+					$user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $this->getErrorsArray()
+				);
 			}
 		}
 

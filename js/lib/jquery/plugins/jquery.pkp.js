@@ -52,15 +52,25 @@
 	 */
 	$.fn.pkpAjaxHtml = function(url) {
 		var $element = this.first();
-		$.getJSON(url, function(jsonData) {
-			$element.find('#loading').hide();
-			if (jsonData.status === true) {
-				// Replace the element content with
-				// the remote content.
-				$element.html(jsonData.content);
-			} else {
-				// Alert that the remote call failed.
-				throw (jsonData.content);
+		// using $.ajax instead of .getJSON to handle failures.
+		// .getJSON does not allow for an error callback
+		// this changes with jQuery 1.5
+		$.ajax({
+			url: url,
+			dataType: 'json',
+			success: function(jsonData) {
+				$element.find('#loading').hide();
+				if (jsonData.status === true) {
+					// Replace the element content with
+					// the remote content.
+					$element.html(jsonData.content);
+				} else {
+					// Alert that the remote call failed.
+					alert(jsonData.content);
+				}
+			},
+			error: function() {
+				alert('Failed Ajax request or invalid JSON returned.');
 			}
 		});
 		$element.html("<div id='loading' class='throbber'></div>");

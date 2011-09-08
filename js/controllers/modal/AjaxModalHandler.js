@@ -36,6 +36,7 @@
 		// therefore bind to form events by default.
 		this.bind('formSubmitted', this.modalClose);
 		this.bind('formCanceled', this.modalClose);
+		this.bind('ajaxHtmlError', this.modalClose);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
 			$.pkp.controllers.modal.ModalHandler);
@@ -99,7 +100,6 @@
 		var url = $dialogElement.dialog('option' , 'url');
 		$dialogElement.pkpAjaxHtml(url);
 	};
-
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -66,6 +66,7 @@
 					$element.html(jsonData.content);
 				} else {
 					// Alert that the remote call failed.
+					$element.trigger('ajaxHtmlError', jsonData.content)
 					alert(jsonData.content);
 				}
 			},

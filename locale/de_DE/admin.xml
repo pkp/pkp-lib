@@ -46,6 +46,7 @@
 	<message key="admin.serverInformation">Serverinformationen</message>
 	<message key="admin.server.phpVersion">PHP-Version</message>
 	<message key="admin.server.platform">OS-Plattform</message>
+    <message key="admin.settings">Einstellungen</message>
 	<message key="admin.settings.aboutDescription">Über die Website</message>
 	<message key="admin.settings.contactEmail">E-Mail-Adresse des Hauptkontaktes</message>
 	<message key="admin.settings.contactName">Name des Hauptkontaktes</message>

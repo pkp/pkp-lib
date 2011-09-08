@@ -276,7 +276,6 @@ class Form {
 			$application =& PKPApplication::getApplication();
 			$request =& $application->getRequest();
 			$user =& $request->getUser();
-			$press =& $request->getPress();
 
 			if (!$this->isValid() && $user) {
 				// Create a form error notification.

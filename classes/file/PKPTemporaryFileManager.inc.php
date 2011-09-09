@@ -135,7 +135,7 @@ class PKPTemporaryFileManager extends FileManager {
 
 			$temporaryFile->setUserId($userId);
 			$temporaryFile->setFileName($newFileName);
-			$temporaryFile->setFileType($_FILES[$fileName]['type']);
+			$temporaryFile->setFileType($this->getUploadedFileType($fileName));
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
 			$temporaryFile->setOriginalFileName(TemporaryFileManager::truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());

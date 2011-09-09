@@ -46,7 +46,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 
 		// Bind the handler for image preview.
-		if ($handledElement.hasClass('imageFile')) {
+		if ($handledElement.hasClass('image')) {
 			this.bind('mouseover', this.imagePreviewHandler_);
 		}
 

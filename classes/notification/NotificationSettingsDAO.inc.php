@@ -57,7 +57,7 @@ class NotificationSettingsDAO extends DAO {
 	 * @param $notificationId int
 	 * @param $params array
 	 */
-	function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = 'string') {
+	function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = null) {
 		$keyFields = array('setting_name', 'locale', 'notification_id');
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);

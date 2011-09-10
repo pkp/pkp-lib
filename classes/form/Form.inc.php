@@ -282,7 +282,7 @@ class Form {
 				import('classes.notification.NotificationManager');
 				$notificationManager = new NotificationManager();
 				$notificationManager->createTrivialNotification(
-					$user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $this->getErrorsArray()
+					$user->getId(), NOTIFICATION_TYPE_FORM_ERROR, array('contents' => $this->getErrorsArray())
 				);
 			}
 		}

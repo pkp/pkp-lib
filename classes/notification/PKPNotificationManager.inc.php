@@ -78,6 +78,7 @@ class PKPNotificationManager {
 		$templateMgr->assign('notificationDateCreated', $notification->getDateCreated());
 		$templateMgr->assign('notificationId', $notification->getId());
 		$templateMgr->assign('notificationContents',$this->getNotificationContents($request, $notification));
+		$templateMgr->assign('notificationTitle',$this->getNotificationTitle($notification));
 		$templateMgr->assign('notificationStyleClass', $this->getStyleClass($notification));
 		$templateMgr->assign('notificationIconClass', $this->getIconClass($notification));
 		$templateMgr->assign('notificationDateRead', $notification->getDateRead());
@@ -113,10 +114,17 @@ class PKPNotificationManager {
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_SUCCESS:
-				return __('common.changesSaved');
+				if (!is_null($this->getNotificationSettings($notification->getId()))) {
+					$notificationSettings = $this->getNotificationSettings($notification->getId());
+					return $notificationSettings['contents'];
+				} else {
+					return __('common.changesSaved');
+				}
 			case NOTIFICATION_TYPE_FORM_ERROR:
 				$templateMgr =& TemplateManager::getManager();
-				$templateMgr->assign('errors', $notification->getData('contents'));
+				$notificationSettings = $this->getNotificationSettings($notification->getId());
+				assert(!is_null($notificationSettings['contents']));
+				$templateMgr->assign('errors', $notificationSettings['contents']);
 				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
 			case NOTIFICATION_TYPE_PLUGIN_ENABLED:
 				return $this->_getTranslatedKeyWithParameters('common.pluginEnabled', $notification->getId());
@@ -133,11 +141,21 @@ class PKPNotificationManager {
 	 * Helper function to get a translated string from a notification with parameters
 	 * @param $key string
 	 * @param $notificationId int
+	 * @return String
 	 */
 	function _getTranslatedKeyWithParameters($key, $notificationId) {
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
-		$params = $notificationSettingsDao->getNotificationSettings($notificationId);
+		$params = $this->getNotificationSettings($notificationId);
 		return __($key, $this->getParamsForCurrentLocale($params));
+	}
+
+	/**
+	 * Return notification settings.
+	 * @param $notificationId int
+	 * @return Array
+	 */
+	function getNotificationSettings($notificationId) {
+		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
+		return $notificationSettingsDao->getNotificationSettings($notificationId);
 	}
 
 	/**
@@ -233,7 +251,7 @@ class PKPNotificationManager {
 	 * Create a new notification with the specified arguments and insert into DB
 	 * This is a static method
 	 * @param $request PKPRequest
-	 * @param $userId int
+	 * @param $userId int (optional)
 	 * @param $notificationType int
 	 * @param $contextId int
 	 * @param $assocType int
@@ -242,7 +260,7 @@ class PKPNotificationManager {
 	 * @param $params array
 	 * @return Notification object
 	 */
-	function createNotification(&$request, $userId, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
+	function createNotification(&$request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
 		// Get set of notifications user does not want to be notified of
 		$notificationSubscriptionSettingsDao =& DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 		$blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);

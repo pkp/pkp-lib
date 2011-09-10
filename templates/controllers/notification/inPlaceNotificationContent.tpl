@@ -8,14 +8,10 @@
  *}
 
 <div id="pkp_notification_{$notificationId|escape}" class="notification_block {$notificationStyleClass}">
-	{if $notificationContents.title}
-		<h4>{$notificationContents.title}:</h4>
-	{else}
-		<h4>{translate key="notification.notification"}</h4>
-	{/if}
+	<h4>{$notificationTitle}:</h4>
 	<span class="description">
-		{if $notificationContents.description}
-			<p>{$notificationContents.description}</p>
+		{if $notificationContents}
+			<p>{$notificationContents}</p>
 		{/if}
 	</span>
 </div>

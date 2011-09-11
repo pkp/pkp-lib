@@ -65,7 +65,12 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		this.bindActionRequest();
 
 		// Publish this event so we can handle it and grids still
-		// can listen to it to refresh themselfs.
+		// can listen to it to refresh themselves.
+		//
+		// This needs to happen before the dataChangedHandler_ bound,
+		// otherwise when the publish event handler try to bubble up the
+		// dataChanged event, this html element could be already removed
+		// by the notifyUser event handlers triggered by dataChangedHandler_
 		this.publishEvent('dataChanged');
 
 		// Bind the data changed event, so we know when trigger

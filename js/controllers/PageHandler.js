@@ -91,8 +91,8 @@
 		// link action with the same url of the sourceLinkElement.
 		var $grids = $('.pkp_controllers_grid', this.getHtmlElement()).has('a[href=' + $sourceLinkElement.attr('href') + ']');
 
-		// Trigger the dataChanged event on founded grids,
-		// so they can refresh themselfs.
+		// Trigger the dataChanged event on found grids,
+		// so they can refresh themselves.
 		if ($grids.length > 0) {
 			$grids.each(function() {
 				// Keyword "this" is being used here in the

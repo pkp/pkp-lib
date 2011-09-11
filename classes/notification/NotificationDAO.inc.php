@@ -103,7 +103,7 @@ class NotificationDAO extends DAO {
 	function setDateRead($notificationId, $dateRead = null) {
 		$dateRead = isset($dateRead) ? $dateRead : Core::getCurrentDate();
 
-		$returner = $this->update(
+		$this->update(
 			sprintf('UPDATE notifications
 				SET date_read = %s
 				WHERE notification_id = ?',

@@ -99,7 +99,7 @@ class PKPNotificationManager {
 	 * @return string
 	 */
 	function getNotificationUrl(&$request, &$notification) {
-		assert(isset($type));
+		return false;
 	}
 
 	/**

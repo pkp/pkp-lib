@@ -64,13 +64,13 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Bind the link action request to the handled element.
 		this.bindActionRequest();
 
-		// Bind the data changed event, so we know when trigger
-		// the notify user event.
-		this.bind('dataChanged', this.dataChangedHandler_);
-
 		// Publish this event so we can handle it and grids still
 		// can listen to it to refresh themselfs.
 		this.publishEvent('dataChanged');
+
+		// Bind the data changed event, so we know when trigger
+		// the notify user event.
+		this.bind('dataChanged', this.dataChangedHandler_);
 
 		if (options.selfActivate) {
 			this.trigger('click');

@@ -25,6 +25,11 @@
 
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.notifyUserHandler_);
+
+		// Listen to this event to be able to redirect to the
+		// correpondent grid a dataChanged event that comes from
+		// a link action that is outside of any grid.
+		this.bind('dataChanged', this.redirectDataChangedEventHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.PageHandler, $.pkp.classes.Handler);
@@ -66,6 +71,35 @@
 		// Use the notification helper to redirect the notify user event.
 		$.pkp.classes.notification.NotificationHelper.
 				redirectNotifyUserEvent(this, triggerElement);
+	};
+
+	/**
+	 * Handler to redirect to the correct grid the dataChanged event.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 * "dataChanged" event.
+	 * @param {Event} event The "data changed" event.
+	 * @private
+	 */
+	$.pkp.controllers.PageHandler.prototype.redirectDataChangedEventHandler_ =
+		function(sourceElement, event) {
+
+		// Get the link action element (that is outside of any grid)
+		// that triggered the event.
+		var $sourceLinkElement = $('a', event.target);
+
+		// Get all grids inside this widget that have a
+		// link action with the same url of the sourceLinkElement.
+		var $grids = $('.pkp_controllers_grid', this.getHtmlElement()).has('a[href=' + $sourceLinkElement.attr('href') + ']');
+
+		// Trigger the dataChanged event on founded grids,
+		// so they can refresh themselfs.
+		if ($grids.length > 0) {
+			$grids.each(function() {
+				// Keyword "this" is being used here in the
+				// context of the grid html element.
+				$(this).trigger('dataChanged');
+			});
+		}
 	};
 
 

@@ -50,7 +50,7 @@ class PKPLoginHandler extends Handler {
 		$templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
 
 		// For force_login_ssl with base_url[...]: make sure SSL used for login form
-		$loginUrl = $this->_getLoginUrl();
+		$loginUrl = $this->_getLoginUrl($request);
 		if (Config::getVar('security', 'force_login_ssl')) {
 			$loginUrl = String::regexp_replace('/^http:/', 'https:', $loginUrl);
 		}
@@ -195,7 +195,7 @@ class PKPLoginHandler extends Handler {
 			// Send email confirming password reset
 			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-			$this->_setMailFrom($mail, $site);
+			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(
 				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
 				'siteTitle' => $site->getLocalizedTitle()
@@ -258,7 +258,7 @@ class PKPLoginHandler extends Handler {
 			$site =& $request->getSite();
 			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
-			$this->_setMailFrom($mail, $site);
+			$this->_setMailFrom($request, $mail, $site);
 			$mail->assignParams(array(
 				'username' => $user->getUsername(),
 				'password' => $newPassword,
@@ -318,9 +318,11 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Helper function - set mail From
 	 * can be overriden by child classes
+	 * @param $request PKPRequest
 	 * @param MailTemplate $mail
+	 * @param $site Site
 	 */
-	function _setMailFrom(&$mail, &$site) {
+	function _setMailFrom($request, &$mail, &$site) {
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		return true;
 	}

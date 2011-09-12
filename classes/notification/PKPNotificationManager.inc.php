@@ -155,7 +155,12 @@ class PKPNotificationManager {
 	 */
 	function getNotificationSettings($notificationId) {
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
-		return $notificationSettingsDao->getNotificationSettings($notificationId);
+		$notificationSettings = $notificationSettingsDao->getNotificationSettings($notificationId);
+		if (empty($notificationSettings)) {
+			return null;
+		} else {
+			return $notificationSettings;
+		}
 	}
 
 	/**

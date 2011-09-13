@@ -41,9 +41,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Attach the button handlers
 		$listbuilder.find('.add_item').click(
 				this.callbackWrapper(this.addItemHandler_));
-
-		$listbuilder.find('.remove_item').click(
-				this.callbackWrapper(this.deleteItemHandler_));
 		
 		// Attach the content manipulation handlers
 		this.attachContentHandlers_($listbuilder);
@@ -607,7 +604,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				.blur(this.callbackWrapper(this.inputBlurHandler_));
 
 		// Attach deletion handler
-		$context.find('.delete').click(
+		$context.find('.remove_item').click(
 				this.callbackWrapper(this.deleteItemHandler_));
 	};
 

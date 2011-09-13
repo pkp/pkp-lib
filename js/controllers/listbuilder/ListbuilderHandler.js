@@ -42,6 +42,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		$listbuilder.find('.add_item').click(
 				this.callbackWrapper(this.addItemHandler_));
 
+		$listbuilder.find('.remove_item').click(
+				this.callbackWrapper(this.deleteItemHandler_));
+		
 		// Attach the content manipulation handlers
 		this.attachContentHandlers_($listbuilder);
 

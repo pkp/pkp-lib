@@ -40,7 +40,7 @@ class UserApiHandler extends PKPHandler {
 		import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
 		$this->addPolicy(new PKPSiteAccessPolicy(
 			$request,
-			array('setUserSetting'),
+			array('updateUserMessageState'),
 			SITE_ACCESS_ALL_ROLES
 		));
 		return parent::authorize($request, $args, $roleAssignments);
@@ -56,12 +56,8 @@ class UserApiHandler extends PKPHandler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 * @return string a JSON message
-	 * FIXME: Rename this method to make it clear that we do not intend to expose
-	 * the user_settings table remotely but only provide a "remote transaction"
-	 * with side effects in the database like all other handler operations do. A
-	 * better name may be updateUserMessageState() or something like that.
 	 */
-	function setUserSetting($args, &$request) {
+	function updateUserMessageState($args, &$request) {
 		// Exit with a fatal error if request parameters are missing.
 		if (!(isset($args['setting-name'])) && isset($args['setting-value'])) {
 			fatalError('Required request parameter "setting-name" or "setting-value" missing!');
@@ -125,4 +121,5 @@ class UserApiHandler extends PKPHandler {
 		}
 	}
 }
+
 ?>

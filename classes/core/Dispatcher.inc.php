@@ -132,7 +132,7 @@ class Dispatcher {
 	/**
 	 * Build a handler request URL into PKPApplication.
 	 * @param $request PKPRequest the request to be routed
-	 * @param $shortcut the short name of the router that should be used to construct the URL
+	 * @param $shortcut string the short name of the router that should be used to construct the URL
 	 * @param $newContext mixed Optional contextual paths
 	 * @param $handler string Optional name of the handler to invoke
 	 * @param $op string Optional name of operation to invoke

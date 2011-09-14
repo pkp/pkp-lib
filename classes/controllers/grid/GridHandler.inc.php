@@ -317,7 +317,7 @@ class GridHandler extends PKPHandler {
 		$dataProvider =& $this->getDataProvider();
 		$hasDataProvider = is_a($dataProvider, 'GridDataProvider');
 		if ($hasDataProvider) {
-			$this->addPolicy($dataProvider->getAuthorizationPolicy(&$request, &$args, $roleAssignments));
+			$this->addPolicy($dataProvider->getAuthorizationPolicy($request, $args, $roleAssignments));
 		}
 
 		$success = parent::authorize($request, $args, $roleAssignments);

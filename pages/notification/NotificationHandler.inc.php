@@ -400,12 +400,14 @@ class NotificationHandler extends Handler {
 	function &_getNotificationsByOptions($notificationOptions, $contextId, $userId = null) {
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notificationsArray = array();
+		$notificationMgr = new NotificationManager();
+		$allUsersNotificationTypes = $notificationMgr->getAllUsersNotificationTypes();
 
 		foreach ($notificationOptions as $level => $levelOptions) {
 			if ($levelOptions) {
 				foreach ($levelOptions as $type => $typeOptions) {
 					if ($typeOptions) {
-						$typeOptions['allUsers'] ? $workingUserId = null : $workingUserId = $userId;
+						in_array($type, $allUsersNotificationTypes) ? $workingUserId = null : $workingUserId = $userId;
 						$notificationsResultFactory =& $notificationDao->getNotificationsByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $workingUserId, $type, $contextId);
 						$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
 					} else {

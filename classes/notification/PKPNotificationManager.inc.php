@@ -253,6 +253,15 @@ class PKPNotificationManager {
 	}
 
 	/**
+	 * Return all notification types that don't need a userId
+	 * to be created or fetched (all users can see them).
+	 * @return array
+	 */
+	function getAllUsersNotificationTypes() {
+		return array();
+	}
+
+	/**
 	 * Create a new notification with the specified arguments and insert into DB
 	 * This is a static method
 	 * @param $request PKPRequest

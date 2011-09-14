@@ -74,7 +74,6 @@
 		});
 	};
 
-
 	/**
 	 * Callback to show the notification data in place.
 	 *
@@ -91,10 +90,47 @@
 				var dataInPlace = workingJsonData.content.inPlace;
 				this.getHtmlElement().html(dataInPlace);
 				this.getHtmlElement().show();
+
+				if (!this.visibleWithoutScrolling_()) {
+					this.getHtmlElement().parent().trigger('notifyUser', jsonData);
+				}
 			} else {
 				this.getHtmlElement().empty();
 				this.getHtmlElement().hide();
 			}
+		}
+	};
+
+	/**
+	 * Check if the notification is inside the window visible are.
+	 * @return {boolean}
+	 * @private
+	 */
+	$.pkp.controllers.NotificationHandler.prototype.
+			visibleWithoutScrolling_ = function() {
+		var $notificationElement = this.getHtmlElement();
+		var notificationTop = $notificationElement.offset().top;
+		var notificationMiddle = notificationTop + this.getHtmlElement().height() / 2;
+
+		var windowScrollTop = $(window).scrollTop();
+		var windowBottom = windowScrollTop + $(window).height();
+
+		// Consider modals and its own scroll functionality.
+		$parentModalContentWrapper = $notificationElement.parents('.ui-dialog-content');
+		if ($parentModalContentWrapper.length > 0) {
+			var modalContentTop = $parentModalContentWrapper.offset().top;
+			var modalContentBottom = modalContentTop + $parentModalContentWrapper.height();
+			if (notificationMiddle < modalContentTop || notificationMiddle > modalContentBottom) {
+				// The element is outside of the modal content wrapper area.
+				return false;
+			}
+		}
+
+		// Check if the element is inside of the visible window are.
+		if (notificationMiddle < windowScrollTop || notificationMiddle > windowBottom) {
+			return false;
+		} else {
+			return true;
 		}
 	};
 

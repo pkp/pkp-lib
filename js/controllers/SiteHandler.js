@@ -89,7 +89,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
-			function() {
+			function(sourceElement, event, jsonData) {
+
+		if (jsonData != undefined) {
+			// This is an event that came from an inplace notification
+			// widget that was not visible because of the scrolling.
+			this.showNotification_(jsonData);
+			return;
+		}
 
 		// Avoid race conditions with in place notifications.
 		$.ajax({
@@ -111,6 +118,20 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {
+		this.showNotification_(jsonData);
+	};
+
+
+	//
+	// Private helper method.
+	//
+	/**
+	 * Show the notification content.
+	 *
+	 * @param {Object} jsonData
+	 */
+	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
+			function(jsonData) {
 		var workingJsonData = this.handleJson(jsonData);
 
 		if (workingJsonData !== false) {

@@ -62,16 +62,21 @@
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "notifyUser" event.
 	 * @param {Event} event The "notify user" event.
-	 * @param {HTMLElement} triggerElement The element that triggered
-	 * the "notifyUser" event.
+	 * @param {Object} params The event parameters. Can be the element
+	 * that triggered the event or the notification content.
 	 * @private
 	 */
 	$.pkp.controllers.PageHandler.prototype.redirectNotifyUserEventHandler_ =
-			function(sourceElement, event, triggerElement) {
+			function(sourceElement, event, params) {
 
-		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.
-				redirectNotifyUserEvent(this, triggerElement);
+		if (params.status == true) {
+			this.getHtmlElement().parent().trigger('notifyUser', params);
+		} else {
+			// Use the notification helper to redirect the notify user event.
+			$.pkp.classes.notification.NotificationHelper.
+					redirectNotifyUserEvent(this, params);
+		}
+
 	};
 
 	/**

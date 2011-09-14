@@ -69,7 +69,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		this.publishEvent('dataChanged');
 
 		// Bind notify user event.
-		this.bind('notifyUser', this.notifyUserHandler_);
+		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);
@@ -222,7 +222,8 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 
 	/**
-	 * Notify user handler.
+	 * Handler to redirect to the correct notification widget the
+	 * notify user event.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "notifyUser" event.
 	 * @param {Event} event The "notify user" event.
@@ -230,7 +231,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * the "notifyUser" event.
 	 * @private
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.notifyUserHandler_ =
+	$.pkp.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.

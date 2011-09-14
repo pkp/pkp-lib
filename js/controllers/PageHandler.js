@@ -24,7 +24,7 @@
 		this.parent($page, options);
 
 		this.bind('redirectRequested', this.redirectToUrl);
-		this.bind('notifyUser', this.notifyUserHandler_);
+		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 
 		// Listen to this event to be able to redirect to the
 		// correpondent grid a dataChanged event that comes from
@@ -57,7 +57,8 @@
 	// Private methods.
 	//
 	/**
-	 * Notify user handler.
+	 * Handler to redirect to the correct notification widget the
+	 * notify user event.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "notifyUser" event.
 	 * @param {Event} event The "notify user" event.
@@ -65,7 +66,7 @@
 	 * the "notifyUser" event.
 	 * @private
 	 */
-	$.pkp.controllers.PageHandler.prototype.notifyUserHandler_ =
+	$.pkp.controllers.PageHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.

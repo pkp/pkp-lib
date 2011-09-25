@@ -34,13 +34,17 @@ div.pkp_controllers_grid {
 		text-align: center;
 	}
 
+	thead th:first-child {
+		padding-left: 28px;
+	}
+
 	td {
 		text-align: center;
 		min-height: 40px;
 		height: 40px;
 		font-size: 85%;
 		vertical-align: middle;
-		padding: 0px 4px;
+		padding: 0px;
 	}
 
 	th:first-child, td:first-child, col.first_column {
@@ -52,19 +56,16 @@ div.pkp_controllers_grid {
 	}
 
 	tr.category td {
-		text-align: left;
-		height: 20px;
+		line-height: 24px;
+		height: 24px;
 		font-size: 70%;
 		text-transform: uppercase;
-		padding-left: 10px;
-		background-color: #e3ecea;
-		color: #627b81;
-		top: 0;
+	}
 
-		a { /* For category row actions */
-			background-position: 0px 50%;
-			padding: 5px 0px 5px 15px;
-		}
+	tr.category td:first-child {
+		top: 0;
+		padding-left: 10px;
+		background: url(../lib/pkp/templates/images/structure/grid_group_1.png) no-repeat;
 	}
 
 	.options {

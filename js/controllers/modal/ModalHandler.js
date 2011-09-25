@@ -193,18 +193,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// The new titlebar.
 		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>');
 
-		// Title bar icon.
-		var iconClass = options.titleIcon || null;
-		if (iconClass) {
-			$titleBar.append(['<div class="icon ', iconClass, '" />'].join(''));
-		}
-
-		// Title text.
-		var title = options.title || null;
-		if (title) {
-			$titleBar.append(['<div class="text">', title, '</div>'].join(''));
-		}
-
 		// Close icon.
 		var canClose = options.canClose || '1';
 		if (canClose) {
@@ -213,6 +201,13 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 				'close</span></a>"'].join(''));
 			$closeButton.click(this.callbackWrapper(this.modalClose));
 			$titleBar.append($closeButton);
+		}
+
+		// Title text.
+		var title = options.title || null;
+		var iconClass = options.titleIcon || "";
+		if (title) {
+			$titleBar.append(['<div class="large_sprite modal_title ' + iconClass + ' h2">', title, '</div>'].join(''));
 		}
 
 		// Replace the original title bar with our own implementation.

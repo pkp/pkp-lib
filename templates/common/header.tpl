@@ -97,6 +97,24 @@
 		{/literal}
 	</script>
 
+	{if $hasSystemNotifications}
+		{url|assign:fetchNotificationUrl page='notification' op='fetchNotification' escape=false}
+		<script type="text/javascript">
+			$(function(){ldelim}
+				$.get('{$fetchNotificationUrl}', null,
+					function(data){ldelim}
+						var notification = data.content;
+						var i, l;
+						if (notification && notification.general) {ldelim}
+							for (i = 0, l = notification.general.length; i < l; i++) {ldelim}
+								$.pnotify(notification.general[i]);
+							{rdelim}
+						{rdelim}
+				{rdelim}, 'json');
+			{rdelim});
+		</script>
+	{/if}{* hasSystemNotifications *}
+
 	{$additionalHeadData}
 </head>
 <body>

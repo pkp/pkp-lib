@@ -69,7 +69,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		this.publishEvent('dataChanged');
 
 		// Bind notify user event.
-		this.bind('notifyUser', this.notifyUserHandler_);
+		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);
@@ -193,18 +193,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// The new titlebar.
 		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>');
 
-		// Title bar icon.
-		var iconClass = options.titleIcon || null;
-		if (iconClass) {
-			$titleBar.append(['<div class="icon ', iconClass, '" />'].join(''));
-		}
-
-		// Title text.
-		var title = options.title || null;
-		if (title) {
-			$titleBar.append(['<div class="text">', title, '</div>'].join(''));
-		}
-
 		// Close icon.
 		var canClose = options.canClose || '1';
 		if (canClose) {
@@ -215,13 +203,22 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			$titleBar.append($closeButton);
 		}
 
+		// Title text.
+		var title = options.title || null;
+		var iconClass = options.titleIcon || "";
+		if (title) {
+			$titleBar.append(['<div class="large_sprite modal_title ' + iconClass + ' h2">', title, '</div>'].join(''));
+		}
+
 		// Replace the original title bar with our own implementation.
 		$titleBar.append($('<span style="clear:both" />'));
 		$handledElement.parent().find('.ui-dialog-titlebar').replaceWith($titleBar);
 	};
 
+
 	/**
-	 * Notify user handler.
+	 * Handler to redirect to the correct notification widget the
+	 * notify user event.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "notifyUser" event.
 	 * @param {Event} event The "notify user" event.
@@ -229,11 +226,12 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * the "notifyUser" event.
 	 * @private
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.notifyUserHandler_ =
+	$.pkp.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(this, triggerElement);
+		$.pkp.classes.notification.NotificationHelper.
+				redirectNotifyUserEvent(this, triggerElement);
 	};
 
 

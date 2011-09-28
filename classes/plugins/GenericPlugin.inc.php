@@ -54,18 +54,19 @@ class GenericPlugin extends LazyLoadPlugin {
 	/**
 	 * @see PKPPlugin::manage()
 	 */
-	function manage($verb, $args, &$message) {
+	function manage($verb, $args, &$message, &$messageParams) {
 		if ($verb != 'enable' && !$this->getEnabled()) fatalError('Invalid management action on disabled plug-in!');
 
 		switch ($verb) {
 			case 'enable':
 				$this->setEnabled(true);
-				$message = Locale::translate('common.pluginEnabled', array('pluginName' => $this->getDisplayName()));
+				$message = NOTIFICATION_TYPE_PLUGIN_ENABLED;
+				$messageParams = array('pluginName' => $this->getDisplayName());
 				return false;
-
 			case 'disable':
 				$this->setEnabled(false);
-				$message = Locale::translate('common.pluginDisabled', array('pluginName' => $this->getDisplayName()));
+				$message = NOTIFICATION_TYPE_PLUGIN_DISABLED;
+				$messageParams = array('pluginName' => $this->getDisplayName());
 				return false;
 		}
 

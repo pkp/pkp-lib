@@ -23,6 +23,7 @@
 .pkp_structure_body {
 	border-bottom: 1px dotted #999;
 	margin-bottom: 3px;
+	min-height: 400px;
 }
 
 .pkp_structure_foot, .pkp_structure_subfoot {
@@ -117,7 +118,7 @@ div.pkp_controllers_grid .row_actions, .row_controls {
 }
 
 div.pkp_controllers_grid tr.category td {
-	background-color: #F2EEE9;
+	background-color: #F2EEE9 !important;
 	color: #888;
 }
 

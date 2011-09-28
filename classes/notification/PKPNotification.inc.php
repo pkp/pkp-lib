@@ -15,6 +15,8 @@
 
 import('lib.pkp.classes.notification.NotificationDAO');
 
+define('UNSUBSCRIBED_USER_NOTIFICATION',					0);
+
 /** Notification levels.  Determines notification behavior **/
 define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
 define('NOTIFICATION_LEVEL_NORMAL',					0x0000002);
@@ -28,6 +30,13 @@ define('NOTIFICATION_TYPE_FORBIDDEN', 				0x0000004);
 define('NOTIFICATION_TYPE_INFORMATION',				0x0000005);
 define('NOTIFICATION_TYPE_HELP', 				    0x0000006);
 define('NOTIFICATION_TYPE_FORM_ERROR',              0x0000007);
+
+define('NOTIFICATION_TYPE_LOCALE_INSTALLED',			0x4000001);
+
+define('NOTIFICATION_TYPE_PLUGIN_ENABLED',				0x5000001);
+define('NOTIFICATION_TYPE_PLUGIN_DISABLED',				0x5000002);
+
+define('NOTIFICATION_TYPE_PLUGIN_BASE',					0x6000001);
 
 class PKPNotification extends DataObject {
 

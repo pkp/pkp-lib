@@ -61,8 +61,9 @@
 	 *
 	 * @private
 	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} jsonData A parsed JSON response object.
+	 * @param {$jQuery} sourceElement The containing element.
+	 * @param {Event} event The calling event.
+	 * @param {String} content The content to replace with.
 	 */
 	$.pkp.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
 			function(sourceElement, event, content) {

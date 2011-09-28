@@ -46,7 +46,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 
 		// Bind the handler for image preview.
-		if ($handledElement.hasClass('imageFile')) {
+		if ($handledElement.hasClass('image')) {
 			this.bind('mouseover', this.imagePreviewHandler_);
 		}
 
@@ -64,13 +64,18 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Bind the link action request to the handled element.
 		this.bindActionRequest();
 
+		// Publish this event so we can handle it and grids still
+		// can listen to it to refresh themselves.
+		//
+		// This needs to happen before the dataChangedHandler_ bound,
+		// otherwise when the publish event handler try to bubble up the
+		// dataChanged event, this html element could be already removed
+		// by the notifyUser event handlers triggered by dataChangedHandler_
+		this.publishEvent('dataChanged');
+
 		// Bind the data changed event, so we know when trigger
 		// the notify user event.
 		this.bind('dataChanged', this.dataChangedHandler_);
-
-		// Publish this event so we can handle it and grids still
-		// can listen to it to refresh themselfs.
-		this.publishEvent('dataChanged');
 
 		if (options.selfActivate) {
 			this.trigger('click');

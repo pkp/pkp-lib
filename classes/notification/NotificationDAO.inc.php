@@ -103,7 +103,7 @@ class NotificationDAO extends DAO {
 	function setDateRead($notificationId, $dateRead = null) {
 		$dateRead = isset($dateRead) ? $dateRead : Core::getCurrentDate();
 
-		$returner = $this->update(
+		$this->update(
 			sprintf('UPDATE notifications
 				SET date_read = %s
 				WHERE notification_id = ?',
@@ -112,14 +112,6 @@ class NotificationDAO extends DAO {
 		);
 
 		return $dateRead;
-	}
-
-	/**
-	 * Get the list of custom field names for this table
-	 * @return array
-	 */
-	function getAdditionalFieldNames() {
-		return array('contents');
 	}
 
 	/**
@@ -138,8 +130,6 @@ class NotificationDAO extends DAO {
 		$notification->setType($row['type']);
 		$notification->setAssocType($row['assoc_type']);
 		$notification->setAssocId($row['assoc_id']);
-
-		$this->getDataObjectSettings('notification_settings', 'notification_id', $row['notification_id'], $notification);
 
 		HookRegistry::call('NotificationDAO::_returnNotificationFromRow', array(&$notification, &$row));
 
@@ -168,19 +158,8 @@ class NotificationDAO extends DAO {
 			)
 		);
 		$notification->setId($this->getInsertNotificationId());
-		$this->_updateObjectMetadata($notification);
 
 		return $notification->getId();
-	}
-
-	/**
-	 * Update custom metadata for this notification
-	 * @param $notification Notification
-	 */
-	function _updateObjectMetadata(&$notification) {
-		// Persist notification meta-data
-		$this->updateDataObjectSettings('notification_settings', $notification,
-				array('notification_id' => $notification->getId()));
 	}
 
 	/**
@@ -190,7 +169,8 @@ class NotificationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteNotificationById($notificationId, $userId = null) {
-		$this->update('DELETE FROM notification_settings WHERE notification_id = ?', (int) $notificationId);
+		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
+		$notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
 
 		$params = array((int) $notificationId);
 		if ($userId) $params[] = (int) $userId;
@@ -231,7 +211,6 @@ class NotificationDAO extends DAO {
 
 		return $returner;
 	}
-
 }
 
 ?>

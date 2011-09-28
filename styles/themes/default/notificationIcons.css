@@ -49,6 +49,10 @@
 	background-image: url(../../../templates/images/icons/page_new.gif);
 }
 
+.notifyIconPageAttachment {
+	background-image: url(../../../templates/images/icons/page_attachment.gif);
+}
+
 .notifyIconEdit {
 	background-image: url(../../../templates/images/icons/edit.gif);
 }

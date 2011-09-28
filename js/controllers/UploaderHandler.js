@@ -91,6 +91,7 @@
 		}
 	};
 
+
 	/**
 	 * Limit the queue size of the uploader to one file only.
 	 * @param {Object} caller The original context in which the callback was called.
@@ -101,7 +102,8 @@
 	$.pkp.controllers.UploaderHandler.prototype.
 			startUploader = function(caller, pluploader, file) {
 		pluploader.start();
-	}
+	};
+
 
 	//
 	// Private static properties

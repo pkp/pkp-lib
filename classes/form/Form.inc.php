@@ -30,6 +30,7 @@ import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
 import('lib.pkp.classes.form.validation.FormValidatorEmail');
 import('lib.pkp.classes.form.validation.FormValidatorInSet');
 import('lib.pkp.classes.form.validation.FormValidatorLength');
+import('lib.pkp.classes.form.validation.FormValidatorListBuilder');
 import('lib.pkp.classes.form.validation.FormValidatorLocale');
 import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
 import('lib.pkp.classes.form.validation.FormValidatorPost');
@@ -275,13 +276,14 @@ class Form {
 			$application =& PKPApplication::getApplication();
 			$request =& $application->getRequest();
 			$user =& $request->getUser();
-			$press =& $request->getPress();
 
 			if (!$this->isValid() && $user) {
 				// Create a form error notification.
-				PKPNotificationManager::createNotification(
-					$request, $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, $press->getId(), null,
-					null, NOTIFICATION_LEVEL_TRIVIAL, $this->getErrorsArray());
+				import('classes.notification.NotificationManager');
+				$notificationManager = new NotificationManager();
+				$notificationManager->createTrivialNotification(
+					$user->getId(), NOTIFICATION_TYPE_FORM_ERROR, array('contents' => $this->getErrorsArray())
+				);
 			}
 		}
 

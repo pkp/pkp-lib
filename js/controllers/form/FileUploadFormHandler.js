@@ -40,7 +40,7 @@
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {jQuery} Element that contains the plupload object.
+	 * @param {jQuery} $uploader Element that contains the plupload object.
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {

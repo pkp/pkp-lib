@@ -410,7 +410,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_min', $params['min']);
 		$smarty->assign('FBV_max', $params['max']);
 
-		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, &$smarty) : null);
+		$smarty->assign('FBV_label_content', isset($params['label']) ? $this->_smartyFBVSubLabel($params, $smarty) : null);
 
 		return $smarty->fetch('form/rangeSlider.tpl');
 	}
@@ -433,7 +433,7 @@ class FormBuilderVocabulary {
 		$smarty->clear_assign(array('FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_label_content'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
-				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
@@ -472,7 +472,7 @@ class FormBuilderVocabulary {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
-				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'type': break;
 				case 'size': break;
 				case 'inline': break;
@@ -560,7 +560,7 @@ class FormBuilderVocabulary {
 				case 'type': break;
 				case 'inline': break;
 				case 'subLabelTranslate': break;
-				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
@@ -698,7 +698,7 @@ class FormBuilderVocabulary {
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'submit': $smarty->assign('FBV_submit', $params['submit']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
-				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, &$smarty)); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 			}
 		}

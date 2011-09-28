@@ -99,7 +99,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {jQuery} Element that contains the plupload object.
+	 * @param {jQuery} $uploader Element that contains the plupload object.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
@@ -178,6 +178,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		}
 	};
 
+
 	/**
 	 * Internal callback to handle form submission.
 	 *
@@ -190,7 +191,8 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		// There is no form to submit (file already uploaded).
 		// Trigger event to signal that user requests the form to be submitted.
 		this.trigger('formSubmitted');
-	}
+	};
+
 
 	/**
 	 * Handle the "change" event of the revised file selector.

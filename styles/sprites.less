@@ -9,6 +9,9 @@ a.sprite:before
 	cursor: pointer;
 }
 
+a.notify:before { margin-right:4px; background-position: -24px 0; }
+a.notify:hover:before { background-position: -24px -24px; }
+
 a.settings:before { margin-top: 8px; background-position: -408px 0; }
 a.settings:hover:before { background-position: -408px -24px; }
 
@@ -77,3 +80,51 @@ a.user_search:hover:before { background-position: -792px -24px; }
 
 a.import:before { margin-right:4px; background-position: -816px 0; }
 a.import:hover:before { background-position: -816px -24px; }
+
+a.pdf:before { margin-top: 8px; margin-right:4px; background-position: -840px 0; }
+a.pdf:hover:before { background-position: -840px -24px; }
+
+a.html:before { margin-top: 8px; margin-right:4px; background-position: -864px 0; }
+a.html:hover:before { background-position: -864px -24px; }
+
+a.word:before { margin-top: 8px; margin-right:4px; background-position: -888px 0; }
+a.word:hover:before { background-position: -888px -24px; }
+
+a.image:before { margin-top: 8px; margin-right:4px; background-position: -912px 0; }
+a.image:hover:before { background-position: -912px -24px; }
+
+a.excel:before { margin-top: 8px; margin-right:4px; background-position: -936px 0; }
+a.excel:hover:before { background-position: -936px -24px; }
+
+a.default:before { margin-top: 8px; margin-right:4px; background-position: -960px 0; }
+a.default:hover:before { background-position: -960px -24px; }
+
+a.zip:before { margin-top: 8px; margin-right:4px; background-position: -984px 0; }
+a.zip:hover:before { background-position: -984px -24px; }
+
+a.add_role:before { margin-right:4px; background-position: -1032px 0; }
+a.add_role:hover:before { background-position: -1032px -24px; }
+
+
+// category sprites
+
+.category {
+	a.delete:before { margin-left: 5px; background-position: -1008px 0;}
+	a.delete:hover:before { background-position: -1008px -24px;}
+	a.pdf:before, a.html:before, a.word:before, a.image:before, a.excel:before, a.default:before, a.zip:before {margin-left: 10px; margin-top: 0px; }
+}
+
+.large_sprite:before {
+	content: " ";
+	width: 48px;
+	height: 48px;
+	margin-right: 20px;
+	float: left;
+	background: url(../lib/pkp/templates/images/structure/sprites.png);
+	background-repeat: no-repeat;
+	background-position: 0 -48px;
+}
+
+.modal_add_user:before { background-position: -48px -48px; }
+.modal_add_role:before { background-position: -96px -48px; }
+.modal_add_file:before { background-position: -144px -48px; }

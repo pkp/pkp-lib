@@ -132,6 +132,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @param {HTMLElement} cancelButton The cancel button.
 	 * @param {Event} event The event that triggered the
 	 *  cancel button.
+	 * @return {boolean} false.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.cancelForm =
 			function(cancelButton, event) {

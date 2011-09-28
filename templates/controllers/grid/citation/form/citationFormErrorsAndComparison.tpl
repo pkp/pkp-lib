@@ -139,7 +139,7 @@
 			// Feature to disable raw citation editing warning.
 			$('#rawCitationEditingWarningHide').die('click').live('click', function() {ldelim}
 				$.getJSON(
-					'{url router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="setUserSetting"}?setting-name=citation-editor-hide-raw-editing-warning&setting-value='+($(this).attr('checked')===true ? 'true' : 'false'),
+					'{url router=$smarty.const.ROUTE_COMPONENT component="api.user.UserApiHandler" op="updateUserMessageState"}?setting-name=citation-editor-hide-raw-editing-warning&setting-value='+($(this).attr('checked')===true ? 'true' : 'false'),
 					function(jsonData) {ldelim}
 						if (jsonData.status !== true) {ldelim}
 							alert(jsonData.content);

@@ -9,7 +9,7 @@
 {assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
 {foreach name=columnLoop from=$columns key=columnId item=column}
 	{if $smarty.foreach.columnLoop.first}
-		<td class="pkp_linkActions">
+		<td>
 			{if $categoryRow->getActions()}
 				{foreach name=actions from=$categoryRow->getActions() item=action}
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}

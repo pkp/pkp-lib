@@ -300,7 +300,8 @@ class PKPLocale {
 		$matches = null;
 		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
-		return $matches;
+		if (isset($matches[0])) return $matches[0];
+		return array();
 	}
 
 	/**

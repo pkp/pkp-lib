@@ -23,6 +23,11 @@ if (!defined('ASSOC_TYPE_ARTICLE')) {
 }
 
 class CitationDAOTest extends DatabaseTestCase {
+
+	protected function getAffectedTables() {
+		return array('citations', 'citation_settings');
+	}
+
 	/**
 	 * @covers CitationDAO
 	 */

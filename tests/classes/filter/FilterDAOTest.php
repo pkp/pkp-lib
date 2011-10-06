@@ -18,14 +18,15 @@ import('lib.pkp.classes.filter.FilterDAO');
 import('lib.pkp.classes.filter.FilterGroup');
 
 class FilterDAOTest extends DatabaseTestCase {
+	/**
+	 * @see DatabaseTestCase::getAffectedTables()
+	 */
+	protected function getAffectedTables() {
+		return array('filters', 'filter_settings', 'filter_groups');
+	}
+
 	protected function setUp() {
-		// Clean up from earlier tests.
-		$filterDao = DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-		foreach($filterDao->getObjectsByGroup('test-filter-group', 9999) as $filter) {
-			$filterDao->deleteObject($filter);
-		}
-		$filterGroupDao->deleteObjectBySymbolic('test-filter-group');
+		parent::setUp();
 
 		// Create a test filter group.
 		$someGroup = new FilterGroup();
@@ -34,13 +35,8 @@ class FilterDAOTest extends DatabaseTestCase {
 		$someGroup->setDescription('some.test.filter.group.description');
 		$someGroup->setInputType('primitive::string');
 		$someGroup->setOutputType('primitive::string');
-		self::assertTrue(is_integer($filterGroupId = $filterGroupDao->insertObject($someGroup)));
-	}
-
-	protected function tearDown() {
-		// Delete test filter group.
 		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-		self::assertTrue($filterGroupDao->deleteObjectBySymbolic('test-filter-group'));
+		self::assertTrue(is_integer($filterGroupId = $filterGroupDao->insertObject($someGroup)));
 	}
 
 	/**

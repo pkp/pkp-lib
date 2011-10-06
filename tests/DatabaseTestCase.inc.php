@@ -17,19 +17,34 @@
 
 
 import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.tests.PKPTestHelper');
 
 abstract class DatabaseTestCase extends PKPTestCase {
+
+	/**
+	 * Override this method if you want to backup/restore
+	 * tables before/after the test.
+	 * @return array A list of tables to backup and restore.
+	 */
+	protected function getAffectedTables() {
+		return array();
+	}
+
+	/**
+	 * @see PHPUnit_Framework_TestCase::setUp()
+	 */
 	protected function setUp() {
-		// Rather than using "include_once()", ADOdb uses
-		// a global variable to maintain the information
-		// whether its library has been included before (wtf!).
-		// This causes problems with PHPUnit as PHPUnit will
-		// delete all global state between two consecutive
-		// tests to isolate tests from each other.
-		if(function_exists('_array_change_key_case')) {
-			global $ADODB_INCLUDED_LIB;
-			$ADODB_INCLUDED_LIB = 1;
-		}
+		// Backup affected tables.
+		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
+		parent::setUp();
+	}
+
+	/**
+	 * @see PHPUnit_Framework_TestCase::tearDown()
+	 */
+	protected function tearDown() {
+		parent::tearDown();
+		PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
 	}
 }
 ?>

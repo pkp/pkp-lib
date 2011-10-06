@@ -25,8 +25,20 @@ class ProcessDAOTest extends DatabaseTestCase {
 		$processDAO,
 		$testProcessType = -5; // Use a process type that doesn't conflict.
 
-	public function setUp() {
+
+	/**
+	 * @see DatabaseTestCase::getAffectedTables()
+	 */
+	protected function getAffectedTables() {
+		return array('processes');
+	}
+
+	/**
+	 * @see DatabaseTestCase::setUp()
+	 */
+	protected function setUp() {
 		$this->processDAO = DAORegistry::getDAO('ProcessDAO');
+		parent::setUp();
 	}
 
 	/**

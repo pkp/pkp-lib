@@ -19,6 +19,7 @@
 
 // Include PHPUnit
 require_once('PHPUnit/Extensions/OutputTestCase.php');
+import('lib.pkp.tests.PKPTestHelper');
 
 // FIXME: PHPUnit_Extensions_OutputTestCase is now deprecated but we have to
 // use it until we upgrade our test server from phpunit 3.4 to at least 3.6.

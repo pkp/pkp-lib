@@ -68,11 +68,23 @@ class PKPRequestTest extends PKPTestCase {
 	 * @covers PKPRequest::redirectUrl
 	 */
 	public function testRedirectUrl() {
+		HookRegistry::register('Request::redirect', array($this, 'redirectUrlHook'));
 		$this->request->redirectUrl('http://some.url/');
 		self::assertEquals(
 			array(array('Request::redirect' , array('http://some.url/'))),
 			HookRegistry::getCalledHooks()
 		);
+		HookRegistry::clear('Request::redirect');
+	}
+
+	/**
+	 * A hook for redirection testing.
+	 * @param $hookName string
+	 * @param $args array
+	 */
+	public function redirectUrlHook($hookName, $args) {
+		// Returning true will avoid actual redirection.
+		return true;
 	}
 
 	/**

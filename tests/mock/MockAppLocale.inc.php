@@ -16,6 +16,7 @@ define('LOCALE_REGISTRY_FILE', 'lib/pkp/tests/registry/locales.xml');
 define('LOCALE_ENCODING', 'utf-8');
 
 define('LOCALE_COMPONENT_APPLICATION_COMMON',	0x00000101);
+define('LOCALE_COMPONENT_OJS_EDITOR',		0x00000103);
 
 import('lib.pkp.classes.i18n.PKPLocale');
 
@@ -23,7 +24,7 @@ class AppLocale extends PKPLocale {
 	static
 		$primaryLocale = 'en_US',
 		$supportedLocales = array('en_US' => 'English/America'),
-		$translationKey, $translations = array();
+		$translations = array();
 
 	/*
 	 * method required during setup of
@@ -74,11 +75,10 @@ class AppLocale extends PKPLocale {
 	 * @return string
 	 */
 	function translate($key, $params = array(), $locale = null) {
-		self::$translationKey = $key;
 		if (isset(self::$translations[$key])) {
 			return self::$translations[$key];
 		}
-		return 'translated string';
+		return "##$key##";
 	}
 
 	/**
@@ -133,16 +133,6 @@ class AppLocale extends PKPLocale {
 	 */
 	static function setTranslations($translations) {
 		self::$translations = $translations;
-	}
-
-	/**
-	 * An internal function that allows us to inpect
-	 * the translation key that was passed to the
-	 * translate() method.
-	 * @return string
-	 */
-	static function getTestedTranslationKey() {
-		return self::$translationKey;
 	}
 }
 ?>

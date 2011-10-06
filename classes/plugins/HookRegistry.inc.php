@@ -68,6 +68,12 @@ class HookRegistry {
 	 * @return mixed
 	 */
 	function call($hookName, $args = null) {
+		// Remember the called hooks for testing.
+		$calledHooks =& HookRegistry::getCalledHooks();
+		$calledHooks[] = array(
+			$hookName, $args
+		);
+
 		$hooks =& HookRegistry::getHooks();
 		if (!isset($hooks[$hookName])) {
 			return false;
@@ -80,6 +86,20 @@ class HookRegistry {
 		}
 
 		return $result;
+	}
+
+
+	//
+	// Methods required for testing only.
+	//
+	function resetCalledHooks() {
+		$calledHooks =& HookRegistry::getCalledHooks();
+		$calledHooks = array();
+	}
+
+	function &getCalledHooks() {
+		static $calledHooks;
+		return $calledHooks;
 	}
 }
 

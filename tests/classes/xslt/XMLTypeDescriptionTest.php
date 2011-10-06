@@ -17,21 +17,12 @@ import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.xslt.XMLTypeDescription');
 
 class XMLTypeDescriptionTest extends PKPTestCase {
-	private $xdebugScream;
-
-	/**
-	 * @see PHPUnit_Framework_TestCase::setUp()
-	 */
-	function setUp() {
-		parent::setUp();
-		$this->xdebugScream = ini_get('xdebug.scream');
-	}
 
 	/**
 	 * @see PHPUnit_Framework_TestCase::tearDown()
 	 */
 	function tearDown() {
-		ini_set('xdebug.scream', $this->xdebugScream);
+		PKPTestHelper::xdebugScream(true);
 	}
 
 	/**
@@ -40,7 +31,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 	public function testInstantiateAndCheck() {
 		// Xdebug's scream parameter will disable the @ operator
 		// that we need for XML validation.
-		ini_set('xdebug.scream', false);
+		PKPTestHelper::xdebugScream(false);
 
 		// Test with dtd validation
 		$typeDescription = new XMLTypeDescription('dtd');
@@ -94,9 +85,9 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 	 * @covers XMLTypeDescription
 	 * @expectedException PHPUnit_Framework_Error
 	 */
-/*	function testInstantiateWithInvalidTypeDescriptor1() {
+	function testInstantiateWithInvalidTypeDescriptor1() {
 		// Type name is not fully qualified.
 		$typeDescription = new XMLTypeDescription('Nlm30CitationSchema(CITATION)');
-	}*/
+	}
 }
 ?>

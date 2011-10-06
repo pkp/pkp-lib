@@ -18,6 +18,11 @@ import('lib.pkp.classes.metadata.MetadataDescriptionDAO');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 class MetadataDescriptionDAOTest extends DatabaseTestCase {
+
+	protected function getAffectedTables() {
+		return array('metadata_descriptions', 'metadata_description_settings');
+	}
+
 	/**
 	 * @covers MetadataDescriptionDAO
 	 *

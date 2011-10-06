@@ -45,7 +45,7 @@ charset_normalization = On
 [files]
 files_dir = files
 public_files_dir = public
-umask = 0022
+umask = 0002
 
 [finfo]
 mime_database_path = /etc/magic.mime

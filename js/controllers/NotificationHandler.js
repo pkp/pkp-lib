@@ -83,21 +83,25 @@
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			showNotificationResponseHandler_ = function(ajaxContext, jsonData) {
+		var $notificationElement = this.getHtmlElement();
 		var workingJsonData = this.handleJson(jsonData);
 
-		if (workingJsonData !== false) {
-			if (workingJsonData.content.inPlace) {
-				var dataInPlace = workingJsonData.content.inPlace;
-				this.getHtmlElement().html(dataInPlace);
-				this.getHtmlElement().show();
-
-				if (!this.visibleWithoutScrolling_()) {
-					this.getHtmlElement().parent().trigger('notifyUser', jsonData);
-				}
-			} else {
-				this.getHtmlElement().empty();
-				this.getHtmlElement().hide();
+		if (workingJsonData == false) {
+			return;
+		}
+		if (workingJsonData.content.inPlace) {
+			var inPlaceNotificationsData = this.concatenateNotifications_(workingJsonData.content.inPlace);
+			var newNotificationsData = this.removeAlreadyShownNotifications_(workingJsonData);
+			
+			$notificationElement.html(inPlaceNotificationsData);
+			$notificationElement.show();
+				
+			if (!this.visibleWithoutScrolling_() && newNotificationsData.content.inPlace.length > 0) {
+				$notificationElement.parent().trigger('notifyUser', newNotificationsData);
 			}
+		} else {
+			this.getHtmlElement().empty();
+			this.getHtmlElement().hide();
 		}
 	};
 
@@ -116,7 +120,7 @@
 		var windowBottom = windowScrollTop + $(window).height();
 
 		// Consider modals and its own scroll functionality.
-		$parentModalContentWrapper = $notificationElement.parents('.ui-dialog-content');
+		var $parentModalContentWrapper = $notificationElement.parents('.ui-dialog-content');
 		if ($parentModalContentWrapper.length > 0) {
 			var modalContentTop = $parentModalContentWrapper.offset().top;
 			var modalContentBottom = modalContentTop + $parentModalContentWrapper.height();
@@ -132,6 +136,41 @@
 		} else {
 			return true;
 		}
+	};
+	
+	/**
+	 * Remove notification data from object that is already on page.
+	 * @param {Object} notificationsData
+	 * @return {Object}
+	 * @private
+	 */
+	$.pkp.controllers.NotificationHandler.prototype.
+			removeAlreadyShownNotifications_ = function(notificationsData) {
+		
+		var workingNotificationsData = notificationsData;
+		for (var key in workingNotificationsData.content.inPlace) {
+			var element = $("#pkp_notification_" + key);
+			if (element.length > 0) {
+				delete workingNotificationsData.content.inPlace[key];
+				delete workingNotificationsData.content.general[key];
+			}
+		}
+		return workingNotificationsData;
+	};
+	
+	/**
+	 * Concatenate notification data in a string variable.
+	 * @param {Object} notificationsData
+	 * @return {string}
+	 * @private
+	 */	
+	$.pkp.controllers.NotificationHandler.prototype.
+			concatenateNotifications_ = function(notificationsData) {
+		var returner = '';
+		for (var key in notificationsData) {
+			returner += notificationsData[key];
+		}
+		return returner;
 	};
 
 

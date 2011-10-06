@@ -136,10 +136,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		if (workingJsonData !== false) {
 			if (workingJsonData.content.general) {
-				var dataInPlace = workingJsonData.content.general;
-				var i, l;
-				for (i = 0, l = dataInPlace.length; i < l; i++) {
-					$.pnotify(dataInPlace[i]);
+				var notificationsData = workingJsonData.content.general;
+				var key;
+				for (key in notificationsData) {
+					$.pnotify(notificationsData[key]);
 				}
 			}
 		}

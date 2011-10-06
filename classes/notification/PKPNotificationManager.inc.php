@@ -363,7 +363,7 @@ class PKPNotificationManager {
 	function formatToGeneralNotification(&$request, &$notifications) {
 		$formattedNotificationsData = array();
 		foreach ($notifications as $notification) {
-			$formattedNotificationsData[] = array(
+			$formattedNotificationsData[$notification->getId()] = array(
 				'pnotify_title' => $this->getNotificationTitle($notification),
 				'pnotify_text' => $this->getNotificationContents(&$request, $notification),
 				'pnotify_addClass' => $this->getStyleClass($notification),
@@ -378,17 +378,16 @@ class PKPNotificationManager {
 	 * In place notification data formating.
 	 * @param $request PKPRequest
 	 * @param $notifications array
-	 * @return string
+	 * @return array
 	 */
 	function formatToInPlaceNotification(&$request, &$notifications) {
 		$formattedNotificationsData = null;
 
-		if (!empty($notifications)) {
+		if (!empty($notifications) && is_array($notifications)) {
 			$templateMgr =& TemplateManager::getManager();
-			$templateMgr->assign('inPlaceNotificationContent',
-				$this->formatNotifications($request, $notifications, 'controllers/notification/inPlaceNotificationContent.tpl')
-			);
-			$formattedNotificationsData = $templateMgr->fetch('controllers/notification/inPlaceNotifications.tpl');
+			foreach ($notifications as $notification) {
+				$formattedNotificationsData[$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
+			}
 		}
 
 		return $formattedNotificationsData;

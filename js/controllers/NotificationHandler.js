@@ -96,7 +96,7 @@
 			$notificationElement.html(inPlaceNotificationsData);
 			$notificationElement.show();
 				
-			if (!this.visibleWithoutScrolling_() && newNotificationsData.content.inPlace.length > 0) {
+			if (!(this.visibleWithoutScrolling_()) && newNotificationsData) {
 				$notificationElement.parent().trigger('notifyUser', newNotificationsData);
 			}
 		} else {
@@ -148,14 +148,21 @@
 			removeAlreadyShownNotifications_ = function(notificationsData) {
 		
 		var workingNotificationsData = notificationsData;
+		var emptyObject = true;
 		for (var key in workingNotificationsData.content.inPlace) {
 			var element = $("#pkp_notification_" + key);
 			if (element.length > 0) {
 				delete workingNotificationsData.content.inPlace[key];
 				delete workingNotificationsData.content.general[key];
+			} else {
+				emptyObject = false;
 			}
 		}
-		return workingNotificationsData;
+		if (emptyObject) {
+			return false;
+		} else {
+			return workingNotificationsData;
+		}
 	};
 	
 	/**

@@ -383,9 +383,9 @@ class PKPNotificationManager {
 	function formatToInPlaceNotification(&$request, &$notifications) {
 		$formattedNotificationsData = null;
 
-		if (!empty($notifications) && is_array($notifications)) {
+		if (!empty($notifications)) {
 			$templateMgr =& TemplateManager::getManager();
-			foreach ($notifications as $notification) {
+			foreach ((array)$notifications as $notification) {
 				$formattedNotificationsData[$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
 			}
 		}

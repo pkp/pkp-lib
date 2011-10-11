@@ -48,7 +48,7 @@ class PKPReviewAssignmentDAO extends DAO {
 			FROM	review_assignments r
 				INNER JOIN users u ON (r.reviewer_id = u.user_id)
 				INNER JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE   r.submission_id = ? AND
+			WHERE	r.submission_id = ? AND
 				r.reviewer_id = ? AND
 				r.cancelled <> 1 AND
 				r.round = ?' .
@@ -78,7 +78,7 @@ class PKPReviewAssignmentDAO extends DAO {
 			FROM	review_assignments r
 				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE   r.review_id = ?',
+			WHERE	r.review_id = ?',
 			(int) $reviewId
 		);
 

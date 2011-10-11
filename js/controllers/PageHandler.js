@@ -69,7 +69,7 @@
 	$.pkp.controllers.PageHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, params) {
 
-		if (params.status == true) {
+		if (params.status === true) {
 			this.getHtmlElement().parent().trigger('notifyUser', params);
 		} else {
 			// Use the notification helper to redirect the notify user event.
@@ -79,6 +79,7 @@
 
 	};
 
+
 	/**
 	 * Handler to redirect to the correct grid the dataChanged event.
 	 * @param {HTMLElement} sourceElement The element that issued the
@@ -87,7 +88,7 @@
 	 * @private
 	 */
 	$.pkp.controllers.PageHandler.prototype.redirectDataChangedEventHandler_ =
-		function(sourceElement, event) {
+			function(sourceElement, event) {
 
 		// Get the link action element (that is outside of any grid)
 		// that triggered the event.
@@ -95,7 +96,8 @@
 
 		// Get all grids inside this widget that have a
 		// link action with the same url of the sourceLinkElement.
-		var $grids = $('.pkp_controllers_grid', this.getHtmlElement()).has('a[href=' + $sourceLinkElement.attr('href') + ']');
+		var $grids = $('.pkp_controllers_grid', this.getHtmlElement())
+				.has('a[href=' + $sourceLinkElement.attr('href') + ']');
 
 		// Trigger the dataChanged event on found grids,
 		// so they can refresh themselves.

@@ -86,12 +86,17 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	/**
 	 * Fetch the notification data.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "fetchNotification" event.
+	 * @param {Event} event The "fetch notification" event.
+	 * @param {string?} jsonData The JSON content representing the
+	 *  notification.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function(sourceElement, event, jsonData) {
 
-		if (jsonData != undefined) {
+		if (jsonData !== undefined) {
 			// This is an event that came from an inplace notification
 			// widget that was not visible because of the scrolling.
 			this.showNotification_(jsonData);
@@ -128,7 +133,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Show the notification content.
 	 *
-	 * @param {Object} jsonData
+	 * @param {string} jsonData The JSON-encoded notification data.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {

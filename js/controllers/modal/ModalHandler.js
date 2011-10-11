@@ -205,9 +205,10 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Title text.
 		var title = options.title || null;
-		var iconClass = options.titleIcon || "";
+		var iconClass = options.titleIcon || '';
 		if (title) {
-			$titleBar.append(['<div class="large_sprite modal_title ' + iconClass + ' h2">', title, '</div>'].join(''));
+			$titleBar.append(['<div class="large_sprite modal_title ' +
+					iconClass + ' h2">', title, '</div>'].join(''));
 		}
 
 		// Replace the original title bar with our own implementation.

@@ -74,6 +74,7 @@
 		});
 	};
 
+
 	/**
 	 * Callback to show the notification data in place.
 	 *
@@ -86,16 +87,18 @@
 		var $notificationElement = this.getHtmlElement();
 		var workingJsonData = this.handleJson(jsonData);
 
-		if (workingJsonData == false) {
+		if (workingJsonData === false) {
 			return;
 		}
 		if (workingJsonData.content.inPlace) {
-			var inPlaceNotificationsData = this.concatenateNotifications_(workingJsonData.content.inPlace);
-			var newNotificationsData = this.removeAlreadyShownNotifications_(workingJsonData);
-			
+			var inPlaceNotificationsData = this.concatenateNotifications_(
+					workingJsonData.content.inPlace);
+			var newNotificationsData = this.removeAlreadyShownNotifications_(
+					workingJsonData);
+
 			$notificationElement.html(inPlaceNotificationsData);
 			$notificationElement.show();
-				
+
 			if (!(this.visibleWithoutScrolling_()) && newNotificationsData) {
 				$notificationElement.parent().trigger('notifyUser', newNotificationsData);
 			}
@@ -105,9 +108,10 @@
 		}
 	};
 
+
 	/**
-	 * Check if the notification is inside the window visible are.
-	 * @return {boolean}
+	 * Check if the notification is inside the window are visible.
+	 * @return {boolean} True iff the notification is fully visible.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
@@ -120,37 +124,43 @@
 		var windowBottom = windowScrollTop + $(window).height();
 
 		// Consider modals and its own scroll functionality.
-		var $parentModalContentWrapper = $notificationElement.parents('.ui-dialog-content');
+		var $parentModalContentWrapper = $notificationElement
+				.parents('.ui-dialog-content');
 		if ($parentModalContentWrapper.length > 0) {
 			var modalContentTop = $parentModalContentWrapper.offset().top;
-			var modalContentBottom = modalContentTop + $parentModalContentWrapper.height();
-			if (notificationMiddle < modalContentTop || notificationMiddle > modalContentBottom) {
+			var modalContentBottom = modalContentTop +
+					$parentModalContentWrapper.height();
+			if (notificationMiddle < modalContentTop ||
+					notificationMiddle > modalContentBottom) {
 				// The element is outside of the modal content wrapper area.
 				return false;
 			}
 		}
 
 		// Check if the element is inside of the visible window are.
-		if (notificationMiddle < windowScrollTop || notificationMiddle > windowBottom) {
+		if (notificationMiddle < windowScrollTop ||
+				notificationMiddle > windowBottom) {
 			return false;
 		} else {
 			return true;
 		}
 	};
-	
+
+
 	/**
 	 * Remove notification data from object that is already on page.
-	 * @param {Object} notificationsData
-	 * @return {Object}
+	 * @param {Object} notificationsData The notification data to perform
+	 *  the deletion on.
+	 * @return {Object} Notification data after deletion.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			removeAlreadyShownNotifications_ = function(notificationsData) {
-		
+
 		var workingNotificationsData = notificationsData;
 		var emptyObject = true;
 		for (var key in workingNotificationsData.content.inPlace) {
-			var element = $("#pkp_notification_" + key);
+			var element = $('#pkp_notification_' + key);
 			if (element.length > 0) {
 				delete workingNotificationsData.content.inPlace[key];
 				delete workingNotificationsData.content.general[key];
@@ -164,13 +174,15 @@
 			return workingNotificationsData;
 		}
 	};
-	
+
+
 	/**
 	 * Concatenate notification data in a string variable.
-	 * @param {Object} notificationsData
-	 * @return {string}
+	 * @param {Object} notificationsData The notification data to assemble
+	 *  the concatenation from.
+	 * @return {string} The concatenated notification data.
 	 * @private
-	 */	
+	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			concatenateNotifications_ = function(notificationsData) {
 		var returner = '';

@@ -291,8 +291,8 @@ class FilterDAO extends DAO {
 	 * will be returned when $checkRuntimeEnvironment is set to 'true'.
 	 *
 	 * @param $groupSymbolic string
-	 * @param $contextId integer returns contexts from context 0 and
-	 *  the given contexts of all contexts if set to null
+	 * @param $contextId integer returns filters from context 0 and
+	 *  the given filters of all contexts if set to null
 	 * @param $getTemplates boolean set true if you want filter templates
 	 *  rather than actual transformations
 	 * @param $checkRuntimeEnvironment boolean whether to remove filters

@@ -204,11 +204,11 @@ class PKPRouterTest extends PKPTestCase {
 		        ->with('contextPath')
 		        ->will($this->returnValue($expectedResult));
 		$result = $this->router->getContext($this->request, 1);
-		self::assertType('SomeContext', $result);
+		self::assertInstanceOf('SomeContext', $result);
 		self::assertEquals($expectedResult, $result);
 
 		$resultByName = $this->router->getContextByName($this->request, 'someContext');
-		self::assertType('SomeContext', $resultByName);
+		self::assertInstanceOf('SomeContext', $resultByName);
 		self::assertEquals($expectedResult, $resultByName);
 	}
 

@@ -14,6 +14,9 @@
  */
 
 
+define('OAIRECORD_STATUS_DELETED', 0);
+define('OAIRECORD_STATUS_ALIVE', 1);
+
 
 /**
  * OAI repository configuration.
@@ -209,6 +212,9 @@ class OAIIdentifier {
 	/** @var $sets array sets this record belongs to */
 	var $sets;
 
+  	/** @var $status string if this record is deleted */
+	var $status;
+	
 	function OAIIdentifier() {
 	}
 }

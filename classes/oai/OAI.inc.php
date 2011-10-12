@@ -241,19 +241,21 @@ class OAI {
 		// Display response
 		$response = "\t<GetRecord>\n" .
 			"\t\t<record>\n" .
-			"\t\t\t<header>\n" .
+			"\t\t\t<header" .(($record->status == OAIRECORD_STATUS_DELETED)?" status=\"deleted\">\n":">\n") .
 			"\t\t\t\t<identifier>" . $record->identifier ."</identifier>\n" .
 			"\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
 		// Output set memberships
 		foreach ($record->sets as $setSpec) {
 			$response .= "\t\t\t\t<setSpec>$setSpec</setSpec>\n";
 		}
-		$response .= "\t\t\t</header>\n" .
-			"\t\t\t<metadata>\n";
-		// Output metadata
-		$response .= $this->formatMetadata($metadataPrefix, $record);
-		$response .= "\t\t\t</metadata>\n" .
-			"\t\t</record>\n" .
+		$response .= "\t\t\t</header>\n";
+		if (!empty($record->data)) {
+			$response .= "\t\t\t<metadata>\n";
+			// Output metadata
+			$response .= $this->formatMetadata($metadataPrefix, $record);
+			$response .= "\t\t\t</metadata>\n";
+		}
+		$response .= "\t\t</record>\n" .
 			"\t</GetRecord>\n";
 
 		$this->response($response);
@@ -279,7 +281,7 @@ class OAI {
 			"\t\t<protocolVersion>" . $this->protocolVersion . "</protocolVersion>\n" .
 			"\t\t<adminEmail>" . $info->adminEmail . "</adminEmail>\n" .
 			"\t\t<earliestDatestamp>" . OAIUtils::UTCDate($info->earliestDatestamp) . "</earliestDatestamp>\n" .
-			"\t\t<deletedRecord>no</deletedRecord>\n" . // FIXME Support deleted records?
+			"\t\t<deletedRecord>persistent</deletedRecord>\n" .
 			"\t\t<granularity>" . $this->config->granularity . "</granularity>\n";
 		if (extension_loaded('zlib')) {
 			// Show compression options if server supports Zlib
@@ -383,7 +385,7 @@ class OAI {
 		// Output identifiers
 		for ($i = 0, $num = count($records); $i < $num; $i++) {
 			$record = $records[$i];
-			$response .= "\t\t<header>\n" .
+			$response .= "\t\t<header" .(($record->status == OAIRECORD_STATUS_DELETED)?" status=\"deleted\">\n":">\n") .
 				"\t\t\t<identifier>" . $record->identifier . "</identifier>\n" .
 				"\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
 			// Output set memberships
@@ -526,19 +528,21 @@ class OAI {
 		for ($i = 0, $num = count($records); $i < $num; $i++) {
 			$record = $records[$i];
 			$response .= "\t\t<record>\n" .
-				"\t\t\t<header>\n" .
+				"\t\t\t<header" .(($record->status == OAIRECORD_STATUS_DELETED)?" status=\"deleted\">\n":">\n") .
 				"\t\t\t\t<identifier>" . $record->identifier . "</identifier>\n" .
 				"\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
 			// Output set memberships
 			foreach ($record->sets as $setSpec) {
 				$response .= "\t\t\t\t<setSpec>" . OAIUtils::prepOutput($setSpec) . "</setSpec>\n";
 			}
-			$response .=	"\t\t\t</header>\n" .
-					"\t\t\t<metadata>\n";
-			// Output metadata
-			$response .= $this->formatMetadata($this->getParam('metadataPrefix'), $record);
-			$response .=	"\t\t\t</metadata>\n" .
-					"\t\t</record>\n";
+			$response .= "\t\t\t</header>\n";
+			if (!empty($record->data)) {
+				$response .= "\t\t\t<metadata>\n";
+				// Output metadata
+				$response .= $this->formatMetadata($this->getParam('metadataPrefix'), $record);
+				$response .= "\t\t\t</metadata>\n";
+			}
+			$response .= "\t\t</record>\n";
 		}
 		$offset += $num;
 
@@ -595,7 +599,7 @@ class OAI {
 		$total = 0;
 
 		// Get list of matching sets
-		$sets =& $this->sets($offset, $total);
+		$sets =& $this->sets($offset, $this->config->maxRecords, $total);
 		if (empty($sets)) {
 			$this->error('noSetHierarchy', 'This repository does not support sets');
 			return;
@@ -626,6 +630,7 @@ class OAI {
 			}
 			$response .= "\t\t</set>\n";
 		}
+		$offset += $num;
 
 		if ($offset != 0 && $offset < $total) {
 			// Partial result, set resumption token

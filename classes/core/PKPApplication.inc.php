@@ -527,3 +527,5 @@ class PKPApplication {
 function define_exposed($name, $value) {
 	PKPApplication::defineExposedConstant($name, $value);
 }
+
+?>

@@ -169,7 +169,7 @@ class PKPApplication {
 			$dispatcher = new Dispatcher();
 
 			// Inject dependency
-			$dispatcher->setApplication($this->getApplication());
+			$dispatcher->setApplication(PKPApplication::getApplication());
 
 			// Inject router configuration
 			$dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);

@@ -32,7 +32,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 		 * @var array
 		 * @see mockRoleDao() below
 		 */
-	 	$userHasRoleInvocations;
+		$userHasRoleInvocations;
 
 	/**
 	 * Create an authorization context manipulation policy.

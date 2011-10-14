@@ -13,7 +13,7 @@
  */
 
 define('BLOCK_CONTEXT_LEFT_SIDEBAR',		0x00000001);
-define('BLOCK_CONTEXT_RIGHT_SIDEBAR', 		0x00000002);
+define('BLOCK_CONTEXT_RIGHT_SIDEBAR',		0x00000002);
 define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
 import('lib.pkp.classes.plugins.LazyLoadPlugin');

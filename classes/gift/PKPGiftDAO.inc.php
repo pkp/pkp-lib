@@ -237,14 +237,14 @@ class PKPGiftDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	 function deleteGiftsByAssocId($assocType, $assocId) {
+	function deleteGiftsByAssocId($assocType, $assocId) {
 		$gifts =& $this->getGiftsByAssocId($assocType, $assocId);
 		while (($gift =& $gifts->next())) {
 			$this->deleteGiftById($gift->getId());
 			unset($gift);
 		}
 		return true;
-	 }
+	}
 
 	/**
 	 * Retrieve an array of gifts matching a particular assoc ID.

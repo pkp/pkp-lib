@@ -164,7 +164,7 @@ class FormBuilderVocabulary {
 				//  This is a kludge but the only way to make sure we've
 				//  set the list parameter when we're using lists
 				if (substr(trim($content), 0, 4) == "<li>") {
-					 $smarty->trigger_error('FBV: list attribute not set on form section containing lists');
+					$smarty->trigger_error('FBV: list attribute not set on form section containing lists');
 				}
 
 				$smarty->assign('FBV_listSection', false);

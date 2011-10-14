@@ -34,7 +34,7 @@ class PKPAction {
 	 * @param $submission Submission
 	 * @return string the rendered response
 	 */
-	 function editCitations(&$request, &$submission) {
+	function editCitations(&$request, &$submission) {
 		$router =& $request->getRouter();
 		$dispatcher =& $this->getDispatcher();
 		$templateMgr =& TemplateManager::getManager();

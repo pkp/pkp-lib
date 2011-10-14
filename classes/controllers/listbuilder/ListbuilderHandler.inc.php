@@ -285,8 +285,12 @@ class ListbuilderHandler extends GridHandler {
 		// and reconcile the data against this list, adding/
 		// updating/deleting as needed.
 		$data = $request->getUserVar('data');
-		$this->unpack($request, $data,
-					  array(&$this, 'deleteEntry'), array(&$this, 'insertEntry'), array(&$this, 'updateEntry'));
+		$this->unpack(
+			$request, $data,
+			array(&$this, 'deleteEntry'),
+			array(&$this, 'insertEntry'),
+			array(&$this, 'updateEntry')
+		);
 	}
 
 

@@ -193,14 +193,14 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	 function deleteAnnouncementsByAssocId($assocType, $assocId) {
+	function deleteAnnouncementsByAssocId($assocType, $assocId) {
 		$announcements =& $this->getAnnouncementsByAssocId($assocType, $assocId);
 		while (($announcement =& $announcements->next())) {
 			$this->deleteAnnouncementById($announcement->getId());
 			unset($announcement);
 		}
 		return true;
-	 }
+	}
 
 	/**
 	 * Retrieve an array of announcements matching a particular assoc ID.

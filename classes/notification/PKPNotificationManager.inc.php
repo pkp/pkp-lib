@@ -365,7 +365,7 @@ class PKPNotificationManager {
 		foreach ($notifications as $notification) {
 			$formattedNotificationsData[$notification->getId()] = array(
 				'pnotify_title' => $this->getNotificationTitle($notification),
-				'pnotify_text' => $this->getNotificationContents(&$request, $notification),
+				'pnotify_text' => $this->getNotificationContents($request, $notification),
 				'pnotify_addClass' => $this->getStyleClass($notification),
 				'pnotify_notice_icon' => $this->getIconClass($notification)
 			);
@@ -409,7 +409,7 @@ class PKPNotificationManager {
 		$mail = new MailTemplate('NOTIFICATION');
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(
-			'notificationContents' => $this->getNotificationContents(&$request, $notification),
+			'notificationContents' => $this->getNotificationContents($request, $notification),
 			'url' => $this->getNotificationUrl($request, $notification),
 			'siteTitle' => $site->getLocalizedTitle()
 		));
@@ -435,7 +435,7 @@ class PKPNotificationManager {
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
 			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 			$mail->assignParams(array(
-				'notificationContents' => $this->getNotificationContents(&$request, $notification),
+				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
 				'siteTitle' => $context->getLocalizedTitle(),
 				'unsubscribeLink' => $request->url(null, 'notification', 'unsubscribeMailList')

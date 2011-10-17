@@ -51,7 +51,7 @@ class PKPNotificationManager {
 		$notificationString = '';
 
 		// Build out the notifications based on their associated objects and format into a string
-		foreach($notifications as $notification) {
+		while($notification =& $notifications->next()) {
 			$notificationString .= $this->formatNotification($request, $notification, $notificationTemplate);
 			unset($notification);
 		}
@@ -431,6 +431,8 @@ class PKPNotificationManager {
 			import('classes.mail.MailTemplate');
 			$context =& $request->getContext();
 			$site =& $request->getSite();
+			$router =& $request->getRouter();
+			$dispatcher =& $router->getDispatcher();
 
 			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
 			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
@@ -438,7 +440,7 @@ class PKPNotificationManager {
 				'notificationContents' => $this->getNotificationContents($request, $notification),
 				'url' => $this->getNotificationUrl($request, $notification),
 				'siteTitle' => $context->getLocalizedTitle(),
-				'unsubscribeLink' => $request->url(null, 'notification', 'unsubscribeMailList')
+				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList')
 			));
 			$mail->addRecipient($email);
 			$mail->send();
@@ -455,14 +457,19 @@ class PKPNotificationManager {
 	function sendMailingListEmail(&$request, $email, $token, $template) {
 		import('classes.mail.MailTemplate');
 		$site = $request->getSite();
+		$router =& $request->getRouter();
+		$dispatcher =& $router->getDispatcher();
 
 		$params = array(
 			'siteTitle' => $site->getLocalizedTitle(),
-			'unsubscribeLink' => $request->url(null, 'notification', 'unsubscribeMailList', array($token))
+			'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList', array($token))
 		);
 
 		if ($template == 'NOTIFICATION_MAILLIST_WELCOME') {
-			$confirmLink = $request->url(null, 'notification', 'confirmMailListSubscription', array($token));
+			$router =& $request->getRouter();
+			$dispatcher =& $router->getDispatcher();
+
+			$confirmLink = $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'confirmMailListSubscription', array($token));
 			$params["confirmLink"] = $confirmLink;
 		}
 

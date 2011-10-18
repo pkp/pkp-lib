@@ -157,6 +157,8 @@
 	<message key="common.record">Record</message>
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>
+	<message key="common.remote">Remote</message>
+	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.remove">Remove</message>
 	<message key="common.removeSelection">Remove Selection</message>
 	<message key="common.replaced">Replaced</message>

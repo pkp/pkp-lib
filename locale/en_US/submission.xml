@@ -303,6 +303,8 @@
 	<message key="submission.layout.galleyLabelRequired">A galley label is required.</message>
 	<message key="submission.layout.galleyLanguageRequired">A galley language is required.</message>
 	<message key="submission.layout.galleyLocaleRequired">A galley locale is required.</message>
+	<message key="submission.layout.galleyRemoteURL">Remote URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Please provide a valid remote URL (include http://).</message>
 	<message key="submission.layout.galleyNoImages">No images</message>
 	<message key="submission.layout.galleys">Galleys</message>
 	<message key="submission.layout.galleyStylesheet">Stylesheet File</message>
@@ -377,6 +379,7 @@
 	<message key="submission.titleAndAbstract">Title and Abstract</message>
 	<message key="submission.underway">Underway</message>
 	<message key="submission.uploadFileTo">Upload file to</message>
+	<message key="submission.createRemote">Create remote</message>
 	<message key="submission.uploaderUserGroup">Upload in my role as...</message>
 	<message key="submission.submitterUserGroup">Submit in my role as...</message>
 	<message key="submission.viewMetadata">View Metadata</message>

@@ -685,6 +685,21 @@ class Installer {
 	}
 
 	/**
+	 * Check to see whether a table exists.
+	 * Used in installer XML in conditional checks on <data> nodes.
+	 * @param $tableName string
+	 * @return boolean
+	 */
+	function tableExists($tableName) {
+		$siteDao =& DAORegistry::getDAO('SiteDAO');
+		$dict = NewDataDictionary($siteDao->_dataSource);
+
+		// Check whether the table exists.
+		$tables = $dict->MetaTables('TABLES', false);
+		return in_array($tableName, $tables);
+	}
+
+	/**
 	 * Insert or update plugin data in versions
 	 * and plugin_settings tables.
 	 * @return boolean

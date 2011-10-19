@@ -86,7 +86,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase {
 
 		// Check whether the authorized context is correctly returned from the policy.
 		self::assertEquals(AUTHORIZATION_PERMIT, $this->decisionManager->decide());
-		self::assertType('UserGroup', $this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
+		self::assertInstanceOf('UserGroup', $this->decisionManager->getAuthorizedContextObject(ASSOC_TYPE_USER_GROUP));
 	}
 
 	/**

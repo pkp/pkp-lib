@@ -55,7 +55,7 @@ class FilterTest extends PKPTestCase {
 		// Test execution without runtime requirements
 		$testInput = new TestClass1();
 		$testInput->testField = 'some filter input';
-		self::assertType('TestClass2', $testOutput = $mockFilter->execute($testInput));
+		self::assertInstanceOf('TestClass2', $testOutput = $mockFilter->execute($testInput));
 
 		self::assertEquals($this->getTestOutput(), $testOutput);
 		self::assertEquals($testInput, $mockFilter->getLastInput());

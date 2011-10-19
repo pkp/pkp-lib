@@ -26,7 +26,7 @@ class DBConnectionTest extends DatabaseTestCase {
 	public function testInitDefaultDBConnection() {
 		$conn = new DBConnection();
 		$dbConn = $conn->getDBConn();
-		self::assertType('ADODB_mysql', $dbConn);
+		self::assertInstanceOf('ADODB_mysql', $dbConn);
 		$conn->disconnect();
 		unset($conn);
 	}
@@ -41,7 +41,7 @@ class DBConnectionTest extends DatabaseTestCase {
 		$this->setTestConfiguration(self::CONFIG_PGSQL);
 		$conn = new DBConnection();
 		$dbConn = $conn->getDBConn();
-		self::assertType('ADODB_postgres7', $dbConn);
+		self::assertInstanceOf('ADODB_postgres7', $dbConn);
 		$conn->disconnect();
 		unset($conn);
 	}
@@ -55,7 +55,7 @@ class DBConnectionTest extends DatabaseTestCase {
 		$this->setTestConfiguration(self::CONFIG_PGSQL);
 		$conn = new DBConnection('sqlite', 'localhost', 'ojs', 'ojs', 'ojs', true, false, false);
 		$dbConn = $conn->getDBConn();
-		self::assertType('ADODB_sqlite', $dbConn);
+		self::assertInstanceOf('ADODB_sqlite', $dbConn);
 		$conn->disconnect();
 		unset($conn);
 	}

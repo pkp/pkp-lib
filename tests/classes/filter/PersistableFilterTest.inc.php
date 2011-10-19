@@ -30,7 +30,7 @@ class PersistableFilterTest extends PKPTestCase {
 		$testFilter = new PersistableFilter($constructorArg);
 
 		// Test getters/setters that are not implicitly tested by other tests
-		self::assertType('FilterGroup', $testFilter->getFilterGroup());
+		self::assertInstanceOf('FilterGroup', $testFilter->getFilterGroup());
 		$testFilter->setDisplayName('Some other display name');
 		$testFilter->setIsTemplate(1);
 		self::assertTrue($testFilter->getIsTemplate());

@@ -47,7 +47,7 @@ class MetadataPluginTestCase extends PluginTestCase {
 
 		// Test whether the controlled vocabs have been installed.
 		foreach($controlledVocabs as $controlledVocab) {
-			self::assertType('ControlledVocab', $controlledVocabDao->getBySymbolic($controlledVocab, 0, 0));
+			self::assertInstanceOf('ControlledVocab', $controlledVocabDao->getBySymbolic($controlledVocab, 0, 0));
 		}
 	}
 }

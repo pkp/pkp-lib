@@ -27,13 +27,13 @@ class TypeDescriptionFactoryTest extends PKPTestCase {
 
 		// Instantiate a primitive type
 		$typeDescription = $typeDescriptionFactory->instantiateTypeDescription('primitive::string');
-		self::assertType('PrimitiveTypeDescription', $typeDescription);
+		self::assertInstanceOf('PrimitiveTypeDescription', $typeDescription);
 		self::assertTrue($typeDescription->isCompatible($object = 'some string'));
 		self::assertFalse($typeDescription->isCompatible($object = 5));
 
 		// Instantiate a class type
 		$typeDescription = $typeDescriptionFactory->instantiateTypeDescription('class::lib.pkp.tests.classes.filter.TestClass1');
-		self::assertType('ClassTypeDescription', $typeDescription);
+		self::assertInstanceOf('ClassTypeDescription', $typeDescription);
 		$compatibleObject = new TestClass1();
 		$wrongObject = new TestClass2();
 		self::assertTrue($typeDescription->isCompatible($compatibleObject));

@@ -71,7 +71,7 @@ class PluginTestCase extends PKPTestCase {
 		import('lib.pkp.classes.site.VersionCheck');
 		self::assertFileExists($versionFile = './plugins/'.$pluginCategory.'/'.$pluginDir.'/version.xml');
 		self::assertArrayHasKey('version', $versionInfo =& VersionCheck::parseVersionXML($versionFile));
-		self::assertType('Version', $pluginVersion =& $versionInfo['version']);
+		self::assertInstanceOf('Version', $pluginVersion =& $versionInfo['version']);
 		$installer->setCurrentVersion($pluginVersion);
 
 		// Install the plug-in.
@@ -86,7 +86,7 @@ class PluginTestCase extends PKPTestCase {
 		// Test whether the filter groups have been installed.
 		foreach($filterGroups as $filterGroupSymbolic) {
 			// Check the group.
-			self::assertType('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);
+			self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);
 		}
 	}
 

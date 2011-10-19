@@ -52,7 +52,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		// Install a test filter object.
 		$settings = array('seq' => '1', 'some-key' => 'some-value');
 		$testFilter =& $filterDao->configureObject('lib.pkp.tests.classes.filter.PersistableTestFilter', 'test-filter-group', $settings, false, 9999);
-		self::assertType('PersistableFilter', $testFilter);
+		self::assertInstanceOf('PersistableFilter', $testFilter);
 		$filterId = $testFilter->getId();
 		self::assertTrue(is_integer($filterId));
 
@@ -116,7 +116,7 @@ class FilterDAOTest extends DatabaseTestCase {
 		// Instantiate a composite test filter object
 		$subFilters = array($subFilter1, $subFilter2);
 		$testFilter = $filterDao->configureObject('lib.pkp.classes.filter.GenericSequencerFilter', 'test-filter-group', array('seq' => 1), false, 9999, $subFilters);
-		self::assertType('GenericSequencerFilter', $testFilter);
+		self::assertInstanceOf('GenericSequencerFilter', $testFilter);
 		$filterId = $testFilter->getId();
 		self::assertTrue(is_numeric($filterId));
 		self::assertTrue($filterId > 0);

@@ -282,7 +282,7 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		$this->router->route($this->request);
 
 		self::assertNotNull($serviceEndpoint =& $this->router->getRpcServiceEndpoint($this->request));
-		self::assertType('CitationGridHandler', $handler =& $serviceEndpoint[0]);
+		self::assertInstanceOf('CitationGridHandler', $handler =& $serviceEndpoint[0]);
 		$fetchArgs =& $handler->getFetchArgs();
 		$expectedArgs = array(
 			array('arg1' => 'val1', 'arg2' => 'val2'),
@@ -291,9 +291,9 @@ class PKPComponentRouterTest extends PKPRouterTest {
 		self::assertEquals($expectedArgs, $fetchArgs);
 		self::assertSame($expectedArgs[1], $fetchArgs[1]);
 		$firstContextDao = DAORegistry::getDAO('FirstContextDAO');
-		self::assertType('FirstContext', $firstContextDao->getFirstContextByPath('context1'));
+		self::assertInstanceOf('FirstContext', $firstContextDao->getFirstContextByPath('context1'));
 		$secondContextDao = DAORegistry::getDAO('SecondContextDAO');
-		self::assertType('SecondContext', $secondContextDao->getSecondContextByPath('context2'));
+		self::assertInstanceOf('SecondContext', $secondContextDao->getSecondContextByPath('context2'));
 	}
 
 	/**

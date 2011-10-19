@@ -24,7 +24,7 @@ class PKPProcessAccessPolicyTest extends PolicyTestCase {
 		// Generate a test process.
 		$processDao =& DAORegistry::getDAO('ProcessDAO');
 		$process =& $processDao->insertObject(PROCESS_TYPE_CITATION_CHECKING, 1);
-		self::assertType('Process', $process);
+		self::assertInstanceOf('Process', $process);
 
 		// Mock a request to a private method.
 		$deniedRequest = $this->getMockRequest('privateOperation');

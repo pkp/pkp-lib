@@ -27,7 +27,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 				'metadata::plugins.metadata.mods34.schema.Mods34Schema(CITATION)',
 				'class::lib.pkp.classes.submission.Submission'));
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
-		self::assertType('Mods34Schema', $adapter->getMetadataSchema());
+		self::assertInstanceOf('Mods34Schema', $adapter->getMetadataSchema());
 		self::assertEquals('Submission', $adapter->getDataObjectClass());
 
 		// Instantiate a test description.

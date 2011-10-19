@@ -79,7 +79,7 @@ class ProcessDAOTest extends DatabaseTestCase {
 	public function testAuthorization() {
 		// Insert a test process.
 		$process =& $this->processDAO->insertObject($this->testProcessType, 2);
-		self::assertType('Process', $process);
+		self::assertInstanceOf('Process', $process);
 		$processId = $process->getId();
 
 		// Try to authorize with an incorrect process id.
@@ -98,7 +98,7 @@ class ProcessDAOTest extends DatabaseTestCase {
 
 		// Insert another test process.
 		$process =& $this->processDAO->insertObject($this->testProcessType, 2);
-		self::assertType('Process', $process);
+		self::assertInstanceOf('Process', $process);
 		$processId = $process->getId();
 
 		// Artificially change the start time.
@@ -117,7 +117,7 @@ class ProcessDAOTest extends DatabaseTestCase {
 	public function testCanContinue() {
 		// Insert a test process.
 		$process =& $this->processDAO->insertObject($this->testProcessType, 2);
-		self::assertType('Process', $process);
+		self::assertInstanceOf('Process', $process);
 		$processId = $process->getId();
 
 		self::assertTrue($this->processDAO->canContinue($processId));

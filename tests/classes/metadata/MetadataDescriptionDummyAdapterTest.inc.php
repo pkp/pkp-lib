@@ -34,7 +34,7 @@ class MetadataDescriptionDummyAdapterTest extends PKPTestCase {
 		$adapter = new MetadataDescriptionDummyAdapter($originalDescription);
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
 		self::assertEquals($schema, $adapter->getMetadataSchemaName());
-		self::assertType('Nlm30CitationSchema', $adapter->getMetadataSchema());
+		self::assertInstanceOf('Nlm30CitationSchema', $adapter->getMetadataSchema());
 
 		// Test metadata injection.
 		$sourceDescription = new MetadataDescription($schema, ASSOC_TYPE_CITATION);

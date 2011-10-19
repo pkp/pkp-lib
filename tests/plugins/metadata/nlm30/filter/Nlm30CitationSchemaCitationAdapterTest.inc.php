@@ -32,7 +32,7 @@ class Nlm30CitationSchemaCitationAdapterTest extends PKPTestCase {
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'class::lib.pkp.classes.citation.Citation'));
 		self::assertEquals(ASSOC_TYPE_CITATION, $adapter->getAssocType());
-		self::assertType('Nlm30CitationSchema', $adapter->getMetadataSchema());
+		self::assertInstanceOf('Nlm30CitationSchema', $adapter->getMetadataSchema());
 		self::assertEquals('Citation', $adapter->getDataObjectClass());
 
 		// Instantiate a test description.

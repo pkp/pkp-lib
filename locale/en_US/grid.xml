@@ -43,6 +43,7 @@
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributors</message>
 	<message key="grid.action.addContributor">Add Contributor</message>
+	<message key="grid.action.editContributor">Edit Contributor</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>

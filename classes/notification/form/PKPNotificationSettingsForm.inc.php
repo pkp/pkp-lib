@@ -44,8 +44,8 @@ class PKPNotificationSettingsForm extends Form {
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('blockedNotifications', $blockedNotifications);
 		$templateMgr->assign('emailSettings', $emailSettings);
-		$templateMgr->assign('titleVar', Locale::translate('common.title'));
-		$templateMgr->assign('userVar', Locale::translate('common.user'));
+		$templateMgr->assign('titleVar', __('common.title'));
+		$templateMgr->assign('userVar', __('common.user'));
 		return parent::display();
 	}
 }

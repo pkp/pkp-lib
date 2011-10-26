@@ -129,7 +129,7 @@ class HelpHandler extends Handler {
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('showSearch', true);
-		$templateMgr->assign('pageTitle', Locale::translate('help.searchResults'));
+		$templateMgr->assign('pageTitle', __('help.searchResults'));
 		$templateMgr->assign('helpSearchKeyword', $keyword);
 		$templateMgr->assign('searchResults', $searchResults);
 		$templateMgr->display('help/searchResults.tpl');

@@ -44,9 +44,9 @@ class GenericPlugin extends LazyLoadPlugin {
 		if ($this->isSitePlugin() && !Validation::isSiteAdmin()) return array();
 
 		if ($this->getEnabled()) {
-			$verbs[] = array('disable', Locale::translate('common.disable'));
+			$verbs[] = array('disable', __('common.disable'));
 		} else {
-			$verbs[] = array('enable', Locale::translate('common.enable'));
+			$verbs[] = array('enable', __('common.enable'));
 		}
 		return $verbs;
 	}

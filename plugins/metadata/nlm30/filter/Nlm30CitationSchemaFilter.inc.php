@@ -220,7 +220,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 				'webserviceUrl' => $webserviceUrl,
 				'httpMethod' => $method
 			);
-			$this->addError(Locale::translate('submission.citations.filter.webserviceError', $translationParams));
+			$this->addError(__('submission.citations.filter.webserviceError', $translationParams));
 		}
 
 		return $result;
@@ -248,7 +248,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 		$preliminaryNlm30DOM =& $xslFilter->execute($xmlResult);
 		if (is_null($preliminaryNlm30DOM) || is_null($preliminaryNlm30DOM->documentElement)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
-			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
+			$this->addError(__('submission.citations.filter.webserviceResultTransformationError', $translationParams));
 			$nullVar = null;
 			return $nullVar;
 		}
@@ -367,7 +367,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 		$metadataArray = arrayClean($metadataArray);
 		if (!$citationDescription->setStatements($metadataArray)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
-			$this->addError(Locale::translate('submission.citations.filter.invalidMetadata', $translationParams));
+			$this->addError(__('submission.citations.filter.invalidMetadata', $translationParams));
 			$nullVar = null;
 			return $nullVar;
 		}

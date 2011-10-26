@@ -66,7 +66,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 		// Detect errors.
 		if (!String::regexp_match('/.*<algorithm[^>]+>.*<\/algorithm>.*/s', $result)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
-			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
+			$this->addError(__('submission.citations.filter.webserviceResultTransformationError', $translationParams));
 			return $nullVar;
 		}
 

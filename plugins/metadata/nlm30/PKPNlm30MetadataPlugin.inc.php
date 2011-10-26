@@ -42,14 +42,14 @@ class PKPNlm30MetadataPlugin extends MetadataPlugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.metadata.nlm30.displayName');
+		return __('plugins.metadata.nlm30.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.metadata.nlm30.description');
+		return __('plugins.metadata.nlm30.description');
 	}
 }
 

@@ -105,7 +105,7 @@ class GridColumn {
 	 */
 	function getLocalizedTitle() {
 		if ( $this->_titleTranslated ) return $this->_titleTranslated;
-		return Locale::translate($this->_title);
+		return __($this->_title);
 	}
 
 	/**

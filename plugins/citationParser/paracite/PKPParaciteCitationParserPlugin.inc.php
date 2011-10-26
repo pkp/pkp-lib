@@ -51,14 +51,14 @@ class PKPParaciteCitationParserPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationParser.paracite.displayName');
+		return __('plugins.citationParser.paracite.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationParser.paracite.description');
+		return __('plugins.citationParser.paracite.description');
 	}
 }
 

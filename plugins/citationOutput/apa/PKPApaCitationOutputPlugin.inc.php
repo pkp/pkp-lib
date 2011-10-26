@@ -51,14 +51,14 @@ class PKPApaCitationOutputPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationOutput.apa.displayName');
+		return __('plugins.citationOutput.apa.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationOutput.apa.description');
+		return __('plugins.citationOutput.apa.description');
 	}
 }
 

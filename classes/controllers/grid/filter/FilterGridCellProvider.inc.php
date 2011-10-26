@@ -45,12 +45,12 @@ class FilterGridCellProvider extends GridCellProvider {
 					if (is_a($filterSetting, 'BooleanFilterSetting')) {
 						if ($settingData) {
 							if (!empty($label)) $label .= ' | ';
-							$label .= Locale::translate($filterSetting->getDisplayName());
+							$label .= __($filterSetting->getDisplayName());
 						}
 					} else {
 						if (!empty($settingData)) {
 							if (!empty($label)) $label .= ' | ';
-							$label .= Locale::translate($filterSetting->getDisplayName()).': '.$settingData;
+							$label .= __($filterSetting->getDisplayName()).': '.$settingData;
 						}
 					}
 				}

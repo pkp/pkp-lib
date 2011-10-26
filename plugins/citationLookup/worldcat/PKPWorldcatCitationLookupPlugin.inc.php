@@ -51,14 +51,14 @@ class PKPWorldcatCitationLookupPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationLookup.worldcat.displayName');
+		return __('plugins.citationLookup.worldcat.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationLookup.worldcat.description');
+		return __('plugins.citationLookup.worldcat.description');
 	}
 }
 

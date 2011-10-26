@@ -205,7 +205,7 @@ class PKPCitationGridHandler extends GridHandler {
 				if ($citation->getCitationState() < CITATION_APPROVED) {
 					// Oops, found an unapproved citation, won't be able to
 					// export then.
-					$errorMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
+					$errorMessage = __('submission.citations.editor.export.foundUnapprovedCitationsMessage');
 					break;
 				}
 			}
@@ -273,7 +273,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 					// Generate an error message if the export was not successful.
 					if (empty($exportOutput)) {
-						$errorMessage = Locale::translate('submission.citations.editor.export.noExportOutput', array('filterName' => $exportFilter->getDisplayName()));
+						$errorMessage = __('submission.citations.editor.export.noExportOutput', array('filterName' => $exportFilter->getDisplayName()));
 					}
 
 					if (is_null($errorMessage)) {
@@ -449,7 +449,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSONMessage(true);
 		} else {
-			$json = new JSONMessage(false, Locale::translate('submission.citations.editor.citationlist.errorDeletingCitation'));
+			$json = new JSONMessage(false, __('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
 		return $json->getString();
 	}
@@ -505,7 +505,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// for such a small message.
 		$json = new JSONMessage(true,
 			'<div id="authorQueryResult"><span class="pkp_form_error">'
-			.Locale::translate('submission.citations.editor.details.sendAuthorQuerySuccess')
+			.__('submission.citations.editor.details.sendAuthorQuerySuccess')
 			.'</span></div>');
 		return $json->getString();
 	}

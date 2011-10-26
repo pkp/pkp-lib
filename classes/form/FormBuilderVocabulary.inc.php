@@ -811,7 +811,7 @@ class FormBuilderVocabulary {
 		$returner = '';
 		if (isset($params) && !empty($params)) {
 			if (isset($params['key'])) {
-				$params['label'] = Locale::translate($params['key'], $params);
+				$params['label'] = __($params['key'], $params);
 			}
 
 			$form =& $this->getForm();

@@ -342,7 +342,7 @@ class PKPComponentRouter extends PKPRouter {
 			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 		}
 		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_USER));
-		$translatedAuthorizationMessage = Locale::translate($authorizationMessage);
+		$translatedAuthorizationMessage = __($authorizationMessage);
 
 		// Add the router name and operation.
 		$url = $request->getRequestUrl();

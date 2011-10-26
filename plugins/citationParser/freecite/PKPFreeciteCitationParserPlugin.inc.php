@@ -51,14 +51,14 @@ class PKPFreeciteCitationParserPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationParser.freecite.displayName');
+		return __('plugins.citationParser.freecite.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationParser.freecite.description');
+		return __('plugins.citationParser.freecite.description');
 	}
 }
 

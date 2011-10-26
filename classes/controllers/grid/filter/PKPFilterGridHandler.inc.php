@@ -269,7 +269,7 @@ class PKPFilterGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSONMessage(true);
 		} else {
-			$json = new JSONMessage(false, Locale::translate('manager.setup.filter.grid.errorDeletingFilter'));
+			$json = new JSONMessage(false, __('manager.setup.filter.grid.errorDeletingFilter'));
 		}
 		return $json->getString();
 	}

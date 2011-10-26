@@ -493,7 +493,7 @@ class PKPPlugin {
 				$result = $installer->executeSQL($sql);
 			} else {
 				Locale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseDBFileError')));
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
 				$result = false;
 			}
 			if (!$result) return false;
@@ -583,7 +583,7 @@ class PKPPlugin {
 
 		if ($sql === false) {
 			// The template file seems to be invalid.
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
+			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
 			$result = false;
 		} else {
 			// Are there any yet uninstalled email templates?
@@ -615,7 +615,7 @@ class PKPPlugin {
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), Locale::translate('installer.installParseEmailTemplatesFileError')));
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseEmailTemplatesFileError')));
 				$result = false;
 			}
 		}
@@ -660,7 +660,7 @@ class PKPPlugin {
 			$result = $installer->installFilterConfig($filterConfigFile);
 			if (!$result) {
 				// The filter configuration file seems to be invalid.
-				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $filterConfigFile, Locale::translate('installer.installParseFilterConfigFileError')));
+				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $filterConfigFile, __('installer.installParseFilterConfigFileError')));
 			}
 		}
 
@@ -687,7 +687,7 @@ class PKPPlugin {
 		if ($sql) {
 			$result = $installer->executeSQL($sql);
 		} else {
-			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), Locale::translate('installer.installParseDBFileError')));
+			$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallSchemaFile(), __('installer.installParseDBFileError')));
 			$result = false;
 		}
 		return false;

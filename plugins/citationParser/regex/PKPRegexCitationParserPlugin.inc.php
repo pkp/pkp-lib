@@ -51,14 +51,14 @@ class PKPRegexCitationParserPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationParser.regex.displayName');
+		return __('plugins.citationParser.regex.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationParser.regex.description');
+		return __('plugins.citationParser.regex.description');
 	}
 }
 

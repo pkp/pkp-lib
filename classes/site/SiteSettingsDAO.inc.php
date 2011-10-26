@@ -233,7 +233,7 @@ class SiteSettingsDAO extends DAO {
 	 * Used internally by site setting installation code to perform translation function.
 	 */
 	function _installer_regexp_callback($matches) {
-		return Locale::translate($matches[1]);
+		return __($matches[1]);
 	}
 }
 

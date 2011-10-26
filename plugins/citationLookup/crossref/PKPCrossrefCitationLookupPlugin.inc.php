@@ -51,14 +51,14 @@ class PKPCrossrefCitationLookupPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationLookup.crossref.displayName');
+		return __('plugins.citationLookup.crossref.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationLookup.crossref.description');
+		return __('plugins.citationLookup.crossref.description');
 	}
 }
 

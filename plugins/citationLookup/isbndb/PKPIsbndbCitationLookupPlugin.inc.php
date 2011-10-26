@@ -51,14 +51,14 @@ class PKPIsbndbCitationLookupPlugin extends Plugin {
 	 * @see PKPPlugin::getDisplayName()
 	 */
 	function getDisplayName() {
-		return Locale::translate('plugins.citationLookup.isbndb.displayName');
+		return __('plugins.citationLookup.isbndb.displayName');
 	}
 
 	/**
 	 * @see PKPPlugin::getDescription()
 	 */
 	function getDescription() {
-		return Locale::translate('plugins.citationLookup.isbndb.description');
+		return __('plugins.citationLookup.isbndb.description');
 	}
 }
 

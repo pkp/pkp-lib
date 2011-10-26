@@ -660,7 +660,7 @@ class CitationDAO extends DAO {
 			// did not produce any results and add an error message.
 			$filteredCitation =& $citation;
 			if (!empty($transformationDefinition['filterList'])) {
-				$filteredCitation->addError(Locale::translate('submission.citations.filter.noResultFromFilterError'));
+				$filteredCitation->addError(__('submission.citations.filter.noResultFromFilterError'));
 			}
 		} else {
 			// Copy data from the original citation to the filtered citation.

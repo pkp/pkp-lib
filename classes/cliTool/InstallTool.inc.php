@@ -167,7 +167,7 @@ class InstallTool extends CommandLineTool {
 	function readParam($name, $prompt, $defaultValue = null) {
 		do {
 			if (isset($defaultValue)) {
-				printf("%s (%s): ", __($prompt), $defaultValue !== '' ? $defaultValue : Locale::translate('common.none'));
+				printf("%s (%s): ", __($prompt), $defaultValue !== '' ? $defaultValue : __('common.none'));
 			} else {
 				printf("%s: ", __($prompt));
 			}
@@ -216,7 +216,7 @@ class InstallTool extends CommandLineTool {
 				printf("  (%s)\n", __('installer.form.separateMultiple'));
 			}
 			if (isset($defaultValue)) {
-				printf("%s (%s): ", __('common.select'), $defaultValue !== '' ? $defaultValue : Locale::translate('common.none'));
+				printf("%s (%s): ", __('common.select'), $defaultValue !== '' ? $defaultValue : __('common.none'));
 			} else {
 				printf("%s: ", __('common.select'));
 			}

@@ -27,7 +27,7 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn {
 		assert($listbuilder->getSourceType() == LISTBUILDER_SOURCE_TYPE_TEXT);
 
 		// Provide a default set of available locales if not specified
-		if (!$availableLocales) $availableLocales = Locale::getSupportedFormLocales();
+		if (!$availableLocales) $availableLocales = AppLocale::getSupportedFormLocales();
 
 		// Set some flags for multilingual support
 		$flags['multilingual'] = true; // This is a multilingual column.

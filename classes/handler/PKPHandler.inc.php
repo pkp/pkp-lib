@@ -409,12 +409,12 @@ class PKPHandler {
 	}
 
 	function setupTemplate() {
-		Locale::requireComponents(array(
+		AppLocale::requireComponents(array(
 			LOCALE_COMPONENT_PKP_COMMON,
 			LOCALE_COMPONENT_PKP_USER
 		));
 		if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
-			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+			AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 		}
 	}
 

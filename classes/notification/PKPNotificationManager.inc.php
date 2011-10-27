@@ -190,8 +190,8 @@ class PKPNotificationManager {
 	 * @return array
 	 */
 	function getParamsForCurrentLocale($params) {
-		$locale = Locale::getLocale();
-		$primaryLocale = Locale::getPrimaryLocale();
+		$locale = AppLocale::getLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
 
 		$localizedParams = array();
 		foreach ($params as $name => $value) {
@@ -206,7 +206,7 @@ class PKPNotificationManager {
 				$localizedParams[$name] = $value[$primaryLocale];
 			} else {
 				// Otherwise, iterate over all supported locales and return the first match
-				$locales = Locale::getSupportedLocales();
+				$locales = AppLocale::getSupportedLocales();
 				foreach ($locales as $localeKey) {
 					if (isset($value[$localeKey])) {
 						$localizedParams[$name] = $value[$localeKey];
@@ -402,7 +402,7 @@ class PKPNotificationManager {
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getUser($userId);
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 
 		import('classes.mail.MailTemplate');
 		$site =& $request->getSite();
@@ -425,7 +425,7 @@ class PKPNotificationManager {
 	function sendToMailingList(&$request, $notification) {
 		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
 		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 
 		foreach ($mailList as $email) {
 			import('classes.mail.MailTemplate');

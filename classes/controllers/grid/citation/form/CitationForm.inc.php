@@ -446,7 +446,7 @@ class CitationForm extends Form {
 			//
 			// Citation source tabs
 			$citationSourceTabs = array();
-			$locale = Locale::getLocale();
+			$locale = AppLocale::getLocale();
 
 			// Run through all source descriptions and extract statements.
 			$sourceDescriptions =& $citation->getSourceDescriptions();

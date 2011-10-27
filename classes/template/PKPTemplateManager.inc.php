@@ -107,18 +107,18 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('allowCDN', Config::getVar('general', 'enable_cdn'));
 		$this->assign('useMinifiedJavaScript', Config::getVar('general', 'enable_minified'));
 
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		$this->assign('currentLocale', $locale);
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = Locale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($request->getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($request->getBaseUrl() . '/' . $localeStyleSheet);
 
 		$application =& PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
 		$this->assign('exposedConstants', $application->getExposedConstants());
 
 		// Register custom functions
-		$this->register_modifier('translate', array('Locale', 'translate'));
+		$this->register_modifier('translate', array('AppLocale', 'translate'));
 		$this->register_modifier('get_value', array(&$this, 'smartyGetValue'));
 		$this->register_modifier('strip_unsafe_html', array('String', 'stripUnsafeHtml'));
 		$this->register_modifier('String_substr', array('String', 'substr'));
@@ -480,21 +480,21 @@ class PKPTemplateManager extends Smarty {
 				// Translate values AND output
 				$newOptions = array();
 				foreach ($params['options'] as $k => $v) {
-					$newOptions[__($k)] = Locale::translate($v);
+					$newOptions[__($k)] = __($v);
 				}
 				$params['options'] = $newOptions;
 			} else {
 				// Just translate output
-				$params['options'] = array_map(array('Locale', 'translate'), $params['options']);
+				$params['options'] = array_map(array('AppLocale', 'translate'), $params['options']);
 			}
 		}
 
 		if (isset($params['output'])) {
-			$params['output'] = array_map(array('Locale', 'translate'), $params['output']);
+			$params['output'] = array_map(array('AppLocale', 'translate'), $params['output']);
 		}
 
 		if (isset($params['values']) && isset($params['translateValues'])) {
-			$params['values'] = array_map(array('Locale', 'translate'), $params['values']);
+			$params['values'] = array_map(array('AppLocale', 'translate'), $params['values']);
 		}
 
 		require_once($this->_get_plugin_filepath('function','html_options'));

@@ -28,14 +28,14 @@ class CountryDAO extends DAO {
 	 * @param $locale string Name of locale (optional)
 	 */
 	function getFilename($locale = null) {
-		if ($locale === null) $locale = Locale::getLocale();
+		if ($locale === null) $locale = AppLocale::getLocale();
 		return "lib/pkp/locale/$locale/countries.xml";
 	}
 
 	function &_getCountryCache($locale = null) {
 		$caches =& Registry::get('allCountries', true, array());
 
-		if (!isset($locale)) $locale = Locale::getLocale();
+		if (!isset($locale)) $locale = AppLocale::getLocale();
 
 		if (!isset($caches[$locale])) {
 			$cacheManager =& CacheManager::getManager();

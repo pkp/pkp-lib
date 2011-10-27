@@ -18,16 +18,16 @@ import('lib.pkp.classes.form.Form');
 
 class FormValidatorLocaleTest extends PKPTestCase {
 	/**
-	 * @covers FormValidatorLocale::getMessage
+	 * @covers FormValidatorAppLocale::getMessage
 	 */
 	public function testGetMessage() {
 		$formValidator = new FormValidatorLocale($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
 		self::assertSame('translated string (English)', $formValidator->getMessage());
-		self::assertSame('some.message.key', Locale::getTestedTranslationKey());
+		self::assertSame('some.message.key', AppLocale::getTestedTranslationKey());
 	}
 
 	/**
-	 * @covers FormValidatorLocale::getFieldValue
+	 * @covers FormValidatorAppLocale::getFieldValue
 	 */
 	public function testGetFieldValue() {
 		$form = new Form('some template');

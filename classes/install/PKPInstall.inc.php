@@ -58,7 +58,7 @@ class PKPInstall extends Installer {
 		if (!isset($this->installedLocales) || !is_array($this->installedLocales)) {
 			$this->installedLocales = array();
 		}
-		if (!in_array($this->locale, $this->installedLocales) && Locale::isLocaleValid($this->locale)) {
+		if (!in_array($this->locale, $this->installedLocales) && AppLocale::isLocaleValid($this->locale)) {
 			array_push($this->installedLocales, $this->locale);
 		}
 

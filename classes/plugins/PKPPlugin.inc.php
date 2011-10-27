@@ -324,12 +324,12 @@ class PKPPlugin {
 	 * @return boolean
 	 */
 	function addLocaleData($locale = null) {
-		if ($locale == '') $locale = Locale::getLocale();
+		if ($locale == '') $locale = AppLocale::getLocale();
 		$localeFilenames = $this->getLocaleFilename($locale);
 		if ($localeFilenames) {
 			if (is_scalar($localeFilenames)) $localeFilenames = array($localeFilenames);
 			foreach($localeFilenames as $localeFilename) {
-				Locale::registerLocaleFile($locale, $localeFilename);
+				AppLocale::registerLocaleFile($locale, $localeFilename);
 			}
 			return true;
 		}
@@ -343,7 +343,7 @@ class PKPPlugin {
 	 * @return boolean
 	 */
 	function addHelpData($locale = null) {
-		if ($locale == '') $locale = Locale::getLocale();
+		if ($locale == '') $locale = AppLocale::getLocale();
 		import('classes.help.Help');
 		$help =& Help::getHelp();
 		import('lib.pkp.classes.help.PluginHelpMappingFile');
@@ -492,7 +492,7 @@ class PKPPlugin {
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
-				Locale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
+				AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
 				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
 				$result = false;
 			}

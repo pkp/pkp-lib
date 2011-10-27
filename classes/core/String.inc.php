@@ -816,7 +816,7 @@ class String {
 	 * @return string
 	 */
 	function titleCase($title) {
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_COMMON));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_COMMON));
 		$smallWords = explode(' ', __('common.titleSmallWords'));
 
 		$words = explode(' ', $title);

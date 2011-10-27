@@ -57,7 +57,7 @@ class PKPHelp {
 	 * defaults to en_US.
 	 */
 	function getLocale() {
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		if (!file_exists("help/$locale/.")) {
 			return 'en_US';
 		}

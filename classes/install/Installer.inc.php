@@ -150,11 +150,11 @@ class Installer {
 		}
 
 		if (!isset($this->locale)) {
-			$this->locale = Locale::getLocale();
+			$this->locale = AppLocale::getLocale();
 		}
 
 		if (!isset($this->installedLocales)) {
-			$this->installedLocales = array_keys(Locale::getAllLocales());
+			$this->installedLocales = array_keys(AppLocale::getAllLocales());
 		}
 
 		if (!isset($this->dataXMLParser)) {

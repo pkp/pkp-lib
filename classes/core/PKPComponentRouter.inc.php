@@ -339,9 +339,9 @@ class PKPComponentRouter extends PKPRouter {
 	function handleAuthorizationFailure($request, $authorizationMessage) {
 		// Translate the authorization error message.
 		if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
-			Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+			AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 		}
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_USER));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_USER));
 		$translatedAuthorizationMessage = __($authorizationMessage);
 
 		// Add the router name and operation.

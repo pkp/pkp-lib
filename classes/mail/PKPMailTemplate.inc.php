@@ -59,7 +59,7 @@ class PKPMailTemplate extends Mail {
 		$this->emailKey = isset($emailKey) ? $emailKey : null;
 
 		// Use current user's locale if none specified
-		$this->locale = isset($locale) ? $locale : Locale::getLocale();
+		$this->locale = isset($locale) ? $locale : AppLocale::getLocale();
 
 		// Record whether or not to BCC the sender when sending message
 		$this->bccSender = Request::getUserVar('bccSender');

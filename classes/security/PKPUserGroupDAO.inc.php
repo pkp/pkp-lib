@@ -713,7 +713,7 @@ class PKPUserGroupDAO extends DAO {
 			$this->updateSetting($userGroup->getId(), 'abbrevLocaleKey', $abbrevKey);
 
 			// install the settings in the current locale for this context
-			$this->installLocale(Locale::getLocale(), $contextId);
+			$this->installLocale(AppLocale::getLocale(), $contextId);
 		}
 	}
 

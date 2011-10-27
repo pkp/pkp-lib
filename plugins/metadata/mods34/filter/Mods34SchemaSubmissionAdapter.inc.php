@@ -44,7 +44,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 		// Get the cataloging language.
 		$catalogingLanguage = $mods34Description->getStatement('recordInfo/languageOfCataloging/languageTerm[@authority="iso639-2b"]');
-		$catalogingLocale = Locale::getLocaleFrom3LetterIso($catalogingLanguage);
+		$catalogingLocale = AppLocale::getLocaleFrom3LetterIso($catalogingLanguage);
 		assert(!is_null($catalogingLocale));
 
 		// Title
@@ -143,7 +143,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 
 		// Submission language
 		$submissionLanguage = $mods34Description->getStatement('language/languageTerm[@type="code" @authority="iso639-2b"]');
-		$submissionLocale = Locale::get2LetterFrom3LetterIsoLanguage($submissionLanguage);
+		$submissionLocale = AppLocale::get2LetterFrom3LetterIsoLanguage($submissionLanguage);
 		if ($submissionLocale) {
 			$submission->setLanguage($submissionLocale);
 		}
@@ -203,8 +203,8 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		$mods34Description =& $this->instantiateMetadataDescription();
 
 		// Retrieve the primary locale.
-		$catalogingLocale = Locale::getPrimaryLocale();
-		$catalogingLanguage = Locale::get3LetterIsoFromLocale($catalogingLocale);
+		$catalogingLocale = AppLocale::getPrimaryLocale();
+		$catalogingLanguage = AppLocale::get3LetterIsoFromLocale($catalogingLocale);
 
 		// Establish the association between the meta-data description
 		// and the submission.
@@ -292,7 +292,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 		}
 
 		// Submission language
-		$submissionLanguage = Locale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
+		$submissionLanguage = AppLocale::get3LetterFrom2LetterIsoLanguage($submission->getLanguage());
 		if (!$submissionLanguage) {
 			// Assume the cataloging language by default.
 			$submissionLanguage = $catalogingLanguage;

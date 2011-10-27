@@ -170,14 +170,14 @@ class PKPPageRouter extends PKPRouter {
 		if (!isset($this->_cacheFilename)) {
 			if ($request->isPathInfoEnabled()) {
 				$id = isset($_SERVER['PATH_INFO'])?$_SERVER['PATH_INFO']:'index';
-				$id .= '-' . Locale::getLocale();
+				$id .= '-' . AppLocale::getLocale();
 			} else {
 				$id = '';
 				$application =& $this->getApplication();
 				foreach($application->getContextList() as $contextName) {
 					$id .= $request->getUserVar($contextName) . '-';
 				}
-				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
+				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . AppLocale::getLocale();
 			}
 			$path = dirname(INDEX_FILE_LOCATION);
 			$this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';

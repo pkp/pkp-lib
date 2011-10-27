@@ -46,7 +46,7 @@ abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTest
 		$result = $citationOutputFilter->execute($citationDescription);
 		self::assertEquals('', $result);
 		self::assertEquals(array('translated string'), $citationOutputFilter->getErrors());
-		self::assertEquals(Locale::getTestedTranslationKey(), 'submission.citations.filter.unsupportedPublicationType');
+		self::assertEquals(AppLocale::getTestedTranslationKey(), 'submission.citations.filter.unsupportedPublicationType');
 	}
 
 	public function testExecuteWithBook() {

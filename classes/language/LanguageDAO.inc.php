@@ -26,7 +26,7 @@ class LanguageDAO extends DAO {
 	}
 
 	function &_getCache() {
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		$cache =& Registry::get('languageCache', true, null);
 		if ($cache === null) {
 			$cacheManager = CacheManager::getManager();
@@ -48,7 +48,7 @@ class LanguageDAO extends DAO {
 		if ($allLanguages === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
-			$filename = $this->getLanguageFilename(Locale::getLocale());
+			$filename = $this->getLanguageFilename(AppLocale::getLocale());
 			$notes[] = array('debug.notes.languageListLoad', array('filename' => $filename));
 
 			// Reload locale registry file

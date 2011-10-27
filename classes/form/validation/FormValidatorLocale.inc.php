@@ -32,7 +32,7 @@ class FormValidatorLocale extends FormValidator {
 		$this->_message = $message;
 		$this->_validator =& $validator;
 
-		if ($requiredLocale === null) $requiredLocale = Locale::getPrimaryLocale();
+		if ($requiredLocale === null) $requiredLocale = AppLocale::getPrimaryLocale();
 		$this->_requiredLocale = $requiredLocale;
 
 		$form->cssValidation[$field] = array();
@@ -50,8 +50,8 @@ class FormValidatorLocale extends FormValidator {
 	 * @return string
 	 */
 	function getMessage() {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$allLocales = Locale::getAllLocales();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$allLocales = AppLocale::getAllLocales();
 		return parent::getMessage() . ' (' . $allLocales[$this->_requiredLocale] . ')';
 	}
 

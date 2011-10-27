@@ -565,7 +565,7 @@ class PKPLocale {
 
 
 /**
- * Wrapper around PKP__().
+ * Wrapper around PKPLocale::translate().
  *
  * Enables us to work with translated strings everywhere without
  * introducing a lot of duplicate code and without getting
@@ -574,7 +574,7 @@ class PKPLocale {
  * This is similar to WordPress' solution for translation, see
  * <http://codex.wordpress.org/Translating_WordPress>.
  *
- * @see PKP__()
+ * @see PKPLocale::translate()
  *
  * @param $key string
  * @param $params array named substitution parameters

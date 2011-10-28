@@ -87,7 +87,7 @@ class UserApiHandler extends PKPHandler {
 			$session->setActingAsUserGroupId($changedActingAsUserGroupId);
 			$json = new JSON('true');
 		} else {
-			$json = new JSON('false', Locale::translate('common.actingAsUserGroup.userIsNotInTargetUserGroup'));
+			$json = new JSON('false', __('common.actingAsUserGroup.userIsNotInTargetUserGroup'));
 		}
 
 		return $json->getString();

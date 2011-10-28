@@ -562,7 +562,7 @@ class UserGroupDAO extends DAO {
 			$this->updateSetting($userGroup->getId(), 'abbrevLocaleKey', $abbrevKey);
 
 			// install the settings in the current locale for this press
-			$this->installLocale(Locale::getLocale(), $pressId);
+			$this->installLocale(AppLocale::getLocale(), $pressId);
 		}
 	}
 
@@ -578,7 +578,7 @@ class UserGroupDAO extends DAO {
 			$nameKey = $this->getSetting($userGroup->getId(), 'nameLocaleKey');
 			$this->updateSetting($userGroup->getId(),
 								'name',
-								array($locale => Locale::translate($nameKey, null, $locale)),
+								array($locale => __($nameKey, null, $locale)),
 								'string',
 								$locale,
 								true);
@@ -586,7 +586,7 @@ class UserGroupDAO extends DAO {
 			$abbrevKey = $this->getSetting($userGroup->getId(), 'abbrevLocaleKey');
 			$this->updateSetting($userGroup->getId(),
 								'abbrev',
-								array($locale => Locale::translate($abbrevKey, null, $locale)),
+								array($locale => __($abbrevKey, null, $locale)),
 								'string',
 								$locale,
 								true);

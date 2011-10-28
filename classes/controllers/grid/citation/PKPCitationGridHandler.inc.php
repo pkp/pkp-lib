@@ -102,7 +102,7 @@ class PKPCitationGridHandler extends GridHandler {
 		parent::initialize($request, $args);
 
 		// Load submission-specific translations
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
 
 		// Basic grid configuration
 		$this->setTitle('submission.citations.editor.citationlist.title');
@@ -202,7 +202,7 @@ class PKPCitationGridHandler extends GridHandler {
 				if ($citation->getCitationState() < CITATION_APPROVED) {
 					// Oops, found an unapproved citation, won't be able to
 					// export then.
-					$errorMessage = Locale::translate('submission.citations.editor.export.foundUnapprovedCitationsMessage');
+					$errorMessage = __('submission.citations.editor.export.foundUnapprovedCitationsMessage');
 					break;
 				}
 				unset($citation);
@@ -272,7 +272,7 @@ class PKPCitationGridHandler extends GridHandler {
 
 					// Generate an error message if the export was not successful.
 					if (empty($exportOutput)) {
-						$errorMessage = Locale::translate('submission.citations.editor.export.noExportOutput', array('filterName' => $exportFilter->getDisplayName()));
+						$errorMessage = __('submission.citations.editor.export.noExportOutput', array('filterName' => $exportFilter->getDisplayName()));
 					}
 
 					if (is_null($errorMessage)) {
@@ -450,7 +450,7 @@ class PKPCitationGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSON('true');
 		} else {
-			$json = new JSON('false', Locale::translate('submission.citations.editor.citationlist.errorDeletingCitation'));
+			$json = new JSON('false', __('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
 		return $json->getString();
 	}
@@ -506,7 +506,7 @@ class PKPCitationGridHandler extends GridHandler {
 		// for such a small message.
 		$json = new JSON('true',
 			'<div id="authorQueryResult"><span class="formError">'
-			.Locale::translate('submission.citations.editor.details.sendAuthorQuerySuccess')
+			.__('submission.citations.editor.details.sendAuthorQuerySuccess')
 			.'</span></div>');
 		return $json->getString();
 	}

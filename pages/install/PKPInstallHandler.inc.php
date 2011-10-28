@@ -30,7 +30,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
+		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
 			Request::setCookieVar('currentLocale', $setLocale);
 		}
 
@@ -81,7 +81,7 @@ class PKPInstallHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate();
 
-		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && Locale::isLocaleValid($setLocale)) {
+		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
 			PKPRequest::setCookieVar('currentLocale', $setLocale);
 		}
 
@@ -109,7 +109,7 @@ class PKPInstallHandler extends Handler {
 
 	function setupTemplate() {
 		parent::setupTemplate();
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
 	}
 }
 

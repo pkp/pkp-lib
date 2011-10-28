@@ -106,11 +106,11 @@
 		import('file.FileManager');
 		// Check that the public/site/ directory exists and is writeable
 		if(!file_exists($siteDir) || !is_writeable($siteDir)) {
-			die(Locale::translate('installer.installFilesDirError'));
+			die(__('installer.installFilesDirError'));
 		}
 		// Create the images directory
 		if (!FileManager::mkdir($siteDir . '/images/')) {
-			die(Locale::translate('installer.installFilesDirError'));
+			die(__('installer.installFilesDirError'));
 		}
 	}
 	//Check if user's image directory exists, else create it
@@ -118,11 +118,11 @@
 		import('file.FileManager');
 		// Check that the public/site/images/ directory exists and is writeable
 		if(!file_exists($siteDir . '/images/') || !is_writeable($siteDir . '/images/')) {
-			die(Locale::translate('installer.installFilesDirError'));
+			die(__('installer.installFilesDirError'));
 		}
 		// Create the directory to store the user's images
 		if (!FileManager::mkdir($siteDir . '/images/' . $user->getUsername())) {
-			die(Locale::translate('installer.installFilesDirError'));
+			die(__('installer.installFilesDirError'));
 		}
 		array_push($cfg['ilibs'], array (
 			'value'   	=> '/' . $init['publicDir'] . '/site/images/' . $user->getUsername() . '/',

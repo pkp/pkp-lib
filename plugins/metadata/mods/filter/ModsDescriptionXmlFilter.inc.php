@@ -144,7 +144,7 @@ class ModsDescriptionXmlFilter extends Filter {
 				if (!isset($translations[$topLevelNode])) $translations[$topLevelNode] = array();
 				if ($property->getTranslated()) {
 					foreach ($modsDescription->getStatementTranslations($propertyName) as $locale => $value) {
-						$isoLanguage = Locale::get3LetterIsoFromLocale($locale);
+						$isoLanguage = AppLocale::get3LetterIsoFromLocale($locale);
 						if (!in_array($isoLanguage, $translations[$topLevelNode])) {
 							$translations[$topLevelNode][] = $isoLanguage;
 						}
@@ -179,7 +179,7 @@ class ModsDescriptionXmlFilter extends Filter {
 					// Translate the PKP locale into ISO639-2b 3-letter codes.
 					$translatedValues = array();
 					foreach($localizedValues as $locale => $translatedValue) {
-						$isoLanguage = Locale::get3LetterIsoFromLocale($locale);
+						$isoLanguage = AppLocale::get3LetterIsoFromLocale($locale);
 						assert(!is_null($isoLanguage));
 						$translatedValues[$isoLanguage] = $translatedValue;
 					}

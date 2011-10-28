@@ -14,15 +14,15 @@ chdir($baseDir);
 require($baseDir . '/lib/pkp/includes/bootstrap.inc.php');
 
 // Manually set up a context router to get access
-// to the application context (required by Locale).
+// to the application context (required by AppLocale).
 $application =& PKPApplication::getApplication();
 $request =& $application->getRequest();
 import('core.PageRouter');
 $router = new PageRouter();
 $router->setApplication($application);
 $request->setRouter($router);
-Locale::initialize();
-Locale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
+AppLocale::initialize();
+AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
 
 // Load user variables
 $sessionManager =& SessionManager::getManager();
@@ -35,7 +35,7 @@ $init['publicDir'] = Config::getVar('files', 'public_files_dir');
 if (isset($user)) {
 	// User is logged in
 	$init['user'] = $user->getUsername();
-	$init['lang'] = String::substr(Locale::getLocale(), 0, 2);
+	$init['lang'] = String::substr(AppLocale::getLocale(), 0, 2);
 	$init['baseUrl'] = Config::getVar('general', 'base_url');
 	$init['baseDir'] =  $baseDir;
 

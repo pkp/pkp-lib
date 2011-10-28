@@ -100,10 +100,10 @@ class PKPAction {
 		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		$citations =& $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, $submission->getId());
 		if ($citations->getCount() > 0) {
-			$initialHelpMessage = Locale::translate('submission.citations.editor.details.pleaseClickOnCitationToStartEditing');
+			$initialHelpMessage = __('submission.citations.editor.details.pleaseClickOnCitationToStartEditing');
 		} else {
 			$articleMetadataUrl = $router->url($request, null, null, 'viewMetadata', $submission->getId());
-			$initialHelpMessage = Locale::translate('submission.citations.editor.pleaseImportCitationsFirst', array('articleMetadataUrl' => $articleMetadataUrl));
+			$initialHelpMessage = __('submission.citations.editor.pleaseImportCitationsFirst', array('articleMetadataUrl' => $articleMetadataUrl));
 		}
 		$templateMgr->assign('initialHelpMessage', $initialHelpMessage);
 

@@ -220,7 +220,7 @@ class SiteSettingsDAO extends DAO {
 				}
 
 				// Replace translate calls with translated content
-				if ($isLocalized) $value = array(Locale::getLocale() => $value);
+				if ($isLocalized) $value = array(AppLocale::getLocale() => $value);
 				$this->updateSetting($name, $value, $type, $isLocalized);
 			}
 		}
@@ -233,7 +233,7 @@ class SiteSettingsDAO extends DAO {
 	 * Used internally by site setting installation code to perform translation function.
 	 */
 	function _installer_regexp_callback($matches) {
-		return Locale::translate($matches[1]);
+		return __($matches[1]);
 	}
 }
 

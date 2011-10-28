@@ -183,7 +183,7 @@ class LinkAction {
 	 */
 	function getLocalizedTitle() {
 		if ( $this->_titleLocalized ) return $this->_titleLocalized;
-		return Locale::translate($this->_title);;
+		return __($this->_title);;
 	}
 
 	/**

@@ -49,7 +49,7 @@ class Submission extends DataObject {
 	 * @return mixed
 	 */
 	function &getLocalizedData($key) {
-		$localePrecedence = array(Locale::getLocale(), $this->getLocale());
+		$localePrecedence = array(AppLocale::getLocale(), $this->getLocale());
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;

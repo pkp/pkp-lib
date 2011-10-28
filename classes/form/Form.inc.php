@@ -76,9 +76,9 @@ class Form {
 	 */
 	function Form($template = null, $callHooks = true, $requiredLocale = null, $supportedLocales = null) {
 
-		if ($requiredLocale === null) $requiredLocale = Locale::getPrimaryLocale();
+		if ($requiredLocale === null) $requiredLocale = AppLocale::getPrimaryLocale();
 		$this->requiredLocale = $requiredLocale;
-		if ($supportedLocales === null) $supportedLocales = Locale::getSupportedFormLocales();
+		if ($supportedLocales === null) $supportedLocales = AppLocale::getSupportedFormLocales();
 		$this->supportedLocales = $supportedLocales;
 
 		$this->_template = $template;
@@ -340,7 +340,7 @@ class Form {
 	 * @return string
 	 */
 	function getDefaultFormLocale() {
-		if (empty($formLocale)) $formLocale = Locale::getLocale();
+		if (empty($formLocale)) $formLocale = AppLocale::getLocale();
 		if (!isset($this->supportedLocales[$formLocale])) $formLocale = $this->requiredLocale;
 		return $formLocale;
 	}
@@ -450,7 +450,7 @@ class Form {
 		$returner = '';
 		if (isset($params) && !empty($params)) {
 			if (isset($params['key'])) {
-				$params['label'] = Locale::translate($params['key'], $params);
+				$params['label'] = __($params['key'], $params);
 			}
 
 			if (isset($this->errorFields[$params['name']])) {

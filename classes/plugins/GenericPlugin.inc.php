@@ -44,9 +44,9 @@ class GenericPlugin extends LazyLoadPlugin {
 		if ($this->isSitePlugin() && !Validation::isSiteAdmin()) return array();
 
 		if ($this->getEnabled()) {
-			$verbs[] = array('disable', Locale::translate('common.disable'));
+			$verbs[] = array('disable', __('common.disable'));
 		} else {
-			$verbs[] = array('enable', Locale::translate('common.enable'));
+			$verbs[] = array('enable', __('common.enable'));
 		}
 		return $verbs;
 	}
@@ -60,12 +60,12 @@ class GenericPlugin extends LazyLoadPlugin {
 		switch ($verb) {
 			case 'enable':
 				$this->setEnabled(true);
-				$message = Locale::translate('common.pluginEnabled', array('pluginName' => $this->getDisplayName()));
+				$message = __('common.pluginEnabled', array('pluginName' => $this->getDisplayName()));
 				return false;
 
 			case 'disable':
 				$this->setEnabled(false);
-				$message = Locale::translate('common.pluginDisabled', array('pluginName' => $this->getDisplayName()));
+				$message = __('common.pluginDisabled', array('pluginName' => $this->getDisplayName()));
 				return false;
 		}
 

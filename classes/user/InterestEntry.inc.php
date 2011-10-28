@@ -20,7 +20,7 @@ class InterestEntry extends ControlledVocabEntry {
 	//
 	// Get/set methods
 	//
-	
+
 	/**
 	 * Get the interest
 	 * @return string

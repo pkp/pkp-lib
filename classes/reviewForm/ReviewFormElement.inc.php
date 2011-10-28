@@ -99,7 +99,7 @@ class ReviewFormElement extends DataObject {
 	}
 
 	/**
-	 * get required
+	 * Get required flag
 	 * @return boolean
 	 */
 	function getRequired() {
@@ -107,7 +107,7 @@ class ReviewFormElement extends DataObject {
 	}
 
 	/**
-	 * Set 
+	 * Set required flag
 	 * @param $viewable boolean
 	 */
 	function setRequired($required) {

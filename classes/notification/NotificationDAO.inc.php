@@ -274,12 +274,12 @@ class NotificationDAO extends DAO {
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getUser($userId);
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 
 		if ($notification->getIsLocalized()) {
 			$params = array('param' => $notification->getParam());
-			$notificationTitle = Locale::translate($notification->getTitle(), $params);
-			$notificationContents = Locale::translate($notification->getContents(), $params);
+			$notificationTitle = __($notification->getTitle(), $params);
+			$notificationContents = __($notification->getContents(), $params);
 		} else {
 			$notificationTitle = $notification->getTitle();
 			$notificationContents = $notification->getContents();

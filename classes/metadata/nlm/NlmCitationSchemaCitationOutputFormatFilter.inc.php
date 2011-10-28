@@ -30,10 +30,10 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 		parent::Filter();
 
 		// Load additional translations
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		$basePath = $this->getBasePath();
 		$localeFile = $basePath.DIRECTORY_SEPARATOR.'locale'.DIRECTORY_SEPARATOR.$locale.DIRECTORY_SEPARATOR.'locale.xml';
-		Locale::registerLocaleFile($locale, $localeFile);
+		AppLocale::registerLocaleFile($locale, $localeFile);
 
 		// Save the request for later use
 		$this->_request =& $request;
@@ -77,7 +77,7 @@ class NlmCitationSchemaCitationOutputFormatFilter extends Filter {
 	 */
 	function &process(&$input) {
 		// Initialize view
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		$templateMgr =& TemplateManager::getManager($this->_request);
 
 		// Add the filter's directory as additional template dir so that

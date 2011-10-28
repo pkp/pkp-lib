@@ -89,7 +89,7 @@ class HelpHandler extends Handler {
 		$templateMgr->assign('toc', $toc);
 		$templateMgr->assign('subToc', $subToc);
 		$templateMgr->assign('relatedTopics', $relatedTopics);
-		$templateMgr->assign('locale', Locale::getLocale());
+		$templateMgr->assign('locale', AppLocale::getLocale());
 		$templateMgr->assign('breadcrumbs', $toc->getBreadcrumbs());
 		if (!empty($keyword)) {
 			$templateMgr->assign('helpSearchKeyword', $keyword);
@@ -123,7 +123,7 @@ class HelpHandler extends Handler {
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign('showSearch', true);
-		$templateMgr->assign('pageTitle', Locale::translate('help.searchResults'));
+		$templateMgr->assign('pageTitle', __('help.searchResults'));
 		$templateMgr->assign('helpSearchKeyword', $keyword);
 		$templateMgr->assign('searchResults', $searchResults);
 		$templateMgr->display('help/searchResults.tpl');

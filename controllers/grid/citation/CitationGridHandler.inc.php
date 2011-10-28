@@ -143,7 +143,7 @@ class CitationGridHandler extends GridHandler {
 		parent::initialize($request);
 
 		// Load submission-specific translations
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
 
 		// Basic grid configuration
 		$this->setTitle('submission.citations.grid.title');
@@ -376,7 +376,7 @@ class CitationGridHandler extends GridHandler {
 		$filterErrors = array();
 		if (is_null($filteredCitation)) {
 			// Re-display the original citation unchanged with an error message
-			$filterErrors[] = array('editedCitation' => Locale::translate('submission.citations.form.filterError'));
+			$filterErrors[] = array('editedCitation' => __('submission.citations.form.filterError'));
 			$filteredCitation =& $originalCitation;
 			$unsavedChanges = false;
 		} else {
@@ -450,7 +450,7 @@ class CitationGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSON('true');
 		} else {
-			$json = new JSON('false', Locale::translate('submission.citations.grid.errorDeletingCitation'));
+			$json = new JSON('false', __('submission.citations.grid.errorDeletingCitation'));
 		}
 		return $json->getString();
 	}

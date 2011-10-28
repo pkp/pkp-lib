@@ -586,8 +586,8 @@ class PKPUser extends DataObject {
 	function getContactSignature() {
 		$signature = $this->getFullName();
 		if ($this->getAffiliation()) $signature .= "\n" . $this->getAffiliation();
-		if ($this->getPhone()) $signature .= "\n" . Locale::translate('user.phone') . ' ' . $this->getPhone();
-		if ($this->getFax()) $signature .= "\n" . Locale::translate('user.fax') . ' ' . $this->getFax();
+		if ($this->getPhone()) $signature .= "\n" . __('user.phone') . ' ' . $this->getPhone();
+		if ($this->getFax()) $signature .= "\n" . __('user.fax') . ' ' . $this->getFax();
 		$signature .= "\n" . $this->getEmail();
 		return $signature;
 	}

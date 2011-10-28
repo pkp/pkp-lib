@@ -74,10 +74,10 @@ class PKPLocale {
 	 * @return string
 	 */
 	function translate($key, $params = array(), $locale = null) {
-		if (!isset($locale)) $locale = Locale::getLocale();
+		if (!isset($locale)) $locale = AppLocale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
-		$localeFiles =& Locale::getLocaleFiles($locale);
+		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$value = '';
 		for ($i = 0; $i < count($localeFiles); $i++) { // By reference
 			$value = $localeFiles[$i]->translate($key, $params);
@@ -97,7 +97,7 @@ class PKPLocale {
 	 */
 	function initialize() {
 		// Use defaults if locale info unspecified.
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 
 		$sysLocale = $locale . '.' . LOCALE_ENCODING;
 		if (!@setlocale(LC_ALL, $sysLocale, $locale)) {
@@ -107,7 +107,7 @@ class PKPLocale {
 			}
 		}
 
-		Locale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
 	}
 
 	function makeComponentMap($locale) {
@@ -128,22 +128,22 @@ class PKPLocale {
 	function getFilenameComponentMap($locale) {
 		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array());
 		if (!isset($filenameComponentMap[$locale])) {
-			$filenameComponentMap[$locale] = Locale::makeComponentMap($locale);
+			$filenameComponentMap[$locale] = AppLocale::makeComponentMap($locale);
 		}
 		return $filenameComponentMap[$locale];
 	}
 
 	function requireComponents($components, $locale = null) {
 		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array());
-		if ($locale === null) $locale = Locale::getLocale();
-		$filenameComponentMap = Locale::getFilenameComponentMap($locale);
+		if ($locale === null) $locale = AppLocale::getLocale();
+		$filenameComponentMap = AppLocale::getFilenameComponentMap($locale);
 		foreach ($components as $component) {
 			// Don't load components twice
 			if (isset($loadedComponents[$locale][$component])) continue;
 
 			if (!isset($filenameComponentMap[$component])) fatalError('Unknown locale component ' . $component);
 			$filename = $filenameComponentMap[$component];
-			Locale::registerLocaleFile($locale, $filename);
+			AppLocale::registerLocaleFile($locale, $filename);
 			$loadedComponents[$locale][$component] = true;
 		}
 	}
@@ -156,7 +156,7 @@ class PKPLocale {
 	 * 	or the bottom (false). Allows overriding.
 	 */
 	function &registerLocaleFile ($locale, $filename, $addToTop = false) {
-		$localeFiles =& Locale::getLocaleFiles($locale);
+		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$localeFile = new LocaleFile($locale, $filename);
 		if (!$localeFile->isValid()) {
 			$localeFile = null;
@@ -174,7 +174,7 @@ class PKPLocale {
 	}
 
 	function getLocaleStyleSheet($locale) {
-		$allLocales =& Locale::_getAllLocalesCache();
+		$allLocales =& AppLocale::_getAllLocalesCache();
 		$contents = $allLocales->getContents();
 		if (isset($contents[$locale]['stylesheet'])) {
 			return $contents[$locale]['stylesheet'];
@@ -188,7 +188,7 @@ class PKPLocale {
 	 * @return boolean
 	 */
 	function isLocaleComplete($locale) {
-		$allLocales =& Locale::_getAllLocalesCache();
+		$allLocales =& AppLocale::_getAllLocalesCache();
 		$contents = $allLocales->getContents();
 		if (isset($contents[$locale]['complete']) && $contents[$locale]['complete'] == 'false') {
 			return false;
@@ -217,7 +217,7 @@ class PKPLocale {
 			$cacheManager =& CacheManager::getManager();
 			$cache = $cacheManager->getFileCache(
 				'locale', 'list',
-				array('Locale', '_allLocalesCacheMiss')
+				array('AppLocale', '_allLocalesCacheMiss')
 			);
 
 			// Check to see if the data is outdated
@@ -257,7 +257,7 @@ class PKPLocale {
 			$notes[] = array('debug.notes.localeListLoad', array('localeList' => LOCALE_REGISTRY_FILE));
 
 			// Reload locale registry file
-			$allLocales = Locale::loadLocaleList(LOCALE_REGISTRY_FILE);
+			$allLocales = AppLocale::loadLocaleList(LOCALE_REGISTRY_FILE);
 			asort($allLocales);
 			$cache->setEntireCache($allLocales);
 		}
@@ -269,7 +269,7 @@ class PKPLocale {
 	 * @return array
 	 */
 	function &getAllLocales() {
-		$cache =& Locale::_getAllLocalesCache();
+		$cache =& AppLocale::_getAllLocalesCache();
 		$rawContents = $cache->getContents();
 		$allLocales = array();
 
@@ -320,8 +320,8 @@ class PKPLocale {
 	 * @param $locale string
 	 */
 	function reloadLocale($locale) {
-		Locale::uninstallLocale($locale);
-		Locale::installLocale($locale);
+		AppLocale::uninstallLocale($locale);
+		AppLocale::installLocale($locale);
 	}
 
 	/**
@@ -337,6 +337,27 @@ class PKPLocale {
 		if (isset($matches[0])) return $matches[0];
 		return array();
 	}
+}
+
+/**
+ * Wrapper around PKPLocale::translate().
+ *
+ * Enables us to work with translated strings everywhere without
+ * introducing a lot of duplicate code and without getting
+ * blisters on our fingers.
+ *
+ * This is similar to WordPress' solution for translation, see
+ * <http://codex.wordpress.org/Translating_WordPress>.
+ *
+ * @see PKPLocale::translate()
+ *
+ * @param $key string
+ * @param $params array named substitution parameters
+ * @param $locale string the locale to use
+ * @return string
+ */
+function __($key, $params = array(), $locale = null) {
+	return PKPLocale::translate($key, $params, $locale);
 }
 
 ?>

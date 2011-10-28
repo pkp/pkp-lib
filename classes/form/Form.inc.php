@@ -141,13 +141,13 @@ class Form {
 		$templateMgr->assign('isError', !$this->isValid());
 		$templateMgr->assign('errors', $this->getErrorsArray());
 
-		$templateMgr->assign('formLocales', Locale::getSupportedFormLocales());
+		$templateMgr->assign('formLocales', AppLocale::getSupportedFormLocales());
 
 		// Determine the current locale to display fields with
 		$formLocale = Request::getUserVar('formLocale');
-		if (empty($formLocale)) $formLocale = Locale::getLocale();
-		if (!in_array($formLocale, array_keys(Locale::getSupportedFormLocales()))) {
-			$formLocale = Locale::getPrimaryLocale();
+		if (empty($formLocale)) $formLocale = AppLocale::getLocale();
+		if (!in_array($formLocale, array_keys(AppLocale::getSupportedFormLocales()))) {
+			$formLocale = AppLocale::getPrimaryLocale();
 		}
 		$templateMgr->assign('formLocale', $formLocale);
 
@@ -298,7 +298,7 @@ class Form {
 	 */
 	function getFormLocale() {
 		$formLocale = Request::getUserVar('formLocale');
-		if (empty($formLocale)) $formLocale = Locale::getLocale();
+		if (empty($formLocale)) $formLocale = AppLocale::getLocale();
 		return $formLocale;
 	}
 
@@ -401,7 +401,7 @@ class Form {
 		$returner = '';
 		if (isset($params) && !empty($params)) {
 			if (isset($params['key'])) {
-				$params['label'] = Locale::translate($params['key'], $params);
+				$params['label'] = __($params['key'], $params);
 			}
 
 			if (isset($this->errorFields[$params['name']])) {
@@ -458,7 +458,7 @@ class Form {
 		// Display the language selector widget.
 		$formLocale = $smarty->get_template_vars('formLocale');
 		$returner .= '<div id="languageSelector"><select size="1" name="formLocale" id="formLocale" onchange="changeFormAction(\'' . htmlentities($params['form'], ENT_COMPAT, LOCALE_ENCODING) . '\', \'' . htmlentities($params['url'], ENT_QUOTES, LOCALE_ENCODING) . '\')" class="selectMenu">';
-		foreach (Locale::getSupportedLocales() as $locale => $name) {
+		foreach (AppLocale::getSupportedLocales() as $locale => $name) {
 			$returner .= '<option ' . ($locale == $formLocale?'selected="selected" ':'') . 'value="' . htmlentities($locale, ENT_COMPAT, LOCALE_ENCODING) . '">' . htmlentities($name, ENT_COMPAT, LOCALE_ENCODING) . '</option>';
 		}
 		$returner .= '</select></div>';
@@ -598,9 +598,9 @@ class Form {
 		$values = $params['value'];
 		$name = $params['name'];
 
-		foreach (Locale::getSupportedLocales() as $locale => $localeName) {
+		foreach (AppLocale::getSupportedLocales() as $locale => $localeName) {
 			// if the field is required, only set the main locale as required and others optional
-			if ( $locale == Locale::getPrimaryLocale() ) {
+			if ( $locale == AppLocale::getPrimaryLocale() ) {
 				$params['required'] = $required;
 			} else {
 				$params['required'] = false;

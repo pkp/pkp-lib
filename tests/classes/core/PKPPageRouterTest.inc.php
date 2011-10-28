@@ -16,7 +16,7 @@
 import('core.PKPPageRouter');
 import('tests.classes.core.PKPRouterTest');
 import('security.Validation'); // This will import our mock validation class.
-import('i18n.Locale'); // This will import our mock locale.
+import('i18n.AppLocale'); // This will import our mock locale.
 
 class PKPPageRouterTest extends PKPRouterTest {
 	protected function setUp() {

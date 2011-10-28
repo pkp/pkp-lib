@@ -37,7 +37,7 @@ class DataObject {
 	// Getters/Setters
 	//
 	function &getLocalizedData($key) {
-		$localePrecedence = Locale::getLocalePrecedence();
+		$localePrecedence = AppLocale::getLocalePrecedence();
 		foreach ($localePrecedence as $locale) {
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;

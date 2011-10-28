@@ -82,7 +82,7 @@ class PKPApplication {
 		import('plugins.PluginRegistry');
 		import('plugins.HookRegistry');
 
-		import('i18n.Locale');
+		import('i18n.AppLocale');
 
 		String::init();
 		set_error_handler(array($this, 'errorHandler'));

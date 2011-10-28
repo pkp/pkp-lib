@@ -201,7 +201,7 @@ class GridHandler extends PKPHandler {
 		parent::initialize($request);
 
 		// Load grid-specific translations
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_GRID));
 	}
 
 	//

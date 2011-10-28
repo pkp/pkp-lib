@@ -47,7 +47,7 @@ class NlmCitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
 		$citationOutputFilter = $this->getFilterInstance();
 		$result = $citationOutputFilter->execute($citationDescription);
 		self::assertEquals('translated string', $result); // This is the string returned from the mock locale for all translations
-		self::assertEquals(Locale::getTestedTranslationKey(), 'submission.citations.output.unsupportedPublicationType');
+		self::assertEquals(AppLocale::getTestedTranslationKey(), 'submission.citations.output.unsupportedPublicationType');
 	}
 
 	public function testExecuteWithBook() {

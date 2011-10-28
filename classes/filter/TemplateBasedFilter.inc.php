@@ -66,7 +66,7 @@ class TemplateBasedFilter extends Filter {
 	 */
 	function &process(&$input) {
 		// Initialize view
-		$locale = Locale::getLocale();
+		$locale = AppLocale::getLocale();
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
 		$templateMgr =& TemplateManager::getManager($request);

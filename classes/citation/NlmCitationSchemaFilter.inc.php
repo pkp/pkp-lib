@@ -249,7 +249,7 @@ class NlmCitationSchemaFilter extends Filter {
 				'webserviceUrl' => $webserviceUrl,
 				'httpMethod' => $method
 			);
-			$this->addError(Locale::translate('submission.citations.filter.webserviceError', $translationParams));
+			$this->addError(__('submission.citations.filter.webserviceError', $translationParams));
 		}
 
 		return $result;
@@ -275,7 +275,7 @@ class NlmCitationSchemaFilter extends Filter {
 		$preliminaryNlmDOM =& $xslFilter->execute($xmlResult);
 		if (is_null($preliminaryNlmDOM) || is_null($preliminaryNlmDOM->documentElement)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
-			$this->addError(Locale::translate('submission.citations.filter.webserviceResultTransformationError', $translationParams));
+			$this->addError(__('submission.citations.filter.webserviceResultTransformationError', $translationParams));
 			$nullVar = null;
 			return $nullVar;
 		}
@@ -381,7 +381,7 @@ class NlmCitationSchemaFilter extends Filter {
 		$metadataArray = arrayClean($metadataArray);
 		if (!$citationDescription->setStatements($metadataArray)) {
 			$translationParams = array('filterName' => $this->getDisplayName());
-			$this->addError(Locale::translate('submission.citations.filter.invalidMetadata', $translationParams));
+			$this->addError(__('submission.citations.filter.invalidMetadata', $translationParams));
 			$nullVar = null;
 			return $nullVar;
 		}

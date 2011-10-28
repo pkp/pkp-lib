@@ -75,7 +75,7 @@ class FormValidator {
 	 * @return string
 	 */
 	function getMessage() {
-		return Locale::translate($this->_message);
+		return __($this->_message);
 	}
 
 	/**

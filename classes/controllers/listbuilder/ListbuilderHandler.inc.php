@@ -205,8 +205,8 @@ class ListbuilderHandler extends GridHandler {
 		}
 
 		// Translate modal submit/cancel buttons
-		$okButton = Locale::translate('common.ok');
-		$warning = Locale::translate('common.warning');
+		$okButton = __('common.ok');
+		$warning = __('common.warning');
 		$templateMgr->assign('localizedButtons', "$okButton, $warning");
 
 		// initialize to create the columns
@@ -259,7 +259,7 @@ class ListbuilderHandler extends GridHandler {
 	function setupTemplate() {
 		parent::setupTemplate();
 
-		Locale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OMP_MANAGER, LOCALE_COMPONENT_PKP_MANAGER));
 	}
 }
 

@@ -130,7 +130,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Load manager-specific translations
 		// FIXME: the submission translation component can be removed
 		// once all filters have been moved to plug-ins (see submission.xml).
-		Locale::requireComponents(array(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION));
 
 		// Retrieve the filters to be displayed in the grid
 		$router =& $request->getRouter();
@@ -283,7 +283,7 @@ class PKPFilterGridHandler extends GridHandler {
 		if ($result) {
 			$json = new JSON('true');
 		} else {
-			$json = new JSON('false', Locale::translate('manager.setup.filter.grid.errorDeletingFilter'));
+			$json = new JSON('false', __('manager.setup.filter.grid.errorDeletingFilter'));
 		}
 		return $json->getString();
 	}

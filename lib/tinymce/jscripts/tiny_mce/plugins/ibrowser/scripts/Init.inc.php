@@ -21,7 +21,7 @@ import('core.PKPRouter');
 $router = new PKPRouter();
 $router->setApplication($application);
 $request->setRouter($router);
-Locale::initialize();
+AppLocale::initialize();
 
 // Load user variables
 $sessionManager =& SessionManager::getManager();
@@ -34,7 +34,7 @@ $init['publicDir'] = Config::getVar('files', 'public_files_dir');
 if (isset($user)) {
 	// User is logged in
 	$init['user'] = $user->getUsername();
-	$init['lang'] = String::substr(Locale::getLocale(), 0, 2);
+	$init['lang'] = String::substr(AppLocale::getLocale(), 0, 2);
 	$init['baseUrl'] = Config::getVar('general', 'base_url');
 	$init['baseDir'] =  $baseDir;
 

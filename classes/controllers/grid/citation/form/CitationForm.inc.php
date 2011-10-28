@@ -214,7 +214,7 @@ class CitationForm extends Form {
 
 					if ($property->getMandatory()) {
 						// A mandatory field is missing - add a validation error.
-						$this->addError($fieldName, Locale::translate($property->getValidationMessage()));
+						$this->addError($fieldName, __($property->getValidationMessage()));
 						$this->addErrorField($fieldName);
 					}
 				} else {
@@ -263,7 +263,7 @@ class CitationForm extends Form {
 					foreach($typedFieldValues as $typedFieldValue) {
 						if(!$metadataDescription->addStatement($propertyName, $typedFieldValue)) {
 							// Add form field error
-							$this->addError($fieldName, Locale::translate($property->getValidationMessage()));
+							$this->addError($fieldName, __($property->getValidationMessage()));
 							$this->addErrorField($fieldName);
 						}
 						unset($typedFieldValue);
@@ -421,7 +421,7 @@ class CitationForm extends Form {
 			//
 			// Citation source tabs
 			$citationSourceTabs = array();
-			$locale = Locale::getLocale();
+			$locale = AppLocale::getLocale();
 
 			// Run through all source descriptions and extract statements.
 			$sourceDescriptions =& $citation->getSourceDescriptions();

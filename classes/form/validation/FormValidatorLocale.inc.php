@@ -22,8 +22,8 @@ class FormValidatorLocale extends FormValidator {
 	 * @return string
 	 */
 	function getMessage() {
-		$primaryLocale = Locale::getPrimaryLocale();
-		$allLocales = Locale::getAllLocales();
+		$primaryLocale = AppLocale::getPrimaryLocale();
+		$allLocales = AppLocale::getAllLocales();
 		return parent::getMessage() . ' (' . $allLocales[$primaryLocale] . ')';
 	}
 
@@ -38,7 +38,7 @@ class FormValidatorLocale extends FormValidator {
 		$form =& $this->getForm();
 		$data = $form->getData($this->getField());
 
-		$primaryLocale = Locale::getPrimaryLocale();
+		$primaryLocale = AppLocale::getPrimaryLocale();
 		$fieldValue = '';
 		if (is_array($data) && isset($data[$primaryLocale])) {
 			$fieldValue = $data[$primaryLocale];

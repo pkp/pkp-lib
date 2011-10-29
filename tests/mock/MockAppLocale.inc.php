@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/mock/MockLocale.inc.php
+ * @file tests/mock/MockAppLocale.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Locale
+ * @class AppLocale
  * @ingroup tests_mock
  *
  * @brief Mock implementation of the Locale class
@@ -19,7 +19,7 @@ define('LOCALE_COMPONENT_APPLICATION_COMMON',	0x00000101);
 
 import('lib.pkp.classes.i18n.PKPLocale');
 
-class Locale extends PKPLocale {
+class AppLocale extends PKPLocale {
 	static
 		$primaryLocale = 'en_US',
 		$supportedLocales = array('en_US' => 'English/America'),

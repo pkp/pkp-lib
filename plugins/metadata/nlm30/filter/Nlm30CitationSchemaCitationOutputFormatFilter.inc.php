@@ -100,7 +100,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	 * @param $input MetadataDescription the NLM meta-data description
 	 *  to be transformed
 	 * @param $request Request
-	 * @param $locale Locale
+	 * @param $locale AppLocale
 	 */
 	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
 		// Loop over the statements in the schema and add them

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file tests/classes/form/validation/MockLocale.inc.php
+ * @file tests/classes/form/validation/MockRequest.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class Locale
+ * @class Request
  * @ingroup tests_classes_form_validation
  *
  * @brief Mock implementation of the Request class

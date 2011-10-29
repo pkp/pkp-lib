@@ -83,7 +83,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
 	 * @param $templateMgr TemplateManager
 	 * @param $submission Submission
 	 * @param $request Request
-	 * @param $locale Locale
+	 * @param $locale AppLocale
 	 */
 	function addTemplateVars(&$templateMgr, &$submission, &$request, &$locale) {
 		// Retrieve assoc type and id of the submission.

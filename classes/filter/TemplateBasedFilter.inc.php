@@ -54,7 +54,7 @@ class TemplateBasedFilter extends PersistableFilter {
 	 * @param $templateMgr TemplateManager
 	 * @param $input mixed the filter input
 	 * @param $request Request
-	 * @param $locale Locale
+	 * @param $locale AppLocale
 	 */
 	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
 		// Must be implemented by sub-classes.

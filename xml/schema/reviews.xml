@@ -58,6 +58,9 @@
 		<field name="date_rated" type="T"/>
 		<field name="date_reminded" type="T"/>
 		<field name="quality" type="I1"/>
+		<field name="review_round_id" type="I8">
+			<NOTNULL/>
+		</field>
 		<field name="stage_id" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="1"/>

@@ -146,7 +146,7 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get the type of the review.
+	 * Get the workflow stage id.
 	 * @return int
 	 */
 	function getStageId() {
@@ -154,11 +154,11 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Set the type of review.
-	 * @param $type int
+	 * Set the workflow stage id.
+	 * @param $stageId int
 	 */
-	function setStageId($type) {
-		return $this->setData('stageId', $type);
+	function setStageId($stageId) {
+		return $this->setData('stageId', $stageId);
 	}
 
 	/**
@@ -175,6 +175,22 @@ class PKPReviewAssignment extends DataObject {
 	 */
 	function setReviewMethod($method) {
 		return $this->setData('reviewMethod', $method);
+	}
+
+	/**
+	* Get review round id.
+	* @return int
+	*/
+	function getReviewRoundId() {
+		return $this->getData('reviewRoundId');
+	}
+
+	/**
+	 * Set review round id.
+	 * @param $reviewRoundId int
+	 */
+	function setReviewRoundId($reviewRoundId) {
+		$this->setData('reviewRoundId', $reviewRoundId);
 	}
 
 	/**

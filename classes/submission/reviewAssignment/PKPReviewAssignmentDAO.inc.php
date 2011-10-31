@@ -27,6 +27,24 @@ class PKPReviewAssignmentDAO extends DAO {
 		$this->userDao =& DAORegistry::getDAO('UserDAO');
 	}
 
+
+	//
+	// Template methods.
+	//
+	/**
+	 * Get the review_rounds join string. Must be implemented
+	 * by subclasses.
+	 * @return string
+	 */
+	function getReviewRoundJoin() {
+		return false;
+	}
+
+
+	//
+	// Public methods.
+	//
+
 	/**
 	 * Retrieve a review assignment by reviewer and submission.
 	 * @param $submissionId int
@@ -73,24 +91,29 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @return ReviewAssignment
 	 */
 	function &getById($reviewId) {
-		$result =& $this->retrieve(
-			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	r.review_id = ?',
+		$reviewRoundJoinString = $this->getReviewRoundJoin();
+		if ($reviewRoundJoinString) {
+			$result =& $this->retrieve(
+						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+						FROM	review_assignments r
+							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+						WHERE	r.review_id = ?',
 			(int) $reviewId
-		);
+			);
 
-		$returner = null;
-		if ($result->RecordCount() != 0) {
-			$returner =& $this->_fromRow($result->GetRowAssoc(false));
+			$returner = null;
+			if ($result->RecordCount() != 0) {
+				$returner =& $this->_fromRow($result->GetRowAssoc(false));
+			}
+
+			$result->Close();
+			unset($result);
+
+			return $returner;
+		} else {
+			assert(false);
 		}
-
-		$result->Close();
-		unset($result);
-
-		return $returner;
 	}
 
 	/**
@@ -100,26 +123,30 @@ class PKPReviewAssignmentDAO extends DAO {
 	 */
 	function &getIncompleteReviewAssignments() {
 		$reviewAssignments = array();
+		$reviewRoundJoinString = $this->getReviewRoundJoin();
+		if ($reviewRoundJoinString) {
+			$result =& $this->retrieve(
+						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+						FROM	review_assignments r
+							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+						WHERE	(r.cancelled IS NULL OR r.cancelled = 0) AND
+							r.date_notified IS NOT NULL AND
+							r.date_completed IS NULL AND
+							r.declined <> 1
+						ORDER BY r.submission_id'
+			);
 
-		$result =& $this->retrieve(
-			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	(r.cancelled IS NULL OR r.cancelled = 0) AND
-				r.date_notified IS NOT NULL AND
-				r.date_completed IS NULL AND
-				r.declined <> 1
-			ORDER BY r.submission_id'
-		);
+			while (!$result->EOF) {
+				$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
+				$result->MoveNext();
+			}
 
-		while (!$result->EOF) {
-			$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+			$result->Close();
+			unset($result);
+		} else {
+			assert(false);
 		}
-
-		$result->Close();
-		unset($result);
 
 		return $reviewAssignments;
 	}
@@ -218,24 +245,29 @@ class PKPReviewAssignmentDAO extends DAO {
 	 */
 	function &getByUserId($userId) {
 		$reviewAssignments = array();
+		$reviewRoundJoinString = $this->getReviewRoundJoin();
 
-		$result =& $this->retrieve(
-			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	r.reviewer_id = ?
-			ORDER BY round, review_id',
+		if ($reviewRoundJoinString) {
+			$result =& $this->retrieve(
+						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+						FROM	review_assignments r
+							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+						WHERE	r.reviewer_id = ?
+						ORDER BY round, review_id',
 			(int) $userId
-		);
+			);
 
-		while (!$result->EOF) {
-			$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+			while (!$result->EOF) {
+				$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
+				$result->MoveNext();
+			}
+
+			$result->Close();
+			unset($result);
+		} else {
+			assert(false);
 		}
-
-		$result->Close();
-		unset($result);
 
 		return $reviewAssignments;
 	}
@@ -247,24 +279,29 @@ class PKPReviewAssignmentDAO extends DAO {
 	 */
 	function &getByReviewFormId($reviewFormId) {
 		$reviewAssignments = array();
+		$reviewRoundJoinString = $this->getReviewRoundJoin();
 
-		$result =& $this->retrieve(
-			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	r.review_form_id = ?
-			ORDER BY round, review_id',
+		if ($reviewRoundJoinString) {
+			$result =& $this->retrieve(
+						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+						FROM	review_assignments r
+							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+						WHERE	r.review_form_id = ?
+						ORDER BY round, review_id',
 			(int) $reviewFormId
-		);
+			);
 
-		while (!$result->EOF) {
-			$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+			while (!$result->EOF) {
+				$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
+				$result->MoveNext();
+			}
+
+			$result->Close();
+			unset($result);
+		} else {
+			assert(false);
 		}
-
-		$result->Close();
-		unset($result);
 
 		return $reviewAssignments;
 	}
@@ -276,25 +313,30 @@ class PKPReviewAssignmentDAO extends DAO {
 	 */
 	function &getCancelsAndRegrets($submissionId) {
 		$reviewAssignments = array();
+		$reviewRoundJoinString = $this->getReviewRoundJoin();
 
-		$result =& $this->retrieve(
-			'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
-			FROM	review_assignments r
-				LEFT JOIN users u ON (r.reviewer_id = u.user_id)
-				LEFT JOIN review_rounds r2 ON (r.submission_id = r2.submission_id AND r.round = r2.round)
-			WHERE	r.submission_id = ? AND
-				(r.cancelled = 1 OR r.declined = 1)
-			ORDER BY round, review_id',
+		if ($reviewRoundJoinString) {
+			$result =& $this->retrieve(
+						'SELECT	r.*, r2.review_revision, u.first_name, u.last_name
+						FROM	review_assignments r
+							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
+							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
+						WHERE	r.submission_id = ? AND
+							(r.cancelled = 1 OR r.declined = 1)
+						ORDER BY round, review_id',
 			(int) $submissionId
-		);
+			);
 
-		while (!$result->EOF) {
-			$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
-			$result->MoveNext();
+			while (!$result->EOF) {
+				$reviewAssignments[] =& $this->_fromRow($result->GetRowAssoc(false));
+				$result->MoveNext();
+			}
+
+			$result->Close();
+			unset($result);
+		} else {
+			assert(false);
 		}
-
-		$result->Close();
-		unset($result);
 
 		return $reviewAssignments;
 	}
@@ -415,9 +457,10 @@ class PKPReviewAssignmentDAO extends DAO {
 				quality, date_rated,
 				last_modified,
 				date_reminded, reminder_was_automatic,
-				review_form_id
+				review_form_id,
+				review_round_id
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -435,7 +478,8 @@ class PKPReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getReviewerFileId(),
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
-				$reviewAssignment->getReviewFormId()
+				$reviewAssignment->getReviewFormId(),
+				(int) $reviewAssignment->getReviewRoundId()
 			)
 		);
 
@@ -474,7 +518,8 @@ class PKPReviewAssignmentDAO extends DAO {
 					last_modified = %s,
 					date_reminded = %s,
 					reminder_was_automatic = ?,
-					review_form_id = ?
+					review_form_id = ?,
+					review_round_id = ?
 				WHERE review_id = ?',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -493,6 +538,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
+				(int) $reviewAssignment->getReviewRoundId(),
 				(int) $reviewAssignment->getId()
 			)
 		);
@@ -532,6 +578,8 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setRound($row['round']);
 		$reviewAssignment->setReviewRevision($row['review_revision']);
 		$reviewAssignment->setReviewFormId($row['review_form_id']);
+		$reviewAssignment->setReviewRoundId($row['review_round_id']);
+		$reviewAssignment->setReviewMethod($row['review_method']);
 		$reviewAssignment->setStageId($row['stage_id']);
 
 		return $reviewAssignment;

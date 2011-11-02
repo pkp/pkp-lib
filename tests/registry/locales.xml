@@ -15,8 +15,8 @@
 <!DOCTYPE locales SYSTEM "../lib/pkp/dtd/locales.dtd">
 
 <locales>
-	<locale key="en_US" name="English" iso639-2b="eng" />
-	<locale key="pt_BR" complete="false" name="Portuguese (Brazil)" iso639-2b="por" stylesheet="pt.css" />
-	<locale key="pt_PT" complete="false" name="Portuguese (Portugal)" iso639-2b="por" />
-	<locale key="de_DE" complete="false" name="German" iso639-2b="ger" />
+	<locale key="en_US" name="English" iso639-2b="eng" iso639-3="eng" />
+	<locale key="pt_BR" complete="false" name="Portuguese (Brazil)" iso639-2b="por" iso639-3="por" stylesheet="pt.css" />
+	<locale key="pt_PT" complete="false" name="Portuguese (Portugal)" iso639-2b="por" iso639-3="por" />
+	<locale key="de_DE" complete="false" name="German" iso639-2b="ger"  iso639-3="deu" />
 </locales>

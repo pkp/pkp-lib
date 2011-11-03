@@ -83,7 +83,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, true);
+		$revisions =& $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, true);
 		return $this->_checkAndReturnRevision($revisions);
 	}
 
@@ -100,7 +100,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, null, null, null, null, true, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, null, null, null, null, null, true, $rangeInfo);
 	}
 
 	/**
@@ -118,7 +118,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, false, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, $fileId, null, null, null, null, null, null, null, null, false, $rangeInfo);
 	}
 
 	/**
@@ -136,7 +136,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally($submissionId, $fileStage, null, null, $assocType, $assocId, null, null, null, null, true, $rangeInfo);
+		return $this->_getInternally($submissionId, $fileStage, null, null, $assocType, $assocId, null, null, null, null, null, true, $rangeInfo);
 	}
 
 	/**
@@ -153,7 +153,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		}
-		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, null, null, null, null, false, $rangeInfo);
+		return $this->_getInternally(null, $fileStage, null, null, $assocType, $assocId, null, null, null, null, null, false, $rangeInfo);
 	}
 
 	/**
@@ -190,7 +190,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$emptyArray = array();
 			return $emptyArray;
 		}
-		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, $stageId, null, null, $round, true);
+		return $this->_getInternally($submissionId, $fileStage, null, null, null, null, $stageId, null, null, $round, null, true);
 	}
 
 	/**
@@ -642,11 +642,18 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function &_getInternally($submissionId = null, $fileStage = null, $fileId = null, $revision = null,
 			$assocType = null, $assocId = null, $stageId = null, $uploaderUserId = null, $uploaderUserGroupId = null,
-			$round = null, $latestOnly = false, $rangeInfo = null) {
+			$round = null, $reviewRoundId = null, $latestOnly = false, $rangeInfo = null) {
 
 		// Sanitize parameters.
 		$latestOnly = (boolean)$latestOnly;
 		if (!is_null($rangeInfo)) assert(is_a($rangeInfo, 'DBResultRange'));
+
+		// It's not possible to specify both reviewRoundId and round.
+		// Round will be deprecated in favour of reviewRoundId.
+		if ($reviewRoundId && $round) {
+			assert(false);
+			$round = null;
+		}
 
 		// Retrieve the base query.
 		$sql = $this->baseQueryForFileSelection($latestOnly);
@@ -654,7 +661,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		// Add the revision round file join if a revision round
 		// filter was requested.
 		$submissionEntity = $this->getSubmissionEntityName();
-		if ($round) {
+		if ($round || $reviewRoundId) {
 			$sql .= 'INNER JOIN review_round_files rrf
 					ON sf.'.$submissionEntity.'_id = rrf.'.$submissionEntity.'_id
 					AND sf.file_id = rrf.file_id ';
@@ -663,7 +670,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		// Filter the query.
 		list($filterClause, $params) = $this->_buildFileSelectionFilter(
 				$submissionId, $fileStage, $fileId, $revision,
-				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round);
+				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, $reviewRoundId);
 
 		// Did the user request all or only the latest revision?
 		if ($latestOnly) {
@@ -740,7 +747,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// Identify all matched files.
 		$deletedFiles =& $this->_getInternally($submissionId, $fileStage, $fileId, $revision,
-				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, $latestOnly);
+				$assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, null, $latestOnly);
 		if (empty($deletedFiles)) return 0;
 
 		$filterClause = '';
@@ -772,17 +779,25 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $assocId integer
 	 * @param $stageId integer
 	 * @param $round integer
+	 * @param $reviewRoundId integer
 	 * @return array an array that contains the generated SQL
 	 *  filter clause and the corresponding parameters.
 	 */
 	function _buildFileSelectionFilter($submissionId, $fileStage,
-			$fileId, $revision, $assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round) {
+			$fileId, $revision, $assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, $reviewRoundId) {
 
 		// Make sure that at least one entity filter has been set.
 		assert((int)$submissionId || (int)$fileId || (int)$assocId);
 
 		// Both, assoc type and id, must be set (or unset) together.
 		assert(((int)$assocType && (int)$assocId) || !((int)$assocType || (int)$assocId));
+
+		// It's not possible to specify both reviewRoundId and round.
+		// Round will be deprecated in favour of reviewRoundId.
+		if ($reviewRoundId && $round) {
+			assert(false);
+			$round = null;
+		}
 
 		// Collect the filtered columns and ids in
 		// an array for consistent handling.
@@ -797,7 +812,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			'sf.uploader_user_id' => $uploaderUserId,
 			'sf.user_group_id' => $uploaderUserGroupId,
 			'rrf.stage_id' => $stageId,
-			'rrf.round' => $round
+			'rrf.round' => $round,
+			'rrf.review_round_id' => $reviewRoundId
 		);
 
 		// Build and return a SQL where clause and a parameter

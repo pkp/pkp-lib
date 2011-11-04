@@ -17,6 +17,8 @@ import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.db.DBConnection');
 
 class DBConnectionTest extends DatabaseTestCase {
+	const CONFIG_PGSQL = 'pgsql';
+
 	/**
 	 * @covers DBConnection::DBConnection
 	 * @covers DBConnection::initDefaultDBConnection

@@ -59,10 +59,10 @@ class DispatcherTest extends PKPTestCase {
 		$baseUrl = $this->request->getBaseUrl();
 
 		$url = $this->dispatcher->url($this->request, ROUTE_PAGE, array('context1', 'context2'), 'somepage', 'someop');
-		self::assertEquals($baseUrl.'/phpunit.php/context1/context2/somepage/someop', $url);
+		self::assertEquals($baseUrl.'/index.php/context1/context2/somepage/someop', $url);
 
-		$url = $this->dispatcher->url($this->request, ROUTER_COMPONENT, array('context1', 'context2'), 'some.ComponentHandler', 'someOp');
-		self::assertEquals($baseUrl.'/phpunit.php/context1/context2/$$$call$$$/some/component/some-op', $url);
+		$url = $this->dispatcher->url($this->request, ROUTE_COMPONENT, array('context1', 'context2'), 'some.ComponentHandler', 'someOp');
+		self::assertEquals($baseUrl.'/index.php/context1/context2/$$$call$$$/some/component/some-op', $url);
 	}
 }
 

@@ -13,10 +13,10 @@
  * @brief Test class for MetadataProperty.
  */
 
-import('lib.pkp.tests.DatabaseTestCase');
+import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.metadata.MetadataProperty');
 
-class MetadataPropertyTest extends DatabaseTestCase {
+class MetadataPropertyTest extends PKPTestCase {
 	/**
 	 * @covers MetadataProperty::MetadataProperty
 	 * @covers MetadataProperty::getName

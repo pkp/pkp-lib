@@ -30,7 +30,7 @@ class NullAction extends LinkActionRequest {
 	 * @see LinkActionRequest::getJSLinkActionRequest()
 	 */
 	function getJSLinkActionRequest() {
-		return '$.pkp.classes.linkAction.NullRequest';
+		return '$.pkp.classes.linkAction.NullAction';
 	}
 }
 

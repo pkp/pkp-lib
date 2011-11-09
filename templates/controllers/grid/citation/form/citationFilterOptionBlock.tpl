@@ -23,7 +23,7 @@
 			<div class="option-block-option">
 				{fbvElement type="checkbox" id=$citationFilter->getDisplayName() name=$citationFilterFieldName
 						checked=$citationFilterDefault}
-				{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName() required=false}
+				{fieldLabel name=$citationFilterFieldName label=$citationFilter->getDisplayName()}
 			</div>
 		{/foreach}
 	</div>

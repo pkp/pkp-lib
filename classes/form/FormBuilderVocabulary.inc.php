@@ -443,6 +443,7 @@ class FormBuilderVocabulary {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'value': $smarty->assign('FBV_value', $params['value']); break;
+				case 'required': if ($value == 'true') $textInputParams .= 'required="true" '; break;
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}
@@ -602,7 +603,7 @@ class FormBuilderVocabulary {
 				case 'defaultLabel': $smarty->assign('FBV_defaultLabel', $value); break;
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
-				case 'validation'; $smarty->assign('FBV_required', $params['validation']); break;
+				case 'validation': $smarty->assign('FBV_validation', $params['validation']); break;
 				case 'type': break;
 				case 'inline': break;
 				case 'subLabelTranslate': break;

@@ -137,7 +137,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.cancelForm =
 			function(cancelButton, event) {
 
-		// Trigger the "form submitted" event.
+		// Trigger the "form canceled" event.
 		this.trigger('formCanceled');
 		return false;
 	};

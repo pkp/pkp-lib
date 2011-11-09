@@ -103,12 +103,13 @@ class PKPNotificationManager {
 	}
 
 	/**
-	 * Construct the contents for the notification based on its type and associated object
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
-	 */
-	function getNotificationContents(&$request, &$notification) {
+	* Return a message string for the notification based on its type
+	* and associated object.
+	* @param $request PKPRequest
+	* @param $notification Notification
+	* @return string
+	*/
+	function getNotificationMessage(&$request, &$notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 
@@ -121,11 +122,9 @@ class PKPNotificationManager {
 					return __('common.changesSaved');
 				}
 			case NOTIFICATION_TYPE_FORM_ERROR:
-				$templateMgr =& TemplateManager::getManager();
 				$notificationSettings = $this->getNotificationSettings($notification->getId());
 				assert(!is_null($notificationSettings['contents']));
-				$templateMgr->assign('errors', $notificationSettings['contents']);
-				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
+				return $notificationSettings['contents'];
 			case NOTIFICATION_TYPE_PLUGIN_ENABLED:
 				return $this->_getTranslatedKeyWithParameters('common.pluginEnabled', $notification->getId());
 			case NOTIFICATION_TYPE_PLUGIN_DISABLED:
@@ -134,6 +133,34 @@ class PKPNotificationManager {
 				return $this->_getTranslatedKeyWithParameters('admin.languages.localeInstalled', $notification->getId());
 			default:
 				return null;
+		}
+	}
+
+	/**
+	 * Using the notification message, construct, if needed, any additional
+	 * content for the notification body. If a specific notification type
+	 * is not defined, it will return the string from getNotificationMessage
+	 * method for that type.
+	 * Define a notification type case on this method only if you need to
+	 * present more than just text in notification. If you need to define
+	 * just a locale key, use the getNotificationMessage method only.
+	 * @param $request Request
+	 * @param $notification Notification
+	 * @return String
+	 */
+	function getNotificationContents(&$request, &$notification) {
+		$type = $notification->getType();
+		assert(isset($type));
+		$notificationMessage = $this->getNotificationMessage($request, $notification);
+
+		switch ($type) {
+			case NOTIFICATION_TYPE_FORM_ERROR:
+				$templateMgr =& TemplateManager::getManager();
+				$templateMgr->assign('errors', $notificationMessage);
+				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
+				break;
+			default:
+				return $notificationMessage;
 		}
 	}
 

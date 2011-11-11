@@ -25,11 +25,15 @@ class LanguageDAO extends DAO {
 		parent::DAO();
 	}
 
+	/**
+	 * Return the language cache.
+	 * @param $locale string
+	 */
 	function &_getCache($locale = null) {
-		if ($locale == null) {
+		if (is_null($locale)) {
 			$locale = AppLocale::getLocale();
 		}
-		$cache =& Registry::get('languageCache', true, null);
+		$cache =& Registry::get('languageCache-'.$locale, true, null);
 		if ($cache === null) {
 			$cacheManager = CacheManager::getManager();
 			$cache =& $cacheManager->getFileCache(
@@ -46,7 +50,7 @@ class LanguageDAO extends DAO {
 	}
 
 	function _cacheMiss(&$cache, $id) {
-		$allLanguages =& Registry::get('allLanguages', true, null);
+		$allLanguages =& Registry::get('allLanguages-'.$cache->cacheId, true, null);
 		if ($allLanguages === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
@@ -74,7 +78,11 @@ class LanguageDAO extends DAO {
 			}
 			$cache->setEntireCache($allLanguages);
 		}
-		return null;
+		if (isset($allLanguages[$id])) {
+			return $allLanguages[$id];
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -88,18 +96,19 @@ class LanguageDAO extends DAO {
 
 	/**
 	 * Retrieve a language by code.
-	 * @param $languageId int
+	 * @param $code string
+	 * @param $locale string
 	 * @return Language
 	 */
-	function &getLanguageByCode($code) {
-		$cache =& $this->_getCache();
+	function &getLanguageByCode($code, $locale = null) {
+		$cache =& $this->_getCache($locale);
 		$returner =& $this->_returnLanguageFromRow($code, $cache->get($code));
 		return $returner;
 	}
 
 	/**
 	 * Retrieve an array of all languages.
-	 * @param $locale an optional locale to use
+	 * @param $locale string an optional locale to use
 	 * @return array of Languages
 	 */
 	function &getLanguages($locale = null) {

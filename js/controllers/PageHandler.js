@@ -151,9 +151,8 @@
 				updatableElementsClass = $updateSourceElement.attr('id');
 								
 				$targetElements = $(this.getHtmlElement()).find('.' + updatableElementsClass);
-				$visibleTargetElements = $targetElements.filter(':visible');
-				if ($visibleTargetElements.length > 0) {
-					$grids = $visibleTargetElements.find('.pkp_controllers_grid');
+				if ($targetElements.length > 0) {
+					$grids = $targetElements.find('.pkp_controllers_grid');
 					if ($grids.length > 0) {
 						$grids.each(function() {
 							// Keyword "this" is being used here in the

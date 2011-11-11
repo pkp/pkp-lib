@@ -30,6 +30,11 @@
 		// correpondent grid a dataChanged event that comes from
 		// a link action that is outside of any grid.
 		this.bind('dataChanged', this.redirectDataChangedEventHandler_);
+		
+		// Listen to this event to be able to update the correspondent
+		// grid. Look the handler method description to understand how
+		// to use this.
+		this.bind('gridRefreshRequested', this.gridRefreshRequestedHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.PageHandler, $.pkp.classes.Handler);
@@ -79,7 +84,6 @@
 
 	};
 
-
 	/**
 	 * Handler to redirect to the correct grid the dataChanged event.
 	 * @param {HTMLElement} sourceElement The element that issued the
@@ -109,6 +113,59 @@
 			});
 		}
 	};
+	
+	/**
+	 * Handler to update a grid element when another one is updated.
+	 * This method expects two type of elements: 
+	 * 1) THE SOURCE: the element that triggered the refreshRequested event;
+	 * 2) THE TARGET: any number of grid elements;
+	 * 
+	 * It finds both type of elements using class definition, so
+	 * you must define classes in the template file in order to tell
+	 * which grid should update the other(s). The classes are:
+	 * - 'update_source' for the source element;
+	 * - the source element id string for the target element;
+	 * 
+	 * When a grid is refreshed, this handler will search for the
+	 * 'update_source' string on every grid style class. If it's found,
+	 * it will search for other grids on this page with a class 
+	 * equals to source element id string. Any grid with this class will have
+	 * the 'dataChanged' event triggered.
+	 * 
+	 * With those 2 definitions (source and target(s)), this method
+	 * can handle with any number of updating grid processes at the same
+	 * time. Search for 'update_source' in the template files for examples.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 * "gridRefreshRequested" event.
+	 * @param {Event} event The "grid refresh requested" event.
+	 * @private
+	 */
+	$.pkp.controllers.PageHandler.prototype.gridRefreshRequestedHandler_ =
+			function(sourceElement, event) {
+		var updateSourceClassString = 'update_source';
+		
+		var $updateSourceElement = $(event.target);
+		var updateSourceElementClasses = $updateSourceElement.attr('class').split(' ');
+		for (var key in updateSourceElementClasses) {
+			if (updateSourceElementClasses[key].search(updateSourceClassString) != -1) {
+				updatableElementsClass = $updateSourceElement.attr('id');
+								
+				$targetElements = $(this.getHtmlElement()).find('.' + updatableElementsClass);
+				$visibleTargetElements = $targetElements.filter(':visible');
+				if ($visibleTargetElements.length > 0) {
+					$grids = $visibleTargetElements.find('.pkp_controllers_grid');
+					if ($grids.length > 0) {
+						$grids.each(function() {
+							// Keyword "this" is being used here in the
+							// context of the grid html element.
+							$(this).trigger('dataChanged');
+						});
+					}
+				}
+				break; // Already found the source class definition.
+			}
+		}
+	}
 
 
 /** @param {jQuery} $ jQuery closure. */

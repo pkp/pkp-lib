@@ -479,7 +479,7 @@ class PKPEmailTemplateDAO extends DAO {
 
 		while (!$result->EOF) {
 			$emailTemplates[] =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), false);
-			$result->moveNext();
+			$result->MoveNext();
 		}
 		$result->Close();
 		unset($result);
@@ -511,7 +511,7 @@ class PKPEmailTemplateDAO extends DAO {
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
 			$emailTemplates[] =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), true);
-			$result->moveNext();
+			$result->MoveNext();
 		}
 		$result->Close();
 		unset($result);

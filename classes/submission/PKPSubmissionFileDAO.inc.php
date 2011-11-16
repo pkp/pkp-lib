@@ -716,7 +716,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$submissionFiles[$idAndRevision] =& $this->fromRow($row);
 
 			// Move the query cursor to the next record.
-			$result->moveNext();
+			$result->MoveNext();
 		}
 		$result->Close();
 		unset($result);

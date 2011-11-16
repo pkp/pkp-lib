@@ -58,7 +58,7 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$settings[] = (int) $row['setting_value'];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

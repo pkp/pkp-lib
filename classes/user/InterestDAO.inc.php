@@ -51,7 +51,7 @@ class InterestDAO extends ControlledVocabDAO {
 
 		while (!$result->EOF) {
 			$interests[] = $result->fields[0];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

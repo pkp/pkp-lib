@@ -176,7 +176,7 @@ class ReviewFormResponseDAO extends DAO {
 			$row = $result->GetRowAssoc(false);
 			$reviewFormResponse =& $this->_returnReviewFormResponseFromRow($row);
 			$returner[$reviewFormResponse->getReviewFormElementId()] = $reviewFormResponse->getValue();
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

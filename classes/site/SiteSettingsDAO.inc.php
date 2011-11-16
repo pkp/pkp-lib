@@ -79,7 +79,7 @@ class SiteSettingsDAO extends DAO {
 				else $siteSettings[$row['setting_name']][$row['locale']] = $value;
 				$result->MoveNext();
 			}
-			$result->close();
+			$result->Close();
 			unset($result);
 
 			$cache =& $this->_getCache();

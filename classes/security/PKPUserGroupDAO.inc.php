@@ -126,7 +126,7 @@ class PKPUserGroupDAO extends DAO {
 			$ret2 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
 
 			$returner = $returner && $ret1 && $ret2;
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		return $returner;
@@ -231,7 +231,7 @@ class PKPUserGroupDAO extends DAO {
 		$userGroupIds = array();
 		while (!$result->EOF) {
 			$userGroupIds[] = (int) $result->fields[0];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

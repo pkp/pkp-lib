@@ -73,7 +73,7 @@ class PKPAuthorDAO extends DAO {
 				$authors[] =& $this->_returnAuthorFromRow($row);
 			}
 			unset($row);
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -229,10 +229,10 @@ class PKPAuthorDAO extends DAO {
 				)
 			);
 
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
-		$result->close();
+		$result->Close();
 		unset($result);
 	}
 

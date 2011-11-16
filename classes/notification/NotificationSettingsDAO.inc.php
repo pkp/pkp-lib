@@ -44,7 +44,7 @@ class NotificationSettingsDAO extends DAO {
 
 			if ($locale == '') $params[$name] = $value;
 			else $params[$name][$locale] = $value;
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

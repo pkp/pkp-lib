@@ -223,7 +223,7 @@ class ControlledVocabEntryDAO extends DAO {
 			$result->MoveNext();
 		}
 
-		$result->close();
+		$result->Close();
 		unset($result);
 	}
 

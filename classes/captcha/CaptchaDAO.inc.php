@@ -32,7 +32,7 @@ class CaptchaDAO extends DAO {
 
 		while (!$result->EOF) {
 			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -60,7 +60,7 @@ class CaptchaDAO extends DAO {
 
 		while (!$result->EOF) {
 			$captchas[] =& $this->_returnCaptchaFromRow($result->GetRowAssoc(false));
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

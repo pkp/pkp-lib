@@ -45,7 +45,7 @@ class CommentDAO extends DAO {
 
 		while (!$result->EOF) {
 			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -66,7 +66,7 @@ class CommentDAO extends DAO {
 
 		while (!$result->EOF) {
 			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -87,7 +87,7 @@ class CommentDAO extends DAO {
 
 		while (!$result->EOF) {
 			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false));
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

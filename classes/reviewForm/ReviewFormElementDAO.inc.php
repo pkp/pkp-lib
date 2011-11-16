@@ -201,7 +201,7 @@ class ReviewFormElementDAO extends DAO {
 		while (!$result->EOF) {
 			$reviewFormElement =& $this->_returnReviewFormElementFromRow($result->GetRowAssoc(false));
 			$reviewFormElements[$reviewFormElement->getId()] = $reviewFormElement;
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -241,7 +241,7 @@ class ReviewFormElementDAO extends DAO {
 
 		while (!$result->EOF) {
 			$requiredReviewFormElementIds[] = $result->fields[0];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -292,10 +292,10 @@ class ReviewFormElementDAO extends DAO {
 				)
 			);
 
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
-		$result->close();
+		$result->Close();
 		unset($result);
 	}
 

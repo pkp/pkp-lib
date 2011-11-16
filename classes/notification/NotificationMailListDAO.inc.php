@@ -124,7 +124,7 @@ class NotificationMailListDAO extends DAO {
 		while (!$result->EOF) {
 			$row = $result->GetRowAssoc(false);
 			$mailList[] = $row['email'];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

@@ -15,7 +15,6 @@
 
 
 class GroupMembership extends DataObject {
-
 	/**
 	 * Constructor.
 	 */
@@ -23,10 +22,10 @@ class GroupMembership extends DataObject {
 		parent::DataObject();
 	}
 
+
 	//
 	// Get/set methods
 	//
-
 	/**
 	 * Get ID of board position.
 	 * @return int

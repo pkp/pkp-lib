@@ -37,8 +37,8 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Add a private parameter to this email. Private parameters are replaced
-	 * just before sending and are never available via getBody etc.
+	 * Add a private parameter to this email. Private parameters are
+	 * replaced just before sending and are never available via getBody etc.
 	 */
 	function addPrivateParam($name, $value) {
 		$this->privateParams[$name] = $value;
@@ -52,6 +52,11 @@ class Mail extends DataObject {
 		$this->privateParams = $privateParams;
 	}
 
+	/**
+	 * Add a recipient.
+	 * @param $email string
+	 * @param $name string optional
+	 */
 	function addRecipient($email, $name = '') {
 		if (($recipients = $this->getData('recipients')) == null) {
 			$recipients = array();
@@ -61,30 +66,60 @@ class Mail extends DataObject {
 		return $this->setData('recipients', $recipients);
 	}
 
+	/**
+	 * Set the envelope sender (bounce address) for the message,
+	 * if supported.
+	 * @param $envelopeSender string Email address
+	 */
 	function setEnvelopeSender($envelopeSender) {
 		$this->setData('envelopeSender', $envelopeSender);
 	}
 
+	/**
+	 * Get the envelope sender (bounce address) for the message, if set.
+	 * @return string
+	 */
 	function getEnvelopeSender() {
 		return $this->getData('envelopeSender');
 	}
 
+	/**
+	 * Get the message content type (MIME)
+	 * @return string
+	 */
 	function getContentType() {
 		return $this->getData('content_type');
 	}
 
+	/**
+	 * Set the message content type (MIME)
+	 * @param $contentType string
+	 */
 	function setContentType($contentType) {
 		return $this->setData('content_type', $contentType);
 	}
 
+	/**
+	 * Get the recipients for the message.
+	 * @return array
+	 */
 	function getRecipients() {
 		return $this->getData('recipients');
 	}
 
+	/**
+	 * Set the recipients for the message.
+	 * @param $recipients array
+	 */
 	function setRecipients($recipients) {
 		return $this->setData('recipients', $recipients);
 	}
 
+	/**
+	 * Add a carbon-copy (CC) recipient to the message.
+	 * @param $email string
+	 * @param $name string optional
+	 */
 	function addCc($email, $name = '') {
 		if (($ccs = $this->getData('ccs')) == null) {
 			$ccs = array();
@@ -94,14 +129,27 @@ class Mail extends DataObject {
 		return $this->setData('ccs', $ccs);
 	}
 
+	/**
+	 * Get the carbon-copy (CC) recipients for the message.
+	 * @return array
+	 */
 	function getCcs() {
 		return $this->getData('ccs');
 	}
 
+	/**
+	 * Set the carbon-copy (CC) recipients for the message.
+	 * @param $ccs array
+	 */
 	function setCcs($ccs) {
 		return $this->setData('ccs', $ccs);
 	}
 
+	/**
+	 * Add a blind carbon copy (BCC) recipient to the message.
+	 * @param $email string
+	 * @param $name optional
+	 */
 	function addBcc($email, $name = '') {
 		if (($bccs = $this->getData('bccs')) == null) {
 			$bccs = array();
@@ -111,10 +159,18 @@ class Mail extends DataObject {
 		return $this->setData('bccs', $bccs);
 	}
 
+	/**
+	 * Get the blind carbon copy (BCC) recipients for the message
+	 * @return array
+	 */
 	function getBccs() {
 		return $this->getData('bccs');
 	}
 
+	/**
+	 * Set the blind carbon copy (BCC) recipients for the message.
+	 * @param $bccs array
+	 */
 	function setBccs($bccs) {
 		return $this->setData('bccs', $bccs);
 	}
@@ -144,6 +200,11 @@ class Mail extends DataObject {
 		$this->setBccs(array());
 	}
 
+	/**
+	 * Add an SMTP header to the message.
+	 * @param $name string
+	 * @param $content string
+	 */
 	function addHeader($name, $content) {
 		$updated = false;
 
@@ -165,10 +226,18 @@ class Mail extends DataObject {
 		return $this->setData('headers', $headers);
 	}
 
+	/**
+	 * Get the SMTP headers for the message.
+	 * @return array
+	 */
 	function getHeaders() {
 		return $this->getData('headers');
 	}
 
+	/**
+	 * Set the SMTP headers for the message.
+	 * @param $headers array
+	 */
 	function setHeaders(&$headers) {
 		return $this->setData('headers', $headers);
 	}
@@ -219,36 +288,69 @@ class Mail extends DataObject {
 		}
 	}
 
+	/**
+	 * Get the attachments currently on the message.
+	 * @return array
+	 */
 	function &getAttachments() {
 		$attachments =& $this->getData('attachments');
 		return $attachments;
 	}
 
+	/**
+	 * Return true iff attachments are included in this message.
+	 * @return boolean
+	 */
 	function hasAttachments() {
 		$attachments =& $this->getAttachments();
 		return ($attachments != null && count($attachments) != 0);
 	}
 
+	/**
+	 * Set the sender of the message.
+	 * @param $email string
+	 * @param $name string optional
+	 */
 	function setFrom($email, $name = '') {
 		return $this->setData('from', array('name' => $name, 'email' => $email));
 	}
 
+	/**
+	 * Get the sender of the message.
+	 * @return array
+	 */
 	function getFrom() {
 		return $this->getData('from');
 	}
 
+	/**
+	 * Set the subject of the message.
+	 * @param $subject string
+	 */
 	function setSubject($subject) {
 		return $this->setData('subject', $subject);
 	}
 
+	/**
+	 * Get the subject of the message.
+	 * @return string
+	 */
 	function getSubject() {
 		return $this->getData('subject');
 	}
 
+	/**
+	 * Set the body of the message.
+	 * @param $body string
+	 */
 	function setBody($body) {
 		return $this->setData('body', $body);
 	}
 
+	/**
+	 * Get the body of the message.
+	 * @return string
+	 */
 	function getBody() {
 		return $this->getData('body');
 	}
@@ -447,6 +549,11 @@ class Mail extends DataObject {
 		} else return true;
 	}
 
+	/**
+	 * Encode a display name for proper inclusion with an email address.
+	 * @param $displayName string
+	 * @return string
+	 */
 	function encodeDisplayName($displayName) {
 		if (String::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
 		return ('"' . str_replace(

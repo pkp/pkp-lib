@@ -23,6 +23,13 @@ define('GROUP_CONTEXT_PEOPLE',		0x000002);
 
 class Group extends DataObject {
 	/**
+	 * Constructor
+	 */
+	function Group() {
+		parent::DataObject();
+	}
+
+	/**
 	 * Get localized title of group.
 	 */
 	function getLocalizedTitle() {
@@ -34,10 +41,10 @@ class Group extends DataObject {
 		return $this->getLocalizedTitle();
 	}
 
+
 	//
 	// Get/set methods
 	//
-
 	/**
 	 * Get title of group (primary locale)
 	 * @param $locale string

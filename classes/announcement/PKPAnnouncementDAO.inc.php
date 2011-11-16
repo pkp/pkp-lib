@@ -17,6 +17,13 @@ import('lib.pkp.classes.announcement.PKPAnnouncement');
 
 class PKPAnnouncementDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function PKPAnnouncementDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve an announcement by announcement ID.
 	 * @param $announcementId int
 	 * @return Announcement

@@ -18,6 +18,13 @@ import('lib.pkp.classes.announcement.PKPAnnouncementType');
 
 class PKPAnnouncementTypeDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function PKPAnnouncementTypeDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve an announcement type by announcement type ID.
 	 * @param $typeId int
 	 * @return AnnouncementType

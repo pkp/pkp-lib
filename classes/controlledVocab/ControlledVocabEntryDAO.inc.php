@@ -17,6 +17,13 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
 
 class ControlledVocabEntryDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function ControlledVocabEntryDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a controlled vocab entry by controlled vocab entry ID.
 	 * @param $controlledVocabEntryId int
 	 * @param $controlledVocabEntry int optional

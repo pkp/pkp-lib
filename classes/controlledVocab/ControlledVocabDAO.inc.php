@@ -13,10 +13,16 @@
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
-
 import('lib.pkp.classes.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
+	/**
+	 * Constructor
+	 */
+	function ControlledVocabDAO() {
+		parent::DAO();
+	}
+
 	/**
 	 * Return the Controlled Vocab Entry DAO for this Controlled Vocab.
 	 * Can be subclassed to provide extended DAOs.

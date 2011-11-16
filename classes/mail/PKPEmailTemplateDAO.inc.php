@@ -16,6 +16,13 @@
 
 class PKPEmailTemplateDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function PKPEmailTemplateDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a base email template by key.
 	 * @param $emailKey string
 	 * @param assocType int

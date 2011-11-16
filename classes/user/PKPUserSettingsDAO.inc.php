@@ -16,6 +16,13 @@
 
 class PKPUserSettingsDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function PKPUserSettingsDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a user setting value.
 	 * @param $userId int
 	 * @param $name

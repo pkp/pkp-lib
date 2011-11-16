@@ -28,6 +28,13 @@ define('USER_FIELD_NONE', null);
 
 class PKPUserDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function PKPUserDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a user by ID.
 	 * @param $userId int
 	 * @param $allowDisabled boolean

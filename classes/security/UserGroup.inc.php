@@ -17,7 +17,6 @@
 import('classes.security.Role');
 
 class UserGroup extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

@@ -15,7 +15,6 @@
 
 
 class Version extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

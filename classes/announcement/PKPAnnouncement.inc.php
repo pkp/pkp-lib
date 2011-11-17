@@ -20,6 +20,13 @@
 define('ANNOUNCEMENT_EXPIRE_YEAR_OFFSET_FUTURE',	'+10');
 
 class PKPAnnouncement extends DataObject {
+	/**
+	 * Constructor
+	 */
+	function PKPAnnouncement() {
+		parent::DataObject();
+	}
+
 	//
 	// Get/set methods
 	//

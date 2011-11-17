@@ -13,7 +13,6 @@
  * @brief Author metadata class.
  */
 
-
 class PKPAuthor extends DataObject {
 	/**
 	 * Constructor.

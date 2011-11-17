@@ -17,9 +17,10 @@
  * @brief AccessKey class.
  */
 
-
 class AccessKey extends DataObject {
-
+	/**
+	 * Constructor
+	 */
 	function AccessKey() {
 		parent::DataObject();
 	}

@@ -12,10 +12,9 @@
  * @brief Class for Notification.
  */
 
-
 import('lib.pkp.classes.notification.NotificationDAO');
 
-define('UNSUBSCRIBED_USER_NOTIFICATION',					0);
+define('UNSUBSCRIBED_USER_NOTIFICATION',			0);
 
 /** Notification levels.  Determines notification behavior **/
 define('NOTIFICATION_LEVEL_TRIVIAL',				0x0000001);
@@ -39,7 +38,6 @@ define('NOTIFICATION_TYPE_PLUGIN_DISABLED',			0x5000002);
 define('NOTIFICATION_TYPE_PLUGIN_BASE',				0x6000001);
 
 class PKPNotification extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

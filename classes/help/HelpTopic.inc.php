@@ -13,7 +13,6 @@
  * @brief A HelpTopic object is associated with a single HelpToc object and zero or more HelpTopicSection objects.
  */
 
-
 class HelpTopic extends DataObject {
 
 	/** The set of sections comprising this topic */

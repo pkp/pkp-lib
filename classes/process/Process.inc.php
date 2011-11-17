@@ -16,7 +16,6 @@
  * @brief A class representing a running process.
  */
 
-
 // Process types
 define('PROCESS_TYPE_CITATION_CHECKING', 0x01);
 

@@ -19,6 +19,13 @@
 
 
 class Signoff extends DataObject {
+	/**
+	 * Constructor
+	 */
+	function Signoff() {
+		parent::DataObject();
+	}
+
 	//
 	// Get/set methods
 	//

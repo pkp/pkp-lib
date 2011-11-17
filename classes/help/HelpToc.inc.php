@@ -14,7 +14,6 @@
  * A HelpToc object is associated with zero or more HelpTopic objects.
  */
 
-
 class HelpToc extends DataObject {
 
 	/** The list of topics belonging to this toc */

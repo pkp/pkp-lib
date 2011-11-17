@@ -14,6 +14,13 @@
  */
 
 class PKPAnnouncementType extends DataObject {
+	/**
+	 * Constructor
+	 */
+	function PKPAnnouncementType() {
+		parent::DataObject();
+	}
+
 	//
 	// Get/set methods
 	//

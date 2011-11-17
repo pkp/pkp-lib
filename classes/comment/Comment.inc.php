@@ -17,9 +17,7 @@
  * @brief Class for public Comment associated with submission.
  */
 
-
 class Comment extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

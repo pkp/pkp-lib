@@ -19,7 +19,6 @@
  */
 
 class ReviewForm extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

@@ -13,9 +13,7 @@
  * A HelpTopicSection is associated with a single HelpTopic.
  */
 
-
 class HelpTopicSection extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

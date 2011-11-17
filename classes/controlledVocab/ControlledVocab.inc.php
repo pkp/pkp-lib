@@ -17,8 +17,14 @@
  * @brief Basic class describing an controlled vocab.
  */
 
-
 class ControlledVocab extends DataObject {
+	/**
+	 * Constructor
+	 */
+	function ControlledVocab() {
+		parent::DataObject();
+	}
+
 	//
 	// Get/set methods
 	//

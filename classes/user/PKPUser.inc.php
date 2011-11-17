@@ -17,9 +17,10 @@
  * @brief Basic class describing users existing in the system.
  */
 
-
 class PKPUser extends DataObject {
-
+	/**
+	 * Constructor
+	 */
 	function PKPUser() {
 		parent::DataObject();
 	}

@@ -22,7 +22,6 @@ define('REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS',	0x000005);
 define('REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX',	0x000006);
 
 class ReviewFormElement extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

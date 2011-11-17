@@ -16,9 +16,7 @@
  * @brief Submission class.
  */
 
-
 class Submission extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

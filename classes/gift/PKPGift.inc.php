@@ -23,8 +23,14 @@ define('GIFT_STATUS_NOT_REDEEMED', 0x03);
 define('GIFT_STATUS_REDEEMED', 0x04);
 define('GIFT_STATUS_OTHER', 0x10);
 
-
 class PKPGift extends DataObject {
+	/**
+	 * Constructor
+	 */
+	function PKPGift() {
+		parent::DataObject();
+	}
+
 	//
 	// Get/set methods
 	//

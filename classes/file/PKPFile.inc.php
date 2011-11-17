@@ -13,7 +13,6 @@
  */
 
 class PKPFile extends DataObject {
-
 	/**
 	 * Constructor.
 	 */

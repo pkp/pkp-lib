@@ -120,7 +120,7 @@ class ProcessDAO extends DAO {
 	function getObjectById($processId) {
 		$result =& $this->retrieve(
 			'SELECT process_id, process_type, time_started, obliterated FROM processes WHERE process_id = ?',
-			(int) $processId
+			$processId
 		);
 
 		$process = null;
@@ -172,7 +172,7 @@ class ProcessDAO extends DAO {
 		assert(!empty($processId));
 
 		// Delete process
-		return $this->update('DELETE FROM processes WHERE process_id = ?', (int) $processId);
+		return $this->update('DELETE FROM processes WHERE process_id = ?', $processId);
 	}
 
 	/**
@@ -298,7 +298,7 @@ class ProcessDAO extends DAO {
 				'UPDATE processes
 				 SET obliterated = 1
 				 WHERE process_id = ?',
-				(int) $processId
+				$processId
 			);
 			if (!$success) return false;
 

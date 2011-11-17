@@ -311,7 +311,7 @@ class PKPRouter {
 	 * @param $path mixed Optional string or array of args to pass to handler
 	 * @param $params array Optional set of name => value pairs to pass as user parameters
 	 * @param $anchor string Optional name of anchor to add to URL
-	 * @param $escape boolean Whether or not to escape ampersands for this URL; default false.
+	 * @param $escape boolean Whether or not to escape ampersands, square brackets, etc. for this URL; default false.
 	 * @return string the URL
 	 */
 	function url(&$request, $newContext = null, $handler = null, $op = null, $path = null,

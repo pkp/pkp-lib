@@ -24,11 +24,6 @@ import('lib.pkp.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSche
 import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
 class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTestCase {
-	const
-		// Due to legal limitations, an API key cannot be published.
-		// Please insert your own API key for testing.
-		WORLDCAT_TEST_APIKEY = '...';
-
 	/**
 	 * Test CrossRef lookup with DOI
 	 * @covers WorldcatNlm30CitationSchemaFilter
@@ -50,7 +45,8 @@ class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 				'isbn' => '851503154X',
 				'publisher-loc' => 'São Paulo',
 				'publisher-name' => 'Ed. Loyola',
-				'date' => '2005'
+				'date' => '2005',
+				'[@publication-type]' => NLM30_PUBLICATION_TYPE_BOOK
 			)
 		);
 
@@ -58,10 +54,11 @@ class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 		$citationFilterTests = array($testWithApiKey);
 
 		// Execute the tests with API key
+		self::assertEquals(80, strlen(Config::getVar('debug', 'worldcat_apikey')), 'It seems that the WorldCat API key has not been configured.');
 		$filter = new WorldcatNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
-		$filter->setData('apiKey', self::WORLDCAT_TEST_APIKEY);
+		$filter->setData('apiKey', Config::getVar('debug', 'worldcat_apikey'));
 		$this->assertNlm30CitationSchemaFilter($citationFilterTests, $filter);
 
 		// Try again without API key
@@ -80,7 +77,8 @@ class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 				'isbn' => '9788515031542',
 				'date' => '2005',
 				'publisher-name' => 'Ed. Loyola',
-				'publisher-loc' => 'São Paulo'
+				'publisher-loc' => 'São Paulo',
+				'[@publication-type]' => NLM30_PUBLICATION_TYPE_BOOK
 			)
 		);
 		$citationFilterTests = array($testWithoutApiKey);

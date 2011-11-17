@@ -17,6 +17,7 @@
  * @brief Tests for the CrossrefNlm30CitationSchemaFilter class.
  */
 
+
 import('lib.pkp.plugins.citationLookup.crossref.filter.CrossrefNlm30CitationSchemaFilter');
 import('lib.pkp.tests.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilterTestCase');
 
@@ -57,7 +58,7 @@ class CrossrefNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 				'pub-id[@pub-id-type="doi"]' => '10.1145/311625.311726'
 			),
 			'testOutput' => array(
-				'conf-name' => 'ACM SIGGRAPH 99 Conference abstracts and applications on - SIGGRAPH \'99',
+				'conf-name' => 'ACM SIGGRAPH 99 Conference abstracts and applications on   - SIGGRAPH \'99',
 				'isbn' => '1581131038',
 				'publisher-name' => 'ACM Press',
 				'publisher-loc' => 'New York, New York, USA',

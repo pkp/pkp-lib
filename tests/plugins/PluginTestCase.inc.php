@@ -17,10 +17,30 @@
  * @brief Abstract base class for Plugin tests.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+
+require_mock_env('lib/pkp/tests/mock2');
+
+import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.plugins.PKPPlugin');
 
-class PluginTestCase extends PKPTestCase {
+class PluginTestCase extends DatabaseTestCase {
+	/**
+	 * @see DatabaseTestCase::getAffectedTables()
+	 */
+	protected function getAffectedTables() {
+		return array(
+			'filters', 'filter_settings', 'filter_groups',
+			'versions', 'plugin_settings'
+		);
+	}
+
+	/**
+	 * @see PKPTestCase::getMockedRegistryKeys()
+	 */
+	protected function getMockedRegistryKeys() {
+		return array('request', 'hooks');
+	}
+
 	/**
 	 * Executes the plug-in test.
 	 * @param $pluginCategory string
@@ -32,21 +52,6 @@ class PluginTestCase extends PKPTestCase {
 		// Make sure that the xml configuration is valid.
 		$filterConfigFile = 'plugins/'.$pluginCategory.'/'.$pluginDir.'/filter/'.PLUGIN_FILTER_DATAFILE;
 		$this->validateXmlConfig(array('./'.$filterConfigFile, './lib/pkp/'.$filterConfigFile));
-
-		// Make sure that data from earlier tests is being deleted first.
-		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
-		foreach($filterGroups as $filterGroupSymbolic) {
-			foreach($filterDao->getObjectsByGroup($filterGroupSymbolic) as $filter) {
-				$filterDao->deleteObject($filter);
-			}
-			foreach($filterDao->getObjectsByGroup($filterGroupSymbolic, 0, true) as $filter) {
-				$filterDao->deleteObject($filter);
-			}
-		}
-		$filterGroupDao =& DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-		foreach($filterGroups as $filterGroupSymbolic) {
-			$filterGroupDao->deleteObjectBySymbolic($filterGroupSymbolic);
-		}
 
 		// Mock request and router.
 		import('lib.pkp.classes.core.PKPRouter');
@@ -84,6 +89,7 @@ class PluginTestCase extends PKPTestCase {
 		self::assertTrue($installer->execute());
 
 		// Test whether the filter groups have been installed.
+		$filterGroupDao = DAORegistry::getDAO('FilterGroupDAO');
 		foreach($filterGroups as $filterGroupSymbolic) {
 			// Check the group.
 			self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);

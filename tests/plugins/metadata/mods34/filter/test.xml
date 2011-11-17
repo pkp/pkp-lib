@@ -58,7 +58,7 @@
     <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
   </language>
   <physicalDescription>
-    <form class="pkp_form" authority="marcform">electronic</form>
+    <form authority="marcform">electronic</form>
     <internetMediaType>application/pdf</internetMediaType>
     <extent>215</extent>
   </physicalDescription>

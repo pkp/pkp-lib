@@ -20,7 +20,85 @@
 // Include PHPUnit
 require_once('PHPUnit/Extensions/OutputTestCase.php');
 
+// FIXME: PHPUnit_Extensions_OutputTestCase is now deprecated but we have to
+// use it until we upgrade our test server from phpunit 3.4 to at least 3.6.
 abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
+	private $daoBackup = array(), $registryBackup = array();
+
+	/**
+	 * Override this method if you want to backup/restore
+	 * DAOs before/after the test.
+	 * @return array A list of DAO names to backup and restore.
+	 */
+	protected function getMockedDAOs() {
+		return array();
+	}
+
+	/**
+	 * Override this method if you want to backup/restore
+	 * registry entries before/after the test.
+	 * @return array A list of registry keys to backup and restore.
+	 */
+	protected function getMockedRegistryKeys() {
+		return array();
+	}
+
+	/**
+	 * @see PHPUnit_Framework_TestCase::setUp()
+	 */
+	protected function setUp() {
+		$this->setBackupGlobals(true);
+
+		// Rather than using "include_once()", ADOdb uses
+		// a global variable to maintain the information
+		// whether its library has been included before (wtf!).
+		// This causes problems with PHPUnit as PHPUnit will
+		// delete all global state between two consecutive
+		// tests to isolate tests from each other.
+		if(function_exists('_array_change_key_case')) {
+			global $ADODB_INCLUDED_LIB;
+			$ADODB_INCLUDED_LIB = 1;
+		}
+		Config::setConfigFileName(dirname(INDEX_FILE_LOCATION). DIRECTORY_SEPARATOR. 'config.inc.php');
+
+		// Backup DAOs.
+		foreach($this->getMockedDAOs() as $mockedDao) {
+			$this->daoBackup[$mockedDao] = DAORegistry::getDAO($mockedDao);
+		}
+
+		// Backup registry keys.
+		foreach($this->getMockedRegistryKeys() as $mockedRegistryKey) {
+			$this->registryBackup[$mockedRegistryKey] = Registry::get($mockedRegistryKey);
+		}
+	}
+
+	/**
+	 * @see PHPUnit_Framework_TestCase::tearDown()
+	 */
+	protected function tearDown() {
+		// Restore registry keys.
+		foreach($this->getMockedRegistryKeys() as $mockedRegistryKey) {
+			Registry::set($mockedRegistryKey, $this->registryBackup[$mockedRegistryKey]);
+		}
+
+		// Restore DAOs.
+		foreach($this->getMockedDAOs() as $mockedDao) {
+			DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
+		}
+	}
+
+	/**
+	 * @see PHPUnit_Framework_TestCase::getActualOutput()
+	 */
+	public function getActualOutput() {
+		// We do not want to see output.
+		return '';
+	}
+
+
+	//
+	// Protected helper methods
+	//
 	/**
 	 * Set a non-default test configuration
 	 * @param $config string the id of the configuration to use
@@ -39,6 +117,10 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 		}
 	}
 
+
+	//
+	// Private helper methods
+	//
 	/**
 	 * Resolves the configuration id to a configuration
 	 * file

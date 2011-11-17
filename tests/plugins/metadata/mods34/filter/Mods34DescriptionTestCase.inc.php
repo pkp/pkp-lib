@@ -17,10 +17,10 @@
  * @brief Base test case for tests that involve a MODS MetadataDescription.
  */
 
-import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
-class Mods34DescriptionTestCase extends PKPTestCase {
+class Mods34DescriptionTestCase extends DatabaseTestCase {
 	/**
 	 * Prepare a MODS description that covers as much data as possible.
 	 * @return MetadataDescription

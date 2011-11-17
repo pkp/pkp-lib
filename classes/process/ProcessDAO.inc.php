@@ -110,7 +110,7 @@ class ProcessDAO extends DAO {
 				VALUES
 				(?, ?, ?, 0)'),
 			array(
-				(int) $process->getId(),
+				$process->getId(),
 				(int) $process->getProcessType(),
 				(int) $process->getTimeStarted(),
 			)
@@ -334,7 +334,7 @@ class ProcessDAO extends DAO {
 	 * about once a minute by running processes.
 	 * If this method returns false then the
 	 * process is required to halt immediately.
-	 * @param $processId
+	 * @param $processId string
 	 * @return boolean
 	 */
 	function canContinue($processId) {

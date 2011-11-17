@@ -28,6 +28,7 @@ class Nlm30XmlFilterTestCase extends PKPTestCase {
 	// Implement template methods from PKPTestCase
 	//
 	protected function setUp() {
+		parent::setUp();
 		$application =& PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$request =& $application->getRequest();
@@ -45,6 +46,7 @@ class Nlm30XmlFilterTestCase extends PKPTestCase {
 	public function tearDown() {
 		// Delete the test citations.
 		$this->citationDao->deleteObjectsByAssocId($this->assocType, $this->assocId);
+		parent::tearDown();
 	}
 
 

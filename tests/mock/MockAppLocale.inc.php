@@ -23,7 +23,7 @@ class AppLocale extends PKPLocale {
 	static
 		$primaryLocale = 'en_US',
 		$supportedLocales = array('en_US' => 'English/America'),
-		$translationKey;
+		$translationKey, $translations = array();
 
 	/*
 	 * method required during setup of
@@ -75,6 +75,9 @@ class AppLocale extends PKPLocale {
 	 */
 	function translate($key, $params = array(), $locale = null) {
 		self::$translationKey = $key;
+		if (isset(self::$translations[$key])) {
+			return self::$translations[$key];
+		}
 		return 'translated string';
 	}
 
@@ -122,6 +125,14 @@ class AppLocale extends PKPLocale {
 	 */
 	function getSupportedFormLocales() {
 		return array('en_US');
+	}
+
+	/**
+	 * Set translation keys to be faked.
+	 * @param $translations array
+	 */
+	static function setTranslations($translations) {
+		self::$translations = $translations;
 	}
 
 	/**

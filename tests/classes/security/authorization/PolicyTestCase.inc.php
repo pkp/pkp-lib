@@ -22,17 +22,24 @@ define('ROLE_ID_TEST', 0x9999);
 
 abstract class PolicyTestCase extends PKPTestCase {
 	private
-
 		/**
 		 * @var Array of context object(s);
 		 */
 		$contextObjects,
+
 		/**
 		 * @var AuthorizationContext internal state variable that
 		 *  contains the policy that will be used to manipulate
 		 *  the authorization context
 		 */
 		$authorizationContextManipulationPolicy;
+
+	/**
+	 * @see PKPTestCase::getMockedRegistryKeys()
+	 */
+	protected function getMockedRegistryKeys() {
+		return array('user');
+	}
 
 	/**
 	 * Return an array with context object(s).
@@ -92,7 +99,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 	/**
 	 * Instantiate a mock request to the given operation.
 	 * @param $requestedOp string the requested operation
-	 * @param $context Array request context object(s) to be
+	 * @param $context array request context object(s) to be
 	 * returned by the router.
 	 * @param $user User a user to be put into the registry.
 	 * @return PKPRequest

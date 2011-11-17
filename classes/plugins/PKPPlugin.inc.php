@@ -181,10 +181,12 @@ class PKPPlugin {
 	 * @param $message string If a message is returned from this by-ref argument then
 	 *  it will be displayed as a notification if (and only if) the method returns
 	 *  false.
+	 * @param $messageParams array additional notification settings
+	 * @param $request Request
 	 * @return boolean will redirect to the plugin category page if false, otherwise
 	 *  will remain on the same page
 	 */
-	function manage($verb, $args, &$message) {
+	function manage($verb, $args, &$message, &$messageParams, $request = null) {
 		return false;
 	}
 

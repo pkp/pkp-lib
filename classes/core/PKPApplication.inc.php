@@ -28,6 +28,7 @@ define('ASSOC_TYPE_AUTHOR', 0x0100004);
 define('ASSOC_TYPE_EDITOR', 0x0100005);
 
 define('ASSOC_TYPE_SIGNOFF', 0x0100006);
+define('ASSOC_TYPE_AUTHORIZED_USER_ROLES', 0x0100007);
 
 class PKPApplication {
 	var $enabledProducts;

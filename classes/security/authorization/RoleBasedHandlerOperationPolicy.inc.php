@@ -18,6 +18,9 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	/** @var array the target roles */
 	var $_roles = array();
 
+	/** @var array the authorized user roles */
+	var $_authorizedUserRoles = array();
+
 	/** @var boolean */
 	var $_allRoles;
 
@@ -66,6 +69,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		$request =& $this->getRequest();
 		$user =& $request->getUser();
 		if (!$user) return AUTHORIZATION_DENY;
+
 		if (!$this->_checkUserRoleAssignment($user)) return AUTHORIZATION_DENY;
 
 		// FIXME: Remove the "bypass operation check" code once we've removed the
@@ -76,6 +80,9 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		} else {
 			if (!$this->_checkOperationWhitelist()) return AUTHORIZATION_DENY;
 		}
+
+		// Set the authorized roles in the authorized context.
+		$this->addAuthorizedContextObject(ASSOC_TYPE_AUTHORIZED_USER_ROLES, $this->_authorizedUserRoles);
 
 		return AUTHORIZATION_PERMIT;
 	}
@@ -92,9 +99,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 	 * @return boolean
 	 */
 	function _checkUserRoleAssignment(&$user) {
-		// Prepare the method call arguments for a
-		// RoleDAO::userHasRole() call, i.e. the context
-		// ids plus the user id.
+		// Prepare an array with the context ids of the request.
 		$application =& PKPApplication::getApplication();
 		$contextDepth = $application->getContextDepth();
 		$request =& $this->getRequest();
@@ -105,72 +110,89 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 			$roleContext[] = $context?$context->getId():0;
 			unset($context);
 		}
-		$roleContext[] = $user->getId();
 
-		// Try to find a matching role.
+		// Get all user roles.
+		$roleDao =& DAORegistry::getDAO('RoleDAO');
+		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
+
+		// Find all matching roles.
 		$foundMatchingRole = false;
 		foreach($this->_roles as $roleId) {
-			$foundMatchingRole = $this->_checkRoleInDatabase($roleId, $roleContext, $contextDepth);
+			$authorizedRole = $this->_getAuthorizedRole($roleId, $roleContext, $contextDepth, $userRoles);
+			if ($authorizedRole) {
+				// Add this role to the authorized roles array.
+				$this->_authorizedUserRoles[$roleId] = $roleId;
+			}
+			unset($authorizedRole);
+		}
 
-			if ($this->_allRoles) {
-				if (!$foundMatchingRole) {
-					// When the "all roles" flag is switched on then
-					// one missing role is enough to fail.
-					return false;
-				}
-			} else {
-				if ($foundMatchingRole) {
-					// When the "all roles" flag is not set then
-					// one matching role is enough to succeed.
-					return true;
-				}
+		if ($this->_allRoles) {
+			if (count($this->_roles) == count($this->_authorizedUserRoles)) {
+				// When the "all roles" flag is switched on then
+				// we can't have one missing role.
+				return true;
+			}
+		} else {
+			if (!empty($this->_authorizedUserRoles)) {
+				// When the "all roles" flag is not set then
+				// one matching role is enough to succeed.
+				return true;
 			}
 		}
 
-		// Deny if no matching role can be found.
-		if ($this->_allRoles) {
-			// All roles matched, otherwise we'd have failed before.
-			return true;
-		} else {
-			// None of the roles matched, otherwise we'd have succeeded already.
-			return false;
-		}
+		// None of the roles matched or we needed all roles matching to succeed.
+		return false;
 	}
 
 	/**
-	 * Checks whether the current user has the given
-	 * role assigned.
+	 * Check the presence of an specific role in the
+	 * user roles assignment and return it.
 	 *
 	 * @param $roleId integer
-	 * @param $roleContext array basic arguments for a
-	 *  RoleDAO::userHasRole() call.
+	 * @param $roleContext array role context ids to be used
+	 * to check if an user has an specific role.
 	 * @param $contextDepth integer context depth of the
 	 *  current application.
-	 * @return boolean
+	 * @param $userRoles array with all user roles, grouped by
+	 * context ids.
+	 * @return mixed Role or null
 	 */
-	function _checkRoleInDatabase($roleId, $roleContext, $contextDepth) {
-		// Prepare the method arguments for a call to
-		// RoleDAO::userHasRole().
-		$userHasRoleArguments = $roleContext;
-		$userHasRoleArguments[] = $roleId;
-
+	function _getAuthorizedRole($roleId, $roleContext, $contextDepth, $userRoles) {
+		// Adapt the role context based on the passed role id.
+		$workingRoleContext = $roleContext;
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
 		if ($contextDepth > 0) {
 			// Correct context for site level or manager roles.
 			if ($roleId == ROLE_ID_SITE_ADMIN) {
 				// site level role
 				for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-					$userHasRoleArguments[$contextLevel-1] = 0;
+					$workingRoleContext[$contextLevel-1] = 0;
 				}
 			} elseif ($roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
 				// This is a main context managerial role (i.e. conference-level).
-				$userHasRoleArguments[1] = 0;
+				$workingRoleContext[1] = 0;
 			}
 		}
 
-		// Call the role DAO.
-		$response = (boolean)call_user_func_array(array($roleDao, 'userHasRole'), $userHasRoleArguments);
-		return $response;
+		// Check the role id in user roles.
+		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
+			if (isset($userRoles[$workingRoleContext[$contextLevel-1]])) {
+				// Filter the user roles to the found context id.
+				$userRoles = $userRoles[$workingRoleContext[$contextLevel-1]];
+
+				// If we reached the context depth, search for the role id.
+				if ($contextLevel == $contextDepth) {
+					if (isset($userRoles[$roleId])) {
+						return $userRoles[$roleId];
+					} else {
+						return null;
+					}
+				}
+			} else {
+				// Context id not present in user roles array.
+				return null;
+			}
+		}
 	}
 }
 

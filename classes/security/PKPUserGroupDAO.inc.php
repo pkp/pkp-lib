@@ -299,13 +299,16 @@ class PKPUserGroupDAO extends DAO {
 	 * @param $contextId int
 	 * @return DAOResultFactory
 	 */
-	function &getByUserId($userId, $contextId = 0){
-		$params = array((int) $userId, (int) $contextId);
+	function &getByUserId($userId, $contextId = null){
+		$params = array((int) $userId);
+		if ($contextId) {
+			$params[] = (int) $contextId;
+		}
 		$result =& $this->retrieve(
 			'SELECT	ug.*
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-				WHERE uug.user_id = ? AND ug.context_id = ?',
+				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':''),
 			$params
 		);
 

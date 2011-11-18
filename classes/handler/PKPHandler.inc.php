@@ -416,6 +416,9 @@ class PKPHandler {
 		if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
 			AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
 		}
+
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign('authorizedUserRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_AUTHORIZED_USER_ROLES));
 	}
 
 	/**

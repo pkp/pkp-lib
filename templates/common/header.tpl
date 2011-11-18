@@ -103,12 +103,12 @@
 			$(function(){ldelim}
 				$.get('{$fetchNotificationUrl}', null,
 					function(data){ldelim}
-						var notification = data.content;
+						var notifications = data.content;
 						var i, l;
-						if (notification && notification.general) {ldelim}
-							for (i = 0, l = notification.general.length; i < l; i++) {ldelim}
-								$.pnotify(notification.general[i]);
-							{rdelim}
+						if (notifications && notifications.general) {ldelim}
+							$.each(notifications.general, function(notificationId, notification) {ldelim}
+								$.pnotify(notification);
+							{rdelim});
 						{rdelim}
 				{rdelim}, 'json');
 			{rdelim});

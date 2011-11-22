@@ -41,6 +41,32 @@
 	//
 	// Public methods
 	//
+	
+	/**
+	 * External hook for the 'pkpmultilingualpopover' plugin for TinyMCE.
+	 * 
+	 * This method is called when an event is triggered within the editor.  We
+	 * are only interested in click or keyup events and must re-examine the DOM
+	 * to find the element of interest since TinyMCE re-writes the structure.
+	 * 
+	 * @param {String} editorId A string representing the id attribute of the field
+	 *		which has been converted into a TinyMCE instance.  This corresponds to the field 
+	 *		names on the form.  e.g., 'abstract'.
+	 * @param {Event} event An Event object representing the event which occurred within
+	 *		the TinyMCE window's own DOM.
+	 */
+	
+	$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent = 
+		function(editorId, event) {
+			if (event.type == 'click' || event.type == 'keyup') {
+
+				$('#' + editorId).parent().find('.localization_popover').
+					width($('#' + editorId).parent().width());
+
+				$('#' + editorId).parent().find('.localization_popover').show();
+			}
+		};
+
 	/**
 	 * Internal callback called to show additional languages for a
 	 * multilingual input

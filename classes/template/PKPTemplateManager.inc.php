@@ -129,6 +129,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_modifier('explode', array(&$this, 'smartyExplode'));
 		$this->register_modifier('assign', array(&$this, 'smartyAssign'));
 		$this->register_function('translate', array(&$this, 'smartyTranslate'));
+		$this->register_function('null_link_action', array(&$this, 'smartyNullLinkAction'));
 		$this->register_function('flush', array(&$this, 'smartyFlush'));
 		$this->register_function('call_hook', array(&$this, 'smartyCallHook'));
 		$this->register_function('html_options_translate', array(&$this, 'smartyHtmlOptionsTranslate'));
@@ -436,6 +437,30 @@ class PKPTemplateManager extends Smarty {
 			}
 			return __($key, $params);
 		}
+	}
+
+	/**
+	 * Smarty usage: {null_link_action id="linkId" key="localization.key.name" image="imageClassName"}
+	 *
+	 * Custom Smarty function for displaying a null link action; these will
+	 * typically be attached and handled in Javascript.
+	 * @param $smarty Smarty
+	 * @return string the HTML for the generated link action
+	 */
+	function smartyNullLinkAction($params, &$smarty) {
+		assert(isset($params['id']));
+
+		$id = $params['id'];
+		$key = isset($params['key'])?$params['key']:null;
+		$image = isset($params['image'])?$params['image']:null;
+
+		import('lib.pkp.classes.linkAction.request.NullAction');
+		$linkAction = new LinkAction($id, new NullAction(), __($key), $image);
+		$this->assign('action', new LinkAction(
+			$id, new NullAction(), __($key), $image
+		));
+
+		return $this->fetch('linkAction/linkAction.tpl');
 	}
 
 	/**

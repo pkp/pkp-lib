@@ -19,6 +19,12 @@ import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
 define('CONTROLLED_VOCAB_INTEREST', 'interest');
 
 class InterestDAO extends ControlledVocabDAO {
+	/**
+	 * Constructor
+	 */
+	function InterestDAO() {
+		parent::ControlledVocabDAO();
+	}
 
 	function build($userId) {
 		return parent::build(CONTROLLED_VOCAB_INTEREST, ASSOC_TYPE_USER, $userId);

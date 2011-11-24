@@ -18,6 +18,13 @@ import('lib.pkp.classes.security.AccessKey');
 
 class AccessKeyDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function AccessKeyDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve an accessKey by ID.
 	 * @param $accessKeyId int
 	 * @return AccessKey

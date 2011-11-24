@@ -18,6 +18,13 @@ import('lib.pkp.classes.signoff.Signoff');
 
 class SignoffDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function SignoffDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a signoff by ID.
 	 * @param $signoffId int
 	 * @return Signoff

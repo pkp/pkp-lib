@@ -307,7 +307,8 @@ class PKPNotificationManager {
 		$blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);
 
 		if(!in_array($notificationType, $blockedNotifications)) {
-			$notification = new Notification();
+			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+			$notification = $notificationDao->newDataObject();
 			$notification->setUserId((int) $userId);
 			$notification->setType((int) $notificationType);
 			$notification->setContextId((int) $contextId);
@@ -315,7 +316,6 @@ class PKPNotificationManager {
 			$notification->setAssocId((int) $assocId);
 			$notification->setLevel((int) $level);
 
-			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 			$notificationId = $notificationDao->insertNotification($notification);
 
 			// Send notification emails
@@ -348,13 +348,13 @@ class PKPNotificationManager {
 	 * @return Notification object
 	 */
 	function createTrivialNotification($userId, $notificationType = NOTIFICATION_TYPE_SUCCESS, $params = null) {
-		$notification = new Notification();
+		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+		$notification = $notificationDao->newDataObject();
 		$notification->setUserId($userId);
 		$notification->setContextId(0);
 		$notification->setType($notificationType);
 		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
 
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notificationId = $notificationDao->insertNotification($notification);
 
 		if ($params) {

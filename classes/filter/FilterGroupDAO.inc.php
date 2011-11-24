@@ -17,6 +17,13 @@ import('lib.pkp.classes.filter.FilterGroup');
 
 class FilterGroupDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function FilterGroupDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Insert a new filter group.
 	 *
 	 * @param $filterGroup FilterGroup
@@ -171,6 +178,14 @@ class FilterGroupDAO extends DAO {
 		return parent::getInsertId('filter_groups', 'filter_group_id');
 	}
 
+	/**
+	 * Construct and return a new data object
+	 * @return DataObject
+	 */
+	function newDataObject() {
+		return new FilterGroup();
+	}
+
 
 	//
 	// Private helper methods
@@ -184,7 +199,7 @@ class FilterGroupDAO extends DAO {
 	 */
 	function &_fromRow(&$row) {
 		// Instantiate the filter group.
-		$filterGroup = new FilterGroup();
+		$filterGroup = $this->newDataObject();
 
 		// Configure the filter group.
 		$filterGroup->setId((int)$row['filter_group_id']);

@@ -18,6 +18,13 @@ import('lib.pkp.classes.help.HelpTopic');
 import('lib.pkp.classes.help.PKPHelp');
 
 class HelpTopicDAO extends XMLDAO {
+	/**
+	 * Constructor
+	 */
+	function HelpTopicDAO() {
+		parent::XMLDAO();
+	}
+
 	function &_getCache($topicId) {
 		$cache =& Registry::get('helpTopicCache', true, null);
 		$locale = PKPHelp::getLocale();

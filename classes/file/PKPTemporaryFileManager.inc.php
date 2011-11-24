@@ -110,7 +110,7 @@ class PKPTemporaryFileManager extends FileManager {
 
 		if ($this->uploadFile($fileName, $this->filesDir . $newFileName)) {
 			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
-			$temporaryFile = new TemporaryFile();
+			$temporaryFile = $temporaryFileDao->newDataObject();
 
 			$temporaryFile->setUserId($userId);
 			$temporaryFile->setFileName($newFileName);

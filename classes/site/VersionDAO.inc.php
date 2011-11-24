@@ -18,6 +18,13 @@ import('lib.pkp.classes.site.Version');
 
 class VersionDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function VersionDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve the current version.
 	 * @param $productType string
 	 * @param $product string

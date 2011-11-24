@@ -26,6 +26,13 @@ define ('COMMENTS_UNAUTHENTICATED', 3);	// Can be posted anonymously by anyone
 
 class CommentDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function CommentDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve Comments by submission id
 	 * @param $submissionId int
 	 * @param $childLevels int optional
@@ -133,6 +140,14 @@ class CommentDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return DataObject
+	 */
+	function newDataObject() {
+		return new Comment();
+	}
+
+	/**
 	 * Creates and returns a submission comment object from a row
 	 * @param $row array
 	 * @return Comment object
@@ -140,7 +155,7 @@ class CommentDAO extends DAO {
 	function &_returnCommentFromRow($row, $childLevels = 0) {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 
-		$comment = new Comment();
+		$comment = $this->newDataObject();
 		$comment->setId($row['comment_id']);
 		$comment->setSubmissionId($row['submission_id']);
 		$comment->setUser($userDao->getUser($row['user_id']), true);

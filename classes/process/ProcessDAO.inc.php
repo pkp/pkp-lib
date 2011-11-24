@@ -63,6 +63,13 @@ import('lib.pkp.classes.process.Process');
 
 class ProcessDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function ProcessDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Insert a new process.
 	 * @param $processType integer one of the PROCESS_TYPE_* constants
 	 * @param $maxParallelism integer the max. number
@@ -86,7 +93,7 @@ class ProcessDAO extends DAO {
 		}
 
 		// We create a process instance from the given data.
-		$process = new Process();
+		$process = $this->newDataObject();
 		$process->setProcessType($processType);
 
 		// Generate a new process ID. See classdoc for process ID
@@ -345,6 +352,13 @@ class ProcessDAO extends DAO {
 		return $canContinue;
 	}
 
+	/**
+	 * Instantiate and return a new data object.
+	 * @return DataObject
+	 */
+	function newDataObject() {
+		return new Process();
+	}
 
 	//
 	// Private helper methods
@@ -356,7 +370,7 @@ class ProcessDAO extends DAO {
 	 * @return Process
 	 */
 	function &_fromRow(&$row) {
-		$process = new Process();
+		$process = $this->newDataObject();
 		$process->setId($row['process_id']);
 		$process->setProcessType((integer)$row['process_type']);
 		$process->setTimeStarted((integer)$row['time_started']);

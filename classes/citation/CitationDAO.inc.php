@@ -24,6 +24,13 @@ import('lib.pkp.classes.citation.Citation');
 
 class CitationDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function CitationDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Insert a new citation.
 	 * @param $citation Citation
 	 * @return integer the new citation id

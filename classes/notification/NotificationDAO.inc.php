@@ -115,12 +115,20 @@ class NotificationDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return Notification
+	 */
+	function newDataObject() {
+		return new Notification();
+	}
+
+	/**
 	 * Creates and returns an notification object from a row
 	 * @param $row array
 	 * @return Notification object
 	 */
 	function &_returnNotificationFromRow($row) {
-		$notification = new Notification();
+		$notification = $this->newDataObject();
 		$notification->setId($row['notification_id']);
 		$notification->setUserId($row['user_id']);
 		$notification->setLevel($row['level']);

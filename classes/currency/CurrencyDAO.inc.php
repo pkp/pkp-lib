@@ -104,12 +104,20 @@ class CurrencyDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return Currency
+	 */
+	function newDataObject() {
+		return new Currency();
+	}
+
+	/**
 	 * Internal function to return a Currency object from a row.
 	 * @param $row array
 	 * @return Currency
 	 */
 	function &_returnCurrencyFromRow($codeAlpha, &$entry) {
-		$currency = new Currency();
+		$currency = $this->newDataObject();
 		$currency->setCodeAlpha($codeAlpha);
 		$currency->setName($entry[0]);
 		$currency->setCodeNumeric($entry[1]);

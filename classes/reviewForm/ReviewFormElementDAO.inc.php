@@ -18,6 +18,13 @@ import ('lib.pkp.classes.reviewForm.ReviewFormElement');
 
 class ReviewFormElementDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function ReviewFormElementDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a review form element by ID.
 	 * @param $reviewFormElementId int
 	 * @return ReviewFormElement

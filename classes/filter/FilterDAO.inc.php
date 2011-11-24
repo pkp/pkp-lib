@@ -48,6 +48,13 @@ class FilterDAO extends DAO {
 	var $localeFieldNames;
 
 	/**
+	 * Constructor
+	 */
+	function FilterDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Instantiates a new filter from configuration data and then
 	 * installs it.
 	 *

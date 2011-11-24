@@ -18,6 +18,13 @@ import('lib.pkp.classes.file.TemporaryFile');
 
 class TemporaryFileDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function TemporaryFileDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve a temporary file by ID.
 	 * @param $fileId int
 	 * @param $userId int
@@ -42,12 +49,20 @@ class TemporaryFileDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return TemporaryFile
+	 */
+	function newDataObject() {
+		return new TemporaryFile();
+	}
+
+	/**
 	 * Internal function to return a TemporaryFile object from a row.
 	 * @param $row array
 	 * @return TemporaryFile
 	 */
 	function &_returnTemporaryFileFromRow(&$row) {
-		$temporaryFile = new TemporaryFile();
+		$temporaryFile = $this->newDataObject();
 		$temporaryFile->setId($row['file_id']);
 		$temporaryFile->setFileName($row['file_name']);
 		$temporaryFile->setFileType($row['file_type']);

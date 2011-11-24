@@ -17,6 +17,13 @@
 import('lib.pkp.classes.help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
+	/**
+	 * Constructor
+	 */
+	function HelpTocDAO() {
+		parent::XMLDAO();
+	}
+
 	function &_getCache($tocId) {
 		$cache =& Registry::get('helpTocCache', true, null);
 		$locale = Help::getLocale();

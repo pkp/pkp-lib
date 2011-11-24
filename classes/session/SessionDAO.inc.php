@@ -18,6 +18,20 @@ import('lib.pkp.classes.session.Session');
 
 class SessionDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function SessionDAO() {
+		parent::DAO();
+	}
+
+	/**
+	 * Instantiate and return a new data object.
+	 */
+	function newDataObject() {
+		return new Session();
+	}
+
+	/**
 	 * Retrieve a session by ID.
 	 * @param $sessionId string
 	 * @return Session
@@ -32,7 +46,7 @@ class SessionDAO extends DAO {
 		if ($result->RecordCount() != 0) {
 			$row =& $result->GetRowAssoc(false);
 
-			$session = new Session();
+			$session = $this->newDataObject();
 			$session->setId($row['session_id']);
 			$session->setUserId($row['user_id']);
 			$session->setIpAddress($row['ip_address']);

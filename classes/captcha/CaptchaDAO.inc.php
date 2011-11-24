@@ -18,6 +18,13 @@ import('lib.pkp.classes.captcha.Captcha');
 
 class CaptchaDAO extends DAO {
 	/**
+	 * Constructor
+	 */
+	function CaptchaDAO() {
+		parent::DAO();
+	}
+
+	/**
 	 * Retrieve captchas by session id
 	 * @param $userId int
 	 * @return Captcha objects array

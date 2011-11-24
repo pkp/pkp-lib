@@ -50,8 +50,13 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			this.cancelRedirectUrl_ = options.cancelRedirectUrl;
 		}
 
+		// Determine if the data changed message has been overridden with an options element.
+		// If not, use the default provided by the Application.
+		// Orignal Locale key: form.dataHasChanged.  @see PKPApplication::getJSLocaleKeys
 		if (options.formDataChangedMessage) {
 			this.formDataChangedMessage_ = options.formDataChangedMessage;
+		} else {
+			this.formDataChangedMessage_ = $.pkp.locale.form_dataHasChanged;
 		}
 
 		// bind the pageUnloadHandler_ method to the DOM so it is called.
@@ -113,6 +118,13 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formDataChanged_ = false;
 
+
+	/**
+	 * A state variable to store the message to display when the page is unloaded with unsaved data.
+	 * @private
+	 * @type {String}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.formDataChangedMessage_ = null;
 
 	//
 	// Public methods
@@ -217,7 +229,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// if this function returns anything other than true, a confirmation dialog is shown
 		// Optionally, we could set a locale key for an addtional message to display on the modal.
 		if (this.formDataChanged_) {
-			return '';
+			return this.formDataChangedMessage_;
 		} 
 	};
 

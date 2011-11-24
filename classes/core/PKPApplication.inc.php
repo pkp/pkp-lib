@@ -519,6 +519,16 @@ class PKPApplication {
 		static $exposedConstants = array();
 		return $exposedConstants;
 	}
+
+	/**
+	 * Get an array of locale keys that define strings that should be made available to
+	 * JavaScript classes in the JS front-end.
+	 * @ return array
+	 */
+	function getJSLocaleKeys() {
+		$keys = array('form.dataHasChanged');
+		return $keys;
+	}
 }
 
 /**

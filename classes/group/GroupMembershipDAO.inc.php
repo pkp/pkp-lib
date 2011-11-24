@@ -65,6 +65,14 @@ class GroupMembershipDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate a new data object.
+	 * @return GroupMembership
+	 */
+	function newDataObject() {
+		return new GroupMembership();
+	}
+
+	/**
 	 * Internal function to return a GroupMembership object from a row.
 	 * @param $row array
 	 * @return GroupMembership
@@ -80,7 +88,7 @@ class GroupMembershipDAO extends DAO {
 			$users[$userId] =& $this->userDao->getUser($userId);
 		}
 
-		$membership = new GroupMembership();
+		$membership = $this->newDataObject();
 		$membership->setGroupId($row['group_id']);
 		$membership->setUserId($row['user_id']);
 		$membership->setUser($users[$userId]);

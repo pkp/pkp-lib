@@ -34,7 +34,7 @@ class CaptchaManager {
 		$captchaDao =& DAORegistry::getDAO('CaptchaDAO');
 		$session =& Request::getSession();
 		if ($session && $this->isEnabled()) {
-			$captcha = new Captcha();
+			$captcha = $captchaDao->newDataObject();
 			$captcha->setSessionId($session->getId());
 			$captcha->setValue(Validation::generatePassword($length));
 			$captchaDao->insertCaptcha($captcha);

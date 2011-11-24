@@ -103,12 +103,20 @@ class LanguageDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate a new data object.
+	 * @return Language
+	 */
+	function newDataObject() {
+		return new Language();
+	}
+
+	/**
 	 * Internal function to return a Language object from a row.
 	 * @param $row array
 	 * @return Language
 	 */
 	function &_returnLanguageFromRow($code, &$entry) {
-		$language = new Language();
+		$language = $this->newDataObject();
 		$language->setCode($code);
 		$language->setName($entry[0]);
 

@@ -93,12 +93,20 @@ class AccessKeyDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return AccessKey
+	 */
+	function newDataObject() {
+		return new AccessKey();
+	}
+
+	/**
 	 * Internal function to return an AccessKey object from a row.
 	 * @param $row array
 	 * @return AccessKey
 	 */
 	function &_returnAccessKeyFromRow(&$row) {
-		$accessKey = new AccessKey();
+		$accessKey = $this->newDataObject();
 		$accessKey->setId($row['access_key_id']);
 		$accessKey->setKeyHash($row['key_hash']);
 		$accessKey->setExpiryDate($this->datetimeFromDB($row['expiry_date']));

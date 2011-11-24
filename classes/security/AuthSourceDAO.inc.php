@@ -103,12 +103,20 @@ class AuthSourceDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+	 * @return AuthSource
+	 */
+	function newDataObject() {
+		return new AuthSource();
+	}
+
+	/**
 	 * Internal function to return an AuthSource object from a row.
 	 * @param $row array
 	 * @return AuthSource
 	 */
 	function &_returnAuthSourceFromRow(&$row) {
-		$auth = new AuthSource();
+		$auth = $this->newDataObject();
 		$auth->setAuthId($row['auth_id']);
 		$auth->setTitle($row['title']);
 		$auth->setPlugin($row['plugin']);

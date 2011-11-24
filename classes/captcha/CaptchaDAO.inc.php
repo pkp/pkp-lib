@@ -92,12 +92,20 @@ class CaptchaDAO extends DAO {
 	}
 
 	/**
+	 * Instantiate and return a new data object.
+ 	 * @return Captcha
+	 */
+	function newDataObject() {
+		return new Captcha();
+	}
+
+	/**
 	 * Creates and returns a captcha object from a row
 	 * @param $row array
 	 * @return Captcha object
 	 */
 	function &_returnCaptchaFromRow($row) {
-		$captcha = new Captcha();
+		$captcha = $this->newDataObject();
 		$captcha->setId($row['captcha_id']);
 		$captcha->setSessionId($row['session_id']);
 		$captcha->setValue($row['value']);

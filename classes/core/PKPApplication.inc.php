@@ -523,7 +523,7 @@ class PKPApplication {
 	/**
 	 * Get an array of locale keys that define strings that should be made available to
 	 * JavaScript classes in the JS front-end.
-	 * @ return array
+	 * @return array
 	 */
 	function getJSLocaleKeys() {
 		$keys = array('form.dataHasChanged');

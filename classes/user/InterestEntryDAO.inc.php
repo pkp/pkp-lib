@@ -22,7 +22,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	 * Constructor
 	 */
 	function InterestEntryDAO() {
-		parent::ControlledVocabEntryDAO() {
+		parent::ControlledVocabEntryDAO();
 	}
 
 	/**

@@ -13,7 +13,7 @@
  */
 
 
-import('classes.controllers.grid.GridColumn');
+import('lib.pkp.classes.controllers.grid.GridColumn');
 
 class ListbuilderGridColumn extends GridColumn {
 	/**

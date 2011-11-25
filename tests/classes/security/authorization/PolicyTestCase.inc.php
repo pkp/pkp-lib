@@ -22,17 +22,33 @@ define('ROLE_ID_TEST', 0x9999);
 
 abstract class PolicyTestCase extends PKPTestCase {
 	private
+
+		/**
+		 * @var Array of context object(s);
+		 */
+		$contextObjects,
 		/**
 		 * @var AuthorizationContext internal state variable that
 		 *  contains the policy that will be used to manipulate
 		 *  the authorization context
 		 */
-		$authorizationContextManipulationPolicy,
-		/**
-		 * @var array
-		 * @see mockRoleDao() below
-		 */
-		$userHasRoleInvocations;
+		$authorizationContextManipulationPolicy;
+
+	/**
+	 * Return an array with context object(s).
+	 * @return array
+	 */
+	private function getContextObjects() {
+		return $this->contextObjects;
+	}
+
+	/**
+	 * Set an array with context object(s).
+	 * @param Array $contextObjects
+	 */
+	private function setContextObjects($contextObjects) {
+		$this->contextObjects = $contextObjects;
+	}
 
 	/**
 	 * Create an authorization context manipulation policy.
@@ -72,14 +88,16 @@ abstract class PolicyTestCase extends PKPTestCase {
 	/**
 	 * Instantiate a mock request to the given operation.
 	 * @param $requestedOp string the requested operation
-	 * @param $context mixed a request context to be returned
-	 *  by the router.
+	 * @param $context Array request context object(s) to be
+	 * returned by the router.
 	 * @param $user User a user to be put into the registry.
 	 * @return PKPRequest
 	 */
 	protected function getMockRequest($requestedOp, $context = null, $user = null) {
 		// Mock a request to the permitted operation.
 		$request = new PKPRequest();
+
+		$this->setContextObjects($context);
 
 		// Mock a router.
 		$router = $this->getMock('PKPRouter', array('getRequestedOp', 'getContext'));
@@ -92,7 +110,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 		// Mock the getContext() method.
 		$router->expects($this->any())
 		       ->method('getContext')
-		       ->will($this->returnValue($context));
+		       ->will($this->returnCallback(array($this, 'mockGetContext')));
 
 		// Put a user into the registry if one has been
 		// passed in.
@@ -105,47 +123,20 @@ abstract class PolicyTestCase extends PKPTestCase {
 	}
 
 	/**
-	 * Mocks the role DAO.
-	 * @param $userHasRoleInvocations array a two dimensional array.
-	 *  - the first key is the invocation
-	 *  - the second key's first entry contains the expected arguments for the userHasRole() call
-	 *  - the second key's second entry contains the return value for the userHasRole() call
-	 * @param $userHasRoleReturnValue boolean
+	 * Callback used by PKPRouter created in
+	 * getMockRequest().
+	 * @see PKPRouter::getContext()
+	 * @return mixed Context object or null
 	 */
-	protected function mockRoleDao($userHasRoleInvocations) {
-		// Create a mock role DAO.
-		import('classes.security.RoleDAO');
-		$mockRoleDao = $this->getMock('RoleDAO', array('getRoleIdFromPath', 'userHasRole'));
+	public function mockGetContext() {
+		$functionArgs = func_get_args();
+		$contextLevel = $functionArgs[1];
 
-		// Mock getRoleIdFromPath().
-		$mockRoleDao->expects($this->any())
-		            ->method('getRoleIdFromPath')
-		            ->will($this->returnValue(ROLE_ID_TEST));
-
-		// Mock userHasRole().
-		$mockRoleDao->expects($this->any())
-		            ->method('userHasRole')
-		            ->will($this->returnCallback(array($this, 'mockUserHasRole')));
-
-		// Register the mock RoleDAO.
-		DAORegistry::registerDAO('RoleDAO', $mockRoleDao);
-
-		// Configure the mock userHasRole() call.
-		$this->userHasRoleInvocations = $userHasRoleInvocations;
-	}
-
-	/**
-	 * Callback used by the mock RoleDAO created
-	 * in mockRoleDao().
-	 * @see RoleDAO::userHasRole() in the different apps for the
-	 *  expected arguments. These depend on the context depth of
-	 *  the application.
-	 * @return boolean
-	 */
-	public function mockUserHasRole() {
-		$userHasRoleInvocation = array_shift($this->userHasRoleInvocations);
-		self::assertEquals($userHasRoleInvocation['userHasRoleExpectedArgs'], func_get_args());
-		return $userHasRoleInvocation['userHasRoleReturnValue'];
+		$contextObjects = $this->getContextObjects();
+		if (!empty($contextObjects[$contextLevel - 1])) {
+			return $contextObjects[$contextLevel - 1];
+		}
+		return null;
 	}
 }
 ?>

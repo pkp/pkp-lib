@@ -121,7 +121,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Retrieve the filters to be displayed in the grid
 		$router =& $request->getRouter();
 		$context =& $router->getContext($request);
-		$contextId = (is_null($context)?0:$context->getId());
+		$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
 		$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
 		$data =& $filterDao->getObjectsByGroup($this->getFilterGroupSymbolic(), $contextId);
 		$this->setGridDataElements($data);

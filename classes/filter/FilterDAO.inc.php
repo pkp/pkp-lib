@@ -115,7 +115,7 @@ class FilterDAO extends DAO {
 	 * @param $contextId integer
 	 * @return integer the new filter id
 	 */
-	function insertObject(&$filter, $contextId = 0) {
+	function insertObject(&$filter, $contextId = CONTEXT_ID_NONE) {
 		$filterGroup =& $filter->getFilterGroup();
 		assert($filterGroup->getSymbolic() != FILTER_GROUP_TEMPORARY_ONLY);
 
@@ -189,7 +189,7 @@ class FilterDAO extends DAO {
 	 * @param $allowSubfilters boolean
 	 * @return DAOResultFactory
 	 */
-	function &getObjectsByClass($className, $contextId = 0, $getTemplates = false, $allowSubfilters = false) {
+	function &getObjectsByClass($className, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false) {
 		$result =& $this->retrieve(
 			'SELECT	* FROM filters
 			 WHERE	context_id = ? AND
@@ -215,7 +215,7 @@ class FilterDAO extends DAO {
 	 * @param $allowSubfilters boolean
 	 * @return DAOResultFactory
 	 */
-	function &getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = 0, $getTemplates = false, $allowSubfilters = false) {
+	function &getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false) {
 		$result =& $this->retrieve(
 			'SELECT f.* FROM filters f'.
 			' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id'.
@@ -306,7 +306,7 @@ class FilterDAO extends DAO {
 	 *  from the result set that do not match the current run-time environment.
 	 * @return array filter instances (transformations) in the given group
 	 */
-	function &getObjectsByGroup($groupSymbolic, $contextId = 0, $getTemplates = false, $checkRuntimeEnvironment = true) {
+	function &getObjectsByGroup($groupSymbolic, $contextId = CONTEXT_ID_NONE, $getTemplates = false, $checkRuntimeEnvironment = true) {
 		// 1) Get all available transformations in the group.
 		$result =& $this->retrieve(
 			'SELECT f.* FROM filters f'.

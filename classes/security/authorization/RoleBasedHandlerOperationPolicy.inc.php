@@ -107,7 +107,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 		$roleContext = array();
 		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
 			$context =& $router->getContext($request, $contextLevel);
-			$roleContext[] = $context?$context->getId():0;
+			$roleContext[] = $context?$context->getId():CONTEXT_ID_NONE;
 			unset($context);
 		}
 
@@ -166,11 +166,11 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
 			if ($roleId == ROLE_ID_SITE_ADMIN) {
 				// site level role
 				for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-					$workingRoleContext[$contextLevel-1] = 0;
+					$workingRoleContext[$contextLevel-1] = CONTEXT_ID_NONE;
 				}
 			} elseif ($roleId == $roleDao->getRoleIdFromPath('manager') && $contextDepth == 2) {
 				// This is a main context managerial role (i.e. conference-level).
-				$workingRoleContext[1] = 0;
+				$workingRoleContext[1] = CONTEXT_ID_NONE;
 			}
 		}
 

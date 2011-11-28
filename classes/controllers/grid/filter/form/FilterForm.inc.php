@@ -237,7 +237,7 @@ class FilterForm extends Form {
 		} else {
 			$router =& $request->getRouter();
 			$context =& $router->getContext($request);
-			$contextId = (is_null($context)?0:$context->getId());
+			$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
 			$filterDAO->insertObject($filter, $contextId);
 		}
 		return true;

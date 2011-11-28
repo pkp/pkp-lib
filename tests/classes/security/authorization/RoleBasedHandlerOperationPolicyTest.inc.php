@@ -117,7 +117,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 					'getByUserIdGroupedByContextReturnValue' => array(
 						// Numeric array index is the context id.
 						// In this case, is zero because we have a site level role.
-						0 => array(ROLE_ID_SITE_ADMIN => ROLE_ID_SITE_ADMIN),
+						CONTEXT_ID_NONE => array(ROLE_ID_SITE_ADMIN => ROLE_ID_SITE_ADMIN),
 						// Press/Journal context.
 						5 => array(
 							ROLE_ID_TEST => ROLE_ID_TEST,
@@ -135,11 +135,11 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase {
 						// First numeric array index is for the conference. The
 						// second is for the schedConf.
 						// Both are 0 because we are testing a role in site context.
-						0 => array(0 => array(ROLE_ID_SITE_ADMIN => ROLE_ID_SITE_ADMIN)),
+						CONTEXT_ID_NONE => array(CONTEXT_ID_NONE => array(ROLE_ID_SITE_ADMIN => ROLE_ID_SITE_ADMIN)),
 						// Conference context.
 						5 => array(
 							// No context (still conference context).
-							0 => array(ROLE_ID_OCS_MANAGERIAL_ROLE => ROLE_ID_OCS_MANAGERIAL_ROLE),
+							CONTEXT_ID_NONE => array(ROLE_ID_OCS_MANAGERIAL_ROLE => ROLE_ID_OCS_MANAGERIAL_ROLE),
 							// SchedConf context.
 							5 => array(
 								ROLE_ID_TEST => ROLE_ID_TEST,

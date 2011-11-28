@@ -351,7 +351,7 @@ class PKPNotificationManager {
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$notification = $notificationDao->newDataObject();
 		$notification->setUserId($userId);
-		$notification->setContextId(0);
+		$notification->setContextId(CONTEXT_ID_NONE);
 		$notification->setType($notificationType);
 		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
 

@@ -191,7 +191,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
 			function(validator, formElement) {
 
-		if (tinyMCE) {
+		if (typeof tinyMCE !== 'undefined') {
 			tinyMCE.triggerSave();
 		}
 

@@ -768,6 +768,12 @@ class PKPRequest {
 		$_this =& PKPRequest::_checkThis();
 		$router =& $_this->getRouter();
 
+		if (is_null($router)) {
+			assert(false);
+			$nullValue = null;
+			return $nullValue;
+		}
+
 		// Construct the method call
 		$callable = array($router, $method);
 

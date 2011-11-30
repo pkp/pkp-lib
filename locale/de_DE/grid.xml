@@ -22,28 +22,36 @@
 	<message key="grid.action.remove">Entfernen</message>
 	<message key="grid.action.edit">Bearbeiten</message>
 	<message key="grid.action.approve">Akzeptieren</message>
-	<message key="grid.action.approveForReview">Zur Prüfphase übermitteln</message>
-	<message key="grid.action.approveForPub">Für Veröffentlichung akzeptieren</message>
 	<message key="grid.action.decline">Ablehnen</message>
 	<message key="grid.action.moreInformation">Mehr Informationen</message>
 	<message key="grid.action.restoreDefaults">Standard wiederherstellen</message>
+	<message key="grid.action.addAuthor">Autor/in hinzufügen</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Aktionen</message>
 	<message key="grid.columns.institution">Institution</message>
 	<message key="grid.columns.url">URL</message>
+	<message key="grid.columns.auditor">Prüfer/in</message>
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsor/innen</message>
+	<message key="grid.action.addSponsor">Sponsor/innen hinzufügen</message>
+
+	<!-- Series Grid -->
+	<message key="grid.action.addSeries">Reihe hinzufügen</message>
 
 	<!-- Contributor Grid -->
-	<message key="grid.contributor.title">Beiträger/in</message>
-	<message key="grid.action.addAuthor">Autor/in hinzufügen</message>
+	<message key="grid.contributor.title">Beiträger/innen</message>
+	<message key="grid.action.addContributor">Beiträger/in hinzufügen</message>
+	<message key="grid.action.editContributor">Beiträger/in bearbeiten</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Begutachtungsformulare</message>
 
-	<!-- Bibliotheksdateien -->
+	<!-- Files -->
+	<message key="grid.noFiles">Keine Dateien</message>
+
+	<!-- Library Files -->
 	<message key="grid.libraryFiles.column.files">Dateien</message>
 	<message key="grid.libraryFiles.submission.title">Einreichungsbibliothek</message>
 	<message key="grid.libraryFiles.editorial.title">Redaktionsbibliothek</message>
@@ -64,6 +72,7 @@
 	<!-- Rollen -->
 	<message key="grid.roles.currentRoles">Aktuelle Rollen</message>
 	<message key="grid.roles.add">Rolle hinzufügen</message>
+	<message key="grid.roles.stageAssignment">Abschnittszuordnung</message>
 
 	<!-- Benutzer/innen -->
 	<message key="grid.user.currentUsers">Aktuelle Benutzer/innen</message>

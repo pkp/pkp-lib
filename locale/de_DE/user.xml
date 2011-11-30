@@ -23,6 +23,7 @@
 	<message key="user.authorization.restrictedSiteAccess">Ihnen wurde der Zugang verweigert. Der Zugang zu dieser Site ist momentan beschränkt.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Die aktuelle Rolle hat keinen Zugriff auf diese Operation.</message>
 	<message key="user.authorization.userGroupRequired">Sie müssen eine gültige Benutzer/innen-Gruppe setzen, um auf diese Operation zugreifen zu können.</message>
+	<message key="user.authorization.pressManagerRequired">Ein/e Benutzer/in mit einer Verlagsverwalter/innen-Rolle (z.B. Verlags- oder Produktionsredakteur/in) muss dem Arbeitsschritt hinzugefügt werden, bevor Sie weitermachen können.</message>
 	<message key="user.biography">Angaben zum Lebenslauf</message>
 	<message key="user.biography.description">(z.B. Abteilung und Position)</message>
 	<message key="user.changeMyPassword">Mein Passwort ändern</message>
@@ -61,6 +62,7 @@
 	<message key="user.login.rememberUsernameAndPassword">Benutzer/innen-Namen und Passwort speichern</message>
 	<message key="user.login.resetPassword">Passwort zurücksetzen</message>
 	<message key="user.logOut">Ausloggen</message>
+	<message key="user.hello">Hallo, </message>
 	<message key="user.mailingAddress">Adresse</message>
 	<message key="user.masculine">M</message>
 	<message key="user.middleName">Zweiter Vorname</message>

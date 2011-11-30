@@ -157,6 +157,8 @@
 	<message key="common.record">Protokollieren</message>
 	<message key="common.refresh">Aktualisieren</message>
 	<message key="common.related">Verbunden</message>
+	<message key="common.remote">Entlegen</message>
+	<message key="common.remoteURL">EntlegenerURL</message>
 	<message key="common.remove">Entfernen</message>
 	<message key="common.removeSelection">Auswahl entfernen</message>
 	<message key="common.replaced">Ersetzt</message>

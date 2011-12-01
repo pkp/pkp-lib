@@ -25,7 +25,16 @@
 	$.pkp.controllers.form.MultilingualInputHandler = function($popover, options) {
 		// Bind to the focus of the primary language (the first input)
 		// open the pop-over
-		$popover.find(':input').first()
+		
+		var $popoverNode = null;
+		
+		if ($popover.hasClass('pkpTagit')) {
+			$popoverNode = $popover.find(':input').filter(':visible');
+		} else {
+			$popoverNode = $popover.find(':input').first();
+		}
+
+		$popoverNode
 				.focus(this.callbackWrapper(this.multilingualShow));
 		// Bind to the blur of any of the inputs to to check if we should close.
 		$popover.find(':input').

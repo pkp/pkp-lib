@@ -714,7 +714,8 @@ class FormBuilderVocabulary {
 	 * @param $smarty object
 	 */
 	function _smartyFBVKeywordInput($params, &$smarty) {
-		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords'));
+		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
@@ -722,6 +723,7 @@ class FormBuilderVocabulary {
 				case 'label': $smarty->assign('FBV_label', $params['label']); break;
 				case 'available': $smarty->assign('FBV_availableKeywords', $params['available']); break;
 				case 'current': $smarty->assign('FBV_currentKeywords', $params['current']); break;
+				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 			}
 		}
 

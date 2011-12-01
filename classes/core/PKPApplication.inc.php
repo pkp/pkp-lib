@@ -13,8 +13,7 @@
  *
  */
 
-
-define('REALLY_BIG_NUMBER', 10000);
+define_exposed('REALLY_BIG_NUMBER', 10000);
 
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');

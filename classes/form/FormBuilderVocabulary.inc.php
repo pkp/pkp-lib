@@ -144,6 +144,8 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_layoutInfo', $this->_getLayoutInfo($params));
 			$smarty->assign('FBV_description', isset($params['description']) ? $params['description'] : null);
 			$smarty->assign('FBV_content', isset($content) ? $content: null);
+			// default is to perform translation:
+			$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
 
 			$class = $params['class'];
 

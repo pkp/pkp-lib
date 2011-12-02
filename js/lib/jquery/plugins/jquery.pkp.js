@@ -36,9 +36,6 @@
 			options = options || {};
 			var handler = $.pkp.classes.Helper.objectFactory(
 					handlerName, [$element, options]);
-
-			// Expose the PKP handler instance to the DOM.
-			this.pkpHandlerInstance = handler;
 		});
 
 		// Allow chaining.

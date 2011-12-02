@@ -71,7 +71,10 @@ class Nlm30PersonStringFilter extends Filter {
 			$result = array_filter($personDescriptions, create_function('$pd', 'return is_a($pd, "MetadataDescription");'));
 
 			// There can be exactly one et-al string
-			if (count($result) < count($personDescriptions)-1) return false;
+			if (count($result) < count($personDescriptions)-1) {
+				$falseVar = false;
+				return $falseVar;
+			}
 		} else {
 			$result = $personDescriptions;
 		}

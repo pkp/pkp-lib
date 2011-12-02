@@ -545,7 +545,11 @@ class PKPApplication {
  * @see PKPApplication::defineExposed
  */
 function define_exposed($name, $value) {
+	$errorReportingLevel = E_ALL;
+	if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
+	@error_reporting($errorReportingLevel);
 	PKPApplication::defineExposedConstant($name, $value);
+	@error_reporting(E_ALL);
 }
 
 ?>

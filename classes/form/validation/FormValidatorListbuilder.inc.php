@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/form/validation/FormValidatorListBuilder.inc.php
+ * @file classes/form/validation/FormValidatorListbuilder.inc.php
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class FormValidatorListBuilder
+ * @class FormValidatorListbuilder
  * @ingroup form_validation
  *
  * @brief Form validation check that checks if the JSON value submitted unpacks into something that
@@ -15,7 +15,7 @@
 
 import('lib.pkp.classes.form.validation.FormValidator');
 
-class FormValidatorListBuilder extends FormValidator {
+class FormValidatorListbuilder extends FormValidator {
 
 	/* outcome of validation after callbacks */
 	var $_valid = false;
@@ -26,7 +26,7 @@ class FormValidatorListBuilder extends FormValidator {
 	 * @param $field string the name of the associated field
 	 * @param $message string the error message for validation failures (i18n key)
 	 */
-	function FormValidatorListBuilder(&$form, $field, $message) {
+	function FormValidatorListbuilder(&$form, $field, $message) {
 		parent::FormValidator($form, $field, FORM_VALIDATOR_OPTIONAL_VALUE, $message);
 	}
 
@@ -41,7 +41,7 @@ class FormValidatorListBuilder extends FormValidator {
 	function isValid() {
 		$value = $this->getFieldValue();
 		import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-		ListBuilderHandler::unpack($request, $value);
+		ListbuilderHandler::unpack($request, $value);
 		if ($this->_valid) {
 			return true;
 		} else {

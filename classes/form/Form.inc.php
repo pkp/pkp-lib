@@ -30,7 +30,7 @@ import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
 import('lib.pkp.classes.form.validation.FormValidatorEmail');
 import('lib.pkp.classes.form.validation.FormValidatorInSet');
 import('lib.pkp.classes.form.validation.FormValidatorLength');
-import('lib.pkp.classes.form.validation.FormValidatorListBuilder');
+import('lib.pkp.classes.form.validation.FormValidatorListbuilder');
 import('lib.pkp.classes.form.validation.FormValidatorLocale');
 import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
 import('lib.pkp.classes.form.validation.FormValidatorPost');

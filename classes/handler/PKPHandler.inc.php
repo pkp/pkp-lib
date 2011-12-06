@@ -256,6 +256,15 @@ class PKPHandler {
 		import('lib.pkp.classes.security.authorization.HttpsPolicy');
 		$this->addPolicy(new HttpsPolicy($request), true);
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			// Add user roles in authorized context.
+			$user = $request->getUser();
+			if (is_a($user, 'User')) {
+				import('lib.pkp.classes.security.authorization.UserRolesRequiredPolicy');
+				$this->addPolicy(new UserRolesRequiredPolicy($request), true);
+			}
+		}
+
 		// Make sure that we have a valid decision manager instance.
 		assert(is_a($this->_authorizationDecisionManager, 'AuthorizationDecisionManager'));
 
@@ -418,7 +427,7 @@ class PKPHandler {
 		}
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('authorizedUserRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_AUTHORIZED_USER_ROLES));
+		$templateMgr->assign('userRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		if ($accessibleWorkflowStages) $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
 	}

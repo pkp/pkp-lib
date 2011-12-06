@@ -33,6 +33,10 @@
 		// Expose the selectMonograph event to the containing element.
 		this.publishEvent(this.eventName_);
 
+		// We're not interested in tracking changes to this subclass since
+		// it usually loads content or redirects to another page.
+		this.trackFormChanges_ = false;
+
 		// Attach form elements events.
 		$form.find('select', $form).change(
 				this.callbackWrapper(this.selectOptionHandler_));

@@ -140,7 +140,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * close icon is clicked.
 	 *
 	 * @param {Object} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event (e.g. a click on
+	 * @param {Event} event The triggering event (e.g. a click on
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
@@ -149,6 +149,16 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Close the modal dialog.
 		var $modalElement = this.getHtmlElement();
+		// get the form from this modalElement so we can unregister it
+		$form = $modalElement.find('form').first();
+		
+		// modalClose is called on both 'cancel' and 'close' events.  With 
+		// callbacks both callingContext and event are undefined. So, 
+		// unregister this form with SiteHandler.
+
+		if ($form !== undefined) {
+			$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement($form);
+		}
 		$modalElement.dialog('close');
 		return false;
 	};
@@ -163,6 +173,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.dialogClose =
 			function(dialogElement) {
+
 		// Remove the dialog including our button callbacks.
 		var $dialogElement = $(dialogElement);
 		$dialogElement.dialog('destroy');

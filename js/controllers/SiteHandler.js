@@ -39,7 +39,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
-		// called. 
+		// called.
 		$(window).bind('beforeunload', this.callbackWrapper(this.pageUnloadHandler_));
 
 		this.options_ = options;
@@ -73,6 +73,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.options_ = null;
 
+
 	/**
 	 * A state variable to determine if data has changed on the form.
 	 * For 'cancel' and 'page unload' warnings.
@@ -81,6 +82,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.formDataChanged_ = false;
 
+
 	/**
 	 * A state variable to store the message to display when the page is
 	 * unloaded with unsaved data.
@@ -88,6 +90,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @type {String}
 	 */
 	$.pkp.controllers.SiteHandler.prototype.formDataChangedMessage_ = null;
+
 
 	/**
 	 * A state variable to store the form elements that have unsaved data
@@ -114,6 +117,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		window.location = url;
 	};
 
+
 	/**
 	 * Method called by Form elements that wish to inform SiteHandler
 	 * that they are in a changed/unsaved state.
@@ -128,6 +132,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.unsavedFormElements_[elementId] = true;
 	};
 
+
 	/**
 	 * Method called by Form elements that wish to inform SiteHandler
 	 * that they no longer wish to be tracked as 'unsaved'.
@@ -138,7 +143,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement =
 			function(sourceElement) {
 		var elementId = sourceElement.attr('id');
-		// this actually sets the property to undefined.  
+		// this actually sets the property to undefined.
 		// delete doesn't really delete.
 		delete this.unsavedFormElements_[elementId];
 	};
@@ -176,6 +181,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		});
 	};
 
+
 	/**
 	 * Internal callback called upon page unload. If it returns
 	 * anything other than void, a message will be displayed to
@@ -194,18 +200,19 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// as properties in the unsavedFormElements_ object. They
 		// will just be undefined.  See if there are any that are
 		// not.
-		
+
 		var unsavedElementCount = 0;
 
 		for (var element in this.unsavedFormElements_) {
 			if (this.unsavedFormElements_[element] !== undefined) {
-				unsavedElementCount ++;
+				unsavedElementCount++;
 			}
 		}
 		if (unsavedElementCount > 0) {
 			return this.formDataChangedMessage_;
 		}
 	};
+
 
 	/**
 	 * Response handler to the notification fetch.

@@ -10,7 +10,7 @@
   * Mutex help table data.
   -->
 <data>
-    <table name="mutex">
+	<table name="mutex">
 		<row>
 			<field name="i">0</field>
 		</row>

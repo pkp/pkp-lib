@@ -8,12 +8,12 @@
  *}
 
 <script type="text/javascript">
-    $(function() {ldelim}
-        // Attach the form handler.
-        $('#{$notificationId|escape:javascript}').pkpHandler('$.pkp.controllers.NotificationHandler',
-        	{ldelim}
-        		{include file="core:controllers/notification/notificationOptions.tpl"}
-			{rdelim});
-    {rdelim});
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#{$notificationId|escape:javascript}').pkpHandler('$.pkp.controllers.NotificationHandler',
+		{ldelim}
+			{include file="core:controllers/notification/notificationOptions.tpl"}
+		{rdelim});
+	{rdelim});
 </script>
-<div id="{$notificationId}" class="pkp_notification"></div>
+<div id="{$notificationId|escape}" class="pkp_notification"></div>

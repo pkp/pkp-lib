@@ -164,7 +164,7 @@
 	<message key="submission.citations.editor.details.queryCitation">Zitationsdienste erneut abfragen</message>
 	<message key="submission.citations.editor.details.queryGoogleScholar">In Google Scholar suchen</message>
 	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Willkommen zum Prozess der Zitationsbearbeitung. Das Anklicken einer Zitation in der Auflistung links wird die Zitation in diesem Fenster öffnen, wo Sie die Korrektheit des Zitationsprozesses prüfen können. Sie können die Zitation auch in Zitationsdatenbankdiensten überprüfen, die die/der Zeitschriftenverwalter/in konfiguriert hat, und können die Zitation selber manuell bearbeiten.</p>
-	    <h4>Die Schnittstelle benutzen</h4>
+	<h4>Die Schnittstelle benutzen</h4>
 		<p>Klicken Sie auf eine der links aufgelisteten Zitationen, um die Bearbeitung zu beginnen.</p>
 		<p>Die hellblaue Grenze zwischen diesem Fenster und der Spalte links ist beweglich. Ob Sie mehr Platz für die Zitationsliste oder für die Bearbeitung einer Zitation benötigen, sie kann in jede Richtung bewegt werden.</p>
 		<p>Um die Zitationsschnittstelle zu erweitern, klicken Sie den <strong>Vollbild</strong>-Knopf. Um zur normalen Ansicht zurückzukehren, klicken Sie den <strong>Vollbild aus</strong>-Knopf.</p>

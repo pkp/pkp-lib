@@ -710,8 +710,8 @@ class Installer {
 							1,	// Current
 							'plugins.'.$category, // Type
 							basename($plugin->getPluginPath()), // Product
-							'',     // Class name
-							0,      // Lazy load
+							'',	// Class name
+							0,	// Lazy load
 							0	// Site wide
 						);
 					}

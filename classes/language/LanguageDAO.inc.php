@@ -25,8 +25,10 @@ class LanguageDAO extends DAO {
 		parent::DAO();
 	}
 
-	function &_getCache() {
-		$locale = AppLocale::getLocale();
+	function &_getCache($locale = null) {
+		if ($locale == null) {
+			$locale = AppLocale::getLocale();
+		}
 		$cache =& Registry::get('languageCache', true, null);
 		if ($cache === null) {
 			$cacheManager = CacheManager::getManager();
@@ -48,7 +50,11 @@ class LanguageDAO extends DAO {
 		if ($allLanguages === null) {
 			// Add a locale load to the debug notes.
 			$notes =& Registry::get('system.debug.notes');
-			$filename = $this->getLanguageFilename(AppLocale::getLocale());
+			$locale = $cache->cacheId;
+			if ($locale == null) {
+				$locale = AppLocale::getLocale();
+			}
+			$filename = $this->getLanguageFilename($locale);
 			$notes[] = array('debug.notes.languageListLoad', array('filename' => $filename));
 
 			// Reload locale registry file
@@ -63,7 +69,9 @@ class LanguageDAO extends DAO {
 					);
 				}
 			}
-			asort($allLanguages);
+			if (is_array($allLanguages)) {
+				asort($allLanguages);
+			}
 			$cache->setEntireCache($allLanguages);
 		}
 		return null;
@@ -91,13 +99,31 @@ class LanguageDAO extends DAO {
 
 	/**
 	 * Retrieve an array of all languages.
+	 * @param $locale an optional locale to use
 	 * @return array of Languages
 	 */
-	function &getLanguages() {
-		$cache =& $this->_getCache();
+	function &getLanguages($locale = null) {
+		$cache =& $this->_getCache($locale);
 		$returner = array();
 		foreach ($cache->getContents() as $code => $entry) {
 			$returner[] =& $this->_returnLanguageFromRow($code, $entry);
+		}
+		return $returner;
+	}
+
+	/**
+	 * Retrieve an array of all languages names.
+	 * @param $locale an optional locale to use
+	 * @return array of Languages names
+	 */
+	function &getLanguageNames($locale = null) {
+		$cache =& $this->_getCache($locale);
+		$returner = array();
+		$cacheContents =& $cache->getContents();
+		if (is_array($cacheContents)) {
+			foreach ($cache->getContents() as $code => $entry) {
+				$returner[] =& $entry[0];
+			}
 		}
 		return $returner;
 	}

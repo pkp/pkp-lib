@@ -17,11 +17,11 @@
 				$("#{/literal}{$thisFormLocale|escape}-{$FBV_id|escape:"javascript"}{literal}").tagit({
 					{/literal}{if $FBV_availableKeywords}{literal}
 						// This is the list of keywords in the system used to populate the autocomplete
-						availableTags: [{/literal}{foreach name=existingKeywords from=$FBV_availableKeywords.$thisFormLocale item=FBV_keyword_element}"{$FBV_keyword_element|escape|escape:'javascript'}"{if !$smarty.foreach.existingKeywords.last}, {/if}{/foreach}{literal}],
+						availableTags: [{/literal}{foreach name=existingKeywords from=$FBV_availableKeywords.$thisFormLocale item=FBV_keyword_element}"{$FBV_keyword_element|escape:'javascript'|replace:'+':' '}"{if !$smarty.foreach.existingKeywords.last}, {/if}{/foreach}{literal}],
 					{/literal}{/if}
 					{if $FBV_currentKeywords}{literal}
 						// This is the list of the user's keywords that have already been saved
-						currentTags: [{/literal}{foreach name=currentKeywords from=$FBV_currentKeywords.$thisFormLocale item=FBV_keyword_element}"{$FBV_keyword_element|escape|escape:'javascript'}"{if !$smarty.foreach.currentKeywords.last}, {/if}{/foreach}{literal}]{/literal}
+						currentTags: [{/literal}{foreach name=currentKeywords from=$FBV_currentKeywords.$thisFormLocale item=FBV_keyword_element}"{$FBV_keyword_element|escape:'javascript'|replace:'+':' '}"{if !$smarty.foreach.currentKeywords.last}, {/if}{/foreach}{literal}]{/literal}
 					{/if}{literal}
 				});
 			});
@@ -57,11 +57,11 @@
 			$("#{/literal}{$FBV_id|escape:"javascript"}{literal}").tagit({
 				{/literal}{if $FBV_availableKeywords}{literal}
 					// This is the list of keywords in the system used to populate the autocomplete
-					availableTags: [{/literal}{foreach name=existingKeywords from=$FBV_availableKeywords item=FBV_keyword_element}"{$FBV_keyword_element|escape|escape:'javascript'}"{if !$smarty.foreach.existingKeywords.last}, {/if}{/foreach}{literal}],
+					availableTags: [{/literal}{foreach name=existingKeywords from=$FBV_availableKeywords item=FBV_keyword_element}"{$FBV_keyword_element|escape:'javascript'|replace:'+':' '}"{if !$smarty.foreach.existingKeywords.last}, {/if}{/foreach}{literal}],
 				{/literal}{/if}
 				{if $FBV_currentKeywords}{literal}
 					// This is the list of the user's keywords that have already been saved
-					currentTags: [{/literal}{foreach name=currentKeywords from=$FBV_currentKeywords item=FBV_keyword_element}"{$FBV_keyword_element|escape|escape:'javascript'}"{if !$smarty.foreach.currentKeywords.last}, {/if}{/foreach}{literal}]{/literal}
+					currentTags: [{/literal}{foreach name=currentKeywords from=$FBV_currentKeywords item=FBV_keyword_element}"{$FBV_keyword_element|escape:'javascript'|replace:'+':' '}"{if !$smarty.foreach.currentKeywords.last}, {/if}{/foreach}{literal}]{/literal}
 				{/if}{literal}
 			});
 		});

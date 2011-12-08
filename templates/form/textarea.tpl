@@ -19,11 +19,10 @@
 	{* This is a multilingual control. Enable popover display. *}
 	<span id="{$FBV_name|escape}-localization-popover-container" class="localization_popover_container">
 		{strip}
-			<textarea {$FBV_textAreaParams}
+			<textarea id="{$FBV_id|escape}-{$formLocale|escape}" {$FBV_textAreaParams}
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
-				name="{$FBV_name|escape}[{$formLocale|escape}]"
-				id="{$FBV_id|escape}-{$formLocale|escape}">{$FBV_value[$formLocale]|escape}
+				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
 			</textarea>
 		{/strip}
 
@@ -33,12 +32,11 @@
 			<div class="localization_popover">
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
 					{strip}
-					<textarea {$FBV_textAreaParams}
-						placeholder="{$thisFormLocaleName|escape}"
-						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich} richContent{/if}"
+					<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}" {$FBV_textAreaParams}
+						placeholder="{$thisFormLocaleName|escape}" 
+						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich} richContent{/if}" 
 						{if $FBV_disabled} disabled="disabled"{/if}
-						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
-						id="{$FBV_id|escape}-{$thisFormLocale|escape}">{$FBV_value[$thisFormLocale]|escape}
+						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
 					{/strip}
 					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}" class="locale">({$thisFormLocaleName|escape})</label>

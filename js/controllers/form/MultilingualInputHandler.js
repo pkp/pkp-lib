@@ -67,8 +67,14 @@
 	$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent =
 			function(editorId, event) {
 		if (event.type == 'click' || event.type == 'keyup') {
-			$('#' + editorId).parent().find('.localization_popover').
-					width($('#' + editorId).parent().width());
+			var $parentElement = $('#' + editorId).parent();
+			$parentElement.find('div[class="localization_popover"] iframe').
+					width($parentElement.width());
+
+			$('body').bind('click keyup', function(e) {
+				$('body').unbind('click keyup');
+				$('.localization_popover').hide();
+			});
 
 			$('#' + editorId).parent().find('.localization_popover').show();
 		}

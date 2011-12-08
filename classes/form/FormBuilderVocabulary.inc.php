@@ -493,6 +493,7 @@ class FormBuilderVocabulary {
 				case 'rich': $smarty->assign('FBV_rich', $params['rich']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
+				case 'id': break; // if we don't do this, the textarea ends up with two id attributes because FBV_id is also set.
 				default: $textAreaParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}

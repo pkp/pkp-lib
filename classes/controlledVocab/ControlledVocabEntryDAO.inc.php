@@ -58,7 +58,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $locale string
 	 * @return ControlledVocabEntry
 	 */
-	function getBySetting($settingValue, $symbolic, $assocType, $assocId, $settingName = 'name', $locale = '') {
+	function getBySetting($settingValue, $symbolic, $assocType = 0, $assocId = 0, $settingName = 'name', $locale = '') {
 		$result =& $this->retrieve(
 			'SELECT cve.*
 			 FROM controlled_vocabs cv
@@ -171,10 +171,18 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $controlledVocabId int
 	 * @return object DAOResultFactory containing matching CVE objects
 	 */
-	function getByControlledVocabId($controlledVocabId, $rangeInfo = null) {
+	function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null) {
+		$params = array((int) $controlledVocabId);
+		if (!empty($filter)) $params[] = "%$filter%";
+
 		$result =& $this->retrieveRange(
-			'SELECT * FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq',
-			array((int) $controlledVocabId),
+			'SELECT *
+			 FROM controlled_vocab_entries cve '.
+			 (!empty($filter) ? 'INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id ' : '') .
+			'WHERE controlled_vocab_id = ? ' .
+			 (!empty($filter) ? 'AND cves.setting_value LIKE ? ' : '') .
+			'ORDER BY seq',
+			$params,
 			$rangeInfo
 		);
 

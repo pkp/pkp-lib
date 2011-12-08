@@ -57,7 +57,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $assocId int
 	 * @return $controlledVocab
 	 */
-	function build($symbolic, $assocType, $assocId) {
+	function build($symbolic, $assocType = 0, $assocId = 0) {
 		// If one exists, fetch and return.
 		$controlledVocab = $this->getBySymbolic($symbolic, $assocType, $assocId);
 		if ($controlledVocab) return $controlledVocab;

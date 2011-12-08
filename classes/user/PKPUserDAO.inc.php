@@ -417,8 +417,9 @@ class PKPUserDAO extends DAO {
 				$var = "$value%";
 				break;
 			case USER_FIELD_INTERESTS:
+				$interestDao =& DAORegistry::getDAO('InterestDAO');  // Loaded to ensure interest constant is in namespace
 				$sql .=', controlled_vocabs cv, controlled_vocab_entries cve, controlled_vocab_entry_settings cves
-					WHERE cv.assoc_type = ' . ASSOC_TYPE_USER . ' AND cv.symbolic = \'interest\' AND cv.assoc_id = u.user_id AND cve.controlled_vocab_id = cv.controlled_vocab_id
+					WHERE cv.assoc_type = ' . ASSOC_TYPE_USER . ' AND cv.symbolic = "' . CONTROLLED_VOCAB_INTEREST .  '" AND cve.controlled_vocab_id = cv.controlled_vocab_id
 					AND cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id AND LOWER(cves.setting_value) ' . ($match == 'is' ? '=' : 'LIKE') . ' LOWER(?)';
 				$var = $match == 'is' ? $value : "%$value%";
 				break;

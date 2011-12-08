@@ -405,29 +405,25 @@ class PKPUser extends DataObject {
 		return $this->setData('biography', $biography, $locale);
 	}
 
+	/**
+	 * Get the user's reviewing interests as an array. DEPRECATED in favour of direct interaction with the InterestManager.
+	 * @return array
+	 */
 	function getUserInterests() {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getInterests();
+		import('lib.pkp.classes.user.InterestManager');
+		$interestManager = new InterestManager();
+		return $interestManager->getInterestsForUser($this);
 	}
 
 	/**
-	 * Get user reviewing interests.
-	 * @param $locale string
+	 * Get the user's interests displayed as a comma-separated string
 	 * @return string
 	 */
-	function getInterests() {
-		$interestDao =& DAORegistry::getDAO('InterestDAO');
-		return implode(", ", $interestDao->getInterests($this->getId()));
-	}
-
-	/**
-	 * Set user reviewing interests.
-	 * @param $interests string
-	 * @param $locale string
-	 */
-	function setInterests($interests) {
-		$interestDao =& DAORegistry::getDAO('InterestDAO');
-		$interestDao->insertInterests(explode(",", $interests), $this->getId(), true);
+	function getInterestString() {
+		import('lib.pkp.classes.user.InterestManager');
+		$interestManager = new InterestManager();
+		return $interestManager->getInterestsString($this);
 	}
 
 	/**

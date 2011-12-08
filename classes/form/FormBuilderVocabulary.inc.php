@@ -257,6 +257,9 @@ class FormBuilderVocabulary {
 			case 'keyword':
 				$content = $this->_smartyFBVKeywordInput($params, $smarty);
 				break;
+			case 'interests':
+				$content = $this->_smartyFBVInterestsInput($params, $smarty);
+				break;
 			case 'link':
 				$content = $this->_smartyFBVLink($params, $smarty);
 				break;
@@ -721,19 +724,47 @@ class FormBuilderVocabulary {
 	 */
 	function _smartyFBVKeywordInput($params, &$smarty) {
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
+		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
+		$params['available'] = isset($params['available']) ? $params['available'] : false;
+		$params['current'] = isset($params['current']) ? $params['current'] : false;
+
 		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
-				case 'label': $smarty->assign('FBV_label', $params['label']); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'available': $smarty->assign('FBV_availableKeywords', $params['available']); break;
 				case 'current': $smarty->assign('FBV_currentKeywords', $params['current']); break;
+				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 			}
 		}
 
 		return $smarty->fetch('form/keywordInput.tpl');
+	}
+
+	/**
+	 * Reviewing interests input.
+	 * parameters: interestKeywords - current users's keywords (array); interestsTextOnly - user's current keywords (comma separated string)
+	 * @param $params array
+	 * @param $smarty object
+	 */
+	function _smartyFBVInterestsInput($params, &$smarty) {
+		$params['interestKeywords'] = isset($params['interestKeywords']) ? $params['interestKeywords'] : false;
+		$params['interestsTextOnly'] = isset($params['interestsTextOnly']) ? $params['interestsTextOnly'] : false;
+
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
+		foreach ($params as $key => $value) {
+			switch ($key) {
+				case 'type': break;
+				case 'id': $smarty->assign('FBV_id', $params['id']); break;
+				case 'interestKeywords': $smarty->assign('FBV_interestKeywords', $params['interestKeywords']); break;
+				case 'interestsTextOnly': $smarty->assign('FBV_interestsTextOnly', $params['interestsTextOnly']); break;
+			}
+		}
+
+		return $smarty->fetch('form/interestsInput.tpl');
 	}
 
 	/**

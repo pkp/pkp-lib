@@ -82,6 +82,10 @@ abstract class PolicyTestCase extends PKPTestCase {
 		$userGroup = new UserGroup();
 		$userGroup->setRoleId(ROLE_ID_TEST);
 		$policy->addAuthorizedContextObject(ASSOC_TYPE_USER_GROUP, $userGroup);
+
+		// Add user roles array to the authorized context.
+		$userRoles = array(ROLE_ID_TEST, ROLE_ID_SITE_ADMIN);
+		$policy->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $userRoles);
 		return AUTHORIZATION_PERMIT;
 	}
 

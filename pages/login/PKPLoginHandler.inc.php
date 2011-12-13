@@ -94,6 +94,15 @@ class PKPLoginHandler extends Handler {
 	}
 
 	/**
+	 * After a login has completed, direct the user somewhere.
+	 * (May be extended by subclasses.)
+	 * @param $request PKPRequest
+	 */
+	function _redirectAfterLogin($request) {
+		$request->redirectHome();
+	}
+
+	/**
 	 * Validate a user's credentials and log the user in.
 	 */
 	function signIn($args, &$request) {
@@ -126,7 +135,7 @@ class PKPLoginHandler extends Handler {
 				} elseif ($redirectNonSsl) {
 					$request->redirectNonSSL();
 				} else {
-					$request->redirectHome();
+					$this->_redirectAfterLogin($request);
 				}
 			}
 

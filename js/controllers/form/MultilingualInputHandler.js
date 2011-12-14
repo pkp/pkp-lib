@@ -48,6 +48,17 @@
 
 
 	//
+	// Private properties
+	//
+	/**
+	 * This timer is used to control closing the popover when blur events are detected.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.popoverCloseTimer_ = null;
+
+
+	//
 	// Public methods
 	//
 	/**
@@ -67,16 +78,16 @@
 	$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent =
 			function(editorId, event) {
 		if (event.type == 'click' || event.type == 'keyup') {
+			clearTimeout(this.popoverTimer);
 			var $parentElement = $('#' + editorId).parent();
 			$parentElement.find('div[class="localization_popover"] iframe').
 					width($parentElement.width());
-
-			$('body').bind('click keyup', function(e) {
-				$('body').unbind('click keyup');
-				$('.localization_popover').hide();
-			});
-
 			$('#' + editorId).parent().find('.localization_popover').show();
+		} else if (event.type == 'blur') {
+			// set a short timer to prevent the next popover from closing. 
+			// this allows time for the next click event from the TinyMCE editor 
+			// to cancel the timer.
+			this.popoverTimer = setTimeout("$('.localization_popover').hide()", 500);
 		}
 	};
 

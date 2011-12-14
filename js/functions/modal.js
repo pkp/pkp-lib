@@ -264,18 +264,6 @@ function modalAlert(dialogText, localizedButtons) {
 }
 
 /**
- * FIXME: document
- */
-function changeModalFormLocale() {
-	var oldLocale = $("#currentLocale").val();
-	var newLocale = $("#formLocale").val();
-
-	$("#currentLocale").val(newLocale);
-	$("."+oldLocale).hide();
-	$("."+newLocale).show("normal");
-}
-
-/**
  * Clear all fields of a form.
  * @param {jQuery} form
  */
@@ -492,29 +480,6 @@ function deleteElementById(element, showEmpty) {
 		}
 	});
 	return $deletedElement;
-}
-
-/**
- * FIXME: document
- * @param {string} url
- * @param {string} actOnType
- * @param {string} actOnId
- * @param {string} tabContainer
- * @param {boolean} reopen
- */
-function saveAndUpdate(url, actOnType, actOnId, tabContainer, reopen, callingButton) {
-	$.post(url, null, function(returnString) {
-		if (returnString.status == true) {
-			updateItem(actOnType, actOnId, returnString.content);
-			$(tabContainer).parent().dialog('close');
-			if (reopen == true) {
-				$(callingButton).click();
-			}
-		} else {
-			// Display errors in error list
-			$('#formErrors .pkp_form_error_list').html(returnString.content);
-		}
-	}, "json");
 }
 
 /**

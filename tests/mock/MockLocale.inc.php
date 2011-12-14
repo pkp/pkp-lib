@@ -50,11 +50,11 @@ class Locale extends PKPLocale {
 		// do nothing
 	}
 
-	/*
+	/**
 	 * method required during setup of
 	 * the PKP templating engine and application framework
 	 */
-	function requireComponents($components, $locale = null) {
+	function requireComponents() {
 		// do nothing
 	}
 

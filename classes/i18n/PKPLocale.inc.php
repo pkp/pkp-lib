@@ -114,6 +114,12 @@ class PKPLocale {
 		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
 	}
 
+	/**
+	 * Build an associative array of LOCALE_COMPOMENT_... => filename
+	 * (use getFilenameComponentMap instead)
+	 * @param $locale string
+	 * @return array
+	 */
 	function makeComponentMap($locale) {
 		$baseDir = "lib/pkp/locale/$locale/";
 
@@ -129,6 +135,11 @@ class PKPLocale {
 		);
 	}
 
+	/**
+	 * Get an associative array of LOCALE_COMPOMENT_... => filename
+	 * @param $locale string
+	 * @return array
+	 */
 	function getFilenameComponentMap($locale) {
 		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array());
 		if (!isset($filenameComponentMap[$locale])) {
@@ -137,15 +148,46 @@ class PKPLocale {
 		return $filenameComponentMap[$locale];
 	}
 
-	function requireComponents($components, $locale = null) {
+	/**
+	 * Load a set of locale components. Parameters of mixed length may
+	 * be supplied, each a LOCALE_COMPONENT_... constant. An optional final
+	 * parameter may be supplied to specify the locale (e.g. 'en_US').
+	 */
+	function requireComponents() {
+		$params = func_get_args();
+		$paramCount = count($params);
+		if ($paramCount === 0) return;
+
+		// Get the locale
+		$lastParam = $params[$paramCount-1];
+		if (is_string($lastParam)) {
+			$locale = $lastParam;
+			$paramCount--;
+		} else {
+			$locale = AppLocale::getLocale();
+		}
+
+		// Backwards compatibility: the list used to be supplied
+		// as an array in the first parameter.
+		if (is_array($params[0])) {
+			$params = $params[0];
+			$paramCount = count($params);
+		}
+
+		// Go through and make sure each component is loaded if valid.
 		$loadedComponents =& Registry::get('loadedLocaleComponents', true, array());
-		if ($locale === null) $locale = AppLocale::getLocale();
 		$filenameComponentMap = AppLocale::getFilenameComponentMap($locale);
-		foreach ($components as $component) {
+		for ($i=0; $i<$paramCount; $i++) {
+			$component = $params[$i];
+
 			// Don't load components twice
 			if (isset($loadedComponents[$locale][$component])) continue;
 
-			if (!isset($filenameComponentMap[$component])) fatalError('Unknown locale component ' . $component);
+			// Validate component
+			if (!isset($filenameComponentMap[$component])) {
+				fatalError('Unknown locale component ' . $component);
+			}
+
 			$filename = $filenameComponentMap[$component];
 			AppLocale::registerLocaleFile($locale, $filename);
 			$loadedComponents[$locale][$component] = true;
@@ -177,6 +219,13 @@ class PKPLocale {
 		return $localeFile;
 	}
 
+	/**
+	 * Get the stylesheet filename for a particular locale.
+	 * (These can be optionally specified to deal with things like
+	 * RTL directionality.)
+	 * @param $locale string
+	 * @return string or null if none configured.
+	 */
 	function getLocaleStyleSheet($locale) {
 		$contents =& AppLocale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]['stylesheet'])) {

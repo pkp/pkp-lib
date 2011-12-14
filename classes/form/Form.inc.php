@@ -470,10 +470,12 @@ class Form {
 	// Private helper methods
 	//
 	/**
-	 * FIXME: document
-	 * @param $name
-	 * @param $value
-	 * @param $stack
+	 * Convert PHP variable (literals or arrays) into HTML containing
+	 * hidden input fields.
+	 * @param $name string Name of variable
+	 * @param $value mixed Value of variable
+	 * @param $stack array Names of array keys (for recursive calling)
+	 * @return string HTML hidden form elements describing the parameters.
 	 */
 	function _decomposeArray($name, $value, $stack) {
 		$returner = '';

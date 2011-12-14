@@ -116,7 +116,7 @@ class PKPFilterGridHandler extends GridHandler {
 		// Load manager-specific translations
 		// FIXME: the submission translation component can be removed
 		// once all filters have been moved to plug-ins (see submission.xml).
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
 
 		// Retrieve the filters to be displayed in the grid
 		$router =& $request->getRouter();

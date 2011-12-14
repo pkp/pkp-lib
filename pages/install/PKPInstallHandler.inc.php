@@ -107,9 +107,12 @@ class PKPInstallHandler extends Handler {
 		}
 	}
 
+	/**
+	 * Set up the installer template.
+	 */
 	function setupTemplate() {
 		parent::setupTemplate();
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
 	}
 }
 

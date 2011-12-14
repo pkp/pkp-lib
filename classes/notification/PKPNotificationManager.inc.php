@@ -429,7 +429,7 @@ class PKPNotificationManager {
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getUser($userId);
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
 		import('classes.mail.MailTemplate');
 		$site =& $request->getSite();
@@ -452,7 +452,7 @@ class PKPNotificationManager {
 	function sendToMailingList(&$request, $notification) {
 		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
 		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_APPLICATION_COMMON));
+		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
 		foreach ($mailList as $email) {
 			import('classes.mail.MailTemplate');

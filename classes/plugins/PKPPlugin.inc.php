@@ -492,7 +492,7 @@ class PKPPlugin {
 			if ($sql) {
 				$result = $installer->executeSQL($sql);
 			} else {
-				AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_INSTALLER));
+				AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
 				$installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
 				$result = false;
 			}

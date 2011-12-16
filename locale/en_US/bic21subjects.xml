@@ -3,9 +3,6 @@
 <!--
   * locale/en_US/bic21subjects.xml
   *
-  * Copyright (c) 2000-2011 John Willinsky
-  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
   * localized list of BIC 2.1 Subjects
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
@@ -323,8 +320,8 @@
 	<subject code="DSK" text="Literary studies: fiction, novelists &amp; prose writers" />
 	<subject code="DSR" text="Literary reference works" />
 	<subject code="DSRC" text="Literary companions, book reviews &amp; guides" />
-	<subject code="DSY" text="Children’s &amp; teenage literature studies" />
-	<subject code="DSYC" text="Children’s &amp; teenage book reviews &amp; guides" />
+	<subject code="DSY" text="Children's &amp; teenage literature studies" />
+	<subject code="DSYC" text="Children's &amp; teenage book reviews &amp; guides" />
 	<subject code="E" text="English language teaching (ELT)" />
 	<subject code="EB" text="ELT background &amp; reference material" />
 	<subject code="EBA" text="ELT: teaching theory &amp; methods" />
@@ -1021,7 +1018,7 @@
 	<subject code="KJF" text="Business competition" />
 	<subject code="KJG" text="Business ethics &amp; social responsibility" />
 	<subject code="KJH" text="Entrepreneurship" />
-	<subject code="KJJ" text="Business &amp; the environment, ‘Green’ approaches to business" />
+	<subject code="KJJ" text="Business &amp; the environment, ‘Green' approaches to business" />
 	<subject code="KJK" text="International business" />
 	<subject code="KJL" text="Consultancy &amp; grants for businesses" />
 	<subject code="KJM" text="Management &amp; management techniques" />
@@ -1391,8 +1388,8 @@
 	<subject code="MJL" text="Respiratory medicine" />
 	<subject code="MJM" text="Rheumatology" />
 	<subject code="MJN" text="Neurology &amp; clinical neurophysiology" />
-	<subject code="MJNA" text="Autism &amp; Asperger’s Syndrome" />
-	<subject code="MJND" text="Alzheimer’s &amp; dementia" />
+	<subject code="MJNA" text="Autism &amp; Asperger's Syndrome" />
+	<subject code="MJND" text="Alzheimer's &amp; dementia" />
 	<subject code="MJP" text="Otorhinolaryngology (ENT)" />
 	<subject code="MJPD" text="Audiology &amp; otology" />
 	<subject code="MJQ" text="Ophthalmology" />
@@ -2592,9 +2589,9 @@
 	<subject code="YNH" text="History &amp; the past: general interest (Children's / Teenage)" />
 	<subject code="YNJ" text="Warfare, battles, armed forces (Children's / Teenage)" />
 	<subject code="YNK" text="Work &amp; industry / world of work (Children's / Teenage)" />
-	<subject code="YNL" text="Literature, books &amp; writers (Children’s/Teenage)" />
+	<subject code="YNL" text="Literature, books &amp; writers (Children's/Teenage)" />
 	<subject code="YNM" text="People &amp; places (Children's / Teenage)" />
-	<subject code="YNN" text="Natural history (Children’s/Teenage)" />
+	<subject code="YNN" text="Natural history (Children's/Teenage)" />
 	<subject code="YNNA" text="Dinosaurs &amp; prehistoric world (Children's / Teenage)" />
 	<subject code="YNND" text="Pets (Children's / Teenage)" />
 	<subject code="YNNF" text="Farm animals (Children's / Teenage)" />
@@ -2622,7 +2619,7 @@
 	<subject code="YNWG" text="Athletics &amp; gymnastics (Children's / Teenage)" />
 	<subject code="YNWW" text="Swimming &amp; water sports (Children's / Teenage)" />
 	<subject code="YNWY" text="Cycling, boarding &amp; skating (Children's / Teenage)" />
-	<subject code="YNX" text="Mysteries, the supernatural, monsters &amp; mythological beings (Children’s/Teenage)" />
+	<subject code="YNX" text="Mysteries, the supernatural, monsters &amp; mythological beings (Children's/Teenage)" />
 	<subject code="YNXF" text="UFOs &amp; extraterrestrial beings (Children's / Teenage)" />
 	<subject code="YNXW" text="Witches &amp; ghosts (Children's / Teenage)" />
 	<subject code="YQ" text="Educational material" />
@@ -2675,7 +2672,7 @@
 	<subject code="YRDL" text="Bilingual/multilingual dictionaries (Children's / Teenage)" />
 	<subject code="YRE" text="Encyclopaedias (Children's / Teenage)" />
 	<subject code="YRG" text="Reference works (Children's / Teenage)" />
-	<subject code="YRW" text="Atlases &amp; maps (Children’s/Teenage)" />
+	<subject code="YRW" text="Atlases &amp; maps (Children's/Teenage)" />
 	<subject code="YX" text="Personal &amp; social issues (Children's / Teenage)" />
 	<subject code="YXA" text="Personal &amp; social issues: body &amp; health (Children's / Teenage)" />
 	<subject code="YXAX" text="Personal &amp; social issues: sex education &amp; the facts of life (Children's / Teenage)" />

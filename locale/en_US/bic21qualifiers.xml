@@ -3,9 +3,6 @@
 <!--
   * locale/en_US/bic21qualifiers.xml
   *
-  * Copyright (c) 2000-2011 John Willinsky
-  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  *
   * localized list of BIC 2.1 Subject Qualifiers
   * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
   -->
@@ -943,10 +940,10 @@
 	<qualifier code="5H" text="Holidays &amp; seasonal interest" />
 	<qualifier code="5HC" text="Christmas" />
 	<qualifier code="5HE" text="Easter" />
-	<qualifier code="5HF" text="Father’s Day" />
-	<qualifier code="5HH" text="Hallowe’en" />
-	<qualifier code="5HM" text="Mother’s Day" />
-	<qualifier code="5HV" text="Valentine’s Day" />
+	<qualifier code="5HF" text="Father's Day" />
+	<qualifier code="5HH" text="Hallowe'en" />
+	<qualifier code="5HM" text="Mother's Day" />
+	<qualifier code="5HV" text="Valentine's Day" />
 	<qualifier code="5S" text="Of specific Gay &amp; Lesbian interest" />
 	<qualifier code="5SG" text="Of specific Gay interest" />
 	<qualifier code="5SL" text="Of specific Lesbian interest" />

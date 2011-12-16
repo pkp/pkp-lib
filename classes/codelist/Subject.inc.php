@@ -21,15 +21,15 @@
 import('lib.pkp.classes.codelist.CodelistItem');
 
 class Subject extends CodelistItem {
-	/**
-	 * Constructor
-	 */
 
 	/**
 	 * The numerical representation of these Subject Qualifiers in ONIX 3.0
 	 */
-	var $_onixSubjectSchemeIdentifier = 0x000000C; // 12
+	var $_onixSubjectSchemeIdentifier = 12;
 
+	/**
+	 * Constructor
+	 */
 	function Subject() {
 		parent::CodelistItem();
 	}

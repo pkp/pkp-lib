@@ -21,15 +21,15 @@
 import('lib.pkp.classes.codelist.CodelistItem');
 
 class Qualifier extends CodelistItem {
-	/**
-	 * Constructor
-	 */
 
 	/**
 	 * The numerical representation of these Subject Qualifiers in ONIX 3.0
 	 */
-	var $_onixSubjectSchemeIdentifier = 0x0000011; // 17
+	var $_onixSubjectSchemeIdentifier = 17;
 
+	/**
+	 * Constructor
+	 */
 	function Qualifier() {
 		parent::CodelistItem();
 	}

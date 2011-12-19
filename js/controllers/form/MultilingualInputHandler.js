@@ -84,8 +84,8 @@
 					width($parentElement.width());
 			$('#' + editorId).parent().find('.localization_popover').show();
 		} else if (event.type == 'blur') {
-			// set a short timer to prevent the next popover from closing. 
-			// this allows time for the next click event from the TinyMCE editor 
+			// set a short timer to prevent the next popover from closing.
+			// this allows time for the next click event from the TinyMCE editor
 			// to cancel the timer.
 			this.popoverTimer = setTimeout("$('.localization_popover').hide()", 500);
 		}

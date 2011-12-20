@@ -433,19 +433,19 @@
 	 *
 	 * @protected
 	 * @param {string} eventName The event to be triggered.
-	 * @param {Object=} data Additional event data.
+	 * @param {Object=} data Additional event data. (Many permitted.)
 	 */
 	$.pkp.classes.Handler.prototype.trigger =
 			function(eventName, data) {
 
 		// Trigger the event on the handled element.
 		var $handledElement = this.getHtmlElement();
-		$handledElement.triggerHandler(eventName, data);
+		$handledElement.triggerHandler.apply($handledElement, arguments);
 
 		// Trigger the event publicly if it's not
 		// published anyway.
 		if (!this.publishedEvents_[eventName]) {
-			this.triggerPublicEvent_(eventName, data);
+			this.triggerPublicEvent_.apply(this, arguments);
 		}
 	};
 

@@ -33,8 +33,8 @@ class QualifierDAO extends CodelistItemDAO {
 	 * @return string
 	 */
 	function getFilename($locale) {
-		if (!preg_match("/^[a-z]{2}_[A-Z]{2}$/", $locale)) {
-			$locale ='en_US';
+		if (!AppLocale::isLocaleValid($locale)) {
+			$locale = AppLocale::MASTER_LOCALE;
 		}
 		return "lib/pkp/locale/$locale/bic21qualifiers.xml";
 	}

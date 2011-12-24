@@ -29,6 +29,7 @@
 		this.parent($form, options);
 
 		this.bind('refreshForm', this.refreshFormHandler_);
+		this.publishEvent('tabsReloadRequested');
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.AjaxFormHandler,
@@ -98,6 +99,10 @@
 				// Trigger the "form submitted" event.
 				this.trigger('formSubmitted');
 			} else {
+				if (jsonData.reloadTabs !== undefined) {
+					this.trigger('tabsReloadRequested', jsonData);
+					return jsonData.status;
+				}
 				// Redisplay the form.
 				var $form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);

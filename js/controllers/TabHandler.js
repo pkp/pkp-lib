@@ -32,6 +32,7 @@
 		this.bind('tabsselect', this.tabsSelect);
 		this.bind('tabsshow', this.tabsShow);
 		this.bind('tabsload', this.tabsLoad);
+		this.bind('tabsReloadRequested', this.tabsReloadRequested);
 
 		if (options.emptyLastTab) {
 			this.emptyLastTab_ = options.emptyLastTab;
@@ -158,6 +159,31 @@
 		return jsonData.content;
 	};
 
+
+	/**
+	 * Callback that processes data returned by the server when
+	 * a 'tabsReloadRequested' event is bubbled up from a widget
+	 * on a tab.
+	 * 
+	 * This is useful if you have a tabbed form on a modal and you
+	 * wish to reload the entire tabbed interface when one form is
+	 * submitted. Since this reloads the templates for the tabs you
+	 * have the opportunity to alter their state.
+	 *
+	 * @param {HTMLElement} divElement The parent DIV element
+	 *  which contains the tabs.
+	 * @param {Event} event The triggered event (tabsReloadRequested)
+	 * @param {Object} jsonContent The tabs ui data.
+	 */
+	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
+		function(divElement, event, jsonContent) {
+
+		$element = this.getHtmlElement();
+		$.get(jsonContent.tabsUrl, function(data) {
+			var jsonData = $.parseJSON(data);
+			$element.replaceWith(jsonData.content);
+		});
+};
 
 	//
 	// Protected methods

@@ -223,9 +223,14 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $categoryDataElement mixed
 	 * @return array
 	 */
-	function getCategoryData(&$categoryDataElement) {
-		// Should be overridden by subclasses
-		assert(false);
+	function &getCategoryData(&$categoryDataElement) {
+		$dataProvider =& $this->getDataProvider();
+		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
+			// Populate the grid with data from the
+			// data provider.
+			$gridData =& $dataProvider->getCategoryData($categoryDataElement);
+			return $gridData;
+		}
 	}
 }
 

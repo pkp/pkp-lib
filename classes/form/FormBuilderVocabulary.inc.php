@@ -117,6 +117,9 @@ class FormBuilderVocabulary {
 		}
 
 		if (!$repeat) {
+			if (isset($params['border'])) {
+				$params['class'] .= ' border';
+			}
 			$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
 			$smarty->assign('FBV_id', $params['id']);
 			$smarty->assign('FBV_content', isset($content) ? $content : null);

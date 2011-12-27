@@ -109,7 +109,7 @@ class CodelistItemDAO extends DAO {
 	 * Get the name of the CodelistItem subclass.
 	 * @return String
 	 */
-	function getDataObject() {
+	function newDataObject() {
 		assert(false);
 	}
 
@@ -161,7 +161,7 @@ class CodelistItemDAO extends DAO {
 	 * @return CodelistItem
 	 */
 	function &_returnFromRow($code, &$entry) {
-		$codelistItem = $this->getDataObject();
+		$codelistItem = $this->newDataObject();
 		$codelistItem->setCode($code);
 		$codelistItem->setText($entry[0]);
 

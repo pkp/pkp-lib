@@ -11,7 +11,7 @@
  * @see XMLParser
  *
  * @brief This parser extracts a specific xs:simpleType based on a name attribute
- * representing a code list within it. It returns the xs:enumeration values 
+ * representing a code list within it. It returns the xs:enumeration values
  * within it along with the xs:documentation elements which serve as textual
  * descriptions of the Codelist values.
  *

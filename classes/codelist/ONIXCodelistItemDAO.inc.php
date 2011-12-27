@@ -18,13 +18,12 @@ import('lib.pkp.classes.codelist.ONIXCodelistItem');
 
 class ONIXCodelistItemDAO extends DAO {
 
-	/**
-	 * Constructor.
-	 */
-
 	/* The name of the codelist we are interested in */
 	var $_list;
 
+	/**
+	 * Constructor.
+	 */
 	function ONIXCodelistItemDAO() {
 		parent::DAO();
 	}
@@ -33,7 +32,8 @@ class ONIXCodelistItemDAO extends DAO {
 		if ($locale == null) {
 			$locale = AppLocale::getLocale();
 		}
-		$cacheName =& $this->getListName() . 'Cache';
+
+		$cacheName = 'Onix' . $this->getListName() . 'Cache';
 
 		$cache =& Registry::get($cacheName, true, null);
 		if ($cache === null) {
@@ -112,7 +112,7 @@ class ONIXCodelistItemDAO extends DAO {
 	 * Get the name of the CodelistItem subclass.
 	 * @return String
 	 */
-	function getDataObject() {
+	function newDataObject() {
 		return new ONIXCodelistItem();
 	}
 
@@ -146,7 +146,7 @@ class ONIXCodelistItemDAO extends DAO {
 		if (is_array($cacheContents)) {
 			foreach ($cache->getContents() as $code => $entry) {
 				if ($code != '') {
-					$returner[] =& $entry[0];
+					$returner[$code] =& $entry[0];
 				}
 			}
 		}
@@ -159,7 +159,7 @@ class ONIXCodelistItemDAO extends DAO {
 	 * @return CodelistItem
 	 */
 	function &_returnFromRow($code, &$entry) {
-		$codelistItem = $this->getDataObject();
+		$codelistItem = $this->newDataObject();
 		$codelistItem->setCode($code);
 		$codelistItem->setText($entry[0]);
 

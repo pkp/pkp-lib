@@ -36,6 +36,8 @@ class HandlerValidatorPolicy extends HandlerValidator {
 	function isValid() {
 		// Delegate to the AuthorizationPolicy
 		if (!$this->_policy->applies()) return false;
+		// Pass the authorized context to the police.
+		$this->_policy->setAuthorizedContext($this->handler->getAuthorizedContext());
 		if ($this->_policy->effect() == AUTHORIZATION_DENY) {
 			return false;
 		} else {

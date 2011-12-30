@@ -99,7 +99,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 				// If we reached the context depth, search for the role id.
 				if ($contextLevel == $contextDepth) {
 					foreach ($userRoles as $role) {
-						$contextRoles[] = $role->getId();
+						$contextRoles[] = $role->getRoleId();
 					}
 					return $contextRoles;
 				}

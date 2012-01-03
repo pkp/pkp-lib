@@ -39,7 +39,6 @@
 	<message key="admin.languages.reload">Last opp igjen Lokalfilsett</message>
 	<message key="admin.languages.uninstall">Avinstaller Lokalinnstilling</message>
 	<message key="admin.phpInfo">Mere PHP Informasjon</message>
-	<message key="admin.saveSystemConfig">Lagre Konfigurasjon</message>
 	<message key="admin.server.apacheVersion">Apache versjon</message>
 	<message key="admin.server.dbDriver">Databasedriver</message>
 	<message key="admin.server.dbVersion">Databaseserver versjon</message>

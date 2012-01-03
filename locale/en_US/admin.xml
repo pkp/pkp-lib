@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Reload Locale</message>
 	<message key="admin.languages.uninstall">Uninstall Locale</message>
 	<message key="admin.phpInfo">Extended PHP Information</message>
-	<message key="admin.saveSystemConfig">Save Configuration</message>
 	<message key="admin.server.apacheVersion">Apache version</message>
 	<message key="admin.server.dbDriver">Database driver</message>
 	<message key="admin.server.dbVersion">Database server version</message>

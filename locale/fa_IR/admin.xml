@@ -35,7 +35,6 @@
 	<message key="admin.languages.reload">نصب مجدد زبان</message>
 	<message key="admin.languages.uninstall">عزل زبان</message>
 	<message key="admin.phpInfo">اطلاعاتتفصیلی پی اچ پی</message>
-	<message key="admin.saveSystemConfig">ذخیره فایل پیکره بندی</message>
 	<message key="admin.server.apacheVersion">نسخه آپاچی</message>
 	<message key="admin.server.dbDriver">درایور پایگاه داده</message>
 	<message key="admin.server.dbVersion">ورژن پایگاه داده</message>

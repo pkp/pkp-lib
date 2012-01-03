@@ -39,7 +39,6 @@
 	<message key="admin.languages.reload">Reîncarcă localizarea</message>
 	<message key="admin.languages.uninstall">Dezinstalează localizarea</message>
 	<message key="admin.phpInfo">Informaţie extinsă despre PHP</message>
-	<message key="admin.saveSystemConfig">Salvează configurarea</message>
 	<message key="admin.server.apacheVersion">Versiunea Apache</message>
 	<message key="admin.server.dbDriver">Driverul bazei de date</message>
 	<message key="admin.server.dbVersion">Versiunea serverului de baze de date</message>

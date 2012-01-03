@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Actualitza la configuració regional</message>
 	<message key="admin.languages.uninstall">Desinstal·la la configuració regional</message>
 	<message key="admin.phpInfo">Informació de PHP ampliada</message>
-	<message key="admin.saveSystemConfig">Desa la configuració</message>
 	<message key="admin.server.apacheVersion">Versió d’Apache</message>
 	<message key="admin.server.dbDriver">Controlador de la base de dades</message>
 	<message key="admin.server.dbVersion">Versió del servidor de la base de dades</message>

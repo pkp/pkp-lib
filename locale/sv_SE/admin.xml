@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Uppdatera språk</message>
 	<message key="admin.languages.uninstall">Avinstallera språk</message>
 	<message key="admin.phpInfo">Utökad PHP-information</message>
-	<message key="admin.saveSystemConfig">Spara ändringar</message>
 	<message key="admin.server.apacheVersion">Apache-version</message>
 	<message key="admin.server.dbDriver">Databasdriver</message>
 	<message key="admin.server.dbVersion">Serverversion av databasen</message>

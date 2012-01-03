@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Tải lại ngôn ngữ</message>
 	<message key="admin.languages.uninstall">Loại bỏ ngôn ngữ</message>
 	<message key="admin.phpInfo">Thông tin về PHP mở rộng</message>
-	<message key="admin.saveSystemConfig">Ghi lại Cấu hình</message>
 	<message key="admin.server.apacheVersion">Phiên bản Apache</message>
 	<message key="admin.server.dbDriver">Driver của CSDL</message>
 	<message key="admin.server.dbVersion">Phiên bản CSDL</message>

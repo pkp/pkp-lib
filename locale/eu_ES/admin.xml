@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Birkargatu hizkuntza</message>
 	<message key="admin.languages.uninstall">Desinstalatu hizkuntza</message>
 	<message key="admin.phpInfo">PHP informazio xehea</message>
-	<message key="admin.saveSystemConfig">Gorde konfigurazioa</message>
 	<message key="admin.server.apacheVersion">Apache bertsioa</message>
 	<message key="admin.server.dbDriver">Datu-basearen kontrolatzailea</message>
 	<message key="admin.server.dbVersion">Datu-base zerbitzariaren bertsioa</message>

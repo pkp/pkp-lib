@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Επαναφορτωση Ρυθμισης</message>
 	<message key="admin.languages.uninstall">Απεγκατασταση Ρυθμισης</message>
 	<message key="admin.phpInfo">Αναλυτικές Πληροφορίες για  την PHP</message>
-	<message key="admin.saveSystemConfig">Αποθήκευση  Ρυθμίσεων</message>
 	<message key="admin.server.apacheVersion">Έκδοση Apache</message>
 	<message key="admin.server.dbDriver">Οδηγός βάσης δεδομένων</message>
 	<message key="admin.server.dbVersion">Έκδοση εξυπηρετητή βάσης δεδομένων</message>

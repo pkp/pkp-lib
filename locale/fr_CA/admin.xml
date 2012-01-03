@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Recharger la langue</message>
 	<message key="admin.languages.uninstall">Désinstaller la langue</message>
 	<message key="admin.phpInfo">Information détaillée concernant PHP</message>
-	<message key="admin.saveSystemConfig">Enregistrer la configuration</message>
 	<message key="admin.server.apacheVersion">Version Apache</message>
 	<message key="admin.server.dbDriver">Pilote de base de données</message>
 	<message key="admin.server.dbVersion">Version du serveur de bases de données</message>

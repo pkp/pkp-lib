@@ -36,7 +36,6 @@
 	<message key="admin.languages.reload">言語のリロード</message>
 	<message key="admin.languages.uninstall">言語のアンインストール</message>
 	<message key="admin.phpInfo">PHP環境設定情報</message>
-	<message key="admin.saveSystemConfig">設定を保存</message>
 	<message key="admin.server.apacheVersion">Apacheバージョン</message>
 	<message key="admin.server.dbDriver">データベースドライバ</message>
 	<message key="admin.server.dbVersion">データベースサーババージョン</message>

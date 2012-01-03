@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">重載地區設定</message>
 	<message key="admin.languages.uninstall">解除安裝地區設定</message>
 	<message key="admin.phpInfo">延伸的 PHP 資訊</message>
-	<message key="admin.saveSystemConfig">儲存設定</message>
 	<message key="admin.server.apacheVersion">Apache 版本</message>
 	<message key="admin.server.dbDriver">資料庫驅動程式</message>
 	<message key="admin.server.dbVersion">資料庫伺服器版本</message>

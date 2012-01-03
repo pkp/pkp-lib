@@ -37,7 +37,6 @@
 	<message key="admin.languages.reload">Dili yeniden yükle</message>
 	<message key="admin.languages.uninstall">Dili kaldır</message>
 	<message key="admin.phpInfo">Genişletilmiş PHP Bilgisi</message>
-	<message key="admin.saveSystemConfig">Yapılanmayı sakla</message>
 	<message key="admin.server.apacheVersion">Apache sürümü</message>
 	<message key="admin.server.dbDriver">veritabanı sürücüsü</message>
 	<message key="admin.server.dbVersion">Veritabanı sunucu sürümü</message>

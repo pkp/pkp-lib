@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">刷新语言设置</message>
 	<message key="admin.languages.uninstall">卸载语言设置</message>
 	<message key="admin.phpInfo">扩展PHP的信息</message>
-	<message key="admin.saveSystemConfig">保存配置</message>
 	<message key="admin.server.apacheVersion">Apache版本</message>
 	<message key="admin.server.dbDriver">数据库驱动</message>
 	<message key="admin.server.dbVersion">数据库版本</message>

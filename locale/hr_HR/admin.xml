@@ -37,7 +37,6 @@
 	<message key="admin.languages.reload">Ponovno učitavanje prijevoda</message>
 	<message key="admin.languages.uninstall">Deinstalacija prijevoda</message>
 	<message key="admin.phpInfo">Dodatne informacije o PHP instalaciji</message>
-	<message key="admin.saveSystemConfig">Spremi konfiguraciju</message>
 	<message key="admin.server.apacheVersion">Verzija Apache-a</message>
 	<message key="admin.server.dbDriver">Tip baze podataka</message>
 	<message key="admin.server.dbVersion">Verzija poslužitelja baze podataka</message>

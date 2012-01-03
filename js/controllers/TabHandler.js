@@ -176,14 +176,15 @@
 	 * @param {Object} jsonContent The tabs ui data.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
-		function(divElement, event, jsonContent) {
+			function(divElement, event, jsonContent) {
 
 		$element = this.getHtmlElement();
 		$.get(jsonContent.tabsUrl, function(data) {
 			var jsonData = $.parseJSON(data);
 			$element.replaceWith(jsonData.content);
 		});
-};
+	};
+
 
 	//
 	// Protected methods

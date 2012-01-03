@@ -168,6 +168,7 @@
 		<field name="last_name" type="C2" size="90">
 			<NOTNULL/>
 		</field>
+		<field name="suffix" type="C2" size="40"/>
 		<field name="gender" type="C" size="1"/>
 		<field name="initials" type="C2" size="5"/>
 		<field name="email" type="C2" size="90">

@@ -191,6 +191,22 @@ class PKPUser extends DataObject {
 	}
 
 	/**
+	 * Get name suffix.
+	 * @return string
+	 */
+	function getSuffix() {
+		return $this->getData('suffix');
+	}
+
+	/**
+	 * Set suffix.
+	 * @param $suffix string
+	 */
+	function setSuffix($suffix) {
+		return $this->setData('suffix', $suffix);
+	}
+
+	/**
 	 * Get user salutation.
 	 * @return string
 	 */
@@ -587,6 +603,7 @@ class PKPUser extends DataObject {
 	/**
 	 * Get the user's complete name.
 	 * Includes first name, middle name (if applicable), and last name.
+	 * The suffix is only included when the name is not reversed with $lastFirst
 	 * @param $lastFirst boolean return in "LastName, FirstName" format
 	 * @return string
 	 */
@@ -595,10 +612,11 @@ class PKPUser extends DataObject {
 		$firstName = $this->getData('firstName');
 		$middleName = $this->getData('middleName');
 		$lastName = $this->getData('lastName');
+		$suffix = $this->getData('suffix');
 		if ($lastFirst) {
 			return "$lastName, " . ($salutation != ''?"$salutation ":'') . "$firstName" . ($middleName != ''?" $middleName":'');
 		} else {
-			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName;
+			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName . ($suffix != ''?", $suffix":'');
 		}
 	}
 

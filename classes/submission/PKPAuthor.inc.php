@@ -30,7 +30,7 @@ class PKPAuthor extends DataObject {
 	 */
 	function getFullName($lastFirst = false) {
 		if ($lastFirst) return $this->getData('lastName') . ', ' . $this->getData('firstName') . ($this->getData('middleName') != '' ? ' ' . $this->getData('middleName') : '');
-		else return $this->getData('firstName') . ' ' . ($this->getData('middleName') != '' ? $this->getData('middleName') . ' ' : '') . $this->getData('lastName');
+		else return $this->getData('firstName') . ' ' . ($this->getData('middleName') != '' ? $this->getData('middleName') . ' ' : '') . $this->getData('lastName') . ($this->getData('suffix') != '' ? ', ' . $this->getData('suffix') : '');
 	}
 
 	//
@@ -149,6 +149,22 @@ class PKPAuthor extends DataObject {
 	 */
 	function setLastName($lastName) {
 		return $this->setData('lastName', $lastName);
+	}
+
+	/**
+	 * Get suffix.
+	 * @return string
+	 */
+	function getSuffix() {
+		return $this->getData('suffix');
+	}
+
+	/**
+	 * Set suffix.
+	 * @param $suffix string
+	 */
+	function setSuffix($suffix) {
+		return $this->setData('suffix', $suffix);
 	}
 
 	/**

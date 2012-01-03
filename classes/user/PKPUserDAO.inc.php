@@ -165,6 +165,7 @@ class PKPUserDAO extends DAO {
 		$user->setMiddleName($row['middle_name']);
 		$user->setInitials($row['initials']);
 		$user->setLastName($row['last_name']);
+		$user->setSuffix($row['suffix']);
 		$user->setGender($row['gender']);
 		$user->setEmail($row['email']);
 		$user->setUrl($row['url']);
@@ -202,9 +203,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -214,6 +215,7 @@ class PKPUserDAO extends DAO {
 				$user->getMiddleName(),
 				$user->getInitials(),
 				$user->getLastName(),
+				$user->getSuffix(),
 				$user->getGender(),
 				$user->getEmail(),
 				$user->getUrl(),
@@ -266,6 +268,7 @@ class PKPUserDAO extends DAO {
 					middle_name = ?,
 					initials = ?,
 					last_name = ?,
+					suffix = ?,
 					gender = ?,
 					email = ?,
 					url = ?,
@@ -293,6 +296,7 @@ class PKPUserDAO extends DAO {
 				$user->getMiddleName(),
 				$user->getInitials(),
 				$user->getLastName(),
+				$user->getSuffix(),
 				$user->getGender(),
 				$user->getEmail(),
 				$user->getUrl(),
@@ -347,14 +351,14 @@ class PKPUserDAO extends DAO {
 	 */
 	function getUserFullName($userId, $allowDisabled = true) {
 		$result =& $this->retrieve(
-			'SELECT first_name, middle_name, last_name FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
+			'SELECT first_name, middle_name, last_name, suffix FROM users WHERE user_id = ?' . ($allowDisabled?'':' AND disabled = 0'),
 			array((int) $userId)
 		);
 
 		if($result->RecordCount() == 0) {
 			$returner = false;
 		} else {
-			$returner = $result->fields[0] . ' ' . (empty($result->fields[1]) ? '' : $result->fields[1] . ' ') . $result->fields[2];
+			$returner = $result->fields[0] . ' ' . (empty($result->fields[1]) ? '' : $result->fields[1] . ' ') . $result->fields[2] . (empty($result->fields[3]) ? '' : ', ' . $result->fields[3]);
 		}
 
 		$result->Close();

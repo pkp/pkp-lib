@@ -22,16 +22,18 @@ class PKPInstallHandler extends Handler {
 	/**
 	 * If no context is selected, list all.
 	 * Otherwise, display the index page for the selected context.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function index() {
+	function index($args, &$request) {
 		// Make sure errors are displayed to the browser during install.
 		@ini_set('display_errors', true);
 
-		$this->validate();
+		$this->validate($request);
 		$this->setupTemplate();
 
-		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
-			Request::setCookieVar('currentLocale', $setLocale);
+		if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
 		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
@@ -45,18 +47,21 @@ class PKPInstallHandler extends Handler {
 
 	/**
 	 * Redirect to index if system has already been installed.
+	 * @param $request PKPRequest
 	 */
-	function validate() {
+	function validate($request) {
 		if (Config::getVar('general', 'installed')) {
-			PKPRequest::redirect(null, 'index');
+			$request->redirect(null, 'index');
 		}
 	}
 
 	/**
 	 * Execute installer.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function install() {
-		$this->validate();
+	function install($args, &$request) {
+		$this->validate($request);
 		$this->setupTemplate();
 
 		if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
@@ -76,13 +81,15 @@ class PKPInstallHandler extends Handler {
 
 	/**
 	 * Display upgrade form.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function upgrade() {
-		$this->validate();
+	function upgrade($args, &$request) {
+		$this->validate($request);
 		$this->setupTemplate();
 
-		if (($setLocale = PKPRequest::getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
-			PKPRequest::setCookieVar('currentLocale', $setLocale);
+		if (($setLocale = $request->getUserVar('setLocale')) != null && AppLocale::isLocaleValid($setLocale)) {
+			$request->setCookieVar('currentLocale', $setLocale);
 		}
 
 		$installForm = new UpgradeForm();
@@ -92,9 +99,11 @@ class PKPInstallHandler extends Handler {
 
 	/**
 	 * Execute upgrade.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function installUpgrade() {
-		$this->validate();
+	function installUpgrade($args, &$request) {
+		$this->validate($request);
 		$this->setupTemplate();
 
 		$installForm = new UpgradeForm();

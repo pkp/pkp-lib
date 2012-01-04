@@ -40,7 +40,7 @@ class PKPAnnouncementHandler extends Handler {
 			$templateMgr->assign('announcementsIntroduction', $announcementsIntroduction);
 			$templateMgr->display('announcement/index.tpl');
 		} else {
-			Request::redirect();
+			$request->redirect();
 		}
 
 	}
@@ -68,13 +68,13 @@ class PKPAnnouncementHandler extends Handler {
 				} else {
 					$templateMgr->assign('announcementTitle', $announcement->getAnnouncementTypeName() . ": " . $announcement->getLocalizedTitle());
 				}
-				$templateMgr->append('pageHierarchy', array(PKPRequest::url(null, 'announcement'), 'announcement.announcements'));
+				$templateMgr->append('pageHierarchy', array($request->url(null, 'announcement'), 'announcement.announcements'));
 				$templateMgr->display('announcement/view.tpl');
 			} else {
-				Request::redirect(null, null, 'announcement');
+				$request->redirect(null, null, 'announcement');
 			}
 		} else {
-			Request::redirect(null, null, 'announcement');
+			$request->redirect(null, null, 'announcement');
 		}
 	}
 

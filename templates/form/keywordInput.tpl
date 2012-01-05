@@ -27,5 +27,5 @@
 <ul id="{$FBV_id|escape}">
 	{if $FBV_currentKeywords|escape}{foreach from=$FBV_currentKeywords item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 </ul>
-{if $FBV_label_content|escape}<span>{$FBV_label_content|escape}</span>{/if}
+{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
 <br />

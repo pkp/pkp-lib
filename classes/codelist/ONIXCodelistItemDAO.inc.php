@@ -135,10 +135,11 @@ class ONIXCodelistItemDAO extends DAO {
 	/**
 	 * Retrieve an array of all codelist codes and values for a given list.
 	 * @param $list the List string for this code list (i.e., List30)
+	 * @param $codesToExclude an optional list of codes to exclude from the returned list
 	 * @param $locale an optional locale to use
 	 * @return array of CodelistItem names
 	 */
-	function &getCodes($list, $locale = null) {
+	function &getCodes($list, $codesToExclude = array(), $locale = null) {
 		$this->setListName($list);
 		$cache =& $this->_getCache($locale);
 		$returner = array();
@@ -146,7 +147,8 @@ class ONIXCodelistItemDAO extends DAO {
 		if (is_array($cacheContents)) {
 			foreach ($cache->getContents() as $code => $entry) {
 				if ($code != '') {
-					$returner[$code] =& $entry[0];
+					if (!in_array($code, $codesToExclude))
+						$returner[$code] =& $entry[0];
 				}
 			}
 		}

@@ -416,6 +416,42 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get rights.
+	 * @param $locale
+	 * @return string
+	 */
+	function getRights($locale) {
+		return $this->getData('rights', $locale);
+	}
+
+	/**
+	 * Set rights.
+	 * @param $rights string
+	 * @param $locale
+	 */
+	function setRights($rights, $locale) {
+		return $this->setData('rights', $rights, $locale);
+	}
+
+	/**
+	 * Get source.
+	 * @param $locale
+	 * @return string
+	 */
+	function getSource($locale) {
+		return $this->getData('source', $locale);
+	}
+
+	/**
+	 * Set source.
+	 * @param $source string
+	 * @param $locale
+	 */
+	function setSource($source, $locale) {
+		return $this->setData('source', $source, $locale);
+	}
+
+	/**
 	 * Get language.
 	 * @return string
 	 */

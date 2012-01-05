@@ -55,7 +55,12 @@
 		// courtesy of: http://stackoverflow.com/questions/5471141/
 		var pluploader = $uploader.plupload('getUploader');
 		pluploader.refresh();
-		$uploader.find('div.plupload').css('z-index', 99999);
+		if (!/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
+			// On my Iceweasel 9.0.1, running the hack below
+			// results in the "Add Files" button being unclickable
+			// (html5 runtime).
+			$uploader.find('div.plupload').css('z-index', 99999);
+		}
 
 
 		// Bind to the pluploader for some configuration

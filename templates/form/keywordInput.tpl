@@ -15,7 +15,19 @@
 					itemName: "keywords",
 					fieldName: "{$thisFormLocale|escape}-{$FBV_id|escape}",
 					allowSpaces: true,
-					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$thisFormLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+					{if $FBV_sourceUrl} {* this url should return a JSON array of possible keywords *}
+						tagSource: function(search, showChoices) {ldelim}
+							$.ajax({ldelim}
+								url: "{$FBV_sourceUrl}",
+								data: search,
+								success: function(choices) {ldelim}
+									showChoices(choices);
+								{rdelim}
+							{rdelim});
+						{rdelim}
+					{else}
+						availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$thisFormLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+					{/if}
 				{rdelim});
 		
 				{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}
@@ -57,7 +69,19 @@
 				itemName: "keywords",
 				fieldName: "{$FBV_id|escape}",
 				allowSpaces: true,
-				availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+				{if $FBV_sourceUrl}
+					tagSource: function(search, showChoices) {ldelim}
+						$.ajax({ldelim}
+							url: "{$FBV_sourceUrl}", {* this url should return a JSON array of possible keywords *}
+							data: search,
+							success: function(choices) {ldelim}
+								showChoices(choices);
+							{rdelim}
+						{rdelim});
+					{rdelim}
+				{else}
+					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+				{/if}
 			{rdelim});
 	
 			{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}

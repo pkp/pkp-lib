@@ -738,6 +738,7 @@ class FormBuilderVocabulary {
 				case 'current': $smarty->assign('FBV_currentKeywords', $params['current']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
 				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
+				case 'source': $smarty->assign('FBV_sourceUrl', $params['source']); break;
 			}
 		}
 

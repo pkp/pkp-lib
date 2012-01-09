@@ -208,6 +208,32 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get "localized" submission prefix (if applicable).
+	 * @return string
+	 */
+	function getLocalizedPrefix() {
+		return $this->getLocalizedData('prefix');
+	}
+
+	/**
+	 * Get prefix.
+	 * @param $locale
+	 * @return string
+	 */
+	function getPrefix($locale) {
+		return $this->getData('prefix', $locale);
+	}
+
+	/**
+	 * Set prefix.
+	 * @param $prefix string
+	 * @param $locale
+	 */
+	function setPrefix($prefix, $locale) {
+		return $this->setData('prefix', $prefix, $locale);
+	}
+
+	/**
 	 * Get "localized" submission abstract (if applicable).
 	 * @return string
 	 */

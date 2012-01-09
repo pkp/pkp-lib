@@ -148,7 +148,7 @@ class ONIXCodelistItemDAO extends DAO {
 		if (is_array($cacheContents)) {
 			foreach ($cache->getContents() as $code => $entry) {
 				if ($code != '') {
-					if (!in_array($code, $codesToExclude) && (!empty($codesToInclude) || preg_match("/^" . preg_quote($codesFilter) . "/i", $entry[0])))
+					if (!in_array($code, $codesToExclude) && (!empty($codesFilter) || preg_match("/^" . preg_quote($codesFilter) . "/i", $entry[0])))
 						$returner[$code] =& $entry[0];
 				}
 			}

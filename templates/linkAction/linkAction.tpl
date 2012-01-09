@@ -15,7 +15,7 @@
 
 {* Generate the link action's button. *}
 {assign var=buttonId value=$contextId|concat:"-":$action->getId():"-button-"|uniqid}
-{include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
+{include file=$action->getLinkActionButtonTemplate() action=$action buttonId=$buttonId}
 
 <script type="text/javascript">
 	{* Attach the action handler to the button. *}

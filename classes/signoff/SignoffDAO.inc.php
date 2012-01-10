@@ -404,6 +404,20 @@ class SignoffDAO extends DAO {
 	}
 
 	/**
+	 * Get an array map with all signoff symbolics.
+	 * @return array
+	 */
+	function getAllSymbolics() {
+		return array(
+			'SIGNOFF_COPYEDITING',
+			'SIGNOFF_PROOFING',
+			'SIGNOFF_FAIR_COPY',
+			'SIGNOFF_REVIEW_REVISION',
+			'SIGNOFF_SIGNOFF'
+		);
+	}
+
+	/**
 	 * Retrieve all signoffs matching the specified input parameters
 	 * @param $symbolic string
 	 * @param $assocType int

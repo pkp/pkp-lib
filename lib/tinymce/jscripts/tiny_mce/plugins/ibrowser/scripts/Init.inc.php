@@ -35,7 +35,7 @@ $init['publicDir'] = Config::getVar('files', 'public_files_dir');
 if (isset($user)) {
 	// User is logged in
 	$init['user'] = $user->getUsername();
-	$init['lang'] = String::substr(AppLocale::getLocale(), 0, 2);
+	$init['lang'] = getLocaleCode(AppLocale::getLocale());
 	$init['baseUrl'] = Config::getVar('general', 'base_url');
 	$init['baseDir'] =  $baseDir;
 
@@ -49,6 +49,22 @@ if (isset($user)) {
 	$init['baseUrl'] = Config::getVar('general', 'base_url');
 	$init['baseDir'] =  Core::getBaseDir();
 	$init['captchaPath'] = null;
+}
+
+function getLocaleCode($appLocale) {
+	switch ($appLocale) {
+		case 'cs_CZ': return 'cs';
+		case 'da_DK': return 'da';
+		case 'de_DE': return 'de';
+		case 'en_US': return 'en';
+		case 'es_ES': return 'es';
+		case 'fr_CA': return 'fr';
+		case 'it_IT': return 'it';
+		case 'nl_NL': return 'nl';
+		case 'pt_BR':
+		case 'pt_PT': return 'pt_br';
+		default: return 'en';
+	}
 }
 
 ?>

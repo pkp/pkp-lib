@@ -15,7 +15,6 @@
 
 import('lib.pkp.classes.file.PKPFile');
 
-
 class TemporaryFile extends PKPFile {
 
 	/**
@@ -30,7 +29,8 @@ class TemporaryFile extends PKPFile {
 	 * @return string
 	 */
 	function getFilePath() {
-		return Config::getVar('files', 'files_dir') . '/temp/' . $this->getFileName();
+		$temporaryFileManager = new PKPTemporaryFileManager();
+		return $temporaryFileManager->getBasePath() . $this->getFileName();
 	}
 
 	//

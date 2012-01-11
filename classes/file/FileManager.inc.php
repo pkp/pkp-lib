@@ -261,14 +261,6 @@ class FileManager {
 	}
 
 	/**
-	 * View a file inline (variant of downloadFile).
-	 * @see FileManager::downloadFile
-	 */
-	function viewFile($filePath, $type = null) {
-		$this->downloadFile($filePath, $type, true);
-	}
-
-	/**
 	 * Delete a file.
 	 * @param $filePath string the location of the file to be deleted
 	 * @return boolean returns true if successful

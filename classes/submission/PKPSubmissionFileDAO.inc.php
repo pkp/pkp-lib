@@ -299,7 +299,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$targetFilePath = $updatedFile->getFilePath();
 			assert($previousFilePath != $targetFilePath && !file_exists($targetFilePath));
 			import('lib.pkp.classes.file.FileManager');
-			FileManager::copyFile($previousFilePath, $targetFilePath);
+			$fileManager = new FileManager();
+			$fileManager->copyFile($previousFilePath, $targetFilePath);
 
 			// We use the delegates directly to make sure
 			// that we address the right implementation in the database

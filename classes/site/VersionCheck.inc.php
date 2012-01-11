@@ -139,7 +139,8 @@ class VersionCheck {
 	 */
 	function &getValidPluginVersionInfo($versionFile, &$templateMgr) {
 		$nullVar = null;
-		if (FileManager::fileExists($versionFile)) {
+		$fileManager = new FileManager();
+		if ($fileManager->fileExists($versionFile)) {
 			$versionInfo =& VersionCheck::parseVersionXML($versionFile);
 		} else {
 			$templateMgr->assign('message', 'manager.plugins.versionFileNotFound');

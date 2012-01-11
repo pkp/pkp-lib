@@ -116,7 +116,7 @@ class PKPTemporaryFileManager extends FileManager {
 			$temporaryFile->setFileName($newFileName);
 			$temporaryFile->setFileType(String::mime_content_type($this->filesDir . $newFileName));
 			$temporaryFile->setFileSize($_FILES[$fileName]['size']);
-			$temporaryFile->setOriginalFileName(TemporaryFileManager::truncateFileName($_FILES[$fileName]['name'], 127));
+			$temporaryFile->setOriginalFileName($this->truncateFileName($_FILES[$fileName]['name'], 127));
 			$temporaryFile->setDateUploaded(Core::getCurrentDate());
 
 			$temporaryFileDao->insertTemporaryFile($temporaryFile);

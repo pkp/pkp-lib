@@ -121,8 +121,12 @@ class XMLCustomWriter {
 	}
 
 	function &createChildFromFile(&$doc, &$node, $name, $filename) {
-		$contents =& FileManager::readFile($filename);
-		if ($contents === false) return null;
+		$fileManager = new FileManager();
+		$contents =& $fileManager->readFile($filename);
+		if ($contents === false) {
+			$nullVar = null;
+			return $nullVar;
+		}
 	}
 }
 

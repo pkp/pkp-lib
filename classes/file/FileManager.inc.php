@@ -103,13 +103,13 @@ class FileManager {
 	 */
 	function uploadFile($fileName, $destFileName) {
 		$destDir = dirname($destFileName);
-		if (!FileManager::fileExists($destDir, 'dir')) {
+		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory
-			FileManager::mkdirtree($destDir);
+			$this->mkdirtree($destDir);
 		}
 		if (!isset($_FILES[$fileName])) return false;
 		if (move_uploaded_file($_FILES[$fileName]['tmp_name'], $destFileName))
-			return FileManager::setMode($destFileName, FILE_MODE_MASK);
+			return $this->setMode($destFileName, FILE_MODE_MASK);
 		return false;
 	}
 
@@ -122,16 +122,16 @@ class FileManager {
 	function writeFile($dest, &$contents) {
 		$success = true;
 		$destDir = dirname($dest);
-		if (!FileManager::fileExists($destDir, 'dir')) {
+		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory
-			FileManager::mkdirtree($destDir);
+			$this->mkdirtree($destDir);
 		}
 		if (($f = fopen($dest, 'wb'))===false) $success = false;
 		if ($success && fwrite($f, $contents)===false) $success = false;
 		@fclose($f);
 
 		if ($success)
-			return FileManager::setMode($dest, FILE_MODE_MASK);
+			return $this->setMode($dest, FILE_MODE_MASK);
 		return false;
 	}
 
@@ -144,12 +144,12 @@ class FileManager {
 	function copyFile($source, $dest) {
 		$success = true;
 		$destDir = dirname($dest);
-		if (!FileManager::fileExists($destDir, 'dir')) {
+		if (!$this->fileExists($destDir, 'dir')) {
 			// Try to create the destination directory
-			FileManager::mkdirtree($destDir);
+			$this->mkdirtree($destDir);
 		}
 		if (copy($source, $dest))
-			return FileManager::setMode($dest, FILE_MODE_MASK);
+			return $this->setMode($dest, FILE_MODE_MASK);
 		return false;
 	}
 
@@ -162,7 +162,7 @@ class FileManager {
 	 */
 	function copyDir($source, $dest) {
 		if (is_dir($source)) {
-			FileManager::mkdir($dest);
+			$this->mkdir($dest);
 			$destDir = dir($source);
 
 			while (($entry = $destDir->read()) !== false) {
@@ -172,18 +172,18 @@ class FileManager {
 
 				$Entry = $source . DIRECTORY_SEPARATOR . $entry;
 				if (is_dir($Entry) ) {
-					FileManager::copyDir($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
+					$this->copyDir($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
 					continue;
 				}
-				FileManager::copyFile($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
+				$this->copyFile($Entry, $dest . DIRECTORY_SEPARATOR . $entry );
 			}
 
 			$destDir->close();
 		} else {
-			FileManager::copyFile($source, $dest);
+			$this->copyFile($source, $dest);
 		}
 
-		if (FileManager::fileExists($dest, 'dir')) {
+		if ($this->fileExists($dest, 'dir')) {
 			return true;
 		} else return false;
 	}
@@ -251,7 +251,7 @@ class FileManager {
 			header('Cache-Control: private'); // Workarounds for IE weirdness
 			header('Pragma: public');
 
-			FileManager::readFile($filePath, true);
+			$this->readFile($filePath, true);
 
 			return true;
 
@@ -265,7 +265,7 @@ class FileManager {
 	 * @see FileManager::downloadFile
 	 */
 	function viewFile($filePath, $type = null) {
-		FileManager::downloadFile($filePath, $type, true);
+		$this->downloadFile($filePath, $type, true);
 	}
 
 	/**
@@ -274,7 +274,7 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function deleteFile($filePath) {
-		if (FileManager::fileExists($filePath)) {
+		if ($this->fileExists($filePath)) {
 			return unlink($filePath);
 		} else {
 			return false;
@@ -292,7 +292,7 @@ class FileManager {
 			return mkdir($dirPath, $perms);
 		} else {
 			if (mkdir($dirPath))
-				return FileManager::setMode($dirPath, DIRECTORY_MODE_MASK);
+				return $this->setMode($dirPath, DIRECTORY_MODE_MASK);
 			return false;
 		}
 	}
@@ -316,7 +316,7 @@ class FileManager {
 				$handle = opendir($file);
 				while (($filename = readdir($handle)) !== false) {
 					if ($filename != '.' && $filename != '..') {
-						FileManager::rmtree($file . '/' . $filename);
+						$this->rmtree($file . '/' . $filename);
 					}
 				}
 				closedir($handle);
@@ -336,8 +336,8 @@ class FileManager {
 	 */
 	function mkdirtree($dirPath, $perms = null) {
 		if (!file_exists($dirPath)) {
-			if (FileManager::mkdirtree(dirname($dirPath), $perms)) {
-				return FileManager::mkdir($dirPath, $perms);
+			if ($this->mkdirtree(dirname($dirPath), $perms)) {
+				return $this->mkdir($dirPath, $perms);
 			} else {
 				return false;
 			}
@@ -367,8 +367,9 @@ class FileManager {
 	 * @return string (Enuemrated DOCUMENT_TYPEs)
 	 */
 	function getDocumentType($type) {
-		if ( FileManager::getImageExtension($type) )
+		if ($this->getImageExtension($type))
 			return DOCUMENT_TYPE_IMAGE;
+
 		switch ($type) {
 			case 'application/pdf':
 			case 'application/x-pdf':
@@ -475,7 +476,7 @@ class FileManager {
 	 */
 	function truncateFileName($fileName, $length = 127) {
 		if (String::strlen($fileName) <= $length) return $fileName;
-		$ext = FileManager::getExtension($fileName);
+		$ext = $this->getExtension($fileName);
 		$truncated = String::substr($fileName, 0, $length - 1 - String::strlen($ext)) . '.' . $ext;
 		return String::substr($truncated, 0, $length);
 	}

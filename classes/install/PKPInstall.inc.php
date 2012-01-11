@@ -116,11 +116,12 @@ class PKPInstall extends Installer {
 		} else {
 			// Create required subdirectories
 			$dirsToCreate = $this->getCreateDirectories();
+			import('lib.pkp.classes.file.FileManager');
+			$fileManager = new FileManager();
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('lib.pkp.classes.file.FileManager');
-					if (!FileManager::mkdir($dirToCreate)) {
+					if (!$fileManager->mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.installFilesDirError');
 						return false;
 					}
@@ -137,11 +138,12 @@ class PKPInstall extends Installer {
 		} else {
 			// Create required subdirectories
 			$dirsToCreate = $this->getCreateDirectories();
+			import('lib.pkp.classes.file.FileManager');
+			$fileManager = new FileManager();
 			foreach ($dirsToCreate as $dirName) {
 				$dirToCreate = $publicFilesDir . '/' . $dirName;
 				if (!file_exists($dirToCreate)) {
-					import('lib.pkp.classes.file.FileManager');
-					if (!FileManager::mkdir($dirToCreate)) {
+					if (!$fileManager->mkdir($dirToCreate)) {
 						$this->setError(INSTALLER_ERROR_GENERAL, 'installer.publicFilesDirError');
 						return false;
 					}

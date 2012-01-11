@@ -692,6 +692,7 @@ class Installer {
 	function addPluginVersions() {
 		$versionDao =& DAORegistry::getDAO('VersionDAO');
 		import('lib.pkp.classes.site.VersionCheck');
+		$fileManager = new FileManager();
 		$categories = PluginRegistry::getCategories();
 		foreach ($categories as $category) {
 			PluginRegistry::loadCategory($category);
@@ -700,7 +701,7 @@ class Installer {
 				foreach ($plugins as $plugin) {
 					$versionFile = $plugin->getPluginPath() . '/version.xml';
 
-					if (FileManager::fileExists($versionFile)) {
+					if ($fileManager->fileExists($versionFile)) {
 						$versionInfo =& VersionCheck::parseVersionXML($versionFile);
 						$pluginVersion = $versionInfo['version'];
 					} else {

@@ -106,7 +106,7 @@ class PKPTemporaryFileManager extends PrivateFileManager {
 		$newFileName = basename(tempnam($this->getBasePath(), $fileExtension));
 		if (!$newFileName) return false;
 
-		if ($this->_uploadFile($fileName, $this->getBasePath() . $newFileName)) {
+		if ($this->uploadFile($fileName, $this->getBasePath() . $newFileName)) {
 			$temporaryFileDao =& DAORegistry::getDAO('TemporaryFileDAO');
 			$temporaryFile = $temporaryFileDao->newDataObject();
 

@@ -244,6 +244,7 @@
 	<message key="form.saveToUpload">Use Save to upload file.</message>
 	<message key="form.send">Send</message>
 	<message key="form.submit">Submit</message>
+	<message key="form.invalidImage">An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</message>
 	<message key="help.contents">Contents</message>
 	<message key="help.help">Help</message>
 	<message key="help.helpIndex">Help Index</message>

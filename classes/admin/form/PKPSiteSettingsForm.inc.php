@@ -124,18 +124,18 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadSiteStyleSheet() {
 		import('classes.file.PublicFileManager');
-		$fileManager = new PublicFileManager();
+		$publicFileManager = new PublicFileManager();
 		$site =& Request::getSite();
-		if ($fileManager->uploadedFileExists('siteStyleSheet')) {
-			$type = $fileManager->getUploadedFileType('siteStyleSheet');
+		if ($publicFileManager->uploadedFileExists('siteStyleSheet')) {
+			$type = $publicFileManager->getUploadedFileType('siteStyleSheet');
 			if ($type != 'text/plain' && $type != 'text/css') {
 				return false;
 			}
 
 			$uploadName = $site->getSiteStyleFilename();
-			if($fileManager->uploadSiteFile('siteStyleSheet', $uploadName)) {
+			if ($publicFileManager->uploadSiteFile('siteStyleSheet', $uploadName)) {
 				$siteDao =& DAORegistry::getDAO('SiteDAO');
-				$site->setOriginalStyleFilename($fileManager->getUploadedFileName('siteStyleSheet'));
+				$site->setOriginalStyleFilename($publicFileManager->getUploadedFileName('siteStyleSheet'));
 				$siteDao->updateObject($site);
 			}
 		}
@@ -148,20 +148,20 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function uploadPageHeaderTitleImage($locale) {
 		import('classes.file.PublicFileManager');
-		$fileManager = new PublicFileManager();
+		$publicFileManager = new PublicFileManager();
 		$site =& Request::getSite();
-		if ($fileManager->uploadedFileExists('pageHeaderTitleImage')) {
-			$type = $fileManager->getUploadedFileType('pageHeaderTitleImage');
-			$extension = $fileManager->getImageExtension($type);
+		if ($publicFileManager->uploadedFileExists('pageHeaderTitleImage')) {
+			$type = $publicFileManager->getUploadedFileType('pageHeaderTitleImage');
+			$extension = $publicFileManager->getImageExtension($type);
 			if (!$extension) return false;
 
 			$uploadName = 'pageHeaderTitleImage_' . $locale . $extension;
-			if($fileManager->uploadSiteFile('pageHeaderTitleImage', $uploadName)) {
+			if ($publicFileManager->uploadSiteFile('pageHeaderTitleImage', $uploadName)) {
 				$siteDao =& DAORegistry::getDAO('SiteDAO');
 				$setting = $site->getSetting('pageHeaderTitleImage');
-				list($width, $height) = getimagesize($fileManager->getSiteFilesPath() . '/' . $uploadName);
+				list($width, $height) = getimagesize($publicFileManager->getSiteFilesPath() . '/' . $uploadName);
 				$setting[$locale] = array(
-					'originalFilename' => $fileManager->getUploadedFileName('pageHeaderTitleImage'),
+					'originalFilename' => $publicFileManager->getUploadedFileName('pageHeaderTitleImage'),
 					'width' => $width,
 					'height' => $height,
 					'uploadName' => $uploadName,

@@ -8,24 +8,31 @@
  * @class PostAndRedirectAction
  * @ingroup linkAction_request
  *
- * @brief This action request redirects to another page posting the passed data.
+ * @brief Class defining a post and redirect action. See PostAndRedirectRequest.js
+ * to detailed description.
  */
 
 
 import('lib.pkp.classes.linkAction.request.RedirectAction');
 
 class PostAndRedirectAction extends RedirectAction {
-	/** @var string The data to be posted by the link action form */
+
+	/** @var string The data to be posted */
 	var $_postData;
+
+	/** @var string The url to be used for posting data */
+	var $_postUrl;
 
 	/**
 	 * Constructor
-	 * @param $url string Target URL
-	 * @param $postData string The data to be posted.
+	 * @param $postUrl string The target URL to post data.
+	 * @param $redirectUrl string The target URL to redirect.
+	 * @param $postData string The data to be posted in both requests.
 	 */
-	function PostAndRedirectAction($url, $postData) {
-		parent::RedirectAction($url);
+	function PostAndRedirectAction($postUrl, $redirectUrl, $postData = null) {
+		parent::RedirectAction($redirectUrl);
 		$this->_postData = $postData;
+		$this->_postUrl = $postUrl;
 	}
 
 
@@ -38,6 +45,14 @@ class PostAndRedirectAction extends RedirectAction {
 	 */
 	function getPostData() {
 		return $this->_postData;
+	}
+
+	/**
+	* Get the url to post data.
+	* @return string
+	*/
+	function getPostUrl() {
+		return $this->_postUrl;
 	}
 
 
@@ -57,7 +72,8 @@ class PostAndRedirectAction extends RedirectAction {
 	function getLocalizedOptions() {
 		$options = parent::getLocalizedOptions();
 		return array_merge($options,
-			array('postData' => $this->getPostData())
+			array('postData' => $this->getPostData(),
+				'postUrl' => $this->getPostUrl())
 		);
 	}
 }

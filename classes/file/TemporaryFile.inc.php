@@ -29,6 +29,7 @@ class TemporaryFile extends PKPFile {
 	 * @return string
 	 */
 	function getFilePath() {
+		import('lib.pkp.classes.file.PKPTemporaryFileManager');
 		$temporaryFileManager = new PKPTemporaryFileManager();
 		return $temporaryFileManager->getBasePath() . $this->getFileName();
 	}

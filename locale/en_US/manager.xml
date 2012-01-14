@@ -17,6 +17,7 @@
 	<message key="manager.announcements.create">Create New Announcement</message>
 	<message key="manager.announcements.createTitle">Create</message>
 	<message key="manager.announcements.dateExpire">Expiry</message>
+	<message key="manager.announcements.datePublish">Published</message>
 	<message key="manager.announcements.edit">Edit Announcement</message>
 	<message key="manager.announcements.editTitle">Edit</message>
 	<message key="manager.announcements.form.dateExpireDayIncompleteDate">Please select a year and/or month in addition to the expiry date day.</message>

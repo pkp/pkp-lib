@@ -135,7 +135,11 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			$revisedFileId.attr('disabled', 'disabled');
 			multipartParams.revisedFileId = $revisedFileId.val();
 		} else {
-			multipartParams.revisedFileId = this.presetRevisedFileId_;
+			if (this.presetRevisedFileId_ != null) {
+				multipartParams.revisedFileId = this.presetRevisedFileId_;
+			} else {
+				multipartParams.revisedFileId = 0;
+			}		
 		}
 
 		// Add the file genre to the upload message.

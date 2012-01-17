@@ -9,6 +9,7 @@
   *
   * Currencies data XML file. Based on ISO 4217.
   *
+  * $Id: currencies.xml 202 2011-06-10 15:51:51Z petyovsky $
   -->
 
 <currencies locale="cs_CZ">

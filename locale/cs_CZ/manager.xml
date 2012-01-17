@@ -8,10 +8,13 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Czech) locale.
+  * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
+  * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
+  * $Id: manager.xml 218 2011-06-21 20:42:56Z petyovsky $
   -->
 
-<locale name="cs_CZ" full_name = "Czech">
+<locale name="cs_CZ" full_name = "Čeština">
 	<message key="manager.announcements">Oznámení</message>
 	<message key="manager.announcements.confirmDelete">Jste si jistý, že chcete trvale odstranit toto oznámení?</message>
 	<message key="manager.announcements.create">Vytvořit nové oznámení</message>
@@ -63,6 +66,7 @@
 	<message key="manager.emails.emailTemplates">Šablony emailů</message>
 	<message key="manager.emails.enabled">Povolit tuto šablonu emailu</message>
 	<message key="manager.emails.enable">Povolit</message>
+	<message key="manager.emails.form.emailKeyRequired">Pro daný email je vyžadován unikátní emailový klíč</message>
 	<message key="manager.emails.form.bodyRequired">Je vyžadován text zprávy emailu.</message>
 	<message key="manager.emails.form.subjectRequired">Je vyžadován předmět emailu.</message>
 	<message key="manager.emails">Připravené e-maily</message>
@@ -70,7 +74,7 @@
 	<message key="manager.emails.reset">Resetovat</message>
 	<message key="manager.emails.resetToDefault">Resetovat na výchozí</message>
 	<message key="manager.filesBrowser">Prohlížeč souborů</message>
-	<message key="manager.files.confirmDelete">Vymazat tento soubor nebo adresář? Adresář musí být prázný, aby mohl být smazán.</message>
+	<message key="manager.files.confirmDelete">Vymazat tento soubor nebo adresář? Adresář musí být prázdný, aby mohl být smazán.</message>
 	<message key="manager.files.createDir">Vytvořit adresář</message>
 	<message key="manager.files.emptyDir">V tomto adresáři nebyly nalezeny žádné soubory.</message>
 	<message key="manager.files.indexOfDir">Index adresáře {$dir}</message>
@@ -82,17 +86,17 @@
 	<message key="manager.groups.editTitle">Editovat název</message>
 	<message key="manager.groups.form.groupTitleRequired">Je vyžadován název skupiny.</message>
 	<message key="manager.groups.membership.addMember">Přidat člena</message>
-	<message key="manager.groups.membership.confirmDelete">Jste si jistý, že chcete smazat toto skupinové člesntví?</message>
+	<message key="manager.groups.membership.confirmDelete">Jste si jistý, že chcete smazat toto skupinové členství?</message>
 	<message key="manager.groups.membership">Členství</message>
 	<message key="manager.groups.membership.noneCreated">Tato skupina nemá žádné členy.</message>
 	<message key="manager.groups.membership.noUsers">Nebyli nalezeni žádní uživatelé.</message>
 	<message key="manager.groups.title">Název</message>
 	<message key="manager.importExport">Importovat/Exportovat data</message>
-	<message key="manager.languages.alternateLocaleInstructions">Tento systém voliteně umožňuje, aby byly určité zásadní informace vkládány v několika dalších jazycích. Pro využití této funkce zvolte alternativní lokalizace a vyberte z níže uvedených možností.</message>
+	<message key="manager.languages.alternateLocaleInstructions">Tento systém volitelně umožňuje, aby byly určité zásadní informace vkládány v několika dalších jazycích. Pro využití této funkce zvolte alternativní lokalizace a vyberte z níže uvedených možností.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Vyberte všechny jazykové lokalizace, které mají být podporovány a dostupné na všech stránkách prostřednictvím menu pro výběr jazyka. Menu se zobrazí pouze v případě, že je zvolena více než jedna jazyková lokalizace.</message>
 	<message key="manager.payment.timestamp">časové razítko</message>
 	<message key="manager.people.authSource">Zdroj ověření</message>
-	<message key="manager.people.confirmUnenroll">Odzapsat tohoto uživatele?</message>
+	<message key="manager.people.confirmUnenroll">Odejmout roli tomuto uživateli?</message>
 	<message key="manager.people.createUser">Vytvořit nového uživatele</message>
 	<message key="manager.people.createUserGeneratePassword">Vygenerovat náhodné heslo.</message>
 	<message key="manager.people.createUserSendNotify">Poslat uživateli uvítací email obsahující jeho uživatelské jméno a heslo.</message>
@@ -110,8 +114,8 @@
 	<message key="manager.people.enrollment">Zapsání</message>
 	<message key="manager.people.enrollSelected">Zapsat vybrané uživatele</message>
 	<message key="manager.people.enrollSyncRole">Synchronizovat roli</message>
-	<message key="manager.people.enrollSync">Synchronizovat zapsání</message>
-	<message key="manager.people.enrollUserAsDescription">Uživatelé mohou být kdykoliv zapsáni do nějaké role nebo z ní odzapsáni.</message>
+	<message key="manager.people.enrollSync">Synchronizovat s jinou konferencí</message>
+	<message key="manager.people.enrollUserAsDescription">Uživateli může být kdykoli přiřazena nebo odejmuta role.</message>
 	<message key="manager.people.enrollUserAs">Zapsat uživatele jako</message>
 	<message key="manager.people.invalidUser">Promiňte, požadovaný uživatel neexistuje.</message>
 	<message key="manager.people.mergeUser">Sloučit uživatele</message>
@@ -127,17 +131,18 @@
 	<message key="manager.people.signInAs">Přihlásit se jako</message>
 	<message key="manager.people.signInAsUser">Přihlásit se jako uživatel</message>
 	<message key="manager.people.syncUsers">Synchronizovat zapsání uživatelů</message>
-	<message key="manager.people.unenroll">Odzapsání</message>
+	<message key="manager.people.unenroll">Odejmout roli</message>
 	<message key="manager.people.userCreatedSuccessfully">Uživatel byl úspěšně vytvořen.</message>
 	<message key="manager.people.userMustChangePassword">Vyžadovat od uživatele, aby si při příštím přihlášení změnil své heslo.</message>
 	<message key="manager.plugins.action">Akce:</message>
 	<message key="manager.plugins.disable">Zakázat</message>
 	<message key="manager.plugins.enable">Povolit</message>
-	<message key="manager.plugins.pluginManagement">Zpráva plug-inů</message>
-	<message key="manager.plugins.sitePlugin">Tento plug-in je aplikován na celou stránku. Pouze administrátor stránky může spravovat tento plug-in.</message>
-	<message key="manager.plugins">Plug-iny systému</message>
+	<message key="manager.plugins.pluginManagement">Správa doplňků</message>
+	<message key="manager.plugins.sitePlugin">Tento doplněk je využíván v rámci celého webového systému. Pouze administrátor stránek může spravovat tento doplněk.</message>
+	<message key="manager.plugins">Doplňky systému</message>
 	<message key="manager.readingTools">Čtenářské nástroje</message>
 	<message key="manager.roles">Role</message>
+	<message key="manager.setup.errorDeletingItem">Při mazání této položky došlo k chybě.</message>
 	<message key="manager.setup.homeHeaderImageInvalid">Neplatný formát obrázku loga pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.homepageImageInvalid">Neplatný formát obrázku pro domácí stránku. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.homeTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví domácí stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
@@ -148,47 +153,23 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Neplatný formát obrázku loga pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Neplatný formát obrázku názvu pro záhlaví stránky. Podporované formáty jsou .gif, .jpg, nebo .png.</message>
 	<message key="manager.setup.selectOne">Zvolte jeden</message>
-	<message key="manager.statistics"><![CDATA[Statistiky &amp; Reporty]]></message>
+	<message key="manager.statistics"><![CDATA[Statistiky &amp; Výkazy]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} nových)</message>
 	<message key="manager.users">Uživatelé</message>
-	<message key="plugins.categories.auth">Autorizační plug-iny</message>
-	<message key="plugins.categories.blocks">Blokové plug-iny</message>
-	<message key="plugins.categories.blocks.description">Blokové plug-iny jsou připojitelné UI součásti, jako například různé postranní lišty s nástroji.</message>
-	<message key="plugins.categories.citationFormats">Plug-iny pro citační styly</message>
-	<message key="plugins.categories.gateways.description">Plug-iny přenosové brány poskytují živá data externím systémům.</message>
-	<message key="plugins.categories.gateways">Plug-iny přenosové brány</message>
-	<message key="plugins.categories.generic">Všeobecné plug-iny</message>
-	<message key="plugins.categories.importexport.description">Plug-iny pro import/export mohou být využity k přenesení obsahu z jiných systému nebo na ně.</message>
-	<message key="plugins.categories.importexport">Plug-iny pro import/export</message>
-	<message key="plugins.categories.paymethod.description">Plug-iny platebních metod zavádějí podporu různých způsobů zpracování online plateb.</message>
-	<message key="plugins.categories.paymethod">Platební plug-iny</message>
-	<message key="plugins.categories.reports.description">Pluginy reportů jsou používány pro zavedení různých typů reportů a výňatků dat pro manažery.</message>
-	<message key="plugins.categories.reports">Pluginy reportů</message>
-	<message key="plugins.categories.themes.description">Tématické plug-iny mohou být využity ke změně vzhledu systému.</message>
-	<message key="plugins.categories.themes">Tématické plug-iny</message>
-	<message key="manager.emails.form.emailKeyRequired">Pro email je vyžadován jedinečný emilový klíč.</message>
-	<message key="manager.reviewerSearch.advancedSearch">Pokročilé vyhledávání recenzentů</message>
-	<message key="manager.reviewerSearch.searchByName">Hledat recenzenta podle jména</message>
-	<message key="manager.reviewerSearch.doneAmount">Počet dokončených recenzí</message>
-	<message key="manager.reviewerSearch.avgAmount">Proůměrný počet dnů na recenzi</message>
-	<message key="manager.reviewerSearch.lastAmount">Dny od poslední recenze</message>
-	<message key="manager.reviewerSearch.activeAmount">Počet aktuálně aktivních recenzí</message>
-	<message key="manager.setup.filter.grid.filterTemplateRequired">Vyberte prosím jednu z transformací z rozevíracího seznamu.</message>
-	<message key="manager.setup.filter.grid.confirmDelete">Opravdu chcete smazat filtr: {$filterName}?</message>
-	<message key="manager.reviewerSearch.interests">Zájmy o recenzování</message>
-	<message key="manager.setup.citationAssistant">Asistent pro označování citací</message>
-	<message key="manager.setup.citationFilterParser">Extrahování citace</message>
-	<message key="manager.setup.citationFilterLookup">Kontrola citace</message>
-	<message key="manager.setup.citationOutput">Tvorba citace</message>
-	<message key="manager.setup.errorDeletingItem">Při mazání této položky došlo k chybě.</message>
-	<message key="manager.setup.filter.grid.errorDeletingFilter">Při pokusu o smazání tohoto filtru došlo k chybě. Nahlaste prosím tuto chybu.</message>
-	<message key="manager.setup.filter.grid.filterDisplayName">Konektor</message>
-	<message key="manager.setup.filter.grid.filterSettings">Informace o registraci a nastavení konektoru</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Vybrali jste databázi {$filterDisplayName} pro přidání. Potvrďte prosím kliknutím na 'OK'.</message>
-	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Zvolte prosím databázi pro vyhledávání.</message>
-	<message key="manager.setup.filter.lookup.grid.title">Konektory databáze citací</message>
-	<message key="manager.setup.filter.noMoreTemplates">Všechny dostupné transformace již byly přidány. Pro návrat na stránku s nastavením klikněte prosím na 'Cancel'.</message>
-	<message key="manager.setup.filter.parser.grid.descriptionTemplate">Vyberte prosím syntaktický analyzátor citací.</message>
-	<message key="manager.setup.filter.pleaseSelect">Vyberte prosím...</message>
+	<message key="plugins.categories.auth">Autorizační doplňky</message>
+	<message key="plugins.categories.blocks">Doplňkové panely</message>
+	<message key="plugins.categories.blocks.description">Doplňkové panely patří mezi doplňky, které je možné připojit do uživatelského rozhranní. Například různé postranní lišty s nástroji.</message>
+	<message key="plugins.categories.citationFormats">Doplňky pro citační styly</message>
+	<message key="plugins.categories.gateways.description">Doplňky přenosové brány poskytují živá data externím systémům.</message>
+	<message key="plugins.categories.gateways">Doplňky přenosové brány</message>
+	<message key="plugins.categories.generic">Obecné doplňky</message>
+	<message key="plugins.categories.importexport.description">Doplňky pro import/export mohou být použity k přenesení obsahu z nebo do jiných systému.</message>
+	<message key="plugins.categories.importexport">Doplňky pro import/export</message>
+	<message key="plugins.categories.paymethod.description">Doplňky platebních metod zavádějí podporu různých způsobů zpracování online plateb.</message>
+	<message key="plugins.categories.paymethod">Platební doplňky</message>
+	<message key="plugins.categories.reports.description">Doplňky pro generování výkazů lze využít pro tvorbu různých typů výkazů a výňatků dat pro správce a manažery.</message>
+	<message key="plugins.categories.reports">Doplňky pro generování výkazů</message>
+	<message key="plugins.categories.themes.description">Doplňky témat vzhledu mohou být využity ke změně vzhledu systému.</message>
+	<message key="plugins.categories.themes">Doplňky témat vzhledu</message>
 </locale>

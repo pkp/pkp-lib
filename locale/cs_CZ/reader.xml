@@ -8,13 +8,17 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Czech) locale.
+  * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
+  * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
+  * $Id: reader.xml 218 2011-06-21 20:42:56Z petyovsky $
   -->
 
-<locale name="cs_CZ" full_name = "Czech">
+<locale name="cs_CZ" full_name = "Čeština">
 	<message key="comments.anonymous">Anonymní uživatel</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Tělo</message>
+	<message key="comments.titleRequired">Je vyžadován název komentáře.</message>
 	<message key="comments.confirmDeleteChildren">Smazáním tohoto komentáře smažete také všechny odpovědi na něj. Jste si jistý, že to chcete udělat?</message>
 	<message key="comments.delete">Smazat tento komentář</message>
 	<message key="comments.email">E-mail odesílatele</message>
@@ -45,6 +49,24 @@
 	<message key="rt.admin.contexts.options.geoTerms">Použít geografická indexační data jako výchozí termíny vyhledávání.</message>
 	<message key="rt.admin.contexts.options">Možnosti</message>
 	<message key="rt.admin.management">Správa</message>
+
+	<message key="rt.admin.sharing">Sdílení</message>
+	<message key="rt.admin.sharing.enabled">Sdílení povoleno</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Abyste umožnili vašim čtenářům sdílet články, vytvořte si účet u <a href="http://addthis.com">addthis.com</a>, a zkopírujte/vložte kód tlačítka Sdílení níže.]]></message>
+
+	<message key="rt.admin.sharing.basic">Základní nastavení</message>
+	<message key="rt.admin.sharing.userNameLabel">AddThis.com uživatelské jméno</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Styl tlačítka</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Použít rozevírací seznam</message>
+	<message key="rt.admin.sharing.advanced">Pokročilá nastavení (volitelné)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> pro odkazy.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Značka</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti rozbalovacího seznamu <br /> (seznam oddělený čárkou)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Jazyk</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Pozadí loga</message>
+	<message key="rt.admin.sharing.logoColorLabel">Barva loga</message>
+
 	<message key="rt.admin.readingToolsEnabled">Nástroje pro čtení</message>
 	<message key="rt.admin.searches.confirmDelete">Jste si jistý, že chcete smazat toto vyhledávání?</message>
 	<message key="rt.admin.searches.createSearch">Vytvořit vyhledávání</message>
@@ -59,9 +81,10 @@
 	<message key="rt.admin.settings.emailOthers">Oznámit kolegovi (vede k šabloně emailu s odkazem na položku).</message>
 	<message key="rt.admin.settings.findingReferences">Najít reference</message>
 	<message key="rt.admin.settings.printerFriendly">Verze pro tisk (poskytne verzi položky optimalizovanou pro tisk).</message>
-	<message key="rt.admin.settings.supplementaryFiles">Doplňkové soubory (sobrazí seznam souborů, které autor zaslal spolu s příspěvkum).</message>
+	<message key="rt.admin.settings.supplementaryFiles">Doplňkové soubory (zobrazí seznam souborů, které autor zaslal spolu s příspěvkem).</message>
 	<message key="rt.admin.settings.viewMetadata">Metadata pro indexování (zobrazí metadata položky pro indexování dodaná autorem nebo systémem).</message>
 	<message key="rt.admin.status">Status</message>
+	<message key="rt.admin.configureSharing">Konfigurovat AddThis</message>
 	<message key="rt.admin.validateUrls.complete">Ověřování dokončeno.</message>
 	<message key="rt.admin.validateUrls.ok">OK</message>
 	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} není platná.</message>
@@ -79,6 +102,7 @@
 	<message key="rt.captureCite.format">Citační formát</message>
 	<message key="rt.captureCite">Jak citovat položku</message>
 	<message key="rt.captureCite.online">Online</message>
+	<message key="rt.captureCite.web">Web</message>	
 	<message key="rt.colleague">Oznámit kolegovi</message>
 	<message key="rt.context.abbrev">Zkratka</message>
 	<message key="rt.context.and">AND</message>
@@ -156,22 +180,4 @@
 	<message key="rt.version.title">Název</message>
 	<message key="rt.version">Verze</message>
 	<message key="rt.viewMetadata">Metadata pro indexaci</message>
-	<message key="rt.admin.sharing">Sdílení</message>
-	<message key="rt.admin.sharing.enabled">Sdílení povoleno</message>
-	<message key="rt.admin.sharing.basic">Základní nastavení</message>
-	<message key="rt.admin.sharing.buttonStyleLabel">Styl tlačítka</message>
-	<message key="rt.admin.sharing.dropDownMenuLabel">Použít rozevírací seznam</message>
-	<message key="rt.admin.sharing.advanced">Pokročilá nastavení (volitelné)</message>
-	<message key="rt.admin.sharing.languageLabel">Jazyk</message>
-	<message key="rt.admin.sharing.logolabel">Logo</message>
-	<message key="rt.admin.sharing.logoBackgroundLabel">Pozadí loga</message>
-	<message key="rt.admin.sharing.logoColorLabel">Barva loga</message>
-	<message key="comments.titleRequired">Je vyžadován název komentáře.</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Abyste umožnili vašim čtenářům sdílet články časopisu, vytvořte si účet u <a href="http://addthis.com">addthis.com</a>, a zkopírujte/vložte kód tlačítka Sdílení níže.]]></message>
-	<message key="rt.admin.sharing.userNameLabel">AddThis.com uživatelské jméno</message>
-	<message key="rt.admin.sharing.customizationLink"><![CDATA[Viz <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> pro odkazy.]]></message>
-	<message key="rt.admin.sharing.brandLabel">Značka</message>
-	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Možnosti rozbalovacího seznamu <br /> (seznam oddělený čárkou)]]></message>
-	<message key="rt.admin.configureSharing">Konfigurovat AddThis</message>
-	<message key="rt.captureCite.web">Web</message>
 </locale>

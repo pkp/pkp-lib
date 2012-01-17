@@ -8,11 +8,14 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Czech) locale.
+  * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
+  * Corrections, migration to the OCS 2.3.x by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
+  * $Id: common.xml 225 2011-06-24 12:33:10Z petyovsky $
   -->
 
-<locale name="cs_CZ" full_name = "Czech">
-	<message key="about.aboutSite">O těchto stránkách</message>
+<locale name="cs_CZ" full_name = "Čeština">
+	<message key="about.aboutSite">Podrobnosti o těchto stránkách</message>
 	<message key="about.contact">Kontakt</message>
 	<message key="about.contact.email">Email</message>
 	<message key="about.contact.fax">Fax</message>
@@ -27,13 +30,10 @@
 	<message key="announcement.announcementsHome">Oznámení</message>
 	<message key="announcement.moreAnnouncements">Více oznámení...</message>
 	<message key="announcement.noneExist">Nebyla vydána žádná oznámení.</message>
-	<message key="announcement.posted">Zavěšeno</message>
+	<message key="announcement.posted">Publikováno</message>
 	<message key="announcement.viewLink">Více...</message>
 	<message key="announcement.view">Zobrazit oznámení</message>
-	<message key="common.copy">Kopie</message>
-	<message key="common.preview">Náhled</message>
-	<message key="common.activate">Aktivovat</message>
-	<message key="common.deactivate">Deaktivovat</message>
+	<message key="common.refresh">Obnovit</message>
 	<message key="common.action">Akce</message>
 	<message key="common.active">Aktivní</message>
 	<message key="common.add">Přidat</message>
@@ -42,7 +42,7 @@
 	<message key="common.alphaList">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Přiděleno</message>
 	<message key="common.altText">Alternativní text</message>
-	<message key="common.altTextInstructions">Uveďte prosím aleternativní text pro tento obrázek, aby byla zaručena dostupnost pro uživatele s textovými prohlížeči nebo pomocnými zařízeními.</message>
+	<message key="common.altTextInstructions">Uveďte prosím alternativní text pro tento obrázek, aby byla zaručena dostupnost pro uživatele s textovými prohlížeči nebo pomocnými zařízeními.</message>
 	<message key="common.and">a</message>
 	<message key="common.applyAction">Provést akci</message>
 	<message key="common.assign">Přidělit</message>
@@ -55,6 +55,18 @@
 	<message key="common.captchaField.badCaptcha">Znaky, které jste zadal, nebyly shodné se znaky v obrázku. Zkontrolujte prosím tyto znaky a zkuste to znovu.</message>
 	<message key="common.captchaField.description">Zadejte prosím písmena tak, jak jsou zobrazena v obrázku nahoře.</message>
 	<message key="common.captchaField">Ověření</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Tato práce je licencována pod <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  Licencí</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 Licencí</a>.
+	</div>]]></message>
 	<message key="common.changesSaved">Vaše změny byly uloženy.</message>
 	<message key="common.chooseOne">Vyberte jeden</message>
 	<message key="common.close">Zavřít</message>
@@ -69,7 +81,7 @@
 	<message key="common.dateModified">Datum úpravy</message>
 	<message key="common.dateRequested">Datum žádosti</message>
 	<message key="common.dateSubmitted">Datum odeslání</message>
-	<message key="common.dateUploaded">Datum nahrátí souboru</message>
+	<message key="common.dateUploaded">Datum nahrání souboru</message>
 	<message key="common.day">Den</message>
 	<message key="common.default">Výchozí</message>
 	<message key="common.delete">Smazat</message>
@@ -82,10 +94,12 @@
 	<message key="common.edit">Editovat</message>
 	<message key="common.enabled">Povoleno</message>
 	<message key="common.error.databaseError">Došlo k chybě databáze: {$error}</message>
-	<message key="common.error.databaseErrorUnknown">Došlo k neznámé chybě v připojení k databázy.</message>
+	<message key="common.error.databaseErrorUnknown">Došlo k neznámé chybě v připojení k databázi.</message>
 	<message key="common.error.framesRequired"><![CDATA[Tato stránka vyžaduje rámce. <a href="{$url}">Klikněte zde</a> pro verzi bez rámců.]]></message>
 	<message key="common.event">Událost</message>
 	<message key="common.export">Exportovat</message>
+	<message key="common.re">Re:</message>
+	<message key="common.false">Ne</message>
 	<message key="common.file">Soubor</message>
 	<message key="common.fileName">Jméno souboru</message>
 	<message key="common.fileSize">Velikost souboru</message>
@@ -100,6 +114,7 @@
 	<message key="common.keywords">Klíčová slova</message>
 	<message key="common.language">Jazyk</message>
 	<message key="common.languages">Jazyky</message>
+	<message key="common.manage">Spravovat</message>
 	<message key="common.mailingAddress">Poštovní adresa</message>
 	<message key="common.minute">Minuta(y)</message>
 	<message key="common.modify">Změnit</message>
@@ -107,6 +122,7 @@
 	<message key="common.noneAssigned">Nikdo nepřidělen</message>
 	<message key="common.none">Žádný</message>
 	<message key="common.no">Ne</message>
+	<message key="common.noComments">Bez komentářů</message>
 	<message key="common.notApplicable">Neaplikovatelný</message>
 	<message key="common.notApplicableShort">N/A</message>
 	<message key="common.notAvailable">Nedostupný</message>
@@ -115,6 +131,7 @@
 	<message key="common.notify">Oznámit</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
+	<message key="common.ok">OK</message>
 	<message key="common.options">Možnosti</message>
 	<message key="common.order">Seřadit</message>
 	<message key="common.originalFileName">Původní jméno souboru</message>
@@ -144,14 +161,16 @@
 	<message key="common.status">Stav</message>
 	<message key="common.subject">Předmět</message>
 	<message key="common.suggest">Doporučit</message>
-	<message key="common.title">Titul</message>
+	<message key="common.title">Název</message>
 	<message key="common.top">Začátek</message>
+	<message key="common.true">Ano</message>
 	<message key="common.type">Typ</message>
 	<message key="common.uninitiated">Nezahájeno</message>
 	<message key="common.untitled">Bez názvu</message>
 	<message key="common.updated">Aktualizováno</message>
 	<message key="common.uploadedFile">Nahraný soubor</message>
 	<message key="common.upload">Nahrát</message>
+	<message key="common.uploadFailed">Soubor nemohl být nahrán. Zkuste to prosím znovu nebo se obraťte na správce, pokud problém přetrvává.</message>
 	<message key="common.up">Nahoru</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Uživatel</message>
@@ -165,7 +184,7 @@
 	<message key="debug.memoryUsage">Využití paměti:</message>
 	<message key="debug.notes.localeListLoad">Nahraný seznam lokalizací "{$localeList}" z XML</message>
 	<message key="debug.notes.localeLoad">Nahraný soubor lokalizace "{$localeFile}" z XML</message>
-	<message key="debug.notes.missingLocaleKey">Chybející klíč lokalizace "{$key}".</message>
+	<message key="debug.notes.missingLocaleKey">Chybějící klíč lokalizace "{$key}".</message>
 	<message key="debug.notes">Poznámky:</message>
 	<message key="email.addAttachment">Přidat přílohu</message>
 	<message key="email.addBccRecipient">Přidat BCC</message>
@@ -190,17 +209,18 @@
 	<message key="email.skip">Přeskočit e-mail</message>
 	<message key="email.subject">Předmět</message>
 	<message key="email.to">Komu</message>
-	<message key="form.contains">obsahuje</message>
 	<message key="form.errorsOccurred">Při zpracování tohoto formuláře došlo k chybám</message>
 	<message key="form.formLanguage.description">Pokud chcete níže uvedené informace vložit v dalších jazycích, zvolte nejprve požadovaný jazyk.</message>
 	<message key="form.formLanguage">Jazyk formuláře</message>
+	<message key="form.contains">obsahuje</message>
 	<message key="form.is">je</message>
+	<message key="form.startsWith">začíná (čím)</message>
 	<message key="form.postRequired">Formulář nebyl správně odeslán.</message>
 	<message key="form.required">(* Povinné)</message>
 	<message key="form.resubmit">Znovu poslat</message>
-	<message key="form.saveToUpload">Pro nahrátí souboru použijte Uložit.</message>
+	<message key="form.saveToUpload">Pro nahrání souboru použijte Uložit.</message>
 	<message key="form.send">Poslat</message>
-	<message key="form.submit">Poslat</message>
+	<message key="form.submit">Odeslat</message>
 	<message key="help.contents">Obsah</message>
 	<message key="help.help">Pomoc</message>
 	<message key="help.helpIndex">Index pomoci</message>
@@ -228,9 +248,10 @@
 	<message key="icon.view.alt">Zobrazit</message>
 	<message key="locale.primary">Základní lokalizace</message>
 	<message key="locale.supported">Podporované lokalizace</message>
-	<message key="navigation.about">O časopisu</message>
+	<message key="navigation.about">Podrobnosti</message>
 	<message key="navigation.browse">Prohlížet</message>
 	<message key="navigation.browseByTitle">Podle názvu</message>
+	<message key="navigation.dashboard">Navigační lišta</message>
 	<message key="navigation.home">Domů</message>
 	<message key="navigation.infoForReaders">Pro čtenáře</message>
 	<message key="navigation.infoForReaders.long">Informace pro čtenáře</message>
@@ -245,6 +266,34 @@
 	<message key="navigation.stepNumber">Krok {$step}</message>
 	<message key="navigation.userHome">Uživatel</message>
 	<message key="navigation.user">Uživatel</message>
+	<message key="notification.allow">Povolit, aby se tento typ události zobrazoval v mém seznamu oznámení.</message>
+	<message key="notification.confirmError">Vyskytla se chyba při potvrzování vašeho přihlášení.</message>
+	<message key="notification.confirmSuccess">Byl jste úspěšně přihlášen.</message>
+	<message key="notification.email">Posílejte mi email s těmito typy oznámení.</message>
+	<message key="notification.location">Přejít na URL</message>
+	<message key="notification.mailList">Zasílací seznam oznámení</message>
+	<message key="notification.mailList.emailInvalid">Vložte prosím platnou emailovou adresu.</message>
+	<message key="notification.mailList.privacyProtection">Pravidla ochrany soukromí</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Přihlásit se</a> ke chráněnému obsahu.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Odeslat</a> článek]]></message>
+	<message key="notification.mailList.register">Můžete se na těchto stránkách zaregistrovat, abyste...</message>
+	<message key="notification.mailList.review"><![CDATA[Participoval na <a href="{$reviewUrl}">recenzním</a> řízení]]></message>
+	<message key="notification.noneExist">Aktuálně nemáte žádná oznámení.</message>
+	<message key="notification.notification">Oznámení</message>
+	<message key="notification.notifications">Oznámení</message>
+	<message key="notification.notificationsNew">(Nové: {$numNew})</message>
+	<message key="notification.notificationsDescription"><![CDATA[Máte {$unreadCount} nepřečtených oznámení a {$readCount} přečtených oznámení.  <a href="{$settingsUrl}">Klikněte zde</a>, abyste upravili nastavení vašich oznámení.]]></message>
+	<message key="notification.settings">Nastavení oznámení</message>
+	<message key="notification.settingsDescription">Zvolte systémové události, o kterých chcete být informován. Zrušení zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve Vašem seznamu oznámení.</message>
+	<message key="notification.subscribe">Přihlásit</message>
+	<message key="notification.subscribeError">Vaše emailová adresa již je přihlášena k odběru oznámení.</message>
+	<message key="notification.subscribeSuccess">Na uvedenou adresu byl zaslán email. Abyste byl přidán na doručovací seznam, klikněte prosím na potvrzovací odkaz v tomto emailu.</message>
+	<message key="notification.reminderError">Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl emailovou adresu správně.</message>
+	<message key="notification.reminderSent">Vaše nové heslo bylo odesláno na poskytnutou emailovou adresu.</message>
+	<message key="notification.unsubscribe">Odhlásit</message>
+	<message key="notification.unsubscribeDescription">Pro odhlášení z odběru emailových oznámení vložte níže Vaši emailovou adresu a heslo. Pokud si nepamatujete své heslo, nechejte políčko pro heslo prázdné a na uvedenou emailovou adresu Vám bude odesláno nové.</message>
+	<message key="notification.unsubscribeError">Při odhlašování se vyskytla chyba. Ujistěte se prosím, že Vaše emailová adresa a heslo jsou správné.</message>
+	<message key="notification.unsubscribeSuccess">Byl jste úspěšně odhlášen.</message>
 	<message key="search.abstract">Abstrakt</message>
 	<message key="search.allFields">Vše</message>
 	<message key="search.coverage">Pokrytí</message>
@@ -252,7 +301,7 @@
 	<message key="search.dateFrom">Od</message>
 	<message key="search.dateTo">Do</message>
 	<message key="search.discipline">Disciplína(y)</message>
-	<message key="search.fullText">Full Text</message>
+	<message key="search.fullText">Plný text</message>
 	<message key="search.indexTerms">Termíny indexu</message>
 	<message key="search.matchAll">Zahrnout všechny kategorie</message>
 	<message key="search.noKeywordError">Musíte vložit alespoň jedno slovo pro vyhledávání.</message>
@@ -268,60 +317,8 @@
 	<message key="search.titleIndex">Procházet index názvů</message>
 	<message key="search.title">Název</message>
 	<message key="search.typeMethodApproach">Typ (metoda/přístup)</message>
-	<message key="common.re">Re:</message>
-	<message key="common.manage">Spravovat</message>
-	<message key="common.noComments">Bez komentářů</message>
-	<message key="form.startsWith">začíná (čím)</message>
-	<message key="notification.confirmSuccess">Byl jste úspěšně přihlášen.</message>
-	<message key="notification.location">Přejít na URL</message>
-	<message key="notification.mailList.emailInvalid">Vložte prosím platnou emailovou adresu.</message>
-	<message key="notification.mailList.privacyProtection">Pravidla ochrany soukromí</message>
-	<message key="notification.notification">Oznámení</message>
-	<message key="notification.notifications">Oznámení</message>
-	<message key="notification.notificationsNew">({$numNew} nových)</message>
-	<message key="notification.settings">Nastavení oznámení</message>
-	<message key="notification.subscribe">Přihlásit</message>
-	<message key="notification.subscribeError">Vaše emailová adresa již je přihlášena k odběru oznámení.</message>
-	<message key="notification.reminderSent">Vaše nové heslo bylo odesláno na poskytnutou emailovou adresu.</message>
-	<message key="notification.unsubscribe">Odhlásit</message>
-	<message key="notification.unsubscribeSuccess">Byl jste úspěšně odhlášen.</message>
-	<message key="common.ccLicense"><![CDATA[<br /><br />
-		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-			<img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
-		</a>
-		<br/>
-		Tato práce je licencována pod <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  Licencí</a>.]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
-		<br />
-		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-		<br />
-		Tato práce je licencována pod <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 Licencí</a>.
-	</div>]]></message>
-	<message key="notification.allow">Povolit, aby se tyto typy oznámení zobrazovaly v mojem dodavači oznámení.</message>
-	<message key="notification.confirmError">Vyskytla se chyba při potvrzování vašeho přihlášení.</message>
-	<message key="notification.email">Posílejte mi email s těmito typy oznámení.</message>
-	<message key="notification.mailList">Zasílací seznam oznámení</message>
-	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Přihlásit se</a> ke chráněnému obsahu.]]></message>
-	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Odeslat</a> článek]]></message>
-	<message key="notification.mailList.register">Můžete se na těchto stránkách zaregistrovat, abyste...</message>
-	<message key="notification.mailList.review"><![CDATA[Participoval na <a href="{$reviewUrl}">recenzním</a> řízení]]></message>
-	<message key="notification.noneExist">Aktuálně nemáte žádná oznámení.</message>
-	<message key="notification.notificationsDescription"><![CDATA[Máte {$unreadCount} nepřečtených oznámení a {$readCount} přečtených oznámení.  <a href="{$settingsUrl}">Klikněte zde</a>, abyste upravili nastavení vašich oznámení.]]></message>
-	<message key="notification.settingsDescription">Zvolte systémové události, o kterých chcete být informován. Zrušení zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve vašem dodavači oznámení.</message>
-	<message key="notification.subscribeSuccess">Na uvedenou adresu byl zaslán email. Abyste byl přidán na rozesílací seznam, klikněte prosím na potvrzovací odkaz v tomto emailu.</message>
-	<message key="notification.reminderError">Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl emailovou adresu správně.</message>
-	<message key="notification.unsubscribeError">Při odhlašování se vyskytla chyba. Ujistěte se prosím, že Vaše emailová adresa a heslo jsou správné.</message>
-	<message key="common.disable">Zakázat</message>
-	<message key="common.enable">Povolit</message>
-	<message key="common.fullscreen">Na celou obrazovku</message>
-	<message key="common.fullscreenOff">Vypnout zobrazení na celou obrazovku</message>
-	<message key="common.false">Nepravda</message>
-	<message key="common.ok">OK</message>
-	<message key="common.pluginEnabled">Plugin "{$pluginName}" byl povolen.</message>
-	<message key="common.pluginDisabled">Plugin "{$pluginName}" byl zakázán.</message>
-	<message key="common.refresh">Obnovit</message>
-	<message key="common.true">Pravda</message>
-	<message key="common.uploadFailed">Soubor nemohl být nahrán. Zkuste to prosím znovu nebo kontaktujte administrátora pokud problém přetrvává.</message>
-	<message key="common.loading">Načítání ...</message>
-	<message key="navigation.dashboard">Ovládací panel</message>
+	<message key="common.copy">Kopie</message>
+	<message key="common.preview">Náhled</message>
+	<message key="common.activate">Aktivovat</message>
+	<message key="common.deactivate">Deaktivovat</message>
 </locale>

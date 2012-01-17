@@ -338,6 +338,7 @@
 	<message key="submission.notes">Submission Notes</message>
 	<message key="submission.notes.updateNote">Update Note</message>
 	<message key="submission.notes.viewNotes">View Notes</message>
+	<message key="submission.originalFile">Original file</message>
 	<message key="submission.page.editing">#{$id} Editing</message>
 	<message key="submission.page.history">#{$id} History</message>
 	<message key="submission.page.review">#{$id} Review</message>

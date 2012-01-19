@@ -79,6 +79,21 @@ class XSLTransformer {
 		return $this->processor;
 	}
 
+	/**
+	 * Set the parameter list for internal processors.
+	 * @param array $parameters
+	 */
+	function setParameters($parameters) {
+		$this->parameters =& $parameters;
+	}
+
+	/**
+	 * Set the registerPHPFunctions setting on or off.
+	 * @param boolean $flag
+	 */
+	function setRegisterPHPFunctions($flag) {
+		$this->registerPHPFunctions = $flag;
+	}
 	//
 	// Public methods
 	//
@@ -327,7 +342,7 @@ class XSLTransformer {
 		// Register PHP functions if requested.
 		// NB: This can open potential security issues; see FAQ/README
 		if ($this->registerPHPFunctions) {
-			$processor->registerPHPFunctions($this->registerPHPFunctions);
+			$processor->registerPHPFunctions();
 		}
 
 		// Set XSL parameters (if any)

@@ -35,6 +35,7 @@ class PolicySet {
 
 	/**
 	 * Constructor
+	 * @param $combiningAlgorithm int COMBINING_...
 	 */
 	function PolicySet($combiningAlgorithm = COMBINING_DENY_OVERRIDES) {
 		$this->_combiningAlgorithm = $combiningAlgorithm;

@@ -68,7 +68,33 @@ class ONIXCodelistItemDAO extends DAO {
 			$listName =& $this->getListName(); // i.e., 'List30'
 			import('lib.pkp.classes.codelist.ONIXParserDOMHandler');
 			$handler = new ONIXParserDOMHandler($listName);
-			$data = $xmlDao->parseWithHandler($filename, $handler);
+
+			import('lib.pkp.classes.xslt.XSLTransformer');
+			import('lib.pkp.classes.file.FileManager');
+			import('classes.file/TemporaryFileManager');
+
+			$temporaryFileManager =& new TemporaryFileManager();
+			$fileManager =& new FileManager();
+
+			$tmpName = tempnam($temporaryFileManager->getBasePath(), 'ONX');
+			$xslTransformer =& new XSLTransformer();
+			$xslTransformer->setParameters(array('listName' => $listName));
+			$xslTransformer->setRegisterPHPFunctions(true);
+
+			$xslFile = 'lib/pkp/xml/onixFilter.xsl';
+			$filteredXml = $xslTransformer->transform($filename, XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, XSL_TRANSFORMER_DOCTYPE_FILE, XSL_TRANSFORMER_DOCTYPE_STRING);
+			$data = null;
+
+			if (is_writeable($tmpName)) {
+				$fp = fopen($tmpName, 'wb');
+				fwrite($fp, $filteredXml);
+				fclose($fp);
+				$data = $xmlDao->parseWithHandler($tmpName, $handler);
+				$fileManager->deleteFile($tmpName);
+			} else {
+				fatalError('misconfigured directory permissions on: ' . $temporaryFileManager->getBasePath());
+			}
+
 			// Build array with ($charKey => array(stuff))
 
 			if (isset($data[$listName])) {

@@ -204,7 +204,8 @@ class CategoryGridHandler extends GridHandler {
 		$templateMgr =& TemplateManager::getManager();
 
 		$categoryDataElement =& $categoryRow->getData();
-		$rowData =& $this->getCategoryData($categoryDataElement);
+		$filter = $this->getFilterSelectionData($request);
+		$rowData =& $this->getCategoryData($categoryDataElement, $filter);
 
 		// Render the data rows
 		$renderedRows = $this->_renderRowsInternally($request, $rowData);
@@ -223,12 +224,12 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $categoryDataElement mixed
 	 * @return array
 	 */
-	function &getCategoryData(&$categoryDataElement) {
+	function &getCategoryData(&$categoryDataElement, $filter) {
 		$dataProvider =& $this->getDataProvider();
 		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
 			// Populate the grid with data from the
 			// data provider.
-			$gridData =& $dataProvider->getCategoryData($categoryDataElement);
+			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
 			return $gridData;
 		}
 	}

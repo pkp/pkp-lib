@@ -31,9 +31,10 @@ class CategoryGridDataProvider extends GridDataProvider {
 	/**
 	 * Retrieve the category data to load into the grid.
 	 * @param $categoryDataElement mixed
+	 * @param $filter array
 	 * @return array
 	 */
-	function &getCategoryData($categoryDataElement) {
+	function &getCategoryData($categoryDataElement, $filter) {
 		assert(false);
 	}
 }

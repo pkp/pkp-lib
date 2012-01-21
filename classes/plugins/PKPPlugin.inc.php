@@ -441,7 +441,7 @@ class PKPPlugin {
 
 			// Create the context for the setting if found
 			if ($mainContext) $settingContext[] = $mainContext->getId();
-			$settingContext = array_pad($settingContext, $contextDepth, 0);
+			$settingContext = array_pad($settingContext, $contextDepth, CONTEXT_ID_NONE);
 		}
 		return $settingContext;
 	}

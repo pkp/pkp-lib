@@ -18,6 +18,7 @@ define_exposed('REALLY_BIG_NUMBER', 10000);
 define('ROUTE_COMPONENT', 'component');
 define('ROUTE_PAGE', 'page');
 
+define('CONTEXT_SITE', 0);
 define('CONTEXT_ID_NONE', 0);
 define('REVIEW_ROUND_NONE', 0);
 
@@ -32,6 +33,7 @@ define('ASSOC_TYPE_EDITOR', 0x0100005);
 define('ASSOC_TYPE_SIGNOFF', 0x0100006);
 define('ASSOC_TYPE_USER_ROLES', 0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES', 0x0100008);
+define('ASSOC_TYPE_PLUGIN', 0x0000211);
 
 class PKPApplication {
 	var $enabledProducts;

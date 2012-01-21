@@ -111,4 +111,8 @@
 
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.currentList">Current List</message>
+	
+	<!-- Plugins -->
+	<message key="grid.plugin.allCategories">All Categories</message>
+	
 </locale>

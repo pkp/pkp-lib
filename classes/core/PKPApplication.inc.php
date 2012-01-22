@@ -245,10 +245,11 @@ class PKPApplication {
 	 * access.
 	 *
 	 * @param $category string
+	 * @param $mainContextId integer
 	 * @return array
 	 */
-	function &getEnabledProducts($category = null) {
-		if (is_null($this->enabledProducts)) {
+	function &getEnabledProducts($category = null, $mainContextId = null) {
+		if (is_null($this->enabledProducts) || !is_null($mainContextId)) {
 			$contextDepth = $this->getContextDepth();
 
 			$settingContext = array();
@@ -256,12 +257,15 @@ class PKPApplication {
 				$request =& $this->getRequest();
 				$router =& $request->getRouter();
 
-				// Try to identify the main context (e.g. journal, conference, press),
-				// will be null if none found.
-				$mainContext =& $router->getContext($request, 1);
+				if (is_null($mainContextId)) {
+					// Try to identify the main context (e.g. journal, conference, press),
+					// will be null if none found.
+					$mainContext =& $router->getContext($request, 1);
+					if ($mainContext) $mainContextId = $mainContext->getId();
+				}
 
 				// Create the context for the setting if found
-				if ($mainContext) $settingContext[] = $mainContext->getId();
+				if (!is_null($mainContextId)) $settingContext[] = $mainContextId;
 				$settingContext = array_pad($settingContext, $contextDepth, 0);
 				$settingContext = array_combine($this->getContextList(), $settingContext);
 			}

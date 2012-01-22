@@ -87,8 +87,13 @@ class PluginRegistry {
 	 * @param $enabledOnly boolean if true load only enabled
 	 *  plug-ins (db-installation required), otherwise look on
 	 *  disk and load all available plug-ins (no db required).
+	 * @param $mainContextId integer To identify enabled plug-ins
+	 *  we need a context. This context is usually taken from the
+	 *  request but sometimes there is no context in the request
+	 *  (e.g. when executing CLI commands). Then the main context
+	 *  can be given as an explicit ID.
 	 */
-	function &loadCategory ($category, $enabledOnly = false) {
+	function &loadCategory ($category, $enabledOnly = false, $mainContextId = null) {
 		$plugins = array();
 		$categoryDir = PLUGINS_PREFIX . $category;
 		if (!is_dir($categoryDir)) return $plugins;
@@ -96,7 +101,7 @@ class PluginRegistry {
 		if ($enabledOnly && Config::getVar('general', 'installed')) {
 			// Get enabled plug-ins from the database.
 			$application =& PKPApplication::getApplication();
-			$products =& $application->getEnabledProducts('plugins.'.$category);
+			$products =& $application->getEnabledProducts('plugins.'.$category, $mainContextId);
 			foreach ($products as $product) {
 				$file = $product->getProduct();
 				$plugin =& PluginRegistry::_instantiatePlugin($category, $categoryDir, $file, $product->getProductClassname());

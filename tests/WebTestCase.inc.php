@@ -16,7 +16,7 @@ require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
 import('lib.pkp.tests.PKPTestHelper');
 
 class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
-	protected $baseUrl;
+	protected $baseUrl, $password;
 
 
 	/**
@@ -39,8 +39,18 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$ADODB_INCLUDED_LIB = 1;
 		}
 
-		$this->setBrowser('*firefox');
+		// Retrieve and check configuration.
 		$this->baseUrl = Config::getVar('debug', 'webtest_base_url');
+		$this->password = Config::getVar('debug', 'webtest_admin_pw');
+		if (empty($this->baseUrl) || empty($this->password)) {
+			$this->markTestSkipped(
+				'Please set webtest_base_url and webtest_admin_pw in your ' .
+				'config.php\'s [debug] section to the base url and admin ' .
+				'password of your test server.'
+			);
+		}
+
+		$this->setBrowser('*firefox');
 		$this->setBrowserUrl($this->baseUrl . '/');
 
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
@@ -60,7 +70,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	 */
 	protected function logIn() {
 		$this->open($this->baseUrl.'/index.php/test/login/signIn?username=admin&password='
-			.Config::getVar('debug', 'webtest_admin_pw'));
+			.$this->password);
 	}
 
 	/**

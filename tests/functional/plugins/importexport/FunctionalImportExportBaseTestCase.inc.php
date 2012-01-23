@@ -33,13 +33,12 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 
 		// Create a cookie file (required for log-in).
 		$cookies = tempnam ('/tmp', 'curlcookies');
-		$baseUrl = Config::getVar('debug', 'webtest_base_url');
 
 		// Log in.
-		$loginUrl = $baseUrl.'/index.php/test/login/signIn';
+		$loginUrl = $this->baseUrl.'/index.php/test/login/signIn';
 		$loginParams = array(
 			'username' => 'admin',
-			'password' => Config::getVar('debug', 'webtest_admin_pw')
+			'password' => $this->password
 		);
 		curl_setopt($curlCh, CURLOPT_URL, $loginUrl);
 		curl_setopt($curlCh, CURLOPT_POSTFIELDS, $loginParams);
@@ -47,7 +46,7 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 		self::assertTrue(curl_exec($curlCh));
 
 		// Request export document.
-		$exportUrl = $baseUrl.'/index.php/test/manager/importexport/plugin/'
+		$exportUrl = $this->baseUrl.'/index.php/test/manager/importexport/plugin/'
 			.$pluginUrl;
 		curl_setopt($curlCh, CURLOPT_URL, $exportUrl);
 		curl_setopt($curlCh, CURLOPT_POSTFIELDS, $postParams);

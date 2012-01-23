@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file lib/pkp/tests/OaiWebServiceTestCase.inc.php
+ * @file lib/pkp/tests/FunctionalOaiBaseTestCase.inc.php
  *
  * Copyright (c) 2000-2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OaiWebServiceTestCase
+ * @class FunctionalOaiBaseTestCase
  * @ingroup tests
  *
  * @brief Base test class for OAI functional tests.
@@ -18,11 +18,19 @@ import('lib.pkp.classes.xslt.XSLTransformer');
 import('lib.pkp.classes.webservice.WebServiceRequest');
 import('lib.pkp.classes.webservice.XmlWebService');
 
-class OaiWebServiceTestCase extends PKPTestCase {
+class FunctionalOaiBaseTestCase extends PKPTestCase {
 	protected $baseUrl, $webService, $webServiceRequest;
 
 	public function setUp() {
-		$this->baseUrl = Config::getVar('debug', 'webtest_base_url') . '/index.php/test/oai';;
+		// Retrieve and check configuration.
+		$webtestBaseUrl = Config::getVar('debug', 'webtest_base_url');
+		if (empty($webtestBaseUrl)) {
+			$this->markTestSkipped(
+				'Please set webtest_base_url in your config.php\'s ' .
+				'[debug] section to the base url of your test server.'
+			);
+		}
+		$this->baseUrl = $webtestBaseUrl . '/index.php/test/oai';;
 
 		// Instantiate a web service.
 		$this->webService = new XmlWebService();

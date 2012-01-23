@@ -21,7 +21,7 @@
 	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
 			<textarea id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
-				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich} richContent{/if}"
+				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
 			</textarea>
@@ -35,7 +35,7 @@
 					{strip}
 					<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
 						placeholder="{$thisFormLocaleName|escape}" 
-						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich} richContent{/if}" 
+						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}" 
 						{if $FBV_disabled} disabled="disabled"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
@@ -48,7 +48,7 @@
 {else}
 	{* This is not a multilingual control. *}
 	<textarea {$FBV_textAreaParams}
-		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich} richContent{/if}"
+		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		id="{$FBV_id|escape}{$uniqId}">{$FBV_value|escape}</textarea>

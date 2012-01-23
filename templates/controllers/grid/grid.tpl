@@ -7,7 +7,7 @@
  * Grid HTML markup and construction
  *}
 
-{assign var=gridId value="component-"|concat:$grid->getId()}
+{assign var=gridId value="component-"|concat:$grid->getId():'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
 {if $grid|is_a:CategoryGridHandler}
 	{assign var=gridActOnId value=$gridTableId}

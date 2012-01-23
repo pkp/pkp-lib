@@ -7,17 +7,18 @@
  * form text input
  *}
 
+{assign var="uniqId" value="-"|uniqid|escape}
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual}
 	<script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$FBV_name|escape:javascript}-localization-popover-container').pkpHandler(
+		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
 			'$.pkp.controllers.form.MultilingualInputHandler'
 			);
 	{rdelim});
 	</script>
 	{* This is a multilingual control. Enable popover display. *}
-	<span id="{$FBV_name|escape}-localization-popover-container" class="localization_popover_container">
+	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
 		<input type="{if $FBV_isPassword}password{else}text{/if}"
 			{$FBV_textInputParams}
@@ -25,7 +26,7 @@
 			{if $FBV_disabled} disabled="disabled"{/if}
 			value="{$FBV_value[$formLocale]|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
-			id="{$FBV_id|escape}-{$formLocale|escape}"
+			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
 		/>
 		{/strip}
 
@@ -42,10 +43,10 @@
 						{if $FBV_disabled} disabled="disabled"{/if}
 						value="{$FBV_value[$thisFormLocale]|escape}"
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
-						id="{$FBV_id|escape}-{$thisFormLocale|escape}"
+						id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
 					/>
 					{/strip}
-					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}" class="locale">({$thisFormLocaleName|escape})</label>
+					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
 				{/if}{/foreach}
 			</div>
 		</span>
@@ -58,7 +59,7 @@
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		value="{$FBV_value|escape}"
-		id="{$FBV_id|escape}"
+		id="{$FBV_id|escape}{$uniqId}"
 	/>
 
 	<span>{$FBV_label_content}</span>

@@ -156,7 +156,8 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 		do {
 			$tempdir = sys_get_temp_dir() . '/' . md5(time().mt_rand());
 		} while(file_exists($tempdir));
-		FileManager::mkdir($tempdir);
+		$fileManager = new FileManager();
+		$fileManager->mkdir($tempdir);
 
 		// Extract the tar to the temporary directory.
 		$tarCommand = $tarBinary . ' -C ' . escapeshellarg($tempdir) . ' -xzf ' . escapeshellarg($tarFile);

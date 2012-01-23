@@ -13,13 +13,20 @@
  */
 
 
-import('lib.pkp.tests.PKPTestCase');
+import('lib.pkp.tests.DatabaseTestCase');
 import('lib.pkp.classes.xslt.XSLTransformer');
 import('lib.pkp.classes.webservice.WebServiceRequest');
 import('lib.pkp.classes.webservice.XmlWebService');
 
-class FunctionalOaiBaseTestCase extends PKPTestCase {
+class FunctionalOaiBaseTestCase extends DatabaseTestCase {
 	protected $baseUrl, $webService, $webServiceRequest;
+
+	protected function getAffectedTables() {
+		return array(
+			'issue_settings', 'article_settings',
+			'article_galley_settings', 'article_supp_file_settings'
+		);
+	}
 
 	public function setUp() {
 		// Retrieve and check configuration.
@@ -38,6 +45,8 @@ class FunctionalOaiBaseTestCase extends PKPTestCase {
 
 		// Instantiate a web service request.
 		$this->webServiceRequest = new WebServiceRequest($this->baseUrl);
+
+		parent::setUp();
 	}
 
 	protected function &getXPath($namespaces) {

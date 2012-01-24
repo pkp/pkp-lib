@@ -52,7 +52,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// specific forms may override the form's default behavior
 		// to warn about unsaved changes.
-		if (options.trackFormChanges) {
+		if (options.trackFormChanges !== null) {
 			this.trackFormChanges_ = options.trackFormChanges;
 		}
 

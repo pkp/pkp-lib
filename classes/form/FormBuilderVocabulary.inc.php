@@ -728,7 +728,7 @@ class FormBuilderVocabulary {
 		$params['available'] = isset($params['available']) ? $params['available'] : false;
 		$params['current'] = isset($params['current']) ? $params['current'] : false;
 
-		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual', 'FBV_sourceUrl'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;

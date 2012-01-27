@@ -18,6 +18,7 @@
 
 	<message key="grid.action.sort">Sort</message>
 	<message key="grid.action.addItem">Add Item</message>
+	<message key="grid.action.addUser">Add User</message>
 	<message key="grid.action.delete">Delete</message>
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>

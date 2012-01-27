@@ -71,7 +71,8 @@ class PKPSiteSettingsForm extends Form {
 			'contactName' => $site->getSetting('contactName'), // Localized
 			'contactEmail' => $site->getSetting('contactEmail'), // Localized
 			'minPasswordLength' => $site->getMinPasswordLength(),
-			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType') // Localized
+			'pageHeaderTitleType' => $site->getSetting('pageHeaderTitleType'), // Localized
+			'siteTheme' => $site->getSetting('siteTheme')
 		);
 
 		foreach ($data as $key => $value) {
@@ -88,7 +89,7 @@ class PKPSiteSettingsForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(
-			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText')
+			array('pageHeaderTitleType', 'title', 'intro', 'about', 'redirect', 'contactName', 'contactEmail', 'minPasswordLength', 'pageHeaderTitleImageAltText', 'siteTheme')
 		);
 	}
 
@@ -106,6 +107,8 @@ class PKPSiteSettingsForm extends Form {
 		foreach ($this->getLocaleFieldNames() as $setting) {
 			$siteSettingsDao->updateSetting($setting, $this->getData($setting), null, true);
 		}
+
+		$site->updateSetting('siteTheme', $this->getData('siteTheme'), 'string', false);
 
 		$setting = $site->getSetting('pageHeaderTitleImage');
 		if (!empty($setting)) {

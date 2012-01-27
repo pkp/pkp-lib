@@ -62,6 +62,7 @@
 	<message key="admin.settings.siteLanguage">Site language</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Invalid site stylesheet format. Accepted format is .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site style sheet</message>
+	<message key="admin.settings.siteTheme">Site theme</message>
 	<message key="admin.settings.siteTitle">Site title</message>
 	<message key="admin.siteAdmin">Site Administration</message>
 	<message key="admin.siteManagement">Site Management</message>

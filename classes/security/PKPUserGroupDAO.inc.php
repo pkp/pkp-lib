@@ -398,22 +398,23 @@ class PKPUserGroupDAO extends DAO {
 
 	/**
 	 * Find users that don't have a given role
-	 * @param $contextId int
-	 * @param ROLE_ID int (const)
+	 * @param $contextId int optional
+	 * @param ROLE_ID_... int (const)
 	 * @param $search string
 	 */
-	function &getUsersNotInRole($contextId, $roleId, $search = null) {
-		$params = array((int) $contextId, (int) $roleId);
+	function &getUsersNotInRole($roleId, $contextId = null, $search = null) {
+		$params = array((int) $roleId);
+		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
 
 		$result =& $this->retrieve(
 			'SELECT DISTINCT u.*
 			FROM	users u, user_groups ug, user_user_groups uug
-			WHERE ug.user_group_id = uug.user_group_id AND
-				u.user_id = uug.user_id
-				AND ug.context_id = ?
-				AND ug.role_id <> ?'
-				. (isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)':''),
+			WHERE	ug.user_group_id = uug.user_group_id AND
+				u.user_id = uug.user_id AND
+				ug.role_id <> ?' .
+				($contextId?' AND ug.context_id = ?':'') .
+				(isset($search) ? ' AND (u.first_name LIKE ? OR u.middle_name LIKE ? OR u.last_name LIKE ? OR u.email LIKE ? OR u.username LIKE ?)':''),
 			$params
 		);
 

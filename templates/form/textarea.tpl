@@ -50,8 +50,8 @@
 	<textarea {$FBV_textAreaParams}
 		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
-		name="{$FBV_name|escape}"
-		id="{$FBV_id|escape}{$uniqId}">{$FBV_value|escape}</textarea>
+		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
+		id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
 
 		<span>{$FBV_label_content}</span>
 {/if}

@@ -57,8 +57,8 @@
 		{$FBV_textInputParams}
 		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
-		name="{$FBV_name|escape}"
-		value="{$FBV_value|escape}"
+		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
+		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}"
 	/>
 

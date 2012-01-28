@@ -67,7 +67,7 @@
 		$(document).ready(function(){ldelim}
 			$("#{$FBV_id}{$uniqId}").tagit({ldelim}
 				itemName: "keywords",
-				fieldName: "{$FBV_id|escape}",
+				fieldName: "{if $FBV_multilingual}{$formLocale|escape}-{/if}{$FBV_id|escape}",
 				allowSpaces: true,
 				{if $FBV_sourceUrl && !$FBV_disabled}
 					tagSource: function(search, showChoices) {ldelim}
@@ -80,7 +80,7 @@
 						{rdelim});
 					{rdelim}
 				{else}
-					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
+					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$formLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
 				{/if}
 			{rdelim});
 	
@@ -93,7 +93,7 @@
 	
 	<!-- The container which will be processed by tag-it.js as the interests widget -->
 	<ul id="{$FBV_id|escape}{$uniqId}">
-		{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
+		{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 	</ul>
 	{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
 	<br />

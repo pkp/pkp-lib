@@ -7,7 +7,7 @@
  * Generic keyword input control
  *}
 {assign var="uniqId" value="-"|uniqid|escape}
-{if $FBV_multilingual}
+{if $FBV_multilingual && count($formLocales) > 1}
 	{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}
 		<script type="text/javascript">
 			$(document).ready(function(){ldelim}
@@ -62,7 +62,7 @@
 			</span>
 		</span>
 		
-{else} {* this is not a multilingual keyword field *}
+{else} {* this is not a multilingual keyword field or there is only one locale available *}
 	<script type="text/javascript">
 		$(document).ready(function(){ldelim}
 			$("#{$FBV_id}{$uniqId}").tagit({ldelim}

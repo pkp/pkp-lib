@@ -48,7 +48,7 @@
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
 	<textarea {$FBV_textAreaParams}
-		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if} localizable locale_{$formLocale|escape}"
+		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		id="{$FBV_id|escape}{$uniqId}">{$FBV_value|escape}</textarea>

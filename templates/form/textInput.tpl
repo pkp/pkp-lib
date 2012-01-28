@@ -55,7 +55,7 @@
 	{* This is not a multilingual control or there is only one locale available *}
 	<input	type="{if $FBV_isPassword}password{else}text{/if}"
 		{$FBV_textInputParams}
-		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if} localizable locale_{$formLocale|escape}"
+		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		value="{$FBV_value|escape}"

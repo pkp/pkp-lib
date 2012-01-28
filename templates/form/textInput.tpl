@@ -9,7 +9,7 @@
 
 {assign var="uniqId" value="-"|uniqid|escape}
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
-{if $FBV_multilingual}
+{if $FBV_multilingual && count($formLocales) > 1}
 	<script type="text/javascript">
 	$(function() {ldelim}
 		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
@@ -52,10 +52,10 @@
 		</span>
 	</span>
 {else}
-	{* This is not a multilingual control. *}
+	{* This is not a multilingual control or there is only one locale available *}
 	<input	type="{if $FBV_isPassword}password{else}text{/if}"
 		{$FBV_textInputParams}
-		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
+		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if} localizable locale_{$formLocale|escape}"
 		{if $FBV_disabled} disabled="disabled"{/if}
 		name="{$FBV_name|escape}"
 		value="{$FBV_value|escape}"

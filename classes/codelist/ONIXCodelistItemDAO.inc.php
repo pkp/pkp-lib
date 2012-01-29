@@ -183,6 +183,15 @@ class ONIXCodelistItemDAO extends DAO {
 	}
 
 	/**
+	 * Determines if a particular code value is valid for a given list.
+	 * @return boolean
+	 */
+	function codeExistsInList($code, $list) {
+		$listKeys =& array_keys($this->getCodes($list));
+		return ($code != null && array_search($code, $listKeys));
+	}
+
+	/**
 	 * Internal function to return a Codelist object from a row.
 	 * @param $row array
 	 * @return CodelistItem

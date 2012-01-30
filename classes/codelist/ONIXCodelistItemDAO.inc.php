@@ -187,7 +187,7 @@ class ONIXCodelistItemDAO extends DAO {
 	 * @return boolean
 	 */
 	function codeExistsInList($code, $list) {
-		$listKeys =& array_keys($this->getCodes($list));
+		$listKeys = array_keys($this->getCodes($list));
 		return ($code != null && array_search($code, $listKeys));
 	}
 

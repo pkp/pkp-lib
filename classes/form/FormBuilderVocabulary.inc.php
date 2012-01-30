@@ -760,7 +760,7 @@ class FormBuilderVocabulary {
 			switch ($key) {
 				case 'type': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
-				case 'interestKeywords': $smarty->assign('FBV_interestKeywords', $params['interestKeywords']); break;
+				case 'interestKeywords': $smarty->assign('FBV_interestsKeywords', $params['interestKeywords']); break;
 				case 'interestsTextOnly': $smarty->assign('FBV_interestsTextOnly', $params['interestsTextOnly']); break;
 			}
 		}

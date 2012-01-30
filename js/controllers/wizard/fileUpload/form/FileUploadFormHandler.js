@@ -135,7 +135,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			$revisedFileId.attr('disabled', 'disabled');
 			multipartParams.revisedFileId = $revisedFileId.val();
 		} else {
-			if (this.presetRevisedFileId_ != null) {
+			if (this.presetRevisedFileId_ !== null) {
 				multipartParams.revisedFileId = this.presetRevisedFileId_;
 			} else {
 				multipartParams.revisedFileId = 0;

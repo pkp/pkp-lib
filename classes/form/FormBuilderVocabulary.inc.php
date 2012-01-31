@@ -747,12 +747,12 @@ class FormBuilderVocabulary {
 
 	/**
 	 * Reviewing interests input.
-	 * parameters: interestKeywords - current users's keywords (array); interestsTextOnly - user's current keywords (comma separated string)
+	 * parameters: interestsKeywords - current users's keywords (array); interestsTextOnly - user's current keywords (comma separated string)
 	 * @param $params array
 	 * @param $smarty object
 	 */
 	function _smartyFBVInterestsInput($params, &$smarty) {
-		$params['interestKeywords'] = isset($params['interestKeywords']) ? $params['interestKeywords'] : false;
+		$params['interestsKeywords'] = isset($params['interestsKeywords']) ? $params['interestsKeywords'] : false;
 		$params['interestsTextOnly'] = isset($params['interestsTextOnly']) ? $params['interestsTextOnly'] : false;
 
 		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
@@ -760,7 +760,7 @@ class FormBuilderVocabulary {
 			switch ($key) {
 				case 'type': break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
-				case 'interestKeywords': $smarty->assign('FBV_interestsKeywords', $params['interestKeywords']); break;
+				case 'interestsKeywords': $smarty->assign('FBV_interestsKeywords', $params['interestsKeywords']); break;
 				case 'interestsTextOnly': $smarty->assign('FBV_interestsTextOnly', $params['interestsTextOnly']); break;
 			}
 		}

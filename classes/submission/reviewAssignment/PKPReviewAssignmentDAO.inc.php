@@ -130,11 +130,8 @@ class PKPReviewAssignmentDAO extends DAO {
 						FROM	review_assignments r
 							LEFT JOIN users u ON (r.reviewer_id = u.user_id)
 							LEFT JOIN review_rounds r2 ON (' . $reviewRoundJoinString . ')
-						WHERE	(r.cancelled IS NULL OR r.cancelled = 0) AND
-							r.date_notified IS NOT NULL AND
-							r.date_completed IS NULL AND
-							r.declined <> 1
-						ORDER BY r.submission_id'
+						WHERE' . $this->getIncompleteReviewAssignmentsWhereString() .
+						' ORDER BY r.submission_id'
 			);
 
 			while (!$result->EOF) {
@@ -149,6 +146,18 @@ class PKPReviewAssignmentDAO extends DAO {
 		}
 
 		return $reviewAssignments;
+	}
+
+	/**
+	 * Get the WHERE sql string to filter incomplete review
+	 * assignments.
+	 * @return string
+	 */
+	function getIncompleteReviewAssignmentsWhereString() {
+		return ' (r.cancelled IS NULL OR r.cancelled = 0) AND
+		r.date_notified IS NOT NULL AND
+		r.date_completed IS NULL AND
+		r.declined <> 1';
 	}
 
 	/**

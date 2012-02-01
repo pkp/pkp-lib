@@ -139,7 +139,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 				multipartParams.revisedFileId = this.presetRevisedFileId_;
 			} else {
 				multipartParams.revisedFileId = 0;
-			}		
+			}
 		}
 
 		// Add the file genre to the upload message.

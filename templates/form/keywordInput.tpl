@@ -87,14 +87,13 @@
 			{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}
 			{if $FBV_disabled}
 				$("#{$FBV_id|escape}{$uniqId}").find('.tagit-close, .tagit-new').remove();
+				$("#{$FBV_id|escape}{$uniqId}:empty").removeClass('tagit');
 			{/if}
 		{rdelim});
 	</script>
 	
 	<!-- The container which will be processed by tag-it.js as the interests widget -->
-	<ul id="{$FBV_id|escape}{$uniqId}">
-		{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
-	</ul>
+	<ul id="{$FBV_id|escape}{$uniqId}">{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}</ul>
 	{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}
 	<br />
 {/if}

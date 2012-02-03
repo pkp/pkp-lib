@@ -135,7 +135,16 @@
 	$.pkp.controllers.TabHandler.prototype.tabsLoad =
 			function(tabsElement, event, ui) {
 
-		// The default implementation does nothing.
+		// tabs containing richContent text area elements need
+		// to be refreshed since TinyMCE's init method is only
+		// called on the original page load.
+		var editorElements = $('.richContent');
+		for (var i = 0 ; i < editorElements.length ; i++) {
+			var id = editorElements[i].getAttribute('id');
+			if (typeof tinyMCE !== 'undefined') {
+				tinyMCE.execCommand('mceAddControl', false, id);
+			}
+		}
 		return true;
 	};
 

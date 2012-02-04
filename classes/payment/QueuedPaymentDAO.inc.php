@@ -26,18 +26,18 @@ class QueuedPaymentDAO extends DAO {
 	/**
 	 * Retrieve a queued payment by ID.
 	 * @param $queuedPaymentId int
-	 * @return QueuedPayment
+	 * @return QueuedPayment or null on failure
 	 */
 	function &getQueuedPayment($queuedPaymentId) {
 		$result =& $this->retrieve(
 			'SELECT * FROM queued_payments WHERE queued_payment_id = ?',
-			$queuedPaymentId
+			(int) $queuedPaymentId
 		);
 
 		$queuedPayment = null;
 		if ($result->RecordCount() != 0) {
 			$queuedPayment = unserialize($result->fields['payment_data']);
-			if (!is_object($queuedPayment)) unset($queuedPayment);
+			if (!is_object($queuedPayment)) $queuedPayment = null;
 		}
 		$result->Close();
 		unset($result);
@@ -46,7 +46,7 @@ class QueuedPaymentDAO extends DAO {
 
 	/**
 	 * Insert a new queued payment.
-	 * @param $payment Payment
+	 * @param $queuedPayment QueuedPayment
 	 * @param $expiryDate date optional
 	 */
 	function insertQueuedPayment(&$queuedPayment, $expiryDate = null) {
@@ -63,14 +63,13 @@ class QueuedPaymentDAO extends DAO {
 			)
 		);
 
-		$queuedPayment->setPaymentId($this->getInsertQueuedPaymentId());
-		return $queuedPayment->getPaymentId();
+		return $queuedPayment->setQueuedPaymentId($this->getInsertQueuedPaymentId());
 	}
 
 	/**
 	 * Update an existing queued payment.
 	 * @param $queuedPaymentId int
-	 * @param $payment Payment
+	 * @param $queuedPayment QueuedPayment
 	 */
 	function updateQueuedPayment($queuedPaymentId, &$queuedPayment) {
 		return $this->update(

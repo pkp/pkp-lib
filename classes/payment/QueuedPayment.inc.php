@@ -17,14 +17,25 @@
 import('lib.pkp.classes.payment.Payment');
 
 class QueuedPayment extends Payment {
+	/**
+	 * Constructor
+	 */
 	function QueuedPayment($amount, $currencyCode, $userId = null, $assocId = null) {
 		parent::Payment($amount, $currencyCode, $userId, $assocId);
 	}
 
+	/**
+	 * Set the queued payment ID
+	 * @param $queuedPaymentId int
+	 */
 	function setQueuedPaymentId($queuedPaymentId) {
 		parent::setPaymentId($queuedPaymentId);
 	}
 
+	/**
+	 * Get the queued payment ID
+	 * @return int
+	 */
 	function getQueuedPaymentId() {
 		return parent::getPaymentId();
 	}

@@ -17,6 +17,7 @@
 class PaymentManager {
 	/**
 	 * Get the payment manager.
+	 * @return object
 	 */
 	function &getManager() {
 		// must be implemented by sub-classes
@@ -27,7 +28,7 @@ class PaymentManager {
 	 * Queue a payment for receipt.
 	 * @param $queuedPayment object
 	 * @param $expiryDate date optional
-	 * @return int Queued payment ID for new payment
+	 * @return mixed Queued payment ID for new payment, or false if fails
 	 */
 	function queuePayment(&$queuedPayment, $expiryDate = null) {
 		if (!$this->isConfigured()) return false;
@@ -43,11 +44,11 @@ class PaymentManager {
 
 	/**
 	 * Abstract method for fetching the payment plugin
-	 * @return null
+	 * @return object
 	 */
 	function &getPaymentPlugin() {
-		$returnValue = null;
-		return $returnValue; // Abstract method; subclasses should impl
+		// Abstract method; subclasses should implement.
+		assert(false);
 	}
 
 	/**
@@ -62,6 +63,9 @@ class PaymentManager {
 
 	/**
 	 * Call the payment plugin's display method
+	 * @param $queuedPaymentId int
+	 * @param $queuedPayment object
+	 * @return boolean
 	 */
 	function displayPaymentForm($queuedPaymentId, &$queuedPayment) {
 		$paymentPlugin =& $this->getPaymentPlugin();
@@ -71,6 +75,7 @@ class PaymentManager {
 
 	/**
 	 * Call the payment plugin's settings display method
+	 * @return boolean
 	 */
 	function displayConfigurationForm() {
 		$paymentPlugin =& $this->getPaymentPlugin();
@@ -80,6 +85,7 @@ class PaymentManager {
 
 	/**
 	 * Fetch a queued payment
+	 * @param $queuedPaymentId int
 	 * @return QueuedPayment
 	 */
 	function &getQueuedPayment($queuedPaymentId) {
@@ -89,7 +95,9 @@ class PaymentManager {
 	}
 
 	/**
-	 * Abstract method for fulfilling a queued payment
+	 * Fulfill a queued payment
+	 * @param $queuedPayment QueuedPayment
+	 * @return boolean success/failure
 	 */
 	function fulfillQueuedPayment(&$queuedPayment) {
 		// must be implemented by sub-classes

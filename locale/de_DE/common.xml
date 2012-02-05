@@ -196,6 +196,7 @@
 	<message key="common.year">Jahr</message>
 	<message key="common.yes">Ja</message>
 	<message key="common.loading">Laden …</message>
+	<message key="common.plugins">Plug-Ins</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>

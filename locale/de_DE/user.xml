@@ -72,6 +72,7 @@
 	<message key="user.phone">Telefon</message>
 	<message key="user.profile.changePasswordInstructions">Sie ändern das Passwort Ihres Kontos, indem Sie nachfolgend Ihr aktuelles und Ihr neues Passwort eintragen.</message>
 	<message key="user.profile.editProfile">Profil bearbeiten</message>
+	<message key="user.profile.form.countryRequired">Ein Staat ist erforderlich.</message>
 	<message key="user.profile.form.emailRequired">Eine gültige E-Mail-Adresse ist erforderlich.</message>
 	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
 	<message key="user.profile.form.firstNameRequired">Ein Vorname ist erforderlich.</message>

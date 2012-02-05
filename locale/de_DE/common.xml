@@ -243,6 +243,7 @@
 	<message key="form.saveToUpload">Verwenden Sie Speichern zum Hochladen der Datei.</message>
 	<message key="form.send">Senden</message>
 	<message key="form.submit">Abschicken</message>
+	<message key="form.invalidImage">Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, .gif und .jpg.</message>
 	<message key="help.contents">Inhalt</message>
 	<message key="help.help">Hilfe</message>
 	<message key="help.helpIndex">Hilfe-Verzeichnis</message>

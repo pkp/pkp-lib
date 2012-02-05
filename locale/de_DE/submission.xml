@@ -336,6 +336,7 @@
 	<message key="submission.notes">Anmerkungen zum Beitrag</message>
 	<message key="submission.notes.updateNote">Anmerkung aktualisieren</message>
 	<message key="submission.notes.viewNotes">Anmerkungen anzeigen</message>
+	<message key="submission.originalFile">Originaldatei</message>
 	<message key="submission.page.editing">#{$id} Redaktion</message>
 	<message key="submission.page.history">#{$id} Verlauf</message>
 	<message key="submission.page.review">#{$id} Begutachtung</message>

@@ -124,7 +124,7 @@
 	<message key="manager.people.enrollUserAs">Benutzer/in eintragen als</message>
 	<message key="manager.people.invalidUser">Leider existiert die Benutzerin/der Benutzer, nach der/dem Sie gesucht haben, nicht.</message>
 	<message key="manager.people.mergeUser">Benutzer/in zusammenführen</message>
-	<message key="manager.people.mergeUsers.confirm">Sind Sie sicher, dass Sie das Konto mit dem Benutzer/innen-Namen "{$oldUsername}" in dem Konto mit dem Benutzer/innen-Namen"{$newUsername}" aufgehen lassen wollen? Das Konto mit dem Benutzer/innen-Namen "{$oldUsername}" besteht dann nicht mehr. Der Vorgang kann nicht rückgängig gemacht werden.</message>
+	<message key="manager.people.mergeUsers.confirm">Sind Sie sicher, dass Sie die ausgewählten {$oldAccountCount} Benutzer/innenkonten in dem Konto mit dem Benutzer/innen-Namen "{$newUsername}" aufgehen lassen wollen? Die ausgewählten {$oldAccountCount} Konten werden dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden.</message>
 	<message key="manager.people.mergeUsers">Benutzer/innen zusammenführen</message>
 	<message key="manager.people.mustChooseRole">Wählen Sie am Seitenanfang bitte eine Funktion aus, bevor Sie "Benutzer/in eintragen" anklicken.</message>
 	<message key="manager.people.mustProvideName">Bitte stellen Sie zunächst zumindest einen Nachnamen für die Benutzerin/den Benutzer zur Verfügung.</message>

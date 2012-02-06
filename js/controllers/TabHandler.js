@@ -38,6 +38,21 @@
 			this.emptyLastTab_ = options.emptyLastTab;
 		}
 
+		// if the page has been loaded with an #anchor
+		// determine what tab that is for and set the
+		// options.selected value to it so it gets used
+		// when tabs() are initialized.
+		var pageUrl = document.location.toString();
+		if (pageUrl.match('#')) {
+			var pageAnchor = pageUrl.split('#')[1];
+			var tabAnchors = $tabs.find('li a');
+			for (var i = 0 ; i < tabAnchors.length ; i++) {
+				var pattern = RegExp('=' + pageAnchor + '$');
+				if (tabAnchors[i].getAttribute('href').match(pattern))
+					options.selected = i;
+			}
+		}
+
 		// Render the tabs as jQueryUI tabs.
 		$tabs.tabs({
 			// Enable AJAX-driven tabs with JSON messages.

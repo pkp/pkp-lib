@@ -124,7 +124,11 @@
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.fetchAutocomplete =
 			function(callingElement, request, response) {
+		var $textInput = this.textInput_;
+		$textInput.addClass('spinner');
+
 		$.post(this.getAutocompleteUrl(), { term: request.term }, function(data) {
+			$('.spinner').removeClass('spinner');
 			response(data.content);
 		}, 'json');
 	};

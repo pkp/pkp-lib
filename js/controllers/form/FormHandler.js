@@ -56,6 +56,11 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			this.trackFormChanges_ = options.trackFormChanges;
 		}
 
+		// disable submission controls on certain forms.
+		if (options.disableControlsOnSubmit !== null) {
+			this.disableControlsOnSubmit_ = options.disableControlsOnSubmit;
+		}
+
 		var validator = $form.validate({
 			errorClass: 'error',
 			highlight: function(element, errorClass) {
@@ -118,6 +123,15 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @type {Boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChangesCurrentlyTracked_ = false;
+
+
+	/**
+	 * If true, the FormHandler will disable the submit button if the form 
+	 * successfully validates and is submitted.
+	 * @private
+	 * @type {Boolean}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit_ = false;
 
 
 	//
@@ -219,6 +233,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			// the default form submission code. (Necessary to
 			// avoid an infinite loop.)
 			validator.settings.submitHandler = null;
+
+			// We have made it to submission, disable the form control if
+			// necessary, submit the form.
+			if (this.disableControlsOnSubmit_){
+				$(formElement).find(':submit').attr('disabled', 'disabled');
+			}
 
 			this.getHtmlElement().submit();
 		}

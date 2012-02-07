@@ -418,6 +418,27 @@ class SignoffDAO extends DAO {
 	}
 
 	/**
+	 * Get the related stage id by symbolic.
+	 * @return int
+	 */
+	function getStageIdBySymbolic($symbolic) {
+		switch ($symbolic) {
+			case 'SIGNOFF_COPYEDITING':
+				return WORKFLOW_STAGE_ID_EDITING;
+				break;
+			case 'SIGNOFF_PROOFING':
+				return WORKFLOW_STAGE_ID_PRODUCTION;
+				break;
+			default:
+				assert(false);
+		}
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
 	 * Retrieve all signoffs matching the specified input parameters
 	 * @param $symbolic string
 	 * @param $assocType int

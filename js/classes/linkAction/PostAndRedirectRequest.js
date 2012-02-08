@@ -28,53 +28,11 @@
 	$.pkp.classes.linkAction.PostAndRedirectRequest =
 			function($linkActionElement, options) {
 
-		// We make use of a form to post and redirect at the same time.
-		var $formElement = $('form', $linkActionElement);
-		if (options.postData) {
-			// We have data to post, so we prepare the form.
-			var handleFormSubmit = $.pkp.classes.Helper.curry(
-					this.handleFormSubmit_, this);
-			$formElement.bind('submit', handleFormSubmit);
-			$formElement.attr('action', options.url);
-			$formElement.append('<input type="hidden" name="linkActionPostData" value="' +
-					options.postData + '" />');
-
-			this.$formElement_ = $formElement;
-		} else {
-			// We don't have data to post, remove the form element.
-			$formElement.remove();
-		}
-
 		this.parent($linkActionElement, options);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.linkAction.PostAndRedirectRequest,
 			$.pkp.classes.linkAction.LinkActionRequest);
-
-
-	//
-	// Private properties
-	//
-	/**
-	 * The form element used to post data and redirect.
-	 * @private
-	 * @type {Object}
-	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.
-			$formElement_ = null;
-
-
-	//
-	// Getters and Setters.
-	//
-	/**
-	 * Return the form element.
-	 * @return {Object} Form element.
-	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.getFormElement =
-			function() {
-		return this.$formElement_;
-	};
 
 
 	//
@@ -92,13 +50,8 @@
 		var responseHandler = $.pkp.classes.Helper.curry(
 				this.handleResponse_, this);
 
-		// Check if we need to post any data or not.
-		if (options.postData) {
-			$.post(options.postUrl, { linkActionPostData: options.postData },
-					responseHandler, 'json');
-		} else {
-			$.post(options.postUrl,	responseHandler, 'json');
-		}
+		// Post.
+		$.post(options.postUrl,	responseHandler, 'json');
 
 		// We need to make sure that the finish() method will be called.
 		// While the redirect request is running, user can click again
@@ -145,29 +98,8 @@
 		var linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		linkActionHandler.handleJson(jsonData);
 
-		var $formElement = this.getFormElement();
-		if ($formElement === null) {
-			// We don't have a form element, so we don't need to post any
-			// data while redirecting.
-			window.location = options.url;
-		} else {
-			// We have a form element, use it to redirect and post data
-			// at the same time.
-			$formElement.trigger('submit');
-		}
-	};
-
-
-	/**
-	 * The form submission handler.
-	 * @private
-	 * @param {Event} event The triggering event.
-	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.handleFormSubmit_ =
-			function(event) {
-		// Avoid propagation of the form submit event.
-		event.stopPropagation();
-		this.finish();
+		// Redirect.
+		window.location = options.url;
 	};
 
 

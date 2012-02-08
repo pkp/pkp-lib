@@ -17,9 +17,6 @@ import('lib.pkp.classes.linkAction.request.RedirectAction');
 
 class PostAndRedirectAction extends RedirectAction {
 
-	/** @var string The data to be posted */
-	var $_postData;
-
 	/** @var string The url to be used for posting data */
 	var $_postUrl;
 
@@ -27,11 +24,9 @@ class PostAndRedirectAction extends RedirectAction {
 	 * Constructor
 	 * @param $postUrl string The target URL to post data.
 	 * @param $redirectUrl string The target URL to redirect.
-	 * @param $postData string The data to be posted in both requests.
 	 */
-	function PostAndRedirectAction($postUrl, $redirectUrl, $postData = null) {
+	function PostAndRedirectAction($postUrl, $redirectUrl) {
 		parent::RedirectAction($redirectUrl);
-		$this->_postData = $postData;
 		$this->_postUrl = $postUrl;
 	}
 
@@ -40,17 +35,9 @@ class PostAndRedirectAction extends RedirectAction {
 	// Getters and Setters
 	//
 	/**
-	 * Get the post data.
+  	 * Get the url to post data.
 	 * @return string
 	 */
-	function getPostData() {
-		return $this->_postData;
-	}
-
-	/**
-	* Get the url to post data.
-	* @return string
-	*/
 	function getPostUrl() {
 		return $this->_postUrl;
 	}
@@ -72,8 +59,7 @@ class PostAndRedirectAction extends RedirectAction {
 	function getLocalizedOptions() {
 		$options = parent::getLocalizedOptions();
 		return array_merge($options,
-			array('postData' => $this->getPostData(),
-				'postUrl' => $this->getPostUrl())
+			array('postUrl' => $this->getPostUrl())
 		);
 	}
 }

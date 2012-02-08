@@ -80,20 +80,6 @@ class LinkAction {
 	function getImage() {
 		return $this->_image;
 	}
-
-	/**
-	 * Get the link action button template file.
-	 * @return string
-	 */
-	function getLinkActionButtonTemplate() {
-		$actionRequest =& $this->getActionRequest();
-
-		if (is_a($actionRequest, 'PostAndRedirectAction')) {
-			return 'linkAction/linkActionButtonWithForm.tpl';
-		} else {
-			return 	'linkAction/linkActionButton.tpl';
-		}
-	}
 }
 
 ?>

@@ -331,7 +331,6 @@ class PKPApplication {
 			'QualifierDAO' => 'lib.pkp.classes.codelist.QualifierDAO',
 			'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
 			'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
-			'SignoffDAO' => 'lib.pkp.classes.signoff.SignoffDAO',
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'SubjectDAO' => 'lib.pkp.classes.codelist.SubjectDAO',

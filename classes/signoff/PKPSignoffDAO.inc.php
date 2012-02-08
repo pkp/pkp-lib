@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/signoff/SignoffDAO.inc.php
+ * @file classes/signoff/PKPSignoffDAO.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SignoffDAO
+ * @class PKPSignoffDAO
  * @ingroup signoff
  * @see Signoff
  *
@@ -16,7 +16,7 @@
 
 import('lib.pkp.classes.signoff.Signoff');
 
-class SignoffDAO extends DAO {
+class PKPSignoffDAO extends DAO {
 	/**
 	 * Constructor
 	 */
@@ -415,23 +415,6 @@ class SignoffDAO extends DAO {
 			'SIGNOFF_REVIEW_REVISION',
 			'SIGNOFF_SIGNOFF'
 		);
-	}
-
-	/**
-	 * Get the related stage id by symbolic.
-	 * @return int
-	 */
-	function getStageIdBySymbolic($symbolic) {
-		switch ($symbolic) {
-			case 'SIGNOFF_COPYEDITING':
-				return WORKFLOW_STAGE_ID_EDITING;
-				break;
-			case 'SIGNOFF_PROOFING':
-				return WORKFLOW_STAGE_ID_PRODUCTION;
-				break;
-			default:
-				assert(false);
-		}
 	}
 
 

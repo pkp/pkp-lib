@@ -44,6 +44,7 @@
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput_.autocomplete(autocompleteOptions);
 		this.bind('autocompleteselect', this.itemSelected);
+		this.bind('autocompletefocus', this.itemFocused);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.AutocompleteHandler, $.pkp.classes.Handler);
@@ -110,8 +111,37 @@
 		var $hiddenInput = this.hiddenInput_;
 		var $textInput = this.textInput_;
 
-		$hiddenInput.val(ui.item.value);
-		$textInput.val(ui.item.label);
+		// only update the text field if the item has a value
+		// this allows us to return a 'no items' label with
+		// an empty value.
+		if (ui.item.value != '') {
+			$hiddenInput.val(ui.item.value);
+			$textInput.val(ui.item.label);
+		}
+		return false;
+	};
+
+
+	/**
+	 * Handle event triggered by moving through the autocomplete suggestions.
+	 * The default behaviour is to insert the value in the text field.  This
+	 * handler inserts the label instead.
+	 *
+	 * @param {HTMLElement} autocompleteElement The element that triggered
+	 *  the event.
+	 * @param {Event} event The triggered event.
+	 * @param {Object} ui The tabs ui data.
+	 * @return {boolean} Return value to be passed back
+	 *  to jQuery.
+	 */
+	$.pkp.controllers.AutocompleteHandler.prototype.itemFocused =
+			function(autocompleteElement, event, ui) {
+
+		var $textInput = this.textInput_;
+
+		if (ui.item.value != '') {
+			$textInput.val(ui.item.label);
+		}
 		return false;
 	};
 

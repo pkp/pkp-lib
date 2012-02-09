@@ -18,6 +18,7 @@
 	{if $selfActivate}
 		selfActivate: {$selfActivate},
 	{/if}
+	nonUniqueId: '{$nonUniqueId}',
 	{assign var="actionRequest" value=$action->getActionRequest()}
 	actionRequest: '{$actionRequest->getJSLinkActionRequest()}',
 	actionRequestOptions: {ldelim}

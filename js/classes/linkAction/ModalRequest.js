@@ -79,8 +79,10 @@
 		// Make sure that all events triggered on the modal will be
 		// forwarded to the link action. This is necessary because the
 		// modal has to be created outside the regular DOM.
+		var $linkActionElement = this.getLinkActionElement();
+		var linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		var handlerOptions = $.extend(true,
-				{$eventBridge: this.getLinkActionElement()}, modalOptions);
+				{$eventBridge: linkActionHandler.getNonUniqueId()}, modalOptions);
 		this.$dialog_ = $('<div id=' + uuid + '></div>').pkpHandler(
 				modalOptions.modalHandler, handlerOptions);
 

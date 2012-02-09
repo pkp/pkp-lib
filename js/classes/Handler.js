@@ -86,9 +86,9 @@
 
 
 	/**
-	 * A element to which we'll forward all handler events.
+	 * An HTML element id to which we'll forward all handler events.
 	 * @private
-	 * @type {jQuery}
+	 * @type {string}
 	 */
 	$.pkp.classes.Handler.prototype.$eventBridge_ = null;
 
@@ -503,7 +503,7 @@
 		// If we have an event bridge configured then re-trigger
 		// the event on the target object.
 		if (this.$eventBridge_) {
-			this.$eventBridge_.trigger(eventName, data);
+			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, data);
 		}
 	};
 

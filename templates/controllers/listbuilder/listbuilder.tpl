@@ -7,7 +7,7 @@
  * Displays a Listbuilder object
  *}
 
-{assign var=gridId value="component-"|concat:$grid->getId()}
+{assign var=gridId value="component-"|concat:$grid->getId():'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
 
 <script type="text/javascript">

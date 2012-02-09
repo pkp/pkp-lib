@@ -138,6 +138,7 @@
 	<message key="common.notAvailable">Not available</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
+	<message key="common.noMatches">No Matches</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
 	<message key="common.ok">OK</message>

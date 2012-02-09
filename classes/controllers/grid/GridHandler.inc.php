@@ -593,6 +593,19 @@ class GridHandler extends PKPHandler {
 		return $renderedForm;
 	}
 
+	/**
+	 * Returns a common 'no matches' result when subclasses find no results for
+	 * AJAX autocomplete requests.
+	 * @return string Serialized JSON object
+	 */
+	function noAutocompleteResults() {
+		$returner = array();
+		$returner[] = array('label' => __('common.noMatches'), 'value' => '');
+
+		$json = new JSONMessage(true, $returner);
+		return $json->getString();
+	}
+
 
 	//
 	// Private helper methods

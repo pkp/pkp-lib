@@ -206,6 +206,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Use a blocking request to avoid race conditions sometimes
 		// duplicating items, i.e. when editing an existing item after
 		// adding a new one.
+		this.disableControls();
 		$.ajax({
 			url: this.getFetchRowUrl(),
 			data: params,
@@ -235,6 +236,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Close any existing edits if necessary
 		this.closeEdits();
 
+		this.disableControls();
 		$.get(this.getFetchRowUrl(), {modify: true},
 				this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
 
@@ -304,9 +306,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 			// If this is a select menu listbuilder, load the options
 			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+				this.disableControls();
 				$.get(this.fetchOptionsUrl_, {},
 						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
 							'json');
+			} else {
+				this.enableControls();
 			}
 		}
 
@@ -401,7 +406,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				}
 			});
 		}
-
+		this.enableControls();
 		return false;
 	};
 
@@ -430,6 +435,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// If this is a select menu listbuilder, load the options
 		if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+			this.disableControls();
 			$.get(this.fetchOptionsUrl_, {},
 					this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
 						'json');
@@ -567,6 +573,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Attach handlers for content manipulation
 			this.attachContentHandlers_($newContent);
 		}
+		this.enableControls();
 	};
 
 
@@ -632,6 +639,38 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// Continue the default (form submit) behavior
 		return true;
+	};
+
+
+	/**
+	 * Disable the add_* links and show the spinner before making AJAX calls.
+	 * @private
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.disableControls = function() {
+
+		this.getHtmlElement().find('.add_item').unbind('click');
+		this.getHtmlElement().find('.add_user').unbind('click');
+
+		// binding false is the same as function() {return false;} in >= 1.4.2
+		this.getHtmlElement().find('.add_item').click(false);
+		this.getHtmlElement().find('.add_user').click(false);
+		this.getHtmlElement().find('.h3').addClass('spinner');
+	};
+
+
+	/**
+	 * Re-enable the add_* links and hide the spinner.
+	 * @private
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.enableControls = function() {
+		// rebind our 'click' handler so we can add another item if needed
+		this.getHtmlElement().find('.add_item').click(
+				this.callbackWrapper(this.addItemHandler_));
+		this.getHtmlElement().find('.add_user').click(
+				this.callbackWrapper(this.addItemHandler_));
+		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -88,7 +88,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement to edit
 	 * @param $request PKPRequest
 	 */
-	function editAnnouncement($args, $request) {
+	function editAnnouncement($args, &$request) {
 		// FIXME: Remove call to validate() when all ManagerHandler implementations
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();
@@ -130,8 +130,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	/**
 	 * Display form to create new announcement.
 	 */
-	function createAnnouncement() {
-		AnnouncementHandler::editAnnouncement();
+	function createAnnouncement($args, &$request) {
+		AnnouncementHandler::editAnnouncement($args, &$request);
 	}
 
 	/**

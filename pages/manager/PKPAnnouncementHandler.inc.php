@@ -197,7 +197,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		$rangeInfo =& Handler::getRangeInfo('announcementTypes', array());
 		while (true) {
-			$announcementTypes =& $this->_getAnnouncementTypes($rangeInfo);
+			$announcementTypes =& $this->_getAnnouncementTypes($request, $rangeInfo);
 			if ($announcementTypes->isInBounds()) break;
 			unset($rangeInfo);
 			$rangeInfo =& $announcementTypes->getLastPageRangeInfo();
@@ -224,7 +224,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
 			// Ensure announcement is for this context
-			if ($this->_announcementTypeIsValid($typeId)) {
+			if ($this->_announcementTypeIsValid($request, $typeId)) {
 				$announcementTypeDao->deleteAnnouncementTypeById($typeId);
 			}
 		}
@@ -237,7 +237,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $args array first parameter is the ID of the announcement type to edit
 	 * @param $request PKPRequest
 	 */
-	function editAnnouncementType($args, $request) {
+	function editAnnouncementType($args, &$request) {
 		// FIXME: Remove call to validate() when all ManagerHandler implementations
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();
@@ -247,7 +247,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
 		// Ensure announcement type is valid and for this context
-		if ($this->_announcementTypeIsValid($typeId)) {
+		if ($this->_announcementTypeIsValid($request, $typeId)) {
 			import('classes.manager.form.AnnouncementTypeForm');
 
 			$templateMgr =& TemplateManager::getManager();
@@ -274,9 +274,11 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 	/**
 	 * Display form to create new announcement type.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function createAnnouncementType() {
-		$this->editAnnouncementType();
+	function createAnnouncementType($args, &$request) {
+		$this->editAnnouncementType($args, &$request);
 	}
 
 	/**
@@ -295,7 +297,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$typeId = $request->getUserVar('typeId') == null ? null : (int) $request->getUserVar('typeId');
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
-		if ($this->_announcementTypeIsValid($typeId)) {
+		if ($this->_announcementTypeIsValid($request, $typeId)) {
 			$announcementTypeForm = new AnnouncementTypeForm($typeId);
 			$announcementTypeForm->readInputData();
 
@@ -329,7 +331,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $request PKPRequest
 	 * @param $subclass boolean
 	 */
-	function setupTemplate($request, $subclass = false) {
+	function setupTemplate(&$request, $subclass = false) {
 		parent::setupTemplate(true);
 		if ($subclass) {
 			$templateMgr =& TemplateManager::getManager();
@@ -337,12 +339,12 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		}
 	}
 
-	function _announcementIsValid($announcementId = null) {
+	function _announcementIsValid($request, $announcementId = null) {
 		// must be implemented by sub-classes
 		assert(false);
 	}
 
-	function _announcementTypeIsValid($typeId = null) {
+	function _announcementTypeIsValid($request, $typeId = null) {
 		// must be implemented by sub-classes
 		assert(false);
 	}

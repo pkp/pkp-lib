@@ -57,7 +57,7 @@ class PKPAnnouncementHandler extends Handler {
 		$announcementId = !isset($args) || empty($args) ? null : (int) $args[0];
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
-		if ($this->_getAnnouncementsEnabled($request) && $this->_announcementIsValid($announcementId)) {
+		if ($this->_getAnnouncementsEnabled($request) && $this->_announcementIsValid($request, $announcementId)) {
 			$announcement =& $announcementDao->getAnnouncement($announcementId);
 
 			if ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()) {
@@ -130,7 +130,7 @@ class PKPAnnouncementHandler extends Handler {
 	 * valid for display.
 	 * @param $announcementId integer
 	 */
-	function _announcementIsValid($announcementId) {
+	function _announcementIsValid(&$request, $announcementId) {
 		// must be implemented by sub-classes
 		assert(false);
 	}

@@ -503,6 +503,17 @@ class PKPLocale {
 	}
 
 	/**
+	* Translate the PKP locale identifier into an
+	* ISO639-1 compatible 2-letter string.
+	* @param $locale string
+	* @return string
+	*/
+	function getIso1FromLocale($locale) {
+		assert(strlen($locale) == 5);
+		return substr($locale, 0, 2);
+	}
+
+	/**
 	 * Translate an ISO639-3 compatible 3-letter string
 	 * into the PKP locale identifier.
 	 *

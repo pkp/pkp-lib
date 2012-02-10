@@ -67,8 +67,7 @@ class DAORegistry {
 			// Only instantiate each class of DAO a single time
 			$daos[$name] =& instantiate($className, array('DAO', 'XMLDAO'));
 			if ($dbconn != null) {
-				// FIXME Needed by installer but shouldn't access member variable directly
-				$daos[$name]->_dataSource = $dbconn;
+				$daos[$name]->setDataSource($dbconn);
 			}
 		}
 

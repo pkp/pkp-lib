@@ -245,7 +245,8 @@ class PKPApplication {
 	 * access.
 	 *
 	 * @param $category string
-	 * @param $mainContextId integer
+	 * @param $mainContextId integer Optional ID of the top-level context
+	 * (e.g. Journal, Conference, Press) to query for enabled products
 	 * @return array
 	 */
 	function &getEnabledProducts($category = null, $mainContextId = null) {

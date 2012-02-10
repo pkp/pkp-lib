@@ -30,6 +30,29 @@ class DAO {
 	var $_dataSource;
 
 	/**
+	 * Get db conn.
+	 * @return ADONewConnection
+	 */
+	function &getDataSource() {
+		return $this->_dataSource;
+	}
+
+	/**
+	 * Set db conn.
+	 * @param $dataSource ADONewConnection
+	 */
+	function setDataSource(&$dataSource) {
+		$this->_dataSource =& $dataSource;
+	}
+
+	/**
+	 * Concatenation.
+	 */
+	function concat() {
+	    return call_user_func_array(array($this->getDataSource(), 'Concat'), func_get_args());
+	 }
+
+	/**
 	 * Constructor.
 	 * Initialize the database connection.
 	 */
@@ -43,9 +66,9 @@ class DAO {
 		}
 
 		if (!isset($dataSource)) {
-			$this->_dataSource =& DBConnection::getConn();
+			$this->setDataSource(DBConnection::getConn());
 		} else {
-			$this->_dataSource = $dataSource;
+			$this->setDataSource($dataSource);
 		}
 	}
 
@@ -69,11 +92,12 @@ class DAO {
 		}
 
 		$start = Core::microtime();
-		$result =& $this->_dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
+		$dataSource = $this->getDataSource();
+		$result =& $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		DBConnection::logQuery($sql, $start, $params);
-		if ($this->_dataSource->errorNo()) {
+		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
+			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
 	}
@@ -100,11 +124,12 @@ class DAO {
 		$this->setCacheDir();
 
 		$start = Core::microtime();
-		$result =& $this->_dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
+		$dataSource = $this->getDataSource();
+		$result =& $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
 		DBConnection::logQuery($sql, $start, $params);
-		if ($this->_dataSource->errorNo()) {
+		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
-			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
+			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
 	}
@@ -131,10 +156,11 @@ class DAO {
 		}
 
 		$start = Core::microtime();
-		$result =& $this->_dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
+		$dataSource = $this->getDataSource();
+		$result =& $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
 		DBConnection::logQuery($sql, $start, $params);
-		if ($this->_dataSource->errorNo()) {
-			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
+		if ($dataSource->errorNo()) {
+			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
 		return $result;
 	}
@@ -159,10 +185,11 @@ class DAO {
 
 		if (isset($dbResultRange) && $dbResultRange->isValid()) {
 			$start = Core::microtime();
-			$result =& $this->_dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
+			$dataSource = $this->getDataSource();
+			$result =& $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
 			DBConnection::logQuery($sql, $start, $params);
-			if ($this->_dataSource->errorNo()) {
-				fatalError('DB Error: ' . $this->_dataSource->errorMsg());
+			if ($dataSource->errorNo()) {
+				fatalError('DB Error: ' . $dataSource->errorMsg());
 			}
 		}
 		else {
@@ -193,12 +220,13 @@ class DAO {
 		}
 
 		$start = Core::microtime();
-		$this->_dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
+		$dataSource = $this->getDataSource();
+		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		DBConnection::logQuery($sql, $start, $params);
-		if ($dieOnError && $this->_dataSource->errorNo()) {
-			fatalError('DB Error: ' . $this->_dataSource->errorMsg());
+		if ($dieOnError && $dataSource->errorNo()) {
+			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
-		return $this->_dataSource->errorNo() == 0 ? true : false;
+		return $dataSource->errorNo() == 0 ? true : false;
 	}
 
 	/**
@@ -208,8 +236,9 @@ class DAO {
 	 * @param $keyCols array Array of column names that are keys
 	 */
 	function replace($table, $arrFields, $keyCols) {
-		$arrFields = array_map(array($this->_dataSource, 'qstr'), $arrFields);
-		$this->_dataSource->Replace($table, $arrFields, $keyCols, false);
+		$dataSource = $this->getDataSource();
+		$arrFields = array_map(array($dataSource, 'qstr'), $arrFields);
+		$dataSource->Replace($table, $arrFields, $keyCols, false);
 	}
 
 	/**
@@ -219,7 +248,8 @@ class DAO {
 	 * @return int
 	 */
 	function getInsertId($table = '', $id = '', $callHooks = true) {
-		return $this->_dataSource->po_insert_id($table, $id);
+		$dataSource = $this->getDataSource();
+		return $dataSource->po_insert_id($table, $id);
 	}
 
 	/**
@@ -227,7 +257,8 @@ class DAO {
 	 * @return int (or false if not supported)
 	 */
 	function getAffectedRows() {
-		return $this->_dataSource->Affected_Rows();
+		$dataSource = $this->getDataSource();
+		return $dataSource->Affected_Rows();
 	}
 
 	/**
@@ -251,7 +282,8 @@ class DAO {
 	 */
 	function flushCache() {
 		$this->setCacheDir();
-		$this->_dataSource->CacheFlush();
+		$dataSource = $this->getDataSource();
+		$dataSource->CacheFlush();
 	}
 
 	/**
@@ -260,7 +292,8 @@ class DAO {
 	 * @return string
 	 */
 	function datetimeToDB($dt) {
-		return $this->_dataSource->DBTimeStamp($dt);
+		$dataSource = $this->getDataSource();
+		return $dataSource->DBTimeStamp($dt);
 	}
 
 	/**
@@ -269,7 +302,8 @@ class DAO {
 	 * @return string
 	 */
 	function dateToDB($d) {
-		return $this->_dataSource->DBDate($d);
+		$dataSource = $this->getDataSource();
+		return $dataSource->DBDate($d);
 	}
 
 	/**
@@ -279,7 +313,8 @@ class DAO {
 	 */
 	function datetimeFromDB($dt) {
 		if ($dt === null) return null;
-		return $this->_dataSource->UserTimeStamp($dt, 'Y-m-d H:i:s');
+		$dataSource = $this->getDataSource();
+		return $dataSource->UserTimeStamp($dt, 'Y-m-d H:i:s');
 	}
 	/**
 	 * Return date from DB as ISO date string.
@@ -288,7 +323,8 @@ class DAO {
 	 */
 	function dateFromDB($d) {
 		if ($d === null) return null;
-		return $this->_dataSource->UserDate($d, 'Y-m-d');
+		$dataSource = $this->getDataSource();
+		return $dataSource->UserDate($d, 'Y-m-d');
 	}
 
 	/**

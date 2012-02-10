@@ -29,7 +29,7 @@ class Mods34SchemaSubmissionAdapterTest extends Mods34DescriptionTestCase {
 	/**
 	 * @covers Mods34SchemaSubmissionAdapter
 	 */
-	/* FIXME: This test is currently broken due to a change by Matt.
+	/* FIXME: This test is currently broken (see #5231).
 	public function testMods34SchemaSubmissionAdapter() {
 		// Test constructor.
 		$adapter = new Mods34SchemaSubmissionAdapter(PersistableFilter::tempGroup(

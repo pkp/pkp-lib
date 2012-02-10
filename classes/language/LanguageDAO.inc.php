@@ -96,7 +96,7 @@ class LanguageDAO extends DAO {
 
 	/**
 	 * Retrieve a language by code.
-	 * @param $code string
+	 * @param $code string ISO 639-1
 	 * @param $locale string
 	 * @return Language
 	 */

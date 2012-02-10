@@ -669,7 +669,7 @@ class Installer {
 	 */
 	function columnExists($tableName, $columnName) {
 		$siteDao =& DAORegistry::getDAO('SiteDAO');
-		$dict = NewDataDictionary($siteDao->_dataSource);
+		$dict = NewDataDictionary($siteDao->getDataSource());
 
 		// Make sure the table exists
 		$tables = $dict->MetaTables('TABLES', false);
@@ -692,7 +692,7 @@ class Installer {
 	 */
 	function tableExists($tableName) {
 		$siteDao =& DAORegistry::getDAO('SiteDAO');
-		$dict = NewDataDictionary($siteDao->_dataSource);
+		$dict = NewDataDictionary($siteDao->getDataSource());
 
 		// Check whether the table exists.
 		$tables = $dict->MetaTables('TABLES', false);

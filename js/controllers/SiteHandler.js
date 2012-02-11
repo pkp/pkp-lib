@@ -243,9 +243,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		if (workingJsonData !== false) {
 			if (workingJsonData.content.general) {
 				var notificationsData = workingJsonData.content.general;
-				var key;
-				for (key in notificationsData) {
-					$.pnotify(notificationsData[key]);
+				for (var levelId in notificationsData) {
+					for (var notificationId in notificationsData[levelId]) {
+						$.pnotify(notificationsData[levelId][notificationId]);
+					}					
 				}
 			}
 		}

@@ -159,13 +159,15 @@
 
 		var workingNotificationsData = notificationsData;
 		var emptyObject = true;
-		for (var key in workingNotificationsData.content.inPlace) {
-			var element = $('#pkp_notification_' + key);
-			if (element.length > 0) {
-				delete workingNotificationsData.content.inPlace[key];
-				delete workingNotificationsData.content.general[key];
-			} else {
-				emptyObject = false;
+		for (var levelId in workingNotificationsData.content.inPlace) {
+			for (var notificationId in workingNotificationsData.content.inPlace[levelId]) {
+				var element = $('#pkp_notification_' + notificationId);
+				if (element.length > 0) {
+					delete workingNotificationsData.content.inPlace[levelId][notificationId];
+					delete workingNotificationsData.content.general[levelId][notificationId];
+				} else {
+					emptyObject = false;
+				}
 			}
 		}
 		if (emptyObject) {
@@ -186,8 +188,10 @@
 	$.pkp.controllers.NotificationHandler.prototype.
 			concatenateNotifications_ = function(notificationsData) {
 		var returner = '';
-		for (var key in notificationsData) {
-			returner += notificationsData[key];
+		for (var levelId in notificationsData) {
+			for (var notificationId in notificationsData[levelId]) {
+				returner += notificationsData[levelId][notificationId];
+			}
 		}
 		return returner;
 	};

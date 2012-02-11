@@ -171,6 +171,27 @@ class NotificationDAO extends DAO {
 	}
 
 	/**
+	 * Inserts or update a notification into notifications table.
+	 * @param $notification object
+	 * @return int
+	 */
+	function updateNotification(&$notification) { /* @var $notification Notification */
+		$this->update('DELETE FROM notifications
+			WHERE context_id = ? AND level = ? AND type = ? AND user_id = ?
+				AND assoc_type = ? AND assoc_id = ?',
+			array(
+				$notification->getContextId(),
+				$notification->getLevel(),
+				$notification->getType(),
+				$notification->getUserId(),
+				$notification->getAssocType(),
+				$notification->getAssocId()
+			)
+		);
+		$this->insertNotification($notification);
+	}
+
+	/**
 	 * Delete Notification by notification id
 	 * @param $notificationId int
 	 * @param $userId int

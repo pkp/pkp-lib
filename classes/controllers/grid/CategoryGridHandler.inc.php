@@ -224,7 +224,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $categoryDataElement mixed
 	 * @return array
 	 */
-	function &getCategoryData(&$categoryDataElement, $filter) {
+	function &getCategoryData(&$categoryDataElement, $filter = null) {
 		$dataProvider =& $this->getDataProvider();
 		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
 			// Populate the grid with data from the

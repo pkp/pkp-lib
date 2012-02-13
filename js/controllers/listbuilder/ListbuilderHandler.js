@@ -47,8 +47,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Attach the content manipulation handlers
 		this.attachContentHandlers_($listbuilder);
 
-		// Sign up for notification of form submission
+		// Sign up for notification of form submission.
 		this.bind('formSubmitRequested', this.formSubmitHandler_);
+		
+		// Sign up for notification of form submitted.
+		this.bind('formSubmitted', this.formSubmittedHandler_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.listbuilder.ListbuilderHandler,
 			$.pkp.controllers.grid.GridHandler);
@@ -625,7 +628,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The event.
-	 * @return {boolean} False iff the form submission should abort.
+	 * @return {boolean} False if the form submission should abort.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.formSubmitHandler_ = function(callingForm, event) {
@@ -639,6 +642,20 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// Continue the default (form submit) behavior
 		return true;
+	};
+	
+	/**
+	 * Enable deactivated inputs.
+	 * @private
+	 *
+	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
+	 *  that triggered the event.
+	 * @param {Event} event The event.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.formSubmittedHandler_ = function(callingForm, event) {
+
+		this.getHtmlElement().find('.gridRow :input').removeAttr('disabled');
 	};
 
 

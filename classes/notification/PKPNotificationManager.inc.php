@@ -131,6 +131,9 @@ class PKPNotificationManager {
 				return $this->_getTranslatedKeyWithParameters('common.pluginDisabled', $notification->getId());
 			case NOTIFICATION_TYPE_LOCALE_INSTALLED:
 				return $this->_getTranslatedKeyWithParameters('admin.languages.localeInstalled', $notification->getId());
+			case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
+				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
+				return __('notification.type.newAnnouncement');
 			default:
 				return null;
 		}

@@ -125,7 +125,7 @@ class PKPAnnouncementForm extends Form {
 			$announcement = new Announcement();
 		}
 
-		// give the parent class a chance to set the assocType/assocId
+		// Give the parent class a chance to set the assocType/assocId.
 		$this->_setAnnouncementAssocId($announcement);
 
 		$announcement->setTitle($this->getData('title'), null); // Localized
@@ -138,10 +138,14 @@ class PKPAnnouncementForm extends Form {
 			$announcement->setTypeId(null);
 		}
 
-		if ($this->getData('dateExpireYear') != null) {
-			$announcement->setDateExpire($this->getData('dateExpire'));
-		} else {
-			$announcement->setDateExpire(null);
+		// Give the parent class a chance to set the dateExpire.
+		$dateExpireSetted = $this->setDateExpire($announcement);
+		if (!$dateExpireSetted) {
+			if ($this->getData('dateExpireYear') != null) {
+				$announcement->setDateExpire($this->getData('dateExpire'));
+			} else {
+				$announcement->setDateExpire(null);
+			}
 		}
 
 		// Update or insert announcement
@@ -155,6 +159,24 @@ class PKPAnnouncementForm extends Form {
 		return $announcement;
 	}
 
+
+	//
+	// Protected methods.
+	//
+	/**
+	* Helper function to assign the date expire.
+	* Must be implemented by subclasses.
+	* @param $annoucement Announcement the announcement to be modified
+	* @return boolean
+	*/
+	function setDateExpire(&$announcement) {
+		return false;
+	}
+
+
+	//
+	// Private methods.
+	//
 	function _getAnnouncementTypesAssocId() {
 		// must be implemented by sub-classes
 		assert(false);

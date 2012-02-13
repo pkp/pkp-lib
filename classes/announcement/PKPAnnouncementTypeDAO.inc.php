@@ -113,18 +113,22 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * Return announcement type ID based on a type name for an assoc type/id pair.
 	 * @param $typeName string
 	 * @param $assocType int
+	 * @param $assocId int
 	 * @return int
 	 */
-	function getAnnouncementTypeByTypeName($typeName, $assocType) {
+	function getAnnouncementTypeByTypeName($typeName, $assocType, $assocId) {
 		$result =& $this->retrieve(
-			'SELECT type_id
-				FROM announcement_types
-				WHERE type_name = ?
-				AND assoc_type = ?
-				AND assoc_id = ?',
+			'SELECT ats.type_id
+				FROM announcement_type_settings AS ats
+				LEFT JOIN announcement_types at ON ats.type_id = at.type_id
+				WHERE ats.setting_name = "name"
+				AND ats.setting_value = ?
+				AND at.assoc_type = ?
+				AND at.assoc_id = ?',
 			array(
 				$typeName,
-				$assocType
+				$assocType,
+				$assocId
 			)
 		);
 		$returner = isset($result->fields[0]) ? $result->fields[0] : 0;

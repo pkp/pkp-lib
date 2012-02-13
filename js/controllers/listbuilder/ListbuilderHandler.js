@@ -41,8 +41,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Attach the button handlers
 		$listbuilder.find('.add_item').click(
 				this.callbackWrapper(this.addItemHandler_));
-		$listbuilder.find('.add_user').click(
-				this.callbackWrapper(this.addItemHandler_));
 
 		// Attach the content manipulation handlers
 		this.attachContentHandlers_($listbuilder);
@@ -667,11 +665,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			prototype.disableControls = function() {
 
 		this.getHtmlElement().find('.add_item').unbind('click');
-		this.getHtmlElement().find('.add_user').unbind('click');
 
 		// binding false is the same as function() {return false;} in >= 1.4.2
 		this.getHtmlElement().find('.add_item').click(false);
-		this.getHtmlElement().find('.add_user').click(false);
 		this.getHtmlElement().find('.h3').addClass('spinner');
 	};
 
@@ -684,8 +680,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item if needed
 		this.getHtmlElement().find('.add_item').click(
-				this.callbackWrapper(this.addItemHandler_));
-		this.getHtmlElement().find('.add_user').click(
 				this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};

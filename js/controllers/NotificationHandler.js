@@ -100,7 +100,7 @@
 			$notificationElement.show();
 
 			if (!(this.visibleWithoutScrolling_()) && newNotificationsData) {
-				$('body').trigger('notifyUser', newNotificationsData);
+				$notificationElement.parent().trigger('notifyUser', newNotificationsData);
 			}
 		} else {
 			this.getHtmlElement().empty();

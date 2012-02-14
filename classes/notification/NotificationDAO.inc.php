@@ -175,7 +175,7 @@ class NotificationDAO extends DAO {
 	 * @param $notification object
 	 * @return int
 	 */
-	function updateNotification(&$notification) { /* @var $notification Notification */
+	function buildNotification(&$notification) { /* @var $notification Notification */
 		$this->update('DELETE FROM notifications
 			WHERE context_id = ? AND level = ? AND type = ? AND user_id = ?
 				AND assoc_type = ? AND assoc_id = ?',

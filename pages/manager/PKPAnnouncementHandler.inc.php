@@ -80,7 +80,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			}
 		}
 
-		$request->redirect(null, null, 'announcements');
+		$router =& $request->getRouter();
+		$request->redirectUrl($router->url($request, null, null, 'announcements'));
+
 	}
 
 	/**
@@ -125,7 +127,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$announcementForm->display();
 
 		} else {
-			$request->redirect(null, null, 'announcements');
+			$router =& $request->getRouter();
+			$request->redirectUrl($router->url($request, null, null, 'announcements'));
+
 		}
 	}
 
@@ -145,6 +149,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();
 		$this->setupTemplate($request);
+
+		$router =& $request->getRouter();
 
 		import('classes.manager.form.AnnouncementForm');
 
@@ -166,9 +172,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$announcementForm->execute($request);
 
 				if ($request->getUserVar('createAnother')) {
-					$request->redirect(null, null, 'createAnnouncement');
+					$request->redirectUrl($router->url($request, null, null, 'createAnnouncement'));
 				} else {
-					$request->redirect(null, null, 'announcements');
+					$request->redirectUrl($router->url($request, null, null, 'announcements'));
 				}
 
 			} else {
@@ -184,7 +190,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$announcementForm->display();
 			}
 		} else {
-			$request->redirect(null, null, 'announcements');
+			$request->redirectUrl($router->url($request, null, null, 'announcements'));
 		}
 	}
 
@@ -233,7 +239,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			}
 		}
 
-		$request->redirect(null, null, 'announcementTypes');
+		$router =& $request->getRouter();
+		$request->redirectUrl($router->url($request, null, null, 'announcementTypes'));
 	}
 
 	/**
@@ -272,7 +279,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$announcementTypeForm->display();
 
 		} else {
-			$request->redirect(null, null, 'announcementTypes');
+			$router =& $request->getRouter();
+			$request->redirectUrl($router->url($request, null, null, 'announcementTypes'));
 		}
 	}
 
@@ -296,6 +304,8 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$this->validate();
 		$this->setupTemplate($request, true);
 
+		$router =& $request->getRouter();
+
 		import('classes.manager.form.AnnouncementTypeForm');
 
 		$typeId = $request->getUserVar('typeId') == null ? null : (int) $request->getUserVar('typeId');
@@ -309,9 +319,9 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$announcementTypeForm->execute();
 
 				if ($request->getUserVar('createAnother')) {
-					$request->redirect(null, null, 'createAnnouncementType');
+					$request->redirectUrl($router->url($request, null, null, 'createAnnouncementType'));
 				} else {
-					$request->redirect(null, null, 'announcementTypes');
+					$request->redirectUrl($router->url($request, null, null, 'announcementTypes'));
 				}
 			} else {
 				$templateMgr =& TemplateManager::getManager();
@@ -326,7 +336,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$announcementTypeForm->display();
 			}
 		} else {
-			$request->redirect(null, null, 'announcementTypes');
+			$request->redirectUrl($router->url($request, null, null, 'announcementTypes'));
 		}
 	}
 

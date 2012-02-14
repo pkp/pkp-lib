@@ -19,12 +19,17 @@ class PKPAnnouncementForm extends Form {
 	/** @var announcementId int the ID of the announcement being edited */
 	var $announcementId;
 
+	/** @var int */
+	var $_contextId;
+
 	/**
 	 * Constructor
+	 * @param $contextId int
 	 * @param announcementId int leave as default for new announcement
 	 */
-	function PKPAnnouncementForm($announcementId = null) {
+	function PKPAnnouncementForm($contextId, $announcementId = null) {
 
+		$this->_contextId = $contextId;
 		$this->announcementId = isset($announcementId) ? (int) $announcementId : null;
 		parent::Form('manager/announcement/announcementForm.tpl');
 
@@ -53,6 +58,22 @@ class PKPAnnouncementForm extends Form {
 		$this->addCheck(new FormValidatorPost($this));
 	}
 
+
+	//
+	// Getters and setters.
+	//
+	/**
+	 * Get the current context id.
+	 * @return int
+	 */
+	function getContextId() {
+		return $this->_contextId;
+	}
+
+
+	//
+	// Extended methods from Form.
+	//
 	/**
 	 * Get the list of localized field names for this object
 	 * @return array

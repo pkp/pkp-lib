@@ -110,10 +110,12 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				$templateMgr->assign('announcementTitle', 'manager.announcements.editTitle');
 			}
 
+			$contextId = $this->getContextId($request);
+
 			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($announcementId);
+				$announcementForm = new AnnouncementForm($contextId, $announcementId);
 			} else {
-				$announcementForm =& new AnnouncementForm($announcementId);
+				$announcementForm =& new AnnouncementForm($contextId, $announcementId);
 			}
 			if ($announcementForm->isLocaleResubmit()) {
 				$announcementForm->readInputData();
@@ -151,10 +153,12 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 		if ($this->_announcementIsValid($request, $announcementId)) {
 
+			$contextId = $this->getContextId($request);
+
 			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($announcementId);
+				$announcementForm = new AnnouncementForm($contextId, $announcementId);
 			} else {
-				$announcementForm =& new AnnouncementForm($announcementId);
+				$announcementForm =& new AnnouncementForm($contextId, $announcementId);
 			}
 			$announcementForm->readInputData();
 
@@ -339,6 +343,24 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		}
 	}
 
+
+	//
+	// Protected methods.
+	//
+	/**
+	 * Get the current context id in request.
+	 * @param $request PKPRequest
+	 * @return int or null
+	 */
+	function getContextId($request) {
+		// must be implemented by sub-classes
+		assert(false);
+	}
+
+
+	//
+	// Private helper methods.
+	//
 	function _announcementIsValid($request, $announcementId = null) {
 		// must be implemented by sub-classes
 		assert(false);

@@ -580,6 +580,43 @@ class DAO {
 		$json->setEvent('dataChanged', $eventData);
 		return $json->getString();
 	}
+
+	/**
+	* Format a passed date (in English textual datetime)
+	* to Y-m-d H:i:s format, used in database.
+	* @param $date string Any English textual datetime.
+	* @param $defaultNumWeeks int If passed and date is null,
+	* used to calculate a data in future from today.
+	* @param $acceptPastDate boolean Will not accept past dates,
+	* returning today if false and the passed date
+	* is in the past.
+	* @return string or null
+	*/
+	function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true) {
+		$today = getDate();
+		$todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);
+		if ($date != null) {
+			$dueDateParts = explode('-', $date);
+
+			// If we don't accept past dates...
+			if (!$acceptPastDate && $todayTimestamp > strtotime($date)) {
+				// ... return today.
+				return date('Y-m-d H:i:s', $todayTimestamp);
+			} else {
+				// Return the passed date.
+				return date('Y-m-d H:i:s', mktime(0, 0, 0, $dueDateParts[1], $dueDateParts[2], $dueDateParts[0]));
+			}
+		} elseif (isset($defaultNumWeeks)) {
+			// Add the equivalent of $numWeeks weeks, measured in seconds, to $todaysTimestamp.
+			$numWeeks = max((int) $defaultNumWeeks, 2);
+			$newDueDateTimestamp = $todayTimestamp + ($numWeeks * 7 * 24 * 60 * 60);
+			return date('Y-m-d H:i:s', $newDueDateTimestamp);
+		} else {
+			// Either the date or the defaultNumWeeks must be set
+			assert(false);
+			return null;
+		}
+	}
 }
 
 ?>

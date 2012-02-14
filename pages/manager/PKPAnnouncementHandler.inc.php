@@ -64,7 +64,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Delete an announcement.
 	 * @param $args array first parameter is the ID of the announcement to delete
 	 */
-	function deleteAnnouncement($args, $request) {
+	function deleteAnnouncement($args, &$request) {
 		// FIXME: Remove call to validate() when all ManagerHandler implementations
 		// (across all apps) have been migrated to the authorize() authorization approach.
 		$this->validate();
@@ -75,7 +75,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 			// Ensure announcement is for this context
-			if ($this->_announcementIsValid($announcementId)) {
+			if ($this->_announcementIsValid($request, $announcementId)) {
 				$announcementDao->deleteAnnouncementById($announcementId);
 			}
 		}
@@ -98,7 +98,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 		// Ensure announcement is valid and for this context
-		if ($this->_announcementIsValid($announcementId)) {
+		if ($this->_announcementIsValid($request, $announcementId)) {
 			import('classes.manager.form.AnnouncementForm');
 
 			$templateMgr =& TemplateManager::getManager();
@@ -131,7 +131,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display form to create new announcement.
 	 */
 	function createAnnouncement($args, &$request) {
-		AnnouncementHandler::editAnnouncement($args, &$request);
+		$this->editAnnouncement($args, &$request);
 	}
 
 	/**
@@ -149,7 +149,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$announcementId = $request->getUserVar('announcementId') == null ? null : (int) $request->getUserVar('announcementId');
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
-		if ($this->_announcementIsValid($announcementId)) {
+		if ($this->_announcementIsValid($request, $announcementId)) {
 
 			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
 				$announcementForm = new AnnouncementForm($announcementId);

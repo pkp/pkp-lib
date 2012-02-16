@@ -15,13 +15,15 @@
  */
 
 class PaymentManager {
+	/** @var $request PKPRequest */
+	var $request;
+
 	/**
-	 * Get the payment manager.
-	 * @return object
+	 * Constructor
+	 * @param $request PKPRequest
 	 */
-	function &getManager() {
-		// must be implemented by sub-classes
-		assert(false);
+	function PaymentManager(&$request) {
+		$this->request =& $request;
 	}
 
 	/**
@@ -57,7 +59,7 @@ class PaymentManager {
 	 */
 	function isConfigured() {
 		$paymentPlugin =& $this->getPaymentPlugin();
-		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured();
+		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured($request);
 		return false;
 	}
 
@@ -69,7 +71,7 @@ class PaymentManager {
 	 */
 	function displayPaymentForm($queuedPaymentId, &$queuedPayment) {
 		$paymentPlugin =& $this->getPaymentPlugin();
-		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayPaymentForm($queuedPaymentId, $queuedPayment);
+		if ($paymentPlugin !== null && $paymentPlugin->isConfigured()) return $paymentPlugin->displayPaymentForm($queuedPaymentId, $queuedPayment, $this->request);
 		return false;
 	}
 

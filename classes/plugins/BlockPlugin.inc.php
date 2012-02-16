@@ -137,9 +137,10 @@ class BlockPlugin extends LazyLoadPlugin {
 	 * Get the HTML contents for this block.
 	 *
 	 * @param $templateMgr object
+	 * @param $request PKPRequest (Optional for legacy plugins)
 	 * @return string
 	 */
-	function getContents(&$templateMgr) {
+	function getContents(&$templateMgr, $request = null) {
 		$blockTemplateFilename = $this->getBlockTemplateFilename();
 		if ($blockTemplateFilename === null) return '';
 		return $templateMgr->fetch($this->getTemplatePath() . $blockTemplateFilename);
@@ -156,7 +157,7 @@ class BlockPlugin extends LazyLoadPlugin {
 		$params =& $args[0];
 		$smarty =& $args[1];
 		$output =& $args[2];
-		$output .= $this->getContents($smarty);
+		$output .= $this->getContents($smarty, PKPApplication::getRequest());
 		return false;
 	}
 

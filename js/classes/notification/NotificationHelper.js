@@ -67,7 +67,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		// cases, just bubble up again the event until it gets the right
 		// handler (the site handler).
 		if (triggerElement.content != undefined) {
-			notificationsData = triggerElement;
+			var notificationsData = triggerElement;
 			handler.getHtmlElement().parent().trigger('notifyUser', notificationsData);
 			return; // no need to do any other event redirection.
 		}

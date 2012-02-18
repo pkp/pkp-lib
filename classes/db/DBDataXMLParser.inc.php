@@ -151,7 +151,7 @@ class DBDataXMLParser {
 										if ($col->not_null) $fld['NOTNULL'] = 'NOTNULL';
 										if ($col->has_default) $fld['DEFAULT'] = $col->default_value;
 										$flds = array($colId => $fld);
-									}
+									} else assert(false);
 									$this->sql[] = $dbdict->RenameColumnSQL($table, $column, $to, $flds);
 								}
 							} else {

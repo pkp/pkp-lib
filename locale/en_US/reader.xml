@@ -49,7 +49,7 @@
 
 	<message key="rt.admin.sharing">Sharing</message>
 	<message key="rt.admin.sharing.enabled">Sharing Enabled</message>
-	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share journal articles, sign up for an account with <a href="http://addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[To enable your readers to share content, sign up for an account with <a href="http://addthis.com">addthis.com</a>, and copy/paste the Sharing button code below.]]></message>
 
 	<message key="rt.admin.sharing.basic">Basic Settings</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com user name</message>
@@ -147,7 +147,7 @@
 	<message key="rt.metadata.pkpItem">PKP Metadata Items</message>
 	<message key="rt.metadata.pkp.language">English=en</message>
 	<message key="rt.metadata.pkp.publisher">Organizing agency, location</message>
-	<message key="rt.metadata.pkp.source">Journal/conference title; vol., no. (year)</message>
+	<message key="rt.metadata.pkp.source">Title; vol., no. (year)</message>
 	<message key="rt.metadata.pkp.sponsors">Sponsor(s)</message>
 	<message key="rt.metadata.pkp.subjectClass">Subject classification</message>
 	<message key="rt.metadata.pkp.subject">Keyword(s)</message>

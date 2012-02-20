@@ -120,5 +120,5 @@
 	<message key="user.userHome">User Home</message>
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working Languages</message>
-	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
+	<message key="user.register.completeForm">Fill in this form to register with this site.</message>
 </locale>

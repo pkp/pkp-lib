@@ -30,6 +30,9 @@
 		// Save the event name to trigger upon selection for later
 		this.eventName_ = options.eventName;
 
+		// Save the default key, to select upon the first list load.
+		this.defaultKey_ = options.defaultKey;
+
 		// Expose the selectMonograph event to the containing element.
 		this.publishEvent(this.eventName_);
 
@@ -60,6 +63,14 @@
 	 * @type {string?}
 	 */
 	$.pkp.controllers.form.DropdownFormHandler.prototype.eventName_ = null;
+
+
+	/**
+	 * The key for the default value to select upon option load.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.form.DropdownFormHandler.prototype.defaultKey_ = null;
 
 
 	//
@@ -99,6 +110,10 @@
 		for (var optionId in jsonData.content) {
 			var $option = $('<option/>');
 			$option.attr('value', optionId);
+			if (this.defaultKey_ == optionId) {
+				$option.attr('selected', 'selected');
+				this.trigger(this.eventName_, optionId);
+			}
 			$option.text(jsonData.content[optionId]);
 			$select.append($option);
 		}

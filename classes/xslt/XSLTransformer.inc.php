@@ -28,6 +28,9 @@ class XSLTransformer {
 	/** @var $externalCommand string containing external XSLT shell command */
 	var $externalCommand;
 
+	/** @var $externalParameterSnippet string containing external XSLT shell arguments for parameters */
+	var $externalParameterSnippet;
+
 	/** @var $parameters array of parameters to pass to XSL (built-in libraries only) */
 	var $parameters;
 
@@ -44,6 +47,7 @@ class XSLTransformer {
 	 */
 	function XSLTransformer() {
 		$this->externalCommand = Config::getVar('cli', 'xslt_command');
+		$this->externalParameterSnippet = Config::getVar('cli', 'xslt_parameter_option');
 
 		// Determine the appropriate XSLT processor for the system
 		if ($this->externalCommand) {
@@ -182,8 +186,14 @@ class XSLTransformer {
 		if ( strpos($this->externalCommand, '%xsl') === false ) return $falseVar;
 		if ( strpos($this->externalCommand, '%xml') === false ) return $falseVar;
 
+		// Assemble the parameters to be supplied to the stylesheet
+		$parameterString = '';
+		foreach ($this->parameters as $name => $value) {
+			$parameterString .= str_replace(array('%n', '%v'), array($name, $value), $this->externalParameterSnippet);
+		}
+
 		// perform %xsl and %xml replacements for fully-qualified shell command
-		$xsltCommand = str_replace(array('%xsl', '%xml'), array($xslFile, $xmlFile), $this->externalCommand);
+		$xsltCommand = str_replace(array('%xsl', '%xml', '%params'), array($xsl, $xml, $parameterString), $this->externalCommand);
 
 		// check for safe mode and escape the shell command
 		if( !ini_get('safe_mode') ) $xsltCommand = escapeshellcmd($xsltCommand);

@@ -106,8 +106,11 @@
 						var notifications = data.content;
 						var i, l;
 						if (notifications && notifications.general) {ldelim}
-							$.each(notifications.general, function(notificationId, notification) {ldelim}
-								$.pnotify(notification);
+							$.each(notifications.general, function(notificationLevel, notificationList) {ldelim}
+								$.each(notificationList, function(notificationId, notification) {ldelim}
+									console.log(notification);
+									$.pnotify(notification);
+								{rdelim});
 							{rdelim});
 						{rdelim}
 				{rdelim}, 'json');

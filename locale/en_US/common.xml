@@ -233,6 +233,7 @@
 	<message key="email.to">To</message>
 	<message key="form.confirmSubmit">Are you sure you want to submit this form?</message>
 	<message key="form.confirmSubmit.title">Confirm</message>
+	<message key="form.emailRequired">An email address is required.</message>
 	<message key="form.dataHasChanged">The data on this form has changed.</message>
 	<message key="form.errorsOccurred">Errors occurred processing this form</message>
 	<message key="form.formLanguage.description">To enter the information below in additional languages, first select the language.</message>

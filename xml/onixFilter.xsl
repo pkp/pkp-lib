@@ -4,7 +4,6 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	xmlns:oai="http://www.openarchives.org/OAI/2.0/"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:php="http://php.net/xsl"
 >
 <xsl:param name="listName" /><!-- this is handed in via XSLTransformer->setParameters() -->
 <xsl:output method="xml"/>
@@ -22,10 +21,7 @@
 					-->
 
 					<xsl:when test="$listName='List7'"> <!--  ONIX list for formats -->
-						<xsl:variable name="testOutput">
-							<xsl:value-of select="php:function('preg_match', string('/^AA|BC|BB|DA|EA$/'), string(@value))" />
-						</xsl:variable>
-						<xsl:if test="$testOutput = 1">
+						<xsl:if test="@value = 'AA' or @value = 'BC' or @value = 'BB' or @value = 'DA' or @value = 'EA'">
 							<xsl:call-template name="onixFilterOutput" />
 						</xsl:if>
 					</xsl:when>

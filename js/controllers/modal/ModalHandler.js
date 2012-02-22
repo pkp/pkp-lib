@@ -56,8 +56,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Open the modal.
 		$handledElement.dialog(internalOptions);
 
-		// Fix title bar.
+		// Fix title bar and close button.
 		this.fixTitleBar_($handledElement, internalOptions);
+		this.fixCloseButton_($handledElement, internalOptions);
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
@@ -225,6 +226,32 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Replace the original title bar with our own implementation.
 		$titleBar.append($('<span style="clear:both" />'));
 		$handledElement.parent().find('.ui-dialog-titlebar').replaceWith($titleBar);
+	};
+
+
+	/**
+	 * Change the default close button to our customized version.
+	 *
+	 * @private
+	 * @param {jQuery} $handledElement The element the
+	 *  dialog was created on.
+	 * @param {Object} options The dialog options.
+	 */
+	$.pkp.controllers.modal.ModalHandler.prototype.fixCloseButton_ =
+			function($handledElement, options) {
+
+		// The new close button.
+		var $closeButton = $('<a id="cancelFormButton" class="cancelFormButton" href="#">Cancel</a>');
+
+		var $parentElement = $handledElement.parent();
+		// make changes to widen the button bar, and move the close button to the left
+		$parentElement.find('.ui-dialog-buttonset').css({'width': 644, 'padding': '10px 20px'});
+		$parentElement.find(".ui-dialog-buttonset button:first").css({'float':'right', 'margin':'0px'});
+
+		// Replace the original close button with our own implementation.
+		$parentElement.find('.ui-dialog-buttonset button:last').replaceWith($closeButton);
+		// bind modalClose to the new button
+		$parentElement.find('.cancelFormButton').bind('click', this.callbackWrapper(this.modalClose));
 	};
 
 

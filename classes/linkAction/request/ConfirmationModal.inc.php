@@ -38,8 +38,6 @@ class ConfirmationModal extends Modal {
 	 * @param $dialogText string The localized text to appear
 	 *  in the dialog modal.
 	 * @param $title string (optional) The localized modal title.
-	 * @param $remoteAction string (optional) A URL to be
-	 *  called when the confirmation button is clicked.
 	 * @param $titleIcon string (optional) The icon to be used
 	 *  in the modal title bar.
 	 * @param $okButton string (optional) The localized text to

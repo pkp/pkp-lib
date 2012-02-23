@@ -473,6 +473,20 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	}
 
 	/**
+	 * Transfer the ownership of the submission files of one user to another.
+	 * @param $oldUserId int
+	 * @param $newUserId int
+	 */
+	function transferOwnership($oldUserId, $newUserId) {
+		$submissionFiles =& $this->_getInternally(null, null, null, null, null, null, null, $oldUserId, null, null);
+		foreach ($submissionFiles as $file) {
+			$daoDelegate =& $this->_getDaoDelegateForObject($file);
+			$file->setUploaderUserId($newUserId);
+			$daoDelegate->updateObject($file, $file); // nothing else changes
+		}
+	}
+
+	/**
 	 * Construct a new data object corresponding to this DAO.
 	 * @param $genreId integer The genre is required to identify the right
 	 *  file implementation.
@@ -779,6 +793,8 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $assocType integer
 	 * @param $assocId integer
 	 * @param $stageId integer
+	 * @param $uploaderUserId integer
+	 * @param $uploaderUserGroupId integer
 	 * @param $round integer
 	 * @param $reviewRoundId integer
 	 * @return array an array that contains the generated SQL
@@ -788,7 +804,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$fileId, $revision, $assocType, $assocId, $stageId, $uploaderUserId, $uploaderUserGroupId, $round, $reviewRoundId) {
 
 		// Make sure that at least one entity filter has been set.
-		assert((int)$submissionId || (int)$fileId || (int)$assocId);
+		assert((int)$submissionId || (int)$uploaderUserId || (int)$fileId || (int)$assocId);
 
 		// Both, assoc type and id, must be set (or unset) together.
 		assert(((int)$assocType && (int)$assocId) || !((int)$assocType || (int)$assocId));

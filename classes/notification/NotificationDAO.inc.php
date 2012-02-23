@@ -240,6 +240,18 @@ class NotificationDAO extends DAO {
 
 		return $returner;
 	}
+
+	/**
+	 * Transfer the notifications for a user.
+	 * @param $oldUserId int
+	 * @param $newUserId int
+	 */
+	function transferNotifications($oldUserId, $newUserId) {
+		$this->update(
+				'UPDATE notifications SET user_id = ? WHERE user_id = ?',
+				array($newUserId, $oldUserId)
+		);
+	}
 }
 
 ?>

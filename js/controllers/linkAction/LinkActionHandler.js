@@ -40,7 +40,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		this.parent($handledElement, options);
 
 		this.nonUniqueId_ = options.nonUniqueId;
-		
+
 		// Instantiate the link action request.
 		if (!options.actionRequest || !options.actionRequestOptions) {
 			throw Error(['The "actionRequest" and "actionRequestOptions"',
@@ -98,7 +98,8 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			linkActionRequest_ = null;
-	
+
+
 	/**
 	 * The part of this HTML element id that's not unique.
 	 * @private
@@ -113,13 +114,13 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	//
 	/**
 	 * Get the non unique part of the HTML element id.
-	 * @return {string}
+	 * @return {string} Non-unique part of HTML element id.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			getNonUniqueId = function() {
 		return this.nonUniqueId_;
-	}
-		
+	};
+
 	
 	//
 	// Private methods

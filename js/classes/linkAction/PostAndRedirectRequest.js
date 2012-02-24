@@ -51,7 +51,7 @@
 				this.handleResponse_, this);
 
 		// Post.
-		$.post(options.postUrl,	responseHandler, 'json');
+		$.post(options.postUrl, responseHandler, 'json');
 
 		// We need to make sure that the finish() method will be called.
 		// While the redirect request is running, user can click again

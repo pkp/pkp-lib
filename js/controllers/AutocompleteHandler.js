@@ -114,7 +114,7 @@
 		// only update the text field if the item has a value
 		// this allows us to return a 'no items' label with
 		// an empty value.
-		if (ui.item.value != '') {
+		if (ui.item.value !== '') {
 			$hiddenInput.val(ui.item.value);
 			$textInput.val(ui.item.label);
 		}
@@ -139,7 +139,7 @@
 
 		var $textInput = this.textInput_;
 
-		if (ui.item.value != '') {
+		if (ui.item.value !== '') {
 			$textInput.val(ui.item.label);
 		}
 		return false;

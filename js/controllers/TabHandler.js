@@ -46,10 +46,11 @@
 		if (pageUrl.match('#')) {
 			var pageAnchor = pageUrl.split('#')[1];
 			var tabAnchors = $tabs.find('li a');
-			for (var i = 0 ; i < tabAnchors.length ; i++) {
+			for (var i = 0; i < tabAnchors.length; i++) {
 				var pattern = RegExp('=' + pageAnchor + '$');
-				if (tabAnchors[i].getAttribute('href').match(pattern))
+				if (tabAnchors[i].getAttribute('href').match(pattern)) {
 					options.selected = i;
+				}
 			}
 		}
 
@@ -154,7 +155,7 @@
 		// to be refreshed since TinyMCE's init method is only
 		// called on the original page load.
 		var editorElements = $('.richContent');
-		for (var i = 0 ; i < editorElements.length ; i++) {
+		for (var i = 0; i < editorElements.length; i++) {
 			var id = editorElements[i].getAttribute('id');
 			if (typeof tinyMCE !== 'undefined') {
 				tinyMCE.execCommand('mceAddControl', false, id);

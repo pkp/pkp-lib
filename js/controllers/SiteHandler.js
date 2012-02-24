@@ -246,7 +246,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				for (var levelId in notificationsData) {
 					for (var notificationId in notificationsData[levelId]) {
 						$.pnotify(notificationsData[levelId][notificationId]);
-					}					
+					}
 				}
 			}
 		}

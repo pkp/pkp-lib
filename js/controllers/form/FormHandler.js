@@ -126,7 +126,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 
 	/**
-	 * If true, the FormHandler will disable the submit button if the form 
+	 * If true, the FormHandler will disable the submit button if the form
 	 * successfully validates and is submitted.
 	 * @private
 	 * @type {Boolean}
@@ -236,7 +236,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 			// We have made it to submission, disable the form control if
 			// necessary, submit the form.
-			if (this.disableControlsOnSubmit_){
+			if (this.disableControlsOnSubmit_) {
 				$(formElement).find(':submit').attr('disabled', 'disabled');
 			}
 

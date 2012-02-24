@@ -66,12 +66,12 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		// data that were shown by the in place but no visible. In those
 		// cases, just bubble up again the event until it gets the right
 		// handler (the site handler).
-		if (triggerElement.content != undefined) {
+		if (triggerElement.content !== undefined) {
 			var notificationsData = triggerElement;
 			handler.getHtmlElement().parent().trigger('notifyUser', notificationsData);
 			return; // no need to do any other event redirection.
 		}
-		
+
 		// Get the selector for a notification element.
 		var $notificationSelector = '.pkp_notification';
 

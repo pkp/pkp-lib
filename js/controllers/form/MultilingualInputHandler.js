@@ -87,7 +87,7 @@
 			// set a short timer to prevent the next popover from closing.
 			// this allows time for the next click event from the TinyMCE editor
 			// to cancel the timer.
-			this.popoverTimer = setTimeout("$('.localization_popover').hide()", 500);
+			this.popoverTimer = setTimeout(function() {$('.localization_popover').hide();}, 500);
 		}
 	};
 

@@ -47,7 +47,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// Sign up for notification of form submission.
 		this.bind('formSubmitRequested', this.formSubmitHandler_);
-		
+
 		// Sign up for notification of form submitted.
 		this.bind('formSubmitted', this.formSubmittedHandler_);
 	};
@@ -641,7 +641,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Continue the default (form submit) behavior
 		return true;
 	};
-	
+
+
 	/**
 	 * Enable deactivated inputs.
 	 * @private
@@ -659,7 +660,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 	/**
 	 * Disable the add_* links and show the spinner before making AJAX calls.
-	 * @private
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.disableControls = function() {
@@ -674,7 +674,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 	/**
 	 * Re-enable the add_* links and hide the spinner.
-	 * @private
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.enableControls = function() {

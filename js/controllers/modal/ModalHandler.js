@@ -246,7 +246,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		var $parentElement = $handledElement.parent();
 		// make changes to widen the button bar, and move the close button to the left
 		$parentElement.find('.ui-dialog-buttonset').css({'width': 644, 'padding': '10px 20px'});
-		$parentElement.find(".ui-dialog-buttonset button:first").css({'float':'right', 'margin':'0px'});
+		$parentElement.find('.ui-dialog-buttonset button:first').css({'float': 'right', 'margin': '0px'});
 
 		// Replace the original close button with our own implementation.
 		$parentElement.find('.ui-dialog-buttonset button:last').replaceWith($closeButton);

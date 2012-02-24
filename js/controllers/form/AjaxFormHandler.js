@@ -99,9 +99,9 @@
 				// Notify any nested formWidgets of form submitted event.
 				var formSubmittedEvent = new $.Event('formSubmitted');
 				$(this.getHtmlElement()).find('.formWidget').trigger(formSubmittedEvent);
-				
+
 				// Trigger the "form submitted" event.
-				this.trigger('formSubmitted');				
+				this.trigger('formSubmitted');
 			} else {
 				if (jsonData.reloadTabs !== undefined) {
 					this.trigger('tabsReloadRequested', jsonData);

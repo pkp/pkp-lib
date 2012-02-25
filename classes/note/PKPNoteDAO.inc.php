@@ -136,8 +136,8 @@ class PKPNoteDAO extends DAO {
 				(user_id, date_created, date_modified, title, contents, file_id, assoc_type, assoc_id)
 				VALUES
 				(?, %s, %s, ?, ?, ?, ?, ?)',
-				$this->datetimeToDB(date('Y-m-d H:i:s')),
-				$this->datetimeToDB(date('Y-m-d H:i:s'))
+				$this->datetimeToDB(Core::getCurrentDate()),
+				$this->datetimeToDB(Core::getCurrentDate())
 			),
 			array(
 				(int) $note->getUserId(),
@@ -170,8 +170,8 @@ class PKPNoteDAO extends DAO {
 					assoc_type = ?,
 					assoc_id = ?
 				WHERE	note_id = ?',
-				$this->datetimeToDB(date('Y-m-d H:i:s')),
-				$this->datetimeToDB(date('Y-m-d H:i:s'))
+				$this->datetimeToDB(Core::getCurrentDate()),
+				$this->datetimeToDB(Core::getCurrentDate())
 			),
 			array(
 				(int) $note->getUserId(),

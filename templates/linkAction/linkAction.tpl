@@ -14,8 +14,8 @@
  *}
 
 {* Generate the link action's button. *}
-{assign var=nonUniqueId value=$contextId|concat:"-":$action->getId():"-button"}
-{assign var=buttonId value=$nonUniqueId|concat:"-"|uniqid}
+{assign var=staticId value=$contextId|concat:"-":$action->getId():"-button"}
+{assign var=buttonId value=$staticId|concat:"-"|uniqid}
 {include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
 
 <script type="text/javascript">
@@ -23,7 +23,7 @@
 	$(function() {ldelim}
 		$('#{$buttonId}').pkpHandler(
 			'$.pkp.controllers.linkAction.LinkActionHandler',
-				{include file="linkAction/linkActionOptions.tpl" action=$action selfActivate=$selfActivate nonUniqueId=$nonUniqueId}
+				{include file="linkAction/linkActionOptions.tpl" action=$action selfActivate=$selfActivate staticId=$staticId}
 			);
 	{rdelim});
 </script>

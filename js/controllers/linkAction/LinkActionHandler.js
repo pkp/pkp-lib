@@ -39,7 +39,19 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			function($handledElement, options) {
 		this.parent($handledElement, options);
 
-		this.nonUniqueId_ = options.nonUniqueId;
+		// We need to know the static part of the element id
+		// (id attribute will change after refreshing,
+		// because it uses the uniqId function) for accessing
+		// the link action element in the DOM. 
+		if (options.staticId) {
+			this.staticId_ = options.staticId;
+		} else {
+			// If none, the link action element id is
+			// not using the unique function, so we
+			// can consider it static.
+			this.staticId_ = $handledElement.attr('id');
+		}
+		
 
 		// Instantiate the link action request.
 		if (!options.actionRequest || !options.actionRequestOptions) {
@@ -101,24 +113,25 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 
 	/**
-	 * The part of this HTML element id that's not unique.
+	 * The part of this HTML element id that's static, not 
+	 * changing after a refresh.
 	 * @private
 	 * @type {string}
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			nonUniqueId_ = null;
+			staticId_ = null;
 
 
 	//
 	// Getter
 	//
 	/**
-	 * Get the non unique part of the HTML element id.
+	 * Get the static id part of the HTML element id.
 	 * @return {string} Non-unique part of HTML element id.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			getNonUniqueId = function() {
-		return this.nonUniqueId_;
+			getStaticId = function() {
+		return this.staticId_;
 	};
 
 	

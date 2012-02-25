@@ -7,8 +7,8 @@
  * Grid HTML markup and construction
  *}
 
-{assign var=nonUniqueId value="component-"|concat:$grid->getId()}
-{assign var=gridId value=$nonUniqueId|concat:'-'|uniqid}
+{assign var=staticId value="component-"|concat:$grid->getId()}
+{assign var=gridId value=$staticId|concat:'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
 {if $grid|is_a:CategoryGridHandler}
 	{assign var=gridActOnId value=$gridTableId}
@@ -34,7 +34,7 @@
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
 			{$gridFilterForm}
 			{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-				{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$nonUniqueId}
+				{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$staticId}
 			{/if}
 			{if !$grid->getIsSubcomponent()}<span class="h3 no_border float_left">{$grid->getTitle()|translate}</span>{/if}
 		{translate key=$grid->getInstructions()}
@@ -65,7 +65,7 @@
 											{/if}
 											{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
 										{else}
-											{include file="linkAction/linkAction.tpl" action=$action contextId=$nonUniqueId}
+											{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
 										{/if}
 									{/foreach}
 								</span>
@@ -101,7 +101,7 @@
 			</div>
 		{/if}
 
-		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$nonUniqueId}
+		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 </div>

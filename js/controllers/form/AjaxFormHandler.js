@@ -70,10 +70,10 @@
 			function(sourceElement, event, content) {
 
 		if (content) {
-			// Get the grid that we're updating
+			// Get the form that we're updating
 			var $element = this.getHtmlElement();
 
-			// Replace the grid content
+			// Replace the form content
 			$element.replaceWith(content);
 		}
 	};

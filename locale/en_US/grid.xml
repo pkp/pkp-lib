@@ -115,5 +115,6 @@
 	
 	<!-- Plugins -->
 	<message key="grid.plugin.allCategories">All Categories</message>
+	<message key="grid.plugin.disable">Are you sure you want to disable this plugin?</message>
 	
 </locale>

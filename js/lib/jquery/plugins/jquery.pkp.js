@@ -48,9 +48,10 @@
 	 * with a remote source.
 	 * @param {string} url the AJAX endpoint from which to
 	 *  retrieve the HTML to be inserted.
+	 * @param {object} callback function to be called on ajax success.
 	 * @return {jQuery} Selected HTML elements for chaining.
 	 */
-	$.fn.pkpAjaxHtml = function(url) {
+	$.fn.pkpAjaxHtml = function(url, callback) {
 		var $element = this.first();
 		// using $.ajax instead of .getJSON to handle failures.
 		// .getJSON does not allow for an error callback
@@ -63,7 +64,12 @@
 				if (jsonData.status === true) {
 					// Replace the element content with
 					// the remote content.
-					$element.html(jsonData.content);
+					if (jsonData.content) {
+						$element.html(jsonData.content);
+					}
+					if (callback) {
+						callback();
+					}
 				} else {
 					// Alert that the remote call failed.
 					$element.trigger('ajaxHtmlError', jsonData.content)

@@ -94,7 +94,7 @@ class PKPAnnouncementForm extends Form {
 
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 		list($assocType, $assocId) = $this->_getAnnouncementTypesAssocId();
-		$announcementTypes =& $announcementTypeDao->getAnnouncementTypesByAssocId($assocType, $assocId);
+		$announcementTypes =& $announcementTypeDao->getByAssoc($assocType, $assocId);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
 
 		parent::display();
@@ -106,7 +106,7 @@ class PKPAnnouncementForm extends Form {
 	function initData() {
 		if (isset($this->announcementId)) {
 			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
-			$announcement =& $announcementDao->getAnnouncement($this->announcementId);
+			$announcement =& $announcementDao->getById($this->announcementId);
 
 			if ($announcement != null) {
 				$this->_data = array(
@@ -139,11 +139,11 @@ class PKPAnnouncementForm extends Form {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 		if (isset($this->announcementId)) {
-			$announcement =& $announcementDao->getAnnouncement($this->announcementId);
+			$announcement =& $announcementDao->getById($this->announcementId);
 		}
 
 		if (!isset($announcement)) {
-			$announcement = new Announcement();
+			$announcement = $announcementDao->newDataObject();
 		}
 
 		// Give the parent class a chance to set the assocType/assocId.

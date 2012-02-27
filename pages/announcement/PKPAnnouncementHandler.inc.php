@@ -58,7 +58,7 @@ class PKPAnnouncementHandler extends Handler {
 		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
 
 		if ($this->_getAnnouncementsEnabled($request) && $this->_announcementIsValid($request, $announcementId)) {
-			$announcement =& $announcementDao->getAnnouncement($announcementId);
+			$announcement =& $announcementDao->getById($announcementId);
 
 			if ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()) {
 				$templateMgr =& TemplateManager::getManager();

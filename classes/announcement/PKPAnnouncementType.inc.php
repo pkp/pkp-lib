@@ -105,7 +105,6 @@ class PKPAnnouncementType extends DataObject {
 	function setName($name, $locale) {
 		return $this->setData('name', $name, $locale);
 	}
-
 }
 
 ?>

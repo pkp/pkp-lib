@@ -235,7 +235,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 			// Ensure announcement is for this context
 			if ($this->_announcementTypeIsValid($request, $typeId)) {
-				$announcementTypeDao->deleteAnnouncementTypeById($typeId);
+				$announcementTypeDao->deleteById($typeId);
 			}
 		}
 

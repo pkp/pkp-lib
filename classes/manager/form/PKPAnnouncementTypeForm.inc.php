@@ -60,7 +60,7 @@ class PKPAnnouncementTypeForm extends Form {
 	function initData() {
 		if (isset($this->typeId)) {
 			$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
-			$announcementType =& $announcementTypeDao->getAnnouncementType($this->typeId);
+			$announcementType =& $announcementTypeDao->getById($this->typeId);
 
 			if ($announcementType != null) {
 				$this->_data = array(
@@ -88,11 +88,11 @@ class PKPAnnouncementTypeForm extends Form {
 		$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO');
 
 		if (isset($this->typeId)) {
-			$announcementType =& $announcementTypeDao->getAnnouncementType($this->typeId);
+			$announcementType =& $announcementTypeDao->getById($this->typeId);
 		}
 
 		if (!isset($announcementType)) {
-			$announcementType = new AnnouncementType();
+			$announcementType = $announcementTypeDao->newDataObject();
 		}
 
 		$this->_setAnnouncementTypeAssocId($announcementType);

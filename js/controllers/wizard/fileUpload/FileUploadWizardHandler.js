@@ -126,6 +126,51 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 
 	/**
+	 * Overridden version of WizardHandler's wizardAdvance handler.
+	 * This version allows a user to return to all tabs but the very
+	 * first one (the actual file upload).
+	 *
+	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
+	 *  which the event was triggered.
+	 * @param {Event} event The triggered event.
+	 */
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+			prototype.wizardAdvance = function(wizardElement, event) {
+
+		// The wizard can only be advanced one step at a time.
+		// The step cannot be greater than the number of wizard
+		// tabs and not less than 1.
+		var currentStep = this.getCurrentStep(),
+				lastStep = this.getNumberOfSteps() - 1,
+				targetStep = currentStep + 1;
+
+		// Do not advance beyond the last step.
+		if (targetStep > lastStep) {
+			throw Error('Trying to set an invalid wizard step!');
+		}
+
+		// Enable the target step.
+		var $wizard = this.getHtmlElement();
+		$wizard.tabs('enable', targetStep);
+
+		// Advance to the target step.
+		$wizard.tabs('select', targetStep);
+
+		// Disable the previous step if it is the first one.
+		if (currentStep === 0) {
+			$wizard.tabs('disable', currentStep);
+		}
+
+		// If this is the last step then change the text on the
+		// continue button to finish.
+		if (targetStep === lastStep) {
+			var $continueButton = this.getContinueButton();
+			$continueButton.button('option', 'label', this.getFinishButtonText());
+		}
+	};
+
+
+	/**
 	 * @inheritDoc
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.

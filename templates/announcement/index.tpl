@@ -35,8 +35,8 @@
 	</tr>
 	<tr class="details">
 		<td class="posted">{translate key="announcement.posted"}: {$announcement->getDatePosted()}</td>
-		{if $announcement->getAnnouncementDescription() != null}
-			<td class="more"><a href="{url op="view" path=$announcement->getAnnouncementId()}">{translate key="announcement.viewLink"}</a></td>
+		{if $announcement->getLocalizedDescription() != null}
+			<td class="more"><a href="{url op="view" path=$announcement->getId()}">{translate key="announcement.viewLink"}</a></td>
 		{/if}
 	</tr>
 	<tr>

@@ -108,8 +108,7 @@
 	};
 
 	/**
-	 * Modal refresh callback. Retrieve all html elements that we want to control
-	 * and bind event handlers.
+	 * Modal refresh callback. Transform html elements.
 	 * @private
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModalCallback_ =
@@ -126,23 +125,32 @@
 		// Insert the class to identify legacy plugin content.
 		$dialogElement.addClass('legacy_plugin_content');
 
-		// Create tabs for menu links.
-		var $menu = $('.menu');
-		if ($menu.length > 0) {
-			$menu.tabs();
-		}
-
 		// Transform buttons.
 		var $buttons = $(':submit, :button, :reset');
 		if ($buttons.length > 0) $buttons.button();
 
-		// Attach click handler on every link inside this modal.
-		var $linkElements = $('a', $dialogElement);
-		if ($linkElements.length > 0) {
-			$linkElements.bind('click', this.callbackWrapper(this.clickLinkHandler_));
+		// Transform menu links.
+		var $menu = $('.menu', $dialogElement);
+		if ($menu.length > 0) {
+			var $oldMenu = $.extend(true, {}, $menu);
+			var $newMenu = $('<div class="menu"></div>');
+			$menu.replaceWith($newMenu);
+			$menu = $('.menu');
+			$menu.append($oldMenu);
+
+			$menu.addClass('ui-tabs ui-widget ui-widget-content ui-corner-all');
+			$menu.children().addClass('ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all');
+			$menu.children().children().addClass('ui-state-default ui-corner-top');
+			$menu.children().find('.current').addClass('ui-tabs-selected ui-state-active');
 		}
 
-		// Attach form submit handlers.
+		// Bind click handlers.
+		var $links = $('a', this.getHtmlElement());
+		var clickLinkHandler = this.callbackWrapper(this.clickLinkHandler_);
+		var bindEventsCallback = this.callbackWrapper(this.bindClickEvent_);
+		$links.each(function(index, element){bindEventsCallback(element, clickLinkHandler);});
+
+		// Bind form submit handlers.
 		var $formElements = $('form.pkp_form', $dialogElement);
 		if ($formElements.length > 0) {
 			$formElements.bind('submit', this.callbackWrapper(this.submitFormHandler_));
@@ -166,9 +174,15 @@
 
 	/**
 	 * Refresh modal event handler.
+	 *
+	 * @private
+	 * @param {jQuery} $context
+	 * @param {HTMLElement} modalHtmlElement
+	 * @param {Event} event
+	 * @param {string} url
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModalHandler_ =
-			function($modal, modalHtmlElement, event, url) {
+			function($context, modalHtmlElement, event, url) {
 		// Refresh modal using the event data as url to fetch the content.
 		if (url) {
 			// Fetch content again using this url.
@@ -184,26 +198,83 @@
 	};
 
 	/**
+	 * Binds a handler function to the click event of a passed
+	 * link element.
+	 *
+	 * @private
+	 * @param {Object} contextElement
+	 * @param {Object} linkElement The link HTML element.
+	 * @param {Object} clickLinkHandler The function to be called when
+	 * the click event is triggered.
+	 */
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.bindClickEvent_ =
+			function(contextElement, linkElement, clickLinkHandler) {
+		var $link = $(linkElement);
+
+		// Check for the presence of scripts defined inside the element tag, as attributes.
+		if ($link.attr('onclick')) {
+			// We have an event handler. Make sure this handler will be passed to
+			// our click handler to be executed too.
+			var onclickHandler = $link.attr('onclick');
+
+			// We don't want the onclick handler being executed twice.
+			$link.removeAttr('onclick');
+
+			// Bind our click handler, passing the onclick handler as parameter.
+			$link.bind('click', function(event){clickLinkHandler(event, onclickHandler);});
+		} else {
+			// We don't have onclick attribute defined. Just bind our click handler.
+			$link.bind('click', clickLinkHandler);
+		}
+	};
+
+	/**
 	 * Link click event handler.
-	 * @param {object} link
+	 *
+	 * @private
+	 * @param {Object} contextElement
+	 * @param {Event} event
+	 * @param {Object} onclickHandler
 	 * @return {boolean}
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.clickLinkHandler_ =
-			function(link) {
+			function(contextElement, event, onclickHandler) {
+		event.preventDefault();
+
+		// We want to make sure that every script defined inside the onclick
+		// attribute will be executed first, and that we respect its return result.
+		if (onclickHandler) {
+			// We apply the onclickHandler back to its original context, the link.
+			if (onclickHandler.apply(event.target) == false) {
+				// Destroy the object.
+				onclikHandler = null;
+				// The onclick handler returned false, so we stop our click handler
+				// execution here too.
+				return false;
+			}
+			// The onclick handler returned true, just destroy the object and
+			// continue with our click handler execution.
+			onclikHandler = null;
+		}
+
 		// Get the element that triggered the event.
-		var $link = $(link);
+		var $link = $(event.target);
 
 		$link.unbind('click', this.clickLinkHandler_);
 
 		// Get the url of the link that triggered the event.
 		var url = $link.attr('href');
 		this.refreshModal_(url);
-		return false;
+
+		return true;
 	};
 
 	/**
-	 * Link click event handler.
-	 * @param {object} link
+	 * Submit form event handler.
+	 *
+	 * @private
+	 * @param {Object} form
+	 * @param {Event} event
 	 * @return {boolean}
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.submitFormHandler_ =
@@ -220,8 +291,15 @@
 		return false;
 	};
 
+	/**
+	 * Ajax response handler.
+	 *
+	 * @private
+	 * @param {Object} element
+	 * @param {Object} jsonData
+	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.handleResponse_ =
-			function(formElement, jsonData) {
+			function(element, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {

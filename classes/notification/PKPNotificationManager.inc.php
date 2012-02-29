@@ -122,6 +122,7 @@ class PKPNotificationManager {
 					return __('common.changesSaved');
 				}
 			case NOTIFICATION_TYPE_FORM_ERROR:
+			case NOTIFICATION_TYPE_ERROR:
 				$notificationSettings = $this->getNotificationSettings($notification->getId());
 				assert(!is_null($notificationSettings['contents']));
 				return $notificationSettings['contents'];

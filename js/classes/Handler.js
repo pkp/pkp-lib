@@ -46,6 +46,14 @@
 
 		// Bind the handler to the DOM element.
 		this.data('handler', this);
+
+		var editorElements = $element.find('.richContent');
+		for (var i = 0; i < editorElements.length; i++) {
+			var id = editorElements[i].getAttribute('id');
+			if (typeof tinyMCE !== 'undefined') {
+				tinyMCE.execCommand('mceAddControl', false, id);
+			}
+		}
 	};
 
 

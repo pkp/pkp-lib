@@ -52,7 +52,7 @@
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
 		var $dialogElement = $(dialogElement);
-		$dialogElement.css({'max-height': 420, 'overflow-y': 'auto',
+		$dialogElement.css({'max-height': 600, 'overflow-y': 'auto',
 			'z-index': '10000'});
 
 		// Retrieve remote modal content.

@@ -75,6 +75,7 @@
 	<message key="common.closeWindow">Close Window</message>
 	<message key="common.complete">Complete</message>
 	<message key="common.completed">Completed</message>
+	<message key="common.content">Content</message>
 	<message key="common.continue">Continue</message>
 	<message key="common.copy">Copy</message>
 	<message key="common.country">Country</message>

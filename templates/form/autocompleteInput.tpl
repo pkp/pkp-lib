@@ -17,5 +17,5 @@
 
 <div id="{$FBV_id}_container" {if $FBV_layoutInfo}{$FBV_layoutInfo}{/if}>
 	{$FBV_textInput}
-	<input type="hidden" name="{$FBV_id}" id="{$FBV_id}" {if $FBV_validation}class="{$FBV_validation}"{/if} />
+	<input type="hidden" name="{$FBV_id}" id="{$FBV_id}" {if $FBV_autocompleteValue}value="{$FBV_autocompleteValue}"{/if} {if $FBV_validation}class="{$FBV_validation}"{/if} />
 </div>

@@ -392,9 +392,13 @@ class FormBuilderVocabulary {
 		//  and make sure that the text input is not read by the Form class.
 		$params['id'] = $autocompleteId . '_input';
 
+		$smarty->clear_assign(array('FBV_id', 'FBV_autocompleteUrl', 'FBV_autocompleteValue'));
 		// We set this now, so that we unset the param for the text input.
 		$smarty->assign('FBV_autocompleteUrl', $params['autocompleteUrl']);
+		$smarty->assign('FBV_autocompleteValue', isset($params['autocompleteValue']) ? $params['autocompleteValue'] : null);
+
 		unset($params['autocompleteUrl']);
+		unset($params['autocompleteValue']);
 
 		$smarty->assign('FBV_textInput', $this->_smartyFBVTextInput($params, $smarty));
 

@@ -24,3 +24,8 @@ SWORD PHP API Library
  * URL: <http://php.swordapp.org>
  * Version: 0.9 (Oct 5, 2009)
  * License: Modified BSD
+
+HTML Purifier 
+ * URL: <http://htmlpurifier.org>
+ * Version: 4.4.0
+ * License: GPLv2.1

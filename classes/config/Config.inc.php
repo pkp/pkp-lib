@@ -27,11 +27,12 @@ class Config {
 	 * Retrieve a specified configuration variable.
 	 * @param $section string
 	 * @param $key string
+	 * @param $default string optional
 	 * @return string
 	 */
-	function getVar($section, $key) {
+	function getVar($section, $key, $default = null) {
 		$configData =& Config::getData();
-		return isset($configData[$section][$key]) ? $configData[$section][$key] : null;
+		return isset($configData[$section][$key]) ? $configData[$section][$key] : $default;
 	}
 
 	/**

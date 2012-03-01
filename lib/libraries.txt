@@ -34,3 +34,8 @@ PHP JSON parser
  * URL: <http://mike.teczno.com/JSON.tar.gz>
  * Version: ?
  * License: see json/LICENSE
+
+HTML Purifier 
+ * URL: <http://htmlpurifier.org>
+ * Version: 4.4.0
+ * License: GPLv2.1

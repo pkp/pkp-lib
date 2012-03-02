@@ -1,0 +1,11 @@
+Notes on PKP customizations to 'JustBoil.me TinyMCE Images Plugin'
+
+
+/**
+ * March 6, 2012
+ */
+
+-Added 'IntegratePKP' class to integrate PKP applications with the plugin.  This allows the plugin to determine where to upload images.
+-Modified config.php to integrate the 'IntegratePKP' class; Added configuration option for upload directory max-file-size
+-Modified ci/application/controllers/editor.php to implement upload directory max-file-size
+-Updated CodeIgniter system directory from 2.0.2 to 2.1.0

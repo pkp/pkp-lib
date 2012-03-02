@@ -59,7 +59,7 @@ class PaymentManager {
 	 */
 	function isConfigured() {
 		$paymentPlugin =& $this->getPaymentPlugin();
-		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured($request);
+		if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(PKPApplication::getRequest());
 		return false;
 	}
 

@@ -363,7 +363,9 @@ class DAO {
 				$value = serialize($value);
 				break;
 			case 'bool':
-				$value = $value ? 1 : 0;
+				// Cast to boolean, ensuring that string
+				// "false" evaluates to boolean false
+				$value = ($value && $value !== 'false') ? 1 : 0;
 				break;
 			case 'int':
 				$value = (int) $value;

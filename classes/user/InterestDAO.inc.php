@@ -101,6 +101,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 */
 	function setUserInterests($interests, $userId) {
 		// Remove duplicates
+		$interests = isset($interests) ? $interests : array();
 		$interests = array_unique($interests);
 
 		// Trim whitespace

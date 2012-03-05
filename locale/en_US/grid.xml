@@ -27,6 +27,7 @@
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 	<message key="grid.action.addAuthor">Add Author</message>
+	<message key="grid.action.upgrade">Upgrade</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

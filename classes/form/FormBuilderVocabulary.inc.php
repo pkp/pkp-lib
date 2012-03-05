@@ -455,7 +455,7 @@ class FormBuilderVocabulary {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'value': $smarty->assign('FBV_value', $params['value']); break;
-				case 'required': if ($value == 'true') $textInputParams .= 'required="true" '; break;
+				case 'required': if ($value != 'true') $textInputParams .= 'required="' + htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) +'"'; break;
 				default: $textInputParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING). '" ';
 			}
 		}

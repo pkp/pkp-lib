@@ -113,7 +113,7 @@
 		<index name="review_rounds_submission_id">
 			<col>submission_id</col>
 		</index>
-		<index name="review_rounds_pkey">
+		<index name="review_rounds_submission_id_stage_id_round_pkey">
 			<col>submission_id</col>
 			<col>stage_id</col>
 			<col>round</col>

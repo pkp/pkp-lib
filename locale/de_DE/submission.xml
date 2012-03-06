@@ -303,6 +303,8 @@
 	<message key="submission.layout.galleyLabelRequired">Bezeichnung der Fahnen erforderlich.</message>
 	<message key="submission.layout.galleyLanguageRequired">Eine Sprache für die Fahne wird benötigt.</message>
 	<message key="submission.layout.galleyLocaleRequired">Eine Regionaleinstellung für die Fahne wird benötigt.</message>
+	<message key="submission.layout.galleyRemoteURL">Entlegener URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Bitte geben Sie einen gültigen entlegenen URL an (fügen Sie http:// an).</message>
 	<message key="submission.layout.galleyNoImages">Keine Bilder</message>
 	<message key="submission.layout.galleys">Fahnen</message>
 	<message key="submission.layout.galleyStylesheet">Formatvorlage-Datei</message>
@@ -377,6 +379,7 @@
 	<message key="submission.titleAndAbstract">Titel und Abstract</message>
 	<message key="submission.underway">In Arbeit</message>
 	<message key="submission.uploadFileTo">Datei hochladen nach/zu</message>
+	<message key="submission.createRemote">Entlegenen Ort anlegen</message>
 	<message key="submission.uploaderUserGroup">Lade hoch in meiner Rolle als…</message>
 	<message key="submission.submitterUserGroup">Reiche ein in meiner Rolle als…</message>
 	<message key="submission.viewMetadata">Metadaten ansehen</message>

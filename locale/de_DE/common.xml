@@ -197,6 +197,7 @@
 	<message key="common.year">Jahr</message>
 	<message key="common.yes">Ja</message>
 	<message key="common.loading">Laden …</message>
+	<message key="common.plugins">Plug-Ins</message>
 	<message key="debug.databaseQueries">Anzahl der Datenbankanfragen</message>
 	<message key="debug.executionTime">Seite erstellt am</message>
 	<message key="debug.memoryUsage">Speicherbelegung:</message>
@@ -244,6 +245,7 @@
 	<message key="form.saveToUpload">Verwenden Sie Speichern zum Hochladen der Datei.</message>
 	<message key="form.send">Senden</message>
 	<message key="form.submit">Abschicken</message>
+	<message key="form.invalidImage">Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, .gif und .jpg.</message>
 	<message key="help.contents">Inhalt</message>
 	<message key="help.help">Hilfe</message>
 	<message key="help.helpIndex">Hilfe-Verzeichnis</message>

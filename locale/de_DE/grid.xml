@@ -18,6 +18,7 @@
 
 	<message key="grid.action.sort">Sortieren</message>
 	<message key="grid.action.addItem">Eintrag hinzufügen</message>
+	<message key="grid.action.addUser">Benutzer/in hinzufügen</message>
 	<message key="grid.action.delete">Löschen</message>
 	<message key="grid.action.remove">Entfernen</message>
 	<message key="grid.action.edit">Bearbeiten</message>
@@ -111,4 +112,7 @@
 	
 	<!-- Prepared emails -->
 	<message key="grid.preparedEmails.currentList">Aktuelle Liste</message>
+
+	<!-- Plugins -->
+	<message key="grid.plugin.allCategories">Alle Kategorien</message>
 </locale>

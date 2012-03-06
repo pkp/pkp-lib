@@ -185,11 +185,11 @@ class PKPAnnouncementForm extends Form {
 	// Protected methods.
 	//
 	/**
-	* Helper function to assign the date expire.
-	* Must be implemented by subclasses.
-	* @param $annoucement Announcement the announcement to be modified
-	* @return boolean
-	*/
+	 * Helper function to assign the date expire.
+	 * Must be implemented by subclasses.
+	 * @param $annoucement Announcement the announcement to be modified
+	 * @return boolean
+	 */
 	function setDateExpire(&$announcement) {
 		return false;
 	}

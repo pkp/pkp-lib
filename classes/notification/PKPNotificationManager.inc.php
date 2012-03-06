@@ -103,12 +103,12 @@ class PKPNotificationManager {
 	}
 
 	/**
-	* Return a message string for the notification based on its type
-	* and associated object.
-	* @param $request PKPRequest
-	* @param $notification Notification
-	* @return string
-	*/
+	 * Return a message string for the notification based on its type
+	 * and associated object.
+	 * @param $request PKPRequest
+	 * @param $notification Notification
+	 * @return string
+	 */
 	function getNotificationMessage(&$request, &$notification) {
 		$type = $notification->getType();
 		assert(isset($type));

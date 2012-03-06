@@ -455,11 +455,11 @@ class PKPLocale {
 	}
 
 	/**
-	* Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
-	* @param $iso1 string
-	* @return string the translated string or null if we
-	* don't know about the given language.
-	*/
+	 * Translate the ISO 2-letter language string (ISO639-1) into ISO639-3.
+	 * @param $iso1 string
+	 * @return string the translated string or null if we
+	 * don't know about the given language.
+	 */
 	function getIso3FromIso1($iso1) {
 		assert(strlen($iso1) == 2);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
@@ -473,11 +473,11 @@ class PKPLocale {
 	}
 
 	/**
-	* Translate the ISO639-3 into ISO639-1.
-	* @param $iso3 string
-	* @return string the translated string or null if we
-	* don't know about the given language.
-	*/
+	 * Translate the ISO639-3 into ISO639-1.
+	 * @param $iso3 string
+	 * @return string the translated string or null if we
+	 * don't know about the given language.
+	 */
 	function getIso1FromIso3($iso3) {
 		assert(strlen($iso3) == 3);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
@@ -491,11 +491,11 @@ class PKPLocale {
 	}
 
 	/**
-	* Translate the PKP locale identifier into an
-	* ISO639-3 compatible 3-letter string.
-	* @param $locale string
-	* @return string
-	*/
+	 * Translate the PKP locale identifier into an
+	 * ISO639-3 compatible 3-letter string.
+	 * @param $locale string
+	 * @return string
+	 */
 	function getIso3FromLocale($locale) {
 		assert(strlen($locale) == 5);
 		$iso1 = substr($locale, 0, 2);
@@ -503,19 +503,19 @@ class PKPLocale {
 	}
 
 	/**
-	* Translate an ISO639-3 compatible 3-letter string
-	* into the PKP locale identifier.
-	*
-	* This can be ambiguous if several locales are defined
-	* for the same language. In this case we'll use the
-	* primary locale to disambiguate.
-	*
-	* If that still doesn't determine a unique locale then
-	* we'll choose the first locale found.
-	*
-	* @param $iso3 string
-	* @return string
-	*/
+	 * Translate an ISO639-3 compatible 3-letter string
+	 * into the PKP locale identifier.
+	 *
+	 * This can be ambiguous if several locales are defined
+	 * for the same language. In this case we'll use the
+	 * primary locale to disambiguate.
+	 *
+	 * If that still doesn't determine a unique locale then
+	 * we'll choose the first locale found.
+	 *
+	 * @param $iso3 string
+	 * @return string
+	 */
 	function getLocaleFromIso3($iso3) {
 		assert(strlen($iso3) == 3);
 		$primaryLocale = AppLocale::getPrimaryLocale();

@@ -125,9 +125,9 @@ class HandlerValidatorRolesTest extends PKPTestCase {
 
 
 	/**
-	* Creates a mock handler object.
-	* @return a Handler that returns the authorized context.
-	*/
+	 * Creates a mock handler object.
+	 * @return a Handler that returns the authorized context.
+	 */
 	private function getMockHandler($roles) {
 		// Mock a handler.
 		$mockHandler = $this->getMock('PKPHandler', array('getAuthorizedContext'));

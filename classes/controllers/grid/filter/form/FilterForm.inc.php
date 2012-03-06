@@ -105,9 +105,9 @@ class FilterForm extends Form {
 	// Template methods from Form
 	//
 	/**
-	* Initialize form data.
-	* @param $alreadyInstantiatedFilters array
-	*/
+	 * Initialize form data.
+	 * @param $alreadyInstantiatedFilters array
+	 */
 	function initData(&$alreadyInstantiatedFilters) {
 		// Transport filter/template id.
 		$this->readUserVars(array('filterId', 'filterTemplateId'));

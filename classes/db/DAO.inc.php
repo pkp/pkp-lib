@@ -584,16 +584,16 @@ class DAO {
 	}
 
 	/**
-	* Format a passed date (in English textual datetime)
-	* to Y-m-d H:i:s format, used in database.
-	* @param $date string Any English textual datetime.
-	* @param $defaultNumWeeks int If passed and date is null,
-	* used to calculate a data in future from today.
-	* @param $acceptPastDate boolean Will not accept past dates,
-	* returning today if false and the passed date
-	* is in the past.
-	* @return string or null
-	*/
+	 * Format a passed date (in English textual datetime)
+	 * to Y-m-d H:i:s format, used in database.
+	 * @param $date string Any English textual datetime.
+	 * @param $defaultNumWeeks int If passed and date is null,
+	 * used to calculate a data in future from today.
+	 * @param $acceptPastDate boolean Will not accept past dates,
+	 * returning today if false and the passed date
+	 * is in the past.
+	 * @return string or null
+	 */
 	function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true) {
 		$today = getDate();
 		$todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);

@@ -177,9 +177,9 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	* Get review round id.
-	* @return int
-	*/
+	 * Get review round id.
+	 * @return int
+	 */
 	function getReviewRoundId() {
 		return $this->getData('reviewRoundId');
 	}

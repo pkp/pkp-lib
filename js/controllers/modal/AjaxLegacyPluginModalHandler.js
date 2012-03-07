@@ -308,6 +308,10 @@
 			if (jsonData.content !== '') {
 				// The request returned content. Refresh modal replacing it.
 				this.refreshModal_(null, jsonData.content);
+			} else {
+				if (jsonData.status && jsonData.event.name === 'dataChanged') {
+					this.trigger('formSubmitted');
+				}
 			}
 		}
 	};

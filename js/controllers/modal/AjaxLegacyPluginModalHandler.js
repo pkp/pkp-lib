@@ -247,14 +247,14 @@
 			// We apply the onclickHandler back to its original context, the link.
 			if (onclickHandler.apply(event.target) == false) {
 				// Destroy the object.
-				onclikHandler = null;
+				onclickHandler = null;
 				// The onclick handler returned false, so we stop our click handler
 				// execution here too.
 				return false;
 			}
 			// The onclick handler returned true, just destroy the object and
 			// continue with our click handler execution.
-			onclikHandler = null;
+			onclickHandler = null;
 		}
 
 		// Get the element that triggered the event.

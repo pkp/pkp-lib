@@ -154,6 +154,8 @@
 		var $formElements = $('form.pkp_form', $dialogElement);
 		if ($formElements.length > 0) {
 			$formElements.bind('submit', this.callbackWrapper(this.submitFormHandler_));
+			$formElements.find('#cancelFormButton').unbind('click');
+			$formElements.find('#cancelFormButton').bind('click', this.callbackWrapper(this.modalClose));
 		}
 
 		// Reset the scrolling of the modal.

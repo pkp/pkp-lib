@@ -32,6 +32,11 @@ ini_set('assert.quiet_eval', false);
 // Log errors to test specific error log
 ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIRECTORY_SEPARATOR . 'error.log');
 
+/* This script must not have been executed online/remotely */
+if (isset($_SERVER['SERVER_NAME'])) {
+	die('This script can only be executed from the command-line');
+}
+
 // A global variable that contains a directory with
 // a mock class environment for a whole test suite.
 // We need to define this as a global variable so that

@@ -10,6 +10,11 @@
   * Mutex help table data.
   -->
 <data>
+	<sql>
+		<query>
+          DELETE FROM mutex
+		</query>
+	</sql> 
 	<table name="mutex">
 		<row>
 			<field name="i">0</field>

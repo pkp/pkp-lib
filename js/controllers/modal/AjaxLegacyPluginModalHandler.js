@@ -9,9 +9,10 @@
  *
  * @brief An ajax modal to be used in plugins management. This is part of a
  * temporary solution, while we don't modernize the UI of the plugins. The
- * functionalities implemented here are not necessary anywhere else and, sometimes,
- * are duplicating solutions that we already have in another handlers. DON'T USE this
- * handler if you are not showing legacy plugins management content.
+ * functionalities implemented here are not necessary anywhere else and,
+ * sometimes, are duplicating solutions that we already have in another
+ * handlers. DON'T USE this handler if you are not showing legacy plugins
+ * management content.
  * FIXME After modernizing the UI of the plugins, remove this handler.
  */
 (function($) {
@@ -27,7 +28,8 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
 
-			this.bind('refreshLegacyPluginModal', this.callbackWrapper(this.refreshModalHandler_));
+		this.bind('refreshLegacyPluginModal',
+				this.callbackWrapper(this.refreshModalHandler_));
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxLegacyPluginModalHandler,
 			$.pkp.controllers.modal.AjaxModalHandler);
@@ -71,10 +73,10 @@
 	 *
 	 * @private
 	 *
-	 * @param {$jQuery} sourceElement The containing element.
 	 * @param {String} url The url to fetch new content.
 	 * @param {String} content The already fetched content to be shown.
-	 * @param {Boolean} submit Use the url to submit the forms inside this modal?
+	 * @param {Boolean} submit Use the url to submit the forms inside this
+	 *  modal?
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
 			function(url, content, submit) {
@@ -107,6 +109,7 @@
 		}
 	};
 
+
 	/**
 	 * Modal refresh callback. Transform html elements.
 	 * @private
@@ -118,7 +121,8 @@
 		// Fix modal title.
 		var $newTitle = $('h2', $dialogElement);
 		if ($newTitle.length > 0) {
-			var $currentTitle = $dialogElement.parent().find('.pkp_controllers_modal_titleBar h2');
+			var $currentTitle = $dialogElement.parent()
+					.find('.pkp_controllers_modal_titleBar h2');
 			$currentTitle.replaceWith($newTitle);
 		}
 
@@ -127,7 +131,9 @@
 
 		// Transform buttons.
 		var $buttons = $(':submit, :button, :reset');
-		if ($buttons.length > 0) $buttons.button();
+		if ($buttons.length > 0) {
+			$buttons.button();
+		}
 
 		// Transform menu links.
 		var $menu = $('.menu', $dialogElement);
@@ -138,8 +144,10 @@
 			$menu = $('.menu');
 			$menu.append($oldMenu);
 
-			$menu.addClass('ui-tabs ui-widget ui-widget-content ui-corner-all');
-			$menu.children().addClass('ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all');
+			$menu.addClass(
+					'ui-tabs ui-widget ui-widget-content ui-corner-all');
+			$menu.children().addClass(
+					'ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all');
 			$menu.children().children().addClass('ui-state-default ui-corner-top');
 			$menu.children().find('.current').addClass('ui-tabs-selected ui-state-active');
 		}
@@ -148,7 +156,9 @@
 		var $links = $('a', this.getHtmlElement());
 		var clickLinkHandler = this.callbackWrapper(this.clickLinkHandler_);
 		var bindEventsCallback = this.callbackWrapper(this.bindClickEvent_);
-		$links.each(function(index, element){bindEventsCallback(element, clickLinkHandler);});
+		$links.each(function(index, element) {
+			bindEventsCallback(element, clickLinkHandler);
+		});
 
 		// Bind form submit handlers.
 		var $formElements = $('form.pkp_form', $dialogElement);
@@ -174,14 +184,15 @@
 		this.trigger('notifyUser', this.getHtmlElement());
 	};
 
+
 	/**
 	 * Refresh modal event handler.
 	 *
 	 * @private
-	 * @param {jQuery} $context
-	 * @param {HTMLElement} modalHtmlElement
-	 * @param {Event} event
-	 * @param {string} url
+	 * @param {jQuery} $context Wrapping element.
+	 * @param {HTMLElement} modalHtmlElement Modal element.
+	 * @param {Event} event Incoming event.
+	 * @param {string} url Modal refresh URL.
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModalHandler_ =
 			function($context, modalHtmlElement, event, url) {
@@ -198,6 +209,7 @@
 			}
 		}
 	};
+
 
 	/**
 	 * Binds a handler function to the click event of a passed
@@ -223,21 +235,24 @@
 			$link.removeAttr('onclick');
 
 			// Bind our click handler, passing the onclick handler as parameter.
-			$link.bind('click', function(event){clickLinkHandler(event, onclickHandler);});
+			$link.bind('click', function(event) {
+				clickLinkHandler(event, onclickHandler);
+			});
 		} else {
 			// We don't have onclick attribute defined. Just bind our click handler.
 			$link.bind('click', clickLinkHandler);
 		}
 	};
 
+
 	/**
 	 * Link click event handler.
 	 *
 	 * @private
-	 * @param {Object} contextElement
-	 * @param {Event} event
-	 * @param {Object} onclickHandler
-	 * @return {boolean}
+	 * @param {Object} contextElement Containing element.
+	 * @param {Event} event Incoming event.
+	 * @param {Object} onclickHandler On-click handler.
+	 * @return {boolean} Event handling status.
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.clickLinkHandler_ =
 			function(contextElement, event, onclickHandler) {
@@ -247,7 +262,7 @@
 		// attribute will be executed first, and that we respect its return result.
 		if (onclickHandler) {
 			// We apply the onclickHandler back to its original context, the link.
-			if (onclickHandler.apply(event.target) == false) {
+			if (onclickHandler.apply(event.target) === false) {
 				// Destroy the object.
 				onclickHandler = null;
 				// The onclick handler returned false, so we stop our click handler
@@ -271,13 +286,14 @@
 		return true;
 	};
 
+
 	/**
 	 * Submit form event handler.
 	 *
 	 * @private
-	 * @param {Object} form
-	 * @param {Event} event
-	 * @return {boolean}
+	 * @param {Object} form Form element.
+	 * @param {Event} event Incoming event.
+	 * @return {boolean} Event handling status.
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.submitFormHandler_ =
 			function(form, event) {
@@ -293,12 +309,13 @@
 		return false;
 	};
 
+
 	/**
 	 * Ajax response handler.
 	 *
 	 * @private
-	 * @param {Object} element
-	 * @param {Object} jsonData
+	 * @param {Object} element Containing element.
+	 * @param {Object} jsonData Server response.
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.handleResponse_ =
 			function(element, jsonData) {
@@ -315,6 +332,7 @@
 			}
 		}
 	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

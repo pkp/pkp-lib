@@ -42,7 +42,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// We need to know the static part of the element id
 		// (id attribute will change after refreshing,
 		// because it uses the uniqId function) for accessing
-		// the link action element in the DOM. 
+		// the link action element in the DOM.
 		if (options.staticId) {
 			this.staticId_ = options.staticId;
 		} else {
@@ -51,7 +51,6 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			// can consider it static.
 			this.staticId_ = $handledElement.attr('id');
 		}
-		
 
 		// Instantiate the link action request.
 		if (!options.actionRequest || !options.actionRequestOptions) {
@@ -113,7 +112,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 
 	/**
-	 * The part of this HTML element id that's static, not 
+	 * The part of this HTML element id that's static, not
 	 * changing after a refresh.
 	 * @private
 	 * @type {string}
@@ -134,7 +133,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		return this.staticId_;
 	};
 
-	
+
 	//
 	// Private methods
 	//

@@ -32,7 +32,7 @@
 		this.bind('tabsselect', this.tabsSelect);
 		this.bind('tabsshow', this.tabsShow);
 		this.bind('tabsload', this.tabsLoad);
-		this.bind('tabsReloadRequested', this.tabsReloadRequested);
+		this.bind('containerReloadRequested', this.tabsReloadRequested);
 
 		if (options.emptyLastTab) {
 			this.emptyLastTab_ = options.emptyLastTab;

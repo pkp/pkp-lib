@@ -77,6 +77,19 @@ class DAOResultFactory extends ItemIterator {
 	}
 
 	/**
+	 * Advances the internal cursor to a specific row.
+	 * @param int $to
+	 * @return boolean
+	 */
+	function move($to) {
+		if ($this->records == null) return false;
+		if ($this->records->Move($to))
+			return true;
+		else
+			return false;
+	}
+
+	/**
 	 * Return the object representing the next row.
 	 * @return object
 	 */

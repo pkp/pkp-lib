@@ -197,7 +197,7 @@ class Editor extends CI_Controller {
 			// Make sure image exists in upload path
 			$imagePath = $imageDir . '/' . basename($imageName);
 
-			if(file_exists($imagePath)) {
+			if(is_file($imagePath) && file_exists($imagePath)) {
 				unlink($imagePath);
 			} else {
 				show_error('File does not exist');

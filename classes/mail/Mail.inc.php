@@ -359,12 +359,12 @@ class Mail extends DataObject {
 	 * Return a string containing the from address.
 	 * @return string
 	 */
-	function getFromString() {
+	function getFromString($send = false) {
 		$from = $this->getFrom();
 		if ($from == null) {
 			return null;
 		} else {
-			return Mail::encodeDisplayName($from['name']) . ' <'.$from['email'].'>';
+			return (Mail::encodeDisplayName($from['name'], $send) . ' <'.$from['email'].'>');
 		}
 	}
 
@@ -373,7 +373,7 @@ class Mail extends DataObject {
 	 * @param $includeNames boolean
 	 * @return string;
 	 */
-	function getAddressArrayString($addresses, $includeNames = true) {
+	function getAddressArrayString($addresses, $includeNames = true, $send = false) {
 		if ($addresses == null) {
 			return null;
 
@@ -389,7 +389,7 @@ class Mail extends DataObject {
 					$addressString .= $address['email'];
 
 				} else {
-					$addressString .= Mail::encodeDisplayName($address['name']) . ' <'.$address['email'].'>';
+					$addressString .= Mail::encodeDisplayName($address['name'], $send) . ' <'.$address['email'].'>';
 				}
 			}
 
@@ -427,8 +427,8 @@ class Mail extends DataObject {
 	 * @return boolean
 	 */
 	function send() {
-		$recipients = $this->getRecipientString();
-		$from = $this->getFromString();
+		$recipients = $this->getAddressArrayString($this->getRecipients(), true, true);
+		$from = $this->getFromString(true);
 
 		$subject = String::encode_mime_header($this->getSubject());
 		$body = $this->getBody();
@@ -468,12 +468,12 @@ class Mail extends DataObject {
 			$this->addHeader('From', $from);
 		}
 
-		$ccs = $this->getCcString();
+		$ccs = $this->getAddressArrayString($this->getCcs(), true, true);
 		if ($ccs != null) {
 			$this->addHeader('Cc', $ccs);
 		}
 
-		$bccs = $this->getBccString();
+		$bccs = $this->getAddressArrayString($this->getBccs(), false, true);
 		if ($bccs != null) {
 			$this->addHeader('Bcc', $bccs);
 		}
@@ -554,13 +554,17 @@ class Mail extends DataObject {
 	 * @param $displayName string
 	 * @return string
 	 */
-	function encodeDisplayName($displayName) {
+	function encodeDisplayName($displayName, $send = false) {
 		if (String::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
-		return ('"' . str_replace(
+		return ('"' . ($send ? String::encode_mime_header(str_replace(
 			array('"', '\\'),
 			'',
 			$displayName
-		) . '"');
+		)) : str_replace(
+			array('"', '\\'),
+			'',
+			$displayName
+		)) . '"');
 	}
 }
 

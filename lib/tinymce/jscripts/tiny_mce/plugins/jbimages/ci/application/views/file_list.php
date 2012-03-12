@@ -9,7 +9,7 @@
 			<img src="<?php echo html_escape($file['img_path']) ?>" width="25" height="25" alt="<?php echo html_escape($file['name']) ?>" />
 			<a href="<?php echo html_escape($file['img_path']) ?>"><?php echo html_escape($file['name']) ?></a>&nbsp;
 			(<?php echo html_escape($file['size']) ?> kB)&nbsp;&nbsp;&nbsp;
-			<span class="delete"><a href="../deleteImage/<?php echo html_escape($file['name']) ?>"><?php echo lang('jb_delete') ?></a></span>
+			<span class="delete"><a href="../deleteImage/<?php echo urlencode($file['name']) ?>"><?php echo lang('jb_delete') ?></a></span>
 			<br />
 <?php 		}
 	} else { ?>

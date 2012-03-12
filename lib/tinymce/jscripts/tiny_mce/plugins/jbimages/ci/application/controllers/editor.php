@@ -1,5 +1,30 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/** See http://ca.php.net/manual/en/function.realpath.php#92552 */
+// fixes windows paths...
+// (windows accepts forward slashes and backwards slashes, so why does PHP
+// use backwards?
+function fix_path($path) {
+	return str_replace('\\','/',$path);
+}
+
+/** See http://ca.php.net/manual/en/function.realpath.php#92552 */
+// takes two absolute paths and determines if one is a subdirectory of the
+// other. it doesn't care if it is an immediate child or 10 subdirectories
+// deep... use absolute paths for both for best results
+function is_child($parent, $child) {
+	if(false !== ($parent = realpath($parent))) {
+		$parent = fix_path($parent);
+		if(false !== ($child = realpath($child))) {
+			$child = fix_path($child);
+			if(substr($child, 0, strlen($parent)) == $parent)
+				return true;
+		}
+	}
+   
+	return false;
+}
+
 class Editor extends CI_Controller {
 
 	/* Constructor */
@@ -195,9 +220,8 @@ class Editor extends CI_Controller {
 			$imageUrl = $this->config->item('img_path', 'uploader_settings');
 			
 			// Make sure image exists in upload path
-			$imagePath = $imageDir . '/' . basename($imageName);
-
-			if(is_file($imagePath) && file_exists($imagePath)) {
+			$imagePath = $imageDir . '/' . basename(urldecode($imageName));
+			if(is_file($imagePath) && file_exists($imagePath) && is_child($imageDir, dirname($imagePath))) {
 				unlink($imagePath);
 			} else {
 				show_error('File does not exist');

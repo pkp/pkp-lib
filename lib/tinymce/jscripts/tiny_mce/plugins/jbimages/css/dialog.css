@@ -1,0 +1,19 @@
+body { text-align: center;}
+#upload_target {border:0; margin:0; padding:0; width:0; height:0;}
+.upload_infobar {display:none; font-size:12pt; background:#fff; padding:5px;}
+.upload_infobar img.spinner {margin-right:10px;}
+.upload_infobar a {color:#0000cc;}
+#upload_additional_info {font-size:10pt; padding-left:26px;}
+#upload_form_container {text-align:center;}
+.jbFileBox {width:auto;}
+.jbButton {font-size:20px; padding:5px 10px 5px 10px; border:1px solid #ccc; font-weight:bold; margin-top:5px; cursor:pointer; border-radius: 10px;}
+.jbButton:hover {border-color:#999;}
+#the_plugin_name {margin:0;}
+#the_plugin_name, #the_plugin_name a {color:#777; font-size:9px;}
+#the_plugin_name a {text-decoration:none;}
+#the_plugin_name a:hover {color:#333;}
+#manage { margin-top: 10px;}
+#imageListing { width:330px; height:175px; overflow: auto; padding-bottom: 15px; }
+
+/*[DEBUG] this class makes the upload script output visible */
+.upload_target_visible {width:100%!important; height:200px!important; border:1px solid #000!important;}

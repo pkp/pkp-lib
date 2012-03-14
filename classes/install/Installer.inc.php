@@ -713,7 +713,7 @@ class Installer {
 							basename($plugin->getPluginPath()), // Product
 							'',	// Class name
 							0,	// Lazy load
-							0	// Site wide
+							$plugin->isSitePlugin()	// Site wide
 						);
 					}
 					$versionDao->insertVersion($pluginVersion, true);

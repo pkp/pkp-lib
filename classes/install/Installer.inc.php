@@ -820,8 +820,11 @@ class Installer {
 						$pluginVersion = $versionInfo['version'];
 					} else {
 						$pluginVersion = new Version(
-							1, 0, 0, 0, Core::getCurrentDate(), 1,
-							'plugins.'.$category, basename($plugin->getPluginPath()), '', 0
+							1, 0, 0, 0, // major minor revision build
+							Core::getCurrentDate(), 1, // dateInstalled current
+							'plugins.'.$category, basename($plugin->getPluginPath()), '', // productType product productClassName
+							0, // lazyLoad
+							$plugin->isSitePlugin() // sitewide
 						);
 					}
 					$versionDao->insertVersion($pluginVersion, true);

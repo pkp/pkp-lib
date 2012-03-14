@@ -63,7 +63,11 @@ class PKPOAIMetadataFormat_DC extends OAIMetadataFormat {
 				$key = str_replace('_', '-', $key);
 				assert(is_array($value));
 				foreach ($value as $subValue) {
-					$response .= "\t<$openingElement xml:lang=\"$key\">" . OAIUtils::prepOutput($subValue) . "</$closingElement>\n";
+					if ($key == METADATA_DESCRIPTION_UNKNOWN_LOCALE) {
+						$response .= "\t<$openingElement>" . OAIUtils::prepOutput($subValue) . "</$closingElement>\n";
+					} else {
+						$response .= "\t<$openingElement xml:lang=\"$key\">" . OAIUtils::prepOutput($subValue) . "</$closingElement>\n";
+					}
 				}
 			} else {
 				assert(is_scalar($value));

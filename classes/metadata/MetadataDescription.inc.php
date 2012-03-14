@@ -103,6 +103,8 @@ define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);
 define('METADATA_DESCRIPTION_REPLACE_NOTHING', 0x03);
 
+define('METADATA_DESCRIPTION_UNKNOWN_LOCALE', 'unknown');
+
 class MetadataDescription extends DataObject {
 	/** @var string fully qualified class name of the meta-data schema this description complies to */
 	var $_metadataSchemaName;

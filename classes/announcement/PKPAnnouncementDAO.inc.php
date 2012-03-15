@@ -105,7 +105,7 @@ class PKPAnnouncementDAO extends DAO {
 		$announcement->setAssocType($row['assoc_type']);
 		$announcement->setAssocId($row['assoc_id']);
 		$announcement->setTypeId($row['type_id']);
-		$announcement->setDateExpire($this->dateFromDB($row['date_expire']));
+		$announcement->setDateExpire($this->datetimeFromDB($row['date_expire']));
 		$announcement->setDatePosted($this->datetimeFromDB($row['date_posted']));
 
 		$this->getDataObjectSettings('announcement_settings', 'announcement_id', $row['announcement_id'], $announcement);

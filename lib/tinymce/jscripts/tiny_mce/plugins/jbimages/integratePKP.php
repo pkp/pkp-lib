@@ -22,6 +22,7 @@
 
 			// Load and execute initialization code
 			chdir($this->baseDir);
+			define('INDEX_FILE_LOCATION', $this->baseDir . '/index.php');
 			require($this->baseDir . '/lib/pkp/includes/bootstrap.inc.php');
 
 			$publicDir = Config::getVar('files', 'public_files_dir');

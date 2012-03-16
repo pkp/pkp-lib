@@ -12,9 +12,6 @@
  * @brief Class for parsing and modifying php.ini style configuration files.
  */
 
-// $Id$
-
-
 class ConfigParser {
 
 	/** Contents of the config file currently being parsed */

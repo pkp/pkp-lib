@@ -606,6 +606,42 @@ class Installer {
 		}
 		return true;
 	}
+
+	/**
+	 * Insert or update plugin data in versions
+	 * and plugin_settings tables.
+	 * @return boolean
+	 */
+	function addPluginVersions() {
+		$versionDao =& DAORegistry::getDAO('VersionDAO');
+		import('lib.pkp.classes.site.VersionCheck');
+		$categories = PluginRegistry::getCategories();
+		foreach ($categories as $category) {
+			PluginRegistry::loadCategory($category);
+			$plugins = PluginRegistry::getPlugins($category);
+			if (is_array($plugins)) {
+				foreach ($plugins as $plugin) {
+					$versionFile = $plugin->getPluginPath() . '/version.xml';
+
+					if (FileManager::fileExists($versionFile)) {
+						$versionInfo =& VersionCheck::parseVersionXML($versionFile);
+						$pluginVersion = $versionInfo['version'];
+					} else {
+						$pluginVersion = new Version(
+							1, 0, 0, 0, // major minor revision build
+							Core::getCurrentDate(), 1, // dateInstalled current
+							'plugins.'.$category, basename($plugin->getPluginPath()), '', // productType product productClassName
+							0, // lazyLoad
+							$plugin->isSitePlugin() // sitewide
+						);
+					}
+					$versionDao->insertVersion($pluginVersion, true);
+				}
+			}
+		}
+
+		return true;
+	}
 }
 
 ?>

@@ -60,6 +60,14 @@ class SiteDAO extends DAO {
 	}
 
 	/**
+	 * Create a new data object
+	 * @return DataObject
+	 */
+	function newDataObject() {
+		return new Site();
+	}
+
+	/**
 	 * Insert site information.
 	 * @param $site Site
 	 */

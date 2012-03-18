@@ -98,8 +98,8 @@ class SubmissionTombstoneDAO extends DAO {
 			$params
 		);
 		if ($this->getAffectedRows()) {
-			$articleTombstoneSettingsDao =& DAORegistry::getDAO('ArticleTombstoneSettingsDAO');
-			return $articleTombstoneSettingsDao->deleteSettings($tombstoneId);
+			$submissionTombstoneSettingsDao =& DAORegistry::getDAO('SubmissionTombstoneSettingsDAO');
+			return $submissionTombstoneSettingsDao->deleteSettings($tombstoneId);
 		}
 		return false;
 	}

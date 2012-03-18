@@ -334,6 +334,7 @@ class PKPApplication {
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'SubjectDAO' => 'lib.pkp.classes.codelist.SubjectDAO',
+			'SubmissionTombstoneSettingsDAO' => 'lib.pkp.classes.submission.SubmissionTombstoneSettingsDAO',
 			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',

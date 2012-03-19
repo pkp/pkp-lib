@@ -520,17 +520,14 @@
 	 */
 	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
 			function() {
-		
-		$element = this.getHtmlElement();
-		setTimeout(function(){
-			var editorElements = $element.find('.richContent');
-			for (var i = 0; i < editorElements.length; i++) {
-				var id = editorElements[i].getAttribute('id');
-				if (typeof tinyMCE !== 'undefined') {
-					tinyMCE.execCommand('mceAddControl', false, id);
-				}
-			}
-		}, 500);
+		if (typeof tinyMCE !== 'undefined') {
+			$element = this.getHtmlElement();
+			setTimeout(function(){
+				$element.find('.richContent').each(function(index) {
+					tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
+				});
+			}, 500);
+		}
 	};
 
 

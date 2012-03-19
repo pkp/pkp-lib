@@ -522,8 +522,10 @@
 			function() {
 		if (typeof tinyMCE !== 'undefined') {
 			$element = this.getHtmlElement();
+			var elementId = $element.attr('id');
 			setTimeout(function(){
-				$element.find('.richContent').each(function(index) {
+				// re-select the original element, to prevent closure memory leaks in (older?) versions of IE.
+				$('#' + elementId).find('.richContent').each(function(index) {
 					tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
 				});
 			}, 500);

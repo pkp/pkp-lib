@@ -46,14 +46,6 @@
 
 		// Bind the handler to the DOM element.
 		this.data('handler', this);
-
-		var editorElements = $element.find('.richContent');
-		for (var i = 0; i < editorElements.length; i++) {
-			var id = editorElements[i].getAttribute('id');
-			if (typeof tinyMCE !== 'undefined') {
-				tinyMCE.execCommand('mceAddControl', false, id);
-			}
-		}
 	};
 
 
@@ -513,6 +505,32 @@
 		if (this.$eventBridge_) {
 			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, data);
 		}
+	};
+
+
+	/**
+	 * Initialize TinyMCE instances.
+	 *
+	 * There are instances where TinyMCE is not initialized with the call to 
+	 * init(). These occur when content is loaded after the fact (via AJAX).
+	 * 
+	 * In these cases, search for richContent fields and initialize them.
+	 *
+	 * @private
+	 */
+	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
+			function() {
+		
+		$element = this.getHtmlElement();
+		setTimeout(function(){
+			var editorElements = $element.find('.richContent');
+			for (var i = 0; i < editorElements.length; i++) {
+				var id = editorElements[i].getAttribute('id');
+				if (typeof tinyMCE !== 'undefined') {
+					tinyMCE.execCommand('mceAddControl', false, id);
+				}
+			}
+		}, 500);
 	};
 
 

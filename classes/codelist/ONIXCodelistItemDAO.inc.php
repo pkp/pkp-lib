@@ -71,7 +71,7 @@ class ONIXCodelistItemDAO extends DAO {
 
 			import('lib.pkp.classes.xslt.XSLTransformer');
 			import('lib.pkp.classes.file.FileManager');
-			import('classes.file/TemporaryFileManager');
+			import('classes.file.TemporaryFileManager');
 
 			$temporaryFileManager = new TemporaryFileManager();
 			$fileManager = new FileManager();

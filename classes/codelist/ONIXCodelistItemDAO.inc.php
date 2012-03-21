@@ -73,11 +73,11 @@ class ONIXCodelistItemDAO extends DAO {
 			import('lib.pkp.classes.file.FileManager');
 			import('classes.file/TemporaryFileManager');
 
-			$temporaryFileManager =& new TemporaryFileManager();
-			$fileManager =& new FileManager();
+			$temporaryFileManager = new TemporaryFileManager();
+			$fileManager = new FileManager();
 
 			$tmpName = tempnam($temporaryFileManager->getBasePath(), 'ONX');
-			$xslTransformer =& new XSLTransformer();
+			$xslTransformer = new XSLTransformer();
 			$xslTransformer->setParameters(array('listName' => $listName));
 			$xslTransformer->setRegisterPHPFunctions(true);
 

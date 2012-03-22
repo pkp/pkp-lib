@@ -47,11 +47,11 @@ class Editor extends CI_Controller {
 	private function _lang_set($lang)
 	{
 		// We do say hello to any language set as lang_id in **_dlg.js
-		/*$langs = array('russian','english');
+		$langs = array('russian','english');
 		if (!in_array($lang, $langs))
 		{
 			$lang = 'english';
-		}*/
+		}
 
 		$this->config->set_item('language', $lang);
 		$this->lang->load('jbstrings', $lang);
@@ -91,6 +91,7 @@ class Editor extends CI_Controller {
 
 		// Check that the image directory isn't full
 		$maxUploadDirSize = $this->config->item('max_upload_dir_size', 'uploader_settings') * 1024;
+		$uploadDirSizeExceeded = false;
 		if ($maxUploadDirSize != 0) {
 			$this->load->helper('file');
 
@@ -104,7 +105,6 @@ class Editor extends CI_Controller {
 			// Add the size of the newly uploaded file
 			$totalSize += $_FILES['userfile']['size'];
 
-			$uploadDirSizeExceeded = false;
 			if($totalSize > $maxUploadDirSize)
 			{
 				$uploadDirSizeExceeded = true;

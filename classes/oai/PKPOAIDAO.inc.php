@@ -71,20 +71,20 @@ class PKPOAIDAO extends DAO {
 	}
 
 	/**
-	 * Check if an submission ID specifies a submission.
-	 * @param $submissionId int
+	 * Check if a data object ID specifies a data object.
+	 * @param $dataObjectId int
 	 * @param $setIds array optional Objects ids that specify an OAI set,
-	 * in hierarchical order. If passed, will check for the submission id
+	 * in hierarchical order. If passed, will check for the data object id
 	 * only inside the specified set.
 	 * @return boolean
 	 */
-	function recordExists($submissionId, $setIds = array()) {
-		$params = $this->getOrderedRecordParams($submissionId, $setIds);
+	function recordExists($dataObjectId, $setIds = array()) {
+		$params = $this->getOrderedRecordParams($dataObjectId, $setIds);
 
 		$result =& $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM mutex m ' .
-			$this->getRecordJoinClause($submissionId, $setIds) . ' ' .
+			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause(),
 			$params
 		);
@@ -98,19 +98,19 @@ class PKPOAIDAO extends DAO {
 	}
 
 	/**
-	 * Return OAI record for specified submission.
-	 * @param $submissionId int
+	 * Return OAI record for specified data object.
+	 * @param $dataObjectId int
 	 * @param $setIds array optional Objects ids that specify an OAI set,
-	 * in hierarchical order. If passed, will check for the submission id
+	 * in hierarchical order. If passed, will check for the data object id
 	 * only inside the specified set.
 	 * @return OAIRecord
 	 */
-	function &getRecord($submissionId, $setIds = array()) {
-		$params = $this->getOrderedRecordParams($submissionId, $setIds);
+	function &getRecord($dataObjectId, $setIds = array()) {
+		$params = $this->getOrderedRecordParams($dataObjectId, $setIds);
 
 		$result =& $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
-			$this->getRecordJoinClause($submissionId, $setIds) . ' ' .
+			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause(),
 			$params
 		);
@@ -267,17 +267,17 @@ class PKPOAIDAO extends DAO {
 	 * Get an array with the parameters in the correct
 	 * order to be used by the get record join sql. If
 	 * you need a different order, override this method.
-	 * @param $submissionId int
+	 * @param $dataObjectId int
 	 * @param $setIds array Objects ids that specify an OAI set,
 	 * in hierarchical order.
 	 * @param $set String
 	 * @return array
 	 */
-	function getOrderedRecordParams($submissionId = null, $setIds = array(), $set = null) {
+	function getOrderedRecordParams($dataObjectId = null, $setIds = array(), $set = null) {
 		$params = array();
 
-		if (isset($submissionId)) {
-			$params[] = $submissionId;
+		if (isset($dataObjectId)) {
+			$params[] = $dataObjectId;
 		}
 
 		if (is_array($setIds) && !empty($setIds)) {
@@ -320,13 +320,13 @@ class PKPOAIDAO extends DAO {
 	 *
 	 * Must be implemented by subclasses.
 	 *
-	 * @param $submissionId int
+	 * @param $dataObjectId int
 	 * @param $setIds array Objects ids that specify an OAI set,
 	 * in hierarchical order.
 	 * @param $set string
 	 * @return string
 	 */
-	function getRecordJoinClause($submissionId = null, $setIds = array(), $set = null) {
+	function getRecordJoinClause($dataObjectId = null, $setIds = array(), $set = null) {
 		assert(false);
 	}
 

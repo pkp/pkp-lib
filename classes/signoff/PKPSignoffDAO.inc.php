@@ -20,7 +20,7 @@ class PKPSignoffDAO extends DAO {
 	/**
 	 * Constructor
 	 */
-	function SignoffDAO() {
+	function PKPSignoffDAO() {
 		parent::DAO();
 	}
 

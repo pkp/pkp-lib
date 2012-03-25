@@ -107,9 +107,9 @@ class FileWrapper {
 	 * @return FileWrapper
 	 */
 	function &wrapper($source) {
-		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen') && is_string($url)) {
+		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen') && is_string($source)) {
 			$info = parse_url($source);
-			$wrapper = new FileWrapper($url, $info);
+			$wrapper = new FileWrapper($source, $info);
 		} elseif (is_resource($source)) {
 			// $source is an already-opened file descriptor.
 			import('lib.pkp.classes.file.wrappers.ResourceWrapper');

@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionTombstoneSettingsDAO.inc.php
+ * @file classes/tombstone/DataObjectTombstoneSettingsDAO.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SubmissionTombstoneSettingsDAO
+ * @class DataObjectTombstoneSettingsDAO
  * @ingroup submission
  *
  * @brief Operations for retrieving and modifying submission tombstone settings.
  */
 
 
-class SubmissionTombstoneSettingsDAO extends DAO {
+class DataObjectTombstoneSettingsDAO extends DAO {
 	/**
 	 * Retrieve an submission tombstone setting value.
 	 * @param $tombstoneId int
@@ -21,7 +21,7 @@ class SubmissionTombstoneSettingsDAO extends DAO {
 	 * @param $locale string optional
 	 */
 	function &getSetting($tombstoneId, $name, $locale = null) {
-		$sql = 'SELECT	setting_value, setting_type	FROM submission_tombstone_settings	WHERE tombstone_id = ? AND setting_name = ?';
+		$sql = 'SELECT	setting_value, setting_type	FROM data_object_tombstone_settings	WHERE tombstone_id = ? AND setting_name = ?';
 		$params = array((int) $tombstoneId, $name);
 		if ($locale !== null) {
 			$sql .= ' AND l.locale = ?';
@@ -59,7 +59,7 @@ class SubmissionTombstoneSettingsDAO extends DAO {
 
 		if (!$isLocalized) {
 			$value = $this->convertToDB($value, $type);
-			$this->replace('submission_tombstone_settings',
+			$this->replace('data_object_tombstone_settings',
 				array(
 					'tombstone_id' => $tombstoneId,
 					'setting_name' => $name,
@@ -72,10 +72,10 @@ class SubmissionTombstoneSettingsDAO extends DAO {
 			$returner = true;
 		} else {
 			if (is_array($value)) foreach ($value as $locale => $localeValue) {
-				$this->update('DELETE FROM submission_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?', array((int) $tombstone_id, $name, $locale));
+				$this->update('DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ? AND locale = ?', array((int) $tombstone_id, $name, $locale));
 				if (empty($localeValue)) continue;
 				$type = null;
-				$returner = $this->update('INSERT INTO submission_tombstone_settings
+				$returner = $this->update('INSERT INTO data_object_tombstone_settings
 					(tombstone_id, setting_name, setting_value, setting_type, locale)
 					VALUES (?, ?, ?, ?, ?)',
 					array(
@@ -95,7 +95,7 @@ class SubmissionTombstoneSettingsDAO extends DAO {
 	 */
 	function deleteSetting($tombstoneId, $name, $locale = null) {
 		$params = array((int) $tombstoneId, $name);
-		$sql = 'DELETE FROM submission_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?';
+		$sql = 'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ? AND setting_name = ?';
 		if ($locale !== null) {
 			$params[] = $locale;
 			$sql .= ' AND locale = ?';
@@ -109,7 +109,7 @@ class SubmissionTombstoneSettingsDAO extends DAO {
 	 */
 	function deleteSettings($tombstoneId) {
 		return $this->update(
-			'DELETE FROM submission_tombstone_settings WHERE tombstone_id = ?', (int) $tombstoneId
+			'DELETE FROM data_object_tombstone_settings WHERE tombstone_id = ?', (int) $tombstoneId
 		);
 	}
 }

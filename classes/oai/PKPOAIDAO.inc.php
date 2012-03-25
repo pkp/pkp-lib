@@ -280,22 +280,28 @@ class PKPOAIDAO extends DAO {
 			$params[] = $dataObjectId;
 		}
 
+		$notNullSetIds = array();
 		if (is_array($setIds) && !empty($setIds)) {
 			foreach($setIds as $id) {
 				// Avoid null values.
 				if (is_null($id)) continue;
+				$notNullSetIds[] = (int) $id;
 				$params[] = (int) $id;
 			}
 		}
 
-		// We create a parameter array with the same parameters twice,
-		// so they can be used in the tombstone JOIN part of the sql too.
-		$params = array_merge($params, $params);
+		// Add the data object id again.
+		if (isset($dataObjectId)) {
+			$params[] = $dataObjectId;
+		}
 
 		// Add the set specification, if any.
 		if (isset($set)) {
 			$params[] = $set;
 		}
+
+		// Add the set ids again, so they can be used in the tombstone JOIN part of the sql too.
+		$params = array_merge($params, $notNullSetIds);
 
 		return $params;
 	}

@@ -374,15 +374,13 @@
 	<message key="submission.submitter">Submitter</message>
 	<message key="submission.summary">Summary</message>
 	<message key="submission.supplementaryFiles">Supplementary Files</message>
-	<message key="submission.supportingAgencies">Contributors and Supporting Agencies</message>
+	<message key="submission.supportingAgencies">Supporting Agencies</message>
 	<message key="submission.currentAgencies">Current Agencies</message>
 	<message key="submission.indexingInformation">Indexing Information</message>
 	<message key="submission.titleAndAbstract">Title and Abstract</message>
 	<message key="submission.underway">Underway</message>
 	<message key="submission.uploadFileTo">Upload file to</message>
 	<message key="submission.createRemote">Create remote</message>
-	<message key="submission.uploaderUserGroup">Upload in my role as...</message>
-	<message key="submission.submitterUserGroup">Submit in my role as...</message>
 	<message key="submission.viewMetadata">View Metadata</message>
 	<message key="submission.views">Views</message>
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>

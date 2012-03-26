@@ -9,5 +9,6 @@
 
 <li{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 	<input type="radio" id="{$FBV_id|escape}" {$FBV_radioParams} class="field radio"{if $FBV_checked} checked="checked"{/if}{if $FBV_disabled} disabled="disabled"{/if}/>
-	{if $FBV_label}<label for="{$FBV_id|escape}" class="choice">{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label|escape}{/if}</label>{/if}
+	{if $FBV_label}<label for="{$FBV_id|escape}" class="choice">{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label|escape}{/if}</label>
+	{elseif $FBV_content}<label for="{$FBV_id|escape}" class="choice">{$FBV_content}</label>{/if}
 </li>

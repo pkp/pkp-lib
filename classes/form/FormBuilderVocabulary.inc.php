@@ -673,8 +673,12 @@ class FormBuilderVocabulary {
 		$params['checked'] = isset($params['checked']) ? $params['checked'] : false;
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 
+		if (isset($params['label']) && isset($params['content'])) {
+			$smarty->trigger_error('FBV: radio button cannot have both a content and a label parameter.  Label has precedence.');
+		}
+
 		$radioParams = '';
-		$smarty->clear_assign(array('FBV_id', 'FBV_label'));
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_content'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;
@@ -683,6 +687,7 @@ class FormBuilderVocabulary {
 				case 'translate': $smarty->assign('FBV_translate', $params['translate']); break;
 				case 'checked': $smarty->assign('FBV_checked', $params['checked']); break;
 				case 'disabled': $smarty->assign('FBV_disabled', $params['disabled']); break;
+				case 'content': $smarty->assign('FBV_content', $params['content']); break;
 				default: $radioParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';
 			}
 		}

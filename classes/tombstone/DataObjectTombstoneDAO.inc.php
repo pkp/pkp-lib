@@ -115,7 +115,7 @@ class DataObjectTombstoneDAO extends DAO {
 			$dataObjectTombstoneSettingsDao =& DAORegistry::getDAO('DataObjectTombstoneSettingsDAO');
 			$settingsDeleted = $dataObjectTombstoneSettingsDao->deleteSettings($tombstoneId);
 			$setObjectsDeleted = $this->deleteOAISetObjects($tombstoneId);
-			if ($setObjectsDeleted && $setObjectsDeleted) {
+			if ($settingsDeleted && $setObjectsDeleted) {
 				return true;
 			}
 		}

@@ -9,7 +9,7 @@
 
 <fieldset {if $FBV_id} id="{$FBV_id}"{/if}{if $FBV_class} class="{$FBV_class|escape}"{/if}>
 	{if $FBV_title}
-		<legend>{translate key=$FBV_title}</legend>
+		<legend>{if $FBV_translate}{translate key=$FBV_title}{else}{$FBV_title}{/if}</legend>
 	{/if}
 	{$FBV_content}
 </fieldset>

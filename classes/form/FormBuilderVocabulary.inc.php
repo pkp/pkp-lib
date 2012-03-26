@@ -123,6 +123,7 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_class', isset($params['class']) ? $params['class'] : null);
 			$smarty->assign('FBV_id', $params['id']);
 			$smarty->assign('FBV_content', isset($content) ? $content : null);
+			$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
 			$smarty->assign('FBV_title', isset($params['title']) ? $params['title'] : null);
 			return $smarty->fetch('form/formArea.tpl');
 		}

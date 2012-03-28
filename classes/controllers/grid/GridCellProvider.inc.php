@@ -50,6 +50,7 @@ class GridCellProvider {
 		$templateMgr->assign_by_ref('column', $column);
 		$templateMgr->assign_by_ref('actions', $this->getCellActions($request, $row, $column));
 		$templateMgr->assign_by_ref('flags', $column->getFlags());
+		$templateMgr->assign('formLocales', AppLocale::getSupportedFormLocales());
 		$template = $column->getTemplate();
 		assert(!empty($template));
 		return $templateMgr->fetch($template);

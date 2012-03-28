@@ -28,9 +28,11 @@
 	<div class="gridCellEdit">
 		{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 			{if $column->hasFlag('multilingual')}{* Multilingual *}
-				{foreach from=$column->getFlag('availableLocales') key=_labelLocale item=_labelLocaleName}
-					{$_labelLocaleName|escape} <input type="text" name="newRowId[{$column->getId()|escape}][{$_labelLocale|escape}]" class="textField" value="{$label.$_labelLocale|escape}" />
-				{/foreach}
+
+				{assign var="FBV_id" value="newRowId"}{* we can just use this generic name since a unique id gets appended to it in the template *}
+				{assign var="FBV_name" value="newRowId["|concat:$column->getId()|escape|concat:"]"}
+				{include file="form/textInput.tpl" formLocale=$primaryLocale FBV_id=$FBV_id FBV_name=$FBV_name FBV_value=$label FBV_multilingual=true formLocales=$formLocales}
+
 			{else}{* Not multilingual *}
 				<input type="text" name="newRowId[{$column->getId()|escape}]" class="textField" value="{$label|escape}" />
 			{/if}

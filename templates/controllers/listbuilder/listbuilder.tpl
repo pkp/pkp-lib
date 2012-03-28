@@ -43,6 +43,15 @@
 		{/if}
 		{if !$grid->getIsSubcomponent()}<span class="h3 no_border float_left">{$grid->getTitle()|translate}</span>{/if}
 		<table id="{$gridTableId|escape}">
+			{if $columns|@count > 1}{* include column titles as th elements if there is more than one column *}
+				<thead>
+					<tr>
+					{foreach from=$columns item=column}
+						<th>{$column->getLocalizedTitle()|escape}</th>
+					{/foreach}
+					</tr>
+				</thead>
+			{/if}
 			<tbody>
 				{foreach from=$rows item=lb_row}
 					{$lb_row}

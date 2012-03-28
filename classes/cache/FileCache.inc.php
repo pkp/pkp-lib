@@ -82,7 +82,7 @@ class FileCache extends GenericCache {
 	 */
 	function setEntireCache(&$contents) {
 		$newFile = !file_exists($this->filename);
-		$fp = @fopen($this->filename, 'wb');
+		$fp = fopen($this->filename, 'wb');
 		if ($newFile) {
 			$umask = Config::getVar('files', 'umask');
 			if ($umask) chmod($this->filename, FILE_MODE_MASK & ~$umask);

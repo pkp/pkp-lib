@@ -216,7 +216,7 @@
 	 * link element.
 	 *
 	 * @private
-	 * @param {Object} contextElement
+	 * @param {Object} contextElement The context element.
 	 * @param {Object} linkElement The link HTML element.
 	 * @param {Object} clickLinkHandler The function to be called when
 	 * the click event is triggered.

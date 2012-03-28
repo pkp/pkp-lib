@@ -375,7 +375,7 @@ class PKPRouter {
 
 			// Set a generic authorization message if no
 			// specific authorization message was set.
-			if (is_null($authorizationMessage)) $authorizationMessage = 'user.authorization.accessDenied';
+			if ($authorizationMessage == '') $authorizationMessage = 'user.authorization.accessDenied';
 
 			// Handle the authorization failure.
 			$result = $this->handleAuthorizationFailure($request, $authorizationMessage);

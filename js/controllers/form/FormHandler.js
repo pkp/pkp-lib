@@ -82,7 +82,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		} else {
 			this.trigger('formInvalid');
 		}
-		
+
 		this.callbackWrapper(this.initializeTinyMCE_());
 	};
 	$.pkp.classes.Helper.inherits(

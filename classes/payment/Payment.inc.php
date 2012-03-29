@@ -37,7 +37,7 @@ class Payment {
 	/**
 	 * Constructor
 	 */
-	function Payment($amount, $currencyCode, $userId = null, $assocId = null) {
+	function Payment($amount = null, $currencyCode = null, $userId = null, $assocId = null) {
 		$this->amount = $amount;
 		$this->currencyCode = $currencyCode;
 		$this->userId = $userId;
@@ -48,8 +48,13 @@ class Payment {
 	 * Get the row id of the payment.
 	 * @return int
 	 */
+	function getId() {
+		return $this->id;
+	}
+
 	function getPaymentId() {
-		return $this->paymentId;
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+		return $this->getId();
 	}
 
 	/**
@@ -57,8 +62,13 @@ class Payment {
 	 * @param $paymentId int
 	 * @return int new payment id
 	 */
-	function setPaymentId($paymentId) {
+	function setId($paymentId) {
 		return $this->paymentId = $paymentId;
+	}
+
+	function setPaymentId($paymentId) {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+		$this->setId($paymentId);
 	}
 
 	/**

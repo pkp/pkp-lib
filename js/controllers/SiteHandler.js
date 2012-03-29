@@ -44,16 +44,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		this.options_ = options;
 
-		// Determine if the data changed message has been overridden
-		// with an options element. If not, use the default provided by
-		// the Application. Orignal Locale key: form.dataHasChanged.
-		// @see PKPApplication::getJSLocaleKeys
-		if (options.formDataChangedMessage) {
-			this.formDataChangedMessage_ = options.formDataChangedMessage;
-		} else {
-			this.formDataChangedMessage_ = $.pkp.locale.form_dataHasChanged;
-		}
-
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
@@ -81,15 +71,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @type {Boolean}
 	 */
 	$.pkp.controllers.SiteHandler.prototype.formDataChanged_ = false;
-
-
-	/**
-	 * A state variable to store the message to display when the page is
-	 * unloaded with unsaved data.
-	 * @private
-	 * @type {String}
-	 */
-	$.pkp.controllers.SiteHandler.prototype.formDataChangedMessage_ = null;
 
 
 	/**
@@ -146,6 +127,15 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// this actually sets the property to undefined.
 		// delete doesn't really delete.
 		delete this.unsavedFormElements_[elementId];
+	};
+
+
+	/**
+	 * Unregister all unsaved form elements.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.unregisterAllUnsavedFormElements =
+			function() {
+		this.unsavedFormElements_ = {};
 	};
 
 
@@ -209,8 +199,25 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			}
 		}
 		if (unsavedElementCount > 0) {
-			return this.formDataChangedMessage_;
+			return $.pkp.locale.form_dataHasChanged;
 		}
+	};
+
+
+	/**
+	 * Method to determine if a form is currently registered as having
+	 * unsaved changes.
+	 * 
+	 * @param {string} id the id of the form to check.
+	 * @return {boolean} true if the form is unsaved.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.isFormUnsaved =
+			function(id) {
+
+		if (this.unsavedFormElements_[id] !== undefined) {
+			return true;
+		}
+		return false;
 	};
 
 

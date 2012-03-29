@@ -12,13 +12,13 @@
 {if $FBV_multilingual && count($formLocales) > 1}
 	<script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
+		$('#{$FBV_id|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
 			'$.pkp.controllers.form.MultilingualInputHandler'
 			);
 	{rdelim});
 	</script>
 	{* This is a multilingual control. Enable popover display. *}
-	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
+	<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
 		<input type="{if $FBV_isPassword}password{else}text{/if}"
 			{$FBV_textInputParams}

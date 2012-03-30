@@ -128,10 +128,7 @@ class PKPLoginHandler extends Handler {
 				$source = $request->getUserVar('source');
 				$redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');
 				if (isset($source) && !empty($source)) {
-					$request->redirectUrl(
-						($redirectNonSsl?'http':$request->getProtocol()) . '://' . $request->getServerHost() . $source,
-						false
-					);
+					$request->redirectUrl($source);
 				} elseif ($redirectNonSsl) {
 					$request->redirectNonSSL();
 				} else {

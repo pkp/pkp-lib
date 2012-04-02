@@ -337,6 +337,18 @@ class GridHandler extends PKPHandler {
 
 		// Load grid-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON);
+
+		if ($this->isOrderActionNecessary()) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction(
+				new LinkAction(
+					'orderItems',
+					new NullAction(),
+					__('grid.action.order'),
+					'order_items'
+				)
+			);
+		}
 	}
 
 
@@ -371,6 +383,10 @@ class GridHandler extends PKPHandler {
 
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
+
+		$row = $this->getRowInstance();
+		$templateMgr->assign('hasOrderingItems', $row->getIsOrderable());
+		$templateMgr->assign('hasOrderLink', $this->isOrderActionNecessary());
 
 		// Let the view render the grid.
 		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
@@ -606,6 +622,66 @@ class GridHandler extends PKPHandler {
 		return $json->getString();
 	}
 
+	/**
+	 * Check if we need to insert an order link action to the grid.
+	 * May be extended/overriden by subclasses to implement specific
+	 * conditions.
+	 * @return boolean
+	 */
+	function isOrderActionNecessary() {
+		$row = $this->getRowInstance(); /* @var $row GridRow */
+
+		$hasOrderableRows = false;
+		if (is_a($row, 'GridRow')) {
+			$hasOrderableRows = $row->getIsOrderable();
+		} else {
+			assert(false);
+		}
+
+		return $hasOrderableRows;
+	}
+
+	/**
+	 * Save all rows data new sequence.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function saveRowsSequence($args, &$request) {
+		import('lib.pkp.classes.core.JSONManager');
+		$jsonManager = new JSONManager();
+		$data = $jsonManager->decode($request->getUserVar('data'));
+
+		$gridElements = array_values($this->getGridDataElements($request));
+		$firstSeqValue = $this->getRowDataElementSequence($gridElements[0]);
+		foreach ($this->getGridDataElements($request) as $rowId => $element) {
+			$rowPosition = array_search($rowId, $data);
+			$newSequence = $firstSeqValue + $rowPosition;
+			$currentSequence = $this->getRowDataElementSequence($element);
+			if ($newSequence != $currentSequence) {
+				$this->saveRowDataElementSequence($element, $newSequence);
+			}
+		}
+		$json = new JSONMessage(true);
+		return $json->getString();
+	}
+
+	/**
+	 * Get the row data element sequence value.
+	 * @param $gridDataElement mixed
+	 * @return int
+	 */
+	function getRowDataElementSequence(&$gridDataElement) {
+		assert(false);
+	}
+
+	/**
+	 * Operation to save the row data element new sequence.
+	 * @param $gridDataElement mixed
+	 * @param $newSequence int
+	 */
+	function saveRowDataElementSequence(&$gridDataElement, $newSequence) {
+		assert(false);
+	}
 
 	//
 	// Private helper methods

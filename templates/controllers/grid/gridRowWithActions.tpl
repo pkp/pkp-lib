@@ -8,7 +8,7 @@
  *}
 
 {assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
-<tr id="{$rowId|escape}" class="element{$row->getId()|escape} gridRow">
+<tr id="{$rowId|escape}" class="element{$row->getId()|escape} {if $row->getIsOrderable()}orderable{/if} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $smarty.foreach.columnLoop.first}
 			<td class="first_column">

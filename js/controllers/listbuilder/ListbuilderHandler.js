@@ -39,7 +39,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
 
 		// Attach the button handlers
-		$listbuilder.find('span[class="options"] > a').click(
+		$listbuilder.find('span[class="options"] > a.add_item').click(
 				this.callbackWrapper(this.addItemHandler_));
 
 		// Attach the content manipulation handlers
@@ -567,9 +567,15 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// (Risks IE closure/DOM element memory leak.)
 			var $newContent = $(jsonData.content);
 
+			// Store current row id.
+			var rowId = this.getHtmlElement().find('.saveRowResponsePlaceholder').attr('id');
+						
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').
 					replaceWith($newContent);
+					
+			// Make sure row id won't change.
+			$newContent.attr('id', rowId);
 
 			// Attach handlers for content manipulation
 			this.attachContentHandlers_($newContent);
@@ -664,10 +670,10 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.disableControls = function() {
 
-		this.getHtmlElement().find('span[class="options"] > a').unbind('click');
+		this.getHtmlElement().find('span[class="options"] > a.add_item').unbind('click');
 
 		// binding false is the same as function() {return false;} in >= 1.4.2
-		this.getHtmlElement().find('span[class="options"] > a').click(false);
+		this.getHtmlElement().find('span[class="options"] > a.add_item').click(false);
 		this.getHtmlElement().find('.h3').addClass('spinner');
 	};
 
@@ -678,9 +684,28 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item if needed
-		this.getHtmlElement().find('span[class="options"] > a').click(
+		this.getHtmlElement().find('span[class="options"] > a.add_item').click(
 				this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');
+	};
+
+	/**
+	 * Add grid features.
+	 * @private
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.initFeatures_ = function(options) {
+		var $orderItemsFeature =
+			/** @type {$.pkp.classes.features.OrderItemsFeature} */
+			($.pkp.classes.Helper.objectFactory(
+					'$.pkp.classes.features.OrderListbuilderItemsFeature',
+					[this, {
+						'orderButton': $('a.order_items', this.getHtmlElement()),
+						'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls')
+					}]));
+
+		this.features_ = {'orderItems': $orderItemsFeature};
+		this.features_.orderItems.init();
 	};
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

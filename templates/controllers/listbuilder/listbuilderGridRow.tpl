@@ -9,9 +9,9 @@
 {if $row->getId()}
 	{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
 {else}
-	{assign var=rowId value=""}
+	{assign var=rowId value="component-"|concat:$row->getGridId():"-row-tempId-"|uniqid}
 {/if}
-<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow">
+<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}{if $row->getIsOrderable()}orderable {/if}gridRow">
 	{foreach from=$cells item=cell name=listbuilderCells}
 		{if $smarty.foreach.listbuilderCells.first}
 			<td class="first_column">
@@ -35,5 +35,10 @@
 	{/if}
 	{if !$row->getId() || $row->getIsModified()}
 		<input type="hidden" disabled="disabled" class="isModified" value="1" />
+	{else}
+		<input type="hidden" disabled="disabled" class="isModified" value="0" />
+	{/if}
+	{if $row->getIsOrderable()}
+		<input type="hidden" name="newRowId[sequence]" class="itemSequence" />
 	{/if}
 </tr>

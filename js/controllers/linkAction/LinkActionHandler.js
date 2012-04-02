@@ -194,6 +194,35 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	};
 
 
+	/**
+	 * Enable link action.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			enableLink = function() {
+		var $linkActionElement = $(this.getHtmlElement());
+		$linkActionElement.removeClass('ui-state-disabled');
+		var actionRequestUrl = this.linkActionRequest_.getUrl();
+		if (this.getHtmlElement().is('a') && actionRequestUrl) {
+			$linkActionElement.attr('href', actionRequestUrl);
+		}
+		this.bindActionRequest();
+	};
+
+
+	/**
+	 * Disable link action.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			disableLink = function() {
+		var $linkActionElement = $(this.getHtmlElement());
+		$linkActionElement.addClass('ui-state-disabled');
+		if (this.getHtmlElement().is('a')) {
+			$linkActionElement.attr('href', '#');
+		}
+		this.unbind('click', this.activateAction);
+	};
+
+
 	//
 	// Private methods.
 	//

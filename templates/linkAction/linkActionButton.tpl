@@ -17,9 +17,10 @@
 {/if}
 <a href="#" style="float: left;" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
-		class="{$imageClass} {$action->getImage()|escape}"
+		class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"
 		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}
 	{else}
+		class="pkp_controllers_linkAction"
 		{if $hoverTitle} title="{$action->getTitle()|escape}">{else}>{$action->getTitle()|escape}{/if}
 	{/if}
 {/strip}</a>

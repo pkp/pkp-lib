@@ -55,6 +55,10 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Show/hide row action feature.
 		this.activateRowActions_();
 
+		if (options.hasOrderingItems) {
+			this.initFeatures_(options);
+		}
+
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.GridHandler,
 			$.pkp.classes.Handler);
@@ -94,6 +98,13 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.bodySelector_ = null;
 
+	/**
+	 * This grid features.
+	 * @private
+	 * @type {object}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.features_ = null;
+
 
 	//
 	// Protected methods
@@ -106,6 +117,63 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function() {
 
 		return this.fetchRowUrl_;
+	};
+
+
+	/**
+	 * Get all grid rows.
+	 * @private
+	 *
+	 * @returns {jQuery}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getRows =
+			function () {
+		return $('.gridRow', this.getHtmlElement());
+	};
+
+
+	/**
+	 * Get the id prefix of this grid.
+	 * @private
+	 *
+	 * @returns {string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getGridIdPrefix =
+			function () {
+		return 'component-' + this.gridId_;
+	};
+
+
+	/**
+	 * Get the id prefix of this grid rows.
+	 * @private
+	 *
+	 * @returns {string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getRowIdPrefix =
+			function () {
+		return this.getGridIdPrefix() + '-row-';
+	};
+
+	/**
+	 * Get the data element id of the passed grid row.
+	 * @param {jQuery} $gridRow
+	 * @returns {string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
+			function ($gridRow) {
+		var gridRowHtmlClasses = $gridRow.attr('class').split(' ');
+		var rowDataIdPrefix = 'element';
+		var index, rowDataId;
+		for (index in gridRowHtmlClasses) {
+			var startExtractPosition = gridRowHtmlClasses[index].indexOf(rowDataIdPrefix);
+			if (startExtractPosition != -1) {
+				rowDataId = gridRowHtmlClasses[index].slice(rowDataIdPrefix.length);
+				break;
+			}
+		}
+		
+		return rowDataId;
 	};
 
 
@@ -136,7 +204,74 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function(sourceElement, event) {
 
 		// Toggle the row actions.
-		$(sourceElement).parents('tr').next('.row_controls').toggle(300);
+		$controlRow = $(sourceElement).parents('tr').next('.row_controls');
+		this.applyToggleRowActionEffect_($controlRow);
+	};
+
+
+	/**
+	 * Hide all visible row actions.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.hideAllVisibleRowActions =
+			function() {
+		$visibleControlRows = $('.row_controls:visible', this.getHtmlElement());
+		var index, limit;
+		for (index = 0, limit = $visibleControlRows.length; index < limit; index++) {
+			this.applyToggleRowActionEffect_($($visibleControlRows[index]));
+		}
+	};
+
+
+	/**
+	 * Enable/disable all link actions inside this grid.
+	 * @param {boolean} enable
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.changeLinkActionsState =
+			function(enable, $linkElements) {
+		if ($linkElements == undefined) {
+			var $linkElements = $('.pkp_controllers_linkAction', this.getHtmlElement());
+		}
+		$linkElements.each(function() {
+			var linkHandler = $.pkp.classes.Handler.getHandler($(this));
+			if (enable) {
+				linkHandler.enableLink();
+			} else {
+				linkHandler.disableLink();
+			}
+		});
+	};
+
+
+	/**
+	 * Re-sequence all grid rows based on the passed sequence map.
+	 * @param {array} sequenceMap A sequence array with the row id as value.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.resequenceRows =
+			function (sequenceMap) {
+		var rowId, index;
+		for (index in sequenceMap) {
+			rowId = sequenceMap[index];
+			var $row = $('#' + rowId);
+			this.appendRow($row);
+		}
+		this.updateControlRowsPosition();
+	};
+
+
+	/**
+	 * Move all grid control rows to their correct position,
+	 * below of each correspondent data grid row.
+	 * @returns
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.updateControlRowsPosition =
+			function () {
+		var $rows = this.getRows();
+		var index, limit;
+		for (index = 0, limit = $rows.length; index < limit; index++) {
+			var $row = $($rows[index]);
+			var $controlRow = this.getControlRowByGridRow($row);
+			if ($controlRow.length > 0) $controlRow.insertAfter($row);
+		}
 	};
 
 
@@ -376,6 +511,18 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
+	/**
+	 * Get the control row for the passed the grid row.
+	 * @param {jQuery} $gridRow
+	 * @returns {jQuery}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getControlRowByGridRow =
+			function ($gridRow) {
+		var rowDataId = this.getRowDataId($gridRow);
+		var controlRowId = this.getRowIdPrefix() + rowDataId + '-control-row';
+		return $('#' + controlRowId);
+	};
+
 
 	/**
 	 * Helper that attaches click events to row actions.
@@ -387,6 +534,39 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var $grid = this.getHtmlElement();
 		$grid.find('a.settings').unbind('click').bind('click',
 				this.callbackWrapper(this.toggleRowActions));
+	};
+
+
+	/**
+	 * Apply the effect for hide/show row actions.
+	 * @private
+	 *
+	 * @param {jQuery} $controlRow
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
+			function($controlRow) {
+		$controlRow.toggle(300);
+	};
+
+
+	/**
+	 * Add grid features.
+	 * @private
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.initFeatures_ =
+			function(options) {
+		var $orderItemsFeature =
+			/** @type {$.pkp.classes.features.OrderItemsFeature} */
+			($.pkp.classes.Helper.objectFactory(
+					'$.pkp.classes.features.OrderGridItemsFeature',
+					[this, {
+						'orderButton': $('a.order_items', this.getHtmlElement()),
+						'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
+						'saveItemsSequenceUrl': options.saveItemsSequenceUrl
+					}]));
+
+		this.features_ = {'orderItems': $orderItemsFeature};
+		this.features_.orderItems.init();
 	};
 
 

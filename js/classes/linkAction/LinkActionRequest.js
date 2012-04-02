@@ -104,6 +104,20 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 	};
 
 
+	/**
+	 * Get the link action request url.
+	 * @returns {mixed} string or null
+	 */
+	$.pkp.classes.linkAction.LinkActionRequest.prototype.getUrl =
+			function() {
+		if (this.options.url) {
+			return this.options.url;
+		} else {
+			return null;
+		}
+	};
+
+
 	//
 	// Protected methods
 	//

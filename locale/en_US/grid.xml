@@ -28,6 +28,8 @@
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 	<message key="grid.action.addAuthor">Add Author</message>
 	<message key="grid.action.upgrade">Upgrade</message>
+	<message key="grid.action.order">Order</message>
+	<message key="grid.action.cancelOrdering">Cancel ordering</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

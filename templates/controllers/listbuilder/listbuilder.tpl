@@ -7,8 +7,10 @@
  * Displays a Listbuilder object
  *}
 
-{assign var=gridId value="component-"|concat:$grid->getId():'-'|uniqid}
+{assign var=staticId value="component-"|concat:$grid->getId()}
+{assign var=gridId value=$staticId|concat:'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
+{assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -25,7 +27,9 @@
 					saveUrl: null,
 					saveFieldName: '{$grid->getSaveFieldName()|escape:javascript}',
 				{/if}
-				sourceType: '{$grid->getSourceType()|escape:javascript}'
+				sourceType: '{$grid->getSourceType()|escape:javascript}',
+				hasOrderingItems: '{$hasOrderingItems}',
+				bodySelector: '#{$gridActOnId|escape:javascript}',
 			{rdelim}
 		);
 	});
@@ -66,6 +70,9 @@
 				<div class="newRow"></div>
 			</tbody>
 		</table>
+		{if $hasOrderLink}
+			{include file="controllers/grid/gridOrderFinishControls.tpl" gridId=$staticId}
+		{/if}
 	</div>
 </div>
 

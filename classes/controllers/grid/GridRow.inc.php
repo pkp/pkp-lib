@@ -36,8 +36,11 @@ class GridRow {
 	/** @var mixed the row's data source */
 	var $_data;
 
-	/** @var $isModified boolean true iff the row has been modified */
+	/** @var $isModified boolean true if the row has been modified */
 	var $_isModified;
+
+	/** @var $isOrderable boolean true if the row can be ordered */
+	var $_isOrderable;
 
 	/**
 	 * @var array row actions, the first key represents
@@ -144,6 +147,22 @@ class GridRow {
 	}
 
 	/**
+	 * Set the orderable flag for the row
+	 * @param $isOrderable boolean
+	 */
+	function setIsOrderable($isOrderable) {
+		$this->_isOrderable = $isOrderable;
+	}
+
+	/**
+	 * Get the orderable flag for the row
+	 * @return boolean
+	 */
+	function getIsOrderable() {
+		return $this->_isOrderable;
+	}
+
+	/**
 	 * Get all actions for a given position within the controller
 	 * @param $position string the position of the actions
 	 * @return array the LegacyLinkActions for the given position
@@ -192,6 +211,20 @@ class GridRow {
 	 * @param $template string
 	 */
 	function initialize($request, $template = 'controllers/grid/gridRow.tpl') {
+		if ($this->getIsOrderable()) {
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction(
+				new LinkAction(
+					'moveItem',
+					new NullAction(),
+					'',
+					'add_item'
+				), GRID_ACTION_POSITION_ROW_LEFT
+			);
+
+			$template = 'controllers/grid/gridRowWithActions.tpl';
+		}
+
 		// Set the template.
 		$this->setTemplate($template);
 	}

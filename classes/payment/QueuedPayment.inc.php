@@ -29,7 +29,8 @@ class QueuedPayment extends Payment {
 	 * @param $queuedPaymentId int
 	 */
 	function setQueuedPaymentId($queuedPaymentId) {
-		parent::setPaymentId($queuedPaymentId);
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
+		return parent::setPaymentId($queuedPaymentId);
 	}
 
 	/**
@@ -37,6 +38,7 @@ class QueuedPayment extends Payment {
 	 * @return int
 	 */
 	function getQueuedPaymentId() {
+		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
 		return parent::getPaymentId();
 	}
 }

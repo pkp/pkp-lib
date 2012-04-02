@@ -49,7 +49,7 @@ class Payment {
 	 * @return int
 	 */
 	function getId() {
-		return $this->id;
+		return $this->paymentId;
 	}
 
 	function getPaymentId() {
@@ -68,7 +68,7 @@ class Payment {
 
 	function setPaymentId($paymentId) {
 		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$this->setId($paymentId);
+		return $this->setId($paymentId);
 	}
 
 	/**

@@ -30,6 +30,7 @@
 	//
 	/**
 	 * Save order handler.
+	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.saveOrderHandler =
 			function() {
@@ -41,6 +42,7 @@
 		return false;
 
 	};
+
 
 	/**
 	 * Save order response handler.

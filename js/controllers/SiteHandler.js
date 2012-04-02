@@ -207,7 +207,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Method to determine if a form is currently registered as having
 	 * unsaved changes.
-	 * 
+	 *
 	 * @param {string} id the id of the form to check.
 	 * @return {boolean} true if the form is unsaved.
 	 */

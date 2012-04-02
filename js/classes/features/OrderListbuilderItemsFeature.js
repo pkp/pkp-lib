@@ -25,7 +25,6 @@
 			$.pkp.classes.features.ToggleableOrderItemsFeature);
 
 
-			
 	//
 	// Extended methods from ToggleableOrderItemsFeature.
 	//
@@ -33,20 +32,22 @@
 	 * @inheritDoc
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.init =
-			function () {
+			function() {
 		this.parent('init');
 		this.toggleItemsDragMode(false);
-	};	
-	
+	};
+
+
 	/**
 	 * @inheritDoc
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.toggleState =
-			function (isOrdering) {
+			function(isOrdering) {
 		this.parent('toggleState', isOrdering);
-		this.toggleContentHandlers_();		
+		this.toggleContentHandlers_();
 	};
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -61,16 +62,21 @@
 			orderableInput.attr('value', seq);
 			var modifiedInput = $row.find('.isModified');
 			modifiedInput.attr('value', 1);
-		};
+		}
 	};
-	
+
+
+	/**
+	 * @inheritDoc
+	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.saveOrderHandler =
-			function () {
+			function() {
 		this.parent('saveOrderHandler');
 		this.toggleState(false);
 		return false;
 	};
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -80,15 +86,16 @@
 		$rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
-	
-	
+
+
 	//
 	// Private helper methods.
 	//
 	/**
 	 * Enable/disable row content handlers.
+	 * @private
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.toggleContentHandlers_ = 
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.toggleContentHandlers_ =
 			function() {
 		var $rows = this.gridHandler_.getRows();
 		var index, limit;
@@ -102,6 +109,6 @@
 		}
 	};
 
-			
+
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

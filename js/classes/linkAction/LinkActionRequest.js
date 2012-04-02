@@ -106,7 +106,7 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 
 	/**
 	 * Get the link action request url.
-	 * @returns {mixed} string or null
+	 * @return {mixed} string or null.
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.getUrl =
 			function() {

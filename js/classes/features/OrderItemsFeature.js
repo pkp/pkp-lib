@@ -21,8 +21,8 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * @constructor
 	 *
-	 * @param {$.controllers.grid.GridHandler} gridHandler The handler of the grid element that
-	 * this feature is attached to.
+	 * @param {$.controllers.grid.GridHandler} gridHandler The handler of
+	 *  the grid element that this feature is attached to.
 	 * @param {object} options Configuration of this feature.
 	 */
 	$.pkp.classes.features.OrderItemsFeature =
@@ -30,7 +30,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 		this.gridHandler_ = gridHandler;
 		this.options_ = options;
-		this.itemsOrder_ = new Array();
+		this.itemsOrder_ = [];
 	};
 
 
@@ -44,12 +44,14 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.gridHandler_ = null;
 
+
 	/**
 	 * This feature configuration options.
 	 * @private
 	 * @type {object}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.options_ = null;
+
 
 	/**
 	 * Item sequence.
@@ -65,22 +67,21 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * Get the html element of the grid that this feature
 	 * is attached to.
-	 * @private
 	 *
-	 * @returns {jQuery}
+	 * @return {jQuery} Return the grid's HTML element.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getGridHtmlElement =
-			function () {
+			function() {
 		return this.gridHandler_.getHtmlElement();
 	};
 
 
 	/**
 	 * Get the move item row action element selector.
-	 * @returns {string}
+	 * @return {string} Return the element selector.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemRowActionSelector =
-			function () {
+			function() {
 		return '.orderable a.add_item';
 	};
 
@@ -105,11 +106,11 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 * Set items sequence store, using
 	 * the current rendered rows position.
 	 *
-	 * @param {jQuery} $rows
+	 * @param {jQuery} $rows The rows to store ordering information for.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
-			function ($rows) {
-		this.itemsOrder_ = new Array();
+			function($rows) {
+		this.itemsOrder_ = [];
 		var index, limit;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
 			var $row = $($rows[index]);
@@ -118,17 +119,22 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 		}
 	};
 
+
 	/**
 	 * Called every time user drag and drop an item.
+	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {Event} event The drag/drop event.
+	 * @param {JQueryUI} ui The JQueryUI object.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.updateOrderCallback =
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
 
+
 	/**
 	 * Enable/disable the items drag mode.
-	 * @para {boolean} enable
+	 * @param {boolean} enable New enable state.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
 			function(enable) {
@@ -139,24 +145,28 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 			$rows.addClass(moveClasses);
 		} else {
 			$rows.removeClass(moveClasses);
-		};
+		}
 
 		this.toggleMoveItemRowAction_(enable);
 	};
 
+
 	/**
 	 * Apply (disabled or enabled) the sortable plugin on orderable rows.
+	 * @param {boolean} enable The enable state.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
 			function(enable) {
 		var isOrdering = this.isOrdering_;
-		var orderItemCallback = this.gridHandler_.callbackWrapper(this.updateOrderCallback, this);
+		var orderItemCallback = this.gridHandler_.callbackWrapper(
+				this.updateOrderCallback, this);
 		this.getGridHtmlElement().sortable({
 			disabled: !isOrdering,
 			items: 'tr.orderable',
 			update: orderItemCallback,
 			tolerance: 'pointer'});
 	};
+
 
 	/**
 	 * Get the data element id of all rows, in the current order.
@@ -165,13 +175,14 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	$.pkp.classes.features.OrderItemsFeature.prototype.getRowDataIds =
 			function() {
 		var index;
-		var rowDataIds = new Array();
+		var rowDataIds = [];
 		for (index in this.itemsOrder_) {
-			var $row = $("#" + this.itemsOrder_[index], this.gridHandler_.getHtmlElement());
+			var $row = $('#' + this.itemsOrder_[index],
+					this.gridHandler_.getHtmlElement());
 			var rowDataId = this.gridHandler_.getRowDataId($row);
 			rowDataIds.push(rowDataId);
 		}
-		
+
 		return rowDataIds;
 	};
 
@@ -181,12 +192,14 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	//
 	/**
 	 * Show/hide the move item row action (position left).
-	 * @param {boolean} enable
+	 * @param {boolean} enable New enable state.
+	 * @private
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction_ =
-			function (enable) {
+			function(enable) {
 		$rowActions = $('.row_actions', this.getGridHtmlElement()).children();
-		$moveItemRowAction = $(this.getMoveItemRowActionSelector(), this.getGridHtmlElement());
+		$moveItemRowAction = $(this.getMoveItemRowActionSelector(),
+				this.getGridHtmlElement());
 		if (enable) {
 			$rowActions.hide();
 			$moveItemRowAction.show();

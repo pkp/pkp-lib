@@ -39,12 +39,14 @@
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.isOrdering_ = false;
 
+
 	/**
 	 * Initiate ordering state button.
 	 * @private
 	 * @type {jQuery}
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.$orderButton_ = null;
+
 
 	/**
 	 * Cancel ordering state button.
@@ -53,12 +55,14 @@
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.$cancelButton_ = null;
 
+
 	/**
 	 * Save ordering state button.
 	 * @private
 	 * @type {jQuery}
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.$saveButton_ = null;
+
 
 	/**
 	 * Ordering finish control.
@@ -73,41 +77,42 @@
 	//
 	/**
 	 * Get the order button.
-	 * @return {jQuery}
+	 * @return {jQuery} The order button JQuery object.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.getOrderButton =
 			function() {
 		return this.$orderButton_;
 	};
 
+
 	/**
 	 * Get the finish control.
-	 * @return {jQuery}
+	 * @return {jQuery} The JQuery "finish" control.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.getFinishControl =
 			function() {
 		return this.$finishControl_;
 	};
 
+
 	/**
 	 * Get save order button.
-	 * @private
 	 *
-	 * @return {jQuery}
+	 * @return {jQuery} The "save order" JQuery object.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.getSaveOrderButton =
-			function () {
+			function() {
 		return this.$saveButton_;
 	};
 
+
 	/**
 	 * Get cancel order link.
-	 * @private
 	 *
-	 * @return {jQuery}
+	 * @return {jQuery} The "cancel order" JQuery control.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.getCancelOrderButton =
-			function () {
+			function() {
 		return this.$cancelButton_;
 	};
 
@@ -130,6 +135,7 @@
 	//
 	/**
 	 * Initiate ordering button click event handler.
+	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.clickOrderHandler =
 			function() {
@@ -138,6 +144,7 @@
 		this.toggleState(true);
 		return false;
 	};
+
 
 	/**
 	 * Save order handler.
@@ -150,8 +157,10 @@
 		this.storeOrder($rows);
 	};
 
+
 	/**
 	 * Cancel ordering action click event handler.
+	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.cancelOrderHandler =
 			function() {
@@ -159,6 +168,7 @@
 		this.toggleState(false);
 		return false;
 	};
+
 
 	/**
 	 * Execute all operations necessary to change the state of the
@@ -181,20 +191,21 @@
 	//
 	/**
 	 * Set the state of the grid link actions, based on current ordering state.
-	 * @returns
+	 * @private
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.toggleGridLinkActions_ =
 			function() {
 		var isOrdering = this.isOrdering_;
 
 		// We want to enable/disable all link actions, except this features controls.
-		var $gridLinkActions = $('.pkp_controllers_linkAction:not('
-			+ this.getMoveItemRowActionSelector() + ')', this.getGridHtmlElement()).not(
-			this.getOrderButton()).not(
-			this.getFinishControl().find('*'));
+		var $gridLinkActions = $('.pkp_controllers_linkAction:not(' +
+				this.getMoveItemRowActionSelector() + ')', this.getGridHtmlElement()).not(
+				this.getOrderButton()).not(
+				this.getFinishControl().find('*'));
 
 		this.gridHandler_.changeLinkActionsState(!isOrdering, $gridLinkActions);
 	};
+
 
 	/**
 	 * Enable/disable the order link action.
@@ -212,6 +223,7 @@
 		}
 	};
 
+
 	/**
 	 * Show/hide the ordering process finish control, based
 	 * on the current ordering state.
@@ -228,10 +240,11 @@
 		}
 	};
 
+
 	/**
 	 * Bind event handlers to the controls that finish the
 	 * ordering action (save and cancel).
-	 * @returns
+	 * @private
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.bindOrderFinishControlsHandlers_ =
 			function() {
@@ -245,10 +258,11 @@
 		$cancelLink.click(cancelLinkHandler);
 	};
 
+
 	/**
 	 * Unbind event handlers from the controls that finish the
 	 * ordering action (save and cancel).
-	 * @returns
+	 * @private
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.unbindOrderFinishControlsHandlers_ =
 			function() {

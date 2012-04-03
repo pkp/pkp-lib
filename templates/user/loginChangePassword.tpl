@@ -13,11 +13,18 @@
 {include file="common/header.tpl"}
 {/strip}
 
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#loginChangePassword').pkpHandler('$.pkp.controllers.form.FormHandler');
+	{rdelim});
+</script>
+
 {if !$passwordLengthRestrictionLocaleKey}
 	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.passwordLengthRestriction"}
 {/if}
 
-<form class="pkp_form" method="post" action="{url page="login" op="savePassword"}">
+<form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
 
 {include file="common/formErrors.tpl"}
 
@@ -39,7 +46,7 @@
 		{/fbvFormSection}
 		{fbvFormButtons}
 	{/fbvFormArea}
-	
+
 </form>
 
 {include file="common/footer.tpl"}

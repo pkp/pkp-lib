@@ -38,8 +38,8 @@
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Article/Paper Title</message>
 	<message key="metadata.property.validationMessage.article-title">Please enter a valid article/paper title.</message>
-	<message key="metadata.property.displayName.source">Journal/Book Title</message>
-	<message key="metadata.property.validationMessage.source">Please enter a valid journal/book title.</message>
+	<message key="metadata.property.displayName.source">Publication Title</message>
+	<message key="metadata.property.validationMessage.source">Please enter a valid publication title.</message>
 	<message key="metadata.property.displayName.date">Publication Date</message>
 	<message key="metadata.property.validationMessage.date">Please enter a valid publication date (format: YYYY-MM-DD).</message>
 	<message key="metadata.property.displayName.access-date">Access Date</message>

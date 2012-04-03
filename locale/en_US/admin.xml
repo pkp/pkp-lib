@@ -60,7 +60,7 @@
 	<message key="admin.settings.oaiRegistration">Register Site for Indexing (Metadata Harvesting)</message>
 	<message key="admin.settings.passwordCharacters">characters</message>
 	<message key="admin.settings.siteLanguage">Site language</message>
-	<message key="admin.settings.siteStyleSheetInvalid">Invalid site stylesheet format. Accepted format is .css.</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Invalid site style sheet format. Accepted format is .css.</message>
 	<message key="admin.settings.siteStyleSheet">Site style sheet</message>
 	<message key="admin.settings.siteTheme">Site theme</message>
 	<message key="admin.settings.siteTitle">Site title</message>

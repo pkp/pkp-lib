@@ -292,7 +292,7 @@
 	<message key="submission.layout.confirmDeleteGalley">Are you sure you want to permanently delete this galley?</message>
 	<message key="submission.layout.confirmDeleteGalleyImage">Are you sure you want to remove this image from the galley?</message>
 	<message key="submission.layout.confirmDeleteSupplementaryFile">Are you sure you want to permanently delete this supplementary file?</message>
-	<message key="submission.layout.deleteGalleyStylesheet">Delete this stylesheet.</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Delete this style sheet.</message>
 	<message key="submission.layout.editGalley">Edit a Layout Galley</message>
 	<message key="submission.layout.galleyFileData">Galley File Information</message>
 	<message key="submission.layout.galleyFormat">Galley Format</message>
@@ -315,7 +315,7 @@
 	<message key="submission.layout.layoutVersion">Layout Version</message>
 	<message key="submission.layout.newGalley">Create New Galley</message>
 	<message key="submission.layout.newSupplementaryFile">Upload New Supplementary File</message>
-	<message key="submission.layout.noStyleFile">No stylesheet file has been added to this galley.</message>
+	<message key="submission.layout.noStyleFile">No style sheet file has been added to this galley.</message>
 	<message key="submission.layout.supplementaryFiles">Supplementary File Review</message>
 	<message key="submission.layout.viewingGalley">Viewing Submission Galley</message>
 	<message key="submission.layout.viewProof">View Proof</message>

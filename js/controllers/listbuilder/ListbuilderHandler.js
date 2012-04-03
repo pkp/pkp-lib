@@ -39,7 +39,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
 
 		// Attach the button handlers
-		$listbuilder.find('span[class="options"] > a.add_item').click(
+		$listbuilder.find('span[class="options"] > a[id*="addItem"]').click(
 				this.callbackWrapper(this.addItemHandler_));
 
 		// Attach the content manipulation handlers

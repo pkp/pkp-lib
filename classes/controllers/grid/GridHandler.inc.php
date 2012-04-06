@@ -470,6 +470,16 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * FIXME: temporary shadow method of parent to disable paging on all grids.
+	 * @see PKPHandler::getRangeInfo()
+	 */
+	function getRangeInfo($rangeName, $contextData = null) {
+		import('lib.pkp.classes.db.DBResultRange');
+		$returner = new DBResultRange(-1, -1);
+		return $returner;
+	}
+
+	/**
 	 * Tries to identify the data element in the grids
 	 * data source that corresponds to the requested row id.
 	 * Raises a fatal error if such an element cannot be

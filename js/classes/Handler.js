@@ -521,7 +521,7 @@
 	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
 			function() {
 		if (typeof tinyMCE !== 'undefined') {
-			$element = this.getHtmlElement();
+			var $element = this.getHtmlElement();
 			var elementId = $element.attr('id');
 			setTimeout(function() {
 				// re-select the original element, to prevent closure memory leaks in (older?)

@@ -22,7 +22,7 @@
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
-		
+
 		this.itemsOrder_ = [];
 	};
 	$.pkp.classes.Helper.inherits(
@@ -175,8 +175,8 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction_ =
 			function(enable) {
-		$rowActions = $('.row_actions', this.getGridHtmlElement()).children();
-		$moveItemRowAction = $(this.getMoveItemRowActionSelector(),
+		var $rowActions = $('.row_actions', this.getGridHtmlElement()).children();
+		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(),
 				this.getGridHtmlElement());
 		if (enable) {
 			$rowActions.hide();

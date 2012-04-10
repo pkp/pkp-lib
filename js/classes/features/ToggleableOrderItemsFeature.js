@@ -153,7 +153,7 @@
 			function() {
 		this.gridHandler_.updateControlRowsPosition();
 		this.unbindOrderFinishControlsHandlers_();
-		$rows = this.gridHandler_.getRows();
+		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
 
@@ -248,8 +248,8 @@
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.bindOrderFinishControlsHandlers_ =
 			function() {
-		$saveButton = this.getSaveOrderButton();
-		$cancelLink = this.getCancelOrderButton();
+		var $saveButton = this.getSaveOrderButton();
+		var $cancelLink = this.getCancelOrderButton();
 
 		var cancelLinkHandler = this.gridHandler_.callbackWrapper(this.cancelOrderHandler, this);
 		var saveButtonHandler = this.gridHandler_.callbackWrapper(this.saveOrderHandler, this);
@@ -266,8 +266,8 @@
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.unbindOrderFinishControlsHandlers_ =
 			function() {
-		$saveButton = this.getSaveOrderButton();
-		$cancelLink = this.getCancelOrderButton();
+		var $saveButton = this.getSaveOrderButton();
+		var $cancelLink = this.getCancelOrderButton();
 		$saveButton.unbind('click');
 		$cancelLink.unbind('click');
 	};

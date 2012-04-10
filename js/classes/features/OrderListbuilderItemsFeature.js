@@ -56,7 +56,7 @@
 		this.parent('storeOrder', $rows);
 		var index, limit;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
-			$row = $($rows[index]);
+			var $row = $($rows[index]);
 			var seq = index + 1;
 			var orderableInput = $row.find('.itemSequence');
 			orderableInput.attr('value', seq);
@@ -83,27 +83,28 @@
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.updateOrderCallback =
 			function(contextElement, event, ui) {
 		this.parent('updateOrderCallback');
-		$rows = this.gridHandler_.getRows();
+		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
-	
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.clickOrderHandler =
 			function() {
-		$selects = $('select:visible', this.gridHandler_.getHtmlElement());
+		var $selects = $('select:visible', this.gridHandler_.getHtmlElement());
 		if ($selects.length > 0) {
 			var index, limit;
 			for (index = 0, limit = $selects.length; index < limit; index++) {
 				this.gridHandler_.saveRow($($selects[index]).parents('.gridRow'));
-			};
-		};
-		
+			}
+		}
+
 		this.parent('clickOrderHandler');
 	};
-	
+
+
 	//
 	// Implemented Feature template hook methods.
 	//
@@ -114,10 +115,10 @@
 			function($newRow) {
 		this.toggleItemsDragMode();
 		$rows = this.gridHandler_.getRows();
-		this.storeOrder($rows);		
+		this.storeOrder($rows);
 	};
-	
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -127,6 +128,7 @@
 		$rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
+
 
 	//
 	// Private helper methods.

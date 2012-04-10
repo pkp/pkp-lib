@@ -14,10 +14,11 @@ $.pkp.classes.features = $.pkp.classes.features || {};
  * @class Feature
  * @ingroup js_classes_features
  *
- * @brief A feature is a type of plugin specific to the grid widgets. It provides several 
- * hooks to allow injection of additional grid widgets functionality. This class implements
- * template methods to be extendeded by subclasses.
- * 
+ * @brief A feature is a type of plugin specific to the grid widgets. It
+ * provides several hooks to allow injection of additional grid widgets
+ * functionality. This class implements template methods to be extendeded by
+ * subclasses.
+ *
  * We use the features concept of the ext js framework:
  * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.grid.feature.Feature
  */
@@ -26,6 +27,8 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 	/**
 	 * @constructor
+	 * @param {Handler} gridHandler The grid handler object.
+	 * @param {Array} options Associated options.
 	 */
 	$.pkp.classes.features.Feature =
 			function(gridHandler, options) {
@@ -33,7 +36,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 		this.options_ = options;
 	};
 
-	
+
 	//
 	// Private properties.
 	//
@@ -59,22 +62,35 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * Hook into the append new row grid functionality.
 	 * @param {jQuery} $newRow The new row to be appended.
+	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.Feature.prototype.appendRow =
 			function($newRow) {
 		return false;
 	};
-	
-	
+
+
+	/**
+	 * Hook into the replace row content grid functionality.
+	 * @param {jQuery} $newRow The row new content to be shown.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.Feature.prototype.appendRow =
+			function($newRow) {
+		return false;
+	};
+
+
 	/**
 	 * Hook into the replace row content grid functionality.
 	 * @param {jQuery} $newContent The row new content to be shown.
+	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.Feature.prototype.replaceRow =
 			function($newContent) {
 		return false;
 	};
-	
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

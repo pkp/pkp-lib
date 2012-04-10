@@ -314,9 +314,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			} else {
 				this.enableControls();
 			}
+
+			this.callFeaturesHook('appendRow', $newRow);
 		}
-		
-		this.callFeaturesHook('appendRow', $newRow);
 
 		return false;
 	};
@@ -571,11 +571,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 			// Store current row id.
 			var rowId = this.getHtmlElement().find('.saveRowResponsePlaceholder').attr('id');
-						
+
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').
 					replaceWith($newContent);
-					
+
 			// Make sure row id won't change.
 			$newContent.attr('id', rowId);
 
@@ -583,7 +583,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			this.attachContentHandlers_($newContent);
 		}
 		this.enableControls();
-		
+
 		this.callFeaturesHook('replaceRow', $newContent);
 	};
 
@@ -693,20 +693,22 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};
 
+
 	/**
 	 * Add grid features.
 	 * @private
+	 * @param {Array} options Options array.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.initFeatures_ = function(options) {
 		var $orderItemsFeature =
-			/** @type {$.pkp.classes.features.OrderItemsFeature} */
-			($.pkp.classes.Helper.objectFactory(
-					'$.pkp.classes.features.OrderListbuilderItemsFeature',
-					[this, {
-						'orderButton': $('a.order_items', this.getHtmlElement()),
-						'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls')
-					}]));
+				/** @type {$.pkp.classes.features.OrderItemsFeature} */
+				($.pkp.classes.Helper.objectFactory(
+						'$.pkp.classes.features.OrderListbuilderItemsFeature',
+						[this, {
+							'orderButton': $('a.order_items', this.getHtmlElement()),
+							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls')
+						}]));
 
 		this.features_ = {'orderItems': $orderItemsFeature};
 		this.features_.orderItems.init();

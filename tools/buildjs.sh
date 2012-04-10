@@ -22,7 +22,8 @@
 #
 # - This tool expects to be run from the application's main directory.
 #
-# Usage: lib/pkp/tools/build.sh
+# Usage: lib/pkp/tools/buildjs.sh [-n]
+# ...where -n can be optionally specified to prevent caching.
 #
 
 
@@ -44,6 +45,18 @@ TOOL_PATH=~/bin
 
 JS_OUTPUT='lib/pkp/js/pkp.min.js'
 
+## Command Line Options ##
+
+OPTIND=1
+DO_CACHE=1
+while getopts "n" opt; do
+	case "$opt" in
+		n)	DO_CACHE=0 # No caching
+			;;
+	esac
+done
+
+shift $((OPTIND-1))
 
 ### Start Processing ###
 echo >&2
@@ -113,7 +126,7 @@ for JS_FILE in $LINT_FILES; do
 
 
 	# Only lint file if it has been changed since last compilation.
-	if [ -e "$JS_OUTPUT" -a \( "$JS_FILE" -nt "$JS_OUTPUT" \) ]; then
+	if [ ! \( -e "$JS_OUTPUT" \) -o \( "$JS_FILE" -nt "$JS_OUTPUT" \) -o \( "$DO_CACHE" -eq 0 \) ]; then
 
 		#############################
 		### Google Closure Linter ###

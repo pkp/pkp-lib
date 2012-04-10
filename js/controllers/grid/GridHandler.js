@@ -98,6 +98,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.bodySelector_ = null;
 
+
 	/**
 	 * This grid features.
 	 * @private
@@ -122,46 +123,42 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Get all grid rows.
-	 * @private
 	 *
-	 * @returns {jQuery}
+	 * @return {jQuery} The rows as a JQuery object.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRows =
-			function () {
+			function() {
 		return $('.gridRow', this.getHtmlElement());
 	};
 
 
 	/**
 	 * Get the id prefix of this grid.
-	 * @private
-	 *
-	 * @returns {string}
+	 * @return {string} The ID prefix of this grid.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getGridIdPrefix =
-			function () {
+			function() {
 		return 'component-' + this.gridId_;
 	};
 
 
 	/**
-	 * Get the id prefix of this grid rows.
-	 * @private
-	 *
-	 * @returns {string}
+	 * Get the id prefix of this grid row.
+	 * @return {string} The id prefix of this grid row.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowIdPrefix =
-			function () {
+			function() {
 		return this.getGridIdPrefix() + '-row-';
 	};
 
+
 	/**
 	 * Get the data element id of the passed grid row.
-	 * @param {jQuery} $gridRow
-	 * @returns {string}
+	 * @param {jQuery} $gridRow The grid row JQuery object.
+	 * @return {string} The data element id of the passed grid row.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getRowDataId =
-			function ($gridRow) {
+			function($gridRow) {
 		var gridRowHtmlClasses = $gridRow.attr('class').split(' ');
 		var rowDataIdPrefix = 'element';
 		var index, rowDataId;
@@ -172,7 +169,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				break;
 			}
 		}
-		
+
 		return rowDataId;
 	};
 
@@ -204,7 +201,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function(sourceElement, event) {
 
 		// Toggle the row actions.
-		$controlRow = $(sourceElement).parents('tr').next('.row_controls');
+		var $controlRow = $(sourceElement).parents('tr').next('.row_controls');
 		this.applyToggleRowActionEffect_($controlRow);
 	};
 
@@ -214,7 +211,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.hideAllVisibleRowActions =
 			function() {
-		$visibleControlRows = $('.row_controls:visible', this.getHtmlElement());
+		var $visibleControlRows = $('.row_controls:visible', this.getHtmlElement());
 		var index, limit;
 		for (index = 0, limit = $visibleControlRows.length; index < limit; index++) {
 			this.applyToggleRowActionEffect_($($visibleControlRows[index]));
@@ -224,12 +221,13 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Enable/disable all link actions inside this grid.
-	 * @param {boolean} enable
+	 * @param {boolean} enable Enable/disable flag.
+	 * @param {JQuery} $linkElements Link elements JQuery object.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.changeLinkActionsState =
 			function(enable, $linkElements) {
-		if ($linkElements == undefined) {
-			var $linkElements = $('.pkp_controllers_linkAction', this.getHtmlElement());
+		if ($linkElements === undefined) {
+			$linkElements = $('.pkp_controllers_linkAction', this.getHtmlElement());
 		}
 		$linkElements.each(function() {
 			var linkHandler = $.pkp.classes.Handler.getHandler($(this));
@@ -247,7 +245,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {array} sequenceMap A sequence array with the row id as value.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.resequenceRows =
-			function (sequenceMap) {
+			function(sequenceMap) {
 		var rowId, index;
 		for (index in sequenceMap) {
 			rowId = sequenceMap[index];
@@ -261,23 +259,25 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Move all grid control rows to their correct position,
 	 * below of each correspondent data grid row.
-	 * @returns
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.updateControlRowsPosition =
-			function () {
+			function() {
 		var $rows = this.getRows();
 		var index, limit;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
 			var $row = $($rows[index]);
 			var $controlRow = this.getControlRowByGridRow($row);
-			if ($controlRow.length > 0) $controlRow.insertAfter($row);
+			if ($controlRow.length > 0) {
+				$controlRow.insertAfter($row);
+			}
 		}
 	};
-	
-	
+
+
 	/**
 	 * Call features hooks.
-	 * @param hookName
+	 * @param {String} hookName The name of the hook.
+	 * @param {Array} args The arguments array.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.callFeaturesHook =
 			function(hookName, args) {
@@ -524,13 +524,14 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
+
 	/**
 	 * Get the control row for the passed the grid row.
-	 * @param {jQuery} $gridRow
-	 * @returns {jQuery}
+	 * @param {jQuery} $gridRow The grid row JQuery object.
+	 * @return {jQuery} The control row JQuery object.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getControlRowByGridRow =
-			function ($gridRow) {
+			function($gridRow) {
 		var rowDataId = this.getRowDataId($gridRow);
 		var controlRowId = this.getRowIdPrefix() + rowDataId + '-control-row';
 		return $('#' + controlRowId);
@@ -554,7 +555,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * Apply the effect for hide/show row actions.
 	 * @private
 	 *
-	 * @param {jQuery} $controlRow
+	 * @param {jQuery} $controlRow The control row JQuery object.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
 			function($controlRow) {
@@ -565,18 +566,19 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Add grid features.
 	 * @private
+	 * @param {Array} options The options array.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.initFeatures_ =
 			function(options) {
 		var $orderItemsFeature =
-			/** @type {$.pkp.classes.features.OrderItemsFeature} */
-			($.pkp.classes.Helper.objectFactory(
-					'$.pkp.classes.features.OrderGridItemsFeature',
-					[this, {
-						'orderButton': $('a.order_items', this.getHtmlElement()),
-						'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
-						'saveItemsSequenceUrl': options.saveItemsSequenceUrl
-					}]));
+				/** @type {$.pkp.classes.features.OrderItemsFeature} */
+				($.pkp.classes.Helper.objectFactory(
+						'$.pkp.classes.features.OrderGridItemsFeature',
+						[this, {
+							'orderButton': $('a.order_items', this.getHtmlElement()),
+							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
+							'saveItemsSequenceUrl': options.saveItemsSequenceUrl
+						}]));
 
 		this.features_ = {'orderItems': $orderItemsFeature};
 		this.features_.orderItems.init();

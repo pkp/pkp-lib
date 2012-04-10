@@ -86,7 +86,23 @@
 		$rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
-
+	
+	
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.clickOrderHandler =
+			function() {
+		$selects = $('select:visible', this.gridHandler_.getHtmlElement());
+		if ($selects.length > 0) {
+			var index, limit;
+			for (index = 0, limit = $selects.length; index < limit; index++) {
+				this.gridHandler_.saveRow($($selects[index]).parents('.gridRow'));
+			};
+		};
+		
+		this.parent('clickOrderHandler');
+	};
 	
 	//
 	// Implemented Feature template hook methods.

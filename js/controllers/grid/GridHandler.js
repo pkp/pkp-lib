@@ -273,6 +273,19 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			if ($controlRow.length > 0) $controlRow.insertAfter($row);
 		}
 	};
+	
+	
+	/**
+	 * Call features hooks.
+	 * @param hookName
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.callFeaturesHook =
+			function(hookName, args) {
+		var featureName;
+		for (featureName in this.features_) {
+			this.features_[featureName][hookName].apply(this.features_[featureName], args);
+		}
+	};
 
 
 	/**

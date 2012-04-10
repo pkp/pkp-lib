@@ -181,7 +181,7 @@
 		this.toggleGridLinkActions_();
 		this.toggleOrderLink_();
 		this.toggleFinishControl_();
-		this.toggleItemsDragMode(isOrdering);
+		this.toggleItemsDragMode();
 		this.setupSortablePlugin(isOrdering);
 	};
 

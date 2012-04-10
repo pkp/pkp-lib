@@ -34,7 +34,7 @@
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.init =
 			function() {
 		this.parent('init');
-		this.toggleItemsDragMode(false);
+		this.toggleItemsDragMode();
 	};
 
 
@@ -87,6 +87,26 @@
 		this.storeOrder($rows);
 	};
 
+	
+	//
+	// Implemented Feature template hook methods.
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendRow =
+			function($newRow) {
+		this.toggleItemsDragMode();
+	};
+	
+	
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceRow =
+			function($newContent) {
+		this.toggleItemsDragMode();
+	};
 
 	//
 	// Private helper methods.

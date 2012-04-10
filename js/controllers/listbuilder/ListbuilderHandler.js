@@ -315,6 +315,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				this.enableControls();
 			}
 		}
+		
+		this.callFeaturesHook('appendRow', $newRow);
 
 		return false;
 	};
@@ -581,6 +583,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			this.attachContentHandlers_($newContent);
 		}
 		this.enableControls();
+		
+		this.callFeaturesHook('replaceRow', $newContent);
 	};
 
 

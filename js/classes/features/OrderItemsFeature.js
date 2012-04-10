@@ -1,10 +1,4 @@
 /**
- * @defgroup js_classes_features
- */
-// Define the namespace
-$.pkp.classes.features = $.pkp.classes.features || {};
-
-/**
  * @file js/classes/features/OrderItemsFeature.js
  *
  * Copyright (c) 2000-2012 John Willinsky
@@ -27,32 +21,18 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 */
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
-
-		this.gridHandler_ = gridHandler;
-		this.options_ = options;
+		this.parent(gridHandler, options);
+		
 		this.itemsOrder_ = [];
 	};
+	$.pkp.classes.Helper.inherits(
+			$.pkp.classes.features.OrderItemsFeature,
+			$.pkp.classes.features.Feature);
 
 
 	//
 	// Private properties.
 	//
-	/**
-	 * The grid that this feature is attached to.
-	 * @private
-	 * @type {jQuery}
-	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.gridHandler_ = null;
-
-
-	/**
-	 * This feature configuration options.
-	 * @private
-	 * @type {object}
-	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.options_ = null;
-
-
 	/**
 	 * Item sequence.
 	 * @private
@@ -134,29 +114,27 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 	/**
 	 * Enable/disable the items drag mode.
-	 * @param {boolean} enable New enable state.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
-			function(enable) {
+			function() {
 		var isOrdering = this.isOrdering_;
 		var $rows = this.gridHandler_.getRows();
 		var moveClasses = 'pkp_helpers_moveicon ordering';
-		if (enable) {
+		if (isOrdering) {
 			$rows.addClass(moveClasses);
 		} else {
 			$rows.removeClass(moveClasses);
 		}
 
-		this.toggleMoveItemRowAction_(enable);
+		this.toggleMoveItemRowAction_(isOrdering);
 	};
 
 
 	/**
 	 * Apply (disabled or enabled) the sortable plugin on orderable rows.
-	 * @param {boolean} enable The enable state.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
-			function(enable) {
+			function() {
 		var isOrdering = this.isOrdering_;
 		var orderItemCallback = this.gridHandler_.callbackWrapper(
 				this.updateOrderCallback, this);

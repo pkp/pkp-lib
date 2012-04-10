@@ -34,8 +34,8 @@
 				{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}{if $formLocale != $thisFormLocale}
 					{strip}
 					<textarea id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" {$FBV_textAreaParams}
-						placeholder="{$thisFormLocaleName|escape}" 
-						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}" 
+						placeholder="{$thisFormLocaleName|escape}"
+						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
@@ -47,12 +47,15 @@
 	</span>
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
-	<textarea {$FBV_textAreaParams}
-		class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
-		{if $FBV_disabled} disabled="disabled"{/if}
-		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
-		id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
-
+	{if $FBV_rich && $FBV_disabled}
+		{if $FBV_multilingual}{$FBV_value[$formLocale]}{else}{$FBV_value}{/if}
+	{else}
+		<textarea {$FBV_textAreaParams}
+			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
+			{if $FBV_disabled} disabled="disabled"{/if}
+			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
+			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
+	{/if}
 		<span>{$FBV_label_content}</span>
 {/if}
 </div>

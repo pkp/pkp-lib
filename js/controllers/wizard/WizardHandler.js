@@ -282,6 +282,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		if (targetStep === lastStep) {
 			var $continueButton = this.getContinueButton();
 			$continueButton.button('option', 'label', this.getFinishButtonText());
+			$continueButton.button('enable');
 		}
 	};
 

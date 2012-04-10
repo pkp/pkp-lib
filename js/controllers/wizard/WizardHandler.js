@@ -230,6 +230,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		if ($form) {
 			// Try to submit the form.
 			$form.submit();
+			this.getContinueButton().button('disable');
 
 			// Prevent default event handling so that the form
 			// can do its validation checks first.

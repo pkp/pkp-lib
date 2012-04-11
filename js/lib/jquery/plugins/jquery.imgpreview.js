@@ -37,6 +37,7 @@
 			$container = $('<div/>').attr('id', s.containerID)
 					.append('<img/>').hide()
 					.css('position','absolute')
+					.css('z-index','10005')
 					.appendTo('body');
 		}
 
@@ -55,7 +56,7 @@
                 $container.css({
                     top: e.pageY + s.distanceFromCursor.top + 'px',
                     left: e.pageX + s.distanceFromCursor.left + 'px'
-                });
+                   });
             })
             .hover(function(){
                 var link = this;

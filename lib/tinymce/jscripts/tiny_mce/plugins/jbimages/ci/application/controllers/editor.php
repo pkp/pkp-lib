@@ -171,13 +171,13 @@ class Editor extends CI_Controller {
 		}
 		else
 		{
-			if ($maxUploadDirSize)
+			if ($uploadDirSizeExceeded)
 			{
 				$result['result'] = 'Maximum space for upload directory exceeded.';
 			}
 			else
 			{
-				$result['result'] = $this->upload->display_errors(' ', '<br />');
+				$result['result'] = $this->upload->display_errors('', '');
 			}
 			$result['resultcode'] = 'failed';
 			$result['file_name'] = '';

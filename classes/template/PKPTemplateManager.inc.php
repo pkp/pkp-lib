@@ -1215,7 +1215,7 @@ class PKPTemplateManager extends Smarty {
 	function smartyLoadUrlInDiv($params, &$smarty) {
 		// Required Params
 		if (!isset($params['url'])) {
-			$smarty->trigger_error("URL parameter is missing from load_url_in_div");
+			$smarty->trigger_error("url parameter is missing from load_url_in_div");
 		}
 		if (!isset($params['id'])) {
 			$smarty->trigger_error("id parameter is missing from load_url_in_div");

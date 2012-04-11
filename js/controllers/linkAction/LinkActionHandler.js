@@ -153,7 +153,10 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		var $sourceElement = $(sourceElement);
 		$sourceElement.imgPreview({
 			preloadImages: false,
-			imgCSS: { width: 300 }
+			imgCSS: { 
+				width: '300px'	
+				
+				}
 		});
 	};
 

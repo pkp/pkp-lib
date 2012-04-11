@@ -229,8 +229,9 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		var $form = this.getForm_();
 		if ($form) {
 			// Try to submit the form.
-			$form.submit();
-			this.getContinueButton().button('disable');
+			if ($form.submit()) {
+				this.getContinueButton().button('disable');
+			}
 
 			// Prevent default event handling so that the form
 			// can do its validation checks first.
@@ -279,11 +280,12 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 		// If this is the last step then change the text on the
 		// continue button to finish.
+		var $continueButton = this.getContinueButton();
 		if (targetStep === lastStep) {
-			var $continueButton = this.getContinueButton();
 			$continueButton.button('option', 'label', this.getFinishButtonText());
-			$continueButton.button('enable');
 		}
+
+		$continueButton.button('enable');
 	};
 
 

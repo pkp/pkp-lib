@@ -114,7 +114,7 @@
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendRow =
 			function($newRow) {
 		this.toggleItemsDragMode();
-		$rows = this.gridHandler_.getRows();
+		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
 

@@ -581,10 +581,10 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 			// Attach handlers for content manipulation
 			this.attachContentHandlers_($newContent);
+
+			this.callFeaturesHook('replaceRow', $newContent);
 		}
 		this.enableControls();
-
-		this.callFeaturesHook('replaceRow', $newContent);
 	};
 
 

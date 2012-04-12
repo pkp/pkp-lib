@@ -210,9 +210,9 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		var $uploadForm = this.getHtmlElement();
 		var $revisedFileId = $uploadForm.find('#revisedFileId');
 		var $genreId = $uploadForm.find('#genreId');
-		if ($revisedFileId.val() === 0) {
+		if ($revisedFileId.val() === '') {
 			// New file...
-			$genreId.attr('disabled', '');
+			$genreId.removeAttr('disabled');
 		} else {
 			// Revision...
 			$genreId.val(this.fileGenres_[$revisedFileId.val()]);

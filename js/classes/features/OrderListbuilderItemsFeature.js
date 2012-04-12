@@ -26,6 +26,15 @@
 
 
 	//
+	// Extended methods from OrderItemsFeature.
+	//
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.setupSortablePlugin =
+			function() {
+		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable');
+	};
+	
+	
+	//
 	// Extended methods from ToggleableOrderItemsFeature.
 	//
 	/**

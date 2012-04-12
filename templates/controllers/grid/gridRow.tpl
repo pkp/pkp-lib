@@ -7,7 +7,11 @@
  * a regular grid row
  *}
 {if $row->getId()}
-	{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
+	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
+	{if $categoryRow}
+		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryRow->getId()}
+	{/if}
+	{assign var=rowId value=$rowIdPrefix|concat:"-row-":$row->getId()}
 {else}
 	{assign var=rowId value=""}
 {/if}

@@ -118,11 +118,10 @@
 
 
 	//
-	// Public methods
+	// Extended methods from OrderItemsFeature
 	//
 	/**
 	 * @inheritDoc
-	 * @param {boolean} Initialize with ordering state enabled?
 	 */
 	$.pkp.classes.features.ToggleableOrderItemsFeature.prototype.init =
 			function() {
@@ -182,7 +181,7 @@
 		this.toggleOrderLink_();
 		this.toggleFinishControl_();
 		this.toggleItemsDragMode();
-		this.setupSortablePlugin(isOrdering);
+		this.setupSortablePlugin();
 	};
 
 
@@ -233,10 +232,10 @@
 			function() {
 		if (this.isOrdering_) {
 			this.bindOrderFinishControlsHandlers_();
-			this.getFinishControl().slideDown('300');
+			this.getFinishControl().slideDown(300);
 		} else {
 			this.unbindOrderFinishControlsHandlers_();
-			this.getFinishControl().slideUp('300');
+			this.getFinishControl().slideUp(300);
 		}
 	};
 

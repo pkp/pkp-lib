@@ -59,6 +59,10 @@ class CategoryGridHandler extends GridHandler {
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 
+		$row = $this->getCategoryRowInstance();
+		$templateMgr->assign('hasOrderingItems', $row->getIsOrderable());
+		$templateMgr->assign('hasOrderLink', $this->isOrderActionNecessary());
+
 		// Let the view render the grid
 		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
 		return $json->getString();
@@ -90,6 +94,68 @@ class CategoryGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
+	/**
+	 * @see GridHandler::isOrderActionNecessary()
+	 */
+	function isOrderActionNecessary() {
+		$isNecessary = parent::isOrderActionNecessary();
+
+		if ($isNecessary) {
+			return true;
+		} else {
+			$categoryRow = $this->getCategoryRowInstance(); /* @var $categoryRow CategoryGridRow */
+			$hasOrderableRows = false;
+			if (is_a($categoryRow, 'GridCategoryRow')) {
+				$hasOrderableRows = $categoryRow->getIsOrderable();
+			} else {
+				assert(false);
+			}
+			return $hasOrderableRows;
+		}
+	}
+
+	/**
+	 * @see GridHandler::getJSHandler()
+	 */
+	function getJSHandler() {
+		return '$.pkp.controllers.grid.CategoryGridHandler';
+	}
+
+	/**
+	 * @see GridHandler::saveSequence()
+	 */
+	function saveSequence($args, &$request) {
+		import('lib.pkp.classes.core.JSONManager');
+		$jsonManager = new JSONManager();
+		$data = $jsonManager->decode($request->getUserVar('data'));
+		$gridCategoryElements = $this->getGridDataElements($request);
+
+		// FIXME: #7379# Move this data handling to the feature. This
+		// grid handler shouldn't know features implementation details.
+		$categoriesData = array();
+		foreach($data as $categoryData) {
+			$categoriesData[] = $categoryData->categoryId;
+		}
+
+		// Save categories sequence.
+		$firstSeqValue = $this->getCategoryDataElementSequence(reset($gridCategoryElements));
+		foreach ($gridCategoryElements as $rowId => $element) {
+			$rowPosition = array_search($rowId, $categoriesData);
+			$newSequence = $firstSeqValue + $rowPosition;
+			$currentSequence = $this->getCategoryDataElementSequence($element);
+			if ($newSequence != $currentSequence) {
+				$this->saveCategoryDataElementSequence($element, $newSequence);
+			}
+		}
+
+		// Save rows sequence, if this grid has also orderable rows inside each category.
+		$this->_saveRowsInCategoriesSequence($gridCategoryElements, $data);
+
+		$json = new JSONMessage(true);
+		return $json->getString();
+	}
+
+
 	//
 	// Protected methods to be overridden/used by subclasses
 	//
@@ -103,6 +169,21 @@ class CategoryGridHandler extends GridHandler {
 		//provide a sensible default category row definition
 		$row = new GridCategoryRow();
 		return $row;
+	}
+
+	/**
+	 * Fetch the contents of a category.
+	 * @param $categoryDataElement mixed
+	 * @return array
+	 */
+	function &getCategoryData(&$categoryDataElement, $filter = null) {
+		$dataProvider =& $this->getDataProvider();
+		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
+			// Populate the grid with data from the
+			// data provider.
+			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
+			return $gridData;
+		}
 	}
 
 	/**
@@ -138,6 +219,32 @@ class CategoryGridHandler extends GridHandler {
 		$row =& $this->_getInitializedCategoryRowInstance($request, $elementId, $dataElement);
 		return $row;
 	}
+
+	/**
+	 * Get the category data element sequence value.
+	 * @param $gridDataElement mixed
+	 * @return int
+	 */
+	function getCategoryDataElementSequence(&$gridDataElement) {
+		assert(false);
+	}
+
+	/**
+	 * Operation to save the category data element new sequence.
+	 * @param $gridDataElement mixed
+	 * @param $newSequence int
+	 */
+	function saveCategoryDataElementSequence(&$gridDataElement, $newSequence) {
+		assert(false);
+	}
+
+	/**
+	 * @see GridHandler::saveRowDataElementSequence()
+	 */
+	function saveRowDataElementSequence($gridDataElement, $categoryId, $newSequence) {
+		assert(false);
+	}
+
 
 	//
 	// Private helper methods
@@ -208,6 +315,7 @@ class CategoryGridHandler extends GridHandler {
 		$rowData =& $this->getCategoryData($categoryDataElement, $filter);
 
 		// Render the data rows
+		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
 		$renderedRows = $this->_renderRowsInternally($request, $rowData);
 		$templateMgr->assign_by_ref('rows', $renderedRows);
 
@@ -220,17 +328,37 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Fetch the contents of a category.
-	 * @param $categoryDataElement mixed
-	 * @return array
+	 * Save row elements sequence inside categories.
+	 * @param $gridCategoryElements
+	 * @param $data
 	 */
-	function &getCategoryData(&$categoryDataElement, $filter = null) {
-		$dataProvider =& $this->getDataProvider();
-		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
-			// Populate the grid with data from the
-			// data provider.
-			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
-			return $gridData;
+	function _saveRowsInCategoriesSequence($gridCategoryElements, $data) {
+		$row = $this->getRowInstance();
+		if ($row->getIsOrderable()) {
+			foreach($gridCategoryElements as $categoryId => $element) {
+				$gridRowElements = $this->getCategoryData($element);
+
+				// Get the correct rows sequence data.
+				// FIXME: #7379# Move this data handling to the feature. This
+				// grid handler shouldn't know features implementation details.
+				$rowsData = null;
+				foreach ($data as $categoryData) {
+					if ($categoryData->categoryId == $categoryId) {
+						$rowsData = $categoryData->rowsId;
+						break;
+					}
+				}
+
+				$firstSeqValue = $this->getRowDataElementSequence(reset($gridRowElements));
+				foreach ($gridRowElements as $rowId => $element) {
+					$rowPosition = array_search($rowId, $rowsData);
+					$newSequence = $firstSeqValue + $rowPosition;
+					$currentSequence = $this->getRowDataElementSequence($element);
+					if ($newSequence != $currentSequence) {
+						$this->saveRowDataElementSequence($element, $categoryId, $newSequence);
+					}
+				}
+			}
 		}
 	}
 }

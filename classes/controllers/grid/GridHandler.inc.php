@@ -457,6 +457,14 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Get the js handler for this component.
+	 * @return string
+	 */
+	function getJSHandler() {
+		return '$.pkp.controllers.grid.GridHandler';
+	}
+
+	/**
 	 * Create a data element from a request. This is used to format
 	 * new rows prior to their insertion or existing rows that have
 	 * been edited but not saved.
@@ -652,18 +660,18 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Save all rows data new sequence.
+	 * Save all data elements new sequence.
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function saveRowsSequence($args, &$request) {
+	function saveSequence($args, &$request) {
 		import('lib.pkp.classes.core.JSONManager');
 		$jsonManager = new JSONManager();
 		$data = $jsonManager->decode($request->getUserVar('data'));
 
-		$gridElements = array_values($this->getGridDataElements($request));
-		$firstSeqValue = $this->getRowDataElementSequence($gridElements[0]);
-		foreach ($this->getGridDataElements($request) as $rowId => $element) {
+		$gridElements = $this->getGridDataElements($request);
+		$firstSeqValue = $this->getRowDataElementSequence(reset($gridElements));
+		foreach ($gridElements as $rowId => $element) {
 			$rowPosition = array_search($rowId, $data);
 			$newSequence = $firstSeqValue + $rowPosition;
 			$currentSequence = $this->getRowDataElementSequence($element);
@@ -671,6 +679,7 @@ class GridHandler extends PKPHandler {
 				$this->saveRowDataElementSequence($element, $newSequence);
 			}
 		}
+
 		$json = new JSONMessage(true);
 		return $json->getString();
 	}

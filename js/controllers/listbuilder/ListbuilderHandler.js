@@ -696,6 +696,9 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 	/**
 	 * Add grid features.
+	 * FIXME: #7379# this method should only exists in GridHandler. All the features
+	 * configuration must be set on php side, when we implement the features 
+	 * classes there.
 	 * @private
 	 * @param {Array} options Options array.
 	 */

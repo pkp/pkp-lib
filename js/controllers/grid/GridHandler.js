@@ -177,12 +177,15 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Append a new row to the end of the list.
 	 * @protected
-	 * @param {HTMLElement} $newRow The new row to append.
+	 * @param {jQuery} $newRow The new row to append.
+	 * @param {jQuery} $gridBody The tbody container element.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.appendRow =
-			function($newRow) {
+			function($newRow, $gridBody) {
 
-		var $gridBody = this.getHtmlElement().find(this.bodySelector_);
+		if ($gridBody == undefined) {
+			var $gridBody = this.getHtmlElement().find(this.bodySelector_);
+		};		
 		$gridBody.append($newRow);
 	};
 
@@ -532,8 +535,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getControlRowByGridRow =
 			function($gridRow) {
-		var rowDataId = this.getRowDataId($gridRow);
-		var controlRowId = this.getRowIdPrefix() + rowDataId + '-control-row';
+		var rowId = $gridRow.attr('id');
+		var controlRowId = rowId + '-control-row';
 		return $('#' + controlRowId);
 	};
 

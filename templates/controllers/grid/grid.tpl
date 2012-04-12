@@ -10,22 +10,18 @@
 {assign var=staticId value="component-"|concat:$grid->getId()}
 {assign var=gridId value=$staticId|concat:'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
-{if $grid|is_a:CategoryGridHandler}
-	{assign var=gridActOnId value=$gridTableId}
-{else}
-	{assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
-{/if}
+{assign var=gridActOnId value=$gridTableId}
 
 <script type="text/javascript">
 	$(function() {ldelim}
 		$('#{$gridId|escape:javascript}').pkpHandler(
-			'$.pkp.controllers.grid.GridHandler',
+			'{$grid->getJSHandler()|escape:javascript}',
 			{ldelim}
 				gridId: '{$grid->getId()|escape:javascript}',
 				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$gridRequestArgs escape=false}',
 				fetchGridUrl: '{url|escape:javascript op='fetchGrid' params=$gridRequestArgs escape=false}',
 				hasOrderingItems: '{$hasOrderingItems}',
-				saveItemsSequenceUrl: '{url|escape:javascript op='saveRowsSequence' params=$gridRequestArgs escape=false}',
+				saveItemsSequenceUrl: '{url|escape:javascript op='saveSequence' params=$gridRequestArgs escape=false}',
 				bodySelector: '#{$gridActOnId|escape:javascript}',
 			{rdelim}
 		);

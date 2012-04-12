@@ -26,8 +26,16 @@
 
 
 	//
-	// Extended methods from ToggleableOrderItemsFeature.
+	// Extended methods from OrderItemsFeature.
 	//
+	$.pkp.classes.features.OrderGridItemsFeature.prototype.setupSortablePlugin =
+			function() {
+		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable');
+	};
+	
+	//
+	// Extended methods from ToggleableOrderItemsFeature.
+	//	
 	/**
 	 * Save order handler.
 	 * @return {boolean} Always returns false.
@@ -35,7 +43,7 @@
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.saveOrderHandler =
 			function() {
 		this.parent('saveOrderHandler');
-		var stringifiedData = JSON.stringify(this.getRowDataIds());
+		var stringifiedData = JSON.stringify(this.getItemsDataId());
 		var saveOrderCallback = this.gridHandler_.callbackWrapper(this.saveOrderResponseHandler_, this);
 		$.post(this.options_.saveItemsSequenceUrl, {data: stringifiedData},
 				saveOrderCallback, 'json');
@@ -57,6 +65,19 @@
 		this.toggleState(false);
 	};
 	
-
+	
+	//
+	// Protected methods to be overriden by subclasses
+	//
+	/**
+	 * Get all items data id in a sequence array. 
+	 * @return {array}
+	 */
+	$.pkp.classes.features.OrderGridItemsFeature.prototype.getItemsDataId =
+			function() {
+		return this.getRowsDataId(this.getGridHtmlElement());
+	};
+	
+	
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -211,7 +211,15 @@ class GridRow {
 	 * @param $template string
 	 */
 	function initialize($request, $template = 'controllers/grid/gridRow.tpl') {
+		// FIXME: #7379# move this order items feature related code to
+		// a php feature class.
 		if ($this->getIsOrderable()) {
+			$actionPosition = GRID_ACTION_POSITION_DEFAULT;
+			if (!is_a($this, 'GridCategoryRow')) {
+				$template = 'controllers/grid/gridRowWithActions.tpl';
+				$actionPosition = GRID_ACTION_POSITION_ROW_LEFT;
+			}
+
 			import('lib.pkp.classes.linkAction.request.NullAction');
 			$this->addAction(
 				new LinkAction(
@@ -219,10 +227,8 @@ class GridRow {
 					new NullAction(),
 					'',
 					'add_item'
-				), GRID_ACTION_POSITION_ROW_LEFT
+				), $actionPosition
 			);
-
-			$template = 'controllers/grid/gridRowWithActions.tpl';
 		}
 
 		// Set the template.

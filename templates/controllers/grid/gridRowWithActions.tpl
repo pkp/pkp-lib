@@ -6,8 +6,15 @@
  *
  * a grid row with Actions
  *}
-
-{assign var=rowId value="component-"|concat:$row->getGridId():"-row-":$row->getId()}
+{if $row->getId()}
+	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
+	{if $categoryRow}
+		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryRow->getId()}
+	{/if}
+	{assign var=rowId value=$rowIdPrefix|concat:"-row-":$row->getId()}
+{else}
+	{assign var=rowId value=""}
+{/if}
 <tr id="{$rowId|escape}" class="element{$row->getId()|escape} {if $row->getIsOrderable()}orderable{/if} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $smarty.foreach.columnLoop.first}

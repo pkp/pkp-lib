@@ -10,9 +10,18 @@
 
 <td colspan="{$colums|@count}">
 	{if $categoryRow->getActions()}
-		{foreach name=actions from=$categoryRow->getActions() item=action}
-			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-		{/foreach}
+		<div class="row_actions">
+			{foreach name=actions from=$categoryRow->getActions() item=action}
+				{include file="linkAction/linkAction.tpl" action=$action contextId=$categoryId}
+			{/foreach}
+		</div>
+	{/if}
+	{if $categoryRow->getActions($smarty.const.GRID_ACTION_POSITION_ROW_CLICK)}
+		<div>
+			{foreach name=actions from=$categoryRow->getActions($smarty.const.GRID_ACTION_POSITION_ROW_CLICK) item=action}
+				{include file="linkAction/linkAction.tpl" action=$action contextId=$categoryId}
+			{/foreach}
+		</div>
 	{/if}
 	{$categoryRow->getCategoryLabel()|escape}
 </td>

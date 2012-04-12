@@ -102,11 +102,14 @@ div.pkp_controllers_grid {
 		vertical-align: middle;
 	}
 
-	.row_actions {
+	.row_container .row_actions {
 		position: absolute;
+		width: 24px;
+	}
+
+	.row_actions {
 		top: 0;
 		left: 0;
-		width: 24px;
 	}
 
 	.row_actions a {
@@ -242,5 +245,13 @@ div.pkp_controllers_grid {
 	
 	.ordering:hover {
 		background: #EAF3F8 !important;  
-	} 
+	}
+	
+	tbody.ui-sortable-placeholder {
+		display:block;
+	}
+	
+	tbody.ui-sortable-helper {
+		display:table;
+	}
 }

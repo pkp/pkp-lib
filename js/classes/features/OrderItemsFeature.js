@@ -64,10 +64,20 @@
 			function() {
 		return '.orderable a.add_item';
 	};
+	
+	
+	/**
+	 * Get the css classes used to stylize the ordering items.
+	 * @returns {String}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemClasses =
+			function() {
+		return 'pkp_helpers_moveicon ordering';		
+	};
 
 
 	//
-	// Public methods
+	// Public methods.
 	//
 	/**
 	 * Initialize this feature. Needs to be extended to implement
@@ -80,26 +90,17 @@
 
 
 	//
-	// Protected methods.
+	// Protected template methods.
 	//
 	/**
-	 * Set items sequence store, using
-	 * the current rendered rows position.
-	 *
-	 * @param {jQuery} $rows The rows to store ordering information for.
+	 * Setup the sortable plugin. Must be implemented in subclasses.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
-			function($rows) {
-		this.itemsOrder_ = [];
-		var index, limit;
-		for (index = 0, limit = $rows.length; index < limit; index++) {
-			var $row = $($rows[index]);
-			var elementId = $row.attr('id');
-			this.itemsOrder_.push(elementId);
-		}
+	$.pkp.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
+			function() {
+		// Default implementation does nothing.
 	};
-
-
+	
+	
 	/**
 	 * Called every time user drag and drop an item.
 	 * @param {JQuery} contextElement The element this event occurred for.
@@ -110,6 +111,27 @@
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
+	
+	
+	//
+	// Protected methods.
+	//
+	/**
+	 * Set items sequence store, using
+	 * the sequence of the passed items.
+	 *
+	 * @param {jQuery} $items The items to be used to get the sequence information.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
+			function($items) {
+		this.itemsOrder_ = [];
+		var index, limit;
+		for (index = 0, limit = $items.length; index < limit; index++) {
+			var $item = $($items[index]);
+			var elementId = $item.attr('id');
+			this.itemsOrder_.push(elementId);
+		}
+	};
 
 
 	/**
@@ -119,44 +141,50 @@
 			function() {
 		var isOrdering = this.isOrdering_;
 		var $rows = this.gridHandler_.getRows();
-		var moveClasses = 'pkp_helpers_moveicon ordering';
+		var $orderableRows = $rows.filter('.orderable');
+		var moveClasses = this.getMoveItemClasses();
 		if (isOrdering) {
-			$rows.addClass(moveClasses);
+			$orderableRows.addClass(moveClasses);
 		} else {
-			$rows.removeClass(moveClasses);
+			$orderableRows.removeClass(moveClasses);
 		}
 
-		this.toggleMoveItemRowAction_(isOrdering);
+		this.toggleMoveItemRowAction(isOrdering);
 	};
 
 
 	/**
-	 * Apply (disabled or enabled) the sortable plugin on orderable rows.
+	 * Apply (disabled or enabled) the sortable plugin on passed elements.
+	 * @param {jQuery} $container The element that contain all the orderable items.
+	 * @param {string} $itemsSelector The jQuery selector for orderable items.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
-			function() {
+	$.pkp.classes.features.OrderItemsFeature.prototype.applySortablePluginOnElements =
+			function($container, itemsSelector) {
 		var isOrdering = this.isOrdering_;
 		var orderItemCallback = this.gridHandler_.callbackWrapper(
 				this.updateOrderCallback, this);
-		this.getGridHtmlElement().sortable({
+		$container.sortable({
 			disabled: !isOrdering,
-			items: 'tr.orderable',
+			items: itemsSelector,
 			update: orderItemCallback,
-			tolerance: 'pointer'});
+			tolerance: 'pointer'});		
 	};
 
 
 	/**
-	 * Get the data element id of all rows, in the current order.
+	 * Get the data element id of all rows inside the passed 
+	 * container, in the current order.
+	 * @param {jQuery} $rowsContainer The element that contains the rows
+	 * that will be used to retrieve the id.
 	 * @return {Array} A sequence array with data element ids as values.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getRowDataIds =
-			function() {
+	$.pkp.classes.features.OrderItemsFeature.prototype.getRowsDataId =
+			function($rowsContainer) {
 		var index;
 		var rowDataIds = [];
 		for (index in this.itemsOrder_) {
-			var $row = $('#' + this.itemsOrder_[index],
-					this.gridHandler_.getHtmlElement());
+			var $row = $('#' + this.itemsOrder_[index], $rowsContainer);
+			if ($row.length < 1) continue;
 			var rowDataId = this.gridHandler_.getRowDataId($row);
 			rowDataIds.push(rowDataId);
 		}
@@ -164,16 +192,13 @@
 		return rowDataIds;
 	};
 
-
-	//
-	// Private helper methods.
-	//
+	
 	/**
 	 * Show/hide the move item row action (position left).
 	 * @param {boolean} enable New enable state.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction_ =
+	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
 		var $rowActions = $('.row_actions', this.getGridHtmlElement()).children();
 		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(),

@@ -49,6 +49,12 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		// the file genre chooser must be disabled.
 		var $revisedFileId = $form.find('#revisedFileId');
 		$revisedFileId.change(this.callbackWrapper(this.revisedFileChange));
+		if (this.hasGenreSelector_) {
+			var $genreId = $form.find('#genreId');
+			$genreId.change(this.callbackWrapper(this.genreChange));
+			// initially, hide the upload botton on the form.
+			$form.find('.plupload_button.plupload_start').hide();
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler,
@@ -217,6 +223,27 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			// Revision...
 			$genreId.val(this.fileGenres_[$revisedFileId.val()]);
 			$genreId.attr('disabled', 'disabled');
+			$uploadForm.find('.plupload_button.plupload_start').show();
+		}
+	};
+
+
+	/**
+	 * Handle the "change" event of the genre selector, if it exists.
+	 * @param {HTMLElement} genreElement The original context in
+	 *  which the event was triggered.
+	 * @param {Event} event The change event.
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
+			genreChange = function(genreElement, event) {
+
+		var $uploadForm = this.getHtmlElement();
+		var $genreId = $uploadForm.find('#genreId');
+		if ($genreId.val() === '') {
+			// genre is empty
+			$uploadForm.find('.plupload_button.plupload_start').hide();
+		} else {
+			$uploadForm.find('.plupload_button.plupload_start').show();
 		}
 	};
 

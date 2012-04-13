@@ -66,11 +66,6 @@
 		// Bind to the pluploader for some configuration
 		pluploader.bind('FilesAdded',
 				this.callbackWrapper(this.limitQueueSize));
-		pluploader.bind('FilesAdded',
-				this.callbackWrapper(this.startUploader));
-		// Hide the start button (since we set to auto-start).
-		$uploader.find('.plupload_button.plupload_start').hide();
-
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
@@ -94,19 +89,6 @@
 			pluploader.splice(0, 1);
 			pluploader.refresh();
 		}
-	};
-
-
-	/**
-	 * Limit the queue size of the uploader to one file only.
-	 * @param {Object} caller The original context in which the callback was called.
-	 * @param {Object} pluploader The pluploader object.
-	 * @param {Object} file The data of the uploaded file.
-	 *
-	 */
-	$.pkp.controllers.UploaderHandler.prototype.
-			startUploader = function(caller, pluploader, file) {
-		pluploader.start();
 	};
 
 

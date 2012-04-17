@@ -239,7 +239,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			// We have made it to submission, disable the form control if
 			// necessary, submit the form.
 			if (this.disableControlsOnSubmit_) {
-				$(formElement).find(':submit').attr('disabled', 'disabled');
+				$(formElement).find(':submit').button('disable');
 			}
 
 			this.getHtmlElement().submit();

@@ -91,14 +91,15 @@ div.pkp_controllers_grid {
 
 	.row_container {
 		position: relative; /* Required to anchor absolute row actions positioning below. */
-		padding-top: 10px;
+		padding-top: 10px; 
 		padding-left: 40px;
 		padding-right: 30px;
 		overflow: hidden;
-		height: 40px;
-		word-wrap: break-word;
+		min-height: 40px;
+		height: auto;
+		/* word-wrap: break-word; */
 		/* min-height: 40px; */
-		line-height: auto;
+		line-height: auto; 
 		vertical-align: middle;
 	}
 
@@ -107,6 +108,7 @@ div.pkp_controllers_grid {
 		top: 0;
 		left: 0;
 		width: 24px;
+		height: 200px;
 	}
 
 	.row_actions a {
@@ -115,10 +117,11 @@ div.pkp_controllers_grid {
 	}
 
 	.row_file {
-		width: 100%;		
+		width: 100%;
 	}
 
 	.row_file a {
+		margin-top: 10px;
 		float:left;
 		margin-right: 20px;
 	}
@@ -136,7 +139,7 @@ div.pkp_controllers_grid {
 	.row_controls td {
 		padding-left: 30px;
 		line-height: 25px;
-   		height: 25px;
+		height: 25px;
 	}
 
 	.row_controls a {
@@ -241,6 +244,6 @@ div.pkp_controllers_grid {
 	}
 	
 	.ordering:hover {
-		background: #EAF3F8 !important;  
-	} 
+		background: #EAF3F8 !important;
+	}
 }

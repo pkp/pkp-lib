@@ -71,6 +71,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
+
+		// Click outside to close.
+		this.bind('clickoutside', this.outsideClick);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
 			$.pkp.classes.Handler);
@@ -185,6 +188,20 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Return the handled DOM element to its
 		// original state.
 		this.remove();
+	};
+
+
+	/**
+	 * Callback that will be bound to the outside click event.
+	 *
+	 * @param {Event} event The outside click event.
+	 */
+	$.pkp.controllers.modal.ModalHandler.prototype.outsideClick =
+			function(event) {
+
+		// Close the dialog.
+		console.log(this);
+		this.dialogClose(this.getHtmlElement());
 	};
 
 

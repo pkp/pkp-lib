@@ -50,7 +50,7 @@ class NotificationHandler extends Handler {
 		$formattedNotifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, $contextId, $rangeInfo);
 
 		// Get the same notifications used for the string so we can paginate
-		$notifications = $notificationDao->getNotificationsByUserId($userId, NOTIFICATION_LEVEL_NORMAL, null, $contextId, $rangeInfo);
+		$notifications = $notificationDao->getByUserId($userId, NOTIFICATION_LEVEL_NORMAL, null, $contextId, $rangeInfo);
 
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 		$templateMgr->assign('formattedNotifications', $formattedNotifications);
@@ -79,7 +79,7 @@ class NotificationHandler extends Handler {
 			$userId = (int) $user->getId();
 
 			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-			$notificationDao->deleteNotificationById($notificationId, $userId);
+			$notificationDao->deleteById($notificationId, $userId);
 		}
 
 		if (!$isAjax) {
@@ -364,7 +364,7 @@ class NotificationHandler extends Handler {
 			$notifications = $this->_getNotificationsByOptions($notificationOptions, $context->getId(), $user->getId());
 		} else {
 			// No options, get only TRIVIAL notifications.
-			$notifications =& $notificationDao->getNotificationsByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+			$notifications =& $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
 			$notifications =& $notifications->toArray();
 		}
 
@@ -408,18 +408,18 @@ class NotificationHandler extends Handler {
 				foreach ($levelOptions as $type => $typeOptions) {
 					if ($typeOptions) {
 						in_array($type, $allUsersNotificationTypes) ? $workingUserId = null : $workingUserId = $userId;
-						$notificationsResultFactory =& $notificationDao->getNotificationsByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $workingUserId, $type, $contextId);
+						$notificationsResultFactory =& $notificationDao->getByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $workingUserId, $type, $contextId);
 						$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
 					} else {
 						if ($userId) {
-							$notificationsResultFactory =& $notificationDao->getNotificationsByUserId($userId, $level, $type, $contextId);
+							$notificationsResultFactory =& $notificationDao->getByUserId($userId, $level, $type, $contextId);
 							$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
 						}
 					}
 				}
 			} else {
 				if ($userId) {
-					$notificationsResultFactory =& $notificationDao->getNotificationsByUserId($userId, $level, null, $contextId);
+					$notificationsResultFactory =& $notificationDao->getByUserId($userId, $level, null, $contextId);
 					$notificationsArray =& $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
 				}
 			}

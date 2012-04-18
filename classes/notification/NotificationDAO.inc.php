@@ -29,7 +29,7 @@ class NotificationDAO extends DAO {
 	 * @param $notificationId int
 	 * @return object Notification
 	 */
-	function &getNotificationById($notificationId) {
+	function &getById($notificationId) {
 		$result =& $this->retrieve(
 			'SELECT * FROM notifications WHERE notification_id = ?', (int) $notificationId
 		);
@@ -53,7 +53,7 @@ class NotificationDAO extends DAO {
 	 * @param $rangeInfo Object
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
+	function &getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null, $rangeInfo = null) {
 		$params = array((int) $userId, (int) $level);
 		if ($type) $params[] = (int) $type;
 		if ($contextId) $params[] = (int) $contextId;
@@ -78,7 +78,7 @@ class NotificationDAO extends DAO {
 	 * @param $contextId int
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
+	function &getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
 		$params = array((int) $assocType, (int) $assocId);
 		if ($userId) $params[] = (int) $userId;
 		if ($contextId) $params[] = (int) $contextId;
@@ -149,7 +149,7 @@ class NotificationDAO extends DAO {
 	 * @param $notification object
 	 * @return int Notification Id
 	 */
-	function insertNotification(&$notification) {
+	function insertObject(&$notification) {
 		$this->update(
 			sprintf('INSERT INTO notifications
 					(user_id, level, date_created, context_id, type, assoc_type, assoc_id)
@@ -172,23 +172,23 @@ class NotificationDAO extends DAO {
 
 	/**
 	 * Inserts or update a notification into notifications table.
-	 * @param $notification object
+	 * @param $notification Notification
 	 * @return int
 	 */
-	function buildNotification(&$notification) { /* @var $notification Notification */
+	function build(&$notification) {
 		$this->update('DELETE FROM notifications
 			WHERE context_id = ? AND level = ? AND type = ? AND user_id = ?
 				AND assoc_type = ? AND assoc_id = ?',
 			array(
-				$notification->getContextId(),
-				$notification->getLevel(),
-				$notification->getType(),
+				(int) $notification->getContextId(),
+				(int) $notification->getLevel(),
+				(int) $notification->getType(),
 				$notification->getUserId(),
 				$notification->getAssocType(),
 				$notification->getAssocId()
 			)
 		);
-		$this->insertNotification($notification);
+		$this->insertObject($notification);
 	}
 
 	/**
@@ -197,14 +197,47 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return boolean
 	 */
-	function deleteNotificationById($notificationId, $userId = null) {
-		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
-		$notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
-
+	function deleteById($notificationId, $userId = null) {
 		$params = array((int) $notificationId);
-		if ($userId) $params[] = (int) $userId;
-		return $this->update('DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
-			$params);
+		if (isset($userId)) $params[] = (int) $userId;
+		$this->update(
+			'DELETE FROM notifications WHERE notification_id = ?' . (isset($userId) ? ' AND user_id = ?' : ''),
+			$params
+		);
+		if ($this->getAffectedRows()) {
+			// If a notification was deleted (possibly validating
+			// $userId in the process) delete associated settings.
+			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDaoDao NotificationSettingsDAO */
+			$notificationSettingsDao->deleteSettingsByNotificationId($notificationId);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Delete Notification
+	 * @param $notification Notification
+	 * @return boolean
+	 */
+	function deleteObject($notification) {
+		return $this->deleteById($notification->getId());
+	}
+
+	/**
+	 * Delete notification(s) by association
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $userId int optional
+	 * @param $type int optional
+	 * @param $contextId int optional
+	 * @return boolean
+	 */
+	function deleteByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
+		$notificationsFactory =& $this->getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null);
+		while ($notification =& $notificationsFactory->next()) {
+			$this->deleteObject($notification);
+			unset($notification);
+		}
 	}
 
 	/**

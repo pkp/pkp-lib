@@ -35,7 +35,7 @@ class PKPNotificationManager {
 	 */
 	function getFormattedNotificationsForUser(&$request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getNotificationsByUserId($userId, $level, null, $contextId, $rangeInfo);
+		$notifications = $notificationDao->getByUserId($userId, $level, null, $contextId, $rangeInfo);
 
 		return $this->formatNotifications($request, $notifications, $notificationTemplate);
 	}
@@ -321,7 +321,7 @@ class PKPNotificationManager {
 			$notification->setAssocId((int) $assocId);
 			$notification->setLevel((int) $level);
 
-			$notificationId = $notificationDao->insertNotification($notification);
+			$notificationId = $notificationDao->insertObject($notification);
 
 			// Send notification emails
 			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
@@ -360,7 +360,7 @@ class PKPNotificationManager {
 		$notification->setType($notificationType);
 		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
 
-		$notificationId = $notificationDao->insertNotification($notification);
+		$notificationId = $notificationDao->insertObject($notification);
 
 		if ($params) {
 			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
@@ -381,7 +381,7 @@ class PKPNotificationManager {
 		foreach($notifications as $notification) {
 			// Delete only trivial notifications.
 			if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
-				$notificationDao->deleteNotificationById($notification->getId(), $notification->getUserId());
+				$notificationDao->deleteById($notification->getId(), $notification->getUserId());
 			}
 		}
 	}

@@ -200,7 +200,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			function(event) {
 
 		// Close the dialog.
-		console.log(this);
 		this.dialogClose(this.getHtmlElement());
 	};
 

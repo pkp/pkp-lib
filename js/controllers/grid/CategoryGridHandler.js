@@ -145,6 +145,23 @@
 		$rowGridBody = this.getRowCategory_($newRow);
 		this.parent('appendRow', $newRow, $rowGridBody);
 	};
+	
+	
+	/**
+	 * Overriden from GridHandler. 
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler_ =
+			function(sourceElement, event, elementId) {
+	
+		// FIXME #7394# make possible to refresh only categories and/or 
+		// rows inside categories.
+		// Retrieve the whole grid from the server.
+		$.get(this.fetchGridUrl_, null,
+				this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
+	
+		// Let the calling context (page?) know that the grids are being redrawn.
+		this.trigger('gridRefreshRequested');
+	};
 
 	
 	//

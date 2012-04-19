@@ -177,13 +177,14 @@ class CategoryGridHandler extends GridHandler {
 	 * @return array
 	 */
 	function &getCategoryData(&$categoryDataElement, $filter = null) {
+		$gridData = array();
 		$dataProvider =& $this->getDataProvider();
 		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
 			// Populate the grid with data from the
 			// data provider.
 			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
-			return $gridData;
 		}
+		return $gridData;
 	}
 
 	/**

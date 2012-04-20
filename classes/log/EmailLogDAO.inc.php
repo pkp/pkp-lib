@@ -60,21 +60,26 @@ class EmailLogDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 * @param $eventType int
+	 * @param $userId int optional
 	 * @param $rangeInfo object optional
 	 * @return EmailLogEntry
 	 */
-	function &getByEventType($assocType, $assocId, $eventType, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
-			'SELECT	e.*
-			FROM	email_log e
-			WHERE	e.assoc_type = ? AND
-				e.assoc_id = ? AND
-				e.event_type = ?',
-			array(
+	function &getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null) {
+		$params = array(
 				(int) $assocType,
 				(int) $assocId,
-				(int) $eventType
-			),
+				(int) $eventType);
+		if ($userId) $params[] = $userId;
+
+		$result =& $this->retrieveRange(
+			'SELECT	e.*
+			FROM	email_log e' .
+			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
+			' WHERE	e.assoc_type = ? AND
+				e.assoc_id = ? AND
+				e.event_type = ?' .
+				($userId ? ' AND u.user_id = ?' : ''),
+			$params,
 			$rangeInfo
 		);
 
@@ -157,6 +162,8 @@ class EmailLogDAO extends DAO {
 		);
 
 		$entry->setId($this->getInsertLogId());
+		$this->_insertLogUserIds($entry);
+
 		return $entry->getId();
 	}
 
@@ -209,6 +216,34 @@ class EmailLogDAO extends DAO {
 	 */
 	function getInsertLogId() {
 		return $this->getInsertId('email_log', 'log_id');
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Stores the correspondent user ids of the all recipient emails.
+	 * @param $entry EmailLogEntry
+	 */
+	function _insertLogUserIds($entry) {
+		$recipients = $entry->getRecipients();
+
+		// We can use a simple regex to get emails, since we don't want to validate it.
+		$pattern = '/(?<=\<)[^\>]*(?=\>)/';
+		preg_match_all($pattern, $recipients, $matches);
+		if (!isset($matches[0])) return;
+
+		$userDao = DAORegistry::getDAO('UserDAO');
+		foreach ($matches[0] as $emailAddress) {
+			$user =& $userDao->getUserByEmail($emailAddress);
+			if (is_a($user, 'User')) {
+				$this->update(
+					'INSERT INTO email_log_users (email_log_id, user_id) VALUES (?, ?)',
+					array($entry->getId(), $user->getId())
+				);
+			}
+		}
 	}
 }
 

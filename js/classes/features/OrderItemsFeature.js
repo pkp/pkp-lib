@@ -62,7 +62,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemRowActionSelector =
 			function() {
-		return '.orderable a.add_item';
+		return '.orderable a.order_items';
 	};
 	
 	

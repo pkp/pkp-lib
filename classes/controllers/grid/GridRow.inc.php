@@ -226,7 +226,7 @@ class GridRow {
 					'moveItem',
 					new NullAction(),
 					'',
-					'add_item'
+					'order_items'
 				), $actionPosition
 			);
 		}

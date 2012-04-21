@@ -22,7 +22,7 @@
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.features.OrderGridItemsFeature,
-			$.pkp.classes.features.ToggleableOrderItemsFeature);
+			$.pkp.classes.features.OrderItemsFeature);
 
 
 	//
@@ -30,7 +30,7 @@
 	//
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.setupSortablePlugin =
 			function() {
-		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable');
+		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable', null);
 	};
 	
 	//

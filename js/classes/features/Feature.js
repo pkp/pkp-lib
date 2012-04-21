@@ -34,6 +34,9 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 			function(gridHandler, options) {
 		this.gridHandler_ = gridHandler;
 		this.options_ = options;
+		// FIXME #7379# Pass the rendered html to this method when
+		// the html is in the options.
+		this.addFeatureHtml(this.getGridHtmlElement());
 	};
 
 
@@ -56,6 +59,21 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	$.pkp.classes.features.Feature.prototype.options_ = null;
 
 
+	//
+	// Public template methods.
+	//
+	/**
+	 * Initialize this feature. Needs to be extended to implement
+	 * specific initialization. This method will always be called
+	 * by the components that this feature is attached to, in the
+	 * moment of the attachment.
+	 */
+	$.pkp.classes.features.Feature.prototype.init =
+			function() {
+		throw Error('Abstract method!');
+	};
+	
+		
 	//
 	// Template methods (hooks into grid widgets).
 	//
@@ -89,6 +107,20 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	$.pkp.classes.features.Feature.prototype.replaceRow =
 			function($newContent) {
 		return false;
+	};
+	
+	
+	//
+	// Protected methods.
+	//
+	/**
+	 * Extend to add extra html elements in the component
+	 * that this feature is attached to.
+	 * @param {jQuery} $gridElement 
+	 */
+	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
+			function($gridElement) {
+		// Default implementation does nothing.
 	};
 
 

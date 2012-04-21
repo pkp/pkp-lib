@@ -22,7 +22,7 @@
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.features.OrderListbuilderItemsFeature,
-			$.pkp.classes.features.ToggleableOrderItemsFeature);
+			$.pkp.classes.features.OrderItemsFeature);
 
 
 	//
@@ -30,7 +30,7 @@
 	//
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.setupSortablePlugin =
 			function() {
-		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable');
+		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable', null);
 	};
 	
 	
@@ -60,18 +60,13 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.storeOrder =
-			function($rows) {
-		this.parent('storeOrder', $rows);
-		var index, limit;
-		for (index = 0, limit = $rows.length; index < limit; index++) {
-			var $row = $($rows[index]);
-			var seq = index + 1;
-			var orderableInput = $row.find('.itemSequence');
-			orderableInput.attr('value', seq);
-			var modifiedInput = $row.find('.isModified');
-			modifiedInput.attr('value', 1);
-		}
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.storeRowOrder =
+			function(index, $row) {
+		var seq = index + 1;
+		var $orderableInput = $row.find('.itemSequence');
+		$orderableInput.attr('value', seq);
+		var $modifiedInput = $row.find('.isModified');
+		$modifiedInput.attr('value', 1);
 	};
 
 
@@ -134,7 +129,7 @@
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceRow =
 			function($newContent) {
 		this.toggleItemsDragMode();
-		$rows = this.gridHandler_.getRows();
+		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
 

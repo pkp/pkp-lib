@@ -15,12 +15,28 @@
 import('lib.pkp.classes.controllers.grid.GridRow');
 
 class ListbuilderGridRow extends GridRow {
+
+	/* @var boolean */
+	var $_hasDeleteItemLink;
+
 	/**
 	 * Constructor
+	 * @param $hasDeleteItemLink boolean
 	 */
-	function ListbuilderGridRow() {
+	function ListbuilderGridRow($hasDeleteItemLink = true) {
 		parent::GridRow();
+
+		$this->setHasDeleteItemLink($hasDeleteItemLink);
 	}
+
+	/**
+	 * Add a delete item link action or not.
+	 * @param $hasDeleteItemLink boolean
+	 */
+	function setHasDeleteItemLink($hasDeleteItemLink) {
+		$this->_hasDeleteItemLink = $hasDeleteItemLink;
+	}
+
 
 	//
 	// Overridden template methods
@@ -35,16 +51,18 @@ class ListbuilderGridRow extends GridRow {
 		// Set listbuilder row template
 		$this->setTemplate($template);
 
-		// Add deletion action (handled in JS-land)
-		import('lib.pkp.classes.linkAction.request.NullAction');
-		$this->addAction(
-			new LinkAction(
-				'delete',
-				new NullAction(),
-				'',
-				'remove_item'
-			)
-		);
+		if ($this->_hasDeleteItemLink) {
+			// Add deletion action (handled in JS-land)
+			import('lib.pkp.classes.linkAction.request.NullAction');
+			$this->addAction(
+				new LinkAction(
+					'delete',
+					new NullAction(),
+					'',
+					'remove_item'
+				)
+			);
+		}
 	}
 
 	/**

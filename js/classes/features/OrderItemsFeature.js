@@ -22,7 +22,18 @@
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
-
+		
+		if (options.orderButton == undefined) {
+			// This feature works without an order button.
+			this.$orderButton_ = jQuery();
+			this.$finishControl_ = jQuery();
+			// It will always stay in ordering mode.
+			this.isOrdering_ = true;
+		} else {
+			this.$orderButton_ = options.orderButton;
+			this.$finishControl_ = options.finishControl;
+		}
+		
 		this.itemsOrder_ = [];
 	};
 	$.pkp.classes.Helper.inherits(
@@ -39,11 +50,92 @@
 	 * @type {array}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder_ = null;
+	
+	/**
+	 * Flag to control if user is ordering items.
+	 * @private
+	 * @type {boolean}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.isOrdering_ = false;
+
+
+	/**
+	 * Initiate ordering state button.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.$orderButton_ = null;
+
+
+	/**
+	 * Cancel ordering state button.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.$cancelButton_ = null;
+
+
+	/**
+	 * Save ordering state button.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.$saveButton_ = null;
+
+
+	/**
+	 * Ordering finish control.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.$finishControl_ = null;
 
 
 	//
 	// Getters and setters.
 	//
+	/**
+	 * Get the order button.
+	 * @return {jQuery} The order button JQuery object.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.getOrderButton =
+			function() {
+		return this.$orderButton_;
+	};
+
+
+	/**
+	 * Get the finish control.
+	 * @return {jQuery} The JQuery "finish" control.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.getFinishControl =
+			function() {
+		return this.$finishControl_;
+	};
+
+
+	/**
+	 * Get save order button.
+	 *
+	 * @return {jQuery} The "save order" JQuery object.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.getSaveOrderButton =
+			function() {
+		return this.getFinishControl().find('.saveButton');
+	};
+
+
+	/**
+	 * Get cancel order link.
+	 *
+	 * @return {jQuery} The "cancel order" JQuery control.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.getCancelOrderButton =
+			function() {
+		return this.getFinishControl().find('.cancelFormButton');
+	};
+
+
 	/**
 	 * Get the html element of the grid that this feature
 	 * is attached to.
@@ -75,20 +167,60 @@
 		return 'pkp_helpers_moveicon ordering';		
 	};
 
-
+	
 	//
-	// Public methods.
+	// Public template methods.
+	// 
+	/**
+	 * Called every time user start dragging an item.
+	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {Event} event The drag/drop event.
+	 * @param {Object} ui Object with data related to the event elements.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.dragStartCallback =
+			function(contextElement, event, ui) {
+		// The default implementation does nothing.
+	};
+	
+	/**
+	 * Called every time user stop dragging an item.
+	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {Event} event The drag/drop event.
+	 * @param {Object} ui Object with data related to the event elements.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.dragStopCallback =
+			function(contextElement, event, ui) {
+		// The default implementation does nothing.
+	};
+	
+	
+	/**
+	 * Called every time sequence is changed.
+	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {Event} event The drag/drop event.
+	 * @param {Object} ui Object with data related to the event elements.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.updateOrderCallback =
+			function(contextElement, event, ui) {
+		// The default implementation does nothing.
+	};
+	
+	
+	//
+	// Extended methods from Feature
 	//
 	/**
-	 * Initialize this feature. Needs to be extended to implement
-	 * specific initialization.
+	 * @inheritDoc
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.init =
 			function() {
-		// Default implementation does nothing.
+		this.toggleOrderLink_();
+		if (this.isOrdering_) {
+			this.setupSortablePlugin();
+		};
 	};
-
-
+	
+	
 	//
 	// Protected template methods.
 	//
@@ -102,34 +234,91 @@
 	
 	
 	/**
-	 * Called every time user drag and drop an item.
-	 * @param {JQuery} contextElement The element this event occurred for.
-	 * @param {Event} event The drag/drop event.
-	 * @param {JQueryUI} ui The JQueryUI object.
+	 * Called every time storeOrder is called. This is a chance to subclasses
+	 * execute operations with each row that has their sequence being saved.
+	 * @param {integer} index The current row index position inside the rows
+	 * jQuery object.
+	 * @param {jQuery} $row
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.updateOrderCallback =
-			function(contextElement, event, ui) {
+	$.pkp.classes.features.OrderItemsFeature.prototype.storeRowOrder =
+			function(index, $row) {
 		// The default implementation does nothing.
 	};
-	
+
 	
 	//
 	// Protected methods.
 	//
 	/**
-	 * Set items sequence store, using
+	 * Initiate ordering button click event handler.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.clickOrderHandler =
+			function() {
+		this.gridHandler_.hideAllVisibleRowActions();
+		this.storeOrder(this.gridHandler_.getRows());
+		this.toggleState(true);
+		return false;
+	};
+
+
+	/**
+	 * Save order handler.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.saveOrderHandler =
+			function() {
+		this.gridHandler_.updateControlRowsPosition();
+		this.unbindOrderFinishControlsHandlers_();
+		var $rows = this.gridHandler_.getRows();
+		this.storeOrder($rows);
+	};
+
+
+	/**
+	 * Cancel ordering action click event handler.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.cancelOrderHandler =
+			function() {
+		this.gridHandler_.resequenceRows(this.itemsOrder_);
+		this.toggleState(false);
+		return false;
+	};
+
+
+	/**
+	 * Execute all operations necessary to change the state of the
+	 * ordering process (enabled or disabled).
+	 * @param {boolean} isOrdering Is ordering process active?
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.toggleState =
+			function(isOrdering) {
+		this.isOrdering_ = isOrdering;
+		this.toggleGridLinkActions_();
+		this.toggleOrderLink_();
+		this.toggleFinishControl_();
+		this.toggleItemsDragMode();
+		this.setupSortablePlugin();
+	};
+	
+	/**
+	 * Set rows sequence store, using
 	 * the sequence of the passed items.
 	 *
-	 * @param {jQuery} $items The items to be used to get the sequence information.
+	 * @param {jQuery} $rows The rows to be used to get the sequence information.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
-			function($items) {
+			function($rows) {
 		this.itemsOrder_ = [];
 		var index, limit;
-		for (index = 0, limit = $items.length; index < limit; index++) {
-			var $item = $($items[index]);
-			var elementId = $item.attr('id');
+		for (index = 0, limit = $rows.length; index < limit; index++) {
+			var $row = $($rows[index]);
+			var elementId = $row.attr('id');
 			this.itemsOrder_.push(elementId);
+			
+			// Give a chance to subclasses do extra operations to store
+			// the current row order.
+			this.storeRowOrder(index, $row);
 		}
 	};
 
@@ -159,15 +348,27 @@
 	 * @param {string} $itemsSelector The jQuery selector for orderable items.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.applySortablePluginOnElements =
-			function($container, itemsSelector) {
+			function($container, itemsSelector, extraParams) {
 		var isOrdering = this.isOrdering_;
+		var dragStartCallback = this.gridHandler_.callbackWrapper(
+				this.dragStartCallback, this);
+		var dragStopCallback = this.gridHandler_.callbackWrapper(
+				this.dragStopCallback, this);
 		var orderItemCallback = this.gridHandler_.callbackWrapper(
 				this.updateOrderCallback, this);
-		$container.sortable({
+		var config = {
 			disabled: !isOrdering,
 			items: itemsSelector,
+			activate: dragStartCallback,
+			deactivate: dragStopCallback,
 			update: orderItemCallback,
-			tolerance: 'pointer'});		
+			tolerance: 'pointer'};
+		
+		if (typeof extraParams === 'object') {
+			config = $.extend(true, config, extraParams); 
+		}
+		
+		$container.sortable(config);		
 	};
 
 
@@ -210,6 +411,91 @@
 			$rowActions.show();
 			$moveItemRowAction.hide();
 		}
+	};
+	
+	
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Set the state of the grid link actions, based on current ordering state.
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.toggleGridLinkActions_ =
+			function() {
+		var isOrdering = this.isOrdering_;
+
+		// We want to enable/disable all link actions, except this features controls.
+		var $gridLinkActions = $('.pkp_controllers_linkAction', this.getGridHtmlElement()).not(
+				this.getMoveItemRowActionSelector(), this.getOrderButton(), this.getFinishControl().find('*'));
+
+		this.gridHandler_.changeLinkActionsState(!isOrdering, $gridLinkActions);
+	};
+
+
+	/**
+	 * Enable/disable the order link action.
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.toggleOrderLink_ =
+			function() {
+		if (this.isOrdering_) {
+			this.$orderButton_.unbind('click');
+			this.$orderButton_.addClass('ui-state-disabled');
+		} else {
+			var clickHandler = this.gridHandler_.callbackWrapper(this.clickOrderHandler, this);
+			this.$orderButton_.click(clickHandler);
+			this.$orderButton_.removeClass('ui-state-disabled');
+		}
+	};
+
+
+	/**
+	 * Show/hide the ordering process finish control, based
+	 * on the current ordering state.
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.toggleFinishControl_ =
+			function() {
+		if (this.isOrdering_) {
+			this.bindOrderFinishControlsHandlers_();
+			this.getFinishControl().slideDown(300);
+		} else {
+			this.unbindOrderFinishControlsHandlers_();
+			this.getFinishControl().slideUp(300);
+		}
+	};
+
+
+	/**
+	 * Bind event handlers to the controls that finish the
+	 * ordering action (save and cancel).
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.bindOrderFinishControlsHandlers_ =
+			function() {
+		var $saveButton = this.getSaveOrderButton();
+		var $cancelLink = this.getCancelOrderButton();
+
+		var cancelLinkHandler = this.gridHandler_.callbackWrapper(this.cancelOrderHandler, this);
+		var saveButtonHandler = this.gridHandler_.callbackWrapper(this.saveOrderHandler, this);
+
+		$saveButton.click(saveButtonHandler);
+		$cancelLink.click(cancelLinkHandler);
+	};
+
+
+	/**
+	 * Unbind event handlers from the controls that finish the
+	 * ordering action (save and cancel).
+	 * @private
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.unbindOrderFinishControlsHandlers_ =
+			function() {
+		var $saveButton = this.getSaveOrderButton();
+		var $cancelLink = this.getCancelOrderButton();
+		$saveButton.unbind('click');
+		$cancelLink.unbind('click');
 	};
 
 

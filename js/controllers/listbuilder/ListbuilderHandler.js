@@ -719,7 +719,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				($.pkp.classes.Helper.objectFactory(
 						'$.pkp.classes.features.OrderListbuilderItemsFeature',
 						[this, {
-							'orderButton': $('a.order_items', this.getHtmlElement()),
+							'orderButton': $('a.order_items:first', this.getHtmlElement()),
 							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls')
 						}]));
 

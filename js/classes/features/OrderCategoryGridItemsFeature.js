@@ -48,10 +48,10 @@
 		var index, limit;
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			var $category = $($categories[index]);
-			this.applySortablePluginOnElements($category, 'tr.orderable');
+			this.applySortablePluginOnElements($category, 'tr.orderable', null);
 		}
 		
-		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tbody.orderable');		
+		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tbody.orderable', null);		
 	};
 	
 

@@ -182,7 +182,7 @@
 				($.pkp.classes.Helper.objectFactory(
 						'$.pkp.classes.features.OrderCategoryGridItemsFeature',
 						[this, {
-							'orderButton': $('a.order_items', this.getHtmlElement()),
+							'orderButton': $('a.order_items:first', this.getHtmlElement()),
 							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
 							'saveItemsSequenceUrl': options.saveItemsSequenceUrl
 						}]));

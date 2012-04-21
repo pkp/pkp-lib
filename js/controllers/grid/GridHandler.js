@@ -590,7 +590,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				($.pkp.classes.Helper.objectFactory(
 						'$.pkp.classes.features.OrderGridItemsFeature',
 						[this, {
-							'orderButton': $('a.order_items', this.getHtmlElement()),
+							'orderButton': $('a.order_items:first', this.getHtmlElement()),
 							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
 							'saveItemsSequenceUrl': options.saveItemsSequenceUrl
 						}]));

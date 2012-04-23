@@ -31,25 +31,6 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler =
 			function($listbuilder, options) {
 		this.parent($listbuilder, options);
-
-		// Save listbuilder options
-		this.sourceType_ = options.sourceType;
-		this.saveUrl_ = options.saveUrl;
-		this.saveFieldName_ = options.saveFieldName;
-		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
-
-		// Attach the button handlers
-		$listbuilder.find('span[class="options"] > a[id*="addItem"]').click(
-				this.callbackWrapper(this.addItemHandler_));
-
-		// Attach the content manipulation handlers
-		this.attachContentHandlers_($listbuilder);
-
-		// Sign up for notification of form submission.
-		this.bind('formSubmitRequested', this.formSubmitHandler_);
-
-		// Sign up for notification of form submitted.
-		this.bind('formSubmitted', this.formSubmittedHandler_);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.listbuilder.ListbuilderHandler,
 			$.pkp.controllers.grid.GridHandler);
@@ -99,6 +80,35 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	//
 	// Protected methods
 	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.initialize =
+			function(options) {
+		this.parent('initialize', options);
+		
+		// Save listbuilder options
+		this.sourceType_ = options.sourceType;
+		this.saveUrl_ = options.saveUrl;
+		this.saveFieldName_ = options.saveFieldName;
+		this.fetchOptionsUrl_ = options.fetchOptionsUrl;
+
+		// Attach the button handlers
+		var $listbuilder = this.getHtmlElement();
+		$listbuilder.find('span[class="options"] > a[id*="addItem"]').click(
+				this.callbackWrapper(this.addItemHandler_));
+
+		// Attach the content manipulation handlers
+		this.attachContentHandlers_($listbuilder);
+
+		// Sign up for notification of form submission.
+		this.bind('formSubmitRequested', this.formSubmitHandler_);
+
+		// Sign up for notification of form submitted.
+		this.bind('formSubmitted', this.formSubmittedHandler_);
+	};
+	
+	
 	/**
 	 * Get the "save" URL for LISTBUILDER_SAVE_TYPE_INTERNAL.
 	 * @private

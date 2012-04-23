@@ -31,29 +31,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler = function($grid, options) {
 		this.parent($grid, options);
 
-		// Bind the handler for the "elements changed" event.
-		this.bind('dataChanged', this.refreshGridHandler_);
-
-		// Bind the handler for the "add new row" event.
-		this.bind('addRow', this.addRowHandler_);
-
-		// Handle grid filter events.
-		this.bind('formSubmitted', this.refreshGridWithFilterHandler_);
-
-		// Save the ID of this grid.
-		this.gridId_ = options.gridId;
-
-		// Save the URL to fetch a row.
-		this.fetchRowUrl_ = options.fetchRowUrl;
-
-		// Save the URL to fetch the entire grid
-		this.fetchGridUrl_ = options.fetchGridUrl;
-
-		// Save the selector for the grid body.
-		this.bodySelector_ = options.bodySelector;
-
-		// Show/hide row action feature.
-		this.activateRowActions_();
+		// We give a chance for this handler to initialize
+		// before we initialize its features.
+		this.initialize(options);
 
 		if (options.hasOrderingItems) {
 			this.initFeatures_(options);
@@ -110,6 +90,38 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	//
 	// Protected methods
 	//
+	/**
+	 * Set data and execute operations to initialize.
+	 * @param {array} options Grid options.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.initialize =
+			function(options) {
+		// Bind the handler for the "elements changed" event.
+		this.bind('dataChanged', this.refreshGridHandler_);
+
+		// Bind the handler for the "add new row" event.
+		this.bind('addRow', this.addRowHandler_);
+
+		// Handle grid filter events.
+		this.bind('formSubmitted', this.refreshGridWithFilterHandler_);
+
+		// Save the ID of this grid.
+		this.gridId_ = options.gridId;
+
+		// Save the URL to fetch a row.
+		this.fetchRowUrl_ = options.fetchRowUrl;
+
+		// Save the URL to fetch the entire grid
+		this.fetchGridUrl_ = options.fetchGridUrl;
+
+		// Save the selector for the grid body.
+		this.bodySelector_ = options.bodySelector;
+
+		// Show/hide row action feature.
+		this.activateRowActions_();
+	};
+	
+	
 	/**
 	 * Get the fetch row URL.
 	 * @return {?string} URL to the "fetch row" operation handler.

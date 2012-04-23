@@ -238,10 +238,9 @@ class EmailLogDAO extends DAO {
 		foreach ($matches[0] as $emailAddress) {
 			$user =& $userDao->getUserByEmail($emailAddress);
 			if (is_a($user, 'User')) {
-				$this->update(
-					'INSERT INTO email_log_users (email_log_id, user_id) VALUES (?, ?)',
-					array($entry->getId(), $user->getId())
-				);
+				// We use replace here to avoid inserting duplicated entries
+				// in table (sometimes the recipients can have the same email twice).
+				$this->replace('email_log_users', array('email_log_id' => $entry->getId(), 'user_id' => $user->getId()));
 			}
 		}
 	}

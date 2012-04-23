@@ -12,13 +12,13 @@
 	{assign var=cellId value=""}
 {/if}
 <span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
-	{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_NONE}
+	{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_NONE}
 		<div class="gridCell">
 			{include file="controllers/grid/gridCellContents.tpl"}
 		</div>
 	{else}
 		<div class="gridCellDisplay">
-			{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
+			{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_SELECT}
 				{**
 				 * Include a hidden element containing the current key.
 			 	 * Used e.g. to match the currently selected value.
@@ -31,7 +31,7 @@
 		</div>
 
 		<div class="gridCellEdit">
-			{if $column->getFlag('sourceType') == $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
+			{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_TEXT}
 				{if $column->hasFlag('multilingual')}{* Multilingual *}
 
 					{assign var="FBV_id" value="newRowId"}{* we can just use this generic name since a unique id gets appended to it in the template *}

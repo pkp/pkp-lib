@@ -66,7 +66,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Configure the callback called when the link
 		// action request finishes.
 		options.actionRequestOptions.finishCallback =
-				this.callbackWrapper(this.bindActionRequest);
+				this.callbackWrapper(this.enableLink);
 
 		this.linkActionRequest_ =
 				/** @type {$.pkp.classes.linkAction.LinkActionRequest} */
@@ -176,7 +176,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 		// Unbind our click handler to avoid double-execution
 		// while the link action is executing.
-		this.unbind('click', this.activateAction);
+		this.disableLink();
 
 		// Call the link request.
 		return this.linkActionRequest_.activate.call(this.linkActionRequest_,
@@ -207,6 +207,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		if (this.getHtmlElement().is('a') && actionRequestUrl) {
 			$linkActionElement.attr('href', actionRequestUrl);
 		}
+		this.unbind('click', this.noAction_);
 		this.bindActionRequest();
 	};
 
@@ -222,6 +223,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			$linkActionElement.attr('href', '#');
 		}
 		this.unbind('click', this.activateAction);
+		this.bind('click', this.noAction_);
 	};
 
 
@@ -236,6 +238,16 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			dataChangedHandler_ = function() {
 
 		this.trigger('notifyUser', this.getHtmlElement());
+	};
+	
+	
+	/**
+	 * Click event handler used to avoid any action request.
+	 * @returns {Boolean}
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			noAction_ = function() {
+		return false;
 	};
 
 

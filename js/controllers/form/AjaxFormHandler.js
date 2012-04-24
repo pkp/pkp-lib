@@ -104,6 +104,7 @@
 				this.trigger('formSubmitted');
 			} else {
 				if (jsonData.reloadContainer !== undefined) {
+					this.trigger('dataChanged');
 					this.trigger('containerReloadRequested', jsonData);
 					return jsonData.status;
 				}

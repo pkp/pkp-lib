@@ -30,6 +30,7 @@
 	<message key="announcement.posted">Posted</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
+	<message key="common.accepted">Accepted</message>
 	<message key="common.action">Action</message>
 	<message key="common.activate">Activate</message>
 	<message key="common.active">Active</message>
@@ -89,6 +90,7 @@
 	<message key="common.day">Day</message>
 	<message key="common.deactivate">Deactivate</message>
 	<message key="common.default">Default</message>
+	<message key="common.declined">Declined</message>
 	<message key="common.delete">Delete</message>
 	<message key="common.deleteSelection">Delete Selection</message>
 	<message key="common.description">Description</message>
@@ -148,6 +150,7 @@
 	<message key="common.originalFileName">Original file name</message>
 	<message key="common.or">or</message>
 	<message key="common.other">Other</message>
+	<message key="common.overdue">Overdue</message>
 	<message key="common.pageHeaderLogo.altText">Page Header Logo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
@@ -158,6 +161,7 @@
 	<message key="common.record">Record</message>
 	<message key="common.refresh">Refresh</message>
 	<message key="common.related">Related</message>
+	<message key="common.reminder">Reminder</message>
 	<message key="common.remote">Remote</message>
 	<message key="common.remoteURL">RemoteURL</message>
 	<message key="common.remove">Remove</message>
@@ -174,6 +178,7 @@
 	<message key="common.selectAll">Select All</message>
 	<message key="common.selectNone">Select None</message>
 	<message key="common.select">Select</message>
+	<message key="common.signoff">Sign Off</message>
 	<message key="common.size">Size</message>
 	<message key="common.source">Source</message>
 	<message key="common.status">Status</message>
@@ -184,6 +189,7 @@
 	<message key="common.true">True</message>
 	<message key="common.type">Type</message>
 	<message key="common.uninitiated">Uninitiated</message>
+	<message key="common.unread">Unread</message>
 	<message key="common.untitled">Untitled</message>
 	<message key="common.updated">Updated</message>
 	<message key="common.uploadedFile">Uploaded file</message>

@@ -9,10 +9,10 @@
 	*           CODE LIST DATA TYPES MODULE          *
 	*               XML SCHEMA VERSION               *
 	*                                                *
-	*                    ISSUE: 16                   *
+	*                    ISSUE: 17                   *
 	*                                                *
 	*                 Status: RELEASED               *
-	*            Release date: 2012-01-27            *
+	*            Release date: 2012-04-20            *
 	*                                                *
 	*  Orig filename ONIX_BookProduct_CodeLists.XSD  *
 	*                                                *
@@ -55,7 +55,10 @@
 
 	MODULE REVISION HISTORY (IN REVERSE CHRONOLOGICAL ORDER)
 
-	2012-01-27: Module for public release based upon the ONIX International 
+	2012-04-20: Module for public release based upon the ONIX International 
+	            Code lists Issue 17 (April 2012)
+
+	2012-01-23: Module for public release based upon the ONIX International 
 	            Code lists Issue 16 (January 2012)
 
 	2011-10-21: Module for public release based upon the ONIX International 
@@ -111,9 +114,10 @@
 
 	2003-12-30: First Draft Module based upon the ONIX International 
 	            Code Lists Issue 2 (December 2003)
+
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:simpleType name="List1">
+		<xs:simpleType name="List1">
 		<xs:annotation>
 			<xs:documentation source="ONIX Code List 1">Notification or update type code</xs:documentation>
 		</xs:annotation>
@@ -365,6 +369,18 @@
 				<xs:annotation>
 					<xs:documentation>ISMN-13</xs:documentation>
 					<xs:documentation>International Standard Music Number, from 2008 (13-digit number starting 9790).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="26">
+				<xs:annotation>
+					<xs:documentation>ISBN-A</xs:documentation>
+					<xs:documentation>Actionable ISBN, in fact a special DOI incorporating the ISBN-13 within the DOI syntax. Begins '10.978.' or '10.979.' and includes a / character between the registrant element (publisher prefix) and publication element of the ISBN, eg 10.978.000/1234567. Note the ISBN-A should always be accompanied by the ISBN itself, using codes 03 and/or 15.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="27">
+				<xs:annotation>
+					<xs:documentation>JP e-code</xs:documentation>
+					<xs:documentation>E-publication identifier controlled by JPOIID's Committee for Research and Management of Electronic Publishing Codes.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1682,10 +1698,9 @@
 			<xs:enumeration value="09">
 				<xs:annotation>
 					<xs:documentation>CPA</xs:documentation>
-					<xs:documentation>Statistical Classification of Products by Activity in the European Economic Community, see http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=CPA_2008. Up to six digits, with one or two periods. For example, printed children's books are '58.11.13'.</xs:documentation>
+					<xs:documentation>Statistical Classification of Products by Activity in the European Economic Community, see http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=CPA_2008. Up to six digits, with one or two periods. For example, printed children's books are “58.11.13”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-			
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="List10">
@@ -1695,7 +1710,7 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="000">
 				<xs:annotation>
-					<xs:documentation>Epublication "content package"</xs:documentation>
+					<xs:documentation>Epublication “content package”</xs:documentation>
 					<xs:documentation>An epublication viewed as a unique package of content which may be converted into any of a number of different types for delivery to the consumer. This code is used when an ONIX &lt;Product&gt; record describes the content package and lists within the record the different forms in which it is available.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1828,13 +1843,13 @@
 			<xs:enumeration value="022">
 				<xs:annotation>
 					<xs:documentation>MobiPocket</xs:documentation>
-					<xs:documentation>An epublication delivered in a proprietary format, capable of being read in the MobiPocket software on PalmOS, WindowsCE /Pocket PC, Franklin eBookman, and EPOC32 handheld devices, available only through the MobiPocket service.</xs:documentation>
+					<xs:documentation>An epublication delivered in a proprietary format, capable of being read in the MobiPocket software on PalmOS, WindowsCE /Pocket PC, Franklin eBookman, and EPOC32 handheld devices, available through the MobiPocket service. Includes Amazon Kindle formats up to and including version 7 - but prefer code 031 for version 7, and always use 031 for KF8.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="023">
 				<xs:annotation>
 					<xs:documentation>Open Ebook</xs:documentation>
-					<xs:documentation>An epublication delivered in the standard distribution format specified in the Open Ebook Publication Structure (OEBPS) format and capable of being read in any OEBPS-compliant reading system.</xs:documentation>
+					<xs:documentation>An epublication delivered in the standard distribution format specified in the Open Ebook Publication Structure (OEBPS) format and capable of being read in any OEBPS-compliant reading system. Includes EPUB format up to and including version 2 - but prefer code 029 for EPUB 2, and always use 029 for EPUB 3.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="024">
@@ -1882,7 +1897,7 @@
 			<xs:enumeration value="031">
 				<xs:annotation>
 					<xs:documentation>Kindle</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Amazon proprietary file format derived from Mobipocket format, used for Kindle devices and Kindle reader software.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="032">
@@ -1955,6 +1970,18 @@
 				<xs:annotation>
 					<xs:documentation>XPS</xs:documentation>
 					<xs:documentation>XML Paper Specification format [File extension .xps] for (eg) Blio.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="044">
+				<xs:annotation>
+					<xs:documentation>iBook</xs:documentation>
+					<xs:documentation>Apple's iBook format (a proprietary extension of EPUB), can only be read on Apple iOS devices.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="045">
+				<xs:annotation>
+					<xs:documentation>ePIB</xs:documentation>
+					<xs:documentation>Proprietary format used by Barnes and Noble, readable on NOOK devices and Nook reader software.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="098">
@@ -2121,6 +2148,12 @@
 					<xs:documentation>For editions sold only through newsstands/newsagents.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation>US textbook</xs:documentation>
+					<xs:documentation>In the US and Canada, a book that is published primarily for use by students in school or college education as a basis for study. Textbooks published for the elementary and secondary school markets are generally purchased by school districts for the use of students. Textbooks published for the higher education market are generally adopted for use in particular classes by the instructors of those classes. Textbooks are usually not marketed to the general public, which distinguishes them from trade books. Note that trade books adopted for course use are not considered to be textbooks (though a specific education edition of a trade title may be).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="List13">
@@ -2192,19 +2225,19 @@
 			<xs:enumeration value="01">
 				<xs:annotation>
 					<xs:documentation>Sentence case</xs:documentation>
-					<xs:documentation>Initial capitals on first word and subsequently on proper names only, eg "The conquest of Mexico".</xs:documentation>
+					<xs:documentation>Initial capitals on first word and subsequently on proper names only, eg “The conquest of Mexico”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02">
 				<xs:annotation>
 					<xs:documentation>Title case</xs:documentation>
-					<xs:documentation>Initial capitals on first word and on all significant words thereafter, eg "The Conquest of Mexico".</xs:documentation>
+					<xs:documentation>Initial capitals on first word and on all significant words thereafter, eg “The Conquest of Mexico”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="03">
 				<xs:annotation>
 					<xs:documentation>All capitals</xs:documentation>
-					<xs:documentation>For example, "THE CONQUEST OF MEXICO".</xs:documentation>
+					<xs:documentation>For example, “THE CONQUEST OF MEXICO”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -2223,7 +2256,7 @@
 			<xs:enumeration value="01">
 				<xs:annotation>
 					<xs:documentation>Distinctive title (book); Cover title (serial); Title on item (serial content item or reviewed resource)</xs:documentation>
-					<xs:documentation>The full text of the distinctive title of the item, without abbreviation or abridgement. For books, where the title alone is not distinctive, elements may be taken from a set or series title and part number etc to create a distinctive title. Where the item is an omnibus edition containing two or more works by the same author, and there is no separate combined title, a distinctive title may be constructed by concatenating the individual titles, with suitable punctuation, as in "Pride and prejudice / Sense and sensibility / Northanger Abbey".</xs:documentation>
+					<xs:documentation>The full text of the distinctive title of the item, without abbreviation or abridgement. For books, where the title alone is not distinctive, elements may be taken from a set or series title and part number etc to create a distinctive title. Where the item is an omnibus edition containing two or more works by the same author, and there is no separate combined title, a distinctive title may be constructed by concatenating the individual titles, with suitable punctuation, as in “Pride and prejudice / Sense and sensibility / Northanger Abbey”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02">
@@ -2241,7 +2274,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>Title acronym or initialism</xs:documentation>
-					<xs:documentation>For serials: an acronym or initialism of Title Type 01, eg "JAMA", "JACM".</xs:documentation>
+					<xs:documentation>For serials: an acronym or initialism of Title Type 01, eg “JAMA”, “JACM”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -2971,19 +3004,19 @@
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - male</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 "read by", for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - female</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 "read by", for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="07">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - unspecified</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 "read by", for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -3667,7 +3700,7 @@
 			<xs:enumeration value="10">
 				<xs:annotation>
 					<xs:documentation>BISAC Subject Heading</xs:documentation>
-					<xs:documentation>BISAC Subject Headings are used in the North American market to categorize books based on topical content. They serve as a guideline for shelving books in physical stores and browsing books in online stores. See http://www.bisg.org/what-we-do-cat-20-classification-schemes.php</xs:documentation>
+					<xs:documentation>BISAC Subject Headings are used in the North American market to categorize books based on topical content. They serve as a guideline for shelving books in physical stores and browsing books in online stores. See 'http://www.bisg.org/what-we-do-cat-20-classification-schemes.php'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">
@@ -3679,7 +3712,7 @@
 			<xs:enumeration value="12">
 				<xs:annotation>
 					<xs:documentation>BIC subject category</xs:documentation>
-					<xs:documentation>For all BIC subject codes and qualifiers, see http://www.bic.org.uk/7/BIC-Standard-Subject-Categories/</xs:documentation>
+					<xs:documentation>For all BIC subject codes and qualifiers, see 'http://www.bic.org.uk/7/BIC-Standard-Subject-Categories/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="13">
@@ -3733,7 +3766,7 @@
 			<xs:enumeration value="21">
 				<xs:annotation>
 					<xs:documentation>BIC children's book marketing category</xs:documentation>
-					<xs:documentation>See http://www.bic.org.uk/8/Children's-Books-Marketing-Classifications/</xs:documentation>
+					<xs:documentation>See 'http://www.bic.org.uk/8/Children's-Books-Marketing-Classifications/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="22">
@@ -3763,7 +3796,7 @@
 			<xs:enumeration value="26">
 				<xs:annotation>
 					<xs:documentation>Warengruppen-Systematik des deutschen Buchhandels</xs:documentation>
-					<xs:documentation>See http://www.boersenverein.de/sixcms/media.php/976/WGSneuVersion2_0.pdf</xs:documentation>
+					<xs:documentation>See 'http://www.boersenverein.de/sixcms/media.php/976/WGSneuVersion2_0.pdf'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="27">
@@ -3781,13 +3814,13 @@
 			<xs:enumeration value="29">
 				<xs:annotation>
 					<xs:documentation>CLIL</xs:documentation>
-					<xs:documentation>France.</xs:documentation>
+					<xs:documentation>France, see Appendix in http://www.clil.org/information/telechargementDoc.html?action=ouvrir&amp;id=313 (in French).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="30">
 				<xs:annotation>
 					<xs:documentation>DNB-Sachgruppen</xs:documentation>
-					<xs:documentation>Deutsche Bibliothek subject groups. Used for German National Bibliography until 2003 (65 subjects). Is different from value 18. See http://www.d-nb.de/service/pdf/ddc_wv_alt_neu.pdf</xs:documentation>
+					<xs:documentation>Deutsche Bibliothek subject groups. Used for German National Bibliography until 2003 (65 subjects). Is different from value 18. See 'http://www.d-nb.de/service/pdf/ddc_wv_alt_neu.pdf'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="31">
@@ -3799,13 +3832,13 @@
 			<xs:enumeration value="32">
 				<xs:annotation>
 					<xs:documentation>NUR</xs:documentation>
-					<xs:documentation>Nederlandstalige Uniforme Rubrieksindeling (Dutch book trade classification, from 2002).</xs:documentation>
+					<xs:documentation>Nederlandstalige Uniforme Rubrieksindeling (Dutch book trade classification, from 2002),see http://reeks.boekwinkeltjes.nl/downloads/NUR-lijst.pdf (in Dutch).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation>ECPA Christian Book Category</xs:documentation>
-					<xs:documentation>ECPA Christian Product Category Book Codes, consisting of up to three x 3-letter blocks, for Super Category, Primary Category and Sub-Category. See http://www.ecpa.org/ECPA/cbacategories.xls</xs:documentation>
+					<xs:documentation>ECPA Christian Product Category Book Codes, consisting of up to three x 3-letter blocks, for Super Category, Primary Category and Sub-Category. See 'http://www.ecpa.org/ECPA/cbacategories.xls'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="34">
@@ -3823,7 +3856,7 @@
 			<xs:enumeration value="36">
 				<xs:annotation>
 					<xs:documentation>DDC Deutsch 22</xs:documentation>
-					<xs:documentation>German Translation of Dewey Decimal Classification 22. Also known as DDC 22 ger. See http://www.ddc-deutsch.de/produkte/uebersichten/</xs:documentation>
+					<xs:documentation>German Translation of Dewey Decimal Classification 22. Also known as DDC 22 ger. See 'http://www.ddc-deutsch.de/produkte/uebersichten/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="37">
@@ -4057,7 +4090,7 @@
 			<xs:enumeration value="75">
 				<xs:annotation>
 					<xs:documentation>BIC E4L</xs:documentation>
-					<xs:documentation>BIC E4Libraries Category Headings, see http://www.bic.org.uk/51/E4libraries-Subject-Category-Headings/</xs:documentation>
+					<xs:documentation>BIC E4Libraries Category Headings, see 'http://www.bic.org.uk/51/E4libraries-Subject-Category-Headings/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="76">
@@ -4075,7 +4108,7 @@
 			<xs:enumeration value="78">
 				<xs:annotation>
 					<xs:documentation>Japanese book trade C-Code</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>See 'http://www.asahi-net.or.jp/~ax2s-kmtn/ref/ccode.html' (in Japanese).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="79">
@@ -4093,7 +4126,7 @@
 			<xs:enumeration value="85">
 				<xs:annotation>
 					<xs:documentation>Postal code</xs:documentation>
-					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg "GB N7 9DP" or "US 10125".</xs:documentation>
+					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg “GB N7 9DP” or “US 10125”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="86">
@@ -4172,7 +4205,7 @@
 			<xs:enumeration value="10">
 				<xs:annotation>
 					<xs:documentation>BISAC Subject Heading</xs:documentation>
-					<xs:documentation>BISAC Subject Headings are used in the North American market to categorize books based on topical content. They serve as a guideline for shelving books in physical stores and browsing books in online stores. See http://www.bisg.org/what-we-do-cat-20-classification-schemes.php</xs:documentation>
+					<xs:documentation>BISAC Subject Headings are used in the North American market to categorize books based on topical content. They serve as a guideline for shelving books in physical stores and browsing books in online stores. See 'http://www.bisg.org/what-we-do-cat-20-classification-schemes.php'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">
@@ -4184,7 +4217,7 @@
 			<xs:enumeration value="12">
 				<xs:annotation>
 					<xs:documentation>BIC subject category</xs:documentation>
-					<xs:documentation>For all BIC subject codes and qualifiers, see http://www.bic.org.uk/7/BIC-Standard-Subject-Categories/</xs:documentation>
+					<xs:documentation>For all BIC subject codes and qualifiers, see 'http://www.bic.org.uk/7/BIC-Standard-Subject-Categories/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="13">
@@ -4238,7 +4271,7 @@
 			<xs:enumeration value="21">
 				<xs:annotation>
 					<xs:documentation>BIC children's book marketing category</xs:documentation>
-					<xs:documentation>See http://www.bic.org.uk/8/Children's-Books-Marketing-Classifications/</xs:documentation>
+					<xs:documentation>See 'http://www.bic.org.uk/8/Children's-Books-Marketing-Classifications/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="22">
@@ -4286,7 +4319,7 @@
 			<xs:enumeration value="29">
 				<xs:annotation>
 					<xs:documentation>CLIL</xs:documentation>
-					<xs:documentation>France.</xs:documentation>
+					<xs:documentation>France, see Appendix in http://www.clil.org/information/telechargementDoc.html?action=ouvrir&amp;id=313 (in French).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="30">
@@ -4304,13 +4337,13 @@
 			<xs:enumeration value="32">
 				<xs:annotation>
 					<xs:documentation>NUR</xs:documentation>
-					<xs:documentation>Nederlandstalige Uniforme Rubrieksindeling (Dutch book trade classification, from 2002).</xs:documentation>
+					<xs:documentation>Nederlandstalige Uniforme Rubrieksindeling (Dutch book trade classification, from 2002, see http://reeks.boekwinkeltjes.nl/downloads/NUR-lijst.pdf (in Dutch).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation>ECPA Christian Book Category</xs:documentation>
-					<xs:documentation>ECPA Christian Product Category Book Codes, consisting of up to three x 3-letter blocks, for Super Category, Primary Category and Sub-Category. See http://www.ecpa.org/ECPA/cbacategories.xls</xs:documentation>
+					<xs:documentation>ECPA Christian Product Category Book Codes, consisting of up to three x 3-letter blocks, for Super Category, Primary Category and Sub-Category. See 'http://www.ecpa.org/ECPA/cbacategories.xls'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="34">
@@ -4328,7 +4361,7 @@
 			<xs:enumeration value="36">
 				<xs:annotation>
 					<xs:documentation>DDC Deutsch 22</xs:documentation>
-					<xs:documentation>German Translation of Dewey Decimal Classification 22. Also known as DDC 22 ger. See http://www.ddc-deutsch.de/produkte/uebersichten/</xs:documentation>
+					<xs:documentation>German Translation of Dewey Decimal Classification 22. Also known as DDC 22 ger. See 'http://www.ddc-deutsch.de/produkte/uebersichten/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="37">
@@ -4430,7 +4463,7 @@
 			<xs:enumeration value="53">
 				<xs:annotation>
 					<xs:documentation>Soggetto CCE</xs:documentation>
-					<xs:documentation>Classificazione commerciale editoriale (Italian book trade subject category based on BIC). CCE documentation available at http://www.ie-online.it/CCE2_2.0.pdf</xs:documentation>
+					<xs:documentation>Classificazione commerciale editoriale (Italian book trade subject category based on BIC). CCE documentation available at 'http://www.ie-online.it/CCE2_2.0.pdf'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="54">
@@ -4562,7 +4595,7 @@
 			<xs:enumeration value="75">
 				<xs:annotation>
 					<xs:documentation>BIC E4L</xs:documentation>
-					<xs:documentation>BIC E4Libraries Category Headings, see http://www.bic.org.uk/51/E4libraries-Subject-Category-Headings/</xs:documentation>
+					<xs:documentation>BIC E4Libraries Category Headings, see 'http://www.bic.org.uk/51/E4libraries-Subject-Category-Headings/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="76">
@@ -4580,7 +4613,7 @@
 			<xs:enumeration value="78">
 				<xs:annotation>
 					<xs:documentation>Japanese book trade C-Code</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>See 'http://www.asahi-net.or.jp/~ax2s-kmtn/ref/ccode.html' (in Japanese).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="79">
@@ -4622,7 +4655,7 @@
 			<xs:enumeration value="85">
 				<xs:annotation>
 					<xs:documentation>Postal code</xs:documentation>
-					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg "GB N7 9DP" or "US 10125".</xs:documentation>
+					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg “GB N7 9DP” or “US 10125”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="86">
@@ -5047,7 +5080,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="09">
 				<xs:annotation>
-					<xs:documentation>Promotional "headline"</xs:documentation>
+					<xs:documentation>Promotional “headline”</xs:documentation>
 					<xs:documentation>A promotional phrase which is intended to headline a description of the product.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -5090,7 +5123,7 @@
 			<xs:enumeration value="16">
 				<xs:annotation>
 					<xs:documentation>Competing titles</xs:documentation>
-					<xs:documentation>Free text listing of other titles with which the product is in competition: although this text might not appear in "public" ONIX records, it could be required where ONIX Is used as a communication format within a group of publishing and distribution companies.</xs:documentation>
+					<xs:documentation>Free text listing of other titles with which the product is in competition: although this text might not appear in “public” ONIX records, it could be required where ONIX Is used as a communication format within a group of publishing and distribution companies.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="17">
@@ -5121,6 +5154,12 @@
 				<xs:annotation>
 					<xs:documentation>Publisher's notice</xs:documentation>
 					<xs:documentation>A statement included by a publisher in fulfillment of its contractual obligations, such as a disclaimer, sponsor statement, or legal notice of any sort. Note that the inclusion of such a notice cannot and does not imply that a user of the ONIX record is obliged to reproduce it.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="22">
+				<xs:annotation>
+					<xs:documentation>Index</xs:documentation>
+					<xs:documentation/>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="23">
@@ -5211,6 +5250,18 @@
 				<xs:annotation>
 					<xs:documentation>Commentary / discussion</xs:documentation>
 					<xs:documentation>Other than author comments: see code 11.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="43">
+				<xs:annotation>
+					<xs:documentation>Short description for series or set</xs:documentation>
+					<xs:documentation>(of which the product is a part.) Limited to a maximum of 350 characters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="44">
+				<xs:annotation>
+					<xs:documentation>Long description for series or set</xs:documentation>
+					<xs:documentation>(of which the product is a part.)</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="99">
@@ -5452,10 +5503,22 @@
 					<xs:documentation/>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="03">
+				<xs:annotation>
+					<xs:documentation>Image: whole cover</xs:documentation>
+					<xs:documentation>Includes cover, back cover, spine and - where appropriate - any flaps. Quality unspecified: if sending both a standard quality and a high quality image, use 03 for standard quality and 05 for high quality.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>Image: front cover</xs:documentation>
 					<xs:documentation>Quality unspecified: if sending both a standard quality and a high quality image, use 04 for standard quality and 06 for high quality.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="05">
+				<xs:annotation>
+					<xs:documentation>Image: whole cover, high quality</xs:documentation>
+					<xs:documentation>Should have a minimum resolution of 300 dpi when rendered at the intended size for display or print.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">
@@ -6085,7 +6148,7 @@
 			<xs:enumeration value="16">
 				<xs:annotation>
 					<xs:documentation>ISNI</xs:documentation>
-					<xs:documentation>International Standard Name Identifier. See http://www.isni.org/</xs:documentation>
+					<xs:documentation>International Standard Name Identifier. See 'http://www.isni.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="17">
@@ -6115,7 +6178,7 @@
 			<xs:enumeration value="21">
 				<xs:annotation>
 					<xs:documentation>ORCID</xs:documentation>
-					<xs:documentation>Open Researcher and Contributor ID. See http://www.orcid.org/</xs:documentation>
+					<xs:documentation>Open Researcher and Contributor ID. See 'http://www.orcid.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="22">
@@ -6128,6 +6191,12 @@
 				<xs:annotation>
 					<xs:documentation>VAT Identity Number</xs:documentation>
 					<xs:documentation>Identifier for a business organization for VAT purposes, eg within the EU's VIES system. See http://ec.europa.eu/taxation_customs/vies/faqvies.do for EU VAT ID formats, which vary from country to country. Generally these consist of a two-letter country code followed by the 8-12 digits of the national VAT ID. Some countries include one or two letters within their VAT ID. See http://en.wikipedia.org/wiki/VAT_identification_number for non-EU countries that maintain similar identifiers. Spaces, dashes etc should be omitted.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="24">
+				<xs:annotation>
+					<xs:documentation>JP Distribution Identifier</xs:documentation>
+					<xs:documentation>4-digit business organization identifier controlled by the Japanese Publication Wholesalers Association.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -6176,7 +6245,7 @@
 			<xs:enumeration value="07">
 				<xs:annotation>
 					<xs:documentation>Published in association with</xs:documentation>
-					<xs:documentation>Use also for "Published in cooperation with".</xs:documentation>
+					<xs:documentation>Use also for “Published in cooperation with”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="08">
@@ -6371,13 +6440,13 @@
 			<xs:enumeration value="12">
 				<xs:annotation>
 					<xs:documentation>Diameter (tube or cylinder)</xs:documentation>
-					<xs:documentation>The diameter of the cross-section of a tube or cylinder, usually carrying a rolled sheet product. Use 01 "height" for the height or length of the tube.</xs:documentation>
+					<xs:documentation>The diameter of the cross-section of a tube or cylinder, usually carrying a rolled sheet product. Use 01 “height” for the height or length of the tube.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="13">
 				<xs:annotation>
 					<xs:documentation>Rolled sheet package side measure</xs:documentation>
-					<xs:documentation>The length of a side of the cross-section of a long triangular or square package, usually carrying a rolled sheet product. Use 01 "height" for the height or length of the package.</xs:documentation>
+					<xs:documentation>The length of a side of the cross-section of a long triangular or square package, usually carrying a rolled sheet product. Use 01 “height” for the height or length of the package.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -6882,7 +6951,7 @@
 			<xs:enumeration value="ECZ">
 				<xs:annotation>
 					<xs:documentation>Eurozone</xs:documentation>
-					<xs:documentation>Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for "AT BE CY EE FI FR DE ES GR IE IT LU MT NL PT SI SK" (the official Eurozone 17), plus "AD MC SM VA ME" (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. Only valid in ONIX 3, and only within Block 6.</xs:documentation>
+					<xs:documentation>Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for “AT BE CY EE FI FR DE ES GR IE IT LU MT NL PT SI SK” (the official Eurozone 17), plus “AD MC SM VA ME” (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. Only valid in ONIX 3, and only within Block 6.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ROW">
@@ -7362,7 +7431,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>YYYYS</xs:documentation>
-					<xs:documentation>Year and season (S = 1, 2, 3, 4, with 1 = "Spring").</xs:documentation>
+					<xs:documentation>Year and season (S = 1, 2, 3, 4, with 1 = “Spring”).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -7411,6 +7480,18 @@
 				<xs:annotation>
 					<xs:documentation>Text string</xs:documentation>
 					<xs:documentation>For complex, approximate or uncertain dates.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="13">
+				<xs:annotation>
+					<xs:documentation>YYYYMMDDThhmm</xs:documentation>
+					<xs:documentation>Exact time. Use ONLY when exact times with hour/minute precision are relevant. By default, time is local to the sender. Alternatively, the time may be suffixed with an optional 'Z' for UTC times, or with '+' or '-' and an hhmm timezone offset from UTC.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="14">
+				<xs:annotation>
+					<xs:documentation>YYYYMMDDThhmmss</xs:documentation>
+					<xs:documentation>Exact time. Use ONLY when exact times with second precision are relevant. By default, time is local to the sender. Alternatively, the time may be suffixed with an optional 'Z' for UTC times, or with '+' or '-' and an hhmm timezone offset from UTC.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="20">
@@ -7484,7 +7565,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>Contact supplier</xs:documentation>
-					<xs:documentation>May be used for books that do not carry a recommended retail price, when an ONIX file is "broadcast" rather than sent one-to-one to a single trading partner; or for digital products offered on subscription or with pricing which is too complex to specify in ONIX.</xs:documentation>
+					<xs:documentation>May be used for books that do not carry a recommended retail price, when an ONIX file is “broadcast” rather than sent one-to-one to a single trading partner; or for digital products offered on subscription or with pricing which is too complex to specify in ONIX.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -7862,7 +7943,7 @@
 			<xs:enumeration value="10">
 				<xs:annotation>
 					<xs:documentation>Remaindered</xs:documentation>
-					<xs:documentation>The product is no longer available from the current publisher, under the current ISBN, at the current price. It may be available to be traded through another channel. A Publishing Status code 10 'Remaindered' usually but not always means that the publisher has decided to sell off excess inventory of the book. Copies of books that are remaindered are often made available in the supply chain at a reduced price. However, such remainders are often sold under a product identifier that differs from the ISBN on the full-priced copy of the book. A Publishing Status code 10 'Remaindered' on a given product record may or may not be followed by a Publishing Status code 06 'Out of Stock Indefinitely' or 07 'Out of Print': the practise varies from one publisher to another. Some publishers may revert to a Publishing Status code 04 "Active" if a desired inventory level on the product in question has subsequently been reached. No change in rights should ever be inferred from this (or any other) Publishing Status code value.</xs:documentation>
+					<xs:documentation>The product is no longer available from the current publisher, under the current ISBN, at the current price. It may be available to be traded through another channel. A Publishing Status code 10 'Remaindered' usually but not always means that the publisher has decided to sell off excess inventory of the book. Copies of books that are remaindered are often made available in the supply chain at a reduced price. However, such remainders are often sold under a product identifier that differs from the ISBN on the full-priced copy of the book. A Publishing Status code 10 'Remaindered' on a given product record may or may not be followed by a Publishing Status code 06 'Out of Stock Indefinitely' or 07 'Out of Print': the practise varies from one publisher to another. Some publishers may revert to a Publishing Status code 04 “Active” if a desired inventory level on the product in question has subsequently been reached. No change in rights should ever be inferred from this (or any other) Publishing Status code value.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">
@@ -8055,7 +8136,7 @@
 			<xs:enumeration value="97">
 				<xs:annotation>
 					<xs:documentation>No recent update received</xs:documentation>
-					<xs:documentation>Sender has not received any recent update for this product from the publisher/supplier (for use when the sender is a data aggregator): the definition of "recent" must be specified by the aggregator, or by agreement between parties to an exchange.</xs:documentation>
+					<xs:documentation>Sender has not received any recent update for this product from the publisher/supplier (for use when the sender is a data aggregator): the definition of “recent” must be specified by the aggregator, or by agreement between parties to an exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="98">
@@ -8441,7 +8522,7 @@
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Online resource 'available content' page</xs:documentation>
-					<xs:documentation>A webpage giving direct access to the content that is available online for a specified resource version. Generally used for content available online under subscription terms</xs:documentation>
+					<xs:documentation>A webpage giving direct access to the content that is available online for a specified resource version. Generally used for content available online under subscription terms.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">
@@ -8627,12 +8708,12 @@
 			<xs:enumeration value="40">
 				<xs:annotation>
 					<xs:documentation>URL of full metadata description</xs:documentation>
-					<xs:documentation>For example an ONIX or MARC record for the product, available online</xs:documentation>
+					<xs:documentation>For example an ONIX or MARC record for the product, available online.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="41">
 				<xs:annotation>
-					<xs:documentation>Social networking URL for specific work</xs:documentation>
+					<xs:documentation>Social networking URL for specific work or product</xs:documentation>
 					<xs:documentation>For example, a Facebook, Google+ or Twitter URL for the product or work.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -8646,6 +8727,12 @@
 				<xs:annotation>
 					<xs:documentation>Publisher's social networking URL</xs:documentation>
 					<xs:documentation>For example, a Facebook, Google+ or Twitter page.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="44">
+				<xs:annotation>
+					<xs:documentation>Social networking URL for specific article, chapter or content item</xs:documentation>
+					<xs:documentation>For example, a Facebook, Google+ or Twitter page. Use only in the context of a specific content item (eg within &lt;ContentItem&gt;).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -11968,7 +12055,7 @@
 			<xs:enumeration value="A302">
 				<xs:annotation>
 					<xs:documentation>Readalong audio</xs:documentation>
-					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as "turn the page now" and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
+					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as “turn the page now” and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="A303">
@@ -12027,32 +12114,32 @@
 			</xs:enumeration>
 			<xs:enumeration value="B108">
 				<xs:annotation>
-					<xs:documentation>A5: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>A5 size Tankobon</xs:documentation>
+					<xs:documentation>210x148mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B109">
 				<xs:annotation>
-					<xs:documentation>B5: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>JIS B5 size Tankobon</xs:documentation>
+					<xs:documentation>Japanese B-series size, 257x182mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B110">
 				<xs:annotation>
-					<xs:documentation>B6: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>JIS B6 size Tankobon</xs:documentation>
+					<xs:documentation>Japanese B-series size, 182x128mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B111">
 				<xs:annotation>
-					<xs:documentation>A6: Bunko</xs:documentation>
-					<xs:documentation>Japanese paperback format.</xs:documentation>
+					<xs:documentation>A6 size Bunko</xs:documentation>
+					<xs:documentation>148x105mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B112">
 				<xs:annotation>
-					<xs:documentation>B40-dori: Shinsho</xs:documentation>
-					<xs:documentation>Japanese paperback format.</xs:documentation>
+					<xs:documentation>B40-dori Shinsho</xs:documentation>
+					<xs:documentation>Japanese format, 182x103mm or 173x105mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B113">
@@ -12136,25 +12223,31 @@
 			<xs:enumeration value="B126">
 				<xs:annotation>
 					<xs:documentation>AB size</xs:documentation>
-					<xs:documentation>Japanese format: 257x210mm.</xs:documentation>
+					<xs:documentation>257x210mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B127">
 				<xs:annotation>
-					<xs:documentation>B7 size</xs:documentation>
-					<xs:documentation>Japanese format: 128x81mm.</xs:documentation>
+					<xs:documentation>JIS B7 size</xs:documentation>
+					<xs:documentation>Japanese B-series size, 128x91mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B128">
 				<xs:annotation>
 					<xs:documentation>Kiku size</xs:documentation>
-					<xs:documentation>Japanese format: 218x152mm.</xs:documentation>
+					<xs:documentation>Japanese format, 218x152mm or 227x152mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B129">
 				<xs:annotation>
 					<xs:documentation>Kiku-Henkei size</xs:documentation>
 					<xs:documentation>Japanese format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B130">
+				<xs:annotation>
+					<xs:documentation>JIS B4 size</xs:documentation>
+					<xs:documentation>Japanese B-series size, 364x257mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B201">
@@ -12926,6 +13019,12 @@
 					<xs:documentation>For &lt;ProductFormFeatureValue&gt; codes, see Codelist 196.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="10">
+				<xs:annotation>
+					<xs:documentation>E-publication format version</xs:documentation>
+					<xs:documentation>For versioned e-book file format (or in some cases, device) - for example EPUB 2 and EPUB 3. &lt;ProductFormFeatureValue&gt; should contain the version number. Use only with ONIX 3.0 - in ONIX 2.1, use &lt;EpubTypeVersion&gt; instead.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="11">
 				<xs:annotation>
 					<xs:documentation>CPSIA choking hazard warning</xs:documentation>
@@ -12953,19 +13052,19 @@
 			<xs:enumeration value="31">
 				<xs:annotation>
 					<xs:documentation>FSC certified - pure</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Pure, 100%). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg "AB-COC-001234" or "ABCDE-COC-123456"; Trademark License number is C followed by six digits, eg "C005678" (this would normally be prefixed by 'FSC®' when displayed). By definition, a product certified Pure does not contain Pre- and Post-Consumer-Waste (PCW), so type code 31 can only occur on its own. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Pure, 100%). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). By definition, a product certified Pure does not contain Pre- and Post-Consumer-Waste (PCW), so type code 31 can only occur on its own. Certification numbers may be checked at 'http://info.fsc.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="32">
 				<xs:annotation>
 					<xs:documentation>FSC certified - mixed sources</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Mixed sources, Mix). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg "AB-COC-001234" or "ABCDE-COC-123456"; Trademark License number is C followed by six digits, eg "C005678" (this would normally be prefixed by 'FSC®' when displayed). May be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Mixed sources, Mix). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). May be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation>FSC certified - recycled</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Recycled). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeroes if necessary), eg "AB-COC-001234" or "ABCDE-COC-123456"; Trademark License number is C followed by six digits, eg "C005678" (this would normally be prefixed by 'FSC®' when displayed). Should be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Recycled). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeroes if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). Should be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at' http://info.fsc.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="34">
@@ -13014,31 +13113,31 @@
 			<xs:enumeration value="01">
 				<xs:annotation>
 					<xs:documentation>Slip-sleeve</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Thin card sleeve, much less rigid than a slip case.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02">
 				<xs:annotation>
 					<xs:documentation>Clamshell</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Packaging consisting of formed plastic sealed around each side of the product. Not to be confused with single-sided Blister pack.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="03">
 				<xs:annotation>
 					<xs:documentation>Keep case</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Typical DVD-style packaging, sometimes known as an 'Amaray' case.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Jewel case</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Typical CD-style packaging.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="09">
 				<xs:annotation>
 					<xs:documentation>In box</xs:documentation>
-					<xs:documentation>Individual item or set in box with lid: not to be confused with the commonly-used 'boxed set' - see below.</xs:documentation>
+					<xs:documentation>Individual item, items or set in card box with separate or hinged lid: not to be confused with the commonly-used 'boxed set'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="10">
@@ -13503,7 +13602,7 @@
 			<xs:enumeration value="ASV">
 				<xs:annotation>
 					<xs:documentation>American Standard</xs:documentation>
-					<xs:documentation>A 1901 translation using verbal equivalence techniques with the purpose of Americanizing the King James version.</xs:documentation>
+					<xs:documentation>A 1901 translation using verbal equivalence techniques with the purpose of Americanizing the REV.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CEI">
@@ -13599,7 +13698,7 @@
 			<xs:enumeration value="GNB">
 				<xs:annotation>
 					<xs:documentation>Good News</xs:documentation>
-					<xs:documentation>A translation sponsored by the American Bible Society. The New Testament was first published (as "Today's English Version" TEV) in 1966. The Old Testament was completed in 1976, and the whole was published as the "Good News Bible".</xs:documentation>
+					<xs:documentation>A translation sponsored by the American Bible Society. The New Testament was first published (as “Today's English Version” TEV) in 1966. The Old Testament was completed in 1976, and the whole was published as the “Good News Bible”.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GPR">
@@ -13683,7 +13782,7 @@
 			<xs:enumeration value="NAB">
 				<xs:annotation>
 					<xs:documentation>New American</xs:documentation>
-					<xs:documentation>A translation aimed at Catholic readers first published in its entirely in 1970. A revised New Testament was issued in 1986.</xs:documentation>
+					<xs:documentation>A translation aimed at Catholic readers first published in its entirety in 1970. A revised New Testament was issued in 1986 as the 2nd Edition. The 3rd Edtion was published in 1991 with a revision to Psalms. The 4th Edition (also known as the New American Bible Revised Edition) was published in 2011, incorporating revisions to the Old Testament.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="NAS">
@@ -13746,6 +13845,12 @@
 					<xs:documentation>Norwegian Bible translation.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="NBI">
+				<xs:annotation>
+					<xs:documentation>Bibelen 2011</xs:documentation>
+					<xs:documentation>Norwegian Bible translation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="NCV">
 				<xs:annotation>
 					<xs:documentation>New Century</xs:documentation>
@@ -13755,7 +13860,7 @@
 			<xs:enumeration value="NEB">
 				<xs:annotation>
 					<xs:documentation>New English</xs:documentation>
-					<xs:documentation>A translation first issued in 1970 as a result of a proposal at the 1946 General Assembly of the Church of Scotland.</xs:documentation>
+					<xs:documentation>A translation first issued in 1961 (New Testament) and 1970 (complete Bible) as a result of a proposal at the 1946 General Assembly of the Church of Scotland.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="NGO">
@@ -13767,7 +13872,7 @@
 			<xs:enumeration value="NIV">
 				<xs:annotation>
 					<xs:documentation>New International</xs:documentation>
-					<xs:documentation>A translation underwritten by the International Bible Society (formerly New York Bible Society). The New Testament was published in 1973 followed by the entire Bible in 1978.</xs:documentation>
+					<xs:documentation>A translation underwritten by Biblica (formerly the International Bible Society, and previously the New York Bible Society). The New Testament was published in 1973 followed by the entire Bible in 1978. The NIV text was revised in 1984 and again in 2011.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="NIR">
@@ -13875,13 +13980,13 @@
 			<xs:enumeration value="TEV">
 				<xs:annotation>
 					<xs:documentation>Today's English</xs:documentation>
-					<xs:documentation>A translation of the New Testament sponsored by the American Bible Society and first published in 1966. It was incorporated into the "Good News Bible" GNB in 1976.</xs:documentation>
+					<xs:documentation>A translation of the New Testament sponsored by the American Bible Society and first published in 1966. It was incorporated into the “Good News Bible” GNB in 1976.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="TNI">
 				<xs:annotation>
 					<xs:documentation>Today's New International</xs:documentation>
-					<xs:documentation>An updating of the New International Version. The New Testament was published in 2002, and the entire Bible is scheduled for 2005.</xs:documentation>
+					<xs:documentation>An updating of the New International Version. The New Testament was published in 2002, and the entire Bible in 2005. Superseded by the 2011 NIV update.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ZZZ">
@@ -16029,12 +16134,12 @@
 			<xs:enumeration value="ANG">
 				<xs:annotation>
 					<xs:documentation>Netherlands Antillian Guilder</xs:documentation>
-					<xs:documentation>Netherlands Antilles.</xs:documentation>
+					<xs:documentation>Curaçao, Sint Maarten.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="AOA">
 				<xs:annotation>
-					<xs:documentation>Kwanza</xs:documentation>
+					<xs:documentation>Angolan Kwanza</xs:documentation>
 					<xs:documentation>Angola.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -16058,7 +16163,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="AWG">
 				<xs:annotation>
-					<xs:documentation>Aruban Guilder</xs:documentation>
+					<xs:documentation>Aruban Florin</xs:documentation>
 					<xs:documentation>Aruba.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -16215,7 +16320,7 @@
 			<xs:enumeration value="CSD">
 				<xs:annotation>
 					<xs:documentation>Serbian Dinar</xs:documentation>
-					<xs:documentation>Serbia.</xs:documentation>
+					<xs:documentation>Deprecated, replaced by RSD.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="CUC">
@@ -16341,7 +16446,7 @@
 			<xs:enumeration value="GBP">
 				<xs:annotation>
 					<xs:documentation>Pound Sterling</xs:documentation>
-					<xs:documentation>United Kingdom.</xs:documentation>
+					<xs:documentation>United Kingdom, Isle of Man, Channel Islands, South Georgia, South Sandwich Islands, Brisish Indian Ocean Territory.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GEL">
@@ -16351,6 +16456,12 @@
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GHC">
+				<xs:annotation>
+					<xs:documentation>Cedi</xs:documentation>
+					<xs:documentation>Deprecated, replaced by GHS.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GHS">
 				<xs:annotation>
 					<xs:documentation>Cedi</xs:documentation>
 					<xs:documentation>Ghana.</xs:documentation>
@@ -16389,7 +16500,7 @@
 			<xs:enumeration value="GWP">
 				<xs:annotation>
 					<xs:documentation>Guinea-Bissau Peso</xs:documentation>
-					<xs:documentation>Guinea-Bissau.</xs:documentation>
+					<xs:documentation>Now replaced by the CFA Franc BCEAO XOF use only for historical prices that pre-date use of the CFA Franc.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GYD">
@@ -16401,7 +16512,7 @@
 			<xs:enumeration value="HKD">
 				<xs:annotation>
 					<xs:documentation>Hong Kong Dollar</xs:documentation>
-					<xs:documentation>Hong Kong.</xs:documentation>
+					<xs:documentation>Hong Kong, Macao.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="HNL">
@@ -16623,7 +16734,7 @@
 			<xs:enumeration value="MGF">
 				<xs:annotation>
 					<xs:documentation>Malagasy Franc</xs:documentation>
-					<xs:documentation>Madagascar.</xs:documentation>
+					<xs:documentation>Now replaced by the Ariary (MGA).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="MKD">
@@ -16803,13 +16914,19 @@
 			<xs:enumeration value="ROL">
 				<xs:annotation>
 					<xs:documentation>Old Leu</xs:documentation>
-					<xs:documentation>Romania.</xs:documentation>
+					<xs:documentation>Deprecated, replaced by RON.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RON">
 				<xs:annotation>
 					<xs:documentation>New Leu</xs:documentation>
 					<xs:documentation>Romania.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RSD">
+				<xs:annotation>
+					<xs:documentation>Serbian Dinar</xs:documentation>
+					<xs:documentation>Serbia.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="RUB">
@@ -16851,6 +16968,12 @@
 			<xs:enumeration value="SDD">
 				<xs:annotation>
 					<xs:documentation>Sudanese Dinar</xs:documentation>
+					<xs:documentation>Now replaced by the Sudanese Pound (SDG).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SDG">
+				<xs:annotation>
+					<xs:documentation>Sudanese Pound</xs:documentation>
 					<xs:documentation>Sudan.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -16875,13 +16998,13 @@
 			<xs:enumeration value="SIT">
 				<xs:annotation>
 					<xs:documentation>Tolar</xs:documentation>
-					<xs:documentation>Slovenia.</xs:documentation>
+					<xs:documentation>Now replaced by the Euro (EUR): use only for historical prices that pre-date the introduction of the Euro.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SKK">
 				<xs:annotation>
 					<xs:documentation>Slovak Koruna</xs:documentation>
-					<xs:documentation>Slovakia.</xs:documentation>
+					<xs:documentation>Now replaced by the Euro (EUR): use only for historical prices that pre-date the introduction of the Euro.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="SLL">
@@ -16947,6 +17070,12 @@
 			<xs:enumeration value="TMM">
 				<xs:annotation>
 					<xs:documentation>Manat</xs:documentation>
+					<xs:documentation>Deprecated, replaced by TMT.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TMT">
+				<xs:annotation>
+					<xs:documentation>Manat</xs:documentation>
 					<xs:documentation>Turkmenistan.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -16971,7 +17100,7 @@
 			<xs:enumeration value="TRL">
 				<xs:annotation>
 					<xs:documentation>Turkish Lira (old)</xs:documentation>
-					<xs:documentation>Turkey.</xs:documentation>
+					<xs:documentation>Deprecated, replaced by TRY.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="TRY">
@@ -17031,6 +17160,12 @@
 			<xs:enumeration value="VEB">
 				<xs:annotation>
 					<xs:documentation>Bolivar</xs:documentation>
+					<xs:documentation>Deprecated, replaced by VEF.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VEF">
+				<xs:annotation>
+					<xs:documentation>Bolivar fuerte</xs:documentation>
 					<xs:documentation>Venezuela.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -17067,7 +17202,7 @@
 			<xs:enumeration value="XOF">
 				<xs:annotation>
 					<xs:documentation>CFA Franc BCEAO</xs:documentation>
-					<xs:documentation>Benin, Burkina Faso, Côte D'Ivoire, Mali, Niger, Senegal, Togo.</xs:documentation>
+					<xs:documentation>Benin, Burkina Faso, Côte D'Ivoire, Guinea-Bissau, Mali, Niger, Senegal, Togo.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="XPF">
@@ -17101,6 +17236,12 @@
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ZWD">
+				<xs:annotation>
+					<xs:documentation>Zimbabwe Dollar</xs:documentation>
+					<xs:documentation>Deprecated, replaced with ZWL.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZWL">
 				<xs:annotation>
 					<xs:documentation>Zimbabwe Dollar</xs:documentation>
 					<xs:documentation>Zimbabwe.</xs:documentation>
@@ -17189,12 +17330,12 @@
 			<xs:enumeration value="MUL">
 				<xs:annotation>
 					<xs:documentation>Multicolor</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>Use &lt;ProductFormFeatureDescription&gt; to add brief details if required.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="NAV">
 				<xs:annotation>
-					<xs:documentation>Navy</xs:documentation>
+					<xs:documentation>Navy/Dark blue</xs:documentation>
 					<xs:documentation/>
 				</xs:annotation>
 			</xs:enumeration>
@@ -17352,7 +17493,7 @@
 			<xs:enumeration value="16">
 				<xs:annotation>
 					<xs:documentation>Leatherflex</xs:documentation>
-					<xs:documentation/>
+					<xs:documentation>An imitation leather binding material.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="17">
@@ -17463,6 +17604,12 @@
 				<xs:annotation>
 					<xs:documentation>PND</xs:documentation>
 					<xs:documentation>Personennamendatei - person name authority file used by Deutsche Nationalbibliothek and in other German-speaking countries. See http://www.d-nb.de/standardisierung/normdateien/pnd.htm (German) or http://www.d-nb.de/eng/standardisierung/normdateien/pnd.htm (English).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="16">
+				<xs:annotation>
+					<xs:documentation>ISNI</xs:documentation>
+					<xs:documentation>International Standard Name Identifier. See 'http://www.isni.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -18789,6 +18936,12 @@
 					<xs:documentation/>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="KNB">
+				<xs:annotation>
+					<xs:documentation>KNFB/Blio</xs:documentation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="KNO">
 				<xs:annotation>
 					<xs:documentation>Kno Inc</xs:documentation>
@@ -19913,7 +20066,7 @@
 			<xs:enumeration value="LB">
 				<xs:annotation>
 					<xs:documentation>Digital product license key</xs:documentation>
-					<xs:documentation>Digital product license delivered through the retail supply chain as a physical "key", typically a card or booklet containing a code enabling the purchaser to download the associated product.</xs:documentation>
+					<xs:documentation>Digital product license delivered through the retail supply chain as a physical “key”, typically a card or booklet containing a code enabling the purchaser to download the associated product.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="LC">
@@ -20453,6 +20606,24 @@
 					<xs:documentation>A short excerpt from the work.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="15">
+				<xs:annotation>
+					<xs:documentation>Index</xs:documentation>
+					<xs:documentation>Used for an index sent as a single text field, which may be structured using XHTML.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="16">
+				<xs:annotation>
+					<xs:documentation>Short description/annotation for collection</xs:documentation>
+					<xs:documentation>(of which the product is a part.) Limited to a maximum of 350 characters.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="17">
+				<xs:annotation>
+					<xs:documentation>Description for collection</xs:documentation>
+					<xs:documentation>(of which the product is a part.) Length unrestricted.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="List154">
@@ -20788,6 +20959,18 @@
 					<xs:documentation>Intended ONLY for transitional use, where ONIX 2.1 records referencing existing thumbnail assets of unknown pixel size are being re-expressed in ONIX 3.0. Use code 01 for all new cover assets, and where the pixel size of older assets is known.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="28">
+				<xs:annotation>
+					<xs:documentation>Full content</xs:documentation>
+					<xs:documentation>The full content of the product (or the product itself), supplied for example to support full-text search.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="29">
+				<xs:annotation>
+					<xs:documentation>Full cover</xs:documentation>
+					<xs:documentation>Includes cover, back cover, spine and - where appropriate - any flaps.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="List159">
@@ -20920,14 +21103,20 @@
 			</xs:enumeration>
 			<xs:enumeration value="05">
 				<xs:annotation>
-					<xs:documentation>Download file size in Mbytes</xs:documentation>
-					<xs:documentation>Resource Version Feature Value carries a decimal number only.</xs:documentation>
+					<xs:documentation>Approximate download file size in megabytes</xs:documentation>
+					<xs:documentation>Resource Version Feature Value carries a decimal number only, suggested no more than 2 significant digits (eg 1.7, not 1.7462).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">
 				<xs:annotation>
 					<xs:documentation>MD5 hash value</xs:documentation>
 					<xs:documentation>MD5 hash value of the resource file. &lt;ResourceVersionFeatureValue&gt; should contain the hash value (as 32 hexadecimal digits). Can be used as a cryptographic check on the integrity of a resource after it has been retrieved.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="07">
+				<xs:annotation>
+					<xs:documentation>Exact download file size in bytes</xs:documentation>
+					<xs:documentation>Resource Version Feature Value carries a integer number only (eg 1831023).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -21106,6 +21295,12 @@
 				<xs:annotation>
 					<xs:documentation>Last date for returns</xs:documentation>
 					<xs:documentation>Last date when returns will be accepted, generally for a product which is being remaindered or put out of print.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="25">
+				<xs:annotation>
+					<xs:documentation>Reservation order deadline</xs:documentation>
+					<xs:documentation>Latest date on which an order may be placed for guaranteed delivery prior to the publication date. May or may not be linked to a special reservation or pre-publication price.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -21419,7 +21614,7 @@
 			<xs:enumeration value="A302">
 				<xs:annotation>
 					<xs:documentation>Readalong audio</xs:documentation>
-					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as "turn the page now" and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
+					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as “turn the page now” and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="A303">
@@ -21478,32 +21673,32 @@
 			</xs:enumeration>
 			<xs:enumeration value="B108">
 				<xs:annotation>
-					<xs:documentation>A5: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>A5 size Tankobon</xs:documentation>
+					<xs:documentation>210x148mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B109">
 				<xs:annotation>
-					<xs:documentation>B5: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>JIS B5 size Tankobon</xs:documentation>
+					<xs:documentation>Japanese B-series size, 257x182mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B110">
 				<xs:annotation>
-					<xs:documentation>B6: Tankobon</xs:documentation>
-					<xs:documentation>Japanese hardcover format.</xs:documentation>
+					<xs:documentation>JIS B6 size Tankobon</xs:documentation>
+					<xs:documentation>Japanese B-series size, 182x128mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B111">
 				<xs:annotation>
-					<xs:documentation>A6: Bunko</xs:documentation>
-					<xs:documentation>Japanese paperback format.</xs:documentation>
+					<xs:documentation>A6 size Bunko</xs:documentation>
+					<xs:documentation>148x105mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B112">
 				<xs:annotation>
-					<xs:documentation>B40-dori: Shinsho</xs:documentation>
-					<xs:documentation>Japanese paperback format.</xs:documentation>
+					<xs:documentation>B40-dori Shinsho</xs:documentation>
+					<xs:documentation>Japanese format, 182x103mm or 173x105mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B113">
@@ -21587,25 +21782,31 @@
 			<xs:enumeration value="B126">
 				<xs:annotation>
 					<xs:documentation>AB size</xs:documentation>
-					<xs:documentation>Japanese format: 257x210mm.</xs:documentation>
+					<xs:documentation>257x210mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B127">
 				<xs:annotation>
-					<xs:documentation>B7 size</xs:documentation>
-					<xs:documentation>Japanese format: 128x81mm.</xs:documentation>
+					<xs:documentation>JIS B7 size</xs:documentation>
+					<xs:documentation>Japanese B-series size, 128x91mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B128">
 				<xs:annotation>
 					<xs:documentation>Kiku size</xs:documentation>
-					<xs:documentation>Japanese format: 218x152mm.</xs:documentation>
+					<xs:documentation>Japanese format: 218x152mm or 227x152mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B129">
 				<xs:annotation>
 					<xs:documentation>Kiku-Henkei size</xs:documentation>
 					<xs:documentation>Japanese format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="B130">
+				<xs:annotation>
+					<xs:documentation>JIS B4 size</xs:documentation>
+					<xs:documentation>Japanese B-series size, 257x364mm.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B201">
@@ -21833,7 +22034,7 @@
 			<xs:enumeration value="B412">
 				<xs:annotation>
 					<xs:documentation>Flexible plastic/vinyl cover</xs:documentation>
-					<xs:documentation>AKA "flexibound": use with Product Form code BC.</xs:documentation>
+					<xs:documentation>AKA “flexibound”: use with Product Form code BC.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B413">
@@ -22151,7 +22352,7 @@
 			<xs:enumeration value="E102">
 				<xs:annotation>
 					<xs:documentation>OEB</xs:documentation>
-					<xs:documentation>The Open EBook format of the IDPF, a predecessor of the full EPUB format, still (2008) supported as part of the latter [File extension .opf].</xs:documentation>
+					<xs:documentation>The Open EBook format of the IDPF, a predecessor of the full EPUB format, still (2008) supported as part of the latter [File extension .opf]. Includes EPUB format up to and including version 2 - but prefer code E101 for EPUB 2, and always use code E101 for EPUB 3.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="E103">
@@ -22235,7 +22436,7 @@
 			<xs:enumeration value="E116">
 				<xs:annotation>
 					<xs:documentation>Amazon Kindle</xs:documentation>
-					<xs:documentation>A format proprietary to Amazon for use with its Kindle reading device [File extension .azw].</xs:documentation>
+					<xs:documentation>A format proprietary to Amazon for use with its Kindle reading devices or software readers [File extensions .azw, .mobi, .prc].</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="E117">
@@ -22301,7 +22502,7 @@
 			<xs:enumeration value="E127">
 				<xs:annotation>
 					<xs:documentation>Mobipocket</xs:documentation>
-					<xs:documentation>A proprietary format for use with Mobipocket software on various hardware platforms [File extension .prc].</xs:documentation>
+					<xs:documentation>A proprietary format for use with Mobipocket software on various hardware platforms [File extensions .mobi, .prc]. Includes Amazon Kindle formats up to and including version 7 - but prefer code E116 for version 7, and always use E116 for KF8.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="E128">
@@ -22368,6 +22569,18 @@
 				<xs:annotation>
 					<xs:documentation>CEBX</xs:documentation>
 					<xs:documentation>Founder Apabi's proprietary XML e-book format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E141">
+				<xs:annotation>
+					<xs:documentation>iBook</xs:documentation>
+					<xs:documentation>Apple's iBook format (a proprietary extension of EPUB), can only be read on Apple iOS devices.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E142">
+				<xs:annotation>
+					<xs:documentation>ePIB</xs:documentation>
+					<xs:documentation>Proprietary format used by Barnes and Noble, readable on NOOK devices and Nook reader software.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="E200">
@@ -22769,6 +22982,24 @@
 					<xs:documentation>The Open Publication Structure / OPS Container Format standard of the International Digital Publishing Forum (IDPF) [File extension .epub].</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
+			<xs:enumeration value="E105">
+				<xs:annotation>
+					<xs:documentation>HTML</xs:documentation>
+					<xs:documentation>HyperText Mark-up Language [File extension .html, .htm].</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E107">
+				<xs:annotation>
+					<xs:documentation>PDF</xs:documentation>
+					<xs:documentation>Portable Document Format (ISO 32000-1:2008) [File extension .pdf].</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E113">
+				<xs:annotation>
+					<xs:documentation>XHTML</xs:documentation>
+					<xs:documentation>Extensible Hypertext Markup Language [File extension .xhtml, .xht, .xml, .html, .htm].</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
 			<xs:enumeration value="E115">
 				<xs:annotation>
 					<xs:documentation>XPS</xs:documentation>
@@ -22834,7 +23065,19 @@
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Carries other text associated with toy safety</xs:documentation>
-					<xs:documentation>Exact text (not in itself a warning) must be included in &lt;ProductFormFeatureDescription&gt;. May be used either without any warning, or as text additional to a warning. Note that if no warnings apply, code 00 can provide positive indication of this. Example use: "Suitable for all ages".</xs:documentation>
+					<xs:documentation>Exact text (not in itself a warning) must be included in &lt;ProductFormFeatureDescription&gt;. May be used either without any warning, or as text additional to a warning. Note that if no warnings apply, code 00 can provide positive indication of this. Example use: “Suitable for all ages”.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="06">
+				<xs:annotation>
+					<xs:documentation>Material Safety Data Sheet available</xs:documentation>
+					<xs:documentation>Material Safety Data Sheet (a document required by the EU Toy Safety Directive) available online, typically as a PDF file or similar. &lt;ProductFormFeatureDescription&gt; must carry the URL of the document.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="07">
+				<xs:annotation>
+					<xs:documentation>Declaration of Conformity available</xs:documentation>
+					<xs:documentation>Declaration of Conformity (the document that backs up the CE mark) available online, typically as a PDF file or similar. &lt;ProductFormFeatureDescription&gt; must carry the URL of the document.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>

@@ -8,7 +8,7 @@
  * @class UserRolesRequiredPolicy
  * @ingroup security_authorization
  *
- * @brief Policy to deny access if a context cannot be found in the request.
+ * @brief Policy to deny access if an user role is not found.
  */
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');

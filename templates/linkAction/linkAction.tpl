@@ -14,7 +14,12 @@
  *}
 
 {* Generate the link action's button. *}
-{assign var=staticId value=$contextId|concat:"-":$action->getId():"-button"}
+{if $contextId}
+	{assign var=staticId value=$contextId|concat:"-":$action->getId():"-button"}
+{else}
+	{assign var=staticId value=$action->getId()|concat:"-button"}
+{/if}
+
 {assign var=buttonId value=$staticId|concat:"-"|uniqid}
 {include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
 

@@ -8,7 +8,8 @@
  * @class UserRolesRequiredPolicy
  * @ingroup security_authorization
  *
- * @brief Policy to deny access if an user role is not found.
+ * @brief Policy to build an authorized user roles object. Because we may have
+ * users with no roles, we don't deny access when no user roles are found.
  */
 
 import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
@@ -38,13 +39,13 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		$request =& $this->_request;
 		$user =& $request->getUser();
 
+		if (!is_a($user, 'User')) {
+			return AUTHORIZATION_DENY;
+		}
+
 		// Get all user roles.
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
 		$userRoles = $roleDao->getByUserIdGroupedByContext($user->getId());
-
-		if (empty($userRoles)) {
-			return AUTHORIZATION_DENY;
-		}
 
 		// Prepare an array with the context ids of the request.
 		$application =& PKPApplication::getApplication();

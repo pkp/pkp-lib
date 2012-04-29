@@ -175,9 +175,13 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			activateAction = function(callingElement, event) {
 
 		// Unbind our click handler to avoid double-execution
-		// while the link action is executing.
-		this.disableLink();
-
+		// while the link action is executing. We will not disable
+		// if this link action have a null action request. In that
+		// case, the action request is handled by some parent widget.
+		if (this.linkActionRequest_.objectName_ != '$.pkp.classes.linkAction.NullAction') {
+			this.disableLink();
+		}
+		
 		// Call the link request.
 		return this.linkActionRequest_.activate.call(this.linkActionRequest_,
 				callingElement, event);

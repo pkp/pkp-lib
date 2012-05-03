@@ -302,6 +302,33 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
+	
+	/**
+	 * Do common actions that all subclasses widgets needs to delete 
+	 * a row.
+	 * @param {jQuery} $rowElement The row element to be deleted.
+ 	 */
+	$.pkp.controllers.grid.GridHandler.prototype.doCommonDeleteRowActions = 
+			function($rowElement) {
+		
+		var $grid = this.getHtmlElement();
+		
+		// Check whether this is the last row.
+		var lastRow = false;
+		if ($grid.find('.gridRow').length === 1) {
+			lastRow = true;
+		}
+
+		// Delete the row.
+		var $emptyElement = $grid.find('.empty');
+		$rowElement.fadeOut(500, function() {
+			$(this).remove();
+			if (lastRow) {
+				$emptyElement.fadeIn(500);
+			}
+		});
+	};
+	
 
 	/**
 	 * Refresh the grid after its filter has changed.
@@ -508,20 +535,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Remove the controls row (do this before check for siblings below).
 		this.deleteControlsRow_($rowElement);
 
-		// Check whether this is the last row.
-		var lastRow = false;
-		if ($grid.find('.gridRow').length === 1) {
-			lastRow = true;
-		}
-
-		// Delete the row.
-		var $emptyElement = $grid.find('.empty');
-		$rowElement.fadeOut(500, function() {
-			$(this).remove();
-			if (lastRow) {
-				$emptyElement.fadeIn(500);
-			}
-		});
+		this.doCommonDeleteRowActions($rowElement);
 	};
 
 

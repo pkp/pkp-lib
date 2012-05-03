@@ -282,11 +282,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			$deletions.val($deletions.val() + ' ' + rowId);
 		}
 
-		// Hide and delete the item.
-		$targetRow.hide('slow', function() {
-			$(this).remove();
-		});
-
+		this.doCommonDeleteRowActions($targetRow);
+		
 		return false;
 	};
 

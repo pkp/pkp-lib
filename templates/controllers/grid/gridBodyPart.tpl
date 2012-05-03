@@ -10,5 +10,6 @@
 	{foreach from=$rows item=row}
 		{$row}
 	{/foreach}
+	<tr></tr>
 </tbody>
 

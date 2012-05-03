@@ -10,10 +10,8 @@
  */
 
 div.pkp_controllers_grid {
-	div.wrapper {
-		margin: 10px 0;
-		padding: 20px;
-	}
+
+	margin-top: 20px;
 
 	div.actions {
 		margin-top: 10px;
@@ -21,6 +19,10 @@ div.pkp_controllers_grid {
 
 	table {
 		width: 100%;
+	}
+
+	thead, tr.gridRow, tr.row_controls, tr.category, .empty tr {
+		border-bottom: 1px solid #c8c7c7;
 	}
 
 	thead tr {
@@ -55,17 +57,42 @@ div.pkp_controllers_grid {
 		padding: 0 !important;
 	}
 
+	td.category {
+		display: table-row;
+	}
+
 	tr.category td {
-		line-height: 24px;
-		height: 24px;
-		font-size: 70%;
-		text-transform: uppercase;
+		line-height: 32px;
+		height: 32px;
+		font-size: 100%;
 	}
 
 	tr.category td:first-child {
 		top: 0;
 		padding-left: 10px;
-		background: url(../lib/pkp/templates/images/structure/grid_group_1.png) no-repeat;
+	}
+	
+	.wrapper {
+		margin-bottom:50px;
+	}
+	
+	.grid_header .pkp_grid_description {
+		padding:10px;
+	}
+	
+	.grid_header_bar {
+		background-color: #f7f5f4;
+		min-height: 25px;
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px
+	}
+	
+	.grid_header_bar h3 {
+		display:inline;
+		padding-top:5px;
+		vertical-align:middle;
 	}
 
 	.options {
@@ -73,7 +100,6 @@ div.pkp_controllers_grid {
 		line-height: 24px;
 		height: 24px;
 		vertical-align: middle;
-		margin-bottom: 10px;
 	}
 
 	.options a {
@@ -91,11 +117,11 @@ div.pkp_controllers_grid {
 
 	.row_container {
 		position: relative; /* Required to anchor absolute row actions positioning below. */
-		padding-top: 10px;
-		padding-left: 40px;
-		padding-right: 30px;
+		padding-top: 11px;
+		padding-left: 50px;
+		padding-right: 20px;
 		overflow: hidden;
-		min-height: 40px;
+		min-height: 29px;
 		height: auto;
 		line-height: auto;
 		vertical-align: middle;
@@ -103,7 +129,8 @@ div.pkp_controllers_grid {
 
 	.row_container .row_actions {
 		position: absolute;
-		width: 24px;
+		width: 32px;
+		padding-left: 8px;
 		height: 200px;
 	}
 
@@ -124,7 +151,6 @@ div.pkp_controllers_grid {
 	.row_file a.pkp_controllers_linkAction {
 		float:left;
 		margin-right: 20px;
-		margin-top: 10px;
 	}
 
 	.multiline {
@@ -134,11 +160,11 @@ div.pkp_controllers_grid {
 
 	.row_controls {
 		display: none;
-		border-bottom:1px solid #999;
 	}
 
 	.row_controls td {
-		padding-left: 30px;
+		padding-left: 48px;
+		padding-top: 5px; 
 		line-height: 25px;
 		height: 25px;
 	}
@@ -174,14 +200,8 @@ div.pkp_controllers_grid {
 
 	/* Below was taken from the theme */
 
-	div.wrapper {
-		border: 1px solid #b6c9d5;
-		background-color: #efefef;
-	}
-
 	table {
 		background-color: #fff;
-		border: 1px solid #b6c9d5;
 		border-collapse: collapse; /* Required for IE7 to remove table borders. */
 	}
 
@@ -191,7 +211,6 @@ div.pkp_controllers_grid {
 
 	th {
 		color: #20538d;
-		background-color: #ced7e1;
 	}
 
 	/* FIXME: This should go somewhere else. */

@@ -8,7 +8,7 @@
  *}
 {assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
 
-<td colspan="{$colums|@count}">
+<td colspan="{$columns|@count}">
 	{if $categoryRow->getActions()}
 		<div class="row_actions">
 			{foreach name=actions from=$categoryRow->getActions() item=action}
@@ -23,5 +23,5 @@
 			{/foreach}
 		</div>
 	{/if}
-	{$categoryRow->getCategoryLabel()|escape}
+	<h3>{$categoryRow->getCategoryLabel()|escape}</h3>
 </td>

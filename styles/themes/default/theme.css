@@ -90,14 +90,8 @@ h4, .h4 {
 	color: #569bbe;
 }
 
-div.pkp_controllers_grid div.wrapper {
-	border: 1px dotted #a2c6dc;
-	background-color: #eaf3f8;
-}
-
 div.pkp_controllers_grid table {
 	background-color: #fff;
-	border: 1px dotted #ACA9A6;
 }
 
 div.pkp_controllers_grid tr.alternate_row, div.pkp_controllers_grid tr.alternate_row .row_file {
@@ -105,21 +99,19 @@ div.pkp_controllers_grid tr.alternate_row, div.pkp_controllers_grid tr.alternate
 }
 
 div.pkp_controllers_grid th {
-	color: #555;
-	background-color: #E6E0DA;
+	color: #000000;
 }
 
 div.pkp_controllers_grid .my_role {
 	border: 1px solid #ACA9A6;
 }
 
-div.pkp_controllers_grid .row_actions, .row_controls {
+div.pkp_controllers_grid .row_actions {
 	background-color: #f9f6f3;
 }
 
 div.pkp_controllers_grid tr.category td {
-	background-color: #F2EEE9 !important;
-	color: #888;
+	background-color: #f3f8fa !important;
 }
 
 a.task:hover {

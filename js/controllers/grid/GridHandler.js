@@ -510,7 +510,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Check whether this is the last row.
 		var lastRow = false;
-		if ($rowElement.siblings().length === 0) {
+		if ($grid.find('.gridRow').length === 1) {
 			lastRow = true;
 		}
 
@@ -574,7 +574,14 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
 			function($controlRow) {
-		$controlRow.toggle(300);
+		var delay = 300;
+		if ($controlRow.is(':visible')) {
+			setTimeout(function() {$controlRow.prev().attr('style', '');}, delay);
+		} else {
+			$controlRow.prev().attr('style', 'border:none !important;');
+		};
+		$controlRow.toggle(delay);
+		clearTimeout();
 	};
 
 

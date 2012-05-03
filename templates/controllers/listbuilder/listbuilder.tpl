@@ -30,10 +30,7 @@
 	<input disabled="disabled" type="hidden" class="deletions" />
 
 	<div class="wrapper">
-		{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$gridId}
-		{/if}
-		{if !$grid->getIsSubcomponent()}<span class="h3 no_border float_left">{$grid->getTitle()|translate}</span>{/if}
+		{include file="controllers/grid/gridHeader.tpl"}
 		{include file="controllers/listbuilder/listbuilderTable.tpl}
 		{if $hasOrderLink}
 			{include file="controllers/grid/gridOrderFinishControls.tpl" gridId=$staticId}

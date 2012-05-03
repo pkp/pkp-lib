@@ -37,7 +37,7 @@
 	<input disabled="disabled" type="hidden" class="deletions" />
 
 	<div class="wrapper">
-		{if !$grid->getIsSubcomponent()}<div class="pkp_helpers_full"><span class="h3 no_border">{$grid->getTitle()|translate}</span></div>{/if}
+		{include file="controllers/grid/gridHeader.tpl"}
 		{foreach from=$lists item=list}
 			{assign var=listId value=$list->getId()}
 			<div class="list_wrapper {$widthClass}">

@@ -30,21 +30,7 @@
 
 <div id="{$gridId|escape}" class="pkp_controllers_grid">
 	{if !$grid->getIsSubcomponent()}<div class="wrapper">{/if}
-		<div class="grid_header">
-			{$gridFilterForm}
-			{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) || $grid->getTitle()}
-				<div class="grid_header_bar">
-					{if $grid->getTitle()}<h3>{$grid->getTitle()|translate}</h3>{/if}
-					{if $grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE)}
-						{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_ABOVE) gridId=$staticId}
-					{/if}
-					<div class="pkp_helpers_clear"></div>
-				</div>
-			{/if}
-			{if $grid->getInstructions()}
-				<p class="pkp_grid_description">{translate key=$grid->getInstructions()}</p>
-			{/if}
-		</div>
+		{include file="controllers/grid/gridHeader.tpl"}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
 				{foreach from=$columns item=column}<col {if $column->hasFlag('myUserGroup')}class="my_role"{/if}/>{/foreach}

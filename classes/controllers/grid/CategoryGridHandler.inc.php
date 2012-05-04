@@ -20,11 +20,35 @@ import('lib.pkp.classes.controllers.grid.GridCategoryRow');
 define('GRID_CATEGORY_NONE', 'NONE');
 
 class CategoryGridHandler extends GridHandler {
+
+	/** @var string empty category row locale key */
+	var $_emptyCategoryRowText = 'grid.noItems';
+
 	/**
 	 * Constructor.
 	 */
 	function CategoryGridHandler() {
 		parent::GridHandler();
+	}
+
+
+	//
+	// Getters and setters.
+	//
+	/**
+	 * Get the empty rows text for a category.
+	 * @return string
+	 */
+	function getEmptyCategoryRowText() {
+		return $this->_emptyCategoryRowText;
+	}
+
+	/**
+	 * Set the empty rows text for a category.
+	 * @param string $translationKey
+	 */
+	function setEmptyCategoryRowText($translationKey) {
+		$this->_emptyCategoryRowText = $translationKey;
 	}
 
 
@@ -324,7 +348,6 @@ class CategoryGridHandler extends GridHandler {
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
 
 		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
-		$templateMgr->assign('emptyCategoryRowText', $categoryRow->getEmptyCategoryRowText());
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
 	}
 

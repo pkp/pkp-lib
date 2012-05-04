@@ -191,11 +191,15 @@ a.task:hover {
 	background-color: #fff;
 	background-image: none;
 	color: #569bbe;
-	border-color: #efefef;
+	border-color: transparent;
 	font-weight: normal;
 	border-radius: 0px;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color:black;	
 }
 
 .ui-tabs-nav .ui-state-hover a {

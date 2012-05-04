@@ -33,7 +33,7 @@
 		{include file="controllers/grid/gridHeader.tpl"}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
-				{foreach from=$columns item=column}<col {if $column->hasFlag('myUserGroup')}class="my_role"{/if}/>{/foreach}
+				{foreach from=$columns item=column}<col />{/foreach}
 			</colgroup>
 			<thead>
 				{** build the column headers **}

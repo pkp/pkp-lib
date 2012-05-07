@@ -72,8 +72,8 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 			function() {
 		throw Error('Abstract method!');
 	};
-	
-		
+
+
 	//
 	// Template methods (hooks into grid widgets).
 	//
@@ -108,15 +108,15 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 			function($newContent) {
 		return false;
 	};
-	
-	
+
+
 	//
 	// Protected methods.
 	//
 	/**
 	 * Extend to add extra html elements in the component
 	 * that this feature is attached to.
-	 * @param {jQuery} $gridElement 
+	 * @param {jQuery} $gridElement Grid element to add elements to.
 	 */
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
 			function($gridElement) {

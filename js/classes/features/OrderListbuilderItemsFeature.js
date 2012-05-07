@@ -28,12 +28,15 @@
 	//
 	// Extended methods from OrderItemsFeature.
 	//
+	/**
+	 * Set up the sortable plugin.
+	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.setupSortablePlugin =
 			function() {
 		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable', null);
 	};
-	
-	
+
+
 	//
 	// Extended methods from ToggleableOrderItemsFeature.
 	//

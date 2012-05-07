@@ -120,8 +120,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// Show/hide row action feature.
 		this.activateRowActions_();
 	};
-	
-	
+
+
 	/**
 	 * Get the fetch row URL.
 	 * @return {?string} URL to the "fetch row" operation handler.
@@ -175,7 +175,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var rowDataIdPrefix = 'element';
 		var index, rowDataId;
 		for (index in gridRowHtmlClasses) {
-			var startExtractPosition = gridRowHtmlClasses[index].indexOf(rowDataIdPrefix);
+			var startExtractPosition = gridRowHtmlClasses[index]
+					.indexOf(rowDataIdPrefix);
 			if (startExtractPosition != -1) {
 				rowDataId = gridRowHtmlClasses[index].slice(rowDataIdPrefix.length);
 				break;
@@ -195,9 +196,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.appendRow =
 			function($newRow, $gridBody) {
 
-		if ($gridBody == undefined) {
-			var $gridBody = this.getHtmlElement().find(this.bodySelector_);
-		};		
+		if ($gridBody === undefined) {
+			$gridBody = this.getHtmlElement().find(this.bodySelector_);
+		}
 		$gridBody.append($newRow);
 	};
 
@@ -302,17 +303,17 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 	};
 
-	
+
 	/**
-	 * Do common actions that all subclasses widgets needs to delete 
+	 * Do common actions that all subclasses widgets needs to delete
 	 * a row.
 	 * @param {jQuery} $rowElement The row element to be deleted.
- 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.doCommonDeleteRowActions = 
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.doCommonDeleteRowActions =
 			function($rowElement) {
-		
+
 		var $grid = this.getHtmlElement();
-		
+
 		// Check whether this is the last row.
 		var lastRow = false;
 		if ($grid.find('.gridRow').length === 1) {
@@ -328,7 +329,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			}
 		});
 	};
-	
+
 
 	/**
 	 * Refresh the grid after its filter has changed.
@@ -593,7 +594,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			setTimeout(function() {$controlRow.prev().attr('style', '');}, delay);
 		} else {
 			$controlRow.prev().attr('style', 'border:none !important;');
-		};
+		}
 		$controlRow.toggle(delay);
 		clearTimeout();
 	};

@@ -22,8 +22,8 @@
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
-		
-		if (options.orderButton == undefined) {
+
+		if (options.orderButton === undefined) {
 			// This feature works without an order button.
 			this.$orderButton_ = jQuery();
 			this.$finishControl_ = jQuery();
@@ -33,7 +33,7 @@
 			this.$orderButton_ = options.orderButton;
 			this.$finishControl_ = options.finishControl;
 		}
-		
+
 		this.itemsOrder_ = [];
 	};
 	$.pkp.classes.Helper.inherits(
@@ -50,7 +50,8 @@
 	 * @type {array}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder_ = null;
-	
+
+
 	/**
 	 * Flag to control if user is ordering items.
 	 * @private
@@ -156,21 +157,21 @@
 			function() {
 		return '.orderable a.order_items';
 	};
-	
-	
+
+
 	/**
 	 * Get the css classes used to stylize the ordering items.
-	 * @returns {String}
+	 * @return {String} CSS classes.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemClasses =
 			function() {
-		return 'pkp_helpers_moveicon ordering';		
+		return 'pkp_helpers_moveicon ordering';
 	};
 
-	
+
 	//
 	// Public template methods.
-	// 
+	//
 	/**
 	 * Called every time user start dragging an item.
 	 * @param {JQuery} contextElement The element this event occurred for.
@@ -181,7 +182,8 @@
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
-	
+
+
 	/**
 	 * Called every time user stop dragging an item.
 	 * @param {JQuery} contextElement The element this event occurred for.
@@ -192,8 +194,8 @@
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
-	
-	
+
+
 	/**
 	 * Called every time sequence is changed.
 	 * @param {JQuery} contextElement The element this event occurred for.
@@ -204,8 +206,8 @@
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
-	
-	
+
+
 	//
 	// Extended methods from Feature
 	//
@@ -217,10 +219,10 @@
 		this.toggleOrderLink_();
 		if (this.isOrdering_) {
 			this.setupSortablePlugin();
-		};
+		}
 	};
-	
-	
+
+
 	//
 	// Protected template methods.
 	//
@@ -231,21 +233,21 @@
 			function() {
 		// Default implementation does nothing.
 	};
-	
-	
+
+
 	/**
 	 * Called every time storeOrder is called. This is a chance to subclasses
 	 * execute operations with each row that has their sequence being saved.
 	 * @param {integer} index The current row index position inside the rows
 	 * jQuery object.
-	 * @param {jQuery} $row
+	 * @param {jQuery} $row Row for which to store the sequence.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
 		// The default implementation does nothing.
 	};
 
-	
+
 	//
 	// Protected methods.
 	//
@@ -300,7 +302,8 @@
 		this.toggleItemsDragMode();
 		this.setupSortablePlugin();
 	};
-	
+
+
 	/**
 	 * Set rows sequence store, using
 	 * the sequence of the passed items.
@@ -315,7 +318,7 @@
 			var $row = $($rows[index]);
 			var elementId = $row.attr('id');
 			this.itemsOrder_.push(elementId);
-			
+
 			// Give a chance to subclasses do extra operations to store
 			// the current row order.
 			this.storeRowOrder(index, $row);
@@ -345,7 +348,8 @@
 	/**
 	 * Apply (disabled or enabled) the sortable plugin on passed elements.
 	 * @param {jQuery} $container The element that contain all the orderable items.
-	 * @param {string} $itemsSelector The jQuery selector for orderable items.
+	 * @param {string} itemsSelector The jQuery selector for orderable items.
+	 * @param {Object?} extraParams Optional set of extra parameters for sortable.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.applySortablePluginOnElements =
 			function($container, itemsSelector, extraParams) {
@@ -363,17 +367,17 @@
 			deactivate: dragStopCallback,
 			update: orderItemCallback,
 			tolerance: 'pointer'};
-		
+
 		if (typeof extraParams === 'object') {
-			config = $.extend(true, config, extraParams); 
+			config = $.extend(true, config, extraParams);
 		}
-		
-		$container.sortable(config);		
+
+		$container.sortable(config);
 	};
 
 
 	/**
-	 * Get the data element id of all rows inside the passed 
+	 * Get the data element id of all rows inside the passed
 	 * container, in the current order.
 	 * @param {jQuery} $rowsContainer The element that contains the rows
 	 * that will be used to retrieve the id.
@@ -385,7 +389,9 @@
 		var rowDataIds = [];
 		for (index in this.itemsOrder_) {
 			var $row = $('#' + this.itemsOrder_[index], $rowsContainer);
-			if ($row.length < 1) continue;
+			if ($row.length < 1) {
+				continue;
+			}
 			var rowDataId = this.gridHandler_.getRowDataId($row);
 			rowDataIds.push(rowDataId);
 		}
@@ -393,11 +399,10 @@
 		return rowDataIds;
 	};
 
-	
+
 	/**
 	 * Show/hide the move item row action (position left).
 	 * @param {boolean} enable New enable state.
-	 * @private
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
@@ -412,8 +417,8 @@
 			$moveItemRowAction.hide();
 		}
 	};
-	
-	
+
+
 	//
 	// Private helper methods.
 	//
@@ -425,9 +430,11 @@
 			function() {
 		var isOrdering = this.isOrdering_;
 
-		// We want to enable/disable all link actions, except this features controls.
-		var $gridLinkActions = $('.pkp_controllers_linkAction', this.getGridHtmlElement()).not(
-				this.getMoveItemRowActionSelector(), this.getOrderButton(), this.getFinishControl().find('*'));
+		// We want to enable/disable all link actions, except this
+		// features controls.
+		var $gridLinkActions = $('.pkp_controllers_linkAction',
+				this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
+				this.getOrderButton(), this.getFinishControl().find('*'));
 
 		this.gridHandler_.changeLinkActionsState(!isOrdering, $gridLinkActions);
 	};
@@ -443,7 +450,8 @@
 			this.$orderButton_.unbind('click');
 			this.$orderButton_.addClass('ui-state-disabled');
 		} else {
-			var clickHandler = this.gridHandler_.callbackWrapper(this.clickOrderHandler, this);
+			var clickHandler = this.gridHandler_.callbackWrapper(
+					this.clickOrderHandler, this);
 			this.$orderButton_.click(clickHandler);
 			this.$orderButton_.removeClass('ui-state-disabled');
 		}

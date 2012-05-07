@@ -23,8 +23,8 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.features.OrderMultipleListsItemsFeature,
 			$.pkp.classes.features.OrderListbuilderItemsFeature);
-	
-	
+
+
 	//
 	// Extended methods from Feature.
 	//
@@ -46,8 +46,8 @@
 			$row.append($listInputClone);
 		}
 	};
-	
-	
+
+
 	//
 	// Extended methods from OrderListbuilderItemsFeature.
 	//
@@ -57,12 +57,12 @@
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
 		this.parent('storeRowOrder', index, $row);
-		
+
 		var $listInput = $row.find('.itemList');
 		var listId = this.gridHandler_.getListIdByRow($row);
 		$listInput.attr('value', listId);
 	};
-	
+
 
 	/**
 	 * @inheritDoc
@@ -73,8 +73,8 @@
 		var extraParams = {connectWith: $lists};
 		this.applySortablePluginOnElements($lists, 'tr.orderable', extraParams);
 	};
-	
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -83,8 +83,8 @@
 		var $list = this.gridHandler_.getListByRow(ui.item);
 		this.gridHandler_.toggleListNoItemsRow($list, 1, '.ui-sortable-placeholder, .ui-sortable-helper');
 	};
-	
-	
+
+
 	/**
 	 * @inheritDoc
 	 */
@@ -93,7 +93,7 @@
 		var $list = this.gridHandler_.getListByRow(ui.item);
 		this.gridHandler_.toggleListNoItemsRow($list, 0, null);
 	};
-	
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

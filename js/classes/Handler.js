@@ -524,8 +524,8 @@
 			var $element = this.getHtmlElement();
 			var elementId = $element.attr('id');
 			setTimeout(function() {
-				// re-select the original element, to prevent closure memory leaks in (older?)
-				// versions of IE.
+				// re-select the original element, to prevent closure memory leaks
+				// in (older?) versions of IE.
 				$('#' + elementId).find('.richContent').each(function(index) {
 					tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
 				});

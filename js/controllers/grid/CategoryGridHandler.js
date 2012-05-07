@@ -54,8 +54,8 @@
 
 	/**
 	 * Get the category row inside a tbody category element.
-	 * @param {jQuery} $category
-	 * @return {jQuery}
+	 * @param {jQuery} $category Category tbody element.
+	 * @return {jQuery} Category row.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
 			function($category) {
@@ -65,8 +65,8 @@
 
 	/**
 	 * Get the category data id by the passed category element.
-	 * @param {jQuery} $category
-	 * @return {string}
+	 * @param {jQuery} $category Category element.
+	 * @return {string} Category data id.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataId =
 			function($category) {
@@ -78,8 +78,8 @@
 
 	/**
 	 * Get the category data id by the passed row element id.
-	 * @param {string} gridRowId
-	 * @return {string}
+	 * @param {string} gridRowId Category row element id.
+	 * @return {string} Category data id.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataIdByRowId =
 			function(gridRowId) {
@@ -142,15 +142,16 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendRow =
 			function($newRow) {
-		$rowGridBody = this.getRowCategory_($newRow);
+		var $rowGridBody = this.getRowCategory_($newRow);
 		this.parent('appendRow', $newRow, $rowGridBody);
 	};
 
 
 	/**
-	 * Overriden from GridHandler.
+	 * Overridden from GridHandler.
+	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler_ =
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, elementId) {
 
 		// FIXME #7394# make possible to refresh only categories and/or
@@ -194,8 +195,9 @@
 
 	/**
 	 * Get the correct tbody for the passed row.
-	 * @param {jQuery} $row
-	 * @return {jQuery}
+	 * @param {jQuery} $row Row to fetch tbody for.
+	 * @return {jQuery} JQuery tbody object.
+	 * @private
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowCategory_ =
 			function($row) {

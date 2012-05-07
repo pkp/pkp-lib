@@ -86,7 +86,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.initialize =
 			function(options) {
 		this.parent('initialize', options);
-		
+
 		// Save listbuilder options
 		this.sourceType_ = options.sourceType;
 		this.saveUrl_ = options.saveUrl;
@@ -107,8 +107,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Sign up for notification of form submitted.
 		this.bind('formSubmitted', this.formSubmittedHandler_);
 	};
-	
-	
+
+
 	/**
 	 * Get the "save" URL for LISTBUILDER_SAVE_TYPE_INTERNAL.
 	 * @private
@@ -283,7 +283,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		}
 
 		this.doCommonDeleteRowActions($targetRow);
-		
+
 		return false;
 	};
 
@@ -704,7 +704,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * Add grid features.
 	 * FIXME: #7379# this method should only exists in GridHandler. All the features
-	 * configuration must be set on php side, when we implement the features 
+	 * configuration must be set on php side, when we implement the features
 	 * classes there.
 	 * @private
 	 * @param {Array} options Options array.

@@ -97,7 +97,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.initialize =
 			function(options) {
 		// Bind the handler for the "elements changed" event.
-		this.bind('dataChanged', this.refreshGridHandler_);
+		this.bind('dataChanged', this.refreshGridHandler);
 
 		// Bind the handler for the "add new row" event.
 		this.bind('addRow', this.addRowHandler_);
@@ -352,12 +352,12 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	//
-	// Private methods
+	// Protected methods
 	//
 	/**
 	 * Refresh either a single row of the grid or the whole grid.
 	 *
-	 * @private
+	 * @protected
 	 *
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
@@ -366,7 +366,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 *  updated, added or deleted. If not given then the whole grid
 	 *  will be refreshed.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler_ =
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, elementId) {
 
 		if (elementId) {
@@ -384,6 +384,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	};
 
 
+	//
+	// Private methods
+	//
 	/**
 	 * Add a new row to the grid.
 	 *

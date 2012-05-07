@@ -20,7 +20,7 @@ class Nlm30NameSchemaPersonStringFilterTest extends PKPTestCase {
 	/**
 	 * @covers Nlm30NameSchemaPersonStringFilter
 	 * @covers Nlm30PersonStringFilter
-	 * @returns MetadataDescription
+	 * @return MetadataDescription
 	 */
 	public function testExecuteWithSinglePersonDescription() {
 		$personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);

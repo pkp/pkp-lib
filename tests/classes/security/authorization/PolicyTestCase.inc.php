@@ -60,7 +60,7 @@ abstract class PolicyTestCase extends PKPTestCase {
 	/**
 	 * Create an authorization context manipulation policy.
 	 *
-	 * @returns $testPolicy AuthorizationPolicy the policy that
+	 * @return $testPolicy AuthorizationPolicy the policy that
 	 *  will be used by the decision manager to call this
 	 *  mock method.
 	 */

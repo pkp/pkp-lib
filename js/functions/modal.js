@@ -592,7 +592,7 @@ function scrollToMakeVisible(actOnId) {
 	/**
 	 * Custom jQuery plug-in that marks the matched elements
 	 * Code adapted from phpBB, thanks to the phpBB group.
-	 * @returns {jQuery}
+	 * @return {jQuery}
 	 */
 	$.fn.selectRange = function() {
 		return this.each(function() {

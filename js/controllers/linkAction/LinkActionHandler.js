@@ -178,10 +178,11 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// while the link action is executing. We will not disable
 		// if this link action have a null action request. In that
 		// case, the action request is handled by some parent widget.
-		if (this.linkActionRequest_.objectName_ != '$.pkp.classes.linkAction.NullAction') {
+		if (this.linkActionRequest_.objectName_ !=
+				'$.pkp.classes.linkAction.NullAction') {
 			this.disableLink();
 		}
-		
+
 		// Call the link request.
 		return this.linkActionRequest_.activate.call(this.linkActionRequest_,
 				callingElement, event);
@@ -243,11 +244,12 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 		this.trigger('notifyUser', this.getHtmlElement());
 	};
-	
-	
+
+
 	/**
 	 * Click event handler used to avoid any action request.
-	 * @returns {Boolean}
+	 * @return {Boolean} Always returns false.
+	 * @private
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			noAction_ = function() {

@@ -28,6 +28,7 @@
 	<message key="announcement.moreAnnouncements">More Announcements...</message>
 	<message key="announcement.noneExist">No announcements have been published.</message>
 	<message key="announcement.posted">Posted</message>
+	<message key="announcement.postedOn">Posted on {$postDate}</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
 	<message key="common.accepted">Accepted</message>

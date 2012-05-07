@@ -75,7 +75,7 @@
 	 * @param {Event} event An Event object representing the event which
 	 *  occurred within the TinyMCE window's own DOM.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent =
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.receiveEditorEvent =
 			function(editorId, event) {
 		if (event.type == 'click' || event.type == 'keyup') {
 			clearTimeout(this.popoverTimer);

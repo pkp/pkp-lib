@@ -208,6 +208,39 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Get columns by flag.
+	 * @param $flag string
+	 * @return array
+	 */
+	function &getColumnsByFlag($flag) {
+		$columns = array();
+		foreach ($this->getColumns() as $column) {
+			if ($column->hasFlag($flag)) {
+				$columns[$column->getId()] = $column;
+			}
+		}
+
+		return $columns;
+	}
+
+	/**
+	 * Get columns number. If a flag is passed, the columns
+	 * using it will not be counted.
+	 * @param $flag string
+	 * @return int
+	 */
+	function getColumnsCount($flag) {
+		$count = 0;
+		foreach ($this->getColumns() as $column) {
+			if (!$column->hasFlag($flag)) {
+				$count++;
+			}
+		}
+
+		return $count;
+	}
+
+	/**
 	 * Checks whether a column exists.
 	 * @param $columnId
 	 * @return boolean
@@ -375,6 +408,8 @@ class GridHandler extends PKPHandler {
 		// Add columns to the view.
 		$this->_fixColumnWidths();
 		$columns =& $this->getColumns();
+		$firstColumn = reset($columns); /* @var $firstColumn GridColumn */
+		$firstColumn->addFlag('hasRowActionsToggle', true);
 		$templateMgr->assign_by_ref('columns', $columns);
 
 		// Render the body elements.

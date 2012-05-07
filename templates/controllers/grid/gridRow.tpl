@@ -22,7 +22,7 @@
 		{else}
 			{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
 		{/if}
-		<td style="text-align: {$alignment}">{$cells[$smarty.foreach.columnLoop.index]}</td>
+		<td style="text-align: {$alignment}" {if $column->hasFlag('indent')}class="no_border indent_row"{/if}>{$cells[$smarty.foreach.columnLoop.index]}</td>
 	{/foreach}
 </tr>
 

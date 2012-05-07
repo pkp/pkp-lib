@@ -27,8 +27,11 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * Constructor.
 	 */
-	function CategoryGridHandler() {
-		parent::GridHandler();
+	function CategoryGridHandler($dataProvider = null) {
+		parent::GridHandler($dataProvider);
+
+		import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
+		$this->addColumn(new GridColumn('indent', null, null, null, new NullGridCellProvider(), array('indent' => true)));
 	}
 
 
@@ -74,6 +77,10 @@ class CategoryGridHandler extends GridHandler {
 
 		// Add columns to the view
 		$columns =& $this->getColumns();
+		// First column is used to indent the rows.
+		reset($columns);
+		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
+		$secondColumn->addFlag('hasRowActionsToggle', true);
 		$templateMgr->assign_by_ref('columns', $columns);
 
 		// Render the body elements (category groupings + rows inside a <tbody>)

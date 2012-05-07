@@ -21,8 +21,12 @@ div.pkp_controllers_grid {
 		width: 100%;
 	}
 
-	thead, tr.gridRow, tr.row_controls, tr.category, .empty tr {
+	thead, tr.gridRow td, tr.row_controls td, tr.category, .empty tr {
 		border-bottom: 1px solid #c8c7c7;
+	}
+	
+	tr.category {
+		border-top: 1px solid #c8c7c7;
 	}
 
 	tbody.empty td {
@@ -53,7 +57,7 @@ div.pkp_controllers_grid {
 		padding: 0px;
 	}
 
-	th:first-child, td:first-child, col.first_column {
+	th:first-child, td:first-child, td.first_column, .category_grid_body td:first-child + td {
 		text-align: left !important;
 	}
 
@@ -63,6 +67,10 @@ div.pkp_controllers_grid {
 
 	td.category {
 		display: table-row;
+	}
+	
+	td.no_border {
+		border: none !important;
 	}
 
 	tr.category td {
@@ -176,6 +184,10 @@ div.pkp_controllers_grid {
 		line-height: 25px;
 		height: 25px;
 	}
+	
+	.row_controls td.indent_row {
+		padding-left: 0px;
+	}
 
 	.row_controls a {
 		float:left;
@@ -272,6 +284,10 @@ div.pkp_controllers_grid {
 	
 	.ordering:hover {
 		background: #EAF3F8 !important;  
+	}
+	
+	.indent_row {
+		width: 40px;
 	}
 	
 	tbody.ui-sortable-placeholder {

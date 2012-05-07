@@ -7,7 +7,7 @@
  * a set of grid rows with a category row at the beginning
  *}
 {** category id must be set by the rendering of the category row **}
-<tbody id="{$categoryId|escape}" {if $categoryRow->getIsOrderable()}class="orderable"{/if}>
+<tbody id="{$categoryId|escape}" class="category_grid_body{if $categoryRow->getIsOrderable()} orderable{/if}">
 	<tr class="category{if $iterator} group{$iterator|escape}{/if}">
 		{$renderedCategoryRow}
 		{** the regular data rows **}

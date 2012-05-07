@@ -17,10 +17,10 @@
 {/if}
 <tr id="{$rowId|escape}" class="element{$row->getId()|escape} {if $row->getIsOrderable()}orderable{/if} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
-		{if $smarty.foreach.columnLoop.first}
+		{if $column->hasFlag('hasRowActionsToggle')}
 			<td class="first_column">
 				<div class="row_container">
-					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[0]}</div>
+					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[$smarty.foreach.columnLoop.index]}</div>
 					<div class="row_actions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 							<a class="sprite settings"><span class="hidetext">{translate key="grid.settings"}</span></a>
@@ -48,12 +48,15 @@
 			{else}
 				{assign var=alignment value=$smarty.const.COLUMN_ALIGNMENT_CENTER}
 			{/if}
-			<td style="text-align: {$alignment}">{$cells[$smarty.foreach.columnLoop.index]}</td>
+			<td style="text-align: {$alignment}" {if $column->hasFlag('indent')}class="no_border indent_row"{/if}>{$cells[$smarty.foreach.columnLoop.index]}</td>
 		{/if}
 	{/foreach}
 </tr>
 <tr id="{$rowId|escape}-control-row" class="row_controls">
-	<td colspan="{$columns|@count}">
+	{if $grid->getColumnsByFlag('indent')}
+		<td class="no_border indent_row"></td>
+	{/if}
+	<td colspan="{$grid->getColumnsCount('indent')}">
 		{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 			{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
 				{if is_a($action, 'LegacyLinkAction')}

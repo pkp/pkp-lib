@@ -594,9 +594,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function($controlRow) {
 		var delay = 300;
 		if ($controlRow.is(':visible')) {
-			setTimeout(function() {$controlRow.prev().attr('style', '');}, delay);
+			setTimeout(function() {$controlRow.prev().find('td:not(.indent_row)').removeClass('no_border');}, delay);
 		} else {
-			$controlRow.prev().attr('style', 'border:none !important;');
+			$controlRow.prev().find('td:not(.indent_row)').addClass('no_border');
 		}
 		$controlRow.toggle(delay);
 		clearTimeout();

@@ -33,7 +33,7 @@
 		{include file="controllers/grid/gridHeader.tpl"}
 		<table id="{$gridTableId|escape}">
 			<colgroup>
-				{foreach from=$columns item=column}<col />{/foreach}
+				{foreach from=$columns item=column}<col {if $column->hasFlag('indent')}class="indent_col"{/if}/>{/foreach}
 			</colgroup>
 			<thead>
 				{** build the column headers **}

@@ -59,26 +59,26 @@ class FormValidatorCaptchaTest extends PKPTestCase {
 
 	private function registerMockCaptchaDAO($returnValueForGetCaptcha) {
 		// Mock the CaptchaDAO
-		$mockCaptchaDAO = $this->getMock('CaptchaDAO', array('getCaptcha', 'deleteObject'));
+		$mockCaptchaDao = $this->getMock('CaptchaDAO', array('getCaptcha', 'deleteObject'));
 
 		// Set up the mock getCaptcha() method
-		$mockCaptchaDAO->expects($this->any())
+		$mockCaptchaDao->expects($this->any())
 		               ->method('getCaptcha')
 		               ->with('test captcha id')
 		               ->will($this->returnValue($returnValueForGetCaptcha));
 
 		// Set up the mock deleteObject() method
 		if (is_null($returnValueForGetCaptcha)) {
-			$mockCaptchaDAO->expects($this->never())
+			$mockCaptchaDao->expects($this->never())
 			               ->method('deleteObject');
 		} else {
-			$mockCaptchaDAO->expects($this->any())
+			$mockCaptchaDao->expects($this->any())
 			               ->method('deleteObject')
 			               ->with($returnValueForGetCaptcha)
 			               ->will($this->returnValue(true));
 		}
 
-		DAORegistry::registerDAO('CaptchaDAO', $mockCaptchaDAO);
+		DAORegistry::registerDAO('CaptchaDAO', $mockCaptchaDao);
 	}
 }
 ?>

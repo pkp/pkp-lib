@@ -31,7 +31,7 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 	 * test data.
 	 */
 	public function testMetadataDescriptionCrud() {
-		$metadataDescriptionDAO = DAORegistry::getDAO('MetadataDescriptionDAO');
+		$metadataDescriptionDao = DAORegistry::getDAO('MetadataDescriptionDAO');
 
 		$nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 		$nameDescription->addStatement('given-names', $value = 'Peter');
@@ -51,17 +51,17 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 		$testDescription->addStatement('uri', $value = 'http://phpunit.org/nutshell');
 
 		// Create meta-data description
-		$metadataDescriptionId = $metadataDescriptionDAO->insertObject($testDescription);
+		$metadataDescriptionId = $metadataDescriptionDao->insertObject($testDescription);
 		self::assertTrue(is_numeric($metadataDescriptionId));
 		self::assertTrue($metadataDescriptionId > 0);
 
 		// Retrieve meta-data description by id
-		$metadataDescriptionById = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
+		$metadataDescriptionById = $metadataDescriptionDao->getObjectById($metadataDescriptionId);
 		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema'); // Required for comparison
 		$metadataDescriptionById->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionById);
 
-		$metadataDescriptionsByAssocIdDaoFactory = $metadataDescriptionDAO->getObjectsByAssocId(ASSOC_TYPE_CITATION, 999999);
+		$metadataDescriptionsByAssocIdDaoFactory = $metadataDescriptionDao->getObjectsByAssocId(ASSOC_TYPE_CITATION, 999999);
 		$metadataDescriptionsByAssocId = $metadataDescriptionsByAssocIdDaoFactory->toArray();
 		self::assertEquals(1, count($metadataDescriptionsByAssocId));
 		$metadataDescriptionsByAssocId[0]->getMetadataSchema(); // Instantiates the internal metadata-schema.
@@ -71,15 +71,15 @@ class MetadataDescriptionDAOTest extends DatabaseTestCase {
 		$testDescription->removeStatement('date');
 		$testDescription->addStatement('article-title', $value = 'PHPUnit rápido', 'pt_BR');
 
-		$metadataDescriptionDAO->updateObject($testDescription);
+		$metadataDescriptionDao->updateObject($testDescription);
 		$testDescription->removeSupportedMetadataAdapter('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema'); // Required for comparison
-		$metadataDescriptionAfterUpdate = $metadataDescriptionDAO->getObjectById($metadataDescriptionId);
+		$metadataDescriptionAfterUpdate = $metadataDescriptionDao->getObjectById($metadataDescriptionId);
 		$metadataDescriptionAfterUpdate->getMetadataSchema(); // Instantiates the internal metadata-schema.
 		self::assertEquals($testDescription, $metadataDescriptionAfterUpdate);
 
 		// Delete meta-data description
-		$metadataDescriptionDAO->deleteObjectsByAssocId(ASSOC_TYPE_CITATION, 999999);
-		self::assertNull($metadataDescriptionDAO->getObjectById($metadataDescriptionId));
+		$metadataDescriptionDao->deleteObjectsByAssocId(ASSOC_TYPE_CITATION, 999999);
+		self::assertNull($metadataDescriptionDao->getObjectById($metadataDescriptionId));
 	}
 }
 ?>

@@ -263,8 +263,8 @@ class PKPFilterGridHandler extends GridHandler {
 		// Identify the filter to be deleted
 		$filter =& $this->getFilterFromArgs($request, $args);
 
-		$filterDAO = DAORegistry::getDAO('FilterDAO');
-		$result = $filterDAO->deleteObject($filter);
+		$filterDao = DAORegistry::getDAO('FilterDAO');
+		$result = $filterDao->deleteObject($filter);
 
 		if ($result) {
 			$json = new JSONMessage(true);

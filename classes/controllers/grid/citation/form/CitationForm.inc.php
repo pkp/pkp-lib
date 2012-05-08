@@ -277,11 +277,11 @@ class CitationForm extends Form {
 	function execute() {
 		// Persist citation
 		$citation =& $this->getCitation();
-		$citationDAO =& DAORegistry::getDAO('CitationDAO');
+		$citationDao =& DAORegistry::getDAO('CitationDAO');
 		if (is_numeric($citation->getId())) {
-			$citationDAO->updateObject($citation);
+			$citationDao->updateObject($citation);
 		} else {
-			$citationDAO->insertObject($citation);
+			$citationDao->insertObject($citation);
 		}
 		return true;
 	}

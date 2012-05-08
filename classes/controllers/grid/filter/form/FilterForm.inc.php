@@ -231,14 +231,14 @@ class FilterForm extends Form {
 		}
 
 		// Persist the filter
-		$filterDAO =& DAORegistry::getDAO('FilterDAO');
+		$filterDao =& DAORegistry::getDAO('FilterDAO');
 		if (is_numeric($filter->getId())) {
-			$filterDAO->updateObject($filter);
+			$filterDao->updateObject($filter);
 		} else {
 			$router =& $request->getRouter();
 			$context =& $router->getContext($request);
 			$contextId = (is_null($context)?CONTEXT_ID_NONE:$context->getId());
-			$filterDAO->insertObject($filter, $contextId);
+			$filterDao->insertObject($filter, $contextId);
 		}
 		return true;
 	}

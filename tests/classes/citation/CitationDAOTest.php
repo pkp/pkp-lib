@@ -32,7 +32,7 @@ class CitationDAOTest extends DatabaseTestCase {
 	 * @covers CitationDAO
 	 */
 	public function testCitationCrud() {
-		$citationDAO = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
+		$citationDao = DAORegistry::getDAO('CitationDAO'); /* @var $citationDao CitationDAO */
 
 		$nameSchemaName = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema';
 		$nameDescription = new MetadataDescription($nameSchemaName, ASSOC_TYPE_AUTHOR);
@@ -64,12 +64,12 @@ class CitationDAOTest extends DatabaseTestCase {
 		$citation->injectMetadata($citationDescription);
 
 		// Create citation.
-		$citationId = $citationDAO->insertObject($citation);
+		$citationId = $citationDao->insertObject($citation);
 		self::assertTrue(is_numeric($citationId));
 		self::assertTrue($citationId > 0);
 
 		// Retrieve citation.
-		$citationById = $citationDAO->getObjectById($citationId);
+		$citationById = $citationDao->getObjectById($citationId);
 		// Fix state differences for comparison.
 		$citation->removeSupportedMetadataAdapter($citationSchemaName);
 		$citationById->removeSupportedMetadataAdapter($citationSchemaName);
@@ -81,7 +81,7 @@ class CitationDAOTest extends DatabaseTestCase {
 		$sourceDescriptions['test']->getMetadataSchema(); // this will instantiate the meta-data schema internally.
 		self::assertEquals($citation, $citationById);
 
-		$citationsByAssocIdDaoFactory = $citationDAO->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, 999999);
+		$citationsByAssocIdDaoFactory = $citationDao->getObjectsByAssocId(ASSOC_TYPE_ARTICLE, 999999);
 		$citationsByAssocId =& $citationsByAssocIdDaoFactory->toArray();
 		self::assertEquals(1, count($citationsByAssocId));
 		// Fix state differences for comparison.
@@ -107,8 +107,8 @@ class CitationDAOTest extends DatabaseTestCase {
 		$updatedCitation->addSourceDescription($sourceDescription);
 		$updatedCitation->injectMetadata($citationDescription);
 
-		$citationDAO->updateObject($updatedCitation);
-		$citationAfterUpdate = $citationDAO->getObjectById($citationId);
+		$citationDao->updateObject($updatedCitation);
+		$citationAfterUpdate = $citationDao->getObjectById($citationId);
 		// Fix state differences for comparison.
 		$updatedCitation->removeSupportedMetadataAdapter($citationSchemaName);
 		$citationAfterUpdate->removeSupportedMetadataAdapter($citationSchemaName);
@@ -120,8 +120,8 @@ class CitationDAOTest extends DatabaseTestCase {
 		self::assertEquals($updatedCitation, $citationAfterUpdate);
 
 		// Delete citation
-		$citationDAO->deleteObjectsByAssocId(ASSOC_TYPE_ARTICLE, 999998);
-		self::assertNull($citationDAO->getObjectById($citationId));
+		$citationDao->deleteObjectsByAssocId(ASSOC_TYPE_ARTICLE, 999998);
+		self::assertNull($citationDao->getObjectById($citationId));
 	}
 }
 ?>

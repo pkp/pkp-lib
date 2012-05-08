@@ -47,15 +47,15 @@ class FormValidatorControlledVocabTest extends PKPTestCase {
 		                    ->will($this->returnValue(array(1 => 'vocab1', 2 => 'vocab2')));
 
 		// Mock the ControlledVocabDAO
-		$mockControlledVocabDAO = $this->getMock('ControlledVocabDAO', array('getBySymbolic'));
+		$mockControlledVocabDao = $this->getMock('ControlledVocabDAO', array('getBySymbolic'));
 
 		// Set up the mock getBySymbolic() method
-		$mockControlledVocabDAO->expects($this->any())
+		$mockControlledVocabDao->expects($this->any())
 		                       ->method('getBySymbolic')
 		                       ->with('testVocab', ASSOC_TYPE_CITATION, 333)
 		                       ->will($this->returnValue($mockControlledVocab));
 
-		DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDAO);
+		DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
 
 		// Instantiate validator
 		$validator = new FormValidatorControlledVocab($form, 'testData', FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', ASSOC_TYPE_CITATION, 333);

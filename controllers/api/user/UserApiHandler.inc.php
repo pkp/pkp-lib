@@ -89,8 +89,8 @@ class UserApiHandler extends PKPHandler {
 		}
 
 		// Persist the validated setting.
-		$userSettingsDAO =& DAORegistry::getDAO('UserSettingsDAO');
-		$userSettingsDAO->updateSetting($user->getId(), $settingName, $settingValue, $settingType);
+		$userSettingsDao =& DAORegistry::getDAO('UserSettingsDAO');
+		$userSettingsDao->updateSetting($user->getId(), $settingName, $settingValue, $settingType);
 
 		// Return a success message.
 		$json = new JSONMessage(true);

@@ -454,11 +454,13 @@ class PKPTemplateManager extends Smarty {
 		$id = $params['id'];
 		$key = isset($params['key'])?$params['key']:null;
 		$image = isset($params['image'])?$params['image']:null;
+		$translate = isset($params['translate'])?false:true;
 
 		import('lib.pkp.classes.linkAction.request.NullAction');
-		$linkAction = new LinkAction($id, new NullAction(), __($key), $image);
+		$key = $translate ? __($key) : $key;
+		$linkAction = new LinkAction($id, new NullAction(), $key, $image);
 		$this->assign('action', new LinkAction(
-			$id, new NullAction(), __($key), $image
+			$id, new NullAction(), $key, $image
 		));
 
 		return $this->fetch('linkAction/linkAction.tpl');

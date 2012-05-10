@@ -13,7 +13,7 @@
 	</tr>
 {iterate from=announcements item=announcement}
 	<tr class="title">
-	{if $announcement->getTypeId() != null}
+	{if $announcement->getTypeId() != 0}
 		<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4></td>
 	{else}
 		<td class="title"><h4>{$announcement->getLocalizedTitle()|escape}</h4></td>

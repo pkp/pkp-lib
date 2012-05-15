@@ -59,6 +59,9 @@ class GridHandler extends PKPHandler {
 	/** @var string The grid template. */
 	var $_template;
 
+	/** @var array The grid features. */
+	var $_features;
+
 
 	/**
 	 * Constructor.
@@ -339,6 +342,14 @@ class GridHandler extends PKPHandler {
 		return false;
 	}
 
+	/**
+	 * Get all grid attached features.
+	 * @return array
+	 */
+	function getFeatures() {
+		return $this->_features;
+	}
+
 
 	//
 	// Overridden methods from PKPHandler
@@ -371,17 +382,11 @@ class GridHandler extends PKPHandler {
 		// Load grid-specific translations
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON);
 
-		if ($this->isOrderActionNecessary()) {
-			import('lib.pkp.classes.linkAction.request.NullAction');
-			$this->addAction(
-				new LinkAction(
-					'orderItems',
-					new NullAction(),
-					__('grid.action.order'),
-					'order_items'
-				)
-			);
-		}
+		// Give a chance to grid add features before calling hooks.
+		// Because we must control when features are added to a grid,
+		// this is the only place that should use the _addFeature() method.
+		$this->_addFeatures($this->initFeatures(&$request, $args));
+		$this->callFeaturesHook('gridInitialize', array('grid' => &$this));
 	}
 
 
@@ -396,7 +401,6 @@ class GridHandler extends PKPHandler {
 	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request) {
-
 		// Prepare the template to render the grid.
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign_by_ref('grid', $this);
@@ -405,23 +409,16 @@ class GridHandler extends PKPHandler {
 		$renderedFilter = $this->renderFilter($request);
 		$templateMgr->assign('gridFilterForm', $renderedFilter);
 
-		// Add columns to the view.
-		$this->_fixColumnWidths();
-		$columns =& $this->getColumns();
-		$firstColumn = reset($columns); /* @var $firstColumn GridColumn */
-		$firstColumn->addFlag('hasRowActionsToggle', true);
-		$templateMgr->assign_by_ref('columns', $columns);
-
-		// Render the body elements.
-		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
-		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+		// Do specific actions to fetch this grid.
+		$this->doSpecificFetchGridActions($args, $request, $templateMgr);
 
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 
-		$row = $this->getRowInstance();
-		$templateMgr->assign('hasOrderingItems', $row->getIsOrderable());
-		$templateMgr->assign('hasOrderLink', $this->isOrderActionNecessary());
+		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
+
+		// Assign features.
+		$templateMgr->assign_by_ref('features', $this->getFeatures());
 
 		// Let the view render the grid.
 		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
@@ -676,47 +673,14 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Check if we need to insert an order link action to the grid.
-	 * May be extended/overriden by subclasses to implement specific
-	 * conditions.
-	 * @return boolean
-	 */
-	function isOrderActionNecessary() {
-		$row = $this->getRowInstance(); /* @var $row GridRow */
-
-		$hasOrderableRows = false;
-		if (is_a($row, 'GridRow')) {
-			$hasOrderableRows = $row->getIsOrderable();
-		} else {
-			assert(false);
-		}
-
-		return $hasOrderableRows;
-	}
-
-	/**
 	 * Save all data elements new sequence.
 	 * @param $args array
 	 * @param $request Request
 	 */
 	function saveSequence($args, &$request) {
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
-		$data = $jsonManager->decode($request->getUserVar('data'));
+		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
 
-		$gridElements = $this->getGridDataElements($request);
-		$firstSeqValue = $this->getRowDataElementSequence(reset($gridElements));
-		foreach ($gridElements as $rowId => $element) {
-			$rowPosition = array_search($rowId, $data);
-			$newSequence = $firstSeqValue + $rowPosition;
-			$currentSequence = $this->getRowDataElementSequence($element);
-			if ($newSequence != $currentSequence) {
-				$this->saveRowDataElementSequence($element, $newSequence);
-			}
-		}
-
-		$json = new JSONMessage(true);
-		return $json->getString();
+		return DAO::getDataChangedEvent();
 	}
 
 	/**
@@ -736,6 +700,58 @@ class GridHandler extends PKPHandler {
 	function saveRowDataElementSequence(&$gridDataElement, $newSequence) {
 		assert(false);
 	}
+
+	/**
+	 * Override this method if your subclass needs to perform
+	 * different actions than the ones implemented here.
+	 * This method is called by GridHandler::fetchGrid()
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function doSpecificFetchGridActions($args, &$request, &$templateMgr) {
+		// Add columns to the view.
+		$this->_fixColumnWidths();
+		$columns =& $this->getColumns();
+		$firstColumn = reset($columns); /* @var $firstColumn GridColumn */
+		$firstColumn->addFlag('hasRowActionsToggle', true);
+		$templateMgr->assign_by_ref('columns', $columns);
+
+		// Render the body elements.
+		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
+		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+	}
+
+	/**
+	 * Override to init grid features.
+	 * This method is called by GridHandler::initialize()
+	 * method that use the returned array with the initialized
+	 * features to add them to grid.
+	 * @param $request Request
+	 * @param $args array
+	 * @return array Array with initialized grid features objects.
+	 */
+	function initFeatures(&$request, $args) {
+		return array();
+	}
+
+	/**
+	 * Call the passed hook in all attached features.
+	 * @param $hookName string
+	 * @param $args array Arguments provided by this handler.
+	 */
+	function callFeaturesHook($hookName, $args) {
+		$features = $this->getFeatures();
+		if (is_array($features)) {
+			foreach ($features as &$feature) {
+				if (is_callable(array($feature, $hookName))) {
+					$feature->$hookName($args);
+				} else {
+					assert(false);
+				}
+			}
+		}
+	}
+
 
 	//
 	// Private helper methods
@@ -759,6 +775,7 @@ class GridHandler extends PKPHandler {
 
 		// Initialize the row before we render it
 		$row->initialize($request);
+		$this->callFeaturesHook('getInitializedRowInstance', array('row' => &$row));
 		return $row;
 	}
 
@@ -889,6 +906,18 @@ class GridHandler extends PKPHandler {
 					}
 				}
 			}
+		}
+	}
+
+	/**
+	 * Add grid features.
+	 * @param $features array
+	 */
+	function _addFeatures($features) {
+		assert(is_array($features));
+		foreach ($features as &$feature) {
+			assert(is_a($feature, 'GridFeature'));
+			$this->_features[$feature->getId()] =& $feature;
 		}
 	}
 }

@@ -20,9 +20,8 @@
 				gridId: '{$grid->getId()|escape:javascript}',
 				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$gridRequestArgs escape=false}',
 				fetchGridUrl: '{url|escape:javascript op='fetchGrid' params=$gridRequestArgs escape=false}',
-				hasOrderingItems: '{$hasOrderingItems}',
-				saveItemsSequenceUrl: '{url|escape:javascript op='saveSequence' params=$gridRequestArgs escape=false}',
 				bodySelector: '#{$gridActOnId|escape:javascript}',
+				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}
 		);
 	{rdelim});
@@ -92,9 +91,6 @@
 		</table>
 		{if $grid->getIsSubcomponent()}
 			</div>
-		{/if}
-		{if $hasOrderLink}
-			{include file="controllers/grid/gridOrderFinishControls.tpl" gridId=$staticId}
 		{/if}
 		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 

@@ -14,10 +14,8 @@ $.pkp.classes.features = $.pkp.classes.features || {};
  * @class Feature
  * @ingroup js_classes_features
  *
- * @brief A feature is a type of plugin specific to the grid widgets. It
- * provides several hooks to allow injection of additional grid widgets
- * functionality. This class implements template methods to be extendeded by
- * subclasses.
+ * @brief Base grid feature class.
+ * @see lib/pkp/classes/controllers/grid/feature/GridFeature.inc.php
  *
  * We use the features concept of the ext js framework:
  * http://docs.sencha.com/ext-js/4-0/#!/api/Ext.grid.feature.Feature
@@ -34,9 +32,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 			function(gridHandler, options) {
 		this.gridHandler_ = gridHandler;
 		this.options_ = options;
-		// FIXME #7379# Pass the rendered html to this method when
-		// the html is in the options.
-		this.addFeatureHtml(this.getGridHtmlElement());
+		this.addFeatureHtml(this.getGridHtmlElement(), options);
 	};
 
 
@@ -117,9 +113,10 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 * Extend to add extra html elements in the component
 	 * that this feature is attached to.
 	 * @param {jQuery} $gridElement Grid element to add elements to.
+	 * @param {Object} $options Feature options.
 	 */
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
-			function($gridElement) {
+			function($gridElement, options) {
 		// Default implementation does nothing.
 	};
 

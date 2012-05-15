@@ -29,6 +29,18 @@
 	// Extended methods from OrderItemsFeature.
 	//
 	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.addFeatureHtml =
+			function($gridElement, options) {
+		this.parent('addFeatureHtml', $gridElement, options);
+
+		$itemSequenceInput = $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
+		var $gridRows = this.gridHandler_.getRows();
+		$gridRows.append($itemSequenceInput);
+	};
+
+	/**
 	 * Set up the sortable plugin.
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.setupSortablePlugin =

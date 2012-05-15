@@ -59,47 +59,6 @@ class CategoryGridHandler extends GridHandler {
 	// Public handler methods
 	//
 	/**
-	 * Render the entire grid controller and send
-	 * it to the client.
-	 * @param $args array
-	 * @param $request PKPRequest
-	 * @return string the grid HTML
-	 */
-	function fetchGrid($args, &$request) {
-
-		// Prepare the template to render the grid
-		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign_by_ref('grid', $this);
-
-		// Add rendered filter
-		$renderedFilter = $this->renderFilter($request);
-		$templateMgr->assign('gridFilterForm', $renderedFilter);
-
-		// Add columns to the view
-		$columns =& $this->getColumns();
-		// First column is used to indent the rows.
-		reset($columns);
-		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
-		$secondColumn->addFlag('hasRowActionsToggle', true);
-		$templateMgr->assign_by_ref('columns', $columns);
-
-		// Render the body elements (category groupings + rows inside a <tbody>)
-		$gridBodyParts = $this->_renderCategoriesInternally($request);
-		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
-
-		// Assign additional params for the fetchRow and fetchGrid URLs to use.
-		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
-
-		$row = $this->getCategoryRowInstance();
-		$templateMgr->assign('hasOrderingItems', $row->getIsOrderable());
-		$templateMgr->assign('hasOrderLink', $this->isOrderActionNecessary());
-
-		// Let the view render the grid
-		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
-		return $json->getString();
-	}
-
-	/**
 	 * Override GridHandler::fetchRow.
 	 * Instead of rendering a row, render a category with all the rows inside of it.
 	 * @param $args array
@@ -125,26 +84,10 @@ class CategoryGridHandler extends GridHandler {
 		return $json->getString();
 	}
 
-	/**
-	 * @see GridHandler::isOrderActionNecessary()
-	 */
-	function isOrderActionNecessary() {
-		$isNecessary = parent::isOrderActionNecessary();
 
-		if ($isNecessary) {
-			return true;
-		} else {
-			$categoryRow = $this->getCategoryRowInstance(); /* @var $categoryRow CategoryGridRow */
-			$hasOrderableRows = false;
-			if (is_a($categoryRow, 'GridCategoryRow')) {
-				$hasOrderableRows = $categoryRow->getIsOrderable();
-			} else {
-				assert(false);
-			}
-			return $hasOrderableRows;
-		}
-	}
-
+	//
+	// Extended methods from GridHandler
+	//
 	/**
 	 * @see GridHandler::getJSHandler()
 	 */
@@ -153,37 +96,21 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::saveSequence()
+	 * @see GridHandler::doSpecificFetchGridActions($args, $request)
 	 */
-	function saveSequence($args, &$request) {
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
-		$data = $jsonManager->decode($request->getUserVar('data'));
-		$gridCategoryElements = $this->getGridDataElements($request);
+	function doSpecificFetchGridActions($args, $request, &$templateMgr) {
+		// Add columns to the view
+		$columns =& $this->getColumns();
 
-		// FIXME: #7379# Move this data handling to the feature. This
-		// grid handler shouldn't know features implementation details.
-		$categoriesData = array();
-		foreach($data as $categoryData) {
-			$categoriesData[] = $categoryData->categoryId;
-		}
+		// First column is used to indent the rows.
+		reset($columns);
+		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
+		$secondColumn->addFlag('hasRowActionsToggle', true);
+		$templateMgr->assign_by_ref('columns', $columns);
 
-		// Save categories sequence.
-		$firstSeqValue = $this->getCategoryDataElementSequence(reset($gridCategoryElements));
-		foreach ($gridCategoryElements as $rowId => $element) {
-			$rowPosition = array_search($rowId, $categoriesData);
-			$newSequence = $firstSeqValue + $rowPosition;
-			$currentSequence = $this->getCategoryDataElementSequence($element);
-			if ($newSequence != $currentSequence) {
-				$this->saveCategoryDataElementSequence($element, $newSequence);
-			}
-		}
-
-		// Save rows sequence, if this grid has also orderable rows inside each category.
-		$this->_saveRowsInCategoriesSequence($gridCategoryElements, $data);
-
-		$json = new JSONMessage(true);
-		return $json->getString();
+		// Render the body elements (category groupings + rows inside a <tbody>)
+		$gridBodyParts = $this->_renderCategoriesInternally($request);
+		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 	}
 
 
@@ -299,6 +226,7 @@ class CategoryGridHandler extends GridHandler {
 
 		// Initialize the row before we render it
 		$row->initialize($request);
+		$this->callFeaturesHook('getInitializedCategoryRowInstance', array('row' => &$row));
 		return $row;
 	}
 
@@ -315,15 +243,7 @@ class CategoryGridHandler extends GridHandler {
 		foreach($elements as $key => $element) {
 
 			// Instantiate a new row
-			$categoryRow =& $this->getCategoryRowInstance();
-			$categoryRow->setGridId($this->getId());
-
-			// Use the element key as the row id
-			$categoryRow->setId($key);
-			$categoryRow->setData($element);
-
-			// Initialize the row before we render it
-			$categoryRow->initialize($request);
+			$categoryRow =& $this->_getInitializedCategoryRowInstance($request, $key, $element);
 
 			// Render the row
 			$renderedCategories[] = $this->_renderCategoryInternally($request, $categoryRow);
@@ -356,41 +276,6 @@ class CategoryGridHandler extends GridHandler {
 
 		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');
-	}
-
-	/**
-	 * Save row elements sequence inside categories.
-	 * @param $gridCategoryElements
-	 * @param $data
-	 */
-	function _saveRowsInCategoriesSequence($gridCategoryElements, $data) {
-		$row = $this->getRowInstance();
-		if ($row->getIsOrderable()) {
-			foreach($gridCategoryElements as $categoryId => $element) {
-				$gridRowElements = $this->getCategoryData($element);
-
-				// Get the correct rows sequence data.
-				// FIXME: #7379# Move this data handling to the feature. This
-				// grid handler shouldn't know features implementation details.
-				$rowsData = null;
-				foreach ($data as $categoryData) {
-					if ($categoryData->categoryId == $categoryId) {
-						$rowsData = $categoryData->rowsId;
-						break;
-					}
-				}
-
-				$firstSeqValue = $this->getRowDataElementSequence(reset($gridRowElements));
-				foreach ($gridRowElements as $rowId => $element) {
-					$rowPosition = array_search($rowId, $rowsData);
-					$newSequence = $firstSeqValue + $rowPosition;
-					$currentSequence = $this->getRowDataElementSequence($element);
-					if ($newSequence != $currentSequence) {
-						$this->saveRowDataElementSequence($element, $categoryId, $newSequence);
-					}
-				}
-			}
-		}
 	}
 }
 

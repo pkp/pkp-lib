@@ -39,9 +39,6 @@ class GridRow {
 	/** @var $isModified boolean true if the row has been modified */
 	var $_isModified;
 
-	/** @var $isOrderable boolean true if the row can be ordered */
-	var $_isOrderable;
-
 	/**
 	 * @var array row actions, the first key represents
 	 *  the position of the action in the row template,
@@ -147,22 +144,6 @@ class GridRow {
 	}
 
 	/**
-	 * Set the orderable flag for the row
-	 * @param $isOrderable boolean
-	 */
-	function setIsOrderable($isOrderable) {
-		$this->_isOrderable = $isOrderable;
-	}
-
-	/**
-	 * Get the orderable flag for the row
-	 * @return boolean
-	 */
-	function getIsOrderable() {
-		return $this->_isOrderable;
-	}
-
-	/**
 	 * Get all actions for a given position within the controller
 	 * @param $position string the position of the actions
 	 * @return array the LegacyLinkActions for the given position
@@ -211,26 +192,6 @@ class GridRow {
 	 * @param $template string
 	 */
 	function initialize($request, $template = 'controllers/grid/gridRow.tpl') {
-		// FIXME: #7379# move this order items feature related code to
-		// a php feature class.
-		if ($this->getIsOrderable()) {
-			$actionPosition = GRID_ACTION_POSITION_DEFAULT;
-			if (!is_a($this, 'GridCategoryRow')) {
-				$template = 'controllers/grid/gridRowWithActions.tpl';
-				$actionPosition = GRID_ACTION_POSITION_ROW_LEFT;
-			}
-
-			import('lib.pkp.classes.linkAction.request.NullAction');
-			$this->addAction(
-				new LinkAction(
-					'moveItem',
-					new NullAction(),
-					'',
-					'order_items'
-				), $actionPosition
-			);
-		}
-
 		// Set the template.
 		$this->setTemplate($template);
 	}

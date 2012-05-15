@@ -169,31 +169,6 @@
 	// Private helper methods.
 	//
 	/**
-	 * Add grid features.
-	 * FIXME: #7379# this method should only exists in GridHandler. All the features
-	 * configuration must be set on php side, when we implement the features
-	 * classes there.
-	 * @private
-	 * @param {Array} options The options array.
-	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.initFeatures_ =
-			function(options) {
-		var $orderItemsFeature =
-				/** @type {$.pkp.classes.features.OrderItemsFeature} */
-				($.pkp.classes.Helper.objectFactory(
-						'$.pkp.classes.features.OrderCategoryGridItemsFeature',
-						[this, {
-							'orderButton': $('a.order_items:first', this.getHtmlElement()),
-							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
-							'saveItemsSequenceUrl': options.saveItemsSequenceUrl
-						}]));
-
-		this.features_ = {'orderItems': $orderItemsFeature};
-		this.features_.orderItems.init();
-	};
-
-
-	/**
 	 * Get the correct tbody for the passed row.
 	 * @param {jQuery} $row Row to fetch tbody for.
 	 * @return {jQuery} JQuery tbody object.

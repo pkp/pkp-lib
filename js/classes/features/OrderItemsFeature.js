@@ -23,15 +23,12 @@
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 
-		if (options.orderButton === undefined) {
-			// This feature works without an order button.
-			this.$orderButton_ = jQuery();
-			this.$finishControl_ = jQuery();
-			// It will always stay in ordering mode.
+		this.$orderButton_ = $('a.order_items:first', this.getGridHtmlElement()).not('table a');
+		this.$finishControl_ = $('.order_finish_controls', this.getGridHtmlElement());
+
+		if (this.$orderButton_.length === 0) {
+			// No order button, it will always stay in ordering mode.
 			this.isOrdering_ = true;
-		} else {
-			this.$orderButton_ = options.orderButton;
-			this.$finishControl_ = options.finishControl;
 		}
 
 		this.itemsOrder_ = [];
@@ -216,9 +213,22 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.init =
 			function() {
+
+		this.addOrderingClassToRows();
+
 		this.toggleOrderLink_();
 		if (this.isOrdering_) {
 			this.setupSortablePlugin();
+		}
+	};
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
+			function($gridElement, options) {
+		if (options.orderFinishControls != undefined) {
+			$gridElement.find('table').last().after($(options.orderFinishControls));
 		}
 	};
 
@@ -226,6 +236,17 @@
 	//
 	// Protected template methods.
 	//
+	/**
+	 * Add orderable class to grid rows.
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
+			function() {
+		// Add ordering class to grid rows.
+		$gridRows = this.gridHandler_.getRows();
+		$gridRows.addClass('orderable');
+	};
+
+
 	/**
 	 * Setup the sortable plugin. Must be implemented in subclasses.
 	 */

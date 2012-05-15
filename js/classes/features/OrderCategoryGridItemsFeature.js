@@ -38,9 +38,6 @@
 	};
 
 
-	//
-	// Extended methods from OrderItemsFeature.
-	//
 	/**
 	 * Setup the sortable plugin.
 	 */
@@ -96,6 +93,24 @@
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			var $category = $($categories[index]);
 			this.toggleCategoryDragMode_($category);
+		}
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.addOrderingClassToRows =
+			function() {
+		if (this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
+				this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
+			$categoriesRows = this.gridHandler_.getCategories();
+			$categoriesRows.addClass('orderable');
+		}
+
+		if (this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY ||
+				this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
+			this.parent('addOrderingClassToRows');
 		}
 	};
 

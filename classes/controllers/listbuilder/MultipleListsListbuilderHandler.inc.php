@@ -107,29 +107,26 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	}
 
 	/**
+	 * @see GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		// Multiple lists listbuilder always have orderable rows.
+		// We don't have any other requirement for it.
+		import('lib.pkp.classes.controllers.grid.feature.OrderMultipleListsItemsFeature');
+		return array(new OrderMultipleListsItemsFeature());
+	}
+
+	/**
 	 * @see ListbuilderHandler::getRowInstance()
 	 */
-	function getRowInstance() {
-		$row = parent::getRowInstance();
+	function &getRowInstance() {
+		$row =& parent::getRowInstance();
 
 		// Currently we can't/don't need to delete a row inside multiple
 		// lists listbuilder. If we need, we have to adapt this class
 		// and its js handler.
 		$row->setHasDeleteItemLink(false);
-
-		// Multiple lists listbuilder always have orderable rows.
-		// We don't have any other requirement for it.
-		$row->setIsOrderable(true);
-
 		return $row;
-	}
-
-	/**
-	 * @see GridHandler::isOrderActionNecessary()
-	 */
-	function isOrderActionNecessary() {
-		// This component is always in ordering mode.
-		return false;
 	}
 
 	/**

@@ -19,5 +19,5 @@ fetchOptionsUrl: '{url|escape:javascript op='fetchOptions' params=$gridRequestAr
 	saveFieldName: '{$grid->getSaveFieldName()|escape:javascript}',
 {/if}
 sourceType: '{$grid->getSourceType()|escape:javascript}',
-hasOrderingItems: '{$hasOrderingItems}',
 bodySelector: '#{$gridActOnId|escape:javascript}',
+features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features},

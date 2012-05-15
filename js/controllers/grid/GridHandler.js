@@ -35,10 +35,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		// before we initialize its features.
 		this.initialize(options);
 
-		if (options.hasOrderingItems) {
-			this.initFeatures_(options);
-		}
-
+		this.initFeatures_(options.features);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.GridHandler,
 			$.pkp.classes.Handler);
@@ -604,24 +601,37 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
+	 * Add a grid feature.
+	 * @private
+	 * @param {string} id Feature id.
+	 * @param {$.pkp.classes.features.Feature} $feature
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.addFeature_ =
+			function(id, $feature) {
+		if (!this.features_) {
+			this.features_ = new Array();
+		}
+		this.features_[id] = $feature;
+	};
+	
+	
+	/**
 	 * Add grid features.
 	 * @private
-	 * @param {Array} options The options array.
+	 * @param {Array} features The features options array.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.initFeatures_ =
-			function(options) {
-		var $orderItemsFeature =
-				/** @type {$.pkp.classes.features.OrderItemsFeature} */
-				($.pkp.classes.Helper.objectFactory(
-						'$.pkp.classes.features.OrderGridItemsFeature',
-						[this, {
-							'orderButton': $('a.order_items:first', this.getHtmlElement()),
-							'finishControl': $('#' + this.getGridIdPrefix() + '-order-finish-controls'),
-							'saveItemsSequenceUrl': options.saveItemsSequenceUrl
-						}]));
-
-		this.features_ = {'orderItems': $orderItemsFeature};
-		this.features_.orderItems.init();
+			function(features) {
+		var id;
+		for (id in features) {
+			var $feature =
+					($.pkp.classes.Helper.objectFactory(
+							features[id].JSClass,
+							[this, features[id].options]));
+	
+			this.addFeature_(id, $feature);
+			this.features_[id].init();
+		}
 	};
 
 

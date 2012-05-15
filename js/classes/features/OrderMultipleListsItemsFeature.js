@@ -32,9 +32,9 @@
 	 * @inheritDoc
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.addFeatureHtml =
-			function($gridElement) {
-		// FIXME #7379# This html needs to come already rendered inside options. The
-		// php side of the ordering features must render it.
+			function($gridElement, options) {
+		this.parent('addFeatureHtml', $gridElement, options);
+
 		var $listInput = $('<input type="hidden" name="newRowId[listId]" class="itemList" />');
 		var $gridRows = this.gridHandler_.getRows();
 		var index, limit;

@@ -192,29 +192,5 @@
 	};
 
 
-	//
-	// Private helper methods.
-	//
-	/**
-	 * Add grid features.
-	 * FIXME: #7379# this method should only exists in GridHandler. All the features
-	 * configuration must be set on php side, when we implement the features
-	 * classes there.
-	 * @private
-	 * @param {Array} options Options array.
-	 */
-	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.
-			prototype.initFeatures_ = function(options) {
-		var $orderItemsFeature =
-				/** @type {$.pkp.classes.features.OrderItemsFeature} */
-				($.pkp.classes.Helper.objectFactory(
-						'$.pkp.classes.features.OrderMultipleListsItemsFeature',
-						[this, {}]));
-
-		this.features_ = {'orderItems': $orderItemsFeature};
-		this.features_.orderItems.init();
-	};
-
-
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

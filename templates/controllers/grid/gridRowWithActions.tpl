@@ -15,7 +15,7 @@
 {else}
 	{assign var=rowId value=""}
 {/if}
-<tr id="{$rowId|escape}" class="element{$row->getId()|escape} {if $row->getIsOrderable()}orderable{/if} gridRow">
+<tr id="{$rowId|escape}" class="element{$row->getId()|escape} gridRow">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $column->hasFlag('hasRowActionsToggle')}
 			<td class="first_column">

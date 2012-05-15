@@ -113,7 +113,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 * Extend to add extra html elements in the component
 	 * that this feature is attached to.
 	 * @param {jQuery} $gridElement Grid element to add elements to.
-	 * @param {Object} $options Feature options.
+	 * @param {Object} options Feature options.
 	 */
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
 			function($gridElement, options) {

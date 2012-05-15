@@ -124,7 +124,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @private
 	 * @type {Boolean}
 	 */
-	$.pkp.controllers.form.FormHandler.prototype.formChangesCurrentlyTracked_ = false;
+	$.pkp.controllers.form.FormHandler.prototype.
+			formChangesCurrentlyTracked_ = false;
 
 
 	/**
@@ -156,7 +157,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 					this.getHtmlElement());
 			this.formChangesCurrentlyTracked_ = true;
 		}
-		// ensure that rich content elements have their values stored before validation.
+		// ensure that rich content elements have their
+		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
 			tinyMCE.triggerSave();
 		}
@@ -186,7 +188,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.cancelForm =
 			function(cancelButton, event) {
 
-		$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement(this.getHtmlElement());
+		$.pkp.controllers.SiteHandler.prototype.
+				unregisterUnsavedFormElement(this.getHtmlElement());
 		this.formChangesCurrentlyTracked_ = false;
 
 		// Trigger the "form canceled" event.

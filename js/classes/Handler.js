@@ -333,18 +333,18 @@
 	 * @protected
 	 * @param {string} key The name of the item to be stored
 	 *  or retrieved.
-	 * @param {*=} value The data item to be stored. If no item
+	 * @param {*=} opt_value The data item to be stored. If no item
 	 *  is given then the existing value for the given key
 	 *  will be returned.
 	 * @return {*} The cached data item.
 	 */
-	$.pkp.classes.Handler.prototype.data = function(key, value) {
+	$.pkp.classes.Handler.prototype.data = function(key, opt_value) {
 		$.pkp.classes.Handler.checkContext_(this);
 
 		// Namespace the key.
 		key = 'pkp.' + key;
 
-		if (value !== undefined) {
+		if (opt_value !== undefined) {
 			// Add the key to the list of data items
 			// that need to be garbage collected.
 			this.dataItems_[key] = true;
@@ -352,7 +352,7 @@
 
 		// Add/retrieve the data to/from the
 		// element's data cache.
-		return this.getHtmlElement().data(key, value);
+		return this.getHtmlElement().data(key, opt_value);
 	};
 
 
@@ -369,24 +369,25 @@
 	 *
 	 * @protected
 	 * @param {Function} callback The callback to be wrapped.
-	 * @param {Object=} context Specifies the object which
+	 * @param {Object=} opt_context Specifies the object which
 	 *  |this| should point to when the function is run.
 	 *  If the value is not given, the context will default
 	 *  to the handler object.
 	 * @return {Function} The wrapped callback.
 	 */
-	$.pkp.classes.Handler.prototype.callbackWrapper = function(callback, context) {
+	$.pkp.classes.Handler.prototype.callbackWrapper =
+			function(callback, opt_context) {
 		$.pkp.classes.Handler.checkContext_(this);
 
 		// Create a closure that calls the event handler
 		// in the right context.
-		if (!context) {
-			context = this;
+		if (!opt_context) {
+			opt_context = this;
 		}
 		return function() {
 			var args = $.makeArray(arguments);
 			args.unshift(this);
-			return callback.apply(context, args);
+			return callback.apply(opt_context, args);
 		};
 	};
 
@@ -433,19 +434,19 @@
 	 *
 	 * @protected
 	 * @param {string} eventName The event to be triggered.
-	 * @param {Object=} data Additional event data.
+	 * @param {Object=} opt_data Additional event data.
 	 */
 	$.pkp.classes.Handler.prototype.trigger =
-			function(eventName, data) {
+			function(eventName, opt_data) {
 
 		// Trigger the event on the handled element.
 		var $handledElement = this.getHtmlElement();
-		$handledElement.triggerHandler(eventName, data);
+		$handledElement.triggerHandler(eventName, opt_data);
 
 		// Trigger the event publicly if it's not
 		// published anyway.
 		if (!this.publishedEvents_[eventName]) {
-			this.triggerPublicEvent_(eventName, data);
+			this.triggerPublicEvent_(eventName, opt_data);
 		}
 	};
 
@@ -491,19 +492,19 @@
 	 *
 	 * @private
 	 * @param {string} eventName The event to be triggered.
-	 * @param {Object=} data Additional event data.
+	 * @param {Object=} opt_data Additional event data.
 	 */
 	$.pkp.classes.Handler.prototype.triggerPublicEvent_ =
-			function(eventName, data) {
+			function(eventName, opt_data) {
 
 		// Publish the event.
 		var $handledElement = this.getHtmlElement();
-		$handledElement.parent().trigger(eventName, data);
+		$handledElement.parent().trigger(eventName, opt_data);
 
 		// If we have an event bridge configured then re-trigger
 		// the event on the target object.
 		if (this.$eventBridge_) {
-			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, data);
+			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, opt_data);
 		}
 	};
 

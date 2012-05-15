@@ -75,7 +75,8 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// Click outside to close.
 		var canClose = options.canClose || '1';
 		if (canClose) {
-			$handledElement.parent().next('.ui-widget-overlay').click(this.callbackWrapper(this.outsideClick));
+			$handledElement.parent().next('.ui-widget-overlay').
+					click(this.callbackWrapper(this.outsideClick));
 		}
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
@@ -265,13 +266,17 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		var $parentElement = $handledElement.parent();
 		// make changes to widen the button bar, and move the close button to the left
-		$parentElement.find('.ui-dialog-buttonset').css({'width': 644, 'padding': '10px 20px'});
-		$parentElement.find('.ui-dialog-buttonset button:first').css({'float': 'right', 'margin': '0px'});
+		$parentElement.find('.ui-dialog-buttonset').
+				css({'width': 644, 'padding': '10px 20px'});
+		$parentElement.find('.ui-dialog-buttonset button:first').
+				css({'float': 'right', 'margin': '0px'});
 
 		// Replace the original close button with our own implementation.
-		$parentElement.find('.ui-dialog-buttonset button:last').replaceWith($closeButton);
+		$parentElement.find('.ui-dialog-buttonset button:last').
+				replaceWith($closeButton);
 		// bind modalClose to the new button
-		$parentElement.find('.cancelFormButton').bind('click', this.callbackWrapper(this.modalClose));
+		$parentElement.find('.cancelFormButton').
+				bind('click', this.callbackWrapper(this.modalClose));
 	};
 
 

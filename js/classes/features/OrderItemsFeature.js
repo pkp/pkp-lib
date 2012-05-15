@@ -23,7 +23,8 @@
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 
-		this.$orderButton_ = $('a.order_items:first', this.getGridHtmlElement()).not('table a');
+		this.$orderButton_ = $('a.order_items:first',
+				this.getGridHtmlElement()).not('table a');
 		this.$finishControl_ = $('.order_finish_controls', this.getGridHtmlElement());
 
 		if (this.$orderButton_.length === 0) {
@@ -150,8 +151,8 @@
 	 * Get the move item row action element selector.
 	 * @return {string} Return the element selector.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemRowActionSelector =
-			function() {
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			getMoveItemRowActionSelector = function() {
 		return '.orderable a.order_items';
 	};
 
@@ -222,6 +223,7 @@
 		}
 	};
 
+
 	/**
 	 * @inheritDoc
 	 */
@@ -242,7 +244,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
 			function() {
 		// Add ordering class to grid rows.
-		$gridRows = this.gridHandler_.getRows();
+		var $gridRows = this.gridHandler_.getRows();
 		$gridRows.addClass('orderable');
 	};
 
@@ -372,7 +374,7 @@
 	 * @param {string} itemsSelector The jQuery selector for orderable items.
 	 * @param {Object?} extraParams Optional set of extra parameters for sortable.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.applySortablePluginOnElements =
+	$.pkp.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
 			function($container, itemsSelector, extraParams) {
 		var isOrdering = this.isOrdering_;
 		var dragStartCallback = this.gridHandler_.callbackWrapper(
@@ -501,13 +503,15 @@
 	 * ordering action (save and cancel).
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.bindOrderFinishControlsHandlers_ =
-			function() {
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			bindOrderFinishControlsHandlers_ = function() {
 		var $saveButton = this.getSaveOrderButton();
 		var $cancelLink = this.getCancelOrderButton();
 
-		var cancelLinkHandler = this.gridHandler_.callbackWrapper(this.cancelOrderHandler, this);
-		var saveButtonHandler = this.gridHandler_.callbackWrapper(this.saveOrderHandler, this);
+		var cancelLinkHandler = this.gridHandler_.callbackWrapper(
+				this.cancelOrderHandler, this);
+		var saveButtonHandler = this.gridHandler_.callbackWrapper(
+				this.saveOrderHandler, this);
 
 		$saveButton.click(saveButtonHandler);
 		$cancelLink.click(cancelLinkHandler);
@@ -519,8 +523,8 @@
 	 * ordering action (save and cancel).
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.unbindOrderFinishControlsHandlers_ =
-			function() {
+	$.pkp.classes.features.OrderItemsFeature.prototype.
+			unbindOrderFinishControlsHandlers_ = function() {
 		var $saveButton = this.getSaveOrderButton();
 		var $cancelLink = this.getCancelOrderButton();
 		$saveButton.unbind('click');

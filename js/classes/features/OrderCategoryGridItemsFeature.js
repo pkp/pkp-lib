@@ -41,17 +41,17 @@
 	/**
 	 * Setup the sortable plugin.
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.setupSortablePlugin =
-			function() {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			setupSortablePlugin = function() {
 		var $categories = this.gridHandler_.getCategories();
 
 		var index, limit;
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			var $category = $($categories[index]);
-			this.applySortablePluginOnElements($category, 'tr.orderable', null);
+			this.applySortPlgOnElements($category, 'tr.orderable', null);
 		}
 
-		this.applySortablePluginOnElements(
+		this.applySortPlgOnElements(
 				this.getGridHtmlElement(), 'tbody.orderable', null);
 	};
 
@@ -59,8 +59,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.saveOrderHandler =
-			function() {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			saveOrderHandler = function() {
 		this.gridHandler_.updateEmptyPlaceholderPosition();
 		return this.parent('saveOrderHandler');
 	};
@@ -69,8 +69,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.cancelOrderHandler =
-			function() {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			cancelOrderHandler = function() {
 		this.parent('cancelOrderHandler');
 		var categorySequence = this.getCategorySequence_(this.itemsOrder_);
 		this.gridHandler_.resequenceCategories(categorySequence);
@@ -82,8 +82,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.toggleItemsDragMode =
-			function() {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			toggleItemsDragMode = function() {
 		this.parent('toggleItemsDragMode');
 
 		var isOrdering = this.isOrdering_;
@@ -100,16 +100,17 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.addOrderingClassToRows =
-			function() {
-		if (this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
-				this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
-			$categoriesRows = this.gridHandler_.getCategories();
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			addOrderingClassToRows = function() {
+		var type = this.options_.type;
+		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
+				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
+			var $categoriesRows = this.gridHandler_.getCategories();
 			$categoriesRows.addClass('orderable');
 		}
 
-		if (this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY ||
-				this.options_.type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
+		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY ||
+				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
 			this.parent('addOrderingClassToRows');
 		}
 	};
@@ -147,8 +148,8 @@
 	 * @param {jQuery} $category Category to set mode on.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.toggleCategoryDragMode_ =
-			function($category) {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			toggleCategoryDragMode_ = function($category) {
 		var isOrdering = this.isOrdering_;
 		var $categoryRow = this.gridHandler_.getCategoryRow($category);
 		var $categoryRowColumn = $('td:first', $categoryRow);
@@ -169,8 +170,8 @@
 	 * @param {jQuery} $category JQuery category object.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.toggleRowsInCategory_ =
-			function($category) {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			toggleRowsInCategory_ = function($category) {
 		var $nonOrderableRows = $('.gridRow:not(.orderable)', $category);
 		$nonOrderableRows.toggle(300);
 	};
@@ -182,8 +183,8 @@
 	 * @return {Array} A sequence array with the category data id as values.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.getCategorySequence_ =
-			function(itemsOrder) {
+	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
+			getCategorySequence_ = function(itemsOrder) {
 		var index, limit;
 		var categorySequence = [];
 		for (index = 0, limit = itemsOrder.length; index < limit; index++) {

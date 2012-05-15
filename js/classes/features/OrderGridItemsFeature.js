@@ -33,7 +33,7 @@
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.setupSortablePlugin =
 			function() {
-		this.applySortablePluginOnElements(
+		this.applySortPlgOnElements(
 				this.getGridHtmlElement(), 'tr.orderable', null);
 	};
 
@@ -77,8 +77,8 @@
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature.prototype.saveOrderResponseHandler_ =
-			function(ajaxContext, jsonData) {
+	$.pkp.classes.features.OrderGridItemsFeature.prototype.
+			saveOrderResponseHandler_ = function(ajaxContext, jsonData) {
 		jsonData = this.gridHandler_.handleJson(jsonData);
 		this.toggleState(false);
 	};

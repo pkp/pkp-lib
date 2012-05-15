@@ -33,7 +33,7 @@
 	//
 	/**
 	 * Get category id prefix.
-	 * @return {string}
+	 * @return {string} Category id prefix.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryIdPrefix =
 			function() {
@@ -48,7 +48,8 @@
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategories =
 			function() {
 		var gridIdPrefix = this.getGridIdPrefix();
-		return $('tbody[id^="' + gridIdPrefix + '-category-' + '"]:not(.empty)', this.getHtmlElement());
+		return $('tbody[id^="' + gridIdPrefix + '-category-' + '"]:not(.empty)',
+				this.getHtmlElement());
 	};
 
 
@@ -101,7 +102,8 @@
 
 	/**
 	 * Re-sequence all category elements based on the passed sequence map.
-	 * @param {array} sequenceMap A sequence array with the category element id as value.
+	 * @param {array} sequenceMap A sequence array with the category
+	 * element id as value.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.resequenceCategories =
 			function(sequenceMap) {
@@ -120,13 +122,14 @@
 	 * Move all empty category placeholders to their correct position,
 	 * below of each correspondent category element.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.updateEmptyPlaceholderPosition =
-			function() {
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.
+			updateEmptyPlaceholderPosition = function() {
 		var $categories = this.getCategories();
 		var index, limit;
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			var $category = $($categories[index]);
-			var $emptyPlaceholder = $('#' + $category.attr('id') + '-emptyPlaceholder', this.getHtmlElement());
+			var selector = '#' + $category.attr('id') + '-emptyPlaceholder';
+			var $emptyPlaceholder = $(selector, this.getHtmlElement());
 			if ($emptyPlaceholder.length > 0) {
 				$emptyPlaceholder.insertAfter($category);
 			}

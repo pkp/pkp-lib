@@ -51,11 +51,13 @@
 	// Private properties
 	//
 	/**
-	 * This timer is used to control closing the popover when blur events are detected.
+	 * This timer is used to control closing the
+	 * popover when blur events are detected.
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.popoverCloseTimer_ = null;
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.
+			popoverCloseTimer_ = null;
 
 
 	//
@@ -85,9 +87,11 @@
 			$('#' + editorId).parent().find('.localization_popover').show();
 		} else if (event.type == 'blur') {
 			// set a short timer to prevent the next popover from closing.
-			// this allows time for the next click event from the TinyMCE editor
-			// to cancel the timer.
-			this.popoverTimer = setTimeout(function() {$('.localization_popover').hide();}, 500);
+			// this allows time for the next click event from the
+			// TinyMCE editor to cancel the timer.
+			this.popoverTimer = setTimeout(function() {
+				$('.localization_popover').hide();
+			}, 500);
 		}
 	};
 

@@ -237,12 +237,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 *
 	 * @param {Object} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event (e.g. a click on
+	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.addItemHandler_ =
-			function(callingContext, event) {
+			function(callingContext, opt_event) {
 
 		// Close any existing edits if necessary
 		this.closeEdits();
@@ -261,12 +261,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 *
 	 * @param {Object} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event (e.g. a click on
+	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.deleteItemHandler_ =
-			function(callingContext, event) {
+			function(callingContext, opt_event) {
 
 		// Close any existing edits if necessary
 		this.closeEdits();
@@ -427,12 +427,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 *
 	 * @param {HTMLElement} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event (e.g. a click on
+	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.editItemHandler_ =
-			function(callingContext, event) {
+			function(callingContext, opt_event) {
 
 		var $targetRow = $(callingContext).closest('.gridRow');
 
@@ -489,16 +489,16 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 *
 	 * @param {HTMLElement} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event.
+	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
-			inputKeystrokeHandler_ = function(callingContext, event) {
+			inputKeystrokeHandler_ = function(callingContext, opt_event) {
 
 		var CR_KEY = 13;
 		var TAB_KEY = 9;
 
-		if (event.which == CR_KEY) {
+		if (opt_event.which == CR_KEY) {
 			var $target = $(callingContext);
 			var $row = $target.parents('.gridRow');
 			var $inputs = $row.find(':input:visible');
@@ -523,11 +523,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 *
 	 * @param {HTMLElement} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event.
+	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
-			inputBlurHandler_ = function(callingContext, event) {
+			inputBlurHandler_ = function(callingContext, opt_event) {
 
 		// Flag currently selected input using a CSS class. (Don't
 		// want to pass it into the closure because of the IE memory
@@ -577,7 +577,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			var $newContent = $(jsonData.content);
 
 			// Store current row id.
-			var rowId = this.getHtmlElement().find('.saveRowResponsePlaceholder').attr('id');
+			var rowId = this.getHtmlElement().
+					find('.saveRowResponsePlaceholder').attr('id');
 
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').
@@ -681,10 +682,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.disableControls = function() {
 
-		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').unbind('click');
+		this.getHtmlElement().
+				find('span[class="options"] > a[id*="addItem"]').unbind('click');
 
 		// binding false is the same as function() {return false;} in >= 1.4.2
-		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').click(false);
+		this.getHtmlElement().
+				find('span[class="options"] > a[id*="addItem"]').click(false);
 		this.getHtmlElement().find('.h3').addClass('spinner');
 	};
 

@@ -86,7 +86,7 @@
 	 * NB: If the method is found then it will be executed in the
 	 * context of the me parameter with the given arguments.
 	 *
-	 * @param {string=} methodName The name of the method to
+	 * @param {string=} opt_methodName The name of the method to
 	 *  be found. Do not set when calling this method from a
 	 *  constructor!
 	 * @param {...*} var_args Arguments to be passed to the
@@ -94,7 +94,7 @@
 	 * @return {*} The return value of the parent method.
 	 */
 	$.pkp.classes.ObjectProxy.prototype.parent =
-			function(methodName, var_args) {
+			function(opt_methodName, var_args) {
 
 		// Retrieve a reference to the function that called us.
 		var caller = $.pkp.classes.ObjectProxy.prototype.parent.caller,
@@ -115,19 +115,19 @@
 		args = Array.prototype.slice.call(arguments, 1);
 
 		// 2) Look for the caller in the top-level instance methods.
-		if (this.hasOwnProperty(methodName) && this[methodName] === caller) {
-			return this.constructor.parent_[methodName].apply(this, args);
+		if (this.hasOwnProperty(opt_methodName) && this[opt_methodName] === caller) {
+			return this.constructor.parent_[opt_methodName].apply(this, args);
 		}
 
 		// 3) Look for the caller in the prototype chain.
 		var foundCaller = false;
 		for (var ctor = this.constructor; ctor;
 				ctor = ctor.parent_ && ctor.parent_.constructor) {
-			if (ctor.prototype.hasOwnProperty(methodName) &&
-					ctor.prototype[methodName] === caller) {
+			if (ctor.prototype.hasOwnProperty(opt_methodName) &&
+					ctor.prototype[opt_methodName] === caller) {
 				foundCaller = true;
 			} else if (foundCaller) {
-				return ctor.prototype[methodName].apply(this, args);
+				return ctor.prototype[opt_methodName].apply(this, args);
 			}
 		}
 

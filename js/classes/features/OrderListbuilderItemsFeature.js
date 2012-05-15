@@ -35,17 +35,19 @@
 			function($gridElement, options) {
 		this.parent('addFeatureHtml', $gridElement, options);
 
-		$itemSequenceInput = $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
+		var $itemSequenceInput = $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
 		var $gridRows = this.gridHandler_.getRows();
 		$gridRows.append($itemSequenceInput);
 	};
 
+
 	/**
 	 * Set up the sortable plugin.
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.setupSortablePlugin =
-			function() {
-		this.applySortablePluginOnElements(this.getGridHtmlElement(), 'tr.orderable', null);
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			setupSortablePlugin = function() {
+		this.applySortPlgOnElements(
+				this.getGridHtmlElement(), 'tr.orderable', null);
 	};
 
 
@@ -99,8 +101,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.updateOrderCallback =
-			function(contextElement, event, ui) {
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			updateOrderCallback = function(contextElement, event, ui) {
 		this.parent('updateOrderCallback');
 		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
@@ -110,8 +112,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.clickOrderHandler =
-			function() {
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			clickOrderHandler = function() {
 		var $selects = $('select:visible', this.gridHandler_.getHtmlElement());
 		if ($selects.length > 0) {
 			var index, limit;
@@ -132,9 +134,7 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendRow =
 			function($newRow) {
-		this.toggleItemsDragMode();
-		var $rows = this.gridHandler_.getRows();
-		this.storeOrder($rows);
+		this.formatAndStoreNewRow_();
 	};
 
 
@@ -143,9 +143,7 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceRow =
 			function($newContent) {
-		this.toggleItemsDragMode();
-		var $rows = this.gridHandler_.getRows();
-		this.storeOrder($rows);
+		this.formatAndStoreNewRow_();
 	};
 
 
@@ -156,8 +154,8 @@
 	 * Enable/disable row content handlers.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.toggleContentHandlers_ =
-			function() {
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			toggleContentHandlers_ = function() {
 		var $rows = this.gridHandler_.getRows();
 		var index, limit;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
@@ -168,6 +166,19 @@
 				this.gridHandler_.attachContentHandlers_($row);
 			}
 		}
+	};
+
+
+	/**
+	 * Format and store new row.
+	 * @private
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			formatAndStoreNewRow_ = function() {
+		this.addOrderingClassToRows();
+		this.toggleItemsDragMode();
+		var $rows = this.gridHandler_.getRows();
+		this.storeOrder($rows);
 	};
 
 

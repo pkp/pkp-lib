@@ -25,13 +25,15 @@
 	 *
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler = function($handledElement, options) {
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler =
+			function($handledElement, options) {
 		this.parent($handledElement, options);
 
 		this.bind('refreshLegacyPluginModal',
 				this.callbackWrapper(this.refreshModalHandler_));
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxLegacyPluginModalHandler,
+	$.pkp.classes.Helper.inherits(
+			$.pkp.controllers.modal.AjaxLegacyPluginModalHandler,
 			$.pkp.controllers.modal.AjaxModalHandler);
 
 
@@ -114,8 +116,8 @@
 	 * Modal refresh callback. Transform html elements.
 	 * @private
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModalCallback_ =
-			function() {
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+			refreshModalCallback_ = function() {
 		var $dialogElement = this.getHtmlElement();
 
 		// Fix modal title.
@@ -148,8 +150,10 @@
 					'ui-tabs ui-widget ui-widget-content ui-corner-all');
 			$menu.children().addClass(
 					'ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all');
-			$menu.children().children().addClass('ui-state-default ui-corner-top');
-			$menu.children().find('.current').addClass('ui-tabs-selected ui-state-active');
+			$menu.children().children().
+					addClass('ui-state-default ui-corner-top');
+			$menu.children().find('.current').
+					addClass('ui-tabs-selected ui-state-active');
 		}
 
 		// Bind click handlers.
@@ -165,7 +169,8 @@
 		if ($formElements.length > 0) {
 			$formElements.bind('submit', this.callbackWrapper(this.submitFormHandler_));
 			$formElements.find('#cancelFormButton').unbind('click');
-			$formElements.find('#cancelFormButton').bind('click', this.callbackWrapper(this.modalClose));
+			$formElements.find('#cancelFormButton').
+					bind('click', this.callbackWrapper(this.modalClose));
 		}
 
 		// Reset the scrolling of the modal.
@@ -225,7 +230,8 @@
 			function(contextElement, linkElement, clickLinkHandler) {
 		var $link = $(linkElement);
 
-		// Check for the presence of scripts defined inside the element tag, as attributes.
+		// Check for the presence of scripts defined inside
+		// the element tag, as attributes.
 		if ($link.attr('onclick')) {
 			// We have an event handler. Make sure this handler will be passed to
 			// our click handler to be executed too.
@@ -254,8 +260,8 @@
 	 * @param {Object} onclickHandler On-click handler.
 	 * @return {boolean} Event handling status.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.clickLinkHandler_ =
-			function(contextElement, event, onclickHandler) {
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+			clickLinkHandler_ = function(contextElement, event, onclickHandler) {
 		event.preventDefault();
 
 		// We want to make sure that every script defined inside the onclick
@@ -295,8 +301,8 @@
 	 * @param {Event} event Incoming event.
 	 * @return {boolean} Event handling status.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.submitFormHandler_ =
-			function(form, event) {
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+			submitFormHandler_ = function(form, event) {
 		// Get the element that triggered the event.
 		var $form = $(form);
 

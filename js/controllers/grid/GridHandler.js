@@ -296,7 +296,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			function(hookName, args) {
 		var featureName;
 		for (featureName in this.features_) {
-			this.features_[featureName][hookName].apply(this.features_[featureName], args);
+			this.features_[featureName][hookName].
+					apply(this.features_[featureName], args);
 		}
 	};
 
@@ -359,16 +360,16 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
-	 * @param {number=} elementId The id of a data element that was
+	 * @param {number=} opt_elementId The id of a data element that was
 	 *  updated, added or deleted. If not given then the whole grid
 	 *  will be refreshed.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
-			function(sourceElement, event, elementId) {
+			function(sourceElement, event, opt_elementId) {
 
-		if (elementId) {
+		if (opt_elementId) {
 			// Retrieve a single row from the server.
-			$.get(this.fetchRowUrl_, {rowId: elementId},
+			$.get(this.fetchRowUrl_, {rowId: opt_elementId},
 					this.callbackWrapper(this.replaceRowResponseHandler_), 'json');
 		} else {
 			// Retrieve the whole grid from the server.
@@ -590,10 +591,13 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
 			function($controlRow) {
 		var delay = 300;
+		var $row = $controlRow.prev().find('td:not(.indent_row)');
 		if ($controlRow.is(':visible')) {
-			setTimeout(function() {$controlRow.prev().find('td:not(.indent_row)').removeClass('no_border');}, delay);
+			setTimeout(function() {
+				$row.removeClass('no_border');
+			}, delay);
 		} else {
-			$controlRow.prev().find('td:not(.indent_row)').addClass('no_border');
+			$row.addClass('no_border');
 		}
 		$controlRow.toggle(delay);
 		clearTimeout();
@@ -604,7 +608,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * Add a grid feature.
 	 * @private
 	 * @param {string} id Feature id.
-	 * @param {$.pkp.classes.features.Feature} $feature
+	 * @param {$.pkp.classes.features.Feature} $feature The grid
+	 * feature to be added.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.addFeature_ =
 			function(id, $feature) {
@@ -613,8 +618,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 		this.features_[id] = $feature;
 	};
-	
-	
+
+
 	/**
 	 * Add grid features.
 	 * @private
@@ -628,7 +633,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 					($.pkp.classes.Helper.objectFactory(
 							features[id].JSClass,
 							[this, features[id].options]));
-	
+
 			this.addFeature_(id, $feature);
 			this.features_[id].init();
 		}

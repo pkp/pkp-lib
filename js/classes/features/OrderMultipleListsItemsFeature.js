@@ -67,29 +67,30 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.setupSortablePlugin =
-			function() {
+	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+			setupSortablePlugin = function() {
 		var $lists = this.gridHandler_.getLists().find('tbody');
 		var extraParams = {connectWith: $lists};
-		this.applySortablePluginOnElements($lists, 'tr.orderable', extraParams);
+		this.applySortPlgOnElements($lists, 'tr.orderable', extraParams);
 	};
 
 
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.dragStartCallback =
-			function(contextElement, event, ui) {
+	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+			dragStartCallback = function(contextElement, event, ui) {
 		var $list = this.gridHandler_.getListByRow(ui.item);
-		this.gridHandler_.toggleListNoItemsRow($list, 1, '.ui-sortable-placeholder, .ui-sortable-helper');
+		this.gridHandler_.toggleListNoItemsRow(
+				$list, 1, '.ui-sortable-placeholder, .ui-sortable-helper');
 	};
 
 
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.dragStopCallback =
-			function(contextElement, event, ui) {
+	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+			dragStopCallback = function(contextElement, event, ui) {
 		var $list = this.gridHandler_.getListByRow(ui.item);
 		this.gridHandler_.toggleListNoItemsRow($list, 0, null);
 	};

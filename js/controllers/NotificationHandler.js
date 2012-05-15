@@ -160,11 +160,14 @@
 		var workingNotificationsData = notificationsData;
 		var emptyObject = true;
 		for (var levelId in workingNotificationsData.content.inPlace) {
-			for (var notificationId in workingNotificationsData.content.inPlace[levelId]) {
+			for (var notificationId in
+					workingNotificationsData.content.inPlace[levelId]) {
 				var element = $('#pkp_notification_' + notificationId);
 				if (element.length > 0) {
-					delete workingNotificationsData.content.inPlace[levelId][notificationId];
-					delete workingNotificationsData.content.general[levelId][notificationId];
+					delete workingNotificationsData.content.
+							inPlace[levelId][notificationId];
+					delete workingNotificationsData.content.
+							general[levelId][notificationId];
 				} else {
 					emptyObject = false;
 				}

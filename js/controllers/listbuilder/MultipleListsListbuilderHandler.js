@@ -25,7 +25,8 @@
 			function($listbuilder, options) {
 		this.parent($listbuilder, options);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.listbuilder.MultipleListsListbuilderHandler,
+	$.pkp.classes.Helper.inherits(
+			$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler,
 			$.pkp.controllers.listbuilder.ListbuilderHandler);
 
 

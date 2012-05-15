@@ -61,7 +61,7 @@
 	/**
 	 * Activate extra content.
 	 * @private
-	 * @param {string} opt_duration The effect duration.
+	 * @param {string=} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
@@ -108,7 +108,7 @@
 	/**
 	 * Deactivate extra content.
 	 * @private
-	 * @param {string} opt_duration The effect duration.
+	 * @param {string=} opt_duration The effect duration.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.deactivateExtraContent_ =
 			function(opt_duration) {

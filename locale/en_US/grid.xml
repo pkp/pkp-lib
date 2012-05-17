@@ -30,6 +30,8 @@
 	<message key="grid.action.upgrade">Upgrade</message>
 	<message key="grid.action.order">Order</message>
 	<message key="grid.action.cancelOrdering">Cancel ordering</message>
+	<message key="grid.action.extendAll">Extend all</message>
+	<message key="grid.action.collapseAll">Collapse all</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

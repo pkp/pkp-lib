@@ -35,7 +35,7 @@
 			function($gridElement, options) {
 		this.parent('addFeatureHtml', $gridElement, options);
 
-		var $itemSequenceInput = $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
+		var $itemSequenceInput = this.getSequenceInput_();
 		var $gridRows = this.gridHandler_.getRows();
 		$gridRows.append($itemSequenceInput);
 	};
@@ -114,7 +114,7 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			clickOrderHandler = function() {
-		var $selects = $('select:visible', this.gridHandler_.getHtmlElement());
+		var $selects = $('select:visible', this.getGridHtmlElement());
 		if ($selects.length > 0) {
 			var index, limit;
 			for (index = 0, limit = $selects.length; index < limit; index++) {
@@ -134,7 +134,8 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendRow =
 			function($newRow) {
-		this.formatAndStoreNewRow_();
+		this.parent('appendRow', $newRow);
+		this.formatAndStoreNewRow_($newRow);
 	};
 
 
@@ -143,13 +144,24 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceRow =
 			function($newContent) {
-		this.formatAndStoreNewRow_();
+		this.parent('replaceRow', $newContent);
+		this.formatAndStoreNewRow_($newContent);
 	};
 
 
 	//
 	// Private helper methods.
 	//
+	/**
+	 * Get the sequence input html element.
+	 * @return {jQuery} Sequence input.
+	 */
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+			getSequenceInput_ = function() {
+		return $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
+	};
+
+
 	/**
 	 * Enable/disable row content handlers.
 	 * @private
@@ -172,10 +184,12 @@
 	/**
 	 * Format and store new row.
 	 * @private
+	 * @param {jQuery} $row The new row element.
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
-			formatAndStoreNewRow_ = function() {
-		this.addOrderingClassToRows();
+			formatAndStoreNewRow_ = function($row) {
+		var $sequenceInput = this.getSequenceInput_();
+		$row.append($sequenceInput);
 		this.toggleItemsDragMode();
 		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);

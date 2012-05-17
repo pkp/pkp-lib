@@ -74,8 +74,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	}
 
 	/**
-	 * Hook called on grid category row initialization.
-	 * @param $args array 'row' => GridCategoryRow
+	 * @see GridFeature::getInitializedCategoryRowInstance()
 	 */
 	function getInitializedCategoryRowInstance($args) {
 		if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {

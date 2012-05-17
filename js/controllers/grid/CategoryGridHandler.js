@@ -47,8 +47,7 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategories =
 			function() {
-		var gridIdPrefix = this.getGridIdPrefix();
-		return $('tbody[id^="' + gridIdPrefix + '-category-' + '"]:not(.empty)',
+		return $('.category_grid_body:not(.empty)',
 				this.getHtmlElement());
 	};
 
@@ -61,6 +60,17 @@
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
 			function($category) {
 		return $('tr.category', $category);
+	};
+
+	/**
+	 * Get the category empty placeholder.
+	 * @param {jQuery} $category A grid category element.
+	 * @return {jQuery} The category empty placeholder.
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.
+			getCategoryEmptyPlaceholder = function($category) {
+		var selector = '#' + $category.attr('id') + '-emptyPlaceholder';
+		return $(selector, this.getHtmlElement());
 	};
 
 
@@ -128,8 +138,7 @@
 		var index, limit;
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			var $category = $($categories[index]);
-			var selector = '#' + $category.attr('id') + '-emptyPlaceholder';
-			var $emptyPlaceholder = $(selector, this.getHtmlElement());
+			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($category);
 			if ($emptyPlaceholder.length > 0) {
 				$emptyPlaceholder.insertAfter($category);
 			}

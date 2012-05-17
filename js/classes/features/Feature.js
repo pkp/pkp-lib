@@ -86,17 +86,6 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 	/**
 	 * Hook into the replace row content grid functionality.
-	 * @param {jQuery} $newRow The row new content to be shown.
-	 * @return {boolean} Always returns false.
-	 */
-	$.pkp.classes.features.Feature.prototype.appendRow =
-			function($newRow) {
-		return false;
-	};
-
-
-	/**
-	 * Hook into the replace row content grid functionality.
 	 * @param {jQuery} $newContent The row new content to be shown.
 	 * @return {boolean} Always returns false.
 	 */
@@ -110,6 +99,17 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	// Protected methods.
 	//
 	/**
+	 * Use the grid handler object and call the
+	 * callback wrapper method there.
+	 * @see $.pkp.classes.Handler.callbackWrapper()
+	 */
+	$.pkp.classes.features.Feature.prototype.callbackWrapper =
+			function(callback, opt_context) {
+		return this.gridHandler_.callbackWrapper(callback, opt_context);
+	};
+
+
+	/**
 	 * Extend to add extra html elements in the component
 	 * that this feature is attached to.
 	 * @param {jQuery} $gridElement Grid element to add elements to.
@@ -118,6 +118,18 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		// Default implementation does nothing.
+	};
+
+
+	/**
+	 * Get the html element of the grid that this feature
+	 * is attached to.
+	 *
+	 * @return {jQuery} Return the grid's HTML element.
+	 */
+	$.pkp.classes.features.Feature.prototype.getGridHtmlElement =
+			function() {
+		return this.gridHandler_.getHtmlElement();
 	};
 
 

@@ -197,6 +197,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 			$gridBody = this.getHtmlElement().find(this.bodySelector_);
 		}
 		$gridBody.append($newRow);
+		this.callFeaturesHook('appendRow', $newRow);
 	};
 
 
@@ -295,6 +296,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.callFeaturesHook =
 			function(hookName, args) {
 		var featureName;
+		if (!$.isArray(args)) {
+			args = [args];
+		}
 		for (featureName in this.features_) {
 			this.features_[featureName][hookName].
 					apply(this.features_[featureName], args);
@@ -500,6 +504,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				// Update row.
 				this.deleteControlsRow_($existingRow);
 				$existingRow.replaceWith($newRow);
+				this.callFeaturesHook('replaceRow', $newRow);
 			} else {
 				// Insert row.
 				this.appendRow($newRow);

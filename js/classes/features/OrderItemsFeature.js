@@ -136,18 +136,6 @@
 
 
 	/**
-	 * Get the html element of the grid that this feature
-	 * is attached to.
-	 *
-	 * @return {jQuery} Return the grid's HTML element.
-	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getGridHtmlElement =
-			function() {
-		return this.gridHandler_.getHtmlElement();
-	};
-
-
-	/**
 	 * Get the move item row action element selector.
 	 * @return {string} Return the element selector.
 	 */
@@ -439,6 +427,27 @@
 			$rowActions.show();
 			$moveItemRowAction.hide();
 		}
+	};
+
+
+	//
+	// Hooks implementation.
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.appendRow =
+			function($row) {
+		this.addOrderingClassToRows();
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.replaceRow =
+			function($content) {
+		this.addOrderingClassToRows();
 	};
 
 

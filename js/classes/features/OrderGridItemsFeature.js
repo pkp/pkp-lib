@@ -45,7 +45,7 @@
 			function() {
 		this.parent('saveOrderHandler');
 		var stringifiedData = JSON.stringify(this.getItemsDataId());
-		var saveOrderCallback = this.gridHandler_.callbackWrapper(
+		var saveOrderCallback = this.callbackWrapper(
 				this.saveOrderResponseHandler_, this);
 		$.post(this.options_.saveItemsSequenceUrl, {data: stringifiedData},
 				saveOrderCallback, 'json');

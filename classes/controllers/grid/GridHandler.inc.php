@@ -409,6 +409,11 @@ class GridHandler extends PKPHandler {
 		$renderedFilter = $this->renderFilter($request);
 		$templateMgr->assign('gridFilterForm', $renderedFilter);
 
+		// Add columns.
+		$this->setRowActionToggleColumn();
+		$columns =& $this->getColumns();
+		$templateMgr->assign_by_ref('columns', $columns);
+
 		// Do specific actions to fetch this grid.
 		$this->doSpecificFetchGridActions($args, $request, $templateMgr);
 
@@ -444,6 +449,7 @@ class GridHandler extends PKPHandler {
 			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested row
+			$this->setRowActionToggleColumn();
 			$json->setContent($this->_renderRowInternally($request, $row));
 		}
 
@@ -461,6 +467,7 @@ class GridHandler extends PKPHandler {
 		// Check the requested column
 		if(!isset($args['columnId'])) fatalError('Missing column id!');
 		if(!$this->hasColumn($args['columnId'])) fatalError('Invalid column id!');
+		$this->setRowActionToggleColumn();
 		$column =& $this->getColumn($args['columnId']);
 
 		// Instantiate the requested row
@@ -709,16 +716,24 @@ class GridHandler extends PKPHandler {
 	 * @param $request Request
 	 */
 	function doSpecificFetchGridActions($args, &$request, &$templateMgr) {
-		// Add columns to the view.
 		$this->_fixColumnWidths();
-		$columns =& $this->getColumns();
-		$firstColumn = reset($columns); /* @var $firstColumn GridColumn */
-		$firstColumn->addFlag('hasRowActionsToggle', true);
-		$templateMgr->assign_by_ref('columns', $columns);
 
 		// Render the body elements.
 		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+	}
+
+	/**
+	 * Define the column that will contain the
+	 * row action toggle, if any row action is present.
+	 *
+	 * Override this method to define a different column
+	 * than the first one.
+	 */
+	function setRowActionToggleColumn() {
+		$columns =& $this->getColumns();
+		$firstColumn =& reset($columns);
+		$firstColumn->addFlag('hasRowActionsToggle', true);
 	}
 
 	/**
@@ -844,6 +859,7 @@ class GridHandler extends PKPHandler {
 
 		// Pass control to the view to render the row
 		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign_by_ref('grid', &$this);
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign_by_ref('cells', $renderedCells);
 		$templateMgr->assign_by_ref('row', $row);

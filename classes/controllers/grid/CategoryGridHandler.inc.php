@@ -77,6 +77,7 @@ class CategoryGridHandler extends GridHandler {
 			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested category
+			$this->setRowActionToggleColumn();
 			$json->setContent($this->_renderCategoryInternally($request, $row));
 		}
 
@@ -99,18 +100,22 @@ class CategoryGridHandler extends GridHandler {
 	 * @see GridHandler::doSpecificFetchGridActions($args, $request)
 	 */
 	function doSpecificFetchGridActions($args, $request, &$templateMgr) {
-		// Add columns to the view
-		$columns =& $this->getColumns();
-
-		// First column is used to indent the rows.
-		reset($columns);
-		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
-		$secondColumn->addFlag('hasRowActionsToggle', true);
-		$templateMgr->assign_by_ref('columns', $columns);
-
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+	}
+
+	/**
+	 * @see GridHandler::setRowActionToggleColumn()
+	 */
+	function setRowActionToggleColumn() {
+		$columns =& $this->getColumns();
+		reset($columns);
+		// Category grids will always have indent column firstly,
+		// so we need to add the row action toggle inside
+		// the seconde one.
+		$secondColumn =& next($columns); /* @var $secondColumn GridColumn */
+		$secondColumn->addFlag('hasRowActionsToggle', true);
 	}
 
 

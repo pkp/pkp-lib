@@ -66,14 +66,13 @@
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.init =
 			function() {
-		var $collapseAllLink = $('.grid_header_bar .expand_all',
+		$('.grid_header_bar .expand_all', this.getGridHtmlElement()).
+				click(this.callbackWrapper(this.expandAllClickHandler_, this));
+
+		$collapseAllLink = $('.grid_header_bar .collapse_all',
 				this.getGridHtmlElement());
 		$collapseAllLink.click(this.callbackWrapper(
-				this.expandAllClickHandler_, this));
-
-		$('.grid_header_bar .collapse_all', this.getGridHtmlElement()).
-				click(this.callbackWrapper(
-						this.collapseAllClickHandler_, this));
+				this.collapseAllClickHandler_, this));
 
 		var $accordionLinkActions = this.getAccordionLinks();
 		$accordionLinkActions.click(

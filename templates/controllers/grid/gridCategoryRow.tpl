@@ -23,5 +23,7 @@
 			{/foreach}
 		</div>
 	{/if}
-	<h3>{$categoryRow->getCategoryLabel()|escape}</h3>
+	{if $categoryRow->getCategoryLabel()}
+		<h3>{$categoryRow->getCategoryLabel()|escape}</h3>
+	{/if}
 </td>

@@ -453,6 +453,7 @@ class PKPTemplateManager extends Smarty {
 
 		$id = $params['id'];
 		$key = isset($params['key'])?$params['key']:null;
+		$hoverTitle = isset($params['hoverTitle'])?true:false;
 		$image = isset($params['image'])?$params['image']:null;
 		$translate = isset($params['translate'])?false:true;
 
@@ -463,6 +464,7 @@ class PKPTemplateManager extends Smarty {
 			$id, new NullAction(), $key, $image
 		));
 
+		$this->assign('hoverTitle', $hoverTitle);
 		return $this->fetch('linkAction/linkAction.tpl');
 	}
 

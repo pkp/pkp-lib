@@ -47,7 +47,8 @@
 			var pageAnchor = pageUrl.split('#')[1];
 			var tabAnchors = $tabs.find('li a');
 			for (var i = 0; i < tabAnchors.length; i++) {
-				var pattern = RegExp('=' + pageAnchor + '$');
+				var pattern = RegExp('[/=]' + pageAnchor + '$');
+				console.log(tabAnchors[i].getAttribute('href'));
 				if (tabAnchors[i].getAttribute('href').match(pattern)) {
 					options.selected = i;
 				}

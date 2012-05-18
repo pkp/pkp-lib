@@ -15,7 +15,7 @@
 {if !$imageClass}
 	{assign var="imageClass" value="sprite"}
 {/if}
-<a href="#" id="{$buttonId|escape}" {strip}
+<a href="javascript:$.noop();" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
 		class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"
 		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}

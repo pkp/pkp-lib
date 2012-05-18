@@ -6,7 +6,7 @@
  *
  * Controls (button and link) to finish the ordering action in grids.
  *}
-<div class="grid_controls order_finish_controls pkp_helpers_display_none">
+<div class="grid_controls order_finish_controls">
 {fbvElement type="link" class="cancelFormButton pkp_helpers_align_left" id=$gridId|concat:"-cancel" label="grid.action.cancelOrdering"}
 {fbvElement type="link" class="saveButton pkp_helpers_align_right" id=$gridId|concat:"-saveButton" label="common.done"}
 </div>

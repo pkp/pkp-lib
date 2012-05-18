@@ -218,7 +218,9 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		if (options.orderFinishControls != undefined) {
-			$gridElement.find('table').last().after($(options.orderFinishControls));
+			var $orderFinishControls = $(options.orderFinishControls);
+			$gridElement.find('table').last().after($orderFinishControls);
+			$orderFinishControls.hide();
 		}
 	};
 
@@ -417,14 +419,16 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
-		var $rowActions = $('.row_actions', this.getGridHtmlElement()).children();
+		var $actionsContainer = $('div.row_actions', this.getGridHtmlElement());
+		var $rowActions = $actionsContainer.find('a:not(' +
+				this.getMoveItemRowActionSelector() + ')');
 		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(),
 				this.getGridHtmlElement());
 		if (enable) {
-			$rowActions.hide();
+			$rowActions.addClass('pkp_helpers_display_none');
 			$moveItemRowAction.show();
 		} else {
-			$rowActions.show();
+			$rowActions.removeClass('pkp_helpers_display_none');
 			$moveItemRowAction.hide();
 		}
 	};

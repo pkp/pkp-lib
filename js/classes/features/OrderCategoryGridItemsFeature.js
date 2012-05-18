@@ -160,20 +160,6 @@
 		} else {
 			$categoryRowColumn.removeClass(moveClasses);
 		}
-
-		this.toggleRowsInCategory_($category);
-	};
-
-
-	/**
-	 * Show/hide non orderable rows inside the passed category.
-	 * @param {jQuery} $category JQuery category object.
-	 * @private
-	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
-			toggleRowsInCategory_ = function($category) {
-		var $nonOrderableRows = $('.gridRow:not(.orderable)', $category);
-		$nonOrderableRows.toggle(300);
 	};
 
 

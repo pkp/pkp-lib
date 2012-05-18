@@ -190,7 +190,6 @@
 			formatAndStoreNewRow_ = function($row) {
 		var $sequenceInput = this.getSequenceInput_();
 		$row.append($sequenceInput);
-		this.toggleItemsDragMode();
 		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};

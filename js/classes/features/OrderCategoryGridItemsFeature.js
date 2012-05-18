@@ -29,16 +29,6 @@
 	// Extended methods from OrderItemsFeature.
 	//
 	/**
-	 * @inheritDoc
-	 */
-	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.init =
-			function() {
-		this.parent('init');
-		this.toggleMoveItemRowAction(false);
-	};
-
-
-	/**
 	 * Setup the sortable plugin.
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.

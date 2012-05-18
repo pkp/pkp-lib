@@ -221,7 +221,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
-	 * Hide all visible row actions.
+	 * Hide all visible row controls.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.hideAllVisibleRowActions =
 			function() {
@@ -229,6 +229,45 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var index, limit;
 		for (index = 0, limit = $visibleControlRows.length; index < limit; index++) {
 			this.applyToggleRowActionEffect_($($visibleControlRows[index]));
+		}
+	};
+
+
+	/**
+	 * Hide row actions div container.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.hideRowActionsDiv =
+			function() {
+		var $rowActionDivs = $('.gridRow div.row_actions', this.getHtmlElement());
+		$rowActionDivs.hide();
+
+		// FIXME: Hack to correctly align the first column cell content after
+		// hiding the row actions div.
+		var index, limit;
+		for (index = 0, limit = $rowActionDivs.length; index < limit; index++) {
+			var $div = $($rowActionDivs[index]);
+			$div.parents('.row_container:first').
+					attr('style', 'padding-left:0px !important');
+		}
+	};
+
+
+	/**
+	 * Show row actions div container.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.showRowActionsDiv =
+			function() {
+
+		var $rowActionDivs = $('.gridRow div.row_actions', this.getHtmlElement());
+		$rowActionDivs.show();
+
+		// FIXME: This is a hack. It removes the inline style that grid handler
+		// inserts in the row container when it hides the row actions div.
+		// See $.pkp.controllers.grid.GridHandler.prototype.hideRowActionsDiv
+		var index, limit;
+		for (index = 0, limit = $rowActionDivs.length; index < limit; index++) {
+			var $div = $($rowActionDivs[index]);
+			$div.parents('.row_container:first').removeAttr('style');
 		}
 	};
 

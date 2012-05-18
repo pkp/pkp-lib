@@ -204,6 +204,7 @@
 			function() {
 
 		this.addOrderingClassToRows();
+		this.toggleMoveItemRowAction(this.isOrdering_);
 
 		this.toggleOrderLink_();
 		if (this.isOrdering_) {
@@ -419,16 +420,27 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
-		var $actionsContainer = $('div.row_actions', this.getGridHtmlElement());
-		var $rowActions = $actionsContainer.find('a:not(' +
-				this.getMoveItemRowActionSelector() + ')');
-		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(),
-				this.getGridHtmlElement());
+		var $grid = this.getGridHtmlElement();
+		var $actionsContainer = $('div.row_actions', $grid);
+		var allLinksButMoveItemSelector = 'a:not(' +
+				this.getMoveItemRowActionSelector() + ')';
+		var $actions = $actionsContainer.find(allLinksButMoveItemSelector);
+		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(), $grid);
 		if (enable) {
-			$rowActions.addClass('pkp_helpers_display_none');
+			$actions.addClass('pkp_helpers_display_none');
 			$moveItemRowAction.show();
+			// Make sure row actions div is visible.
+			this.gridHandler_.showRowActionsDiv();
 		} else {
-			$rowActions.removeClass('pkp_helpers_display_none');
+			$actions.removeClass('pkp_helpers_display_none');
+
+			var $rowActionsContainer = $('.gridRow div.row_actions', $grid);
+			var $rowActions = $rowActionsContainer.
+					find(allLinksButMoveItemSelector);
+			if ($rowActions.length == 0) {
+				// No link action to show, hide row actions div.
+				this.gridHandler_.hideRowActionsDiv();
+			}
 			$moveItemRowAction.hide();
 		}
 	};
@@ -443,6 +455,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.appendRow =
 			function($row) {
 		this.addOrderingClassToRows();
+		this.toggleItemsDragMode();
 	};
 
 
@@ -452,6 +465,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.replaceRow =
 			function($content) {
 		this.addOrderingClassToRows();
+		this.toggleItemsDragMode();
 	};
 
 

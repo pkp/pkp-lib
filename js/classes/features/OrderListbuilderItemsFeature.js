@@ -154,11 +154,13 @@
 	//
 	/**
 	 * Get the sequence input html element.
+	 * @private
 	 * @return {jQuery} Sequence input.
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			getSequenceInput_ = function() {
-		return $('<input type="hidden" name="newRowId[sequence]" class="itemSequence" />');
+		return $('<input type="hidden" name="newRowId[sequence]" ' +
+				'class="itemSequence" />');
 	};
 
 

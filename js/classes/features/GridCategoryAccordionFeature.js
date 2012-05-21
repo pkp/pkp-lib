@@ -30,7 +30,7 @@
 	//
 	/**
 	 * Get the css class for the extend accordion action.
-	 * @return {string}
+	 * @return {string} Extend link action css class.
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			getExpandClass = function() {
@@ -40,7 +40,7 @@
 
 	/**
 	 * Get the css class for the collapse accordion action.
-	 * @return {string}
+	 * @return {string} Collapse link action css class.
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			getCollapseClass = function() {
@@ -69,7 +69,7 @@
 		$('.grid_header_bar .expand_all', this.getGridHtmlElement()).
 				click(this.callbackWrapper(this.expandAllClickHandler_, this));
 
-		$collapseAllLink = $('.grid_header_bar .collapse_all',
+		var $collapseAllLink = $('.grid_header_bar .collapse_all',
 				this.getGridHtmlElement());
 		$collapseAllLink.click(this.callbackWrapper(
 				this.collapseAllClickHandler_, this));
@@ -87,6 +87,7 @@
 	//
 	/**
 	 * Expand all link action click handler.
+	 * @private
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
@@ -104,6 +105,7 @@
 
 	/**
 	 * Collapse all link action click handler.
+	 * @private
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
@@ -121,6 +123,7 @@
 
 	/**
 	 * Grid category row accordion link action click handler.
+	 * @private
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.

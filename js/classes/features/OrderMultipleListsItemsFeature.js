@@ -35,7 +35,8 @@
 			function($gridElement, options) {
 		this.parent('addFeatureHtml', $gridElement, options);
 
-		var $listInput = $('<input type="hidden" name="newRowId[listId]" class="itemList" />');
+		var $listInput = $('<input type="hidden" name="newRowId[listId]" ' +
+				'class="itemList" />');
 		var $gridRows = this.gridHandler_.getRows();
 		var index, limit;
 		for (index = 0, limit = $gridRows.length; index < limit; index++) {

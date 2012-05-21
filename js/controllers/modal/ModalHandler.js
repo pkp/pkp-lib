@@ -262,7 +262,8 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			function($handledElement, options) {
 
 		// The new close button.
-		var $closeButton = $('<a id="cancelFormButton" class="cancelFormButton" href="#">Cancel</a>');
+		var $closeButton = $('<a id="cancelFormButton" ' +
+				'class="cancelFormButton" href="#">Cancel</a>');
 
 		var $parentElement = $handledElement.parent();
 		// make changes to widen the button bar, and move the close button to the left

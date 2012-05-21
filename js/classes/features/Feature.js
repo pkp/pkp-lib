@@ -102,6 +102,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 * Use the grid handler object and call the
 	 * callback wrapper method there.
 	 * @see $.pkp.classes.Handler.callbackWrapper()
+	 * @return {Function} Callback function.
 	 */
 	$.pkp.classes.features.Feature.prototype.callbackWrapper =
 			function(callback, opt_context) {

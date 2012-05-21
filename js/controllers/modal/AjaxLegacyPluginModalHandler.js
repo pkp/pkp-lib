@@ -149,7 +149,8 @@
 			$menu.addClass(
 					'ui-tabs ui-widget ui-widget-content ui-corner-all');
 			$menu.children().addClass(
-					'ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all');
+					'ui-tabs-nav ui-helper-reset ui-helper-clearfix ' +
+					'ui-widget-header ui-corner-all');
 			$menu.children().children().
 					addClass('ui-state-default ui-corner-top');
 			$menu.children().find('.current').
@@ -199,7 +200,8 @@
 	 * @param {Event} event Incoming event.
 	 * @param {string} url Modal refresh URL.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModalHandler_ =
+	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.
+			prototype.refreshModalHandler_ =
 			function($context, modalHtmlElement, event, url) {
 		// Refresh modal using the event data as url to fetch the content.
 		if (url) {

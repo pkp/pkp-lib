@@ -62,6 +62,7 @@
 		return $('tr.category', $category);
 	};
 
+
 	/**
 	 * Get the category empty placeholder.
 	 * @param {jQuery} $category A grid category element.

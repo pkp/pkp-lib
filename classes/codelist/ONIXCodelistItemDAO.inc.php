@@ -83,7 +83,8 @@ class ONIXCodelistItemDAO extends DAO {
 
 			$xslFile = 'lib/pkp/xml/onixFilter.xsl';
 			$filteredXml = $xslTransformer->transform($filename, XSL_TRANSFORMER_DOCTYPE_FILE, $xslFile, XSL_TRANSFORMER_DOCTYPE_FILE, XSL_TRANSFORMER_DOCTYPE_STRING);
-			assert($filteredXml);
+			if (!$filteredXml) {assert(false);}
+
 			$data = null;
 
 			if (is_writeable($tmpName)) {

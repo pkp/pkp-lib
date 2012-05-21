@@ -231,7 +231,10 @@ class CategoryGridHandler extends GridHandler {
 
 		// Initialize the row before we render it
 		$row->initialize($request);
-		$this->callFeaturesHook('getInitializedCategoryRowInstance', array('row' => &$row));
+		$this->callFeaturesHook('getInitializedCategoryRowInstance',
+			array('request' => &$request,
+				'grid' => &$this,
+				'row' => &$row));
 		return $row;
 	}
 

@@ -65,7 +65,17 @@ class GridCategoryAccordionFeature extends GridFeature{
 	 * @see GridFeature::getInitializedCategoryRowInstance()
 	 */
 	function getInitializedCategoryRowInstance($args) {
+		$request =& $args['request'];
+		$grid =& $args['grid'];
 		$row =& $args['row'];
+
+		// Check if we have category data, if not, don't
+		// add the accordion link actions.
+		$data = $row->getData();
+		$filter = $grid->getFilterSelectionData($request);
+		$categoryData = $grid->getCategoryData($data, $filter);
+
+		if (empty($categoryData)) return;
 
 		$row->addAction(
 			new LinkAction(

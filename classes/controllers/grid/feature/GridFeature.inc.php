@@ -125,7 +125,9 @@ class GridFeature {
 
 	/**
 	 * Hook called on grid category row initialization.
-	 * @param $args array 'row' => GridCategoryRow
+	 * @param $args array 'request' => Request
+	 * 'grid' => CategoryGridHandler
+	 * 'row' => GridCategoryRow
 	 */
 	function getInitializedCategoryRowInstance($args) {
 		return null;

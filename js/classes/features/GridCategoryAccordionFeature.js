@@ -79,6 +79,10 @@
 				this.callbackWrapper(this.accordionRowClickHandler_, this));
 
 		$collapseAllLink.click();
+
+		// Hide all no items tbody.
+		var $emptyPlaceholders = $('tbody.empty', this.getGridHtmlElement());
+		$emptyPlaceholders.hide();
 	};
 
 
@@ -154,7 +158,46 @@
 			$categoryElements.hide();
 		}
 
+		this.updateGridActions_();
+
 		return false;
+	};
+
+
+	/**
+	 * Hide/show accordions grid actions depending on the
+	 * state of the categories (all expanded or collapsed).
+	 * This is called every time a accordionRowClickHandler
+	 * is executed.
+	 * @private
+	 */
+	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+			updateGridActions_ = function() {
+		// Only execute if grid is visible.
+		if (!this.getGridHtmlElement().is(':visible')) return;
+
+		var $grid = this.getGridHtmlElement();
+		var selectors = '.' + this.getExpandClass() +
+				', .' + this.getCollapseClass();
+		var $allRowActions = $(selectors, $grid).filter(':visible');
+
+		var $expandActions = $('.' + this.getExpandClass(), $grid).
+				filter(':visible');
+		var $collapseActions = $('.' + this.getCollapseClass(), $grid).
+				filter(':visible');
+
+		var $gridCollapseAction = $('.grid_header_bar .collapse_all');
+		var $gridExpandAction = $('.grid_header_bar .expand_all');
+
+		if ($allRowActions.length == $expandActions.length &&
+				$gridCollapseAction.is(':visible')) {
+			// Show the expand all action.
+			$gridCollapseAction.click();
+		} else if ($allRowActions.length == $collapseActions.length &&
+				$gridExpandAction.is(':visible')) {
+			// Show the collapse all action.
+			$gridExpandAction.click();
+		}
 	};
 
 

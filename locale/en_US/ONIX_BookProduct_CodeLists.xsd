@@ -1698,7 +1698,7 @@
 			<xs:enumeration value="09">
 				<xs:annotation>
 					<xs:documentation>CPA</xs:documentation>
-					<xs:documentation>Statistical Classification of Products by Activity in the European Economic Community, see http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=CPA_2008. Up to six digits, with one or two periods. For example, printed children's books are “58.11.13”.</xs:documentation>
+					<xs:documentation>Statistical Classification of Products by Activity in the European Economic Community, see http://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&amp;StrNom=CPA_2008. Up to six digits, with one or two periods. For example, printed children's books are '58.11.13'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -1710,7 +1710,7 @@
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="000">
 				<xs:annotation>
-					<xs:documentation>Epublication “content package”</xs:documentation>
+					<xs:documentation>Epublication 'content package'</xs:documentation>
 					<xs:documentation>An epublication viewed as a unique package of content which may be converted into any of a number of different types for delivery to the consumer. This code is used when an ONIX &lt;Product&gt; record describes the content package and lists within the record the different forms in which it is available.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -2225,19 +2225,19 @@
 			<xs:enumeration value="01">
 				<xs:annotation>
 					<xs:documentation>Sentence case</xs:documentation>
-					<xs:documentation>Initial capitals on first word and subsequently on proper names only, eg “The conquest of Mexico”.</xs:documentation>
+					<xs:documentation>Initial capitals on first word and subsequently on proper names only, eg 'The conquest of Mexico'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02">
 				<xs:annotation>
 					<xs:documentation>Title case</xs:documentation>
-					<xs:documentation>Initial capitals on first word and on all significant words thereafter, eg “The Conquest of Mexico”.</xs:documentation>
+					<xs:documentation>Initial capitals on first word and on all significant words thereafter, eg 'The Conquest of Mexico'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="03">
 				<xs:annotation>
 					<xs:documentation>All capitals</xs:documentation>
-					<xs:documentation>For example, “THE CONQUEST OF MEXICO”.</xs:documentation>
+					<xs:documentation>For example, 'THE CONQUEST OF MEXICO'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -2256,7 +2256,7 @@
 			<xs:enumeration value="01">
 				<xs:annotation>
 					<xs:documentation>Distinctive title (book); Cover title (serial); Title on item (serial content item or reviewed resource)</xs:documentation>
-					<xs:documentation>The full text of the distinctive title of the item, without abbreviation or abridgement. For books, where the title alone is not distinctive, elements may be taken from a set or series title and part number etc to create a distinctive title. Where the item is an omnibus edition containing two or more works by the same author, and there is no separate combined title, a distinctive title may be constructed by concatenating the individual titles, with suitable punctuation, as in “Pride and prejudice / Sense and sensibility / Northanger Abbey”.</xs:documentation>
+					<xs:documentation>The full text of the distinctive title of the item, without abbreviation or abridgement. For books, where the title alone is not distinctive, elements may be taken from a set or series title and part number etc to create a distinctive title. Where the item is an omnibus edition containing two or more works by the same author, and there is no separate combined title, a distinctive title may be constructed by concatenating the individual titles, with suitable punctuation, as in 'Pride and prejudice / Sense and sensibility / Northanger Abbey'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="02">
@@ -2274,7 +2274,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>Title acronym or initialism</xs:documentation>
-					<xs:documentation>For serials: an acronym or initialism of Title Type 01, eg “JAMA”, “JACM”.</xs:documentation>
+					<xs:documentation>For serials: an acronym or initialism of Title Type 01, eg 'JAMA', 'JACM'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -3004,19 +3004,19 @@
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - male</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 'read by', for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - female</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 'read by', for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="07">
 				<xs:annotation>
 					<xs:documentation>Synthesized voice - unspecified</xs:documentation>
-					<xs:documentation>Use with Contributor role code E07 “read by”, for audio books for the blind.</xs:documentation>
+					<xs:documentation>Use with Contributor role code E07 'read by', for audio books for the blind.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -4126,7 +4126,7 @@
 			<xs:enumeration value="85">
 				<xs:annotation>
 					<xs:documentation>Postal code</xs:documentation>
-					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg “GB N7 9DP” or “US 10125”.</xs:documentation>
+					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg 'GB N7 9DP' or 'US 10125'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="86">
@@ -4655,7 +4655,7 @@
 			<xs:enumeration value="85">
 				<xs:annotation>
 					<xs:documentation>Postal code</xs:documentation>
-					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg “GB N7 9DP” or “US 10125”.</xs:documentation>
+					<xs:documentation>Location defined by postal code. Format is two-letter country code (from List 91), space, postal code. Note some postal codes themselves contain spaces, eg 'GB N7 9DP' or 'US 10125'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="86">
@@ -5080,7 +5080,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="09">
 				<xs:annotation>
-					<xs:documentation>Promotional “headline”</xs:documentation>
+					<xs:documentation>Promotional 'headline'</xs:documentation>
 					<xs:documentation>A promotional phrase which is intended to headline a description of the product.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -5123,7 +5123,7 @@
 			<xs:enumeration value="16">
 				<xs:annotation>
 					<xs:documentation>Competing titles</xs:documentation>
-					<xs:documentation>Free text listing of other titles with which the product is in competition: although this text might not appear in “public” ONIX records, it could be required where ONIX Is used as a communication format within a group of publishing and distribution companies.</xs:documentation>
+					<xs:documentation>Free text listing of other titles with which the product is in competition: although this text might not appear in 'public' ONIX records, it could be required where ONIX Is used as a communication format within a group of publishing and distribution companies.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="17">
@@ -6245,7 +6245,7 @@
 			<xs:enumeration value="07">
 				<xs:annotation>
 					<xs:documentation>Published in association with</xs:documentation>
-					<xs:documentation>Use also for “Published in cooperation with”.</xs:documentation>
+					<xs:documentation>Use also for 'Published in cooperation with'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="08">
@@ -6440,13 +6440,13 @@
 			<xs:enumeration value="12">
 				<xs:annotation>
 					<xs:documentation>Diameter (tube or cylinder)</xs:documentation>
-					<xs:documentation>The diameter of the cross-section of a tube or cylinder, usually carrying a rolled sheet product. Use 01 “height” for the height or length of the tube.</xs:documentation>
+					<xs:documentation>The diameter of the cross-section of a tube or cylinder, usually carrying a rolled sheet product. Use 01 'height' for the height or length of the tube.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="13">
 				<xs:annotation>
 					<xs:documentation>Rolled sheet package side measure</xs:documentation>
-					<xs:documentation>The length of a side of the cross-section of a long triangular or square package, usually carrying a rolled sheet product. Use 01 “height” for the height or length of the package.</xs:documentation>
+					<xs:documentation>The length of a side of the cross-section of a long triangular or square package, usually carrying a rolled sheet product. Use 01 'height' for the height or length of the package.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 		</xs:restriction>
@@ -6951,7 +6951,7 @@
 			<xs:enumeration value="ECZ">
 				<xs:annotation>
 					<xs:documentation>Eurozone</xs:documentation>
-					<xs:documentation>Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for “AT BE CY EE FI FR DE ES GR IE IT LU MT NL PT SI SK” (the official Eurozone 17), plus “AD MC SM VA ME” (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. Only valid in ONIX 3, and only within Block 6.</xs:documentation>
+					<xs:documentation>Countries geographically within continental Europe which use the Euro as their sole currency. At the time of writing, this is a synonym for 'AT BE CY EE FI FR DE ES GR IE IT LU MT NL PT SI SK' (the official Eurozone 17), plus 'AD MC SM VA ME' (other Euro-using countries in continental Europe). Note some other territories using the Euro, but outside continental Europe are excluded from this list, and may need to be specified separately. Only valid in ONIX 3, and only within Block 6.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="ROW">
@@ -7431,7 +7431,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>YYYYS</xs:documentation>
-					<xs:documentation>Year and season (S = 1, 2, 3, 4, with 1 = “Spring”).</xs:documentation>
+					<xs:documentation>Year and season (S = 1, 2, 3, 4, with 1 = 'Spring').</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -7565,7 +7565,7 @@
 			<xs:enumeration value="04">
 				<xs:annotation>
 					<xs:documentation>Contact supplier</xs:documentation>
-					<xs:documentation>May be used for books that do not carry a recommended retail price, when an ONIX file is “broadcast” rather than sent one-to-one to a single trading partner; or for digital products offered on subscription or with pricing which is too complex to specify in ONIX.</xs:documentation>
+					<xs:documentation>May be used for books that do not carry a recommended retail price, when an ONIX file is 'broadcast' rather than sent one-to-one to a single trading partner; or for digital products offered on subscription or with pricing which is too complex to specify in ONIX.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="05">
@@ -7943,7 +7943,7 @@
 			<xs:enumeration value="10">
 				<xs:annotation>
 					<xs:documentation>Remaindered</xs:documentation>
-					<xs:documentation>The product is no longer available from the current publisher, under the current ISBN, at the current price. It may be available to be traded through another channel. A Publishing Status code 10 'Remaindered' usually but not always means that the publisher has decided to sell off excess inventory of the book. Copies of books that are remaindered are often made available in the supply chain at a reduced price. However, such remainders are often sold under a product identifier that differs from the ISBN on the full-priced copy of the book. A Publishing Status code 10 'Remaindered' on a given product record may or may not be followed by a Publishing Status code 06 'Out of Stock Indefinitely' or 07 'Out of Print': the practise varies from one publisher to another. Some publishers may revert to a Publishing Status code 04 “Active” if a desired inventory level on the product in question has subsequently been reached. No change in rights should ever be inferred from this (or any other) Publishing Status code value.</xs:documentation>
+					<xs:documentation>The product is no longer available from the current publisher, under the current ISBN, at the current price. It may be available to be traded through another channel. A Publishing Status code 10 'Remaindered' usually but not always means that the publisher has decided to sell off excess inventory of the book. Copies of books that are remaindered are often made available in the supply chain at a reduced price. However, such remainders are often sold under a product identifier that differs from the ISBN on the full-priced copy of the book. A Publishing Status code 10 'Remaindered' on a given product record may or may not be followed by a Publishing Status code 06 'Out of Stock Indefinitely' or 07 'Out of Print': the practise varies from one publisher to another. Some publishers may revert to a Publishing Status code 04 'Active' if a desired inventory level on the product in question has subsequently been reached. No change in rights should ever be inferred from this (or any other) Publishing Status code value.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="11">
@@ -8136,7 +8136,7 @@
 			<xs:enumeration value="97">
 				<xs:annotation>
 					<xs:documentation>No recent update received</xs:documentation>
-					<xs:documentation>Sender has not received any recent update for this product from the publisher/supplier (for use when the sender is a data aggregator): the definition of “recent” must be specified by the aggregator, or by agreement between parties to an exchange.</xs:documentation>
+					<xs:documentation>Sender has not received any recent update for this product from the publisher/supplier (for use when the sender is a data aggregator): the definition of 'recent' must be specified by the aggregator, or by agreement between parties to an exchange.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="98">
@@ -12055,7 +12055,7 @@
 			<xs:enumeration value="A302">
 				<xs:annotation>
 					<xs:documentation>Readalong audio</xs:documentation>
-					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as “turn the page now” and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
+					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as 'turn the page now' and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="A303">
@@ -13052,19 +13052,19 @@
 			<xs:enumeration value="31">
 				<xs:annotation>
 					<xs:documentation>FSC certified - pure</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Pure, 100%). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). By definition, a product certified Pure does not contain Pre- and Post-Consumer-Waste (PCW), so type code 31 can only occur on its own. Certification numbers may be checked at 'http://info.fsc.org/'.</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Pure, 100%). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg 'AB-COC-001234' or 'ABCDE-COC-123456'; Trademark License number is C followed by six digits, eg 'C005678' (this would normally be prefixed by 'FSC®' when displayed). By definition, a product certified Pure does not contain Pre- and Post-Consumer-Waste (PCW), so type code 31 can only occur on its own. Certification numbers may be checked at 'http://info.fsc.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="32">
 				<xs:annotation>
 					<xs:documentation>FSC certified - mixed sources</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Mixed sources, Mix). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). May be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Mixed sources, Mix). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeros if necessary), eg 'AB-COC-001234' or 'ABCDE-COC-123456'; Trademark License number is C followed by six digits, eg 'C005678' (this would normally be prefixed by 'FSC®' when displayed). May be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at http://info.fsc.org/</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="33">
 				<xs:annotation>
 					<xs:documentation>FSC certified - recycled</xs:documentation>
-					<xs:documentation>Product carries FSC logo (Recycled). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeroes if necessary), eg “AB-COC-001234” or “ABCDE-COC-123456”; Trademark License number is C followed by six digits, eg “C005678” (this would normally be prefixed by 'FSC®' when displayed). Should be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at' http://info.fsc.org/'.</xs:documentation>
+					<xs:documentation>Product carries FSC logo (Recycled). &lt;ProductFormFeatureValue&gt; is the Certification number (ie either a Chain Of Custody (COC) number or a Trademark License number) printed on the book. Format: Chain of Custody number is two to five letters-COC-six digits (the digits should include leading zeroes if necessary), eg 'AB-COC-001234' or 'ABCDE-COC-123456'; Trademark License number is C followed by six digits, eg 'C005678' (this would normally be prefixed by 'FSC®' when displayed). Should be accompanied by a Pre- and Post-Consumer-Waste (PCW) percentage value, to be reported in another instance of &lt;ProductFormFeature&gt; with type code 36. Certification numbers may be checked at' http://info.fsc.org/'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="34">
@@ -13698,7 +13698,7 @@
 			<xs:enumeration value="GNB">
 				<xs:annotation>
 					<xs:documentation>Good News</xs:documentation>
-					<xs:documentation>A translation sponsored by the American Bible Society. The New Testament was first published (as “Today's English Version” TEV) in 1966. The Old Testament was completed in 1976, and the whole was published as the “Good News Bible”.</xs:documentation>
+					<xs:documentation>A translation sponsored by the American Bible Society. The New Testament was first published (as 'Today's English Version' TEV) in 1966. The Old Testament was completed in 1976, and the whole was published as the 'Good News Bible'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="GPR">
@@ -13980,7 +13980,7 @@
 			<xs:enumeration value="TEV">
 				<xs:annotation>
 					<xs:documentation>Today's English</xs:documentation>
-					<xs:documentation>A translation of the New Testament sponsored by the American Bible Society and first published in 1966. It was incorporated into the “Good News Bible” GNB in 1976.</xs:documentation>
+					<xs:documentation>A translation of the New Testament sponsored by the American Bible Society and first published in 1966. It was incorporated into the 'Good News Bible' GNB in 1976.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="TNI">
@@ -20066,7 +20066,7 @@
 			<xs:enumeration value="LB">
 				<xs:annotation>
 					<xs:documentation>Digital product license key</xs:documentation>
-					<xs:documentation>Digital product license delivered through the retail supply chain as a physical “key”, typically a card or booklet containing a code enabling the purchaser to download the associated product.</xs:documentation>
+					<xs:documentation>Digital product license delivered through the retail supply chain as a physical 'key', typically a card or booklet containing a code enabling the purchaser to download the associated product.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="LC">
@@ -21614,7 +21614,7 @@
 			<xs:enumeration value="A302">
 				<xs:annotation>
 					<xs:documentation>Readalong audio</xs:documentation>
-					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as “turn the page now” and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
+					<xs:documentation>Audio intended exclusively for use alongside a printed copy of the book. Most often a children's product. Normally contains instructions such as 'turn the page now' and other references to the printed item, and is usually sold packaged together with a printed copy.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="A303">
@@ -22034,7 +22034,7 @@
 			<xs:enumeration value="B412">
 				<xs:annotation>
 					<xs:documentation>Flexible plastic/vinyl cover</xs:documentation>
-					<xs:documentation>AKA “flexibound”: use with Product Form code BC.</xs:documentation>
+					<xs:documentation>AKA 'flexibound': use with Product Form code BC.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="B413">
@@ -23065,7 +23065,7 @@
 			<xs:enumeration value="05">
 				<xs:annotation>
 					<xs:documentation>Carries other text associated with toy safety</xs:documentation>
-					<xs:documentation>Exact text (not in itself a warning) must be included in &lt;ProductFormFeatureDescription&gt;. May be used either without any warning, or as text additional to a warning. Note that if no warnings apply, code 00 can provide positive indication of this. Example use: “Suitable for all ages”.</xs:documentation>
+					<xs:documentation>Exact text (not in itself a warning) must be included in &lt;ProductFormFeatureDescription&gt;. May be used either without any warning, or as text additional to a warning. Note that if no warnings apply, code 00 can provide positive indication of this. Example use: 'Suitable for all ages'.</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="06">

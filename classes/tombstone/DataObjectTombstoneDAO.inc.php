@@ -105,6 +105,8 @@ class DataObjectTombstoneDAO extends DAO {
 	 */
 	function deleteById($tombstoneId, $assocType = null, $assocId = null) {
 		$tombstone = $this->getById($tombstoneId, $assocType, $assocId);
+		if (!$tombstone) return false; // Did not exist
+
 		assert(is_a($tombstone, 'DataObjectTombstone'));
 
 		$this->update(

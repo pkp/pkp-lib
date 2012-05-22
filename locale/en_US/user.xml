@@ -83,6 +83,7 @@
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>
 	<message key="user.profile.form.openAccessNotifications">Issue open access email notifications</message>
 	<message key="user.profile.form.passwordRequired">A password is required.</message>
+	<message key="user.profile.form.passwordSameAsOld">Your new password is the same as your old password.</message>
 	<message key="user.profile.form.profileImage">Profile Image</message>
 	<message key="user.profile.form.publishedNotifications">New issue published email notifications</message>
 	<message key="user.profile.form.urlInvalid">The specified URL is not valid. Please double-check the URL and try again. (Hint: Try adding http:// to the beginning of the URL.)</message>

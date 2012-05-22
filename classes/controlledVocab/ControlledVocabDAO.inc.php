@@ -144,7 +144,10 @@ class ControlledVocabDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObject($controlledVocab) {
-		return $this->deleteObjectById($controlledVocab->getId());
+		if (isset($controlledVocab)) {
+			return $this->deleteObjectById($controlledVocab->getId());
+		}
+		return true;
 	}
 
 	/**

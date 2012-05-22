@@ -122,10 +122,11 @@ class PKPUserGroupDAO extends DAO {
 		for ($i=1; !$result->EOF; $i++) {
 			list($userGroupId) = $result->fields;
 
-			$ret1 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
-			$ret2 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
+			$ret1 = $this->update('DELETE FROM user_group_stage WHERE user_group_id = ?', (int) $userGroupId);
+			$ret2 = $this->update('DELETE FROM user_group_settings WHERE user_group_id = ?', (int) $userGroupId);
+			$ret3 = $this->update('DELETE FROM user_groups WHERE user_group_id = ?', (int) $userGroupId);
 
-			$returner = $returner && $ret1 && $ret2;
+			$returner = $returner && $ret1 && $ret2 && $ret3;
 			$result->MoveNext();
 		}
 

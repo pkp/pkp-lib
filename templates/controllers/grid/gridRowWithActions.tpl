@@ -6,7 +6,7 @@
  *
  * a grid row with Actions
  *}
-{if $row->getId()}
+{if !is_null($row->getId())}
 	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
 	{if $categoryRow}
 		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryRow->getId()}

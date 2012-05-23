@@ -442,62 +442,7 @@ class PKPUserGroupDAO extends DAO {
 		// must be specified. Don't allow calls supplying neither.
 		if ($contextId === null && $userGroupId === null) return null;
 
-		$searchSql = '';
-
-		$searchTypeMap = array(
-			USER_FIELD_FIRSTNAME => 'u.first_name',
-			USER_FIELD_LASTNAME => 'u.last_name',
-			USER_FIELD_USERNAME => 'u.username',
-			USER_FIELD_EMAIL => 'u.email',
-			USER_FIELD_AFFILIATION => 'us.setting_value'
-		);
-
-		if (!empty($search)) {
-
-			if (!isset($searchTypeMap[$searchType])) {
-				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
-
-				$search = strtolower($search);
-
-				$words = preg_split('{\s+}', $search);
-				$searchFieldMap = array();
-
-				foreach ($words as $word) {
-					$searchFieldMap[] = $concatFields;
-					$term = '%' . $word . '%';
-					array_push($paramArray, $term, $term);
-				}
-
-				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
-			} else {
-				$fieldName = $searchTypeMap[$searchType];
-				switch ($searchMatch) {
-					case 'is':
-						$searchSql = "AND LOWER($fieldName) = LOWER(?)";
-						$paramArray[] = $search;
-						break;
-					case 'contains':
-						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-						$paramArray[] = '%' . $search . '%';
-						break;
-					case 'startsWith':
-						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
-						$paramArray[] = $search . '%';
-						break;
-				}
-			}
-		} else {
-			switch ($searchType) {
-				case USER_FIELD_USERID:
-					$searchSql = 'AND u.user_id = ?';
-					break;
-				case USER_FIELD_INITIAL:
-					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
-					break;
-			}
-		}
-
-		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+		$searchSql = $this->_getSearchSql($searchType, $search, $searchMatch, $paramArray);
 
 		$sql = 'SELECT DISTINCT u.*
 			FROM users AS u
@@ -517,6 +462,41 @@ class PKPUserGroupDAO extends DAO {
 			$dbResultRange
 		);
 
+		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
+		return $returner;
+	}
+
+	/**
+	 * Retrieve those users with no group assignments in any press.
+	 * @param array $filter an array of search critera
+	 * @param boolean $allowDisabled
+	 * @param DBResultRarnge $dbResultRange
+	 * @return DAOResultFactory
+	 */
+	function &getUsersWithNoUserGroupAssignments($filter = null, $allowDisabled = true, $dbResultRange = null) {
+
+		$sql = 'SELECT DISTINCT u.*
+			FROM users AS u
+			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = "affiliation")
+			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
+			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
+			LEFT JOIN user_user_groups uug ON u.user_id=uug.user_id WHERE uug.user_group_id IS NULL ';
+
+		$sql .= ($allowDisabled?'':' AND u.disabled = 0');
+
+		$searchSql = '';
+		$paramArray = array();
+
+		if (isset($filter)) {
+			$searchType = isset($filter['searchType']) ? $filter['searchType'] : null;
+			$search = isset($filter['search']) ? $filter['search'] : null;
+			$searchMatch = isset($filter['searchMatch']) ? $filter['searchMatch'] : null;
+
+			$searchSql = $this->_getSearchSql($searchType, $search, $searchMatch, $paramArray);
+			$sql .= $searchSql;
+		}
+
+		$result =& $this->retrieveRange($sql, $paramArray, $dbResultRange);
 		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 		return $returner;
 	}
@@ -759,6 +739,75 @@ class PKPUserGroupDAO extends DAO {
 	function deleteSettingsByLocale($locale) {
 		$result = $this->update('DELETE FROM user_group_settings WHERE locale = ?', $locale);
 		return $result;
+	}
+
+	/**
+	 * private function to assemble the SQL for searching users.
+	 * @param string $searchType the field to search on.
+	 * @param string $search the keywords to search for.
+	 * @param string $searchMatch where to match (is, contains, startsWith).
+	 * @param array $paramArray SQL parameter array reference
+	 */
+	function _getSearchSql($searchType, $search, $searchMatch, &$paramArray) {
+
+		$searchTypeMap = array(
+				USER_FIELD_FIRSTNAME => 'u.first_name',
+				USER_FIELD_LASTNAME => 'u.last_name',
+				USER_FIELD_USERNAME => 'u.username',
+				USER_FIELD_EMAIL => 'u.email',
+				USER_FIELD_AFFILIATION => 'us.setting_value'
+		);
+
+		$searchSql = '';
+
+		if (!empty($search)) {
+
+			if (!isset($searchTypeMap[$searchType])) {
+				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
+
+				$search = strtolower($search);
+
+				$words = preg_split('{\s+}', $search);
+				$searchFieldMap = array();
+
+				foreach ($words as $word) {
+					$searchFieldMap[] = $concatFields;
+					$term = '%' . $word . '%';
+					array_push($paramArray, $term, $term);
+				}
+
+				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';
+			} else {
+				$fieldName = $searchTypeMap[$searchType];
+				switch ($searchMatch) {
+					case 'is':
+						$searchSql = "AND LOWER($fieldName) = LOWER(?)";
+						$paramArray[] = $search;
+						break;
+					case 'contains':
+						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+						$paramArray[] = '%' . $search . '%';
+						break;
+					case 'startsWith':
+						$searchSql = "AND LOWER($fieldName) LIKE LOWER(?)";
+						$paramArray[] = $search . '%';
+						break;
+				}
+			}
+		} else {
+			switch ($searchType) {
+				case USER_FIELD_USERID:
+					$searchSql = 'AND u.user_id = ?';
+					break;
+				case USER_FIELD_INITIAL:
+					$searchSql = 'AND LOWER(u.last_name) LIKE LOWER(?)';
+					break;
+			}
+		}
+
+		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
+
+		return $searchSql;
 	}
 }
 

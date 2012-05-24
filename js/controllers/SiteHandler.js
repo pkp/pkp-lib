@@ -44,6 +44,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		this.options_ = options;
 
+		this.setMainMaxWidth_();
+
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
@@ -257,6 +259,28 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				}
 			}
 		}
+	};
+
+	/**
+	 * Set the maximum width for the pkp_structure_main div.
+	 * This will prevent content with larger widths (like photos)
+	 * messing up with layout.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
+			function() {
+		var $site = this.getHtmlElement();
+		var structureContentWidth = $('.pkp_structure_content', $site).width();
+
+		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).outerWidth(true);
+		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).outerWidth(true);
+
+		var $mainDiv = $('.pkp_structure_main', $site);
+
+		// Check for padding, margin or border.
+		var mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
+		var mainMaxWidth = structureContentWidth - (leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
+
+		$mainDiv.css('max-width', mainMaxWidth);
 	};
 
 

@@ -61,7 +61,7 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 			$newSequence = $firstSeqValue + $rowPosition;
 			$currentSequence = $grid->getRowDataElementSequence($element);
 			if ($newSequence != $currentSequence) {
-				$grid->saveRowDataElementSequence($element, $newSequence);
+				$grid->saveRowDataElementSequence($request, $rowId, $element, $newSequence);
 			}
 		}
 	}

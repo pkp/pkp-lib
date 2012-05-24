@@ -704,7 +704,7 @@ class GridHandler extends PKPHandler {
 	 * @param $gridDataElement mixed
 	 * @param $newSequence int
 	 */
-	function saveRowDataElementSequence(&$gridDataElement, $newSequence) {
+	function saveRowDataElementSequence(&$request, $rowId, &$gridDataElement, $newSequence) {
 		assert(false);
 	}
 

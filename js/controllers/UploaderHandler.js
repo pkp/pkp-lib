@@ -62,10 +62,14 @@
 			$uploader.find('div.plupload').css('z-index', 99999);
 		}
 
+		$uploader.find('a.plupload_add').css('z-index', 99999);
 
 		// Bind to the pluploader for some configuration
 		pluploader.bind('FilesAdded',
 				this.callbackWrapper(this.limitQueueSize));
+		
+		pluploader.bind('QueueChanged',
+				this.callbackWrapper(this.refreshUploader))
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
@@ -89,6 +93,19 @@
 			pluploader.splice(0, 1);
 			pluploader.refresh();
 		}
+	};
+
+
+	/**
+	 * Refresh the uploader interface so buttons work correctly.
+	 * @param {Object} caller The original context in which the callback was called.
+	 * @param {Object} pluploader The pluploader object.
+	 * @param {Object} file The data of the uploaded file.
+	 *
+	 */
+	$.pkp.controllers.UploaderHandler.prototype.
+			refreshUploader = function(caller, pluploader, file) {
+		pluploader.refresh();
 	};
 
 

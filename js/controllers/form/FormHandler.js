@@ -84,6 +84,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		}
 
 		this.callbackWrapper(this.initializeTinyMCE_());
+
+		// bind a handler to make sure tinyMCE fields are populated.
+		$('#submitFormButton', $form).click(this.callbackWrapper(this.pushTinyMCEChanges_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
@@ -214,10 +217,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
 			function(validator, formElement) {
 
-		if (typeof tinyMCE !== 'undefined') {
-			tinyMCE.triggerSave();
-		}
-
 		// Notify any nested formWidgets of the submit action.
 		var formSubmitEvent = new $.Event('formSubmitRequested');
 		$(formElement).find('.formWidget').trigger(formSubmitEvent);
@@ -251,6 +250,27 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 			this.getHtmlElement().submit();
 		}
+	};
+
+
+	/**
+	 * Internal callback called to push TinyMCE changes back to fields
+	 * so they can be validated.
+	 *
+	 * @param {HTMLElement} submitButton The submit button.
+	 * @param {Event} event The event that triggered the
+	 *  submit button.
+	 * @return {boolean} true.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.pushTinyMCEChanges_ =
+			function(submitButton, event) {
+
+		// ensure that rich content elements have their
+		// values stored before validation.
+		if (typeof tinyMCE !== 'undefined') {
+			tinyMCE.triggerSave();
+		}
+		return true;
 	};
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -163,7 +163,13 @@ class PKPNotificationManager {
 				$templateMgr =& TemplateManager::getManager();
 				$templateMgr->assign('errors', $notificationMessage);
 				return $templateMgr->fetch('controllers/notification/formErrorNotificationContent.tpl');
-				break;
+			case NOTIFICATION_TYPE_ERROR:
+				if (is_array($notificationMessage)) {
+					$templateMgr->assign('errors', $notificationMessage);
+					return $templateMgr->fetch('controllers/notification/errorNotificationContent.tpl');
+				} else {
+					return $notificationMessage;
+				}
 			default:
 				return $notificationMessage;
 		}

@@ -1,12 +1,12 @@
 <?php
 /**
- * @file tests/classes/core/MockLookupFilterGridHandler.inc.php
+ * @file tests/mock/env1/MockLookupFilterGridHandler.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LookupFilterGridHandler
- * @ingroup tests_classes_core
+ * @ingroup tests_mock_env1
  * @see PKPComponentRouterTest
  *
  * @brief Mock implementation of the LookupFilterGridHandler class for the PKPComponentRouterTest

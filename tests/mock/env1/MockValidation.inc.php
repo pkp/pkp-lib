@@ -1,12 +1,12 @@
 <?php
 /**
- * @file tests/classes/core/MockValidation.inc.php
+ * @file tests/mock/env1/MockValidation.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Validation
- * @ingroup tests_classes_core
+ * @ingroup tests_mock_env1
  * @see PKPPageRouterTest
  *
  * @brief Mock implementation of the Validation class for the PKPPageRouterTest

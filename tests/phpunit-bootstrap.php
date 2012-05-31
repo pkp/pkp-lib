@@ -8,6 +8,12 @@
  */
 
 
+// This script may not be executed remotely.
+if (isset($_SERVER['SERVER_NAME'])) {
+	die('This script can only be executed from the command-line.');
+}
+
+
 // Configure the index file location, assume that pkp-lib is
 // included within a PKP application.
 // FIXME: This doesn't work if lib/pkp is symlinked.
@@ -32,51 +38,83 @@ ini_set('assert.quiet_eval', false);
 // Log errors to test specific error log
 ini_set('error_log', dirname(__FILE__) . DIRECTORY_SEPARATOR . 'results' . DIRECTORY_SEPARATOR . 'error.log');
 
-/* This script must not have been executed online/remotely */
-if (isset($_SERVER['SERVER_NAME'])) {
-	die('This script can only be executed from the command-line');
-}
-
-// A global variable that contains a directory with
-// a mock class environment for a whole test suite.
-// We need to define this as a global variable so that
-// tests can define check their environment requirement
+// NB: Our test framework provides the possibility to
+// import mock classes to replace regular classes.
+// This is necessary to mock static method calls.
+// Unfortunately we can only define one mock environment
+// per test run as PHP does not allow to change a class
+// implementation while running.
+// We therefore need to define the mock environment globally
+// so that tests can check their environment requirement
 // before they start importing.
 if (isset($_SERVER['PKP_MOCK_ENV'])) {
-	define('CURRENT_MOCK_ENV', normalizeMockEnvironment($_SERVER['PKP_MOCK_ENV']));
+	define('PHPUNIT_CURRENT_MOCK_ENV', $_SERVER['PKP_MOCK_ENV']);
+	$mockEnvs = '';
+	foreach(array('lib/pkp/tests/mock/', 'tests/mock/') as $testDir) {
+		if (!empty($mockEnvs)) $mockEnvs .= ';';
+		$mockEnvs .= normalizeMockEnvironment($testDir . $_SERVER['PKP_MOCK_ENV']);
+	}
+	define('PHPUNIT_ADDITIONAL_INCLUDE_DIRS', $mockEnvs);
 } else {
 	// Use the current test folder as mock environment
 	// if no environment has been explicitly set.
 	// The phpunit cli tool's last parameter is the test class, file or directory
+	define('PHPUNIT_CURRENT_MOCK_ENV', '__NONE__');
 	assert(is_array($_SERVER['argv']) and count($_SERVER['argv'])>1);
 	$testDir = end($_SERVER['argv']);
-	define('CURRENT_MOCK_ENV', normalizeMockEnvironment($testDir));
+	define('PHPUNIT_ADDITIONAL_INCLUDE_DIRS', normalizeMockEnvironment($testDir));
 }
 
-// A function to declare dependency on a mock environment.
+/**
+ *  A function to declare dependency on a mock environment.
+ *  Tests depending on static mock classes should use this
+ *  function so that they cannot be executed in the wrong
+ *  test environment.
+ *
+ *  @param $mockEnv string
+ */
 function require_mock_env($mockEnv) {
-	$mockEnv = normalizeMockEnvironment($mockEnv);
-	if (CURRENT_MOCK_ENV != $mockEnv) {
+	if (PHPUNIT_CURRENT_MOCK_ENV == '__NONE__' || PHPUNIT_CURRENT_MOCK_ENV != $mockEnv) {
 		// Tests that require different mock environments cannot run
 		// in the same test batch as this would require re-defining
 		// already defined classes.
 		debug_print_backtrace();
 		die(
 			'You are trying to run a test in the wrong mock environment ('
-			.CURRENT_MOCK_ENV.' rather than '.$mockEnv.')!'
+			. PHPUNIT_CURRENT_MOCK_ENV . ' rather than ' . $mockEnv.')!'
 		);
 	}
 }
 
-// Provide a test-specific implementation of the import function
-// so we can drop in mock classes, especially to mock
-// static method calls.
+/**
+ * Provide a test-specific implementation of the import function
+ * so we can drop in mock classes, especially to mock
+ * static method calls.
+ *
+ * @see bootstrap.inc.php
+ *
+ * @param string $class
+ */
 function import($class) {
+	static $mockEnvArray = null;
+
+	// Expand and verify additional include directories.
+	if (is_null($mockEnvArray)) {
+		if (defined('PHPUNIT_ADDITIONAL_INCLUDE_DIRS')) {
+			$mockEnvArray = explode(';', PHPUNIT_ADDITIONAL_INCLUDE_DIRS);
+			foreach($mockEnvArray as $mockEnv) {
+				if (!is_dir($mockEnv)) die ('Invalid mock environment directory ' . $mockEnv . '!');
+			}
+		} else {
+			$mockEnvArray = array();
+		}
+	}
+
 	// Test whether we have a mock implementation of
 	// the requested class.
-	if (CURRENT_MOCK_ENV && is_dir(CURRENT_MOCK_ENV)) {
+	foreach($mockEnvArray as $mockEnv) {
 		$classParts = explode('.', $class);
-		$mockClassFile = CURRENT_MOCK_ENV.'/Mock'.array_pop($classParts).'.inc.php';
+		$mockClassFile = $mockEnv . '/Mock'.array_pop($classParts) . '.inc.php';
 		if (file_exists($mockClassFile)) {
 			require_once($mockClassFile);
 			return;
@@ -87,6 +125,14 @@ function import($class) {
 	require_once('./'.str_replace('.', '/', $class) . '.inc.php');
 }
 
+/**
+ * A function to transform a mock environment name
+ * in a list of additional include directories.
+ *
+ * @param $mockEnv string
+ * @return string A mock environment directory to check when
+ * importing class files.
+ */
 function normalizeMockEnvironment($mockEnv) {
 		if (substr($mockEnv, 0, 1) != '/') {
 			$mockEnv = getcwd() . '/' . $mockEnv;

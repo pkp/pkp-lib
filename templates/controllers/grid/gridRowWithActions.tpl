@@ -23,7 +23,7 @@
 					<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[$smarty.foreach.columnLoop.index]}</div>
 					<div class="row_actions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
-							<a class="sprite settings"><span class="hidetext">{translate key="grid.settings"}</span></a>
+							<a class="sprite settings" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
 						{/if}
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}

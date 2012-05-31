@@ -20,6 +20,7 @@
 	<message key="grid.action.addItem">Add Item</message>
 	<message key="grid.action.addUser">Add User</message>
 	<message key="grid.action.delete">Delete</message>
+	<message key="grid.action.deleteFile">Delete File</message>
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
@@ -33,6 +34,7 @@
 	<message key="grid.action.extendAll">Extend all</message>
 	<message key="grid.action.collapseAll">Collapse all</message>
 	<message key="grid.action.wizard">Settings wizard</message>
+	<message key="grid.action.moveItem">Move Item</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

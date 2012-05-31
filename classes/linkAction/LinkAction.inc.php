@@ -74,6 +74,16 @@ class LinkAction {
 	}
 
 	/**
+	 * Get a title for display when a user hovers over the
+	 * link action.  Default to the regular title if it is set.
+	 * @return string
+	 */
+	function getHoverTitle() {
+		$title = $this->getTitle() != '' ? $this->getTitle() : __('grid.action.' . $this->getId());
+		return $title;
+	}
+
+	/**
 	 * Get the action image.
 	 * @return string
 	 */

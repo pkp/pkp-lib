@@ -18,9 +18,9 @@
 <a href="javascript:$.noop();" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
 		class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"
-		{if $hoverTitle}title="{$action->getTitle()|escape}">&nbsp;{else}>{$action->getTitle()|escape}{/if}
+		title="{$action->getHoverTitle()|escape}">{if $hoverTitle}&nbsp;{else}{$action->getTitle()|escape}{/if}
 	{else}
 		class="pkp_controllers_linkAction"
-		{if $hoverTitle} title="{$action->getTitle()|escape}">{else}>{$action->getTitle()|escape}{/if}
+		title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|escape}{/if}
 	{/if}
 {/strip}</a>

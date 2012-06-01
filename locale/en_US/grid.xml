@@ -41,6 +41,7 @@
 	<message key="grid.columns.institution">Institution</message>
 	<message key="grid.columns.url">URL</message>
 	<message key="grid.columns.auditor">Auditor</message>
+	<message key="grid.columns.locale">Locale</message>
 
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsors</message>

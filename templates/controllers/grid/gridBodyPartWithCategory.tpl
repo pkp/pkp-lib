@@ -21,7 +21,8 @@
 			so that we can restore it if the user deletes all rows.
 		**}
 		<tr>
-			<td colspan="{$columns|@count}">{translate key=$grid->getEmptyCategoryRowText()}</td>
+			<td class="no_border indent_row"></td>
+			<td colspan="{$grid->getColumnsCount('indent')}">{translate key=$grid->getEmptyCategoryRowText()}</td>
 		</tr>
 	</tbody>
 </tbody>

@@ -93,7 +93,9 @@
 			</div>
 		{/if}
 		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
-
+		{if $grid->getFootNote()}
+			<p class="pkp_grid_description">{translate key=$grid->getFootNote()}</p>
+		{/if}
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 	<div class="pkp_helpers_clear"></div>
 </div>

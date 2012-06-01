@@ -173,6 +173,22 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Get the grid foot note.
+	 * @return string locale key
+	 */
+	function getFootNote() {
+		return $this->_footNote;
+	}
+
+	/**
+	 * Set the grid foot note.
+	 * @param $footNote string locale key
+	 */
+	function setFootNote($footNote) {
+		$this->_footNote = $footNote;
+	}
+
+	/**
 	 * Get all actions for a given position within the grid.
 	 * @param $position string The position of the actions.
 	 * @return array The LinkActions for the given position.

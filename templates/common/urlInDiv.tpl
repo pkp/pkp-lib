@@ -10,6 +10,7 @@
 
 <script type="text/javascript">
 	// Initialise JS handler.
+	<!--
 	$(function() {ldelim}
 		$('#{$inDivDivId|escape:"js"}').pkpHandler(
 			'$.pkp.controllers.UrlInDivHandler',
@@ -18,6 +19,7 @@
 			{rdelim}
 		);
 	{rdelim});
+	// -->
 </script>
 
 <div id="{$inDivDivId|escape}"{if $inDivClass} class="{$inDivClass|escape}"{/if}>{$inDivLoadMessage}</div>

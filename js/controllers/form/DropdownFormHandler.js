@@ -36,6 +36,9 @@
 		// Expose the selectMonograph event to the containing element.
 		this.publishEvent(this.eventName_);
 
+		// Save the url for fetching the options in the dropdown element.
+		this.getOptionsUrl_ = options.getOptionsUrl;
+
 		// We're not interested in tracking changes to this subclass since
 		// it usually loads content or redirects to another page.
 		this.trackFormChanges_ = false;
@@ -45,8 +48,10 @@
 				this.callbackWrapper(this.selectOptionHandler_));
 
 		// Load the list of submissions.
-		$.get(options.getOptionsUrl,
-				this.callbackWrapper(this.setOptionList_), 'json');
+		this.loadOptions_();
+
+		// React to the management grid modal being closed.
+		this.bind('containerReloadRequested', this.containerReloadHandler_);
 	};
 
 	$.pkp.classes.Helper.inherits(
@@ -73,6 +78,14 @@
 	$.pkp.controllers.form.DropdownFormHandler.prototype.defaultKey_ = null;
 
 
+	/**
+	 * The key for the default value to select upon option load.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.form.DropdownFormHandler.prototype.getOptionsUrl_ = null;
+
+
 	//
 	// Private helper methods
 	//
@@ -89,6 +102,22 @@
 
 		// Trigger the published event.
 		this.trigger(this.eventName_, $(sourceElement).val());
+	};
+
+
+	/**
+	 * Respond to an "item selected" call by triggering a published event.
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @private
+	 */
+	$.pkp.controllers.form.DropdownFormHandler.prototype.loadOptions_ =
+			function() {
+
+		$.get(this.getOptionsUrl_,
+				this.callbackWrapper(this.setOptionList_), 'json');
 	};
 
 
@@ -117,5 +146,25 @@
 			$option.text(jsonData.content[optionId]);
 			$select.append($option);
 		}
+	};
+
+
+	/**
+	 * Handle the containerReloadRequested events triggered by the management
+	 * grids for categories or series.
+	 * @private
+	 *
+	 * @param {$.pkp.controllers.form.FormHandler} sourceElement The element
+	 *  that triggered the event.
+	 * @param {Event} event The event.
+	 */
+	$.pkp.controllers.form.DropdownFormHandler.prototype.containerReloadHandler_ =
+			function(sourceElement, event) {
+
+		// prune the list before reloading the items.
+		var $form = this.getHtmlElement();
+		var $select = $form.find('select');
+		$select.find('option[value!="0"]').remove();
+		this.loadOptions_();
 	};
 })(jQuery);

@@ -68,6 +68,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// the element that opened the modal.
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
+		this.publishEvent('containerReloadRequested');
 
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);

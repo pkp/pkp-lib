@@ -49,7 +49,7 @@ class UpgradeTool extends CommandLineTool {
 			. "Supported commands:\n"
 			. "    check                     perform version check\n"
 			. "    latest                    display latest version info\n"
-			//. "    upgrade [pretend]         execute upgrade script\n"
+			. "    upgrade                   execute upgrade script\n"
 			. "    patch                     download and apply patch for latest version\n"
 			. "    download [package|patch]  download latest version (does not unpack/install)\n";
 	}

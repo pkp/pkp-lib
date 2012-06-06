@@ -227,6 +227,7 @@ class Dispatcher {
 	 */
 	function _cacheContent($contents) {
 		assert(is_a($this->_router, 'PKPRouter'));
+		if ($contents == '') return $contents; // Do not cache empties
 		$filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
 		$fp = fopen($filename, 'w');
 		if ($fp) {

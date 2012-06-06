@@ -26,6 +26,9 @@ class Dispatcher {
 	/** @var PKPRouter */
 	var $_router;
 
+	/** @var PKPRequest Used for a callback hack - NOT GENERALLY SET. */
+	var $_requestCallbackHack;
+
 	/**
 	 * Get the application
 	 * @return PKPApplication
@@ -111,6 +114,7 @@ class Dispatcher {
 
 		// Can we serve a cached response?
 		if ($router->isCacheable($request)) {
+			$this->_requestCallbackHack =& $request;
 			if (Config::getVar('cache', 'web_cache')) {
 				if ($this->_displayCached($router, $request)) exit(); // Success
 				ob_start(array(&$this, '_cacheContent'));
@@ -223,8 +227,7 @@ class Dispatcher {
 	 */
 	function _cacheContent($contents) {
 		assert(is_a($this->_router, 'PKPRouter'));
-		// FIXME: #6807 getCacheFilename expects a $request variable.
-		$filename = $this->_router->getCacheFilename();
+		$filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
 		$fp = fopen($filename, 'w');
 		if ($fp) {
 			fwrite($fp, mktime() . ':' . $contents);

@@ -66,6 +66,8 @@
 	<message key="user.profile.form.affiliationRequired">An affiliation is required.</message>
 	<message key="user.profile.form.firstNameRequired">A first name is required.</message>
 	<message key="user.profile.form.lastNameRequired">A last name is required.</message>
+	<message key="user.profile.form.mailingAddressRequired">A mailing address is required.</message>
+	<message key="user.profile.form.countryRequired">A country is required.</message>
 	<message key="user.profile.form.newPasswordRequired">You must enter your new password.</message>
 	<message key="user.profile.form.oldPasswordInvalid">The current password you entered was incorrect.</message>
 	<message key="user.profile.form.openAccessNotifications">Issue open access email notifications</message>

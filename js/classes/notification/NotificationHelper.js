@@ -144,12 +144,14 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 
 		// Check if we found a notification element.
 		if (possibleNotificationWidgets.length) {
-			// Use the last element of the array, its the closest notification
-			// widget related to the element that triggered the action.
-			var elementKey = possibleNotificationWidgets.length - 1;
 
-			// Show in place notification to user.
-			possibleNotificationWidgets[elementKey].triggerHandler('notifyUser');
+			// Trigger all in place notification widgets found, from the
+			// closest to the element that triggered the action to the top.
+			for (var i = possibleNotificationWidgets.length - 1; i > -1; i--) {
+				// Show in place notification to user.
+				possibleNotificationWidgets[i].triggerHandler('notifyUser');
+				console.log(possibleNotificationWidgets[i]);
+			}
 		} else {
 			if (!trivialAlreadyHandled) {
 				// Bubble up the notify user event so the site can handle the

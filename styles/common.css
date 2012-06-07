@@ -253,6 +253,12 @@ span.highlight {
 	border-bottom: 1px dotted #000;
 }
 
+div.warningMessage {
+	background: url(../templates/images/icons/icon_alert.gif) no-repeat 3px 40%;
+	margin: 5px;
+	padding: 5px 5px 5px 25px;
+}
+
 .nowrap {
 	white-space: nowrap;
 }

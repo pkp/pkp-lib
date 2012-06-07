@@ -179,6 +179,20 @@ class VersionCheck {
 			return $pluginVersion;
 		}
 	}
+
+	/**
+	 * Checks the application's version against the latest version 
+	 * on the PKP servers.
+	 * @return string or false if no newer version
+	 */
+	function checkIfNewVersionExists() {
+		$versionInfo =& VersionCheck::getLatestVersion();
+		$latestVersion = $versionInfo['release'];
+
+		$currentVersion =& VersionCheck::getCurrentDBVersion();
+		if($currentVersion->compare($latestVersion) < 0) return $latestVersion;
+		else return false;
+	}
 }
 
 ?>

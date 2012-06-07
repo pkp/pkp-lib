@@ -97,16 +97,16 @@ class Comment extends DataObject {
 	}
 
 	/**
-	 * get user id
-	 * @return int
+	 * get user object
+	 * @return object
 	 */
 	function getUser() {
 		return $this->getData('user');
 	}
 
 	/**
-	 * set user id
-	 * @param $user int
+	 * set user object
+	 * @param $user object
 	 */
 	function setUser($user) {
 		return $this->setData('user', $user);

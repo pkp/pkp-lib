@@ -24,7 +24,7 @@
 	<message key="submission.backToSubmissionEditing">Zpět na editaci příspěvku</message>
 	<message key="submission.changeComments">Změnit na</message>
 	<message key="submission.citations">Reference</message>
-	<message key="submission.citations.jQueryRequired"><![CDATA[Editace citací vyžaduje doplněk jQuery. Prosím, navštivte <a target="_new" href="{$genericPluginsUrl}">stránku Obecné doplňky</a> a zde povolte doplněk jQuery.]]></message>
+	<message key="submission.citations.jQueryRequired"><![CDATA[Editace citací vyžaduje doplněk jQuery. Prosím, navštivte <a target="_blank" href="{$genericPluginsUrl}">stránku Obecné doplňky</a> a zde povolte doplněk jQuery.]]></message>
 	<message key="submission.citations.grid.fields">Název pole</message>
 	<message key="submission.citations.grid.values">Hodnota pole</message>
 	<message key="submission.citations.grid.title">Upravit citace</message>

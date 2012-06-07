@@ -60,10 +60,6 @@ class Session extends DataObject {
 		if (isset($_SESSION[$key])) {
 			unset($_SESSION[$key]);
 		}
-
-		if (session_is_registered($key)) {
-			session_unregister($key);
-		}
 	}
 
 	//

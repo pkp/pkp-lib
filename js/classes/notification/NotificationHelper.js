@@ -150,7 +150,6 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			for (var i = possibleNotificationWidgets.length - 1; i > -1; i--) {
 				// Show in place notification to user.
 				possibleNotificationWidgets[i].triggerHandler('notifyUser');
-				console.log(possibleNotificationWidgets[i]);
 			}
 		} else {
 			if (!trivialAlreadyHandled) {

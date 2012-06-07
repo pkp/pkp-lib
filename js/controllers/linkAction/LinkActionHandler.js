@@ -134,6 +134,16 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	};
 
 
+	/**
+	 * Get the link url.
+	 * @return {string} Link url.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			getUrl = function() {
+		return this.linkActionRequest_.getUrl();
+	};
+
+
 	//
 	// Private methods
 	//
@@ -208,7 +218,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			enableLink = function() {
 		var $linkActionElement = $(this.getHtmlElement());
 		$linkActionElement.removeClass('ui-state-disabled');
-		var actionRequestUrl = this.linkActionRequest_.getUrl();
+		var actionRequestUrl = this.getUrl();
 		if (this.getHtmlElement().is('a') && actionRequestUrl) {
 			$linkActionElement.attr('href', actionRequestUrl);
 		}
@@ -238,10 +248,20 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * Handle the changed data event.
 	 * @private
+	 *
+	 * @param {jQuery} callingElement The calling html element.
+	 * @param {Event} event The event object (dataChanged).
+	 * @param {object} eventData Event data.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			dataChangedHandler_ = function() {
+			dataChangedHandler_ = function(callingElement, event, eventData) {
 
+		if (this.getHtmlElement().parents('.pkp_controllers_grid').length == 0) {
+			// We might want to redirect this data changed event to a grid.
+			// Trigger another event so parent widgets can handle this
+			// redirection.
+			this.trigger('redirectDataChangedToGrid', eventData);
+		};
 		this.trigger('notifyUser', this.getHtmlElement());
 	};
 

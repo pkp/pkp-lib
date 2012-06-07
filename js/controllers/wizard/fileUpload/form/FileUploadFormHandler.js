@@ -179,6 +179,14 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
+				var $uploadForm = this.getHtmlElement();
+
+				// remove the 'add files' button to prevent repeated uploads.
+				// Note: we must disable the type="file" element or else Chrome
+				// will let a user click through the disabled button and add 
+				// new files.
+				$uploadForm.find(':file').attr('disabled', 'disabled');
+				$uploadForm.find('a.plupload_add').button('disable');
 				// Trigger formValid to enable to continue button
 				this.trigger('formValid');
 			} else {

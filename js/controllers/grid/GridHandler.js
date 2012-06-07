@@ -116,6 +116,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Show/hide row action feature.
 		this.activateRowActions_();
+
+		this.trigger('gridInitialized');
 	};
 
 
@@ -181,6 +183,17 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		}
 
 		return rowDataId;
+	};
+
+
+	/**
+	 * Get the parent grid row of the passed element, if any.
+	 * @param {jQuery} $element The element that is inside the row.
+	 * @return {jQuery} The element parent grid row.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getParentRow =
+			function($element) {
+		return $element.parents('.gridRow:first');
 	};
 
 

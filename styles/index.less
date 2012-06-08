@@ -28,15 +28,39 @@
 @import url("lib/pkp/styles/sprites.less");
 
 .grid_actions {
-	margin-top: 20px;
-	padding-bottom: 20px;
-	line-height: 24px;
-	font-size: 110%;
+	padding: 22px 0 22px 0;
 	overflow: hidden;
-}
-
-.grid_actions a {
-	margin-right: 25px;
+	
+	a {
+		padding:0;
+		margin:0 -3px 0 0;
+		/**
+		 * FIXME: !important elements needed in the event CSS
+		 * application order vis-a-vis jQueryUI is reversed (see
+		 * editor decision actions on review interface in OMP)
+		 */
+		border-style: none !important;
+		border-color: white !important;
+		border-width: 0 0 0 0 !important;
+		background: #0c3b66 url(../templates/images/button_bg_slice.png) repeat-x;
+		height: 24px;
+		-moz-border-radius-topright: 0px;
+		-webkit-border-radius: 0px;
+		border-radius: 0px;
+	}
+	
+	a:first-child {
+		-moz-border-radius-topright: 5px 0px 0px 5px;
+		-webkit-border-radius: 5px 0px 0px 5px;
+		border-radius: 5px 0px 0px 5px;
+	}
+	
+	a:last-child {
+		-moz-border-radius-topright: 0px 5px 5px 0px;
+		-webkit-border-radius: 0px 5px 5px 0px;
+		border-radius: 0px 5px 5px 0px;
+		border-right: none;
+	}
 }
 
 .action_links {

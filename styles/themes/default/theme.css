@@ -217,29 +217,12 @@ a.task:hover {
 
 /* Button */
 
-.ui-button {
-	text-transform: uppercase !important;
-	font: 100% "Courier New", Courier, mono !important;
-}
-
-.ui-button-text {
-	line-height: 100% !important;
-}
-
-.go {
-	color: #fff;
-	background-color: #003768;
-	background-image: none;
-	border: 0;
-	line-height: 90% !important;
-}
-
 .buy_now {
 	color: #fff;
 	background-color: #6c9348;
 	background-image: none;
 	border: 0;
-	line-height: 90% !important;
+	line-height: 90%;
 }
 
 

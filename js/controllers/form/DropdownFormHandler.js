@@ -79,6 +79,14 @@
 
 
 	/**
+	 * The key for the current value to select upon option load.
+	 * @private
+	 * @type {string?}
+	 */
+	$.pkp.controllers.form.DropdownFormHandler.prototype.currentKey_ = null;
+
+
+	/**
 	 * The key for the default value to select upon option load.
 	 * @private
 	 * @type {string?}
@@ -139,7 +147,7 @@
 		for (var optionId in jsonData.content) {
 			var $option = $('<option/>');
 			$option.attr('value', optionId);
-			if (this.defaultKey_ == optionId) {
+			if (this.defaultKey_ == optionId || this.currentKey_ == optionId) {
 				$option.attr('selected', 'selected');
 				this.trigger(this.eventName_, optionId);
 			}
@@ -164,6 +172,7 @@
 		// prune the list before reloading the items.
 		var $form = this.getHtmlElement();
 		var $select = $form.find('select');
+		this.currentKey_ = $select.find('option:selected').attr('value');
 		$select.find('option[value!="0"]').remove();
 		this.loadOptions_();
 	};

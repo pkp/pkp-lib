@@ -32,6 +32,7 @@ div.pkp_controllers_grid {
 	tbody.empty td {
 		padding-left: 10px;
 		text-align: left;
+		height: 40px;
 	}
 	
 	thead tr {
@@ -51,8 +52,6 @@ div.pkp_controllers_grid {
 
 	td {
 		text-align: center;
-		min-height: 40px;
-		height: 40px;
 		font-size: 85%;
 		vertical-align: middle;
 		padding: 0px;
@@ -95,17 +94,14 @@ div.pkp_controllers_grid {
 	
 	.grid_header_bar {
 		background-color: #f7f5f4;
-		min-height: 25px;
-		padding-right: 10px;
-		padding-left: 10px;
-		padding-top: 5px;
-		padding-bottom: 5px
+		padding: 5px 10px 5px 0px;
 	}
 	
 	.grid_header_bar h3 {
 		display:inline;
-		padding-top:5px;
+		padding: 0px 0px 0px 10px;
 		vertical-align:middle;
+		line-height: 24px;
 	}
 	
 	.grid_header_bar a {
@@ -134,21 +130,15 @@ div.pkp_controllers_grid {
 
 	.row_container {
 		position: relative; /* Required to anchor absolute row actions positioning below. */
-		padding-top: 11px;
-		padding-left: 50px;
-		padding-right: 20px;
+		padding: 0px 20px 0px 50px;
 		overflow: hidden;
-		min-height: 29px;
-		height: auto;
-		line-height: auto;
-		vertical-align: middle;
+		height: 40px;
 	}
 
 	.row_container .row_actions {
 		position: absolute;
-		width: 32px;
-		padding-left: 8px;
-		height: 200px;
+		width: 40px;
+		height: 40px;
 	}
 
 	.row_actions {
@@ -162,7 +152,11 @@ div.pkp_controllers_grid {
 	}
 
 	.row_file {
+		position: absolute;
 		width: 100%;
+		top: 50%;
+		line-height: 24px;
+		margin-top: -1em;
 	}
 
 	.row_file a.pkp_controllers_linkAction {

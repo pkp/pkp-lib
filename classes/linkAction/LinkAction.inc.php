@@ -79,7 +79,9 @@ class LinkAction {
 	 * @return string
 	 */
 	function getHoverTitle() {
-		$title = $this->getTitle() != '' ? $this->getTitle() : __('grid.action.' . $this->getId());
+		// for the locale key, remove any unique ids from the id.
+		$id = preg_replace('/([^-]+)\-.+$/', '$1', $this->getId());
+		$title = __('grid.action.' . $id);
 		return $title;
 	}
 

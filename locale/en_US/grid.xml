@@ -24,10 +24,12 @@
 	<message key="grid.action.remove">Remove</message>
 	<message key="grid.action.edit">Edit</message>
 	<message key="grid.action.approve">Approve</message>
-	<message key="grid.action.decline">Decline</message>
 	<message key="grid.action.moreInformation">More Information</message>
 	<message key="grid.action.restoreDefaults">Restore Defaults</message>
 	<message key="grid.action.addAuthor">Add Author</message>
+	<message key="grid.action.editAuthor">Edit Author</message>
+	<message key="grid.action.deleteAuthor">Delete Author</message>
+	<message key="grid.action.addAuditor">Add an Auditor</message>
 	<message key="grid.action.upgrade">Upgrade</message>
 	<message key="grid.action.order">Order</message>
 	<message key="grid.action.cancelOrdering">Cancel ordering</message>
@@ -35,6 +37,46 @@
 	<message key="grid.action.collapseAll">Collapse all</message>
 	<message key="grid.action.wizard">Settings wizard</message>
 	<message key="grid.action.moveItem">Move Item</message>
+	<message key="grid.action.downloadFile">Download this file</message>
+	<message key="grid.action.readReview">Read this review</message>
+	<message key="grid.action.email">Send email</message>
+	<message key="grid.action.addReviewer">Add a reviewer</message>
+	<message key="grid.action.addFile">Add a file</message>
+	<message key="grid.action.editFile">Edit a file</message>
+	<message key="grid.action.selectFiles">Select files to manage</message>
+	<message key="grid.action.requestRevisions">Request revisions for this submission</message>
+	<message key="grid.action.resubmit">Request that this submission be resubmitted</message>
+	<message key="grid.action.accept">Accept this submission</message>
+	<message key="grid.action.decline">Decline this Submission</message>
+	<message key="grid.action.externalReview">Send this submission to external review</message>
+	<message key="grid.action.sendToProduction">Send this submission to production</message>
+	<message key="grid.action.settings">Settings</message>
+	<message key="grid.action.importexport">Import or export content or site data</message>
+	<message key="grid.action.restoreDefaults">Restore defaults</message>
+	<message key="grid.action.orderItems">Enable ordering mode</message>
+	<message key="grid.action.editSubmissionChecklist">Edit this checklist item</message>
+	<message key="grid.action.deleteSubmissionChecklist">Delete this checklist item</message>
+	<message key="grid.action.resetAll">Reset all items to default values</message>
+	<message key="grid.action.addPreparedEmail">Add a new email template</message>
+	<message key="grid.action.editPreparedEmail">Edit this email template</message>
+	<message key="grid.action.disableEmail">Disable this email template</message>
+	<message key="grid.action.resetEmail">Reset this email template to the default</message>
+	<message key="grid.action.addSignoff">Add an audit response for this file</message>
+	<message key="grid.action.deleteSignoff">Delete this signoff</message>
+	<message key="grid.action.fileSignoff">Signoff on this file</message>
+	<message key="grid.action.expandAll">Expand All</message>
+	<message key="grid.action.requestAccount">Add a participant</message>
+	<message key="grid.action.expand">Expand</message>
+	<message key="grid.action.notify">Notify this user</message>
+	<message key="grid.action.addUserGroup">Add a new User Group</message>
+	<message key="grid.action.editUserGroup">Edit this user group</message>
+	<message key="grid.action.disable">Disable</message>
+	<message key="grid.action.details">View this item</message>
+
+	<!--  grid task status -->
+	<message key="grid.task.status.completed">This task is completed</message>
+	<message key="grid.task.status.new">This is a new item and requires attention</message>
+	<message key="grid.task.status.uploaded">The column title indicates who uploaded this file</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>
@@ -46,6 +88,8 @@
 	<!-- Sponsors Grid -->
 	<message key="grid.sponsor.title">Sponsors</message>
 	<message key="grid.action.addSponsor">Add Sponsor</message>
+	<message key="grid.action.deleteSponsor">Delete Sponsor</message>
+	<message key="grid.action.editSponsor">Edit Sponsor</message>
 
 	<!-- Series Grid -->
 	<message key="grid.action.addSeries">Add Series</message>
@@ -54,6 +98,7 @@
 	<message key="grid.contributor.title">Contributors</message>
 	<message key="grid.action.addContributor">Add Contributor</message>
 	<message key="grid.action.editContributor">Edit Contributor</message>
+	<message key="grid.action.deleteContributor">Delete Contributor</message>
 
 	<!-- Review Forms Grid -->
 	<message key="grid.reviewForm.title">Review Forms</message>

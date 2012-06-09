@@ -350,7 +350,7 @@ class NotificationHandler extends Handler {
 	 * @return JSONMessage
 	 */
 	function fetchNotification($args, &$request) {
-		parent::setupTemplate();
+		$this->setupTemplate();
 		$user =& $request->getUser();
 		$context =& $request->getContext();
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
@@ -441,6 +441,15 @@ class NotificationHandler extends Handler {
 		}
 
 		return $notificationArray;
+	}
+
+	/**
+	 * Override setupTemplate() so we can load other locale components.
+	 * @see PKPHandler::setupTemplate()
+	 */
+	function setupTemplate() {
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		parent::setupTemplate();
 	}
 }
 

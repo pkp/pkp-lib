@@ -38,6 +38,7 @@
 	<message key="grid.action.wizard">Settings wizard</message>
 	<message key="grid.action.moveItem">Move Item</message>
 	<message key="grid.action.downloadFile">Download this file</message>
+	<message key="grid.action.downloadAll">Download all files as a tar.gz archive</message>
 	<message key="grid.action.readReview">Read this review</message>
 	<message key="grid.action.email">Send email</message>
 	<message key="grid.action.addReviewer">Add a reviewer</message>
@@ -73,6 +74,10 @@
 	<message key="grid.action.editUserGroup">Edit this user group</message>
 	<message key="grid.action.disable">Disable</message>
 	<message key="grid.action.details">View this item</message>
+	<message key="grid.action.enrolExisting">Enrol an existing user as a reviewer</message>
+	<message key="grid.action.selectCreate">Create a new reviewer</message>
+	<message key="grid.action.advancedSearch">Advanced Search</message>
+	<message key="grid.action.viewMetadata">View the metadata for this submission</message>
 
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

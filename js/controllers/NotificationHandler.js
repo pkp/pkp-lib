@@ -50,6 +50,14 @@
 	$.pkp.controllers.NotificationHandler.prototype.options_ = null;
 
 
+	/**
+	 * Time to hide trivial inplace notifications.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.NotificationHandler.prototype.trivialTimer_ = null;
+
+
 	//
 	// Private methods.
 	//
@@ -84,6 +92,9 @@
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			showNotificationResponseHandler_ = function(ajaxContext, jsonData) {
+		// Delete any existing trivial notification timer.
+		clearTimeout(this.trivialTimer_);
+
 		var $notificationElement = this.getHtmlElement();
 		var workingJsonData = this.handleJson(jsonData);
 
@@ -91,7 +102,7 @@
 			return;
 		}
 		if (workingJsonData.content.inPlace) {
-			var inPlaceNotificationsData = this.concatenateNotifications_(
+			var inPlaceNotificationsData = this.setupNotifications_(
 					workingJsonData.content.inPlace);
 			var newNotificationsData = this.removeAlreadyShownNotifications_(
 					workingJsonData);
@@ -182,20 +193,40 @@
 
 
 	/**
-	 * Concatenate notification data in a string variable.
+	 * Concatenate notification data in a string variable and
+	 * add a timer to trivial notifications to make them dissapear.
 	 * @param {Object} notificationsData The notification data to assemble
 	 *  the concatenation from.
 	 * @return {string} The concatenated notification data.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
-			concatenateNotifications_ = function(notificationsData) {
+			setupNotifications_ = function(notificationsData) {
 		var returner = '';
+		var trivialNotifications = new Array();
 		for (var levelId in notificationsData) {
 			for (var notificationId in notificationsData[levelId]) {
+				// Store all trivial notification ids.
+				if (levelId == 1) { // Trivial level.
+					trivialNotifications.push(notificationId);
+				}
+				// Concatenate all notifications.
 				returner += notificationsData[levelId][notificationId];
 			}
 		}
+
+		if (trivialNotifications.length) {
+			this.trivialTimer_ = setTimeout(function() {
+				for (var notificationId in trivialNotifications) {
+					var $notification = $('#pkp_notification_' +
+							trivialNotifications[notificationId]);
+					$notification.fadeOut(400, function() {
+						$(this).remove();
+					});
+				}
+			}, 6000);
+		}
+
 		return returner;
 	};
 

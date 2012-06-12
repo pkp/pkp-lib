@@ -102,17 +102,45 @@
 			return;
 		}
 		if (workingJsonData.content.inPlace) {
-			var inPlaceNotificationsData = this.setupNotifications_(
+			var inPlaceNotificationsData = this.concatenateNotifications_(
 					workingJsonData.content.inPlace);
 			var newNotificationsData = this.removeAlreadyShownNotifications_(
 					workingJsonData);
 
 			$notificationElement.html(inPlaceNotificationsData);
+
+			// We need to show the notification element now so the
+			// visibility test can be executed.
 			$notificationElement.show();
 
+			var trivialNotificationsId = this.getTrivialNotifications_(
+					workingJsonData.content.inPlace);
+
 			if (!(this.visibleWithoutScrolling_()) && newNotificationsData) {
-				$notificationElement.parent().trigger('notifyUser', newNotificationsData);
+				// In place notification is not visible. Let parent widgets
+				// show the notification data.
+				$notificationElement.parent().
+						trigger('notifyUser', newNotificationsData);
+
+				// Remove in place trivial notifications.
+				for (var i in trivialNotificationsId) {
+					var notificationId = trivialNotificationsId[i];
+					$('#pkp_notification_' + notificationId,
+							this.getHtmlElement()).remove();
+				}
 			}
+
+			// After visibility test and possible trivial notifications
+			// removal, we need to test if the in place notification widget
+			// shows any notification. If not, hide it.
+			if ($notificationElement.children().length == 0) {
+				$notificationElement.hide();
+			} else {
+				// Add a timer to any trivial notifications
+				// inside this widget.
+				this.addTimerToNotifications(trivialNotificationsId);
+			};
+
 		} else {
 			this.getHtmlElement().empty();
 			this.getHtmlElement().hide();
@@ -122,7 +150,7 @@
 
 	/**
 	 * Check if the notification is inside the window are visible.
-	 * @return {boolean} True iff the notification is fully visible.
+	 * @return {boolean} True iff the notification is visible.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
@@ -148,7 +176,7 @@
 			}
 		}
 
-		// Check if the element is inside of the visible window are.
+		// Check if the element is inside of the visible window area.
 		if (notificationMiddle < windowScrollTop ||
 				notificationMiddle > windowBottom) {
 			return false;
@@ -193,41 +221,68 @@
 
 
 	/**
-	 * Concatenate notification data in a string variable and
-	 * add a timer to trivial notifications to make them dissapear.
+	 * Concatenate notification data in a string variable.
 	 * @param {Object} notificationsData The notification data to assemble
 	 *  the concatenation from.
 	 * @return {string} The concatenated notification data.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
-			setupNotifications_ = function(notificationsData) {
+			concatenateNotifications_ = function(notificationsData) {
 		var returner = '';
-		var trivialNotifications = new Array();
 		for (var levelId in notificationsData) {
 			for (var notificationId in notificationsData[levelId]) {
-				// Store all trivial notification ids.
-				if (levelId == 1) { // Trivial level.
-					trivialNotifications.push(notificationId);
-				}
 				// Concatenate all notifications.
 				returner += notificationsData[levelId][notificationId];
 			}
 		}
 
-		if (trivialNotifications.length) {
+		return returner;
+	};
+
+
+	/**
+	 * Get all trivial notifications id inside the passed notifications.
+	 * @param {object} notificationsData The data returned from the fetch
+	 * notification request.
+	 * @returns {Array} The trivial notifications id.
+	 */
+	$.pkp.controllers.NotificationHandler.prototype.
+			getTrivialNotifications_ = function(notificationsData) {
+
+		var trivialNotificationsId = new Array();
+		for (var levelId in notificationsData) {
+			if (levelId == 1) { // Trivial level.
+				for (var notificationId in notificationsData[levelId]) {
+					trivialNotificationsId.push(notificationId);
+				}
+			}
+		}
+
+		return trivialNotificationsId;
+	};
+
+
+	/**
+	 * Add a timer for passed notifications to hide them after a time.
+	 * @param {object} notificationsId Array with the notifications id
+	 * that will receive the timer.
+	 */
+	$.pkp.controllers.NotificationHandler.prototype.
+			addTimerToNotifications = function(notificationsId) {
+
+		if (notificationsId.length) {
 			this.trivialTimer_ = setTimeout(function() {
-				for (var notificationId in trivialNotifications) {
+				for (var notificationId in notificationsId) {
 					var $notification = $('#pkp_notification_' +
-							trivialNotifications[notificationId]);
+						notificationsId[notificationId]);
 					$notification.fadeOut(400, function() {
+						// "this" represents the notification element here.
 						$(this).remove();
 					});
 				}
 			}, 6000);
 		}
-
-		return returner;
 	};
 
 

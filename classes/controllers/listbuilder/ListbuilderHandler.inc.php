@@ -25,6 +25,12 @@ define_exposed('LISTBUILDER_SOURCE_TYPE_SELECT', 1);
 define('LISTBUILDER_SAVE_TYPE_EXTERNAL', 0); // Outside the listbuilder handler
 define('LISTBUILDER_SAVE_TYPE_INTERNAL', 1); // Using ListbuilderHandler::save
 
+/* String to identify optgroup in the returning options data. If you want to use
+ * optgroup in listbuilder select, return the options data in a multidimensional array
+ * array[columnIndex][optgroupId][selectItemId] and also with
+ * array[columnIndex][LISTBUILDER_OPTGROUP_LABEL][optgroupId] */
+define_exposed('LISTBUILDER_OPTGROUP_LABEL', 'optGroupLabel');
+
 // FIXME: Rather than inheriting from grid handler, common base
 // functionality might better be factored into a common base handler
 // class and then both, GridHandler and ListbuilderHandler should

@@ -360,48 +360,75 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					);
 
 			// For each pulldown (generally 1), add options.
-			$selectInput.each(function(i) {
+			var i, limit;
+			for (i = 0, limit = $selectInput.length; i < limit; i++) {
 				// Fetch some useful properties
-				var $this = $(this);
-				var $container = $this.parents('.gridCellContainer');
-				var currentIndex = $container.find('.gridCellDisplay :input').val();
+				var $pulldown = $($selectInput[i]);
+				var $container = $pulldown.parents('.gridCellContainer');
 
 				// Add the options, noting the currently selected index
-				var options = '';
 				var optionsCount = 0;
-				var selectedIndex = null;
-				$this.children().empty();
-				var $lastElement;
+				$pulldown.children().empty();
 				var j = null;
 				for (j in jsonData.content[i]) {
-					// Check to see if this option is
-					// already in the LB.
-					var isDuplicate = false;
-					if (j != currentIndex) {
-						// If it's the current row, don't consider it a duplicate
-						for (var k = 0; k < selectedValues.length; k++) {
-							if (selectedValues[k] == j) {
-								isDuplicate = true;
+					// Ignore optgroup labels.
+					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
+						continue;
+					}
+
+					if (typeof(jsonData.content[i][j]) == 'object') {
+						// Options must go inside an optgroup.
+						// Check if we have optgroup label data.
+						if (jsonData.content[i]
+							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]
+								== undefined) {
+							continue;
+						}
+
+						if (typeof(jsonData.content[i]
+							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL])
+								!= 'object') {
+							continue;
+						}
+
+						var label = null;
+						var label = jsonData.content[i]
+							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
+						if (!label) {
+							continue;
+						}
+
+						var $optgroup = $('<optgroup></optgroup>');
+						$optgroup.attr('label', label);
+						$pulldown.append($optgroup);
+
+						var k = null;
+						var optionsInsideGroup = 0;
+						for (k in jsonData.content[i][j]) {
+							// Populate the optgroup.
+							var $option = this.populatePulldown_($optgroup,
+									selectedValues,	jsonData.content[i][j][k], k);
+							if ($option) {
+								optionsCount++;
+								optionsInsideGroup++;
 							}
 						}
-					}
 
-					if (!isDuplicate) {
-						// Create and populate the option node
-						var content = jsonData.content[i][j];
-						var $option = $('<option/>');
-						$option.attr('value', j);
-						$option.text(content);
-
-						if (j == currentIndex) {
-							$option.attr('selected', 'selected');
+						// Avoid inserting optgroups that have no option.
+						if (optionsInsideGroup == 0) {
+							$optgroup.remove();
+						};
+					} else {
+						// Just insert the current option.
+						var $option = this.populatePulldown_($pulldown,
+								selectedValues, jsonData.content[i][j], j);
+						if ($option) {
+							optionsCount++;
 						}
-
-						$this.append($option);
-						optionsCount++;
-						$lastElement = $option;
 					}
 				}
+
+				var $lastElement = $option;
 
 				// If only one element is available, select it.
 				if (optionsCount === 1) {
@@ -414,10 +441,57 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					$container.find('.gridCellDisplay').show();
 					$container.find('.gridCellEdit').hide();
 				}
-			});
+			};
 		}
 		this.enableControls();
 		return false;
+	};
+
+
+	/**
+	 * Populate the pulldown with options.
+	 * @private
+	 * @param {jQuery} $element The element to be populated.
+	 * Can be a pulldown or an optgroup inside the pulldonw.
+	 * @param {object} $selectedValues Current listbuilder
+	 * selected values.
+	 * @param {object} data The data to populate the pulldown.
+	 * @param {integer} dataId The data id.
+	 * @return {object?} Return the inserted option or false.
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+			populatePulldown_ = function($element, selectedValues, optionText, optionValue) {
+
+		var $container = $element.parents('.gridCellContainer');
+		var currentIndex = $container.find('.gridCellDisplay :input').val();
+
+		// Check to see if this option is
+		// already in the LB.
+		var isDuplicate = false;
+		if (optionValue != currentIndex) {
+			// If it's the current row, don't consider it a duplicate
+			for (var k = 0; k < selectedValues.length; k++) {
+				if (selectedValues[k] == optionValue) {
+					isDuplicate = true;
+				}
+			}
+		}
+
+		if (!isDuplicate) {
+			// Create and populate the option node
+			var $option = $('<option/>');
+			$option.attr('value', optionValue);
+			$option.text(optionText);
+
+			if (optionValue == currentIndex) {
+				$option.attr('selected', 'selected');
+			}
+
+			$element.append($option);
+			return $option;
+		} else {
+			return false;
+		}
 	};
 
 

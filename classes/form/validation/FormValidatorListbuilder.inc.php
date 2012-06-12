@@ -54,7 +54,7 @@ class FormValidatorListbuilder extends FormValidator {
 	}
 
 	function insertEntry(&$request, $rowId) {
-			if (is_array($rowId)) {
+		if (is_array($rowId)) {
 			foreach ($rowId as $id) {
 				if ((int) $rowId > 0) {
 					$this->_valid = true;

@@ -62,7 +62,7 @@ class FileArchive {
 	 * @return boolean
 	 */
 	function zipFunctional() {
-		return (checkPhpVersion('5.2.0') && !extension_loaded('zip'));
+		return (checkPhpVersion('5.2.0') && extension_loaded('zip'));
 	}
 }
 ?>

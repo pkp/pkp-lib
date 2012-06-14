@@ -251,7 +251,9 @@ class FileManager {
 			header('Cache-Control: private'); // Workarounds for IE weirdness
 			header('Pragma: public');
 
-			$this->readFile($filePath, true);
+			// Beware of converting to instance call
+			// https://github.com/pkp/pkp-lib/commit/82f4a36db406ecac3eb88875541a74123e455713#commitcomment-1459396
+			FileManager::readFile($filePath, true);
 
 			return true;
 

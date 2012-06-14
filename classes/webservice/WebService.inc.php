@@ -16,9 +16,50 @@
 define('WEBSERVICE_RETRIES', 2);
 define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 
+define('WEBSERVICE_RESPONSE_OK', 200);
+
 import('lib.pkp.classes.webservice.WebServiceRequest');
 
 class WebService {
+	/** @var string */
+	var $_authUsername;
+	/** @var string */
+	var $_authPassword;
+
+	/** @var integer */
+	var $_lastResponseStatus;
+
+	//
+	// Setters and Getters
+	//
+	/**
+	 * Sets an (optional) authentication username.
+	 * @param $authUsername string
+	 */
+	function setAuthUsername($authUsername) {
+		$this->_authUsername = $authUsername;
+	}
+
+	/**
+	 * Sets an (optional) authentication password.
+	 * @param $authPassword string
+	 */
+	function setAuthPassword($authPassword) {
+		$this->_authPassword = $authPassword;
+	}
+
+	/**
+	 * Returns the last error produced by a web service.
+	 * @return integer
+	 */
+	function getLastResponseStatus() {
+		return $this->_lastResponseStatus;
+	}
+
+
+	//
+	// Public API
+	//
 	/**
 	 * Call a web service
 	 * @param $webServiceRequest WebServiceRequest
@@ -69,10 +110,17 @@ class WebService {
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: ' . $webServiceRequest->getAccept()));
+		$headers = array('Accept: ' . $webServiceRequest->getAccept());
+		foreach($webServiceRequest->getHeaders() as $header => $content) {
+			$headers[] = $header . ': ' . $content;
+		}
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postOptions);
+
+		// Set up basic authentication if required.
+		$this->_authenticateRequest($ch);
 
 		// Relax timeout a little bit for slow servers
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
@@ -84,6 +132,8 @@ class WebService {
 			// Wait for a short interval before trying again
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
 		}
+
+		$this->_lastResponseStatus = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 		curl_close($ch);
 		return $result;
@@ -110,8 +160,15 @@ class WebService {
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: ' . $webServiceRequest->getAccept()));
+		$headers = array('Accept: ' . $webServiceRequest->getAccept());
+		foreach($webServiceRequest->getHeaders() as $header => $content) {
+			$headers[] = $header . ': ' . $content;
+		}
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+		// Set up basic authentication if required.
+		$this->_authenticateRequest($ch);
 
 		// Relax timeout a little bit for slow servers
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
@@ -124,8 +181,23 @@ class WebService {
 			usleep(WEBSERVICE_MICROSECONDS_BEFORE_RETRY);
 		}
 
+		$this->_lastResponseStatus = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
 		curl_close($ch);
 		return $result;
+	}
+
+	/**
+	 * Adds (optional) authentication information to a curl request
+	 * @param $ch object Reference to a curl handle.
+	 */
+	function _authenticateRequest(&$ch) {
+		$username = $this->_authUsername;
+		if (!is_null($username)) {
+			$password = $this->_authPassword;
+			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+		}
 	}
 }
 

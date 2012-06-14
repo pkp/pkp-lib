@@ -23,7 +23,11 @@ class WebServiceRequest {
 	/** @var string HTTP request method */
 	var $_method;
 
+	/** @var string Accept header */
 	var $_accept;
+
+	/** @var array Additional request headers */
+	var $_headers = array();
 
 	/**
 	 * Constructor
@@ -100,6 +104,22 @@ class WebServiceRequest {
 	 */
 	function getAccept() {
 		return $this->_accept;
+	}
+
+	/**
+	 * Set an additional request header.
+	 * @param $header string
+	 * @param $content string
+	 */
+	function setHeader($header, $content) {
+		$this->_headers[$header] = $content;
+	}
+
+	/**
+	 * Get additional request headers.
+	 */
+	function getHeaders() {
+		return $this->_headers;
 	}
 }
 ?>

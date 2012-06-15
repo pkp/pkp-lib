@@ -439,7 +439,7 @@ class PKPNotificationManager {
 	function sendNotificationEmail(&$request, $notification) {
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getUser($userId);
+		$user = $userDao->getById($userId);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
 		import('classes.mail.MailTemplate');

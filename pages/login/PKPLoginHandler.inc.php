@@ -189,7 +189,7 @@ class PKPLoginHandler extends Handler {
 
 		$email = $request->getUserVar('email');
 		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getUserByEmail($email);
+		$user =& $userDao->getByIdByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
 			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
@@ -228,7 +228,7 @@ class PKPLoginHandler extends Handler {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$confirmHash = $request->getUserVar('confirm');
 
-		if ($username == null || ($user =& $userDao->getUserByUsername($username)) == null) {
+		if ($username == null || ($user =& $userDao->getByUsername($username)) == null) {
 			$request->redirect(null, null, 'lostPassword');
 		}
 

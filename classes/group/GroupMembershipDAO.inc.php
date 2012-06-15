@@ -85,7 +85,7 @@ class GroupMembershipDAO extends DAO {
 		}
 		$userId = $row['user_id'];
 		if (!isset($users[$userId])) {
-			$users[$userId] =& $this->userDao->getUser($userId);
+			$users[$userId] =& $this->userDao->getById($userId);
 		}
 
 		$membership = $this->newDataObject();

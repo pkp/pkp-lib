@@ -158,7 +158,7 @@ class CommentDAO extends DAO {
 		$comment = $this->newDataObject();
 		$comment->setId($row['comment_id']);
 		$comment->setSubmissionId($row['submission_id']);
-		$comment->setUser($userDao->getUser($row['user_id']), true);
+		$comment->setUser($userDao->getById($row['user_id']), true);
 		$comment->setPosterIP($row['poster_ip']);
 		$comment->setPosterName($row['poster_name']);
 		$comment->setPosterEmail($row['poster_email']);

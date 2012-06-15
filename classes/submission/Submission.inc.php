@@ -150,7 +150,7 @@ class Submission extends DataObject {
 	 */
 	function getUser() {
 		$userDao =& DAORegistry::getDAO('UserDAO');
-		return $userDao->getUser($this->getUserId(), true);
+		return $userDao->getById($this->getUserId(), true);
 	}
 
 	/**

@@ -15,5 +15,7 @@
 	{if $FBV_translate}{html_options_translate options=$FBV_from selected=$FBV_selected}{else}{html_options options=$FBV_from selected=$FBV_selected}{/if}
 </select>
 
-<span>{$FBV_label_content}</span>
+{if $FBV_label_content}
+	<span>{$FBV_label_content}</span>
+{/if}
 </div>

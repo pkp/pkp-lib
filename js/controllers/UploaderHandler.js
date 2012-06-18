@@ -67,7 +67,7 @@
 		// Bind to the pluploader for some configuration
 		pluploader.bind('FilesAdded',
 				this.callbackWrapper(this.limitQueueSize));
-		
+
 		pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader))
 	};
@@ -120,11 +120,12 @@
 	 */
 	$.pkp.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
 		// General settings
-		runtimes: 'html5,flash,silverlight,html4',
+		runtimes: 'html5,flash,silverlight',
 		max_file_size: '20mb',
 		multi_selection: false,
 		file_data_name: 'uploadedFile',
-		multipart: true
+		multipart: true,
+		headers : {'browser_user_agent': navigator.userAgent}
 	};
 
 

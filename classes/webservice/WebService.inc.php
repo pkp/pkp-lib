@@ -70,7 +70,11 @@ class WebService {
 
 		switch($webServiceRequest->getMethod()) {
 			case 'POST':
-				$result = $this->_callPostWebService($webServiceRequest);
+				if ($webServiceRequest->getAsync()) {
+					$result = $this->_callPostWebServiceAsync($webServiceRequest);
+				} else {
+					$result = $this->_callPostWebService($webServiceRequest);
+				}
 				break;
 
 			case 'GET':
@@ -197,6 +201,68 @@ class WebService {
 			$password = $this->_authPassword;
 			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 			curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+		}
+	}
+
+	/**
+	 * Execute an asynchronous web service request.
+	 * @param $webServiceRequest WebServiceRequest
+	 * @return string the web service result or null on failure
+	 */
+	function _callPostWebServiceAsync($webServiceRequest) {
+		// Parse the request URL.
+		$url = $webServiceRequest->getUrl();
+		$urlParts = parse_url($url);
+
+		// Authentication.
+		$headers = array();
+		$username = $this->_authUsername;
+		if (!is_null($username)) {
+			$password = $this->_authPassword;
+			$headers[] = 'Authorization: Basic ' . base64_encode("$username:$password");
+		}
+
+		// Headers
+		$headers[] = 'Accept: ' . $webServiceRequest->getAccept();
+		$hasContentType = false;
+		foreach($webServiceRequest->getHeaders() as $header => $content) {
+			$headers[] = $header . ': ' . $content;
+			if (strtolower($header) == 'content-type') $hasContentType = true;
+		}
+
+		// Our default content type for async POST requests is XML.
+		if (!$hasContentType) {
+			$headers[] = 'Content-Type: text/xml; charset=utf-8';
+		}
+
+		// We expect raw payload.
+		$payload = $webServiceRequest->getParams();
+		assert(is_string($payload));
+
+		// Open the socket.
+		$fp = fsockopen(
+			$urlParts['host'],
+			isset($urlParts['port'])?$urlParts['port']:80,
+			$errno, $errstr, 30
+		);
+
+		if (!$fp) {
+			return false;
+		} else {
+			$path = $urlParts['path'] . (isset($urlParts['query']) ? '?' . $urlParts['query'] : '');
+			$host = $urlParts['host'] . ':' . (isset($urlParts['port']) ? $urlParts['port'] : '80');
+			$out = "POST " . $path . " HTTP/1.1\r\n";
+			$out.= "Host: " . $host . "\r\n";
+			foreach ($headers as $header) {
+				$out.= "$header\r\n";
+			}
+			$out.= "Content-Length: " . strlen($payload) . "\r\n";
+			$out.= "Connection: Close\r\n\r\n";
+			$out .= $payload;
+
+			fwrite($fp, $out);
+			fclose($fp);
+			return true;
 		}
 	}
 }

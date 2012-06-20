@@ -29,6 +29,9 @@ class WebServiceRequest {
 	/** @var array Additional request headers */
 	var $_headers = array();
 
+	/** @var boolean Whether to make an asynchronous request */
+	var $_async = false;
+
 	/**
 	 * Constructor
 	 */
@@ -120,6 +123,23 @@ class WebServiceRequest {
 	 */
 	function getHeaders() {
 		return $this->_headers;
+	}
+
+	/**
+	 * Set whether to make an async request.
+	 * (POST requests only)
+	 * @param $async boolean
+	 */
+	function setAsync($async) {
+		$this->_async = (boolean)$async;
+	}
+
+	/**
+	 * Whether to make an async request.
+	 * @return boolean
+	 */
+	function getAsync() {
+		return $this->_async;
 	}
 }
 ?>

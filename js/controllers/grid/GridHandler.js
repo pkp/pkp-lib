@@ -647,16 +647,20 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.applyToggleRowActionEffect_ =
 			function($controlRow) {
-		var delay = 300;
+		// FIXME #7582: IE8 and Safari don't work well with delay to show
+		// or hide the control grid rows.
+		var delay = 0;
+
 		var $row = $controlRow.prev().find('td:not(.indent_row)');
 		if ($controlRow.is(':visible')) {
 			setTimeout(function() {
 				$row.removeClass('no_border');
 			}, delay);
+			$controlRow.hide(delay);
 		} else {
 			$row.addClass('no_border');
+			$controlRow.show(delay);
 		}
-		$controlRow.toggle(delay);
 		clearTimeout();
 	};
 

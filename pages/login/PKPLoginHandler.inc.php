@@ -189,7 +189,7 @@ class PKPLoginHandler extends Handler {
 
 		$email = $request->getUserVar('email');
 		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getByIdByEmail($email);
+		$user =& $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
 			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');

@@ -33,6 +33,17 @@
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			setupSortablePlugin = function() {
+
+		this.applySortPlgOnElements(
+				this.getGridHtmlElement(), 'tbody.orderable', null);
+
+		// FIXME *7610*: IE8 can't handle well ordering in both categories and
+		// category rows.
+		if ($.browser.msie && parseInt(
+				$.browser.version.substring(0, 1), 10) <= 8) {
+			return;
+		}
+
 		var $categories = this.gridHandler_.getCategories();
 
 		var index, limit;
@@ -40,9 +51,6 @@
 			var $category = $($categories[index]);
 			this.applySortPlgOnElements($category, 'tr.orderable', null);
 		}
-
-		this.applySortPlgOnElements(
-				this.getGridHtmlElement(), 'tbody.orderable', null);
 	};
 
 

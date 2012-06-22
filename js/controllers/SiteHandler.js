@@ -40,7 +40,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
-		$(window).bind('beforeunload', this.callbackWrapper(this.pageUnloadHandler_));
+		$(window).bind('beforeunload',
+				this.callbackWrapper(this.pageUnloadHandler_));
+
+		// Avoid IE8 caching ajax results. If it does, widgets like
+		// grids will not refresh correctly.
+		$.ajaxSetup({
+		    cache: false
+		});
 
 		this.options_ = options;
 

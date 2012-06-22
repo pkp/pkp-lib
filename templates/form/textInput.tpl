@@ -44,6 +44,7 @@
 						value="{$FBV_value[$thisFormLocale]|escape}"
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
 						id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
+						{if $FBV_tabIndex} tabindex="$FBV_tabIndex|escape"{/if}
 					/>
 					{/strip}
 					<label for="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}" class="locale">({$thisFormLocaleName|escape})</label>
@@ -60,6 +61,7 @@
 		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}"
+		{if $FBV_tabIndex} tabindex="{$FBV_tabIndex|escape}"{/if}
 	/>
 
 	<span>{$FBV_label_content}</span>

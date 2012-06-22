@@ -15,6 +15,14 @@
 	{foreach from=$cells item=cell name=listbuilderCells}
 		{if $smarty.foreach.listbuilderCells.first}
 			<td class="first_column">
+				{if $row->getId()}
+					<input type="hidden" name="rowId" value="{$row->getId()|escape}" />
+				{/if}
+				{if !$row->getId() || $row->getIsModified()}
+					<input type="hidden" disabled="disabled" class="isModified" value="1" />
+				{else}
+					<input type="hidden" disabled="disabled" class="isModified" value="0" />
+				{/if}
 				<div class="row_container">
 					<div class="gridCell row_file">{$cell}</div>
 					<div class="row_actions">
@@ -30,12 +38,4 @@
 			<td class="gridCell">{$cell}</td>
 		{/if}
 	{/foreach}
-	{if $row->getId()}
-		<input type="hidden" name="rowId" value="{$row->getId()|escape}" />
-	{/if}
-	{if !$row->getId() || $row->getIsModified()}
-		<input type="hidden" disabled="disabled" class="isModified" value="1" />
-	{else}
-		<input type="hidden" disabled="disabled" class="isModified" value="0" />
-	{/if}
 </tr>

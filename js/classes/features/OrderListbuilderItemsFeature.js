@@ -37,7 +37,12 @@
 
 		var $itemSequenceInput = this.getSequenceInput_();
 		var $gridRows = this.gridHandler_.getRows();
-		$gridRows.append($itemSequenceInput);
+		var index, limit;
+		for (index = 0, limit = $gridRows.length; index < limit; index++) {
+			var $gridRow = $($gridRows[index]);
+			var $itemSequenceInputClone = $itemSequenceInput.clone();
+			$('td.first_column', $gridRow).append($itemSequenceInputClone);
+		}
 	};
 
 

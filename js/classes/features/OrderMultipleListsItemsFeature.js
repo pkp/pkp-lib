@@ -44,7 +44,7 @@
 			var listId = this.gridHandler_.getListIdByRow($row);
 			var $listInputClone = $listInput.clone();
 			$listInputClone.attr('value', listId);
-			$row.append($listInputClone);
+			$('td.first_column', $row).append($listInputClone);
 		}
 	};
 

@@ -310,7 +310,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Attach content handlers and focus
 			this.attachContentHandlers_($newRow);
 			$newRow.addClass('gridRowEdit');
-			$newRow.find(':input').first().focus();
+			$newRow.find(':input').not('[type="hidden"]').first().focus();
 
 			// If this is a select menu listbuilder, load the options
 			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
@@ -515,7 +515,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// Show inputs; hide display
 		$targetRow.addClass('gridRowEdit');
-		$targetRow.find(':input').first().focus();
+		$targetRow.find(':input').not('[type="hidden"]').first().focus();
 
 		// If this is a select menu listbuilder, load the options
 		if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {

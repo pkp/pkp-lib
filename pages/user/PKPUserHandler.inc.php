@@ -41,6 +41,25 @@ class PKPUserHandler extends Handler {
 		$json = new JSONMessage(true, $interests);
 		return $json->getString();
 	}
+
+	/**
+	 * Persist the status for a user's preference to see inline help.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 * @return string Serialized JSON object
+	 */
+	function toggleHelp($args, &$request) {
+
+		$user =& $request->getUser();
+		$user->setInlineHelp($user->getInlineHelp() ? 0 : 1);
+
+		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao->updateObject($user);
+
+		import('lib.pkp.classes.core.JSONMessage');
+		$json = new JSONMessage(true);
+		return $json->getString();
+	}
 }
 
 ?>

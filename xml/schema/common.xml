@@ -197,6 +197,7 @@
 			<DEFAULT VALUE="0"/>
 		</field>
 		<field name="disabled_reason" type="X"/>
+		<field name="inline_help" type="I1" />
 		<descr>User authentication credentials and profile data.</descr>
 		<index name="users_username">
 			<col>username</col>

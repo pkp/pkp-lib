@@ -38,6 +38,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 
+		// Listen for grid initialized events so the inline help can be shown or hidden.
+		this.bind('gridInitialized', this.updateHelpDisplayHandler_);
+
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
 		$(window).bind('beforeunload',
@@ -57,6 +60,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
 		}
+
+		// Bind to the link action for toggling inline help.
+		$widgetWrapper.find('[id^="toggleHelp"]').click(
+				this.callbackWrapper(this.toggleInlineHelpHandler_));
+
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
@@ -268,6 +276,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		}
 	};
 
+
 	/**
 	 * Set the maximum width for the pkp_structure_main div.
 	 * This will prevent content with larger widths (like photos)
@@ -291,5 +300,53 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	};
 
 
+	/**
+	 * Callback to listen to grid initialization events. Used to
+	 * toggle the inline help display on them.
+	 *
+	 * @private
+	 *
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "gridInitialized" event.
+	 * @param {Event} event The "gridInitialized" event.
+	 * @return {string?} the warning message string, if needed.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
+			function(sourceElement, event) {
+
+		var $bodyElement = this.getHtmlElement();
+		var inlineHelpState = this.options_.inlineHelpState;
+		if (inlineHelpState) {
+			// the .css() call removes the CSS applied to the legend intially, so it is 
+			// not shown while the page is being loaded.
+			$bodyElement.find('.pkp_grid_description, #legend').css('visibility', 'visible').show();
+		} else {
+			$bodyElement.find('.pkp_grid_description, #legend').hide();
+		}
+	};
+
+
+	/**
+	 * Respond to a user toggling the display of inline help.
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
+			function(sourceElement, event) {
+
+		// persist the change on the server.
+		$.ajax({
+				url: this.options_.toggleHelpUrl
+			});
+
+		this.options_.inlineHelpState = this.options_.inlineHelpState ? 0 : 1;
+		this.updateHelpDisplayHandler_();
+
+		// Stop further event processing
+		return false;
+	};
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

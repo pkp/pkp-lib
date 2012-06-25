@@ -597,6 +597,22 @@ class PKPUser extends DataObject {
 	}
 
 	/**
+	 * Get the inline help display status for this user.
+	 * @return int
+	 */
+	function getInlineHelp() {
+		return $this->getData('inlineHelp');
+	}
+
+	/**
+	 * Set the inline help display status for this user.
+	 * @param $inlineHelp int
+	 */
+	function setInlineHelp($inlineHelp) {
+		return $this->setData('inlineHelp', $inlineHelp);
+	}
+
+	/**
 	 * Get the user's complete name.
 	 * Includes first name, middle name (if applicable), and last name.
 	 * The suffix is only included when the name is not reversed with $lastFirst

@@ -200,6 +200,8 @@ class PKPTemplateManager extends Smarty {
 				if ($notifications->getCount() > 0) {
 					$hasSystemNotifications = true;
 				}
+
+				$this->assign('initialHelpState', (int) $user->getInlineHelp());
 			}
 			$this->assign('hasSystemNotifications', $hasSystemNotifications);
 		}

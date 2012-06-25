@@ -259,6 +259,7 @@
 	<message key="form.invalidImage">An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</message>
 	<message key="help.contents">Contents</message>
 	<message key="help.help">Help</message>
+	<message key="help.toggleInlineHelp">Toggle Help</message>
 	<message key="help.helpIndex">Help Index</message>
 	<message key="help.matchesFound">{$matches} matches found</message>
 	<message key="help.noMatchingTopics">No matching help topics were found.</message>

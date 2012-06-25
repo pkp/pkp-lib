@@ -196,6 +196,7 @@ class PKPUserDAO extends DAO {
 		$user->setDisabledReason($row['disabled_reason']);
 		$user->setAuthId($row['auth_id']);
 		$user->setAuthStr($row['auth_str']);
+		$user->setInlineHelp($row['inline_help']);
 
 		if ($callHook) HookRegistry::call('UserDAO::_returnUserFromRow', array(&$user, &$row));
 
@@ -215,9 +216,9 @@ class PKPUserDAO extends DAO {
 		}
 		$this->update(
 			sprintf('INSERT INTO users
-				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str)
+				(username, password, salutation, first_name, middle_name, initials, last_name, suffix, gender, email, url, phone, fax, mailing_address, billing_address, country, locales, date_last_email, date_registered, date_validated, date_last_login, must_change_password, disabled, disabled_reason, auth_id, auth_str, inline_help)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?)',
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, ?, ?, ?, ?, ?, ?)',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateRegistered()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
 				$user->getUsername(),
@@ -241,7 +242,8 @@ class PKPUserDAO extends DAO {
 				$user->getDisabled() ? 1 : 0,
 				$user->getDisabledReason(),
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
-				$user->getAuthStr()
+				$user->getAuthStr(),
+				(int) $user->getInlineHelp(),
 			)
 		);
 
@@ -297,7 +299,8 @@ class PKPUserDAO extends DAO {
 					disabled = ?,
 					disabled_reason = ?,
 					auth_id = ?,
-					auth_str = ?
+					auth_str = ?,
+					inline_help = ?
 				WHERE	user_id = ?',
 				$this->datetimeToDB($user->getDateLastEmail()), $this->datetimeToDB($user->getDateValidated()), $this->datetimeToDB($user->getDateLastLogin())),
 			array(
@@ -323,6 +326,7 @@ class PKPUserDAO extends DAO {
 				$user->getDisabledReason(),
 				$user->getAuthId()=='' ? null : (int) $user->getAuthId(),
 				$user->getAuthStr(),
+				(int) $user->getInlineHelp(),
 				(int) $user->getId(),
 			)
 		);

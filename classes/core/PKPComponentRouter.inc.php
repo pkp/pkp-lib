@@ -344,12 +344,13 @@ class PKPComponentRouter extends PKPRouter {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		$translatedAuthorizationMessage = __($authorizationMessage);
 
-		// Add the router name and operation.
-		$url = $request->getRequestUrl();
-		$queryString = $request->getQueryString();
-		if ($queryString) $queryString = '?'.$queryString;
-		$translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
-
+		// Add the router name and operation if show_stats is enabled.
+		if (Config::getVar('debug', 'show_stats')) {
+			$url = $request->getRequestUrl();
+			$queryString = $request->getQueryString();
+			if ($queryString) $queryString = '?'.$queryString;
+			$translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
+		}
 		// Return a JSON error message.
 		import('lib.pkp.classes.core.JSONMessage');
 		$json = new JSONMessage(false, $translatedAuthorizationMessage);

@@ -344,8 +344,8 @@ class PKPComponentRouter extends PKPRouter {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		$translatedAuthorizationMessage = __($authorizationMessage);
 
-		// Add the router name and operation if show_stats is enabled.
-		if (Config::getVar('debug', 'show_stats')) {
+		// Add the router name and operation if show_stacktrace is enabled.
+		if (Config::getVar('debug', 'show_stacktrace')) {
 			$url = $request->getRequestUrl();
 			$queryString = $request->getQueryString();
 			if ($queryString) $queryString = '?'.$queryString;

@@ -320,8 +320,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			// the .css() call removes the CSS applied to the legend intially, so it is 
 			// not shown while the page is being loaded.
 			$bodyElement.find('.pkp_grid_description, #legend').css('visibility', 'visible').show();
+			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOffText);
 		} else {
 			$bodyElement.find('.pkp_grid_description, #legend').hide();
+			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOnText);
 		}
 	};
 

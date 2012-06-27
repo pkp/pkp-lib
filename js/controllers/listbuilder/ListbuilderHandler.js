@@ -77,6 +77,15 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			fetchOptionsUrl_ = null;
 
 
+	/**
+	 * Stores the calling context of the edit item click event.
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.
+			prototype.editItemCallingContext_ = null;
+
+
 	//
 	// Protected methods
 	//
@@ -95,7 +104,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		// Attach the button handlers
 		var $listbuilder = this.getHtmlElement();
-		$listbuilder.find('span[class="options"] > a[id*="addItem"]').click(
+		// Use mousedown to avoid two events being triggered at the same time
+		// (click event was being triggered together with blur event from inputs.
+		// That and a syncronous ajax call triggered by those events
+		// handlers, was leading to an error in IE8 and it was freezing
+		// Firefox 13.0).
+		$listbuilder.find('span[class="options"] > a[id*="addItem"]').mousedown(
 				this.callbackWrapper(this.addItemHandler_));
 
 		// Attach the content manipulation handlers
@@ -244,12 +258,16 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.addItemHandler_ =
 			function(callingContext, opt_event) {
 
-		// Close any existing edits if necessary
-		this.closeEdits();
+		// Make sure this event will be handled after any other next triggered one,
+		// like blur event that comes from inputs.
+		setTimeout(this.callbackWrapper(function() {
+			// Close any existing edits if necessary
+			this.closeEdits();
 
-		this.disableControls();
-		$.get(this.getFetchRowUrl(), {modify: true},
-				this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
+			this.disableControls();
+			$.get(this.getFetchRowUrl(), {modify: true},
+					this.callbackWrapper(this.appendRowResponseHandler_, null), 'json');
+		}), 0);
 
 		return false;
 	};
@@ -508,23 +526,27 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.editItemHandler_ =
 			function(callingContext, opt_event) {
 
-		var $targetRow = $(callingContext).closest('.gridRow');
-
 		// Close any existing edits if necessary
 		this.closeEdits();
+		this.editItemCallingContext_ = callingContext;
 
-		// Show inputs; hide display
-		$targetRow.addClass('gridRowEdit');
-		$targetRow.find(':input').not('[type="hidden"]').first().focus();
+		// Show inputs; hide display. IE8 is slow, and it will execute
+		// this before the timeout setted in inputBlurHandler_. Insert this
+		// code inside a timeout too to avoid closing inputs that are not
+		// meant to.
+		setTimeout(this.callbackWrapper(function(){
+			var $targetRow = $(this.editItemCallingContext_).closest('.gridRow');
+			$targetRow.addClass('gridRowEdit');
+			$targetRow.find(':input').not('[type="hidden"]').first().focus();
 
-		// If this is a select menu listbuilder, load the options
-		if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
-			this.disableControls();
-			$.get(this.fetchOptionsUrl_, {},
-					this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
-						'json');
-		}
-
+			// If this is a select menu listbuilder, load the options
+			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+				this.disableControls();
+				$.get(this.fetchOptionsUrl_, {},
+						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
+							'json');
+			}
+		}), 0);0
 		return false;
 	};
 
@@ -757,11 +779,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			prototype.disableControls = function() {
 
 		this.getHtmlElement().
-				find('span[class="options"] > a[id*="addItem"]').unbind('click');
+				find('span[class="options"] > a[id*="addItem"]').unbind('mousedown');
 
 		// binding false is the same as function() {return false;} in >= 1.4.2
 		this.getHtmlElement().
-				find('span[class="options"] > a[id*="addItem"]').click(false);
+				find('span[class="options"] > a[id*="addItem"]').mousedown(false);
 		this.getHtmlElement().find('.h3').addClass('spinner');
 	};
 
@@ -772,7 +794,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item if needed
-		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').click(
+		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').mousedown(
 				this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};

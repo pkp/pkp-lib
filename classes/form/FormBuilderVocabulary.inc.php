@@ -225,6 +225,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_label', isset($params['label']) ? $params['label'] : null);
 		$smarty->assign('FBV_for', isset($params['for']) ? $params['for'] : null);
 		$smarty->assign('FBV_tabIndex', isset($params['tabIndex']) ? $params['tabIndex'] : null);
+		$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
 
 		// Unset these parameters so they don't get assigned twice
 		unset($params['class']);

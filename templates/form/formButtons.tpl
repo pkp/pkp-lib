@@ -35,6 +35,6 @@
 				 buttonSelector="#submitFormButton"
 				 dialogText="$FBV_confirmSubmit"}
 	{/if}
-	{fbvElement type="submit" class="submitFormButton" id="submitFormButton" label=$FBV_submitText disabled=$FBV_submitDisabled}
+	{fbvElement type="submit" class="submitFormButton" id="submitFormButton" label=$FBV_submitText translate=$FBV_translate disabled=$FBV_submitDisabled}
 	<div class="clear"></div>
 {/fbvFormSection}

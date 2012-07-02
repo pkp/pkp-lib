@@ -105,6 +105,9 @@
 	<!-- Series Grid -->
 	<message key="grid.action.addSeries">Add Series</message>
 
+	<!-- Categories Grid -->
+	<message key="grid.action.addCategory">Add Category</message>
+
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributors</message>
 	<message key="grid.action.addContributor">Add Contributor</message>

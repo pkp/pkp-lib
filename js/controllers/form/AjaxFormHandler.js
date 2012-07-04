@@ -113,6 +113,9 @@
 				$form.replaceWith(jsonData.content);
 			}
 		}
+
+		$(this.getHtmlElement()).find('.progressIndicator').hide();
+
 		// Trigger the notify user event, passing this
 		// html element as data.
 		this.trigger('notifyUser', this.getHtmlElement());

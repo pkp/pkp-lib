@@ -230,6 +230,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			return false;
 		}
 
+		$(formElement).find('.progressIndicator').show();
+
 		if (this.callerSubmitHandler_ !== null) {
 			// A form submission handler (e.g. Ajax) was provided. Use it.
 			return this.callbackWrapper(this.callerSubmitHandler_).

@@ -20,6 +20,7 @@ class FormValidatorListbuilder extends FormValidator {
 	/* outcome of validation after callbacks */
 	var $_valid = false;
 
+
 	/**
 	 * Constructor.
 	 * @param $form Form the associated form
@@ -34,7 +35,8 @@ class FormValidatorListbuilder extends FormValidator {
 	// Public methods
 	//
 	/**
-	 * Value is valid if at least one of the defined unpack callback functions return true (ie, there is a user id present).
+	 * Check the number of lisbuilder rows. If it's equal to 0, return false.
+	 *
 	 * @see FormValidator::isValid()
 	 * @return boolean
 	 */
@@ -49,21 +51,17 @@ class FormValidatorListbuilder extends FormValidator {
 		}
 	}
 
-	function deleteEntry(&$request, $rowId) {
-		return $this->insertEntry($request, $rowId);
+	function deleteEntry(&$request, $rowId, $numberOfRows) {
+		if ($numberOfRows > 0) {
+			$this->_valid = true;
+		} else {
+			$this->_valid = false;
+		}
+
+		return true;
 	}
 
 	function insertEntry(&$request, $rowId) {
-		if (is_array($rowId)) {
-			foreach ($rowId as $id) {
-				if ((int) $rowId > 0) {
-					$this->_valid = true;
-				}
-			}
-		} else if ((int) $rowId > 0) {
-			$this->_valid = true;
-		}
-
 		return true;
 	}
 }

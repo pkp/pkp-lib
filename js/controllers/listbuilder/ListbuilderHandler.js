@@ -180,9 +180,13 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					changes.push(params);
 				}));
 
+		// The listbuilder form validator needs to know if this listbuilder contains
+		// rows or not, so we pass the items number.
+		var numberOfRows = this.getRows().length;
+
 		// Assemble and send to the server
 		var stringifiedData = JSON.stringify(
-				{deletions: deletions, changes: changes});
+				{deletions: deletions, changes: changes, numberOfRows: numberOfRows});
 		var saveUrl = this.getSaveUrl_();
 		if (saveUrl) {
 			// Post the changes to the server using the internal

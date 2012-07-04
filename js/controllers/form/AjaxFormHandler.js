@@ -114,7 +114,7 @@
 			}
 		}
 
-		$(this.getHtmlElement()).find('.progressIndicator').hide();
+		$(this.getHtmlElement()).find('.pkp_helpers_progressIndicator').hide();
 
 		// Trigger the notify user event, passing this
 		// html element as data.

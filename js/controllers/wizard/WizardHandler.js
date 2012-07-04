@@ -61,6 +61,14 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 
 	/**
+	 * The progress indicator.
+	 * @private
+	 * @type {jQuery}
+	 */
+	$.pkp.controllers.wizard.WizardHandler.prototype.$progressIndicator_ = null;
+
+
+	/**
 	 * The continue button label.
 	 * @private
 	 * @type {?string}
@@ -231,6 +239,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			// Try to submit the form.
 			if ($form.submit()) {
 				this.getContinueButton().button('disable');
+				this.getProgressIndicator().show();
 			}
 
 			// Prevent default event handling so that the form
@@ -285,6 +294,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			$continueButton.button('option', 'label', this.getFinishButtonText());
 		}
 
+		this.getProgressIndicator().hide();
 		$continueButton.button('enable');
 	};
 
@@ -356,6 +366,18 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			getContinueButton = function() {
 
 		return this.$continueButton_;
+	};
+
+
+	/**
+	 * Get the progress indicator.
+	 * @protected
+	 * @return {jQuery} The progress indicator.
+	 */
+	$.pkp.controllers.wizard.WizardHandler.prototype.
+			getProgressIndicator = function() {
+
+		return this.$progressIndicator_;
 	};
 
 
@@ -466,12 +488,16 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 				'class="button pkp_helpers_align_right">', options.continueButtonText,
 				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
+			
+			var $progressIndicator = $('<div class="pkp_helpers_progressIndicator"></div>');
+			$wizardButtons.append($progressIndicator);
 
 			$continueButton.
 					// Attach the continue request handler.
 					bind('click',
 							this.callbackWrapper(this.continueRequest));
 			this.$continueButton_ = $continueButton;
+			this.$progressIndicator_ = $progressIndicator;
 
 			// Remember the button labels.
 			this.continueButtonText_ = options.continueButtonText;

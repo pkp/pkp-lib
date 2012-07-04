@@ -189,6 +189,9 @@ jQuery.pkp.controllers.wizard.fileUpload =
 			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 		}
 
+		var $progressIndicator = this.getProgressIndicator();
+		$progressIndicator.hide();
+		
 		return this.parent('tabsLoad', tabsElement, event, ui);
 	};
 

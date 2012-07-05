@@ -127,6 +127,7 @@
 		}
 
 		$(this.getHtmlElement()).find('.pkp_helpers_progressIndicator').hide();
+		this.getHtmlElement().find(':submit').button('enable');
 
 		// Trigger the notify user event, passing this
 		// html element as data.

@@ -57,7 +57,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		}
 
 		// disable submission controls on certain forms.
-		if (options.disableControlsOnSubmit !== null) {
+		if (options.disableControlsOnSubmit) {
 			this.disableControlsOnSubmit_ = options.disableControlsOnSubmit;
 		}
 
@@ -244,11 +244,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			// avoid an infinite loop.)
 			validator.settings.submitHandler = null;
 
-			// We have made it to submission, disable the form control if
-			// necessary, submit the form.
-			if (this.disableControlsOnSubmit_) {
-				$(formElement).find(':submit').button('disable');
-			}
+			this.disableFormControls_();
 
 			this.getHtmlElement().submit();
 		}
@@ -271,6 +267,24 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
 			tinyMCE.triggerSave();
+		}
+		return true;
+	};
+
+
+	/**
+	 * Private method to disable a form's submit control if it is
+	 * desired.
+	 *
+	 * @return {boolean} true.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.disableFormControls_ =
+			function() {
+
+		// We have made it to submission, disable the form control if
+		// necessary, submit the form.
+		if (this.disableControlsOnSubmit_) {
+			this.getHtmlElement().find(':submit').button('disable');
 		}
 		return true;
 	};

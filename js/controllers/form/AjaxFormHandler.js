@@ -36,6 +36,15 @@
 			$.pkp.controllers.form.FormHandler);
 
 
+	/**
+	 * Overridden default from FormHandler -- disable form controls
+	 * on AJAX forms by default.
+	 * @private
+	 * @type {Boolean}
+	 */
+	$.pkp.controllers.form.AjaxFormHandler.prototype.disableControlsOnSubmit_ = true;
+
+
 	//
 	// Public methods
 	//
@@ -52,6 +61,9 @@
 		// This form implementation will post the form,
 		// and act depending on the returned JSON message.
 		var $form = this.getHtmlElement();
+
+		this.disableFormControls_();
+
 		$.post($form.attr('action'), $form.serialize(),
 				this.callbackWrapper(this.handleResponse), 'json');
 	};

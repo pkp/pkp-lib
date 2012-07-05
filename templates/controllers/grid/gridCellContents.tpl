@@ -38,5 +38,10 @@
 		{assign var=_label value=$_label|escape}
 	{/if}
 
-	{$_label}
+	{if $column->hasFlag('maxLength')}
+		{assign var="maxLength" value=$column->getFlag('maxLength')}
+		{$_label|truncate:$maxLength}
+	{else}
+		{$_label}
+	{/if}
 {/if}

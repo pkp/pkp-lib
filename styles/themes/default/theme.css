@@ -58,8 +58,12 @@ a:hover {
 	color: #E17009;
 }
 
-h1, .h1 {
+h1, .h1, h1 a, h1 a:hover {
 	color: #333;
+}
+
+h1 a {
+	text-decoration:none;	
 }
 
 h2, .h2 {

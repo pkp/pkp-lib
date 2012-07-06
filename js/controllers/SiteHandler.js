@@ -365,20 +365,22 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
 				parentsUntil('ul.sf-menu').last();
 
-		// Search for the current url inside the menu links. If not present,
-		// remove part of the url and try again until we've removed the
-		// page handler part.
-		while (true) {
-			// Make the url less specific.
-			currentUrl = currentUrl.substr(0, currentUrl.lastIndexOf('/'));
+		if ($linkInMenu.length === 0) {
+			// Search for the current url inside the menu links. If not present,
+			// remove part of the url and try again until we've removed the
+			// page handler part.
+			while (true) {
+				// Make the url less specific.
+				currentUrl = currentUrl.substr(0, currentUrl.lastIndexOf('/'));
 
-			// Make sure we still have the page handler part in url.
-			if (currentUrl.indexOf(requestedPage) === -1) {
-				break;
+				// Make sure we still have the page handler part in url.
+				if (currentUrl.indexOf(requestedPage) === -1) {
+					break;
+				}
+
+				$linkInMenu = $linkInMenu.add($('a[href="' + currentUrl + '"]',
+						$menu).parentsUntil('ul.sf-menu').last());
 			}
-
-			$linkInMenu = $linkInMenu.add($('a[href="' + currentUrl + '"]',
-					$menu).parentsUntil('ul.sf-menu').last());
 		}
 
 		if ($linkInMenu.length === 1) {

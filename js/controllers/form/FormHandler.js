@@ -62,6 +62,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		}
 
 		var validator = $form.validate({
+			onfocusout: false,
 			errorClass: 'error',
 			highlight: function(element, errorClass) {
 				$(element).parent().parent().addClass(errorClass);

@@ -373,15 +373,15 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileId int The file to be assigned.
 	 * @param $revision int The revision of the file to be assigned.
 	 * @param $stageId int The review round type.
-	 * @param $round int The review round number.
+	 * @param $reviewRoundId int The review round number.
 	 * @param $submissionId int The submission id of the file.
 	 */
-	function assignRevisionToReviewRound($fileId, $revision, $stageId, $round, $submissionId) {
+	function assignRevisionToReviewRound($fileId, $revision, $stageId, $reviewRoundId, $submissionId) {
 		if (!is_numeric($fileId) || !is_numeric($revision)) fatalError('Invalid file!');
 		return $this->update('INSERT INTO review_round_files
-				('.$this->getSubmissionEntityName().'_id, stage_id, round, file_id, revision)
+				('.$this->getSubmissionEntityName().'_id, stage_id, review_round_id, file_id, revision)
 				VALUES (?, ?, ?, ?, ?)',
-				array((int)$submissionId, (int)$stageId, (int)$round, (int)$fileId, (int)$revision));
+				array((int)$submissionId, (int)$stageId, (int)$reviewRoundId, (int)$fileId, (int)$revision));
 	}
 
 	/**
@@ -460,16 +460,31 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 	/**
 	 * Remove all file assignements for the given review round.
-	 * @param $stageId int The review round type.
-	 * @param $round int The review round number.
 	 * @param $submissionId int The submission id of
-	 *  the file.
+	 *  the file
+	 * @param $stageId int The review round type.
+	 * @param $reviewRoundId int The review round number.
 	 */
-	function deleteAllRevisionsByReviewRound($submissionId, $stageId, $round) {
+	function deleteAllRevisionsByReviewRound($submissionId, $stageId, $reviewRoundId) {
 		// Remove currently assigned review files.
 		return $this->update('DELETE FROM review_round_files
-				WHERE '.$this->getSubmissionEntityName().'_id = ? AND stage_id = ? AND round = ?',
-				array((int)$submissionId, (int)$stageId, (int)$round));
+				WHERE '.$this->getSubmissionEntityName().'_id = ? AND stage_id = ? AND review_round_id = ?',
+				array((int)$submissionId, (int)$stageId, (int)$reviewRoundId));
+	}
+
+	/**
+	 * Remove a specific file assignment from a review round.
+	 * @param $submissionId int The submission id of
+	 *  the file
+	 * @param $stageId int The review round type.
+	 * @param $fileId int The file id
+	 * @param $revision int The file revision
+	 */
+	function deleteReviewRoundAssignment($submissionId, $stageId, $fileId, $revision) {
+		// Remove currently assigned review files.
+		return $this->update('DELETE FROM review_round_files
+				WHERE '.$this->getSubmissionEntityName().'_id = ? AND stage_id = ? AND file_id = ? AND revision = ?',
+				array((int)$submissionId, (int)$stageId, (int)$fileId, (int)$revision));
 	}
 
 	/**

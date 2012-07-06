@@ -30,8 +30,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
-		// Initialize the navigation menu
-		$('ul.sf-menu', $widgetWrapper).superfish();
+		this.options_ = options;
+
+		this.initializeMenu_();
 		$('.go').button();
 
 		this.bind('redirectRequested', this.redirectToUrl);
@@ -51,8 +52,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		$.ajaxSetup({
 		    cache: false
 		});
-
-		this.options_ = options;
 
 		this.setMainMaxWidth_();
 
@@ -317,7 +316,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $bodyElement = this.getHtmlElement();
 		var inlineHelpState = this.options_.inlineHelpState;
 		if (inlineHelpState) {
-			// the .css() call removes the CSS applied to the legend intially, so it is 
+			// the .css() call removes the CSS applied to the legend intially, so it is
 			// not shown while the page is being loaded.
 			$bodyElement.find('.pkp_grid_description, #legend').css('visibility', 'visible').show();
 			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOffText);
@@ -350,5 +349,48 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// Stop further event processing
 		return false;
 	};
+
+
+	/**
+	 * Initialize navigation menu.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.initializeMenu_ =
+			function() {
+		var $site = this.getHtmlElement();
+		var $menu = $('ul.sf-menu', $site);
+		$menu.superfish();
+
+		var requestedPage = this.options_.requestedPage;
+		var currentUrl = window.location.href;
+		var $linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
+				parentsUntil('ul.sf-menu').last();
+
+		// Search for the current url inside the menu links. If not present,
+		// remove part of the url and try again until we've removed the
+		// page handler part.
+		while (true) {
+			// Make the url less specific.
+			currentUrl = currentUrl.substr(0, currentUrl.lastIndexOf('/'));
+
+			// Make sure we still have the page handler part in url.
+			if (currentUrl.indexOf(requestedPage) === -1) {
+				break;
+			}
+
+			$linkInMenu = $linkInMenu.add($('a[href="' + currentUrl + '"]',
+					$menu).parentsUntil('ul.sf-menu').last());
+		}
+
+		if ($linkInMenu.length === 1) {
+			// Add the current page style.
+			$('a', $linkInMenu).first().addClass('pkp_helpers_underline');
+		} else {
+			// There is no element or more than one that can represent
+			// the current page. For now we don't have a use case for this,
+			// can be extended if needed.
+		}
+	};
+
+
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

@@ -365,7 +365,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
 				parentsUntil('ul.sf-menu').last();
 
-		if ($linkInMenu.length === 0) {
+		if ($linkInMenu.length === 0 && requestedPage != "") {
 			// Search for the current url inside the menu links. If not present,
 			// remove part of the url and try again until we've removed the
 			// page handler part.

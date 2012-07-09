@@ -13,7 +13,7 @@
 }
 
 .pkp_structure_head_siteNav {
-	height: 35px;
+	height: 39px;
 	padding: 2px 0 0 0;
 	border-bottom: 1px solid;
 	font-size: 90%;
@@ -38,11 +38,26 @@
 
 .pkp_structure_head_localNav {
 	text-transform: uppercase;
-	font: 115% "Courier New", Courier, mono;
+	font: 150% "Courier New", Courier, mono;
 }
 
-.pkp_structure_head_localNav .sf-menu a {
-	padding-right:1.1em;
+.pkp_structure_head_localNav {
+	.sf-menu { 
+		a {
+			padding-right: 0.45em;
+		}
+	
+		a.sf-with-ul {
+			padding-right: 1.55em;
+		}
+		
+		ul {
+			/** We use negative margin because we don't want to overwrite the top
+			 *  style defined in superfish.css.
+			 */
+			margin-top: -1px;
+		}
+	}
 }
 
 .pkp_structure_search {

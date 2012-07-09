@@ -235,7 +235,7 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_validation', isset($params['validation']) ? $params['validation'] : null);
 
 		// Set up the specific field's template
-		switch (strtolower($params['type'])) {
+		switch (strtolower_codesafe($params['type'])) {
 			case 'autocomplete':
 				$content = $this->_smartyFBVAutocompleteInput($params, $smarty);
 				break;
@@ -324,7 +324,7 @@ class FormBuilderVocabulary {
 		}
 
 		// the type of this button. the default value is 'button' (but could be 'submit')
-		$params['type'] = isset($params['type']) ? strtolower($params['type']) : 'button';
+		$params['type'] = isset($params['type']) ? strtolower_codesafe($params['type']) : 'button';
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 
 		$buttonParams = '';

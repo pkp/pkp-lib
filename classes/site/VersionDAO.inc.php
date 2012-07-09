@@ -227,7 +227,7 @@ class VersionDAO extends DAO {
 			foreach ($contextNames as $contextLevel => $contextName) {
 				// Transform from camel case to ..._...
 				String::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
-				$contextNames[$contextLevel] = strtolower(implode('_', $words[0]));
+				$contextNames[$contextLevel] = strtolower_codesafe(implode('_', $words[0]));
 			}
 			$contextWhereClause = 'AND (('.implode('_id = ? AND ', $contextNames).'_id = ?) OR v.sitewide = 1)';
 		} else {

@@ -473,7 +473,7 @@ class PKPComponentRouter extends PKPRouter {
 					|| $partLen < COMPONENT_ROUTER_PARTS_MINLENGTH) return null;
 
 			// Service endpoint URLs are case insensitive.
-			$rpcServiceEndpointParts[$key] = strtolower($rpcServiceEndpointPart);
+			$rpcServiceEndpointParts[$key] = strtolower_codesafe($rpcServiceEndpointPart);
 
 			// We only allow letters, numbers and the hyphen.
 			if (!String::regexp_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) return null;

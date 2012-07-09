@@ -120,7 +120,7 @@ class HTTPFileWrapper extends FileWrapper {
 		// Thanks to php dot net at NOSPAM dot juamei dot com
 		// See http://www.php.net/manual/en/function.parse-url.php
 		if (! is_array($parsed)) return false;
-		$uri = isset($parsed['scheme']) ? $parsed['scheme'].':'.((strtolower($parsed['scheme']) == 'mailto') ? '':'//'): '';
+		$uri = isset($parsed['scheme']) ? $parsed['scheme'].':'.((strtolower_codesafe($parsed['scheme']) == 'mailto') ? '':'//'): '';
 		$uri .= isset($parsed['user']) ? $parsed['user'].($parsed['pass']? ':'.$parsed['pass']:'').'@':'';
 		$uri .= isset($parsed['host']) ? $parsed['host'] : '';
 		$uri .= isset($parsed['port']) ? ':'.$parsed['port'] : '';

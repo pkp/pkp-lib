@@ -60,7 +60,7 @@ class DAO {
 		if ($callHooks === true && checkPhpVersion('4.3.0')) {
 			// Call hooks based on the object name. Results
 			// in hook calls named e.g. "sessiondao::_Constructor"
-			if (HookRegistry::call(strtolower(get_class($this)) . '::_Constructor', array(&$this, &$dataSource))) {
+			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array(&$this, &$dataSource))) {
 				return;
 			}
 		}
@@ -86,7 +86,7 @@ class DAO {
 			// in hook calls named e.g. "sessiondao::_getsession"
 			// (always lower case).
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -116,7 +116,7 @@ class DAO {
 			// in hook calls named e.g. "sessiondao::_getsession"
 			// (all lowercase).
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
+			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$secsToCache, &$value))) {
 				return $value;
 			}
 		}
@@ -150,7 +150,7 @@ class DAO {
 			// in hook calls named e.g. "sessiondao::_getsession"
 			// (all lowercase).
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
+			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$numRows, &$offset, &$value))) {
 				return $value;
 			}
 		}
@@ -178,7 +178,7 @@ class DAO {
 			// this method is only called by a subclass. Results
 			// in hook calls named e.g. "sessiondao::_getsession"
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$dbResultRange, &$value))) {
+			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$dbResultRange, &$value))) {
 				return $value;
 			}
 		}
@@ -214,7 +214,7 @@ class DAO {
 			// in hook calls named e.g. "sessiondao::_updateobject"
 			// (all lowercase)
 			$value = null;
-			if (HookRegistry::call(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
+			if (HookRegistry::call(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), array(&$sql, &$params, &$value))) {
 				return $value;
 			}
 		}
@@ -433,7 +433,7 @@ class DAO {
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
 		// (class names lowercase)
-		HookRegistry::call(strtolower(get_class($this)) . '::getAdditionalFieldNames', array(&$this, &$returner));
+		HookRegistry::call(strtolower_codesafe(get_class($this)) . '::getAdditionalFieldNames', array(&$this, &$returner));
 
 		return $returner;
 	}
@@ -444,7 +444,7 @@ class DAO {
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "sessiondao::getLocaleFieldNames"
 		// (class names lowercase)
-		HookRegistry::call(strtolower(get_class($this)) . '::getLocaleFieldNames', array(&$this, &$returner));
+		HookRegistry::call(strtolower_codesafe(get_class($this)) . '::getLocaleFieldNames', array(&$this, &$returner));
 
 		return $returner;
 	}

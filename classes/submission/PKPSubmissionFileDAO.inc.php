@@ -233,14 +233,16 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$submissionFile =& $this->_castToGenre($submissionFile);
 
 		// Find the required target implementation and delegate.
-		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
-				$submissionFile->getGenreId()));
+		$targetImplementation = strtolower_codesafe(
+			$this->_getFileImplementationForGenreId(
+			$submissionFile->getGenreId())
+		);
 		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
 		$insertedFile =& $targetDaoDelegate->insertObject($submissionFile, $sourceFile, $isUpload);
 
 		// If the updated file does not have the correct target type then we'll have
 		// to retrieve it again from the database to cast it to the right type (downcast).
-		if (strtolower(get_class($insertedFile)) != $targetImplementation) {
+		if (strtolower_codesafe(get_class($insertedFile)) != $targetImplementation) {
 			$insertedFile =& $this->_castToDatabase($insertedFile);
 		}
 		return $insertedFile;
@@ -278,11 +280,13 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		assert(is_a($previousFile, 'MonographFile'));
 
 		// Canonicalized the implementation of the previous file.
-		$previousImplementation = strtolower(get_class($previousFile));
+		$previousImplementation = strtolower_codesafe(get_class($previousFile));
 
 		// Find the required target implementation and delegate.
-		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
-				$updatedFile->getGenreId()));
+		$targetImplementation = strtolower_codesafe(
+			$this->_getFileImplementationForGenreId(
+			$updatedFile->getGenreId())
+		);
 		$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
 
 		// If the implementation in the database differs from the target
@@ -319,7 +323,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// If the updated file does not have the correct target type then we'll have
 		// to retrieve it again from the database to cast it to the right type.
-		if (strtolower(get_class($updatedFile)) != $targetImplementation) {
+		if (strtolower_codesafe(get_class($updatedFile)) != $targetImplementation) {
 			$updatedFile =& $this->_castToDatabase($updatedFile);
 		}
 
@@ -640,7 +644,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function &_getDaoDelegate($fileImplementation) {
 		// Normalize the file implementation name.
-		$fileImplementation = strtolower($fileImplementation);
+		$fileImplementation = strtolower_codesafe($fileImplementation);
 
 		// Did we already instantiate the requested delegate?
 		if (!isset($this->_delegates[$fileImplementation])) {
@@ -877,8 +881,10 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 */
 	function &_castToGenre(&$submissionFile) {
 		// Find the required target implementation.
-		$targetImplementation = strtolower($this->_getFileImplementationForGenreId(
-				$submissionFile->getGenreId()));
+		$targetImplementation = strtolower_codesafe(
+			$this->_getFileImplementationForGenreId(
+			$submissionFile->getGenreId())
+		);
 
 		// If the current implementation of the updated object
 		// differs from the target implementation then we'll

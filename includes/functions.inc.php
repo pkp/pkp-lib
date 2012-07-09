@@ -275,9 +275,9 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 		// Lower case comparison for PHP4 compatibility.
 		// We don't need the String class here as method names are
 		// always US-ASCII.
-		$declaredMethods = array_map('strtolower', get_class_methods($className));
+		$declaredMethods = array_map('strtolower_codesafe', get_class_methods($className));
 		foreach($expectedMethods as $expectedMethod) {
-			$requiredMethod = strtolower($expectedMethod);
+			$requiredMethod = strtolower_codesafe($expectedMethod);
 			if (!in_array($requiredMethod, $declaredMethods)) {
 				return $errorFlag;
 			}
@@ -333,4 +333,15 @@ function stripAssocArray($values) {
 	}
 	return $values;
 }
+
+/**
+ * Perform a code-safe strtolower, i.e. one that doesn't behave differently
+ * based on different locales. (tr_TR, I'm looking at you.)
+ * @param $str string Input string
+ * @return string
+ */
+function strtolower_codesafe($str) {
+	return strtr($str, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
+}
+
 ?>

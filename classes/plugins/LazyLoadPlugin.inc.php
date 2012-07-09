@@ -53,7 +53,7 @@ class LazyLoadPlugin extends Plugin {
 		// as plug-in name. Legacy plug-ins will override this method so
 		// this implementation is backwards compatible.
 		// NB: strtolower is required for PHP4 compatibility.
-		return String::strtolower(get_class($this));
+		return strtolower_codesafe(get_class($this));
 	}
 
 	/*

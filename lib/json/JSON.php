@@ -485,7 +485,7 @@ class Services_JSON
     {
         $str = $this->reduce_string($str);
 
-        switch (strtolower($str)) {
+        switch (strtolower_codesafe($str)) {
             case 'true':
                 return true;
 

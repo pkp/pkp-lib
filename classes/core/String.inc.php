@@ -58,7 +58,7 @@ class String {
 	 * Perform initialization required for the string wrapper library.
 	 */
 	function init() {
-		$clientCharset = strtolower(Config::getVar('i18n', 'client_charset'));
+		$clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
 
 		// Check if mbstring is installed (requires PHP >= 4.3.0)
 		if (String::hasMBString()) {

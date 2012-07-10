@@ -229,7 +229,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.isFormUnsaved =
 			function(id) {
 
-		if (this.unsavedFormElements_[id] !== undefined) {
+		if (this.unsavedFormElements_ !== null && this.unsavedFormElements_[id] !== undefined) {
 			return true;
 		}
 		return false;

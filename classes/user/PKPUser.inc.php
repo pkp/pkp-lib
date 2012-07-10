@@ -634,6 +634,7 @@ class PKPUser extends DataObject {
 
 	function getContactSignature() {
 		$signature = $this->getFullName();
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
 		if ($a = $this->getLocalizedAffiliation()) $signature .= "\n" . $a;
 		if ($p = $this->getPhone()) $signature .= "\n" . __('user.phone') . ' ' . $p;
 		if ($f = $this->getFax()) $signature .= "\n" . __('user.fax') . ' ' . $f;

@@ -66,7 +66,7 @@ class FormBuilderVocabulary {
 	 */
 	function FormBuilderVocabulary($form = null) {
 		$this->_fbvStyles = array(
-			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM'),
+			'size' => array('SMALL' => 'SMALL', 'MEDIUM' => 'MEDIUM', 'LARGE' => 'LARGE'),
 			'height' => array('SHORT' => 'SHORT', 'MEDIUM' => 'MEDIUM', 'TALL' => 'TALL')
 		);
 	}
@@ -204,6 +204,8 @@ class FormBuilderVocabulary {
 		$smarty->assign('FBV_confirmCancel', isset($params['confirmCancel']) ? $params['confirmCancel'] : null);
 		$smarty->assign('FBV_cancelAction', isset($params['cancelAction']) ? $params['cancelAction'] : null);
 		$smarty->assign('FBV_cancelUrl', isset($params['cancelUrl']) ? $params['cancelUrl'] : null);
+
+		$smarty->assign('FBV_translate', isset($params['translate']) ? $params['translate'] : true);
 
 		return $smarty->fetch('form/formButtons.tpl');
 	}
@@ -843,6 +845,7 @@ class FormBuilderVocabulary {
 					switch($value) {
 						case 'SMALL': $classes[] = 'pkp_helpers_quarter'; break;
 						case 'MEDIUM': $classes[] = 'pkp_helpers_half'; break;
+						CASE 'LARGE': $classes[] = 'pkp_helpers_threeQuarter'; break;
 					}
 					break;
 				case 'inline':

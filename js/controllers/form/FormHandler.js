@@ -61,6 +61,11 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			this.disableControlsOnSubmit_ = options.disableControlsOnSubmit;
 		}
 
+		if (options.enableDisablePairs) {
+			this.enableDisablePairs_ = options.enableDisablePairs;
+			this.setupEnableDisablePairs();
+		}
+
 		var validator = $form.validate({
 			onfocusout: false,
 			errorClass: 'error',
@@ -139,6 +144,14 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @type {Boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit_ = false;
+
+
+	/**
+	 * An object containing items that should enable or disable each other.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
 
 
 	//
@@ -287,6 +300,47 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		if (this.disableControlsOnSubmit_) {
 			this.getHtmlElement().find(':submit').button('disable');
 		}
+		return true;
+	};
+
+
+	/**
+	 * Configures the enable/disable pair bindings between a checkbox
+	 * and some other form element.
+	 *
+	 * @return {boolean} true.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.setupEnableDisablePairs =
+			function() {
+
+		var formElement = this.getHtmlElement();
+		for (var key in this.enableDisablePairs_) {
+			$(formElement).find("[id^='"+key+"']").bind('click', this.callbackWrapper(this.toggleDependentElement_));
+		}
+		return true;
+	};
+
+
+	/**
+	 * Enables or disables the item which depends on the state of source of the 
+	 * Event.
+	 * @param {HTMLElement} sourceElement The element which generated the event.
+	 * @param {Event} event The event.
+	 * @return {boolean} true.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.toggleDependentElement_ =
+			function(sourceElement, event) {
+
+		var formElement = this.getHtmlElement();
+		var elementId = $(sourceElement).attr('id');
+		var targetElement = $(formElement).find("[id^='"+this.enableDisablePairs_[elementId]+"']");
+
+		if ($(sourceElement).is(':checked')) {
+			$(targetElement).attr('disabled','');
+		} else {
+			$(targetElement).attr('disabled', 'disabled');
+		}
+
 		return true;
 	};
 /** @param {jQuery} $ jQuery closure. */

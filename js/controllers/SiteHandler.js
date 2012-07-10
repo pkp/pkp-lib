@@ -141,7 +141,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var elementId = sourceElement.attr('id');
 		// this actually sets the property to undefined.
 		// delete doesn't really delete.
-		delete this.unsavedFormElements_[elementId];
+		if (this.unsavedFormElements_ !== null) {
+			delete this.unsavedFormElements_[elementId];
+		}
 	};
 
 

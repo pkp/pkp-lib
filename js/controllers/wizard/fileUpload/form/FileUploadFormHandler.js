@@ -183,7 +183,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 				// remove the 'add files' button to prevent repeated uploads.
 				// Note: we must disable the type="file" element or else Chrome
-				// will let a user click through the disabled button and add 
+				// will let a user click through the disabled button and add
 				// new files.
 				$uploadForm.find(':file').attr('disabled', 'disabled');
 				$uploadForm.find('a.plupload_add').button('disable');

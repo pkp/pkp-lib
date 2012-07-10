@@ -140,7 +140,7 @@
 
 		var $category = $link.parents('.category_grid_body:first');
 		var $categoryElements = $('.gridRow', $category);
-		if ($categoryElements.length == 0) {
+		if ($categoryElements.length === 0) {
 			$categoryElements = this.gridHandler_.
 					getCategoryEmptyPlaceholder($category);
 		}
@@ -174,7 +174,9 @@
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			updateGridActions_ = function() {
 		// Only execute if grid is visible.
-		if (!this.getGridHtmlElement().is(':visible')) return;
+		if (!this.getGridHtmlElement().is(':visible')) {
+			return;
+		}
 
 		var $grid = this.getGridHtmlElement();
 		var selectors = '.' + this.getExpandClass() +

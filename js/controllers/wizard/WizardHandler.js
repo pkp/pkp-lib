@@ -488,8 +488,9 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 				'class="button pkp_helpers_align_right">', options.continueButtonText,
 				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
-			
-			var $progressIndicator = $('<div class="pkp_helpers_progressIndicator"></div>');
+
+			var $progressIndicator = $(
+					'<div class="pkp_helpers_progressIndicator"></div>');
 			$wizardButtons.append($progressIndicator);
 
 			$continueButton.

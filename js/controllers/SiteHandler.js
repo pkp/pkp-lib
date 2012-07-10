@@ -31,6 +31,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.parent($widgetWrapper, options);
 
 		this.options_ = options;
+		this.unsavedFormElements_ = {};
 
 		this.initializeMenu_();
 		$('.go').button();
@@ -49,9 +50,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Avoid IE8 caching ajax results. If it does, widgets like
 		// grids will not refresh correctly.
-		$.ajaxSetup({
-		    cache: false
-		});
+		$.ajaxSetup({cache: false});
 
 		this.setMainMaxWidth_();
 
@@ -94,7 +93,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = {};
+	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
 
 
 	//
@@ -280,6 +279,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * Set the maximum width for the pkp_structure_main div.
 	 * This will prevent content with larger widths (like photos)
 	 * messing up with layout.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
 			function() {
@@ -308,7 +308,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  "gridInitialized" event.
 	 * @param {Event} event The "gridInitialized" event.
-	 * @return {string?} the warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
 			function(sourceElement, event) {
@@ -333,15 +332,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
+	 * @return {boolean} Always returns false.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
 			function(sourceElement, event) {
 
 		// persist the change on the server.
-		$.ajax({
-				url: this.options_.toggleHelpUrl
-			});
+		$.ajax({url: this.options_.toggleHelpUrl});
 
 		this.options_.inlineHelpState = this.options_.inlineHelpState ? 0 : 1;
 		this.updateHelpDisplayHandler_();
@@ -353,6 +351,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Initialize navigation menu.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.initializeMenu_ =
 			function() {
@@ -365,7 +364,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
 				parentsUntil('ul.sf-menu').last();
 
-		if ($linkInMenu.length === 0 && requestedPage != "") {
+		if ($linkInMenu.length === 0 && requestedPage !== '') {
 			// Search for the current url inside the menu links. If not present,
 			// remove part of the url and try again until we've removed the
 			// page handler part.

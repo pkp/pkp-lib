@@ -218,7 +218,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
-		if (options.orderFinishControls != undefined) {
+		if (options.orderFinishControls !== undefined) {
 			var $orderFinishControls = $(options.orderFinishControls);
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
@@ -437,7 +437,7 @@
 			var $rowActionsContainer = $('.gridRow div.row_actions', $grid);
 			var $rowActions = $rowActionsContainer.
 					find(allLinksButMoveItemSelector);
-			if ($rowActions.length == 0) {
+			if ($rowActions.length === 0) {
 				// No link action to show, hide row actions div.
 				this.gridHandler_.hideRowActionsDiv();
 			}

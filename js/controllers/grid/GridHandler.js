@@ -675,7 +675,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.addFeature_ =
 			function(id, $feature) {
 		if (!this.features_) {
-			this.features_ = new Array();
+			this.features_ = [];
 		}
 		this.features_[id] = $feature;
 	};

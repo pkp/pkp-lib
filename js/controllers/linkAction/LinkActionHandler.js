@@ -256,12 +256,12 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
 			dataChangedHandler_ = function(callingElement, event, eventData) {
 
-		if (this.getHtmlElement().parents('.pkp_controllers_grid').length == 0) {
+		if (this.getHtmlElement().parents('.pkp_controllers_grid').length === 0) {
 			// We might want to redirect this data changed event to a grid.
 			// Trigger another event so parent widgets can handle this
 			// redirection.
 			this.trigger('redirectDataChangedToGrid', eventData);
-		};
+		}
 		this.trigger('notifyUser', this.getHtmlElement());
 	};
 

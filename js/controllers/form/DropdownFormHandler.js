@@ -39,8 +39,8 @@
 		// Save the url for fetching the options in the dropdown element.
 		this.getOptionsUrl_ = options.getOptionsUrl;
 
-		// We're not interested in tracking changes to this subclass since
-		// it usually loads content or redirects to another page.
+		// We're not interested in tracking changes to this subclass
+		// since it usually loads content or redirects to another page.
 		this.trackFormChanges_ = false;
 
 		// Attach form elements events.
@@ -116,9 +116,6 @@
 	/**
 	 * Respond to an "item selected" call by triggering a published event.
 	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
 	 * @private
 	 */
 	$.pkp.controllers.form.DropdownFormHandler.prototype.loadOptions_ =

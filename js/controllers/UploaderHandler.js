@@ -69,7 +69,7 @@
 				this.callbackWrapper(this.limitQueueSize));
 
 		pluploader.bind('QueueChanged',
-				this.callbackWrapper(this.refreshUploader))
+				this.callbackWrapper(this.refreshUploader));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
@@ -125,7 +125,7 @@
 		multi_selection: false,
 		file_data_name: 'uploadedFile',
 		multipart: true,
-		headers : {'browser_user_agent': navigator.userAgent}
+		headers: {'browser_user_agent': navigator.userAgent}
 	};
 
 

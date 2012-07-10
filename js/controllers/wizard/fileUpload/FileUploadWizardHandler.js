@@ -191,7 +191,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 		var $progressIndicator = this.getProgressIndicator();
 		$progressIndicator.hide();
-		
+
 		return this.parent('tabsLoad', tabsElement, event, ui);
 	};
 

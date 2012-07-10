@@ -392,6 +392,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var optionsCount = 0;
 				$pulldown.children().empty();
 				var j = null;
+				var $option;
 				for (j in jsonData.content[i]) {
 					// Ignore optgroup labels.
 					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
@@ -401,21 +402,19 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					if (typeof(jsonData.content[i][j]) == 'object') {
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
-						if (jsonData.content[i]
-							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]
-								== undefined) {
+						if (jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] ===
+								undefined) {
 							continue;
 						}
 
-						if (typeof(jsonData.content[i]
-							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL])
-								!= 'object') {
+						if (typeof(
+								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) !=
+								'object') {
 							continue;
 						}
 
-						var label = null;
-						var label = jsonData.content[i]
-							[$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
+						var label =
+								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
 						if (!label) {
 							continue;
 						}
@@ -428,8 +427,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 						var optionsInsideGroup = 0;
 						for (k in jsonData.content[i][j]) {
 							// Populate the optgroup.
-							var $option = this.populatePulldown_($optgroup,
-									selectedValues,	jsonData.content[i][j][k], k);
+							$option = this.populatePulldown_($optgroup,
+									selectedValues, jsonData.content[i][j][k], k);
 							if ($option) {
 								optionsCount++;
 								optionsInsideGroup++;
@@ -437,12 +436,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 						}
 
 						// Avoid inserting optgroups that have no option.
-						if (optionsInsideGroup == 0) {
+						if (optionsInsideGroup === 0) {
 							$optgroup.remove();
-						};
+						}
 					} else {
 						// Just insert the current option.
-						var $option = this.populatePulldown_($pulldown,
+						$option = this.populatePulldown_($pulldown,
 								selectedValues, jsonData.content[i][j], j);
 						if ($option) {
 							optionsCount++;
@@ -463,7 +462,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					$container.find('.gridCellDisplay').show();
 					$container.find('.gridCellEdit').hide();
 				}
-			};
+			}
 		}
 		this.enableControls();
 		return false;
@@ -475,14 +474,15 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @param {jQuery} $element The element to be populated.
 	 * Can be a pulldown or an optgroup inside the pulldonw.
-	 * @param {object} $selectedValues Current listbuilder
+	 * @param {object} selectedValues Current listbuilder
 	 * selected values.
-	 * @param {object} data The data to populate the pulldown.
-	 * @param {integer} dataId The data id.
+	 * @param {string} optionText The text to populate the pulldown with.
+	 * @param {string} optionValue The key to populate the pulldown with.
 	 * @return {object?} Return the inserted option or false.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
-			populatePulldown_ = function($element, selectedValues, optionText, optionValue) {
+			populatePulldown_ = function(
+			$element, selectedValues, optionText, optionValue) {
 
 		var $container = $element.parents('.gridCellContainer');
 		var currentIndex = $container.find('.gridCellDisplay :input').val();
@@ -538,7 +538,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// this before the timeout setted in inputBlurHandler_. Insert this
 		// code inside a timeout too to avoid closing inputs that are not
 		// meant to.
-		setTimeout(this.callbackWrapper(function(){
+		setTimeout(this.callbackWrapper(function() {
 			var $targetRow = $(this.editItemCallingContext_).closest('.gridRow');
 			$targetRow.addClass('gridRowEdit');
 			$targetRow.find(':input').not('[type="hidden"]').first().focus();
@@ -550,7 +550,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
 							'json');
 			}
-		}), 0);0
+		}), 0);
+
 		return false;
 	};
 
@@ -797,7 +798,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.
 			prototype.enableControls = function() {
-		// rebind our 'click' handler so we can add another item if needed
+		// rebind our 'click' handler so we can add another item
+		// if needed
 		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').mousedown(
 				this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');

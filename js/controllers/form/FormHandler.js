@@ -92,7 +92,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		this.callbackWrapper(this.initializeTinyMCE_());
 
 		// bind a handler to make sure tinyMCE fields are populated.
-		$('#submitFormButton', $form).click(this.callbackWrapper(this.pushTinyMCEChanges_));
+		$('#submitFormButton', $form).click(this.callbackWrapper(
+				this.pushTinyMCEChanges_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
@@ -273,6 +274,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @param {Event} event The event that triggered the
 	 *  submit button.
 	 * @return {boolean} true.
+	 * @private
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.pushTinyMCEChanges_ =
 			function(submitButton, event) {
@@ -291,6 +293,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * desired.
 	 *
 	 * @return {boolean} true.
+	 * @private
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.disableFormControls_ =
 			function() {
@@ -315,28 +318,31 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		var formElement = this.getHtmlElement();
 		for (var key in this.enableDisablePairs_) {
-			$(formElement).find("[id^='"+key+"']").bind('click', this.callbackWrapper(this.toggleDependentElement_));
+			$(formElement).find("[id^='" + key + "']").bind(
+					'click', this.callbackWrapper(this.toggleDependentElement_));
 		}
 		return true;
 	};
 
 
 	/**
-	 * Enables or disables the item which depends on the state of source of the 
+	 * Enables or disables the item which depends on the state of source of the
 	 * Event.
 	 * @param {HTMLElement} sourceElement The element which generated the event.
 	 * @param {Event} event The event.
 	 * @return {boolean} true.
+	 * @private
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.toggleDependentElement_ =
 			function(sourceElement, event) {
 
 		var formElement = this.getHtmlElement();
 		var elementId = $(sourceElement).attr('id');
-		var targetElement = $(formElement).find("[id^='"+this.enableDisablePairs_[elementId]+"']");
+		var targetElement = $(formElement).find(
+				"[id^='" + this.enableDisablePairs_[elementId] + "']");
 
 		if ($(sourceElement).is(':checked')) {
-			$(targetElement).attr('disabled','');
+			$(targetElement).attr('disabled', '');
 		} else {
 			$(targetElement).attr('disabled', 'disabled');
 		}

@@ -147,7 +147,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 
 			// Trigger all in place notification widgets found, from the
 			// closest to the element that triggered the action to the top.
-			for (var i = possibleNotificationWidgets.length - 1; i > -1; i--) {
+			for (i = possibleNotificationWidgets.length - 1; i > -1; i--) {
 				// Show in place notification to user.
 				possibleNotificationWidgets[i].triggerHandler('notifyUser');
 			}

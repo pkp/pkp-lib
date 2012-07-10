@@ -16,9 +16,13 @@
 	border-bottom: 1px solid;
 	font-size: 90%;
 	color: #fff;
-	overflow: auto;
+	height: 3.7em;
 	width: 100%;
 
+	.pkp_form div.section {
+		margin-bottom: 0px;
+	}
+	
 	.pkp_helpers_flatlist {
 		margin-top: 10px;
 	}
@@ -46,7 +50,7 @@
 
 .pkp_structure_head_localNav {
 
-	.sf-menu { 
+	.sf-menu {
 
 		a {
 			padding-right: 0.45em;
@@ -54,13 +58,6 @@
 
 		a.sf-with-ul {
 			padding-right: 1.55em;
-		}
-		
-		ul {
-			/** We use negative margin because we don't want to overwrite the top
-			 *  style defined in superfish.css.
-			 */
-			margin-top: -3px;
 		}
 	}
 }

@@ -49,6 +49,7 @@
 	<message key="grid.action.resubmit">Request that this submission be resubmitted</message>
 	<message key="grid.action.accept">Accept this submission</message>
 	<message key="grid.action.decline">Decline this Submission</message>
+	<message key="grid.action.internalReview">Send this submission to internal review</message>
 	<message key="grid.action.externalReview">Send this submission to external review</message>
 	<message key="grid.action.sendToProduction">Send this submission to production</message>
 	<message key="grid.action.settings">Settings</message>

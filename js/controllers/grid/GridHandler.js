@@ -435,6 +435,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Let the calling context (page?) know that the grids are being redrawn.
 		this.trigger('gridRefreshRequested');
+		this.publishChangeEvents();
 	};
 
 

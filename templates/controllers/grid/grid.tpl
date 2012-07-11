@@ -21,6 +21,11 @@
 				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$gridRequestArgs escape=false}',
 				fetchGridUrl: '{url|escape:javascript op='fetchGrid' params=$gridRequestArgs escape=false}',
 				bodySelector: '#{$gridActOnId|escape:javascript}',
+				{if $grid->getPublishChangeEvents()}
+					publishChangeEvents: [
+						{foreach from=$grid->getPublishChangeEvents() item=gridPublishChangeEvent name=gridPublishChangeEvents}{if $smarty.foreach.gridPublishChangeEvents.first}'{else}', '{/if}{$gridPublishChangeEvent|escape:"javascript"}{if $smarty.foreach.gridPublishChangeEvents.last}'{/if}{/foreach}
+					],
+				{/if}
 				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}
 		);

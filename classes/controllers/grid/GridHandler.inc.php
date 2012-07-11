@@ -366,6 +366,13 @@ class GridHandler extends PKPHandler {
 		return $this->_features;
 	}
 
+	/**
+	 * Get "publish data changed" event list.
+	 * @return array
+	 */
+	function getPublishChangeEvents() {
+		return array();
+	}
 
 	//
 	// Overridden methods from PKPHandler

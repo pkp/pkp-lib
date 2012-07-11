@@ -25,8 +25,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @extends $.pkp.classes.Handler
 	 *
 	 * @param {jQuery} $form the wrapped HTML form element.
-	 * @param {Object} options options to be passed
-	 *  into the validator plug-in.
+	 * @param {Object} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {
 		this.parent($form, options);

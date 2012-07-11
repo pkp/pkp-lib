@@ -44,6 +44,18 @@
 			this.$eventBridge_ = options.$eventBridge;
 		}
 
+		// The "publishChangeEvents" option can be used to specify
+		// a list of event names that will also be published upon
+		// content change.
+		if (options.publishChangeEvents) {
+			this.publishChangeEvents_ = options.publishChangeEvents;
+			for (var i = 0; i < this.publishChangeEvents_.length; i++) {
+				this.publishEvent(this.publishChangeEvents_[i]);
+			}
+		} else {
+			this.publishChangeEvents_ = [];
+		}
+
 		// Bind the handler to the DOM element.
 		this.data('handler', this);
 	};
@@ -52,6 +64,14 @@
 	//
 	// Private properties
 	//
+	/**
+	 * Optional list of publication events.
+	 * @private
+	 * @type {Array}
+	 */
+	$.pkp.classes.Handler.prototype.publishChangeEvents_ = null;
+
+
 	/**
 	 * The HTML element this handler is bound to.
 	 * @private
@@ -123,6 +143,18 @@
 	//
 	// Public methods
 	//
+	/**
+	 * Publish change events. (See options.publishChangeEvents.)
+	 *
+	 * @this {HTMLElement}
+	 */
+	$.pkp.classes.Handler.prototype.publishChangeEvents = function() {
+		for (var i = 0; i < this.publishChangeEvents_.length; i++) {
+			this.trigger(this.publishChangeEvents_[i]);
+		}
+	};
+
+
 	/**
 	 * A generic event dispatcher that will be bound to
 	 * all handler events. See bind() above.

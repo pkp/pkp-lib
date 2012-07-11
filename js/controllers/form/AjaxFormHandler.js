@@ -21,8 +21,7 @@
 	 * @extends $.pkp.controllers.form.FormHandler
 	 *
 	 * @param {jQuery} $form the wrapped HTML form element.
-	 * @param {Object} options options to be passed
-	 *  into the validator plug-in.
+	 * @param {Object} options options to configure the AJAX form handler.
 	 */
 	$.pkp.controllers.form.AjaxFormHandler = function($form, options) {
 		options.submitHandler = this.submitForm;
@@ -114,12 +113,16 @@
 
 				// Trigger the "form submitted" event.
 				this.trigger('formSubmitted');
+
+				// Fire off any other optional events.
+				this.publishChangeEvents();
 			} else {
 				if (jsonData.reloadContainer !== undefined) {
 					this.trigger('dataChanged');
 					this.trigger('containerReloadRequested', jsonData);
 					return jsonData.status;
 				}
+
 				// Redisplay the form.
 				var $form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);

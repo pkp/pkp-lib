@@ -37,8 +37,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		$('.go').button();
 
 		this.bind('redirectRequested', this.redirectToUrl);
-
 		this.bind('notifyUser', this.fetchNotificationHandler_);
+		this.bind('updateHeader', this.updateHeaderHandler_);
 
 		// Listen for grid initialized events so the inline help can be shown or hidden.
 		this.bind('gridInitialized', this.updateHelpDisplayHandler_);
@@ -186,6 +186,20 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			dataType: 'json',
 			async: false
 		});
+	};
+
+
+	/**
+	 * Fetch the header (e.g. on header configuration change).
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  update header event.
+	 * @param {Event} event The "fetch header" event.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
+			function(sourceElement, event) {
+		var handler = $.pkp.classes.Handler.getHandler($('#headerContainer'));
+		handler.reload();
 	};
 
 

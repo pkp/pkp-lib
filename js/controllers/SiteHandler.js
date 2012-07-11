@@ -33,7 +33,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.options_ = options;
 		this.unsavedFormElements_ = {};
 
-		this.initializeMenu_();
 		$('.go').button();
 
 		this.bind('redirectRequested', this.redirectToUrl);
@@ -42,6 +41,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Listen for grid initialized events so the inline help can be shown or hidden.
 		this.bind('gridInitialized', this.updateHelpDisplayHandler_);
+
+		// Listen for help toggle events.
+		this.bind('toggleInlineHelp', this.toggleInlineHelpHandler_);
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
@@ -58,11 +60,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
 		}
-
-		// Bind to the link action for toggling inline help.
-		$widgetWrapper.find('[id^="toggleHelp"]').click(
-				this.callbackWrapper(this.toggleInlineHelpHandler_));
-
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
@@ -159,6 +156,56 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	// Private methods.
 	//
+	/**
+	 * Respond to a user toggling the display of inline help.
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @return {boolean} Always returns false.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
+			function(sourceElement, event) {
+
+		// persist the change on the server.
+		$.ajax({url: this.options_.toggleHelpUrl});
+
+		this.options_.inlineHelpState = this.options_.inlineHelpState ? 0 : 1;
+		this.updateHelpDisplayHandler_();
+
+		// Stop further event processing
+		return false;
+	};
+
+
+	/**
+	 * Callback to listen to grid initialization events. Used to
+	 * toggle the inline help display on them.
+	 *
+	 * @private
+	 *
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  "gridInitialized" event.
+	 * @param {Event} event The "gridInitialized" event.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
+			function(sourceElement, event) {
+
+		var $bodyElement = this.getHtmlElement();
+		var inlineHelpState = this.options_.inlineHelpState;
+		if (inlineHelpState) {
+			// the .css() call removes the CSS applied to the legend intially, so it is
+			// not shown while the page is being loaded.
+			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').css('visibility', 'visible').show();
+			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOffText);
+		} else {
+			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').hide();
+			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOnText);
+		}
+	};
+
+
 	/**
 	 * Fetch the notification data.
 	 * @param {HTMLElement} sourceElement The element that issued the
@@ -312,100 +359,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var mainMaxWidth = structureContentWidth - (leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
 
 		$mainDiv.css('max-width', mainMaxWidth);
-	};
-
-
-	/**
-	 * Callback to listen to grid initialization events. Used to
-	 * toggle the inline help display on them.
-	 *
-	 * @private
-	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
-	 *  "gridInitialized" event.
-	 * @param {Event} event The "gridInitialized" event.
-	 */
-	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
-			function(sourceElement, event) {
-
-		var $bodyElement = this.getHtmlElement();
-		var inlineHelpState = this.options_.inlineHelpState;
-		if (inlineHelpState) {
-			// the .css() call removes the CSS applied to the legend intially, so it is
-			// not shown while the page is being loaded.
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').css('visibility', 'visible').show();
-			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOffText);
-		} else {
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').hide();
-			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOnText);
-		}
-	};
-
-
-	/**
-	 * Respond to a user toggling the display of inline help.
-	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @return {boolean} Always returns false.
-	 * @private
-	 */
-	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
-			function(sourceElement, event) {
-
-		// persist the change on the server.
-		$.ajax({url: this.options_.toggleHelpUrl});
-
-		this.options_.inlineHelpState = this.options_.inlineHelpState ? 0 : 1;
-		this.updateHelpDisplayHandler_();
-
-		// Stop further event processing
-		return false;
-	};
-
-
-	/**
-	 * Initialize navigation menu.
-	 * @private
-	 */
-	$.pkp.controllers.SiteHandler.prototype.initializeMenu_ =
-			function() {
-		var $site = this.getHtmlElement();
-		var $menu = $('ul.sf-menu', $site);
-		$menu.superfish();
-
-		var requestedPage = this.options_.requestedPage;
-		var currentUrl = window.location.href;
-		var $linkInMenu = $('a[href="' + currentUrl + '"]', $menu).
-				parentsUntil('ul.sf-menu').last();
-
-		if ($linkInMenu.length === 0 && requestedPage !== '') {
-			// Search for the current url inside the menu links. If not present,
-			// remove part of the url and try again until we've removed the
-			// page handler part.
-			while (true) {
-				// Make the url less specific.
-				currentUrl = currentUrl.substr(0, currentUrl.lastIndexOf('/'));
-
-				// Make sure we still have the page handler part in url.
-				if (currentUrl.indexOf(requestedPage) === -1) {
-					break;
-				}
-
-				$linkInMenu = $linkInMenu.add($('a[href="' + currentUrl + '"]',
-						$menu).parentsUntil('ul.sf-menu').last());
-			}
-		}
-
-		if ($linkInMenu.length === 1) {
-			// Add the current page style.
-			$('a', $linkInMenu).first().addClass('pkp_helpers_underline');
-		} else {
-			// There is no element or more than one that can represent
-			// the current page. For now we don't have a use case for this,
-			// can be extended if needed.
-		}
 	};
 
 

@@ -12,6 +12,7 @@
  * @brief Class providing operations associated with HTTP requests.
  */
 
+define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
 
 class PKPRequest {
 	//
@@ -421,8 +422,7 @@ class PKPRequest {
 		if (!isset($isBot)) {
 			$userAgent = $_this->getUserAgent();
 			$isBot = false;
-			$userAgentsFile = Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'botAgents.txt';
-			$regexps = array_filter(file($userAgentsFile), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
+			$regexps = array_filter(file(USER_AGENTS_FILE), create_function('&$a', 'return ($a = trim($a)) && !empty($a) && $a[0] != \'#\';'));
 			foreach ($regexps as $regexp) {
 				if (String::regexp_match($regexp, $userAgent)) {
 					$isBot = true;

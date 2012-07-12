@@ -237,6 +237,7 @@
 	<message key="submission.comments.corrections">Corrections</message>
 	<message key="submission.comments.editComment">Edit Comment</message>
 	<message key="submission.comments.importPeerReviews">Import Peer Reviews</message>
+	<message key="submission.comments.addReviews">Add Reviews to Email</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">Reviewer {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">No Comments</message>
 	<message key="submission.comments.noReviews">No Reviews</message>

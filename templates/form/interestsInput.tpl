@@ -45,7 +45,7 @@
 	<!-- The container which will be processed by tag-it.js as the interests widget -->
 	<ul class="interests">
 		{if $FBV_interestsKeywords}{foreach from=$FBV_interestsKeywords item=interest}<li class="hidden">{$interest|escape}</li>{/foreach}{/if}
-	</ul><span class="interestDescription hidden">{fieldLabel for="interests" key="user.interests.description"}</span><br />
+	</ul>
 	<!-- If Javascript is disabled, this field will be visible -->
 	<textarea name="interestsTextOnly" rows="5" cols="40" class="interestsTextOnly textArea">{if $FBV_interestsTextOnly}{$FBV_interestsTextOnly|escape}{/if}</textarea>
 </div>

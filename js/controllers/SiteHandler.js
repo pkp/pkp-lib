@@ -121,8 +121,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement =
 			function(sourceElement) {
 
-		var elementId = sourceElement.attr('id');
-		this.unsavedFormElements_[elementId] = true;
+		if (this.unsavedFormElements_ !== null) {
+			var elementId = sourceElement.attr('id');
+			this.unsavedFormElements_[elementId] = true;
+		}
 	};
 
 

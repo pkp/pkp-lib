@@ -167,10 +167,11 @@ class PKPTemplateManager extends Smarty {
 
 
 		// register the resource name "core"
-		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
-											array(&$this, 'smartyResourceCoreGetTimestamp'),
-											array(&$this, 'smartyResourceCoreGetSecure'),
-											array(&$this, 'smartyResourceCoreGetTrusted')));
+		$this->register_resource('core', array(array(&$this, 'smartyResourceCoreGetTemplate'),
+			array(&$this, 'smartyResourceCoreGetTimestamp'),
+			array(&$this, 'smartyResourceCoreGetSecure'),
+			array(&$this, 'smartyResourceCoreGetTrusted'))
+		);
 
 		$this->register_function('url', array(&$this, 'smartyUrl'));
 		// ajax load into a div
@@ -407,11 +408,12 @@ class PKPTemplateManager extends Smarty {
 		return true;
 	}
 
-	function smartyResourceCoreGetTecure($template, &$smarty) {
+	function smartyResourceCoreGetSecure($template, &$smarty) {
 		return true;
 	}
 
-	function smartyResourceCoreGetTrusted($template, &$smarty) {}
+	function smartyResourceCoreGetTrusted($template, &$smarty) {
+	}
 
 
 	//

@@ -39,6 +39,7 @@
 	<message key="admin.languages.reload">Genindlæs landestandard</message>
 	<message key="admin.languages.uninstall">Fjern landestandard</message>
 	<message key="admin.phpInfo">Detaljerede oplysninger om PHP</message>
+	<message key="admin.saveSystemConfig">Gem konfiguration</message>
 	<message key="admin.server.apacheVersion">Apache-version</message>
 	<message key="admin.server.dbDriver">Databasedriver</message>
 	<message key="admin.server.dbVersion">Version af databaseserver</message>

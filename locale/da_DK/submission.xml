@@ -165,4 +165,213 @@
 	<message key="submission.uploadFileTo">Overfør fil til</message>
 	<message key="submission.viewMetadata">Vis metadata</message>
 	<message key="submission.views">Visninger</message>
+	<message key="author.submit.submissionCitations">Angiv en formatteret litteraturliste over værker, der er citeret i det indsendte bidrag. Adskil hver enkelt henvisning med en tom linje.</message>
+	<message key="metadata.filters.crossref.settings.email.displayName">Registrerings-e-mail for CrossRef</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Indtast en gyldig registrerings-e-mail for CrossRef. Du kan gratis registrere din e-mail på CrossRef-webstedet.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">API-nøgle for ISBNdb</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Indtast din API-nøgle for ISBNdb. Hvis du ikke har en nøgle endnu, kan du gratis anmode ISBNdb-projektet om at få tilsendt en.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">Registrerings-e-mail for PubMed</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Indtast en gyldig registrerings-e-mail for PubMed, hvis du har en.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">API-nøgle for WorldCat.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Indtast en gyldig API-nøgle for WorldCat, hvis du har en.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citationsmodul</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Vælg et af de angivne citationsmoduler.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Anvend ikke som standard (vil stadig være til rådighed for redaktøren)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Intern fejl. Der er blevet angivet en ugyldig værdi for indstillingen 'valgfrit filter'. Indsend en fejlrapport.</message>
+	<message key="metadata.property.displayName.author">Forfattere</message>
+	<message key="metadata.property.validationMessage.author">For at opnå de bedste resultater skal forfattere angives i følgende format: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.editor">Redaktører</message>
+	<message key="metadata.property.validationMessage.editor">For at opnå de bedste resultater skal redaktører angives i følgende format: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.article-title">Artikel-/afhandlingstitel</message>
+	<message key="metadata.property.validationMessage.article-title">Indtast en gyldig artikel-/afhandlingstitel.</message>
+	<message key="metadata.property.displayName.source">Tidsskrift-/bogtitel</message>
+	<message key="metadata.property.validationMessage.source">Indtast en gyldig tidsskrift-/bogtitel.</message>
+	<message key="metadata.property.displayName.date">Udgivelsesdato</message>
+	<message key="metadata.property.validationMessage.date">Indtast en gyldig udgivelsesdato (format: ÅÅÅÅ-MM-DD).</message>
+	<message key="metadata.property.displayName.access-date">Adgangsdato</message>
+	<message key="metadata.property.validationMessage.access-date">Indtast en gyldig adgangsdato (format: ÅÅÅÅ-MM-DD).</message>
+	<message key="metadata.property.displayName.issue">Nummer</message>
+	<message key="metadata.property.validationMessage.issue">Indtast et gyldigt nummer.</message>
+	<message key="metadata.property.displayName.volume">Årgang</message>
+	<message key="metadata.property.validationMessage.volume">Indtast en gyldig årgang.</message>
+	<message key="metadata.property.displayName.season">Sæson</message>
+	<message key="metadata.property.validationMessage.season">Indtast et gyldigt sæson-id.</message>
+	<message key="metadata.property.displayName.chapter-title">Afsnitstitel</message>
+	<message key="metadata.property.validationMessage.chapter-title">Indtast en gyldig afsnitstitel.</message>
+	<message key="metadata.property.displayName.edition">Udgave</message>
+	<message key="metadata.property.validationMessage.edition">Indtast en gyldig udgave.</message>
+	<message key="metadata.property.displayName.series">Serie</message>
+	<message key="metadata.property.validationMessage.series">Indtast en gyldig serie.</message>
+	<message key="metadata.property.displayName.supplement">Supplement</message>
+	<message key="metadata.property.validationMessage.supplement">Indtast et gyldigt supplement.</message>
+	<message key="metadata.property.displayName.conf-date">Konferencedato</message>
+	<message key="metadata.property.validationMessage.conf-date">Indtast en gyldig konferencedato (format: ÅÅÅÅ-MM-DD).</message>
+	<message key="metadata.property.displayName.conf-loc">Konferencested</message>
+	<message key="metadata.property.validationMessage.conf-loc">Indtast et gyldigt konferencested.</message>
+	<message key="metadata.property.displayName.conf-name">Konferencenavn</message>
+	<message key="metadata.property.validationMessage.conf-name">Indtast et gyldigt konferencenavn.</message>
+	<message key="metadata.property.displayName.conf-sponsor">Konferencesponsor</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">Indtast en gyldig konferencesponsor.</message>
+	<message key="metadata.property.displayName.institution">Institution</message>
+	<message key="metadata.property.validationMessage.institution">Indtast en gyldig institution.</message>
+	<message key="metadata.property.displayName.fpage">Første side</message>
+	<message key="metadata.property.validationMessage.fpage">Indtast en gyldig første side (skal være en numerisk værdi).</message>
+	<message key="metadata.property.displayName.lpage">Sidste side</message>
+	<message key="metadata.property.validationMessage.lpage">Indtast en gyldig sidste side (skal være en numerisk værdi).</message>
+	<message key="metadata.property.displayName.size">Antal sider</message>
+	<message key="metadata.property.validationMessage.size">Indtast et gyldigt samlet antal sider (skal være en numerisk værdi).</message>
+	<message key="metadata.property.displayName.publisher-loc">Udgiversted</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Indtast et gyldigt udgiversted.</message>
+	<message key="metadata.property.displayName.publisher-name">Udgivernavn</message>
+	<message key="metadata.property.validationMessage.publisher-name">Indtast et gyldigt udgivernavn.</message>
+	<message key="metadata.property.displayName.isbn">ISBN-nummer</message>
+	<message key="metadata.property.validationMessage.isbn">Indtast et gyldigt ISBN-nummer (9 eller 13 cifre).</message>
+	<message key="metadata.property.displayName.issn">ISSN-nummer (tryk)</message>
+	<message key="metadata.property.validationMessage.issn">Indtast et gyldigt ISSN-nummer (tryk).</message>
+	<message key="metadata.property.displayName.eissn">eISSN-nummer</message>
+	<message key="metadata.property.validationMessage.eissn">Indtast et gyldigt eISSN-nummer.</message>
+	<message key="metadata.property.displayName.doi">DOI-nummer</message>
+	<message key="metadata.property.validationMessage.doi">Indtast et gyldigt DOI-nummer.</message>
+	<message key="metadata.property.displayName.publisher-id">Custom Publication-id</message>
+	<message key="metadata.property.validationMessage.publisher-id">Indtast et gyldigt Custom Publication-id.</message>
+	<message key="metadata.property.displayName.coden">CODEN-kode</message>
+	<message key="metadata.property.validationMessage.coden">Indtast en gyldig CODEN-kode.</message>
+	<message key="metadata.property.displayName.sici">SICI-kode</message>
+	<message key="metadata.property.validationMessage.sici">Indtast en gydlg SICI-kode.</message>
+	<message key="metadata.property.displayName.pmid">PMID-nummer</message>
+	<message key="metadata.property.validationMessage.pmid">Indtast et gyldigt PMID-nummer.</message>
+	<message key="metadata.property.displayName.uri">Link til udgivelsen</message>
+	<message key="metadata.property.validationMessage.uri">Indtast et gyldigt alternativt link til udgivelsen.</message>
+	<message key="metadata.property.displayName.comment">Kommentar</message>
+	<message key="metadata.property.validationMessage.comment">Indtast en gyldig kommentar.</message>
+	<message key="metadata.property.displayName.annotation">Note</message>
+	<message key="metadata.property.validationMessage.annotation">Indtast en gyldig note.</message>
+	<message key="metadata.property.displayName.publication-type">Udgivelsestype</message>
+	<message key="metadata.property.validationMessage.publication-type">Sørg for altid at angive en udgivelsestype. De værdier, der er tilladt pt., er bog (til bøger eller afsnit i bøger) samt tidsskrift (til artikler i tidsskrifter). Ellers vil output-formateringen af citationerne ikke fungere korrekt.</message>
+	<message key="metadata.property.displayName.title-type">Titeltype</message>
+	<message key="metadata.property.validationMessage.title-type">Sørg altid for at angive en gyldig titeltype. De tilladte værdier er 'forkortet', 'oversat', 'alternativ' og 'ensartet'.</message>
+	<message key="metadata.property.displayName.nonSort">Del af titel, der ignoreres ved sortering</message>
+	<message key="metadata.property.validationMessage.nonSort">Indtast kun de første tegn i titlen, der skal ignoreres ved sortering af titlen.</message>
+	<message key="metadata.property.displayName.title">Titel</message>
+	<message key="metadata.property.validationMessage.title">Indtast en gyldig titel.</message>
+	<message key="metadata.property.displayName.subTitle">Undertitel.</message>
+	<message key="metadata.property.validationMessage.subTitle">Indtast en gyldig undertitel.</message>
+	<message key="metadata.property.displayName.partNumber">Delnummer</message>
+	<message key="metadata.property.validationMessage.partNumber">Indtast et gyldigt delnummer.</message>
+	<message key="metadata.property.displayName.partName">Delnavn</message>
+	<message key="metadata.property.validationMessage.partName">Indtast et gyldigt delnavn.</message>
+	<message key="metadata.property.displayName.name-type">Navnetype</message>
+	<message key="metadata.property.validationMessage.name-type">Sørg for at angive en gyldig navnetype. Tilladte værdier er 'personlig', 'virksomhed' og 'konference'.</message>
+	<message key="submission.citations">Referencer</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Er du sikker på, at du vil slette denne reference?</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Der opstod en fejl i forbindelse med sletningen af referencen. Rapporter dette som en fejl.</message>
+	<message key="submission.citations.editor.citationlist.newCitation">Ny reference</message>
+	<message key="submission.citations.editor.citationlist.title">Rediger referencer</message>
+	<message key="submission.citations.editor.clickToEdit">Klik for at redigere.</message>
+	<message key="submission.citations.editor.details.authorQuery">Spørg forfatteren</message>
+	<message key="submission.citations.editor.details.authorQueryBody">Din besked til forfatteren:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">Du kan bede forfatteren om yderligere information vedrørende den aktuelle reference. Klik på "Send"-knappen herunder for at sende din besked til forfatteren i form af en e-mail.</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">Emne:</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Du kan ikke fjerne en feltetiket. Slet feltet, hvis du ikke har brug for det</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Kontrollér i Google Scholar</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">Indtast du første par bogstaver for at vælge …</message>
+	<message key="submission.citations.editor.details.citationExportPreview">Forhåndsvisning af citationseksport</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">Resultater af intern ekspertcitationstjeneste (klik for at lukke)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Resultater af intern ekspertcitationstjeneste (klik for at åbne)</message>
+	<message key="submission.citations.editor.details.citationServices">Citationstjenester</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">Du kan klikke på teksten i en besked for at fjerne den.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">Herunder kan du se en liste over citationstjenester, der er konfigureret for dit tidsskrift. De tjenester, som din tidsskriftschef anser for at være mest relevante for dit tidsskrift, er forvalgt. Du kan inkludere yderligere tjenester i din forespørgsel eller fravælge tjenester, som du har lyst.</message>
+	<message key="submission.citations.editor.details.dataSaved">Dine ændringer er blevet gemt.</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Vælg citationsdatabasetjenester:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Indstillinger for ekspertcitationsredigering (klik for at lukke)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Indstillinger for ekspertcitationsredigering (klik for at åbne)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Vælg citationsudtrækningstjenester:</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Intern fejl: ugyldigt filtervalg. Indsend en fejlrapport.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Hvis du ikke opnåede tilfredsstillende resultater ved hjælp af standardindstillingerne, kan du forbedre citationen ved hjælp af en række alternativer. Det kan ofte hjælpe at redigere vigtige felter manuelt (fx titel og forfatter) og derefter gøre et nyt forsøg med citationstjenesten. Hvis det ikke fungerer, kan du sende en forespørgsel til Google Scholar eller anmode forfatteren om yderligere oplysninger.</message>
+	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">Hvis et matchet reference ikke blev fundet i nogen af de opkoblede citationstjenester, kan du søge efter et match i Goggle Scholar. Desværre tilbyder Google Scholar ikke en feltbaseret brugerflade for de data, som vi kan bruge, hvilket betyder, at vi ikke kan videresende data til værktøjet automatisk. Du er nødt til manuelt at kopiere informationen fra Googles resultatside og indsætte den i dine felter.</message>
+	<message key="submission.citations.editor.details.manualEditing">Manuel redigering</message>
+	<message key="submission.citations.editor.details.messages">Bemærk (klik på meddelelser for at fjerne dem)</message>
+	<message key="submission.citations.editor.details.newFieldInfo">… klik her for at tilføje et nyt felt …</message>
+	<message key="submission.citations.editor.details.queryCitation">Citationstjenester til gentaget forespørgsel</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Søg i Google Scholar</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Velkommen til citationsredigeringsprocessen. Hvis du klikker på en reference i listen til venstre, bliver referencen vist i dette vindue, hvor du kan kontrollere citationsprocessens nøjagtighed. Du kan også kontrollere referencen i forhold til de citationsdatabase-tjenester, som tidsskriftschefen har konfigureret, og selv redigere referencen manuelt.</p>
+		<h4>Navigation i brugerfladen</h4>
+		<p>Klik på en af referencerne i listen til venstre for at gå i gang med at redigere.</p>
+		<p>Denne lyseblå separatorlinje mellem dette vindue og kolonnen til venstre kan flyttes. Hvis du har brug for mere plads til at se referencelisten eller til at redigere en reference, kan separatoren flyttes i den ene eller den anden retning.</p>
+		<p>Hvis du vil forstørre citationsbrugerfladen, skal du klikke på knappen <strong>Fuldskærm</strong>. Hvis du vil gå tilbage til normal visning fra den forstørrede citationsbrugerflade, skal du klikke på knappen <strong>Deaktiver fuldskærm</strong>.</p>
+		<h4>Sådan tilføjer og sletter du referencer</h4>
+		<p>Du kan tilføje referencer ved at klikke på ikonet <strong>Ny reference</strong> i øverste højre hjørne af kolonnen med referencelisten. Du kan slette referencer ved at klikke på det røde ikon <strong>Slet</strong> til venstre for referencen.</p>
+		<h4>Sådan redigerer du referencer</h4>
+		<p>Hvis du vil redigere en reference i listen til venstre, kan du åbne det i dette vindue ved at klikke på det. Du får vist den originale reference, som det er skrevet af forfatteren, efterfulgt af assistentens automatiske udtrækningsforsøg. Du kan redigere den originale reference manuelt, redigere dele af eller hele den nye reference, kontrollere referencen i forhold til konfigurerede citationsdatabase-tjenester, sende en forespørgsel til Google Scholar og bede forfatteren om yderligere information om referencen.</p>
+		<p>Når du er færdig med at redigere referencen og klikker på knappen <strong>Gem og godkend</strong>, bliver du automatisk flyttet til den næste ikke-godkendte reference på listen. På den måde kan du hurtigt arbejde dig igennem en lang liste med referencer. Når alle referencer er blevet godkendt, vil du blive sendt til siden <strong>Eksporter referencer</strong>.</p>]]></message>
+	<message key="submission.citations.editor.details.processRawCitation">Behandl</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">Fortsæt</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">Ret i original reference</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">Du er i gang med at rette i den originale referencetekst. Hvis du gør det, vil alle felter blive erstattet med nygenererede værdier. Dermed slettes alle manuelle ændringer, du eventuelt har foretaget.</message>
+	<message key="submission.citations.editor.details.saveAndApprove">Gem og godkend</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">Annuller godkendelse</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">Send besked</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Besked sendt</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">Anvend</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">Anvende alle</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Klik for at overføre alle resultatfelter fra denne kilde direkte ind i din feltliste</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Klik for at overføre dette resultatfelt direkte ind i din feltliste</message>
+	<message key="submission.citations.editor.details.rawCitation">Original referencetekst</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">Kræver en referencetekst</message>
+	<message key="submission.citations.editor.details.unsavedChanges">Referencen indeholder data, der ikke er blevet gemt. Klik på "Gem"-knappen for at beholde ændringerne eller på "Annuller"-knappen for at fortryde ændringerne.</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">Vis ikke denne besked igen.</message>
+	<message key="submission.citations.editor.edit">Rediger referencer</message>
+	<message key="submission.citations.editor.export">Eksporter referencer</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Klik her</a> for at vælge alt genereret output. Derefter kan du kopiere det og indsætte det i dit dokument.]]></message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">Vælg en af følgende eksportmuligheder.</message>
+	<message key="submission.citations.editor.export.filterSelectionError">Du har ikke valgt en output-mulighed.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>Du har ikke godkendt alle referencer endnu. Gå til fanen <strong>Rediger referencer</strong>, og kontrollér, at du har godkendt alle referencer, inden du forsøger at eksportere dem. Godkendte referencer er markeret med en mørkeblå stribe i venstre side.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">Output-filteret '{$filterName}' har produceret en fejl. Indsend en fejlrapport.</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML-output-muligheder:</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citations-output style (kun eksperimentel!):</message>
+	<message key="submission.citations.editor.introduction">Indledning</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Velkommen til citationsmarkeringsværktøjet!</h4>
+	<p>Ved hjælp af dette værktøj kan du markere de referencer fra forfatteren, der skal ekspores til NLM 2.3- eller 3.0 XML-satsskibe eller som tekstbaseret output. Dette værktøj forsøger i første omgang automatisk at udtrække og genkende referencerne, som de er angivet, men du kan når som helst gribe ind og redigere resultaterne.</p>
+	<ul>
+		<li><p><strong>Sådan konfigurerer du værktøjet</strong></p>
+		<p>Citationsmarkeringsværktøjet konfigureres af tidsskriftschefen i <a href="{$citationSetupUrl}">Tidsskriftsopsætning Trin 3.7: Citationsmarkeringsværktøj</a>. Der kan tilføjes, konfigureres og slettes forskellige udtræknings- og citationsværktøjer. Kontakt tidsskriftschefen for at få yderligere information.</p></li>
+		<li><p><strong>Sådan navigererer du i værktøjsbrugerfladen</strong></p>
+		<p>Du kan skifte mellem fanerne <strong>Introduktion</strong>, <strong>Rediger referencer</strong> og <strong>Eksporter referencer</strong> ved at klikke på fanernes titler. Hvis du vil forstørre citationsbrugerfladen, skal du klikke på knappen <strong>Fuldskærm</strong> . Hvis du vil gå tilbage til normal visning fra den forstørrede citationsbrugerflade, skal du klikke på knappen <strong>Deaktiver fuldskærm</strong>. Hvis du helt vil fjerne denne introduktionsfane, skal du klikke på knappen herunder.</p></li>
+		<li><p><strong>Sådan anmoder du om referencer</strong></p>
+		<p>Hvis citationsmarkeringsværktøjet er blevet aktiveret af tidsskriftschefen, vil forfatterne under indleveringsprocessen blive bedt om at vedlægge en litteraturliste. Anmodningen om denne litteraturliste vil ske separat fra indleveringen af selve manuskriptet. Efter indlevering kan forfatteren når som helst modificere sin litteraturliste ved at redigere det indleverede manuskripts metadata. Bemærk, at dette vil overskrive alle modifikationer af citaterne, som du har foretaget med dette værktøj.</p></li>
+		<li><p><strong>Sådan redigerer du referencer</strong></p>
+		<p>Citationsmarkeringsværktøjet vil forsøge at identificere og udtrække hver enkel reference fra forfatterens litteraturliste. Du kan systematisk kontrollere nøjagtigheden af hver enkel citationsudtrækning i forhold til en række eksterne databaser, redigere forkerte referenceoplysninger og tilføje ny information, godkende eller slette referencer samt tilføje nye referencer.</p>
+		<p>Alle endelige referencer i et indleveret manuskript skal godkendes, inden de kan eksporteres.</p></li>
+		<li><p><strong>Sådan eksporterer du referencer</strong></p>
+ 		<p>Referencer kan eksporteres som XML eller tekst. XML-eksportmulighederne omfatter pt. <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 og 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Ved at vælge et af disse alternativer får du en XML-kodet litteraturhenvisningsstump, som kan kopieres og indsættes i et NLM XML-satsskib.</p>
+		<p>Eksperimentelle eksportalternativer for tekst omfatter ABNT, APA, MLA samt Vancouver output styles. Disse alternativer giver et tekst-output, som kan kopieres og indsættes i en tekstbaseret artikelsatsskib (for eksempel i Microsoft Word eller OpenOffice, Adobe InDesign etc.). Hver reference indeholder et indlejret link til en automatisk søgning efter den pågældende reference i Google Scholar.</p></li>
+	</ul>]]></message>
+	<message key="submission.citations.editor.loadMessage">Vent, til citationsredigeringsværktøjet er indlæst.</message>
+	<message key="submission.citations.editor.php5Required">Citationsredigering kræver XML- og XSL-understøttelse, som kun er tilgængelig i PHP version 5.0.0. og nyere. Det lader til, at din installation kører på en tidligere version af PHP. Du kan ikke anvende citationsmarkeringsværktøjet, medmindre du opgraderer til en nyere version.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Din tidsskriftschef skal <a href="{$citationSetupUrl}">konfigurere en citationseksportstil</a>, inden du kan begynde at anvende citationsmarkeringsværktøjet.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>Der er ingen referencer til denne artikel.</p><p>Gå til artiklens <a href="{$articleMetadataUrl}">metadataside</a>, og indtast en litteraturhenvisning, eller tilføj referencer manuelt ved hjælp af knappen "Tilføj element" i redigeringsprogrammet.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSelect">Vælg …</message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Din tidsskriftschef skal <a href="{$citationSetupUrl}">aktivere citationsredigering</a>, inden du kan få adgang til citationsredigeringsværktøjet.]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">Referencerne i denne artikel er stadig ved at blive behandlet på serveren. Den aktuelle litteraturliste indeholder kun referencer, der allerede er behandlet. Klik på opdater-knappen for at se referencer, der er blevet behandlet i mellemtiden.</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">Opdater litteraturliste</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Klik for at opdatere litteraturlisten.</message>
+	<message key="submission.citations.filter.invalidMetadata">Der opstod en fejl i {$filterName}: Et af de dataelementer, der kom tilbage fra datakilden (dvs. en webtjeneste) stemte ikke overens med det interne metadataformat. Datakildens resultater blev derfor afvist. Rapporter dette som en fejl.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Flere af citationstjenesterne fandt ingen resultater. Du kan forsøge at redigere referencefelterne manuelt og derefter sende en ny forespørgsel til citationstjenesterne for at få et bedre resultat. Hvis det ikke hjælper, findes referencen ikke i nogen af de databaser, der er opkoblet.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Udgivelsestype mangler eller understøttes ikke. Rediger referencen manuelt, og indtast en udgivelsestype (tilladte typer er 'bog', tidsskrift', 'afhandling' og 'conf-proc').</message>
+	<message key="submission.citations.filter.webserviceError">Webtjenesteopkaldet fra {$filterName} gav en fejl, når følgende URL blev kaldt: {$webserviceUrl}. Det er muligt, at webtjenesten er midlertidigt utilgængelig. Du kan stadig benytte de øvrige tjenester og gemme dine resultater. Du kan også forsøge igen senere. Hvis fejlen ikke forsvinder, skal du bede tidsskriftschefen om at deaktivere denne tjeneste og oprette en fejlrapport.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">Der opstod en fejl i {$filterName}: Transformationen af XML-resultater (dvs. fra en webtjeneste) til feltbaserede metadata mislykkedes. Det skyldes sandsynligvis, at webtjenesten sendte ugyldige eller ufuldstændige data. Angiv dette som en fejl.</message>
+	<message key="submission.citations.metadata.changeWarning">Er du sikker på, at du vil opdatere din litteraturliste? Hvis du klikker på OK, vil alle de ændringer, som redaktørerne har foretaget, blive overskrevet. Hvis du ikke er sikker på, om du skal foretage ændringer i litteraturlisten, skal du kontakte den redaktør, der har ansvaret for dit indleverede manuskript.</message>
+	<message key="submission.page.citations">#{$id} Referencer</message>
+	<message key="submission.currentAgencies">Aktuelle bureauer</message>
+	<message key="submission.indexingInformation">Indekserer information</message>
+	<message key="submission.uploadSuccessful">Din fil er blevet uploadet.</message>
+	<message key="submission.uploadSuccessfulContinue">Din fil er blevet uploadet. Klik på 'Fortsæt' for at redigere filens metadata.</message>
+	<message key="submission.loadMessage">Vent, mens din fil bliver uploadet til serveren.</message>
+	<message key="submission.artworkFileDetails">Illustrations-filoplysninger</message>
+	<message key="submission.fileDetails">Filoplysninger</message>
+	<message key="submission.nameRequired">Dette element skal have et navn.</message>
+	<message key="submission.date.mmdd">MM-DD</message>
+	<message key="submission.date.yyyymmdd">ÅÅÅÅ-MM-DD</message>
 </locale>

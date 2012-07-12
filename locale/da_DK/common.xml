@@ -163,9 +163,9 @@
 	<message key="common.yes">Ja</message>
 	<message key="debug.databaseQueries">Antal databaseforespørgsler</message>
 	<message key="debug.executionTime">Side genereret i</message>
-	<message key="debug.notes.localeListLoad">Landestandardlisten &quot;{$localeList}&quot; er indlæst fra XML</message>
-	<message key="debug.notes.localeLoad">Landestandardfilen &quot;{$localeFile}&quot; er indlæst fra XML</message>
-	<message key="debug.notes.missingLocaleKey">Landestandardnøglen &quot;{$key}&quot; mangler.</message>
+	<message key="debug.notes.localeListLoad">Landestandardlisten "{$localeList}" er indlæst fra XML</message>
+	<message key="debug.notes.localeLoad">Landestandardfilen "{$localeFile}" er indlæst fra XML</message>
+	<message key="debug.notes.missingLocaleKey">Landestandardnøglen "{$key}" mangler.</message>
 	<message key="debug.notes">Noter:</message>
 	<message key="email.addAttachment">Tilføj vedhæftet fil</message>
 	<message key="email.addBccRecipient">Tilføj BCC</message>
@@ -268,4 +268,63 @@
 	<message key="search.titleIndex">Gennemse titelindeks</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Type (metode/fremgangsmåde)</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Du er ikke med i denne brugergruppe</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Brug af dette værk skal ske i overensstemmelse med copyrightlicensen <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Brug af dette værk skal ske i overensstemmelse med copyrightlicensen<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 License</a>.
+	</div>]]></message>
+	<message key="common.disable">Deaktiver</message>
+	<message key="common.enable">Aktiver</message>
+	<message key="common.fullscreen">Fuldskærm</message>
+	<message key="common.fullscreenOff">Deaktiver fuldskærm</message>
+	<message key="common.false">Falsk</message>
+	<message key="common.manage">Administrer</message>
+	<message key="common.noComments">Ingen kommentarer</message>
+	<message key="common.ok">OK</message>
+	<message key="common.pluginEnabled">"{$pluginName}"-plugin er aktiveret.</message>
+	<message key="common.pluginDisabled">"{$pluginName}"-plugin er deaktiveret.</message>
+	<message key="common.re">Sv:</message>
+	<message key="common.refresh">Opdater</message>
+	<message key="common.true">Sandt</message>
+	<message key="common.uploadFailed">Filen kunne ikke uploades. Forsøg igen, eller kontakt administrator, hvis problemet ikke forsvinder.</message>
+	<message key="common.loading">Indlæser …</message>
+	<message key="debug.memoryUsage">Brug af hukommelse</message>
+	<message key="form.startsWith">begynder med</message>
+	<message key="navigation.dashboard">Instrumentpanel</message>
+	<message key="notification.allow">Tillad, at meddelelser af disse typer vises i min meddelelses-feed</message>
+	<message key="notification.confirmError">Der opstod en fejl i forbindelse med bekræftelsen af dit abonnement.</message>
+	<message key="notification.confirmSuccess">Din oprettelse som abonnent er gennemført.</message>
+	<message key="notification.email">Send mig en e-mail vedrørende meddelelser af disse typer.</message>
+	<message key="notification.location">Gå til webadressen</message>
+	<message key="notification.mailList">Meddelelses-mailingliste</message>
+	<message key="notification.mailList.emailInvalid">Indtast en gyldig e-mail-adresse.</message>
+	<message key="notification.mailList.privacyProtection">Persondatapolitik</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Abonnér</a> på beskyttet indhold.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Indsend</a> en artikel]]></message>
+	<message key="notification.mailList.register">Du kan registrere dig på dette websted for at …</message>
+	<message key="notification.mailList.review"><![CDATA[Deltag i <a href="{$reviewUrl}">peer review</a>-processen]]></message>
+	<message key="notification.noneExist">Du har ingen nye meddelelser.</message>
+	<message key="notification.notification">Meddelelse</message>
+	<message key="notification.notifications">Meddelelser</message>
+	<message key="notification.notificationsNew">({$numNew} ny(e))</message>
+	<message key="notification.notificationsDescription"><![CDATA[Du har {$unreadCount} ulæst(e) meddelelser og {$readCount} læst(e) meddelelser. <a href="{$settingsUrl}">Klik her</a> for at ændre dine indstillinger for meddelelser.]]></message>
+	<message key="notification.settings">Indstillinger for meddelelser</message>
+	<message key="notification.settingsDescription">Vælg de systemhændelser, som du ønsker at modtage meddelelser om. Hvis du fjerner markeringen fra et element, vil meddelelser vedrørende denne type hændelse ikke blive vist i din meddelelses-feed.</message>
+	<message key="notification.subscribe">Abonnér</message>
+	<message key="notification.subscribeError">Din e-mail-adresse er allerede registreret til at modtage meddelelser.</message>
+	<message key="notification.subscribeSuccess">Der er blevet sendt en e-mail til den adresse, du har angivet. Klik på bekræftelseslinket i e-mailen for at tilføje dig selv til mailinglisten.</message>
+	<message key="notification.reminderError">Der opstod en fejl i forbindelse med afsendelsen af din adgangskode. Kontrollér, at du har indtastet din e-mail-adresse korrekt.</message>
+	<message key="notification.reminderSent">Din nye adgangskode er blevet sendt til den e-mail-adresse, du har angivet.</message>
+	<message key="notification.unsubscribe">Afmeld abonnement</message>
+	<message key="notification.unsubscribeDescription">Indtast e-mail-adresse og adgangskode herunder for at afmelde meddelelser via e-mail. Hvis du ikke kan huske din adgangskode, kan du lade feltet stå blankt, og så vil der blive sendt en ny kode til den e-mail-adresse, du har angivet.</message>
+	<message key="notification.unsubscribeError">Der opstod en fejl i forbindelse med afmeldelsen af dit abonnement. Kontrollér, at e-mail-adresse og adgangskode er korrekte.</message>
+	<message key="notification.unsubscribeSuccess">Din afmelding af abonnementet er gennemført.</message>
 </locale>

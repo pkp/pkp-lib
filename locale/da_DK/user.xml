@@ -100,4 +100,20 @@
 	<message key="user.userHome">Brugerstartside</message>
 	<message key="user.username">Brugernavn</message>
 	<message key="user.workingLanguages">Arbejdssprog</message>
+	<message key="user.affiliation.description">(Din institution, fx "Aarhus Universitet")</message>
+	<message key="user.authorization.accessDenied">Adgang nægtet.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Procesgodkendelse mangler eller er ugyldig</message>
+	<message key="user.authorization.contextRequired">Du kan ikke vælge den handling uden en kontekst (presse, tidsskrift, konference osv.)</message>
+	<message key="user.authorization.loginRequired">Kræver login.</message>
+	<message key="user.authorization.privateOperation">Den handling, du forsøgte at få adgang til, er enten privat eller eksisterer ikke.</message>
+	<message key="user.authorization.restrictedSiteAccess">Du er blevet nægtet adgang. Der er i øjeblikket begrænset adgang til dette websted.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Den nuværende rolle har ikke adgang til denne handling.</message>
+	<message key="user.authorization.userGroupRequired">Du skal oprette en gyldig brugergruppe for at få adgang til denne handling.</message>
+	<message key="user.confirmEmail">Bekræft e-mail</message>
+	<message key="user.gossip">Private bemærkninger</message>
+	<message key="user.profile.form.profileImageInvalid">Profilbilledets format er ugyldigt, eller også er billedet for stort. De accepterede formater er .gif, .jpg og .png, og billedet må ikke overskrive 150 x 150 pixler.</message>
+	<message key="user.other">Andet</message>
+	<message key="user.repeatPassword">Gentag adgangskode</message>
+	<message key="user.profile.form.affiliationRequired">Kræver et tilhørsforhold.</message>
+	<message key="user.register.form.emailsDoNotMatch">Felterne for e-mail-adresse stemmer ikke overens.</message>
 </locale>

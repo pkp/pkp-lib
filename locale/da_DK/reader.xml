@@ -14,14 +14,14 @@
 
 <locale name="da_DK" full_name = "Danish">
 	<message key="comments.anonymous">Anonym bruger</message>
-	<message key="comments.anonymousNamed">&quot;{$userName}&quot;</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Brødtekst</message>
 	<message key="comments.confirmDeleteChildren">Hvis du sletter denne kommentar, slettes eventuelle svar også. Er du sikker på, at du vil gøre dette?</message>
 	<message key="comments.delete">Slet denne kommentar</message>
 	<message key="comments.email">Afsenders e-mail-adresse</message>
 	<message key="comments.emailReply">E-mail-svar</message>
 	<message key="comments.enterComment">Angiv kommentar</message>
-	<message key="comments.inResponseTo">Som svar på <![CDATA[<a href="]]>{$url}<![CDATA[">]]>{$title}<![CDATA[</a>]]></message>
+	<message key="comments.inResponseTo"><![CDATA[Som svar på <a href="{$url}">{$title}</a>]]></message>
 	<message key="comments.name">Afsenders navn</message>
 	<message key="comments.noComments">Der er ikke sendt nogen kommentarer fra læsere.</message>
 	<message key="comments.nReplies">({$num} svar)</message>
@@ -40,7 +40,7 @@
 	<message key="rt.admin.contexts.createContext">Opret kontekst</message>
 	<message key="rt.admin.contexts.edit.editContext">Rediger kontekst</message>
 	<message key="rt.admin.contexts.metadata">Metadata</message>
-	<message key="rt.admin.contexts.options.authorTerms">Brug forfatternavne som standardsøgeord for at gøre det muligt for brugere at finde andre værker af forfatterne til dette element (f.eks. for konteksten &quot;Andre værker&quot;)</message>
+	<message key="rt.admin.contexts.options.authorTerms">Brug forfatternavne som standardsøgeord for at gøre det muligt for brugere at finde andre værker af forfatterne til dette element (f.eks. for konteksten "Andre værker")</message>
 	<message key="rt.admin.contexts.options.citedBy">Brug forfatternavne som standardsøgeord, og beskriv konteksten som en søgning efter citater til artiklen.</message>
 	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Brug det ord, læseren har fremhævet, som standardsøgeord, eller undlad at udfylde feltet, hvis der ikke er valgt nogen søgeord for dette element (f.eks. for konteksten "Definition af ord"). Indstillingen "Definition af ord" skal aktiveres under <a href="{$settingsUrl}">RST-indstillinger</a>, hvis du vil tillade, at brugere kan dobbeltklikke på ord for at åbne denne kontekst.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Brug geografiske indekseringsdata som standardsøgeord.</message>
@@ -83,7 +83,7 @@
 	<message key="rt.colleague">Underret kollega</message>
 	<message key="rt.context.abbrev">Forkortelse</message>
 	<message key="rt.context.and">OG</message>
-	<message key="rt.context.citesContextDescription">Hvis artiklen er indekseret i Google Scholar, kan den være ledsaget af linket &quot;Cited by X&quot;, der henviser til en liste over værker, hvor artiklen er citeret. I Google Scholar vises også en liste over alle de elementer, hvor titlen og forfatteren er citeret. Hvis du vil have adgang til onlineressourcer, der kun er tilgængelige via dit forskningsbibliotek, kan du gå til Scholar Preferences i Google Scholar og aktivere biblioteklinkene for din institution.</message>
+	<message key="rt.context.citesContextDescription">Hvis artiklen er indekseret i Google Scholar, kan den være ledsaget af linket "Cited by X", der henviser til en liste over værker, hvor artiklen er citeret. I Google Scholar vises også en liste over alle de elementer, hvor titlen og forfatteren er citeret. Hvis du vil have adgang til onlineressourcer, der kun er tilgængelige via dit forskningsbibliotek, kan du gå til Scholar Preferences i Google Scholar og aktivere biblioteklinkene for din institution.</message>
 	<message key="rt.context">Kontekst</message>
 	<message key="rt.context.defineTermsDescription">Hvis elementet er en HTML-fil (i stedet for en PDF-fil), skal du dobbeltklikke på et ord i teksten for at få det vist i feltet Ord, der skal defineres. Du kan også skrive eller indsætte ord i feltet. Klik på OM for at få mere at vide om de ressourcer, der blev søgt i. Disse ressourcer er valgt på baggrund af deres relevans og deres (gratis) Open Access til hele eller dele af deres indhold.</message>
 	<message key="rt.context.description">Beskrivelse</message>
@@ -157,4 +157,22 @@
 	<message key="rt.version.title">Titel</message>
 	<message key="rt.version">Version</message>
 	<message key="rt.viewMetadata">Indekseringsmetadata</message>
+	<message key="comments.titleRequired">Kommentartitel nødvendig.</message>
+	<message key="rt.admin.sharing">Deling</message>
+	<message key="rt.admin.sharing.enabled">Deling aktiveret</message>
+	<message key="rt.admin.sharing.description"><![CDATA[Hvis du vil gøre dine læsere i stand til at dele tidsskriftsartikler, skal du oprette en konto hos <a href="http://addthis.com">addthis.com</a> og kopiere/indsætte koden til deleknappen herunder.]]></message>
+	<message key="rt.admin.sharing.basic">Grundindstillinger</message>
+	<message key="rt.admin.sharing.userNameLabel">Brugernavn på AddThis.com</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">Knapstil</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">Anvend rullemenu</message>
+	<message key="rt.admin.sharing.advanced">Avancerede indstillinger (valgfrit)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[Læs mere under <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a> for reference.]]></message>
+	<message key="rt.admin.sharing.brandLabel">Brand</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[Alternativer for rullemenu <br /> (kommasepareret liste)]]></message>
+	<message key="rt.admin.sharing.languageLabel">Sprog</message>
+	<message key="rt.admin.sharing.logolabel">Logo</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">Logo-baggrund</message>
+	<message key="rt.admin.sharing.logoColorLabel">Logo-farve</message>
+	<message key="rt.admin.configureSharing">Konfigurer AddThis</message>
+	<message key="rt.captureCite.web">Web</message>
 </locale>

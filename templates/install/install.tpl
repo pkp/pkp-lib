@@ -249,7 +249,6 @@ function doSubmit() {
 
 <div class="separator"></div>
 
-{if !$skipMiscSettings}
 <div id="oaiSettings">
 <h3>{translate key="installer.oaiSettings"}</h3>
 
@@ -266,7 +265,6 @@ function doSubmit() {
 
 	<div class="separator"></div>
 </div>
-{/if}{* !$skipMiscSettings *}
 
 <p><input name="install" type="button" id="install" value="{translate key="installer.installApplication"}" class="button defaultButton" onclick="doSubmit()" /></p>
 

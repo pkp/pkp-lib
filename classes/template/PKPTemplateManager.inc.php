@@ -50,6 +50,9 @@ class PKPTemplateManager extends Smarty {
 	/** @var $fbv object The form builder vocabulary class. */
 	var $fbv;
 
+	/** @var $request PKPRequest */
+	var $request;
+
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
@@ -59,12 +62,14 @@ class PKPTemplateManager extends Smarty {
 		// FIXME: for backwards compatibility only - remove
 		if (!isset($request)) {
 			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function call.');
-			$request =& Registry::get('request');
+			$this->request =& Registry::get('request');
+		} else {
+			$this->request =& $request;
 		}
-		assert(is_a($request, 'PKPRequest'));
+		assert(is_a($this->request, 'PKPRequest'));
 
 		// Retrieve the router
-		$router =& $request->getRouter();
+		$router =& $this->request->getRouter();
 		assert(is_a($router, 'PKPRouter'));
 
 		parent::Smarty();
@@ -93,11 +98,11 @@ class PKPTemplateManager extends Smarty {
 		$this->cacheability = CACHEABILITY_NO_STORE; // Safe default
 
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
-		$this->assign('basePath', $request->getBasePath());
-		$this->assign('baseUrl', $request->getBaseUrl());
-		$this->assign('requiresFormRequest', $request->isPost());
-		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($request));
-		$this->assign('currentUrl', $request->getCompleteUrl());
+		$this->assign('basePath', $this->request->getBasePath());
+		$this->assign('baseUrl', $this->request->getBaseUrl());
+		$this->assign('requiresFormRequest', $this->request->isPost());
+		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->request));
+		$this->assign('currentUrl', $this->request->getCompleteUrl());
 		$this->assign('dateFormatTrunc', Config::getVar('general', 'date_format_trunc'));
 		$this->assign('dateFormatShort', Config::getVar('general', 'date_format_short'));
 		$this->assign('dateFormatLong', Config::getVar('general', 'date_format_long'));
@@ -113,7 +118,7 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('currentLocale', $locale);
 
 		// If there's a locale-specific stylesheet, add it.
-		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($request->getBaseUrl() . '/' . $localeStyleSheet);
+		if (($localeStyleSheet = AppLocale::getLocaleStyleSheet($locale)) != null) $this->addStyleSheet($this->request->getBaseUrl() . '/' . $localeStyleSheet);
 
 		$application =& PKPApplication::getApplication();
 		$this->assign('pageTitle', $application->getNameKey());
@@ -167,11 +172,12 @@ class PKPTemplateManager extends Smarty {
 
 
 		// register the resource name "core"
-		$this->register_resource('core', array(array(&$this, 'smartyResourceCoreGetTemplate'),
+		$this->register_resource('core', array(
+			array(&$this, 'smartyResourceCoreGetTemplate'),
 			array(&$this, 'smartyResourceCoreGetTimestamp'),
 			array(&$this, 'smartyResourceCoreGetSecure'),
-			array(&$this, 'smartyResourceCoreGetTrusted'))
-		);
+			array(&$this, 'smartyResourceCoreGetTrusted')
+		));
 
 		$this->register_function('url', array(&$this, 'smartyUrl'));
 		// ajax load into a div
@@ -192,7 +198,7 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
 
-			$user =& $request->getUser();
+			$user =& $this->request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
 				// Assign the user name to be used in the sitenav
@@ -393,14 +399,29 @@ class PKPTemplateManager extends Smarty {
 
 	//
 	// Custom Template Resource "Core"
-	// The Core Template Resource is points to the fallback template_dir in the core
+	// The Core Template Resource is points to the fallback template_dir in
+	// the core.
 	//
 
+	/**
+	 * Resource function to get a "core" (pkp-lib) template.
+	 * @param $template string
+	 * @param $templateSource string reference
+	 * @param $smarty Smarty
+	 * @return boolean
+	 */
 	function smartyResourceCoreGetTemplate($template, &$templateSource, &$smarty) {
 		$templateSource = file_get_contents($this->core_template_dir . DIRECTORY_SEPARATOR . $template);
-		return true;
+		return ($templateSource !== false);
 	}
 
+	/**
+	 * Resource function to get the timestamp of a "core" (pkp-lib)
+	 * template.
+	 * @param $template string
+	 * @param $templateTimestamp int reference
+	 * @return boolean
+	 */
 	function smartyResourceCoreGetTimestamp($template, &$templateTimestamp, &$smarty) {
 		$templateSource = $this->core_template_dir . DIRECTORY_SEPARATOR . $template;
 		if (!file_exists($templateSource)) return false;
@@ -408,11 +429,26 @@ class PKPTemplateManager extends Smarty {
 		return true;
 	}
 
+	/**
+	 * Resource function to determine whether a "core" (pkp-lib) template
+	 * is secure.
+	 * @return boolean
+	 */
 	function smartyResourceCoreGetSecure($template, &$smarty) {
 		return true;
 	}
 
+	/**
+	 * Resource function to determine whether a "core" (pkp-lib) template
+	 * is trusted.
+	 */
 	function smartyResourceCoreGetTrusted($template, &$smarty) {
+		// From <http://www.smarty.net/docsv2/en/plugins.resources.tpl>:
+		// "This function is used for only for PHP script components
+		// requested by {include_php} tag or {insert} tag with the src
+		// attribute. However, it should still be defined even for
+		// template resources."
+		// a.k.a. OK not to implement.
 	}
 
 
@@ -679,7 +715,7 @@ class PKPTemplateManager extends Smarty {
 			foreach ($pkpProfiler->getData() as $output => $value) {
 				$smarty->assign($output, $value);
 			}
-			$smarty->assign('pqpCss', Request::getBaseUrl() . '/lib/pkp/lib/pqp/css/pQp.css');
+			$smarty->assign('pqpCss', $this->request->getBaseUrl() . '/lib/pkp/lib/pqp/css/pQp.css');
 			$smarty->assign('pqpTemplate', BASE_SYS_DIR . '/lib/pkp/lib/pqp/pqp.tpl');
 		}
 	}
@@ -735,9 +771,8 @@ class PKPTemplateManager extends Smarty {
 		$parameters = array_merge($parameters, (array) $params);
 
 		// Set the default router
-		$request =& PKPApplication::getRequest();
 		if (is_null($router)) {
-			if (is_a($request->getRouter(), 'PKPComponentRouter')) {
+			if (is_a($this->request->getRouter(), 'PKPComponentRouter')) {
 				$router = ROUTE_COMPONENT;
 			} else {
 				$router = ROUTE_PAGE;
@@ -765,13 +800,22 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Let the dispatcher create the url
-		return $dispatcher->url($request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
+		return $dispatcher->url($this->request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
 	}
 
+	/**
+	 * Set the progress function callback for updating a progress bar.
+	 * @param $progressFunction callback
+	 */
 	function setProgressFunction($progressFunction) {
 		Registry::set('progressFunctionCallback', $progressFunction);
 	}
 
+	/**
+	 * Smarty function to invoke the progress function callback.
+	 * @param $params array
+	 * @param $smarty Smarty
+	 */
 	function smartyCallProgressFunction($params, &$smarty) {
 		$progressFunctionCallback =& Registry::get('progressFunctionCallback');
 		if ($progressFunctionCallback) {
@@ -784,7 +828,7 @@ class PKPTemplateManager extends Smarty {
 		$percent = round($progress * 100 / $total);
 		if (!isset($lastPercent) || $lastPercent != $percent) {
 			for($i=1; $i <= $percent-$lastPercent; $i++) {
-				echo '<img src="' . Request::getBaseUrl() . '/templates/images/progbar.gif" width="5" height="15">';
+				echo '<img src="' . $this->request->getBaseUrl() . '/templates/images/progbar.gif" width="5" height="15">';
 			}
 		}
 		$lastPercent = $percent;
@@ -843,9 +887,9 @@ class PKPTemplateManager extends Smarty {
 
 		if ($page>1) {
 			$params[$paramName] = 1;
-			$value .= '<a href="' . Request::url(null, null, null, Request::getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
 			$params[$paramName] = $page - 1;
-			$value .= '<a href="' . Request::url(null, null, null, Request::getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
 		}
 
 		for ($i=$pageBase; $i<min($pageBase+$numPageLinks, $pageCount+1); $i++) {
@@ -853,14 +897,14 @@ class PKPTemplateManager extends Smarty {
 				$value .= "<strong>$i</strong>&nbsp;";
 			} else {
 				$params[$paramName] = $i;
-				$value .= '<a href="' . Request::url(null, null, null, Request::getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
+				$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
 			}
 		}
 		if ($page < $pageCount) {
 			$params[$paramName] = $page + 1;
-			$value .= '<a href="' . Request::url(null, null, null, Request::getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
 			$params[$paramName] = $pageCount;
-			$value .= '<a href="' . Request::url(null, null, null, Request::getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
 		}
 
 		return $value;
@@ -1154,7 +1198,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartySortHeading($params, &$smarty) {
 		if (isset($params) && !empty($params)) {
-			$sortParams = Request::getQueryArray();
+			$sortParams = $this->request->getQueryArray();
 			isset($params['sort'])? ($sortParams['sort'] = $params['sort']) : null;
 			$sortDirection = $smarty->get_template_vars('sortDirection');
 			$sort = $smarty->get_template_vars('sort');
@@ -1170,7 +1214,7 @@ class PKPTemplateManager extends Smarty {
 				$sortParams['sortDirection'] = SORT_DIRECTION_ASC;
 			}
 
-			$link = PKPRequest::url(null, null, null, Request::getRequestedArgs(), $sortParams, null, true);
+			$link = $this->request->url(null, null, null, $this->request->getRequestedArgs(), $sortParams, null, true);
 			$text = isset($params['key']) ? __($params['key']) : '';
 			$style = (isset($sort) && isset($params['sort']) && ($sort == $params['sort'])) ? ' style="font-weight:bold"' : '';
 

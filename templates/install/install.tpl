@@ -250,8 +250,8 @@ function doSubmit() {
 <div class="separator"></div>
 
 {if !$skipMiscSettings}
-<div id="miscSettings">
-<h3>{translate key="installer.miscSettings"}</h3>
+<div id="oaiSettings">
+<h3>{translate key="installer.oaiSettings"}</h3>
 
 	<table width="100%" class="data">
 		<tr valign="top">

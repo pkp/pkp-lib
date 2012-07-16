@@ -108,9 +108,13 @@
 
 	<!-- Series Grid -->
 	<message key="grid.action.addSeries">Add Series</message>
+	<message key="grid.action.editSeries">Edit Series</message>
+	<message key="grid.action.deleteSeries">Delete Series</message>
 
 	<!-- Categories Grid -->
 	<message key="grid.action.addCategory">Add Category</message>
+	<message key="grid.action.editCategory">Edit Category</message>
+	<message key="grid.action.deleteCategory">Delete Category</message>
 
 	<!-- Contributor Grid -->
 	<message key="grid.contributor.title">Contributors</message>

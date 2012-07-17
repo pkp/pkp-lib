@@ -8,10 +8,7 @@
  *
  *}
 
-<div class="pkp_controllers_grid center">
-	<div class="wrapper">
-		<span class="pkp_controllers_grid_throbber visible">&nbsp;</span>
-		<br />
-		<span class="message">{translate key="common.loading"}</span>
-	</div>
+<div class="loading_container">
+	<div class="pkp_helpers_progressIndicator"></div>
+	<span class="message">{translate key="common.loading"}</span>
 </div>

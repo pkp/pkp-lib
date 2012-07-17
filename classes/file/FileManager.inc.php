@@ -370,6 +370,7 @@ class FileManager {
 			case 'text/pdf':
 			case 'text/x-pdf':
 				return DOCUMENT_TYPE_PDF;
+			case 'application/msword':
 			case 'application/word':
 				return DOCUMENT_TYPE_WORD;
 			case 'application/excel':

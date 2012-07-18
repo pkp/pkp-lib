@@ -35,6 +35,7 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
+		options.width = 'auto';
 		this.parent($handledElement, options);
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,

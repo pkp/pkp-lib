@@ -231,7 +231,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		var canClose = options.canClose || '1';
 		if (canClose) {
 			var $closeButton = $(['<a class="close ui-corner-all" href="#">',
-				'<span class="ui-icon ui-icon-closethick">',
+				'<span class="closeIcon">',
 				'close</span></a>"'].join(''));
 			$closeButton.click(this.callbackWrapper(this.modalClose));
 			$titleBar.append($closeButton);

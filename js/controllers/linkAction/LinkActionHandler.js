@@ -224,7 +224,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// only remove the disabled state if it is not a submit button.
 		// we let FormHandler remove that after a form is submitted.
 		if (!this.getHtmlElement().is(':submit')) {
-			this.removeDisabledCssClass_;
+			this.removeDisabledCssClass_();
 		}
 
 		var actionRequestUrl = this.getUrl();

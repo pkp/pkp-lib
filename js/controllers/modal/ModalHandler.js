@@ -69,6 +69,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		this.publishEvent('redirectRequested');
 		this.publishEvent('dataChanged');
 		this.publishEvent('containerReloadRequested');
+		this.publishEvent('modalCanceled');
 
 		// Bind notify user event.
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
@@ -156,6 +157,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
 			function(callingContext, event) {
 
+		if (event && event.currentTarget.id == 'cancelFormButton') {
+			this.trigger('modalCanceled');
+		}
 		// Close the modal dialog.
 		var $modalElement = this.getHtmlElement();
 		// get the form from this modalElement so we can unregister it

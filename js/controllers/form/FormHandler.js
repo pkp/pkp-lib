@@ -190,6 +190,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		} else {
 			// Trigger a "form invalid" event.
 			this.trigger('formInvalid');
+			this.enableFormControls_();
 		}
 	};
 
@@ -302,6 +303,21 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		if (this.disableControlsOnSubmit_) {
 			this.getHtmlElement().find(':submit').button('disable');
 		}
+		return true;
+	};
+
+
+	/**
+	 * Private method to renable a form's submit control if it is
+	 * desired.
+	 *
+	 * @return {boolean} true.
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.enableFormControls_ =
+			function() {
+
+		this.getHtmlElement().find(':submit').removeClass('ui-state-disabled');
 		return true;
 	};
 

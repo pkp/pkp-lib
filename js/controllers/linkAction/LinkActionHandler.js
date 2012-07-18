@@ -89,6 +89,9 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Bind the data changed event, so we know when trigger
 		// the notify user event.
 		this.bind('dataChanged', this.dataChangedHandler_);
+		
+		// Bind the 'modalCanceled' event, so we can re-enable submit buttons
+		this.bind('modalCanceled', this.removeDisabledCssClass_);
 
 		if (options.selfActivate) {
 			this.trigger('click');
@@ -221,7 +224,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// only remove the disabled state if it is not a submit button.
 		// we let FormHandler remove that after a form is submitted.
 		if (!this.getHtmlElement().is(':submit')) {
-			$linkActionElement.removeClass('ui-state-disabled');
+			this.removeDisabledCssClass_;
 		}
 
 		var actionRequestUrl = this.getUrl();
@@ -230,6 +233,17 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		}
 		this.unbind('click', this.noAction_);
 		this.bindActionRequest();
+	};
+
+
+	/**
+	 * Remove the 'disabled' CSS class for the linkActionElement.
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			removeDisabledCssClass_ = function() {
+
+		var $linkActionElement = $(this.getHtmlElement());
+		$linkActionElement.removeClass('ui-state-disabled');
 	};
 
 

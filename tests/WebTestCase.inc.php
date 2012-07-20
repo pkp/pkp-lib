@@ -85,6 +85,18 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
+	 * Open a URL but only if it's not already
+	 * the current location.
+	 * @param $url string
+	 */
+	protected function verifyAndOpen($url) {
+		$this->verifyLocation('exact:' . $url);
+		if (!$this->verified()) {
+			$this->open($url);
+		}
+	}
+
+	/**
 	 * Make the exception message more informative.
 	 * @param $e Exception
 	 * @param $testObject string

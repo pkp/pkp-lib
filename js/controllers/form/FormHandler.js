@@ -40,7 +40,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		$('.button', $form).button();
 
 		// Transform all select boxes.
-		$('select', $form).selectBox();
+		$('select', $form).not('.noStyling').selectBox();
 
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {

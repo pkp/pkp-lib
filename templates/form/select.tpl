@@ -7,8 +7,8 @@
  * form select
  *}
 
-<div{if $FBV_layoutInfo} class="{$FBV_layoutInfo} {$FBV_class}"{/if}>
-<select {$FBV_selectParams} {if $FBV_disabled} disabled="disabled"{/if}>
+<div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
+<select {$FBV_selectParams}{if $FBV_class} class="{$FBV_class}"{/if}{if $FBV_disabled} disabled="disabled"{/if}>
 	{if $FBV_defaultValue !== null}
 		<option value="{$FBV_defaultValue|escape}">{$FBV_defaultLabel|escape}</option>
 	{/if}

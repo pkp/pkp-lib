@@ -274,7 +274,7 @@
 	<message key="locale.primary">Primäre Regionaleinstellung</message>
 	<message key="locale.supported">Unterstützte Regionaleinstellungen</message>
 	<message key="navigation.website">Website</message>
-	<message key="navigation.access"><![CDATA[Zugriff &amp; Sicherheit]]></message
+	<message key="navigation.access"><![CDATA[Zugriff &amp; Sicherheit]]></message>
 	<message key="navigation.about">Über uns</message>
 	<message key="navigation.admin">Verwaltung</message>
 	<message key="navigation.browse">Durchsuchen</message>

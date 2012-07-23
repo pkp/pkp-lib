@@ -89,7 +89,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// Bind the data changed event, so we know when trigger
 		// the notify user event.
 		this.bind('dataChanged', this.dataChangedHandler_);
-		
+
 		// Bind the 'modalCanceled' event, so we can re-enable submit buttons
 		this.bind('modalCanceled', this.removeDisabledCssClass_);
 
@@ -237,17 +237,6 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 
 
 	/**
-	 * Remove the 'disabled' CSS class for the linkActionElement.
-	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
-			removeDisabledCssClass_ = function() {
-
-		var $linkActionElement = $(this.getHtmlElement());
-		$linkActionElement.removeClass('ui-state-disabled');
-	};
-
-
-	/**
 	 * Disable link action.
 	 */
 	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
@@ -265,6 +254,18 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	//
 	// Private methods.
 	//
+	/**
+	 * Remove the 'disabled' CSS class for the linkActionElement.
+	 * @private
+	 */
+	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+			removeDisabledCssClass_ = function() {
+
+		var $linkActionElement = $(this.getHtmlElement());
+		$linkActionElement.removeClass('ui-state-disabled');
+	};
+
+
 	/**
 	 * Handle the changed data event.
 	 * @private

@@ -61,7 +61,7 @@
 		// and act depending on the returned JSON message.
 		var $form = this.getHtmlElement();
 
-		this.disableFormControls_();
+		this.disableFormControls();
 
 		$.post($form.attr('action'), $form.serialize(),
 				this.callbackWrapper(this.handleResponse), 'json');

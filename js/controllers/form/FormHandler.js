@@ -193,8 +193,45 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		} else {
 			// Trigger a "form invalid" event.
 			this.trigger('formInvalid');
-			this.enableFormControls_();
+			this.enableFormControls();
 		}
+	};
+
+
+	//
+	// Protected methods
+	//
+	/**
+	 * Protected method to disable a form's submit control if it is
+	 * desired.
+	 *
+	 * @return {boolean} true.
+	 * @protected
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.disableFormControls =
+			function() {
+
+		// We have made it to submission, disable the form control if
+		// necessary, submit the form.
+		if (this.disableControlsOnSubmit_) {
+			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').addClass('ui-state-disabled');
+		}
+		return true;
+	};
+
+
+	/**
+	 * Protected method to reenable a form's submit control if it is
+	 * desired.
+	 *
+	 * @return {boolean} true.
+	 * @protected
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.enableFormControls =
+			function() {
+
+		this.getHtmlElement().find(':submit').removeAttr('disabled').removeClass('ui-state-disabled');
+		return true;
 	};
 
 
@@ -262,7 +299,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			// avoid an infinite loop.)
 			validator.settings.submitHandler = null;
 
-			this.disableFormControls_();
+			this.disableFormControls();
 
 			this.getHtmlElement().submit();
 		}
@@ -287,40 +324,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		if (typeof tinyMCE !== 'undefined') {
 			tinyMCE.triggerSave();
 		}
-		return true;
-	};
-
-
-	/**
-	 * Private method to disable a form's submit control if it is
-	 * desired.
-	 *
-	 * @return {boolean} true.
-	 * @private
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.disableFormControls_ =
-			function() {
-
-		// We have made it to submission, disable the form control if
-		// necessary, submit the form.
-		if (this.disableControlsOnSubmit_) {
-			this.getHtmlElement().find(':submit').button('disable');
-		}
-		return true;
-	};
-
-
-	/**
-	 * Private method to renable a form's submit control if it is
-	 * desired.
-	 *
-	 * @return {boolean} true.
-	 * @private
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.enableFormControls_ =
-			function() {
-
-		this.getHtmlElement().find(':submit').removeClass('ui-state-disabled');
 		return true;
 	};
 

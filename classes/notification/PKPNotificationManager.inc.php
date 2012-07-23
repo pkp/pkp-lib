@@ -404,7 +404,7 @@ class PKPNotificationManager {
 			$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = array(
 				'pnotify_title' => $this->getNotificationTitle($notification),
 				'pnotify_text' => $this->getNotificationContents($request, $notification),
-				'pnotify_addClass' => $this->getStyleClass($notification),
+				'pnotify_addclass' => $this->getStyleClass($notification),
 				'pnotify_notice_icon' => $this->getIconClass($notification)
 			);
 		}

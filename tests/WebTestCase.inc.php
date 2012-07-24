@@ -50,7 +50,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			);
 		}
 
-		$this->setBrowser('*firefox');
+		$this->setBrowser('*chrome'); // This is not Google Chrome but the
+		                              // Firefox Heightened Privilege mode
+		                              // required e.g. for file upload.
 		$this->setBrowserUrl($this->baseUrl . '/');
 
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);

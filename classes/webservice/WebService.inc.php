@@ -261,8 +261,8 @@ class WebService {
 			$out .= $payload;
 
 			fwrite($fp, $out);
-			fclose($fp);
-			return true;
+   			fclose($fp);
+			return '';
 		}
 	}
 }

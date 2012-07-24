@@ -96,6 +96,7 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		if (!$this->verified()) {
 			$this->open($url);
 		}
+		$this->waitForLocation($url);
 	}
 
 	/**

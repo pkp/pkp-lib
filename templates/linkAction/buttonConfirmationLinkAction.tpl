@@ -25,7 +25,8 @@
 						okButton: '{translate|escape:javascript key="common.ok"}',
 						cancelButton: '{translate|escape:javascript key="common.cancel"}',
 						dialogText: '{translate|escape:javascript key=$dialogText}',
-						$button: $('{$buttonSelector|escape:javascript}')
+						$button: $('{$buttonSelector|escape:javascript}'),
+						titleIcon: 'modal_confirm'
 					{rdelim},
 			{rdelim});
 	{rdelim});

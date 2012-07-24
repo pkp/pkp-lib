@@ -169,7 +169,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// callbacks both callingContext and event are undefined. So,
 		// unregister this form with SiteHandler.
 
-		if ($form !== undefined) {
+		if ($form.length == 1) {
 			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (handler.formChangesTracked) {
 				if (!confirm($.pkp.locale.form_dataHasChanged)) {

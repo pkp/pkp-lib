@@ -170,8 +170,16 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// unregister this form with SiteHandler.
 
 		if ($form !== undefined) {
-			$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement($form);
+			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+			if (handler.formChangesTracked) {
+				if (!confirm($.pkp.locale.form_dataHasChanged)) {
+					return false;
+				} else {
+					this.trigger('unregisterAllForms');
+				}
+			}
 		}
+
 		$modalElement.dialog('close');
 		return false;
 	};

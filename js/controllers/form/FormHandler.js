@@ -54,7 +54,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// specific forms may override the form's default behavior
 		// to warn about unsaved changes.
-		if (options.trackFormChanges !== null) {
+		if (typeof options.trackFormChanges !== 'undefined') {
 			this.trackFormChanges_ = options.trackFormChanges;
 		}
 
@@ -78,7 +78,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 				$(element).parent().parent().removeClass(errorClass);
 			},
 			submitHandler: this.callbackWrapper(this.submitHandler_),
-			showErrors: this.callbackWrapper(this.formChange)
+			showErrors: this.callbackWrapper(this.showErrors)
 		});
 
 		// Activate the cancel button (if present).
@@ -96,6 +96,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// bind a handler to make sure tinyMCE fields are populated.
 		$('#submitFormButton', $form).click(this.callbackWrapper(
 				this.pushTinyMCEChanges_));
+
+		// bind a handler to handle change events on input fields.
+		$(':input', $form).change(this.callbackWrapper(this.formChange));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
@@ -132,12 +135,11 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 
 	/**
-	 * An internal boolean to keep formChange events from spamming the SiteHandler
+	 * Only submit a track event for this form once.
 	 * @private
 	 * @type {Boolean}
 	 */
-	$.pkp.controllers.form.FormHandler.prototype.
-			formChangesCurrentlyTracked_ = false;
+	$.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
 
 
 	/**
@@ -161,7 +163,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	// Public methods
 	//
 	/**
-	 * Internal callback called whenever the form changes.
+	 * Internal callback called whenever the validator has to show form errors.
 	 *
 	 * @param {Object} validator The validator plug-in.
 	 * @param {Object} errorMap An associative list that attributes
@@ -169,14 +171,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @param {Array} errorList An array with objects that contains
 	 *  error messages and the corresponding HTMLElements.
 	 */
-	$.pkp.controllers.form.FormHandler.prototype.formChange =
+	$.pkp.controllers.form.FormHandler.prototype.showErrors =
 			function(validator, errorMap, errorList) {
 
-		if (this.trackFormChanges_ && !this.formChangesCurrentlyTracked_) {
-			$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement(
-					this.getHtmlElement());
-			this.formChangesCurrentlyTracked_ = true;
-		}
 		// ensure that rich content elements have their
 		// values stored before validation.
 		if (typeof tinyMCE !== 'undefined') {
@@ -194,6 +191,22 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			// Trigger a "form invalid" event.
 			this.trigger('formInvalid');
 			this.enableFormControls();
+		}
+	};
+
+
+	/**
+	 * Internal callback called when a form element changes.
+	 *
+	 * @param {HTMLElement} formElement The form element that generated the event.
+	 * @param {Event} event The formChange event.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.formChange =
+			function(formElement, event) {
+
+		if (this.trackFormChanges_ && !this.formChangesTracked) {
+			this.trigger('formChanged');
+			this.formChangesTracked = true;
 		}
 	};
 
@@ -246,11 +259,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.cancelForm =
 			function(cancelButton, event) {
 
-		$.pkp.controllers.SiteHandler.prototype.
-				unregisterUnsavedFormElement(this.getHtmlElement());
-		this.formChangesCurrentlyTracked_ = false;
-
-		// Trigger the "form canceled" event.
+		// Trigger the "form canceled" event and unregister the form.
+		this.formChangesTracked = false;
+		this.trigger('unregisterChangedForm');
 		this.trigger('formCanceled');
 		return false;
 	};
@@ -276,10 +287,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		var formSubmitEvent = new $.Event('formSubmitRequested');
 		$(formElement).find('.formWidget').trigger(formSubmitEvent);
 
-		$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement(
-				this.getHtmlElement());
-		this.trackFormChanges_ = false;
-
 		// If the default behavior was prevented for any reason, stop.
 		if (formSubmitEvent.isDefaultPrevented()) {
 			return false;
@@ -287,7 +294,11 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		$(formElement).find('.pkp_helpers_progressIndicator').show();
 
+		this.trigger('unregisterChangedForm');
+
 		if (this.callerSubmitHandler_ !== null) {
+
+			this.formChangesTracked = false;
 			// A form submission handler (e.g. Ajax) was provided. Use it.
 			return this.callbackWrapper(this.callerSubmitHandler_).
 					call(validator, formElement);
@@ -302,6 +313,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 			this.disableFormControls();
 
 			this.getHtmlElement().submit();
+			this.formChangesTracked = false;
 		}
 	};
 

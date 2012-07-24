@@ -31,7 +31,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.parent($widgetWrapper, options);
 
 		this.options_ = options;
-		this.unsavedFormElements_ = {};
 
 		$('.go').button();
 
@@ -50,8 +49,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// Bind the pageUnloadHandler_ method to the DOM so it is
 		// called.
-		$(window).bind('beforeunload',
-				this.callbackWrapper(this.pageUnloadHandler_));
+		$(window).bind('beforeunload', this.pageUnloadHandler_);
 
 		// Avoid IE8 caching ajax results. If it does, widgets like
 		// grids will not refresh correctly.
@@ -63,6 +61,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');
 		}
+
+		// bind event handlers for form status change events.
+		this.bind('formChanged', this.callbackWrapper(this.registerUnsavedFormElement_));
+		this.bind('unregisterChangedForm', this.callbackWrapper(this.unregisterUnsavedFormElement_));
+		this.bind('unregisterAllForms', this.callbackWrapper(this.unregisterAllFormElements_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
@@ -80,20 +83,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * A state variable to determine if data has changed on the form.
-	 * For 'cancel' and 'page unload' warnings.
+	 * A state variable to store the form elements that have unsaved data.
 	 * @private
-	 * @type {Boolean}
+	 * @type {Array}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.formDataChanged_ = false;
-
-
-	/**
-	 * A state variable to store the form elements that have unsaved data
-	 * @private
-	 * @type {Object}
-	 */
-	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
+	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = [];
 
 
 	//
@@ -115,18 +109,21 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * Method called by Form elements that wish to inform SiteHandler
-	 * that they are in a changed/unsaved state.
+	 * Handler bound to 'formChanged' events propagated by forms
+	 * that wish to have their form data tracked.
 	 *
 	 * @param {HTMLElement} sourceElement The element wishes to
 	 * register.
+	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement =
-			function(sourceElement) {
+	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
+			function(siteHandlerElement, sourceElement, event) {
 
-		if (this.unsavedFormElements_ !== null) {
-			var elementId = sourceElement.attr('id');
-			this.unsavedFormElements_[elementId] = true;
+		var $formElement = $(event.target.lastElementChild);
+		var formId = $formElement.attr('id');
+		var index = $.inArray(formId, this.unsavedFormElements_);
+		if (index == -1) {
+			this.unsavedFormElements_.push(formId);
 		}
 	};
 
@@ -137,24 +134,28 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @param {HTMLElement} sourceElement The element that wishes to
 	 * unregister.
+	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement =
-			function(sourceElement) {
-		var elementId = sourceElement.attr('id');
-		// this actually sets the property to undefined.
-		// delete doesn't really delete.
-		if (this.unsavedFormElements_ !== null) {
-			delete this.unsavedFormElements_[elementId];
+	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
+			function(siteHandlerElement, sourceElement, event) {
+
+		var $formElement = $(event.target.lastElementChild);
+		var formId = $formElement.attr('id');
+
+		var index = $.inArray(formId, this.unsavedFormElements_);
+		if (index !== -1) {
+			delete this.unsavedFormElements_[index];
 		}
 	};
 
 
 	/**
 	 * Unregister all unsaved form elements.
+	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unregisterAllUnsavedFormElements =
+	$.pkp.controllers.SiteHandler.prototype.unregisterAllFormElements_ =
 			function() {
-		this.unsavedFormElements_ = {};
+		this.unsavedFormElements_ = [];
 	};
 
 
@@ -262,8 +263,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @private
 	 *
-	 * @param {Object} object The validator plug-in.
-	 * @param {Event} event The wrapped HTML form.
+	 *@param {Object} the window object
+	 * @param {Event} event The beforeunload event
 	 * @return {string?} the warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
@@ -274,10 +275,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// will just be undefined.  See if there are any that are
 		// not.
 
+		// we need to get the handler this way since this event is bound
+		// to window, not to SiteHandler.
+		var handler = $.pkp.classes.Handler.getHandler($('body'));
+
 		var unsavedElementCount = 0;
 
-		for (var element in this.unsavedFormElements_) {
-			if (this.unsavedFormElements_[element] !== undefined) {
+		for (var element in handler.unsavedFormElements_) {
+			if (element) {
 				unsavedElementCount++;
 			}
 		}

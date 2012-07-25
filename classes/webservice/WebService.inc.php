@@ -37,7 +37,7 @@ class WebService {
 	 * @param $authUsername string
 	 */
 	function setAuthUsername($authUsername) {
-		$this->_authUsername = $authUsername;
+		$this->_authUsername = str_replace(':', '', $authUsername);
 	}
 
 	/**
@@ -164,10 +164,7 @@ class WebService {
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
-		$headers = array('Accept: ' . $webServiceRequest->getAccept());
-		foreach($webServiceRequest->getHeaders() as $header => $content) {
-			$headers[] = $header . ': ' . $content;
-		}
+		$headers = $this->_buildHeaders($webServiceRequest);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
@@ -192,20 +189,14 @@ class WebService {
 	}
 
 	/**
-	 * Adds (optional) authentication information to a curl request
-	 * @param $ch object Reference to a curl handle.
-	 */
-	function _authenticateRequest(&$ch) {
-		$username = $this->_authUsername;
-		if (!is_null($username)) {
-			$password = $this->_authPassword;
-			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-			curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
-		}
-	}
-
-	/**
 	 * Execute an asynchronous web service request.
+	 *
+	 * NB: Web services must read the request all at once
+	 * (i.e. they may not stream content in bit by bit)
+	 * as we close the connection before we get a response.
+	 * This also means that web services must be immune
+	 * to the client closing the connection.
+	 *
 	 * @param $webServiceRequest WebServiceRequest
 	 * @return string the web service result or null on failure
 	 */
@@ -215,25 +206,18 @@ class WebService {
 		$urlParts = parse_url($url);
 
 		// Authentication.
-		$headers = array();
 		$username = $this->_authUsername;
 		if (!is_null($username)) {
 			$password = $this->_authPassword;
-			$headers[] = 'Authorization: Basic ' . base64_encode("$username:$password");
+			$webServiceRequest->setHeader('Authorization', 'Basic ' . base64_encode("$username:$password"));
 		}
 
 		// Headers
-		$headers[] = 'Accept: ' . $webServiceRequest->getAccept();
-		$hasContentType = false;
-		foreach($webServiceRequest->getHeaders() as $header => $content) {
-			$headers[] = $header . ': ' . $content;
-			if (strtolower($header) == 'content-type') $hasContentType = true;
+		if (!$webServiceRequest->hasHeader('Content-Type')) {
+			// Our default content type for async POST requests is XML.
+			$webServiceRequest->setHeader('Content-Type', 'text/xml; charset=utf-8');
 		}
-
-		// Our default content type for async POST requests is XML.
-		if (!$hasContentType) {
-			$headers[] = 'Content-Type: text/xml; charset=utf-8';
-		}
+		$headers = $this->_buildHeaders($webServiceRequest);
 
 		// We expect raw payload.
 		$payload = $webServiceRequest->getParams();
@@ -259,11 +243,49 @@ class WebService {
 			$out.= "Content-Length: " . strlen($payload) . "\r\n";
 			$out.= "Connection: Close\r\n\r\n";
 			$out .= $payload;
-
 			fwrite($fp, $out);
-   			fclose($fp);
+
+			// We close the connection before we get the
+			// response. This only works if the web service
+			// reads the whole content at once and is immune
+			// to the client prematurely closing the connection.
+			fclose($fp);
 			return '';
 		}
+	}
+
+	/**
+	 * Adds (optional) authentication information to a curl request
+	 * @param $ch object Reference to a curl handle.
+	 */
+	function _authenticateRequest(&$ch) {
+		$username = $this->_authUsername;
+		if (!is_null($username)) {
+			$password = $this->_authPassword;
+			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+		}
+	}
+
+	/**
+	 * Build and set the headers in a cURL
+	 * request
+	 *
+	 * @param $webServiceRequest WebServiceRequest
+	 * @return An array with headers.
+	 */
+	function _buildHeaders(&$webServiceRequest) {
+		$headers = array('Accept: ' . $webServiceRequest->getAccept());
+		foreach($webServiceRequest->getHeaders() as $header => $content) {
+			// Remove colons and spaces from the header name.
+			$header = str_replace(array(' ', ':'), array('', ''), $header);
+			$headerLine = $header . ': ' . $content;
+			// Remove CR/LF from the header line to avoid CRLF attacks.
+			// (We do not allow folded header content).
+			$headerLine = str_replace(array("\n", "\r"), array('', ''), $headerLine);
+			$headers[] = $headerLine;
+		}
+		return $headers;
 	}
 }
 

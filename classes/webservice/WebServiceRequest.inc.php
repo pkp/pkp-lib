@@ -119,6 +119,22 @@ class WebServiceRequest {
 	}
 
 	/**
+	 * Check whether the given header is
+	 * present in the request.
+	 *
+	 * The check is case insensitive.
+	 *
+	 * @param $header string
+	 */
+	function hasHeader($header) {
+		$header = strtolower($header);
+		foreach($this->_headers as $h => $dummy) {
+			if ($header == strtolower($h)) return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Get additional request headers.
 	 */
 	function getHeaders() {

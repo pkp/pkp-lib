@@ -12,6 +12,9 @@
  */
 
 
+define('MODAL_WIDTH_DEFAULT', '710');
+define('MODAL_WIDTH_AUTO', 'auto');
+
 import('lib.pkp.classes.linkAction.request.LinkActionRequest');
 
 class Modal extends LinkActionRequest {
@@ -24,17 +27,24 @@ class Modal extends LinkActionRequest {
 	/** @var boolean Whether the modal has a close icon in the title bar. */
 	var $_canClose;
 
+	/** @var string The width of the modal */
+	var $_width;
+
 	/**
 	 * Constructor
 	 * @param $title string (optional) The localized modal title.
 	 * @param $titleIcon string (optional) The icon to be used in the modal title bar.
 	 * @param $canClose boolean (optional) Whether the modal will have a close button.
+	 * @param $width int (optional) Override the default width of 'auto'
+	 *  for confirmation modals.  Useful for modals that display
+	 *  large blocks of text.
 	 */
-	function Modal($title = null, $titleIcon = null, $canClose = true) {
+	function Modal($title = null, $titleIcon = null, $canClose = true, $width = MODAL_WIDTH_DEFAULT) {
 		parent::LinkActionRequest();
 		$this->_title = $title;
 		$this->_titleIcon = $titleIcon;
 		$this->_canClose = $canClose;
+		$this->_width = $width;
 	}
 
 
@@ -65,6 +75,13 @@ class Modal extends LinkActionRequest {
 		return $this->_canClose;
 	}
 
+	/**
+	 * Get the width of the modal.
+	 */
+	function getWidth() {
+		return $this->_width;
+	}
+
 
 	//
 	// Overridden methods from LinkActionRequest
@@ -83,7 +100,8 @@ class Modal extends LinkActionRequest {
 		return array(
 			'title' => $this->getTitle(),
 			'titleIcon' => $this->getTitleIcon(),
-			'canClose' => ($this->getCanClose() ? '1' : '0')
+			'canClose' => ($this->getCanClose() ? '1' : '0'),
+			'width' => $this->getWidth(),
 		);
 	}
 }

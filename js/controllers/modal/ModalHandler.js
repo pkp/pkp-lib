@@ -60,6 +60,12 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		this.fixTitleBar_($handledElement, internalOptions);
 		this.fixCloseButton_($handledElement, internalOptions);
 
+		// if our modal is too narrow ('auto' width, with small amounts
+		// of content), resize to prevent title wrapping.
+		if ($handledElement.width() < 300) {
+			$handledElement.dialog('option', 'width', '300');
+		}
+
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);
 

@@ -46,11 +46,14 @@ class ConfirmationModal extends Modal {
 	 *  appear on the cancel button.
 	 * @param $canClose boolean (optional) Whether the modal will
 	 *  have a close button.
+	 * @param $width int (optional) Override the default width of 'auto'
+	 *  for confirmation modals.  Useful for modals that display
+	 *  large blocks of text.
 	 */
-	function ConfirmationModal($dialogText, $title = null, $titleIcon = 'modal_confirm', $okButton = null, $cancelButton = null, $canClose = true) {
+	function ConfirmationModal($dialogText, $title = null, $titleIcon = 'modal_confirm', $okButton = null, $cancelButton = null, $canClose = true, $width = MODAL_WIDTH_AUTO) {
 
 		$title = (is_null($title) ? __('common.confirm') : $title);
-		parent::Modal($title, $titleIcon, $canClose);
+		parent::Modal($title, $titleIcon, $canClose, $width);
 
 		$this->_okButton = (is_null($okButton) ? __('common.ok') : $okButton);
 		$this->_cancelButton = (is_null($cancelButton) ? __('common.cancel') : $cancelButton);

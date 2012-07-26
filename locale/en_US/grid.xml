@@ -36,6 +36,7 @@
 	<message key="grid.action.order">Order</message>
 	<message key="grid.action.cancelOrdering">Cancel ordering</message>
 	<message key="grid.action.extendAll">Extend all</message>
+	<message key="grid.action.collapse">Collapse</message>
 	<message key="grid.action.collapseAll">Collapse all</message>
 	<message key="grid.action.wizard">Settings wizard</message>
 	<message key="grid.action.moveItem">Move Item</message>

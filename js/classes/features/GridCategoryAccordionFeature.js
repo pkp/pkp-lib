@@ -121,6 +121,7 @@
 		$('.category .' + this.getCollapseClass(),
 				this.getGridHtmlElement()).click();
 
+		$('.row_controls :visible').closest('tr').prev().find('.row_actions > a:first').click();
 		return false;
 	};
 

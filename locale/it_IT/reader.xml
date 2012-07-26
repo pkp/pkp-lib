@@ -12,7 +12,7 @@
   * $Id: reader.xml,v 1.5 2009/12/08 04:19:13 jmacgreg Exp $
   -->
 
-<locale name="it_IT" full_name = "Italiano">
+<locale name="it_IT" full_name="Italiano">
 	<message key="comments.anonymous">Utente anonimo</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Corpo</message>
@@ -33,7 +33,7 @@
 	<message key="comments.replies">Risposte</message>
 	<message key="comments.title">Titolo</message>
 	<message key="comments.viewAllComments">Vedi tutti i commenti</message>
-	<message key="reader.fullText">Full Text:</message>
+	<message key="reader.fullText">Full Text</message>
 	<message key="rt.addComment">Aggiungi un commento</message>
 	<message key="rt.admin.configuration">Configurazione</message>
 	<message key="rt.admin.contexts.confirmDelete">Sei sicuro di voler cancellare questo contesto e tutte le relative Ricerche?</message>
@@ -53,14 +53,14 @@
 	<message key="rt.admin.selectedVersion">Versione selezionata</message>
 	<message key="rt.admin.settings.abstract">Abstract (mostra l'abstract dell'articolo).</message>
 	<message key="rt.admin.settings.authorBio">Informazioni sull'autore (Mostra le informazioni biografiche inserite dall'autore)</message>
-	<message key="rt.admin.settings.captureCite">Come citare l'articolo (fornisce la citazione bibliografica dell'articolo)</message>
-	<message key="rt.admin.settings.defineTerms">Definizioni dei termini (facendo doppio-click su una parola di un documento, questa verrà inviata ad un dizionario)</message>
+	<message key="rt.admin.settings.captureCite">Come citare l'articolo (Mostra la citazione bibliografica dell'articolo)</message>
+	<message key="rt.admin.settings.defineTerms">Definizioni dei termini (facendo doppio-click su una parola di un documento, questa verrà inviata a un dizionario)</message>
 	<message key="rt.admin.settings.disableRelatedItems">Disabilita gli strumenti di lettura</message>
 	<message key="rt.admin.settings.emailAuthor">Scrivi all'autore (conduce il lettore a un modulo per l'invio di email all'autore dell'articolo)</message>
 	<message key="rt.admin.settings.emailOthers">Segnala a un collega (conduce il lettore a un modulo per l'invio di email di segnalazione dell'articolo ad amici o colleghi)</message>
 	<message key="rt.admin.settings.findingReferences">Trova riferimenti</message>
 	<message key="rt.admin.settings.printerFriendly">Versione per la stampa (fornisce una versione facile da stampare di un articolo).</message>
-	<message key="rt.admin.settings.supplementaryFiles">Vedi i file aggiuntivi (Mostra un elenco degli eventuali altri file che l'autore ha inserito nel documento)</message>
+	<message key="rt.admin.settings.supplementaryFiles">Vedi i file supplementari (Mostra un elenco di eventuali altri file che l'autore ha inserito nel documento)</message>
 	<message key="rt.admin.settings.viewMetadata">Metadati (Mostra i metadati utilizzati per l'indicizzazione dell'articolo)</message>
 	<message key="rt.admin.status">Stato</message>
 	<message key="rt.admin.validateUrls.complete">La validazione è stata completata.</message>
@@ -83,7 +83,7 @@
 	<message key="rt.colleague">Segnala l'articolo a un collega</message>
 	<message key="rt.context.abbrev">Abbreviazione</message>
 	<message key="rt.context.and">AND</message>
-	<message key="rt.context.citesContextDescription">Se l'articolo è indicizzato in Google Scholar, potrebbe essere accompagnato da un link "Citato da X", che porta ad un elenco di tutti i lavori in cui viene citato. Inoltre, Google Scholar elenca tutti gli item che citano titolo e autori. Per accedere a risorse online che sono disponibili solo attraverso la tua biblioteca, potresti avere la possibilità di andare in Scholar Preferences in Google Scholar e attivare Library Links per il tuo istituto.</message>
+	<message key="rt.context.citesContextDescription">Se l'articolo è indicizzato in Google Scholar, potrebbe essere accompagnato da un link "Citato da X", che porta a un elenco di tutti i lavori in cui viene citato. Inoltre, Google Scholar elenca tutti gli item che citano titolo e autori. Per accedere a risorse online che sono disponibili solo attraverso la tua biblioteca, potresti avere la possibilità di andare in Scholar Preferences in Google Scholar e attivare Library Links per il tuo istituto.</message>
 	<message key="rt.context">Contesto</message>
 	<message key="rt.context.defineTermsDescription">Se l'articolo è in HTML, facendo doppio click su ogni parola nel testo questa appare nella casella parole da definire. Puoi anche digitare o incollare una parola nella casella. Quindi usare la funzione di ricerca per trovare la definizione per quella parola. Per saperne ancora sulle risorse cercate, clicca sul simbolo di informazione. Queste risorse sono state selezionate per la loro rilevanza e il loro libero accesso a tutto o a una parte dei loro contenuti.</message>
 	<message key="rt.context.description">Descrizione</message>

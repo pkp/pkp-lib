@@ -88,8 +88,8 @@
 	<message key="user.role.readers">Lettori</message>
 	<message key="user.role.reviewer">Revisore</message>
 	<message key="user.role.reviewers">Revisori</message>
-	<message key="user.role.siteAdmin">Amministratore del sistema</message>
-	<message key="user.role.siteAdmins">Amministratori di sistema</message>
+	<message key="user.role.siteAdmin">Amministratore del sito</message>
+	<message key="user.role.siteAdmins">Amministratori del sito</message>
 	<message key="user.roles">Ruoli</message>
 	<message key="user.salutation">Titolo (Ing., Dott. ecc.)</message>
 	<message key="user.sendPassword">Conferma</message>
@@ -97,7 +97,7 @@
 	<message key="user.signature">Firma</message>
 	<message key="user.title">Titolo</message>
 	<message key="user.url">URL</message>
-	<message key="user.userHome">Home utente</message>
+	<message key="user.userHome">Cruscotto</message>
 	<message key="user.username">Nome utente</message>
 	<message key="user.workingLanguages">Lingue conosciute</message>
 	<message key="user.other">Altro</message>
@@ -108,4 +108,12 @@
 	<message key="user.confirmEmail">Ripeti l'email</message>
 	<message key="user.gossip">Note private</message>
 	<message key="user.repeatPassword">Ripeti la password</message>
+	<message key="user.authorization.accessDenied">Accesso negato.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Il token di autenticazione non è valido</message>
+	<message key="user.authorization.contextRequired">Non puoi eseguire questa operazione senza un contesto (editore, rivista, convegno, etc.).</message>
+	<message key="user.authorization.loginRequired">Autenticazione necessaria</message>
+	<message key="user.authorization.privateOperation">L'operazione che hai cercato di effettuare è privata oppure non esiste.</message>
+	<message key="user.authorization.restrictedSiteAccess">Accesso negato. L'accesso a questo sito è ristretto.</message>
+	<message key="user.authorization.roleBasedAccessDenied">Con il corrente ruolo non si ha accesso a questa operazione.</message>
+	<message key="user.authorization.userGroupRequired">Devi selezionare un gruppo valido per accedere a questa operazione</message>
 </locale>

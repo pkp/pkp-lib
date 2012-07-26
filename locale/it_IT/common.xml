@@ -29,7 +29,7 @@
 	<message key="announcement.moreAnnouncements">Altri avvisi...</message>
 	<message key="announcement.noneExist">Non è stato pubblicato nessun avviso.</message>
 	<message key="announcement.posted">Inserito</message>
-	<message key="announcement.viewLink">leggi ancora...</message>
+	<message key="announcement.viewLink">[leggi tutto]</message>
 	<message key="announcement.view">Visualizza gli avvisi</message>
 	<message key="common.copy">Copia</message>
 	<message key="common.preview">Anteprima</message>
@@ -46,8 +46,8 @@
 	<message key="common.altTextInstructions">Fornisci un testo alternativo all'immagine per assicurare l'accessibilità agli utenti con browser testuali o con dispositivi di supporto per la lettura</message>
 	<message key="common.and">e</message>
 	<message key="common.applyAction">Esegui azione</message>
-	<message key="common.assign">Assegna</message>
-	<message key="common.assigned">Assegnato</message>
+	<message key="common.assign">Assegnazione</message>
+	<message key="common.assigned">Assegnazione</message>
 	<message key="common.back">Indietro</message>
 	<message key="common.between">tra</message>
 	<message key="common.cancel">Annulla</message>
@@ -57,7 +57,7 @@
 	<message key="common.captchaField.description">Inserire le lettere come appaiono nell'immagine sotto (anche maiuscole e minuscole).</message>
 	<message key="common.captchaField">Convalida</message>
 	<message key="common.changesSaved">Le tue modifiche sono state salvate.</message>
-	<message key="common.chooseOne">Scegline uno</message>
+	<message key="common.chooseOne">Scegli</message>
 	<message key="common.close">Chiudi</message>
 	<message key="common.closeWindow">Chiudi la finestra</message>
 	<message key="common.complete">Termina</message>
@@ -69,7 +69,7 @@
 	<message key="common.date">Data</message>
 	<message key="common.dateModified">Data di modifica</message>
 	<message key="common.dateRequested">Scadenza</message>
-	<message key="common.dateSubmitted">Data di submission</message>
+	<message key="common.dateSubmitted">Data di invio</message>
 	<message key="common.dateUploaded">Data di caricamento</message>
 	<message key="common.day">Giorno</message>
 	<message key="common.default">Default</message>
@@ -105,7 +105,7 @@
 	<message key="common.minute">Minuto(i)</message>
 	<message key="common.modify">Modifica</message>
 	<message key="common.month">Mese</message>
-	<message key="common.noneAssigned">Nessun assegnamento</message>
+	<message key="common.noneAssigned">Nessun incarico</message>
 	<message key="common.none">Nessuno</message>
 	<message key="common.no">No</message>
 	<message key="common.notApplicable">Non applicabile</message>
@@ -192,18 +192,18 @@
 	<message key="email.subject">Oggetto</message>
 	<message key="email.to">A</message>
 	<message key="form.contains">contiene</message>
-	<message key="form.errorsOccurred">Si è verificato un errore durante l'elaborazione del modulo.</message>
+	<message key="form.errorsOccurred">Si è verificato un errore durante l'elaborazione del modulo</message>
 	<message key="form.formLanguage.description">Per inserire le informazioni richieste in altre lingue, prima seleziona la lingua.</message>
 	<message key="form.formLanguage">Lingua del modulo</message>
 	<message key="form.is">è</message>
 	<message key="form.postRequired">Il modulo non è stato inviato correttamente.</message>
 	<message key="form.required">(* Obbligatorio)</message>
-	<message key="form.resubmit">Invia nuovamente</message>
+	<message key="form.resubmit">Invia</message>
 	<message key="form.saveToUpload">Usa il pulsante salva per caricare un file.</message>
 	<message key="form.send">Spedisci</message>
 	<message key="form.submit">Invia</message>
 	<message key="help.contents">Argomenti</message>
-	<message key="help.help">Guida</message>
+	<message key="help.help">Aiuto</message>
 	<message key="help.helpIndex">Indice della guida</message>
 	<message key="help.matchesFound">{$matches} risultati trovati</message>
 	<message key="help.noMatchingTopics">Non è stato trovato nessun argomento attinente.</message>
@@ -244,26 +244,26 @@
 	<message key="navigation.register">Registrazione</message>
 	<message key="navigation.search">Cerca</message>
 	<message key="navigation.stepNumber">Passo {$step}</message>
-	<message key="navigation.userHome">Home Utente</message>
-	<message key="navigation.user">Utente</message>
+	<message key="navigation.userHome">Cruscotto</message>
+	<message key="navigation.user">Cruscotto</message>
 	<message key="search.abstract">Abstract</message>
-	<message key="search.allFields">Tutti</message>
+	<message key="search.allFields">Tutti i campi</message>
 	<message key="search.coverage">Copertura</message>
 	<message key="search.date">Data</message>
 	<message key="search.dateFrom">Da</message>
 	<message key="search.dateTo">Fino a</message>
 	<message key="search.discipline">Disciplina(e)</message>
 	<message key="search.fullText">Full Text</message>
-	<message key="search.indexTerms">Indice dei termini</message>
+	<message key="search.indexTerms">Termini di indicizzazione</message>
 	<message key="search.matchAll">Abbina tutte le categorie</message>
 	<message key="search.noKeywordError">Devi inserire almeno un termine di ricerca.</message>
 	<message key="search.noResults">Nessun risultato</message>
 	<message key="search.operator.and">and</message>
 	<message key="search.operator.not">not</message>
 	<message key="search.operator.or">or</message>
-	<message key="search.reviseSearch">Rivedi la ricerca</message>
-	<message key="search.searchAllCategories">Cerca tutte le categorie per</message>
-	<message key="search.searchCategories">Cerca categorie</message>
+	<message key="search.reviseSearch">Modifica la ricerca</message>
+	<message key="search.searchAllCategories">Ricerca in tutti i campi</message>
+	<message key="search.searchCategories">Cerca in</message>
 	<message key="search.searchResults">Risultati della ricerca</message>
 	<message key="search.subject">Parola(e) chiave</message>
 	<message key="search.titleIndex">Scorri la lista dei titoli</message>
@@ -275,23 +275,23 @@
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
-		Questa rivista è pubblicata sotto una licenza
+		Se non diversamente indicato, i contenuti di questa rivista sono pubblicati sotto licenza
  <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>.]]></message>
 	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
-		Questa rivista è pubblicata sotto una licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0</a>.
+		Se non diversamente indicato, i contenuti di questa rivista sono pubblicati sotto licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0</a>.
 	</div>]]></message>
 	<message key="common.manage">Gestisci</message>
 	<message key="common.noComments">Nessun commento</message>
 	<message key="form.startsWith">inizia con</message>
 	<message key="navigation.dashboard">Bacheca</message>
 	<message key="common.uploadFailed">Il file non può essere caricato. Riprova o contatta l'amministratore se il problema persiste.</message>
-	<message key="notification.allow">Le notifiche di questo tipo di evento compariranno nel mio feed.</message>
+	<message key="notification.allow">Notificami questo tipo di evento nel feed RSS.</message>
 	<message key="notification.confirmError">Errore nella conferma.</message>
 	<message key="notification.confirmSuccess">Sei stato iscritto con successo.</message>
-	<message key="notification.email">Inviami una email per questo tipo di evento</message>
+	<message key="notification.email">Notificami questo tipo di evento per email</message>
 	<message key="notification.location">Vai all'URL</message>
 	<message key="notification.mailList">Mailing list per le notifiche</message>
 	<message key="notification.mailList.emailInvalid">Inserisci un indirizzo email valido.</message>
@@ -302,7 +302,7 @@
 	<message key="notification.notification">Notifica</message>
 	<message key="notification.notifications">Notifiche</message>
 	<message key="notification.notificationsNew">({$numNew} nuovi)</message>
-	<message key="notification.settings">Impostazioni di notifica</message>
+	<message key="notification.settings">Impostazioni delle notifiche</message>
 	<message key="notification.subscribe">Iscriviti</message>
 	<message key="notification.subscribeError">Il tuo indirizzo email è già iscritto.</message>
 	<message key="notification.reminderSent">Abbiamo inviato una nuova password all'indirizzo indicato.</message>

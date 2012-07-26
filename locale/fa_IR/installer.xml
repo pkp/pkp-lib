@@ -68,7 +68,7 @@
 	<message key="installer.skipFilesDir">زیر پوشه های لازم را ایجاد نکن. این گزینه فقط هنگام نصب  دستی بدرد میخورد.</message>
 	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>هشدار: نسخه PHP شما فاقد خداقل های مورد نیاز برای نصب برنامه است. توصیه میشود به نسخه های جدید ارتفا دهید.</strong>]]></message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[بروز خطا هنگام پردازش فایل تمپلیت ایمیل <tt>{$file}</tt>.]]></message>
-	<message key="installer.locale.maybeIncomplete">زبانهای مشخص شده ممکن است ناکامل باشند.</message>
+	<message key="installer.locale.maybeIncomplete">زبانهای مشخص شده ممکن است ناکامل باشند.
 'php tools/upgrade.php upgrade'
 را اجرا کنید</message>
 </locale>

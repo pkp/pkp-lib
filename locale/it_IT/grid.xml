@@ -11,7 +11,7 @@
   *
   -->
 
-<locale name="en_US" full_name = "English">
+<locale name="en_US" full_name="Italiano">
 	<!-- Common -->
 	<message key="grid.noItems">Nessun elemento</message>
 	<message key="grid.settings">Impostazioni</message>

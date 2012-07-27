@@ -600,15 +600,21 @@ class DAO {
 	 * in the DB.
 	 *
 	 * @param $elementId string To refresh a single element
-	 *  give the element ID here. Otherwise all elements will
-	 *  be refreshed.
+	 * give the element ID here. Otherwise all elements will
+	 * be refreshed.
+	 * @param $parentElementId string To refresh a single element
+	 * that is associated with another one give the parent element
+	 * ID here.
 	 * @return string A rendered JSON message.
 	 */
-	function getDataChangedEvent($elementId = null) {
+	function getDataChangedEvent($elementId = null, $parentElementId = null) {
 		// Create the event data.
 		$eventData = null;
 		if ($elementId) {
 			$eventData = array($elementId);
+			if ($parentElementId) {
+				$eventData['parentElementId'] = $parentElementId;
+			}
 		}
 
 		// Create and render the JSON message with the

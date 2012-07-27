@@ -43,12 +43,22 @@
 
 	/**
 	 * Get categories tbody element.
-	 * @return {jQuery} Category's tbody element.
+	 * @return {jQuery} Categories tbody elements.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategories =
 			function() {
 		return $('.category_grid_body:not(.empty)',
 				this.getHtmlElement());
+	};
+
+
+	/**
+	 * Get a category tbody element by category data id.
+	 * @return {jQuery} Category tbody element.
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
+			function(categoryDataId) {
+		return $('#' + this.getCategoryIdPrefix() + categoryDataId);
 	};
 
 
@@ -95,8 +105,12 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataIdByRowId =
 			function(gridRowId) {
-		var categoryDataId = gridRowId.match('category-(.*)-row');
-		return categoryDataId[1];
+		// Remove the category id prefix to avoid getting wrong data.
+		gridRowId = gridRowId.replace(this.getCategoryIdPrefix(), ' ');
+
+		// Get the category data id.
+		var categoryDataId = gridRowId.match('(.*)-row');
+		return $.trim(categoryDataId[1]);
 	};
 
 
@@ -153,45 +167,165 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendRow =
-			function($newRow) {
-		var $rowGridBody = this.getRowCategory_($newRow);
-		this.parent('appendRow', $newRow, $rowGridBody);
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.initialize =
+			function(options) {
+		// Save the URL to fetch a whole category.
+		this.fetchCategoryUrl_ = options.fetchCategoryUrl;
+
+		this.parent('initialize', options);
 	};
 
 
 	/**
-	 * Overridden from GridHandler.
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getElementsByType =
+			function($element) {
+		if ($element.hasClass('category_grid_body')) {
+			return this.getCategories();
+		} else {
+			return this.parent('getElementsByType', $element);
+		}
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getEmptyElement =
+			function($element) {
+		if ($element.hasClass('category_grid_body')) {
+			// Return the grid empty element placeholder.
+			return this.getHtmlElement().find('.empty').not('.category_placeholder');
+		} else {
+			return this.parent('getEmptyElement', $element);
+		}
+	};
+
+
+	/**
 	 * @inheritDoc
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
-			function(sourceElement, event, elementId) {
+			function(sourceElement, event, opt_elementId) {
 
-		// FIXME #7394# make possible to refresh only categories and/or
-		// rows inside categories.
-		// Retrieve the whole grid from the server.
-		$.get(this.fetchGridUrl_, null,
-				this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
+		var fetchedAlready = false;
 
-		// Let the calling context (page?) know that the grids are being redrawn.
-		this.trigger('gridRefreshRequested');
+		if (opt_elementId != undefined) {
+			// Check if we want to refresh a row inside a category.
+			if (opt_elementId.parentElementId != undefined) {
+				var elementIds = {rowId: opt_elementId[0],
+						rowCategoryId: opt_elementId.parentElementId};
+
+				// Store the category id.
+				this.currentCategoryId_ = opt_elementId.parentElementId;
+
+				// Retrieve a single row from the server.
+				$.get(this.fetchRowUrl_, elementIds,
+						this.callbackWrapper(
+								this.replaceElementResponseHandler_), 'json');
+			} else {
+				// Retrieve the entire category from the server.
+				$.get(this.fetchCategoryUrl_, {rowId: opt_elementId},
+						this.callbackWrapper(
+								this.replaceElementResponseHandler_), 'json');
+			}
+			fetchedAlready = true;
+		}
+
+		this.parent('refreshGridHandler', sourceElement,
+				event, opt_elementId, fetchedAlready);
 	};
 
 
-	//
-	// Private helper methods.
-	//
 	/**
-	 * Get the correct tbody for the passed row.
-	 * @param {jQuery} $row Row to fetch tbody for.
-	 * @return {jQuery} JQuery tbody object.
-	 * @private
+	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowCategory_ =
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.deleteElement =
+			function($element) {
+
+		if ($element.length > 1) {
+			// Sometimes grid rows inside different categories may have
+			// the same id. Try to find the correct one to delete.
+			if (this.currentCategoryId_) {
+				$gridBody = this.getCategoryByDataId(this.currentCategoryId_);
+				var index, limit;
+				for (index = 0, limit = $element.length; index < limit; index++) {
+					var $parent = $($element[index]).
+						parents('#' + $gridBody.attr('id'));
+					if ($parent.length === 1) {
+						$element = $($element[index]);
+						break;
+					}
+				}
+			}
+		}
+
+		if ($element.hasClass('category_grid_body')) {
+			// Need to delete the category empty placeholder.
+			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($element);
+			$emptyPlaceholder.remove();
+		}
+
+		this.parent('deleteElement', $element);
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendElement =
+			function($element) {
+		var $gridBody = null;
+
+		if ($element.hasClass('gridRow')) {
+			// New row must be inside a category.
+			var categoryDataId = this.getCategoryDataIdByRowId($element.attr('id'));
+			$gridBody = this.getCategoryByDataId(categoryDataId);
+		}
+
+		// Append the element.
+		this.parent('appendElement', $element, $gridBody);
+
+		// Make sure the placeholder is the last grid element.
+		if ($element.hasClass('category_grid_body')) {
+			var $emptyPlaceholder = this.getEmptyElement($element);
+			this.getHtmlElement().find(this.bodySelector_).append($emptyPlaceholder);
+		}
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.replaceElement =
+			function($existingElement, $newElement) {
+
+		if ($newElement.hasClass('category_grid_body')) {
+			// Need to delete the category empty placeholder.
+			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($existingElement);
+			$emptyPlaceholder.remove();
+		}
+
+		this.parent('replaceElement', $existingElement, $newElement);
+
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.hasSameNumOfColumns =
 			function($row) {
-		var categoryDataId = this.getCategoryDataIdByRowId($row.attr('id'));
-		var categoryIdPrefix = this.getCategoryIdPrefix();
-		return $('#' + categoryIdPrefix + categoryDataId);
+		var $element = $row;
+		var checkColSpan = false;
+
+		if ($row.hasClass('category_grid_body')) {
+			var $element = $row.find('tr');
+			var checkColSpan = true;
+		}
+
+		return this.parent('hasSameNumOfColumns', $element, checkColSpan);
 	};
 
 

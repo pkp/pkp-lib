@@ -59,6 +59,9 @@ class GridHandler extends PKPHandler {
 	/** @var string The grid template. */
 	var $_template;
 
+	/** @var array The urls that will be used in JS handler. */
+	var $_urls;
+
 	/** @var array The grid features. */
 	var $_features;
 
@@ -348,6 +351,30 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Return all grid urls that will be used
+	 * in JS handler.
+	 * @return array
+	 */
+	function getUrls() {
+		return $this->_urls;
+	}
+
+	/**
+	 * Define the urls that will be used
+	 * in JS handler.
+	 * @param $request Request
+	 * @param $extraUrls array Optional extra urls.
+	 */
+	function setUrls(&$request, $extraUrls = array()) {
+		$router =& $request->getRouter();
+		$urls = array(
+			'fetchGridUrl' => $router->url($request, null, null, 'fetchGrid', null, $this->getRequestArgs()),
+			'fetchRowUrl' => $router->url($request, null, null, 'fetchRow', null, $this->getRequestArgs())
+		);
+		$this->_urls = array_merge($urls, $extraUrls);
+	}
+
+	/**
 	 * Override this method to return true if you want
 	 * to use the grid within another component (e.g. to
 	 * remove the title or change the layout accordingly).
@@ -424,6 +451,8 @@ class GridHandler extends PKPHandler {
 	 * @return string the serialized grid JSON message
 	 */
 	function fetchGrid($args, &$request) {
+		$this->setUrls($request);
+
 		// Prepare the template to render the grid.
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->assign_by_ref('grid', $this);
@@ -469,11 +498,11 @@ class GridHandler extends PKPHandler {
 		$json = new JSONMessage(true);
 		if (is_null($row)) {
 			// Inform the client that the row does no longer exist.
-			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
+			$json->setAdditionalAttributes(array('elementNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested row
 			$this->setRowActionToggleColumn();
-			$json->setContent($this->_renderRowInternally($request, $row));
+			$json->setContent($this->renderRowInternally($request, $row));
 		}
 
 		// Render and return the JSON message.
@@ -790,6 +819,35 @@ class GridHandler extends PKPHandler {
 		}
 	}
 
+	/**
+	 * Method that renders a single row.
+	 *
+	 * NB: You must have initialized the row
+	 * before you call this method.
+	 *
+	 * @param $request PKPRequest
+	 * @param $row GridRow
+	 * @return string the row HTML
+	 */
+	function renderRowInternally(&$request, &$row) {
+		// Iterate through the columns and render the
+		// cells for the given row.
+		$renderedCells = array();
+		$columns = $this->getColumns();
+		foreach ($columns as $column) {
+			assert(is_a($column, 'GridColumn'));
+			$renderedCells[] = $this->_renderCellInternally($request, $row, $column);
+		}
+
+		// Pass control to the view to render the row
+		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign_by_ref('grid', &$this);
+		$templateMgr->assign_by_ref('columns', $columns);
+		$templateMgr->assign_by_ref('cells', $renderedCells);
+		$templateMgr->assign_by_ref('row', $row);
+		return $templateMgr->fetch($row->getTemplate());
+	}
+
 
 	//
 	// Private helper methods
@@ -853,40 +911,11 @@ class GridHandler extends PKPHandler {
 			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
 
 			// Render the row
-			$renderedRows[] = $this->_renderRowInternally($request, $row);
+			$renderedRows[] = $this->renderRowInternally($request, $row);
 			unset($element);
 		}
 
 		return $renderedRows;
-	}
-
-	/**
-	 * Method that renders a single row.
-	 *
-	 * NB: You must have initialized the row
-	 * before you call this method.
-	 *
-	 * @param $request PKPRequest
-	 * @param $row GridRow
-	 * @return string the row HTML
-	 */
-	function _renderRowInternally(&$request, &$row) {
-		// Iterate through the columns and render the
-		// cells for the given row.
-		$renderedCells = array();
-		$columns = $this->getColumns();
-		foreach ($columns as $column) {
-			assert(is_a($column, 'GridColumn'));
-			$renderedCells[] = $this->_renderCellInternally($request, $row, $column);
-		}
-
-		// Pass control to the view to render the row
-		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign_by_ref('grid', &$this);
-		$templateMgr->assign_by_ref('columns', $columns);
-		$templateMgr->assign_by_ref('cells', $renderedCells);
-		$templateMgr->assign_by_ref('row', $row);
-		return $templateMgr->fetch($row->getTemplate());
 	}
 
 	/**

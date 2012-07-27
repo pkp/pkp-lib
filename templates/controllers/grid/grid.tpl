@@ -18,8 +18,9 @@
 			'{$grid->getJSHandler()|escape:javascript}',
 			{ldelim}
 				gridId: '{$grid->getId()|escape:javascript}',
-				fetchRowUrl: '{url|escape:javascript op='fetchRow' params=$gridRequestArgs escape=false}',
-				fetchGridUrl: '{url|escape:javascript op='fetchGrid' params=$gridRequestArgs escape=false}',
+				{foreach from=$grid->getUrls() key=key item=itemUrl name=gridUrls}
+					{$key|escape:"javascript"}: '{$itemUrl|escape:"javascript"}',
+				{/foreach}
 				bodySelector: '#{$gridActOnId|escape:javascript}',
 				{if $grid->getPublishChangeEvents()}
 					publishChangeEvents: [

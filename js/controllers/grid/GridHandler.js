@@ -85,42 +85,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	//
-	// Protected methods
+	// Public methods
 	//
-	/**
-	 * Set data and execute operations to initialize.
-	 * @param {array} options Grid options.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.initialize =
-			function(options) {
-		// Bind the handler for the "elements changed" event.
-		this.bind('dataChanged', this.refreshGridHandler);
-
-		// Bind the handler for the "add new row" event.
-		this.bind('addRow', this.addRowHandler_);
-
-		// Handle grid filter events.
-		this.bind('formSubmitted', this.refreshGridWithFilterHandler_);
-
-		// Save the ID of this grid.
-		this.gridId_ = options.gridId;
-
-		// Save the URL to fetch a row.
-		this.fetchRowUrl_ = options.fetchRowUrl;
-
-		// Save the URL to fetch the entire grid
-		this.fetchGridUrl_ = options.fetchGridUrl;
-
-		// Save the selector for the grid body.
-		this.bodySelector_ = options.bodySelector;
-
-		// Show/hide row action feature.
-		this.activateRowActions_();
-
-		this.trigger('gridInitialized');
-	};
-
-
 	/**
 	 * Get the fetch row URL.
 	 * @return {?string} URL to the "fetch row" operation handler.
@@ -198,25 +164,38 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
-	 * Append a new row to the end of the list.
-	 * @protected
-	 * @param {jQuery} $newRow The new row to append.
-	 * @param {jQuery} $gridBody The tbody container element.
+	 * Get the same type elements of the passed element.
+	 * @param {jQuery} $element The element to get the type from.
+	 * @return {jQuery}
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.appendRow =
-			function($newRow, $gridBody) {
-
-		if ($gridBody === undefined) {
-			$gridBody = this.getHtmlElement().find(this.bodySelector_);
+	$.pkp.controllers.grid.GridHandler.prototype.getElementsByType =
+			function($element) {
+		if ($element.hasClass('gridRow')) {
+			var $container = $element.parents('tbody:first');
+			return $('.gridRow', $container);
+		} else {
+			return null;
 		}
-		$gridBody.append($newRow);
-		this.callFeaturesHook('appendRow', $newRow);
 	};
 
 
-	//
-	// Public methods
-	//
+	/**
+	 * Get the empty element based on the type of the passed element.
+	 * @param {jQuery} $element The element to get the type from.
+	 * @return {jQuery}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getEmptyElement =
+			function($element) {
+		if ($element.hasClass('gridRow')) {
+			// Return the rows empty element placeholder.
+			var $container = $element.parents('tbody:first');
+			return $container.next('.empty');
+		} else {
+			return null;
+		}
+	};
+
+
 	/**
 	 * Show/hide row actions.
 	 *
@@ -316,7 +295,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		for (index in sequenceMap) {
 			rowId = sequenceMap[index];
 			var $row = $('#' + rowId);
-			this.appendRow($row);
+			this.appendElement($row);
 		}
 		this.updateControlRowsPosition();
 	};
@@ -340,8 +319,51 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	};
 
 
+	//
+	// Protected methods
+	//
+	/**
+	 * Set data and execute operations to initialize.
+	 *
+	 * @protected
+	 *
+	 * @param {array} options Grid options.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.initialize =
+			function(options) {
+		// Bind the handler for the "elements changed" event.
+		this.bind('dataChanged', this.refreshGridHandler);
+
+		// Bind the handler for the "add new row" event.
+		this.bind('addRow', this.addRowHandler_);
+
+		// Handle grid filter events.
+		this.bind('formSubmitted', this.refreshGridWithFilterHandler_);
+
+		// Save the ID of this grid.
+		this.gridId_ = options.gridId;
+
+		// Save the URL to fetch a row.
+		this.fetchRowUrl_ = options.fetchRowUrl;
+
+		// Save the URL to fetch the entire grid
+		this.fetchGridUrl_ = options.fetchGridUrl;
+
+		// Save the selector for the grid body.
+		this.bodySelector_ = options.bodySelector;
+
+		// Show/hide row action feature.
+		this.activateRowActions_();
+
+		this.trigger('gridInitialized');
+	};
+
+
 	/**
 	 * Call features hooks.
+	 *
+	 * @protected
+	 *
 	 * @param {String} hookName The name of the hook.
 	 * @param {Array} args The arguments array.
 	 */
@@ -359,32 +381,156 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
-	 * Do common actions that all subclasses widgets needs to delete
-	 * a row.
-	 * @param {jQuery} $rowElement The row element to be deleted.
+	 * Refresh either a single row of the grid or the whole grid.
+	 *
+	 * @protected
+	 *
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @param {number=} opt_elementId The id of a data element that was
+	 *  updated, added or deleted. If not given then the whole grid
+	 *  will be refreshed.
+	 *  @param {Boolean} opt_fetchedAlready Flag that subclasses can send
+	 *  telling that a fetch operation was already handled there.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.doCommonDeleteRowActions =
-			function($rowElement) {
+	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
+			function(sourceElement, event, opt_elementId, opt_fetchedAlready) {
 
-		var $grid = this.getHtmlElement();
-
-		// Check whether this is the last row.
-		var lastRow = false;
-		if ($grid.find('.gridRow').length === 1) {
-			lastRow = true;
+		// Check if subclasses already handled the fetch of new elements.
+		if (!opt_fetchedAlready) {
+			if (opt_elementId) {
+				// Retrieve a single row from the server.
+				$.get(this.fetchRowUrl_, {rowId: opt_elementId},
+						this.callbackWrapper(this.replaceElementResponseHandler_), 'json');
+			} else {
+				// Retrieve the whole grid from the server.
+				$.get(this.fetchGridUrl_, null,
+						this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
+			}
 		}
 
-		// Delete the row.
-		var $emptyElement = $grid.find('.empty');
-		$rowElement.fadeOut(500, function() {
+		// Let the calling context (page?) know that the grids are being redrawn.
+		this.trigger('gridRefreshRequested');
+		this.publishChangeEvents();
+	};
+
+
+	/**
+	 * Delete a grid element.
+	 *
+	 * @protected
+	 *
+	 * @param {jQuery} $element The element to be deleted.
+	 * @param {jQuery} $opt_emptyElement The empty element to be shown.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
+			function($element) {
+
+		// Check whether we really only match one element.
+		if ($element.length !== 1) {
+			throw Error('There were ' + $element.length +
+					' rather than 1 element to delete!');
+		}
+
+		// Check whether this is the last row.
+		var lastElement = false;
+		if (this.getElementsByType($element).length == 1) {
+			lastElement = true;
+		}
+
+		// Remove the controls row, if any.
+		if ($element.hasClass('gridRow')) {
+			this.deleteControlsRow_($element);
+		}
+
+		var $emptyElement = this.getEmptyElement($element);
+
+		$element.fadeOut(500, function() {
 			$(this).remove();
-			if (lastRow) {
+			if (lastElement) {
 				$emptyElement.fadeIn(500);
 			}
 		});
 	};
 
 
+	/**
+	 * Append a new row to the end of the list.
+	 *
+	 * @protected
+	 *
+	 * @param {jQuery} $newRow The new row to append.
+	 * @param {jQuery} $opt_gridBody The tbody container element.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.appendElement =
+			function($newRow, $opt_gridBody) {
+
+		if ($opt_gridBody == undefined) {
+			$opt_gridBody = this.getHtmlElement().find(this.bodySelector_);
+		}
+
+		// Add the new element.
+		$opt_gridBody.append($newRow);
+
+		// Hide the empty placeholder.
+		var $emptyElement = this.getEmptyElement($newRow);
+		$emptyElement.hide();
+
+		this.callFeaturesHook('appendElement', $newRow);
+	};
+
+
+	/**
+	 * Update an existing element using the passed new element content.
+	 *
+	 * @protected
+	 *
+	 * @param {jQuery} $existingElement The element that is already in grid.
+	 * @param {jQuery} $newElement The element with new content.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.replaceElement =
+			function($existingElement, $newElement) {
+
+		if ($newElement.hasClass('gridRow')) {
+			this.deleteControlsRow_($existingElement);
+		}
+
+		$existingElement.replaceWith($newElement);
+		this.callFeaturesHook('replaceElement', $newElement);
+	};
+
+
+	/**
+	 * Does the passed row have a different number of columns than the
+ 	 * existing grid?
+ 	 *
+ 	 * @protected
+ 	 *
+	 * @param {jQuery} $row The row to be checked against grid columns.
+	 * @param {Boolean} checkColSpan Will get the number of row columns
+	 * by column span.
+	 * @returns {Boolean}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.hasSameNumOfColumns =
+			function($row, checkColSpan) {
+		var $grid = this.getHtmlElement();
+		var numColumns = $grid.find('th').length;
+		var $tdElements = $row.first('tr').find('td');
+
+		if (checkColSpan) {
+			var numCellsInNewRow = $tdElements.attr('colspan');
+		} else {
+			var numCellsInNewRow = $tdElements.length;
+		}
+
+		return (numColumns == numCellsInNewRow);
+	};
+
+
+	//
+	// Private methods
+	//
 	/**
 	 * Refresh the grid after its filter has changed.
 	 *
@@ -405,43 +551,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	};
 
 
-	//
-	// Protected methods
-	//
-	/**
-	 * Refresh either a single row of the grid or the whole grid.
-	 *
-	 * @protected
-	 *
-	 * @param {HTMLElement} sourceElement The element that
-	 *  issued the event.
-	 * @param {Event} event The triggering event.
-	 * @param {number=} opt_elementId The id of a data element that was
-	 *  updated, added or deleted. If not given then the whole grid
-	 *  will be refreshed.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
-			function(sourceElement, event, opt_elementId) {
-
-		if (opt_elementId) {
-			// Retrieve a single row from the server.
-			$.get(this.fetchRowUrl_, {rowId: opt_elementId},
-					this.callbackWrapper(this.replaceRowResponseHandler_), 'json');
-		} else {
-			// Retrieve the whole grid from the server.
-			$.get(this.fetchGridUrl_, null,
-					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
-		}
-
-		// Let the calling context (page?) know that the grids are being redrawn.
-		this.trigger('gridRefreshRequested');
-		this.publishChangeEvents();
-	};
-
-
-	//
-	// Private methods
-	//
 	/**
 	 * Add a new row to the grid.
 	 *
@@ -458,7 +567,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 		// Retrieve a single new row from the server.
 		$.get(this.fetchRowUrl_, params,
-				this.callbackWrapper(this.replaceRowResponseHandler_), 'json');
+				this.callbackWrapper(this.replaceElementResponseHandler_), 'json');
 	};
 
 
@@ -471,20 +580,31 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.replaceRowResponseHandler_ =
+	$.pkp.controllers.grid.GridHandler.prototype.replaceElementResponseHandler_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			if (jsonData.rowNotFound) {
-				// The server reported that this row no
+			if (jsonData.elementNotFound) {
+				// The server reported that this element no
 				// longer exists in the database so let's
 				// delete it.
-				this.deleteRow_(jsonData.rowNotFound);
+				var elementId = jsonData.elementNotFound;
+				var $element = this.getHtmlElement().
+					find('.element' + elementId);
+
+				// Sometimes we get a delete event before the
+				// element has actually been inserted (e.g. when deleting
+				// elements due to a cancel action or similar).
+				if ($element.length === 0) {
+					return false;
+				}
+
+				this.deleteElement($element);
 			} else {
 				// The server returned mark-up to replace
 				// or insert the row.
-				this.insertOrReplaceRow_(jsonData.content);
+				this.insertOrReplaceElement_(jsonData.content);
 
 				// Refresh row action event binding.
 				this.activateRowActions_();
@@ -519,83 +639,41 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 
 	/**
-	 * Helper that inserts or replaces a row.
+	 * Helper that inserts or replaces an element.
 	 *
 	 * @private
 	 *
-	 * @param {string} rowContent The new mark-up of the row.
+	 * @param {string} elementContent The new mark-up of the element.
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceRow_ =
-			function(rowContent) {
+	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement_ =
+			function(elementContent) {
 
 		// Parse the HTML returned from the server.
-		var $newRow = $(rowContent), newRowId = $newRow.attr('id');
+		var $newElement = $(elementContent), newElementId = $newElement.attr('id');
 
-		// Does the row exist already?
+		// Does the element exist already?
 		var $grid = this.getHtmlElement(),
-				$existingRow = newRowId ? $grid.find('#' + newRowId) : {};
+				$existingElement = newElementId ? $grid.find('#' + newElementId) : {};
 
-		if ($existingRow.length > 1) {
-			throw Error('There were ' + $existingRow.length +
-					' rather than 0 or 1 rows to be replaced!');
+		if ($existingElement.length > 1) {
+			throw Error('There were ' + $existingElement.length +
+					' rather than 0 or 1 elements to be replaced!');
 		}
 
-		// Does this grid have a different number of columns than the
-		// existing grid? If yes, we have to redraw the whole grid so
-		// new columns get added/removed to match row.
-		var numColumns = $grid.find('th').length;
-		var numCellsInNewRow = $newRow.first('tr').find('td').length;
-		if (numColumns != numCellsInNewRow) {
+		if (!this.hasSameNumOfColumns($newElement)) {
+			// Redraw the whole grid so new columns
+			// get added/removed to match element.
 			$.get(this.fetchGridUrl_, null,
 					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 		} else {
-			// Hide the empty grid row placeholder.
-			var $emptyElement = $grid.find('.empty');
-			$emptyElement.hide();
-
-			if ($existingRow.length === 1) {
-				// Update row.
-				this.deleteControlsRow_($existingRow);
-				$existingRow.replaceWith($newRow);
-				this.callFeaturesHook('replaceRow', $newRow);
+			if ($existingElement.length === 1) {
+				// Update element.
+				this.replaceElement($existingElement, $newElement);
 			} else {
 				// Insert row.
-				this.appendRow($newRow);
+				this.appendElement($newElement);
 			}
 		}
-	};
-
-
-	/**
-	 * Helper that deletes the given row.
-	 *
-	 * @private
-	 *
-	 * @param {number} rowId The ID of the row to be updated.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.deleteRow_ =
-			function(rowId) {
-
-		var $grid = this.getHtmlElement(),
-				$rowElement = $grid.find('.element' + rowId);
-
-		// Sometimes we get a delete event before the
-		// row has actually been inserted (e.g. when deleting
-		// elements due to a cancel action or similar).
-		if ($rowElement.length === 0) {
-			return;
-		}
-
-		// Check whether we really only match one row.
-		if ($rowElement.length !== 1) {
-			throw Error('There were ' + $rowElement.length +
-					' rather than 1 rows to delete!');
-		}
-
-		// Remove the controls row (do this before check for siblings below).
-		this.deleteControlsRow_($rowElement);
-
-		this.doCommonDeleteRowActions($rowElement);
 	};
 
 
@@ -608,14 +686,20 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.deleteControlsRow_ =
 			function($row) {
-		if ($row.next().is('tr') && $row.next().hasClass('row_controls')) {
-			$row.next().remove();
+		var $controlRow = $('#' + $row.attr('id') + '-control-row',
+				this.getHtmlElement());
+
+		if ($controlRow.is('tr') && $controlRow.hasClass('row_controls')) {
+			$controlRow.remove();
 		}
 	};
 
 
 	/**
 	 * Get the control row for the passed the grid row.
+	 *
+	 * @private
+	 *
 	 * @param {jQuery} $gridRow The grid row JQuery object.
 	 * @return {jQuery} The control row JQuery object.
 	 */
@@ -629,6 +713,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Helper that attaches click events to row actions.
+	 *
 	 * @private
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.activateRowActions_ =
@@ -642,6 +727,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Apply the effect for hide/show row actions.
+	 *
 	 * @private
 	 *
 	 * @param {jQuery} $controlRow The control row JQuery object.
@@ -668,7 +754,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Add a grid feature.
+	 *
 	 * @private
+	 *
 	 * @param {string} id Feature id.
 	 * @param {$.pkp.classes.features.Feature} $feature The grid
 	 * feature to be added.
@@ -684,7 +772,9 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Add grid features.
+	 *
 	 * @private
+	 *
 	 * @param {Array} features The features options array.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.initFeatures_ =

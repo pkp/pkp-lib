@@ -8,8 +8,8 @@
  *}
 {if !is_null($row->getId())}
 	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
-	{if $categoryRow}
-		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryRow->getId()}
+	{if $categoryId}
+		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryId}
 	{/if}
 	{assign var=rowId value=$rowIdPrefix|concat:"-row-":$row->getId()}
 {else}

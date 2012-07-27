@@ -64,8 +64,15 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// of content), resize to prevent title wrapping.
 		if ($handledElement.width() < 400) {
 			$handledElement.dialog('option', 'width', '400');
-			$handledElement.dialog('option', 'position', ['center', 100]);
 		}
+
+		// if the modal is too wide ('auto' width with large amounts
+		// of content), resize to prevent modals that are too wide.
+		if ($handledElement.width() > 710) {
+			$handledElement.dialog('option', 'width', '710')
+		}
+
+		$handledElement.dialog('option', 'position', ['center', 100]);
 
 		// Bind the close event.
 		this.bind('dialogclose', this.dialogClose);

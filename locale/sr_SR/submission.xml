@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sr_SR/submission.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the sr_SR (Serbian) locale.
+  -->
+
+<locale name="sr_SR" full_name = "Serbian">
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">Daje formatiranu listu referenci za radove citiran dokumentu. Odvojte reference prazninama.</message>
+
+	<!-- FIXME: move to meta-data plug-ins -->
+	<!-- messages used by meta-data filters -->
+	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef registracioni imejl</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">Unesite imejl za koji je urađena registracija na CrossRef sajtu.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API ključ</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Unesite ISBNdb API ključ. Ukoliko ga nemate, možete ga dobiti besplatno an ISBNdb projektu.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed registracioni imejl</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">Unesite PubMed registracioni imejl ukoliko ga imate.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API ključ</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Unesite ispravan WorldCat API ključ ukoliko ga imate.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">Citatni modul</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">Izaberite jedan od ponuđenih citatnih modula.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">Po pravilu ne koristi (i dalje će biti dostupno uredniku)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">Interna greška. Neispravna vrednost je uneta za 'optional filter' podešavanja. Molimo vas da ovo prijavite kao bug.</message>
+	
+	<!-- messages shared between MD schemas -->
+	<message key="metadata.property.displayName.author">Autori</message>
+	<message key="metadata.property.validationMessage.author">Za najbolje rezultate, autori bi trebali biti unešeni u formatu: Coleman Jr, D. (Ralf) Dr.</message>
+	<message key="metadata.property.displayName.editor">Urednici</message>
+	<message key="metadata.property.validationMessage.editor">Za najbolje rezultate, urednici bi trebali biti unešeni u formatu: Coleman Jr, D. (Ralf) Dr.</message>
+	
+	<!-- NLM-specific messages -->
+	<message key="metadata.property.displayName.article-title">Naslov rada</message>
+	<message key="metadata.property.validationMessage.article-title">Molimo Vas da unesete ispravan naslov rada</message>
+	<message key="metadata.property.displayName.source">Naslov časopisa/knjige</message>
+	<message key="metadata.property.validationMessage.source">Molimo Vas da unesete ispravan naslov časopisa/knjige.</message>
+	<message key="metadata.property.displayName.date">Datum izdavanja</message>
+	<message key="metadata.property.validationMessage.date">Molimo Vas da unesete ispravan datum izdavanja (format: dd.mm.gggg.).</message>
+	<message key="metadata.property.displayName.access-date">Datum pristupanja</message>
+	<message key="metadata.property.validationMessage.access-date">Unesite ispravan datum pristupanja (format: dd.mm.gggg.).</message>
+	<message key="metadata.property.displayName.issue">Izdanje</message>
+	<message key="metadata.property.validationMessage.issue">Unesite ispravno izdanje.</message>
+	<message key="metadata.property.displayName.volume">Knjiga</message>
+	<message key="metadata.property.validationMessage.volume">Unesite ispravan broj knjige.</message>
+	<message key="metadata.property.displayName.season">Sezona</message>
+	<message key="metadata.property.validationMessage.season">Unesite ispravan identifikator sezone.</message>
+	<message key="metadata.property.displayName.chapter-title">Naslov poglavlja</message>
+	<message key="metadata.property.validationMessage.chapter-title">Unesite ispravan naslov poglavlja.</message>
+	<message key="metadata.property.displayName.edition">Edicija</message>
+	<message key="metadata.property.validationMessage.edition">Unesite ispravnu ediciju.</message>
+	<message key="metadata.property.displayName.series">Serija</message>
+	<message key="metadata.property.validationMessage.series">Unesite ispravnu seriju.</message>
+	<message key="metadata.property.displayName.supplement">Dodatak</message>
+	<message key="metadata.property.validationMessage.supplement">Unesite ispravan dodatak.</message>
+	<message key="metadata.property.displayName.conf-date">Datum konferencije</message>
+	<message key="metadata.property.validationMessage.conf-date">Unesite ispravan datum koncerencije (format: YYYY-MM-DD).</message>
+	<message key="metadata.property.displayName.conf-loc">Mesto održavanja konferencije</message>
+	<message key="metadata.property.validationMessage.conf-loc">Unesite mesto održavanja konferencije.</message>
+	<message key="metadata.property.displayName.conf-name">Naziv konferencije</message>
+	<message key="metadata.property.validationMessage.conf-name">Unesite ispravan naziv konferencije.</message>
+	<message key="metadata.property.displayName.conf-sponsor">Sponzor konferencije</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">Unesite sponzora konferencije.</message>
+	<message key="metadata.property.displayName.institution">Institucija</message>
+	<message key="metadata.property.validationMessage.institution">Unesite naziv institucije.</message>
+	<message key="metadata.property.displayName.fpage">Prva strana</message>
+	<message key="metadata.property.validationMessage.fpage">Unesite ispravnu prvu stranu (mora biti numerička vrednost).</message>
+	<message key="metadata.property.displayName.lpage">Poslednja strana</message>
+	<message key="metadata.property.validationMessage.lpage">Unesite ispravnu poslednju stranu (mora biti numerička vrednost).</message>
+	<message key="metadata.property.displayName.size">Broj strana</message>
+	<message key="metadata.property.validationMessage.size">Unesite broj strana (mora biti numerička vrednost).</message>
+	<message key="metadata.property.displayName.publisher-loc">Mesto izdavača</message>
+	<message key="metadata.property.validationMessage.publisher-loc">Unesite mesto izdavača.</message>
+	<message key="metadata.property.displayName.publisher-name">Naziv izdavača</message>
+	<message key="metadata.property.validationMessage.publisher-name">Unesite naziv izdavača.</message>
+	<message key="metadata.property.displayName.isbn">ISBN</message>
+	<message key="metadata.property.validationMessage.isbn">Unesite ispravan ISBN.</message>
+	<message key="metadata.property.displayName.issn">Štampani ISSN</message>
+	<message key="metadata.property.validationMessage.issn">Unesite štampani ISSN.</message>
+	<message key="metadata.property.displayName.eissn">eISSN</message>
+	<message key="metadata.property.validationMessage.eissn">Unesite ispravan eISSN</message>
+	<message key="metadata.property.displayName.doi">DOI</message>
+	<message key="metadata.property.validationMessage.doi">Unesite ispravan DOI.</message>
+	<message key="metadata.property.displayName.publisher-id">Prilagođeni ID publikacije</message>
+	<message key="metadata.property.validationMessage.publisher-id">Unesite ispravan prilagođeni ID publikacije.</message>
+	<message key="metadata.property.displayName.coden">CODEN</message>
+	<message key="metadata.property.validationMessage.coden">Unesite ispravan CODEN.</message>
+	<message key="metadata.property.displayName.sici">SICI</message>
+	<message key="metadata.property.validationMessage.sici">Unesite ispravan SICI.</message>
+	<message key="metadata.property.displayName.pmid">PMID</message>
+	<message key="metadata.property.validationMessage.pmid">Unesite ispravan PMID.</message>
+	<message key="metadata.property.displayName.uri">Link ka publikaciji</message>
+	<message key="metadata.property.validationMessage.uri">Unesite alternativni link ka publikaciji.</message>
+	<message key="metadata.property.displayName.comment">Komentar</message>
+	<message key="metadata.property.validationMessage.comment">Unesite ispravan komentar.</message>
+	<message key="metadata.property.displayName.annotation">Beleške</message>
+	<message key="metadata.property.validationMessage.annotation">Unesite ispravne beleške.</message>
+	<message key="metadata.property.displayName.publication-type">Tip publikacije.</message>
+	<message key="metadata.property.validationMessage.publication-type">Uvek podesite tip publikacije. Trenutno su podržani tipovi: knjiga (za knjige i poglavlja) časopisi. U suprotnom formatiranje citata neće raditi ispravno.</message>
+	
+	<!-- MODS-specific messages -->
+	<message key="metadata.property.displayName.title-type">Tip naslova</message>
+	<message key="metadata.property.validationMessage.title-type">Unesite ispravan tip naslova. Podržani tipovi su: 'skraćen', 'preveden', 'alternativan' i 'uniforman'.</message>
+	<message key="metadata.property.displayName.nonSort">Deo naslova koji će se ignorisati kod sortiranja</message>
+	<message key="metadata.property.validationMessage.nonSort">Unesite početne karaktere naslova koji bi trebali biti ignorisani prilikom sortiranja.</message>
+	<message key="metadata.property.displayName.title">Naslov</message>
+	<message key="metadata.property.validationMessage.title">Unesite ispravan naslov.</message>
+	<message key="metadata.property.displayName.subTitle">Podnaslov</message>
+	<message key="metadata.property.validationMessage.subTitle">Unesite ispravan podnaslov.</message>
+	<message key="metadata.property.displayName.partNumber">Broj dela</message>
+	<message key="metadata.property.validationMessage.partNumber">Unesite ispravan broj dela.</message>
+	<message key="metadata.property.displayName.partName">Ime dela</message>
+	<message key="metadata.property.validationMessage.partName">Unesite ispravno ime dela.</message>
+	<message key="metadata.property.displayName.name-type">Tip imena</message>
+	<message key="metadata.property.validationMessage.name-type">Molimo proverite da li ste podesili ispravan tip imena. Podržane vrednosti su 'lično', 'korporativno' i 'konferencija'.</message>
+	<!-- FIXME: end -->
+	
+	<message key="submission.agencies">Ustanove</message>
+	<message key="submission.abstractViews">Pristupa apstraktu</message>
+	<message key="submission.accepted">Prihvaćeno</message>
+	<message key="submission.acknowledge">Potvrđeno</message>
+	<message key="submission.addSuppFile">Dodaj dodatni fajl</message>
+	<message key="submission.ask">Zahtevaj</message>
+	<message key="submission.backToSubmissionEditing">Povratak na uređivanje prijave</message>
+	<message key="submission.changeComments">Promeni u</message>
+	<message key="submission.citations">Reference</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">Da li ste sigurni da želite da obrišete sve citate?</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">Došlo je do greške prilikom brisanja citata. Prijavite ovo kao bug.</message>
+	<message key="submission.citations.editor.citationlist.newCitation">Novo citiranje</message>
+	<message key="submission.citations.editor.citationlist.title">Izmeni citiranja</message>
+	<message key="submission.citations.editor.clickToEdit">Klikni za izmenu.</message>
+	<message key="submission.citations.editor.details.authorQuery">Pitaj autora</message>
+	<message key="submission.citations.editor.details.authorQueryBody">Vaša poruka autoru:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">Možete pitati autora za više informacija o citatu. Klikom na "Pošalji" vaša poruka će biti poslata na autorovu imejl adresu.</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">Tema:</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">Ukoliko vam polje oznaka ne treba, obrišite ga.</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">Proveri u Google Scholar</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">Upišite prvih par slova da biste selektovali...</message>
+	<message key="submission.citations.editor.details.citationExportPreview">Prikaz eksporta citata</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">Rezultati Expert internal citation servisa (klikni da zatvoriš)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">Rezultati Expert internal citation servisa (klikni da otvoriš)</message>
+	<message key="submission.citations.editor.details.citationServices">Servis citata</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">Možete da kliknete na tekst da poništite.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">Ispod možete naći listu servisa citata koji su konfigurisani za vaš časopis. Servisi koje je urednik smatrao najrelevantnijima su već obeleženi. Vi možete uključiti ili isključiti servise koje želite.</message>
+	<message key="submission.citations.editor.details.dataSaved">Vaše izmene su sačuvane.</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">Odaberite servis baze citatnosti:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">Podešavanja Expert citation editing (Klikni da zatvoriš)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">Podešavanja Expert citation editing (Klikni da otvoriš)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">Odaberite servis za ekstrakciju citata</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">Unutrašnja greška: Neispravan filter selekcije. Molimo da prijavite bug.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">Ukoliko niste dobili zadovoljavajuće rezultate, imate mogućnosti da unapredite citatnost. Često pomaže ručno uređivanje bitnih polja kao što su naslov ili autor.</message>
+	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">Ukoliko niste pronašli citat ni na jednom ponuđenom servisu možete da potražite na Google Scholar. Na žalost, Google Scholar ne nudi automatski interfejs tako da ne postoji mogućnost automatskog povlačenja podataka već je potrebno ručno kopirati podatke.</message>
+	<message key="submission.citations.editor.details.manualEditing">Ručne izmene</message>
+	<message key="submission.citations.editor.details.messages">Imajte na umu (kliknite na poruke da ih sklonite)</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...kliknite ovde da dodate novo polje...</message>
+	<message key="submission.citations.editor.details.queryCitation">Re-Query citatni servis</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Potražite u Google Scholar</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Welcome to the citation editing process. Clicking on a citation in the listing to the left will present the citation in this window, where you can check the accuracy of the citation process. You will also be able to check the citation against citation database services configured by the journal manager, and manually edit the citation yourself.</p>
+		<h4>Navigating the Interface</h4>
+		<p>Click on one of the listed citations on the left to start editing.</p>
+		<p>The light blue separator between this window and the column on the left is movable. Whether you need more room to view the citation list, or alternatively more space to edit a citation, it can be moved in either direction.</p>
+		<p>To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button.</p>
+		<h4>Adding and Deleting Citations</h4>
+		<p>Citations can be added by clicking the <strong>New Citation</strong> icon in the top right corner of the citation listing column. Citations can be deleted by clicking the red <strong>Delete</strong> icon to the left of the citation.</p>
+		<h4>Editing Citations</h4>
+		<p>To edit a citation in the left listing, click on it and it will open in this window. You will be presented with the original citation as written by the author, followed by the Assistant's automatic extraction attempt. You will be able to manually edit the original citation; edit parts or all of the new citation; re-check the citation against configured citation database services; query Google Scholar; and query the author for further citation information.</p>
+		<p>When you are finished editing a citation to your satisfaction, upon clicking the <strong>Save and Approve</strong> button you will be moved automatically to the next unapproved citation in the list. In this way you can very quickly work through a large list of citations. Once all citations have been approved, you will be moved to the <strong>Export Citations</strong> page.</p>]]></message>
+	<message key="submission.citations.editor.details.processRawCitation">Proces</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">Nastavi</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">Izmeni originalno citiranje</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">You are about to change the original citation text. If you do that then all fields will be replaced with newly generated values. This deletes manual changes you might already have made.</message>
+	<message key="submission.citations.editor.details.saveAndApprove">Sačuvaj i odobri</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">Opozovi odobrenje</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">Pošalji poruku</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">Poruka poslata!</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">Koristi</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">Koristi sve</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">Klikni za transportovanje svih rezultata iz ovog izvora u listu</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">Klikni da transportuješ ovo polje rezultata u svoju listu</message>
+	<message key="submission.citations.editor.details.rawCitation">Origlinalni tekst citata</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">Tekst citata je obavezan.</message>
+	<message key="submission.citations.editor.details.unsavedChanges">Citat sadrži podatke koji nisu sačuvani. Kliknite "Sačuvaj" da biste sačuvali izmene ili "Odustani" da biste se vratili na stare postavke.</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">Ne prikazuj više ovu poruku.</message>
+	<message key="submission.citations.editor.edit">Izmeni citate</message>
+	<message key="submission.citations.editor.export">Izvezi citate</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Click here</a> to select all of the generated output. You can then copy and paste it into your document.]]></message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">Please select one of the following export options.</message>
+	<message key="submission.citations.editor.export.filterSelectionError">You did not select one of the output options.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Approved citations are marked with a dark blue stripe to the left.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">The '{$filterName}' output filter has produced an error. Please file a bug report.</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML output options:</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citation style output (experimental only!):</message>
+	<message key="submission.citations.editor.introduction">Introduction</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
+	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
+	<ul>
+		<li><p><strong>Configuring the Assistant</strong></p>
+		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
+		<li><p><strong>Navigating the Assistant Interface</strong></p>
+		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
+		<li><p><strong>Requesting Citations</strong></p>
+		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
+		<li><p><strong>Editing Citations</strong></p>
+		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
+		<p>All final citations for a submission must be approved before they can be exported.</p></li>
+		<li><p><strong>Exporting Citations</strong></p>
+ 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
+		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
+	</ul>]]></message>
+	<message key="submission.citations.editor.loadMessage">Please wait for the citation markup assistant to load.</message>
+	<message key="submission.citations.editor.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It appears that your installation is running on an earlier PHP version. You'll not be able to use the citation markup assistant unless you upgrade to a higher version.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSelect">Please select...</message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">Refresh Citation List</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Click to refresh the citation list.</message>
+	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
+	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
+	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
+	<message key="submission.comments.addComment">Add Comment</message>
+	<message key="submission.comments.comments">Comments</message>
+	<message key="submission.comments.confirmDelete">Are you sure you would like to delete this comment?</message>
+	<message key="submission.comments.corrections">Corrections</message>
+	<message key="submission.comments.editComment">Edit Comment</message>
+	<message key="submission.comments.importPeerReviews">Import Peer Reviews</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">Reviewer {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">No Comments</message>
+	<message key="submission.comments.noReviews">No Reviews</message>
+	<message key="submission.comments.review">Review</message>
+	<message key="submission.comments.sendDecisionToReviewers">Send Reviewers editorial decision</message>
+	<message key="submission.comments.subject">Subject</message>
+	<message key="submission.complete">Complete</message>
+	<message key="submission.done">Done</message>
+	<message key="submission.dueDate">Due Date</message>
+	<message key="submission.due">Due</message>
+	<message key="submission.editing">Editing</message>
+	<message key="submission.editMetadata">Edit Metadata</message>
+	<message key="submission.email.backToEmailLog">Back to Email Log</message>
+	<message key="submission.email.confirmClearLog">Are you sure you want to clear the email log for this submission?</message>
+	<message key="submission.email.confirmDeleteLogEntry">Are you sure you want to delete this email log entry?</message>
+	<message key="submission.email.deleteLogEntry">Delete Log Entry</message>
+	<message key="submission.emailLog">Email Log</message>
+	<message key="submission.event.backToEventLog">Back to Event Log</message>
+	<message key="submission.event.confirmClearLog">Are you sure you want to clear the event log for this submission?</message>
+	<message key="submission.event.confirmDeleteLogEntry">Are you sure you want to delete this event log entry?</message>
+	<message key="submission.event.deleteLogEntry">Delete Log Entry</message>
+	<message key="submission.event.general.metadataUpdated">Submission metadata updated</message>
+	<message key="submission.event.general.suppFileUpdated">Submission file updated</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">Review assignment accepted by proxy</message>
+	<message key="submission.event.reviewer.reviewAccepted">Review assignment accepted</message>
+	<message key="submission.event.reviewer.reviewCancelled">Review assignment cancelled</message>
+	<message key="submission.event.reviewer.reviewDeclined">Review assignment declined</message>
+	<message key="submission.event.reviewer.reviewDueDate">Review due date modified</message>
+	<message key="submission.event.reviewer.reviewerAssigned">Reviewer assigned to submission</message>
+	<message key="submission.event.reviewer.reviewerRated">Reviewer rating submitted</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">Reviewer unassigned from submission</message>
+	<message key="submission.event.reviewer.reviewFile">Review file updated</message>
+	<message key="submission.event.reviewer.reviewInitiated">Review assignment initiated</message>
+	<message key="submission.event.reviewer.reviewRecommendation">Review recommendation file</message>
+	<message key="submission.event.reviewer.reviewReinitiated">Review assignment reinitiated</message>
+	<message key="submission.event.reviewer.reviewResubmitted">Review resubmitted</message>
+	<message key="submission.event.reviewer.reviewRevision">Reviewer revisions file updated</message>
+	<message key="submission.files">Files</message>
+	<message key="submission.galley">Galley</message>
+	<message key="submission.history.clearLog">Clear Log</message>
+	<message key="submission.history">History</message>
+	<message key="submission.history.noLogEntries">No log entries.</message>
+	<message key="submission.history.recentLogEntries">Recent Entries</message>
+	<message key="submission.history.submissionEmailLog">Email Log</message>
+	<message key="submission.history.submissionEventLog">Event Log</message>
+	<message key="submission.history.submissionNotes">Submission Notes</message>
+	<message key="submission.history.viewLog">View Log</message>
+	<message key="submission.indexing">Indexing</message>
+	<message key="submission.initiated">Initiated</message>
+	<message key="submission.lastModified">Last modified</message>
+	<message key="submission.layout.addGalley">Add a Layout Galley</message>
+	<message key="submission.layout.confirmDeleteGalley">Are you sure you want to permanently delete this galley?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">Are you sure you want to remove this image from the galley?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">Are you sure you want to permanently delete this supplementary file?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">Delete this stylesheet.</message>
+	<message key="submission.layout.editGalley">Edit a Layout Galley</message>
+	<message key="submission.layout.galleyFileData">Galley File Information</message>
+	<message key="submission.layout.galleyFormat">Galley Format</message>
+	<message key="submission.layout.galleyHTMLData">HTML Galley Files</message>
+	<message key="submission.layout.galleyImages">Images</message>
+	<message key="submission.layout.galleyLabelInstructions">The galley label is used to identify the item's file format (e.g. HTML, PDF, etc.).</message>
+	<message key="submission.layout.galleyLabel">Label</message>
+	<message key="submission.layout.galleyLabelRequired">A galley label is required.</message>
+	<message key="submission.layout.galleyLanguageRequired">A galley language is required.</message>
+	<message key="submission.layout.galleyLocaleRequired">A galley locale is required.</message>
+	<message key="submission.layout.galleyNoImages">No images</message>
+	<message key="submission.layout.galleys">Galleys</message>
+	<message key="submission.layout.galleyStylesheet">Stylesheet File</message>
+	<message key="submission.layout.galleyStyle">Style</message>
+	<message key="submission.layout.initialGalleyCreation">Initial Galley Creation</message>
+	<message key="submission.layout.layoutFile">Layout File</message>
+	<message key="submission.layout">Layout</message>
+	<message key="submission.layout.layoutVersion">Layout Version</message>
+	<message key="submission.layout.newGalley">Create New Galley</message>
+	<message key="submission.layout.newSupplementaryFile">Upload New Supplementary File</message>
+	<message key="submission.layout.noStyleFile">No stylesheet file has been added to this galley.</message>
+	<message key="submission.layout.supplementaryFiles">Supplementary File Review</message>
+	<message key="submission.layout.viewingGalley">Viewing Submission Galley</message>
+	<message key="submission.layout.viewProof">View Proof</message>
+	<message key="submission.metadata">Submission Metadata</message>
+	<message key="submission.noReviewAssignments">No Review Assignments</message>
+	<message key="submission.notes.addNewNote">Add New Note</message>
+	<message key="submission.notes.attachedFile">File Attachment</message>
+	<message key="submission.notes.backToSubmissionNotes">Back To Submission Notes</message>
+	<message key="submission.notes.breadcrumb">Notes</message>
+	<message key="submission.notes.clearAllNotes">Clear All Notes</message>
+	<message key="submission.notes.collapseNotes">Collapse Notes</message>
+	<message key="submission.notes.confirmDeleteAll">Remove All Submission Notes?</message>
+	<message key="submission.notes.confirmDelete">Remove This Submission Note?</message>
+	<message key="submission.notes.createNewNote">Create New Note</message>
+	<message key="submission.notes.deleteNote">Delete Note</message>
+	<message key="submission.notes.editNote">Edit Note</message>
+	<message key="submission.notes.expandNotes">Expand Notes</message>
+	<message key="submission.notes.noSubmissionNotes">No Submission Notes</message>
+	<message key="submission.notes.removeUploadedFile">Remove Uploaded File</message>
+	<message key="submission.notes">Submission Notes</message>
+	<message key="submission.notes.updateNote">Update Note</message>
+	<message key="submission.notes.viewNotes">View Notes</message>
+	<message key="submission.originalFile">Original file</message>
+	<message key="submission.page.editing">#{$id} Editing</message>
+	<message key="submission.page.history">#{$id} History</message>
+	<message key="submission.page.review">#{$id} Review</message>
+	<message key="submission.page.summary">#{$id} Summary</message>
+	<message key="submission.page.citations">#{$id} Citations</message>
+	<message key="submission.peerReview">Peer&amp;nbsp;Review</message>
+	<message key="submission.recommendation">Recommendation</message>
+	<message key="submission.rejected">Rejected</message>
+	<message key="submission.request">Request</message>
+	<message key="submission.response">Response</message>
+	<message key="submission.restrictions">Restrictions</message>
+	<message key="submission.reviewMetadata">Review Metadata</message>
+	<message key="submission.review">Review</message>
+	<message key="submission.reviewVersion">Review Version</message>
+	<message key="submissions.active">Active</message>
+	<message key="submissions.archived">Archived</message>
+	<message key="submission.saveMetadata">Save Metadata</message>
+	<message key="submissions.completed">Completed</message>
+	<message key="submissions.declined">Declined</message>
+	<message key="submissions.incomplete">Incomplete</message>
+	<message key="submissions.noSubmissions">No Submissions</message>
+	<message key="submissions.queuedEditing">In Editing</message>
+	<message key="submissions.queued">Queued</message>
+	<message key="submissions.queuedUnassigned">Awaiting assignment</message>
+	<message key="submissions.ruling">Ruling</message>
+	<message key="submissions.submit">Submit</message>
+	<message key="submissions.submitted">Submitted</message>
+	<message key="submission.start">Start</message>
+	<message key="submission.submissionHistory">Submission History</message>
+	<message key="submission.submissionManuscript">Submission Manuscript</message>
+	<message key="submission.submissionReview">Submission Review</message>
+	<message key="submission.submitter">Submitter</message>
+	<message key="submission.summary">Summary</message>
+	<message key="submission.supplementaryFiles">Supplementary Files</message>
+	<message key="submission.supportingAgencies">Supporting Agencies</message>
+	<message key="submission.currentAgencies">Current Agencies</message>
+	<message key="submission.indexingInformation">Indexing Information</message>
+	<message key="submission.titleAndAbstract">Title and Abstract</message>
+	<message key="submission.underway">Underway</message>
+	<message key="submission.uploadFileTo">Upload file to</message>
+	<message key="submission.viewMetadata">View Metadata</message>
+	<message key="submission.views">Views</message>
+	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>
+	<message key="submission.uploadSuccessfulContinue">Your file has been uploaded.  Press continue to edit the file's metadata.</message>
+	<message key="submission.loadMessage">Please wait while your file is uploaded to the server.</message>
+	<message key="submission.artworkFileDetails">Artwork File Details</message>
+	<message key="submission.fileDetails">File Details</message>
+	<message key="submission.nameRequired">A name is required for this item.</message>
+	<message key="submission.date.mmdd">MM-DD</message>
+	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+</locale>

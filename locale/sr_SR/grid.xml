@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/sr_SR/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the sr_SR (Serbian) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="sr_SR" full_name = "Serbian">
+	<!-- Common -->
+	<message key="grid.noItems">Nema stavki</message>
+	<message key="grid.settings">Podešavanja</message>
+
+	<message key="grid.action.sort">Poređaj</message>
+	<message key="grid.action.addItem">Dodaj stavku</message>
+	<message key="grid.action.delete">Obriši</message>
+	<message key="grid.action.remove">Ukloni</message>
+	<message key="grid.action.edit">Izmeni</message>
+	<message key="grid.action.approve">Odobri</message>
+	<message key="grid.action.approveForReview">Predaj na recenziju</message>
+	<message key="grid.action.approveForPub">Odobri za publikaciju</message>
+	<message key="grid.action.decline">Odbi</message>
+	<message key="grid.action.moreInformation">Više informacija</message>
+	<message key="grid.action.restoreDefaults">Vrati na osnovne vrednosti</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Akcije</message>
+	<message key="grid.columns.institution">Institucija</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponzori</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Spisak urednika</message>
+	<message key="grid.masthead.column.groups">Grupe</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Saradnici</message>
+	<message key="grid.action.addAuthor">Dodaj autora</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Forme recenzija</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Dozvoli sortiranje fajlova ovog tipa po komponentama (npr. poglavljima)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Umetničko delo w/Dozvole</message>
+	<message key="grid.artworkFile.file">Fajl</message>
+	<message key="grid.artworkFile.form.title">Dodaj  w/Dozvole za umetničko delo</message>
+	<message key="grid.artworkFile.form.metadata">Meta podaci umetničkog dela</message>
+	<message key="grid.artworkFile.caption">Naslov</message>
+	<message key="grid.artworkFile.credit">Zasluge</message>
+	<message key="grid.artworkFile.captionAndCredit">Naslov i zasluge (Ukoliko nije sadržano u fajlu)</message>
+	<message key="grid.artworkFile.copyrightOwner">Vlasnik autorskih prava</message>
+	<message key="grid.artworkFile.copyrightContact">Informacije o ugovoru (ukoliko nije autor/izdavač)</message>
+	<message key="grid.artworkFile.permissionTerms">Uslovi dozvola</message>
+	<message key="grid.artworkFile.permissionForm">Forma dozvole</message>
+	<message key="grid.artworkFile.type">Tip</message>
+	<message key="grid.artworkFile.type.table">Tabela</message>
+	<message key="grid.artworkFile.type.figure">Slika</message>
+	<message key="grid.artworkFile.placement">Mesto u knjizi</message>
+	<message key="grid.artworkFile.placementDetail">Tabela/sl. br.</message>
+	<message key="grid.artworkFile.contactAuthor">Kontaktiraj autora</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Fajlovi</message>
+	<message key="grid.libraryFiles.submission.title">Biblioteka predatih radova</message>
+	<message key="grid.libraryFiles.editorial.title">Urednička biblioteka</message>
+	<message key="grid.libraryFiles.review.title">Recezentska biblioteka</message>
+	<message key="grid.libraryFiles.production.title">Proizvodna biblioteka</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Biblioteka proizvodnih šablona</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Spisak za proveru predatih radova</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Stavke spiska za proveru</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">Ime</message>
+	<message key="author.users.contributor.email">Imejl</message>
+	<message key="author.users.contributor.role">Uloga</message>
+	<message key="author.users.contributor.principalContact">Primarni kontakt</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">Recenzentski dodatak</message>
+	<message key="grid.reviewAttachments.add">Priloži fajl uz recenziju</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Poglavlja</message>
+</locale>

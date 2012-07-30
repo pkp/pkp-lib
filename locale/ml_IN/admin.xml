@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/admin.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="admin.adminFunctions">അഡ്മിനിസ്ട്രേറ്റീവ് ഫങ്ങ്ഷന്‍സ്</message>
+	<message key="admin.auth.confirmDelete">ഈ ആധികാരിക സ്രോതസ്സ് സ്ഥിരമായി മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="admin.auth.create">ആധികാരിക സ്രോതസ്സ് സൃഷ്ടിക്കുക</message>
+	<message key="admin.auth.noneCreated">ആധികാരിക സ്രോതസ്സ് ഒന്നുംതന്നെ നിര്‍വ്വചിച്ചിട്ടില്ല.</message>
+	<message key="admin.authSources">ആധികാരിക സ്രോതസ്സുകള്‍</message>
+	<message key="admin.clearDataCache">ഡേറ്റാകാഷെ വെടിപ്പാക്കുക</message>
+	<message key="admin.clearTemplateCache">ടെംപ്ലേറ്റ് കാഷെ വെടിപ്പാക്കുക</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[താങ്കളുടെ ക്രമീകരണശേഖരം വിജയകരമായി പരിഷ്കരിച്ചിരിക്കുന്നു. ശ്രദ്ധിക്കുക താങ്കളുടെ സൈറ്റ് കൃത്യമായി പ്രവര്‍ത്തിക്കുന്നില്ലാ എങ്കില്‍ താങ്കള്‍ തന്നെ <tt>config.inc.php</tt>ല്‍ ക്രമീകരണങ്ങള്‍ ചിട്ടപ്പെടുത്തി ശരിയാക്കേണ്ടതാണ്.]]></message>
+	<message key="admin.confirmClearTemplateCache">കംപൈല്‍ഡ് മാതൃകകളുടെ കാഷെ വെടിപ്പാക്കണമെന്നത് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="admin.confirmExpireSessions">എല്ലാ ഉപയോക്തൃ പ്രവര്‍ത്തന വേളകളടെയും കാലാവധി തീര്‍ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ? സിസ്റ്റത്തില്‍ ഇപ്പോള്‍ പ്രവേശിച്ചിരിക്കുന്ന എല്ലാ ഉപയോക്താക്കളും വീണ്ടും പ്രവേശിക്കാന്‍ നിര്‍ബന്ധിതരാകും (താങ്കള്‍ ഉള്‍പ്പെടെ).</message>
+	<message key="admin.contentsOfConfigFile">ക്രമീകരണശേഖരത്തിന്റെ ഉളളടക്കം</message>
+	<message key="admin.currentVersion">ഇപ്പോഴുളള പതിപ്പ്</message>
+	<message key="admin.dateInstalled">ഇന്‍സ്റ്റാള്‍ ചെയ്ത തീയതി</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[പരിഷ്കരിച്ച ക്രമീകരണത്തിലെ ഉള്ളടക്കം താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു. ക്രമീകരണത്തിലെ വ്യത്യാസങ്ങള്‍ പ്രാബല്യത്തിലാക്കാന്‍  <tt>config.inc.php</tt> ഉചിതമായ ടെസ്റ്റ് എഡിറ്റര്‍ ഉപയോഗിച്ച് തുറകന്ന് അതിലെ ഉള്ളടക്കം താഴെ കൊടുത്തിട്ടുള്ള ടെക്സ് ഫില്‍ഡിലെ ഉള്ളടക്കമായി മാറ്റുക.]]></message>
+	<message key="admin.displayNewSystemConfig">പുതിയ ക്രമീകരണം കാണിക്കുക</message>
+	<message key="admin.expireSessions">ഉപയോക്തൃ വേളകളുടെ കാലാവധി തീര്‍ക്കുക</message>
+	<message key="admin.languages.confirmReload">ഈ ലൊക്കേല്‍ റീലോഡ് ചെയ്യണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ? ഇത് നിലവിലുളള കസ്റ്റമൈസ്ഡ് ഇ മെയില്‍ ടെംപ്ലേറ്റുകള്‍ പോലുളള ലൊക്കേല്‍ സ്പെസിഫിക് ഡേറ്റയെ കളയുന്നതാണ്.</message>
+	<message key="admin.languages.installedLocales">ഇന്‍സ്റ്റാള്‍ ചെയ്ത ലൊക്കേല്‍</message>
+	<message key="admin.languages.installLanguages">മാനേജ് ലൊക്കേല്‍</message>
+	<message key="admin.languages.installLocales">ഇന്‍സ്റ്റാള്‍</message>
+	<message key="admin.languages.installNewLocales">പുതിയ ലൊക്കേലുകള്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുക</message>
+	<message key="admin.languages.languageSettings">ഭാഷാ ക്രമീകരണം</message>
+	<message key="admin.languages.noLocalesAvailable">ഇന്‍സ്റ്റാള്‍ ചെയ്യാനുള്ള അഡീഷണല്‍ ലൊക്കേല്‍ ലഭ്യമല്ല.</message>
+	<message key="admin.languages.reload">റീലോഡ് ലൊക്കേല്‍</message>
+	<message key="admin.languages.uninstall">അണ്‍-ഇന്‍സ്റ്റാള്‍ ലൊക്കേല്‍</message>
+	<message key="admin.phpInfo">എക്സ്റ്റെന്റഡ് പി.എച്ച്.പി വിവരങ്ങള്‍</message>
+	<message key="admin.saveSystemConfig">കോണ്‍ഫിഗറേഷന്‍ രേഖപ്പെടുത്തുക</message>
+	<message key="admin.server.apacheVersion">അപ്പാച്ചെ പതിപ്പ്</message>
+	<message key="admin.server.dbDriver">ഡേറ്റാബേസ് ഡ്രൈവര്‍</message>
+	<message key="admin.server.dbVersion">ഡേറ്റാബേസ് സെര്‍വര്‍ പതിപ്പ്</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Basic operating system and server software versions. Click on <span class="highlight">Extended PHP Information</span> to view extended details of this server's PHP configuration.]]></message>
+	<message key="admin.serverInformation">സെര്‍വര്‍ വിവരങ്ങള്‍</message>
+	<message key="admin.server.phpVersion">പി.എച്ച്.പി പതിപ്പ്</message>
+	<message key="admin.server.platform">ഒ.എസ് പ്ലാറ്റ്ഫോം</message>
+	<message key="admin.settings.aboutDescription">സൈറ്റ് വിവരണം സംബന്ധിച്ച്</message>
+	<message key="admin.settings.contactEmail">പ്രധാന കോണ്‍ടാക്ടിന്റെ ഇ-മെയില്‍</message>
+	<message key="admin.settings.contactName">പ്രധാന കോണ്‍ടാക്ടിന്റെ പേര്</message>
+	<message key="admin.settings.form.contactEmailRequired">പ്രധാന കോണ്‍ടാക്ടിന്റെ ഇ-മെയില്‍ വിലാസം ആവശ്യമാണ്.</message>
+	<message key="admin.settings.form.contactNameRequired">പ്രധാന കോണ്‍ടാക്ടിന്റെ പേര് ആവശ്യമാണ്.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">കുറഞ്ഞത് 4 കാരക്ടരെങ്കിലും നീളമുളള രഹസ്യവാക്ക് നല്കുക.</message>
+	<message key="admin.settings.form.titleRequired">തലക്കെട്ട് ആവശ്യമാണ്.</message>
+	<message key="admin.settings.homeHeaderImage.altText">സൈറ്റ് ലോഗോ</message>
+	<message key="admin.settings.homeHeaderImageInvalid">അനുവദനീയമല്ലാത്ത സൈറ്റ് ലോഗോ ചിത്ര ഫോര്‍മാറ്റ്.സ്വീകരിക്കുന്ന ഫോര്‍മാറ്റുകള്‍ .gif, .jpg, അല്ലെങ്കില്‍ .png.</message>
+	<message key="admin.settings.introduction">ആമുഖം</message>
+	<message key="admin.settings.minPasswordLength">കുറഞ്ഞ രഹസ്യവാക്ക് നീളം</message>
+	<message key="admin.settings.oaiRegistration">ഇന്‍ഡെക്സിങ്ങിനു വേണ്ടി സൈറ്റ് രെജിസ്റ്റര്‍ ചെയ്യുക. (Metadata Harvesting)</message>
+	<message key="admin.settings.passwordCharacters">കാരക്ടറുകള്‍</message>
+	<message key="admin.settings.siteLanguage">സൈറ്റ് ഭാഷ</message>
+	<message key="admin.settings.siteStyleSheetInvalid">അനുവദനീയമല്ലാത്ത സൈറ്റ് സ്റ്റൈല്‍ഷീറ്റ് ഫോര്‍മാറ്റ്. സ്വീകരിക്കുന്ന ഫോര്‍മാറ്റ് .css ആണ്.</message>
+	<message key="admin.settings.siteStyleSheet">സൈറ്റ് സ്റ്റൈല്‍ഷീറ്റ്</message>
+	<message key="admin.settings.siteTitle">സൈറ്റ് തലക്കെട്ട്</message>
+	<message key="admin.siteAdmin">സൈറ്റ് അഡ്മിനിസ്ട്രേഷന്‍</message>
+	<message key="admin.siteManagement">സൈറ്റ് മാനേജ്മെന്റ്</message>
+	<message key="admin.siteSettings">സൈറ്റ് ക്രമീകരണം</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist, is not readable, or is invalid.]]></message>
+	<message key="admin.systemInformation">സിസ്റ്റത്തിന്റെ വിവരങ്ങള്‍</message>
+	<message key="admin.versionBuild">രൂപീകരണം</message>
+	<message key="admin.version.checkForUpdates">അപ്ഡേറ്റുകള്‍ക്കു വേണ്ടി പരിശോധിക്കുക</message>
+	<message key="admin.version.downloadPackage">ഡൗണ്‍ലോഡ്</message>
+	<message key="admin.version.downloadPatch">ഡൗണ്‍ലോഡ്  പാച്ച്</message>
+	<message key="admin.versionHistory">പതിപ്പ് ചരിത്രം</message>
+	<message key="admin.version.latest">നൂതന പതിപ്പ്</message>
+	<message key="admin.versionMajor">ഭൂരിഭാഗം</message>
+	<message key="admin.versionMinor">ലഘുവായ</message>
+	<message key="admin.version.moreInfo">കൂടുതല്‍ വിവരങ്ങള്‍</message>
+	<message key="admin.versionRevision">പുനരവലോകനം</message>
+	<message key="admin.version.updateAvailable">ഒരു പരിഷ്കരിച്ച പതിപ്പ് ലഭ്യമാണ്</message>
+	<message key="admin.version.upToDate">താങ്കളുടെ സിസ്റ്റം അപ്-റ്റു-ഡേറ്റ് ആയിരിക്കുന്നു.</message>
+	<message key="admin.version">പതിപ്പ്</message>
+</locale>

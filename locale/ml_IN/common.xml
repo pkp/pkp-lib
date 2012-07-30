@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/common.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="about.aboutSite">സൈറ്റിനെ സംബന്ധിച്ച്</message>
+	<message key="about.contact">കോണ്‍ടാക്റ്റ്</message>
+	<message key="about.contact.email">ഇ-മെയില്‍</message>
+	<message key="about.contact.fax">ഫാക്സ്</message>
+	<message key="about.contact.phone">ഫോണ്‍</message>
+	<message key="about.contact.principalContact">പ്രധാന കോണ്‍ടാക്റ്റ്</message>
+	<message key="about.contact.supportContact">സഹായ കോണ്‍ടാക്റ്റ്</message>
+	<message key="about.other">മറ്റുളളവ</message>
+	<message key="about.people">ജനങ്ങള്‍</message>
+	<message key="about.policies">നയങ്ങള്‍</message>
+	<message key="about.siteMap">സൈറ്റ് ഭൂപടം</message>
+	<message key="announcement.announcements">അറിയിപ്പുകള്‍</message>
+	<message key="announcement.announcementsHome">അറിയിപ്പുകള്‍</message>
+	<message key="announcement.moreAnnouncements">കൂടുതല്‍  അറിയിപ്പുകള്‍...</message>
+	<message key="announcement.noneExist">അറിയിപ്പുകളൊന്നും പ്രസിദ്ധീകരിച്ചിട്ടില്ല.</message>
+	<message key="announcement.posted">ഉള്‍പ്പെടുത്തി</message>
+	<message key="announcement.viewLink">കൂടുതല്‍ ...</message>
+	<message key="announcement.view">അറിയിപ്പുകള്‍ കാണുക</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">താങ്കള്‍ ഈ ഉപയോക്തൃ കൂട്ടത്തില്‍ ഇല്ല.</message>
+	<message key="common.action">നടപടി</message>
+	<message key="common.activate">പ്രവര്‍ത്തനക്ഷമമാക്കുക</message>
+	<message key="common.active">പ്രവര്‍ത്തനക്ഷമം</message>
+	<message key="common.add">ചേര്‍ക്കുക</message>
+	<message key="common.addSelf">സ്വയം ചേര്‍ക്കുക</message>
+	<message key="common.all">എല്ലാം</message>
+	<message key="common.alphaList">എ ബി സി ഡി ഇ എഫ് ജി എച്ച് ഐ ജെ കെ എല്‍ എം എന്‍ ഒ പി ക്യു ആര്‍ എസ് റ്റി യു വി ഡബ്ല്യൂ എക്സ് വൈ ഇസഡ്</message>
+	<message key="common.alreadyAssigned">ഏല്‍പ്പിച്ചത്</message>
+	<message key="common.altText">പകരമായുള്ള ടെക്സ്റ്റ്</message>
+	<message key="common.altTextInstructions">ടെക്സ്റ്റ് മാത്രമുളള ബ്രൗസറുകള്‍ അല്ലെങ്കില്‍ സഹായക സൂത്രങ്ങള്‍ ഉളള ഉപയോക്താക്കള്‍ക്ക് ലഭ്യത ഉറപ്പു വരുത്തുന്നതിനായി വേറൊരു ടെക്സ്റ്റ് ഈ ചിത്രത്തിനായി നല്‍കുക.</message>
+	<message key="common.and">പിന്നെ</message>
+	<message key="common.applyAction">നടപടി പ്രാവര്‍ത്തികമാക്കുക</message>
+	<message key="common.assign">ഏല്‍പ്പിക്കുക</message>
+	<message key="common.assigned">ഏല്‍പ്പിച്ചു കൊടുത്തത്</message>
+	<message key="common.back">പിറകില്‍</message>
+	<message key="common.between">ഇടയില്‍</message>
+	<message key="common.cancel">റദ്ദാക്കുക</message>
+	<message key="common.cancelled">റദ്ദാക്കി</message>
+	<message key="common.captchaField.altText">വാലിഡേഷന്‍ ചിത്രം</message>
+	<message key="common.captchaField.badCaptcha">താങ്കള്‍ നല്‍കിയ കാരക്ടര്‍ ചിത്രത്തിലെ കാരക്ടറുകളുമായി പൊരുത്തപ്പെടുന്നില്ല. ദയവായി പരിശോധിച്ചശേഷം വീണ്ടും ശ്രമിക്കുക.</message>
+	<message key="common.captchaField.description">മുകളിലത്തെ ചിത്രത്തില്‍ കാണുന്നതുപോലെ അക്ഷരങ്ങള്‍ നല്‍കുക.</message>
+	<message key="common.captchaField">വാലിഡേഷന്‍</message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ് അനുമതിപ്പത്രം" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		ഈ കൃതി  <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">ക്രിയേറ്റീവ് കോമ്മണ്‍സ് ആട്രിബ്യൂഷന്‍ 3.0  അനുമതിപത്രം പ്രകാരം ലൈസന്‍സ് ചെയ്തിട്ടുള്ളതാണ്</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="ക്രിയേറ്റീവ് കോമ്മണ്‍സ്" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		ഈ കൃതി <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">ക്രിയേറ്റീവ് കോമ്മണ്‍സ് ആട്രിബ്യൂഷന്‍ 3.0  അനുമതിപത്രം പ്രകാരം ലൈസന്‍സ് ചെയ്തിട്ടുള്ളതാണ്</a>.
+	</div>]]></message>
+	<message key="common.changesSaved">താങ്കള്‍  നല്‍കിയ മാറ്റങ്ങള്‍ രേഖപ്പെടുത്തിയിരിക്കുന്നു.</message>
+	<message key="common.chooseOne">ഒന്ന് തിരഞ്ഞെടുക്കുക</message>
+	<message key="common.close">അടയ്ക്കുക</message>
+	<message key="common.closeWindow">ജാലകം അടയ്ക്കുക</message>
+	<message key="common.complete">പൂര്‍ണ്ണം</message>
+	<message key="common.completed">പൂര്‍ണ്ണമായിരിക്കുന്നു</message>
+	<message key="common.continue">തുടരുക</message>
+	<message key="common.copy">പകര്‍പ്പ്</message>
+	<message key="common.country">രാജ്യം</message>
+	<message key="common.create">സൃഷ്ടിക്കുക</message>
+	<message key="common.dateCompleted">അവസാനിച്ച തിയതി</message>
+	<message key="common.date">തിയതി</message>
+	<message key="common.dateModified">പരിഷ്കരിച്ച  തിയതി</message>
+	<message key="common.dateRequested">അപേക്ഷിച്ച തിയതി</message>
+	<message key="common.dateSubmitted">സമര്‍പ്പിച്ച തിയതി</message>
+	<message key="common.dateUploaded">അപ്‌ലോഡ്‌ ചെയ്ത തിയതി</message>
+	<message key="common.day">ദിവസം</message>
+	<message key="common.deactivate">പ്രവര്‍ത്തന രഹിതം</message>
+	<message key="common.default">സ്വതേ</message>
+	<message key="common.delete">മായ്ക്കുക</message>
+	<message key="common.deleteSelection">തിരഞ്ഞെടുത്തത് മായ്ക്കുക</message>
+	<message key="common.description">വിവരണം</message>
+	<message key="common.disable">അപ്രാപ്യമാക്കുക</message>
+	<message key="common.disabled">അപ്രാപ്യമാക്കി</message>
+	<message key="common.discipline">അച്ചടക്കം</message>
+	<message key="common.done">ചെയ്തു</message>
+	<message key="common.download">ഡൗണ്‍ലോഡ്</message>
+	<message key="common.edit">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="common.enable">പ്രാപ്തമാക്കുക</message>
+	<message key="common.enabled">പ്രാപ്തമാക്കി</message>
+	<message key="common.error.databaseError">ഡാറ്റാബേസില്‍ ഒരു തെറ്റ് സംഭവിച്ചിരിക്കുന്നു:{$error}</message>
+	<message key="common.error.databaseErrorUnknown">ഡാറ്റാബേസില്‍ അജ്ഞാതമായ ഒരു തെറ്റ് സംഭവിച്ചിരിക്കുന്നു.</message>
+	<message key="common.error.framesRequired"><![CDATA[ഈ താളിന്ന് ഫ്രേമുകള്‍ ആവശ്യമാണ്. ഫ്രേമില്ലാത്ത പതിപ്പിന്നു വേണ്ടി <a href="{$url}">ഇവിടെ അമര്‍ത്തുക</a>.]]></message>
+	<message key="common.event">സംഭവം</message>
+	<message key="common.export">എക്സ്പോര്‍ട്ട്</message>
+	<message key="common.fullscreen">ഫുള്‍സ്ക്രീന്‍</message>
+	<message key="common.fullscreenOff">ഫുള്‍സ്ക്രീന്‍ ഓഫ്</message>
+	<message key="common.false">തെറ്റ്</message>
+	<message key="common.file">രേഖാസമാഹാരം</message>
+	<message key="common.fileName">രേഖാസമാഹാരത്തിന്റെ പേര്</message>
+	<message key="common.fileSize">രേഖാസമാഹാരത്തിന്റെ വലിപ്പം</message>
+	<message key="common.fileType">രേഖാസമാഹാരത്തിന്റെ ഇനം</message>
+	<message key="common.height">പൊക്കം</message>
+	<message key="common.homePageHeaderLogo.altText">പ്രധാനതാള്‍ ഹെഡെര്‍ ലോഗോ</message>
+	<message key="common.hour">മണിക്കൂര്‍</message>
+	<message key="common.id">ഐഡി</message>
+	<message key="common.import">ഇംപോര്‍ട്ട്</message>
+	<message key="common.initiate">ആരംഭിക്കുക</message>
+	<message key="common.inProgress">പുരോഗമിക്കുന്നു</message>
+	<message key="common.keywords">കീവേര്‍ഡുകള്‍</message>
+	<message key="common.language">ഭാഷ</message>
+	<message key="common.languages">ഭാഷകള്‍</message>
+	<message key="common.manage">ഭരിക്കുക</message>
+	<message key="common.mailingAddress">മെയിലിങ് അഡ്രസ്സ്</message>
+	<message key="common.minute">മിനിറ്റ്(സ്)</message>
+	<message key="common.modify">പരിഷ്കരിക്കുക</message>
+	<message key="common.month">മാസം</message>
+	<message key="common.noneAssigned">ഏല്‍പ്പിച്ചു കൊടുത്തിട്ടില്ല</message>
+	<message key="common.none">ഒന്നുമില്ലാത്തത്</message>
+	<message key="common.no">ഇല്ല</message>
+	<message key="common.noComments">അഭിപ്രായം ഇല്ല</message>
+	<message key="common.notApplicable">ബാധകമല്ല</message>
+	<message key="common.notApplicableShort">ബാധകമല്ല</message>
+	<message key="common.notAvailable">ലഭ്യമല്ല</message>
+	<message key="common.note">കുറിപ്പ്</message>
+	<message key="common.notes">കുറിപ്പുകള്‍</message>
+	<message key="common.notify">പരസ്യപ്പെടുത്തുക</message>
+	<message key="common.off">ഓഫ്</message>
+	<message key="common.on">ഓണ്‍</message>
+	<message key="common.ok">ഒ.കെ</message>
+	<message key="common.options">ഐച്ഛികം</message>
+	<message key="common.order">ക്രമം</message>
+	<message key="common.originalFileName">രേഖാസമാഹാരത്തിന്റെ യഥാര്‍ത്ഥ പേര്</message>
+	<message key="common.or">അല്ലെങ്കില്‍</message>
+	<message key="common.other">വേറെ</message>
+	<message key="common.pageHeaderLogo.altText">താള്‍ ഹെഡെര്‍ ലോഗോ</message>
+	<message key="common.plugin">സംയോജകം</message>
+	<message key="common.pluginEnabled">സംയോജകം ”{$pluginName}" പ്രാപ്തമാക്കി.</message>
+	<message key="common.pluginDisabled">സംയോജകം ”{$pluginName}" അപ്രാപ്യമാക്കിയിരിക്കുന്നു.</message>
+	<message key="common.preview">തിരനോട്ടം</message>
+	<message key="common.publisher">പ്രസാധകന്‍</message>
+	<message key="common.re">റീ:</message>
+	<message key="common.record">രേഖ</message>
+	<message key="common.refresh">പുതുക്കുക</message>
+	<message key="common.related">അനുബന്ധമായ</message>
+	<message key="common.remove">നീക്കം ചെയ്യുക</message>
+	<message key="common.removeSelection">തിരഞ്ഞെടുത്തത് നീക്കം ചെയ്യുക</message>
+	<message key="common.replaced">പുനഃസ്ഥാപിച്ചു</message>
+	<message key="common.replaceFile">രേഖാസമാഹാരം പുനഃസ്ഥാപിക്കുക</message>
+	<message key="common.requiredField">* ആവശ്യപ്പെട്ട പ്രവര്‍ത്തനതലത്തെ സൂചിപ്പിക്കുന്നു</message>
+	<message key="common.required">ആവശ്യപ്പെട്ട</message>
+	<message key="common.saveAndContinue">സംരക്ഷിച്ച് തുടരുക</message>
+	<message key="common.saveAndEmail">സംരക്ഷിച്ച് ഇ-മെയില്‍ ചെയ്യുക</message>
+	<message key="common.save">സംരക്ഷിക്കുക</message>
+	<message key="common.search">തിരയുക</message>
+	<message key="common.second">നിമിഷം</message>
+	<message key="common.selectAll">എല്ലാം തിരഞ്ഞെടുക്കുക</message>
+	<message key="common.selectNone">ഒന്നും തിരഞ്ഞെടുക്കരുത്</message>
+	<message key="common.select">തിരഞ്ഞെടുക്കുക</message>
+	<message key="common.size">വലിപ്പം</message>
+	<message key="common.source">സ്രോതസ്സ്</message>
+	<message key="common.status">സ്ഥിതി</message>
+	<message key="common.subject">വിഷയം</message>
+	<message key="common.suggest">നിര്‍ദ്ദേശിക്കുക</message>
+	<message key="common.title">തലക്കെട്ട്</message>
+	<message key="common.top">മുകള്‍ ഭാഗം</message>
+	<message key="common.true">ശരി</message>
+	<message key="common.type">ഇനം</message>
+	<message key="common.uninitiated">മുന്നറിവില്ലാത്ത</message>
+	<message key="common.untitled">തലക്കെട്ടില്ലാത്ത</message>
+	<message key="common.updated">പരിഷ്ക്കരിച്ചത്</message>
+	<message key="common.uploadedFile">അപ്‌ലോഡ്‌ ചെയ്ത രേഖാസമാഹാരം</message>
+	<message key="common.upload">അപ്‌ലോഡ്‌</message>
+	<message key="common.uploadFailed">ഈ ഫയല്‍ അപ്-ലോഡ് ചെയ്യാന്‍ സാധിക്കുന്നില്ല.ദയവായി വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കില്‍ അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെടുക.</message>
+	<message key="common.up">മുകളില്‍</message>
+	<message key="common.url">യു.ആര്‍.എല്‍</message>
+	<message key="common.user">ഉപയോക്താവ്</message>
+	<message key="common.view">കാണുക</message>
+	<message key="common.weeks">ആഴ്ച്ചകള്‍</message>
+	<message key="common.width">അകലം</message>
+	<message key="common.year">വര്‍ഷം</message>
+	<message key="common.yes">അതെ</message>
+	<message key="common.loading">ലഭ്യമാക്കുന്നു  ...</message>
+	<message key="debug.databaseQueries">ഡാറ്റാബേസ് ചോദ്യങ്ങളുടെ എണ്ണം</message>
+	<message key="debug.executionTime">താള്‍ ഉത്ഭവിച്ചത്</message>
+	<message key="debug.memoryUsage">മെമ്മറി ഉപയോഗം</message>
+	<message key="debug.notes.localeListLoad">"{$localeList}" എന്ന ലൊക്കേല്‍ പട്ടിക XMLഇല്‍ നിന്നും ലഭ്യമാക്കി</message>
+	<message key="debug.notes.localeLoad">"{$localeFile}" എന്ന ലൊക്കേല്‍ പ്രമാണം XMLഇല്‍ നിന്നും ലഭ്യമാക്കി</message>
+	<message key="debug.notes.missingLocaleKey">"{$key}" എന്ന ലൊക്കേല്‍ കീ കാണ്മാനില്ല.</message>
+	<message key="debug.notes">കുറിപ്പുകള്‍:</message>
+	<message key="email.addAttachment">അറ്റാച്ചമെന്റ് ചേര്‍ക്കുക</message>
+	<message key="email.addBccRecipient">ബി.സി.സി ചേര്‍ക്കുക</message>
+	<message key="email.addCcRecipient">സി.സി ചേര്‍ക്കുക</message>
+	<message key="email.addToRecipient">സ്വീകര്‍ത്തവിനെ ചേര്‍ക്കുക</message>
+	<message key="email.attachments">അറ്റാച്ചമെന്റുകള്‍</message>
+	<message key="email.bcc">ബി.സി.സി</message>
+	<message key="email.bccSender">ഈ സന്ദേശത്തിന്റെ ഒരു പകര്‍പ്പ് എന്റെ അഡ്രസ്സില്‍ അയക്കുക ({$address})</message>
+	<message key="email.body">ബോഡി</message>
+	<message key="email.cc">സി.സി</message>
+	<message key="email.compose">ഇമെയില്‍ അയക്കുക</message>
+	<message key="email.compose.tooManyRecipients">താങ്കള്‍ അയക്കാന്‍ ശ്രമിക്കുന്ന സന്ദേശത്തിന് ഒരുപാട് സ്വീകര്‍ത്താക്കള്‍ ഉണ്ട്.</message>
+	<message key="email.compose.tooSoon">അവസാനത്തെ സന്ദേശം അയച്ചു തീരുന്നതിന് മുന്‍പ് താങ്കള്‍ അടുത്തത് അയക്കാന്‍ ശ്രമിക്കുകയാണ്. അയക്കുന്നതിന് മുന്‍പ് ദയവായി കാത്തിരിക്കുക.</message>
+	<message key="email.email">ഇ-മെയില്‍</message>
+	<message key="email.from">ഇല്‍ നിന്ന്</message>
+	<message key="email.invalid">ഇ-മെയില്‍ അഡ്രസ്സ്  {$email} അസാധുവാണ്.</message>
+	<message key="email.multipart">ഇത്  MIME ഫോര്‍മാറ്റിലുളള ഒരു മള്‍ട്ടി പാര്‍ട്ട് സന്ദേശം ആണ്.</message>
+	<message key="email.recipient">സ്വീകര്‍ത്താവ്</message>
+	<message key="email.recipients">സ്വീകര്‍ത്താക്കള്‍</message>
+	<message key="email.sender">അയയ്ക്കുന്നയാള്‍</message>
+	<message key="email.send">അയയ്ക്കുക</message>
+	<message key="email.skip">ഇ-മെയില്‍ ഒഴിവാക്കുക</message>
+	<message key="email.subject">വിഷയം</message>
+	<message key="email.to">വരെ</message>
+	<message key="form.errorsOccurred">ഈ ഫോം പ്രോസസ്സ് ചെയ്യുന്നതില്‍ പിശകുകള്‍ സംഭവിച്ചു</message>
+	<message key="form.formLanguage.description">മറ്റു ഭാഷകളില്‍ വിവരങ്ങള്‍ ചേര്‍ക്കുന്നതിന് ആദ്യം ഭാഷ തിരഞ്ഞെടുക്കുക.</message>
+	<message key="form.formLanguage">ഭാഷ ക്രമീകരിക്കുക</message>
+	<message key="form.contains">ഉള്‍ക്കൊള്ളുന്നു</message>
+	<message key="form.is">ആകുന്നു</message>
+	<message key="form.startsWith">കൂടെ തുടങ്ങുക</message>
+	<message key="form.postRequired">ഫോം ശരിയായി സമര്‍പ്പിച്ചിരുന്നില്ല.</message>
+	<message key="form.required">(* ആവശ്യമുണ്ട്)</message>
+	<message key="form.resubmit">വീണ്ടും സമര്‍പ്പിക്കുക</message>
+	<message key="form.saveToUpload">രേഖാസമാഹാരം അപ്‌ലോഡ്‌ ചെയ്യുന്നതിന് സേവ് ഉപയോഗിക്കുക.</message>
+	<message key="form.send">അയയ്ക്കുക</message>
+	<message key="form.submit">സമര്‍പ്പിക്കുക</message>
+	<message key="help.contents">ഉള്ളടക്കം</message>
+	<message key="help.help">സഹായം</message>
+	<message key="help.helpIndex">സഹായസൂചിക</message>
+	<message key="help.matchesFound">{$matches} സാമ്യം കണ്ടെത്തി</message>
+	<message key="help.noMatchingTopics">സാമ്യമുളള സഹായവിഷയങ്ങള്‍ ഒന്നും കണ്ടെത്തിയിട്ടില്ല.</message>
+	<message key="help.relatedTopics">ബന്ധപ്പെട്ട വിഷയങ്ങള്‍</message>
+	<message key="help.searchFor">സഹായവിഷയങ്ങള്‍ തിരയുന്നത്:</message>
+	<message key="help.searchResultsFor">ഫലങ്ങള്‍:</message>
+	<message key="help.searchResults">ഫലം തിരയുക</message>
+	<message key="help.search">സഹായം തിരയുക</message>
+	<message key="help.toc">ഉള്ളടക്കപ്പട്ടിക</message>
+	<message key="help.upALevel">ഒരു തലം ഉയര്‍ത്തുക</message>
+	<message key="icon.checked.alt">പരിശോധിച്ചു</message>
+	<message key="icon.comment.alt">അഭിപ്രായം</message>
+	<message key="icon.delete.alt">മായ്ക്കുക</message>
+	<message key="icon.edit.alt">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="icon.folder.alt">ഫോള്‍ഡര്‍</message>
+	<message key="icon.font_large.alt">വലിയ</message>
+	<message key="icon.font_medium.alt">ഇടത്തരം</message>
+	<message key="icon.font_small.alt">ചെറുത്</message>
+	<message key="icon.info.alt">വിവരം</message>
+	<message key="icon.letter.alt">അക്ഷരം</message>
+	<message key="icon.mail.alt">മെയില്‍</message>
+	<message key="icon.unchecked.alt">പരിശോധന നടത്താത്ത</message>
+	<message key="icon.view.alt">കാണുക</message>
+	<message key="locale.primary">പ്രൈമറി ലൊക്കേല്‍</message>
+	<message key="locale.supported">പിന്തുണയുള്ള ലോക്കേലുകള്‍</message>
+	<message key="navigation.about">സംബന്ധിച്ച്</message>
+	<message key="navigation.browse">ബ്രൌസ്</message>
+	<message key="navigation.browseByTitle">തലക്കെട്ടോടെ</message>
+	<message key="navigation.dashboard">ഡാഷ്ബോര്‍ഡ്‌</message>
+	<message key="navigation.home">ഹോം</message>
+	<message key="navigation.infoForReaders">വായനക്കാര്‍ക്ക് വേണ്ടി</message>
+	<message key="navigation.infoForReaders.long">വായനക്കാര്‍ക്ക് വേണ്ടിയുള്ള വിവരങ്ങള്‍</message>
+	<message key="navigation.items">{$from} - {$total} ഇനങ്ങളിലെ {$to}</message>
+	<message key="navigation.login">പ്രവേശിക്കുക</message>
+	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
+	<message key="navigation.nextStep">അടുത്ത ഘട്ടം</message>
+	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
+	<message key="navigation.previousStep">മുമ്പിലത്തെ ഘട്ടം</message>
+	<message key="navigation.register">രജിസ്റ്റര്‍</message>
+	<message key="navigation.search">തിരയുക</message>
+	<message key="navigation.stepNumber">ചുവട്  {$step}</message>
+	<message key="navigation.userHome">യൂസര്‍ ഹോം</message>
+	<message key="navigation.user">ഉപയോക്താവ്</message>
+	<message key="notification.allow">ഇത്തരത്തിലുള്ള അറിയിപ്പുകള്‍ എന്റെ അറിയിപ്പുകള്‍ ഫീഡില്‍ വെളിപ്പെടുത്തുക.</message>
+	<message key="notification.confirmError">താങ്കളുടെ സബ്സ്ക്രിപ്ഷന്‍ സ്ഥിരീകരിക്കുന്നത്തില്‍ ഒരു പിശക് സംഭവിച്ചിരിക്കുന്നു.</message>
+	<message key="notification.confirmSuccess">താങ്കള്‍ വിജയകരമായി സബ്സ്ക്രൈബ് ചെയ്തിരിക്കുന്നു.</message>
+	<message key="notification.email">ഇത്തരം വിജ്ഞാപനങ്ങള്‍ക്ക് എന്നെ ഇ-മെയ്ല്‍ ചെയ്യുക.</message>
+	<message key="notification.location">യു.ആര്‍.എല്‍ ഇലേക്ക് പോകുക</message>
+	<message key="notification.mailList">വിജ്ഞാപനങ്ങള്‍ മെയിലിങ്ങ് പട്ടിക</message>
+	<message key="notification.mailList.emailInvalid">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു ഇ-മെയില്‍ വിലാസം നല്‍ക്കുക.</message>
+	<message key="notification.mailList.privacyProtection">സ്വകാര്യത പരിപാലിക്കുന്ന നയം</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[സംരക്ഷിത വിഷയങ്ങളിലേക്ക് <a href="{$subscribeUrl}">സബ്സ്ക്രൈബ് ചെയ്യുക</a>.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[ഒരു ലേഖനം <a href="{$submitUrl}">സമര്‍പ്പിക്കുക</a>]]></message>
+	<message key="notification.mailList.register">ഇതിന്നു വേണ്ടി താങ്കള്‍ക്ക് ഈ സൈറ്റില്‍ രജിസ്റ്റര്‍ ചെയ്യാം...</message>
+	<message key="notification.mailList.review"><![CDATA[<a href="{$reviewUrl}">പീര്‍ അവലോകന</a>പ്രക്രിയയില്‍  പങ്കെടുക്കുക]]></message>
+	<message key="notification.noneExist">ഇപ്പോള്‍ താങ്കള്‍ക്ക് വിജ്ഞാപനങ്ങള്‍ ഒന്നുമില്ല.</message>
+	<message key="notification.notification">വിജ്ഞാപനം</message>
+	<message key="notification.notifications">വിജ്ഞാപനങ്ങള്‍</message>
+	<message key="notification.notificationsNew">({$numNew} പുതിയത്)</message>
+	<message key="notification.notificationsDescription"><![CDATA[താങ്കള്‍ക്ക് {$unreadCount} വായിക്കാത്ത വിജ്ഞാപനങ്ങളും {$readCount} വായിച്ച വിജ്ഞാപനങ്ങളും ഉണ്ട്. വിജ്ഞാപന ക്രമീകരണങ്ങള്‍ മാറ്റാന്‍  <a href="{$settingsUrl}">ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a> .]]></message>
+	<message key="notification.settings">വിജ്ഞാപന ക്രമീകരണങ്ങള്‍</message>
+	<message key="notification.settingsDescription">താങ്കള്‍ അറിയാന്‍ ആഗ്രഹിക്കുന്ന സിസ്റ്റം സംഭവങ്ങള്‍ തിരഞ്ഞെടുക്കുക.ഒരു ഇനം പരിശോധിക്കാതിരുന്നാല്‍ ആ സംഭവത്തെ കുറിച്ചുളള യാതൊരു വിജ്ഞാപനവും താങ്കളുടെ വിജ്ഞാപന ഫീഡില്‍ കാണിക്കുന്നതല്ല.</message>
+	<message key="notification.subscribe">സബ്സ്ക്രൈബ്</message>
+	<message key="notification.subscribeError">നിങ്ങളുടെ ഇ-മെയില്‍ വിലാസം വിജ്ഞാപനങ്ങള്‍ക്കായി നേരത്തെ സബ്സ്ക്രൈബ് ചെയ്തിട്ടുണ്ട്.</message>
+	<message key="notification.subscribeSuccess">താങ്കള്‍ നിര്‍ദ്ദേശിച്ച വിലാസത്തിലേക്ക് ഒരു ഇ-മെയില്‍ അയച്ചിട്ടുണ്ട്. താങ്കളെ മെയിലിംഗ് പട്ടികയില്‍ ചേര്‍ക്കാന്‍ ദയവായി സ്ഥിരീകരിക്കാനുള്ള കണ്ണിയില്‍ ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="notification.reminderError">താങ്കളുടെ രഹസ്യവാക്ക് അയക്കുന്നതില്‍ പിശക് സംഭവിച്ചിരിക്കുന്നു. ദയവായി താങ്കള്‍ നല്‍ക്കിയ ഇ-മെയില്‍ വിലാസം ശരിയാണെന്ന് ഉറപ്പ് വരുത്തുക.</message>
+	<message key="notification.reminderSent">താങ്കള്‍ നല്‍കിയ ഇ-മെയില്‍ വിലാസത്തിലേക്ക് പുതിയ രഹസ്യവാക്ക് അയച്ചിരിക്കുന്നു.</message>
+	<message key="notification.unsubscribe">അണ്‍-സബ്സ്ക്രൈബ്</message>
+	<message key="notification.unsubscribeDescription">ഇ-മെയില്‍ വിജ്ഞാപനങ്ങള്‍ അണ്‍-സബ്സ്ക്രൈബ് ചെയ്യുന്നതിനായി താങ്കളുടെ ഇ-മെയില്‍ വിലാസവും രഹസ്യവാക്കു നല്‍ക്കുക. രഹസ്യവാക്ക് ഓര്‍ക്കുന്നില്ലെങ്കില്‍ അതു നല്‍കേണ്ടത്തില്ല, പുതിയ രഹസ്യവാക്ക് താങ്കള്‍ നല്‍കിയ ഇ-മെയില്‍ വിലാസത്തിലേക്ക് അയക്കുന്നതാണ്.</message>
+	<message key="notification.unsubscribeError">അണ്‍-സബ്സ്ക്രൈബ് ചെയ്യുന്നത്തില്‍ പിശക് സംഭവിച്ചിരിക്കുന്നു.  ദയവായി താങ്കള്‍ നല്‍ക്കിയ ഇ-മെയില്‍ വിലാസവും രഹസ്യവാക്കും ശരിയാണെന്ന് ഉറപ്പ് വരുത്തുക.</message>
+	<message key="notification.unsubscribeSuccess">താങ്കള്‍ വിജയകരമായി അണ്‍-സബ്സ്ക്രൈബ് ചെയ്തിരിക്കുന്നു.</message>
+	<message key="search.abstract">അബ്സ്ട്രാക്ട്</message>
+	<message key="search.allFields">എല്ലാം</message>
+	<message key="search.coverage">കവറേജ്</message>
+	<message key="search.date">തീയതി</message>
+	<message key="search.dateFrom">ഇല്‍ നിന്ന്</message>
+	<message key="search.dateTo">വരെ</message>
+	<message key="search.discipline">ഡിസിപ്ലിന്‍(s)</message>
+	<message key="search.fullText">മുഴുവന്‍ വാചകം</message>
+	<message key="search.indexTerms">ഉടമ്പടി പട്ടിക</message>
+	<message key="search.matchAll">എല്ലാം വിഭാഗങ്ങളും യോജിപ്പിക്കുക</message>
+	<message key="search.noKeywordError">ഒരു സെര്‍ച്ച് കീ-വേഡ് എങ്കിലും നല്‍കേണ്ടതുണ്ട്.</message>
+	<message key="search.noResults">ഫലങ്ങളൊന്നും ഇല്ല</message>
+	<message key="search.operator.and">പിന്നെ</message>
+	<message key="search.operator.not">ഇല്ല</message>
+	<message key="search.operator.or">അല്ലെങ്കില്‍</message>
+	<message key="search.reviseSearch">അന്വേഷണം പുനഃപരിശോധിക്കുക</message>
+	<message key="search.searchAllCategories">എല്ലാം വിഭാഗങ്ങളും അന്വേഷിക്കുന്നതിന്:</message>
+	<message key="search.searchCategories">വിഭാഗങ്ങള്‍ തിരയുക</message>
+	<message key="search.searchResults">തിരച്ചില്‍ ഫലങ്ങള്‍</message>
+	<message key="search.subject">കീ-വേഡ്</message>
+	<message key="search.titleIndex">തലക്കെട്ട് സൂചിക പരതുക</message>
+	<message key="search.title">തലക്കെട്ട്</message>
+	<message key="search.typeMethodApproach">തരം (method/approach)</message>
+</locale>

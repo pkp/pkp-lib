@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/submission.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<!-- Author Submission -->
+	<message key="author.submit.submissionCitations">ഈ സബ്മിഷനിലെ വര്‍ക്ക് സൈറ്റെഡിന്റെ ഒരു രൂപീകരണ അവലംബം നല്‍കുക.
+അവ ഒരോന്നും ബ്ലാങ്ക് ലൈന്‍ ഉപയോഗിച്ച് വേര്‍തിരിക്കുക.</message>
+
+	<!-- FIXME: move to meta-data plug-ins -->
+	<!-- messages used by meta-data filters -->
+	<message key="metadata.filters.crossref.settings.email.displayName">ക്രൊസ്സ് റഫ് രജിസ്ട്രേഷന്‍ ഇമെയില്‍</message>
+	<message key="metadata.filters.crossref.settings.email.validationMessage">ദയവായി പ്രാബല്യത്തിലുള്ള ക്രൊസ്സ് റഫ് രജിസ്ട്രേഷന്‍ ഇമെയില്‍ നല്‍കുക. താങ്കളുടെ ഇമെയില്‍ സൗജന്യമായി ക്രൊസ്സ് റഫ് വെബ് സൈറ്റില്‍ രജിസ്ട്രേഷന്‍ ചെയ്യാവുന്നതാണ്.</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ഐ.എസ്.ബി.എന്‍ ഡിബി എ.പി.ഐ കീ</message>
+	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">ദയവായി താങ്കളുടെ ഐ.എസ്.ബി.എന്‍ ഡിബി എ.പി.ഐ കീ നല്‍ക്കുക. കീ ഇല്ലാത്ത പക്ഷം താങ്കള്‍ക്ക് ഐ.എസ്.ബി.എന്‍ ഡിബി -ല്‍ നിന്ന് സൗജന്യമായി ഒരു കീ അപേഷിക്കവുന്നതാണ്.</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">പബ്മെഡ് രജിസ്ട്രേഷന്‍ ഇമെയില്‍</message>
+	<message key="metadata.filters.pubmed.settings.email.validationMessage">പബ്മെഡ് രജിസ്ട്രേഷന്‍ ഇമെയില്‍ കൈവശം ഉള്ള പഷം ദയവയി അത് നല്‍കുക.</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.displayName">വേള്‍ട് ക്യാറ്റ് എ.പി.ഐ കീ</message>
+	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">വേള്‍ട് ക്യാറ്റ് എ.പി.ഐ കീ  കൈവശം ഉള്ള പഷം ദയവയി അത് നല്‍കുക.</message>
+	<message key="metadata.filters.paracite.settings.citationModule.displayName">സൈറ്റെഷന്‍ മൊഡ്യൂല്‍</message>
+	<message key="metadata.filters.paracite.settings.citationModule.validationMessage">ദയവായി തന്നിട്ടുള്ള സൈറ്റെഷന്‍ മൊഡ്യൂലില്‍ നിന്നും ഒരെണ്ണം തിരെഞ്ഞെടുക്കുക.</message>
+	<message key="metadata.filters.settings.isOptional.displayName">സ്വതേ ഉള്ളവ ഉപയോഗിക്കരുത് (ഇത് ഗ്രന്ഥപരിശോധകനു കൂടി ലഭ്യമാകേണ്ടതാണ്)</message>
+	<message key="metadata.filters.settings.isOptional.validationMessage">ആന്തരികമായ തെറ്റ്. ഓപ്ഷ്ണ്ല്‍ സെറ്റിങ്ങ് ക്രമീകരണത്തില്‍ പ്രബല്യമല്ലാത്ത വാല്യൂ പോസ്റ്റ് ചെയ്തിരിക്കുന്നു. ഇതെരു ബഗ് ആയി അറിയിപ്പ് നല്‍കുക.</message>
+	
+	<!-- messages shared between MD schemas -->
+	<message key="metadata.property.displayName.author">ഗ്രന്ഥകര്‍ത്താക്കള്‍</message>
+	<message key="metadata.property.validationMessage.author">നല്ല പ്രതികരണത്തിനായി ഗ്രന്ഥകര്‍ത്താക്കള്‍ നാമം കോളേമാന്‍ ജെഅര്‍, ഡി. (രാല്‍ഫ്) ഡോ. എന്ന  ഘടനയില്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.editor">ഗ്രന്ഥപരിശോധകര്‍</message>
+	<message key="metadata.property.validationMessage.editor">നല്ല പ്രതികരണത്തിനായി ഗ്രന്ഥപരിശോധകര്‍  നാമം കോളേമാന്‍ ജെഅര്‍, ഡി. (രാല്‍ഫ്) ഡോ. എന്ന  ഘടനയില്‍ നല്‍കുക.</message>
+	
+	<!-- NLM-specific messages -->
+	<message key="metadata.property.displayName.article-title">ലേഖനം/പേപ്പര്‍ തലക്കെട്ട്</message>
+	<message key="metadata.property.validationMessage.article-title">ദയവായി പ്രബലമായ ലേഖനം/പേപ്പര്‍ തലക്കെട്ട്  നല്‍കുക.</message>
+	<message key="metadata.property.displayName.source">ജര്‍ണല്‍/പുസ്തക തലക്കെട്ട്</message>
+	<message key="metadata.property.validationMessage.source">ദയവായി പ്രബലമായ ജര്‍ണല്‍/പുസ്തക തലക്കെട്ട് നല്‍കുക.</message>
+	<message key="metadata.property.displayName.date">പ്രകാശന ദിവസം</message>
+	<message key="metadata.property.validationMessage.date">ദയവായി പ്രബലമായ പ്രകാശന തീയതി  നല്‍കുക (ഫോര്‍മാറ്റ്: വര്‍ഷം-മാസം-തീയതി).</message>
+	<message key="metadata.property.displayName.access-date">അക്സസ് തീയതി</message>
+	<message key="metadata.property.validationMessage.access-date">ദയവായി പ്രബലമായ അക്സസ് തീയതി നല്‍കുക (ഫോര്‍മാറ്റ്: വര്‍ഷം-മാസം-തീയതി).</message>
+	<message key="metadata.property.displayName.issue">പ്രസിദ്ധീകരണം</message>
+	<message key="metadata.property.validationMessage.issue">ദയവായി പ്രബലമായ ഒരു പ്രസിദ്ധീകരണം നല്‍കുക.</message>
+	<message key="metadata.property.displayName.volume">വൊളിയം</message>
+	<message key="metadata.property.validationMessage.volume">ദയവായി പ്രബലമായ ഒരു വൊളിയം നല്‍കുക.</message>
+	<message key="metadata.property.displayName.season">സീസണ്‍</message>
+	<message key="metadata.property.validationMessage.season">ദയവായി പ്രബലമായ ഒരു സീസണ്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.chapter-title">അദ്ധ്യായത്തിന്റെ തലക്കെട്ട്</message>
+	<message key="metadata.property.validationMessage.chapter-title">ദയവായി പ്രബലമായ ഒരു അദ്ധ്യായത്തിന്റെ തലക്കെട്ട് നല്‍കുക.</message>
+	<message key="metadata.property.displayName.edition">പതിപ്പ്</message>
+	<message key="metadata.property.validationMessage.edition">ദയവായി പ്രബലമായ ഒരു പതിപ്പ് നല്‍കുക.</message>
+	<message key="metadata.property.displayName.series">ശൃംഖല</message>
+	<message key="metadata.property.validationMessage.series">ദയവായി പ്രബലമായ ഒരു ശൃംഖല നല്‍കുക.</message>
+	<message key="metadata.property.displayName.supplement">സപ്ലിമെന്റ്</message>
+	<message key="metadata.property.validationMessage.supplement">ദയവായി പ്രബലമായ ഒരു സപ്ലിമെന്റ്  നല്‍കുക.</message>
+	<message key="metadata.property.displayName.conf-date">കോണ്‍ഫറന്‍സ് തീയതി</message>
+	<message key="metadata.property.validationMessage.conf-date">ദയവായി പ്രബലമായ ഒരു കോണ്‍ഫറന്‍സ് തീയതി നല്‍കുക. (ഫോര്‍മാറ്റ്: വര്‍ഷം-മാസം-ദിവസം).</message>
+	<message key="metadata.property.displayName.conf-loc">കോണ്‍ഫറന്‍സ് ലോക്കേഷന്‍</message>
+	<message key="metadata.property.validationMessage.conf-loc">ദയവായി പ്രബലമായ ഒരു കോണ്‍ഫറന്‍സ് ലോക്കേഷന്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.conf-name">കോണ്‍ഫറന്‍സ് നാമം</message>
+	<message key="metadata.property.validationMessage.conf-name">ദയവായി പ്രബലമായ ഒരു കോണ്‍ഫറന്‍സ് നാമം നല്‍കുക.</message>
+	<message key="metadata.property.displayName.conf-sponsor">കോണ്‍ഫറന്‍സ്  രക്ഷാധികാരി</message>
+	<message key="metadata.property.validationMessage.conf-sponsor">ദയവായി പ്രബലമായ ഒരു കോണ്‍ഫറന്‍സ്  രക്ഷാധികാരി നല്‍കുക.</message>
+	<message key="metadata.property.displayName.institution">സ്ഥാപനം</message>
+	<message key="metadata.property.validationMessage.institution">ദയവായി പ്രബലമായ ഒരു സ്ഥാപനം നല്‍കുക.</message>
+	<message key="metadata.property.displayName.fpage">ആദ്യ പേജ്</message>
+	<message key="metadata.property.validationMessage.fpage">ദയവായി പ്രബലമായ ഒരു ആദ്യ പേജ് നല്‍കുക (ന്യൂമറിക് വാല്യൂ ആയിരിക്കണം).</message>
+	<message key="metadata.property.displayName.lpage">അവസാന പേജ്</message>
+	<message key="metadata.property.validationMessage.lpage">ദയവായി പ്രബലമായ ഒരു അവസാന പേജ് നല്‍കുക (ന്യൂമറിക് വാല്യൂ ആയിരിക്കണം).</message>
+	<message key="metadata.property.displayName.size">പേജുകളുടെ എണ്ണം</message>
+	<message key="metadata.property.validationMessage.size">ദയവായി പ്രബലമായ ആകെ പേജുകളുടെ എണ്ണം  നല്‍കുക (ന്യൂമറിക് വാല്യൂ ആയിരിക്കണം).</message>
+	<message key="metadata.property.displayName.publisher-loc">പ്രസാധകന്റെ ലോക്കെഷന്റെ</message>
+	<message key="metadata.property.validationMessage.publisher-loc">ദയവായി പ്രബലമായ ഒരു പ്രസാധകന്റെ ലോക്കെഷന്റെ നല്‍കുക</message>
+	<message key="metadata.property.displayName.publisher-name">പ്രസാധകന്റെ നാമം</message>
+	<message key="metadata.property.validationMessage.publisher-name">ദയവായി പ്രബലമായ ഒരു പ്രസാധകന്റെ നാമം നല്‍കുക</message>
+	<message key="metadata.property.displayName.isbn">ഐ.എസ്.ബി.എന്‍</message>
+	<message key="metadata.property.validationMessage.isbn">ദയവായി പ്രബലമായ ഒരു ഐ.എസ്.ബി.എന്‍ നല്‍കുക (9 അല്ലെങ്കില്‍ 13 അക്കങ്ങള്‍).</message>
+	<message key="metadata.property.displayName.issn">പ്രിന്റ് ഐ.എസ്.എസ്.എന്‍</message>
+	<message key="metadata.property.validationMessage.issn">ദയവായി പ്രബലമായ ഒരു പ്രിന്റ് ഐ.എസ്.എസ്.എന്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.eissn">ഇഐ.എസ്.എസ്.എന്‍</message>
+	<message key="metadata.property.validationMessage.eissn">ദയവായി പ്രബലമായ ഒരു ഇഐ.എസ്.എസ്.എന്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.doi">ഡി.ഒ.ഐ</message>
+	<message key="metadata.property.validationMessage.doi">ദയവായി പ്രബലമായ ഒരു ഡി.ഒ.ഐ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.publisher-id">ഉപയോക്താക്കളുടെ പ്രകാശന ഐഡി</message>
+	<message key="metadata.property.validationMessage.publisher-id">ദയവായി പ്രബലമായ ഒരു ഉപയോക്താക്കളുടെ പ്രകാശന ഐഡി നല്‍കുക.</message>
+	<message key="metadata.property.displayName.coden">സിഒഡിഇഎന്‍</message>
+	<message key="metadata.property.validationMessage.coden">ദയവായി പ്രബലമായ ഒരു സിഒഡിഇഎന്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.sici">എസ്ഐസിഐ</message>
+	<message key="metadata.property.validationMessage.sici">ദയവായി പ്രബലമായ ഒരു എസ്ഐസിഐ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.pmid">പിഎംഐഡി</message>
+	<message key="metadata.property.validationMessage.pmid">ദയവായി പ്രബലമായ ഒരു പിഎംഐഡി നല്‍കുക.</message>
+	<message key="metadata.property.displayName.uri">പ്രസിദ്ധീകരണവുമായി ലിങ്ക് ചെയ്യുക</message>
+	<message key="metadata.property.validationMessage.uri">ദയവായി പ്രബലമായ മറ്റൊരു പ്രസിദ്ധീകരണവുമായി ലിങ്ക് നല്‍കുക.</message>
+	<message key="metadata.property.displayName.comment">അഭിപ്രായം</message>
+	<message key="metadata.property.validationMessage.comment">ദയവായി പ്രബലമായ ഒരു അഭിപ്രായം നല്‍കുക.</message>
+	<message key="metadata.property.displayName.annotation">അനോടെഷന്‍</message>
+	<message key="metadata.property.validationMessage.annotation">ദയവായി പ്രബലമായ ഒരു അനോടെഷന്‍ നല്‍കുക.</message>
+	<message key="metadata.property.displayName.publication-type">പ്രസിദ്ധീകരണം രീതി</message>
+	<message key="metadata.property.validationMessage.publication-type">താങ്കള്‍ പ്രസിദ്ധീകരണം രീതി സെറ്റ് ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പ് വരുത്തുക. ഇപ്പോള്‍ അനുകൂലിക്കുന്ന വല്യൂസ് പുസ്തകവും (പുതകത്തിനോ പുസ്തക വിഷയത്തിനോ വേണ്ടി)ജര്‍ണലും (ജര്‍ണല്‍ ലേഖനത്തിനു വേണ്ടി) ആണ്. അല്ലാത്ത പക്ഷം സൈറ്റെഷന്‍ ഔട്ട് പുട്ട് ഘടന കൃത്യമായി പ്രവര്‍ത്തിക്കുന്നതല്ല.</message>
+	
+	<!-- MODS-specific messages -->
+	<message key="metadata.property.displayName.title-type">തലക്കെട്ടിന്റെ തരം</message>
+	<message key="metadata.property.validationMessage.title-type">താങ്കള്‍ പ്രാബല്യത്തിലുള്ള ഒരു തലക്കെട്ടിന്റെ തരമാണ് സെറ്റ് ചെയ്തിരിക്കുന്നതെന്ന് ഉറപ്പ് വരുത്തുക.'സംഗ്രഹിക്കപ്പെട്ടത്', 'പരിഭാഷപ്പെടുത്തിയത്', 'പകരമായ' പിന്നെ 'യുണിഫോം' എന്നിവയാണ് അനുകൂലിക്കുന്ന വല്യൂസ്.</message>
+	<message key="metadata.property.displayName.nonSort">ക്രമീകരണം നടത്തിയപ്പോള്‍ തലക്കെട്ടിന്റെ ഭാഗങ്ങള്‍ തിരസ്കരിക്കപ്പെട്ടു</message>
+	<message key="metadata.property.validationMessage.nonSort">ക്രമീകരണം നടത്തിയപ്പോള്‍ തിരസ്കരിക്കപ്പെട്ട തലക്കെട്ടിന്റെ ആദ്യത്തെ ക്യാരക്ടറുകള്‍ മാത്രം നല്‍ക്കുക.</message>
+	<message key="metadata.property.displayName.title">തലക്കെട്ട്</message>
+	<message key="metadata.property.validationMessage.title">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു തലക്കെട്ട് നല്‍ക്കുക.</message>
+	<message key="metadata.property.displayName.subTitle">ഉപശീര്‍ഷ്കം</message>
+	<message key="metadata.property.validationMessage.subTitle">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു ഉപശീര്‍ഷ്കം നല്‍ക്കുക.</message>
+	<message key="metadata.property.displayName.partNumber">പാര്‍ട്ട് നംമ്പര്‍</message>
+	<message key="metadata.property.validationMessage.partNumber">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു പാര്‍ട്ട് നംമ്പര്‍ നല്‍ക്കുക.</message>
+	<message key="metadata.property.displayName.partName">പാര്‍ട്ട് നാമം</message>
+	<message key="metadata.property.validationMessage.partName">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു പാര്‍ട്ട് നാമം നല്‍ക്കുക.</message>
+	<message key="metadata.property.displayName.name-type">നാമത്തിന്റെ ഇനം</message>
+	<message key="metadata.property.validationMessage.name-type">ദയവായി പ്രാബല്യത്തിലുള്ള ഒരു നാമത്തിന്റെ ഇനമാണ് നല്‍കിയതെന്ന് ഉറപ്പ് വരുത്തുക. 'വ്യക്തിഗതമായ', 'സംഘടിതമായ' പിന്നെ 'കോണ്‍ഫറന്‍സ്' എന്നിവയാണ് അനുകൂലിക്കുന്ന വല്യൂസ്.</message>
+	<!-- FIXME: end -->
+	
+	<message key="submission.agencies">എജന്‍സീസ്</message>
+	<message key="submission.abstractViews">സംഗ്രഹണ കാഴ്ചപ്പാടുകള്‍</message>
+	<message key="submission.accepted">സ്വീകരിച്ചിരിക്കുന്നു</message>
+	<message key="submission.acknowledge">പ്രഖ്യാപനം ചെയ്യുക</message>
+	<message key="submission.addSuppFile">ഒരു സപ്ലിമെന്ററി ഫയല്‍ ചേര്‍ക്കുക</message>
+	<message key="submission.ask">ചോദിക്കുക</message>
+	<message key="submission.backToSubmissionEditing">സബ്മിഷന്‍ ചിട്ടപ്പെടുത്തുന്നതിലേക്ക് തിരിച്ച് പോകുക</message>
+	<message key="submission.changeComments">ഇതിലേക്ക് മാറ്റുക</message>
+	<message key="submission.citations">അവലംബങ്ങള്‍</message>
+	<message key="submission.citations.editor.citationlist.deleteCitationConfirmation">താങ്കള്‍ക്ക് ഈ സൈറ്റെഷന്‍ മായ്ക്കണമെന്ന് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.citations.editor.citationlist.errorDeletingCitation">ഈ സൈറ്റെഷന്‍ മായ്ക്കുന്നതില്‍ ഒരു തെറ്റ് സംഭവിച്ചിരിക്കുന്നു. ദയവായി ഇതെരു ബഗ് ആയി അറിയിപ്പ് നല്‍കുക.</message>
+	<message key="submission.citations.editor.citationlist.newCitation">പുതിയ സൈറ്റെഷന്‍</message>
+	<message key="submission.citations.editor.citationlist.title">സൈറ്റെഷന്‍സ് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.citations.editor.clickToEdit">ചിട്ടപ്പെടുത്തുന്നതിനായി ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="submission.citations.editor.details.authorQuery">ഗ്രന്ഥകര്‍ത്താവിനോട് ചോദിക്കുക</message>
+	<message key="submission.citations.editor.details.authorQueryBody">ഗ്രന്ഥകര്‍ത്താവിനുള്ള താങ്കളുടെ സന്ദേശം:</message>
+	<message key="submission.citations.editor.details.authorQueryExplanation">ഇപ്പോഴുള്ള സൈറ്റെഷനെക്കുറിച്ചുള്ള കൂടുതല്‍ വിവരങ്ങള്‍ താങ്കള്‍ക്ക് ഗ്രന്ഥകര്‍ത്താവിനോട് ചോദിക്കാം. താഴെ കാണുന്ന "അയക്കുക” എന്ന ബട്ടണില്‍ ക്ലിക്ക് ചെയ്യുന്നതോടെ താങ്കളുടെ സന്ദേശം ഇമെയില്‍ ആയി ഗ്രന്ഥകര്‍ത്താവിനു അയക്കുന്നതാണ്.</message>
+	<message key="submission.citations.editor.details.authorQuerySubject">വിഷയം:</message>
+	<message key="submission.citations.editor.details.cannotSelectDefaultForLabel">താങ്കള്‍ക്ക് ഫീള്‍ഡ് ലേബലിനെ അസ്ഥിരമാക്കാന്‍ സാധ്യമല്ല. ആവശ്യമില്ലെങ്കില്‍ ദയവായി ആ ഫീല്‍ഡിനെ നീക്കം ചെയുക</message>
+	<message key="submission.citations.editor.details.checkInGoogleScholar">ഗൂഗിള്‍ സ്കോളാറില്‍ പരിശോധിക്കുക</message>
+	<message key="submission.citations.editor.details.changeFieldInfo">തിരെഞ്ഞെടുക്കുന്നതിനായി ആദ്യത്തെ കുറച്ച് അക്ഷരങ്ങള്‍ നല്‍ക്കുക...</message>
+	<message key="submission.citations.editor.details.citationExportPreview">സൈറ്റെഷന്‍ എക്സ്പോര്‍ട്ട് പ്രിവ്യൂ</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsActive">എക്സ്പേര്‍ട്ട് ഇന്റേണല്‍ സൈറ്റെഷന്‍ സേവനങ്ങളുടെ റിസള്‍ട്ട് (ക്ലോസ് ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക)</message>
+	<message key="submission.citations.editor.details.citationImprovementResultsInactive">എക്സ്പേര്‍ട്ട് ഇന്റേണല്‍ സൈറ്റെഷന്‍ സേവനങ്ങളുടെ റിസള്‍ട്ട് (ഓപ്പണ്‍ ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക)</message>
+	<message key="submission.citations.editor.details.citationServices">സൈറ്റെഷന്‍ സേവനങ്ങള്‍</message>
+	<message key="submission.citations.editor.details.clickToDismissMessage">സന്ദേശം ഒഴിവാക്കുന്നതിനായി അതിലെ വാചകത്തില്‍ ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="submission.citations.editor.details.databaseQueryExplanation">താങ്കളുടെ ജര്‍ണല്‍ സജ്ജീകരിക്കുന്നതിനായി താഴെ ഒരു പട്ടികയില്‍ സൈറ്റെഷന്‍ സേവനങ്ങള്‍ നല്‍കിയിരിക്കുന്നത് കാണാന്‍ സാധിക്കും. ഈ സേവനങ്ങള്‍ താങ്കളുടെ ജര്‍ണലിനു അവശ്യം വേണമെന്നാണ് ജര്‍ണല്‍ മാനേജര്‍ വിലയിരുത്തുന്നത്. താങ്കളുടെ ക്വറിയില്‍ അഡീഷ്ണല്‍ സേവനങ്ങള്‍ ഉള്‍പ്പെടുത്തുകയോ ഒഴിവാക്കുകയോ ചെയ്യാം.</message>
+	<message key="submission.citations.editor.details.dataSaved">താങ്കള്‍ നല്‍കിയ മാറ്റങ്ങള്‍ രേഖപ്പെടുത്തിയിരിക്കുന്നു.</message>
+	<message key="submission.citations.editor.details.editRawCitationDatabaseServices">സൈറ്റെഷന്‍ ഡാറ്റാബേസ് സെര്‍വ്വീസുകള്‍ തിരെഞ്ഞെടുക്കുക:</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsActive">സൈറ്റെഷന്റെ എക്സ്പേര്‍ട്ട് ചിട്ടപ്പെടുത്തല്‍ ക്രമീകരണങ്ങള്‍ (ക്ലോസ് ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക)</message>
+	<message key="submission.citations.editor.details.editRawCitationExpertSettingsInactive">സൈറ്റെഷന്റെ എക്സ്പേര്‍ട്ട് ചിട്ടപ്പെടുത്തല്‍ ക്രമീകരണങ്ങള്‍ (ഓപ്പണ്‍ ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക)</message>
+	<message key="submission.citations.editor.details.editRawCitationExtractionServices">സൈറ്റെഷന്റെ എക്സ്ട്രാഷന്‍ സേവനങ്ങള്‍ തിരെഞ്ഞെടുക്കുക:</message>
+	<message key="submission.citations.editor.details.editRawCitationFilterValidationError">ആന്തരികമായ തെറ്റ്: തിരെഞ്ഞെടുത്ത ഫില്‍റ്റര്‍ പ്രാബല്യത്തിലുള്ളതല്ല. ഇതൊരു ബഗ് ആയി അറിയിപ്പ് നല്‍കുക.</message>
+	<message key="submission.citations.editor.details.explainImprovementOptions">ഡിഫാള്‍ട്ട് ആയിട്ടുള്ള സൈറ്റെഷനില്‍ തൃപ്തന്‍ അല്ലെങ്കില്‍ താങ്കള്‍ക്ക് ഇഷ്ടമുള്ള രീതിയില്‍ അഭിവൃദ്ധിപ്പെടുത്താം. ഇത് കൂടെകൂടെ താങ്കളെ ഫീള്‍ഡ്സ് ചിട്ടപ്പെടുത്താന്‍ സഹായിക്കും (ഉദാ.. തലക്കെട്ട് പിന്നെ ഗ്രന്ഥകര്‍ത്താവ്) അതിനുശേഷം സൈറ്റെഷന്‍ സര്‍വ്വീസുകള്‍ വീണ്ടും ഉപയോഗിച്ച് നോക്കുക. ഇത് താങ്കളെ ഇപ്പോഴും സഹായിച്ചില്ലെങ്കില്‍ താങ്കള്‍ക്ക് ഗൂഗിള്‍ സ്കോളാറില്‍ ക്വറി ചെയ്യുകയോ ഗ്രന്ഥകര്‍ത്താവിന്റെ വിവരങ്ങള്‍ തിരയികയോ ചെയ്യാം.</message>
+	<message key="submission.citations.editor.details.googleScholar">ഗൂഗിള്‍ സ്കോളാര്‍</message>
+	<message key="submission.citations.editor.details.googleScholarExplanation">If a matched citation wasn't found in any of the connected citation services you can still search for a match in Google Scholar. Unfortunately, Google Scholar does not provide a field-based interface for its data which we could use, which means there is no way to automatically return data into this Assistant. You will have to copy and paste information manually from the Google result page to your fields.</message>
+	<message key="submission.citations.editor.details.manualEditing">മാനുവല്‍ ആയി ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.citations.editor.details.messages">ദയവായി ശ്രദ്ധിക്കുക (സന്ദേശങ്ങള്‍ ഡിസ്മിസ്സ് ചെയ്യനായി അവയില്‍ ക്ലിക്ക് ചെയ്യുക)</message>
+	<message key="submission.citations.editor.details.newFieldInfo">...പുതിയ ഫീള്‍ഡ് ചേര്‍ക്കുന്നതിനായി ഇവിടെ ക്ലിക്ക് ചെയ്യുക...</message>
+	<message key="submission.citations.editor.details.queryCitation">സൈറ്റെഷന്‍ സേവനങ്ങള്‍ റീ-ക്വറി ചെയ്യുക</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">ഗൂഗിള്‍ സ്കോളാറില്‍ തിരയുക</message>
+	<message key="submission.citations.editor.details.pleaseClickOnCitationToStartEditing"><![CDATA[<p>Welcome to the citation editing process. Clicking on a citation in the listing to the left will present the citation in this window, where you can check the accuracy of the citation process. You will also be able to check the citation against citation database services configured by the journal manager, and manually edit the citation yourself.</p>
+		<h4>Navigating the Interface</h4>
+		<p>Click on one of the listed citations on the left to start editing.</p>
+		<p>The light blue separator between this window and the column on the left is movable. Whether you need more room to view the citation list, or alternatively more space to edit a citation, it can be moved in either direction.</p>
+		<p>To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button.</p>
+		<h4>Adding and Deleting Citations</h4>
+		<p>Citations can be added by clicking the <strong>New Citation</strong> icon in the top right corner of the citation listing column. Citations can be deleted by clicking the red <strong>Delete</strong> icon to the left of the citation.</p>
+		<h4>Editing Citations</h4>
+		<p>To edit a citation in the left listing, click on it and it will open in this window. You will be presented with the original citation as written by the author, followed by the Assistant's automatic extraction attempt. You will be able to manually edit the original citation; edit parts or all of the new citation; re-check the citation against configured citation database services; query Google Scholar; and query the author for further citation information.</p>
+		<p>When you are finished editing a citation to your satisfaction, upon clicking the <strong>Save and Approve</strong> button you will be moved automatically to the next unapproved citation in the list. In this way you can very quickly work through a large list of citations. Once all citations have been approved, you will be moved to the <strong>Export Citations</strong> page.</p>]]></message>
+	<message key="submission.citations.editor.details.processRawCitation">പ്രക്രിയ</message>
+	<message key="submission.citations.editor.details.processRawCitationGoAhead">മുന്നോട്ടു പോകുക</message>
+	<message key="submission.citations.editor.details.processRawCitationTitle">ഒര്‍ജിനല്‍ സൈറ്റെഷന്‍ വ്യത്യാസപ്പെടുത്തുക</message>
+	<message key="submission.citations.editor.details.processRawCitationWarning">താങ്കള്‍ ഒര്‍ജിനല്‍ സൈറ്റെഷന്‍ ടെസ്റ്റിനെ വ്യത്യാസപ്പെടുത്താന്‍ പോകുകയാണ്. അങ്ങനെ ആകയാല്‍ എല്ലാം ഫീള്‍ഡും പുതുതായി രൂപം കൊള്ളുന്ന വല്യൂസായി മാറ്റപ്പെടുന്നത്താണ്. ഇത് താങ്കള്‍ മാനുവല്‍ ആയി രേഖപ്പെടുത്തിയ വ്യത്യാസങ്ങള്‍ നീക്കം ചെയ്യുന്നതാണ്.</message>
+	<message key="submission.citations.editor.details.saveAndApprove">രേഖപ്പെടുത്തി സ്ഥിരീകരിക്കുക</message>
+	<message key="submission.citations.editor.details.saveAndRevokeApproval">റിവോക്ക് സ്ഥിതീകരണം</message>
+	<message key="submission.citations.editor.details.sendAuthorQuery">സന്ദേശം അയക്കുക</message>
+	<message key="submission.citations.editor.details.sendAuthorQuerySuccess">സന്ദേശം അയച്ചിരിക്കുന്നു!</message>
+	<message key="submission.citations.editor.details.sourceResultsUse">ഉപയോഗിക്കുക</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAll">എല്ലാം ഉപയോഗിക്കുക</message>
+	<message key="submission.citations.editor.details.sourceResultsUseAllExplanation">ഈ സ്രോതസ്സില്‍ നിന്നും എല്ലാം റിസള്‍ട്ട് ഫീള്‍ഡും താങ്കളുടെ ഫീള്‍ഡിലേക്ക് മാറ്റുന്നതിനായി ക്ലിക്ക് ചെയ്യുക</message>
+	<message key="submission.citations.editor.details.sourceResultsUseExplanation">ഈ റിസള്‍ട്ട് ഫീള്‍ഡ് താങ്കളുടെ ഫീള്‍ഡിലേക്ക് മാറ്റുന്നതിനായി ക്ലിക്ക് ചെയ്യുക</message>
+	<message key="submission.citations.editor.details.rawCitation">ഒര്‍ജിനല്‍ സൈറ്റെഷന്‍ ടെക്സ്റ്റ്</message>
+	<message key="submission.citations.editor.details.rawCitationRequired">ഒരു സൈറ്റെഷന്‍ ടെക്സ്റ്റ് ആവശ്യമാണ്.</message>
+	<message key="submission.citations.editor.details.unsavedChanges">ഈ സൈറ്റെഷനില്‍ രേഖപ്പെടുത്താത്ത ഡാറ്റാസ് ഉള്‍ക്കൊള്ളുന്നു. ദയവായി വ്യത്യാസങ്ങള്‍ രേഖപ്പെടുത്തുന്നതിനായി "രേഖപ്പെടുത്തുക" എന്ന ബട്ടണ്‍ ക്ലിക്ക് ചെയ്യുക അല്ലെങ്കില്‍ രേഖപ്പെടുത്തിയ വ്യത്യാസങ്ങള്‍ നീക്കം ചെയ്യുന്നതിനായി "കാന്‍സല്‍" ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="submission.citations.editor.details.dontShowMessageAgain">ഈ സന്ദേശം വീണ്ടും കാണിക്കരുത്.</message>
+	<message key="submission.citations.editor.edit">സൈറ്റെഷന്‍സ് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.citations.editor.export">എക്സ്പോര്‍ട്ട് സൈറ്റെഷന്‍സ്</message>
+	<message key="submission.citations.editor.export.exportDescription"><![CDATA[<a id="markForExport" href="">Click here</a> to select all of the generated output. You can then copy and paste it into your document.]]></message>
+	<message key="submission.citations.editor.export.filterSelectionDescription">ദയവായി ഒരു എക്സ്പോര്‍ട്ട് ഒപ്ഷന്‍ എങ്കിലും തിരെഞ്ഞെടുക്കുക.</message>
+	<message key="submission.citations.editor.export.filterSelectionError">താങ്കള്‍ ഒരു ഔട്ട്പുട്ട് ഓപ്ഷനും തിരെഞ്ഞെടുത്തിട്ടില്ല.</message>
+	<message key="submission.citations.editor.export.foundUnapprovedCitationsMessage"><![CDATA[<p>You have not yet approved all citations. Please go to the <strong>Edit Citations</strong> tab and make sure you have approved all citations before you try to export them. Approved citations are marked with a dark blue stripe to the left.</p>]]></message>
+	<message key="submission.citations.editor.export.noExportOutput">The '{$filterName}' output filter has produced an error. Please file a bug report.</message>
+	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">എക്സ്എംഎല്‍ ഔട്ട്പുട്ട് ഓപ്ഷന്‍സ്:</message>
+	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">സൈറ്റെഷന്‍ സ്റ്റൈല്‍ ഔട്ട്പുട്ട് (പരീക്ഷണം മാത്രം!):</message>
+	<message key="submission.citations.editor.introduction">മുഖവുര</message>
+	<message key="submission.citations.editor.introduction.introductionMessage"><![CDATA[<h4>Welcome to the Citation Markup Assistant!</h4>
+	<p>With this assistant you can mark up author-provided citations for export to NLM 2.3 or 3.0 XML galleys, or alternatively as text-based output. This tool first attempts to automatically extract and recognize citations as they have been provided, but you can step in and edit the results at any time.</p>
+	<ul>
+		<li><p><strong>Configuring the Assistant</strong></p>
+		<p>The Citation Markup Assistant is configured by the journal manager in <a href="{$citationSetupUrl}">Journal Setup Step 3.7: Citation Markup Assistant</a>. Different citation extraction and checking tools can be added, configured, and deleted. For more information, contact the journal manager.</p></li>
+		<li><p><strong>Navigating the Assistant Interface</strong></p>
+		<p>To switch between <strong>Introduction</strong>, <strong>Edit Citations</strong> and <strong>Export Citations</strong> tabs, click the tab titles. To expand the citation interface, click the <strong>Fullscreen</strong> button. To return to a normal interface from the expanded citation interface, click the <strong>Fullscreen Off</strong> button. To remove this introductory tab entirely, click the button below.</p></li>
+		<li><p><strong>Requesting Citations</strong></p>
+		<p>If the Citation Markup Assistant has been enabled by the journal manager, authors will be prompted for a list of references during article submission. These references will be requested separately from the submission document itself. After submission, authors can also modify their list of references at any time by editing the submission's metadata; note that this will overwrite any modifications that you have made to the citations using this tool.</p></li>
+		<li><p><strong>Editing Citations</strong></p>
+		<p>The Citation Markup Assistant will attempt to identify and extract individual citations from the author's list of references. You can systematically check each citation extraction attempt for accuracy against a number of external databases; edit incorrect citation information and add new information; approve or delete citations; and add new citations.</p>
+		<p>All final citations for a submission must be approved before they can be exported.</p></li>
+		<li><p><strong>Exporting Citations</strong></p>
+ 		<p>Citations can be exported as XML or text. XML export options currently include <a href="http://dtd.nlm.nih.gov/publishing/">NLM Journal Publishing</a> 2.3 and 3.0 <a href="http://www.ncbi.nlm.nih.gov/pmc/pmcdoc/tagging-guidelines/article/tags.html#el-reflist">ref-list XML</a>. Selecting one of these options outputs an XML-encoded ref-list snippet that can be copied and pasted into an NLM XML galley.</p>
+		<p>Experimental text export options include ABNT, APA, MLA and Vancouver citation output styles. These options provide a text output that can be copied and pasted into a text-based article galley (for example into Microsoft Word or OpenOffice; Adobe InDesign; etc.). Each citation includes an embedded link to automatically search for that citation in Google Scholar.</p></li>
+	</ul>]]></message>
+	<message key="submission.citations.editor.loadMessage">ദയവായി സൈറ്റെഷന്‍ മാര്‍ക്ക് അപ് അസിസ്റ്റന്റ് ലോഡ് ആകുന്നത് വരെ കാത്തിരിക്കുക.</message>
+	<message key="submission.citations.editor.php5Required">Citation editing requires XML and XSL support that is only available in PHP version 5.0.0 and later. It appears that your installation is running on an earlier PHP version. You'll not be able to use the citation markup assistant unless you upgrade to a higher version.</message>
+	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">add at least one citation extraction service</a> before you can use the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.pleaseConfigureOutputStyle"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">configure a citation export style</a> before you can use the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.pleaseImportCitationsFirst"><![CDATA[<p>There are no citations for this article.</p><p>Please go to the article's <a href="{$articleMetadataUrl}">metadata page</a> and enter a reference list or add references manually using the add item button of the editor.</p>]]></message>
+	<message key="submission.citations.editor.pleaseSelect">ദയവായി തിരെഞ്ഞെടുക്കുക...</message>
+	<message key="submission.citations.editor.pleaseSetup"><![CDATA[Please ask your journal manager to <a href="{$citationSetupUrl}">enable citation editing</a> before you can access the citation markup assistant.]]></message>
+	<message key="submission.citations.editor.unprocessedCitations">The citations of this article are still being processed on the server. The current citation list only contains already processed citations. Please click the refresh button to see citations that have been processed in the meantime.</message>
+	<message key="submission.citations.editor.unprocessedCitationsButton">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുക</message>
+	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">സൈറ്റെഷന്‍ പട്ടിക റിഫ്രഷ് ചെയ്യുന്നതിനായി ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="submission.citations.filter.invalidMetadata">An error occurred in {$filterName}: One of the data elements returned from the data source (e.g. a web service) did not conform to the internal meta-data format. Therefore the data source's results were rejected. Please file this as a bug.</message>
+	<message key="submission.citations.filter.noResultFromFilterError">Several citation services did not return any results. You can try to manually edit citation fields and then query citation services again to improve results. If this doesn't help then the citation does not exist in any of the connected databases.</message>
+	<message key="submission.citations.filter.unsupportedPublicationType">Unsupported or missing publication type. Please manually edit the citation and enter a publication type (allowed types are 'book', 'journal', 'thesis' and 'conf-proc').</message>
+	<message key="submission.citations.filter.webserviceError">The {$filterName}'s web service call has returned an error when called with the following URL: {$webserviceUrl}. It may be that the web service is temporarily unavailable. You'll still be able to work with the remaining services and save your results. You can also try again later. If the error persists then please ask the journal manager to deactivate this service and open a bug report.</message>
+	<message key="submission.citations.filter.webserviceResultTransformationError">An error occurred in {$filterName}: The transformation of XML results (e.g. from a web service) into field-based meta-data failed. The reason probably is that the web service returned invalid or incomplete data. Please file this as a bug.</message>
+	<message key="submission.citations.metadata.changeWarning">Are you sure you want to update your references list? If you click OK, any changes made by the Editors will be overwritten. If you are not sure whether you should make changes to the references list, please contact the Editor in charge of your submission.</message>
+	<message key="submission.comments.addComment">നിര്‍ദ്ദേശങ്ങള്‍ ചേര്‍ക്കുക</message>
+	<message key="submission.comments.comments">നിര്‍ദ്ദേശങ്ങള്‍</message>
+	<message key="submission.comments.confirmDelete">ഈ നിര്‍ദ്ദേശം നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.comments.corrections">തിരുത്തലുകള്‍</message>
+	<message key="submission.comments.editComment">നിര്‍ദ്ദേശങ്ങള്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.comments.importPeerReviews">ഇംപോര്‍ട്ട് പീര്‍ റിവ്യൂസ്</message>
+	<message key="submission.comments.importPeerReviews.reviewerLetter">ഇംപോര്‍ട്ട് പീര്‍ റിവ്യൂവര്‍ {$reviewerLetter}:</message>
+	<message key="submission.comments.noComments">നിര്‍ദ്ദേശങ്ങള്‍ ഒന്നും ഇല്ല</message>
+	<message key="submission.comments.noReviews">റിവ്യൂസ് ഒന്നും ഇല്ല</message>
+	<message key="submission.comments.review">റിവ്യൂ</message>
+	<message key="submission.comments.sendDecisionToReviewers">റിവ്യൂവര്‍സിന്റെ എഡിറ്റിങ്ങിനെ സംബന്ധിച്ച തീരുമാനം അയക്കുക</message>
+	<message key="submission.comments.subject">വിഷയം</message>
+	<message key="submission.complete">പൂര്‍ണ്ണമായ</message>
+	<message key="submission.done">ചെയ്തു</message>
+	<message key="submission.dueDate">അവസാന തീയതി</message>
+	<message key="submission.due">ഡ്യൂ</message>
+	<message key="submission.editing">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.editMetadata">മെറ്റാഡാറ്റ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.email.backToEmailLog">ഇമെയില്‍ ലോഗില്‍ തിരിച്ച് പോകുക</message>
+	<message key="submission.email.confirmClearLog">ഈ സബ്മിഷനിലെ ഇമെയില്‍ ലോഗ് ക്ലിയര്‍ ചെയ്യണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.email.confirmDeleteLogEntry">ഈ ഇമെയില്‍ ലോഗ് എന്റി നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.email.deleteLogEntry">ലോഗ് എന്റി നീക്കുക</message>
+	<message key="submission.emailLog">ഇമെയില്‍ ലോഗ്</message>
+	<message key="submission.event.backToEventLog">ഇവന്റ് ലോഗില്‍ തിരിച്ച് പോകുക</message>
+	<message key="submission.event.confirmClearLog">ഈ സബ്മിഷനിലെ ഇവന്റ് ലോഗ് ക്ലിയര്‍ ചെയ്യണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.event.confirmDeleteLogEntry">ഈ ഇവന്റ് ലോഗ് എന്റി നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.event.deleteLogEntry">ലോഗ് എന്റി നീക്കുക</message>
+	<message key="submission.event.general.metadataUpdated">സബ്മിഷന്‍ മെറ്റാഡാറ്റ അപ്ഡേറ്റ് ചെയ്തിരിക്കുന്നു</message>
+	<message key="submission.event.general.suppFileUpdated">സബ്മിഷന്‍ ഫയല്‍ അപ്ഡേറ്റ് ചെയ്തിരിക്കുന്നു</message>
+	<message key="submission.event.reviewer.reviewAcceptedByProxy">പ്രൊക്സി അംഗീകരിച്ചു കൊടുത്ത അസ്സൈമെന്റ് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewAccepted">അംഗീകരിച്ച അസ്സൈമെന്റ് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewCancelled">കാന്‍സല്‍ ചെയ്ത അസ്സൈമെന്റ് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewDeclined">ഡികൈന്‍ ചെയ്ത അസ്സൈമെന്റ് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewDueDate">അവസാന തീയതി പരിഷ്കരിച്ചത് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewerAssigned">സബ്മിഷനായി റിവ്യൂവര്‍ നിര്‍ണ്ണയിച്ചത് `</message>
+	<message key="submission.event.reviewer.reviewerRated">റിവ്യൂവര്‍ റേറ്റിങ്ങ് സ്ബ്മിറ്റ് ചെയ്തിരിക്കുന്നു</message>
+	<message key="submission.event.reviewer.reviewerUnassigned">സബ്മിഷനില്‍ നിന്നും റിവ്യൂവര്‍ അണ്‍അസ്സൈന്‍ഡ് ആയിരിക്കുന്നു</message>
+	<message key="submission.event.reviewer.reviewFile">അപ്ഡേറ്റ് ചെയ്യപ്പെട്ട ഫയലുകള്‍ റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewInitiated">ഇനിഷിയേറ്റഡ് അസ്സൈമെന്റ് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewRecommendation">ശുപാര്‍ശ ഫയലൂകള്‍ റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewReinitiated">അസൈന്‍മെന്റ് റീഇന്‍ഷ്യലൈസ്സ് ചെയ്തത് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewResubmitted">റീസബ്മിറ്റ് ചെയ്തത് റിവ്യൂ ചെയ്യുക</message>
+	<message key="submission.event.reviewer.reviewRevision">റിവ്യൂവറിന്റെ റിവിഷന്‍ ഫയല്‍ അപ്ഡേറ്റ് ചെയ്തിരിക്കുന്നു</message>
+	<message key="submission.files">ഫയലുകള്‍</message>
+	<message key="submission.galley">ഗ്യാലേ</message>
+	<message key="submission.history.clearLog">ലോഗ് ക്ലിയര്‍ ചെയ്യുക</message>
+	<message key="submission.history">ചരിത്രം</message>
+	<message key="submission.history.noLogEntries">ലോഗ് എന്‍ട്രീസ് ഒന്നും തന്നെ ഇല്ല.</message>
+	<message key="submission.history.recentLogEntries">അടുത്ത കാലത്തു നടന്ന എന്‍ട്രീസ്</message>
+	<message key="submission.history.submissionEmailLog">ഇമെയില്‍ ലോഗ്</message>
+	<message key="submission.history.submissionEventLog">ഇവന്റ് ലോഗ്</message>
+	<message key="submission.history.submissionNotes">സബ്മിഷന്‍ കുറിപ്പുകള്‍</message>
+	<message key="submission.history.viewLog">ലോഗ് കാണുക</message>
+	<message key="submission.indexing">ഇന്‍ഡെക്സിങ്ങ്</message>
+	<message key="submission.initiated">പ്രാരംഭിച്ച</message>
+	<message key="submission.lastModified">അവസാനമായി പരിഷ്കരിച്ച</message>
+	<message key="submission.layout.addGalley">ഒരു ലേഔട്ട് ഗ്യാലേ ചേര്‍ക്കുക</message>
+	<message key="submission.layout.confirmDeleteGalley">ഈ ഗ്യാലേ സ്ഥിരമായി നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.layout.confirmDeleteGalleyImage">ഈ ഇമേജ് ഗ്യാലേയില്‍ നിന്ന് നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.layout.confirmDeleteSupplementaryFile">ഈ സപ്ലിമെന്ററി ഫയല്‍ സ്ഥിരമായി നീക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണ്ണോ?</message>
+	<message key="submission.layout.deleteGalleyStylesheet">ഈ സ്റ്റൈല്‍ ഷീറ്റ് നീക്കുക.</message>
+	<message key="submission.layout.editGalley">ഒരു ലേഔട്ട് ഗ്യാലേ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.layout.galleyFileData">ഗ്യാലേ ഫയല്‍ വിവരങ്ങള്‍</message>
+	<message key="submission.layout.galleyFormat">ഗ്യാലേ ഫോര്‍മാറ്റ്</message>
+	<message key="submission.layout.galleyHTMLData">എച്ച്റ്റിഎംഎല്‍ ഗ്യാലേ ഫയലുകള്‍</message>
+	<message key="submission.layout.galleyImages">ഇമേജസ്</message>
+	<message key="submission.layout.galleyLabelInstructions">ഇനത്തിന്റെ ഫയല്‍ ഫോര്‍മാറ്റ് തിരിച്ചറിയുന്നതിനായി ഗ്യാലേ ലേബല്‍ ഉപയോഗിക്കുന്നു (ഉദാ. എച്ച്റ്റിഎംഎല്‍, പിഡിഎഫ്, എന്നിവ.).</message>
+	<message key="submission.layout.galleyLabel">ലേബല്‍</message>
+	<message key="submission.layout.galleyLabelRequired">ഒരു ഗ്യാലേ ലേബല്‍ ആവശ്യമാണ്.</message>
+	<message key="submission.layout.galleyLanguageRequired">ഒരു ഗ്യാലേ ഭാഷ ആവശ്യമാണ്.</message>
+	<message key="submission.layout.galleyLocaleRequired">ഒരു ഗ്യാലേ ലോക്കേല്‍ ആവശ്യമാണ്.</message>
+	<message key="submission.layout.galleyNoImages">ഇമേജസ് ഒന്നും ഇല്ല</message>
+	<message key="submission.layout.galleys">ഗ്യാലേസ്</message>
+	<message key="submission.layout.galleyStylesheet">സ്റ്റൈല്‍ഷീറ്റ് ഫയല്‍</message>
+	<message key="submission.layout.galleyStyle">സ്റ്റൈല്‍</message>
+	<message key="submission.layout.initialGalleyCreation">ഇനിഷ്യല്‍ ഗ്യാലേ രൂപീകരണം</message>
+	<message key="submission.layout.layoutFile">ലേഔട്ട് ഫയല്‍</message>
+	<message key="submission.layout">ലേഔട്ട്</message>
+	<message key="submission.layout.layoutVersion">ലേഔട്ട് വേര്‍ഷന്‍</message>
+	<message key="submission.layout.newGalley">പുതിയ ഗ്യാലേ നിര്‍മ്മിക്കുക</message>
+	<message key="submission.layout.newSupplementaryFile">പുതിയ സപ്ലിമെന്ററി ഫയല്‍ അപ് ലോഡ് ചെയ്യുക</message>
+	<message key="submission.layout.noStyleFile">ഈ ഗ്യാലേയില്‍ സ്റ്റൈല്‍ഷീറ്റ് ഫയലുകള്‍ ചേര്‍ത്തിട്ടില്ല.</message>
+	<message key="submission.layout.supplementaryFiles">സപ്ലിമെന്ററി ഫയലുകള്‍ അവലോകനം ചെയ്യുക</message>
+	<message key="submission.layout.viewingGalley">സബ്മിഷന്‍ ഗ്യാലേ വ്യൂ ചെയ്യുക</message>
+	<message key="submission.layout.viewProof">വ്യൂ പ്രൂഫ്</message>
+	<message key="submission.metadata">സബ്മിഷന്‍ മെറ്റാഡാറ്റ</message>
+	<message key="submission.noReviewAssignments">അവലോകനം ചെയ്ത  അസൈമെന്റസ് ഒന്നും ഇല്ല</message>
+	<message key="submission.notes.addNewNote">പുതിയ കുറിപ്പ് ചേര്‍ക്കുക</message>
+	<message key="submission.notes.attachedFile">ഫയല്‍ അനുബന്ധപ്പെടുത്തുക</message>
+	<message key="submission.notes.backToSubmissionNotes">സബ്മിഷന്‍ കുറിപ്പിലേക്ക് തിരിച്ച് പോക്കുക</message>
+	<message key="submission.notes.breadcrumb">കുറിപ്പുകള്‍</message>
+	<message key="submission.notes.clearAllNotes">കുറിപ്പുകള്‍ ക്ലിയര്‍ ചെയ്യുക</message>
+	<message key="submission.notes.collapseNotes">കോളാപ്പ്സ് ചെയ്യപ്പെട്ട കുറിപ്പുകള്‍</message>
+	<message key="submission.notes.confirmDeleteAll">എല്ലാ സബ്മിഷന്‍ കുറിപ്പുകളും നീക്കം ചെയ്യണമോ?</message>
+	<message key="submission.notes.confirmDelete">ഈ സബ്മിഷന്‍ കുറിപ്പ് നീക്കം ചെയ്യണമോ?</message>
+	<message key="submission.notes.createNewNote">പുതിയ കുറിപ്പ് നിര്‍മ്മിക്കുക</message>
+	<message key="submission.notes.deleteNote">കുറിപ്പ് നീക്കം ചെയ്യുക</message>
+	<message key="submission.notes.editNote">കുറിപ്പ് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="submission.notes.expandNotes">കുറിപ്പുകള്‍ വിപുലീകരിക്കുക</message>
+	<message key="submission.notes.noSubmissionNotes">കുറിപ്പുകള്‍ സബ്മിഷന്‍ ചെയ്തിട്ടില്ല</message>
+	<message key="submission.notes.removeUploadedFile">അപ്ഡേറ്റ് ചെയ്ത ഫയലുകള്‍ നീക്കം ചെയ്യുക</message>
+	<message key="submission.notes">സബ്മിഷന്‍ ചെയ്ത് കുറിപ്പുകള്‍</message>
+	<message key="submission.notes.updateNote">കുറിപ്പ് അപ്ഡേറ്റ് ചെയ്യുക</message>
+	<message key="submission.notes.viewNotes">കുറിപ്പുകള്‍ വ്യൂ ചെയ്യുക</message>
+	<message key="submission.originalFile">ഒറിജനല്‍ ഫയല്‍</message>
+	<message key="submission.page.editing">#{$id} ചിട്ടപ്പെടുത്തല്‍</message>
+	<message key="submission.page.history">#{$id} History</message>
+	<message key="submission.page.review">#{$id} ചരിത്രം</message>
+	<message key="submission.page.summary">#{$id} സംഗ്രഹം</message>
+	<message key="submission.page.citations">#{$id} സൈറ്റെഷന്‍സ്</message>
+	<message key="submission.peerReview"><![CDATA[പീര്‍&എന്‍.ബി.എസ്.പി;അവലോകനം]]></message>
+	<message key="submission.recommendation">ശുപാര്‍ശ</message>
+	<message key="submission.rejected">തിരസ്കരിക്കപ്പെട്ടത്</message>
+	<message key="submission.request">അഭ്യര്‍ത്ഥന</message>
+	<message key="submission.response">പ്രതികരണം</message>
+	<message key="submission.restrictions">നിയന്ത്രണങ്ങള്‍</message>
+	<message key="submission.reviewMetadata">മെറ്റാഡാറ്റ അവലോകനം ചെയ്യുക</message>
+	<message key="submission.review">അവലോകനം</message>
+	<message key="submission.reviewVersion">വേര്‍ഷന്‍ അവലോകനം ചെയ്യുക</message>
+	<message key="submissions.active">പ്രാബല്യത്തിലുള്ള</message>
+	<message key="submissions.archived">അര്‍ച്ചീവ്ഡ്</message>
+	<message key="submission.saveMetadata">മെറ്റാഡാറ്റാ രേഖപ്പെടുത്തുക</message>
+	<message key="submissions.completed">പൂര്‍ണ്ണമായിരിക്കുന്നു</message>
+	<message key="submissions.declined">നിരസിക്കപ്പെട്ടത്</message>
+	<message key="submissions.incomplete">അപൂര്‍ണ്ണമായ</message>
+	<message key="submissions.noSubmissions">സബ്മിഷന്‍സ് ഒന്നും ഇല്ല</message>
+	<message key="submissions.queuedEditing">ചിട്ടപ്പെടുത്തുകയാണ്</message>
+	<message key="submissions.queued">നിരയില്‍ നില്‍ക്കുക</message>
+	<message key="submissions.queuedUnassigned">അസൈന്‍മെന്റിനു വേണ്ടി കാത്തിരിക്കുക</message>
+	<message key="submissions.ruling">റൂലിങ്ങ്</message>
+	<message key="submissions.submit">സമര്‍പ്പിക്കുക</message>
+	<message key="submissions.submitted">സമര്‍പ്പിക്കപ്പെട്ടത്</message>
+	<message key="submission.start">തുടങ്ങുക</message>
+	<message key="submission.submissionHistory">സബ്മിഷന്റെ ചരിത്രം</message>
+	<message key="submission.submissionManuscript">സബ്മിഷന്‍ മാനുസ്ക്രിപ്റ്റ്</message>
+	<message key="submission.submissionReview">സബ്മിഷന്‍ അവലോകനം ചെയ്യുക</message>
+	<message key="submission.submitter">സബ്മിറ്റര്‍</message>
+	<message key="submission.summary">സംഗ്രഹം</message>
+	<message key="submission.supplementaryFiles">സപ്ലിമെന്ററി ഫയലുകള്‍</message>
+	<message key="submission.supportingAgencies">സപോര്‍ട്ടിങ്ങ് എജന്‍സീസ്</message>
+	<message key="submission.currentAgencies">ഇപ്പോഴുള്ള എജന്‍സീസ്</message>
+	<message key="submission.indexingInformation">ഇന്‍ടെക്സിങ്ങ് വിവരങ്ങള്‍</message>
+	<message key="submission.titleAndAbstract">തലക്കെട്ടും സംഗ്രഹവും</message>
+	<message key="submission.underway">അണ്‍ഡര്‍വേ</message>
+	<message key="submission.uploadFileTo">ഫയലുകള്‍ അപ് ലോഡ് ചെയ്യുന്നത്</message>
+	<message key="submission.viewMetadata">മെറ്റാഡാറ്റാ വ്യൂ ചെയ്യുക</message>
+	<message key="submission.views">വ്യൂസ്</message>
+	<message key="submission.uploadSuccessful">താങ്കളുടെ ഫയല്‍ അപ് ലോഡ് ചെയ്തിരിക്കുന്നു.</message>
+	<message key="submission.uploadSuccessfulContinue">താങ്കളുടെ ഫയല്‍ അപ് ലോഡ് ചെയ്തിരിക്കുന്നു. ഫയലിന്റെ മെറ്റാഡാറ്റ ചിട്ടപ്പെടുത്തുന്നതിനായി തുടരുക -ല്‍ പ്രെസ്സ് ചെയ്യുക.</message>
+	<message key="submission.loadMessage">താങ്കളുടെ ഫയല്‍ സെര്‍വറിലേക്ക് അപ് ലോഡ് ചെയ്യുന്നത് വരെ കാത്തിരിക്കുക.</message>
+	<message key="submission.artworkFileDetails">ആര്‍ട്ട് വര്‍ക്ക് ഫയലിന്റെ വിവരങ്ങള്‍</message>
+	<message key="submission.fileDetails">ഫയലിന്റെ വിവരങ്ങള്‍</message>
+	<message key="submission.nameRequired">ഈ ഇനത്തിനു ഒരു നാമം ആവശ്യമാണ്.</message>
+	<message key="submission.date.mmdd">മാസം-തീയതി</message>
+	<message key="submission.date.yyyymmdd">വര്‍ഷം-മാസം-തീയതി</message>
+</locale>

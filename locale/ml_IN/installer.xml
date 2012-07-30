@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/installer.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="installer.additionalLocales">അഡീഷണല്‍ ലോക്കേല്‍സ്</message>
+	<message key="installer.administratorAccount">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ട്</message>
+	<message key="installer.administratorAccountInstructions">ഈ യൂസ്സര്‍ അക്കൗണ്ട് സൈറ്റ് അഡ്മിനിസ്ട്രേറ്റീവ് ആവുകയും പൂര്‍ണമായ സിസ്റ്റം അക്സസ്സ് കൈവരിക്കുകയും ചെയും. അഡീഷണന്‍ യൂസ്സര്‍ അക്കൗണ്ട്  ഇന്‍സ്റ്റാളേഷനു ശേഷം നിര്‍മ്മിക്കാം.</message>
+	<message key="installer.checkNo"><![CDATA[<span class="formError">NO</span>]]></message>
+	<message key="installer.checkYes">അതെ</message>
+	<message key="installer.clientCharset">ക്ലൈന്റ് കാരക്ടര്‍ സെറ്റ്</message>
+	<message key="installer.clientCharsetInstructions">ബ്രൗസറില്‍ നിന്ന് ഡേറ്റ അയക്കാനും സ്വീകരിക്കാനും ഉപയോഗിക്കുന്ന എന്‍കോഡിങ്ങ്.</message>
+	<message key="installer.configFileError"><![CDATA[The configuration file <tt>config.inc.php</tt> does not exist or is not readable.]]></message>
+	<message key="installer.connectionCharset">കണഷന്‍ കാരക്ടര്‍ സെറ്റ്</message>
+	<message key="installer.connectionCharsetInstructions"><![CDATA[The encoding to use for data sent to and received from the database. This should be the same as the client character set. Note that this capability is only supported with MySQL >= 4.1.1 or PostgreSQL >= 7.1. Select "Not applicable" if your database server does not meet these requirements.]]></message>
+	<message key="installer.contentsOfConfigFile">കോണ്‍ഫിഗരേഷന്‍ ഫയലിന്റെ ഉള്ളടക്കം</message>
+	<message key="installer.createDatabase">പുതിയ ഡാറ്റാബേസ്സ് നിര്‍മ്മിക്കുക</message>
+	<message key="installer.createDatabaseInstructions">To use this option your database system must support remote database creation and your user account must have the appropriate permissions to create new databases. If installation fails with this option selected, manually create the database on your server and run the installer again with this option disabled.</message>
+	<message key="installer.databaseCharset">ഡാറ്റാബേസ് കാരക്ടര്‍ സെറ്റ്</message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[The encoding to use for data stored in the database. Note that this capability is only supported with MySQL >= 4.1.1 or PostgreSQL >= 7.1. Select "Not applicable" if your database server does not meet these requirements.]]></message>
+	<message key="installer.databaseDriver">ഡാറ്റാബേസ്സ് ഡ്രിവര്‍</message>
+	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Database drivers listed in brackets do not appear to have the required PHP extension loaded and installation will likely fail if selected.</strong><br />Any unsupported database drivers listed above are listed solely for academic purposes and are unlikely to work.]]></message>
+	<message key="installer.databaseHost">ഹോസ്റ്റ്</message>
+	<message key="installer.databaseHostInstructions">Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</message>
+	<message key="installer.databaseName">ഡാറ്റാബേസ്സിന്റെ പേര്</message>
+	<message key="installer.databasePassword">പാസ്സ് വേഡ്</message>
+	<message key="installer.databaseSettings">ഡാറ്റാബേസ്സ് ക്രമീകരണം</message>
+	<message key="installer.databaseUsername">യൂസര്‍ നാമം</message>
+	<message key="installer.encryptionInstructions"><![CDATA[SHA1 is recommended if your system supports it (requires PHP >= 4.3.0).]]></message>
+	<message key="installer.encryption">പാസ്സ് വേര്‍ഡ് എന്‍ക്രിപ്ഷ്ന്‍ അല്‍ഗരിതം</message>
+	<message key="installer.filesDir">അപ് ലോഡിനു വേണ്ടിയുളള ഡയറക്ടറി</message>
+	<message key="installer.fileSettings">ഫയല്‍ ക്രമീകരണങ്ങള്‍</message>
+	<message key="installer.form.clientCharsetRequired">ഒരു ക്ലയന്റ് കാരക്ടര്‍ സെറ്റ് തിരഞ്ഞെടുത്തിരിക്കണം.</message>
+	<message key="installer.form.databaseDriverRequired">ഒരു ഡാറ്റാബേസ്സ് ഡ്രിവര്‍ തിരഞ്ഞെടുത്തിരിക്കണം.</message>
+	<message key="installer.form.databaseNameRequired">ഡാറ്റാബേസ്സ് നാമം ആവശ്യമാണ്.</message>
+	<message key="installer.form.emailRequired">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ടിനു വേണ്ടി പ്രവര്‍ത്തനക്ഷമമായ ഒരു ഇ-മെയില്‍ അഡ്രസ്സ് ആവശ്യമാണ്.</message>
+	<message key="installer.form.encryptionRequired">യൂസര്‍ പാസ് വേഡ് എന്‍ക്രിപ്റ്റ് ചെയ്യുന്നതിനായി അല്‍ഗരിതം തിരഞ്ഞെടുത്തിരിക്കണം.</message>
+	<message key="installer.form.filesDirRequired">അപ് ലോഡ് ചെയ്ത ഫയലുകള്‍ സൂക്ഷിക്കുന്നതിനായി ഒരു ഡയറക്ടറി ആവശ്യമാണ്.</message>
+	<message key="installer.form.localeRequired">ഒരു ലൊക്കേല്‍ തിരഞ്ഞെടുത്തിരിക്കണം.</message>
+	<message key="installer.form.passwordRequired">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ടിനു വേണ്ടി ഒരു പാസ് വേഡ് ആവശ്യമാണ്.</message>
+	<message key="installer.form.passwordsDoNotMatch">അഡ്മിനിസ്ട്രേറ്റര്‍ പാസ് വേഡുകള്‍ ഒത്തുചേരുന്നില്ല.</message>
+	<message key="installer.form.separateMultiple">ബഹുഗുണമുളള വാക്കുകളെ കോമ ഉപയോഗിച്ച് വേര്‍തിരിക്കുക</message>
+	<message key="installer.form.usernameAlphaNumeric">അഡ്മിനിസ്ട്രേറ്റിവ് യൂസര്‍ നാമത്തില്‍ ആല്ഫാ നൂമെറിക് കാരക്ടര്‍,അണ്ടര്‍സ്കോര്‍,ഹൈഫന്‍ എന്നിവയേ പാടുളളു,തുടങ്ങുന്നതും അവസാനിക്കുന്നതും ആല്ഫാ നൂമെറിക് കാരക്ടരില്‍ ആയിരിക്കണം.</message>
+	<message key="installer.form.usernameRequired">അഡ്മിനിസ്ട്രേറ്റര്‍ അക്കൗണ്ടിനു വേണ്ടി ഒരു യൂസര്‍ നാമം ആവശ്യമാണ്.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></message>
+	<message key="installer.installErrorsOccurred">ഇന്‍സ്റ്റാളേഷന്‍ നടന്നപ്പോള്‍ തെറ്റുകള്‍ സംഭവിച്ചു</message>
+	<message key="installer.installerSQLStatements">ഇന്‍സ്റ്റാളേഷനു വേണ്ടിയുളള എസ്.ക്യു.എല്‍ കുറിപ്പ്</message>
+	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> does not exist or is not readable.]]></message>
+	<message key="installer.installFilesDirError">അപ് ലോഡ് ചെയ്ത ഫയലുകള്‍ക്കായുളള നിര്‍ദ്ദിഷ്ട ഡയറക്ടറി നിലവിലില്ല.</message>
+	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
+	<message key="installer.locale">ലൊക്കേല്‍</message>
+	<message key="installer.locale.maybeIncomplete">അടയാളപ്പെടുത്തിയിരിക്കുന്ന ലൊക്കേലുകള്‍ അപൂര്‍ണ്ണമായിരിക്കാം.</message>
+	<message key="installer.localeSettings">ലൊക്കേല്‍ ക്രമീകരണങ്ങള്‍</message>
+	<message key="installer.manualInstall">മാനുവല്‍ ഇന്‍സ്റ്റാള്‍</message>
+	<message key="installer.miscSettings">ബഹുവിധ ക്രമീകരണങ്ങള്‍</message>
+	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[A unique identifier used to identify metadata records indexed from this site using the <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
+	<message key="installer.oaiRepositoryId">ഒ.എ.ഐ സങ്കേതത്തിലേക്കുളള തിരിച്ചറിയല്‍</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">താങ്കളുടെ ഡേറ്റാബേസ് ഇന്‍സ്റ്റാള്‍ ചെയ്തതിനു ശേഷം ദയവായി അപ്ഗ്രേഡ് ടൂള്‍ പ്രവര്‍ത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുക.ഇതിനായി ഇന്‍സ്റ്റളേഷന്‍ ഡയറക്ടറിയില്‍ നിന്നും 'php tools/upgrade.php upgrade ചെയ്യുക.</message>
+	<message key="installer.publicFilesDirError">പൊതു ഫയലുകളുടെ ഡയറക്ടറി നിലവിലില്ല.</message>
+	<message key="installer.releaseNotes">കുറിപ്പുകള്‍ പ്രകാശിപ്പിക്കുക</message>
+	<message key="installer.securitySettings">ഭദ്രത ക്രമീകരണം</message>
+	<message key="installer.skipFilesDir">സബ് ഡയറക്ടറികള്‍ സൃഷ്ടിക്കരുത് (മാനുവല്‍ ഇന്‍സ്റ്റാളേഷന് മാത്രം സാധ്യം)</message>
+	<message key="installer.manualUpgrade">മാനുവല്‍ അപ്ഗ്രേഡ്</message>
+</locale>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/manager.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="manager.announcements">അറിയിപ്പുകള്‍</message>
+	<message key="manager.announcements.confirmDelete">ഈ അറിയിപ്പ് സ്ഥിരമായി മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.announcements.create">പുതിയ അറിയിപ്പ് സൃഷ്ടിക്കുക</message>
+	<message key="manager.announcements.createTitle">സൃഷ്ടിക്കുക</message>
+	<message key="manager.announcements.dateExpire">കാലാവധി</message>
+	<message key="manager.announcements.edit">അറിയിപ്പ് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.announcements.editTitle">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.announcements.form.dateExpireDayIncompleteDate">കാലാവധി ദിവസത്തിനു പുറമേ ദയവായി ഒരു വര്‍ഷം അല്ലെങ്കില്‍ മാസം തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.announcements.form.dateExpire">കാലാവധി തിയതി</message>
+	<message key="manager.announcements.form.dateExpireInstructions">കാലാവധി ദിവസം ഈ ദിവസം വരെ അറിയിപ്പ് വായനക്കാര്‍ക്കായി പ്രദര്‍ശിപ്പിച്ചിരിക്കും.അറിയിപ്പ് അവ്യക്തമായി പ്രദര്‍ശിപ്പിക്കാന്‍ ശൂന്യമായി വിട്ടുകൊളളുക.</message>
+	<message key="manager.announcements.form.dateExpireMonthIncompleteDate">കാലാവധി മാസത്തിനു പുറമേ ദയവായി ഒരു വര്‍ഷം അല്ലെങ്കില്‍ ദിവസം തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.announcements.form.dateExpireValid">ദയവായി അറിയിപ്പിന് ഒരു കാലാവധി തിയതി തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.announcements.form.dateExpireYearIncompleteDate">കാലാവധി വര്‍ഷത്തിനു പുറമെ ദയവായി ഒരു മാസം അല്ലെങ്കില്‍ ദിവസം തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.announcements.form.description">വിവരണം</message>
+	<message key="manager.announcements.form.descriptionInstructions">അറിയിപ്പിന്റെ പൂര്‍ണ്ണ വാചകം.</message>
+	<message key="manager.announcements.form.descriptionRequired">അറിയിപ്പ് വിവരണം ആവശ്യമാണ്.</message>
+	<message key="manager.announcements.form.descriptionShortInstructions">അറിയിപ്പ് തലക്കെട്ടില്‍ പ്രത്യക്ഷപ്പെടേണ്ട സംക്ഷിപ്തമായ വിവരണം.</message>
+	<message key="manager.announcements.form.descriptionShortRequired">അറിയിപ്പിനെക്കുറിച്ചുളള ഒരു ഹ്രസ്വവിവരണം ആവശ്യമാണ്.</message>
+	<message key="manager.announcements.form.descriptionShort">ഹ്രസ്വവിവരണം</message>
+	<message key="manager.announcements.form.saveAndCreateAnother">രേഖപ്പെടുത്തുകയും അടുത്തത് സൃഷ്ടിക്കുകയും ചെയ്യുക</message>
+	<message key="manager.announcements.form.titleRequired">അറിയിപ്പിന്റെ തലക്കെട്ട് ആവശ്യമാണ്.</message>
+	<message key="manager.announcements.form.title">തലക്കെട്ട്</message>
+	<message key="manager.announcements.form.typeId">ഇനം</message>
+	<message key="manager.announcements.form.typeIdValid">ദയവായി പ്രവര്‍ത്തനക്ഷമമായ ഒരു അറിയിപ്പ് ഇനം തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.announcements.noneCreated">അറിയിപ്പുകള്‍ ഒന്നും തന്നെ സൃഷ്ടിച്ചിട്ടില്ല.</message>
+	<message key="manager.announcements.title">തലക്കെട്ട്</message>
+	<message key="manager.announcements.type">ഇനം</message>
+	<message key="manager.announcementTypes">അറിയിപ്പ് ഇനങ്ങള്‍</message>
+	<message key="manager.announcementTypes.confirmDelete">മുന്നറിയിപ്പ്! ഈ ഇനത്തിലുളള എല്ലാ അറിയിപ്പുകളും മായ്ക്കപ്പെടും.ഈ അറിയിപ്പ് ഇനം മായ്ച്ചുകൊണ്ട് തുടരണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.announcementTypes.create">അറിയിപ്പ് ഇനം സൃഷ്ടിക്കുക</message>
+	<message key="manager.announcementTypes.createTitle">സൃഷ്ടിക്കുക</message>
+	<message key="manager.announcementTypes.edit">അറിയിപ്പ് ഇനം ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.announcementTypes.editTitle">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.announcementTypes.form.saveAndCreateAnother">രേഖപ്പെടുത്തുകയും അടുത്തത് സൃഷ്ടിക്കുകയും ചെയ്യുക</message>
+	<message key="manager.announcementTypes.form.typeNameExists">ഈ പേരിലുളള മറ്റൊരു അറിയിപ്പ് ഇനം നിലവിലുണ്ട്.</message>
+	<message key="manager.announcementTypes.form.typeName">നാമം</message>
+	<message key="manager.announcementTypes.form.typeNameRequired">അറിയിപ്പ് ഇനത്തിന്റെ ഒരു നാമം ആവശ്യമാണ്.</message>
+	<message key="manager.announcementTypes.noneCreated">അറിയിപ്പ് ഇനങ്ങള്‍ ഒന്നും തന്നെ സൃഷ്ടിച്ചിട്ടില്ല.</message>
+	<message key="manager.announcementTypes.typeName">അറിയിപ്പ് ഇനം</message>
+	<message key="manager.emails.confirmDelete">ഈ ഇ-മെയില്‍ ടെംപ്ലേറ്റ് മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.emails.confirmReset">ഈ ഇ-മെയില്‍ ടെംപ്ലേറ്റിനെ അതിന്റെ നിശ്ചിത മൂല്യത്തിലേക്ക് പുന:സ്ഥാപിക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.emails.createEmail">ഇ-മെയില്‍ സൃഷ്ടിക്കുക</message>
+	<message key="manager.emails.disable">നിഷ്ക്രിയം</message>
+	<message key="manager.emails.editEmail">ഇ-മെയില്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.emails.editTestExample">ഇ-മെയില്‍ പരീക്ഷണ ഉദാഹരണം ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.emails.emailKey">ഇ-മെയില്‍ കീ</message>
+	<message key="manager.emails.emailKeyExists">ഈ കീയോടുകൂടിയ ഇ-മെയില്‍ നിലവിലുണ്ട്.ഇ-മെയില്‍ കീകള്‍ വ്യത്യസ്തമായിരിക്കണം.</message>
+	<message key="manager.emails.emailTemplate">ഇ-മെയില്‍ ടെംപ്ലേറ്റ്</message>
+	<message key="manager.emails.emailTemplates">ഇ-മെയില്‍ ടെംപ്ലേറ്റുകള്‍</message>
+	<message key="manager.emails.enabled">ഈ ഇ-മെയില്‍ ടെംപ്ലേറ്റ് പ്രവര്‍ത്തനക്ഷമമാക്കുക</message>
+	<message key="manager.emails.enable">പ്രവര്‍ത്തനക്ഷമം</message>
+	<message key="manager.emails.form.emailKeyRequired">ഇ-മെയിലിന്  വ്യത്യസ്തമായ ഒരു ഇ-മെയില്‍ കീ ആവശ്യമാണ്.</message>
+	<message key="manager.emails.form.bodyRequired">ഇ-മെയിലിന് ഒരു ഉളളടക്കം ആവശ്യമാണ്.</message>
+	<message key="manager.emails.form.subjectRequired">ഇ-മെയിലിന് ഒരു വിഷയം ആവശ്യമാണ്.</message>
+	<message key="manager.emails">തയ്യാറാക്കിയ ഇ-മെയിലുകള്‍</message>
+	<message key="manager.emails.resetAll">എല്ലാ ടെംപ്ലേറ്റുകളും പുന:സ്ഥാപിക്കുക</message>
+	<message key="manager.emails.reset">പുന:സ്ഥാപിക്കുക</message>
+	<message key="manager.emails.resetToDefault">ഡീഫോള്‍ട്ടിലേക്ക് പുന:സ്ഥാപിക്കുക</message>
+	<message key="manager.filesBrowser">ഫയല്‍ ബ്രൗസര്‍</message>
+	<message key="manager.files.confirmDelete">ഈ ഫയല്‍ അല്ലെങ്കില്‍ ഡയറക്ടറി മായ്ക്കണമോ?മായ്ക്കുന്നതിനു മുന്‍പ് ഡയറക്ടറി ശൂന്യമാണെന്ന് ഉറപ്പു വരുത്തുക.</message>
+	<message key="manager.files.createDir">ഡയറക്ടറി സൃഷ്ടിക്കുക</message>
+	<message key="manager.files.emptyDir">ഈ ഡയറക്ടറിയില്‍ ഫയലുകള്‍ ഒന്നും തന്നെ കണ്ടെത്താനായിട്ടില്ല</message>
+	<message key="manager.files.indexOfDir">Index of {$dir}</message>
+	<message key="manager.files.parentDir">ഉല്‍ഭവ ഡയറക്ടറി</message>
+	<message key="manager.files.uploadedFiles">അപ് ലോഡ് ചെയ്ത ഫയലുകള്‍</message>
+	<message key="manager.files.uploadFile">ഫയല്‍ അപ് ലോഡ് ചെയ്യുക</message>
+	<message key="manager.groups.confirmDelete">ഈ സംഘം മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.groups.createTitle">തലക്കെട്ട് സൃഷ്ടിക്കുക</message>
+	<message key="manager.groups.editTitle">തലക്കെട്ട് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.groups.form.groupTitleRequired">സംഘത്തിന്റെ തലക്കെട്ട് ആവശ്യമാണ്.</message>
+	<message key="manager.groups.membership.addMember">അംഗത്തെ ഉള്‍പ്പെടുത്തുക</message>
+	<message key="manager.groups.membership.confirmDelete">ഈ സംഘത്തിലുളള അംഗത്വം മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="manager.groups.membership">അംഗത്വം</message>
+	<message key="manager.groups.membership.noneCreated">ഈ സംഘത്തില്‍ അംഗങ്ങളൊന്നും തന്നെയില്ല.</message>
+	<message key="manager.groups.membership.noUsers">യൂസറുകള്‍ ഒന്നും തന്നെ കണ്ടെത്തിയിട്ടില്ല.</message>
+	<message key="manager.groups.title">തലക്കെട്ട്</message>
+	<message key="manager.importExport">ഇംപോര്‍ട്ട്/എക്സ്പോര്‍ട്ട് ഡേറ്റ</message>
+	<message key="manager.languages.alternateLocaleInstructions">ചില നിര്‍ണ്ണായ വിവരങ്ങള്‍ മറ്റു വിവിധ ഭാഷകളില്‍ നല്‍കുന്നത് ഓപ്ഷണലായി സിസ്റ്റം അനുവദിക്കാറുണ്ട് .ഈ സവിശേഷത ഉപയോഗിക്കുന്നതിനായി ആള്‍ട്ടര്‍നേറ്റ് ലൊക്കേലില്‍ കൊടുത്തിരിക്കുന്ന ലിസ്റ്റില്‍ നിന്നും ഓപ്ഷന്‍ തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.languages.supportedLocalesInstructions">ഭാഷ തിരഞ്ഞെടുക്കല്‍ മെനു ഓരോ പേജിലും വരുന്നതിനായി ആ സൈറ്റിനെ സപ്പോര്‍ട്ട് ചെയ്യുന്ന എല്ലാ ലൊക്കേലുകളും തിരഞ്ഞെടുക്കുക.ഒന്നില്‍ക്കൂടുതല്‍ ലൊക്കേല്‍ തിരഞ്ഞെടുത്താല്‍ മാത്രമേ മെനു പ്രത്യക്ഷമാവൂ.</message>
+	<message key="manager.payment.timestamp">ടൈം സ്റ്റാമ്പ്</message>
+	<message key="manager.people.authSource">ഓതെന്റിക്കേഷന്‍ സോഴ്സ്</message>
+	<message key="manager.people.confirmUnenroll">യൂസറിന്റെ അംഗത്വം നിഷേധിക്കണമോ?</message>
+	<message key="manager.people.createUser">പുതിയ യൂസര്‍ സൃഷ്ടിക്കുക</message>
+	<message key="manager.people.createUserGeneratePassword">ക്രമമില്ലാത്ത ഒരു പാസ് വേഡ് ഉണ്ടാക്കുക.</message>
+	<message key="manager.people.createUserSendNotify">യൂസര്‍ നാമവും പാസ് വേഡും ഉള്‍പ്പെടുന്ന ഒരു വെല്‍ക്കം ഇ-മെയില്‍ യൂസറിന് അയക്കുക.</message>
+	<message key="manager.people.disable">അപ്രാപ്യം</message>
+	<message key="manager.people.doNotEnroll">കര്‍ത്തവ്യം ഇല്ലാത്ത</message>
+	<message key="manager.people.editProfile">രൂപരേഖ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.people.editUser">യൂസര്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="manager.people.emailUsers.emailSelectedUsers">ഇ-മെയില്‍ സിലെക്റ്റഡ് യൂസെര്‍</message>
+	<message key="manager.people.emailUsers.emailUsersEnrolledAs">ഇ-മെയില്‍ യൂസറുകള്‍ എന്‍റോള്‍ ചെയ്തത്</message>
+	<message key="manager.people.emailUsers">ഇ-മെയില്‍ യൂസറുകള്‍</message>
+	<message key="manager.people.emailUsers.selectLocale">ഒരു ലൊക്കേല്‍ തിരഞ്ഞെടുക്കുക</message>
+	<message key="manager.people.emailUsers.selectUsers">പേരുകള്‍ക്കരികെയുളള ബോക്സുകള്‍ പരിശോധിച്ച് ഇ-മെയില്‍ ചെയ്യാന്‍ ഉദ്ദേശിക്കുന്ന യൂസറുകളെ തിരഞ്ഞെടുക്കുക</message>
+	<message key="manager.people.enable">പ്രാപ്തം</message>
+	<message key="manager.people.enroll">യൂസറിനെ അംഗമാക്കുക</message>
+	<message key="manager.people.enrollment">അംഗത്വം</message>
+	<message key="manager.people.enrollSelected">തിരഞ്ഞെടുത്ത യൂസറുകള്‍ക്ക് അംഗത്വം നല്‍കുക</message>
+	<message key="manager.people.enrollSyncRole">റോള്‍ സമകാലീകരിക്കുക</message>
+	<message key="manager.people.enrollSync">അംഗത്വം സമകാലീകരിക്കുക</message>
+	<message key="manager.people.enrollUserAsDescription">ഏതൊരു സ്ഥലത്തും യൂസറുകളെ ഒരു കര്‍ത്തവ്യം ഏല്‍പ്പിക്കുകയോ അതില്‍നിന്നും മാറ്റുകയോ ചെയ്യാം.</message>
+	<message key="manager.people.enrollUserAs">യൂസറിനെ അംഗമാക്കിയിരിക്കുന്നത്</message>
+	<message key="manager.people.invalidUser">ക്ഷമിക്കണം,താങ്കള്‍ ആവശ്യപ്പെട്ട യൂസര്‍ നിലവിലില്ല.</message>
+	<message key="manager.people.mergeUser">യൂസറിനെ ചേര്‍ക്കുക</message>
+	<message key="manager.people.mergeUsers.confirm">“{$newUsername}"ഈ യൂസര്‍ നാമമുളള അക്കൗണ്ടുകളെ തിരഞ്ഞെടുത്ത അക്കൗണ്ടുകളുമായി "{$oldAccountCount}"യോജിപ്പിക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?ഈ പ്രവര്‍ത്തനം റിവേഴ്സിബിള്‍ അല്ല.</message>
+	<message key="manager.people.mergeUsers">യൂസറുകളെ ചേര്‍ക്കുക</message>
+	<message key="manager.people.mustChooseRole">"Enroll User”ല്‍ ക്ലിക്ക് ചെയ്യുന്നതിനു മുന്‍പ് ദയവായി പേജിന്റെ മുകളില്‍ നിന്നും ഒരു റോള്‍ തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.people.mustProvideName">ദയവായി ഒരു അവസാന നാമമെങ്കിലും യൂസറിന് നല്‍കുക.</message>
+	<message key="manager.people.noMatchingUsers">ചേരുന്ന യൂസറുകള്‍ ഇല്ല.</message>
+	<message key="manager.people.noneEnrolled">അംഗത്വമുളള യൂസറുകള്‍ ഇല്ല .</message>
+	<message key="manager.people">ജനങ്ങള്‍</message>
+	<message key="manager.people.remove">നീക്കുക</message>
+	<message key="manager.people.saveAndCreateAnotherUser">രേഖപ്പെടുത്തുകയും അടുത്തത് സൃഷ്ടിക്കുകയും ചെയ്യുക</message>
+	<message key="manager.people.signInAs">ലോഗിന്‍ ചെയ്യേണ്ടത്</message>
+	<message key="manager.people.signInAsUser">യൂസറായി ലോഗിന്‍ ചെയ്യുക</message>
+	<message key="manager.people.syncUsers">യൂസര്‍ അംഗത്വം സമകാലികമാക്കുക</message>
+	<message key="manager.people.unenroll">അംഗത്വം നിഷേധിക്കുക</message>
+	<message key="manager.people.userCreatedSuccessfully">വിജയകരമായി യൂസര്‍ സൃഷ്ടിച്ചിരിക്കുന്നു</message>
+	<message key="manager.people.userMustChangePassword">അടുത്ത തവണ ലോഗിന്‍ ചെയ്യുമ്പോള്‍ പാസ് വേഡ് മാറ്റേണ്ടത് ആവശ്യമാണ്.</message>
+	<message key="manager.plugins.action">പ്രവര്‍ത്തി:</message>
+	<message key="manager.plugins.disable">അപ്രാപ്യം</message>
+	<message key="manager.plugins.enable">പ്രാപ്യം</message>
+	<message key="manager.plugins.pluginManagement">പ്ലഗിന്‍ മാനേജ്മെന്റ്</message>
+	<message key="manager.plugins.sitePlugin">ഇതൊരു സൈറ്റ്-വൈഡ് പ്ലഗിന്‍ ആകുന്നു.സിസ്റ്റം അഡ്മിനിസ്ട്രേറ്ററിനു മാത്രമേ ഈ പ്ലഗിന്‍ കൈകാര്യം ചെയ്യാന്‍ സാധിക്കൂ.</message>
+	<message key="manager.plugins">സിസ്റ്റം പ്ലഗിന്‍</message>
+	<message key="manager.readingTools">വായന സാമഗ്രികള്‍</message>
+	<message key="manager.reviewerSearch.advancedSearch">പുരോഗമിച്ച പുന:പരിശോധന</message>
+	<message key="manager.reviewerSearch.searchByName">പേരില്‍നിന്ന് പുന:പരിശോധകനുവേണ്ടി തിരയുക</message>
+	<message key="manager.reviewerSearch.doneAmount">പൂര്‍ണ്ണമായ അവലോകനങ്ങളുടെ എണ്ണം</message>
+	<message key="manager.reviewerSearch.avgAmount">അവലോകനത്തിന്റെ ശരാശരി ദിവസം</message>
+	<message key="manager.reviewerSearch.lastAmount">അവസാന അവലോകനം വരെയുളള ദിവസങ്ങള്‍</message>
+	<message key="manager.reviewerSearch.activeAmount">നിലവിലുളള സജീവമായ അവലോകനങ്ങളുടെ എണ്ണം</message>
+	<message key="manager.reviewerSearch.interests">പുന:പരിശോധനാ താല്പര്യം</message>
+	<message key="manager.roles">കര്‍ത്തവ്യങ്ങള്‍</message>
+	<message key="manager.setup.citationAssistant">സൈറ്റേഷന്‍ മാര്‍ക്കപ്പ് അസിസ്റ്റന്റ്</message>
+	<message key="manager.setup.citationFilterParser">സൈറ്റേഷന്‍ എക്സ്ട്രാക്ഷന്‍</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>
+		<p>You can edit or delete an existing Connector by clicking the gear icon next to it.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">സൈറ്റേഷന്‍ പരിശോധന</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>You must also enable and configure connections to external citation databases. This helps you to find errors in authors' citations or add additional information (e.g. DOIs or PubMed IDs) required for electronic publishing or deposit.</p> 
+		<p>We provide connectors to several external databases in which you can search for citations. Some of these databases require registration or configuration information to be entered. Please refer to the public websites of the databases for further information on how to register. You can add one or several databases by clicking on the "Add Item" button below.</p>
+		<p>You can edit or delete an existing external database connection by clicking the gear icon next to it.</p>
+		<p><strong>Note:</strong> In order for the citation checking process to complete in a timely manner, the <tt>citation_checking_max_processes</tt> directive in your configuration file must be set to a reasonable value. See the General Settings section in <tt>config.inc.php</tt> for more information.</p>]]></message>
+	<message key="manager.setup.citationOutput">സൈറ്റേഷന്‍ ഔട്ട്പുട്ട്</message>
+	<message key="manager.setup.citationOutputStyleDescription">Choose the citation style that is being used in your journal's author submissions. The Citation Markup Assistant lets you compare the author's version of the citation to a version generated from the XML you are generating so that you can easily spot errors:</message>
+	<message key="manager.setup.errorDeletingItem">ഈ ഇനം മായ്ക്കുന്നതിനിടയില്‍ ഒരു തെറ്റ് സംഭവിച്ചിരിക്കുന്നു.</message>
+	<message key="manager.setup.filter.grid.errorDeletingFilter">ഈ ഫില്‍റ്റര്‍ മാറ്റുവാന്‍ ശ്രമിച്ചപ്പോള്‍ തെറ്റ് സംഭവിച്ചിരിക്കുന്നു.ദയവായി ഇതിനെ ബഗ് എന്ന് റിപ്പോര്‍ട്ട് ചെയ്യുക.</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">കണക്ടര്‍</message>
+	<message key="manager.setup.filter.grid.filterSettings">രജിസ്ട്രേഷന്‍ വിവരങ്ങളും കണക്ടര്‍ ക്രമീകരണങ്ങളും</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">ദയവായി ഡ്രോപ്പ്-ഡൗണില്‍ നിന്നും ഒരു പരിവര്‍ത്തനം തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.setup.filter.grid.confirmDelete">ഈ ഫില്‍റ്റര്‍ {$filterName}താങ്കള്‍ക്ക് ശരിക്കും മായ്ച്ചു കളയണമോ?</message>	
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">താങ്കള്‍ ഡേറ്റാബേസ് ചേര്‍ക്കണമെന്ന് ആഗ്രഹിക്കുന്നു.സ്ഥിരീകരിക്കുന്നതിനായി 'OK' ക്ലിക്ക് ചെയ്യുക.</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">ദയവായി ഒരു ലുക്ക്-അപ്പ് ഡേറ്റാബേസ് തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>This filter connects to the <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a> book and ISBN database.</p>
+	<p>An ISBNdb API key is mandatory. For information on generating a key, see the <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">online documentation</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>This filter connects to the CrossRef citation database using CrossRef's <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p> 
+	<p>To use this filter, you can use your CrossRef system account, or register a valid email address with CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">here</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.pubMed"><![CDATA[<p>This filter connects to PubMed's <a href="http://www.ncbi.nlm.nih.gov/gquery/gquery.fcgi" target="_blank">Entrez</a> cross-database search engine.</p>
+	<p>A registration email is not strictly mandatory, but may be necessary if you run into connection problems. See the section on <a href="http://www.be-md.ncbi.nlm.nih.gov/bookshelf/br.fcgi?book=helpeutils&part=chapter2#chapter2.Usage_Guidelines_and_Requiremen" target="_blank">Usage Guidelines and Requirements</a> in the Entrez documentation for more information.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.worldCat"><![CDATA[<p>This filter connects to OCLC services <a href="http://www.worldcat.org/affiliate/webservices/xisbn/app.jsp" target="_blank">xISBN</a> and <a href="http://www.worldcat.org/" target="_blank">Worldcat</a> (optional).</p>
+	<p>If you have a Worldcat <a href="http://www.worldcat.org/devnet/wiki/SearchAPIWhoCanUse" target="_blank">API key</a> you can connect to Worldcat by entering the key below.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.loadMessage">സൈറ്റേഷന്‍ ഡേറ്റാബേസ് കോണ്‍ഫിഗറേഷന്‍ ഗ്രിഡ് ലോഡ് ആയിത്തീരുന്നതുവരെ ദയവായി കാത്തിരിക്കുക...</message>
+	<message key="manager.setup.filter.lookup.grid.title">സൈറ്റേഷന്‍ ഡേറ്റാബേസ് കണക്ടറുകള്‍</message>
+	<message key="manager.setup.filter.noMoreTemplates">ലഭ്യമായ പരിവര്‍ത്തനങ്ങളെല്ലാം നേരത്തെ തന്നെ ചേര്‍ത്തിരിക്കുന്നു.സെറ്റപ്പ് പേജിലേക്ക് തിരിച്ചു പോകുന്നതിനായി 'Cancel' ക്ലിക്ക് ചെയ്യുക</message>
+	<message key="manager.setup.filter.parser.grid.descriptionConfirm">താങ്കള്‍ പാഴ്സര്‍ ചേര്‍ക്കണമെന്ന് {$filterDIsplayname} ആഗ്രഹിക്കുന്നു.സ്ഥിരീകരിക്കുന്നതിനായി OK ക്ലിക്ക് ചെയ്യുക</message>
+	<message key="manager.setup.filter.parser.grid.descriptionTemplate">ദയവായി ഒരു സൈറ്റേഷന്‍ പാഴ്സര്‍ തിരഞ്ഞെടുക്കുക.</message>
+	<message key="manager.setup.filter.parser.grid.description.freeCite"><![CDATA[<p>This extraction filter connects to the <a href="http://freecite.library.brown.edu/" target="_blank">FreeCite</a> web service.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>This extraction filter uses the <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl modules to provide <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> citation parsing functionality. In order for this to work properly, you must have Perl installed, along with the <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> and <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN modules. You must also configure the <tt>perl</tt> directive in your configuration file. This directive can be found in the External Commands section of <tt>config.inc.php</tt>.</p>
+	<p>You can also choose which parser module ParaTools should use. You can choose between the standard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, and <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.parsCit"><![CDATA[<p>This extraction filter connects to the <a href="http://aye.comp.nus.edu.sg/parsCit/" target="_blank">ParsCit</a> web service.</p>]]></message>
+	<message key="manager.setup.filter.parser.grid.description.regEx">The RegEx extraction filter uses a series of regular expressions to parse citations.</message>
+	<message key="manager.setup.filter.parser.grid.loadMessage">സൈറ്റേഷന്‍ പാഴ്സര്‍ കോണ്‍ഫിഗറേഷന്‍ ഗ്രിഡ് ലോഡ് ആയിത്തീരുന്നതുവരെ ദയവായി കാത്തിരിക്കുക. .</message>
+	<message key="manager.setup.filter.parser.grid.title">സൈറ്റേഷന്‍ എക്സ്ട്രാക്ഷന്‍ സര്‍വീസുകള്‍</message>
+	<message key="manager.setup.filter.pleaseSelect">ദയവായി തിരഞ്ഞെടുക്കൂ...</message>
+	<message key="manager.setup.homeHeaderImageInvalid">Invalid homepage header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homepageImageInvalid">Invalid homepage image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.homeTitleImageInvalid">Invalid homepage header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.layout.leftSidebar">ഇടത്തെ സൈഡ് ബാര്‍</message>
+	<message key="manager.setup.layout.rightSidebar">വലത്തെ സൈഡ് ബാര്‍</message>
+	<message key="manager.setup.layout.unselected">തിരഞ്ഞെടുക്കാത്തത്</message>
+	<message key="manager.setup.loggingAndAuditing">ലോഗിങ്ങും ഓഡിറ്റിങ്ങും</message>
+	<message key="manager.setup.metaCitationsDescription">Activate the following checkbox to enable citation and reference editing. This will allow authors to include raw citations with submissions. Editors will also have access to a citation markup assistant which can check raw citations against external databases, such as WorldCat, ISBNdb, PubMed and others, for accuracy. Approved citations can be exported into final galley files.</message>
+	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
+	<message key="manager.setup.selectOne">ഒന്ന് തിരഞ്ഞെടുക്കുക</message>
+	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
+	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
+	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
+	<message key="manager.users">യൂസറുകള്‍</message>
+	<message key="plugins.categories.auth">ഓതറൈസേഷന്‍ പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.blocks">ബ്ലോക്ക് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.blocks.description">Block Plugins are pluggable UI components, such as the various sidebar tools.</message>
+	<message key="plugins.categories.citationFormats">സൈറ്റേഷന്‍ ഫോര്‍മാറ്റ് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.gateways.description">Gateway Plugins provide live data to external systems.</message>
+	<message key="plugins.categories.gateways">ഗേറ്റ് വേ പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.generic">ജനറിക് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.importexport.description">Import/Export Plugins can be used to transfer content to and from other systems.</message>
+	<message key="plugins.categories.importexport">ഇംപോര്‍ട്ട്/എക്സ്പോര്‍ട്ട് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.paymethod.description">Payment Method plugins implement support for various ways of processing payments online.</message>
+	<message key="plugins.categories.paymethod">പേയ്മെന്റ് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.reports.description">വിവിധ തരത്തിലുളള റിപ്പോര്‍ട്ടുകളും ഡേറ്റകളും നടപ്പിലാക്കുന്നതിനായി റിപ്പോര്‍ട്ട് പ്ലഗിന്‍സ് ഉപയോഗിക്കാവുന്നതാണ്</message>
+	<message key="plugins.categories.reports">റിപ്പോര്‍ട്ട് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.themes.description">സിസ്റ്റത്തിന്റെ ബാഹ്യരൂപം മാറ്റുന്നതിനായി തീം പ്ലഗിന്‍സ് ഉപയോഗിക്കാവുന്നതാണ്</message>
+	<message key="plugins.categories.themes">തീം പ്ലഗിന്‍സ്</message>
+</locale>

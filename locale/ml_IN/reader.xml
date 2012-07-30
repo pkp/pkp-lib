@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/reader.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="comments.anonymous">അജ്ഞാതനായ യൂസര്‍</message>
+	<message key="comments.anonymousNamed">"{$userName}"</message>
+	<message key="comments.body">ബോഡി</message>
+	<message key="comments.titleRequired">ഒരു വിവരണ തലക്കെട്ട് ആവശ്യമാണ്.</message>
+	<message key="comments.confirmDeleteChildren">വിവരണം മായ്ക്കുമ്പോള്‍ ഇതിലേക്കുള്ള മറുപടികളും പോകുന്നതാണ്. താങ്കള്‍ക്ക് ഇത് തുടരണമെന്ന് ഉറപ്പാണോ?</message>
+	<message key="comments.delete">ഈ വിവരണം മായ്ക്കുക</message>
+	<message key="comments.email">പോസ്റ്റര്‍ ഇ-മെയില്‍</message>
+	<message key="comments.emailReply">ഇ-മെയില്‍ മറുപടി</message>
+	<message key="comments.enterComment">വിവരണങ്ങള്‍ ഉള്‍പ്പെടുത്തുക</message>
+	<message key="comments.inResponseTo"><![CDATA[അതിനുളള പ്രതികരണം  <a href="{$url}">{$title}</a>]]></message>
+	<message key="comments.name">പോസ്റ്റര്‍ നാമം</message>
+	<message key="comments.noComments">വായനക്കാര്‍ വിവരണങ്ങള്‍ ഒന്നും പോസ്റ്റ് ചെയ്തിട്ടില്ല.</message>
+	<message key="comments.nReplies">({$num} Replies)</message>
+	<message key="comments.oneReply">(1 മറുപടി)</message>
+	<message key="comments.postAnonymously">ഈ വിവരണം പേരില്ലാതെ പോസ്റ്റ് ചെയുക</message>
+	<message key="comments.postReply">മറുപടി പോസ്റ്റ് ചെയുക</message>
+	<message key="comments.readerComments">വായനക്കരുടെ വിവരണങ്ങള്‍</message>
+	<message key="comments.readMore">കൂടുതല്‍ വായിക്കുക</message>
+	<message key="comments.replies">മറുപടികള്‍</message>
+	<message key="comments.title">തലക്കെട്ട്</message>
+	<message key="comments.viewAllComments">വിവരണങ്ങള്‍ എല്ലാം കാണുക</message>
+	<message key="reader.fullText">മുഴുവന്‍ വാചകം:</message>
+	<message key="rt.addComment">വിവരണങ്ങള്‍ ചേര്‍ക്കുക</message>
+	<message key="rt.admin.configuration">കോണ്‍ഫിഗരേഷന്‍</message>
+	<message key="rt.admin.contexts.confirmDelete">കോണ്‍ടെസ്റ്റും അതുമായി ബന്ധപ്പെട്ട തിരച്ചിലുകളും മായ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="rt.admin.contexts.createContext">കോണ്‍ടെസ്റ്റ് നിര്‍മ്മിക്കുക</message>
+	<message key="rt.admin.contexts.edit.editContext">കോണ്‍ടെസ്റ്റ് ചിട്ടപ്പെടുത്തുക</message>
+	<message key="rt.admin.contexts.metadata">മെറ്റാഡാറ്റാ</message>
+	<message key="rt.admin.contexts.options.authorTerms">ഗ്രന്ഥകര്‍ത്താവിന്റെ മറ്റു പ്രസിദ്ധീകരണങ്ങള്‍ യൂസറിനു കണുന്നതിനായി  ഗ്രന്ഥകര്‍ത്താവിന്റെ നാമം ഡിഫാള്‍ട്ട് തിരച്ചിനായി ഉപയോഗിക്കുക  (e.g., for an "Other Works" context)</message>
+	<message key="rt.admin.contexts.options.citedBy">ഗ്രന്ഥകര്‍ത്താവിന്റെ നാമം ഡിഫാള്‍ട്ട് തിരച്ചില്‍ വാചകമായി ഉപയോഗിക്കുകയും കോണ്‍ടെസ്റ്റ് ലേഖനങ്ങളായി വിവരിക്കുകയും ചെയ്യുക.</message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Use the word highlighted by the reader as default search term or be left blank if none has been selected for this item (e.g., for a "Definition of terms" context). The "Definition of terms" option must be enabled in the <a href="{$settingsUrl}">RST Settings</a> to allow double-clicking on words to open this context.]]></message>
+	<message key="rt.admin.contexts.options.geoTerms">ഭൂവിവരണപരമായ ഇന്‍ടെസിങ്ങ് ഡാറ്റാ ഡിഫാള്‍ട്ട് തിരച്ചില്‍ വാചകമായി ഉപയോഗിക്കുക.</message>
+	<message key="rt.admin.contexts.options">ബദലുകള്‍</message>
+	<message key="rt.admin.management">ഭരണം</message>
+
+	<message key="rt.admin.sharing">ഷെയര്‍ ചെയുക</message>
+	<message key="rt.admin.sharing.enabled">ഷെയറിങ്ങ് പ്രാപ്യമാക്കുക</message>
+	<message key="rt.admin.sharing.description"><![CDATA[വയനക്കാര്‍ക്ക് താങ്കളുടെ ജര്‍ണല്‍ ലേഖനങ്ങള്‍ ഷെയര്‍ ചെയ്യുന്നതിനായി, <a href="http://addthis.com">addthis.com</a>, ഈ ഷെയറിങ്ങ് ബട്ടണ്‍    കോട് താഴെ കോപ്പി/പേസ്റ്റ് ചെയ്യുക]]></message>
+
+	<message key="rt.admin.sharing.basic">അടിസ്ഥാന ക്രമീകരണം</message>
+	<message key="rt.admin.sharing.userNameLabel">ഈ .കോം യൂസര്‍ നാമം ആഡ് ചെയ്യുക</message>
+	<message key="rt.admin.sharing.buttonStyleLabel">ബട്ടണ്‍ സ്റ്റൈല്‍</message>
+	<message key="rt.admin.sharing.dropDownMenuLabel">ട്രോപ്പ്-ഡൗണ്‍ മെനു ഉപയോഗിക്കുക</message>
+	<message key="rt.admin.sharing.advanced">മുന്‍കൂര്‍ ക്രമീകരണം (ഓപ്ഷ്ണല്‍)</message>
+	<message key="rt.admin.sharing.customizationLink"><![CDATA[അവലംബത്തിനു വേണ്ടി ഇത് നോക്കുക  <a href="http://www.addthis.com/help/customize/custom-button/">AddThis.com customization documentation</a>]]></message>
+	<message key="rt.admin.sharing.brandLabel">ഇനം</message>
+	<message key="rt.admin.sharing.dropDownLabel"><![CDATA[ട്രോപ്പ്-ഡൗണ്‍ ഓപ്ഷന്‍സ് <br /> (comma separated list)]]></message>
+	<message key="rt.admin.sharing.languageLabel">ഭാഷ</message>
+	<message key="rt.admin.sharing.logolabel">ലോഗോ</message>
+	<message key="rt.admin.sharing.logoBackgroundLabel">ലോഗോ പശ്ചാത്തലം</message>
+	<message key="rt.admin.sharing.logoColorLabel">ലോഗോ വര്‍ണ്ണം</message>
+
+	<message key="rt.admin.readingToolsEnabled">വായന സാമഗ്രികള്‍</message>
+	<message key="rt.admin.searches.confirmDelete">ഈ തിരച്ചില്‍ മായ്യ്ക്കണമെന്ന് താങ്കള്‍ക്ക് ഉറപ്പാണോ?</message>
+	<message key="rt.admin.searches.createSearch">തിരച്ചില്‍ നിര്‍മ്മിക്കുക</message>
+	<message key="rt.admin.searches.edit.editSearch">തിരച്ചില്‍ ക്രമീകരിക്കുക</message>
+	<message key="rt.admin.selectedVersion">അനുബന്ധപ്പെട്ട ഇനം</message>
+	<message key="rt.admin.settings.abstract">സംഗ്രഹിക്കുക (ഇപ്പോഴുള്ള ഇനത്തിന്റെ സംഗ്രഹണം).</message>
+	<message key="rt.admin.settings.authorBio">ഗ്രന്ഥകര്‍ത്താവിനെപ്പറ്റി (ഗ്രന്ഥകര്‍ത്താവ് നല്‍കിയ ബയോ-സ്റ്റേറ്റ്മെന്റ് കണിക്കുക).</message>
+	<message key="rt.admin.settings.captureCite">ഇനത്തെ എങ്ങനെ ഉദ്ധരിക്കും  (ഇനത്തിനു ബിബ്ലിയോഗ്രഫിക് വിശദാംശങ്ങള്‍ നല്‍ക്കുക ).</message>
+	<message key="rt.admin.settings.defineTerms">ലൂക്ക് അപ് ടെമ്സ്  (വായനക്കാര്‍ക്ക് ഏതെരു വാക്കിലും ഡബിള്‍ ക്ലിക്ക് ചെയ്യാനും, ആ വാക്ക് ഡിക്ഷനറിയില്‍ പോകാനും പ്രാപ്തമാക്കുക ).</message>
+	<message key="rt.admin.settings.disableRelatedItems">ബന്ധപ്പെട്ട ഇനത്തെ അപ്രാപ്യമാക്കുക</message>
+	<message key="rt.admin.settings.emailAuthor">ഗ്രന്ഥകര്‍ത്താവിനു ഇ-മെയില്‍ അയക്കുക (ഗ്രന്ഥകര്‍ത്താവിന്റെ ഇ-മെയിലില്‍ കൂടി ഇ-മെയില്‍ ടെംപ്ലേറ്റിലേക്ക് നയിക്കുന്നു).</message>
+	<message key="rt.admin.settings.emailOthers">സഹപ്രവര്‍ത്തകനു അറിയിപ്പ് നല്‍കുക (ഇനവുമായി ബന്ധപ്പെട്ട ഇ-മെയില്‍ ടെംപ്ലേറ്റിലേക്ക് നയിക്കുന്നു).</message>
+	<message key="rt.admin.settings.findingReferences">അവലംബങ്ങള്‍ കണ്ടു പിടിക്കുക</message>
+	<message key="rt.admin.settings.printerFriendly">പ്രിന്റ് വേര്‍ഷന്‍ (ഇനത്തിന്റെ പ്രിന്റര്‍-ഫ്രണ്ട്ലി വെര്‍ഷ്ന്‍ നല്‍ക്കുക).</message>
+	<message key="rt.admin.settings.supplementaryFiles">സപ്ലിമെന്ററി ഫയല്‍സ് (ഗ്രന്ഥകര്‍ത്താവ് സമര്‍പ്പിച്ചിട്ടുള്ള ഫയലുകള്‍ കണിക്കുക).</message>
+	<message key="rt.admin.settings.viewMetadata">ഇന്‍ടെസ്സിങ്ങ് മെറ്റാഡാറ്റാ (ഗ്രന്ഥകര്‍ത്താവും സിസ്റ്റവും നല്‍കിയിട്ടുള്ള ഇനത്തിന്റെ മെറ്റാഡാറ്റാ കാണിക്കുക).</message>
+	<message key="rt.admin.status">അവസ്ഥ</message>
+	<message key="rt.admin.configureSharing">കോണ്‍ഫിഗര്‍ ആഡ് ദിസ്</message>
+	<message key="rt.admin.validateUrls.complete">വലിഡേഷന്‍ പൂര്‍ണ്ണം.</message>
+	<message key="rt.admin.validateUrls.ok">ശരി</message>
+	<message key="rt.admin.validateUrls.urlIsInvalid">{$url} പ്രവര്‍ത്തനക്ഷ്മമല്ല.</message>
+	<message key="rt.admin.validateUrls">വായന സാമഗ്രികള്‍ക്ക് വേണ്ടി യു.ആര്‍.എല്‍ സ് വാലിഡേറ്റ് ചെയ്യുക</message>
+	<message key="rt.admin.validateUrls.validate">വാലിഡേറ്റ്</message>
+	<message key="rt.admin.versions.confirmDelete">താങ്കള്‍ക്ക് ഈ വേര്‍ഷനും അനുബന്ധ കോണ്‍ണ്ടസ്റ്റും തിരച്ചിലുകളും മായ്ക്കണമെന്ന് ഉറപ്പാണോ?</message>
+	<message key="rt.admin.versions.confirmRestore">എല്ലാം വേര്‍ഷനും പിന്‍വലിക്കാനോ റദ്ദുചെയ്യാനോ ആവാതെ ഡിഫാള്‍ട്ട് ക്രമീകരണങ്ങള്‍ പൂര്‍വ്വസ്ഥിതിയിലാക്കണമെന്ന് ഉറപ്പാണോ? എങ്കില്‍ താങ്കള്‍ ക്രമീകരണ പേജിലെ പ്രാബല്യത്തിലുള്ള ഒരു വേര്‍ഷന്‍ തിരെഞ്ഞെടുക്കേണ്ടതാണ്.</message>
+	<message key="rt.admin.versions.createVersion">വേര്‍ഷന്‍ നിര്‍മ്മിക്കുക</message>
+	<message key="rt.admin.versions.edit.editVersion">വേര്‍ഷന്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="rt.admin.versions.export">എക്സ്പോര്‍ട്ട്</message>
+	<message key="rt.admin.versions.importVersion">ഇംപോര്‍ട്ട് വേര്‍ഷന്‍</message>
+	<message key="rt.admin.versions.metadata">മെറ്റാഡാറ്റാ</message>
+	<message key="rt.admin.versions.restoreVersions">വേര്‍ഷന്‍ പൂര്‍വ്വസ്ഥിതിയിലാക്കുക</message>
+	<message key="rt.authorBio">ഗ്രന്ഥകര്‍ത്താവിനെപ്പറ്റി</message>
+	<message key="rt.captureCite.format">സിറ്റെഷന്‍ ഫോര്‍മാറ്റ്</message>
+	<message key="rt.captureCite">ഇനത്തെ എങ്ങനെ ഉദ്ധരിക്കാം</message>
+	<message key="rt.captureCite.online">ഓണ്‍ലൈന്‍</message>
+	<message key="rt.captureCite.web">വെബ്</message>	
+	<message key="rt.colleague">സഹപ്രവര്‍ത്തകനു അറിയിപ്പ് നല്‍കുക</message>
+	<message key="rt.context.abbrev">സംഗ്രഹിക്കുക</message>
+	<message key="rt.context.and">പിന്നെ</message>
+	<message key="rt.context.citesContextDescription">If the article is indexed in Google Scholar, it may be accompanied by a "Cited by X" link, which leads to a list of works that cite it. As well, Google Scholar will list all items quoting the title and author. To access online resources that are only available through your research library, you may be able to go to Scholar Preferences in Google Scholar and activate the Library Links for your institution.</message>
+	<message key="rt.context">കോണ്‍ടെസ്റ്റ്</message>
+	<message key="rt.context.defineTermsDescription">If the item is a HTML file (rather than a PDF), double clicking on any word in the text will make it appear in the Word-to-Define box. Otherwise, words can be typed or pasted in the box. To learn more about the resource searched, click on ABOUT. These resources have been selected because of their relevance and their open (free) access to all or part of their contents.</message>
+	<message key="rt.context.description">വിവരണം</message>
+	<message key="rt.context.order">ക്രമം</message>
+	<message key="rt.contexts">കോണ്‍ടെസ്റ്റ്സ്</message>
+	<message key="rt.context.searchDescription">The search terms have been selected by the author(s). They can be altered or deleted by the reader, as two or three short, precise terms or phrases produced the best Boolean (AND) searches. To learn more about the resources searched, click on ABOUT. These resources have been selected for their relevance and open (free) access to all or part of their contents.</message>
+	<message key="rt.context.searchTerms">ടെര്‍മ്സ്  തിരയുക</message>
+	<message key="rt.context.termToDefine">നിര്‍വചിക്കാനുള്ള വാക്ക്</message>
+	<message key="rt.context.title">തലക്കെട്ട്</message>
+	<message key="rt.emailAuthor">ഗ്രന്ഥകര്‍ത്താവിനു ഇ-മെയില്‍ അയക്കുക</message>
+	<message key="rt.email.needLogin"><![CDATA[* Requires <a target="_parent" href="{$loginUrl}">registration</a>]]></message>
+	<message key="rt.email.sent">താങ്കളുടെ സന്ദേശം അയച്ചിരിക്കുന്നു.</message>
+	<message key="rt.findingReferences">അവലംബങ്ങള്‍ തിരയുക</message>
+	<message key="rt.findingReferences.googleScholar">ഗൂഗിള്‍ സ്കോലാറിലാര്‍</message>
+	<message key="rt.findingReferences.windowsLiveAcademic">വിന്‍ഡോസ് ലൈവ് അക്കാഡമിക്</message>
+	<message key="rt.lookUp">ലൂക്ക് അപ് ടെമ്സ്</message>
+	<message key="rt.metadata.dublinCore.contributor">കൊണ്‍ട്രിബൂട്ടര്‍</message>
+	<message key="rt.metadata.dublinCore.coverage">കവറേജ്</message>
+	<message key="rt.metadata.dublinCore.date">തീയതി</message>
+	<message key="rt.metadata.dublinCore.description">വ്യാഖ്യാനം</message>
+	<message key="rt.metadata.dublinCore">ഡബ്ലിന്‍ കോര്‍</message>
+	<message key="rt.metadata.dublinCore.format">ഫോര്‍മാറ്റ്</message>
+	<message key="rt.metadata.dublinCore.identifier">ഐടെന്റിഫയര്‍</message>
+	<message key="rt.metadata.dublinCore.language">ഭാഷ</message>
+	<message key="rt.metadata.dublinCore.publisher">പ്രസാധകന്‍</message>
+	<message key="rt.metadata.dublinCore.relation">ബന്ധം</message>
+	<message key="rt.metadata.dublinCore.rights">അവകാശങ്ങള്‍</message>
+	<message key="rt.metadata.dublinCore.source">സ്രോതസ്സ്</message>
+	<message key="rt.metadata.dublinCore.subject">വിഷയം</message>
+	<message key="rt.metadata.dublinCore.title">തലക്കെട്ട്</message>
+	<message key="rt.metadata.dublinCore.type">തരം</message>
+	<message key="rt.metadata.forThisDocument">ഡൊക്യുമെന്റിന്റെ മെറ്റാഡാറ്റാ</message>
+	<message key="rt.metadata.pkp.abstract">സമഗ്രഹിക്കുക</message>
+	<message key="rt.metadata.pkp.copyright">കോപ്പി റൈറ്റും പെര്‍മിഷന്‍സും</message>
+	<message key="rt.metadata.pkp.coverage">ജിയോ-സ്പാഷ്യല്‍ ലോക്കേഷന്‍സ്, ക്രൊണോലോജിക്കല്‍ പിരീഡ്, റീസെര്‍ച്ച് സാമ്പിള്‍ (ലിംഗം, വയസ്സ്, മുതലായവ..)</message>
+	<message key="rt.metadata.pkp.date">(വര്‍ഷം-മാസം-ദിവസം)</message>
+	<message key="rt.metadata.pkp.discipline">പെരുമാറ്റച്ചട്ടം</message>
+	<message key="rt.metadata.pkp.format">ഫയല്‍ ഫോര്‍മാറ്റ്</message>
+	<message key="rt.metadata.pkp.genre"><![CDATA[അവസ്ഥ & ജെന്‍രെ]]></message>
+	<message key="rt.metadata.pkpItem">പി.കെ.പി മെറ്റാഡാറ്റാ ഇനം</message>
+	<message key="rt.metadata.pkp.language">ഇംഗ്ലീഷ്=ഇന്‍</message>
+	<message key="rt.metadata.pkp.publisher">ഓര്‍ഗനൈസിംഗ് എജന്‍സി, ലോക്കേഷന്‍</message>
+	<message key="rt.metadata.pkp.source">ജര്‍ണല്‍/കോണ്‍ഫറന്‍സ് തലക്കെട്ട്; വോള്‍, നം. (വര്‍ഷം)</message>
+	<message key="rt.metadata.pkp.sponsors">നിര്‍മ്മാതാവ്</message>
+	<message key="rt.metadata.pkp.subjectClass">വിഷയം വിഭജിക്കല്‍</message>
+	<message key="rt.metadata.pkp.subject">കീവേര്‍ഡ്(സ്)</message>
+	<message key="rt.metadata.pkp.suppFiles">സപ്പ്. ഫയല്‍സ്</message>
+	<message key="rt.metadata.pkp.title">ഡൊക്യുമെന്റിന്റെ തലക്കെട്ട്</message>
+	<message key="rt.metadata.pkp.type">തരം</message>
+	<message key="rt.metadata.pkp.uri">യൂണിഫോം റീസോര്‍സ്സ് ഐടെന്റിഫയര്‍</message>
+	<message key="rt.printVersion">പ്രിന്റ് വേര്‍ഷന്‍</message>
+	<message key="rt.readingTools">വായന സാമഗ്രികള്‍</message>
+	<message key="rt.relatedItems">അനുബന്ധമായ ഇനങ്ങള്‍</message>
+	<message key="rt.reviewPolicy">നയം പുനഃപരിശോധിക്കുക</message>
+	<message key="rt.search.description">വ്യാഖ്യാനം</message>
+	<message key="rt.searches">തിരച്ചിലുകള്‍</message>
+	<message key="rt.search.order">ക്രമം</message>
+	<message key="rt.search">തിരയുക</message>
+	<message key="rt.search.searchPost">പോസ്റ്റ് ഡാറ്റാ</message>
+	<message key="rt.search.searchUrl">യു.ആര്‍.എല്‍ തിരയുക</message>
+	<message key="rt.search.suggest">ഒരു സ്രോതസ്സ് നിര്‍ദ്ദേശിക്കുക</message>
+	<message key="rt.search.title">തലക്കെട്ട്</message>
+	<message key="rt.search.url">യു.ആര്‍.എല്‍</message>
+	<message key="rt.suppFiles.download">ഡൗണ്‍ലോഡ്</message>
+	<message key="rt.suppFiles">സപ്പ്ലിമെന്ററി ഫയല്‍സ്</message>
+	<message key="rt.suppFiles.viewMetadata">ഇന്‍ടെക്സിങ്ങ് മെറ്റാഡാറ്റാ</message>
+	<message key="rt.version.description">നിര്‍വചനം</message>
+	<message key="rt.version.key">കീ</message>
+	<message key="rt.version.locale">ലോക്കേല്‍</message>
+	<message key="rt.versions">അനുബന്ധമായ ഇനങ്ങള്‍ സ്ഥാപിക്കുക</message>
+	<message key="rt.version.title">തലക്കെട്ട്</message>
+	<message key="rt.version">വേര്‍ഷന്‍</message>
+	<message key="rt.viewMetadata">ഇന്‍ടെക്സിങ്ങ് മെറ്റാഡാറ്റാ</message>
+</locale>

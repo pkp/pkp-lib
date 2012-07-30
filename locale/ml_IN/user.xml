@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/user.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<message key="user.affiliation">അംഗീകരണം</message>
+	<message key="user.affiliation.description">(Your institution, e.g. "Simon Fraser University")</message>
+	<message key="user.affiliations">അംഗീകരണങ്ങള്‍</message>
+	<message key="user.authorization.accessDenied">പ്രവേശനം നിഷേധിച്ചിരിക്കുന്നു.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">പ്രോസസ്സ് ഓതെന്റിക്കേഷന്‍ ടോക്കണ്‍ നഷ്ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കില്‍ പ്രാബല്യത്തിലില്ല.</message>
+	<message key="user.authorization.contextRequired">ഒരു വാക്യസംബന്ധമില്ലാതെ താങ്കള്‍ക്ക് ഈ പ്രവര്‍ത്തനം ലഭ്യമാകില്ല (പ്രസാധനം,പ്രസിദ്ധീകരണം,സമ്മേളനം എന്നിങ്ങനെ).</message>
+	<message key="user.authorization.loginRequired">ലോഗിന്‍ ആവശ്യമാണ്.</message>
+	<message key="user.authorization.privateOperation">താങ്കള്‍ സമീപിക്കാന്‍ ശ്രമിക്കുന്ന പ്രവര്‍ത്തനം ഒന്നുകില്‍ സ്വകാര്യമാണ് അല്ലെങ്കില്‍ നിലവിലില്ല.</message>
+	<message key="user.authorization.restrictedSiteAccess">താങ്കളുടെ സമീപനം നിഷേധിച്ചിരിക്കുന്നു.ഈ സൈറ്റ് സമീപിക്കുന്നതിന് നിലവില്‍ വിലക്ക് ഏര്‍പ്പെടുത്തിയിരിക്കുന്നു.</message>
+	<message key="user.authorization.roleBasedAccessDenied">ഈ പ്രവര്‍ത്തനത്തെ സമീപിക്കുന്നത് നിലവിലുളള കര്‍ത്തവ്യത്തില്‍പ്പെടുന്നില്ല.</message>
+	<message key="user.authorization.userGroupRequired">ഈ പ്രവര്‍ത്തനത്തെ സമീപിക്കുന്നതിനു വേണ്ടി സാധുവായ ഒരു യൂസര്‍ ഗ്രൂപ്പ് രൂപീകരിക്കേണ്ടതുണ്ട്.</message>
+	<message key="user.biography">ബയോ സ്റ്റേറ്റ്മെന്റ്</message>
+	<message key="user.biography.description">(ഉദാ.,വകുപ്പും പദവിയും)</message>
+	<message key="user.changeMyPassword">എന്റെ പാസ് വേഡ് മാറ്റുക</message>
+	<message key="user.changePassword">പാസ് വേഡ് മാറ്റുക</message>
+	<message key="user.dateLastLogin">അവസാന ലോഗിന്‍</message>
+	<message key="user.dateRegistered">രജിസ്റ്റര്‍ ചെയ്ത ദിവസം</message>
+	<message key="user.editMyProfile">എന്റെ പ്രൊഫൈല്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="user.email">ഇ-മെയില്‍</message>
+	<message key="user.confirmEmail">ഇ-മെയില്‍ സ്ഥിരീകരിക്കുക</message>
+	<message key="user.fax">ഫാക്സ്</message>
+	<message key="user.feminine">എഫ്</message>
+	<message key="user.firstName">ആദ്യനാമം</message>
+	<message key="user.gender">ആണ്‍/പെണ്‍</message>
+	<message key="user.initialsExample">ജൊവാന്‍ ആലീസ് സ്മിത്ത്=ജെ.എ.എസ്</message>
+	<message key="user.initials">പ്രാഥമികം</message>
+	<message key="user.interests">അവലോകന താല്പര്യം</message>
+	<message key="user.interests.description">(താല്പര്യങ്ങള്‍ കോമ ഉപയോഗിച്ചോ അല്ലെങ്കില്‍ എന്റര്‍ അമര്‍ത്തിയോ വേര്‍തിരിക്കുക)</message>
+	<message key="user.gossip">സ്വകാര്യ കുറിപ്പുകള്‍</message>
+	<message key="user.lastName">അവസാനനാമം</message>
+	<message key="user.profile.form.profileImageInvalid">അസാധുവായ പ്രൊഫൈല്‍ ഇമേജ് ഫോര്‍മാറ്റ് അല്ലെങ്കില്‍ ഇമേജിന്റെ വലിപ്പം വളരെ കൂടുതലാണ്.സ്വീകാര്യമായ ഫോര്‍മാറ്റുകള്‍ .gif, .jpg, or .png,.ഇമേജിന്റെ വലിപ്പം 150x150 പിക്സെലില്‍ കൂടാന്‍ പാടില്ല.</message>
+	<message key="user.login.accountDisabledWithReason">താഴെ പറയുന്ന കാരണത്താല്‍ താങ്കളുടെ അക്കൗണ്ട് അപ്രാപ്യമായിരിക്കുന്നു:{$reason}</message>
+	<message key="user.login.accountDisabled">താങ്കളുടെ അക്കൗണ്ട് അപ്രാപ്യമായിരിക്കുന്നു.കൂടുതല്‍ വിവരങ്ങള്‍ക്ക് ദയവായി അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെടുക.</message>
+	<message key="user.login.accountNotValidated">താങ്കളുടെ ഇ-മെയില്‍ അഡ്രസ്സ് സാധുവായിട്ടില്ല.ദയവായി ഇ-മെയില്‍ പരിശോധിക്കുകയും താഴെ കൊടുത്തിരിക്കുന്ന നിര്‍ദ്ദേശങ്ങള്‍ പാലിക്കുകയും ചെയ്യുക.താങ്കള്‍ക്ക് ഇ-മെയില്‍ ഒന്നും ലഭിച്ചിട്ടില്ലെങ്കില്‍ സഹായത്തിനായി സൈറ്റ് അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെടുക.</message>
+	<message key="user.login.activate">അക്കൗണ്ട് പ്രവര്‍ത്തനക്ഷമമാക്കുക</message>
+	<message key="user.login.activated">താങ്കളുടെ അക്കൗണ്ട് പ്രവര്‍ത്തനക്ഷമമാക്കിയതിന് നന്ദി.അക്കൗണ്ട് സൃഷ്ടിച്ചപ്പോള്‍ ലഭിച്ച തെളിവുകള്‍ ഉപയോഗിച്ച് താങ്കള്‍ക്ക് ഇപ്പോള്‍ ലോഗിന്‍ ചെയ്യാവുന്നതാണ്.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[You must choose a new password before you can log in to this site.<br /><br />Please enter your username and your current and new passwords below to change the password for your account.]]></message>
+	<message key="user.login.forgotPassword">താങ്കളുടെ പാസ് വേഡ് മറന്നുവോ?</message>
+	<message key="user.login.loginError">അസാധുവായ യൂസര്‍ നാമം അല്ലെങ്കില്‍ പാസ് വേഡ്.ദയവായി വീണ്ടും ശ്രമിക്കൂ.</message>
+	<message key="user.login">ലോഗിന്‍</message>
+	<message key="user.logIn">ലോഗിന്‍</message>
+	<message key="user.login.lostPassword.confirmationSent">സ്ഥിരീകരണം താങ്കളുടെ ഇ-മെയിലിലേക്ക് അയച്ചിട്ടുണ്ട്.പാസ് വേഡ് പുന:ക്രമീകരിക്കുന്നതിനായി ദയവായി ഇ-മെയിലില്‍ നല്‍കിയിരിക്കുന്ന നിര്‍ദ്ദേശങ്ങള്‍ പാലിക്കുക.</message>
+	<message key="user.login.lostPassword.invalidHash">ക്ഷമിക്കണം,താങ്കള്‍ ക്ലിക്ക് ചെയ്ത ലിങ്ക് ഇപ്പോള്‍ പ്രാബല്യത്തിലില്ല.ദയവായി താങ്കളുടെ പാസ് വേഡ് പുന:ക്രമീകരിച്ച് വീണ്ടും ശ്രമിക്കുക.</message>
+	<message key="user.login.lostPassword.invalidUser">ഈ ഇ-മെയില്‍ അഡ്രസ്സില്‍ ഒരു യൂസറും ഇപ്പോള്‍ നിലവിലില്ല.</message>
+	<message key="user.login.lostPassword.passwordSent">ഒരു പുതിയ പാസ് വേഡ് താങ്കളുടെ ഇ-മെയിലിലേക്ക് അയച്ചിരിക്കുന്നു.പുതിയ പാസ് വേഡ് ഉപയോഗിച്ച് താങ്കള്‍ക്ക് ഈ സൈറ്റില്‍ ലോഗിന്‍ ചെയ്യാവുന്നതാണ്.</message>
+	<message key="user.login.registeredEmail">രജിസ്റ്റര്‍ ചെയ്ത യൂസറിന്റെ ഇ-മെയില്‍</message>
+	<message key="user.login.rememberUsernameAndPassword">എന്റെ യൂസര്‍ നാമവും പാസ് വേഡും ഓര്‍മിക്കുക</message>
+	<message key="user.login.resetPassword">പാസ് വേഡ് പുന:ക്രമീകരിക്കുക</message>
+	<message key="user.logOut">ലോഗ് ഔട്ട്</message>
+	<message key="user.mailingAddress">മെയിലിങ്ങ് അഡ്രസ്സ്</message>
+	<message key="user.masculine">എം</message>
+	<message key="user.middleName">മധ്യനാമം</message>
+	<message key="user.myAccount">എന്റെ അക്കൗണ്ട്</message>
+	<message key="user.name">പേര്</message>
+	<message key="user.other">മറ്റുള്ളവ</message>
+	<message key="user.password">പാസ് വേഡ്</message>
+	<message key="user.repeatPassword">പാസ് വേഡ് ആവര്‍ത്തിക്കുക</message>
+	<message key="user.phone">ഫോണ്‍</message>
+	<message key="user.profile.changePasswordInstructions">താങ്കളുടെ അക്കൗണ്ടിനായുളള പാസ് വേഡ് വ്യത്യാസപ്പെടുത്തുന്നതിനായി നിലവിലുളള പാസ് വേഡും പുതിയ പാസ് വേഡും നല്‍കുക</message>
+	<message key="user.profile.editProfile">പ്രൊഫൈല്‍ ചിട്ടപ്പെടുത്തുക</message>
+	<message key="user.profile.form.emailRequired">സാധുവായ ഒരു ഇ-മെയില്‍ അഡ്രസ്സ് ആവശ്യമാണ്.</message>
+	<message key="user.profile.form.affiliationRequired">അംഗീകരണം ആവശ്യമാണ്.</message>
+	<message key="user.profile.form.firstNameRequired">ഒരു ആദ്യനാമം ആവശ്യമാണ്.</message>
+	<message key="user.profile.form.lastNameRequired">ഒരു അവസാനനാമം ആവശ്യമാണ്.</message>
+	<message key="user.profile.form.newPasswordRequired">താങ്കളുടെ പുതിയ പാസ് വേഡ് നല്‍കണം.</message>
+	<message key="user.profile.form.oldPasswordInvalid">താങ്കള്‍ നിലവില്‍ നല്‍കിയ പാസ് വേഡ് തെറ്റാണ്.</message>
+	<message key="user.profile.form.openAccessNotifications">ഇഷ്യു ഓപ്പണ്‍ ആക്സസ്സ് ഇ-മെയില്‍ നോട്ടിഫിക്കേഷന്‍സ്</message>
+	<message key="user.profile.form.passwordRequired">ഒരു പാസ് വേഡ് ആവശ്യമാണ്.</message>
+	<message key="user.profile.form.profileImage">പ്രൊഫൈല്‍ ചിത്രം</message>
+	<message key="user.profile.form.publishedNotifications">പുതിയ ലക്കം പ്രസിദ്ധീകരിച്ചിട്ടുളള ഇ-മെയില്‍ നോട്ടിഫിക്കേഷന്‍</message>
+	<message key="user.profile.form.urlInvalid">നിര്‍ദ്ദിഷ്ട്ട യു.ആര്‍.എല്‍ പ്രാബല്യത്തിലില്ല.യു.ആര്‍.എല്‍ രണ്ടുതവണപരിശോധിച്ചതിനു ശേഷം വീണ്ടും ശ്രമിക്കുക. (സൂചന:യു.ആര്‍.എല്‍-ന്റെ തുടക്കത്തില്‍ http:// ചേര്‍ക്കുക)</message>
+	<message key="user.profile.form.usernameRequired">ഒരു യൂസര്‍ നാമം ആവശ്യമാണ്.</message>
+	<message key="user.profile.leavePasswordBlank">നിലവിലുളള പാസ് വേഡ് സൂക്ഷിക്കുന്നതിനായി പാസ് വേഡ് ഫീല്‍ഡ് ശൂന്യമായി വിടുക</message>
+	<message key="user.profile.newPassword">പുതിയ പാസ് വേഡ്</message>
+	<message key="user.profile.oldPassword">നിലവിലുളള പാസ് വേഡ്</message>
+	<message key="user.profile">പ്രൊഫൈല്‍</message>
+	<message key="user.profile.publicProfile">യൂസര്‍ പ്രൊഫൈല്‍</message>
+	<message key="user.profile.repeatNewPassword">പുതിയ പാസ് വേഡ് ആവര്‍ത്തിക്കുക</message>
+	<message key="user.register.form.emailExists">തിരഞ്ഞെടുത്ത ഇ-മെയില്‍ അഡ്രസ്സ് മുന്‍പേതന്നെ മറ്റൊരു യൂസര്‍ ഉപയോഗിക്കുന്നതാണ്.</message>
+	<message key="user.register.form.passwordsDoNotMatch">പാസ് വേഡുകള്‍ തമ്മില്‍ ചേരുന്നില്ല.</message>
+	<message key="user.register.form.emailsDoNotMatch">ഇ-മെയില്‍ അഡ്രസ്സ് ഫീല്‍ഡുകള്‍ തമ്മില്‍ ചേരുന്നില്ല</message>
+	<message key="user.register.form.usernameAlphaNumeric">യൂസര്‍ നാമത്തില്‍ ആല്ഫാനൂമറിക് കാരക്ടറുകള്‍,അണ്ടര്‍സ്കോറുകള്‍,ഹൈഫനുകള്‍ എന്നിവ മാത്രമെ പാടുള്ളു.തുടങ്ങുന്നതും അവസാനിക്കുന്നതും ആല്ഫാനൂമറിക് കാരക്ടറിലായിരിക്കണം.</message>
+	<message key="user.register.form.usernameExists">തിരഞ്ഞെടുത്ത യൂസര്‍ നാമം മുന്‍പേതന്നെ മറ്റൊരു യൂസര്‍ ഉപയോഗിക്കുന്നതാണ്.</message>
+	<message key="user.register.passwordLengthRestriction">പാസ് വേഡിന് കുറഞ്ഞത്  {$length} കാരക്ടറുകള്‍ ഉണ്ടായിരിക്കണം</message>
+	<message key="user.register.registerAs">രജിസ്റ്റര്‍ ചെയ്യേണ്ടത്</message>
+	<message key="user.register">രജിസ്റ്റര്‍</message>
+	<message key="user.register.usernameRestriction">യൂസര്‍ നാമത്തില്‍ ലോവര്‍ കേസ് അക്ഷരങ്ങള്‍,അക്കങ്ങള്‍,ഹൈഫന്‍/അണ്ടര്‍സ്കോര്‍ എന്നിവയേ ഉണ്ടാവാന്‍ പാടുള്ളു.</message>
+	<message key="user.role.reader">വായനക്കാരന്‍</message>
+	<message key="user.role.readers">വായനക്കാര്‍</message>
+	<message key="user.role.reviewer">നിരൂപകന്‍</message>
+	<message key="user.role.reviewers">നിരൂപകര്‍</message>
+	<message key="user.role.siteAdmin">സൈറ്റ് അഡ്മിനിസ്ട്രേറ്റര്‍</message>
+	<message key="user.role.siteAdmins">സൈറ്റ് അഡ്മിനിസ്ട്രേറ്ററുകള്‍</message>
+	<message key="user.roles">കടമകള്‍</message>
+	<message key="user.salutation">അഭിസംബോധന</message>
+	<message key="user.sendPassword">സ്ഥിരീകരണം</message>
+	<message key="user.sendPassword.description">എന്റെ യൂസര്‍ നാമവും പാസ് വേഡും ഉള്‍പ്പെടുന്ന ഒരു ഇ-മെയില്‍ എനിയ്ക്ക് അയക്കുക.</message>
+	<message key="user.signature">മുദ്ര</message>
+	<message key="user.title">തലക്കെട്ട്</message>
+	<message key="user.url">യു.ആര്‍.എല്‍</message>
+	<message key="user.userHome">യൂസര്‍ ഹോം</message>
+	<message key="user.username">യൂസര്‍ നാമം</message>
+	<message key="user.workingLanguages">പ്രവര്‍ത്തിക്കുന്ന ഭാഷകള്‍</message>
+	<message key="user.register.completeForm">ഈ പ്രസിദ്ധീകരണത്തില്‍ രജിസ്റ്റര്‍ ചെയ്യുന്നതിനായി ഈ ഫോം പൂരിപ്പിക്കുക.</message>
+</locale>

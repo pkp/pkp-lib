@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the ml_IN (Malayalam) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="ml_IN" full_name = "Malayalam">
+	<!-- Common -->
+	<message key="grid.noItems">ഇനങ്ങള്‍ ഒന്നും തന്നെ ഇല്ല</message>
+	<message key="grid.settings">ക്രമീകരണങ്ങള്‍</message>
+
+	<message key="grid.action.sort">തരംതിരിക്കുക</message>
+	<message key="grid.action.addItem">ഇനം ചേര്‍ക്കുക</message>
+	<message key="grid.action.delete">മായ്ക്കുക</message>
+	<message key="grid.action.remove">നീക്കുക</message>
+	<message key="grid.action.edit">ചിട്ടപ്പെടുത്തുക</message>
+	<message key="grid.action.approve">അംഗീകരിക്കുക</message>
+	<message key="grid.action.approveForReview">അവലോകന ഘട്ടത്തിലേക്ക് സമര്‍പ്പിക്കുക</message>
+	<message key="grid.action.approveForPub">പ്രസിദ്ധീകരിക്കുന്നതിനുള്ള അംഗീകാരം</message>
+	<message key="grid.action.decline">നിരസിക്കുക</message>
+	<message key="grid.action.moreInformation">കൂടുതല്‍ വിവരങ്ങള്‍</message>
+	<message key="grid.action.restoreDefaults">നിശ്ചിതമായവയെ പുനഃസ്ഥാപിക്കുക</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">പ്രവൃത്തികള്‍</message>
+	<message key="grid.columns.institution">സ്ഥാപനം</message>
+	<message key="grid.columns.url">യു.ആര്‍.എല്‍</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">നിര്‍മ്മാതാക്കള്‍</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Masthead</message>
+	<message key="grid.masthead.column.groups">കൂട്ടങ്ങള്‍</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">സംഭാവകന്‍</message>
+	<message key="grid.action.addAuthor">ലേഖകനെ ചേര്‍ക്കുക</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">അവലോകന ഫോം</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">നിശ്ചിത ഘടകങ്ങളാല്‍ തരംതിരിക്കുന്നതിനായി ഈ ഇനത്തില്‍പ്പെട്ട ഫയലുകളെ ഇവിടെ അനുവദിക്കുക.(ഉദാ:അദ്ധ്യായത്തിലൂടെ)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">കലാപ്രവൃത്തി/അനുമതി</message>
+	<message key="grid.artworkFile.file">ഫയല്‍</message>
+	<message key="grid.artworkFile.form.title">കലാപ്രവൃത്തി/അനുമതികള്‍ ചേര്‍ക്കുക</message>
+	<message key="grid.artworkFile.form.metadata">ആര്‍ട്ട് വര്‍ക്ക് മെറ്റാഡേറ്റ</message>
+	<message key="grid.artworkFile.caption">തലക്കെട്ട്</message>
+	<message key="grid.artworkFile.credit">അംഗീകാരം</message>
+	<message key="grid.artworkFile.captionAndCredit">തലക്കെട്ടും അംഗീകാരവും (ഫയലില്‍ ഉള്‍പ്പെട്ടിട്ടില്ലെങ്കില്‍)</message>
+	<message key="grid.artworkFile.copyrightOwner">പകര്‍പ്പവകാശത്തിന്റെ ഉടമ</message>
+	<message key="grid.artworkFile.copyrightContact">ബന്ധപ്പെടാനുളള വിവരം (ലേഖകന്‍/പ്രസാധകന്‍ അല്ലെങ്കില്‍)</message>
+	<message key="grid.artworkFile.permissionTerms">അനുമതി ഉടമ്പടി</message>
+	<message key="grid.artworkFile.permissionForm">അനുമതി ഫോം</message>
+	<message key="grid.artworkFile.type">ഇനം</message>
+	<message key="grid.artworkFile.type.table">പട്ടിക</message>
+	<message key="grid.artworkFile.type.figure">ഫിഗര്‍</message>
+	<message key="grid.artworkFile.placement">ബുക്ക് ചെയ്യപ്പെട്ട ഉദ്യോഗനിയമനം</message>
+	<message key="grid.artworkFile.placementDetail">പട്ടിക/ഫിഗര്‍ നം.</message>
+	<message key="grid.artworkFile.contactAuthor">ലേഖകനെ കോണ്‍ടാക്റ്റ് ചെയ്യുക</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">ഫയലുകള്‍</message>
+	<message key="grid.libraryFiles.submission.title">സബ്മിഷന്‍ ലൈബ്രറി</message>
+	<message key="grid.libraryFiles.editorial.title">എഡിറ്റോറിയല്‍ ലൈബ്രറി</message>
+	<message key="grid.libraryFiles.review.title">റിവ്യൂ ലൈബ്രറി</message>
+	<message key="grid.libraryFiles.production.title">പ്രൊഡക്ഷന്‍ ലൈബ്രറി</message>
+	<message key="grid.libraryFiles.productionTemplate.title">പ്രൊഡക്ഷന്‍ ടെംപ്ലേറ്റ് ലൈബ്രറി</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">സബ്മിഷന്‍ ചെക്ക് ലിസ്റ്റ്</message>
+	<message key="grid.submissionChecklist.column.checklistItem">ചെക്ക് ലിസ്റ്റ് ഇനം</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">പേര്</message>
+	<message key="author.users.contributor.email">ഇ-മെയില്‍</message>
+	<message key="author.users.contributor.role">റോള്‍</message>
+	<message key="author.users.contributor.principalContact">പ്രഥമ കോണ്‍ടാക്റ്റ്</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">നിരൂപകന്റെ അനുബന്ധങ്ങള്‍</message>
+	<message key="grid.reviewAttachments.add">അവലോകനത്തിലേക്ക് അനുബന്ധങ്ങള്‍ ചേര്‍ക്കുക</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">അദ്ധ്യായങ്ങള്‍</message>
+</locale>

@@ -26,12 +26,8 @@
 	min-height: 400px;
 }
 
-.pkp_structure_foot, .pkp_structure_subfoot {
+.pkp_structure_footer {
 	background-color: #c1bbaf;
-}
-
-.pkp_structure_subfoot {
-	border-top: 1px dotted #fff;
 }
 
 .pkp_structure_masthead {

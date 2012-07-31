@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/gl_ES/common.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. Para completar a información  cómpre ver o arquivo docs/COPYING.
+  *
+  * Localization strings for the gl_ES (Galego (Galiza)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="gl_ES" full_name = "GAlego (Galiza)">
+	<message key="about.aboutSite">Sobre o sitio</message>
+	<message key="about.contact">Contacto</message>
+	<message key="about.contact.email">Correo-e</message>
+	<message key="about.contact.fax">Fax</message>
+	<message key="about.contact.phone">Teléfono</message>
+	<message key="about.contact.principalContact">Contacto principal</message>
+	<message key="about.contact.supportContact">Contacto de suporte</message>
+	<message key="about.other">Outro</message>
+	<message key="about.people">Persoas</message>
+	<message key="about.policies">Políticas</message>
+	<message key="about.siteMap">Mapa do sitio</message>
+	<message key="announcement.announcements">Anuncios</message>
+	<message key="announcement.announcementsHome">Anuncios</message>
+	<message key="announcement.moreAnnouncements">Máis Anuncios...</message>
+	<message key="announcement.noneExist"> Non foi publicado anuncio nengún.</message>
+	<message key="announcement.posted">Enviado</message>
+	<message key="announcement.viewLink">Máis...</message>
+	<message key="announcement.view">Ver Anuncio</message>
+	<message key="common.copy">Copiar</message>
+	<message key="common.preview">Previsualizar</message>
+	<message key="common.activate">Activar</message>
+	<message key="common.deactivate">Desactivar</message>
+	<message key="common.action">Acción</message>
+	<message key="common.active">Activo</message>
+	<message key="common.add">Engadir</message>
+	<message key="common.addSelf">Engadirse</message>
+	<message key="common.all">Todos/as</message>
+	<message key="common.alphaList">A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z</message>
+	<message key="common.alreadyAssigned">Asignado</message>
+	<message key="common.altText">Texto alternativo</message>
+	<message key="common.altTextInstructions">Por favor insire un texto alternativo para esta imaxe para asegurar a accesibilidade a usuarios con navegadores de só-texto ou con dispositivos de axuda</message>
+	<message key="common.and">y</message>
+	<message key="common.applyAction">Continuar</message>
+	<message key="common.assign">Asignar</message>
+	<message key="common.assigned">Asignado</message>
+	<message key="common.back">Atrás</message>
+	<message key="common.between">entre</message>
+	<message key="common.cancel">Cancelar</message>
+	<message key="common.cancelled">Cancelado</message>
+	<message key="common.captchaField.altText">Imaxe de validación</message>
+	<message key="common.captchaField.badCaptcha">Os caracteres inseridos non coinciden cos da imaxe. Por favor, comproba os caracteres e volve a intentalo.</message>
+	<message key="common.captchaField.description">Por favor, introduce as letras como aparecen na imaxe superior.</message>
+	<message key="common.captchaField">Validación</message>
+	<message key="common.changesSaved">Gardáronse os cambios.</message>
+	<message key="common.chooseOne">Selecciona un</message>
+	<message key="common.close">Perrar</message>
+	<message key="common.closeWindow">Pechar fiestra</message>
+	<message key="common.complete">Completar</message>
+	<message key="common.completed">Completado</message>
+	<message key="common.continue">Continuar</message>
+	<message key="common.country">País</message>
+	<message key="common.create">Crear</message>
+	<message key="common.dateCompleted">Data acabamento</message>
+	<message key="common.date">Data</message>
+	<message key="common.dateModified">Data de modificación</message>
+	<message key="common.dateRequested">Data solicitude</message>
+	<message key="common.dateSubmitted">Data de envío</message>
+	<message key="common.dateUploaded">Data de envío do ficheiro</message>
+	<message key="common.day">Día</message>
+	<message key="common.default">Por defecto</message>
+	<message key="common.delete">Borrar</message>
+	<message key="common.deleteSelection">Eliminar selección</message>
+	<message key="common.description">Descrición</message>
+	<message key="common.disabled">Desactivado</message>
+	<message key="common.discipline">Disciplina</message>
+	<message key="common.done">Hecho</message>
+	<message key="common.download">Descargar</message>
+	<message key="common.edit">Editar</message>
+	<message key="common.enabled">Activo</message>
+	<message key="common.error.databaseError">Erro na base de dados: {$error}</message>
+	<message key="common.error.databaseErrorUnknown">Erro descoñecido na conexión á base de dados.</message>
+	<message key="common.error.framesRequired"><![CDATA[Esta páxina usa marcos. <a href="{$url}">Fai clic aquí</a> para acceder á versión sen marcos.]]></message>
+	<message key="common.event">Evento</message>
+	<message key="common.export">Exportar</message>
+	<message key="common.file">Ficheiro</message>
+	<message key="common.fileName">Nome do ficheiro</message>
+	<message key="common.fileSize">Tamaño do ficheiro</message>
+	<message key="common.fileType">Tipo de ficheiro</message>
+	<message key="common.height">Altura</message>
+	<message key="common.homePageHeaderLogo.altText">Logo do Título (Páxina de Inicio)</message>
+	<message key="common.hour">Hora</message>
+	<message key="common.id">ID</message>
+	<message key="common.import">Importar</message>
+	<message key="common.initiate">Iniciar</message>
+	<message key="common.inProgress">En progreso</message>
+	<message key="common.keywords">Palabras clave</message>
+	<message key="common.language">Idioma</message>
+	<message key="common.languages">Idiomas</message>
+	<message key="common.mailingAddress">Enderezo postal</message>
+	<message key="common.minute">Minuto(s)</message>
+	<message key="common.modify">Modificar</message>
+	<message key="common.month">Mes</message>
+	<message key="common.noneAssigned">Nengún asignado</message>
+	<message key="common.none">Nengún</message>
+	<message key="common.no">No</message>
+	<message key="common.notApplicable">Non aplica</message>
+	<message key="common.notApplicableShort">N/A</message>
+	<message key="common.notAvailable">Non dispoñibel</message>
+	<message key="common.note">Nota</message>
+	<message key="common.notes">Notas</message>
+	<message key="common.notify">Notificar</message>
+	<message key="common.off">Off</message>
+	<message key="common.on">On</message>
+	<message key="common.options">Opcións</message>
+	<message key="common.order">Ordenar</message>
+	<message key="common.originalFileName">Nome do ficheiro orixinal</message>
+	<message key="common.or">o</message>
+	<message key="common.other">Outro</message>
+	<message key="common.pageHeaderLogo.altText">Logo do Cabezallo da Páxina</message>
+	<message key="common.plugin">Plugin</message>
+	<message key="common.publisher">Editor</message>
+	<message key="common.record">Rexistro</message>
+	<message key="common.related">Relacionado</message>
+	<message key="common.remove">Eliminar</message>
+	<message key="common.removeSelection">Eliminar selección</message>
+	<message key="common.replaced">Substituido</message>
+	<message key="common.replaceFile">Substituir ficheiro</message>
+	<message key="common.requiredField">* Campos obrigatorios</message>
+	<message key="common.required">Obrigatorio</message>
+	<message key="common.saveAndContinue">Gardar e continuar</message>
+	<message key="common.saveAndEmail">Gardar e enviar</message>
+	<message key="common.save">Gardar</message>
+	<message key="common.search">Procurar</message>
+	<message key="common.second">Segundo(s)</message>
+	<message key="common.selectAll">Seleccionar todo</message>
+	<message key="common.selectNone">Deseleccionar todo</message>
+	<message key="common.select">Seleccionar</message>
+	<message key="common.size">Tamaño</message>
+	<message key="common.source">Fonte</message>
+	<message key="common.status">Estado</message>
+	<message key="common.subject">Asunto</message>
+	<message key="common.suggest">Suxerir</message>
+	<message key="common.title">Título</message>
+	<message key="common.top">Principio</message>
+	<message key="common.type">Tipo</message>
+	<message key="common.uninitiated">Sen iniciar</message>
+	<message key="common.untitled">Sen título</message>
+	<message key="common.updated">Actualizado</message>
+	<message key="common.uploadedFile">Ficheiro subido</message>
+	<message key="common.upload">Subir</message>
+	<message key="common.up">Arriba</message>
+	<message key="common.url">URL</message>
+	<message key="common.user">Usuario/a</message>
+	<message key="common.view">Ver</message>
+	<message key="common.weeks">semanas</message>
+	<message key="common.width">Largo</message>
+	<message key="common.year">Ano</message>
+	<message key="common.yes">Sí</message>
+	<message key="debug.databaseQueries">Número de consultas á base de dados</message>
+	<message key="debug.executionTime">Páxina xerada en</message>
+	<message key="debug.memoryUsage">Uso de Memoria:</message>
+	<message key="debug.notes.localeListLoad">Listaxe de sitios "{$localeList}" cargada dende XML</message>
+	<message key="debug.notes.localeLoad">Ficheiro de traducións "{$localeFile}" cargado dende XML</message>
+	<message key="debug.notes.missingLocaleKey">Non se atopa a clave de sitios "{$key}".</message>
+	<message key="debug.notes">Notas:</message>
+	<message key="email.addAttachment">Engadir adxunto</message>
+	<message key="email.addBccRecipient">Engadir CCO</message>
+	<message key="email.addCcRecipient">Engadir CC</message>
+	<message key="email.addToRecipient">Engadir destinataria/o</message>
+	<message key="email.attachments">Adxuntos</message>
+	<message key="email.bcc">CCO</message>
+	<message key="email.bccSender">Enviar unha copia desta mensaxe ao meu enderezo ({$address})</message>
+	<message key="email.body">Corpo</message>
+	<message key="email.cc">CC</message>
+	<message key="email.compose">Enviar correo-e</message>
+	<message key="email.compose.tooManyRecipients">Esta mensaxe ten destinatarios de máis.</message>
+	<message key="email.compose.tooSoon">Estás intentar enviar unha mensaxe  antes do tempo que se precisa despois da túa última mensaxe enviada. Agarda un intre antes de enviar unha nova mensaxe.</message>
+	<message key="email.email">Correo-e</message>
+	<message key="email.from">De</message>
+	<message key="email.invalid">O enderezo {$email} non é axeitado.</message>
+	<message key="email.multipart">Esta é unha mensaxe multi-partes en formato MIME.</message>
+	<message key="email.recipient">Para</message>
+	<message key="email.recipients">Para</message>
+	<message key="email.sender">Remitente</message>
+	<message key="email.send">Enviar</message>
+	<message key="email.skip">Non enviar correo-e</message>
+	<message key="email.subject">Asunto</message>
+	<message key="email.to">Para</message>
+	<message key="form.contains">Contén</message>
+	<message key="form.errorsOccurred">Sucederonse erros ao procesar este formulario</message>
+	<message key="form.formLanguage.description">Para inserir a información seguinte noutros idiomas adicionais, escolle primeiro o idioma.</message>
+	<message key="form.formLanguage">Idioma do formulario</message>
+	<message key="form.is">gl</message>
+	<message key="form.postRequired">O formulario non foi enviado con éxito.</message>
+	<message key="form.required">(* Obrigatorio)</message>
+	<message key="form.resubmit">Reenviar</message>
+	<message key="form.saveToUpload">Usa 'Gardar' para subir o ficheiro.</message>
+	<message key="form.send">Enviar</message>
+	<message key="form.submit">Enviar</message>
+	<message key="help.contents">Contidos</message>
+	<message key="help.help">Axuda</message>
+	<message key="help.helpIndex">Índice de axuda</message>
+	<message key="help.matchesFound">{$matches} coincidencias atopadas</message>
+	<message key="help.noMatchingTopics">No se atoparon temas de axuda.</message>
+	<message key="help.relatedTopics">Temas relacionados</message>
+	<message key="help.searchFor">Procurar temas de axuda sobre</message>
+	<message key="help.searchResultsFor">Resultados para</message>
+	<message key="help.searchResults">Procurar resultados</message>
+	<message key="help.search">Procurar ayuda</message>
+	<message key="help.toc">Táboa de contidos</message>
+	<message key="help.upALevel">Subir un nivel</message>
+	<message key="icon.checked.alt">Marcado</message>
+	<message key="icon.comment.alt">Comentario</message>
+	<message key="icon.delete.alt">Borrar</message>
+	<message key="icon.edit.alt">Editar</message>
+	<message key="icon.folder.alt">Directorio</message>
+	<message key="icon.font_large.alt">Grande</message>
+	<message key="icon.font_medium.alt">Mediana</message>
+	<message key="icon.font_small.alt">Pequena</message>
+	<message key="icon.info.alt">Información</message>
+	<message key="icon.letter.alt">Letra</message>
+	<message key="icon.mail.alt">Correo</message>
+	<message key="icon.unchecked.alt">Sen marcar</message>
+	<message key="icon.view.alt">Ver</message>
+	<message key="locale.primary">Locale primario</message>
+	<message key="locale.supported">Locales suportados</message>
+	<message key="navigation.about">Sobre...</message>
+	<message key="navigation.browse">Navegar</message>
+	<message key="navigation.browseByTitle">Por título</message>
+	<message key="navigation.home">Inicio</message>
+	<message key="navigation.infoForReaders">Para lectoras/es</message>
+	<message key="navigation.infoForReaders.long">Información para lectoras/es</message>
+	<message key="navigation.items">{$from} - {$to} de {$total} elementos</message>
+	<message key="navigation.login">Ingresar</message>
+	<message key="navigation.nextPage"><![CDATA[>>]]></message>
+	<message key="navigation.nextStep">Seguinte paso</message>
+	<message key="navigation.previousPage"><![CDATA[<<]]></message>
+	<message key="navigation.previousStep">Paso anterior</message>
+	<message key="navigation.register">Rexistro</message>
+	<message key="navigation.search">Procurar</message>
+	<message key="navigation.stepNumber">Paso {$step}</message>
+	<message key="navigation.userHome">Área Persoal</message>
+	<message key="navigation.user">Usuario/a</message>
+	<message key="search.abstract">Resumo</message>
+	<message key="search.allFields">Todos</message>
+	<message key="search.coverage">Cobertura</message>
+	<message key="search.date">Data</message>
+	<message key="search.dateFrom">Dende</message>
+	<message key="search.dateTo">Até</message>
+	<message key="search.discipline">Disciplina(s)</message>
+	<message key="search.fullText">Texto completo</message>
+	<message key="search.indexTerms">Termos de indexación</message>
+	<message key="search.matchAll">Coincidencia en todas as categorías</message>
+	<message key="search.noKeywordError">Debe introducir alomenos un termo de busca.</message>
+	<message key="search.noResults">Non hai resultados</message>
+	<message key="search.operator.and">e</message>
+	<message key="search.operator.not">non</message>
+	<message key="search.operator.or">ou</message>
+	<message key="search.reviseSearch">Revisar busca</message>
+	<message key="search.searchAllCategories">Procurar en todas as categorías</message>
+	<message key="search.searchCategories">Procurar categorías</message>
+	<message key="search.searchResults">Procurar resultados</message>
+	<message key="search.subject">Palabra(s) clave(s)</message>
+	<message key="search.titleIndex">Consultar índice de títulos</message>
+	<message key="search.title">Título</message>
+	<message key="search.typeMethodApproach">Tipo (método/enfoque/abordaxe)</message>
+	<message key="notification.settings">Configuración de notificacións</message>
+	<message key="notification.settingsDescription">Selecciona os eventos do sistema sobre os que queres ser informado. Des-seleccionar un ítem evita que aparezan as notificacións na área de notificacións.</message>
+	<message key="notification.subscribe">Subscribirse</message>
+	<message key="notification.subscribeError">O teu enderezo de correo electrónico xa está subscrito á notificacións.</message>
+	<message key="notification.subscribeSuccess">Foi  enviado  un e-mail ao enderezo que apontaches. Por favor, fai clic na ligazón de confirmación que aparece no email para engadírte ti mesmo á  lista de correo.</message>
+	<message key="notification.reminderError">Houbo un erro enviado  o teu contrasinal, por favor comproba que escribiches ben o teu enderezo de correo electrónico.</message>
+	<message key="notification.reminderSent">O teu novo contrasinal foi enviado ao enderezo de correo electrónico proporcionado.</message>
+	<message key="notification.unsubscribe">Des-subscribirse</message>
+	<message key="notification.unsubscribeDescription">Introduce o teu enderezo de correo electrónico e o teu contrasinal para darte de baixa da subscrición ás notificacións vía correo electrónico. Se non lembras o teu contrasinal, deixa o campo do contrasinal baleiro e enviaráchese un novo contrasinal ao teu correo electrónico.</message>
+	<message key="notification.unsubscribeError">Houbo un erro ao darte de baixa da subscrición. Comproba que o teu enderezo de correo electrónico e o teu contrasinal son correctos.</message>
+	<message key="notification.unsubscribeSuccess">Foi correctamente dado de baixa da subscrición.</message>
+	<message key="common.re">Re:</message>
+	<message key="common.manage">Administrar</message>
+	<message key="common.noComments">Sen comentarios</message>
+	<message key="form.startsWith">Comeza con</message>
+	<message key="notification.allow">Permitir que este tipo de notificacións aparezan na miña área de notificacións</message>
+	<message key="notification.confirmError">Houbo un erro confirmando a túa subscrición.</message>
+	<message key="notification.confirmSuccess">Fuches correctamente subscrito.</message>
+	<message key="notification.email">Enviarme un email para ese tipo de notificacións.</message>
+	<message key="notification.location">Ir ao web</message>
+	<message key="notification.mailList">Listax de correo de notificacións</message>
+	<message key="notification.mailList.emailInvalid">Introduce un enderezo de correo válido.</message>
+	<message key="notification.mailList.privacyProtection">Política de protección de privacidade</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[<a href="{$subscribeUrl}">Subscribir</a> a contido protexido.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Enviar</a> un artigo]]></message>
+	<message key="notification.mailList.register">Podeste rexistrar con este sitio para...</message>
+	<message key="notification.mailList.review"><![CDATA[Participar no proceso de <a href="{$reviewUrl}">revisión por pares</a>]]></message>
+	<message key="notification.noneExist">Neste momento non tes notificacións.</message>
+	<message key="notification.notification">Notificación</message>
+	<message key="notification.notifications">Notificacións</message>
+	<message key="notification.notificationsNew">({$numNew} novo)</message>
+	<message key="notification.notificationsDescription"><![CDATA[Tes {$unreadCount} notificacións sen ler e {$readCount} lidas.  <a href="{$settingsUrl}">Fai clic aquí</a> para cambiar a configuración das túas notificacións.]]></message>
+	<message key="common.ccLicense"><![CDATA[<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Esta obra está baixo unha licenza <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 </a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Esta obra está baixo unha licenza <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0 </a>.
+	</div>]]></message>
+	<message key="common.uploadFailed">Non se puido subir o ficheiro. Por favor, tentao outra vez ou contacta co Administrador se o problema persiste.</message>
+	<message key="navigation.dashboard">Panel de control</message>
+	<message key="common.false">Falso</message>
+	<message key="common.ok">OK</message>
+	<message key="common.true">Verdadeiro</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Non formas parte deste grupo de usuarios.</message>
+	<message key="common.disable">Desactivar</message>
+	<message key="common.enable">Activar</message>
+	<message key="common.fullscreen">Pantalla completa</message>
+	<message key="common.fullscreenOff">Sair de pantalla completa</message>
+	<message key="common.pluginEnabled">O plugin "{$pluginName}" foi activado.</message>
+	<message key="common.pluginDisabled">O plugin "{$pluginName}" foi desactivado.</message>
+	<message key="common.refresh">Recargar</message>
+	<message key="common.loading">Cargando ...</message>
+</locale>

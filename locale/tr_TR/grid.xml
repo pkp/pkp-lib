@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/tr_TR/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the tr_TR (Turkish) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="tr_TR" full_name = "Turkish">
+	<!-- Common -->
+	<message key="grid.noItems">Madde yok</message>
+	<message key="grid.settings">Ayarlar</message>
+
+	<message key="grid.action.sort">Sırala</message>
+	<message key="grid.action.addItem">Madde ekle</message>
+	<message key="grid.action.delete">Sil</message>
+	<message key="grid.action.remove">Kaldır</message>
+	<message key="grid.action.edit">Düzelt</message>
+	<message key="grid.action.approve">Onayla</message>
+	<message key="grid.action.approveForReview">İnceleme sürecini başlat</message>
+	<message key="grid.action.approveForPub">Yayın için onayla</message>
+	<message key="grid.action.decline">Geri çevir</message>
+	<message key="grid.action.moreInformation">Daha fazla bilgi</message>
+	<message key="grid.action.restoreDefaults">Varsayılan ayarlara dön</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Eylemler</message>
+	<message key="grid.columns.institution">Kurum</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Sponsor</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Yürütücüler</message>
+	<message key="grid.masthead.column.groups">Gruplar</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Katılımcı</message>
+	<message key="grid.action.addAuthor">Yazar Ekle</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Değerlendirme formları</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Kabul edilebilir bu tür dosyalar bileşenler tarafından sıralı olmalı (Ör. bölüm tafafından)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Artwork w/Permissions</message>
+	<message key="grid.artworkFile.file">Dosya</message>
+	<message key="grid.artworkFile.form.title">Add Artwork w/Permissions</message>
+	<message key="grid.artworkFile.form.metadata">Sanat metadatası</message>
+	<message key="grid.artworkFile.caption">Başlık</message>
+	<message key="grid.artworkFile.credit">Kredi</message>
+	<message key="grid.artworkFile.captionAndCredit">Başlık ve kredi (Eğer dosya içinde yoksa)</message>
+	<message key="grid.artworkFile.copyrightOwner">Telif Sahibi</message>
+	<message key="grid.artworkFile.copyrightContact">İletişim bilgisi (eğer yazar/yayıncı değilse)</message>
+	<message key="grid.artworkFile.permissionTerms">İzin şartları</message>
+	<message key="grid.artworkFile.permissionForm">İzin formu</message>
+	<message key="grid.artworkFile.type">Tür</message>
+	<message key="grid.artworkFile.type.table">Tablo</message>
+	<message key="grid.artworkFile.type.figure">Şekil</message>
+	<message key="grid.artworkFile.placement">Kitap içine yerleştirme</message>
+	<message key="grid.artworkFile.placementDetail">Tablo/Şekil. No.</message>
+	<message key="grid.artworkFile.contactAuthor">İletişim kurulacak yazar</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Dosyalar</message>
+	<message key="grid.libraryFiles.submission.title">Gönderi Kütüphanesi</message>
+	<message key="grid.libraryFiles.editorial.title">Editör Kütüphanesi</message>
+	<message key="grid.libraryFiles.review.title">İnceleme kütüphanesi</message>
+	<message key="grid.libraryFiles.production.title">Ürün kütüphanesi</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Ürün şablon kütüphanesi</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Gönderi Kontrol listesi</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Çek edilecek kontrol listesi</message>
+
+	<!-- Submission Contributors -->
+	<message key="author.users.contributor.name">İsim</message>
+	<message key="author.users.contributor.email">E-posta</message>
+	<message key="author.users.contributor.role">Görevi</message>
+	<message key="author.users.contributor.principalContact">Birincil İletişim</message>
+
+	<!-- Review Attachments -->
+	<message key="grid.reviewAttachments.title">Hakem Eklentileri</message>
+	<message key="grid.reviewAttachments.add">Gözden geçirilecek "ek" ekle</message>
+
+	<!-- Chapters -->
+	<message key="grid.chapters.title">Bölümler</message>
+</locale>

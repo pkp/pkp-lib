@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
@@ -22,14 +22,16 @@
 	<message key="installer.clientCharsetInstructions">Hizmet vericiden veri gönderme ve almak için şifreleme.</message>
 	<message key="installer.configFileError"><![CDATA[The configuration file <tt>config.inc.php</tt> mevcut değil veya okunabilir değil.]]></message>
 	<message key="installer.connectionCharset">Bağlantı öğe kümesi</message>
+	<message key="installer.connectionCharsetInstructions">The encoding to use for data sent to and received from the database. This should be the same as the client character set. Note that this capability is only supported with MySQL >= 4.1.1 or PostgreSQL >= 7.1. Select "Not applicable" if your database server does not meet these requirements.</message>
 	<message key="installer.contentsOfConfigFile">Konfigürasyon dosyasının içerikleri </message>
 	<message key="installer.createDatabase">Yeni veritabanı oluştur </message>
 	<message key="installer.createDatabaseInstructions">Bu seçeneği kullanmak için veritabanı sisteminiz uzaktan kumandalı veritabanı sistemini desteklemeli ve kullanıcı hesabınız yeni veritabanı oluşturmak için uygun giriş izinlerine sahip olmalıdır. Eğer bu seçenek kullanıldığında yükleme başarısız olursa veritabanını sunucunuzda manuel olarak oluşturun ve bu seçenek işlemediğinde yükleyiciyi tekrar çalıştırın. </message>
 	<message key="installer.databaseCharset">Veritabanı öğe kümesi</message>
-	<message key="installer.databaseDriver">Veritabanı sürücüsü</message>
 	<message key="installer.databaseDriverInstructions"><![CDATA[<strong>Köşeli parentez içinde belirtilen veritabanı sürücüleri, gerekli olan PHP uzantısını göstermez ve eğer o seçilirse yüklenme muhtemelen başarısız olacaktır. </strong><br />yukarıda belirtilen desteklenmeyen veritabanı sürücülerinden her hangi biri yalnızca akademik amaçlar için listelenmiştir ve muhtemelen işlemeyecektir.]]></message>
-	<message key="installer.databaseHost">Ana makine</message>
+	<message key="installer.databaseDriver">Veritabanı sürücüsü</message>
 	<message key="installer.databaseHostInstructions">TCP/IP yerine alan soketleri kullanarak bağlantı kurmak için ana makine adını boş bırakın. Bu durum MySQL ile gerekli değildir çünkü 'yerel makine' girilirse o otomatik olarak soketleri kullanacaktır, ancak PostgreSQL gibi diğer bazı veritabanı sunucuları ile kullanılması gerekir. </message>
+	<message key="installer.databaseHost">Ana makine</message>
+	<message key="installer.databaseHostInstructions">Leave the hostname blank to connect using domain sockets instead of over TCP/IP. This is not necessary with MySQL, which will automatically use sockets if "localhost" is entered, but is required with some other database servers such as PostgreSQL.</message>
 	<message key="installer.databaseName">Veritabanı adı</message>
 	<message key="installer.databasePassword">Şifre</message>
 	<message key="installer.databaseSettings">Veritabanı Ayarları </message>
@@ -50,17 +52,24 @@
 	<message key="installer.form.separateMultiple">Çoklu değerleri tırnak işareti ile ayırın.</message>
 	<message key="installer.form.usernameAlphaNumeric">Yöneticinin kullanıcı adı yalnızca alfanümerik karakterleri, altçizgileri ve tire işaretlerini içerebilir ve mutlaka bir alfanümerik karakter ile başlayıp sonlanmalıdır.</message>
 	<message key="installer.form.usernameRequired">Yönetici hesabı için bir kullanıcı adı gereklidir.</message>
+	<message key="installer.installationWrongPhp"><![CDATA[<br/><strong>WARNING: Your current version of PHP does not meet the minimum requirements for installation. It is recommended to upgrade to a more recent release of PHP.</strong>]]></message>
 	<message key="installer.installErrorsOccurred">Yükleme sırasında hata oluştu. </message>
+	<message key="installer.installerSQLStatements">SQL statements for installation</message>
 	<message key="installer.installFileError"><![CDATA[The installation file <tt>dbscripts/xml/install.xml</tt> mevcut değil veya okunabilir değil.]]></message>
 	<message key="installer.installFilesDirError">Yüklenen dosyalara özgü dizin mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.installParseDBFileError"><![CDATA[Error parsing the database installation file <tt>{$file}</tt>.]]></message>
+	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Error parsing the email template file <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Kurulum dili yeri</message>
+	<message key="installer.locale.maybeIncomplete">Marked locales may be incomplete.</message>
 	<message key="installer.localeSettings">Yerel Ayarlar</message>
+	<message key="installer.manualInstall">Elle Yükleme</message>
 	<message key="installer.miscSettings">Diğer Ayarlar</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Bu sitede <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> meta veri toplama protokolüne uygun olarak meta verileri tanımlamak için tekil bir tanımlama kullanılır.]]></message>
 	<message key="installer.oaiRepositoryId">OAI depo belirleyici</message>
+	<message key="installer.pleaseUpgradeAfterManualInstall">Please run the upgrade tool once you've installed your database. Execute 'php tools/upgrade.php upgrade' from within the main installation directory for this purpose.</message>
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
 	<message key="installer.skipFilesDir">Gerekli alt dizinleri oluşturmayın (yalnızca manuel yükleme için yaralıdır) </message>
+	<message key="installer.manualUpgrade">Manuel olarak yükseltme</message>
 </locale>

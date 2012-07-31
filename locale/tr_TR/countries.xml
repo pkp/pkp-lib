@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 <!--
   * locale/tr_TR/countries.xml
@@ -12,6 +12,7 @@
   -->
 <countries>
 	<country name="Afganistan" code="AF"/>
+	<country name="Åland Adaları" code="AX"/>
 	<country name="Arnavutluk" code="AL"/>
 	<country name="Cezayir" code="DZ"/>
 	<country name="Amerikan Samoası" code="AS"/>
@@ -235,8 +236,8 @@
 	<country name="Uganda" code="UG"/>
 	<country name="Ukrayna" code="UA"/>
 	<country name="Birleşik Arap Emirlikleri" code="AE"/>
-	<country name="Birleşik Krallık" code="GB"/>
-	<country name="Birleşik Devletler" code="US"/>
+	<country name="İngiltere" code="GB"/>
+	<country name="ABD" code="US"/>
 	<country name="Minor Outlying Adaları Birleşik Devletleri" code="UM"/>
 	<country name="Uruguay" code="UY"/>
 	<country name="Özbekistan" code="UZ"/>
@@ -250,5 +251,4 @@
 	<country name="Yemen" code="YE"/>
 	<country name="Zambiya" code="ZM"/>
 	<country name="Zimbabve" code="ZW"/>
-	<country name="Åland Adaları" code="AX"/>
 </countries>

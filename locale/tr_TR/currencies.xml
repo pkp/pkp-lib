@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
@@ -16,13 +16,17 @@
 	<currency name="Amerikan Doları" code_alpha="USD" code_numeric="840" />
 	<currency name="Euro" code_alpha="EUR" code_numeric="978" />
 	<currency name="Kanada Doları" code_alpha="CAD" code_numeric="124" />
+	<currency name="BAE dirhem" code_alpha="AED" code_numeric="784" />
 	<currency name="Afgani" code_alpha="AFN" code_numeric="971" />
-	<currency name="Cezayir Dinarı" code_alpha="DZD" code_numeric="12" />
-	<currency name="Arjantin Pesosu" code_alpha="ARS" code_numeric="32" />
-	<currency name="Ermeni Dirhemi" code_alpha="AMD" code_numeric="51" />
+	<currency name="Lek" code_alpha="ALL" code_numeric="008" />
+	<currency name="Ermeni Dirhemi" code_alpha="AMD" code_numeric="051" />
+	<currency name="Netherlands Antillian Guikder" code_alpha="ANG" code_numeric="532" />
+	<currency name="Kwanza" code_alpha="AOA" code_numeric="973" />
+	<currency name="Arjantin Pesosu" code_alpha="ARS" code_numeric="032" />
 	<currency name="Aruban Guldeni" code_alpha="AWG" code_numeric="533" />
 	<currency name="Avustralya Doları" code_alpha="AUD" code_numeric="36" />
-	<currency name="Azerbaycan Manat" code_alpha="AZM" code_numeric="31" />
+	<currency name="Azerbaycan Manat" code_alpha="AZM" code_numeric="944" />
+	<currency name="Değiştirilebilir Paralar" code_alpha="BAM" code_numeric="977" />
 	<currency name="Bahama Doları" code_alpha="BSD" code_numeric="44" />
 	<currency name="Bahreyn Dinarı" code_alpha="BHD" code_numeric="48" />
 	<currency name="Baht" code_alpha="THB" code_numeric="764" />
@@ -45,7 +49,6 @@
 	<currency name="Şili Pezosu" code_alpha="CLP" code_numeric="152" />
 	<currency name="Kolombiya Pesosu" code_alpha="COP" code_numeric="170" />
 	<currency name="Komoro Frangı" code_alpha="KMF" code_numeric="174" />
-	<currency name="Değiştirilebilir Paralar" code_alpha="BAM" code_numeric="977" />
 	<currency name="Cordoba Oro" code_alpha="NIO" code_numeric="558" />
 	<currency name="Kostarika Kolonu" code_alpha="CRC" code_numeric="188" />
 	<currency name="Hırvat Kunası" code_alpha="HRK" code_numeric="191" />
@@ -87,7 +90,6 @@
 	<currency name="Kroon" code_alpha="EEK" code_numeric="233" />
 	<currency name="Kuveyt Dinarı" code_alpha="KWD" code_numeric="414" />
 	<currency name="Kwacha" code_alpha="MWK" code_numeric="454" />
-	<currency name="Kwanza" code_alpha="AOA" code_numeric="973" />
 	<currency name="Kyat" code_alpha="MMK" code_numeric="104" />
 	<currency name="Lari" code_alpha="GEL" code_numeric="981" />
 	<currency name="Litvanya Latsı" code_alpha="LVL" code_numeric="428" />
@@ -117,10 +119,9 @@
 	<currency name="Nakfa" code_alpha="ERN" code_numeric="232" />
 	<currency name="Namibya Doları" code_alpha="NAD" code_numeric="516" />
 	<currency name="Nepal Rublesi" code_alpha="NPR" code_numeric="524" />
-	<currency name="Netherlands Antillian Guikder" code_alpha="ANG" code_numeric="532" />
 	<currency name="New Israeli Sheqel" code_alpha="ILS" code_numeric="376" />
 	<currency name="Yeni Tayvan Doları" code_alpha="TWD" code_numeric="901" />
-	<currency name="Yeni Türk Lirası" code_alpha="TRY" code_numeric="949" />
+	<currency name="Türk Lirası" code_alpha="TL" code_numeric="949" />
 	<currency name="Yeni Zellanda Doları" code_alpha="NZD" code_numeric="554" />
 	<currency name="Ngultrum" code_alpha="BTN" code_numeric="64" />
 	<currency name="Kuzey Kore Vonu" code_alpha="KPW" code_numeric="408" />
@@ -168,7 +169,6 @@
 	<currency name="Trinidad And Tobago Dollar" code_alpha="TTD" code_numeric="780" />
 	<currency name="Tugrik" code_alpha="MNT" code_numeric="496" />
 	<currency name="Tunus Dinarı" code_alpha="TND" code_numeric="788" />
-	<currency name="BAE dirhem" code_alpha="AED" code_numeric="784" />
 	<currency name="Uganda Shilling" code_alpha="UGX" code_numeric="800" />
 	<currency name="Unidad De Valor Real" code_alpha="COU" code_numeric="970" />
 	<currency name="Unidades De Formento" code_alpha="CLF" code_numeric="990" />
@@ -181,4 +181,5 @@
 	<currency name="Yen" code_alpha="JPY" code_numeric="392" />
 	<currency name="Yuan Renminbi" code_alpha="CNY" code_numeric="156" />
 	<currency name="Zimbabve Doları" code_alpha="ZWD" code_numeric="716" />
+	<currency name="Cezayir Dinarı" code_alpha="DZD" code_numeric="12" />
 </currencies>

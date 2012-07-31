@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
@@ -12,36 +12,38 @@
   * $Id$
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
+<locale name="tr_TR" full_name = "Türkçe">
 	<message key="admin.adminFunctions">Yönetsel işlevler</message>
 	<message key="admin.auth.confirmDelete">Bu yetkilendirme kaynağını kalıcı olarak silmek istediğinizden emin misiniz?</message>
 	<message key="admin.auth.create">Yetkilendirme kaynağı yarat</message>
-	<message key="admin.auth.noneCreated">Hiç yetkilendirme kaynağı tanımlanmamış.</message>
-	<message key="admin.authSources">Yetkilenme kaynakları</message>
+	<message key="admin.auth.noneCreated">Herhangi bir yetkilendirme kaynağı tanımlanmamış.</message>
+	<message key="admin.authSources">Yetkilendirme kaynakları</message>
 	<message key="admin.clearDataCache">Hazırlanmış verileri temizle</message>
 	<message key="admin.clearTemplateCache">Hazırlanmış sayfaları temizle</message>
-	<message key="admin.configFileUpdatedInstructions"><![CDATA[Yapılanma dosyanız başarı ile güncellendi. Sitenizin artık çalışmaması durumunda yapılanmanızı <tt>config.inc.php</tt> i doğrudan düzenleyerek düzeltebilirsiniz.]]></message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[Yapılandırma dosyanız başarı ile güncellendi. Sitenizin çalışmaması durumunda <tt>config.inc.php</tt> dosyasında gerekli düzenlemeleri yapılandırarak sorurunu giderebilirsiniz.]]></message>
 	<message key="admin.confirmClearTemplateCache">Şablonlardan hazırlanmış sayfaların tümünü silmek istediğinizden emin misiniz?</message>
 	<message key="admin.confirmExpireSessions">Tüm kullanıcı oturumlarını kapatmak istediğinizden emin misiniz? Şu anda sitede oturum açmış olan tüm kullanıcılar yeniden giriş yapmak zorunda kalacaktır, siz de diğerleri gibi yeniden giriş yapacaksınız.</message>
 	<message key="admin.contentsOfConfigFile">Yapılanma dosyasının içeriği</message>
-	<message key="admin.currentVersion">Güncel sürüm</message>
-	<message key="admin.dateInstalled">Yerleştirilmiş tarih</message>
-	<message key="admin.displayConfigFileInstructions"><![CDATA[Güncellenmiş yapılanmanızın içeriği aşağıda gösterilmiştir. Yapılanma değişikliklerini uygulayabilmek için <tt>config.inc.php</tt> i uygun bir yazı düzenleyicide açmak ve içeriğini aşağıdaki yazı alanında belirtilen içerikle değiştirmeniz gerekir.]]></message>
-	<message key="admin.displayNewSystemConfig">Yeni Yapılanmayı Görüntüle</message>
+	<message key="admin.currentVersion">Güncel Sürüm</message>
+	<message key="admin.dateInstalled">Yerleştirilmiş Tarih</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[Güncellenmiş yapılanmanızın içeriği aşağıda gösterilmiştir. Yapıladırnma değişikliklerini uygulayabilmek için <tt>config.inc.php</tt>'i uygun bir yazı düzenleyicide açmanız ve içeriğini aşağıdaki yazı alanında belirtilen içerikle değiştirmeniz gerekmektedir.]]></message>
+	<message key="admin.displayNewSystemConfig">Yeni Yapılandırmayı Görüntüle</message>
 	<message key="admin.expireSessions">Kullanıcı Oturumlarını Kapat</message>
-	<message key="admin.languages.confirmReload">Bu dili yeniden yüklemek istediğinizden emin misiniz? Yeniden yükleme dile özgü hazırlanmış bazı verileri, örneğin özelleştirilmiş e-posta şablonlarını silecektir..</message>
+	<message key="admin.languages.confirmReload">Bu dili yeniden yüklemek istediğinizden emin misiniz? Yeniden yükleme dile özgü hazırlanmış bazı verileri, örneğin özelleştirilmiş e-posta şablonlarını silecektir.</message>
 	<message key="admin.languages.installedLocales">Kurulmuş Diller</message>
+	<message key="admin.languages.installLanguages">Yönet</message>
 	<message key="admin.languages.installLocales">Kur</message>
-	<message key="admin.languages.installNewLocales">Yeni diller ekle</message>
+	<message key="admin.languages.installNewLocales">Yeni Diller Ekle</message>
 	<message key="admin.languages.languageSettings">Dil Ayarları</message>
 	<message key="admin.languages.noLocalesAvailable">Kurulacak ek bir dil yok.</message>
-	<message key="admin.languages.reload">Dili yeniden yükle</message>
-	<message key="admin.languages.uninstall">Dili kaldır</message>
+	<message key="admin.languages.reload">Dili Yeniden Yükle</message>
+	<message key="admin.languages.uninstall">Dili Daldır</message>
 	<message key="admin.phpInfo">Genişletilmiş PHP Bilgisi</message>
-	<message key="admin.server.apacheVersion">Apache sürümü</message>
-	<message key="admin.server.dbDriver">veritabanı sürücüsü</message>
+	<message key="admin.saveSystemConfig">Yapılanmayı sakla</message>
+	<message key="admin.server.apacheVersion">Apache Sürümü</message>
+	<message key="admin.server.dbDriver">Veritabanı sürücüsü</message>
 	<message key="admin.server.dbVersion">Veritabanı sunucu sürümü</message>
-	<message key="admin.serverInformationDescription"><![CDATA[temel işletme sistemi ve sunucu yazılım sürümleri. Tıkla <span class="highlight">Uzatılmış PHP bilgisi</span> bu sunucunun PHP yapılanmasının uzatılmış ayrıntılarını görüntülemek için.]]></message>
+	<message key="admin.serverInformationDescription"><![CDATA[Temel işletim sistemi ve sunucu yazılım sürümleri. Bu sunucunun PHP yapılandırmasının uzatılmış ayrıntılarını görüntülemek için <span class="highlight">Uzatılmış PHP bilgisi</span>'ne tıklayınız .]]></message>
 	<message key="admin.serverInformation">Sunucu bilgisi</message>
 	<message key="admin.server.phpVersion">PHP sürümü</message>
 	<message key="admin.server.platform">Sunucu İşletim Sistemi</message>
@@ -52,22 +54,26 @@
 	<message key="admin.settings.form.contactNameRequired">İletişim için ana kişi adı gerekiyor.</message>
 	<message key="admin.settings.form.minPasswordLengthRequired">Şifreler için en kısa karakter sayısını en az dört olarak girmelisiniz.</message>
 	<message key="admin.settings.form.titleRequired">Bir başlık gerekiyor.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Site Logosu</message>
+	<message key="admin.settings.homeHeaderImageInvalid">Geçersiz site logosu formatı. Kabul edilebilir formatlar: .gif, .jpg, veya .png.</message>
 	<message key="admin.settings.introduction">Giriş</message>
-	<message key="admin.settings.minPasswordLength">Şifreler için en kısa karakter sayısı</message>
+	<message key="admin.settings.minPasswordLength">Şifre için en kısa karakter sayısı</message>
 	<message key="admin.settings.oaiRegistration">Siteyi dizinlenmesi için kaydet (Meta veri madenciliği)</message>
-	<message key="admin.settings.passwordCharacters">karakterler</message>
-	<message key="admin.settings.siteLanguage">Site dili</message>
-	<message key="admin.settings.siteTitle">Site başlığı</message>
+	<message key="admin.settings.passwordCharacters">Karakterler</message>
+	<message key="admin.settings.siteLanguage">Site Dili</message>
+	<message key="admin.settings.siteStyleSheetInvalid">Geçersiz biçim. Kabul edilebilir biçimler.css.</message>
+	<message key="admin.settings.siteStyleSheet">Site Biçimi</message>
+	<message key="admin.settings.siteTitle">Site Başlığı</message>
 	<message key="admin.siteAdmin">Site Yönetimi</message>
 	<message key="admin.siteManagement">Site Yönetimi</message>
 	<message key="admin.siteSettings">Site Ayarları</message>
-	<message key="admin.systemConfigFileReadError"><![CDATA[Yapılanma Dosyası <tt>config.inc.php</tt> bulunamıyor, okunabilir değil, veya geçersiz.]]></message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[<tt>config.inc.php</tt> adlı yapılanma dosyası bulunamıyor, okunabilir değil veya geçersiz.]]></message>
 	<message key="admin.systemInformation">Sistem Bilgisi</message>
 	<message key="admin.versionBuild">Yapı</message>
 	<message key="admin.version.checkForUpdates">Güncelleme için kontrol edin</message>
 	<message key="admin.version.downloadPackage">İndir</message>
 	<message key="admin.version.downloadPatch">Yamayı İndir</message>
-	<message key="admin.versionHistory">sürüm geçmişi</message>
+	<message key="admin.versionHistory">Sürüm Geçmişi</message>
 	<message key="admin.version.latest">En son sürüm</message>
 	<message key="admin.versionMajor">Büyük</message>
 	<message key="admin.versionMinor">Küçük</message>

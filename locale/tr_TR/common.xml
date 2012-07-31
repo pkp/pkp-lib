@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
 
 <!--
@@ -12,30 +12,36 @@
   * $Id$
   -->
 
-<locale name="tr_TR" full_name = "Türkiye Türkçesi">
-	<message key="about.aboutSite">Site Hakkında</message>
-	<message key="about.contact">İletişim için</message>
+<locale name="tr_TR" full_name = "Türkçe">
+	<message key="about.aboutSite">Hakkında</message>
+	<message key="about.contact">İletişim</message>
 	<message key="about.contact.email">E-posta</message>
 	<message key="about.contact.fax">Faks</message>
 	<message key="about.contact.phone">Telefon</message>
-	<message key="about.contact.principalContact">Birincil iletişim için</message>
-	<message key="about.contact.supportContact">Destek iletişimi için</message>
+	<message key="about.contact.principalContact">Temel İletişim</message>
+	<message key="about.contact.supportContact">Destek İletişim</message>
 	<message key="about.other">Diğer</message>
 	<message key="about.people">Kişiler</message>
 	<message key="about.policies">Politikalar</message>
 	<message key="about.siteMap">Site Haritası</message>
 	<message key="announcement.announcements">Duyurular</message>
-	<message key="announcement.announcementsHome">ADuyurular</message>
+	<message key="announcement.announcementsHome">Duyurular</message>
 	<message key="announcement.moreAnnouncements">Daha fazla duyuru...</message>
 	<message key="announcement.noneExist">Yayınlanan duyuru yok.</message>
+	<message key="announcement.posted">Yayın Tarihi</message>
 	<message key="announcement.viewLink">Daha fazlası...</message>
 	<message key="announcement.view">Duyuruyu gör</message>
+	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Bu kullanıcı gurubunda değilsiniz.</message>
 	<message key="common.action">Eylem</message>
+	<message key="common.activate">Etkinleştirme</message>
 	<message key="common.active">Aktif</message>
-	<message key="common.addSelf">Siteye Üye Ol</message>
+	<message key="common.add">Ekle</message>
+	<message key="common.addSelf">Üye Ol</message>
 	<message key="common.all">Tümü</message>
 	<message key="common.alphaList">A B C Ç D E F G Ğ H I İ J K L M N O Ö P Q R S Ş T U Ü V W X Y Z</message>
 	<message key="common.alreadyAssigned">Atanmış</message>
+	<message key="common.altText">Alternatif Metin</message>
+	<message key="common.altTextInstructions">Salt metin tarayıcı veya yardımcı cihazlar ile kullanıcılar için erişilebilirliği sağlamak için bu görüntü için alternatif bir metin giriniz.</message>
 	<message key="common.and">ve</message>
 	<message key="common.applyAction">Eylemi Uygula</message>
 	<message key="common.assign">Ata</message>
@@ -44,6 +50,26 @@
 	<message key="common.between">arasında</message>
 	<message key="common.cancel">İptal</message>
 	<message key="common.cancelled">İptal Edilmiş</message>
+	<message key="common.captchaField.altText">Geçerli Resim</message>
+	<message key="common.captchaField.badCaptcha">Girmiş olduğunuz karakterler resimdeki karakterlerle eşleşmedi. Lütfen karakterleri kontrol ederek yeniden deneyiniz.</message>
+	<message key="common.captchaField.description">Lütfen resim üzerinde görüntülenen karakterleri giriniz.</message>
+	<message key="common.captchaField">Onaylama</message>
+	<message key="common.ccLicense"><![CDATA[
+		<br /><br />
+		<a target="_new" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
+		</a>
+		<br/>
+		Bu çalışma <a rel="license" target="_new" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>
+	ile lisanslanmıştır.<br />Sayfa tasarımı: <a href="mailto:scelik@dogus.edu.tr">Sönmez ÇELİK</a>]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[
+	<div class="rtBlock">
+		<br />
+		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+		<br />
+		Bu çalışma  <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_new">Creative Commons Attribution 3.0</a>.
+	</div>
+	]]> ile lisanslanmıştır.</message>	
 	<message key="common.changesSaved">Değişiklikleriniz kaydedildi.</message>
 	<message key="common.chooseOne">Birini Seçiniz</message>
 	<message key="common.close">Kapat</message>
@@ -51,6 +77,7 @@
 	<message key="common.complete">Tamamlanmış</message>
 	<message key="common.completed">Tamamlanmış</message>
 	<message key="common.continue">Devam Et</message>
+	<message key="common.copy">Kopya</message>
 	<message key="common.country">Ülke</message>
 	<message key="common.create">Yarat</message>
 	<message key="common.dateCompleted">Tamamlandığı tarih</message>
@@ -60,40 +87,50 @@
 	<message key="common.dateSubmitted">Gönderildiği tarih</message>
 	<message key="common.dateUploaded">Gönderildiği tarih</message>
 	<message key="common.day">Gün</message>
+	<message key="common.deactivate">Devre dışı bırak</message>
 	<message key="common.default">Ön tanımlı</message>
 	<message key="common.delete">Sil</message>
 	<message key="common.deleteSelection">Seçileni Sil</message>
 	<message key="common.description">Açıklama</message>
-	<message key="common.disabled">Etkin değil</message>
+	<message key="common.disable">Etkin Değil</message>
+	<message key="common.disabled">Kullanım Dışı Bırakıldı</message>
+	<message key="common.discipline">Disiplin</message>
 	<message key="common.done">Tamamlandı</message>
 	<message key="common.download">İndir</message>
 	<message key="common.edit">Düzenle</message>
 	<message key="common.enabled">Etkin</message>
+	<message key="common.enabled">Etkinleştirildi</message>
 	<message key="common.error.databaseError">Veri tabanı hatası: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">Bilinmeyen bir veritabanı hatası oluştu.</message>
 	<message key="common.error.framesRequired"><![CDATA[Bu site frame kullanmaktadır. <a href="{$url}">Frame kullanmayan biçimi için tıklatın</a>.]]></message>
 	<message key="common.event">Olay</message>
 	<message key="common.export">Veri ver</message>
+	<message key="common.fullscreen">Tam Ekran</message>
+	<message key="common.fullscreenOff">Kapat</message>
+	<message key="common.false">Yanlış</message>
 	<message key="common.file">Dosya</message>
 	<message key="common.fileName">Dosya adı</message>
 	<message key="common.fileSize">Dosya boyutu</message>
 	<message key="common.fileType">Dosya türü</message>
 	<message key="common.height">Boy</message>
+	<message key="common.homePageHeaderLogo.altText">Ana Sayfa Üst Logosu</message>
 	<message key="common.hour">Saat</message>
 	<message key="common.id">ID</message>
 	<message key="common.import">Veri al</message>
 	<message key="common.initiate">Başlat</message>
 	<message key="common.inProgress">İşlem sürüyor</message>
 	<message key="common.keywords">Anahtar kelimeler</message>
-	<message key="common.language">Dil</message>
+	<message key="common.language">DİL</message>
 	<message key="common.languages">Diller</message>
-	<message key="common.mailingAddress">Posta adresi</message>
+	<message key="common.manage">Yönet</message>
+	<message key="common.mailingAddress">Posta Adresi</message>
 	<message key="common.minute">Dakika(lar)</message>
 	<message key="common.modify">Değiştir</message>
 	<message key="common.month">Ay</message>
 	<message key="common.noneAssigned">Atanmamış</message>
 	<message key="common.none">Hiçbiri</message>
 	<message key="common.no">Hayır</message>
+	<message key="common.noComments">Yorum yok</message>
 	<message key="common.notApplicable">Uygulanamaz</message>
 	<message key="common.notApplicableShort">Uygulanamaz</message>
 	<message key="common.notAvailable">Kullanılamıyor</message>
@@ -102,22 +139,29 @@
 	<message key="common.notify">Uyarı</message>
 	<message key="common.off">Kapalı</message>
 	<message key="common.on">Açık</message>
+	<message key="common.ok">Tamam</message>
 	<message key="common.options">Seçenekler</message>
 	<message key="common.order">Sipariş</message>
 	<message key="common.originalFileName">Orijinal dosya adı</message>
 	<message key="common.or">veya</message>
 	<message key="common.other">Diğer</message>
+	<message key="common.pageHeaderLogo.altText">Sayfa Üstü Logosu</message>
 	<message key="common.plugin">Eklentiler</message>
+	<message key="common.pluginEnabled">"{$pluginName}" eklentisi etkinleştirildi.</message>
+	<message key="common.pluginDisabled">"{$pluginName}" eklentisi kapatıldı.</message>
+	<message key="common.preview">Ön İzleme</message>
 	<message key="common.publisher">Yayıncı</message>
 	<message key="common.record">Kayıt</message>
 	<message key="common.related">İlgili</message>
+	<message key="common.refresh">Yenile</message>
+	<message key="common.related">İlgili</message>
 	<message key="common.remove">Kaldır</message>
 	<message key="common.removeSelection">Seçileni Kaldır</message>
-	<message key="common.replaced">Replaced</message>
+	<message key="common.replaced">Değiştirildi</message>
 	<message key="common.replaceFile">Dosyanın üzerine yaz</message>
 	<message key="common.requiredField">* Doldurulması zorunlu alanları gösterir</message>
 	<message key="common.required">Gerekli</message>
-	<message key="common.saveAndContinue">Kaydet ve Devam et</message>
+	<message key="common.saveAndContinue">Kaydet ve Devam Et</message>
 	<message key="common.saveAndEmail">Kaydet ve e-posta ile gönder</message>
 	<message key="common.save">Kaydet</message>
 	<message key="common.search">Ara</message>
@@ -129,30 +173,35 @@
 	<message key="common.source">Kaynak</message>
 	<message key="common.status">Durum</message>
 	<message key="common.subject">Konu</message>
+	<message key="common.suggest">Öner</message>
 	<message key="common.title">Başlık</message>
 	<message key="common.top">En Üst</message>
-	<message key="common.type">Tip</message>
+	<message key="common.true">Doğru</message>
+	<message key="common.type">Tür</message>
 	<message key="common.uninitiated">Başlatılmamış</message>
 	<message key="common.untitled">Başlıksız</message>
 	<message key="common.updated">Güncellenmiş</message>
 	<message key="common.uploadedFile">Alınan dosya</message>
 	<message key="common.upload">Dosya Gönder</message>
+	<message key="common.uploadFailed">Dosya yüklenemedi. Lütfen tekrar deneyin. Problemin devam etmesi halinde yöneticiyle temasa geçin.</message>
 	<message key="common.up">Yukarı</message>
 	<message key="common.url">Adres</message>
 	<message key="common.user">Kullanıcı</message>
 	<message key="common.view">Görüntüle</message>
-	<message key="common.weeks">hafta</message>
+	<message key="common.weeks">Hafta</message>
 	<message key="common.width">En</message>
 	<message key="common.year">Yıl</message>
 	<message key="common.yes">Evet</message>
+	<message key="common.loading">Yükleniyor...</message>
 	<message key="debug.databaseQueries">Veri tabanı sorgu sayısı</message>
 	<message key="debug.executionTime">Sayfa oluşturuldu, yeri </message>
-	<message key="debug.notes.localeListLoad">XML den yüklenen yerel liste: "{$localeList}" </message>
-	<message key="debug.notes.localeLoad">XML den yüklenen yerel dosya: "{$localeFile}" </message>
+	<message key="debug.memoryUsage">Bellek kullanımı</message>
+	<message key="debug.notes.localeListLoad">XML'den yüklenen yerel liste: "{$localeList}" </message>
+	<message key="debug.notes.localeLoad">XML'den yüklenen yerel dosya: "{$localeFile}" </message>
 	<message key="debug.notes.missingLocaleKey">Eksik yerel anahtar: "{$key}".</message>
 	<message key="debug.notes">Notlar:</message>
 	<message key="email.addAttachment">Dosya Ekle</message>
-	<message key="email.addBccRecipient">Bilgi için Gönderici Ekle(Adresi gizli)</message>
+	<message key="email.addBccRecipient">Bilgi için Gönderici Ekle (Adresi gizli)</message>
 	<message key="email.addCcRecipient">Bilgi için Gönderici Ekle</message>
 	<message key="email.addToRecipient">Alıcı Ekle</message>
 	<message key="email.attachments">Eklentiler</message>
@@ -161,10 +210,12 @@
 	<message key="email.body">Mesaj</message>
 	<message key="email.cc">Bilgi için</message>
 	<message key="email.compose">E-posta Hazırla</message>
+	<message key="email.compose.tooManyRecipients">Göndermeye çalıştığınız mesajın çok fazla alıcısı var.</message>
+	<message key="email.compose.tooSoon">Son mesaj gönderildikten hemen sonra mesaj göndermeye çalışıyorsunuz. Yeni mesajı göndermek için lütfen bekleyiniz.</message>
 	<message key="email.email">E-posta</message>
 	<message key="email.from">Gönderen</message>
 	<message key="email.invalid">{$email} adresi geçerli değil.</message>
-	<message key="email.multipart">This is a multi-part message in MIME format.</message>
+	<message key="email.multipart">Bu mesaj MIME formatında çok parçalı bir mesajdır.</message>
 	<message key="email.recipient">Alıcı</message>
 	<message key="email.recipients">Alıcılar</message>
 	<message key="email.sender">Gönderen</message>
@@ -172,12 +223,16 @@
 	<message key="email.skip">E-posta göndermeden</message>
 	<message key="email.subject">Konu</message>
 	<message key="email.to">Alıcı</message>
-	<message key="form.contains">içerik</message>
 	<message key="form.errorsOccurred">Form işlenirken hata oluştu</message>
-	<message key="form.is">is</message>
+	<message key="form.formLanguage.description">Formu doldurmak için öncelikle bir dil seçiniz.</message>
+	<message key="form.formLanguage">Form Dili</message>
+	<message key="form.contains">içerir</message>
+	<message key="form.is">eşittir</message>
+	<message key="form.startsWith">ile başlar</message>
+	<message key="form.postRequired">Form düzgün bir şekilde gönderilemedi.</message>
 	<message key="form.required">(* Gerekli)</message>
 	<message key="form.resubmit">Tekrar Gönder</message>
-	<message key="form.saveToUpload">Dosyayı göndermek için Kaydet&#39;i kullanınız.</message>
+	<message key="form.saveToUpload">Dosyayı göndermek için Kaydet'i kullanınız.</message>
 	<message key="form.send">Gönder</message>
 	<message key="form.submit">Gönder</message>
 	<message key="help.contents">İçerik</message>
@@ -187,6 +242,7 @@
 	<message key="help.noMatchingTopics">Aradığınıza uyan bir yardım konusu bulunamadı.</message>
 	<message key="help.relatedTopics">İlgili Konular</message>
 	<message key="help.searchFor">Yardım Konularında Bunu Ara: </message>
+	<message key="help.searchResultsFor">Sonuç için</message>
 	<message key="help.searchResults">Arama Sonucu</message>
 	<message key="help.search">Yardım Konularında Arama</message>
 	<message key="help.toc">İçindekiler</message>
@@ -196,6 +252,9 @@
 	<message key="icon.delete.alt">Sil</message>
 	<message key="icon.edit.alt">Yaz</message>
 	<message key="icon.folder.alt">Dizinler</message>
+	<message key="icon.font_large.alt">Büyük</message>
+	<message key="icon.font_medium.alt">Orta</message>
+	<message key="icon.font_small.alt">Küçük</message>
 	<message key="icon.info.alt">Bilgi</message>
 	<message key="icon.letter.alt">Mektup</message>
 	<message key="icon.mail.alt">Posta</message>
@@ -203,14 +262,15 @@
 	<message key="icon.view.alt">göster</message>
 	<message key="locale.primary">Birincil dil</message>
 	<message key="locale.supported">Desteklenen diller</message>
-	<message key="navigation.about">SİTE HAKKINDA</message>
-	<message key="navigation.browse">Göz at</message>
+	<message key="navigation.about">HAKKINDA</message>
+	<message key="navigation.browse">GÖZ AT</message>
 	<message key="navigation.browseByTitle">Başlığa Göre</message>
-	<message key="navigation.home">GİRİŞ</message>
-	<message key="navigation.infoForReaders">Okuyucular için</message>
-	<message key="navigation.infoForReaders.long">Okuyucular için bilgi</message>
+	<message key="navigation.dashboard">Gösterge Paneli</message>
+	<message key="navigation.home">ANA SAYFA</message>
+	<message key="navigation.infoForReaders">Okuyucular İçin</message>
+	<message key="navigation.infoForReaders.long">Okuyucular İçin Bilgi</message>
 	<message key="navigation.items">Toplam {$total} ögeden {$from} - {$to} arası</message>
-	<message key="navigation.login">Giriş</message>
+	<message key="navigation.login">ÜYE GİRİŞ</message>
 	<message key="navigation.nextPage"><![CDATA[&gt;&gt;]]></message>
 	<message key="navigation.nextStep">Sonraki Adım</message>
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
@@ -218,8 +278,36 @@
 	<message key="navigation.register">KAYIT</message>
 	<message key="navigation.search">Ara</message>
 	<message key="navigation.stepNumber">Adım {$step}</message>
-	<message key="navigation.userHome">KULLANICI SAYFASI</message>
-	<message key="navigation.user">KULLANICI</message>
+	<message key="navigation.userHome">ÜYE SAYFASI</message>
+	<message key="navigation.user">ÜYE</message>
+	<message key="notification.allow">Bu tür bildirimlerin görüntülenmesine izin ver.</message>
+	<message key="notification.confirmError">Abonelik doğrulamanızda bir hata var.</message>
+	<message key="notification.confirmSuccess">Başarılı bir şekilde üye oldunuz.</message>
+	<message key="notification.email">Bu tür bildirimler için bana e-posta gönder.</message>
+	<message key="notification.location">URL'e git</message>
+	<message key="notification.mailList">Bildirim Gönderi Listesi</message>
+	<message key="notification.mailList.emailInvalid">Lütfen geçerli bir e-posta adresi giriniz.</message>
+	<message key="notification.mailList.privacyProtection">Gizlilik koruma politikası</message>
+	<message key="notification.mailList.protectedContent"><![CDATA[Korunan içerik için <a href="{$subscribeUrl}">Abone</a> ol.]]></message>
+	<message key="notification.mailList.submit"><![CDATA[<a href="{$submitUrl}">Makale Göndersi</a>]]></message>
+	<message key="notification.mailList.register">Bu siteye üye olabilirsiniz...</message>
+	<message key="notification.mailList.review"><![CDATA[<a href="{$reviewUrl}">Değerlendrme</a> sürecine katılın]]></message>
+	<message key="notification.noneExist">Her hangi bir mesajınız yok.</message>
+	<message key="notification.notification">BİLDİRİM</message>
+	<message key="notification.notifications">BİLDİRİMLER</message>
+	<message key="notification.notificationsNew">({$numNew} yeni)</message>
+	<message key="notification.notificationsDescription">{$unreadCount} okunmamış, {$readCount} okunmuş bildiriminiz var. Bildirim ayarlarınızı değiştirmek için <![CDATA[  <a href="{$settingsUrl}"> tıklayınız </a>.]]></message>
+	<message key="notification.settings">Bilgilendirme Ayarları</message>
+	<message key="notification.settingsDescription">Belirlenmiş sistem durumlarından istediğinizi seçiniz. Gösterilen bildirimlerinizden engellemek istediklerinzin çek işeretini kaldırınız.</message>
+	<message key="notification.subscribe">Üye Ol</message>
+	<message key="notification.subscribeError">E-posta bildirimlerinde adresiniz zaten  mevcut.</message>
+	<message key="notification.subscribeSuccess">Belirtmiş olduğunuz e-posta adresinize bir mesaj gönderilmiştir. E-posta adresinizin gönderi listesine dahil edilebilmesi için lütfen onay linkini klik ediniz.</message>
+	<message key="notification.reminderError">Parolanızı gönderirken bir hata oluştu. Lütfen girmiş olduğunuz e-posta adresinizin doğru olduğundan emin olunuz.</message>
+	<message key="notification.reminderSent">Yeni parolanız belirtmiş olduğunuz e-posta adresine gönderilmiştir.</message>
+	<message key="notification.unsubscribe">Üyelik İptali</message>
+	<message key="notification.unsubscribeDescription">E-posta bildirimi üyeliğinden çıkmak için e-posta adresinizi ve şifrenizi aşağıya yazınız. Eğer şifrenizi hatırlamıyorsanız şifre alanını boş bırakınız. Yeni bir şifre e-posta adresinize gönderilecektir.</message>
+	<message key="notification.unsubscribeError">Aboneliğinizin sonlandırılmasında bir hata oluştu. Lütfen e-posta adresinizin ve parolanızın doğru olduğundan emin olunuz</message>
+	<message key="notification.unsubscribeSuccess">Aboneliğiniz başarılı bir şekilde sonlandırıldı.</message>
 	<message key="search.abstract">A'dan Z'ye</message>
 	<message key="search.allFields">Tümü</message>
 	<message key="search.coverage">Kapsam</message>
@@ -228,19 +316,19 @@
 	<message key="search.dateTo">kadar</message>
 	<message key="search.discipline">Bilim dal(lar)ı</message>
 	<message key="search.fullText">Tam Metin</message>
-	<message key="search.indexTerms">İndeks terimleri</message>
+	<message key="search.indexTerms">İndeks Terimleri</message>
 	<message key="search.matchAll">Bütün kategorilere uygun</message>
-	<message key="search.noKeywordError">En az bir adet araştırma anahtar sözcüğü girmelisiniz.</message>
+	<message key="search.noKeywordError">En az bir adet anahtar kelime girmelisiniz.</message>
 	<message key="search.noResults">Sonuç bulunamadı±</message>
 	<message key="search.operator.and">Ve</message>
 	<message key="search.operator.not">İçermeyen</message>
 	<message key="search.operator.or">Veya</message>
 	<message key="search.reviseSearch">Yeniden ara</message>
-	<message key="search.searchAllCategories">için bütün kategorileri araştırın</message>
-	<message key="search.searchCategories">Kategorileri araştırın</message>
-	<message key="search.searchResults">Arama Sonuçları±</message>
+	<message key="search.searchAllCategories">Tüm Kategorilerde Araştırma</message>
+	<message key="search.searchCategories">Kategorilerde Araştırma</message>
+	<message key="search.searchResults">Arama Sonuçları</message>
 	<message key="search.subject">Konu(lar)</message>
 	<message key="search.titleIndex">Konu başlığı indeksini tarayın</message>
 	<message key="search.title">Başlık</message>
-	<message key="search.typeMethodApproach">Tip (Yöntem/Yaklaşım)</message>
+	<message key="search.typeMethodApproach">Tür (Yöntem/Yaklaşım)</message>
 </locale>

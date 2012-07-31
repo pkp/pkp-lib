@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/gl_ES/grid.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the gl_ES locale.
+  *
+  * $Id$
+  -->
+
+<locale name="gl_ES" full_name = "Galego (Galiza)">
+	<!-- Common -->
+	<message key="grid.noItems">Non hai artigos</message>
+	<message key="grid.settings">Preferéncias</message>
+
+	<message key="grid.action.sort">Disposición</message>
+	<message key="grid.action.addItem">Engadir ítem</message>
+	<message key="grid.action.delete">Borrar</message>
+	<message key="grid.action.edit">Editar</message>
+	<message key="grid.action.restoreDefaults">Restaurar valores por defecto</message>
+
+	<!-- Common Grid Column Titles -->
+	<message key="grid.columns.actions">Accións</message>
+	<message key="grid.columns.institution">Institución</message>
+	<message key="grid.columns.url">URL</message>
+
+	<!-- Sponsors Grid -->
+	<message key="grid.sponsor.title">Patrocinadores</message>
+
+	<!-- Masthead Grid -->
+	<message key="grid.masthead.title">Tope</message>
+	<message key="grid.masthead.column.groups">Grupos</message>
+
+	<!-- Contributor Grid -->
+	<message key="grid.contributor.title">Axudante</message>
+
+	<!-- Review Forms Grid -->
+	<message key="grid.reviewForm.title">Formularios de revisión</message>
+
+	<!-- Book File Types Grid -->
+	<message key="grid.bookFileType.form.sortable">Permitir que os arquivos deste tipo sexan ordenados por componente (por exemplo, por capítulo)</message>
+
+	<!-- Artwork Files Grid -->
+	<message key="grid.artworkFile.title">Ilustracións / Permisos</message>
+	<message key="grid.artworkFile.file">Ficheiro</message>
+	<message key="grid.artworkFile.form.title">Engadir Ilustracións / Permisos</message>
+	<message key="grid.artworkFile.form.metadata">Metainformación das Ilustracións</message>
+	<message key="grid.artworkFile.caption">Título</message>
+	<message key="grid.artworkFile.credit">Crédito</message>
+	<message key="grid.artworkFile.copyrightOwner">Propietario do Copyright</message>
+	<message key="grid.artworkFile.copyrightContact">Información de contacto (se non hai autor/prensa)</message>
+	<message key="grid.artworkFile.permissionTerms">Termos da Licenza</message>
+	<message key="grid.artworkFile.permissionForm">Formulario da Licenza</message>
+	<message key="grid.artworkFile.type">Tipo</message>
+	<message key="grid.artworkFile.type.table">Táboa</message>
+	<message key="grid.artworkFile.type.figure">Figura</message>
+	<message key="grid.artworkFile.placement">Situación no libro</message>
+	<message key="grid.artworkFile.placementDetail">Número de Táboa/Figura</message>
+	<message key="grid.artworkFile.contactAuthor">Contactar co autor</message>
+
+	<!-- Library Files -->
+	<message key="grid.libraryFiles.column.files">Ficheiros</message>
+	<message key="grid.libraryFiles.submission.title">Envíos á Biblioteca</message>
+	<message key="grid.libraryFiles.editorial.title">Editorial da Biblioteca</message>
+	<message key="grid.libraryFiles.review.title">Revisión da Biblioteca</message>
+	<message key="grid.libraryFiles.production.title">Produción da Biblioteca</message>
+	<message key="grid.libraryFiles.productionTemplate.title">Produción de planillas da Biblioteca</message>
+
+	<!-- SubmissionChecklist -->
+	<message key="grid.submissionChecklist.title">Listaxe de comprobación da presentación</message>
+	<message key="grid.submissionChecklist.column.checklistItem">Item da listaxe de comprobación</message>
+
+	<!-- Submission Contributors -->
+	<message key="grid.action.remove">Eliminar</message>
+	<message key="grid.action.approve">Aprobar</message>
+	<message key="grid.action.approveForPub">Aprobar para Publicar</message>
+	<message key="grid.action.decline">Recusar</message>
+	<message key="grid.action.moreInformation">Máis información</message>
+	<message key="grid.action.addAuthor">Engadir autor</message>
+	<message key="author.users.contributor.name">Nome</message>
+	<message key="author.users.contributor.email">Correo electrónico</message>
+	<message key="author.users.contributor.role">Rol</message>
+	<message key="author.users.contributor.principalContact">Contacto Principal</message>
+	<message key="grid.chapters.title">Capítulos</message>
+	<message key="grid.action.approveForReview">Enviar a etapa de Revisión</message>
+	<message key="grid.artworkFile.captionAndCredit">Lenda e Crédito (se no está incluido no arquivo)</message>
+	<message key="grid.reviewAttachments.title">Ficheiros adxuntos para os Revisores</message>
+	<message key="grid.reviewAttachments.add">Engadir ficheiro adxunto para Revisión</message>
+</locale>

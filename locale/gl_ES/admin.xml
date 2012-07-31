@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/gl_ES/admin.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. Para completar a información  cómpre ver o arquivo docs/COPYING.
+  *
+  * Localization strings for the gl_ES (Galego (Galiza)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="gl_ES" full_name = "Galego (Galiza)">
+	<message key="admin.adminFunctions">Funcións administrativas</message>
+	<message key="admin.auth.confirmDelete">Tes a certeza de querer borrar esta fonte de recoñecimento definitivamente?</message>
+	<message key="admin.auth.create">Crear fonte de recoñecimento</message>
+	<message key="admin.auth.noneCreated">Non se definiu nengunha fonte de recoñecimento.</message>
+	<message key="admin.authSources">Fontes de recoñecimento</message>
+	<message key="admin.clearDataCache">Baleirar a caché  de dados</message>
+	<message key="admin.clearTemplateCache">Baleirar a caché da planilla</message>
+	<message key="admin.configFileUpdatedInstructions"><![CDATA[O teu ficheiro de configuración foi gardado. Ten en conta que se o sitio deixa de funcionar correctamente é posibel que precises corrixir a configuración a man editando o ficheiro <tt>config.inc.php</tt> directamente.]]></message>
+	<message key="admin.confirmClearTemplateCache">Tes a certeza de que desexas baleirar a caché das planillas compiladas?</message>
+	<message key="admin.confirmExpireSessions">Tes a certeza de que desexas pechar todas as sesións? Isto obrigará a todos/as os/as usuarios/as que teñan iniciado sesión no sistema a identificarense de novo (incluíndote a ti).</message>
+	<message key="admin.contentsOfConfigFile">Contido do ficheiro de configuración</message>
+	<message key="admin.currentVersion">Versión actual</message>
+	<message key="admin.dateInstalled">Data de instalación</message>
+	<message key="admin.displayConfigFileInstructions"><![CDATA[O contido da súa configuración actualizada amóstrase abaixo. Para aplicar os cambios debes abrir o ficheiro <tt>config.inc.php</tt> nun editor de texto e substituir o texto existente co que che mostramos abaixo.]]></message>
+	<message key="admin.displayNewSystemConfig">Mostrar nova configuración</message>
+	<message key="admin.expireSessions">Caducidade das sesións</message>
+	<message key="admin.languages.confirmReload">Tes a certeza de que queres recargar este ficheiro de idioma? Esta acción eliminará calquera información específica dun ficheiro de idioma como poden ser as planillas para correo-e personalizadas.</message>
+	<message key="admin.languages.installedLocales">Sitios instalados</message>
+	<message key="admin.languages.installLanguages">Xestionar sitios</message>
+	<message key="admin.languages.installLocales">Instalar</message>
+	<message key="admin.languages.installNewLocales">Instalar novos ficheiros de idiomas</message>
+	<message key="admin.languages.languageSettings">Configuración de idioma</message>
+	<message key="admin.languages.noLocalesAvailable">Non existen sitios adicionais dispoñíbeis para a instalación.</message>
+	<message key="admin.languages.reload">Recargar ficheiros de idiomas</message>
+	<message key="admin.languages.uninstall">Desinstalar ficheiro de idiomas</message>
+	<message key="admin.phpInfo">Información PHP extendida</message>
+	<message key="admin.saveSystemConfig">Gardar configuración</message>
+	<message key="admin.server.apacheVersion">Versión Apache</message>
+	<message key="admin.server.dbDriver">Xestor de bases de dados</message>
+	<message key="admin.server.dbVersion">Versión do xestor de bases de dados</message>
+	<message key="admin.serverInformationDescription"><![CDATA[Versións do sistema operativo e do software do servidor. Fai clic en <span class="highlight">Información PHP extendida</span> para consultar os detalles da configuración de PHP deste servidor.]]></message>
+	<message key="admin.serverInformation">Información do servidor</message>
+	<message key="admin.server.phpVersion">Versión PHP</message>
+	<message key="admin.server.platform">Sistema operativo</message>
+	<message key="admin.settings.aboutDescription">Sobre a descrición</message>
+	<message key="admin.settings.contactEmail">Correo-e do contacto principal</message>
+	<message key="admin.settings.contactName">Nome do contacto principal</message>
+	<message key="admin.settings.form.contactEmailRequired">Cómpreche o correo-e o contacto principal.</message>
+	<message key="admin.settings.form.contactNameRequired">Cómpreche o nome do contacto principal.</message>
+	<message key="admin.settings.form.minPasswordLengthRequired">Debes inserir un contrasinal de  4 caracteres como mínimo.</message>
+	<message key="admin.settings.form.titleRequired">É preciso inserir o título.</message>
+	<message key="admin.settings.homeHeaderImage.altText">Logo do Sitio</message>
+	<message key="admin.settings.homeHeaderImageInvalid">O formato da imaxe do logo non é válido. Os formatos válidos son .gif, .jpg, o .png.</message>
+	<message key="admin.settings.introduction">Introdución</message>
+	<message key="admin.settings.minPasswordLength">Tamaño mínimo do contrasinal</message>
+	<message key="admin.settings.oaiRegistration">Rexistrar para indexación (Metadata Harvesting)</message>
+	<message key="admin.settings.passwordCharacters">caracteres</message>
+	<message key="admin.settings.siteLanguage">Idioma</message>
+	<message key="admin.settings.siteStyleSheetInvalid">O formato da folla de estilo non é válido. O formato debe ser .css.</message>
+	<message key="admin.settings.siteStyleSheet">Folla de estilos do sitio</message>
+	<message key="admin.settings.siteTitle">Título</message>
+	<message key="admin.siteAdmin">Administración do sitio</message>
+	<message key="admin.siteManagement">Xestión del sitio</message>
+	<message key="admin.siteSettings">Configuración do sitio</message>
+	<message key="admin.systemConfigFileReadError"><![CDATA[O ficheiro de configuración <tt>config.inc.php</tt> non existe, non se pode ler, ou é non válido.]]></message>
+	<message key="admin.systemInformation">Información do sistema</message>
+	<message key="admin.versionBuild">Build</message>
+	<message key="admin.version.checkForUpdates">Procurar actualizacións</message>
+	<message key="admin.version.downloadPackage">Descargar</message>
+	<message key="admin.version.downloadPatch">Descargar parche</message>
+	<message key="admin.versionHistory">Historial de versións</message>
+	<message key="admin.version.latest">Última versión</message>
+	<message key="admin.versionMajor">Maior</message>
+	<message key="admin.versionMinor">Menor</message>
+	<message key="admin.version.moreInfo">Máis información</message>
+	<message key="admin.versionRevision">Revisión</message>
+	<message key="admin.version.updateAvailable">Hai unha nova versión dispoñíbel</message>
+	<message key="admin.version.upToDate">O teu sistema está actualizado</message>
+	<message key="admin.version">Versión</message>
+</locale>

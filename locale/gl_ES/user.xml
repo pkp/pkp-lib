@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
+  * locale/gl_ES/user.xml
+  *
+  * Copyright (c) 2000-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the gl_ES (Galego (Galiza)) locale.
+  *
+  * $Id$
+  -->
+
+<locale name="gl_ES" full_name = "Galego (Galiza)">
+	<message key="user.affiliation">Filiación</message>
+	<message key="user.affiliations">Afiliación</message>
+	<message key="user.biography">Resumo biográfico</message>
+	<message key="user.biography.description">(p.e., departamento e posto)</message>
+	<message key="user.changeMyPassword">Cambiar contrasinal</message>
+	<message key="user.changePassword">Cambiar contrasinal</message>
+	<message key="user.dateLastLogin">Último login</message>
+	<message key="user.dateRegistered">Data de rexistro</message>
+	<message key="user.editMyProfile">Editar o meu perfil</message>
+	<message key="user.email">Correo-e</message>
+	<message key="user.fax">Fax</message>
+	<message key="user.feminine">Feminino</message>
+	<message key="user.firstName">Primeir nome</message>
+	<message key="user.gender">Xénero</message>
+	<message key="user.initialsExample">Lois Dobarro Bugallo = LDB</message>
+	<message key="user.initials">Iniciais</message>
+	<message key="user.interests">Intereses de revisión</message>
+	<message key="user.lastName">Apelidos</message>
+	<message key="user.login.accountDisabledWithReason">A túa conta foi desactivada polo seguinte motivo: {$reason}</message>
+	<message key="user.login.accountDisabled">A túa conta foi desactivada. Por favor, ponte en contacto co/a administrador/a para obter máis información.</message>
+	<message key="user.login.accountNotValidated">O enderezo de email non semella correcta. Por favor, comprobe o correo e sigue as instruccións. Se non recebiches nengúnha mensaxe, solicita axuda á persoa encargada da administración do sitio.</message>
+	<message key="user.login.activate">Activar conta</message>
+	<message key="user.login.activated">Benzóns por activar a túa conta. Podes acceder ao sistema utilizando os dados cos que creaches a túa conta.</message>
+	<message key="user.login.changePasswordInstructions"><![CDATA[Debes escoller unha novo contrasinal antes de entrar no sitio.<br /><br />Por favor, introduce a continuación o teu nome de usuaria/o e o teu novo contrasinal para cambiar o contrasinal  da túa cuenta.]]></message>
+	<message key="user.login.forgotPassword"> Esqueciches o teu contrasinal?</message>
+	<message key="user.login.loginError">Nome de usuaria/o ou contrasinal non válido. Téntao outra vez.</message>
+	<message key="user.login">Login</message>
+	<message key="user.logIn">Entrar</message>
+	<message key="user.login.lostPassword.confirmationSent">Envióuseche unha confirmación por correo-e. Sigue as instruccións para cambiar o teu contrasinal.</message>
+	<message key="user.login.lostPassword.invalidHash">Sentímolo, a ligazón caducou ou non é válido. Intenta cambiar o teu contrasinal outra vez.</message>
+	<message key="user.login.lostPassword.invalidUser">Non existe nengún/a usuario/a co enderezo de correo-e especificado.</message>
+	<message key="user.login.lostPassword.passwordSent">Envióuseche por correu-e un novo contrasinal. Agora pódeste identificar no sitio co teu novo contrasinal.</message>
+	<message key="user.login.registeredEmail">Correo-e de usuarias/os rexistradas/os</message>
+	<message key="user.login.rememberUsernameAndPassword">Lembrar o meu nome de usuaria/o e contrasinal</message>
+	<message key="user.login.resetPassword">Cambiar contrasinal</message>
+	<message key="user.logOut">Sair</message>
+	<message key="user.mailingAddress">Enderezo postal</message>
+	<message key="user.masculine">Masculino</message>
+	<message key="user.middleName">Segundo Nome</message>
+	<message key="user.myAccount">A miñas contas</message>
+	<message key="user.name">Nome</message>
+	<message key="user.password">Contrassinal/message>
+	<message key="user.phone">Teléfono</message>
+	<message key="user.profile.changePasswordInstructions">Introduce o teu contrasinal actual e o novo  para cambiar o contrasinal da túa conta.</message>
+	<message key="user.profile.editProfile">Editar perfil</message>
+	<message key="user.profile.form.emailRequired">Compre inserir un enderezo de correo-e válido.</message>
+	<message key="user.profile.form.firstNameRequired">Compre inserir o nome.</message>
+	<message key="user.profile.form.lastNameRequired">Compre inserir o apelido.</message>
+	<message key="user.profile.form.newPasswordRequired">Debes introducir o teu novo contrasinal.</message>
+	<message key="user.profile.form.oldPasswordInvalid">O contrasinal actual que inseriches non é válido.</message>
+	<message key="user.profile.form.openAccessNotifications">Notificacións de email dun novo número de acceso libre</message>
+	<message key="user.profile.form.passwordRequired">Compre inserir o contrasinal.</message>
+	<message key="user.profile.form.profileImage">Imaxe de Perfil</message>
+	<message key="user.profile.form.publishedNotifications">Notificacións de email dun novo número publicado</message>
+	<message key="user.profile.form.urlInvalid">URL no válida. Por favor comproba o enderezo e téntao outra vez. Proba a engadir http:// ao comezo.</message>
+	<message key="user.profile.form.usernameRequired">Compre inserir o nome de usuaria/o.</message>
+	<message key="user.profile.leavePasswordBlank">Deixa o campo de contrasinal en branco para manter o actual.</message>
+	<message key="user.profile.newPassword">Novo contrasinal</message>
+	<message key="user.profile.oldPassword">Contrasinal actual</message>
+	<message key="user.profile">Perfil</message>
+	<message key="user.profile.publicProfile">Perfil de Usuario</message>
+	<message key="user.profile.repeatNewPassword">Repita o novo contrasinal</message>
+	<message key="user.register.completeForm">Completa este formulario para rexistrarse na revista.</message>
+	<message key="user.register.form.emailExists">O enderezo de correo-e seleccionada xa está a ser usado por outra persoa.</message>
+	<message key="user.register.form.passwordsDoNotMatch">Os contrasinais non coinciden.</message>
+	<message key="user.register.form.usernameAlphaNumeric">O nome de usuaria/o só puede ter caracteres alfanuméricos, guións baixos, e guións, tendo que comezar e rematar cun caracter alfanumérico.</message>
+	<message key="user.register.form.usernameExists">O nome de usuaria/o seleccionado xa está a ser usado por outra persoa.</message>
+	<message key="user.register.passwordLengthRestriction">O contrasinal debe conter, como mínimo, {$length} caracteres.</message>
+	<message key="user.register.registerAs">Rexistrarse como</message>
+	<message key="user.register">Rexistrar</message>
+	<message key="user.register.usernameRestriction">O nome de usuaria/o só debe conter letras en minúscula, números, e guións/guións baixos.</message>
+	<message key="user.role.reader">Lector/a</message>
+	<message key="user.role.readers">Lectores/as</message>
+	<message key="user.role.reviewer">Revisor/a</message>
+	<message key="user.role.reviewers">Revisores/as</message>
+	<message key="user.role.siteAdmin">Administrador/a</message>
+	<message key="user.role.siteAdmins">Administradoras/es</message>
+	<message key="user.roles">Tarefas</message>
+	<message key="user.salutation">Tratamento</message>
+	<message key="user.sendPassword">Confirmación</message>
+	<message key="user.sendPassword.description">Enviar unha mensaxe de confirmación incluindo o meu nome de usuario e contrasinal.</message>
+	<message key="user.signature">Sinatura</message>
+	<message key="user.title">Tratamento</message>
+	<message key="user.url">URL</message>
+	<message key="user.userHome">Inicio</message>
+	<message key="user.username">Nome usuario/a</message>
+	<message key="user.workingLanguages">Idiomas que coñece</message>
+	<message key="user.profile.form.profileImageInvalid">Formato de imaxe de perfil inválido ou imaxe grande de máis. Os formatos aceptados son .gif, .jpg, or .png, e a imaxen non pode exceder de 150x150 pixels.</message>
+	<message key="user.other">Outro</message>
+	<message key="user.affiliation.description">(A túa institución, ej. "Universidade de Santiago de Compostela")</message>
+	<message key="user.gossip">Notas privadas</message>
+	<message key="user.profile.form.affiliationRequired">Compre ter unha afiliación</message>
+	<message key="user.confirmEmail">Confirmar correo electrónico</message>
+	<message key="user.repeatPassword">Repite o contrasinal</message>
+	<message key="user.register.form.emailsDoNotMatch">Os campos de correo electrónico non coinciden.</message>
+</locale>

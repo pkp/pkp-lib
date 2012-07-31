@@ -149,7 +149,7 @@ a.task:hover {
 /* Accordian */
 
 .ui-accordion, .ui-accordion-header, .ui-accordion-content, .ui-accordion-content-active {
-	border: 0;
+	border: 0 !important;
 	border-radius: 0px;
 	-moz-border-radius: 0px;
 	-webkit-border-radius: 0px;
@@ -158,9 +158,10 @@ a.task:hover {
 .ui-accordion-header {
 	border-bottom: 1px dotted #999;
 	color: #569bbe;
-	background: none;
+	background: none !important;
 	text-transform: uppercase;
 	font: 100% "Courier New", Courier, mono;
+	font-weight: normal !important;
 
 }
 
@@ -198,7 +199,7 @@ a.task:hover {
 }
 
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
-	color:black;	
+	color:black;
 }
 
 .ui-tabs-nav .ui-state-hover a {

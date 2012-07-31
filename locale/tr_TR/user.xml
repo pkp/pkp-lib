@@ -65,11 +65,7 @@
 	<message key="user.name">Ad</message>
 	<message key="user.other">Diğer</message>
 	<message key="user.password">Şifre</message>
-<<<<<<< HEAD
-	<message key="user.repeatPassword">Şifreyi tekrarlayınız </message>
-=======
 	<message key="user.repeatPassword">Şifre tekrarı</message>
->>>>>>> 2748dcf... *6945* Updates to tr_TR locale
 	<message key="user.phone">Tel</message>
 	<message key="user.profile.changePasswordInstructions">Kullancı hesabınızın şifresini değiştirmek için mevcut ve yeni şifrenizi giriniz.</message>
 	<message key="user.profile.editProfile">Profili düzenle</message>

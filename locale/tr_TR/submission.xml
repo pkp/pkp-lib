@@ -367,14 +367,10 @@
 	<message key="submission.submitter">Başvuran</message>
 	<message key="submission.summary">Özet</message>
 	<message key="submission.supplementaryFiles">Ek dosyalar</message>
-<<<<<<< HEAD
-	<message key="submission.titleAndAbstract">Başlık ve özet</message>
-=======
 	<message key="submission.supportingAgencies">Destekleyen Kurumlar</message>
 	<message key="submission.currentAgencies">Güncel Ajanslar</message>
 	<message key="submission.indexingInformation">İndeksleme Bilgisi</message>
 	<message key="submission.titleAndAbstract">Başlık ve Özet</message>
->>>>>>> 2748dcf... *6945* Updates to tr_TR locale
 	<message key="submission.underway">yolunda</message>
 	<message key="submission.uploadFileTo">Bilgisayara aktarım</message>
 	<message key="submission.viewMetadata">Meta veriyi görüntüle</message>

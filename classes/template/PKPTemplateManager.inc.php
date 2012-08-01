@@ -61,7 +61,6 @@ class PKPTemplateManager extends Smarty {
 	function PKPTemplateManager($request = null) {
 		// FIXME: for backwards compatibility only - remove
 		if (!isset($request)) {
-			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function call.');
 			$this->request =& Registry::get('request');
 		} else {
 			$this->request =& $request;

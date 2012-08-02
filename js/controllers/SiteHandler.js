@@ -34,9 +34,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		$('.go').button();
 
-		// Transform all select boxes.
-		$('select', $widgetWrapper).not('.noStyling').selectBox();
-
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);

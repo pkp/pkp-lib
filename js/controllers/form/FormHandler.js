@@ -39,9 +39,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// Transform all form buttons with jQueryUI.
 		$('.button', $form).button();
 
-		// Transform all select boxes.
-		$('select', $form).not('.noStyling').selectBox();
-
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {
 			this.callerSubmitHandler_ = options.submitHandler;

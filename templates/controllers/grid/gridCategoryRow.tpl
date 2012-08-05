@@ -6,7 +6,7 @@
  *
  * a category row
  *}
-{assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()}
+{assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()|escape}
 
 <td colspan="{$columns|@count}">
 	{if $categoryRow->getActions()}

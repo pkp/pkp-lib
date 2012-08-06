@@ -26,7 +26,8 @@
 					buttonSelector="#cancelFormButton"
 					cancelUrl=$FBV_cancelUrl}
 		{/if}
-		{fbvElement type="link" class="cancelFormButton" id="cancelFormButton" label=$FBV_cancelText}
+		{if $FBV_formReset}{assign var="cancelButton" value="resetFormButton"}{else}{assign var="cancelButton" value="cancelFormButton"}{/if}
+		{fbvElement type="link" class=$cancelButton id=$cancelButton label=$FBV_cancelText}
 	{/if}
 
 	{* IF we have confirmation dialog text specified, load buttonConfirmationLinkAction for the submit button *}

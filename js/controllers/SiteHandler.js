@@ -38,7 +38,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);
 
-		// Listen for grid initialized events so the inline help can be shown or hidden.
+		// Listen for grid initialized events so the inline help
+		// can be shown or hidden.
 		this.bind('gridInitialized', this.updateHelpDisplayHandler_);
 
 		// Listen for help toggle events.
@@ -60,10 +61,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		}
 
 		// bind event handlers for form status change events.
-		this.bind('formChanged', this.callbackWrapper(this.registerUnsavedFormElement_));
-		this.bind('unregisterChangedForm', this.callbackWrapper(this.unregisterUnsavedFormElement_));
-		this.bind('modalCanceled', this.callbackWrapper(this.unregisterUnsavedFormElement_));
-		this.bind('unregisterAllForms', this.callbackWrapper(this.unregisterAllFormElements_));
+		this.bind('formChanged', this.callbackWrapper(
+				this.registerUnsavedFormElement_));
+		this.bind('unregisterChangedForm', this.callbackWrapper(
+				this.unregisterUnsavedFormElement_));
+		this.bind('modalCanceled', this.callbackWrapper(
+				this.unregisterUnsavedFormElement_));
+		this.bind('unregisterAllForms', this.callbackWrapper(
+				this.unregisterAllFormElements_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
@@ -110,8 +115,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * Handler bound to 'formChanged' events propagated by forms
 	 * that wish to have their form data tracked.
 	 *
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
 	 * @param {HTMLElement} sourceElement The element wishes to
 	 * register.
+	 * @param {Event} event The formChanged event.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
@@ -127,11 +135,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * Method called by Form elements that wish to inform SiteHandler
-	 * that they no longer wish to be tracked as 'unsaved'.
+	 * Handler bound to 'unregisterChangedForm' events propagated by forms
+	 * that wish to inform that they no longer wish to be tracked as 'unsaved'.
 	 *
+	 * @param {HTMLElement} siteHandlerElement The html element
+	 * attached to this handler.
 	 * @param {HTMLElement} sourceElement The element that wishes to
 	 * unregister.
+	 * @param {Event} event The unregisterChangedForm event.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
@@ -199,13 +210,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $bodyElement = this.getHtmlElement();
 		var inlineHelpState = this.options_.inlineHelpState;
 		if (inlineHelpState) {
-			// the .css() call removes the CSS applied to the legend intially, so it is
-			// not shown while the page is being loaded.
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').css('visibility', 'visible').show();
-			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOffText);
+			// the .css() call removes the CSS applied to the legend intially,
+			// so it is not shown while the page is being loaded.
+			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').
+					css('visibility', 'visible').show();
+			$bodyElement.find('[id^="toggleHelp"]').html(
+					this.options_.toggleHelpOffText);
 		} else {
 			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').hide();
-			$bodyElement.find('[id^="toggleHelp"]').html(this.options_.toggleHelpOnText);
+			$bodyElement.find('[id^="toggleHelp"]').html(
+					this.options_.toggleHelpOnText);
 		}
 	};
 
@@ -261,8 +275,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @private
 	 *
-	 *@param {Object} the window object
-	 * @param {Event} event The beforeunload event
+	 * @param {Object} object The window object.
+	 * @param {Event} event The beforeunload event.
 	 * @return {string?} the warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
@@ -300,7 +314,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.isFormUnsaved =
 			function(id) {
 
-		if (this.unsavedFormElements_ !== null && this.unsavedFormElements_[id] !== undefined) {
+		if (this.unsavedFormElements_ !== null &&
+				this.unsavedFormElements_[id] !== undefined) {
 			return true;
 		}
 		return false;
@@ -357,14 +372,17 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var $site = this.getHtmlElement();
 		var structureContentWidth = $('.pkp_structure_content', $site).width();
 
-		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).outerWidth(true);
-		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).outerWidth(true);
+		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
+				outerWidth(true);
+		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
+				outerWidth(true);
 
 		var $mainDiv = $('.pkp_structure_main', $site);
 
 		// Check for padding, margin or border.
 		var mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
-		var mainMaxWidth = structureContentWidth - (leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
+		var mainMaxWidth = structureContentWidth - (
+				leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
 
 		$mainDiv.css('max-width', mainMaxWidth);
 	};

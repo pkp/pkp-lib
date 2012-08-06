@@ -54,6 +54,7 @@
 
 	/**
 	 * Get a category tbody element by category data id.
+	 * @param {String} categoryDataId The category data id.
 	 * @return {jQuery} Category tbody element.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
@@ -215,7 +216,7 @@
 			// Check if we want to refresh a row inside a category.
 			if (opt_elementId.parentElementId != undefined) {
 				var elementIds = {rowId: opt_elementId[0],
-						rowCategoryId: opt_elementId.parentElementId};
+					rowCategoryId: opt_elementId.parentElementId};
 
 				// Store the category id.
 				this.currentCategoryId_ = opt_elementId.parentElementId;
@@ -248,11 +249,11 @@
 			// Sometimes grid rows inside different categories may have
 			// the same id. Try to find the correct one to delete.
 			if (this.currentCategoryId_) {
-				$gridBody = this.getCategoryByDataId(this.currentCategoryId_);
+				var $gridBody = this.getCategoryByDataId(this.currentCategoryId_);
 				var index, limit;
 				for (index = 0, limit = $element.length; index < limit; index++) {
 					var $parent = $($element[index]).
-						parents('#' + $gridBody.attr('id'));
+							parents('#' + $gridBody.attr('id'));
 					if ($parent.length === 1) {
 						$element = $($element[index]);
 						break;

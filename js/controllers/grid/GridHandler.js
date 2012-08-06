@@ -166,7 +166,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Get the same type elements of the passed element.
 	 * @param {jQuery} $element The element to get the type from.
-	 * @return {jQuery}
+	 * @return {jQuery} The grid elements with the same type
+	 * of the passed element.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getElementsByType =
 			function($element) {
@@ -182,7 +183,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	/**
 	 * Get the empty element based on the type of the passed element.
 	 * @param {jQuery} $element The element to get the type from.
-	 * @return {jQuery}
+	 * @return {jQuery} The empty element.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.getEmptyElement =
 			function($element) {
@@ -391,7 +392,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {number=} opt_elementId The id of a data element that was
 	 *  updated, added or deleted. If not given then the whole grid
 	 *  will be refreshed.
-	 *  @param {Boolean} opt_fetchedAlready Flag that subclasses can send
+	 *  @param {Boolean=} opt_fetchedAlready Flag that subclasses can send
 	 *  telling that a fetch operation was already handled there.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
@@ -422,7 +423,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @protected
 	 *
 	 * @param {jQuery} $element The element to be deleted.
-	 * @param {jQuery} $opt_emptyElement The empty element to be shown.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
 			function($element) {
@@ -510,7 +510,8 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 * @param {jQuery} $row The row to be checked against grid columns.
 	 * @param {Boolean} checkColSpan Will get the number of row columns
 	 * by column span.
-	 * @returns {Boolean}
+	 * @return {Boolean} Whether it has the same number of grid columns
+	 * or not.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.hasSameNumOfColumns =
 			function($row, checkColSpan) {
@@ -579,6 +580,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	 *
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
+	 * @return {Boolean} Return false when no replace action is taken.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.replaceElementResponseHandler_ =
 			function(ajaxContext, jsonData) {
@@ -591,7 +593,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 				// delete it.
 				var elementId = jsonData.elementNotFound;
 				var $element = this.getHtmlElement().
-					find('.element' + elementId);
+						find('.element' + elementId);
 
 				// Sometimes we get a delete event before the
 				// element has actually been inserted (e.g. when deleting
@@ -697,8 +699,6 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Get the control row for the passed the grid row.
-	 *
-	 * @private
 	 *
 	 * @param {jQuery} $gridRow The grid row JQuery object.
 	 * @return {jQuery} The control row JQuery object.

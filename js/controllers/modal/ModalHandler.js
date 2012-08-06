@@ -69,7 +69,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// if the modal is too wide ('auto' width with large amounts
 		// of content), resize to prevent modals that are too wide.
 		if ($handledElement.width() > 710) {
-			$handledElement.dialog('option', 'width', '710')
+			$handledElement.dialog('option', 'width', '710');
 		}
 
 		$handledElement.dialog('option', 'position', ['center', 100]);

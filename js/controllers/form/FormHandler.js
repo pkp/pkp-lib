@@ -136,7 +136,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 	/**
 	 * Only submit a track event for this form once.
-	 * @private
 	 * @type {Boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
@@ -227,7 +226,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// We have made it to submission, disable the form control if
 		// necessary, submit the form.
 		if (this.disableControlsOnSubmit_) {
-			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').addClass('ui-state-disabled');
+			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').
+					addClass('ui-state-disabled');
 		}
 		return true;
 	};
@@ -243,7 +243,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.enableFormControls =
 			function() {
 
-		this.getHtmlElement().find(':submit').removeAttr('disabled').removeClass('ui-state-disabled');
+		this.getHtmlElement().find(':submit').removeAttr('disabled').
+				removeClass('ui-state-disabled');
 		return true;
 	};
 

@@ -813,8 +813,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item
 		// if needed
-		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').mousedown(
-				this.callbackWrapper(this.addItemHandler_));
+		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').
+				mousedown(this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};
 

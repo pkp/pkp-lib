@@ -208,6 +208,8 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
+	 * @return {Boolean} Return false if not overridden and if check form
+	 * returns true.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =
 			function(wizardElement, event) {
@@ -464,7 +466,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	/**
 	 * Helper method to look for changed forms.
 	 *
-	 * @param {boolean} Whether or not to prompt.
+	 * @param {boolean} prompt Whether or not to prompt.
 	 * @return {boolean} Whether or not they wish to cancel.
 	 * @private
 	 */

@@ -175,6 +175,7 @@
 	<message key="common.replaceFile">Replace file</message>
 	<message key="common.requiredField">* Denotes required field</message>
 	<message key="common.required">Required</message>
+	<message key="common.reset">Reset</message>
 	<message key="common.saveAndContinue">Save and continue</message>
 	<message key="common.saveAndEmail">Save and email</message>
 	<message key="common.save">Save</message>

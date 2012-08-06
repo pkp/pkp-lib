@@ -90,6 +90,7 @@
 	<message key="grid.action.uploadFile">Upload a file</message>
 	<message key="grid.action.addAnnouncementType">Add Announcement Type</message>
 	<message key="grid.action.addAnnouncement">Add Announcement</message>
+	<message key="grid.action.mergeUser">Merge user</message>
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

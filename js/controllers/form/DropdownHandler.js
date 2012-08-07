@@ -1,13 +1,13 @@
 /**
- * @file js/controllers/form/DropdownFormHandler.js
+ * @file js/controllers/form/DropdownHandler.js
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class DropdownFormHandler
+ * @class DropdownHandler
  * @ingroup js_controllers_form
  *
- * @brief Handler for a form allowing the user to select from an AJAX-provided
+ * @brief Handler for a container allowing the user to select from an AJAX-provided
  *   list of options, triggering an event upon selection.
  *
  */
@@ -17,15 +17,15 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.FormHandler
+	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQuery} $container the wrapped HTML container element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.controllers.form.DropdownFormHandler =
-			function($form, options) {
+	$.pkp.controllers.form.DropdownHandler =
+			function($container, options) {
 
-		this.parent($form, options);
+		this.parent($container, options);
 
 		// Save the event name to trigger upon selection for later
 		this.eventName_ = options.eventName;
@@ -43,8 +43,8 @@
 		// since it usually loads content or redirects to another page.
 		this.trackFormChanges_ = false;
 
-		// Attach form elements events.
-		$form.find('select', $form).change(
+		// Attach container elements events.
+		$container.find('select', $container).change(
 				this.callbackWrapper(this.selectOptionHandler_));
 
 		// Load the list of submissions.
@@ -55,8 +55,8 @@
 	};
 
 	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.DropdownFormHandler,
-			$.pkp.controllers.form.FormHandler);
+			$.pkp.controllers.form.DropdownHandler,
+			$.pkp.classes.Handler);
 
 
 	//
@@ -67,7 +67,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.eventName_ = null;
+	$.pkp.controllers.form.DropdownHandler.prototype.eventName_ = null;
 
 
 	/**
@@ -75,7 +75,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.defaultKey_ = null;
+	$.pkp.controllers.form.DropdownHandler.prototype.defaultKey_ = null;
 
 
 	/**
@@ -83,7 +83,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.currentKey_ = null;
+	$.pkp.controllers.form.DropdownHandler.prototype.currentKey_ = null;
 
 
 	/**
@@ -91,7 +91,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.getOptionsUrl_ = null;
+	$.pkp.controllers.form.DropdownHandler.prototype.getOptionsUrl_ = null;
 
 
 	//
@@ -105,7 +105,7 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.selectOptionHandler_ =
+	$.pkp.controllers.form.DropdownHandler.prototype.selectOptionHandler_ =
 			function(sourceElement, event) {
 
 		// Trigger the published event.
@@ -118,7 +118,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.loadOptions_ =
+	$.pkp.controllers.form.DropdownHandler.prototype.loadOptions_ =
 			function() {
 
 		$.get(this.getOptionsUrl_,
@@ -133,12 +133,12 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.setOptionList_ =
+	$.pkp.controllers.form.DropdownHandler.prototype.setOptionList_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
-		var $form = this.getHtmlElement();
-		var $select = $form.find('select');
+		var $container = this.getHtmlElement();
+		var $select = $container.find('select');
 
 		// For each supplied option, add it to the select menu.
 		for (var optionId in jsonData.content) {
@@ -163,12 +163,12 @@
 	 *  that triggered the event.
 	 * @param {Event} event The event.
 	 */
-	$.pkp.controllers.form.DropdownFormHandler.prototype.containerReloadHandler_ =
+	$.pkp.controllers.form.DropdownHandler.prototype.containerReloadHandler_ =
 			function(sourceElement, event) {
 
 		// prune the list before reloading the items.
-		var $form = this.getHtmlElement();
-		var $select = $form.find('select');
+		var $container = this.getHtmlElement();
+		var $select = $container.find('select');
 		this.currentKey_ = $select.find('option:selected').attr('value');
 		$select.find('option[value!="0"]').remove();
 		this.loadOptions_();

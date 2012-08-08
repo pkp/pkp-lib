@@ -37,11 +37,14 @@ class Submission extends DataObject {
 	 * Get a piece of data for this object, localized to the current
 	 * locale if possible.
 	 * @param $key string
+	 * @param $preferredLocale string
 	 * @return mixed
 	 */
-	function &getLocalizedData($key) {
-		$localePrecedence = array(AppLocale::getLocale(), $this->getLocale());
+	function &getLocalizedData($key, $preferredLocale = null) {
+		if (is_null($preferredLocale)) $preferredLocale = AppLocale::getLocale();
+		$localePrecedence = array($preferredLocale, $this->getLocale());
 		foreach ($localePrecedence as $locale) {
+			if (empty($locale)) continue;
 			$value =& $this->getData($key, $locale);
 			if (!empty($value)) return $value;
 			unset($value);
@@ -171,10 +174,11 @@ class Submission extends DataObject {
 
 	/**
 	 * Get "localized" submission title (if applicable).
+	 * @param $preferredLocale string
 	 * @return string
 	 */
-	function getLocalizedTitle() {
-		return $this->getLocalizedData('title');
+	function getLocalizedTitle($preferredLocale = null) {
+		return $this->getLocalizedData('title', $preferredLocale);
 	}
 
 	/**

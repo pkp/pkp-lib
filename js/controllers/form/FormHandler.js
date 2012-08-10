@@ -83,6 +83,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Activate the reset button (if present).
 		$('#resetFormButton', $form).click(this.callbackWrapper(this.resetForm));
+		$form.find('.showMore, .showLess').bind('click', this.switchViz);
+
 
 		// Initial form validation.
 		if (validator.checkForm()) {

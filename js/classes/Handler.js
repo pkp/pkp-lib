@@ -512,6 +512,19 @@
 	};
 
 
+	/**
+	 * Handle the "show more" and "show less" clicks triggered by the
+	 * links in longer text items.
+	 *
+	 * @param {Event} event The event.
+	 */
+	$.pkp.classes.Handler.prototype.switchViz = function(event) {
+
+		var eventElement = event.currentTarget;
+		$(eventElement).parent().parent().find('span').toggle();
+	};
+
+
 	//
 	// Private methods
 	//

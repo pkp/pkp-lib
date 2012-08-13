@@ -49,12 +49,16 @@ class GridRow {
 	/** @var string the row template */
 	var $_template;
 
+	/** @var GridCellProvider a cell provider for cells in this row */
+	var $_cellProvider;
+
 
 	/**
 	 * Constructor.
 	 */
 	function GridRow() {
 		$this->_isModified = false;
+		$this->_cellProvider = null;
 	}
 
 
@@ -144,6 +148,19 @@ class GridRow {
 	}
 
 	/**
+	 * Get whether this row has any actions or not.
+	 * @return boolean
+	 */
+	function hasActions() {
+		$allActions = array();
+		foreach($this->_actions as $actions) {
+			$allActions = array_merge($allActions, $actions);
+		}
+
+		return !empty($allActions);
+	}
+
+	/**
 	 * Get all actions for a given position within the controller
 	 * @param $position string the position of the actions
 	 * @return array the LegacyLinkActions for the given position
@@ -178,6 +195,22 @@ class GridRow {
 	 */
 	function setTemplate($template) {
 		$this->_template = $template;
+	}
+
+	/**
+	 * Get the cell provider
+	 * @return GridCellProvider
+	 */
+	function &getCellProvider() {
+		return $this->_cellProvider;
+	}
+
+	/**
+	 * Set the cell provider
+	 * @param $cellProvider GridCellProvider
+	 */
+	function setCellProvider(&$cellProvider) {
+		$this->_cellProvider =& $cellProvider;
 	}
 
 	//

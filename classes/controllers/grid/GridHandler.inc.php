@@ -462,7 +462,7 @@ class GridHandler extends PKPHandler {
 		$templateMgr->assign('gridFilterForm', $renderedFilter);
 
 		// Add columns.
-		$this->setRowActionToggleColumn();
+		$this->setFirstDataColumn();
 		$columns =& $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);
 
@@ -501,7 +501,7 @@ class GridHandler extends PKPHandler {
 			$json->setAdditionalAttributes(array('elementNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested row
-			$this->setRowActionToggleColumn();
+			$this->setFirstDataColumn();
 			$json->setContent($this->renderRowInternally($request, $row));
 		}
 
@@ -519,7 +519,7 @@ class GridHandler extends PKPHandler {
 		// Check the requested column
 		if(!isset($args['columnId'])) fatalError('Missing column id!');
 		if(!$this->hasColumn($args['columnId'])) fatalError('Invalid column id!');
-		$this->setRowActionToggleColumn();
+		$this->setFirstDataColumn();
 		$column =& $this->getColumn($args['columnId']);
 
 		// Instantiate the requested row
@@ -776,16 +776,16 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Define the column that will contain the
-	 * row action toggle, if any row action is present.
+	 * Define the first column that will contain
+	 * grid data.
 	 *
 	 * Override this method to define a different column
 	 * than the first one.
 	 */
-	function setRowActionToggleColumn() {
+	function setFirstDataColumn() {
 		$columns =& $this->getColumns();
 		$firstColumn =& reset($columns);
-		$firstColumn->addFlag('hasRowActionsToggle', true);
+		$firstColumn->addFlag('firstColumn', true);
 	}
 
 	/**
@@ -939,8 +939,13 @@ class GridHandler extends PKPHandler {
 			return $cellProvider->render($request, $row, $column);
 		}
 
-		// Otherwise, Get the cell content
-		$cellProvider =& $column->getCellProvider();
+		// Otherwise, get the cell content.
+		// If row defines a cell provider, use it.
+		$cellProvider =& $row->getCellProvider();
+		if (!is_a($cellProvider, 'GridCellProvider')) {
+			$cellProvider =& $column->getCellProvider();
+		}
+
 		return $cellProvider->render($request, $row, $column);
 	}
 

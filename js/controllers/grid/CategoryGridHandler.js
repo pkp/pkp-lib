@@ -64,13 +64,30 @@
 
 
 	/**
-	 * Get the category row inside a tbody category element.
-	 * @param {jQuery} $category Category tbody element.
-	 * @return {jQuery} Category row.
+	 * Get the category row inside a tbody category element. If none element
+	 * is passed, get all grid category rows.
+	 * @param {jQuery} $opt_category Category tbody element.
+	 * @return {jQuery} Category rows.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
+			function($opt_category) {
+		var $context = this.getHtmlElement();
+		if ($opt_category !== undefined) {
+			$context = $opt_category;
+		}
+
+		return $('tr.category', $context);
+	};
+
+
+	/**
+	 * Get rows inside a tbody category element, excluding the category row.
+	 * @param {jQuery} $category Category tbody element.
+	 * @return {jQuery} Category rows.
+	 */
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowsInCategory =
 			function($category) {
-		return $('tr.category', $category);
+		return $('tr.gridRow', $category).not('.category');
 	};
 
 
@@ -246,6 +263,15 @@
 			function($element) {
 
 		if ($element.length > 1) {
+			// Category and category row have the same element data id,
+			// handle this case.
+			if ($element.length == 2 &&
+					$element.hasClass('category_grid_body') &&
+					$element.hasClass('category')) {
+				// Always delete the entire category.
+				$element = $element.filter('.category_grid_body');
+			}
+
 			// Sometimes grid rows inside different categories may have
 			// the same id. Try to find the correct one to delete.
 			if (this.currentCategoryId_) {

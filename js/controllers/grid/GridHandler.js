@@ -740,6 +740,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var delay = 0;
 
 		var $row = $controlRow.prev().find('td:not(.indent_row)');
+		$row = $row.add($controlRow.prev());
 		if ($controlRow.is(':visible')) {
 			setTimeout(function() {
 				$row.removeClass('no_border');

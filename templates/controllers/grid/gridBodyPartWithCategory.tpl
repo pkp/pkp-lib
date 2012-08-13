@@ -6,15 +6,13 @@
  *
  * a set of grid rows with a category row at the beginning
  *}
-{** category id must be set by the rendering of the category row **}
+{assign var=categoryId value="component-"|concat:$categoryRow->getGridId():"-category-":$categoryRow->getId()|escape}
 <tbody id="{$categoryId|escape}" class="element{$categoryRow->getId()|escape} category_grid_body">
-	<tr class="category{if $iterator} group{$iterator|escape}{/if}">
-		{$renderedCategoryRow}
-		{** the regular data rows **}
-		{foreach from=$rows item=row}
-			{$row}
-		{/foreach}
-	</tr>
+	{$renderedCategoryRow}
+	{** the regular data rows **}
+	{foreach from=$rows item=row}
+		{$row}
+	{/foreach}
 </tbody>
 <tbody id="{$categoryId|concat:'-emptyPlaceholder'|escape}" class="empty category_placeholder"{if count($rows) > 0} style="display: none;"{/if}>
 	{**

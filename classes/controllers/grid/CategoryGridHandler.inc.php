@@ -79,7 +79,7 @@ class CategoryGridHandler extends GridHandler {
 			$json->setAdditionalAttributes(array('elementNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested category
-			$this->setRowActionToggleColumn();
+			$this->setFirstDataColumn();
 			$json->setContent($this->_renderCategoryInternally($request, $row));
 		}
 
@@ -171,16 +171,15 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * @see GridHandler::setRowActionToggleColumn()
+	 * @see GridHandler::setFirstDataColumn()
 	 */
-	function setRowActionToggleColumn() {
+	function setFirstDataColumn() {
 		$columns =& $this->getColumns();
 		reset($columns);
 		// Category grids will always have indent column firstly,
-		// so we need to add the row action toggle inside
-		// the seconde one.
+		// so we need to consider the first column the second one.
 		$secondColumn =& next($columns); /* @var $secondColumn GridColumn */
-		$secondColumn->addFlag('hasRowActionsToggle', true);
+		$secondColumn->addFlag('firstColumn', true);
 	}
 
 
@@ -375,7 +374,7 @@ class CategoryGridHandler extends GridHandler {
 		$renderedRows = $this->_renderRowsInternally($request, $rowData);
 		$templateMgr->assign_by_ref('rows', $renderedRows);
 
-		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
+		$renderedCategoryRow = $this->renderRowInternally($request, $categoryRow);
 
 		// Finished working with this category, erase the current id value.
 		$this->_currentCategoryId = null;

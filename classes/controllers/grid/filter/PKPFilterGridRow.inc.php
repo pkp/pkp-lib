@@ -73,9 +73,6 @@ class PKPFilterGridRow extends GridRow {
 					__('manager.setup.filter.grid.confirmDelete', array('filterName' => $filter->getDisplayName()))
 				)
 			);
-
-			// Set a non-default template that supports row actions
-			$this->setTemplate('controllers/grid/gridRowWithActions.tpl');
 		}
 	}
 }

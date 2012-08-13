@@ -97,9 +97,6 @@ class PKPCitationGridRow extends GridRow {
 				),
 				GRID_ACTION_POSITION_ROW_LEFT
 			);
-
-			// Set a non-default template that supports row actions
-			$this->setTemplate('controllers/grid/gridRowWithActions.tpl');
 		}
 	}
 

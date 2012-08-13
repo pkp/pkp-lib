@@ -126,7 +126,7 @@ class OrderItemsFeature extends GridFeature{
 	 */
 	function addRowOrderAction(&$row, $actionPosition = GRID_ACTION_POSITION_ROW_LEFT) {
 		if ($this->getOverrideRowTemplate($row)) {
-			$row->setTemplate('controllers/grid/gridRowWithActions.tpl');
+			$row->setTemplate('controllers/grid/gridRow.tpl');
 		}
 
 		import('lib.pkp.classes.linkAction.request.NullAction');

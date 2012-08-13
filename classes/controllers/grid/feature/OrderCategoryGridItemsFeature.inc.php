@@ -26,7 +26,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	 * @param $typeOption int Defines which grid elements will
 	 * be orderable (categories and/or rows).
 	 * @param $overrideRowTemplate boolean This feature uses row
-	 * actions and it will force the usage of the gridRowWithActions.tpl.
+	 * actions and it will force the usage of the gridRow.tpl.
 	 * If you want to use a different grid row template file, set this flag to
 	 * false and make sure to use a template file that adds row actions.
 	 */

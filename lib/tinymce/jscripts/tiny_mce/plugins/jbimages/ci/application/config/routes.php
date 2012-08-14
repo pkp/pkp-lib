@@ -38,9 +38,8 @@
 |
 */
 
-$route['default_controller'] = "editor";
+$route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['(:any)'] = "editor/$1";
 
 
 /* End of file routes.php */

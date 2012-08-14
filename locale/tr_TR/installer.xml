@@ -69,6 +69,5 @@
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.skipFilesDir">Gerekli alt dizinleri oluşturmayın (yalnızca manuel yükleme için yaralıdır) </message>
 	<message key="installer.manualUpgrade">Manuel olarak yükseltme</message>
 </locale>

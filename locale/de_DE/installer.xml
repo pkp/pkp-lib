@@ -68,5 +68,4 @@
 	<message key="installer.publicFilesDirError">Das öffentliche Verzeichnis existiert nicht oder erlaubt keine Schreibzugriffe.</message>
 	<message key="installer.releaseNotes">Versionsinformationen</message>
 	<message key="installer.securitySettings">Sicherheitseinstellungen</message>
-	<message key="installer.skipFilesDir">Überspringe das Anlegen der benötigten Unterverzeichnisse (nur in einer manuellen Installation sinnvoll).</message>
 </locale>

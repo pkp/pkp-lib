@@ -72,6 +72,5 @@
 	<message key="installer.publicFilesDirError">Тека, визначена для збереження файлів, не існує або захищена від запису.</message>
 	<message key="installer.releaseNotes">Примітки версії</message>
 	<message key="installer.securitySettings">Налаштування безпеки</message>
-	<message key="installer.skipFilesDir">Не створювати необхідні підтеки (корисно лише у разі ручної інсталяції)</message>
 	<message key="installer.manualUpgrade">Ручне оновлення</message>
 </locale>

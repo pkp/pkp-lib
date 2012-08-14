@@ -124,7 +124,6 @@ function doSubmit() {
 
 <div class="separator"></div>
 
-{if !$skipFilesDirSection}
 <div id="fileSettings">
 	<h3>{translate key="installer.fileSettings"}</h3>
 
@@ -144,15 +143,10 @@ function doSubmit() {
 				<p>{translate key="installer.maxFileUploadSize" maxFileUploadSize=$maxFileUploadSize}</p>
 			</td>
 		</tr>
-		<tr valign="top">
-			<td>&nbsp;</td>
-			<td class="value"><input type="checkbox" name="skipFilesDir" id="skipFilesDir" value="1"{if $skipFilesDir} checked="checked"{/if} /> <label for="skipFilesDir">{translate key="installer.skipFilesDir"}</label></td>
-		</tr>
 	</table>
 
 	<div class="separator"></div>
 </div>
-{/if}{* !$skipFilesDirSection *}
 
 <div id="security">
 <h3>{translate key="installer.securitySettings"}</h3>

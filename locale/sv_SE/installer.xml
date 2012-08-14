@@ -65,5 +65,4 @@
 	<message key="installer.publicFilesDirError">Mappen för publika filer existerar inte eller är inte överskrivningsbar.</message>
 	<message key="installer.releaseNotes">Releasenyheter</message>
 	<message key="installer.securitySettings">Säkerhetsinställningar</message>
-	<message key="installer.skipFilesDir">Skapa inga undermappar ((endast för manuell installation)</message>
 </locale>

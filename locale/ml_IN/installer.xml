@@ -70,6 +70,5 @@
 	<message key="installer.publicFilesDirError">പൊതു ഫയലുകളുടെ ഡയറക്ടറി നിലവിലില്ല.</message>
 	<message key="installer.releaseNotes">കുറിപ്പുകള്‍ പ്രകാശിപ്പിക്കുക</message>
 	<message key="installer.securitySettings">ഭദ്രത ക്രമീകരണം</message>
-	<message key="installer.skipFilesDir">സബ് ഡയറക്ടറികള്‍ സൃഷ്ടിക്കരുത് (മാനുവല്‍ ഇന്‍സ്റ്റാളേഷന് മാത്രം സാധ്യം)</message>
 	<message key="installer.manualUpgrade">മാനുവല്‍ അപ്ഗ്രേഡ്</message>
 </locale>

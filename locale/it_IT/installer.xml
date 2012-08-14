@@ -67,7 +67,6 @@
 	<message key="installer.publicFilesDirError">La directory di file pubblici non esiste o non è scrivibile.</message>
 	<message key="installer.releaseNotes">Note di rilascio</message>
 	<message key="installer.securitySettings">Impostazioni di sicurezza</message>
-	<message key="installer.skipFilesDir">Non creare sottodirectory (utilizzare solo per installazioni manuali)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errore nell'analisi del template email <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">I file contrassegnati  potrebbero essere incompleti.</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Esegui lo strumento di upgrade dopo aver installato il database. Esegui  'php tools/upgrade.php upgrade' nella directory principale dell'installazione</message>

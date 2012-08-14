@@ -104,10 +104,6 @@ class PKPInstall extends Installer {
 	 * @return boolean
 	 */
 	function createDirectories() {
-		if ($this->getParam('skipFilesDir')) {
-			return true;
-		}
-
 		// Check if files directory exists and is writeable
 		if (!(file_exists($this->getParam('filesDir')) &&  is_writeable($this->getParam('filesDir')))) {
 			// Files upload directory unusable

@@ -67,7 +67,6 @@
 	<message key="installer.publicFilesDirError">Den offentlige filmappe findes ikke eller er ikke skrivbar.</message>
 	<message key="installer.releaseNotes">Produktbemærkninger</message>
 	<message key="installer.securitySettings">Sikkerhedsindstillinger</message>
-	<message key="installer.skipFilesDir">Opret ikke påkrævede undermapper (kun nyttig ved en manuel installation)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De markerede landestandarder kan være ufuldstændige.</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Kør opgraderingsværktøjet, når du har installeret din database. Udfør 'php tools/upgrade.php upgrade' inde fra hovedinstallationsmappen.</message>

@@ -71,6 +71,5 @@
 	<message key="installer.publicFilesDirError">Adresář veřejných souborů (public) neexistuje nebo není zapsatelný.</message>
 	<message key="installer.releaseNotes">Poznámky k vydání</message>
 	<message key="installer.securitySettings">Bezpečnostní nastavení</message>
-	<message key="installer.skipFilesDir">Nevytvářet požadované podadresáře (užitečné pouze při ruční instalaci)</message>
 	<message key="installer.manualUpgrade">Upgradovat ručně</message>
 </locale>

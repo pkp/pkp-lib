@@ -67,5 +67,4 @@
 	<message key="installer.publicFilesDirError">Public的文件的目录不存在或不可写.</message>
 	<message key="installer.releaseNotes">发行说明</message>
 	<message key="installer.securitySettings">安全设置</message>
-	<message key="installer.skipFilesDir">不要创建所需的子目录 (用于手动安装)</message>
 </locale>

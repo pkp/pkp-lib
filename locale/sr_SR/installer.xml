@@ -70,6 +70,5 @@
 	<message key="installer.publicFilesDirError">Folder javnih fajlova ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Napomene o izdanju</message>
 	<message key="installer.securitySettings">Sigurnosna podešavanja</message>
-	<message key="installer.skipFilesDir">Nemoj kreirati obavezne foldere (jedino korisno za manuelnu instalaciju)</message>
 	<message key="installer.manualUpgrade">Manuelna nadogradnja</message>
 </locale>

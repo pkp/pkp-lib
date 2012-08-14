@@ -124,6 +124,7 @@ function doSubmit() {
 
 <div class="separator"></div>
 
+{if !$skipFilesDirSection}
 <div id="fileSettings">
 	<h3>{translate key="installer.fileSettings"}</h3>
 
@@ -147,6 +148,7 @@ function doSubmit() {
 
 	<div class="separator"></div>
 </div>
+{/if}{* !$skipFilesDirSection *}
 
 <div id="security">
 <h3>{translate key="installer.securitySettings"}</h3>

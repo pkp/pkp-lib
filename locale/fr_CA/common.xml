@@ -324,4 +324,5 @@
 	<message key="common.pluginDisabled">Le plugiciel "{$pluginName}" a été désactivé.</message>
 	<message key="common.refresh">Rafraîchir</message>
 	<message key="common.loading">Chargement ...</message>
+	<message key="common.accepted">Accepté</message>
 </locale>

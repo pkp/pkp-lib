@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">一个更新的版本可用</message>
 	<message key="admin.version.upToDate">您的系统是最新</message>
 	<message key="admin.version">版本</message>
+	<message key="admin.settings">设置</message>
+	<message key="admin.siteSetup">整站设置</message>
+	<message key="admin.settings.siteTheme">站点主题</message>
 </locale>

@@ -114,4 +114,15 @@
 	<message key="user.authorization.restrictedSiteAccess">Accesso negato. L'accesso a questo sito è ristretto.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Con il corrente ruolo non si ha accesso a questa operazione.</message>
 	<message key="user.authorization.userGroupRequired">Devi selezionare un gruppo valido per accedere a questa operazione</message>
+	<message key="user.hello">Salve,</message>
+	<message key="user.profile.form.countryRequired">Inserire un Paese.</message>
+	<message key="user.suffix">Suffisso</message>
+	<message key="user.authorization.accessDenied">Accesso negato.</message>
+	<message key="user.accountInformation">Informazioni account</message>
+	<message key="user.authorization.pressManagerRequired">Prima di procedere è necessario assegnare un utente con ruolo di Manager di stampa (ad es. Editor di stampa o di produzione).</message>
+	<message key="user.interests.description">(Separare i campi di interesse premendo ENTER o usando la virgola)</message>
+	<message key="user.group">Gruppo utenti</message>
+	<message key="user.profile.form.mailingAddressRequired">E' obbligatorio un indirizzo di posta elettronica.</message>
+	<message key="user.profile.form.passwordSameAsOld">La nuova password è identica alla vecchia.</message>
+	<message key="user.profile.form.usergroupRequired">E' obbligatorio un gruppo utenti.</message>
 </locale>

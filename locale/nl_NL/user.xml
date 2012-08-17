@@ -107,4 +107,22 @@
 	<message key="user.gossip">Prive notities</message>
 	<message key="user.profile.form.affiliationRequired">Een affiliatie is verplciht</message>
 	<message key="user.repeatPassword">Herhaal wachtwoord</message>
+	<message key="user.authorization.loginRequired">Login verplicht.</message>
+	<message key="user.authorization.restrictedSiteAccess">De toegang is geweigerd. Deze site heeft momenteel een beperkte toegang</message>
+	<message key="user.authorization.roleBasedAccessDenied">De huidige rol mag deze bewerking niet uitvoeren.</message>
+	<message key="user.hello">Hallo,</message>
+	<message key="user.profile.form.countryRequired">Een land is verplicht.</message>
+	<message key="user.profile.form.mailingAddressRequired">Een postadres is verplicht.</message>
+	<message key="user.profile.form.passwordSameAsOld">Uw nieuwe wachtwoord is hetzelfde als het oude wachtwoord.</message>
+	<message key="user.suffix">Achtervoegsel</message>
+	<message key="user.accountInformation">Account informatie</message>
+	<message key="user.authorization.accessDenied">Toegang geweigerd.</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">Het process authentication token ontbreekt of is ongeldig.</message>
+	<message key="user.authorization.contextRequired">U kunt deze bewerking niet aanroepen zonder een context (press, journal, conference, enz.).</message>
+	<message key="user.authorization.privateOperation">De bewerking die u wilde uitvoeren is afgeschermd of bestaat niet.</message>
+	<message key="user.authorization.userGroupRequired">U moet een geldige gebruikersgroep instellen om deze bewerking te doen.</message>
+	<message key="user.interests.description">(scheid interesses met de enter- of comma-toets)</message>
+	<message key="user.group">Gebruikersgroep</message>
+	<message key="user.profile.form.usergroupRequired">Een gebruikersgroep is verplicht.</message>
+	<message key="user.authorization.pressManagerRequired">Een gebruiker met de rol Perscontact  (zoals Pers of Productieredacteur) moet aan dit stadium toegekend zijn voor u verder kunt gaan.</message>
 </locale>

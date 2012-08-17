@@ -243,4 +243,9 @@
 	<message key="search.titleIndex">瀏覽標題索引</message>
 	<message key="search.title">標題</message>
 	<message key="search.typeMethodApproach">類型 (方法＼取向)</message>
+	<message key="announcement.posted">发布</message>
+	<message key="announcement.postedOn">发布与 {$postDate}</message>
+	<message key="common.accepted">接受</message>
+	<message key="common.activate">激活</message>
+	<message key="common.add">添加</message>
 </locale>

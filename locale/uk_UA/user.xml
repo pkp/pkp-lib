@@ -55,7 +55,6 @@
 	<message key="user.login.forgotPassword">Забули пароль?</message>
 	<message key="user.login.loginError">Невірне ім'я користувача або пароль. Будь ласка, спробуйте знову.</message>
 	<message key="user.login">Увійти</message>
-	<message key="user.logIn">Увійти</message>
 	<message key="user.login.lostPassword.confirmationSent">На вашу адресу email було надіслане підтвердження. Виконайте вказані у листі інструкції, щоб змінити ваш пароль.</message>
 	<message key="user.login.lostPassword.invalidHash">Вибачте, посилання застаріле або некоректне. Будь ласка, спробуйте знову змінити свій пароль.</message>
 	<message key="user.login.lostPassword.invalidUser">Не існує користувача зі вказаною адресою email.</message>
@@ -119,4 +118,12 @@
 	<message key="user.username">Ім'я користувача</message>
 	<message key="user.workingLanguages">Робочі мови</message>
 	<message key="user.register.completeForm">Щоб зареєструватися у цьому журналі заповніть форму нижче.</message>
+	<message key="user.accountInformation">Інформація облікового запису</message>
+	<message key="user.group">Група користувачів</message>
+	<message key="user.hello">ВІтаємо,</message>
+	<message key="user.profile.form.countryRequired">Необхідно вказати країну.</message>
+	<message key="user.profile.form.mailingAddressRequired">Необхідно вказати поштову адресу</message>
+	<message key="user.profile.form.passwordSameAsOld">Новий і старий паролі однакові.</message>
+	<message key="user.profile.form.usergroupRequired">Необхідно вказати групу користувачів.</message>
+	<message key="user.suffix">Суфікс</message>
 </locale>

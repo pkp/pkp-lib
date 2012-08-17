@@ -178,4 +178,35 @@
 	<message key="manager.setup.filter.grid.errorDeletingFilter">Det oppstod en feil ved forsøket på å fjerne dette filteret. Vennligst rapporter dette som en programfeil.</message>
 	<message key="manager.setup.filter.grid.confirmDelete">Vil du virkelig slette {$filterName}-filteret?</message>
 	<message key="manager.setup.filter.lookup.grid.descriptionTemplate">Vennligst velg en database å slå opp i</message>
+	<message key="manager.announcements.datePublish">Publisert</message>
+	<message key="manager.emails.addEmail">Legg til e-postmal</message>
+	<message key="manager.emails.details">Maldetaljer</message>
+	<message key="manager.navigation">Navigering</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Avansert søk</message>
+	<message key="manager.reviewerSearch.searchByName.short">Søk etter navn</message>
+	<message key="manager.masthead.title">Hode/kolofonside</message>
+	<message key="manager.setup.filter.lookup.grid.descriptionConfirm">Du har valgt å legge til databasen {$filterDisplayName}. Klikk 'OK' for å bekrefte.</message>
+	<message key="manager.emails.data">Malmeldingsdata</message>
+	<message key="manager.emails.disable.message">Du er i ferd med å deaktivere denne e-postmalen. Om det finnes systemprosesser som benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte deaktivering?</message>
+	<message key="manager.emails.enable.message">Du er i ferd med å aktivere denne e-posten. Ønsker du å bekrefte denne aktiveringen?</message>
+	<message key="manager.emails.resetAll.message">Om du tilbakestiller alle maler vil alle endringer som er gjort i e-postmalene bli borte. Ønsker du å bekrefte tilbakestillingen?</message>
+	<message key="manager.emails.reset.message">Om du tilbakestiller denne malen, vil alle data i meldingen bli tilbakestilt til standardverdier og alle endringer vil bli borte. Vil du bekrefte denne tilbakestillingen?</message>
+	<message key="manager.setup.citationAssistant">Referansemarkeringshjelper</message>
+	<message key="manager.setup.citationFilterParser">Referanseuthenting</message>
+	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>For å finne og kontrollere referanser i referansedatabaser må de først splittes opp i maskinlesbare metadata: tittel, utgiver, publiseringsdato osv. må alle hentes ut av den originale referanseteksten som forfatteren har oppgitt den. Konnektorer til eksterne nettjenester kan hjelpe med dette arbeidet. En eller flere konnektorer kan legges til ved å klikke på "Legg til"-knappen nedenfor. Noen konnektorer må konfigureres, du vil bli spurt hvis så er tilfelle.</p>
+		<p>Du kan redigere eller slette en eksisterende konnektor ved å klikke på ikonet ved siden av den.</p>]]></message>
+	<message key="manager.setup.citationFilterLookup">Referansesjekking</message>
+	<message key="manager.setup.citationFilterLookupDescription"><![CDATA[<p>Du må også tillate og konfigurere tilknytninger til eksterne siteringsdatabaser. Dette vil hjelpe til med å finne feil i forfatternes referanser eller legge til manglende informasjon (f.eks. DOIer eller PubMed-IDer) som er nødvendig for elektronsik publisering eller avgivelse.</p>
+		<p>Vi tilbyr konnektorer til flere eksterne databaser hvor du kan søke etter referanser. Noen av disse databasene krever registrering eller konfigurering. Se informasjon på databasenes nettsider med hensyn til hvordan du kan registrere deg. Du kan legge til en eller flere databaser ved å klikke på "Legg til"-knappen nedenfor.</p>
+		<p>Du kan redigere eller fjerne en eksisterende ekstern database ved å klikke på ikonet ved siden av den.</p>
+		<p><strong>Merk:</strong> For at referansesjekkprosessen skal foregå med ønsket hastighet, må <tt>citation_checking_max_processes</tt>-innstillngen i din konfigurasjonsfil være satt til en fornuftig verdi. Se avsnittet Generelle innstillinger i <tt>config.inc.php</tt> for mer informasjon.</p>]]></message>
+	<message key="manager.setup.citationOutput">Referanse resultat</message>
+	<message key="manager.setup.citationOutputStyleDescription">Velg en referansestil som benyttes i innsendingene til ditt tidsskrift. Referansemarkeringsverktøyet gjør at du kan sammenligne forfatterens versjon av referansen med en versjon som genereres av den XMLen du lager, slik at det blir lett å oppdage forskjellene:</message>
+	<message key="manager.setup.filter.grid.filterDisplayName">Konnektor</message>
+	<message key="manager.setup.filter.grid.filterSettings">Registreringsinformasjon og konnektorinnstillinger</message>
+	<message key="manager.setup.filter.grid.filterTemplateRequired">Velg en av  omformingene fra nedtrekksmenyen.</message>
+	<message key="manager.setup.filter.lookup.grid.description.iSBNdb"><![CDATA[<p>Dette filteret kobler til <a href="http://isbndb.com/" target="_blank">ISBNdb.com</a>s bok- og ISBN-database.</p>
+	<p>En ISBNdb API-nøkkel er nødvendig. For informasjon om hvordan generere en slik nøkkel, se <a href="http://isbndb.com/docs/api/30-keys.html" target="_blank">dokumentasjon på nett</a>.</p>]]></message>
+	<message key="manager.setup.filter.lookup.grid.description.crossRef"><![CDATA[<p>Dette filteret kobler til CrossRefs referansedatabase ved bruk av CrossRefs <a href="http://www.crossref.org/02publishers/openurl_info.html" target="_blank">OpenURL Query Interface</a>.</p>
+	<p>For å benytte dette filteret kan du bruke din system-konto hos CrossRef, eller registrere en gyldig e-postadresse hos CrossRef <a href="http://www.crossref.org/requestaccount/" target="_blank">her</a>.</p>]]></message>
 </locale>

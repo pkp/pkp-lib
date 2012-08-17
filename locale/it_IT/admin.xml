@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Ricarica localizzazione</message>
 	<message key="admin.languages.uninstall">Disinstalla localizzazione</message>
 	<message key="admin.phpInfo">Informazioni dettagliate su PHP</message>
-	<message key="admin.saveSystemConfig">Salva la configurazione</message>
 	<message key="admin.server.apacheVersion">Versione di Apache</message>
 	<message key="admin.server.dbDriver">Driver del database</message>
 	<message key="admin.server.dbVersion">Versione del server di database</message>
@@ -81,4 +80,7 @@
 	<message key="admin.version.updateAvailable"><![CDATA[&Egrave; disponibile una versione aggiornata]]></message>
 	<message key="admin.version.upToDate">Il tuo sistema è aggiornato</message>
 	<message key="admin.version">Versione</message>
+	<message key="admin.settings">Impostazioni</message>
+	<message key="admin.settings.siteTheme">Tema del sito</message>
+	<message key="admin.siteSetup">Setup del sito</message>
 </locale>

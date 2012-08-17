@@ -202,7 +202,6 @@
 	<message key="submission.currentAgencies">Huidige agenten</message>
 	<message key="submission.indexingInformation">Indexeringsinformatie</message>
 	<message key="submission.uploadSuccessful">Uw bestand is geladen</message>
-	<message key="submission.uploadSuccessfulContinue">Uw bestand is geladen. Klik op Doorgaan om de metadata van het bestand te bewerken.</message>
 	<message key="submission.loadMessage">Wacht tot uw bestand is geladen in de server.</message>
 	<message key="submission.artworkFileDetails">Details grafische bestanden</message>
 	<message key="submission.fileDetails">Bestandsdetails</message>
@@ -215,7 +214,7 @@
 	<message key="submission.citations.editor.export">Exporteer citaties</message>
 	<message key="submission.citations.editor.export.filterSelectionDescription">Kies een van de volgende uitvoeropties.</message>
 	<message key="submission.citations.editor.export.filterSelectionError">U heb geen uitvoeroptie gekozen.</message>
-	<message key="submission.citations.editor.export.noExportOutput">Het '{$filterNaam}' filter heeft een fout opgeleverd. Gelieve deze fout te rapporteren.</message>
+	<message key="submission.citations.editor.export.noExportOutput">Het '{$filterName}' filter heeft een fout opgeleverd. Gelieve deze fout te rapporteren.</message>
 	<message key="submission.citations.editor.export.pleaseSelectXmlFilter">XML uitvoeropties:</message>
 	<message key="submission.citations.editor.export.pleaseSelectPlaintextFilter">Citatiestijl uitvoer (experimenteel!):</message>
 	<message key="submission.citations.editor.introduction">Introductie</message>
@@ -360,4 +359,29 @@
 		<h4>Citaties bewerken</h4>
 		<p>Klik op een citatie in de lijst aan de linkerkant om die citatie te bewerken. De citatie zal dan geopend worden in dit venster. U krijgt de originele citatie van de auteur te zien,gevolg door de automatisch extractie van de assistent. U kunt de originele citatie bewerken, onderdelen of de gehele nieuwe citatie bewerken, de citatie opnieuw controleren bij de geconfigureerde databanken, Google Scholar doorzoeken of de auteur om meer informatie vragen.</p>
 		<p>Als u een citatie naar tevredenheid bewerkt hebt, kunt up op de <strong>Bewaren en goedkeuren</strong> knop klikken. U krijgt dan de volgende niet-goedgekeurde citatie uit de lijst. Op deze manier kunt een grote lijst citaties snel verwerken. Zodra alle citaties goedgekeurd zijn komt u  op de <strong>Exporteer citaties</strong> pagina.</p>]]></message>
+	<message key="metadata.property.displayName.nonSort">Deel van de titel genegeerd bij het sorteren</message>
+	<message key="metadata.property.displayName.title">Titel</message>
+	<message key="metadata.property.validationMessage.title">Geef een geldige titel</message>
+	<message key="metadata.property.displayName.subTitle">Ondertitel</message>
+	<message key="metadata.property.validationMessage.subTitle">Geef een geldige ondertitel</message>
+	<message key="metadata.property.displayName.title-type">Titel type</message>
+	<message key="metadata.property.validationMessage.title-type">Stel een geldig titel type in. Geldige waarden zijn 'abbreviated', 'translated', 'alternative' en 'uniform'.</message>
+	<message key="metadata.property.validationMessage.nonSort">Geef alleen de eerste tekens van de titel die genegeerd moet worden bij het sorteren van de titel.</message>
+	<message key="metadata.property.displayName.partNumber">Nummer van het onderdeel</message>
+	<message key="metadata.property.validationMessage.partNumber">Geef een geldig onderdeel nummer.</message>
+	<message key="metadata.property.displayName.partName">Naam van het onderdeel</message>
+	<message key="metadata.property.validationMessage.partName">Geef een geldige onderdeel naam</message>
+	<message key="metadata.property.displayName.name-type">Type van de naam</message>
+	<message key="metadata.property.validationMessage.name-type">Geef een geldig naam-type. Geldige waarden zijn 'personal', 'corporate' en 'conference'.</message>
+	<message key="submission.citations.editor.citationlist.approved">Goedgekeurd</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Niet goedgekeurd</message>
+	<message key="submission.comments.addReviews">Voeg reviews toe aan e-mail</message>
+	<message key="submission.form.name">Geef dit een behulpzame naam</message>
+	<message key="submission.copyedited">Tekstredactie uitgevoerd</message>
+	<message key="submission.reviewed">Gereviewed</message>
+	<message key="submission.form.replaceExisting">Een bestaand bestand vervangen?</message>
+	<message key="submission.layout.galleyRemoteURL">Remote URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Geef de remote URL (inclusief http://)</message>
+	<message key="submission.supportingAgencies">Ondersteunende organisatie</message>
+	<message key="submission.createRemote">Remote aanmaken</message>
 </locale>

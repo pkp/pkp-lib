@@ -116,7 +116,7 @@
 	<message key="manager.people.enrollUserAs">Cadastrar usuário como</message>
 	<message key="manager.people.invalidUser">Usuário não existe.</message>
 	<message key="manager.people.mergeUser">Mesclar cadastro</message>
-	<message key="manager.people.mergeUsers.confirm">Deseja realmente mesclar o cadastro do usuário "{$oldUsername}" com o cadastro do usuário "{$newUsername}"? O cadastro de "{$oldUsername}" será excluído permanentemente. Esta ação não é reversível!</message>
+	<message key="manager.people.mergeUsers.confirm">Deseja realmente mesclar os "{$oldAccountCount}" cadastros com o cadastro do usuário "{$newUsername}"? Os "{$oldAccountCount}" cadastros serão excluídos permanentemente. Esta ação NÃO é reversível!</message>
 	<message key="manager.people.mergeUsers">Mesclar cadastros</message>
 	<message key="manager.people.mustChooseRole">Escolha um papel editorial antes de confirmar</message>
 	<message key="manager.people.mustProvideName">Informe pelo menos o sobrenome do usuário.</message>
@@ -217,4 +217,27 @@
 	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Este filtro de extração usa os módulos Perl <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> para oferecer as funcionalidades de análise de citações <a href="http://paracite.eprints.org" target="_blank">ParaCite</a>. Para seu correto funcionamento, é necessário instalar Perl, bem como o <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> e os módulos CPAN <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a>. Deve-se também configurar as diretivas <tt>perl</tt> no arquivo de configuração. Esta diretiva pode ser encontrada na seção External Commands do arquivo <tt>config.inc.php</tt>.</p>
 <p>Pode-se também escolher qual módulo de análise o ParaTools deve usar. Escolha entre o padrão, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, ou os módulos <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a>.</p>]]></message>
 	<message key="manager.setup.metaCitationsDescription">Marque a caixa de opção a seguir para habilitar a edição de citações e referências. Isto permitirá aos autores incluírem citações não preparadas junto com as submissões. Os editores também terão acesso a um assistente que pode verificar citações não tratadas em bases de dados externas, como WorldCat, ISBNdb, PubMed, entre outras, para maior precisão. Citações aprovadas podem ser inseridas posteriormente nas composições finais para publicação.</message>
+	<message key="manager.announcements.datePublish">Publicado</message>
+	<message key="manager.emails.addEmail">Incluir modelo de mensagem</message>
+	<message key="manager.emails.data">Dados do modelo de mensagem</message>
+	<message key="manager.emails.details">Detalhes do modelo</message>
+	<message key="manager.emails.disable.message">Está prestes a desabilitar este modelo de mensgaem. Caso existam processos usando este modelo, o modelo não será mais usado. Deseja confirmar a operação?</message>
+	<message key="manager.emails.enable.message">Está prestes a habilitar esta mensagem. Deseja confirmar esta operação?</message>
+	<message key="manager.emails.resetAll.message">Caso restaure todos os modelos, todas as alterações aos modelos de mensagem serão perdidas. Deseja confirmar a operação?</message>
+	<message key="manager.emails.reset.message">Caso restaure este modelo, todos os dados da mensagem retornarão ao valor original, perdendo todas as alterações. Deseja confirmar esta operação?</message>
+	<message key="manager.masthead.title">Expediente</message>
+	<message key="manager.navigation">Navegação</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Busca avançada</message>
+	<message key="manager.reviewerSearch.searchByName.short">Buscar por nome</message>
+	<message key="manager.reviewerSearch.form.instructions">Use o formulário a seguir para definir os valores máximos para os termos pelos quais deseja buscar. O formulário está preenchido previamente com médias calculadas dos campos.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Informe as áreas de interesse para avaliação, separadas por vírgula...</message>
+	<message key="manager.setup.layout.blockManagement">Gerenciamento da barra lateral</message>
+	<message key="plugins.categories.metadata">Plugins de metadados</message>
+	<message key="plugins.categories.metadata.description">Plugins de metadados implementam padrões adicionais de metadados.</message>
+	<message key="plugins.categories.citationLookup">Plugins de conexão a bases de dados de citação</message>
+	<message key="plugins.categories.citationLookup.description">Plugins de conexão a bases de dados de citação conectam a bases de dados de citação para pesquisar citações durante a edição das mesmas, por exemplo.</message>
+	<message key="plugins.categories.citationOutput">Plugins de saída de citações</message>
+	<message key="plugins.categories.citationOutput.description">Plugins de saída de citações implementam padrões de saída de citações. Estes substituem os plugins de formatos de citação.</message>
+	<message key="plugins.categories.citationParser">Plugins de extração de citação</message>
+	<message key="plugins.categories.citationParser.description">Plugins de extração de citação extraem dados a nível de campos para citações cruas (ex.: autor, título, entre outros).</message>
 </locale>

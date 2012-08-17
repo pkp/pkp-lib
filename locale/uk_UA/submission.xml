@@ -381,11 +381,17 @@
 	<message key="submission.viewMetadata">Перегляд метаданих</message>
 	<message key="submission.views">переглядів</message>
 	<message key="submission.uploadSuccessful">Ваш файл був вивантажений.</message>
-	<message key="submission.uploadSuccessfulContinue">Ваш файл був вивантажений. Натисніть "Продовжити" та відредагуйте метадані файлу.</message>
 	<message key="submission.loadMessage">Файл вивантажується на сервер. Будь ласка, зачекайте.</message>
 	<message key="submission.artworkFileDetails">Деталі файлу твору</message>
 	<message key="submission.fileDetails">Деталі файлу</message>
 	<message key="submission.nameRequired">Необхідно вказати назву для цього об'єкту.</message>
 	<message key="submission.date.mmdd">ММ-ДД</message>
 	<message key="submission.date.yyyymmdd">РРРР-ММ-ДД</message>
+	<message key="submission.comments.addReviews">Додати рецензії до листа</message>
+	<message key="submission.layout.galleyRemoteURL">Зовнішня адреса URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Будь ласка, вкажіть коректну зовнішню адресу URL (з префіксом http://).</message>
+	<message key="submission.form.replaceExisting">Замінити існуючий файл?</message>
+	<message key="submission.citations.editor.citationlist.approved">Підтверджені</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Непідтверджені</message>
+	<message key="submission.form.name">Дайте цьому файлу зручну назву</message>
 </locale>

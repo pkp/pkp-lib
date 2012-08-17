@@ -59,7 +59,6 @@
 	<message key="installer.installParseDBFileError"><![CDATA[Fout bij het parseren van het database installatiebestand <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale">Taal</message>
 	<message key="installer.localeSettings">Taalinstelingen</message>
-	<message key="installer.miscSettings">Diverse instellingen</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Een unieke identificatie om metadatarecords van deze site te indexeren, gebruikmakend van het <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a> Protocol for Metadata Harvesting.]]></message>
 	<message key="installer.oaiRepositoryId">OAI repository identificatie</message>
 	<message key="installer.publicFilesDirError">De map met publieke bestanden bestaat niet of er mag niet in geschreven worden.</message>
@@ -68,4 +67,6 @@
 	<message key="installer.skipFilesDir">De benodigde submappen niet aanmaken (alleen nuttig voor handmatige installatie)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">De gemarkeerde talen zijn mogelijk incompleet</message>
+	<message key="installer.oaiSettings">OAI instellingen</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Fout in het filter configuratiebestand <tt>{$file}</tt>]]></message>
 </locale>

@@ -12,12 +12,12 @@
   -->
 
 <locale name="vi_VN" full_name = "Tiếng Việt">
-	<message key="about.aboutSite">Giới thiệu Web site</message>
+	<message key="about.aboutSite">Giới thiệu</message>
 	<message key="about.contact">Liên hệ</message>
 	<message key="about.contact.email">Email</message>
 	<message key="about.contact.fax">Fax</message>
 	<message key="about.contact.phone">Điện thoại</message>
-	<message key="about.contact.principalContact">Đầu mối</message>
+	<message key="about.contact.principalContact">Người phụ trách</message>
 	<message key="about.contact.supportContact">Hỗ trợ</message>
 	<message key="about.other">Nội dung khác</message>
 	<message key="about.people">Nhân sự</message>
@@ -28,16 +28,16 @@
 	<message key="announcement.moreAnnouncements">Các thông báo khác...</message>
 	<message key="announcement.noneExist">Chưa có thông báo nào.</message>
 	<message key="announcement.posted">Đã đăng</message>
-	<message key="announcement.viewLink">Tiếp tục...</message>
+	<message key="announcement.viewLink">Chi tiết...</message>
 	<message key="announcement.view">Xem thông báo</message>
 	<message key="common.copy">Copy</message>
 	<message key="common.preview">Xem trước</message>
 	<message key="common.activate">Kích hoạt</message>
 	<message key="common.deactivate">Bỏ kích hoạt</message>
 	<message key="common.action">Tác vụ</message>
-	<message key="common.active">Đang dở</message>
+	<message key="common.active">Đang hiệu lực</message>
 	<message key="common.add">Thêm</message>
-	<message key="common.addSelf">Thêm giá</message>
+	<message key="common.addSelf">Thêm chính mình</message>
 	<message key="common.all">Tất cả</message>
 	<message key="common.alphaList">A Á Â B C D Đ E Ê G H I K L M N O Ô Ơ P Q R S T U V W X Y Z</message>
 	<message key="common.alreadyAssigned">Đã giao</message>
@@ -45,17 +45,17 @@
 	<message key="common.altTextInstructions">Vui lòng cung cấp thông tin mô tả cho hình ảnh này để đảm bảo rằng những người có trình duyệt chỉ đọc chữ hoặc phải sử dụng thiết bị trợ giúp giác quan có thể truy cập được.</message>
 	<message key="common.and">và</message>
 	<message key="common.applyAction">Thực thi tác vụ</message>
-	<message key="common.assign">Giao</message>
-	<message key="common.assigned">Được giao</message>
+	<message key="common.assign">Giao bài</message>
+	<message key="common.assigned">Đã được giao</message>
 	<message key="common.back">Quay lại</message>
 	<message key="common.between">giữa</message>
-	<message key="common.cancel">Thôi</message>
-	<message key="common.cancelled">Hủy bỏ</message>
+	<message key="common.cancel">Hủy</message>
+	<message key="common.cancelled">Đã hủy</message>
 	<message key="common.captchaField.altText">Hình ảnh kiểm chứng</message>
 	<message key="common.captchaField.badCaptcha">Những ký tự quý vị vừa nhập không khớp với những ký tự trong ảnh. Vui lòng nhập lại các ký tự và tiếp tục.</message>
 	<message key="common.captchaField.description">Vui lòng nhập các ký tự xuất hiện trong ảnh trên đây.</message>
 	<message key="common.captchaField">Kiểm chứng</message>
-	<message key="common.changesSaved">Thay đổi của bạn đã được ghi.</message>
+	<message key="common.changesSaved">Thay đổi của bạn đã được ghi nhận.</message>
 	<message key="common.chooseOne">Chọn một</message>
 	<message key="common.close">Đóng</message>
 	<message key="common.closeWindow">Đóng cửa sổ</message>
@@ -63,7 +63,7 @@
 	<message key="common.completed">Hoàn thành</message>
 	<message key="common.continue">Tiếp tục</message>
 	<message key="common.country">Quốc gia</message>
-	<message key="common.create">Tạo</message>
+	<message key="common.create">Tạo mới</message>
 	<message key="common.dateCompleted">Ngày hoàn thành</message>
 	<message key="common.date">Ngày</message>
 	<message key="common.dateModified">Ngày sửa</message>
@@ -83,7 +83,7 @@
 	<message key="common.enabled">Hoạt động</message>
 	<message key="common.error.databaseError">Phát hiện một lỗi CSDL: {$error}</message>
 	<message key="common.error.databaseErrorUnknown">Phát hiện một lỗi chưa xác định về kết nối CSDL.</message>
-	<message key="common.error.framesRequired"><![CDATA[Trang này sử dụng Frame. <a href="{$url}">Nhấp chuột vào đây</a> để xem bản không có frame.]]></message>
+	<message key="common.error.framesRequired"><![CDATA[Trang này sử dụng khung (Frame). <a href="{$url}">Nhấp chuột vào đây</a> để xem bản không có frame.]]></message>
 	<message key="common.event">Sự kiện</message>
 	<message key="common.export">Xuất</message>
 	<message key="common.file">File</message>
@@ -104,10 +104,10 @@
 	<message key="common.minute">Phút</message>
 	<message key="common.modify">Sửa</message>
 	<message key="common.month">Tháng</message>
-	<message key="common.noneAssigned">Không bài nào được giao</message>
+	<message key="common.noneAssigned">Chưa có bài nào được giao</message>
 	<message key="common.none">Chưa có</message>
 	<message key="common.no">Không</message>
-	<message key="common.notApplicable">Không áp dụng</message>
+	<message key="common.notApplicable">Không phù hợp</message>
 	<message key="common.notApplicableShort">N/A</message>
 	<message key="common.notAvailable">Không có</message>
 	<message key="common.note">Ghi chú</message>
@@ -242,7 +242,7 @@
 	<message key="navigation.register">Đăng ký</message>
 	<message key="navigation.search">Tìm kiếm</message>
 	<message key="navigation.stepNumber">Bước {$step}</message>
-	<message key="navigation.userHome">Người dùng</message>
+	<message key="navigation.userHome">Trang Người dùng</message>
 	<message key="navigation.user">Người dùng</message>
 	<message key="search.abstract">Tóm tắt</message>
 	<message key="search.allFields">Tất cả</message>
@@ -267,4 +267,6 @@
 	<message key="search.titleIndex">Duyệt Chỉ mục Tiêu đề</message>
 	<message key="search.title">Tiêu đề</message>
 	<message key="search.typeMethodApproach">Loại hình (phương pháp/cách tiếp cận)</message>
+	<message key="announcement.postedOn">Xuất bản ngày</message>
+	<message key="common.accepted">Được chấp thuận</message>
 </locale>

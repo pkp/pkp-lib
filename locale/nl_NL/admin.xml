@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">Er is een bijgewerkte versie beschikbaar</message>
 	<message key="admin.version.upToDate">Uw systeem is up-to-date</message>
 	<message key="admin.version">Versie</message>
+	<message key="admin.settings">Instelligen</message>
+	<message key="admin.settings.siteTheme">Site thema</message>
+	<message key="admin.siteSetup">Site instellingen</message>
 </locale>

@@ -180,4 +180,5 @@
 	<message key="rt.version.title">Назва</message>
 	<message key="rt.version">Версія</message>
 	<message key="rt.viewMetadata">Індексні метадані</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Дивитися політику рецензування</message>
 </locale>

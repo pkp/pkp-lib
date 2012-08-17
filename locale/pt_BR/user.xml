@@ -115,4 +115,14 @@
 	<message key="user.authorization.restrictedSiteAccess">Seu acesso foi negado. Acesso a esta página está atualmente bloqueado.</message>
 	<message key="user.authorization.roleBasedAccessDenied">O papel atual não possui permissão para realizar esta operação.</message>
 	<message key="user.authorization.userGroupRequired">É necessário definir um grupo de usuário válido para acessar esta operação.</message>
+	<message key="user.accountInformation">Informações de cadastro</message>
+	<message key="user.authorization.pressManagerRequired">Um usuário com papel de Gerente de Imprensa (Editor de Imprensa ou de Produção, por exemplo) deve ser designado ao estágio antes de proceder.</message>
+	<message key="user.interests.description">(Separe interesses pressionando as teclas enter ou vírgula)</message>
+	<message key="user.group">Grupo de usuários</message>
+	<message key="user.hello">Olá,</message>
+	<message key="user.profile.form.countryRequired">O país é obrigatório.</message>
+	<message key="user.profile.form.mailingAddressRequired">Um endereço postal é obrigatório.</message>
+	<message key="user.profile.form.passwordSameAsOld">Sua nova senha é a mesma que a anterior.</message>
+	<message key="user.profile.form.usergroupRequired">Um grupo de usuários é obrigatório.</message>
+	<message key="user.suffix">Sufixo</message>
 </locale>

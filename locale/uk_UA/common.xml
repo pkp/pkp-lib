@@ -33,7 +33,6 @@
 	<message key="announcement.posted">Опубліковано</message>
 	<message key="announcement.viewLink">Детальніше...</message>
 	<message key="announcement.view">Дивитися анонс</message>
-	<message key="common.actingAsUserGroup.userIsNotInTargetUserGroup">Ви не є членом цієї групи користувачів.</message>
 	<message key="common.action">Дія</message>
 	<message key="common.activate">Активувати</message>
 	<message key="common.active">Активні</message>
@@ -56,20 +55,16 @@
 	<message key="common.captchaField.badCaptcha">Введені вами символи не збігаються з символами на зображенні. Будь ласка, спробуйте знову.</message>
 	<message key="common.captchaField.description">Будь ласка, введіть літери, подані на зображенні вище.</message>
 	<message key="common.captchaField">Перевірка</message>
-	<message key="common.ccLicense"><![CDATA[
-	<br /><br />
+	<message key="common.ccLicense"><![CDATA[<br /><br />
 	<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
 	<br />
-	Ця робота ліцензована <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
-	]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[
-	<div class="rtBlock">
+	Ця робота ліцензована <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
 		Ця робота ліцензована <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License</a>.
-	</div>
-	]]></message>
+	</div>]]></message>
 	<message key="common.changesSaved">Ваші зміни були збережені.</message>
 	<message key="common.chooseOne">Оберіть одне</message>
 	<message key="common.close">Закрити</message>
@@ -78,7 +73,7 @@
 	<message key="common.completed">Завершено</message>
 	<message key="common.continue">Продовжити</message>
 	<message key="common.copy">Копіювати</message>
-	<message key="common.country">Держава</message>
+	<message key="common.country">Країна</message>
 	<message key="common.create">Створити</message>
 	<message key="common.dateCompleted">Дата завершення</message>
 	<message key="common.date">Дата</message>
@@ -136,7 +131,6 @@
 	<message key="common.notAvailable">Недоступно</message>
 	<message key="common.note">Нотатка</message>
 	<message key="common.notes">Нотатки</message>
-	<message key="common.notify">Сповістити</message>
 	<message key="common.off">Викл.</message>
 	<message key="common.on">Вкл.</message>
 	<message key="common.ok">OK</message>
@@ -183,7 +177,7 @@
 	<message key="common.updated">Оновлено</message>
 	<message key="common.uploadedFile">Вивантажений файл</message>
 	<message key="common.upload">Вивантажити</message>
-	<message key="common.uploadFailed">Цей файл не може бути вивантажений. Будь ласка, спробуйте знову. Якщо проблема повториться, контактуйте з адміністратором.</message>
+	<message key="common.uploadFailed">Цей файл не може бути вивантажений або змінений.</message>
 	<message key="common.up">Нагору</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">Користувач</message>
@@ -296,17 +290,16 @@
 	<message key="notification.notification">Сповіщення</message>
 	<message key="notification.notifications">Сповіщення</message>
 	<message key="notification.notificationsNew">({$numNew} нових)</message>
-	<message key="notification.notificationsDescription">Ви маєте {$unreadCount} непрочитаних та {$readCount} прочитаних сповіщень.<![CDATA[  <a href="{$settingsUrl}">Натисніть сюди</a>, щоб змінити налаштування сповіщень.]]></message>
+	<message key="notification.notificationsDescription"><![CDATA[Ви маєте {$unreadCount} непрочитаних та {$readCount} прочитаних сповіщень.  <a href="{$settingsUrl}">Натисніть сюди</a>, щоб змінити налаштування сповіщень.]]></message>
 	<message key="notification.settings">Налаштування сповіщень</message>
-	<message key="notification.settingsDescription">Оберіть події системи, про які ви хочете бути сповіщені.  У вашій стрічці сповіщень не будуть з'являтися події, що відповідають типам, які ви відключите.</message>
+	<message key="notification.settingsDescription">Оберіть події системи, про які Ви хочете бути сповіщені.  У Вашій стрічці сповіщень не будуть з'являтися події, що відповідають типам, які Ви відключите.</message>
 	<message key="notification.subscribe">Передплатити</message>
-	<message key="notification.subscribeError">На вашу адресу email вже було оформлено передплату сповіщень.</message>
-	<message key="notification.subscribeSuccess">На зазначену вами адресу email був надісланий лист.  Для підтвердження себе як передплатника цього списку розсилання, будь ласка, натисніть на відповідне посилання у листі.</message>
+	<message key="notification.subscribeError">На Вашу адресу email вже було оформлено передплату сповіщень.</message>
+	<message key="notification.subscribeSuccess">На зазначену Вами адресу email був надісланий лист.  Для підтвердження себе як передплатника цього списку розсилання, будь ласка, натисніть на відповідне посилання у листі.</message>
 	<message key="notification.reminderError">Під час надсилання паролю сталася помилка. Будь ласка, перевірте коректність введеної вами адреси email.</message>
-	<message key="notification.reminderSent">Ваш новий пароль був надісланий на зазначену вами адресу email.</message>
+	<message key="notification.reminderSent">Ваш новий пароль був надісланий на зазначену Вами адресу email.</message>
 	<message key="notification.unsubscribe">Відмовитися від передплати</message>
-	<message key="notification.unsubscribeDescription">Для того, щоб відмовитись від передплати сповіщень введіть вашу адресу email та пароль.  Якщо ви забули ваш пароль, залишіть це поле пустим, і тоді на зазначену адресу email буде надісланий новий пароль.</message>
-	<message key="notification.unsubscribeError">Під час відмови від передплати сталася помилка.  Будь ласка, перевірте коректність введеної вами адреси email та пароля.</message>
+	<message key="notification.unsubscribeError">Під час відмови від передплати сталася помилка.  Будь ласка, перевірте коректність введеної Вами адреси email та пароля.</message>
 	<message key="notification.unsubscribeSuccess">Ваша передплата була успішно скасована.</message>
 	<message key="search.abstract">Анотація</message>
 	<message key="search.allFields">Всі поля</message>
@@ -331,4 +324,30 @@
 	<message key="search.titleIndex">Перегляд списку назв робіт</message>
 	<message key="search.title">Назва</message>
 	<message key="search.typeMethodApproach">Методологія</message>
+	<message key="common.warning">Попередження</message>
+	<message key="common.confirm">Підтвердити</message>
+	<message key="common.content">Зміст</message>
+	<message key="common.less">Менше</message>
+	<message key="common.more">Більше</message>
+	<message key="common.reminder">Нагадування</message>
+	<message key="common.signoff">Вийти</message>
+	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Цей сервер дозволяє вивантажувати файли розміром не більше {$fileSize}.  Якщо потрібно, будь ласка, зверніться за допомогою до <a href="mailto:{$supportEmail}">{$supportName}</a>.]]></message>
+	<message key="common.invalidFileType">Жодних файлів не виватажено або неприпустимий тип файлу!</message>
+	<message key="common.plugins">Модулі</message>
+	<message key="email.subjectRequired">Будь ласка, вкажіть тему листа.</message>
+	<message key="email.bodyRequired">Будь ласка, заповніть текст листа.</message>
+	<message key="form.confirmSubmit">Ви впевнені, що хочете надіслати цю форму?</message>
+	<message key="form.confirmSubmit.title">Підтвердити</message>
+	<message key="form.emailRequired">Необхідно вказати адресу email.</message>
+	<message key="form.dataHasChanged">Дані цієї форми були змінені. Продовжити?</message>
+	<message key="form.invalidImage">Було вивантажене некоректне зображення. Дозволені формати .png, .gif або .jpg.</message>
+	<message key="navigation.website">Веб-сайт</message>
+	<message key="navigation.access">Користувачі та ролі</message>
+	<message key="navigation.admin">Адміністрація</message>
+	<message key="navigation.data">Дані</message>
+	<message key="navigation.settings">Налаштування</message>
+	<message key="navigation.submissions">Подання</message>
+	<message key="navigation.system">Система</message>
+	<message key="navigation.setup">Налаштування</message>
+	<message key="navigation.sitemap">Карта сайту</message>
 </locale>

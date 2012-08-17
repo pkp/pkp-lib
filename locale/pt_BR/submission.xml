@@ -294,7 +294,6 @@
 	<message key="submission.citations.editor.pleaseSelect">Escolha...</message>
 	<message key="submission.citations.editor.unprocessedCitationsButton">Atualizar lista de citações</message>
 	<message key="submission.citations.editor.unprocessedCitationsButtonTitle">Clique para atualizar a lista de citações.</message>
-	<message key="submission.uploadSuccessfulContinue">Arquivo enviado. Clique em "continuar" para editar os metadados do arquivo.</message>
 	<message key="submission.artworkFileDetails">Detalhes do arquivo de arte</message>
 	<message key="submission.nameRequired">O título do item é obrigatório.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
@@ -375,4 +374,15 @@
 	<message key="metadata.property.validationMessage.partName">Informe um nome de parte válido.</message>
 	<message key="metadata.property.displayName.name-type">Tipo de nome</message>
 	<message key="metadata.property.validationMessage.name-type">Certifique-se de informar um tipo de nome válido. Nomes suportados são 'pessoal', 'corporativo' e 'conferência'.</message>
+	<message key="submission.citations.editor.citationlist.approved">Aprovado</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Não aprovado</message>
+	<message key="submission.comments.addReviews">Incluir avaliações na mensagem</message>
+	<message key="submission.copyedited">Texto editado</message>
+	<message key="submission.layout.galleyRemoteURL">URL remoto</message>
+	<message key="submission.layout.galleyRemoteURLValid">Informe um URL remoto válido (inclua o protocolo, por exemplo http://)</message>
+	<message key="submission.reviewed">Avaliado</message>
+	<message key="submission.supportingAgencies">Agências de fomento</message>
+	<message key="submission.createRemote">Criar remoto</message>
+	<message key="submission.form.name">Informe um nome útil para o arquivo</message>
+	<message key="submission.form.replaceExisting">Substituindo um arquivo existente?</message>
 </locale>

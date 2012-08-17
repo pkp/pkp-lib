@@ -115,7 +115,7 @@
 	<message key="manager.people.enrollUserAs">Schijf gebruiker in als</message>
 	<message key="manager.people.invalidUser">Sorry, de gevraagde gebruiker bestaat niet.</message>
 	<message key="manager.people.mergeUser">Gebruiker samenvoegen</message>
-	<message key="manager.people.mergeUsers.confirm">Weer u zeker dat u gebruiker  "{$oldUsername}" wilt samenvoegen met "{$newUsername}"? Gebruiker "{$oldUsername}" zal achteraf niet meer bestaan. Deze actie is onomkeerbaar.</message>
+	<message key="manager.people.mergeUsers.confirm">Weer u zeker dat u de geselecteerde {$oldAccountCount} account(s) wilt samenvoegen met "{$newUsername}"? de geselecteerde {$oldAccountCount} account(s) zullen achteraf niet meer bestaan. Deze actie is onomkeerbaar.</message>
 	<message key="manager.people.mergeUsers">Gebruikers samenvoegen</message>
 	<message key="manager.people.mustChooseRole">Kies een van de rollen bovenaan de pagina voor op "Gebruiker inschrijven" te klikken.</message>
 	<message key="manager.people.mustProvideName">Svp eerst minimaal een achternaam voor de gebruiker opgeven.</message>
@@ -216,4 +216,27 @@
 	<message key="manager.setup.metaCitationsDescription">Kruis het volgende vak aan om het bewerken van citaties en referenties in te schakelen. Dit maakt het mogelijk dat auteurs ruwe citaties in hun inzendingen opnemen. Redacteurs krijgen een citatie-markering assistent tot hun beschikking die de ruwe citaties kan controleren bij externe databanken zoals WorldCat, ISBNdb, PubMed en anderen. Goedgekeurde citaties kunnen geëxporteerd worden naar de proeven.</message>
 	<message key="manager.setup.filter.parser.grid.description.paraCite"><![CDATA[<p>Dit extractiefilter gebruikt de <a href="http://paracite.eprints.org/developers/" target="_blank">ParaTools</a> Perl modules om de <a href="http://paracite.eprints.org" target="_blank">ParaCite</a> citatie parsering te leveren. Om dit naar behoren te laten werken moet u Perl geïnstalleerd hebben, samen met de <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/" target="_blank">Biblio::Citation::Parser</a> en <a href="http://search.cpan.org/~sburke/Text-Unidecode-0.04/" target="_blank">Text::Unidecode</a> CPAN modules. U moet ook de <tt>perl</tt> instelling configureren in uw configuratiebestand. Deze instelling vindt u in de External Commands sectie van <tt>config.inc.php</tt>.</p>
 	<p>U kun kiezen welke parser-module ParaTools moet gebruiken. U kunt kiezen tussen de standaard, <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Jiao.pm" target="_blank">Jiao</a>, en <a href="http://search.cpan.org/~mjewell/Biblio-Citation-Parser-1.10/lib/Biblio/Citation/Parser/Citebase.pm" target="_blank">Citebase</a> parser modules.</p>]]></message>
+	<message key="manager.announcements.datePublish">Gepubliceerd</message>
+	<message key="manager.emails.addEmail">Voeg e-mail sjabloon toe</message>
+	<message key="manager.emails.details">Sjabloon details</message>
+	<message key="manager.emails.disable.message">U staat op het punt dit sjabloon uit te schakelen. Als er systeemprocessen zijn die dit sjabloon gebruiken, zullen ze het niet meer gebruiken. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.emails.enable.message">U staat op het punt deze e-mail in te schakelen. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.emails.resetAll.message">Als u de sjablonen herstelt gaan alle modificaties aan de sjablonen verloren. Wilt deze bewerking bevestigen?</message>
+	<message key="manager.navigation">Navigatie</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Geavanceerd zoeken</message>
+	<message key="manager.reviewerSearch.searchByName.short">Zoeken op naam</message>
+	<message key="manager.setup.layout.blockManagement">Beheer van de sidebar</message>
+	<message key="plugins.categories.metadata">Metadata plugins</message>
+	<message key="manager.emails.data">Sjabloon berichtinhoud</message>
+	<message key="manager.emails.reset.message">Als u dit sjabloon herstelt, wordt de inhoud teruggezet naar de standaardwaarde. Al uw aanpassingen gaan verloren. Wilt u deze bewerking bevestigen?</message>
+	<message key="manager.reviewerSearch.form.instructions">Gebruik het formulier hieronder om de maximumwaarden op te geven voor de termen waar u op wilt zoeken. Het formulier wordt vooraf gevuld met de gemiddelden voor die velden.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Geef de reviewer interesses, gescheiden door komma's</message>
+	<message key="plugins.categories.metadata.description">Metadata Plugins implementeren aanvullende metadata standaards</message>
+	<message key="plugins.categories.citationLookup">Citatie database connector plugins</message>
+	<message key="plugins.categories.citationLookup.description">Citatie database connector plugins maken verbinding met citatie databases om citaties op te zoeken, bijvoorbeeld tijdens het bewerken van citaties.</message>
+	<message key="plugins.categories.citationOutput">Citatie uitvoer plugins</message>
+	<message key="plugins.categories.citationOutput.description">Citatie uitvoer plugins implementeren citatiestandaards. Dit is de opvolger van citatie format plugins.</message>
+	<message key="plugins.categories.citationParser">Citatie extractie plugins</message>
+	<message key="plugins.categories.citationParser.description">Citatie extractie plugins extraheren velden uit citaties (auteur, titel, etc).</message>
+	<message key="manager.masthead.title">Redactieteam</message>
 </locale>

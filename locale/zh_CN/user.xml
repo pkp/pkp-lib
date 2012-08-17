@@ -104,4 +104,24 @@
 	<message key="user.repeatPassword">重复密码</message>
 	<message key="user.profile.form.affiliationRequired">联系地址是必须的</message>
 	<message key="user.register.form.emailsDoNotMatch">电子邮件地址不匹配</message>
+	<message key="user.authorization.loginRequired">需要登陆</message>
+	<message key="user.accountInformation">帐户信息</message>
+	<message key="user.suffix">后缀</message>
+	<message key="user.authorization.accessDenied">拒绝读取</message>
+	<message key="user.affiliation.description">（您的所在机构，如“西蒙.弗雷泽大学”）</message>
+	<message key="user.authorization.processAuthenticationTokenRequired">过程认证令牌丢失或无效。</message>
+	<message key="user.authorization.contextRequired">您不能在没有背景（出版社、期刊、会议等）的情况下调用该操作。</message>
+	<message key="user.authorization.privateOperation">您试图连接的操作为私有或不存在的。</message>
+	<message key="user.authorization.restrictedSiteAccess">您被拒绝访问。目前禁止访问该网站。</message>
+	<message key="user.authorization.roleBasedAccessDenied">当前的身份无法访问该操作。</message>
+	<message key="user.authorization.userGroupRequired">您必须设立有效的用户群来访问该操作。</message>
+	<message key="user.authorization.pressManagerRequired">在您能够进行下一步前您必须指派一个出版管理身份的用户 （如出版或制作编辑）。</message>
+	<message key="user.interests.description">（按输入或逗号键来分隔兴趣）</message>
+	<message key="user.gossip">个人提醒</message>
+	<message key="user.group">用户群</message>
+	<message key="user.hello">嗨，</message>
+	<message key="user.profile.form.countryRequired">要求国家名</message>
+	<message key="user.profile.form.mailingAddressRequired">要求邮件地址</message>
+	<message key="user.profile.form.passwordSameAsOld">您的新密码同旧密码相同</message>
+	<message key="user.profile.form.usergroupRequired">要求用户群</message>
 </locale>

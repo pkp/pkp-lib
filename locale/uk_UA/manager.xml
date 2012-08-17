@@ -219,4 +219,15 @@
 	<message key="plugins.categories.reports">Модулі звітів</message>
 	<message key="plugins.categories.themes.description">Модулі тем можуть використовуватись для зміни зовнішнього вигляду системи.</message>
 	<message key="plugins.categories.themes">Модулі тем</message>
+	<message key="manager.emails.addEmail">Додати шаблон листа</message>
+	<message key="manager.emails.details">Інформація шаблону</message>
+	<message key="manager.emails.resetAll.message">Якщо Ви перевантажите всі шаблони, всі зміни шаблонів листів будуть втрачені. Ви підтверджуєте цю дію?</message>
+	<message key="manager.emails.reset.message">Якщо Ви перевантажите цей шаблон, всі фрагменти тексту будуть повернені до стандартних значень, а всі зміни втрачені. Ви підтверджуєте цю дію?</message>
+	<message key="manager.navigation">Навігація</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Розширений пошук</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Вкажіть наукові інтереси, розділені комами...</message>
+	<message key="plugins.categories.metadata">Модулі метаданих</message>
+	<message key="plugins.categories.metadata.description">Модулі метаданих дозволяють використання додаткових стандартів метаданих.</message>
+	<message key="plugins.categories.citationLookup">Модулі шлюзів до баз даних цитованості</message>
+	<message key="plugins.categories.citationLookup.description">Модулі шлюзів до баз даних цитованості дозволяють зв'язок з базами даних цитованості для пошуку посилань, наприклад, під час редагування пристатейної бібліографії.</message>
 </locale>

@@ -64,14 +64,11 @@
 	<message key="installer.locale">Локалізація</message>
 	<message key="installer.locale.maybeIncomplete">Позначені локалізації можуть бути неповними.</message>
 	<message key="installer.localeSettings">Налаштування локалізації</message>
-	<message key="installer.manualInstall">Manual Install</message>
-	<message key="installer.miscSettings">Додаткові налаштування</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Унікальний ідентифікатор, який буде використовуватись для ідентифікації комплектів метаданих зібраних з цього сховища за протоколом збору метаданих <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>.]]></message>
 	<message key="installer.oaiRepositoryId">Ідентифікатор сховища OAI</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Після інсталяції бази даних, будь ласка, запустіть інструмент оновлення. Для цього у головній теці інсталяції виконайте команду 'php tools/upgrade.php upgrade'.</message>
 	<message key="installer.publicFilesDirError">Тека, визначена для збереження файлів, не існує або захищена від запису.</message>
 	<message key="installer.releaseNotes">Примітки версії</message>
 	<message key="installer.securitySettings">Налаштування безпеки</message>
 	<message key="installer.skipFilesDir">Не створювати необхідні підтеки (корисно лише у разі ручної інсталяції)</message>
-	<message key="installer.manualUpgrade">Ручне оновлення</message>
+	<message key="installer.oaiSettings">Налаштування OAI</message>
 </locale>

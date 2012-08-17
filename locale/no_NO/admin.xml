@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">En oppdatert versjon er tilgjengelig</message>
 	<message key="admin.version.upToDate">Systemet er nyeste versjon</message>
 	<message key="admin.version">Versjon</message>
+	<message key="admin.settings">Innstillinger</message>
+	<message key="admin.settings.siteTheme">Nettstedstema</message>
+	<message key="admin.siteSetup">Nettstedsoppsett</message>
 </locale>

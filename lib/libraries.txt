@@ -12,7 +12,7 @@ Smarty Template Engine
 
 TinyMCE WYSIWYG JS HTML Editor
  * URL: <http://tinymce.moxiecode.com>
- * Version: 3.3.9.4
+ * Version: 3.4.9
  * License: LGPL
 
 PHPUTF8 UTF-8 Character Handling Library

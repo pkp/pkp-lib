@@ -177,6 +177,9 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	$.pkp.controllers.wizard.WizardHandler.prototype.cancelRequest =
 			function(buttonElement, event) {
 
+		// this is a 'cancel' click, so unregister forms without prompting.
+		this.checkForm_(false);
+
 		// Trigger the "cancel requested" event on the current
 		// tab's children to give it a chance to veto the cancel
 		// request.
@@ -205,12 +208,15 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
+	 * @return {Boolean} Return false if not overridden and if check form
+	 * returns true.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =
 			function(wizardElement, event) {
 
-		// The default implementation does nothing which means that
-		// the wizard will cancel immediately.
+		if (this.checkForm_(true)) {
+			return false;
+		}
 	};
 
 
@@ -453,6 +459,31 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			this.trigger('wizardAdvance');
 		} else {
 			this.trigger('wizardClose');
+		}
+	};
+
+
+	/**
+	 * Helper method to look for changed forms.
+	 *
+	 * @param {boolean} prompt Whether or not to prompt.
+	 * @return {boolean} Whether or not they wish to cancel.
+	 * @private
+	 */
+	$.pkp.controllers.wizard.WizardHandler.prototype.checkForm_ =
+			function(prompt) {
+		var $form = this.getForm_();
+		var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+		if (prompt) {
+			if (handler.formChangesTracked) {
+				if (!confirm($.pkp.locale.form_dataHasChanged)) {
+					return true; // the user has clicked cancel, they wish to stay.
+				} else {
+					handler.cancelForm();
+				}
+			}
+		} else {
+			handler.cancelForm();
 		}
 	};
 

@@ -74,22 +74,22 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	// Template methods (hooks into grid widgets).
 	//
 	/**
-	 * Hook into the append new row grid functionality.
-	 * @param {jQuery} $newRow The new row to be appended.
+	 * Hook into the append new element grid functionality.
+	 * @param {jQuery} $newElement The new element to be appended.
 	 * @return {boolean} Always returns false.
 	 */
-	$.pkp.classes.features.Feature.prototype.appendRow =
-			function($newRow) {
+	$.pkp.classes.features.Feature.prototype.appendElement =
+			function($newElement) {
 		return false;
 	};
 
 
 	/**
-	 * Hook into the replace row content grid functionality.
-	 * @param {jQuery} $newContent The row new content to be shown.
+	 * Hook into the replace element content grid functionality.
+	 * @param {jQuery} $newContent The element new content to be shown.
 	 * @return {boolean} Always returns false.
 	 */
-	$.pkp.classes.features.Feature.prototype.replaceRow =
+	$.pkp.classes.features.Feature.prototype.replaceElement =
 			function($newContent) {
 		return false;
 	};

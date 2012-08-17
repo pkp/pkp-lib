@@ -39,9 +39,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// Transform all form buttons with jQueryUI.
 		$('.button', $form).button();
 
-		// Transform all select boxes.
-		$('select', $form).not('.noStyling').selectBox();
-
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {
 			this.callerSubmitHandler_ = options.submitHandler;
@@ -83,6 +80,11 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Activate the cancel button (if present).
 		$('#cancelFormButton', $form).click(this.callbackWrapper(this.cancelForm));
+
+		// Activate the reset button (if present).
+		$('#resetFormButton', $form).click(this.callbackWrapper(this.resetForm));
+		$form.find('.showMore, .showLess').bind('click', this.switchViz);
+
 
 		// Initial form validation.
 		if (validator.checkForm()) {
@@ -136,7 +138,6 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 	/**
 	 * Only submit a track event for this form once.
-	 * @private
 	 * @type {Boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
@@ -227,7 +228,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// We have made it to submission, disable the form control if
 		// necessary, submit the form.
 		if (this.disableControlsOnSubmit_) {
-			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').addClass('ui-state-disabled');
+			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').
+					addClass('ui-state-disabled');
 		}
 		return true;
 	};
@@ -243,7 +245,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.enableFormControls =
 			function() {
 
-		this.getHtmlElement().find(':submit').removeAttr('disabled').removeClass('ui-state-disabled');
+		this.getHtmlElement().find(':submit').removeAttr('disabled').
+				removeClass('ui-state-disabled');
 		return true;
 	};
 
@@ -263,6 +266,30 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		this.formChangesTracked = false;
 		this.trigger('unregisterChangedForm');
 		this.trigger('formCanceled');
+		return false;
+	};
+
+
+	/**
+	 * Internal callback called to reset the form.
+	 *
+	 * @param {HTMLElement} resetButton The reset button.
+	 * @param {Event} event The event that triggered the
+	 *  reset button.
+	 * @return {boolean} false.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.resetForm =
+			function(resetButton, event) {
+
+		//unregister the form.
+		this.formChangesTracked = false;
+		this.trigger('unregisterChangedForm');
+		
+		var $form = this.getHtmlElement();
+		$form.each(function(){
+			this.reset();
+		});
+
 		return false;
 	};
 

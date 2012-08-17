@@ -448,7 +448,7 @@ class NotificationHandler extends Handler {
 	 * @see PKPHandler::setupTemplate()
 	 */
 	function setupTemplate() {
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_SUBMISSION);
 		parent::setupTemplate();
 	}
 }

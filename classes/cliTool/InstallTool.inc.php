@@ -102,7 +102,6 @@ class InstallTool extends CommandLineTool {
 		// File Settings
 		$this->printTitle('installer.fileSettings');
 		$this->readParam('filesDir', 'installer.filesDir');
-		$this->readParamBoolean('skipFilesDir', 'installer.skipFilesDir');
 
 		// Security Settings
 		$this->printTitle('installer.securitySettings');

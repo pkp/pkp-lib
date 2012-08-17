@@ -13,7 +13,7 @@
  */
 
 
-require_mock_env('lib/pkp/tests/mock2');
+require_mock_env('env2');
 
 import('lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaIsbnFilter');
 import('lib.pkp.tests.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilterTest');

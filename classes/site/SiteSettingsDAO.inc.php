@@ -216,7 +216,7 @@ class SiteSettingsDAO extends DAO {
 
 			if (isset($nameNode) && isset($valueNode)) {
 				$type = $setting->getAttribute('type');
-				$isLocalized = $setting->getAttribute('localized') == 'true';
+				$isLocaleField = $setting->getAttribute('locale');
 				$name =& $nameNode->getValue();
 
 				if ($type == 'object') {
@@ -227,8 +227,12 @@ class SiteSettingsDAO extends DAO {
 				}
 
 				// Replace translate calls with translated content
-				if ($isLocalized) $value = array(AppLocale::getLocale() => $value);
-				$this->updateSetting($name, $value, $type, $isLocalized);
+				$this->updateSetting(
+					$name,
+					$isLocaleField?array(AppLocale::getLocale() => $value):$value,
+					$type,
+					$isLocaleField
+				);
 			}
 		}
 

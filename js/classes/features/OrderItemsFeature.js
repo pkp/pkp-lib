@@ -452,8 +452,8 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.appendRow =
-			function($row) {
+	$.pkp.classes.features.OrderItemsFeature.prototype.appendElement =
+			function($element) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();
 	};
@@ -462,7 +462,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.replaceRow =
+	$.pkp.classes.features.OrderItemsFeature.prototype.replaceElement =
 			function($content) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();

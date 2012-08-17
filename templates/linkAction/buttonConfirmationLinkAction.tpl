@@ -12,7 +12,7 @@
  *   link action to.
  *  dialogText: A translation key for the message to be displayed in the dialog.
  *}
-
+{if !$titleIcon}{assign var="titleIcon" value="modal_confirm"}{/if}
 <script type="text/javascript">
 	$(function() {ldelim}
 		$('{$buttonSelector|escape:javascript}').pkpHandler(
@@ -26,7 +26,8 @@
 						cancelButton: '{translate|escape:javascript key="common.cancel"}',
 						dialogText: '{translate|escape:javascript key=$dialogText}',
 						$button: $('{$buttonSelector|escape:javascript}'),
-						titleIcon: 'modal_confirm'
+						titleIcon: '{$titleIcon|escape:javascript}',
+						width: 'auto'
 					{rdelim},
 			{rdelim});
 	{rdelim});

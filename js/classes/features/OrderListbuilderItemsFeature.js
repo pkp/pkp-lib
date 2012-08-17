@@ -137,19 +137,19 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendRow =
-			function($newRow) {
-		this.parent('appendRow', $newRow);
-		this.formatAndStoreNewRow_($newRow);
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendElement =
+			function($newElement) {
+		this.parent('appendElement', $newElement);
+		this.formatAndStoreNewRow_($newElement);
 	};
 
 
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceRow =
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceElement =
 			function($newContent) {
-		this.parent('replaceRow', $newContent);
+		this.parent('replaceElement', $newContent);
 		this.formatAndStoreNewRow_($newContent);
 	};
 

@@ -13,7 +13,7 @@
  * @brief Tests for the PKPComponentRouter class.
  */
 
-require_mock_env('lib/pkp/tests/mock');
+require_mock_env('env1');
 
 import('lib.pkp.classes.core.PKPComponentRouter');
 import('lib.pkp.tests.classes.core.PKPRouterTestCase');

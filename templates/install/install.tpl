@@ -144,10 +144,6 @@ function doSubmit() {
 				<p>{translate key="installer.maxFileUploadSize" maxFileUploadSize=$maxFileUploadSize}</p>
 			</td>
 		</tr>
-		<tr valign="top">
-			<td>&nbsp;</td>
-			<td class="value"><input type="checkbox" name="skipFilesDir" id="skipFilesDir" value="1"{if $skipFilesDir} checked="checked"{/if} /> <label for="skipFilesDir">{translate key="installer.skipFilesDir"}</label></td>
-		</tr>
 	</table>
 
 	<div class="separator"></div>

@@ -65,5 +65,4 @@
 	<message key="installer.publicFilesDirError">Thư mục file công cộng không tồn tại hoặc không ghi được.</message>
 	<message key="installer.releaseNotes">Ghi chú về phát hành</message>
 	<message key="installer.securitySettings">Cài đặt về an ninh</message>
-	<message key="installer.skipFilesDir">Không tạo các thư mục con cần thiết (chỉ có ích khi cài đặt bằng tay)</message>
 </locale>

@@ -144,7 +144,7 @@ class VersionDAO extends DAO {
 			// Find out whether the last installed version is the same as the
 			// one to be inserted.
 			$versionHistory =& $this->getVersionHistory($version->getProductType(), $version->getProduct());
-			$oldVersion =& array_pop($versionHistory);
+			$oldVersion =& array_shift($versionHistory);
 			if ($oldVersion) {
 				if ($version->compare($oldVersion) == 0) {
 					// The old and the new current versions are the same so we need

@@ -24,6 +24,9 @@ class CategoryGridHandler extends GridHandler {
 	/** @var string empty category row locale key */
 	var $_emptyCategoryRowText = 'grid.noItems';
 
+	/** @var string The category id that this grid is currently rendering. */
+	var $_currentCategoryId = null;
+
 	/**
 	 * Constructor.
 	 */
@@ -59,22 +62,21 @@ class CategoryGridHandler extends GridHandler {
 	// Public handler methods
 	//
 	/**
-	 * Override GridHandler::fetchRow.
-	 * Instead of rendering a row, render a category with all the rows inside of it.
+	 * Render a category with all the rows inside of it.
 	 * @param $args array
 	 * @param $request Request
 	 * @return string the serialized row JSON message or a flag
 	 *  that indicates that the row has not been found.
 	 */
-	function fetchRow(&$args, &$request) {
+	function fetchCategory(&$args, &$request) {
 		// Instantiate the requested row (includes a
 		// validity check on the row id).
 		$row =& $this->getRequestedCategoryRow($request, $args);
 
 		$json = new JSONMessage(true);
 		if (is_null($row)) {
-			// Inform the client that the row does no longer exist.
-			$json->setAdditionalAttributes(array('rowNotFound' => (int)$args['rowId']));
+			// Inform the client that the category does no longer exist.
+			$json->setAdditionalAttributes(array('elementNotFound' => (int)$args['rowId']));
 		} else {
 			// Render the requested category
 			$this->setRowActionToggleColumn();
@@ -89,11 +91,47 @@ class CategoryGridHandler extends GridHandler {
 	//
 	// Extended methods from GridHandler
 	//
+	function initialize(&$request) {
+		parent::initialize($request);
+
+		if (!is_null($request->getUserVar('rowCategoryId'))) {
+			$this->_currentCategoryId = (string) $request->getUserVar('rowCategoryId');
+		}
+	}
+
+	/**
+	 * @see GridHandler::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		$args = parent::getRequestArgs();
+
+		// If grid is rendering grid rows inside category,
+		// add current category id value so rows will also know
+		// their parent category.
+		if (!is_null($this->_currentCategoryId)) {
+			if ($this->getCategoryRowIdParameterName()) {
+				$args[$this->getCategoryRowIdParameterName()] = $this->_currentCategoryId;
+			}
+		}
+
+		return $args;
+	}
+
+
 	/**
 	 * @see GridHandler::getJSHandler()
 	 */
 	function getJSHandler() {
 		return '$.pkp.controllers.grid.CategoryGridHandler';
+	}
+
+	/**
+	 * @see GridHandler::setUrls()
+	 */
+	function setUrls(&$request) {
+		$router =& $request->getRouter();
+		$url = array('fetchCategoryUrl' => $router->url($request, null, null, 'fetchCategory', null, $this->getRequestArgs()));
+		parent::setUrls($request, $url);
 	}
 
 	/**
@@ -103,6 +141,33 @@ class CategoryGridHandler extends GridHandler {
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
+	}
+
+	/**
+	 * @see GridHandler::getRowDataElement()
+	 */
+	function getRowDataElement($request, $rowId) {
+		$rowData = parent::getRowDataElement($request, $rowId);
+		$rowCategoryId = $request->getUserVar('rowCategoryId');
+
+		if (is_null($rowData) && !is_null($rowCategoryId)) {
+			// Try to get row data inside category.
+			$categoryRowData = parent::getRowDataElement($request, $rowCategoryId);
+			if (!is_null($categoryRowData)) {
+				$categoryElements = $this->getCategoryData($categoryRowData, null);
+
+				assert(is_array($categoryElements));
+				if (!isset($categoryElements[$rowId])) return null;
+
+				// Let grid (and also rows) knowing the current category id.
+				// This value will be published by the getRequestArgs method.
+				$this->_currentCategoryId = $rowCategoryId;
+
+				return $categoryElements[$rowId];
+			}
+		} else {
+			return $rowData;
+		}
 	}
 
 	/**
@@ -132,6 +197,15 @@ class CategoryGridHandler extends GridHandler {
 		//provide a sensible default category row definition
 		$row = new GridCategoryRow();
 		return $row;
+	}
+
+	/**
+	 * Get the category row id parameter name.
+	 * @return string
+	 */
+	function getCategoryRowIdParameterName() {
+		// Must be implemented by subclasses.
+		return null;
 	}
 
 	/**
@@ -209,6 +283,19 @@ class CategoryGridHandler extends GridHandler {
 		assert(false);
 	}
 
+	/**
+	 * @see GridHandler::renderRowInternally()
+	 */
+	function renderRowInternally($request, $row) {
+		if ($this->getCategoryRowIdParameterName()) {
+			$param = $this->getRequestArg($this->getCategoryRowIdParameterName());
+			$templateMgr =& TemplateManager::getManager();
+			$templateMgr->assign('categoryId', $param);
+		}
+
+		return parent::renderRowInternally($request, $row);
+	}
+
 
 	//
 	// Private helper methods
@@ -262,13 +349,17 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
-	 * Optionally render a category row and render its data.  If no category data given, render the rows only
+	 * Render a category row and its data.
 	 * @param $request PKPRequest
 	 * @param $categoryRow GridCategoryRow
 	 * @return String HTML for all the rows (including category)
 	 */
 	function _renderCategoryInternally(&$request, &$categoryRow) {
+		// Prepare the template to render the category.
 		$templateMgr =& TemplateManager::getManager();
+		$templateMgr->assign_by_ref('grid', $this);
+		$columns = $this->getColumns();
+		$templateMgr->assign_by_ref('columns', $columns);
 
 		$categoryDataElement =& $categoryRow->getData();
 		$filter = $this->getFilterSelectionData($request);
@@ -276,11 +367,18 @@ class CategoryGridHandler extends GridHandler {
 
 		// Render the data rows
 		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
+
+		// Let grid (and also rows) knowing the current category id.
+		// This value will be published by the getRequestArgs method.
+		$this->_currentCategoryId = $categoryRow->getId();
+
 		$renderedRows = $this->_renderRowsInternally($request, $rowData);
 		$templateMgr->assign_by_ref('rows', $renderedRows);
 
-		$templateMgr->assign_by_ref('categoryRow', $categoryRow);
 		$renderedCategoryRow = $templateMgr->fetch($categoryRow->getTemplate());
+
+		// Finished working with this category, erase the current id value.
+		$this->_currentCategoryId = null;
 
 		$templateMgr->assign_by_ref('renderedCategoryRow', $renderedCategoryRow);
 		return $templateMgr->fetch('controllers/grid/gridBodyPartWithCategory.tpl');

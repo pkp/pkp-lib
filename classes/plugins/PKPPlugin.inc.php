@@ -415,7 +415,7 @@ class PKPPlugin {
 	 */
 	/**
 	 * Generate the context for this plug-in's generic
-	 * settings. This is array with the id of the main context
+	 * settings. This is an array with the id of the main context
 	 * (e.g. journal, conference or press) as the first entry
 	 * and all remaining entries set to 0. If the calling
 	 * application doesn't support context then the this will

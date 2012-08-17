@@ -90,11 +90,16 @@
 	<message key="grid.action.uploadFile">Upload a file</message>
 	<message key="grid.action.addAnnouncementType">Add Announcement Type</message>
 	<message key="grid.action.addAnnouncement">Add Announcement</message>
+	<message key="grid.action.mergeUser">Merge user</message>
+	<message key="grid.action.unassignUser">Unassign User</message>
+	<message key="grid.action.history">View History</message>
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>
 	<message key="grid.task.status.new">This is a new item and requires attention</message>
 	<message key="grid.task.status.uploaded">The column title indicates who uploaded this file</message>
+	<message key="grid.task.status.unfinished">Review Unfinished</message>
+	<message key="grid.task.status.reviewReady">This review is ready. Click the note icon to the left to read it.</message>
 
 	<!-- Common Grid Column Titles -->
 	<message key="grid.columns.actions">Actions</message>

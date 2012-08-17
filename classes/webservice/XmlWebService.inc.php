@@ -14,6 +14,7 @@
 
 
 import('lib.pkp.classes.webservice.WebService');
+import('lib.pkp.classes.xslt.XSLTransformer');
 
 class XmlWebService extends WebService {
 	/** @var integer */

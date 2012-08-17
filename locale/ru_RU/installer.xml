@@ -67,5 +67,4 @@
 	<message key="installer.publicFilesDirError">Каталог, указанный в качестве каталога для принятых файлов, не существует либо защищен от записи.</message>
 	<message key="installer.releaseNotes">Замечания о текущей версии</message>
 	<message key="installer.securitySettings">Установки безопасности</message>
-	<message key="installer.skipFilesDir">Не создавать подкаталогов (может потребоваться при для ручной установке)</message>
 </locale>

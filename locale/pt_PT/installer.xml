@@ -65,7 +65,6 @@
 	<message key="installer.publicFilesDirError">A pasta de documentos públicos não existe ou não possui permissão de escrita.</message>
 	<message key="installer.releaseNotes">Notas de Lançamento</message>
 	<message key="installer.securitySettings">Configurações de Segurança</message>
-	<message key="installer.skipFilesDir">Não criar sub-pastas (útil apenas para instalação manual)</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Erro ao tentar analisar o ficheiro de e-mail padrão <tt>{$file}</tt>.]]></message>
 	<message key="installer.locale.maybeIncomplete">Traduções marcadas podem estar incompletas.</message>
 </locale>

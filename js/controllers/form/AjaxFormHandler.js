@@ -41,7 +41,8 @@
 	 * @private
 	 * @type {Boolean}
 	 */
-	$.pkp.controllers.form.AjaxFormHandler.prototype.disableControlsOnSubmit_ = true;
+	$.pkp.controllers.form.AjaxFormHandler.prototype.
+			disableControlsOnSubmit_ = true;
 
 
 	//

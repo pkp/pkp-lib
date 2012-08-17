@@ -35,10 +35,13 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		// Set internal state properties.
 		this.hasFileSelector_ = options.hasFileSelector;
 		this.hasGenreSelector_ = options.hasGenreSelector;
+		this.hasLibraryCategorySelector_ = options.hasLibraryCategorySelector;
+
 		if (options.presetRevisedFileId) {
 			this.presetRevisedFileId_ = options.presetRevisedFileId;
 		}
 		this.fileGenres_ = options.fileGenres;
+		this.fileCategories_ = options.fileCategories;
 
 		// Attach the uploader handler to the uploader HTML element.
 		this.attachUploader_(options.$uploader, options.uploaderOptions);
@@ -83,6 +86,15 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 
 	/**
+	 * Whether the file upload form has a library category selector.
+	 * @private
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
+			.hasLibraryCategorySelector_ = false;
+
+
+	/**
 	 * A preset revised file id (if any).
 	 * @private
 	 * @type {?string}
@@ -98,6 +110,15 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
 			.fileGenres_ = null;
+
+
+	/**
+	 * All currently available file library categories.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler
+			.fileCategories_ = null;
 
 
 	//
@@ -155,6 +176,15 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			multipartParams.genreId = $genreId.val();
 		} else {
 			multipartParams.genreId = '';
+		}
+
+		// Add the file library category to the upload message.
+		if (this.hasLibraryCategorySelector_) {
+			var $libraryCategoryId = $uploadForm.find('#libraryCategoryId');
+			$libraryCategoryId.attr('disabled', 'disabled');
+			multipartParams.libraryCategoryId = $libraryCategoryId.val();
+		} else {
+			multipartParams.libraryCategoryId = '';
 		}
 
 		// Add the upload message parameters to the uploader.
@@ -224,6 +254,8 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 		var $uploadForm = this.getHtmlElement();
 		var $revisedFileId = $uploadForm.find('#revisedFileId');
 		var $genreId = $uploadForm.find('#genreId');
+		var $libraryCategoryId = $uploadForm.find('#libraryCategoryId');
+
 		if ($revisedFileId.val() === '') {
 			// New file...
 			$genreId.removeAttr('disabled');
@@ -232,6 +264,12 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			$genreId.val(this.fileGenres_[$revisedFileId.val()]);
 			$genreId.attr('disabled', 'disabled');
 			$uploadForm.find('.plupload_button.plupload_start').show();
+
+			// If this is a book documents file, set the file category as well.
+			if ($libraryCategoryId) {
+				$libraryCategoryId.val(this.fileCategories_[$revisedFileId.val()]);
+				$libraryCategoryId.attr('disabled', 'disabled');
+			}
 		}
 	};
 

@@ -70,7 +70,7 @@
 
 <script type="text/javascript">
 <!--
-	document.login.{if $username}loginPassword{else}loginUsername{/if}.focus();
+	document.getElementById('{if $username}loginPassword{else}loginUsername{/if}').focus();
 // -->
 </script>
 </form>

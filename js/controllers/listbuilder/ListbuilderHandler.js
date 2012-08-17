@@ -247,6 +247,19 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 
 	//
+	// Extended methods from GridHandler.
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getEmptyElement =
+			function($element) {
+		// Listbuilders have only one empty element placeholder.
+		return this.getHtmlElement().find('.empty');
+	};
+
+
+	//
 	// Private Methods
 	//
 	/**
@@ -304,7 +317,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			$deletions.val($deletions.val() + ' ' + rowId);
 		}
 
-		this.doCommonDeleteRowActions($targetRow);
+		this.deleteElement($targetRow);
 
 		return false;
 	};
@@ -344,7 +357,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				this.enableControls();
 			}
 
-			this.callFeaturesHook('appendRow', $newRow);
+			this.callFeaturesHook('appendElement', $newRow);
 		}
 
 		return false;
@@ -691,7 +704,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Attach handlers for content manipulation
 			this.attachContentHandlers_($newContent);
 
-			this.callFeaturesHook('replaceRow', $newContent);
+			this.callFeaturesHook('replaceElement', $newContent);
 		}
 		this.enableControls();
 	};
@@ -800,8 +813,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item
 		// if needed
-		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').mousedown(
-				this.callbackWrapper(this.addItemHandler_));
+		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]').
+				mousedown(this.callbackWrapper(this.addItemHandler_));
 		this.getHtmlElement().find('.h3').removeClass('spinner');
 	};
 

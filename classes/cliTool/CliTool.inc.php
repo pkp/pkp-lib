@@ -48,7 +48,7 @@ class CommandLineTool {
 	var $argv;
 
 	function CommandLineTool($argv = array()) {
-		// Initialize the a request object with a page router
+		// Initialize the request object with a page router
 		$application =& PKPApplication::getApplication();
 		$request =& $application->getRequest();
 

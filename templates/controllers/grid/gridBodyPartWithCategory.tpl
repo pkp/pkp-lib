@@ -7,7 +7,7 @@
  * a set of grid rows with a category row at the beginning
  *}
 {** category id must be set by the rendering of the category row **}
-<tbody id="{$categoryId|escape}" class="category_grid_body">
+<tbody id="{$categoryId|escape}" class="element{$categoryRow->getId()|escape} category_grid_body">
 	<tr class="category{if $iterator} group{$iterator|escape}{/if}">
 		{$renderedCategoryRow}
 		{** the regular data rows **}
@@ -16,7 +16,7 @@
 		{/foreach}
 	</tr>
 </tbody>
-<tbody id="{$categoryId|concat:'-emptyPlaceholder'|escape}" class="empty"{if count($rows) > 0} style="display: none;"{/if}>
+<tbody id="{$categoryId|concat:'-emptyPlaceholder'|escape}" class="empty category_placeholder"{if count($rows) > 0} style="display: none;"{/if}>
 	{**
 		We need the last (=empty) line even if we have rows
 		so that we can restore it if the user deletes all rows.

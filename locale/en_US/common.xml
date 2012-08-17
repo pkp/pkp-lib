@@ -32,6 +32,7 @@
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
 	<message key="common.accepted">Accepted</message>
+	<message key="common.acknowledged">Acknowledged</message>
 	<message key="common.action">Action</message>
 	<message key="common.activate">Activate</message>
 	<message key="common.active">Active</message>
@@ -80,6 +81,7 @@
 	<message key="common.completed">Completed</message>
 	<message key="common.confirm">Confirm</message>
 	<message key="common.content">Content</message>
+	<message key="common.considered">Considered</message>
 	<message key="common.continue">Continue</message>
 	<message key="common.copy">Copy</message>
 	<message key="common.country">Country</message>
@@ -146,6 +148,7 @@
 	<message key="common.notAvailable">Not available</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
+	<message key="common.notified">Notified</message>
 	<message key="common.noMatches">No Matches</message>
 	<message key="common.off">Off</message>
 	<message key="common.on">On</message>
@@ -175,6 +178,7 @@
 	<message key="common.replaceFile">Replace file</message>
 	<message key="common.requiredField">* Denotes required field</message>
 	<message key="common.required">Required</message>
+	<message key="common.reset">Reset</message>
 	<message key="common.saveAndContinue">Save and continue</message>
 	<message key="common.saveAndEmail">Save and email</message>
 	<message key="common.save">Save</message>
@@ -264,8 +268,8 @@
 	<message key="form.invalidImage">An invalid image was uploaded. Accepted formats are .png, .gif, or .jpg.</message>
 	<message key="help.contents">Contents</message>
 	<message key="help.help">Help</message>
-	<message key="help.toggleInlineHelpOn">Help Off</message>
-	<message key="help.toggleInlineHelpOff">Help On</message>
+	<message key="help.toggleInlineHelpOn">Help On</message>
+	<message key="help.toggleInlineHelpOff">Help Off</message>
 	<message key="help.helpIndex">Help Index</message>
 	<message key="help.matchesFound">{$matches} matches found</message>
 	<message key="help.noMatchingTopics">No matching help topics were found.</message>

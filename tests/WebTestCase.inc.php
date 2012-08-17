@@ -50,7 +50,9 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			);
 		}
 
-		$this->setBrowser('*firefox');
+		$this->setBrowser('*chrome'); // This is not Google Chrome but the
+		                              // Firefox Heightened Privilege mode
+		                              // required e.g. for file upload.
 		$this->setBrowserUrl($this->baseUrl . '/');
 
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
@@ -82,6 +84,19 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$this->verificationErrors = array();
 		}
 		return $verified;
+	}
+
+	/**
+	 * Open a URL but only if it's not already
+	 * the current location.
+	 * @param $url string
+	 */
+	protected function verifyAndOpen($url) {
+		$this->verifyLocation('exact:' . $url);
+		if (!$this->verified()) {
+			$this->open($url);
+		}
+		$this->waitForLocation($url);
 	}
 
 	/**

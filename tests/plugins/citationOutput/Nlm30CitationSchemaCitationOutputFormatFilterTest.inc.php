@@ -26,6 +26,20 @@ import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('lib.pkp.classes.metadata.MetadataDescription');
 
 abstract class Nlm30CitationSchemaCitationOutputFormatFilterTest extends PKPTestCase {
+
+	//
+	// Implement template methods from PKPTestCase
+	//
+	/**
+	 * @see PKPTestCase::getMockedRegistryKeys()
+	 */
+	protected function getMockedRegistryKeys() {
+		return array('request');
+	}
+
+	/**
+	 * @see PKPTestCase::setUp()
+	 */
 	protected function setUp() {
 		$application =& PKPApplication::getApplication();
 		$_SERVER['REQUEST_METHOD'] = 'GET';

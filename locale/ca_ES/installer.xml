@@ -66,5 +66,4 @@
 	<message key="installer.publicFilesDirError">El directori per als fitxers públics no existeix o no té permís d’escriptura.</message>
 	<message key="installer.releaseNotes">Notes de la versió</message>
 	<message key="installer.securitySettings">Configuració de seguretat</message>
-	<message key="installer.skipFilesDir">No creïs els subdirectoris requerits (només és útil per a la instal·lació manual).</message>
 </locale>

@@ -219,6 +219,12 @@ jQuery.pkp.controllers.wizard.fileUpload =
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelRequested = function(wizardElement, event) {
 
+		// if there are changes to tracked forms, and the user wishes to stay,
+		// return false to prevent the removal of the uploaded file.
+		if (this.checkForm_(true)) {
+			return false;
+		}
+
 		// If the user presses cancel after uploading a file then delete the file.
 		if (this.uploadedFile_) {
 			$.post(this.deleteUrl_, this.uploadedFile_,

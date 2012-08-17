@@ -23,7 +23,14 @@ class WebServiceRequest {
 	/** @var string HTTP request method */
 	var $_method;
 
+	/** @var string Accept header */
 	var $_accept;
+
+	/** @var array Additional request headers */
+	var $_headers = array();
+
+	/** @var boolean Whether to make an asynchronous request */
+	var $_async = false;
 
 	/**
 	 * Constructor
@@ -100,6 +107,55 @@ class WebServiceRequest {
 	 */
 	function getAccept() {
 		return $this->_accept;
+	}
+
+	/**
+	 * Set an additional request header.
+	 * @param $header string
+	 * @param $content string
+	 */
+	function setHeader($header, $content) {
+		$this->_headers[$header] = $content;
+	}
+
+	/**
+	 * Check whether the given header is
+	 * present in the request.
+	 *
+	 * The check is case insensitive.
+	 *
+	 * @param $header string
+	 */
+	function hasHeader($header) {
+		$header = strtolower($header);
+		foreach($this->_headers as $h => $dummy) {
+			if ($header == strtolower($h)) return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Get additional request headers.
+	 */
+	function getHeaders() {
+		return $this->_headers;
+	}
+
+	/**
+	 * Set whether to make an async request.
+	 * (POST requests only)
+	 * @param $async boolean
+	 */
+	function setAsync($async) {
+		$this->_async = (boolean)$async;
+	}
+
+	/**
+	 * Whether to make an async request.
+	 * @return boolean
+	 */
+	function getAsync() {
+		return $this->_async;
 	}
 }
 ?>

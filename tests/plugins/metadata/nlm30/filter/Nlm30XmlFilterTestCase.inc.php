@@ -27,6 +27,16 @@ class Nlm30XmlFilterTestCase extends PKPTestCase {
 	//
 	// Implement template methods from PKPTestCase
 	//
+	/**
+	 * @see PKPTestCase::getMockedRegistryKeys()
+	 */
+	protected function getMockedRegistryKeys() {
+		return array('request');
+	}
+
+	/**
+	 * @see PKPTestCase::setUp()
+	 */
 	protected function setUp() {
 		parent::setUp();
 		$application =& PKPApplication::getApplication();

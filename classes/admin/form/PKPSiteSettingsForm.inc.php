@@ -46,9 +46,9 @@ class PKPSiteSettingsForm extends Form {
 		$publicFileManager = new PublicFileManager();
 		$siteStyleFilename = $publicFileManager->getSiteFilesPath() . '/' . $site->getSiteStyleFilename();
 		$templateMgr =& TemplateManager::getManager();
-	$templateMgr->assign('showThumbnail', $site->getSetting('showThumbnail'));
-	$templateMgr->assign('showTitle', $site->getSetting('showTitle'));
-	$templateMgr->assign('showDescription', $site->getSetting('showDescription'));
+		$templateMgr->assign('showThumbnail', $site->getSetting('showThumbnail'));
+		$templateMgr->assign('showTitle', $site->getSetting('showTitle'));
+		$templateMgr->assign('showDescription', $site->getSetting('showDescription'));
 		$templateMgr->assign('originalStyleFilename', $site->getOriginalStyleFilename());
 		$templateMgr->assign('pageHeaderTitleImage', $site->getSetting('pageHeaderTitleImage'));
 		$templateMgr->assign('styleFilename', $site->getSiteStyleFilename());
@@ -70,9 +70,9 @@ class PKPSiteSettingsForm extends Form {
 			'title' => $site->getSetting('title'), // Localized
 			'intro' => $site->getSetting('intro'), // Localized
 			'redirect' => $site->getRedirect(),
-	    'showThumbnail' => $site->getSetting('showThumbnail'),
-	    'showTitle' => $site->getSetting('showTitle'),
-	    'showDescription' => $site->getSetting('showDescription'),
+			'showThumbnail' => $site->getSetting('showThumbnail'),
+			'showTitle' => $site->getSetting('showTitle'),
+			'showDescription' => $site->getSetting('showDescription'),
 			'about' => $site->getSetting('about'), // Localized
 			'contactName' => $site->getSetting('contactName'), // Localized
 			'contactEmail' => $site->getSetting('contactEmail'), // Localized

@@ -12,7 +12,7 @@
   * (i.e., existing under the locales/ directory)
   -->
 
-<!DOCTYPE locales SYSTEM "../lib/pkp/dtd/locales.dtd">
+<!DOCTYPE locales SYSTEM "../../dtd/locales.dtd">
 
 <locales>
 	<locale key="en_US" name="English" iso639-2b="eng" iso639-3="eng" />

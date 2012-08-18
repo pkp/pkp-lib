@@ -10,7 +10,6 @@
   * Localization strings for the cs_CZ (Czech) locale.
   * Translated by Ivo Vesely and Petr Petyovsky (petyovsky 'at' feec.vutbr.cz)
   *
-  * $Id: grid.xml 218 2011-06-21 20:42:56Z petyovsky $
   -->
 
 <locale name="cs_CZ" full_name = "Čeština">

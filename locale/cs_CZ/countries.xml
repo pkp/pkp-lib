@@ -10,7 +10,6 @@
   *
   * Translated by František Chmelik, frantisek.chmelik 'at' upol.cz
   *
-  * $Id: countries.xml 202 2011-06-10 15:51:51Z petyovsky $
   -->
 <countries>
 	<country name="Afghánistán" code="AF"/>

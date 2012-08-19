@@ -83,7 +83,7 @@ class GridCategoryAccordionFeature extends GridFeature{
 				new NullAction(),
 				'',
 				'expanded'
-			), GRID_ACTION_POSITION_DEFAULT
+			), GRID_ACTION_POSITION_ROW_LEFT
 		);
 
 		$row->addAction(
@@ -92,7 +92,7 @@ class GridCategoryAccordionFeature extends GridFeature{
 				new NullAction(),
 				'',
 				'collapsed'
-			), GRID_ACTION_POSITION_DEFAULT
+			), GRID_ACTION_POSITION_ROW_LEFT
 		);
 	}
 }

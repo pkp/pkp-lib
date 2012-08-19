@@ -49,15 +49,16 @@
 
 
 	/**
-	 * Get category rows accordion link actions.
+	 * Get category rows accordion link actions inside the passed
+	 * element.
+	 * @param {jQuery} $context The context element.
 	 * @return {jQuery} Link actions.
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
-			getAccordionLinks = function() {
-		var $table = this.getGridHtmlElement().find('table');
+			getAccordionLinks = function($context) {
 		var collapseSelector = '.' + this.getCollapseClass();
 		var expandSelector = '.' + this.getExpandClass();
-		return $(collapseSelector + ',' + expandSelector, $table);
+		return $(collapseSelector + ',' + expandSelector, $context);
 	};
 
 
@@ -74,21 +75,55 @@
 		$collapseAllLink.click(this.callbackWrapper(
 				this.collapseAllClickHandler_, this));
 
-		var $accordionLinkActions = this.getAccordionLinks();
-		$accordionLinkActions.click(
-				this.callbackWrapper(this.accordionRowClickHandler_, this));
+		this.bindCategoryAccordionControls_(this.getGridHtmlElement());
 
 		$collapseAllLink.click();
 
 		// Hide all no items tbody.
-		var $emptyPlaceholders = $('tbody.empty', this.getGridHtmlElement());
-		$emptyPlaceholders.hide();
+		this.hideEmptyPlaceholders_();
+
+	};
+
+
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.replaceElement =
+			function($newContent) {
+		this.bindCategoryAccordionControls_($newContent);
+		// Make sure the category items are visible.
+		$('.' + this.getExpandClass(), $newContent).click();
+		this.hideEmptyPlaceholders_();
 	};
 
 
 	//
 	// Private helper methods.
 	//
+	/**
+	 * Add click handlers to the accordion controls inside the
+	 * passed element.
+	 * @param {jQuery} $element The context element.
+	 */
+	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+			bindCategoryAccordionControls_ = function($element) {
+		var $accordionLinkActions = this.getAccordionLinks($element);
+		$accordionLinkActions.click(
+				this.callbackWrapper(this.accordionRowClickHandler_, this));
+	};
+
+
+	/**
+	 * Hide all grid empty placeholders.
+	 */
+	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+			hideEmptyPlaceholders_ = function() {
+		var $emptyPlaceholders = $('tbody.empty',
+				this.getGridHtmlElement());
+		$emptyPlaceholders.hide();
+	};
+
+
 	/**
 	 * Expand all link action click handler.
 	 * @private
@@ -141,7 +176,8 @@
 		$link.hide();
 
 		var $category = $link.parents('.category_grid_body:first');
-		var $categoryElements = $('.gridRow', $category);
+		var $categoryElements = this.gridHandler_.
+				getRowsInCategory($category);
 		if ($categoryElements.length === 0) {
 			$categoryElements = this.gridHandler_.
 					getCategoryEmptyPlaceholder($category);

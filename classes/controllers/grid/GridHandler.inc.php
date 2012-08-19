@@ -943,6 +943,9 @@ class GridHandler extends PKPHandler {
 		// If row defines a cell provider, use it.
 		$cellProvider =& $row->getCellProvider();
 		if (!is_a($cellProvider, 'GridCellProvider')) {
+			// Remove reference to the row variable.
+			unset($cellProvider);
+			// Get cell provider from column.
 			$cellProvider =& $column->getCellProvider();
 		}
 

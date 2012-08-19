@@ -19,27 +19,17 @@ define('COLUMN_ALIGNMENT_LEFT', 'left');
 define('COLUMN_ALIGNMENT_CENTER', 'center');
 define('COLUMN_ALIGNMENT_RIGHT', 'right');
 
-class GridColumn {
-	/** @var string the column id */
-	var $_id;
+import('lib.pkp.classes.controllers.grid.GridBodyElement');
 
+class GridColumn extends GridBodyElement {
 	/** @var string the column title i18n key */
 	var $_title;
 
 	/** @var string the column title (translated) */
 	var $_titleTranslated;
 
-	/**
-	 * @var array flags that can be set by the handler to trigger layout
-	 *  options in the template.
-	 */
-	var $_flags;
-
 	/** @var string the controller template for the cells in this column */
 	var $_template;
-
-	/** @var GridCellProvider a cell provider for cells in this column */
-	var $_cellProvider;
 
 	/**
 	 * Constructor
@@ -47,34 +37,16 @@ class GridColumn {
 	function GridColumn($id = '', $title = null, $titleTranslated = null,
 			$template = 'controllers/grid/gridCell.tpl', $cellProvider = null, $flags = array()) {
 
-		$this->_id = $id;
+		parent::GridBodyElement($id, $cellProvider, $flags);
+
 		$this->_title = $title;
 		$this->_titleTranslated = $titleTranslated;
 		$this->_template = $template;
-		$this->_cellProvider =& $cellProvider;
-		$this->_flags = $flags;
 	}
 
 	//
 	// Setters/Getters
 	//
-	/**
-	 * Get the column id
-	 * @return string
-	 */
-	function getId() {
-		return $this->_id;
-	}
-
-	/**
-	 * Set the column id
-	 * @param $id string
-	 */
-	function setId($id) {
-		$this->_id = $id;
-	}
-
-
 	/**
 	 * Get the column title
 	 * @return string
@@ -109,43 +81,6 @@ class GridColumn {
 	}
 
 	/**
-	 * Get all layout flags
-	 * @return array
-	 */
-	function getFlags() {
-		return $this->_flags;
-	}
-
-	/**
-	 * Get a single layout flag
-	 * @param $flag string
-	 * @return mixed
-	 */
-	function getFlag($flag) {
-		assert(isset($this->_flags[$flag]));
-		return $this->_flags[$flag];
-	}
-
-	/**
-	 * Check whether a flag is set to true
-	 * @param $flag string
-	 * @return boolean
-	 */
-	function hasFlag($flag) {
-		if (!isset($this->_flags[$flag])) return false;
-		return (boolean)$this->_flags[$flag];
-	}
-
-	/**
-	 * Add a flag
-	 * @param $flag string
-	 * @param $value mixed optional
-	 */
-	function addFlag($flag, $value = true) {
-		$this->_flags[$flag] = $value;
-	}
-
-	/**
 	 * get the column's cell template
 	 * @return string
 	 */
@@ -162,25 +97,17 @@ class GridColumn {
 	}
 
 	/**
-	 * Get the cell provider
-	 * @return GridCellProvider
+	 * @see GridBodyElement::getCellProvider()
 	 */
-	function &getCellProvider() {
-		if (is_null($this->_cellProvider)) {
+	function getCellProvider() {
+		if (is_null(parent::getCellProvider())) {
 			// provide a sensible default cell provider
 			import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
 			$cellProvider = new ArrayGridCellProvider();
 			$this->setCellProvider($cellProvider);
 		}
-		return $this->_cellProvider;
-	}
 
-	/**
-	 * Set the cell provider
-	 * @param $cellProvider GridCellProvider
-	 */
-	function setCellProvider(&$cellProvider) {
-		$this->_cellProvider =& $cellProvider;
+		return parent::getCellProvider();
 	}
 
 	/**

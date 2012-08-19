@@ -19,16 +19,12 @@
 define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');
 define('GRID_ACTION_POSITION_ROW_LEFT', 'row-left');
 
-class GridRow {
+import('lib.pkp.classes.controllers.grid.GridBodyElement');
+
+class GridRow extends GridBodyElement {
 
 	/** @var array */
 	var $_requestArgs;
-
-	/**
-	 * @var string identifier of the row instance - must be unique
-	 *  among all row instances within a grid.
-	 */
-	var $_id;
 
 	/** @var the grid this row belongs to */
 	var $_gridId;
@@ -49,38 +45,20 @@ class GridRow {
 	/** @var string the row template */
 	var $_template;
 
-	/** @var GridCellProvider a cell provider for cells in this row */
-	var $_cellProvider;
-
 
 	/**
 	 * Constructor.
 	 */
 	function GridRow() {
+		parent::GridBodyElement();
+
 		$this->_isModified = false;
-		$this->_cellProvider = null;
 	}
 
 
 	//
 	// Getters/Setters
 	//
-	/**
-	 * Set the grid id
-	 * @param $id string
-	 */
-	function setId($id) {
-		$this->_id = $id;
-	}
-
-	/**
-	 * Get the grid id
-	 * @return string
-	 */
-	function getId() {
-		return $this->_id;
-	}
-
 	/**
 	 * Set the grid id
 	 * @param $gridId string
@@ -195,22 +173,6 @@ class GridRow {
 	 */
 	function setTemplate($template) {
 		$this->_template = $template;
-	}
-
-	/**
-	 * Get the cell provider
-	 * @return GridCellProvider
-	 */
-	function &getCellProvider() {
-		return $this->_cellProvider;
-	}
-
-	/**
-	 * Set the cell provider
-	 * @param $cellProvider GridCellProvider
-	 */
-	function setCellProvider(&$cellProvider) {
-		$this->_cellProvider =& $cellProvider;
 	}
 
 	//

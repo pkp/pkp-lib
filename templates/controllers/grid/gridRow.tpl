@@ -15,7 +15,7 @@
 {else}
 	{assign var=rowId value=""}
 {/if}
-<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow{if is_a($row, 'GridCategoryRow')} category{/if}">
+<tr {if $rowId}id="{$rowId|escape}" {/if}class="{if $rowId}element{$row->getId()|escape} {/if}gridRow{if is_a($row, 'GridCategoryRow')} category{if !$row->hasFlag('gridRowStyle')} default_category_style{/if}{/if}">
 	{foreach name=columnLoop from=$columns key=columnId item=column}
 		{if $column->hasFlag('indent')}
 			{if !is_a($row, 'GridCategoryRow')}
@@ -26,7 +26,7 @@
 			{/if}
 		{else}
 			<td {if $columnSpan && $smarty.foreach.columnLoop.iteration == 2}colspan="{$columnSpan}"{/if}
-			{if $column->hasFlag('firstColumn')} class="first_column"{/if}
+			{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions()} no_actions{/if}"{/if}
 			{if $row->hasActions() && $column->hasFlag('firstColumn')}
 					>
 					<div class="row_container">

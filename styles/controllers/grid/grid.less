@@ -68,7 +68,7 @@ div.pkp_controllers_grid {
 	td.first_column {
 		padding: 0 !important;
 	}
-
+	
 	td.category {
 		display: table-row;
 	}
@@ -76,16 +76,16 @@ div.pkp_controllers_grid {
 	td.no_border {
 		border: none !important;
 	}
-
-	tr.category td {
-		line-height: 32px;
-		height: 32px;
-		font-size: 100%;
+	
+	.default_category_style td {
+		font-size: 120%;
+		text-transform: uppercase;
+		font-family: "Courier New", Courier, mono;
 	}
 
-	tr.category td:first-child {
+	tr.category td.no_actions {
 		top: 0;
-		padding-left: 10px;
+		padding-left: 10px !important;
 	}
 	
 	.wrapper {
@@ -158,10 +158,6 @@ div.pkp_controllers_grid {
 	
 	.row_actions a:before {
 		margin: 8px;
-	}
-	
-	.category .row_actions a:before {
-		margin: 0px;
 	}
 
 	.row_file {

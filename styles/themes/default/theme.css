@@ -109,8 +109,12 @@ div.pkp_controllers_grid .row_actions {
 	background-color: #f9f6f3;
 }
 
-div.pkp_controllers_grid tr.category td {
+div.pkp_controllers_grid .default_category_style td {
 	background-color: #f3f8fa !important;
+}
+
+div.pkp_controllers_grid .default_category_style .row_actions {
+	background-color: transparent;
 }
 
 a.task:hover {

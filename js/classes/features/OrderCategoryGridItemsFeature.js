@@ -103,14 +103,19 @@
 		var type = this.options_.type;
 		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
 				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
-			var $categoriesRows = this.gridHandler_.getCategories();
-			$categoriesRows.addClass('orderable');
+			var $categories = this.gridHandler_.getCategories();
+			$categories.addClass('orderable');
 		}
 
 		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY ||
 				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
 			this.parent('addOrderingClassToRows');
 		}
+
+		// We don't want to order category rows tr elements, so
+		// remove any style that might be added by calling parent.
+		var $categoryRows = this.gridHandler_.getCategoryRow();
+		$categoryRows.removeClass('orderable');
 	};
 
 

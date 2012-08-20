@@ -79,7 +79,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 	function getInitializedCategoryRowInstance($args) {
 		if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {
 			$row =& $args['row'];
-			$this->addRowOrderAction($row, GRID_ACTION_POSITION_DEFAULT);
+			$this->addRowOrderAction($row);
 		}
 	}
 

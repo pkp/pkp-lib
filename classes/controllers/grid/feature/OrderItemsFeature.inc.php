@@ -124,7 +124,7 @@ class OrderItemsFeature extends GridFeature{
 	 * @param $actionPosition int
 	 * @param $rowTemplate string
 	 */
-	function addRowOrderAction(&$row, $actionPosition = GRID_ACTION_POSITION_ROW_LEFT) {
+	function addRowOrderAction(&$row) {
 		if ($this->getOverrideRowTemplate($row)) {
 			$row->setTemplate('controllers/grid/gridRow.tpl');
 		}
@@ -136,7 +136,7 @@ class OrderItemsFeature extends GridFeature{
 				new NullAction(),
 				'',
 				'order_items'
-			), $actionPosition
+			), GRID_ACTION_POSITION_ROW_LEFT
 		);
 	}
 

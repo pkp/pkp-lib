@@ -456,11 +456,15 @@ class PKPPlugin {
 	 *  backwards compatibility only).
 	 */
 	function getLocaleFilename($locale) {
-		$baseLocaleFilename = $this->getPluginPath() . DIRECTORY_SEPARATOR . 'locale' . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . 'locale.xml';
-		return array(
-			$baseLocaleFilename,
-			'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . $baseLocaleFilename
-		);
+		$masterLocale = MASTER_LOCALE;
+		$baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
+		$baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
+		$libPkpFilename = "lib/pkp/$baseLocaleFilename";
+		$masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
+		$filenames = array();
+		if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
+		if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
+		return $filenames;
 	}
 
 	/**

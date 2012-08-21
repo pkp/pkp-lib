@@ -775,6 +775,7 @@ class FormBuilderVocabulary {
 				case 'id': $smarty->assign('FBV_id', $params['id']); break;
 				case 'interestsKeywords': $smarty->assign('FBV_interestsKeywords', $params['interestsKeywords']); break;
 				case 'interestsTextOnly': $smarty->assign('FBV_interestsTextOnly', $params['interestsTextOnly']); break;
+				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 			}
 		}
 

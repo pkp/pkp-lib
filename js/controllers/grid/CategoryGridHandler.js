@@ -212,9 +212,9 @@
 
 		var fetchedAlready = false;
 
-		if (opt_elementId != undefined) {
+		if (opt_elementId !== undefined) {
 			// Check if we want to refresh a row inside a category.
-			if (opt_elementId.parentElementId != undefined) {
+			if (opt_elementId.parentElementId !== undefined) {
 				var elementIds = {rowId: opt_elementId[0],
 					rowCategoryId: opt_elementId.parentElementId};
 
@@ -322,8 +322,8 @@
 		var checkColSpan = false;
 
 		if ($row.hasClass('category_grid_body')) {
-			var $element = $row.find('tr');
-			var checkColSpan = true;
+			$element = $row.find('tr');
+			checkColSpan = true;
 		}
 
 		return this.parent('hasSameNumOfColumns', $element, checkColSpan);

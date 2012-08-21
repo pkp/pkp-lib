@@ -284,9 +284,9 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		//unregister the form.
 		this.formChangesTracked = false;
 		this.trigger('unregisterChangedForm');
-		
+
 		var $form = this.getHtmlElement();
-		$form.each(function(){
+		$form.each(function() {
 			this.reset();
 		});
 

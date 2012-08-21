@@ -466,7 +466,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.appendElement =
 			function($newRow, $opt_gridBody) {
 
-		if ($opt_gridBody == undefined) {
+		if ($opt_gridBody === undefined) {
 			$opt_gridBody = this.getHtmlElement().find(this.bodySelector_);
 		}
 
@@ -503,10 +503,10 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 
 	/**
 	 * Does the passed row have a different number of columns than the
- 	 * existing grid?
- 	 *
- 	 * @protected
- 	 *
+	 * existing grid?
+	 *
+	 * @protected
+	 *
 	 * @param {jQuery} $row The row to be checked against grid columns.
 	 * @param {Boolean} checkColSpan Will get the number of row columns
 	 * by column span.
@@ -518,11 +518,12 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 		var $grid = this.getHtmlElement();
 		var numColumns = $grid.find('th').length;
 		var $tdElements = $row.first('tr').find('td');
+		var numCellsInNewRow;
 
 		if (checkColSpan) {
-			var numCellsInNewRow = $tdElements.attr('colspan');
+			numCellsInNewRow = $tdElements.attr('colspan');
 		} else {
-			var numCellsInNewRow = $tdElements.length;
+			numCellsInNewRow = $tdElements.length;
 		}
 
 		return (numColumns == numCellsInNewRow);

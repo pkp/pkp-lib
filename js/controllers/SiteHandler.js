@@ -31,6 +31,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.parent($widgetWrapper, options);
 
 		this.options_ = options;
+		this.unsavedFormElements_ = [];
 
 		$('.go').button();
 
@@ -90,7 +91,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @private
 	 * @type {Array}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = [];
+	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
 
 
 	//

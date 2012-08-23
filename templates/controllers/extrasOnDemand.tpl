@@ -6,14 +6,14 @@
  *
  * Basic markup for extras on demand widget.
  *}
- <script type="text/javascript">
+<script type="text/javascript">
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('{$widgetWrapper}').pkpHandler(
+		$('#{$id}').pkpHandler(
 			'$.pkp.controllers.ExtrasOnDemandHandler');
 	{rdelim});
 </script>
-<div class="pkp_controllers_extrasOnDemand">
+<div id="{$id}" class="pkp_controllers_extrasOnDemand">
 	<div class="toggleExtras">
 		<span class="ui-icon"></span>
 		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}</span>

@@ -24,12 +24,14 @@
 	$.pkp.controllers.ExtrasOnDemandHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
-		// Attach click event.
-		$('.toggleExtras', $widgetWrapper).click(
+		// Show the toggle button and attach click event
+		// to it. We hide this by default to provide a graceful
+		// fallback in case JS is switched off.
+		$('.toggleExtras', $widgetWrapper).show().click(
 				this.callbackWrapper(this.toggleExtras));
 
 		// Hide extras (default initial widget state).
-		this.deactivateExtraContent_('slow');
+		this.deactivateExtraContent_();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.ExtrasOnDemandHandler, $.pkp.classes.Handler);
@@ -66,9 +68,9 @@
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
+		var $widgetWrapper, $scrollable;
 
-		var $widgetWrapper = this.getHtmlElement(),
-				$scrollable;
+		$widgetWrapper = this.getHtmlElement();
 
 		// Hide the inactive version of the toggle extras span.
 		$('.toggleExtras .toggleExtras-inactive', $widgetWrapper).hide();
@@ -146,15 +148,16 @@
 	 * @private
 	 *
 	 * @param {jQueryObject} $widgetWrapper The element to be made visible.
-	 * @param {jQueryObject} $scrollable The parent scrollable element.
+	 * @param {Array|jQueryObject} $scrollable The parent scrollable element.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {
-
-		var extrasWidgetTop = $widgetWrapper.position().top,
-				scrollingWidgetTop = $scrollable.position().top,
-				currentScrollingTop = $scrollable.scrollTop(),
+		var extrasWidgetTop, scrollingWidgetTop, currentScrollingTop,
 				hiddenPixels, newScrollingTop;
+
+		extrasWidgetTop = $widgetWrapper.position().top;
+		scrollingWidgetTop = $scrollable.position().top;
+		currentScrollingTop = parseInt($scrollable.scrollTop(), 10);
 
 		// Do we have to scroll down or scroll up?
 		if (extrasWidgetTop > scrollingWidgetTop) {

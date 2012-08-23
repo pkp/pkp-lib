@@ -37,7 +37,9 @@
 		}
 
 		// Transform all form buttons with jQueryUI.
-		$('.button', $form).button();
+		if (options.transformButtons !== false) {
+			$('.button', $form).button();
+		}
 
 		// Activate and configure the validation plug-in.
 		if (options.submitHandler) {
@@ -93,7 +95,7 @@
 			this.trigger('formInvalid');
 		}
 
-		this.callbackWrapper(this.initializeTinyMCE());
+		this.initializeTinyMCE();
 
 		// bind a handler to make sure tinyMCE fields are populated.
 		$('#submitFormButton', $form).click(this.callbackWrapper(
@@ -339,19 +341,70 @@
 		return true;
 	};
 
+	/**
+	 * Internal callback called to submit the form
+	 * without further validation.
+	 *
+	 * @param {Object} validator The validator plug-in.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.submitFormWithoutValidation =
+			function(validator) {
+
+		// NB: When setting a submitHandler in jQuery's validator
+		// plugin then the submit event will always be canceled and our
+		// return value will be ignored (see the handle() method in the
+		// validator plugin). The only way around this seems to be unsetting
+		// the submit handler before calling the submit method again.
+		validator.settings.submitHandler = null;
+		this.disableFormControls();
+		this.getHtmlElement().submit();
+		this.formChangesTracked = false;
+	};
+
 
 	//
 	// Private Methods
 	//
 	/**
+	 * Initialize TinyMCE instances.
+	 *
+	 * There are instances where TinyMCE is not initialized with the call to
+	 * init(). These occur when content is loaded after the fact (via AJAX).
+	 *
+	 * In these cases, search for richContent fields and initialize them.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.initializeTinyMCE_ =
+			function() {
+
+		if (typeof tinyMCE !== 'undefined') {
+			var $element, elementId;
+			$element = this.getHtmlElement();
+			elementId = $element.attr('id');
+			setTimeout(function() {
+				// re-select the original element, to prevent closure memory leaks
+				// in (older?) versions of IE.
+				$('#' + elementId).find('.richContent').each(function(index) {
+					tinyMCE.execCommand('mceAddControl', false,
+							$(this).attr('id').toString());
+				});
+			}, 500);
+		}
+	};
+
+
+	/**
 	 * Internal callback called after form validation to handle form
 	 * submission.
+	 *
+	 * NB: Returning from this method without explicitly submitting
+	 * the form will cancel form submission.
 	 *
 	 * @private
 	 *
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
-	 * @return {Function|boolean} a callback method.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
 			function(validator, formElement) {
@@ -362,7 +415,7 @@
 
 		// If the default behavior was prevented for any reason, stop.
 		if (formSubmitEvent.isDefaultPrevented()) {
-			return false;
+			return;
 		}
 
 		$(formElement).find('.pkp_helpers_progressIndicator').show();
@@ -370,25 +423,13 @@
 		this.trigger('unregisterChangedForm');
 
 		if (this.callerSubmitHandler_ !== null) {
-
 			this.formChangesTracked = false;
 			// A form submission handler (e.g. Ajax) was provided. Use it.
-			return this.callbackWrapper(this.callerSubmitHandler_).
+			this.callbackWrapper(this.callerSubmitHandler_).
 					call(validator, formElement);
 		} else {
 			// No form submission handler was provided. Use the usual method.
-
-			// FIXME: Is there a better way? This is used to invoke
-			// the default form submission code. (Necessary to
-			// avoid an infinite loop.)
-			validator.settings.submitHandler = null;
-
-			this.disableFormControls();
-
-			this.getHtmlElement().submit();
-			this.formChangesTracked = false;
-
-			return false;
+			this.submitFormWithoutValidation(validator);
 		}
 	};
 
@@ -425,11 +466,12 @@
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.toggleDependentElement_ =
 			function(sourceElement, event) {
+		var formElement, elementId, targetElement;
 
-		var formElement = this.getHtmlElement(),
-				elementId = $(sourceElement).attr('id'),
-				targetElement = $(formElement).find(
-						"[id^='" + this.enableDisablePairs_[elementId] + "']");
+		formElement = this.getHtmlElement();
+		elementId = $(sourceElement).attr('id');
+		targetElement = $(formElement).find(
+				"[id^='" + this.enableDisablePairs_[elementId] + "']");
 
 		if ($(sourceElement).is(':checked')) {
 			$(targetElement).attr('disabled', '');

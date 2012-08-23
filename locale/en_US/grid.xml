@@ -40,7 +40,6 @@
 	<message key="grid.action.collapseAll">Collapse all</message>
 	<message key="grid.action.wizard">Settings wizard</message>
 	<message key="grid.action.moveItem">Move Item</message>
-	<message key="grid.action.downloadFile">Download this file</message>
 	<message key="grid.action.downloadAll">Download all files as an archive</message>
 	<message key="grid.action.readReview">Read this review</message>
 	<message key="grid.action.email">Send email</message>

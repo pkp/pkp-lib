@@ -375,4 +375,8 @@
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
+	
+	<!-- Common -->
+	<message key="grid.action.downloadFile">Download this file</message>
+	
 </locale>

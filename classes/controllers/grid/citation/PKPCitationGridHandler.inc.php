@@ -426,7 +426,7 @@ class PKPCitationGridHandler extends GridHandler {
 			$row->initialize($request);
 
 			// Render the row into a JSON response
-			$json = new JSONMessage(true, $this->_renderRowInternally($request, $row));
+			$json = new JSONMessage(true, $this->renderRowInternally($request, $row));
 		}
 
 		// Return the serialized JSON response

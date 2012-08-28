@@ -242,7 +242,7 @@ class PKPFilterGridHandler extends GridHandler {
 			$row->setId($filter->getId());
 			$row->setData($filter);
 			$row->initialize($request);
-			$json = new JSONMessage(true, $this->_renderRowInternally($request, $row));
+			$json = new JSONMessage(true, $this->renderRowInternally($request, $row));
 		} else {
 			// Re-display the filter form with error messages
 			// so that the user can fix it.

@@ -8,6 +8,6 @@
  *}
 
 <label{if !$FBV_suppressId} for="{$FBV_name|escape}"{/if}{if $FBV_class} class="{$FBV_class|escape}"{/if} >
-	{$FBV_label|escape} {if $FBV_required}*{/if}
+	{$FBV_label} {if $FBV_required}*{/if}
 </label>
 

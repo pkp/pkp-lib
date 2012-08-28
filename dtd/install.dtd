@@ -44,7 +44,8 @@
 		class CDATA #IMPLIED
 		function CDATA #REQUIRED
 		locales CDATA #IMPLIED
-		key CDATA #IMPLIED>
+		key CDATA #IMPLIED
+		condition CDATA #IMPLIED>
 <!ELEMENT note EMPTY>
 	<!ATTLIST note
 		file CDATA #REQUIRED>

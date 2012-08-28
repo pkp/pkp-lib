@@ -400,7 +400,15 @@ class Installer {
 				}
 				break;
 			case 'code':
-				$this->log(sprintf('code: %s %s::%s', isset($action['file']) ? $action['file'] : 'Installer', isset($action['attr']['class']) ? $action['attr']['class'] : 'Installer', $action['attr']['function']));
+				$condition = isset($action['attr']['condition'])?$action['attr']['condition']:null;
+				$includeAction = true;
+				if ($condition) {
+					$funcName = create_function('$installer,$action', $condition);
+					$includeAction = $funcName($this, $action);
+				}
+				$this->log(sprintf('code: %s %s::%s' . ($includeAction?'':' (skipped)'), isset($action['file']) ? $action['file'] : 'Installer', isset($action['attr']['class']) ? $action['attr']['class'] : 'Installer', $action['attr']['function']));
+				if (!$includeAction) return true; // Condition not met; skip the action.
+
 				if (isset($action['file'])) {
 					require_once($action['file']);
 				}

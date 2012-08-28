@@ -43,7 +43,7 @@ fi
 
 TOOL_PATH=~/bin
 
-JS_OUTPUT='lib/pkp/js/pkp.min.js'
+JS_OUTPUT='js/pkp.min.js'
 
 ## Command Line Options ##
 

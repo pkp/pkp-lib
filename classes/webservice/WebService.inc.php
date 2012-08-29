@@ -152,13 +152,17 @@ class WebService {
 		// Prepare the request URL
 		$url = $webServiceRequest->getUrl();
 		$queryString = '';
-		foreach($webServiceRequest->getParams() as $key => $value) {
-			if (!empty($queryString)) {
-				$queryString .= '&';
-			} else {
-				$queryString = '?';
+		foreach($webServiceRequest->getParams() as $key => $values) {
+			// GET requests can contain repeated parameter keys.
+			if (is_scalar($values)) $values = array($values);
+			foreach($values as $value) {
+				if (empty($queryString)) {
+					$queryString = '?';
+				} else {
+					$queryString .= '&';
+				}
+				$queryString .= urlencode($key).'='.urlencode($value);
 			}
-			$queryString .= urlencode($key).'='.urlencode($value);
 		}
 		$url = $url.$queryString;
 

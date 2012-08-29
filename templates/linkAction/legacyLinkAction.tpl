@@ -16,7 +16,7 @@
 {if !$buttonId}
 	{assign var=buttonId value=$id|concat:"-":$action->getId():"-button"|uniqid}
 	{if $action->getImage()}
-		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" class="{if $actionCss}{$actionCss|escape} {/if}{$action->getImage()|escape}" {if $hoverTitle}title="{$action->getLocalizedTitle()|escape}">&nbsp;{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
+		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" class="{if $actionCss}{$actionCss|escape} {/if}{if $action->getImage()}sprite {$action->getImage()|escape}{/if}" {if $hoverTitle}title="{$action->getLocalizedTitle()|escape}">&nbsp;{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
 	{else}
 		<a href="{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_LINK}{$action->getUrl()}{/if}" id="{$buttonId|escape}" {if $actionCss}class="{$actionCss|escape}"{/if} {if $hoverTitle} title="{$action->getLocalizedTitle()}">{else}>{$action->getLocalizedTitle()|escape}{/if}</a>
 	{/if}

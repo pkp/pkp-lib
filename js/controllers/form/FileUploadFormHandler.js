@@ -25,6 +25,10 @@
 
 		this.parent($form, options);
 
+		if (options.resetUploader !== undefined) {
+			this.resetUploader_ = options.resetUploader;
+		}
+
 		// Attach the uploader handler to the uploader HTML element.
 		this.attachUploader_(options.$uploader, options.uploaderOptions);
 
@@ -33,6 +37,36 @@
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FileUploadFormHandler,
 			$.pkp.controllers.form.AjaxFormHandler);
+
+
+	/**
+	 * Reset the uploader widget flag.
+	 * @private
+	 * @type {Boolean}
+	 */
+	$.pkp.controllers.form.FileUploadFormHandler.prototype.
+			resetUploader_ = false;
+
+
+	//
+	// Extended methods from AjaxFormHandler.
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.controllers.form.FileUploadFormHandler.prototype.handleResponse =
+			function(formElement, jsonData) {
+		if (this.resetUploader_) {
+			var fileUploader = $('#plupload', this.getHtmlElement()).plupload('getUploader');
+			fileUploader.splice();
+			fileUploader.refresh();
+
+			// Reset the temporary file id value.
+			$('#temporaryFileId', this.getHtmlElement()).val('');
+		}
+
+		this.parent('handleResponse', formElement, jsonData);
+	};
 
 
 	//

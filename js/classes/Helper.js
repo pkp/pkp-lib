@@ -28,6 +28,18 @@
 	$.pkp.controllers = $.pkp.controllers || { };
 
 
+	/** @type {Object} */
+	$.pkp.plugins = $.pkp.plugins || {};
+
+
+	/** @type {Object} */
+	$.pkp.plugins.blocks = $.pkp.plugins.blocks || {};
+
+
+	/** @type {Object} */
+	$.pkp.plugins.generic = $.pkp.plugins.generic || {};
+
+
 
 	/**
 	 * Helper singleton

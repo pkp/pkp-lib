@@ -38,6 +38,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.bind('redirectRequested', this.redirectToUrl);
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);
+		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 
 		// Listen for grid initialized events so the inline help
 		// can be shown or hidden.
@@ -267,6 +268,94 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		var handler = $.pkp.classes.Handler.getHandler($('#headerContainer'));
 		handler.reload();
 	};
+
+	/**
+	 * Binds a click event to this element so we can track if user
+	 * clicked outside the passed element or not.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  callWhenClickOutside event.
+	 * @param {Event} event The "call when click outside" event.
+	 * @param {Object} eventParams The event parameters. We expect
+	 * an object with the following properties:
+	 * - container: a jQuery element to be used to test if user click
+	 * outside of it or not.
+	 * - callback: a callback function in case test is true.
+	 * - skipWhenVisibleModals: boolean flag to tell whether skip the
+	 * callback when modals are visible or not.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
+			function(sourceElement, event, eventParams) {
+		if (this.callWhenClickOutsideEventParams_ != undefined) {
+			throw Error('Another widget is already using this structure.');
+			return false;
+		}
+
+		this.callWhenClickOutsideEventParams_ = eventParams;
+		setTimeout(this.callbackWrapper(function() {
+			this.bind('mousedown', this.checkOutsideClickHandler_);
+		}), 25);
+	};
+
+	/**
+	 * Mouse down event handler, used by the callWhenClickOutside event handler
+	 * to test if user clicked outside an element or not. If true, will
+	 * callback a function. Can optionally avoid the callback
+	 * when a modal widget is loaded.
+	 * @param {HTMLElement} sourceElement The element that issued the
+	 *  click event.
+	 * @param {Event} event The "mousedown" event.
+	 * @private
+	 */
+	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
+			function(sourceElement, event) {
+
+		if (this.callWhenClickOutsideEventParams_ != undefined) {
+			// Start checking the paramenters.
+			if (this.callWhenClickOutsideEventParams_.container != undefined) {
+				// Store the container element.
+				var $container = this.callWhenClickOutsideEventParams_.container;
+			} else {
+				// Need a container, return.
+				return false;
+			}
+
+			if (this.callWhenClickOutsideEventParams_.callback != undefined) {
+				// Store the callback.
+				var callback = this.callWhenClickOutsideEventParams_.callback;
+			} else {
+				// Need the callback, return.
+				return false;
+			}
+
+			if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals
+					!= undefined) {
+				if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals) {
+					if (this.getHtmlElement().find('div.ui-dialog').length > 0) {
+						// Found a modal, return.
+						return false;
+					}
+				}
+			}
+
+			// Do the click origin checking.
+			if ($container.has(event.target).length == 0) {
+				// Unbind this click handler.
+				this.unbind('mousedown', this.checkOutsideClickHandler_);
+
+				// Clean the original event parameters data.
+				this.callWhenClickOutsideEventParams_ = null;
+
+				if (!$container.is(':hidden')) {
+					// Only considered outside if the container is visible.
+					callback();
+				}
+			}
+		}
+
+		return false;
+	};
+
 
 
 	/**

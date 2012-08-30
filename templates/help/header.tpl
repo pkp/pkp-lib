@@ -1,5 +1,5 @@
 {**
- * header.tpl
+ * templates/help/header.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -19,6 +19,7 @@
 
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/help.css" type="text/css" />
 
 	{foreach from=$stylesheets item=cssUrl}
@@ -44,7 +45,12 @@
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
 
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/general.js"></script>
+	<!-- Compiled scripts -->
+	{if $useMinifiedJavaScript}
+		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+	{else}
+		{include file="common/minifiedScripts.tpl"}
+	{/if}
 
 	{$additionalHeadData}
 </head>

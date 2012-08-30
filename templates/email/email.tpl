@@ -1,5 +1,5 @@
 {**
- * email.tpl
+ * templates/email/email.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -25,7 +25,7 @@ function deleteAttachment(fileId) {
 {/literal}
 </script>
 
-<form class="pkp_form" method="post" id="emailForm" action="{$formActionUrl}"{if $attachmentsEnabled} enctype="multipart/form-data"{/if}>
+<form method="post" id="emailForm" action="{$formActionUrl}"{if $attachmentsEnabled} enctype="multipart/form-data"{/if}>
 <input type="hidden" name="continued" value="1"/>
 {if $hiddenFormParams}
 	{foreach from=$hiddenFormParams item=hiddenFormParam key=key}
@@ -162,4 +162,3 @@ function deleteAttachment(fileId) {
 </form>
 
 {include file="common/footer.tpl"}
-

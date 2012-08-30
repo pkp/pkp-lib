@@ -1,5 +1,5 @@
 {**
- * announcementTypeForm.tpl
+ * templates/manager/announcement/announcementTypeForm.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -20,7 +20,7 @@
 
 <br/>
 <div id="announcementType">
-<form class="pkp_form" id="announcementType" method="post" action="{url op="updateAnnouncementType"}">
+<form id="announcementType" method="post" action="{url op="updateAnnouncementType"}">
 {if $typeId}
 <input type="hidden" name="typeId" value="{$typeId|escape}" />
 {/if}

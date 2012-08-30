@@ -1,5 +1,5 @@
 {**
- * lostPassword.tpl
+ * templates/user/lostPassword.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,7 +15,7 @@
 	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
 {/if}
 
-<form class="pkp_form" id="reset" action="{url page="login" op="requestResetPassword"}" method="post">
+<form id="reset" action="{url page="login" op="requestResetPassword"}" method="post">
 <p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
 
 {if $error}
@@ -43,4 +43,3 @@
 </form>
 
 {include file="common/footer.tpl"}
-

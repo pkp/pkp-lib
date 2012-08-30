@@ -1,5 +1,5 @@
 {**
- * login.tpl
+ * templates/user/login.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -28,7 +28,7 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
-	<form class="pkp_form" id="signinForm" method="post" action="{$loginUrl}">
+	<form id="signinForm" method="post" action="{$loginUrl}">
 {/if}
 
 {if $error}
@@ -76,4 +76,3 @@
 </form>
 
 {include file="common/footer.tpl"}
-

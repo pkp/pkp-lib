@@ -24,4 +24,3 @@
 		// -->
 	{/literal}</script>
 {/if}
-

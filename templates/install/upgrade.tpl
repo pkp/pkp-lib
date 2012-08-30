@@ -17,24 +17,22 @@
 <div class="separator"></div>
 
 
-<form class="pkp_form" method="post" action="{url op="installUpgrade"}">
+<form method="post" action="{url op="installUpgrade"}">
 {include file="common/formErrors.tpl"}
 
 {if $isInstallError}
-<div id="installError">
-<p>
-	<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-	<ul class="pkp_form_error_list">
-		<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
-	</ul>
-</p>
-</div>
+	<div id="installError">
+		<p>
+			<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
+			<ul class="pkp_form_error_list">
+				<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
+			</ul>
+		</p>
+	</div>{* installError *}
 {/if}
-
 
 <p><input type="submit" value="{translate key="installer.upgradeApplication"}" class="button defaultButton" /></p>
 
 </form>
 
 {include file="common/footer.tpl"}
-

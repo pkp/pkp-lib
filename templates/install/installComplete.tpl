@@ -16,16 +16,16 @@
 {translate key="installer.installationComplete" loginUrl=$loginUrl}
 
 {if $writeConfigFailed}
-<div id="writeConfigFailed">
-{translate key="installer.overwriteConfigFileInstructions"}
+	<div id="writeConfigFailed">
+		{translate key="installer.overwriteConfigFileInstructions"}
 
-<form class="pkp_form" action="#">
-<p>
-{translate key="installer.contentsOfConfigFile"}:<br />
-<textarea name="config" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{$configFileContents|escape}</textarea>
-</p>
-</form>
-</div>
+		<form action="#">
+			<p>
+				{translate key="installer.contentsOfConfigFile"}:<br />
+				<textarea name="config" cols="80" rows="20" class="textArea" style="font-family: Courier,'Courier New',fixed-width">{$configFileContents|escape}</textarea>
+			</p>
+		</form>
+	</div>{* writeConfigFailed *}
 {/if}
 
 {include file="common/footer.tpl"}

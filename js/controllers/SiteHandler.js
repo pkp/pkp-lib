@@ -20,9 +20,15 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $widgetWrapper An HTML element that this handle will
+	 * @param {jQueryObject} $widgetWrapper An HTML element that this handle will
 	 * be attached to.
-	 * @param {Object} options Handler options.
+	 * @param {{
+	 *   toggleHelpUrl: string,
+	 *   toggleHelpOffText: string,
+	 *   toggleHelpOnText: string,
+	 *   fetchNotificationUrl: string,
+	 *   requestOptions: Object
+	 *   }} options Handler options.
 	 */
 	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
@@ -124,10 +130,11 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
+		var $formElement, formId, index;
 
-		var $formElement = $(event.target.lastElementChild);
-		var formId = $formElement.attr('id');
-		var index = $.inArray(formId, this.unsavedFormElements_);
+		$formElement = $(event.target.lastElementChild);
+		formId = $formElement.attr('id');
+		index = $.inArray(formId, this.unsavedFormElements_);
 		if (index == -1) {
 			this.unsavedFormElements_.push(formId);
 		}
@@ -147,11 +154,11 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
+		var $formElement, formId, index;
 
-		var $formElement = $(event.target.lastElementChild);
-		var formId = $formElement.attr('id');
-
-		var index = $.inArray(formId, this.unsavedFormElements_);
+		$formElement = $(event.target.lastElementChild);
+		formId = $formElement.attr('id');
+		index = $.inArray(formId, this.unsavedFormElements_);
 		if (index !== -1) {
 			delete this.unsavedFormElements_[index];
 		}
@@ -200,15 +207,16 @@
 	 *
 	 * @private
 	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
+	 * @param {HTMLElement=} opt_sourceElement The element that issued the
 	 *  "gridInitialized" event.
-	 * @param {Event} event The "gridInitialized" event.
+	 * @param {Event=} opt_event The "gridInitialized" event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
-			function(sourceElement, event) {
+			function(opt_sourceElement, opt_event) {
+		var $bodyElement, inlineHelpState;
 
-		var $bodyElement = this.getHtmlElement();
-		var inlineHelpState = this.options_.inlineHelpState;
+		$bodyElement = this.getHtmlElement();
+		inlineHelpState = this.options_.inlineHelpState;
 		if (inlineHelpState) {
 			// the .css() call removes the CSS applied to the legend intially,
 			// so it is not shown while the page is being loaded.
@@ -229,7 +237,7 @@
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  "fetchNotification" event.
 	 * @param {Event} event The "fetch notification" event.
-	 * @param {string?} jsonData The JSON content representing the
+	 * @param {Object} jsonData The JSON content representing the
 	 *  notification.
 	 * @private
 	 */
@@ -256,10 +264,10 @@
 
 	/**
 	 * Fetch the header (e.g. on header configuration change).
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  update header event.
 	 * @param {Event} event The "fetch header" event.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function(sourceElement, event) {
@@ -285,6 +293,7 @@
 	/**
 	 * Binds a click event to this element so we can track if user
 	 * clicked outside the passed element or not.
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  callWhenClickOutside event.
 	 * @param {Event} event The "call when click outside" event.
@@ -295,12 +304,11 @@
 	 * - callback: a callback function in case test is true.
 	 * - skipWhenVisibleModals: boolean flag to tell whether skip the
 	 * callback when modals are visible or not.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
 		if (this.callWhenClickOutsideEventParams_ !== undefined) {
-			throw Error('Another widget is already using this structure.');
+			throw new Error('Another widget is already using this structure.');
 		}
 
 		this.callWhenClickOutsideEventParams_ = eventParams;
@@ -315,16 +323,16 @@
 	 * to test if user clicked outside an element or not. If true, will
 	 * callback a function. Can optionally avoid the callback
 	 * when a modal widget is loaded.
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  click event.
 	 * @param {Event} event The "mousedown" event.
-	 * @return {boolean} Event handling status.
-	 * @private
+	 * @return {?boolean} Event handling status.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
 			function(sourceElement, event) {
-
 		var $container, callback;
+
 		if (this.callWhenClickOutsideEventParams_ !== undefined) {
 			// Start checking the paramenters.
 			if (this.callWhenClickOutsideEventParams_.container !== undefined) {
@@ -380,11 +388,12 @@
 	 * @private
 	 *
 	 * @param {Object} object The window object.
-	 * @param {Event} event The beforeunload event.
-	 * @return {string?} the warning message string, if needed.
+	 * @param {Event} event The before unload event.
+	 * @return {?string} The warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
 			function(object, event) {
+		var handler, unsavedElementCount, element;
 
 		// any registered and then unregistered forms will exist
 		// as properties in the unsavedFormElements_ object. They
@@ -393,11 +402,10 @@
 
 		// we need to get the handler this way since this event is bound
 		// to window, not to SiteHandler.
-		var handler = $.pkp.classes.Handler.getHandler($('body'));
+		handler = $.pkp.classes.Handler.getHandler($('body'));
 
-		var unsavedElementCount = 0;
-
-		for (var element in handler.unsavedFormElements_) {
+		unsavedElementCount = 0;
+		for (element in handler.unsavedFormElements_) {
 			if (element) {
 				unsavedElementCount++;
 			}
@@ -405,6 +413,7 @@
 		if (unsavedElementCount > 0) {
 			return $.pkp.locale.form_dataHasChanged;
 		}
+		return null;
 	};
 
 
@@ -430,7 +439,7 @@
 	 * Response handler to the notification fetch.
 	 *
 	 * @param {Object} ajaxContext The data returned from the server.
-	 * @param {content} jsonData A parsed JSON response object.
+	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
@@ -445,18 +454,19 @@
 	/**
 	 * Show the notification content.
 	 *
-	 * @param {string} jsonData The JSON-encoded notification data.
+	 * @param {Object} jsonData The JSON-encoded notification data.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
-		var workingJsonData = this.handleJson(jsonData);
+		var workingJsonData, notificationsData, levelId, notificationId;
 
+		workingJsonData = this.handleJson(jsonData);
 		if (workingJsonData !== false) {
 			if (workingJsonData.content.general) {
-				var notificationsData = workingJsonData.content.general;
-				for (var levelId in notificationsData) {
-					for (var notificationId in notificationsData[levelId]) {
+				notificationsData = workingJsonData.content.general;
+				for (levelId in notificationsData) {
+					for (notificationId in notificationsData[levelId]) {
 						$.pnotify(notificationsData[levelId][notificationId]);
 					}
 				}
@@ -473,19 +483,22 @@
 	 */
 	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
 			function() {
-		var $site = this.getHtmlElement();
-		var structureContentWidth = $('.pkp_structure_content', $site).width();
+		var $site, structureContentWidth, leftSideBarWidth, rightSideBarWidth,
+				$mainDiv, mainExtraWidth, mainMaxWidth;
 
-		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
+		$site = this.getHtmlElement();
+		structureContentWidth = $('.pkp_structure_content', $site).width();
+
+		leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
 				outerWidth(true);
-		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
+		rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
 				outerWidth(true);
 
-		var $mainDiv = $('.pkp_structure_main', $site);
+		$mainDiv = $('.pkp_structure_main', $site);
 
 		// Check for padding, margin or border.
-		var mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
-		var mainMaxWidth = structureContentWidth - (
+		mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
+		mainMaxWidth = structureContentWidth - (
 				leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
 
 		$mainDiv.css('max-width', mainMaxWidth);
@@ -493,4 +506,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

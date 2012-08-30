@@ -1,10 +1,6 @@
 /**
  * @defgroup js_classes_features
  */
-// Define the namespace
-$.pkp.classes.features = $.pkp.classes.features || {};
-
-
 /**
  * @file js/classes/features/Feature.js
  *
@@ -22,10 +18,16 @@ $.pkp.classes.features = $.pkp.classes.features || {};
  */
 (function($) {
 
+	/** @type {Object} */
+	$.pkp.classes.features = $.pkp.classes.features || {};
+
+
 
 	/**
 	 * @constructor
-	 * @param {Handler} gridHandler The grid handler object.
+	 * @extends $.pkp.classes.ObjectProxy
+	 * @param {$.pkp.controllers.grid.GridHandler} gridHandler The grid
+	 *  handler object.
 	 * @param {Array} options Associated options.
 	 */
 	$.pkp.classes.features.Feature =
@@ -42,7 +44,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * The grid that this feature is attached to.
 	 * @private
-	 * @type {jQuery}
+	 * @type {$.pkp.controllers.grid.GridHandler}
 	 */
 	$.pkp.classes.features.Feature.prototype.gridHandler_ = null;
 
@@ -50,7 +52,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * This feature configuration options.
 	 * @private
-	 * @type {object}
+	 * @type {Object}
 	 */
 	$.pkp.classes.features.Feature.prototype.options_ = null;
 
@@ -66,7 +68,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 */
 	$.pkp.classes.features.Feature.prototype.init =
 			function() {
-		throw Error('Abstract method!');
+		throw new Error('Abstract method!');
 	};
 
 
@@ -75,7 +77,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	//
 	/**
 	 * Hook into the append new element grid functionality.
-	 * @param {jQuery} $newElement The new element to be appended.
+	 * @param {jQueryObject} $newElement The new element to be appended.
 	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.Feature.prototype.appendElement =
@@ -86,7 +88,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 	/**
 	 * Hook into the replace element content grid functionality.
-	 * @param {jQuery} $newContent The element new content to be shown.
+	 * @param {jQueryObject} $newContent The element new content to be shown.
 	 * @return {boolean} Always returns false.
 	 */
 	$.pkp.classes.features.Feature.prototype.replaceElement =
@@ -113,7 +115,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	/**
 	 * Extend to add extra html elements in the component
 	 * that this feature is attached to.
-	 * @param {jQuery} $gridElement Grid element to add elements to.
+	 * @param {jQueryObject} $gridElement Grid element to add elements to.
 	 * @param {Object} options Feature options.
 	 */
 	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
@@ -126,7 +128,7 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 	 * Get the html element of the grid that this feature
 	 * is attached to.
 	 *
-	 * @return {jQuery} Return the grid's HTML element.
+	 * @return {jQueryObject} Return the grid's HTML element.
 	 */
 	$.pkp.classes.features.Feature.prototype.getGridHtmlElement =
 			function() {
@@ -135,4 +137,4 @@ $.pkp.classes.features = $.pkp.classes.features || {};
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

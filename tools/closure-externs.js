@@ -39,7 +39,17 @@ jQuery.validator.prototype.defaultShowErrors = function() {};
 
 jQuery.validator.prototype.settings = {};
 
+/**
+ * @constructor
+ * @param {Object=} options
+ */
+jQuery.pnotify = function(options) {};
 
+/**
+ * @param {Object=} userDefinedSettings
+ * @return {jQueryObject}
+ */
+jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
 
 /**
  * @constructor
@@ -63,5 +73,6 @@ var tinyMCE;
 
 
 $.pkp.locale = {
-	search_noKeywordError: ''
+	search_noKeywordError: '',
+	form_dataHasChanged: ''
 };

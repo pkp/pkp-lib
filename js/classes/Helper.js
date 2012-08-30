@@ -162,7 +162,7 @@
 	 * @param {string} objectName The name of an object.
 	 * @param {Array} args The arguments to be passed
 	 *  into the object's constructor.
-	 * @return {Object} the instantiated object.
+	 * @return {$.pkp.classes.ObjectProxy} the instantiated object.
 	 */
 	$.pkp.classes.Helper.objectFactory = function(objectName, args) {
 		var ObjectConstructor, ObjectProxyInstance, objectInstance;

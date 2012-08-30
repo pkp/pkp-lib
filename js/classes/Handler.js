@@ -149,6 +149,19 @@
 	// Public methods
 	//
 	/**
+	 * Returns the HTML element this handler is bound to.
+	 *
+	 * @return {jQueryObject} The element this handler is bound to.
+	 */
+	$.pkp.classes.Handler.prototype.getHtmlElement = function() {
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Return the HTML element.
+		return this.$htmlElement_;
+	};
+
+
+	/**
 	 * Publish change events. (See options.publishChangeEvents.)
 	 */
 	$.pkp.classes.Handler.prototype.publishChangeEvents = function() {
@@ -220,6 +233,43 @@
 
 
 	/**
+	 * Create a closure that calls the callback in the
+	 * context of the handler object.
+	 *
+	 * NB: Always make sure that the callback is properly
+	 * unbound and freed for garbage collection. Otherwise
+	 * you might create a memory leak. If you want to bind
+	 * an event to the HTMLElement handled by this handler
+	 * then always use the above bind() method instead which
+	 * is safer.
+	 *
+	 * @param {Function} callback The callback to be wrapped.
+	 * @param {Object=} opt_context Specifies the object which
+	 *  |this| should point to when the function is run.
+	 *  If the value is not given, the context will default
+	 *  to the handler object.
+	 * @return {Function} The wrapped callback.
+	 */
+	$.pkp.classes.Handler.prototype.callbackWrapper =
+			function(callback, opt_context) {
+
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Create a closure that calls the event handler
+		// in the right context.
+		if (!opt_context) {
+			opt_context = this;
+		}
+		return function() {
+			var args;
+			args = $.makeArray(arguments);
+			args.unshift(this);
+			return callback.apply(opt_context, args);
+		};
+	};
+
+
+	/**
 	 * This callback can be used to handle simple remote server requests.
 	 *
 	 * @param {Object} ajaxOptions AJAX options.
@@ -270,20 +320,6 @@
 	//
 	// Protected methods
 	//
-	/**
-	 * Returns the HTML element this handler is bound to.
-	 *
-	 * @protected
-	 * @return {jQueryObject} The element this handler is bound to.
-	 */
-	$.pkp.classes.Handler.prototype.getHtmlElement = function() {
-		$.pkp.classes.Handler.checkContext_(this);
-
-		// Return the HTML element.
-		return this.$htmlElement_;
-	};
-
-
 	/**
 	 * Bind an event to a handler operation.
 	 *
@@ -393,44 +429,6 @@
 		// Add/retrieve the data to/from the
 		// element's data cache.
 		return this.getHtmlElement().data(key, opt_value);
-	};
-
-
-	/**
-	 * Create a closure that calls the callback in the
-	 * context of the handler object.
-	 *
-	 * NB: Always make sure that the callback is properly
-	 * unbound and freed for garbage collection. Otherwise
-	 * you might create a memory leak. If you want to bind
-	 * an event to the HTMLElement handled by this handler
-	 * then always use the above bind() method instead which
-	 * is safer.
-	 *
-	 * @protected
-	 * @param {Function} callback The callback to be wrapped.
-	 * @param {Object=} opt_context Specifies the object which
-	 *  |this| should point to when the function is run.
-	 *  If the value is not given, the context will default
-	 *  to the handler object.
-	 * @return {Function} The wrapped callback.
-	 */
-	$.pkp.classes.Handler.prototype.callbackWrapper =
-			function(callback, opt_context) {
-
-		$.pkp.classes.Handler.checkContext_(this);
-
-		// Create a closure that calls the event handler
-		// in the right context.
-		if (!opt_context) {
-			opt_context = this;
-		}
-		return function() {
-			var args;
-			args = $.makeArray(arguments);
-			args.unshift(this);
-			return callback.apply(opt_context, args);
-		};
 	};
 
 

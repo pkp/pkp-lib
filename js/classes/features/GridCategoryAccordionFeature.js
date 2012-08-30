@@ -104,6 +104,7 @@
 	 * Add click handlers to the accordion controls inside the
 	 * passed element.
 	 * @param {jQuery} $element The context element.
+	 * @private
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			bindCategoryAccordionControls_ = function($element) {
@@ -115,6 +116,7 @@
 
 	/**
 	 * Hide all grid empty placeholders.
+	 * @private
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			hideEmptyPlaceholders_ = function() {

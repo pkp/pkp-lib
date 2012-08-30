@@ -269,6 +269,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		handler.reload();
 	};
 
+
 	/**
 	 * Binds a click event to this element so we can track if user
 	 * clicked outside the passed element or not.
@@ -286,9 +287,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
-		if (this.callWhenClickOutsideEventParams_ != undefined) {
+		if (this.callWhenClickOutsideEventParams_ !== undefined) {
 			throw Error('Another widget is already using this structure.');
-			return false;
 		}
 
 		this.callWhenClickOutsideEventParams_ = eventParams;
@@ -296,6 +296,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			this.bind('mousedown', this.checkOutsideClickHandler_);
 		}), 25);
 	};
+
 
 	/**
 	 * Mouse down event handler, used by the callWhenClickOutside event handler
@@ -305,31 +306,33 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  click event.
 	 * @param {Event} event The "mousedown" event.
+	 * @return {boolean} Event handling status.
 	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
 			function(sourceElement, event) {
 
-		if (this.callWhenClickOutsideEventParams_ != undefined) {
+		var $container, callback;
+		if (this.callWhenClickOutsideEventParams_ !== undefined) {
 			// Start checking the paramenters.
-			if (this.callWhenClickOutsideEventParams_.container != undefined) {
+			if (this.callWhenClickOutsideEventParams_.container !== undefined) {
 				// Store the container element.
-				var $container = this.callWhenClickOutsideEventParams_.container;
+				$container = this.callWhenClickOutsideEventParams_.container;
 			} else {
 				// Need a container, return.
 				return false;
 			}
 
-			if (this.callWhenClickOutsideEventParams_.callback != undefined) {
+			if (this.callWhenClickOutsideEventParams_.callback !== undefined) {
 				// Store the callback.
-				var callback = this.callWhenClickOutsideEventParams_.callback;
+				callback = this.callWhenClickOutsideEventParams_.callback;
 			} else {
 				// Need the callback, return.
 				return false;
 			}
 
-			if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals
-					!= undefined) {
+			if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals !==
+					undefined) {
 				if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals) {
 					if (this.getHtmlElement().find('div.ui-dialog').length > 0) {
 						// Found a modal, return.
@@ -339,7 +342,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 			}
 
 			// Do the click origin checking.
-			if ($container.has(event.target).length == 0) {
+			if ($container.has(event.target).length === 0) {
 				// Unbind this click handler.
 				this.unbind('mousedown', this.checkOutsideClickHandler_);
 
@@ -355,7 +358,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		return false;
 	};
-
 
 
 	/**

@@ -7,7 +7,7 @@
  * Grid actions in bottom position
  *}
 
-<div class="actions pkp_linkActions">
+<div class="actions pkp_linkActions grid_link_actions_below">
 	{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) item=action}
 		{if is_a($action, 'LegacyLinkAction')}
 			{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}

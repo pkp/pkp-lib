@@ -12,15 +12,15 @@
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
 	<!-- Author Submission -->
-	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Arbeiten zur Verfügung, die Sie in Ihrem Beitrag zitiert haben.</message>
+	<message key="author.submit.submissionCitations">Stellen Sie bitte ein formatiertes Literaturverzeichnis für die Werke zur Verfügung, die Sie in Ihrem Beitrag zitiert haben. Bitte trennen Sie die einzelnen Verweise durch Leerzeilen.</message>
 
 	<!-- FIXME: move to meta-data plug-ins -->
 	<!-- messages used by meta-data filters -->
-	<message key="metadata.filters.crossref.settings.email.displayName">CrossRef Registrierungs-E-Mail</message>
+	<message key="metadata.filters.crossref.settings.email.displayName">Bei CrossRef registrierte E-Mail-Adresse</message>
 	<message key="metadata.filters.crossref.settings.email.validationMessage">Bitte geben Sie eine gültige bei CrossRef registrierte E-Mail-Adresse ein. Sie können Ihre E-Mail-Adresse kostenlos auf der CrossRef-Webseite registrieren.</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.displayName">ISBNdb API Key</message>
 	<message key="metadata.filters.isbndb.settings.apiKey.validationMessage">Bitte geben Sie Ihren ISBNdb API key ein. Wenn Sie bisher keinen Schlüssel haben, können sie beim ISBNdb-Projekt kostenlos einen beantragen.</message>
-	<message key="metadata.filters.pubmed.settings.email.displayName">PubMed Registrierungsadresse</message>
+	<message key="metadata.filters.pubmed.settings.email.displayName">Bei PubMed registrierte E-Mail-Adresse</message>
 	<message key="metadata.filters.pubmed.settings.email.validationMessage">Bitte geben Sie eine gültige bei PubMed registrierte E-Mail-Adresse ein, wenn Sie eine besitzen.</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.displayName">WorldCat API Key</message>
 	<message key="metadata.filters.worldcat.settings.apiKey.validationMessage">Bitte geben Sie einen gültigen WorldCat API Key ein, wenn Sie über einen verfügen.</message>
@@ -38,8 +38,8 @@
 	<!-- NLM-specific messages -->
 	<message key="metadata.property.displayName.article-title">Artikel/Paper-Titel</message>
 	<message key="metadata.property.validationMessage.article-title">Bitte geben Sie einen gültigen Artikel/Paper-Titel ein.</message>
-	<message key="metadata.property.displayName.source">Zeitschriften/Buch-Titel</message>
-	<message key="metadata.property.validationMessage.source">Bitte geben Sie einen gültigen Zeitschriften/Buch-Titel ein.</message>
+	<message key="metadata.property.displayName.source">Titel der Publikation</message>
+	<message key="metadata.property.validationMessage.source">Bitte geben Sie einen gültigen Titel der Publikation ein.</message>
 	<message key="metadata.property.displayName.date">Veröffentlichungsdatum</message>
 	<message key="metadata.property.validationMessage.date">Bitte geben ein gültiges Veröffentlichungsdatum ein (Format: JJJJ-MM-TT).</message>
 	<message key="metadata.property.displayName.access-date">Zugriffsdatum</message>
@@ -66,7 +66,7 @@
 	<message key="metadata.property.validationMessage.conf-name">Bitte geben Sie einen gültigen Konferenznamen ein.</message>
 	<message key="metadata.property.displayName.conf-sponsor">Konferenzsponsor</message>
 	<message key="metadata.property.validationMessage.conf-sponsor">Bitte geben Sie einen gültigen Konferenzsponsor ein.</message>
-	<message key="metadata.property.displayName.institution">Institution</message>
+	<message key="metadata.phttps://github.com/pkp/pkp-lib/commit/afc414965d170084bc890ca09dc56556c3f2c0b2#locale/en_US/submission.xmlroperty.displayName.institution">Institution</message>
 	<message key="metadata.property.validationMessage.institution">Bitte geben Sie eine gültige Institution ein.</message>
 	<message key="metadata.property.displayName.fpage">Erste Seite</message>
 	<message key="metadata.property.validationMessage.fpage">Bitte geben Sie eine gültige erste Seite ein (muss ein numerischer Wert sein).</message>
@@ -120,6 +120,7 @@
 	<message key="metadata.property.validationMessage.name-type">Bitte stellen Sie sicher, dass Sie einen gültigen Namenstyp setzen. Unterstützte Werte sind 'personal', 'corporate' und 'conference'.</message>
 	<!-- FIXME: end -->
 
+	<message key="submission.addFile">Datei hochladen</message>
 	<message key="submission.agencies">Organisationen</message>
 	<message key="submission.abstractViews">Ansichten der Abstracts</message>
 	<message key="submission.accepted">Angenommen</message>
@@ -237,6 +238,7 @@
 	<message key="submission.comments.corrections">Korrekturen</message>
 	<message key="submission.comments.editComment">Kommentar bearbeiten</message>
 	<message key="submission.comments.importPeerReviews">Begutachtung importieren</message>
+	<message key="submission.comments.addReviews">Gutachten der E-Mail hinzufügen</message>
 	<message key="submission.comments.importPeerReviews.reviewerLetter">Gutachter/in {$reviewerLetter}:</message>
 	<message key="submission.comments.noComments">Keine Kommentare</message>
 	<message key="submission.comments.noReviews">Keine Gutachten</message>
@@ -374,15 +376,13 @@
 	<message key="submission.submitter">Eingereicht von</message>
 	<message key="submission.summary">Zusammenfassung</message>
 	<message key="submission.supplementaryFiles">Zusätzliche Dateien</message>
-	<message key="submission.supportingAgencies">Mitwirkende und Unterstützung</message>
+	<message key="submission.supportingAgencies">Unterstützung</message>
 	<message key="submission.currentAgencies">Aktuelle Organisationen</message>
 	<message key="submission.indexingInformation">Indizierungsinformationen</message>
 	<message key="submission.titleAndAbstract">Titel und Abstract</message>
 	<message key="submission.underway">In Arbeit</message>
 	<message key="submission.uploadFileTo">Datei hochladen nach/zu</message>
 	<message key="submission.createRemote">Entlegenen Ort anlegen</message>
-	<message key="submission.uploaderUserGroup">Lade hoch in meiner Rolle als…</message>
-	<message key="submission.submitterUserGroup">Reiche ein in meiner Rolle als…</message>
 	<message key="submission.viewMetadata">Metadaten ansehen</message>
 	<message key="submission.views">Ansichten</message>
 	<message key="submission.uploadSuccessful">Ihre Datei wurde hochgeladen.</message>
@@ -394,6 +394,6 @@
 	<message key="submission.date.yyyymmdd">JJJJ-MM-TT</message>
 
 	<!-- Submission file upload form elements -->
-	<message key="submission.form.name">Geben Sie einen Namen an, der den Inhalt dieser datei beschreibt.</message>
+	<message key="submission.form.name">Bitte geben Sie dieser Datei einen aussagefähigen Namen.</message>
 	<message key="submission.form.replaceExisting">Eine existierende Datei ersetzen?</message>
 </locale>

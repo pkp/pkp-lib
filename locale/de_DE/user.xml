@@ -79,10 +79,12 @@
 	<message key="user.profile.form.affiliationRequired">Eine Institution muss angegeben werden.</message>
 	<message key="user.profile.form.firstNameRequired">Ein Vorname ist erforderlich.</message>
 	<message key="user.profile.form.lastNameRequired">Ein Nachname ist erforderlich.</message>
+	<message key="user.profile.form.mailingAddressRequired">Eine Postanschrift ist erforderlich.</message>
 	<message key="user.profile.form.newPasswordRequired">Tragen Sie Ihr neues Passwort ein.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Das von Ihnen eingetragene aktuelle Passwort ist nicht korrekt.</message>
 	<message key="user.profile.form.openAccessNotifications">E-Mail-Benachrichtigung über freien Zugang</message>
 	<message key="user.profile.form.passwordRequired">Ein Passwort ist erforderlich.</message>
+	<message key="user.profile.form.passwordSameAsOld">Ihr neues Passwort ist mit ihrem alten Passwort identisch.</message>
 	<message key="user.profile.form.profileImage">Profilbild</message>
 	<message key="user.profile.form.publishedNotifications">E-Mail-Benachrichtigung: Neue Ausgabe erschienen</message>
 	<message key="user.profile.form.urlInvalid">Die angegebene URL ist ungültig. Bitte überprüfen Sie die URL nochmals und versuchen es erneut. (Hinweis: Fügen Sie http:// an den Anfang der URL an.)</message>
@@ -120,5 +122,5 @@
 	<message key="user.userHome">Persönliche Startseite</message>
 	<message key="user.username">Benutzer/innen-Name</message>
 	<message key="user.workingLanguages">Arbeitssprachen</message>
-	<message key="user.register.completeForm">Sie können sich für diese Zeitschrift registrieren, indem Sie das folgende Formular ausfüllen.</message>
+	<message key="user.register.completeForm">Sie können sich für diese Site registrieren, indem Sie das folgende Formular ausfüllen.</message>
 </locale>

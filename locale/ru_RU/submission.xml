@@ -167,4 +167,32 @@
 	
 	<!-- Author Submission --> 
 	<message key="author.submit.submissionCitations">Дайте форматированный список ссылок на работы, использованные в данной рукописи.</message>	
+	<message key="metadata.property.displayName.author">Авторы</message>
+	<message key="metadata.property.displayName.editor">Редакторы</message>
+	<message key="metadata.property.displayName.date">Дата публикации</message>
+	<message key="metadata.property.validationMessage.date">Пожалуйста, введите корректную дату публикации (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.access-date">Дата доступа</message>
+	<message key="metadata.property.validationMessage.access-date">Пожалуйста, введите корректную дату доступа (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.issue">Выпуск</message>
+	<message key="metadata.property.validationMessage.issue">Пожалуйста, корректно укажите выпуск.</message>
+	<message key="metadata.property.displayName.volume">Том</message>
+	<message key="metadata.property.validationMessage.volume">Пожалуйста, корректно укажите том.</message>
+	<message key="metadata.property.displayName.chapter-title">Название раздела</message>
+	<message key="metadata.property.validationMessage.chapter-title">Пожалуйста, корректно укажите название раздела.</message>
+	<message key="metadata.property.displayName.edition">Редакция</message>
+	<message key="metadata.property.validationMessage.edition">Пожалуйста, корректно укажите редакцию.</message>
+	<message key="metadata.property.displayName.series">Серии</message>
+	<message key="metadata.property.validationMessage.series">Пожалуйста, корректно укажите серии.</message>
+	<message key="metadata.property.displayName.conf-date">Дата конференции</message>
+	<message key="metadata.property.validationMessage.conf-date">Пожалуйста, введите корректную дату конференции (формат: ГГГГ-ММ-ДД).</message>
+	<message key="metadata.property.displayName.conf-name">Название конференции</message>
+	<message key="metadata.property.validationMessage.conf-name">Пожалуйста, корректно укажите название конференции.</message>
+	<message key="submission.citations.editor.details.googleScholar">Google Scholar</message>
+	<message key="submission.citations.editor.details.queryGoogleScholar">Поиск в Google Scholar</message>
+	<message key="submission.indexingInformation">Индексная информация</message>
+	<message key="submission.uploadSuccessful">Ваш файл был выгружен.</message>
+	<message key="submission.loadMessage">Пожалуйста, подождите пока Ваш файл выгрузится на сервер.</message>
+	<message key="submission.date.mmdd">ММ-ДД</message>
+	<message key="submission.date.yyyymmdd">ГГГГ-ММ-ДД</message>
+	<message key="submission.form.replaceExisting">Заменить существующий файл?</message>
 </locale>

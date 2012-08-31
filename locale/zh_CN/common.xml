@@ -43,30 +43,26 @@
 	<message key="common.applyAction">申请行动</message>
 	<message key="common.assign">指派</message>
 	<message key="common.assigned">已经指派</message>
-	<message key="common.back">Back</message>
-	<message key="common.between">between</message>
+	<message key="common.back">返回</message>
+	<message key="common.between">之间</message>
 	<message key="common.cancel">取消</message>
 	<message key="common.cancelled">已经取消</message>
 	<message key="common.captchaField.altText">验证图片</message>
 	<message key="common.captchaField.badCaptcha">你输入的字符与图片中的不符合，请检查字符后再试.</message>
 	<message key="common.captchaField.description">请输入出现在图片里的字母.</message>
 	<message key="common.captchaField">验证</message>
-	<message key="common.ccLicense"><![CDATA[
-		<br /><br />
+	<message key="common.ccLicense"><![CDATA[<br /><br />
 		<a target="_blank" rel="license" href="http://creativecommons.org/licenses/by/3.0/">
 			<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png"/>
 		</a>
 		<br/>
-		 本作品遵循 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License 授权许可</a>.
-	]]></message>
-	<message key="common.ccLicense.rt"><![CDATA[
-	<div class="rtBlock">
+		 本作品遵循 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0  License 授权许可</a>.]]></message>
+	<message key="common.ccLicense.rt"><![CDATA[<div class="rtBlock">
 		<br />
 		<a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
 		<br />
 		本作品遵循 <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 License 授权许可</a>.
-	</div>
-	]]></message>
+	</div>]]></message>
 	<message key="common.changesSaved">您的变更已保存.</message>
 	<message key="common.chooseOne">选择其一</message>
 	<message key="common.close">关闭</message>
@@ -151,7 +147,7 @@
 	<message key="common.saveAndEmail">保存并发送电子邮件</message>
 	<message key="common.save">保存</message>
 	<message key="common.search">搜索</message>
-	<message key="common.second">搜索</message>
+	<message key="common.second">秒</message>
 	<message key="common.selectAll">选择全部</message>
 	<message key="common.selectNone">无选择</message>
 	<message key="common.select">选择</message>
@@ -170,12 +166,12 @@
 	<message key="common.uploadedFile">已上传的文件</message>
 	<message key="common.upload">上传</message>
 	<message key="common.uploadFailed">该文件无法上传。请重试或联系管理员如果问题仍然存在.</message>
-	<message key="common.up">Up</message>
+	<message key="common.up">上</message>
 	<message key="common.url">URL</message>
 	<message key="common.user">用户</message>
 	<message key="common.view">预览</message>
 	<message key="common.weeks">周</message>
-	<message key="common.width">和</message>
+	<message key="common.width">宽</message>
 	<message key="common.year">年</message>
 	<message key="common.yes">是</message>
 	<message key="debug.databaseQueries">数据库查询数</message>
@@ -191,7 +187,7 @@
 	<message key="email.addToRecipient">添加收件人</message>
 	<message key="email.attachments">附件</message>
 	<message key="email.bcc">暗抄送</message>
-	<message key="email.bccSender">发送一个信息的副本到我的邮箱S ({$address})</message>
+	<message key="email.bccSender">发送一个信息的副本到我的邮箱 ({$address})</message>
 	<message key="email.body">内容</message>
 	<message key="email.cc">抄送</message>
 	<message key="email.compose">发送电子邮件</message>
@@ -200,7 +196,7 @@
 	<message key="email.email">电子邮件</message>
 	<message key="email.from">从</message>
 	<message key="email.invalid">电子邮件地址 {$email}无效.</message>
-	<message key="email.multipart">This is a multi-part message in MIME format.</message>
+	<message key="email.multipart">这是MIME格式的多部信息。</message>
 	<message key="email.recipient">收件人</message>
 	<message key="email.recipients">收件人</message>
 	<message key="email.sender">寄件人</message>
@@ -237,9 +233,9 @@
 	<message key="icon.delete.alt">删除</message>
 	<message key="icon.edit.alt">编辑</message>
 	<message key="icon.folder.alt">文件夹</message>
-	<message key="icon.font_large.alt">Large</message>
-	<message key="icon.font_medium.alt">Medium</message>
-	<message key="icon.font_small.alt">Small</message>
+	<message key="icon.font_large.alt">大号</message>
+	<message key="icon.font_medium.alt">中号</message>
+	<message key="icon.font_small.alt">小号</message>
 	<message key="icon.info.alt">信息</message>
 	<message key="icon.letter.alt">字母</message>
 	<message key="icon.mail.alt">邮箱</message>
@@ -250,7 +246,7 @@
 	<message key="navigation.about">关于我们</message>
 	<message key="navigation.browse">浏览</message>
 	<message key="navigation.browseByTitle">根据标题</message>
-	<message key="navigation.dashboard">Dashboard</message>
+	<message key="navigation.dashboard">操纵板</message>
 	<message key="navigation.home">首页</message>
 	<message key="navigation.infoForReaders">给读者</message>
 	<message key="navigation.infoForReaders.long">给读者的信息</message>
@@ -370,4 +366,8 @@
 	<message key="navigation.admin">管理</message>
 	<message key="navigation.browseByAuthor">按作者</message>
 	<message key="common.declined">拒绝</message>
+	<message key="common.considered">予以考虑的</message>
+	<message key="common.notified">通知的</message>
+	<message key="common.reset">重置</message>
+	<message key="common.acknowledged">已确认</message>
 </locale>

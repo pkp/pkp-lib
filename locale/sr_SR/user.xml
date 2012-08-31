@@ -51,7 +51,6 @@
 	<message key="user.login.forgotPassword">Forgot your password?</message>
 	<message key="user.login.loginError">Invalid username or password. Please try again.</message>
 	<message key="user.login">Log In</message>
-	<message key="user.logIn">Log In</message>
 	<message key="user.login.lostPassword.confirmationSent">A confirmation has been sent to your email address. Please follow the instructions in the email to reset your password.</message>
 	<message key="user.login.lostPassword.invalidHash">Sorry, the link you clicked on has expired or is not valid. Please try resetting your password again.</message>
 	<message key="user.login.lostPassword.invalidUser">No user exists with the specified email address.</message>
@@ -115,4 +114,13 @@
 	<message key="user.username">Username</message>
 	<message key="user.workingLanguages">Working languages</message>
 	<message key="user.register.completeForm">Fill in this form to register with this journal.</message>
+	<message key="user.accountInformation">Informacije o nalogu</message>
+	<message key="user.authorization.pressManagerRequired">Korisnik sa ulogom Menadžera časopisa (npr. urednik časopisa ili produkcije) mora biti dodeljen u ovom momentu kako biste nastavili.</message>
+	<message key="user.group">Grupa korisnika</message>
+	<message key="user.hello">Pozdrav,</message>
+	<message key="user.profile.form.countryRequired">Zemlja je neophodna.</message>
+	<message key="user.profile.form.mailingAddressRequired">Poštanska adresa je neophodna.</message>
+	<message key="user.profile.form.passwordSameAsOld">Vaša nova lozinka je ista kao stara.</message>
+	<message key="user.profile.form.usergroupRequired">Grupa korisnika je neophodna.</message>
+	<message key="user.suffix">Sufiks</message>
 </locale>

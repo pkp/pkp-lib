@@ -66,8 +66,7 @@
 	<message key="installer.publicFilesDirError">Genel dosya dizini mevcut değil veya yazılabilir değil.</message>
 	<message key="installer.releaseNotes">Sürüm Notları</message>
 	<message key="installer.securitySettings">Güvenlik Ayarları</message>
-	<message key="installer.skipFilesDir">Gerekli alt dizinleri oluşturmayın (yalnızca manuel yükleme için yaralıdır)</message>
-	<message key="installer.databaseCharsetInstructions"><![CDATA[The encoding to use for data stored in the database. Note that this capability is only supported with MySQL >= 4.1.1 or PostgreSQL >= 7.1. Select "Not applicable" if your database server does not meet these requirements.]]></message>
-	<message key="installer.installParseFilterConfigFileError"><![CDATA[Error parsing the filter configuration file <tt>{$file}</tt>.]]></message>
+	<message key="installer.databaseCharsetInstructions"><![CDATA[Kodlama veri tabanında depolanan veriler için kullanılacaktır. Bu özelliği yalnızca MySQL> = 4.1.1 veya PostgreSQL> = 7.1 ve üsüt sürümlerin desteklendiğini unutmayın. Veri tabanı sunucusu bu gereksinimleri karşılamıyorsa "Uygulanamaz" seçeneğini seçin.]]></message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası.]]></message>
 	<message key="installer.oaiSettings">OAI Ayarları</message>
 </locale>

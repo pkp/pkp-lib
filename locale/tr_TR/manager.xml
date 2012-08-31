@@ -206,7 +206,7 @@
 	<message key="plugins.categories.auth">Yetkilendirme Eklentileri</message>
 	<message key="plugins.categories.blocks">Blok Eklentileri</message>
 	<message key="plugins.categories.blocks.description">Blok Eklentileri, çeşitli kenar çubuğu araçları gibi eklenip kaldırılabilir kullanıcı ara yüz bileşenleridir.</message>
-	<message key="plugins.categories.citationFormats">Atıf Formatı Eklentileri</message>
+	<message key="plugins.categories.citationFormats">Atıf Biçimi Eklentileri</message>
 	<message key="plugins.categories.gateways.description">Geçiş Eklentileri diğer sistemlere anında veri sunulması içindir.</message>
 	<message key="plugins.categories.gateways">Geçiş Eklentileri</message>
 	<message key="plugins.categories.generic">Genel Eklentiler</message>
@@ -237,7 +237,7 @@
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Hatalı sayfa başlığı görseli biçimi veya hatalı yükleme. Kabul edilebilir biçimler: .gif, .jpg veya .png.</message>
 	<message key="plugins.categories.metadata">Üst Veri Eklentileri</message>
 	<message key="plugins.categories.metadata.description">Metadata Plugins implement additional meta-data standards.</message>
-	<message key="plugins.categories.citationLookup">Atıf Veritabanı Bağlantı Eklentileri</message>
+	<message key="plugins.categories.citationLookup">Atıf Veri Tabanı Bağlantı Eklentileri</message>
 	<message key="plugins.categories.citationLookup.description">Citation Database Connector Plugins connect to citation databases to look up citations, e.g. during citation editing.</message>
 	<message key="plugins.categories.citationOutput">Atıf Çıktı Eklentileri</message>
 	<message key="plugins.categories.citationOutput.description">Citation Output Plugins implement citation standards. This supersedes Citation Format Plugins.</message>

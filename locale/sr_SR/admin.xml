@@ -38,7 +38,6 @@
 	<message key="admin.languages.reload">Ponovno učitavanje lokalizacije</message>
 	<message key="admin.languages.uninstall">Brisanje lokalizacije</message>
 	<message key="admin.phpInfo">Dodatne informacije o PHP-u</message>
-	<message key="admin.saveSystemConfig">Sačuvaj konfiguraciju</message>
 	<message key="admin.server.apacheVersion">Verzija Apache-a</message>
 	<message key="admin.server.dbDriver">Tip baze podataka</message>
 	<message key="admin.server.dbVersion">Verzija servera baze podataka</message>
@@ -81,4 +80,7 @@
 	<message key="admin.version.updateAvailable">Ažurirana verzija je dostupna</message>
 	<message key="admin.version.upToDate">Imate poslednju verziju sistema</message>
 	<message key="admin.version">Verzija</message>
+	<message key="admin.settings">Podešavanja</message>
+	<message key="admin.settings.siteTheme">Šablon sajta</message>
+	<message key="admin.siteSetup">Nameštanje sajta</message>
 </locale>

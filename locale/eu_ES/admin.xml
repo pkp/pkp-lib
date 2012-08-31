@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">Bertsio eguneratu bat erabilgarri dago</message>
 	<message key="admin.version.upToDate">Zure sistema eguneratuta dago</message>
 	<message key="admin.version">Bertsioa</message>
+	<message key="admin.settings">Ezarpenak</message>
+	<message key="admin.settings.siteTheme">Gunearen gaia</message>
+	<message key="admin.siteSetup">Gunearen konfigurazioa</message>
 </locale>

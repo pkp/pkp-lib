@@ -214,4 +214,27 @@
 	<message key="manager.setup.filter.parser.grid.title">Aipuen Erauzketa Zerbitzuak</message>
 	<message key="manager.setup.filter.pleaseSelect">Mesedez, hautatu…</message>
 	<message key="manager.setup.metaCitationsDescription">Aktibatu hurrengo kontrol-laukia aipua eta erreferentzia editatzea gaitzeko. Egileei aurkezpenetan aipu gordinak sartzeko aukera ematen die. Editoreek aipuak markatzeko laguntzailera sartu ahal izango dute; tresna horrek aipu gordinak eta kanpoko datu-baseak (hala nola WorldCat, ISBNdb, PubMed eta beste zenbait) alderatzeko bide ematen du, zehaztasun gehiagorako. Onartutako aipuak azken galerada-fitxategietara esportatu daitezke.</message>
+	<message key="manager.announcements.datePublish">Argitaratua</message>
+	<message key="manager.emails.addEmail">Erantsi helbide elektronikoaren txantiloia</message>
+	<message key="manager.emails.details">Txantiloiaren xehetasunak</message>
+	<message key="manager.emails.data">Txantiloiko mezuaren datuak</message>
+	<message key="manager.emails.disable.message">Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean erabiliko. Eragiketa baieztatu nahi duzu?</message>
+	<message key="manager.emails.enable.message">Posta elektroniko hau aktibatzeko zorian zaude. Eragiketa baieztatu nahi duzu?</message>
+	<message key="manager.emails.resetAll.message">Txantiloi guztiak berrezartzen badituzu, posta elektronikoaren txantiloi guztien aldaketak galduko dira. Eragiketa baieztatu nahi duzu?</message>
+	<message key="manager.emails.reset.message">Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa baieztatu nahi duzu?</message>
+	<message key="manager.masthead.title">Idazpurua</message>
+	<message key="manager.navigation">Nabigazioa</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Bilaketa aurreratua</message>
+	<message key="manager.reviewerSearch.searchByName.short">Izenaren araberako bilaketa</message>
+	<message key="manager.reviewerSearch.form.instructions">Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Sartu berrikuslearen interesak, komek bananduta...</message>
+	<message key="plugins.categories.metadata">Metadatuen pluginak</message>
+	<message key="plugins.categories.metadata.description">Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,</message>
+	<message key="plugins.categories.citationLookup">Aipuen datu basearen konektore pluginak</message>
+	<message key="plugins.categories.citationLookup.description">Aipuen datu basearen konektore pluginak aipuen datu baseetara konektatzen dira aipuak bilatzeko, adib., aipuak editatzen diren bitartean.</message>
+	<message key="plugins.categories.citationOutput">Aipuen irteerarako pluginak</message>
+	<message key="plugins.categories.citationOutput.description">Aipuen irteerarako pluginek aipu estandarrak inplementatzen dituzte. Horrek aipuen formatu pluginak ordezten ditu.</message>
+	<message key="plugins.categories.citationParser">Aipuak erauzteko pluginak</message>
+	<message key="plugins.categories.citationParser.description">Aipuak erauzteko pluginek eremu mailako datuak erauzten dituzte aipu gordinetatik (adib., egilea, titulua, etab.).</message>
+	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>
 </locale>

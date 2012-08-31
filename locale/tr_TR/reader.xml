@@ -160,7 +160,7 @@
 	<message key="rt.search.description">Açıklama</message>
 	<message key="rt.searches">Aramalar</message>
 	<message key="rt.search.order">Sırala</message>
-	<message key="rt.search">Arama</message>
+	<message key="rt.search">Ara</message>
 	<message key="rt.search.searchPost">Veri Gönder</message>
 	<message key="rt.search.searchUrl">URL Arama</message>
 	<message key="rt.search.suggest">Kaynak Öner</message>

@@ -174,4 +174,5 @@
 	<message key="rt.admin.sharing.logoColorLabel">Logotipoaren kolorea</message>
 	<message key="rt.admin.configureSharing">Konfiguratu AddThis</message>
 	<message key="rt.captureCite.web">Web</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Ikus berrikuspen politika</message>
 </locale>

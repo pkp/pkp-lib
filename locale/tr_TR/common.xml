@@ -31,7 +31,7 @@
 	<message key="announcement.viewLink">Daha fazlası...</message>
 	<message key="announcement.view">Duyuruyu gör</message>
 	<message key="common.action">Eylem</message>
-	<message key="common.activate">Etkinleştirmek</message>
+	<message key="common.activate">Etkinleştir</message>
 	<message key="common.active">Aktif</message>
 	<message key="common.add">Ekle</message>
 	<message key="common.addSelf">Üye Ol</message>
@@ -110,7 +110,7 @@
 	<message key="common.height">Boyut</message>
 	<message key="common.homePageHeaderLogo.altText">Ana Sayfa Başlık Logosu</message>
 	<message key="common.hour">Saat</message>
-	<message key="common.id">ID</message>
+	<message key="common.id">SN</message>
 	<message key="common.import">Veri al</message>
 	<message key="common.initiate">Başlat</message>
 	<message key="common.inProgress">İşlem sürüyor</message>
@@ -150,15 +150,15 @@
 	<message key="common.refresh">Yenile</message>
 	<message key="common.related">İlgili</message>
 	<message key="common.remove">Kaldır</message>
-	<message key="common.removeSelection">Seçileni Kaldır</message>
+	<message key="common.removeSelection">* Doldurulması zorunlu alanları gösterir</message>
 	<message key="common.replaced">Değiştirildi</message>
 	<message key="common.replaceFile">Dosyanın üzerine yaz</message>
-	<message key="common.requiredField">* Doldurulması zorunlu alanları gösterir</message>
+	<message key="common.requiredField">*Doldurulması zorunlu alanları gösterir</message>
 	<message key="common.required">Gerekli</message>
 	<message key="common.saveAndContinue">Kaydet ve devam et</message>
 	<message key="common.saveAndEmail">Kaydet ve e-posta gönder</message>
 	<message key="common.save">Kaydet</message>
-	<message key="common.search">Arama</message>
+	<message key="common.search">Ara</message>
 	<message key="common.second">Saniye(ler)</message>
 	<message key="common.selectAll">Tümünü Seç</message>
 	<message key="common.selectNone">Hiçbirini seçme</message>
@@ -254,7 +254,7 @@
 	<message key="icon.mail.alt">Posta</message>
 	<message key="icon.unchecked.alt">Seçilmemiş</message>
 	<message key="icon.view.alt">Göster</message>
-	<message key="locale.primary">Öcelikli dil</message>
+	<message key="locale.primary">Öncelikli dil</message>
 	<message key="locale.supported">Desteklenen diller</message>
 	<message key="navigation.about">HAKKINDA</message>
 	<message key="navigation.browse">GÖZ AT</message>
@@ -270,7 +270,7 @@
 	<message key="navigation.previousPage"><![CDATA[&lt;&lt;]]></message>
 	<message key="navigation.previousStep">Önceki Adım</message>
 	<message key="navigation.register">KAYIT</message>
-	<message key="navigation.search">Arama</message>
+	<message key="navigation.search">Ara</message>
 	<message key="navigation.stepNumber">Adım {$step}</message>
 	<message key="navigation.userHome">ÜYE SAYFASI</message>
 	<message key="navigation.user">ÜYE</message>
@@ -346,7 +346,7 @@
 	<message key="common.signoff">Çıkış</message>
 	<message key="common.element">Eleman</message>
 	<message key="common.unread">Okunmamış</message>
-	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[This server allows a file size upload maximum of {$fileSize}.  If required, please contact <a href="mailto:{$supportEmail}">{$supportName}</a> for assistance.]]></message>
+	<message key="common.fileUpload.maxFileSizeStatus"><![CDATA[Sunucu maksimum {$fileSize} büyüklüğünde dosya kabul ediyor. Eğer gerekliyse yardım için <a href="mailto:{$supportEmail}">{$supportName}</a> ile iletişime geçiniz.]]></message>
 	<message key="common.invalidFileType">Dosya yüklenemedi veya hatalı dosya türü!</message>
 	<message key="common.plugins">Eklentiler</message>
 	<message key="email.subjectRequired">Lütfen bir e-posta konusu giriniz.</message>
@@ -370,4 +370,8 @@
 	<message key="navigation.submissions">Gönderiler</message>
 	<message key="navigation.system">sistem</message>
 	<message key="navigation.userManagement">Üye Yönetimi</message>
+	<message key="common.acknowledged">Kabul Edilen</message>
+	<message key="common.considered">Dikkate Alınmış</message>
+	<message key="common.notified">Bildirilmiş</message>
+	<message key="common.reset">Yeniden Ayarlamak</message>
 </locale>

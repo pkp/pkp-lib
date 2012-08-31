@@ -113,8 +113,8 @@
 	<message key="grid.action.viewCompetingInterestGuidelines">Bekijk het beleid over belangenconflicten</message>
 	<message key="grid.action.thankReviewer">Stuur een bedankje naar deze reviewer</message>
 	<message key="grid.action.uploadFile">Laad een bestand</message>
-	<message key="grid.action.addAnnouncementType">Voeg een aankondigingstype toe</message>
-	<message key="grid.action.addAnnouncement">Aankondiging toevoegen</message>
+	<message key="grid.action.addAnnouncementType">Voeg een nieuwsberichttype toe</message>
+	<message key="grid.action.addAnnouncement">Nieuwsbericht toevoegen</message>
 	<message key="grid.task.status.completed">Deze taak is uitgevoerd</message>
 	<message key="grid.user.userNoRoles">Deze gebruiker heeft geen rollen.</message>
 	<message key="grid.user.step1">Stap #1: Gebruikersgegevens invullen</message>
@@ -187,4 +187,9 @@
 	<message key="grid.action.editContributor">Bewerk medewerker</message>
 	<message key="grid.action.deleteContributor">Verwijder medewerker</message>
 	<message key="grid.roles.stageAssignment">Ken toe aan stadium</message>
+	<message key="grid.action.mergeUser">Gebruiker samenvoegen</message>
+	<message key="grid.action.unassignUser">Toekenning gebruiker terugdraaien</message>
+	<message key="grid.action.history">Bekijk geschiedenis</message>
+	<message key="grid.task.status.unfinished">Review nog niet gereed</message>
+	<message key="grid.task.status.reviewReady">Dit review is gereed. Klik op het ikoon aan de links om het te lezen.</message>
 </locale>

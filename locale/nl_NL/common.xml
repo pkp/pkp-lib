@@ -23,13 +23,13 @@
 	<message key="about.people">Contact</message>
 	<message key="about.policies">Beleid</message>
 	<message key="about.siteMap">Sitemap</message>
-	<message key="announcement.announcements">Aankondigingen</message>
-	<message key="announcement.announcementsHome">Aankondigingen</message>
-	<message key="announcement.moreAnnouncements">Meer aankondigingen...</message>
-	<message key="announcement.noneExist">Er zijn geen aankondigingen gepubliceerd.</message>
+	<message key="announcement.announcements">Nieuwsberichten</message>
+	<message key="announcement.announcementsHome">Nieuwsberichten</message>
+	<message key="announcement.moreAnnouncements">Meer nieuwsberichten...</message>
+	<message key="announcement.noneExist">Er zijn geen nieuwsberichten gepubliceerd.</message>
 	<message key="announcement.posted">Geplaatst</message>
 	<message key="announcement.viewLink">Meer...</message>
-	<message key="announcement.view">Bekijk aankondiging</message>
+	<message key="announcement.view">Bekijk nieuwsbericht</message>
 	<message key="common.copy">Kopieer</message>
 	<message key="common.preview">Voorvertoning</message>
 	<message key="common.activate">Activeer</message>
@@ -122,7 +122,7 @@
 	<message key="common.pageHeaderLogo.altText">Paginakop logo</message>
 	<message key="common.plugin">Plugin</message>
 	<message key="common.publisher">Uitgever</message>
-	<message key="common.record">Registreren</message>
+	<message key="common.record">Vastleggen</message>
 	<message key="common.related">Verwant</message>
 	<message key="common.remove">Verwijder</message>
 	<message key="common.removeSelection">Selectie weghalen</message>
@@ -197,7 +197,7 @@
 	<message key="form.postRequired">Het formulier is niet op de juiste manier afgesloten.</message>
 	<message key="form.required">(* Verplicht)</message>
 	<message key="form.resubmit">Zend opnieuw in</message>
-	<message key="form.saveToUpload">Gebruik Opslaan om het bestand te laden.</message>
+	<message key="form.saveToUpload">Gebruik Bewaar om het bestand te laden.</message>
 	<message key="form.send">Zend</message>
 	<message key="form.submit">Zend in</message>
 	<message key="help.contents">Inhoud</message>
@@ -263,7 +263,7 @@
 	<message key="search.searchAllCategories">Doorzoek alle categorieën op</message>
 	<message key="search.searchCategories">Doorzoek categorieën</message>
 	<message key="search.searchResults">Zoekresultaten</message>
-	<message key="search.subject">Sleutelwoord(en)</message>
+	<message key="search.subject">Trefwoord(en</message>
 	<message key="search.titleIndex">Blader door de titelindex</message>
 	<message key="search.title">Titel</message>
 	<message key="search.typeMethodApproach">Type (methode/benadering)</message>
@@ -367,4 +367,8 @@
 	<message key="navigation.publicMenu">Publiek menu</message>
 	<message key="navigation.setup">Instellen</message>
 	<message key="navigation.sitemap">Site Map</message>
+	<message key="common.acknowledged">Erkend</message>
+	<message key="common.considered">Overwogen</message>
+	<message key="common.notified">Bericht gegeven</message>
+	<message key="common.reset">Herstel</message>
 </locale>

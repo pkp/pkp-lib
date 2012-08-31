@@ -61,13 +61,10 @@
 	<message key="installer.locale">Prevod</message>
 	<message key="installer.locale.maybeIncomplete">Označene lokalizacije su nekompletne.</message>
 	<message key="installer.localeSettings">Podešavanje lokalizacije</message>
-	<message key="installer.manualInstall">Manuelna instalacije</message>
-	<message key="installer.miscSettings">Ostala podešavanja</message>
 	<message key="installer.oaiRepositoryIdInstructions"><![CDATA[Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih na ovom sajtu koristeći <a href="http://www.openarchives.org/" target="_blank">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka.]]></message>
 	<message key="installer.oaiRepositoryId">Identifikator OAI repozitorijuma</message>
-	<message key="installer.pleaseUpgradeAfterManualInstall">Pokrenite alat za nadogradnju kada instalirate bazu podataka. Izvršite 'php tools/upgrade.php upgrade' iz glavnog instalacionog foldera za ovu svrhu.</message>
 	<message key="installer.publicFilesDirError">Folder javnih fajlova ne postoji ili se ne može pisati po njemu.</message>
 	<message key="installer.releaseNotes">Napomene o izdanju</message>
 	<message key="installer.securitySettings">Sigurnosna podešavanja</message>
-	<message key="installer.manualUpgrade">Manuelna nadogradnja</message>
+	<message key="installer.oaiSettings">OAI podešavanja</message>
 </locale>

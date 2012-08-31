@@ -62,10 +62,10 @@
 	<message key="user.profile.form.lastNameRequired">Een achternaam is verplicht.</message>
 	<message key="user.profile.form.newPasswordRequired">U moet uw nieuwe wachtwoord opgeven.</message>
 	<message key="user.profile.form.oldPasswordInvalid">Het huidige wachtwoord was niet juist.</message>
-	<message key="user.profile.form.openAccessNotifications">E-mail bevestigingen voor vrije toegang tot een nummer</message>
+	<message key="user.profile.form.openAccessNotifications">E-mail berichtgeving bij vrij toegankelijk worden van een nummer</message>
 	<message key="user.profile.form.passwordRequired">Een wachtwoord is verplicht.</message>
 	<message key="user.profile.form.profileImage">Profielafbeelding</message>
-	<message key="user.profile.form.publishedNotifications">E-mail bevestigingen voor publicatie nieuw nummer</message>
+	<message key="user.profile.form.publishedNotifications">E-mail berichtgeving bij publicatie nieuw nummer</message>
 	<message key="user.profile.form.urlInvalid">De opgegeven URL is niet geldig. Controleer de URL en probeer het opnieuw. (Tip: probeer http:// vooraan de URL te zetten.)</message>
 	<message key="user.profile.form.usernameRequired">Een gebruikersnaam is verplicht</message>
 	<message key="user.profile.leavePasswordBlank">Laat het wachtwoordveld leeg om het huidige wachtwoord te houden.</message>
@@ -82,7 +82,7 @@
 	<message key="user.register.passwordLengthRestriction">Het wachtwoord moet minimaal {$length} tekens zijn.</message>
 	<message key="user.register.registerAs">Registreer als</message>
 	<message key="user.register">Registreren</message>
-	<message key="user.register.usernameRestriction">De gebruikernaam mag alleen kleine letters, cijfers, liggende streepjes en koppeltekens bevatten.</message>
+	<message key="user.register.usernameRestriction">De gebruikersnaam mag alleen kleine letters, cijfers, liggende streepjes en koppeltekens bevatten.</message>
 	<message key="user.role.reader">Lezer</message>
 	<message key="user.role.readers">Lezers</message>
 	<message key="user.role.reviewer">Reviewer</message>
@@ -102,7 +102,7 @@
 	<message key="user.other">Overig</message>
 	<message key="user.profile.form.profileImageInvalid">Ongeldig formaat voor de profielafbeelding of te grote afbeelding. Geaccepteerde formaten zijn .gif, .jpg en .png. De afbeelding mag niet groter zijn dan 150x150 pixels.</message>
 	<message key="user.register.form.emailsDoNotMatch">De e-mailadresvelden komen niet overeen</message>
-	<message key="user.affiliation.description">(Uw institut, bv. "Simon Fraser University")</message>
+	<message key="user.affiliation.description">(Uw instituut, bv. "Simon Fraser University")</message>
 	<message key="user.confirmEmail">Bevestig e-mail</message>
 	<message key="user.gossip">Prive notities</message>
 	<message key="user.profile.form.affiliationRequired">Een affiliatie is verplciht</message>

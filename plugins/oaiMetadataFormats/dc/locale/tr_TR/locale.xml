@@ -12,4 +12,5 @@
  
 <locale name="tr_TR" full_name="Türkiye Türkçesi">
 	<message key="plugins.oaiMetadata.dc.displayName">DC Üst Veri Biçimi</message>
+	<message key="plugins.oaiMetadata.dc.description">Üst veri yapısı bir bakıma Dublin Core biçimi ile tutarlı olmanın yoludur.</message>
 </locale>

@@ -115,4 +115,14 @@
 	<message key="user.authorization.restrictedSiteAccess">Sarbidea ukatu zaizu. Une honetan, orri honetarako sarbidea murriztuta dago.</message>
 	<message key="user.authorization.roleBasedAccessDenied">Une honetako eginkizunak ez du eragiketa hori egiteko baimenik.</message>
 	<message key="user.authorization.userGroupRequired">Eragiketa hori egin ahal izateko, baliozko erabiltzaile taldea ezarri behar duzu.</message>
+	<message key="user.group">Erabiltzaile taldea</message>
+	<message key="user.hello">Kaixo,</message>
+	<message key="user.profile.form.countryRequired">Beharrezkoa da herrialde bat.</message>
+	<message key="user.profile.form.mailingAddressRequired">Beharrezkoa da helbide elektroniko bat.</message>
+	<message key="user.profile.form.passwordSameAsOld">Zure pasahitz berria aurreko pasahitz berbera da.</message>
+	<message key="user.profile.form.usergroupRequired">Beharrezkoa da erabiltzaile talde bat.</message>
+	<message key="user.accountInformation">Kontuaren informazioa</message>
+	<message key="user.authorization.pressManagerRequired">Mailari Prentsa Arduradun eginkizuna (adib., Prentsa edo Produkzio Editorea) duen erabiltzaile bat esleitu behar zaio, aurrera jarraitu aurretik.</message>
+	<message key="user.interests.description">(Interesak banandu enter edo koma tekla sakatuz)</message>
+	<message key="user.suffix">Atzizkia</message>
 </locale>

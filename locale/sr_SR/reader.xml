@@ -177,4 +177,5 @@
 	<message key="rt.version.title">Naslov</message>
 	<message key="rt.version">Verzija</message>
 	<message key="rt.viewMetadata">Indeksiranje metapodataka</message>
+	<message key="rt.admin.settings.viewReviewPolicy">Prikaži politiku recenzija</message>
 </locale>

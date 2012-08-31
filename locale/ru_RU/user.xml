@@ -103,4 +103,14 @@
 	<message key="user.register.completeForm">Заполните, пожалуйста, форму регистрации в этом журнале.</message>
 	<message key="user.affiliations">Организации</message>
 	<message key="user.profile.form.openAccessNotifications">Уведомлять по электронной почте об открытии доступа</message>
+	<message key="user.affiliation.description">(Ваше место работы, например, Московский государственный университет имени М.В. Ломоносова)</message>
+	<message key="user.authorization.accessDenied">Доступ запрещен.</message>
+	<message key="user.authorization.loginRequired">Необходимо указать имя пользователя.</message>
+	<message key="user.confirmEmail">Подтвердите Email</message>
+	<message key="user.gossip">Личные примечания</message>
+	<message key="user.hello">Приветствуем,</message>
+	<message key="user.profile.form.countryRequired">Необходимо указать страну.</message>
+	<message key="user.profile.form.affiliationRequired">Необходимо указать место работы.</message>
+	<message key="user.profile.form.mailingAddressRequired">Необходимо указать почтовый адрес.</message>
+	<message key="user.profile.form.passwordSameAsOld">Новый пароль совпадает со старым.</message>
 </locale>

@@ -66,4 +66,6 @@
 	<message key="installer.securitySettings">Segurtasun-ezarpenak</message>
 	<message key="installer.installParseEmailTemplatesFileError"><![CDATA[Errorea <tt>{$file}</tt> txantiloia analizatzean.]]></message>
 	<message key="installer.locale.maybeIncomplete">Markatutako lokalak osatu gabe egon daitezke.</message>
+	<message key="installer.oaiSettings">OAI ezarpenak</message>
+	<message key="installer.installParseFilterConfigFileError"><![CDATA[Errorea <tt>{$file}</tt> iragazki konfigurazio fitxategia analizatzean.]]></message>
 </locale>

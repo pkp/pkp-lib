@@ -373,4 +373,5 @@
 	<message key="submission.supportingAgencies">Agenzie di supporto</message>
 	<message key="submission.createRemote">Crea remoto</message>
 	<message key="submission.form.replaceExisting">Sostituire un file esistente?</message>
+	<message key="submission.addFile">Carica file</message>
 </locale>

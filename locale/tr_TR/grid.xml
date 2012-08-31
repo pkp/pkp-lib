@@ -188,4 +188,9 @@
 	<message key="grid.preparedEmails.currentList">Güncel Liste</message>
 	<message key="grid.plugin.allCategories">Tüm Kategoriler</message>
 	<message key="grid.plugin.disable">Bu eklentiyi pasifleştirmek istediğinizden emin misiniz?</message>
+	<message key="grid.action.mergeUser">Üye Birleştir</message>
+	<message key="grid.action.unassignUser">Atanmamış Üye</message>
+	<message key="grid.action.history">Geçmişi Göster</message>
+	<message key="grid.task.status.unfinished">Değerlendirme Tamamlanmadı</message>
+	<message key="grid.task.status.reviewReady">Bu değerlendirme hazır.  Okumak için soldaki not simgesine tıklayınız.</message>
 </locale>

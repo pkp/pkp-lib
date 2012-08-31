@@ -349,4 +349,26 @@
 	<message key="navigation.system">Система</message>
 	<message key="navigation.setup">Налаштування</message>
 	<message key="navigation.sitemap">Карта сайту</message>
+	<message key="announcement.postedOn">Надіслано {$postDate}</message>
+	<message key="common.noMatches">Немає результатів</message>
+	<message key="navigation.browseByAuthor">За автором</message>
+	<message key="common.accepted">Прийнято</message>
+	<message key="common.acknowledged">Подякувано</message>
+	<message key="common.titleSmallWords">а або але бо в де для з з-під зі і із й коли крізь на не під при про у та там тоді що</message>
+	<message key="common.remote">Віддалена</message>
+	<message key="common.remoteURL">Віддалена адреса URL</message>
+	<message key="common.element">Елемент</message>
+	<message key="common.go">Вперед</message>
+	<message key="navigation.publicMenu">Загальне меню</message>
+	<message key="navigation.userManagement">Керування користувачами</message>
+	<message key="common.billingAddress">Адреса платника (якщо відмінна)</message>
+	<message key="common.considered">Розглядається</message>
+	<message key="common.finish">Завершити</message>
+	<message key="common.reset">Скинути</message>
+	<message key="common.unread">Непрочитане</message>
+	<message key="common.declined">Відхилені</message>
+	<message key="common.notified">Сповіщені</message>
+	<message key="common.overdue">Прострочені</message>
+	<message key="help.toggleInlineHelpOn">Допомога Вкл</message>
+	<message key="help.toggleInlineHelpOff">Допомога Викл</message>
 </locale>

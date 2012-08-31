@@ -175,4 +175,9 @@
 	<message key="grid.user.userRoles">用户角色</message>
 	<message key="grid.user.userNoRoles">该用户没有任何角色。</message>
 	<message key="grid.preparedEmails.description">期刊通过预制邮件促进工作流程和交流。默认的这些邮件模板可以在下面简便地进行更改。</message>
+	<message key="grid.action.mergeUser">合并用户</message>
+	<message key="grid.action.unassignUser">取消指定用户</message>
+	<message key="grid.action.history">查看历史</message>
+	<message key="grid.task.status.unfinished">未完成的审稿</message>
+	<message key="grid.task.status.reviewReady">审稿完毕。点击左侧的通知按钮进行阅读。</message>
 </locale>

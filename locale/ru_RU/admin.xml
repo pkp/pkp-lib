@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">Имеется новый релиз системы</message>
 	<message key="admin.version.upToDate">Ваша система актуальна</message>
 	<message key="admin.version">Версия</message>
+	<message key="admin.settings">Настройки</message>
+	<message key="admin.settings.siteTheme">Тема сайта</message>
+	<message key="admin.siteSetup">Установка сайта</message>
 </locale>

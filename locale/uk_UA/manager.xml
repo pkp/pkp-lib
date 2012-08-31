@@ -229,4 +229,16 @@
 	<message key="plugins.categories.metadata.description">Модулі метаданих дозволяють використання додаткових стандартів метаданих.</message>
 	<message key="plugins.categories.citationLookup">Модулі шлюзів до баз даних цитованості</message>
 	<message key="plugins.categories.citationLookup.description">Модулі шлюзів до баз даних цитованості дозволяють зв'язок з базами даних цитованості для пошуку посилань, наприклад, під час редагування пристатейної бібліографії.</message>
+	<message key="manager.announcements.datePublish">Опубліковано</message>
+	<message key="manager.reviewerSearch.searchByName.short">Пошук за іменем</message>
+	<message key="manager.reviewerSearch.form.instructions">Користуйтеся формою нижче, щоб встановити максимальні значення для параметрів, за якими здійснюється пошук. За замовчуванням, форма заповнена вирахуваними середніми значеннями для кожного з полів.</message>
+	<message key="plugins.categories.citationOutput">Модулі відображення цитат</message>
+	<message key="plugins.categories.citationOutput.description">Модулі відображення цитат дозволяють відображати цитати за правилами різних бібліографічних стандартів. Ці модулі раніше називалися "Модулі форматів цитування".</message>
+	<message key="plugins.categories.citationParser">Модулі екстракції цитат</message>
+	<message key="plugins.categories.citationParser.description">Модулі екстракції цитат дозволяють видобувати з оригінальних цитат бібліографічну інформацію (наприклад, імена авторів, назви статей тощо).</message>
+	<message key="manager.emails.data">Дані шаблону повідомлення</message>
+	<message key="manager.emails.disable.message">Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на використання цього шаблону, вона не зможе надалі його використовувати. Ви підтверджуєте цю дію?</message>
+	<message key="manager.emails.enable.message">Ви намагаєтеся включити цей шаблон листа. Ви підтверджуєте цю дію?</message>
+	<message key="manager.masthead.title">Вихідні дані</message>
+	<message key="manager.setup.layout.blockManagement">Налаштування бічних панелей</message>
 </locale>

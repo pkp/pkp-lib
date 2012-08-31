@@ -113,7 +113,7 @@
 	<message key="user.username">Kullanıcı Adı</message>
 	<message key="user.workingLanguages">Çalışama Dilleri</message>
 	<message key="user.register.completeForm">Dergiye kayıt olmak için formu doldurunuz.</message>
-	<message key="user.authorization.pressManagerRequired">A user with a Press Manager role (i.e. Press or Production Editor) must be assigned to the stage before you can proceed.</message>
+	<message key="user.authorization.pressManagerRequired">Devam etmeden önce aşağıda Baskı Yöneticisi rolüne sahip bir kullanıcı atanmalıdır (Örneğin; baskı veya üretim editörü).</message>
 	<message key="user.group">Üye Grubu</message>
 	<message key="user.hello">Merhaba,</message>
 	<message key="user.profile.form.countryRequired">Bir ülke gerekli.</message>

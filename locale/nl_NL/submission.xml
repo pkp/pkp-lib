@@ -384,4 +384,5 @@
 	<message key="submission.layout.galleyRemoteURLValid">Geef de remote URL (inclusief http://)</message>
 	<message key="submission.supportingAgencies">Ondersteunende organisatie</message>
 	<message key="submission.createRemote">Remote aanmaken</message>
+	<message key="submission.addFile">Bestand laden</message>
 </locale>

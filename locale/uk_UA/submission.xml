@@ -393,4 +393,8 @@
 	<message key="submission.citations.editor.citationlist.approved">Підтверджені</message>
 	<message key="submission.citations.editor.citationlist.notApproved">Непідтверджені</message>
 	<message key="submission.form.name">Дайте цьому файлу зручну назву</message>
+	<message key="submission.addFile">Вивантажити файл</message>
+	<message key="submission.copyedited">Відрегаговані</message>
+	<message key="submission.reviewed">Рецензовані</message>
+	<message key="submission.createRemote">Створити віддалене</message>
 </locale>

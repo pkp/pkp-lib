@@ -377,11 +377,20 @@
 	<message key="submission.viewMetadata">View Metadata</message>
 	<message key="submission.views">Views</message>
 	<message key="submission.uploadSuccessful">Your file has been uploaded.</message>
-	<message key="submission.uploadSuccessfulContinue">Your file has been uploaded.  Press continue to edit the file's metadata.</message>
 	<message key="submission.loadMessage">Please wait while your file is uploaded to the server.</message>
 	<message key="submission.artworkFileDetails">Artwork File Details</message>
 	<message key="submission.fileDetails">File Details</message>
 	<message key="submission.nameRequired">A name is required for this item.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">YYYY-MM-DD</message>
+	<message key="submission.addFile">Dodaj fajl</message>
+	<message key="submission.citations.editor.citationlist.approved">Odobreno</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Nije odobreno</message>
+	<message key="submission.comments.addReviews">Dodaj recenzije u imejl</message>
+	<message key="submission.layout.galleyRemoteURL">Udaljeni URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Molimo dodajte ispravan URL (uključujući http://).</message>
+	<message key="submission.reviewed">Recenzirano</message>
+	<message key="submission.createRemote">Napravi udaljeno</message>
+	<message key="submission.form.name">Dajte fajlu ime od pomoći</message>
+	<message key="submission.form.replaceExisting">Zameniti postojeći fajl?</message>
 </locale>

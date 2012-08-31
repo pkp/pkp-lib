@@ -16,7 +16,7 @@
 {iterate from=announcements item=announcement}
 	{if !$numAnnouncementsHomepage || $count <= $numAnnouncementsHomepage}
 		<tr class="title">
-		{if $announcement->getTypeId() != 0}
+		{if $announcement->getTypeId()}
 			<td class="title"><h4>{$announcement->getAnnouncementTypeName()|escape}: {$announcement->getLocalizedTitle()|escape}</h4></td>
 		{else}
 			<td class="title"><h4>{$announcement->getLocalizedTitle()|escape}</h4></td>
@@ -48,4 +48,3 @@
 	</tr>
 {/if}
 </table>
-

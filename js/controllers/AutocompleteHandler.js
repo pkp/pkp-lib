@@ -45,6 +45,7 @@
 		this.textInput_.autocomplete(autocompleteOptions);
 		this.bind('autocompleteselect', this.itemSelected);
 		this.bind('autocompletefocus', this.itemFocused);
+		this.textInput_.blur(this.callbackWrapper(this.textInputBlurHandler_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.AutocompleteHandler, $.pkp.classes.Handler);
@@ -181,6 +182,28 @@
 			function(url) {
 		this.sourceUrl_ = url;
 	};
+
+
+	//
+	// Private methods.
+	//
+	/**
+	 * Text input element blur handler.
+	 * @param {HTMLElement} autocompleteElement The element that triggered
+	 *  the event.
+	 * @param {Event} event The blur event.
+	 */
+	$.pkp.controllers.AutocompleteHandler.prototype.textInputBlurHandler_ =
+			function(autocompleteElement, event, ui) {
+		// Make sure we clean the text input if user selected no option
+		// from the available ones but leaved some text behind. This
+		// is needed to avoid bad form validation and to make it clear to
+		// users that they need to select an option.
+		if (this.hiddenInput_.val() == '') {
+			this.textInput_.val('');
+		}
+	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

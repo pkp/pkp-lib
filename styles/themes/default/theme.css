@@ -43,7 +43,13 @@
 /* @group Content Overrides */
 
 body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #333;
+}
+
+p {
+	line-height: 18px;
 }
 
 a {
@@ -150,8 +156,12 @@ a.task:hover {
 	-webkit-border-radius: 0px;
 }
 
+.ui-widget,
+.ui-widget .ui-widget,
 .ui-widget-content {
-	font-size: 100%;
+	/*line-height: 18px;*/
+	font-size: 12px;
+	background-color: #ffffff;
 }
 
 /* Accordian */
@@ -168,17 +178,17 @@ a.task:hover {
 	color: #569bbe;
 	background: none !important;
 	text-transform: uppercase;
-	font: 100% "Courier New", Courier, mono;
-	font-weight: normal !important;
-
 }
 
-.ui-accordion-content {
-	font-size: 100%;
+.ui-accordion .ui-accordion-header a {
+	font-weight: normal !important;
+	font: 12px "Courier New", Courier, mono !important;
 }
 
 .ui-accordion-content-active {
 	border-bottom: 1px dotted #999;
+	background-image: none;
+ 	background-color: transparent;
 }
 
 /* Tabs */
@@ -222,6 +232,10 @@ a.task:hover {
 .ui-tabs-nav .ui-state-active a {
 	margin-top: 1px;
 	margin-bottom: -1px;
+}
+
+.ui-tabs-nav a {
+	font-size: 12px;	
 }
 
 /* Button */

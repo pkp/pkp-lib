@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/uk_UA/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+ 
+<locale name="uk_UA" full_name="Ukrainian">
+	<!-- plug-in -->
+	<message key="plugins.metadata.dc11.displayName">Метадані Dublin Core 1.1</message>
+	<message key="plugins.metadata.dc11.description">Підтримка схем та шаблонів Dublin Core версії 1.1.</message>
+</locale>

@@ -365,11 +365,22 @@
 	<message key="submission.currentAgencies">Aktuelle bureauer</message>
 	<message key="submission.indexingInformation">Indekserer information</message>
 	<message key="submission.uploadSuccessful">Din fil er blevet uploadet.</message>
-	<message key="submission.uploadSuccessfulContinue">Din fil er blevet uploadet. Klik på 'Fortsæt' for at redigere filens metadata.</message>
 	<message key="submission.loadMessage">Vent, mens din fil bliver uploadet til serveren.</message>
 	<message key="submission.artworkFileDetails">Illustrations-filoplysninger</message>
 	<message key="submission.fileDetails">Filoplysninger</message>
 	<message key="submission.nameRequired">Dette element skal have et navn.</message>
 	<message key="submission.date.mmdd">MM-DD</message>
 	<message key="submission.date.yyyymmdd">ÅÅÅÅ-MM-DD</message>
+	<message key="submission.addFile">Upload fil</message>
+	<message key="submission.citations.editor.citationlist.approved">Godkendt</message>
+	<message key="submission.citations.editor.citationlist.notApproved">Ikke godkendt</message>
+	<message key="submission.comments.addReviews">Tilføj bedømmelse til e-mail</message>
+	<message key="submission.copyedited">Manuskriptredigering</message>
+	<message key="submission.layout.galleyRemoteURL">Ekstern URL</message>
+	<message key="submission.layout.galleyRemoteURLValid">Indsæt en gyldig ekstern URL (medtag http://).</message>
+	<message key="submission.reviewed">Bedømt</message>
+	<message key="submission.supportingAgencies">Støtteorganisationer</message>
+	<message key="submission.createRemote">Opret ekstern</message>
+	<message key="submission.form.name">Giv denne fil et sigendenavn</message>
+	<message key="submission.form.replaceExisting">Erstat en eksisterende fil?</message>
 </locale>

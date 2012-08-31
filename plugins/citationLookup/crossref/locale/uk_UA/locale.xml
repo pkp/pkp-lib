@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/uk_UA/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="uk_UA" full_name="Ukrainian">
+	<message key="plugins.citationLookup.crossref.displayName">Шлюз бази даних CrossRef</message>
+	<message key="plugins.citationLookup.crossref.description">Забезпечує зв'язок з бібліографічною базою даних CrossRef.</message>
+</locale>

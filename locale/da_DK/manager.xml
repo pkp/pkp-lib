@@ -115,7 +115,7 @@
 	<message key="manager.people.enrollUserAs">Tilmeld bruger som</message>
 	<message key="manager.people.invalidUser">Den angivne bruger eksisterer ikke.</message>
 	<message key="manager.people.mergeUser">Flet bruger</message>
-	<message key="manager.people.mergeUsers.confirm">Er du sikker på, at du vil flette kontoen med brugernavnet "{$oldUsername}" til kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldUsername}" vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</message>
+	<message key="manager.people.mergeUsers.confirm">Er du sikker på, at du vil flette kontoen med brugernavnet "{$oldAccountCount}" til kontoen med brugernavnet "{$newUsername}"? Kontoen med brugernavnet "{$oldAccountCount}" vil derefter ophøre med at eksistere. Denne handling kan ikke fortrydes.</message>
 	<message key="manager.people.mergeUsers">Flet brugere</message>
 	<message key="manager.people.mustChooseRole">Vælg en rolle øverst på siden, inden du klikker på "Tilmeld bruger".</message>
 	<message key="manager.people.mustProvideName">Angiv som minimum først brugerens efternavn.</message>
@@ -216,4 +216,27 @@
 	<message key="manager.setup.filter.parser.grid.title">Citationsudtrækningstjenester</message>
 	<message key="manager.setup.filter.pleaseSelect">Vælg …</message>
 	<message key="manager.setup.metaCitationsDescription">Sæt en markering i det følgende afkrydsningsfelt for at aktivere redigering af citationer og referencer. Det gør forfattere i stand til at inkludere de utilrettede referencer i deres indsendte bidrag. Redaktører vil også have adgang til et referenceredigeringsværktøj, som kan kontrollere utilrettede referencers nøjagtighed i forhold til eksterne databaser som WorldCat, ISBNdb, PubMed med flere. Godkendte referencer kan eksporteres til endelige satsskibfiler.</message>
+	<message key="manager.announcements.datePublish">Udgivet</message>
+	<message key="manager.emails.addEmail">Tilføj e-mail skabelon</message>
+	<message key="manager.emails.data">Skabelondata</message>
+	<message key="manager.emails.details">Skabelondetaljer</message>
+	<message key="manager.emails.disable.message">Du er i gang med at deaktivere denne e-mailskabelon. Andre processtyringssystemer, der evt. anvender denne skabelon vil ikke længere kunne benytte den. Vil du bekræfte denne handling?</message>
+	<message key="manager.emails.enable.message">Du er i gang med at aktivere denne e-mail. Vil du bekræfte denne handling?</message>
+	<message key="manager.emails.resetAll.message">Hvis du nulstiller alle skabeloner, vil alle tilretninger til e- mailskabelonerne blive slettet. Vil du bekræfte denne handling?</message>
+	<message key="manager.emails.reset.message">Hvis du nulstiller denne skabelon, vil alle data blive erstattet af standardinstillingerne, og evt. tilretninger vil gå tabt. Vil du bekræfte denne handling?</message>
+	<message key="manager.masthead.title">Kolofon</message>
+	<message key="manager.navigation">Navigation</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Udvidet søgning</message>
+	<message key="manager.reviewerSearch.searchByName.short">Søg efter navn</message>
+	<message key="manager.reviewerSearch.form.instructions">Brug nedenstående felt til at angive det maksimale antal ord, du ønsker at søge efter. Feltet er forudindstillet til at beregne et gennemsnit for formularens felter.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Anfør bedømmelsesinteresser, adskilt med kommaer....</message>
+	<message key="manager.setup.layout.blockManagement">Sidebar management</message>
+	<message key="plugins.categories.metadata">Metadata plug-ins</message>
+	<message key="plugins.categories.metadata.description">Metadat plug-ins implementerer ekstra metadata standarder.</message>
+	<message key="plugins.categories.citationLookup">Forbindelsesplug-in til citationsdatabaser</message>
+	<message key="plugins.categories.citationLookup.description">Dette citationsplug-in forbinder programmet til citationsdatabaser hvor der søges efter citationer (henvisninger), f.eks. under citationsredigeringen.</message>
+	<message key="plugins.categories.citationOutput">Citation Output Plugins</message>
+	<message key="plugins.categories.citationOutput.description">Citation Output Plugins indsætter referencestandarder. Dette erstatter Citation Format Plugins (Plug-ins til citatformater).</message>
+	<message key="plugins.categories.citationParser">Citation Extraction Plugins</message>
+	<message key="plugins.categories.citationParser.description">Citation Extraction Plugins henter data fra ubearbejdede referencer på feltniveau (f.eks. forfatter, titel osv.)</message>
 </locale>

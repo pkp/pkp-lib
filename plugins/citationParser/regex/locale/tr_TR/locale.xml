@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/en_US/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="tr_TR" full_name="Türkiye Türkçesi">
+	<message key="plugins.citationParser.regex.displayName">Düzenli İfadeler Atıf Ayırıcı</message>
+	<message key="plugins.citationParser.regex.description">Düzenli ifadeler yoluyla düz metin alıntıları alanlanlarınıı ayıklar.</message>
+</locale>

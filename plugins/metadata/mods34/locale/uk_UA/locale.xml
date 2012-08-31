@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/uk_UA/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="uk_UA" full_name="Ukrainian">
+	<!-- plug-in -->
+	<message key="plugins.metadata.mods34.displayName">Метадані MODS 3.4</message>
+	<message key="plugins.metadata.mods34.description">Підтримка схем та шаблонів MODS 3.4.</message>
+
+	<!-- MODS 3.4 XML output -->
+	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Результат MODS 3.4</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Конвертувати описи метаданих MODS 3.4 у їх XML зв'язки.</message>
+</locale>

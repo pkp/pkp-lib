@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * locale/sr_SR/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="sr_SR" full_name="Srpski">
+	<message key="plugins.metadata.openurl10.displayName">OpenURL 1.0 meta-data</message>
+	<message key="plugins.metadata.openurl10.description">Dodaje OpenURL 1.0 šeme i adaptere aplikacije.</message>
+</locale>

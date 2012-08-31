@@ -92,6 +92,7 @@
 	<message key="grid.action.mergeUser">Merge user</message>
 	<message key="grid.action.unassignUser">Unassign User</message>
 	<message key="grid.action.history">View History</message>
+	<message key="grid.action.unconsiderReview">This review is complete, but you may unconsider it</message>
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>

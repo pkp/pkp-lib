@@ -467,9 +467,10 @@ class PKPReviewAssignmentDAO extends DAO {
 				last_modified,
 				date_reminded, reminder_was_automatic,
 				review_form_id,
-				review_round_id
+				review_round_id,
+				unconsidered
 				) VALUES (
-				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?
+				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -488,7 +489,8 @@ class PKPReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getQuality(),
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
-				(int) $reviewAssignment->getReviewRoundId()
+				(int) $reviewAssignment->getReviewRoundId(),
+				(int) $reviewAssignment->getUnconsidered(),
 			)
 		);
 
@@ -528,7 +530,8 @@ class PKPReviewAssignmentDAO extends DAO {
 					date_reminded = %s,
 					reminder_was_automatic = ?,
 					review_form_id = ?,
-					review_round_id = ?
+					review_round_id = ?,
+					unconsidered = ?
 				WHERE review_id = ?',
 				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
 			array(
@@ -548,6 +551,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				$reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
 				(int) $reviewAssignment->getReviewRoundId(),
+				(int) $reviewAssignment->getUnconsidered(),
 				(int) $reviewAssignment->getId()
 			)
 		);
@@ -590,6 +594,7 @@ class PKPReviewAssignmentDAO extends DAO {
 		$reviewAssignment->setReviewRoundId($row['review_round_id']);
 		$reviewAssignment->setReviewMethod($row['review_method']);
 		$reviewAssignment->setStageId($row['stage_id']);
+		$reviewAssignment->setUnconsidered($row['unconsidered']);
 
 		return $reviewAssignment;
 	}

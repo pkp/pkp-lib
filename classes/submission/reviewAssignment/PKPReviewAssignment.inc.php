@@ -30,6 +30,9 @@ define('SUBMISSION_REVIEW_METHOD_BLIND', 1);
 define('SUBMISSION_REVIEW_METHOD_DOUBLEBLIND', 2);
 define('SUBMISSION_REVIEW_METHOD_OPEN', 3);
 
+define('REVIEW_ASSIGNMENT_NOT_UNCONSIDERED', 0);
+define('REVIEW_ASSIGNMENT_UNCONSIDERED', 1);
+define('REVIEW_ASSIGNMENT_UNCONSIDERED_READ', 2);
 
 class PKPReviewAssignment extends DataObject {
 	/** @var array The revisions of the reviewer file */
@@ -222,6 +225,22 @@ class PKPReviewAssignment extends DataObject {
 	 */
 	function setRecommendation($recommendation) {
 		return $this->setData('recommendation', $recommendation);
+	}
+
+	/**
+	 * Get unconsidered state.
+	 * @return int
+	 */
+	function getUnconsidered() {
+		return $this->getData('unconsidered');
+	}
+
+	/**
+	 * Set unconsidered state.
+	 * @param $unconsidered int
+	 */
+	function setUnconsidered($unconsidered) {
+		return $this->setData('unconsidered', $unconsidered);
 	}
 
 	/**

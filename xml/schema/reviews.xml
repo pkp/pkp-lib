@@ -78,6 +78,7 @@
 			<DEFAULT VALUE="1"/>
 		</field>
 		<field name="review_form_id" type="I8"/>
+		<field name="unconsidered" type="I1"/>
 		<descr>Reviewing assignments.</descr>
 		<index name="review_assignments_submission_id">
 			<col>submission_id</col>

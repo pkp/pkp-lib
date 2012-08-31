@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE languages SYSTEM "../../dtd/languages.dtd">
+
+<languages>
+	<language code="en" name="English"/>
+	<language code="id" name="Indonesia"/>
+</languages>

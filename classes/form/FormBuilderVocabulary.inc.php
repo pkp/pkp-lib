@@ -768,7 +768,7 @@ class FormBuilderVocabulary {
 		$params['interestsKeywords'] = isset($params['interestsKeywords']) ? $params['interestsKeywords'] : false;
 		$params['interestsTextOnly'] = isset($params['interestsTextOnly']) ? $params['interestsTextOnly'] : false;
 
-		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
+		$smarty->clear_assign(array('FBV_id', 'FBV_label', 'FBV_label_content', 'FBV_availableKeywords', 'FBV_currentKeywords', 'FBV_multilingual'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'type': break;

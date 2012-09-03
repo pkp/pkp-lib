@@ -96,6 +96,22 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	//
+	// Public static method.
+	//
+	/**
+	 * Callback used by the tinyMCE plugin to trigger the tinyMCEInitialized
+	 * event in the DOM.
+	 * @param {Object} tinyMCEObject The tinyMCE object instance being
+	 * initialized.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
+			function(tinyMCEObject) {
+		var $inputElement = $('#' + tinyMCEObject.editorId);
+		$inputElement.trigger('tinyMCEInitialized', tinyMCEObject);
+	};
+
+
+	//
 	// Public methods
 	//
 	/**
@@ -427,9 +443,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	};
 
 
-	//
-	// Private helper method.
-	//
 	/**
 	 * Show the notification content.
 	 *

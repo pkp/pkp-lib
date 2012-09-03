@@ -360,6 +360,13 @@
 	<message key="search.advancedSearchMore">Additional Search Options (click to show)</message>
 	<message key="search.advancedSearchLess">Additional Search Options (click to hide)</message>
 	<message key="search.allFields">All</message>
+	<message key="search.cli.rebuildIndex.clearingIndex">Clearing index</message>
+	<message key="search.cli.rebuildIndex.done">done</message>
+	<message key="search.cli.rebuildIndex.error">error</message>
+	<message key="search.cli.rebuildIndex.indexing">Indexing "{$journalName}"</message>
+	<message key="search.cli.rebuildIndex.indexingByJournalNotSupported">This search implementation does not allow per-journal re-indexing.</message>
+	<message key="search.cli.rebuildIndex.result">{$numIndexed} articles indexed</message>
+	<message key="search.cli.rebuildIndex.unknownJournal">The given journal path "{$journalPath}" could not be resolved to a journal.</message>
 	<message key="search.coverage">Coverage</message>
 	<message key="search.date">Publication Date</message>
 	<message key="search.dateFrom">From</message>
@@ -381,7 +388,7 @@
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
-	
+		
 	<!-- Common -->
 	<message key="grid.action.downloadFile">Download this file</message>
 	

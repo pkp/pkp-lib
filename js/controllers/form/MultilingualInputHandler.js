@@ -23,9 +23,10 @@
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler = function($popover, options) {
+		this.parent($popover, options);
+
 		// Bind to the focus of the primary language (the first input)
 		// open the pop-over
-
 		var $popoverNode = null;
 
 		if ($popover.hasClass('pkpTagit')) {
@@ -40,7 +41,7 @@
 		$popover.find(':input').
 				blur(this.callbackWrapper(this.multilingualHide));
 
-		this.parent($popover, options);
+		this.bind('tinyMCEInitialized', this.callbackWrapper(this.handleTinyMCEEvents_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.MultilingualInputHandler,
@@ -63,39 +64,6 @@
 	//
 	// Public methods
 	//
-	/**
-	 * External hook for the 'pkpmultilingualpopover' plugin for TinyMCE.
-	 *
-	 * This method is called when an event is triggered within the editor.
-	 * We are only interested in click or keyup events and must re-examine
-	 * the DOM to find the element of interest since TinyMCE re-writes the
-	 * structure.
-	 *
-	 * @param {String} editorId A string representing the id attribute of
-	 *  the field which has been converted into a TinyMCE instance.  This
-	 *  corresponds to the field names on the form.  e.g., 'abstract'.
-	 * @param {Event} event An Event object representing the event which
-	 *  occurred within the TinyMCE window's own DOM.
-	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.receiveEditorEvent =
-			function(editorId, event) {
-		if (event.type == 'click' || event.type == 'keyup') {
-			clearTimeout(this.popoverTimer);
-			var $parentElement = $('#' + editorId).parent();
-			$parentElement.find('div[class="localization_popover"] iframe').
-					width($parentElement.width());
-			$('#' + editorId).parent().find('.localization_popover').show();
-		} else if (event.type == 'blur') {
-			// set a short timer to prevent the next popover from closing.
-			// this allows time for the next click event from the
-			// TinyMCE editor to cancel the timer.
-			this.popoverTimer = setTimeout(function() {
-				$('.localization_popover').hide();
-			}, 500);
-		}
-	};
-
-
 	/**
 	 * Internal callback called to show additional languages for a
 	 * multilingual input
@@ -146,6 +114,65 @@
 			}
 		}), 0);
 	};
+
+
+	/**
+	 * tinyMCE initialized event handler, it will attach focus and blur
+	 * event handlers to the tinyMCE window element.
+	 * @param {HTMLElement} context The parent context element.
+	 * @param {HTMLElement} input The input element that triggered the
+	 * event.
+	 * @param {Event} event The tinyMCE initialized event.
+	 * @param {Object} tinyMCEObject The tinyMCE object inside this
+	 * multilingual element handler that was initialized.
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.handleTinyMCEEvents_ =
+			function(context, input, event, tinyMCEObject) {
+		var editorId = tinyMCEObject.editorId;
+		$(tinyMCEObject.getWin()).focus(
+				this.callbackWrapper(function() {
+
+			// Create a callback for the set content event, so we can
+			// still show the multilingual input if user is back from an
+			// image insertion, html edit or fullscreen mode.
+			var setContentCallback = this.callbackWrapper(
+					function(tinyMCEObject) {
+				var $tinyWindow = $(tinyMCEObject.getWin());
+				if (!this.getHtmlElement().
+						hasClass('localization_popover_container_focus')) {
+					$tinyWindow.focus();
+				};
+			});
+
+			// Make sure we don't have more than one set content handler.
+			tinyMCEObject.onSetContent.remove(setContentCallback);
+
+			// Add the set content callback.
+			tinyMCEObject.onSetContent.add(setContentCallback);
+
+			clearTimeout(this.popoverTimer);
+			var $popoverContainer = this.getHtmlElement();
+			$popoverContainer.
+				addClass('localization_popover_container_focus');
+			var $localizationPopover = $popoverContainer.find('.localization_popover');
+
+			$localizationPopover.find('iframe').width($popoverContainer.width() -1);
+			$localizationPopover.show();
+	    }));
+		$(tinyMCEObject.getWin()).blur(
+				this.callbackWrapper(function() {
+			// set a short timer to prevent the next popover from closing.
+			// this allows time for the next click event from the
+			// TinyMCE editor to cancel the timer.
+			this.popoverTimer = setTimeout(this.callbackWrapper(
+					function() {
+				this.getHtmlElement().
+					removeClass('localization_popover_container_focus');
+				$('.localization_popover', this.getHtmlElement()).hide();
+			}), 0);
+	    }));
+	};
+
 
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

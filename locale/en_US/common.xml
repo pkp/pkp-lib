@@ -92,6 +92,7 @@
 	<message key="common.dateRequested">Date requested</message>
 	<message key="common.dateSubmitted">Date submitted</message>
 	<message key="common.dateUploaded">Date uploaded</message>
+	<message key="common.dateHijri">Hijri Calendar</message>
 	<message key="common.day">Day</message>
 	<message key="common.deactivate">Deactivate</message>
 	<message key="common.default">Default</message>

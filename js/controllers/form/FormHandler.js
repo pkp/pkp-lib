@@ -101,6 +101,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// bind a handler to handle change events on input fields.
 		$(':input', $form).change(this.callbackWrapper(this.formChange));
+
+		this.bind('tinyMCEInitialized', this.tinyMCEInitHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.FormHandler,
@@ -409,5 +411,37 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		return true;
 	};
+
+
+	/**
+	 * Bind a blur handler on tinyMCE instances inside this form
+	 * to call form validation on form elements that stores the correspondent
+	 * tinyMCE editors.
+	 * @param {HTMLElement} input The input element that triggered the
+	 * event.
+	 * @param {Event} event The tinyMCE initialized event.
+	 * @param {Object} tinyMCEObject The tinyMCE object inside this
+	 * multilingual element handler that was initialized.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.tinyMCEInitHandler_ =
+			function(input, event, tinyMCEObject) {
+		$(tinyMCEObject.getWin()).blur(
+				this.callbackWrapper(function() {
+					// Save the current tinyMCE value to the form element.
+					tinyMCEObject.save();
+
+					$form = this.getHtmlElement();
+
+					// Get the form element that stores the tinyMCE data.
+					var formElement =
+						$('#' + tinyMCEObject.editorId, $form);
+
+					// Validate only this element.
+					var validator = $form.validate();
+					validator.element(formElement);
+		}));
+	};
+
+
 /** @param {jQuery} $ jQuery closure. */
 })(jQuery);

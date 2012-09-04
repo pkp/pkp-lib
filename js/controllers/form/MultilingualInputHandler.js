@@ -41,7 +41,9 @@
 		$popover.find(':input').
 				blur(this.callbackWrapper(this.multilingualHide));
 
-		this.bind('tinyMCEInitialized', this.callbackWrapper(this.handleTinyMCEEvents_));
+		this.publishEvent('tinyMCEInitialized');
+
+		this.bind('tinyMCEInitialized', this.handleTinyMCEEvents_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.MultilingualInputHandler,
@@ -119,7 +121,6 @@
 	/**
 	 * tinyMCE initialized event handler, it will attach focus and blur
 	 * event handlers to the tinyMCE window element.
-	 * @param {HTMLElement} context The parent context element.
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
@@ -127,7 +128,7 @@
 	 * multilingual element handler that was initialized.
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.handleTinyMCEEvents_ =
-			function(context, input, event, tinyMCEObject) {
+			function(input, event, tinyMCEObject) {
 		var editorId = tinyMCEObject.editorId;
 		$(tinyMCEObject.getWin()).focus(
 				this.callbackWrapper(function() {

@@ -46,11 +46,7 @@ class Core {
 			$var = String::utf8_normalize($var);
 
 			// convert HTML entities into valid UTF-8 characters (do not transcode)
-			if (checkPhpVersion('5.0.0')) {
-				$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
-			} else {
-				$var = String::html2utf($var);
-			}
+			$var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
 
 			// strip any invalid UTF-8 sequences
 			$var = String::utf8_bad_strip($var);

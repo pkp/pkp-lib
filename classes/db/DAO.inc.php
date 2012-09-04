@@ -57,7 +57,7 @@ class DAO {
 	 * Initialize the database connection.
 	 */
 	function DAO($dataSource = null, $callHooks = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			// Call hooks based on the object name. Results
 			// in hook calls named e.g. "sessiondao::_Constructor"
 			if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::_Constructor', array(&$this, &$dataSource))) {
@@ -79,7 +79,7 @@ class DAO {
 	 * @return ADORecordSet
 	 */
 	function &retrieve($sql, $params = false, $callHooks = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
@@ -109,7 +109,7 @@ class DAO {
 	 * @return ADORecordSet
 	 */
 	function &retrieveCached($sql, $params = false, $secsToCache = 3600, $callHooks = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
@@ -143,7 +143,7 @@ class DAO {
 	 * @return ADORecordSet
 	 */
 	function &retrieveLimit($sql, $params = false, $numRows = false, $offset = false, $callHooks = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
@@ -172,7 +172,7 @@ class DAO {
 	 * @param $dbResultRange DBResultRange object describing the desired range
 	 */
 	function &retrieveRange($sql, $params = false, $dbResultRange = null, $callHooks = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results
@@ -207,7 +207,7 @@ class DAO {
 	 * @return boolean
 	 */
 	function update($sql, $params = false, $callHooks = true, $dieOnError = true) {
-		if ($callHooks === true && checkPhpVersion('4.3.0')) {
+		if ($callHooks === true) {
 			$trace = debug_backtrace();
 			// Call hooks based on the calling entity, assuming
 			// this method is only called by a subclass. Results

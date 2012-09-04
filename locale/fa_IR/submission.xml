@@ -369,7 +369,6 @@ Coleman Jr, D. (Ralf) Dr</message>
 				<strong>
 ویرایش]]></message>
 	<message key="submission.citations.editor.loadMessage">لطفا تا بارگیری مددیار مارک آپ ارجاع صبر کنید.</message>
-	<message key="submission.citations.editor.php5Required">برای ویرایش ارجاعات نیاز به حمایت XML و XSL وجود دارد که فقط در نسخه 5.0.0 و بالاتر PHP هست. بنظر می رسد که PHP شما قدیمی تر است. شما نمی توانید از مددیار مارک آپ ارجاع استفاده کنید مگر اینکه به نسخه بالاتر بروز رسانی کنید.</message>
 	<message key="submission.citations.editor.pleaseAddParserFilter"><![CDATA[لطفا از مدیر مجله تان بخواهید تا 
 <a href="{$citationSetupUrl}">
 حداقل یک سرویس استخراج ارجاع

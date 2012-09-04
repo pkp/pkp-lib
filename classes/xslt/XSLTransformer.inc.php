@@ -56,11 +56,11 @@ class XSLTransformer {
 			if ( strpos($this->externalCommand, '%xml') === false ) return false;
 			$this->processor = 'External';
 
-		} elseif ( checkPhpVersion('5.0.0') && extension_loaded('xsl') && extension_loaded('dom') ) {
-			// PHP5.x with XSL/DOM modules present
+		} elseif (extension_loaded('xsl') && extension_loaded('dom')) {
+			// XSL/DOM modules present
 			$this->processor = 'PHP5';
 
-		} elseif ( checkPhpVersion('4.1.0') && extension_loaded('xslt') ) {
+		} elseif (extension_loaded('xslt')) {
 			// PHP4.x with XSLT module present
 			$this->processor = 'PHP4';
 

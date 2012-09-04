@@ -114,11 +114,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 			$contextId = $this->getContextId($request);
 
-			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($contextId, $announcementId);
-			} else {
-				$announcementForm =& new AnnouncementForm($contextId, $announcementId);
-			}
+			$announcementForm = new AnnouncementForm($contextId, $announcementId);
 			if ($announcementForm->isLocaleResubmit()) {
 				$announcementForm->readInputData();
 			} else {
@@ -161,11 +157,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 
 			$contextId = $this->getContextId($request);
 
-			if (checkPhpVersion('5.0.0')) { // WARNING: This form needs $this in constructor
-				$announcementForm = new AnnouncementForm($contextId, $announcementId);
-			} else {
-				$announcementForm =& new AnnouncementForm($contextId, $announcementId);
-			}
+			$announcementForm = new AnnouncementForm($contextId, $announcementId);
 			$announcementForm->readInputData();
 
 			if ($announcementForm->validate()) {

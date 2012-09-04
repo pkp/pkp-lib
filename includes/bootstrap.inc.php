@@ -52,8 +52,7 @@ require('./lib/pkp/includes/functions.inc.php');
 
 // Initialize the application environment
 import('classes.core.Application');
-// FIXME: As long as we support PHP4 we cannot use the return
-// value from the new statement directly. See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
-// We rather retrieve the application instance by-ref from the registry.
-new Application();
+
+return new Application();
+
 ?>

@@ -79,17 +79,6 @@ class FormValidator {
 	}
 
 	/**
-	 * Set the form associated with this check. Used only for PHP4
-	 * compatibility when instantiating without =& (which is deprecated).
-	 * SHOULD NOT BE USED otherwise.
-	 * See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
-	 * for a full explanation.
-	 */
-	function setForm(&$form) {
-		$this->_form =& $form;
-	}
-
-	/**
 	 * Get the form associated with the check
 	 * @return Form
 	 */

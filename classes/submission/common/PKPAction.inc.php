@@ -52,23 +52,13 @@ class PKPAction {
 
 
 		// Check whether the citation editor requirements are complete.
-		// 1) PHP5 availability.
-		$citationEditorConfigurationError = null;
-		if (!checkPhpVersion('5.0.0')) {
-			$citationEditorConfigurationError = 'submission.citations.editor.php5Required';
-			$showIntroductoryMessage = false;
-		} else {
-			$showIntroductoryMessage = true;
-		}
-		$templateMgr->assign('showIntroductoryMessage', $showIntroductoryMessage);
-
-		// 2) Citation editing must be enabled for the journal.
+		// 1) Citation editing must be enabled for the journal.
 		if (!$citationEditorConfigurationError) {
 			$context =& $router->getContext($request);
 			if (!$context->getSetting('metaCitations')) $citationEditorConfigurationError = 'submission.citations.editor.pleaseSetup';
 		}
 
-		// 3) At least one citation parser is available.
+		// 2) At least one citation parser is available.
 		$citationDao =& DAORegistry::getDAO('CitationDAO'); // NB: This also loads the parser/lookup filter category constants.
 		if (!$citationEditorConfigurationError) {
 			$filterDao =& DAORegistry::getDAO('FilterDAO'); /* @var $filterDao FilterDAO */
@@ -76,7 +66,7 @@ class PKPAction {
 			if (!count($configuredCitationParsers)) $citationEditorConfigurationError = 'submission.citations.editor.pleaseAddParserFilter';
 		}
 
-		// 4) A citation output filter has been set.
+		// 3) A citation output filter has been set.
 		if (!$citationEditorConfigurationError && !($context->getSetting('metaCitationOutputFilterId') > 0)) {
 			$citationEditorConfigurationError = 'submission.citations.editor.pleaseConfigureOutputStyle';
 		}

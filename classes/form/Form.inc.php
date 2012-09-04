@@ -240,13 +240,6 @@ class Form {
 		}
 
 		foreach ($this->_checks as $check) {
-			// WARNING: This line is for PHP4 compatibility when
-			// instantiating forms without reference. Should not
-			// be removed or otherwise used.
-			// See http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor
-			// for an explanation why we have to replace the reference to $this here.
-			$check->setForm($this);
-
 			if (!isset($this->errorsArray[$check->getField()]) && !$check->isValid()) {
 				if (method_exists($check, 'getErrorFields') && method_exists($check, 'isArray') && call_user_func(array(&$check, 'isArray'))) {
 					$errorFields = call_user_func(array(&$check, 'getErrorFields'));

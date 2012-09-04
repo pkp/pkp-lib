@@ -318,13 +318,6 @@ class PKPHandler {
 			// Using authorization checks in the validate() method is deprecated
 			// FIXME: Trigger a deprecation warning.
 
-			// WARNING: This line is for PHP4 compatibility when
-			// instantiating handlers without reference. Should not
-			// be removed or otherwise used.
-			// See <http://pkp.sfu.ca/wiki/index.php/Information_for_Developers#Use_of_.24this_in_the_constructor>
-			// for a similar problem.
-			$check->_setHandler($this);
-
 			// check should redirect on fail and continue on pass
 			// default action is to redirect to the index page on fail
 			if ( !$check->isValid() ) {

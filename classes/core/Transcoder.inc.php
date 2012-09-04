@@ -61,19 +61,7 @@ class Transcoder {
 			}
 
 		} elseif ($this->fromEncoding == 'HTML-ENTITIES' && !$mbstring) {
-			// NB: old PHP versions may have issues with html_entity_decode()
-			if (checkPhpVersion('4.3.0')) {
-				// multibyte character handling added in PHP 5.0.0
-				return html_entity_decode($string, ENT_COMPAT, $this->toEncoding);
-			} else {
-				// use built-in transcoding to UTF8
-				$string = String::html2utf($string);
-
-				// make another pass to target encoding
-				$this->fromEncoding = 'UTF-8';
-				return $this->trans($string);
-			}
-
+			return html_entity_decode($string, ENT_COMPAT, $this->toEncoding);
 		// Special cases for transliteration ("down-sampling")
 		} elseif ($this->translit && $iconv) {
 			// use the iconv library to transliterate

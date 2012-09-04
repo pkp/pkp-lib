@@ -67,7 +67,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
 	function &extractMetadataFromDataObject(&$sourceMetadataDescription) {
 		// Create a copy of the meta-data description to decouple
 		// it from the original.
-		$clonedMetadataDescription = cloneObject($sourceMetadataDescription);
+		$clonedMetadataDescription = clone($sourceMetadataDescription);
 		return $clonedMetadataDescription;
 	}
 

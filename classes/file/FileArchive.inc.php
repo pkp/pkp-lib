@@ -65,4 +65,5 @@ class FileArchive {
 		return (checkPhpVersion('5.2.0') && extension_loaded('zip'));
 	}
 }
+
 ?>

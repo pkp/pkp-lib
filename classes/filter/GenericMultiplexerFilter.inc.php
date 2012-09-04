@@ -85,7 +85,7 @@ class GenericMultiplexerFilter extends CompositeFilter {
 			// Make a copy of the input so that the filters don't interfere
 			// with each other.
 			if (is_object($input)) {
-				$clonedInput =& cloneObject($input);
+				$clonedInput = clone($input);
 			} else {
 				$clonedInput = $input;
 			}

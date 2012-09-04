@@ -83,7 +83,7 @@ function fatalError($reason) {
 
 	echo "<h1>$reason</h1>";
 
-	if ($showStackTrace && checkPhpVersion('4.3.0')) {
+	if ($showStackTrace) {
 		echo "<h4>Stack Trace:</h4>\n";
 		$trace = debug_backtrace();
 
@@ -171,24 +171,6 @@ function fatalError($reason) {
  */
 function checkPhpVersion($version) {
 	return (version_compare(PHP_VERSION, $version) !== -1);
-}
-
-/**
- * Create a PHP4/5 compatible shallow
- * copy of the given object.
- * @param $object object
- * @return object the cloned object
- */
-function &cloneObject(&$object) {
-	if (checkPhpVersion('5.0.0')) {
-		// We use the PHP5 clone() syntax so that PHP4 doesn't
-		// raise a parse error.
-		$clonedObject = clone($object);
-	} else {
-		// PHP4 always clones objects on assignment
-		$clonedObject = $object;
-	}
-	return $clonedObject;
 }
 
 /**

@@ -151,6 +151,8 @@
 			$option.text(jsonData.content[optionId]);
 			$select.append($option);
 		}
+
+		this.trigger('dropDownOptionSet');
 	};
 
 

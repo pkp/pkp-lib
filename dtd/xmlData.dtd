@@ -1,5 +1,5 @@
 <!--
-  * xmldata.dtd
+  * dtd/xmldata.dtd
   *
   * DTD for database data files.
   * Describes data to be inserted into a database.

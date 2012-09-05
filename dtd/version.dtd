@@ -1,5 +1,5 @@
 <!--
-  * version.dtd
+  * dtd/version.dtd
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -8,7 +8,7 @@
   *
   -->
 
-<!ELEMENT version (application, type, release, tag, date, info, package, patch+)>
+<!ELEMENT version (application, type, release, tag, date, info, package, patch*)>
 <!ELEMENT application (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT release (#PCDATA)>

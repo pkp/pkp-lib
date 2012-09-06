@@ -57,6 +57,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		this.setMainMaxWidth_();
 
+		$('select.applyPlugin', $widgetWrapper).selectBox();
+
 		// Check if we have notifications to show.
 		if (options.hasSystemNotifications) {
 			this.trigger('notifyUser');

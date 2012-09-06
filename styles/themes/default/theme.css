@@ -245,6 +245,27 @@ a.task:hover {
 	position:relative;
 }
 
+/* Select elements */
+
+.selectBox-dropdown {
+	background-image: none !important;
+	background-color: white !important;
+	line-height: 1em !important;
+	height: 19px;
+	box-shadow: none !important;
+	color: #333 !important;
+}
+
+.selectBox-dropdown:hover {
+	color: #333 !important
+}
+
+.selectBox-dropdown .selectBox-arrow {
+	background: url("../../../templates/images/structure/select-arrow-down.png") no-repeat scroll 50% center transparent !important;
+	border-left: none !important;
+	width: 20px !important;
+}
+
 
 /*
 

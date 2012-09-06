@@ -66,7 +66,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		}
 
 		var validator = $form.validate({
-			onfocusout: false,
+			onfocusout: this.callbackWrapper(this.onFocusOutValidation_),
 			errorClass: 'error',
 			highlight: function(element, errorClass) {
 				$(element).parent().parent().addClass(errorClass);
@@ -160,6 +160,14 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * @type {Object}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
+
+
+	/**
+	 * A timer to control the focus out form validation.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.validatorFocusOutTimer_ = null;
 
 
 	//
@@ -440,6 +448,31 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 					var validator = $form.validate();
 					validator.element(formElement);
 		}));
+	};
+
+
+
+	/**
+	 * Add a timer to the form validation on focus out, so we make sure that
+	 * concurrent triggered events are handled before the form validation
+	 * changes the UI with error messages.
+	 *
+	 * The main issue  is a click event in cancel buttons while a non
+	 * valid field is focused. Without the timer, the UI is changed
+	 * before the click action is complete (the mouse up will not occur in
+	 * the cancel link, because it will be moved by the error messages).
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.onFocusOutValidation_ =
+			function() {
+
+		clearTimeout(this.validatorFocusOutTimer_);
+
+		this.validatorFocusOutTimer_ = setTimeout(this.callbackWrapper(function() {
+			var $form = this.getHtmlElement();
+			var validator = $form.validate();
+
+			validator.form();
+		}), 250);
 	};
 
 

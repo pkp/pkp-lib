@@ -865,6 +865,30 @@ class String {
 	}
 
 	/**
+	 * Joins two title string fragments (in $fields) either with a
+	 *  space or a colon.
+	 * @param array $fields
+	 * @return string the joined string
+	 */
+	function concatTitleFields($fields) {
+		// Set the characters that will avoid the use of
+		// a semicolon between title and subtitle.
+		$avoidColonChars = array('?', '!', '/', '&');
+
+		// if the first field ends in a character in $avoidColonChars,
+		// concat with a space, otherwise use a colon.
+		// Check for any of these characters in
+		// the last position of current full title value.
+		if (in_array(substr($fields[0], -1, 1), $avoidColonChars)) {
+			$fullTitle = join(' ', $fields);
+		} else {
+			$fullTitle = join(': ', $fields);
+		}
+
+		return $fullTitle;
+	}
+
+	/**
 	 * Iterate over an array of delimiters and see whether
 	 * it exists in the given input string. If so, then use
 	 * it to explode the string into an array.

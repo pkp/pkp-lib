@@ -28,8 +28,15 @@
 		// Show the possible revision message.
 		$form.find('#possibleRevision').show('slide');
 
+		// this actually unregisters the original upload form.
+		this.trigger('unregisterChangedForm');
+
 		// Subscribe to wizard events.
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
+
+		// Do not track form changes on this form since it only appears
+		// after the regular file upload form has been validated and submitted.
+		this.trackFormChanges_ = false;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler,

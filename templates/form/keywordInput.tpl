@@ -6,7 +6,7 @@
  *
  * Generic keyword input control
  *}
-{assign var="uniqId" value="-"|uniqid|escape}
+{assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
 {if $FBV_multilingual && count($formLocales) > 1}
 	{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}
 		<script type="text/javascript">
@@ -29,7 +29,7 @@
 						availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$thisFormLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
 					{/if}
 				{rdelim});
-		
+
 				{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}
 				{if $FBV_disabled}
 					$("#{$thisFormLocale|escape}-{$FBV_id|concat:$uniqId|escape}").find('.tagit-close, .tagit-new').remove();
@@ -61,7 +61,7 @@
 				</div>
 			</span>
 		</span>
-		
+
 {else} {* this is not a multilingual keyword field or there is only one locale available *}
 	<script type="text/javascript">
 		$(document).ready(function(){ldelim}
@@ -83,7 +83,7 @@
 					availableTags: [{foreach name=availableKeywords from=$FBV_availableKeywords.$formLocale item=availableKeyword}"{$availableKeyword|escape|escape:'javascript'}"{if !$smarty.foreach.availableKeywords.last}, {/if}{/foreach}]
 				{/if}
 			{rdelim});
-	
+
 			{** Tag-it has no "read-only" option, so we must remove input elements to disable the widget **}
 			{if $FBV_disabled}
 				$("#{$FBV_id|escape}{$uniqId}").find('.tagit-close, .tagit-new').remove();
@@ -91,7 +91,7 @@
 			{/if}
 		{rdelim});
 	</script>
-	
+
 	<!-- The container which will be processed by tag-it.js as the interests widget -->
 	<ul id="{$FBV_id|escape}{$uniqId}">{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}</ul>
 	{if $FBV_label_content}<span>{$FBV_label_content}</span>{/if}

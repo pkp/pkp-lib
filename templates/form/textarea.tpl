@@ -7,7 +7,7 @@
  * form text area
  *}
 
-{assign var="uniqId" value="-"|uniqid|escape}
+{assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual && count($formLocales) > 1}
 	<script type="text/javascript">

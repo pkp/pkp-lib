@@ -8,7 +8,11 @@
  *}
 
 {if $FBV_uniqId}
-	{assign var="forElement" value=$FBV_id|concat:"-":$FBV_uniqId}
+	{if $FBV_multilingual}
+		{assign var="forElement" value=$FBV_id|concat:"-":$formLocale:"-":$FBV_uniqId}
+	{else}
+		{assign var="forElement" value=$FBV_id|concat:"-":$FBV_uniqId}
+	{/if}
 {else}
 	{assign var="forElement" value=$FBV_id}
 {/if}

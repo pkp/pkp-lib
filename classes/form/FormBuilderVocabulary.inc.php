@@ -819,12 +819,13 @@ class FormBuilderVocabulary {
 			$smarty->assign('FBV_error', false);
 		}
 
-		$smarty->clear_assign(array('FBV_suppressId', 'FBV_label', 'FBV_required', 'FBV_uniqId'));
+		$smarty->clear_assign(array('FBV_suppressId', 'FBV_label', 'FBV_required', 'FBV_uniqId', 'FBV_multilingual'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'subLabelTranslate': $smarty->assign('FBV_subLabelTranslate', $value); break;
 				case 'label': $smarty->assign('FBV_label', $value); break;
 				case 'uniqId' : $smarty->assign('FBV_uniqId', $params['uniqId']); break;
+				case 'multilingual': $smarty->assign('FBV_multilingual', $params['multilingual']); break;
 				case 'suppressId': $smarty->assign('FBV_suppressId', $value); break;
 				case 'required': $smarty->assign('FBV_required', $value); break;
 			}

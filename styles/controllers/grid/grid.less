@@ -67,6 +67,7 @@ div.pkp_controllers_grid {
 	}
 
 	td.first_column {
+		vertical-align: top;
 		padding: 0 !important;
 	}
 	
@@ -85,6 +86,7 @@ div.pkp_controllers_grid {
 	}
 
 	tr.category td.no_actions {
+		vertical-align: middle;
 		top: 0;
 		padding-left: 10px !important;
 	}
@@ -139,27 +141,24 @@ div.pkp_controllers_grid {
 	}
 
 	.row_container {
-		position: relative; /* Required to anchor absolute row actions positioning below. */
-		padding: 0px 20px 0px 50px;
+		display: table;
 		overflow: hidden;
 		height: 40px;
 	}
 
 	.row_container .row_actions {
-		position: absolute;
-		width: 40px;
-		height: 40px;
+		display: table-cell;
+		vertical-align: middle;
 	}
 
 	.row_actions {
-		top: 0;
-		left: 0;
 	}
 
 	.row_actions a {
 		display: block;
 		cursor: pointer;
-		float: left; /* Need this for Chrome to render links correctly. */
+		width: 40px;
+		height: 40px;
 	}
 	
 	.row_actions a:before {
@@ -167,10 +166,9 @@ div.pkp_controllers_grid {
 	}
 
 	.row_file {
-		width: 100%;
-		top: 50%;
-		line-height: 24px;
-		margin-top: 0.5em;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 5px 0 5px 10px;
 	}
 
 	.row_file a.pkp_controllers_linkAction {

@@ -30,7 +30,6 @@
 			{if $row->hasActions() && $column->hasFlag('firstColumn')}
 					>
 					<div class="row_container">
-						<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[$smarty.foreach.columnLoop.index]}</div>
 						<div class="row_actions">
 							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 								<a class="sprite settings" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
@@ -50,6 +49,7 @@
 								{/foreach}
 							{/if}
 						</div>
+						<div class="row_file {if $column->hasFlag('multiline')}multiline{/if}">{$cells[$smarty.foreach.columnLoop.index]}</div>
 					</div>
 				</td>
 			{else}

@@ -24,7 +24,6 @@
 					<input type="hidden" disabled="disabled" class="isModified" value="0" />
 				{/if}
 				<div class="row_container">
-					<div class="gridCell row_file">{$cell}</div>
 					<div class="row_actions">
 						{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 							{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
@@ -32,6 +31,7 @@
 							{/foreach}
 						{/if}
 					</div>
+					<div class="gridCell row_file">{$cell}</div>
 				</div>
 			</td>
 		{else}

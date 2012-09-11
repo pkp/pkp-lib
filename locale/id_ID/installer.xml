@@ -59,8 +59,4 @@
 	<message key="installer.oaiRepositoryId">Repositori identifier OAI</message>
 	<message key="installer.pleaseUpgradeAfterManualInstall">Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini.</message>
 	<message key="installer.publicFilesDirError">Direktori file umum tidak ada atau tidak dapat diisi.</message>
-	<message key="installer.releaseNotes">Catatan Release</message>
-	<message key="installer.securitySettings">Security Setting</message>
-	<message key="installer.skipFilesDir">Jangan membuat sub direktori (hanya berguna untuk instalasi manual). </message>
-	<message key="installer.manualUpgrade">Upgrade Manual</message>
 </locale>

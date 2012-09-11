@@ -990,7 +990,7 @@ class PKPTemplateManager extends Smarty {
 				if($break_words) {
 					if($skip_tags) {
 						$firstHalf = $this->_reinsertTags($firstHalf, $tags);
-						$secondHalf = $this->reinsertTags($secondHalf, $tagsReverse, true);
+						$secondHalf = $this->_reinsertTags($secondHalf, $tagsReverse, true);
 						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);
 					} else {
 						return $firstHalf . $etc . $secondHalf;
@@ -1005,7 +1005,7 @@ class PKPTemplateManager extends Smarty {
 
 					if ($skip_tags) {
 						$firstHalf = $this->_reinsertTags($firstHalf, $tags);
-						$secondHalf = $this->reinsertTags($secondHalf, $tagsReverse, strlen($string));
+						$secondHalf = $this->_reinsertTags($secondHalf, $tagsReverse, strlen($string));
 						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);
 					} else {
 						return $firstHalf . $etc . $secondHalf;

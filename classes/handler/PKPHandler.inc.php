@@ -410,6 +410,9 @@ class PKPHandler {
 		return $returner;
 	}
 
+	/**
+	 * Set up the basic template.
+	 */
 	function setupTemplate() {
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_COMMON,

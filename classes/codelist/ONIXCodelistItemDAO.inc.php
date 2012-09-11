@@ -194,6 +194,17 @@ class ONIXCodelistItemDAO extends DAO {
 	}
 
 	/**
+	 * Returns an ONIX code based on a unique value and List number.
+	 * @return string
+	 */
+	function getCodeFromValue($value, $list) {
+		$codes = $this->getCodes($list);
+		$codes = array_flip($codes);
+		return $codes[$value];
+		return $code;
+	}
+
+	/**
 	 * Internal function to return a Codelist object from a row.
 	 * @param $row array
 	 * @return CodelistItem

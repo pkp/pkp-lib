@@ -102,6 +102,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 		// bind a handler to handle change events on input fields.
 		$(':input', $form).change(this.callbackWrapper(this.formChange));
 
+		this.publishEvent('tinyMCEInitialized');
 		this.bind('tinyMCEInitialized', this.tinyMCEInitHandler_);
 	};
 	$.pkp.classes.Helper.inherits(

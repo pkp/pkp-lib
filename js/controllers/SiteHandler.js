@@ -365,7 +365,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				this.unbind('mousedown', this.checkOutsideClickHandler_);
 
 				// Clean the original event parameters data.
-				this.callWhenClickOutsideEventParams_ = null;
+				this.callWhenClickOutsideEventParams_ = undefined;
 
 				if (!$container.is(':hidden')) {
 					// Only considered outside if the container is visible.

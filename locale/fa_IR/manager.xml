@@ -296,4 +296,6 @@ RegEx
 	<message key="manager.setup.metaCitationsDescription">برای فعال سازی ارجاع و ویرایش مرجع کزینه زیر را انتخاب کنید. بدین ترتیب نویسندگان می توانند ارجاعات خام به ساب میشن اضافه کنند. ادیتورها نیز به مددیار مارک آپ ارجاع نیز دسترسی پیدا میکنند که می تواند ارجاعات خام را با استفاده از بانهای اکسترنال مانند 
 WorldCat, ISBNdb, PubMed 
 از نظر صحت چک کند. سپس ارجاعات تایید شده را می توان به گالی نهائی انتقال داد.</message>
+	<message key="plugins.categories.oaiMetadataFormats">پلاگین فرمات فراداده او ای آی</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">این پلاگین های فرمات، فراداه را در ارتباطات او ای آی بیان میکنند.</message>
 </locale>

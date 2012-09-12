@@ -237,4 +237,6 @@
 	<message key="plugins.categories.citationParser">Aipuak erauzteko pluginak</message>
 	<message key="plugins.categories.citationParser.description">Aipuak erauzteko pluginek eremu mailako datuak erauzten dituzte aipu gordinetatik (adib., egilea, titulua, etab.).</message>
 	<message key="manager.setup.layout.blockManagement">Alboko barraren kudeaketa</message>
+	<message key="plugins.categories.oaiMetadataFormats">OAI Metadatuen Formatuen Pluginak</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan.</message>
 </locale>

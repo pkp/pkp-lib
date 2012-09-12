@@ -206,5 +206,6 @@
 	<message key="plugins.categories.reports">Plugin Laporan</message>
 	<message key="plugins.categories.themes.description">Tema Plugins  dapat digunakan untuk mengubah penampilan sistem.</message>
 	<message key="plugins.categories.themes">Plugin Tema</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugin Format Metadata OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Plugin format ini mengekspresikan metadata in komunikasi OAI.</message>
 </locale>
-

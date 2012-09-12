@@ -171,4 +171,6 @@
 	<message key="plugins.categories.reports">Doplňky pro generování výkazů</message>
 	<message key="plugins.categories.themes.description">Doplňky témat vzhledu mohou být využity ke změně vzhledu systému.</message>
 	<message key="plugins.categories.themes">Doplňky témat vzhledu</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugin formátu OAI metadat</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Tyto formátové pluginy vydávají matadata v OAI komunikaci.</message>
 </locale>

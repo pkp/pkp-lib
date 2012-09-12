@@ -215,4 +215,6 @@
 	<message key="manager.setup.filter.parser.grid.title">Serviços de Extracção de Citações</message>
 	<message key="manager.setup.filter.pleaseSelect">Por favor seleccione...</message>
 	<message key="manager.setup.metaCitationsDescription">Activar a seguinte checkbox para activar a citação e a edição de referências. Esta operação permite aos autores incluir linhas de citação com as submissões. Os Editores também terão acesso ao assistente de marcação da citação, que pode comparar as linhas de citação com bases de dados externas, tais como WorldCat, ISBNdb, PubMed e outras. As citações aprovadas podem ser exportadas para ficheiros próprios.</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugins de Formatos de Metadados OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Estes plugins de formato geram metadados para comunicações via OAI.</message>
 </locale>

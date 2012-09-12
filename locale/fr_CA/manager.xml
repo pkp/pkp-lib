@@ -216,4 +216,6 @@
 	<message key="manager.setup.filter.parser.grid.loadMessage">Veuillez patienter jusqu'à ce que la grille de configuration de l'analyseur syntaxique de références soit chargée...</message>
 	<message key="manager.setup.filter.parser.grid.title">Services d'extraction de références</message>
 	<message key="manager.setup.filter.pleaseSelect">Veuillez sélectionner...</message>
+	<message key="plugins.categories.oaiMetadataFormats">Plugiciels du format de métadonnées OAI</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">Ces plugiciels de format émettent les métadonnées en communications OAI.</message>
 </locale>

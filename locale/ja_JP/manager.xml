@@ -216,4 +216,6 @@
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>引用データベースで引用情報を検索・確認するためには著者が入力したオリジナルの引用情報からタイトル，出版社，出版日などの情報を抽出して機械可読のメタデータに分解しなければなりません。外部のWebサービス用のコネクタはこのプロセスを支援してくれます。下記の"アイテムを追加"ボタンをクリックするだけで追加できるコネクタもあれば設定が必要なコネクタもあります。</p><p>歯車形のアイコンをクリックすることで現在登録している外部のデータベースについて修正および削除が可能です。</p>]]></message>
 	<message key="manager.setup.filter.grid.filterTemplateRequired">ドロップダウンからテンプレートを選択してください。</message>
 	<message key="manager.setup.filter.noMoreTemplates">利用可能なすべてのテンプレートがすでに追加されています。"キャンセル"をクリックして設定ページに戻ってください。</message>
+	<message key="plugins.categories.oaiMetadataFormats">OAIメタデータフォーマットプラグイン</message>
+	<message key="subscriptionTypes.format.online">オンライン</message>
 </locale>

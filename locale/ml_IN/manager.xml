@@ -216,4 +216,6 @@
 	<message key="plugins.categories.reports">റിപ്പോര്‍ട്ട് പ്ലഗിന്‍സ്</message>
 	<message key="plugins.categories.themes.description">സിസ്റ്റത്തിന്റെ ബാഹ്യരൂപം മാറ്റുന്നതിനായി തീം പ്ലഗിന്‍സ് ഉപയോഗിക്കാവുന്നതാണ്</message>
 	<message key="plugins.categories.themes">തീം പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.oaiMetadataFormats">ഒഎഐ മെറ്റാഡാറ്റ ഫോര്‍മാറ്റ് പ്ലഗിന്‍സ്</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">ഈ ഫോര്‍മാറ്റില്‍ ഉള്ള പ്ലഗിന്‍സ് ഒഎഐ കമ്യൂണിക്കേസ്കനില്‍ ഉള്ള മെറ്റാഡാറ്റയെ എക്സ് പ്രസ്സ് ചെയ്യുന്നു.</message>
 </locale>

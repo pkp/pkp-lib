@@ -239,4 +239,6 @@
 	<message key="plugins.categories.reports">Report Plugins</message>
 	<message key="plugins.categories.themes.description">Theme Plugins can be used to change the system's appearance.</message>
 	<message key="plugins.categories.themes">Theme Plugins</message>
+	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
+	<message key="plugins.categories.oaiMetadataFormats.description">These format plugins express metadata in OAI communications.</message>
 </locale>

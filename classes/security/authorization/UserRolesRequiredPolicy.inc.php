@@ -122,7 +122,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	 */
 	function _prepareContextRolesArray($userRoles, $contextRoles = array()) {
 		foreach ($userRoles as $role) {
-			$contextRoles[] = $role->getRoleId();
+			$contextRoles[] = $role->getId();
 			unset($role);
 		}
 		return $contextRoles;

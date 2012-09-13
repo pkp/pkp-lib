@@ -96,7 +96,7 @@
 	
 	<!--  grid task status -->
 	<message key="grid.task.status.completed">This task is completed</message>
-	<message key="grid.task.status.new">This is a new item and requires attention</message>
+	<message key="grid.task.status.new">Checked when considered</message>
 	<message key="grid.task.status.uploaded">The column title indicates who uploaded this file</message>
 	<message key="grid.task.status.unfinished">Task unfinished</message>
 	<message key="grid.task.status.reviewReady">This review is ready. Click the note icon to the left to read it.</message>

@@ -149,6 +149,7 @@
 	<message key="common.notAvailable">Not available</message>
 	<message key="common.note">Note</message>
 	<message key="common.notes">Notes</message>
+	<message key="common.notes.tooltip">Notes (yellow: has new notes; blue: has viewed notes; grey: no notes)</message>
 	<message key="common.notified">Notified</message>
 	<message key="common.noMatches">No Matches</message>
 	<message key="common.off">Off</message>

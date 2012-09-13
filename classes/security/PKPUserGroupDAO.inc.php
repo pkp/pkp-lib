@@ -763,13 +763,8 @@ class PKPUserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
+				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
-				$fields = array();
-				foreach ($searchTypeMap as $field) {
-					$fields[] = ' LOWER('. $field . ') LIKE ? ';
-				}
-
-				$concatFields = '(' . join(' OR ', $fields) .  ' OR LOWER(cves.setting_value) LIKE ? )';
 				$search = strtolower($search);
 
 				$words = preg_split('{\s+}', $search);
@@ -778,13 +773,7 @@ class PKPUserGroupDAO extends DAO {
 				foreach ($words as $word) {
 					$searchFieldMap[] = $concatFields;
 					$term = '%' . $word . '%';
-
-					$i = 0;
-					while ($i < count($searchTypeMap)) {
-						$paramArray[] = $term;
-						$i ++;
-					}
-					$paramArray[] = $term; // for cves.setting_value
+					array_push($paramArray, $term, $term);
 				}
 
 				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';

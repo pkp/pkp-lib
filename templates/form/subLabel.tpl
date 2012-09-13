@@ -17,5 +17,5 @@
 	{assign var="forElement" value=$FBV_id}
 {/if}
 <label class="sub_label{if $FBV_error} error{/if}" {if !$FBV_suppressId} for="{$forElement|escape}"{/if}>
-	{if $FBV_subLabelTranslate}{translate key=$FBV_label|escape}{else}{$FBV_label|escape}{/if} {if $FBV_required}<span class="req">*</span>{/if}
+	{if $FBV_subLabelTranslate}{translate key=$FBV_label|escape}{else}{$FBV_label|escape}{/if}{if $FBV_required}<span class="req">*</span>{/if}
 </label>

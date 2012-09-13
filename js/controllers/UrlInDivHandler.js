@@ -72,7 +72,13 @@
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData.status === true) {
-			this.getHtmlElement().hide().html(jsonData.content).fadeIn(400);
+			if (jsonData.content === undefined) {
+				// Request successfull, but no data returned.
+				// Hide this div element.
+				this.getHtmlElement().hide();
+			} else {
+				this.getHtmlElement().hide().html(jsonData.content).fadeIn(400);
+			}
 		} else {
 			// Alert that loading failed.
 			alert(jsonData.content);

@@ -446,7 +446,7 @@ class PKPUserGroupDAO extends DAO {
 
 		$sql = 'SELECT DISTINCT u.*
 			FROM users AS u
-			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = "affiliation")
+			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
 			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 			LEFT JOIN user_user_groups uug ON (uug.user_id = u.user_id)
@@ -477,7 +477,7 @@ class PKPUserGroupDAO extends DAO {
 
 		$sql = 'SELECT DISTINCT u.*
 			FROM users AS u
-			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = "affiliation")
+			LEFT JOIN user_settings us ON (us.user_id = u.user_id AND us.setting_name = \'affiliation\')
 			LEFT JOIN user_interests ui ON (u.user_id = ui.user_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)
 			LEFT JOIN user_user_groups uug ON u.user_id=uug.user_id WHERE uug.user_group_id IS NULL ';
@@ -763,8 +763,13 @@ class PKPUserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
+				$fields = array();
+				foreach ($searchTypeMap as $field) {
+					$fields[] = ' LOWER('. $field . ') LIKE ? ';
+				}
+
+				$concatFields = '(' . join(' OR ', $fields) .  ' OR LOWER(cves.setting_value) LIKE ? )';
 				$search = strtolower($search);
 
 				$words = preg_split('{\s+}', $search);
@@ -773,7 +778,13 @@ class PKPUserGroupDAO extends DAO {
 				foreach ($words as $word) {
 					$searchFieldMap[] = $concatFields;
 					$term = '%' . $word . '%';
-					array_push($paramArray, $term, $term);
+
+					$i = 0;
+					while ($i < count($searchTypeMap)) {
+						$paramArray[] = $term;
+						$i ++;
+					}
+					$paramArray[] = $term; // for cves.setting_value
 				}
 
 				$searchSql .= ' AND (  ' . join(' AND ', $searchFieldMap) . '  ) ';

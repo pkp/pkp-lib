@@ -971,10 +971,10 @@ class PKPTemplateManager extends Smarty {
 			if ($skip_tags) {
 				if ($middle) {
 					$tagsReverse = array();
-					$this->_removeTags($string, $tagsReverse, true, $length);
+					$this->_removeTags($string, $tagsReverse, $length, true);
 				}
 				$tags = array();
-				$string = $this->_removeTags($string, $tags, false, $length);
+				$string = $this->_removeTags($string, $tags, $length);
 			}
 			$length -= min($length, String::strlen($etc));
 			if (!$middle) {
@@ -1026,7 +1026,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param int
 	 * @return string
 	 */
-	function _removeTags($string, &$tags, $reverse = false, $length) {
+	function _removeTags($string, &$tags, $length, $reverse = false) {
 		if($reverse) {
 			return $this->_removeTagsAuxReverse($string, 0, $tags, $length);
 		} else {
@@ -1044,17 +1044,25 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function _removeTagsAux($string, $loc, &$tags, $length) {
-		if(strlen($string) > 0 && $length > 0) {
-			$length--;
-			if(String::substr($string, 0, 1) == '<') {
-				$closeBrack = String::strpos($string, '>')+1;
+		$newString = '';
+
+		for($i = 0; $i < strlen($string); $i++) {
+			if(String::substr($string, $i, 1) == '<') { 
+				// We've found the beginning of an HTML tag, find the position of its ending
+				$closeBrack = String::strpos($string, '>', $i);
+
 				if($closeBrack) {
-					$tags[] = array(String::substr($string, 0, $closeBrack), $loc);
-					return $this->_removeTagsAux(String::substr($string, $closeBrack), $loc+$closeBrack, $tags, $length);
+					// Add the tag and its position to the tags array reference
+					$tags[] = array(String::substr($string, $i, $closeBrack-$i+1), $i);
+					$i += $closeBrack-$i;
+					continue;
 				}
 			}
-			return String::substr($string, 0, 1) . $this->_removeTagsAux(String::substr($string, 1), $loc+1, $tags, $length);
+			$length--;
+			$newString = $newString . String::substr($string, $i, 1);
 		}
+
+		return $newString;
 	}
 
 	/**
@@ -1068,9 +1076,9 @@ class PKPTemplateManager extends Smarty {
 	 * @return string
 	 */
 	function _removeTagsAuxReverse($string, $loc, &$tags, $length) {
-		$backLoc = String::strlen($string)-1;
-		if($backLoc >= 0 && $length > 0) {
-			$length--;
+		$newString = '';
+
+		for($i = String::strlen($string); $i > 0; $i--) {
 			if(String::substr($string, $backLoc, 1) == '>') {
 				$tag = '>';
 				$openBrack = 1;
@@ -1082,10 +1090,14 @@ class PKPTemplateManager extends Smarty {
 				$openBrack++;
 
 				$tags[] = array($tag, $loc);
-				return $this->_removeTagsAuxReverse(String::substr($string, 0, -$openBrack), $loc+$openBrack, $tags, $length);
+				$i -= $openBrack+1;
+				continue;
 			}
-			return $this->_removeTagsAuxReverse(String::substr($string, 0, -1), $loc+1, $tags, $length) . String::substr($string, $backLoc, 1);
+			$length--;
+			$newString = $newString . String::substr($string, $i, 1);
 		}
+
+		return $newString;
 	}
 
 

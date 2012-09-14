@@ -8,7 +8,7 @@
  *}
 
 <div id="pkp_notification_{$notificationId|escape}" class="notification_block {$notificationStyleClass}">
-	<h4>{$notificationTitle}:</h4>
+	<h4>{$notificationTitle}{if substr($notificationTitle,-1)!='.'}:{/if}</h4>
 	<span class="description">
 		{if $notificationContents}
 			<p>{$notificationContents}</p>

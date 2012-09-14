@@ -231,6 +231,9 @@ jQuery.pkp.controllers.wizard.fileUpload =
 					$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 							wizardElement, event), 'json');
 
+			// The uploaded file is being dealt with; reset.
+			this.uploadedFile_ = null;
+
 			// Do not cancel immediately.
 			event.preventDefault();
 		}
@@ -254,8 +257,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			// Delete the uploaded file info and cancel the wizard.
-			this.uploadedFile_ = null;
+			// Cancel the wizard.
 			this.trigger('wizardCancel');
 		}
 	};

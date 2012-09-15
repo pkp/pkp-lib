@@ -466,7 +466,7 @@ $.pkp.controllers.grid = $.pkp.controllers.grid || {};
 	$.pkp.controllers.grid.GridHandler.prototype.appendElement =
 			function($newRow, $opt_gridBody) {
 
-		if ($opt_gridBody === undefined) {
+		if ($opt_gridBody === undefined || $opt_gridBody === null) {
 			$opt_gridBody = this.getHtmlElement().find(this.bodySelector_);
 		}
 

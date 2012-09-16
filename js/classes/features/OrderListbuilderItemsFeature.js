@@ -195,8 +195,7 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			formatAndStoreNewRow_ = function($row) {
-		var $sequenceInput = this.getSequenceInput_();
-		$row.append($sequenceInput);
+		$row.children().after(this.getSequenceInput_());
 		var $rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};

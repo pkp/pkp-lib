@@ -465,7 +465,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var $lastElement = $option;
 
 				// If only one element is available, select it.
-				if (optionsCount === 1) {
+				if (optionsCount === 1 && $lastElement) {
 					$lastElement.attr('selected', 'selected');
 				}
 

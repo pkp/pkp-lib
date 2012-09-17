@@ -212,7 +212,7 @@ class NotificationHandler extends Handler {
 		$version = $versionDao->getCurrentVersion();
 
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign('version', $version->getVersionString());
+		$templateMgr->assign('version', $version->getVersionString(false));
 		$templateMgr->assign('selfUrl', $request->getCompleteUrl());
 		$templateMgr->assign('locale', AppLocale::getPrimaryLocale());
 		$templateMgr->assign('appName', $appName);

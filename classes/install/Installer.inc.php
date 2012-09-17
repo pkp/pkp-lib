@@ -263,7 +263,7 @@ class Installer {
 	 * @return boolean
 	 */
 	function executeInstaller() {
-		$this->log(sprintf('version: %s', $this->newVersion->getVersionString()));
+		$this->log(sprintf('version: %s', $this->newVersion->getVersionString(false)));
 		foreach ($this->actions as $action) {
 			if (!$this->executeAction($action)) {
 				return false;

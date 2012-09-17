@@ -11,7 +11,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-{translate key="installer.upgradeInstructions" version=$version->getVersionString() baseUrl=$baseUrl}
+{translate key="installer.upgradeInstructions" version=$version->getVersionString(false) baseUrl=$baseUrl}
 
 
 <div class="separator"></div>

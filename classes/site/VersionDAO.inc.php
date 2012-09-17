@@ -156,7 +156,7 @@ class VersionDAO extends DAO {
 					$this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', $version->getProduct());
 				} else {
 					// We do not support downgrades.
-					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString().'] to version ['.$version->getVersionString().']. Downgrades are not supported.');
+					fatalError('You are trying to downgrade the product "'.$version->getProduct().'" from version ['.$oldVersion->getVersionString(false).'] to version ['.$version->getVersionString(false).']. Downgrades are not supported.');
 				}
 			}
 		}

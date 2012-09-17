@@ -192,7 +192,7 @@ class PKPTemplateManager extends Smarty {
 
 			$application =& PKPApplication::getApplication();
 			$currentVersion =& $application->getCurrentVersion();
-			$this->assign('currentVersionString', $currentVersion->getVersionString());
+			$this->assign('currentVersionString', $currentVersion->getVersionString(false));
 
 			$this->assign('itemsPerPage', Config::getVar('interface', 'items_per_page'));
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));

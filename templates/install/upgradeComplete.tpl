@@ -12,7 +12,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-{translate key="installer.upgradeComplete" version=$newVersion->getVersionString()}
+{translate key="installer.upgradeComplete" version=$newVersion->getVersionString(false)}
 
 {if !empty($notes)}
 <div id="releaseNotes">

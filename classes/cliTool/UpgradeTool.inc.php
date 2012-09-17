@@ -93,7 +93,7 @@ class UpgradeTool extends CommandLineTool {
 			}
 
 			$newVersion =& $installer->getNewVersion();
-			printf("Successfully upgraded to version %s\n", $newVersion->getVersionString());
+			printf("Successfully upgraded to version %s\n", $newVersion->getVersionString(false));
 
 		} else {
 			printf("ERROR: Upgrade failed: %s\n", $installer->getErrorString());
@@ -235,9 +235,9 @@ class UpgradeTool extends CommandLineTool {
 		$codeVersion = VersionCheck::getCurrentCodeVersion();
 		$latestVersion = $versionInfo['version'];
 
-		printf("Code version:      %s\n", $codeVersion->getVersionString());
-		printf("Database version:  %s\n", $dbVersion->getVersionString());
-		printf("Latest version:    %s\n", $latestVersion->getVersionString());
+		printf("Code version:      %s\n", $codeVersion->getVersionString(false));
+		printf("Database version:  %s\n", $dbVersion->getVersionString(false));
+		printf("Latest version:    %s\n", $latestVersion->getVersionString(false));
 
 		$compare1 = $codeVersion->compare($latestVersion);
 		$compare2 = $dbVersion->compare($codeVersion);

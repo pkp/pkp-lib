@@ -271,10 +271,13 @@ class Version extends DataObject {
 
 	/**
 	 * Return complete version string.
+	 * @numeric True (default) iff a numeric (comparable) version is to be returned.
 	 * @return string
 	 */
-	function getVersionString() {
-		return sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+	function getVersionString($numeric = true) {
+		$numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
+		if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) return ('1.0 Beta');
+		return $numericVersion;
 	}
 }
 

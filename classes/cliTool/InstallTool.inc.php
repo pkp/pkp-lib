@@ -72,7 +72,7 @@ class InstallTool extends CommandLineTool {
 			}
 
 			$newVersion =& $installer->getNewVersion();
-			printf("Successfully installed version %s\n", $newVersion->getVersionString());
+			printf("Successfully installed version %s\n", $newVersion->getVersionString(false));
 
 		} else {
 			printf("ERROR: Installation failed: %s\n", $installer->getErrorString());

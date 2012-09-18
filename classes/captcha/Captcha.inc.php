@@ -28,24 +28,6 @@ class Captcha extends DataObject {
 	}
 
 	/**
-	 * get captcha id
-	 * @return int
-	 */
-	function getCaptchaId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * set captcha id
-	 * @param $captchaId int
-	 */
-	function setCaptchaId($captchaId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($captchaId);
-	}
-
-	/**
 	 * get session id
 	 * @return int
 	 */

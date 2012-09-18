@@ -145,36 +145,6 @@ class ReviewForm extends DataObject {
 	function setDescription($description, $locale) {
 		return $this->setData('description', $description, $locale);
 	}
-
-	/** DEPRECATED **/
-
-	function getReviewFormTitle() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTitle();
-	}
-
-	function getReviewFormDescription() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedDescription();
-	}
-
-	/**
-	 * Get the ID of the review form.
-	 * @return int
-	 */
-	function getReviewFormId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set the ID of the review form.
-	 * @param $reviewFormId int
-	 */
-	function setReviewFormId($reviewFormId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($reviewFormId);
-	}
 }
 
 ?>

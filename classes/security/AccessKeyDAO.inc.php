@@ -174,22 +174,12 @@ class AccessKeyDAO extends DAO {
 		);
 	}
 
-	function updateAccessKey(&$accessKey) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($accessKey);
-	}
-
 	/**
 	 * Delete an accessKey.
 	 * @param $accessKey AccessKey
 	 */
 	function deleteObject(&$accessKey) {
 		return $this->deleteAccessKeyById($accessKey->getId());
-	}
-
-	function deleteAccessKey(&$accessKey) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($accessKey);
 	}
 
 	/**

@@ -28,25 +28,6 @@ class AccessKey extends DataObject {
 	//
 	// Get/set methods
 	//
-
-	/**
-	 * Get the ID of the key.
-	 * @return int
-	 */
-	function getAccessKeyId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set the ID of the access key.
-	 * @param $accessKeyId int
-	 */
-	function setAccessKeyId($accessKeyId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($accessKeyId);
-	}
-
 	/**
 	 * Get context.
 	 * @return string

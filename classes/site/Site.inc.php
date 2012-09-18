@@ -60,11 +60,6 @@ class Site extends DataObject {
 		return $this->getLocalizedSetting('title');
 	}
 
-	function getSiteTitle() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTitle();
-	}
-
 	/**
 	 * Get "localized" site page title (if applicable).
 	 * @return string
@@ -86,22 +81,12 @@ class Site extends DataObject {
 		return null;
 	}
 
-	function getSitePageHeaderTitle() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedPageHeaderTitle();
-	}
-
 	/**
 	 * Get localized site logo type.
 	 * @return boolean
 	 */
 	function getLocalizedPageHeaderTitleType() {
 		return $this->getLocalizedData('pageHeaderTitleType');
-	}
-
-	function getSitePageHeaderTitleType() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedPageHeaderTitleType();
 	}
 
 	/**
@@ -127,11 +112,6 @@ class Site extends DataObject {
 		return $this->getLocalizedSetting('intro');
 	}
 
-	function getSiteIntro() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedIntro();
-	}
-
 	/**
 	 * Get redirect
 	 * @return int
@@ -155,11 +135,6 @@ class Site extends DataObject {
 		return $this->getLocalizedSetting('about');
 	}
 
-	function getSiteAbout() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedAbout();
-	}
-
 	/**
 	 * Get localized site contact name.
 	 */
@@ -167,21 +142,11 @@ class Site extends DataObject {
 		return $this->getLocalizedSetting('contactName');
 	}
 
-	function getSiteContactName() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedContactName();
-	}
-
 	/**
 	 * Get localized site contact email.
 	 */
 	function getLocalizedContactEmail() {
 		return $this->getLocalizedSetting('contactEmail');
-	}
-
-	function getSiteContactEmail() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedContactEmail();
 	}
 
 	/**

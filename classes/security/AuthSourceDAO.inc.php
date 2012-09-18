@@ -167,11 +167,6 @@ class AuthSourceDAO extends DAO {
 		);
 	}
 
-	function updateSource(&$auth) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($auth);
-	}
-
 	/**
 	 * Delete a source.
 	 * @param $authId int
@@ -180,11 +175,6 @@ class AuthSourceDAO extends DAO {
 		return $this->update(
 			'DELETE FROM auth_sources WHERE auth_id = ?', $authId
 		);
-	}
-
-	function deleteSource(&$auth) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($auth);
 	}
 
 	/**

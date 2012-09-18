@@ -191,44 +191,6 @@ class ReviewFormElement extends DataObject {
 		static $multipleResponsesElementTypes = array(REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS, REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX);
 		return $multipleResponsesElementTypes;
 	}
-
-	/** DEPRECATED **/
-
-	/**
-	 * Get localized question.
-	 * @return string
-	 */
-	function getReviewFormElementQuestion() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedQuestion();
-	}
-
-	/**
-	 * Get localized list of possible responses.
-	 * @return array
-	 */
-	function getReviewFormElementPossibleResponses() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedPossibleResponses();
-	}
-
-	/**
-	 * Get the ID of the review form element.
-	 * @return int
-	 */
-	function getReviewFormElementId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set the ID of the review form element.
-	 * @param $reviewFormElementId int
-	 */
-	function setReviewFormElementId($reviewFormElementId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId();
-	}
 }
 
 ?>

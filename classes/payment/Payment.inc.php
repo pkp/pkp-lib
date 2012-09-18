@@ -52,11 +52,6 @@ class Payment {
 		return $this->paymentId;
 	}
 
-	function getPaymentId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
 	/**
 	 * Set the id of payment
 	 * @param $paymentId int
@@ -64,11 +59,6 @@ class Payment {
 	 */
 	function setId($paymentId) {
 		return $this->paymentId = $paymentId;
-	}
-
-	function setPaymentId($paymentId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($paymentId);
 	}
 
 	/**

@@ -36,11 +36,6 @@ class Group extends DataObject {
 		return $this->getLocalizedData('title');
 	}
 
-	function getGroupTitle() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTitle();
-	}
-
 
 	//
 	// Get/set methods
@@ -109,24 +104,6 @@ class Group extends DataObject {
 	 */
 	function setAboutDisplayed($aboutDisplayed) {
 		return $this->setData('aboutDisplayed',$aboutDisplayed);
-	}
-
-	/**
-	 * Get ID of group. Deprecated in favour of getId.
-	 * @return int
-	 */
-	function getGroupId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set ID of group. DEPRECATED in favour of setId.
-	 * @param $groupId int
-	 */
-	function setGroupId($groupId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($groupId);
 	}
 
 	/**

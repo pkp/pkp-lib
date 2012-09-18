@@ -165,11 +165,6 @@ class CaptchaDAO extends DAO {
 		);
 	}
 
-	function deleteCaptcha(&$captcha) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($captcha);
-	}
-
 	/**
 	 * updates a captcha
 	 * @param Captcha object
@@ -189,11 +184,6 @@ class CaptchaDAO extends DAO {
 				(int) $captcha->getId()
 			)
 		);
-	}
-
-	function updateCaptcha(&$captcha) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($captcha);
 	}
 }
 

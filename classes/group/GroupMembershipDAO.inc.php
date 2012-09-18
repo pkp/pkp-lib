@@ -141,22 +141,12 @@ class GroupMembershipDAO extends DAO {
 		);
 	}
 
-	function updateMembership(&$membership) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($membership);
-	}
-
 	/**
 	 * Delete a membership
 	 * @param $membership GroupMembership
 	 */
 	function deleteObject(&$membership) {
 		return $this->deleteMembershipById($membership->getGroupId(), $membership->getUserId());
-	}
-
-	function deleteMembership(&$membership) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($membership);
 	}
 
 	/**

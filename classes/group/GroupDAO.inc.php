@@ -50,12 +50,6 @@ class GroupDAO extends DAO {
 		return $returner;
 	}
 
-	function getGroup($groupId, $assocType = null, $assocId = null) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$returner =& $this->getById($groupId, $assocType, $assocId);
-		return $returner;
-	}
-
 	/**
 	 * Get all groups for a given context.
 	 * @param $assocType int
@@ -177,22 +171,12 @@ class GroupDAO extends DAO {
 		return $returner;
 	}
 
-	function updateGroup(&$group) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($group);
-	}
-
 	/**
 	 * Delete a board group, including membership info
 	 * @param $group Group
 	 */
 	function deleteObject(&$group) {
 		return $this->deleteGroupById($group->getId());
-	}
-
-	function deleteGroup(&$group) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($group);
 	}
 
 	/**

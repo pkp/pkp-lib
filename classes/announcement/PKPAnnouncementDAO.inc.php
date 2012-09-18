@@ -43,14 +43,6 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * @see getById
-	 */
-	function &getAnnouncement($announcementId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getById($announcementId);
-	}
-
-	/**
 	 * Retrieve announcement Assoc ID by announcement ID.
 	 * @param $announcementId int
 	 * @return int
@@ -173,28 +165,12 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * @see updateObject
-	 */
-	function updateAnnouncement(&$announcement) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($announcement);
-	}
-
-	/**
 	 * Delete an announcement.
 	 * @param $announcement Announcement
 	 * @return boolean
 	 */
 	function deleteObject($announcement) {
 		return $this->deleteById($announcement->getId());
-	}
-
-	/**
-	 * @see deleteObject
-	 */
-	function deleteAnnouncement($announcement) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($announcement);
 	}
 
 	/**
@@ -205,14 +181,6 @@ class PKPAnnouncementDAO extends DAO {
 	function deleteById($announcementId) {
 		$this->update('DELETE FROM announcement_settings WHERE announcement_id = ?', (int) $announcementId);
 		return $this->update('DELETE FROM announcements WHERE announcement_id = ?', (int) $announcementId);
-	}
-
-	/**
-	 * @see deleteById
-	 */
-	function deleteAnnouncementById($announcementId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteById($announcementId);
 	}
 
 	/**
@@ -240,14 +208,6 @@ class PKPAnnouncementDAO extends DAO {
 			unset($announcement);
 		}
 		return true;
-	}
-
-	/**
-	 * @see deleteByAssocId
-	 */
-	function deleteAnnouncementsByAssocId($assocType, $assocId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteByAssocId($assocType, $assocId);
 	}
 
 	/**

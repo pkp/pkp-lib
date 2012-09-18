@@ -65,7 +65,7 @@ class ONIXCodelistItemDAO extends DAO {
 
 			// Reload locale registry file
 			$xmlDao = new XMLDAO();
-			$listName =& $this->getListName(); // i.e., 'List30'
+			$listName = $this->getListName(); // i.e., 'List30'
 			import('lib.pkp.classes.codelist.ONIXParserDOMHandler');
 			$handler = new ONIXParserDOMHandler($listName);
 
@@ -132,6 +132,7 @@ class ONIXCodelistItemDAO extends DAO {
 	function setListName($list) {
 		$this->_list =& $list;
 	}
+
 	/**
 	 * Get the base node name particular codelist database.
 	 * @return string

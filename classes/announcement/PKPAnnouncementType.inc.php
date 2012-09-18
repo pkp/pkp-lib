@@ -24,25 +24,6 @@ class PKPAnnouncementType extends DataObject {
 	//
 	// Get/set methods
 	//
-
-	/**
-	 * Get the ID of the announcement type.
-	 * @return int
-	 */
-	function getTypeId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set the ID of the announcement type.
-	 * @param $typeId int
-	 */
-	function setTypeId($typeId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($typeId);
-	}
-
 	/**
 	 * Get assoc ID for this annoucement.
 	 * @return int
@@ -81,11 +62,6 @@ class PKPAnnouncementType extends DataObject {
 	 */
 	function getLocalizedTypeName() {
 		return $this->getLocalizedData('name');
-	}
-
-	function getAnnouncementTypeName() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTypeName();
 	}
 
 	/**

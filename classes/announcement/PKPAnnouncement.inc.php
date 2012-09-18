@@ -30,25 +30,6 @@ class PKPAnnouncement extends DataObject {
 	//
 	// Get/set methods
 	//
-
-	/**
-	 * Get the ID of the announcement.
-	 * @return int
-	 */
-	function getAnnouncementId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set the ID of the announcement.
-	 * @param $announcementId int
-	 */
-	function setAnnouncementId($announcementId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($announcementId);
-	}
-
 	/**
 	 * Get assoc ID for this annoucement.
 	 * @return int
@@ -114,29 +95,19 @@ class PKPAnnouncement extends DataObject {
 		return $this->getLocalizedData('title');
 	}
 
-	function getAnnouncementTitle() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTitle();
-	}
-
 	/**
 	 * Get full localized announcement title including type name
 	 * @return string
 	 */
 	function getLocalizedTitleFull() {
 		$typeName = $this->getAnnouncementTypeName();
-		$title = $this->getAnnouncementTitle();
+		$title = $this->getLocalizedTitle();
 
 		if (!empty($typeName)) {
 			return $typeName . ': ' . $title;
 		} else {
 			return $title;
 		}
-	}
-
-	function getAnnouncementTitleFull() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedTitleFull();
 	}
 
 	/**
@@ -165,11 +136,6 @@ class PKPAnnouncement extends DataObject {
 		return $this->getLocalizedData('descriptionShort');
 	}
 
-	function getAnnouncementDescriptionShort() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedDescriptionShort();
-	}
-
 	/**
 	 * Get announcement brief description.
 	 * @param $locale string
@@ -194,11 +160,6 @@ class PKPAnnouncement extends DataObject {
 	 */
 	function getLocalizedDescription() {
 		return $this->getLocalizedData('description');
-	}
-
-	function getAnnouncementDescription() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedDescription();
 	}
 
 	/**

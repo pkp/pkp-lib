@@ -230,14 +230,6 @@ class PKPAnnouncementDAO extends DAO {
 	}
 
 	/**
-	 * @see getByAssocId
-	 */
-	function &getAnnouncementsByAssocId($assocType, $assocId, $rangeInfo = null) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getByAssocId($assocType, $assocId, $rangeInfo);
-	}
-
-	/**
 	 * Retrieve an array of announcements matching a particular type ID.
 	 * @param $typeId int
 	 * @return object DAOResultFactory containing matching Announcements
@@ -251,14 +243,6 @@ class PKPAnnouncementDAO extends DAO {
 
 		$returner = new DAOResultFactory($result, $this, '_returnAnnouncementFromRow');
 		return $returner;
-	}
-
-	/**
-	 * @see getByTypeId
-	 */
-	function &getAnnouncementsByTypeId($typeId, $rangeInfo = null) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getByTypeId($typeId, $rangeInfo);
 	}
 
 	/**

@@ -313,33 +313,6 @@ class ReviewFormElementDAO extends DAO {
 	function getInsertReviewFormElementId() {
 		return $this->getInsertId('review_form_elements', 'review_form_element_id');
 	}
-
-	/** DEPRECATED **/
-
-	function insertReviewFormElement(&$reviewFormElement) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$this->insertObject($reviewFormElement);
-	}
-
-	function updateReviewFormElement(&$reviewFormElement) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$this->updateObject($reviewFormElement);
-	}
-
-	function deleteReviewFormElement(&$reviewFormElement) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($reviewFormElement);
-	}
-
-	function deleteReviewFormElementById($reviewFormElementId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteById($reviewFormElementId);
-	}
-
-	function deleteReviewFormElementsByReviewForm($reviewFormId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteByReviewFormId($reviewFormId);
-	}
 }
 
 ?>

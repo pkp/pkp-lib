@@ -25,12 +25,6 @@
 	$.pkp.controllers.AutocompleteHandler = function($autocompleteField, options) {
 		this.parent($autocompleteField, options);
 
-		// Get the text input inside of this Div.
-		this.textInput_ = $autocompleteField.find(':text');
-
-		// Get the text input inside of this Div.
-		this.hiddenInput_ = $autocompleteField.find(':hidden');
-
 		// Get the URL passed in
 		this.sourceUrl_ = options.sourceUrl;
 
@@ -41,8 +35,15 @@
 		var autocompleteOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
+		// Get the text input inside of this Div.
+		this.textInput_ = $autocompleteField.find(':text');
+
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput_.autocomplete(autocompleteOptions);
+
+		// Get the text input inside of this Div.
+		this.hiddenInput_ = $autocompleteField.find('input:hidden');
+
 		this.bind('autocompleteselect', this.itemSelected);
 		this.bind('autocompletefocus', this.itemFocused);
 		this.textInput_.blur(this.callbackWrapper(this.textInputBlurHandler_));

@@ -439,11 +439,6 @@ class PKPReviewAssignmentDAO extends DAO {
 		return $returner;
 	}
 
-	function insertReviewAssignment(&$reviewAssignment) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->insertObject($reviewAssignment);
-	}
-
 	/**
 	 * Insert a new Review Assignment.
 	 * @param $reviewAssignment ReviewAssignment
@@ -605,11 +600,6 @@ class PKPReviewAssignmentDAO extends DAO {
 	 */
 	function newDataObject() {
 		assert(false); // Should be implemented by subclasses
-	}
-
-	function deleteReviewAssignmentById($reviewId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteById($reviewId);
 	}
 
 	/**

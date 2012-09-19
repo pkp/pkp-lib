@@ -38,24 +38,6 @@ class PKPAuthor extends DataObject {
 	//
 
 	/**
-	 * Get ID of author.
-	 * @return int
-	 */
-	function getAuthorId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set ID of author.
-	 * @param $authorId int
-	 */
-	function setAuthorId($authorId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($authorId);
-	}
-
-	/**
 	 * Get ID of submission.
 	 * @return int
 	 */
@@ -274,11 +256,6 @@ class PKPAuthor extends DataObject {
 	 */
 	function getLocalizedBiography() {
 		return $this->getLocalizedData('biography');
-	}
-
-	function getAuthorBiography() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getLocalizedBiography();
 	}
 
 	/**

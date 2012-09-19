@@ -119,7 +119,7 @@ class SessionDAO extends DAO {
 	 * @param $session Session
 	 */
 	function deleteObject(&$session) {
-		return $this->deleteSessionById($session->getId());
+		return $this->deleteById($session->getId());
 	}
 
 	/**

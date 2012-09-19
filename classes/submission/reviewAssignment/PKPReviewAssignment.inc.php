@@ -66,24 +66,6 @@ class PKPReviewAssignment extends DataObject {
 	}
 
 	/**
-	 * Get ID of review assignment.
-	 * @return int
-	 */
-	function getReviewId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * Set ID of review assignment
-	 * @param $reviewId int
-	 */
-	function setReviewId($reviewId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($reviewId);
-	}
-
-	/**
 	 * Get ID of reviewer.
 	 * @return int
 	 */

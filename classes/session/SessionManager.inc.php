@@ -178,7 +178,7 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function destroy($sessionId) {
-		return $this->sessionDao->deleteSessionById($sessionId);
+		return $this->sessionDao->deleteById($sessionId);
 	}
 
 	/**
@@ -188,7 +188,7 @@ class SessionManager {
 	 * @return boolean
 	 */
 	function gc($maxlifetime) {
-		return $this->sessionDao->deleteSessionByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
+		return $this->sessionDao->deleteByLastUsed(time() - 86400, Config::getVar('general', 'session_lifetime') <= 0 ? 0 : time() - Config::getVar('general', 'session_lifetime') * 86400);
 	}
 
 	/**
@@ -216,7 +216,7 @@ class SessionManager {
 			// session_regenerate_id is only available on PHP >= 4.3.2
 			if (session_regenerate_id() && isset($this->userSession)) {
 				// Delete old session and insert new session
-				$this->sessionDao->deleteSessionById($currentSessionId);
+				$this->sessionDao->deleteById($currentSessionId);
 				$this->userSession->setId(session_id());
 				$this->sessionDao->insertSession($this->userSession);
 				$this->updateSessionCookie(); // TODO: this might not be needed on >= 4.3.3
@@ -232,7 +232,7 @@ class SessionManager {
 
 			if (isset($this->userSession)) {
 				// Delete old session and insert new session
-				$this->sessionDao->deleteSessionById($currentSessionId);
+				$this->sessionDao->deleteById($currentSessionId);
 				$this->userSession->setId($newSessionId);
 				$this->sessionDao->insertSession($this->userSession);
 				$this->updateSessionCookie($newSessionId);

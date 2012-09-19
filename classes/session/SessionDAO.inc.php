@@ -114,11 +114,6 @@ class SessionDAO extends DAO {
 		);
 	}
 
-	function updateSession(&$session) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($session);
-	}
-
 	/**
 	 * Delete a session.
 	 * @param $session Session
@@ -127,16 +122,11 @@ class SessionDAO extends DAO {
 		return $this->deleteSessionById($session->getId());
 	}
 
-	function deleteSession(&$session) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($session);
-	}
-
 	/**
 	 * Delete a session by ID.
 	 * @param $sessionId string
 	 */
-	function deleteSessionById($sessionId) {
+	function deleteById($sessionId) {
 		return $this->update(
 			'DELETE FROM sessions WHERE session_id = ?',
 			array($sessionId)
@@ -147,7 +137,7 @@ class SessionDAO extends DAO {
 	 * Delete sessions by user ID.
 	 * @param $userId string
 	 */
-	function deleteSessionsByUserId($userId) {
+	function deleteByUserId($userId) {
 		return $this->update(
 			'DELETE FROM sessions WHERE user_id = ?',
 			array((int) $userId)
@@ -159,7 +149,7 @@ class SessionDAO extends DAO {
 	 * @param $lastUsed int cut-off time in seconds for not-remembered sessions
 	 * @param $lastUsedRemember int optional, cut-off time in seconds for remembered sessions
 	 */
-	function deleteSessionByLastUsed($lastUsed, $lastUsedRemember = 0) {
+	function deleteByLastUsed($lastUsed, $lastUsedRemember = 0) {
 		if ($lastUsedRemember == 0) {
 			return $this->update(
 				'DELETE FROM sessions WHERE (last_used < ? AND remember = 0)',

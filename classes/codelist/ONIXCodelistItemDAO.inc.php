@@ -76,7 +76,11 @@ class ONIXCodelistItemDAO extends DAO {
 			$temporaryFileManager = new TemporaryFileManager();
 			$fileManager = new FileManager();
 
-			$tmpName = tempnam($temporaryFileManager->getBasePath(), 'ONX');
+			// Ensure that the temporary file dir exists
+			$tmpDir = $temporaryFileManager->getBasePath();
+			if (!file_exists($tmpDir)) mkdir($tmpDir);
+
+			$tmpName = tempnam($tmpDir, 'ONX');
 			$xslTransformer = new XSLTransformer();
 			$xslTransformer->setParameters(array('listName' => $listName));
 			$xslTransformer->setRegisterPHPFunctions(true);
@@ -94,7 +98,7 @@ class ONIXCodelistItemDAO extends DAO {
 				$data = $xmlDao->parseWithHandler($tmpName, $handler);
 				$fileManager->deleteFile($tmpName);
 			} else {
-				fatalError('misconfigured directory permissions on: ' . $temporaryFileManager->getBasePath());
+				fatalError('misconfigured directory permissions on: ' . $tmpDir);
 			}
 
 			// Build array with ($charKey => array(stuff))

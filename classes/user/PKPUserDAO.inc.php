@@ -55,12 +55,6 @@ class PKPUserDAO extends DAO {
 		return $user;
 	}
 
-	function &getUser($userId, $allowDisabled = true) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$user =& $this->getById($userId, $allowDisabled);
-		return $user;
-	}
-
 	/**
 	 * Retrieve a user by username.
 	 * @param $username string
@@ -80,12 +74,6 @@ class PKPUserDAO extends DAO {
 		$result->Close();
 		unset($result);
 		return $returner;
-	}
-
-	function &getUserByUsername($username, $allowDisabled = true) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		$user =& $this->getByUsername($username, $allowDisabled);
-		return $user;
 	}
 
 	/**

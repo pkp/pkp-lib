@@ -47,24 +47,6 @@ class PKPNotification extends DataObject {
 	}
 
 	/**
-	 * get notification id
-	 * @return int
-	 */
-	function getNotificationId() {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->getId();
-	}
-
-	/**
-	 * set notification id
-	 * @param $commentId int
-	 */
-	function setNotificationId($notificationId) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->setId($notificationId);
-	}
-
-	/**
 	 * get user id associated with this notification
 	 * @return int
 	 */

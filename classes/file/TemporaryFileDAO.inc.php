@@ -130,11 +130,6 @@ class TemporaryFileDAO extends DAO {
 		return $temporaryFile->getId();
 	}
 
-	function updateTemporaryFile(&$temporaryFile) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($temporaryFile);
-	}
-
 	/**
 	 * Delete a temporary file by ID.
 	 * @param $fileId int

@@ -320,22 +320,12 @@ class PKPUserDAO extends DAO {
 		);
 	}
 
-	function updateUser(&$user) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->updateObject($user);
-	}
-
 	/**
 	 * Delete a user.
 	 * @param $user User
 	 */
 	function deleteObject(&$user) {
 		return $this->deleteUserById($user->getId());
-	}
-
-	function deleteUser(&$user) {
-		if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-		return $this->deleteObject($user);
 	}
 
 	/**

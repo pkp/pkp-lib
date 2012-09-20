@@ -49,8 +49,9 @@ class DAO {
 	 * Concatenation.
 	 */
 	function concat() {
-	    return call_user_func_array(array($this->getDataSource(), 'Concat'), func_get_args());
-	 }
+		$args = func_get_args();
+		return call_user_func_array(array($this->getDataSource(), 'Concat'), $args);
+	}
 
 	/**
 	 * Constructor.

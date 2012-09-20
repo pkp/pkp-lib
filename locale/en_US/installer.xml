@@ -68,4 +68,19 @@
 	<message key="installer.publicFilesDirError">The public files directory does not exist or is not writable.</message>
 	<message key="installer.releaseNotes">Release Notes</message>
 	<message key="installer.securitySettings">Security Settings</message>
+	<message key="installer.preInstallationInstructionsTitle">Pre-Installation Steps</message>
+	<message key="installer.preInstallationInstructions"><![CDATA[
+		<p>1. The following files and directories (and their contents) must be made writable:</p>
+		<ul>
+			<li><tt>config.inc.php</tt> is writable (optional): {$writable_config}</li>
+			<li><tt>public/</tt> is writable: {$writable_public}</li>
+			<li><tt>cache/</tt> is writable: {$writable_cache}</li>
+			<li><tt>cache/t_cache/</tt> is writable: {$writable_templates_cache}</li>
+			<li><tt>cache/t_compile/</tt> is writable: {$writable_templates_compile}</li>
+			<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>
+		</ul>
+
+		<p>2. A directory to store uploaded files must be created and made writable (see "File Settings" below).</p>]]>
+	</message>
+	<message key="installer.configureXSLMessage"><![CDATA[<p>Your PHP installation does not have the XSL module enabled. Either enable it, or configure the xslt_command parameter in your config.inc.php file.</p>]]></message>
 </locale>

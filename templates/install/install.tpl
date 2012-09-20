@@ -11,22 +11,6 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<script type="text/javascript">
-{literal}
-<!--
-// Ensure that the form submit button cannot be double-clicked
-function doSubmit() {
-	var installForm = document.getElementById('install');
-	if (installForm.installing.value != 1) {
-		installForm.installing.value = 1;
-		installForm.submit();
-	}
-	return true;
-}
-// -->
-{/literal}
-</script>
-
 {if is_writeable('config.inc.php')}{translate|assign:"writable_config" key="installer.checkYes"}{else}{translate|assign:"writable_config" key="installer.checkNo"}{/if}
 {if is_writeable('cache')}{translate|assign:"writable_cache" key="installer.checkYes"}{else}{translate|assign:"writable_cache" key="installer.checkNo"}{/if}
 {if is_writeable('public')}{translate|assign:"writable_public" key="installer.checkYes"}{else}{translate|assign:"writable_public" key="installer.checkNo"}{/if}
@@ -38,232 +22,141 @@ function doSubmit() {
 	{translate|assign:"wrongPhpText" key="installer.installationWrongPhp"}
 {/if}
 
-{url|assign:"upgradeUrl" page="install" op="upgrade"}
-{translate key="installer.installationInstructions" version=$version->getVersionString(false) upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');
+	{rdelim});
+</script>
+<form class="pkp_form" method="post" id="installForm" action="{url op="install"}">
+	<input type="hidden" name="installing" value="0" />
 
-<div class="separator"></div>
+	{translate key="installer.installationInstructions" version=$version->getVersionString(false) upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}
 
-<form method="post" id="install" action="{url op="install"}">
-<input type="hidden" name="installing" value="0" />
-{include file="common/formErrors.tpl"}
+	{if $isInstallError}
+		{* The notification framework requires user sessions, which are not available on install. Use the template directly. *}
+		<div class="pkp_notification">
+			{if $dbErrorMsg}
+				{translate|assign:"errorMsg" key="common.error.databaseError" error=$dbErrorMsg}
+			{else}
+				{translate|assign:"errorMsg" key=$errorMsg}
+			{/if}
+			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=installer notificationStyleClass=notifyError notificationTitle="installer.installErrorsOccurred"|translate notificationContents=$errorMsg}
+		</div>
+	{/if}
 
-{if $isInstallError}
-<p>
-	<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-	<ul class="pkp_form_error_list">
-		<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
-	</ul>
-</p>
-{/if}
+	<!-- XSL check -->
+	{if $xslRequired && !$xslEnabled}
+		{* The notification framework requires user sessions, which are not available on install. Use the template directly. *}
+		<div class="pkp_notification">
+			{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=installerXsl notificationStyleClass=notifyWarning notificationTitle="common.warning"|translate notificationContents="installer.configureXSLMessage"|translate}
+		</div>
+	{/if}
 
-<div id="localeSettings">
-<h3>{translate key="installer.localeSettings"}</h3>
+	{fbvFormArea id="preInstallationFormArea" class="border" title="installer.preInstallationInstructionsTitle"}
+		{url|assign:"upgradeUrl" page="install" op="upgrade"}
+		{translate key="installer.preInstallationInstructions" upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}
+	{/fbvFormArea}
 
-<p>{translate key="installer.localeSettingsInstructions" supportsMBString=$supportsMBString}</p>
+	<!-- Administrator username, password, and email -->
+	{fbvFormArea id="administratorAccountFormArea" title="installer.administratorAccount" class="border"}
+		<p>{translate key="installer.administratorAccountInstructions"}</p>
+		{fbvFormSection label="user.username"}
+			{fbvElement type="text" id="adminUsername" value=$adminUsername|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="user.password"}
+			{fbvElement type="text" password=true id="adminPassword" value=$adminPassword|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="user.repeatPassword"}
+			{fbvElement type="text" password=true id="adminPassword2" value=$adminPassword2|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="user.email"}
+			{fbvElement type="text" id="adminEmail" value=$adminEmail|escape maxlength="90" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="locale" key="locale.primary"}</td>
-		<td width="80%" class="value">
-			<select name="locale" id="locale" size="1" class="selectMenu">
-				{html_options options=$localeOptions selected=$locale}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.localeInstructions"}</span>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel suppressId="true" name="additionalLocales" key="installer.additionalLocales"}</td>
-		<td class="value">
+	<!-- Locale configuration -->
+	{fbvFormArea id="localeSettingsFormArea" class="border" title="installer.localeSettings" title="installer.localeSettings"}
+		<p>{translate key="installer.localeSettingsInstructions" supportsMBString=$supportsMBString}</p>
+		{fbvFormSection label="locale.primary" description="installer.localeInstructions" for="locale"}
+			{fbvElement type="select" name="locale" id="localeOptions" from=$localeOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
+		{/fbvFormSection}
+		{fbvFormSection list="true" label="installer.additionalLocales" description="installer.additionalLocalesInstructions"}
 			{foreach from=$localeOptions key=localeKey item=localeName}
-				<input type="checkbox" name="additionalLocales[]" id="additionalLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if in_array($localeKey, $additionalLocales)} checked="checked"{/if} /> <label for="additionalLocales-{$localeKey|escape}">{$localeName|escape} ({$localeKey|escape})</label>
+				{assign var=localeKeyEscaped value=$localeKey|escape}
 				{if !$localesComplete[$localeKey]}
-					<span class="pkp_form_error">*</span>
-					{assign var=incompleteLocaleFound value=1}
-				{/if}<br />
+					{assign var=localeName value=$localeName|concat:"*"}
+				{/if}
+				{if in_array($localeKey,$additionalLocales)}
+					{assign var=localeSelected value=true}
+				{else}
+					{assign var=localeSelected value=false}
+				{/if}
+				{fbvElement type="checkbox" name="additionalLocales[]" id="additionalLocales-$localeKeyEscaped" value=$localeKeyEscaped translate=false label="manager.people.createUserSendNotify" checked=$localeSelected label=$localeName|escape}
 			{/foreach}
-			<span class="instruct">{translate key="installer.additionalLocalesInstructions"}</span>
-			{if $incompleteLocaleFound}
-				<br/>
-				<span class="pkp_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
-			{/if}{* $incompleteLocaleFound *}
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="clientCharset" key="installer.clientCharset"}</td>
-		<td class="value">
-			<select name="clientCharset" id="clientCharset" size="1" class="selectMenu">
-				{html_options options=$clientCharsetOptions selected=$clientCharset}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.clientCharsetInstructions"}</span>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="connectionCharset" key="installer.connectionCharset"}</td>
-		<td class="value">
-			<select name="connectionCharset" id="connectionCharset" size="1" class="selectMenu">
-				{html_options options=$connectionCharsetOptions selected=$connectionCharset}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.connectionCharsetInstructions"}</span>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="databaseCharset" key="installer.databaseCharset"}</td>
-		<td class="value">
-			<select name="databaseCharset" id="databaseCharset" size="1" class="selectMenu">
-				{html_options options=$databaseCharsetOptions selected=$databaseCharset}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.databaseCharsetInstructions"}</span>
-		</td>
-	</tr>
-</table>
-</div>
+		{/fbvFormSection}
 
-<div class="separator"></div>
+		{fbvFormSection label="installer.clientCharset" description="installer.clientCharsetInstructions"}
+			{fbvElement type="select" id="clientCharset" from=$clientCharsetOptions selected=$clientCharset translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
 
-{if !$skipFilesDirSection}
-<div id="fileSettings">
-	<h3>{translate key="installer.fileSettings"}</h3>
+		{fbvFormSection label="installer.connectionCharset" description="installer.connectionCharsetInstructions"}
+			{fbvElement type="select" id="connectionCharset" from=$connectionCharsetOptions selected=$connectionCharset translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
 
-	<table width="100%" class="data">
-		<tr valign="top">
-			<td width="20%" class="label">{fieldLabel name="filesDir" key="installer.filesDir"}</td>
-			<td width="80%" class="value">
-				<input type="text" name="filesDir" id="filesDir" value="{$filesDir|escape}" size="60" maxlength="255" class="textField" />
-				<br />
-				<span class="instruct">{translate key="installer.filesDirInstructions"}</span>
-			</td>
-		</tr>
-		<tr valign="top">
-			<td>&nbsp;</td>
-			<td class="value">
-				<p>{translate key="installer.allowFileUploads" allowFileUploads=$allowFileUploads}</p>
-				<p>{translate key="installer.maxFileUploadSize" maxFileUploadSize=$maxFileUploadSize}</p>
-			</td>
-		</tr>
-	</table>
+		{fbvFormSection label="installer.databaseCharset" description="installer.databaseCharsetInstructions"}
+			{fbvElement type="select" id="databaseCharset" from=$databaseCharsetOptions selected=$databaseCharset translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-	<div class="separator"></div>
-</div>
-{/if}{* !$skipFilesDirSection *}
+	<!-- Files directory configuration -->
+	{if !$skipFilesDirSection}
+		{fbvFormArea id="fileSettingsFormArea" class="border" title="installer.fileSettings"}
+			{fbvFormSection label="installer.filesDir" description="installer.filesDirInstructions"}
+				{fbvElement type="text" id="filesDir" value=$filesDir|escape maxlength="255" size=$fbvStyles.size.LARGE}
+			{/fbvFormSection}
+			<p>{translate key="installer.allowFileUploads" allowFileUploads=$allowFileUploads}</p>
+			<p>{translate key="installer.maxFileUploadSize" maxFileUploadSize=$maxFileUploadSize}</p>
+		{/fbvFormArea}
+	{/if}{* !$skipFilesDirSection *}
 
-<div id="security">
-<h3>{translate key="installer.securitySettings"}</h3>
+	<!-- Security configuration -->
+	{fbvFormArea id="securityFormArea" title="installer.securitySettings" class="border"}
+		{fbvFormSection label="installer.encryption" description="installer.encryptionInstructions"}
+			{fbvElement type="select" id="encryption" from=$encryptionOptions selected=$encryption translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="encryption" key="installer.encryption"}</td>
-		<td width="80%" class="value">
-			<select name="encryption" id="encryption" size="1" class="selectMenu">
-				{html_options options=$encryptionOptions selected=$encryption}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.encryptionInstructions"}</span>
-		</td>
-	</tr>
-</table>
-</div>
+	<!-- Database configuration -->
+	{fbvFormArea id="databaseSettingsFormArea" class="border" title="installer.databaseSettings"}
+		<p>{translate key="installer.databaseSettingsInstructions"}</p>
+		{fbvFormSection label="installer.databaseDriver" description="installer.databaseDriverInstructions"}
+			{fbvElement type="select" id="databaseDriver" from=$databaseDriverOptions selected=$databaseDriver translate=false size=$fbvStyles.size.SMALL}
+		{/fbvFormSection}
+		{fbvFormSection label="installer.databaseHost"}
+			{fbvElement type="text" id="databaseHost" value=$databaseHost|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="installer.databaseUsername"}
+			{fbvElement type="text" id="databaseUsername" value=$databaseUsername|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="installer.databasePassword"}
+			{fbvElement type="text" id="databasePassword" value=$databasePassword|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="installer.databaseName"}
+			{fbvElement type="text" id="databaseName" value=$databaseName|escape maxlength="60" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection list="true"}
+			{fbvElement type="checkbox" id="createDatabase" value="1" checked=$createDatabase label="installer.createDatabase"}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-<div class="separator"></div>
+	{fbvFormArea id="oaiSettingsFormArea" class="border" title="installer.oaiSettings"}
+		{fbvFormSection label="installer.oaiRepositoryId" description="installer.oaiRepositoryIdInstructions"}
+			{fbvElement type="text" id="oaiRepositoryId" value=$oaiRepositoryId|escape maxlength="60" size=$fbvStyles.size.LARGE}
+		{/fbvFormSection}
+	{/fbvFormArea}
 
-<div id="administratorAccount">
-<h3>{translate key="installer.administratorAccount"}</h3>
-
-<p>{translate key="installer.administratorAccountInstructions"}</p>
-
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="adminUsername" key="user.username"}</td>
-		<td width="80%" class="value"><input type="text" name="adminUsername" id="adminUsername" value="{$adminUsername|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="adminPassword" key="user.password"}</td>
-		<td class="value"><input type="password" name="adminPassword" id="adminPassword" value="{$adminPassword|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="adminPassword2" key="user.repeatPassword"}</td>
-		<td class="value"><input type="password" name="adminPassword2" id="adminPassword2" value="{$adminPassword2|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="adminEmail" key="user.email"}</td>
-		<td width="80%" class="value"><input type="text" name="adminEmail" id="adminEmail" value="{$adminEmail|escape}" size="30" maxlength="90" class="textField" /></td>
-	</tr>
-</table>
-</div>
-
-<div class="separator"></div>
-
-<div id="databaseSettings">
-<h3>{translate key="installer.databaseSettings"}</h3>
-
-<p>{translate key="installer.databaseSettingsInstructions"}</p>
-
-<table width="100%" class="data">
-	<tr valign="top">
-		<td width="20%" class="label">{fieldLabel name="databaseDriver" key="installer.databaseDriver"}</td>
-		<td width="80%" class="value">
-			<select name="databaseDriver" id="databaseDriver" size="1" class="selectMenu">
-				{html_options options=$databaseDriverOptions selected=$databaseDriver}
-			</select>
-			<br />
-			<span class="instruct">{translate key="installer.databaseDriverInstructions"}</span>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="databaseHost" key="installer.databaseHost"}</td>
-		<td class="value">
-			<input type="text" name="databaseHost" id="databaseHost" value="{$databaseHost|escape}" size="30" maxlength="60" class="textField" />
-			<br />
-			<span class="instruct">{translate key="installer.databaseHostInstructions"}</span>
-		</td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="databaseUsername" key="installer.databaseUsername"}</td>
-		<td class="value"><input type="text" name="databaseUsername" id="databaseUsername" value="{$databaseUsername|escape}" size="30" maxlength="60" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="databasePassword" key="installer.databasePassword"}</td>
-		<td class="value"><input type="text" name="databasePassword" id="databasePassword" value="{$databasePassword|escape}" size="30" maxlength="60" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td class="label">{fieldLabel name="databaseName" key="installer.databaseName"}</td>
-		<td class="value"><input type="text" name="databaseName" id="databaseName" value="{$databaseName|escape}" size="30" maxlength="60" class="textField" /></td>
-	</tr>
-	<tr valign="top">
-		<td>&nbsp;</td>
-		<td class="value">
-			<input type="checkbox" name="createDatabase" id="createDatabase" value="1"{if $createDatabase} checked="checked"{/if} /> <label for="createDatabase">{translate key="installer.createDatabase"}</label>
-			<br />
-			<span class="instruct">{translate key="installer.createDatabaseInstructions"}</span>
-		</td>
-	</tr>
-</table>
-</div>
-
-<div class="separator"></div>
-
-<div id="oaiSettings">
-<h3>{translate key="installer.oaiSettings"}</h3>
-
-	<table width="100%" class="data">
-		<tr valign="top">
-			<td width="20%" class="label">{fieldLabel name="oaiRepositoryId" key="installer.oaiRepositoryId"}</td>
-			<td width="80%" class="value">
-				<input type="text" name="oaiRepositoryId" id="oaiRepositoryId" value="{$oaiRepositoryId|escape}" size="30" maxlength="60" class="textField" />
-				<br />
-				<span class="instruct">{translate key="installer.oaiRepositoryIdInstructions"}</span>
-			</td>
-		</tr>
-	</table>
-
-	<div class="separator"></div>
-</div>
-
-<p><input name="install" type="button" id="install" value="{translate key="installer.installApplication"}" class="button defaultButton" onclick="doSubmit()" /></p>
-
+	{fbvFormButtons id="appearanceFormSubmit" submitText="common.save" hideCancel=true submitText="installer.installApplication"}
 </form>
 
 {include file="common/footer.tpl"}

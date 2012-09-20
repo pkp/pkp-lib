@@ -116,6 +116,18 @@ class Core {
 	function isWindows() {
 		return strtolower_codesafe(substr(Core::serverPHPOS(), 0, 3)) == 'win';
 	}
+
+	/**
+	 * Checks to see if a PHP module is enabled.
+	 * @param $moduleName string
+	 * @return boolean
+	 */
+	function checkGeneralPHPModule($moduleName) {
+		if (extension_loaded($moduleName)) {
+			return true;
+		}
+		return false;
+	}
 }
 
 ?>

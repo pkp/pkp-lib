@@ -755,7 +755,7 @@ class PKPUserGroupDAO extends DAO {
 				USER_FIELD_LASTNAME => 'u.last_name',
 				USER_FIELD_USERNAME => 'u.username',
 				USER_FIELD_EMAIL => 'u.email',
-				USER_FIELD_AFFILIATION => 'us.setting_value'
+				USER_FIELD_AFFILIATION => 'us.setting_value',
 		);
 
 		$searchSql = '';
@@ -763,7 +763,8 @@ class PKPUserGroupDAO extends DAO {
 		if (!empty($search)) {
 
 			if (!isset($searchTypeMap[$searchType])) {
-				$concatFields = ' ( LOWER(CONCAT(' . join(', ', $searchTypeMap) . ')) LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
+				$str = $this->concat('u.first_name', 'u.last_name', 'u.email', 'us.setting_value');
+				$concatFields = ' ( LOWER(' . $str . ') LIKE ? OR LOWER(cves.setting_value) LIKE ? ) ';
 
 				$search = strtolower($search);
 

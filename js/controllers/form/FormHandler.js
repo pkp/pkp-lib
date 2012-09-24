@@ -273,11 +273,20 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.cancelForm =
 			function(cancelButton, event) {
 
+		this.unregisterForm();
+		this.trigger('formCanceled');
+		return false;
+	};
+
+
+	/**
+	 * Unregister form for tracking changed data.
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.unregisterForm =
+			function() {
 		// Trigger the "form canceled" event and unregister the form.
 		this.formChangesTracked = false;
 		this.trigger('unregisterChangedForm');
-		this.trigger('formCanceled');
-		return false;
 	};
 
 

@@ -219,26 +219,23 @@ jQuery.pkp.controllers.wizard.fileUpload =
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelRequested = function(wizardElement, event) {
 
-		// if there are changes to tracked forms, and the user wishes to stay,
-		// return false to prevent the removal of the uploaded file.
-		if (this.checkForm_(true)) {
+		if (this.parent('wizardCancelRequested', wizardElement, event)) {
+			// If the user presses cancel after uploading a file then delete the file.
+			if (this.uploadedFile_) {
+				$.post(this.deleteUrl_, this.uploadedFile_,
+						$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
+								wizardElement, event), 'json');
+
+				// The uploaded file is being dealt with; reset.
+				this.uploadedFile_ = null;
+
+				// Do not cancel immediately.
+				event.preventDefault();
+			}
+		} else {
+			// Stop the cancel request.
 			return false;
-		}
-
-		// If the user presses cancel after uploading a file then delete the file.
-		if (this.uploadedFile_) {
-			$.post(this.deleteUrl_, this.uploadedFile_,
-					$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
-							wizardElement, event), 'json');
-
-			// The uploaded file is being dealt with; reset.
-			this.uploadedFile_ = null;
-
-			// Do not cancel immediately.
-			event.preventDefault();
-		}
-
-		this.parent('wizardCancelRequested', wizardElement, event);
+		};
 	};
 
 

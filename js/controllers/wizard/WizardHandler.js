@@ -177,7 +177,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	$.pkp.controllers.wizard.WizardHandler.prototype.cancelRequest =
 			function(buttonElement, event) {
 
-		// this is a 'cancel' click, so unregister forms without prompting.
+		// This is a 'cancel' click, so unregister forms without prompting.
 		this.checkForm_(false);
 
 		// Trigger the "cancel requested" event on the current
@@ -215,8 +215,12 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			function(wizardElement, event) {
 
 		if (this.checkForm_(true)) {
+			// User doesn't wants to leave. Return false to stop cancel request.
 			return false;
 		}
+
+		// User wants to leave or there is no form inside this wizard.
+		return true;
 	};
 
 
@@ -467,24 +471,28 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * Helper method to look for changed forms.
 	 *
 	 * @param {boolean} prompt Whether or not to prompt.
-	 * @return {boolean} Whether or not they wish to cancel.
+	 * @return {boolean} Whether or not they wish to cancel. If no form is
+	 * available in wizard, also return false.
 	 * @private
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.checkForm_ =
 			function(prompt) {
 		var $form = this.getForm_();
-		var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
-		if (prompt) {
-			if (handler.formChangesTracked) {
-				if (!confirm($.pkp.locale.form_dataHasChanged)) {
-					return true; // the user has clicked cancel, they wish to stay.
-				} else {
-					handler.cancelForm();
+		if ($form != null) {
+			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+			if (prompt) {
+				if (handler.formChangesTracked) {
+					if (!confirm($.pkp.locale.form_dataHasChanged)) {
+						return true; // the user has clicked cancel, they wish to stay.
+					} else {
+						handler.unregisterForm();
+					}
 				}
+			} else {
+				handler.unregisterForm();
 			}
-		} else {
-			handler.cancelForm();
 		}
+		return false;
 	};
 
 

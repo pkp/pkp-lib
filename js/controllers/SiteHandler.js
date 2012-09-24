@@ -39,6 +39,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.bind('notifyUser', this.fetchNotificationHandler_);
 		this.bind('updateHeader', this.updateHeaderHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
+		this.bind('mousedown', this.mouseDownHandler_);
 
 		// Listen for grid initialized events so the inline help
 		// can be shown or hidden.
@@ -73,6 +74,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				this.unregisterUnsavedFormElement_));
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
+
+		this.outsideClickChecks_ = {};
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
@@ -90,6 +93,16 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
+	 * Object with data to be used when checking if user
+	 * clicked outside a site element. See callWhenClickOutsideHandler_()
+	 * to check the expected check options.
+	 * @private
+	 * @type {Object}
+	 */
+	$.pkp.controllers.SiteHandler.prototype.outsideClickChecks_ = null;
+
+
+	/**
 	 * A state variable to store the form elements that have unsaved data.
 	 * @private
 	 * @type {Array}
@@ -98,7 +111,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	//
-	// Public static method.
+	// Public static methods.
 	//
 	/**
 	 * Callback used by the tinyMCE plugin to trigger the tinyMCEInitialized
@@ -289,8 +302,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 	/**
-	 * Binds a click event to this element so we can track if user
-	 * clicked outside the passed element or not.
+	 * Call when click outside event handler. Stores the event
+	 * parameters as checks to be used later by mouse down handler so we
+	 * can track if user clicked outside the passed element or not.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  callWhenClickOutside event.
 	 * @param {Event} event The "call when click outside" event.
@@ -305,73 +319,93 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
-		if (this.callWhenClickOutsideEventParams_ !== undefined) {
-			throw Error('Another widget is already using this structure.');
+		// Check the required parameters.
+		if (eventParams.container == undefined) {
+			return;
 		}
 
-		this.callWhenClickOutsideEventParams_ = eventParams;
-		setTimeout(this.callbackWrapper(function() {
-			this.bind('mousedown', this.checkOutsideClickHandler_);
-		}), 25);
+		if (eventParams.callback == undefined) {
+			return;
+		}
+
+		var id = eventParams.container.attr('id');
+		this.outsideClickChecks_[id] = eventParams;
 	};
 
 
 	/**
-	 * Mouse down event handler, used by the callWhenClickOutside event handler
-	 * to test if user clicked outside an element or not. If true, will
-	 * callback a function. Can optionally avoid the callback
-	 * when a modal widget is loaded.
+	 * Mouse down event handler attached to the site element.
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  click event.
 	 * @param {Event} event The "mousedown" event.
 	 * @return {boolean} Event handling status.
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
+	$.pkp.controllers.SiteHandler.prototype.mouseDownHandler_ =
 			function(sourceElement, event) {
 
 		var $container, callback;
-		if (this.callWhenClickOutsideEventParams_ !== undefined) {
-			// Start checking the paramenters.
-			if (this.callWhenClickOutsideEventParams_.container !== undefined) {
-				// Store the container element.
-				$container = this.callWhenClickOutsideEventParams_.container;
-			} else {
-				// Need a container, return.
-				return false;
+		if (!$.isEmptyObject(this.outsideClickChecks_)) {
+			for (var id in this.outsideClickChecks_) {
+				this.processOutsideClickCheck_(
+						this.outsideClickChecks_[id], event);
 			}
+		}
 
-			if (this.callWhenClickOutsideEventParams_.callback !== undefined) {
-				// Store the callback.
-				callback = this.callWhenClickOutsideEventParams_.callback;
-			} else {
-				// Need the callback, return.
-				return false;
-			}
+		return true;
+	};
 
-			if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals !==
-					undefined) {
-				if (this.callWhenClickOutsideEventParams_.skipWhenVisibleModals) {
-					if (this.getHtmlElement().find('div.ui-dialog').length > 0) {
-						// Found a modal, return.
-						return false;
-					}
+
+	/**
+	 * Check if the passed event target is outside the element
+	 * inside the passed check data. If true and no other check
+	 * option avoids it, use the callback.
+	 * @param {Object} checkOptions Object with data to be used to
+	 * check the click.
+	 * @param {Event} event The click event to be checked.
+	 * @returns {Boolean} Whether the check was processed or not.
+	 */
+	$.pkp.controllers.SiteHandler.prototype.processOutsideClickCheck_ =
+			function(checkOptions, event) {
+
+		// Make sure we have a click event.
+		if (event.type !== 'click' &&
+				event.type !== 'mousedown' && event.type !== 'mouseup') {
+			throw Error('Can not check outside click with the passed event: ' +
+					event.type + '.');
+			return false;
+		}
+
+		// Get the container element.
+		var $container = checkOptions.container;
+
+		// Doesn't make sense to check an outside click
+		// with an invisible element, so skip test if
+		// container is hidden.
+		if ($container.is(':hidden')) {
+			return false;
+		}
+
+		// Check for the visible modals option.
+		if (checkOptions.skipWhenVisibleModals !==
+				undefined) {
+			if (checkOptions.skipWhenVisibleModals) {
+				if (this.getHtmlElement().find('div.ui-dialog').length > 0) {
+					// Found a modal, return.
+					return false;
 				}
 			}
+		}
 
-			// Do the click origin checking.
-			if ($container.has(event.target).length === 0) {
-				// Unbind this click handler.
-				this.unbind('mousedown', this.checkOutsideClickHandler_);
+		// Do the click origin checking.
+		if ($container.has(event.target).length === 0) {
 
-				// Clean the original event parameters data.
-				this.callWhenClickOutsideEventParams_ = undefined;
+			// Once the check was processed, delete it.
+			delete this.outsideClickChecks_[$container.attr('id')];
 
-				if (!$container.is(':hidden')) {
-					// Only considered outside if the container is visible.
-					callback();
-				}
-			}
+			checkOptions.callback();
+
+			return true;
 		}
 
 		return false;

@@ -36,14 +36,14 @@
 		}
 
 		$popoverNode
-				.focus(this.callbackWrapper(this.multilingualShow));
+				.focus(this.callbackWrapper(this.focusHandler_));
 		// Bind to the blur of any of the inputs to to check if we should close.
 		$popover.find(':input').
-				blur(this.callbackWrapper(this.multilingualHide));
+				blur(this.callbackWrapper(this.blurHandler_));
 
 		this.publishEvent('tinyMCEInitialized');
 
-		this.bind('tinyMCEInitialized', this.handleTinyMCEEvents_);
+		this.bind('tinyMCEInitialized', this.tinyMCEInitHandler_);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.form.MultilingualInputHandler,
@@ -51,32 +51,63 @@
 
 
 	//
-	// Private properties
+	// Private helper methods.
 	//
 	/**
-	 * This timer is used to control closing the
-	 * popover when blur events are detected.
-	 * @private
-	 * @type {Object}
-	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.
-			popoverCloseTimer_ = null;
-
-
-	//
-	// Public methods
-	//
-	/**
-	 * Internal callback called to show additional languages for a
-	 * multilingual input
+	 * Focus event handler. This is attached to all primary inputs.
 	 *
 	 * @param {HTMLElement} multilingualInput The primary multilingual
-	 *		element in the set to show.
-	 * @param {Event} event The event that triggered the action.
+	 * element.
+	 * @param {Event} event The focus event.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.multilingualShow =
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.focusHandler_ =
 			function(multilingualInput, event) {
 
+		this.showPopover_();
+	};
+
+
+	/**
+	 * Blur event handler. This is attached to all inputs inside this
+	 * popover element.
+	 *
+	 * @param {HTMLElement} multilingualInput The element in the
+	 * multilingual set to hide.
+	 * @param {Event} event The event that triggered the action.
+	 * @return {Boolean} Return true to continue the event handling.
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.blurHandler_ =
+			function(multilingualInput, event) {
+
+		// Use a timeout to give the other element a chance to acquire the focus.
+		setTimeout(this.callbackWrapper(function() {
+			if (!this.hasElementInFocus_()) {
+				this.hidePopover_();
+			}
+		}), 0);
+
+		return true;
+	};
+
+
+	/**
+	 * Hide this popover.
+	 * @private
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.hidePopover_ =
+			function() {
+		var $popover = this.getHtmlElement();
+		$popover.removeClass('localization_popover_container_focus');
+		$popover.find('.localization_popover').hide();
+	};
+
+
+	/**
+	 * Show this popover.
+	 * @private
+	 */
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.showPopover_ =
+			function() {
 		var $popover = this.getHtmlElement();
 		$popover.addClass('localization_popover_container_focus');
 
@@ -89,53 +120,70 @@
 
 
 	/**
-	 * Internal callback called to hide additional languages for a
-	 * multilingual input
-	 *
-	 * @param {HTMLElement} multilingualInput The element in the
-	 *		multilingual set to hide.
-	 * @param {Event} event The event that triggered the action.
+	 * Test if any of the elements inside this popover has focus.
+	 * @return {boolean}
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.multilingualHide =
-			function(multilingualInput, event) {
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.hasElementInFocus_ =
+			function() {
 
-		// Use a timeout to give the other element a chance to acquire the focus.
-		setTimeout(this.callbackWrapper(function() {
-			var $popover = this.getHtmlElement();
-			var found = false;
-			// Test if any of the other elements has the focus.
-			$popover.find(':input').each(function(index, elem) {
-				if (elem === document.activeElement) {
-					found = true;
-				}
-			});
-			// If none of them have the focus, we can hide the pop over.
-			if (!found) {
-				$popover.removeClass('localization_popover_container_focus');
-				$popover.find('.localization_popover').hide();
-			}
-		}), 0);
+		var $popover = this.getHtmlElement();
+
+		// Do the test.
+		if ($popover.has(document.activeElement).length) {
+			return true;
+		} else {
+			return false;
+		}
 	};
 
 
 	/**
-	 * tinyMCE initialized event handler, it will attach focus and blur
-	 * event handlers to the tinyMCE window element.
+	 * TinyMCE initialized event handler, it will attach focus and blur
+	 * event handlers to the tinyMCE window element, and it will also
+	 * fix some small issues related to the way tinyMCE editor behaves
+	 * across different browsers.
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
 	 * @param {Object} tinyMCEObject The tinyMCE object inside this
 	 * multilingual element handler that was initialized.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.handleTinyMCEEvents_ =
+	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
 		var editorId = tinyMCEObject.editorId;
+
+		// This hack is needed so the focus event is triggered correctly in IE8.
+		// We just adjust the body element height inside the tinyMCE editor
+		// instance to a percent of the original text area height, so when users
+		// click inside an empty tinyMCE editor the target will be the body element
+		// and the focus event will be triggered.
+		var textAreaHeight = $('#' + tinyMCEObject.editorId).height();
+		$(tinyMCEObject.getBody()).height((textAreaHeight / 100) * 78);
+
 		$(tinyMCEObject.getWin()).focus(
 				this.callbackWrapper(function() {
 
+			// We need also to close the multilingual popover when user clicks
+			// outside the popover element. The blur event is not enough because
+			// sometimes (with text selected in editor) Chrome will consider the
+			// tinyMCE editor as still active and that will avoid the popover to
+			// close (see the first check of the blur handler, just above).
+			//
+			// Firefox will also not completely focus on tinyMCE editors after
+			// comming back from fullscreen mode (the callback to focus the
+			// editor when set content will only trigger the focus handler that
+			// we attach here, but will not move the cursor inside the tinyMCE
+			// editor). Then, if user clicks outside the popover, it will not
+			// close because no blur event will be triggered.
+			this.trigger('callWhenClickOutside', {
+				container: this.getHtmlElement(),
+				callback: this.callbackWrapper(this.hidePopover_),
+				skipWhenVisibleModals: false
+			});
+
 			// Create a callback for the set content event, so we can
-			// still show the multilingual input if user is back from an
-			// image insertion, html edit or fullscreen mode.
+			// still show the multilingual input if user is back from
+			// fullscreen mode.
 			var setContentCallback = this.callbackWrapper(
 					function(tinyMCEObject) {
 				var $tinyWindow = $(tinyMCEObject.getWin());
@@ -151,25 +199,26 @@
 			// Add the set content callback.
 			tinyMCEObject.onSetContent.add(setContentCallback);
 
-			clearTimeout(this.popoverTimer);
-			var $popoverContainer = this.getHtmlElement();
-			$popoverContainer.
-				addClass('localization_popover_container_focus');
-			var $localizationPopover = $popoverContainer.find('.localization_popover');
-
-			$localizationPopover.find('iframe').width($popoverContainer.width() -1);
-			$localizationPopover.show();
+			this.showPopover_();
 	    }));
+
 		$(tinyMCEObject.getWin()).blur(
 				this.callbackWrapper(function() {
-			// set a short timer to prevent the next popover from closing.
-			// this allows time for the next click event from the
-			// TinyMCE editor to cancel the timer.
-			this.popoverTimer = setTimeout(this.callbackWrapper(
-					function() {
-				this.getHtmlElement().
-					removeClass('localization_popover_container_focus');
-				$('.localization_popover', this.getHtmlElement()).hide();
+
+			// Check if the active document element is still the tinyMCE
+			// editor. If true, return false. This will avoid closing the
+			// popover if user is just inserting an image or editing the
+			// html source, for example (both actions open a new window).
+			if ($(tinyMCEObject.getContainer()).find('iframe').attr('id') ==
+				$(document.activeElement).attr('id')) {
+				return false;
+			}
+
+			// Use a timeout to give the other element a chance to acquire the focus.
+			setTimeout(this.callbackWrapper(function() {
+				if (!this.hasElementInFocus_()) {
+					this.hidePopover_();
+				}
 			}), 0);
 	    }));
 	};

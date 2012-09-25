@@ -157,7 +157,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('modal', array(&$this, 'smartyModal'));
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
-		$this->register_function('modal_title', array(&$this, 'smartyModalTitle'));
 
 		// Modified vocabulary for creating forms
 		$fbv =& $this->getFBV();
@@ -1409,55 +1408,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $confirmCode;
-	}
-
-	function smartyModalTitle($params, &$smarty) {
-		// Required params
-		// Id must be child of div that is next-sibling of title div
-		if (!isset($params['id'])) {
-			$smarty->trigger_error("Selector missing for title bar initialization");
-		} else {
-			$id = $params['id'];
-		}
-
-		// Non-required params
-		$iconClass = isset($params['iconClass']) ? $params['iconClass'] : '';
-		if(isset($params['iconClass'])) {
-			$iconClass = $params['iconClass'];
-			$iconHtml = "<span class='icon $iconClass' />";
-
-		} else $iconHtml = "";
-
-		if(isset($params['key'])) {
-			$keyHtml = "<span class='text'>" . __($params['key']) . "</span>";
-		} elseif(isset($params['keyTranslated'])) {
-			$keyHtml = "<span class='text'>" . $params['keyTranslated'] . "</span>";
-		} else $keyHtml = "";
-
-
-		if(isset($params['canClose'])) {
-			$canClose = $params['canClose'];
-			$canCloseHtml = "<a class='close ui-corner-all' href='#'><span class='ui-icon ui-icon-closethick'>close</span></a>";
-
-		} else $canCloseHtml = "";
-
-		// WARNING: The div here MUST be synced with ModalHandler.js
-		// as part of the title bar fix code to work around JQueryUI.
-		return "<script type='text/javascript'>
-			<!--
-			$(function() {
-				$('$id').last().parent().prev('.ui-dialog-titlebar').remove();
-				$('a.close').live('click', function() { $(this).parent().parent().dialog('close'); return false; });
-				return false;
-			});
-			// -->
-			</script>
-			<div class='pkp_controllers_modal_titleBar'>" .
-				$iconHtml .
-				$keyHtml .
-				$canCloseHtml .
-				"<span style='clear:both' />
-			</div>";
 	}
 }
 

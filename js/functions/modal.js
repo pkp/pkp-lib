@@ -226,44 +226,6 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
 }
 
 /**
- * Display a simple alert dialog
- * @param {string} dialogText Text to display in the dialog
- * @param {Array} localizedButtons of translated 'Cancel/submit' strings
- */
-function modalAlert(dialogText, localizedButtons) {
-		var localizedText = new Array();
-		localizedText = localizedButtons.split(',');
-		var okButton = localizedText[0];
-		if (localizedText[1]) {
-			var title = localizedText[1];
-		} else {
-			var title = "Alert";
-		}
-
-		// Construct action to perform when OK button is clicked
-		var dialogOptions = {};
-		dialogOptions[okButton] = function() {
-			$(this).dialog("close");
-		};
-
-		// Construct dialog
-		var $dialog = $('<div id=\"modalAlert\">'+dialogText+'</div>').dialog({
-			title: title,
-			autoOpen: false,
-			modal: true,
-			draggable: false,
-			buttons: dialogOptions,
-			close: function() {
-				$('#modalAlert').dialog('destroy');
-				$('#modalAlert').remove();
-			}
-		});
-
-		$dialog.dialog('open');
-		return false;
-}
-
-/**
  * Clear all fields of a form.
  * @param {jQuery} form
  */

@@ -315,9 +315,9 @@
 	<message key="search.matchAll">എല്ലാം വിഭാഗങ്ങളും യോജിപ്പിക്കുക</message>
 	<message key="search.noKeywordError">ഒരു സെര്‍ച്ച് കീ-വേഡ് എങ്കിലും നല്‍കേണ്ടതുണ്ട്.</message>
 	<message key="search.noResults">ഫലങ്ങളൊന്നും ഇല്ല</message>
-	<message key="search.operator.and">പിന്നെ</message>
-	<message key="search.operator.not">ഇല്ല</message>
-	<message key="search.operator.or">അല്ലെങ്കില്‍</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">അന്വേഷണം പുനഃപരിശോധിക്കുക</message>
 	<message key="search.searchAllCategories">എല്ലാം വിഭാഗങ്ങളും അന്വേഷിക്കുന്നതിന്:</message>
 	<message key="search.searchCategories">വിഭാഗങ്ങള്‍ തിരയുക</message>

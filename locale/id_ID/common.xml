@@ -310,7 +310,7 @@
 	<message key="search.noKeywordError">Anda harus masukkan setidaknya satu kata kunci pencarian.</message>
 	<message key="search.noResults">Tidak ada hasil</message>
 	<message key="search.operator.and">dan</message>
-	<message key="search.operator.not">tidak</message>
+	<message key="search.operator.not">bukan</message>
 	<message key="search.operator.or">atau</message>
 	<message key="search.reviseSearch">Revisi Pencarian</message>
 	<message key="search.searchAllCategories">Cari semua kategori untuk</message>

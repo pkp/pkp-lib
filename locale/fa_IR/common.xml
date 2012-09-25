@@ -256,9 +256,9 @@
 	<message key="search.matchAll">جور بودن با همه قسمت ها</message>
 	<message key="search.noKeywordError">باید حداقل یک کلید واژه جستجو وارد کنید</message>
 	<message key="search.noResults">بی نتیجه</message>
-	<message key="search.operator.and">و</message>
-	<message key="search.operator.not">نه</message>
-	<message key="search.operator.or">یا</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">تجدید نظر در جستجو</message>
 	<message key="search.searchAllCategories">جستجو کن تمام قسمت ها را برای</message>
 	<message key="search.searchCategories">قسمت های جستجو</message>

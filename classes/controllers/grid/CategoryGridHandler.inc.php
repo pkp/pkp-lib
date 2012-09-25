@@ -58,6 +58,44 @@ class CategoryGridHandler extends GridHandler {
 		$this->_emptyCategoryRowText = $translationKey;
 	}
 
+	/**
+	 * Check whether the passed category has grid rows.
+	 * @param $categoryDataElement mixed The category data element
+	 * that will be checked.
+	 * @param $request PKPRequest
+	 * @return boolean
+	 */
+	function hasGridDataElementsInCategory($categoryDataElement, $request) {
+		$filter = $this->getFilterSelectionData($request);
+		$data =& $this->getCategoryData($categoryDataElement, $filter);
+		assert (is_array($data));
+		return (boolean) count($data);
+	}
+
+	/**
+	 * Override to return the data element sequence value
+	 * inside the passed category, if needed.
+	 * @param $categoryId int The data element category id.
+	 * @param $gridDataElement mixed The element to return the
+	 * sequence.
+	 * @return int
+	 */
+	function getDataElementInCategorySequence($categoryId, &$gridDataElement) {
+		assert(false);
+	}
+
+	/**
+	 * Override to set the data element new sequence inside
+	 * the passed category, if needed.
+	 * @param $categoryId int The data element category id.
+	 * @param $gridDataElement mixed The element to set the
+	 * new sequence.
+	 * @param $newSequence int The new sequence value.
+	 */
+	function setDataElementInCategorySequence($categoryId, &$gridDataElement, $newSequence) {
+		assert(false);
+	}
+
 
 	//
 	// Public handler methods
@@ -256,31 +294,6 @@ class CategoryGridHandler extends GridHandler {
 		// Instantiate a new row
 		$row =& $this->_getInitializedCategoryRowInstance($request, $elementId, $dataElement);
 		return $row;
-	}
-
-	/**
-	 * Get the category data element sequence value.
-	 * @param $gridDataElement mixed
-	 * @return int
-	 */
-	function getCategoryDataElementSequence(&$gridDataElement) {
-		assert(false);
-	}
-
-	/**
-	 * Operation to save the category data element new sequence.
-	 * @param $gridDataElement mixed
-	 * @param $newSequence int
-	 */
-	function saveCategoryDataElementSequence(&$gridDataElement, $newSequence) {
-		assert(false);
-	}
-
-	/**
-	 * @see GridHandler::saveRowDataElementSequence()
-	 */
-	function saveRowDataElementSequence($gridDataElement, $categoryId, $newSequence) {
-		assert(false);
 	}
 
 	/**

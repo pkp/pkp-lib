@@ -55,13 +55,13 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 		$data = $jsonManager->decode($request->getUserVar('data'));
 
 		$gridElements = $grid->getGridDataElements($request);
-		$firstSeqValue = $grid->getRowDataElementSequence(reset($gridElements));
+		$firstSeqValue = $grid->getDataElementSequence(reset($gridElements));
 		foreach ($gridElements as $rowId => $element) {
 			$rowPosition = array_search($rowId, $data);
 			$newSequence = $firstSeqValue + $rowPosition;
-			$currentSequence = $grid->getRowDataElementSequence($element);
+			$currentSequence = $grid->getDataElementSequence($element);
 			if ($newSequence != $currentSequence) {
-				$grid->saveRowDataElementSequence($request, $rowId, $element, $newSequence);
+				$grid->setDataElementSequence($request, $rowId, $element, $newSequence);
 			}
 		}
 	}

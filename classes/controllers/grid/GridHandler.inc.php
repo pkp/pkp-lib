@@ -407,6 +407,27 @@ class GridHandler extends PKPHandler {
 		return array();
 	}
 
+	/**
+	 * Override to return the data element sequence
+	 * value, if needed.
+	 * @param $gridDataElement mixed
+	 * @return int
+	 */
+	function getDataElementSequence(&$gridDataElement) {
+		assert(false);
+	}
+
+	/**
+	 * Override to set the data element new sequence,
+	 * if needed.
+	 * @param $gridDataElement mixed
+	 * @param $newSequence int
+	 */
+	function setDataElementSequence(&$request, $rowId, &$gridDataElement, $newSequence) {
+		assert(false);
+	}
+
+
 	//
 	// Overridden methods from PKPHandler
 	//
@@ -535,6 +556,20 @@ class GridHandler extends PKPHandler {
 		// Render the cell
 		$json = new JSONMessage(true, $this->_renderCellInternally($request, $row, $column));
 		return $json->getString();
+	}
+
+	/**
+	 * Hook oportunity for grid features to request a save items sequence
+	 * operation. If no grid feature that implements the saveSequence
+	 * hook is attached to this grid, this operation will only return
+	 * the data changed event json message.
+	 * @param $args array
+	 * @param $request Request
+	 */
+	function saveSequence($args, &$request) {
+		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
+
+		return DAO::getDataChangedEvent();
 	}
 
 
@@ -735,35 +770,6 @@ class GridHandler extends PKPHandler {
 
 		$json = new JSONMessage(true, $returner);
 		return $json->getString();
-	}
-
-	/**
-	 * Save all data elements new sequence.
-	 * @param $args array
-	 * @param $request Request
-	 */
-	function saveSequence($args, &$request) {
-		$this->callFeaturesHook('saveSequence', array('request' => &$request, 'grid' => &$this));
-
-		return DAO::getDataChangedEvent();
-	}
-
-	/**
-	 * Get the row data element sequence value.
-	 * @param $gridDataElement mixed
-	 * @return int
-	 */
-	function getRowDataElementSequence(&$gridDataElement) {
-		assert(false);
-	}
-
-	/**
-	 * Operation to save the row data element new sequence.
-	 * @param $gridDataElement mixed
-	 * @param $newSequence int
-	 */
-	function saveRowDataElementSequence(&$request, $rowId, &$gridDataElement, $newSequence) {
-		assert(false);
 	}
 
 	/**

@@ -102,13 +102,13 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 			}
 
 			// Save categories sequence.
-			$firstSeqValue = $grid->getCategoryDataElementSequence(reset($gridCategoryElements));
+			$firstSeqValue = $grid->getDataElementSequence(reset($gridCategoryElements));
 			foreach ($gridCategoryElements as $rowId => $element) {
 				$rowPosition = array_search($rowId, $categoriesData);
 				$newSequence = $firstSeqValue + $rowPosition;
-				$currentSequence = $grid->getCategoryDataElementSequence($element);
+				$currentSequence = $grid->getDataElementSequence($element);
 				if ($newSequence != $currentSequence) {
-					$grid->saveCategoryDataElementSequence($element, $newSequence);
+					$grid->setDataElementSequence($request, $rowId, $element, $newSequence);
 				}
 			}
 		}
@@ -141,13 +141,13 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 					}
 				}
 
-				$firstSeqValue = $grid->getRowDataElementSequence(reset($gridRowElements));
+				$firstSeqValue = $grid->getDataElementInCategorySequence($categoryId, reset($gridRowElements));
 				foreach ($gridRowElements as $rowId => $element) {
 					$rowPosition = array_search($rowId, $rowsData);
 					$newSequence = $firstSeqValue + $rowPosition;
-					$currentSequence = $grid->getRowDataElementSequence($element);
+					$currentSequence = $grid->getDataElementInCategorySequence($categoryId, $element);
 					if ($newSequence != $currentSequence) {
-						$grid->saveRowDataElementSequence($element, $categoryId, $newSequence);
+						$grid->setDataElementInCategorySequence($categoryId, $element, $newSequence);
 					}
 				}
 			}

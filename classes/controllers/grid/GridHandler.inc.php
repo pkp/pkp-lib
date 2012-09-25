@@ -40,6 +40,12 @@ class GridHandler extends PKPHandler {
 	/** @var string empty row locale key */
 	var $_emptyRowText = 'grid.noItems';
 
+	/** @var string Grid instructions locale key */
+	var $_instructions = '';
+
+	/** @var string Grid foot note locale key */
+	var $_footNote = '';
+
 	/** @var GridDataProvider */
 	var $_dataProvider;
 

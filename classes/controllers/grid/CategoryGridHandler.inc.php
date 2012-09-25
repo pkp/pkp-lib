@@ -73,6 +73,14 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
+	 * Get the category id that this grid is currently rendering.
+	 * @param int
+	 */
+	function getCurrentCategoryId() {
+		return $this->_currentCategoryId;
+	}
+
+	/**
 	 * Override to return the data element sequence value
 	 * inside the passed category, if needed.
 	 * @param $categoryId int The data element category id.
@@ -93,6 +101,16 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $newSequence int The new sequence value.
 	 */
 	function setDataElementInCategorySequence($categoryId, &$gridDataElement, $newSequence) {
+		assert(false);
+	}
+
+	/**
+	 * Override to define whether the data element inside the passed
+	 * category is selected or not.
+	 * @param $categoryId int
+	 * @param $gridDataElement mixed
+	 */
+	function isDataElementInCategorySelected($categoryId, &$gridDataElement) {
 		assert(false);
 	}
 
@@ -334,6 +352,7 @@ class CategoryGridHandler extends GridHandler {
 		$this->callFeaturesHook('getInitializedCategoryRowInstance',
 			array('request' => &$request,
 				'grid' => &$this,
+				'categoryId' => $this->_currentCategoryId,
 				'row' => &$row));
 		return $row;
 	}

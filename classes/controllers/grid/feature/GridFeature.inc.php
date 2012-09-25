@@ -80,7 +80,7 @@ class GridFeature {
 	 * @param $grid GridHandler
 	 */
 	function setOptions(&$request, &$grid) {
-		$renderedElements = $this->fetchUIElements($grid, $request);
+		$renderedElements = $this->fetchUIElements($grid);
 		if ($renderedElements) {
 			foreach ($renderedElements as $id => $markup) {
 				$this->addOptions(array($id => $markup));
@@ -91,7 +91,8 @@ class GridFeature {
 	/**
 	 * Fetch any user interface elements that
 	 * this feature needs to add its functionality
-	 * into the grid.
+	 * into the grid. Use this only for ui elements
+	 * that grid will not fetch itself.
 	 * @param $grid GridHandler The grid that this
 	 * feature is attached to.
 	 * @return array It is expected that the array
@@ -116,8 +117,9 @@ class GridFeature {
 	//
 	/**
 	 * Hook called every time grid initialize a row object.
-	 * @param $args array Contains the initialized referenced row object
-	 * in 'row' array index.
+	 * @param $args array
+	 * 'grid' => GridHandler,
+	 * 'row' => GridRow
 	 */
 	function getInitializedRowInstance($args) {
 		return null;
@@ -127,6 +129,7 @@ class GridFeature {
 	 * Hook called on grid category row initialization.
 	 * @param $args array 'request' => Request
 	 * 'grid' => CategoryGridHandler
+	 * 'categoryId' => int
 	 * 'row' => GridCategoryRow
 	 */
 	function getInitializedCategoryRowInstance($args) {
@@ -139,6 +142,17 @@ class GridFeature {
 	 * in 'grid' array index.
 	 */
 	function gridInitialize($args) {
+		return null;
+	}
+
+	/**
+	 * Hook called on grid's data loading.
+	 * @param $args array
+	 * 'request' => PKPRequest,
+	 * 'grid' => GridHandler,
+	 * 'gridData' => array
+	 */
+	function loadData($args) {
 		return null;
 	}
 

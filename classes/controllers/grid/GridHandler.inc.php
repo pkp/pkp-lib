@@ -407,9 +407,17 @@ class GridHandler extends PKPHandler {
 		return array();
 	}
 
+	// FIXME: Since we've moved to PHP5, maybe those methods
+	// should be moved into interfaces like OrderableItems
+	// and SelectableItems. Then each grid can implement
+	// them in a clear way. It will also simplify this base
+	// class hiding optional interfaces.
+
+	//
+	// Orderable items.
+	//
 	/**
-	 * Override to return the data element sequence
-	 * value, if needed.
+	 * Override to return the data element sequence value.
 	 * @param $gridDataElement mixed
 	 * @return int
 	 */
@@ -418,12 +426,35 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Override to set the data element new sequence,
-	 * if needed.
+	 * Override to set the data element new sequence.
+	 * @param $request PKPRequest
+	 * @param $rowId int
 	 * @param $gridDataElement mixed
 	 * @param $newSequence int
 	 */
 	function setDataElementSequence(&$request, $rowId, &$gridDataElement, $newSequence) {
+		assert(false);
+	}
+
+	//
+	// Selectable items.
+	//
+	/**
+	 * Returns the current selection state
+	 * of the grid data element.
+	 * @param $gridDataElement mixed
+	 * @return boolean
+	 */
+	function isDataElementSelected(&$gridDataElement) {
+		assert(false);
+	}
+
+	/**
+	 * Get the select parameter name to store
+	 * the selected files.
+	 * @return string
+	 */
+	function getSelectName() {
 		assert(false);
 	}
 
@@ -697,6 +728,9 @@ class GridHandler extends PKPHandler {
 			// data provider.
 			$gridData =& $dataProvider->loadData();
 		}
+
+		$this->callFeaturesHook('loadData', array('request' => &$request, 'grid' => &$this, 'gridData' => &$gridData));
+
 		return $gridData;
 	}
 
@@ -883,7 +917,7 @@ class GridHandler extends PKPHandler {
 
 		// Initialize the row before we render it
 		$row->initialize($request);
-		$this->callFeaturesHook('getInitializedRowInstance', array('row' => &$row));
+		$this->callFeaturesHook('getInitializedRowInstance', array('grid' => &$this, 'row' => &$row));
 		return $row;
 	}
 

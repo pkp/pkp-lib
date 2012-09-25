@@ -22,7 +22,7 @@
 				<td class="no_border indent_row"></td>
 				{assign var=columnSpan value=0}
 			{else}
-				{assign var=columnSpan value=$columns|@count}
+				{assign var=columnSpan value=2}
 			{/if}
 		{else}
 			<td {if $columnSpan && $smarty.foreach.columnLoop.iteration == 2}colspan="{$columnSpan}"{/if}

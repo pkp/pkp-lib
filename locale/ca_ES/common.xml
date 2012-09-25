@@ -256,9 +256,9 @@
 	<message key="search.matchAll">Coincidència a totes les categories</message>
 	<message key="search.noKeywordError">Heu d’introduir una paraula clau per a la cerca com a mínim.</message>
 	<message key="search.noResults">No hi ha cap resultat.</message>
-	<message key="search.operator.and">i</message>
-	<message key="search.operator.not">no</message>
-	<message key="search.operator.or">o</message>
+	<message key="search.operator.and">and</message>
+	<message key="search.operator.not">not</message>
+	<message key="search.operator.or">or</message>
 	<message key="search.reviseSearch">Revisa la cerca</message>
 	<message key="search.searchAllCategories">Cerca totes les categories per</message>
 	<message key="search.searchCategories">Categories de cerca</message>

@@ -157,7 +157,7 @@ class BlockPlugin extends LazyLoadPlugin {
 		$params =& $args[0];
 		$smarty =& $args[1];
 		$output =& $args[2];
-		$output .= $this->getContents($smarty, PKPApplication::getRequest());
+		$output .= $this->getContents($smarty, $this->getRequest());
 		return false;
 	}
 

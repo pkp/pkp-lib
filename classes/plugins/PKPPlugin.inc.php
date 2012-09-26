@@ -51,6 +51,9 @@ class PKPPlugin {
 	/** @var $pluginCategory string Category name this plugin is registered to*/
 	var $pluginCategory;
 
+	/** @var $request PKPRequest the current request object */
+	var $request;
+
 	/**
 	 * Constructor
 	 */
@@ -735,6 +738,17 @@ class PKPPlugin {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * Get the current request object
+	 * @return PKPRequest
+	 */
+	function &getRequest() {
+		if (!$this->request) {
+			$this->request =& Registry::get('request');
+		}
+		return $this->request;
 	}
 
 	/*

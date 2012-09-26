@@ -50,6 +50,7 @@ class PKPAction {
 		$templateMgr->addJavaScript('lib/pkp/js/functions/jqueryValidatorI18n.js');
 		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.splitter.js');
 
+		$citationEditorConfigurationError = null;
 
 		// Check whether the citation editor requirements are complete.
 		// 1) Citation editing must be enabled for the journal.

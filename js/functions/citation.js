@@ -1,10 +1,12 @@
 /**
- * modal.js
+ * js/functions/citation.js
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * Implementation of jQuery modals and other JS backend functions.
+ * DEPRECATED implementation of jQuery modals and other JS backend functions for
+ * the citation manager.
+ * DO NOT USE.
  */
 
 /**
@@ -146,8 +148,6 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
  * NB: Please make sure you correctly unbind previous ajax action events
  * before you call this method.
  *
- * @param {string} actType can be either 'get' or 'post', 'post' expects a form as
- *  a child element of 'actOnId' if no form has been explicitly given.
  * @param {string} callingElement selector of the element that triggers the ajax call
  * @param {string} url the url to be called, defaults to the form action in case of
  *  action type 'post'.
@@ -156,58 +156,34 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
  * @param {string} eventName the name of the event that triggers the action, default 'click'.
  * @param {string} form the selector of a form element.
  */
-function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {
-	if (actType == 'post') {
-		var eventHandler = function() {
-			// jQuerify the form.
-			var $form;
-			if (form) {
-				$form = $(form);
-			} else {
-				$form = $(actOnId).find('form');
-			}
+function ajaxAction(actOnId, callingElement, url, data, eventName, form) {
+	var eventHandler = function() {
+		// jQuerify the form.
+		var $form;
+		if (form) {
+			$form = $(form);
+		} else {
+			$form = $(actOnId).find('form');
+		}
 
-			// Set default url and data if none has been given.
-			if (!url) {
-				url = $form.attr("action");
-			}
-			if (!data) {
-				data = $form.serialize();
-			}
+		// Set default url and data if none has been given.
+		if (!url) {
+			url = $form.attr("action");
+		}
+		if (!data) {
+			data = $form.serialize();
+		}
 
-			// Validate
-			var validator = $form.validate();
+		// Validate
+		var validator = $form.validate();
 
-			// Post to server and construct callback
-			if ($form.valid()) {
-				var $actOnId = $(actOnId);
-				$actOnId.triggerHandler('actionStart');
-				$.post(
-					url,
-					data,
-					function(jsonData) {
-						$actOnId.triggerHandler('actionStop');
-						if (jsonData !== null) {
-							if (jsonData.status === true) {
-								$actOnId.replaceWith(jsonData.content);
-							} else {
-								// Alert that the action failed
-								alert(jsonData.content);
-							}
-						}
-					},
-					'json'
-				);
-				validator = null;
-			}
-			return false;
-		};
-	} else {
-		eventHandler = function() {
+		// Post to server and construct callback
+		if ($form.valid()) {
 			var $actOnId = $(actOnId);
 			$actOnId.triggerHandler('actionStart');
-			$.getJSON(
+			$.post(
 				url,
+				data,
 				function(jsonData) {
 					$actOnId.triggerHandler('actionStop');
 					if (jsonData !== null) {
@@ -218,11 +194,13 @@ function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form
 							alert(jsonData.content);
 						}
 					}
-				}
+				},
+				'json'
 			);
-			return false;
-		};
-	}
+			validator = null;
+		}
+		return false;
+	};
 
 	if (!eventName) eventName = 'click';
 	$(callingElement).each(function() {

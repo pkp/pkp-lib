@@ -321,7 +321,6 @@
 			//
 			// Bind action to citation service query button.
 			ajaxAction(
-				'post',
 				'#{$containerId}',
 				'#queryCitation',
 				'{url op="checkCitation"}'
@@ -377,7 +376,6 @@
 			//
 			// Bind action to author query button.
 			ajaxAction(
-				'post',
 				'#authorQueryResult',
 				'#authorQuery',
 				'{url op="sendAuthorQuery"}',

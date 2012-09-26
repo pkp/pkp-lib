@@ -15,8 +15,6 @@
 // FIXME: Replace the reference to the ajaxAction() function
 // with an object/event oriented approach, see #6339.
 /**
- * @param {string} actType can be either 'get' or 'post', 'post' expects a form as
- *  a child element of 'actOnId' if no form has been explicitly given.
  * @param {string} actOnId the ID of an element to be changed.
  * @param {string} callingElement selector of the element that triggers the ajax call
  * @param {string} url the url to be called, defaults to the form action in case of
@@ -26,7 +24,7 @@
  * @param {string=} eventName the name of the event that triggers the action, default 'click'.
  * @param {string=} form the selector of a form element.
  */
-function ajaxAction(actType, actOnId, callingElement, url, data, eventName, form) {};
+function ajaxAction(actOnId, callingElement, url, data, eventName, form) {};
 
 
 /**

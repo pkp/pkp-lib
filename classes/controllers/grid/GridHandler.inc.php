@@ -435,7 +435,7 @@ class GridHandler extends PKPHandler {
 		// Give a chance to grid add features before calling hooks.
 		// Because we must control when features are added to a grid,
 		// this is the only place that should use the _addFeature() method.
-		$this->_addFeatures($this->initFeatures(&$request, $args));
+		$this->_addFeatures($this->initFeatures($request, $args));
 		$this->callFeaturesHook('gridInitialize', array('grid' => &$this));
 	}
 
@@ -841,7 +841,7 @@ class GridHandler extends PKPHandler {
 
 		// Pass control to the view to render the row
 		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->assign_by_ref('grid', &$this);
+		$templateMgr->assign_by_ref('grid', $this);
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign_by_ref('cells', $renderedCells);
 		$templateMgr->assign_by_ref('row', $row);

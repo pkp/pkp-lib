@@ -128,13 +128,17 @@ class PKPFilterGridHandler extends GridHandler {
 
 		// Grid action
 		$router =& $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(
-			new LegacyLinkAction(
+			new LinkAction(
 				'addFilter',
-				LINK_ACTION_MODE_MODAL,
-				LINK_ACTION_TYPE_APPEND,
-				$router->url($request, null, null, 'addFilter'),
-				'grid.action.addItem'
+				new AjaxModal(
+					$router->url($request, null, null, 'addFilter'),
+					__('grid.action.addItem'),
+					'modal_manage'
+				),
+				__('grid.action.addItem'),
+				'add_filter'
 			)
 		);
 
@@ -235,22 +239,13 @@ class PKPFilterGridHandler extends GridHandler {
 			// Persist the filter.
 			$filterForm->execute($request);
 
-			// Render the updated filter row into
-			// a JSON response
-			$row =& $this->getRowInstance();
-			$row->setGridId($this->getId());
-			$row->setId($filter->getId());
-			$row->setData($filter);
-			$row->initialize($request);
-			$json = new JSONMessage(true, $this->renderRowInternally($request, $row));
+			return DAO::getDataChangedEvent();
 		} else {
 			// Re-display the filter form with error messages
 			// so that the user can fix it.
 			$json = new JSONMessage(false, $filterForm->fetch($request));
+			return $json->getString();
 		}
-
-		// Return the serialized JSON response
-		return $json->getString();
 	}
 
 	/**
@@ -267,7 +262,7 @@ class PKPFilterGridHandler extends GridHandler {
 		$result = $filterDao->deleteObject($filter);
 
 		if ($result) {
-			$json = new JSONMessage(true);
+			return DAO::getDataChangedEvent();
 		} else {
 			$json = new JSONMessage(false, __('manager.setup.filter.grid.errorDeletingFilter'));
 		}

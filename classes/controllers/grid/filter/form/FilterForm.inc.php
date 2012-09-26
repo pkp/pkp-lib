@@ -60,7 +60,7 @@ class FilterForm extends Form {
 			$this->setData('filterSettings', $filter->getSettings());
 			foreach($filter->getSettings() as $filterSetting) {
 				// Add check corresponding to filter setting.
-				$settingCheck =& $filterSetting->getCheck($form);
+				$settingCheck =& $filterSetting->getCheck($this);
 				if (!is_null($settingCheck)) $this->addCheck($settingCheck);
 			}
 		}

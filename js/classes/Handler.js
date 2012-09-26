@@ -231,7 +231,7 @@
 	/**
 	 * Completely remove all traces of the handler from the
 	 * HTML element to which it is bound and leave the element in
-	 * it's previous state.
+	 * its previous state.
 	 *
 	 * Subclasses should override this method if necessary but
 	 * should always call this implementation.
@@ -275,6 +275,21 @@
 
 		// Return the HTML element.
 		return this.$htmlElement_;
+	};
+
+
+	/**
+	 * Sets the HTML element this handler is bound to.
+	 *
+	 * @protected
+	 * @param {jQuery} $htmlElement The element this handler should be bound to.
+	 * @return {jQuery} Passes through the supplied parameter.
+	 */
+	$.pkp.classes.Handler.prototype.setHtmlElement = function($htmlElement) {
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Return the HTML element.
+		return this.$htmlElement_ = $htmlElement;
 	};
 
 

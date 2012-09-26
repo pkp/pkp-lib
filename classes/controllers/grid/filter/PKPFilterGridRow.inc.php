@@ -48,29 +48,33 @@ class PKPFilterGridRow extends GridRow {
 			// settings to be configured.
 			$filter =& $this->getData();
 			assert(is_a($filter, 'Filter'));
+			import('lib.pkp.classes.linkAction.request.AjaxModal');
 			if ($filter->hasSettings()) {
 				$this->addAction(
-					new LegacyLinkAction(
+					new LinkAction(
 						'editFilter',
-						LINK_ACTION_MODE_MODAL,
-						LINK_ACTION_TYPE_REPLACE,
-						$router->url($request, null, null, 'editFilter', null, $actionArgs),
-						'grid.action.edit',
-						null,
+						new AjaxModal(
+							$router->url($request, null, null, 'editFilter', null, $actionArgs),
+							__('grid.action.edit'),
+							'edit'
+						),
+						__('grid.action.edit'),
 						'edit'
 					)
 				);
 			}
+			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 			$this->addAction(
-				new LegacyLinkAction(
+				new LinkAction(
 					'deleteFilter',
-					LINK_ACTION_MODE_CONFIRM,
-					LINK_ACTION_TYPE_REMOVE,
-					$router->url($request, null, null, 'deleteFilter', null, $actionArgs),
-					'grid.action.delete',
-					null,
-					'delete',
-					__('manager.setup.filter.grid.confirmDelete', array('filterName' => $filter->getDisplayName()))
+					new RemoteActionConfirmationModal(
+						__('manager.setup.filter.grid.confirmDelete', array('filterName' => $filter->getDisplayName())),
+						__('common.delete'),
+						$router->url($request, null, null, 'deleteFilter', null, $actionArgs),
+						'modal_delete'
+					),
+					__('common.delete'),
+					'delete'
 				)
 			);
 		}

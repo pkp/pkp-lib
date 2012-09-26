@@ -141,7 +141,7 @@ class GridRow extends GridBodyElement {
 	/**
 	 * Get all actions for a given position within the controller
 	 * @param $position string the position of the actions
-	 * @return array the LegacyLinkActions for the given position
+	 * @return array the LinkActions for the given position
 	 */
 	function getActions($position = GRID_ACTION_POSITION_DEFAULT) {
 		if(!isset($this->_actions[$position])) return array();

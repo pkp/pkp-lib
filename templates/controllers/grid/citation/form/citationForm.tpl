@@ -582,20 +582,21 @@
 					{rdelim}
 
 					// Submit the form.
-					{if $citation->getId()}
-						// Update existing citation.
-						submitJsonForm('#{$containerId}', 'replace', '#component-grid-citation-citationgrid-row-{$citation->getId()}');
-					{else}
-						// Create and the new citation.
-						submitJsonForm('#{$containerId}', 'append', '#component-grid-citation-citationgrid .scrollable tbody:first');
-					{/if}
+					var $formContainer = $('#{$containerId}');
+					var $form = $formContainer.find('form');
+					var validator = $form.validate();
+					if ($form.valid()) {ldelim}
+						// Retrieve form data.
+						var data = $form.serialize();
 
-					// Trigger the throbber for citation approval or when we
-					// add a new citation as this will change the whole citation
-					// detail pane.
-					{if $citation->getId()}if (pressedButton === 'citationFormSaveAndApprove') {ldelim}{/if}
-						$('#{$containerId}').triggerHandler('actionStart');
-					{if $citation->getId()}{rdelim}{/if}
+						$.post(
+							$form.attr('action'),
+							data,
+							function() {ldelim}
+								$('#citationGridContainer div').trigger('dataChanged');
+							{rdelim}
+						);
+					{rdelim}
 				{rdelim});
 			{rdelim});
 

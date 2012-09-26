@@ -9,15 +9,6 @@
 
 <span class="options">
 	{foreach from=$actions item=action}
-		{if is_a($action, 'LegacyLinkAction')}
-			{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-				{assign var=actionActOnId value=$action->getActOn()}
-			{else}
-				{assign var=actionActOnId value=$gridActOnId}
-			{/if}
-			{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId}
-		{else}
-			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
-		{/if}
+		{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 	{/foreach}
 </span>

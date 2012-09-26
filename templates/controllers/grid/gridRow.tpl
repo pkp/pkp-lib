@@ -36,16 +36,7 @@
 							{/if}
 							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
 								{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT) item=action}
-									{if is_a($action, 'LegacyLinkAction')}
-										{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-											{assign var=actionActOnId value=$action->getActOn()}
-										{else}
-											{assign var=actionActOnId value=$gridActOnId}
-										{/if}
-										{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId hoverTitle=true}
-									{else}
-										{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-									{/if}
+									{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 								{/foreach}
 							{/if}
 						</div>
@@ -73,14 +64,9 @@
 		<td colspan="{$grid->getColumnsCount('indent')}">
 			{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
-					{if is_a($action, 'LegacyLinkAction')}
-						{include file="linkAction/legacyLinkAction.tpl" action=$action id=$rowId}
-					{else}
-						{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
-					{/if}
+					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 				{/foreach}
 			{/if}
 		</td>
 	</tr>
 {/if}
-

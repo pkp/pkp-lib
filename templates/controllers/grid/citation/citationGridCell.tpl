@@ -9,7 +9,7 @@
 {assign var=cellId value="cell-"|concat:$id}
 <span id="{$cellId}" class="pkp_linkActions">
 	{assign var=cellAction value=$actions[0]}
-	{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$cellAction->getId() action=$cellAction actOnId=$cellAction->getActOn() buttonId=$cellId}
+	{include file="linkAction/linkAction.tpl" action=$cellAction contextId=$cellId}
 	[{$citationSeq}] {$label|escape}
 	<script type="text/javascript">
 		<!--
@@ -18,7 +18,7 @@
 
 			// Format parent div.
 			$parentDiv
-				.attr('title', '{$cellAction->getLocalizedTitle()} [{if $isApproved}{translate key="submission.citations.editor.citationlist.approved"}{else}{translate key="submission.citations.editor.citationlist.notApproved"}{/if}]');
+				.attr('title', '{$cellAction->getTitle()} [{if $isApproved}{translate key="submission.citations.editor.citationlist.approved"}{else}{translate key="submission.citations.editor.citationlist.notApproved"}{/if}]');
 
 			// Mark the clickable row.
 			$parentDiv.parent().addClass('clickable-row');

@@ -8,91 +8,6 @@
  */
 
 /**
- * modal
- * @param {string} url URL to load into the modal
- * @param {string} actType Type to define what callback should do (nothing|append|replace|remove)
- * @param {string} actOnId The ID on which to perform the action on callback
- * @param {Array} localizedButtons of translated 'Cancel/submit' strings
- * @param {string} callingElement Selector of the element that triggers the modal
- * @param {string} dialogTitle Set a custom title for the dialog
- */
-function modal(url, actType, actOnId, localizedButtons, callingElement, dialogTitle) {
-	$(function() {
-		var title = dialogTitle ? dialogTitle : $(callingElement).text();
-		var okButton = localizedButtons[0];
-		var cancelButton = localizedButtons[1];
-		var d = new Date();
-		var UID = Math.ceil(1000 * Math.random());
-
-		// Open the modal when the even is triggered on the calling element.
-		$(callingElement).die('click').live('click', function() {
-			// Construct action to perform when OK and Cancel buttons are clicked
-			var dialogOptions = {};
-			if (actType == 'nothing') {
-				// If the action type is 'nothing' then simply close the
-				// dialog when the OK button is pressed. No cancel button
-				// is needed.
-				dialogOptions[okButton] = function() {
-					$(this).dialog("close");
-				};
-			} else {
-				// All other action types will assume that there is a
-				// form to be posted and post it.
-				dialogOptions[okButton] = function() {
-					submitJsonForm("#"+UID, actType, actOnId);
-				};
-				dialogOptions[cancelButton] = function() {
-					$(this).dialog("close");
-				};
-			}
-			// Construct dialog
-			$('<div id=' + UID + '></div>').dialog({
-				title: title,
-				autoOpen: true,
-				width: 700,
-				modal: true,
-				draggable: false,
-				resizable: false,
-				position: ['center', 100],
-				buttons: dialogOptions,
-				open: function(event, ui) {
-					$(this).css({'max-height': 600, 'overflow-y': 'auto', 'z-index': '10000'});
-					$.getJSON(url, function(jsonData) {
-						$('#loading').hide();
-						if (jsonData.status === true) {
-							$("#"+UID).html(jsonData.content);
-						} else {
-							// Alert that the modal failed
-							alert(jsonData.content);
-						}
-					});
-					$(this).html("<div id='loading' class='deprecated_throbber'></div>");
-					$('#loading').show();
-				},
-				close: function() {
-					// Reset form validation errors and inputs on close
-					clearFormFields($("#"+UID).find('form'));
-					$("#"+UID).dialog('destroy');
-					$("#"+UID).remove();
-				}
-			});
-
-			// Handle custom dialog buttons
-			$("#cancelModalButton").die('click').live('click', function() {
-				$("#"+UID).dialog("close");
-				return false;
-			});
-			$("#submitModalButton").die('click').live('click', function() {
-				submitJsonForm("#"+UID, actType, actOnId);
-				return false;
-			});
-
-			return false;
-		});
-	});
-}
-
-/**
  * Opens a modal confirm box.
  * @param {string} url URL to load into the modal
  * @param {string} actType Type to define if callback should do (nothing|append|replace|remove)
@@ -223,29 +138,6 @@ function submitJsonForm(formContainer, actType, actOnId, url) {
 		);
 		validator = null;
 	}
-}
-
-/**
- * Clear all fields of a form.
- * @param {jQuery} form
- */
-function clearFormFields(form) {
-	$(':input', form).each(function() {
-		if(!$(this).is('.static')) {
-			switch(this.type) {
-				case 'password':
-				case 'select-multiple':
-				case 'select-one':
-				case 'text':
-				case 'textarea':
-					$(this).val('');
-					break;
-				case 'checkbox':
-				case 'radio':
-					this.checked = false;
-			}
-		}
-	});
 }
 
 /**

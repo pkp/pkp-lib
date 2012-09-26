@@ -55,16 +55,7 @@
 							{if $smarty.foreach.columns.last && $grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL)}
 								<span class="options pkp_linkActions">
 									{foreach from=$grid->getActions($smarty.const.GRID_ACTION_POSITION_LASTCOL) item=action}
-										{if is_a($action, 'LegacyLinkAction')}
-											{if $action->getMode() eq $smarty.const.LINK_ACTION_MODE_AJAX}
-												{assign var=actionActOnId value=$action->getActOn()}
-											{else}
-												{assign var=actionActOnId value=$gridActOnId}
-											{/if}
-											{include file="linkAction/legacyLinkAction.tpl" action=$action id=$gridId actOnId=$actionActOnId hoverTitle=true}
-										{else}
-											{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
-										{/if}
+										{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
 									{/foreach}
 								</span>
 							{/if}

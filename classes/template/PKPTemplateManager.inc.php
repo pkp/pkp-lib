@@ -153,10 +153,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
-		// JS UI components
-		$this->register_function('modal', array(&$this, 'smartyModal'));
-		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
-		$this->register_function('confirm_submit', array(&$this, 'smartyConfirmSubmit'));
 
 		// Modified vocabulary for creating forms
 		$fbv =& $this->getFBV();
@@ -1298,116 +1294,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $this->fetch('common/urlInDiv.tpl');
-	}
-
-	/**
-	 * Smarty usage: {modal url=$dialogUrl actOnId="#gridName" button="#dialogButton"}
-	 *
-	 * Custom Smarty function for creating jQuery-based modals
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string Call to modal function with specified parameters
-	 */
-	function smartyModal($params, &$smarty) {
-		// Required Params
-		if (!isset($params['url'])) {
-			$smarty->trigger_error("URL parameter is missing from modal");
-		} elseif (!isset($params['actOnId'])) {
-			$smarty->trigger_error("actOnId parameter is missing from modal");
-		} elseif (!isset($params['button'])) {
-			$smarty->trigger_error("Button parameter is missing from modal");
-		} else {
-			$url = $params['url'];
-			$actOnType = isset($params['actOnType'])?$params['actOnType']:'';
-			$actOnId = $params['actOnId'];
-			$button = $params['button'];
-			$dialogTitle = isset($params['dialogTitle'])?$params['dialogTitle']: false;
-		}
-
-		// Translate modal submit/cancel buttons
-		$submitButton = __('common.ok');
-		$cancelButton = __('common.cancel');
-
-		// Escape variables for JS inclusion
-		foreach (array('submitButton', 'cancelButton', 'url', 'actOnType', 'actOnId', 'button') as $varName) {
-			$$varName = $this->smartyEscape($$varName, 'javascript');
-		}
-
-		// Add the modal javascript to the header
-		$dialogTitle = isset($dialogTitle) ? ", '$dialogTitle'" : "";
-		$modalCode = "<script type='text/javascript'>
-			<!--
-			var localizedButtons = ['$submitButton', '$cancelButton'];
-			modal('$url', '$actOnType', '$actOnId', localizedButtons, '$button'$dialogTitle);
-			// -->
-		</script>\n";
-
-		return $modalCode;
-	}
-
-
-	/**
-	 * Smarty usage: {confirm url=$dialogUrl dialogText="example.locale.key" button="#dialogButton"}
-	 * Custom Smarty function for creating simple yes/no dialogs (or to just send an AJAX post)
-	 * NB:  -Leave out 'url' parameter to just display a message
-	 *		-Leave out 'dialogText' parameter to immediately submit an AJAX request
-	 * @param $params array associative array
-	 * @param $smarty Smarty
-	 * @return string Call to modal function with specified parameters
-	 */
-	function smartyConfirm($params, &$smarty) {
-		// Required params
-		if (!isset($params['button'])) {
-			$smarty->trigger_error("Button parameter is missing from confirm");
-		} else {
-			$button = $params['button'];
-		}
-
-		// Non-required params
-		$url = isset($params['url']) ? $params['url'] : null;
-		$actOnType = isset($params['actOnType']) ? $params['actOnType'] : '';
-		$actOnId = isset($params['actOnId'])?$params['actOnId']:'';
-
-		if (isset($params['dialogText']))  {
-			$showDialog = true;
-			if(isset($params['translate']) && $params['translate'] == false) {
-				$dialogText = $params['dialogText'];
-			} else {
-				$dialogText = __($params['dialogText']);
-			}
-		} else {
-			$showDialog = false;
-		}
-
-		if (!$showDialog && !$url) {
-			$smarty->trigger_error("Both URL and dialogText parameters are missing from confirm");
-		}
-
-		// Translate modal submit/cancel buttons
-		$submitButton = __('common.ok');
-		$cancelButton = __('common.cancel');
-
-		// Properly escape variables for inclusion in Javascript
-		foreach (array('button', 'url, actOnType, actOnId, dialogText, submitButton, cancelButton') as $varName) {
-			$$varName = $this->smartyEscape($$varName, 'javascript');
-		}
-
-		if ($showDialog) {
-			$confirmCode = "<script type='text/javascript'>
-			<!--
-			var localizedButtons = ['$submitButton', '$cancelButton'];
-			modalConfirm('$url', '$actOnType', '$actOnId', '$dialogText', localizedButtons, '$button');
-			// -->
-			</script>\n";
-		} else {
-			$confirmCode = "<script type='text/javascript'>
-			<!--
-			buttonPost('$url', '$button');
-			// -->
-			</script>";
-		}
-
-		return $confirmCode;
 	}
 }
 

@@ -129,17 +129,19 @@ class PKPCitationGridHandler extends GridHandler {
 
 		// Grid actions
 		$router =& $request->getRouter();
+		import('lib.pkp.classes.linkAction.request.AjaxAction');
 		$this->addAction(
-			new LegacyLinkAction(
+			new LinkAction(
 				'addCitation',
-				LINK_ACTION_MODE_AJAX,
-				LINK_ACTION_TYPE_GET,
-				$router->url(
-					$request, null, null, 'addCitation', null,
-					array('assocId' => $this->getAssocId())
+				new AjaxAction(
+					$router->url(
+						$request, null, null, 'addCitation', null,
+						array('assocId' => $this->getAssocId())
+					),
+					AJAX_REQUEST_TYPE_GET
 				),
-				'submission.citations.editor.citationlist.newCitation', null, 'add', null,
-				'citationEditorDetailCanvas'
+				__('submission.citations.editor.citationlist.newCitation'),
+				'add_item'
 			),
 			GRID_ACTION_POSITION_LASTCOL
 		);
@@ -332,7 +334,8 @@ class PKPCitationGridHandler extends GridHandler {
 		} else {
 			$citationForm->initData();
 		}
-		$json = new JSONMessage(true, $citationForm->fetch($request));
+		$json = new JSONMessage(true, $data = $citationForm->fetch($request));
+		$json->setEvent('setCitationPaneData', $data);
 		return $json->getString();
 	}
 
@@ -447,7 +450,7 @@ class PKPCitationGridHandler extends GridHandler {
 		$result = $citationDao->deleteObject($citation);
 
 		if ($result) {
-			$json = new JSONMessage(true);
+			return DAO::getDataChangedEvent();
 		} else {
 			$json = new JSONMessage(false, __('submission.citations.editor.citationlist.errorDeletingCitation'));
 		}
@@ -648,6 +651,13 @@ class PKPCitationGridHandler extends GridHandler {
 			$json = new JSONMessage(true, $citationForm->fetch($request));
 			return $json->getString();
 		}
+	}
+
+	/**
+	 * @see GridHandler::getRequestArgs()
+	 */
+	function getRequestArgs() {
+		return array('assocId' => $this->getAssocId());
 	}
 }
 

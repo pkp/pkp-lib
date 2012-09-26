@@ -43,10 +43,6 @@
 
 {if count($actions) gt 0}
 	{foreach from=$actions item=action}
-		{if is_a($action, 'LegacyLinkAction')}
-			{include file="linkAction/legacyLinkAction.tpl" id=$cellId|concat:"-action-":$action->getId() action=$action objectId=$cellId}
-		{else}
-			{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
-		{/if}
+		{include file="linkAction/linkAction.tpl" action=$action contextId=$cellId}
 	{/foreach}
 {/if}

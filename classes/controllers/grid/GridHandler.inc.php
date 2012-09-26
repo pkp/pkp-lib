@@ -17,7 +17,6 @@ import('lib.pkp.classes.handler.PKPHandler');
 
 // Import action class.
 import('lib.pkp.classes.linkAction.LinkAction');
-import('lib.pkp.classes.linkAction.LegacyLinkAction');
 
 // Import grid classes.
 import('lib.pkp.classes.controllers.grid.GridColumn');

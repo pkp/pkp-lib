@@ -85,15 +85,19 @@ class PKPCitationGridRow extends GridRow {
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
 			$router =& $request->getRouter();
+			import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
 			$this->addAction(
-				new LegacyLinkAction(
+				new LinkAction(
 					'deleteCitation',
-					LINK_ACTION_MODE_CONFIRM,
-					LINK_ACTION_TYPE_REMOVE,
-					$router->url($request, null, null, 'deleteCitation', null,
+					new RemoteActionConfirmationModal(
+						__('submission.citations.editor.citationlist.deleteCitationConfirmation'),
+						__('grid.action.delete'),
+						$router->url($request, null, null, 'deleteCitation', null,
 							array('assocId' => $assocId, 'citationId' => $rowId)),
-					'grid.action.delete', null, 'delete',
-					__('submission.citations.editor.citationlist.deleteCitationConfirmation')
+						'modal_delete'
+					),
+					__('common.delete'),
+					'delete'
 				),
 				GRID_ACTION_POSITION_ROW_LEFT
 			);
@@ -118,16 +122,17 @@ class PKPCitationGridRow extends GridRow {
 
 				// Instantiate the cell action.
 				$router =& $request->getRouter();
+				import('lib.pkp.classes.linkAction.request.AjaxAction');
 				$cellActions = array(
-					new LegacyLinkAction(
+					new LinkAction(
 						'editCitation',
-						LINK_ACTION_MODE_AJAX,
-						LINK_ACTION_TYPE_GET,
-						$router->url($request, null, null, 'editCitation', null,
+						new AjaxAction(
+							$router->url($request, null, null, 'editCitation', null,
 								array('assocId' => $this->getAssocId(), 'citationId' => $rowId)),
-						'submission.citations.editor.clickToEdit',
-						null, null, null,
-						'citationEditorDetailCanvas'
+							AJAX_REQUEST_TYPE_GET
+						),
+						'',
+						'edit'
 					)
 				);
 			}

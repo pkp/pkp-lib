@@ -34,12 +34,19 @@ class HelpHandler extends Handler {
 
 	/**
 	 * Display help table of contents.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function index() {
-		$this->view(array('index', 'topic', '000000'));
+	function index($args, &$request) {
+		$this->view(array('index', 'topic', '000000'), $request);
 	}
 
-	function toc() {
+	/**
+	 * Display help table of contents.
+	 * @param $args array
+	 * @param $request PKPRequest
+	 */
+	function toc($args, &$request) {
 		$this->validate();
 		$this->setupTemplate();
 
@@ -109,8 +116,10 @@ class HelpHandler extends Handler {
 
 	/**
 	 * Display search results for a topic search by keyword.
+	 * @param $args array
+	 * @param $request PKPRequest
 	 */
-	function search() {
+	function search($args, &$request) {
 		$this->validate();
 		$this->setupTemplate();
 

@@ -37,7 +37,7 @@
 				// User is logged in
 				$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
 				if (!file_exists($siteDir . '/images/')) {
-					import('file.FileManager');
+					import('classes.file.FileManager');
 					// Check that the public/site/ directory exists and is writeable
 					if(!file_exists($siteDir) || !is_writeable($siteDir)) {
 						die(__('installer.installFilesDirError'));
@@ -49,7 +49,7 @@
 				}
 				//Check if user's image directory exists, else create it
 				if (Validation::isLoggedIn() && !file_exists($siteDir . '/images/' . $user->getUsername())) {
-					import('file.FileManager');
+					import('classes.file.FileManager');
 					// Check that the public/site/images/ directory exists and is writeable
 					if(!file_exists($siteDir . '/images/') || !is_writeable($siteDir . '/images/')) {
 						die(__('installer.installFilesDirError'));

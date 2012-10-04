@@ -51,8 +51,11 @@ if (isset($_SERVER['PKP_MOCK_ENV'])) {
 	define('PHPUNIT_CURRENT_MOCK_ENV', $_SERVER['PKP_MOCK_ENV']);
 	$mockEnvs = '';
 	foreach(array('lib/pkp/tests/mock/', 'tests/mock/') as $testDir) {
-		if (!empty($mockEnvs)) $mockEnvs .= ';';
-		$mockEnvs .= normalizeMockEnvironment($testDir . $_SERVER['PKP_MOCK_ENV']);
+		$normalizedMockEnv = normalizeMockEnvironment($testDir . $_SERVER['PKP_MOCK_ENV']);
+		if ($normalizedMockEnv) {
+			if (!empty($mockEnvs)) $mockEnvs .= ';';
+			$mockEnvs .= $normalizedMockEnv;
+		}
 	}
 	define('PHPUNIT_ADDITIONAL_INCLUDE_DIRS', $mockEnvs);
 } else {

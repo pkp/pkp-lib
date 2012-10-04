@@ -26,12 +26,12 @@
 			{/if}
 		{else}
 			<td {if $columnSpan && $smarty.foreach.columnLoop.iteration == 2}colspan="{$columnSpan}"{/if}
-			{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions()} no_actions{/if}"{/if}
-			{if $row->hasActions() && $column->hasFlag('firstColumn')}
+			{if $column->hasFlag('firstColumn')} class="first_column{if !$row->hasActions() && !$row->getNoActionMessage()} no_actions{/if}"{/if}
+			{if ($row->hasActions() || $row->getNoActionMessage()) && $column->hasFlag('firstColumn')}
 					>
 					<div class="row_container">
 						<div class="row_actions">
-							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
 								<a class="sprite settings" title="{translate key="grid.settings"}"><span class="hidetext">{translate key="grid.settings"}</span></a>
 							{/if}
 							{if $row->getActions($smarty.const.GRID_ACTION_POSITION_ROW_LEFT)}
@@ -56,7 +56,7 @@
 		{/if}
 	{/foreach}
 </tr>
-{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT)}
+{if $row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) || $row->getNoActionMessage()}
 	<tr id="{$rowId|escape}-control-row" class="row_controls{if is_a($row, 'GridCategoryRow')} category_controls{/if}">
 		{if $grid->getColumnsByFlag('indent')}
 			<td class="{if !is_a($row, 'GridCategoryRow')}no_border {/if}indent_row"></td>
@@ -66,6 +66,8 @@
 				{foreach from=$row->getActions($smarty.const.GRID_ACTION_POSITION_DEFAULT) item=action}
 					{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId}
 				{/foreach}
+			{else}
+				{$row->getNoActionMessage()}
 			{/if}
 		</td>
 	</tr>

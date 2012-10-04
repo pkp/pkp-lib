@@ -478,7 +478,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	$.pkp.controllers.wizard.WizardHandler.prototype.checkForm_ =
 			function(prompt) {
 		var $form = this.getForm_();
-		if ($form != null) {
+		if ($form !== null) {
 			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (prompt) {
 				if (handler.formChangesTracked) {

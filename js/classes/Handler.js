@@ -30,8 +30,8 @@
 		// Check whether a handler has already been bound
 		// to the element.
 		if (this.data('handler') !== undefined) {
-			throw Error(['The handler "', this.getObjectName(),
-						'" has already been bound to the selected element!'].join(''));
+			throw Error('The handler "' + this.getObjectName() +
+					'" has already been bound to the selected element!');
 		}
 
 		// Initialize object properties.
@@ -289,7 +289,8 @@
 		$.pkp.classes.Handler.checkContext_(this);
 
 		// Return the HTML element.
-		return this.$htmlElement_ = $htmlElement;
+		this.$htmlElement_ = $htmlElement;
+		return $htmlElement;
 	};
 
 

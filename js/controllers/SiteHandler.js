@@ -320,11 +320,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
 		// Check the required parameters.
-		if (eventParams.container == undefined) {
+		if (eventParams.container === undefined) {
 			return;
 		}
 
-		if (eventParams.callback == undefined) {
+		if (eventParams.callback === undefined) {
 			return;
 		}
 
@@ -363,7 +363,8 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * @param {Object} checkOptions Object with data to be used to
 	 * check the click.
 	 * @param {Event} event The click event to be checked.
-	 * @returns {Boolean} Whether the check was processed or not.
+	 * @return {Boolean} Whether the check was processed or not.
+	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.processOutsideClickCheck_ =
 			function(checkOptions, event) {
@@ -373,7 +374,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 				event.type !== 'mousedown' && event.type !== 'mouseup') {
 			throw Error('Can not check outside click with the passed event: ' +
 					event.type + '.');
-			return false;
 		}
 
 		// Get the container element.

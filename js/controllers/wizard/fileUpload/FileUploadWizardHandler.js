@@ -235,7 +235,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 		} else {
 			// Stop the cancel request.
 			return false;
-		};
+		}
 	};
 
 

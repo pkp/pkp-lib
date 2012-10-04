@@ -193,6 +193,8 @@
 	 * @param {HTMLElement} autocompleteElement The element that triggered
 	 *  the event.
 	 * @param {Event} event The blur event.
+	 * @param {Object} ui UI.
+	 * @private
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.textInputBlurHandler_ =
 			function(autocompleteElement, event, ui) {
@@ -200,7 +202,7 @@
 		// from the available ones but leaved some text behind. This
 		// is needed to avoid bad form validation and to make it clear to
 		// users that they need to select an option.
-		if (this.hiddenInput_.val() == '') {
+		if (this.hiddenInput_.val() === '') {
 			this.textInput_.val('');
 		}
 	};

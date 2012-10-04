@@ -457,16 +457,15 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 					// Save the current tinyMCE value to the form element.
 					tinyMCEObject.save();
 
-					$form = this.getHtmlElement();
+					var $form = this.getHtmlElement();
 
 					// Get the form element that stores the tinyMCE data.
-					var formElement =
-						$('#' + tinyMCEObject.editorId, $form);
+					var formElement = $('#' + tinyMCEObject.editorId, $form);
 
 					// Validate only this element.
 					var validator = $form.validate();
 					validator.element(formElement);
-		}));
+				}));
 	};
 
 
@@ -479,6 +478,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	 * users can delete data from a required field and move to another one
 	 * without receiving any validation alert.
 	 * @private
+	 * @param {Object} validator Validator.
+	 * @param {Object} element Element.
 	 * @return {Boolean} True so the blur event can still be handled.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.onFocusOutValidation_ =

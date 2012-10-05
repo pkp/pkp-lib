@@ -1273,6 +1273,8 @@ class PKPTemplateManager extends Smarty {
 		if (!isset($params['id'])) {
 			$smarty->trigger_error("id parameter is missing from load_url_in_div");
 		}
+		// clear this variable, since it appears to carry over from previous load_url_in_div template assignments.
+		$this->clear_assign(array('inDivClass'));
 
 		$this->assign('inDivUrl', $params['url']);
 		$this->assign('inDivDivId', $params['id']);

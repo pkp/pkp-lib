@@ -144,7 +144,7 @@ class RegexRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaP
 		$filter = new RegexRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'primitive::string',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
-		parent::testAllCitationsWithThisParser(&$filter);
+		parent::testAllCitationsWithThisParser($filter);
 	}
 }
 ?>

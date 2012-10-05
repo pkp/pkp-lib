@@ -93,7 +93,7 @@ class FreeciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 		$filter = new FreeciteRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'primitive::string',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
-		parent::testAllCitationsWithThisParser(&$filter);
+		parent::testAllCitationsWithThisParser($filter);
 	}
 }
 ?>

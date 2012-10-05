@@ -1042,7 +1042,7 @@ class PKPTemplateManager extends Smarty {
 		$newString = '';
 
 		for($i = 0; $i < strlen($string); $i++) {
-			if(String::substr($string, $i, 1) == '<') { 
+			if(String::substr($string, $i, 1) == '<') {
 				// We've found the beginning of an HTML tag, find the position of its ending
 				$closeBrack = String::strpos($string, '>', $i);
 
@@ -1280,6 +1280,8 @@ class PKPTemplateManager extends Smarty {
 		if (!isset($params['id'])) {
 			$smarty->trigger_error("id parameter is missing from load_url_in_div");
 		}
+		// clear this variable, since it appears to carry over from previous load_url_in_div template assignments.
+		$this->clear_assign(array('inDivClass'));
 
 		$this->assign('inDivUrl', $params['url']);
 		$this->assign('inDivDivId', $params['id']);

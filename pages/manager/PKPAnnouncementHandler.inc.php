@@ -133,7 +133,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * Display form to create new announcement.
 	 */
 	function createAnnouncement($args, &$request) {
-		$this->editAnnouncement($args, &$request);
+		$this->editAnnouncement($args, $request);
 	}
 
 	/**
@@ -282,7 +282,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $request PKPRequest
 	 */
 	function createAnnouncementType($args, &$request) {
-		$this->editAnnouncementType($args, &$request);
+		$this->editAnnouncementType($args, $request);
 	}
 
 	/**

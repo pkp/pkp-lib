@@ -59,7 +59,7 @@ class ParscitRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaPar
 	 */
 	public function testAllCitationsWithThisParser() {
 		$filter = new ParscitRawCitationNlmCitationSchemaFilter();
-		parent::testAllCitationsWithThisParser(&$filter);
+		parent::testAllCitationsWithThisParser($filter);
 	}
 
 	/**

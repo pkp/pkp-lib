@@ -136,7 +136,7 @@ class RegexRawCitationNlmCitationSchemaFilterTest extends NlmCitationSchemaParse
 	 */
 	public function testAllCitationsWithThisParser() {
 		$filter = new RegexRawCitationNlmCitationSchemaFilter();
-		parent::testAllCitationsWithThisParser(&$filter);
+		parent::testAllCitationsWithThisParser($filter);
 	}
 }
 ?>

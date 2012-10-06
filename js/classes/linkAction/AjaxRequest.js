@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.linkAction.LinkActionRequest
 	 *
-	 * @param {jQuery} $linkActionElement The element the link
+	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
@@ -42,10 +42,9 @@
 			function(element, event) {
 
 		var returnValue = this.parent('activate', element, event),
-				options = this.getOptions();
-
-		var responseHandler = $.pkp.classes.Helper.curry(
-				this.handleResponse, this);
+				options = this.getOptions(),
+				responseHandler = $.pkp.classes.Helper.curry(
+						this.handleResponse, this);
 		switch (options.requestType) {
 			case 'get':
 				$.getJSON(options.url,
@@ -76,4 +75,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

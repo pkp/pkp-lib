@@ -44,11 +44,12 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// Check the options.
 		if (!this.checkOptions(options)) {
-			throw Error('Missing or invalid modal options!');
+			throw new Error('Missing or invalid modal options!');
 		}
 
 		// Clone the options object before we manipulate them.
-		var internalOptions = $.extend(true, {}, options);
+		var internalOptions = $.extend(true, {}, options),
+				canClose;
 
 		// Merge user and default options.
 		internalOptions = this.mergeOptions(internalOptions);
@@ -89,7 +90,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 
 		// Click outside to close.
-		var canClose = options.canClose || '1';
+		canClose = options.canClose || '1';
 		if (canClose) {
 			$handledElement.parent().next('.ui-widget-overlay').
 					click(this.callbackWrapper(this.outsideClick));
@@ -175,16 +176,17 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			this.trigger('modalCanceled');
 		}
 		// Close the modal dialog.
-		var $modalElement = this.getHtmlElement();
-		// get the form from this modalElement so we can unregister it
-		var $form = $modalElement.find('form').first();
+		var $modalElement = this.getHtmlElement(),
+				// get the form from this modalElement so we can unregister it
+				$form = $modalElement.find('form').first(),
+				handler;
 
 		// modalClose is called on both 'cancel' and 'close' events.  With
 		// callbacks both callingContext and event are undefined. So,
 		// unregister this form with SiteHandler.
 
 		if ($form.length == 1) {
-			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+			handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (handler.formChangesTracked) {
 				if (!confirm($.pkp.locale.form_dataHasChanged)) {
 					return false;
@@ -251,12 +253,15 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 			function($handledElement, options) {
 
 		// The new titlebar.
-		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>');
+		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>'),
+				// Close icon.
+				canClose = options.canClose || '1',
+				$closeButton,
+				title = options.title || null,
+				iconClass = options.titleIcon || '';
 
-		// Close icon.
-		var canClose = options.canClose || '1';
 		if (canClose) {
-			var $closeButton = $(['<a class="close ui-corner-all" href="#">',
+			$closeButton = $(['<a class="close ui-corner-all" href="#">',
 				'<span class="xIcon">',
 				'close</span></a>"'].join(''));
 			$closeButton.click(this.callbackWrapper(this.modalClose));
@@ -264,8 +269,6 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		}
 
 		// Title text.
-		var title = options.title || null;
-		var iconClass = options.titleIcon || '';
 		if (title) {
 			$titleBar.append(['<div class="large_sprite modal_title ' +
 						iconClass + '"></div><h2>', title, '</h2>'].join(''));
@@ -290,9 +293,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 		// The new close button.
 		var $closeButton = $('<a id="cancelFormButton" ' +
-				'class="cancelFormButton" href="#">Cancel</a>');
+				'class="cancelFormButton" href="#">Cancel</a>'),
+				$parentElement = $handledElement.parent();
 
-		var $parentElement = $handledElement.parent();
 		// make changes to widen the button bar, and move the close button to the left
 		$parentElement.find('.ui-dialog-buttonset').
 				css({'width': '90%', 'padding': '10px 20px'});
@@ -328,4 +331,4 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

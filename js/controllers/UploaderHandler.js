@@ -27,7 +27,7 @@
 		// Check whether we really got an empty div to attach
 		// our uploader to.
 		if (!($uploader.is('div') && $uploader.text() === '')) {
-			throw Error(['An uploader widget controller can only be attached',
+			throw new Error(['An uploader widget controller can only be attached',
 				' to an empty div!'].join(''));
 		}
 
@@ -130,4 +130,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

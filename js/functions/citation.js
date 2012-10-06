@@ -630,4 +630,5 @@ function scrollToMakeVisible(actOnId) {
 		$.event.special[ this ] = { add: keyHandler };
 	});
 
-})(jQuery);
+
+}(jQuery));

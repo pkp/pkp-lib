@@ -45,7 +45,13 @@ TOOL_PATH=~/bin
 
 JS_OUTPUT='js/pkp.min.js'
 
-## Command Line Options ##
+CLOSURE_EXTERNS='
+	--externs lib/pkp/tools/closure-externs.js
+	--externs lib/pkp/tools/closure-externs-check-only.js
+	--externs lib/pkp/tools/jquery-externs.js'
+
+
+### Command Line Options ###
 
 OPTIND=1
 DO_CACHE=1
@@ -69,8 +75,8 @@ MISSING_REQUIREMENT=''
 if [ -z `which gjslint` ]; then
 	echo >&2
 	echo "Google Closure Linter not found in PATH. Please go" >&2
-	echo "to <http://code.google.com/closure> and make sure" >&2
-	echo "that you correctly install the tool before you run" >&2
+	echo "to <https://developers.google.com/closure/utilities/docs/linter_howto>" >&2
+	echo "and make sure that you correctly install the tool before you run" >&2
 	echo "buildjs.sh." >&2
 	MISSING_REQUIREMENT='gjslint'
 fi
@@ -87,8 +93,8 @@ fi
 if [ ! -e "$TOOL_PATH/compiler.jar" ]; then
 	echo >&2
 	echo "Google Closure Compiler not found in '$TOOL_PATH'" >&2
-	echo "Please go to <http://code.google.com/closure> and" >&2
-	echo "download the tool. Then try again." >&2
+	echo "Please go to <https://developers.google.com/closure/compiler/>" >&2
+	echo "and download the tool. Then try again." >&2
 	MISSING_REQUIREMENT='closure'
 fi
 
@@ -122,7 +128,7 @@ for JS_FILE in $LINT_FILES; do
 	# - wraps @extends type in curly braces to comply with Google style guide.
 	# - works around http://code.google.com/p/closure-compiler/issues/detail?id=61 by removing the jQuery closure.
 	mkdir -p `dirname "$WORKDIR/$JS_FILE"`
-	sed "s/^${TAB}//;s/${TAB}/  /g;s/^(function(\$) {//;s/^})(jQuery);//;s/@extends \(.*\)$/@extends {\1}/" "$JS_FILE" > "$WORKDIR/$JS_FILE"
+	sed "s/^${TAB}//;s/${TAB}/  /g;s/^(function(\$) {//;s/^}(jQuery));//;s/@extends \(.*\)$/@extends {\1}/" "$JS_FILE" > "$WORKDIR/$JS_FILE"
 
 
 	# Only lint file if it has been changed since last compilation.
@@ -141,12 +147,19 @@ for JS_FILE in $LINT_FILES; do
 		##################################
 
 		# Run JSLint on the file:
-		# - allow for loops without "hasOwnProperty()" check because we operate in an environment
+		# - Allow for loops without "hasOwnProperty()" check because we operate in an environment
 		#   where additions to the Object prototype are not allowed (same as jQuery).
-		# - remove jslint "unexpected space" error - whitespace checking is better done by gjslint.
-		#   This is necessary to remove inconsistency between gjslint's line length checking and
-		#   jslint's line break rules.
-		java -jar "$TOOL_PATH/jslint4java.jar" --forin $JS_FILE | grep -v '^$' | grep -v 'Unexpected space before ' | sed "s/^/${TAB}/"
+		# - Do not alert on whitespace checking which we prefer to be checked by gjslint.
+		#   This is necessary to remove inconsistency between gjslint's and
+		#   jslint's whitespace rules.
+		# - We allow dangling underscores (_) to mark private properties and let the
+		#   Closure compiler enforce it.
+		# - We allow the ++ and == syntax
+		# - Multiple var statements in one function are allowed to reduce variable span.
+		# - We allow code without the 'use strict' pragma as we need the callee property
+		#   for our class framework implementation.
+		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus \
+			--eqeq --sloppy --browser --predef jQuery,alert,tinyMCE "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 
 	else
@@ -167,7 +180,9 @@ LINT_FILES=`echo "$LINT_FILES" | sed "s%^%$WORKDIR/%" | tr '\n' ' ' | sed -$EXTE
 echo >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >> "$WORKDIR/.compile-warnings.out"
 echo "Compile (Check)..." >&2
-java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --externs lib/pkp/tools/closure-externs-check-only.js --jscomp_warning visibility --warning_level VERBOSE $LINT_FILES --js_output_file /dev/null 2>&1 | sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
+java -jar "$TOOL_PATH/compiler.jar" --jscomp_warning visibility --warning_level VERBOSE \
+	$CLOSURE_EXTERNS $LINT_FILES --js_output_file /dev/null 2>&1 \
+	| sed "s/^/${TAB}/" >>"$WORKDIR/.compile-warnings.out"
 
 # Only minify when there were no warnings.
 if [ -n "`cat $WORKDIR/.compile-warnings.out | grep '^	'`" ]; then
@@ -186,7 +201,8 @@ else
 	COMPILE_FILES=`echo "$COMPILE_FILES" | tr '\n' ' ' | sed -$EXTENDED_REGEX_FLAG 's/ $//;s/(^| )/ --js /g'`
 
 	# Run Closure - second pass to minify
-	java -jar "$TOOL_PATH/compiler.jar" --externs lib/pkp/tools/closure-externs.js --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES --js_output_file "$JS_OUTPUT" 2>&1
+	java -jar "$TOOL_PATH/compiler.jar" --jscomp_off checkTypes --warning_level VERBOSE $COMPILE_FILES \
+		$CLOSURE_EXTERNS --js_output_file "$JS_OUTPUT" 2>&1
 	echo >&2
 
 	echo "Please don't forget to set enable_minified=On in your config.inc.php." >&2

@@ -276,4 +276,4 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

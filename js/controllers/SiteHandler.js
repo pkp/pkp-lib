@@ -1,9 +1,6 @@
 /**
  * @defgroup js_controllers
  */
-// Create the controllers namespace.
-jQuery.pkp.controllers = jQuery.pkp.controllers || { };
-
 /**
  * @file js/controllers/SiteHandler.js
  *
@@ -23,9 +20,15 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $widgetWrapper An HTML element that this handle will
+	 * @param {jQueryObject} $widgetWrapper An HTML element that this handle will
 	 * be attached to.
-	 * @param {Object} options Handler options.
+	 * @param {{
+	 *   toggleHelpUrl: string,
+	 *   toggleHelpOffText: string,
+	 *   toggleHelpOnText: string,
+	 *   fetchNotificationUrl: string,
+	 *   requestOptions: Object
+	 *   }} options Handler options.
 	 */
 	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
@@ -147,20 +150,20 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Handler bound to 'formChanged' events propagated by forms
 	 * that wish to have their form data tracked.
-	 *
+	 * @private
 	 * @param {HTMLElement} siteHandlerElement The html element
 	 * attached to this handler.
 	 * @param {HTMLElement} sourceElement The element wishes to
 	 * register.
 	 * @param {Event} event The formChanged event.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
+		var $formElement, formId, index;
 
-		var $formElement = $(event.target.lastElementChild);
-		var formId = $formElement.attr('id');
-		var index = $.inArray(formId, this.unsavedFormElements_);
+		$formElement = $(event.target.lastElementChild);
+		formId = $formElement.attr('id');
+		index = $.inArray(formId, this.unsavedFormElements_);
 		if (index == -1) {
 			this.unsavedFormElements_.push(formId);
 		}
@@ -170,21 +173,20 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Handler bound to 'unregisterChangedForm' events propagated by forms
 	 * that wish to inform that they no longer wish to be tracked as 'unsaved'.
-	 *
+	 * @private
 	 * @param {HTMLElement} siteHandlerElement The html element
 	 * attached to this handler.
 	 * @param {HTMLElement} sourceElement The element that wishes to
 	 * unregister.
 	 * @param {Event} event The unregisterChangedForm event.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
+		var $formElement, formId, index;
 
-		var $formElement = $(event.target.lastElementChild);
-		var formId = $formElement.attr('id');
-
-		var index = $.inArray(formId, this.unsavedFormElements_);
+		$formElement = $(event.target.lastElementChild);
+		formId = $formElement.attr('id');
+		index = $.inArray(formId, this.unsavedFormElements_);
 		if (index !== -1) {
 			delete this.unsavedFormElements_[index];
 		}
@@ -206,12 +208,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	//
 	/**
 	 * Respond to a user toggling the display of inline help.
-	 *
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
 	 * @return {boolean} Always returns false.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
 			function(sourceElement, event) {
@@ -230,18 +231,17 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	/**
 	 * Callback to listen to grid initialization events. Used to
 	 * toggle the inline help display on them.
-	 *
 	 * @private
-	 *
-	 * @param {HTMLElement} sourceElement The element that issued the
+	 * @param {HTMLElement=} opt_sourceElement The element that issued the
 	 *  "gridInitialized" event.
-	 * @param {Event} event The "gridInitialized" event.
+	 * @param {Event=} opt_event The "gridInitialized" event.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
-			function(sourceElement, event) {
+			function(opt_sourceElement, opt_event) {
+		var $bodyElement, inlineHelpState;
 
-		var $bodyElement = this.getHtmlElement();
-		var inlineHelpState = this.options_.inlineHelpState;
+		$bodyElement = this.getHtmlElement();
+		inlineHelpState = this.options_.inlineHelpState;
 		if (inlineHelpState) {
 			// the .css() call removes the CSS applied to the legend intially,
 			// so it is not shown while the page is being loaded.
@@ -259,12 +259,12 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Fetch the notification data.
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  "fetchNotification" event.
 	 * @param {Event} event The "fetch notification" event.
-	 * @param {string?} jsonData The JSON content representing the
+	 * @param {Object} jsonData The JSON content representing the
 	 *  notification.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function(sourceElement, event, jsonData) {
@@ -289,10 +289,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Fetch the header (e.g. on header configuration change).
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  update header event.
 	 * @param {Event} event The "fetch header" event.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function(sourceElement, event) {
@@ -305,6 +305,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * Call when click outside event handler. Stores the event
 	 * parameters as checks to be used later by mouse down handler so we
 	 * can track if user clicked outside the passed element or not.
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  callWhenClickOutside event.
 	 * @param {Event} event The "call when click outside" event.
@@ -315,7 +316,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * - callback: a callback function in case test is true.
 	 * - skipWhenVisibleModals: boolean flag to tell whether skip the
 	 * callback when modals are visible or not.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
@@ -335,18 +335,18 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Mouse down event handler attached to the site element.
+	 * @private
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  click event.
 	 * @param {Event} event The "mousedown" event.
-	 * @return {boolean} Event handling status.
-	 * @private
+	 * @return {?boolean} Event handling status.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.mouseDownHandler_ =
 			function(sourceElement, event) {
 
-		var $container, callback;
+		var $container, callback, id;
 		if (!$.isEmptyObject(this.outsideClickChecks_)) {
-			for (var id in this.outsideClickChecks_) {
+			for (id in this.outsideClickChecks_) {
 				this.processOutsideClickCheck_(
 						this.outsideClickChecks_[id], event);
 			}
@@ -360,11 +360,11 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * Check if the passed event target is outside the element
 	 * inside the passed check data. If true and no other check
 	 * option avoids it, use the callback.
+	 * @private
 	 * @param {Object} checkOptions Object with data to be used to
 	 * check the click.
 	 * @param {Event} event The click event to be checked.
 	 * @return {Boolean} Whether the check was processed or not.
-	 * @private
 	 */
 	$.pkp.controllers.SiteHandler.prototype.processOutsideClickCheck_ =
 			function(checkOptions, event) {
@@ -372,7 +372,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// Make sure we have a click event.
 		if (event.type !== 'click' &&
 				event.type !== 'mousedown' && event.type !== 'mouseup') {
-			throw Error('Can not check outside click with the passed event: ' +
+			throw new Error('Can not check outside click with the passed event: ' +
 					event.type + '.');
 		}
 
@@ -416,15 +416,14 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * Internal callback called upon page unload. If it returns
 	 * anything other than void, a message will be displayed to
 	 * the user.
-	 *
 	 * @private
-	 *
 	 * @param {Object} object The window object.
-	 * @param {Event} event The beforeunload event.
-	 * @return {string?} the warning message string, if needed.
+	 * @param {Event} event The before unload event.
+	 * @return {?string} The warning message string, if needed.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
 			function(object, event) {
+		var handler, unsavedElementCount, element;
 
 		// any registered and then unregistered forms will exist
 		// as properties in the unsavedFormElements_ object. They
@@ -433,11 +432,10 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 		// we need to get the handler this way since this event is bound
 		// to window, not to SiteHandler.
-		var handler = $.pkp.classes.Handler.getHandler($('body'));
+		handler = $.pkp.classes.Handler.getHandler($('body'));
 
-		var unsavedElementCount = 0;
-
-		for (var element in handler.unsavedFormElements_) {
+		unsavedElementCount = 0;
+		for (element in handler.unsavedFormElements_) {
 			if (element) {
 				unsavedElementCount++;
 			}
@@ -445,6 +443,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		if (unsavedElementCount > 0) {
 			return $.pkp.locale.form_dataHasChanged;
 		}
+		return null;
 	};
 
 
@@ -468,10 +467,9 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Response handler to the notification fetch.
-	 *
-	 * @param {Object} ajaxContext The data returned from the server.
-	 * @param {content} jsonData A parsed JSON response object.
 	 * @private
+	 * @param {Object} ajaxContext The data returned from the server.
+	 * @param {Object} jsonData A parsed JSON response object.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {
@@ -481,19 +479,19 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 	/**
 	 * Show the notification content.
-	 *
-	 * @param {string} jsonData The JSON-encoded notification data.
 	 * @private
+	 * @param {Object} jsonData The JSON-encoded notification data.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
-		var workingJsonData = this.handleJson(jsonData);
+		var workingJsonData, notificationsData, levelId, notificationId;
 
+		workingJsonData = this.handleJson(jsonData);
 		if (workingJsonData !== false) {
 			if (workingJsonData.content.general) {
-				var notificationsData = workingJsonData.content.general;
-				for (var levelId in notificationsData) {
-					for (var notificationId in notificationsData[levelId]) {
+				notificationsData = workingJsonData.content.general;
+				for (levelId in notificationsData) {
+					for (notificationId in notificationsData[levelId]) {
 						$.pnotify(notificationsData[levelId][notificationId]);
 					}
 				}
@@ -510,19 +508,22 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 */
 	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
 			function() {
-		var $site = this.getHtmlElement();
-		var structureContentWidth = $('.pkp_structure_content', $site).width();
+		var $site, structureContentWidth, leftSideBarWidth, rightSideBarWidth,
+				$mainDiv, mainExtraWidth, mainMaxWidth;
 
-		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
+		$site = this.getHtmlElement();
+		structureContentWidth = $('.pkp_structure_content', $site).width();
+
+		leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
 				outerWidth(true);
-		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
+		rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
 				outerWidth(true);
 
-		var $mainDiv = $('.pkp_structure_main', $site);
+		$mainDiv = $('.pkp_structure_main', $site);
 
 		// Check for padding, margin or border.
-		var mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
-		var mainMaxWidth = structureContentWidth - (
+		mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
+		mainMaxWidth = structureContentWidth - (
 				leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
 
 		$mainDiv.css('max-width', mainMaxWidth);
@@ -530,4 +531,4 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

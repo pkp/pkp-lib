@@ -14,14 +14,18 @@
 
 	/**
 	 * @constructor
-	 * @param {jQuery} $element A DOM element to which
+	 *
+	 * @extends $.pkp.classes.ObjectProxy
+	 *
+	 * @param {jQueryObject} $element A DOM element to which
 	 *  this handler is bound.
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.classes.Handler = function($element, options) {
+
 		// Check whether a single element was passed in.
 		if ($element.length > 1) {
-			throw Error('jQuery selector contained more than one handler!');
+			throw new Error('jQuery selector contained more than one handler!');
 		}
 
 		// Save a pointer to the bound element in the handler.
@@ -30,8 +34,8 @@
 		// Check whether a handler has already been bound
 		// to the element.
 		if (this.data('handler') !== undefined) {
-			throw Error('The handler "' + this.getObjectName() +
-					'" has already been bound to the selected element!');
+			throw new Error(['The handler "', this.getObjectName(),
+						'" has already been bound to the selected element!'].join(''));
 		}
 
 		// Initialize object properties.
@@ -49,7 +53,8 @@
 		// content change.
 		if (options.publishChangeEvents) {
 			this.publishChangeEvents_ = options.publishChangeEvents;
-			for (var i = 0; i < this.publishChangeEvents_.length; i++) {
+			var i;
+			for (i = 0; i < this.publishChangeEvents_.length; i++) {
 				this.publishEvent(this.publishChangeEvents_[i]);
 			}
 		} else {
@@ -75,7 +80,7 @@
 	/**
 	 * The HTML element this handler is bound to.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.Handler.prototype.$htmlElement_ = null;
 
@@ -108,7 +113,7 @@
 	/**
 	 * An HTML element id to which we'll forward all handler events.
 	 * @private
-	 * @type {string}
+	 * @type {?string}
 	 */
 	$.pkp.classes.Handler.prototype.$eventBridge_ = null;
 
@@ -118,7 +123,7 @@
 	//
 	/**
 	 * Retrieve the bound handler from the jQuery element.
-	 * @param {jQuery} $element The element to which the
+	 * @param {jQueryObject} $element The element to which the
 	 *  handler was attached.
 	 * @return {Object} The retrieved handler.
 	 */
@@ -133,7 +138,7 @@
 
 		// Check whether the handler exists.
 		if (!(handler instanceof $.pkp.classes.Handler)) {
-			throw Error('There is no handler bound to this element!');
+			throw new Error('There is no handler bound to this element!');
 		}
 
 		return handler;
@@ -144,12 +149,24 @@
 	// Public methods
 	//
 	/**
-	 * Publish change events. (See options.publishChangeEvents.)
+	 * Returns the HTML element this handler is bound to.
 	 *
-	 * @this {HTMLElement}
+	 * @return {jQueryObject} The element this handler is bound to.
+	 */
+	$.pkp.classes.Handler.prototype.getHtmlElement = function() {
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Return the HTML element.
+		return this.$htmlElement_;
+	};
+
+
+	/**
+	 * Publish change events. (See options.publishChangeEvents.)
 	 */
 	$.pkp.classes.Handler.prototype.publishChangeEvents = function() {
-		for (var i = 0; i < this.publishChangeEvents_.length; i++) {
+		var i;
+		for (i = 0; i < this.publishChangeEvents_.length; i++) {
 			this.trigger(this.publishChangeEvents_[i]);
 		}
 	};
@@ -160,26 +177,28 @@
 	 * all handler events. See bind() above.
 	 *
 	 * @this {HTMLElement}
-	 * @param {Event} event The jQuery event object.
+	 * @param {jQuery.Event} event The jQuery event object.
 	 * @return {boolean} Return value to be passed back
 	 *  to jQuery.
 	 */
 	$.pkp.classes.Handler.prototype.handleEvent = function(event) {
+		var $callingElement, handler, boundEvents, args, returnValue, i, l;
+
 		// This handler is always called out of the
 		// handler context.
-		var $callingElement = $(this);
+		$callingElement = $(this);
 
 		// Identify the targeted handler.
-		var handler = $.pkp.classes.Handler.getHandler($callingElement);
+		handler = $.pkp.classes.Handler.getHandler($callingElement);
 
 		// Make sure that we really got the right element.
 		if ($callingElement[0] !== handler.getHtmlElement.call(handler)[0]) {
-			throw Error(['An invalid handler is bound to the calling ',
+			throw new Error(['An invalid handler is bound to the calling ',
 				'element of an event!'].join(''));
 		}
 
 		// Retrieve the event handlers for the given event type.
-		var boundEvents = handler.eventBindings_[event.type];
+		boundEvents = handler.eventBindings_[event.type];
 		if (boundEvents === undefined) {
 			// We have no handler for this event but we also
 			// don't allow bubbling of events outside of the
@@ -188,9 +207,9 @@
 		}
 
 		// Call all event handlers.
-		var args = $.makeArray(arguments), returnValue = true;
+		args = $.makeArray(arguments);
+		returnValue = true;
 		args.unshift(this);
-		var i, l;
 		for (i = 0, l = boundEvents.length; i < l; i++) {
 			// Invoke the event handler in the context
 			// of the handler object.
@@ -210,6 +229,43 @@
 
 		// Return the event handler status.
 		return returnValue;
+	};
+
+
+	/**
+	 * Create a closure that calls the callback in the
+	 * context of the handler object.
+	 *
+	 * NB: Always make sure that the callback is properly
+	 * unbound and freed for garbage collection. Otherwise
+	 * you might create a memory leak. If you want to bind
+	 * an event to the HTMLElement handled by this handler
+	 * then always use the above bind() method instead which
+	 * is safer.
+	 *
+	 * @param {Function} callback The callback to be wrapped.
+	 * @param {Object=} opt_context Specifies the object which
+	 *  |this| should point to when the function is run.
+	 *  If the value is not given, the context will default
+	 *  to the handler object.
+	 * @return {Function} The wrapped callback.
+	 */
+	$.pkp.classes.Handler.prototype.callbackWrapper =
+			function(callback, opt_context) {
+
+		$.pkp.classes.Handler.checkContext_(this);
+
+		// Create a closure that calls the event handler
+		// in the right context.
+		if (!opt_context) {
+			opt_context = this;
+		}
+		return function() {
+			var args;
+			args = $.makeArray(arguments);
+			args.unshift(this);
+			return callback.apply(opt_context, args);
+		};
 	};
 
 
@@ -238,14 +294,14 @@
 	 */
 	$.pkp.classes.Handler.prototype.remove = function() {
 		$.pkp.classes.Handler.checkContext_(this);
+		var $element, key;
 
 		// Remove all event handlers in our namespace.
-		var $element = this.getHtmlElement();
+		$element = this.getHtmlElement();
 		$element.unbind('.pkpHandler');
 
 		// Remove all our data items except for the
 		// handler itself.
-		var key;
 		for (key in this.dataItems_) {
 			if (key !== 'pkp.handler') {
 				$element.removeData(key);
@@ -265,25 +321,11 @@
 	// Protected methods
 	//
 	/**
-	 * Returns the HTML element this handler is bound to.
-	 *
-	 * @protected
-	 * @return {jQuery} The element this handler is bound to.
-	 */
-	$.pkp.classes.Handler.prototype.getHtmlElement = function() {
-		$.pkp.classes.Handler.checkContext_(this);
-
-		// Return the HTML element.
-		return this.$htmlElement_;
-	};
-
-
-	/**
 	 * Sets the HTML element this handler is bound to.
 	 *
 	 * @protected
-	 * @param {jQuery} $htmlElement The element this handler should be bound to.
-	 * @return {jQuery} Passes through the supplied parameter.
+	 * @param {jQueryObject} $htmlElement The element this handler should be bound to.
+	 * @return {jQueryObject} Passes through the supplied parameter.
 	 */
 	$.pkp.classes.Handler.prototype.setHtmlElement = function($htmlElement) {
 		$.pkp.classes.Handler.checkContext_(this);
@@ -316,7 +358,8 @@
 			this.eventBindings_[eventName] = [];
 
 			// Determine the event namespace.
-			var eventNamespace = '.pkpHandler';
+			var eventNamespace;
+			eventNamespace = '.pkpHandler';
 			if (eventName === 'pkpRemoveHandler') {
 				// We have a special namespace for the remove event
 				// because it needs to be triggered when all other
@@ -351,6 +394,7 @@
 		if (!this.eventBindings_[eventName]) {
 			return false;
 		}
+
 		var i, length;
 		for (i = 0, length = this.eventBindings_[eventName].length; i < length; i++) {
 			if (this.eventBindings_[eventName][i] === handler) {
@@ -381,10 +425,10 @@
 	 * @protected
 	 * @param {string} key The name of the item to be stored
 	 *  or retrieved.
-	 * @param {*=} opt_value The data item to be stored. If no item
+	 * @param {Object=} opt_value The data item to be stored. If no item
 	 *  is given then the existing value for the given key
 	 *  will be returned.
-	 * @return {*} The cached data item.
+	 * @return {Object} The cached data item.
 	 */
 	$.pkp.classes.Handler.prototype.data = function(key, opt_value) {
 		$.pkp.classes.Handler.checkContext_(this);
@@ -405,42 +449,6 @@
 
 
 	/**
-	 * Create a closure that calls the callback in the
-	 * context of the handler object.
-	 *
-	 * NB: Always make sure that the callback is properly
-	 * unbound and freed for garbage collection. Otherwise
-	 * you might create a memory leak. If you want to bind
-	 * an event to the HTMLElement handled by this handler
-	 * then always use the above bind() method instead which
-	 * is safer.
-	 *
-	 * @protected
-	 * @param {Function} callback The callback to be wrapped.
-	 * @param {Object=} opt_context Specifies the object which
-	 *  |this| should point to when the function is run.
-	 *  If the value is not given, the context will default
-	 *  to the handler object.
-	 * @return {Function} The wrapped callback.
-	 */
-	$.pkp.classes.Handler.prototype.callbackWrapper =
-			function(callback, opt_context) {
-		$.pkp.classes.Handler.checkContext_(this);
-
-		// Create a closure that calls the event handler
-		// in the right context.
-		if (!opt_context) {
-			opt_context = this;
-		}
-		return function() {
-			var args = $.makeArray(arguments);
-			args.unshift(this);
-			return callback.apply(opt_context, args);
-		};
-	};
-
-
-	/**
 	 * This function should be used to pre-process a JSON response
 	 * from the server.
 	 *
@@ -451,7 +459,7 @@
 	 */
 	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
 		if (!jsonData) {
-			throw Error('Server error: Server returned no or invalid data!');
+			throw new Error('Server error: Server returned no or invalid data!');
 		}
 
 		if (jsonData.status === true) {
@@ -482,10 +490,14 @@
 	 *
 	 * @protected
 	 * @param {string} eventName The event to be triggered.
-	 * @param {Object=} opt_data Additional event data.
+	 * @param {Array=} opt_data Additional event data.
 	 */
 	$.pkp.classes.Handler.prototype.trigger =
 			function(eventName, opt_data) {
+
+		if (opt_data === undefined) {
+			opt_data = null;
+		}
 
 		// Trigger the event on the handled element.
 		var $handledElement = this.getHtmlElement();
@@ -535,7 +547,6 @@
 	 * @param {Event} event The event.
 	 */
 	$.pkp.classes.Handler.prototype.switchViz = function(event) {
-
 		var eventElement = event.currentTarget;
 		$(eventElement).parent().parent().find('span').toggle();
 	};
@@ -553,7 +564,7 @@
 	 *
 	 * @private
 	 * @param {string} eventName The event to be triggered.
-	 * @param {Object=} opt_data Additional event data.
+	 * @param {Array=} opt_data Additional event data.
 	 */
 	$.pkp.classes.Handler.prototype.triggerPublicEvent_ =
 			function(eventName, opt_data) {
@@ -570,32 +581,6 @@
 	};
 
 
-	/**
-	 * Initialize TinyMCE instances.
-	 *
-	 * There are instances where TinyMCE is not initialized with the call to
-	 * init(). These occur when content is loaded after the fact (via AJAX).
-	 *
-	 * In these cases, search for richContent fields and initialize them.
-	 *
-	 * @private
-	 */
-	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
-			function() {
-		if (typeof tinyMCE !== 'undefined') {
-			var $element = this.getHtmlElement();
-			var elementId = $element.attr('id');
-			setTimeout(function() {
-				// re-select the original element, to prevent closure memory leaks
-				// in (older?) versions of IE.
-				$('#' + elementId).find('.richContent').each(function(index) {
-					tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
-				});
-			}, 500);
-		}
-	};
-
-
 	//
 	// Private static methods
 	//
@@ -608,10 +593,10 @@
 	 */
 	$.pkp.classes.Handler.checkContext_ = function(context) {
 		if (!(context instanceof $.pkp.classes.Handler)) {
-			throw Error('Trying to call handler method in non-handler context!');
+			throw new Error('Trying to call handler method in non-handler context!');
 		}
 	};
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

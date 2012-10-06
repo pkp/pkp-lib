@@ -99,7 +99,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 		// The last two tabs require a file to be uploaded.
 		if (ui.index > 0) {
 			if (!this.uploadedFile_) {
-				throw Error('Uploaded file missing!');
+				throw new Error('Uploaded file missing!');
 			}
 
 			// Set the correct URLs.
@@ -114,7 +114,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 					break;
 
 				default:
-					throw Error('Unsupported tab index.');
+					throw new Error('Unsupported tab index.');
 			}
 
 			newUrl = newUrl + '&fileId=' + this.uploadedFile_.fileId;
@@ -146,7 +146,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 		// Do not advance beyond the last step.
 		if (targetStep > lastStep) {
-			throw Error('Trying to set an invalid wizard step!');
+			throw new Error('Trying to set an invalid wizard step!');
 		}
 
 		// Enable the target step.
@@ -183,7 +183,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 			var $wizard = this.getHtmlElement();
 			var $newFileButton = $('#newFile', $wizard);
 			if ($newFileButton.length !== 1) {
-				throw Error('Did not find "new file" button!');
+				throw new Error('Did not find "new file" button!');
 			}
 			$newFileButton.button();
 			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
@@ -296,4 +296,4 @@ jQuery.pkp.controllers.wizard.fileUpload =
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

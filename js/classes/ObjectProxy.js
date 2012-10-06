@@ -54,17 +54,18 @@
 	 */
 	$.pkp.classes.ObjectProxy.prototype.self =
 			function(propertyName, var_args) {
+		var ctor, foundProperty, args;
 
 		// Loop through the inheritance hierarchy to find the property.
-		for (var ctor = this.constructor; ctor;
+		for (ctor = this.constructor; ctor;
 				ctor = ctor.parent_ && ctor.parent_.constructor) {
 
 			// Try to find the property in the current constructor.
 			if (ctor.hasOwnProperty(propertyName)) {
-				var foundProperty = ctor[propertyName];
+				foundProperty = ctor[propertyName];
 				if ($.isFunction(foundProperty)) {
 					// If the property is a function then call it.
-					var args = Array.prototype.slice.call(arguments, 1);
+					args = Array.prototype.slice.call(arguments, 1);
 					return foundProperty.apply(this, args);
 				} else {
 					// Return the property itself.
@@ -75,7 +76,7 @@
 
 		// The property was not found on any of the functions
 		// in the constructor hierarchy.
-		throw Error(['Static property "', propertyName, '" not found!'].join(''));
+		throw new Error(['Static property "', propertyName, '" not found!'].join(''));
 	};
 
 
@@ -86,7 +87,7 @@
 	 * NB: If the method is found then it will be executed in the
 	 * context of the me parameter with the given arguments.
 	 *
-	 * @param {string=} opt_methodName The name of the method to
+	 * @param {*=} opt_methodName The name of the method to
 	 *  be found. Do not set when calling this method from a
 	 *  constructor!
 	 * @param {...*} var_args Arguments to be passed to the
@@ -95,10 +96,10 @@
 	 */
 	$.pkp.classes.ObjectProxy.prototype.parent =
 			function(opt_methodName, var_args) {
+		var caller, args, foundCaller, ctor;
 
 		// Retrieve a reference to the function that called us.
-		var caller = $.pkp.classes.ObjectProxy.prototype.parent.caller,
-				args;
+		caller = $.pkp.classes.ObjectProxy.prototype.parent.caller;
 
 		// 1) Check whether the caller is a constructor.
 		if (caller.parent_) {
@@ -120,8 +121,8 @@
 		}
 
 		// 3) Look for the caller in the prototype chain.
-		var foundCaller = false;
-		for (var ctor = this.constructor; ctor;
+		foundCaller = false;
+		for (ctor = this.constructor; ctor;
 				ctor = ctor.parent_ && ctor.parent_.constructor) {
 			if (ctor.prototype.hasOwnProperty(opt_methodName) &&
 					ctor.prototype[opt_methodName] === caller) {
@@ -132,7 +133,7 @@
 		}
 
 		// 4) This method was not called by the right caller.
-		throw Error(['Trying to call parent from a method of one name ',
+		throw new Error(['Trying to call parent from a method of one name ',
 			'to a method of a different name'].join(''));
 	};
 
@@ -150,4 +151,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

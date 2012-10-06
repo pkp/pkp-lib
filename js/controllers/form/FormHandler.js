@@ -32,7 +32,7 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 		// Check whether we really got a form.
 		if (!$form.is('form')) {
-			throw Error(['A form handler controller can only be bound',
+			throw new Error(['A form handler controller can only be bound',
 				' to an HTML form element!'].join(''));
 		}
 
@@ -331,8 +331,8 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.setupEnableDisablePairs =
 			function() {
 
-		var formElement = this.getHtmlElement();
-		for (var key in this.enableDisablePairs_) {
+		var formElement = this.getHtmlElement(), key;
+		for (key in this.enableDisablePairs_) {
 			$(formElement).find("[id^='" + key + "']").bind(
 					'click', this.callbackWrapper(this.toggleDependentElement_));
 		}
@@ -424,10 +424,10 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 	$.pkp.controllers.form.FormHandler.prototype.toggleDependentElement_ =
 			function(sourceElement, event) {
 
-		var formElement = this.getHtmlElement();
-		var elementId = $(sourceElement).attr('id');
-		var targetElement = $(formElement).find(
-				"[id^='" + this.enableDisablePairs_[elementId] + "']");
+		var formElement = this.getHtmlElement(),
+				elementId = $(sourceElement).attr('id'),
+				targetElement = $(formElement).find(
+						"[id^='" + this.enableDisablePairs_[elementId] + "']");
 
 		if ($(sourceElement).is(':checked')) {
 			$(targetElement).attr('disabled', '');
@@ -457,13 +457,12 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 					// Save the current tinyMCE value to the form element.
 					tinyMCEObject.save();
 
-					var $form = this.getHtmlElement();
-
 					// Get the form element that stores the tinyMCE data.
-					var formElement = $('#' + tinyMCEObject.editorId, $form);
+					var $form = this.getHtmlElement(),
+							formElement = $('#' + tinyMCEObject.editorId, $form),
+							// Validate only this element.
+							validator = $form.validate();
 
-					// Validate only this element.
-					var validator = $form.validate();
 					validator.element(formElement);
 				}));
 	};
@@ -496,4 +495,4 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

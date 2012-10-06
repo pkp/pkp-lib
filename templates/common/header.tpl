@@ -32,21 +32,21 @@
 
 	<!-- Base Jquery -->
 	{if $allowCDN}<script type="text/javascript" src="//www.google.com/jsapi"></script>
-	<script type="text/javascript">{literal}
-		<!--
-		// Provide a local fallback if the CDN cannot be reached
-		if (typeof google == 'undefined') {
-			document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-			document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
-		} else {
-			google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
-			google.load("jqueryui", "{/literal}{$smarty.const.CDN_JQUERY_UI_VERSION}{literal}");
-		}
-		// -->
-	{/literal}</script>
+		<script type="text/javascript">{literal}
+			<!--
+			// Provide a local fallback if the CDN cannot be reached
+			if (typeof google == 'undefined') {
+				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
+			} else {
+				google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
+				google.load("jqueryui", "{/literal}{$smarty.const.CDN_JQUERY_UI_VERSION}{literal}");
+			}
+			// -->
+		{/literal}</script>
 	{else}
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
 
 	<!-- Form validation -->
@@ -70,6 +70,9 @@
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 	{/foreach}
 
+	<!-- Default global locale keys for JavaScript -->
+	{include file="common/jsLocaleKeys.tpl" }
+
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
 		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
@@ -77,6 +80,7 @@
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
+	<!-- Add javascript required for font sizer -->
 	<script type="text/javascript">{literal}
 		<!--
 		$(function(){
@@ -85,22 +89,24 @@
 		// -->
 	{/literal}</script>
 
+	<!-- Form validation -->
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
 		{literal}
 		$(function(){
-			{/literal}{if $validateId}{literal}
 			jqueryValidatorI18n("{/literal}{$baseUrl}{literal}", "{/literal}{$currentLocale}{literal}"); // include the appropriate validation localization
-			$("form[name={/literal}{$validateId}{literal}]").validate({
-				errorClass: "error",
-				highlight: function(element, errorClass) {
-					$(element).parent().parent().addClass(errorClass);
-				},
-				unhighlight: function(element, errorClass) {
-					$(element).parent().parent().removeClass(errorClass);
-				}
-			});
+			{/literal}{if $validateId}{literal}
+				$("form[name={/literal}{$validateId}{literal}]").validate({
+					errorClass: "error",
+					highlight: function(element, errorClass) {
+						$(element).parent().parent().addClass(errorClass);
+					},
+					unhighlight: function(element, errorClass) {
+						$(element).parent().parent().removeClass(errorClass);
+					}
+				});
 			{/literal}{/if}{literal}
 			$(".tagit").live('click', function() {
 				$(this).find('input').focus();

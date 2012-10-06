@@ -161,5 +161,5 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 	};
 
 
-	/** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+/** @param {jQuery} $ jQuery closure. */
+}(jQuery));

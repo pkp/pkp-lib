@@ -105,11 +105,13 @@
 	$.pkp.controllers.form.AjaxFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 
+		var $form, formSubmittedEvent;
+
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
 			if (jsonData.content === '') {
 				// Notify any nested formWidgets of form submitted event.
-				var formSubmittedEvent = new $.Event('formSubmitted');
+				formSubmittedEvent = new $.Event('formSubmitted');
 				$(this.getHtmlElement()).find('.formWidget').trigger(formSubmittedEvent);
 
 				// Trigger the "form submitted" event.
@@ -125,7 +127,7 @@
 				}
 
 				// Redisplay the form.
-				var $form = this.getHtmlElement();
+				$form = this.getHtmlElement();
 				$form.replaceWith(jsonData.content);
 			}
 		}
@@ -140,5 +142,6 @@
 		return jsonData.status;
 	};
 
+
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

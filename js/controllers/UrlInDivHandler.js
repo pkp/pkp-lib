@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $divElement the wrapped div element.
+	 * @param {jQueryObject} $divElement the wrapped div element.
 	 * @param {Object} options options to be passed.
 	 */
 	$.pkp.controllers.UrlInDivHandler = function($divElement, options) {
@@ -39,7 +39,7 @@
 	/**
 	 * The URL to be used for data loaded into this div
 	 * @private
-	 * @type {string}
+	 * @type {?string}
 	 */
 	$.pkp.controllers.UrlInDivHandler.sourceUrl_ = null;
 
@@ -87,5 +87,6 @@
 		return false;
 	};
 
+
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

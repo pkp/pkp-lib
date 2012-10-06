@@ -175,4 +175,4 @@
 		$select.find('option[value!="0"]').remove();
 		this.loadOptions_();
 	};
-})(jQuery);
+}(jQuery));

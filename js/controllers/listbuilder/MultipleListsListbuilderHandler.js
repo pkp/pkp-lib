@@ -74,7 +74,7 @@
 			setLists = function(listsId) {
 		var $lists = jQuery();
 		if (!$.isArray(listsId)) {
-			throw Error('Lists id must be passed using an array object!');
+			throw new Error('Lists id must be passed using an array object!');
 		}
 
 		for (var index in listsId) {
@@ -194,4 +194,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

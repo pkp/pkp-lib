@@ -64,7 +64,8 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.mergeOptions =
 			function(options) {
 		// Let the parent class prepare the options first.
-		var internalOptions = this.parent('mergeOptions', options);
+		var internalOptions = this.parent('mergeOptions', options),
+				$handledElement;
 
 		// Configure confirmation button.
 		internalOptions.buttons = { };
@@ -80,7 +81,7 @@
 		}
 
 		// Add the modal dialog text.
-		var $handledElement = this.getHtmlElement();
+		$handledElement = this.getHtmlElement();
 		$handledElement.html(internalOptions.dialogText);
 		delete internalOptions.dialogText;
 
@@ -107,4 +108,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

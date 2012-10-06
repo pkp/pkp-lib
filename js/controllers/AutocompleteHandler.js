@@ -18,21 +18,23 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $autocompleteField the wrapped HTML input element element.
+	 * @param {jQueryObject} $autocompleteField the wrapped HTML input element.
 	 * @param {Object} options options to be passed
 	 *  into the jqueryUI autocomplete plugin.
 	 */
 	$.pkp.controllers.AutocompleteHandler = function($autocompleteField, options) {
+		var autocompleteOptions, opt;
+
 		this.parent($autocompleteField, options);
 
 		// Get the URL passed in
 		this.sourceUrl_ = options.sourceUrl;
 
 		// Create autocomplete settings.
-		var opt = {};
+		opt = {};
 		opt.source = this.callbackWrapper(this.fetchAutocomplete);
 
-		var autocompleteOptions = $.extend({ },
+		autocompleteOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
 		// Get the text input inside of this Div.
@@ -89,7 +91,7 @@
 	/**
 	 * The URL to be used for autocomplete
 	 * @private
-	 * @type {string}
+	 * @type {?string}
 	 */
 	$.pkp.controllers.AutocompleteHandler.sourceUrl_ = null;
 
@@ -109,9 +111,10 @@
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.itemSelected =
 			function(autocompleteElement, event, ui) {
+		var $hiddenInput, $textInput;
 
-		var $hiddenInput = this.hiddenInput_;
-		var $textInput = this.textInput_;
+		$hiddenInput = this.hiddenInput_;
+		$textInput = this.textInput_;
 
 		// only update the text field if the item has a value
 		// this allows us to return a 'no items' label with
@@ -138,8 +141,9 @@
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.itemFocused =
 			function(autocompleteElement, event, ui) {
+		var $textInput;
 
-		var $textInput = this.textInput_;
+		$textInput = this.textInput_;
 
 		if (ui.item.value !== '') {
 			$textInput.val(ui.item.label);
@@ -152,11 +156,13 @@
 	 * Search for the users who are availble
 	 * @param {HTMLElement} callingElement The calling HTML element.
 	 * @param {Object} request The autocomplete search request.
-	 * @param {Object} response The response handler function.
+	 * @param {Function} response The response handler function.
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.fetchAutocomplete =
 			function(callingElement, request, response) {
-		var $textInput = this.textInput_;
+		var $textInput;
+
+		$textInput = this.textInput_;
 		$textInput.addClass('spinner');
 		$.post(this.getAutocompleteUrl(), { term: request.term }, function(data) {
 			$textInput.removeClass('spinner');
@@ -209,4 +215,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

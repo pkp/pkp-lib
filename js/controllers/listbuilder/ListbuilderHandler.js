@@ -820,4 +820,4 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

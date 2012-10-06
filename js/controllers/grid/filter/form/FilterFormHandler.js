@@ -119,4 +119,4 @@ jQuery.pkp.controllers.grid.filter =
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

@@ -92,14 +92,15 @@
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.dialogOpen =
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
-		var $dialogElement = $(dialogElement);
+		var $dialogElement = $(dialogElement), url;
+
 		$dialogElement.css({'max-height': 600, 'overflow-y': 'auto',
 			'z-index': '10000'});
 
 		// Retrieve remote modal content.
-		var url = $dialogElement.dialog('option' , 'url');
+		url = $dialogElement.dialog('option' , 'url');
 		$dialogElement.pkpAjaxHtml(url);
 	};
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

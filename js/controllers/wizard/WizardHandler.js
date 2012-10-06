@@ -284,7 +284,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 		// Do not advance beyond the last step.
 		if (targetStep > lastStep) {
-			throw Error('Trying to set an invalid wizard step!');
+			throw new Error('Trying to set an invalid wizard step!');
 		}
 
 		// Enable the target step.
@@ -554,4 +554,4 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

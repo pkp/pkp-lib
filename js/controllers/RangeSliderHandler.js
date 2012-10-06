@@ -27,7 +27,7 @@
 
 		// Check that our required options are included
 		if (!options.min || !options.max) {
-			throw Error(['The "min" and "max"',
+			throw new Error(['The "min" and "max"',
 				'settings are required in a RangeSliderHandler'].join(''));
 		}
 
@@ -118,4 +118,4 @@
 	};
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

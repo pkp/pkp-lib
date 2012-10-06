@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.linkAction.LinkActionRequest
 	 *
-	 * @param {jQuery} $linkActionElement The element the link
+	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
@@ -38,7 +38,7 @@
 	/**
 	 * A pointer to the dialog HTML element.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.linkAction.ModalRequest.prototype.$dialog_ = null;
 
@@ -55,10 +55,15 @@
 		// If there is no title then try to retrieve a title
 		// from the calling element's text.
 		var modalOptions = this.getOptions(),
-				$handledElement = this.getLinkActionElement();
+				$handledElement = this.getLinkActionElement(),
+				title = $handledElement.text(),
+				uuid,
+				$linkActionElement,
+				linkActionHandler,
+				handlerOptions,
+				dialogHandler;
 
 		if (modalOptions.title === undefined) {
-			var title = $handledElement.text();
 			if (title === '') {
 				// Try to retrieve a title from the link action element's
 				// title attribute.
@@ -68,27 +73,27 @@
 		}
 
 		// Generate a unique ID.
-		var uuid = $.pkp.classes.Helper.uuid();
+		uuid = $.pkp.classes.Helper.uuid();
 
 		// Instantiate the modal.
 		if (!modalOptions.modalHandler) {
-			throw Error(['The "modalHandler" setting is required ',
+			throw new Error(['The "modalHandler" setting is required ',
 				'in a ModalRequest'].join(''));
 		}
 
 		// Make sure that all events triggered on the modal will be
 		// forwarded to the link action. This is necessary because the
 		// modal has to be created outside the regular DOM.
-		var $linkActionElement = this.getLinkActionElement();
-		var linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
-		var handlerOptions = $.extend(true,
+		$linkActionElement = this.getLinkActionElement();
+		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
+		handlerOptions = $.extend(true,
 				{$eventBridge: linkActionHandler.getStaticId()}, modalOptions);
 		this.$dialog_ = $('<div id=' + uuid + '></div>').pkpHandler(
 				modalOptions.modalHandler, handlerOptions);
 
 		// Subscribe to the dialog handler's 'removed' event so that
 		// we can clean up.
-		var dialogHandler = $.pkp.classes.Handler.getHandler(this.$dialog_);
+		dialogHandler = $.pkp.classes.Handler.getHandler(this.$dialog_);
 		dialogHandler.bind('pkpRemoveHandler',
 				$.pkp.classes.Helper.curry(this.finish, this));
 
@@ -108,4 +113,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

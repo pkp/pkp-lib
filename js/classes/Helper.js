@@ -2,16 +2,6 @@
  * @defgroup js_classes
  */
 
-
-// Create PKP namespaces.
-/** @type {Object} */
-jQuery.pkp = jQuery.pkp || { };
-
-
-/** @type {Object} */
-jQuery.pkp.classes = jQuery.pkp.classes || { };
-
-
 /**
  * @file js/classes/Helper.js
  *
@@ -25,13 +15,32 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
  */
 (function($) {
 
+	// Create PKP namespaces.
+	/** @type {Object} */
+	$.pkp = $.pkp || { };
+
+
+	/** @type {Object} */
+	$.pkp.classes = $.pkp.classes || { };
+
+
+	/** @type {Object} */
+	$.pkp.controllers = $.pkp.controllers || { };
+
+
+	/** @type {Object} */
+	$.pkp.controllers.form = $.pkp.controllers.form || {};
+
+
 
 	/**
 	 * Helper singleton
 	 * @constructor
+	 *
+	 * @extends $.pkp.classes.ObjectProxy
 	 */
 	$.pkp.classes.Helper = function() {
-		throw Error('Trying to instantiate the Helper singleton!');
+		throw new Error('Trying to instantiate the Helper singleton!');
 	};
 
 
@@ -68,19 +77,21 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 	 * @return {string} an RFC4122v4 compliant UUID.
 	 */
 	$.pkp.classes.Helper.uuid = function() {
-		var chars = $.pkp.classes.Helper.CHARS_, uuid = new Array(36), rnd = 0, r;
-		for (var i = 0; i < 36; i++) {
+		var chars = $.pkp.classes.Helper.CHARS_, uuid = new Array(36), rnd = 0, r, i;
+		for (i = 0; i < 36; i++) {
 			if (i == 8 || i == 13 || i == 18 || i == 23) {
 				uuid[i] = '-';
 			} else if (i == 14) {
 				uuid[i] = '4';
 			} else {
+				/*jslint bitwise: true*/
 				if (rnd <= 0x02) {
 					rnd = 0x2000000 + (Math.random() * 0x1000000) | 0;
 				}
 				r = rnd & 0xf;
 				rnd = rnd >> 4;
 				uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+				/*jslint bitwise: false*/
 			}
 		}
 		return uuid.join('');
@@ -151,14 +162,16 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 	 * @param {string} objectName The name of an object.
 	 * @param {Array} args The arguments to be passed
 	 *  into the object's constructor.
-	 * @return {Object} the instantiated object.
+	 * @return {$.pkp.classes.ObjectProxy} the instantiated object.
 	 */
 	$.pkp.classes.Helper.objectFactory = function(objectName, args) {
+		var ObjectConstructor, ObjectProxyInstance, objectInstance;
+
 		// Resolve the object name.
-		var ObjectConstructor = $.pkp.classes.Helper.resolveObjectName(objectName);
+		ObjectConstructor = $.pkp.classes.Helper.resolveObjectName(objectName);
 
 		// Create a new proxy constructor instance.
-		var ObjectProxyInstance = $.pkp.classes.Helper.getObjectProxyInstance();
+		ObjectProxyInstance = $.pkp.classes.Helper.getObjectProxyInstance();
 
 		// Copy static members over from the object proxy. (This may
 		// overwrite the proxy constructor's prototype in some
@@ -175,7 +188,7 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 				$.pkp.classes.ObjectProxy.prototype);
 
 		// Instantiate the proxy with the proxied object.
-		var objectInstance = new ObjectProxyInstance(objectName, args);
+		objectInstance = new ObjectProxyInstance(objectName, args);
 		return objectInstance;
 	};
 
@@ -187,36 +200,38 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 	 * @return {Function} The constructor of the object.
 	 */
 	$.pkp.classes.Helper.resolveObjectName = function(objectName) {
+		var objectNameParts, i, functionName, ObjectConstructor;
+
 		// Currently only objects in the $ namespace are
 		// supported.
-		var objectNameParts = objectName.split('.');
+		objectNameParts = objectName.split('.');
 		if (objectNameParts.shift() != '$') {
-			throw Error(['Namespace "', objectNameParts[0], '" for object"',
+			throw new Error(['Namespace "', objectNameParts[0], '" for object"',
 				objectName, '" is currently not supported!'].join(''));
 		}
 
 		// Make sure that we actually have a constructor name
 		// (starts with an upper case letter).
-		var functionName = objectNameParts[objectNameParts.length - 1];
+		functionName = objectNameParts[objectNameParts.length - 1];
 		if (functionName.charAt(0).toUpperCase() !== functionName.charAt(0)) {
-			throw Error(['The name "', objectName, '" does not point to a constructor',
-				'which must always be upper case!'].join(''));
+			throw new Error(['The name "', objectName, '" does not point to a',
+				'constructor which must always be upper case!'].join(''));
 		}
 
 		// Run through the namespace and identify the constructor.
-		var ObjectConstructor = $;
-		for (var i in objectNameParts) {
+		ObjectConstructor = $;
+		for (i in objectNameParts) {
 			ObjectConstructor = ObjectConstructor[objectNameParts[i]];
 			if (ObjectConstructor === undefined) {
-				throw Error(['Constructor for object "', objectName, '" not found!']
+				throw new Error(['Constructor for object "', objectName, '" not found!']
 						.join(''));
 			}
 		}
 
 		// Check that the constructor actually is a function.
 		if (!$.isFunction(ObjectConstructor)) {
-			throw Error(['The name "', objectName, '" does not point to a constructor',
-				'which must always be a function!'].joint());
+			throw new Error(['The name "', objectName, '" does not point to a',
+				'constructor which must always be a function!'].join());
 		}
 
 		return ObjectConstructor;
@@ -236,18 +251,40 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 		// do not interfere with each other.
 		/**
 		 * @constructor
+		 *
 		 * @param {string} objectName The name of the proxied
 		 *  object.
 		 * @param {Array} args The arguments to be passed to
 		 *  the constructor of the proxied object.
 		 */
-		return function(objectName, args) {
+		var proxyConstructor = function(objectName, args) {
 			// Set the internal object name.
 			this.objectName_ = objectName;
 
 			// Call the constructor of the proxied object.
 			this.parent.apply(this, args);
 		};
+
+		// Declare properties/methods used in the constructor for the
+		// closure compiler. These will later be overwritten by the
+		// true implementation.
+		/**
+		 * @private
+		 * @type {string} The object name of this object.
+		 */
+		proxyConstructor.objectName_ = '';
+
+		/**
+		 * @param {*=} opt_methodName The name of the method to
+		 *  be found. Do not set when calling this method from a
+		 *  constructor!
+		 * @param {...*} var_args Arguments to be passed to the
+		 *  parent method.
+		 * @return {*} The return value of the parent method.
+		 */
+		proxyConstructor.prototype.parent = function(opt_methodName, var_args) {};
+
+		return proxyConstructor;
 	};
 
 
@@ -280,10 +317,11 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 	 */
 	$.pkp.classes.Helper.curry = function(fn, context, var_args) {
 		if (arguments.length > 2) {
-			var boundArgs = Array.prototype.slice.call(arguments, 2);
+			var boundArgs, newArgs;
+			boundArgs = Array.prototype.slice.call(arguments, 2);
 			return function() {
 				// Prepend the bound arguments to the current arguments.
-				var newArgs = Array.prototype.slice.call(arguments);
+				newArgs = Array.prototype.slice.call(arguments);
 				Array.prototype.unshift.apply(newArgs, boundArgs);
 				return fn.apply(context, newArgs);
 			};
@@ -296,4 +334,4 @@ jQuery.pkp.classes = jQuery.pkp.classes || { };
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

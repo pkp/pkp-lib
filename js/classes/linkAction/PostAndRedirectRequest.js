@@ -43,12 +43,12 @@
 	 */
 	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.activate =
 			function(element, event) {
-		var returner = this.parent('activate', element, event);
-		var options = this.getOptions();
-
-		// Create a response handler for the first request (post).
-		var responseHandler = $.pkp.classes.Helper.curry(
-				this.handleResponse_, this);
+		var returner = this.parent('activate', element, event),
+				options = this.getOptions(),
+				// Create a response handler for the first request (post).
+				responseHandler = $.pkp.classes.Helper.curry(
+						this.handleResponse_, this),
+				finishCallback;
 
 		// Post.
 		$.post(options.postUrl, responseHandler, 'json');
@@ -63,7 +63,7 @@
 		// So we use a timer to give some deactivated time to the link
 		// to minimize double-execution (we can't avoid it totally because
 		// we never know when the redirect request is over).
-		var finishCallback = $.pkp.classes.Helper.curry(
+		finishCallback = $.pkp.classes.Helper.curry(
 				this.finishCallback_, this);
 		setTimeout(finishCallback, 2000);
 
@@ -91,11 +91,11 @@
 	 */
 	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.handleResponse_ =
 			function(jsonData) {
-		var options = this.getOptions();
-		var $linkActionElement = this.getLinkActionElement();
+		var options = this.getOptions(),
+				$linkActionElement = this.getLinkActionElement(),
+				// Get the link action handler to handle the json response.
+				linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 
-		// Get the link action handler to handle the json response.
-		var linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		linkActionHandler.handleJson(jsonData);
 
 		// Redirect.

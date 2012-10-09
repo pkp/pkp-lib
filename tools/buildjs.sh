@@ -155,10 +155,11 @@ for JS_FILE in $LINT_FILES; do
 		# - We allow dangling underscores (_) to mark private properties and let the
 		#   Closure compiler enforce it.
 		# - We allow the ++ and == syntax
+		# - We allow "continue"
 		# - Multiple var statements in one function are allowed to reduce variable span.
 		# - We allow code without the 'use strict' pragma as we need the callee property
 		#   for our class framework implementation.
-		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus \
+		java -jar "$TOOL_PATH/jslint4java.jar" --white --forin --nomen --plusplus --continue \
 			--eqeq --sloppy --browser --predef jQuery,alert,tinyMCE "$JS_FILE" | sed "s/^/${TAB}/"
 		echo "...processed!" >&2
 

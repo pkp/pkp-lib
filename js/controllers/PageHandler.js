@@ -98,14 +98,13 @@
 
 		// Get the link action element (that is outside of any grid)
 		// that triggered the redirect event.
-		var $sourceLinkElement = $('a', event.target);
-		var linkActionHandler = $.pkp.classes.Handler.getHandler($sourceLinkElement);
-		var linkUrl = linkActionHandler.getUrl();
-
-		// Get all grids inside this widget that have a
-		// link action with the same url of the sourceLinkElement.
-		var $grids = $('.pkp_controllers_grid', this.getHtmlElement())
-				.has('a[href=' + linkUrl + ']');
+		var $sourceLinkElement = $('a', event.target),
+				linkActionHandler = $.pkp.classes.Handler.getHandler($sourceLinkElement),
+				linkUrl = linkActionHandler.getUrl(),
+				// Get all grids inside this widget that have a
+				// link action with the same url of the sourceLinkElement.
+				$grids = $('.pkp_controllers_grid', this.getHtmlElement())
+					.has('a[href=' + linkUrl + ']');
 
 		// Trigger the dataChanged event on found grids,
 		// so they can refresh themselves.
@@ -147,19 +146,18 @@
 	 */
 	$.pkp.controllers.PageHandler.prototype.gridRefreshRequestedHandler_ =
 			function(sourceElement, event) {
-		var updateSourceClassString = 'update_source';
+		var updateSourceClassString = 'update_source',
+				$updateSourceElement = $(event.target),
+				updateSourceElementClasses = $updateSourceElement.attr('class').split(' '),
+				key, updatableElementsId, $grids, $targetElements;
 
-		var $updateSourceElement = $(event.target);
-		var updateSourceElementClasses =
-				$updateSourceElement.attr('class').split(' ');
-		for (var key in updateSourceElementClasses) {
+		for (key in updateSourceElementClasses) {
 			if (updateSourceElementClasses[key].search(updateSourceClassString) != -1) {
-				var updatableElementsId = $updateSourceElement.attr('id');
-
-				var $targetElements = $(this.getHtmlElement())
+				updatableElementsId = $updateSourceElement.attr('id');
+				$targetElements = $(this.getHtmlElement())
 						.find('.' + updatableElementsId);
 				if ($targetElements.length > 0) {
-					var $grids = $targetElements.find('.pkp_controllers_grid');
+					$grids = $targetElements.find('.pkp_controllers_grid');
 					if ($grids.length > 0) {
 						$grids.each(function() {
 							// Keyword "this" is being used here in the

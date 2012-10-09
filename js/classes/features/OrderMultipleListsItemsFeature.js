@@ -33,16 +33,17 @@
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
+
+		var $listInput, $gridRows, index, limit, $row, listId, $listInputClone;
 		this.parent('addFeatureHtml', $gridElement, options);
 
-		var $listInput = $('<input type="hidden" name="newRowId[listId]" ' +
+		$listInput = $('<input type="hidden" name="newRowId[listId]" ' +
 				'class="itemList" />');
-		var $gridRows = this.gridHandler_.getRows();
-		var index, limit;
+		$gridRows = this.gridHandler_.getRows();
 		for (index = 0, limit = $gridRows.length; index < limit; index++) {
-			var $row = $($gridRows[index]);
-			var listId = this.gridHandler_.getListIdByRow($row);
-			var $listInputClone = $listInput.clone();
+			$row = $($gridRows[index]);
+			listId = this.gridHandler_.getListIdByRow($row);
+			$listInputClone = $listInput.clone();
 			$listInputClone.attr('value', listId);
 			$('td.first_column', $row).append($listInputClone);
 		}
@@ -57,10 +58,13 @@
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
+
+		var $listInput, listId;
+
 		this.parent('storeRowOrder', index, $row);
 
-		var $listInput = $row.find('.itemList');
-		var listId = this.gridHandler_.getListIdByRow($row);
+		$listInput = $row.find('.itemList');
+		listId = this.gridHandler_.getListIdByRow($row);
 		$listInput.attr('value', listId);
 	};
 
@@ -70,8 +74,10 @@
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
 			setupSortablePlugin = function() {
-		var $lists = this.gridHandler_.getLists().find('tbody');
-		var extraParams = {connectWith: $lists};
+
+		var $lists = this.gridHandler_.getLists().find('tbody'),
+				extraParams = {connectWith: $lists};
+
 		this.applySortPlgOnElements($lists, 'tr.orderable', extraParams);
 	};
 

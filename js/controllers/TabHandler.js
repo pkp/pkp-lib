@@ -26,6 +26,8 @@
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.TabHandler = function($tabs, options) {
+		var pageUrl, pageAnchor, pattern, pageAnchors, tabAnchors, i;
+
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
@@ -42,12 +44,12 @@
 		// determine what tab that is for and set the
 		// options.selected value to it so it gets used
 		// when tabs() are initialized.
-		var pageUrl = document.location.toString();
+		pageUrl = document.location.toString();
 		if (pageUrl.match('#')) {
-			var pageAnchor = pageUrl.split('#')[1];
-			var tabAnchors = $tabs.find('li a');
-			for (var i = 0; i < tabAnchors.length; i++) {
-				var pattern = RegExp('[/=]' + pageAnchor + '$');
+			pageAnchor = pageUrl.split('#')[1];
+			tabAnchors = $tabs.find('li a');
+			for (i = 0; i < tabAnchors.length; i++) {
+				pattern = new RegExp('[/=]' + pageAnchor + '$');
 				if (tabAnchors[i].getAttribute('href').match(pattern)) {
 					options.selected = i;
 				}

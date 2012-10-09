@@ -56,8 +56,8 @@
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			getAccordionLinks = function($context) {
-		var collapseSelector = '.' + this.getCollapseClass();
-		var expandSelector = '.' + this.getExpandClass();
+		var collapseSelector = '.' + this.getCollapseClass(),
+				expandSelector = '.' + this.getExpandClass();
 		return $(collapseSelector + ',' + expandSelector, $context);
 	};
 
@@ -67,10 +67,13 @@
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.init =
 			function() {
+
+		var $collapseAllLink;
+
 		$('.grid_header_bar .expand_all', this.getGridHtmlElement()).
 				click(this.callbackWrapper(this.expandAllClickHandler_, this));
 
-		var $collapseAllLink = $('.grid_header_bar .collapse_all',
+		$collapseAllLink = $('.grid_header_bar .collapse_all',
 				this.getGridHtmlElement());
 		$collapseAllLink.click(this.callbackWrapper(
 				this.collapseAllClickHandler_, this));
@@ -174,25 +177,28 @@
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			accordionRowClickHandler_ = function(callingContext, opt_event) {
 
-		var $link = $(callingContext);
+		var $link = $(callingContext),
+				$category, $categoryElements,
+				$actionsContainer,
+				$collapseLink, $expandLink;
 		$link.hide();
 
-		var $category = $link.parents('.category_grid_body:first');
-		var $categoryElements = this.gridHandler_.
+		$category = $link.parents('.category_grid_body:first');
+		$categoryElements = this.gridHandler_.
 				getRowsInCategory($category);
 		if ($categoryElements.length === 0) {
 			$categoryElements = this.gridHandler_.
 					getCategoryEmptyPlaceholder($category);
 		}
 
-		var $actionsContainer = $link.parent();
+		$actionsContainer = $link.parent();
 		if ($link.hasClass(this.getExpandClass())) {
-			var $collapseLink = $('.' + this.getCollapseClass(),
+			$collapseLink = $('.' + this.getCollapseClass(),
 					$actionsContainer);
 			$collapseLink.show();
 			$categoryElements.show();
 		} else {
-			var $expandLink = $('.' + this.getExpandClass(),
+			$expandLink = $('.' + this.getExpandClass(),
 					$actionsContainer);
 			$expandLink.show();
 			$categoryElements.hide();
@@ -213,23 +219,26 @@
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			updateGridActions_ = function() {
+
+		var $grid, selectors, $allRowActions, $expandActions, $collapseActions,
+				$gridCollapseAction, $gridExpandAction;
 		// Only execute if grid is visible.
 		if (!this.getGridHtmlElement().is(':visible')) {
 			return;
 		}
 
-		var $grid = this.getGridHtmlElement();
-		var selectors = '.' + this.getExpandClass() +
+		$grid = this.getGridHtmlElement();
+		selectors = '.' + this.getExpandClass() +
 				', .' + this.getCollapseClass();
-		var $allRowActions = $(selectors, $grid).filter(':visible');
+		$allRowActions = $(selectors, $grid).filter(':visible');
 
-		var $expandActions = $('.' + this.getExpandClass(), $grid).
+		$expandActions = $('.' + this.getExpandClass(), $grid).
 				filter(':visible');
-		var $collapseActions = $('.' + this.getCollapseClass(), $grid).
+		$collapseActions = $('.' + this.getCollapseClass(), $grid).
 				filter(':visible');
 
-		var $gridCollapseAction = $('.grid_header_bar .collapse_all');
-		var $gridExpandAction = $('.grid_header_bar .expand_all');
+		$gridCollapseAction = $('.grid_header_bar .collapse_all');
+		$gridExpandAction = $('.grid_header_bar .expand_all');
 
 		if ($allRowActions.length == $expandActions.length &&
 				$gridCollapseAction.is(':visible')) {

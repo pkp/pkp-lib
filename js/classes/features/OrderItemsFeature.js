@@ -283,9 +283,11 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.saveOrderHandler =
 			function() {
+		var $rows;
+
 		this.gridHandler_.updateControlRowsPosition();
 		this.unbindOrderFinishControlsHandlers_();
-		var $rows = this.gridHandler_.getRows();
+		$rows = this.gridHandler_.getRows();
 		this.storeOrder($rows);
 	};
 
@@ -326,11 +328,12 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
 			function($rows) {
+		var index, limit, $row, elementId;
 		this.itemsOrder_ = [];
-		var index, limit;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
-			var $row = $($rows[index]);
-			var elementId = $row.attr('id');
+			$row = $($rows[index]);
+			elementId = $row.attr('id');
+
 			this.itemsOrder_.push(elementId);
 
 			// Give a chance to subclasses do extra operations to store
@@ -345,10 +348,11 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
 			function() {
-		var isOrdering = this.isOrdering_;
-		var $rows = this.gridHandler_.getRows();
-		var $orderableRows = $rows.filter('.orderable');
-		var moveClasses = this.getMoveItemClasses();
+		var isOrdering = this.isOrdering_,
+				$rows = this.gridHandler_.getRows(),
+				$orderableRows = $rows.filter('.orderable'),
+				moveClasses = this.getMoveItemClasses();
+
 		if (isOrdering) {
 			$orderableRows.addClass(moveClasses);
 		} else {
@@ -367,20 +371,20 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
 			function($container, itemsSelector, extraParams) {
-		var isOrdering = this.isOrdering_;
-		var dragStartCallback = this.gridHandler_.callbackWrapper(
-				this.dragStartCallback, this);
-		var dragStopCallback = this.gridHandler_.callbackWrapper(
-				this.dragStopCallback, this);
-		var orderItemCallback = this.gridHandler_.callbackWrapper(
-				this.updateOrderCallback, this);
-		var config = {
-			disabled: !isOrdering,
-			items: itemsSelector,
-			activate: dragStartCallback,
-			deactivate: dragStopCallback,
-			update: orderItemCallback,
-			tolerance: 'pointer'};
+		var isOrdering = this.isOrdering_,
+				dragStartCallback = this.gridHandler_.callbackWrapper(
+						this.dragStartCallback, this),
+				dragStopCallback = this.gridHandler_.callbackWrapper(
+						this.dragStopCallback, this),
+				orderItemCallback = this.gridHandler_.callbackWrapper(
+						this.updateOrderCallback, this),
+				config = {
+					disabled: !isOrdering,
+					items: itemsSelector,
+					activate: dragStartCallback,
+					deactivate: dragStopCallback,
+					update: orderItemCallback,
+					tolerance: 'pointer'};
 
 		if (typeof extraParams === 'object') {
 			config = $.extend(true, config, extraParams);
@@ -399,14 +403,13 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getRowsDataId =
 			function($rowsContainer) {
-		var index;
-		var rowDataIds = [];
+		var index, rowDataIds = [], $row, rowDataId;
 		for (index in this.itemsOrder_) {
-			var $row = $('#' + this.itemsOrder_[index], $rowsContainer);
+			$row = $('#' + this.itemsOrder_[index], $rowsContainer);
 			if ($row.length < 1) {
 				continue;
 			}
-			var rowDataId = this.gridHandler_.getRowDataId($row);
+			rowDataId = this.gridHandler_.getRowDataId($row);
 			rowDataIds.push(rowDataId);
 		}
 
@@ -420,12 +423,14 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
-		var $grid = this.getGridHtmlElement();
-		var $actionsContainer = $('div.row_actions', $grid);
-		var allLinksButMoveItemSelector = 'a:not(' +
-				this.getMoveItemRowActionSelector() + ')';
-		var $actions = $actionsContainer.find(allLinksButMoveItemSelector);
-		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(), $grid);
+		var $grid = this.getGridHtmlElement(),
+				$actionsContainer = $('div.row_actions', $grid),
+				allLinksButMoveItemSelector = 'a:not(' +
+						this.getMoveItemRowActionSelector() + ')',
+				$actions = $actionsContainer.find(allLinksButMoveItemSelector),
+				$moveItemRowAction = $(this.getMoveItemRowActionSelector(), $grid),
+				$rowActionsContainer, $rowActions;
+
 		if (enable) {
 			$actions.addClass('pkp_helpers_display_none');
 			$moveItemRowAction.show();
@@ -434,8 +439,8 @@
 		} else {
 			$actions.removeClass('pkp_helpers_display_none');
 
-			var $rowActionsContainer = $('.gridRow div.row_actions', $grid);
-			var $rowActions = $rowActionsContainer.
+			$rowActionsContainer = $('.gridRow div.row_actions', $grid);
+			$rowActions = $rowActionsContainer.
 					find(allLinksButMoveItemSelector);
 			if ($rowActions.length === 0) {
 				// No link action to show, hide row actions div.
@@ -478,13 +483,12 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleGridLinkActions_ =
 			function() {
-		var isOrdering = this.isOrdering_;
-
-		// We want to enable/disable all link actions, except this
-		// features controls.
-		var $gridLinkActions = $('.pkp_controllers_linkAction',
-				this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
-				this.getOrderButton(), this.getFinishControl().find('*'));
+		var isOrdering = this.isOrdering_,
+				// We want to enable/disable all link actions, except this
+				// features controls.
+				$gridLinkActions = $('.pkp_controllers_linkAction',
+						this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
+						this.getOrderButton(), this.getFinishControl().find('*'));
 
 		this.gridHandler_.changeLinkActionsState(!isOrdering, $gridLinkActions);
 	};
@@ -532,13 +536,12 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.
 			bindOrderFinishControlsHandlers_ = function() {
-		var $saveButton = this.getSaveOrderButton();
-		var $cancelLink = this.getCancelOrderButton();
-
-		var cancelLinkHandler = this.gridHandler_.callbackWrapper(
-				this.cancelOrderHandler, this);
-		var saveButtonHandler = this.gridHandler_.callbackWrapper(
-				this.saveOrderHandler, this);
+		var $saveButton = this.getSaveOrderButton(),
+				$cancelLink = this.getCancelOrderButton(),
+				cancelLinkHandler = this.gridHandler_.callbackWrapper(
+						this.cancelOrderHandler, this),
+				saveButtonHandler = this.gridHandler_.callbackWrapper(
+						this.saveOrderHandler, this);
 
 		$saveButton.click(saveButtonHandler);
 		$cancelLink.click(cancelLinkHandler);
@@ -552,10 +555,9 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.
 			unbindOrderFinishControlsHandlers_ = function() {
-		var $saveButton = this.getSaveOrderButton();
-		var $cancelLink = this.getCancelOrderButton();
-		$saveButton.unbind('click');
-		$cancelLink.unbind('click');
+
+		this.getSaveOrderButton().unbind('click');
+		this.getCancelOrderButton().unbind('click');
 	};
 
 

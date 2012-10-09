@@ -193,6 +193,7 @@
 	<message key="common.size">Size</message>
 	<message key="common.source">Source</message>
 	<message key="common.status">Status</message>
+	<message key="common.startTyping">Start Typing</message>
 	<message key="common.subject">Subject</message>
 	<message key="common.suggest">Suggest</message>
 	<message key="common.title">Title</message>

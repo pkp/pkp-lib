@@ -6,11 +6,13 @@
  *
  * an autocomplete input
  *}
+{translate|assign:"jLabelText" key="common.startTyping"}
 <script type="text/javascript">
 	$(function() {ldelim}
 		$('#{$FBV_id}_container').pkpHandler('$.pkp.controllers.AutocompleteHandler',
 			{ldelim}
-				sourceUrl: "{$FBV_autocompleteUrl|escape:javascript}"
+				sourceUrl: "{$FBV_autocompleteUrl|escape:javascript}",
+				jLabelText: '{$jLabelText|escape:javascript}'
 			{rdelim});
 	{rdelim});
 </script>

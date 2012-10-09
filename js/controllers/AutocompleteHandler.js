@@ -30,6 +30,9 @@
 		// Get the URL passed in
 		this.sourceUrl_ = options.sourceUrl;
 
+		// Get the label passed in
+		this.jLabelText_ = options.jLabelText;
+
 		// Create autocomplete settings.
 		opt = {};
 		opt.source = this.callbackWrapper(this.fetchAutocomplete);
@@ -42,6 +45,16 @@
 
 		// Create the autocomplete field with the jqueryUI plug-in.
 		this.textInput_.autocomplete(autocompleteOptions);
+
+		// Assign our title text to our label. We assign and then
+		// clear or else the title value is displayed as the validation
+		// message.
+		this.textInput_.attr('title', this.jLabelText_);
+		$('#' + this.textInput_.attr('id')).jLabel();
+		this.textInput_.attr('title', '');
+
+		// Get the new label inside of this Div.
+		this.textLabel_ = $autocompleteField.find('label');
 
 		// Get the text input inside of this Div.
 		this.hiddenInput_ = $autocompleteField.find('input:hidden');
@@ -71,6 +84,22 @@
 	 * @type {HTMLElement}
 	 */
 	$.pkp.controllers.AutocompleteHandler.hiddenInput_ = null;
+
+
+	/**
+	 * The label inside the autocomplete div that is created by jLabel.
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.AutocompleteHandler.textLabel_ = null;
+
+
+	/**
+	 * The label to be included as the default term for jLabel.
+	 * @private
+	 * @type {HTMLElement}
+	 */
+	$.pkp.controllers.AutocompleteHandler.jLabelText_ = null;
 
 
 	/**
@@ -111,17 +140,21 @@
 	 */
 	$.pkp.controllers.AutocompleteHandler.prototype.itemSelected =
 			function(autocompleteElement, event, ui) {
-		var $hiddenInput, $textInput;
+		var $hiddenInput, $textInput, $textLabel;
 
 		$hiddenInput = this.hiddenInput_;
 		$textInput = this.textInput_;
+		$textLabel = this.textLabel_;
 
 		// only update the text field if the item has a value
 		// this allows us to return a 'no items' label with
 		// an empty value.
+
 		if (ui.item.value !== '') {
 			$hiddenInput.val(ui.item.value);
 			$textInput.val(ui.item.label);
+			// Let jLabel know that we have set a value.
+			$textInput.trigger('keyup');
 		}
 		return false;
 	};

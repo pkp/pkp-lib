@@ -148,7 +148,8 @@
 			function(sourceElement, event) {
 		var updateSourceClassString = 'update_source',
 				$updateSourceElement = $(event.target),
-				updateSourceElementClasses = $updateSourceElement.attr('class').split(' '),
+				updateSourceElementClasses = $updateSourceElement
+					.attr('class').split(' '),
 				key, updatableElementsId, $grids, $targetElements;
 
 		for (key in updateSourceElementClasses) {

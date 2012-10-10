@@ -56,9 +56,11 @@
 			this.parent('modalClose', callingElement, event);
 		} else {
 			// Trigger a cancel event on the wizard.
-			var wizardCancelRequestedEvent = new $.Event('wizardCancelRequested');
+			var wizardCancelRequestedEvent = new $.Event('wizardCancelRequested'),
+					$wizard;
+
 			wizardCancelRequestedEvent.stopPropagation();
-			var $wizard = this.getHtmlElement().children().first();
+			$wizard = this.getHtmlElement().children().first();
 			$wizard.trigger(wizardCancelRequestedEvent);
 
 			// Only close the modal if the wizard didn't prevent this.

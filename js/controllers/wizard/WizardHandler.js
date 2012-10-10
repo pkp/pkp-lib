@@ -1,9 +1,6 @@
 /**
  * @defgroup js_controllers_wizard
  */
-// Create the files namespace
-jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
-
 /**
  * @file js/controllers/wizard/WizardHandler.js
  *
@@ -16,6 +13,10 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
  * @brief Basic wizard handler.
  */
 (function($) {
+
+	/** @type {Object} */
+	jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
+
 
 
 	/**
@@ -280,7 +281,8 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		// tabs and not less than 1.
 		var currentStep = this.getCurrentStep(),
 				lastStep = this.getNumberOfSteps() - 1,
-				targetStep = currentStep + 1;
+				targetStep = currentStep + 1,
+				$wizard, $continueButton;
 
 		// Do not advance beyond the last step.
 		if (targetStep > lastStep) {
@@ -288,7 +290,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		}
 
 		// Enable the target step.
-		var $wizard = this.getHtmlElement();
+		$wizard = this.getHtmlElement();
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
@@ -299,7 +301,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 		// If this is the last step then change the text on the
 		// continue button to finish.
-		var $continueButton = this.getContinueButton();
+		$continueButton = this.getContinueButton();
 		if (targetStep === lastStep) {
 			$continueButton.button('option', 'label', this.getFinishButtonText());
 		}
@@ -319,7 +321,8 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	$.pkp.controllers.wizard.WizardHandler.prototype.startWizard = function() {
 
 		// Retrieve the wizard element.
-		var $wizard = this.getHtmlElement();
+		var $wizard = this.getHtmlElement(),
+				$continueButton, disabledSteps, i;
 
 		// Do we re-start the wizard?
 		if (this.getCurrentStep() !== 0) {
@@ -331,13 +334,13 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 			$wizard.tabs('select', 0);
 
 			// Reset the continue button label.
-			var $continueButton = this.getContinueButton();
+			$continueButton = this.getContinueButton();
 			$continueButton.button('option', 'label', this.getContinueButtonText());
 		}
 
 		// Disable all but the first step.
-		var disabledSteps = [];
-		for (var i = 1; i < this.getNumberOfSteps(); i++) {
+		disabledSteps = [];
+		for (i = 1; i < this.getNumberOfSteps(); i++) {
 			disabledSteps.push(i);
 		}
 		$wizard.tabs('option', 'disabled', disabledSteps);
@@ -477,9 +480,10 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.checkForm_ =
 			function(prompt) {
-		var $form = this.getForm_();
+		var $form = this.getForm_(),
+				handler;
 		if ($form !== null) {
-			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+			handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (prompt) {
 				if (handler.formChangesTracked) {
 					if (!confirm($.pkp.locale.form_dataHasChanged)) {
@@ -508,11 +512,12 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 		// Add space before wizard buttons.
 		var $wizardButtons =
-				$('<div id="wizardButtons" class="modal-buttons"></div>');
+				$('<div id="wizardButtons" class="modal-buttons"></div>'),
+				$cancelButton, $continueButton, $progressIndicator;
 
 		if (options.cancelButtonText) {
 			// Add cancel button.
-			var $cancelButton = $(['<a id="cancelButton" href="#">',
+			$cancelButton = $(['<a id="cancelButton" href="#">',
 				options.cancelButtonText, '</a>'].join(''));
 			$wizardButtons.append($cancelButton);
 
@@ -523,12 +528,12 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 
 		if (options.continueButtonText) {
 			// Add continue/finish button.
-			var $continueButton = $(['<button id="continueButton"',
+			$continueButton = $(['<button id="continueButton"',
 				'class="button pkp_helpers_align_right">', options.continueButtonText,
 				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
 
-			var $progressIndicator = $(
+			$progressIndicator = $(
 					'<div class="pkp_helpers_progressIndicator"></div>');
 			$wizardButtons.append($progressIndicator);
 

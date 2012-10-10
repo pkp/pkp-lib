@@ -324,7 +324,8 @@
 	 * Sets the HTML element this handler is bound to.
 	 *
 	 * @protected
-	 * @param {jQueryObject} $htmlElement The element this handler should be bound to.
+	 * @param {jQueryObject} $htmlElement The element this handler should be bound
+	 *   to.
 	 * @return {jQueryObject} Passes through the supplied parameter.
 	 */
 	$.pkp.classes.Handler.prototype.setHtmlElement = function($htmlElement) {

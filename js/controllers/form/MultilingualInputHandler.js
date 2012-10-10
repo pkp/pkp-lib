@@ -154,14 +154,14 @@
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
 			function(input, event, tinyMCEObject) {
-		var editorId = tinyMCEObject.editorId;
+		var editorId = tinyMCEObject.editorId,
+				// This hack is needed so the focus event is triggered correctly in IE8.
+				// We just adjust the body element height inside the tinyMCE editor
+				// instance to a percent of the original text area height, so when users
+				// click inside an empty tinyMCE editor the target will be the body
+				// element and the focus event will be triggered.
+				textAreaHeight = $('#' + tinyMCEObject.editorId).height();
 
-		// This hack is needed so the focus event is triggered correctly in IE8.
-		// We just adjust the body element height inside the tinyMCE editor
-		// instance to a percent of the original text area height, so when users
-		// click inside an empty tinyMCE editor the target will be the body element
-		// and the focus event will be triggered.
-		var textAreaHeight = $('#' + tinyMCEObject.editorId).height();
 		$(tinyMCEObject.getBody()).height((textAreaHeight / 100) * 78);
 
 		$(tinyMCEObject.getWin()).focus(
@@ -218,7 +218,8 @@
 						return false;
 					}
 
-					// Use a timeout to give the other element a chance to acquire the focus.
+					// Use a timeout to give the other element a chance to acquire the
+					// focus.
 					setTimeout(this.callbackWrapper(function() {
 						if (!this.hasElementInFocus_()) {
 							this.hidePopover_();

@@ -1,10 +1,6 @@
 /**
  * @defgroup js_controllers_listbuilder
  */
-// Define the namespace.
-$.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
-
-
 /**
  * @file js/controllers/listbuilder/ListbuilderHandler.js
  *
@@ -17,6 +13,10 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
  * @brief Listbuilder row handler.
  */
 (function($) {
+
+	/** @type {Object} */
+	$.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
+
 
 
 	/**
@@ -169,25 +169,27 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			function() {
 
 		// Get deletions
-		var deletions = this.getHtmlElement().find('input.deletions').val();
+		var deletions = this.getHtmlElement().find('input.deletions').val(),
+				// Get insertions and modifications
+				changes = [],
+				numberOfRows, stringifiedData, saveUrl,
+				saveFieldName, $e;
 
-		// Get insertions and modifications
-		var changes = [];
 		this.getHtmlElement().find('.gridRow input.isModified[value="1"]')
 				.each(this.callbackWrapper(function(context, k, v) {
-					var $row = $(v).parents('.gridRow');
-					var params = this.buildParamsFromInputs_($row.find(':input'));
+					var $row = $(v).parents('.gridRow'),
+							params = this.buildParamsFromInputs_($row.find(':input'));
 					changes.push(params);
 				}));
 
 		// The listbuilder form validator needs to know if this listbuilder contains
 		// rows or not, so we pass the items number.
-		var numberOfRows = this.getRows().length;
+		numberOfRows = this.getRows().length;
 
 		// Assemble and send to the server
-		var stringifiedData = JSON.stringify(
+		stringifiedData = JSON.stringify(
 				{deletions: deletions, changes: changes, numberOfRows: numberOfRows});
-		var saveUrl = this.getSaveUrl_();
+		saveUrl = this.getSaveUrl_();
 		if (saveUrl) {
 			// Post the changes to the server using the internal
 			// save handler.
@@ -196,11 +198,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		} else {
 			// Supply the data to an external save handler (e.g.
 			// a form handler) using a hidden field.
-			var saveFieldName = this.getSaveFieldName_();
+			saveFieldName = this.getSaveFieldName_();
 
 			// Try to find and reuse an existing element (if
 			// e.g. a previous attempt was aborted)
-			var $e = this.getHtmlElement()
+			$e = this.getHtmlElement()
 					.find(':input[type=hidden]')
 					.filter(
 					function() {return $(this).attr('name') == saveFieldName;})
@@ -306,11 +308,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Close any existing edits if necessary
 		this.closeEdits();
 
-		var $callingContext = $(callingContext);
-		var $targetRow = $callingContext.closest('.gridRow');
-		var $deletions = $callingContext.closest('.pkp_controllers_listbuilder')
-				.find('.deletions');
-		var rowId = $targetRow.find('input[name="rowId"]').val();
+		var $callingContext = $(callingContext),
+				$targetRow = $callingContext.closest('.gridRow'),
+				$deletions = $callingContext.closest('.pkp_controllers_listbuilder')
+					.find('.deletions'),
+				rowId = $targetRow.find('input[name="rowId"]').val();
 
 		// Append the row ID to the deletions list.
 		if (rowId !== undefined) {
@@ -380,32 +382,35 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Find the currently editable select menu and fill
 		jsonData = this.handleJson(jsonData);
 		if (jsonData !== false) {
-			var $listbuilder = this.getHtmlElement();
-
+			var $listbuilder = this.getHtmlElement(),
+					selectedValues = [],
+					$selectInput,
+					i, limit,
+					$pulldown, $container, optionsCount, j,
+					$option,
+					label, $optgroup,
+					k, optionsInsideGroup, $lastElement;
 			// Get the list of already-selected options, to ensure
 			// that we don't offer duplicates.
-			var selectedValues = [];
 			$listbuilder.find('.gridCellDisplay :input').each(function(i, selected) {
 				selectedValues[i] = $(selected).val();
 			});
 
 			// Get the currently available input row's elements
-			var $selectInput = $listbuilder.find(
+			$selectInput = $listbuilder.find(
 					'.gridRowEdit:visible .selectMenu:input'
 					);
 
 			// For each pulldown (generally 1), add options.
-			var i, limit;
 			for (i = 0, limit = $selectInput.length; i < limit; i++) {
 				// Fetch some useful properties
-				var $pulldown = $($selectInput[i]);
-				var $container = $pulldown.parents('.gridCellContainer');
+				$pulldown = $($selectInput[i]);
+				$container = $pulldown.parents('.gridCellContainer');
 
 				// Add the options, noting the currently selected index
-				var optionsCount = 0;
+				optionsCount = 0;
 				$pulldown.children().empty();
-				var j = null;
-				var $option;
+				j = null;
 				for (j in jsonData.content[i]) {
 					// Ignore optgroup labels.
 					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
@@ -426,18 +431,18 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 							continue;
 						}
 
-						var label =
+						label =
 								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
 						if (!label) {
 							continue;
 						}
 
-						var $optgroup = $('<optgroup></optgroup>');
+						$optgroup = $('<optgroup></optgroup>');
 						$optgroup.attr('label', label);
 						$pulldown.append($optgroup);
 
-						var k = null;
-						var optionsInsideGroup = 0;
+						k = null;
+						optionsInsideGroup = 0;
 						for (k in jsonData.content[i][j]) {
 							// Populate the optgroup.
 							$option = this.populatePulldown_($optgroup,
@@ -462,7 +467,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 					}
 				}
 
-				var $lastElement = $option;
+				$lastElement = $option;
 
 				// If only one element is available, select it.
 				if (optionsCount === 1 && $lastElement) {
@@ -497,15 +502,15 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			populatePulldown_ = function(
 			$element, selectedValues, optionText, optionValue) {
 
-		var $container = $element.parents('.gridCellContainer');
-		var currentIndex = $container.find('.gridCellDisplay :input').val();
+		var $container = $element.parents('.gridCellContainer'),
+				currentIndex = $container.find('.gridCellDisplay :input').val(),
+				isDuplicate = false, k,
+				$option;
 
-		// Check to see if this option is
-		// already in the LB.
-		var isDuplicate = false;
+		// Check to see if this option is already in the LB.
 		if (optionValue != currentIndex) {
 			// If it's the current row, don't consider it a duplicate
-			for (var k = 0; k < selectedValues.length; k++) {
+			for (k = 0; k < selectedValues.length; k++) {
 				if (selectedValues[k] == optionValue) {
 					isDuplicate = true;
 				}
@@ -514,7 +519,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		if (!isDuplicate) {
 			// Create and populate the option node
-			var $option = $('<option/>');
+			$option = $('<option/>');
 			$option.attr('value', optionValue);
 			$option.text(optionText);
 
@@ -584,8 +589,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		var params = {};
 		$.each($inputs.serializeArray(), function(k, v) {
-			var name = v.name;
-			var value = v.value;
+			var name = v.name,
+					value = v.value;
 
 			params[name] = params[name] === undefined ? value :
 					$.isArray(params[name]) ? params[name].concat(value) :
@@ -609,14 +614,14 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			inputKeystrokeHandler_ = function(callingContext, opt_event) {
 
-		var CR_KEY = 13;
-		var TAB_KEY = 9;
+		var CR_KEY = 13, TAB_KEY = 9,
+				$target, $row, $inputs, i;
 
 		if (opt_event.which == CR_KEY) {
-			var $target = $(callingContext);
-			var $row = $target.parents('.gridRow');
-			var $inputs = $row.find(':input:visible');
-			var i = $inputs.index($target);
+			$target = $(callingContext);
+			$row = $target.parents('.gridRow');
+			$inputs = $row.find(':input:visible');
+			i = $inputs.index($target);
 			if ($inputs.length == i + 1) {
 				this.saveRow($row);
 				return false; // Prevent default
@@ -651,8 +656,8 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 		// Check to see whether the row has lost focus after this event has
 		// been processed.
 		setTimeout(this.callbackWrapper(function() {
-			var $editingRow = $('.editingRowPlaceholder');
-			var found = false;
+			var $editingRow = $('.editingRowPlaceholder'),
+					found = false;
 			$editingRow.find(':input').each(function(index, elem) {
 				if (elem === document.activeElement) {
 					found = true;
@@ -688,11 +693,10 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			// Unfortunately we can't use a closure to get this from
 			// the calling context. Use a class flag "saveRowResponsePlaceholder".
 			// (Risks IE closure/DOM element memory leak.)
-			var $newContent = $(jsonData.content);
-
-			// Store current row id.
-			var rowId = this.getHtmlElement().
-					find('.saveRowResponsePlaceholder').attr('id');
+			var $newContent = $(jsonData.content),
+					// Store current row id.
+					rowId = this.getHtmlElement()
+							.find('.saveRowResponsePlaceholder').attr('id');
 
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').

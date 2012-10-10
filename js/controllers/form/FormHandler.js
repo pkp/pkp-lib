@@ -1,10 +1,6 @@
 /**
  * @defgroup js_controllers_form
  */
-// Define the namespace.
-$.pkp.controllers.form = $.pkp.controllers.form || {};
-
-
 /**
  * @file js/controllers/form/FormHandler.js
  *
@@ -17,6 +13,10 @@ $.pkp.controllers.form = $.pkp.controllers.form || {};
  * @brief Abstract form handler.
  */
 (function($) {
+
+	/** @type {Object} */
+	$.pkp.controllers.form = $.pkp.controllers.form || {};
+
 
 
 	/**

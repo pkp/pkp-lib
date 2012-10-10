@@ -7,8 +7,8 @@
  * @class DropdownHandler
  * @ingroup js_controllers_form
  *
- * @brief Handler for a container allowing the user to select from an AJAX-provided
- *   list of options, triggering an event upon selection.
+ * @brief Handler for a container allowing the user to select from an
+ *   AJAX-provided list of options, triggering an event upon selection.
  *
  */
 (function($) {
@@ -137,12 +137,13 @@
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
-		var $container = this.getHtmlElement();
-		var $select = $container.find('select');
+		var $container = this.getHtmlElement(),
+				$select = $container.find('select'),
+				optionId, $option;
 
 		// For each supplied option, add it to the select menu.
-		for (var optionId in jsonData.content) {
-			var $option = $('<option/>');
+		for (optionId in jsonData.content) {
+			$option = $('<option/>');
 			$option.attr('value', optionId);
 			if (this.defaultKey_ == optionId || this.currentKey_ == optionId) {
 				$option.attr('selected', 'selected');
@@ -169,8 +170,9 @@
 			function(sourceElement, event) {
 
 		// prune the list before reloading the items.
-		var $container = this.getHtmlElement();
-		var $select = $container.find('select');
+		var $container = this.getHtmlElement(),
+				$select = $container.find('select');
+
 		this.currentKey_ = $select.find('option:selected').attr('value');
 		$select.find('option[value!="0"]').remove();
 		this.loadOptions_();

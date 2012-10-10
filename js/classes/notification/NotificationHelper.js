@@ -1,10 +1,6 @@
 /**
  * @defgroup js_classes_notification
  */
-// Define the namespace
-$.pkp.classes.notification = $.pkp.classes.notification || {};
-
-
 /**
  * @file js/classes/notification/NotificationHelper.js
  *
@@ -18,7 +14,16 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
  */
 (function($) {
 
-	$.pkp.classes.notification.NotificationHelper = function() {};
+	/** @type {Object} */
+	$.pkp.classes.notification = $.pkp.classes.notification || {};
+
+
+
+	/**
+	 * @constructor
+	 */
+	$.pkp.classes.notification.NotificationHelper = function() {
+	};
 
 
 	//

@@ -60,7 +60,8 @@
 		var fileUploader;
 
 		if (this.resetUploader_) {
-			fileUploader = $('#plupload', this.getHtmlElement()).plupload('getUploader');
+			fileUploader = $('#plupload', this.getHtmlElement())
+					.plupload('getUploader');
 			fileUploader.splice();
 			fileUploader.refresh();
 

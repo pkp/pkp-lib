@@ -110,8 +110,9 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataId =
 			function($category) {
-		var categoryId = $category.attr('id');
-		var startExtractPosition = this.getCategoryIdPrefix().length;
+		var categoryId = $category.attr('id'),
+				startExtractPosition = this.getCategoryIdPrefix().length;
+
 		return categoryId.slice(startExtractPosition);
 	};
 
@@ -150,10 +151,10 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.resequenceCategories =
 			function(sequenceMap) {
-		var categoryId, index;
+		var categoryId, index, $category;
 		for (index in sequenceMap) {
 			categoryId = sequenceMap[index];
-			var $category = $('#' + categoryId);
+			$category = $('#' + categoryId);
 			this.appendCategory($category);
 		}
 
@@ -167,11 +168,12 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.
 			updateEmptyPlaceholderPosition = function() {
-		var $categories = this.getCategories();
-		var index, limit;
+		var $categories = this.getCategories(),
+				index, limit,
+				$category, $emptyPlaceholder;
 		for (index = 0, limit = $categories.length; index < limit; index++) {
-			var $category = $($categories[index]);
-			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($category);
+			$category = $($categories[index]);
+			$emptyPlaceholder = this.getCategoryEmptyPlaceholder($category);
 			if ($emptyPlaceholder.length > 0) {
 				$emptyPlaceholder.insertAfter($category);
 			}
@@ -227,12 +229,12 @@
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, opt_elementId) {
 
-		var fetchedAlready = false;
+		var fetchedAlready = false, elementIds;
 
 		if (opt_elementId !== undefined) {
 			// Check if we want to refresh a row inside a category.
 			if (opt_elementId.parentElementId !== undefined) {
-				var elementIds = {rowId: opt_elementId[0],
+				elementIds = {rowId: opt_elementId[0],
 					rowCategoryId: opt_elementId.parentElementId};
 
 				// Store the category id.
@@ -262,6 +264,8 @@
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.deleteElement =
 			function($element) {
 
+		var $gridBody, index, limit, $parent, $emptyPlaceholder;
+
 		if ($element.length > 1) {
 			// Category and category row have the same element data id,
 			// handle this case.
@@ -275,10 +279,9 @@
 			// Sometimes grid rows inside different categories may have
 			// the same id. Try to find the correct one to delete.
 			if (this.currentCategoryId_) {
-				var $gridBody = this.getCategoryByDataId(this.currentCategoryId_);
-				var index, limit;
+				$gridBody = this.getCategoryByDataId(this.currentCategoryId_);
 				for (index = 0, limit = $element.length; index < limit; index++) {
-					var $parent = $($element[index]).
+					$parent = $($element[index]).
 							parents('#' + $gridBody.attr('id'));
 					if ($parent.length === 1) {
 						$element = $($element[index]);
@@ -290,7 +293,7 @@
 
 		if ($element.hasClass('category_grid_body')) {
 			// Need to delete the category empty placeholder.
-			var $emptyPlaceholder = this.getCategoryEmptyPlaceholder($element);
+			$emptyPlaceholder = this.getCategoryEmptyPlaceholder($element);
 			$emptyPlaceholder.remove();
 		}
 
@@ -303,11 +306,11 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendElement =
 			function($element) {
-		var $gridBody = null;
+		var $gridBody = null, categoryDataId, $emptyPlaceholder;
 
 		if ($element.hasClass('gridRow')) {
 			// New row must be inside a category.
-			var categoryDataId = this.getCategoryDataIdByRowId($element.attr('id'));
+			categoryDataId = this.getCategoryDataIdByRowId($element.attr('id'));
 			$gridBody = this.getCategoryByDataId(categoryDataId);
 		}
 
@@ -316,7 +319,7 @@
 
 		// Make sure the placeholder is the last grid element.
 		if ($element.hasClass('category_grid_body')) {
-			var $emptyPlaceholder = this.getEmptyElement($element);
+			$emptyPlaceholder = this.getEmptyElement($element);
 			this.getHtmlElement().find(this.bodySelector_).append($emptyPlaceholder);
 		}
 	};
@@ -344,8 +347,8 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.hasSameNumOfColumns =
 			function($row) {
-		var $element = $row;
-		var checkColSpan = false;
+		var $element = $row,
+				checkColSpan = false;
 
 		if ($row.hasClass('category_grid_body')) {
 			$element = $row.find('tr');

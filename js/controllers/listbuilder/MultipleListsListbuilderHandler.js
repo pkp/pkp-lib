@@ -72,13 +72,15 @@
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			setLists = function(listsId) {
-		var $lists = jQuery();
+		var $lists = jQuery(),
+				index, $list;
+
 		if (!$.isArray(listsId)) {
 			throw new Error('Lists id must be passed using an array object!');
 		}
 
-		for (var index in listsId) {
-			var $list = this.getListById(listsId[index]);
+		for (index in listsId) {
+			$list = this.getListById(listsId[index]);
 			if (this.$lists_) {
 				this.$lists_ = this.$lists_.add($list);
 			} else {
@@ -130,8 +132,9 @@
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getListId = function($list) {
-		var idPrefix = this.getGridIdPrefix() + '-table-';
-		var listElementId = $list.attr('id');
+		var idPrefix = this.getGridIdPrefix() + '-table-',
+				listElementId = $list.attr('id');
+
 		return listElementId.slice(idPrefix.length);
 	};
 
@@ -175,9 +178,9 @@
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			toggleListNoItemsRow = function($list, limit, $filterSelector) {
-		var $noItemsRow = this.getListNoItemsRow($list);
+		var $noItemsRow = this.getListNoItemsRow($list),
+				$listRows = this.getRowsByList($list);
 
-		var $listRows = this.getRowsByList($list);
 		if ($filterSelector) {
 			$listRows = $listRows.not($filterSelector);
 		}

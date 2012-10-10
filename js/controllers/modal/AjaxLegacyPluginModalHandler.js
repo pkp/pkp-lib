@@ -55,14 +55,16 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.dialogOpen =
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
-		var $dialogElement = $(dialogElement);
+		var $dialogElement = $(dialogElement),
+				url, callback;
+
 		$dialogElement.css({'max-height': 600, 'overflow-y': 'auto',
 			'z-index': '10000'});
 
 		// Retrieve remote modal content.
-		var url = $dialogElement.dialog('option' , 'url');
+		url = $dialogElement.dialog('option' , 'url');
 		this.url_ = url;
-		var callback = this.callbackWrapper(this.refreshModalCallback_);
+		callback = this.callbackWrapper(this.refreshModalCallback_);
 		$dialogElement.pkpAjaxHtml(url, callback);
 	};
 
@@ -83,17 +85,18 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
 			function(url, content, submit) {
 
-		var $dialogElement = $(this.getHtmlElement());
+		var $dialogElement = $(this.getHtmlElement()),
+				responseHandler, $forms;
 
 		if (url) {
 			// Store the url that was used to fetch the content.
 			this.url_ = url;
-			var responseHandler = this.callbackWrapper(this.handleResponse_);
+			responseHandler = this.callbackWrapper(this.handleResponse_);
 
 			// We want to submit a form?
 			if (submit) {
 				// Get all forms in modal to serialize them.
-				var $forms = $('form', this.getHtmlElement());
+				$forms = $('form', this.getHtmlElement());
 
 				// Post the forms data using the passed url.
 				$.post(url, $forms.serialize(), responseHandler, 'json');
@@ -118,12 +121,15 @@
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			refreshModalCallback_ = function() {
-		var $dialogElement = this.getHtmlElement();
+		var $dialogElement = this.getHtmlElement(),
+				// Fix modal title.
+				$newTitle = $('h2', $dialogElement),
+				$currentTitle, $buttons, $menu, $oldMenu, $newMenu,
+				$links, clickLinkHandler, bindEventsCallback,
+				$formElements, url, pageAnchor;
 
-		// Fix modal title.
-		var $newTitle = $('h2', $dialogElement);
 		if ($newTitle.length > 0) {
-			var $currentTitle = $dialogElement.parent()
+			$currentTitle = $dialogElement.parent()
 					.find('.pkp_controllers_modal_titleBar h2');
 			$currentTitle.replaceWith($newTitle);
 		}
@@ -132,16 +138,16 @@
 		$dialogElement.addClass('legacy_plugin_content');
 
 		// Transform buttons.
-		var $buttons = $(':submit, :button, :reset');
+		$buttons = $(':submit, :button, :reset');
 		if ($buttons.length > 0) {
 			$buttons.button();
 		}
 
 		// Transform menu links.
-		var $menu = $('.menu', $dialogElement);
+		$menu = $('.menu', $dialogElement);
 		if ($menu.length > 0) {
-			var $oldMenu = $.extend(true, {}, $menu);
-			var $newMenu = $('<div class="menu"></div>');
+			$oldMenu = $.extend(true, {}, $menu);
+			$newMenu = $('<div class="menu"></div>');
 			$menu.replaceWith($newMenu);
 			$menu = $('.menu');
 			$menu.append($oldMenu);
@@ -158,15 +164,15 @@
 		}
 
 		// Bind click handlers.
-		var $links = $('a', this.getHtmlElement());
-		var clickLinkHandler = this.callbackWrapper(this.clickLinkHandler_);
-		var bindEventsCallback = this.callbackWrapper(this.bindClickEvent_);
+		$links = $('a', this.getHtmlElement());
+		clickLinkHandler = this.callbackWrapper(this.clickLinkHandler_);
+		bindEventsCallback = this.callbackWrapper(this.bindClickEvent_);
 		$links.each(function(index, element) {
 			bindEventsCallback(element, clickLinkHandler);
 		});
 
 		// Bind form submit handlers.
-		var $formElements = $('form.pkp_form', $dialogElement);
+		$formElements = $('form.pkp_form', $dialogElement);
 		if ($formElements.length > 0) {
 			$formElements.bind('submit', this.callbackWrapper(this.submitFormHandler_));
 			$formElements.find('#cancelFormButton').unbind('click');
@@ -178,9 +184,9 @@
 		$dialogElement.scrollTop(0);
 
 		// Go to the anchor defined in url that fetched the content, if any.
-		var url = this.url_;
+		url = this.url_;
 		if (url.match('#')) {
-			var pageAnchor = url.split('#')[1];
+			pageAnchor = url.split('#')[1];
 
 			// Scroll always down (because of the scroll reseting) to the page anchor.
 			$dialogElement.scrollTop($('a[name="' + pageAnchor + '"]').position().top);
@@ -230,14 +236,15 @@
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.bindClickEvent_ =
 			function(contextElement, linkElement, clickLinkHandler) {
-		var $link = $(linkElement);
+		var $link = $(linkElement),
+				onclickHandler;
 
 		// Check for the presence of scripts defined inside
 		// the element tag, as attributes.
 		if ($link.attr('onclick')) {
 			// We have an event handler. Make sure this handler will be passed to
 			// our click handler to be executed too.
-			var onclickHandler = $link.attr('onclick');
+			onclickHandler = $link.attr('onclick');
 
 			// We don't want the onclick handler being executed twice.
 			$link.removeAttr('onclick');
@@ -283,12 +290,13 @@
 		}
 
 		// Get the element that triggered the event.
-		var $link = $(event.target);
+		var $link = $(event.target),
+				url;
 
 		$link.unbind('click', this.clickLinkHandler_);
 
 		// Get the url of the link that triggered the event.
-		var url = $link.attr('href');
+		url = $link.attr('href');
 		this.refreshModal_(url);
 
 		return true;
@@ -306,12 +314,13 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			submitFormHandler_ = function(form, event) {
 		// Get the element that triggered the event.
-		var $form = $(form);
+		var $form = $(form),
+				url;
 
 		$form.unbind('submit', this.submitFormHandler_);
 
 		// Get the url of the form to submit via ajax.
-		var url = $form.attr('action');
+		url = $form.attr('action');
 		this.refreshModal_(url, null, true);
 
 		return false;

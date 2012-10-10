@@ -142,7 +142,9 @@ jQuery.pkp.controllers.wizard.fileUpload =
 		// tabs and not less than 1.
 		var currentStep = this.getCurrentStep(),
 				lastStep = this.getNumberOfSteps() - 1,
-				targetStep = currentStep + 1;
+				targetStep = currentStep + 1,
+				$wizard = this.getHtmlElement(),
+				$continueButton;
 
 		// Do not advance beyond the last step.
 		if (targetStep > lastStep) {
@@ -150,7 +152,6 @@ jQuery.pkp.controllers.wizard.fileUpload =
 		}
 
 		// Enable the target step.
-		var $wizard = this.getHtmlElement();
 		$wizard.tabs('enable', targetStep);
 
 		// Advance to the target step.
@@ -164,7 +165,7 @@ jQuery.pkp.controllers.wizard.fileUpload =
 		// If this is the last step then change the text on the
 		// continue button to finish.
 		if (targetStep === lastStep) {
-			var $continueButton = this.getContinueButton();
+			$continueButton = this.getContinueButton();
 			$continueButton.button('option', 'label', this.getFinishButtonText());
 			$continueButton.button('enable');
 		}
@@ -177,11 +178,14 @@ jQuery.pkp.controllers.wizard.fileUpload =
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.tabsLoad = function(tabsElement, event, ui) {
 
+		var $wizard = this.getHtmlElement(),
+				$newFileButton,
+				$progressIndicator = this.getProgressIndicator();
+
 		// In the last step: Bind click a event to the button that re-starts
 		// the upload process.
 		if (ui.index === 2) {
-			var $wizard = this.getHtmlElement();
-			var $newFileButton = $('#newFile', $wizard);
+			$newFileButton = $('#newFile', $wizard);
 			if ($newFileButton.length !== 1) {
 				throw new Error('Did not find "new file" button!');
 			}
@@ -189,7 +193,6 @@ jQuery.pkp.controllers.wizard.fileUpload =
 			$newFileButton.bind('click', this.callbackWrapper(this.startWizard));
 		}
 
-		var $progressIndicator = this.getProgressIndicator();
 		$progressIndicator.hide();
 
 		return this.parent('tabsLoad', tabsElement, event, ui);

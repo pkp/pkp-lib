@@ -55,9 +55,9 @@
 	$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler.
 			prototype.wizardAdvanceRequested = function(wizardElement, event) {
 
-		var $confirmationForm = this.getHtmlElement();
-		var revisedFileId = parseInt(
-				$confirmationForm.find('#revisedFileId').val(), 10);
+		var $confirmationForm = this.getHtmlElement(),
+				revisedFileId = parseInt(
+						$confirmationForm.find('#revisedFileId').val(), 10);
 		if (revisedFileId > 0) {
 			// Submit the form.
 			$confirmationForm.submit();

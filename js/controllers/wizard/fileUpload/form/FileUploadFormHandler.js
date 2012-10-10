@@ -48,10 +48,12 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 		// When a user selects a submission to revise then the
 		// the file genre chooser must be disabled.
-		var $revisedFileId = $form.find('#revisedFileId');
+		var $revisedFileId = $form.find('#revisedFileId'),
+				$genreId;
+
 		$revisedFileId.change(this.callbackWrapper(this.revisedFileChange));
 		if (this.hasGenreSelector_) {
-			var $genreId = $form.find('#genreId');
+			$genreId = $form.find('#genreId');
 			$genreId.change(this.callbackWrapper(this.genreChange));
 			// initially, hide the upload botton on the form.
 			$form.find('.plupload_button.plupload_start').hide();
@@ -128,17 +130,18 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			prepareFileUploadRequest = function(caller, pluploader) {
 
-		var $uploadForm = this.getHtmlElement();
-		var multipartParams = { };
+		var $uploadForm = this.getHtmlElement(),
+				multipartParams = { },
+				// Add the uploader user group id.
+				$uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId'),
+				$revisedFileId, $genreId;
 
-		// Add the uploader user group id.
-		var $uploaderUserGroupId = $uploadForm.find('#uploaderUserGroupId');
 		$uploaderUserGroupId.attr('disabled', 'disabled');
 		multipartParams.uploaderUserGroupId = $uploaderUserGroupId.val();
 
 		// Add the revised file to the upload message.
 		if (this.hasFileSelector_) {
-			var $revisedFileId = $uploadForm.find('#revisedFileId');
+			$revisedFileId = $uploadForm.find('#revisedFileId');
 			$revisedFileId.attr('disabled', 'disabled');
 			multipartParams.revisedFileId = $revisedFileId.val();
 		} else {
@@ -151,7 +154,7 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 
 		// Add the file genre to the upload message.
 		if (this.hasGenreSelector_) {
-			var $genreId = $uploadForm.find('#genreId');
+			$genreId = $uploadForm.find('#genreId');
 			$genreId.attr('disabled', 'disabled');
 			multipartParams.genreId = $genreId.val();
 		} else {
@@ -174,14 +177,14 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
-		var jsonData = this.handleJson($.parseJSON(ret.response));
+		var jsonData = this.handleJson($.parseJSON(ret.response)),
+				$uploadForm = this.getHtmlElement();
+
 		if (jsonData !== false) {
 			// Trigger the file uploaded event.
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
-				var $uploadForm = this.getHtmlElement();
-
 				// remove the 'add files' button to prevent repeated uploads.
 				// Note: we must disable the type="file" element or else Chrome
 				// will let a user click through the disabled button and add
@@ -222,9 +225,9 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			revisedFileChange = function(revisedFileElement, event) {
 
-		var $uploadForm = this.getHtmlElement();
-		var $revisedFileId = $uploadForm.find('#revisedFileId');
-		var $genreId = $uploadForm.find('#genreId');
+		var $uploadForm = this.getHtmlElement(),
+				$revisedFileId = $uploadForm.find('#revisedFileId'),
+				$genreId = $uploadForm.find('#genreId');
 
 		if ($revisedFileId.val() === '') {
 			// New file...
@@ -247,8 +250,8 @@ jQuery.pkp.controllers.wizard.fileUpload.form =
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			genreChange = function(genreElement, event) {
 
-		var $uploadForm = this.getHtmlElement();
-		var $genreId = $uploadForm.find('#genreId');
+		var $uploadForm = this.getHtmlElement(),
+				$genreId = $uploadForm.find('#genreId');
 		if ($genreId.val() === '') {
 			// genre is empty
 			$uploadForm.find('.plupload_button.plupload_start').hide();

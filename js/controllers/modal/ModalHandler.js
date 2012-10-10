@@ -1,9 +1,6 @@
 /**
  * @defgroup js_controllers_modal
  */
-// Create the modal namespace.
-jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
-
 /**
  * @file js/controllers/modal/ModalHandler.js
  *
@@ -22,6 +19,10 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
  *  expects a simple message string.
  */
 (function($) {
+
+	/** @type {Object} */
+	$.pkp.controllers.modal = $.pkp.controllers.modal || { };
+
 
 
 	/**

@@ -15,7 +15,7 @@
 (function($) {
 
 	/** @type {Object} */
-	jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
+	$.pkp.controllers.wizard = $.pkp.controllers.wizard || { };
 
 
 

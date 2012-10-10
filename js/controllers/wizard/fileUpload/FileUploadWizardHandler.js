@@ -1,10 +1,6 @@
 /**
  * @defgroup js_controllers_wizard_fileUpload
  */
-// Create the files namespace
-jQuery.pkp.controllers.wizard.fileUpload =
-			jQuery.pkp.controllers.wizard.fileUpload || { };
-
 /**
  * @file js/controllers/wizard/fileUpload/FileUploadWizardHandler.js
  *
@@ -17,6 +13,11 @@ jQuery.pkp.controllers.wizard.fileUpload =
  * @brief File uploader wizard handler.
  */
 (function($) {
+
+	/** @type Object */
+	$.pkp.controllers.wizard.fileUpload =
+			$.pkp.controllers.wizard.fileUpload || { };
+
 
 
 	/**

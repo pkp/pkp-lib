@@ -1,9 +1,6 @@
 /**
  * @defgroup js_controllers_linkAction
  */
-// Create the linkAction namespace.
-jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
-
 /**
  * @file js/controllers/linkAction/LinkActionHandler.js
  *
@@ -18,6 +15,10 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
  *  handler.
  */
 (function($) {
+
+	/** @type {Object} */
+	jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
+
 
 
 	/**

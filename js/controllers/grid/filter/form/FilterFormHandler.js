@@ -1,11 +1,6 @@
 /**
  * @defgroup js_controllers_grid_filter_form
  */
-// Create the namespace.
-jQuery.pkp.controllers.grid.filter =
-			jQuery.pkp.controllers.grid.filter ||
-			{ form: { } };
-
 /**
  * @file js/controllers/grid/filter/form/FilterFormHandler.js
  *
@@ -18,6 +13,12 @@ jQuery.pkp.controllers.grid.filter =
  * @brief Handle the filter configuration form.
  */
 (function($) {
+
+	/** @type {Object} */
+	$.pkp.controllers.grid.filter =
+			$.pkp.controllers.grid.filter ||
+			{ form: { } };
+
 
 
 	/**

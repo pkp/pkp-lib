@@ -37,7 +37,7 @@
 	<br />
 {/if}
 
-<input type="hidden" name="source" value="{$source|escape}" />
+<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
 {if ! $implicitAuth}
 	<table id="signinTable" class="data">

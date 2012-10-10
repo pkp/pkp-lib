@@ -42,11 +42,11 @@
 				);
 
 		// Create slider settings.
-		var opt = {};
+		var opt = {}, rangeSliderOptions;
 		opt.min = options.min;
 		opt.max = options.max;
 		opt.values = [options.min, options.max];
-		var rangeSliderOptions = $.extend({ },
+		rangeSliderOptions = $.extend({ },
 				this.self('DEFAULT_PROPERTIES_'), opt);
 
 		// Create the slider with the jqueryUI plug-in.
@@ -103,15 +103,16 @@
 			function(rangeSliderElement, event, ui) {
 
 		// Set the label
-		var $label = this.label_;
+		var $label = this.label_,
+				$minVal, $maxVal;
 		$label.val(ui.values[0] + ' - ' + ui.values[1]);
 
 		// Set the hidden inputs
-		var $minVal = $(rangeSliderElement).children(
+		$minVal = $(rangeSliderElement).children(
 				'.pkp_controllers_rangeSlider_minInput'
 				);
 		$minVal.val(ui.values[0]);
-		var $maxVal = $(rangeSliderElement).children(
+		$maxVal = $(rangeSliderElement).children(
 				'.pkp_controllers_rangeSlider_maxInput'
 				);
 		$maxVal.val(ui.values[1]);

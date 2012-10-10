@@ -66,7 +66,8 @@
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
 
-		var $widgetWrapper = this.getHtmlElement();
+		var $widgetWrapper = this.getHtmlElement(),
+				$scrollable;
 
 		// Hide the inactive version of the toggle extras span.
 		$('.toggleExtras .toggleExtras-inactive', $widgetWrapper).hide();
@@ -84,7 +85,7 @@
 				.addClass('ui-icon-triangle-1-s');
 
 		// Identify if there is a scrollable parent.
-		var $scrollable = $widgetWrapper.closest('.scrollable');
+		$scrollable = $widgetWrapper.closest('.scrollable');
 		if ($scrollable.size() > 0) {
 
 			// Scroll the parent so that all extra content in
@@ -149,9 +150,10 @@
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {
 
-		var extrasWidgetTop = $widgetWrapper.position().top;
-		var scrollingWidgetTop = $scrollable.position().top;
-		var currentScrollingTop = $scrollable.scrollTop();
+		var extrasWidgetTop = $widgetWrapper.position().top,
+				scrollingWidgetTop = $scrollable.position().top,
+				currentScrollingTop = $scrollable.scrollTop(),
+				hiddenPixels, newScrollingTop;
 
 		// Do we have to scroll down or scroll up?
 		if (extrasWidgetTop > scrollingWidgetTop) {
@@ -159,7 +161,7 @@
 
 			// Calculate the number of hidden pixels of the child
 			// element within the scrollable element.
-			var hiddenPixels = Math.ceil(extrasWidgetTop +
+			hiddenPixels = Math.ceil(extrasWidgetTop +
 					$widgetWrapper.height() - $scrollable.height());
 
 			// Scroll down if parts or all of this widget are hidden.
@@ -170,7 +172,7 @@
 			// Scroll up...
 
 			// Calculate the new scrolling top.
-			var newScrollingTop = Math.max(Math.floor(
+			newScrollingTop = Math.max(Math.floor(
 					currentScrollingTop + extrasWidgetTop - scrollingWidgetTop), 0);
 
 			// Set the new scrolling top.

@@ -95,16 +95,18 @@
 		// Delete any existing trivial notification timer.
 		clearTimeout(this.trivialTimer_);
 
-		var $notificationElement = this.getHtmlElement();
-		var workingJsonData = this.handleJson(jsonData);
+		var $notificationElement = this.getHtmlElement(),
+				workingJsonData = this.handleJson(jsonData),
+				inPlaceNotificationsData, newNotificationsData,
+				trivialNotificationsId, notificationId, i;
 
 		if (workingJsonData === false) {
 			return;
 		}
 		if (workingJsonData.content.inPlace) {
-			var inPlaceNotificationsData = this.concatenateNotifications_(
+			inPlaceNotificationsData = this.concatenateNotifications_(
 					workingJsonData.content.inPlace);
-			var newNotificationsData = this.removeAlreadyShownNotifications_(
+			newNotificationsData = this.removeAlreadyShownNotifications_(
 					workingJsonData);
 
 			$notificationElement.html(inPlaceNotificationsData);
@@ -113,7 +115,7 @@
 			// visibility test can be executed.
 			$notificationElement.show();
 
-			var trivialNotificationsId = this.getTrivialNotifications_(
+			trivialNotificationsId = this.getTrivialNotifications_(
 					workingJsonData.content.inPlace);
 
 			if (!(this.visibleWithoutScrolling_()) && newNotificationsData) {
@@ -123,8 +125,8 @@
 						trigger('notifyUser', newNotificationsData);
 
 				// Remove in place trivial notifications.
-				for (var i in trivialNotificationsId) {
-					var notificationId = trivialNotificationsId[i];
+				for (i in trivialNotificationsId) {
+					notificationId = trivialNotificationsId[i];
 					$('#pkp_notification_' + notificationId,
 							this.getHtmlElement()).remove();
 				}
@@ -155,19 +157,19 @@
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			visibleWithoutScrolling_ = function() {
-		var $notificationElement = this.getHtmlElement();
-		var notificationTop = $notificationElement.offset().top;
-		var notificationMiddle = notificationTop + this.getHtmlElement().height() / 2;
+		var $notificationElement = this.getHtmlElement(),
+				notificationTop = $notificationElement.offset().top,
+				notificationMiddle = notificationTop + this.getHtmlElement().height() / 2,
+				windowScrollTop = $(window).scrollTop(),
+				windowBottom = windowScrollTop + $(window).height(),
+				// Consider modals and its own scroll functionality.
+				$parentModalContentWrapper = $notificationElement
+					.parents('.ui-dialog-content'),
+				modalContentTop, modalContentBottom;
 
-		var windowScrollTop = $(window).scrollTop();
-		var windowBottom = windowScrollTop + $(window).height();
-
-		// Consider modals and its own scroll functionality.
-		var $parentModalContentWrapper = $notificationElement
-				.parents('.ui-dialog-content');
 		if ($parentModalContentWrapper.length > 0) {
-			var modalContentTop = $parentModalContentWrapper.offset().top;
-			var modalContentBottom = modalContentTop +
+			modalContentTop = $parentModalContentWrapper.offset().top;
+			modalContentBottom = modalContentTop +
 					$parentModalContentWrapper.height();
 			if (notificationMiddle < modalContentTop ||
 					notificationMiddle > modalContentBottom) {
@@ -196,12 +198,13 @@
 	$.pkp.controllers.NotificationHandler.prototype.
 			removeAlreadyShownNotifications_ = function(notificationsData) {
 
-		var workingNotificationsData = notificationsData;
-		var emptyObject = true;
-		for (var levelId in workingNotificationsData.content.inPlace) {
-			for (var notificationId in
+		var workingNotificationsData = notificationsData,
+				emptyObject = true,
+				levelId, notificationId, element;
+		for (levelId in workingNotificationsData.content.inPlace) {
+			for (notificationId in
 					workingNotificationsData.content.inPlace[levelId]) {
-				var element = $('#pkp_notification_' + notificationId);
+				element = $('#pkp_notification_' + notificationId);
 				if (element.length > 0) {
 					delete workingNotificationsData.content.
 							inPlace[levelId][notificationId];
@@ -229,9 +232,9 @@
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			concatenateNotifications_ = function(notificationsData) {
-		var returner = '';
-		for (var levelId in notificationsData) {
-			for (var notificationId in notificationsData[levelId]) {
+		var returner = '', levelId, notificationId;
+		for (levelId in notificationsData) {
+			for (notificationId in notificationsData[levelId]) {
 				// Concatenate all notifications.
 				returner += notificationsData[levelId][notificationId];
 			}
@@ -251,10 +254,10 @@
 	$.pkp.controllers.NotificationHandler.prototype.
 			getTrivialNotifications_ = function(notificationsData) {
 
-		var trivialNotificationsId = [];
-		for (var levelId in notificationsData) {
+		var trivialNotificationsId = [], levelId, notificationId;
+		for (levelId in notificationsData) {
 			if (levelId == 1) { // Trivial level.
-				for (var notificationId in notificationsData[levelId]) {
+				for (notificationId in notificationsData[levelId]) {
 					trivialNotificationsId.push(notificationId);
 				}
 			}
@@ -274,8 +277,9 @@
 
 		if (notificationsId.length) {
 			this.trivialTimer_ = setTimeout(function() {
-				for (var notificationId in notificationsId) {
-					var $notification = $('#pkp_notification_' +
+				var notificationId, $notification;
+				for (notificationId in notificationsId) {
+					$notification = $('#pkp_notification_' +
 							notificationsId[notificationId]);
 					$notification.fadeOut(400, function() {
 						// "this" represents the notification element here.

@@ -45,7 +45,8 @@
 					// Silverlight settings
 					silverlight_xap_url: options.baseUrl +
 							'/lib/pkp/js/lib/plupload/plupload.silverlight.xap'
-				});
+				}),
+				pluploader;
 
 		// Create the uploader with the puploader plug-in.
 		// Setup the upload widget.
@@ -53,7 +54,7 @@
 
 		// Hack to fix the add files button in non-FF browsers
 		// courtesy of: http://stackoverflow.com/questions/5471141/
-		var pluploader = $uploader.plupload('getUploader');
+		pluploader = $uploader.plupload('getUploader');
 		pluploader.refresh();
 		if (!/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent)) {
 			// On my Iceweasel 9.0.1, running the hack below

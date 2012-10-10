@@ -56,8 +56,11 @@
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
+
+		var fileUploader;
+
 		if (this.resetUploader_) {
-			var fileUploader = $('#plupload', this.getHtmlElement()).plupload('getUploader');
+			fileUploader = $('#plupload', this.getHtmlElement()).plupload('getUploader');
 			fileUploader.splice();
 			fileUploader.refresh();
 
@@ -98,15 +101,16 @@
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
-		var jsonData = this.handleJson($.parseJSON(ret.response));
+		var jsonData = this.handleJson($.parseJSON(ret.response)),
+				$uploadForm, $temporaryFileId;
 		if (jsonData !== false) {
 			// Trigger the file uploaded event.
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 
 			if (jsonData.content === '') {
 				// Successful upload to temporary file; save to main form.
-				var $uploadForm = this.getHtmlElement();
-				var $temporaryFileId = $uploadForm.find('#temporaryFileId');
+				$uploadForm = this.getHtmlElement();
+				$temporaryFileId = $uploadForm.find('#temporaryFileId');
 				$temporaryFileId.val(jsonData.temporaryFileId);
 			} else {
 				// Display the revision confirmation form.

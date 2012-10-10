@@ -151,7 +151,7 @@
 	//
 	/**
 	 * Enable/disable category drag mode.
-	 * @param {jQuery} $category Category to set mode on.
+	 * @param {jQueryObject} $category Category to set mode on.
 	 * @private
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.

@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.controllers.grid.GridHandler
 	 *
-	 * @param {jQuery} $grid The grid this handler is
+	 * @param {jQueryObject} $grid The grid this handler is
 	 *  attached to.
 	 * @param {Object} options Grid handler configuration.
 	 */
@@ -43,7 +43,7 @@
 
 	/**
 	 * Get categories tbody element.
-	 * @return {jQuery} Categories tbody elements.
+	 * @return {jQueryObject} Categories tbody elements.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategories =
 			function() {
@@ -55,7 +55,7 @@
 	/**
 	 * Get a category tbody element by category data id.
 	 * @param {String} categoryDataId The category data id.
-	 * @return {jQuery} Category tbody element.
+	 * @return {jQueryObject} Category tbody element.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
 			function(categoryDataId) {
@@ -66,8 +66,8 @@
 	/**
 	 * Get the category row inside a tbody category element. If none element
 	 * is passed, get all grid category rows.
-	 * @param {jQuery} $opt_category Category tbody element.
-	 * @return {jQuery} Category rows.
+	 * @param {jQueryObject} $opt_category Category tbody element.
+	 * @return {jQueryObject} Category rows.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
 			function($opt_category) {
@@ -82,8 +82,8 @@
 
 	/**
 	 * Get rows inside a tbody category element, excluding the category row.
-	 * @param {jQuery} $category Category tbody element.
-	 * @return {jQuery} Category rows.
+	 * @param {jQueryObject} $category Category tbody element.
+	 * @return {jQueryObject} Category rows.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowsInCategory =
 			function($category) {
@@ -93,8 +93,8 @@
 
 	/**
 	 * Get the category empty placeholder.
-	 * @param {jQuery} $category A grid category element.
-	 * @return {jQuery} The category empty placeholder.
+	 * @param {jQueryObject} $category A grid category element.
+	 * @return {jQueryObject} The category empty placeholder.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.
 			getCategoryEmptyPlaceholder = function($category) {
@@ -105,7 +105,7 @@
 
 	/**
 	 * Get the category data id by the passed category element.
-	 * @param {jQuery} $category Category element.
+	 * @param {jQueryObject} $category Category element.
 	 * @return {string} Category data id.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataId =
@@ -135,7 +135,7 @@
 
 	/**
 	 * Append a category to the end of the list.
-	 * @param {jQuery} $category Category to append.
+	 * @param {jQueryObject} $category Category to append.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendCategory =
 			function($category) {

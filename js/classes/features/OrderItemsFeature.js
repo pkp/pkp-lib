@@ -61,7 +61,7 @@
 	/**
 	 * Initiate ordering state button.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.$orderButton_ = null;
 
@@ -69,7 +69,7 @@
 	/**
 	 * Cancel ordering state button.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.$cancelButton_ = null;
 
@@ -77,7 +77,7 @@
 	/**
 	 * Save ordering state button.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.$saveButton_ = null;
 
@@ -85,7 +85,7 @@
 	/**
 	 * Ordering finish control.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.$finishControl_ = null;
 
@@ -95,7 +95,7 @@
 	//
 	/**
 	 * Get the order button.
-	 * @return {jQuery} The order button JQuery object.
+	 * @return {jQueryObject} The order button JQuery object.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getOrderButton =
 			function() {
@@ -105,7 +105,7 @@
 
 	/**
 	 * Get the finish control.
-	 * @return {jQuery} The JQuery "finish" control.
+	 * @return {jQueryObject} The JQuery "finish" control.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getFinishControl =
 			function() {
@@ -116,7 +116,7 @@
 	/**
 	 * Get save order button.
 	 *
-	 * @return {jQuery} The "save order" JQuery object.
+	 * @return {jQueryObject} The "save order" JQuery object.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getSaveOrderButton =
 			function() {
@@ -127,7 +127,7 @@
 	/**
 	 * Get cancel order link.
 	 *
-	 * @return {jQuery} The "cancel order" JQuery control.
+	 * @return {jQueryObject} The "cancel order" JQuery control.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getCancelOrderButton =
 			function() {
@@ -254,7 +254,7 @@
 	 * execute operations with each row that has their sequence being saved.
 	 * @param {integer} index The current row index position inside the rows
 	 * jQuery object.
-	 * @param {jQuery} $row Row for which to store the sequence.
+	 * @param {jQueryObject} $row Row for which to store the sequence.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
@@ -324,7 +324,8 @@
 	 * Set rows sequence store, using
 	 * the sequence of the passed items.
 	 *
-	 * @param {jQuery} $rows The rows to be used to get the sequence information.
+	 * @param {jQueryObject} $rows The rows to be used to get the sequence
+	 *   information.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
 			function($rows) {
@@ -365,7 +366,8 @@
 
 	/**
 	 * Apply (disabled or enabled) the sortable plugin on passed elements.
-	 * @param {jQuery} $container The element that contain all the orderable items.
+	 * @param {jQueryObject} $container The element that contain all the orderable
+	 *   items.
 	 * @param {string} itemsSelector The jQuery selector for orderable items.
 	 * @param {Object?} extraParams Optional set of extra parameters for sortable.
 	 */
@@ -397,7 +399,7 @@
 	/**
 	 * Get the data element id of all rows inside the passed
 	 * container, in the current order.
-	 * @param {jQuery} $rowsContainer The element that contains the rows
+	 * @param {jQueryObject} $rowsContainer The element that contains the rows
 	 * that will be used to retrieve the id.
 	 * @return {Array} A sequence array with data element ids as values.
 	 */

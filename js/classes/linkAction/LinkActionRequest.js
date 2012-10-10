@@ -143,5 +143,5 @@
 	};
 
 
-	/** @param {jQuery} $ jQuery closure. */
+/** @param {jQuery} $ jQuery closure. */
 }(jQuery));

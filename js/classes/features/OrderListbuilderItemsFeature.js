@@ -168,7 +168,7 @@
 	/**
 	 * Get the sequence input html element.
 	 * @private
-	 * @return {jQuery} Sequence input.
+	 * @return {jQueryObject} Sequence input.
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			getSequenceInput_ = function() {
@@ -199,7 +199,7 @@
 	/**
 	 * Format and store new row.
 	 * @private
-	 * @param {jQuery} $row The new row element.
+	 * @param {jQueryObject} $row The new row element.
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			formatAndStoreNewRow_ = function($row) {

@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.controllers.listbuilder.ListbuilderHandler
 	 *
-	 * @param {jQuery} $listbuilder The listbuilder this handler is
+	 * @param {jQueryObject} $listbuilder The listbuilder this handler is
 	 *  attached to.
 	 * @param {Object} options Listbuilder handler configuration.
 	 */
@@ -36,7 +36,7 @@
 	/**
 	 * The list elements of this listbuilder.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			$lists_ = null;
@@ -47,8 +47,8 @@
 	//
 	/**
 	 * Get passed list rows.
-	 * @param {jQuery} $list JQuery List containing rows.
-	 * @return {jQuery} JQuery rows objects.
+	 * @param {jQueryObject} $list JQuery List containing rows.
+	 * @return {jQueryObject} JQuery rows objects.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getRowsByList = function($list) {
@@ -58,7 +58,7 @@
 
 	/**
 	 * Get list elements.
-	 * @return {jQuery} The JQuery lists.
+	 * @return {jQueryObject} The JQuery lists.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getLists = function() {
@@ -93,7 +93,7 @@
 	/**
 	 * Get the list element by list id.
 	 * @param {string} listId List ID.
-	 * @return {jQuery} List element.
+	 * @return {jQueryObject} List element.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getListById = function(listId) {
@@ -104,8 +104,8 @@
 
 	/**
 	 * Get the list element of the passed row.
-	 * @param {jQuery} $row JQuery row object.
-	 * @return {jQuery} List JQuery element.
+	 * @param {jQueryObject} $row JQuery row object.
+	 * @return {jQueryObject} List JQuery element.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getListByRow = function($row) {
@@ -115,7 +115,7 @@
 
 	/**
 	 * Get the passed row list id.
-	 * @param {jQuery} $row JQuery row object.
+	 * @param {jQueryObject} $row JQuery row object.
 	 * @return {string} List ID.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
@@ -127,7 +127,7 @@
 
 	/**
 	 * Get the passed list id.
-	 * @param {jQuery} $list JQuery list object.
+	 * @param {jQueryObject} $list JQuery list object.
 	 * @return {string} List ID.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
@@ -141,8 +141,8 @@
 
 	/**
 	 * Get no items row inside the passed list.
-	 * @param {jQuery} $list JQuery list object.
-	 * @return {jQuery} JQuery "no items" row.
+	 * @param {jQueryObject} $list JQuery list object.
+	 * @return {jQueryObject} JQuery "no items" row.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			getListNoItemsRow = function($list) {
@@ -169,7 +169,7 @@
 	/**
 	 * Show/hide the no items row, based on the number of grid rows
 	 * inside the passed list.
-	 * @param {jQuery} $list JQuery elements to scan.
+	 * @param {jQueryObject} $list JQuery elements to scan.
 	 * @param {integer} limit The minimum number of elements inside the list to
 	 * show the no items row.
 	 * @param {string} $filterSelector optional Selector to filter the rows that

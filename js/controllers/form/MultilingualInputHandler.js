@@ -18,7 +18,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $popover the wrapped HTML element.
+	 * @param {jQueryObject} $popover the wrapped HTML element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */

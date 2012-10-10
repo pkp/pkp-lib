@@ -20,7 +20,7 @@
 	 *
 	 * @extends $.pkp.classes.linkAction.LinkActionRequest
 	 *
-	 * @param {jQuery} $linkActionElement The element the link
+	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.

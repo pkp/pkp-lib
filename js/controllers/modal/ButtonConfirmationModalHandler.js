@@ -19,7 +19,7 @@
 	 *
 	 * @extends $.pkp.controllers.modal.CallbackConfirmationModalHandler
 	 *
-	 * @param {jQuery} $handledElement The modal.
+	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object} options Non-default options to configure
 	 *  the modal.
 	 *
@@ -53,7 +53,7 @@
 	/**
 	 * The button we'll click on when activated.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			$button_ = null;

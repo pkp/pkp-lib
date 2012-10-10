@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
-	 * @param {jQuery} $form The wrapped HTML form element.
+	 * @param {jQueryObject} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler =

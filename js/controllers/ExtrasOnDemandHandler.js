@@ -17,7 +17,8 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $widgetWrapper An HTML element that contains the widget.
+	 * @param {jQueryObject} $widgetWrapper An HTML element that contains the
+	 *   widget.
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler = function($widgetWrapper, options) {
@@ -144,8 +145,8 @@
 	 *
 	 * @private
 	 *
-	 * @param {jQuery} $widgetWrapper The element to be made visible.
-	 * @param {jQuery} $scrollable The parent scrollable element.
+	 * @param {jQueryObject} $widgetWrapper The element to be made visible.
+	 * @param {jQueryObject} $scrollable The parent scrollable element.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {

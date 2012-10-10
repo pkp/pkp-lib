@@ -18,7 +18,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $rangeSliderField the wrapped HTML input element element.
+	 * @param {jQueryObject} $rangeSliderField the wrapped HTML input element.
 	 * @param {Object} options options to be passed
 	 *  into the jqueryUI slider plugin.
 	 */

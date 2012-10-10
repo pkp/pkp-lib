@@ -24,7 +24,7 @@
 	 *
 	 * @extends $.pkp.controllers.grid.GridHandler
 	 *
-	 * @param {jQuery} $listbuilder The listbuilder this handler is
+	 * @param {jQueryObject} $listbuilder The listbuilder this handler is
 	 *  attached to.
 	 * @param {Object} options Listbuilder handler configuration.
 	 */
@@ -490,7 +490,7 @@
 	/**
 	 * Populate the pulldown with options.
 	 * @private
-	 * @param {jQuery} $element The element to be populated.
+	 * @param {jQueryObject} $element The element to be populated.
 	 * Can be a pulldown or an optgroup inside the pulldonw.
 	 * @param {object} selectedValues Current listbuilder
 	 * selected values.

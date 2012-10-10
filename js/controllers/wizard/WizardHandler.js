@@ -24,7 +24,7 @@
 	 *
 	 * @extends $.pkp.controllers.TabHandler
 	 *
-	 * @param {jQuery} $wizard A wrapped HTML element that
+	 * @param {jQueryObject} $wizard A wrapped HTML element that
 	 *  represents the wizard.
 	 * @param {Object} options Wizard options.
 	 */
@@ -56,7 +56,7 @@
 	/**
 	 * The continue button.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.$continueButton_ = null;
 
@@ -64,7 +64,7 @@
 	/**
 	 * The progress indicator.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.$progressIndicator_ = null;
 
@@ -373,7 +373,7 @@
 	/**
 	 * Get the continue button.
 	 * @protected
-	 * @return {jQuery} The continue button.
+	 * @return {jQueryObject} The continue button.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.
 			getContinueButton = function() {
@@ -385,7 +385,7 @@
 	/**
 	 * Get the progress indicator.
 	 * @protected
-	 * @return {jQuery} The progress indicator.
+	 * @return {jQueryObject} The progress indicator.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.
 			getProgressIndicator = function() {
@@ -504,7 +504,7 @@
 	 * Add wizard buttons to the wizard.
 	 *
 	 * @private
-	 * @param {jQuery} $wizard The wizard element.
+	 * @param {jQueryObject} $wizard The wizard element.
 	 * @param {Object} options The wizard options.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.addWizardButtons_ =

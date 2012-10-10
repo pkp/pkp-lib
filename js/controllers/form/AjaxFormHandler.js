@@ -20,7 +20,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.FormHandler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to configure the AJAX form handler.
 	 */
 	$.pkp.controllers.form.AjaxFormHandler = function($form, options) {

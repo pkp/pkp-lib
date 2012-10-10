@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
 	 *
-	 * @param {jQuery} $handledElement The clickable element
+	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
 	 * @param {Object} options Non-default options to configure
 	 *  the modal.

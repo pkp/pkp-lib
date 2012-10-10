@@ -19,7 +19,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $container the wrapped HTML container element.
+	 * @param {jQueryObject} $container the wrapped HTML container element.
 	 * @param {Object} options form options.
 	 */
 	$.pkp.controllers.form.DropdownHandler =

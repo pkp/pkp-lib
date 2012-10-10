@@ -30,7 +30,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $handledElement The modal.
+	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object} options Non-default dialog options
 	 *  to be passed into the dialog widget.
 	 *
@@ -248,7 +248,7 @@
 	 * Change the default title bar to our customized version.
 	 *
 	 * @private
-	 * @param {jQuery} $handledElement The element the
+	 * @param {jQueryObject} $handledElement The element the
 	 *  dialog was created on.
 	 * @param {Object} options The dialog options.
 	 */
@@ -287,7 +287,7 @@
 	 * Change the default close button to our customized version.
 	 *
 	 * @private
-	 * @param {jQuery} $handledElement The element the
+	 * @param {jQueryObject} $handledElement The element the
 	 *  dialog was created on.
 	 * @param {Object} options The dialog options.
 	 */

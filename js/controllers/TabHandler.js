@@ -21,7 +21,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $tabs A wrapped HTML element that
+	 * @param {jQueryObject} $tabs A wrapped HTML element that
 	 *  represents the tabbed interface.
 	 * @param {Object} options Handler options.
 	 */
@@ -76,7 +76,7 @@
 	/**
 	 * The current tab.
 	 * @private
-	 * @type {jQuery}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.controllers.TabHandler.prototype.$currentTab_ = null;
 
@@ -226,7 +226,7 @@
 	/**
 	 * Get the current tab.
 	 * @protected
-	 * @return {jQuery} The current tab.
+	 * @return {jQueryObject} The current tab.
 	 */
 	$.pkp.controllers.TabHandler.prototype.getCurrentTab = function() {
 		return this.$currentTab_;

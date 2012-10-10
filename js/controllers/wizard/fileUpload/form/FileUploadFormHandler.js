@@ -14,7 +14,7 @@
  */
 (function($) {
 
-	/** @type Object */
+	/** @type {Object} */
 	$.pkp.controllers.wizard.fileUpload.form =
 			$.pkp.controllers.wizard.fileUpload.form || { };
 
@@ -25,7 +25,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
-	 * @param {jQuery} $form The wrapped HTML form element.
+	 * @param {jQueryObject} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler =
@@ -109,7 +109,7 @@
 	//
 	/**
 	 * The setup callback of the uploader.
-	 * @param {jQuery} $uploader Element that contains the plupload object.
+	 * @param {jQueryObject} $uploader Element that contains the plupload object.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
@@ -268,7 +268,7 @@
 	/**
 	 * Attach the uploader handler.
 	 * @private
-	 * @param {jQuery} $uploader The wrapped HTML uploader element.
+	 * @param {jQueryObject} $uploader The wrapped HTML uploader element.
 	 * @param {Object} options Uploader options.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.

@@ -13,7 +13,6 @@
  * @brief PKP jQuery extensions.
  */
 
-/** @param {jQuery} $ jQuery closure. */
 (function($) {
 
 
@@ -24,7 +23,7 @@
 	 *  and attached to the target HTML element(s).
 	 * @param {Object=} options Parameters to be passed on
 	 *  to the handler.
-	 * @return {jQuery} Selected HTML elements for chaining.
+	 * @return {jQueryObject} Selected HTML elements for chaining.
 	 */
 	$.fn.pkpHandler = function(handlerName, options) {
 		// Go through all selected elements.
@@ -49,7 +48,7 @@
 	 * @param {string} url the AJAX endpoint from which to
 	 *  retrieve the HTML to be inserted.
 	 * @param {object} callback function to be called on ajax success.
-	 * @return {jQuery} Selected HTML elements for chaining.
+	 * @return {jQueryObject} Selected HTML elements for chaining.
 	 */
 	$.fn.pkpAjaxHtml = function(url, callback) {
 		var $element = this.first();
@@ -85,4 +84,5 @@
 	};
 
 
+/** @param {jQuery} $ jQuery closure. */
 })(jQuery);

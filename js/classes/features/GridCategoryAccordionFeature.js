@@ -51,8 +51,8 @@
 	/**
 	 * Get category rows accordion link actions inside the passed
 	 * element.
-	 * @param {jQuery} $context The context element.
-	 * @return {jQuery} Link actions.
+	 * @param {jQueryObject} $context The context element.
+	 * @return {jQueryObject} Link actions.
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
 			getAccordionLinks = function($context) {
@@ -106,7 +106,7 @@
 	/**
 	 * Add click handlers to the accordion controls inside the
 	 * passed element.
-	 * @param {jQuery} $element The context element.
+	 * @param {jQueryObject} $element The context element.
 	 * @private
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.

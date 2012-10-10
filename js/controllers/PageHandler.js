@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $page the wrapped page element.
+	 * @param {jQueryObject} $page the wrapped page element.
 	 * @param {Object} options handler options.
 	 */
 	$.pkp.controllers.PageHandler = function($page, options) {

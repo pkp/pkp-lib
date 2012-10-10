@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $notificationElement The html notification element.
+	 * @param {jQueryObject} $notificationElement The html notification element.
 	 * @param {Object} options Notification options.
 	 */
 	$.pkp.controllers.NotificationHandler =

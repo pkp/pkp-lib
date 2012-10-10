@@ -24,7 +24,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {

@@ -14,7 +14,7 @@
  */
 (function($) {
 
-	/** @type Object */
+	/** @type {Object} */
 	$.pkp.controllers.wizard.fileUpload =
 			$.pkp.controllers.wizard.fileUpload || { };
 
@@ -25,7 +25,7 @@
 	 *
 	 * @extends $.pkp.controllers.wizard.WizardHandler
 	 *
-	 * @param {jQuery} $wizard The wrapped HTML form element.
+	 * @param {jQueryObject} $wizard The wrapped HTML form element.
 	 * @param {Object} options Wizard options.
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler =

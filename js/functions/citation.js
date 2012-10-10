@@ -298,7 +298,7 @@ function updateItem(actType, actOnId, content) {
  *
  * @param {string} element a selector for the element to delete.
  * @param {boolean=} showEmpty whether to show the "empty" element.
- * @return {jQuery} the deleted element
+ * @return {jQueryObject} the deleted element
  */
 function deleteElementById(element, showEmpty) {
 	var $deletedElement = $(element);
@@ -424,7 +424,7 @@ function scrollToMakeVisible(actOnId) {
 	/**
 	 * Custom jQuery plug-in that marks the matched elements
 	 * Code adapted from phpBB, thanks to the phpBB group.
-	 * @return {jQuery}
+	 * @return {jQueryObject}
 	 */
 	$.fn.selectRange = function() {
 		return this.each(function() {

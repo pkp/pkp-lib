@@ -201,7 +201,7 @@
 	 * Refresh modal event handler.
 	 *
 	 * @private
-	 * @param {jQuery} $context Wrapping element.
+	 * @param {jQueryObject} $context Wrapping element.
 	 * @param {HTMLElement} modalHtmlElement Modal element.
 	 * @param {Event} event Incoming event.
 	 * @param {string} url Modal refresh URL.

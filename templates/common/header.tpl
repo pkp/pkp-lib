@@ -70,6 +70,9 @@
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 	{/foreach}
 
+	<!-- Constants for JavaScript -->
+	{include file="common/jsConstants.tpl"}
+
 	<!-- Default global locale keys for JavaScript -->
 	{include file="common/jsLocaleKeys.tpl" }
 

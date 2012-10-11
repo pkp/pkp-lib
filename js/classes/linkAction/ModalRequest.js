@@ -84,7 +84,7 @@
 		// Make sure that all events triggered on the modal will be
 		// forwarded to the link action. This is necessary because the
 		// modal has to be created outside the regular DOM.
-		$linkActionElement = this.getLinkActionElement();
+		$linkActionElement = /** @type {jQueryObject} */ (this.getLinkActionElement());
 		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		handlerOptions = $.extend(true,
 				{$eventBridge: linkActionHandler.getStaticId()}, modalOptions);
@@ -97,7 +97,7 @@
 		dialogHandler.bind('pkpRemoveHandler',
 				$.pkp.classes.Helper.curry(this.finish, this));
 
-		return this.parent('activate', element, event);
+		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
 
@@ -108,7 +108,7 @@
 			function() {
 
 		this.$dialog_.remove();
-		return this.parent('finish');
+		return /** @type {boolean} */ (this.parent('finish'));
 	};
 
 

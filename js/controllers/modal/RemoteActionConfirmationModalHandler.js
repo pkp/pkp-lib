@@ -103,10 +103,11 @@
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			remoteResponse = function(ajaxOptions, jsonData) {
 
-		jsonData = this.parent('remoteResponse', ajaxOptions, jsonData);
-		if (jsonData !== false) {
+		var processedJsonData = this.parent('remoteResponse', ajaxOptions, jsonData);
+		if (processedJsonData !== false) {
 			this.modalClose(ajaxOptions);
 		}
+		return false;
 	};
 
 

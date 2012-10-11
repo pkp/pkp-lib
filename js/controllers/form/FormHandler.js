@@ -93,7 +93,7 @@
 			this.trigger('formInvalid');
 		}
 
-		this.callbackWrapper(this.initializeTinyMCE_());
+		this.callbackWrapper(this.initializeTinyMCE());
 
 		// bind a handler to make sure tinyMCE fields are populated.
 		$('#submitFormButton', $form).click(this.callbackWrapper(

@@ -553,6 +553,33 @@
 	};
 
 
+	/**
+	 * Initialize TinyMCE instances.
+	 *
+	 * There are instances where TinyMCE is not initialized with the call to
+	 * init(). These occur when content is loaded after the fact (via AJAX).
+	 *
+	 * In these cases, search for richContent fields and initialize them.
+	 */
+	$.pkp.classes.Handler.prototype.initializeTinyMCE =
+			function() {
+
+		if (typeof tinyMCE !== 'undefined') {
+			var $element = this.getHtmlElement(),
+					elementId = $element.attr('id');
+
+			setTimeout(function() {
+				// re-select the original element, to prevent closure memory leaks
+				// in (older?) versions of IE.
+				$('#' + elementId).find('.richContent').each(function(index) {
+					var id = /** @type {string} */ ($(this).attr('id'));
+					tinyMCE.execCommand('mceAddControl', false, id);
+				});
+			}, 500);
+		}
+	};
+
+
 	//
 	// Private methods
 	//
@@ -578,35 +605,6 @@
 		// the event on the target object.
 		if (this.$eventBridge_) {
 			$('[id^="' + this.$eventBridge_ + '"]').trigger(eventName, opt_data);
-		}
-	};
-
-
-	/**
-	 * Initialize TinyMCE instances.
-	 *
-	 * There are instances where TinyMCE is not initialized with the call to
-	 * init(). These occur when content is loaded after the fact (via AJAX).
-	 *
-	 * In these cases, search for richContent fields and initialize them.
-	 *
-	 * @protected
-	 */
-	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
-			function() {
-
-		if (typeof tinyMCE !== 'undefined') {
-			var $element = this.getHtmlElement(),
-					elementId = $element.attr('id');
-
-			setTimeout(function() {
-				// re-select the original element, to prevent closure memory leaks
-				// in (older?) versions of IE.
-				$('#' + elementId).find('.richContent').each(function(index) {
-					var id = /** @type {string} */ ($(this).attr('id'));
-					tinyMCE.execCommand('mceAddControl', false, id);
-				});
-			}, 500);
 		}
 	};
 

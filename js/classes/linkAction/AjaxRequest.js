@@ -41,20 +41,17 @@
 	$.pkp.classes.linkAction.AjaxRequest.prototype.activate =
 			function(element, event) {
 
-		var returnValue = this.parent('activate', element, event),
+		var returnValue = /** @type {boolean} */ (this.parent('activate', element, event)),
 				options = this.getOptions(),
 				responseHandler = $.pkp.classes.Helper.curry(
 						this.handleResponse, this);
 		switch (options.requestType) {
 			case 'get':
-				$.getJSON(options.url,
-						responseHandler);
+				$.getJSON(options.url, responseHandler);
 				break;
 
 			case 'post':
-				$.post(options.url,
-						responseHandler,
-						'json');
+				$.post(options.url, responseHandler, 'json');
 				break;
 		}
 		return returnValue;

@@ -15,31 +15,29 @@
 	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
 {/if}
 
-<form id="reset" action="{url page="login" op="requestResetPassword"}" method="post">
-<p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
+<script type="text/javascript">
+	$(function() {ldelim}
+		// Attach the form handler.
+		$('#lostPasswordForm').pkpHandler('$.pkp.controllers.form.FormHandler');
+	{rdelim});
+</script>
 
+<form class="pkp_form" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+<p>{translate key="user.login.resetPasswordInstructions"}</p>
 {if $error}
 	<p><span class="pkp_form_error">{translate key="$error"}</span></p>
 {/if}
-
-<table id="lostPasswordTable" class="data" width="100%">
-<tr valign="top">
-	<td class="label" width="25%">{translate key="user.login.registeredEmail"}</td>
-	<td class="value" width="75%"><input type="text" name="email" value="{$username|escape}" size="30" maxlength="90" class="textField" /></td>
-</tr>
-</table>
-
-<p><input type="submit" value="{translate key="user.login.resetPassword"}" class="button defaultButton" /></p>
-
-{if !$hideRegisterLink}
-	&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a>
-{/if}
-
-<script type="text/javascript">
-<!--
-	document.getElementById('reset').email.focus();
-// -->
-</script>
+{fbvFormArea id="lostPassword"}
+	{fbvFormSection label="user.login.registeredEmail"}
+		{fbvElement type="text" id="email" value=$username maxlength="90" size=$fbvStyles.size.MEDIUM}
+	{/fbvFormSection}
+	{if !$hideRegisterLink}
+		{url|assign:cancelUrl page="user" op=$registerOp}
+		{fbvFormButtons cancelUrl=$cancelUrl cancelText=$registerLocaleKey submitText="user.login.resetPassword"}
+	{else}
+		{fbvFormButtons hideCancel=true submitText="user.login.resetPassword"}
+	{/if}
+{/fbvFormArea}
 </form>
 
 {include file="common/footer.tpl"}

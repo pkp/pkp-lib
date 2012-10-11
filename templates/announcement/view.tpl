@@ -1,11 +1,10 @@
 {**
- * view.tpl
+ * templates/announcement/view.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * View full announcement text.
- *
  *}
 {strip}
 {assign var="pageTitleTranslated" value=$announcementTitle}
@@ -20,4 +19,3 @@
 </table>
 
 {include file="common/footer.tpl"}
-

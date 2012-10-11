@@ -28,7 +28,18 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
-	<form id="signinForm" method="post" action="{$loginUrl}">
+	<script type="text/javascript">
+		$(function() {ldelim}
+			// Attach the form handler.
+			$('#signinForm').pkpHandler(
+				'$.pkp.controllers.form.FormHandler',
+				{ldelim}
+					trackFormChanges: false
+				{rdelim});
+		{rdelim});
+	</script>
+
+	<form class="pkp_form" id="signinForm" method="post" action="{$loginUrl}" style="width: 400px;">
 {/if}
 
 {if $error}
@@ -40,38 +51,36 @@
 <input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}" />
 
 {if ! $implicitAuth}
-	<table id="signinTable" class="data">
-	<tr>
-		<td class="label"><label for="loginUsername">{translate key="user.username"}</label></td>
-		<td class="value"><input type="text" id="loginUsername" name="username" value="{$username|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	<tr>
-		<td class="label"><label for="loginPassword">{translate key="user.password"}</label></td>
-		<td class="value"><input type="password" id="loginPassword" name="password" value="{$password|escape}" size="20" maxlength="32" class="textField" /></td>
-	</tr>
-	{if $showRemember}
-	<tr valign="middle">
-		<td></td>
-		<td class="value"><input type="checkbox" id="loginRemember" name="remember" value="1"{if $remember} checked="checked"{/if} /> <label for="loginRemember">{translate key="user.login.rememberUsernameAndPassword"}</label></td>
-	</tr>
-	{/if}{* $showRemember *}
+	{fbvFormArea id="loginFields"}
+		{fbvFormSection label="user.username" for="username"}
+			{fbvElement type="text" id="username" value=$username|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+		{/fbvFormSection}
+		{fbvFormSection label="user.password" for="password"}
+			{fbvElement type="text" password=true id="password" value=$password|escape maxlength="32" size=$fbvStyles.size.MEDIUM}
+			<a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
+		{/fbvFormSection}
+		{if $showRemember}
+			{fbvFormSection list=true}
+				{fbvElement type="checkbox" label="user.login.rememberUsernameAndPassword" id="remember" value="1" checked=$remember}
+			{/fbvFormSection}
+		{/if}{* $showRemember *}
+		{if !$hideRegisterLink}
+			{if $source}
+				{url|assign:cancelUrl page="user" op=$registerOp source=$source}
+			{else}
+				{url|assign:cancelUrl page="user" op=$registerOp}
+			{/if}
+			{fbvFormButtons cancelUrl=$cancelUrl cancelText=$registerLocaleKey submitText="user.login"}
+		{else}
+			{fbvFormButtons hideCancel=true submitText="user.login.resetPassword"}
+		{/if}
+	{/fbvFormArea}
 
-	<tr>
-		<td></td>
-		<td><input type="submit" value="{translate key="user.login"}" class="button" /></td>
-	</tr>
-	</table>
-
-	<p>
-		{if !$hideRegisterLink}&#187; <a href="{url page="user" op=$registerOp}">{translate key=$registerLocaleKey}</a><br />{/if}
-		&#187; <a href="{url page="login" op="lostPassword"}">{translate key="user.login.forgotPassword"}</a>
-	</p>
 {/if}{* !$implicitAuth *}
 
 <script type="text/javascript">
-<!--
-	document.getElementById('{if $username}loginPassword{else}loginUsername{/if}').focus();
-// -->
+	{if $username}$("#password").focus();
+	{else}$("#username").focus();{/if}
 </script>
 </form>
 

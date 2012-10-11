@@ -379,7 +379,7 @@
 	 * @param {Object} checkOptions Object with data to be used to
 	 * check the click.
 	 * @param {Event} event The click event to be checked.
-	 * @return {Boolean} Whether the check was processed or not.
+	 * @return {boolean} Whether the check was processed or not.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.processOutsideClickCheck_ =
 			function(checkOptions, event) {

@@ -70,18 +70,18 @@
 	$.pkp.controllers.UrlInDivHandler.prototype.handleLoadedContent_ =
 			function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData.status === true) {
-			if (jsonData.content === undefined) {
+		var handledJsonData = this.handleJson(jsonData);
+		if (handledJsonData.status === true) {
+			if (handledJsonData.content === undefined) {
 				// Request successfull, but no data returned.
 				// Hide this div element.
 				this.getHtmlElement().hide();
 			} else {
-				this.getHtmlElement().hide().html(jsonData.content).fadeIn(400);
+				this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
 			}
 		} else {
 			// Alert that loading failed.
-			alert(jsonData.content);
+			alert(handledJsonData.content);
 		}
 
 		return false;

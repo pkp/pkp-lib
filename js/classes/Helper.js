@@ -28,10 +28,6 @@
 	$.pkp.controllers = $.pkp.controllers || { };
 
 
-	/** @type {Object} */
-	$.pkp.controllers.form = $.pkp.controllers.form || {};
-
-
 
 	/**
 	 * Helper singleton

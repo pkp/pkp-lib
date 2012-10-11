@@ -134,14 +134,14 @@
 	 * By default, all FormHandler instances and subclasses track changes to
 	 * form data.
 	 * @private
-	 * @type {Boolean}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.trackFormChanges_ = true;
 
 
 	/**
 	 * Only submit a track event for this form once.
-	 * @type {Boolean}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
 
@@ -150,7 +150,7 @@
 	 * If true, the FormHandler will disable the submit button if the form
 	 * successfully validates and is submitted.
 	 * @private
-	 * @type {Boolean}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit_ = false;
 
@@ -387,6 +387,8 @@
 
 			this.getHtmlElement().submit();
 			this.formChangesTracked = false;
+
+			return false;
 		}
 	};
 
@@ -479,7 +481,7 @@
 	 * @private
 	 * @param {Object} validator Validator.
 	 * @param {Object} element Element.
-	 * @return {Boolean} True so the blur event can still be handled.
+	 * @return {boolean} True so the blur event can still be handled.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.onFocusOutValidation_ =
 			function(validator, element) {

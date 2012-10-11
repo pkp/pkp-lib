@@ -44,7 +44,7 @@
 		var options = this.getOptions();
 		window.location = options.url;
 
-		return this.parent('activate', element, event);
+		return /** @type {boolean} */ this.parent('activate', element, event);
 	};
 
 

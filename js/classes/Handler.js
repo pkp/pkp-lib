@@ -590,7 +590,7 @@
 	 *
 	 * In these cases, search for richContent fields and initialize them.
 	 *
-	 * @private
+	 * @protected
 	 */
 	$.pkp.classes.Handler.prototype.initializeTinyMCE_ =
 			function() {
@@ -603,7 +603,8 @@
 				// re-select the original element, to prevent closure memory leaks
 				// in (older?) versions of IE.
 				$('#' + elementId).find('.richContent').each(function(index) {
-					tinyMCE.execCommand('mceAddControl', false, $(this).attr('id'));
+					var id = /** @type {string} */ ($(this).attr('id'));
+					tinyMCE.execCommand('mceAddControl', false, id);
 				});
 			}, 500);
 		}

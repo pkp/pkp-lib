@@ -27,6 +27,16 @@ jQueryObject.prototype.button = function() {};
 jQueryObject.prototype.validate = function(options) {};
 
 /**
+ * @param {Object=} options
+ */
+jQueryObject.prototype.jLabel = function(options) {};
+
+/**
+ * @param {Object=} options
+ */
+jQueryObject.prototype.selectBox = function(options) {};
+
+/**
  * @constructor
  * @param {Object=} options
  * @param {jQueryObject=} form
@@ -57,14 +67,21 @@ jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
  */
 function tinyMCEObject() {};
 
-tinyMCEObject.prototype.triggerSave = function() {}
+tinyMCEObject.prototype.triggerSave = function() {};
 
 /**
  * @param {string} c
  * @param {boolean} u
  * @param {string} v
  */
-tinyMCEObject.prototype.execCommand = function(c, u, v) {}
+tinyMCEObject.prototype.execCommand = function(c, u, v) {};
+
+/**
+ * @type {string} c
+ */
+tinyMCEObject.prototype.editorId = '';
+
+tinyMCEObject.prototype.getWin = function() {};
 
 /**
  * @type {tinyMCEObject}

@@ -126,7 +126,7 @@
 	$.pkp.controllers.SiteHandler.prototype.triggerTinyMCEInitialized =
 			function(tinyMCEObject) {
 		var $inputElement = $('#' + tinyMCEObject.editorId);
-		$inputElement.trigger('tinyMCEInitialized', tinyMCEObject);
+		$inputElement.trigger('tinyMCEInitialized', [tinyMCEObject]);
 	};
 
 
@@ -324,8 +324,11 @@
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 *  callWhenClickOutside event.
 	 * @param {Event} event The "call when click outside" event.
-	 * @param {Object} eventParams The event parameters. We expect
-	 * an object with the following properties:
+	 * @param {{
+	 *   container: jQueryObject,
+	 *   callback: Function,
+	 *   skipWhenVisibleModals: boolean
+	 *   }} eventParams The event parameters.
 	 * - container: a jQuery element to be used to test if user click
 	 * outside of it or not.
 	 * - callback: a callback function in case test is true.
@@ -376,7 +379,11 @@
 	 * inside the passed check data. If true and no other check
 	 * option avoids it, use the callback.
 	 * @private
-	 * @param {Object} checkOptions Object with data to be used to
+	 * @param {{
+	 *   skipWhenVisibleModals: boolean,
+	 *   container: Object,
+	 *   callback: Function
+	 *   }} checkOptions Object with data to be used to
 	 * check the click.
 	 * @param {Event} event The click event to be checked.
 	 * @return {boolean} Whether the check was processed or not.

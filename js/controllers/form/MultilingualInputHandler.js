@@ -148,19 +148,21 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
-	 * @param {Object} tinyMCEObject The tinyMCE object inside this
-	 * multilingual element handler that was initialized.
+	 * @param {array} extraParameters An array containing the tinyMCE object
+	 * inside this multilingual element handler that was initialized.
 	 * @private
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
-			function(input, event, tinyMCEObject) {
+			function(input, event, extraParameters) {
+
+		var tinyMCEObject = extraParameters[0];
 		var editorId = tinyMCEObject.editorId,
 				// This hack is needed so the focus event is triggered correctly in IE8.
 				// We just adjust the body element height inside the tinyMCE editor
 				// instance to a percent of the original text area height, so when users
 				// click inside an empty tinyMCE editor the target will be the body
 				// element and the focus event will be triggered.
-				textAreaHeight = $('#' + tinyMCEObject.editorId).height();
+				textAreaHeight = $('#' + editorId).height();
 
 		$(tinyMCEObject.getBody()).height((textAreaHeight / 100) * 78);
 
@@ -174,7 +176,7 @@
 					// close (see the first check of the blur handler, just above).
 					//
 					// Firefox will also not completely focus on tinyMCE editors after
-					// comming back from fullscreen mode (the callback to focus the
+					// coming back from fullscreen mode (the callback to focus the
 					// editor when set content will only trigger the focus handler that
 					// we attach here, but will not move the cursor inside the tinyMCE
 					// editor). Then, if user clicks outside the popover, it will not

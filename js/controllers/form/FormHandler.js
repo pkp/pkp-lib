@@ -492,11 +492,15 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
-	 * @param {Object} tinyMCEObject The tinyMCE object inside this
-	 * multilingual element handler that was initialized.
+	 * @param {Array} extraParameters An array containing the tinyMCE object inside
+	 * this multilingual element handler that was initialized.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.tinyMCEInitHandler_ =
-			function(input, event, tinyMCEObject) {
+			function(input, event, extraParameters) {
+
+		var tinyMCEObject = extraParameters[0],
+				editorId = extraParameters[0].editorId;
+
 		$(tinyMCEObject.getWin()).blur(
 				this.callbackWrapper(function() {
 					// Save the current tinyMCE value to the form element.
@@ -504,7 +508,7 @@
 
 					// Get the form element that stores the tinyMCE data.
 					var $form = this.getHtmlElement(),
-							formElement = $('#' + tinyMCEObject.editorId, $form),
+							formElement = $('#' + editorId, $form),
 							// Validate only this element.
 							validator = $form.validate();
 

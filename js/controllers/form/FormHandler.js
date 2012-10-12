@@ -341,6 +341,7 @@
 		return true;
 	};
 
+
 	/**
 	 * Internal callback called to submit the form
 	 * without further validation.

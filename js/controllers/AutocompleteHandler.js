@@ -149,7 +149,7 @@
 
 		$hiddenInput = this.hiddenInput_;
 		$textInput = this.textInput;
-		$textLabel = this.textLabel;
+		$textLabel = this.textLabel_;
 
 		// only update the text field if the item has a value
 		// this allows us to return a 'no items' label with

@@ -50,7 +50,7 @@
 	<message key="common.assigned">Assigned</message>
 	<message key="common.back">Back</message>
 	<message key="common.between">between</message>
-	<message key="common.cancel">Cancel</message>	
+	<message key="common.cancel">Cancel</message>
 	<message key="common.cancelled">Cancelled</message>
 	<message key="common.warning">Warning</message>
 	<message key="common.captchaField.altText">Validation image</message>
@@ -388,8 +388,7 @@
 	<message key="search.titleIndex">Browse Title Index</message>
 	<message key="search.title">Title</message>
 	<message key="search.typeMethodApproach">Type (method/approach)</message>
-		
+
 	<!-- Common -->
 	<message key="grid.action.downloadFile">Download this file</message>
-	
 </locale>

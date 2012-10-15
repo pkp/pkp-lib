@@ -148,14 +148,13 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
-	 * @param {array} extraParameters An array containing the tinyMCE object
+	 * @param {Object} tinyMCEObject An array containing the tinyMCE object
 	 * inside this multilingual element handler that was initialized.
 	 * @private
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.tinyMCEInitHandler_ =
-			function(input, event, extraParameters) {
+			function(input, event, tinyMCEObject) {
 
-		var tinyMCEObject = extraParameters[0];
 		var editorId = tinyMCEObject.editorId,
 				// This hack is needed so the focus event is triggered correctly in IE8.
 				// We just adjust the body element height inside the tinyMCE editor

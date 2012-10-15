@@ -503,14 +503,13 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
-	 * @param {Array} extraParameters An array containing the tinyMCE object inside
+	 * @param {Object} tinyMCEObject An array containing the tinyMCE object inside
 	 * this multilingual element handler that was initialized.
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.tinyMCEInitHandler_ =
-			function(input, event, extraParameters) {
+			function(input, event, tinyMCEObject) {
 
-		var tinyMCEObject = extraParameters[0],
-				editorId = extraParameters[0].editorId;
+		var editorId = tinyMCEObject.editorId;
 
 		$(tinyMCEObject.getWin()).blur(
 				this.callbackWrapper(function() {

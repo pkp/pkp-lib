@@ -337,13 +337,14 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.handleResponse_ =
 			function(element, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			if (jsonData.content !== '') {
+		var processedJsonData = this.handleJson(jsonData);
+		if (processedJsonData !== false) {
+			if (processedJsonData.content !== '') {
 				// The request returned content. Refresh modal replacing it.
-				this.refreshModal_(null, jsonData.content);
+				this.refreshModal_(null, processedJsonData.content);
 			} else {
-				if (jsonData.status && jsonData.event.name === 'dataChanged') {
+				if (processedJsonData.status &&
+						processedJsonData.event.name === 'dataChanged') {
 					this.trigger('formSubmitted');
 				}
 			}

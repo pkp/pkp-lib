@@ -82,7 +82,7 @@
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.
 			saveOrderResponseHandler_ = function(ajaxContext, jsonData) {
-		jsonData = this.gridHandler_.handleJson(jsonData);
+		var processedJsonData = this.gridHandler_.handleJson(jsonData);
 		this.toggleState(false);
 	};
 

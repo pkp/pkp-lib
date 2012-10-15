@@ -36,7 +36,7 @@
 
 		// Do not track form changes on this form since it only appears
 		// after the regular file upload form has been validated and submitted.
-		this.trackFormChanges_ = false;
+		this.trackFormChanges = false;
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler,

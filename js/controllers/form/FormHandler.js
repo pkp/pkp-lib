@@ -61,7 +61,7 @@
 		// specific forms may override the form's default behavior
 		// to warn about unsaved changes.
 		if (typeof options.trackFormChanges !== 'undefined') {
-			this.trackFormChanges_ = options.trackFormChanges;
+			this.trackFormChanges = options.trackFormChanges;
 		}
 
 		// disable submission controls on certain forms.
@@ -132,6 +132,15 @@
 	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit = false;
 
 
+	/**
+	 * By default, all FormHandler instances and subclasses track changes to
+	 * form data.
+	 * @protected
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.trackFormChanges = true;
+
+
 	//
 	// Private properties
 	//
@@ -150,15 +159,6 @@
 	 * @type {String}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.cancelRedirectUrl_ = null;
-
-
-	/**
-	 * By default, all FormHandler instances and subclasses track changes to
-	 * form data.
-	 * @private
-	 * @type {boolean}
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.trackFormChanges_ = true;
 
 
 	/**
@@ -237,7 +237,7 @@
 	$.pkp.controllers.form.FormHandler.prototype.formChange =
 			function(formElement, event) {
 
-		if (this.trackFormChanges_ && !this.formChangesTracked) {
+		if (this.trackFormChanges && !this.formChangesTracked) {
 			this.trigger('formChanged');
 			this.formChangesTracked = true;
 		}

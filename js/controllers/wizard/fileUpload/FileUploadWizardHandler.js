@@ -256,8 +256,8 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.wizardCancelSuccess = function(wizardElement, event, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
+		var processedJsonData = this.handleJson(jsonData);
+		if (processedJsonData !== false) {
 			// Cancel the wizard.
 			this.trigger('wizardCancel');
 		}

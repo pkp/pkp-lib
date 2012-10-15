@@ -338,10 +338,10 @@
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			appendRowResponseHandler_ = function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
+		var processedJsonData = this.handleJson(jsonData), $newRow;
+		if (processedJsonData !== false) {
 			// Show the new input row; hide the "empty" row
-			var $newRow = $(jsonData.content);
+			$newRow = $(processedJsonData.content);
 			this.getHtmlElement().find('.empty').hide().before($newRow);
 
 			// Attach content handlers and focus
@@ -380,16 +380,17 @@
 			fetchOptionsResponseHandler_ = function(ajaxContext, jsonData) {
 
 		// Find the currently editable select menu and fill
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
-			var $listbuilder = this.getHtmlElement(),
-					selectedValues = [],
-					$selectInput,
-					i, limit,
-					$pulldown, $container, optionsCount, j,
-					$option,
-					label, $optgroup,
-					k, optionsInsideGroup, $lastElement;
+		var pJsonData = this.handleJson(jsonData),
+				$listbuilder = this.getHtmlElement(),
+				selectedValues = [],
+				$selectInput,
+				i, limit,
+				$pulldown, $container, optionsCount, j,
+				$option,
+				label, $optgroup,
+				k, optionsInsideGroup, $lastElement;
+
+		if (pJsonData !== false) {
 			// Get the list of already-selected options, to ensure
 			// that we don't offer duplicates.
 			$listbuilder.find('.gridCellDisplay :input').each(function(i, selected) {
@@ -411,28 +412,27 @@
 				optionsCount = 0;
 				$pulldown.children().empty();
 				j = null;
-				for (j in jsonData.content[i]) {
+				for (j in pJsonData.content[i]) {
 					// Ignore optgroup labels.
 					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
 						continue;
 					}
 
-					if (typeof(jsonData.content[i][j]) == 'object') {
+					if (typeof(pJsonData.content[i][j]) == 'object') {
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
-						if (jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] ===
-								undefined) {
+						if (pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
 							continue;
 						}
 
 						if (typeof(
-								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) !=
-								'object') {
+								pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) != 'object') {
+
 							continue;
 						}
 
 						label =
-								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
+								pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
 						if (!label) {
 							continue;
 						}
@@ -443,10 +443,10 @@
 
 						k = null;
 						optionsInsideGroup = 0;
-						for (k in jsonData.content[i][j]) {
+						for (k in pJsonData.content[i][j]) {
 							// Populate the optgroup.
 							$option = this.populatePulldown_($optgroup,
-									selectedValues, jsonData.content[i][j][k], k);
+									selectedValues, pJsonData.content[i][j][k], k);
 							if ($option) {
 								optionsCount++;
 								optionsInsideGroup++;
@@ -460,7 +460,7 @@
 					} else {
 						// Just insert the current option.
 						$option = this.populatePulldown_($pulldown,
-								selectedValues, jsonData.content[i][j], j);
+								selectedValues, pJsonData.content[i][j], j);
 						if ($option) {
 							optionsCount++;
 						}
@@ -688,15 +688,17 @@
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveRowResponseHandler_ = function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData !== false) {
+		var processedJsonData = this.handleJson(jsonData),
+				$newContent, rowId;
+
+		if (processedJsonData !== false) {
 			// Unfortunately we can't use a closure to get this from
 			// the calling context. Use a class flag "saveRowResponsePlaceholder".
 			// (Risks IE closure/DOM element memory leak.)
-			var $newContent = $(jsonData.content),
-					// Store current row id.
-					rowId = this.getHtmlElement()
-							.find('.saveRowResponsePlaceholder').attr('id');
+			$newContent = $(processedJsonData.content);
+
+			// Store current row id.
+			rowId = this.getHtmlElement().find('.saveRowResponsePlaceholder').attr('id');
 
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').

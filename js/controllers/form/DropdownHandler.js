@@ -41,7 +41,7 @@
 
 		// We're not interested in tracking changes to this subclass
 		// since it usually loads content or redirects to another page.
-		this.trackFormChanges_ = false;
+		this.trackFormChanges = false;
 
 		// Attach container elements events.
 		$container.find('select', $container).change(
@@ -136,20 +136,20 @@
 	$.pkp.controllers.form.DropdownHandler.prototype.setOptionList_ =
 			function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		var $container = this.getHtmlElement(),
+		var processedJsonData = this.handleJson(jsonData),
+				$container = this.getHtmlElement(),
 				$select = $container.find('select'),
 				optionId, $option;
 
 		// For each supplied option, add it to the select menu.
-		for (optionId in jsonData.content) {
+		for (optionId in processedJsonData.content) {
 			$option = $('<option/>');
 			$option.attr('value', optionId);
 			if (this.defaultKey_ == optionId || this.currentKey_ == optionId) {
 				$option.attr('selected', 'selected');
 				this.trigger(this.eventName_, optionId);
 			}
-			$option.text(jsonData.content[optionId]);
+			$option.text(processedJsonData.content[optionId]);
 			$select.append($option);
 		}
 

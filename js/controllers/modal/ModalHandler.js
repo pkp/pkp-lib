@@ -31,14 +31,15 @@
 	 * @extends $.pkp.classes.Handler
 	 *
 	 * @param {jQueryObject} $handledElement The modal.
-	 * @param {Object} options Non-default dialog options
-	 *  to be passed into the dialog widget.
-	 *
-	 *  Options are:
-	 *  - dialogText string the content of the modal
-	 *  - okButton string the name for the confirmation button
-	 *  - all options documented for the jQueryUI dialog widget,
-	 *    except for the buttons parameter which is not supported.
+	 * @param {{
+	 *  canClose: boolean,
+	 *  title: string,
+	 *  titleIcon: string,
+	 *  dialogText: string,
+	 *  okButton: string
+	 *  }} options The dialog options.
+	 *  Options can also include all options documented for the jQueryUI dialog
+	 *  widget, except for the buttons parameter which are not supported.
 	 */
 	$.pkp.controllers.modal.ModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
@@ -53,7 +54,8 @@
 				canClose;
 
 		// Merge user and default options.
-		internalOptions = this.mergeOptions(internalOptions);
+		internalOptions = /** @type {{ canClose: boolean, title: string,
+				titleIcon: string }} */ (this.mergeOptions(internalOptions));
 
 		// Open the modal.
 		$handledElement.dialog(internalOptions);
@@ -168,7 +170,7 @@
 	 * close icon is clicked.
 	 *
 	 * @param {Object} callingContext The calling element or object.
-	 * @param {Event} event The triggering event (e.g. a click on
+	 * @param {Event=} event The triggering event (e.g. a click on
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
@@ -250,7 +252,11 @@
 	 * @private
 	 * @param {jQueryObject} $handledElement The element the
 	 *  dialog was created on.
-	 * @param {Object} options The dialog options.
+	 * @param {{
+	 *  canClose: boolean,
+	 *  title: string,
+	 *  titleIcon: string
+	 *  }} options The dialog options.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.fixTitleBar_ =
 			function($handledElement, options) {

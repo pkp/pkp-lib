@@ -20,7 +20,13 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {Object} options Non-default options to configure
+	 * @param {{
+	 *  canClose: boolean,
+	 *  title: string,
+	 *  titleIcon: string,
+	 *  dialogText string,
+	 *  okButton: string
+	 *  }} options Non-default options to configure
 	 *  the modal.
 	 *
 	 *  Options are:
@@ -44,7 +50,9 @@
 	//
 	// Protected methods
 	//
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.checkOptions =
 			function(options) {
 		// Check the mandatory options of the ModalHandler handler.
@@ -60,7 +68,9 @@
 	};
 
 
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.mergeOptions =
 			function(options) {
 		// Let the parent class prepare the options first.

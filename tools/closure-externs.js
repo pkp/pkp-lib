@@ -37,6 +37,13 @@ jQueryObject.prototype.jLabel = function(options) {};
 jQueryObject.prototype.selectBox = function(options) {};
 
 /**
+ * @param {string|Object=} param1
+ * @param {string=} param2
+ * @param {string|Object=} param3
+ */
+jQueryObject.prototype.dialog = function(param1, param2, param3) {};
+
+/**
  * @constructor
  * @param {Object=} options
  * @param {jQueryObject=} form

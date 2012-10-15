@@ -74,7 +74,7 @@
 				notificationsData,
 				$accordionContainer,
 				$element,
-				$elementParents,
+				$elementParents, parentHandler,
 				j, parentsLength, $elementParentWidget;
 
 
@@ -87,7 +87,7 @@
 		// handler (the site handler).
 		if (triggerElement.content !== undefined) {
 			notificationsData = triggerElement;
-			handler.getHtmlElement().parent().trigger('notifyUser', notificationsData);
+			handler.getHtmlElement().parent().trigger('notifyUser', [notificationsData]);
 			return; // no need to do any other event redirection.
 		}
 
@@ -126,8 +126,8 @@
 			$elementParents = $element.parents();
 			for (j = 0, parentsLength = $elementParents.length;
 					j < parentsLength; j++) {
-				handler = $($elementParents[j]).data('pkp.handler');
-				if ((handler instanceof $.pkp.classes.Handler)) {
+				parentHandler = $($elementParents[j]).data('pkp.handler');
+				if ((parentHandler instanceof $.pkp.classes.Handler)) {
 					$elementParentWidget = $($elementParents[j]);
 					break;
 				}

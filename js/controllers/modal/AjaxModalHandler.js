@@ -65,7 +65,7 @@
 		this.bind('dialogopen', this.dialogOpen);
 
 		// Call parent.
-		return this.parent('mergeOptions', options);
+		return /** @type {Object} */ (this.parent('mergeOptions', options));
 	};
 
 
@@ -78,7 +78,8 @@
 			this.getHtmlElement().parent().trigger('notifyUser');
 		}
 
-		return this.parent('modalClose');
+		this.parent('modalClose');
+		return false;
 	};
 
 

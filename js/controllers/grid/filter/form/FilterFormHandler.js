@@ -29,7 +29,8 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {{
 	 *  noMoreTemplates: boolean,
-	 *  filterTemplates: boolean
+	 *  filterTemplates: boolean,
+	 *  pulldownSelector: string
 	 *  }} options form options.
 	 */
 	$.pkp.controllers.grid.filter.form.FilterFormHandler =

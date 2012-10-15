@@ -54,7 +54,7 @@
 
 	/**
 	 * Get a category tbody element by category data id.
-	 * @param {String} categoryDataId The category data id.
+	 * @param {string} categoryDataId The category data id.
 	 * @return {jQueryObject} Category tbody element.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
@@ -313,7 +313,7 @@
 		if ($element.hasClass('gridRow')) {
 			// New row must be inside a category.
 			categoryDataId = /** @type {string} */ (
-					this.getCategoryDataIdByRowId($element.attr('id')));
+					this.getCategoryDataIdByRowId(/** @type {string} */ ($element.attr('id'))));
 			$gridBody = /** @type {jQueryObject} */ (
 					this.getCategoryByDataId(categoryDataId));
 		}

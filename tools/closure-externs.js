@@ -37,6 +37,19 @@ jQueryObject.prototype.jLabel = function(options) {};
 jQueryObject.prototype.selectBox = function(options) {};
 
 /**
+ * @param {string|Object} param1
+ * @param {string|Object=} param2
+ */
+jQueryObject.prototype.datepicker = function(param1, param2) {};
+
+/**
+ * @param {string|Object} param1
+ * @param {string|Object|boolean|number=} param2
+ * @param {string|boolean=} param3
+ */
+jQueryObject.prototype.accordion = function(param1, param2, param3) {};
+
+/**
  * Handler plug-in.
  * @param {string} handlerName The handler to be instantiated
  *  and attached to the target HTML element(s).

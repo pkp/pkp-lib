@@ -20,13 +20,7 @@
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the modal will be attached to.
-	 * @param {{
-	 *  canClose: boolean,
-	 *  title: string,
-	 *  titleIcon: string,
-	 *  dialogText string,
-	 *  okButton: string
-	 *  }} options Non-default options to configure
+	 * @param {Object.<string, *>} options Non-default options to configure
 	 *  the modal.
 	 *
 	 *  Options are:
@@ -60,11 +54,15 @@
 			return false;
 		}
 
+		// Hack to prevent closure compiler type mismatches
+		var castOptions = /** @type {{okButton: string,
+				cancelButton: string, dialogText: string}} */ options;
+
 		// Check for our own mandatory options.
-		return typeof options.okButton === 'string' &&
-				(options.cancelButton === false ||
-				typeof options.cancelButton === 'string') &&
-				typeof options.dialogText === 'string';
+		return typeof castOptions.okButton === 'string' &&
+				(/** @type {boolean} */ (castOptions.cancelButton) === false ||
+				typeof castOptions.cancelButton === 'string') &&
+				typeof castOptions.dialogText === 'string';
 	};
 
 
@@ -74,7 +72,8 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.mergeOptions =
 			function(options) {
 		// Let the parent class prepare the options first.
-		var internalOptions = this.parent('mergeOptions', options),
+		var internalOptions = /** @type {Object.<string, *>} */ (
+				this.parent('mergeOptions', options)),
 				$handledElement;
 
 		// Configure confirmation button.

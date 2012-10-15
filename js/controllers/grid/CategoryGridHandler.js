@@ -231,16 +231,18 @@
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, opt_elementId) {
 
-		var fetchedAlready = false, elementIds;
+		var fetchedAlready = false, elementIds,
+				// Hack to avoid closure compiler warnings on type difference
+				castElementId = /** @type {{parentElementId: number}} */ opt_elementId;
 
 		if (opt_elementId !== undefined) {
 			// Check if we want to refresh a row inside a category.
-			if (opt_elementId.parentElementId !== undefined) {
+			if (castElementId.parentElementId !== undefined) {
 				elementIds = {rowId: opt_elementId[0],
-					rowCategoryId: opt_elementId.parentElementId};
+					rowCategoryId: castElementId.parentElementId};
 
 				// Store the category id.
-				this.currentCategoryId_ = opt_elementId.parentElementId;
+				this.currentCategoryId_ = castElementId.parentElementId;
 
 				// Retrieve a single row from the server.
 				$.get(this.fetchRowUrl, elementIds,
@@ -313,7 +315,8 @@
 		if ($element.hasClass('gridRow')) {
 			// New row must be inside a category.
 			categoryDataId = /** @type {string} */ (
-					this.getCategoryDataIdByRowId(/** @type {string} */ ($element.attr('id'))));
+					this.getCategoryDataIdByRowId(
+					/** @type {string} */ ($element.attr('id'))));
 			$gridBody = /** @type {jQueryObject} */ (
 					this.getCategoryByDataId(categoryDataId));
 		}

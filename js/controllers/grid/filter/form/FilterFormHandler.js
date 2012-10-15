@@ -66,7 +66,8 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.grid.filter.form.FilterFormHandler.prototype.editFilterUrlTemplate_ = null;
+	$.pkp.controllers.grid.filter.form.FilterFormHandler.prototype
+			.editFilterUrlTemplate_ = null;
 
 
 	//
@@ -80,12 +81,14 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.controllers.grid.filter.form.FilterFormHandler.prototype.selectOptionHandler_ =
+	$.pkp.controllers.grid.filter.form.
+			FilterFormHandler.prototype.selectOptionHandler_ =
 			function(sourceElement, event) {
 
 		$(sourceElement).hide();
 		$.get(this.editFilterUrlTemplate_
-				.replace('DUMMY_FILTER_TEMPLATE_ID', /** @type {string} */ ($(sourceElement).val())),
+				.replace('DUMMY_FILTER_TEMPLATE_ID',
+				/** @type {string} */ ($(sourceElement).val())),
 				this.callbackWrapper(this.getFilterForm_), 'json');
 	};
 

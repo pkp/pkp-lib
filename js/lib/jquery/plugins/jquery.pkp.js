@@ -47,7 +47,7 @@
 	 * with a remote source.
 	 * @param {string} url the AJAX endpoint from which to
 	 *  retrieve the HTML to be inserted.
-	 * @param {object} callback function to be called on ajax success.
+	 * @param {Object=} callback function to be called on ajax success.
 	 * @return {jQueryObject} Selected HTML elements for chaining.
 	 */
 	$.fn.pkpAjaxHtml = function(url, callback) {

@@ -60,7 +60,9 @@
 	//
 	// Protected methods
 	//
-	/** @inheritDoc */
+	/**
+	 * @inheritDoc
+	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			checkOptions = function(options) {
 

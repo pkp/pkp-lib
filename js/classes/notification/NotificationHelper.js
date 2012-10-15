@@ -87,7 +87,8 @@
 		// handler (the site handler).
 		if (triggerElement.content !== undefined) {
 			notificationsData = triggerElement;
-			handler.getHtmlElement().parent().trigger('notifyUser', [notificationsData]);
+			handler.getHtmlElement().parent().trigger(
+					'notifyUser', [notificationsData]);
 			return; // no need to do any other event redirection.
 		}
 

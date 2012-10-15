@@ -37,6 +37,26 @@ jQueryObject.prototype.jLabel = function(options) {};
 jQueryObject.prototype.selectBox = function(options) {};
 
 /**
+ * Handler plug-in.
+ * @param {string} handlerName The handler to be instantiated
+ *  and attached to the target HTML element(s).
+ * @param {Object=} options Parameters to be passed on
+ *  to the handler.
+ * @return {jQueryObject} Selected HTML elements for chaining.
+ */
+jQueryObject.prototype.pkpHandler = function(handlerName, options) {};
+
+/**
+ * Re-implementation of jQuery's html() method
+ * with a remote source.
+ * @param {string} url the AJAX endpoint from which to
+ *  retrieve the HTML to be inserted.
+ * @param {Object=} callback function to be called on ajax success.
+ * @return {jQueryObject} Selected HTML elements for chaining.
+ */
+jQueryObject.prototype.pkpAjaxHtml = function(url, callback) {};
+
+/**
  * @param {string|Object=} param1
  * @param {string=} param2
  * @param {string|Object=} param3

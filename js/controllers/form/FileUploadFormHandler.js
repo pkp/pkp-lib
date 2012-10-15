@@ -42,7 +42,7 @@
 	/**
 	 * Reset the uploader widget flag.
 	 * @private
-	 * @type {Boolean}
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			resetUploader_ = false;
@@ -70,6 +70,7 @@
 		}
 
 		this.parent('handleResponse', formElement, jsonData);
+		return false;
 	};
 
 

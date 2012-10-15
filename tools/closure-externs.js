@@ -37,6 +37,16 @@ jQueryObject.prototype.jLabel = function(options) {};
 jQueryObject.prototype.selectBox = function(options) {};
 
 /**
+ * @param {Object|string=} param1
+ */
+jQueryObject.prototype.plupload = function(param1) {};
+
+/**
+ * @param {Object=} options
+ */
+jQueryObject.prototype.slider = function(options) {};
+
+/**
  * @param {string|Object} param1
  * @param {string|Object=} param2
  */

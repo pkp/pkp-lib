@@ -90,7 +90,7 @@
 	 * @param {HTMLElement} sourceElement The element that issued the
 	 * "dataChanged" event.
 	 * @param {Event} event The "redirect data changed" event.
-	 * @param {object} eventData The data changed event data.
+	 * @param {Object} eventData The data changed event data.
 	 * @private
 	 */
 	$.pkp.controllers.PageHandler.prototype.redirectDataChangedEventHandler_ =

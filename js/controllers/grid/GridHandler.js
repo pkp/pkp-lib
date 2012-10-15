@@ -42,6 +42,25 @@
 
 
 	//
+	// Protected properties
+	//
+	/**
+	 * The selector for the grid body.
+	 * @protected
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.bodySelector = null;
+
+
+	/**
+	 * The URL to fetch a grid row.
+	 * @protected
+	 * @type {?string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl = null;
+
+
+	//
 	// Private properties
 	//
 	/**
@@ -53,27 +72,11 @@
 
 
 	/**
-	 * The URL to fetch a grid row.
-	 * @private
-	 * @type {?string}
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.fetchRowUrl_ = null;
-
-
-	/**
 	 * The URL to fetch the entire grid.
 	 * @private
 	 * @type {?string}
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.fetchGridUrl_ = null;
-
-
-	/**
-	 * The selector for the grid body.
-	 * @private
-	 * @type {?string}
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.bodySelector_ = null;
 
 
 	/**
@@ -94,7 +97,7 @@
 	$.pkp.controllers.grid.GridHandler.prototype.getFetchRowUrl =
 			function() {
 
-		return this.fetchRowUrl_;
+		return this.fetchRowUrl;
 	};
 
 
@@ -353,13 +356,13 @@
 		this.gridId_ = options.gridId;
 
 		// Save the URL to fetch a row.
-		this.fetchRowUrl_ = options.fetchRowUrl;
+		this.fetchRowUrl = options.fetchRowUrl;
 
 		// Save the URL to fetch the entire grid
 		this.fetchGridUrl_ = options.fetchGridUrl;
 
 		// Save the selector for the grid body.
-		this.bodySelector_ = options.bodySelector;
+		this.bodySelector = options.bodySelector;
 
 		// Show/hide row action feature.
 		this.activateRowActions_();
@@ -397,7 +400,7 @@
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
-	 * @param {number=} opt_elementId The id of a data element that was
+	 * @param {number|Object=} opt_elementId The id of a data element that was
 	 *  updated, added or deleted. If not given then the whole grid
 	 *  will be refreshed.
 	 *  @param {Boolean=} opt_fetchedAlready Flag that subclasses can send
@@ -410,8 +413,8 @@
 		if (!opt_fetchedAlready) {
 			if (opt_elementId) {
 				// Retrieve a single row from the server.
-				$.get(this.fetchRowUrl_, {rowId: opt_elementId},
-						this.callbackWrapper(this.replaceElementResponseHandler_), 'json');
+				$.get(this.fetchRowUrl, {rowId: opt_elementId},
+						this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 			} else {
 				// Retrieve the whole grid from the server.
 				$.get(this.fetchGridUrl_, null,
@@ -475,7 +478,7 @@
 			function($newRow, opt_$gridBody) {
 
 		if (opt_$gridBody === undefined || opt_$gridBody === null) {
-			opt_$gridBody = this.getHtmlElement().find(this.bodySelector_);
+			opt_$gridBody = this.getHtmlElement().find(this.bodySelector);
 		}
 
 		// Add the new element.
@@ -539,6 +542,50 @@
 	};
 
 
+	/**
+	 * Callback to insert, remove or replace a row after an
+	 * element has been inserted, update or deleted.
+	 *
+	 * @protected
+	 *
+	 * @param {Object} ajaxContext The AJAX request context.
+	 * @param {Object} jsonData A parsed JSON response object.
+	 * @return {boolean|undefined} Return false when no replace action is taken.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.replaceElementResponseHandler =
+			function(ajaxContext, jsonData) {
+		var elementId, $element, handledJsonData;
+
+		handledJsonData = this.handleJson(jsonData);
+		if (handledJsonData !== false) {
+			if (handledJsonData.elementNotFound) {
+				// The server reported that this element no
+				// longer exists in the database so let's
+				// delete it.
+				elementId = handledJsonData.elementNotFound;
+				$element = this.getHtmlElement().
+						find('.element' + elementId);
+
+				// Sometimes we get a delete event before the
+				// element has actually been inserted (e.g. when deleting
+				// elements due to a cancel action or similar).
+				if ($element.length === 0) {
+					return false;
+				}
+
+				this.deleteElement($element);
+			} else {
+				// The server returned mark-up to replace
+				// or insert the row.
+				this.insertOrReplaceElement_(handledJsonData.content);
+
+				// Refresh row action event binding.
+				this.activateRowActions_();
+			}
+		}
+	};
+
+
 	//
 	// Private methods
 	//
@@ -577,52 +624,8 @@
 			function(sourceElement, event, params) {
 
 		// Retrieve a single new row from the server.
-		$.get(this.fetchRowUrl_, params,
-				this.callbackWrapper(this.replaceElementResponseHandler_), 'json');
-	};
-
-
-	/**
-	 * Callback to insert, remove or replace a row after an
-	 * element has been inserted, update or deleted.
-	 *
-	 * @private
-	 *
-	 * @param {Object} ajaxContext The AJAX request context.
-	 * @param {Object} jsonData A parsed JSON response object.
-	 * @return {boolean|undefined} Return false when no replace action is taken.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.replaceElementResponseHandler_ =
-			function(ajaxContext, jsonData) {
-		var elementId, $element, handledJsonData;
-
-		handledJsonData = this.handleJson(jsonData);
-		if (handledJsonData !== false) {
-			if (handledJsonData.elementNotFound) {
-				// The server reported that this element no
-				// longer exists in the database so let's
-				// delete it.
-				elementId = handledJsonData.elementNotFound;
-				$element = this.getHtmlElement().
-						find('.element' + elementId);
-
-				// Sometimes we get a delete event before the
-				// element has actually been inserted (e.g. when deleting
-				// elements due to a cancel action or similar).
-				if ($element.length === 0) {
-					return false;
-				}
-
-				this.deleteElement($element);
-			} else {
-				// The server returned mark-up to replace
-				// or insert the row.
-				this.insertOrReplaceElement_(handledJsonData.content);
-
-				// Refresh row action event binding.
-				this.activateRowActions_();
-			}
-		}
+		$.get(this.fetchRowUrl, params,
+				this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 	};
 
 

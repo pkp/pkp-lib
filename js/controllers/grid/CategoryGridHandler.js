@@ -113,7 +113,7 @@
 		var categoryId = $category.attr('id'),
 				startExtractPosition = this.getCategoryIdPrefix().length;
 
-		return categoryId.slice(startExtractPosition);
+		return /** @type {string} */ (categoryId.slice(startExtractPosition));
 	};
 
 
@@ -139,14 +139,14 @@
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendCategory =
 			function($category) {
-		var $gridBody = this.getHtmlElement().find(this.bodySelector_);
+		var $gridBody = this.getHtmlElement().find(this.bodySelector);
 		$gridBody.append($category);
 	};
 
 
 	/**
 	 * Re-sequence all category elements based on the passed sequence map.
-	 * @param {array} sequenceMap A sequence array with the category
+	 * @param {Array} sequenceMap A sequence array with the category
 	 * element id as value.
 	 */
 	$.pkp.controllers.grid.CategoryGridHandler.prototype.resequenceCategories =
@@ -204,7 +204,8 @@
 		if ($element.hasClass('category_grid_body')) {
 			return this.getCategories();
 		} else {
-			return this.parent('getElementsByType', $element);
+			return /** @type {jQueryObject} */ (
+					this.parent('getElementsByType', $element));
 		}
 	};
 
@@ -218,7 +219,8 @@
 			// Return the grid empty element placeholder.
 			return this.getHtmlElement().find('.empty').not('.category_placeholder');
 		} else {
-			return this.parent('getEmptyElement', $element);
+			return /** @type {jQueryObject} */ (
+					this.parent('getEmptyElement', $element));
 		}
 	};
 
@@ -241,14 +243,14 @@
 				this.currentCategoryId_ = opt_elementId.parentElementId;
 
 				// Retrieve a single row from the server.
-				$.get(this.fetchRowUrl_, elementIds,
+				$.get(this.fetchRowUrl, elementIds,
 						this.callbackWrapper(
-								this.replaceElementResponseHandler_), 'json');
+								this.replaceElementResponseHandler), 'json');
 			} else {
 				// Retrieve the entire category from the server.
 				$.get(this.fetchCategoryUrl_, {rowId: opt_elementId},
 						this.callbackWrapper(
-								this.replaceElementResponseHandler_), 'json');
+								this.replaceElementResponseHandler), 'json');
 			}
 			fetchedAlready = true;
 		}
@@ -310,8 +312,10 @@
 
 		if ($element.hasClass('gridRow')) {
 			// New row must be inside a category.
-			categoryDataId = this.getCategoryDataIdByRowId($element.attr('id'));
-			$gridBody = this.getCategoryByDataId(categoryDataId);
+			categoryDataId = /** @type {string} */ (
+					this.getCategoryDataIdByRowId($element.attr('id')));
+			$gridBody = /** @type {jQueryObject} */ (
+					this.getCategoryByDataId(categoryDataId));
 		}
 
 		// Append the element.
@@ -320,7 +324,7 @@
 		// Make sure the placeholder is the last grid element.
 		if ($element.hasClass('category_grid_body')) {
 			$emptyPlaceholder = this.getEmptyElement($element);
-			this.getHtmlElement().find(this.bodySelector_).append($emptyPlaceholder);
+			this.getHtmlElement().find(this.bodySelector).append($emptyPlaceholder);
 		}
 	};
 
@@ -355,7 +359,8 @@
 			checkColSpan = true;
 		}
 
-		return this.parent('hasSameNumOfColumns', $element, checkColSpan);
+		return /** @type {boolean} */ (
+				this.parent('hasSameNumOfColumns', $element, checkColSpan));
 	};
 
 

@@ -19,7 +19,9 @@
 	 *
 	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
-	 * @param {Object} options Configuration of the link action
+	 * @param {{
+	 *  modalHandler: Object
+	 *  }} options Configuration of the link action
 	 *  request.
 	 */
 	$.pkp.classes.linkAction.ModalRequest =
@@ -84,7 +86,8 @@
 		// Make sure that all events triggered on the modal will be
 		// forwarded to the link action. This is necessary because the
 		// modal has to be created outside the regular DOM.
-		$linkActionElement = /** @type {jQueryObject} */ (this.getLinkActionElement());
+		$linkActionElement = /** @type {jQueryObject} */ (
+				this.getLinkActionElement());
 		linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
 		handlerOptions = $.extend(true,
 				{$eventBridge: linkActionHandler.getStaticId()}, modalOptions);

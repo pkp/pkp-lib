@@ -19,7 +19,9 @@
 	 *
 	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
-	 * @param {Object} options Configuration of the link action
+	 * @param {{
+	 *  requestType: string
+	 *  }} options Configuration of the link action
 	 *  request.
 	 */
 	$.pkp.classes.linkAction.AjaxRequest =
@@ -41,7 +43,8 @@
 	$.pkp.classes.linkAction.AjaxRequest.prototype.activate =
 			function(element, event) {
 
-		var returnValue = /** @type {boolean} */ (this.parent('activate', element, event)),
+		var returnValue = /** @type {boolean} */ (
+				this.parent('activate', element, event)),
 				options = this.getOptions(),
 				responseHandler = $.pkp.classes.Helper.curry(
 						this.handleResponse, this);

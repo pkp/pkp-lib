@@ -25,7 +25,14 @@
 	 * @extends $.pkp.classes.Handler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
-	 * @param {Object} options options to configure the form handler.
+	 * @param {{
+	 *  transformButtons: boolean,
+	 *  submitHandler: Function,
+	 *  cancelRedirectUrl: String,
+	 *  disableControlsOnSubmit: boolean,
+	 *  trackFormChanges: boolean,
+	 *  enableDisablePairs: Object
+	 *  }} options options to configure the form handler.
 	 */
 	$.pkp.controllers.form.FormHandler = function($form, options) {
 		this.parent($form, options);
@@ -59,9 +66,10 @@
 
 		// disable submission controls on certain forms.
 		if (options.disableControlsOnSubmit) {
-			this.disableControlsOnSubmit_ = options.disableControlsOnSubmit;
+			this.disableControlsOnSubmit = options.disableControlsOnSubmit;
 		}
 
+		// Items that should enable or disable each other.
 		if (options.enableDisablePairs) {
 			this.enableDisablePairs_ = options.enableDisablePairs;
 			this.setupEnableDisablePairs();
@@ -113,6 +121,18 @@
 
 
 	//
+	// Protected properties
+	//
+	/**
+	 * If true, the FormHandler will disable the submit button if the form
+	 * successfully validates and is submitted.
+	 * @protected
+	 * @type {boolean}
+	 */
+	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit = false;
+
+
+	//
 	// Private properties
 	//
 	/**
@@ -146,15 +166,6 @@
 	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
-
-
-	/**
-	 * If true, the FormHandler will disable the submit button if the form
-	 * successfully validates and is submitted.
-	 * @private
-	 * @type {boolean}
-	 */
-	$.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit_ = false;
 
 
 	/**
@@ -248,7 +259,7 @@
 
 		// We have made it to submission, disable the form control if
 		// necessary, submit the form.
-		if (this.disableControlsOnSubmit_) {
+		if (this.disableControlsOnSubmit) {
 			this.getHtmlElement().find(':submit').attr('disabled', 'disabled').
 					addClass('ui-state-disabled');
 		}

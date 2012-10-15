@@ -38,11 +38,11 @@
 	/**
 	 * Overridden default from FormHandler -- disable form controls
 	 * on AJAX forms by default.
-	 * @private
-	 * @type {Boolean}
+	 * @protected
+	 * @type {boolean}
 	 */
 	$.pkp.controllers.form.AjaxFormHandler.prototype.
-			disableControlsOnSubmit_ = true;
+			disableControlsOnSubmit = true;
 
 
 	//
@@ -74,9 +74,9 @@
 	 *
 	 * @private
 	 *
-	 * @param {$jQuery} sourceElement The containing element.
+	 * @param {jQueryObject} sourceElement The containing element.
 	 * @param {Event} event The calling event.
-	 * @param {String} content The content to replace with.
+	 * @param {string} content The content to replace with.
 	 */
 	$.pkp.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
 			function(sourceElement, event, content) {
@@ -120,9 +120,10 @@
 				// Fire off any other optional events.
 				this.publishChangeEvents();
 			} else {
-				if (processedJsonData.reloadContainer !== undefined) {
+				if (/** @type {{reloadContainer: Object}} */ (
+						processedJsonData).reloadContainer !== undefined) {
 					this.trigger('dataChanged');
-					this.trigger('containerReloadRequested', processedJsonData);
+					this.trigger('containerReloadRequested', [processedJsonData]);
 					return processedJsonData.status;
 				}
 
@@ -133,11 +134,11 @@
 		}
 
 		$(this.getHtmlElement()).find('.pkp_helpers_progressIndicator').hide();
-		this.getHtmlElement().find(':submit').button('enable');
+		this.getHtmlElement().find(':submit').button();
 
 		// Trigger the notify user event, passing this
 		// html element as data.
-		this.trigger('notifyUser', this.getHtmlElement());
+		this.trigger('notifyUser', [this.getHtmlElement()]);
 
 		return processedJsonData.status;
 	};

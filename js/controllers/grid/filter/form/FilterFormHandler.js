@@ -27,7 +27,10 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
-	 * @param {Object} options form options.
+	 * @param {{
+	 *  noMoreTemplates: boolean,
+	 *  filterTemplates: boolean
+	 *  }} options form options.
 	 */
 	$.pkp.controllers.grid.filter.form.FilterFormHandler =
 			function($form, options) {
@@ -42,7 +45,7 @@
 			// be replaced in the DOM with a new one. To prevent the modal
 			// from being closed, absorb this event.
 			if (options.filterTemplates) {
-				this.bind('pkpRemoveHandler', this.callbackWrapper(this.removeHandler_));
+				this.bind('pkpRemoveHandler', this.removeHandler_);
 			}
 		}
 
@@ -81,7 +84,7 @@
 
 		$(sourceElement).hide();
 		$.get(this.editFilterUrlTemplate_
-				.replace('DUMMY_FILTER_TEMPLATE_ID', $(sourceElement).val()),
+				.replace('DUMMY_FILTER_TEMPLATE_ID', /** @type {string} */ ($(sourceElement).val())),
 				this.callbackWrapper(this.getFilterForm_), 'json');
 	};
 
@@ -97,7 +100,7 @@
 	$.pkp.controllers.grid.filter.form.FilterFormHandler.prototype.removeHandler_ =
 			function(sourceElement, event) {
 
-		this.unbind('pkpRemoveHandler');
+		this.unbind('pkpRemoveHandler', this.removeHandler_);
 	};
 
 
@@ -111,11 +114,11 @@
 	$.pkp.controllers.grid.filter.form.FilterFormHandler.prototype.getFilterForm_ =
 			function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
+		var processedJsonData = this.handleJson(jsonData);
 
 		// Replace the current form with the new one.
 		this.remove();
-		this.getHtmlElement().replaceWith($(jsonData.content));
+		this.getHtmlElement().replaceWith($(processedJsonData.content));
 	};
 
 

@@ -34,6 +34,10 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	 * @see PHPUnit_Framework_TestCase::setUp()
 	 */
 	protected function setUp() {
+		// Switch off xdebug screaming (there are
+		// errors in adodb...).
+		PKPTestHelper::xdebugScream(false);
+
 		// Backup affected tables.
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
 		parent::setUp();
@@ -45,6 +49,9 @@ abstract class DatabaseTestCase extends PKPTestCase {
 	protected function tearDown() {
 		parent::tearDown();
 		PKPTestHelper::restoreTables($this->getAffectedTables(), $this);
+
+		// Switch xdebug screaming back on.
+		PKPTestHelper::xdebugScream(true);
 	}
 }
 ?>

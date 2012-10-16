@@ -54,12 +54,6 @@ class FormValidatorTest extends PKPTestCase {
 		self::assertSame('testData', $formValidator->getField());
 		self::assertSame($this->form, $formValidator->getForm());
 		self::assertSame($validator, $formValidator->getValidator());
-
-		// Test set form
-		$anotherForm = new Form('some other template');
-		$formValidator->setForm($anotherForm);
-		self::assertNotSame($this->form, $formValidator->getForm());
-		self::assertSame($anotherForm, $formValidator->getForm());
 	}
 
 	/**

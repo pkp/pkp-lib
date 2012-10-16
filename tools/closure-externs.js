@@ -7,18 +7,72 @@
  * Import symbols into the closure compiler that are not defined
  * within the compiled files.
  *
+ * See https://code.google.com/p/closure-compiler/source/browse/trunk/contrib/externs
+ * for pre-extracted extern files, e.g. for jQuery.
+ *
  * @externs
  */
 
 /**
- * @constructor
- * @param {(string|Function|HTMLElement|HTMLDocument|Location)} selector A CSS selector
- * @param {jQuery=} context The context for the selector.
+ * @param {Object} arg1
  */
-function jQuery(selector, context) {};
+jQueryObject.prototype.autocomplete = function(arg1) {};
+
+jQueryObject.prototype.button = function() {};
+
 
 /**
- * @param {(string|Function|HTMLElement|HTMLDocument|Location)} selector A CSS selector.
- * @param {jQuery=} context The context for the selector.
+ * @param {Object=} options
  */
-function $(selector, context) {};
+jQueryObject.prototype.validate = function(options) {};
+
+/**
+ * @constructor
+ * @param {Object=} options
+ * @param {jQueryObject=} form
+ */
+jQuery.validator = function(options, form) {};
+
+jQuery.validator.prototype.checkForm = function() {};
+
+jQuery.validator.prototype.defaultShowErrors = function() {};
+
+jQuery.validator.prototype.settings = {};
+
+/**
+ * @constructor
+ * @param {Object=} options
+ */
+jQuery.pnotify = function(options) {};
+
+/**
+ * @param {Object=} userDefinedSettings
+ * @return {jQueryObject}
+ */
+jQueryObject.prototype.imgPreview = function(userDefinedSettings) {};
+
+/**
+ * @constructor
+ * @private
+ */
+function tinyMCEObject() {};
+
+tinyMCEObject.prototype.triggerSave = function() {}
+
+/**
+ * @param {string} c
+ * @param {boolean} u
+ * @param {string} v
+ */
+tinyMCEObject.prototype.execCommand = function(c, u, v) {}
+
+/**
+ * @type {tinyMCEObject}
+ */
+var tinyMCE;
+
+
+$.pkp.locale = {
+	search_noKeywordError: '',
+	form_dataHasChanged: ''
+};

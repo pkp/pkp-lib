@@ -70,7 +70,7 @@
 
 
 	/**
-	 * Callback to replace a modal's content.
+	 * Callback to replace the element's content.
 	 *
 	 * @private
 	 *

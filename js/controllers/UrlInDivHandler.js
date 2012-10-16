@@ -17,7 +17,7 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $divElement the wrapped div element.
+	 * @param {jQueryObject} $divElement the wrapped div element.
 	 * @param {Object} options options to be passed.
 	 */
 	$.pkp.controllers.UrlInDivHandler = function($divElement, options) {
@@ -39,7 +39,7 @@
 	/**
 	 * The URL to be used for data loaded into this div
 	 * @private
-	 * @type {string}
+	 * @type {?string}
 	 */
 	$.pkp.controllers.UrlInDivHandler.sourceUrl_ = null;
 
@@ -70,16 +70,16 @@
 	$.pkp.controllers.UrlInDivHandler.prototype.handleLoadedContent_ =
 			function(ajaxContext, jsonData) {
 
-		jsonData = this.handleJson(jsonData);
-		if (jsonData.status === true) {
-			this.getHtmlElement().hide().html(jsonData.content).fadeIn(400);
+		var handledJsonData = this.handleJson(jsonData);
+		if (handledJsonData.status === true) {
+			this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
 		} else {
 			// Alert that loading failed.
-			alert(jsonData.content);
+			alert(handledJsonData.content);
 		}
 
 		return false;
 	};
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

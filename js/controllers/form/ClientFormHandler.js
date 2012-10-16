@@ -20,7 +20,7 @@
 	 *
 	 * @extends $.pkp.controllers.form.FormHandler
 	 *
-	 * @param {jQuery} $form the wrapped HTML form element.
+	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
@@ -45,13 +45,14 @@
 	 */
 	$.pkp.controllers.form.ClientFormHandler.prototype.submitForm =
 			function(validator, formElement) {
+		var $form, formData;
 
 		// This form implementation will trigger an event
 		// with the form data.
-		var $form = this.getHtmlElement();
+		$form = this.getHtmlElement();
 
 		// Retrieve form data.
-		var formData = $form.serializeArray();
+		formData = $form.serializeArray();
 
 		// Inform the server that the form has been submitted.
 		formData.push({name: 'clientSubmit', value: true});
@@ -63,4 +64,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

@@ -1,10 +1,6 @@
 /**
  * @defgroup js_classes_linkAction
  */
-// Define the namespace
-$.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
-
-
 /**
  * @file js/classes/linkAction/LinkActionRequest.js
  *
@@ -18,11 +14,17 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
  */
 (function($) {
 
+	/** @type {Object} */
+	$.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
+
+
 
 	/**
 	 * @constructor
 	 *
-	 * @param {jQuery} $linkActionElement The element the link
+	 * @extends $.pkp.classes.ObjectProxy
+	 *
+	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
@@ -106,7 +108,7 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 
 	/**
 	 * Get the link action request url.
-	 * @return {mixed} string or null.
+	 * @return {?string} The link action request url.
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.getUrl =
 			function() {
@@ -142,4 +144,4 @@ $.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
 
 
 	/** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

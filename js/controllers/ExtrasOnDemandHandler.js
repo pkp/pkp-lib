@@ -17,18 +17,21 @@
 	 *
 	 * @extends $.pkp.classes.Handler
 	 *
-	 * @param {jQuery} $widgetWrapper An HTML element that contains the widget.
+	 * @param {jQueryObject} $widgetWrapper An HTML element that contains the
+	 *  widget.
 	 * @param {Object} options Handler options.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
-		// Attach click event.
-		$('.toggleExtras', $widgetWrapper).click(
+		// Show the toggle button and attach click event
+		// to it. We hide this by default to provide a graceful
+		// fallback in case JS is switched off.
+		$('.toggleExtras', $widgetWrapper).show().click(
 				this.callbackWrapper(this.toggleExtras));
 
 		// Hide extras (default initial widget state).
-		this.deactivateExtraContent_('slow');
+		this.deactivateExtraContent_();
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.ExtrasOnDemandHandler, $.pkp.classes.Handler);
@@ -65,8 +68,9 @@
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
+		var $widgetWrapper, $scrollable;
 
-		var $widgetWrapper = this.getHtmlElement();
+		$widgetWrapper = this.getHtmlElement();
 
 		// Hide the inactive version of the toggle extras span.
 		$('.toggleExtras .toggleExtras-inactive', $widgetWrapper).hide();
@@ -84,7 +88,7 @@
 				.addClass('ui-icon-triangle-1-s');
 
 		// Identify if there is a scrollable parent.
-		var $scrollable = $widgetWrapper.closest('.scrollable');
+		$scrollable = $widgetWrapper.closest('.scrollable');
 		if ($scrollable.size() > 0) {
 
 			// Scroll the parent so that all extra content in
@@ -143,15 +147,17 @@
 	 *
 	 * @private
 	 *
-	 * @param {jQuery} $widgetWrapper The element to be made visible.
-	 * @param {jQuery} $scrollable The parent scrollable element.
+	 * @param {jQueryObject} $widgetWrapper The element to be made visible.
+	 * @param {Array|jQueryObject} $scrollable The parent scrollable element.
 	 */
 	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {
+		var extrasWidgetTop, scrollingWidgetTop, currentScrollingTop,
+				hiddenPixels, newScrollingTop;
 
-		var extrasWidgetTop = $widgetWrapper.position().top;
-		var scrollingWidgetTop = $scrollable.position().top;
-		var currentScrollingTop = $scrollable.scrollTop();
+		extrasWidgetTop = $widgetWrapper.position().top;
+		scrollingWidgetTop = $scrollable.position().top;
+		currentScrollingTop = parseInt($scrollable.scrollTop(), 10);
 
 		// Do we have to scroll down or scroll up?
 		if (extrasWidgetTop > scrollingWidgetTop) {
@@ -159,7 +165,7 @@
 
 			// Calculate the number of hidden pixels of the child
 			// element within the scrollable element.
-			var hiddenPixels = Math.ceil(extrasWidgetTop +
+			hiddenPixels = Math.ceil(extrasWidgetTop +
 					$widgetWrapper.height() - $scrollable.height());
 
 			// Scroll down if parts or all of this widget are hidden.
@@ -170,7 +176,7 @@
 			// Scroll up...
 
 			// Calculate the new scrolling top.
-			var newScrollingTop = Math.max(Math.floor(
+			newScrollingTop = Math.max(Math.floor(
 					currentScrollingTop + extrasWidgetTop - scrollingWidgetTop), 0);
 
 			// Set the new scrolling top.
@@ -180,4 +186,4 @@
 
 
 /** @param {jQuery} $ jQuery closure. */
-})(jQuery);
+}(jQuery));

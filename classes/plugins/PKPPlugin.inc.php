@@ -767,6 +767,22 @@ class PKPPlugin {
 		$contextList = $application->getContextList();
 		return ucfirst(array_shift($contextList)).'SiteSettingsForm::execute';
 	}
+
+	/**
+	 * Get a link action to be used in plugin's grid row action for
+	 * the passed verb.
+	 *
+	 * @param $request Request
+	 * @param $verb array The verb name and locale key.
+	 * @param $defaultUrl string The grid that will use this method to get
+	 * a management verb link action will pass a default url to be used in
+	 * the link action request, with the correct plugins parameters (category,
+	 * name, verb) and directing to the grid plugin management method.
+	 * @return LinkAction or null
+	 */
+	function getManagementVerbLinkAction(&$request, $verb, $defaultUrl) {
+		return null;
+	}
 }
 
 ?>

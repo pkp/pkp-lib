@@ -241,4 +241,36 @@
 	<message key="plugins.categories.themes">Theme Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">These format plugins express metadata in OAI communications.</message>
+
+	<!-- Plugin management -->
+	<message key="manager.plugins.copyError">Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</message>
+	<message key="manager.plugins.delete">Delete Plugin</message>
+	<message key="manager.plugins.deleteConfirm">Are you sure you wish to delete this plugin from the system?</message>
+	<message key="manager.plugins.deleteDescription">By clicking delete, you will delete the plugin from the server's file system.</message>
+	<message key="manager.plugins.deleteError">Plugin "{$pluginName}" could not be deleted from the file system. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</message>
+	<message key="manager.plugins.deleteSuccess">Plugin "{$pluginName}" successfuly deleted</message>
+	<message key="manager.plugins.description">This page allows the Manager to review and potentially configure the plugins that are currently installed. Plugins are divided into categories, according to their function. The categories are listed below, and within each category, its current set of plugins.</message>
+	<message key="manager.plugins.doesNotExist">Plugin "{$pluginName}" does not exist</message>
+	<message key="manager.plugins.fileSelectError">Please select a file first</message>
+	<message key="manager.plugins.install">Install A New Plugin</message>
+	<message key="manager.plugins.installDescription">This form allows you to upload and install a new plugin.  Please ensure the plugin is compressed as a .tar.gz file.</message>
+	<message key="manager.plugins.installedVersionNewer">Plugin already exists, and is newer or equal to installed version</message>
+	<message key="manager.plugins.installedVersionOlder">Plugin already exists, and is older or equal to the installed version</message>
+	<message key="manager.plugins.installFailed">Installation failed. {$errorString}</message>
+	<message key="manager.plugins.installSuccessful">Successfully installed version {$versionNumber}</message>
+	<message key="manager.plugins.invalidPluginArchive">The uploaded plugin archive does not contain a folder that corresponds to the plugin name.</message>
+	<message key="manager.plugins.wrongCategory">The uploaded plugin does not fit the category of the upgraded plugin.</message>
+	<message key="manager.plugins.wrongName">The version.xml in the uploaded plugin contains a plugin name that does not fit the name of the upgraded plugin.</message>
+	<message key="manager.plugins.pleaseInstall">Plugin does not exist.  Please Install instead</message>
+	<message key="manager.plugins.pleaseUpgrade">Plugin already exists, but is newer than installed version.  Please upgrade instead</message>
+	<message key="manager.plugins.tarCommandNotFound">The tar command is not available. Please correctly configure it in your "config.inc.php".</message>
+	<message key="manager.plugins.upgrade">Upgrade Plugin</message>
+	<message key="manager.plugins.upgradeDescription">This form allows you to upgrade a plugin.  Please ensure the plugin is compressed as a .tar.gz file.</message>
+	<message key="manager.plugins.upgradeFailed">Upgrade failed. {$errorString}</message>
+	<message key="manager.plugins.upgradeSuccessful">Successfully upgraded to version {$versionString}</message>
+	<message key="manager.plugins.uploadError">Error uploading file</message>
+	<message key="manager.plugins.uploadPluginDir">Select plugin file</message>
+	<message key="manager.plugins.versionFileInvalid">version.xml in plugin directory contains invalid data.</message>
+	<message key="manager.plugins.versionFileNotFound">version.xml not found in plugin directory</message>
+
 </locale>

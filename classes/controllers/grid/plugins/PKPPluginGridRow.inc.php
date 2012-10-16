@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @file controllers/grid/plugins/PluginGridRow.inc.php
+ * @file classes/controllers/grid/plugins/PKPPluginGridRow.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PluginGridRow
- * @ingroup controllers_grid_plugins
+ * @class PKPPluginGridRow
+ * @ingroup classes_controllers_grid_plugins
  *
  * @brief Plugin grid row definition
  */
 
 import('lib.pkp.classes.controllers.grid.GridRow');
 
-class PluginGridRow extends GridRow {
+class PKPPluginGridRow extends GridRow {
 
 	/** @var Array */
 	var $_userRoles;
@@ -27,7 +27,7 @@ class PluginGridRow extends GridRow {
 	 * @param $userRoles array
 	 * @param $contextLevel int CONTEXT_...
 	 */
-	function PluginGridRow($userRoles, $contextLevel) {
+	function PKPPluginGridRow($userRoles, $contextLevel) {
 		$this->_userRoles = $userRoles;
 		$this->_contextLevel = $contextLevel;
 
@@ -143,25 +143,15 @@ class PluginGridRow extends GridRow {
 
 
 	//
-	// Private helper methods
+	// Protected helper methods
 	//
 	/**
 	 * Return if user can edit a plugin settings or not.
 	 * @param $plugin Plugin
 	 * @return boolean
 	 */
-	function _canEdit(&$plugin) {
-		if ($plugin->isSitePlugin()) {
-			if (in_array(ROLE_ID_SITE_ADMIN, $this->_userRoles)) {
-				return true;
-			}
-		} elseif ($this->_contextLevel & CONTEXT_PRESS) {
-			if (in_array(ROLE_ID_PRESS_MANAGER, $this->_userRoles)) {
-				return true;
-			}
-		}
-
-		return false;
+	function canEdit(&$plugin) {
+		assert(false); // Must be overridden by subclasses
 	}
 }
 

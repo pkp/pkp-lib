@@ -68,10 +68,6 @@ class PKPPluginGridRow extends GridRow {
 					foreach ($managementVerbs as $verb) {
 						list($verbName, $verbLocaleKey) = $verb;
 
-						// Add the verb to action args array.
-						$actionArgs['verb'] = $verbName;
-
-						$defaultUrl = $router->url($request, null, null, 'plugin', null, $actionArgs);
 						$linkAction = null;
 						$actionRequest = null;
 						$image = null;
@@ -83,13 +79,23 @@ class PKPPluginGridRow extends GridRow {
 								break;
 							default:
 								// Check if verb has a link action defined.
-								$verbLinkAction = $plugin->getManagementVerbLinkAction($request, $verb, $defaultUrl);
+								$verbLinkAction = $plugin->getManagementVerbLinkAction($request, $verb);
 								if (is_a($verbLinkAction, 'LinkAction')) {
 									$linkAction = $verbLinkAction;
 								} else {
-									// Define a default ajax modal request.
-									import('lib.pkp.classes.linkAction.request.AjaxModal');
-									$actionRequest = new AjaxModal($defaultUrl, $verbLocaleKey);
+									// Legacy plugin behavior. Define a default redirect request.
+									import('lib.pkp.classes.linkAction.request.RedirectAction');
+									$dispatcher =& PKPApplication::getDispatcher();
+									$context = $request->getContext();
+									$actionRequest = new RedirectAction(
+										$dispatcher->url(
+											$request, ROUTE_PAGE,
+											$context?$context->getPath():'index',
+											'manager', 'plugin', array(
+												$plugin->getCategory(), $plugin->getName(), $verbName
+											)
+										)
+									);
 								}
 								break;
 						}
@@ -112,9 +118,6 @@ class PKPPluginGridRow extends GridRow {
 							unset($actionRequest);
 						}
 					}
-
-					// Remove verb from action args array.
-					unset($actionArgs['verb']);
 				}
 			}
 

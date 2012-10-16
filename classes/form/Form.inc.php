@@ -153,11 +153,11 @@ class Form {
 		// Set custom template.
 		if (!is_null($template)) $this->_template = $template;
 
-		$returner = null;
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::display"
 		// Note that class names are always lower case.
+		$returner = null;
 		if (HookRegistry::call(strtolower_codesafe(get_class($this)) . '::display', array(&$this, &$returner))) {
 			return $returner;
 		}
@@ -287,15 +287,17 @@ class Form {
 	/**
 	 * Execute the form's action.
 	 * (Note that it is assumed that the form has already been validated.)
+	 * @param $object object The object edited by this form.
+	 * @return $object The same object, potentially changed via hook.
 	 */
-	function execute() {
+	function execute($object = null) {
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::execute"
 		// Note that class and function names are always lower
 		// case.
-		$value = null;
-		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array(&$this, &$vars));
+		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array(&$this, &$object));
+		return $object;
 	}
 
 	/**
@@ -303,15 +305,13 @@ class Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$returner = array();
 		// Call hooks based on the calling entity, assuming
 		// this method is only called by a subclass. Results
 		// in hook calls named e.g. "papergalleyform::getLocaleFieldNames"
 		// Note that class and function names are always lower
 		// case.
-		$value = null;
+		$returner = array();
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::getLocaleFieldNames'), array(&$this, &$returner));
-
 		return $returner;
 	}
 
@@ -357,9 +357,7 @@ class Form {
 		// in hook calls named e.g. "papergalleyform::readUserVars"
 		// Note that class and function names are always lower
 		// case.
-		$value = null;
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserVars'), array(&$this, &$vars));
-
 		foreach ($vars as $k) {
 			$this->setData($k, Request::getUserVar($k));
 		}
@@ -375,9 +373,7 @@ class Form {
 		// in hook calls named e.g. "papergalleyform::readUserDateVars"
 		// Note that class and function names are always lower
 		// case.
-		$value = null;
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::readUserDateVars'), array(&$this, &$vars));
-
 		foreach ($vars as $k) {
 			$this->setData($k, Request::getUserDateVar($k));
 		}

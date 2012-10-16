@@ -49,7 +49,7 @@
 		this.textInput.autocomplete(autocompleteOptions);
 		this.bind('autocompleteselect', this.itemSelected);
 		this.bind('autocompletefocus', this.itemFocused);
-		this.textInput_.blur(this.callbackWrapper(this.textInputBlurHandler_));
+		this.textInput.blur(this.callbackWrapper(this.textInputBlurHandler_));
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.AutocompleteHandler, $.pkp.classes.Handler);
@@ -224,7 +224,7 @@
 		// is needed to avoid bad form validation and to make it clear to
 		// users that they need to select an option.
 		if (this.hiddenInput_.val() == '') {
-			this.textInput_.val('');
+			this.textInput.val('');
 		}
 	};
 

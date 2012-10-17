@@ -133,6 +133,22 @@ tinyMCEObject.prototype.editorId = '';
 
 tinyMCEObject.prototype.getWin = function() {};
 
+tinyMCEObject.prototype.getBody = function() {};
+
+tinyMCEObject.prototype.getContainer = function() {};
+
+tinyMCEObject.prototype.onSetContent = function() {};
+
+/**
+ * @param {Object} param1
+ */
+tinyMCEObject.prototype.onSetContent.add = function(param1) {};
+
+/**
+ * @param {Object} param1
+ */
+tinyMCEObject.prototype.onSetContent.remove = function(param1) {};
+
 /**
  * @type {tinyMCEObject}
  */

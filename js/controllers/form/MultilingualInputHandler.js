@@ -75,7 +75,7 @@
 	 * @param {HTMLElement} multilingualInput The element in the
 	 * multilingual set to hide.
 	 * @param {Event} event The event that triggered the action.
-	 * @return {Boolean} Return true to continue the event handling.
+	 * @return {boolean} Return true to continue the event handling.
 	 * @private
 	 */
 	$.pkp.controllers.form.MultilingualInputHandler.prototype.blurHandler_ =
@@ -114,7 +114,8 @@
 		$popover.addClass('localization_popover_container_focus');
 
 		// Hack alert: setting width in JS because they do not line up otherwise.
-		$popover.find('.localization_popover').width($popover.width());
+		$popover.find('.localization_popover').width(
+				/** @type {number} */ ($popover.width()));
 
 		// Show the pop over.
 		$popover.find('.localization_popover').show();
@@ -148,7 +149,7 @@
 	 * @param {HTMLElement} input The input element that triggered the
 	 * event.
 	 * @param {Event} event The tinyMCE initialized event.
-	 * @param {Object} tinyMCEObject An array containing the tinyMCE object
+	 * @param {tinyMCEObject} tinyMCEObject The tinyMCE object
 	 * inside this multilingual element handler that was initialized.
 	 * @private
 	 */

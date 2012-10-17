@@ -380,7 +380,7 @@
 			fetchOptionsResponseHandler_ = function(ajaxContext, jsonData) {
 
 		// Find the currently editable select menu and fill
-		var pJsonData = this.handleJson(jsonData),
+		var pjd = this.handleJson(jsonData),
 				$listbuilder = this.getHtmlElement(),
 				selectedValues = [],
 				$selectInput,
@@ -390,7 +390,7 @@
 				label, $optgroup,
 				k, optionsInsideGroup, $lastElement;
 
-		if (pJsonData !== false) {
+		if (pjd !== false) {
 			// Get the list of already-selected options, to ensure
 			// that we don't offer duplicates.
 			$listbuilder.find('.gridCellDisplay :input').each(function(i, selected) {
@@ -412,27 +412,27 @@
 				optionsCount = 0;
 				$pulldown.children().empty();
 				j = null;
-				for (j in pJsonData.content[i]) {
+				for (j in pjd.content[i]) {
 					// Ignore optgroup labels.
 					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
 						continue;
 					}
 
-					if (typeof(pJsonData.content[i][j]) == 'object') {
+					if (typeof(pjd.content[i][j]) == 'object') {
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
-						if (pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
+						if (pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
 							continue;
 						}
 
 						if (typeof(
-								pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) != 'object') {
+								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) != 'object') {
 
 							continue;
 						}
 
 						label =
-								pJsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
+								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
 						if (!label) {
 							continue;
 						}
@@ -443,10 +443,10 @@
 
 						k = null;
 						optionsInsideGroup = 0;
-						for (k in pJsonData.content[i][j]) {
+						for (k in pjd.content[i][j]) {
 							// Populate the optgroup.
 							$option = this.populatePulldown_($optgroup,
-									selectedValues, pJsonData.content[i][j][k], k);
+									selectedValues, pjd.content[i][j][k], k);
 							if ($option) {
 								optionsCount++;
 								optionsInsideGroup++;
@@ -460,7 +460,7 @@
 					} else {
 						// Just insert the current option.
 						$option = this.populatePulldown_($pulldown,
-								selectedValues, pJsonData.content[i][j], j);
+								selectedValues, pjd.content[i][j], j);
 						if ($option) {
 							optionsCount++;
 						}

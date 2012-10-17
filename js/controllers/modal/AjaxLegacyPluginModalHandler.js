@@ -43,7 +43,7 @@
 	/**
 	 * The url used to fetch content to be displayed.
 	 * @private
-	 * @type {string}
+	 * @type {string?}
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.url_ = null;
 
@@ -77,9 +77,9 @@
 	 *
 	 * @private
 	 *
-	 * @param {String} url The url to fetch new content.
-	 * @param {String} content The already fetched content to be shown.
-	 * @param {Boolean} submit Use the url to submit the forms inside this
+	 * @param {string} url The url to fetch new content.
+	 * @param {string} content The already fetched content to be shown.
+	 * @param {boolean} submit Use the url to submit the forms inside this
 	 *  modal?
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
@@ -193,7 +193,7 @@
 		}
 
 		// Notify user with any existing notification.
-		this.trigger('notifyUser', this.getHtmlElement());
+		this.trigger('notifyUser', [this.getHtmlElement()]);
 	};
 
 

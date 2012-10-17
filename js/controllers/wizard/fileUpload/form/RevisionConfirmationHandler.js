@@ -78,6 +78,7 @@
 		}
 
 		this.parent('handleResponse', formElement, jsonData);
+		return false;
 	};
 
 

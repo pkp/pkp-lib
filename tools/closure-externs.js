@@ -18,7 +18,12 @@
  */
 jQueryObject.prototype.autocomplete = function(arg1) {};
 
-jQueryObject.prototype.button = function() {};
+/**
+ * @param {string=} param1
+ * @param {string|number=} param2
+ * @param {string=} param3
+ */
+jQueryObject.prototype.button = function(param1, param2, param3) {};
 
 
 /**
@@ -41,10 +46,18 @@ jQueryObject.prototype.selectBox = function(options) {};
  */
 jQueryObject.prototype.plupload = function(param1) {};
 
+jQueryObject.prototype.equalizeElementHeights = function() {};
+
 /**
  * @param {Object=} options
  */
 jQueryObject.prototype.slider = function(options) {};
+
+/**
+ * @param {string|Object} param1
+ * @param {string|Object=} param2
+ */
+jQueryObject.prototype.tabs = function(param1, param2) {};
 
 /**
  * @param {string|Object} param1

@@ -1238,7 +1238,7 @@ jQueryObject.prototype.trigger = function(arg1, extraParameters) {};
 
 /**
  * @param {string} eventType
- * @param {Array} extraParameters
+ * @param {Array=} extraParameters
  * @return {Object}
  */
 jQueryObject.prototype.triggerHandler = function(eventType, extraParameters) {};

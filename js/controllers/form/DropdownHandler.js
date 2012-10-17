@@ -173,7 +173,9 @@
 		var $container = this.getHtmlElement(),
 				$select = $container.find('select');
 
-		this.currentKey_ = $select.find('option:selected').attr('value');
+		this.currentKey_ = /** @type {string} */ ($select.find('option:selected')
+				.attr('value'));
+
 		$select.find('option[value!="0"]').remove();
 		this.loadOptions_();
 	};

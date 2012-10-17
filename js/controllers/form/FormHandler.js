@@ -148,7 +148,7 @@
 	 * If provided, the caller's submit handler, which will be
 	 * triggered to save the form.
 	 * @private
-	 * @type {Function}
+	 * @type {Function?}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
 
@@ -156,7 +156,7 @@
 	/**
 	 * If provided, the URL to redirect to when the cancel button is clicked
 	 * @private
-	 * @type {String}
+	 * @type {string?}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.cancelRedirectUrl_ = null;
 
@@ -171,7 +171,7 @@
 	/**
 	 * An object containing items that should enable or disable each other.
 	 * @private
-	 * @type {Object}
+	 * @type {Object?}
 	 */
 	$.pkp.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
 

@@ -147,7 +147,7 @@
 
 	/**
 	 * Get the css classes used to stylize the ordering items.
-	 * @return {String} CSS classes.
+	 * @return {string} CSS classes.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemClasses =
 			function() {

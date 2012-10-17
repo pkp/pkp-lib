@@ -209,7 +209,7 @@
 	 * @param {HTMLElement} wizardElement The wizard's HTMLElement on
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
-	 * @return {Boolean} Return false if not overridden and if check form
+	 * @return {boolean} Return false if not overridden and if check form
 	 * returns true.
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =

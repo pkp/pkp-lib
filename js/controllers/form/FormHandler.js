@@ -28,7 +28,7 @@
 	 * @param {{
 	 *  transformButtons: boolean,
 	 *  submitHandler: Function,
-	 *  cancelRedirectUrl: String,
+	 *  cancelRedirectUrl: string,
 	 *  disableControlsOnSubmit: boolean,
 	 *  trackFormChanges: boolean,
 	 *  enableDisablePairs: Object

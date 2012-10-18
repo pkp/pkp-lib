@@ -18,7 +18,11 @@
 	 * @extends $.pkp.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQueryObject} $form The wrapped HTML form element.
-	 * @param {Object} options Form validation options.
+	 * @param {{
+	 *  resetUploader: boolean,
+	 *  $uploader: jQueryObject,
+	 *  uploaderOptions: Object
+	 *  }} options Form validation options.
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler =
 			function($form, options) {
@@ -97,17 +101,18 @@
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
-	 * @param {string} ret The serialized JSON response.
+	 * @param {{response: string}} ret The serialized JSON response.
 	 */
 	$.pkp.controllers.form.FileUploadFormHandler.prototype.
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
-		var jsonData = this.handleJson($.parseJSON(ret.response)),
+		var jsonData = /** @type {boolean|{uploadedFile: Object, temporaryFileId: string,
+				  content: string}} */ (this.handleJson($.parseJSON(ret.response))),
 				$uploadForm, $temporaryFileId;
 		if (jsonData !== false) {
 			// Trigger the file uploaded event.
-			this.trigger('fileUploaded', jsonData.uploadedFile);
+			this.trigger('fileUploaded', [jsonData.uploadedFile]);
 
 			if (jsonData.content === '') {
 				// Successful upload to temporary file; save to main form.

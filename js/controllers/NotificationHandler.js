@@ -45,7 +45,7 @@
 	/**
 	 * The options to fetch a notification.
 	 * @private
-	 * @type {Object}
+	 * @type {Object?}
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.options_ = null;
 
@@ -53,7 +53,7 @@
 	/**
 	 * Time to hide trivial inplace notifications.
 	 * @private
-	 * @type {Object}
+	 * @type {number?}
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.trivialTimer_ = null;
 
@@ -107,7 +107,7 @@
 			inPlaceNotificationsData = this.concatenateNotifications_(
 					workingJsonData.content.inPlace);
 			newNotificationsData = this.removeAlreadyShownNotifications_(
-					workingJsonData);
+					/** @type {Object} */ (workingJsonData));
 
 			$notificationElement.html(inPlaceNotificationsData);
 
@@ -122,7 +122,7 @@
 				// In place notification is not visible. Let parent widgets
 				// show the notification data.
 				$notificationElement.parent().
-						trigger('notifyUser', newNotificationsData);
+						trigger('notifyUser', [newNotificationsData]);
 
 				// Remove in place trivial notifications.
 				for (i in trivialNotificationsId) {
@@ -192,13 +192,15 @@
 	 * Remove notification data from object that is already on page.
 	 * @param {Object} notificationsData The notification data to perform
 	 *  the deletion on.
-	 * @return {Object} Notification data after deletion.
+	 * @return {Object|boolean} Notification data after deletion.
 	 * @private
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
 			removeAlreadyShownNotifications_ = function(notificationsData) {
 
-		var workingNotificationsData = notificationsData,
+		var workingNotificationsData = /** @type {{ content: {
+				inPlace: Array, general: Array} }} */
+				(notificationsData),
 				emptyObject = true,
 				levelId, notificationId, element;
 		for (levelId in workingNotificationsData.content.inPlace) {
@@ -246,7 +248,7 @@
 
 	/**
 	 * Get all trivial notifications id inside the passed notifications.
-	 * @param {object} notificationsData The data returned from the fetch
+	 * @param {Object} notificationsData The data returned from the fetch
 	 * notification request.
 	 * @return {Array} The trivial notifications id.
 	 * @private
@@ -269,7 +271,7 @@
 
 	/**
 	 * Add a timer for passed notifications to hide them after a time.
-	 * @param {object} notificationsId Array with the notifications id
+	 * @param {Object} notificationsId Array with the notifications id
 	 * that will receive the timer.
 	 */
 	$.pkp.controllers.NotificationHandler.prototype.
@@ -289,7 +291,6 @@
 			}, 6000);
 		}
 	};
-
 
 /** @param {jQuery} $ jQuery closure. */
 }(jQuery));

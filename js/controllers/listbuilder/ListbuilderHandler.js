@@ -421,12 +421,14 @@
 					if (typeof(pjd.content[i][j]) == 'object') {
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
-						if (pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
+						if (
+								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
 							continue;
 						}
 
 						if (typeof(
-								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) != 'object') {
+								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]
+								) != 'object') {
 
 							continue;
 						}
@@ -698,7 +700,8 @@
 			$newContent = $(processedJsonData.content);
 
 			// Store current row id.
-			rowId = this.getHtmlElement().find('.saveRowResponsePlaceholder').attr('id');
+			rowId = this.getHtmlElement()
+					.find('.saveRowResponsePlaceholder').attr('id');
 
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').

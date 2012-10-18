@@ -63,7 +63,7 @@
 				cache: false,
 				dataFilter: this.callbackWrapper(this.dataFilter)
 			},
-			selected: options.selected ? options.selected : 0
+			selected: options.selected
 		});
 	};
 	$.pkp.classes.Helper.inherits(

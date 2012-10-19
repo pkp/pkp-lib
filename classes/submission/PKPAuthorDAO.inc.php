@@ -206,7 +206,7 @@ class PKPAuthorDAO extends DAO {
 			($submissionId?' AND submission_id = ?':''),
 			$params
 		);
-		if ($returner) $this->update('DELETE FROM author_settings WHERE author_id = ?', array($authorId));
+		if ($returner) $this->update('DELETE FROM author_settings WHERE author_id = ?', array((int) $authorId));
 
 		return $returner;
 	}

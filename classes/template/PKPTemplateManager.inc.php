@@ -194,6 +194,24 @@ class PKPTemplateManager extends Smarty {
 		// Load the block plugins.
 		$plugins =& PluginRegistry::loadCategory('blocks');
 
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$user =& $this->request->getUser();
+			$hasSystemNotifications = false;
+			if ($user) {
+				// Assign the user name to be used in the sitenav
+				$this->assign('loggedInUsername', $user->getUserName());
+				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+				$notifications =& $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+
+				if ($notifications->getCount() > 0) {
+					$hasSystemNotifications = true;
+				}
+
+				$this->assign('initialHelpState', (int) $user->getInlineHelp());
+			}
+			$this->assign('hasSystemNotifications', $hasSystemNotifications);
+		}
+
 		$this->initialized = true;
 	}
 

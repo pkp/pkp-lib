@@ -188,7 +188,7 @@
 				index, limit, $row;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
 			$row = $($rows[index]);
-			if (this.isOrdering_) {
+			if (this.isOrdering) {
 				$row.find('.gridCellDisplay').unbind('click');
 			} else {
 				this.gridHandler.attachContentHandlers_($row);

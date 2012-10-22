@@ -30,7 +30,7 @@
 
 		if (this.$orderButton_.length === 0) {
 			// No order button, it will always stay in ordering mode.
-			this.isOrdering_ = true;
+			this.isOrdering = true;
 		}
 
 		this.itemsOrder = [];
@@ -51,17 +51,17 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder = null;
 
 
+	/**
+	 * Flag to control if user is ordering items.
+	 * @protected
+	 * @type {boolean}
+	 */
+	$.pkp.classes.features.OrderItemsFeature.prototype.isOrdering = false;
+
+
 	//
 	// Private properties.
 	//
-	/**
-	 * Flag to control if user is ordering items.
-	 * @private
-	 * @type {boolean}
-	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.isOrdering_ = false;
-
-
 	/**
 	 * Initiate ordering state button.
 	 * @private
@@ -208,10 +208,10 @@
 			function() {
 
 		this.addOrderingClassToRows();
-		this.toggleMoveItemRowAction(this.isOrdering_);
+		this.toggleMoveItemRowAction(this.isOrdering);
 
 		this.toggleOrderLink_();
-		if (this.isOrdering_) {
+		if (this.isOrdering) {
 			this.setupSortablePlugin();
 		}
 	};
@@ -315,7 +315,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleState =
 			function(isOrdering) {
-		this.isOrdering_ = isOrdering;
+		this.isOrdering = isOrdering;
 		this.toggleGridLinkActions_();
 		this.toggleOrderLink_();
 		this.toggleFinishControl_();
@@ -353,7 +353,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
 			function() {
-		var isOrdering = this.isOrdering_,
+		var isOrdering = this.isOrdering,
 				$rows = this.gridHandler.getRows(),
 				$orderableRows = $rows.filter('.orderable'),
 				moveClasses = this.getMoveItemClasses();
@@ -377,7 +377,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
 			function($container, itemsSelector, extraParams) {
-		var isOrdering = this.isOrdering_,
+		var isOrdering = this.isOrdering,
 				dragStartCallback = this.gridHandler.callbackWrapper(
 						this.dragStartCallback, this),
 				dragStopCallback = this.gridHandler.callbackWrapper(
@@ -489,7 +489,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleGridLinkActions_ =
 			function() {
-		var isOrdering = this.isOrdering_,
+		var isOrdering = this.isOrdering,
 				// We want to enable/disable all link actions, except this
 				// features controls.
 				$gridLinkActions = $('.pkp_controllers_linkAction',
@@ -506,7 +506,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleOrderLink_ =
 			function() {
-		if (this.isOrdering_) {
+		if (this.isOrdering) {
 			this.$orderButton_.unbind('click');
 			this.$orderButton_.addClass('ui-state-disabled');
 		} else {
@@ -525,7 +525,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleFinishControl_ =
 			function() {
-		if (this.isOrdering_) {
+		if (this.isOrdering) {
 			this.bindOrderFinishControlsHandlers_();
 			this.getFinishControl().slideDown(300);
 		} else {

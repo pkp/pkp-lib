@@ -61,7 +61,7 @@
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			saveOrderHandler = function() {
 		this.gridHandler.updateEmptyPlaceholderPosition();
-		return this.parent('saveOrderHandler');
+		this.parent('saveOrderHandler');
 	};
 
 
@@ -86,7 +86,7 @@
 			toggleItemsDragMode = function() {
 		this.parent('toggleItemsDragMode');
 
-		var isOrdering = this.isOrdering_,
+		var isOrdering = this.isOrdering,
 				$categories = this.gridHandler.getCategories(),
 				index, limit, $category;
 
@@ -157,7 +157,7 @@
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			toggleCategoryDragMode_ = function($category) {
-		var isOrdering = this.isOrdering_,
+		var isOrdering = this.isOrdering,
 				$categoryRow = this.gridHandler.getCategoryRow($category),
 				$categoryRowColumn = $('td:first', $categoryRow),
 				moveClasses = this.getMoveItemClasses();

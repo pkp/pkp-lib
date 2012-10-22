@@ -31,3 +31,8 @@ function ajaxAction(actOnId, callingElement, url, data, eventName, form) {};
  * @constructor
  */
 function JSON() {};
+
+/**
+ * @param {Object} param1
+ */
+JSON.stringify = function(param1) {};

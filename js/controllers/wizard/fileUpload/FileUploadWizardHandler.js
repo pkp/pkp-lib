@@ -82,7 +82,7 @@
 	/**
 	 * Information about the uploaded file (once there is one).
 	 * @private
-	 * @type {Object}
+	 * @type {{fileId: number}?}
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.uploadedFile_ = null;
@@ -122,7 +122,8 @@
 			$wizard.tabs('url', ui.index, newUrl);
 		}
 
-		return this.parent('tabsSelect', tabsElement, event, ui);
+		return /** @type {boolean} */ (
+				this.parent('tabsSelect', tabsElement, event, ui));
 	};
 
 
@@ -167,7 +168,8 @@
 		// continue button to finish.
 		if (targetStep === lastStep) {
 			$continueButton = this.getContinueButton();
-			$continueButton.button('option', 'label', this.getFinishButtonText());
+			$continueButton.button('option', 'label',
+					/** @type {string} */ (this.getFinishButtonText()));
 			$continueButton.button('enable');
 		}
 	};
@@ -196,7 +198,8 @@
 
 		$progressIndicator.hide();
 
-		return this.parent('tabsLoad', tabsElement, event, ui);
+		return /** @type {boolean} */ (
+				this.parent('tabsLoad', tabsElement, event, ui));
 	};
 
 
@@ -236,6 +239,7 @@
 				// Do not cancel immediately.
 				event.preventDefault();
 			}
+			return false;
 		} else {
 			// Stop the cancel request.
 			return false;
@@ -295,7 +299,7 @@
 		// Reset the uploaded file.
 		this.uploadedFile_ = null;
 
-		return this.parent('startWizard');
+		this.parent('startWizard');
 	};
 
 

@@ -73,8 +73,8 @@
 			$('#temporaryFileId', this.getHtmlElement()).val('');
 		}
 
-		this.parent('handleResponse', formElement, jsonData);
-		return false;
+		return /** @type {boolean} */ (
+				this.parent('handleResponse', formElement, jsonData));
 	};
 
 
@@ -107,8 +107,9 @@
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
-		var jsonData = /** @type {boolean|{uploadedFile: Object, temporaryFileId: string,
-				  content: string}} */ (this.handleJson($.parseJSON(ret.response))),
+		var jsonData = /** @type {boolean|{uploadedFile: Object,
+				  temporaryFileId: string, content: string}} */
+				(this.handleJson($.parseJSON(ret.response))),
 				$uploadForm, $temporaryFileId;
 		if (jsonData !== false) {
 			// Trigger the file uploaded event.

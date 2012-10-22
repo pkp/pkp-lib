@@ -77,9 +77,9 @@
 	 *
 	 * @private
 	 *
-	 * @param {string} url The url to fetch new content.
-	 * @param {string} content The already fetched content to be shown.
-	 * @param {boolean} submit Use the url to submit the forms inside this
+	 * @param {string?} url The url to fetch new content.
+	 * @param {string|null=} content The already fetched content to be shown.
+	 * @param {boolean=} submit Use the url to submit the forms inside this
 	 *  modal?
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
@@ -231,7 +231,7 @@
 	 * @private
 	 * @param {Object} contextElement The context element.
 	 * @param {Object} linkElement The link HTML element.
-	 * @param {Object} clickLinkHandler The function to be called when
+	 * @param {Function} clickLinkHandler The function to be called when
 	 * the click event is triggered.
 	 */
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.bindClickEvent_ =
@@ -290,13 +290,12 @@
 		}
 
 		// Get the element that triggered the event.
-		var $link = $(event.target),
-				url;
+		var $link = $(event.target), url;
 
 		$link.unbind('click', this.clickLinkHandler_);
 
 		// Get the url of the link that triggered the event.
-		url = $link.attr('href');
+		url = /** @type {string} */ ($link.attr('href'));
 		this.refreshModal_(url);
 
 		return true;
@@ -314,13 +313,12 @@
 	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			submitFormHandler_ = function(form, event) {
 		// Get the element that triggered the event.
-		var $form = $(form),
-				url;
+		var $form = $(form), url;
 
 		$form.unbind('submit', this.submitFormHandler_);
 
 		// Get the url of the form to submit via ajax.
-		url = $form.attr('action');
+		url = /** @type {string} */ ($form.attr('action'));
 		this.refreshModal_(url, null, true);
 
 		return false;

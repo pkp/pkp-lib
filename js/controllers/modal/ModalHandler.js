@@ -161,7 +161,7 @@
 	 * Callback that will be activated when the modal's
 	 * close icon is clicked.
 	 *
-	 * @param {Object} callingContext The calling element or object.
+	 * @param {Object=} callingContext The calling element or object.
 	 * @param {Event=} event The triggering event (e.g. a click on
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.

@@ -207,7 +207,7 @@
 	 * @param {HTMLElement} divElement The parent DIV element
 	 *  which contains the tabs.
 	 * @param {Event} event The triggered event (tabsReloadRequested).
-	 * @param {Object} jsonContent The tabs ui data.
+	 * @param {{tabsUrl: string}} jsonContent The tabs ui data.
 	 */
 	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
 			function(divElement, event, jsonContent) {

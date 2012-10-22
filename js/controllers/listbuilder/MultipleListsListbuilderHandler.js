@@ -68,7 +68,7 @@
 
 	/**
 	 * Set list elements based on lists id options.
-	 * @param {array} listsId Array of IDs.
+	 * @param {Array} listsId Array of IDs.
 	 */
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			setLists = function(listsId) {
@@ -135,7 +135,7 @@
 		var idPrefix = this.getGridIdPrefix() + '-table-',
 				listElementId = $list.attr('id');
 
-		return listElementId.slice(idPrefix.length);
+		return /** @type {string} */ (listElementId.slice(idPrefix.length));
 	};
 
 
@@ -159,7 +159,7 @@
 	$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler.prototype.
 			initialize = function(options) {
 		this.parent('initialize', options);
-		this.setLists(options.listsId);
+		this.setLists(/** @type {{listsId: string}} */ options.listsId);
 	};
 
 
@@ -170,7 +170,7 @@
 	 * Show/hide the no items row, based on the number of grid rows
 	 * inside the passed list.
 	 * @param {jQueryObject} $list JQuery elements to scan.
-	 * @param {integer} limit The minimum number of elements inside the list to
+	 * @param {number} limit The minimum number of elements inside the list to
 	 * show the no items row.
 	 * @param {string} $filterSelector optional Selector to filter the rows that
 	 * this method will consider as list rows. If not passed, all grid rows inside

@@ -303,7 +303,8 @@
 		// continue button to finish.
 		$continueButton = this.getContinueButton();
 		if (targetStep === lastStep) {
-			$continueButton.button('option', 'label', this.getFinishButtonText());
+			$continueButton.button('option', 'label',
+					/** @type {string} */ (this.getFinishButtonText()));
 		}
 
 		this.getProgressIndicator().hide();
@@ -335,7 +336,8 @@
 
 			// Reset the continue button label.
 			$continueButton = this.getContinueButton();
-			$continueButton.button('option', 'label', this.getContinueButtonText());
+			$continueButton.button('option', 'label',
+					/** @type {string} */ (this.getContinueButtonText()));
 		}
 
 		// Disable all but the first step.
@@ -438,7 +440,7 @@
 	 * Return the current form (if any).
 	 *
 	 * @private
-	 * @return {?jQuery} The form (if any).
+	 * @return {jQueryObject?} The form (if any).
 	 */
 	$.pkp.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
 		// If we find a form in the current tab then return it.

@@ -41,6 +41,8 @@ jQueryObject.prototype.jLabel = function(options) {};
  */
 jQueryObject.prototype.selectBox = function(options) {};
 
+jQueryObject.prototype.superfish = function() {};
+
 /**
  * @param {Object|string=} param1
  */
@@ -54,9 +56,9 @@ jQueryObject.prototype.equalizeElementHeights = function() {};
 jQueryObject.prototype.slider = function(options) {};
 
 /**
- * @param {string|Object} param1
- * @param {string|Object=} param2
- * @param {string|Object=} param3
+ * @param {string|Object=} param1
+ * @param {string|number|Object=} param2
+ * @param {string|number|Object=} param3
  */
 jQueryObject.prototype.tabs = function(param1, param2, param3) {};
 
@@ -99,6 +101,12 @@ jQueryObject.prototype.pkpAjaxHtml = function(url, callback) {};
  * @param {string|Object=} param3
  */
 jQueryObject.prototype.dialog = function(param1, param2, param3) {};
+
+/**
+ * @param {string|Object=} param1
+ * @param {string|Object|number=} param2
+ */
+jQueryObject.prototype.roundabout = function(param1, param2) {};
 
 /**
  * @constructor
@@ -173,3 +181,16 @@ $.pkp.locale = {
 	search_noKeywordError: '',
 	form_dataHasChanged: ''
 };
+
+$.pkp.cons = {
+	WORKFLOW_STAGE_ID_SUBMISSION: 0,
+	WORKFLOW_STAGE_ID_INTERNAL_REVIEW: 0,
+	WORKFLOW_STAGE_ID_EXTERNAL_REVIEW: 0,
+	WORKFLOW_STAGE_ID_EDITING: 0,
+	WORKFLOW_STAGE_ID_PRODUCTION: 0,
+	REALLY_BIG_NUMBER: 0,
+	ORDER_CATEGORY_GRID_CATEGORIES_ONLY: 0,
+	ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS: 0,
+	LISTBUILDER_SOURCE_TYPE_SELECT: 0,
+	LISTBUILDER_OPTGROUP_LABEL: 0
+}

@@ -134,7 +134,7 @@
 
 	/**
 	 * Retrieve the element the link action was attached to.
-	 * @return {Object} The element the link action was attached to.
+	 * @return {jQueryObject} The element the link action was attached to.
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.
 			getLinkActionElement = function() {

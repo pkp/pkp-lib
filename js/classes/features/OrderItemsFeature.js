@@ -17,7 +17,7 @@
 	 *
 	 * @param {$.controllers.grid.GridHandler} gridHandler The handler of
 	 *  the grid element that this feature is attached to.
-	 * @param {object} options Configuration of this feature.
+	 * @param {Object} options Configuration of this feature.
 	 */
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
@@ -252,7 +252,7 @@
 	/**
 	 * Called every time storeOrder is called. This is a chance to subclasses
 	 * execute operations with each row that has their sequence being saved.
-	 * @param {integer} index The current row index position inside the rows
+	 * @param {number} index The current row index position inside the rows
 	 * jQuery object.
 	 * @param {jQueryObject} $row Row for which to store the sequence.
 	 */

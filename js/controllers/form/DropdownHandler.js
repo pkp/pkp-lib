@@ -44,7 +44,7 @@
 		this.trackFormChanges = false;
 
 		// Attach container elements events.
-		$container.find('select', $container).change(
+		$container.find('select').change(
 				this.callbackWrapper(this.selectOptionHandler_));
 
 		// Load the list of submissions.
@@ -109,7 +109,8 @@
 			function(sourceElement, event) {
 
 		// Trigger the published event.
-		this.trigger(this.eventName_, $(sourceElement).val());
+		this.trigger(/** @type {string} */ (this.eventName_),
+				[$(sourceElement).val()]);
 	};
 
 
@@ -147,7 +148,7 @@
 			$option.attr('value', optionId);
 			if (this.defaultKey_ == optionId || this.currentKey_ == optionId) {
 				$option.attr('selected', 'selected');
-				this.trigger(this.eventName_, optionId);
+				this.trigger(this.eventName_, [optionId]);
 			}
 			$option.text(processedJsonData.content[optionId]);
 			$select.append($option);

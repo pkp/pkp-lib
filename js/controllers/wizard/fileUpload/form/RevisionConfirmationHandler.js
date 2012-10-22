@@ -77,8 +77,8 @@
 			this.trigger('fileUploaded', jsonData.uploadedFile);
 		}
 
-		this.parent('handleResponse', formElement, jsonData);
-		return false;
+		return /** @type {boolean} */ (
+				this.parent('handleResponse', formElement, jsonData));
 	};
 
 

@@ -15,6 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
+	 * @extends $.pkp.classes.feature.Feature
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature =
 			function(gridHandler, options) {

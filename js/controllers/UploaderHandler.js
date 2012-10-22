@@ -18,7 +18,10 @@
 	 * @extends $.pkp.classes.Handler
 	 *
 	 * @param {jQueryObject} $uploader the wrapped HTML uploader element.
-	 * @param {Object} options options to be passed
+	 * @param {{
+	 *  uploadUrl: string,
+	 *  baseUrl: string
+	 *  }} options options to be passed
 	 *  into the validator plug-in.
 	 */
 	$.pkp.controllers.UploaderHandler = function($uploader, options) {

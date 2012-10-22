@@ -43,9 +43,9 @@
 	 * as a wizard cancel button.
 	 *
 	 * @protected
-	 * @param {HTMLElement} callingElement The close button.
-	 * @param {Event} event The close button click event.
-	 * @param {boolean} closeWithoutCancel Set to true to immediately
+	 * @param {Object=} callingElement The close button.
+	 * @param {Event=} event The close button click event.
+	 * @param {boolean=} closeWithoutCancel Set to true to immediately
 	 *  close the modal.
 	 * @return {boolean} Should return false to stop event processing.
 	 */

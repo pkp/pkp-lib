@@ -138,12 +138,12 @@
 	/**
 	 * Get the "save" field name for LISTBUILDER_SAVE_TYPE_EXTERNAL.
 	 * @private
-	 * @return {?string} Name of the field to transmit LB contents in.
+	 * @return {string} Name of the field to transmit LB contents in.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getSaveFieldName_ =
 			function() {
 
-		return this.saveFieldName_;
+		return /** @type {string} */ (this.saveFieldName_);
 	};
 
 
@@ -319,7 +319,7 @@
 			$deletions.val($deletions.val() + ' ' + rowId);
 		}
 
-		this.deleteElement($targetRow);
+		this.deleteElement(/** @type {jQueryObject} */ ($targetRow));
 
 		return false;
 	};
@@ -422,7 +422,8 @@
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
 						if (
-								pjd.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
+								pjd.
+								content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] === undefined) {
 							continue;
 						}
 
@@ -494,11 +495,11 @@
 	 * @private
 	 * @param {jQueryObject} $element The element to be populated.
 	 * Can be a pulldown or an optgroup inside the pulldonw.
-	 * @param {object} selectedValues Current listbuilder
+	 * @param {Object} selectedValues Current listbuilder
 	 * selected values.
 	 * @param {string} optionText The text to populate the pulldown with.
 	 * @param {string} optionValue The key to populate the pulldown with.
-	 * @return {object?} Return the inserted option or false.
+	 * @return {Object|boolean} Return the inserted option or false.
 	 */
 	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
 			populatePulldown_ = function(
@@ -700,8 +701,8 @@
 			$newContent = $(processedJsonData.content);
 
 			// Store current row id.
-			rowId = this.getHtmlElement()
-					.find('.saveRowResponsePlaceholder').attr('id');
+			rowId = /** @type {string} */ (this.getHtmlElement()
+					.find('.saveRowResponsePlaceholder').attr('id'));
 
 			// Add to the DOM
 			this.getHtmlElement().find('.saveRowResponsePlaceholder').
@@ -808,9 +809,8 @@
 		this.getHtmlElement().
 				find('span[class="options"] > a[id*="addItem"]').unbind('mousedown');
 
-		// binding false is the same as function() {return false;} in >= 1.4.2
-		this.getHtmlElement().
-				find('span[class="options"] > a[id*="addItem"]').mousedown(false);
+		this.getHtmlElement().find('span[class="options"] > a[id*="addItem"]')
+				.mousedown(function() {return false;});
 		this.getHtmlElement().find('.h3').addClass('spinner');
 	};
 

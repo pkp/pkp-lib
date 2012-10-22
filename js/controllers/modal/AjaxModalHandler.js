@@ -78,8 +78,8 @@
 			this.getHtmlElement().parent().trigger('notifyUser');
 		}
 
-		this.parent('modalClose');
-		return false;
+		return /** @type {boolean} */ (
+				this.parent('modalClose'));
 	};
 
 

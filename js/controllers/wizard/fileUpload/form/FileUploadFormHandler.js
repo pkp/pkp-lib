@@ -172,7 +172,7 @@
 	 * @param {Object} caller The original context in which the callback was called.
 	 * @param {Object} pluploader The pluploader object.
 	 * @param {Object} file The data of the uploaded file.
-	 * @param {string} ret The serialized JSON response.
+	 * @param {{response: string}} ret The serialized JSON response.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			handleUploadResponse = function(caller, pluploader, file, ret) {
@@ -222,6 +222,7 @@
 	 * @param {HTMLElement} revisedFileElement The original context in
 	 *  which the event was triggered.
 	 * @param {Event} event The change event.
+	 * @return {boolean} Event handling status.
 	 */
 	$.pkp.controllers.wizard.fileUpload.form.FileUploadFormHandler.prototype.
 			revisedFileChange = function(revisedFileElement, event) {
@@ -239,6 +240,7 @@
 			$genreId.attr('disabled', 'disabled');
 			$uploadForm.find('.plupload_button.plupload_start').show();
 		}
+		return false;
 	};
 
 

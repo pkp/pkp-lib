@@ -75,7 +75,7 @@
 			function(sourceElement, event, params) {
 
 		if (params.status === true) {
-			this.getHtmlElement().parent().trigger('notifyUser', params);
+			this.getHtmlElement().parent().trigger('notifyUser', [params]);
 		} else {
 			// Use the notification helper to redirect the notify user event.
 			$.pkp.classes.notification.NotificationHelper.
@@ -112,7 +112,7 @@
 			$grids.each(function() {
 				// Keyword "this" is being used here in the
 				// context of the grid html element.
-				$(this).trigger('dataChanged', eventData);
+				$(this).trigger('dataChanged', [eventData]);
 			});
 		}
 	};

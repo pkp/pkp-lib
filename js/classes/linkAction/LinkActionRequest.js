@@ -55,7 +55,7 @@
 	/**
 	 * The element the link action was attached to.
 	 * @protected
-	 * @type {Object}
+	 * @type {jQueryObject}
 	 */
 	$.pkp.classes.linkAction.LinkActionRequest.prototype.
 			$linkActionElement = null;

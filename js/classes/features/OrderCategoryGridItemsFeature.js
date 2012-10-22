@@ -15,6 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
+	 * @extends $.pkp.classes.features.OrderGridItemsFeature
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature =
 			function(gridHandler, options) {
@@ -46,7 +47,7 @@
 			return;
 		}
 
-		$categories = this.gridHandler_.getCategories();
+		$categories = this.gridHandler.getCategories();
 		for (index = 0, limit = $categories.length; index < limit; index++) {
 			$category = $($categories[index]);
 			this.applySortPlgOnElements($category, 'tr.orderable', null);
@@ -59,7 +60,7 @@
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			saveOrderHandler = function() {
-		this.gridHandler_.updateEmptyPlaceholderPosition();
+		this.gridHandler.updateEmptyPlaceholderPosition();
 		return this.parent('saveOrderHandler');
 	};
 
@@ -70,9 +71,9 @@
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			cancelOrderHandler = function() {
 
-		var categorySequence = this.getCategorySequence_(this.itemsOrder_);
+		var categorySequence = this.getCategorySequence_(this.itemsOrder);
 		this.parent('cancelOrderHandler');
-		this.gridHandler_.resequenceCategories(categorySequence);
+		this.gridHandler.resequenceCategories(categorySequence);
 
 		return false;
 	};
@@ -86,7 +87,7 @@
 		this.parent('toggleItemsDragMode');
 
 		var isOrdering = this.isOrdering_,
-				$categories = this.gridHandler_.getCategories(),
+				$categories = this.gridHandler.getCategories(),
 				index, limit, $category;
 
 		for (index = 0, limit = $categories.length; index < limit; index++) {
@@ -106,7 +107,7 @@
 
 		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
 				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {
-			$categories = this.gridHandler_.getCategories();
+			$categories = this.gridHandler.getCategories();
 			$categories.addClass('orderable');
 		}
 
@@ -117,7 +118,7 @@
 
 		// We don't want to order category rows tr elements, so
 		// remove any style that might be added by calling parent.
-		this.gridHandler_.getCategoryRow().removeClass('orderable');
+		this.gridHandler.getCategoryRow().removeClass('orderable');
 	};
 
 
@@ -129,7 +130,7 @@
 	 */
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.getItemsDataId =
 			function() {
-		var categoriesSeq = this.getCategorySequence_(this.itemsOrder_),
+		var categoriesSeq = this.getCategorySequence_(this.itemsOrder),
 				itemsDataId = [],
 				index, limit,
 				$category, categoryRowsDataId, categoryDataId;
@@ -137,7 +138,7 @@
 		for (index = 0, limit = categoriesSeq.length; index < limit; index++) {
 			$category = $('#' + categoriesSeq[index]);
 			categoryRowsDataId = this.getRowsDataId($category);
-			categoryDataId = this.gridHandler_.getCategoryDataId($category);
+			categoryDataId = this.gridHandler.getCategoryDataId($category);
 			itemsDataId.push(
 					{'categoryId': categoryDataId, 'rowsId': categoryRowsDataId });
 		}
@@ -157,7 +158,7 @@
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			toggleCategoryDragMode_ = function($category) {
 		var isOrdering = this.isOrdering_,
-				$categoryRow = this.gridHandler_.getCategoryRow($category),
+				$categoryRow = this.gridHandler.getCategoryRow($category),
 				$categoryRowColumn = $('td:first', $categoryRow),
 				moveClasses = this.getMoveItemClasses();
 
@@ -179,9 +180,9 @@
 			getCategorySequence_ = function(itemsOrder) {
 		var index, limit, categorySequence = [], categoryDataId, categoryId;
 		for (index = 0, limit = itemsOrder.length; index < limit; index++) {
-			categoryDataId = this.gridHandler_
+			categoryDataId = this.gridHandler
 					.getCategoryDataIdByRowId(itemsOrder[index]);
-			categoryId = this.gridHandler_.getCategoryIdPrefix() + categoryDataId;
+			categoryId = this.gridHandler.getCategoryIdPrefix() + categoryDataId;
 			if ($.inArray(categoryId, categorySequence) > -1) {
 				continue;
 			}

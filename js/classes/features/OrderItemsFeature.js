@@ -15,9 +15,10 @@
 	/**
 	 * @constructor
 	 *
-	 * @param {$.controllers.grid.GridHandler} gridHandler The handler of
+	 * @param {jQueryObject} gridHandler The handler of
 	 *  the grid element that this feature is attached to.
 	 * @param {Object} options Configuration of this feature.
+	 * @extends $.pkp.classes.features.Feature
 	 */
 	$.pkp.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
@@ -32,7 +33,7 @@
 			this.isOrdering_ = true;
 		}
 
-		this.itemsOrder_ = [];
+		this.itemsOrder = [];
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.features.OrderItemsFeature,
@@ -40,16 +41,19 @@
 
 
 	//
-	// Private properties.
+	// Protected properties
 	//
 	/**
 	 * Item sequence.
-	 * @private
+	 * @protected
 	 * @type {array}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder_ = null;
+	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder = null;
 
 
+	//
+	// Private properties.
+	//
 	/**
 	 * Flag to control if user is ordering items.
 	 * @private
@@ -235,7 +239,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
 			function() {
 		// Add ordering class to grid rows.
-		var $gridRows = this.gridHandler_.getRows();
+		var $gridRows = this.gridHandler.getRows();
 		$gridRows.addClass('orderable');
 	};
 
@@ -271,8 +275,8 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.clickOrderHandler =
 			function() {
-		this.gridHandler_.hideAllVisibleRowActions();
-		this.storeOrder(this.gridHandler_.getRows());
+		this.gridHandler.hideAllVisibleRowActions();
+		this.storeOrder(this.gridHandler.getRows());
 		this.toggleState(true);
 		return false;
 	};
@@ -285,9 +289,9 @@
 			function() {
 		var $rows;
 
-		this.gridHandler_.updateControlRowsPosition();
+		this.gridHandler.updateControlRowsPosition();
 		this.unbindOrderFinishControlsHandlers_();
-		$rows = this.gridHandler_.getRows();
+		$rows = this.gridHandler.getRows();
 		this.storeOrder($rows);
 	};
 
@@ -298,7 +302,7 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.cancelOrderHandler =
 			function() {
-		this.gridHandler_.resequenceRows(this.itemsOrder_);
+		this.gridHandler.resequenceRows(this.itemsOrder);
 		this.toggleState(false);
 		return false;
 	};
@@ -330,12 +334,12 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
 			function($rows) {
 		var index, limit, $row, elementId;
-		this.itemsOrder_ = [];
+		this.itemsOrder = [];
 		for (index = 0, limit = $rows.length; index < limit; index++) {
 			$row = $($rows[index]);
 			elementId = $row.attr('id');
 
-			this.itemsOrder_.push(elementId);
+			this.itemsOrder.push(elementId);
 
 			// Give a chance to subclasses do extra operations to store
 			// the current row order.
@@ -350,7 +354,7 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
 			function() {
 		var isOrdering = this.isOrdering_,
-				$rows = this.gridHandler_.getRows(),
+				$rows = this.gridHandler.getRows(),
 				$orderableRows = $rows.filter('.orderable'),
 				moveClasses = this.getMoveItemClasses();
 
@@ -374,11 +378,11 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
 			function($container, itemsSelector, extraParams) {
 		var isOrdering = this.isOrdering_,
-				dragStartCallback = this.gridHandler_.callbackWrapper(
+				dragStartCallback = this.gridHandler.callbackWrapper(
 						this.dragStartCallback, this),
-				dragStopCallback = this.gridHandler_.callbackWrapper(
+				dragStopCallback = this.gridHandler.callbackWrapper(
 						this.dragStopCallback, this),
-				orderItemCallback = this.gridHandler_.callbackWrapper(
+				orderItemCallback = this.gridHandler.callbackWrapper(
 						this.updateOrderCallback, this),
 				config = {
 					disabled: !isOrdering,
@@ -406,12 +410,12 @@
 	$.pkp.classes.features.OrderItemsFeature.prototype.getRowsDataId =
 			function($rowsContainer) {
 		var index, rowDataIds = [], $row, rowDataId;
-		for (index in this.itemsOrder_) {
-			$row = $('#' + this.itemsOrder_[index], $rowsContainer);
+		for (index in this.itemsOrder) {
+			$row = $('#' + this.itemsOrder[index], $rowsContainer);
 			if ($row.length < 1) {
 				continue;
 			}
-			rowDataId = this.gridHandler_.getRowDataId($row);
+			rowDataId = this.gridHandler.getRowDataId($row);
 			rowDataIds.push(rowDataId);
 		}
 
@@ -437,7 +441,7 @@
 			$actions.addClass('pkp_helpers_display_none');
 			$moveItemRowAction.show();
 			// Make sure row actions div is visible.
-			this.gridHandler_.showRowActionsDiv();
+			this.gridHandler.showRowActionsDiv();
 		} else {
 			$actions.removeClass('pkp_helpers_display_none');
 
@@ -446,7 +450,7 @@
 					find(allLinksButMoveItemSelector);
 			if ($rowActions.length === 0) {
 				// No link action to show, hide row actions div.
-				this.gridHandler_.hideRowActionsDiv();
+				this.gridHandler.hideRowActionsDiv();
 			}
 			$moveItemRowAction.hide();
 		}
@@ -492,7 +496,7 @@
 						this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
 						this.getOrderButton(), this.getFinishControl().find('*'));
 
-		this.gridHandler_.changeLinkActionsState(!isOrdering, $gridLinkActions);
+		this.gridHandler.changeLinkActionsState(!isOrdering, $gridLinkActions);
 	};
 
 
@@ -506,7 +510,7 @@
 			this.$orderButton_.unbind('click');
 			this.$orderButton_.addClass('ui-state-disabled');
 		} else {
-			var clickHandler = this.gridHandler_.callbackWrapper(
+			var clickHandler = this.gridHandler.callbackWrapper(
 					this.clickOrderHandler, this);
 			this.$orderButton_.click(clickHandler);
 			this.$orderButton_.removeClass('ui-state-disabled');
@@ -540,9 +544,9 @@
 			bindOrderFinishControlsHandlers_ = function() {
 		var $saveButton = this.getSaveOrderButton(),
 				$cancelLink = this.getCancelOrderButton(),
-				cancelLinkHandler = this.gridHandler_.callbackWrapper(
+				cancelLinkHandler = this.gridHandler.callbackWrapper(
 						this.cancelOrderHandler, this),
-				saveButtonHandler = this.gridHandler_.callbackWrapper(
+				saveButtonHandler = this.gridHandler.callbackWrapper(
 						this.saveOrderHandler, this);
 
 		$saveButton.click(saveButtonHandler);

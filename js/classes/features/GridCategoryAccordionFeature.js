@@ -15,7 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
-	 * @extends $.pkp.classes.feature.Feature
+	 * @extends $.pkp.classes.features.Feature
 	 */
 	$.pkp.classes.features.GridCategoryAccordionFeature =
 			function(gridHandler, options) {
@@ -98,6 +98,7 @@
 		// Make sure the category items are visible.
 		$('.' + this.getExpandClass(), $newContent).click();
 		this.hideEmptyPlaceholders_();
+		return false;
 	};
 
 
@@ -185,10 +186,10 @@
 		$link.hide();
 
 		$category = $link.parents('.category_grid_body:first');
-		$categoryElements = this.gridHandler_.
+		$categoryElements = this.gridHandler.
 				getRowsInCategory($category);
 		if ($categoryElements.length === 0) {
-			$categoryElements = this.gridHandler_.
+			$categoryElements = this.gridHandler.
 					getCategoryEmptyPlaceholder($category);
 		}
 

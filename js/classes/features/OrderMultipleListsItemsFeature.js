@@ -15,6 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
+	 * @extends $.pkp.classes.features.OrderListbuilderItemsFeature
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature =
 			function(gridHandler, options) {
@@ -39,10 +40,10 @@
 
 		$listInput = $('<input type="hidden" name="newRowId[listId]" ' +
 				'class="itemList" />');
-		$gridRows = this.gridHandler_.getRows();
+		$gridRows = this.gridHandler.getRows();
 		for (index = 0, limit = $gridRows.length; index < limit; index++) {
 			$row = $($gridRows[index]);
-			listId = this.gridHandler_.getListIdByRow($row);
+			listId = this.gridHandler.getListIdByRow($row);
 			$listInputClone = $listInput.clone();
 			$listInputClone.attr('value', listId);
 			$('td.first_column', $row).append($listInputClone);
@@ -64,7 +65,7 @@
 		this.parent('storeRowOrder', index, $row);
 
 		$listInput = $row.find('.itemList');
-		listId = this.gridHandler_.getListIdByRow($row);
+		listId = this.gridHandler.getListIdByRow($row);
 		$listInput.attr('value', listId);
 	};
 
@@ -75,7 +76,7 @@
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
 			setupSortablePlugin = function() {
 
-		var $lists = this.gridHandler_.getLists().find('tbody'),
+		var $lists = this.gridHandler.getLists().find('tbody'),
 				extraParams = {connectWith: $lists};
 
 		this.applySortPlgOnElements($lists, 'tr.orderable', extraParams);
@@ -87,8 +88,8 @@
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
 			dragStartCallback = function(contextElement, event, ui) {
-		var $list = this.gridHandler_.getListByRow(ui.item);
-		this.gridHandler_.toggleListNoItemsRow(
+		var $list = this.gridHandler.getListByRow(ui.item);
+		this.gridHandler.toggleListNoItemsRow(
 				$list, 1, '.ui-sortable-placeholder, .ui-sortable-helper');
 	};
 
@@ -98,8 +99,8 @@
 	 */
 	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
 			dragStopCallback = function(contextElement, event, ui) {
-		var $list = this.gridHandler_.getListByRow(ui.item);
-		this.gridHandler_.toggleListNoItemsRow($list, 0, null);
+		var $list = this.gridHandler.getListByRow(ui.item);
+		this.gridHandler.toggleListNoItemsRow($list, 0, null);
 	};
 
 

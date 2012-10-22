@@ -15,6 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
+	 * @extends $.pkp.classes.features.OrderItemsFeature
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature =
 			function(gridHandler, options) {
@@ -82,7 +83,7 @@
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.
 			saveOrderResponseHandler_ = function(ajaxContext, jsonData) {
-		var processedJsonData = this.gridHandler_.handleJson(jsonData);
+		var processedJsonData = this.gridHandler.handleJson(jsonData);
 		this.toggleState(false);
 	};
 

@@ -148,7 +148,7 @@
 			$option.attr('value', optionId);
 			if (this.defaultKey_ == optionId || this.currentKey_ == optionId) {
 				$option.attr('selected', 'selected');
-				this.trigger(this.eventName_, [optionId]);
+				this.trigger(/** @type {string} */ (this.eventName_), [optionId]);
 			}
 			$option.text(processedJsonData.content[optionId]);
 			$select.append($option);

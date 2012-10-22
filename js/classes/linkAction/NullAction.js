@@ -41,7 +41,7 @@
 	$.pkp.classes.linkAction.NullAction.prototype.activate =
 			function(element, event) {
 
-		return this.parent('activate', element, event);
+		return /** @type {boolean} */ (this.parent('activate', element, event));
 	};
 
 

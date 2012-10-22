@@ -276,7 +276,7 @@
 	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The upload event.
-	 * @param {Object} uploadedFile Information about the uploaded
+	 * @param {{fileId: number}} uploadedFile Information about the uploaded
 	 *  file.
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.

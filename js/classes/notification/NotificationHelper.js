@@ -58,7 +58,7 @@
 	 *
 	 * @param {$.pkp.classes.Handler} handler The widget handler that is
 	 * handling the notify user event.
-	 * @param {HTMLElement} triggerElement The element that triggered the
+	 * @param {HTMLElement|Object} triggerElement The element that triggered the
 	 * notify user event.
 	 */
 	$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent =

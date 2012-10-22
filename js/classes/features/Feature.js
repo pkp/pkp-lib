@@ -32,23 +32,26 @@
 	 */
 	$.pkp.classes.features.Feature =
 			function(gridHandler, options) {
-		this.gridHandler_ = gridHandler;
+		this.gridHandler = gridHandler;
 		this.options_ = options;
 		this.addFeatureHtml(this.getGridHtmlElement(), options);
 	};
 
 
 	//
-	// Private properties.
+	// Protected properties.
 	//
 	/**
 	 * The grid that this feature is attached to.
-	 * @private
+	 * @protected
 	 * @type {$.pkp.controllers.grid.GridHandler}
 	 */
-	$.pkp.classes.features.Feature.prototype.gridHandler_ = null;
+	$.pkp.classes.features.Feature.prototype.gridHandler = null;
 
 
+	//
+	// Private properties.
+	//
 	/**
 	 * This feature configuration options.
 	 * @private
@@ -108,7 +111,7 @@
 	 */
 	$.pkp.classes.features.Feature.prototype.callbackWrapper =
 			function(callback, opt_context) {
-		return this.gridHandler_.callbackWrapper(callback, opt_context);
+		return this.gridHandler.callbackWrapper(callback, opt_context);
 	};
 
 
@@ -132,7 +135,7 @@
 	 */
 	$.pkp.classes.features.Feature.prototype.getGridHtmlElement =
 			function() {
-		return this.gridHandler_.getHtmlElement();
+		return this.gridHandler.getHtmlElement();
 	};
 
 

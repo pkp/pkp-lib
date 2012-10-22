@@ -32,6 +32,16 @@ jQueryObject.prototype.button = function(param1, param2, param3) {};
 jQueryObject.prototype.validate = function(options) {};
 
 /**
+ * @param {Function} param1
+ */
+jQueryObject.prototype.sortElements = function(param1) {};
+
+/**
+ * @param {Object|string=} param1
+ */
+jQueryObject.prototype.sortable = function(param1) {};
+
+/**
  * @param {Object=} options
  */
 jQueryObject.prototype.jLabel = function(options) {};
@@ -192,5 +202,6 @@ $.pkp.cons = {
 	ORDER_CATEGORY_GRID_CATEGORIES_ONLY: 0,
 	ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS: 0,
 	LISTBUILDER_SOURCE_TYPE_SELECT: 0,
-	LISTBUILDER_OPTGROUP_LABEL: 0
+	LISTBUILDER_OPTGROUP_LABEL: 0,
+	ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY: 0
 }

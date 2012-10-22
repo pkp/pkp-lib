@@ -1,5 +1,5 @@
 /**
- * @file js/classes/features/OrderListbuilderItemsFeature.js
+  @file js/classes/features/OrderListbuilderItemsFeature.js
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,6 +15,7 @@
 	/**
 	 * @constructor
 	 * @inheritDoc
+	 * @extends $.pkp.classes.features.OrderItemsFeature
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature =
 			function(gridHandler, options) {
@@ -40,7 +41,7 @@
 		this.parent('addFeatureHtml', $gridElement, options);
 
 		$itemSequenceInput = this.getSequenceInput_();
-		$gridRows = this.gridHandler_.getRows();
+		$gridRows = this.gridHandler.getRows();
 		for (index = 0, limit = $gridRows.length; index < limit; index++) {
 			$gridRow = $($gridRows[index]);
 			$itemSequenceInputClone = $itemSequenceInput.clone();
@@ -117,7 +118,7 @@
 
 		var $rows;
 		this.parent('updateOrderCallback');
-		$rows = this.gridHandler_.getRows();
+		$rows = this.gridHandler.getRows();
 		this.storeOrder($rows);
 	};
 
@@ -131,7 +132,7 @@
 				index, limit;
 		if ($selects.length > 0) {
 			for (index = 0, limit = $selects.length; index < limit; index++) {
-				this.gridHandler_.saveRow($($selects[index]).parents('.gridRow'));
+				this.gridHandler.saveRow($($selects[index]).parents('.gridRow'));
 			}
 		}
 
@@ -183,14 +184,14 @@
 	 */
 	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
 			toggleContentHandlers_ = function() {
-		var $rows = this.gridHandler_.getRows(),
+		var $rows = this.gridHandler.getRows(),
 				index, limit, $row;
 		for (index = 0, limit = $rows.length; index < limit; index++) {
 			$row = $($rows[index]);
 			if (this.isOrdering_) {
 				$row.find('.gridCellDisplay').unbind('click');
 			} else {
-				this.gridHandler_.attachContentHandlers_($row);
+				this.gridHandler.attachContentHandlers_($row);
 			}
 		}
 	};
@@ -207,7 +208,7 @@
 		var $rows;
 
 		$row.children().after(this.getSequenceInput_());
-		$rows = this.gridHandler_.getRows();
+		$rows = this.gridHandler.getRows();
 		this.storeOrder($rows);
 	};
 

@@ -51,7 +51,8 @@
 				finishCallback;
 
 		// Post.
-		$.post(options.postUrl, responseHandler, 'json');
+		$.post(/** @type {{postUrl: string}} */ (options).postUrl,
+				responseHandler, 'json');
 
 		// We need to make sure that the finish() method will be called.
 		// While the redirect request is running, user can click again
@@ -67,7 +68,7 @@
 				this.finishCallback_, this);
 		setTimeout(finishCallback, 2000);
 
-		return returner;
+		return /** @type {boolean} */ (returner);
 	};
 
 
@@ -99,7 +100,7 @@
 		linkActionHandler.handleJson(jsonData);
 
 		// Redirect.
-		window.location = options.url;
+		window.location = /** @type {{url: string}} */ (options).url;
 	};
 
 

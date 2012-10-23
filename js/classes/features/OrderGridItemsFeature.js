@@ -63,7 +63,7 @@
 	//
 	/**
 	 * Get all items data id in a sequence array.
-	 * @return {array} List of all items data.
+	 * @return {Array} List of all items data.
 	 */
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.getItemsDataId =
 			function() {

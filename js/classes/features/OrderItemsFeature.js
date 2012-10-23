@@ -164,7 +164,7 @@
 	//
 	/**
 	 * Called every time user start dragging an item.
-	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {jQueryObject} contextElement The element this event occurred for.
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
@@ -176,7 +176,7 @@
 
 	/**
 	 * Called every time user stop dragging an item.
-	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {jQueryObject} contextElement The element this event occurred for.
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
@@ -188,7 +188,7 @@
 
 	/**
 	 * Called every time sequence is changed.
-	 * @param {JQuery} contextElement The element this event occurred for.
+	 * @param {jQueryObject} contextElement The element this event occurred for.
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
@@ -222,8 +222,9 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
-		if (options.orderFinishControls !== undefined) {
-			var $orderFinishControls = $(options.orderFinishControls);
+		var castOptions = /** @type {{orderFinishControls: string?}} */ (options);
+		if (castOptions.orderFinishControls !== undefined) {
+			var $orderFinishControls = $(castOptions.orderFinishControls);
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
 		}
@@ -467,6 +468,7 @@
 			function($element) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();
+		return false;
 	};
 
 
@@ -477,6 +479,7 @@
 			function($content) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();
+		return false;
 	};
 
 

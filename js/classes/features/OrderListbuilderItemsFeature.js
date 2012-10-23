@@ -106,7 +106,6 @@
 			function() {
 		this.parent('saveOrderHandler');
 		this.toggleState(false);
-		return false;
 	};
 
 
@@ -136,7 +135,7 @@
 			}
 		}
 
-		this.parent('clickOrderHandler');
+		return /** @type {boolean} */ (this.parent('clickOrderHandler'));
 	};
 
 
@@ -150,6 +149,7 @@
 			function($newElement) {
 		this.parent('appendElement', $newElement);
 		this.formatAndStoreNewRow_($newElement);
+		return false;
 	};
 
 
@@ -160,6 +160,7 @@
 			function($newContent) {
 		this.parent('replaceElement', $newContent);
 		this.formatAndStoreNewRow_($newContent);
+		return false;
 	};
 
 

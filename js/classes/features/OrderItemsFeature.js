@@ -46,7 +46,7 @@
 	/**
 	 * Item sequence.
 	 * @protected
-	 * @type {array}
+	 * @type {Array}
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder = null;
 
@@ -222,9 +222,10 @@
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
-		var castOptions = /** @type {{orderFinishControls: string?}} */ (options);
+		var castOptions = /** @type {{orderFinishControls: string?}} */ (options),
+				$orderFinishControls;
 		if (castOptions.orderFinishControls !== undefined) {
-			var $orderFinishControls = $(castOptions.orderFinishControls);
+			$orderFinishControls = $(castOptions.orderFinishControls);
 			$gridElement.find('table').last().after($orderFinishControls);
 			$orderFinishControls.hide();
 		}

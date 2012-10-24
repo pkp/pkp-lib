@@ -43,17 +43,17 @@
 	 * as a wizard cancel button.
 	 *
 	 * @protected
-	 * @param {Object=} callingElement The close button.
-	 * @param {Event=} event The close button click event.
-	 * @param {boolean=} closeWithoutCancel Set to true to immediately
+	 * @param {Object=} opt_callingElement The close button.
+	 * @param {Event=} opt_event The close button click event.
+	 * @param {boolean=} opt_closeWithoutCancel Set to true to immediately
 	 *  close the modal.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.modal.WizardModalHandler.prototype.modalClose =
-			function(callingElement, event, closeWithoutCancel) {
+			function(opt_callingElement, opt_event, opt_closeWithoutCancel) {
 
-		if (closeWithoutCancel) {
-			this.parent('modalClose', callingElement, event);
+		if (opt_closeWithoutCancel) {
+			this.parent('modalClose', opt_callingElement, opt_event);
 		} else {
 			// Trigger a cancel event on the wizard.
 			var wizardCancelRequestedEvent = new $.Event('wizardCancelRequested'),
@@ -65,7 +65,7 @@
 
 			// Only close the modal if the wizard didn't prevent this.
 			if (!wizardCancelRequestedEvent.isDefaultPrevented()) {
-				this.parent('modalClose', callingElement, event);
+				this.parent('modalClose', opt_callingElement, opt_event);
 			}
 		}
 

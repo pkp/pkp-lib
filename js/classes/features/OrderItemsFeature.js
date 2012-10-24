@@ -286,6 +286,7 @@
 
 	/**
 	 * Save order handler.
+	 * @return {boolean} Return false to stop click event processing.
 	 */
 	$.pkp.classes.features.OrderItemsFeature.prototype.saveOrderHandler =
 			function() {
@@ -295,6 +296,8 @@
 		this.unbindOrderFinishControlsHandlers_();
 		$rows = this.gridHandler.getRows();
 		this.storeOrder($rows);
+
+		return false;
 	};
 
 
@@ -497,8 +500,10 @@
 				// We want to enable/disable all link actions, except this
 				// features controls.
 				$gridLinkActions = $('.pkp_controllers_linkAction',
-						this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
-						this.getOrderButton(), this.getFinishControl().find('*'));
+						this.getGridHtmlElement()).not(
+								this.getMoveItemRowActionSelector()).not(
+								this.getOrderButton()).not(
+								this.getFinishControl().find('*'));
 
 		this.gridHandler.changeLinkActionsState(!isOrdering, $gridLinkActions);
 	};

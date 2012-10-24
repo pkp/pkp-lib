@@ -317,6 +317,40 @@
 	};
 
 
+	/**
+	 * This function should be used to pre-process a JSON response
+	 * from the server.
+	 *
+	 * @param {Object} jsonData The returned server response data.
+	 * @return {Object|boolean} The returned server response data or
+	 *  false if an error occurred.
+	 */
+	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+		if (!jsonData) {
+			throw new Error('Server error: Server returned no or invalid data!');
+		}
+
+		if (jsonData.status === true) {
+			// Did the server respond with an event to be triggered?
+			if (jsonData.event) {
+				if (jsonData.event.data) {
+					this.trigger(jsonData.event.name,
+							jsonData.event.data);
+				} else {
+					this.trigger(jsonData.event.name);
+				}
+			}
+			return jsonData;
+		} else {
+			// If we got an error message then display it.
+			if (jsonData.content) {
+				alert(jsonData.content);
+			}
+			return false;
+		}
+	};
+
+
 	//
 	// Protected methods
 	//
@@ -446,41 +480,6 @@
 		// Add/retrieve the data to/from the
 		// element's data cache.
 		return this.getHtmlElement().data(key, opt_value);
-	};
-
-
-	/**
-	 * This function should be used to pre-process a JSON response
-	 * from the server.
-	 *
-	 * @protected
-	 * @param {Object} jsonData The returned server response data.
-	 * @return {Object|boolean} The returned server response data or
-	 *  false if an error occurred.
-	 */
-	$.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
-		if (!jsonData) {
-			throw new Error('Server error: Server returned no or invalid data!');
-		}
-
-		if (jsonData.status === true) {
-			// Did the server respond with an event to be triggered?
-			if (jsonData.event) {
-				if (jsonData.event.data) {
-					this.trigger(jsonData.event.name,
-							jsonData.event.data);
-				} else {
-					this.trigger(jsonData.event.name);
-				}
-			}
-			return jsonData;
-		} else {
-			// If we got an error message then display it.
-			if (jsonData.content) {
-				alert(jsonData.content);
-			}
-			return false;
-		}
 	};
 
 

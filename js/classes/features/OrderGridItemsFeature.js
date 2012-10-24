@@ -45,16 +45,19 @@
 	$.pkp.classes.features.OrderGridItemsFeature.prototype.saveOrderHandler =
 			function() {
 
-		var stringifiedData, saveOrderCallback;
+		var stringifiedData, saveOrderCallback,
+				options = this.getOptions(),
+				returner;
 
 		this.parent('saveOrderHandler');
+
 		stringifiedData = JSON.stringify(this.getItemsDataId());
 		saveOrderCallback = this.callbackWrapper(
 				this.saveOrderResponseHandler_, this);
-		$.post(this.options_.saveItemsSequenceUrl, {data: stringifiedData},
-				saveOrderCallback, 'json');
-		return false;
+		$.post(options.saveItemsSequenceUrl, {data: stringifiedData},
+					saveOrderCallback, 'json');
 
+		return false;
 	};
 
 

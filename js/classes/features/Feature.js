@@ -61,6 +61,18 @@
 
 
 	//
+	// Setters and getters.
+	//
+	/**
+	 * @return {Object} The feature options.
+	 */
+	$.pkp.classes.features.Feature.prototype.getOptions =
+			function() {
+		return this.options_;
+	};
+
+
+	//
 	// Public template methods.
 	//
 	/**

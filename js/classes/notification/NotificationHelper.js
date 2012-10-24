@@ -136,7 +136,7 @@
 
 			// If the element that triggered the event is inside of
 			// this widget or is the widget...
-			if ($elementParentWidget.has(triggerElement).length ||
+			if ($elementParentWidget.has(triggerElement[0]).length ||
 					$elementParentWidget[0] == triggerElement) {
 
 				// If it is inside an accordion container, and this accordion container
@@ -145,7 +145,7 @@
 				if ($element.parents('.ui-accordion:first').length > 0) {
 					$accordionContainer = $element.parents('.ui-accordion:first');
 
-					if (!$accordionContainer.has(triggerElement)) {
+					if (!$accordionContainer.has(triggerElement[0])) {
 						continue;
 					}
 				}

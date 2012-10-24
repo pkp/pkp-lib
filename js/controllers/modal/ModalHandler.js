@@ -161,15 +161,15 @@
 	 * Callback that will be activated when the modal's
 	 * close icon is clicked.
 	 *
-	 * @param {Object=} callingContext The calling element or object.
-	 * @param {Event=} event The triggering event (e.g. a click on
+	 * @param {Object=} opt_callingContext The calling element or object.
+	 * @param {Event=} opt_event The triggering event (e.g. a click on
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
-			function(callingContext, event) {
+			function(opt_callingContext, opt_event) {
 
-		if (event && event.currentTarget.id == 'cancelFormButton') {
+		if (opt_event && opt_event.currentTarget.id == 'cancelFormButton') {
 			this.trigger('modalCanceled');
 		}
 		// Close the modal dialog.

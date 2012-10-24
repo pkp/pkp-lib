@@ -106,6 +106,8 @@
 			function() {
 		this.parent('saveOrderHandler');
 		this.toggleState(false);
+
+		return false;
 	};
 
 

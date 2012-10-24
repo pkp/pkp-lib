@@ -173,14 +173,15 @@
 				// Get insertions and modifications
 				changes = [],
 				numberOfRows, stringifiedData, saveUrl,
-				saveFieldName, $e;
+				saveFieldName, $e,
+				handler = this;
 
 		this.getHtmlElement().find('.gridRow input.isModified[value="1"]')
-				.each(this.callbackWrapper(function(context, k, v) {
+				.each(function(index, v) {
 					var $row = $(v).parents('.gridRow'),
-							params = this.buildParamsFromInputs_($row.find(':input'));
+							params = handler.buildParamsFromInputs_($row.find(':input'));
 					changes.push(params);
-				}));
+				});
 
 		// The listbuilder form validator needs to know if this listbuilder contains
 		// rows or not, so we pass the items number.

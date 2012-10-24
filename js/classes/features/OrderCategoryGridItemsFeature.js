@@ -62,6 +62,8 @@
 			saveOrderHandler = function() {
 		this.gridHandler.updateEmptyPlaceholderPosition();
 		this.parent('saveOrderHandler');
+
+		return false;
 	};
 
 
@@ -103,7 +105,8 @@
 	$.pkp.classes.features.OrderCategoryGridItemsFeature.prototype.
 			addOrderingClassToRows = function() {
 
-		var type = this.options_.type, $categories;
+		var options = this.getOptions(),
+				type = options.type, $categories;
 
 		if (type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_ONLY ||
 				type == $.pkp.cons.ORDER_CATEGORY_GRID_CATEGORIES_AND_ROWS) {

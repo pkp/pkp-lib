@@ -46,7 +46,8 @@
 			function() {
 
 		var stringifiedData, saveOrderCallback,
-				options = this.getOptions(),
+				options = /** @type {{saveItemsSequenceUrl: string}} */
+				(this.getOptions()),
 				returner;
 
 		this.parent('saveOrderHandler');
@@ -55,7 +56,7 @@
 		saveOrderCallback = this.callbackWrapper(
 				this.saveOrderResponseHandler_, this);
 		$.post(options.saveItemsSequenceUrl, {data: stringifiedData},
-					saveOrderCallback, 'json');
+				saveOrderCallback, 'json');
 
 		return false;
 	};

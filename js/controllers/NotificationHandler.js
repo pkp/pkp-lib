@@ -277,16 +277,18 @@
 	$.pkp.controllers.NotificationHandler.prototype.
 			addTimerToNotifications = function(notificationsId) {
 
+		var removeNotification = function() {
+			// "this" represents the notification element here.
+			$(this).remove();
+		};
+
 		if (notificationsId.length) {
 			this.trivialTimer_ = setTimeout(function() {
 				var notificationId, $notification;
 				for (notificationId in notificationsId) {
 					$notification = $('#pkp_notification_' +
 							notificationsId[notificationId]);
-					$notification.fadeOut(400, function() {
-						// "this" represents the notification element here.
-						$(this).remove();
-					});
+					$notification.fadeOut(400, removeNotification());
 				}
 			}, 6000);
 		}

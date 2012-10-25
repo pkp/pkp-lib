@@ -276,19 +276,6 @@ class String {
 		}
 	}
 
-	/**
-	 * @see http://ca.php.net/manual/en/function.mail.php
-	 */
-	function mail($to, $subject, $message, $additional_headers = '', $additional_parameters = '') {
-		// Cannot use mb_send_mail as it base64 encodes the whole body of the email,
-		// making it useless for multipart emails
-		if (empty($additional_parameters)) {
-			return mail($to, $subject, $message, $additional_headers);
-		} else {
-			return mail($to, $subject, $message, $additional_headers, $additional_parameters);
-		}
-	}
-
 	//
 	// Wrappers for PCRE-compatible regular expression routines.
 	// See the php.net documentation for usage.

@@ -17,7 +17,6 @@
  */
 
 
-define('MAIL_EOL', Core::isWindows() ? "\r\n" : "\n");
 define('MAIL_WRAP', 76);
 
 class Mail extends DataObject {

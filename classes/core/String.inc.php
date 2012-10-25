@@ -78,10 +78,6 @@ class String {
 		} else {
 			define('PCRE_UTF8', '');
 		}
-
-		if (checkPhpVersion('5.0.5')) {
-			define('USE_HTML_PURIFIER', 1);
-		}
 	}
 
 	/**
@@ -402,89 +398,24 @@ class String {
 	 * @return string
 	 */
 	function stripUnsafeHtml($input) {
-		// If possible, use the HTML purifier.
-		if (defined('USE_HTML_PURIFIER')) {
-			require_once('lib/pkp/lib/htmlpurifier/library/HTMLPurifier.path.php');
-			require_once('HTMLPurifier.includes.php');
-			static $purifier;
-			if (!isset($purifier)) {
-				$config = HTMLPurifier_Config::createDefault();
-				$config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
-				$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
-				// Transform the old allowed_html setting into
-				// a form HTMLPurifier can use.
-				$config->set('HTML.Allowed', preg_replace(
-					'/<(\w+)[ ]?([^>]*)>[ ]?/',
-					'${1}[${2}],',
-					Config::getVar('security', 'allowed_html', DEFAULT_ALLOWED_HTML)
-				));
-				$config->set('Cache.SerializerPath', 'cache');
-				$purifier = new HTMLPurifier($config);
-			}
-			return $purifier->purify($input);
-		}
-
-		// Fall back on imperfect but PHP4-capable implementation.
-
-		// Parts of this implementation were taken from Horde:
-		// see http://cvs.horde.org/co.php/framework/MIME/MIME/Viewer/html.php.
-
-		static $allowedHtml;
-		if (!isset($allowedHtml)) {
-			$allowedHtml = preg_replace(
-				'/<(\w+)( [^>]+)*>/', // Strip out attr specs
-				'<${1}> ',
+		require_once('lib/pkp/lib/htmlpurifier/library/HTMLPurifier.path.php');
+		require_once('HTMLPurifier.includes.php');
+		static $purifier;
+		if (!isset($purifier)) {
+			$config = HTMLPurifier_Config::createDefault();
+			$config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
+			$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
+			// Transform the old allowed_html setting into
+			// a form HTMLPurifier can use.
+			$config->set('HTML.Allowed', preg_replace(
+				'/<(\w+)[ ]?([^>]*)>[ ]?/',
+				'${1}[${2}],',
 				Config::getVar('security', 'allowed_html', DEFAULT_ALLOWED_HTML)
-			);
+			));
+			$config->set('Cache.SerializerPath', 'cache');
+			$purifier = new HTMLPurifier($config);
 		}
-
-		$html = strip_tags($input, $allowedHtml);
-
-		// Change space entities to space characters
-		$html = preg_replace('/&#(x0*20|0*32);?/i', ' ', $html);
-
-		// Remove non-printable characters
-		$html = preg_replace('/&#x?0*([9A-D]|1[0-3]);/i', '&nbsp;', $html);
-		$html = preg_replace('/&#x?0*[9A-D]([^0-9A-F]|$)/i', '&nbsp\\1', $html);
-		$html = preg_replace('/&#0*(9|1[0-3])([^0-9]|$)/i', '&nbsp\\2', $html);
-
-		// Remove overly long numeric entities
-		$html = preg_replace('/&#x?0*[0-9A-F]{6,};?/i', '&nbsp;', $html);
-
-		/* Get all attribute="javascript:foo()" tags. This is
-		* essentially the regex /(=|url\()("?)[^>]* script:/ but
-		* expanded to catch camouflage with spaces and entities. */
-		$preg	= '/((&#0*61;?|&#x0*3D;?|=)|'
-			. '((u|&#0*85;?|&#x0*55;?|&#0*117;?|&#x0*75;?)\s*'
-			. '(r|&#0*82;?|&#x0*52;?|&#0*114;?|&#x0*72;?)\s*'
-			. '(l|&#0*76;?|&#x0*4c;?|&#0*108;?|&#x0*6c;?)\s*'
-			. '(\()))\s*'
-			. '(&#0*34;?|&#x0*22;?|"|&#0*39;?|&#x0*27;?|\')?'
-			. '[^>]*\s*'
-			. '(s|&#0*83;?|&#x0*53;?|&#0*115;?|&#x0*73;?)\s*'
-			. '(c|&#0*67;?|&#x0*43;?|&#0*99;?|&#x0*63;?)\s*'
-			. '(r|&#0*82;?|&#x0*52;?|&#0*114;?|&#x0*72;?)\s*'
-			. '(i|&#0*73;?|&#x0*49;?|&#0*105;?|&#x0*69;?)\s*'
-			. '(p|&#0*80;?|&#x0*50;?|&#0*112;?|&#x0*70;?)\s*'
-			. '(t|&#0*84;?|&#x0*54;?|&#0*116;?|&#x0*74;?)\s*'
-			. '(:|&#0*58;?|&#x0*3a;?)/i';
-		$html = preg_replace($preg, '\1\8PKPCleaned', $html);
-
-		/* Get all on<foo>="bar()". NEVER allow these. */
-		$html =	preg_replace('/([\s"\']+'
-			. '(o|&#0*79;?|&#0*4f;?|&#0*111;?|&#0*6f;?)'
-			. '(n|&#0*78;?|&#0*4e;?|&#0*110;?|&#0*6e;?)'
-			. '\w+)\s*=/i', '\1PKPCleaned=', $html);
-
-		$pattern = array(
-			'|<([^>]*)&{.*}([^>]*)>|',
-			'|<([^>]*)mocha:([^>]*)>|i',
-			'|<([^>]*)binding:([^>]*)>|i'
-		);
-		$replace = array('<&{;}\3>', '<\1PKPCleaned:\2>', '<\1PKPCleaned:\2>');
-		$html = preg_replace($pattern, $replace, $html);
-
-		return $html;
+		return $purifier->purify($input);
 	}
 
 	/**

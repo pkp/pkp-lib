@@ -265,27 +265,13 @@ class Mail extends DataObject {
 			if (empty($contentType)) $contentType = 'application/x-unknown-content-type';
 		}
 
-		// Open the file and read contents into $attachment
-		if (is_readable($filePath) && is_file($filePath)) {
-			$fp = fopen($filePath, 'rb');
-			if ($fp) {
-				$content = '';
-				while (!feof($fp)) {
-					$content .= fread($fp, 4096);
-				}
-				fclose($fp);
-			}
-		}
+		array_push($attachments, array(
+			'path' => $filePath,
+			'filename' => $fileName,
+			'content-type' => $contentType
+		));
 
-		if (isset($content)) {
-			/* Encode the contents in base64. */
-			$content = chunk_split(base64_encode($content), MAIL_WRAP, MAIL_EOL);
-			array_push($attachments, array('filename' => $fileName, 'content-type' => $contentType, 'disposition' => $contentDisposition, 'content' => $content));
-
-			return $this->setData('attachments', $attachments);
-		} else {
-			return false;
-		}
+		return $this->setData('attachments', $attachments);
 	}
 
 	/**
@@ -427,126 +413,70 @@ class Mail extends DataObject {
 	 * @return boolean
 	 */
 	function send() {
-		$recipients = $this->getAddressArrayString($this->getRecipients(), true, true);
-		$from = $this->getFromString(true);
-
-		$subject = String::encode_mime_header($this->getSubject());
-		$body = $this->getBody();
-
-		// FIXME Some *nix mailers won't work with CRLFs
-		if (Core::isWindows()) {
-			// Convert LFs to CRLFs for Windows
-			$body = String::regexp_replace("/([^\r]|^)\n/", "\$1\r\n", $body);
-		} else {
-			// Convert CRLFs to LFs for *nix
-			$body = String::regexp_replace("/\r\n/", "\n", $body);
-		}
-
-		if ($this->getContentType() != null) {
-			$this->addHeader('Content-Type', $this->getContentType());
-		} elseif ($this->hasAttachments()) {
-			// Only add MIME headers if sending an attachment
-			$mimeBoundary = '==boundary_'.md5(microtime());
-
-			/* Add MIME-Version and Content-Type as headers. */
-			$this->addHeader('MIME-Version', '1.0');
-			$this->addHeader('Content-Type', 'multipart/mixed; boundary="'.$mimeBoundary.'"');
-
-		} else {
-			$this->addHeader('Content-Type', 'text/plain; charset="'.Config::getVar('i18n', 'client_charset').'"');
-		}
-
-		$this->addHeader('X-Mailer', 'Public Knowledge Project Suite v2');
-
-		$remoteAddr = Request::getRemoteAddr();
-		if ($remoteAddr != '') $this->addHeader('X-Originating-IP', $remoteAddr);
-
-		$this->addHeader('Date', date('D, d M Y H:i:s O'));
-
-		/* Add $from, $ccs, and $bccs as headers. */
-		if ($from != null) {
-			$this->addHeader('From', $from);
-		}
-
-		$ccs = $this->getAddressArrayString($this->getCcs(), true, true);
-		if ($ccs != null) {
-			$this->addHeader('Cc', $ccs);
-		}
-
-		$bccs = $this->getAddressArrayString($this->getBccs(), false, true);
-		if ($bccs != null) {
-			$this->addHeader('Bcc', $bccs);
-		}
-
-		$headers = '';
-		foreach ($this->getHeaders() as $header) {
-			if (!empty($headers)) {
-				$headers .= MAIL_EOL;
-			}
-			$headers .= $header['name'].': '. str_replace(array("\r", "\n"), '', $header['content']);
-		}
-
-		if ($this->hasAttachments()) {
-			// Add the body
-			$mailBody = 'This message is in MIME format and requires a MIME-capable mail client to view.'.MAIL_EOL.MAIL_EOL;
-			$mailBody .= '--'.$mimeBoundary.MAIL_EOL;
-			$mailBody .= sprintf('Content-Type: text/plain; charset=%s', Config::getVar('i18n', 'client_charset')) . MAIL_EOL.MAIL_EOL;
-			$mailBody .= wordwrap($body, MAIL_WRAP, MAIL_EOL).MAIL_EOL.MAIL_EOL;
-
-			// Add the attachments
-			$attachments = $this->getAttachments();
-			foreach ($attachments as $attachment) {
-				$mailBody .= '--'.$mimeBoundary.MAIL_EOL;
-				$mailBody .= 'Content-Type: '.$attachment['content-type'].'; name="'.str_replace('"', '', $attachment['filename']).'"'.MAIL_EOL;
-				$mailBody .= 'Content-transfer-encoding: base64'.MAIL_EOL;
-				$mailBody .= 'Content-disposition: '.$attachment['disposition'].MAIL_EOL.MAIL_EOL;
-				$mailBody .= $attachment['content'].MAIL_EOL.MAIL_EOL;
-			}
-
-			$mailBody .= '--'.$mimeBoundary.'--';
-
-		} else {
-			// Just add the body
-			$mailBody = wordwrap($body, MAIL_WRAP, MAIL_EOL);
-		}
-
-		if ($this->getEnvelopeSender() != null) {
-			$additionalParameters = '-f ' . $this->getEnvelopeSender();
-		} else {
-			$additionalParameters = null;
-		}
-
-		if (HookRegistry::call('Mail::send', array(&$this, &$recipients, &$subject, &$mailBody, &$headers, &$additionalParameters))) return;
+		if (HookRegistry::call('Mail::send', array(&$this))) return;
 
 		// Replace all the private parameters for this message.
+		$mailBody = $this->getBody();
 		if (is_array($this->privateParams)) {
 			foreach ($this->privateParams as $name => $value) {
 				$mailBody = str_replace($name, $value, $mailBody);
 			}
 		}
 
+		require_once('lib/pkp/lib/phpmailer/class.phpmailer.php');
+		$mailer = new PHPMailer();
 		if (Config::getVar('email', 'smtp')) {
-			$smtp =& Registry::get('smtpMailer', true, null);
-			if ($smtp === null) {
-				import('lib.pkp.classes.mail.SMTPMailer');
-				$smtp = new SMTPMailer();
+			$mailer->IsSMTP();
+			$mailer->Port = Config::getVar('email', 'smtp_port');
+			if (($s = Config::getVar('email', 'smtp_auth')) != '') {
+				$mailer->SMTPSecure = $s;
+				$mailer->SMTPAuth = true;
 			}
-			$sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);
-		} else {
-			$sent = String::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
+			$mailer->Username = Config::getVar('email', 'smtp_username');
+			$mailer->Password = Config::getVar('email', 'smtp_password');
+		}
+		$mailer->CharSet = Config::getVar('i18n', 'client_charset');
+		if (($t = $this->getContentType()) != null) $mailer->ContentType = $t;
+		$mailer->XMailer = 'Public Knowledge Project Suite v2';
+		$mailer->WordWrap = MAIL_WRAP;
+		foreach ((array) $this->getHeaders() as $header) {
+			$mailer->AddCustomHeader($header['key'], $mailer->SecureHeader($header['content']));
+		}
+		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
+		if (($f = $this->getFrom()) != null) {
+			$mailer->SetFrom($f['email'], $f['name']);
+		}
+		foreach ((array) $this->getRecipients() as $recipientInfo) {
+			$mailer->AddAddress($recipientInfo['email'], $recipientInfo['name']);
+		}
+		foreach ((array) $this->getCcs() as $ccInfo) {
+			$mailer->AddCC($ccInfo['email'], $ccInfo['name']);
+		}
+		foreach ((array) $this->getBccs() as $bccInfo) {
+			$mailer->AddBCC($bccInfo['email'], $bccInfo['name']);
+		}
+		$mailer->Subject = $this->getSubject();
+		$mailer->Body = $mailBody;
+
+		$remoteAddr = $mailer->SecureHeader(Request::getRemoteAddr());
+		if ($remoteAddr != '') $mailer->AddCustomHeader("X-Originating-IP: $remoteAddr");
+
+		foreach ((array) $this->getAttachments() as $attachmentInfo) {
+			$mailer->AddAttachment(
+				$attachmentInfo['path'],
+				$attachmentInfo['filename'],
+				'base64',
+				$attachmentInfo['content-type']
+			);
 		}
 
-		if (!$sent) {
+		if (!$mailer->Send()) {
 			if (Config::getVar('debug', 'display_errors')) {
-				if (Config::getVar('email', 'smtp')) {
-					fatalError("There was an error sending this email.  Please check your PHP error log for more information.");
-					return false;
-				} else {
-					fatalError("There was an error sending this email.  Please check your mail log (/var/log/maillog).");
-					return false;
-				}
-			} else return false;
-		} else return true;
+				fatalError($mailer->ErrorInfo);
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**

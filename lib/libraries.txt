@@ -39,3 +39,8 @@ HTML Purifier
  * URL: <http://htmlpurifier.org>
  * Version: 4.4.0
  * License: GPLv2.1
+
+PHPMailer
+ * URL: http://code.google.com/a/apache-extras.org/p/phpmailer/
+ * Version: 5.2.1
+ * License: GPLv2.1

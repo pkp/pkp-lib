@@ -238,8 +238,8 @@
 			function(formElement, event) {
 
 		if (this.trackFormChanges && !this.formChangesTracked) {
-			this.trigger('formChanged');
 			this.formChangesTracked = true;
+			this.trigger('formChanged');
 		}
 	};
 

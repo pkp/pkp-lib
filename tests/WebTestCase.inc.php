@@ -105,6 +105,31 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
+	 * Types a text into an input field.
+	 *
+	 * This is done using low-level methods in a way
+	 * to simulate actual key-press events that can
+	 * trigger autocomplete events or similar.
+	 *
+	 * @param $box string the locator of the box
+	 * @param $letters string the text to type
+	 */
+	protected function typeText($box, $letters) {
+		$this->focus($box);
+		$currentContent = '';
+		foreach(str_split($letters) as $letter) {
+			// The following hack makes jQueryUI behave as
+			// if typing in letters manually.
+			$currentContent .= $letter;
+			$this->type($box, $currentContent);
+			$this->typeKeys($box, $letter);
+			usleep(300000);
+		}
+		// Fix one more timing problem on the test server:
+		sleep(1);
+	}
+
+	/**
 	 * Make the exception message more informative.
 	 * @param $e Exception
 	 * @param $testObject string

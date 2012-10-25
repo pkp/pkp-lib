@@ -51,13 +51,11 @@ define('PCRE_EMAIL_ADDRESS',
 define ('CAMEL_CASE_HEAD_UP', 0x01);
 define ('CAMEL_CASE_HEAD_DOWN', 0x02);
 
-define('DEFAULT_ALLOWED_HTML', '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b> <i> <u> <img src|alt> <sup> <sub> <br> <p>');
-
 class String {
 	/**
 	 * Perform initialization required for the string wrapper library.
 	 */
-	function init() {
+	static function init() {
 		$clientCharset = strtolower_codesafe(Config::getVar('i18n', 'client_charset'));
 
 		// Check if mbstring is installed (requires PHP >= 4.3.0)
@@ -86,7 +84,7 @@ class String {
 	 * and mb_substr_count)
 	 * @return boolean
 	 */
-	function hasMBString() {
+	static function hasMBString() {
 		static $hasMBString;
 		if (isset($hasMBString)) return $hasMBString;
 
@@ -97,15 +95,15 @@ class String {
 			$hasMBString = false;
 		} else {
 			$hasMBString = (
-			extension_loaded('mbstring') &&
-			function_exists('mb_strlen') &&
-			function_exists('mb_strpos') &&
-			function_exists('mb_strrpos') &&
-			function_exists('mb_substr') &&
-			function_exists('mb_strtolower') &&
-			function_exists('mb_strtoupper') &&
-			function_exists('mb_substr_count') &&
-			function_exists('mb_send_mail')
+				extension_loaded('mbstring') &&
+				function_exists('mb_strlen') &&
+				function_exists('mb_strpos') &&
+				function_exists('mb_strrpos') &&
+				function_exists('mb_substr') &&
+				function_exists('mb_strtolower') &&
+				function_exists('mb_strtoupper') &&
+				function_exists('mb_substr_count') &&
+				function_exists('mb_send_mail')
 			);
 		}
 		return $hasMBString;
@@ -115,7 +113,7 @@ class String {
 	 * Check if server supports the PCRE_UTF8 modifier.
 	 * @return boolean
 	 */
-	function hasPCREUTF8() {
+	static function hasPCREUTF8() {
 		// The PCRE_UTF8 modifier is only supported on PHP >= 4.1.0 (*nix) or PHP >= 4.2.3 (win32)
 		// Evil check to see if PCRE_UTF8 is supported
 		if (@preg_match('//u', '')) {
@@ -133,7 +131,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.strlen.php
 	 */
-	function strlen($string) {
+	static function strlen($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -146,7 +144,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.strpos.php
 	 */
-	function strpos($haystack, $needle, $offset = 0) {
+	static function strpos($haystack, $needle, $offset = 0) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -159,7 +157,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.strrpos.php
 	 */
-	function strrpos($haystack, $needle) {
+	static function strrpos($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -172,7 +170,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr.php
 	 */
-	function substr($string, $start, $length = false) {
+	static function substr($string, $start, $length = false) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -188,7 +186,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr_replace.php
 	 */
-	function substr_replace($string, $replacement, $start, $length = null) {
+	static function substr_replace($string, $replacement, $start, $length = null) {
 		if (extension_loaded('mbstring') === true) {
 			$string_length = String::strlen($string);
 
@@ -216,7 +214,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.strtolower.php
 	 */
-	function strtolower($string) {
+	static function strtolower($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -229,7 +227,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.strtoupper.php
 	 */
-	function strtoupper($string) {
+	static function strtoupper($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 		} else {
@@ -242,7 +240,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.ucfirst.php
 	 */
-	function ucfirst($string) {
+	static function ucfirst($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			require_once './lib/pkp/lib/phputf8/mbstring/core.php';
 			require_once './lib/pkp/lib/phputf8/ucfirst.php';
@@ -257,7 +255,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.substr_count.php
 	 */
-	function substr_count($haystack, $needle) {
+	static function substr_count($haystack, $needle) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_substr_count($haystack, $needle); // Requires PHP >= 4.3.0
 		} else {
@@ -268,7 +266,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.encode_mime_header.php
 	 */
-	function encode_mime_header($string) {
+	static function encode_mime_header($string) {
 		if (defined('ENABLE_MBSTRING')) {
 			return mb_encode_mimeheader($string, mb_internal_encoding(), 'B', MAIL_EOL);
 		}  else {
@@ -284,14 +282,14 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_quote.php
 	 */
-	function regexp_quote($string, $delimiter = '/') {
+	static function regexp_quote($string, $delimiter = '/') {
 		return preg_quote($string, $delimiter);
 	}
 
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_grep.php
 	 */
-	function regexp_grep($pattern, $input) {
+	static function regexp_grep($pattern, $input) {
 		if (PCRE_UTF8 && !String::utf8_compliant($input)) $input = String::utf8_bad_strip($input);
 		return preg_grep($pattern . PCRE_UTF8, $input);
 	}
@@ -299,7 +297,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match.php
 	 */
-	function regexp_match($pattern, $subject) {
+	static function regexp_match($pattern, $subject) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject);
 	}
@@ -307,7 +305,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match_get.php
 	 */
-	function regexp_match_get($pattern, $subject, &$matches) {
+	static function regexp_match_get($pattern, $subject, &$matches) {
 		// NOTE: This function was created since PHP < 5.x does not support optional reference parameters
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match($pattern . PCRE_UTF8, $subject, $matches);
@@ -316,7 +314,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_match_all.php
 	 */
-	function regexp_match_all($pattern, $subject, &$matches) {
+	static function regexp_match_all($pattern, $subject, &$matches) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_match_all($pattern . PCRE_UTF8, $subject, $matches);
 	}
@@ -324,7 +322,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_replace.php
 	 */
-	function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
+	static function regexp_replace($pattern, $replacement, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace($pattern . PCRE_UTF8, $replacement, $subject, $limit);
 	}
@@ -332,7 +330,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_replace_callback.php
 	 */
-	function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
+	static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_replace_callback($pattern . PCRE_UTF8, $callback, $subject, $limit);
 	}
@@ -340,7 +338,7 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.regexp_split.php
 	 */
-	function regexp_split($pattern, $subject, $limit = -1) {
+	static function regexp_split($pattern, $subject, $limit = -1) {
 		if (PCRE_UTF8 && !String::utf8_compliant($subject)) $subject = String::utf8_bad_strip($subject);
 		return preg_split($pattern . PCRE_UTF8, $subject, $limit);
 	}
@@ -348,7 +346,16 @@ class String {
 	/**
 	 * @see http://ca.php.net/manual/en/function.mime_content_type.php
 	 */
-	function mime_content_type($filename) {
+	static function mime_content_type($filename) {
+		if (function_exists('finfo_open')) {
+			$fi =& Registry::get('fileInfo', true, null);
+			if ($fi === null) {
+				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
+			}
+			if ($fi !== false) {
+				return strtok(finfo_file($fi, $filename), ' ;');
+			}
+		}
 		if (function_exists('mime_content_type')) {
 			$result = mime_content_type($filename);
 			// mime_content_type appears to return a charset
@@ -357,14 +364,6 @@ class String {
 				$result = trim(substr($result, 0, $i));
 			}
 			return $result;
-		} elseif (function_exists('finfo_open')) {
-			$fi =& Registry::get('fileInfo', true, null);
-			if ($fi === null) {
-				$fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
-			}
-			if ($fi !== false) {
-				return strtok(finfo_file($fi, $filename), ' ;');
-			}
 		}
 
 		// Fall back on an external "file" tool
@@ -384,7 +383,7 @@ class String {
 	 * @param $input string input string
 	 * @return string
 	 */
-	function stripUnsafeHtml($input) {
+	static function stripUnsafeHtml($input) {
 		require_once('lib/pkp/lib/htmlpurifier/library/HTMLPurifier.path.php');
 		require_once('HTMLPurifier.includes.php');
 		static $purifier;
@@ -392,13 +391,7 @@ class String {
 			$config = HTMLPurifier_Config::createDefault();
 			$config->set('Core.Encoding', Config::getVar('i18n', 'client_charset'));
 			$config->set('HTML.Doctype', 'XHTML 1.0 Transitional');
-			// Transform the old allowed_html setting into
-			// a form HTMLPurifier can use.
-			$config->set('HTML.Allowed', preg_replace(
-				'/<(\w+)[ ]?([^>]*)>[ ]?/',
-				'${1}[${2}],',
-				Config::getVar('security', 'allowed_html', DEFAULT_ALLOWED_HTML)
-			));
+			$config->set('HTML.Allowed', Config::getVar('security', 'allowed_html'));
 			$config->set('Cache.SerializerPath', 'cache');
 			$purifier = new HTMLPurifier($config);
 		}
@@ -410,12 +403,12 @@ class String {
 	 * @param $html string
 	 * @return string
 	 */
-	function html2text($html) {
+	static function html2text($html) {
 		$html = String::regexp_replace('/<[\/]?p>/', "\n", $html);
 		$html = String::regexp_replace('/<li>/', '&bull; ', $html);
 		$html = String::regexp_replace('/<\/li>/', "\n", $html);
 		$html = String::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
-		$html = String::html2utf(strip_tags($html));
+		$html = html_entity_decode(strip_tags($html), ENT_COMPAT, 'UTF-8');
 		return $html;
 	}
 
@@ -429,7 +422,7 @@ class String {
 	 * @param $str string input string
 	 * @return boolean
 	 */
-	function utf8_is_valid($str) {
+	static function utf8_is_valid($str) {
 		require_once './lib/pkp/lib/phputf8/utils/validation.php';
 		return utf8_is_valid($str);
 	}
@@ -440,7 +433,7 @@ class String {
 	 * @param $str string input string
 	 * @return boolean
 	 */
-	function utf8_compliant($str) {
+	static function utf8_compliant($str) {
 		require_once './lib/pkp/lib/phputf8/utils/validation.php';
 		return utf8_compliant($str);
 	}
@@ -450,7 +443,7 @@ class String {
 	 * @param $str string input string
 	 * @return string
 	 */
-	function utf8_bad_find($str) {
+	static function utf8_bad_find($str) {
 		require_once './lib/pkp/lib/phputf8/utils/bad.php';
 		return utf8_bad_find($str);
 	}
@@ -460,7 +453,7 @@ class String {
 	 * @param $str string input string
 	 * @return string
 	 */
-	function utf8_bad_strip($str) {
+	static function utf8_bad_strip($str) {
 		require_once './lib/pkp/lib/phputf8/utils/bad.php';
 		return utf8_bad_strip($str);
 	}
@@ -471,7 +464,7 @@ class String {
 	 * @param $replace string optional
 	 * @return string
 	 */
-	function utf8_bad_replace($str, $replace = '?') {
+	static function utf8_bad_replace($str, $replace = '?') {
 		require_once './lib/pkp/lib/phputf8/utils/bad.php';
 		return utf8_bad_replace($str, $replace);
 	}
@@ -481,7 +474,7 @@ class String {
 	 * @param $str string input string
 	 * @return string
 	 */
-	function utf8_strip_ascii_ctrl($str) {
+	static function utf8_strip_ascii_ctrl($str) {
 		require_once './lib/pkp/lib/phputf8/utils/ascii.php';
 		return utf8_strip_ascii_ctrl($str);
 	}
@@ -491,7 +484,7 @@ class String {
 	 * @param $str string input string
 	 * @return string
 	 */
-	function utf8_normalize($str) {
+	static function utf8_normalize($str) {
 		import('lib.pkp.classes.core.Transcoder');
 
 		if (String::hasMBString()) {
@@ -526,85 +519,9 @@ class String {
 	 * @param $str string input string
 	 * @return string
 	 */
-	function utf8_to_ascii($str) {
+	static function utf8_to_ascii($str) {
 		require_once('./lib/pkp/lib/phputf8/utf8_to_ascii.php');
 		return utf8_to_ascii($str);
-	}
-
-	/**
-	 * Returns the UTF-8 string corresponding to the unicode value
-	 * Does not require any multibyte PHP libraries
-	 * (from php.net, courtesy - romans@void.lv)
-	 * @param $num int
-	 * @return string
-	 */
-	function code2utf ($num) {
-		if ($num < 128) return chr($num);
-		if ($num < 2048) return chr(($num >> 6) + 192) . chr(($num & 63) + 128);
-		if ($num < 65536) return chr(($num >> 12) + 224) . chr((($num >> 6) & 63) + 128) . chr(($num & 63) + 128);
-		if ($num < 2097152) return chr(($num >> 18) + 240) . chr((($num >> 12) & 63) + 128) . chr((($num >> 6) & 63) + 128) . chr(($num & 63) + 128);
-		return '';
-	}
-
-	/**
-	 * Convert UTF-8 encoded characters in a string to escaped HTML entities
-	 * This is a helper function for transcoding into HTML or XML for output
-	 * @param $str string input string
-	 * @return string
-	 */
-	function utf2html ($str) {
-		$ret = "";
-		$max = strlen($str);
-		$last = 0;  // keeps the index of the last regular character
-
-		for ($i=0; $i<$max; $i++) {
-			$c = $str{$i};
-			$c1 = ord($c);
-			if ($c1>>5 == 6) {										// 110x xxxx, 110 prefix for 2 bytes unicode
-				$ret .= substr($str, $last, $i-$last);			// append all the regular characters we've passed
-				$c1 &= 31;													// remove the 3 bit two bytes prefix
-				$c2 = ord($str{++$i});								// the next byte
-				$c2 &= 63;													// remove the 2 bit trailing byte prefix
-				$c2 |= (($c1 & 3) << 6);							// last 2 bits of c1 become first 2 of c2
-				$c1 >>= 2;													// c1 shifts 2 to the right
-				$ret .= "&#" . ($c1 * 0x100 + $c2) . ";";	// this is the fastest string concatenation
-				$last = $i+1;
-			}
-			elseif ($c1>>4 == 14) {								// 1110 xxxx, 110 prefix for 3 bytes unicode
-				$ret .= substr($str, $last, $i-$last);			// append all the regular characters we've passed
-				$c2 = ord($str{++$i});								// the next byte
-				$c3 = ord($str{++$i});								// the third byte
-				$c1 &= 15;												// remove the 4 bit three bytes prefix
-				$c2 &= 63;												// remove the 2 bit trailing byte prefix
-				$c3 &= 63;												// remove the 2 bit trailing byte prefix
-				$c3 |= (($c2 & 3) << 6);							// last 2 bits of c2 become first 2 of c3
-				$c2 >>=2;													//c2 shifts 2 to the right
-				$c2 |= (($c1 & 15) << 4);							// last 4 bits of c1 become first 4 of c2
-				$c1 >>= 4;												// c1 shifts 4 to the right
-				$ret .= '&#' . (($c1 * 0x10000) + ($c2 * 0x100) + $c3) . ';'; // this is the fastest string concatenation
-				$last = $i+1;
-			}
-		}
-		$str=$ret . substr($str, $last, $i); // append the last batch of regular characters
-
-		return $str;
-	}
-
-	/**
-	 * Convert numeric HTML entities in a string to UTF-8 encoded characters
-	 * This is a native alternative to the buggy html_entity_decode() using UTF8
-	 * @param $str string input string
-	 * @return string
-	 */
-	function html2utf($str) {
-		// convert named entities to numeric entities
-		$str = strtr($str, String::getHTMLEntities());
-
-		// use PCRE-aware replace function to replace numeric entities
-		$str = String::regexp_replace('~&#x([0-9a-f]+);~ei', 'String::code2utf(hexdec("\\1"))', $str);
-		$str = String::regexp_replace('~&#([0-9]+);~e', 'String::code2utf(\\1)', $str);
-
-		return $str;
 	}
 
 	/**
@@ -613,7 +530,7 @@ class String {
 	 * From php.net: function.get-html-translation-table.php
 	 * @return string
 	 */
-	function getHTMLEntities () {
+	static function getHTMLEntities () {
 		// define the conversion table
 		$html_entities = array(
 			"&Aacute;" => "&#193;",	"&aacute;" => "&#225;",	"&Acirc;" => "&#194;",
@@ -707,50 +624,11 @@ class String {
 	}
 
 	/**
-	 * Wrapper around fputcsv for systems that may or may not support it
-	 * (i.e. PHP before 5.1.0); see PHP documentation for fputcsv.
-	 */
-	function fputcsv(&$handle, $fields = array(), $delimiter = ',', $enclosure = '"') {
-		// From PHP website, thanks to boefje at hotmail dot com
-		if (function_exists('fputcsv')) {
-			return fputcsv($handle, $fields, $delimiter, $enclosure);
-		}
-		$str = '';
-		$escape_char = '\\';
-		foreach ($fields as $value) {
-			if (	strpos($value, $delimiter) !== false ||
-				strpos($value, $enclosure) !== false ||
-				strpos($value, "\n") !== false ||
-				strpos($value, "\r") !== false ||
-				strpos($value, "\t") !== false ||
-				strpos($value, ' ') !== false
-			) {
-				$str2 = $enclosure;
-				$escaped = 0;
-				$len = strlen($value);
-				for ($i=0; $i<$len; $i++) {
-					if ($value[$i] == $escape_char) $escaped = 1;
-					elseif (!$escaped && $value[$i] == $enclosure) $str2 .= $enclosure;
-					else $escaped = 0;
-					$str2 .= $value[$i];
-				}
-				$str2 .= $enclosure;
-				$str .= $str2 . $delimiter;
-			} else {
-				$str .= $value . $delimiter;
-			}
-		}
-		$str = substr($str, 0, -1);
-		$str .= "\n";
-		return fwrite($handle, $str);
-	}
-
-	/**
 	 * Trim punctuation from a string
 	 * @param $string string input string
 	 * @return string the trimmed string
 	 */
-	function trimPunctuation($string) {
+	static function trimPunctuation($string) {
 		return trim($string, ' ,.;:!?&()[]\\/');
 	}
 
@@ -759,7 +637,7 @@ class String {
 	 * @param $title string
 	 * @return string
 	 */
-	function titleCase($title) {
+	static function titleCase($title) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
 		$smallWords = explode(' ', __('common.titleSmallWords'));
 
@@ -782,7 +660,7 @@ class String {
 	 * @param array $fields
 	 * @return string the joined string
 	 */
-	function concatTitleFields($fields) {
+	static function concatTitleFields($fields) {
 		// Set the characters that will avoid the use of
 		// a semicolon between title and subtitle.
 		$avoidColonChars = array('?', '!', '/', '&');
@@ -808,7 +686,7 @@ class String {
 	 * @param $input string
 	 * @return array
 	 */
-	function iterativeExplode($delimiters, $input) {
+	static function iterativeExplode($delimiters, $input) {
 		// Run through the delimiters and try them out
 		// one by one.
 		foreach($delimiters as $delimiter) {
@@ -831,7 +709,7 @@ class String {
 	 * @param $type which kind of camel case?
 	 * @return string the string in camel case
 	 */
-	function camelize($string, $type = CAMEL_CASE_HEAD_UP) {
+	static function camelize($string, $type = CAMEL_CASE_HEAD_UP) {
 		assert($type == CAMEL_CASE_HEAD_UP || $type == CAMEL_CASE_HEAD_DOWN);
 
 		// Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
@@ -839,7 +717,7 @@ class String {
 
 		// Transform "MyOp" to "myOp"
 		if ($type == CAMEL_CASE_HEAD_DOWN) {
-			// lcfirst() is PHP>5.3, so use workaround for PHP4 compatibility
+			// lcfirst() is PHP>5.3, so use workaround
 			$string = strtolower(substr($string, 0, 1)).substr($string, 1);
 		}
 
@@ -851,7 +729,7 @@ class String {
 	 * and "myOp" to "my-op".
 	 * @param $string
 	 */
-	function uncamelize($string) {
+	static function uncamelize($string) {
 		assert(!empty($string));
 
 		// Transform "myOp" to "MyOp"
@@ -888,7 +766,7 @@ class String {
 	 * @param $string2 string
 	 * @return array
 	 */
-	function diff($originalString, $editedString) {
+	static function diff($originalString, $editedString) {
 		// Split strings into character arrays (multi-byte compatible).
 		foreach(array('originalStringCharacters' => $originalString, 'editedStringCharacters' => $editedString) as $characterArrayName => $string) {
 			${$characterArrayName} = array();
@@ -1016,7 +894,7 @@ class String {
 	 * Get a letter $steps places after 'A'
 	 * @param $steps int
 	 */
-	function enumerateAlphabetically($steps) {
+	static function enumerateAlphabetically($steps) {
 		return chr(ord('A') + $steps);
 	}
 }

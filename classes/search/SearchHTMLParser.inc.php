@@ -23,7 +23,7 @@ class SearchHTMLParser extends SearchFileParser {
 		$line = fgetss($this->fp, 4096);
 
 		// convert HTML entities to valid UTF-8 characters
-		$line = String::html2utf($line);
+		$line = html_entity_decode($line, ENT_COMPAT, 'UTF-8');
 
 		// slightly (~10%) faster than above, but not quite as accurate, and requires html_entity_decode()
 //		$line = html_entity_decode($line, ENT_COMPAT, strtoupper(Config::getVar('i18n', 'client_charset')));

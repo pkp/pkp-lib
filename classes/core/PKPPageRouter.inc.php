@@ -179,7 +179,7 @@ class PKPPageRouter extends PKPRouter {
 				}
 				$id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . AppLocale::getLocale();
 			}
-			$path = dirname(INDEX_FILE_LOCATION);
+			$path = Core::getBaseDir();
 			$this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
 		}
 		return $this->_cacheFilename;

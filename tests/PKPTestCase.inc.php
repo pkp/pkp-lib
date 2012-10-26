@@ -60,7 +60,7 @@ abstract class PKPTestCase extends PHPUnit_Extensions_OutputTestCase {
 			global $ADODB_INCLUDED_LIB;
 			$ADODB_INCLUDED_LIB = 1;
 		}
-		Config::setConfigFileName(dirname(INDEX_FILE_LOCATION). DIRECTORY_SEPARATOR. 'config.inc.php');
+		Config::setConfigFileName(Core::getBaseDir(). DIRECTORY_SEPARATOR. 'config.inc.php');
 
 		// Backup DAOs.
 		foreach($this->getMockedDAOs() as $mockedDao) {

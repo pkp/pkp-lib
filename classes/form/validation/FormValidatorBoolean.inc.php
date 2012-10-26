@@ -40,11 +40,15 @@ class FormValidatorBoolean extends FormValidator {
 	 */
 	function isValid() {
 		$value = $this->getFieldValue();
+		$form =& $this->getForm();
 		if (empty($value) || $value == 'on') {
 			// Make sure that the form will contain a real
 			// boolean value after validation.
-			$form =& $this->getForm();
 			$value = ($value == 'on' ? true : false);
+			$form->setData($this->getField(), $value);
+			return true;
+		} elseif($value === '1' || $value === '0') {
+			$value = ($value === '1' ? true : false);
 			$form->setData($this->getField(), $value);
 			return true;
 		} else {

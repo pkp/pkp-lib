@@ -319,7 +319,7 @@ class PKPPlugin {
 	 * @return string
 	 */
 	function getTemplatePath() {
-		$basePath = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
+		$basePath = Core::getBaseDir();
 		return "file:$basePath/" . $this->getPluginPath() . '/';
 	}
 

@@ -132,7 +132,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 			'PATH_INFO' => '/context1/context2/index'
 		);
 		$expectedId = '/context1/context2/index-en_US';
-		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
+		self::assertEquals(Core::getBaseDir().'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
 	}
 
 	/**
@@ -146,7 +146,7 @@ class PKPPageRouterTest extends PKPRouterTestCase {
 			'page' => 'index'
 		);
 		$expectedId = 'something-something-index---en_US';
-		self::assertEquals(dirname(INDEX_FILE_LOCATION).'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
+		self::assertEquals(Core::getBaseDir().'/cache/wc-'.md5($expectedId).'.html', $this->router->getCacheFilename($this->request));
 	}
 
 	/**

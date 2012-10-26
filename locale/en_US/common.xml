@@ -166,6 +166,8 @@
 	<message key="common.plugin">Plugin</message>
 	<message key="common.pluginEnabled">The plugin "{$pluginName}" has been enabled.</message>
 	<message key="common.pluginDisabled">The plugin "{$pluginName}" has been disabled.</message>
+	<message key="common.prefix">Prefix</message>
+	<message key="common.prefixAndTitle.tip">If book title begins "A'" or "The" (or something similar re alphabetical order) place word in Prefix.</message>
 	<message key="common.preview">Preview</message>
 	<message key="common.publisher">Publisher</message>
 	<message key="common.re">Re:</message>
@@ -196,6 +198,7 @@
 	<message key="common.status">Status</message>
 	<message key="common.startTyping">Start Typing</message>
 	<message key="common.subject">Subject</message>
+	<message key="common.subtitle">Subtitle</message>
 	<message key="common.suggest">Suggest</message>
 	<message key="common.title">Title</message>
 	<message key="common.top">Top</message>

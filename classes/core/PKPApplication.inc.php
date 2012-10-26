@@ -311,7 +311,6 @@ class PKPApplication {
 		return array(
 			'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
 			'AuthSourceDAO' => 'lib.pkp.classes.security.AuthSourceDAO',
-			'CaptchaDAO' => 'lib.pkp.classes.captcha.CaptchaDAO',
 			'CitationDAO' => 'lib.pkp.classes.citation.CitationDAO',
 			'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
 			'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',

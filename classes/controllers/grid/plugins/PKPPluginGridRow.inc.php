@@ -54,9 +54,10 @@ class PKPPluginGridRow extends GridRow {
 		if (!is_null($rowId)) {
 			$router =& $request->getRouter(); /* @var $router PKPRouter */
 
-			$actionArgs = array_merge(array(
-					'plugin' => $plugin->getName()),
-				$this->getRequestArgs());
+			$actionArgs = array_merge(
+				array('plugin' => $plugin->getName()),
+				$this->getRequestArgs()
+			);
 
 			if ($this->_canEdit($plugin)) {
 

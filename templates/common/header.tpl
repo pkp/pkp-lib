@@ -1,5 +1,5 @@
 {**
- * header.tpl
+ * templates/common/header.tpl
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -58,6 +58,10 @@
 			jqueryValidatorI18n("{/literal}{$baseUrl}{literal}", "{/literal}{$currentLocale}{literal}");
 		});
 	{/literal}</script>
+
+	<!-- Plupload -->
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}

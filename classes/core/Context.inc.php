@@ -212,6 +212,14 @@ class Context extends DataObject {
 
 		return $supportedLocales;
 	}
+
+	/**
+	 * Get the association type for this context.
+	 * @return int
+	 */
+	function getAssocType() {
+		assert(false); // Must be overridden by subclasses
+	}
 }
 
 ?>

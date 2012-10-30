@@ -132,7 +132,7 @@ class PreparedEmailForm extends Form {
 			$emailTemplate->setEmailKey($this->getEmailKey());
 		}
 
-		$emailTemplate->setAssocType(ASSOC_TYPE_PRESS);
+		$emailTemplate->setAssocType($context->getAssocType());
 		$emailTemplate->setAssocId($context->getId());
 
 		$supportedLocales = $context->getSupportedLocaleNames();

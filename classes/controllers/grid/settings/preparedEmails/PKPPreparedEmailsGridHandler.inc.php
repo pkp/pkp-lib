@@ -24,11 +24,6 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 */
 	function PKPPreparedEmailsGridHandler() {
 		parent::GridHandler();
-		$this->addRoleAssignment(
-			array(ROLE_ID_PRESS_MANAGER),
-			array('fetchRow', 'fetchGrid', 'addPreparedEmail', 'editPreparedEmail', 'updatePreparedEmail',
-				'resetEmail', 'resetAllEmails', 'disableEmail', 'enableEmail', 'deleteCustomEmail')
-		);
 	}
 
 	/*

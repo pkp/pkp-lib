@@ -33,6 +33,7 @@ define('ASSOC_TYPE_EDITOR', 0x0100005);
 define('ASSOC_TYPE_SIGNOFF', 0x0100006);
 define('ASSOC_TYPE_USER_ROLES', 0x0100007);
 define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES', 0x0100008);
+define('ASSOC_TYPE_SUBMISSION', 0x0100009);
 define('ASSOC_TYPE_PLUGIN', 0x0000211);
 
 class PKPApplication {
@@ -340,6 +341,16 @@ class PKPApplication {
 			'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
 			'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
 			'SubjectDAO' => 'lib.pkp.classes.codelist.SubjectDAO',
+			'SubmissionAgencyDAO' => 'lib.pkp.classes.submission.SubmissionAgencyDAO',
+			'SubmissionAgencyEntryDAO' => 'lib.pkp.classes.submission.SubmissionAgencyEntryDAO',
+			'SubmissionDisciplineDAO' => 'lib.pkp.classes.submission.SubmissionDisciplineDAO',
+			'SubmissionDisciplineEntryDAO' => 'lib.pkp.classes.submission.SubmissionDisciplineEntryDAO',
+			'SubmissionLanguageDAO' => 'lib.pkp.classes.submission.SubmissionLanguageDAO',
+			'SubmissionLanguageEntryDAO' => 'lib.pkp.classes.submission.SubmissionLanguageEntryDAO',
+			'SubmissionKeywordDAO' => 'lib.pkp.classes.submission.SubmissionKeywordDAO',
+			'SubmissionKeywordEntryDAO' => 'lib.pkp.classes.submission.SubmissionKeywordEntryDAO',
+			'SubmissionSubjectDAO' => 'lib.pkp.classes.submission.SubmissionSubjectDAO',
+			'SubmissionSubjectEntryDAO' => 'lib.pkp.classes.submission.SubmissionSubjectEntryDAO',
 			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',

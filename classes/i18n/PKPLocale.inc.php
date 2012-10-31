@@ -59,7 +59,7 @@ class PKPLocale {
 	 * locales (in an array for each locale), or for a specific locale.
 	 * @param $locale string Locale identifier (optional)
 	 */
-	function &getLocaleFiles($locale = null) {
+	static function &getLocaleFiles($locale = null) {
 		$localeFiles =& Registry::get('localeFiles', true, array());
 		if ($locale !== null) {
 			if (!isset($localeFiles[$locale])) $localeFiles[$locale] = array();
@@ -77,7 +77,7 @@ class PKPLocale {
 	 * @param $locale string the locale to use
 	 * @return string
 	 */
-	function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null) {
 		if (!isset($locale)) $locale = AppLocale::getLocale();
 		if (($key = trim($key)) == '') return '';
 
@@ -99,7 +99,7 @@ class PKPLocale {
 	/**
 	 * Initialize the locale system.
 	 */
-	function initialize() {
+	static function initialize() {
 		// Use defaults if locale info unspecified.
 		$locale = AppLocale::getLocale();
 
@@ -120,7 +120,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return array
 	 */
-	function makeComponentMap($locale) {
+	static function makeComponentMap($locale) {
 		$baseDir = "lib/pkp/locale/$locale/";
 
 		return array(
@@ -140,7 +140,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return array
 	 */
-	function getFilenameComponentMap($locale) {
+	static function getFilenameComponentMap($locale) {
 		$filenameComponentMap =& Registry::get('localeFilenameComponentMap', true, array());
 		if (!isset($filenameComponentMap[$locale])) {
 			$filenameComponentMap[$locale] = AppLocale::makeComponentMap($locale);
@@ -153,7 +153,7 @@ class PKPLocale {
 	 * be supplied, each a LOCALE_COMPONENT_... constant. An optional final
 	 * parameter may be supplied to specify the locale (e.g. 'en_US').
 	 */
-	function requireComponents() {
+	static function requireComponents() {
 		$params = func_get_args();
 		$paramCount = count($params);
 		if ($paramCount === 0) return;
@@ -201,7 +201,7 @@ class PKPLocale {
 	 * @param $addToTop boolean Whether to add to the top of the list (true)
 	 * 	or the bottom (false). Allows overriding.
 	 */
-	function &registerLocaleFile ($locale, $filename, $addToTop = false) {
+	static function &registerLocaleFile ($locale, $filename, $addToTop = false) {
 		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$localeFile = new LocaleFile($locale, $filename);
 		if (!$localeFile->isValid()) {
@@ -226,7 +226,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return string or null if none configured.
 	 */
-	function getLocaleStyleSheet($locale) {
+	static function getLocaleStyleSheet($locale) {
 		$contents =& AppLocale::_getAllLocalesCacheContent();
 		if (isset($contents[$locale]['stylesheet'])) {
 			return $contents[$locale]['stylesheet'];
@@ -239,7 +239,7 @@ class PKPLocale {
 	 * @param $locale xx_XX symbolic name of locale to check
 	 * @return boolean
 	 */
-	function isLocaleComplete($locale) {
+	static function isLocaleComplete($locale) {
 		$contents =& AppLocale::_getAllLocalesCacheContent();
 		if (!isset($contents[$locale])) return false;
 		if (isset($contents[$locale]['complete']) && $contents[$locale]['complete'] == 'false') {
@@ -253,7 +253,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return boolean
 	 */
-	function isLocaleValid($locale) {
+	static function isLocaleValid($locale) {
 		if (empty($locale)) return false;
 		if (!preg_match('/^[a-z][a-z]_[A-Z][A-Z]$/', $locale)) return false;
 		if (file_exists('locale/' . $locale)) return true;
@@ -265,7 +265,7 @@ class PKPLocale {
 	 * @param $filename string
 	 * @return array
 	 */
-	function &loadLocaleList($filename) {
+	static function &loadLocaleList($filename) {
 		$xmlDao = new XMLDAO();
 		$data = $xmlDao->parseStruct($filename, array('locale'));
 		$allLocales = array();
@@ -284,7 +284,7 @@ class PKPLocale {
 	 * Return a list of all available locales.
 	 * @return array
 	 */
-	function &getAllLocales() {
+	static function &getAllLocales() {
 		$rawContents =& AppLocale::_getAllLocalesCacheContent();
 		$allLocales = array();
 
@@ -304,7 +304,7 @@ class PKPLocale {
 	 * Install support for a new locale.
 	 * @param $locale string
 	 */
-	function installLocale($locale) {
+	static function installLocale($locale) {
 		// Install default locale-specific data
 		import('lib.pkp.classes.db.DBDataXMLParser');
 
@@ -323,7 +323,7 @@ class PKPLocale {
 	 * Uninstall support for an existing locale.
 	 * @param $locale string
 	 */
-	function uninstallLocale($locale) {
+	static function uninstallLocale($locale) {
 		// Delete locale-specific data
 		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO');
 		$emailTemplateDao->deleteEmailTemplatesByLocale($locale);
@@ -334,7 +334,7 @@ class PKPLocale {
 	 * Reload locale-specific data.
 	 * @param $locale string
 	 */
-	function reloadLocale($locale) {
+	static function reloadLocale($locale) {
 		AppLocale::uninstallLocale($locale);
 		AppLocale::installLocale($locale);
 	}
@@ -345,7 +345,7 @@ class PKPLocale {
 	 * @param $source string
 	 * @return array
 	 */
-	function getParameterNames($source) {
+	static function getParameterNames($source) {
 		$matches = null;
 		String::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
 		array_shift($matches); // Knock the top element off the array
@@ -360,7 +360,7 @@ class PKPLocale {
 	 * @return string the translated string or null if we
 	 *  don't know about the given language.
 	 */
-	function get3LetterFrom2LetterIsoLanguage($iso2Letter) {
+	static function get3LetterFrom2LetterIsoLanguage($iso2Letter) {
 		assert(strlen($iso2Letter) == 2);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
@@ -379,7 +379,7 @@ class PKPLocale {
 	 * @return string the translated string or null if we
 	 *  don't know about the given language.
 	 */
-	function get2LetterFrom3LetterIsoLanguage($iso3Letter) {
+	static function get2LetterFrom3LetterIsoLanguage($iso3Letter) {
 		assert(strlen($iso3Letter) == 3);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
@@ -397,7 +397,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return string
 	 */
-	function get3LetterIsoFromLocale($locale) {
+	static function get3LetterIsoFromLocale($locale) {
 		assert(strlen($locale) == 5);
 		$iso2Letter = substr($locale, 0, 2);
 		return AppLocale::get3LetterFrom2LetterIsoLanguage($iso2Letter);
@@ -417,7 +417,7 @@ class PKPLocale {
 	 * @param $iso3letter string
 	 * @return string
 	 */
-	function getLocaleFrom3LetterIso($iso3Letter) {
+	static function getLocaleFrom3LetterIso($iso3Letter) {
 		assert(strlen($iso3Letter) == 3);
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
@@ -460,7 +460,7 @@ class PKPLocale {
 	 * @return string the translated string or null if we
 	 * don't know about the given language.
 	 */
-	function getIso3FromIso1($iso1) {
+	static function getIso3FromIso1($iso1) {
 		assert(strlen($iso1) == 2);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
@@ -478,7 +478,7 @@ class PKPLocale {
 	 * @return string the translated string or null if we
 	 * don't know about the given language.
 	 */
-	function getIso1FromIso3($iso3) {
+	static function getIso1FromIso3($iso3) {
 		assert(strlen($iso3) == 3);
 		$locales =& AppLocale::_getAllLocalesCacheContent();
 		foreach($locales as $locale => $localeData) {
@@ -496,7 +496,7 @@ class PKPLocale {
 	 * @param $locale string
 	 * @return string
 	 */
-	function getIso3FromLocale($locale) {
+	static function getIso3FromLocale($locale) {
 		assert(strlen($locale) == 5);
 		$iso1 = substr($locale, 0, 2);
 		return AppLocale::getIso3FromIso1($iso1);
@@ -508,7 +508,7 @@ class PKPLocale {
 	* @param $locale string
 	* @return string
 	*/
-	function getIso1FromLocale($locale) {
+	static function getIso1FromLocale($locale) {
 		assert(strlen($locale) == 5);
 		return substr($locale, 0, 2);
 	}
@@ -527,7 +527,7 @@ class PKPLocale {
 	 * @param $iso3 string
 	 * @return string
 	 */
-	function getLocaleFromIso3($iso3) {
+	static function getLocaleFromIso3($iso3) {
 		assert(strlen($iso3) == 3);
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
@@ -571,7 +571,7 @@ class PKPLocale {
 	 * Retrieves locale data from the locales cache.
 	 * @return array
 	 */
-	function &_getAllLocalesCacheContent() {
+	static function &_getAllLocalesCacheContent() {
 		static $contents = false;
 		if ($contents === false) {
 			$allLocalesCache =& AppLocale::_getAllLocalesCache();
@@ -584,7 +584,7 @@ class PKPLocale {
 	 * Get the cache object for the current list of all locales.
 	 * @return FileCache
 	 */
-	function &_getAllLocalesCache() {
+	static function &_getAllLocalesCache() {
 		$cache =& Registry::get('allLocalesCache', true, null);
 		if ($cache === null) {
 			$cacheManager =& CacheManager::getManager();
@@ -607,7 +607,7 @@ class PKPLocale {
 	 * @param $cache CacheManager
 	 * @param $id the cache id (not used here, required by the cache manager)
 	 */
-	function _allLocalesCacheMiss(&$cache, $id) {
+	static function _allLocalesCacheMiss(&$cache, $id) {
 		$allLocales =& Registry::get('allLocales', true, null);
 		if ($allLocales === null) {
 			// Add a locale load to the debug notes.

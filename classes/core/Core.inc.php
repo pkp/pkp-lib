@@ -22,7 +22,7 @@ class Core {
 	 * Get the path to the base installation directory.
 	 * @return string
 	 */
-	function getBaseDir() {
+	static function getBaseDir() {
 		static $baseDir;
 
 		if (!isset($baseDir)) {
@@ -39,7 +39,7 @@ class Core {
 	 * @param $var string
 	 * @return string
 	 */
-	function cleanVar($var) {
+	static function cleanVar($var) {
 		// only normalize strings that are not UTF-8 already, and when the system is using UTF-8
 		if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !String::utf8_is_valid($var) ) {
 
@@ -71,7 +71,7 @@ class Core {
 	 * @param $var string
 	 * @return string
 	 */
-	function cleanFileVar($var) {
+	static function cleanFileVar($var) {
 		return String::regexp_replace('/[^\w\-]/', '', $var);
 	}
 
@@ -80,7 +80,7 @@ class Core {
 	 * @param $ts int optional, use specified timestamp instead of current time
 	 * @return string
 	 */
-	function getCurrentDate($ts = null) {
+	static function getCurrentDate($ts = null) {
 		return date('Y-m-d H:i:s', isset($ts) ? $ts : time());
 	}
 
@@ -88,7 +88,7 @@ class Core {
 	 * Return *nix timestamp with microseconds (in units of seconds).
 	 * @return float
 	 */
-	function microtime() {
+	static function microtime() {
 		list($usec, $sec) = explode(' ', microtime());
 		return (float)$sec + (float)$usec;
 	}
@@ -97,7 +97,7 @@ class Core {
 	 * Get the operating system of the server.
 	 * @return string
 	 */
-	function serverPHPOS() {
+	static function serverPHPOS() {
 		return PHP_OS;
 	}
 
@@ -105,7 +105,7 @@ class Core {
 	 * Get the version of PHP running on the server.
 	 * @return string
 	 */
-	function serverPHPVersion() {
+	static function serverPHPVersion() {
 		return phpversion();
 	}
 
@@ -113,7 +113,7 @@ class Core {
 	 * Check if the server platform is Windows.
 	 * @return boolean
 	 */
-	function isWindows() {
+	static function isWindows() {
 		return strtolower_codesafe(substr(Core::serverPHPOS(), 0, 3)) == 'win';
 	}
 
@@ -122,7 +122,7 @@ class Core {
 	 * @param $moduleName string
 	 * @return boolean
 	 */
-	function checkGeneralPHPModule($moduleName) {
+	static function checkGeneralPHPModule($moduleName) {
 		if (extension_loaded($moduleName)) {
 			return true;
 		}

@@ -372,7 +372,7 @@ class PKPTemplateManager extends Smarty {
 	 * @param $request PKPRequest FIXME: is optional for backwards compatibility only - make mandatory
 	 * @return TemplateManager the template manager object
 	 */
-	function &getManager($request = null) {
+	static function &getManager($request = null) {
 		$instance =& Registry::get('templateManager', true, null);
 
 		if ($instance === null) {

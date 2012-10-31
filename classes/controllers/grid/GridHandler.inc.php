@@ -532,7 +532,7 @@ class GridHandler extends PKPHandler {
 		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
 
 		// Assign features.
-		$templateMgr->assign_by_ref('features', $this->getFeatures());
+		$templateMgr->assign('features', $this->getFeatures());
 
 		// Let the view render the grid.
 		$json = new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
@@ -991,7 +991,7 @@ class GridHandler extends PKPHandler {
 			// Remove reference to the row variable.
 			unset($cellProvider);
 			// Get cell provider from column.
-			$cellProvider =& $column->getCellProvider();
+			$cellProvider = $column->getCellProvider();
 		}
 
 		return $cellProvider->render($request, $row, $column);

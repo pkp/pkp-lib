@@ -99,7 +99,7 @@ class SessionManager {
 	 * Return an instance of the session manager.
 	 * @return SessionManager
 	 */
-	function &getManager() {
+	static function &getManager() {
 		$instance =& Registry::get('sessionManager', true, null);
 
 		if (is_null($instance)) {

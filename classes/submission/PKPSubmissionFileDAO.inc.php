@@ -928,7 +928,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$nullVar = null;
 			return $nullVar;
 		} else {
-			$revision =& array_pop($revisions);
+			$revision = array_pop($revisions);
 			assert(is_a($revision, 'SubmissionFile'));
 			return $revision;
 		}

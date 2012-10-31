@@ -185,11 +185,12 @@ class PKPPlugin {
 	 *  it will be displayed as a notification if (and only if) the method returns
 	 *  false.
 	 * @param $messageParams array additional notification settings
-	 * @param $request Request
+	 * @param $pluginModalContent array Reference to string that will receive new
+	 *  content for the plugin modal
 	 * @return boolean will redirect to the plugin category page if false, otherwise
 	 *  will remain on the same page
 	 */
-	function manage($verb, $args, &$message, &$messageParams, $request = null) {
+	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
 		return false;
 	}
 

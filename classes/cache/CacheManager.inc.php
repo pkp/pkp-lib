@@ -111,7 +111,7 @@ class CacheManager {
 	 * Get the path in which file caches will be stored.
 	 * @return string The full path to the file cache directory
 	 */
-	function getFileCachePath() {
+	static function getFileCachePath() {
 		return Core::getBaseDir() . DIRECTORY_SEPARATOR . 'cache';
 	}
 

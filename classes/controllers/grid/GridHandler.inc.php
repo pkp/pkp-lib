@@ -829,7 +829,7 @@ class GridHandler extends PKPHandler {
 	 */
 	function setFirstDataColumn() {
 		$columns =& $this->getColumns();
-		$firstColumn =& reset($columns);
+		$firstColumn = reset($columns);
 		$firstColumn->addFlag('firstColumn', true);
 	}
 

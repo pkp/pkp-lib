@@ -86,7 +86,7 @@ class GridCellProvider {
 	 * @return array an array of LinkAction instances
 	 */
 	function &getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
-		$actions =& $column->getCellActions($request, $row, $position);
+		$actions = $column->getCellActions($request, $row, $position);
 		return $actions;
 	}
 }

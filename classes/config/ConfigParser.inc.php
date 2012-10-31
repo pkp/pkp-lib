@@ -30,7 +30,7 @@ class ConfigParser {
 	 * @param $file string full path to the config file
 	 * @return array the configuration data (same format as http://php.net/parse_ini_file)
 	 */
-	function &readConfig($file) {
+	static function &readConfig($file) {
 		$configData = array();
 		$currentSection = false;
 		$falseValue = false;

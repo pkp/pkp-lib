@@ -528,7 +528,7 @@ class PKPApplication {
 	 * @param $name string
 	 * @param $value mixed
 	 */
-	function defineExposedConstant($name, $value) {
+	static function defineExposedConstant($name, $value) {
 		define($name, $value);
 		assert(preg_match('/^[a-zA-Z_]+$/', $name));
 		$constants =& PKPApplication::getExposedConstants();
@@ -540,7 +540,7 @@ class PKPApplication {
 	 * to the JS front-end.
 	 * @return array
 	 */
-	function &getExposedConstants() {
+	static function &getExposedConstants() {
 		static $exposedConstants = array();
 		return $exposedConstants;
 	}
@@ -560,11 +560,7 @@ class PKPApplication {
  * @see PKPApplication::defineExposed
  */
 function define_exposed($name, $value) {
-	$errorReportingLevel = E_ALL;
-	if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
-	@error_reporting($errorReportingLevel);
 	PKPApplication::defineExposedConstant($name, $value);
-	@error_reporting(E_ALL);
 }
 
 ?>

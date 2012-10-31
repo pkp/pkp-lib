@@ -38,10 +38,8 @@ class PKPSubmissionHandler extends Handler {
 
 		$onixCodelistItemDao =& DAORegistry::getDAO('ONIXCodelistItemDAO');
 		$codes =& $onixCodelistItemDao->getCodes('List' . $codeList, array(), $term); // $term is escaped in the getCodes method.
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
 		header('Content-Type: text/json');
-		echo $jsonManager->encode(array_values($codes));
+		echo json_encode(array_values($codes));
 	}
 
 	//

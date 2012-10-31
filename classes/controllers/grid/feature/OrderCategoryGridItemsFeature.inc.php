@@ -90,9 +90,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature{
 		$request =& $args['request'];
 		$grid =& $args['grid'];
 
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
-		$data = $jsonManager->decode($request->getUserVar('data'));
+		$data = json_decode($request->getUserVar('data'));
 		$gridCategoryElements = $grid->getGridDataElements($request);
 
 		if ($this->getType() != ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY) {

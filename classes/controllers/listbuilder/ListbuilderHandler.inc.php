@@ -233,9 +233,7 @@ class ListbuilderHandler extends GridHandler {
 			$updateCallback = array(&$this, 'updateEntry');
 		}
 
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
-		$data = $jsonManager->decode($data);
+		$data = json_decode($data);
 
 		// Handle deletions
 		if (isset($data->deletions)) {

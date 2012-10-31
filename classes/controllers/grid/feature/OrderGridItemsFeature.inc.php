@@ -50,9 +50,7 @@ class OrderGridItemsFeature extends OrderItemsFeature{
 		$request =& $args['request'];
 		$grid =& $args['grid'];
 
-		import('lib.pkp.classes.core.JSONManager');
-		$jsonManager = new JSONManager();
-		$data = $jsonManager->decode($request->getUserVar('data'));
+		$data = json_decode($request->getUserVar('data'));
 
 		$gridElements = $grid->getGridDataElements($request);
 		$firstSeqValue = $grid->getDataElementSequence(reset($gridElements));

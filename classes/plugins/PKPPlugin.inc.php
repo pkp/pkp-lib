@@ -173,7 +173,7 @@ class PKPPlugin {
 	 * @return array
 	 */
 	function getManagementVerbs() {
-		return null;
+		return array();
 	}
 
 	/**

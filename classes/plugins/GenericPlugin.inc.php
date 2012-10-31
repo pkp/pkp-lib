@@ -37,11 +37,11 @@ class GenericPlugin extends LazyLoadPlugin {
 	 *
 	 * @see PKPPlugin::getManagementVerbs()
 	 */
-	function getManagementVerbs($verbs = array()) {
-		assert(is_array($verbs));
-
+	function getManagementVerbs() {
 		// Site plug-ins can only be administered by site admins
 		if ($this->isSitePlugin() && !Validation::isSiteAdmin()) return array();
+
+		$verbs = parent::getManagementVerbs();
 
 		if ($this->getEnabled()) {
 			$verbs[] = array('disable', __('common.disable'));

@@ -134,7 +134,7 @@ class PKPApplication {
 	 * Get the current application object
 	 * @return Application
 	 */
-	function &getApplication() {
+	static function &getApplication() {
 		$application =& Registry::get('application');
 		return $application;
 	}
@@ -143,7 +143,7 @@ class PKPApplication {
 	 * Get the request implementation singleton
 	 * @return Request
 	 */
-	function &getRequest() {
+	static function &getRequest() {
 		$request =& Registry::get('request', true, null);
 
 		if (is_null($request)) {
@@ -160,7 +160,7 @@ class PKPApplication {
 	 * Get the dispatcher implementation singleton
 	 * @return Dispatcher
 	 */
-	function &getDispatcher() {
+	static function &getDispatcher() {
 		$dispatcher =& Registry::get('dispatcher', true, null);
 
 		if (is_null($dispatcher)) {
@@ -214,7 +214,7 @@ class PKPApplication {
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
-	function getContextDepth() {
+	static function getContextDepth() {
 		// must be implemented by sub-classes
 		assert(false);
 	}
@@ -225,7 +225,7 @@ class PKPApplication {
 	 * (e.g. array('journal') or array('conference', 'schedConf'))
 	 * @return Array
 	 */
-	function getContextList() {
+	static function getContextList() {
 		// must be implemented by sub-classes
 		assert(false);
 	}

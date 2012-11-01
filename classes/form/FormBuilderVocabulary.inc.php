@@ -135,7 +135,7 @@ class FormBuilderVocabulary {
 	 * @param $repeat
 	 */
 	function smartyFBVFormSection($params, $content, &$smarty, &$repeat) {
-		$form =& $this->getForm();
+		$form = $this->getForm();
 		if (!$repeat) {
 			$smarty->assign('FBV_required', isset($params['required']) ? $params['required'] : false);
 			$smarty->assign('FBV_id', isset($params['id']) ? $params['id'] : null);
@@ -306,7 +306,7 @@ class FormBuilderVocabulary {
 		$group = false;
 
 		if ($parent) {
-			$form =& $this->getForm();
+			$form = $this->getForm();
 			if (isset($form) && isset($form->errorFields[$params['id']])) {
 				array_push($form->formSectionErrors, $form->errorsArray[$params['id']]);
 			}
@@ -812,7 +812,7 @@ class FormBuilderVocabulary {
 			$smarty->trigger_error('FBV: label for SubLabel not specified.');
 		}
 
-		$form =& $this->getForm();
+		$form = $this->getForm();
 		if (isset($form) && isset($form->errorFields[$params['name']])) {
 			$smarty->assign('FBV_error', true);
 		} else {
@@ -842,7 +842,7 @@ class FormBuilderVocabulary {
 	 * return array
 	 */
 	function _addClientSideValidation($params) {
-		$form =& $this->getForm();
+		$form = $this->getForm();
 		if (isset($form)) {
 			// Assign the appropriate class name to the element for client-side validation
 			$fieldId = $params['id'];
@@ -891,7 +891,7 @@ class FormBuilderVocabulary {
 				$params['label'] = __($params['key'], $params);
 			}
 
-			$form =& $this->getForm();
+			$form = $this->getForm();
 			if (isset($form) && isset($form->errorFields[$params['name']])) {
 				$smarty->assign('FBV_class', 'error ' . $params['class']);
 			} else {

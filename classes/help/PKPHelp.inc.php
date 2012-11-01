@@ -25,7 +25,7 @@ class PKPHelp {
 	/**
 	 * Get an instance of the Help object.
 	 */
-	function &getHelp() {
+	static function &getHelp() {
 		$instance =& Registry::get('help');
 		if ($instance == null) {
 			unset($instance);

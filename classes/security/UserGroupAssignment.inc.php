@@ -46,8 +46,7 @@ class UserGroupAssignment extends DataObject {
 	function setUserGroupId($userGroupId) {
 		$this->setData('userGroupId', $userGroupId);
 		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
-		$userGroup =& $userGroupDao->getById($userGroupId);
-		$this->userGroup =& $userGroup;
+		$this->userGroup = $userGroupDao->getById($userGroupId);
 		return ($this->userGroup)?true:false;
 	}
 

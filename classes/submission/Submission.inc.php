@@ -241,6 +241,26 @@ class Submission extends DataObject {
 	}
 
 	/**
+	 * Get the submission full title (with prefix, title
+	 * and subtitle).
+	 * @return string
+	 */
+	function getLocalizedFullTitle() {
+		$fullTitle = null;
+		if ($prefix = $this->getLocalizedPrefix()) {
+			$fullTitle = $prefix . ' ';
+		}
+
+		$fullTitle .= $this->getLocalizedTitle();
+
+		if ($subtitle = $this->getLocalizedSubtitle()) {
+			$fullTitle = String::concatTitleFields(array($fullTitle, $subtitle));
+		}
+
+		return $fullTitle;
+	}
+
+	/**
 	 * Get "localized" submission prefix (if applicable).
 	 * @return string
 	 */

@@ -149,7 +149,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('help_topic', array(&$this, 'smartyHelpTopic'));
 		$this->register_function('sort_heading', array(&$this, 'smartySortHeading'));
 		$this->register_function('sort_search', array(&$this, 'smartySortSearch'));
-		$this->register_function('get_debug_info', array(&$this, 'smartyGetDebugInfo'));
 		$this->register_function('assign_mailto', array(&$this, 'smartyAssignMailto'));
 		$this->register_function('display_template', array(&$this, 'smartyDisplayTemplate'));
 		$this->register_modifier('truncate', array(&$this, 'smartyTruncate'));
@@ -697,23 +696,6 @@ class PKPTemplateManager extends Smarty {
 		$output = null;
 		HookRegistry::call($params['name'], array(&$params, &$smarty, &$output));
 		return $output;
-	}
-
-	/**
-	 * Get debugging information and assign it to the template.
-	 */
-	function smartyGetDebugInfo($params, &$smarty) {
-		if (Config::getVar('debug', 'show_stats')) {
-			$smarty->assign('enableDebugStats', true);
-
-			// provide information from the PKPProfiler class
-			$pkpProfiler =& Registry::get('system.debug.profiler');
-			foreach ($pkpProfiler->getData() as $output => $value) {
-				$smarty->assign($output, $value);
-			}
-			$smarty->assign('pqpCss', $this->request->getBaseUrl() . '/lib/pkp/lib/pqp/css/pQp.css');
-			$smarty->assign('pqpTemplate', BASE_SYS_DIR . '/lib/pkp/lib/pqp/pqp.tpl');
-		}
 	}
 
 	/**

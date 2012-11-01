@@ -52,14 +52,6 @@ class PKPApplication {
 		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
 		@error_reporting($errorReportingLevel);
 
-		// Instantiate the profiler
-		import('lib.pkp.classes.core.PKPProfiler');
-		$pkpProfiler = new PKPProfiler();
-
-		// Begin debug logging
-		Console::logMemory('', 'PKPApplication::construct');
-		Console::logSpeed('PKPApplication::construct');
-
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
@@ -112,8 +104,6 @@ class PKPApplication {
 
 		$notes = array();
 		Registry::set('system.debug.notes', $notes);
-
-		Registry::set('system.debug.profiler', $pkpProfiler);
 
 		if (Config::getVar('general', 'installed')) {
 			// Initialize database connection

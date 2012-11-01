@@ -115,5 +115,4 @@ font_location = /usr/share/fonts/truetype/freefont/FreeSerif.ttf
 ; proxy_password = password
 
 [debug]
-show_stats =  Off
 show_stacktrace = Off

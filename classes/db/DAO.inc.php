@@ -95,7 +95,6 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$result =& $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		DBConnection::logQuery($sql, $start, $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $dataSource->errorMsg());
@@ -127,7 +126,6 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$result =& $dataSource->CacheExecute($secsToCache, $sql, $params !== false && !is_array($params) ? array($params) : $params);
-		DBConnection::logQuery($sql, $start, $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $dataSource->errorMsg());
@@ -159,7 +157,6 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$result =& $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
-		DBConnection::logQuery($sql, $start, $params);
 		if ($dataSource->errorNo()) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}
@@ -188,7 +185,6 @@ class DAO {
 			$start = Core::microtime();
 			$dataSource = $this->getDataSource();
 			$result =& $dataSource->PageExecute($sql, $dbResultRange->getCount(), $dbResultRange->getPage(), $params);
-			DBConnection::logQuery($sql, $start, $params);
 			if ($dataSource->errorNo()) {
 				fatalError('DB Error: ' . $dataSource->errorMsg());
 			}
@@ -223,7 +219,6 @@ class DAO {
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
 		$dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
-		DBConnection::logQuery($sql, $start, $params);
 		if ($dieOnError && $dataSource->errorNo()) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}

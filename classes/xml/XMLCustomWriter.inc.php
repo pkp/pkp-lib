@@ -22,7 +22,7 @@ class XMLCustomWriter {
 	 * definition; $dtd should contain the ID, and $url should contain the
 	 * URL. Otherwise, $dtd should be the DTD name.
 	 */
-	function &createDocument($type = null, $dtd = null, $url = null) {
+	static function &createDocument($type = null, $dtd = null, $url = null) {
 		$version = '1.0';
 		if (class_exists('DOMImplementation')) {
 			// Use the new (PHP 5.x) DOM
@@ -47,14 +47,14 @@ class XMLCustomWriter {
 		return $doc;
 	}
 
-	function &createElement(&$doc, $name) {
+	static function &createElement(&$doc, $name) {
 		if (is_callable(array($doc, 'createElement'))) $element =& $doc->createElement($name);
 		else $element = new XMLNode($name);
 
 		return $element;
 	}
 
-	function &createTextNode(&$doc, $value) {
+	static function &createTextNode(&$doc, $value) {
 
 		$value = Core::cleanVar($value);
 
@@ -67,7 +67,7 @@ class XMLCustomWriter {
 		return $element;
 	}
 
-	function &appendChild(&$parentNode, &$child) {
+	static function &appendChild(&$parentNode, &$child) {
 		if (is_callable(array($parentNode, 'appendChild'))) $node =& $parentNode->appendChild($child);
 		else {
 			$parentNode->addChild($child);
@@ -78,11 +78,11 @@ class XMLCustomWriter {
 		return $node;
 	}
 
-	function &getAttribute(&$node, $name) {
+	static function &getAttribute(&$node, $name) {
 		return $node->getAttribute($name);
 	}
 
-	function &hasAttribute(&$node, $name) {
+	static function &hasAttribute(&$node, $name) {
 		if (is_callable(array($node, 'hasAttribute'))) $value =& $node->hasAttribute($name);
 		else {
 			$attribute =& XMLCustomWriter::getAttribute($node, $name);
@@ -91,12 +91,12 @@ class XMLCustomWriter {
 		return $value;
 	}
 
-	function setAttribute(&$node, $name, $value, $appendIfEmpty = true) {
+	static function setAttribute(&$node, $name, $value, $appendIfEmpty = true) {
 		if (!$appendIfEmpty && $value == '') return;
 		return $node->setAttribute($name, $value);
 	}
 
-	function &getXML(&$doc) {
+	static function &getXML(&$doc) {
 		if (is_callable(array($doc, 'saveXML'))) $xml =& $doc->saveXML();
 		else {
 			$xml = $doc->toXml();
@@ -104,12 +104,12 @@ class XMLCustomWriter {
 		return $xml;
 	}
 
-	function printXML(&$doc) {
+	static function printXML(&$doc) {
 		if (is_callable(array($doc, 'saveXML'))) echo $doc->saveXML();
 		else $doc->toXml(true);
 	}
 
-	function &createChildWithText(&$doc, &$node, $name, $value, $appendIfEmpty = true) {
+	static function &createChildWithText(&$doc, &$node, $name, $value, $appendIfEmpty = true) {
 		$childNode = null;
 		if ($appendIfEmpty || $value != '') {
 			$childNode =& XMLCustomWriter::createElement($doc, $name);
@@ -120,7 +120,7 @@ class XMLCustomWriter {
 		return $childNode;
 	}
 
-	function &createChildFromFile(&$doc, &$node, $name, $filename) {
+	static function &createChildFromFile(&$doc, &$node, $name, $filename) {
 		$fileManager = new FileManager();
 		$contents =& $fileManager->readFile($filename);
 		if ($contents === false) {

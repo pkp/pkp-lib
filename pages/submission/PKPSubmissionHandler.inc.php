@@ -49,9 +49,8 @@ class PKPSubmissionHandler extends Handler {
 	//
 	/**
 	 * Setup common template variables.
-	 * @param $request Request
 	 */
-	function setupTemplate(&$request) {
+	function setupTemplate() {
 		parent::setupTemplate();
 	}
 }

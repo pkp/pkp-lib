@@ -30,7 +30,7 @@ class NotificationMailingListForm extends Form {
 	function NotificationMailingListForm() {
 		parent::Form('notification/maillist.tpl');
 
-		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_mailinglist') && Config::getVar('captcha', 'recaptcha')
+		$this->captchaEnabled = Config::getVar('captcha', 'captcha_on_mailinglist') && Config::getVar('captcha', 'recaptcha');
 
 		// Validation checks for this form
 		if ($this->captchaEnabled) {

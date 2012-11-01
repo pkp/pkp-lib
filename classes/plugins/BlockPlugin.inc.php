@@ -45,7 +45,7 @@ class BlockPlugin extends LazyLoadPlugin {
 		return $success;
 	}
 
-	/*
+	/**
 	 * Override protected methods from PKPPlugin
 	 */
 	/**

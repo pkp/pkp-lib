@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying a submission's subjects
  */
 
-import('classes.submission.submissionSubject');
+import('classes.submission.SubmissionSubject');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionSubjectEntryDAO extends ControlledVocabEntryDAO {

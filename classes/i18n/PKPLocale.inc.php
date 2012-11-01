@@ -54,6 +54,8 @@ define('LOCALE_COMPONENT_PKP_USER', 0x00000007);
 define('LOCALE_COMPONENT_PKP_GRID', 0x00000008);
 
 class PKPLocale {
+	static $request;
+
 	/**
 	 * Get a list of locale files currently registered, either in all
 	 * locales (in an array for each locale), or for a specific locale.
@@ -98,8 +100,11 @@ class PKPLocale {
 
 	/**
 	 * Initialize the locale system.
+	 * @param $request PKPRequest
 	 */
-	static function initialize() {
+	static function initialize($request) {
+		self::$request = $request;
+
 		// Use defaults if locale info unspecified.
 		$locale = AppLocale::getLocale();
 

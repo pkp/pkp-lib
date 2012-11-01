@@ -127,7 +127,7 @@ class Dispatcher {
 			}
 		}
 
-		AppLocale::initialize();
+		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic', true);
 
 		$router->route($request);

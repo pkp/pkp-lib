@@ -321,7 +321,7 @@ class GridHandler extends PKPHandler {
 	 * Set the grid data.
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
-	function setGridDataElements(&$data) {
+	function setGridDataElements($data) {
 		// FIXME: We go to arrays for all types of iterators because
 		// iterators cannot be re-used, see #6498.
 		if (is_array($data)) {

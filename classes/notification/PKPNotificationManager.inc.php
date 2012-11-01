@@ -13,10 +13,10 @@
  * @brief Class for Notification Manager.
  */
 
+import('lib.pkp.classes.notification.INotificationInfoProvider');
+import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 
-import('classes.notification.Notification');
-
-class PKPNotificationManager {
+class PKPNotificationManager extends PKPNotificationOperationManager implements INotificationInfoProvider {
 	/**
 	 * Constructor.
 	 */
@@ -24,92 +24,25 @@ class PKPNotificationManager {
 	}
 
 	/**
-	 * Construct a set of notifications and return them as a formatted string
-	 * @param $request PKPRequest
-	 * @param $userId int
-	 * @param $level int optional
-	 * @param $contextId int optional
-	 * @param $rangeInfo object optional
-	 * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
-	 * @return object DAOResultFactory containing matching Notification objects
-	 */
-	function getFormattedNotificationsForUser(&$request, $userId, $level = NOTIFICATION_LEVEL_NORMAL, $contextId = null, $rangeInfo = null, $notificationTemplate = 'notification/notification.tpl') {
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getByUserId($userId, $level, null, $contextId, $rangeInfo);
-
-		return $this->formatNotifications($request, $notifications, $notificationTemplate);
-	}
-
-	/*
-	 * Return a string of formatted notifications for display
-	 * @param $request PKPRequest
-	 * @param $notifications object DAOResultFactory
-	 * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
-	 * @return string
-	 */
-	function formatNotifications(&$request, $notifications, $notificationTemplate = 'notification/notification.tpl') {
-		$notificationString = '';
-
-		// Build out the notifications based on their associated objects and format into a string
-		while($notification =& $notifications->next()) {
-			$notificationString .= $this->formatNotification($request, $notification, $notificationTemplate);
-			unset($notification);
-		}
-
-		return $notificationString;
-	}
-
-	/**
-	 * Return a fully formatted notification for display
-	 * @param $request PKPRequest
-	 * @param $notification object Notification
-	 * @return string
-	 */
-	function formatNotification(&$request, $notification, $notificationTemplate = 'notification/notification.tpl') {
-		$templateMgr =& TemplateManager::getManager();
-
-		// Set the date read if it isn't already set
-		if (!$notification->getDateRead()) {
-			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-			$dateRead = $notificationDao->setDateRead($notification->getId());
-			$notification->setDateRead($dateRead);
-		}
-
-		$templateMgr->assign('notificationDateCreated', $notification->getDateCreated());
-		$templateMgr->assign('notificationId', $notification->getId());
-		$templateMgr->assign('notificationContents',$this->getNotificationContents($request, $notification));
-		$templateMgr->assign('notificationTitle',$this->getNotificationTitle($notification));
-		$templateMgr->assign('notificationStyleClass', $this->getStyleClass($notification));
-		$templateMgr->assign('notificationIconClass', $this->getIconClass($notification));
-		$templateMgr->assign('notificationDateRead', $notification->getDateRead());
-		if($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
-			$templateMgr->assign('notificationUrl', $this->getNotificationUrl($request, $notification));
-		}
-
-		$user =& $request->getUser();
-		$templateMgr->assign('isUserLoggedIn', $user);
-
-		return $templateMgr->fetch($notificationTemplate);
-	}
-
-	/**
 	 * Construct a URL for the notification based on its type and associated object
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
+	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	function getNotificationUrl(&$request, &$notification) {
-		return false;
+	public function getNotificationUrl(&$request, &$notification) {
+		return $this->getByDelegate(
+			$notification->getType(),
+			$notification->getAssocType(),
+			$notification->getAssocId(),
+			__FUNCTION__,
+			array(&$request, &$notification)
+		);
 	}
 
 	/**
 	 * Return a message string for the notification based on its type
 	 * and associated object.
-	 * @param $request PKPRequest
-	 * @param $notification Notification
-	 * @return string
+	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	function getNotificationMessage(&$request, &$notification) {
+	public function getNotificationMessage(&$request, &$notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 
@@ -137,7 +70,13 @@ class PKPNotificationManager {
 				assert($notification->getAssocType() == ASSOC_TYPE_ANNOUNCEMENT);
 				return __('notification.type.newAnnouncement');
 			default:
-				return null;
+				return $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array(&$request, &$notification)
+				);
 		}
 	}
 
@@ -149,14 +88,13 @@ class PKPNotificationManager {
 	 * Define a notification type case on this method only if you need to
 	 * present more than just text in notification. If you need to define
 	 * just a locale key, use the getNotificationMessage method only.
-	 * @param $request Request
-	 * @param $notification Notification
-	 * @return String
+	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	function getNotificationContents(&$request, &$notification) {
+	public function getNotificationContents(&$request, &$notification) {
 		$type = $notification->getType();
 		assert(isset($type));
 		$notificationMessage = $this->getNotificationMessage($request, $notification);
+		$notificationContent = null;
 
 		switch ($type) {
 			case NOTIFICATION_TYPE_FORM_ERROR:
@@ -171,27 +109,204 @@ class PKPNotificationManager {
 					return $notificationMessage;
 				}
 			default:
-				return $notificationMessage;
+				$notificationContent = $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array(&$request, &$notification)
+				);
+				break;
+		}
+
+		if ($notificationContent) {
+			return $notificationContent;
+		} else {
+			return $notificationMessage;
 		}
 	}
 
 	/**
-	 * Helper function to get a translated string from a notification with parameters
-	 * @param $key string
-	 * @param $notificationId int
-	 * @return String
+	 * @see INotificationInfoProvider::getNotificationContents()
 	 */
-	function _getTranslatedKeyWithParameters($key, $notificationId) {
-		$params = $this->getNotificationSettings($notificationId);
-		return __($key, $this->getParamsForCurrentLocale($params));
+	public function getNotificationTitle(&$notification) {
+		$type = $notification->getType();
+		assert(isset($type));
+		$notificationTitle = null;
+
+		switch ($type) {
+			case NOTIFICATION_TYPE_FORM_ERROR:
+				return __('form.errorsOccurred');
+			default:
+				$notificationTitle = $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array(&$notification)
+				);
+				break;
+		}
+
+		if ($notificationTitle) {
+			return $notificationTitle;
+		} else {
+			return __('notification.notification');
+		}
 	}
 
+	/**
+	 * @see INotificationInfoProvider::getNotificationContents()
+	 */
+	public function getStyleClass(&$notification) {
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_SUCCESS: return NOTIFICATION_STYLE_CLASS_SUCCESS;
+			case NOTIFICATION_TYPE_WARNING: return NOTIFICATION_STYLE_CLASS_WARNING;
+			case NOTIFICATION_TYPE_ERROR: return NOTIFICATION_STYLE_CLASS_ERROR;
+			case NOTIFICATION_TYPE_INFORMATION: return NOTIFICATION_STYLE_CLASS_INFORMATION;
+			case NOTIFICATION_TYPE_FORBIDDEN: return NOTIFICATION_STYLE_CLASS_FORBIDDEN;
+			case NOTIFICATION_TYPE_HELP: return NOTIFICATION_STYLE_CLASS_HELP;
+			case NOTIFICATION_TYPE_FORM_ERROR: return NOTIFICATION_STYLE_CLASS_FORM_ERROR;
+			default:
+				$notificationStyleClass = $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array(&$notification)
+				);
+				break;
+		}
+
+		if ($notificationStyleClass) {
+			return $notificationStyleClass;
+		} else {
+			return '';
+		}
+	}
+
+	/**
+	 * @see INotificationInfoProvider::getNotificationContents()
+	 */
+	public function getIconClass(&$notification) {
+		switch ($notification->getType()) {
+			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
+			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
+			case NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
+			case NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
+			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
+			case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
+			default:
+				$notificationIconClass = $this->getByDelegate(
+					$notification->getType(),
+					$notification->getAssocType(),
+					$notification->getAssocId(),
+					__FUNCTION__,
+					array(&$notification)
+				);
+				break;
+		}
+		if ($notificationIconClass) {
+			return $notificationIconClass;
+		} else {
+			return 'notifyIconPageAlert';
+		}
+	}
+
+	/**
+	 * @see INotificationInfoProvider::isVisibleToAllUsers()
+	 */
+	public function isVisibleToAllUsers($notificationType, $assocType, $assocId) {
+		switch ($notificationType) {
+			default:
+				$isVisible = $this->getByDelegate(
+					$notificationType,
+					$assocType,
+					$assocId,
+					__FUNCTION__,
+					array($notificationType, $assocType, $assocId)
+				);
+				break;
+		}
+
+		if (!is_null($isVisible)) {
+			return $isVisible;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Update notifications by type using a delegate. If you want to be able to use
+	 * this method to update notifications associated with a certain type, you need
+	 * to first create a manager delegate and define it in getMgrDelegate() method.
+	 * @param $request PKPRequest
+	 * @param $notificationTypes array The type(s) of the notification(s) to
+	 * be updated.
+	 * @param $userIds array The notification user(s) id(s).
+	 * @param $assocType int The notification associated object type.
+	 * @param $assocId int The notification associated object id.
+	 * @return mixed Return false if no operation is executed or the last operation
+	 * returned value.
+	 */
+	final public function updateNotification(&$request, $notificationTypes = array(), $userIds = array(), $assocType, $assocId) {
+		$returner = false;
+		foreach ($notificationTypes as $type) {
+			$managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);
+			if (!is_null($managerDelegate) && is_a($managerDelegate, 'NotificationManagerDelegate')) {
+				$returner = $managerDelegate->updateNotification($request, $userIds, $assocType, $assocId);
+			} else {
+				assert(false);
+			}
+		}
+
+		return $returner;
+	}
+
+
+	//
+	// Protected methods
+	//
+	/**
+	 * Get the notification manager delegate based on the passed notification type.
+	 * @param $notificationType int
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @return mixed Null or NotificationManagerDelegate
+	 */
+	protected function getMgrDelegate($notificationType, $assocType, $assocId) {
+		return null;
+	}
+
+	/**
+	 * Try to use a delegate to retrieve a notification data that's defined
+	 * by the implementation of the
+	 * @param $request PKPRequest
+	 * @param $notification Notification
+	 * @param $operationName string
+	 */
+	protected function getByDelegate($notificationType, $assocType, $assocId, $operationName, $parameters) {
+		$delegate = $this->getMgrDelegate($notificationType, $assocType, $assocId);
+		if (is_a($delegate, 'NotificationManagerDelegate')) {
+			if (is_a($notification, 'Notification')) {
+				$delegate->checkAssoc($notification);
+			}
+			return call_user_func_array(array($delegate, $operationName), $parameters);
+		} else {
+			return null;
+		}
+	}
+
+
+	//
+	// Private helper methods.
+	//
 	/**
 	 * Return notification settings.
 	 * @param $notificationId int
 	 * @return Array
 	 */
-	function getNotificationSettings($notificationId) {
+	private function getNotificationSettings($notificationId) {
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO'); /* @var $notificationSettingsDao NotificationSettingsDAO */
 		$notificationSettings = $notificationSettingsDao->getNotificationSettings($notificationId);
 		if (empty($notificationSettings)) {
@@ -202,320 +317,14 @@ class PKPNotificationManager {
 	}
 
 	/**
-	 * Get the notification's title value
-	 * @param $notification
-	 * @return string
+	 * Helper function to get a translated string from a notification with parameters
+	 * @param $key string
+	 * @param $notificationId int
+	 * @return String
 	 */
-	function getNotificationTitle(&$notification) {
-		$type = $notification->getType();
-		assert(isset($type));
-
-		switch ($type) {
-			case NOTIFICATION_TYPE_FORM_ERROR:
-				return __('form.errorsOccurred');
-			default:
-				return __('notification.notification');
-		}
-	}
-
-
-	/**
-	 * Iterate through the localized params for a notification's locale key.
-	 *  For each parameter, return (in preferred order) a value for the user's current locale,
-	 *  a param for the journal's default locale, or the first value (in case the value
-	 *  is not localized)
-	 * @param $params array
-	 * @return array
-	 */
-	function getParamsForCurrentLocale($params) {
-		$locale = AppLocale::getLocale();
-		$primaryLocale = AppLocale::getPrimaryLocale();
-
-		$localizedParams = array();
-		foreach ($params as $name => $value) {
-			if (!is_array($value)) {
-				// Non-localized text
-				$localizedParams[$name] = $value;
-			} elseif (isset($value[$locale])) {
-				// Check if the parameter is in the user's current locale
-				$localizedParams[$name] = $value[$locale];
-			} elseif (isset($value[$primaryLocale])) {
-				// Check if the parameter is in the default site locale
-				$localizedParams[$name] = $value[$primaryLocale];
-			} else {
-				// Otherwise, iterate over all supported locales and return the first match
-				$locales = AppLocale::getSupportedLocales();
-				foreach ($locales as $localeKey) {
-					if (isset($value[$localeKey])) {
-						$localizedParams[$name] = $value[$localeKey];
-					}
-				}
-			}
-		}
-
-		return $localizedParams;
-	}
-
-	/**
-	 * get notification style class
-	 * @param $notification Notification
-	 * @return string
-	 */
-	function getStyleClass(&$notification) {
-		switch ($notification->getType()) {
-			case NOTIFICATION_TYPE_SUCCESS: return 'notifySuccess';
-			case NOTIFICATION_TYPE_WARNING: return 'notifyWarning';
-			case NOTIFICATION_TYPE_ERROR: return 'notifyError';
-			case NOTIFICATION_TYPE_INFORMATION: return 'notifyInfo';
-			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyForbidden';
-			case NOTIFICATION_TYPE_HELP: return 'notifyHelp';
-			case NOTIFICATION_TYPE_FORM_ERROR: return 'notifyFormError';
-		}
-	}
-
-	/**
-	 * get notification icon style class
-	 * @param $notification Notification
-	 * @return string
-	 */
-	function getIconClass(&$notification) {
-		switch ($notification->getType()) {
-			case NOTIFICATION_TYPE_SUCCESS: return 'notifyIconSuccess';
-			case NOTIFICATION_TYPE_WARNING: return 'notifyIconWarning';
-			case NOTIFICATION_TYPE_ERROR: return 'notifyIconError';
-			case NOTIFICATION_TYPE_INFORMATION: return 'notifyIconInfo';
-			case NOTIFICATION_TYPE_FORBIDDEN: return 'notifyIconForbidden';
-			case NOTIFICATION_TYPE_HELP: return 'notifyIconHelp';
-			default: return 'notifyIconPageAlert';
-		}
-	}
-
-	/**
-	 * Return all notification types that don't need a userId
-	 * to be created or fetched (all users can see them).
-	 * @return array
-	 */
-	function getAllUsersNotificationTypes() {
-		return array();
-	}
-
-	/**
-	 * Create a new notification with the specified arguments and insert into DB
-	 * This is a static method
-	 * @param $request PKPRequest
-	 * @param $userId int (optional)
-	 * @param $notificationType int
-	 * @param $contextId int
-	 * @param $assocType int
-	 * @param $assocId int
-	 * @param $level int
-	 * @param $params array
-	 * @return Notification object
-	 */
-	function createNotification(&$request, $userId = null, $notificationType, $contextId = null, $assocType = null, $assocId = null, $level = NOTIFICATION_LEVEL_NORMAL, $params = null) {
-		// Get set of notifications user does not want to be notified of
-		$notificationSubscriptionSettingsDao =& DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-		$blockedNotifications = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('blocked_notification', $userId, (int) $contextId);
-
-		if(!in_array($notificationType, $blockedNotifications)) {
-			$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-			$notification = $notificationDao->newDataObject();
-			$notification->setUserId((int) $userId);
-			$notification->setType((int) $notificationType);
-			$notification->setContextId((int) $contextId);
-			$notification->setAssocType((int) $assocType);
-			$notification->setAssocId((int) $assocId);
-			$notification->setLevel((int) $level);
-
-			$notificationId = $notificationDao->insertObject($notification);
-
-			// Send notification emails
-			if ($notification->getLevel() != NOTIFICATION_LEVEL_TRIVIAL) {
-				$notificationSubscriptionSettingsDao =& DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-				$notificationEmailSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings('emailed_notification', $userId, (int) $contextId);
-
-				if(in_array($notificationType, $notificationEmailSettings)) {
-					$this->sendNotificationEmail($request, $notification);
-				}
-			}
-
-			if ($params) {
-				$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-				foreach($params as $name => $value) {
-					$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
-				}
-			}
-
-			return $notification;
-		}
-	}
-
-	/**
-	 * Create a new notification with the specified arguments and insert into DB
-	 * This is a static method
-	 * @param $userId int
-	 * @param $notificationType int
-	 * @param $params array
-	 * @return Notification object
-	 */
-	function createTrivialNotification($userId, $notificationType = NOTIFICATION_TYPE_SUCCESS, $params = null) {
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notification = $notificationDao->newDataObject();
-		$notification->setUserId($userId);
-		$notification->setContextId(CONTEXT_ID_NONE);
-		$notification->setType($notificationType);
-		$notification->setLevel(NOTIFICATION_LEVEL_TRIVIAL);
-
-		$notificationId = $notificationDao->insertObject($notification);
-
-		if ($params) {
-			$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
-			foreach($params as $name => $value) {
-				$notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
-			}
-		}
-
-		return $notification;
-	}
-
-	/**
-	 * Deletes trivial notifications from database.
-	 * @param array $notifications
-	 */
-	function deleteTrivialNotifications($notifications) {
-		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		foreach($notifications as $notification) {
-			// Delete only trivial notifications.
-			if($notification->getLevel() == NOTIFICATION_LEVEL_TRIVIAL) {
-				$notificationDao->deleteById($notification->getId(), $notification->getUserId());
-			}
-		}
-	}
-
-	/**
-	 * General notification data formating.
-	 * @param $request PKPRequest
-	 * @param array $notifications
-	 * @return array
-	 */
-	function formatToGeneralNotification(&$request, &$notifications) {
-		$formattedNotificationsData = array();
-		foreach ($notifications as $notification) { /* @var $notification Notification */
-			$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = array(
-				'pnotify_title' => $this->getNotificationTitle($notification),
-				'pnotify_text' => $this->getNotificationContents($request, $notification),
-				'pnotify_addclass' => $this->getStyleClass($notification),
-				'pnotify_notice_icon' => $this->getIconClass($notification)
-			);
-		}
-
-		return $formattedNotificationsData;
-	}
-
-	/**
-	 * In place notification data formating.
-	 * @param $request PKPRequest
-	 * @param $notifications array
-	 * @return array
-	 */
-	function formatToInPlaceNotification(&$request, &$notifications) {
-		$formattedNotificationsData = null;
-
-		if (!empty($notifications)) {
-			$templateMgr =& TemplateManager::getManager();
-			foreach ((array)$notifications as $notification) {
-				$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
-			}
-		}
-
-		return $formattedNotificationsData;
-	}
-
-	/**
-	 * Send an email to a user regarding the notification
-	 * @param $request PKPRequest
-	 * @param $notification object Notification
-	 */
-	function sendNotificationEmail(&$request, $notification) {
-		$userId = $notification->getUserId();
-		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user = $userDao->getById($userId);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
-
-		import('classes.mail.MailTemplate');
-		$site =& $request->getSite();
-		$mail = new MailTemplate('NOTIFICATION', null, null, null, true, true);
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-		$mail->assignParams(array(
-			'notificationContents' => $this->getNotificationContents($request, $notification),
-			'url' => $this->getNotificationUrl($request, $notification),
-			'siteTitle' => $site->getLocalizedTitle()
-		));
-		$mail->addRecipient($user->getEmail(), $user->getFullName());
-		$mail->send();
-	}
-
-	/**
-	 * Send an update to all users on the mailing list
-	 * @param $request PKPRequest
-	 * @param $notification object Notification
-	 */
-	function sendToMailingList(&$request, $notification) {
-		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
-		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
-		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
-
-		foreach ($mailList as $email) {
-			import('classes.mail.MailTemplate');
-			$context =& $request->getContext();
-			$site =& $request->getSite();
-			$router =& $request->getRouter();
-			$dispatcher =& $router->getDispatcher();
-
-			$mail = new MailTemplate('NOTIFICATION_MAILLIST');
-			$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-			$mail->assignParams(array(
-				'notificationContents' => $this->getNotificationContents($request, $notification),
-				'url' => $this->getNotificationUrl($request, $notification),
-				'siteTitle' => $context->getLocalizedTitle(),
-				'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList')
-			));
-			$mail->addRecipient($email);
-			$mail->send();
-		}
-	}
-
-	/**
-	 * Static function to send an email to a mailing list user e.g. regarding signup
-	 * @param $request PKPRequest
-	 * @param $email string
-	 * @param $token string the user's token (for confirming and unsubscribing)
-	 * @param $template string The mail template to use
-	 */
-	function sendMailingListEmail(&$request, $email, $token, $template) {
-		import('classes.mail.MailTemplate');
-		$site = $request->getSite();
-		$router =& $request->getRouter();
-		$dispatcher =& $router->getDispatcher();
-
-		$params = array(
-			'siteTitle' => $site->getLocalizedTitle(),
-			'unsubscribeLink' => $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'unsubscribeMailList', array($token))
-		);
-
-		if ($template == 'NOTIFICATION_MAILLIST_WELCOME') {
-			$router =& $request->getRouter();
-			$dispatcher =& $router->getDispatcher();
-
-			$confirmLink = $dispatcher->url($request, ROUTE_PAGE, null, 'notification', 'confirmMailListSubscription', array($token));
-			$params["confirmLink"] = $confirmLink;
-		}
-
-		$mail = new MailTemplate($template);
-		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
-		$mail->assignParams($params);
-		$mail->addRecipient($email);
-		$mail->send();
+	private function _getTranslatedKeyWithParameters($key, $notificationId) {
+		$params = $this->getNotificationSettings($notificationId);
+		return __($key, $this->getParamsForCurrentLocale($params));
 	}
 }
 

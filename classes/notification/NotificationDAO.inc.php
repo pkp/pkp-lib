@@ -123,28 +123,6 @@ class NotificationDAO extends DAO {
 	}
 
 	/**
-	 * Creates and returns an notification object from a row
-	 * @param $row array
-	 * @return Notification object
-	 */
-	function &_returnNotificationFromRow($row) {
-		$notification = $this->newDataObject();
-		$notification->setId($row['notification_id']);
-		$notification->setUserId($row['user_id']);
-		$notification->setLevel($row['level']);
-		$notification->setDateCreated($this->datetimeFromDB($row['date_created']));
-		$notification->setDateRead($this->datetimeFromDB($row['date_read']));
-		$notification->setContextId($row['context_id']);
-		$notification->setType($row['type']);
-		$notification->setAssocType($row['assoc_type']);
-		$notification->setAssocId($row['assoc_id']);
-
-		HookRegistry::call('NotificationDAO::_returnNotificationFromRow', array(&$notification, &$row));
-
-		return $notification;
-	}
-
-	/**
 	 * Inserts a new notification into notifications table
 	 * @param $notification object
 	 * @return int Notification Id
@@ -172,23 +150,46 @@ class NotificationDAO extends DAO {
 
 	/**
 	 * Inserts or update a notification into notifications table.
-	 * @param $notification Notification
-	 * @return int
+	 * @param $level int
+	 * @param $type int
+	 * @param $assocType int
+	 * @param $assocId int
+	 * @param $userId int (optional)
+	 * @param $contextId int (optional)
+	 * @return mixed Notification or null
 	 */
-	function build(&$notification) {
-		$this->update('DELETE FROM notifications
-			WHERE context_id = ? AND level = ? AND type = ? AND user_id = ?
-				AND assoc_type = ? AND assoc_id = ?',
-			array(
-				(int) $notification->getContextId(),
-				(int) $notification->getLevel(),
-				(int) $notification->getType(),
-				$notification->getUserId(),
-				$notification->getAssocType(),
-				$notification->getAssocId()
-			)
+	function build($contextId, $level, $type, $assocType, $assocId, $userId = null) {
+		$params = array(
+			(int) $contextId,
+			(int) $level,
+			(int) $type,
+			(int) $assocType,
+			(int) $assocId
 		);
-		$this->insertObject($notification);
+
+		if ($userId) $params[] = (int) $userId;
+
+		$this->update('DELETE FROM notifications
+			WHERE context_id = ? AND level = ? AND type = ? AND assoc_type = ? AND assoc_id = ?'
+			. ($userId ? ' AND user_id = ?' : ''),
+			$params
+		);
+
+		$notification = $this->newDataObject();
+		$notification->setContextId($contextId);
+		$notification->setLevel($level);
+		$notification->setType($type);
+		$notification->setAssocType($assocType);
+		$notification->setAssocId($assocId);
+		$notification->setUserId($userId);
+
+		$notificationId = $this->insertObject($notification);
+		if ($notificationId) {
+			$notification->setId($notificationId);
+			return $notification;
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -233,7 +234,7 @@ class NotificationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
-		$notificationsFactory =& $this->getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null);
+		$notificationsFactory =& $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
 		while ($notification =& $notificationsFactory->next()) {
 			$this->deleteObject($notification);
 			unset($notification);
@@ -284,6 +285,28 @@ class NotificationDAO extends DAO {
 				'UPDATE notifications SET user_id = ? WHERE user_id = ?',
 				array($newUserId, $oldUserId)
 		);
+	}
+
+	/**
+	 * Creates and returns an notification object from a row
+	 * @param $row array
+	 * @return Notification object
+	 */
+	function &_returnNotificationFromRow($row) {
+		$notification = $this->newDataObject();
+		$notification->setId($row['notification_id']);
+		$notification->setUserId($row['user_id']);
+		$notification->setLevel($row['level']);
+		$notification->setDateCreated($this->datetimeFromDB($row['date_created']));
+		$notification->setDateRead($this->datetimeFromDB($row['date_read']));
+		$notification->setContextId($row['context_id']);
+		$notification->setType($row['type']);
+		$notification->setAssocType($row['assoc_type']);
+		$notification->setAssocId($row['assoc_id']);
+
+		HookRegistry::call('NotificationDAO::_returnNotificationFromRow', array(&$notification, &$row));
+
+		return $notification;
 	}
 }
 

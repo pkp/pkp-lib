@@ -288,9 +288,6 @@ class PKPNotificationManager extends PKPNotificationOperationManager implements 
 	protected function getByDelegate($notificationType, $assocType, $assocId, $operationName, $parameters) {
 		$delegate = $this->getMgrDelegate($notificationType, $assocType, $assocId);
 		if (is_a($delegate, 'NotificationManagerDelegate')) {
-			if (is_a($notification, 'Notification')) {
-				$delegate->checkAssoc($notification);
-			}
 			return call_user_func_array(array($delegate, $operationName), $parameters);
 		} else {
 			return null;

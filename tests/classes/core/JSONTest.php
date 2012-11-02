@@ -34,10 +34,6 @@ class JSONTest extends PKPTestCase {
 				'"elementId":"0","testObj":{"someInt":5,"someFloat":5.5},'.
 				'"event":{"name":"someEvent","data":{"eventDataKey":["item1","item2"]}}}';
 		self::assertEquals($expectedString, $json->getString());
-
-		// Try again but this time simulate a PHP4 environment.
-		$json->setSimulatePhp4(true);
-		self::assertEquals($expectedString, $json->getString());
 	}
 }
 ?>

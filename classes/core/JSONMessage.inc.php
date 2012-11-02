@@ -30,9 +30,6 @@ class JSONMessage {
 	/** @var array Set of additional attributes for special cases. */
 	var $_additionalAttributes;
 
-	/** @var boolean An internal variable used for unit testing only. */
-	var $_simulatePhp4 = false;
-
 	/**
 	 * Constructor.
 	 * @param $status boolean The status of an event (e.g. false if form validation fails).
@@ -138,16 +135,6 @@ class JSONMessage {
 	function setAdditionalAttributes($additionalAttributes) {
 		assert(is_array($additionalAttributes));
 		$this->_additionalAttributes = $additionalAttributes;
-	}
-
-	/**
-	 * Set to simulate a PHP4 environment.
-	 * This is for internal use in unit tests only.
-	 * @param $simulatePhp4 boolean
-	 */
-	function setSimulatePhp4($simulatePhp4) {
-		assert(is_bool($simulatePhp4));
-		$this->_simulatePhp4 = $simulatePhp4;
 	}
 
 	/**

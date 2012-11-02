@@ -106,7 +106,7 @@ class FileWrapper {
 	 * @param $source mixed; URL, filename, or resources
 	 * @return FileWrapper
 	 */
-	function &wrapper($source) {
+	static function &wrapper($source) {
 		if (ini_get('allow_url_fopen') && Config::getVar('general', 'allow_url_fopen') && is_string($source)) {
 			$info = parse_url($source);
 			$wrapper = new FileWrapper($source, $info);

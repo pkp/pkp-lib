@@ -59,7 +59,7 @@ class CommandLineTool {
 		$request->setRouter($router);
 
 		// Initialize the locale and load generic plugins.
-		AppLocale::initialize();
+		AppLocale::initialize($request);
 		PluginRegistry::loadCategory('generic');
 
 		$this->argv = isset($argv) && is_array($argv) ? $argv : array();

@@ -68,8 +68,8 @@ class ListbuilderGridRow extends GridRow {
 	/**
 	 * @see GridRow::addAction()
 	 */
-	function addAction($action) {
-		return parent::addAction($action, GRID_ACTION_POSITION_ROW_LEFT);
+	function addAction($action, $position = GRID_ACTION_POSITION_ROW_LEFT) {
+		return parent::addAction($action, $position);
 	}
 }
 

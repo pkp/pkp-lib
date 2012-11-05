@@ -30,7 +30,7 @@ class AppLocale extends PKPLocale {
 	 * method required during setup of
 	 * the PKP application framework
 	 */
-	function initialize() {
+	static function initialize() {
 		// do nothing
 	}
 
@@ -39,7 +39,7 @@ class AppLocale extends PKPLocale {
 	 * the PKP application framework
 	 * @return string test locale
 	 */
-	function getLocale() {
+	static function getLocale() {
 		return 'en_US';
 	}
 
@@ -47,7 +47,7 @@ class AppLocale extends PKPLocale {
 	 * method required during setup of
 	 * the PKP application framework
 	 */
-	function registerLocaleFile($locale, $filename, $addToTop = false) {
+	static function registerLocaleFile($locale, $filename, $addToTop = false) {
 		// do nothing
 	}
 
@@ -55,7 +55,7 @@ class AppLocale extends PKPLocale {
 	 * method required during setup of
 	 * the PKP templating engine and application framework
 	 */
-	function requireComponents() {
+	static function requireComponents() {
 		// do nothing
 	}
 
@@ -63,7 +63,7 @@ class AppLocale extends PKPLocale {
 	 * Mocked method
 	 * @return array a test array of locales
 	 */
-	function getLocalePrecedence() {
+	static function getLocalePrecedence() {
 		return array('en_US', 'fr_FR');
 	}
 
@@ -74,7 +74,7 @@ class AppLocale extends PKPLocale {
 	 * @param $locale string the locale to use
 	 * @return string
 	 */
-	function translate($key, $params = array(), $locale = null) {
+	static function translate($key, $params = array(), $locale = null) {
 		if (isset(self::$translations[$key])) {
 			return self::$translations[$key];
 		}
@@ -86,7 +86,7 @@ class AppLocale extends PKPLocale {
 	 * primary locale for testing.
 	 * @param $primaryLocale string
 	 */
-	function setPrimaryLocale($primaryLocale) {
+	static function setPrimaryLocale($primaryLocale) {
 		self::$primaryLocale = $primaryLocale;
 	}
 
@@ -94,7 +94,7 @@ class AppLocale extends PKPLocale {
 	 * Mocked method
 	 * @return string
 	 */
-	function getPrimaryLocale() {
+	static function getPrimaryLocale() {
 		return self::$primaryLocale;
 	}
 
@@ -107,7 +107,7 @@ class AppLocale extends PKPLocale {
 	 *   'de_DE' => 'German'
 	 *  )
 	 */
-	function setSupportedLocales($supportedLocales) {
+	static function setSupportedLocales($supportedLocales) {
 		self::$supportedLocales = $supportedLocales;
 	}
 
@@ -115,7 +115,7 @@ class AppLocale extends PKPLocale {
 	 * Mocked method
 	 * @return array
 	 */
-	function getSupportedLocales() {
+	static function getSupportedLocales() {
 		return self::$supportedLocales;
 	}
 
@@ -123,7 +123,7 @@ class AppLocale extends PKPLocale {
 	 * Mocked method
 	 * @return array
 	 */
-	function getSupportedFormLocales() {
+	static function getSupportedFormLocales() {
 		return array('en_US');
 	}
 

@@ -551,10 +551,8 @@ class MetadataDescription extends DataObject {
 	/**
 	 * The allowed replace levels for the
 	 * setStatements() method.
-	 * NB: Workaround for PHP4 which doesn't allow
-	 * static class members.
 	 */
-	function _allowedReplaceLevels() {
+	static function _allowedReplaceLevels() {
 		static $allowedReplaceLevels = array(
 			METADATA_DESCRIPTION_REPLACE_ALL,
 			METADATA_DESCRIPTION_REPLACE_PROPERTIES,
@@ -563,4 +561,5 @@ class MetadataDescription extends DataObject {
 		return $allowedReplaceLevels;
 	}
 }
+
 ?>

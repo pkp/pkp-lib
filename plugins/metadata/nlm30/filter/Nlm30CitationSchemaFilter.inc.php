@@ -509,10 +509,9 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	/**
 	 * Static method that returns a list of permitted
 	 * publication types.
-	 * NB: PHP4 workaround for static class member.
 	 * @return array
 	 */
-	function _allowedPublicationTypes() {
+	static function _allowedPublicationTypes() {
 		static $allowedPublicationTypes = array(
 			NLM30_PUBLICATION_TYPE_JOURNAL,
 			NLM30_PUBLICATION_TYPE_CONFPROC,
@@ -522,4 +521,5 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 		return $allowedPublicationTypes;
 	}
 }
+
 ?>

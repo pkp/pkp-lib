@@ -206,7 +206,7 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 	$errorFlag = false;
 
 	// Validate the class name
-	if (!String::regexp_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
+	if (!preg_match('/^[a-zA-Z0-9.]+$/', $fullyQualifiedClassName)) {
 		return $errorFlag;
 	}
 
@@ -251,19 +251,11 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
 		fatalError('Cannot instantiate class. Class "'.$className.'" is not declared in "'.$fullyQualifiedClassName.'".');
 	}
 
-	// Check that the expected operation exists for the class.
-	if (!is_null($expectedMethods)) {
-		if (is_scalar($expectedMethods)) $expectedMethods = array($expectedMethods);
-		// Lower case comparison for PHP4 compatibility.
-		// We don't need the String class here as method names are
-		// always US-ASCII.
-		$declaredMethods = array_map('strtolower_codesafe', get_class_methods($className));
-		foreach($expectedMethods as $expectedMethod) {
-			$requiredMethod = strtolower_codesafe($expectedMethod);
-			if (!in_array($requiredMethod, $declaredMethods)) {
-				return $errorFlag;
-			}
-		}
+	// Ensure all expected methods are declared.
+	$expectedMethods = (array) $expectedMethods; // Possibly scalar or null; ensure array
+	$declaredMethods = get_class_methods($className);
+	if (count(array_intersect($expectedMethods, $declaredMethods)) != count($expectedMethods)) {
+		return $errorFlag;
 	}
 
 	// Instantiate the requested class

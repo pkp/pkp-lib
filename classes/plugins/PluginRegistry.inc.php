@@ -52,8 +52,6 @@ class PluginRegistry {
 	 * @return boolean True IFF the plugin was registered successfully
 	 */
 	static function register($category, &$plugin, $path) {
-		// Normalize plugin name to lower case for
-		// PHP4 compatibility in case we use class names here.
 		$pluginName = $plugin->getName();
 		$plugins =& PluginRegistry::getPlugins();
 		if (!$plugins) $plugins = array();

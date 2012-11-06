@@ -243,15 +243,15 @@ class PKPPageRouter extends PKPRouter {
 		// Redirect to 404 if the operation doesn't exist
 		// for the handler.
 		$methods = array();
-		if (defined('HANDLER_CLASS')) $methods = array_map('strtolower_codesafe', get_class_methods(HANDLER_CLASS));
-		if (!in_array(strtolower_codesafe($op), $methods)) {
+		if (defined('HANDLER_CLASS')) $methods = get_class_methods(HANDLER_CLASS);
+		if (!in_array($op, $methods)) {
 			$dispatcher =& $this->getDispatcher();
 			$dispatcher->handle404();
 		}
 
 		// Instantiate the handler class
-		$HandlerClass = HANDLER_CLASS;
-		$handler = new $HandlerClass($request);
+		$handlerClass = HANDLER_CLASS;
+		$handler = new $handlerClass($request);
 
 		// Authorize and initialize the request but don't call the
 		// validate() method on page handlers.

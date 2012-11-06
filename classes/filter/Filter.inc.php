@@ -461,11 +461,9 @@ class Filter extends DataObject {
 	 * Returns a static array with supported runtime
 	 * environment settings and their default values.
 	 *
-	 * PHP4 workaround for missing static class members.
-	 *
 	 * @return array
 	 */
-	function supportedRuntimeEnvironmentSettings() {
+	static function supportedRuntimeEnvironmentSettings() {
 		static $runtimeEnvironmentSettings = array(
 			'phpVersionMin' => PHP_REQUIRED_VERSION,
 			'phpVersionMax' => null,
@@ -476,4 +474,5 @@ class Filter extends DataObject {
 		return $runtimeEnvironmentSettings;
 	}
 }
+
 ?>

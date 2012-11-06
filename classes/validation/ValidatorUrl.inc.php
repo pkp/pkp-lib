@@ -38,11 +38,10 @@ class ValidatorUrl extends ValidatorUri {
 	// Private static methods
 	//
 	/**
-	 * Return allowed schemes (PHP4 workaround for
-	 * a private static field).
+	 * Return allowed schemes
 	 * @return array
 	 */
-	function _getAllowedSchemes() {
+	static function _getAllowedSchemes() {
 		return array('http', 'https', 'ftp');
 	}
 }

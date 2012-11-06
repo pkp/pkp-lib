@@ -88,14 +88,13 @@ class PrimitiveTypeDescription extends TypeDescription {
 	 * Returns a (static) array with supported
 	 * primitive type names.
 	 *
-	 * NB: Workaround for missing static class
-	 * members in PHP4.
 	 */
-	function _supportedPrimitiveTypes() {
+	static function _supportedPrimitiveTypes() {
 		static $supportedPrimitiveTypes = array(
 			'string', 'integer', 'float', 'boolean'
 		);
 		return $supportedPrimitiveTypes;
 	}
 }
+
 ?>

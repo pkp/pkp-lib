@@ -152,9 +152,9 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 
 		$this->update(
 			'INSERT INTO notification_subscription_settings
-				(setting_name, setting_value, user_id, context)
+				(setting_name, setting_value, user_id, context, setting_type)
 				VALUES
-				(?, ?, ?, ?)',
+				(?, ?, ?, ?, ?)',
 			array(
 				'token',
 				$token,

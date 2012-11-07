@@ -907,7 +907,7 @@ class GridHandler extends PKPHandler {
 	 */
 	function &_getInitializedRowInstance(&$request, $elementId, &$element, $isModified = false) {
 		// Instantiate a new row
-		$row =& $this->getRowInstance();
+		$row = $this->getRowInstance();
 		$row->setGridId($this->getId());
 		$row->setId($elementId);
 		$row->setData($element);

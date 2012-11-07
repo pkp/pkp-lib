@@ -235,7 +235,7 @@ class CategoryGridHandler extends GridHandler {
 		reset($columns);
 		// Category grids will always have indent column firstly,
 		// so we need to consider the first column the second one.
-		$secondColumn =& next($columns); /* @var $secondColumn GridColumn */
+		$secondColumn = next($columns); /* @var $secondColumn GridColumn */
 		$secondColumn->addFlag('firstColumn', true);
 	}
 
@@ -341,7 +341,7 @@ class CategoryGridHandler extends GridHandler {
 	 */
 	function &_getInitializedCategoryRowInstance(&$request, $elementId, &$element) {
 		// Instantiate a new row
-		$row =& $this->getCategoryRowInstance();
+		$row = $this->getCategoryRowInstance();
 		$row->setGridId($this->getId());
 		$row->setId($elementId);
 		$row->setData($element);
@@ -395,7 +395,7 @@ class CategoryGridHandler extends GridHandler {
 
 		$categoryDataElement =& $categoryRow->getData();
 		$filter = $this->getFilterSelectionData($request);
-		$rowData =& $this->getCategoryData($categoryDataElement, $filter);
+		$rowData = $this->getCategoryData($categoryDataElement, $filter);
 
 		// Render the data rows
 		$templateMgr->assign_by_ref('categoryRow', $categoryRow);

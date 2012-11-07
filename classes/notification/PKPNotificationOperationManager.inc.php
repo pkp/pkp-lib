@@ -11,13 +11,15 @@
  * @see NotificationDAO
  * @see Notification
  * @brief Base class for notification manager that implements
- * basic notification operations.
+ * basic notification operations. Subclasses must implement the
+ * NotificationInfoProvider interface.
  */
 
 
 import('classes.notification.Notification');
+import('lib.pkp.classes.notification.INotificationInfoProvider');
 
-abstract class PKPNotificationOperationManager {
+abstract class PKPNotificationOperationManager implements INotificationInfoProvider {
 	/**
 	 * Constructor.
 	 */

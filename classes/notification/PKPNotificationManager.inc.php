@@ -13,10 +13,9 @@
  * @brief Class for Notification Manager.
  */
 
-import('lib.pkp.classes.notification.INotificationInfoProvider');
 import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 
-class PKPNotificationManager extends PKPNotificationOperationManager implements INotificationInfoProvider {
+class PKPNotificationManager extends PKPNotificationOperationManager {
 	/**
 	 * Constructor.
 	 */

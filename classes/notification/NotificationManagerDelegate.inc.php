@@ -17,7 +17,7 @@
 
 import('lib.pkp.classes.notification.PKPNotificationOperationManager');
 
-abstract class NotificationManagerDelegate extends PKPNotificationOperationManager implements INotificationInfoProvider {
+abstract class NotificationManagerDelegate extends PKPNotificationOperationManager {
 
 	private $_notificationType;
 

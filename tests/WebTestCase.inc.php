@@ -68,11 +68,16 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 	}
 
 	/**
-	 * Log in as admin user.
+	 * Log in as passed user, with the passed password. If none is passed,
+	 * log in as admin user.
 	 */
-	protected function logIn() {
-		$this->open($this->baseUrl.'/index.php/test/login/signIn?username=admin&password='
-			.$this->password);
+	protected function logIn($username = 'admin', $password = null) {
+		if (is_null($password)) {
+			$password = $this->password;
+		}
+
+		$this->open($this->baseUrl.'/index.php/test/login/signIn?username='. $username .'&password='
+			.$password);
 	}
 
 	/**

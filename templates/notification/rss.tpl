@@ -27,7 +27,5 @@
 		</items>
 	</channel>
 
-	{$formattedNotifications|escape:"html"}
-
+	{$formattedNotifications}
 </rdf:RDF>
-

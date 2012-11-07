@@ -16,7 +16,7 @@
 
 	<generator uri="http://pkp.sfu.ca/ojs/" version="{$version|escape}">{translate key=$appName}</generator>
 
-	{$formattedNotification}
+	{$formattedNotifications}
 </feed>
 
 

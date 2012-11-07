@@ -31,6 +31,7 @@
 	<message key="announcement.postedOn">Posted on {$postDate}</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
+	<message key="common.abstract">Abstract</message>
 	<message key="common.accepted">Accepted</message>
 	<message key="common.acknowledged">Acknowledged</message>
 	<message key="common.action">Action</message>
@@ -198,6 +199,7 @@
 	<message key="common.status">Status</message>
 	<message key="common.startTyping">Start Typing</message>
 	<message key="common.subject">Subject</message>
+	<message key="common.subjects">Subjects</message>
 	<message key="common.subtitle">Subtitle</message>
 	<message key="common.suggest">Suggest</message>
 	<message key="common.title">Title</message>

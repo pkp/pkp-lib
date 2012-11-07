@@ -62,9 +62,10 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 				$subject = $subject->getSubject();
 				if (array_key_exists($locale, $subject)) { // quiets PHP when there are no Subjects for a given locale
 					$returner[$locale][] = $subject[$locale];
-					unset($subject);
 				}
+				unset($subject);
 			}
+			unset($subjects);
 		}
 		return $returner;
 	}
@@ -113,6 +114,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+		unset($result);
 		return $returner;
 	}
 
@@ -149,10 +151,15 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 						$subjectEntry->setSequence($i);
 						$i ++;
 						$subjectEntryId = $submissionSubjectEntryDao->insertObject($subjectEntry);
+						unset($subject);
 					}
 				}
+				unset($list);
 			}
 		}
+		unset($subjectDao);
+		unset($currentSubjects);
+		unset($submissionSubjectEntryDao);
 	}
 }
 ?>

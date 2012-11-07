@@ -62,9 +62,10 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 				$language = $language->getLanguage();
 				if (array_key_exists($locale, $language)) { // quiets PHP when there are no Languages for a given locale
 					$returner[$locale][] = $language[$locale];
-					unset($language);
 				}
+				unset($language);
 			}
+			unset($languages);
 		}
 		return $returner;
 	}
@@ -113,6 +114,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+		unset($result);
 		return $returner;
 	}
 
@@ -149,10 +151,15 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 						$languageEntry->setSequence($i);
 						$i ++;
 						$languageEntryId = $submissionLanguageEntryDao->insertObject($languageEntry);
+						unset($language);
 					}
 				}
+				unset($list);
 			}
 		}
+		unset($languageDao);
+		unset($currentLanguages);
+		unset($submissionLanguageEntryDao);
 	}
 }
 ?>

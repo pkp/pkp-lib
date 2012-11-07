@@ -64,9 +64,10 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 				$discipline = $discipline->getDiscipline();
 				if (array_key_exists($locale, $discipline)) { // quiets PHP when there are no disciplines for a given locale
 					$returner[$locale][] = $discipline[$locale];
-					unset($discipline);
 				}
+				unset($discipline);
 			}
+			unset($disciplines);
 		}
 		return $returner;
 	}
@@ -115,6 +116,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
+		unset($result);
 		return $returner;
 	}
 
@@ -151,10 +153,15 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 						$disciplineEntry->setSequence($i);
 						$i ++;
 						$disciplineEntryId = $submissionDisciplineEntryDao->insertObject($disciplineEntry);
+						unset($discipline);
 					}
 				}
+				unset($list);
 			}
 		}
+		unset($disciplineDao);
+		unset($currentDisciplines);
+		unset($submissionDisciplineEntryDao);
 	}
 }
 

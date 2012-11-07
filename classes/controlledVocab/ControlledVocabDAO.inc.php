@@ -47,6 +47,7 @@ class ControlledVocabDAO extends DAO {
 			$returner =& $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
+		unset($result);
 		return $returner;
 	}
 
@@ -235,7 +236,7 @@ class ControlledVocabDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-
+		unset($result);
 		return $returner;
 	}
 

@@ -46,6 +46,7 @@ class SubmissionAgencyEntryDAO extends ControlledVocabEntryDAO {
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_fromRow');
+		unset($result);
 		return $returner;
 	}
 }

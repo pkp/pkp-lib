@@ -206,7 +206,7 @@ class NotificationHandler extends Handler {
 		if (!isset($typeMap[$type])) return false;
 
 		$notificationManager = new NotificationManager();
-		$notifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, 'notification/' . $contentTypeMap[$type]);
+		$notifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, $context->getId(), null, 'notification/' . $contentTypeMap[$type]);
 
 		$versionDao =& DAORegistry::getDAO('VersionDAO');
 		$version = $versionDao->getCurrentVersion();
@@ -217,10 +217,9 @@ class NotificationHandler extends Handler {
 		$templateMgr->assign('locale', AppLocale::getPrimaryLocale());
 		$templateMgr->assign('appName', $appName);
 		$templateMgr->assign('siteTitle', $siteTitle);
-		$templateMgr->assign_by_ref('formattedNotifications', $notifications->toArray());
+		$templateMgr->assign_by_ref('formattedNotifications', $notifications);
 
-		$templateMgr->display(Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR .
-			'pkp' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'notification' . DIRECTORY_SEPARATOR . $typeMap[$type], $mimeTypeMap[$type]);
+		$templateMgr->display('notification/' . $typeMap[$type], $mimeTypeMap[$type]);
 
 		return true;
 	}

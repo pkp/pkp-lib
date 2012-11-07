@@ -20,7 +20,6 @@
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<ttl>60</ttl>
 
-		{$formattedNotifications|escape:"html"}
+		{$formattedNotifications}
 	</channel>
 </rss>
-

@@ -112,7 +112,7 @@ class AccessKeyDAO extends DAO {
 	 * @param $row array
 	 * @return AccessKey
 	 */
-	function &_returnAccessKeyFromRow(&$row) {
+	function &_returnAccessKeyFromRow($row) {
 		$accessKey = $this->newDataObject();
 		$accessKey->setId($row['access_key_id']);
 		$accessKey->setKeyHash($row['key_hash']);

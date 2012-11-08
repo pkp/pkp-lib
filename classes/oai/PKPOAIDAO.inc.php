@@ -371,7 +371,7 @@ class PKPOAIDAO extends DAO {
 	 * OAIRecord data can be set.
 	 * @return OAIIdentifier/OAIRecord
 	 */
-	function &setOAIData($record, &$row, $isRecord) {
+	function &setOAIData($record, $row, $isRecord) {
 		assert(false);
 	}
 
@@ -384,7 +384,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIRecord
 	 */
-	function &_returnRecordFromRow(&$row) {
+	function &_returnRecordFromRow($row) {
 		$record = new OAIRecord();
 		$record =& $this->_doCommonOAIFromRowOperations($record, $row);
 
@@ -398,7 +398,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIIdentifier
 	 */
-	function &_returnIdentifierFromRow(&$row) {
+	function &_returnIdentifierFromRow($row) {
 		$record = new OAIIdentifier();
 		$record =& $this->_doCommonOAIFromRowOperations($record, $row);
 
@@ -413,7 +413,7 @@ class PKPOAIDAO extends DAO {
 	 * @param $row array
 	 * @return OAIRecord/OAIIdentifier
 	 */
-	function &_doCommonOAIFromRowOperations(&$record, &$row) {
+	function &_doCommonOAIFromRowOperations(&$record, $row) {
 		$record->datestamp = OAIUtils::UTCDate(strtotime($this->datetimeFromDB($row['last_modified'])));
 
 		if (isset($row['tombstone_id'])) {

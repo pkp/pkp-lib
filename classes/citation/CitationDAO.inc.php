@@ -482,7 +482,7 @@ class CitationDAO extends DAO {
 	 * @param $row array
 	 * @return Citation
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		$citation =& $this->_newDataObject();
 		$citation->setId((integer)$row['citation_id']);
 		$citation->setAssocType((integer)$row['assoc_type']);

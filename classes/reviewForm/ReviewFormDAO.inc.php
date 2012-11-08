@@ -108,7 +108,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $row array
 	 * @return ReviewForm
 	 */
-	function &_returnReviewFormFromRow(&$row) {
+	function &_returnReviewFormFromRow($row) {
 		$reviewForm = $this->newDataObject();
 		$reviewForm->setId($row['review_form_id']);
 		$reviewForm->setAssocType($row['assoc_type']);

@@ -49,7 +49,7 @@ class PKPUserGroupDAO extends DAO {
 	 * @param $row array
 	 * @return PKPUserGroup
 	 */
-	function &_returnFromRow(&$row) {
+	function &_returnFromRow($row) {
 		$userGroup =& $this->newDataObject();
 		$userGroup->setId($row['user_group_id']);
 		$userGroup->setRoleId($row['role_id']);

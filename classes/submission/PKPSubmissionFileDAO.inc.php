@@ -576,7 +576,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $fileImplementation string
 	 * @return SubmissionFile
 	 */
-	function &fromRow(&$row, $fileImplementation) {
+	function &fromRow($row, $fileImplementation) {
 		// Identify the delegate.
 		$daoDelegate =& $this->_getDaoDelegate($fileImplementation); /* @var $daoDelegate SubmissionFileDAODelegate */
 

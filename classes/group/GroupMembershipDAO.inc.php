@@ -77,7 +77,7 @@ class GroupMembershipDAO extends DAO {
 	 * @param $row array
 	 * @return GroupMembership
 	 */
-	function &_returnMembershipFromRow(&$row) {
+	function &_returnMembershipFromRow($row) {
 		// Keep a cache of users.
 		static $users;
 		if (!isset($users)) {

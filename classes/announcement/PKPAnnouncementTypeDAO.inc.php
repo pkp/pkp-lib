@@ -154,7 +154,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $row array
 	 * @return AnnouncementType
 	 */
-	function &_returnAnnouncementTypeFromRow(&$row) {
+	function &_returnAnnouncementTypeFromRow($row) {
 		$announcementType = $this->newDataObject();
 		$announcementType->setId($row['type_id']);
 		$announcementType->setAssocType($row['assoc_type']);

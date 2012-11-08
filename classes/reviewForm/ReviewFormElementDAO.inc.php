@@ -58,7 +58,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $row array
 	 * @return ReviewFormElement
 	 */
-	function &_returnReviewFormElementFromRow(&$row) {
+	function &_returnReviewFormElementFromRow($row) {
 		$reviewFormElement = $this->newDataObject();
 		$reviewFormElement->setId($row['review_form_element_id']);
 		$reviewFormElement->setReviewFormId($row['review_form_id']);

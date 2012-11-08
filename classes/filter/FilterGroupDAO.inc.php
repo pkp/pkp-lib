@@ -197,7 +197,7 @@ class FilterGroupDAO extends DAO {
 	 * @param $row array
 	 * @return FilterGroup
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		// Instantiate the filter group.
 		$filterGroup = $this->newDataObject();
 

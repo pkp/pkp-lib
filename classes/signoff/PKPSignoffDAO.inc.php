@@ -130,7 +130,7 @@ class PKPSignoffDAO extends DAO {
 	 * @param $row array
 	 * @return Signoff
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		$signoff = $this->newDataObject();
 
 		$signoff->setId($row['signoff_id']);

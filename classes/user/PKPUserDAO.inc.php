@@ -140,7 +140,7 @@ class PKPUserDAO extends DAO {
 		return $returner;
 	}
 
-	function &_returnUserFromRowWithData(&$row) {
+	function &_returnUserFromRowWithData($row) {
 		$user =& $this->_returnUserFromRow($row, false);
 		$this->getDataObjectSettings('user_settings', 'user_id', $row['user_id'], $user);
 
@@ -155,7 +155,7 @@ class PKPUserDAO extends DAO {
 	 * @param $callHook boolean
 	 * @return User
 	 */
-	function &_returnUserFromRow(&$row, $callHook = true) {
+	function &_returnUserFromRow($row, $callHook = true) {
 		$user = new User();
 		$user->setId($row['user_id']);
 		$user->setUsername($row['username']);

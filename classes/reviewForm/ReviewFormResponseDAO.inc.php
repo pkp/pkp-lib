@@ -60,7 +60,7 @@ class ReviewFormResponseDAO extends DAO {
 	 * @param $row array
 	 * @return ReviewFormResponse
 	 */
-	function &_returnReviewFormResponseFromRow(&$row) {
+	function &_returnReviewFormResponseFromRow($row) {
 		$responseValue = $this->convertFromDB($row['response_value'], $row['response_type']);
 		$reviewFormResponse = $this->newDataObject();
 

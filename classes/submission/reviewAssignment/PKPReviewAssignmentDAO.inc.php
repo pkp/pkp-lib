@@ -557,7 +557,7 @@ class PKPReviewAssignmentDAO extends DAO {
 	 * @param $row array
 	 * @return ReviewAssignment
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		$reviewAssignment = $this->newDataObject();
 
 		$reviewAssignment->setId($row['review_id']);

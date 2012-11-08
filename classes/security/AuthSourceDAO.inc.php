@@ -115,7 +115,7 @@ class AuthSourceDAO extends DAO {
 	 * @param $row array
 	 * @return AuthSource
 	 */
-	function &_returnAuthSourceFromRow(&$row) {
+	function &_returnAuthSourceFromRow($row) {
 		$auth = $this->newDataObject();
 		$auth->setAuthId($row['auth_id']);
 		$auth->setTitle($row['title']);

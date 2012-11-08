@@ -87,7 +87,7 @@ class EventLogDAO extends DAO {
 	 * @param $row array
 	 * @return EventLogEntry
 	 */
-	function &build(&$row) {
+	function &build($row) {
 		$entry = $this->newDataObject();
 		$entry->setId($row['log_id']);
 		$entry->setUserId($row['user_id']);

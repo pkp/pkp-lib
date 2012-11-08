@@ -369,7 +369,7 @@ class ProcessDAO extends DAO {
 	 * @param $row array
 	 * @return Process
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		$process = $this->newDataObject();
 		$process->setId($row['process_id']);
 		$process->setProcessType((integer)$row['process_type']);

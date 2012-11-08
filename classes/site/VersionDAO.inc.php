@@ -112,7 +112,7 @@ class VersionDAO extends DAO {
 	 * @param $row array
 	 * @return Version
 	 */
-	function &_returnVersionFromRow(&$row) {
+	function &_returnVersionFromRow($row) {
 		$version = new Version(
 			$row['major'],
 			$row['minor'],
@@ -243,7 +243,7 @@ class VersionDAO extends DAO {
 
 		$productArray = array();
 		while(!$result->EOF) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			$productArray[$row['product_type']][$row['product']] =& $this->_returnVersionFromRow($row);
 			$result->MoveNext();
 		}

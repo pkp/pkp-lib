@@ -97,7 +97,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @param $row array
 	 * @return ControlledVocabEntry
 	 */
-	function _fromRow(&$row) {
+	function _fromRow($row) {
 		$controlledVocabEntry = $this->newDataObject();
 		$controlledVocabEntry->setControlledVocabId($row['controlled_vocab_id']);
 		$controlledVocabEntry->setId($row['controlled_vocab_entry_id']);

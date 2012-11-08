@@ -94,7 +94,7 @@ class DAO {
 
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
-		$result =& $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
+		$result = $dataSource->execute($sql, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			// FIXME Handle errors more elegantly.
 			fatalError('DB Error: ' . $dataSource->errorMsg());
@@ -548,7 +548,7 @@ class DAO {
 		$result =& $this->retrieve($sql, $params);
 
 		while (!$result->EOF) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			$dataObject->setData(
 				$row['setting_name'],
 				$this->convertFromDB(

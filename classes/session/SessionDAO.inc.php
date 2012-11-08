@@ -44,7 +44,7 @@ class SessionDAO extends DAO {
 
 		$session = null;
 		if ($result->RecordCount() != 0) {
-			$row =& $result->GetRowAssoc(false);
+			$row = $result->GetRowAssoc(false);
 
 			$session = $this->newDataObject();
 			$session->setId($row['session_id']);

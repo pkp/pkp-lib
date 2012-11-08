@@ -92,7 +92,7 @@ class GroupDAO extends DAO {
 	 * @param $row array
 	 * @return Group
 	 */
-	function &_returnGroupFromRow(&$row) {
+	function &_returnGroupFromRow($row) {
 		$group = $this->newDataObject();
 		$group->setId($row['group_id']);
 		$group->setAboutDisplayed($row['about_displayed']);

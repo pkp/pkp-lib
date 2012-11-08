@@ -483,7 +483,7 @@ class FilterDAO extends DAO {
 	 * @param $row array
 	 * @return PersistableFilter
 	 */
-	function &_fromRow(&$row) {
+	function &_fromRow($row) {
 		static $lockedFilters = array();
 		$filterId = $row['filter_id'];
 

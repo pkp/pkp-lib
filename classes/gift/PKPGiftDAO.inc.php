@@ -78,7 +78,7 @@ class PKPGiftDAO extends DAO {
 	 * @param $row array
 	 * @return Gift object
 	 */
-	function &_returnGiftFromRow(&$row) {
+	function &_returnGiftFromRow($row) {
 		$gift = $this->newDataObject();
 		$gift->setId($row['gift_id']);
 		$gift->setAssocType($row['assoc_type']);

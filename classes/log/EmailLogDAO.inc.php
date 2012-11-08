@@ -114,7 +114,7 @@ class EmailLogDAO extends DAO {
 	 * @param $row array
 	 * @return EmailLogEntry
 	 */
-	function &build(&$row) {
+	function &build($row) {
 		$entry = $this->newDataObject();
 		$entry->setId($row['log_id']);
 		$entry->setAssocType($row['assoc_type']);

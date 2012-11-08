@@ -35,7 +35,7 @@ class SiteDAO extends DAO {
 		);
 
 		if ($result->RecordCount() != 0) {
-			$site =& $this->_returnSiteFromRow($result->GetRowAssoc(false));
+			$site = $this->_returnSiteFromRow($result->GetRowAssoc(false));
 		}
 
 		$result->Close();
@@ -58,7 +58,7 @@ class SiteDAO extends DAO {
 	 * @param $callHook boolean
 	 * @return Site
 	 */
-	function &_returnSiteFromRow(&$row, $callHook = true) {
+	function &_returnSiteFromRow($row, $callHook = true) {
 		$site = $this->newDataObject();
 		$site->setRedirect($row['redirect']);
 		$site->setMinPasswordLength($row['min_password_length']);

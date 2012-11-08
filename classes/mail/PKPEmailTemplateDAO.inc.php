@@ -198,7 +198,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $row array
 	 * @return BaseEmailTemplate
 	 */
-	function &_returnBaseEmailTemplateFromRow(&$row) {
+	function &_returnBaseEmailTemplateFromRow($row) {
 		$emailTemplate = new BaseEmailTemplate();
 		$emailTemplate->setEmailId($row['email_id']);
 		$emailTemplate->setAssocType($row['assoc_type']);

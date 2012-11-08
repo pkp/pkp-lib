@@ -18,9 +18,11 @@
  * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
  * @param $class string the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
  */
-function import($class) {
-	$filePath = str_replace('.', '/', $class) . '.inc.php';
-	require_once(BASE_SYS_DIR.'/'.$filePath);
+if (!function_exists('import')) {
+	function import($class) {
+		$filePath = str_replace('.', '/', $class) . '.inc.php';
+		require_once(BASE_SYS_DIR.'/'.$filePath);
+	}
 }
 
 /**

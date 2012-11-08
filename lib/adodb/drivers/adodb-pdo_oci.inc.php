@@ -2,7 +2,7 @@
 
 
 /*
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.
+V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -26,20 +26,20 @@ class ADODB_pdo_oci extends ADODB_pdo_base {
 	function _init($parentDriver)
 	{
 		$parentDriver->_bindInputArray = true;
-		
+		$parentDriver->_nestedSQL = true;
 		if ($this->_initdate) {
 			$parentDriver->Execute("ALTER SESSION SET NLS_DATE_FORMAT='".$this->NLS_DATE_FORMAT."'");
 		}
 	}
 	
-	function &MetaTables($ttype=false,$showSchema=false,$mask=false) 
+	function MetaTables($ttype=false,$showSchema=false,$mask=false) 
 	{
 		if ($mask) {
 			$save = $this->metaTablesSQL;
 			$mask = $this->qstr(strtoupper($mask));
 			$this->metaTablesSQL .= " AND table_name like $mask";
 		}
-		$ret =& ADOConnection::MetaTables($ttype,$showSchema);
+		$ret = ADOConnection::MetaTables($ttype,$showSchema);
 		
 		if ($mask) {
 			$this->metaTablesSQL = $save;
@@ -47,7 +47,7 @@ class ADODB_pdo_oci extends ADODB_pdo_base {
 		return $ret;
 	}
 	
-	function &MetaColumns($table) 
+	function MetaColumns($table,$normalize=true)
 	{
 	global $ADODB_FETCH_MODE;
 	

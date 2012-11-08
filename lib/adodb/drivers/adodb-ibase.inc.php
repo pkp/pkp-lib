@@ -1,6 +1,6 @@
 <?php
 /*
-V4.90 8 June 2006  (c) 2000-2006 John Lim (jlim#natsoft.com.my). All rights reserved.  
+V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.  
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -47,7 +47,7 @@ class ADODB_ibase extends ADOConnection {
 	var $buffers = 0;
 	var $dialect = 1;
 	var $sysDate = "cast('TODAY' as timestamp)";
-	var $sysTimeStamp = "cast('NOW' as timestamp)";
+	var $sysTimeStamp = "CURRENT_TIMESTAMP"; //"cast('NOW' as timestamp)";
 	var $ansiOuter = true;
 	var $hasAffectedRows = false;
 	var $poorAffectedRows = true;
@@ -159,17 +159,17 @@ class ADODB_ibase extends ADOConnection {
 	
 	// there are some compat problems with ADODB_COUNTRECS=false and $this->_logsql currently.
 	// it appears that ibase extension cannot support multiple concurrent queryid's
-	function &_Execute($sql,$inputarr=false) 
+	function _Execute($sql,$inputarr=false) 
 	{
 	global $ADODB_COUNTRECS;
 	
 		if ($this->_logsql) {
 			$savecrecs = $ADODB_COUNTRECS;
 			$ADODB_COUNTRECS = true; // force countrecs
-			$ret =& ADOConnection::_Execute($sql,$inputarr);
+			$ret = ADOConnection::_Execute($sql,$inputarr);
 			$ADODB_COUNTRECS = $savecrecs;
 		} else {
-			$ret =& ADOConnection::_Execute($sql,$inputarr);
+			$ret = ADOConnection::_Execute($sql,$inputarr);
 		}
 		return $ret;
 	}
@@ -187,7 +187,7 @@ class ADODB_ibase extends ADOConnection {
 		return $ret;
 	}
 	
-	function &MetaIndexes ($table, $primary = FALSE, $owner=false)
+	function MetaIndexes ($table, $primary = FALSE, $owner=false)
 	{
         // save old fetch mode
         global $ADODB_FETCH_MODE;
@@ -242,7 +242,7 @@ class ADODB_ibase extends ADOConnection {
 
 	
 	// See http://community.borland.com/article/0,1410,25844,00.html
-	function RowLock($tables,$where,$col)
+	function RowLock($tables,$where,$col=false)
 	{
 		if ($this->autoCommit) $this->BeginTrans();
 		$this->Execute("UPDATE $table SET $col=$col WHERE $where "); // is this correct - jlim?
@@ -326,7 +326,7 @@ class ADODB_ibase extends ADOConnection {
 			if (is_array($iarr)) {
 				if  (ADODB_PHPVER >= 0x4050) { // actually 4.0.4
 					if ( !isset($iarr[0]) ) $iarr[0] = ''; // PHP5 compat hack
-					$fnarr =& array_merge( array($sql) , $iarr);
+					$fnarr = array_merge( array($sql) , $iarr);
 					$ret = call_user_func_array($fn,$fnarr);
 				} else {
 					switch(sizeof($iarr)) {
@@ -348,7 +348,7 @@ class ADODB_ibase extends ADOConnection {
 			if (is_array($iarr)) {	
 				if (ADODB_PHPVER >= 0x4050) { // actually 4.0.4
 					if (sizeof($iarr) == 0) $iarr[0] = ''; // PHP5 compat hack
-					$fnarr =& array_merge( array($conn,$sql) , $iarr);
+					$fnarr = array_merge( array($conn,$sql) , $iarr);
 					$ret = call_user_func_array($fn,$fnarr);
 				} else {
 					switch(sizeof($iarr)) {
@@ -476,7 +476,7 @@ class ADODB_ibase extends ADOConnection {
 	}
 	//OPN STUFF end
 		// returns array of ADOFieldObjects for current table
-	function &MetaColumns($table) 
+	function MetaColumns($table, $normalize=true) 
 	{
 	global $ADODB_FETCH_MODE;
 		
@@ -556,7 +556,7 @@ class ADODB_ibase extends ADOConnection {
 	
 	// old blobdecode function
 	// still used to auto-decode all blob's
-	function _BlobDecode( $blob ) 
+	function _BlobDecode_old( $blob ) 
 	{
 		$blobid = ibase_blob_open($this->_connectionID, $blob );
 		$realblob = ibase_blob_get( $blobid,$this->maxblobsize); // 2nd param is max size of blob -- Kevin Boillet <kevinboillet@yahoo.fr>
@@ -567,6 +567,32 @@ class ADODB_ibase extends ADOConnection {
 
 		return( $realblob );
 	} 
+	
+	function _BlobDecode( $blob ) 
+    {
+        if  (ADODB_PHPVER >= 0x5000) {
+            $blob_data = ibase_blob_info($this->_connectionID, $blob );
+            $blobid = ibase_blob_open($this->_connectionID, $blob );
+        } else {
+
+            $blob_data = ibase_blob_info( $blob );
+            $blobid = ibase_blob_open( $blob );
+        }
+
+        if( $blob_data[0] > $this->maxblobsize ) {
+
+            $realblob = ibase_blob_get($blobid, $this->maxblobsize);
+
+            while($string = ibase_blob_get($blobid, 8192)){
+                $realblob .= $string; 
+            }
+        } else {
+            $realblob = ibase_blob_get($blobid, $blob_data[0]);
+        }
+
+        ibase_blob_close( $blobid );
+        return( $realblob );
+	}
 	
 	function UpdateBlobFile($table,$column,$path,$where,$blobtype='BLOB') 
 	{ 
@@ -717,7 +743,7 @@ class ADORecordset_ibase extends ADORecordSet
 			fields in a certain query result. If the field offset isn't specified, the next field that wasn't yet retrieved by
 			fetchField() is retrieved.		*/
 
-	function &FetchField($fieldOffset = -1)
+	function FetchField($fieldOffset = -1)
 	{
 			 $fld = new ADOFieldObject;
 			 $ibf = ibase_field_info($this->_queryID,$fieldOffset);
@@ -796,9 +822,9 @@ class ADORecordset_ibase extends ADORecordSet
 		
 		$this->fields = $f;
 		if ($this->fetchMode == ADODB_FETCH_ASSOC) {
-			$this->fields = &$this->GetRowAssoc(ADODB_ASSOC_CASE);
+			$this->fields = $this->GetRowAssoc(ADODB_ASSOC_CASE);
 		} else if ($this->fetchMode == ADODB_FETCH_BOTH) {
-			$this->fields =& array_merge($this->fields,$this->GetRowAssoc(ADODB_ASSOC_CASE));
+			$this->fields = array_merge($this->fields,$this->GetRowAssoc(ADODB_ASSOC_CASE));
 		}
 		return true;
 	}

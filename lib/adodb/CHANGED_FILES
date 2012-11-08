@@ -1,19 +1,11 @@
-Changed files from the standard ADOdb distribution
+Changed files from the standard ADOdb distribution, based on ADOdb 5.18
 
 == Added ==
 CHANGED_FILES
 diff
-diff/adodb.inc.php.diff
-diff/adodb-datadict.inc.php.diff
-diff/adodb-xmlschema.inc.php.diff
-diff/datadict-mysql.inc.php.diff
-diff/datadict-postgres.inc.php.diff
-diff/adodb-mysql.inc.php.diff
-diff/adodb-postgres64.inc.php.diff
+diff/unified.diff
 
 == Removed ==
-*.htm
-adodb-time.zip
 contrib
 cute_icons_for_site
 docs

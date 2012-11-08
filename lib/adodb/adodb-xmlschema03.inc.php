@@ -10,9 +10,9 @@
  * build a database on any ADOdb-supported platform using a simple
  * XML schema.
  *
- * Last Editor: $Author$
+ * Last Editor: $Author: jlim $
  * @author Richard Tango-Lowy & Dan Cech
- * @version $Revision$
+ * @version $Revision: 1.62 $
  *
  * @package axmls
  * @tutorial getting_started.pkg
@@ -137,7 +137,7 @@ class dbObject {
 	* NOP
 	*/
 	function dbObject( &$parent, $attributes = NULL ) {
-		$this->parent =& $parent;
+		$this->parent = $parent;
 	}
 	
 	/**
@@ -167,7 +167,7 @@ class dbObject {
 		
 	}
 	
-	function create() {
+	function create(&$xmls) {
 		return array();
 	}
 	
@@ -274,7 +274,7 @@ class dbTable extends dbObject {
 	* @param array $attributes Array of table attributes.
 	*/
 	function dbTable( &$parent, $attributes = NULL ) {
-		$this->parent =& $parent;
+		$this->parent = $parent;
 		$this->name = $this->prefix($attributes['NAME']);
 	}
 	
@@ -399,7 +399,7 @@ class dbTable extends dbObject {
 	* @param array $attributes Index attributes
 	* @return object dbIndex object
 	*/
-	function &addIndex( $attributes ) {
+	function addIndex( $attributes ) {
 		$name = strtoupper( $attributes['NAME'] );
 		$this->indexes[$name] = new dbIndex( $this, $attributes );
 		return $this->indexes[$name];
@@ -411,7 +411,7 @@ class dbTable extends dbObject {
 	* @param array $attributes Data attributes
 	* @return object dbData object
 	*/
-	function &addData( $attributes ) {
+	function addData( $attributes ) {
 		if( !isset( $this->data ) ) {
 			$this->data = new dbData( $this, $attributes );
 		}
@@ -504,11 +504,12 @@ class dbTable extends dbObject {
 	* @return array Options
 	*/
 	function addTableOpt( $opt ) {
-		if( $this->currentPlatform ) {
-		$this->opts[] = $opt;
+		if(isset($this->currentPlatform)) {
+			$this->opts[$this->parent->db->databaseType] = $opt;
 		}
 		return $this->opts;
 	}
+
 	
 	/**
 	* Generates the SQL that will create the table in the database
@@ -683,7 +684,7 @@ class dbIndex extends dbObject {
 	* @internal
 	*/
 	function dbIndex( &$parent, $attributes = NULL ) {
-		$this->parent =& $parent;
+		$this->parent = $parent;
 		
 		$this->name = $this->prefix ($attributes['NAME']);
 	}
@@ -828,7 +829,7 @@ class dbData extends dbObject {
 	* @internal
 	*/
 	function dbData( &$parent, $attributes = NULL ) {
-		$this->parent =& $parent;
+		$this->parent = $parent;
 	}
 	
 	/**
@@ -1084,7 +1085,7 @@ class dbQuerySet extends dbObject {
 	* @param array $attributes Attributes
 	*/
 	function dbQuerySet( &$parent, $attributes = NULL ) {
-		$this->parent =& $parent;
+		$this->parent = $parent;
 			
 		// Overrides the manual prefix key
 		if( isset( $attributes['KEY'] ) ) {
@@ -1309,7 +1310,7 @@ class dbQuerySet extends dbObject {
 * @tutorial getting_started.pkg
 *
 * @author Richard Tango-Lowy & Dan Cech
-* @version $Revision$
+* @version $Revision: 1.62 $
 *
 * @package axmls
 */
@@ -1404,12 +1405,13 @@ class adoSchema {
 	*
 	* @param object $db ADOdb database connection object.
 	*/
-	function adoSchema( &$db ) {
+	function adoSchema( $db ) {
 		// Initialize the environment
 		$this->mgq = get_magic_quotes_runtime();
-		set_magic_quotes_runtime(0);
+		#set_magic_quotes_runtime(0);
+		ini_set("magic_quotes_runtime", 0);
 		
-		$this->db =& $db;
+		$this->db = $db;
 		$this->debug = $this->db->debug;
 		$this->dict = NewDataDictionary( $this->db );
 		$this->sqlArray = array();
@@ -1497,7 +1499,7 @@ class adoSchema {
 					$mode = XMLS_MODE_INSERT;
 					break;
 				default:
-					$mode = XMLS_EXISITNG_DATA;
+					$mode = XMLS_EXISTING_DATA;
 					break;
 			}
 			$this->existingData = $mode;
@@ -1785,7 +1787,7 @@ class adoSchema {
 	*
 	* @access private
 	*/
-	function &create_parser() {
+	function create_parser() {
 		// Create the parser
 		$xmlParser = xml_parser_create();
 		xml_set_object( $xmlParser, $this );
@@ -2092,16 +2094,20 @@ class adoSchema {
 	* in the schema. 
 	*
 	* @param boolean $data Include data in schema dump
+	* @indent string indentation to use
+	* @prefix string extract only tables with given prefix
+	* @stripprefix strip prefix string when storing in XML schema
 	* @return string Generated XML schema
 	*/
-	function ExtractSchema( $data = FALSE, $indent = '  ' ) {
+	function ExtractSchema( $data = FALSE, $indent = '  ', $prefix = '' , $stripprefix=false) {
 		$old_mode = $this->db->SetFetchMode( ADODB_FETCH_NUM );
 		
 		$schema = '<?xml version="1.0"?>' . "\n"
 				. '<schema version="' . $this->schemaVersion . '">' . "\n";
 		
-		if( is_array( $tables = $this->db->MetaTables( 'TABLES' ) ) ) {
+		if( is_array( $tables = $this->db->MetaTables( 'TABLES' , ($prefix) ? $prefix.'%' : '') ) ) {
 			foreach( $tables as $table ) {
+				if ($stripprefix) $table = str_replace(str_replace('\\_', '_', $pfx ), '', $table);
 				$schema .= $indent . '<table name="' . htmlentities( $table ) . '">' . "\n";
 				
 				// grab details from database
@@ -2369,7 +2375,8 @@ class adoSchema {
 	* @deprecated adoSchema now cleans up automatically.
 	*/
 	function Destroy() {
-		set_magic_quotes_runtime( $this->mgq );
+		ini_set("magic_quotes_runtime", $this->mgq );
+		#set_magic_quotes_runtime( $this->mgq );
 		unset( $this );
 	}
 }

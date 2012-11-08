@@ -98,7 +98,7 @@ class DAOResultFactory extends ItemIterator {
 		if (!$this->records->EOF) {
 			$functionName = $this->functionName;
 			$dao =& $this->dao;
-			$row =& $this->records->getRowAssoc(false);
+			$row = $this->records->getRowAssoc(false);
 			$result = $dao->$functionName($row);
 			if (!$this->records->MoveNext()) $this->_cleanup();
 			return $result;
@@ -113,7 +113,7 @@ class DAOResultFactory extends ItemIterator {
 	 * Return the next row, with key.
 	 * @return array ($key, $value)
 	 */
-	function &nextWithKey($idField = null) {
+	function nextWithKey($idField = null) {
 		$result =& $this->next();
 		if($idField) {
 			assert(is_a($result, 'DataObject'));

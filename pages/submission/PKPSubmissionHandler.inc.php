@@ -41,15 +41,6 @@ class PKPSubmissionHandler extends Handler {
 		header('Content-Type: text/json');
 		echo json_encode(array_values($codes));
 	}
-
-	//
-	// Protected helper methods
-	//
-	/**
-	 * Setup common template variables.
-	 */
-	function setupTemplate() {
-		parent::setupTemplate();
-	}
 }
+
 ?>

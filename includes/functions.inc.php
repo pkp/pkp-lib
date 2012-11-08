@@ -18,52 +18,9 @@
  * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
  * @param $class string the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
  */
-if (!function_exists('import')) {
-	function import($class) {
-		static $deprecationWarning = null;
-
-		// Try to bypass include path for best performance
-		$filePath = str_replace('.', '/', $class) . '.inc.php';
-		if((@include_once BASE_SYS_DIR.'/'.$filePath) === false) {
-			// Oops, we found a legacy include statement,
-			// let's try the include path then.
-			require_once($filePath);
-			if (is_null($deprecationWarning) && class_exists('Config')) {
-				$deprecationWarning = (boolean)Config::getVar('debug', 'deprecation_warnings');
-			}
-			if ($deprecationWarning) trigger_error('Deprecated import of a partially qualified class name.');
-		}
-	}
-}
-
-if (!function_exists('file_get_contents')) {
-	// For PHP < 4.3.0
-	function file_get_contents($file) {
-		return join('', file($file));
-	}
-}
-
-if (!function_exists('stream_get_contents')) {
-	function stream_get_contents($fp) {
-		fflush($fp);
-	}
-}
-
-if (!function_exists('array_combine')) {
-	// For PHP 4
-	function array_combine($keys, $values) {
-		if (count($keys) != count($values)) return false;
-		if (empty($keys)) return false;
-
-		$out = array();
-		while(count($keys)) {
-			$key = array_shift($keys);
-			$value = array_shift($values);
-			if (!is_integer($key) && !is_string($key)) $key = (string) $key;
-			$out[$key] = $value;
-		}
-		return $out;
-	}
+function import($class) {
+	$filePath = str_replace('.', '/', $class) . '.inc.php';
+	require_once(BASE_SYS_DIR.'/'.$filePath);
 }
 
 /**

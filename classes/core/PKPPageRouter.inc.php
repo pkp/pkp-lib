@@ -19,7 +19,7 @@ import('lib.pkp.classes.core.PKPRouter');
 
 class PKPPageRouter extends PKPRouter {
 	/** @var array pages that don't need an installed system to be displayed */
-	var $_installationPages = array('install', 'help', 'header');
+	var $_installationPages = array('install', 'help', 'header', 'sidebar');
 
 	//
 	// Internal state cache variables

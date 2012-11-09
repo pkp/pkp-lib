@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying a submission's agencies
  */
 
-import('classes.submission.SubmissionAgency');
+import('lib.pkp.classes.submission.SubmissionAgency');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionAgencyEntryDAO extends ControlledVocabEntryDAO {

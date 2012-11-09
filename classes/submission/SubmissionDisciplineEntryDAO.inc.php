@@ -13,8 +13,7 @@
  * @brief Operations for retrieving and modifying a submission's disciplines
  */
 
-
-import('classes.submission.SubmissionDiscipline');
+import('lib.pkp.classes.submission.SubmissionDiscipline');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionDisciplineEntryDAO extends ControlledVocabEntryDAO {

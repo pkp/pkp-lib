@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying a submission's languages
  */
 
-import('classes.submission.SubmissionLanguage');
+import('lib.pkp.classes.submission.SubmissionLanguage');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO {

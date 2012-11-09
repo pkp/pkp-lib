@@ -13,7 +13,7 @@
  * @brief Operations for retrieving and modifying a submission's keywords
  */
 
-import('classes.submission.SubmissionKeyword');
+import('lib.pkp.classes.submission.SubmissionKeyword');
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class SubmissionKeywordEntryDAO extends ControlledVocabEntryDAO {

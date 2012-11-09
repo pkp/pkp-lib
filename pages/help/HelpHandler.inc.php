@@ -48,7 +48,7 @@ class HelpHandler extends Handler {
 	 */
 	function toc($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		$templateMgr =& TemplateManager::getManager();
 		import('classes.help.Help');
@@ -64,7 +64,7 @@ class HelpHandler extends Handler {
 	 */
 	function view($args, $request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		$topicId = implode("/",$args);
 		$keyword = trim(String::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
@@ -121,7 +121,7 @@ class HelpHandler extends Handler {
 	 */
 	function search($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		$searchResults = array();
 
@@ -148,8 +148,8 @@ class HelpHandler extends Handler {
 	/**
 	 * Initialize the template
 	 */
-	function setupTemplate() {
-		parent::setupTemplate();
+	function setupTemplate($request) {
+		parent::setupTemplate($request);
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);

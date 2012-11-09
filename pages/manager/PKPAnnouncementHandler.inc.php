@@ -35,7 +35,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		$rangeInfo =& Handler::getRangeInfo('announcements', array());
+		$rangeInfo = $this->getRangeInfo($request, 'announcements', array());
 		while (true) {
 			$announcements =& $this->_getAnnouncements($request, $rangeInfo);
 			if ($announcements->isInBounds()) break;
@@ -197,7 +197,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		$this->validate();
 		$this->setupTemplate($request, true);
 
-		$rangeInfo =& Handler::getRangeInfo('announcementTypes', array());
+		$rangeInfo = $this->getRangeInfo($request, 'announcementTypes', array());
 		while (true) {
 			$announcementTypes =& $this->_getAnnouncementTypes($request, $rangeInfo);
 			if ($announcementTypes->isInBounds()) break;
@@ -338,7 +338,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $subclass boolean
 	 */
 	function setupTemplate(&$request, $subclass = false) {
-		parent::setupTemplate(true);
+		parent::setupTemplate($request, true);
 		if ($subclass) {
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->append('pageHierarchy', array($request->url(null, 'manager', 'announcements'), 'manager.announcements'));

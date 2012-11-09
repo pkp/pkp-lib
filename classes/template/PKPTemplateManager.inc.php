@@ -56,16 +56,15 @@ class PKPTemplateManager extends Smarty {
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
-	 * @param $request PKPRequest FIXME: is optional for backwards compatibility only - make mandatory
+	 * @param $request PKPRequest
 	 */
 	function PKPTemplateManager($request = null) {
-		// FIXME: for backwards compatibility only - remove
 		if (!isset($request)) {
-			$this->request =& Registry::get('request');
-		} else {
-			$this->request =& $request;
+			$request =& Registry::get('request');
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
 		}
-		assert(is_a($this->request, 'PKPRequest'));
+		assert(is_a($request, 'PKPRequest'));
+		$this->request = $request;
 
 		// Retrieve the router
 		$router =& $this->request->getRouter();
@@ -350,10 +349,9 @@ class PKPTemplateManager extends Smarty {
 	 * Smarty usage: {display_template template="name.tpl" hookname="My::Hook::Name"}
 	 */
 	function smartyDisplayTemplate($params, &$smarty) {
-		$templateMgr =& TemplateManager::getManager();
 		// This is basically a wrapper for display()
 		if (isset($params['template'])) {
-			$templateMgr->display($params['template'], "", $params['hookname']);
+			$this->display($params['template'], "", $params['hookname']);
 		}
 	}
 
@@ -368,10 +366,16 @@ class PKPTemplateManager extends Smarty {
 
 	/**
 	 * Return an instance of the template manager.
-	 * @param $request PKPRequest FIXME: is optional for backwards compatibility only - make mandatory
+	 * @param $request PKPRequest
 	 * @return TemplateManager the template manager object
 	 */
 	static function &getManager($request = null) {
+		if (!isset($request)) {
+			$request =& Registry::get('request');
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
+		}
+		assert(is_a($request, 'PKPRequest'));
+
 		$instance =& Registry::get('templateManager', true, null);
 
 		if ($instance === null) {
@@ -719,7 +723,8 @@ class PKPTemplateManager extends Smarty {
 			// from the parameters array. Variables remaining in params will be
 			// passed along to Request::url as extra parameters.
 			$context = array();
-			$contextList = Application::getContextList();
+			$application =& PKPApplication::getApplication();
+			$contextList = $application->getContextList();
 			foreach ($contextList as $contextName) {
 				if (isset($parameters[$contextName])) {
 					$context[$contextName] = $parameters[$contextName];
@@ -811,8 +816,7 @@ class PKPTemplateManager extends Smarty {
 		}
 		$lastPercent = $percent;
 
-		$templateMgr =& TemplateManager::getManager();
-		$templateMgr->flush();
+		$this->flush();
 	}
 
 	/**
@@ -914,8 +918,7 @@ class PKPTemplateManager extends Smarty {
 	 * Get the value of a template variable.
 	 */
 	function smartyGetValue($name) {
-		$templateMgr =& TemplateManager::getManager();
-		return $templateMgr->get_template_vars($name);
+		return $this->get_template_vars($name);
 	}
 
 	/**
@@ -1169,11 +1172,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function smartyAssign($value, $varName, $passThru = false) {
 		if (isset($varName)) {
-			// NOTE: CANNOT use $this, as it's actually
-			// a COPY of the real template manager for some PHPs!
-			// FIXME: Track this bug down. (Smarty?)
-			$templateMgr =& TemplateManager::getManager();
-			$templateMgr->assign($varName, $value);
+			$this->assign($varName, $value);
 		}
 		if ($passThru) return $value;
 	}

@@ -16,12 +16,13 @@
 class Validation {
 	static $_isLoggedIn = false;
 
-	function isLoggedIn() {
+	static function isLoggedIn() {
 		return Validation::$_isLoggedIn;
 	}
 
-	function setIsLoggedIn($isLoggedIn) {
+	static function setIsLoggedIn($isLoggedIn) {
 		Validation::$_isLoggedIn = $isLoggedIn;
 	}
 }
+
 ?>

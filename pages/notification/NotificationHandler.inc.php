@@ -24,7 +24,7 @@ class NotificationHandler extends Handler {
 	 */
 	function index($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$templateMgr =& TemplateManager::getManager();
 		$router =& $request->getRouter();
 
@@ -44,7 +44,7 @@ class NotificationHandler extends Handler {
 		$notificationManager = new NotificationManager();
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
 
-		$rangeInfo =& Handler::getRangeInfo('notifications');
+		$rangeInfo = $this->getRangeInfo($request, 'notifications');
 
 		// Construct the formatted notification string to display in the template
 		$formattedNotifications = $notificationManager->getFormattedNotificationsForUser($request, $userId, NOTIFICATION_LEVEL_NORMAL, $contextId, $rangeInfo);
@@ -95,7 +95,7 @@ class NotificationHandler extends Handler {
 	 */
 	function settings($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 
 		$user = $request->getUser();
@@ -116,7 +116,7 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSettings($args, &$request) {
 		$this->validate();
-		$this->setupTemplate(true);
+		$this->setupTemplate($request, true);
 
 		import('classes.notification.form.NotificationSettingsForm');
 
@@ -175,7 +175,7 @@ class NotificationHandler extends Handler {
 			return false;
 		}
 
-		$this->setupTemplate(true);
+		$this->setupTemplate($request, true);
 
 		$application = PKPApplication::getApplication();
 		$appName = $application->getNameKey();
@@ -230,7 +230,7 @@ class NotificationHandler extends Handler {
 	 * @param $request Request
 	 */
 	function subscribeMailList($args, &$request) {
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		$user = $request->getUser();
 
@@ -251,7 +251,7 @@ class NotificationHandler extends Handler {
 	 */
 	function saveSubscribeMailList($args, &$request) {
 		$this->validate();
-		$this->setupTemplate(true);
+		$this->setupTemplate($request, true);
 
 		import('lib.pkp.classes.notification.form.NotificationMailingListForm');
 
@@ -273,7 +273,7 @@ class NotificationHandler extends Handler {
 	 * @param $request Request
 	 */
 	function mailListSubscribed($args, &$request) {
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$status = array_shift($args);
 		$templateMgr =& TemplateManager::getManager();
 
@@ -293,7 +293,7 @@ class NotificationHandler extends Handler {
 	 * @param $request Request
 	 */
 	function confirmMailListSubscription($args, &$request) {
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$userToken = array_shift($args);
 
 		$templateMgr =& TemplateManager::getManager();
@@ -323,7 +323,7 @@ class NotificationHandler extends Handler {
 	function unsubscribeMailList($args, &$request) {
 		$context =& $request->getContext();
 
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$templateMgr =& TemplateManager::getManager();
 
 		$userToken = array_shift($args);
@@ -349,7 +349,7 @@ class NotificationHandler extends Handler {
 	 * @return JSONMessage
 	 */
 	function fetchNotification($args, &$request) {
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$user =& $request->getUser();
 		$context =& $request->getContext();
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
@@ -445,9 +445,9 @@ class NotificationHandler extends Handler {
 	 * Override setupTemplate() so we can load other locale components.
 	 * @see PKPHandler::setupTemplate()
 	 */
-	function setupTemplate() {
+	function setupTemplate($request) {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_PKP_SUBMISSION);
-		parent::setupTemplate();
+		parent::setupTemplate($request);
 	}
 }
 

@@ -26,7 +26,7 @@ class TypeDescriptionFactory {
 	 *
 	 * NB: Should not be called directly!
 	 * Always use getInstance().
-	 **/
+	 */
 	function TypeDescriptionFactory() {
 	}
 
@@ -37,7 +37,7 @@ class TypeDescriptionFactory {
 	 * Return an instance of the session manager.
 	 * @return TypeDescriptionFactory
 	 */
-	function &getInstance() {
+	static function &getInstance() {
 		$instance =& Registry::get('typeDescriptionFactory', true, null);
 
 		if (is_null($instance)) {

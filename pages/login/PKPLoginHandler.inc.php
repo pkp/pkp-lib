@@ -23,7 +23,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function index($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			$request->redirect(null, 'user');
 		}
@@ -105,7 +105,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function signIn($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			$request->redirect(null, 'user');
 		}
@@ -154,7 +154,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function signOut($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
 			Validation::logout();
 		}
@@ -172,7 +172,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function lostPassword($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->display('user/lostPassword.tpl');
 	}
@@ -182,7 +182,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function requestResetPassword($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$templateMgr =& TemplateManager::getManager();
 
 		$email = $request->getUserVar('email');
@@ -220,7 +220,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function resetPassword($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		$username = isset($args[0]) ? $args[0] : null;
 		$userDao =& DAORegistry::getDAO('UserDAO');
@@ -284,7 +284,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function changePassword($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		import('classes.user.form.LoginChangePasswordForm');
 
@@ -301,7 +301,7 @@ class PKPLoginHandler extends Handler {
 	 */
 	function savePassword($args, &$request) {
 		$this->validate();
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 
 		import('classes.user.form.LoginChangePasswordForm');
 

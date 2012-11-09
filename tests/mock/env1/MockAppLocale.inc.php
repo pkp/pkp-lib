@@ -30,7 +30,7 @@ class AppLocale extends PKPLocale {
 	 * method required during setup of
 	 * the PKP application framework
 	 */
-	static function initialize() {
+	static function initialize($request) {
 		// do nothing
 	}
 

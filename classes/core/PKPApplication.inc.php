@@ -41,17 +41,6 @@ class PKPApplication {
 	var $allProducts;
 
 	function PKPApplication() {
-		// Configure error reporting
-		// FIXME: Error logging needs to be suppressed for strict
-		// and deprecation errors in PHP5 as long as we support PHP 4.
-		// This is primarily for static method warnings and warnings
-		// about use of ... =& new ... Static class members cannot be
-		// declared in PHP4 and ... =& new ... is deprecated since PHP 5.
-		$errorReportingLevel = E_ALL;
-		if (defined('E_STRICT')) $errorReportingLevel &= ~E_STRICT;
-		if (defined('E_DEPRECATED')) $errorReportingLevel &= ~E_DEPRECATED;
-		@error_reporting($errorReportingLevel);
-
 		// Seed random number generator
 		mt_srand(((double) microtime()) * 1000000);
 
@@ -64,19 +53,7 @@ class PKPApplication {
 		if (Config::getVar('debug', 'display_errors')) {
 			// Try to switch off normal error display when error display
 			// is being managed by us.
-			@ini_set('display_errors', false);
-		}
-
-		if (Config::getVar('debug', 'deprecation_warnings')) {
-			// Switch deprecation warnings back on. This can only be done
-			// after declaring the Config class as we need access to the
-			// configuration and we cannot declare the Config class before
-			// we've switched of deprecation warnings as its declaration
-			// causes warnings itself.
-			// FIXME: When we drop PHP4 support and can declare static methods
-			// as such then we can also include E_STRICT/E_DEPRECATED here as
-			// nearly all strict/deprecated warnings concern PHP4 support.
-			@error_reporting($errorReportingLevel);
+			ini_set('display_errors', false);
 		}
 
 		Registry::set('application', $this);
@@ -204,7 +181,7 @@ class PKPApplication {
 	 * Scheduled Conference [2]).
 	 * @return int
 	 */
-	static function getContextDepth() {
+	function getContextDepth() {
 		// must be implemented by sub-classes
 		assert(false);
 	}
@@ -215,7 +192,7 @@ class PKPApplication {
 	 * (e.g. array('journal') or array('conference', 'schedConf'))
 	 * @return Array
 	 */
-	static function getContextList() {
+	function getContextList() {
 		// must be implemented by sub-classes
 		assert(false);
 	}

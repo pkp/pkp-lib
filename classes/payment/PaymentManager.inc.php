@@ -98,10 +98,11 @@ class PaymentManager {
 
 	/**
 	 * Fulfill a queued payment
+	 * @param $request PKPRequest
 	 * @param $queuedPayment QueuedPayment
 	 * @return boolean success/failure
 	 */
-	function fulfillQueuedPayment(&$queuedPayment) {
+	function fulfillQueuedPayment($request, &$queuedPayment) {
 		// must be implemented by sub-classes
 		assert(false);
 	}

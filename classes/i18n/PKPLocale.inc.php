@@ -206,12 +206,11 @@ class PKPLocale {
 	 * @param $addToTop boolean Whether to add to the top of the list (true)
 	 * 	or the bottom (false). Allows overriding.
 	 */
-	static function &registerLocaleFile ($locale, $filename, $addToTop = false) {
+	static function registerLocaleFile ($locale, $filename, $addToTop = false) {
 		$localeFiles =& AppLocale::getLocaleFiles($locale);
 		$localeFile = new LocaleFile($locale, $filename);
 		if (!$localeFile->isValid()) {
-			$localeFile = null;
-			return $localeFile;
+			return null;
 		}
 		if ($addToTop) {
 			// Work-around: unshift by reference.

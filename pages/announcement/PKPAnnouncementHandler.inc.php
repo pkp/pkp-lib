@@ -30,7 +30,7 @@ class PKPAnnouncementHandler extends Handler {
 
 		if ($this->_getAnnouncementsEnabled($request)) {
 			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
-			$rangeInfo =& Handler::getRangeInfo('announcements');
+			$rangeInfo = $this->getRangeInfo($request, 'announcements');
 
 			$announcements =& $this->_getAnnouncements($request, $rangeInfo);
 			$announcementsIntroduction = $this->_getAnnouncementsIntroduction($request);
@@ -84,7 +84,7 @@ class PKPAnnouncementHandler extends Handler {
 	 * @param $subclass boolean set to true if caller is below this handler in the hierarchy
 	 */
 	function setupTemplate($request, $subclass = false) {
-		parent::setupTemplate();
+		parent::setupTemplate($request);
 
 		$templateMgr =& TemplateManager::getManager();
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);

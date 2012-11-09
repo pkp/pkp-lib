@@ -200,7 +200,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	function plugin($args, &$request) {
 		$verb = (string) $request->getUserVar('verb');
 
-		$this->setupTemplate(true);
+		$this->setupTemplate($request, true);
 
 		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN); /* @var $plugin Plugin */
 		$message = null;
@@ -294,7 +294,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $request PKPRequest
 	 */
 	function deletePlugin($args, &$request) {
-		$this->setupTemplate();
+		$this->setupTemplate($request);
 		$plugin =& $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
 		$category = $plugin->getCategory();
 		$productName = basename($plugin->getPluginPath());
@@ -336,7 +336,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @return string
 	 */
 	function _showUploadPluginForm($function) {
-		$this->setupTemplate(true);
+		$this->setupTemplate($request, true);
 
 		import('controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);

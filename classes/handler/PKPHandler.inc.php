@@ -94,7 +94,7 @@ class PKPHandler {
 	/**
 	 * Fallback method in case request handler does not implement index method.
 	 */
-	function index() {
+	function index($args, &$request) {
 		$dispatcher =& $this->getDispatcher();
 		if (isset($dispatcher)) $dispatcher->handle404();
 		else Dispatcher::handle404(); // For old-style handlers
@@ -309,9 +309,8 @@ class PKPHandler {
 	function validate($requiredContexts = null, $request = null) {
 		// FIXME: for backwards compatibility only - remove when request/router refactoring complete
 		if (!isset($request)) {
-			// FIXME: Trigger a deprecation warning when enough instances of this
-			// call have been fixed to not clutter the error log.
 			$request =& Registry::get('request');
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
 		}
 
 		foreach ($this->_checks as $check) {
@@ -365,24 +364,24 @@ class PKPHandler {
 
 	/**
 	 * Return the DBResultRange structure and misc. variables describing the current page of a set of pages.
+	 * @param $request PKPRequest
 	 * @param $rangeName string Symbolic name of range of pages; must match the Smarty {page_list ...} name.
 	 * @param $contextData array If set, this should contain a set of data that are required to
 	 * 	define the context of this request (for maintaining page numbers across requests).
 	 *	To disable persistent page contexts, set this variable to null.
-	 * @return array ($pageNum, $dbResultRange)
+	 * @return DBResultRange
 	 */
-	function &getRangeInfo($rangeName, $contextData = null) {
-		//FIXME: is there any way to get around calling a Request (instead of a PKPRequest) here?
-		$context =& Request::getContext();
-		$pageNum = PKPRequest::getUserVar($rangeName . 'Page');
+	static function getRangeInfo($request, $rangeName, $contextData = null) {
+		$context =& $request->getContext();
+		$pageNum = $request->getUserVar($rangeName . 'Page');
 		if (empty($pageNum)) {
-			$session =& PKPRequest::getSession();
+			$session =& $request->getSession();
 			$pageNum = 1; // Default to page 1
 			if ($session && $contextData !== null) {
 				// See if we can get a page number from a prior request
-				$contextHash = PKPHandler::hashPageContext($contextData);
+				$contextHash = self::hashPageContext($request, $contextData);
 
-				if (PKPRequest::getUserVar('clearPageContext')) {
+				if ($request->getUserVar('clearPageContext')) {
 					// Explicitly clear the old page context
 					$session->unsetSessionVar("page-$contextHash");
 				} else {
@@ -391,10 +390,10 @@ class PKPHandler {
 				}
 			}
 		} else {
-			$session =& PKPRequest::getSession();
+			$session =& $request->getSession();
 			if ($session && $contextData !== null) {
 				// Store the page number
-				$contextHash = PKPHandler::hashPageContext($contextData);
+				$contextHash = self::hashPageContext($request, $contextData);
 				$session->setSessionVar("page-$contextHash", $pageNum);
 			}
 		}
@@ -404,16 +403,22 @@ class PKPHandler {
 
 		import('lib.pkp.classes.db.DBResultRange');
 
-		if (isset($count)) $returner = new DBResultRange($count, $pageNum);
-		else $returner = new DBResultRange(-1, -1);
-
-		return $returner;
+		if (isset($count)) return new DBResultRange($count, $pageNum);
+		else return new DBResultRange(-1, -1);
 	}
 
 	/**
 	 * Set up the basic template.
+	 * @param $request PKPRequest
 	 */
-	function setupTemplate() {
+	function setupTemplate($request = null) {
+		// FIXME: for backwards compatibility only - remove
+		if (!isset($request)) {
+			$request =& Registry::get('request');
+			if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated call without request object.');
+		}
+		assert(is_a($request, 'PKPRequest'));
+
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_COMMON,
 			LOCALE_COMPONENT_PKP_USER
@@ -422,7 +427,7 @@ class PKPHandler {
 			AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('userRoles', $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
 		$accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 		if ($accessibleWorkflowStages) $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
@@ -432,14 +437,15 @@ class PKPHandler {
 	 * Generate a unique-ish hash of the page's identity, including all
 	 * context that differentiates it from other similar pages (e.g. all
 	 * articles vs. all articles starting with "l").
+	 * @param $request PKPRequest
 	 * @param $contextData array A set of information identifying the page
 	 * @return string hash
 	 */
-	function hashPageContext($contextData = array()) {
+	static function hashPageContext($request, $contextData = array()) {
 		return md5(
-			implode(',', Request::getRequestedContextPath()) . ',' .
-			Request::getRequestedPage() . ',' .
-			Request::getRequestedOp() . ',' .
+			implode(',', $request->getRequestedContextPath()) . ',' .
+			$request->getRequestedPage() . ',' .
+			$request->getRequestedOp() . ',' .
 			serialize($contextData)
 		);
 	}

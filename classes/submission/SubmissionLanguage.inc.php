@@ -13,7 +13,6 @@
  * @brief Basic class describing a submission language
  */
 
-
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
 
 class SubmissionLanguage extends ControlledVocabEntry {

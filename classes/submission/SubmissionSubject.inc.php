@@ -13,7 +13,6 @@
  * @brief Basic class describing a submission subject
  */
 
-
 import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
 
 class SubmissionSubject extends ControlledVocabEntry {

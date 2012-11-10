@@ -219,7 +219,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $row array
 	 * @return LocaleEmailTemplate
 	 */
-	function &_returnLocaleEmailTemplateFromRow(&$row) {
+	function &_returnLocaleEmailTemplateFromRow($row) {
 		$emailTemplate = new LocaleEmailTemplate();
 		$emailTemplate->setEmailId($row['email_id']);
 		$emailTemplate->setAssocType($row['assoc_type']);
@@ -292,7 +292,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @param $row array
 	 * @return EmailTemplate
 	 */
-	function &_returnEmailTemplateFromRow(&$row, $isCustomTemplate=null) {
+	function &_returnEmailTemplateFromRow($row, $isCustomTemplate=null) {
 		$emailTemplate = new EmailTemplate();
 		$emailTemplate->setEmailId($row['email_id']);
 		$emailTemplate->setAssocType($row['assoc_type']);

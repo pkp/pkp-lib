@@ -147,7 +147,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $row array
 	 * @return Author
 	 */
-	function &_returnSimpleAuthorFromRow(&$row) {
+	function &_returnSimpleAuthorFromRow($row) {
 		$author = $this->newDataObject();
 		$author->setId($row['author_id']);
 		$author->setSubmissionId($row['submission_id']);

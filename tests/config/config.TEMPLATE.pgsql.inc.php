@@ -11,7 +11,7 @@ debug = Off
 [general]
 installed = On
 base_url = "http://pkp.sfu.ca/ojs"
-registry_dir = lib/pkp/tests/registry
+registry_dir = registry
 session_cookie_name = OJSSID
 session_lifetime = 30
 scheduled_tasks = Off
@@ -45,7 +45,7 @@ charset_normalization = On
 [files]
 files_dir = files
 public_files_dir = public
-umask = 0002
+umask = 0022
 
 [finfo]
 mime_database_path = /etc/magic.mime
@@ -115,4 +115,4 @@ font_location = /usr/share/fonts/truetype/freefont/FreeSerif.ttf
 ; proxy_password = password
 
 [debug]
-show_stacktrace = Off
+show_stacktrace = On

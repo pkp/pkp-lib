@@ -643,7 +643,7 @@ class GridHandler extends PKPHandler {
 	 * FIXME: temporary shadow method of parent to disable paging on all grids.
 	 * @see PKPHandler::getRangeInfo()
 	 */
-	function getRangeInfo($request, $rangeName, $contextData = null) {
+	static function getRangeInfo($request, $rangeName, $contextData = null) {
 		import('lib.pkp.classes.db.DBResultRange');
 		$returner = new DBResultRange(-1, -1);
 		return $returner;

@@ -253,7 +253,7 @@ class CompositeFilter extends PersistableFilter {
 	/**
 	 * @see DataObject::getData()
 	 */
-	function getData($key, $locale = null) {
+	function &getData($key, $locale = null) {
 		// Directly read local settings.
 		if (in_array($key, $this->getInternalSettings()) || in_array($key, $this->getSettingNames())) return parent::getData($key, $locale);
 

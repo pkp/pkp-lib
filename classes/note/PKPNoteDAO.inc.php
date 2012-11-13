@@ -242,7 +242,7 @@ class PKPNoteDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertNoteId() {
-		return $this->getInsertId('notes', 'note_id');
+		return $this->_getInsertId('notes', 'note_id');
 	}
 }
 

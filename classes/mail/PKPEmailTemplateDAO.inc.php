@@ -528,7 +528,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertEmailId() {
-		return $this->getInsertId('email_templates', 'emailId');
+		return $this->_getInsertId('email_templates', 'emailId');
 	}
 
 	/**

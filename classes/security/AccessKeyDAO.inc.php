@@ -222,7 +222,7 @@ class AccessKeyDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertAccessKeyId() {
-		return $this->getInsertId('access_keys', 'access_key_id');
+		return $this->_getInsertId('access_keys', 'access_key_id');
 	}
 }
 

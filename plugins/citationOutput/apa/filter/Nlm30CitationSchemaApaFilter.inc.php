@@ -24,7 +24,7 @@ class Nlm30CitationSchemaApaFilter extends Nlm30CitationSchemaCitationOutputForm
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaApaFilter(&$filterGroup) {
+	function Nlm30CitationSchemaApaFilter($filterGroup) {
 		$this->setDisplayName('APA Citation Output');
 
 		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);

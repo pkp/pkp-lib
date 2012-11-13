@@ -269,7 +269,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 	 */
 	function &postProcessMetadataArray(&$preliminaryNlm30Array) {
 		// Clean array
-		$preliminaryNlm30Array =& arrayClean($preliminaryNlm30Array);
+		$preliminaryNlm30Array = arrayClean($preliminaryNlm30Array);
 
 		// Trim punctuation
 		$preliminaryNlm30Array =& $this->_recursivelyTrimPunctuation($preliminaryNlm30Array);

@@ -38,7 +38,7 @@ class CitationGridHandler extends PKPHandler {
 	function fetchGrid() {
 		// Log the call to the fetch method
 		assert(is_null($this->_fetchArgs));
-		$this->_fetchArgs =& func_get_args();
+		$this->_fetchArgs = func_get_args();
 	}
 
 	function &getFetchArgs() {

@@ -50,7 +50,7 @@ class PolicySet {
 	 * @param $addToTop boolean whether to insert the new policy
 	 *  to the top of the list.
 	 */
-	function addPolicy(&$policyOrPolicySet, $addToTop = false) {
+	function addPolicy($policyOrPolicySet, $addToTop = false) {
 		assert(is_a($policyOrPolicySet, 'AuthorizationPolicy') || is_a($policyOrPolicySet, 'PolicySet'));
 		if ($addToTop) {
 			array_unshift($this->_policies, $policyOrPolicySet);

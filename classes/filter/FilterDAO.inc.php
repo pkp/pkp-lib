@@ -450,7 +450,7 @@ class FilterDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('filters', 'filter_id');
+		return parent::_getInsertId('filters', 'filter_id');
 	}
 
 
@@ -575,7 +575,7 @@ class FilterDAO extends DAO {
 	 * the given parent filter.
 	 * @param $parentFilterId integer
 	 */
-	function _deleteSubFiltersByParentFilterId(&$parentFilterId) {
+	function _deleteSubFiltersByParentFilterId($parentFilterId) {
 		$parentFilterId = (int)$parentFilterId;
 
 		// Identify sub-filters.

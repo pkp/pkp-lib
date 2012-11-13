@@ -497,7 +497,7 @@ class PKPGiftDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertGiftId() {
-		return $this->getInsertId('gifts', 'gift_id');
+		return $this->_getInsertId('gifts', 'gift_id');
 	}
 }
 

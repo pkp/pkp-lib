@@ -123,7 +123,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSche
 					'primitive::string',
 					'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
 			$filter->setData('citationModule', $citationModule);
-			parent::testAllCitationsWithThisParser($filter);
+			parent::_testAllCitationsWithThisParser($filter);
 			unset($filter);
 		}
 	}

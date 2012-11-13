@@ -46,7 +46,8 @@ class DispatcherTest extends PKPTestCase {
 				$this->getMock('PKPApplication', array('getContextDepth', 'getContextList'),
 				array(), '', false);
 		Registry::set('application', $mockApplication);
-		Registry::set('dispatcher', $nullVar = null);
+		$nullVar = null;
+		Registry::set('dispatcher', $nullVar);
 
 		// Set up the getContextDepth() method
 		$mockApplication->expects($this->any())

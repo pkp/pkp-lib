@@ -30,7 +30,7 @@ class ValidatorUrl extends ValidatorUri {
 	 * @see ValidatorUri::getRegexp()
 	 * @return string
 	 */
-	function getRegexp() {
+	static function getRegexp() {
 		return parent::getRegexp(ValidatorUrl::_getAllowedSchemes());
 	}
 

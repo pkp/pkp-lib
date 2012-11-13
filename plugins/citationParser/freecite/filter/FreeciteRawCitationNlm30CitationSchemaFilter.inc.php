@@ -23,11 +23,11 @@ import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 define('FREECITE_WEBSERVICE', 'http://freecite.library.brown.edu/citations/create');
 
 class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
-	/*
+	/**
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function FreeciteRawCitationNlm30CitationSchemaFilter(&$filterGroup) {
+	function FreeciteRawCitationNlm30CitationSchemaFilter($filterGroup) {
 		$this->setDisplayName('FreeCite');
 
 		parent::Nlm30CitationSchemaFilter($filterGroup);
@@ -49,10 +49,11 @@ class FreeciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 	//
 	/**
 	 * @see Filter::process()
-	 * @param $citationString string
+	 * @param $input string
 	 * @return MetadataDescription
 	 */
-	function &process($citationString) {
+	function &process(&$input) {
+		$citationString =& $input;
 		$nullVar = null;
 
 		// Freecite requires a post request

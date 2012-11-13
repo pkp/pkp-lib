@@ -25,7 +25,7 @@ class PKPSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PKPSubmissionNlm30XmlFilter(&$filterGroup) {
+	function PKPSubmissionNlm30XmlFilter($filterGroup) {
 		$this->setDisplayName('NLM Journal Publishing V3.0 ref-list');
 
 		parent::TemplateBasedReferencesListFilter($filterGroup);

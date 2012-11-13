@@ -24,7 +24,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Mods34SchemaSubmissionAdapter(&$filterGroup) {
+	function Mods34SchemaSubmissionAdapter($filterGroup) {
 		parent::MetadataDataObjectAdapter($filterGroup);
 	}
 

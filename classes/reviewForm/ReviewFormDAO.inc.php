@@ -458,7 +458,7 @@ class ReviewFormDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertReviewFormId() {
-		return $this->getInsertId('review_forms', 'review_form_id');
+		return $this->_getInsertId('review_forms', 'review_form_id');
 	}
 }
 

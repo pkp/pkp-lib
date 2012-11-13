@@ -138,7 +138,7 @@ class NotificationMailListDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertNotificationMailListId() {
-		return $this->getInsertId('notification_mail_list', 'notification_mail_list_id');
+		return $this->_getInsertId('notification_mail_list', 'notification_mail_list_id');
 	}
 
 }

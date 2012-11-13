@@ -245,7 +245,7 @@ class MetadataDescription extends DataObject {
 	 * @param $replace boolean whether to replace an existing statement
 	 * @return boolean true if a valid statement was added, otherwise false
 	 */
-	function addStatement($propertyName, &$value, $locale = null, $replace = false) {
+	function addStatement($propertyName, $value, $locale = null, $replace = false) {
 		// Check the property
 		$property =& $this->getProperty($propertyName);
 		if (is_null($property)) return false;
@@ -270,7 +270,7 @@ class MetadataDescription extends DataObject {
 		switch ($property->getCardinality()) {
 			case METADATA_PROPERTY_CARDINALITY_ONE:
 				if (isset($existingValue) && !$replace) return false;
-				$newValue =& $value;
+				$newValue = $value;
 				break;
 
 			case METADATA_PROPERTY_CARDINALITY_MANY:
@@ -279,7 +279,7 @@ class MetadataDescription extends DataObject {
 					$newValue = $existingValue;
 					array_push($newValue, $value);
 				} else {
-					$newValue = array(&$value);
+					$newValue = array($value);
 				}
 				break;
 

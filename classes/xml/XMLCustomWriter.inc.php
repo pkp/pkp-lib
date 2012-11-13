@@ -48,7 +48,7 @@ class XMLCustomWriter {
 	}
 
 	static function &createElement(&$doc, $name) {
-		if (is_callable(array($doc, 'createElement'))) $element =& $doc->createElement($name);
+		if (is_callable(array($doc, 'createElement'))) $element = $doc->createElement($name);
 		else $element = new XMLNode($name);
 
 		return $element;

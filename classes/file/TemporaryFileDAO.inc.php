@@ -179,7 +179,7 @@ class TemporaryFileDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertTemporaryFileId() {
-		return $this->getInsertId('temporary_files', 'file_id');
+		return $this->_getInsertId('temporary_files', 'file_id');
 	}
 }
 

@@ -20,7 +20,7 @@ class TemplateBasedFilter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function TemplateBasedFilter(&$filterGroup) {
+	function TemplateBasedFilter($filterGroup) {
 		parent::PersistableFilter($filterGroup);
 	}
 

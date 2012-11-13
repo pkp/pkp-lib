@@ -138,7 +138,7 @@ class PKPUserGroupDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertUserGroupId() {
-		return $this->getInsertId('user_groups', 'user_group_id');
+		return $this->_getInsertId('user_groups', 'user_group_id');
 	}
 
 	/**

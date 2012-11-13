@@ -29,7 +29,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function CrossrefNlm30CitationSchemaFilter(&$filterGroup) {
+	function CrossrefNlm30CitationSchemaFilter($filterGroup) {
 		$this->setDisplayName('CrossRef');
 
 		// Instantiate the settings of this filter

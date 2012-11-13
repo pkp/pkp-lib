@@ -28,7 +28,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaCitationOutputFormatFilter(&$filterGroup) {
+	function Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup) {
 		parent::TemplateBasedFilter($filterGroup);
 	}
 
@@ -68,7 +68,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	 *  to be transformed
 	 * @return string the rendered citation output
 	 */
-	function process(&$input) {
+	function &process(&$input) {
 		// Check whether the incoming publication type is supported by this
 		// output filter.
 		$supportedPublicationTypes = $this->getSupportedPublicationTypes();
@@ -105,7 +105,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
 	function addTemplateVars(&$templateMgr, &$input, &$request, &$locale) {
 		// Loop over the statements in the schema and add them
 		// to the template
-		$propertyNames =& $input->getPropertyNames();
+		$propertyNames = $input->getPropertyNames();
 		$setProperties = array();
 		foreach($propertyNames as $propertyName) {
 			$templateVariable = $input->getNamespacedPropertyId($propertyName);

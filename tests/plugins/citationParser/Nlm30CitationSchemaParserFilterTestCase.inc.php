@@ -36,7 +36,7 @@ abstract class Nlm30CitationSchemaParserFilterTestCase extends Nlm30CitationSche
 	 * will skip this time consuming test.
 	 * @param $filter Nlm30CitationSchemaFilter
 	 */
-	public function testAllCitationsWithThisParser(&$filter) {
+	protected function _testAllCitationsWithThisParser(&$filter) {
 		// Is this test switched off?
 		if (!self::TEST_ALL_CITATIONS) return;
 

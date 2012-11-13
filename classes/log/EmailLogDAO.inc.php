@@ -215,7 +215,7 @@ class EmailLogDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertLogId() {
-		return $this->getInsertId('email_log', 'log_id');
+		return $this->_getInsertId('email_log', 'log_id');
 	}
 
 

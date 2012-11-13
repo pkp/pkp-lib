@@ -21,7 +21,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function Nlm30CitationSchemaNlm30XmlFilter(&$filterGroup) {
+	function Nlm30CitationSchemaNlm30XmlFilter($filterGroup) {
 		$this->setDisplayName('NLM 3.0 XML Citation Output');
 
 		parent::Nlm30CitationSchemaCitationOutputFormatFilter($filterGroup);

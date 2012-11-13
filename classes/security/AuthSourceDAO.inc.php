@@ -145,7 +145,7 @@ class AuthSourceDAO extends DAO {
 			)
 		);
 
-		$auth->setAuthId($this->getInsertId('auth_sources', 'auth_id'));
+		$auth->setAuthId($this->_getInsertId('auth_sources', 'auth_id'));
 		return $auth->getAuthId();
 	}
 

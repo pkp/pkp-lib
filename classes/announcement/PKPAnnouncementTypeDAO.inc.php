@@ -273,7 +273,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertTypeId() {
-		return $this->getInsertId('announcement_types', 'type_id');
+		return $this->_getInsertId('announcement_types', 'type_id');
 	}
 }
 

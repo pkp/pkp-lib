@@ -246,7 +246,7 @@ class NotificationDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertNotificationId() {
-		return $this->getInsertId('notifications', 'notification_id');
+		return $this->_getInsertId('notifications', 'notification_id');
 	}
 
 	/**

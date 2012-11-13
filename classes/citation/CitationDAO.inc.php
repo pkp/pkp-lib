@@ -460,7 +460,7 @@ class CitationDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('citations', 'citation_id');
+		return parent::_getInsertId('citations', 'citation_id');
 	}
 
 

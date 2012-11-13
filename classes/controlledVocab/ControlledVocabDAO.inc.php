@@ -245,7 +245,7 @@ class ControlledVocabDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('controlled_vocabs', 'controlled_vocab_id');
+		return parent::_getInsertId('controlled_vocabs', 'controlled_vocab_id');
 	}
 }
 

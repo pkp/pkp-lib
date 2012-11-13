@@ -175,7 +175,7 @@ class FilterGroupDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('filter_groups', 'filter_group_id');
+		return parent::_getInsertId('filter_groups', 'filter_group_id');
 	}
 
 	/**

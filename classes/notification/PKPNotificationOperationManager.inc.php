@@ -378,7 +378,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$user = $userDao->getById($userId);
 		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
-		$site =& $request->getSite();
+		$site = $request->getSite();
 		$mail = $this->getMailTemplate('NOTIFICATION');
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		$mail->assignParams(array(

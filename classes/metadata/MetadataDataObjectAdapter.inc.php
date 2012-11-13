@@ -45,7 +45,7 @@ class MetadataDataObjectAdapter extends PersistableFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function MetadataDataObjectAdapter(&$filterGroup) {
+	function MetadataDataObjectAdapter($filterGroup) {
 		// Initialize the adapter.
 		parent::PersistableFilter($filterGroup);
 

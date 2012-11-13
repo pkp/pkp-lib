@@ -163,7 +163,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('metadata_descriptions', 'metadata_description_id');
+		return parent::_getInsertId('metadata_descriptions', 'metadata_description_id');
 	}
 
 

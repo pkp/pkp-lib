@@ -525,7 +525,7 @@ class PKPUserDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertUserId() {
-		return $this->getInsertId('users', 'user_id');
+		return $this->_getInsertId('users', 'user_id');
 	}
 
 	/**

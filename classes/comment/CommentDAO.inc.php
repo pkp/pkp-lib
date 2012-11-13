@@ -217,7 +217,7 @@ class CommentDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertCommentId() {
-		return $this->getInsertId('comments', 'comment_id');
+		return $this->_getInsertId('comments', 'comment_id');
 	}
 
 	/**

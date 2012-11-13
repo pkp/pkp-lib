@@ -27,7 +27,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function ParscitRawCitationNlm30CitationSchemaFilter(&$filterGroup) {
+	function ParscitRawCitationNlm30CitationSchemaFilter($filterGroup) {
 		$this->setDisplayName('ParsCit');
 
 		parent::Nlm30CitationSchemaFilter($filterGroup);
@@ -52,11 +52,11 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
 	 * @param $citationString string
 	 * @return MetadataDescription
 	 */
-	function &process($citationString) {
+	function &process(&$input) {
 		$nullVar = null;
 		$queryParams = array(
 			'demo' => '3',
-			'textlines' => $citationString
+			'textlines' => $input
 		);
 
 		// Parscit web form - the result is (mal-formed) HTML

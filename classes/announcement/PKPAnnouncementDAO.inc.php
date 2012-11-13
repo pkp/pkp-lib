@@ -337,7 +337,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertAnnouncementId() {
-		return $this->getInsertId('announcements', 'announcement_id');
+		return $this->_getInsertId('announcements', 'announcement_id');
 	}
 }
 

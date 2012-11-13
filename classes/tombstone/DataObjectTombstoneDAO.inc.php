@@ -196,7 +196,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertTombstoneId() {
-		return $this->getInsertId('data_object_tombstones', 'tombstone_id');
+		return $this->_getInsertId('data_object_tombstones', 'tombstone_id');
 	}
 
 	/**

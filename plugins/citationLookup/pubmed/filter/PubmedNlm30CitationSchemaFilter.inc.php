@@ -31,7 +31,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function PubmedNlm30CitationSchemaFilter(&$filterGroup) {
+	function PubmedNlm30CitationSchemaFilter($filterGroup) {
 		$this->setDisplayName('PubMed');
 
 		// Instantiate the settings of this filter
@@ -256,23 +256,23 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		// Call the eFetch URL and get an XML result
 		if (is_null($resultDOM = $this->callWebService(PUBMED_WEBSERVICE_EFETCH, $lookupParams))) return $nullVar;
 
-		$articleTitleNodes =& $resultDOM->getElementsByTagName("ArticleTitle");
-		$articleTitleFirstNode =& $articleTitleNodes->item(0);
-		$medlineTaNodes =& $resultDOM->getElementsByTagName("MedlineTA");
-		$medlineTaFirstNode =& $medlineTaNodes->item(0);
+		$articleTitleNodes = $resultDOM->getElementsByTagName('ArticleTitle');
+		$articleTitleFirstNode = $articleTitleNodes->item(0);
+		$medlineTaNodes = $resultDOM->getElementsByTagName('MedlineTA');
+		$medlineTaFirstNode = $medlineTaNodes->item(0);
 		$metadata = array(
 			'pub-id[@pub-id-type="pmid"]' => $pmid,
 			'article-title' =>$articleTitleFirstNode->textContent,
 			'source' => $medlineTaFirstNode->textContent,
 		);
 
-		$volumeNodes =& $resultDOM->getElementsByTagName("Volume");
-		$issueNodes =& $resultDOM->getElementsByTagName("Issue");
+		$volumeNodes = $resultDOM->getElementsByTagName('Volume');
+		$issueNodes = $resultDOM->getElementsByTagName('Issue');
 		if ($volumeNodes->length > 0)
-			$volumeFirstNode =& $volumeNodes->item(0);
+			$volumeFirstNode = $volumeNodes->item(0);
 			$metadata['volume'] = $volumeFirstNode->textContent;
 		if ($issueNodes->length > 0)
-			$issueFirstNode =& $issueNodes->item(0);
+			$issueFirstNode = $issueNodes->item(0);
 			$metadata['issue'] = $issueFirstNode->textContent;
 
 		// Get list of author full names
@@ -284,20 +284,20 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			$authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 
 			// Surname
-			$lastNameNodes =& $authorNode->getElementsByTagName("LastName");
-			$lastNameFirstNode =& $lastNameNodes->item(0);
+			$lastNameNodes = $authorNode->getElementsByTagName('LastName');
+			$lastNameFirstNode = $lastNameNodes->item(0);
 			$authorDescription->addStatement('surname', $lastNameFirstNode->textContent);
 
 			// Given names
 			$givenNamesString = '';
-			$firstNameNodes =& $authorNode->getElementsByTagName("FirstName");
+			$firstNameNodes = $authorNode->getElementsByTagName('FirstName');
 			if ($firstNameNodes->length > 0) {
-				$firstNameFirstNode =& $firstNameNodes->item(0);
+				$firstNameFirstNode = $firstNameNodes->item(0);
 				$givenNamesString = $firstNameFirstNode->textContent;
 			} else {
-				$foreNameNodes =& $authorNode->getElementsByTagName("ForeName");
+				$foreNameNodes = $authorNode->getElementsByTagName('ForeName');
 				if ($foreNameNodes->length > 0) {
-					$foreNameFirstNode =& $foreNameNodes->item(0);
+					$foreNameFirstNode = $foreNameNodes->item(0);
 					$givenNamesString = $foreNameFirstNode->textContent;
 				}
 			}
@@ -306,9 +306,9 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			}
 
 			// Suffix
-			$suffixNodes =& $authorNode->getElementsByTagName("Suffix");
+			$suffixNodes = $authorNode->getElementsByTagName('Suffix');
 			if ($suffixNodes->length > 0) {
-				$suffixFirstNode =& $suffixNodes->item(0);
+				$suffixFirstNode = $suffixNodes->item(0);
 				$authorDescription->addStatement('suffix', $suffixFirstNode->textContent);
 			}
 
@@ -322,8 +322,8 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		}
 
 		// Extract pagination
-		$medlinePgnNodes =& $resultDOM->getElementsByTagName("MedlinePgn");
-		$medlinePgnFirstNode =& $medlinePgnNodes->item(0);
+		$medlinePgnNodes = $resultDOM->getElementsByTagName('MedlinePgn');
+		$medlinePgnFirstNode = $medlinePgnNodes->item(0);
 		if (String::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $medlinePgnFirstNode->textContent, $pages)) {
 			$fPage = (integer)$pages['fpage'];
 			$metadata['fpage'] = $fPage;
@@ -341,13 +341,13 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 
 		// Get publication date (can be in several places in PubMed).
 		$dateNode = null;
-		$articleDateNodes =& $resultDOM->getElementsByTagName("ArticleDate");
+		$articleDateNodes = $resultDOM->getElementsByTagName('ArticleDate');
 		if ($articleDateNodes->length > 0) {
-			$dateNode =& $articleDateNodes->item(0);
+			$dateNode = $articleDateNodes->item(0);
 		} else {
-			$pubDateNodes =& $resultDOM->getElementsByTagName("PubDate");
+			$pubDateNodes = $resultDOM->getElementsByTagName('PubDate');
 			if ($pubDateNodes->length > 0) {
-				$dateNode =& $pubDateNodes->item(0);
+				$dateNode = $pubDateNodes->item(0);
 			}
 		}
 
@@ -356,10 +356,10 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 			$publicationDate = '';
 			$requiresNormalization = false;
 			foreach(array('Year' => 4, 'Month' => 2, 'Day' => 2) as $dateElement => $padding) {
-				$dateElementNodes =& $dateNode->getElementsByTagName($dateElement);
+				$dateElementNodes = $dateNode->getElementsByTagName($dateElement);
 				if ($dateElementNodes->length > 0) {
 					if (!empty($publicationDate)) $publicationDate.='-';
-					$dateElementFirstNode =& $dateElementNodes->item(0);
+					$dateElementFirstNode = $dateElementNodes->item(0);
 					$datePart = str_pad($dateElementFirstNode->textContent, $padding, '0', STR_PAD_LEFT);
 					if (!is_numeric($datePart)) $requiresNormalization = true;
 					$publicationDate .= $datePart;
@@ -378,7 +378,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		}
 
 		// Get publication type
-		$publicationTypeNodes =& $resultDOM->getElementsByTagName("PublicationType");
+		$publicationTypeNodes = $resultDOM->getElementsByTagName('PublicationType');
 		if ($publicationTypeNodes->length > 0) {
 			foreach($publicationTypeNodes as $publicationType) {
 				// The vast majority of items on PubMed are articles so catch these...
@@ -390,7 +390,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		}
 
 		// Get DOI if it exists
-		$articleIdNodes =& $resultDOM->getElementsByTagName("ArticleId");
+		$articleIdNodes = $resultDOM->getElementsByTagName('ArticleId');
 		foreach ($articleIdNodes as $idNode) {
 			if ($idNode->getAttribute('IdType') == 'doi') {
 				$metadata['pub-id[@pub-id-type="doi"]'] = $idNode->textContent;
@@ -413,8 +413,8 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 				// Only add links to open access resources
 				if (String::strpos($attributes, "subscription") === false && String::strpos($attributes, "membership") === false &&
 						String::strpos($attributes, "fee") === false && $attributes != "") {
-					$urlNodes =& $linkOut->getElementsByTagName("Url");
-					$urlFirstNode =& $urlNodes->item(0);
+					$urlNodes = $linkOut->getElementsByTagName('Url');
+					$urlFirstNode = $urlNodes->item(0);
 					$links[] = $urlFirstNode->textContent;
 				}
 			}

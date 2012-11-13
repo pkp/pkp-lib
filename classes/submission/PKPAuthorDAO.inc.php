@@ -278,7 +278,7 @@ class PKPAuthorDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertAuthorId() {
-		return $this->getInsertId('authors', 'author_id');
+		return $this->_getInsertId('authors', 'author_id');
 	}
 }
 

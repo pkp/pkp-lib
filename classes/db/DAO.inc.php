@@ -243,7 +243,7 @@ class DAO {
 	 * @param $id string the ID/key column in the table
 	 * @return int
 	 */
-	function getInsertId($table = '', $id = '', $callHooks = true) {
+	protected function _getInsertId($table = '', $id = '') {
 		$dataSource = $this->getDataSource();
 		return $dataSource->po_insert_id($table, $id);
 	}

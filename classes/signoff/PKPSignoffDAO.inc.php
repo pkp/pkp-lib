@@ -400,7 +400,7 @@ class PKPSignoffDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertId() {
-		return parent::getInsertId('signoffs', 'signoff_id');
+		return parent::_getInsertId('signoffs', 'signoff_id');
 	}
 
 	/**

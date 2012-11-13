@@ -60,7 +60,7 @@ class ValidatorUri extends ValidatorRegExp {
 	 * @param $allowedSchemes
 	 * @return string
 	 */
-	function getRegexp($allowedSchemes = null) {
+	static function getRegexp($allowedSchemes = null) {
 		if (is_array($allowedSchemes)) {
 			$schemesRegEx = '(?:(' . implode('|', $allowedSchemes) . '):)';
 			$regEx = $schemesRegEx . substr(PCRE_URI, 24);

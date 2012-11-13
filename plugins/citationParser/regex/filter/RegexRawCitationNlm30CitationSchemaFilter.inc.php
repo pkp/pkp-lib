@@ -29,7 +29,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function RegexRawCitationNlm30CitationSchemaFilter(&$filterGroup) {
+	function RegexRawCitationNlm30CitationSchemaFilter($filterGroup) {
 		$this->setDisplayName('RegEx');
 
 		parent::Nlm30CitationSchemaFilter($filterGroup);
@@ -51,10 +51,12 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 	//
 	/**
 	 * @see Filter::process()
-	 * @param $citationString string
+	 * @param $input string
 	 * @return MetadataDescription
 	 */
-	function &process($citationString) {
+	function &process(&$input) {
+		$citationString =& $input;
+
 		// Initialize the parser result array
 		$matches = array();
 		$metadata = array();

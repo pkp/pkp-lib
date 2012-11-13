@@ -240,7 +240,7 @@ class GroupDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertGroupId() {
-		return $this->getInsertId('groups', 'group_id');
+		return $this->_getInsertId('groups', 'group_id');
 	}
 }
 

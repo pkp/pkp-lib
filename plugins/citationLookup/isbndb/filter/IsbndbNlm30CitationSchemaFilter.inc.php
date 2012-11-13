@@ -27,7 +27,7 @@ class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 	 * Constructor
 	 * @param $filterGroup FilterGroup
 	 */
-	function IsbndbNlm30CitationSchemaFilter(&$filterGroup) {
+	function IsbndbNlm30CitationSchemaFilter($filterGroup) {
 		// Instantiate the settings of this filter
 		$apiKeySetting = new FilterSetting('apiKey',
 				'metadata.filters.isbndb.settings.apiKey.displayName',

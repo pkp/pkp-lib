@@ -28,11 +28,10 @@ class ValidatorEmail extends ValidatorRegExp {
 	// Public static methods
 	//
 	/**
-	 * Return the regex for an email check. This can be called
-	 * statically.
+	 * Return the regex for an email check.
 	 * @return string
 	 */
-	function getRegexp() {
+	static function getRegexp() {
 		return '/^' . PCRE_EMAIL_ADDRESS . '$/i';
 	}
 }

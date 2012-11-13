@@ -209,7 +209,7 @@ class EventLogDAO extends DAO {
 	 * @return int
 	 */
 	function getInsertLogId() {
-		return $this->getInsertId('event_log', 'log_id');
+		return $this->_getInsertId('event_log', 'log_id');
 	}
 }
 

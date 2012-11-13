@@ -116,7 +116,7 @@ class TypeDescription {
 	 * @param $object mixed
 	 * @return boolean
 	 */
-	function isCompatible(&$object) {
+	function isCompatible($object) {
 		// Null is never compatible
 		if (is_null($object)) return false;
 

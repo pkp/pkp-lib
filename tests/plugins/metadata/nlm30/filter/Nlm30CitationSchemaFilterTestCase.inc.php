@@ -67,7 +67,7 @@ abstract class Nlm30CitationSchemaFilterTestCase extends PKPTestCase {
 	 */
 	protected function assertWebServiceError($citationFilterName, $constructorArguments = array()) {
 		// Mock Nlm30CitationSchemaFilter->callWebService()
-		$mockCPFilter =&
+		$mockCPFilter =
 				$this->getMock($citationFilterName, array('callWebService'), $constructorArguments);
 
 		// Set up the callWebService() method
@@ -77,7 +77,8 @@ abstract class Nlm30CitationSchemaFilterTestCase extends PKPTestCase {
 		             ->will($this->returnValue(null));
 
 		// Call the SUT
-		$citationDescription =& $mockCPFilter->execute($citationString = 'rawCitation');
+		$citationString = 'rawCitation';
+		$citationDescription = $mockCPFilter->execute($citationString);
 		self::assertNull($citationDescription);
 	}
 

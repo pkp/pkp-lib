@@ -157,7 +157,7 @@ class ProcessDAO extends DAO {
 
 		$runningProcesses = 0;
 		if ($result->RecordCount() != 0) {
-			$row =& $result->GetRowAssoc(false);
+			$row = $result->GetRowAssoc(false);
 			$runningProcesses = (int)$row['running_processes'];
 		}
 		return $runningProcesses;

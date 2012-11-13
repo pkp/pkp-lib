@@ -126,7 +126,7 @@ class PKPHandler {
 	 * @param $addToTop boolean whether to insert the new policy
 	 *  to the top of the list.
 	 */
-	function addPolicy(&$authorizationPolicy, $addToTop = false) {
+	function addPolicy($authorizationPolicy, $addToTop = false) {
 		if (is_null($this->_authorizationDecisionManager)) {
 			// Instantiate the authorization decision manager
 			import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');

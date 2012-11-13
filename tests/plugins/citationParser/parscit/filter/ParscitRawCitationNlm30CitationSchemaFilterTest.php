@@ -70,7 +70,7 @@ class ParscitRawCitationNlm30CitationSchemaFilterTest extends Nlm30CitationSchem
 		$filter = new ParscitRawCitationNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'primitive::string',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));
-		parent::testAllCitationsWithThisParser($filter);
+		parent::_testAllCitationsWithThisParser($filter);
 	}
 
 	/**

@@ -64,7 +64,7 @@ class AuthorizationDecisionManager {
 	 * @param $addToTop boolean whether to insert the new policy
 	 *  to the top of the list.
 	 */
-	function addPolicy(&$policyOrPolicySet, $addToTop = false) {
+	function addPolicy($policyOrPolicySet, $addToTop = false) {
 		$this->_rootPolicySet->addPolicy($policyOrPolicySet, $addToTop);
 	}
 

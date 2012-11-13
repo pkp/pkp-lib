@@ -33,7 +33,7 @@ class PKPNotificationManagerTest extends PKPTestCase {
 		$notification->setAssocType(ASSOC_TYPE_ANNOUNCEMENT);
 
 		$requestDummy = $this->getMock('PKPRequest');
-		$result = $this->notificationMgr->getNotificationMessage($request, $notification);
+		$result = $this->notificationMgr->getNotificationMessage($requestDummy, $notification);
 
 		$this->assertContains('notification.type.newAnnouncement', $result);
 	}

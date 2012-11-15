@@ -335,6 +335,8 @@
 	<message key="navigation.user">User</message>
 	<message key="navigation.userManagement">User Management</message>
 	<message key="notification.allow">Allow these types of notifications to appear in my notification feed.</message>
+	<message key="notification.addedAuthor">Author added.</message>
+	<message key="notification.editedAuthor">Author edited.</message>
 	<message key="notification.confirmError">There was an error confirming your subscription.</message>
 	<message key="notification.confirmSuccess">You have been successfully subscribed.</message>
 	<message key="notification.email">Send me an email for these types of notifications.</message>

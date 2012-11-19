@@ -35,7 +35,7 @@ class PKPAnnouncementHandler extends Handler {
 			$announcements =& $this->_getAnnouncements($request, $rangeInfo);
 			$announcementsIntroduction = $this->_getAnnouncementsIntroduction($request);
 
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->assign('announcementsIntroduction', $announcementsIntroduction);
 			$templateMgr->display('announcement/index.tpl');
@@ -61,7 +61,7 @@ class PKPAnnouncementHandler extends Handler {
 			$announcement =& $announcementDao->getById($announcementId);
 
 			if ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()) {
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr =& TemplateManager::getManager($request);
 				$templateMgr->assign('announcement', $announcement);
 				if ($announcement->getTypeId() == null) {
 					$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitle());
@@ -86,7 +86,7 @@ class PKPAnnouncementHandler extends Handler {
 	function setupTemplate($request, $subclass = false) {
 		parent::setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 		$templateMgr->assign('pageHierachy', array(array($request->url(null, null, 'announcements'), 'announcement.announcements')));
 	}

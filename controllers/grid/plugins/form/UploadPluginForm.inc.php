@@ -57,7 +57,7 @@ class UploadPluginForm extends Form {
 	 * @see Form::fetch()
 	 */
 	function fetch(&$request) {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('function', $this->_function);
 
 		return parent::fetch($request);

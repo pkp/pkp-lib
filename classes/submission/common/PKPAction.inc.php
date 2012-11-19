@@ -37,7 +37,7 @@ class PKPAction {
 	function editCitations(&$request, &$submission) {
 		$router =& $request->getRouter();
 		$dispatcher =& $this->getDispatcher();
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		// Add extra style sheets required for ajax components
 		// FIXME: Must be removed after OMP->OJS backporting

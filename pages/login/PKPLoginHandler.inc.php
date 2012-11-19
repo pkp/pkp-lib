@@ -36,7 +36,7 @@ class PKPLoginHandler extends Handler {
 		$sessionManager =& SessionManager::getManager();
 		$session =& $sessionManager->getUserSession();
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		// If the user wasn't expecting a login page, i.e. if they're new to the
 		// site and want to submit a paper, it helps to explain why they need to
@@ -138,7 +138,7 @@ class PKPLoginHandler extends Handler {
 			$sessionManager =& SessionManager::getManager();
 			$session =& $sessionManager->getUserSession();
 
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->assign('username', $request->getUserVar('username'));
 			$templateMgr->assign('remember', $request->getUserVar('remember'));
 			$templateMgr->assign('source', $request->getUserVar('source'));
@@ -173,7 +173,7 @@ class PKPLoginHandler extends Handler {
 	function lostPassword($args, &$request) {
 		$this->validate();
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->display('user/lostPassword.tpl');
 	}
 
@@ -183,7 +183,7 @@ class PKPLoginHandler extends Handler {
 	function requestResetPassword($args, &$request) {
 		$this->validate();
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		$email = $request->getUserVar('email');
 		$userDao =& DAORegistry::getDAO('UserDAO');
@@ -230,7 +230,7 @@ class PKPLoginHandler extends Handler {
 			$request->redirect(null, null, 'lostPassword');
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		$hash = Validation::generatePasswordResetHash($user->getId());
 		if ($hash == false || $confirmHash != $hash) {

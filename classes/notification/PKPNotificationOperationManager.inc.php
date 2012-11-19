@@ -199,7 +199,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$formattedNotificationsData = null;
 
 		if (!empty($notifications)) {
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			foreach ((array)$notifications as $notification) {
 				$formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
 			}
@@ -341,7 +341,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	 * @return string
 	 */
 	private function formatNotification(&$request, $notification, $notificationTemplate = 'notification/notification.tpl') {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		// Set the date read if it isn't already set
 		if (!$notification->getDateRead()) {

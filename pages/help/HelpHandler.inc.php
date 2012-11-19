@@ -50,7 +50,7 @@ class HelpHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		import('classes.help.Help');
 		$help =& Help::getHelp();
 		$templateMgr->assign_by_ref('helpToc', $help->getTableOfContents());
@@ -97,7 +97,7 @@ class HelpHandler extends Handler {
 
 		$topics = $toc->getTopics();
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('currentTopicId', $topic->getId());
 		$templateMgr->assign_by_ref('topic', $topic);
 		$templateMgr->assign('toc', $toc);
@@ -137,7 +137,7 @@ class HelpHandler extends Handler {
 			}
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('showSearch', true);
 		$templateMgr->assign('pageTitle', __('help.searchResults'));
 		$templateMgr->assign('helpSearchKeyword', $keyword);
@@ -151,7 +151,7 @@ class HelpHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 	}
 }

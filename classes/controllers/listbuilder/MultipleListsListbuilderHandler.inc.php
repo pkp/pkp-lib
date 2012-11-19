@@ -140,7 +140,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 			$listsRows[$listId] = $this->_renderRowsInternally($request, $elements);
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('grid', $this);
 		$templateMgr->assign_by_ref('listsRows', $listsRows);
 
@@ -173,7 +173,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 	 * @param $request PKPRequest
 	 */
 	function fetch($args, &$request) {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('lists', $this->getLists());
 
 		return parent::fetch($args, $request);

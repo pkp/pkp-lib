@@ -59,7 +59,7 @@ class NotificationMailingListForm extends Form {
 	 * Display the form.
 	 */
 	function display(&$request) {
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('new', true);
 		
 		if ($this->captchaEnabled) {

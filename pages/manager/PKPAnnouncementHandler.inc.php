@@ -44,7 +44,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			unset($announcements);
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('announcements', $announcements);
 		$templateMgr->display('manager/announcement/announcements.tpl');
 	}
@@ -103,7 +103,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		if ($this->_announcementIsValid($request, $announcementId)) {
 			import('classes.manager.form.AnnouncementForm');
 
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->append('pageHierarchy', array($request->url(null, 'manager', 'announcements'), 'manager.announcements'));
 
 			if ($announcementId == null) {
@@ -170,7 +170,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 				}
 
 			} else {
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr =& TemplateManager::getManager($request);
 				$templateMgr->append('pageHierarchy', array($request->url(null, null, 'manager', 'announcements'), 'manager.announcements'));
 
 				if ($announcementId == null) {
@@ -205,7 +205,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 			$rangeInfo =& $announcementTypes->getLastPageRangeInfo();
 		}
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('announcementTypes', $announcementTypes);
 		$templateMgr->display('manager/announcement/announcementTypes.tpl');
 	}
@@ -253,7 +253,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 		if ($this->_announcementTypeIsValid($request, $typeId)) {
 			import('classes.manager.form.AnnouncementTypeForm');
 
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->append('pageHierarchy', array($request->url(null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
 
 			if ($typeId == null) {
@@ -316,7 +316,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 					$request->redirectUrl($router->url($request, null, null, 'announcementTypes'));
 				}
 			} else {
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr =& TemplateManager::getManager($request);
 				$templateMgr->append('pageHierarchy', array($request->url(null, null, 'manager', 'announcementTypes'), 'manager.announcementTypes'));
 
 				if ($typeId == null) {
@@ -340,7 +340,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	function setupTemplate(&$request, $subclass = false) {
 		parent::setupTemplate($request, true);
 		if ($subclass) {
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->append('pageHierarchy', array($request->url(null, 'manager', 'announcements'), 'manager.announcements'));
 		}
 	}

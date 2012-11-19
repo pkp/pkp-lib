@@ -25,7 +25,7 @@ class NotificationHandler extends Handler {
 	function index($args, &$request) {
 		$this->validate();
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$router =& $request->getRouter();
 
 		$user = $request->getUser();
@@ -211,7 +211,7 @@ class NotificationHandler extends Handler {
 		$versionDao =& DAORegistry::getDAO('VersionDAO');
 		$version = $versionDao->getCurrentVersion();
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('version', $version->getVersionString(false));
 		$templateMgr->assign('selfUrl', $request->getCompleteUrl());
 		$templateMgr->assign('locale', AppLocale::getPrimaryLocale());
@@ -275,7 +275,7 @@ class NotificationHandler extends Handler {
 	function mailListSubscribed($args, &$request) {
 		$this->setupTemplate($request);
 		$status = array_shift($args);
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		if ($status == 'success') {
 			$templateMgr->assign('status', 'subscribeSuccess');
@@ -296,7 +296,7 @@ class NotificationHandler extends Handler {
 		$this->setupTemplate($request);
 		$userToken = array_shift($args);
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign('confirm', true);
 
 		$context =& $request->getContext();
@@ -324,7 +324,7 @@ class NotificationHandler extends Handler {
 		$context =& $request->getContext();
 
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 
 		$userToken = array_shift($args);
 

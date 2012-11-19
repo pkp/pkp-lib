@@ -511,7 +511,7 @@ class GridHandler extends PKPHandler {
 		$this->setUrls($request);
 
 		// Prepare the template to render the grid.
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('grid', $this);
 
 		// Add rendered filter
@@ -776,7 +776,7 @@ class GridHandler extends PKPHandler {
 				$renderedForm = $form->fetch($request);
 				break;
 			case is_string($form):
-				$templateMgr =& TemplateManager::getManager();
+				$templateMgr =& TemplateManager::getManager($request);
 
 				// Assign data to the filter.
 				$templateMgr->assign('filterData', $filterData);
@@ -885,7 +885,7 @@ class GridHandler extends PKPHandler {
 		}
 
 		// Pass control to the view to render the row
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('grid', $this);
 		$templateMgr->assign_by_ref('columns', $columns);
 		$templateMgr->assign_by_ref('cells', $renderedCells);
@@ -931,7 +931,7 @@ class GridHandler extends PKPHandler {
 		$renderedRows = $this->_renderRowsInternally($request, $elements);
 
 		// Render the body part.
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$gridBodyParts = array();
 		if ( count($renderedRows) > 0 ) {
 			$templateMgr->assign_by_ref('grid', $this);

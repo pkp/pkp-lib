@@ -41,7 +41,7 @@ class GridCellProvider {
 		$cellId = isset($rowId)?$rowId.'-'.$columnId:null;
 
 		// Assign values extracted from the element for the cell.
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateVars = $this->getTemplateVarsFromRowColumn($row, $column);
 		foreach ($templateVars as $varName => $varValue) {
 			$templateMgr->assign($varName, $varValue);

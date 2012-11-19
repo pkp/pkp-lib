@@ -109,7 +109,7 @@ class AuthorForm extends Form {
 	function fetch(&$request) {
 		$author =& $this->getAuthor();
 
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$countryDao =& DAORegistry::getDAO('CountryDAO');
 		$countries =& $countryDao->getCountries();
 		$templateMgr->assign_by_ref('countries', $countries);

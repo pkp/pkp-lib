@@ -320,7 +320,7 @@ class CategoryGridHandler extends GridHandler {
 	function renderRowInternally($request, $row) {
 		if ($this->getCategoryRowIdParameterName()) {
 			$param = $this->getRequestArg($this->getCategoryRowIdParameterName());
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr =& TemplateManager::getManager($request);
 			$templateMgr->assign('categoryId', $param);
 		}
 
@@ -388,7 +388,7 @@ class CategoryGridHandler extends GridHandler {
 	 */
 	function _renderCategoryInternally(&$request, &$categoryRow) {
 		// Prepare the template to render the category.
-		$templateMgr =& TemplateManager::getManager();
+		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('grid', $this);
 		$columns = $this->getColumns();
 		$templateMgr->assign_by_ref('columns', $columns);

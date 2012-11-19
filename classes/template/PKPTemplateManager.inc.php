@@ -138,7 +138,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_function('confirm', array(&$this, 'smartyConfirm'));
 		$this->register_function('ajax_upload', array(&$this, 'smartyAjaxUpload'));
 		$this->register_function('init_tabs', array(&$this, 'smartyInitTabs'));
-		
+
 		// register the resource name "core"
 		$this->register_resource("core", array(array(&$this, 'smartyResourceCoreGetTemplate'),
 											array(&$this, 'smartyResourceCoreGetTimestamp'),
@@ -195,7 +195,8 @@ class PKPTemplateManager extends Smarty {
 		$plugins =& PluginRegistry::loadCategory('blocks');
 
 		if (!defined('SESSION_DISABLE_INIT')) {
-			$user =& $this->request->getUser();
+			$request =& Application::getRequest();
+			$user =& $request->getUser();
 			$hasSystemNotifications = false;
 			if ($user) {
 				// Assign the user name to be used in the sitenav
@@ -790,7 +791,7 @@ class PKPTemplateManager extends Smarty {
 				$string = $this->_removeTags($string, $tags, false, $length);
 			}
 			$length -= min($length, String::strlen($etc));
-			if (!$middle) {        	
+			if (!$middle) {
 				if(!$break_words) {
 					$string = String::regexp_replace('/\s+?(\S+)?$/', '', String::substr($string, 0, $length+1));
 				} else $string = String::substr($string, 0, $length+1);
@@ -819,7 +820,7 @@ class PKPTemplateManager extends Smarty {
 					if ($skip_tags) {
 						$firstHalf = $this->_reinsertTags($firstHalf, $tags);
 						$secondHalf = $this->reinsertTags($secondHalf, $tagsReverse, strlen($string));
-						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);  
+						return $this->_closeTags($firstHalf) . $etc . $this->_closeTags($secondHalf, true);
 					} else {
 						return $firstHalf . $etc . $secondHalf;
 					}
@@ -875,7 +876,7 @@ class PKPTemplateManager extends Smarty {
 	 * Removes tags from the back of the string and keeps a record of their position from the back
 	 * @author Matt Crider
 	 * @param string
-	 * @param int loc Keeps track of position from the back of original string 
+	 * @param int loc Keeps track of position from the back of original string
 	 * @param array
 	 * @param int
 	 * @return string
@@ -893,7 +894,7 @@ class PKPTemplateManager extends Smarty {
 				}
 				$tag = '<' . $tag;
 				$openBrack++;
-			
+
 				$tags[] = array($tag, $loc);
 				return $this->_removeTagsAuxReverse(String::substr($string, 0, -$openBrack), $loc+$openBrack, $tags, $length);
 			}
@@ -912,7 +913,7 @@ class PKPTemplateManager extends Smarty {
 	 */
 	function _reinsertTags($string, &$tags, $reverse = false) {
 		if(empty($tags)) return $string;
-		
+
 		for($i = 0; $i < count($tags); $i++) {
 			$length = String::strlen($string);
 			if ($tags[$i][1] < String::strlen($string)) {
@@ -927,14 +928,14 @@ class PKPTemplateManager extends Smarty {
 				}
 			}
 		}
-	
+
 		return $string;
 	}
 
 	/**
 	 * Helper function: Closes all dangling XHTML tags in a string
 	 * Modified from http://milianw.de/code-snippets/close-html-tags
-	 *  by Milian Wolff <mail@milianw.de> 
+	 *  by Milian Wolff <mail@milianw.de>
 	 * @param string
 	 * @return string
 	 */
@@ -942,7 +943,7 @@ class PKPTemplateManager extends Smarty {
 		// Put all opened tags into an array
 		String::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
 		$openedtags = $result[1];
-		
+
 		// Put all closed tags into an array
 		String::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
 		$closedtags = $result[1];
@@ -1201,7 +1202,7 @@ class PKPTemplateManager extends Smarty {
 		}
 		echo "<script type='text/javascript'>ajaxUpload('$url', '$form');</script>";
 	}
-	
+
 	function smartyInitTabs($params, &$smarty) {
 		// Required params
 		if (!isset($params['id'])) {

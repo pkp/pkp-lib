@@ -41,7 +41,7 @@ class PKPTemplateManager extends Smarty {
 	var $javaScripts;
 
 	/** @var $initialized Kludge because of reference problems with
-	    TemplateManager::getManager() invoked during constructor process */
+	    TemplateManager::getManager invoked during constructor process */
 	var $initialized;
 
 	/** @var $cacheability string Type of cacheability (Cache-Control). */

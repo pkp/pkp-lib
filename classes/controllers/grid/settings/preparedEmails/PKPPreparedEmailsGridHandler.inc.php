@@ -26,9 +26,8 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 		parent::GridHandler();
 	}
 
-	/*
-	 * Configure the grid
-	 * @param $request PKPRequest
+	/**
+	 * @see GridHandler::initialize()
 	 */
 	function initialize(&$request) {
 		parent::initialize($request);
@@ -41,15 +40,6 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 		$this->setTitle('grid.preparedEmails.title');
 
 		$this->setInstructions('grid.preparedEmails.description');
-
-		// Elements to be displayed in the grid
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplates =& $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $this->getContextId($request));
-		$rowData = array();
-		foreach ($emailTemplates as $emailTemplate) {
-			$rowData[$emailTemplate->getEmailKey()] = $emailTemplate;
-		}
-		$this->setGridDataElements($rowData);
 
 		// Grid actions
 		import('lib.pkp.controllers.grid.settings.preparedEmails.linkAction.EditEmailLinkAction');
@@ -81,6 +71,19 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 		$this->addColumn(new GridColumn('recipient', 'email.recipient', null, 'controllers/grid/gridCell.tpl', $cellProvider));
 		$this->addColumn(new GridColumn('subject', 'common.subject', null, 'controllers/grid/gridCell.tpl', $cellProvider));
 		$this->addColumn(new GridColumn('enabled', 'common.enabled', null, 'controllers/grid/common/cell/selectStatusCell.tpl', $cellProvider, array('width' => 5)));
+	}
+
+	/**
+	 * @see GridHandler::loadData()
+	 */
+	function loadData($request, $filter) {
+		// Elements to be displayed in the grid
+		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$emailTemplates =& $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $this->getContextId($request));
+		foreach ($emailTemplates as $emailTemplate) {
+			$rowData[$emailTemplate->getEmailKey()] = $emailTemplate;
+		}
+		return $rowData;
 	}
 
 

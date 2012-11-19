@@ -602,6 +602,14 @@ class GridHandler extends PKPHandler {
 		return DAO::getDataChangedEvent();
 	}
 
+	/**
+	 * Get the js handler for this component.
+	 * @return string
+	 */
+	public function getJSHandler() {
+		return '$.pkp.controllers.grid.GridHandler';
+	}
+
 
 	//
 	// Protected methods to be overridden/used by subclasses
@@ -612,18 +620,10 @@ class GridHandler extends PKPHandler {
 	 * provide a custom row definition.
 	 * @return GridRow
 	 */
-	function &getRowInstance() {
+	protected function &getRowInstance() {
 		//provide a sensible default row definition
 		$row = new GridRow();
 		return $row;
-	}
-
-	/**
-	 * Get the js handler for this component.
-	 * @return string
-	 */
-	function getJSHandler() {
-		return '$.pkp.controllers.grid.GridHandler';
 	}
 
 	/**
@@ -635,7 +635,7 @@ class GridHandler extends PKPHandler {
 	 *  ID (if one is to be used)
 	 * @return object
 	 */
-	function &getDataElementFromRequest(&$request, &$elementId) {
+	protected function &getDataElementFromRequest(&$request, &$elementId) {
 		fatalError('Grid does not support data element creation!');
 	}
 
@@ -660,7 +660,7 @@ class GridHandler extends PKPHandler {
 	 *  configured with id and data or null if the row
 	 *  could not been found.
 	 */
-	function &getRequestedRow($request, $args) {
+	protected function &getRequestedRow($request, $args) {
 		$isModified = isset($args['modify']);
 		if (isset($args['rowId']) && !$isModified) {
 			// A row ID was specified. Fetch it
@@ -702,7 +702,7 @@ class GridHandler extends PKPHandler {
 	 * @param $rowId
 	 * @return mixed
 	 */
-	function getRowDataElement($request, $rowId) {
+	protected function getRowDataElement($request, $rowId) {
 		$elements =& $this->getGridDataElements($request);
 
 		assert(is_array($elements));
@@ -719,7 +719,7 @@ class GridHandler extends PKPHandler {
 	 *  then the array will be empty.
 	 * @return null
 	 */
-	function &loadData(&$request, $filter) {
+	protected function &loadData(&$request, $filter) {
 		$gridData = null;
 		$dataProvider =& $this->getDataProvider();
 		if (is_a($dataProvider, 'GridDataProvider')) {
@@ -737,7 +737,7 @@ class GridHandler extends PKPHandler {
 	 * Returns a Form object or the path name of a filter template.
 	 * @return Form|string
 	 */
-	function getFilterForm() {
+	protected function getFilterForm() {
 		return null;
 	}
 
@@ -748,7 +748,7 @@ class GridHandler extends PKPHandler {
 	 * @param $request PKPRequest
 	 * @return array
 	 */
-	function getFilterSelectionData($request) {
+	protected function getFilterSelectionData($request) {
 		return null;
 	}
 
@@ -758,7 +758,7 @@ class GridHandler extends PKPHandler {
 	 * @param $filterData Array Data to be used by the filter template.
 	 * @return string
 	 */
-	function renderFilter($request, $filterData = array()) {
+	protected function renderFilter($request, $filterData = array()) {
 		$form = $this->getFilterForm();
 		assert(is_null($form) || is_a($form, 'Form') || is_string($form));
 
@@ -797,7 +797,7 @@ class GridHandler extends PKPHandler {
 	 * AJAX autocomplete requests.
 	 * @return string Serialized JSON object
 	 */
-	function noAutocompleteResults() {
+	protected function noAutocompleteResults() {
 		$returner = array();
 		$returner[] = array('label' => __('common.noMatches'), 'value' => '');
 
@@ -812,11 +812,11 @@ class GridHandler extends PKPHandler {
 	 * @param $args array
 	 * @param $request Request
 	 */
-	function doSpecificFetchGridActions($args, &$request, &$templateMgr) {
+	protected function doSpecificFetchGridActions($args, &$request, &$templateMgr) {
 		$this->_fixColumnWidths();
 
 		// Render the body elements.
-		$gridBodyParts = $this->_renderGridBodyPartsInternally($request);
+		$gridBodyParts = $this->renderGridBodyPartsInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
 	}
 
@@ -827,7 +827,7 @@ class GridHandler extends PKPHandler {
 	 * Override this method to define a different column
 	 * than the first one.
 	 */
-	function setFirstDataColumn() {
+	protected function setFirstDataColumn() {
 		$columns =& $this->getColumns();
 		$firstColumn = reset($columns);
 		$firstColumn->addFlag('firstColumn', true);
@@ -842,7 +842,7 @@ class GridHandler extends PKPHandler {
 	 * @param $args array
 	 * @return array Array with initialized grid features objects.
 	 */
-	function initFeatures(&$request, $args) {
+	protected function initFeatures(&$request, &$args) {
 		return array();
 	}
 
@@ -851,7 +851,7 @@ class GridHandler extends PKPHandler {
 	 * @param $hookName string
 	 * @param $args array Arguments provided by this handler.
 	 */
-	function callFeaturesHook($hookName, $args) {
+	protected function callFeaturesHook($hookName, $args) {
 		$features = $this->getFeatures();
 		if (is_array($features)) {
 			foreach ($features as &$feature) {
@@ -865,6 +865,28 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
+	 * Cycle through the data and get generate the row HTML.
+	 * @param $request PKPRequest
+	 * @param $elements array The grid data elements to be rendered.
+	 * @return array of HTML Strings for Grid Rows.
+	 */
+	protected function renderRowsInternally(&$request, &$elements) {
+		// Iterate through the rows and render them according
+		// to the row definition.
+		$renderedRows = array();
+		foreach ($elements as $elementId => $element) {
+			// Instantiate a new row.
+			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
+
+			// Render the row
+			$renderedRows[] = $this->renderRowInternally($request, $row);
+			unset($element);
+		}
+
+		return $renderedRows;
+	}
+
+	/**
 	 * Method that renders a single row.
 	 *
 	 * NB: You must have initialized the row
@@ -874,7 +896,7 @@ class GridHandler extends PKPHandler {
 	 * @param $row GridRow
 	 * @return string the row HTML
 	 */
-	function renderRowInternally(&$request, &$row) {
+	protected function renderRowInternally(&$request, &$row) {
 		// Iterate through the columns and render the
 		// cells for the given row.
 		$renderedCells = array();
@@ -893,6 +915,27 @@ class GridHandler extends PKPHandler {
 		return $templateMgr->fetch($row->getTemplate());
 	}
 
+	/**
+	 * Method that renders tbodys to go in the grid main body.
+	 * @param Request $request
+	 * @return array
+	 */
+	protected function renderGridBodyPartsInternally(&$request) {
+		// Render the rows.
+		$elements = $this->getGridDataElements($request);
+		$renderedRows = $this->renderRowsInternally($request, $elements);
+
+		// Render the body part.
+		$templateMgr =& TemplateManager::getManager($request);
+		$gridBodyParts = array();
+		if ( count($renderedRows) > 0 ) {
+			$templateMgr->assign_by_ref('grid', $this);
+			$templateMgr->assign_by_ref('rows', $renderedRows);
+			$gridBodyParts[] = $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
+		}
+		return $gridBodyParts;
+	}
+
 
 	//
 	// Private helper methods
@@ -905,7 +948,7 @@ class GridHandler extends PKPHandler {
 	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	function &_getInitializedRowInstance(&$request, $elementId, &$element, $isModified = false) {
+	private function &_getInitializedRowInstance(&$request, $elementId, &$element, $isModified = false) {
 		// Instantiate a new row
 		$row = $this->getRowInstance();
 		$row->setGridId($this->getId());
@@ -921,49 +964,6 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * Method that renders tbodys to go in the grid main body.
-	 * @param Request $request
-	 * @return array
-	 */
-	function _renderGridBodyPartsInternally(&$request) {
-		// Render the rows.
-		$elements = $this->getGridDataElements($request);
-		$renderedRows = $this->_renderRowsInternally($request, $elements);
-
-		// Render the body part.
-		$templateMgr =& TemplateManager::getManager($request);
-		$gridBodyParts = array();
-		if ( count($renderedRows) > 0 ) {
-			$templateMgr->assign_by_ref('grid', $this);
-			$templateMgr->assign_by_ref('rows', $renderedRows);
-			$gridBodyParts[] = $templateMgr->fetch('controllers/grid/gridBodyPart.tpl');
-		}
-		return $gridBodyParts;
-	}
-
-	/**
-	 * Cycle through the data and get generate the row HTML.
-	 * @param $request PKPRequest
-	 * @param $elements array The grid data elements to be rendered.
-	 * @return array of HTML Strings for Grid Rows.
-	 */
-	function _renderRowsInternally(&$request, &$elements) {
-		// Iterate through the rows and render them according
-		// to the row definition.
-		$renderedRows = array();
-		foreach ($elements as $elementId => $element) {
-			// Instantiate a new row.
-			$row =& $this->_getInitializedRowInstance($request, $elementId, $element);
-
-			// Render the row
-			$renderedRows[] = $this->renderRowInternally($request, $row);
-			unset($element);
-		}
-
-		return $renderedRows;
-	}
-
-	/**
 	 * Method that renders a cell.
 	 *
 	 * NB: You must have initialized the row
@@ -974,7 +974,7 @@ class GridHandler extends PKPHandler {
 	 * @param $column GridColumn
 	 * @return string the cell HTML
 	 */
-	function _renderCellInternally(&$request, &$row, &$column) {
+	private function _renderCellInternally(&$request, &$row, &$column) {
 		// If there is no object, then we want to return an empty row.
 		// override the assigned GridCellProvider and provide the default.
 		$element =& $row->getData();
@@ -1001,7 +1001,7 @@ class GridHandler extends PKPHandler {
 	 * Method that grabs all the existing columns and makes sure the column widths add to exactly 100
 	 * N.B. We do some extra column fetching because PHP makes copies of arrays with foreach.
 	 */
-	function _fixColumnWidths() {
+	private function _fixColumnWidths() {
 		$columns =& $this->getColumns();
 		$width = 0;
 		$noSpecifiedWidthCount = 0;
@@ -1034,7 +1034,7 @@ class GridHandler extends PKPHandler {
 	 * Add grid features.
 	 * @param $features array
 	 */
-	function _addFeatures($features) {
+	private function _addFeatures($features) {
 		assert(is_array($features));
 		foreach ($features as &$feature) {
 			assert(is_a($feature, 'GridFeature'));

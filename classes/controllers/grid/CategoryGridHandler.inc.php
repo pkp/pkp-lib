@@ -178,7 +178,7 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getJSHandler()
 	 */
-	function getJSHandler() {
+	public function getJSHandler() {
 		return '$.pkp.controllers.grid.CategoryGridHandler';
 	}
 
@@ -194,7 +194,7 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::doSpecificFetchGridActions($args, $request)
 	 */
-	function doSpecificFetchGridActions($args, $request, &$templateMgr) {
+	protected function doSpecificFetchGridActions($args, $request, &$templateMgr) {
 		// Render the body elements (category groupings + rows inside a <tbody>)
 		$gridBodyParts = $this->_renderCategoriesInternally($request);
 		$templateMgr->assign_by_ref('gridBodyParts', $gridBodyParts);
@@ -203,7 +203,7 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::getRowDataElement()
 	 */
-	function getRowDataElement($request, $rowId) {
+	protected function getRowDataElement($request, $rowId) {
 		$rowData = parent::getRowDataElement($request, $rowId);
 		$rowCategoryId = $request->getUserVar('rowCategoryId');
 
@@ -230,7 +230,7 @@ class CategoryGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::setFirstDataColumn()
 	 */
-	function setFirstDataColumn() {
+	protected function setFirstDataColumn() {
 		$columns =& $this->getColumns();
 		reset($columns);
 		// Category grids will always have indent column firstly,
@@ -239,45 +239,17 @@ class CategoryGridHandler extends GridHandler {
 		$secondColumn->addFlag('firstColumn', true);
 	}
 
-
-	//
-	// Protected methods to be overridden/used by subclasses
-	//
 	/**
-	 * Get a new instance of a category grid row. May be
-	 * overridden by subclasses if they want to
-	 * provide a custom row definition.
-	 * @return CategoryGridRow
+	 * @see GridHandler::renderRowInternally()
 	 */
-	function &getCategoryRowInstance() {
-		//provide a sensible default category row definition
-		$row = new GridCategoryRow();
-		return $row;
-	}
-
-	/**
-	 * Get the category row id parameter name.
-	 * @return string
-	 */
-	function getCategoryRowIdParameterName() {
-		// Must be implemented by subclasses.
-		return null;
-	}
-
-	/**
-	 * Fetch the contents of a category.
-	 * @param $categoryDataElement mixed
-	 * @return array
-	 */
-	function &getCategoryData(&$categoryDataElement, $filter = null) {
-		$gridData = array();
-		$dataProvider =& $this->getDataProvider();
-		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
-			// Populate the grid with data from the
-			// data provider.
-			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
+	protected function renderRowInternally($request, $row) {
+		if ($this->getCategoryRowIdParameterName()) {
+			$param = $this->getRequestArg($this->getCategoryRowIdParameterName());
+			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr->assign('categoryId', $param);
 		}
-		return $gridData;
+
+		return parent::renderRowInternally($request, $row);
 	}
 
 	/**
@@ -291,7 +263,7 @@ class CategoryGridHandler extends GridHandler {
 	 *  configured with id and data or null if the row
 	 *  could not been found.
 	 */
-	function &getRequestedCategoryRow($request, $args) {
+	protected function &getRequestedCategoryRow($request, $args) {
 		if (isset($args['rowId'])) {
 			// A row ID was specified. Fetch it
 			$elementId = $args['rowId'];
@@ -314,17 +286,45 @@ class CategoryGridHandler extends GridHandler {
 		return $row;
 	}
 
-	/**
-	 * @see GridHandler::renderRowInternally()
-	 */
-	function renderRowInternally($request, $row) {
-		if ($this->getCategoryRowIdParameterName()) {
-			$param = $this->getRequestArg($this->getCategoryRowIdParameterName());
-			$templateMgr =& TemplateManager::getManager($request);
-			$templateMgr->assign('categoryId', $param);
-		}
 
-		return parent::renderRowInternally($request, $row);
+	//
+	// Protected methods to be overridden/used by subclasses
+	//
+	/**
+	 * Get a new instance of a category grid row. May be
+	 * overridden by subclasses if they want to
+	 * provide a custom row definition.
+	 * @return CategoryGridRow
+	 */
+	protected function &getCategoryRowInstance() {
+		//provide a sensible default category row definition
+		$row = new GridCategoryRow();
+		return $row;
+	}
+
+	/**
+	 * Get the category row id parameter name.
+	 * @return string
+	 */
+	protected function getCategoryRowIdParameterName() {
+		// Must be implemented by subclasses.
+		return null;
+	}
+
+	/**
+	 * Fetch the contents of a category.
+	 * @param $categoryDataElement mixed
+	 * @return array
+	 */
+	protected function &getCategoryData(&$categoryDataElement, $filter = null) {
+		$gridData = array();
+		$dataProvider =& $this->getDataProvider();
+		if (is_a($dataProvider, 'CategoryGridDataProvider')) {
+			// Populate the grid with data from the
+			// data provider.
+			$gridData =& $dataProvider->getCategoryData($categoryDataElement, $filter);
+		}
+		return $gridData;
 	}
 
 
@@ -339,7 +339,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $isModified boolean optional
 	 * @return GridRow
 	 */
-	function &_getInitializedCategoryRowInstance(&$request, $elementId, &$element) {
+	private function &_getInitializedCategoryRowInstance(&$request, $elementId, &$element) {
 		// Instantiate a new row
 		$row = $this->getCategoryRowInstance();
 		$row->setGridId($this->getId());
@@ -361,7 +361,7 @@ class CategoryGridHandler extends GridHandler {
 	 * Render all the categories internally
 	 * @param $request PKPRequest
 	 */
-	function _renderCategoriesInternally(&$request) {
+	private function _renderCategoriesInternally(&$request) {
 		// Iterate through the rows and render them according
 		// to the row definition.
 		$renderedCategories = array();
@@ -386,7 +386,7 @@ class CategoryGridHandler extends GridHandler {
 	 * @param $categoryRow GridCategoryRow
 	 * @return String HTML for all the rows (including category)
 	 */
-	function _renderCategoryInternally(&$request, &$categoryRow) {
+	private function _renderCategoryInternally(&$request, &$categoryRow) {
 		// Prepare the template to render the category.
 		$templateMgr =& TemplateManager::getManager($request);
 		$templateMgr->assign_by_ref('grid', $this);
@@ -404,7 +404,7 @@ class CategoryGridHandler extends GridHandler {
 		// This value will be published by the getRequestArgs method.
 		$this->_currentCategoryId = $categoryRow->getId();
 
-		$renderedRows = $this->_renderRowsInternally($request, $rowData);
+		$renderedRows = $this->renderRowsInternally($request, $rowData);
 		$templateMgr->assign_by_ref('rows', $renderedRows);
 
 		$renderedCategoryRow = $this->renderRowInternally($request, $categoryRow);

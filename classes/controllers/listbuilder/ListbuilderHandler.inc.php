@@ -318,7 +318,7 @@ class ListbuilderHandler extends GridHandler {
 	 * @see GridHandler::getRowInstance()
 	 * @return CitationGridRow
 	 */
-	function &getRowInstance() {
+	protected function &getRowInstance() {
 		// Return a citation row
 		$row = new ListbuilderGridRow();
 		return $row;

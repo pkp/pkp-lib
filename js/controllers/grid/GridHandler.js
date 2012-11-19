@@ -86,6 +86,20 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.features_ = null;
 
+	/**
+	 * This grid page parameter name.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.pageParamName_ = null;
+
+	/**
+	 * This grid current page value.
+	 * @private
+	 * @type {number}
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.currentPage_ = null;
+
 
 	//
 	// Public methods
@@ -367,6 +381,11 @@
 		// Show/hide row action feature.
 		this.activateRowActions_();
 
+		// Configure paging.
+		this.pageParamName_ = options.pageParamName;
+		this.currentPage_ = options.currentPage;
+		this.configPagingLinks_();
+
 		this.trigger('gridInitialized');
 	};
 
@@ -408,6 +427,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, opt_elementId, opt_fetchedAlready) {
+		var params = {};
 
 		// Check if subclasses already handled the fetch of new elements.
 		if (!opt_fetchedAlready) {
@@ -416,8 +436,9 @@
 				$.get(this.fetchRowUrl, {rowId: opt_elementId},
 						this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 			} else {
+				params[this.pageParamName_] = this.currentPage_;
 				// Retrieve the whole grid from the server.
-				$.get(this.fetchGridUrl_, null,
+				$.get(this.fetchGridUrl_, params,
 						this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
 			}
 		}
@@ -813,6 +834,41 @@
 			this.addFeature_(id, $feature);
 			this.features_[id].init();
 		}
+	};
+
+
+	/**
+	 * Configure paging links.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.configPagingLinks_ =
+			function() {
+
+		var clickCallback, $pagingDiv, $links, index, limit, $link, regex, match;
+
+		clickCallback = this.callbackWrapper(function(sourceElement, event) {
+			regex = new RegExp("[?&]" + this.pageParamName_ + "(?:=([^&]*))?","i");
+			match = regex.exec($(event.target).attr('href'));
+			if( match != null ) {
+				this.currentPage_ = match[1];
+				this.trigger('dataChanged');
+			}
+
+			// Stop event handling.
+			return false;
+		});
+
+		$pagingDiv = $('div.gridPaging', this.getHtmlElement());
+
+		if ($pagingDiv) {
+			$links = $pagingDiv.find('a');
+			for (index = 0, limit = $links.length; index < limit; index++) {
+				$link = $($links[index]);
+				$link.click(clickCallback);
+			}
+		}
+
 	};
 
 

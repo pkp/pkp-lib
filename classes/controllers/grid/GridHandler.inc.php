@@ -58,8 +58,11 @@ class GridHandler extends PKPHandler {
 	/** @var array The GridColumns of this grid. */
 	var $_columns = array();
 
-	/** @var ItemIterator The grid's data source. */
+	/** @var Array The grid's data source. */
 	var $_data;
+
+	/** @var ItemIterator The item iterator to be used for paging. */
+	var $_itemIterator;
 
 	/** @var string The grid template. */
 	var $_template;
@@ -118,6 +121,12 @@ class GridHandler extends PKPHandler {
 		if (is_a($dataProvider, 'GridDataProvider')) {
 			$requestArgs = $dataProvider->getRequestArgs();
 		}
+
+		// Add paging info.
+		$request = Application::getRequest();
+		$rangeInfo = self::getRangeInfo($request, $this->getId());
+		$requestArgs[self::getPageParamName($this->getId())] = $rangeInfo->getPage();
+
 		return $requestArgs;
 	}
 
@@ -322,10 +331,18 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements($data) {
+		// Store the item iterator for paging info only.
+		// The grid data will be stored in the data array.
 		// FIXME: We go to arrays for all types of iterators because
 		// iterators cannot be re-used, see #6498.
+		$this->_itemIterator = $data;
+
 		if (is_array($data)) {
-			$this->_data =& $data;
+			import('lib.pkp.classes.core.ArrayItemIterator');
+			$request = Application::getRequest();
+			$rangeInfo = self::getRangeInfo($request, $this->getId());
+			$this->_itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
+			$this->_data = $this->_itemIterator->toArray();
 		} elseif(is_a($data, 'DAOResultFactory')) {
 			$this->_data = $data->toAssociativeArray();
 		} elseif(is_a($data, 'ItemIterator')) {
@@ -396,6 +413,16 @@ class GridHandler extends PKPHandler {
 	 */
 	function getFeatures() {
 		return $this->_features;
+	}
+
+	/**
+	 * Get the item iterator that represents this grid data.
+	 * Should only be used for retriving paging data.
+	 * See #6498.
+	 * @return ItemIterator
+	 */
+	function getItemIterator() {
+		return $this->_itemIterator;
 	}
 
 	/**
@@ -528,6 +555,7 @@ class GridHandler extends PKPHandler {
 
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
+		$templateMgr->assign('iterator', $this->getItemIterator());
 
 		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
 
@@ -610,7 +638,6 @@ class GridHandler extends PKPHandler {
 		return '$.pkp.controllers.grid.GridHandler';
 	}
 
-
 	//
 	// Protected methods to be overridden/used by subclasses
 	//
@@ -637,16 +664,6 @@ class GridHandler extends PKPHandler {
 	 */
 	protected function &getDataElementFromRequest(&$request, &$elementId) {
 		fatalError('Grid does not support data element creation!');
-	}
-
-	/**
-	 * FIXME: temporary shadow method of parent to disable paging on all grids.
-	 * @see PKPHandler::getRangeInfo()
-	 */
-	static function getRangeInfo($request, $rangeName, $contextData = null) {
-		import('lib.pkp.classes.db.DBResultRange');
-		$returner = new DBResultRange(-1, -1);
-		return $returner;
 	}
 
 	/**

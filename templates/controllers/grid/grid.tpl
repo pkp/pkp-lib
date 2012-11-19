@@ -27,7 +27,9 @@
 						{foreach from=$grid->getPublishChangeEvents() item=gridPublishChangeEvent name=gridPublishChangeEvents}{if $smarty.foreach.gridPublishChangeEvents.first}'{else}', '{/if}{$gridPublishChangeEvent|escape:"javascript"}{if $smarty.foreach.gridPublishChangeEvents.last}'{/if}{/foreach}
 					],
 				{/if}
-				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
+				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features},
+				pageParamName: '{get_page_param_name name=$grid->getId()}',
+				currentPage: {$iterator->getPage()}
 			{rdelim}
 		);
 	{rdelim});
@@ -92,6 +94,12 @@
 		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 		{if $grid->getFootNote()}
 			<p class="pkp_grid_description">{translate key=$grid->getFootNote()}</p>
+		{/if}
+		{if $iterator}
+			<div class="gridPaging">
+				{page_info iterator=$iterator}
+				{page_links name=$grid->getId() iterator=$iterator}
+			</div>
 		{/if}
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 	<div class="pkp_helpers_clear"></div>

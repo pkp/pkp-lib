@@ -373,7 +373,7 @@ class PKPHandler {
 	 */
 	static function getRangeInfo($request, $rangeName, $contextData = null) {
 		$context =& $request->getContext();
-		$pageNum = $request->getUserVar($rangeName . 'Page');
+		$pageNum = $request->getUserVar(self::getPageParamName($rangeName));
 		if (empty($pageNum)) {
 			$session =& $request->getSession();
 			$pageNum = 1; // Default to page 1
@@ -405,6 +405,15 @@ class PKPHandler {
 
 		if (isset($count)) return new DBResultRange($count, $pageNum);
 		else return new DBResultRange(-1, -1);
+	}
+
+	/**
+	 * Get the range info page parameter name.
+	 * @param $rangeName string
+	 * @return string
+	 */
+	static function getPageParamName($rangeName) {
+		return $rangeName . 'Page';
 	}
 
 	/**

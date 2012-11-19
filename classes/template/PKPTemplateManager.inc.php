@@ -142,6 +142,7 @@ class PKPTemplateManager extends Smarty {
 		$this->register_block('iterate', array(&$this, 'smartyIterate'));
 		$this->register_function('call_progress_function', array(&$this, 'smartyCallProgressFunction'));
 		$this->register_function('page_links', array(&$this, 'smartyPageLinks'));
+		$this->register_function('get_page_param_name', array(&$this, 'smartyGetPageParamName'));
 		$this->register_function('page_info', array(&$this, 'smartyPageInfo'));
 		$this->register_function('get_help_id', array(&$this, 'smartyGetHelpId'));
 		$this->register_function('icon', array(&$this, 'smartyIcon'));
@@ -861,17 +862,23 @@ class PKPTemplateManager extends Smarty {
 		$itemTotal = $iterator->getCount();
 
 		$pageBase = max($page - floor($numPageLinks / 2), 1);
-		$paramName = $name . 'Page';
+		$paramName = $this->smartyGetPageParamName(array('name' => $name));
 
 		if ($pageCount<=1) return '';
 
 		$value = '';
 
+		$router = $this->request->getRouter();
+		$requestedArgs = null;
+		if (is_a($router, 'PageRouter')) {
+			$requestedArgs = $router->getRequestedArgs($request);
+		}
+
 		if ($page>1) {
 			$params[$paramName] = 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;&lt;</a>&nbsp;';
 			$params[$paramName] = $page - 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&lt;</a>&nbsp;';
 		}
 
 		for ($i=$pageBase; $i<min($pageBase+$numPageLinks, $pageCount+1); $i++) {
@@ -879,17 +886,26 @@ class PKPTemplateManager extends Smarty {
 				$value .= "<strong>$i</strong>&nbsp;";
 			} else {
 				$params[$paramName] = $i;
-				$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
+				$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';
 			}
 		}
 		if ($page < $pageCount) {
 			$params[$paramName] = $page + 1;
-			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;</a>&nbsp;';
 			$params[$paramName] = $pageCount;
-			$value .= '<a href="' . $this->request->url(null, null, null, $this->request->getRequestedArgs(), $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
+			$value .= '<a href="' . $this->request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>&gt;&gt;</a>&nbsp;';
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Get the page parameter name.
+	 * @name string The range info page parameter name.
+	 * @return string
+	 */
+	function smartyGetPageParamName($params) {
+		return $params['name'] . 'Page';
 	}
 
 	/**

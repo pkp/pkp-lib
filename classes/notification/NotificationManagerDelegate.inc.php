@@ -98,9 +98,10 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 	 * Define operations to update notifications.
 	 * @param $request PKPRequest
 	 * @param $userIds array
+	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	public function updateNotification(&$request, $userIds, $assocId) {
+	public function updateNotification(&$request, $userIds, $assocType, $assocId) {
 		return false;
 	}
 }

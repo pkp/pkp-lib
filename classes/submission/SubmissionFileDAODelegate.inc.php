@@ -77,7 +77,7 @@ class SubmissionFileDAODelegate extends DAO {
 	 * @param $row array
 	 * @return SubmissionFile
 	 */
-	function &fromRow(&$row) {
+	function &fromRow($row) {
 		assert(false);
 	}
 

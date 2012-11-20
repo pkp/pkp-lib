@@ -42,9 +42,9 @@ class PKPCitationGridCellProvider extends DataObjectGridCellProvider {
 	/**
 	 * @see GridCellProvider::getCellActions()
 	 */
-	function &getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
+	function getCellActions(&$request, &$row, &$column, $position = GRID_ACTION_POSITION_DEFAULT) {
 		// The citation grid retrieves actions from the row.
-		$actions =& $row->getCellActions($request, $column, $position);
+		$actions = $row->getCellActions($request, $column, $position);
 		return $actions;
 	}
 }

@@ -222,7 +222,7 @@ class PKPRoleDAO extends DAO {
 	 * @param boolean $contextOnly If false, also returns site-level roles (Site admin)
 	 * @return array
 	 */
-	function getRoleNames($contextOnly = false) {
+	static function getRoleNames($contextOnly = false) {
 		$siteRoleNames = array(ROLE_ID_SITE_ADMIN => 'user.role.siteAdmin');
 		$appRoleNames = array(
 			ROLE_ID_AUTHOR => 'user.role.author',

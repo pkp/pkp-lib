@@ -208,7 +208,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		);
 		if($result->RecordCount() != 1) return null;
 
-		$row =& $result->FetchRow();
+		$row = $result->FetchRow();
 		$result->Close();
 		unset($result);
 
@@ -734,7 +734,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		$submissionFiles = array();
 		while (!$result->EOF) {
 			// Retrieve the next result row.
-			$row =& $result->GetRowAssoc(false);
+			$row = $result->GetRowAssoc(false);
 
 			// Construct a combined id from file id and revision
 			// that uniquely identifies the file.

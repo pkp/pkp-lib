@@ -80,7 +80,7 @@ class SiteSettingsDAO extends DAO {
 
 		} else {
 			while (!$result->EOF) {
-				$row =& $result->getRowAssoc(false);
+				$row = $result->getRowAssoc(false);
 				$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 				if ($row['locale'] == '') $siteSettings[$row['setting_name']] = $value;
 				else $siteSettings[$row['setting_name']][$row['locale']] = $value;

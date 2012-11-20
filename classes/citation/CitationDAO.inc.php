@@ -49,7 +49,7 @@ class CitationDAO extends DAO {
 			);
 
 			if ($result->RecordCount() != 0) {
-				$row =& $result->GetRowAssoc(false);
+				$row = $result->GetRowAssoc(false);
 				$seq = $row['lastseq'] + 1;
 			} else {
 				$seq = 1;

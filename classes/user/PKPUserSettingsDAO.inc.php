@@ -48,7 +48,7 @@ class PKPUserSettingsDAO extends DAO {
 		);
 
 		if ($result->RecordCount() != 0) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 		} else {
 			$returner = null;
@@ -108,7 +108,7 @@ class PKPUserSettingsDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 			$userSettings[$row['setting_name']] = $value;
 			$result->MoveNext();

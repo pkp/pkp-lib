@@ -65,7 +65,7 @@ class PKPAuthorDAO extends DAO {
 		);
 
 		while (!$result->EOF) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			if ($sortByAuthorId) {
 				$authorId = $row['author_id'];
 				$authors[$authorId] =& $this->_returnAuthorFromRow($row);

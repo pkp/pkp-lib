@@ -635,7 +635,7 @@ class PKPUserGroupDAO extends DAO {
 		$recordCount = $result->RecordCount();
 		$returner = false;
 		if ($recordCount == 1) {
-			$row =& $result->getRowAssoc(false);
+			$row = $result->getRowAssoc(false);
 			$returner =& $this->convertFromDB($row['setting_value'], $row['setting_type']);
 		} elseif ($recordCount > 1) {
 			$returner = array();

@@ -21,7 +21,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get the name of the press
+	 * Get the localized name of the context
 	 * @return string
 	 */
 	function getLocalizedName() {
@@ -29,22 +29,22 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set the name of the press
-	 * @param $pressName string
+	 * Set the name of the context
+	 * @param $name string
 	 */
 	function setName($name) {
 		$this->setData('name', $name);
 	}
 
 	/**
-	 * get the name of the press
+	 * get the name of the context
 	 */
 	function getName($locale) {
 		return $this->getSetting('name', $locale);
 	}
 
 	/**
-	 * Get the contact name for this press
+	 * Get the contact name for this context
 	 * @return string
 	 */
 	function getContactName() {
@@ -52,7 +52,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set the contact name for this press
+	 * Set the contact name for this context
 	 * @param $contactName string
 	 */
 	function setContactName($contactName) {
@@ -60,7 +60,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get the contact email for this press
+	 * Get the contact email for this context
 	 * @return string
 	 */
 	function getContactEmail() {
@@ -68,7 +68,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set the contact email for this press
+	 * Set the contact email for this context
 	 * @param $contactEmail string
 	 */
 	function setContactEmail($contactEmail) {
@@ -76,7 +76,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get press description.
+	 * Get context description.
 	 * @return string
 	 */
 	function getDescription() {
@@ -93,7 +93,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get path to press (in URL).
+	 * Get path to context (in URL).
 	 * @return string
 	 */
 	function getPath() {
@@ -101,7 +101,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set path to press (in URL).
+	 * Set path to context (in URL).
 	 * @param $path string
 	 */
 	function setPath($path) {
@@ -109,7 +109,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get enabled flag of press
+	 * Get enabled flag of context
 	 * @return int
 	 */
 	function getEnabled() {
@@ -117,7 +117,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set enabled flag of press
+	 * Set enabled flag of context
 	 * @param $enabled int
 	 */
 	function setEnabled($enabled) {
@@ -125,7 +125,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Return the primary locale of this press.
+	 * Return the primary locale of this context.
 	 * @return string
 	 */
 	function getPrimaryLocale() {
@@ -133,14 +133,14 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set the primary locale of this press.
+	 * Set the primary locale of this context.
 	 * @param $locale string
 	 */
 	function setPrimaryLocale($primaryLocale) {
 		return $this->setData('primaryLocale', $primaryLocale);
 	}
 	/**
-	 * Get sequence of press in site table of contents.
+	 * Get sequence of context in site-wide list.
 	 * @return float
 	 */
 	function getSequence() {
@@ -148,7 +148,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Set sequence of press in site table of contents.
+	 * Set sequence of context in site table of contents.
 	 * @param $sequence float
 	 */
 	function setSequence($sequence) {
@@ -156,7 +156,7 @@ class Context extends DataObject {
 	}
 
 	/**
-	 * Get the localized description of the press.
+	 * Get the localized description of the context.
 	 * @return string
 	 */
 	function getLocalizedDescription() {

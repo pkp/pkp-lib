@@ -245,7 +245,7 @@ class PKPEmailTemplateDAO extends DAO {
 			);
 
 			while (!$result->EOF) {
-				$dataRow =& $result->GetRowAssoc(false);
+				$dataRow = $result->GetRowAssoc(false);
 				$emailTemplate->addLocale($dataRow['locale']);
 				$emailTemplate->setSubject($dataRow['locale'], $dataRow['subject']);
 				$emailTemplate->setBody($dataRow['locale'], $dataRow['body']);
@@ -271,7 +271,7 @@ class PKPEmailTemplateDAO extends DAO {
 			);
 
 			while (!$result->EOF) {
-				$dataRow =& $result->GetRowAssoc(false);
+				$dataRow = $result->GetRowAssoc(false);
 				$emailTemplate->addLocale($dataRow['locale']);
 				$emailTemplate->setSubject($dataRow['locale'], $dataRow['subject']);
 				$emailTemplate->setBody($dataRow['locale'], $dataRow['body']);

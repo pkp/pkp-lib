@@ -603,7 +603,7 @@ class DAO {
 	 * ID here.
 	 * @return string A rendered JSON message.
 	 */
-	function getDataChangedEvent($elementId = null, $parentElementId = null) {
+	static function getDataChangedEvent($elementId = null, $parentElementId = null) {
 		// Create the event data.
 		$eventData = null;
 		if ($elementId) {

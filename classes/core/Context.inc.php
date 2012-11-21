@@ -220,6 +220,62 @@ class Context extends DataObject {
 	function getAssocType() {
 		assert(false); // Must be overridden by subclasses
 	}
+
+	/**
+	 * Get the settings DAO for this context object.
+	 * @return DAO
+	 */
+	static function getSettingsDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
+	 * Retrieve array of settings.
+	 * @return array
+	 */
+	function &getSettings() {
+		$settingsDao = $this->getSettingsDAO();
+		$settings =& $settingsDao->getSettings($this->getId());
+		return $settings;
+	}
+
+	/**
+	 * Retrieve a context setting value.
+	 * @param $name string
+	 * @param $locale string
+	 * @return mixed
+	 */
+	function &getSetting($name, $locale = null) {
+		$settingsDao = $this->getSettingsDAO();
+		$setting =& $settingsDao->getSetting($this->getId(), $name, $locale);
+		return $setting;
+	}
+
+	/**
+	 * Update a context setting value.
+	 * @param $name string
+	 * @param $value mixed
+	 * @param $type string optional
+	 * @param $isLocalized boolean optional
+	 */
+	function updateSetting($name, $value, $type = null, $isLocalized = false) {
+		$settingsDao = $this->getSettingsDAO();
+		return $settingsDao->updateSetting($this->getId(), $name, $value, $type, $isLocalized);
+	}
+
+	/**
+	 * Get a localized context setting by name.
+	 * @param $name string
+	 * @return mixed
+	 */
+	function &getLocalizedSetting($name) {
+		$returner = $this->getSetting($name, AppLocale::getLocale());
+		if ($returner === null) {
+			unset($returner);
+			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
+		}
+		return $returner;
+	}
 }
 
 ?>

@@ -58,7 +58,7 @@ class PagingFeature extends GridFeature{
 		$defaultItemsPerPage = $rangeInfo->getCount();
 
 		// Check for a component level items per page setting.
-		$componentItemsPerPage = $request->getUserVar(GridHandler::getItemsPerPageParamName($grid->getId()));
+		$componentItemsPerPage = $request->getUserVar($this->_getItemsPerPageParamName($grid->getId()));
 		if ($componentItemsPerPage) {
 			$currentItemsPerPage = $componentItemsPerPage;
 		} else {
@@ -68,7 +68,7 @@ class PagingFeature extends GridFeature{
 		$iterator = $this->getItemIterator();
 
 		$options = array(
-			'itemsPerPageParamName' => GridHandler::getItemsPerPageParamName($grid->getId()),
+			'itemsPerPageParamName' => $this->_getItemsPerPageParamName($grid->getId()),
 			'defaultItemsPerPage' => $defaultItemsPerPage,
 			'currentItemsPerPage' => $currentItemsPerPage,
 			'itemsTotal' => $iterator->getCount(),
@@ -131,7 +131,7 @@ class PagingFeature extends GridFeature{
 		$request = Application::getRequest();
 		$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
 		$requestArgs[GridHandler::getPageParamName($grid->getId())] = $rangeInfo->getPage();
-		$requestArgs[GridHandler::getItemsPerPageParamName($grid->getId())] = $rangeInfo->getCount();
+		$requestArgs[$this->_getItemsPerPageParamName($grid->getId())] = $rangeInfo->getCount();
 	}
 
 	/**
@@ -143,10 +143,23 @@ class PagingFeature extends GridFeature{
 		$rangeInfo = $args['rangeInfo'];
 
 		// Add grid level items per page setting, if any.
-		$itemsPerPage = $request->getUserVar(GridHandler::getItemsPerPageParamName($grid->getId()));
+		$itemsPerPage = $request->getUserVar($this->_getItemsPerPageParamName($grid->getId()));
 		if ($itemsPerPage) {
 			$rangeInfo->setCount($itemsPerPage);
 		}
+	}
+
+
+	//
+	// Private helper methods.
+	//
+	/**
+	 * Get the range info items per page parameter name.
+	 * @param $rangeName string
+	 * @return string
+	 */
+	private function _getItemsPerPageParamName($rangeName) {
+		return $rangeName . 'ItemsPerPage';
 	}
 }
 

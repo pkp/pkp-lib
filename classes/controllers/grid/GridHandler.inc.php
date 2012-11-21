@@ -529,15 +529,6 @@ class GridHandler extends PKPHandler {
 		return $rangeInfo;
 	}
 
-	/**
-	 * Get the range info items per page parameter name.
-	 * @param $rangeName string
-	 * @return string
-	 */
-	static function getItemsPerPageParamName($rangeName) {
-		return $rangeName . 'ItemsPerPage';
-	}
-
 
 	//
 	// Public handler methods

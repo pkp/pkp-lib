@@ -142,7 +142,6 @@ class PKPTemplateManager extends Smarty {
 		$this->register_block('iterate', array(&$this, 'smartyIterate'));
 		$this->register_function('call_progress_function', array(&$this, 'smartyCallProgressFunction'));
 		$this->register_function('page_links', array(&$this, 'smartyPageLinks'));
-		$this->register_function('get_page_param_name', array(&$this, 'smartyGetPageParamName'));
 		$this->register_function('page_info', array(&$this, 'smartyPageInfo'));
 		$this->register_function('get_help_id', array(&$this, 'smartyGetHelpId'));
 		$this->register_function('icon', array(&$this, 'smartyIcon'));
@@ -866,7 +865,7 @@ class PKPTemplateManager extends Smarty {
 		$itemTotal = $iterator->getCount();
 
 		$pageBase = max($page - floor($numPageLinks / 2), 1);
-		$paramName = $this->smartyGetPageParamName(array('name' => $name));
+		$paramName = $name . 'Page';
 
 		if ($pageCount<=1) return '';
 
@@ -901,15 +900,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $value;
-	}
-
-	/**
-	 * Get the page parameter name.
-	 * @name string The range info page parameter name.
-	 * @return string
-	 */
-	function smartyGetPageParamName($params) {
-		return $params['name'] . 'Page';
 	}
 
 	/**

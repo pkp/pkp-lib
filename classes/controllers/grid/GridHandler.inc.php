@@ -122,11 +122,7 @@ class GridHandler extends PKPHandler {
 			$requestArgs = $dataProvider->getRequestArgs();
 		}
 
-		// Add paging info.
-		$request = Application::getRequest();
-		$rangeInfo = self::getRangeInfo($request, $this->getId());
-		$requestArgs[self::getPageParamName($this->getId())] = $rangeInfo->getPage();
-		$requestArgs[self::getItemsPerPageParamName($this->getId())] = $rangeInfo->getCount();
+		$this->callFeaturesHook('getRequestArgs', array('grid' => &$this, 'requestArgs' => &$requestArgs));
 
 		return $requestArgs;
 	}
@@ -332,18 +328,12 @@ class GridHandler extends PKPHandler {
 	 * @param $data mixed an array or ItemIterator with element data
 	 */
 	function setGridDataElements($data) {
-		// Store the item iterator for paging info only.
-		// The grid data will be stored in the data array.
+		$this->callFeaturesHook('setGridDataElements', array('grid' => $this, 'data' => &$data));
+
 		// FIXME: We go to arrays for all types of iterators because
 		// iterators cannot be re-used, see #6498.
-		$this->_itemIterator = $data;
-
 		if (is_array($data)) {
-			import('lib.pkp.classes.core.ArrayItemIterator');
-			$request = Application::getRequest();
-			$rangeInfo = self::getRangeInfo($request, $this->getId());
-			$this->_itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
-			$this->_data = $this->_itemIterator->toArray();
+			$this->_data = $data;
 		} elseif(is_a($data, 'DAOResultFactory')) {
 			$this->_data = $data->toAssociativeArray();
 		} elseif(is_a($data, 'ItemIterator')) {
@@ -525,14 +515,16 @@ class GridHandler extends PKPHandler {
 	}
 
 	/**
-	 * @see PKPHandler::getRangeInfo()
+	 * Get grid range info.
+	 * @param $request PKPRequest
+	 * @param $rangeName string The grid id.
+	 * @param $contextData mixed
+	 * @return DBResultRange
 	 */
-	static function getRangeInfo($request, $rangeName, $contextData = null) {
+	function getGridRangeInfo($request, $rangeName, $contextData = null) {
 		$rangeInfo = parent::getRangeInfo($request, $rangeName, $contextData);
-		$itemsPerPage = $request->getUserVar(self::getItemsPerPageParamName($rangeName));
-		if ($itemsPerPage) {
-			$rangeInfo->setCount($itemsPerPage);
-		}
+
+		$this->callFeaturesHook('getGridRangeInfo', array('request' => $request, 'grid' => $this, 'rangeInfo' => $rangeInfo));
 
 		return $rangeInfo;
 	}
@@ -578,13 +570,6 @@ class GridHandler extends PKPHandler {
 
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
-		$templateMgr->assign('iterator', $this->getItemIterator());
-		$templateMgr->assign('itemsPerPageParamName', self::getItemsPerPageParamName($this->getId()));
-		$templateMgr->assign('componentItemsPerPage', $request->getUserVar(self::getItemsPerPageParamName($this->getId())));
-
-		// Get the default items per page setting value.
-		$rangeInfo = parent::getRangeInfo($request, $this->getId());
-		$templateMgr->assign('defaultItemsPerPage', $rangeInfo->getCount());
 
 		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
 

@@ -11,11 +11,6 @@
 {assign var=gridId value=$staticId|concat:'-'|uniqid}
 {assign var=gridTableId value=$gridId|concat:"-table"}
 {assign var=gridActOnId value=$gridTableId}
-{if $componentItemsPerPage}
-	{assign var=currentItemsPerPage value=$componentItemsPerPage}
-{else}
-	{assign var=currentItemsPerPage value=$defaultItemsPerPage}
-{/if}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -32,15 +27,7 @@
 						{foreach from=$grid->getPublishChangeEvents() item=gridPublishChangeEvent name=gridPublishChangeEvents}{if $smarty.foreach.gridPublishChangeEvents.first}'{else}', '{/if}{$gridPublishChangeEvent|escape:"javascript"}{if $smarty.foreach.gridPublishChangeEvents.last}'{/if}{/foreach}
 					],
 				{/if}
-				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features},
-				pagingInfo: {ldelim}
-					itemsPerPageParamName: '{$itemsPerPageParamName}',
-					defaultItemsPerPage: {$defaultItemsPerPage},
-					currentItemsPerPage: {$currentItemsPerPage},
-					itemsTotal: {$iterator->getCount()},
-					pageParamName: '{get_page_param_name name=$grid->getId()}',
-					currentPage: {$iterator->getPage()}
-				{rdelim}
+				features: {include file='controllers/grid/feature/featuresOptions.tpl' features=$features}
 			{rdelim}
 		);
 	{rdelim});
@@ -105,17 +92,6 @@
 		{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions($smarty.const.GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 		{if $grid->getFootNote()}
 			<p class="pkp_grid_description">{translate key=$grid->getFootNote()}</p>
-		{/if}
-		{if $iterator}
-			<div class="gridPaging">
-				<div class="gridItemsPerPage pkp_helpers_align_left pkp_form">
-					{translate key=common.itemsPerPage}:<select class="itemsPerPage"></select>
-				</div>
-				<div class="pkp_helpers_align_right">
-					{page_info iterator=$iterator itemsPerPage=$currentItemsPerPage}
-					{page_links name=$grid->getId() iterator=$iterator}
-				</div>
-			</div>
 		{/if}
 	{if !$grid->getIsSubcomponent()}</div>{/if}
 	<div class="pkp_helpers_clear"></div>

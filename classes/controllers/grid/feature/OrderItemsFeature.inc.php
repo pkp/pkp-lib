@@ -106,7 +106,7 @@ class OrderItemsFeature extends GridFeature{
 	/**
 	 * @see GridFeature::fetchUIElements()
 	 */
-	function fetchUIElements(&$grid) {
+	function fetchUIElements($request, $grid) {
 		if ($this->isOrderActionNecessary()) {
 			$templateMgr =& TemplateManager::getManager();
 			$templateMgr->assign('gridId', $grid->getId());

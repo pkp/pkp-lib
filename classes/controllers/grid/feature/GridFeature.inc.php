@@ -76,11 +76,11 @@ class GridFeature {
 	/**
 	 * Set feature js class options. Extend this method to
 	 * define more feature js class options.
-	 * @param $request Request
+	 * @param $request PKPRequest
 	 * @param $grid GridHandler
 	 */
 	function setOptions(&$request, &$grid) {
-		$renderedElements = $this->fetchUIElements($grid);
+		$renderedElements = $this->fetchUIElements($request, $grid);
 		if ($renderedElements) {
 			foreach ($renderedElements as $id => $markup) {
 				$this->addOptions(array($id => $markup));
@@ -93,13 +93,14 @@ class GridFeature {
 	 * this feature needs to add its functionality
 	 * into the grid. Use this only for ui elements
 	 * that grid will not fetch itself.
+	 * @param $request PKPRequest
 	 * @param $grid GridHandler The grid that this
 	 * feature is attached to.
 	 * @return array It is expected that the array
 	 * returns data in this format:
 	 * $elementId => $elementMarkup
 	 */
-	function fetchUIElements(&$grid) {
+	function fetchUIElements($request, $grid) {
 		return array();
 	}
 
@@ -116,6 +117,41 @@ class GridFeature {
 	// Public hooks to be implemented in subclasses.
 	//
 	/**
+	 * Hook called every time grid request args are
+	 * required. Note that if the specific grid implementation
+	 * extends the getRequestArgs method, this hook will only
+	 * be called if the extending method call its parent.
+	 * @param $args array
+	 * 'grid' => GridHandler
+	 * 'requestArgs' => array
+	 */
+	function getRequestArgs($args) {
+		return null;
+	}
+
+	/**
+	 * Hook called every time the grid range info is
+	 * retrieved.
+	 * @param $args array
+	 * 'request' => PKPRequest
+	 * 'grid' => GridHandler
+	 * 'rangeInfo' => DBResultRange
+	 */
+	function getGridRangeInfo($args) {
+		return null;
+	}
+
+	/**
+	 * Hook called before grid data is setted.
+	 * @param $args array
+	 * 'grid' => GridHandler
+	 * 'data' => mixed (array or ItemIterator)
+	 */
+	function setGridDataElements($args) {
+		return null;
+	}
+
+	/**
 	 * Hook called every time grid initialize a row object.
 	 * @param $args array
 	 * 'grid' => GridHandler,
@@ -127,7 +163,7 @@ class GridFeature {
 
 	/**
 	 * Hook called on grid category row initialization.
-	 * @param $args array 'request' => Request
+	 * @param $args array 'request' => PKPRequest
 	 * 'grid' => CategoryGridHandler
 	 * 'categoryId' => int
 	 * 'row' => GridCategoryRow

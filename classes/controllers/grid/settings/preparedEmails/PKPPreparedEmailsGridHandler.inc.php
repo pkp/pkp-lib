@@ -74,6 +74,14 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	}
 
 	/**
+	 * @see GridHandler::initFeatures()
+	 */
+	function initFeatures($request, $args) {
+		import('lib.pkp.classes.controllers.grid.feature.PagingFeature');
+		return array(new PagingFeature());
+	}
+
+	/**
 	 * @see GridHandler::loadData()
 	 */
 	function loadData($request, $filter) {

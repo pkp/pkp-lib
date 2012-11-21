@@ -86,19 +86,38 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.features_ = null;
 
+
 	/**
-	 * This grid paging information. See grid.tpl for this object
-	 * properties.
+	 * Fetch elements extra request parameters.
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.pagingInfo_ = null;
-
+	$.pkp.controllers.grid.GridHandler.prototype.fetchExtraParams_ = null;
 
 
 	//
 	// Public methods
 	//
+	/**
+	 * Get fetch element extra request parameters.
+	 * @return {Object} Extra request parameters.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.getFetchExtraParams =
+			function() {
+		return this.fetchExtraParams_;
+	};
+
+
+	/**
+	 * Set fetch element extra request parameters.
+	 * @param {Object} extraParams Extra request parameters.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.setFetchExtraParams =
+			function(extraParams) {
+		this.fetchExtraParams_ = extraParams;
+	};
+
+
 	/**
 	 * Get the fetch row URL.
 	 * @return {?string} URL to the "fetch row" operation handler.
@@ -376,10 +395,7 @@
 		// Show/hide row action feature.
 		this.activateRowActions_();
 
-		// Configure paging.
-		this.pagingInfo_ = options.pagingInfo;
-		this.configPagingLinks_();
-		this.configItemsPerPageElement_();
+		this.setFetchExtraParams({});
 
 		this.trigger('gridInitialized');
 	};
@@ -422,7 +438,11 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, opt_elementId, opt_fetchedAlready) {
-		var params = {};
+		var params;
+
+		this.callFeaturesHook('refreshGrid', null);
+
+		params = this.getFetchExtraParams();
 
 		// Check if subclasses already handled the fetch of new elements.
 		if (!opt_fetchedAlready) {
@@ -431,10 +451,6 @@
 				$.get(this.fetchRowUrl, {rowId: opt_elementId},
 						this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 			} else {
-				params[this.pagingInfo_.pageParamName] =
-					this.pagingInfo_.currentPage;
-				params[this.pagingInfo_.itemsPerPageParamName] =
-					this.pagingInfo_.currentItemsPerPage;
 				// Retrieve the whole grid from the server.
 				$.get(this.fetchGridUrl_, params,
 						this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
@@ -831,92 +847,6 @@
 
 			this.addFeature_(id, $feature);
 			this.features_[id].init();
-		}
-	};
-
-
-	/**
-	 * Configure paging links.
-	 *
-	 * @private
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.configPagingLinks_ =
-			function() {
-
-		var $pagingDiv, $links, index, limit, $link, regex, match,
-			clickPagesCallback;
-
-		$pagingDiv = $('div.gridPaging', this.getHtmlElement());
-
-		if ($pagingDiv) {
-			clickPagesCallback = this.callbackWrapper(
-					function(sourceElement, event) {
-						regex = new RegExp("[?&]" + this.pagingInfo_.pageParamName
-								+ "(?:=([^&]*))?","i");
-						match = regex.exec($(event.target).attr('href'));
-						if( match != null ) {
-							this.pagingInfo_.currentPage = match[1];
-							this.trigger('dataChanged');
-						}
-
-						// Stop event handling.
-						return false;
-					});
-
-			$links = $pagingDiv.find('a').not('.showMoreItems').not('.showLessItems');
-			for (index = 0, limit = $links.length; index < limit; index++) {
-				$link = $($links[index]);
-				$link.click(clickPagesCallback);
-			}
-		}
-	};
-
-	/**
-	 * Configure items per page element.
-	 *
-	 * @private
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.configItemsPerPageElement_ =
-			function() {
-
-		var $pagingDiv, index, limit, $select, itemsPerPageValues,
-			clickItemsPerPageCallback;
-
-		$pagingDiv = $('div.gridPaging', this.getHtmlElement());
-
-		if ($pagingDiv) {
-			changeItemsPerPageCallback = this.callbackWrapper(
-					function(sourceElement, event) {
-						this.pagingInfo_.currentItemsPerPage = $('option',
-								event.target).filter(":selected").attr('value');
-						// Reset to first page.
-						this.pagingInfo_.currentPage = 1;
-
-						this.trigger('dataChanged');
-
-						// Stop event handling.
-						return false;
-					});
-
-			$select = $pagingDiv.find('select.itemsPerPage');
-			itemsPerPageValues = [10, 25, 50, 75, 100];
-			if ($.inArray(this.pagingInfo_.defaultItemsPerPage,
-					itemsPerPageValues) < 0) {
-				itemsPerPageValues.push(this.pagingInfo_.defaultItemsPerPage);
-			};
-			itemsPerPageValues.sort(function(a,b){return a-b;});
-
-			if (this.pagingInfo_.itemsTotal <= itemsPerPageValues[0]) {
-				$('div.gridItemsPerPage', $pagingDiv).hide();
-			} else {
-				limit = itemsPerPageValues.length - 1;
-				for (index = 0; index <= limit; index++) {
-					$select.append($('<option value="' + itemsPerPageValues[index]
-						+ '">' + itemsPerPageValues[index] + '</option>'));
-				}
-				$select.val(this.pagingInfo_.currentItemsPerPage);
-				$select.change(changeItemsPerPageCallback);
-			}
 		}
 	};
 

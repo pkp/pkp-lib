@@ -112,6 +112,17 @@
 	};
 
 
+	/**
+	 * Hook into the refresh grid functionality. Called just before
+	 * the fetch (grid or row) call is done.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.Feature.prototype.refreshGrid =
+			function() {
+		return false;
+	};
+
+
 	//
 	// Protected methods.
 	//

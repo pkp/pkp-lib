@@ -736,13 +736,13 @@ class GridHandler extends PKPHandler {
 	 *  then the array will be empty.
 	 * @return null
 	 */
-	protected function &loadData(&$request, $filter) {
+	protected function loadData($request, $filter) {
 		$gridData = null;
-		$dataProvider =& $this->getDataProvider();
+		$dataProvider = $this->getDataProvider();
 		if (is_a($dataProvider, 'GridDataProvider')) {
 			// Populate the grid with data from the
 			// data provider.
-			$gridData =& $dataProvider->loadData();
+			$gridData = $dataProvider->loadData();
 		}
 
 		$this->callFeaturesHook('loadData', array('request' => &$request, 'grid' => &$this, 'gridData' => &$gridData));

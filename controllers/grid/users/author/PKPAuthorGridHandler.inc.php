@@ -207,7 +207,7 @@ class PKPAuthorGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::loadData
 	 */
-	function &loadData($request, $filter = null) {
+	function loadData($request, $filter = null) {
 		$submission =& $this->getSubmission();
 		$authorDao =& DAORegistry::getDAO('AuthorDAO');
 		$data =& $authorDao->getAuthorsBySubmissionId($submission->getId(), true);

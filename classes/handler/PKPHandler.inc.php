@@ -420,7 +420,7 @@ class PKPHandler {
 	 * Set up the basic template.
 	 * @param $request PKPRequest
 	 */
-	function setupTemplate($request = null) {
+	function setupTemplate($request) {
 		// FIXME: for backwards compatibility only - remove
 		if (!isset($request)) {
 			$request =& Registry::get('request');

@@ -29,8 +29,8 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	/**
 	 * @see GridHandler::initialize()
 	 */
-	function initialize(&$request) {
-		parent::initialize($request);
+	function initialize(&$request, $args = null) {
+		parent::initialize($request, $args);
 		// Basic grid configuration
 		$this->setId('preparedEmailsGrid');
 

@@ -28,9 +28,10 @@ class PKPPreparedEmailsGridRow extends GridRow {
 	/**
 	 * Configure the grid row
 	 * @param $request PKPRequest
+	 * @param $template string Template name (leave as default).
 	 */
-	function initialize(&$request) {
-		parent::initialize($request);
+	function initialize(&$request, $template = null) {
+		parent::initialize($request, $template);
 
 		// add Grid Row Actions
 		$rowId = $this->getId();

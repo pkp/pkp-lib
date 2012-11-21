@@ -62,7 +62,7 @@ class VirtualArrayIterator extends ItemIterator {
 			$nullVar = null;
 			return $nullVar;
 		}
-		$value =& current($this->theArray);
+		$value = current($this->theArray);
 		if (next($this->theArray)==null) {
 			$this->theArray = null;
 		}
@@ -73,7 +73,7 @@ class VirtualArrayIterator extends ItemIterator {
 	 * Return the next item in the iterator, with key.
 	 * @return array (key, value)
 	 */
-	function &nextWithKey() {
+	function nextWithKey() {
 		$key = key($this->theArray);
 		$value = $this->next();
 		return array($key, $value);

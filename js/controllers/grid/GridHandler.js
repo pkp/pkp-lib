@@ -87,18 +87,13 @@
 	$.pkp.controllers.grid.GridHandler.prototype.features_ = null;
 
 	/**
-	 * This grid page parameter name.
+	 * This grid paging information. See grid.tpl for this object
+	 * properties.
 	 * @private
-	 * @type {string}
+	 * @type {Object}
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.pageParamName_ = null;
+	$.pkp.controllers.grid.GridHandler.prototype.pagingInfo_ = null;
 
-	/**
-	 * This grid current page value.
-	 * @private
-	 * @type {number}
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.currentPage_ = null;
 
 
 	//
@@ -382,9 +377,9 @@
 		this.activateRowActions_();
 
 		// Configure paging.
-		this.pageParamName_ = options.pageParamName;
-		this.currentPage_ = options.currentPage;
+		this.pagingInfo_ = options.pagingInfo;
 		this.configPagingLinks_();
+		this.configItemsPerPageElement_();
 
 		this.trigger('gridInitialized');
 	};
@@ -436,7 +431,10 @@
 				$.get(this.fetchRowUrl, {rowId: opt_elementId},
 						this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 			} else {
-				params[this.pageParamName_] = this.currentPage_;
+				params[this.pagingInfo_.pageParamName] =
+					this.pagingInfo_.currentPage;
+				params[this.pagingInfo_.itemsPerPageParamName] =
+					this.pagingInfo_.currentItemsPerPage;
 				// Retrieve the whole grid from the server.
 				$.get(this.fetchGridUrl_, params,
 						this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
@@ -845,30 +843,81 @@
 	$.pkp.controllers.grid.GridHandler.prototype.configPagingLinks_ =
 			function() {
 
-		var clickCallback, $pagingDiv, $links, index, limit, $link, regex, match;
-
-		clickCallback = this.callbackWrapper(function(sourceElement, event) {
-			regex = new RegExp("[?&]" + this.pageParamName_ + "(?:=([^&]*))?","i");
-			match = regex.exec($(event.target).attr('href'));
-			if( match != null ) {
-				this.currentPage_ = match[1];
-				this.trigger('dataChanged');
-			}
-
-			// Stop event handling.
-			return false;
-		});
+		var $pagingDiv, $links, index, limit, $link, regex, match,
+			clickPagesCallback;
 
 		$pagingDiv = $('div.gridPaging', this.getHtmlElement());
 
 		if ($pagingDiv) {
-			$links = $pagingDiv.find('a');
+			clickPagesCallback = this.callbackWrapper(
+					function(sourceElement, event) {
+						regex = new RegExp("[?&]" + this.pagingInfo_.pageParamName
+								+ "(?:=([^&]*))?","i");
+						match = regex.exec($(event.target).attr('href'));
+						if( match != null ) {
+							this.pagingInfo_.currentPage = match[1];
+							this.trigger('dataChanged');
+						}
+
+						// Stop event handling.
+						return false;
+					});
+
+			$links = $pagingDiv.find('a').not('.showMoreItems').not('.showLessItems');
 			for (index = 0, limit = $links.length; index < limit; index++) {
 				$link = $($links[index]);
-				$link.click(clickCallback);
+				$link.click(clickPagesCallback);
 			}
 		}
+	};
 
+	/**
+	 * Configure items per page element.
+	 *
+	 * @private
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.configItemsPerPageElement_ =
+			function() {
+
+		var $pagingDiv, index, limit, $select, itemsPerPageValues,
+			clickItemsPerPageCallback;
+
+		$pagingDiv = $('div.gridPaging', this.getHtmlElement());
+
+		if ($pagingDiv) {
+			changeItemsPerPageCallback = this.callbackWrapper(
+					function(sourceElement, event) {
+						this.pagingInfo_.currentItemsPerPage = $('option',
+								event.target).filter(":selected").attr('value');
+						// Reset to first page.
+						this.pagingInfo_.currentPage = 1;
+
+						this.trigger('dataChanged');
+
+						// Stop event handling.
+						return false;
+					});
+
+			$select = $pagingDiv.find('select.itemsPerPage');
+			itemsPerPageValues = [10, 25, 50, 75, 100];
+			if ($.inArray(this.pagingInfo_.defaultItemsPerPage,
+					itemsPerPageValues) < 0) {
+				itemsPerPageValues.push(this.pagingInfo_.defaultItemsPerPage);
+			};
+			itemsPerPageValues.sort(function(a,b){return a-b;});
+
+			if (this.pagingInfo_.itemsTotal <= itemsPerPageValues[0]) {
+				$('div.gridItemsPerPage', $pagingDiv).hide();
+			} else {
+				limit = itemsPerPageValues.length - 1;
+				for (index = 0; index <= limit; index++) {
+					$select.append($('<option value="' + itemsPerPageValues[index]
+						+ '">' + itemsPerPageValues[index] + '</option>'));
+				}
+				$select.val(this.pagingInfo_.currentItemsPerPage);
+				$select.change(changeItemsPerPageCallback);
+			}
+		}
 	};
 
 

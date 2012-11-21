@@ -126,6 +126,7 @@ class GridHandler extends PKPHandler {
 		$request = Application::getRequest();
 		$rangeInfo = self::getRangeInfo($request, $this->getId());
 		$requestArgs[self::getPageParamName($this->getId())] = $rangeInfo->getPage();
+		$requestArgs[self::getItemsPerPageParamName($this->getId())] = $rangeInfo->getCount();
 
 		return $requestArgs;
 	}
@@ -523,6 +524,28 @@ class GridHandler extends PKPHandler {
 		$this->callFeaturesHook('gridInitialize', array('grid' => &$this));
 	}
 
+	/**
+	 * @see PKPHandler::getRangeInfo()
+	 */
+	static function getRangeInfo($request, $rangeName, $contextData = null) {
+		$rangeInfo = parent::getRangeInfo($request, $rangeName, $contextData);
+		$itemsPerPage = $request->getUserVar(self::getItemsPerPageParamName($rangeName));
+		if ($itemsPerPage) {
+			$rangeInfo->setCount($itemsPerPage);
+		}
+
+		return $rangeInfo;
+	}
+
+	/**
+	 * Get the range info items per page parameter name.
+	 * @param $rangeName string
+	 * @return string
+	 */
+	static function getItemsPerPageParamName($rangeName) {
+		return $rangeName . 'ItemsPerPage';
+	}
+
 
 	//
 	// Public handler methods
@@ -556,6 +579,12 @@ class GridHandler extends PKPHandler {
 		// Assign additional params for the fetchRow and fetchGrid URLs to use.
 		$templateMgr->assign('gridRequestArgs', $this->getRequestArgs());
 		$templateMgr->assign('iterator', $this->getItemIterator());
+		$templateMgr->assign('itemsPerPageParamName', self::getItemsPerPageParamName($this->getId()));
+		$templateMgr->assign('componentItemsPerPage', $request->getUserVar(self::getItemsPerPageParamName($this->getId())));
+
+		// Get the default items per page setting value.
+		$rangeInfo = parent::getRangeInfo($request, $this->getId());
+		$templateMgr->assign('defaultItemsPerPage', $rangeInfo->getCount());
 
 		$this->callFeaturesHook('fetchGrid', array('grid' => &$this, 'request' => &$request));
 

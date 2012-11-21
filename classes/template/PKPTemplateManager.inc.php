@@ -659,8 +659,12 @@ class PKPTemplateManager extends Smarty {
 	function smartyPageInfo($params, &$smarty) {
 		$iterator = $params['iterator'];
 
-		$itemsPerPage = $smarty->get_template_vars('itemsPerPage');
-		if (!is_numeric($itemsPerPage)) $itemsPerPage=25;
+		if (isset($params['itemsPerPage'])) {
+			$itemsPerPage = $params['itemsPerPage'];
+		} else {
+			$itemsPerPage = $smarty->get_template_vars('itemsPerPage');
+			if (!is_numeric($itemsPerPage)) $itemsPerPage=25;
+		}
 
 		$page = $iterator->getPage();
 		$pageCount = $iterator->getPageCount();

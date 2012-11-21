@@ -337,7 +337,7 @@ class PKPAnnouncementHandler extends ManagerHandler {
 	 * @param $request PKPRequest
 	 * @param $subclass boolean
 	 */
-	function setupTemplate(&$request, $subclass = false) {
+	function setupTemplate($request, $subclass = false) {
 		parent::setupTemplate($request, true);
 		if ($subclass) {
 			$templateMgr =& TemplateManager::getManager($request);

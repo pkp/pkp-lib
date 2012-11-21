@@ -195,7 +195,7 @@ class FileManager {
 	 * @param $output boolean output the file's contents instead of returning a string
 	 * @return boolean
 	 */
-	function &readFile($filePath, $output = false) {
+	function readFile($filePath, $output = false) {
 		if (is_readable($filePath)) {
 			$f = fopen($filePath, 'rb');
 			$data = '';

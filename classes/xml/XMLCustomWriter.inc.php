@@ -122,7 +122,7 @@ class XMLCustomWriter {
 
 	static function &createChildFromFile(&$doc, &$node, $name, $filename) {
 		$fileManager = new FileManager();
-		$contents =& $fileManager->readFile($filename);
+		$contents = $fileManager->readFile($filename);
 		if ($contents === false) {
 			$nullVar = null;
 			return $nullVar;

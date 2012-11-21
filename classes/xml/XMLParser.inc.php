@@ -168,7 +168,7 @@ class XMLParser {
 
 		if ($dataCallback) call_user_func($dataCallback, 'close', $wrapper);
 		$wrapper->close();
-		$result =& $this->handler->getResult();
+		$result = $this->handler->getResult();
 		$this->destroyParser($parser);
 		if (isset($handler)) {
 			$handler->destroy();
@@ -278,7 +278,7 @@ class XMLParser {
 	 * Destroy XML parser.
 	 * @param $parser resource
 	 */
-	function destroyParser(&$parser) {
+	function destroyParser($parser) {
 		xml_parser_free($parser);
 		unset($parser);
 	}
@@ -303,19 +303,19 @@ class XMLParserHandler {
 	/**
 	 * Callback function to act as the start element handler.
 	 */
-	function startElement(&$parser, $tag, $attributes) {
+	function startElement($parser, $tag, $attributes) {
 	}
 
 	/**
 	 * Callback function to act as the end element handler.
 	 */
-	function endElement(&$parser, $tag) {
+	function endElement($parser, $tag) {
 	}
 
 	/**
 	 * Callback function to act as the character data handler.
 	 */
-	function characterData(&$parser, $data) {
+	function characterData($parser, $data) {
 	}
 
 	/**
@@ -323,10 +323,8 @@ class XMLParserHandler {
 	 * The format of this object is specific to the handler.
 	 * @return mixed
 	 */
-	function &getResult() {
-		// Default: Return null (must be by ref).
-		$nullVar = null;
-		return $nullVar;
+	function getResult() {
+		return null;
 	}
 }
 

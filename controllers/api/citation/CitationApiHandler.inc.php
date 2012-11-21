@@ -33,7 +33,7 @@ class CitationApiHandler extends PKPHandler {
 	/**
 	 * @see PKPHandler::authorize()
 	 */
-	function authorize(&$request, $args, $roleAssignments) {
+	function authorize(&$request, &$args, $roleAssignments) {
 		import('lib.pkp.classes.security.authorization.PKPProcessAccessPolicy');
 		$this->addPolicy(new PKPProcessAccessPolicy($request, $args, 'checkAllCitations'));
 		return parent::authorize($request, $args, $roleAssignments);

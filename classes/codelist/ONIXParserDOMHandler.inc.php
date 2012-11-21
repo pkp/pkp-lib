@@ -47,7 +47,7 @@ class ONIXParserDOMHandler extends XMLParserDOMHandler {
 		$this->_listItems = array();
 	}
 
-	function startElement(&$parser, $tag, $attributes) {
+	function startElement($parser, $tag, $attributes) {
 		$this->currentData = null;
 
 		switch ($tag) {
@@ -85,7 +85,7 @@ class ONIXParserDOMHandler extends XMLParserDOMHandler {
 	/**
 	 * Callback function to act as the character data handler.
 	 */
-	function characterData(&$parser, $data) {
+	function characterData($parser, $data) {
 		if ($this->_insideDocumentation) {
 			$this->_listItems[$this->_currentValue][] = $data;
 		}
@@ -94,7 +94,7 @@ class ONIXParserDOMHandler extends XMLParserDOMHandler {
 	/**
 	 * Callback function to act as the end element handler.
 	 */
-	function endElement(&$parser, $tag) {
+	function endElement($parser, $tag) {
 
 		switch ($tag) {
 			case 'xs:simpleType':
@@ -114,4 +114,5 @@ class ONIXParserDOMHandler extends XMLParserDOMHandler {
 		return array($this->_listName => $this->_listItems);
 	}
 }
+
 ?>

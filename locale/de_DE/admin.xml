@@ -62,10 +62,12 @@
 	<message key="admin.settings.siteLanguage">Sprache der Website</message>
 	<message key="admin.settings.siteStyleSheetInvalid">Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist .css.</message>
 	<message key="admin.settings.siteStyleSheet">Formatvorlage der Website</message>
+	<message key="admin.settings.siteTheme">Thema der Website</message>
 	<message key="admin.settings.siteTitle">Titel der Website</message>
 	<message key="admin.siteAdmin">Website-Administrator/in</message>
 	<message key="admin.siteManagement">Website-Administration</message>
 	<message key="admin.siteSettings">Einstellungen der Website</message>
+	<message key="admin.siteSetup">Einrichtung der Website</message>
 	<message key="admin.systemConfigFileReadError"><![CDATA[Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht lesbar oder ungültig.]]></message>
 	<message key="admin.systemInformation">Systeminformation </message>
 	<message key="admin.versionBuild">Build</message>

@@ -12,7 +12,7 @@
   -->
 
 <locale name="de_DE" full_name = "Deutsch (Deutschland)">
-	<message key="comments.anonymous">Anonymer Kommentar</message>
+	<message key="comments.anonymous">Anonyme/r Benutzer/in</message>
 	<message key="comments.anonymousNamed">"{$userName}"</message>
 	<message key="comments.body">Text</message>
 	<message key="comments.titleRequired">Ein Kommentar-Titel ist erforderlich.</message>
@@ -42,14 +42,14 @@
 	<message key="rt.admin.contexts.metadata">Metadaten</message>
 	<message key="rt.admin.contexts.options.authorTerms">Autor/innen-Namen als Standardsuchbegriffe verwenden, um Benutzer/innen die Möglichkeit zu geben, weitere Arbeiten der Autor/innen zu diesem Thema zu finden (z.B. mit dem Kontext "Weitere Arbeiten").</message>
 	<message key="rt.admin.contexts.options.citedBy">Autor/innen-Namen als Standardsuchbegriffe verwenden und Kontext als Suche nach Verweisen auf den Artikel beschreiben.</message>
-	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Von der Leserin/dem Leser hervorgehobene Wörter als Standardsuchbegriffe verwenden oder Standardsuchbegriffe freilassen, falls keine Hervorhebung gemacht wurden. (z.B. mit dem Kontext "Begriffsdefinitionen"). Die Option "Begriffsdefinitionen" muss in <a href="{$requestPageUrl}/settings">Lesewerkzeuge -- Einstellungen</a> aktiviert werden, damit der Kontext durch Doppelklicken auf ein Wort geöffnet wird.]]></message>
+	<message key="rt.admin.contexts.options.defineTerms"><![CDATA[Von der Leserin/dem Leser hervorgehobene Wörter als Standardsuchbegriffe verwenden oder Standardsuchbegriffe freilassen, falls keine Hervorhebung gemacht wurden. (z.B. mit dem Kontext "Begriffsdefinitionen"). Die Option "Begriffsdefinitionen" muss in <a href="{$settingsUrl}">Lesewerkzeuge - Einstellungen</a> aktiviert werden, damit der Kontext durch Doppelklicken auf ein Wort geöffnet wird.]]></message>
 	<message key="rt.admin.contexts.options.geoTerms">Geographische Indizierungsmerkmale als Standardsuchbegriff verwenden.</message>
 	<message key="rt.admin.contexts.options">Optionen</message>
 	<message key="rt.admin.management">Verwaltung</message>
 
 	<message key="rt.admin.sharing">Mit anderen teilen</message>
 	<message key="rt.admin.sharing.enabled">Teilen aktiviert</message>
-	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen zu ermöglichen, Zeitschriftenbeiträge mit anderen zu teilen, müssen Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für den Teilen-Knopf  kopieren und einfügen.]]></message>
+	<message key="rt.admin.sharing.description"><![CDATA[Um Ihren Leser/innen zu ermöglichen, Beiträge mit anderen zu teilen, können Sie bei <a href="http://addthis.com">addthis.com</a> ein Konto einrichten und den Code für den Teilen-Knopf kopieren und einfügen.]]></message>
 
 	<message key="rt.admin.sharing.basic">Grundeinstellungen</message>
 	<message key="rt.admin.sharing.userNameLabel">AddThis.com-Benutzer/innenname</message>
@@ -115,7 +115,7 @@
 	<message key="rt.context.termToDefine">Zu definierendes Wort</message>
 	<message key="rt.context.title">Titel</message>
 	<message key="rt.emailAuthor">E-Mail an Autor/in senden</message>
-	<message key="rt.email.needLogin"><![CDATA[Die mit * gekennzeichneten Optionen erfordern eine <a target="_parent" href="{$pageUrl}/user/register">Anmeldung</a>.]]></message>
+	<message key="rt.email.needLogin"><![CDATA[Die mit * gekennzeichneten Optionen erfordern eine <a target="_parent" href="{$loginUrl}">Registrierung</a>.]]></message>
 	<message key="rt.email.sent">Ihre Mitteilung wurde abgeschickt.</message>
 	<message key="rt.findingReferences">Quellen finden</message>
 	<message key="rt.findingReferences.googleScholar">Google Scholar</message>
@@ -147,7 +147,7 @@
 	<message key="rt.metadata.pkpItem">PKP-Metadaten </message>
 	<message key="rt.metadata.pkp.language">Englisch=en</message>
 	<message key="rt.metadata.pkp.publisher">Verlag, Ort</message>
-	<message key="rt.metadata.pkp.source">Titel der Zeitschrift/Konferenz; Bd.; Nr. (Jahr)</message>
+	<message key="rt.metadata.pkp.source">Titel; Bd.; Nr. (Jahr)</message>
 	<message key="rt.metadata.pkp.sponsors">Unterstützer/innen</message>
 	<message key="rt.metadata.pkp.subjectClass">Klassifizierung des Themas</message>
 	<message key="rt.metadata.pkp.subject">Schlagwort(e)</message>

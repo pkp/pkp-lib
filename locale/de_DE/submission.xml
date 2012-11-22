@@ -66,7 +66,7 @@
 	<message key="metadata.property.validationMessage.conf-name">Bitte geben Sie einen gültigen Konferenznamen ein.</message>
 	<message key="metadata.property.displayName.conf-sponsor">Konferenzsponsor</message>
 	<message key="metadata.property.validationMessage.conf-sponsor">Bitte geben Sie einen gültigen Konferenzsponsor ein.</message>
-	<message key="metadata.phttps://github.com/pkp/pkp-lib/commit/afc414965d170084bc890ca09dc56556c3f2c0b2#locale/en_US/submission.xmlroperty.displayName.institution">Institution</message>
+	<message key="metadata.property.displayName.institution">Institution</message>
 	<message key="metadata.property.validationMessage.institution">Bitte geben Sie eine gültige Institution ein.</message>
 	<message key="metadata.property.displayName.fpage">Erste Seite</message>
 	<message key="metadata.property.validationMessage.fpage">Bitte geben Sie eine gültige erste Seite ein (muss ein numerischer Wert sein).</message>

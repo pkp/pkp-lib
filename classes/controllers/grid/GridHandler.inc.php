@@ -475,6 +475,78 @@ class GridHandler extends PKPHandler {
 		assert(false);
 	}
 
+	/**
+	 * Tries to identify the data element in the grids
+	 * data source that corresponds to the requested row id.
+	 * Raises a fatal error if such an element cannot be
+	 * found.
+	 * @param $request PKPRequest
+	 * @param $args array
+	 * @return GridRow the requested grid row, already
+	 *  configured with id and data or null if the row
+	 *  could not been found.
+	 */
+	function &getRequestedRow($request, $args) {
+		$isModified = isset($args['modify']);
+		if (isset($args['rowId']) && !$isModified) {
+			// A row ID was specified. Fetch it
+			$elementId = $args['rowId'];
+
+			// Retrieve row data for the requested row id
+			$dataElement = $this->getRowDataElement($request, $elementId);
+			if (is_null($dataElement)) {
+				// If the row doesn't exist then
+				// return null. It may be that the
+				// row has been deleted in the meantime
+				// and the client does not yet know about this.
+				$nullVar = null;
+				return $nullVar;
+			}
+		} elseif ( $isModified ) {
+			// The row is modified. The client may be asking
+			// for a formatted new entry, to be saved later, or
+			// for a representation of a modified row.
+			$dataElement = $this->getRowDataElement($request, null);
+			if ( isset($args['rowId']) ) {
+				// the rowId holds the elementId being modified
+				$elementId = $args['rowId'];
+			} else {
+				// no rowId means that there is no element being modified.
+				$elementId = null;
+			}
+		}
+
+		// Instantiate a new row
+		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement, $isModified);
+		return $row;
+	}
+
+	/**
+	 * Render the passed row and return its markup.
+	 * @param $request PKPRequest
+	 * @param $row GridRow
+	 * @return string
+	 */
+	function renderRow($request, $row) {
+		$this->setFirstDataColumn();
+		return $this->renderRowInternally($request, $row);
+	}
+
+	/**
+	 * Get grid range info.
+	 * @param $request PKPRequest
+	 * @param $rangeName string The grid id.
+	 * @param $contextData mixed
+	 * @return DBResultRange
+	 */
+	function getGridRangeInfo($request, $rangeName, $contextData = null) {
+		$rangeInfo = parent::getRangeInfo($request, $rangeName, $contextData);
+
+		$this->callFeaturesHook('getGridRangeInfo', array('request' => $request, 'grid' => $this, 'rangeInfo' => $rangeInfo));
+
+		return $rangeInfo;
+	}
+
 
 	//
 	// Overridden methods from PKPHandler
@@ -512,21 +584,6 @@ class GridHandler extends PKPHandler {
 		// this is the only place that should use the _addFeature() method.
 		$this->_addFeatures($this->initFeatures($request, $args));
 		$this->callFeaturesHook('gridInitialize', array('grid' => &$this));
-	}
-
-	/**
-	 * Get grid range info.
-	 * @param $request PKPRequest
-	 * @param $rangeName string The grid id.
-	 * @param $contextData mixed
-	 * @return DBResultRange
-	 */
-	function getGridRangeInfo($request, $rangeName, $contextData = null) {
-		$rangeInfo = parent::getRangeInfo($request, $rangeName, $contextData);
-
-		$this->callFeaturesHook('getGridRangeInfo', array('request' => $request, 'grid' => $this, 'rangeInfo' => $rangeInfo));
-
-		return $rangeInfo;
 	}
 
 
@@ -588,12 +645,14 @@ class GridHandler extends PKPHandler {
 		$json = new JSONMessage(true);
 		if (is_null($row)) {
 			// Inform the client that the row does no longer exist.
-			$json->setAdditionalAttributes(array('elementNotFound' => (int)$args['rowId']));
+			$json->setAdditionalAttributes(array('elementNotFound' => $args['rowId']));
 		} else {
 			// Render the requested row
-			$this->setFirstDataColumn();
-			$json->setContent($this->renderRowInternally($request, $row));
+			$renderedRow = $this->renderRow($request, $row);
+			$json->setContent($renderedRow);
 		}
+
+		$this->callFeaturesHook('fetchRow', array('request' => $request, 'grid' => $this, 'row' => $row, 'jsonMessage' => $json));
 
 		// Render and return the JSON message.
 		return $json->getString();
@@ -669,52 +728,6 @@ class GridHandler extends PKPHandler {
 	 */
 	protected function &getDataElementFromRequest(&$request, &$elementId) {
 		fatalError('Grid does not support data element creation!');
-	}
-
-	/**
-	 * Tries to identify the data element in the grids
-	 * data source that corresponds to the requested row id.
-	 * Raises a fatal error if such an element cannot be
-	 * found.
-	 * @param $request PKPRequest
-	 * @param $args array
-	 * @return GridRow the requested grid row, already
-	 *  configured with id and data or null if the row
-	 *  could not been found.
-	 */
-	protected function &getRequestedRow($request, $args) {
-		$isModified = isset($args['modify']);
-		if (isset($args['rowId']) && !$isModified) {
-			// A row ID was specified. Fetch it
-			$elementId = $args['rowId'];
-
-			// Retrieve row data for the requested row id
-			$dataElement = $this->getRowDataElement($request, $elementId);
-			if (is_null($dataElement)) {
-				// If the row doesn't exist then
-				// return null. It may be that the
-				// row has been deleted in the meantime
-				// and the client does not yet know about this.
-				$nullVar = null;
-				return $nullVar;
-			}
-		} elseif ( $isModified ) {
-			// The row is modified. The client may be asking
-			// for a formatted new entry, to be saved later, or
-			// for a representation of a modified row.
-			$dataElement = $this->getRowDataElement($request, null);
-			if ( isset($args['rowId']) ) {
-				// the rowId holds the elementId being modified
-				$elementId = $args['rowId'];
-			} else {
-				// no rowId means that there is no element being modified.
-				$elementId = null;
-			}
-		}
-
-		// Instantiate a new row
-		$row =& $this->_getInitializedRowInstance($request, $elementId, $dataElement, $isModified);
-		return $row;
 	}
 
 	/**

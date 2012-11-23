@@ -204,6 +204,18 @@ class GridFeature {
 	}
 
 	/**
+	 * Hook called after a row is fetched.
+	 * @param $args array
+	 * 'request' => PKPRequest
+	 * 'grid' => GridHandler
+	 * 'row' => mixed GridRow or null
+	 * 'jsonMessage' => JSONMessage
+	 */
+	function fetchRow($args) {
+		return null;
+	}
+
+	/**
 	 * Hook called when save grid items sequence
 	 * is requested.
 	 * @param $args array 'request' => PKPRequest,

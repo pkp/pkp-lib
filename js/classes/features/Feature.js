@@ -64,6 +64,15 @@
 	// Setters and getters.
 	//
 	/**
+	 * @param {Object} options The feature options.
+	 */
+	$.pkp.classes.features.Feature.prototype.setOptions =
+			function(options) {
+		this.options_ = options;
+	};
+
+
+	/**
 	 * @return {Object} The feature options.
 	 */
 	$.pkp.classes.features.Feature.prototype.getOptions =
@@ -119,6 +128,19 @@
 	 */
 	$.pkp.classes.features.Feature.prototype.refreshGrid =
 			function() {
+		return false;
+	};
+
+
+	/**
+	 * Hook into the replace element response handler. Called after the
+	 * response is handled.
+	 * @param {Object} handledJsonData Object with the response content handled
+	 * by the grid.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.Feature.prototype.replaceElementResponseHandler =
+			function(handledJsonData) {
 		return false;
 	};
 

@@ -63,6 +63,39 @@
 	};
 
 
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.PagingFeature.prototype.replaceElementResponseHandler =
+			function(handledJsonData) {
+		var rowMarkup, pagingInfo, options;
+
+		if (handledJsonData.deletedRowReplacement != undefined) {
+			rowMarkup = handledJsonData.deletedRowReplacement;
+			this.gridHandler.insertOrReplaceElement(rowMarkup);
+		}
+
+		if (handledJsonData.pagingInfo != undefined) {
+			pagingInfo = handledJsonData.pagingInfo;
+			this.setOptions(pagingInfo);
+
+			$('div.gridPaging', this.getGridHtmlElement()).
+					replaceWith(pagingInfo.pagingMarkup);
+			this.init();
+		}
+
+		if (handledJsonData.loadLastPage) {
+			options = this.getOptions();
+			options.currentPage = options.currentPage - 1;
+			this.setOptions(options);
+
+			this.getGridHtmlElement().trigger('dataChanged');
+		}
+
+		return false;
+	};
+
+
 	//
 	// Private helper methods.
 	//
@@ -88,7 +121,7 @@
 						match = regex.exec($(event.target).attr('href'));
 						if (match != null) {
 							options.currentPage = match[1];
-							this.gridHandler.trigger('dataChanged');
+							this.getGridHtmlElement().trigger('dataChanged');
 						}
 
 						// Stop event handling.
@@ -127,7 +160,7 @@
 						// Reset to first page.
 						options.currentPage = 1;
 
-						this.gridHandler.trigger('dataChanged');
+						this.getGridHtmlElement().trigger('dataChanged');
 
 						// Stop event handling.
 						return false;

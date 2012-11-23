@@ -91,6 +91,7 @@ class PagingFeature extends GridFeature{
 		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('iterator', $iterator);
 		$templateMgr->assign('currentItemsPerPage', $options['currentItemsPerPage']);
+		$templateMgr->assign('grid', $grid);
 
 		return array('pagingMarkup' => $templateMgr->fetch('controllers/grid/feature/gridPaging.tpl'));
 	}
@@ -146,6 +147,72 @@ class PagingFeature extends GridFeature{
 		$itemsPerPage = $request->getUserVar($this->_getItemsPerPageParamName($grid->getId()));
 		if ($itemsPerPage) {
 			$rangeInfo->setCount($itemsPerPage);
+		}
+	}
+
+	/**
+	 * @see GridFeature::fetchRow()
+	 * Check if user deleted a row. If true, handle the following cases:
+	 * 1 - deleted a row from the last page (when only one page, first is also last);
+	 * 2 - deleted a row from a page that's not the last one;
+	 * 3 - deleted the last row from a page that's not the last one;
+	 *
+	 * The solution is:
+	 * 1 - fetch paging info and send to grid;
+	 * 2 - fetch an extra row to replace the deleted one and also the
+	 * paging info and send both to grid;
+	 * 3 - send a request to refresh the entire grid usign the previous
+	 * page.
+	 *
+	 * the list to replace the deleted one and also render the paging
+	 * info.
+	 */
+	function fetchRow($args) {
+		$request = $args['request'];
+		$grid = $args['grid'];
+		$row = $args['row'];
+		$jsonMessage = $args['jsonMessage'];
+
+		// Check if row was deleted.
+		if (is_null($row)) {
+			$gridData = $grid->getGridDataElements($request);
+			$iterator = $this->getItemIterator();
+			$rangeInfo = $grid->getGridRangeInfo($request, $grid->getId());
+			$pagingAttributes = array();
+
+			if ((empty($gridData) ||
+				// When DAOResultFactory, it seems that if no items were found for the current
+				// range information, the last page is fetched, which give us grid data even if
+				// the current page is empty. So we check for iterator and rangeInfo current pages.
+				$iterator->getPage() != $rangeInfo->getPage())
+				&& $iterator->getPageCount() >= 1) {
+				// Case 3.
+				$pagingAttributes['loadLastPage'] = true;
+			} else {
+				if (count($gridData) >= $rangeInfo->getCount()) {
+					// Case 2.
+					// Get the last data element id of the current page.
+					end($gridData);
+					$firstRowId = key($gridData);
+
+					// Get the row and render it.
+					$args = array('rowId' => $firstRowId);
+					$row = $grid->getRequestedRow($request, $args);
+					$pagingAttributes['deletedRowReplacement'] = $grid->renderRow($request, $row);
+				}
+
+				// Case 1.
+				// Render the paging options, including updated markup.
+				$this->setOptions($request, $grid);
+				$pagingAttributes['pagingInfo'] = $this->getOptions();
+			}
+
+			// Add paging attributes to json so grid can update UI.
+			$additionalAttributes = $jsonMessage->getAdditionalAttributes();
+			$jsonMessage->setAdditionalAttributes(array_merge(
+				$pagingAttributes,
+				$additionalAttributes)
+			);
 		}
 	}
 

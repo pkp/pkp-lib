@@ -16,3 +16,4 @@
 		{page_links name=$grid->getId() iterator=$iterator}
 	</div>
 </div>
+<div class="pkp_helpers_clear"></div>

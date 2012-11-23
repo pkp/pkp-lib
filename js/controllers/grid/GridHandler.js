@@ -359,6 +359,47 @@
 	};
 
 
+	/**
+	 * Inserts or replaces a grid element.
+	 * @param {string} elementContent The new mark-up of the element.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement =
+			function(elementContent) {
+		var $newElement, newElementId, $grid, $existingElement;
+
+		// Parse the HTML returned from the server.
+		$newElement = $(elementContent);
+		newElementId = $newElement.attr('id');
+
+		// Does the element exist already?
+		$grid = this.getHtmlElement();
+		$existingElement = newElementId ? $grid.find('#' + newElementId) : null;
+
+		if ($existingElement !== null && $existingElement.length > 1) {
+			throw new Error('There were ' + $existingElement.length +
+					' rather than 0 or 1 elements to be replaced!');
+		}
+
+		if (!this.hasSameNumOfColumns($newElement)) {
+			// Redraw the whole grid so new columns
+			// get added/removed to match element.
+			$.get(this.fetchGridUrl_, null,
+					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
+		} else {
+			if ($existingElement !== null && $existingElement.length === 1) {
+				// Update element.
+				this.replaceElement($existingElement, $newElement);
+			} else {
+				// Insert row.
+				this.appendElement($newElement);
+			}
+
+			// Refresh row action event binding.
+			this.activateRowActions_();
+		}
+	};
+
+
 	//
 	// Protected methods
 	//
@@ -447,8 +488,9 @@
 		// Check if subclasses already handled the fetch of new elements.
 		if (!opt_fetchedAlready) {
 			if (opt_elementId) {
+				params.rowId = opt_elementId;
 				// Retrieve a single row from the server.
-				$.get(this.fetchRowUrl, {rowId: opt_elementId},
+				$.get(this.fetchRowUrl, params,
 						this.callbackWrapper(this.replaceElementResponseHandler), 'json');
 			} else {
 				// Retrieve the whole grid from the server.
@@ -612,12 +654,11 @@
 			} else {
 				// The server returned mark-up to replace
 				// or insert the row.
-				this.insertOrReplaceElement_(handledJsonData.content);
-
-				// Refresh row action event binding.
-				this.activateRowActions_();
+				this.insertOrReplaceElement(handledJsonData.content);
 			}
 		}
+
+		this.callFeaturesHook('replaceElementResponseHandler', [handledJsonData]);
 	};
 
 
@@ -686,47 +727,6 @@
 
 			// Refresh row action event binding.
 			this.activateRowActions_();
-		}
-	};
-
-
-	/**
-	 * Helper that inserts or replaces an element.
-	 *
-	 * @private
-	 *
-	 * @param {string} elementContent The new mark-up of the element.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement_ =
-			function(elementContent) {
-		var $newElement, newElementId, $grid, $existingElement;
-
-		// Parse the HTML returned from the server.
-		$newElement = $(elementContent);
-		newElementId = $newElement.attr('id');
-
-		// Does the element exist already?
-		$grid = this.getHtmlElement();
-		$existingElement = newElementId ? $grid.find('#' + newElementId) : null;
-
-		if ($existingElement !== null && $existingElement.length > 1) {
-			throw new Error('There were ' + $existingElement.length +
-					' rather than 0 or 1 elements to be replaced!');
-		}
-
-		if (!this.hasSameNumOfColumns($newElement)) {
-			// Redraw the whole grid so new columns
-			// get added/removed to match element.
-			$.get(this.fetchGridUrl_, null,
-					this.callbackWrapper(this.replaceGridResponseHandler_), 'json');
-		} else {
-			if ($existingElement !== null && $existingElement.length === 1) {
-				// Update element.
-				this.replaceElement($existingElement, $newElement);
-			} else {
-				// Insert row.
-				this.appendElement($newElement);
-			}
 		}
 	};
 

@@ -36,7 +36,8 @@ class PKPLanguageGridHandler extends GridHandler {
 
 		// Load user-related translations.
 		AppLocale::requireComponents(
-			LOCALE_COMPONENT_PKP_USER
+			LOCALE_COMPONENT_PKP_USER,
+			LOCALE_COMPONENT_PKP_MANAGER
 		);
 
 		// Basic grid configuration.
@@ -61,7 +62,7 @@ class PKPLanguageGridHandler extends GridHandler {
 
 		$permittedSettings = array('supportedFormLocales', 'supportedSubmissionLocales', 'supportedLocales');
 		if (in_array($settingName, $permittedSettings) && $locale) {
-			$currentSettingValue = $context->getSetting($settingName);
+			$currentSettingValue = (array) $context->getSetting($settingName);
 			if (AppLocale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
 				if ($settingValue) {
 					array_push($currentSettingValue, $locale);

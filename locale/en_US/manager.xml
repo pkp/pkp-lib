@@ -97,6 +97,10 @@
 	<message key="manager.groups.membership.noUsers">No users were found.</message>
 	<message key="manager.groups.title">Title</message>
 	<message key="manager.importExport">Import/Export Data</message>
+	<message key="manager.language.ui">UI</message>
+	<message key="manager.language.submissions">Submissions</message>
+	<message key="manager.language.forms">Forms</message>
+	<message key="manager.language.reloadLocalizedDefaultSettings">Reload defaults</message>
 	<message key="manager.languages.alternateLocaleInstructions">This system optionally allows certain critical information to be entered in several additional languages. To use this feature, select alternate locales and choose from the options listed below.</message>
 	<message key="manager.languages.supportedLocalesInstructions">Select all locales to support on the site via a language select menu to appear on each page. The menu will only appear if more than one locale is selected.</message>
 	<message key="manager.masthead.title">Masthead</message>
@@ -273,4 +277,11 @@
 	<message key="manager.plugins.versionFileInvalid">version.xml in plugin directory contains invalid data.</message>
 	<message key="manager.plugins.versionFileNotFound">version.xml not found in plugin directory</message>
 
+	<message key="notification.localeEnabled">Locale enabled.</message>
+	<message key="notification.localeDisabled">Locale disabled.</message>
+	<message key="notification.primaryLocaleDefined">{$locale} defined as primary locale.</message>
+	<message key="notification.localeInstalled">All selected locale(s) installed and activated.</message>
+	<message key="notification.localeUninstalled">{$locale} locale uninstalled.</message>
+	<message key="notification.localeReloaded">{$locale} locale reloaded.</message>
+	<message key="notification.localeSettingsSaved">Locale settings saved.</message>
 </locale>

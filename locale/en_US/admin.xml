@@ -28,9 +28,16 @@
 	<message key="admin.displayConfigFileInstructions"><![CDATA[The contents of your updated configuration are displayed below. To apply the configuration changes you must open <tt>config.inc.php</tt> in a suitable text editor and replace its contents with the contents of the text field below.]]></message>
 	<message key="admin.displayNewSystemConfig">Display New Configuration</message>
 	<message key="admin.expireSessions">Expire User Sessions</message>
+	<message key="admin.languages.download">Download Locale</message>
+	<message key="admin.languages.download.cannotOpen">Cannot open language descriptor from PKP web site.</message>
+	<message key="admin.languages.download.cannotModifyRegistry">Cannot add the new locale to the locale registry file, typically "registry/locales.xml".</message>
+	<message key="admin.languages.cantDisable">This locale is the primary language of the site. You can't disable it until you choose another primary locale.</message>
+
 	<message key="admin.languages.confirmReload">Are you sure you want to reload this locale? This will erase any existing locale-specific data such as customized email templates.</message>
 	<message key="admin.languages.installedLocales">Installed Locales</message>
 	<message key="admin.languages.installLanguages">Manage Locales</message>
+	<message key="admin.languages.availableLocales">Available Locales</message>
+	<message key="admin.languages.installLocale">Install Locale</message>
 	<message key="admin.languages.installLocales">Install</message>
 	<message key="admin.languages.installNewLocales">Install New Locales</message>
 	<message key="admin.languages.languageSettings">Language Settings</message>

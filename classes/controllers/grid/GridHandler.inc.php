@@ -650,6 +650,10 @@ class GridHandler extends PKPHandler {
 			// Render the requested row
 			$renderedRow = $this->renderRow($request, $row);
 			$json->setContent($renderedRow);
+
+			// Add the sequence map so grid can place the row at the correct position.
+			$sequenceMap = $this->getRowsSequence($request);
+			$json->setAdditionalAttributes(array('sequenceMap' => $sequenceMap));
 		}
 
 		$this->callFeaturesHook('fetchRow', array('request' => $request, 'grid' => $this, 'row' => $row, 'jsonMessage' => $json));
@@ -705,6 +709,20 @@ class GridHandler extends PKPHandler {
 	//
 	// Protected methods to be overridden/used by subclasses
 	//
+	/**
+	 * Return the sequence map of the current loaded grid items.
+	 * This is not the sequence value of the data represented by the
+	 * row, it's just the mapping of the rows sequence, in the order
+	 * that they are loaded. To handle grid items ordering, see
+	 * OrderItemsFeature class.
+	 * @param $request PKPRequest
+	 * @return array
+	 */
+	protected function getRowsSequence($request) {
+		return array_keys($this->getGridDataElements($request));
+	}
+
+
 	/**
 	 * Get a new instance of a grid row. May be
 	 * overridden by subclasses if they want to

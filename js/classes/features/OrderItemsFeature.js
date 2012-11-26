@@ -468,7 +468,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.appendElement =
+	$.pkp.classes.features.OrderItemsFeature.prototype.addElement =
 			function($element) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();

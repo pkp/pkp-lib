@@ -147,9 +147,9 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendElement =
+	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.addElement =
 			function($newElement) {
-		this.parent('appendElement', $newElement);
+		this.parent('addElement', $newElement);
 		this.formatAndStoreNewRow_($newElement);
 		return false;
 	};

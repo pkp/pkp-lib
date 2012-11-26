@@ -326,17 +326,26 @@
 
 	/**
 	 * Re-sequence all grid rows based on the passed sequence map.
-	 * @param {Array} sequenceMap A sequence array with the row id as value.
+	 * @param {Array} sequenceMap A sequence array with the row id or
+	 * row data id as value.
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.resequenceRows =
 			function(sequenceMap) {
-		var rowId, index, $row;
+		var id, index, $row;
 		for (index in sequenceMap) {
-			rowId = sequenceMap[index];
-			$row = $('#' + rowId);
-			this.appendElement($row);
+			id = sequenceMap[index];
+			$row = $('#' + id);
+			if ($row.length == 0) {
+				$row = $('tr.element' + id, this.getHtmlElement());
+			}
+			if ($row.length == 0) {
+				throw new Error('Row with id ' + id + ' not found!');
+			}
+			this.addElement($row);
 		}
 		this.updateControlRowsPosition();
+
+		this.callFeaturesHook('resequenceRows', sequenceMap);
 	};
 
 
@@ -362,9 +371,10 @@
 	/**
 	 * Inserts or replaces a grid element.
 	 * @param {string} elementContent The new mark-up of the element.
+	 * @param {boolean=} opt_prepend Prepend the new row instead of append it?
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.insertOrReplaceElement =
-			function(elementContent) {
+			function(elementContent, opt_prepend) {
 		var $newElement, newElementId, $grid, $existingElement;
 
 		// Parse the HTML returned from the server.
@@ -391,11 +401,54 @@
 				this.replaceElement($existingElement, $newElement);
 			} else {
 				// Insert row.
-				this.appendElement($newElement);
+				this.addElement($newElement, null, opt_prepend);
 			}
 
 			// Refresh row action event binding.
 			this.activateRowActions_();
+		}
+	};
+
+
+	/**
+	 * Delete a grid element.
+	 * @param {jQueryObject} $element The element to be deleted.
+	 * @param {boolean=} opt_noFadeOut Whether the item deletion
+	 * will use the fade out effect or not.
+	 */
+	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
+			function($element, opt_noFadeOut) {
+		var lastElement, $emptyElement, deleteFunction;
+
+		// Check whether we really only match one element.
+		if ($element.length !== 1) {
+			throw new Error('There were ' + $element.length +
+					' rather than 1 element to delete!');
+		}
+
+		// Check whether this is the last row.
+		lastElement = false;
+		if (this.getElementsByType($element).length == 1) {
+			lastElement = true;
+		}
+
+		// Remove the controls row, if any.
+		if ($element.hasClass('gridRow')) {
+			this.deleteControlsRow_($element);
+		}
+
+		$emptyElement = this.getEmptyElement($element);
+		deleteFunction = function() {
+			$element.remove();
+			if (lastElement) {
+				$emptyElement.fadeIn(500);
+			}
+		};
+
+		if (opt_noFadeOut != undefined && opt_noFadeOut) {
+			deleteFunction();
+		} else {
+			$element.fadeOut(500, deleteFunction);
 		}
 	};
 
@@ -506,66 +559,33 @@
 
 
 	/**
-	 * Delete a grid element.
-	 *
-	 * @protected
-	 *
-	 * @param {jQueryObject} $element The element to be deleted.
-	 */
-	$.pkp.controllers.grid.GridHandler.prototype.deleteElement =
-			function($element) {
-		var lastElement, $emptyElement;
-
-		// Check whether we really only match one element.
-		if ($element.length !== 1) {
-			throw new Error('There were ' + $element.length +
-					' rather than 1 element to delete!');
-		}
-
-		// Check whether this is the last row.
-		lastElement = false;
-		if (this.getElementsByType($element).length == 1) {
-			lastElement = true;
-		}
-
-		// Remove the controls row, if any.
-		if ($element.hasClass('gridRow')) {
-			this.deleteControlsRow_($element);
-		}
-
-		$emptyElement = this.getEmptyElement($element);
-		$element.fadeOut(500, function() {
-			$(this).remove();
-			if (lastElement) {
-				$emptyElement.fadeIn(500);
-			}
-		});
-	};
-
-
-	/**
-	 * Append a new row to the end of the list.
+	 * Add a new row to the grid.
 	 *
 	 * @protected
 	 *
 	 * @param {jQueryObject} $newRow The new row to append.
 	 * @param {jQueryObject=} opt_$gridBody The tbody container element.
+	 * @param {boolean=} opt_prepend Prepend the element instead of append it?
 	 */
-	$.pkp.controllers.grid.GridHandler.prototype.appendElement =
-			function($newRow, opt_$gridBody) {
+	$.pkp.controllers.grid.GridHandler.prototype.addElement =
+			function($newRow, opt_$gridBody, opt_prepend) {
 
 		if (opt_$gridBody === undefined || opt_$gridBody === null) {
 			opt_$gridBody = this.getHtmlElement().find(this.bodySelector);
 		}
 
 		// Add the new element.
-		opt_$gridBody.append($newRow);
+		if (opt_prepend != undefined && opt_prepend) {
+			opt_$gridBody.prepend($newRow);
+		} else {
+			opt_$gridBody.append($newRow);
+		}
 
 		// Hide the empty placeholder.
 		var $emptyElement = this.getEmptyElement($newRow);
 		$emptyElement.hide();
 
-		this.callFeaturesHook('appendElement', $newRow);
+		this.callFeaturesHook('addElement', $newRow);
 	};
 
 
@@ -631,7 +651,7 @@
 	 */
 	$.pkp.controllers.grid.GridHandler.prototype.replaceElementResponseHandler =
 			function(ajaxContext, jsonData) {
-		var elementId, $element, handledJsonData;
+		var elementId, $element, handledJsonData, castJsonData;
 
 		handledJsonData = this.handleJson(jsonData);
 		if (handledJsonData !== false) {
@@ -646,15 +666,15 @@
 				// Sometimes we get a delete event before the
 				// element has actually been inserted (e.g. when deleting
 				// elements due to a cancel action or similar).
-				if ($element.length === 0) {
-					return false;
+				if ($element.length > 0) {
+					this.deleteElement($element);
 				}
-
-				this.deleteElement($element);
 			} else {
 				// The server returned mark-up to replace
 				// or insert the row.
 				this.insertOrReplaceElement(handledJsonData.content);
+				castJsonData = /** @type {{sequenceMap: Array}} */ handledJsonData;
+				this.resequenceRows(castJsonData.sequenceMap);
 			}
 		}
 

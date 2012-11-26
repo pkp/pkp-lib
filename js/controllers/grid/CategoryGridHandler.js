@@ -308,7 +308,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendElement =
+	$.pkp.controllers.grid.CategoryGridHandler.prototype.addElement =
 			function($element) {
 		var $gridBody = null, categoryDataId, $emptyPlaceholder;
 
@@ -321,8 +321,8 @@
 					this.getCategoryByDataId(categoryDataId));
 		}
 
-		// Append the element.
-		this.parent('appendElement', $element, $gridBody);
+		// Add the element.
+		this.parent('addElement', $element, $gridBody);
 
 		// Make sure the placeholder is the last grid element.
 		if ($element.hasClass('category_grid_body')) {

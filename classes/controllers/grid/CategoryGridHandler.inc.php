@@ -192,6 +192,14 @@ class CategoryGridHandler extends GridHandler {
 	}
 
 	/**
+	 * @see GridHandler::getRowsSequence()
+	 */
+	protected function getRowsSequence($request) {
+		$filter = $this->getFilterSelectionData($request);
+		return array_keys($this->getCategoryData($this->getCurrentCategoryId(), $filter));
+	}
+
+	/**
 	 * @see GridHandler::doSpecificFetchGridActions($args, $request)
 	 */
 	protected function doSpecificFetchGridActions($args, $request, &$templateMgr) {

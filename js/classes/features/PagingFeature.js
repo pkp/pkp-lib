@@ -19,11 +19,44 @@
 	 */
 	$.pkp.classes.features.PagingFeature =
 			function(gridHandler, options) {
+		options.itemsPerPageParamName = parseInt(options.itemsPerPageParamName, 10);
+		options.defaultItemsPerPage = parseInt(options.defaultItemsPerPage, 10);
+		options.currentItemsPerPage = parseInt(options.currentItemsPerPage, 10);
+		options.itemsTotal = parseInt(options.itemsTotal, 10);
+		options.currentPage = parseInt(options.currentPage, 10);
 		this.parent(gridHandler, options);
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.classes.features.PagingFeature,
 			$.pkp.classes.features.Feature);
+
+
+	//
+	// Getters and setters.
+	//
+	/**
+	 * @return {{itemsPerPageParamName: string,
+	 *			defaultItemsPerPage: number,
+	 *			currentItemsPerPage: number,
+	 *			itemsTotal: number,
+	 *			pageParamName: string,
+	 *			currentPage: number,
+	 *			pagingMarkup: string }}
+	 * @override
+	 */
+	$.pkp.classes.features.PagingFeature.prototype.getOptions =
+			function() {
+		var castOptions = /** @type {{itemsPerPageParamName: string,
+								defaultItemsPerPage: number,
+								currentItemsPerPage: number,
+								itemsTotal: number,
+								pageParamName: string,
+								currentPage: number,
+								pagingMarkup: string }} */
+				this.parent('getOptions');
+
+		return castOptions;
+	};
 
 
 	/**
@@ -45,17 +78,45 @@
 	};
 
 
+	//
+	// Hooks implementation.
+	//
+	/**
+	 * @inheritDoc
+	 */
+	$.pkp.classes.features.PagingFeature.prototype.resequenceRows =
+			function(sequenceMap) {
+		var $rows = this.gridHandler.getRows(),
+				extraRowsNum, index,
+				options = this.getOptions();
+		// Clean any extra rows that might still be visible from old range data.
+		extraRowsNum = $rows.length - options.currentItemsPerPage;
+		if (extraRowsNum > 0) {
+			for (index = 0; index < extraRowsNum; index++) {
+				this.gridHandler.deleteElement($rows.first(), true);
+			}
+		}
+
+		return false;
+	};
+
+
 	/**
 	 * @inheritDoc
 	 */
 	$.pkp.classes.features.PagingFeature.prototype.refreshGrid =
 			function() {
-		var options = this.getOptions(), params;
+		var options = this.getOptions(), params, $firstRow, $lastRow;
 
 		params = this.gridHandler.getFetchExtraParams();
 
 		params[options.pageParamName] = options.currentPage;
 		params[options.itemsPerPageParamName] = options.currentItemsPerPage;
+
+		$firstRow = this.gridHandler.getRows().first();
+		$lastRow = this.gridHandler.getRows().last();
+		params.topLimitRowId = this.gridHandler.getRowDataId($firstRow);
+		params.bottomLimitRowId = this.gridHandler.getRowDataId($lastRow);
 
 		this.gridHandler.setFetchExtraParams(params);
 
@@ -68,14 +129,20 @@
 	 */
 	$.pkp.classes.features.PagingFeature.prototype.replaceElementResponseHandler =
 			function(handledJsonData) {
-		var rowMarkup, pagingInfo, options;
+		var rowMarkup, rowDataId, pagingInfo, options, $rows, castJsonData;
+		options = this.getOptions();
+		castJsonData = /** @type {{deletedRowReplacement: string,
+									pagingInfo: string,
+									loadLastPage: boolean,
+									newTopRow: string}} */
+				handledJsonData;
 
-		if (handledJsonData.deletedRowReplacement != undefined) {
+		if (castJsonData.deletedRowReplacement != undefined) {
 			rowMarkup = handledJsonData.deletedRowReplacement;
 			this.gridHandler.insertOrReplaceElement(rowMarkup);
 		}
 
-		if (handledJsonData.pagingInfo != undefined) {
+		if (castJsonData.pagingInfo != undefined) {
 			pagingInfo = handledJsonData.pagingInfo;
 			this.setOptions(pagingInfo);
 
@@ -84,12 +151,21 @@
 			this.init();
 		}
 
-		if (handledJsonData.loadLastPage) {
-			options = this.getOptions();
-			options.currentPage = options.currentPage - 1;
-			this.setOptions(options);
-
+		if (castJsonData.loadLastPage) {
 			this.getGridHtmlElement().trigger('dataChanged');
+		}
+
+		if (castJsonData.newTopRow != undefined) {
+			// Check if we need to remove one row from the bottom
+			// to keep the same range info count value.
+			$rows = this.gridHandler.getRows();
+
+			if (options.currentItemsPerPage == $rows.length) {
+				this.gridHandler.deleteElement($rows.last(), true);
+			}
+
+			rowMarkup = handledJsonData.newTopRow;
+			this.gridHandler.insertOrReplaceElement(rowMarkup, true);
 		}
 
 		return false;
@@ -120,7 +196,7 @@
 								'(?:=([^&]*))?', 'i');
 						match = regex.exec($(event.target).attr('href'));
 						if (match != null) {
-							options.currentPage = match[1];
+							options.currentPage = parseInt(match[1], 10);
 							this.getGridHtmlElement().trigger('dataChanged');
 						}
 
@@ -155,8 +231,8 @@
 		if ($pagingDiv) {
 			changeItemsPerPageCallback = this.callbackWrapper(
 					function(sourceElement, event) {
-						options.currentItemsPerPage = $('option',
-								event.target).filter(':selected').attr('value');
+						options.currentItemsPerPage = parseInt($('option',
+								event.target).filter(':selected').attr('value'), 10);
 						// Reset to first page.
 						options.currentPage = 1;
 
@@ -183,7 +259,7 @@
 					$select.append($('<option value="' + itemsPerPageValues[index] +
 							'">' + itemsPerPageValues[index] + '</option>'));
 				}
-				$select.val(options.currentItemsPerPage);
+				$select.val(options.currentItemsPerPage.toString());
 				$select.change(changeItemsPerPageCallback);
 			}
 		}

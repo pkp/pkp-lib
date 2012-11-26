@@ -100,11 +100,11 @@
 	// Template methods (hooks into grid widgets).
 	//
 	/**
-	 * Hook into the append new element grid functionality.
-	 * @param {jQueryObject} $newElement The new element to be appended.
+	 * Hook into the add new element grid functionality.
+	 * @param {jQueryObject} $newElement The new element to be added.
 	 * @return {boolean} Always returns false.
 	 */
-	$.pkp.classes.features.Feature.prototype.appendElement =
+	$.pkp.classes.features.Feature.prototype.addElement =
 			function($newElement) {
 		return false;
 	};
@@ -117,6 +117,17 @@
 	 */
 	$.pkp.classes.features.Feature.prototype.replaceElement =
 			function($newContent) {
+		return false;
+	};
+
+
+	/**
+	 * Hook into the resequence rows grid functionality.
+	 * @param {Object} sequenceMap The grid rows sequence.
+	 * @return {boolean} Always returns false.
+	 */
+	$.pkp.classes.features.Feature.prototype.resequenceRows =
+			function(sequenceMap) {
 		return false;
 	};
 

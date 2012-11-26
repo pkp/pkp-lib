@@ -360,7 +360,7 @@
 				this.enableControls();
 			}
 
-			this.callFeaturesHook('appendElement', $newRow);
+			this.callFeaturesHook('addElement', $newRow);
 		}
 
 		return false;

@@ -164,6 +164,23 @@ class Context extends DataObject {
 	}
 
 	/**
+	 * Get localized acronym of context
+	 * @return string
+	 */
+	function getLocalizedAcronym() {
+		return $this->getLocalizedSetting('acronym');
+	}
+
+	/**
+	 * Get the acronym of the context.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getAcronym($locale) {
+		return $this->getSetting('acronym', $locale);
+	}
+
+	/**
 	 * Return associative array of all locales supported by forms on the site.
 	 * These locales are used to provide a language toggle on the main site pages.
 	 * @return array

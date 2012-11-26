@@ -231,7 +231,7 @@ class PKPRouter {
 				$daoInstance =& DAORegistry::getDAO($daoName);
 
 				// Retrieve the context from the DAO (by path)
-				$daoMethod = 'get'.$contextClass.'ByPath';
+				$daoMethod = 'getByPath';
 				assert(method_exists($daoInstance, $daoMethod));
 				$this->_contexts[$requestedContextLevel] = $daoInstance->$daoMethod($path);
 			}

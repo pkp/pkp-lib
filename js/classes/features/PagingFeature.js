@@ -19,7 +19,6 @@
 	 */
 	$.pkp.classes.features.PagingFeature =
 			function(gridHandler, options) {
-		options.itemsPerPageParamName = parseInt(options.itemsPerPageParamName, 10);
 		options.defaultItemsPerPage = parseInt(options.defaultItemsPerPage, 10);
 		options.currentItemsPerPage = parseInt(options.currentItemsPerPage, 10);
 		options.itemsTotal = parseInt(options.itemsTotal, 10);

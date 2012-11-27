@@ -32,14 +32,14 @@ class Context extends DataObject {
 	 * Set the name of the context
 	 * @param $name string
 	 */
-	function setName($name) {
-		$this->setData('name', $name);
+	function setName($name, $locale = null) {
+		$this->setData('name', $name, $locale);
 	}
 
 	/**
 	 * get the name of the context
 	 */
-	function getName($locale) {
+	function getName($locale = null) {
 		return $this->getSetting('name', $locale);
 	}
 
@@ -77,19 +77,20 @@ class Context extends DataObject {
 
 	/**
 	 * Get context description.
+	 * @param $description string optional
 	 * @return string
 	 */
-	function getDescription() {
-		return $this->getData('description');
+	function getDescription($locale = null) {
+		return $this->getData('description', $locale);
 	}
 
 	/**
-	 * Set announcement description.
+	 * Set context description.
 	 * @param $description string
-	 * @param $locale string
+	 * @param $locale string optional
 	 */
-	function setDescription($description) {
-		$this->setData('description', $description);
+	function setDescription($description, $locale = null) {
+		$this->setData('description', $description, $locale);
 	}
 
 	/**
@@ -121,7 +122,7 @@ class Context extends DataObject {
 	 * @param $enabled int
 	 */
 	function setEnabled($enabled) {
-		return $this->setData('enabled',$enabled);
+		return $this->setData('enabled', $enabled);
 	}
 
 	/**

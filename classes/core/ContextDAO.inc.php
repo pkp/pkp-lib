@@ -122,6 +122,14 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Delete a context by object
+	 * @param $context Context
+	 */
+	function deleteObject($context) {
+		$this->deleteById($context->getId());
+	}
+
+	/**
 	 * Delete a context by ID.
 	 * @param $contextId int
 	 */

@@ -21,7 +21,11 @@
 			function(gridHandler, options) {
 		options.defaultItemsPerPage = parseInt(options.defaultItemsPerPage, 10);
 		options.currentItemsPerPage = parseInt(options.currentItemsPerPage, 10);
-		options.itemsTotal = parseInt(options.itemsTotal, 10);
+		if (!options.itemsTotal) {
+			options.itemsTotal = 0;
+		} else {
+			options.itemsTotal = parseInt(options.itemsTotal, 10);
+		}
 		options.currentPage = parseInt(options.currentPage, 10);
 		this.parent(gridHandler, options);
 	};

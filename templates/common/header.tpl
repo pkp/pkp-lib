@@ -6,6 +6,10 @@
  *
  * Common site header.
  *}
+{capture assign="deprecatedStyles"}
+	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
+{/capture}
 {strip}
 {if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
 {if $pageCrumbTitle}
@@ -23,15 +27,15 @@
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
+
+	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/styles/lib.css" />
+	{$deprecatedStyles}
+	<link rel="stylesheet" type="text/css" media="all" href="{$baseUrl}/styles/compiled.css" />
 
 	<!-- Base Jquery -->
-	{if $allowCDN}<script type="text/javascript" src="//www.google.com/jsapi"></script>
+	{if $allowCDN}
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript">{literal}
-			<!--
 			// Provide a local fallback if the CDN cannot be reached
 			if (typeof google == 'undefined') {
 				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
@@ -40,12 +44,15 @@
 				google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
 				google.load("jqueryui", "{/literal}{$smarty.const.CDN_JQUERY_UI_VERSION}{literal}");
 			}
-			// -->
 		{/literal}</script>
 	{else}
 		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
+
+	<!-- UI elements (menus, forms, etc) -->
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
 
 	<!-- Form validation -->
 	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js"></script>
@@ -67,6 +74,9 @@
 	{if $leftSidebarCode}<link rel="stylesheet" href="{$baseUrl}/styles/leftSidebar.css" type="text/css" />{/if}
 	{if $rightSidebarCode}<link rel="stylesheet" href="{$baseUrl}/styles/rightSidebar.css" type="text/css" />{/if}
 	{if $leftSidebarCode && $rightSidebarCode}<link rel="stylesheet" href="{$baseUrl}/styles/bothSidebars.css" type="text/css" />{/if}
+
+	{* FIXME: Replace with a smarty template that includes {translate} keys, see #6443. *}
+	{if $currentLocale !== 'en_US'}<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/i18n/{$currentLocale|escape}.js"></script>{/if}
 
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
@@ -141,6 +151,8 @@
 			{rdelim});
 		</script>
 	{/if}{* hasSystemNotifications *}
+
+	{$deprecatedThemeStyles}
 
 	{$additionalHeadData}
 </head>

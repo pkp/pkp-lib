@@ -40,10 +40,6 @@ class PKPTemplateManager extends Smarty {
 	/** @var $javaScripts array of URLs to javascript files */
 	var $javaScripts;
 
-	/** @var $initialized Kludge because of reference problems with
-	    TemplateManager::getManager invoked during constructor process */
-	var $initialized;
-
 	/** @var $cacheability string Type of cacheability (Cache-Control). */
 	var $cacheability;
 
@@ -194,7 +190,26 @@ class PKPTemplateManager extends Smarty {
 			$this->assign('numPageLinks', Config::getVar('interface', 'page_links'));
 		}
 
-		$this->initialized = false;
+		// Load enabled block plugins.
+		$plugins =& PluginRegistry::loadCategory('blocks', true);
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+			$user =& $this->request->getUser();
+			$hasSystemNotifications = false;
+			if ($user) {
+				// Assign the user name to be used in the sitenav
+				$this->assign('loggedInUsername', $user->getUserName());
+				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
+				$notifications =& $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
+
+				if ($notifications->getCount() > 0) {
+					$hasSystemNotifications = true;
+				}
+
+				$this->assign('initialHelpState', (int) $user->getInlineHelp());
+			}
+			$this->assign('hasSystemNotifications', $hasSystemNotifications);
+		}
 	}
 
 	/**
@@ -217,37 +232,6 @@ class PKPTemplateManager extends Smarty {
 	}
 
 	/**
-	 * Initialize the template.
-	 */
-	function initialize() {
-		// This code cannot be called in the constructor because of
-		// reference problems, i.e. callers that need getManager fail.
-
-		// Load enabled block plugins.
-		$plugins =& PluginRegistry::loadCategory('blocks', true);
-
-		if (!defined('SESSION_DISABLE_INIT')) {
-			$user =& $this->request->getUser();
-			$hasSystemNotifications = false;
-			if ($user) {
-				// Assign the user name to be used in the sitenav
-				$this->assign('loggedInUsername', $user->getUserName());
-				$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-				$notifications =& $notificationDao->getByUserId($user->getId(), NOTIFICATION_LEVEL_TRIVIAL);
-
-				if ($notifications->getCount() > 0) {
-					$hasSystemNotifications = true;
-				}
-
-				$this->assign('initialHelpState', (int) $user->getInlineHelp());
-			}
-			$this->assign('hasSystemNotifications', $hasSystemNotifications);
-		}
-
-		$this->initialized = true;
-	}
-
-	/**
 	 * Add a page-specific style sheet.
 	 * @param $url string the URL to the style sheet
 	 */
@@ -267,10 +251,6 @@ class PKPTemplateManager extends Smarty {
 	 * @see Smarty::fetch()
 	 */
 	function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false) {
-		if (!$this->initialized) {
-			$this->initialize();
-		}
-
 		// Add additional java script URLs
 		if (!empty($this->javaScripts)) {
 			$baseUrl = $this->get_template_vars('baseUrl');

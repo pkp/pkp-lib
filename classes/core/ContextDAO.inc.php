@@ -63,8 +63,6 @@ class ContextDAO extends DAO {
 		$context->setId($row[$this->_getPrimaryKeyColumn()]);
 		$context->setPath($row['path']);
 		$context->setSequence($row['seq']);
-		$context->setEnabled($row['enabled']);
-		$context->setPrimaryLocale($row['primary_locale']);
 		return $context;
 	}
 

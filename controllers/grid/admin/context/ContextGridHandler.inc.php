@@ -59,7 +59,7 @@ class ContextGridHandler extends GridHandler {
 		);
 
 		// Grid actions.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(

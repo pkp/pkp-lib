@@ -22,10 +22,11 @@ class ContextSiteSettingsForm extends Form {
 
 	/**
 	 * Constructor.
+	 * @param $template string
 	 * @param $contextId omit for a new context
 	 */
-	function ContextSiteSettingsForm($contextId = null) {
-		parent::Form('admin/contextSettings.tpl');
+	function ContextSiteSettingsForm($template, $contextId = null) {
+		parent::Form($template);
 
 		$this->contextId = isset($contextId) ? (int) $contextId : null;
 

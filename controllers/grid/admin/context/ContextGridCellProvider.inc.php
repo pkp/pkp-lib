@@ -30,7 +30,7 @@ class ContextGridCellProvider extends GridCellProvider {
 	 * @return array
 	 */
 	function getTemplateVarsFromRowColumn(&$row, $column) {
-		$element =& $row->getData();
+		$element = $row->getData();
 		$columnId = $column->getId();
 		assert(is_a($element, 'Context') && !empty($columnId));
 		switch ($columnId) {

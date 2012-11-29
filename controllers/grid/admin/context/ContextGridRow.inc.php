@@ -34,23 +34,19 @@ class ContextGridRow extends GridRow {
 		parent::initialize($request);
 
 		// Is this a new row or an existing row?
-		$element =& $this->getData();
+		$element = $this->getData();
 		assert(is_a($element, 'Context'));
 
 		$rowId = $this->getId();
 
 		if (!empty($rowId) && is_numeric($rowId)) {
 			// Only add row actions if this is an existing row
-			$router =& $request->getRouter();
-			$actionArgs = array(
-				'gridId' => $this->getGridId(),
-				'rowId' => $rowId
-			);
+			$router = $request->getRouter();
 			$this->addAction(
 				new LinkAction(
 					'edit',
 					new AjaxModal(
-						$router->url($request, null, null, 'editContext', null, $actionArgs),
+						$router->url($request, null, null, 'editContext', null, array('rowId' => $rowId)),
 						__('grid.action.edit'),
 						'modal_edit',
 						true
@@ -64,7 +60,7 @@ class ContextGridRow extends GridRow {
 					new RemoteActionConfirmationModal(
 						__($this->getConfirmDeleteKey()),
 						null,
-						$router->url($request, null, null, 'deleteContext', null, $actionArgs)
+						$router->url($request, null, null, 'deleteContext', null, array('rowId' => $rowId))
 						),
 					__('grid.action.remove'),
 					'delete')

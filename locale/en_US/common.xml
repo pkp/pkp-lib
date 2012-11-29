@@ -400,4 +400,6 @@
 
 	<!-- Common -->
 	<message key="grid.action.downloadFile">Download this file</message>
+
+	<message key="context.path">Path</message>
 </locale>

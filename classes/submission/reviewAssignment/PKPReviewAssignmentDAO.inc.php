@@ -467,8 +467,17 @@ class PKPReviewAssignmentDAO extends DAO {
 				) VALUES (
 				?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, %s, %s, %s, %s, %s, %s, %s, ?, ?, %s, %s, %s, ?, ?, ?, ?
 				)',
-				$this->datetimeToDB($reviewAssignment->getDateAssigned()), $this->datetimeToDB($reviewAssignment->getDateNotified()), $this->datetimeToDB($reviewAssignment->getDateConfirmed()), $this->datetimeToDB($reviewAssignment->getDateCompleted()), $this->datetimeToDB($reviewAssignment->getDateAcknowledged()), $this->datetimeToDB($reviewAssignment->getDateDue()), $this->datetimeToDB($reviewAssignment->getDateResponseDue()), $this->datetimeToDB($reviewAssignment->getDateRated()), $this->datetimeToDB($reviewAssignment->getLastModified()), $this->datetimeToDB($reviewAssignment->getDateReminded())),
-			array(
+				$this->datetimeToDB($reviewAssignment->getDateAssigned()),
+				$this->datetimeToDB($reviewAssignment->getDateNotified()),
+				$this->datetimeToDB($reviewAssignment->getDateConfirmed()),
+				$this->datetimeToDB($reviewAssignment->getDateCompleted()),
+				$this->datetimeToDB($reviewAssignment->getDateAcknowledged()),
+				$this->datetimeToDB($reviewAssignment->getDateDue()),
+				$this->datetimeToDB($reviewAssignment->getDateResponseDue()),
+				$this->datetimeToDB($reviewAssignment->getDateRated()),
+				$this->datetimeToDB($reviewAssignment->getLastModified()),
+				$this->datetimeToDB($reviewAssignment->getDateReminded())
+			), array(
 				(int) $reviewAssignment->getSubmissionId(),
 				(int) $reviewAssignment->getReviewerId(),
 				(int) $reviewAssignment->getStageId(),
@@ -482,7 +491,7 @@ class PKPReviewAssignmentDAO extends DAO {
 				(int) $reviewAssignment->getCancelled(),
 				$reviewAssignment->getReviewerFileId(),
 				$reviewAssignment->getQuality(),
-				$reviewAssignment->getReminderWasAutomatic(),
+				(int) $reviewAssignment->getReminderWasAutomatic(),
 				$reviewAssignment->getReviewFormId(),
 				(int) $reviewAssignment->getReviewRoundId(),
 				(int) $reviewAssignment->getUnconsidered(),

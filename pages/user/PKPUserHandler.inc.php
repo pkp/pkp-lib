@@ -17,7 +17,7 @@ import('classes.handler.Handler');
 class PKPUserHandler extends Handler {
 	/**
 	 * Constructor
-	 **/
+	 */
 	function PKPUserHandler() {
 		parent::Handler();
 	}
@@ -28,7 +28,7 @@ class PKPUserHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function getInterests($args, &$request) {
+	function getInterests($args, $request) {
 		// Get the input text used to filter on
 		$filter = $request->getUserVar('term');
 
@@ -48,12 +48,12 @@ class PKPUserHandler extends Handler {
 	 * @param $request PKPRequest
 	 * @return string Serialized JSON object
 	 */
-	function toggleHelp($args, &$request) {
+	function toggleHelp($args, $request) {
 
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$user->setInlineHelp($user->getInlineHelp() ? 0 : 1);
 
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$userDao->updateObject($user);
 
 		import('lib.pkp.classes.core.JSONMessage');

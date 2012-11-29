@@ -18,6 +18,12 @@ import('classes.install.form.UpgradeForm');
 import('classes.handler.Handler');
 
 class PKPInstallHandler extends Handler {
+	/**
+	 * Constructor
+	 */
+	function PKPInstallHandler() {
+		parent::Handler();
+	}
 
 	/**
 	 * If no context is selected, list all.
@@ -25,7 +31,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		// Make sure errors are displayed to the browser during install.
 		@ini_set('display_errors', true);
 
@@ -56,7 +62,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function install($args, &$request) {
+	function install($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
@@ -76,7 +82,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function upgrade($args, &$request) {
+	function upgrade($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate($request);
 
@@ -94,7 +100,7 @@ class PKPInstallHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function installUpgrade($args, &$request) {
+	function installUpgrade($args, $request) {
 		$this->validate($request);
 		$this->setupTemplate($request);
 

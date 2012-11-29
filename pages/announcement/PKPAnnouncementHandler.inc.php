@@ -24,18 +24,18 @@ class PKPAnnouncementHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
 		if ($this->_getAnnouncementsEnabled($request)) {
-			$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+			$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 			$rangeInfo = $this->getRangeInfo($request, 'announcements');
 
-			$announcements =& $this->_getAnnouncements($request, $rangeInfo);
+			$announcements = $this->_getAnnouncements($request, $rangeInfo);
 			$announcementsIntroduction = $this->_getAnnouncementsIntroduction($request);
 
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('announcements', $announcements);
 			$templateMgr->assign('announcementsIntroduction', $announcementsIntroduction);
 			$templateMgr->display('announcement/index.tpl');
@@ -50,18 +50,18 @@ class PKPAnnouncementHandler extends Handler {
 	 * @param $args array first parameter is the ID of the announcement to display
 	 * @param $request PKPRequest
 	 */
-	function view($args, &$request) {
+	function view($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
 		$announcementId = !isset($args) || empty($args) ? null : (int) $args[0];
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 
 		if ($this->_getAnnouncementsEnabled($request) && $this->_announcementIsValid($request, $announcementId)) {
-			$announcement =& $announcementDao->getById($announcementId);
+			$announcement = $announcementDao->getById($announcementId);
 
 			if ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()) {
-				$templateMgr =& TemplateManager::getManager($request);
+				$templateMgr = TemplateManager::getManager($request);
 				$templateMgr->assign('announcement', $announcement);
 				if ($announcement->getTypeId() == null) {
 					$templateMgr->assign('announcementTitle', $announcement->getLocalizedTitle());
@@ -86,7 +86,7 @@ class PKPAnnouncementHandler extends Handler {
 	function setupTemplate($request, $subclass = false) {
 		parent::setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 		$templateMgr->assign('pageHierachy', array(array($request->url(null, null, 'announcements'), 'announcement.announcements')));
 	}
@@ -109,7 +109,7 @@ class PKPAnnouncementHandler extends Handler {
 	 * @param $rangeInfo DBResultRange
 	 * @return DAOResultFactory
 	 */
-	function &_getAnnouncements($request, $rangeInfo = null) {
+	function _getAnnouncements($request, $rangeInfo = null) {
 		// must be implemented by sub-classes
 		assert(false);
 	}
@@ -130,7 +130,7 @@ class PKPAnnouncementHandler extends Handler {
 	 * valid for display.
 	 * @param $announcementId integer
 	 */
-	function _announcementIsValid(&$request, $announcementId) {
+	function _announcementIsValid($request, $announcementId) {
 		// must be implemented by sub-classes
 		assert(false);
 	}

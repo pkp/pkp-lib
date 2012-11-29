@@ -16,12 +16,18 @@
 import('classes.handler.Handler');
 
 class PKPLoginHandler extends Handler {
+	/**
+	 * Constructor
+	 */
+	function PKPLoginHandler() {
+		parent::Handler();
+	}
 
 	/**
 	 * Display user login form.
 	 * Redirect to user index page if user is already validated.
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
@@ -33,10 +39,10 @@ class PKPLoginHandler extends Handler {
 			$request->redirectSSL();
 		}
 
-		$sessionManager =& SessionManager::getManager();
-		$session =& $sessionManager->getUserSession();
+		$sessionManager = SessionManager::getManager();
+		$session = $sessionManager->getUserSession();
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		// If the user wasn't expecting a login page, i.e. if they're new to the
 		// site and want to submit a paper, it helps to explain why they need to
@@ -63,7 +69,7 @@ class PKPLoginHandler extends Handler {
 	 * Handle login when implicitAuth is enabled.
 	 * If the user came in on a non-ssl url - then redirect back to the ssl url
 	 */
-	function implicitAuthLogin($args, &$request) {
+	function implicitAuthLogin($args, $request) {
 		if ($request->getProtocol() != 'https')
 			$request->redirectSSL();
 
@@ -78,7 +84,7 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * This is the function that Shibboleth redirects to - after the user has authenticated.
 	 */
-	function implicitAuthReturn($args, &$request) {
+	function implicitAuthReturn($args, $request) {
 		$this->validate();
 
 		if (Validation::isLoggedIn()) {
@@ -103,7 +109,7 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Validate a user's credentials and log the user in.
 	 */
-	function signIn($args, &$request) {
+	function signIn($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
@@ -135,10 +141,10 @@ class PKPLoginHandler extends Handler {
 			}
 
 		} else {
-			$sessionManager =& SessionManager::getManager();
-			$session =& $sessionManager->getUserSession();
+			$sessionManager = SessionManager::getManager();
+			$session = $sessionManager->getUserSession();
 
-			$templateMgr =& TemplateManager::getManager($request);
+			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('username', $request->getUserVar('username'));
 			$templateMgr->assign('remember', $request->getUserVar('remember'));
 			$templateMgr->assign('source', $request->getUserVar('source'));
@@ -152,7 +158,7 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Log a user out.
 	 */
-	function signOut($args, &$request) {
+	function signOut($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 		if (Validation::isLoggedIn()) {
@@ -170,31 +176,31 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Display form to reset a user's password.
 	 */
-	function lostPassword($args, &$request) {
+	function lostPassword($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->display('user/lostPassword.tpl');
 	}
 
 	/**
 	 * Send a request to reset a user's password
 	 */
-	function requestResetPassword($args, &$request) {
+	function requestResetPassword($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$email = $request->getUserVar('email');
-		$userDao =& DAORegistry::getDAO('UserDAO');
-		$user =& $userDao->getUserByEmail($email);
+		$userDao = DAORegistry::getDAO('UserDAO');
+		$user = $userDao->getUserByEmail($email);
 
 		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
 			$templateMgr->assign('error', 'user.login.lostPassword.invalidUser');
 			$templateMgr->display('user/lostPassword.tpl');
 
 		} else {
-			$site =& $request->getSite();
+			$site = $request->getSite();
 
 			// Send email confirming password reset
 			import('classes.mail.MailTemplate');
@@ -218,19 +224,19 @@ class PKPLoginHandler extends Handler {
 	 * Reset a user's password
 	 * @param $args array first param contains the username of the user whose password is to be reset
 	 */
-	function resetPassword($args, &$request) {
+	function resetPassword($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
 		$username = isset($args[0]) ? $args[0] : null;
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$confirmHash = $request->getUserVar('confirm');
 
-		if ($username == null || ($user =& $userDao->getByUsername($username)) == null) {
+		if ($username == null || ($user = $userDao->getByUsername($username)) == null) {
 			$request->redirect(null, null, 'lostPassword');
 		}
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 
 		$hash = Validation::generatePasswordResetHash($user->getId());
 		if ($hash == false || $confirmHash != $hash) {
@@ -244,8 +250,8 @@ class PKPLoginHandler extends Handler {
 			$newPassword = Validation::generatePassword();
 
 			if ($user->getAuthId()) {
-				$authDao =& DAORegistry::getDAO('AuthSourceDAO');
-				$auth =& $authDao->getPlugin($user->getAuthId());
+				$authDao = DAORegistry::getDAO('AuthSourceDAO');
+				$auth = $authDao->getPlugin($user->getAuthId());
 			}
 
 			if (isset($auth)) {
@@ -259,7 +265,7 @@ class PKPLoginHandler extends Handler {
 			$userDao->updateObject($user);
 
 			// Send email with new password
-			$site =& $request->getSite();
+			$site = $request->getSite();
 			import('classes.mail.MailTemplate');
 			$mail = new MailTemplate('PASSWORD_RESET');
 			$this->_setMailFrom($request, $mail, $site);
@@ -282,7 +288,7 @@ class PKPLoginHandler extends Handler {
 	 * Display form to change user's password.
 	 * @param $args array first argument may contain user's username
 	 */
-	function changePassword($args, &$request) {
+	function changePassword($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
@@ -299,7 +305,7 @@ class PKPLoginHandler extends Handler {
 	/**
 	 * Save user's new password.
 	 */
-	function savePassword($args, &$request) {
+	function savePassword($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
@@ -326,7 +332,7 @@ class PKPLoginHandler extends Handler {
 	 * @param MailTemplate $mail
 	 * @param $site Site
 	 */
-	function _setMailFrom($request, &$mail, &$site) {
+	function _setMailFrom($request, $mail, $site) {
 		$mail->setFrom($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
 		return true;
 	}

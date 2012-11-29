@@ -156,7 +156,7 @@ class DAO {
 
 		$start = Core::microtime();
 		$dataSource = $this->getDataSource();
-		$result =& $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
+		$result = $dataSource->selectLimit($sql, $numRows === false ? -1 : $numRows, $offset === false ? -1 : $offset, $params !== false && !is_array($params) ? array($params) : $params);
 		if ($dataSource->errorNo()) {
 			fatalError('DB Error: ' . $dataSource->errorMsg());
 		}

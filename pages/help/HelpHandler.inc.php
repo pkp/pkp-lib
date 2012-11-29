@@ -37,7 +37,7 @@ class HelpHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function index($args, &$request) {
+	function index($args, $request) {
 		$this->view(array('index', 'topic', '000000'), $request);
 	}
 
@@ -46,13 +46,13 @@ class HelpHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function toc($args, &$request) {
+	function toc($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		import('classes.help.Help');
-		$help =& Help::getHelp();
+		$help = Help::getHelp();
 		$templateMgr->assign_by_ref('helpToc', $help->getTableOfContents());
 		$templateMgr->display('help/helpToc.tpl');
 	}
@@ -66,11 +66,11 @@ class HelpHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		$topicId = implode("/",$args);
+		$topicId = implode('/',$args);
 		$keyword = trim(String::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
 		$result = (int) $request->getUserVar('result');
 
-		$topicDao =& DAORegistry::getDAO('HelpTopicDAO');
+		$topicDao = DAORegistry::getDAO('HelpTopicDAO');
 		$topic = $topicDao->getTopic($topicId);
 
 		if ($topic === false) {
@@ -79,7 +79,7 @@ class HelpHandler extends Handler {
 			$topic = $topicDao->getTopic($topicId);
 		}
 
-		$tocDao =& DAORegistry::getDAO('HelpTocDAO');
+		$tocDao = DAORegistry::getDAO('HelpTocDAO');
 		$toc = $tocDao->getToc($topic->getTocId());
 
 		if ($toc === false) {
@@ -97,7 +97,7 @@ class HelpHandler extends Handler {
 
 		$topics = $toc->getTopics();
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('currentTopicId', $topic->getId());
 		$templateMgr->assign_by_ref('topic', $topic);
 		$templateMgr->assign('toc', $toc);
@@ -119,7 +119,7 @@ class HelpHandler extends Handler {
 	 * @param $args array
 	 * @param $request PKPRequest
 	 */
-	function search($args, &$request) {
+	function search($args, $request) {
 		$this->validate();
 		$this->setupTemplate($request);
 
@@ -128,16 +128,16 @@ class HelpHandler extends Handler {
 		$keyword = trim(String::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($request->getUserVar('keyword'))));
 
 		if (!empty($keyword)) {
-			$topicDao =& DAORegistry::getDAO('HelpTopicDAO');
+			$topicDao = DAORegistry::getDAO('HelpTopicDAO');
 			$topics = $topicDao->getTopicsByKeyword($keyword);
 
-			$tocDao =& DAORegistry::getDAO('HelpTocDAO');
+			$tocDao = DAORegistry::getDAO('HelpTocDAO');
 			foreach ($topics as $topic) {
 				$searchResults[] = array('topic' => $topic, 'toc' => $tocDao->getToc($topic->getTocId()));
 			}
 		}
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->assign('showSearch', true);
 		$templateMgr->assign('pageTitle', __('help.searchResults'));
 		$templateMgr->assign('helpSearchKeyword', $keyword);
@@ -151,7 +151,7 @@ class HelpHandler extends Handler {
 	function setupTemplate($request) {
 		parent::setupTemplate($request);
 
-		$templateMgr =& TemplateManager::getManager($request);
+		$templateMgr = TemplateManager::getManager($request);
 		$templateMgr->setCacheability(CACHEABILITY_PUBLIC);
 	}
 }

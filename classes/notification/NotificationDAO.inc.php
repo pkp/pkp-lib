@@ -48,7 +48,7 @@ class NotificationDAO extends DAO {
 	 * @param $userId int
 	 * @return object DAOResultFactory containing matching Notification objects
 	 */
-	function &getNotificationsByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
+	function &getByUserId($userId, $level = NOTIFICATION_LEVEL_NORMAL, $rangeInfo = null) {
 		$application =& PKPApplication::getApplication();
 		$productName = $application->getName();
 		$context =& Request::getContext();

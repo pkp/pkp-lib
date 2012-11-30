@@ -237,7 +237,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $assocType int
 	 * @param $assocId int
 	 */
-	function deleteByAssocId($assocType, $assocId) {
+	function deleteByAssoc($assocType, $assocId) {
 		$reviewForms = $this->getByAssocId($assocType, $assocId);
 
 		while (!$reviewForms->eof()) {

@@ -54,6 +54,14 @@ class ContextDAO extends DAO {
 	}
 
 	/**
+	 * Get a list of localized settings.
+	 * @return array
+	 */
+	function getLocaleFieldNames() {
+		return array('name', 'description');
+	}
+
+	/**
 	 * Internal function to return a Context object from a row.
 	 * @param $row array
 	 * @return Context
@@ -63,6 +71,7 @@ class ContextDAO extends DAO {
 		$context->setId($row[$this->_getPrimaryKeyColumn()]);
 		$context->setPath($row['path']);
 		$context->setSequence($row['seq']);
+		$this->getDataObjectSettings($this->_getSettingsTableName(), $this->_getPrimaryKeyColumn(), $row[$this->_getPrimaryKeyColumn()], $context);
 		return $context;
 	}
 
@@ -176,6 +185,14 @@ class ContextDAO extends DAO {
 	 * @return string
 	 */
 	protected function _getTableName() {
+		assert(false); // Must be overridden by subclasses.
+	}
+
+	/**
+	 * Get the table name for this context's settings table.
+	 * @return string
+	 */
+	protected function _getSettingsTableName() {
 		assert(false); // Must be overridden by subclasses.
 	}
 

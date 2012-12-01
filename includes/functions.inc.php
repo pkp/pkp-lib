@@ -277,4 +277,18 @@ function strtolower_codesafe($str) {
 	return strtr($str, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
 }
 
+/**
+ * Convert a Windows path to a cygwin path.
+ * @param string $path Windows path
+ * @return string Cygwin path.
+ */
+function cygwinConversion($path) {
+	$path = str_replace('\\', '/', $path);
+	$matches = null;
+	String::regexp_match_get('/^([A-Z]):/i', $path, $matches);
+	if (isset($matches[1]) && strlen($matches[1]) === 1) {
+		$path = String::regexp_replace('/^[A-Z]:/i', '/cygdrive/' . strtolower($matches[1]), $path);
+	}
+	return $path;
+}
 ?>

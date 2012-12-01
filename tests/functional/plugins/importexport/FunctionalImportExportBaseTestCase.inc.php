@@ -32,7 +32,7 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 		curl_setopt($curlCh, CURLOPT_POST, true);
 
 		// Create a cookie file (required for log-in).
-		$cookies = tempnam ('/tmp', 'curlcookies');
+		$cookies = tempnam (sys_get_temp_dir(), 'curlcookies');
 
 		// Log in.
 		$loginUrl = $this->baseUrl.'/index.php/test/login/signIn';
@@ -148,24 +148,32 @@ class FunctionalImportExportBaseTestCase extends WebTestCase {
 	 * @return array
 	 */
 	protected function extractTarFile($tarFile) {
-		// Make sure we got the tar binary installed.
 		$tarBinary = Config::getVar('cli', 'tar');
-		self::assertTrue(!empty($tarBinary) && is_executable($tarBinary), 'tar must be installed');
+
+		// Cygwin compat.
+		$cygwin = Config::getVar('cli', 'cygwin');
+
+		// Make sure we got the tar binary installed.
+		self::assertTrue((!empty($tarBinary) && is_executable($tarBinary)) || is_executable($cygwin), 'tar must be installed');
 
 		// Create a temporary directory.
 		do {
-			$tempdir = sys_get_temp_dir() . '/' . md5(time().mt_rand());
+			$tempdir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . md5(time().mt_rand());
 		} while(file_exists($tempdir));
 		$fileManager = new FileManager();
 		$fileManager->mkdir($tempdir);
 
 		// Extract the tar to the temporary directory.
-		$tarCommand = $tarBinary . ' -C ' . escapeshellarg($tempdir) . ' -xzf ' . escapeshellarg($tarFile);
+		if ($cygwin) {
+			$tarCommand = $cygwin . " --login -c '" . $tarBinary . ' -C ' . escapeshellarg(cygwinConversion($tempdir)) . ' -xzf ' . escapeshellarg(cygwinConversion($tarFile)) . "'";
+		} else {
+			$tarCommand = $tarBinary . ' -C ' . escapeshellarg($tempdir) . ' -xzf ' . escapeshellarg($tarFile);
+		}
 		exec($tarCommand);
 
 		// Read the results into an array.
 		$result = array();
-		foreach(glob($tempdir . '/*.{tar.gz,xml}', GLOB_BRACE) as $extractedFile) {
+		foreach(glob($tempdir . DIRECTORY_SEPARATOR . '*.{tar.gz,xml}', GLOB_BRACE) as $extractedFile) {
 			if (substr($extractedFile, -4) == '.xml') {
 				// Read the XML file into the result array.
 				$result[basename($extractedFile)] = file_get_contents($extractedFile);

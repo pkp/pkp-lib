@@ -405,6 +405,26 @@ class SettingsDAO extends DAO {
 	}
 
 	/**
+	 * Get the settings cache for a given ID
+	 * @param $id
+	 * @return array
+	 */
+	function _getCache($id) {
+		static $settingCache;
+		if (!isset($settingCache)) {
+			$settingCache = array();
+		}
+		if (!isset($settingCache[$id])) {
+			$cacheManager = CacheManager::getManager();
+			$settingCache[$id] = $cacheManager->getCache(
+				$this->_getCacheName(), $id,
+				array($this, '_cacheMiss')
+			);
+		}
+		return $settingCache[$id];
+	}
+
+	/**
 	 * Get the settings table name.
 	 * @return string
 	 */
@@ -416,6 +436,13 @@ class SettingsDAO extends DAO {
 	 * Get the primary key column name.
 	 */
 	protected function _getPrimaryKeyColumn() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
+	 * Get the cache name.
+	 */
+	protected function _getCacheName() {
 		assert(false); // Must be implemented by subclasses
 	}
 }

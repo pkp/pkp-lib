@@ -77,7 +77,7 @@ class SettingsDAO extends DAO {
 	 * @param $id string
 	 * @return mixed
 	 */
-	function _cacheMiss(&$cache, $id) {
+	function _cacheMiss($cache, $id) {
 		$settings = $this->getSettings($cache->getCacheId());
 		if (!isset($settings[$id])) {
 			$cache->setCache($id, null);

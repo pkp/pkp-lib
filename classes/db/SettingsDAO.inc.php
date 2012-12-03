@@ -83,9 +83,7 @@ class SettingsDAO extends DAO {
 				$isLocaleField = $setting->getAttribute('locale');
 				$name = $nameNode->getValue();
 
-				if ($type == 'date') {
-					$value = strtotime($valueNode->getValue());
-				} elseif ($type == 'object') {
+				if ($type == 'object') {
 					$arrayNode = $valueNode->getChildByName('array');
 					$value = $this->_buildObject($arrayNode, $paramArray);
 				} else {

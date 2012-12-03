@@ -59,7 +59,7 @@ class SettingsDAO extends DAO {
 	 */
 	function &getSetting($id, $name, $locale = null) {
 		$cache = $this->_getCache($id);
-		$returner =& $cache->get($name); // Reference required
+		$returner = $cache->get($name);
 		if ($locale !== null) {
 			if (!isset($returner[$locale]) || !is_array($returner)) {
 				unset($returner);

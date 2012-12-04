@@ -132,7 +132,7 @@ class AnnouncementGridHandler extends GridHandler {
 		$context =& $request->getContext();
 		$contextId = $context->getId();
 
-		import('controllers.grid.content.announcements.form.AnnouncementForm');
+		import('controllers.grid.announcements.form.AnnouncementForm');
 		$announcementForm = new AnnouncementForm($contextId, $announcementId, true);
 
 		$announcementForm->initData($args, $request);

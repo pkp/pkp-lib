@@ -72,7 +72,7 @@ class AnnouncementGridHandler extends GridHandler {
 		$context =& $request->getContext();
 
 		// Columns
-		import('controllers.grid.content.announcements.AnnouncementGridCellProvider');
+		import('lib.pkp.controllers.grid.announcements.AnnouncementGridCellProvider');
 		$announcementCellProvider = new AnnouncementGridCellProvider();
 		$this->addColumn(
 			new GridColumn('title',

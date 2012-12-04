@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file controllers/grid/content/announcements/ViewAnnouncementGridHandler.inc.php
+ * @file controllers/grid/announcements/ViewAnnouncementGridHandler.inc.php
  *
  * Copyright (c) 2003-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ViewAnnouncementGridHandler
- * @ingroup controllers_grid_content_announcements
+ * @ingroup controllers_grid_announcements
  *
  * @brief View announcements grid.
  */

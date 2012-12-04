@@ -38,7 +38,7 @@ class PKPAnnouncementTypeGridHandler extends GridHandler {
 			// Ensure announcement type is valid and for this context
 			$announcementTypeDao =& DAORegistry::getDAO('AnnouncementTypeDAO'); /* @var $announcementTypeDao AnnouncementTypeDAO */
 			$announcementType =& $announcementTypeDao->getById($announcementTypeId);
-			if (!$announcementType || $announcementType->getAssocType() != ASSOC_TYPE_PRESS || $announcementType->getAssocId() != $context->getId()) {
+			if (!$announcementType || $announcementType->getAssocType() != $context->getAssocType() || $announcementType->getAssocId() != $context->getId()) {
 				return false;
 			}
 		}
@@ -58,7 +58,7 @@ class PKPAnnouncementTypeGridHandler extends GridHandler {
 		// Set the no items row text
 		$this->setEmptyRowText('manager.announcementTypes.noneCreated');
 
-		$press =& $request->getPress();
+		$context =& $request->getContext();
 
 		// Columns
 		import('lib.pkp.controllers.grid.announcements.AnnouncementTypeGridCellProvider');

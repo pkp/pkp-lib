@@ -31,6 +31,7 @@
 	<message key="announcement.postedOn">Posted on {$postDate}</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
+	<message key="common.confirmDelete">Are you sure you wish to delete this item? This action cannot be undone.</message>
 	<message key="common.abstract">Abstract</message>
 	<message key="common.accepted">Accepted</message>
 	<message key="common.acknowledged">Acknowledged</message>
@@ -336,6 +337,12 @@
 	<message key="navigation.user">User</message>
 	<message key="navigation.userManagement">User Management</message>
 	<message key="notification.allow">Allow these types of notifications to appear in my notification feed.</message>
+	<message key="notification.addedAnnouncementType">Announcement type added.</message>
+	<message key="notification.editedAnnouncementType">Announcement type edited.</message>
+	<message key="notification.removedAnnouncementType">Announcement type removed.</message>
+	<message key="notification.addedAnnouncement">Announcement added.</message>
+	<message key="notification.editedAnnouncement">Announcement edited.</message>
+	<message key="notification.removedAnnouncement">Announcement removed.</message>
 	<message key="notification.addedAuthor">Author added.</message>
 	<message key="notification.editedAuthor">Author edited.</message>
 	<message key="notification.confirmError">There was an error confirming your subscription.</message>

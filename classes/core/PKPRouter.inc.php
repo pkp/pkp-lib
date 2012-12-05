@@ -441,6 +441,9 @@ class PKPRouter {
 		// Retrieve the context list.
 		$contextList = $this->_contextList;
 
+		$baseUrlConfigSuffix = '';
+		$overriddenContextCount = 0;
+
 		// Determine URL context
 		$context = array();
 		foreach ($contextList as $contextKey => $contextName) {
@@ -463,8 +466,11 @@ class PKPRouter {
 			}
 
 			// Check whether the base URL is overridden.
-			if ($contextKey == 0) {
-				$overriddenBaseUrl = Config::getVar('general', "base_url[$contextValue]");
+			$baseUrlConfigSuffix .= "[$contextValue]";
+			$newOverriddenBaseUrl = Config::getVar('general', 'base_url' . $baseUrlConfigSuffix);
+			if (!empty($newOverriddenBaseUrl)) {
+				$overriddenContextCount = $contextKey + 1;
+				$overriddenBaseUrl = $newOverriddenBaseUrl;
 			}
 
 			$context[] = $contextParameter.$contextValue;
@@ -474,9 +480,11 @@ class PKPRouter {
 		if (!empty($overriddenBaseUrl)) {
 			$baseUrl = $overriddenBaseUrl;
 
-			// Throw the overridden context away
-			array_shift($context);
-			array_shift($contextList);
+			// Throw the overridden context(s) away
+			while ($overriddenContextCount>0) {
+				array_shift($context);
+				$overriddenContextCount--;
+			}
 		} else {
 			$baseUrl = $this->getIndexUrl($request);
 		}

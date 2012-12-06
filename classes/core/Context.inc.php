@@ -212,7 +212,7 @@ class Context extends DataObject {
 	 * @return array
 	 */
 	function &getSupportedLocaleNames() {
-		$supportedLocales =& $this->getData('supportedLocales');
+		$supportedLocales =& $this->getData('supportedLocaleNames');
 
 		if (!isset($supportedLocales)) {
 			$supportedLocales = array();

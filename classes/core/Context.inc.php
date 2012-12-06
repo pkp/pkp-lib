@@ -182,18 +182,26 @@ class Context extends DataObject {
 	}
 
 	/**
+	 * Get the supported form locales.
+	 * @return array
+	 */
+	function getSupportedFormLocales() {
+		return $this->getSetting('supportedFormLocales');
+	}
+
+	/**
 	 * Return associative array of all locales supported by forms on the site.
 	 * These locales are used to provide a language toggle on the main site pages.
 	 * @return array
 	 */
-	function &getSupportedFormLocaleNames() {
+	function getSupportedFormLocaleNames() {
 		$supportedLocales =& $this->getData('supportedFormLocaleNames');
 
 		if (!isset($supportedLocales)) {
 			$supportedLocales = array();
 			$localeNames =& AppLocale::getAllLocales();
 
-			$locales = $this->getSetting('supportedFormLocales');
+			$locales = $this->getSupportedFormLocales();
 			if (!isset($locales) || !is_array($locales)) {
 				$locales = array();
 			}
@@ -207,18 +215,60 @@ class Context extends DataObject {
 	}
 
 	/**
+	 * Get the supported submission locales.
+	 * @return array
+	 */
+	function getSupportedSubmissionLocales() {
+		return $this->getSetting('supportedSubmissionLocales');
+	}
+
+	/**
+	 * Return associative array of all locales supported by submissions on the
+	 * site. These locales are used to provide a language toggle on the main
+	 * site pages.
+	 * @return array
+	 */
+	function getSupportedSubmissionLocaleNames() {
+		$supportedLocales =& $this->getData('supportedSubmissionLocaleNames');
+
+		if (!isset($supportedLocales)) {
+			$supportedLocales = array();
+			$localeNames =& AppLocale::getAllLocales();
+
+			$locales = $this->getSupportedSubmissionLocales();
+			if (!isset($locales) || !is_array($locales)) {
+				$locales = array();
+			}
+
+			foreach ($locales as $localeKey) {
+				$supportedLocales[$localeKey] = $localeNames[$localeKey];
+			}
+		}
+
+		return $supportedLocales;
+	}
+
+	/**
+	 * Get the supported locales.
+	 * @return array
+	 */
+	function getSupportedLocales() {
+		return $this->getSetting('supportedLocales');
+	}
+
+	/**
 	 * Return associative array of all locales supported by the site.
 	 * These locales are used to provide a language toggle on the main site pages.
 	 * @return array
 	 */
-	function &getSupportedLocaleNames() {
+	function getSupportedLocaleNames() {
 		$supportedLocales =& $this->getData('supportedLocaleNames');
 
 		if (!isset($supportedLocales)) {
 			$supportedLocales = array();
 			$localeNames =& AppLocale::getAllLocales();
 
-			$locales = $this->getSetting('supportedLocales');
+			$locales = $this->getSupportedLocales();
 			if (!isset($locales) || !is_array($locales)) {
 				$locales = array();
 			}

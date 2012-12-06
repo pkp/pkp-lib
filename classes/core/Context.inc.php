@@ -187,7 +187,7 @@ class Context extends DataObject {
 	 * @return array
 	 */
 	function &getSupportedFormLocaleNames() {
-		$supportedLocales =& $this->getData('supportedFormLocales');
+		$supportedLocales =& $this->getData('supportedFormLocaleNames');
 
 		if (!isset($supportedLocales)) {
 			$supportedLocales = array();

@@ -102,7 +102,7 @@ class ProfileHandler extends UserHandler {
 		$user = $request->getUser();
 		$site = $request->getSite();
 
-		import('classes.user.form.ChangePasswordForm');
+		import('lib.pkp.classes.user.form.ChangePasswordForm');
 		$passwordForm = new ChangePasswordForm($user, $site);
 		$passwordForm->initData($args, $request);
 		$passwordForm->display($args, $request);
@@ -117,7 +117,7 @@ class ProfileHandler extends UserHandler {
 		$user = $request->getUser();
 		$site = $request->getSite();
 
-		import('classes.user.form.ChangePasswordForm');
+		import('lib.pkp.classes.user.form.ChangePasswordForm');
 		$passwordForm = new ChangePasswordForm($user, $site);
 		$passwordForm->readInputData();
 

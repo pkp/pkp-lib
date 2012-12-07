@@ -118,8 +118,6 @@ class PKPProfileForm extends Form {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
 
-		$templateMgr->assign_by_ref('presses', $presses);
-
 		$countryDao = DAORegistry::getDAO('CountryDAO');
 		$countries = $countryDao->getCountries();
 		$templateMgr->assign_by_ref('countries', $countries);

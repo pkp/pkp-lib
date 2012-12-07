@@ -27,7 +27,7 @@ class PKPProfileForm extends Form {
 	function PKPProfileForm($template, $user) {
 		parent::Form($template);
 
-		$this->_user =& $user;
+		$this->_user = $user;
 		assert($user);
 
 		// Validation checks for this form
@@ -51,7 +51,7 @@ class PKPProfileForm extends Form {
 	 * Delete a profile image.
 	 */
 	function deleteProfileImage() {
-		$user =& $this->getUser();
+		$user = $this->getUser();
 		$profileImage = $user->getSetting('profileImage');
 		if (!$profileImage) return false;
 
@@ -71,7 +71,7 @@ class PKPProfileForm extends Form {
 		import('classes.file.PublicFileManager');
 		$publicFileManager = new PublicFileManager();
 
-		$user =& $this->getUser();
+		$user = $this->getUser();
 
 		$type = $publicFileManager->getUploadedFileType('profileImage');
 		$extension = $publicFileManager->getImageExtension($type);
@@ -115,7 +115,7 @@ class PKPProfileForm extends Form {
 		$templateMgr->assign('availableLocales', $site->getSupportedLocaleNames());
 
 
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		$templateMgr->assign('genderOptions', $userDao->getGenderOptions());
 
 		$countryDao = DAORegistry::getDAO('CountryDAO');
@@ -132,7 +132,7 @@ class PKPProfileForm extends Form {
 	 * @return array
 	 */
 	function getLocaleFieldNames() {
-		$userDao =& DAORegistry::getDAO('UserDAO');
+		$userDao = DAORegistry::getDAO('UserDAO');
 		return $userDao->getLocaleFieldNames();
 	}
 
@@ -249,8 +249,8 @@ class PKPProfileForm extends Form {
 		$userDao->updateObject($user);
 
 		if ($user->getAuthId()) {
-			$authDao =& DAORegistry::getDAO('AuthSourceDAO');
-			$auth =& $authDao->getPlugin($user->getAuthId());
+			$authDao = DAORegistry::getDAO('AuthSourceDAO');
+			$auth = $authDao->getPlugin($user->getAuthId());
 		}
 
 		if (isset($auth)) {

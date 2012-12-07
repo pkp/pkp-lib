@@ -58,9 +58,9 @@ class ProfileHandler extends UserHandler {
 		if ($profileForm->isLocaleResubmit()) {
 			$profileForm->readInputData();
 		} else {
-			$profileForm->initData($args, $request);
+			$profileForm->initData($request);
 		}
-		$profileForm->display($args, $request);
+		$profileForm->display($request);
 	}
 
 	/**
@@ -89,7 +89,7 @@ class ProfileHandler extends UserHandler {
 			$profileForm->execute($request);
 			$request->redirect(null, $request->getRequestedPage());
 		} else {
-			$profileForm->display($args, $request);
+			$profileForm->display($request);
 		}
 	}
 

@@ -292,14 +292,14 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		import('classes.user.form.LoginChangePasswordForm');
+		import('lib.pkp.classes.user.form.LoginChangePasswordForm');
 
-		$passwordForm = new LoginChangePasswordForm();
+		$passwordForm = new LoginChangePasswordForm($request->getSite());
 		$passwordForm->initData();
 		if (isset($args[0])) {
 			$passwordForm->setData('username', $args[0]);
 		}
-		$passwordForm->display();
+		$passwordForm->display($request);
 	}
 
 	/**
@@ -309,9 +309,9 @@ class PKPLoginHandler extends Handler {
 		$this->validate();
 		$this->setupTemplate($request);
 
-		import('classes.user.form.LoginChangePasswordForm');
+		import('lib.pkp.classes.user.form.LoginChangePasswordForm');
 
-		$passwordForm = new LoginChangePasswordForm();
+		$passwordForm = new LoginChangePasswordForm($request->getSite());
 		$passwordForm->readInputData();
 
 		if ($passwordForm->validate()) {
@@ -321,7 +321,7 @@ class PKPLoginHandler extends Handler {
 			$request->redirect(null, 'user');
 
 		} else {
-			$passwordForm->display();
+			$passwordForm->display($request);
 		}
 	}
 

@@ -15,9 +15,6 @@
 {if !$registerOp}
 	{assign var="registerOp" value="register"}
 {/if}
-{if !$registerLocaleKey}
-	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
-{/if}
 
 {if $loginMessage}
 	<span class="instruct">{translate key="$loginMessage"}</span>
@@ -70,7 +67,7 @@
 			{else}
 				{url|assign:cancelUrl page="user" op=$registerOp}
 			{/if}
-			{fbvFormButtons cancelUrl=$cancelUrl cancelText=$registerLocaleKey submitText="user.login"}
+			{fbvFormButtons cancelUrl=$cancelUrl cancelText="user.login.registerNewAccount" submitText="user.login"}
 		{else}
 			{fbvFormButtons hideCancel=true submitText="user.login.resetPassword"}
 		{/if}

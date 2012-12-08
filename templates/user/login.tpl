@@ -12,10 +12,6 @@
 {include file="common/header.tpl"}
 {/strip}
 
-{if !$registerOp}
-	{assign var="registerOp" value="register"}
-{/if}
-
 {if $loginMessage}
 	<span class="instruct">{translate key="$loginMessage"}</span>
 	<br />
@@ -63,9 +59,9 @@
 		{/if}{* $showRemember *}
 		{if !$hideRegisterLink}
 			{if $source}
-				{url|assign:cancelUrl page="user" op=$registerOp source=$source}
+				{url|assign:cancelUrl page="user" op="register" source=$source}
 			{else}
-				{url|assign:cancelUrl page="user" op=$registerOp}
+				{url|assign:cancelUrl page="user" op="register"}
 			{/if}
 			{fbvFormButtons cancelUrl=$cancelUrl cancelText="user.login.registerNewAccount" submitText="user.login"}
 		{else}

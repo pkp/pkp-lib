@@ -11,9 +11,6 @@
 {assign var="pageTitle" value="user.login.resetPassword"}
 {include file="common/header.tpl"}
 {/strip}
-{if !$registerLocaleKey}
-	{assign var="registerLocaleKey" value="user.login.registerNewAccount"}
-{/if}
 
 <script type="text/javascript">
 	$(function() {ldelim}
@@ -33,7 +30,7 @@
 	{/fbvFormSection}
 	{if !$hideRegisterLink}
 		{url|assign:cancelUrl page="user" op=$registerOp}
-		{fbvFormButtons cancelUrl=$cancelUrl cancelText=$registerLocaleKey submitText="user.login.resetPassword"}
+		{fbvFormButtons cancelUrl=$cancelUrl cancelText="user.login.registerNewAccount" submitText="user.login.resetPassword"}
 	{else}
 		{fbvFormButtons hideCancel=true submitText="user.login.resetPassword"}
 	{/if}

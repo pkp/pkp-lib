@@ -58,7 +58,7 @@ class XMLCustomWriter {
 
 		$value = Core::cleanVar($value);
 
-		if (is_callable(array($doc, 'createTextNode'))) $element =& $doc->createTextNode($value);
+		if (is_callable(array($doc, 'createTextNode'))) $element = $doc->createTextNode($value);
 		else {
 			$element = new XMLNode();
 			$element->setValue($value);
@@ -68,7 +68,7 @@ class XMLCustomWriter {
 	}
 
 	static function &appendChild(&$parentNode, &$child) {
-		if (is_callable(array($parentNode, 'appendChild'))) $node =& $parentNode->appendChild($child);
+		if (is_callable(array($parentNode, 'appendChild'))) $node = $parentNode->appendChild($child);
 		else {
 			$parentNode->addChild($child);
 			$child->setParent($parentNode);
@@ -97,7 +97,7 @@ class XMLCustomWriter {
 	}
 
 	static function &getXML(&$doc) {
-		if (is_callable(array($doc, 'saveXML'))) $xml =& $doc->saveXML();
+		if (is_callable(array($doc, 'saveXML'))) $xml = $doc->saveXML();
 		else {
 			$xml = $doc->toXml();
 		}

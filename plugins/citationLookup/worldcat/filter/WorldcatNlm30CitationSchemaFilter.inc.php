@@ -144,7 +144,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_OCLC.urlencode($oclcId), $lookupParams))) return $nullVar;
 
 		// Extract ISBN from response
-		$oclcnumNodes =& $resultDOM->getElementsByTagName('oclcnum');
+		$oclcnumNodes = $resultDOM->getElementsByTagName('oclcnum');
 		$oclcnumFirstNode = $oclcnumNodes->item(0);
 
 		if (isset($oclcnumFirstNode)) {
@@ -197,7 +197,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 		if (is_null($resultDOM = $this->callWebService(WORLDCAT_WEBSERVICE_XISBN.urlencode($isbn), $lookupParams))) return $nullVar;
 
 		// Extract metadata from response
-		$recordNodes =& $resultDOM->getElementsByTagName('isbn');
+		$recordNodes = $resultDOM->getElementsByTagName('isbn');
 		if (is_null($recordNode = $recordNodes->item(0))) return $nullVar;
 
 		$metadata['isbn'] = $isbn;

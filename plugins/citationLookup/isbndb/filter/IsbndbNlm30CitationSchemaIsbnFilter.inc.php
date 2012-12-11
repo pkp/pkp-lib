@@ -75,7 +75,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 
 			// Did we get a search hit?
 			$numResults = '';
-			$bookList =& $resultDOM->getElementsByTagName('BookList');
+			$bookList = $resultDOM->getElementsByTagName('BookList');
 			if (is_a($bookList, 'DOMNodeList')) {
 				$bookListFirstItem =& $bookList->item(0);
 				if (is_a($bookListFirstItem, 'DOMNode')) {
@@ -86,7 +86,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
 		}
 
 		// Retrieve the first search hit
-		$bookDataNodes =& $resultDOM->getElementsByTagName('BookData');
+		$bookDataNodes = $resultDOM->getElementsByTagName('BookData');
 		$bookDataFirstNode = null;
 		if (is_a($bookDataNodes, 'DOMNodeList')) {
 			$bookDataFirstNode =& $bookDataNodes->item(0);

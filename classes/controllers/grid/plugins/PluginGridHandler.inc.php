@@ -227,7 +227,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @return string
 	 */
 	function installPlugin($args, &$request) {
-		return $this->_showUploadPluginForm('install');
+		return $this->_showUploadPluginForm('install', $request);
 	}
 
 	/**
@@ -237,7 +237,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @return string
 	 */
 	function upgradePlugin($args, &$request) {
-		return $this->_showUploadPluginForm('upgrade');
+		return $this->_showUploadPluginForm('upgrade', $request);
 	}
 
 	/**
@@ -335,10 +335,10 @@ class PluginGridHandler extends CategoryGridHandler {
 	 * @param $function string
 	 * @return string
 	 */
-	function _showUploadPluginForm($function) {
+	function _showUploadPluginForm($function, &$request) {
 		$this->setupTemplate($request, true);
 
-		import('controllers.grid.plugins.form.UploadPluginForm');
+		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);
 		$uploadPluginForm->initData();
 

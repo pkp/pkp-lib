@@ -124,7 +124,8 @@ class PKPCitationGridHandler extends GridHandler {
 		if (isset($args['refresh'])) {
 			$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
 			$processDao =& DAORegistry::getDAO('ProcessDAO');
-			$processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
+			$router = $request->getRouter();
+			$processDao->spawnProcesses($router->getDispatcher(), 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
 		}
 
 		// Grid actions

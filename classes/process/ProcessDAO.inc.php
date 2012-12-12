@@ -222,7 +222,7 @@ class ProcessDAO extends DAO {
 	/**
 	 * Spawn new processes via web requests up to the
 	 * given max. parallelism.
-	 * @param $dispatcher Dispatcher
+	 * @param $request Request
 	 * @param $handler string a fully qualified handler class name
 	 * @param $op string the operation to be called on the handler
 	 * @param $processType integer one of the PROCESS_TYPE_* constants
@@ -233,8 +233,10 @@ class ProcessDAO extends DAO {
 	 * @param $data optional Data to include with the processes
 	 * @return integer the actual number of spawned processes.
 	 */
-	function spawnProcesses($dispatcher, $handler, $op, $processType, $noOfProcesses, $data = null) {
+	function spawnProcesses(&$request, $handler, $op, $processType, $noOfProcesses, $data = null) {
 		// Generate the web URL to be called.
+		$router =& $request->getRouter();
+		$dispatcher =& $router->getDispatcher();
 		$processUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, $handler, $op);
 
 		// Parse the URL into parts to construct the fsockopen call.

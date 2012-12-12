@@ -141,8 +141,7 @@ class CitationDAO extends DAO {
 		// Check new citations in parallel.
 		$noOfProcesses = (int)Config::getVar('general', 'citation_checking_max_processes');
 		$processDao =& DAORegistry::getDAO('ProcessDAO');
-		$router = $request->getRouter();
-		return $processDao->spawnProcesses($router->getDispatcher(), 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
+		return $processDao->spawnProcesses($request, 'api.citation.CitationApiHandler', 'checkAllCitations', PROCESS_TYPE_CITATION_CHECKING, $noOfProcesses);
 	}
 
 	/**

@@ -42,7 +42,7 @@
 // 15 minutes. So we clean all processes that have a time
 // stamp of more than 15 minutes ago. Running processes should check
 // regularly (about once per minute) whether "their" process entry
-// is still their. If not they are required to halt immediately.
+// is still there. If not they are required to halt immediately.
 // NB: Don't set this timeout much shorter as this may
 // potentially cause more parallel processes being spawned
 // than allowed.

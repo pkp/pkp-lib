@@ -80,6 +80,22 @@ class Process extends DataObject {
 	function getObliterated() {
 		return $this->getData('obliterated');
 	}
+
+	/**
+	 * Set additional data to store with the process entry.
+	 * @param $additionalData mixed
+	 */
+	function setAdditionalData($additionalData) {
+		$this->setData('additionalData', $additionalData);
+	}
+
+	/**
+	 * Get the additional data stored with the process entry.
+	 * @return mixed
+	 */
+	function getAdditionalData() {
+		return $this->getData('additionalData');
+	}
 }
 
 ?>

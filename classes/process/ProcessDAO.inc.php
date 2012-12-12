@@ -75,11 +75,11 @@ class ProcessDAO extends DAO {
 	 * @param $maxParallelism integer the max. number
 	 *  of parallel processes allowed for the given
 	 *  process type.
-	 * @param $data optional Optional data to store with the process.
+	 * @param $additionalData optional Optional data to store with process.
 	 * @return Process the new process instance, boolean
 	 *  false if there are too many parallel processes.
 	 */
-	function &insertObject($processType, $maxParallelism, $data = null) {
+	function &insertObject($processType, $maxParallelism, $additionalData = null) {
 		// Free processing slots occupied by zombie processes.
 		$this->deleteZombies();
 
@@ -107,14 +107,14 @@ class ProcessDAO extends DAO {
 		// Persist the process.
 		$this->update(
 			sprintf('INSERT INTO processes
-				(process_id, process_type, time_started, obliterated, data)
+				(process_id, process_type, time_started, obliterated, additional_data)
 				VALUES
 				(?, ?, ?, 0, ?)'),
 			array(
 				$process->getId(),
 				(int) $process->getProcessType(),
 				(int) $process->getTimeStarted(),
-				serialize($data)
+				serialize($additionalData)
 			)
 		);
 		$process->setObliterated(false);
@@ -128,7 +128,7 @@ class ProcessDAO extends DAO {
 	 */
 	function getObjectById($processId) {
 		$result =& $this->retrieve(
-			'SELECT process_id, process_type, time_started, obliterated FROM processes WHERE process_id = ?',
+			'SELECT process_id, process_type, time_started, obliterated, additional_data FROM processes WHERE process_id = ?',
 			$processId
 		);
 
@@ -230,10 +230,10 @@ class ProcessDAO extends DAO {
 	 *  The actual number of processes can be lower if the max parallelism
 	 *  is exceeded or if there are already processes of the same type
 	 *  running.
-	 * @param $data optional Data to include with the processes
+	 * @param $additionalData optional Data to include with the processes
 	 * @return integer the actual number of spawned processes.
 	 */
-	function spawnProcesses(&$request, $handler, $op, $processType, $noOfProcesses, $data = null) {
+	function spawnProcesses($request, $handler, $op, $processType, $noOfProcesses, $data = null) {
 		// Generate the web URL to be called.
 		$dispatcher = Application::getDispatcher();
 		$processUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, $handler, $op);
@@ -375,7 +375,7 @@ class ProcessDAO extends DAO {
 		$process->setProcessType((integer)$row['process_type']);
 		$process->setTimeStarted((integer)$row['time_started']);
 		$process->setObliterated((boolean)$row['obliterated']);
-		$process->setData(unserialize($row['data']));
+		$process->setAdditionalData(unserialize($row['additional_data']));
 		return $process;
 	}
 }

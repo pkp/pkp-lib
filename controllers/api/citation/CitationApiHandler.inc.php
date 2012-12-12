@@ -4,13 +4,13 @@
  */
 
 /**
- * @file controllers/api/user/CitationApiHandler.inc.php
+ * @file controllers/api/citation/CitationApiHandler.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationApiHandler
- * @ingroup controllers_api_user
+ * @ingroup controllers_api_citation
  *
  * @brief Class defining the headless API for backend citation manipulation.
  */

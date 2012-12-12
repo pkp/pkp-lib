@@ -75,10 +75,11 @@ class ProcessDAO extends DAO {
 	 * @param $maxParallelism integer the max. number
 	 *  of parallel processes allowed for the given
 	 *  process type.
+	 * @param $data optional Optional data to store with the process.
 	 * @return Process the new process instance, boolean
 	 *  false if there are too many parallel processes.
 	 */
-	function &insertObject($processType, $maxParallelism) {
+	function &insertObject($processType, $maxParallelism, $data = null) {
 		// Free processing slots occupied by zombie processes.
 		$this->deleteZombies();
 
@@ -108,11 +109,12 @@ class ProcessDAO extends DAO {
 			sprintf('INSERT INTO processes
 				(process_id, process_type, time_started, obliterated)
 				VALUES
-				(?, ?, ?, 0)'),
+				(?, ?, ?, 0, ?)'),
 			array(
 				$process->getId(),
 				(int) $process->getProcessType(),
 				(int) $process->getTimeStarted(),
+				serialize($data)
 			)
 		);
 		$process->setObliterated(false);
@@ -220,8 +222,6 @@ class ProcessDAO extends DAO {
 	/**
 	 * Spawn new processes via web requests up to the
 	 * given max. parallelism.
-	 * NB: We currently do not support request parameters. If
-	 * the requirement comes up this needs to be added.
 	 * @param $request Request
 	 * @param $handler string a fully qualified handler class name
 	 * @param $op string the operation to be called on the handler
@@ -230,9 +230,10 @@ class ProcessDAO extends DAO {
 	 *  The actual number of processes can be lower if the max parallelism
 	 *  is exceeded or if there are already processes of the same type
 	 *  running.
+	 * @param $data optional Data to include with the processes
 	 * @return integer the actual number of spawned processes.
 	 */
-	function spawnProcesses(&$request, $handler, $op, $processType, $noOfProcesses) {
+	function spawnProcesses(&$request, $handler, $op, $processType, $noOfProcesses, $data = null) {
 		// Generate the web URL to be called.
 		$router =& $request->getRouter();
 		$dispatcher =& $router->getDispatcher();
@@ -264,7 +265,7 @@ class ProcessDAO extends DAO {
 			// NB: insertObject() re-checks the number of currently running
 			// processes on each iteration to make sure that we don't exceed
 			// the limit when there are concurrent requests.
-			$process =& $this->insertObject($processType, $noOfProcesses);
+			$process =& $this->insertObject($processType, $noOfProcesses, $data);
 			if (!is_a($process, 'Process')) break;
 			$oneTimeKey = $process->getId();
 
@@ -375,6 +376,7 @@ class ProcessDAO extends DAO {
 		$process->setProcessType((integer)$row['process_type']);
 		$process->setTimeStarted((integer)$row['time_started']);
 		$process->setObliterated((boolean)$row['obliterated']);
+		$process->setData(unserialize($row['data']));
 		return $process;
 	}
 }

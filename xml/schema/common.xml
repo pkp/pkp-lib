@@ -634,6 +634,7 @@
 		<field name="time_started" type="I8">
 			<NOTNULL/>
 		</field>
+		<field name="data" type="X"/>
 		<field name="obliterated" type="I1">
 			<NOTNULL/>
 			<DEFAULT VALUE="0"/>

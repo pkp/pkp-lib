@@ -61,7 +61,7 @@ class Process extends DataObject {
 	 * Get the starting time of the process
 	 * @return integer unix timestamp
 	 */
-	function &getTimeStarted() {
+	function getTimeStarted() {
 		return $this->getData('timeStarted');
 	}
 

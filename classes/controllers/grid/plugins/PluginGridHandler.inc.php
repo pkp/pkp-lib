@@ -274,7 +274,7 @@ class PluginGridHandler extends CategoryGridHandler {
 	function saveUploadPlugin($args, &$request) {
 		$function = $request->getUserVar('function');
 
-		import('controllers.grid.plugins.form.UploadPluginForm');
+		import('lib.pkp.controllers.grid.plugins.form.UploadPluginForm');
 		$uploadPluginForm = new UploadPluginForm($function);
 		$uploadPluginForm->readInputData();
 

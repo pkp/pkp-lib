@@ -107,7 +107,7 @@ class ProcessDAO extends DAO {
 		// Persist the process.
 		$this->update(
 			sprintf('INSERT INTO processes
-				(process_id, process_type, time_started, obliterated)
+				(process_id, process_type, time_started, obliterated, data)
 				VALUES
 				(?, ?, ?, 0, ?)'),
 			array(
@@ -235,8 +235,7 @@ class ProcessDAO extends DAO {
 	 */
 	function spawnProcesses(&$request, $handler, $op, $processType, $noOfProcesses, $data = null) {
 		// Generate the web URL to be called.
-		$router =& $request->getRouter();
-		$dispatcher =& $router->getDispatcher();
+		$dispatcher = Application::getDispatcher();
 		$processUrl = $dispatcher->url($request, ROUTE_COMPONENT, null, $handler, $op);
 
 		// Parse the URL into parts to construct the fsockopen call.

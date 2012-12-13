@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE countries SYSTEM "../../dtd/countries.dtd">
 
+<!--
+  * locale/id_ID/countries.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
 <countries>
 	<country name="Afghanistan" code="AF"/>
 	<country name="Åland Islands" code="AX"/>

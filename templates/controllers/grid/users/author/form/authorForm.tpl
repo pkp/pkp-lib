@@ -30,7 +30,7 @@
 		<div class="pkp_helpers_clear"></div>
 		{fbvFormSection title="about.contact"}
 			{fbvElement type="text" label="user.email" id="email" value=$email|escape maxlength="90" required=true inline=true size=$fbvStyles.size.MEDIUM}
-			{fbvElement type="text" label="user.url" id="url" value=$url|escape maxlength="90" inline=true size=$fbvStyles.size.MEDIUM}
+			{fbvElement type="text" label="user.url" id="url" value=$url|escape maxlength="255" inline=true size=$fbvStyles.size.MEDIUM}
 		{/fbvFormSection}
 		{fbvFormSection title="common.other"}
 			{fbvElement type="text" label="user.affiliation" id="affiliation" inline=true value=$affiliation|escape maxlength="40" size=$fbvStyles.size.MEDIUM}

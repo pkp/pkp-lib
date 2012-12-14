@@ -14,6 +14,7 @@
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
+import('lib.pkp.classes.controllers.grid.DateGridCellProvider');
 
 class AnnouncementGridHandler extends GridHandler {
 	/**
@@ -93,14 +94,17 @@ class AnnouncementGridHandler extends GridHandler {
 			)
 		);
 
-		$cellProvider = new DataObjectGridCellProvider();
+		$dateCellProvider = new DateGridCellProvider(
+			new DataObjectGridCellProvider(),
+			Config::getVar('general', 'date_format_short')
+		);
 		$this->addColumn(
 			new GridColumn(
 				'datePosted',
 				'announcement.posted',
 				null,
 				'controllers/grid/gridCell.tpl',
-				$cellProvider
+				$dateCellProvider
 			)
 		);
 	}

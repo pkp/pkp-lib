@@ -53,7 +53,7 @@
 				$('input[id^="dateExpire"]').datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
 			</script>
 			{fbvFormSection title="manager.announcements.form.dateExpire" for="dataExpire"}
-				{fbvElement type="text" id="dateExpire" value=$dateExpire label="manager.announcements.form.dateExpireInstructions" size=$fbvStyles.size.MEDIUM}
+				{fbvElement type="text" id="dateExpire" value=$dateExpire|date_format:"%y-%m-%d" label="manager.announcements.form.dateExpireInstructions" size=$fbvStyles.size.MEDIUM}
 			{/fbvFormSection}
 		{/fbvFormArea}
 		{fbvFormButtons id="announcementFormSubmit" submitText="common.save"}

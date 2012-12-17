@@ -101,7 +101,7 @@ class CacheManager {
 				);
 				break;
 			default:
-				die ("Unknown cache type \"$cacheType\"!\n");
+				die ("Unknown cache type \"$type\"!\n");
 				break;
 		}
 		return $cache;

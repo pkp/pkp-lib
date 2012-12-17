@@ -294,9 +294,9 @@ class PKPComponentRouterTest extends PKPRouterTestCase {
 		self::assertEquals($expectedArgs, $fetchArgs);
 		self::assertSame($expectedArgs[1], $fetchArgs[1]);
 		$firstContextDao = DAORegistry::getDAO('FirstContextDAO');
-		self::assertInstanceOf('FirstContext', $firstContextDao->getFirstContextByPath('context1'));
+		self::assertInstanceOf('FirstContext', $firstContextDao->getByPath('context1'));
 		$secondContextDao = DAORegistry::getDAO('SecondContextDAO');
-		self::assertInstanceOf('SecondContext', $secondContextDao->getSecondContextByPath('context2'));
+		self::assertInstanceOf('SecondContext', $secondContextDao->getByPath('context2'));
 	}
 
 	/**

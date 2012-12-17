@@ -194,7 +194,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		$_SERVER['PATH_INFO'] = '/contextPath';
 
 		// Simulate a context DAO
-		$mockDao = $this->getMock('SomeContextDAO', array('getSomeContextByPath'));
+		$mockDao = $this->getMock('SomeContextDAO', array('getByPath'));
 		DAORegistry::registerDAO('SomeContextDAO', $mockDao);
 
 		// Set up the mock DAO get-by-path method which
@@ -202,7 +202,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		// the path info.
 		$expectedResult = $this->getMock('SomeContext');
 		$mockDao->expects($this->once())
-		        ->method('getSomeContextByPath')
+		        ->method('getByPath')
 		        ->with('contextPath')
 		        ->will($this->returnValue($expectedResult));
 		$result = $this->router->getContext($this->request, 1);
@@ -332,7 +332,7 @@ class PKPRouterTestCase extends PKPTestCase {
 	 * @param $secondContextIsNull boolean
 	 */
 	protected function _setUpMockDAOs($firstContextPath = 'current-context1', $secondContextPath = 'current-context2', $firstContextIsNull = false, $secondContextIsNull = false) {
-		$mockFirstContextDao = $this->getMock('FirstContextDAO', array('getFirstContextByPath'));
+		$mockFirstContextDao = $this->getMock('FirstContextDAO', array('getByPath'));
 		if (!$firstContextIsNull) {
 			$firstContextInstance = $this->getMock('FirstContext', array('getPath', 'getSetting'));
 			$firstContextInstance->expects($this->any())
@@ -342,20 +342,20 @@ class PKPRouterTestCase extends PKPTestCase {
 			                     ->method('getSetting')
 			                     ->will($this->returnValue(null));
 			$mockFirstContextDao->expects($this->any())
-			                    ->method('getFirstContextByPath')
+			                    ->method('getByPath')
 			                    ->with($firstContextPath)
 			                    ->will($this->returnValue($firstContextInstance));
 		}
 		DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
 
-		$mockSecondContextDao = $this->getMock('SecondContextDAO', array('getSecondContextByPath'));
+		$mockSecondContextDao = $this->getMock('SecondContextDAO', array('getByPath'));
 		if (!$secondContextIsNull) {
 			$secondContextInstance = $this->getMock('SecondContext', array('getPath'));
 			$secondContextInstance->expects($this->any())
 			                      ->method('getPath')
 			                      ->will($this->returnValue($secondContextPath));
 			$mockSecondContextDao->expects($this->any())
-			                     ->method('getSecondContextByPath')
+			                     ->method('getByPath')
 			                     ->with($secondContextPath)
 			                     ->will($this->returnValue($secondContextInstance));
 		}

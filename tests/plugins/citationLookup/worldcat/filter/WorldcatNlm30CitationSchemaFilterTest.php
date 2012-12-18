@@ -29,6 +29,10 @@ class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 	 * @covers WorldcatNlm30CitationSchemaFilter
 	 */
 	public function testExecuteWithDoi() {
+		if (is_null(Config::getVar('debug', 'worldcat_apikey'))) {
+			$this->markTestSkipped('The WorldCat API key has not been configured.');
+		}
+
 		// Test book lookup
 		$testWithApiKey = array(
 			'testInput' => array(
@@ -54,7 +58,7 @@ class WorldcatNlm30CitationSchemaFilterTest extends Nlm30CitationSchemaFilterTes
 		$citationFilterTests = array($testWithApiKey);
 
 		// Execute the tests with API key
-		self::assertEquals(80, strlen(Config::getVar('debug', 'worldcat_apikey')), 'It seems that the WorldCat API key has not been configured.');
+		self::assertEquals(80, strlen(Config::getVar('debug', 'worldcat_apikey')), 'It seems that the WorldCat API key has not been correctly configured.');
 		$filter = new WorldcatNlm30CitationSchemaFilter(PersistableFilter::tempGroup(
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
 				'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)'));

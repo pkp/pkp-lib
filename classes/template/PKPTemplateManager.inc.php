@@ -951,7 +951,10 @@ class PKPTemplateManager extends Smarty {
 				$tags = array();
 				$string = $this->_removeTags($string, $tags, $length);
 			}
-			$length -= min($length, String::strlen($etc));
+			if (!empty($etc)) {
+				$length = min($length, String::strlen($etc));
+			}
+			$length--;
 			if (!$middle) {
 				if(!$break_words) {
 					$string = String::regexp_replace('/\s+?(\S+)?$/', '', String::substr($string, 0, $length+1));

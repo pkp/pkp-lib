@@ -21,11 +21,10 @@ class FormValidatorISSN extends FormValidator {
 	 * @param $field string the name of the associated field
 	 * @param $type string the type of check, either "required" or "optional"
 	 * @param $message string the error message for validation failures (i18n key)
-	 * @param $regExp string the regular expression (PCRE form)
 	 */
-	function FormValidatorISSN($form, $field, $type, $message, $regExp) {
+	function FormValidatorISSN($form, $field, $type, $message) {
 		import('lib.pkp.classes.validation.ValidatorISSN');
-		$validator = new ValidatorISSN($regExp);
+		$validator = new ValidatorISSN();
 		parent::FormValidator($form, $field, $type, $message, $validator);
 	}
 }

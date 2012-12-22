@@ -17,10 +17,10 @@ if (TinyMCE_Compressor::getParam("js")) {
 	 * Add any site-specific defaults here that you may wish to implement. For example:
 	 *
 	 * 	"languages" => "en",
-	 *  "cache_dir" => realpath(dirname(__FILE__) . "/../../_cache"),
 	 *  "files"     => "somescript,anotherscript",
 	 *  "expires"   => "1m",
 	 */
+	    "cache_dir" => realpath(dirname(__FILE__) . "/../../../../../../cache"),
 	));
 
 	// Handle request, compress and stream to client

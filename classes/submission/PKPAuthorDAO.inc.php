@@ -186,6 +186,87 @@ class PKPAuthorDAO extends DAO {
 	}
 
 	/**
+	 * Insert a new Author.
+	 * @param $author Author
+	 */
+	function insertAuthor(&$author) {
+		// Set author sequence to end of author list
+		if(!$author->getSequence()) {
+			$authorCount = $this->getAuthorCountBySubmissionId($author->getSubmissionId());
+			$author->setSequence($authorCount + 1);
+		}
+		// Reset primary contact for monograph to this author if applicable
+		if ($author->getPrimaryContact()) {
+			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
+		}
+
+		$this->update(
+				'INSERT INTO authors
+				(submission_id, first_name, middle_name, last_name, suffix, country, email, url, user_group_id, primary_contact, seq)
+				VALUES
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+				array(
+						$author->getSubmissionId(),
+						$author->getFirstName(),
+						$author->getMiddleName() . '', // make non-null
+						$author->getLastName(),
+						$author->getSuffix() . '',
+						$author->getCountry(),
+						$author->getEmail(),
+						$author->getUrl(),
+						(int) $author->getUserGroupId(),
+						(int) $author->getPrimaryContact(),
+						(float) $author->getSequence()
+				)
+		);
+
+		$author->setId($this->getInsertAuthorId());
+		$this->updateLocaleFields($author);
+
+		return $author->getId();
+	}
+
+	/**
+	 * Update an existing Author.
+	 * @param $author Author
+	 */
+	function updateAuthor($author) {
+		// Reset primary contact for monograph to this author if applicable
+		if ($author->getPrimaryContact()) {
+			$this->resetPrimaryContact($author->getId(), $author->getSubmissionId());
+		}
+		$returner = $this->update(
+				'UPDATE	authors
+				SET	first_name = ?,
+				middle_name = ?,
+				last_name = ?,
+				suffix = ?,
+				country = ?,
+				email = ?,
+				url = ?,
+				user_group_id = ?,
+				primary_contact = ?,
+				seq = ?
+				WHERE	author_id = ?',
+				array(
+						$author->getFirstName(),
+						$author->getMiddleName() . '', // make non-null
+						$author->getLastName(),
+						$author->getSuffix() . '',
+						$author->getCountry(),
+						$author->getEmail(),
+						$author->getUrl(),
+						(int) $author->getUserGroupId(),
+						(int) $author->getPrimaryContact(),
+						(float) $author->getSequence(),
+						(int) $author->getId()
+				)
+		);
+		$this->updateLocaleFields($author);
+		return $returner;
+	}
+
+	/**
 	 * Delete an Author.
 	 * @param $author Author
 	 */
@@ -279,6 +360,17 @@ class PKPAuthorDAO extends DAO {
 	 */
 	function getInsertAuthorId() {
 		return $this->_getInsertId('authors', 'author_id');
+	}
+
+	/**
+	 * Delete authors by submission.
+	 * @param $submissionId int
+	 */
+	function deleteAuthorsBySubmission($submissionId) {
+		$authors =& $this->getAuthorsBySubmissionId($submissionId);
+		foreach ($authors as $author) {
+			$this->deleteAuthor($author);
+		}
 	}
 }
 

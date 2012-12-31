@@ -17,12 +17,14 @@
  * @brief Basic class describing users existing in the system.
  */
 
-class PKPUser extends DataObject {
+import('lib.pkp.classes.identity.PKPIdentity');
+
+class PKPUser extends PKPIdentity {
 	/**
 	 * Constructor
 	 */
 	function PKPUser() {
-		parent::DataObject();
+		parent::PKPIdentity();
 	}
 
 	//
@@ -103,103 +105,6 @@ class PKPUser extends DataObject {
 	}
 
 	/**
-	 * Get first name.
-	 * @return string
-	 */
-	function getFirstName() {
-		return $this->getData('firstName');
-	}
-
-	/**
-	 * Set first name.
-	 * @param $firstName string
-	 */
-	function setFirstName($firstName)
-	{
-		return $this->setData('firstName', $firstName);
-	}
-
-	/**
-	 * Get middle name.
-	 * @return string
-	 */
-	function getMiddleName() {
-		return $this->getData('middleName');
-	}
-
-	/**
-	 * Set middle name.
-	 * @param $middleName string
-	 */
-	function setMiddleName($middleName) {
-		return $this->setData('middleName', $middleName);
-	}
-
-	/**
-	 * Get initials.
-	 * @return string
-	 */
-	function getInitials() {
-		return $this->getData('initials');
-	}
-
-	/**
-	 * Set initials.
-	 * @param $initials string
-	 */
-	function setInitials($initials) {
-		return $this->setData('initials', $initials);
-	}
-
-	/**
-	 * Get last name.
-	 * @return string
-	 */
-	function getLastName() {
-		return $this->getData('lastName');
-	}
-
-	/**
-	 * Set last name.
-	 * @param $lastName string
-	 */
-	function setLastName($lastName) {
-		return $this->setData('lastName', $lastName);
-	}
-
-	/**
-	 * Get name suffix.
-	 * @return string
-	 */
-	function getSuffix() {
-		return $this->getData('suffix');
-	}
-
-	/**
-	 * Set suffix.
-	 * @param $suffix string
-	 */
-	function setSuffix($suffix) {
-		return $this->setData('suffix', $suffix);
-	}
-
-	/**
-	 * Get user salutation.
-	 * @return string
-	 */
-	function getSalutation() {
-		return $this->getData('salutation');
-	}
-
-	/**
-	 * Set user salutation.
-	 * @param $salutation string
-	 */
-	function setSalutation($salutation) {
-		return $this->setData('salutation', $salutation);
-	}
-
-	/**
 	 * Get user gender.
 	 * @return string
 	 */
@@ -213,63 +118,6 @@ class PKPUser extends DataObject {
 	 */
 	function setGender($gender) {
 		return $this->setData('gender', $gender);
-	}
-
-	/**
-	 * Get affiliation (position, institution, etc.).
-	 * @param $locale string
-	 * @return string
-	 */
-	function getAffiliation($locale) {
-		return $this->getData('affiliation', $locale);
-	}
-
-	/**
-	 * Set affiliation.
-	 * @param $affiliation string
-	 * @param $locale string
-	 */
-	function setAffiliation($affiliation, $locale) {
-		return $this->setData('affiliation', $affiliation, $locale);
-	}
-
-	/**
-	 * Get localized user affiliation.
-	 */
-	function getLocalizedAffiliation() {
-		return $this->getLocalizedData('affiliation');
-	}
-
-	/**
-	 * Get email address.
-	 * @return string
-	 */
-	function getEmail() {
-		return $this->getData('email');
-	}
-
-	/**
-	 * Set email address.
-	 * @param $email string
-	 */
-	function setEmail($email) {
-		return $this->setData('email', $email);
-	}
-
-	/**
-	 * Get URL.
-	 * @return string
-	 */
-	function getUrl() {
-		return $this->getData('url');
-	}
-
-	/**
-	 * Set URL.
-	 * @param $url string
-	 */
-	function setUrl($url) {
-		return $this->setData('url', $url);
 	}
 
 	/**
@@ -334,47 +182,6 @@ class PKPUser extends DataObject {
 	 */
 	function setBillingAddress($billingAddress) {
 		return $this->setData('billingAddress', $billingAddress);
-	}
-
-	/**
-	 * Get country.
-	 * @return string
-	 */
-	function getCountry() {
-		return $this->getData('country');
-	}
-
-	/**
-	 * Set country.
-	 * @param $country string
-	 */
-	function setCountry($country) {
-		return $this->setData('country', $country);
-	}
-
-	/**
-	 * Get localized user biography.
-	 */
-	function getLocalizedBiography() {
-		return $this->getLocalizedData('biography');
-	}
-
-	/**
-	 * Get user biography.
-	 * @param $locale string
-	 * @return string
-	 */
-	function getBiography($locale) {
-		return $this->getData('biography', $locale);
-	}
-
-	/**
-	 * Set user biography.
-	 * @param $biography string
-	 * @param $locale string
-	 */
-	function setBiography($biography, $locale) {
-		return $this->setData('biography', $biography, $locale);
 	}
 
 	/**
@@ -582,26 +389,6 @@ class PKPUser extends DataObject {
 	 */
 	function setInlineHelp($inlineHelp) {
 		return $this->setData('inlineHelp', $inlineHelp);
-	}
-
-	/**
-	 * Get the user's complete name.
-	 * Includes first name, middle name (if applicable), and last name.
-	 * The suffix is only included when the name is not reversed with $lastFirst
-	 * @param $lastFirst boolean return in "LastName, FirstName" format
-	 * @return string
-	 */
-	function getFullName($lastFirst = false) {
-		$salutation = $this->getData('salutation');
-		$firstName = $this->getData('firstName');
-		$middleName = $this->getData('middleName');
-		$lastName = $this->getData('lastName');
-		$suffix = $this->getData('suffix');
-		if ($lastFirst) {
-			return "$lastName, " . ($salutation != ''?"$salutation ":'') . "$firstName" . ($middleName != ''?" $middleName":'');
-		} else {
-			return ($salutation != ''?"$salutation ":'') . "$firstName " . ($middleName != ''?"$middleName ":'') . $lastName . ($suffix != ''?", $suffix":'');
-		}
 	}
 
 	function getContactSignature() {

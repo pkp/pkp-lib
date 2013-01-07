@@ -20,7 +20,7 @@ class PKPIdentity extends DataObject {
 	/**
 	 * Constructor
 	 */
-	function PKPUser() {
+	function PKPIdentity() {
 		parent::DataObject();
 	}
 

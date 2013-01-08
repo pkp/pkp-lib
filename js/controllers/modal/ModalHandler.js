@@ -183,6 +183,8 @@
 		// unregister this form with SiteHandler.
 
 		if ($form.length == 1) {
+			// prevent orphaned date pickers that may be still open.
+			$form.find('.hasDatepicker').datepicker('hide');
 			handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (handler.formChangesTracked) {
 				if (!confirm($.pkp.locale.form_dataHasChanged)) {

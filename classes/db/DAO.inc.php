@@ -230,11 +230,12 @@ class DAO {
 	 * @param $table string
 	 * @param $arrFields array Associative array of colName => value
 	 * @param $keyCols array Array of column names that are keys
+	 * @return int @see ADODB::Replace
 	 */
 	function replace($table, $arrFields, $keyCols) {
 		$dataSource = $this->getDataSource();
 		$arrFields = array_map(array($dataSource, 'qstr'), $arrFields);
-		$dataSource->Replace($table, $arrFields, $keyCols, false);
+		return $dataSource->Replace($table, $arrFields, $keyCols, false);
 	}
 
 	/**

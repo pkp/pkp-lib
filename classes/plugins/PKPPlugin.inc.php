@@ -190,7 +190,7 @@ class PKPPlugin {
 	 * @return boolean will redirect to the plugin category page if false, otherwise
 	 *  will remain on the same page
 	 */
-	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent = null) {
+	function manage($verb, $args, &$message, &$messageParams, &$pluginModalContent) {
 		return false;
 	}
 

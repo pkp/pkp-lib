@@ -21,6 +21,8 @@
 	<span id="{$FBV_name|escape}-localization-popover-container{$uniqId}" class="localization_popover_container">
 		{strip}
 			<textarea id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}" {$FBV_textAreaParams}
+				rows="{$FBV_rows|escape}"
+				cols="{$FBV_cols|escape}"
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
@@ -54,6 +56,8 @@
 			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
+			rows="{$FBV_rows|escape}"
+			cols="{$FBV_cols|escape}"
 			id="{$FBV_id|escape}{$uniqId}">{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}</textarea>
 	{/if}
 		<span>{$FBV_label_content}</span>

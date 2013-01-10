@@ -494,17 +494,21 @@ class FormBuilderVocabulary {
 		$params['name'] = isset($params['name']) ? $params['name'] : $params['id'];
 		$params['disabled'] = isset($params['disabled']) ? $params['disabled'] : false;
 		$params['rich'] = isset($params['rich']) ? $params['rich'] : false;
+		$params['rows'] = isset($params['rows']) ? $params['rows'] : 10;
+		$params['cols'] = isset($params['cols']) ? $params['cols'] : 80;
 		$params['multilingual'] = isset($params['multilingual']) ? $params['multilingual'] : false;
 		$params['value'] = isset($params['value']) ? $params['value'] : '';
 		$params['subLabelTranslate'] = isset($params['subLabelTranslate']) ? (boolean) $params['subLabelTranslate'] : true;
 		$params['uniqId'] = uniqid();
 
 		$textAreaParams = '';
-		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height', 'FBV_uniqId'));
+		$smarty->clear_assign(array('FBV_label_content', 'FBV_disabled', 'FBV_multilingual', 'FBV_name', 'FBV_value', 'FBV_height', 'FBV_uniqId', 'FBV_rows', 'FBV_cols'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'name': $smarty->assign('FBV_name', $params['name']); break;
 				case 'value': $smarty->assign('FBV_value', $value); break;
+				case 'rows': $smarty->assign('FBV_rows', $params['rows']); break;
+				case 'cols': $smarty->assign('FBV_cols', $params['cols']); break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				case 'type': break;
 				case 'size': break;

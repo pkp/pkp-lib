@@ -9,24 +9,28 @@
  * @brief Classes for the page header structural elements
  */
 
+@head_height: 96px;
+
 .pkp_structure_head {
-	height: 96px;
+	height: @head_height;
 	background-color: #a2c6dc;
 
 	.pkp_structure_masthead {
 		background-color: #fff;
-		height: 113px;
-		padding: 0 5px 5px;
-		border-style: none solid solid;
-		border-width: medium 1px 1px;
-		border-color: #c8c8c8;
+		height: @head_height;
 	}
 	
 	.pkp_structure_masthead h1 {
-		height: 99px;
-		border-style: none dotted dotted;
-		border-width: medium 1px 1px;
-		border-color: #818181;
-		overflow: hidden;
+		padding: 0px;
+
+		img {
+			margin: 0px auto 0px auto;
+			padding: 0px;
+
+			max-width: 100%;
+			max-height: @head_height;
+			width: auto;
+			height: auto;
+		}
 	}
 }

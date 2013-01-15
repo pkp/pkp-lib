@@ -8,5 +8,5 @@
  *}
 
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
-	<button class="{$FBV_class} button" type="{$FBV_type|escape}"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}</button>
+	<button class="{$FBV_class} button" type="button"{if $FBV_disabled} disabled="disabled"{/if} {$FBV_buttonParams}>{if $FBV_translate}{translate key=$FBV_label}{else}{$FBV_label}{/if}</button>
 </div>

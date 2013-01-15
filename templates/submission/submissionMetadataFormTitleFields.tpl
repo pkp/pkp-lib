@@ -9,16 +9,16 @@
  *}
 {fbvFormArea id="generalInformation" title="submission.submit.titleAndSummary" class="border"}
 	{fbvFormSection for="title" title="common.prefix" inline="true" size=$fbvStyles.size.SMALL}
-		{fbvElement type="text" multilingual=true name="prefix" id="prefix" value=$prefix disabled=$readOnly maxlength="32"}
+		{fbvElement type="text" multilingual=true name="prefix" id="prefix" value=$prefix readonly=$readOnly maxlength="32"}
 	{/fbvFormSection}
 	{fbvFormSection for="title" title="common.title" inline="true" size=$fbvStyles.size.LARGE required=true}
-		{fbvElement type="text" multilingual=true name="title" id="title" value=$title disabled=$readOnly maxlength="255" required=true}
+		{fbvElement type="text" multilingual=true name="title" id="title" value=$title readonly=$readOnly maxlength="255" required=true}
 	{/fbvFormSection}
 	{fbvFormSection description="common.prefixAndTitle.tip"}{/fbvFormSection}
 	{fbvFormSection title="common.subtitle" for="subtitle"}
-		{fbvElement type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle disabled=$readOnly}
+		{fbvElement type="text" multilingual=true name="subtitle" id="subtitle" value=$subtitle readonly=$readOnly}
 	{/fbvFormSection}
 	{fbvFormSection title="common.abstract" for="abstract" required=true}
-		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich=true disabled=$readOnly}
+		{fbvElement type="textarea" multilingual=true name="abstract" id="abstract" value=$abstract rich=true readonly=$readOnly}
 	{/fbvFormSection}
 {/fbvFormArea}

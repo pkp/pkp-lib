@@ -24,6 +24,7 @@
 			{$FBV_textInputParams}
 			class="localizable {if $FBV_class}{$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
+			{if $FBV_readonly} readonly="readonly"{/if}
 			value="{$FBV_value[$formLocale]|escape}"
 			name="{$FBV_name|escape}[{$formLocale|escape}]"
 			id="{$FBV_id|escape}-{$formLocale|escape}{$uniqId}"
@@ -41,6 +42,7 @@
 						placeholder="{$thisFormLocaleName|escape}"
 						class="multilingual_extra flag flag_{$thisFormLocale|escape}{if $FBV_sizeInfo} {$FBV_sizeInfo|escape}{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
+						{if $FBV_readonly} readonly="readonly"{/if}
 						value="{$FBV_value[$thisFormLocale]|escape}"
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]"
 						id="{$FBV_id|escape}-{$thisFormLocale|escape}{$uniqId}"
@@ -58,6 +60,7 @@
 		{$FBV_textInputParams}
 		class="field text{if $FBV_class} {$FBV_class|escape}{/if}{if $FBV_validation} {$FBV_validation}{/if}"
 		{if $FBV_disabled} disabled="disabled"{/if}
+		{if $FBV_readonly} readonly="readonly"{/if}
 		name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 		value="{if $FBV_multilingual}{$FBV_value[$formLocale]|escape}{else}{$FBV_value|escape}{/if}"
 		id="{$FBV_id|escape}{$uniqId}"

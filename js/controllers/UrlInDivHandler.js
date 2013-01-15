@@ -78,6 +78,7 @@
 				this.getHtmlElement().hide();
 			} else {
 				this.getHtmlElement().hide().html(handledJsonData.content).fadeIn(400);
+				this.trigger('urlInDivLoaded', [this.getHtmlElement().attr('id')]);
 			}
 		} else {
 			// Alert that loading failed.

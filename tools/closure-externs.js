@@ -205,3 +205,9 @@ $.pkp.cons = {
 	LISTBUILDER_OPTGROUP_LABEL: 0,
 	ORDER_CATEGORY_GRID_CATEGORIES_ROWS_ONLY: 0
 }
+
+/**
+ * @param {Object} param1
+ * @return {jQueryObject}
+ */
+jQueryObject.prototype.scrollabletab = function(param1) {};

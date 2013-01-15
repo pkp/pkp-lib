@@ -25,6 +25,7 @@
 				cols="{$FBV_cols|escape}"
 				class="localizable {$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 				{if $FBV_disabled} disabled="disabled"{/if}
+				{if $FBV_readonly} readonly="readonly"{/if}
 				name="{$FBV_name|escape}[{$formLocale|escape}]">{$FBV_value[$formLocale]|escape}
 			</textarea>
 		{/strip}
@@ -39,6 +40,7 @@
 						placeholder="{$thisFormLocaleName|escape}"
 						class="locale_{$thisFormLocale|escape} {$FBV_class} {$FBV_height}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 						{if $FBV_disabled} disabled="disabled"{/if}
+						{if $FBV_readonly} readonly="readonly"{/if}
 						name="{$FBV_name|escape}[{$thisFormLocale|escape}]">{$FBV_value[$thisFormLocale]|escape}
 					</textarea>
 					{/strip}
@@ -50,11 +52,12 @@
 {else}
 	{* This is not a multilingual control or there is only one locale available *}
 	{if $FBV_rich && $FBV_disabled}
-		{if $FBV_multilingual}{$FBV_value[$formLocale]}{else}{$FBV_value}{/if}
+		{if $FBV_multilingual}{$FBV_value[$formLocale]|strip_unsafe_html}{else}{$FBV_value|strip_unsafe_html}{/if}
 	{else}
 		<textarea {$FBV_textAreaParams}
 			class="{$FBV_class} {$FBV_height}{if $FBV_validation} {$FBV_validation|escape}{/if}{if $FBV_rich && !$FBV_disabled} richContent{/if}"
 			{if $FBV_disabled} disabled="disabled"{/if}
+			{if $FBV_readonly} readonly="readonly"{/if}
 			name="{$FBV_name|escape}{if $FBV_multilingual}[{$formLocale|escape}]{/if}"
 			rows="{$FBV_rows|escape}"
 			cols="{$FBV_cols|escape}"

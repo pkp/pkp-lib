@@ -41,6 +41,7 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		this.bind('updateSidebar', this.updateSidebarHandler_);
 		this.bind('callWhenClickOutside', this.callWhenClickOutsideHandler_);
 		this.bind('mousedown', this.mouseDownHandler_);
+		this.bind('urlInDivLoaded', this.setMainMaxWidth_);
 
 		// Listen for grid initialized events so the inline help
 		// can be shown or hidden.
@@ -56,8 +57,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 		// Avoid IE8 caching ajax results. If it does, widgets like
 		// grids will not refresh correctly.
 		$.ajaxSetup({cache: false});
-
-		this.setMainMaxWidth_();
 
 		$('select.applyPlugin', $widgetWrapper).selectBox();
 
@@ -522,25 +521,48 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 * This will prevent content with larger widths (like photos)
 	 * messing up with layout.
 	 * @private
+	 * @param {HTMLElement} sourceElement The element that
+	 *  issued the event.
+	 * @param {Event} event The triggering event.
+	 * @param {?string} data additional event data.
+	 * @return {?boolean} Event handling status.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
-			function() {
-		var $site = this.getHtmlElement();
-		var structureContentWidth = $('.pkp_structure_content', $site).width();
+			function(sourceElement, event, data) {
 
-		var leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
-				outerWidth(true);
-		var rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
-				outerWidth(true);
+		var $site = this.getHtmlElement(), structureContentWidth, leftSideBarWidth,
+				rightSideBarWidth, $mainDiv = $('.pkp_structure_main', $site),
+				mainExtraWidth, mainMaxWidth, lastTabOffset, tabsContainerOffset,
+				$lastTab, $allTabs = $mainDiv.find('.ui-tabs').tabs();
 
-		var $mainDiv = $('.pkp_structure_main', $site);
+		if (data == 'sidebarContainer') {
+			structureContentWidth = $('.pkp_structure_content', $site).width();
 
-		// Check for padding, margin or border.
-		var mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
-		var mainMaxWidth = structureContentWidth - (
-				leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
+			leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
+					outerWidth(true);
+			rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
+					outerWidth(true);
 
-		$mainDiv.css('max-width', mainMaxWidth);
+			// Check for padding, margin or border.
+			mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();
+			mainMaxWidth = structureContentWidth - (
+					leftSideBarWidth + rightSideBarWidth + mainExtraWidth);
+
+			$mainDiv.css('max-width', mainMaxWidth);
+
+			if ($mainDiv.find('.stTabsInnerWrapper').length == 1) {
+				$mainDiv.find('.stTabsMainWrapper').width($mainDiv.outerWidth(true));
+				tabsContainerOffset = $mainDiv.find('.ui-tabs-nav').offset().left +
+						$mainDiv.find('.ui-tabs-nav').outerWidth(true);
+				$lastTab = $mainDiv.find('.ui-tabs-nav').find('li').last();
+				lastTabOffset = $lastTab.offset().left + $lastTab.outerWidth(true);
+				if (lastTabOffset <= tabsContainerOffset) {
+					$mainDiv.find('.stTabsMainWrapper').find('div').first().hide();
+				} else {
+					$mainDiv.find('.stTabsMainWrapper').find('div').first().show();
+				}
+			}
+		}
 	};
 
 

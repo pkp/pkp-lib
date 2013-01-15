@@ -22,3 +22,9 @@ function jQuery(selector, context) {};
  * @param {jQuery=} context The context for the selector.
  */
 function $(selector, context) {};
+
+/**
+ * @param {Object} param1
+ * @return {jQueryObject}
+ */
+jQueryObject.prototype.scrollabletab = function(param1) {};

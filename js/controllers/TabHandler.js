@@ -63,6 +63,10 @@
 			},
 			selected: options.selected ? options.selected : 0
 		});
+
+		if ($tabs.find('.stTabsInnerWrapper').length == 0) {
+			$tabs.tabs().scrollabletab();
+		}
 	};
 	$.pkp.classes.Helper.inherits(
 			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);

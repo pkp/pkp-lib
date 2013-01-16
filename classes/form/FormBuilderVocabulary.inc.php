@@ -334,6 +334,7 @@ class FormBuilderVocabulary {
 		foreach ($params as $key => $value) {
 			switch ($key) {
 				case 'label':
+				case 'type':
 				case 'disabled':
 					$smarty->assign('FBV_' . $key, $value);
 					break;

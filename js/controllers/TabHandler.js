@@ -64,7 +64,7 @@
 			selected: options.selected ? options.selected : 0
 		});
 
-		if ($tabs.find('.stTabsInnerWrapper').length == 0) {
+		if ($tabs.find('.stTabsInnerWrapper').length == 0 && !options.notScrollable) {
 			$tabs.tabs().scrollabletab();
 		}
 	};

@@ -525,7 +525,6 @@ jQuery.pkp.controllers = jQuery.pkp.controllers || { };
 	 *  issued the event.
 	 * @param {Event} event The triggering event.
 	 * @param {?string} data additional event data.
-	 * @return {?boolean} Event handling status.
 	 */
 	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
 			function(sourceElement, event, data) {

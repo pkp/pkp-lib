@@ -309,6 +309,24 @@ class Mail extends DataObject {
 	}
 
 	/**
+	 * Set the reply-to of the message.
+	 * @param $email string or null to clear
+	 * @param $name string optional
+	 */
+	function setReplyTo($email, $name = '') {
+		if ($email === null) $this->setData('replyTo', null);
+		return $this->setData('replyTo', array('name' => $name, 'email' => $email));
+	}
+
+	/**
+	 * Get the reply-to of the message.
+	 * @return array
+	 */
+	function getReplyTo() {
+		return $this->getData('replyTo');
+	}
+
+	/**
 	 * Set the subject of the message.
 	 * @param $subject string
 	 */
@@ -431,6 +449,7 @@ class Mail extends DataObject {
 				$mailer->SMTPSecure = $s;
 				$mailer->SMTPAuth = true;
 			}
+			$mailer->Host = Config::getVar('email', 'smtp_server');
 			$mailer->Username = Config::getVar('email', 'smtp_username');
 			$mailer->Password = Config::getVar('email', 'smtp_password');
 		}
@@ -444,6 +463,9 @@ class Mail extends DataObject {
 		if (($s = $this->getEnvelopeSender()) != null) $mailer->Sender = $s;
 		if (($f = $this->getFrom()) != null) {
 			$mailer->SetFrom($f['email'], $f['name']);
+		}
+		if (($r = $this->getReplyTo()) != null) {
+			$mailer->AddReplyTo($r['email'], $r['name']);
 		}
 		foreach ((array) $this->getRecipients() as $recipientInfo) {
 			$mailer->AddAddress($recipientInfo['email'], $recipientInfo['name']);
@@ -481,6 +503,7 @@ class Mail extends DataObject {
 	/**
 	 * Encode a display name for proper inclusion with an email address.
 	 * @param $displayName string
+	 * @param $send boolean True to encode the results for sending
 	 * @return string
 	 */
 	function encodeDisplayName($displayName, $send = false) {

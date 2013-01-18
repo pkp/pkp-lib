@@ -165,6 +165,7 @@ $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . '_db
 // Remove the PKP error handler so that PHPUnit
 // can set it's own error handler and catch errors for us.
 restore_error_handler();
+error_reporting(E_ALL & ~E_STRICT);
 
 // Show errors in the UI
 ini_set('display_errors', true);

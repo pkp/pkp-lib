@@ -26,11 +26,11 @@ class HookRegistry {
 	 * Set the hooks table for the given hook name to the supplied array
 	 * of callbacks.
 	 * @param $hookName string Name of hook to set
-	 * @param $hooks array Array of callbacks for this hook
+	 * @param $callbacks array Array of callbacks for this hook
 	 */
-	static function setHooks($hookName, $hooks) {
+	static function setHooks($hookName, $callbacks) {
 		$hooks =& HookRegistry::getHooks();
-		$hooks[$hookName] =& $hooks;
+		$hooks[$hookName] =& $callbacks;
 	}
 
 	/**

@@ -178,7 +178,7 @@ class WebService {
 		// Relax timeout a little bit for slow servers
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-		// POST to the web service
+		// GET from the web service
 		for ($retries = 0; $retries < WEBSERVICE_RETRIES; $retries++) {
 			if ($result = @curl_exec($ch)) break;
 

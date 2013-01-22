@@ -37,7 +37,7 @@ class NotificationHandler extends Handler {
 
 		$rangeInfo =& Handler::getRangeInfo('notifications');
 		$notificationDao =& DAORegistry::getDAO('NotificationDAO');
-		$notifications = $notificationDao->getNotificationsByUserId($userId, NOTIFICATION_LEVEL_NORMAL, $rangeInfo);
+		$notifications = $notificationDao->getByUserId($userId, NOTIFICATION_LEVEL_NORMAL, $rangeInfo);
 
 		$templateMgr->assign('notifications', $notifications);
 		$templateMgr->assign('unread', $notificationDao->getUnreadNotificationCount($userId));
@@ -146,7 +146,7 @@ class NotificationHandler extends Handler {
 		$notificationSettingsDao =& DAORegistry::getDAO('NotificationSettingsDAO');
 
 		$userId = $notificationSettingsDao->getUserIdByRSSToken($token);
-		$notifications = $notificationDao->getNotificationsByUserId($userId);
+		$notifications = $notificationDao->getByUserId($userId);
 
 		// Make sure the feed type is specified and valid
 		$typeMap = array(

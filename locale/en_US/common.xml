@@ -31,6 +31,7 @@
 	<message key="announcement.postedOn">Posted on {$postDate}</message>
 	<message key="announcement.viewLink">More...</message>
 	<message key="announcement.view">View Announcement</message>
+	<message key="common.takeMeThere">Take Me There</message>
 	<message key="common.confirmDelete">Are you sure you wish to delete this item? This action cannot be undone.</message>
 	<message key="common.abstract">Abstract</message>
 	<message key="common.accepted">Accepted</message>

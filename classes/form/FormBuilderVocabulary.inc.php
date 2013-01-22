@@ -333,6 +333,8 @@ class FormBuilderVocabulary {
 		$smarty->clear_assign(array('FBV_label', 'FBV_disabled'));
 		foreach ($params as $key => $value) {
 			switch ($key) {
+				case 'inline':
+					break;
 				case 'label':
 				case 'type':
 				case 'disabled':
@@ -568,8 +570,10 @@ class FormBuilderVocabulary {
 				case 'disabled':
 					$smarty->assign('FBV_' . $key, $value);
 					break;
-				case 'type': break;
-				case 'inline': break;
+				case 'type':
+				case 'inline':
+				case 'size':
+					break;
 				case 'subLabelTranslate': break;
 				case 'label': $smarty->assign('FBV_label_content', $this->_smartyFBVSubLabel($params, $smarty)); break;
 				default: $selectParams .= htmlspecialchars($key, ENT_QUOTES, LOCALE_ENCODING) . '="' . htmlspecialchars($value, ENT_QUOTES, LOCALE_ENCODING) . '" ';

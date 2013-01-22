@@ -7,7 +7,7 @@
  * Announcement form to read/create/edit announcements.
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#announcementForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
@@ -49,7 +49,7 @@
 			{fbvFormSection title="manager.announcements.form.description" for="description"}
 				{fbvElement type="textarea" multilingual="true" id="description" value=$description label="manager.announcements.form.descriptionInstructions" rich=true}
 			{/fbvFormSection}
-			<script type="text/javascript">
+			<script>
 				$('input[id^="dateExpire"]').datepicker({ldelim} dateFormat: 'yy-mm-dd' {rdelim});
 			</script>
 			{fbvFormSection title="manager.announcements.form.dateExpire" for="dataExpire"}

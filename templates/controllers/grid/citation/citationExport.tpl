@@ -13,7 +13,7 @@
 				{$errorMessage}
 			</div>
 		{else}
-			<script type="text/javascript">
+			<script>
 				<!--
 				$(function() {ldelim}
 					// Activate the export filter selection drop-down boxes.

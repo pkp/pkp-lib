@@ -6,7 +6,7 @@
  *
  * PKP handler for the jQueryUI range slider input
  *}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		$('#{$FBV_id}_container').pkpHandler('$.pkp.controllers.RangeSliderHandler',
 			{ldelim}

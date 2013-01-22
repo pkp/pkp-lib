@@ -11,7 +11,7 @@
 	{assign var=cellAction value=$actions[0]}
 	{include file="linkAction/linkAction.tpl" action=$cellAction contextId=$cellId}
 	[{$citationSeq}] {$label|escape}
-	<script type="text/javascript">
+	<script>
 		<!--
 		$(function() {ldelim}
 			$parentDiv = $('#{$cellId}').parent();

@@ -13,7 +13,7 @@
  *  dialogText: A translation key for the message to be displayed in the dialog.
  *}
 {if !$titleIcon}{assign var="titleIcon" value="modal_confirm"}{/if}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		$('{$buttonSelector|escape:javascript}').pkpHandler(
 				'$.pkp.controllers.linkAction.LinkActionHandler',

@@ -12,7 +12,7 @@
 {assign var=gridTableId value=$gridId|concat:"-table"}
 {assign var=gridActOnId value=$gridTableId}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		$('#{$gridId|escape:javascript}').pkpHandler(
 			'{$grid->getJSHandler()|escape:javascript}',

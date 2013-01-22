@@ -12,7 +12,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#lostPasswordForm').pkpHandler('$.pkp.controllers.form.FormHandler');

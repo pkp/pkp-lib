@@ -8,7 +8,7 @@
  *}
 
 {* List constants for JavaScript in $.pkp.locale namespace *}
-<script type="text/javascript">
+<script>
 	jQuery.pkp = jQuery.pkp || {ldelim} {rdelim};
 	jQuery.pkp.locale = {ldelim} {rdelim};
 	{foreach from=$jsLocaleKeys item=keyName}

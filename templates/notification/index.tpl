@@ -12,7 +12,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<table width="100%">
+<table>
 	<tr>
 		<td>{if $isUserLoggedIn}
 				<p>{translate key="notification.notificationsDescription" unreadCount=$unread readCount=$read settingsUrl=$url}</p>

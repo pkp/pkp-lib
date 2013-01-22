@@ -7,7 +7,7 @@
  * Form to install languages.
  *}
 
- <script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#installLanguageForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');

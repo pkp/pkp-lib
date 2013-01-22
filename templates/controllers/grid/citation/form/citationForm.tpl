@@ -10,7 +10,7 @@
 {assign var=containerId value="citationEditorDetailCanvas"}
 {assign var=formUid value="form"|uniqid}
 <div id="{$containerId}" class="canvas">
-	<script type="text/javascript">
+	<script>
 		<!--
 		$(function() {ldelim}
 			////////////////////////////////////////////////////////////
@@ -711,8 +711,8 @@
 								<div id="{$citationSourceTabId}-{$formUid}" class="grid">
 									<table><tbody>
 										{foreach from=$citationSourceTab.statements key=sourcePropertyId item=sourceStatement}
-											<tr valign="top">
-												<td width="30%" class="label">{translate key=$sourceStatement.displayName}</td>
+											<tr>
+												<td class="label">{translate key=$sourceStatement.displayName}</td>
 												<td id="{$sourcePropertyId}" class="value">{$sourceStatement.value|escape}</td>
 												<td class="citation-source-action-cell">
 													[<a id="{$sourcePropertyId}-use" href="" class="citation-source-use-button" title="{translate key="submission.citations.editor.details.sourceResultsUseExplanation"}">{translate key="submission.citations.editor.details.sourceResultsUse"}</a>]

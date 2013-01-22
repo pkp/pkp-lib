@@ -8,7 +8,7 @@
  *}
 
 {* List constants for JavaScript in $.pkp.cons namespace *}
-<script type="text/javascript">
+<script>
 	jQuery.pkp = jQuery.pkp || {ldelim} {rdelim};
 	jQuery.pkp.cons = {ldelim} {rdelim};
 	{foreach from=$exposedConstants key=key item=value}

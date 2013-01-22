@@ -21,8 +21,8 @@
 
 	<!-- Base Jquery -->
 	{if $allowCDN}
-		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
-		<script type="text/javascript">{literal}
+		<script src="http://www.google.com/jsapi"></script>
+		<script>{literal}
 			// Provide a local fallback if the CDN cannot be reached
 			if (typeof google == 'undefined') {
 				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
@@ -33,17 +33,17 @@
 			}
 		{/literal}</script>
 	{else}
-		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+		<script src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
+		<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
 
 	<!-- UI elements (menus, forms, etc) -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/hoverIntent.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/superfish/superfish.js"></script>
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js"></script>
-	<script type="text/javascript">{literal}
+	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js"></script>
+	<script>{literal}
 		$(function(){
 			// Include the appropriate validation localization.
 			// FIXME: Replace with a smarty template that includes {translate} keys, see #6443.
@@ -52,13 +52,13 @@
 	{/literal}</script>
 
 	<!-- Plupload -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/plupload.full.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js"></script>
 
 	{$deprecatedSidebarStyles}
 
 	{* FIXME: Replace with a smarty template that includes {translate} keys, see #6443. *}
-	{if $currentLocale !== 'en_US'}<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/plupload/i18n/{$currentLocale|escape}.js"></script>{/if}
+	{if $currentLocale !== 'en_US'}<script src="{$baseUrl}/lib/pkp/js/lib/plupload/i18n/{$currentLocale|escape}.js"></script>{/if}
 
 	{foreach from=$stylesheets item=cssUrl}
 		<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
@@ -72,7 +72,7 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script src="{$baseUrl}/js/pkp.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}

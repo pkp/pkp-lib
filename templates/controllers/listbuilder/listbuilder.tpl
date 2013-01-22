@@ -12,7 +12,7 @@
 {assign var=gridTableId value=$gridId|concat:"-table"}
 {assign var=gridActOnId value=$gridTableId|concat:">tbody:first"}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		$('#{$gridId|escape}').pkpHandler(
 			'$.pkp.controllers.listbuilder.ListbuilderHandler',

@@ -13,7 +13,7 @@
 {include file="common/header.tpl"}
 {/strip}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#loginChangePassword').pkpHandler('$.pkp.controllers.form.FormHandler');

@@ -6,7 +6,7 @@
  *
  * Filter template for plugin grid.
  *}
-<script type="text/javascript">
+<script>
 	// Attach the form handler to the form.
 	$('#pluginSearchForm').pkpHandler('$.pkp.controllers.form.ClientFormHandler',
 		{ldelim}

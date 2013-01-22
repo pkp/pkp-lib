@@ -32,7 +32,7 @@
 		{/foreach}
 	{/foreach}
 {/strip}{/capture}
-<script type="text/javascript">
+<script>
 	<!--
 	$(function() {ldelim}
 		//

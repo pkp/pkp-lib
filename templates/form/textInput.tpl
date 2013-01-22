@@ -10,7 +10,7 @@
 {assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
 <div{if $FBV_layoutInfo} class="{$FBV_layoutInfo}"{/if}>
 {if $FBV_multilingual && count($formLocales) > 1}
-	<script type="text/javascript">
+	<script>
 	$(function() {ldelim}
 		$('#{$FBV_id|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
 			'$.pkp.controllers.form.MultilingualInputHandler'

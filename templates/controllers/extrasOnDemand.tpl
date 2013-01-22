@@ -6,7 +6,7 @@
  *
  * Basic markup for extras on demand widget.
  *}
-<script type="text/javascript">
+<script>
 	// Initialise JS handler.
 	$(function() {ldelim}
 		$('#{$id}').pkpHandler(

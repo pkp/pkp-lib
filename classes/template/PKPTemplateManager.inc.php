@@ -94,8 +94,6 @@ class PKPTemplateManager extends Smarty {
 		$this->assign('defaultCharset', Config::getVar('i18n', 'client_charset'));
 		$this->assign('basePath', $this->request->getBasePath());
 		$this->assign('baseUrl', $this->request->getBaseUrl());
-		$this->assign('doctypeFpi', $this->getDoctypeFpi());
-		$this->assign('doctypeUri', $this->getDoctypeUri());
 		$this->assign('requiresFormRequest', $this->request->isPost());
 		if (is_a($router, 'PKPPageRouter')) $this->assign('requestedPage', $router->getRequestedPage($this->request));
 		$this->assign('currentUrl', $this->request->getCompleteUrl());
@@ -1275,20 +1273,6 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		return $this->fetch('common/urlInDiv.tpl');
-	}
-
-	/**
-	 * Get the doctype FPI.
-	 */
-	function getDoctypeFpi() {
-		return '-//W3C//DTD XHTML 1.0 Transitional//EN';
-	}
-
-	/**
-	 * Get the doctype URI.
-	 */
-	function getDoctypeUri() {
-		return 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd';
 	}
 }
 

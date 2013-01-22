@@ -27,8 +27,8 @@
 	{/foreach}
 
 	<!-- Base Jquery -->
-	{if $allowCDN}<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-	<script type="text/javascript">{literal}
+	{if $allowCDN}<script src="http://www.google.com/jsapi"></script>
+	<script>{literal}
 		<!--
 		// Provide a local fallback if the CDN cannot be reached
 		if (typeof google == 'undefined') {
@@ -41,13 +41,13 @@
 		// -->
 	{/literal}</script>
 	{else}
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
+	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script src="{$baseUrl}/js/pkp.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
@@ -56,7 +56,7 @@
 </head>
 <body>
 {literal}
-<script type="text/javascript">
+<script>
 <!--
 if (self.blur) { self.focus(); }
 // -->

@@ -6,6 +6,8 @@
  *
  * Common site header.
  *}
+<!DOCTYPE html>
+<html>
 {capture assign="deprecatedStyles"}
 	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
@@ -20,8 +22,8 @@
 {/capture}
 {capture assign="deprecatedJavascript"}
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
-	<script type="text/javascript">
+	<script src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script>
 		<!--
 		// initialise plugins
 		{literal}
@@ -48,7 +50,7 @@
 
 	{if $hasSystemNotifications}
 		{url|assign:fetchNotificationUrl page='notification' op='fetchNotification' escape=false}
-		<script type="text/javascript">
+		<script>
 			$(function(){ldelim}
 				$.get('{$fetchNotificationUrl}', null,
 					function(data){ldelim}
@@ -73,8 +75,7 @@
 {elseif !$pageCrumbTitleTranslated}
 	{assign var="pageCrumbTitleTranslated" value=$pageTitleTranslated}
 {/if}
-{/strip}<!DOCTYPE html PUBLIC "{$doctypeFpi}" "{$doctypeUri}">
-<html xmlns="http://www.w3.org/1999/xhtml">
+{/strip}
 {include file="core:common/headerHead.tpl"}
 <body>
 <div id="container">

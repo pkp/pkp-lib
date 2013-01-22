@@ -8,7 +8,7 @@
  *
  *}
 
-<script type="text/javascript">
+<script>
 	// Attach the Information Center handler.
 	$(function() {ldelim}
 		$('#editAuthor').pkpHandler(

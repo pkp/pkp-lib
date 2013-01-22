@@ -8,7 +8,7 @@
  *
  *}
 
-<script type="text/javascript">
+<script>
 	// Initialise JS handler.
 	<!--
 	$(function() {ldelim}

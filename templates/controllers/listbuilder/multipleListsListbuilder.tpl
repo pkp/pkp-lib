@@ -15,7 +15,7 @@
 {elseif count($lists) == 3}
 	{assign var=widthClass value="pkp_helpers_third"}
 {/if}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		$('#{$gridId|escape}').pkpHandler(
 			'$.pkp.controllers.listbuilder.MultipleListsListbuilderHandler',

@@ -12,7 +12,7 @@
 
 {if !$FBV_id}{assign var='FBV_id' value='interests'}{/if}
 
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){ldelim}
 		$("#{$FBV_id|escape}").find(".interestsTextOnly").html(null).hide();
 		$("#{$FBV_id|escape}").find(".interestDescription").show();

@@ -21,7 +21,7 @@
 {if $implicitAuth}
 	<a id="implicitAuthLogin" href="{url page="login" op="implicitAuthLogin"}">Login</a>
 {else}
-	<script type="text/javascript">
+	<script>
 		$(function() {ldelim}
 			// Attach the form handler.
 			$('#signinForm').pkpHandler(
@@ -71,7 +71,7 @@
 
 {/if}{* !$implicitAuth *}
 
-<script type="text/javascript">
+<script>
 	{if $username}$("#password").focus();
 	{else}$("#username").focus();{/if}
 </script>

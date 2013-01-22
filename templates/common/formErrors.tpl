@@ -17,7 +17,7 @@
 		</ul>
 		</p>
 	</div>
-	<script type="text/javascript">{literal}
+	<script>{literal}
 		<!--
 		// Jump to form errors.
 		window.location.hash="formErrors";

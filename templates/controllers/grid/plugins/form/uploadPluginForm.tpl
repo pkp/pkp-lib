@@ -6,7 +6,7 @@
  *
  * Form to upload plugin files.
  *}
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the upload form handler.
 		$('#uploadPluginForm').pkpHandler(

@@ -9,7 +9,7 @@
 {assign var="uniqId" value="-"|concat:$FBV_uniqId|escape}
 {if $FBV_multilingual && count($formLocales) > 1}
 	{foreach from=$formLocales key=thisFormLocale item=thisFormLocaleName}
-		<script type="text/javascript">
+		<script>
 			$(document).ready(function(){ldelim}
 				$("#{$thisFormLocale|escape}-{$FBV_id}{$uniqId}").tagit({ldelim}
 					itemName: "keywords",
@@ -38,7 +38,7 @@
 		</script>
 	{/foreach}
 
-	<script type="text/javascript">
+	<script>
 		$(function() {ldelim}
 			$('#{$FBV_id|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
 				'$.pkp.controllers.form.MultilingualInputHandler'
@@ -63,7 +63,7 @@
 		</span>
 
 {else} {* this is not a multilingual keyword field or there is only one locale available *}
-	<script type="text/javascript">
+	<script>
 		$(document).ready(function(){ldelim}
 			$("#{$FBV_id}{$uniqId}").tagit({ldelim}
 				itemName: "keywords",

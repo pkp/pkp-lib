@@ -7,10 +7,10 @@
  * Display a single notification.
  *}
 
-<table width="100%" class="notifications">
+<table class="notifications">
 	<tr>
 		<td width="25"><div class="notifyIcon {$notificationIconClass|escape}">&nbsp;</div></td>
-		<td class="notificationContent" colspan="2" width="80%">
+		<td class="notificationContent" colspan="2">
 			{$notificationDateCreated|date_format:"%d %b %Y %T"}
 		</td>
 		{if $notificationUrl != null}

@@ -22,7 +22,7 @@
 	{translate|assign:"wrongPhpText" key="installer.installationWrongPhp"}
 {/if}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');

@@ -23,7 +23,7 @@
 {assign var=buttonId value=$staticId|concat:"-"|uniqid}
 {include file="linkAction/linkActionButton.tpl" action=$action buttonId=$buttonId}
 
-<script type="text/javascript">
+<script>
 	{* Attach the action handler to the button. *}
 	$(function() {ldelim}
 		$('#{$buttonId}').pkpHandler(

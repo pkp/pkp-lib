@@ -8,7 +8,7 @@
  *}
 
 {assign var="uid" value="-"|uniqid}
-<script type="text/javascript">
+<script>
         $(function() {ldelim}
                 // Attach the form handler.
                 $('#editFilterForm{$uid|escape:"javascript"}').pkpHandler(
@@ -47,7 +47,7 @@
 					{else}
 						{assign var=filterSettingRequired value=''}
 					{/if}
-					<tr valign="top">
+					<tr>
 						<td class="label">{fieldLabel name=$filterSetting->getName() key=$filterSetting->getDisplayName() required=$filterSettingRequired}</td>
 						{capture assign=settingValueVar}{ldelim}${$filterSetting->getName()}{rdelim}{/capture}
 						{eval|assign:"settingValue" var=$settingValueVar}

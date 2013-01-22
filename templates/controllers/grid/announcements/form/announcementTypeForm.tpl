@@ -7,7 +7,7 @@
  * Form to read/create/edit announcement types.
  *}
 
-<script type="text/javascript">
+<script>
 	$(function() {ldelim}
 		// Attach the form handler.
 		$('#announcementTypeForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');

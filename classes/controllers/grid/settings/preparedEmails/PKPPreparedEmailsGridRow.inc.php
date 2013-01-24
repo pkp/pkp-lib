@@ -36,7 +36,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 		// add Grid Row Actions
 		$rowId = $this->getId();
 		if (isset($rowId) && is_string($rowId)) {
-			$pressId = $this->getContextId($request);
+			$contextId = $this->getContextId($request);
 			$router =& $request->getRouter();
 
 			// Row action to edit the email template
@@ -45,7 +45,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 
 			// Row action to disable/delete the email template
 			$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-			$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($rowId, $pressId);
+			$emailTemplate =& $emailTemplateDao->getLocaleEmailTemplate($rowId, $contextId);
 			if (isset($emailTemplate) && $emailTemplate->isCustomTemplate()) {
 				$this->addAction(
 					new LinkAction(
@@ -82,7 +82,7 @@ class PKPPreparedEmailsGridRow extends GridRow {
 	/**
 	 * Return the context ID.
 	 * @param $request PKPRequest
-	 * @return int Press ID.
+	 * @return int Context ID.
 	 */
 	function getContextId(&$request) {
 		assert(false); // Needs to be implemented by subclasses

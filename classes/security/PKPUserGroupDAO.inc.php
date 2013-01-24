@@ -467,7 +467,7 @@ class PKPUserGroupDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve those users with no group assignments in any press.
+	 * Retrieve those users with no group assignments in any context.
 	 * @param array $filter an array of search critera
 	 * @param boolean $allowDisabled
 	 * @param DBResultRarnge $dbResultRange

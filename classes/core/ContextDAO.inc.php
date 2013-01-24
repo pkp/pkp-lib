@@ -5,11 +5,11 @@
  * Copyright (c) 2003-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PressDAO
- * @ingroup press
- * @see Press
+ * @class ContextDAO
+ * @ingroup core
+ * @see DAO
  *
- * @brief Operations for retrieving and modifying Press objects.
+ * @brief Operations for retrieving and modifying context objects.
  */
 
 class ContextDAO extends DAO {
@@ -21,7 +21,7 @@ class ContextDAO extends DAO {
 	}
 
 	/**
-	 * Retrieve a press by press ID.
+	 * Retrieve a context by context ID.
 	 * @param $contextId int
 	 * @return Context
 	 */
@@ -111,7 +111,7 @@ class ContextDAO extends DAO {
 	 * Retrieve all contexts.
 	 * @param $enabledOnly true iff only enabled contexts should be included
 	 * @param $rangeInfo Object optional
-	 * @return DAOResultFactory containing matching presses
+	 * @return DAOResultFactory containing matching Contexts
 	 */
 	function getAll($enabledOnly = false, $rangeInfo = null) {
 		$result =& $this->retrieveRange(
@@ -153,7 +153,7 @@ class ContextDAO extends DAO {
 	}
 
 	/**
-	 * Sequentially renumber each press according to their sequence order.
+	 * Sequentially renumber each context according to their sequence order.
 	 */
 	function resequence() {
 		$result =& $this->retrieve(

@@ -12,6 +12,11 @@
   -->
 
 <locale name="en_US" full_name = "English">
+	<!-- Website settings -->
+	<message key="manager.website.information">Information</message>
+	<message key="manager.website.appearance">Appearance</message>
+	<message key="manager.website.imageFileRequired">An image file is required. Please ensure that you have chosen and uploaded a file.</message>
+
 	<message key="manager.announcements">Announcements</message>
 	<message key="manager.announcements.confirmDelete">Are you sure you want to permanently delete this announcement?</message>
 	<message key="manager.announcements.create">Create New Announcement</message>

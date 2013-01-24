@@ -298,6 +298,14 @@ class Context extends DataObject {
 	}
 
 	/**
+	 * Get the DAO for this context object.
+	 * @return DAO
+	 */
+	static function getDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
 	 * Retrieve array of settings.
 	 * @return array
 	 */

@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/controllers/grid/languages/PKPLanguageGridHandler.inc.php
+ * @file controllers/grid/languages/LanguageGridHandler.inc.php
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPLanguageGridHandler
+ * @class LanguageGridHandler
  * @ingroup classes_controllers_grid_languages
  *
  * @brief Handle language grid requests.
@@ -16,12 +16,16 @@ import('lib.pkp.classes.controllers.grid.GridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.LanguageGridCellProvider');
 
-class PKPLanguageGridHandler extends GridHandler {
+class LanguageGridHandler extends GridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPLanguageGridHandler() {
+	function LanguageGridHandler() {
 		parent::GridHandler();
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER),
+			array('saveLanguageSetting', 'setContextPrimaryLocale')
+		);
 	}
 
 
@@ -37,13 +41,22 @@ class PKPLanguageGridHandler extends GridHandler {
 		// Load user-related translations.
 		AppLocale::requireComponents(
 			LOCALE_COMPONENT_PKP_USER,
-			LOCALE_COMPONENT_PKP_MANAGER
+			LOCALE_COMPONENT_PKP_MANAGER,
+			LOCALE_COMPONENT_APP_MANAGER
 		);
 
 		// Basic grid configuration.
 		$this->setTitle('common.languages');
 	}
 
+	/**
+	 * @see GridHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
 
 	//
 	// Public handler methods.
@@ -104,7 +117,8 @@ class PKPLanguageGridHandler extends GridHandler {
 			}
 
 			$context->setPrimaryLocale($locale);
-			$this->updateContext($context);
+			$contextDao = $context->getDAO();
+			$contextDao->updateObject($context);
 
 			$notificationManager = new NotificationManager();
 			$user =& $request->getUser();
@@ -220,14 +234,6 @@ class PKPLanguageGridHandler extends GridHandler {
 		}
 
 		return $data;
-	}
-
-	/**
-	 * Save changes to the context object.
-	 * @param $context Context
-	 */
-	function updateContext($context) {
-		assert(false); // Must be implemented by subclasses
 	}
 }
 

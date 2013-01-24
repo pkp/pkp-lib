@@ -83,7 +83,9 @@ class BaseEmailTemplate extends DataObject {
 	 */
 	function &getFromRoleName() {
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		return $roleDao->getRoleName($this->getFromRoleId());
+		$role =& $roleDao->newDataObject();
+		$role->setId($this->getFromRoleId());
+		return $role->getRoleName();
 	}
 
 	/**
@@ -106,7 +108,9 @@ class BaseEmailTemplate extends DataObject {
 	 */
 	function &getToRoleName() {
 		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		return $roleDao->getRoleName($this->getToRoleId());
+		$role =& $roleDao->newDataObject();
+		$role->setId($this->getToRoleId());
+		return $role->getRoleName();
 	}
 
 	/**

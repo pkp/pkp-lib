@@ -14,6 +14,9 @@
  */
 
 /** ID codes and paths for all default roles */
+define('ROLE_ID_MANAGER',		0x00000010);
+define('ROLE_PATH_MANAGER',		'manager');
+
 define('ROLE_ID_SITE_ADMIN',		0x00000001);
 define('ROLE_PATH_SITE_ADMIN',		'admin');
 
@@ -25,7 +28,7 @@ define('ROLE_PATH_REVIEWER',		'reviewer');
 
 define('ROLE_ID_ASSISTANT',	0x00001001);
 
-define('ROLE_ID_READER',		0x00020000);
+define('ROLE_ID_READER',		0x00100000);
 define('ROLE_PATH_READER',		'reader');
 
 class PKPRole extends DataObject {
@@ -68,6 +71,8 @@ class PKPRole extends DataObject {
 		switch ($this->getId()) {
 			case ROLE_ID_SITE_ADMIN:
 				return 'user.role.siteAdmin' . ($plural ? 's' : '');
+			case ROLE_ID_MANAGER:
+				return 'user.role.manager' . ($plural ? 's' : '');
 			case ROLE_ID_AUTHOR:
 				return 'user.role.author' . ($plural ? 's' : '');
 			case ROLE_ID_REVIEWER:
@@ -86,6 +91,8 @@ class PKPRole extends DataObject {
 	 */
 	function getPath() {
 		switch ($this->getId()) {
+			case ROLE_ID_MANAGER:
+				return 'manager';
 			case ROLE_ID_SITE_ADMIN:
 				return 'admin';
 			case ROLE_ID_AUTHOR:

@@ -190,6 +190,8 @@ class PKPRoleDAO extends DAO {
 	 */
 	function getRoleIdFromPath($rolePath) {
 		switch ($rolePath) {
+			case 'manager':
+				return ROLE_ID_MANAGER;
 			case 'admin':
 				return ROLE_ID_SITE_ADMIN;
 			case 'author':
@@ -213,6 +215,7 @@ class PKPRoleDAO extends DAO {
 			case 'username': return 'u.username';
 			case 'name': return 'u.last_name';
 			case 'email': return 'u.email';
+			case 'id': return 'u.user_id';
 			default: return null;
 		}
 	}

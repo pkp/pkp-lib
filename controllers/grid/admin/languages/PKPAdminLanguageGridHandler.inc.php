@@ -14,16 +14,16 @@
  * See _canManage().
  */
 
-import('lib.pkp.classes.controllers.grid.languages.PKPLanguageGridHandler');
+import('lib.pkp.controllers.grid.languages.LanguageGridHandler');
 import('lib.pkp.controllers.grid.languages.LanguageGridRow');
 import('lib.pkp.controllers.grid.languages.form.InstallLanguageForm');
 
-class PKPAdminLanguageGridHandler extends PKPLanguageGridHandler {
+class PKPAdminLanguageGridHandler extends LanguageGridHandler {
 	/**
 	 * Constructor
 	 */
 	function PKPAdminLanguageGridHandler() {
-		parent::PKPLanguageGridHandler();
+		parent::LanguageGridHandler();
 		$this->addRoleAssignment(
 			array(ROLE_ID_SITE_ADMIN),
 			array(

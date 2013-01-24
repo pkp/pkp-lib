@@ -21,15 +21,25 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	 */
 	function ManageLanguageGridHandler() {
 		parent::LanguageGridHandler();
-		$this->addRoleAssignment(array(
-			ROLE_ID_MANAGER),
-			array('fetchGrid', 'fetchRow'));
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER),
+			array('saveLanguageSetting', 'setContextPrimaryLocale', 'fetchGrid', 'fetchRow')
+		);
 	}
 
 
 	//
 	// Implement methods from GridHandler.
 	//
+	/**
+	 * @see GridHandler::authorize()
+	 */
+	function authorize($request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
+
 	/**
 	 * @see GridHandler::loadData()
 	 */
@@ -61,6 +71,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler {
 	 */
 	function initialize($request) {
 		parent::initialize($request);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER);
 
 		$this->setInstructions('manager.languages.languageInstructions');
 

@@ -432,8 +432,8 @@ class PKPHandler {
 			LOCALE_COMPONENT_PKP_COMMON,
 			LOCALE_COMPONENT_PKP_USER
 		);
-		if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
-			AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
+		if (defined('LOCALE_COMPONENT_APP_COMMON')) {
+			AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 		}
 
 		$templateMgr =& TemplateManager::getManager($request);

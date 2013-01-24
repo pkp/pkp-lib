@@ -577,7 +577,7 @@ class GridHandler extends PKPHandler {
 		parent::initialize($request, $args);
 
 		// Load grid-specific translations
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APP_COMMON);
 
 		// Give a chance to grid add features before calling hooks.
 		// Because we must control when features are added to a grid,

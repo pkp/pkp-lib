@@ -216,7 +216,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 	public function sendToMailingList(&$request, $notification) {
 		$notificationMailListDao =& DAORegistry::getDAO('NotificationMailListDAO');
 		$mailList = $notificationMailListDao->getMailList($notification->getContextId());
-		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 		foreach ($mailList as $email) {
 			$context =& $request->getContext();
@@ -376,7 +376,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$userId = $notification->getUserId();
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$user = $userDao->getById($userId);
-		AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_COMMON);
 
 		$site = $request->getSite();
 		$mail = $this->getMailTemplate('NOTIFICATION');

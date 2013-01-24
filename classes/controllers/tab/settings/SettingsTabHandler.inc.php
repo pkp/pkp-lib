@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @file classes/controllers/tab/settings/PKPSettingsTabHandler.inc.php
+ * @file classes/controllers/tab/settings/SettingsTabHandler.inc.php
  *
  * Copyright (c) 2003-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSettingsTabHandler
+ * @class SettingsTabHandler
  * @ingroup classes_controllers_tab_settings
  *
  * @brief Handle AJAX operations for tabs on settings pages, under administration or management pages.
@@ -16,7 +16,7 @@
 import('classes.handler.Handler');
 import('lib.pkp.classes.core.JSONMessage');
 
-class PKPSettingsTabHandler extends Handler {
+class SettingsTabHandler extends Handler {
 
 	/** @var string */
 	var $_currentTab;
@@ -29,7 +29,7 @@ class PKPSettingsTabHandler extends Handler {
 	 * Constructor
 	 * @param $role string The role keys to be used in role assignment.
 	 */
-	function PKPSettingsTabHandler($role) {
+	function SettingsTabHandler($role) {
 		parent::Handler();
 		$this->addRoleAssignment(
 			$role,
@@ -37,6 +37,14 @@ class PKPSettingsTabHandler extends Handler {
 		);
 	}
 
+	/**
+	 * @see PKPHandler::authorize()
+	 */
+	function authorize(&$request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
+	}
 
 	//
 	// Getters and Setters

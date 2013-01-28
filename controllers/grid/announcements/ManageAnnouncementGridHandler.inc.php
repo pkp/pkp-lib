@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/controllers/grid/announcements/PKPManageAnnouncementGridHandler.inc.php
+ * @file controllers/grid/announcements/ManageAnnouncementGridHandler.inc.php
  *
  * Copyright (c) 2003-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,12 +15,20 @@
 import('lib.pkp.controllers.grid.announcements.AnnouncementGridHandler');
 import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
-class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
+class ManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	/**
 	 * Constructor
 	 */
-	function PKPManageAnnouncementGridHandler() {
+	function ManageAnnouncementGridHandler() {
 		parent::AnnouncementGridHandler();
+		$this->addRoleAssignment(
+			ROLE_ID_MANAGER,
+			array(
+				'fetchGrid', 'fetchRow', 'moreInformation',
+				'addAnnouncement', 'editAnnouncement',
+				'updateAnnouncement', 'deleteAnnouncement'
+			)
+		);
 	}
 
 
@@ -39,7 +47,7 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
 
 		// Add grid action.
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 
 		import('lib.pkp.classes.linkAction.request.AjaxModal');
 		$this->addAction(
@@ -72,6 +80,15 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 		return new AnnouncementGridRow();
 	}
 
+	/**
+	 * @see GridHandler::authorize()
+	 */
+	function authorize(&$request, &$args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments, false);
+	}
+
 
 	//
 	// Public handler methods.
@@ -94,7 +111,7 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	 */
 	function editAnnouncement($args, &$request) {
 		$announcementId = (int)$request->getUserVar('announcementId');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		$announcementForm = new AnnouncementForm($contextId, $announcementId);
@@ -114,7 +131,7 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 
 		// Identify the announcement Id.
 		$announcementId = (int) $request->getUserVar('announcementId');
-		$context =& $request->getContext();
+		$context = $request->getContext();
 		$contextId = $context->getId();
 
 		// Form handling.
@@ -134,7 +151,7 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 
 			// Record the notification to user.
 			$notificationManager = new NotificationManager();
-			$user =& $request->getUser();
+			$user = $request->getUser();
 			$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __($notificationLocaleKey)));
 
 			// Prepare the grid row data.
@@ -153,12 +170,12 @@ class PKPManageAnnouncementGridHandler extends AnnouncementGridHandler {
 	function deleteAnnouncement($args, $request) {
 		$announcementId = (int) $request->getUserVar('announcementId');
 
-		$announcementDao =& DAORegistry::getDAO('AnnouncementDAO');
+		$announcementDao = DAORegistry::getDAO('AnnouncementDAO');
 		$announcementDao->deleteById($announcementId);
 
 		// Create notification.
 		$notificationManager = new NotificationManager();
-		$user =& $request->getUser();
+		$user = $request->getUser();
 		$notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS, array('contents' => __('notification.removedAnnouncement')));
 
 		return DAO::getDataChangedEvent($announcementId);

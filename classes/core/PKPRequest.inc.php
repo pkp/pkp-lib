@@ -84,7 +84,7 @@ class PKPRequest {
 			return;
 		}
 
-		header("Refresh: 0; url=$url");
+		header("Location: $url");
 		exit();
 	}
 

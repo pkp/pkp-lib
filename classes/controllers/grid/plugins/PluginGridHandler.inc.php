@@ -216,6 +216,7 @@ class PluginGridHandler extends CategoryGridHandler {
 		}
 		if ($pluginModalContent) {
 			$json = new JSONMessage(true, $pluginModalContent);
+			$json->setEvent('refreshForm', $pluginModalContent);
 			return $json->getString();
 		}
 	}

@@ -56,6 +56,15 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 		$this->setBrowserUrl($this->baseUrl . '/');
 
 		PKPTestHelper::backupTables($this->getAffectedTables(), $this);
+
+		$cacheManager =& CacheManager::getManager();
+		$cacheManager->flush(null, CACHE_TYPE_FILE);
+		$cacheManager->flush(null, CACHE_TYPE_OBJECT);
+
+		// Clear ADODB's cache
+		$userDao =& DAORegistry::getDAO('UserDAO'); // As good as any
+		$userDao->flushCache();
+
 		parent::setUp();
 	}
 
@@ -143,6 +152,24 @@ class WebTestCase extends PHPUnit_Extensions_SeleniumTestCase {
 			$e = new PHPUnit_Framework_Exception($improvedMessage, $e->getCode());
 		}
 		return $e;
+	}
+
+	/**
+	 * Save an Ajax form, waiting for the loading sprite
+	 * to be hidden to continue the test execution.
+	 * @param $formLocator String
+	 */
+	protected function submitAjaxForm($formId) {
+		$this->assertElementPresent($formId, 'The passed form locator do not point to any form element at the current page.');
+		$this->click('css=#' . $formId . ' #submitFormButton');
+
+		$progressIndicatorSelector = '#' . $formId . ' .formButtons .pkp_helpers_progressIndicator';
+
+		// First make sure that the progress indicator is visible.
+		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 1", 2000);
+
+		// Wait until it disappears (the form submit process is finished).
+		$this->waitForCondition("selenium.browserbot.getUserWindow().jQuery('$progressIndicatorSelector:visible').length == 0");
 	}
 }
 ?>

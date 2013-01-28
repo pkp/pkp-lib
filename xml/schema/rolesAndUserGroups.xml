@@ -112,7 +112,7 @@
 	  *
 	  -->
 	<table name="user_group_stage">
-		<field name="press_id" type="I8">
+		<field name="context_id" type="I8">
 			<NOTNULL />
 		</field>
 		<field name="user_group_id" type="I8">
@@ -132,7 +132,7 @@
 			<col>stage_id</col>
 		</index>
 		<index name="user_group_stage_pkey">
-			<col>press_id</col>
+			<col>context_id</col>
 			<col>user_group_id</col>
 			<col>stage_id</col>
 			<UNIQUE />

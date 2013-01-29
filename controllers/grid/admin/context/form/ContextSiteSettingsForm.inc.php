@@ -75,6 +75,17 @@ class ContextSiteSettingsForm extends Form {
 	function getLocaleFieldNames() {
 		return array('name', 'description');
 	}
+
+	/**
+	 * Initially populate the user groups and assignments when creating a new context.
+	 * @param $contextId int
+	 */
+	function _loadDefaultUserGroups($contextId) {
+		AppLocale::requireComponents(LOCALE_COMPONENT_APP_DEFAULT, LOCALE_COMPONENT_PKP_DEFAULT);
+		// Install default user groups
+		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao->installSettings($contextId, 'registry/userGroups.xml');
+	}
 }
 
 ?>

@@ -569,6 +569,33 @@ class PKPUserGroupDAO extends DAO {
 		}
 	}
 
+	/**
+	 * Assign a user group to a stage
+	 * @param $contextId int
+	 * @param $userGroupId int
+	 * @param $stageId int
+	 * @return bool
+	 */
+	function assignGroupToStage($contextId, $userGroupId, $stageId) {
+		return $this->update(
+			'INSERT INTO user_group_stage (context_id, user_group_id, stage_id) VALUES (?, ?, ?)',
+			array((int) $contextId, (int) $userGroupId, (int) $stageId)
+		);
+	}
+
+	/**
+	 * Remove a user group from a stage
+	 * @param $contextId int
+	 * @param $userGroupId int
+	 * @param $stageId int
+	 * @return bool
+	 */
+	function removeGroupFromStage($contextId, $userGroupId, $stageId) {
+		return $this->update(
+			'DELETE FROM user_group_stage WHERE context_id = ? AND user_group_id = ? AND stage_id = ?',
+			array((int) $contextId, (int) $userGroupId, (int) $stageId)
+		);
+	}
 
 	//
 	// Extra settings (not handled by rest of Dao)

@@ -146,6 +146,11 @@ class ContextDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function deleteById($contextId) {
+
+		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao->deleteAssignmentsByContextId($contextId);
+		$userGroupDao->deleteByContextId($contextId);
+
 		$this->update(
 			'DELETE FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
 			(int) $contextId

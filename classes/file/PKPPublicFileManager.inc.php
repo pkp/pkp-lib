@@ -33,6 +33,40 @@ class PKPPublicFileManager extends FileManager {
 	}
 
 	/**
+	 * Get the path to a context's public files directory.
+	 * @param $assocType int Assoc type for context
+	 * @param $contextId int Context ID
+	 * @return string
+	 */
+	function getContextFilesPath($assocType, $contextId) {
+		assert(false); // Must be implemented by subclasses
+	}
+
+	/**
+	 * Upload a file to a context's public directory.
+	 * @param $assocType int The assoc type of the context
+	 * @param $contextId int The context ID
+	 * @param $fileName string the name of the file in the upload form
+	 * @param $destFileName string the destination file name
+	 * @return boolean
+	 */
+	function uploadContextFile($assocType, $contextId, $fileName, $destFileName) {
+		return $this->uploadFile($fileName, $this->getContextFilesPath($assocType, $pressId) . '/' . $destFileName);
+	}
+
+	/**
+	 * Write a file to a context's public directory.
+	 * @param $assocType int Assoc type for context
+	 * @param $contextId int Context ID
+	 * @param $destFileName string the destination file name
+	 * @param $contents string the contents to write to the file
+	 * @return boolean
+	 */
+	function writeContextFile($assocType, $contextId, $destFileName, $contents) {
+		return $this->writeFile($this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName, $contents);
+	}
+
+	/**
 	 * Upload a file to the site's public directory.
 	 * @param $fileName string the name of the file in the upload form
 	 * @param $destFileName string the destination file name
@@ -40,6 +74,29 @@ class PKPPublicFileManager extends FileManager {
 	 */
 	function uploadSiteFile($fileName, $destFileName) {
 		return $this->uploadFile($fileName, $this->getSiteFilesPath() . '/' . $destFileName);
+	}
+
+	/**
+	 * Copy a file to a context's public directory.
+	 * @param $assocType Assoc type for context
+	 * @param $contextId int Context ID
+	 * @param $sourceFile string the source of the file to copy
+	 * @param $destFileName string the destination file name
+	 * @return boolean
+	 */
+	function copyContextFile($assocType, $contextId, $sourceFile, $destFileName) {
+		return $this->copyFile($sourceFile, $this->getContextFilesPath($assocType, $contextId) . '/' . $destFileName);
+	}
+
+	/**
+	 * Delete a file from a context's public directory.
+	 * @param $assocType Assoc type for context
+	 * @param $contextId int Context ID
+	 * @param $fileName string the target file name
+	 * @return boolean
+	 */
+	function removeContextFile($assocType, $pressId, $fileName) {
+		return $this->deleteFile($this->getContextFilesPath($assocType, $pressId) . '/' . $fileName);
 	}
 
 	/**

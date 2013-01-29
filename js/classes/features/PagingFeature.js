@@ -118,8 +118,18 @@
 
 		$firstRow = this.gridHandler.getRows().first();
 		$lastRow = this.gridHandler.getRows().last();
-		params.topLimitRowId = this.gridHandler.getRowDataId($firstRow);
-		params.bottomLimitRowId = this.gridHandler.getRowDataId($lastRow);
+
+		if ($firstRow.length == 0) {
+			params.topLimitRowId = 0;
+		} else {
+			params.topLimitRowId = this.gridHandler.getRowDataId($firstRow);
+		}
+
+		if ($lastRow.length == 0) {
+			params.bottomLimitRowId = 0;
+		} else {
+			params.bottomLimitRowId = this.gridHandler.getRowDataId($lastRow);
+		}
 
 		this.gridHandler.setFetchExtraParams(params);
 

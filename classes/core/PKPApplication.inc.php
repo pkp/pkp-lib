@@ -36,6 +36,20 @@ define('ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES', 0x0100008);
 define('ASSOC_TYPE_SUBMISSION', 0x0100009);
 define('ASSOC_TYPE_PLUGIN', 0x0000211);
 
+define_exposed('WORKFLOW_STAGE_ID_PUBLISHED', 0); // FIXME? See bug #6463.
+define_exposed('WORKFLOW_STAGE_ID_SUBMISSION', 1);
+define_exposed('WORKFLOW_STAGE_ID_INTERNAL_REVIEW', 2);
+define_exposed('WORKFLOW_STAGE_ID_EXTERNAL_REVIEW', 3);
+define_exposed('WORKFLOW_STAGE_ID_EDITING', 4);
+define_exposed('WORKFLOW_STAGE_ID_PRODUCTION', 5);
+
+// FIXME: these were defined in userGroup. they need to be moved somewhere with classes that do mapping.
+define('WORKFLOW_STAGE_PATH_SUBMISSION', 'submission');
+define('WORKFLOW_STAGE_PATH_INTERNAL_REVIEW', 'internalReview');
+define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
+define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
+define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
+
 class PKPApplication {
 	var $enabledProducts;
 	var $allProducts;

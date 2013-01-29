@@ -108,7 +108,7 @@ class OrderItemsFeature extends GridFeature{
 	 */
 	function fetchUIElements($request, $grid) {
 		if ($this->isOrderActionNecessary()) {
-			$templateMgr =& TemplateManager::getManager();
+			$templateMgr = TemplateManager::getManager($request);
 			$templateMgr->assign('gridId', $grid->getId());
 			return array('orderFinishControls' => $templateMgr->fetch('controllers/grid/feature/gridOrderFinishControls.tpl'));
 		}

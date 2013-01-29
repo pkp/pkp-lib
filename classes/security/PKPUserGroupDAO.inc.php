@@ -837,6 +837,97 @@ class PKPUserGroupDAO extends DAO {
 
 		return $searchSql;
 	}
+
+	//
+	// Public helper methods
+	//
+
+	/**
+	 * Convert a stage id into a stage path
+	 * @param $stageId integer
+	 * @return string|null
+	 */
+	function getPathFromId($stageId) {
+		static $stageMapping = array(
+				WORKFLOW_STAGE_ID_SUBMISSION => WORKFLOW_STAGE_PATH_SUBMISSION,
+				WORKFLOW_STAGE_ID_INTERNAL_REVIEW => WORKFLOW_STAGE_PATH_INTERNAL_REVIEW,
+				WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
+				WORKFLOW_STAGE_ID_EDITING => WORKFLOW_STAGE_PATH_EDITING,
+				WORKFLOW_STAGE_ID_PRODUCTION => WORKFLOW_STAGE_PATH_PRODUCTION
+		);
+		if (isset($stageMapping[$stageId])) {
+			return $stageMapping[$stageId];
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Convert a stage path into a stage id
+	 * @param $stagePath string
+	 * @return integer|null
+	 */
+	function getIdFromPath($stagePath) {
+		static $stageMapping = array(
+				WORKFLOW_STAGE_PATH_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
+				WORKFLOW_STAGE_PATH_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+				WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+				WORKFLOW_STAGE_PATH_EDITING => WORKFLOW_STAGE_ID_EDITING,
+				WORKFLOW_STAGE_PATH_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION
+		);
+		if (isset($stageMapping[$stagePath])) {
+			return $stageMapping[$stagePath];
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Convert a stage id into a stage translation key
+	 * @param $stageId integer
+	 * @return string|null
+	 */
+	function getTranslationKeyFromId($stageId) {
+		$stageMapping = $this->getWorkflowStageTranslationKeys();
+
+		assert(isset($stageMapping[$stageId]));
+		return $stageMapping[$stageId];
+	}
+
+	/**
+	 * Return a mapping of workflow stages and its translation keys.
+	 * @return array
+	 */
+	static function getWorkflowStageTranslationKeys() {
+		static $stageMapping = array(
+				WORKFLOW_STAGE_ID_SUBMISSION => 'submission.submission',
+				WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'workflow.review.internalReview',
+				WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'workflow.review.externalReview',
+				WORKFLOW_STAGE_ID_EDITING => 'submission.editorial',
+				WORKFLOW_STAGE_ID_PRODUCTION => 'submission.production'
+		);
+
+		return $stageMapping;
+	}
+
+	/**
+	 * Return a mapping of workflow stages, its translation keys and
+	 * paths.
+	 * @return array
+	 */
+	function getWorkflowStageKeysAndPaths() {
+		$workflowStages = $this->getWorkflowStageTranslationKeys();
+		$stageMapping = array();
+		foreach ($workflowStages as $stageId => $translationKey) {
+			$stageMapping[$stageId] = array(
+					'id' => $stageId,
+					'translationKey' => $translationKey,
+					'path' => $this->getPathFromId($stageId)
+			);
+		}
+
+		return $stageMapping;
+	}
 }
 
 ?>

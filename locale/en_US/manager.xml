@@ -169,6 +169,7 @@
 	<message key="manager.reviewerSearch.form.instructions">Use the form below to set the maximum values for the terms you wish to search for.  The form is pre-populated with the calculated averages of those fields.</message>
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.roles">Roles</message>
+	<message key="manager.setup.styleSheetDescription">You may upload an additional Cascading Style Sheet (CSS) file to change the appearance.</message>
 	<message key="manager.setup.citationAssistant">Citation Markup Assistant</message>
 	<message key="manager.setup.citationFilterParser">Citation Extraction</message>
 	<message key="manager.setup.citationFilterParserDescription"><![CDATA[<p>To find and check citations in citation databases they first have to be split into machine readable metadata: title, publisher, publication date, etc. must all be extracted from the original citation text provided by the author. Connectors to external web services can assist in this process. One or several connectors can be added by clicking on the "Add Item" button below. Some of these connectors may need to be configured; you will be prompted if this is the case.</p>

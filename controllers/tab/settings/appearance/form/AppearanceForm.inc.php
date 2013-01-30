@@ -289,6 +289,7 @@ class AppearanceForm extends ContextSettingsForm {
 			__('common.upload'),
 			'modal_add_file'
 		);
+		import('lib.pkp.classes.linkAction.LinkAction');
 		$linkAction = new LinkAction(
 			'uploadFile-' . $settingName,
 			$ajaxModal,

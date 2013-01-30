@@ -107,7 +107,7 @@ echo >&2
 
 # A list with all files to be compiled and minified. Expects
 # a complete list of script files in minifiedScripts.tpl.
-COMPILE_FILES=$(sed -n -$EXTENDED_REGEX_FLAG '/<script type="text\/javascript"/ s%^.*src="\{\$baseUrl\}/([^"]+)".*$%\1%p' templates/common/minifiedScripts.tpl)
+COMPILE_FILES=$(sed -n -$EXTENDED_REGEX_FLAG '/<script /s%^.*src="\{\$baseUrl\}/([^"]+)".*$%\1%p' templates/common/minifiedScripts.tpl)
 
 # FIXME: For now we only check classes as the other
 # files contain too many errors to be fixed right now.

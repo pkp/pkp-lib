@@ -121,6 +121,12 @@ current password.<br /><br />Enter your email address below to reset your passwo
 	<message key="user.role.reviewers">Reviewers</message>
 	<message key="user.role.siteAdmin">Site Administrator</message>
 	<message key="user.role.siteAdmins">Site Administrators</message>
+	<message key="user.role.copyeditor">Copyeditor</message>
+	<message key="user.role.copyeditors">Copyeditors</message>
+	<message key="user.role.proofreader">Proofreader</message>
+	<message key="user.role.proofreaders">Proofreaders</message>
+	<message key="user.role.layoutEditor">Layout Editor</message>
+	<message key="user.role.layoutEditors">Layout Editors</message>
 	<message key="user.roles">Roles</message>
 	<message key="user.salutation">Salutation</message>
 	<message key="user.sendPassword">Confirmation</message>

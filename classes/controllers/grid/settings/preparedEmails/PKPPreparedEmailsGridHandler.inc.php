@@ -34,7 +34,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 		// Basic grid configuration
 		$this->setId('preparedEmailsGrid');
 
-		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER);
+		AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_USER);
 
 		// Set the grid title.
 		$this->setTitle('grid.preparedEmails.title');

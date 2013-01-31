@@ -1,4 +1,4 @@
-c**
+{**
  * controllers/tab/settings/paymentMethod/form/paymentMethodForm.tpl
  *
  * Copyright (c) 2003-2012 John Willinsky

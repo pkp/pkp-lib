@@ -53,13 +53,14 @@ class ReviewStageForm extends ContextSettingsForm {
 
 		// Ensuring blind review link.
 		import('lib.pkp.classes.linkAction.request.ConfirmationModal');
-			$ensuringLink = new LinkAction(
-				'showReviewPolicy',
-				new ConfirmationModal(
-					__('review.blindPeerReview'),
-					__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
-				__('review.ensuringBlindReview'));
-		$params['ensuringLink'] = $ensuringLink;
+		import('lib.pkp.classes.linkAction.LinkAction');
+		$params['ensuringLink'] = new LinkAction(
+			'showReviewPolicy',
+			new ConfirmationModal(
+				__('review.blindPeerReview'),
+				__('review.ensuringBlindReview'), 'modal_information', null, null, true, MODAL_WIDTH_DEFAULT),
+			__('review.ensuringBlindReview')
+		);
 
 		$params['scheduledTasksDisabled'] = (Config::getVar('general', 'scheduled_tasks')) ? false : true;
 

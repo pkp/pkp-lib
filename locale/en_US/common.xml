@@ -415,4 +415,6 @@
 	<message key="grid.action.downloadFile">Download this file</message>
 
 	<message key="context.path">Path</message>
+	<message key="review.ensuringBlindReview">Ensuring a Blind Review</message>
+	<message key="grid.action.showReviewPolicy">Read the current review policy</message>
 </locale>

@@ -12,7 +12,7 @@
  * @brief Handle sponsor grid requests.
  */
 
-import('controllers.grid.settings.SetupGridHandler');
+import('lib.pkp.controllers.grid.settings.SetupGridHandler');
 import('lib.pkp.controllers.grid.settings.sponsor.SponsorGridRow');
 import('lib.pkp.classes.linkAction.request.AjaxModal');
 

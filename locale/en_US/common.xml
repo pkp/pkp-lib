@@ -12,6 +12,7 @@
   -->
 
 <locale name="en_US" full_name = "English">
+	<message key="about.guidelines">Guides</message>
 	<message key="about.aboutSite">About the Site</message>
 	<message key="about.contact">Contact</message>
 	<message key="about.contact.email">Email</message>

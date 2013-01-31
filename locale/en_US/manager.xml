@@ -178,6 +178,7 @@
 	<message key="manager.reviewerSearch.form.interests.instructions">Enter reviewer interests, separated by commas...</message>
 	<message key="manager.roles">Roles</message>
 	<message key="manager.affiliationAndSupport">Sponsor</message>
+	<message key="manager.setup.authorGuidelines">Author Guidelines</message>
 	<message key="manager.setup.competingInterests">Competing Interests</message>
 	<message key="manager.setup.competingInterestsDescription">Reviewers will be asked to comply with the competing interests disclosure policy you specify below.</message> <!-- FIXME #6843 (JM): should this just reference reviewers? -->
 	<message key="manager.setup.reviewOptions.numWeeksPerResponse">Time allowed for review completion (weeks)</message>

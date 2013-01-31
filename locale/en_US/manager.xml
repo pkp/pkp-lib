@@ -310,4 +310,17 @@
 	<message key="notification.localeUninstalled">{$locale} locale uninstalled.</message>
 	<message key="notification.localeReloaded">{$locale} locale reloaded.</message>
 	<message key="notification.localeSettingsSaved">Locale settings saved.</message>
+
+	<!-- Distribution Process settings -->
+	<message key="manager.distribution.indexing">Indexing</message>
+
+	<!-- Payment Method settings -->
+	<message key="manager.paymentMethod">Payments</message>
+	<message key="manager.paymentMethod.title">Payment Methods</message>
+	<message key="manager.paymentMethod.description">Choose from the list of available payment methods.  The area below will update accordingly.</message>
+	<message key="manager.paymentMethod.none">No payment method selected</message>
+	<message key="manager.paymentMethod.method">Payment Method</message>
+	<message key="manager.paymentMethod.currency">Currency</message>
+	<message key="manager.paymentMethod.currency.description">Payments made directly through this website will be denominated in the selected currency.</message>
+
 </locale>

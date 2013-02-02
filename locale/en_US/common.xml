@@ -313,10 +313,13 @@
 	<message key="locale.supported">Supported locales</message>
 	<message key="navigation.publicationProcess">Publication</message>
 	<message key="navigation.distributionProcess">Distribution</message>
+	<message key="navigation.management">Management</message>
 	<message key="navigation.website">Website</message>
 	<message key="navigation.access"><![CDATA[Users &amp; Roles]]></message>
 	<message key="navigation.about">About</message>
 	<message key="navigation.admin">Administration</message>
+	<message key="navigation.tools">Tools</message>
+	<message key="navigation.tools.importExport">Import/Export</message>
 	<message key="navigation.browse">Browse</message>
 	<message key="navigation.browseByAuthor">By Author</message>
 	<message key="navigation.browseByTitle">By Title</message>

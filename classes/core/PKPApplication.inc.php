@@ -334,6 +334,7 @@ class PKPApplication {
 			'SubmissionSubjectEntryDAO' => 'lib.pkp.classes.submission.SubmissionSubjectEntryDAO',
 			'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
 			'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
+			'UserGroupDAO' => 'lib.pkp.classes.security.UserGroupDAO',
 			'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
 			'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
 		);

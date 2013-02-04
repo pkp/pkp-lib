@@ -70,6 +70,11 @@ class PKPHeaderHandler extends Handler {
 			$templateMgr->assign('contextsNameAndUrl', $contextsNameAndUrl);
 		}
 
+		if ($context = $request->getContext()) {
+			$settingsDao = $context->getSettingsDAO();
+			$templateMgr->assign('contextSettings', $settingsDao->getSettings($context->getId()));
+		}
+
 		return $templateMgr->fetchJson('header/index.tpl');
 	}
 

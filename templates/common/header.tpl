@@ -40,7 +40,7 @@
 			<div class="pkp_structure_content">
 				<div class="line">
 					{if !$noContextsConfigured}
-						{include file="common/search.tpl"}
+						{include file="header/search.tpl"}
 					{/if}
 				</div>
 

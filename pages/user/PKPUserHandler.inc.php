@@ -100,8 +100,6 @@ class PKPUserHandler extends Handler {
 	 * @param $request Request
 	 */
 	function authorizationDenied($args, $request) {
-		parent::validate();
-
 		if (!Validation::isLoggedIn()) {
 			Validation::redirectLogin();
 		}

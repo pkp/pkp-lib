@@ -10,7 +10,7 @@
 	// Initialise JS handler.
 	$(function() {ldelim}
 		$('#headerTemplateContainer').pkpHandler(
-			'$.pkp.pages.index.HeaderHandler',
+			'$.pkp.pages.header.HeaderHandler',
 			{ldelim}
 				requestedPage: '{$requestedPage|escape:"javascript"}',
 			{rdelim});

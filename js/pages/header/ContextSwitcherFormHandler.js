@@ -1,14 +1,14 @@
 /**
- * @defgroup js_site_form
+ * @defgroup js_pages_header
  */
 /**
- * @file js/site/form/ContextSwitcherFormHandler.js
+ * @file js/pages/header/ContextSwitcherFormHandler.js
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ContextSwitcherFormHandler
- * @ingroup js_site_form
+ * @ingroup js_pages_header
  *
  * @brief Handler for the context switcher.
  *
@@ -16,8 +16,7 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.site = $.pkp.site ||
-			{ form: { } };
+	$.pkp.pages = $.pkp.pages || { header: { } };
 
 
 
@@ -29,7 +28,7 @@
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.site.form.ContextSwitcherFormHandler =
+	$.pkp.pages.header.ContextSwitcherFormHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -42,7 +41,7 @@
 	};
 
 	$.pkp.classes.Helper.inherits(
-			$.pkp.site.form.ContextSwitcherFormHandler,
+			$.pkp.pages.header.ContextSwitcherFormHandler,
 			$.pkp.controllers.form.FormHandler);
 
 
@@ -57,7 +56,7 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.site.form.ContextSwitcherFormHandler.prototype.switchContextHandler_ =
+	$.pkp.pages.header.ContextSwitcherFormHandler.prototype.switchContextHandler_ =
 			function(sourceElement, event) {
 
 		var $sourceElement = $(sourceElement),

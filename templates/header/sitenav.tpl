@@ -15,7 +15,7 @@
 			{/if}
 		{/if}
 		{if $multipleContexts}
-			<li>{include file="common/contextSwitcher.tpl"}</li>
+			<li>{include file="header/contextSwitcher.tpl"}</li>
 		{/if}
 	</ul>
 	<ul class="pkp_helpers_flatlist pkp_helpers_align_right">

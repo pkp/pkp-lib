@@ -1,8 +1,5 @@
 /**
- * @defgroup js_pages_index
- */
-/**
- * @file js/pages/index/HeaderHandler.js
+ * @file js/pages/header/HeaderHandler.js
  *
  * Copyright (c) 2000-2012 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -15,10 +12,6 @@
  */
 (function($) {
 
-	/** @type {Object} */
-	$.pkp.pages = $.pkp.pages || { index: { } };
-
-
 
 	/**
 	 * @constructor
@@ -29,7 +22,7 @@
 	 *  the header.
 	 * @param {{requestedPage: string}} options Handler options.
 	 */
-	$.pkp.pages.index.HeaderHandler =
+	$.pkp.pages.header.HeaderHandler =
 			function($headerElement, options) {
 
 		this.options_ = options;
@@ -43,7 +36,7 @@
 		this.publishEvent('toggleInlineHelp');
 	};
 	$.pkp.classes.Helper.inherits(
-			$.pkp.pages.index.HeaderHandler,
+			$.pkp.pages.header.HeaderHandler,
 			$.pkp.classes.Handler);
 
 
@@ -52,7 +45,7 @@
 	 * @private
 	 * @type {{requestedPage: string}?}
 	 */
-	$.pkp.pages.index.HeaderHandler.prototype.options_ = null;
+	$.pkp.pages.header.HeaderHandler.prototype.options_ = null;
 
 
 	//
@@ -67,7 +60,7 @@
 	 * @return {boolean} Always returns false.
 	 * @private
 	 */
-	$.pkp.pages.index.HeaderHandler.prototype.toggleInlineHelpHandler_ =
+	$.pkp.pages.header.HeaderHandler.prototype.toggleInlineHelpHandler_ =
 			function(sourceElement, event) {
 		this.trigger('toggleInlineHelp');
 		return false;
@@ -78,7 +71,7 @@
 	 * Initialize navigation menu.
 	 * @private
 	 */
-	$.pkp.pages.index.HeaderHandler.prototype.initializeMenu_ =
+	$.pkp.pages.header.HeaderHandler.prototype.initializeMenu_ =
 			function() {
 		var $header = this.getHtmlElement(),
 				$menu = $('ul.sf-menu', $header),

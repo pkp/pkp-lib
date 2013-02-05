@@ -302,8 +302,6 @@ class PKPApplication {
 			'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
 			'FilterDAO' => 'lib.pkp.classes.filter.FilterDAO',
 			'FilterGroupDAO' => 'lib.pkp.classes.filter.FilterGroupDAO',
-			'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
-			'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
 			'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
 			'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
 			'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',

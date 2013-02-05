@@ -468,6 +468,15 @@ class PKPHandler {
 		import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
 		return RestrictedSiteAccessPolicy::_getLoginExemptions();
 	}
+
+	/**
+	 * Get the iterator of working contexts.
+	 * @param $request PKPRequest
+	 * @return ItemIterator
+	 */
+	function getWorkingContexts($request) {
+		assert(false); // Must be implemented by subclasses
+	}
 }
 
 ?>

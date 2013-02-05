@@ -36,7 +36,7 @@ class PKPHeaderHandler extends Handler {
 		$this->setupTemplate($request);
 		$templateMgr = TemplateManager::getManager($request);
 
-		$workingContexts = $this->_getWorkingContexts($request);
+		$workingContexts = $this->getWorkingContexts($request);
 
 		$multipleContexts = false;
 		if ($workingContexts->getCount() > 1) {
@@ -76,18 +76,6 @@ class PKPHeaderHandler extends Handler {
 		}
 
 		return $templateMgr->fetchJson('header/index.tpl');
-	}
-
-	//
-	// Private methods
-	//
-	/**
-	 * Get the iterator of working contexts.
-	 * @param $request PKPRequest
-	 * @return ItemIterator
-	 */
-	function _getWorkingContexts($request) {
-		assert(false); // Must be implemented by subclasses
 	}
 }
 

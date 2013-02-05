@@ -63,7 +63,7 @@ class PKPHeaderHandler extends Handler {
 			if ($currentContext = $request->getContext()) {
 				$currentContextUrl = $dispatcher->url($request, ROUTE_PAGE, $currentContext->getPath());
 			} else {
-				$contextsNameAndUrl = array(__('press.select')) + $contextsNameAndUrl;
+				$contextsNameAndUrl = array(__('context.select')) + $contextsNameAndUrl;
 			}
 
 			$templateMgr->assign('currentContextUrl', $currentContextUrl);

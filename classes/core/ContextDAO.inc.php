@@ -26,7 +26,7 @@ class ContextDAO extends DAO {
 	 * @return Context
 	 */
 	function getById($contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->_getTableName() . ' WHERE ' . $this->_getPrimaryKeyColumn() . ' = ?',
 			(int) $contextId
 		);
@@ -46,7 +46,7 @@ class ContextDAO extends DAO {
 	 */
 	function getNames($enabledOnly = false) {
 		$contexts = array();
-		$iterator =& $this->getAll($enabledOnly);
+		$iterator = $this->getAll($enabledOnly);
 		while ($context = $iterator->next()) {
 			$contexts[$context->getId()] = $context->getLocalizedName();
 		}
@@ -81,7 +81,7 @@ class ContextDAO extends DAO {
 	 * @return boolean
 	 */
 	function existsByPath($path) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*) FROM ' . $this->_getTableName() . ' WHERE path = ?',
 			(string) $path
 		);
@@ -96,7 +96,7 @@ class ContextDAO extends DAO {
 	 * @return Context
 	 */
 	function getByPath($path) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM ' . $this->_getTableName() . ' WHERE path = ?',
 			(string) $path
 		);
@@ -114,7 +114,7 @@ class ContextDAO extends DAO {
 	 * @return DAOResultFactory containing matching Contexts
 	 */
 	function getAll($enabledOnly = false, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM ' . $this->_getTableName() .
 			($enabledOnly?' WHERE enabled = 1':'') .
 			' ORDER BY seq',
@@ -146,8 +146,7 @@ class ContextDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function deleteById($contextId) {
-
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
 		$userGroupDao->deleteAssignmentsByContextId($contextId);
 		$userGroupDao->deleteByContextId($contextId);
 
@@ -161,7 +160,7 @@ class ContextDAO extends DAO {
 	 * Sequentially renumber each context according to their sequence order.
 	 */
 	function resequence() {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT ' . $this->_getPrimaryKeyColumn() . ' FROM ' . $this->_getTableName() . ' ORDER BY seq'
 		);
 

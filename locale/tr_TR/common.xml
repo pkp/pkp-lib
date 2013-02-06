@@ -374,4 +374,5 @@
 	<message key="common.considered">Dikkate Alınmış</message>
 	<message key="common.notified">Bildirilmiş</message>
 	<message key="common.reset">Yeniden Ayarlamak</message>
+	<message key="grid.action.downloadFile">Bu dosyayı indir</message>
 </locale>

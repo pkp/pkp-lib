@@ -371,4 +371,5 @@
 	<message key="navigation.submissions">Indsendelser</message>
 	<message key="navigation.system">System</message>
 	<message key="navigation.userManagement">Brugerstyring</message>
+	<message key="grid.action.downloadFile">Download denne fil</message>
 </locale>

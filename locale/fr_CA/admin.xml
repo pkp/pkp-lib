@@ -80,4 +80,7 @@
 	<message key="admin.version.updateAvailable">Une mise à jour est disponible</message>
 	<message key="admin.version.upToDate">Votre système est à jour</message>
 	<message key="admin.version">Version</message>
+	<message key="admin.settings">Paramètres</message>
+	<message key="admin.settings.siteTheme">Thème du site</message>
+	<message key="admin.siteSetup">Configuration du site</message>
 </locale>

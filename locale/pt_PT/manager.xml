@@ -215,4 +215,27 @@
 	<message key="manager.setup.filter.parser.grid.title">Serviços de Extracção de Citações</message>
 	<message key="manager.setup.filter.pleaseSelect">Por favor seleccione...</message>
 	<message key="manager.setup.metaCitationsDescription">Activar a seguinte checkbox para activar a citação e a edição de referências. Esta operação permite aos autores incluir linhas de citação com as submissões. Os Editores também terão acesso ao assistente de marcação da citação, que pode comparar as linhas de citação com bases de dados externas, tais como WorldCat, ISBNdb, PubMed e outras. As citações aprovadas podem ser exportadas para ficheiros próprios.</message>
+	<message key="manager.announcements.datePublish">Publicado</message>
+	<message key="manager.emails.addEmail">Adicionar Template de E-mail</message>
+	<message key="manager.emails.data">Template de Dados da Mensagem</message>
+	<message key="manager.emails.details">Detalhes do Template</message>
+	<message key="manager.emails.disable.message">Estás prestes a desactivar este template de e-mail. Se existem processos do sistema a usá-lo, deixarão de poder usar o template. Pretende confirmar esta operação?</message>
+	<message key="manager.emails.enable.message">Estás prestes a activar este template de e-mail. Pretende confirmar esta operação?</message>
+	<message key="manager.emails.resetAll.message">Se restaurar todos os templates, todas as modificações dos templates dos e-mails serão perdidas. Pretende confirmar esta operação?</message>
+	<message key="manager.emails.reset.message">Se restaurar este template, todos os dados da mensagem retornarão ao valor inicial, perdendo as modificações. Pretende confirmar esta operação?</message>
+	<message key="manager.masthead.title">Topo</message>
+	<message key="manager.navigation">Navegação</message>
+	<message key="manager.reviewerSearch.advancedSearch.short">Pesquisa Avançada</message>
+	<message key="manager.reviewerSearch.searchByName.short">Pesquisar por Nome</message>
+	<message key="manager.reviewerSearch.form.instructions">Usar o formulário disponível em baixo para definir os valores máximos que pretende pesquisar. O formulário é pré-populado com as médias calculadas desses campos.</message>
+	<message key="manager.reviewerSearch.form.interests.instructions">Inserir interesses do Revisor, separados por vírgulas...</message>
+	<message key="manager.setup.layout.blockManagement">Gestão da Barra de Navegação</message>
+	<message key="plugins.categories.metadata">Plugins de Metadados</message>
+	<message key="plugins.categories.metadata.description">Os plugins de metadados implementam padrões adicionais de metadados.</message>
+	<message key="plugins.categories.citationLookup">Plugins de Conexão de Citações à Base de Dados</message>
+	<message key="plugins.categories.citationLookup.description">Os Plugins de Conexão de Citações à Base de Dados ligam às bases de dados das citações a fim de procurar por citações, e.g. durante a edição das citações.</message>
+	<message key="plugins.categories.citationOutput">Plugins de Saída de Citação</message>
+	<message key="plugins.categories.citationOutput.description">Os plugins de saída de citação implementam padrões de citação. Estes substituem os Plugins de Formato de cCtação.</message>
+	<message key="plugins.categories.citationParser">Plugins de Extração de Citação</message>
+	<message key="plugins.categories.citationParser.description">Os Plugins de Extração de Citação extraem os dados dos campos primários (e.g. autor, título, etc.)</message>
 </locale>

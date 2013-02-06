@@ -79,7 +79,6 @@
 	<message key="grid.action.wizard">Indstillingsguide</message>
 	<message key="grid.action.editMedia">Rediger medie</message>
 	<message key="grid.action.moveItem">Flyt element</message>
-	<message key="grid.action.downloadFile">Download denne fil</message>
 	<message key="grid.action.downloadAll">Download alle filer som arkiv</message>
 	<message key="grid.action.readReview">Læs denne bedømmelse</message>
 	<message key="grid.action.email">Send e-mail</message>
@@ -193,4 +192,5 @@
 	<message key="grid.preparedEmails.currentList">Aktuel liste</message>
 	<message key="grid.plugin.allCategories">Alle kategorier</message>
 	<message key="grid.plugin.disable">Er du sikker på, at du vil deaktivere dette plug-in?</message>
+	<message key="grid.action.unconsiderReview">This review is complete, but you may unconsider it</message>
 </locale>

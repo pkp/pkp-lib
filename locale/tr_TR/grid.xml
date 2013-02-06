@@ -87,7 +87,6 @@
 	<message key="grid.action.collapseAll">Tüm Başarısızlık</message>
 	<message key="grid.action.wizard">Ayar Sihirbazı</message>
 	<message key="grid.action.moveItem">Öğe Taşı</message>
-	<message key="grid.action.downloadFile">Bu dosyayı indir</message>
 	<message key="grid.action.downloadAll">tüm dosyaları arşiv olarak indir</message>
 	<message key="grid.action.readReview">Bu değerlenidirmeyi oku</message>
 	<message key="grid.action.requestRevisions">Bu gönerinin istek revizyonu</message>
@@ -193,4 +192,5 @@
 	<message key="grid.action.history">Geçmişi Göster</message>
 	<message key="grid.task.status.unfinished">Değerlendirme Tamamlanmadı</message>
 	<message key="grid.task.status.reviewReady">Bu değerlendirme hazır.  Okumak için soldaki not simgesine tıklayınız.</message>
+	<message key="grid.action.unconsiderReview">Bu değerlendirme tamam, fakat şu göz önünde bulundurulmamış olabilir:</message>
 </locale>

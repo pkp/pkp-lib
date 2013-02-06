@@ -372,4 +372,5 @@
 	<message key="common.considered">Considerato</message>
 	<message key="common.notified">Notificato</message>
 	<message key="common.reset">Reset</message>
+	<message key="grid.action.downloadFile">Scarica questo file</message>
 </locale>

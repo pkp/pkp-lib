@@ -35,7 +35,7 @@ class PluginHandler extends ManagerHandler {
 		$plugin = array_shift($args);
 		$verb = array_shift($args);
 
-		$this->setupTemplate(true);
+		$this->setupTemplate($request);
 
 		$plugins = PluginRegistry::loadCategory($category);
 		$message = null;
@@ -45,7 +45,7 @@ class PluginHandler extends ManagerHandler {
 				$user =& $request->getUser();
 				$notificationManager->createTrivialNotification($user->getId(), $message);
 			}
-			$request->redirect(null, null, 'plugins', array($category));
+			$request->redirect(null, null, 'index', array($category));
 		}
 	}
 }

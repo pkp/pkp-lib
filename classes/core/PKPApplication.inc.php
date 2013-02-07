@@ -534,6 +534,13 @@ class PKPApplication {
 		$keys = array('form.dataHasChanged');
 		return $keys;
 	}
+
+	/**
+	 * Get the top-level context DAO.
+	 */
+	static function getContextDAO() {
+		assert(false); // Must be implemented by subclasses
+	}
 }
 
 /**

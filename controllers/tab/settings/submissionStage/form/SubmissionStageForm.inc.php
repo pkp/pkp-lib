@@ -20,9 +20,27 @@ class SubmissionStageForm extends ContextSettingsForm {
 	 * Constructor.
 	 */
 	function SubmissionStageForm($wizardMode = false) {
-		$settings = array();
+		$settings = array(
+			'copySubmissionAckPrimaryContact' => 'bool',
+			'copySubmissionAckAddress' => 'string'
+		);
+
+		$this->addCheck(new FormValidatorEmail($this, 'copySubmissionAckAddress'));
 
 		parent::ContextSettingsForm($settings, 'controllers/tab/settings/submissionStage/form/submissionStageForm.tpl', $wizardMode);
+	}
+
+	/**
+	 * @see Form::fetch()
+	 */
+	function fetch(&$request, $params = null) {
+		$templateMgr = TemplateManager::getManager($request);
+
+		import('classes.mail.MailTemplate');
+		$mail = new MailTemplate('SUBMISSION_ACK');
+		$templateMgr->assign('submissionAckDisabled', !$mail->isEnabled());
+
+		return parent::fetch($request, $params);
 	}
 }
 

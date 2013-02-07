@@ -270,6 +270,8 @@
 	<message key="plugins.categories.themes">Theme Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats">OAI Metadata Format Plugins</message>
 	<message key="plugins.categories.oaiMetadataFormats.description">These format plugins express metadata in OAI communications.</message>
+	<message key="plugins.categories.pubIds">Public Identifier Plugins</message>
+	<message key="plugins.categories.pubIds.description">These plugins implement support for a public identifier.</message>
 
 	<!-- Plugin management -->
 	<message key="manager.plugins.copyError">Plugin was not successfully copied. This may be a permissions problem. Please make sure that the web server is able to write to the plugins directory (including subdirectories) but don't forget to secure it again later.</message>

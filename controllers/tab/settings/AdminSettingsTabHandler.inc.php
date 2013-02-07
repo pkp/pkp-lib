@@ -184,11 +184,11 @@ class AdminSettingsTabHandler extends SettingsTabHandler {
 
 		switch ($fileType) {
 			case 'image':
-				import('controllers.tab.settings.siteSetup.form.NewSiteImageFileForm');
+				import('lib.pkp.controllers.tab.settings.siteSetup.form.NewSiteImageFileForm');
 				$fileUploadForm = new NewSiteImageFileForm($settingName);
 				break;
 			case 'css':
-				import('controllers.tab.settings.siteSetup.form.NewSiteCssFileForm');
+				import('lib.pkp.controllers.tab.settings.siteSetup.form.NewSiteCssFileForm');
 				$fileUploadForm = new NewSiteCssFileForm($settingName);
 				break;
 			default:

@@ -14,9 +14,6 @@
 	<!-- Group defaults -->
 	<message key="default.groups.name.siteAdmin">Site Admin</message>
 	<message key="default.groups.plural.siteAdmin">Site Admins</message>
-	<message key="default.groups.name.editor">Press editor</message>
-	<message key="default.groups.plural.editor">Press editors</message>
-	<message key="default.groups.abbrev.editor">PE</message>
 	<message key="default.groups.name.productionEditor">Production editor</message>
 	<message key="default.groups.plural.productionEditor">Production editors</message>
 	<message key="default.groups.abbrev.productionEditor">ProdE</message>
@@ -53,4 +50,7 @@
 	<message key="default.groups.name.translator">Translator</message>
 	<message key="default.groups.plural.translator">Translators</message>
 	<message key="default.groups.abbrev.translator">Trans</message>
+	<message key="default.groups.name.reader">Reader</message>
+	<message key="default.groups.plural.reader">Readers</message>
+	<message key="default.groups.abbrev.reader">Read</message>
 </locale>

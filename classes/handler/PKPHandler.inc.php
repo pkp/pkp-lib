@@ -477,6 +477,25 @@ class PKPHandler {
 	function getWorkingContexts($request) {
 		assert(false); // Must be implemented by subclasses
 	}
+
+	/**
+	 * Return the first context that user is enrolled with.
+	 * @param $user User
+	 * @param $contexts Array
+	 * @return mixed Either Context or null
+	 */
+	function getFirstUserContext($user, $contexts) {
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$context = null;
+		foreach($contexts as $workingContext) {
+			$userIsEnrolled = $userGroupDao->userInAnyGroup($user->getId(), $workingContext->getId());
+			if ($userIsEnrolled) {
+				$context = $workingContext;
+				break;
+			}
+		}
+		return $context;
+	}
 }
 
 ?>

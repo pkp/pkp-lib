@@ -238,6 +238,7 @@ class SiteSetupForm extends PKPSiteSettingsForm {
 				)
 			)
 		);
+		import('lib.pkp.classes.linkAction.LinkAction');
 		$linkAction = new LinkAction(
 			'uploadFile-' . $settingName,
 			$ajaxModal,

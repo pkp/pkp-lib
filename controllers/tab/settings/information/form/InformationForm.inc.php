@@ -9,7 +9,7 @@
  * @class InformationForm
  * @ingroup controllers_tab_settings_information_form
  *
- * @brief Form to edit press information.
+ * @brief Form to edit context information.
  */
 
 import('lib.pkp.classes.controllers.tab.settings.form.ContextSettingsForm');

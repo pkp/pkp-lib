@@ -713,9 +713,11 @@ class UserGroupDAO extends DAO {
 			$userGroupId = $this->insertUserGroup($userGroup);
 
 			// Install default groups for each stage
-			foreach ($defaultStages as $stageId) {
-				if (!empty($stageId) && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION && $stageId >= WORKFLOW_STAGE_ID_SUBMISSION) {
-					$this->assignGroupToStage($contextId, $userGroupId, $stageId);
+			if (is_array($defaultStages)) { // test for groups with no stage assignments
+				foreach ($defaultStages as $stageId) {
+					if (!empty($stageId) && $stageId <= WORKFLOW_STAGE_ID_PRODUCTION && $stageId >= WORKFLOW_STAGE_ID_SUBMISSION) {
+						$this->assignGroupToStage($contextId, $userGroupId, $stageId);
+					}
 				}
 			}
 

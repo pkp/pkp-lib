@@ -23,9 +23,9 @@
 			<li class="profile">{translate key="user.hello"}&nbsp;<a href="{url page="user" op="profile"}">{$loggedInUsername|escape}</a></li>
 			<li>{null_link_action id="toggleHelp" key="help.toggleInlineHelpOn"}</li>
 			<li><a href="{url page="login" op="signOut"}">{translate key="user.logOut"}</a></li>
-		{else}
-			<li><a {if $notInstalled}disabled="disabled" {/if}href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
-			<li><a {if $notInstalled}disabled="disabled" {/if}href="{url page="login"}">{translate key="navigation.login"}</a></li>
+		{elseif !$notInstalled}
+			<li><a disabled="disabled" href="{url page="user" op="register"}">{translate key="navigation.register"}</a></li>
+			<li><a disabled="disabled" href="{url page="login"}">{translate key="navigation.login"}</a></li>
 		{/if}
 	</ul>
 </div>

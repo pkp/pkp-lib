@@ -2,16 +2,15 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/oaiMetadataFormats/dc/locale/es_ES/locale.xml
+  * plugins/citationOutput/abnt/locale/en_US/locale.xml
   *
   * Copyright (c) 2003-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (U.S. English) locale.
-  *
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.oaiMetadata.dc.displayName">Formato de metadatos DC</message>
-	<message key="plugins.oaiMetadata.dc.description">Estructura los metadatos para que sean compatibles con el formato Dublin Core.</message>
+	<message key="plugins.citationOutput.abnt.displayName">Formato de citación ABNT</message>
+	<message key="plugins.citationOutput.abnt.description">Implementa el formato de citación ABNT.</message>
 </locale>

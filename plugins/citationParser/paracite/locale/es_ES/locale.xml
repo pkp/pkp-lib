@@ -2,16 +2,15 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/oaiMetadataFormats/dc/locale/es_ES/locale.xml
+  * plugins/citationParser/paracite/locale/en_US/locale.xml
   *
   * Copyright (c) 2003-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (U.S. English) locale.
-  *
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.oaiMetadata.dc.displayName">Formato de metadatos DC</message>
-	<message key="plugins.oaiMetadata.dc.description">Estructura los metadatos para que sean compatibles con el formato Dublin Core.</message>
+	<message key="plugins.citationParser.paracite.displayName">Extractor de citaciones de ParaCite</message>
+	<message key="plugins.citationParser.paracite.description">Extrae los campos de las citas en texto plano mediante el servicio ParaCite.</message>
 </locale>

@@ -2,16 +2,15 @@
 <!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
 
 <!--
-  * plugins/oaiMetadataFormats/dc/locale/es_ES/locale.xml
+  * plugins/citationLookup/worldcat/locale/en_US/locale.xml
   *
   * Copyright (c) 2003-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the en_US (U.S. English) locale.
-  *
   -->
- 
+
 <locale name="en_US" full_name="U.S. English">
-	<message key="plugins.oaiMetadata.dc.displayName">Formato de metadatos DC</message>
-	<message key="plugins.oaiMetadata.dc.description">Estructura los metadatos para que sean compatibles con el formato Dublin Core.</message>
+	<message key="plugins.citationLookup.worldcat.displayName">Conector con la base de datos WorldCat</message>
+	<message key="plugins.citationLookup.worldcat.description">Conecta con la base de datos bibliográfica WorldCat.</message>
 </locale>

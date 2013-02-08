@@ -49,7 +49,7 @@ class AdminHandler extends Handler {
 			if ($targetContext) {
 				$url = $router->url($request, $targetContext->getPath(), 'admin', $requestedOp);
 			} else {
-				$url = $router->url($request, 'index');
+				$url = $router->url($request, 'index', 'admin', 'contexts');
 			}
 			$request->redirectUrl($url);
 		}

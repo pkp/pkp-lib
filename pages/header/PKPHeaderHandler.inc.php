@@ -39,11 +39,14 @@ class PKPHeaderHandler extends Handler {
 		$workingContexts = $this->getWorkingContexts($request);
 
 		$multipleContexts = false;
-		if ($workingContexts->getCount() > 1) {
+		if ($workingContexts && $workingContexts->getCount() > 1) {
 			$templateMgr->assign('multipleContexts', true);
 			$multipleContexts = true;
 		} else {
-			if ($workingContexts->getCount() == 0) { // no presses configured
+			if (!$workingContexts) {
+				$templateMgr->assign('noContextsConfigured', true);
+				$templateMgr->assign('notInstalled', true);
+			} elseif ($workingContexts->getCount() == 0) { // no presses configured or installing
 				$templateMgr->assign('noContextsConfigured', true);
 			}
 		}

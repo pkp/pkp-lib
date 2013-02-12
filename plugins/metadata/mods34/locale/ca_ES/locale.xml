@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/metadata/mods34/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<!-- plug-in -->
+	<message key="plugins.metadata.mods34.displayName">Metadades MODS 3.4</message>
+	<message key="plugins.metadata.mods34.description">Proporciona l'esquema i els adaptadors d'aplicació per MODS 3.4.</message>
+
+	<!-- MODS 3.4 XML output -->
+	<message key="plugins.metadata.mods34.mods34XmlOutput.displayName">Sortida MODS 3.4</message>
+	<message key="plugins.metadata.mods34.mods34XmlOutput.description">Converteix la descripció de les metadades MODS 3.4 al seu encapsulat amb XML.</message>
+</locale>

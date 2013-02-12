@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../dtd/locale.dtd">
+
+<!--
+  * plugins/citationLookup/worldcat/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2003-2012 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings for the en_US (U.S. English) locale.
+  -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.citationLookup.worldcat.displayName">Connector de base de dades WorldCat</message>
+	<message key="plugins.citationLookup.worldcat.description">Connecta amb la base de dades biblogràfica WorldCat.</message>
+</locale>

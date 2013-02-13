@@ -23,7 +23,27 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 * Constructor
 	 */
 	function PKPPreparedEmailsGridHandler() {
+		$this->addRoleAssignment(
+			array(ROLE_ID_MANAGER),
+			array(
+				'fetchRow', 'fetchGrid', 'addPreparedEmail', 'editPreparedEmail',
+				'updatePreparedEmail', 'resetEmail', 'resetAllEmails',
+				'disableEmail', 'enableEmail', 'deleteCustomEmail'
+			)
+		);
 		parent::GridHandler();
+	}
+
+	/**
+	 * @see PKPHandler::authorize()
+	 * @param $request PKPRequest
+	 * @param $args array
+	 * @param $roleAssignments array
+	 */
+	function authorize(&$request, $args, $roleAssignments) {
+		import('lib.pkp.classes.security.authorization.PkpContextAccessPolicy');
+		$this->addPolicy(new PkpContextAccessPolicy($request, $roleAssignments));
+		return parent::authorize($request, $args, $roleAssignments);
 	}
 
 	/**
@@ -48,7 +68,7 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 
 		import('lib.pkp.classes.linkAction.LinkAction');
 		import('lib.pkp.classes.linkAction.request.RemoteActionConfirmationModal');
-		$router =& $request->getRouter();
+		$router = $request->getRouter();
 		$this->addAction(
 			new LinkAction(
 				'resetAll',
@@ -86,8 +106,9 @@ class PKPPreparedEmailsGridHandler extends GridHandler {
 	 */
 	function loadData($request, $filter) {
 		// Elements to be displayed in the grid
-		$emailTemplateDao =& DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
-		$emailTemplates =& $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $this->getContextId($request));
+		$emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO'); /* @var $emailTemplateDao EmailTemplateDAO */
+		$context = $request->getContext();
+		$emailTemplates = $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $context->getId());
 		foreach ($emailTemplates as $emailTemplate) {
 			$rowData[$emailTemplate->getEmailKey()] = $emailTemplate;
 		}

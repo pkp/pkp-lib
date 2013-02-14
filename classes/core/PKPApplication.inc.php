@@ -50,6 +50,9 @@ define('WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW', 'externalReview');
 define('WORKFLOW_STAGE_PATH_EDITING', 'editorial');
 define('WORKFLOW_STAGE_PATH_PRODUCTION', 'production');
 
+// To expose LISTBUILDER_SOURCE_TYPE_... constants via JS
+import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+
 class PKPApplication {
 	var $enabledProducts;
 	var $allProducts;

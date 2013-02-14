@@ -230,6 +230,7 @@ class PKPRoleDAO extends DAO {
 		$appRoleNames = array(
 			ROLE_ID_AUTHOR => 'user.role.author',
 			ROLE_ID_REVIEWER => 'user.role.reviewer',
+			ROLE_ID_READER => 'user.role.reader',
 		);
 		$roleNames = $contextOnly ? $appRoleNames : $siteRoleNames + $appRoleNames;
 

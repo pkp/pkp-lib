@@ -13,7 +13,6 @@
  */
 
 import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 import('controllers.grid.announcements.form.AnnouncementTypeForm');
 
 class AnnouncementTypeGridHandler extends GridHandler {

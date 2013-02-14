@@ -13,7 +13,6 @@
  */
 
 import('lib.pkp.classes.controllers.grid.CategoryGridHandler');
-import('lib.pkp.classes.controllers.grid.DataObjectGridCellProvider');
 
 class PluginGridHandler extends CategoryGridHandler {
 	/**

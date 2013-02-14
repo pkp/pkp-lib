@@ -16,7 +16,7 @@
 import('lib.pkp.classes.form.Form');
 
 class SubmissionChecklistForm extends Form {
-	/** the id for the submissionChecklist being edited **/
+	/** @var $submissionChecklistId int The id for the submissionChecklist being edited **/
 	var $submissionChecklistId;
 
 	/**
@@ -85,7 +85,7 @@ class SubmissionChecklistForm extends Form {
 	}
 
 	/**
-	 * Save email template.
+	 * Save checklist entry.
 	 */
 	function execute($args, &$request) {
 		$router =& $request->getRouter();

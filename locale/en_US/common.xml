@@ -107,6 +107,7 @@
 	<message key="common.declined">Declined</message>
 	<message key="common.delete">Delete</message>
 	<message key="common.deleteSelection">Delete Selection</message>
+	<message key="common.designation">Designation</message>
 	<message key="common.description">Description</message>
 	<message key="common.disable">Disable</message>
 	<message key="common.disabled">Disabled</message>
@@ -200,6 +201,7 @@
 	<message key="common.selectAll">Select All</message>
 	<message key="common.selectNone">Select None</message>
 	<message key="common.select">Select</message>
+	<message key="common.sendEmail">Send Email</message>
 	<message key="common.signoff">Sign Off</message>
 	<message key="common.size">Size</message>
 	<message key="common.source">Source</message>

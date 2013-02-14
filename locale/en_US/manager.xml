@@ -242,6 +242,7 @@
 	<message key="manager.setup.pageHeaderLogoImageInvalid">Invalid page header logo image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Select one</message>
+	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
 	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
@@ -313,6 +314,7 @@
 	<message key="notification.localeUninstalled">{$locale} locale uninstalled.</message>
 	<message key="notification.localeReloaded">{$locale} locale reloaded.</message>
 	<message key="notification.localeSettingsSaved">Locale settings saved.</message>
+	<message key="notification.editedUser">User edited.</message>
 
 	<!-- Distribution Process settings -->
 	<message key="manager.distribution.indexing">Indexing</message>
@@ -326,4 +328,20 @@
 	<message key="manager.paymentMethod.currency">Currency</message>
 	<message key="manager.paymentMethod.currency.description">Payments made directly through this website will be denominated in the selected currency.</message>
 
+	<!-- Roles grid settings -->
+	<message key="settings.roles.roleName">Role Name</message>
+	<message key="settings.roles.gridDescription">Roles are groups of users in the press who are given access to different permission levels and associated workflows within the press. There are five different permission levels: Press Managers have access to everythi    ng in the press (all content and settings); Press Editors have access to all content within their series; Press Assistants have access to all monographs that have been explicitly assigned to them by an editor; Reviewers can see and perform the reviews they have been assigned; and Authors can see and interact with a limited amount of information on their own submissions. Additionally, there are five different stage assignments that roles may be given access to: Submission, Internal Review, External Review, Editorial and Production.</message>
+	<message key="settings.roles.roleAbbrev">Abbreviation</message>
+	<message key="settings.roles.assignedStages">Assigned Stages</message>
+	<message key="settings.roles.stages">Stages</message>
+	<message key="settings.roles.listRoles">List roles from</message>
+	<message key="settings.roles.roleDetails">Role details</message>
+	<message key="settings.roles.from">Permission level</message>
+	<message key="settings.roles.removeText">You are about to remove this role from this context. This operation will also delete related settings and all the users assignments to this role. Do you want to continue?</message>
+	<message key="settings.roles.nameRequired">You need to define a role name.</message>
+	<message key="settings.roles.abbrevRequired">You need to define a role abbreviature.</message>
+	<message key="settings.roles.uniqueName">You need to define an unique role name.</message>
+	<message key="settings.roles.uniqueAbbrev">You need to define an unique role abbreviature.</message>
+	<message key="settings.roles.roleIdRequired">You need to define a role permission level.</message>
+	<message key="settings.roles.stageIdRequired">You need to define a stage to assign to.</message>
 </locale>

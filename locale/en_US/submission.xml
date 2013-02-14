@@ -258,6 +258,7 @@
 	<message key="submission.due">Due</message>
 	<message key="submission.editing">Editing</message>
 	<message key="submission.editMetadata">Edit Metadata</message>
+	<message key="submission.editorial">Editorial</message>
 	<message key="submission.email.backToEmailLog">Back to Email Log</message>
 	<message key="submission.email.confirmClearLog">Are you sure you want to clear the email log for this submission?</message>
 	<message key="submission.email.confirmDeleteLogEntry">Are you sure you want to delete this email log entry?</message>
@@ -353,6 +354,7 @@
 	<message key="submission.page.summary">#{$id} Summary</message>
 	<message key="submission.page.citations">#{$id} Citations</message>
 	<message key="submission.peerReview">Peer&amp;nbsp;Review</message>
+	<message key="submission.production">Production</message>
 	<message key="submission.recommendation">Recommendation</message>
 	<message key="submission.rejected">Rejected</message>
 	<message key="submission.request">Request</message>
@@ -381,6 +383,7 @@
 	<message key="submission.subjectClass.tip">Please describe your submission using a few key phrases.  You may refine the subject with specific keywords in a latter part of the form.</message>
 	<message key="submissions.submit">Submit</message>
 	<message key="submissions.submitted">Submitted</message>
+	<message key="submission.submission">Submission</message>
 	<message key="submission.start">Start</message>
 	<message key="submission.submissionHistory">Submission History</message>
 	<message key="submission.submissionManuscript">Submission Manuscript</message>
@@ -413,4 +416,8 @@
 	<!-- Submission file upload form elements -->
 	<message key="submission.form.name">Give this file a helpful name</message>
 	<message key="submission.form.replaceExisting">Replacing an Existing File?</message>
+
+	<!-- Workflow keys -->
+	<message key="workflow.review.internalReview">Internal Review</message>
+	<message key="workflow.review.externalReview">External Review</message>
 </locale>

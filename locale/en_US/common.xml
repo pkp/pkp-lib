@@ -324,6 +324,7 @@
 	<message key="navigation.admin">Administration</message>
 	<message key="navigation.tools">Tools</message>
 	<message key="navigation.tools.importExport">Import/Export</message>
+	<message key="navigation.tools.statistics">Statistics</message>
 	<message key="navigation.browse">Browse</message>
 	<message key="navigation.browseByAuthor">By Author</message>
 	<message key="navigation.browseByTitle">By Title</message>

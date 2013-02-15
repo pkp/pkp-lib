@@ -243,7 +243,6 @@
 	<message key="manager.setup.pageHeaderTitleImageInvalid">Invalid page header title image format or upload failed. Accepted formats are .gif, .jpg, or .png.</message>
 	<message key="manager.setup.selectOne">Select one</message>
 	<message key="manager.siteAccessOptions.siteAccessOptions">Site Access Options</message>
-	<message key="manager.statistics"><![CDATA[Stats &amp; Reports]]></message>
 	<message key="manager.statistics.statistics.count.value">{$count} ({$percentage}%)</message>
 	<message key="manager.statistics.statistics.totalNewValue">{$numTotal} ({$numNew} new)</message>
 	<message key="manager.users">Users</message>

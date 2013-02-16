@@ -5,8 +5,6 @@
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized list of countries.
-  *
-  * $Id$
   -->
 <countries>
 	<country name="Afghanistan" code="AF"/>

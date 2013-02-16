@@ -1,13 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE locale SYSTEM "../../dtd/locale.dtd"> <!--
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../dtd/locale.dtd">
+
+<!--
   * locale/es_ES/user.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Localization strings for the es_ES (English) locale.
+  * Localization strings for the es_ES (Español) locale.
   -->
 
-<locale name="es_ES" full_name = "English">
+<locale name="es_ES" full_name = "Español">
 	<message key="user.affiliation">Empresa</message>
 	<message key="user.affiliation.description">(Su institución, p.ej., «Universidad Simon Fraser»)</message>
 	<message key="user.affiliations">Empresas</message>

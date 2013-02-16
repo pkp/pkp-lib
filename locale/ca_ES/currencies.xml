@@ -2,14 +2,12 @@
 <!DOCTYPE currencies SYSTEM "../../dtd/currencies.dtd">
 
 <!--
-  * locale/en_US/currencies.xml
+  * locale/ca_ES/currencies.xml
   *
   * Copyright (c) 2000-2012 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Currencies data XML file. Based on ISO 4217.
-  *
-  * $Id$
   -->
 
 <currencies locale="ca_ES">

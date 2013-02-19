@@ -42,7 +42,6 @@ class SettingsDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 
 		$cache = $this->_getCache($id);
 		$cache->setEntireCache($settings);

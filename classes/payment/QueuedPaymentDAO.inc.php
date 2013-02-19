@@ -29,7 +29,7 @@ class QueuedPaymentDAO extends DAO {
 	 * @return QueuedPayment or null on failure
 	 */
 	function &getQueuedPayment($queuedPaymentId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM queued_payments WHERE queued_payment_id = ?',
 			(int) $queuedPaymentId
 		);
@@ -40,7 +40,6 @@ class QueuedPaymentDAO extends DAO {
 			if (!is_object($queuedPayment)) $queuedPayment = null;
 		}
 		$result->Close();
-		unset($result);
 		return $queuedPayment;
 	}
 

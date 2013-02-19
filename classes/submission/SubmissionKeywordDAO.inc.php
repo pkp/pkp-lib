@@ -58,11 +58,10 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 			$submissionKeywordEntryDao =& DAORegistry::getDAO('SubmissionKeywordEntryDAO');
 			$submissionKeywords = $submissionKeywordEntryDao->getByControlledVocabId($keywords->getId());
 
-			while ($keyword =& $submissionKeywords->next()) {
+			while ($keyword = $submissionKeywords->next()) {
 				$keyword = $keyword->getKeyword();
 				if (array_key_exists($locale, $keyword)) { // quiets PHP when there are no keywords for a given locale
 					$returner[$locale][] = $keyword[$locale];
-					unset($keyword);
 				}
 			}
 		}
@@ -76,7 +75,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	function getAllUniqueKeywords() {
 		$keywords = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_KEYWORD
 		);
 
@@ -86,8 +85,6 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $keywords;
 	}
 
@@ -96,8 +93,8 @@ class SubmissionKeywordDAO extends ControlledVocabDAO {
 	 * @param $content string
 	 * @return array
 	 */
-	function getsubmissionIdsByKeyword($keyword) {
-		$result =& $this->retrieve(
+	function getSubmissionIdsByKeyword($keyword) {
+		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
 			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id

@@ -44,7 +44,7 @@ class DataObjectTombstoneDAO extends DAO {
 			$params[] = (int) $assocType;
 			$params[] = (int) $assocId;
 		}
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT * ' . $this->_getSelectTombstoneSql($assocType, $assocId), $params);
 
 		$returner = null;
@@ -53,8 +53,6 @@ class DataObjectTombstoneDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -64,15 +62,13 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return DataObjectTombstone object
 	 */
 	function &getByDataObjectId($dataObjectId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM data_object_tombstones WHERE data_object_id = ?', (int) $dataObjectId
 		);
 
 		$dataObjectTombstone =& $this->_fromRow($result->GetRowAssoc(false));
 
 		$result->Close();
-		unset($result);
-
 		return $dataObjectTombstone;
 	}
 
@@ -207,7 +203,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return array('setSpec' => setName)
 	 */
 	function &getSets($assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT dot.set_spec, dot.set_name FROM data_object_tombstones dot
 			LEFT JOIN data_object_tombstone_oai_set_objects oso ON (dot.tombstone_id = oso.tombstone_id)
 			WHERE oso.assoc_type = ? AND oso.assoc_id = ?',
@@ -221,8 +217,6 @@ class DataObjectTombstoneDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -233,7 +227,7 @@ class DataObjectTombstoneDAO extends DAO {
 	 * @return array assocType => assocId
 	 */
 	function getOAISetObjectsIds($tombstoneId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM data_object_tombstone_oai_set_objects WHERE tombstone_id = ?',
 			(int) $tombstoneId
 		);
@@ -244,8 +238,6 @@ class DataObjectTombstoneDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $oaiSetObjectsIds;
 	}
 

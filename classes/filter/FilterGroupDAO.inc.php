@@ -61,7 +61,7 @@ class FilterGroupDAO extends DAO {
 	 * @return FilterGroup
 	 */
 	function &getObjectById($filterGroupId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 				'SELECT * FROM filter_groups'.
 				' WHERE filter_group_id = ?', $filterGroupId);
 
@@ -71,8 +71,6 @@ class FilterGroupDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $filterGroup;
 	}
 
@@ -82,7 +80,7 @@ class FilterGroupDAO extends DAO {
 	 * @return FilterGroup
 	 */
 	function &getObjectBySymbolic($filterGroupSymbolic) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 				'SELECT * FROM filter_groups'.
 				' WHERE symbolic = ?', $filterGroupSymbolic);
 
@@ -92,8 +90,6 @@ class FilterGroupDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $filterGroup;
 	}
 

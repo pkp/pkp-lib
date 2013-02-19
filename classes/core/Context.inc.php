@@ -347,7 +347,6 @@ class Context extends DataObject {
 	function &getLocalizedSetting($name) {
 		$returner = $this->getSetting($name, AppLocale::getLocale());
 		if ($returner === null) {
-			unset($returner);
 			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
 		}
 		return $returner;

@@ -127,7 +127,7 @@ class ProcessDAO extends DAO {
 	 * @return Process
 	 */
 	function getObjectById($processId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT process_id, process_type, time_started, obliterated, additional_data FROM processes WHERE process_id = ?',
 			$processId
 		);
@@ -150,7 +150,7 @@ class ProcessDAO extends DAO {
 	function getNumberOfObjectsByProcessType($processType) {
 		// Find the number of processes for the
 		// given process type.
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*) AS running_processes
 			 FROM processes
 			 WHERE process_type = ?',

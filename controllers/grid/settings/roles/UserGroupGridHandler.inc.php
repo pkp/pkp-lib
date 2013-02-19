@@ -132,14 +132,13 @@ class UserGroupGridHandler extends CategoryGridHandler {
 		}
 
 		$stages = array();
-		while ($userGroup =& $userGroups->next()) {
+		while ($userGroup = $userGroups->next()) {
 			$userGroupStages = $this->_getAssignedStages($contextId, $userGroup->getId());
 			foreach ($userGroupStages as $stageId => $stage) {
 				if ($stage != null) {
 					$stages[$stageId] = array('id' => $stageId, 'name' => $stage);
 				}
 			}
-			unset($userGroup);
 		}
 
 		return $stages;

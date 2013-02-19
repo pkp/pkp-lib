@@ -160,7 +160,6 @@ class PluginGridHandler extends CategoryGridHandler {
 				if (stristr($pluginName, $filter['pluginName']) !== false) {
 					$filteredPlugins[$plugin->getName()] = $plugin;
 				}
-				unset($plugin);
 			}
 			return $filteredPlugins;
 		}

@@ -97,7 +97,7 @@ class PKPRoleDAO extends DAO {
 
 		$searchSql .= ' ORDER BY u.last_name, u.first_name'; // FIXME Add "sort field" parameter?
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT DISTINCT u.* FROM users AS u LEFT JOIN controlled_vocabs cv ON (cv.assoc_type = ? AND cv.assoc_id = u.user_id AND cv.symbolic = ?)
 			LEFT JOIN controlled_vocab_entries cve ON (cve.controlled_vocab_id = cv.controlled_vocab_id)
 			LEFT JOIN controlled_vocab_entry_settings cves ON (cves.controlled_vocab_entry_id = cve.controlled_vocab_entry_id),
@@ -119,7 +119,7 @@ class PKPRoleDAO extends DAO {
 	 * @return bool
 	 */
 	function userHasRole($contextId, $userId, $roleId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT count(*) FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id = ?',
 			array((int) $contextId, (int) $userId, (int) $roleId)
@@ -129,8 +129,6 @@ class PKPRoleDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -143,7 +141,7 @@ class PKPRoleDAO extends DAO {
 	function getByUserId($userId, $contextId = null) {
 		$params = array((int) $userId);
 		if ($contextId) $params[] = (int) $contextId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	DISTINCT ug.role_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -157,8 +155,6 @@ class PKPRoleDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $roles;
 	}
 

@@ -50,22 +50,19 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getSubjects($submissionId, $locales) {
-
 		$returner = array();
+		$submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO');
 		foreach ($locales as $locale) {
 			$returner[$locale] = array();
 			$subjects = $this->build($submissionId);
-			$submissionSubjectEntryDao =& DAORegistry::getDAO('SubmissionSubjectEntryDAO');
 			$submissionSubjects = $submissionSubjectEntryDao->getByControlledVocabId($subjects->getId());
 
-			while ($subject =& $submissionSubjects->next()) {
+			while ($subject = $submissionSubjects->next()) {
 				$subject = $subject->getSubject();
 				if (array_key_exists($locale, $subject)) { // quiets PHP when there are no Subjects for a given locale
 					$returner[$locale][] = $subject[$locale];
 				}
-				unset($subject);
 			}
-			unset($subjects);
 		}
 		return $returner;
 	}
@@ -77,7 +74,7 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	function getAllUniqueSubjects() {
 		$subjects = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_SUBJECT
 		);
 
@@ -87,8 +84,6 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $subjects;
 	}
 
@@ -97,8 +92,8 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 	 * @param $content string
 	 * @return array
 	 */
-	function getsubmissionIdsBySubject($subject) {
-		$result =& $this->retrieve(
+	function getSubmissionIdsBySubject($subject) {
+		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
 			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
@@ -114,7 +109,6 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -151,15 +145,11 @@ class SubmissionSubjectDAO extends ControlledVocabDAO {
 						$subjectEntry->setSequence($i);
 						$i ++;
 						$subjectEntryId = $submissionSubjectEntryDao->insertObject($subjectEntry);
-						unset($subject);
 					}
 				}
-				unset($list);
 			}
 		}
-		unset($subjectDao);
-		unset($currentSubjects);
-		unset($submissionSubjectEntryDao);
 	}
 }
+
 ?>

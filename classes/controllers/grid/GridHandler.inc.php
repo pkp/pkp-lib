@@ -933,7 +933,6 @@ class GridHandler extends PKPHandler {
 
 			// Render the row
 			$renderedRows[] = $this->renderRowInternally($request, $row);
-			unset($element);
 		}
 
 		return $renderedRows;

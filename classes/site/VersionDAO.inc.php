@@ -43,7 +43,7 @@ class VersionDAO extends DAO {
 		// a product version anyway.
 		$returner = null;
 		if (!$isPlugin) {
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1'
 			);
 			// If we only have one current version then this must be
@@ -58,7 +58,7 @@ class VersionDAO extends DAO {
 		if (!$returner) {
 			// From here on we can assume that we have the product type
 			// and product columns available in the versions table.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT * FROM versions WHERE current = 1 AND product_type = ? AND product = ?',
 				array($productType, $product)
 			);
@@ -71,8 +71,6 @@ class VersionDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -91,7 +89,7 @@ class VersionDAO extends DAO {
 			$product = $application->getName();
 		}
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM versions WHERE product_type = ? AND product = ? ORDER BY date_installed DESC',
 			array($productType, $product)
 		);
@@ -102,8 +100,6 @@ class VersionDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $versions;
 	}
 
@@ -234,7 +230,7 @@ class VersionDAO extends DAO {
 			$contextWhereClause = '';
 		}
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 				'SELECT v.*
 				 FROM versions v LEFT JOIN plugin_settings ps ON
 					lower(v.product_class_name) = ps.plugin_name
@@ -248,8 +244,6 @@ class VersionDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->_close();
-		unset($result);
-
 		return $productArray;
 	}
 

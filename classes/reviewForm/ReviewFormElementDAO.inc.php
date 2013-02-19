@@ -30,7 +30,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @return ReviewFormElement
 	 */
 	function &getReviewFormElement($reviewFormElementId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM review_form_elements WHERE review_form_element_id = ?', $reviewFormElementId
 		);
 
@@ -40,8 +40,6 @@ class ReviewFormElementDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -200,7 +198,7 @@ class ReviewFormElementDAO extends DAO {
 	function &getReviewFormElements($reviewFormId) {
 		$reviewFormElements = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM review_form_elements WHERE review_form_id = ? ORDER BY seq',
 			$reviewFormId
 		);
@@ -212,8 +210,6 @@ class ReviewFormElementDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $reviewFormElements;
 	}
 
@@ -224,7 +220,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @return DAOResultFactory containing ReviewFormElements ordered by sequence
 	 */
 	function &getReviewFormElementsByReviewForm($reviewFormId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM review_form_elements WHERE review_form_id = ? ORDER BY seq',
 			$reviewFormId, $rangeInfo
 		);
@@ -239,7 +235,7 @@ class ReviewFormElementDAO extends DAO {
 	 * return array
 	 */
 	function getRequiredReviewFormElementIds($reviewFormId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT review_form_element_id FROM review_form_elements WHERE review_form_id = ? AND required = 1 ORDER BY seq',
 			$reviewFormId
 		);
@@ -252,8 +248,6 @@ class ReviewFormElementDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $requiredReviewFormElementIds;
 	}
 
@@ -270,13 +264,11 @@ class ReviewFormElementDAO extends DAO {
 			$sql .= ' AND review_form_id = ?';
 			$params[] = $reviewFormId;
 		}
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -285,7 +277,7 @@ class ReviewFormElementDAO extends DAO {
 	 * @param $reviewFormId int
 	 */
 	function resequenceReviewFormElements($reviewFormId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT review_form_element_id FROM review_form_elements WHERE review_form_id = ? ORDER BY seq', $reviewFormId
 		);
 
@@ -301,9 +293,7 @@ class ReviewFormElementDAO extends DAO {
 
 			$result->MoveNext();
 		}
-
 		$result->Close();
-		unset($result);
 	}
 
 	/**

@@ -81,7 +81,6 @@ class XMLParser {
 		$this->destroyParser($parser);
 		if (isset($handler)) {
 			$handler->destroy();
-			unset($handler);
 		}
 		return $result;
 	}
@@ -172,7 +171,6 @@ class XMLParser {
 		$this->destroyParser($parser);
 		if (isset($handler)) {
 			$handler->destroy();
-			unset($handler);
 		}
 		return $result;
 	}
@@ -280,7 +278,6 @@ class XMLParser {
 	 */
 	function destroyParser($parser) {
 		xml_parser_free($parser);
-		unset($parser);
 	}
 
 	/**
@@ -289,7 +286,6 @@ class XMLParser {
 	function destroy() {
 		// Set magic_quotes_runtime back to original setting
 		if ($this->magicQuotes) set_magic_quotes_runtime($this->magicQuotes);
-		unset($this);
 	}
 
 }

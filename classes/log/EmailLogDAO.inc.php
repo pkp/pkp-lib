@@ -38,7 +38,7 @@ class EmailLogDAO extends DAO {
 			$params[] = (int) $assocId;
 		}
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM email_log WHERE log_id = ?' .
 			(isset($assocType)?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
@@ -50,8 +50,6 @@ class EmailLogDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -71,7 +69,7 @@ class EmailLogDAO extends DAO {
 				(int) $eventType);
 		if ($userId) $params[] = $userId;
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	e.*
 			FROM	email_log e' .
 			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
@@ -95,7 +93,7 @@ class EmailLogDAO extends DAO {
 	 * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
 	 */
 	function &getByAssoc($assocType = null, $assocId = null, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	email_log
 			WHERE	assoc_type = ?

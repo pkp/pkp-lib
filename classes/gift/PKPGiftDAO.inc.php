@@ -35,7 +35,7 @@ class PKPGiftDAO extends DAO {
 	 * @return Gift object
 	 */
 	function &getGift($giftId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM gifts WHERE gift_id = ?', $giftId
 		);
 
@@ -53,7 +53,7 @@ class PKPGiftDAO extends DAO {
 	 * @return int
 	 */
 	function getGiftAssocId($giftId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_id FROM gifts WHERE gift_id = ?', $giftId
 		);
 
@@ -66,7 +66,7 @@ class PKPGiftDAO extends DAO {
 	 * @return int
 	 */
 	function getGiftAssocType($giftId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_type FROM gifts WHERE gift_id = ?', $giftId
 		);
 
@@ -245,10 +245,9 @@ class PKPGiftDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function deleteGiftsByAssocId($assocType, $assocId) {
-		$gifts =& $this->getGiftsByAssocId($assocType, $assocId);
-		while (($gift =& $gifts->next())) {
+		$gifts = $this->getGiftsByAssocId($assocType, $assocId);
+		while ($gift = $gifts->next()) {
 			$this->deleteGiftById($gift->getId());
-			unset($gift);
 		}
 		return true;
 	}
@@ -260,7 +259,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getGiftsByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ? AND assoc_id = ?
@@ -282,7 +281,7 @@ class PKPGiftDAO extends DAO {
 	 * @return boolean
 	 */
 	function recipientHasGift($assocType, $assocId, $userId, $giftId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM gifts
 			WHERE gift_id = ?
@@ -299,8 +298,6 @@ class PKPGiftDAO extends DAO {
 		$returner = $result->fields[0] ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -313,7 +310,7 @@ class PKPGiftDAO extends DAO {
 	 * @return boolean
 	 */
 	function recipientHasNotRedeemedGift($assocType, $assocId, $userId, $giftId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM gifts
 			WHERE gift_id = ?
@@ -332,8 +329,6 @@ class PKPGiftDAO extends DAO {
 		$returner = $result->fields[0] ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -357,7 +352,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getAllGiftsByRecipient($assocType, $userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ?
@@ -382,7 +377,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getGiftsByRecipient($assocType, $assocId, $userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ? AND assoc_id = ?
@@ -412,7 +407,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getGiftsByTypeAndRecipient($assocType, $assocId, $giftType, $userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ? AND assoc_id = ?
@@ -442,7 +437,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getNotRedeemedGiftsByRecipient($assocType, $assocId, $userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ? AND assoc_id = ?
@@ -471,7 +466,7 @@ class PKPGiftDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Gifts
 	 */
 	function &getNotRedeemedGiftsByTypeAndRecipient($assocType, $assocId, $giftType, $userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM gifts
 			WHERE assoc_type = ? AND assoc_id = ?

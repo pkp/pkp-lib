@@ -31,7 +31,7 @@ class PKPUserSettingsDAO extends DAO {
 	 * @return mixed
 	 */
 	function &getSetting($userId, $name, $assocType = null, $assocId = null) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	setting_value,
 				setting_type
 			FROM	user_settings
@@ -70,7 +70,7 @@ class PKPUserSettingsDAO extends DAO {
 		$userDao =& DAORegistry::getDAO('UserDAO');
 
 		$value = $this->convertToDB($value, $type);
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	u.*
 			FROM	users u,
 				user_settings s
@@ -96,7 +96,7 @@ class PKPUserSettingsDAO extends DAO {
 	function &getSettingsByAssoc($userId, $assocType = null, $assocId = null) {
 		$userSettings = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	setting_name,
 				setting_value,
 				setting_type
@@ -114,8 +114,6 @@ class PKPUserSettingsDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $userSettings;
 	}
 
@@ -176,8 +174,6 @@ class PKPUserSettingsDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 

@@ -38,7 +38,7 @@ class EventLogDAO extends DAO {
 			$params[] = (int) $assocId;
 		}
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM event_log WHERE log_id = ?' .
 			(isset($assocType)?' AND assoc_type = ? AND assoc_id = ?':''),
 			$params
@@ -50,8 +50,6 @@ class EventLogDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -65,7 +63,7 @@ class EventLogDAO extends DAO {
 	function &getByAssoc($assocType, $assocId, $rangeInfo = null) {
 		$params = array((int) $assocType, (int) $assocId);
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM event_log WHERE assoc_type = ? AND assoc_id = ? ORDER BY log_id DESC',
 			$params, $rangeInfo
 		);
@@ -99,19 +97,17 @@ class EventLogDAO extends DAO {
 		$entry->setMessage($row['message']);
 		$entry->setIsTranslated($row['is_translated']);
 
-		$result =& $this->retrieve('SELECT * FROM event_log_settings WHERE log_id = ?', array((int) $entry->getId()));
+		$result = $this->retrieve('SELECT * FROM event_log_settings WHERE log_id = ?', array((int) $entry->getId()));
 		$params = array();
 		while (!$result->EOF) {
-			$r =& $result->getRowAssoc(false);
+			$r = $result->getRowAssoc(false);
 			$params[$r['setting_name']] = $this->convertFromDB(
 				$r['setting_value'],
 				$r['setting_type']
 			);
-			unset($r);
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		$entry->setParams($params);
 
 		HookRegistry::call('EventLogDAO::build', array(&$entry, &$row));
@@ -184,12 +180,10 @@ class EventLogDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
-		$entries =& $this->getByAssoc($assocType, $assocId);
-		while ($entry =& $entries->next()) {
+		$entries = $this->getByAssoc($assocType, $assocId);
+		while ($entry = $entries->next()) {
 			$this->deleteObject($entry->getId());
-			unset($entry);
 		}
-		unset($entries);
 	}
 
 	/**

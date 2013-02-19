@@ -30,15 +30,13 @@ class NotificationDAO extends DAO {
 	 * @return object Notification
 	 */
 	function &getById($notificationId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM notifications WHERE notification_id = ?', (int) $notificationId
 		);
 
 		$notification =& $this->_returnNotificationFromRow($result->GetRowAssoc(false));
 
 		$result->Close();
-		unset($result);
-
 		return $notification;
 	}
 
@@ -58,7 +56,7 @@ class NotificationDAO extends DAO {
 		if ($type) $params[] = (int) $type;
 		if ($contextId) $params[] = (int) $contextId;
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM notifications WHERE user_id = ? AND level = ?' . (isset($type) ?' AND type = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . ' ORDER BY date_created DESC',
 			$params, $rangeInfo
 		);
@@ -84,7 +82,7 @@ class NotificationDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 		if ($type) $params[] = (int) $type;
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' . (isset($userId) ?' AND user_id = ?' : '') . (isset($contextId) ?' AND context_id = ?' : '') . (isset($type) ?' AND type = ?' : '') . ' ORDER BY date_created DESC',
 			$params
 		);
@@ -234,10 +232,9 @@ class NotificationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null) {
-		$notificationsFactory =& $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
-		while ($notification =& $notificationsFactory->next()) {
+		$notificationsFactory = $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
+		while ($notification = $notificationsFactory->next()) {
 			$this->deleteObject($notification);
-			unset($notification);
 		}
 	}
 
@@ -261,7 +258,7 @@ class NotificationDAO extends DAO {
 		$params = array((int) $userId, (int) $level);
 		if ($contextId) $params[] = (int) $contextId;
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT count(*) FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
 			. (isset($contextId) ? ' AND context_id = ?' : ''),
 			$params
@@ -270,8 +267,6 @@ class NotificationDAO extends DAO {
 		$returner = $result->fields[0];
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 

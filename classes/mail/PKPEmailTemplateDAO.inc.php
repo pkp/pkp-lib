@@ -30,7 +30,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @return BaseEmailTemplate
 	 */
 	function &getBaseEmailTemplate($emailKey, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
 				d.can_disable,
@@ -52,8 +52,6 @@ class PKPEmailTemplateDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -65,7 +63,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @return LocaleEmailTemplate
 	 */
 	function &getLocaleEmailTemplate($emailKey, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	d.email_key,
 				d.can_edit,
 				d.can_disable,
@@ -86,11 +84,10 @@ class PKPEmailTemplateDAO extends DAO {
 			$returner =& $this->_returnLocaleEmailTemplateFromRow($result->GetRowAssoc(false));
 		} else {
 			$result->Close();
-			unset($result);
 
 			// Check to see if there's a custom email template. This is done in PHP to avoid
 			// having to do a full outer join or union in SQL.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	e.email_key,
 					1 AS can_edit,
 					1 AS can_disable,
@@ -114,8 +111,6 @@ class PKPEmailTemplateDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -130,7 +125,7 @@ class PKPEmailTemplateDAO extends DAO {
 	function &getEmailTemplate($emailKey, $locale, $assocType, $assocId) {
 		$primaryLocale = AppLocale::getPrimaryLocale();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	COALESCE(edl.subject, ddl.subject, edpl.subject, ddpl.subject) AS subject,
 				COALESCE(edl.body, ddl.body, edpl.body, ddpl.body) AS body,
 				COALESCE(e.enabled, 1) AS enabled,
@@ -154,11 +149,10 @@ class PKPEmailTemplateDAO extends DAO {
 			$returner->setCustomTemplate(false);
 		} else {
 			$result->Close();
-			unset($result);
 
 			// Check to see if there's a custom email template. This is done in PHP to avoid
 			// having to do a full outer join or union in SQL.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	ed.subject,
 					ed.body,
 					1 AS enabled,
@@ -188,8 +182,6 @@ class PKPEmailTemplateDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -233,7 +225,7 @@ class PKPEmailTemplateDAO extends DAO {
 		$emailTemplate->setCustomTemplate(false);
 
 		if (!HookRegistry::call('EmailTemplateDAO::_returnLocaleEmailTemplateFromRow', array(&$emailTemplate, &$row))) {
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	dd.locale,
 					dd.description,
 					COALESCE(ed.subject, dd.subject) AS subject,
@@ -253,11 +245,10 @@ class PKPEmailTemplateDAO extends DAO {
 				$result->MoveNext();
 			}
 			$result->Close();
-			unset($result);
 
 			// Retrieve custom email contents as well; this is done in PHP to avoid
 			// using a SQL outer join or union.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	ed.locale,
 					ed.subject,
 					ed.body
@@ -281,7 +272,6 @@ class PKPEmailTemplateDAO extends DAO {
 			}
 
 			$result->Close();
-			unset($result);
 		}
 
 		return $emailTemplate;
@@ -376,7 +366,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 */
 	function updateLocaleEmailTemplateData(&$emailTemplate) {
 		foreach ($emailTemplate->getLocales() as $locale) {
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	COUNT(*)
 				FROM	email_templates_data
 				WHERE	email_key = ? AND
@@ -426,9 +416,7 @@ class PKPEmailTemplateDAO extends DAO {
 					)
 				);
 			}
-
 			$result->Close();
-			unset($result);
 		}
 	}
 
@@ -460,7 +448,7 @@ class PKPEmailTemplateDAO extends DAO {
 	function &getEmailTemplates($locale, $assocType, $assocId, $rangeInfo = null) {
 		$emailTemplates = array();
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	COALESCE(ed.subject, dd.subject) AS subject,
 				COALESCE(ed.body, dd.body) AS body,
 				COALESCE(e.enabled, 1) AS enabled,
@@ -482,11 +470,10 @@ class PKPEmailTemplateDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 
 		// Fetch custom email templates as well; this is done in PHP
 		// to avoid a union or full outer join call in SQL.
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	ed.subject,
 				ed.body,
 				e.enabled,
@@ -510,11 +497,10 @@ class PKPEmailTemplateDAO extends DAO {
 
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
-			$emailTemplates[] =& $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), true);
+			$emailTemplates[] = $this->_returnEmailTemplateFromRow($result->GetRowAssoc(false), true);
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 
 		// Sort all templates by email key.
 		$compare = create_function('$t1, $t2', 'return strcmp($t1->getEmailKey(), $t2->getEmailKey());');
@@ -575,7 +561,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 */
 	function templateExistsByKey($emailKey, $assocType = null, $assocId = null) {
 		if ($assocType !== null) {
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT	COUNT(*)
 				FROM	email_templates
 				WHERE	email_key = ? AND
@@ -589,15 +575,13 @@ class PKPEmailTemplateDAO extends DAO {
 			);
 			if (isset($result->fields[0]) && $result->fields[0] != 0) {
 				$result->Close();
-				unset($result);
 				return true;
 			}
 
 			$result->Close();
-			unset($result);
 		}
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*)
 				FROM email_templates_default
 				WHERE email_key = ?',
@@ -610,8 +594,6 @@ class PKPEmailTemplateDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -624,7 +606,7 @@ class PKPEmailTemplateDAO extends DAO {
 	 * @return boolean
 	 */
 	function customTemplateExistsByKey($emailKey, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM	email_templates e
 				LEFT JOIN email_templates_default d ON (e.email_key = d.email_key)
@@ -641,8 +623,6 @@ class PKPEmailTemplateDAO extends DAO {
 		$returner = (isset($result->fields[0]) && $result->fields[0] != 0);
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 

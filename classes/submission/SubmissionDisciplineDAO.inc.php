@@ -60,14 +60,12 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 			$submissionDisciplineEntryDao =& DAORegistry::getDAO('SubmissionDisciplineEntryDAO');
 			$submissionDisciplines = $submissionDisciplineEntryDao->getByControlledVocabId($disciplines->getId());
 
-			while ($discipline =& $submissionDisciplines->next()) {
+			while ($discipline = $submissionDisciplines->next()) {
 				$discipline = $discipline->getDiscipline();
 				if (array_key_exists($locale, $discipline)) { // quiets PHP when there are no disciplines for a given locale
 					$returner[$locale][] = $discipline[$locale];
 				}
-				unset($discipline);
 			}
-			unset($disciplines);
 		}
 		return $returner;
 	}
@@ -79,7 +77,7 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	function getAllUniqueDisciplines() {
 		$disciplines = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE
 		);
 
@@ -89,8 +87,6 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $disciplines;
 	}
 
@@ -99,8 +95,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 	 * @param $content string
 	 * @return array
 	 */
-	function getsubmissionIdsByDiscipline($discipline) {
-		$result =& $this->retrieve(
+	function getSubmissionIdsByDiscipline($discipline) {
+		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
 			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
@@ -116,7 +112,6 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -153,15 +148,10 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO {
 						$disciplineEntry->setSequence($i);
 						$i ++;
 						$disciplineEntryId = $submissionDisciplineEntryDao->insertObject($disciplineEntry);
-						unset($discipline);
 					}
 				}
-				unset($list);
 			}
 		}
-		unset($disciplineDao);
-		unset($currentDisciplines);
-		unset($submissionDisciplineEntryDao);
 	}
 }
 

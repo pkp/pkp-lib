@@ -663,8 +663,6 @@ class Installer {
 
 		// Get rid of the parser.
 		$xmlParser->destroy();
-		unset($xmlParser);
-
 		return true;
 	}
 

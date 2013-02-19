@@ -382,7 +382,6 @@ class CategoryGridHandler extends GridHandler {
 
 			// Render the row
 			$renderedCategories[] = $this->_renderCategoryInternally($request, $categoryRow);
-			unset($element);
 		}
 
 		return $renderedCategories;

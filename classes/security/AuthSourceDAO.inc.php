@@ -66,7 +66,7 @@ class AuthSourceDAO extends DAO {
 	 * @return AuthSource
 	 */
 	function &getSource($authId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM auth_sources WHERE auth_id = ?',
 			array((int) $authId)
 		);
@@ -77,8 +77,6 @@ class AuthSourceDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -87,7 +85,7 @@ class AuthSourceDAO extends DAO {
 	 * @return AuthSource
 	 */
 	function &getDefaultSource() {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM auth_sources WHERE auth_default = 1'
 		);
 
@@ -97,8 +95,6 @@ class AuthSourceDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -196,7 +192,7 @@ class AuthSourceDAO extends DAO {
 	 * @return array AuthSource
 	 */
 	function &getSources($rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM auth_sources ORDER BY auth_id',
 			false,
 			$rangeInfo

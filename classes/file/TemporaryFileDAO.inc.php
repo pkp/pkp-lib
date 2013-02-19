@@ -31,7 +31,7 @@ class TemporaryFileDAO extends DAO {
 	 * @return TemporaryFile
 	 */
 	function &getTemporaryFile($fileId, $userId) {
-		$result =& $this->retrieveLimit(
+		$result = $this->retrieveLimit(
 			'SELECT t.* FROM temporary_files t WHERE t.file_id = ? and t.user_id = ?',
 			array((int) $fileId, (int) $userId),
 			1
@@ -43,8 +43,6 @@ class TemporaryFileDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -159,7 +157,7 @@ class TemporaryFileDAO extends DAO {
 
 		$temporaryFiles = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM temporary_files WHERE date_uploaded < ' . $this->datetimeToDB($expiryThresholdTimestamp)
 		);
 
@@ -169,8 +167,6 @@ class TemporaryFileDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $temporaryFiles;
 	}
 

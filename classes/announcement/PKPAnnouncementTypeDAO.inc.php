@@ -38,7 +38,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return AnnouncementType
 	 */
 	function &getById($typeId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM announcement_types WHERE type_id = ?',
 			(int) $typeId
 		);
@@ -57,7 +57,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return int
 	 */
 	function getAnnouncementTypeAssocId($typeId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_id FROM announcement_types WHERE type_id = ?',
 			(int) $typeId
 		);
@@ -71,7 +71,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return string
 	 */
 	function getAnnouncementTypeName($typeId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COALESCE(l.setting_value, p.setting_value) FROM announcement_type_settings p LEFT JOIN announcement_type_settings l ON (l.type_id = ? AND l.setting_name = ? AND l.locale = ?) WHERE p.type_id = ? AND p.setting_name = ? AND p.locale = ?',
 			array(
 				(int) $typeId, 'name', AppLocale::getLocale(),
@@ -82,8 +82,6 @@ class PKPAnnouncementTypeDAO extends DAO {
 		$returner = isset($result->fields[0]) ? $result->fields[0] : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -95,7 +93,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return boolean
 	 */
 	function announcementTypeExistsByTypeId($typeId, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*)
 			FROM	announcement_types
 			WHERE	type_id = ? AND
@@ -110,8 +108,6 @@ class PKPAnnouncementTypeDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] != 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -127,7 +123,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return int
 	 */
 	function getByTypeName($typeName, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT ats.type_id
 				FROM announcement_type_settings AS ats
 				LEFT JOIN announcement_types at ON ats.type_id = at.type_id
@@ -144,8 +140,6 @@ class PKPAnnouncementTypeDAO extends DAO {
 		$returner = isset($result->fields[0]) ? $result->fields[0] : 0;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -245,10 +239,9 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @param $assocType int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
-		$types =& $this->getByAssoc($assocType, $assocId);
-		while (($type =& $types->next())) {
+		$types = $this->getByAssoc($assocType, $assocId);
+		while ($type = $types->next()) {
 			$this->deleteObject($type);
-			unset($type);
 		}
 	}
 
@@ -258,7 +251,7 @@ class PKPAnnouncementTypeDAO extends DAO {
 	 * @return object DAOResultFactory containing matching AnnouncementTypes
 	 */
 	function &getByAssoc($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM announcement_types WHERE assoc_type = ? AND assoc_id = ? ORDER BY type_id',
 			array((int) $assocType, (int) $assocId),
 			$rangeInfo

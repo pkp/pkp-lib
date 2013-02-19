@@ -190,7 +190,7 @@ class DAO {
 			}
 		}
 		else {
-			$result =& $this->retrieve($sql, $params, false);
+			$result = $this->retrieve($sql, $params, false);
 		}
 		return $result;
 	}
@@ -546,7 +546,7 @@ class DAO {
 			$sql = "SELECT * FROM $tableName";
 			$params = false;
 		}
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		while (!$result->EOF) {
 			$row = $result->getRowAssoc(false);
@@ -558,12 +558,9 @@ class DAO {
 				),
 				empty($row['locale'])?null:$row['locale']
 			);
-			unset($row);
 			$result->MoveNext();
 		}
-
 		$result->Close();
-		unset($result);
 	}
 
 	/**

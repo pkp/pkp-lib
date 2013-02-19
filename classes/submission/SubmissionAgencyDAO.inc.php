@@ -57,14 +57,12 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 			$submissionAgencyEntryDao =& DAORegistry::getDAO('SubmissionAgencyEntryDAO');
 			$submissionAgencies = $submissionAgencyEntryDao->getByControlledVocabId($agencies->getId());
 
-			while ($agency =& $submissionAgencies->next()) {
+			while ($agency = $submissionAgencies->next()) {
 				$agency = $agency->getAgency();
 				if (array_key_exists($locale, $agency)) { // quiets PHP when there are no agencies for a given locale
 					$returner[$locale][] = $agency[$locale];
 				}
-				unset($agency);
 			}
-			unset($agencies);
 		}
 		return $returner;
 	}
@@ -76,7 +74,7 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	function getAllUniqueAgencies() {
 		$agencies = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_AGENCY
 		);
 
@@ -86,8 +84,6 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $agencies;
 	}
 
@@ -96,8 +92,8 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 	 * @param $content string
 	 * @return array
 	 */
-	function getsubmissionIdsByAgency($agency) {
-		$result =& $this->retrieve(
+	function getSubmissionIdsByAgency($agency) {
+		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
 			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
@@ -113,7 +109,6 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -150,15 +145,10 @@ class SubmissionAgencyDAO extends ControlledVocabDAO {
 						$agencyEntry->setSequence($i);
 						$i ++;
 						$agencyEntryId = $submissionAgencyEntryDao->insertObject($agencyEntry);
-						unset($agency);
 					}
 				}
-				unset($list);
 			}
 		}
-		unset($agencyDao);
-		unset($currentAgencies);
-		unset($submissionAgencyEntryDao);
 	}
 }
 

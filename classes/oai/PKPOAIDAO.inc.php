@@ -50,7 +50,7 @@ class PKPOAIDAO extends DAO {
 	function getEarliestDatestamp($selectStatement, $setIds = array()) {
 		$params = $this->getOrderedRecordParams(null, $setIds);
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			$selectStatement . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause(),
@@ -65,8 +65,6 @@ class PKPOAIDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $timestamp;
 	}
 
@@ -81,7 +79,7 @@ class PKPOAIDAO extends DAO {
 	function recordExists($dataObjectId, $setIds = array()) {
 		$params = $this->getOrderedRecordParams($dataObjectId, $setIds);
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM mutex m ' .
 			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
@@ -92,8 +90,6 @@ class PKPOAIDAO extends DAO {
 		$returner = $result->fields[0] == 1;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -108,7 +104,7 @@ class PKPOAIDAO extends DAO {
 	function &getRecord($dataObjectId, $setIds = array()) {
 		$params = $this->getOrderedRecordParams($dataObjectId, $setIds);
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
 			$this->getRecordJoinClause($dataObjectId, $setIds) . ' ' .
 			$this->getAccessibleRecordWhereClause(),
@@ -122,8 +118,6 @@ class PKPOAIDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -155,8 +149,6 @@ class PKPOAIDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $records;
 	}
 
@@ -188,8 +180,6 @@ class PKPOAIDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $records;
 	}
 
@@ -211,7 +201,7 @@ class PKPOAIDAO extends DAO {
 	 * @return OAIResumptionToken
 	 */
 	function &getToken($tokenId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM oai_resumption_tokens WHERE token = ?',
 			array($tokenId)
 		);
@@ -225,8 +215,6 @@ class PKPOAIDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $token;
 	}
 
@@ -239,14 +227,13 @@ class PKPOAIDAO extends DAO {
 		do {
 			// Generate unique token ID
 			$token->id = md5(uniqid(mt_rand(), true));
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT COUNT(*) FROM oai_resumption_tokens WHERE token = ?',
 				array($token->id)
 			);
 			$val = $result->fields[0];
 
 			$result->Close();
-			unset($result);
 		} while($val != 0);
 
 		$this->update(
@@ -440,7 +427,7 @@ class PKPOAIDAO extends DAO {
 	function &_getRecordsRecordSet($setIds, $from, $until, $set) {
 		$params = $this->getOrderedRecordParams(null, $setIds, $set);
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			$this->getRecordSelectStatement() . ' FROM mutex m ' .
 			$this->getRecordJoinClause(null, $setIds, $set) . ' ' .
 			$this->getAccessibleRecordWhereClause() .

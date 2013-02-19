@@ -34,7 +34,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 */
 	function getUserInterestIds($userId) {
 		$controlledVocab = $this->build();
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT cve.controlled_vocab_entry_id FROM controlled_vocab_entries cve, user_interests ui WHERE cve.controlled_vocab_id = ? AND ui.controlled_vocab_entry_id = cve.controlled_vocab_entry_id AND ui.user_id = ?',
 			array((int) $controlledVocab->getId(), (int) $userId)
 		);
@@ -56,7 +56,7 @@ class InterestDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getUserIdsByInterest($interest) {
-		$result =& $this->retrieve('
+		$result = $this->retrieve('
 			SELECT ui.user_id
 			FROM user_interests ui
 				INNER JOIN controlled_vocab_entry_settings cves ON (ui.controlled_vocab_entry_id = cves.controlled_vocab_entry_id)

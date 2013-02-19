@@ -49,7 +49,7 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * @return array
 	 */
 	function &getNotificationSubscriptionSettings($settingName, $userId, $contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
 			array((int) $userId, $settingName, (int) $contextId)
 		);
@@ -62,8 +62,6 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $settings;
 	}
 
@@ -103,17 +101,15 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * @return int
 	 */
 	function getUserIdByRSSToken($token, $contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND context = ?',
-				array($token, 'token', (int) $contextId)
+			array($token, 'token', (int) $contextId)
 		);
 
 		$row = $result->GetRowAssoc(false);
 		$userId = $row['user_id'];
 
 		$result->Close();
-		unset($result);
-
 		return $userId;
 	}
 
@@ -124,7 +120,7 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * @return int
 	 */
 	function getRSSTokenByUserId($userId, $contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
 				array((int) $userId, 'token', (int) $contextId)
 		);
@@ -133,8 +129,6 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 		$tokenId = $row['setting_value'];
 
 		$result->Close();
-		unset($result);
-
 		return $tokenId;
 	}
 

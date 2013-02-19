@@ -176,9 +176,7 @@ class ContextDAO extends DAO {
 
 			$result->MoveNext();
 		}
-
 		$result->Close();
-		unset($result);
 	}
 
 	//

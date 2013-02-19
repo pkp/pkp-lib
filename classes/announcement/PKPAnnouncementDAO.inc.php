@@ -29,7 +29,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return Announcement
 	 */
 	function &getById($announcementId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM announcements WHERE announcement_id = ?',
 			(int) $announcementId
 		);
@@ -48,7 +48,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return int
 	 */
 	function getAnnouncementAssocId($announcementId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_id FROM announcements WHERE announcement_id = ?',
 			(int) $announcementId
 		);
@@ -62,7 +62,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return int
 	 */
 	function getAnnouncementAssocType($announcementId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_type FROM announcements WHERE announcement_id = ?',
 			(int) $announcementId
 		);
@@ -189,10 +189,9 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteByTypeId($typeId) {
-		$announcements =& $this->getByTypeId($typeId);
-		while (($announcement =& $announcements->next())) {
+		$announcements = $this->getByTypeId($typeId);
+		while ($announcement = $announcements->next()) {
 			$this->deleteObject($announcement);
-			unset($announcement);
 		}
 	}
 
@@ -202,10 +201,9 @@ class PKPAnnouncementDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function deleteByAssoc($assocType, $assocId) {
-		$announcements =& $this->getByAssocId($assocType, $assocId);
-		while (($announcement =& $announcements->next())) {
+		$announcements = $this->getByAssocId($assocType, $assocId);
+		while ($announcement = $announcements->next()) {
 			$this->deleteById($announcement->getId());
-			unset($announcement);
 		}
 		return true;
 	}
@@ -216,7 +214,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function &getByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ? AND assoc_id = ?
@@ -235,7 +233,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function &getByTypeId($typeId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM announcements WHERE type_id = ? ORDER BY announcement_id DESC',
 			(int) $typeId,
 			$rangeInfo
@@ -251,7 +249,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function &getNumAnnouncementsByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
@@ -273,7 +271,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function &getAnnouncementsNotExpiredByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
@@ -294,7 +292,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Announcements
 	 */
 	function &getNumAnnouncementsNotExpiredByAssocId($assocType, $assocId, $numAnnouncements, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?
@@ -315,7 +313,7 @@ class PKPAnnouncementDAO extends DAO {
 	 * @return Announcement
 	 */
 	function &getMostRecentAnnouncementByAssocId($assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT *
 			FROM announcements
 			WHERE assoc_type = ?

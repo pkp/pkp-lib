@@ -27,7 +27,7 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 			$sql .= ' AND l.locale = ?';
 			$params[] = $locale;
 		}
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$setting = null;
 		while (!$result->EOF) {
@@ -37,9 +37,7 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 			else $setting[$row['setting_name']][$row['locale']] = $value;
 			$result->moveNext();
 		}
-		$result->close();
-		unset($result);
-
+		$result->Close();
 		return $setting;
 	}
 

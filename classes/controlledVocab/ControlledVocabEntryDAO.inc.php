@@ -33,7 +33,7 @@ class ControlledVocabEntryDAO extends DAO {
 		$params = array((int) $controlledVocabEntryId);
 		if (!empty($controlledVocabId)) $params[] = (int) $controlledVocabId;
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM controlled_vocab_entries WHERE controlled_vocab_entry_id = ?' .
 			(!empty($controlledVocabId)?' AND controlled_vocab_id = ?':''),
 			$params
@@ -44,7 +44,6 @@ class ControlledVocabEntryDAO extends DAO {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -60,7 +59,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * @return ControlledVocabEntry
 	 */
 	function getBySetting($settingValue, $symbolic, $assocType = 0, $assocId = 0, $settingName = 'name', $locale = '') {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT cve.*
 			 FROM controlled_vocabs cv
 			 INNER JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
@@ -79,7 +78,6 @@ class ControlledVocabEntryDAO extends DAO {
 			$returner = $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -177,7 +175,7 @@ class ControlledVocabEntryDAO extends DAO {
 		$params = array((int) $controlledVocabId);
 		if (!empty($filter)) $params[] = "%$filter%";
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			 FROM controlled_vocab_entries cve '.
 			 (!empty($filter) ? 'INNER JOIN controlled_vocab_entry_settings cves ON cve.controlled_vocab_entry_id = cves.controlled_vocab_entry_id ' : '') .
@@ -215,7 +213,7 @@ class ControlledVocabEntryDAO extends DAO {
 	 * Sequentially renumber entries in their sequence order.
 	 */
 	function resequence($controlledVocabId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT controlled_vocab_entry_id FROM controlled_vocab_entries WHERE controlled_vocab_id = ? ORDER BY seq',
 			array((int) $controlledVocabId)
 		);
@@ -234,7 +232,6 @@ class ControlledVocabEntryDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
 	}
 
 	/**

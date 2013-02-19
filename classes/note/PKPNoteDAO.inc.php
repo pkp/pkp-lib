@@ -28,15 +28,13 @@ class PKPNoteDAO extends DAO {
 	 * @return Note object
 	 */
 	function &getById($noteId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM notes WHERE note_id = ?', (int) $noteId
 		);
 
-		$note =& $this->_returnNoteFromRow($result->GetRowAssoc(false));
+		$note = $this->_returnNoteFromRow($result->GetRowAssoc(false));
 
 		$result->Close();
-		unset($result);
-
 		return $note;
 	}
 
@@ -46,9 +44,9 @@ class PKPNoteDAO extends DAO {
 	 * @return object DAOResultFactory containing matching Note objects
 	 */
 	function &getByUserId($userId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM notes WHERE user_id = ? ORDER BY date_created DESC',
-		array((int) $userId), $rangeInfo
+			array((int) $userId), $rangeInfo
 		);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNoteFromRow');
@@ -73,7 +71,7 @@ class PKPNoteDAO extends DAO {
 		}
 		$sql .= ' ORDER BY date_created DESC';
 
-		$result =& $this->retrieveRange($sql, $params);
+		$result = $this->retrieveRange($sql, $params);
 
 		$returner = new DAOResultFactory($result, $this, '_returnNoteFromRow');
 
@@ -96,7 +94,7 @@ class PKPNoteDAO extends DAO {
 			$sql .= ' AND user_id = ?';
 		}
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
 		$result->Close();
 
@@ -221,7 +219,7 @@ class PKPNoteDAO extends DAO {
 	function getAllFileIds($assocType, $assocId) {
 		$fileIds = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT file_id FROM notes WHERE assoc_type = ? AND assoc_id = ? AND file_id <> 0', array((int) $assocType, (int) $assocId)
 		);
 
@@ -232,8 +230,6 @@ class PKPNoteDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $fileIds;
 	}
 

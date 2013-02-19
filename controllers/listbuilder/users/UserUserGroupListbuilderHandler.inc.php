@@ -105,8 +105,7 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 		$roleNames = $roleDao->getRoleNames(true);
 
 		// Assemble the array to return
-		while (!$userGroups->eof()) {
-			$userGroup =& $userGroups->next();
+		while ($userGroup = $userGroups->next()) {
 			$userGroupId = $userGroup->getId();
 			$roleId = $userGroup->getRoleId();
 			$roleName = __($roleNames[$roleId]);
@@ -118,8 +117,6 @@ class UserUserGroupListbuilderHandler extends ListbuilderHandler {
 
 			// Add the optgroup label.
 			$items[0][LISTBUILDER_OPTGROUP_LABEL][$roleId] = $roleName;
-
-			unset($userGroup);
 		}
 
 		return $items;

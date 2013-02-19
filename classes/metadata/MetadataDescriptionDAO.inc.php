@@ -66,8 +66,6 @@ class MetadataDescriptionDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $metadataDescription;
 	}
 
@@ -147,10 +145,9 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObjectsByAssocId($assocType, $assocId) {
-		$metadataDescriptions =& $this->getObjectsByAssocId($assocType, $assocId);
-		while ($metadataDescription =& $metadataDescriptions->next()) {
+		$metadataDescriptions = $this->getObjectsByAssocId($assocType, $assocId);
+		while ($metadataDescription = $metadataDescriptions->next()) {
 			$this->deleteObjectById($metadataDescription->getId());
-			unset($metadataDescription);
 		}
 		return true;
 	}

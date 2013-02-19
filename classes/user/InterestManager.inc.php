@@ -29,9 +29,8 @@ class InterestManager {
 		$interests = $interestDao->getAllInterests($filter);
 
 		$interestReturner = array();
-		while($interest =& $interests->next()) {
+		while($interest = $interests->next()) {
 			$interestReturner[] = $interest->getInterest();
-			unset($interest);
 		}
 
 		return $interestReturner;

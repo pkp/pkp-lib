@@ -34,7 +34,7 @@ class NotificationMailListDAO extends DAO {
 		if($this->getMailListIdByToken($token, $contextId)) return $this->subscribeGuest($email, $contextId);
 
 		// Check that the email doesn't already exist
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM notification_mail_list WHERE email = ? AND context = ?',
 			array(
 				$email,
@@ -65,7 +65,7 @@ class NotificationMailListDAO extends DAO {
 	 * @return int
 	 */
 	function getMailListIdByToken($token, $contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT notification_mail_list_id FROM notification_mail_list WHERE token = ? AND context = ?',
 				array($token, (int) $contextId)
 		);
@@ -74,8 +74,6 @@ class NotificationMailListDAO extends DAO {
 		$notificationMailListId = $row['notification_mail_list_id'];
 
 		$result->Close();
-		unset($result);
-
 		return $notificationMailListId;
 	}
 
@@ -115,7 +113,7 @@ class NotificationMailListDAO extends DAO {
 	 * @return array
 	 */
 	function getMailList($contextId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT email FROM notification_mail_list WHERE context = ?',
 			(int) $contextId
 		);
@@ -128,8 +126,6 @@ class NotificationMailListDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $mailList;
 	}
 

@@ -53,9 +53,8 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 		$router =& $request->getRouter();
 		$roleContext = array();
 		for ($contextLevel = 1; $contextLevel <= $contextDepth; $contextLevel++) {
-			$context =& $router->getContext($request, $contextLevel);
+			$context = $router->getContext($request, $contextLevel);
 			$roleContext[] = $context?$context->getId():CONTEXT_ID_NONE;
-			unset($context);
 		}
 
 		$contextRoles = $this->_getContextRoles($roleContext, $contextDepth, $userRoles);
@@ -123,7 +122,6 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 	function _prepareContextRolesArray($userRoles, $contextRoles = array()) {
 		foreach ($userRoles as $role) {
 			$contextRoles[] = $role->getRoleId();
-			unset($role);
 		}
 		return $contextRoles;
 	}

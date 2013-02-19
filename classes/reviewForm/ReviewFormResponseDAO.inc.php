@@ -34,7 +34,7 @@ class ReviewFormResponseDAO extends DAO {
 	function &getReviewFormResponse($reviewId, $reviewFormElementId) {
 		$sql = 'SELECT * FROM review_form_responses WHERE review_id = ? AND review_form_element_id = ?';
 		$params = array($reviewId, $reviewFormElementId);
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
@@ -42,8 +42,6 @@ class ReviewFormResponseDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -167,9 +165,9 @@ class ReviewFormResponseDAO extends DAO {
 	function &getReviewReviewFormResponseValues($reviewId) {
 		$returner = array();
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT * FROM review_form_responses WHERE review_id = ?',
-			$reviewId
+			(int) $reviewId
 		);
 
 		while (!$result->EOF) {
@@ -180,8 +178,6 @@ class ReviewFormResponseDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -198,13 +194,11 @@ class ReviewFormResponseDAO extends DAO {
 			$sql .= ' AND review_form_element_id = ?';
 			$params[] = $reviewFormElementId;
 		}
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 }

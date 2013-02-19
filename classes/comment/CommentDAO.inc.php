@@ -41,7 +41,7 @@ class CommentDAO extends DAO {
 	function &getRootCommentsBySubmissionId($submissionId, $childLevels = 0) {
 		$comments = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	*
 			FROM	comments
 			WHERE	submission_id = ? AND
@@ -56,8 +56,6 @@ class CommentDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $comments;
 	}
 
@@ -69,7 +67,7 @@ class CommentDAO extends DAO {
 	function &getCommentsByParentId($parentId, $childLevels = 0) {
 		$comments = array();
 
-		$result =& $this->retrieve('SELECT * FROM comments WHERE parent_comment_id = ? ORDER BY date_posted', (int) $parentId);
+		$result = $this->retrieve('SELECT * FROM comments WHERE parent_comment_id = ? ORDER BY date_posted', (int) $parentId);
 
 		while (!$result->EOF) {
 			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false), $childLevels);
@@ -77,8 +75,6 @@ class CommentDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $comments;
 	}
 
@@ -90,7 +86,7 @@ class CommentDAO extends DAO {
 	function &getByUserId($userId) {
 		$comments = array();
 
-		$result =& $this->retrieve('SELECT * FROM comments WHERE user_id = ?', (int) $userId);
+		$result = $this->retrieve('SELECT * FROM comments WHERE user_id = ?', (int) $userId);
 
 		while (!$result->EOF) {
 			$comments[] =& $this->_returnCommentFromRow($result->GetRowAssoc(false));
@@ -98,8 +94,6 @@ class CommentDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $comments;
 	}
 
@@ -109,7 +103,7 @@ class CommentDAO extends DAO {
 	 * @return boolean
 	 */
 	function attributedCommentsExistForUser($userId) {
-		$result =& $this->retrieve('SELECT count(*) FROM comments WHERE user_id = ?', (int) $userId);
+		$result = $this->retrieve('SELECT count(*) FROM comments WHERE user_id = ?', (int) $userId);
 		$returner = $result->fields[0]?true:false;
 		$result->Close();
 		return $returner;
@@ -123,7 +117,7 @@ class CommentDAO extends DAO {
 	 * @return Comment object
 	 */
 	function &getById($commentId, $submissionId, $childLevels = 0) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM comments WHERE comment_id = ? and submission_id = ?',
 			array((int) $commentId, (int) $submissionId)
 		);
@@ -134,8 +128,6 @@ class CommentDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $comment;
 	}
 

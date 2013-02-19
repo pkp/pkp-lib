@@ -237,11 +237,10 @@ class Site extends DataObject {
 
 	function getLocalizedSetting($name) {
 		$returner = $this->getSetting($name, AppLocale::getLocale());
-		if ($returner === null) {
-			unset($returner);
-			$returner = $this->getSetting($name, AppLocale::getPrimaryLocale());
-		}
-		return $returner;
+		// If setting is defined for current locale, use it.
+		if ($returner !== null) return $returner;
+		// Alternately, fall back on primary locale.
+		return $this->getSetting($name, AppLocale::getPrimaryLocale());
 	}
 
 	/**

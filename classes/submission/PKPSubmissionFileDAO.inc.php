@@ -202,15 +202,14 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		assert(!is_null($fileId));
 
 		// Retrieve the latest revision from the database.
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT MAX(revision) AS max_revision FROM '.$this->getSubmissionEntityName().'_files WHERE file_id = ?',
-			$fileId
+			(int) $fileId
 		);
 		if($result->RecordCount() != 1) return null;
 
 		$row = $result->FetchRow();
 		$result->Close();
-		unset($result);
 
 		$latestRevision = (int)$row['max_revision'];
 		assert($latestRevision > 0);
@@ -725,9 +724,9 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 
 		// Execute the query.
 		if ($rangeInfo) {
-			$result =& $this->retrieveRange($sql, $params, $rangeInfo);
+			$result = $this->retrieveRange($sql, $params, $rangeInfo);
 		} else {
-			$result =& $this->retrieve($sql, $params);
+			$result = $this->retrieve($sql, $params);
 		}
 
 		// Build the result array.
@@ -753,8 +752,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $submissionFiles;
 	}
 
@@ -879,7 +876,7 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 * @param $submissionFile SubmissionFile
 	 * @return SubmissionFile The same file in a compatible implementation.
 	 */
-	function &_castToGenre(&$submissionFile) {
+	function &_castToGenre($submissionFile) {
 		// Find the required target implementation.
 		$targetImplementation = strtolower_codesafe(
 			$this->_getFileImplementationForGenreId(
@@ -887,20 +884,16 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 		);
 
 		// If the current implementation of the updated object
-		// differs from the target implementation then we'll
-		// have to cast the object.
-		if (!is_a($submissionFile, $targetImplementation)) {
-			// The updated file has to be upcast by manually
-			// instantiating the target object and copying data
-			// to the target.
-			$targetDaoDelegate =& $this->_getDaoDelegate($targetImplementation);
-			$targetFile =& $targetDaoDelegate->newDataObject();
-			$targetFile =& $submissionFile->upcastTo($targetFile);
-			unset($submissionFile);
-			$submissionFile =& $targetFile;
-		}
+		// is the same as the target implementation, skip cast.
+		if (is_a($submissionFile, $targetImplementation)) return $submissionFile;
 
-		return $submissionFile;
+		// The updated file has to be upcast by manually
+		// instantiating the target object and copying data
+		// to the target.
+		$targetDaoDelegate = $this->_getDaoDelegate($targetImplementation);
+		$targetFile = $targetDaoDelegate->newDataObject();
+		$targetFile = $submissionFile->upcastTo($targetFile);
+		return $targetFile;
 	}
 
 	/**
@@ -912,7 +905,6 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	function &_castToDatabase(&$submissionFile) {
 		$fileId = $submissionFile->getFileId();
 		$revision = $submissionFile->getRevision();
-		unset($submissionFile);
 		return $this->getRevision($fileId, $revision);
 	}
 

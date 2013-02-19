@@ -116,7 +116,7 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function deleteByContextId($contextId) {
-		$result =& $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', (int) $contextId);
+		$result = $this->retrieve('SELECT user_group_id FROM user_groups WHERE context_id = ?', (int) $contextId);
 
 		$returner = true;
 		for ($i=1; !$result->EOF; $i++) {
@@ -167,7 +167,7 @@ class UserGroupDAO extends DAO {
 	function getById($userGroupId, $contextId = null) {
 		$params = array((int) $userGroupId);
 		if ($contextId !== null) $params[] = (int) $contextId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	user_group_id, context_id, role_id, path, is_default
 			FROM	user_groups
 			WHERE	user_group_id = ?' . ($contextId !== null?' AND context_id = ?':''),
@@ -201,7 +201,7 @@ class UserGroupDAO extends DAO {
 	function &getByRoleId($contextId, $roleId, $default = false) {
 		$params = array((int) $contextId, (int) $roleId);
 		if ($default) $params[] = 1; // true
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	*
 			FROM	user_groups
 			WHERE	context_id = ? AND
@@ -227,7 +227,7 @@ class UserGroupDAO extends DAO {
 			$params[] = (int) $contextId;
 		}
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$userGroupIds = array();
 		while (!$result->EOF) {
@@ -236,8 +236,6 @@ class UserGroupDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $userGroupIds;
 	}
 
@@ -249,7 +247,7 @@ class UserGroupDAO extends DAO {
 	 * @return boolean
 	 */
 	function userInGroup($userId, $userGroupId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	count(*)
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -263,8 +261,6 @@ class UserGroupDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -278,7 +274,7 @@ class UserGroupDAO extends DAO {
 		$params = array((int) $userId);
 		if ($contextId) $params[] = (int) $contextId;
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	count(*)
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -289,8 +285,6 @@ class UserGroupDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -305,7 +299,7 @@ class UserGroupDAO extends DAO {
 		if ($contextId) {
 			$params[] = (int) $contextId;
 		}
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	ug.*
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -324,7 +318,7 @@ class UserGroupDAO extends DAO {
 	 * @return bool
 	 */
 	function contextHasGroup($contextId, $userGroupId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT count(*)
 				FROM user_groups ug
 				WHERE ug.user_group_id = ?
@@ -338,8 +332,6 @@ class UserGroupDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] == 0 ? false : true;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -350,7 +342,7 @@ class UserGroupDAO extends DAO {
 	function &getByContextId($contextId = null) {
 		$params = array();
 		if ($contextId) $params[] = (int) $contextId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT ug.*
 			FROM	user_groups ug' .
 				($contextId?' WHERE ug.context_id = ?':''),
@@ -369,7 +361,7 @@ class UserGroupDAO extends DAO {
 		$params = array((int) $contextId);
 		if ($userGroupId) $params[] = (int) $userGroupId;
 		if ($roleId) $params[] = (int) $roleId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	COUNT(DISTINCT(uug.user_id))
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -380,8 +372,6 @@ class UserGroupDAO extends DAO {
 		$returner = $result->fields[0];
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -408,7 +398,7 @@ class UserGroupDAO extends DAO {
 		if ($contextId) $params[] = (int) $contextId;
 		if(isset($search)) $params = array_merge($params, array_pad(array(), 5, '%' . $search . '%'));
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT u.*
 			FROM	users u, user_groups ug, user_user_groups uug
 			WHERE	ug.user_group_id = uug.user_group_id AND
@@ -456,7 +446,7 @@ class UserGroupDAO extends DAO {
 		$sql .= (isset($userGroupId) ? ' ug.user_group_id = ? ' . (isset($contextId) ? 'AND ' : '') : ' ');
 		$sql .= (isset($contextId) ? ' ug.context_id = ? ' : ' ') . $searchSql;
 
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			$sql,
 			$paramArray,
 			$dbResultRange
@@ -496,7 +486,7 @@ class UserGroupDAO extends DAO {
 			$sql .= $searchSql;
 		}
 
-		$result =& $this->retrieveRange($sql, $paramArray, $dbResultRange);
+		$result = $this->retrieveRange($sql, $paramArray, $dbResultRange);
 		$returner = new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData');
 		return $returner;
 	}
@@ -548,12 +538,11 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId int
 	 */
 	function removeUserFromGroup($userId, $groupId, $contextId) {
-		$assignments =& $this->userGroupAssignmentDao->getByUserId($userId, $contextId);
-		while ($assignment =& $assignments->next()) {
+		$assignments = $this->userGroupAssignmentDao->getByUserId($userId, $contextId);
+		while ($assignment = $assignments->next()) {
 			if ($assignment->getUserGroupId() == $groupId) {
 				$this->userGroupAssignmentDao->deleteAssignment($assignment);
 			}
-			unset($assignment);
 		}
 	}
 
@@ -650,7 +639,7 @@ class UserGroupDAO extends DAO {
 	function &getSetting($userGroupId, $name, $locale = null) {
 		$params = array((int) $userGroupId, $name);
 		if ($locale) $params[] = $locale;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	setting_name, setting_value, setting_type, locale
 			FROM	user_group_settings
 			WHERE	user_group_id = ? AND
@@ -663,7 +652,7 @@ class UserGroupDAO extends DAO {
 		$returner = false;
 		if ($recordCount == 1) {
 			$row = $result->getRowAssoc(false);
-			$returner =& $this->convertFromDB($row['setting_value'], $row['setting_type']);
+			$returner = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 		} elseif ($recordCount > 1) {
 			$returner = array();
 			while (!$result->EOF) {
@@ -671,7 +660,6 @@ class UserGroupDAO extends DAO {
 				$result->MoveNext();
 			}
 			$result->Close();
-			unset($result);
 		}
 		return $returner;
 	}
@@ -737,9 +725,8 @@ class UserGroupDAO extends DAO {
 	 * @param $contextId
 	 */
 	function installLocale($locale, $contextId = null) {
-		$userGroups =& $this->getByContextId($contextId);
-		while (!$userGroups->eof()) {
-			$userGroup =& $userGroups->next();
+		$userGroups = $this->getByContextId($contextId);
+		while ($userGroup = $userGroups->next()) {
 			$nameKey = $this->getSetting($userGroup->getId(), 'nameLocaleKey');
 			$this->updateSetting($userGroup->getId(),
 				'name',
@@ -757,7 +744,6 @@ class UserGroupDAO extends DAO {
 				$locale,
 				true
 			);
-			unset($userGroup);
 		}
 	}
 
@@ -944,7 +930,7 @@ class UserGroupDAO extends DAO {
 		if ($omitAuthors) $params[] = ROLE_ID_AUTHOR;
 		if ($omitReviewers) $params[] = ROLE_ID_REVIEWER;
 		if ($roleId) $params[] = $roleId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	ug.*
 			FROM	user_groups ug
 			JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
@@ -967,7 +953,7 @@ class UserGroupDAO extends DAO {
 	 * @param Integer $userGroupId
 	 */
 	function getAssignedStagesByUserGroupId($contextId, $userGroupId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	stage_id
 			FROM	user_group_stage
 			WHERE	context_id = ? AND
@@ -1004,8 +990,6 @@ class UserGroupDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -1017,7 +1001,7 @@ class UserGroupDAO extends DAO {
 	 * @return boolean
 	 */
 	function userAssignmentExists($contextId, $userId, $stageId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	COUNT(*)
 			FROM	user_group_stage ugs,
 			user_user_groups uug
@@ -1031,8 +1015,6 @@ class UserGroupDAO extends DAO {
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 }

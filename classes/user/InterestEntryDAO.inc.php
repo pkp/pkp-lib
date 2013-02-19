@@ -48,14 +48,12 @@ class InterestEntryDAO extends ControlledVocabEntryDAO {
 	 * @return object DAOResultFactory containing matching CVE objects
 	 */
 	function getByControlledVocabId($controlledVocabId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT cve.* FROM controlled_vocab_entries cve, user_interests ui WHERE cve.controlled_vocab_id = ? AND ui.controlled_vocab_entry_id = cve.controlled_vocab_entry_id ORDER BY seq',
 			array((int) $controlledVocabId),
 			$rangeInfo
 		);
-
-		$returner = new DAOResultFactory($result, $this, '_fromRow');
-		return $returner;
+		return new DAOResultFactory($result, $this, '_fromRow');
 	}
 }
 

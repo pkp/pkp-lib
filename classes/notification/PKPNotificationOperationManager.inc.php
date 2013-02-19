@@ -326,9 +326,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 		$notificationString = '';
 
 		// Build out the notifications based on their associated objects and format into a string
-		while($notification =& $notifications->next()) {
+		while($notification = $notifications->next()) {
 			$notificationString .= $this->formatNotification($request, $notification, $notificationTemplate);
-			unset($notification);
 		}
 
 		return $notificationString;

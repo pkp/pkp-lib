@@ -83,7 +83,7 @@ class UserGroupAssignmentDAO extends DAO {
 	function deleteAssignmentsByContextId($contextId, $userId = null) {
 		$params = array($contextId);
 		if ($userId) $params[] = $userId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	uug.user_group_id, uug.user_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
@@ -93,12 +93,9 @@ class UserGroupAssignmentDAO extends DAO {
 		);
 
 		$assignments = new DAOResultFactory($result, $this, '_returnFromRow');
-		while (!$assignments->eof()) {
-			$assignment =& $assignments->next();
+		while ($assignment = $assignments->next()) {
 			$this->deleteByUserId($assignment->getUserId(), $assignment->getUserGroupId());
-			unset($assignment);
 		}
-		return $assignments;
 	}
 
 
@@ -114,7 +111,7 @@ class UserGroupAssignmentDAO extends DAO {
 		if ($contextId) $params[] = $contextId;
 		if ($roleId) $params[] = $roleId;
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT uug.user_group_id, uug.user_id
 				FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
 				WHERE uug.user_id = ?' . ($contextId?' AND ug.context_id = ?':'') . ($roleId?' AND ug.role_id = ?':''),

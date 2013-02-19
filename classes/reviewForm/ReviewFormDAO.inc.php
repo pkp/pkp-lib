@@ -41,7 +41,7 @@ class ReviewFormDAO extends DAO {
 			$assocType = $assocId = null;
 		}
 
-		$result =& $this->retrieve (
+		$result = $this->retrieve (
 			'SELECT	rf.*
 			FROM	review_forms rf
 			WHERE	rf.review_form_id = ? ' . (($assocType !== null) ? 'AND rf.assoc_type = ? AND rf.assoc_id = ?' : ''),
@@ -54,8 +54,6 @@ class ReviewFormDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -69,7 +67,7 @@ class ReviewFormDAO extends DAO {
 	function getUseCounts($assocType, $assocId, $completion = null) {
 		$params = array((int) $assocType, (int) $assocId);
 
-		$result =& $this->retrieve (
+		$result = $this->retrieve (
 			'SELECT	rf.review_form_id AS review_form_id,
 				count(ra.review_form_id) AS rf_count
 			FROM	review_forms rf
@@ -90,8 +88,6 @@ class ReviewFormDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -131,15 +127,13 @@ class ReviewFormDAO extends DAO {
 	 * @return boolean
 	 */
 	function reviewFormExists($reviewFormId, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*) FROM review_forms WHERE review_form_id = ? AND assoc_type = ? AND assoc_id = ?',
 			array($reviewFormId, $assocType, $assocId)
 		);
 		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -254,7 +248,7 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function &getByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	*
 			FROM	review_forms
 			WHERE	assoc_type = ? AND assoc_id = ?
@@ -274,7 +268,7 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function &getActiveByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
@@ -304,7 +298,7 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function &getUsedByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
@@ -335,7 +329,7 @@ class ReviewFormDAO extends DAO {
 	 * @return DAOResultFactory containing matching ReviewForms
 	 */
 	function &getUnusedByAssocId($assocType, $assocId, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT	rf.*
 			FROM	review_forms rf
 				LEFT JOIN review_assignments rac ON (
@@ -369,13 +363,12 @@ class ReviewFormDAO extends DAO {
 		$reviewFormTitles = array();
 
 		if ($used) {
-			$reviewForms =& $this->getUsedByAssocId($assocType, $assocId);
+			$reviewForms = $this->getUsedByAssocId($assocType, $assocId);
 		} else {
-			$reviewForms =& $this->getUnusedByAssocId($assocType, $assocId);
+			$reviewForms = $this->getUnusedByAssocId($assocType, $assocId);
 		}
-		while (($reviewForm =& $reviewForms->next())) {
+		while ($reviewForm = $reviewForms->next()) {
 			$reviewFormTitles[$reviewForm->getId()] = $reviewForm->getLocalizedTitle();
-			unset($reviewForm);
 		}
 
 		return $reviewFormTitles;
@@ -397,7 +390,7 @@ class ReviewFormDAO extends DAO {
 			$assocType = $assocId = null;
 		}
 
-		$result =& $this->retrieve (
+		$result = $this->retrieve (
 			'SELECT	rf.review_form_id,
 				COUNT(rac.review_id) AS complete_count,
 				COUNT(rai.review_id) AS incomplete_count
@@ -420,8 +413,6 @@ class ReviewFormDAO extends DAO {
 		$returner = $result->RecordCount() != 0;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -431,7 +422,7 @@ class ReviewFormDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function resequenceReviewForms($assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT review_form_id FROM review_forms WHERE assoc_type = ? AND assoc_id = ? ORDER BY seq',
 			array((int) $assocType, (int) $assocId)
 		);
@@ -448,9 +439,7 @@ class ReviewFormDAO extends DAO {
 
 			$result->MoveNext();
 		}
-
 		$result->Close();
-		unset($result);
 	}
 
 	/**

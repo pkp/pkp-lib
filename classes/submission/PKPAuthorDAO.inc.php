@@ -33,7 +33,7 @@ class PKPAuthorDAO extends DAO {
 	function &getAuthor($authorId, $submissionId = null) {
 		$params = array((int) $authorId);
 		if ($submissionId !== null) $params[] = (int) $submissionId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM authors WHERE author_id = ?'
 			. ($submissionId !== null?' AND submission_id = ?':''),
 			$params
@@ -45,8 +45,6 @@ class PKPAuthorDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -59,7 +57,7 @@ class PKPAuthorDAO extends DAO {
 	function &getAuthorsBySubmissionId($submissionId, $sortByAuthorId = false) {
 		$authors = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM authors WHERE submission_id = ? ORDER BY seq',
 			(int) $submissionId
 		);
@@ -68,17 +66,14 @@ class PKPAuthorDAO extends DAO {
 			$row = $result->getRowAssoc(false);
 			if ($sortByAuthorId) {
 				$authorId = $row['author_id'];
-				$authors[$authorId] =& $this->_returnAuthorFromRow($row);
+				$authors[$authorId] = $this->_returnAuthorFromRow($row);
 			} else {
-				$authors[] =& $this->_returnAuthorFromRow($row);
+				$authors[] = $this->_returnAuthorFromRow($row);
 			}
-			unset($row);
 			$result->MoveNext();
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $authors;
 	}
 
@@ -88,7 +83,7 @@ class PKPAuthorDAO extends DAO {
 	 * @return int
 	 */
 	function getAuthorCountBySubmissionId($submissionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT count(*) FROM authors WHERE submission_id = ?',
 			(int) $submissionId
 		);
@@ -96,8 +91,6 @@ class PKPAuthorDAO extends DAO {
 		$returner = $result->fields[0];
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -297,7 +290,7 @@ class PKPAuthorDAO extends DAO {
 	 * @param $submissionId int
 	 */
 	function resequenceAuthors($submissionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT author_id FROM authors WHERE submission_id = ? ORDER BY seq',
 			(int) $submissionId
 		);
@@ -314,9 +307,7 @@ class PKPAuthorDAO extends DAO {
 
 			$result->MoveNext();
 		}
-
 		$result->Close();
-		unset($result);
 	}
 
 	/**
@@ -325,7 +316,7 @@ class PKPAuthorDAO extends DAO {
 	 * @return Author
 	 */
 	function &getPrimaryContact($submissionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM authors WHERE submission_id = ? AND primary_contact = 1',
 			(int) $submissionId
 		);

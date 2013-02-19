@@ -37,7 +37,7 @@ class SessionDAO extends DAO {
 	 * @return Session
 	 */
 	function &getSession($sessionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM sessions WHERE session_id = ?',
 			array($sessionId)
 		);
@@ -58,8 +58,6 @@ class SessionDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $session;
 	}
 
@@ -176,15 +174,13 @@ class SessionDAO extends DAO {
 	 * @return boolean
 	 */
 	function sessionExistsById($sessionId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT COUNT(*) FROM sessions WHERE session_id = ?',
 			array($sessionId)
 		);
 		$returner = isset($result->fields[0]) && $result->fields[0] == 1 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 }

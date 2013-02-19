@@ -33,7 +33,7 @@ class PKPSignoffDAO extends DAO {
 		$params = array((int) $signoffId);
 		if ($assocType !== null) $params[] = (int) $assocType;
 		if ($assocId !== null) $params[] = (int) $assocId;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM signoffs WHERE signoff_id = ?'
 			. ($assocType !== null?' AND assoc_type = ?':'')
 			. ($assocId !== null?' AND assoc_id = ?':''),
@@ -71,7 +71,6 @@ class PKPSignoffDAO extends DAO {
 		if ($signoff) return $signoff;
 
 		// Otherwise, build one.
-		unset($signoff);
 		$signoff = $this->newDataObject();
 		$signoff->setSymbolic($symbolic);
 		$signoff->setAssocType($assocType);
@@ -107,13 +106,11 @@ class PKPSignoffDAO extends DAO {
 			$params[] = (int) $userGroupId;
 		}
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = isset($result->fields[0]) && $result->fields[0] > 0 ? true : false;
 
 		$result->Close();
-		unset($result);
-
 		return $returner;
 	}
 
@@ -276,7 +273,7 @@ class PKPSignoffDAO extends DAO {
 			$params[] = (int) $fileRevision;
 		}
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = null;
 		if ($result->RecordCount() != 0) {
@@ -325,7 +322,7 @@ class PKPSignoffDAO extends DAO {
 		$sql = 'SELECT * FROM signoffs WHERE user_id = ?';
 		$params = array((int) $userId);
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;
@@ -344,7 +341,7 @@ class PKPSignoffDAO extends DAO {
 			$sql .= ' AND file_revision = ?';
 			$params[] = (int)$revision;
 		}
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;
 	}
@@ -371,7 +368,7 @@ class PKPSignoffDAO extends DAO {
 			$params[] = (int) $userGroupId;
 		}
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$userDao =& DAORegistry::getDAO('UserDAO');
 		$returner = new DAOResultFactory($result, $userDao, '_returnUserFromRow');
@@ -465,7 +462,7 @@ class PKPSignoffDAO extends DAO {
 
 		$sql .= ' ORDER BY signoff_id';
 
-		$result =& $this->retrieve($sql, $params);
+		$result = $this->retrieve($sql, $params);
 
 		$returner = new DAOResultFactory($result, $this, '_fromRow', array('id'));
 		return $returner;

@@ -30,7 +30,7 @@ class SiteDAO extends DAO {
 	 */
 	function &getSite() {
 		$site = null;
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM site'
 		);
 
@@ -39,8 +39,6 @@ class SiteDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $site;
 	}
 

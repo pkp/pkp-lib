@@ -58,14 +58,12 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 			$submissionLanguageEntryDao =& DAORegistry::getDAO('SubmissionLanguageEntryDAO');
 			$submissionLanguages = $submissionLanguageEntryDao->getByControlledVocabId($languages->getId());
 
-			while ($language =& $submissionLanguages->next()) {
+			while ($language = $submissionLanguages->next()) {
 				$language = $language->getLanguage();
 				if (array_key_exists($locale, $language)) { // quiets PHP when there are no Languages for a given locale
 					$returner[$locale][] = $language[$locale];
 				}
-				unset($language);
 			}
-			unset($languages);
 		}
 		return $returner;
 	}
@@ -77,7 +75,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	function getAllUniqueLanguages() {
 		$languages = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT DISTINCT setting_value FROM controlled_vocab_entry_settings WHERE setting_name = ?', CONTROLLED_VOCAB_SUBMISSION_LANGUAGE
 		);
 
@@ -87,8 +85,6 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 		}
 
 		$result->Close();
-		unset($result);
-
 		return $languages;
 	}
 
@@ -98,7 +94,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @return array
 	 */
 	function getsubmissionIdsByLanguage($language) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
 			 LEFT JOIN controlled_vocab_entries cve ON cv.controlled_vocab_id = cve.controlled_vocab_id
@@ -114,7 +110,6 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -151,15 +146,11 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 						$languageEntry->setSequence($i);
 						$i ++;
 						$languageEntryId = $submissionLanguageEntryDao->insertObject($languageEntry);
-						unset($language);
 					}
 				}
-				unset($list);
 			}
 		}
-		unset($languageDao);
-		unset($currentLanguages);
-		unset($submissionLanguageEntryDao);
 	}
 }
+
 ?>

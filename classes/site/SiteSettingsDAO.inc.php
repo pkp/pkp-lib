@@ -40,11 +40,10 @@ class SiteSettingsDAO extends DAO {
 	 * @return mixed
 	 */
 	function &getSetting($name, $locale = null) {
-		$cache =& $this->_getCache();
+		$cache = $this->_getCache();
 		$returner = $cache->get($name);
 		if ($locale !== null) {
 			if (!isset($returner[$locale]) || !is_array($returner)) {
-				unset($returner);
 				$returner = null;
 				return $returner;
 			}
@@ -69,7 +68,7 @@ class SiteSettingsDAO extends DAO {
 	function &getSiteSettings() {
 		$siteSettings = array();
 
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT setting_name, setting_value, setting_type, locale FROM site_settings'
 		);
 
@@ -87,7 +86,6 @@ class SiteSettingsDAO extends DAO {
 				$result->MoveNext();
 			}
 			$result->Close();
-			unset($result);
 
 			$cache =& $this->_getCache();
 			$cache->setEntireCache($siteSettings);

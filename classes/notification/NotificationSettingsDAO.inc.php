@@ -30,7 +30,7 @@ class NotificationSettingsDAO extends DAO {
 	 * @return $params array
 	 */
 	function getNotificationSettings($notificationId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM notification_settings WHERE notification_id = ?',
 			(int) $notificationId
 		);
@@ -48,7 +48,6 @@ class NotificationSettingsDAO extends DAO {
 		}
 
 		$result->Close();
-		unset($result);
 		return $params;
 	}
 

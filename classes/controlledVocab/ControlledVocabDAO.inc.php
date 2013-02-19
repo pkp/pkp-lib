@@ -38,7 +38,7 @@ class ControlledVocabDAO extends DAO {
 	 * @return ControlledVocab
 	 */
 	function getById($controlledVocabId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM controlled_vocabs WHERE controlled_vocab_id = ?', array((int) $controlledVocabId)
 		);
 
@@ -47,7 +47,6 @@ class ControlledVocabDAO extends DAO {
 			$returner =& $this->_fromRow($result->GetRowAssoc(false));
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 
@@ -64,7 +63,6 @@ class ControlledVocabDAO extends DAO {
 		if ($controlledVocab) return $controlledVocab;
 
 		// Otherwise, build one.
-		unset($controlledVocab);
 		$controlledVocab = $this->newDataObject();
 		$controlledVocab->setSymbolic($symbolic);
 		$controlledVocab->setAssocType($assocType);
@@ -171,7 +169,7 @@ class ControlledVocabDAO extends DAO {
 	 * @param $assocId int
 	 */
 	function getBySymbolic($symbolic, $assocType, $assocId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM controlled_vocabs WHERE symbolic = ? AND assoc_type = ? AND assoc_id = ?',
 			array($symbolic, (int) $assocType, (int) $assocId)
 		);
@@ -208,7 +206,7 @@ class ControlledVocabDAO extends DAO {
 	 * @return array $controlledVocabEntryId => name
 	 */
 	function enumerate($controlledVocabId, $settingName = 'name') {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT	e.controlled_vocab_entry_id,
 				COALESCE(l.setting_value, p.setting_value, n.setting_value) AS setting_value,
 				COALESCE(l.setting_type, p.setting_type, n.setting_type) AS setting_type
@@ -236,7 +234,6 @@ class ControlledVocabDAO extends DAO {
 			$result->MoveNext();
 		}
 		$result->Close();
-		unset($result);
 		return $returner;
 	}
 

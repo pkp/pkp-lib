@@ -39,7 +39,7 @@ class CitationDAO extends DAO {
 		$seq = $citation->getSeq();
 		if (!(is_numeric($seq) && $seq > 0)) {
 			// Find the latest sequence number
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT MAX(seq) AS lastseq FROM citations
 				 WHERE assoc_type = ? AND assoc_id = ?',
 				array(
@@ -82,7 +82,7 @@ class CitationDAO extends DAO {
 	 * @return Citation
 	 */
 	function &getObjectById($citationId) {
-		$result =& $this->retrieve(
+		$result = $this->retrieve(
 			'SELECT * FROM citations WHERE citation_id = ?', $citationId
 		);
 
@@ -135,7 +135,6 @@ class CitationDAO extends DAO {
 
 			$this->insertObject($citation);
 			$citations[$citation->getId()] = $citation;
-			unset($citation);
 		}
 
 		// Check new citations in parallel.
@@ -201,7 +200,7 @@ class CitationDAO extends DAO {
 			// with ANSI SQL.
 
 			// Get the ID of the next raw citation.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT citation_id
 				FROM citations
 				WHERE citation_state = ?
@@ -217,7 +216,6 @@ class CitationDAO extends DAO {
 				return false;
 			}
 			$result->Close();
-			unset($result);
 
 			// Lock the citation.
 			$this->update(
@@ -230,7 +228,7 @@ class CitationDAO extends DAO {
 			// Make sure that no other concurring process
 			// has claimed this citation before we could
 			// lock it.
-			$result =& $this->retrieve(
+			$result = $this->retrieve(
 				'SELECT *
 				FROM citations
 				WHERE lock_id = ?',
@@ -265,7 +263,7 @@ class CitationDAO extends DAO {
 	 * @return DAOResultFactory containing matching Citations
 	 */
 	function &getObjectsByAssocId($assocType, $assocId, $minCitationState = 0, $maxCitationState = CITATION_APPROVED, $rangeInfo = null) {
-		$result =& $this->retrieveRange(
+		$result = $this->retrieveRange(
 			'SELECT *
 			FROM citations
 			WHERE assoc_type = ? AND assoc_id = ? AND citation_state >= ? AND citation_state <= ?
@@ -316,16 +314,14 @@ class CitationDAO extends DAO {
 			} else {
 				// Only return default filters.
 				foreach($filterList as $filter) {
-					if (!$filter->getData('isOptional')) $finalFilterList[] =& $filter;
-					unset($filter);
+					if (!$filter->getData('isOptional')) $finalFilterList[] = $filter;
 				}
 			}
 		// 2) If specific filter ids are given then only filters in that
 		//    list will be returned (even if they are non-default filters).
 		} else {
 			foreach($filterList as $filter) {
-				if (in_array($filter->getId(), $fromFilterIds)) $finalFilterList[] =& $filter;
-				unset($filter);
+				if (in_array($filter->getId(), $fromFilterIds)) $finalFilterList[] = $filter;
 			}
 		}
 
@@ -395,10 +391,9 @@ class CitationDAO extends DAO {
 	 * @return boolean
 	 */
 	function deleteObjectsByAssocId($assocType, $assocId) {
-		$citations =& $this->getObjectsByAssocId($assocType, $assocId);
-		while (($citation =& $citations->next())) {
+		$citations = $this->getObjectsByAssocId($assocType, $assocId);
+		while ($citation = $citations->next()) {
 			$this->deleteObjectById($citation->getId());
-			unset($citation);
 		}
 		return true;
 	}
@@ -634,7 +629,6 @@ class CitationDAO extends DAO {
 			foreach($filterList as $citationFilter) {
 				if ($citationFilter->supports($muxInputData, $nullVar)) {
 					$citationMultiplexer->addFilter($citationFilter);
-					unset($citationFilter);
 				}
 			}
 
@@ -681,7 +675,6 @@ class CitationDAO extends DAO {
 			}
 			foreach($citation->getSourceDescriptions() as $sourceDescription) {
 				$filteredCitation->addSourceDescription($sourceDescription);
-				unset($sourceDescription);
 			}
 		}
 
@@ -695,7 +688,6 @@ class CitationDAO extends DAO {
 			if (is_array($lastOutput)) {
 				foreach($lastOutput as $sourceDescription) {
 					$filteredCitation->addSourceDescription($sourceDescription);
-					unset($sourceDescription);
 				}
 			}
 		}

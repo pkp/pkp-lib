@@ -510,13 +510,12 @@ class PKPSubmissionFileDAO extends PKPFileDAO {
 	 *  file implementation.
 	 * @return SubmissionFile
 	 */
-	function &newDataObjectByGenreId($genreId) {
+	function newDataObjectByGenreId($genreId) {
 		// Identify the delegate.
-		$daoDelegate =& $this->_getDaoDelegateForGenreId($genreId);
+		$daoDelegate = $this->_getDaoDelegateForGenreId($genreId);
 
 		// Instantiate and return the object.
-		$newSubmissionFile =& $daoDelegate->newDataObject();
-		return $newSubmissionFile;
+		return $daoDelegate->newDataObject();
 	}
 
 

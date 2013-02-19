@@ -31,17 +31,16 @@ class UserGroupDAO extends DAO {
 	 */
 	function UserGroupDAO() {
 		parent::DAO();
-		$this->userDao =& DAORegistry::getDAO('UserDAO');
-		$this->userGroupAssignmentDao =& DAORegistry::getDAO('UserGroupAssignmentDAO');
+		$this->userDao = DAORegistry::getDAO('UserDAO');
+		$this->userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO');
 	}
 
 	/**
 	 * create new data object
 	 * (allows DAO to be subclassed)
 	 */
-	function &newDataObject() {
-		$dataObject = new UserGroup();
-		return $dataObject;
+	function newDataObject() {
+		return new UserGroup();
 	}
 
 	/**
@@ -50,7 +49,7 @@ class UserGroupDAO extends DAO {
 	 * @return UserGroup
 	 */
 	function &_returnFromRow($row) {
-		$userGroup =& $this->newDataObject();
+		$userGroup = $this->newDataObject();
 		$userGroup->setId($row['user_group_id']);
 		$userGroup->setRoleId($row['role_id']);
 		$userGroup->setContextId($row['context_id']);
@@ -525,7 +524,7 @@ class UserGroupDAO extends DAO {
 	 * @param int $groupId
 	 */
 	function assignUserToGroup($userId, $groupId) {
-		$assignment =& $this->userGroupAssignmentDao->newDataObject();
+		$assignment = $this->userGroupAssignmentDao->newDataObject();
 		$assignment->setUserId($userId);
 		$assignment->setUserGroupId($groupId);
 		return $this->userGroupAssignmentDao->insertAssignment($assignment);
@@ -687,11 +686,11 @@ class UserGroupDAO extends DAO {
 			$nameKey = $setting->getAttribute('name');
 			$abbrevKey = $setting->getAttribute('abbrev');
 			$defaultStages = explode(",", $setting->getAttribute('stages'));
-			$userGroup =& $this->newDataObject();
+			$userGroup = $this->newDataObject();
 
 			// create a role associated with this user group
 			$role = new Role($roleId);
-			$userGroup =& $this->newDataObject();
+			$userGroup = $this->newDataObject();
 			$userGroup->setRoleId($roleId);
 			$userGroup->setPath($role->getPath());
 			$userGroup->setContextId($contextId);

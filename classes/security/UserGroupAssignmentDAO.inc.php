@@ -30,9 +30,8 @@ class UserGroupAssignmentDAO extends DAO {
 	 * Create a new UserGroupAssignment object
 	 * (allows extensibility)
 	 */
-	function &newDataObject() {
-		$dataObject = new UserGroupAssignment();
-		return $dataObject;
+	function newDataObject() {
+		return new UserGroupAssignment();
 	}
 
 	/**
@@ -41,7 +40,7 @@ class UserGroupAssignmentDAO extends DAO {
 	 * @return Role
 	 */
 	function &_returnFromRow($row) {
-		$userGroupAssignment =& $this->newDataObject();
+		$userGroupAssignment = $this->newDataObject();
 		$userGroupAssignment->setUserGroupId($row['user_group_id']);
 		$userGroupAssignment->setUserId($row['user_id']);
 

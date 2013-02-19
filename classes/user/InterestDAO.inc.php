@@ -123,7 +123,7 @@ class InterestDAO extends ControlledVocabDAO {
 			);
 
 			if(!$interestEntry) {
-				$interestEntry =& $interestEntryDao->newDataObject(); /* @var $interestEntry InterestEntry */
+				$interestEntry = $interestEntryDao->newDataObject(); /* @var $interestEntry InterestEntry */
 				$interestEntry->setInterest($interest);
 				$interestEntry->setControlledVocabId($controlledVocab->getId());
 				$interestEntry->setId($interestEntryDao->insertObject($interestEntry));

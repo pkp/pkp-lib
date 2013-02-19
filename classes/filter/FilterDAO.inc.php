@@ -495,7 +495,7 @@ class FilterDAO extends DAO {
 		$lockedFilters[$filterId] = true;
 
 		// Instantiate the filter.
-		$filter =& $this->_newDataObject($row['class_name'], (integer)$row['filter_group_id']);
+		$filter = $this->_newDataObject($row['class_name'], (integer)$row['filter_group_id']);
 
 		// Configure the filter instance
 		$filter->setId((int)$row['filter_id']);

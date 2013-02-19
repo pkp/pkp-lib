@@ -25,7 +25,7 @@ class PKPRoleDAO extends DAO {
 	 */
 	function PKPRoleDAO() {
 		parent::DAO();
-		$this->userDao =& DAORegistry::getDAO('UserDAO');
+		$this->userDao = DAORegistry::getDAO('UserDAO');
 	}
 
 	/**
@@ -33,9 +33,8 @@ class PKPRoleDAO extends DAO {
 	 * (allows DAO to be subclassed)
 	 * @return PKPRole
 	 */
-	function &newDataObject() {
-		$dataObject = new PKPRole();
-		return $dataObject;
+	function newDataObject() {
+		return new PKPRole();
 	}
 
 	/**
@@ -165,13 +164,13 @@ class PKPRoleDAO extends DAO {
 	 * @return array
 	 */
 	function getByUserIdGroupedByContext($userId) {
-		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		$userGroupsFactory =& $userGroupDao->getByUserId($userId);
+		$userGroupDao = DAORegistry::getDAO('UserGroupDAO');
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$userGroupsFactory = $userGroupDao->getByUserId($userId);
 
 		$roles = array();
-		while ($userGroup =& $userGroupsFactory->next()) {
-			$role =& $roleDao->newDataObject();
+		while ($userGroup = $userGroupsFactory->next()) {
+			$role = $roleDao->newDataObject();
 			$role->setRoleId($userGroup->getRoleId());
 			$roles[$userGroup->getContextId()][$userGroup->getRoleId()] = $role;
 		}

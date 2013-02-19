@@ -213,7 +213,7 @@ class MetadataDescriptionDAO extends DAO {
 	 * @return MetadataDescription
 	 */
 	function &_fromRow($row) {
-		$metadataDescription =& $this->_newDataObject($row['schema_namespace'], $row['schema_name'], (int)$row['assoc_type']);
+		$metadataDescription = $this->_newDataObject($row['schema_namespace'], $row['schema_name'], (int)$row['assoc_type']);
 		$metadataDescription->setId((int)$row['metadata_description_id']);
 		$metadataDescription->setAssocId((int)$row['assoc_id']);
 		$metadataDescription->setDisplayName($row['display_name']);

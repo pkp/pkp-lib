@@ -82,8 +82,8 @@ class BaseEmailTemplate extends DataObject {
 	 * Get sender role name.
 	 */
 	function &getFromRoleName() {
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		$role =& $roleDao->newDataObject();
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$role = $roleDao->newDataObject();
 		$role->setId($this->getFromRoleId());
 		return $role->getRoleName();
 	}
@@ -107,8 +107,8 @@ class BaseEmailTemplate extends DataObject {
 	 * Get recipient role name.
 	 */
 	function &getToRoleName() {
-		$roleDao =& DAORegistry::getDAO('RoleDAO');
-		$role =& $roleDao->newDataObject();
+		$roleDao = DAORegistry::getDAO('RoleDAO');
+		$role = $roleDao->newDataObject();
 		$role->setId($this->getToRoleId());
 		return $role->getRoleName();
 	}

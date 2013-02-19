@@ -35,7 +35,7 @@ class DataObjectTombstoneSettingsDAO extends DAO {
 			$value = $this->convertFromDB($row['setting_value'], $row['setting_type']);
 			if ($row['locale'] == '') $setting[$row['setting_name']] = $value;
 			else $setting[$row['setting_name']][$row['locale']] = $value;
-			$result->moveNext();
+			$result->MoveNext();
 		}
 		$result->Close();
 		return $setting;

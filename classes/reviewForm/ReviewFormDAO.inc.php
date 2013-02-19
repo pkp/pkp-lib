@@ -234,8 +234,7 @@ class ReviewFormDAO extends DAO {
 	function deleteByAssoc($assocType, $assocId) {
 		$reviewForms = $this->getByAssocId($assocType, $assocId);
 
-		while (!$reviewForms->eof()) {
-			$reviewForm =& $reviewForms->next();
+		while ($reviewForm = $reviewForms->next()) {
 			$this->deleteById($reviewForm->getId());
 		}
 	}

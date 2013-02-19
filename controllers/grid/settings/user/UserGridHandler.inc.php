@@ -171,16 +171,16 @@ class UserGridHandler extends GridHandler {
 		if ($filter['includeNoRole'] == null) {
 			$contextIds[] = $contextId;
 		} else {
-			$contextDao =& Application::getContextDAO();
+			$contextDao = Application::getContextDAO();
 			$contexts = $contextDao->getAll();
-			while ($context =& $contexts->next()) {
+			while ($context = $contexts->next()) {
 				$contextIds[] = $context->getId();
 			}
 
 			// Get users with no user group assignment.
-			$usersWithNoUserGroup =& $userGroupDao->getUsersWithNoUserGroupAssignments($filter);
+			$usersWithNoUserGroup = $userGroupDao->getUsersWithNoUserGroupAssignments($filter);
 			if (!$usersWithNoUserGroup->wasEmpty()) {
-				while ($userWithNoUserGroup =& $usersWithNoUserGroup->next()) {
+				while ($userWithNoUserGroup = $usersWithNoUserGroup->next()) {
 					$rowData[$userWithNoUserGroup->getId()] = $userWithNoUserGroup;
 				}
 			}
@@ -210,8 +210,7 @@ class UserGridHandler extends GridHandler {
 		$userGroupDao =& DAORegistry::getDAO('UserGroupDAO');
 		$userGroups =& $userGroupDao->getByContextId($contextId);
 		$userGroupOptions = array('' => __('grid.user.allRoles'));
-		while (!$userGroups->eof()) {
-			$userGroup =& $userGroups->next();
+		while ($userGroup = $userGroups->next()) {
 			$userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();
 		}
 

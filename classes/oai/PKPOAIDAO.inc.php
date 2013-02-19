@@ -137,15 +137,15 @@ class PKPOAIDAO extends DAO {
 	function &getRecords($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$records = array();
 
-		$result =& $this->_getRecordsRecordSet($setIds, $from, $until, $set);
+		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 
 		$total = $result->RecordCount();
 
 		$result->Move($offset);
 		for ($count = 0; $count < $limit && !$result->EOF; $count++) {
 			$row = $result->GetRowAssoc(false);
-			$records[] =& $this->_returnRecordFromRow($row);
-			$result->moveNext();
+			$records[] = $this->_returnRecordFromRow($row);
+			$result->MoveNext();
 		}
 
 		$result->Close();
@@ -168,15 +168,15 @@ class PKPOAIDAO extends DAO {
 	function &getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total) {
 		$records = array();
 
-		$result =& $this->_getRecordsRecordSet($setIds, $from, $until, $set);
+		$result = $this->_getRecordsRecordSet($setIds, $from, $until, $set);
 
 		$total = $result->RecordCount();
 
 		$result->Move($offset);
 		for ($count = 0; $count < $limit && !$result->EOF; $count++) {
 			$row = $result->GetRowAssoc(false);
-			$records[] =& $this->_returnIdentifierFromRow($row);
-			$result->moveNext();
+			$records[] = $this->_returnIdentifierFromRow($row);
+			$result->MoveNext();
 		}
 
 		$result->Close();

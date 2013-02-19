@@ -184,9 +184,9 @@ class UserGroupDAO extends DAO {
 	 */
 	function &getDefaultByRoleId($contextId, $roleId) {
 		$returner = false;
-		$allDefaults =& $this->getByRoleId($contextId, $roleId, true);
-		if ( $allDefaults->eof() ) return $returner;
-		$returner =& $allDefaults->next();
+		$allDefaults = $this->getByRoleId($contextId, $roleId, true);
+		if ($allDefaults->eof()) return $returner;
+		$returner = $allDefaults->next();
 		return $returner;
 	}
 

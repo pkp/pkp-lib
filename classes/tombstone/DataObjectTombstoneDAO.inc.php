@@ -213,7 +213,7 @@ class DataObjectTombstoneDAO extends DAO {
 		$returner = array();
 		while (!$result->EOF) {
 			$returner[$result->fields[0]] = $result->fields[1];
-			$result->moveNext();
+			$result->MoveNext();
 		}
 
 		$result->Close();

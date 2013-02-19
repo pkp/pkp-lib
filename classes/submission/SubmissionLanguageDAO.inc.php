@@ -93,7 +93,7 @@ class SubmissionLanguageDAO extends ControlledVocabDAO {
 	 * @param $content string
 	 * @return array
 	 */
-	function getsubmissionIdsByLanguage($language) {
+	function getSubmissionIdsByLanguage($language) {
 		$result = $this->retrieve(
 			'SELECT assoc_id
 			 FROM controlled_vocabs cv
